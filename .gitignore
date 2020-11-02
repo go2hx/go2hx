@@ -1,0 +1,11 @@
+.vscode
+*.hl
+main
+bin
+examples/*.hx
+*.js
+*.exe
+node_modules
+packages.md
+package-lock.json
+*.json

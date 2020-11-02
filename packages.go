@@ -264,6 +264,13 @@ func parseExpr(expr ast.Expr,level int) string {
 			buffer.WriteString("(")
 			buffer.WriteString(strings.Join(parseExprs(expr.Args,level),", "))
 			buffer.WriteString(")")
+		case *ast.UnaryExpr:
+			op := expr.Op.String()
+			if op != "*" && op != "&" {
+				buffer.WriteString(op)
+				buffer.WriteString(" ")
+			}
+			buffer.WriteString(parseExpr(expr.X,level))
 		default:
 			_ = expr
 			fmt.Println("parse expr not found",reflect.TypeOf(expr))

@@ -92,6 +92,7 @@ class Parser {
         path = Path.normalize(path);
         if (!FileSystem.exists(path))
             FileSystem.createDirectory(path);
+        stdimports.push("For"); //add for loop for golang
         for (i in stdimports)
         {
             var path = '$path/${cap(i)}.hx';

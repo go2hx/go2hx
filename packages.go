@@ -6,6 +6,7 @@ import (
 	"strings"
 	"io/ioutil"
 	"reflect"
+	"bytes"
 	//"go/token"
 	//"go/types"
 	//"go/constant"
@@ -86,6 +87,7 @@ func main() {
 	load(args...)
 
 	bytes, err = json.MarshalIndent(exportData, "", "    ")
+	bytes = safeEncode(bytes)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -157,40 +159,7 @@ func load(args ...string) {
 						if decl.Type.Results != nil {
 							fn.Results = parseFields(decl.Type.Results.List)
 						}
-						for _,stmt := range decl.Body.List {
-							switch stmt := stmt.(type) {
-								case *ast.ExprStmt:
-									fn.Body = append(fn.Body,parseExpr(stmt.X,0))
-								case *ast.ReturnStmt:
-									fn.Body = append(fn.Body,"return;")
-								case *ast.DeclStmt:
-									switch stmt := stmt.Decl.(type) {
-										case *ast.GenDecl:
-											for _, spec := range stmt.Specs {
-												switch spec := spec.(type) {
-													case *ast.ValueSpec:
-														buffer := strings.Builder{}
-														for i,_ := range spec.Names {
-															//spec.Names[i].Obj.Kind
-															buffer.WriteString("final ")
-															buffer.WriteString(spec.Names[i].Name)
-															buffer.WriteString(" = ")
-															buffer.WriteString(parseExpr(spec.Values[i],1))
-															buffer.WriteString(";")
-														}
-														fn.Body = append(fn.Body,buffer.String())
-													default:
-														fmt.Println("decl not found",reflect.TypeOf(spec))
-												}
-											}
-										default:
-											fmt.Println("gen decl not found",reflect.TypeOf(stmt))
-									}
-									fmt.Println("decl",reflect.TypeOf(stmt.Decl))
-								default:
-									fmt.Println("statement not found",reflect.TypeOf(stmt))
-							}
-						}
+						fn.Body = parseBody(decl.Body.List)
 					data.Funcs = append(data.Funcs, fn)
 				default:
 					_ = decl
@@ -201,6 +170,120 @@ func load(args ...string) {
 		}
 		exportData.Pkgs = append(exportData.Pkgs, dataPkg)
 	}
+}
+func parseBody (stmts []ast.Stmt) []string {
+	body := []string{}
+	for _,stmt := range stmts {
+		switch stmt := stmt.(type) {
+			case *ast.ExprStmt:
+				body = append(body,parseExpr(stmt.X,0))
+			case *ast.ReturnStmt:
+				body = append(body,"return;")
+			case *ast.DeclStmt:
+				switch stmt := stmt.Decl.(type) {
+					case *ast.GenDecl:
+						for _, spec := range stmt.Specs {
+							switch spec := spec.(type) {
+								case *ast.ValueSpec:
+									buffer := strings.Builder{}
+									for i,_ := range spec.Names {
+										//spec.Names[i].Obj.Kind
+										buffer.WriteString("final ")
+										buffer.WriteString(spec.Names[i].Name)
+										buffer.WriteString(" = ")
+										buffer.WriteString(parseExpr(spec.Values[i],1))
+										buffer.WriteString(";")
+									}
+									body = append(body,buffer.String())
+								default:
+									fmt.Println("decl not found",reflect.TypeOf(spec))
+							}
+						}
+					default:
+						fmt.Println("gen decl not found",reflect.TypeOf(stmt))
+				}
+				fmt.Println("decl",reflect.TypeOf(stmt.Decl))
+			case *ast.AssignStmt: //short variable declaration.
+				buffer := strings.Builder{}
+				buffer.WriteString(parseAssignStatement(stmt))
+				buffer.WriteString(";")
+				body = append(body,buffer.String())
+			case *ast.ForStmt:
+				//fmt.Println("post",reflect.TypeOf(stmt.Post))
+				
+				buffer := strings.Builder{}
+				if stmt.Init != nil {
+					buffer.WriteString("go.For.cfor(")
+					buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt)))
+					buffer.WriteString(",")
+				}else{
+					buffer.WriteString("while(")
+				}
+				if stmt.Cond != nil {
+					buffer.WriteString(parseExpr(stmt.Cond,2))
+					if stmt.Post != nil {
+						buffer.WriteString(",")
+						post := stmt.Post.(*ast.IncDecStmt)
+						buffer.WriteString(post.X.(*ast.Ident).Name)
+						buffer.WriteString(post.Tok.String())
+						buffer.WriteString(",")
+					}
+				}else{
+					buffer.WriteString("true")
+				}
+				if stmt.Init == nil {
+					buffer.WriteString(") {")
+				}else{
+					buffer.WriteString(" {")
+				}
+				list := parseBody(stmt.Body.List)
+				for _,str := range list {
+					buffer.WriteString(str)
+					buffer.WriteString("\n")
+				}
+				if stmt.Init == nil {
+					buffer.WriteString("}")
+				}else{
+					buffer.WriteString("});")
+				}
+				body = append(body,buffer.String())
+			case *ast.BranchStmt:
+				buffer := strings.Builder{}
+				buffer.WriteString(stmt.Tok.String())
+				buffer.WriteString(";")
+				body = append(body,buffer.String())
+			case *ast.IfStmt:
+				buffer := strings.Builder{}
+				buffer.WriteString("if(")
+				buffer.WriteString(parseExpr(stmt.Cond,2))
+				buffer.WriteString(") {")
+				list := parseBody(stmt.Body.List)
+				for _,str := range list {
+					buffer.WriteString(str)
+					buffer.WriteString("\n")
+				}
+				buffer.WriteString("}")
+				if stmt.Else != nil {
+					buffer.WriteString("else")
+				}
+				body = append(body,buffer.String())
+			default:
+				fmt.Println("statement not found",reflect.TypeOf(stmt))
+		}
+	}
+	return body
+}
+func parseAssignStatement(stmt *ast.AssignStmt) string {
+	buffer := strings.Builder{}
+	for i,_ := range stmt.Lhs {
+		if stmt.Tok.String() == ":=" {
+			buffer.WriteString("var ")
+		}
+		buffer.WriteString(parseExpr(stmt.Lhs[i],2))
+		buffer.WriteString(" = ")
+		buffer.WriteString(parseExpr(stmt.Rhs[i],2))
+	}
+	return buffer.String()
 }
 func removeParan(str string) string {
 	return str[1 : len(str)-1]
@@ -232,9 +315,9 @@ func parseExpr(expr ast.Expr,level int) string {
 			buffer.WriteString(expr.Value)
 		case *ast.BinaryExpr:
 			buffer.WriteString(parseExpr(expr.X,level))
-			buffer.WriteString(" ")
+			//buffer.WriteString(" ")
 			buffer.WriteString(expr.Op.String())
-			buffer.WriteString(" ")
+			//buffer.WriteString(" ")
 			buffer.WriteString(parseExpr(expr.Y,level))
 		case *ast.SelectorExpr:
 			name := expr.X.(*ast.Ident).String()
@@ -296,4 +379,10 @@ func unparan (name string) string {
 	buffer.WriteString(strings.ToLower(name[0:1]))
 	buffer.WriteString(name[1:len(name)])
 	return buffer.String()
+}
+func safeEncode(b []byte) []byte {
+	b = bytes.Replace(b, []byte("\\u003c"), []byte("<"), -1)
+	b = bytes.Replace(b, []byte("\\u003e"), []byte(">"), -1)
+	b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
+    return b
 }

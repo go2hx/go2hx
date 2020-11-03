@@ -205,17 +205,18 @@ func parseBody (stmts []ast.Stmt) []string {
 				fmt.Println("decl",reflect.TypeOf(stmt.Decl))
 			case *ast.AssignStmt: //short variable declaration.
 				buffer := strings.Builder{}
-				buffer.WriteString(parseAssignStatement(stmt))
-				buffer.WriteString(";")
+				buffer.WriteString(parseAssignStatement(stmt,true))
 				body = append(body,buffer.String())
 			case *ast.ForStmt:
 				//fmt.Println("post",reflect.TypeOf(stmt.Post))
 				
 				buffer := strings.Builder{}
 				if stmt.Init != nil {
+					buffer.WriteString("{")
+					buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),true))
+				}
+				if stmt.Post != nil {
 					buffer.WriteString("go.For.cfor(")
-					buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt)))
-					buffer.WriteString(",")
 				}else{
 					buffer.WriteString("while(")
 				}
@@ -231,20 +232,19 @@ func parseBody (stmts []ast.Stmt) []string {
 				}else{
 					buffer.WriteString("true")
 				}
-				if stmt.Init == nil {
-					buffer.WriteString(") {")
+				if stmt.Post == nil {
+					buffer.WriteString(") {\n")
 				}else{
-					buffer.WriteString(" {")
+					buffer.WriteString(" {\n")
 				}
-				list := parseBody(stmt.Body.List)
-				for _,str := range list {
-					buffer.WriteString(str)
-					buffer.WriteString("\n")
+
+				buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
+				buffer.WriteString("}")
+				if stmt.Post != nil {
+					buffer.WriteString(");")
 				}
-				if stmt.Init == nil {
+				if stmt.Init != nil {
 					buffer.WriteString("}")
-				}else{
-					buffer.WriteString("});")
 				}
 				body = append(body,buffer.String())
 			case *ast.BranchStmt:
@@ -254,17 +254,27 @@ func parseBody (stmts []ast.Stmt) []string {
 				body = append(body,buffer.String())
 			case *ast.IfStmt:
 				buffer := strings.Builder{}
+				if stmt.Init != nil {
+					buffer.WriteString("{")
+					buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),true))
+				}
 				buffer.WriteString("if(")
 				buffer.WriteString(parseExpr(stmt.Cond,2))
 				buffer.WriteString(") {")
-				list := parseBody(stmt.Body.List)
-				for _,str := range list {
-					buffer.WriteString(str)
-					buffer.WriteString("\n")
-				}
+				buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
 				buffer.WriteString("}")
 				if stmt.Else != nil {
-					buffer.WriteString("else")
+					buffer.WriteString("else {")
+					switch stmt := stmt.Else.(type) {
+						case *ast.BlockStmt:
+							buffer.WriteString(strings.Join(parseBody(stmt.List),"\n"))
+						default:
+							buffer.WriteString(strings.Join(parseBody([]ast.Stmt{stmt}),"\n"))
+					}
+					buffer.WriteString("}")
+				}
+				if stmt.Init != nil {
+					buffer.WriteString("}")
 				}
 				body = append(body,buffer.String())
 			default:
@@ -273,7 +283,7 @@ func parseBody (stmts []ast.Stmt) []string {
 	}
 	return body
 }
-func parseAssignStatement(stmt *ast.AssignStmt) string {
+func parseAssignStatement(stmt *ast.AssignStmt,semicolon bool) string {
 	buffer := strings.Builder{}
 	for i,_ := range stmt.Lhs {
 		if stmt.Tok.String() == ":=" {
@@ -282,6 +292,9 @@ func parseAssignStatement(stmt *ast.AssignStmt) string {
 		buffer.WriteString(parseExpr(stmt.Lhs[i],2))
 		buffer.WriteString(" = ")
 		buffer.WriteString(parseExpr(stmt.Rhs[i],2))
+		if semicolon {
+			buffer.WriteString(";")
+		}
 	}
 	return buffer.String()
 }

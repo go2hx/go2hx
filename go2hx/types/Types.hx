@@ -27,9 +27,6 @@ typedef FileType = {
     vars:Array<Var>,
     types:Array<Type>
 }
-typedef FieldType = {
-    name:String,
-}
 typedef JsonData = {
 	pkgs:Array<Package>,
 }

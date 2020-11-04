@@ -8,4 +8,5 @@ examples/*.hx
 node_modules
 packages.md
 package-lock.json
+gobyexample
 *.json

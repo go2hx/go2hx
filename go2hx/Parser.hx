@@ -29,7 +29,8 @@ class Parser {
         }
         imports(exportPath + "go");
         Sys.setCwd(exportPath);
-        Sys.command('haxe build.hxml');
+        Sys.command("haxe build.hxml");
+        //Sys.command('haxe bin_build.hxml');
     }
     public function read(file:FileType,path:String) {
         //get className and path
@@ -92,12 +93,14 @@ class Parser {
         path = Path.normalize(path);
         if (!FileSystem.exists(path))
             FileSystem.createDirectory(path);
-        stdimports.push("For"); //add for loop for golang
+        stdimports.push("Go");
         for (i in stdimports)
         {
             var path = '$path/${cap(i)}.hx';
             File.saveContent(path,Resource.getString(i));
         }
+        //global
+        File.saveContent(Path.addTrailingSlash(exportPath) + "import.hx",Resource.getString("import"));
     }
     function cap(string:String,reverse:Bool=false):String {
         return (reverse ? string.charAt(0).toLowerCase() : string.charAt(0).toUpperCase()) + string.substr(1);

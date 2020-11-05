@@ -1,6 +1,9 @@
 package go;
-class For {
-	public static macro function cfor(cond, post, expr) {
+class Go {
+    public static function panic() {
+
+    }
+    public static macro function cfor(cond, post, expr) {
 		#if !display
 		var func = null;
 		func = function(expr:haxe.macro.Expr) {

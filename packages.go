@@ -108,7 +108,9 @@ func load(args ...string) {
 	}
 	for _, pkg := range inital {
 		dataPkg := packageType{}
-		array := strings.Split(strings.Replace(pkg.PkgPath,".","_",-1),"/")
+		str := strings.Replace(pkg.PkgPath,".","_",-1)
+		str = strings.Replace(str,"-","_",-1)
+		array := strings.Split(str,"/")
 		for i,_ := range array {
 			array[i] = reserved(array[i])
 		}
@@ -248,7 +250,7 @@ func parseStatement (stmt ast.Stmt) []string {
 				buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),true))
 			}
 			if stmt.Post != nil {
-				buffer.WriteString("go.For.cfor(")
+				buffer.WriteString("cfor(")
 			}else{
 				buffer.WriteString("while(")
 			}

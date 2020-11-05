@@ -31,6 +31,7 @@ class Parser {
         Sys.setCwd(exportPath);
         Sys.command("haxe build.hxml");
         //Sys.command('haxe bin_build.hxml');
+        Sys.command("haxelib run formatter --source .");
     }
     public function read(file:FileType,path:String) {
         //get className and path

@@ -13,7 +13,6 @@ class Main {
         #else
         init();
         #end
-        
     }
     static function init() {
         var help:Bool = false;

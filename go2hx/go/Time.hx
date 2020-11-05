@@ -11,6 +11,9 @@ class Time
     public static function now():Time {
         return new Time(Date.now());
     }
+    public function hour():Int {
+        return date.getHours();
+    }
     public function weekday():Int {
         return date.getDay();
     }

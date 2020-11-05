@@ -2,7 +2,7 @@ package go;
 class Go {
     public static function panic() {
 
-    }
+	}
     public static macro function cfor(cond, post, expr) {
 		#if !display
 		var func = null;

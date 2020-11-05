@@ -27,9 +27,9 @@ class Parser {
                 read(file,path);
             }
         }
-        //buildConfig();
-        exportPath += "go";
-        imports(exportPath);
+        imports(exportPath + "go");
+        Sys.setCwd(exportPath);
+        Sys.command('haxe build.hxml');
     }
     public function read(file:FileType,path:String) {
         //get className and path
@@ -96,7 +96,6 @@ class Parser {
         for (i in stdimports)
         {
             var path = '$path/${cap(i)}.hx';
-            trace("list " + Resource.listNames() + " i " + i);
             File.saveContent(path,Resource.getString(i));
         }
     }

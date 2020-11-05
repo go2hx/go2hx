@@ -15,6 +15,7 @@ import (
 	//"go/parser"
 	//"path/filepath"
 	//"strconv"
+	"os/exec"
 	"golang.org/x/tools/go/packages"
 	//"golang.org/x/tools/go/ssa/ssautil"
 	//"golang.org/x/tools/go/ast/inspector"
@@ -91,6 +92,13 @@ func main() {
 	}
 	os.Remove("export.json")
 	_ = ioutil.WriteFile("export.json", bytes, 0644)
+	
+	out,err := exec.Command("haxe","build.hxml").Output()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	fmt.Println(string(out[:]))
 }
 func load(args ...string) {
 	inital, err := packages.Load(cfg, args...)
@@ -100,7 +108,12 @@ func load(args ...string) {
 	}
 	for _, pkg := range inital {
 		dataPkg := packageType{}
-		pkg.PkgPath = strings.Replace(pkg.PkgPath,".","_",-1)
+		array := strings.Split(strings.Replace(pkg.PkgPath,".","_",-1),"/")
+		for i,_ := range array {
+			array[i] = reserved(array[i])
+		}
+		pkg.PkgPath = strings.Join(array,"/")
+		
 		dataPkg.PackagePath = pkg.PkgPath
 		for _, file := range pkg.Syntax {
 			//func MergePackageFiles(pkg *Package, mode MergeMode) *File
@@ -471,4 +484,12 @@ func safeEncode(b []byte) []byte {
 	b = bytes.Replace(b, []byte("\\u003e"), []byte(">"), -1)
 	b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
     return b
+}
+func reserved(str string) string {
+	switch str {
+		case "var","switch","for","if","else","case","using","final":
+			return strings.Join([]string{str,"tmp"},"_")
+		default:
+			return str
+	}
 }

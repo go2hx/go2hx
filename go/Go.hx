@@ -1,10 +1,13 @@
 package go;
 
 import haxe.macro.Context;
-
+//typedef Byte = haxe.io.Bytes
 class Go {
     public static function panic(v) {
 
+	}
+	public static function str(v:Dynamic):String {
+		return v.toString();
 	}
 	public static macro function slice(type,length) {
 		return macro null;

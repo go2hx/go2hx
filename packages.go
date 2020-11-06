@@ -72,7 +72,7 @@ func main() {
 	bytes, err := ioutil.ReadFile("excludes.json")
 	var exclude_data = excludeJSON{}
 	//replaceMap["int64"] = ""
-	types := []string{"float","int","string","bool","uint64"}
+	types := []string{"float","int","string","bool","uint64","byte"}
 	for _,ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
@@ -149,6 +149,7 @@ func load(args ...string) {
 										excludes[path] = true
 									}*/
 									name := getName(path)
+									replaceMap[imp[1]] = strings.Title(imp[1])
 									replaceMap[name] = strings.Title(name)
 								case *ast.ValueSpec:
 									for i,_ := range spec.Names {
@@ -432,6 +433,10 @@ func parseBody (stmts []ast.Stmt) []string {
 }
 func parseAssignStatement(stmt *ast.AssignStmt,init bool) string {
 	buffer := strings.Builder{}
+	if len(stmt.Lhs) != len(stmt.Rhs) {
+		buffer.WriteString("//function with multiple returns\n")
+		return buffer.String()
+	}
 	for i,_ := range stmt.Lhs {
 		if stmt.Tok.String() == ":=" {
 			buffer.WriteString("var ")
@@ -545,7 +550,18 @@ func parseExpr(expr ast.Expr,init bool) string {
 					if ok {
 						name = value
 					}
+					switch value {
+						case "String":
+							name = "str"
+					}
 					buffer.WriteString(name)
+				case *ast.ArrayType:
+					value := parseExpr(init.Elt,false)
+					fmt.Println("value",value)
+					switch value {
+						case "Byte":
+							buffer.WriteString("haxe.io.Bytes.ofString")
+					}
 				default:
 					buffer.WriteString(parseExpr(expr.Fun,false))
 			}

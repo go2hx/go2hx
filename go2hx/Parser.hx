@@ -43,8 +43,10 @@ class Parser {
             var name = capPkg(imp[0]);
             var as = capPkg(imp[1]);
             trace("name " + name);
-            if (Resource.listNames().indexOf(imp[0]) != -1)
+            if (Resource.listNames().indexOf(imp[0]) != -1) {
                 stdimports.push(imp[0]);
+                name = 'go.$name';
+            }
 
             if (as.length > 0)
                 replaceMap.set(as,as = capPkg(as));

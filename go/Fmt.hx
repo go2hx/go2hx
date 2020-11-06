@@ -1,8 +1,8 @@
 package go;
 
 class Fmt {
-	public static inline function println(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
-		var str = _print(v, v1, v2, v3, v4);
+	public static inline function println(?v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
+		var str = v == null ? "" : _print(v, v1, v2, v3, v4);
 		#if js
 		js.Browser.console.log(str);
 		#elseif sys

@@ -63,6 +63,8 @@ var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = make(map[string]bool)
 var replaceMap = map[string]string{}
 var exportData = jsonData{}
+var debugComment = true
+var asserted = ""
 
 const debug = true
 
@@ -158,7 +160,7 @@ func load(args ...string) {
 										v.Constant = spec.Names[i].Obj.Kind.String() == "const"
 										v.Name = spec.Names[i].Name
 										v.Exported = spec.Names[i].IsExported()
-										v.Value = parseExpr(spec.Values[i],-1) //as to not add semicolon
+										v.Value = parseExpr(spec.Values[i],false) //as to not add semicolon
 										data.Vars = append(data.Vars,v)
 									}
 								default:
@@ -188,11 +190,30 @@ func load(args ...string) {
 		exportData.Pkgs = append(exportData.Pkgs, dataPkg)
 	}
 }
-func parseStatement (stmt ast.Stmt,semicolon bool) []string {
+func addSemicolon (obj interface{}, init bool) string {
+	if init {
+		buffer := strings.Builder{}
+		buffer.WriteString(";")
+		buffer.WriteString(addDebug(obj))
+		return buffer.String()
+	}
+	return ""
+}
+func addDebug (obj interface {}) string {
+	buffer := strings.Builder{}
+	if debugComment {
+		buffer.WriteString("//")
+		buffer.WriteString(reflect.TypeOf(obj).String())
+		buffer.WriteString("\n")
+		return buffer.String()
+	}
+	return buffer.String()
+}
+func parseStatement (stmt ast.Stmt, init bool) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 		case *ast.ExprStmt:
-			body = append(body,parseExpr(stmt.X,0))
+			body = append(body,parseExpr(stmt.X,init))
 		case *ast.ReturnStmt:
 			body = append(body,"return;")
 		case *ast.TypeSwitchStmt:
@@ -202,8 +223,8 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 			if stmt.Init != nil {
 				buffer.WriteString(strings.Join(parseStatement(stmt.Init,true),"\n"))
 			}
+			asserted = ""
 			buffer.WriteString(strings.Join(parseStatement(stmt.Assign,true),""))
-
 			def := ast.CaseClause{}
 			setDefault := false
 			first := true
@@ -218,7 +239,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 						if !first {
 							buffer.WriteString("else ")
 						}
-						buffer.WriteString(caseAsIf(stmt,false))
+						buffer.WriteString(caseAsIf(stmt,asserted))
 					default:
 						fmt.Println("switch-type",reflect.TypeOf(stmt))
 				}
@@ -228,10 +249,9 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 				if len(stmt.Body.List) > 1 {
 					buffer.WriteString("else ")
 				}
-				buffer.WriteString(caseAsIf(&def,false))
+				buffer.WriteString(caseAsIf(&def,""))
 			}
-
-			buffer.WriteString("}}")
+			buffer.WriteString("}")
 			body = append(body,buffer.String())
 		case *ast.SwitchStmt:
 			buffer := strings.Builder{}
@@ -255,7 +275,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 							if !first {
 								buffer.WriteString("else ")
 							}
-							buffer.WriteString(caseAsIf(stmt,false))
+							buffer.WriteString(caseAsIf(stmt,""))
 						default:
 							fmt.Println("switch-if",reflect.TypeOf(stmt))
 					}
@@ -265,12 +285,12 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 					if len(stmt.Body.List) > 1 {
 						buffer.WriteString("else ")
 					}
-					buffer.WriteString(caseAsIf(&def,false))
+					buffer.WriteString(caseAsIf(&def,""))
 				}
 			}else{
 				//actual switch
 				buffer.WriteString("switch(")
-				buffer.WriteString(parseExpr(stmt.Tag,2))
+				buffer.WriteString(parseExpr(stmt.Tag,false))
 				buffer.WriteString(") {\n")
 				//body
 				buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
@@ -292,7 +312,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 									buffer.WriteString("final ")
 									buffer.WriteString(spec.Names[i].Name)
 									buffer.WriteString(" = ")
-									buffer.WriteString(parseExpr(spec.Values[i],1))
+									buffer.WriteString(parseExpr(spec.Values[i],false))
 									buffer.WriteString(";")
 								}
 								body = append(body,buffer.String())
@@ -305,7 +325,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 			}
 		case *ast.AssignStmt: //short variable declaration.
 			buffer := strings.Builder{}
-			buffer.WriteString(parseAssignStatement(stmt,semicolon))
+			buffer.WriteString(parseAssignStatement(stmt,init))
 			body = append(body,buffer.String())
 		case *ast.ForStmt:
 			//fmt.Println("post",reflect.TypeOf(stmt.Post))
@@ -313,7 +333,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 			buffer := strings.Builder{}
 			if stmt.Init != nil {
 				buffer.WriteString("{")
-				buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),semicolon))
+				buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),true))
 			}
 			if stmt.Post != nil {
 				buffer.WriteString("cfor(")
@@ -321,7 +341,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 				buffer.WriteString("while(")
 			}
 			if stmt.Cond != nil {
-				buffer.WriteString(parseExpr(stmt.Cond,2))
+				buffer.WriteString(parseExpr(stmt.Cond,false))
 				if stmt.Post != nil {
 					buffer.WriteString(",")
 					post := stmt.Post.(*ast.IncDecStmt)
@@ -359,7 +379,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 				buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt),true))
 			}
 			buffer.WriteString("if(")
-			buffer.WriteString(parseExpr(stmt.Cond,2))
+			buffer.WriteString(parseExpr(stmt.Cond,false))
 			buffer.WriteString(") {")
 			buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
 			buffer.WriteString("}")
@@ -382,7 +402,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 			buffer := strings.Builder{}
 			if len(stmt.List) > 0 {
 				buffer.WriteString("case ")
-				buffer.WriteString(strings.Join(parseExprs(stmt.List,2),","))
+				buffer.WriteString(strings.Join(parseExprs(stmt.List,false),","))
 			}else{
 				buffer.WriteString("default")
 			}
@@ -391,6 +411,7 @@ func parseStatement (stmt ast.Stmt,semicolon bool) []string {
 			body = append(body,buffer.String())
 		default:
 			fmt.Println("statement not found",reflect.TypeOf(stmt))
+			body = append(body,addDebug(stmt))
 	}
 	return body
 }
@@ -401,18 +422,16 @@ func parseBody (stmts []ast.Stmt) []string {
 	}
 	return body
 }
-func parseAssignStatement(stmt *ast.AssignStmt,semicolon bool) string {
+func parseAssignStatement(stmt *ast.AssignStmt,init bool) string {
 	buffer := strings.Builder{}
 	for i,_ := range stmt.Lhs {
 		if stmt.Tok.String() == ":=" {
 			buffer.WriteString("var ")
 		}
-		buffer.WriteString(parseExpr(stmt.Lhs[i],2))
+		buffer.WriteString(parseExpr(stmt.Lhs[i],false))
 		buffer.WriteString(" = ")
-		buffer.WriteString(parseExpr(stmt.Rhs[i],2))
-		if semicolon {
-			buffer.WriteString(";")
-		}
+		buffer.WriteString(parseExpr(stmt.Rhs[i],false))
+		buffer.WriteString(addSemicolon(stmt,init))
 	}
 	return buffer.String()
 }
@@ -442,7 +461,7 @@ func parseFields(list []*ast.Field) []string {
 		buffer.Reset()
 
 		for _,name := range field.Names {
-			buffer.WriteString(parseExpr(name,2))
+			buffer.WriteString(parseExpr(name,false))
 			buffer.WriteString(":")
 			buffer.WriteString(ty)
 		}
@@ -451,17 +470,15 @@ func parseFields(list []*ast.Field) []string {
 	}
 	return array
 }
-func parseExprs (list []ast.Expr, level int) []string {
+func parseExprs (list []ast.Expr,init bool) []string {
 	array := []string{}
-	level++
 	for _,expr := range list {
-		array = append(array,parseExpr(expr,level))
+		array = append(array,parseExpr(expr,true))
 	}
 	return array
 }
-func parseExpr(expr ast.Expr,level int) string {
+func parseExpr(expr ast.Expr,init bool) string {
 	buffer := strings.Builder{}
-	level++
 	switch expr := expr.(type) {
 		case *ast.FuncLit:
 			buffer.WriteString("function(")
@@ -480,13 +497,13 @@ func parseExpr(expr ast.Expr,level int) string {
 		case *ast.BasicLit:
 			buffer.WriteString(expr.Value)
 		case *ast.BinaryExpr:
-			buffer.WriteString(parseExpr(expr.X,level))
+			buffer.WriteString(parseExpr(expr.X,false))
 			//buffer.WriteString(" ")
 			buffer.WriteString(expr.Op.String())
 			//buffer.WriteString(" ")
-			buffer.WriteString(parseExpr(expr.Y,level))
-		case *ast.SelectorExpr:
-			name := parseExpr(expr.X,2)
+			buffer.WriteString(parseExpr(expr.Y,false))
+		case *ast.SelectorExpr: //1st class
+			name := parseExpr(expr.X,false)
 			//name := expr.X.(*ast.Ident).String()
 			value,ok := replaceMap[name]
 			//fmt.Println("selector",name,"ok",ok," ",replaceMap[name])
@@ -504,7 +521,7 @@ func parseExpr(expr ast.Expr,level int) string {
 				name = value
 			}
 			buffer.WriteString(name)
-		case *ast.CallExpr:
+		case *ast.CallExpr: //1st class
 			switch init := expr.Fun.(type) {
 				case *ast.Ident:
 					name := init.Name
@@ -514,28 +531,28 @@ func parseExpr(expr ast.Expr,level int) string {
 					}
 					buffer.WriteString(name)
 				default:
-					buffer.WriteString(parseExpr(expr.Fun,level))
+					buffer.WriteString(parseExpr(expr.Fun,false))
 			}
 			buffer.WriteString("(")
-			buffer.WriteString(strings.Join(parseExprs(expr.Args,level),", "))
+			buffer.WriteString(strings.Join(parseExprs(expr.Args,false),", "))
 			buffer.WriteString(")")
-		case *ast.UnaryExpr:
+			buffer.WriteString(addSemicolon(expr,init))
+		case *ast.UnaryExpr: //3rd class
 			op := expr.Op.String()
 			if op != "*" && op != "&" {
 				buffer.WriteString(op)
 				buffer.WriteString(" ")
 			}
-			buffer.WriteString(parseExpr(expr.X,level))
-		case *ast.TypeAssertExpr:
-			buffer.WriteString(typeAssert(*expr,level))
+			buffer.WriteString(parseExpr(expr.X,false))
+		case *ast.TypeAssertExpr: //pass through
+			buffer.WriteString(typeAssert(*expr,init))
 		default:
-			_ = expr
 			fmt.Println("parse expr not found",reflect.TypeOf(expr))
-			return ""
+			return addDebug(expr)
 	}
 	return buffer.String()
 }
-func caseAsIf (stmt *ast.CaseClause,typeof bool) string {
+func caseAsIf (stmt *ast.CaseClause,obj string) string {
 	//stmt.List
 	buffer := strings.Builder{}
 	if len(stmt.List) > 0 {
@@ -544,9 +561,15 @@ func caseAsIf (stmt *ast.CaseClause,typeof bool) string {
 		list := []string{}
 		for _,stmt := range stmt.List {
 			piece := strings.Builder{}
-			piece.WriteString("Std.isOfType(")
-			piece.WriteString(parseExpr(stmt,2))
-			piece.WriteString(")")
+			if obj != "" {
+				piece.WriteString("Std.isOfType(")
+				piece.WriteString(obj)
+				piece.WriteString(",")
+			}
+			piece.WriteString(parseExpr(stmt,false))
+			if obj != "" {
+				piece.WriteString(")")
+			}
 			list = append(list,piece.String())
 		}
 		buffer.WriteString(strings.Join(list,"||"))
@@ -557,10 +580,11 @@ func caseAsIf (stmt *ast.CaseClause,typeof bool) string {
 	buffer.WriteString("}")
 	return buffer.String()
 }
-func typeAssert(expr ast.TypeAssertExpr,level int) string {
+func typeAssert(expr ast.TypeAssertExpr,init bool) string {
 	buffer := strings.Builder{}
 	//buffer.WriteString("Type.typeof(")
-	buffer.WriteString(parseExpr(expr.X,level))
+	asserted = parseExpr(expr.X,false)
+	buffer.WriteString(asserted)
 	//buffer.WriteString(")")
 	return buffer.String()
 }

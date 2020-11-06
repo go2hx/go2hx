@@ -72,7 +72,7 @@ func main() {
 	bytes, err := ioutil.ReadFile("excludes.json")
 	var exclude_data = excludeJSON{}
 	//replaceMap["int64"] = ""
-	types := []string{"float","int","string","bool"}
+	types := []string{"float","int","string","bool","uint64"}
 	for _,ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
@@ -144,15 +144,12 @@ func load(args ...string) {
 									}
 									data.Imports = append(data.Imports,imp)
 									fmt.Println("excludes",path,excludes[path])
-									if !excludes[path] {
+									/*if !excludes[path] {
 										load(path)
 										excludes[path] = true
-									}
+									}*/
 									name := getName(path)
 									replaceMap[name] = strings.Title(name)
-									if name == "math" {
-
-									}
 								case *ast.ValueSpec:
 									for i,_ := range spec.Names {
 										v := varType{}
@@ -418,6 +415,8 @@ func parseStatement (stmt ast.Stmt, init bool) []string {
 			buffer.WriteString(":\n")
 			buffer.WriteString(strings.Join(parseBody(stmt.Body),"\n"))
 			body = append(body,buffer.String())
+		case *ast.GoStmt:
+			body = append(body,"//go routines not supported yet\n")
 		default:
 			fmt.Println("statement not found",reflect.TypeOf(stmt))
 			body = append(body,addDebug(stmt))
@@ -600,9 +599,11 @@ func getDefaultType(expr ast.Expr) string {
 			return buffer.String()
 		case *ast.Ident:
 			switch expr.Name {
-				case "int": return "0"
+				case "int","float","uint64": return "0"
+				case "string": return "''"
+				case "bool": return "false"
 			}
-			return ""
+			return "null"
 		default: 
 			_ = expr
 			return "null"

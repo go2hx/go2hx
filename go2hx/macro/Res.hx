@@ -1,4 +1,5 @@
 package go2hx.macro;
+import haxe.Resource;
 import haxe.macro.Context;
 import sys.FileSystem;
 import haxe.io.Bytes;
@@ -106,6 +107,7 @@ class Res {
     ]};
     public static function gen() {
         readDir("go");
+        trace("list: " + Resource.listNames());
         File.saveContent("excludes.json",Json.stringify(data));
     }
     public static function readDir(path:String)
@@ -120,11 +122,11 @@ class Res {
 
                 if (FileSystem.isDirectory(path + name))
                 {
-                    readDir(path);
+                    readDir(path + name);
                 }else{
-                    var className = name.withoutExtension();
+                    var className = path.substr(3) + name.withoutExtension().toLowerCase();
                     Context.addResource(className,File.getBytes(path + name));
-                    data.excludes.push(className.charAt(0).toLowerCase() + className.substr(1));
+                    data.excludes.push(className);
                 }
             }
         }

@@ -1,6 +1,5 @@
 -main go2hx.Main
 #-cp bin
--cp go
 --macro go2hx.macro.Res.gen()
 --no-inline
 -D debug

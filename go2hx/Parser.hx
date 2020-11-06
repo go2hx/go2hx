@@ -9,17 +9,10 @@ import haxe.io.Path;
 class Parser {
     var lines:Array<String>;
     var replaceMap:Map<String,String> = [];
-    var stdlibs:Map<String,String> = [
-        "Math" => "GoMath",
-    ];
     var stdimports:Array<String> = [];
     public var exportPath:String = "bin";
     public function new() {
         exportPath = Path.addTrailingSlash(exportPath);
-        for (name in Resource.listNames()) {
-            replaceMap.set(name,cap(name));
-            stdlibs.set(name,'go.${cap(name)}');
-        }
         var data:JsonData = Json.parse(File.getContent("export.json"));
         for (pkg in data.pkgs) {
             var path = pkg.packagepath;
@@ -37,8 +30,6 @@ class Parser {
         }else{
             Sys.println(proc.stdout.readAll().toString());
         }
-        //Sys.command('haxe bin_build.hxml');
-        Sys.command("haxelib run formatter --source .");
     }
     public function read(file:FileType,path:String) {
         //get className and path
@@ -49,19 +40,15 @@ class Parser {
         var className = cap(file.name);
         //imports
         if (file.imports != null) for (imp in file.imports) {
-            var name = cap(imp[0]);
-            var as = cap(imp[1]);
-            if (stdlibs.exists(name)) {
-                switch (name) {
-                    case "Math": 
-                        name = "GoMath";
-                }
-                stdimports.push(name);
-                name = stdlibs.get(name);
-            }
+            var name = capPkg(imp[0]);
+            var as = capPkg(imp[1]);
+            trace("name " + name);
+            if (Resource.listNames().indexOf(imp[0]) != -1)
+                stdimports.push(imp[0]);
+
             if (as.length > 0)
-                replaceMap.set(as,as = cap(as));
-            var line = 'import $name';
+                replaceMap.set(as,as = capPkg(as));
+            var line = 'import ${StringTools.replace(name,"/",".")}';
             if (as != "") {
                 line += ' as $as';
             }
@@ -101,10 +88,13 @@ class Parser {
         path = Path.normalize(path);
         if (!FileSystem.exists(path))
             FileSystem.createDirectory(path);
-        stdimports.push("Go");
+        stdimports.push("go");
         for (i in stdimports)
         {
-            var path = '$path/${cap(i)}.hx';
+            var path = '$path/${capPkg(i)}.hx';
+            trace("i " + i);
+            if (!FileSystem.exists(Path.directory(path)))
+                FileSystem.createDirectory(Path.directory(path));
             File.saveContent(path,Resource.getString(i));
         }
         //global
@@ -112,6 +102,11 @@ class Parser {
     }
     function cap(string:String,reverse:Bool=false):String {
         return (reverse ? string.charAt(0).toLowerCase() : string.charAt(0).toUpperCase()) + string.substr(1);
+    }
+    function capPkg(string:String):String {
+        var index = string.lastIndexOf("/") + 1;
+        string = string.substr(0,index) + string.charAt(index).toUpperCase() + string.substr(index + 1);
+        return string;
     }
     function name(string:String):String {
         if (replaceMap.exists(string))

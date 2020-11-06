@@ -309,11 +309,20 @@ func parseStatement (stmt ast.Stmt, init bool) []string {
 								buffer := strings.Builder{}
 								for i,_ := range spec.Names {
 									//spec.Names[i].Obj.Kind
-									buffer.WriteString("final ")
+									buffer.WriteString("var ")
 									buffer.WriteString(spec.Names[i].Name)
-									buffer.WriteString(" = ")
-									buffer.WriteString(parseExpr(spec.Values[i],false))
-									buffer.WriteString(";")
+									if spec.Type != nil {
+										buffer.WriteString(":")
+										buffer.WriteString(parseExpr(spec.Type,false))
+									}
+									if len(spec.Values) > i {
+										buffer.WriteString(" = ")
+										buffer.WriteString(parseExpr(spec.Values[i],false))
+									}else{
+										buffer.WriteString(" = ")
+										buffer.WriteString(getDefaultType(spec.Type))
+									}
+									buffer.WriteString(addSemicolon(stmt,init))
 								}
 								body = append(body,buffer.String())
 							default:
@@ -473,13 +482,22 @@ func parseFields(list []*ast.Field) []string {
 func parseExprs (list []ast.Expr,init bool) []string {
 	array := []string{}
 	for _,expr := range list {
-		array = append(array,parseExpr(expr,true))
+		array = append(array,parseExpr(expr,init))
 	}
 	return array
 }
 func parseExpr(expr ast.Expr,init bool) string {
 	buffer := strings.Builder{}
 	switch expr := expr.(type) {
+		case *ast.ArrayType:
+			name := parseExpr(expr.Elt,false)
+			value,ok := replaceMap[name]
+			if ok {
+				name = value
+			}
+			buffer.WriteString("Array<")
+			buffer.WriteString(name)
+			buffer.WriteString(">")
 		case *ast.FuncLit:
 			buffer.WriteString("function(")
 			if expr.Type.Params != nil {
@@ -506,7 +524,6 @@ func parseExpr(expr ast.Expr,init bool) string {
 			name := parseExpr(expr.X,false)
 			//name := expr.X.(*ast.Ident).String()
 			value,ok := replaceMap[name]
-			//fmt.Println("selector",name,"ok",ok," ",replaceMap[name])
 			if ok {
 				name = value
 			}
@@ -546,11 +563,50 @@ func parseExpr(expr ast.Expr,init bool) string {
 			buffer.WriteString(parseExpr(expr.X,false))
 		case *ast.TypeAssertExpr: //pass through
 			buffer.WriteString(typeAssert(*expr,init))
+		case *ast.IndexExpr:
+			buffer.WriteString(parseExpr(expr.X,false))
+			buffer.WriteString("[")
+			buffer.WriteString(parseExpr(expr.Index,false))
+			buffer.WriteString("]")
+			/*switch ty := x.Obj.Type.(type) {
+				case *ast.ArrayType:
+					ty.
+			}*/
+		case *ast.CompositeLit:
+			buffer.WriteString("[")
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts,false),","))
+			buffer.WriteString("]")
 		default:
-			fmt.Println("parse expr not found",reflect.TypeOf(expr))
+			//fmt.Println("parse expr not found",reflect.TypeOf(expr))
+			ast.Print(nil,expr)
 			return addDebug(expr)
 	}
 	return buffer.String()
+}
+func getDefaultType(expr ast.Expr) string {
+	switch expr := expr.(type) {
+		case *ast.ArrayType:
+			buffer := strings.Builder{}
+			buffer.WriteString("[")
+			switch l := expr.Len.(type) {
+				case *ast.BasicLit:
+					buffer.WriteString("for (i in 0...")
+					buffer.WriteString(l.Value)
+					buffer.WriteString(")")
+			}
+			buffer.WriteString(getDefaultType(expr.Elt))
+			
+			buffer.WriteString("]")
+			return buffer.String()
+		case *ast.Ident:
+			switch expr.Name {
+				case "int": return "0"
+			}
+			return ""
+		default: 
+			_ = expr
+			return "null"
+	}
 }
 func caseAsIf (stmt *ast.CaseClause,obj string) string {
 	//stmt.List

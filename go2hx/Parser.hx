@@ -1,4 +1,5 @@
 package go2hx;
+import sys.io.Process;
 import sys.FileSystem;
 import haxe.Resource;
 import haxe.Json;
@@ -29,7 +30,13 @@ class Parser {
         }
         imports(exportPath + "go");
         Sys.setCwd(exportPath);
-        Sys.command("haxe build.hxml");
+        var proc = new Process("haxe build.hxml");
+        var code = proc.exitCode();
+        if (code != -1) {
+            Sys.println(proc.stderr.readAll().toString());
+        }else{
+            Sys.println(proc.stdout.readAll().toString());
+        }
         //Sys.command('haxe bin_build.hxml');
         Sys.command("haxelib run formatter --source .");
     }

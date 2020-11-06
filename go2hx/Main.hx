@@ -13,6 +13,8 @@ class Main {
         #else
         init();
         #end
+        var a = [];
+        trace("test " + go.Go.len(a));
     }
     static function init() {
         var help:Bool = false;

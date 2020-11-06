@@ -105,7 +105,7 @@ class Res {
 
     ]};
     public static function gen() {
-        readDir("go2hx/go");
+        readDir("go");
         File.saveContent("excludes.json",Json.stringify(data));
     }
     public static function readDir(path:String)

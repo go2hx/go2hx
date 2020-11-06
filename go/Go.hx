@@ -1,7 +1,29 @@
 package go;
-class Go {
-    public static function panic() {
 
+import haxe.macro.Context;
+
+class Go {
+    public static function panic(v) {
+
+	}
+	public static macro function slice(type,length) {
+		return macro null;
+	}
+	public static macro function len(expr) {
+		var ty = Context.typeof(expr);
+		switch (ty) {
+			case TInst(t, params):
+				switch (t.get().name) {
+					case "Array","Vector":
+						return macro $expr.length;
+					case "Iterable","Map":
+						return macro Lambda.count($expr);
+					default:
+						
+				}
+			default:
+		}
+		return macro $expr;
 	}
     public static macro function cfor(cond, post, expr) {
 		#if !display

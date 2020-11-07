@@ -4,6 +4,7 @@ typedef Func = {
     name:String,
     params:Array<String>,
     results:Array<String>,
+    exported:Bool,
     body:Array<String>,
 }
 typedef Var = {

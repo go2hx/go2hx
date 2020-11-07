@@ -67,6 +67,8 @@ class Parser {
         //functions
         if (file.funcs != null) for (func in file.funcs) {
             //if (func.)
+            if (func.exported)
+                lines.push("public static ");
             lines.push('function ${func.name}() ');
             lines.push("{");
             if (!externs) for (expr in func.body) {

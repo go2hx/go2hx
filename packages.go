@@ -31,6 +31,7 @@ type jsonData struct {
 }
 type funcType struct {
 	Name    string      `json:"name"`
+	Exported bool `json:"exported"`
 	Params  []string `json:"params"`
 	Results []string `json:"results"`
 	Body []string `json:"body"`
@@ -56,6 +57,7 @@ type fileType struct {
 }
 type typeType struct {
 	Name string `json:"nane"`
+	Exported bool `json:"exported"`
 }
 // Example demonstrates how to load the packages specified on the
 // command line from source syntax.
@@ -72,7 +74,7 @@ func main() {
 	bytes, err := ioutil.ReadFile("excludes.json")
 	var exclude_data = excludeJSON{}
 	//replaceMap["int64"] = ""
-	types := []string{"float","int","string","bool","uint64","byte"}
+	types := []string{"float","int","string","bool","uint64","byte","int64","int32"}
 	for _,ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
@@ -126,7 +128,7 @@ func load(args ...string) {
 		dataPkg.PackagePath = pkg.PkgPath
 		for _, file := range pkg.Syntax {
 			//func MergePackageFiles(pkg *Package, mode MergeMode) *File
-			ast.Print(nil,file)
+			//ast.Print(nil,file)
 			data := fileType{}
 			data.Name = file.Name.Name
 			for _, decl := range file.Decls {
@@ -170,6 +172,7 @@ func load(args ...string) {
 						fmt.Println("func",decl.Name.Name)
 						fn := funcType{}
 						fn.Name = decl.Name.Name
+						fn.Exported = decl.Name.IsExported()
 						if decl.Type.Params != nil {
 							fn.Params = parseFields(decl.Type.Params.List)
 						}
@@ -351,9 +354,12 @@ func parseStatement (stmt ast.Stmt, init bool) []string {
 				buffer.WriteString(parseExpr(stmt.Cond,false))
 				if stmt.Post != nil {
 					buffer.WriteString(",")
-					post := stmt.Post.(*ast.IncDecStmt)
+
+					/*post := stmt.Post.(*ast.IncDecStmt)
 					buffer.WriteString(post.X.(*ast.Ident).Name)
-					buffer.WriteString(post.Tok.String())
+					buffer.WriteString(post.Tok.String())*/
+
+					buffer.WriteString(strings.Join(parseStatement(stmt.Post,false),"\n"))
 					buffer.WriteString(",")
 				}
 			}else{
@@ -465,6 +471,13 @@ func parseFields(list []*ast.Field) []string {
 				buffer.WriteString("}")*/
 				fmt.Println("interfacetype list:",ty.Methods.List)
 				buffer.WriteString("Any")
+			case *ast.Ident:
+				fmt.Println("parse field ident",ty.Name)
+				name := ty.Name
+				value,ok := replaceMap[name]
+				if ok {
+					buffer.WriteString(value)
+				}
 			default:
 				_ = ty
 				buffer.WriteString("Any")
@@ -553,6 +566,8 @@ func parseExpr(expr ast.Expr,init bool) string {
 					switch value {
 						case "String":
 							name = "str"
+						case "Int64":
+							name = ""
 					}
 					buffer.WriteString(name)
 				case *ast.ArrayType:
@@ -593,7 +608,7 @@ func parseExpr(expr ast.Expr,init bool) string {
 			buffer.WriteString("]")
 		default:
 			//fmt.Println("parse expr not found",reflect.TypeOf(expr))
-			ast.Print(nil,expr)
+			//ast.Print(nil,expr)
 			return addDebug(expr)
 	}
 	return buffer.String()

@@ -11,6 +11,7 @@ class Parser {
     var replaceMap:Map<String,String> = [];
     var stdimports:Array<String> = [];
     public var exportPath:String = "bin";
+    var externs:Bool = true;
     public function new() {
         exportPath = Path.addTrailingSlash(exportPath);
         var data:JsonData = Json.parse(File.getContent("export.json"));
@@ -42,7 +43,6 @@ class Parser {
         if (file.imports != null) for (imp in file.imports) {
             var name = capPkg(imp[0]);
             var as = capPkg(imp[1]);
-            trace("name " + name);
             if (Resource.listNames().indexOf(imp[0]) != -1) {
                 stdimports.push(imp[0]);
                 name = 'go.$name';
@@ -60,13 +60,16 @@ class Parser {
         //vars and consts
         if (file.vars != null) for (v in file.vars) {
             trace("v " + v);
-            var first = v.constant ? "final" : "var";
+            var first = v.exported ? "public static " : "";
+            first += v.constant ? "final" : "var";
             lines.push('$first ${v.name} = ${v.value};');
         }
         //functions
         if (file.funcs != null) for (func in file.funcs) {
-            lines.push('function ${func.name}() {');
-            for (expr in func.body) {
+            //if (func.)
+            lines.push('function ${func.name}() ');
+            lines.push("{");
+            if (!externs) for (expr in func.body) {
                 lines.push(expr);
             }
             lines.push("}");
@@ -94,7 +97,6 @@ class Parser {
         for (i in stdimports)
         {
             var path = '$path/${capPkg(i)}.hx';
-            trace("i " + i);
             if (!FileSystem.exists(Path.directory(path)))
                 FileSystem.createDirectory(Path.directory(path));
             File.saveContent(path,Resource.getString(i));

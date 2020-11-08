@@ -7,20 +7,16 @@ import sys.io.File;
 import go2hx.types.Types;
 import haxe.io.Path;
 class Parser {
-    var lines:Array<String>;
     var replaceMap:Map<String,String> = [];
     var stdimports:Array<String> = [];
     public var exportPath:String = "bin";
-    var externs:Bool = false;
     public function new() {
         exportPath = Path.addTrailingSlash(exportPath);
         var data:JsonData = Json.parse(File.getContent("export.json"));
         for (pkg in data.pkgs) {
             var path = pkg.packagepath;
             path = Path.addTrailingSlash(path);
-            for (file in pkg.files) {
-                read(file,path);
-            }
+            read(pkg,path);
         }
         imports(exportPath + "go");
         Sys.setCwd(exportPath);
@@ -32,12 +28,12 @@ class Parser {
             Sys.println(proc.stdout.readAll().toString());
         }
     }
-    public function read(file:FileType,path:String) {
+    public function read(file:Package,path:String) {
         //get className and path
         var pkgPath = path;
         pkgPath = Path.removeTrailingSlashes(pkgPath);
         pkgPath = StringTools.replace(pkgPath,"/",".");
-        lines = ['package $pkgPath;'];
+        var lines = ['package $pkgPath;'];
         var className = cap(file.name);
         //imports
         if (file.imports != null) for (imp in file.imports) {
@@ -55,23 +51,22 @@ class Parser {
                 line += ' as $as';
             }
             line += ";";
+            trace("set line " + line);
             lines.push(line);
         }
         //vars and consts
         if (file.vars != null) for (v in file.vars) {
-            trace("v " + v);
             var first = v.exported ? "public static " : "";
             first += v.constant ? "final" : "var";
             lines.push('$first ${v.name} = ${v.value};');
         }
         //functions
         if (file.funcs != null) for (func in file.funcs) {
-            //if (func.)
+            var first = "";
             if (func.exported)
-                lines.push("public static ");
-            lines.push('function ${func.name}() ');
-            lines.push("{");
-            if (!externs) for (expr in func.body) {
+                first = "public static";
+            lines.push('$first function ${func.name}() {');
+            for (expr in func.body) {
                 lines.push(expr);
             }
             lines.push("}");
@@ -79,10 +74,9 @@ class Parser {
         //write
         if (!FileSystem.exists(exportPath + path))
             FileSystem.createDirectory(exportPath + path);
-        trace("name "+ className);
-        //trace("lines " + lines);
-        File.saveContent(exportPath + path + className + ".hx",lines.join("\n"));
-        trace("className " + className + " pkg " + path); 
+        var path = exportPath + path + className + ".hx";
+        trace("path " + path);
+        File.saveContent(path,lines.join("\n"));
         buildConfig(pkgPath,className);
     }
     function buildConfig(path:String,main:String) {

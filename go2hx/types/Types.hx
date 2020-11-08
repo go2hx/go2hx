@@ -19,9 +19,6 @@ typedef Type = {
 }
 typedef Package = {
     packagepath:String,
-    files:Array<FileType>
-}
-typedef FileType = {
     name:String,
     imports:Array<Array<String>>,
     funcs:Array<Func>,

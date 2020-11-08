@@ -48,16 +48,13 @@ type varType struct {
 	Value    string `json:"value"`
 }
 type packageType struct {
-	PackagePath string     `json:"packagepath"`
-	Files       []fileType `json:"files"`
-}
-type fileType struct {
-	Name    string      `json:"name"`
-	Main    bool        `json:"main"`
-	Imports [][2]string `json:"imports"`
-	Funcs   []funcType  `json:"funcs"`
-	Vars    []varType   `json:"vars"`
-	Types   []typeType  `json:"types"`
+	PackagePath string      `json:"packagepath"`
+	Name        string      `json:"name"`
+	Main        bool        `json:"main"`
+	Imports     [][2]string `json:"imports"`
+	Funcs       []funcType  `json:"funcs"`
+	Vars        []varType   `json:"vars"`
+	Types       []typeType  `json:"types"`
 }
 type typeType struct {
 	Name     string `json:"nane"`
@@ -121,7 +118,7 @@ func load(args ...string) {
 		return
 	}
 	for _, pkg := range inital {
-		dataPkg := packageType{}
+		data := packageType{}
 		str := strings.Replace(pkg.PkgPath, ".", "_", -1)
 		str = strings.Replace(str, "-", "_", -1)
 		array := strings.Split(str, "/")
@@ -129,19 +126,17 @@ func load(args ...string) {
 			array[i] = reserved(array[i])
 		}
 		pkg.PkgPath = strings.Join(array, "/")
+		data.PackagePath = pkg.PkgPath
 
-		dataPkg.PackagePath = pkg.PkgPath
-		for _, file := range pkg.Syntax {
-			//func MergePackageFiles(pkg *Package, mode MergeMode) *File
-			//ast.Print(nil,file)
-			data := fileType{}
-			data.Name = file.Name.Name
-			for _, decl := range file.Decls {
-				switch decl := decl.(type) {
-				case *ast.GenDecl:
-					for _, spec := range decl.Specs {
-						switch spec := spec.(type) {
-						case *ast.ImportSpec:
+		file := MergePackageFiles(pkg, !true)
+		data.Name = file.Name.Name
+		for _, decl := range file.Decls {
+			switch decl := decl.(type) {
+			case *ast.GenDecl:
+				for _, spec := range decl.Specs {
+					switch spec := spec.(type) {
+					case *ast.ImportSpec:
+						if spec.Path.Value != "" {
 							path := spec.Path.Value
 							path = removeParan(path)
 							path = strings.Replace(path, ".", "_", -1)
@@ -158,42 +153,41 @@ func load(args ...string) {
 							name := getName(path)
 							replaceMap[imp[1]] = strings.Title(imp[1])
 							replaceMap[name] = strings.Title(name)
-						case *ast.ValueSpec:
-							for i, _ := range spec.Names {
-								v := varType{}
-								//spec.Names[i].Obj.Kind
-								v.Constant = spec.Names[i].Obj.Kind.String() == "const"
-								v.Name = spec.Names[i].Name
-								v.Exported = spec.Names[i].IsExported()
-								v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
-								data.Vars = append(data.Vars, v)
-							}
-						default:
-							_ = spec
-							fmt.Println("spec not found")
 						}
+					case *ast.ValueSpec:
+						for i, _ := range spec.Names {
+							v := varType{}
+							//spec.Names[i].Obj.Kind
+							v.Constant = spec.Names[i].Obj.Kind.String() == "const"
+							v.Name = spec.Names[i].Name
+							v.Exported = spec.Names[i].IsExported()
+							v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
+
+							data.Vars = append(data.Vars, v)
+						}
+					default:
+						_ = spec
+						fmt.Println("spec not found")
 					}
-				case *ast.FuncDecl:
-					fmt.Println("func", decl.Name.Name)
-					fn := funcType{}
-					fn.Name = decl.Name.Name
-					fn.Exported = decl.Name.IsExported()
-					if decl.Type.Params != nil {
-						fn.Params = parseFields(decl.Type.Params.List)
-					}
-					if decl.Type.Results != nil {
-						fn.Results = parseFields(decl.Type.Results.List)
-					}
-					fn.Body = parseBody(decl.Body.List)
-					data.Funcs = append(data.Funcs, fn)
-				default:
-					_ = decl
-					fmt.Println("decl not found")
 				}
+			case *ast.FuncDecl:
+				fn := funcType{}
+				fn.Name = decl.Name.Name
+				fn.Exported = decl.Name.IsExported()
+				if decl.Type.Params != nil {
+					fn.Params = parseFields(decl.Type.Params.List)
+				}
+				if decl.Type.Results != nil {
+					fn.Results = parseFields(decl.Type.Results.List)
+				}
+				fn.Body = parseBody(decl.Body.List)
+				data.Funcs = append(data.Funcs, fn)
+			default:
+				_ = decl
+				fmt.Println("decl not found")
 			}
-			dataPkg.Files = append(dataPkg.Files, data)
 		}
-		exportData.Pkgs = append(exportData.Pkgs, dataPkg)
+		exportData.Pkgs = append(exportData.Pkgs, data)
 	}
 }
 func addSemicolon(obj interface{}, init bool) string {
@@ -482,7 +476,6 @@ func parseFields(list []*ast.Field) []string {
 			fmt.Println("interfacetype list:", ty.Methods.List)
 			buffer.WriteString("Any")
 		case *ast.Ident:
-			fmt.Println("parse field ident", ty.Name)
 			name := ty.Name
 			value, ok := replaceMap[name]
 			if ok {
@@ -718,4 +711,87 @@ func reserved(str string) string {
 	default:
 		return str
 	}
+}
+func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
+	data := ast.File{}
+	data.Name = ast.NewIdent(pkg.Name)
+	names := make(map[string]bool)
+	imports := make(map[string]bool)
+	_ = imports
+	_ = names
+	// A language entity may be declared multiple
+	// times in different package files; only at
+	// build time declarations must be unique.
+	// For now, exclude multiple declarations of
+	// functions - keep the one with documentation.
+	// TODO(gri): Expand this filtering to other
+	//            entities (const, type, vars) if
+	//            multiple declarations are common.
+	for _, file := range pkg.Syntax {
+		for index := range file.Decls {
+			switch decl := file.Decls[index].(type) {
+			case *ast.GenDecl:
+				declData := ast.GenDecl{}
+				for _, spec := range decl.Specs {
+					switch spec := spec.(type) {
+					case *ast.ImportSpec:
+						if !imports[spec.Path.Value] {
+							imports[spec.Path.Value] = true
+						} else {
+							continue
+						}
+					case *ast.ValueSpec:
+						if exports {
+							names := []*ast.Ident{}
+							values := []ast.Expr{}
+							for index := range spec.Names {
+								if spec.Names[index].IsExported() {
+									names = append(names, spec.Names[index])
+									values = append(values, spec.Values[index])
+								}
+							}
+							if len(names) == 0 {
+								continue
+							}
+							spec.Names = names
+						}
+					default:
+						_ = spec
+						fmt.Println("spec not found")
+					}
+					declData.Specs = append(declData.Specs, spec)
+				}
+				data.Decls = append(data.Decls, &declData)
+			case *ast.FuncDecl:
+				if exports && !decl.Name.IsExported() {
+					continue
+				}
+				declData := ast.FuncDecl{}
+				declData.Name = decl.Name
+				declData.Type = decl.Type
+				declData.Body = decl.Body
+				if exports {
+					declData.Body.List = []ast.Stmt{}
+				}
+				data.Decls = append(data.Decls, &declData)
+			default:
+				_ = decl
+				fmt.Println("decl not found")
+			}
+		}
+	}
+	// Eliminate nil entries from the decls list if entries were
+	// filtered. We do this using a 2nd pass in order to not disturb
+	// the original declaration order in the source (otherwise, this
+	// would also invalidate the monotonically increasing position
+	// info within a single file).
+	/*i := 0
+	for _, d := range data.Decls {
+		if d != nil {
+			data.Decls[i] = d
+			i++
+		}
+	}
+	data.Decls = data.Decls[0:i]*/
+	return data
 }

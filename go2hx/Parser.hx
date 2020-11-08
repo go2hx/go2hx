@@ -11,7 +11,7 @@ class Parser {
     var replaceMap:Map<String,String> = [];
     var stdimports:Array<String> = [];
     public var exportPath:String = "bin";
-    var externs:Bool = true;
+    var externs:Bool = false;
     public function new() {
         exportPath = Path.addTrailingSlash(exportPath);
         var data:JsonData = Json.parse(File.getContent("export.json"));

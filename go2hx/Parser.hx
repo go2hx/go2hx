@@ -57,15 +57,14 @@ class Parser {
         lines.push('class $className {');
         //vars and consts
         if (file.vars != null) for (v in file.vars) {
-            var first = v.exported ? "public static " : "";
+            var first = v.exported ? "public static " : "static ";
             first += v.constant ? "final" : "var";
             lines.push('$first ${v.name} = ${v.value};');
         }
         //functions
         if (file.funcs != null) for (func in file.funcs) {
             var first = "";
-            if (func.exported)
-                first = "public static";
+            first = func.exported ? "public static" : "static ";
             lines.push('$first function ${func.name}(${func.params.join(", ")}) {');
             for (expr in func.body) {
                 lines.push(expr);

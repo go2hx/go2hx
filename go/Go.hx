@@ -78,7 +78,6 @@ class Go {
 						var value = values[0];
 						var get = expr;
 						set.push(macro $value = $get);
-						trace("int " + t.get().name);
 					default:
 						trace("not abstract");
 				}

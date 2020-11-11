@@ -49,8 +49,10 @@ class Go {
 										values.push(v);
 									}
 								default:
+									trace("not indent " + c);
 							}
-							default:
+						default:
+							trace("not constant " + v.expr);
 					}
 				}
 			default:
@@ -67,11 +69,24 @@ class Go {
 						continue;
 					var get = Context.parse('tmp.${field.name}',Context.currentPos());
 					var value = values[index];
+					trace("pushed");
 					set.push(macro $value = $get);
 				}
+			case TFun(args, ret):
+				switch ret {
+					case TAbstract(t, params):
+						var value = values[0];
+						var get = expr;
+						set.push(macro $value = $get);
+						trace("int " + t.get().name);
+					default:
+						trace("not abstract");
+				}
 			default:
+				trace("not an inst or func " + type);
 		}
-		//var printer = new Printer();
+		var printer = new Printer();
+		//trace(printer.printExprs(set,"  "));
 		//trace(printer.printExprs(set,"\n"));
 		return macro {
 			var tmp = $expr;

@@ -16,7 +16,7 @@ import (
 
 	//"go/parser"
 	//"path/filepath"
-	//"strconv"
+	"strconv"
 	"os/exec"
 
 	"golang.org/x/tools/go/packages"
@@ -215,7 +215,23 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init))
 	case *ast.ReturnStmt:
-		body = append(body, "return;")
+		buffer := strings.Builder{}
+		buffer.WriteString("return ")
+
+		if len(stmt.Results) > 1 {
+			buffer.WriteString("{")
+			for index,res := range stmt.Results {
+				buffer.WriteString("v")
+				buffer.WriteString(strconv.Itoa(index))
+				buffer.WriteString(" : ")
+				buffer.WriteString(parseExpr(res,false))
+			}
+			buffer.WriteString("}")
+		} else if len(stmt.Results) == 1 {
+			buffer.WriteString(parseExpr(stmt.Results[0],false))
+		}
+		buffer.WriteString(";\n")
+		body = append(body,buffer.String())
 	case *ast.TypeSwitchStmt:
 		fmt.Println("assign", reflect.TypeOf(stmt.Assign))
 		buffer := strings.Builder{}
@@ -427,6 +443,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := strings.Builder{}
 		buffer.WriteString(parseExpr(stmt.X, false))
 		buffer.WriteString(stmt.Tok.String())
+		buffer.WriteString(addSemicolon(stmt,init))
 		body = append(body, buffer.String())
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
@@ -516,6 +533,14 @@ func parseFields(list []*ast.Field) []string {
 			buffer.WriteString("}")*/
 			fmt.Println("interfacetype list:", ty.Methods.List)
 			buffer.WriteString("Any")
+		case *ast.FuncType:
+			buffer.WriteString("(")
+			params := parseFields(ty.Params.List)
+			buffer.WriteString(strings.Join(params,","))
+			buffer.WriteString(") -> (")
+			res := parseFields(ty.Results.List)
+			buffer.WriteString(strings.Join(res,","))
+			buffer.WriteString(")")
 		case *ast.Ident:
 			name := ty.Name
 			value, ok := replaceMap[name]
@@ -574,7 +599,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			res := parseFields(expr.Type.Results.List)
 			_ = res
 		}
-		buffer.WriteString("{")
+		buffer.WriteString("{\n")
 		buffer.WriteString(strings.Join(parseBody(expr.Body.List), "\n"))
 		buffer.WriteString("}")
 	case *ast.BasicLit:

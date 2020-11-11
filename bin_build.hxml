@@ -1,3 +1,2 @@
 -cp bin
--main github_com.pxshadow.go2hx.gobyexample.examples.base64_encoding.Main
---interp
+bin/build.hxml

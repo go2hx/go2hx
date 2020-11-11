@@ -3,6 +3,7 @@
 main
 bin
 examples/*.hx
+dump
 *.js
 *.exe
 node_modules

@@ -5,3 +5,4 @@ import go.Go.panic;
 import go.Go.cfor;
 import go.Go.len;
 import go.Go.str;
+import go.Go.setMulti;

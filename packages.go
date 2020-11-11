@@ -441,17 +441,58 @@ func parseBody(stmts []ast.Stmt) []string {
 	}
 	return body
 }
-func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
+//multiple-value test() in single-value context
+func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 	buffer := strings.Builder{}
-	if len(stmt.Lhs) != len(stmt.Rhs) {
-		buffer.WriteString("//function with multiple returns\n")
-		return buffer.String()
+	args := []string{}
+	for i := range stmt.Lhs {
+		set := parseExpr(stmt.Lhs[i], false)
+		if set == "_" {
+			args = append(args,"null")
+			continue
+		}
+		if stmt.Tok.String() == ":="{
+			buffer.WriteString("var ")
+			buffer.WriteString(set)
+			buffer.WriteString(addSemicolon(stmt,init))
+		}
+		args = append(args,set)
 	}
+	buffer.WriteString("setMulti([")
+	buffer.WriteString(strings.Join(args,","))
+	buffer.WriteString("],")
+	buffer.WriteString(parseExpr(stmt.Rhs[0],false))
+	buffer.WriteString(")")
+	buffer.WriteString(addSemicolon(stmt, init))
+	return buffer.String()
+}
+func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
+	multi := false
+	if len(stmt.Lhs) != len(stmt.Rhs)  {
+		multi = true
+	}
+
+	if !multi && len(stmt.Rhs) == 1 {
+		switch stmt.Rhs[0].(type) {
+			case *ast.CallExpr:
+				multi = true
+			default:
+				fmt.Println("rhs",reflect.TypeOf(stmt.Rhs[0]))
+		}
+	}
+	if multi {
+		return parseMultiReturn(stmt,init)
+	}
+	buffer := strings.Builder{}
 	for i, _ := range stmt.Lhs {
+		set := parseExpr(stmt.Lhs[i], false)
+		if set == "_" {
+			continue
+		}
 		if stmt.Tok.String() == ":=" {
 			buffer.WriteString("var ")
 		}
-		buffer.WriteString(parseExpr(stmt.Lhs[i], false))
+		buffer.WriteString(set)
 		buffer.WriteString(" = ")
 		buffer.WriteString(parseExpr(stmt.Rhs[i], false))
 		buffer.WriteString(addSemicolon(stmt, init))
@@ -509,6 +550,10 @@ func parseExprs(list []ast.Expr, init bool) []string {
 func parseExpr(expr ast.Expr, init bool) string {
 	buffer := strings.Builder{}
 	switch expr := expr.(type) {
+	case *ast.KeyValueExpr:
+		buffer.WriteString(parseExpr(expr.Key,false))
+		buffer.WriteString(" : ")
+		buffer.WriteString(parseExpr(expr.Value,false))
 	case *ast.ArrayType:
 		name := parseExpr(expr.Elt, false)
 		value, ok := replaceMap[name]
@@ -575,10 +620,11 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer.WriteString(name)
 		case *ast.ArrayType:
 			value := parseExpr(init.Elt, false)
-			fmt.Println("value", value)
 			switch value {
-			case "Byte":
-				buffer.WriteString("haxe.io.Bytes.ofString")
+				case "Rune":
+					buffer.WriteString("Std.int")
+				case "Byte":
+					buffer.WriteString("haxe.io.Bytes.ofString")
 			}
 		default:
 			buffer.WriteString(parseExpr(expr.Fun, false))

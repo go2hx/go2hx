@@ -174,6 +174,7 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
+				fmt.Println("func Name",fn.Name)
 				if decl.Type.Params != nil {
 					fn.Params = parseFields(decl.Type.Params.List)
 				}

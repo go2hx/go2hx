@@ -65,7 +65,7 @@ class Parser {
             var first = "";
             if (func.exported)
                 first = "public static";
-            lines.push('$first function ${func.name}() {');
+            lines.push('$first function ${func.name}(${func.params.join(", ")}) {');
             for (expr in func.body) {
                 lines.push(expr);
             }

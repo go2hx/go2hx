@@ -33,8 +33,8 @@ class Parser {
         var pkgPath = path;
         pkgPath = Path.removeTrailingSlashes(pkgPath);
         pkgPath = StringTools.replace(pkgPath,"/",".");
-        var lines = ['package $pkgPath;'];
         var className = cap(file.name);
+        var lines = ['package $pkgPath;'];
         //imports
         if (file.imports != null) for (imp in file.imports) {
             var name = capPkg(imp[0]);
@@ -54,6 +54,7 @@ class Parser {
             trace("set line " + line);
             lines.push(line);
         }
+        lines.push('class $className {');
         //vars and consts
         if (file.vars != null) for (v in file.vars) {
             var first = v.exported ? "public static " : "";
@@ -76,6 +77,7 @@ class Parser {
             FileSystem.createDirectory(exportPath + path);
         var path = exportPath + path + className + ".hx";
         trace("path " + path);
+        lines.push("}");
         File.saveContent(path,lines.join("\n"));
         buildConfig(pkgPath,className);
     }

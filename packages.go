@@ -535,19 +535,34 @@ func parseFields(list []*ast.Field) []string {
 			fmt.Println("interfacetype list:", ty.Methods.List)
 			buffer.WriteString("Any")
 		case *ast.FuncType:
-			buffer.WriteString("(")
 			params := parseFields(ty.Params.List)
-			buffer.WriteString(strings.Join(params,","))
-			buffer.WriteString(") -> (")
+			if len(params) == 0 {
+				buffer.WriteString("Void")
+			} else if len(params) > 0 {
+				buffer.WriteString("(")
+				buffer.WriteString(strings.Join(params,","))
+				buffer.WriteString(")")
+			}
+			buffer.WriteString(" -> ")
 			res := parseFields(ty.Results.List)
-			buffer.WriteString(strings.Join(res,","))
-			buffer.WriteString(")")
+			if len(res) == 0 {
+				buffer.WriteString("Void")
+			}else if len(res) > 0 {
+				buffer.WriteString("(")
+				
+				buffer.WriteString(strings.Join(res,","))
+				buffer.WriteString(")")
+			}
 		case *ast.Ident:
 			name := ty.Name
 			value, ok := replaceMap[name]
 			if ok {
 				buffer.WriteString(value)
 			}
+		case *ast.ArrayType:
+			buffer.WriteString("Array<")
+			buffer.WriteString(parseExpr(ty.Elt,false))
+			buffer.WriteString(">")
 		default:
 			_ = ty
 			buffer.WriteString("Any")

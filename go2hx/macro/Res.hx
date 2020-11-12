@@ -11,7 +11,7 @@ class Res {
     static var data = {excludes:[
         "math",
         "flag",
-        "errors",
+        //"errors",
         "internal/reflectlite",
         "internal/unsafeheader",
         "unsafe",

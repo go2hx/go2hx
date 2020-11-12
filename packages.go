@@ -16,8 +16,8 @@ import (
 
 	//"go/parser"
 	//"path/filepath"
-	"strconv"
 	"os/exec"
+	"strconv"
 
 	"golang.org/x/tools/go/packages"
 
@@ -146,10 +146,10 @@ func load(args ...string) {
 							}
 							data.Imports = append(data.Imports, imp)
 							fmt.Println("excludes", path, excludes[path])
-							/*if !excludes[path] {
+							if !excludes[path] {
 								load(path)
 								excludes[path] = true
-							}*/
+							}
 							name := getName(path)
 							replaceMap[imp[1]] = strings.Title(imp[1])
 							replaceMap[name] = strings.Title(name)
@@ -161,6 +161,9 @@ func load(args ...string) {
 							v.Constant = spec.Names[i].Obj.Kind.String() == "const"
 							v.Name = spec.Names[i].Name
 							v.Exported = spec.Names[i].IsExported()
+							if i >= len(spec.Values) {
+								continue
+							}
 							v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
 
 							data.Vars = append(data.Vars, v)
@@ -174,7 +177,6 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
-				fmt.Println("func Name",fn.Name)
 				if decl.Type.Params != nil {
 					fn.Params = parseFields(decl.Type.Params.List)
 				}
@@ -221,18 +223,18 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 
 		if len(stmt.Results) > 1 {
 			buffer.WriteString("{")
-			for index,res := range stmt.Results {
+			for index, res := range stmt.Results {
 				buffer.WriteString("v")
 				buffer.WriteString(strconv.Itoa(index))
 				buffer.WriteString(" : ")
-				buffer.WriteString(parseExpr(res,false))
+				buffer.WriteString(parseExpr(res, false))
 			}
 			buffer.WriteString("}")
 		} else if len(stmt.Results) == 1 {
-			buffer.WriteString(parseExpr(stmt.Results[0],false))
+			buffer.WriteString(parseExpr(stmt.Results[0], false))
 		}
 		buffer.WriteString(";\n")
-		body = append(body,buffer.String())
+		body = append(body, buffer.String())
 	case *ast.TypeSwitchStmt:
 		fmt.Println("assign", reflect.TypeOf(stmt.Assign))
 		buffer := strings.Builder{}
@@ -444,20 +446,20 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := strings.Builder{}
 		buffer.WriteString(parseExpr(stmt.X, false))
 		buffer.WriteString(stmt.Tok.String())
-		buffer.WriteString(addSemicolon(stmt,init))
+		buffer.WriteString(addSemicolon(stmt, init))
 		body = append(body, buffer.String())
 	case *ast.RangeStmt:
 		buffer := strings.Builder{}
 		buffer.WriteString("range(")
-		buffer.WriteString(parseExpr(stmt.Key,false))
+		buffer.WriteString(parseExpr(stmt.Key, false))
 		buffer.WriteString(",")
-		buffer.WriteString(parseExpr(stmt.Value,false))
+		buffer.WriteString(parseExpr(stmt.Value, false))
 		buffer.WriteString(",")
-		buffer.WriteString(parseExpr(stmt.X,false))
+		buffer.WriteString(parseExpr(stmt.X, false))
 		buffer.WriteString(", {\n")
-		buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
+		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
 		buffer.WriteString("});")
-		body = append(body,buffer.String())
+		body = append(body, buffer.String())
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -471,6 +473,7 @@ func parseBody(stmts []ast.Stmt) []string {
 	}
 	return body
 }
+
 //multiple-value test() in single-value context
 func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 	buffer := strings.Builder{}
@@ -478,40 +481,40 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 	for i := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
 		if set == "_" {
-			args = append(args,"null")
+			args = append(args, "null")
 			continue
 		}
-		if stmt.Tok.String() == ":="{
+		if stmt.Tok.String() == ":=" {
 			buffer.WriteString("var ")
 			buffer.WriteString(set)
-			buffer.WriteString(addSemicolon(stmt,init))
+			buffer.WriteString(addSemicolon(stmt, init))
 		}
-		args = append(args,set)
+		args = append(args, set)
 	}
 	buffer.WriteString("setMulti([")
-	buffer.WriteString(strings.Join(args,","))
+	buffer.WriteString(strings.Join(args, ","))
 	buffer.WriteString("],")
-	buffer.WriteString(parseExpr(stmt.Rhs[0],false))
+	buffer.WriteString(parseExpr(stmt.Rhs[0], false))
 	buffer.WriteString(")")
 	buffer.WriteString(addSemicolon(stmt, init))
 	return buffer.String()
 }
 func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	multi := false
-	if len(stmt.Lhs) != len(stmt.Rhs)  {
+	if len(stmt.Lhs) != len(stmt.Rhs) {
 		multi = true
 	}
 
 	if !multi && len(stmt.Rhs) == 1 {
 		switch stmt.Rhs[0].(type) {
-			case *ast.CallExpr:
-				multi = true
-			default:
-				fmt.Println("rhs",reflect.TypeOf(stmt.Rhs[0]))
+		case *ast.CallExpr:
+			multi = true
+		default:
+			//fmt.Println("assign statement rhs", reflect.TypeOf(stmt.Rhs[0]))
 		}
 	}
 	if multi {
-		return parseMultiReturn(stmt,init)
+		return parseMultiReturn(stmt, init)
 	}
 	buffer := strings.Builder{}
 	for i, _ := range stmt.Lhs {
@@ -553,22 +556,26 @@ func parseFields(list []*ast.Field) []string {
 				buffer.WriteString("Void")
 			} else if len(params) == 1 {
 				buffer.WriteString(params[0])
-			}else {
+			} else {
 				buffer.WriteString("(")
-				buffer.WriteString(strings.Join(params,","))
+				buffer.WriteString(strings.Join(params, ","))
 				buffer.WriteString(")")
 			}
 			buffer.WriteString(" -> ")
-			res := parseFields(ty.Results.List)
-			if len(res) == 0 {
+			if ty.Results == nil {
 				buffer.WriteString("Void")
-			}else if len(res) == 1 {
-				buffer.WriteString(res[0])
-			}else {
-				buffer.WriteString("{")
-				
-				buffer.WriteString(strings.Join(res,","))
-				buffer.WriteString("}")
+			} else {
+				res := parseFields(ty.Results.List)
+				if len(res) == 0 {
+					buffer.WriteString("Void")
+				} else if len(res) == 1 {
+					buffer.WriteString(res[0])
+				} else {
+					buffer.WriteString("{")
+
+					buffer.WriteString(strings.Join(res, ","))
+					buffer.WriteString("}")
+				}
 			}
 		case *ast.Ident:
 			name := ty.Name
@@ -578,7 +585,7 @@ func parseFields(list []*ast.Field) []string {
 			}
 		case *ast.ArrayType:
 			buffer.WriteString("Array<")
-			buffer.WriteString(parseExpr(ty.Elt,false))
+			buffer.WriteString(parseExpr(ty.Elt, false))
 			buffer.WriteString(">")
 		default:
 			_ = ty
@@ -593,7 +600,7 @@ func parseFields(list []*ast.Field) []string {
 			buffer.WriteString(strconv.Itoa(index))
 			buffer.WriteString(":")*/
 			buffer.WriteString(ty)
-		}else{
+		} else {
 			for _, name := range field.Names {
 				buffer.WriteString(parseExpr(name, false))
 				buffer.WriteString(":")
@@ -615,9 +622,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 	buffer := strings.Builder{}
 	switch expr := expr.(type) {
 	case *ast.KeyValueExpr:
-		buffer.WriteString(parseExpr(expr.Key,false))
+		buffer.WriteString(parseExpr(expr.Key, false))
 		buffer.WriteString(" : ")
-		buffer.WriteString(parseExpr(expr.Value,false))
+		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
 		name := parseExpr(expr.Elt, false)
 		value, ok := replaceMap[name]
@@ -677,30 +684,30 @@ func parseExpr(expr ast.Expr, init bool) string {
 				name = value
 			}
 			switch name {
-				case "String":
-					name = "str"
-				case "int64":
-					name = ""
-				case "make":
-					name = "new "
-					makeBool = true
+			case "String":
+				name = "str"
+			case "int64":
+				name = ""
+			case "make":
+				name = "new "
+				makeBool = true
 			}
 			buffer.WriteString(name)
 		case *ast.ArrayType:
 			value := parseExpr(init.Elt, false)
 			switch value {
-				case "Rune":
-					buffer.WriteString("Std.int")
-				case "Byte":
-					buffer.WriteString("haxe.io.Bytes.ofString")
+			case "Rune":
+				buffer.WriteString("Std.int")
+			case "Byte":
+				buffer.WriteString("haxe.io.Bytes.ofString")
 			}
 		default:
 			buffer.WriteString(parseExpr(expr.Fun, false))
 		}
 		if makeBool {
-			buffer.WriteString(parseExpr(expr.Args[0],false))
+			buffer.WriteString(parseExpr(expr.Args[0], false))
 			buffer.WriteString("()")
-		}else{
+		} else {
 			buffer.WriteString("(")
 			buffer.WriteString(strings.Join(parseExprs(expr.Args, false), ", "))
 			buffer.WriteString(")")
@@ -728,8 +735,29 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString("[")
 		buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
 		buffer.WriteString("]")
+	case *ast.SliceExpr:
+		//ast.Print(nil, expr)
+		buffer.WriteString(parseExpr(expr.X, false))
+		buffer.WriteString(".slice(")
+		low := "0"
+		if expr.Low != nil {
+			low = parseExpr(expr.Low, false)
+		}
+		buffer.WriteString(low)
+		if expr.High != nil {
+			buffer.WriteString(",")
+			buffer.WriteString(parseExpr(expr.High, false))
+		}
+		buffer.WriteString(")")
+		if expr.Max != nil {
+			buffer.WriteString(".slice(0,")
+			buffer.WriteString(parseExpr(expr.Max, false))
+			buffer.WriteString(")")
+		}
+	case *ast.StarExpr:
+
 	default:
-		//fmt.Println("parse expr not found",reflect.TypeOf(expr))
+		fmt.Println("parse expr not found", reflect.TypeOf(expr))
 		//ast.Print(nil,expr)
 		return addDebug(expr)
 	}

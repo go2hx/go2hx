@@ -58,7 +58,6 @@ class Parser {
                 line += ' as $as';
             }
             line += ";";
-            trace("set line " + line);
             lines.push(line);
         }
         lines.push('class $className {');

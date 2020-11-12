@@ -81,6 +81,7 @@ func main() {
 	for _, ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
+	replaceMap["error"] = "haxe.Exception"
 	replaceMap["nill"] = "null"
 	if err != nil {
 		fmt.Println(err)
@@ -166,7 +167,6 @@ func load(args ...string) {
 								continue
 							}
 							v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
-
 							data.Vars = append(data.Vars, v)
 						}
 					case *ast.TypeSpec:
@@ -615,14 +615,25 @@ func parseFields(list []*ast.Field) []string {
 			name := ty.Name
 			value, ok := replaceMap[name]
 			if ok {
-				buffer.WriteString(value)
+				name = value
 			}
+			buffer.WriteString(name)
 		case *ast.ArrayType:
 			buffer.WriteString("Array<")
 			buffer.WriteString(parseExpr(ty.Elt, false))
 			buffer.WriteString(">")
 		case *ast.StarExpr:
 			buffer.WriteString(parseExpr(ty.X,false))
+		case *ast.SelectorExpr:
+			name := parseExpr(ty.X, false)
+			value, ok := replaceMap[name]
+			if ok {
+				name = value
+			}
+			buffer.WriteString(name)
+			buffer.WriteString(".")
+			sel := untitle(ty.Sel.Name)
+			buffer.WriteString(sel)
 		default:
 			_ = ty
 			buffer.WriteString("Any")
@@ -696,7 +707,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(parseExpr(expr.Y, false))
 	case *ast.SelectorExpr: //1st class
 		name := parseExpr(expr.X, false)
-		//name := expr.X.(*ast.Ident).String()
 		value, ok := replaceMap[name]
 		if ok {
 			name = value
@@ -724,7 +734,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			switch name {
 			case "String":
 				name = "str"
-			case "int64":
+			case "Int64":
 				name = ""
 			case "make":
 				name = "new "
@@ -930,7 +940,7 @@ func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						names := []*ast.Ident{}
+						/*names := []*ast.Ident{}
 						values := []ast.Expr{}
 						for index := range spec.Names {
 							if spec.Names[index].IsExported() {
@@ -943,7 +953,7 @@ func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						if len(names) == 0 {
 							continue
 						}
-						spec.Names = names
+						spec.Names = names*/
 					case *ast.TypeSpec:
 						
 					default:

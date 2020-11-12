@@ -32,6 +32,11 @@ class Go {
 		}
 		return macro $expr;
 	}
+	public static macro function append(cond,expr) {
+		return macro {
+			$cond.push($expr);
+		};
+	}
 	public static macro function setMulti(cond,expr) {
 		var type = Context.typeof(expr);
 		var values:Array<haxe.macro.Expr> = [];
@@ -51,6 +56,9 @@ class Go {
 								default:
 									trace("not indent " + c);
 							}
+						case EArray(e1, e2):
+							trace("array v " + v);
+							values.push(v);
 						default:
 							trace("not constant " + v.expr);
 					}
@@ -61,17 +69,8 @@ class Go {
 		var set:Array<haxe.macro.Expr> = [];
 		switch type {
 			case TInst(t, params):
-				for (field in t.get().fields.get()) {
-					index++;
-					if (values[index] == null)
-						continue;
-					if (index >= values.length)
-						continue;
-					var get = Context.parse('tmp.${field.name}',Context.currentPos());
-					var value = values[index];
-					trace("pushed");
-					set.push(macro $value = $get);
-				}
+				var value = values[0];
+				set.push(macro $value = $expr);
 			case TFun(args, ret):
 				switch ret {
 					case TAbstract(t, params):
@@ -80,6 +79,25 @@ class Go {
 						set.push(macro $value = $get);
 					default:
 						trace("not abstract");
+				}
+			case TType(t, params):
+				switch t.get().type {
+					case TAnonymous(a):
+						var fields = a.get().fields;
+						fields.sort(function(a,b) {
+							return 0;
+						});
+						for (field in fields) {
+							index++;
+							if (values[index] == null)
+								continue;
+							if (index >= values.length)
+								continue;
+							var get = Context.parse('tmp.${field.name}',Context.currentPos());
+							var value = values[index];
+							set.push(macro $value = $get);
+						}
+					default:
 				}
 			default:
 				trace("not an inst or func " + type);
@@ -90,6 +108,53 @@ class Go {
 		return macro {
 			var tmp = $expr;
 			$b{set}
+		}
+	}
+	public static macro function range(key,value,x,expr) {
+		var print = new Printer();
+		function getName(expr:haxe.macro.Expr) {
+			switch expr.expr {
+				case EConst(c):
+					switch c {
+						case CIdent(s):
+							return s;
+						default:
+					}
+				default:
+			}
+			return "";
+		}
+		var keyName = getName(key);
+		if (keyName == "_")
+			keyName = "i";
+		var init = Context.parse('var $keyName = 0;',Context.currentPos());
+		var post = Context.parse('$keyName++',Context.currentPos());
+		var set = macro null;
+		var valueName = getName(value);
+		if (valueName != "_") {
+			set = Context.parse('var $valueName = tmp;',Context.currentPos());
+		}
+		#if !display
+		var func = null;
+		func = function(expr:haxe.macro.Expr) {
+			return switch (expr.expr) {
+				case EContinue: macro { $post; $expr; }
+				case EWhile(_, _, _): expr;
+				case ECall(macro cfor, _): expr;
+				case EFor(_): expr;
+				//case EIn(_): expr;
+				default: haxe.macro.ExprTools.map(expr, func);
+			}
+		}
+		expr = func(expr);
+		#end
+		return macro {
+			$init;
+			for (tmp in $x) {
+				$set;
+				$expr;
+				$post;
+			}
 		}
 	}
     public static macro function cfor(cond, post, expr) {
@@ -115,12 +180,5 @@ class Go {
 		};
 	}
 }
-class ErrorReturn<T> {
-	public var value:T;
-	public var error:Exception;
-	public function new(value:T,error:Exception=null) {
-		this.value = value;
-		this.error = error;
-	}
-
-}
+typedef StringErrorReturn = {value:String,?error:Exception}
+typedef BytesErorReturn = {value:Bytes,?error:Exception}

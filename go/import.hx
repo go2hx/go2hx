@@ -6,3 +6,5 @@ import go.Go.cfor;
 import go.Go.len;
 import go.Go.str;
 import go.Go.setMulti;
+import go.Go.range;
+import go.Go.append;

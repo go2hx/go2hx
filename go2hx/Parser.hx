@@ -12,6 +12,10 @@ class Parser {
     public var exportPath:String = "bin";
     public function new() {
         exportPath = Path.addTrailingSlash(exportPath);
+        if (!FileSystem.exists("export.json")) {
+            trace("export.json not found");
+            return;
+        }
         var data:JsonData = Json.parse(File.getContent("export.json"));
         for (pkg in data.pkgs) {
             var path = pkg.packagepath;
@@ -75,7 +79,6 @@ class Parser {
         if (!FileSystem.exists(exportPath + path))
             FileSystem.createDirectory(exportPath + path);
         var path = exportPath + path + className + ".hx";
-        trace("path " + path);
         lines.push("}");
         File.saveContent(path,lines.join("\n"));
         buildConfig(pkgPath,className);

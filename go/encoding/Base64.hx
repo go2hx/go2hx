@@ -1,5 +1,6 @@
 package go.encoding;
-import go.Go.ErrorReturn;
+import go.Go.BytesErorReturn;
+import go.Go.StringErrorReturn;
 import haxe.Exception;
 import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;
@@ -11,18 +12,18 @@ private class StdEncoding {
     public function new() {
 
     }
-    public function encodeToString(bytes:Bytes) {
+    public function encodeToString(bytes:Bytes):StringErrorReturn {
         try {
-            return new ErrorReturn<String>(Base.encode(bytes));
+            return return {value:Base.encode(bytes)};
         }catch(e) {
-            return new ErrorReturn<String>("",e);
+            return {value: null,error: e};
         }
     }
-    public function decodeString(string:String) {
+    public function decodeString(string:String):BytesErorReturn {
         try {
-            return new ErrorReturn<Bytes>(Base.decode(string));
+            return {value: Base.decode(string)};
         }catch(e) {
-            return new ErrorReturn<Bytes>(null,e);
+            return {value: null,error: e};
         }
     }
 }
@@ -30,18 +31,18 @@ private class UrlEncoding {
     public function new() {
 
     }
-    public function encodeToString(bytes:Bytes) {
+    public function encodeToString(bytes:Bytes):StringErrorReturn {
         try {
-            return new ErrorReturn<String>(Base.urlEncode(bytes));
+            return {value: Base.urlEncode(bytes)};
         }catch(e) {
-            return new ErrorReturn<String>("",e);
+            return {value: null, error: e};
         }
     }
-    public function decodeString(string:String) {
+    public function decodeString(string:String):BytesErorReturn {
         try {
-            return new ErrorReturn<Bytes>(Base.urlDecode(string));
+            return {value: Base.urlDecode(string)};
         }catch(e) {
-            return new ErrorReturn<Bytes>(null,e);
+            return {value: null, error: e};
         }
     }
 }

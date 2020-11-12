@@ -446,6 +446,18 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer.WriteString(stmt.Tok.String())
 		buffer.WriteString(addSemicolon(stmt,init))
 		body = append(body, buffer.String())
+	case *ast.RangeStmt:
+		buffer := strings.Builder{}
+		buffer.WriteString("range(")
+		buffer.WriteString(parseExpr(stmt.Key,false))
+		buffer.WriteString(",")
+		buffer.WriteString(parseExpr(stmt.Value,false))
+		buffer.WriteString(",")
+		buffer.WriteString(parseExpr(stmt.X,false))
+		buffer.WriteString(", {\n")
+		buffer.WriteString(strings.Join(parseBody(stmt.Body.List),"\n"))
+		buffer.WriteString("});")
+		body = append(body,buffer.String())
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -522,7 +534,8 @@ func removeParan(str string) string {
 }
 func parseFields(list []*ast.Field) []string {
 	array := []string{}
-	for _, field := range list {
+	for index, field := range list {
+		_ = index
 		buffer := strings.Builder{}
 		switch ty := field.Type.(type) {
 		case *ast.InterfaceType:
@@ -538,7 +551,9 @@ func parseFields(list []*ast.Field) []string {
 			params := parseFields(ty.Params.List)
 			if len(params) == 0 {
 				buffer.WriteString("Void")
-			} else if len(params) > 0 {
+			} else if len(params) == 1 {
+				buffer.WriteString(params[0])
+			}else {
 				buffer.WriteString("(")
 				buffer.WriteString(strings.Join(params,","))
 				buffer.WriteString(")")
@@ -547,11 +562,13 @@ func parseFields(list []*ast.Field) []string {
 			res := parseFields(ty.Results.List)
 			if len(res) == 0 {
 				buffer.WriteString("Void")
-			}else if len(res) > 0 {
-				buffer.WriteString("(")
+			}else if len(res) == 1 {
+				buffer.WriteString(res[0])
+			}else {
+				buffer.WriteString("{")
 				
 				buffer.WriteString(strings.Join(res,","))
-				buffer.WriteString(")")
+				buffer.WriteString("}")
 			}
 		case *ast.Ident:
 			name := ty.Name
@@ -568,15 +585,21 @@ func parseFields(list []*ast.Field) []string {
 			buffer.WriteString("Any")
 			fmt.Println("parse field type not found", reflect.TypeOf(ty))
 		}
+		//fmt.Println("field type ",reflect.TypeOf(field.Type))
 		ty := buffer.String()
 		buffer.Reset()
-
-		for _, name := range field.Names {
-			buffer.WriteString(parseExpr(name, false))
-			buffer.WriteString(":")
+		if len(field.Names) == 0 {
+			/*buffer.WriteString("v")
+			buffer.WriteString(strconv.Itoa(index))
+			buffer.WriteString(":")*/
 			buffer.WriteString(ty)
+		}else{
+			for _, name := range field.Names {
+				buffer.WriteString(parseExpr(name, false))
+				buffer.WriteString(":")
+				buffer.WriteString(ty)
+			}
 		}
-
 		array = append(array, buffer.String())
 	}
 	return array
@@ -645,6 +668,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer.WriteString(name)
 	case *ast.CallExpr: //1st class
+		makeBool := false
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
 			name := init.Name
@@ -652,11 +676,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 			if ok {
 				name = value
 			}
-			switch value {
-			case "String":
-				name = "str"
-			case "Int64":
-				name = ""
+			switch name {
+				case "String":
+					name = "str"
+				case "int64":
+					name = ""
+				case "make":
+					name = "new "
+					makeBool = true
 			}
 			buffer.WriteString(name)
 		case *ast.ArrayType:
@@ -670,9 +697,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			buffer.WriteString(parseExpr(expr.Fun, false))
 		}
-		buffer.WriteString("(")
-		buffer.WriteString(strings.Join(parseExprs(expr.Args, false), ", "))
-		buffer.WriteString(")")
+		if makeBool {
+			buffer.WriteString(parseExpr(expr.Args[0],false))
+			buffer.WriteString("()")
+		}else{
+			buffer.WriteString("(")
+			buffer.WriteString(strings.Join(parseExprs(expr.Args, false), ", "))
+			buffer.WriteString(")")
+		}
 		buffer.WriteString(addSemicolon(expr, init))
 	case *ast.UnaryExpr: //3rd class
 		op := expr.Op.String()

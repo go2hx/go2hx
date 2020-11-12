@@ -13,8 +13,11 @@ class Main {
         #else
         init();
         #end
-        var a = [];
-        trace("test " + go.Go.len(a));
+        var vs = ["hello world","yes that's me"];
+        go.Go.range(_,v,vs, {
+            trace("v " + v);
+        });
+        trace("range test done");
     }
     static function init() {
         var help:Bool = false;

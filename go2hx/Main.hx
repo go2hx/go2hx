@@ -9,20 +9,16 @@ class Main {
     static function main() {
         #if debug
         //trace("go run packages.go");Sys.command("go run packages.go github.com/pxshadow/go2hx/examples/helloworld/");
-        new Parser();
+        new Parser("bin/",true);
         #else
         init();
         #end
-        var vs = ["hello world","yes that's me"];
-        go.Go.range(_,v,vs, {
-            trace("v " + v);
-        });
-        trace("range test done");
     }
     static function init() {
         var help:Bool = false;
         var ping:Bool = false;
         var inputPaths:Array<String> = [];
+        var format:Bool = false;
         var outputPath:String = "bin";
         var argHandler = Args.generate([
             @doc("Ping test")
@@ -34,6 +30,8 @@ class Main {
             ["-output","-o"] => (path:String) -> {
                 outputPath = path;
             },
+            @doc("Use formatter library to format the transpiled go to haxe code")
+            ["-format","-formatted","-f"] => () -> format = true,
             _ => (arg:String) -> {
                 if (arg.charAt(0) == "-")
                     throw 'Unknown argument "$arg"';

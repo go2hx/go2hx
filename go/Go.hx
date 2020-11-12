@@ -57,7 +57,6 @@ class Go {
 									trace("not indent " + c);
 							}
 						case EArray(e1, e2):
-							trace("array v " + v);
 							values.push(v);
 						default:
 							trace("not constant " + v.expr);
@@ -98,6 +97,17 @@ class Go {
 							set.push(macro $value = $get);
 						}
 					default:
+						trace("ttype unknown " + t.get().type);
+				}
+			case TAbstract(t, params):
+				switch t.get().type {
+					case TAbstract(tt, params):
+						switch tt.get().type {
+							default:
+								trace("TAbstract unknown of unknown " + tt.get().type);
+						}
+					default:
+						trace("TAbstract unknown " + t.get().type);
 				}
 			default:
 				trace("not an inst or func " + type);

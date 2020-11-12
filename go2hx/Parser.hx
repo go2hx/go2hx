@@ -9,9 +9,10 @@ import haxe.io.Path;
 class Parser {
     var replaceMap:Map<String,String> = [];
     var stdimports:Array<String> = [];
-    public var exportPath:String = "bin";
-    public function new() {
+    public var exportPath:String;
+    public function new(exportPath:String,format:Bool) {
         exportPath = Path.addTrailingSlash(exportPath);
+        this.exportPath = exportPath;
         if (!FileSystem.exists("export.json")) {
             trace("export.json not found");
             return;
@@ -31,6 +32,8 @@ class Parser {
         }else{
             Sys.println(proc.stdout.readAll().toString());
         }
+        if (format)
+            new Process("haxelib run formatter -s .");
     }
     public function read(file:Package,path:String) {
         //get className and path

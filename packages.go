@@ -57,8 +57,9 @@ type packageType struct {
 	Types       []typeType  `json:"types"`
 }
 type typeType struct {
-	Name     string `json:"nane"`
+	Name     string `json:"name"`
 	Exported bool   `json:"exported"`
+	Type string `json:"type"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -69,7 +70,7 @@ var replaceMap = map[string]string{}
 var exportData = jsonData{}
 var debugComment = true
 var asserted = ""
-
+var labels = []string{}
 const debug = true
 
 func main() {
@@ -168,9 +169,15 @@ func load(args ...string) {
 
 							data.Vars = append(data.Vars, v)
 						}
+					case *ast.TypeSpec:
+						ty := typeType{}
+						ty.Name = strings.Title(spec.Name.Name)
+						ty.Exported = spec.Name.IsExported()
+						ty.Type = parseExpr(spec.Type,false)
+						data.Types = append(data.Types,ty)
 					default:
 						_ = spec
-						fmt.Println("spec not found")
+						fmt.Println("spec not found",reflect.TypeOf(spec))
 					}
 				}
 			case *ast.FuncDecl:
@@ -204,7 +211,7 @@ func addSemicolon(obj interface{}, init bool) string {
 }
 func addDebug(obj interface{}) string {
 	buffer := strings.Builder{}
-	if debugComment {
+	if debugComment && obj != nil {
 		buffer.WriteString("//")
 		buffer.WriteString(reflect.TypeOf(obj).String())
 		buffer.WriteString("\n")
@@ -215,6 +222,15 @@ func addDebug(obj interface{}) string {
 func parseStatement(stmt ast.Stmt, init bool) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
+	case *ast.LabeledStmt:
+		buffer := strings.Builder{}
+
+		labels = append(labels,stmt.Label.Name)
+		buffer.WriteString("function ")
+		buffer.WriteString(stmt.Label.Name)
+		buffer.WriteString("() {\n")
+		
+		body = append(body,buffer.String())
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init))
 	case *ast.ReturnStmt:
@@ -224,10 +240,14 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		if len(stmt.Results) > 1 {
 			buffer.WriteString("{")
 			for index, res := range stmt.Results {
+				if index > 0 {
+					buffer.WriteString(",")
+				}
 				buffer.WriteString("v")
 				buffer.WriteString(strconv.Itoa(index))
 				buffer.WriteString(" : ")
 				buffer.WriteString(parseExpr(res, false))
+				buffer.WriteString(" ")
 			}
 			buffer.WriteString("}")
 		} else if len(stmt.Results) == 1 {
@@ -361,7 +381,12 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := strings.Builder{}
 		if stmt.Init != nil {
 			buffer.WriteString("{")
-			buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt), true))
+			switch init := stmt.Init.(type) {
+				case *ast.AssignStmt:
+					buffer.WriteString(parseAssignStatement(init, true))
+				case *ast.IncDecStmt:
+					buffer.WriteString(parseExpr(init.X,true))
+			}
 		}
 		if stmt.Post != nil {
 			buffer.WriteString("cfor(")
@@ -468,8 +493,17 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 }
 func parseBody(stmts []ast.Stmt) []string {
 	body := []string{}
+	before := len(labels)
 	for _, stmt := range stmts {
 		body = append(body, parseStatement(stmt, true)...)
+	}
+	if before != len(labels) {
+		tmp := labels[before:len(labels)]
+		for _,label := range tmp {
+			body = append(body,strings.Join([]string{"}\n",label,"();"},""))
+		}
+		//slice
+		labels = labels[0:before]
 	}
 	return body
 }
@@ -587,6 +621,8 @@ func parseFields(list []*ast.Field) []string {
 			buffer.WriteString("Array<")
 			buffer.WriteString(parseExpr(ty.Elt, false))
 			buffer.WriteString(">")
+		case *ast.StarExpr:
+			buffer.WriteString(parseExpr(ty.X,false))
 		default:
 			_ = ty
 			buffer.WriteString("Any")
@@ -621,6 +657,8 @@ func parseExprs(list []ast.Expr, init bool) []string {
 func parseExpr(expr ast.Expr, init bool) string {
 	buffer := strings.Builder{}
 	switch expr := expr.(type) {
+	case *ast.StructType:
+		buffer.WriteString(strings.Join(parseFields(expr.Fields.List),",\n"))
 	case *ast.KeyValueExpr:
 		buffer.WriteString(parseExpr(expr.Key, false))
 		buffer.WriteString(" : ")
@@ -755,6 +793,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer.WriteString(")")
 		}
 	case *ast.StarExpr:
+		buffer.WriteString(parseExpr(expr.X,false))
+	case *ast.ParenExpr:
+		buffer.WriteString(parseExpr(expr.X,false))
+	case nil:
 
 	default:
 		fmt.Println("parse expr not found", reflect.TypeOf(expr))
@@ -888,23 +930,25 @@ func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						if exports {
-							names := []*ast.Ident{}
-							values := []ast.Expr{}
-							for index := range spec.Names {
-								if spec.Names[index].IsExported() {
-									names = append(names, spec.Names[index])
+						names := []*ast.Ident{}
+						values := []ast.Expr{}
+						for index := range spec.Names {
+							if spec.Names[index].IsExported() {
+								names = append(names, spec.Names[index])
+								if index < len(spec.Values) {
 									values = append(values, spec.Values[index])
 								}
 							}
-							if len(names) == 0 {
-								continue
-							}
-							spec.Names = names
 						}
+						if len(names) == 0 {
+							continue
+						}
+						spec.Names = names
+					case *ast.TypeSpec:
+						
 					default:
 						_ = spec
-						fmt.Println("spec not found")
+						fmt.Println("spec not found2",reflect.TypeOf(spec))
 					}
 					declData.Specs = append(declData.Specs, spec)
 				}

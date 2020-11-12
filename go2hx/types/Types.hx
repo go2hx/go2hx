@@ -16,6 +16,8 @@ typedef Var = {
 }
 typedef Type = {
     name:String,
+    export:Bool,
+    type:String,
 }
 typedef Package = {
     packagepath:String,

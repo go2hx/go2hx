@@ -69,8 +69,7 @@ class Parser {
         }
         //functions
         if (file.funcs != null) for (func in file.funcs) {
-            var first = "";
-            first = func.exported ? "public static" : "static ";
+            var first = func.exported ? "public static" : "static ";
             lines.push('$first function ${func.name}(${func.params.join(", ")}) {');
             for (expr in func.body) {
                 lines.push(expr);
@@ -82,6 +81,11 @@ class Parser {
             FileSystem.createDirectory(exportPath + path);
         var path = exportPath + path + className + ".hx";
         lines.push("}");
+        //typedefs
+        if (file.types != null) for (type in file.types) {
+            var first = type.export ? "" : "private";
+            lines.push('$first typedef ${type.name} = {\n${type.type}\n}');
+        }
         File.saveContent(path,lines.join("\n"));
         buildConfig(pkgPath,className);
     }

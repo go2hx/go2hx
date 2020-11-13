@@ -40,6 +40,14 @@ class Parser {
         var pkgPath = path;
         pkgPath = Path.removeTrailingSlashes(pkgPath);
         pkgPath = StringTools.replace(pkgPath,"/",".");
+        var index = pkgPath.lastIndexOf(".");
+        var last = pkgPath.substr(index + 1);
+        trace("last: " + last + " file " + file.name);
+        if (index != -1 && last == file.name) {
+            pkgPath = pkgPath.substr(0,index);
+            path = path.substr(0,index + 1);
+            trace("trim " + pkgPath);
+        }
         var className = cap(file.name);
         var lines = ['package $pkgPath;'];
         //imports
@@ -71,7 +79,7 @@ class Parser {
         if (file.funcs != null) for (func in file.funcs) {
             var first = func.exported ? "public static" : "static ";
             lines.push('$first function ${func.name}(${func.params.join(", ")}) {');
-            for (expr in func.body) {
+            if (func.body != null) for (expr in func.body) {
                 lines.push(expr);
             }
             lines.push("}");

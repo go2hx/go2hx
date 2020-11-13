@@ -130,7 +130,7 @@ func load(args ...string) {
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
 
-		file := MergePackageFiles(pkg, !true)
+		file := mergePackageFiles(pkg, true)
 		data.Name = file.Name.Name
 		for _, decl := range file.Decls {
 			switch decl := decl.(type) {
@@ -147,7 +147,7 @@ func load(args ...string) {
 								imp[1] = spec.Name.Name
 							}
 							data.Imports = append(data.Imports, imp)
-							fmt.Println("excludes", path, excludes[path])
+							//fmt.Println("excludes", path, excludes[path])
 							if !excludes[path] {
 								load(path)
 								excludes[path] = true
@@ -190,7 +190,9 @@ func load(args ...string) {
 				if decl.Type.Results != nil {
 					fn.Results = parseFields(decl.Type.Results.List)
 				}
-				fn.Body = parseBody(decl.Body.List)
+				if decl.Body != nil {
+					fn.Body = parseBody(decl.Body.List)
+				}
 				data.Funcs = append(data.Funcs, fn)
 			default:
 				_ = decl
@@ -432,7 +434,12 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := strings.Builder{}
 		if stmt.Init != nil {
 			buffer.WriteString("{")
-			buffer.WriteString(parseAssignStatement(stmt.Init.(*ast.AssignStmt), true))
+			switch init := stmt.Init.(type) {
+				case *ast.AssignStmt:
+					buffer.WriteString(parseAssignStatement(init, true))
+				default:
+					fmt.Println("if init unknown type",reflect.TypeOf(init))
+			}
 		}
 		buffer.WriteString("if(")
 		buffer.WriteString(parseExpr(stmt.Cond, false))
@@ -911,9 +918,9 @@ func reserved(str string) string {
 		return str
 	}
 }
-func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
+func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}
-	data.Name = ast.NewIdent(pkg.Name)
+	//data.Name = ast.NewIdent(pkg.Name)
 	names := make(map[string]bool)
 	imports := make(map[string]bool)
 	_ = imports
@@ -927,6 +934,7 @@ func MergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            entities (const, type, vars) if
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
+		data.Name = file.Name
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:

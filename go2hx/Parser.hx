@@ -18,6 +18,7 @@ class Parser {
             return;
         }
         var data:JsonData = Json.parse(File.getContent("export.json"));
+        trace("length " + data.pkgs.length);
         for (pkg in data.pkgs) {
             var path = pkg.packagepath;
             path = Path.addTrailingSlash(path);
@@ -42,11 +43,9 @@ class Parser {
         pkgPath = StringTools.replace(pkgPath,"/",".");
         var index = pkgPath.lastIndexOf(".");
         var last = pkgPath.substr(index + 1);
-        trace("last: " + last + " file " + file.name);
         if (index != -1 && last == file.name) {
             pkgPath = pkgPath.substr(0,index);
             path = path.substr(0,index + 1);
-            trace("trim " + pkgPath);
         }
         var className = cap(file.name);
         var lines = ['package $pkgPath;'];

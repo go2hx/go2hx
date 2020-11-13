@@ -8,7 +8,7 @@ using haxe.io.Path;
 import haxe.Json;
 class Res {
     #if macro
-    static var data = {excludes:[
+    static var data = {excludes:[/*
         "math",
         "flag",
         //"errors",
@@ -83,15 +83,15 @@ class Res {
         //"internal/goroot",
         //"internal/goversion",
         "text/scanner",
-        /*"golang.org/x/tools/internal/packagesinternal",
-        "golang.org/x/tools/internal/typesinternal",
-        "golang.org/x/tools/go/ssa/ssautil",
-        "golang.org/x/tools/go/loader",
-        "golang.org/x/tools/go/ast/astutil",
-        "golang.org/x/tools/go/internal/cgo",
-        "golang.org/x/tools/go/buildutil",
-        "golang.org/x/tools/go/ssa",
-        "golang.org/x/tools/go/types/typeutil"*/
+        //"golang.org/x/tools/internal/packagesinternal",
+        //"golang.org/x/tools/internal/typesinternal",
+        //"golang.org/x/tools/go/ssa/ssautil",
+        //"golang.org/x/tools/go/loader",
+        //"golang.org/x/tools/go/ast/astutil",
+        //"golang.org/x/tools/go/internal/cgo",
+        //"golang.org/x/tools/go/buildutil",
+        //"golang.org/x/tools/go/ssa",
+        //"golang.org/x/tools/go/types/typeutil"
 
         "internal/nettrace",
         "vendor/golang.org/x/net/dns/dnsmessage",
@@ -104,7 +104,7 @@ class Res {
 
         "database/sql/driver",
 
-    ]};
+    */]};
     public static function gen() {
         readDir("go");
         trace("list: " + Resource.listNames());

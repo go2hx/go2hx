@@ -83,8 +83,8 @@ func main() {
 	for _, ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
-	replaceMap["error"] = "haxe.Exception"
-	replaceMap["nill"] = "null"
+	replaceMap["error"] = "go.Errors"
+	replaceMap["nil"] = "null"
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -131,8 +131,7 @@ func load(args ...string) {
 		}
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
-
-		file := mergePackageFiles(pkg, true)
+		file := mergePackageFiles(pkg, !true)
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
@@ -712,6 +711,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(name)
 		buffer.WriteString(".")
 		sel := untitle(expr.Sel.Name)
+		switch sel {
+			case "new": sel = "New" //in order to get around the restriction
+		}
 		buffer.WriteString(sel)
 	case *ast.CallExpr: //1st class
 		makeBool := false

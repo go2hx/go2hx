@@ -18,7 +18,7 @@ class Parser {
             return;
         }
         var data:JsonData = Json.parse(File.getContent("export.json"));
-        trace("length " + data.pkgs.length);
+        trace("amount of pkgs: " + data.pkgs.length);
         for (pkg in data.pkgs) {
             var path = pkg.packagepath;
             path = Path.addTrailingSlash(path);

@@ -53,7 +53,10 @@ class Parser {
 			path = path.substr(0, index + 1);
 		}
 		var className = cap(file.name);
-		var lines = ['package $pkgPath;'];
+		var inital = ['package $pkgPath;'];
+		var imports = [];
+		var main = [];
+		var extra = [];
 		// imports
 		if (file.imports != null)
 			for (imp in file.imports) {
@@ -71,39 +74,40 @@ class Parser {
 					line += ' as $as';
 				}
 				line += ";";
-				lines.push(line);
+				main.push(line);
 			}
-		lines.push('class $className {');
+		main.push('class $className {');
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
 				var first = v.exported ? "public static " : "static ";
 				first += v.constant ? "final" : "var";
-				lines.push('$first ${v.name} = ${v.value};');
+				main.push('$first ${v.name} = ${v.value};');
 			}
 		// functions
 		if (file.funcs != null)
 			for (func in file.funcs) {
+				main.push(func.doc);
 				var first = func.exported ? "public static" : "static ";
-				lines.push('$first function ${func.name}(${func.params.join(", ")}) {');
+				main.push('$first function ${func.name}(${func.params.join(", ")}) {');
 				if (func.body != null)
 					for (expr in func.body) {
-						lines.push(expr);
+						main.push(expr);
 					}
-				lines.push("}");
+				main.push("}");
 			}
 		// write
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
-		lines.push("}");
+		main.push("}");
 		// typedefs
 		if (file.types != null)
 			for (type in file.types) {
 				var first = type.export ? "" : "private";
-				lines.push('$first typedef ${type.name} = {\n${type.type}\n}');
+				main.push('$first typedef ${type.name} = {\n${type.type}\n}');
 			}
-		File.saveContent(path, lines.join("\n"));
+		File.saveContent(path, main.join("\n"));
 		buildConfig(pkgPath, className);
 	}
 

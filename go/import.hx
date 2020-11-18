@@ -8,3 +8,4 @@ import go.Go.str;
 import go.Go.setMulti;
 import go.Go.range;
 import go.Go.append;
+import StdTypes.Int as Byte;

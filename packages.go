@@ -39,7 +39,9 @@ type funcType struct {
 	Exported bool     `json:"exported"`
 	Params   []string `json:"params"`
 	Results  []string `json:"results"`
+	Doc string `json:"doc"`
 	Body     []string `json:"body"`
+	Recv []string `json:"recv"`
 }
 type varType struct {
 	Name     string `json:"name"`
@@ -131,11 +133,12 @@ func load(args ...string) {
 		}
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
-		file := mergePackageFiles(pkg, true)
+		file := mergePackageFiles(pkg, !true)
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
 		for _, decl := range file.Decls {
+			//fmt.Println("inter", ast.Print(nil, decl))
 			switch decl := decl.(type) {
 			case *ast.GenDecl:
 				for _, spec := range decl.Specs {
@@ -187,6 +190,11 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
+				if fn.Exported {
+					fn.Doc = parseComment(decl.Doc)
+				}else{
+					fn.Doc = ""
+				}
 				if decl.Type.Params != nil {
 					fn.Params = parseFields(decl.Type.Params.List)
 				}
@@ -196,6 +204,9 @@ func load(args ...string) {
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
 				}
+				if decl.Recv != nil {
+					fn.Recv = parseFields(decl.Recv.List)
+				}
 				data.Funcs = append(data.Funcs, fn)
 			default:
 				_ = decl
@@ -204,6 +215,19 @@ func load(args ...string) {
 		}
 		exportData.Pkgs = append(exportData.Pkgs, data)
 	}
+}
+func parseComment(comments *ast.CommentGroup) string {
+	if comments == nil {
+		return ""
+	}
+	buffer := strings.Builder{}
+	buffer.WriteString("/**\n")
+	for _,comment := range comments.List {
+		buffer.WriteString(comment.Text[2:])
+		buffer.WriteString("\n")
+	}
+	buffer.WriteString("**/")
+	return buffer.String()
 }
 func addSemicolon(obj interface{}, init bool) string {
 	if init {
@@ -581,24 +605,22 @@ func removeParan(str string) string {
 }
 func parseFields(list []*ast.Field) []string {
 	array := []string{}
+	buffer := strings.Builder{}
 	for index, field := range list {
 		_ = index
 		//fmt.Println("field type ",reflect.TypeOf(field.Type))
 		ty := parseExpr(field.Type, false)
-		buffer := strings.Builder{}
 		if len(field.Names) == 0 {
-			/*buffer.WriteString("v")
-			buffer.WriteString(strconv.Itoa(index))
-			buffer.WriteString(":")*/
-			buffer.WriteString(ty)
+			array = append(array,ty)
 		} else {
 			for _, name := range field.Names {
+				buffer.Reset()
 				buffer.WriteString(parseExpr(name, false))
 				buffer.WriteString(":")
 				buffer.WriteString(ty)
+				array = append(array, buffer.String())
 			}
 		}
-		array = append(array, buffer.String())
 	}
 	return array
 }
@@ -614,13 +636,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		params := parseFields(expr.Params.List)
+		fmt.Println("count of params",len(params))
 		if len(params) == 0 {
 			buffer.WriteString("Void")
 		} else if len(params) == 1 {
 			buffer.WriteString(params[0])
 		} else {
 			buffer.WriteString("(")
-			buffer.WriteString(strings.Join(params, ","))
+			buffer.WriteString(strings.Join(params, ", "))
 			buffer.WriteString(")")
 		}
 		buffer.WriteString(" -> ")
@@ -660,11 +683,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString("...")
 		buffer.WriteString(parseExpr(expr.Elt, false))
 	case *ast.InterfaceType:
-		//fmt.Println("inter", len(ty.Methods.List))
-		if len(expr.Methods.List) == 0 {
-			return ""
+		if expr.Methods == nil || len(expr.Methods.List) == 0 {
+			return "Any"
 		}
-		//fmt.Println("inter", ast.Print(nil, ty))
+		fmt.Println("count",len(expr.Methods.List))
+		//fmt.Println("inter", ast.Print(nil, expr))
+		fmt.Println("inter", expr.Methods)
 	case *ast.StructType:
 		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
 	case *ast.KeyValueExpr: //map
@@ -961,6 +985,8 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				declData.Name = decl.Name
 				declData.Type = decl.Type
 				declData.Body = decl.Body
+				declData.Recv = decl.Recv
+				declData.Doc = decl.Doc
 				if exports && declData.Body != nil {
 					declData.Body.List = []ast.Stmt{}
 				}

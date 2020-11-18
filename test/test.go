@@ -4,13 +4,16 @@ import (
 	"fmt"
 )
 
-
+//Slice this is a test comment
+//multi comment
 func Slice(x interface{}, less func(i, j int) bool) {
 
 }
 func sliceLess(i,j int) bool {
 	return false
 }
+//Compare test number 2 of
+//multi comment
 func Compare(a, b []byte) int {
 	return 0;
 }

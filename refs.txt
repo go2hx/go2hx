@@ -3,3 +3,4 @@ types: https://github.com/golang/go/blob/5650a53dac73703a1bc095a277a194813519001
 interp: https://github.com/golang/tools/blob/master/go/ssa/interp/interp.go
 golang-callcommon: https://golang.hotexamples.com/examples/golang.org.x.tools.go.ssa/CallCommon/-/golang-callcommon-class-examples.html
 ast: https://golangdocs.com/golang-ast-package
+haxe functions: https://code.haxe.org/category/beginner/declare-functions.html

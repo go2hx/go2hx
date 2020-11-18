@@ -1,2 +1,1 @@
-
 typedef Sync = Dynamic;

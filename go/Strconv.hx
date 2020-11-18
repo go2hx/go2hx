@@ -1,6 +1,7 @@
 package go;
+
 class StrConv {
-    public static function ParseBool(str:String) {}
+	public static function ParseBool(str:String) {}
 
 	public static function FormatBool(b:Bool) {}
 
@@ -94,5 +95,5 @@ class StrConv {
 
 	public static function IsPrint(r:rune) {}
 
-    public static function IsGraphic(r:rune) {}
+	public static function IsGraphic(r:rune) {}
 }

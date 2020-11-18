@@ -1,5 +1,3 @@
 package go.io;
 
-class Writer {
-    
-}
+class Writer {}

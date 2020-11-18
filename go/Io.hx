@@ -1,7 +1,7 @@
 package go;
 
 class Io {
-    public static function WriteString(w:Writer, s:String) {}
+	public static function WriteString(w:Writer, s:String) {}
 
 	public static function ReadAtLeast(r:Reader, buf:Array<Byte>, min:Int) {}
 

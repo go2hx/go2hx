@@ -27,15 +27,19 @@ class Fmt {
 		Sys.print(str);
 		#end
 	}
+
 	public static inline function sprint(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
 		return "";
 	}
+
 	public static inline function sprintln(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
 		return "";
 	}
+
 	public static inline function sprintf(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
 		return "";
 	}
+
 	private static inline function _print(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
 		function value(v:Any):String {
 			return (v != null ? ' $v' : "");

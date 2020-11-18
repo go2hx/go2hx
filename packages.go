@@ -131,7 +131,7 @@ func load(args ...string) {
 		}
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
-		file := mergePackageFiles(pkg, !true)
+		file := mergePackageFiles(pkg, true)
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
@@ -667,9 +667,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		//fmt.Println("inter", ast.Print(nil, ty))
 	case *ast.StructType:
 		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
-	case *ast.KeyValueExpr:
+	case *ast.KeyValueExpr: //map
 		buffer.WriteString(parseExpr(expr.Key, false))
-		buffer.WriteString(" : ")
+		buffer.WriteString(" => ")
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
 		name := parseExpr(expr.Elt, false)
@@ -944,7 +944,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						}
 
 					case *ast.TypeSpec:
-						if exports && specType.Name.IsExported() {
+						if exports && !specType.Name.IsExported() {
 							continue
 						}
 					default:

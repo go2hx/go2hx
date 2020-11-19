@@ -18,7 +18,7 @@ typedef Var = {
 	value:String
 }
 
-typedef Type = {
+typedef Struct = {
 	name:String,
 	export:Bool,
 	type:String,
@@ -31,7 +31,7 @@ typedef Package = {
 	imports:Array<Array<String>>,
 	funcs:Array<Func>,
 	vars:Array<Var>,
-	types:Array<Type>
+	structs:Array<Struct>
 }
 
 typedef JsonData = {

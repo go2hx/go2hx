@@ -54,7 +54,7 @@ class Parser {
 		}
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
-		var imports = ['using $className.Extension;'];
+		var imports = [];
 		var main = [];
 		// imports
 		if (file.imports != null)
@@ -101,10 +101,10 @@ class Parser {
 		var path = exportPath + path + className + ".hx";
 		main.push("}");
 		// typedefs
-		if (file.types != null)
-			for (type in file.types) {
-				var first = type.export ? "" : "private";
-				main.push('$first typedef ${type.name} = {\n${type.type}\n}');
+		if (file.structs != null)
+			for (type in file.structs) {
+				var first = "@:structInit\n" + (type.export ? "" : "private");
+				main.push('$first class ${type.name} = {\n${type.type}\n}');
 			}
 		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));

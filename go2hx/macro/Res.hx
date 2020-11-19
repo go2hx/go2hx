@@ -14,7 +14,7 @@ class Res {
 	#if macro
 	static var data = {
 		excludes: [
-			/*
+			
 				"math",
 				"flag",
 				//"errors",
@@ -110,7 +110,7 @@ class Res {
 
 				"database/sql/driver",
 
-			 */
+			 
 		]
 	};
 

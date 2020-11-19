@@ -57,12 +57,12 @@ type packageType struct {
 	Imports     [][2]string `json:"imports"`
 	Funcs       []funcType  `json:"funcs"`
 	Vars        []varType   `json:"vars"`
-	Types       []typeType  `json:"types"`
+	Structs       []structType  `json:"structs"`
 }
-type typeType struct {
+type structType struct {
 	Name     string `json:"name"`
 	Exported bool   `json:"exported"`
-	Type     string `json:"type"`
+	Fields   []string `json:"fields"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -178,11 +178,18 @@ func load(args ...string) {
 							data.Vars = append(data.Vars, v)
 						}
 					case *ast.TypeSpec:
-						ty := typeType{}
+						ty := structType{}
 						ty.Name = strings.Title(spec.Name.Name)
 						ty.Exported = spec.Name.IsExported()
-						ty.Type = parseExpr(spec.Type, false)
-						data.Types = append(data.Types, ty)
+						switch structType := spec.Type.(type) {
+							case *ast.SelectorExpr:
+								fmt.Println("structType",reflect.TypeOf(structType.X))
+							default:
+								fmt.Println("type spec type unknown",reflect.TypeOf(structType))
+						}
+						fmt.Println("spec",reflect.TypeOf(spec.Type))
+						//ty.Type = parseExpr(spec.Type, false)
+						//data.Structs = append(data.Structs, ty)
 					default:
 						_ = spec
 						fmt.Println("spec not found", reflect.TypeOf(spec))
@@ -191,7 +198,9 @@ func load(args ...string) {
 			case *ast.FuncDecl:
 				deferStack = []string{}
 				replaceContext = make(map[string]string)
-				decl.Recv != nil
+				if decl.Recv != nil {
+					
+				}
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
@@ -997,7 +1006,6 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						if exports && !specType.Name.IsExported() {
 							continue
 						}
-						spec = specType
 					default:
 						fmt.Println("spec not found2", reflect.TypeOf(spec))
 					}

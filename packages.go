@@ -41,7 +41,7 @@ type funcType struct {
 	Results  []string `json:"results"`
 	Doc string `json:"doc"`
 	Body     []string `json:"body"`
-	Recv []string `json:"recv"`
+	//Recv []string `json:"recv"`
 }
 type varType struct {
 	Name     string `json:"name"`
@@ -74,6 +74,8 @@ var exportData = jsonData{}
 var debugComment = true
 var asserted = ""
 var labels = []string{}
+var replaceContext map[string]string
+var deferStack []string
 
 const debug = true
 
@@ -187,6 +189,9 @@ func load(args ...string) {
 					}
 				}
 			case *ast.FuncDecl:
+				deferStack = []string{}
+				replaceContext = make(map[string]string)
+				decl.Recv != nil
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
@@ -203,9 +208,6 @@ func load(args ...string) {
 				}
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
-				}
-				if decl.Recv != nil {
-					fn.Recv = parseFields(decl.Recv.List)
 				}
 				data.Funcs = append(data.Funcs, fn)
 			default:
@@ -804,7 +806,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
 				buffer.WriteString("]")
 			case *ast.Ident:
-				buffer.WriteString("{}")
+				buffer.WriteString("[")
+				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+				buffer.WriteString("]")
 			default:
 				fmt.Println("compositelit type unknown",reflect.TypeOf(ty))
 		}
@@ -967,20 +971,29 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						names := []*ast.Ident{}
-						values := []ast.Expr{}
+						//names := []*ast.Ident{}
+						//values := []ast.Expr{}
 						for index := range specType.Names {
-							if specType.Names[index].IsExported() {
-								specType.Names[index].Name = untitle(specType.Names[index].Name)
+							/*if specType.Names[index].IsExported() {
+								specType.Names[index].Name = name
 								names = append(names, specType.Names[index])
 								if index < len(specType.Values) {
 									values = append(values, specType.Values[index])
 								}
+							}*/
+							name := untitle(specType.Names[index].Name)
+							if name != specType.Names[index].Name {
+								replaceMap[specType.Names[index].Name] = name
 							}
+							specType.Names[index].Name = name
 						}
-
+						//spec = specType
 					case *ast.TypeSpec:
-						
+						name := strings.Title(specType.Name.Name)
+						if name != specType.Name.Name {
+							replaceMap[specType.Name.Name] = name
+						}
+						specType.Name.Name = name
 						if exports && !specType.Name.IsExported() {
 							continue
 						}
@@ -996,10 +1009,15 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 					continue
 				}
 				declData := ast.FuncDecl{}
+				name := untitle(decl.Name.Name)
+				if name != decl.Name.Name {
+					replaceMap[decl.Name.Name] = name
+				}
 				declData.Name = decl.Name
+				declData.Name.Name = name
 				declData.Type = decl.Type
 				declData.Body = decl.Body
-				declData.Recv = decl.Recv
+				//declData.Recv = decl.Recv
 				declData.Doc = decl.Doc
 				if exports && declData.Body != nil {
 					declData.Body.List = []ast.Stmt{}

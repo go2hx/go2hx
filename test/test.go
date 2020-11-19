@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"github.com/pxshadow/go2hx/test/student"
 )
 
 //Slice this is a test comment
@@ -32,4 +33,7 @@ func main() {
 	x := data{0}
 	x.set(5)
 	fmt.Println("data x:",x.x)
+
+	s := student.Student{10,"Marco"}
+	s.ToString()
 }

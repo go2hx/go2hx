@@ -3,4 +3,3 @@
 --macro go2hx.macro.Res.gen()
 --no-inline
 -D debug
---interp

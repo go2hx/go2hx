@@ -39,8 +39,8 @@ class Parser {
 		}
 		if (format)
 			new Process("haxelib run formatter -s .");
+		
 	}
-
 	public function read(file:Package, path:String) {
 		// get className and path
 		var pkgPath = path;
@@ -56,7 +56,6 @@ class Parser {
 		var inital = ['package $pkgPath;'];
 		var imports = ['using $className.Extension;'];
 		var main = [];
-		var extension = ["class Extension {"];
 		// imports
 		if (file.imports != null)
 			for (imp in file.imports) {
@@ -88,20 +87,13 @@ class Parser {
 		if (file.funcs != null)
 			for (func in file.funcs) {
 				main.push(func.doc);
-				if (func.recv != null)
-					func.params = func.recv.concat(func.params);
 				var first = func.exported ? "public static" : "static ";
-				var string = '$first function ${func.name}(${func.params.join(", ")}) {';
+				main.push('$first function ${func.name}(${func.params.join(", ")}) {');
 				if (func.body != null)
 					for (expr in func.body) {
-						string += expr;
+						main.push(expr);
 					}
-				string += "}";
-				if (func.recv != null) {
-					extension.push(string);
-				}else{
-					main.push(string);
-				}
+				main.push("}");
 			}
 		// write
 		if (!FileSystem.exists(exportPath + path))
@@ -114,8 +106,7 @@ class Parser {
 				var first = type.export ? "" : "private";
 				main.push('$first typedef ${type.name} = {\n${type.type}\n}');
 			}
-		extension.push("}");
-		main = inital.concat(imports).concat(main).concat(extension);
+		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));
 		buildConfig(pkgPath, className);
 	}

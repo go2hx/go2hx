@@ -17,6 +17,11 @@ class Go {
 	public static macro function slice(type, length) {
 		return macro null;
 	}
+	public static macro function make(type,list) {
+		var ty = Context.typeof(type);
+		trace("type: " + ty);
+		return macro null;
+	}
 
 	public static macro function len(expr) {
 		var ty = Context.typeof(expr);
@@ -200,6 +205,11 @@ class Go {
 		};
 	}
 }
-
+class Pointer<T> {
+	public var value:T;
+	public function new(value:T) {
+		this.value = value;
+	}
+}
 typedef StringErrorReturn = {value:String, ?error:Exception}
 typedef BytesErorReturn = {value:Bytes, ?error:Exception}

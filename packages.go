@@ -572,13 +572,14 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	if len(stmt.Lhs) != len(stmt.Rhs) {
 		multi = true
 	}
-
 	if !multi && len(stmt.Rhs) == 1 {
 		switch stmt.Rhs[0].(type) {
 		case *ast.CallExpr:
 			multi = true
+		case *ast.Ident, *ast.CompositeLit:
+			multi = false
 		default:
-			//fmt.Println("assign statement rhs", reflect.TypeOf(stmt.Rhs[0]))
+			fmt.Println("assign statement rhs", reflect.TypeOf(stmt.Rhs[0]))
 		}
 	}
 	if multi {
@@ -797,9 +798,16 @@ func parseExpr(expr ast.Expr, init bool) string {
 				ty.
 		}*/
 	case *ast.CompositeLit:
-		buffer.WriteString("[")
-		buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
-		buffer.WriteString("]")
+		switch ty := expr.Type.(type) {
+			case *ast.ArrayType:
+				buffer.WriteString("[")
+				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+				buffer.WriteString("]")
+			case *ast.Ident:
+				buffer.WriteString("{}")
+			default:
+				fmt.Println("compositelit type unknown",reflect.TypeOf(ty))
+		}
 	case *ast.SliceExpr:
 		//ast.Print(nil, expr)
 		buffer.WriteString(parseExpr(expr.X, false))
@@ -870,9 +878,12 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 		for _, stmt := range stmt.List {
 			piece := strings.Builder{}
 			if obj != "" {
-				piece.WriteString("Std.isOfType(")
+				/*piece.WriteString("Std.isOfType(")
 				piece.WriteString(obj)
-				piece.WriteString(",")
+				piece.WriteString(",")*/
+				piece.WriteString("(")
+				piece.WriteString(obj)
+				piece.WriteString(" is ")
 			}
 			piece.WriteString(parseExpr(stmt, false))
 			if obj != "" {
@@ -960,6 +971,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						values := []ast.Expr{}
 						for index := range specType.Names {
 							if specType.Names[index].IsExported() {
+								specType.Names[index].Name = untitle(specType.Names[index].Name)
 								names = append(names, specType.Names[index])
 								if index < len(specType.Values) {
 									values = append(values, specType.Values[index])
@@ -968,9 +980,11 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						}
 
 					case *ast.TypeSpec:
+						
 						if exports && !specType.Name.IsExported() {
 							continue
 						}
+						spec = specType
 					default:
 						fmt.Println("spec not found2", reflect.TypeOf(spec))
 					}

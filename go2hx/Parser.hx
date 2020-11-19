@@ -54,9 +54,9 @@ class Parser {
 		}
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
-		var imports = [];
+		var imports = ['using $className.Extension;'];
 		var main = [];
-		var extra = [];
+		var extension = ["class Extension {"];
 		// imports
 		if (file.imports != null)
 			for (imp in file.imports) {
@@ -74,7 +74,7 @@ class Parser {
 					line += ' as $as';
 				}
 				line += ";";
-				main.push(line);
+				imports.push(line);
 			}
 		main.push('class $className {');
 		// vars and consts
@@ -88,13 +88,20 @@ class Parser {
 		if (file.funcs != null)
 			for (func in file.funcs) {
 				main.push(func.doc);
+				if (func.recv != null)
+					func.params = func.recv.concat(func.params);
 				var first = func.exported ? "public static" : "static ";
-				main.push('$first function ${func.name}(${func.params.join(", ")}) {');
+				var string = '$first function ${func.name}(${func.params.join(", ")}) {';
 				if (func.body != null)
 					for (expr in func.body) {
-						main.push(expr);
+						string += expr;
 					}
-				main.push("}");
+				string += "}";
+				if (func.recv != null) {
+					extension.push(string);
+				}else{
+					main.push(string);
+				}
 			}
 		// write
 		if (!FileSystem.exists(exportPath + path))
@@ -107,6 +114,8 @@ class Parser {
 				var first = type.export ? "" : "private";
 				main.push('$first typedef ${type.name} = {\n${type.type}\n}');
 			}
+		extension.push("}");
+		main = inital.concat(imports).concat(main).concat(extension);
 		File.saveContent(path, main.join("\n"));
 		buildConfig(pkgPath, className);
 	}

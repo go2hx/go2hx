@@ -21,6 +21,7 @@ func Compare(a, b []byte) int {
 
 type data struct {
 	x int
+	z string
 }
 
 func (z *data) set(x int) {
@@ -33,7 +34,6 @@ func main() {
 	x := data{0}
 	x.set(5)
 	fmt.Println("data x:",x.x)
-
 	s := student.Student{10,"Marco"}
 	s.ToString()
 }

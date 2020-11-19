@@ -26,6 +26,7 @@ class Parser {
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
 			path = Path.addTrailingSlash(path);
+			trace("path: " + path);
 			read(pkg, path);
 		}
 		imports(exportPath + "go");
@@ -100,11 +101,20 @@ class Parser {
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
 		main.push("}");
-		// typedefs
+		// struct classes
 		if (file.structs != null)
-			for (type in file.structs) {
-				var first = "@:structInit\n" + (type.export ? "" : "private");
-				main.push('$first class ${type.name} = {\n${type.type}\n}');
+			for (struct in file.structs) {
+				var first = struct.export ? "" : "private";
+				main.push('$first class ${struct.name} {');
+				var init:String = "";
+				for (field in struct.fields) {
+					main.push('var $field;');
+					init += ',?$field';
+				}
+				init = init.substr(1);
+				main.push('public function new($init) {');
+				//main.push('go.Go.initLocals();');
+				main.push("}\n}");
 			}
 		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));

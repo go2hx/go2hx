@@ -134,8 +134,9 @@ func load(args ...string) {
 			array[i] = reserved(array[i])
 		}
 		pkg.PkgPath = strings.Join(array, "/")
+		fmt.Println("path:",pkg.PkgPath)
 		data.PackagePath = pkg.PkgPath
-		file := mergePackageFiles(pkg, !true)
+		file := mergePackageFiles(pkg, true)
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
@@ -149,14 +150,14 @@ func load(args ...string) {
 						if spec.Path.Value != "" {
 							path := spec.Path.Value
 							path = removeParan(path)
-							path = strings.Replace(path, ".", "_", -1)
-							imp := [2]string{path, ""}
+							imp := [2]string{strings.Replace(path, ".", "_", -1), ""}
 							if spec.Name != nil {
 								imp[1] = spec.Name.Name
 							}
 							data.Imports = append(data.Imports, imp)
 							//fmt.Println("excludes", path, excludes[path])
 							if !excludes[path] {
+								fmt.Println("path",path)
 								load(path)
 								excludes[path] = true
 							}
@@ -182,14 +183,12 @@ func load(args ...string) {
 						ty.Name = strings.Title(spec.Name.Name)
 						ty.Exported = spec.Name.IsExported()
 						switch structType := spec.Type.(type) {
-							case *ast.SelectorExpr:
-								fmt.Println("structType",reflect.TypeOf(structType.X))
+							case *ast.StructType:
+								ty.Fields = parseFields(structType.Fields.List)
 							default:
 								fmt.Println("type spec type unknown",reflect.TypeOf(structType))
 						}
-						fmt.Println("spec",reflect.TypeOf(spec.Type))
-						//ty.Type = parseExpr(spec.Type, false)
-						//data.Structs = append(data.Structs, ty)
+						data.Structs = append(data.Structs, ty)
 					default:
 						_ = spec
 						fmt.Println("spec not found", reflect.TypeOf(spec))
@@ -814,10 +813,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 				buffer.WriteString("[")
 				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
 				buffer.WriteString("]")
-			case *ast.Ident:
-				buffer.WriteString("[")
+			case *ast.SelectorExpr, *ast.Ident:
+				buffer.WriteString("new ")
+				buffer.WriteString(parseExpr(ty,false))
+				buffer.WriteString("(")
 				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
-				buffer.WriteString("]")
+				buffer.WriteString(")")
 			default:
 				fmt.Println("compositelit type unknown",reflect.TypeOf(ty))
 		}
@@ -967,6 +968,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
 		data.Name = file.Name
+		fmt.Println("data name:",file.Name)
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:

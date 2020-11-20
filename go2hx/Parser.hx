@@ -26,7 +26,6 @@ class Parser {
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
 			path = Path.addTrailingSlash(path);
-			trace("path: " + path);
 			read(pkg, path);
 		}
 		imports(exportPath + "go");
@@ -76,11 +75,11 @@ class Parser {
 				line += ";";
 				imports.push(line);
 			}
-		main.push('class $className {');
+		//main.push('class $className {');
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
-				var first = v.exported ? "public static " : "static ";
+				var first = v.exported ? "" : "private ";
 				first += v.constant ? "final" : "var";
 				main.push('$first ${v.name} = ${v.value};');
 			}
@@ -88,7 +87,7 @@ class Parser {
 		if (file.funcs != null)
 			for (func in file.funcs) {
 				main.push(func.doc);
-				var first = func.exported ? "public static" : "static ";
+				var first = func.exported ? "" : "private";
 				main.push('$first function ${func.name}(${func.params.join(", ")}) {');
 				if (func.body != null)
 					for (expr in func.body) {
@@ -100,7 +99,7 @@ class Parser {
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
-		main.push("}");
+		//main.push("}");
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {

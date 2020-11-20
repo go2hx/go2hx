@@ -134,9 +134,9 @@ func load(args ...string) {
 			array[i] = reserved(array[i])
 		}
 		pkg.PkgPath = strings.Join(array, "/")
-		fmt.Println("path:",pkg.PkgPath)
+		//fmt.Println("path:",pkg.PkgPath)
 		data.PackagePath = pkg.PkgPath
-		file := mergePackageFiles(pkg, true)
+		file := mergePackageFiles(pkg, !true)
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
@@ -170,8 +170,12 @@ func load(args ...string) {
 							v := varType{}
 							//spec.Names[i].Obj.Kind
 							v.Constant = spec.Names[i].Obj.Kind.String() == "const"
-							v.Name = spec.Names[i].Name
 							v.Exported = spec.Names[i].IsExported()
+							name := untitle(spec.Names[i].Name)
+							if name != spec.Names[i].Name {
+								replaceMap[spec.Names[i].Name] = name
+							}
+							v.Name = name
 							if i >= len(spec.Values) {
 								continue
 							}
@@ -203,6 +207,7 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
+				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 				if fn.Exported {
 					fn.Doc = parseComment(decl.Doc)
 				}else{
@@ -992,11 +997,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 									values = append(values, specType.Values[index])
 								}
 							}*/
-							name := untitle(specType.Names[index].Name)
-							if name != specType.Names[index].Name {
-								replaceMap[specType.Names[index].Name] = name
-							}
-							specType.Names[index].Name = name
+							_ = index
 						}
 						//spec = specType
 					case *ast.TypeSpec:
@@ -1019,12 +1020,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 					continue
 				}
 				declData := ast.FuncDecl{}
-				name := untitle(decl.Name.Name)
-				if name != decl.Name.Name {
-					replaceMap[decl.Name.Name] = name
-				}
 				declData.Name = decl.Name
-				declData.Name.Name = name
 				declData.Type = decl.Type
 				declData.Body = decl.Body
 				//declData.Recv = decl.Recv

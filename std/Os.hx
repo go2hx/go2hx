@@ -1,4 +1,4 @@
-package go;
+package std;
 
 import sys.FileSystem;
 

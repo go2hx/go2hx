@@ -1,3 +1,3 @@
-package go.io;
+package std.io;
 
 class Writer {}

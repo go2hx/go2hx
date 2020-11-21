@@ -1,14 +1,14 @@
-package go;
+package std;
 
 // https://haxe.org/manual/type-system-import-defaults.html , thanks Nadako for the refrence :)
-import go.Go.panic;
-import go.Go.cfor;
-import go.Go.len;
-import go.Go.str;
-import go.Go.setMulti;
-import go.Go.range;
-import go.Go.append;
-import go.Go.make;
+import std.Go.panic;
+import std.Go.cfor;
+import std.Go.len;
+import std.Go.str;
+import std.Go.setMulti;
+import std.Go.range;
+import std.Go.append;
+import std.Go.make;
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;
 import StdTypes.Float as Float32;

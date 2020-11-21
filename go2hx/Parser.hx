@@ -28,7 +28,7 @@ class Parser {
 			path = Path.addTrailingSlash(path);
 			read(pkg, path);
 		}
-		imports(exportPath + "go");
+		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
 		var proc = new Process("haxe build.hxml");
 		var code = proc.exitCode();
@@ -63,7 +63,7 @@ class Parser {
 				var as = capPkg(imp[1]);
 				if (Resource.listNames().indexOf(imp[0]) != -1) {
 					stdimports.push(imp[0]);
-					name = 'go.$name';
+					name = 'std.$name';
 				}
 
 				if (as.length > 0)
@@ -110,13 +110,17 @@ class Parser {
 				var first = struct.export ? "" : "private";
 				main.push('$first class ${struct.name} {');
 				var init:String = "";
-				for (field in struct.fields) {
-					main.push('var $field;');
-					init += ',?$field';
+				if (struct.fields == null) {
+
+				}else{
+					for (field in struct.fields) {
+						main.push('var $field;');
+						init += ',?$field';
+					}
 				}
 				init = init.substr(1);
 				main.push('public function new($init) {');
-				//main.push('go.Go.initLocals();');
+				//main.push('std.Go.initLocals();');
 				main.push("}\n}");
 			}
 		main = inital.concat(imports).concat(main);
@@ -132,7 +136,7 @@ class Parser {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports.push("go");
+		stdimports.push("go"); //main class
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

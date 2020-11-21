@@ -1,4 +1,4 @@
-package go;
+package std;
 
 class StrConv {
 	public static function ParseBool(str:String) {}

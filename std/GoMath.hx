@@ -1,4 +1,4 @@
-package go;
+package std;
 
 class GoMath {
 	public static inline function max(a, b) {

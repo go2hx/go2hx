@@ -1,4 +1,4 @@
-package go;
+package std;
 
 class Io {
 	public static function WriteString(w:Writer, s:String) {}

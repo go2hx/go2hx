@@ -115,7 +115,7 @@ class Res {
 	};
 
 	public static function gen() {
-		readDir("go");
+		readDir("std");
 		trace("list: " + Resource.listNames());
 		File.saveContent("excludes.json", Json.stringify(data));
 	}
@@ -131,7 +131,7 @@ class Res {
 				if (FileSystem.isDirectory(path + name)) {
 					readDir(path + name);
 				} else {
-					var className = path.substr(3) + name.withoutExtension().toLowerCase();
+					var className = path.substr(4) + name.withoutExtension().toLowerCase();
 					Context.addResource(className, File.getBytes(path + name));
 					data.excludes.push(className);
 				}

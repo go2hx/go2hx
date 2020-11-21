@@ -1,4 +1,4 @@
-package go;
+package std;
 using Lambda;
 import haxe.macro.Context;
 class Macro {

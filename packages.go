@@ -87,7 +87,7 @@ func main() {
 	for _, ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
-	replaceMap["error"] = "go.Errors"
+	replaceMap["error"] = "std.Errors"
 	replaceMap["nil"] = "null"
 	if err != nil {
 		fmt.Println(err)

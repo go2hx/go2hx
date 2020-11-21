@@ -1,4 +1,4 @@
-package go;
+package std;
 
 class Strings {
 	public static function contains(s:String, value:String):Bool {

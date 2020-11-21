@@ -1,4 +1,4 @@
-package go.io;
+package std.io;
 
 class Ioutil {
 	public static function ReadAll(r:Io.reader) {}

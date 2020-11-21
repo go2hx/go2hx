@@ -1,7 +1,7 @@
-package go.encoding;
+package std.encoding;
 
-import go.Go.BytesErorReturn;
-import go.Go.StringErrorReturn;
+import std.Go.BytesErorReturn;
+import std.Go.StringErrorReturn;
 import haxe.Exception;
 import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;

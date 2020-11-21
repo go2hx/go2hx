@@ -1,4 +1,4 @@
-package go;
+package std;
 
 class Fmt {
 	public static inline function println(?v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {

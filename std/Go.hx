@@ -1,4 +1,4 @@
-package go;
+package std;
 
 import haxe.macro.Printer;
 import haxe.io.Bytes;

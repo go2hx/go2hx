@@ -92,24 +92,25 @@ class Parser {
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
-				var first = v.exported ? "" : "private ";
+				var first = v.exported ? "public " : "private ";
 				first += v.constant ? "final" : "var";
 				main.push('$first ${v.name} = ${v.value};');
 			}
 		// functions
 		if (file.funcs != null)
 			for (func in file.funcs) {
-				if (func.recv != null) {
-					trace("recv: " + func.recv);
-				}else{
-					main.push(func.doc);
-					var first = func.exported ? "" : "private";
-					main.push('$first function ${func.name}(${func.params.join(", ")}) {');
-					if (func.body != null)
-						for (expr in func.body) {
-							main.push(expr);
+				if (func.recv != "") {
+					for (struct in file.structs) {
+						if (struct.name == func.recv) {
+							if (struct.funcs == null)
+								struct.funcs = [];
+							trace("recv: " + func.recv + " func name " + func.name);
+							struct.funcs.push(func);
+							break;
 						}
-					main.push("}");
+					}
+				}else{
+					main = main.concat(printFunc(func));
 				}
 			}
 		// write
@@ -120,7 +121,7 @@ class Parser {
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {
-				var first = struct.export ? "" : "private";
+				var first = struct.export ? "public" : "private";
 				main.push('$first class ${struct.name} {');
 				var init:String = "";
 				if (struct.fields == null) {
@@ -134,11 +135,29 @@ class Parser {
 				init = init.substr(1);
 				main.push('public function new($init) {');
 				//main.push('std.Go.initLocals();');
-				main.push("}\n}");
+				main.push("}\n");
+				if (struct.funcs != null)
+					for (func in struct.funcs) {
+						main = main.concat(printFunc(func));
+					}
+				main.push("}");
 			}
 		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));
 		buildConfig(pkgPath, className);
+	}
+
+	function printFunc(func:Func):Array<String> {
+		var main:Array<String> = [];
+		main.push(func.doc);
+		var first = func.exported ? "public" : "private";
+		main.push('$first function ${func.name}(${func.params.join(", ")}) {');
+		if (func.body != null)
+			for (expr in func.body) {
+				main.push(expr);
+			}
+		main.push("}");
+		return main;
 	}
 
 	function buildConfig(path:String, main:String) {

@@ -42,7 +42,7 @@ type funcType struct {
 	Results  []string `json:"results"`
 	Doc      string   `json:"doc"`
 	Body     []string `json:"body"`
-	Recv     []string `json:"recv"`
+	Recv     string `json:"recv"`
 }
 type varType struct {
 	Name     string `json:"name"`
@@ -203,8 +203,8 @@ func load(args ...string) {
 				deferStack = []string{}
 				replaceFunctionContext = make(map[string]string)
 				fn := funcType{}
-				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
+				fn.Name = untitle(decl.Name.Name)
 				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 				if fn.Exported {
 					fn.Doc = parseComment(decl.Doc)
@@ -218,7 +218,10 @@ func load(args ...string) {
 					fn.Results = parseFields(decl.Type.Results.List)
 				}
 				if decl.Recv != nil {
-					fn.Recv = parseFields(decl.Recv.List)
+					//fn.
+					recv := decl.Recv.List[0]
+					fn.Recv = parseExpr(recv.Type,false)
+					replaceFunctionContext[recv.Names[0].Name] = "this"
 				}
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
@@ -636,7 +639,7 @@ func parseFields(list []*ast.Field) []string {
 		} else {
 			for _, name := range field.Names {
 				buffer.Reset()
-				buffer.WriteString(parseExpr(name, false))
+				buffer.WriteString(untitle(parseExpr(name, false)))
 				buffer.WriteString(":")
 				buffer.WriteString(ty)
 				array = append(array, buffer.String())
@@ -684,12 +687,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 		}
 	case *ast.Ident:
-		name := expr.Name
-		value, ok := replaceMap[name]
-		if ok {
-			name = value
-		}
-		buffer.WriteString(name)
+		buffer.WriteString(rename(expr.Name))
 	case *ast.StarExpr:
 		buffer.WriteString(parseExpr(expr.X, false))
 	case *ast.MapType:
@@ -717,13 +715,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(" => ")
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
-		name := parseExpr(expr.Elt, false)
-		value, ok := replaceMap[name]
-		if ok {
-			name = value
-		}
 		buffer.WriteString("Array<")
-		buffer.WriteString(name)
+		buffer.WriteString(rename(parseExpr(expr.Elt,false)))
 		buffer.WriteString(">")
 	case *ast.FuncLit:
 		buffer.WriteString("function(")
@@ -748,12 +741,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		//buffer.WriteString(" ")
 		buffer.WriteString(parseExpr(expr.Y, false))
 	case *ast.SelectorExpr: //1st class
-		name := parseExpr(expr.X, false)
-		value, ok := replaceMap[name]
-		if ok {
-			name = value
-		}
-		buffer.WriteString(name)
+		buffer.WriteString(rename(parseExpr(expr.X,false)))
 		buffer.WriteString(".")
 		sel := untitle(expr.Sel.Name)
 		switch sel {
@@ -765,11 +753,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		makeBool := false
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
-			name := init.Name
-			value, ok := replaceMap[name]
-			if ok {
-				name = value
-			}
+			name := rename(init.Name)
 			switch name {
 			case "String":
 				name = "str"
@@ -924,6 +908,21 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 	buffer.WriteString("}")
 	return buffer.String()
 }
+func rename(name string) string {
+	{
+		value, ok := replaceMap[name]
+		if ok {
+			name = value
+		}
+	}
+	{
+		value,ok := replaceFunctionContext[name]
+		if ok {
+			name = value
+		}
+	}
+	return name
+}
 func typeAssert(expr ast.TypeAssertExpr, init bool) string {
 	buffer := strings.Builder{}
 	//buffer.WriteString("Type.typeof(")
@@ -1022,7 +1021,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				declData.Name = decl.Name
 				declData.Type = decl.Type
 				declData.Body = decl.Body
-				//declData.Recv = decl.Recv
+				declData.Recv = decl.Recv
 				declData.Doc = decl.Doc
 				if exports && declData.Body != nil {
 					declData.Body.List = []ast.Stmt{}

@@ -1,7 +1,8 @@
 -main go2hx.Main
 #-cp bin
 --macro go2hx.macro.Res.gen()
--lib hx-yaml
 --no-inline
+-lib hx-yaml
+-D no-deprecation-warnings
 -D debug
 --interp

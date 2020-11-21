@@ -22,8 +22,7 @@ class Parser {
 			trace("export.yaml not found");
 			return;
 		}
-		var data:Data = Yaml.read("export.yaml");
-		return;
+		var data:Data = Yaml.read("export.yaml",yaml.Parser.options().useObjects());
 		trace("amount of pkgs: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
@@ -100,7 +99,7 @@ class Parser {
 		// functions
 		if (file.funcs != null)
 			for (func in file.funcs) {
-				if (func.recv != null) {
+				if (func.recv.length > 0) {
 
 				}else{
 					main.push(func.doc);

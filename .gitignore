@@ -6,6 +6,7 @@ bin
 examples/*.hx
 dump
 *.js
+*.bson
 *.exe
 node_modules
 packages.md

@@ -63,6 +63,7 @@ type structType struct {
 	Name     string   `json:"name"`
 	Exported bool     `json:"exported"`
 	Fields   []string `json:"fields"`
+	Def string        `json:"def"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -74,7 +75,9 @@ var exportData = Data{}
 var debugComment = true
 var asserted = ""
 var labels = []string{}
-var replaceContext map[string]string
+
+
+var replaceFunctionContext map[string]string
 var deferStack []string
 
 const debug = true
@@ -187,7 +190,8 @@ func load(args ...string) {
 						case *ast.StructType:
 							ty.Fields = parseFields(structType.Fields.List)
 						default:
-							fmt.Println("type spec type unknown", reflect.TypeOf(structType))
+							ty.Def = parseExpr(structType,false)
+							//fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 						}
 						data.Structs = append(data.Structs, ty)
 					default:
@@ -197,7 +201,7 @@ func load(args ...string) {
 				}
 			case *ast.FuncDecl:
 				deferStack = []string{}
-				replaceContext = make(map[string]string)
+				replaceFunctionContext = make(map[string]string)
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
@@ -531,6 +535,10 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
 		buffer.WriteString("});")
 		body = append(body, buffer.String())
+	case *ast.DeferStmt:
+		buffer := strings.Builder{}
+		buffer.WriteString(parseExpr(stmt.Call,init))
+		body = append(body,buffer.String())
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -586,9 +594,9 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	}
 	if !multi && len(stmt.Rhs) == 1 {
 		switch stmt.Rhs[0].(type) {
-		case *ast.CallExpr:
+		case *ast.CallExpr, *ast.FuncLit:
 			multi = true
-		case *ast.Ident, *ast.CompositeLit:
+		case *ast.Ident, *ast.CompositeLit, *ast.ParenExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.SelectorExpr, *ast.BasicLit,*ast.BinaryExpr:
 			multi = false
 		default:
 			fmt.Println("assign statement rhs", reflect.TypeOf(stmt.Rhs[0]))

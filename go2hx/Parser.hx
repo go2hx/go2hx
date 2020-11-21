@@ -31,13 +31,13 @@ class Parser {
 		}
 		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
-		var proc = new Process("haxe build.hxml");
+		/*var proc = new Process("haxe build.hxml");
 		var code = proc.exitCode();
 		if (code != -1) {
 			Sys.println(proc.stderr.readAll().toString());
 		} else {
 			Sys.println(proc.stdout.readAll().toString());
-		}
+		}*/
 		if (format)
 			new Process("haxelib run formatter -s .");
 		
@@ -100,7 +100,7 @@ class Parser {
 		if (file.funcs != null)
 			for (func in file.funcs) {
 				if (func.recv != null) {
-
+					trace("recv: " + func.recv);
 				}else{
 					main.push(func.doc);
 					var first = func.exported ? "" : "private";

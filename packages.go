@@ -8,7 +8,7 @@ import (
 	"os/exec"
 	"reflect"
 	"strings"
-	"gopkg.in/yaml.v2"
+	"go.mongodb.org/mongo-driver/bson"
 
 	//"go/token"
 	//"go/types"
@@ -102,14 +102,13 @@ func main() {
 	flag.Parse()
 	args := flag.Args()
 	load(args...)
-
-	bytes, err = yaml.Marshal(exportData)
+	bytes, err = bson.Marshal(exportData)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	os.Remove("export.yaml")
-	_ = ioutil.WriteFile("export.yaml", bytes, 0644)
+	os.Remove("export.bson")
+	_ = ioutil.WriteFile("export.bson", bytes, 0644)
 
 	out, err := exec.Command("haxe", "build.hxml").Output()
 	if err != nil {

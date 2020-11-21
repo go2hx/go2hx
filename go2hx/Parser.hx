@@ -1,5 +1,6 @@
 package go2hx;
 
+import bson.Bson;
 import sys.io.Process;
 import sys.FileSystem;
 import haxe.Resource;
@@ -7,7 +8,6 @@ import haxe.Json;
 import sys.io.File;
 import go2hx.types.Types;
 import haxe.io.Path;
-import yaml.Yaml;
 
 class Parser {
 	var replaceMap:Map<String, String> = [];
@@ -18,11 +18,11 @@ class Parser {
 	public function new(exportPath:String, format:Bool) {
 		exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
-		if (!FileSystem.exists("export.yaml")) {
-			trace("export.yaml not found");
+		if (!FileSystem.exists("export.bson")) {
+			trace("export.bson not found");
 			return;
 		}
-		var data:Data = Yaml.read("export.yaml",yaml.Parser.options().useObjects());
+		var data:Data = Bson.decode(File.getBytes("export.bson"));
 		trace("amount of pkgs: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
@@ -99,7 +99,7 @@ class Parser {
 		// functions
 		if (file.funcs != null)
 			for (func in file.funcs) {
-				if (func.recv.length > 0) {
+				if (func.recv != null) {
 
 				}else{
 					main.push(func.doc);

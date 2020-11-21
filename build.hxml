@@ -2,7 +2,7 @@
 #-cp bin
 --macro go2hx.macro.Res.gen()
 --no-inline
--lib yaml
+-lib bson
 -D no-deprecation-warnings
 -D debug
 --interp

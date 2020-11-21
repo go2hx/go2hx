@@ -1,5 +1,6 @@
 .vscode
 *.hl
+*.data
 main
 bin
 examples/*.hx
@@ -11,5 +12,6 @@ packages.md
 package-lock.json
 gobyexample
 *.json
+*.yaml
 notes.txt
 tour

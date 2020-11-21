@@ -1,22 +1,23 @@
 package main
 
 import (
-	"bytes"
+	//"bytes"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"os/exec"
 	"reflect"
 	"strings"
+	"gopkg.in/yaml.v2"
 
 	//"go/token"
 	//"go/types"
 	//"go/constant"
-	"encoding/json"
 	"os"
 
 	//"go/parser"
 	//"path/filepath"
+	"encoding/json"
 
 	"strconv"
 
@@ -31,7 +32,7 @@ import (
 type excludeJSON struct {
 	Excludes []string `json:"excludes"`
 }
-type jsonData struct {
+type Data struct {
 	Pkgs []packageType `json:"pkgs"`
 }
 type funcType struct {
@@ -53,7 +54,6 @@ type varType struct {
 type packageType struct {
 	PackagePath string       `json:"packagepath"`
 	Name        string       `json:"name"`
-	Main        bool         `json:"main"`
 	Imports     [][2]string  `json:"imports"`
 	Funcs       []funcType   `json:"funcs"`
 	Vars        []varType    `json:"vars"`
@@ -70,7 +70,7 @@ type structType struct {
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = make(map[string]bool)
 var replaceMap = map[string]string{}
-var exportData = jsonData{}
+var exportData = Data{}
 var debugComment = true
 var asserted = ""
 var labels = []string{}
@@ -103,14 +103,13 @@ func main() {
 	args := flag.Args()
 	load(args...)
 
-	bytes, err = json.MarshalIndent(exportData, "", "    ")
-	bytes = safeEncode(bytes)
+	bytes, err = yaml.Marshal(exportData)
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	os.Remove("export.json")
-	_ = ioutil.WriteFile("export.json", bytes, 0644)
+	os.Remove("export.yaml")
+	_ = ioutil.WriteFile("export.yaml", bytes, 0644)
 
 	out, err := exec.Command("haxe", "build.hxml").Output()
 	if err != nil {
@@ -157,7 +156,6 @@ func load(args ...string) {
 							data.Imports = append(data.Imports, imp)
 							//fmt.Println("excludes", path, excludes[path])
 							if !excludes[path] {
-								fmt.Println("path", path)
 								load(path)
 								excludes[path] = true
 							}
@@ -486,15 +484,15 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer.WriteString("if(")
 		buffer.WriteString(parseExpr(stmt.Cond, false))
 		buffer.WriteString(") {")
-		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
+		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), ""))
 		buffer.WriteString("}")
 		if stmt.Else != nil {
 			buffer.WriteString("else {")
 			switch stmt := stmt.Else.(type) {
 			case *ast.BlockStmt:
-				buffer.WriteString(strings.Join(parseBody(stmt.List), "\n"))
+				buffer.WriteString(strings.Join(parseBody(stmt.List), ""))
 			default:
-				buffer.WriteString(strings.Join(parseStatement(stmt, true), "\n"))
+				buffer.WriteString(strings.Join(parseStatement(stmt, true), ""))
 			}
 			buffer.WriteString("}")
 		}
@@ -732,7 +730,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			_ = res
 		}
 		buffer.WriteString("{\n")
-		buffer.WriteString(strings.Join(parseBody(expr.Body.List), "\n"))
+		buffer.WriteString(strings.Join(parseBody(expr.Body.List), ""))
 		buffer.WriteString("}")
 	case *ast.BasicLit:
 		buffer.WriteString(expr.Value)
@@ -786,7 +784,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			buffer.WriteString(parseExpr(expr.Fun, false))
 		}
-		if makeBool {
+		if makeBool && len(expr.Args) == 1 {
 			buffer.WriteString(parseExpr(expr.Args[0], false))
 			buffer.WriteString("()")
 		} else {
@@ -915,7 +913,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 		buffer.WriteString(") ")
 	}
 	buffer.WriteString("{\n")
-	buffer.WriteString(strings.Join(parseBody(stmt.Body), "\n"))
+	buffer.WriteString(strings.Join(parseBody(stmt.Body), ""))
 	buffer.WriteString("}")
 	return buffer.String()
 }
@@ -943,12 +941,6 @@ func unparan(name string) string {
 	buffer.WriteString(name[1:len(name)])
 	return buffer.String()
 }
-func safeEncode(b []byte) []byte {
-	b = bytes.Replace(b, []byte("\\u003c"), []byte("<"), -1)
-	b = bytes.Replace(b, []byte("\\u003e"), []byte(">"), -1)
-	b = bytes.Replace(b, []byte("\\u0026"), []byte("&"), -1)
-	return b
-}
 func reserved(str string) string {
 	switch str {
 	case "var", "switch", "for", "if", "else", "case", "using", "final":
@@ -974,7 +966,6 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
 		data.Name = file.Name
-		fmt.Println("data name:", file.Name)
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:

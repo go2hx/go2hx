@@ -7,6 +7,7 @@ import haxe.Json;
 import sys.io.File;
 import go2hx.types.Types;
 import haxe.io.Path;
+import yaml.Yaml;
 
 class Parser {
 	var replaceMap:Map<String, String> = [];
@@ -17,11 +18,12 @@ class Parser {
 	public function new(exportPath:String, format:Bool) {
 		exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
-		if (!FileSystem.exists("export.json")) {
-			trace("export.json not found");
+		if (!FileSystem.exists("export.yaml")) {
+			trace("export.yaml not found");
 			return;
 		}
-		var data:JsonData = Json.parse(File.getContent("export.json"));
+		var data:Data = Yaml.read("export.yaml");
+		return;
 		trace("amount of pkgs: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
@@ -40,6 +42,18 @@ class Parser {
 		if (format)
 			new Process("haxelib run formatter -s .");
 		
+	}
+	private function importData(string:String):Array<Dynamic> {
+		var array = [];
+		var index = string.indexOf("#");
+		if (index == -1) 
+			return null;
+		var num = Std.parseInt(string.substr(index,index = string.indexOf("\n")));
+		index += 1;
+		importData(string.substr(index + num)); //parse after
+		string = string.substr(index,num);
+
+		return null;
 	}
 	public function read(file:Package, path:String) {
 		// get className and path

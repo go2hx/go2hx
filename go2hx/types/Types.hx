@@ -34,7 +34,7 @@ typedef Package = {
 	structs:Array<Struct>
 }
 
-typedef JsonData = {
+typedef Data = {
 	pkgs:Array<Package>,
 }
 

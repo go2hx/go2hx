@@ -6,6 +6,7 @@ bin
 examples/*.hx
 dump
 *.js
+go
 *.bson
 *.exe
 node_modules

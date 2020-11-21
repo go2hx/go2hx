@@ -1,0 +1,3 @@
+# @install: lix --silent download "gh://github.com/pxshadow/yaml#d68aecd18edfde595ec15aa571d2580212c6e432" into yaml/2.0.1/github/d68aecd18edfde595ec15aa571d2580212c6e432
+-cp ${HAXE_LIBCACHE}/yaml/2.0.1/github/d68aecd18edfde595ec15aa571d2580212c6e432/
+-D yaml=2.0.1

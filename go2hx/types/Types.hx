@@ -7,7 +7,7 @@ typedef Func = {
 	exported:Bool,
 	body:Array<String>,
 	doc:String,
-	//recv:Array<String>,
+	recv:Array<String>,
 }
 
 typedef Var = {

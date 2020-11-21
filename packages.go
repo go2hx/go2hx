@@ -39,9 +39,9 @@ type funcType struct {
 	Exported bool     `json:"exported"`
 	Params   []string `json:"params"`
 	Results  []string `json:"results"`
-	Doc string `json:"doc"`
+	Doc      string   `json:"doc"`
 	Body     []string `json:"body"`
-	//Recv []string `json:"recv"`
+	Recv     []string `json:"recv"`
 }
 type varType struct {
 	Name     string `json:"name"`
@@ -51,17 +51,17 @@ type varType struct {
 	Value    string `json:"value"`
 }
 type packageType struct {
-	PackagePath string      `json:"packagepath"`
-	Name        string      `json:"name"`
-	Main        bool        `json:"main"`
-	Imports     [][2]string `json:"imports"`
-	Funcs       []funcType  `json:"funcs"`
-	Vars        []varType   `json:"vars"`
-	Structs       []structType  `json:"structs"`
+	PackagePath string       `json:"packagepath"`
+	Name        string       `json:"name"`
+	Main        bool         `json:"main"`
+	Imports     [][2]string  `json:"imports"`
+	Funcs       []funcType   `json:"funcs"`
+	Vars        []varType    `json:"vars"`
+	Structs     []structType `json:"structs"`
 }
 type structType struct {
-	Name     string `json:"name"`
-	Exported bool   `json:"exported"`
+	Name     string   `json:"name"`
+	Exported bool     `json:"exported"`
 	Fields   []string `json:"fields"`
 }
 
@@ -157,7 +157,7 @@ func load(args ...string) {
 							data.Imports = append(data.Imports, imp)
 							//fmt.Println("excludes", path, excludes[path])
 							if !excludes[path] {
-								fmt.Println("path",path)
+								fmt.Println("path", path)
 								load(path)
 								excludes[path] = true
 							}
@@ -187,10 +187,10 @@ func load(args ...string) {
 						ty.Name = strings.Title(spec.Name.Name)
 						ty.Exported = spec.Name.IsExported()
 						switch structType := spec.Type.(type) {
-							case *ast.StructType:
-								ty.Fields = parseFields(structType.Fields.List)
-							default:
-								fmt.Println("type spec type unknown",reflect.TypeOf(structType))
+						case *ast.StructType:
+							ty.Fields = parseFields(structType.Fields.List)
+						default:
+							fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 						}
 						data.Structs = append(data.Structs, ty)
 					default:
@@ -201,16 +201,13 @@ func load(args ...string) {
 			case *ast.FuncDecl:
 				deferStack = []string{}
 				replaceContext = make(map[string]string)
-				if decl.Recv != nil {
-					
-				}
 				fn := funcType{}
 				fn.Name = decl.Name.Name
 				fn.Exported = decl.Name.IsExported()
 				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 				if fn.Exported {
 					fn.Doc = parseComment(decl.Doc)
-				}else{
+				} else {
 					fn.Doc = ""
 				}
 				if decl.Type.Params != nil {
@@ -218,6 +215,9 @@ func load(args ...string) {
 				}
 				if decl.Type.Results != nil {
 					fn.Results = parseFields(decl.Type.Results.List)
+				}
+				if decl.Recv != nil {
+					fn.Recv = parseFields(decl.Recv.List)
 				}
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
@@ -237,7 +237,7 @@ func parseComment(comments *ast.CommentGroup) string {
 	}
 	buffer := strings.Builder{}
 	buffer.WriteString("/**\n")
-	for _,comment := range comments.List {
+	for _, comment := range comments.List {
 		buffer.WriteString(comment.Text[2:])
 		buffer.WriteString("\n")
 	}
@@ -627,7 +627,7 @@ func parseFields(list []*ast.Field) []string {
 		//fmt.Println("field type ",reflect.TypeOf(field.Type))
 		ty := parseExpr(field.Type, false)
 		if len(field.Names) == 0 {
-			array = append(array,ty)
+			array = append(array, ty)
 		} else {
 			for _, name := range field.Names {
 				buffer.Reset()
@@ -652,7 +652,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		params := parseFields(expr.Params.List)
-		fmt.Println("count of params",len(params))
+		fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer.WriteString("Void")
 		} else if len(params) == 1 {
@@ -702,7 +702,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Methods == nil || len(expr.Methods.List) == 0 {
 			return "Any"
 		}
-		fmt.Println("count",len(expr.Methods.List))
+		fmt.Println("count", len(expr.Methods.List))
 		//fmt.Println("inter", ast.Print(nil, expr))
 		fmt.Println("inter", expr.Methods)
 	case *ast.StructType:
@@ -752,7 +752,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(".")
 		sel := untitle(expr.Sel.Name)
 		switch sel {
-			case "new": sel = "New" //in order to get around the restriction
+		case "new":
+			sel = "New" //in order to get around the restriction
 		}
 		buffer.WriteString(sel)
 	case *ast.CallExpr: //1st class
@@ -814,18 +815,18 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}*/
 	case *ast.CompositeLit:
 		switch ty := expr.Type.(type) {
-			case *ast.ArrayType:
-				buffer.WriteString("[")
-				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
-				buffer.WriteString("]")
-			case *ast.SelectorExpr, *ast.Ident:
-				buffer.WriteString("new ")
-				buffer.WriteString(parseExpr(ty,false))
-				buffer.WriteString("(")
-				buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
-				buffer.WriteString(")")
-			default:
-				fmt.Println("compositelit type unknown",reflect.TypeOf(ty))
+		case *ast.ArrayType:
+			buffer.WriteString("[")
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			buffer.WriteString("]")
+		case *ast.SelectorExpr, *ast.Ident:
+			buffer.WriteString("new ")
+			buffer.WriteString(parseExpr(ty, false))
+			buffer.WriteString("(")
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			buffer.WriteString(")")
+		default:
+			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
 		//ast.Print(nil, expr)
@@ -973,7 +974,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
 		data.Name = file.Name
-		fmt.Println("data name:",file.Name)
+		fmt.Println("data name:", file.Name)
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:

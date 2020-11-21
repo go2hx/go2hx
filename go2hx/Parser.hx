@@ -86,14 +86,18 @@ class Parser {
 		// functions
 		if (file.funcs != null)
 			for (func in file.funcs) {
-				main.push(func.doc);
-				var first = func.exported ? "" : "private";
-				main.push('$first function ${func.name}(${func.params.join(", ")}) {');
-				if (func.body != null)
-					for (expr in func.body) {
-						main.push(expr);
-					}
-				main.push("}");
+				if (func.recv != null) {
+
+				}else{
+					main.push(func.doc);
+					var first = func.exported ? "" : "private";
+					main.push('$first function ${func.name}(${func.params.join(", ")}) {');
+					if (func.body != null)
+						for (expr in func.body) {
+							main.push(expr);
+						}
+					main.push("}");
+				}
 			}
 		// write
 		if (!FileSystem.exists(exportPath + path))

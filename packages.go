@@ -186,6 +186,7 @@ func load(args ...string) {
 						ty := structType{}
 						ty.Name = strings.Title(spec.Name.Name)
 						ty.Exported = spec.Name.IsExported()
+						replaceMap[spec.Name.Name] = ty.Name
 						switch structType := spec.Type.(type) {
 						case *ast.StructType:
 							ty.Fields = parseFields(structType.Fields.List)
@@ -205,6 +206,7 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Exported = decl.Name.IsExported()
 				fn.Name = untitle(decl.Name.Name)
+				replaceMap[decl.Name.Name] = fn.Name
 				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 				if fn.Exported {
 					fn.Doc = parseComment(decl.Doc)
@@ -743,7 +745,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.SelectorExpr: //1st class
 		buffer.WriteString(rename(parseExpr(expr.X,false)))
 		buffer.WriteString(".")
-		sel := untitle(expr.Sel.Name)
+		sel := rename(untitle(expr.Sel.Name))
 		switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction

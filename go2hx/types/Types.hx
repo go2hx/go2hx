@@ -20,7 +20,7 @@ typedef Var = {
 
 typedef Struct = {
 	name:String,
-	export:Bool,
+	exported:Bool,
 	fields:Array<String>,
 	funcs:Array<Func>,
 }

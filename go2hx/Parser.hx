@@ -100,6 +100,7 @@ class Parser {
 		if (file.funcs != null)
 			for (func in file.funcs) {
 				if (func.recv != "") {
+					func.exported = true;
 					for (struct in file.structs) {
 						if (struct.name == func.recv) {
 							if (struct.funcs == null)
@@ -121,24 +122,25 @@ class Parser {
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {
-				var first = struct.export ? "public" : "private";
+				trace("struct " + struct.name + " export " + struct.exported);
+				var first = struct.exported ? "" : "private";
 				main.push('$first class ${struct.name} {');
 				var init:String = "";
 				if (struct.fields == null) {
 
 				}else{
 					for (field in struct.fields) {
-						main.push('var $field;');
+						main.push('public var $field;');
 						init += ',?$field';
 					}
 				}
 				init = init.substr(1);
 				main.push('public function new($init) {');
-				//main.push('std.Go.initLocals();');
+				main.push("std.Macro.initLocals();");
 				main.push("}\n");
 				if (struct.funcs != null)
 					for (func in struct.funcs) {
-						main = main.concat(printFunc(func));
+						main = main.concat(printFunc(func,"public"));
 					}
 				main.push("}");
 			}
@@ -147,10 +149,10 @@ class Parser {
 		buildConfig(pkgPath, className);
 	}
 
-	function printFunc(func:Func):Array<String> {
+	function printFunc(func:Func,publicString:String=""):Array<String> {
 		var main:Array<String> = [];
 		main.push(func.doc);
-		var first = func.exported ? "public" : "private";
+		var first = func.exported ? publicString : "private";
 		main.push('$first function ${func.name}(${func.params.join(", ")}) {');
 		if (func.body != null)
 			for (expr in func.body) {
@@ -169,6 +171,7 @@ class Parser {
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
 		stdimports.push("go"); //main class
+		stdimports.push("macro");
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

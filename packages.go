@@ -761,7 +761,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		name := rename(parseExpr(expr.X,false))
 		buffer.WriteString(name)
 		buffer.WriteString(".")
-		sel := rename(untitle(expr.Sel.Name))
+		sel := reserved(rename(untitle(expr.Sel.Name)))
 		switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction

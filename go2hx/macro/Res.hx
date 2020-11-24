@@ -15,7 +15,7 @@ class Res {
 	static var data = {
 		excludes: [
 			
-				"math",
+				/*"math",
 				"flag",
 				//"errors",
 				"internal/reflectlite",
@@ -108,7 +108,7 @@ class Res {
 				//"hash/crc32",
 				//"compress/flate",
 
-				"database/sql/driver",
+				"database/sql/driver",*/
 
 			 
 		]

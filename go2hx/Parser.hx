@@ -105,7 +105,6 @@ class Parser {
 						if (struct.name == func.recv) {
 							if (struct.funcs == null)
 								struct.funcs = [];
-							trace("recv: " + func.recv + " func name " + func.name);
 							struct.funcs.push(func);
 							break;
 						}
@@ -122,7 +121,6 @@ class Parser {
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {
-				trace("struct " + struct.name + " export " + struct.exported);
 				var first = struct.exported ? "" : "private";
 				main.push('$first class ${struct.name} {');
 				var init:String = "";
@@ -163,7 +161,7 @@ class Parser {
 	}
 
 	function buildConfig(path:String, main:String) {
-		File.saveContent(exportPath + "build.hxml", '-main $path.$main\n' + "--interp");
+		File.saveContent(exportPath + "build.hxml", '-main $path.$main\n-D std-encoding-utf8\n' + "--interp");
 	}
 
 	function imports(path:String) {

@@ -39,7 +39,7 @@ class Parser {
 			Sys.println(proc.stdout.readAll().toString());
 		}*/
 		if (format)
-			new Process("haxelib run formatter -s .");
+			Sys.command("haxelib run formatter -s .");
 		
 	}
 	private function importData(string:String):Array<Dynamic> {

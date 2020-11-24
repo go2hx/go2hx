@@ -4,6 +4,8 @@
 main
 bin
 examples/*.hx
+*.dat
+*.exe
 dump
 *.js
 go

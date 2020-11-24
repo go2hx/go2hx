@@ -221,9 +221,18 @@ func load(args ...string) {
 				}
 				if decl.Recv != nil {
 					//fn.
+					if len(decl.Recv.List) != 1 {
+						fmt.Println("error recv list is not length of 1:",decl.Recv.List)
+					}
 					recv := decl.Recv.List[0]
 					fn.Recv = parseExpr(recv.Type,false)
-					replaceFunctionContext[recv.Names[0].Name] = "this"
+					if len(recv.Names) == 1 {
+						replaceFunctionContext[recv.Names[0].Name] = "this"
+					}else{
+						if len(recv.Names) > 1 {
+							fmt.Println("function error recv names more then 1:",recv.Names)
+						}
+					}
 				}
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
@@ -263,7 +272,7 @@ func addDebug(obj interface{}) string {
 	buffer := strings.Builder{}
 	if debugComment && obj != nil {
 		buffer.WriteString("//")
-		buffer.WriteString(reflect.TypeOf(obj).String())
+		buffer.WriteString(reflect.TypeOf(obj).String()[1:])
 		buffer.WriteString("\n")
 		return buffer.String()
 	}
@@ -601,10 +610,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 		switch stmt.Rhs[0].(type) {
 		case *ast.CallExpr, *ast.FuncLit:
 			multi = true
-		case *ast.Ident, *ast.CompositeLit, *ast.ParenExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.SelectorExpr, *ast.BasicLit,*ast.BinaryExpr:
-			multi = false
 		default:
-			fmt.Println("assign statement rhs", reflect.TypeOf(stmt.Rhs[0]))
+			multi = false
 		}
 	}
 	if multi {
@@ -708,18 +715,26 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "Any"
 		}
 		fmt.Println("count", len(expr.Methods.List))
-		//fmt.Println("inter", ast.Print(nil, expr))
-		fmt.Println("inter", expr.Methods)
 	case *ast.StructType:
 		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
 	case *ast.KeyValueExpr: //map
 		buffer.WriteString(parseExpr(expr.Key, false))
-		buffer.WriteString(" => ")
+		buffer.WriteString(" : ")
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
-		buffer.WriteString("Array<")
-		buffer.WriteString(rename(parseExpr(expr.Elt,false)))
-		buffer.WriteString(">")
+		
+		name := rename(parseExpr(expr.Elt,false))
+		writeArrayBool := true
+		switch name {
+			case "bytes":
+				writeArrayBool = false
+				buffer.WriteString("haxe.io.BytesData")
+		}
+		if writeArrayBool {
+			buffer.WriteString("Array<")
+			buffer.WriteString(name)
+			buffer.WriteString(">")
+		}
 	case *ast.FuncLit:
 		buffer.WriteString("function(")
 		if expr.Type.Params != nil {
@@ -816,6 +831,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer.WriteString("(")
 			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
 			buffer.WriteString(")")
+		case nil:
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts,false), ","))
 		default:
 			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}

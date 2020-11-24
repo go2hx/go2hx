@@ -975,9 +975,9 @@ func reserved(str string) string {
 	case "implements","import","in","inline","interface","macro","new","null","operator","overload","override","package","private":
 	case "public","return","static","this","throw","try","typedef","untyped","using","var","while":
 	default:
-		strings.Join([]string{str, "tmp"}, "_")
 		return str
 	}
+	return strings.Join([]string{str, "tmp"}, "_")
 }
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}

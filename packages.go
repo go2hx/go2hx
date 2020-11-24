@@ -227,6 +227,7 @@ func load(args ...string) {
 					fn.Recv = parseExpr(recv.Type,false)
 					if len(recv.Names) == 1 {
 						replaceFunctionContext[recv.Names[0].Name] = "this"
+						replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
 					}else{
 						if len(recv.Names) > 1 {
 							fmt.Println("function error recv names more then 1:",recv.Names)
@@ -250,12 +251,12 @@ func parseComment(comments *ast.CommentGroup) string {
 		return ""
 	}
 	buffer := strings.Builder{}
-	buffer.WriteString("/**\n")
-	for _, comment := range comments.List {
+	//buffer.WriteString("/**\n")
+	/*for _, comment := range comments.List {
 		buffer.WriteString(comment.Text[2:])
 		buffer.WriteString("\n")
-	}
-	buffer.WriteString("**/")
+	}*/
+	//buffer.WriteString("**/")
 	return buffer.String()
 }
 func addSemicolon(obj interface{}, init bool) string {
@@ -668,7 +669,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		params := parseFields(expr.Params.List)
-		fmt.Println("count of params", len(params))
+		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer.WriteString("Void")
 		} else if len(params) == 1 {
@@ -757,7 +758,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		//buffer.WriteString(" ")
 		buffer.WriteString(parseExpr(expr.Y, false))
 	case *ast.SelectorExpr: //1st class
-		buffer.WriteString(rename(parseExpr(expr.X,false)))
+		name := rename(parseExpr(expr.X,false))
+		buffer.WriteString(name)
 		buffer.WriteString(".")
 		sel := rename(untitle(expr.Sel.Name))
 		switch sel {
@@ -967,9 +969,13 @@ func unparan(name string) string {
 }
 func reserved(str string) string {
 	switch str {
-	case "var", "switch", "for", "if", "else", "case", "using", "final":
-		return strings.Join([]string{str, "tmp"}, "_")
+	case "switch","case","break","continue","default":
+	case "abstract","cast","catch","class","do":
+	case "dynamic","else","enum","extends","extern","true","false","final","for","function","if":
+	case "implements","import","in","inline","interface","macro","new","null","operator","overload","override","package","private":
+	case "public","return","static","this","throw","try","typedef","untyped","using","var","while":
 	default:
+		strings.Join([]string{str, "tmp"}, "_")
 		return str
 	}
 }

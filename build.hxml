@@ -4,7 +4,6 @@
 --no-inline
 -lib bson
 -D no-deprecation-warnings
--D debug
 -D std-encoding-utf8
 #--interp
 -neko go2hx.n

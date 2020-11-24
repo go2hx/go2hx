@@ -10,7 +10,6 @@ import go2hx.hxargs.Args;
 class Main {
 	static function main() {
 		#if debug
-		// trace("go run packages.go");Sys.command("go run packages.go github.com/pxshadow/go2hx/examples/helloworld/");
 		new Parser("bin/", true);
 		#else
 		init();
@@ -52,10 +51,11 @@ class Main {
 			Sys.println("Pong!");
 			return;
 		}
-		if (inputPaths.length > 0) {
+		new Parser("bin",true);
+		/*if (inputPaths.length > 0) {
 			trace("main");
 			return;
-		}
+		}*/
 		Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
 	}
 

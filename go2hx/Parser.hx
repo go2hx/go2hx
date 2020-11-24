@@ -31,16 +31,8 @@ class Parser {
 		}
 		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
-		/*var proc = new Process("haxe build.hxml");
-		var code = proc.exitCode();
-		if (code != -1) {
-			Sys.println(proc.stderr.readAll().toString());
-		} else {
-			Sys.println(proc.stdout.readAll().toString());
-		}*/
 		if (format)
 			Sys.command("haxelib run formatter -s .");
-		
 	}
 	private function importData(string:String):Array<Dynamic> {
 		var array = [];

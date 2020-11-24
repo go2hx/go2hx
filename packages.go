@@ -713,7 +713,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Methods == nil || len(expr.Methods.List) == 0 {
 			return "Any"
 		}
-		fmt.Println("count", len(expr.Methods.List))
+		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
 		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
 	case *ast.KeyValueExpr: //map

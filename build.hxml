@@ -7,4 +7,5 @@
 -D debug
 -D std-encoding-utf8
 #--interp
--hl hlboot.dat
+-neko go2hx.n
+--cmd nekotools boot go2hx.n

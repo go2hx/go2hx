@@ -6,11 +6,13 @@ bin
 examples/*.hx
 *.dat
 *.exe
+*.n
 dump
 *.js
 go
 *.bson
 *.exe
+*.dll
 node_modules
 packages.md
 package-lock.json

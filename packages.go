@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"os/exec"
+	//"os/exec"
 	"reflect"
 	"strings"
 	"go.mongodb.org/mongo-driver/bson"
@@ -17,7 +17,7 @@ import (
 
 	//"go/parser"
 	//"path/filepath"
-	"encoding/json"
+	//"encoding/json"
 
 	"strconv"
 
@@ -72,7 +72,7 @@ var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = make(map[string]bool)
 var replaceMap = map[string]string{}
 var exportData = Data{}
-var debugComment = true
+var debugComment = false
 var asserted = ""
 var labels = []string{}
 
@@ -83,15 +83,8 @@ var deferStack []string
 const debug = true
 
 func main() {
-	bytes, err := ioutil.ReadFile("excludes.json")
+	/*bytes, err := ioutil.ReadFile("excludes.json")
 	var exclude_data = excludeJSON{}
-	//replaceMap["int64"] = ""
-	types := []string{"float", "int", "string", "bool", "uint64", "byte", "int64", "int32"}
-	for _, ty := range types {
-		replaceMap[ty] = strings.Title(ty)
-	}
-	replaceMap["error"] = "std.Errors"
-	replaceMap["nil"] = "null"
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -100,12 +93,18 @@ func main() {
 				excludes[v] = true
 			}
 		}
+	}*/
+	types := []string{"float", "int", "string", "bool", "uint64", "byte", "int64", "int32"}
+	for _, ty := range types {
+		replaceMap[ty] = strings.Title(ty)
 	}
+	replaceMap["error"] = "std.Errors"
+	replaceMap["nil"] = "null"
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
 	load(args...)
-	bytes, err = bson.Marshal(exportData)
+	bytes, err := bson.Marshal(exportData)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -113,12 +112,12 @@ func main() {
 	os.Remove("export.bson")
 	_ = ioutil.WriteFile("export.bson", bytes, 0644)
 
-	out, err := exec.Command("haxe", "build.hxml").Output()
+	/*out, err := exec.Command("haxe", "build.hxml").Output()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	fmt.Println(string(out[:]))
+	fmt.Println(string(out[:]))*/
 }
 func load(args ...string) {
 	inital, err := packages.Load(cfg, args...)
@@ -272,7 +271,7 @@ func addDebug(obj interface{}) string {
 	buffer := strings.Builder{}
 	if debugComment && obj != nil {
 		buffer.WriteString("//")
-		buffer.WriteString(reflect.TypeOf(obj).String()[1:])
+		buffer.WriteString(reflect.TypeOf(obj).String())
 		buffer.WriteString("\n")
 		return buffer.String()
 	}

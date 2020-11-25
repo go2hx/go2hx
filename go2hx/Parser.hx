@@ -65,9 +65,8 @@ class Parser {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index + 1);
 		}
-		if (pkgPath.charAt(0) == ".")
+		if (pkgPath.charAt(0) == "." || pkgPath.charAt(0) == "_")
 			pkgPath = pkgPath.substr(1);
-		trace("pkgPath " + pkgPath);
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
 		var imports = [];

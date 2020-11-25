@@ -29,10 +29,6 @@ import (
 	"go/ast"
 	//"golang.org/x/tools/go/ssa"
 )
-
-type excludeJSON struct {
-	Excludes []string `json:"excludes"`
-}
 type Data struct {
 	Pkgs []packageType `json:"pkgs"`
 }
@@ -70,13 +66,109 @@ type structType struct {
 // Example demonstrates how to load the packages specified on the
 // command line from source syntax.
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
-var excludes = make(map[string]bool)
+var excludes = map[string]bool{	
+	"math": true,
+	"flag": true,
+	"errors": true,
+	"internal/reflectlite": true,
+	"internal/unsafeheader": true,
+	"unsafe": true,
+	"runtime": true,
+	"internal/cpu": true,
+	"runtime/internal/sys": true,
+	"runtime/internal/atomic": true,
+	"runtime/internal/math": true,
+	"internal/bytealg": true,
+	"io": true,
+	"sync": true,
+	"sync/atomic": true,
+	"internal/race": true,
+	"reflect": true,
+	"strconv": true,
+	"math/bits": true,
+	"unicode/utf8": true,
+	"unicode": true,
+	"sort": true,
+	"strings": true,
+	"io/ioutil": true,
+	"bytes": true,
+	"path/filepath": true,
+	"syscall": true,
+	"internal/syscall/windows/sysdll": true,
+	"unicode/utf16": true,
+	"internal/oserror": true,
+	//"go/token": true,
+	"encoding/json": true,
+	"encoding": true,
+	"encoding/base64": true,
+	"encoding/binary": true,
+	//"golang.org/x/tools/go/packages"
+	"os/exec": true,
+	"context": true,
+	"internal/syscall/execenv": true,
+	"internal/syscall/windows": true,
+	//"go/types": true,
+	//"go/ast": true,
+	//"go/scanner": true,
+	//"go/constant": true,
+	"math/big": true,
+	"math/rand": true,
+	//"go/parser": true,
+	"container/heap": true,
+	"log": true,
+	"path": true,
+	//"golang.org/x/tools/go/internal/packagesdriver": true,
+	"golang.org/x/tools/internal/gocommand": true,
+	"regexp": true,
+	"regexp/syntax": true,
+	//"golang.org/x/tools/internal/event": true,
+	//"golang.org/x/tools/internal/event/core": true,
+	//"golang.org/x/tools/internal/event/label": true,
+	//"golang.org/x/tools/internal/event/keys": true,
+	//"golang.org/x/mod/semver": true,
+	//"golang.org/x/xerrors": true,
+	//"golang.org/x/xerrors/internal": true,
+	//"golang.org/x/tools/go/gcexportdata": true,
+	"bufio": true,
+	"golang.org/x/tools/go/internal/gcimporter": true,
+	"go/build": true,
+	"go/doc": true,
+	"internal/lazyregexp": true,
+	"text/template": true,
+	"internal/fmtsort": true,
+	"text/template/parse": true,
+	"net/url": true,
+	//"internal/goroot": true,
+	//"internal/goversion": true,
+	"text/scanner": true,
+	//"golang.org/x/tools/internal/packagesinternal": true,
+	//"golang.org/x/tools/internal/typesinternal": true,
+	//"golang.org/x/tools/go/ssa/ssautil": true,
+	//"golang.org/x/tools/go/loader": true,
+	//"golang.org/x/tools/go/ast/astutil": true,
+	//"golang.org/x/tools/go/internal/cgo": true,
+	//"golang.org/x/tools/go/buildutil": true,
+	//"golang.org/x/tools/go/ssa": true,
+	//"golang.org/x/tools/go/types/typeutil"
+
+	"internal/nettrace": true,
+	"vendor/golang.org/x/net/dns/dnsmessage": true,
+	"internal/poll": true,
+	"internal/singleflight": true,
+	"internal/testlog": true,
+	//"hash": true,
+	//"hash/crc32": true,
+	//"compress/flate": true,
+
+	"database/sql/driver": true,
+}
 var replaceMap = map[string]string{}
 var exportData = Data{}
 var debugComment = false
+var debugTypeTrace = false
 var asserted = ""
 var labels = []string{}
-var importLoadBool = false
+var importLoadBool = true
 
 var replaceFunctionContext map[string]string
 var deferStack []string
@@ -86,21 +178,14 @@ const debug = true
 func main() {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
 	fmt.Println("program dir:",dir)
-	/*bytes, err := ioutil.ReadFile("excludes.json")
-	var exclude_data = excludeJSON{}
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		if json.Unmarshal(bytes, &exclude_data) == nil {
-			for _, v := range exclude_data.Excludes {
-				excludes[v] = true
-			}
-		}
-	}*/
 	types := []string{"float", "int", "string", "bool", "uint64", "byte", "int64", "int32"}
 	for _, ty := range types {
+		/*if ty == "byte" {
+			fmt.Println("title byte",strings.Title(ty))
+		}*/
 		replaceMap[ty] = strings.Title(ty)
 	}
+	replaceMap["errors"] = "std.Errors"
 	replaceMap["error"] = "std.Errors"
 	replaceMap["nil"] = "null"
 	// Examples: . , fmt, math, etc
@@ -122,7 +207,14 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	cmd = exec.Command("parser",filepath.Join(currentPath,"bin"))
+	binPath := filepath.Join(currentPath,"bin")
+	fmt.Println("bin path:",binPath)
+	err = os.RemoveAll(binPath)
+	if err != nil {
+		fmt.Println("Remove all error:",err)
+		return
+	}
+	cmd = exec.Command("parser",binPath)
 	cmd.Dir = dir
 	out,_ := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
@@ -174,7 +266,7 @@ func load(args ...string) {
 							replaceMap[imp[1]] = strings.Title(imp[1])
 							replaceMap[name] = strings.Title(name)
 						}
-					case *ast.ValueSpec:
+					case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
 						for i, _ := range spec.Names {
 							v := varType{}
 							//spec.Names[i].Obj.Kind
@@ -215,7 +307,9 @@ func load(args ...string) {
 				fn := funcType{}
 				fn.Exported = decl.Name.IsExported()
 				fn.Name = untitle(decl.Name.Name)
-				replaceMap[decl.Name.Name] = fn.Name
+				if fn.Name != decl.Name.Name {
+					replaceMap[decl.Name.Name] = fn.Name
+				}
 				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 				if fn.Exported {
 					fn.Doc = parseComment(decl.Doc)
@@ -325,7 +419,6 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer.WriteString(";\n")
 		body = append(body, buffer.String())
 	case *ast.TypeSwitchStmt:
-		fmt.Println("assign", reflect.TypeOf(stmt.Assign))
 		buffer := strings.Builder{}
 		buffer.WriteString("{\n")
 		if stmt.Init != nil {
@@ -413,7 +506,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		case *ast.GenDecl:
 			for _, spec := range stmt.Specs {
 				switch spec := spec.(type) {
-				case *ast.ValueSpec:
+				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
 					buffer := strings.Builder{}
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
@@ -563,6 +656,10 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := strings.Builder{}
 		buffer.WriteString(parseExpr(stmt.Call,init))
 		body = append(body,buffer.String())
+	case *ast.SelectStmt:
+		buffer := strings.Builder{}
+		_ = buffer
+		
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -659,6 +756,7 @@ func parseFields(list []*ast.Field) []string {
 				buffer.WriteString(untitle(parseExpr(name, false)))
 				buffer.WriteString(":")
 				buffer.WriteString(ty)
+				//fmt.Println("field:",buffer.String())
 				array = append(array, buffer.String())
 			}
 		}
@@ -674,6 +772,10 @@ func parseExprs(list []ast.Expr, init bool) []string {
 }
 func parseExpr(expr ast.Expr, init bool) string {
 	buffer := strings.Builder{}
+	if debugTypeTrace {
+		debugTypeTrace = false
+		fmt.Println("debug type trace:",reflect.TypeOf(expr))
+	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		params := parseFields(expr.Params.List)
@@ -730,7 +832,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(" : ")
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
-		fmt.Println("array type")
 		name := rename(parseExpr(expr.Elt,false))
 		writeArrayBool := true
 		switch name {
@@ -775,7 +876,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			sel = "New" //in order to get around the restriction
 		}
 		buffer.WriteString(sel)
-	case *ast.CallExpr: //1st class
+	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		makeBool := false
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:

@@ -1,5 +1,7 @@
 package std;
 
+import std.Go.ErrorReturn;
+import sys.io.File as Base;
 import sys.FileSystem;
 
 class Os {
@@ -7,6 +9,10 @@ class Os {
 
 	public static inline function Mkdir(path:String, ?perm:Int) {
 		FileSystem.createDirectory(path);
+	}
+
+	public static inline function create(path:String):ErrorReturn<File> {
+		return {value: null};
 	}
 
 	public static inline function removeAll(path:String) {
@@ -21,5 +27,10 @@ class Os {
 				}
 			}
 		}
+	}
+}
+class File {
+	public function new() {
+
 	}
 }

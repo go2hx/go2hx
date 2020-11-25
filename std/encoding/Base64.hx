@@ -1,10 +1,9 @@
 package std.encoding;
 
-import std.Go.BytesErorReturn;
-import std.Go.StringErrorReturn;
 import haxe.Exception;
 import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;
+import std.Go.ErrorReturn;
 
 class Base64 {
 	public static var stdEncoding = new StdEncoding();
@@ -14,7 +13,7 @@ class Base64 {
 private class StdEncoding {
 	public function new() {}
 
-	public function encodeToString(bytes:Bytes):StringErrorReturn {
+	public function encodeToString(bytes:Bytes):ErrorReturn<String> {
 		try {
 			return return {value: Base.encode(bytes)};
 		} catch (e) {
@@ -22,7 +21,7 @@ private class StdEncoding {
 		}
 	}
 
-	public function decodeString(string:String):BytesErorReturn {
+	public function decodeString(string:String):ErrorReturn<Bytes> {
 		try {
 			return {value: Base.decode(string)};
 		} catch (e) {
@@ -34,7 +33,7 @@ private class StdEncoding {
 private class UrlEncoding {
 	public function new() {}
 
-	public function encodeToString(bytes:Bytes):StringErrorReturn {
+	public function encodeToString(bytes:Bytes):ErrorReturn<String> {
 		try {
 			return {value: Base.urlEncode(bytes)};
 		} catch (e) {
@@ -42,7 +41,7 @@ private class UrlEncoding {
 		}
 	}
 
-	public function decodeString(string:String):BytesErorReturn {
+	public function decodeString(string:String):ErrorReturn<Bytes> {
 		try {
 			return {value: Base.urlDecode(string)};
 		} catch (e) {

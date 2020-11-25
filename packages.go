@@ -166,12 +166,15 @@ var replaceMap = map[string]string{}
 var exportData = Data{}
 var debugComment = false
 var debugTypeTrace = false
+var noFieldName = false
+var mapField = false
 var asserted = ""
 var labels = []string{}
 var importLoadBool = true
 
 var replaceFunctionContext map[string]string
 var deferStack []string
+var funcDecl *ast.FuncDecl
 
 const debug = true
 
@@ -304,6 +307,7 @@ func load(args ...string) {
 			case *ast.FuncDecl:
 				deferStack = []string{}
 				replaceFunctionContext = make(map[string]string)
+				funcDecl = decl
 				fn := funcType{}
 				fn.Exported = decl.Name.IsExported()
 				fn.Name = untitle(decl.Name.Name)
@@ -340,6 +344,9 @@ func load(args ...string) {
 				}
 				if decl.Body != nil {
 					fn.Body = parseBody(decl.Body.List)
+				}
+				if len(deferStack) > 0 {
+					fn.Body = append(fn.Body,deferStack...) //add defer to end of function
 				}
 				data.Funcs = append(data.Funcs, fn)
 			default:
@@ -398,6 +405,12 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		body = append(body, parseExpr(stmt.X, init))
 	case *ast.ReturnStmt:
 		buffer := strings.Builder{}
+		if len(deferStack) > 0 {
+			for _,obj := range deferStack {
+				buffer.WriteString(obj)
+				buffer.WriteString("\n")
+			}
+		}
 		buffer.WriteString("return ")
 
 		if len(stmt.Results) > 1 {
@@ -406,8 +419,14 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 				if index > 0 {
 					buffer.WriteString(",")
 				}
-				buffer.WriteString("v")
-				buffer.WriteString(strconv.Itoa(index))
+				name := parseFieldName(funcDecl.Type.Results.List,index)
+				if name == "" {
+					buffer.WriteString("v")
+					buffer.WriteString(strconv.Itoa(index))
+				}else{
+					buffer.WriteString(name)
+				}
+				//buffer.WriteString(funcDecl.Type.Results.List[index].Type)
 				buffer.WriteString(" : ")
 				buffer.WriteString(parseExpr(res, false))
 				buffer.WriteString(" ")
@@ -655,7 +674,8 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 	case *ast.DeferStmt:
 		buffer := strings.Builder{}
 		buffer.WriteString(parseExpr(stmt.Call,init))
-		body = append(body,buffer.String())
+		buffer.WriteString("/*defer*/")
+		deferStack = append(deferStack,buffer.String())
 	case *ast.SelectStmt:
 		buffer := strings.Builder{}
 		_ = buffer
@@ -753,8 +773,10 @@ func parseFields(list []*ast.Field) []string {
 		} else {
 			for _, name := range field.Names {
 				buffer.Reset()
-				buffer.WriteString(untitle(parseExpr(name, false)))
-				buffer.WriteString(":")
+				if !noFieldName {
+					buffer.WriteString(untitle(parseExpr(name, false)))
+					buffer.WriteString(":")
+				}
 				buffer.WriteString(ty)
 				//fmt.Println("field:",buffer.String())
 				array = append(array, buffer.String())
@@ -762,6 +784,19 @@ func parseFields(list []*ast.Field) []string {
 		}
 	}
 	return array
+}
+func parseFieldName(list []*ast.Field, index int) string {
+	if len(list) <= index {
+		return ""
+	}
+	field := list[index]
+	if field == nil {
+		return ""
+	}
+	for _,name := range field.Names {
+		return untitle(parseExpr(name,false))
+	}
+	return ""
 }
 func parseExprs(list []ast.Expr, init bool) []string {
 	array := []string{}
@@ -828,8 +863,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.StructType:
 		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
 	case *ast.KeyValueExpr: //map
-		buffer.WriteString(parseExpr(expr.Key, false))
-		buffer.WriteString(" : ")
+		if !noFieldName {
+			buffer.WriteString(parseExpr(expr.Key, false))
+			if mapField {
+				buffer.WriteString(" : ")
+			}else{
+				buffer.WriteString(" => ")
+			}
+		}
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
 		name := rename(parseExpr(expr.Elt,false))
@@ -939,8 +980,16 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer.WriteString("new ")
 			buffer.WriteString(parseExpr(ty, false))
 			buffer.WriteString("(")
+			noFieldName = true
 			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			noFieldName = false
 			buffer.WriteString(")")
+		case *ast.MapType:
+			buffer.WriteString("[")
+			mapField = true
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			mapField = false
+			buffer.WriteString("]")
 		case nil:
 			buffer.WriteString(strings.Join(parseExprs(expr.Elts,false), ","))
 		default:

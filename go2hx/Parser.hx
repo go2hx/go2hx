@@ -65,8 +65,6 @@ class Parser {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index + 1);
 		}
-		if (pkgPath.charAt(0) == "." || pkgPath.charAt(0) == "_")
-			pkgPath = pkgPath.substr(1);
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
 		var imports = [];
@@ -153,7 +151,20 @@ class Parser {
 		var main:Array<String> = [];
 		main.push(func.doc);
 		var first = func.exported ? publicString : "private";
-		main.push('$first function ${func.name}(${func.params.join(", ")}) {');
+		var result = "Void";
+		if (func.results != null && func.results.length > 0) {
+			result = "";
+			if (func.results.length == 1) {
+				result = func.results[0].substr(result.indexOf(":") + 1);
+				trace("result! " + result + " before " + func.results[0]);
+			}else{
+				for (res in func.results) {
+					result += ',$res';
+				}
+				result = "{" + result.substr(1) + "}";
+			}
+		}
+		main.push('$first function ${func.name}(${func.params.join(", ")}):$result {');
 		if (func.body != null)
 			for (expr in func.body) {
 				main.push(expr);

@@ -213,3 +213,5 @@ class Pointer<T> {
 }
 typedef StringErrorReturn = {value:String, ?error:Exception}
 typedef BytesErorReturn = {value:Bytes, ?error:Exception}
+@:generic
+typedef ErrorReturn<T> = {value:T,?error:Exception}

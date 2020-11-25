@@ -5,7 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"io/ioutil"
-	//"os/exec"
+	"os/exec"
 	"reflect"
 	"strings"
 	"go.mongodb.org/mongo-driver/bson"
@@ -13,6 +13,7 @@ import (
 	//"go/token"
 	//"go/types"
 	//"go/constant"
+	"path/filepath"
 	"os"
 
 	//"go/parser"
@@ -75,7 +76,7 @@ var exportData = Data{}
 var debugComment = false
 var asserted = ""
 var labels = []string{}
-
+var importLoadBool = false
 
 var replaceFunctionContext map[string]string
 var deferStack []string
@@ -83,6 +84,8 @@ var deferStack []string
 const debug = true
 
 func main() {
+	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	fmt.Println("program dir:",dir)
 	/*bytes, err := ioutil.ReadFile("excludes.json")
 	var exclude_data = excludeJSON{}
 	if err != nil {
@@ -109,15 +112,20 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	os.Remove("export.bson")
-	_ = ioutil.WriteFile("export.bson", bytes, 0644)
-
-	/*out, err := exec.Command("haxe", "build.hxml").Output()
+	exportPath := filepath.Join(dir,"export.bson")
+	os.Remove(exportPath)
+	_ = ioutil.WriteFile(exportPath, bytes, 0644)
+	cmd := exec.Command("haxe","build.hxml")
+	cmd.Dir = dir
+	cmd.Run()
+	currentPath, err := os.Getwd()
 	if err != nil {
-		fmt.Println(err)
-		return
+		panic(err)
 	}
-	fmt.Println(string(out[:]))*/
+	cmd = exec.Command("parser",filepath.Join(currentPath,"bin"))
+	cmd.Dir = dir
+	out,_ := cmd.CombinedOutput()
+	fmt.Println(string(out[:]))
 }
 func load(args ...string) {
 	inital, err := packages.Load(cfg, args...)
@@ -157,7 +165,9 @@ func load(args ...string) {
 							data.Imports = append(data.Imports, imp)
 							//fmt.Println("excludes", path, excludes[path])
 							if !excludes[path] {
-								load(path)
+								if importLoadBool {
+									load(path)
+								}
 								excludes[path] = true
 							}
 							name := getName(path)
@@ -639,9 +649,7 @@ func removeParan(str string) string {
 func parseFields(list []*ast.Field) []string {
 	array := []string{}
 	buffer := strings.Builder{}
-	for index, field := range list {
-		_ = index
-		//fmt.Println("field type ",reflect.TypeOf(field.Type))
+	for _, field := range list {
 		ty := parseExpr(field.Type, false)
 		if len(field.Names) == 0 {
 			array = append(array, ty)
@@ -722,11 +730,11 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString(" : ")
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
-		
+		fmt.Println("array type")
 		name := rename(parseExpr(expr.Elt,false))
 		writeArrayBool := true
 		switch name {
-			case "bytes":
+			case "byte":
 				writeArrayBool = false
 				buffer.WriteString("haxe.io.BytesData")
 		}
@@ -929,17 +937,13 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 	return buffer.String()
 }
 func rename(name string) string {
-	{
-		value, ok := replaceMap[name]
-		if ok {
-			name = value
-		}
+	value, ok := replaceMap[name]
+	if ok {
+		name = value
 	}
-	{
-		value,ok := replaceFunctionContext[name]
-		if ok {
-			name = value
-		}
+	value,ok = replaceFunctionContext[name]
+	if ok {
+		name = value
 	}
 	return name
 }
@@ -971,8 +975,8 @@ func reserved(str string) string {
 	switch str {
 	case "switch","case","break","continue","default":
 	case "abstract","cast","catch","class","do":
-	case "dynamic","else","enum","extends","extern","true","false","final","for","function","if":
-	case "implements","import","in","inline","interface","macro","new","null","operator","overload","override","package","private":
+	case "dynamic","else","enum","extends","extern","true","false","final","for","function","if","interface":
+	case "implements","import","in","inline","macro","new","null","operator","overload","override","package","private":
 	case "public","return","static","this","throw","try","typedef","untyped","using","var","while":
 	default:
 		return str

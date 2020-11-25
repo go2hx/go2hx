@@ -1,2 +1,2 @@
-go build packages.go
+go build .
 haxe build.hxml

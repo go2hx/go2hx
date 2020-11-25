@@ -6,5 +6,5 @@
 -D no-deprecation-warnings
 -D std-encoding-utf8
 #--interp
--neko go2hx.n
---cmd nekotools boot go2hx.n
+-neko parser.n
+--cmd nekotools boot parser.n

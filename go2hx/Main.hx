@@ -9,11 +9,7 @@ import go2hx.hxargs.Args;
 
 class Main {
 	static function main() {
-		#if debug
-		new Parser("bin/", true);
-		#else
 		init();
-		#end
 	}
 
 	static function init() {
@@ -21,21 +17,22 @@ class Main {
 		var ping:Bool = false;
 		var inputPaths:Array<String> = [];
 		var format:Bool = false;
-		var outputPath:String = "bin";
+		var outputPath:String = "";
 		var argHandler = Args.generate([@doc("Ping test")
 			"-ping" => () -> ping = true, @doc("Show help")
 
 			"-help" => () -> help = true,
 			@doc("Output directory for the transpiled Go code into Haxe")
 			["-output", "-o"] => (path:String) -> {
-				outputPath = path;
+				//outputPath = path;
 			},
 			@doc("Use formatter library to format the transpiled go to haxe code")
 			["-format", "-formatted", "-f"] => () -> format = true,
-			_ => (arg:String) -> {
-				if (arg.charAt(0) == "-")
-					throw 'Unknown argument "$arg"';
-				inputPaths.push(arg);
+			_ => (path:String) -> {
+				if (path.charAt(0) == "-")
+					throw 'Unknown argument "$path"';
+				//inputPaths.push(path);
+				outputPath = path;
 			}
 		]);
 		try
@@ -51,12 +48,8 @@ class Main {
 			Sys.println("Pong!");
 			return;
 		}
-		new Parser("bin",true);
-		/*if (inputPaths.length > 0) {
-			trace("main");
-			return;
-		}*/
-		Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
+		new Parser(outputPath,true);
+		//Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
 	}
 
 	static function printDoc(argHandler:ArgHandler) {

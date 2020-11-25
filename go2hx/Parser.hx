@@ -18,6 +18,7 @@ class Parser {
 	public function new(exportPath:String, format:Bool) {
 		exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
+		trace("export path: " + exportPath);
 		if (!FileSystem.exists("export.bson")) {
 			trace("export.bson not found");
 			return;
@@ -48,15 +49,25 @@ class Parser {
 	}
 	public function read(file:Package, path:String) {
 		// get className and path
+		var programPath = Path.normalize(Path.directory(Sys.getCwd()));
+		programPath = StringTools.replace(programPath,":","_");
+		path = Path.addTrailingSlash(Path.normalize(path));
+		var index = path.indexOf(programPath);
+		if (index > -1) {
+			path = path.substr(index + programPath.length);
+		}
 		var pkgPath = path;
 		pkgPath = Path.removeTrailingSlashes(pkgPath);
 		pkgPath = StringTools.replace(pkgPath, "/", ".");
-		var index = pkgPath.lastIndexOf(".");
+		index = pkgPath.lastIndexOf(".");
 		var last = pkgPath.substr(index + 1);
 		if (index != -1 && last == file.name) {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index + 1);
 		}
+		if (pkgPath.charAt(0) == ".")
+			pkgPath = pkgPath.substr(1);
+		trace("pkgPath " + pkgPath);
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
 		var imports = [];
@@ -84,7 +95,7 @@ class Parser {
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
-				var first = v.exported ? "public " : "private ";
+				var first = v.exported ? "" : "private ";
 				first += v.constant ? "final" : "var";
 				main.push('$first ${v.name} = ${v.value};');
 			}
@@ -114,7 +125,7 @@ class Parser {
 		if (file.structs != null)
 			for (struct in file.structs) {
 				var first = struct.exported ? "" : "private";
-				main.push('$first class ${struct.name} {');
+				main.push(first + "class " + struct.name + " {");
 				var init:String = "";
 				if (struct.fields == null) {
 

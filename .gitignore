@@ -5,7 +5,6 @@ main
 bin
 examples/*.hx
 *.dat
-*.exe
 *.n
 dump
 *.js
@@ -16,9 +15,6 @@ go
 node_modules
 packages.md
 package-lock.json
-gobyexample
 *.json
 *.yaml
 notes.txt
-physarum
-tour

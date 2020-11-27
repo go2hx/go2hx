@@ -120,14 +120,14 @@ class Parser {
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
+		var interfaceStack:Array<String> = [];
 		//main.push("}");
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {
 				var first = struct.exported ? "" : "private";
-				trace("def: " + struct.def);
-				if (struct.def != "") {
-					main.push(first + "typedef " + struct.name + " = " + struct.def);
+				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0) {
+					interfaceStack = interfaceStack.concat(struct.interfaceMethods); //add methods to stack
 				}else{
 					main.push(first + "class " + struct.name + " {");
 					var init:String = "";
@@ -150,6 +150,9 @@ class Parser {
 					main.push("}");
 				}
 			}
+		if (interfaceStack.length > 0) {
+			trace("interface stack: " + interfaceStack);
+		}
 		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));
 		buildConfig(pkgPath, className);

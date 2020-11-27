@@ -60,7 +60,7 @@ type structType struct {
 	Name     string   `json:"name"`
 	Exported bool     `json:"exported"`
 	Fields   []string `json:"fields"`
-	Def string        `json:"def"`
+	InterfaceMethods []string `json:"interfaceMethods"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -305,9 +305,12 @@ func load(args ...string) {
 						switch structType := spec.Type.(type) {
 						case *ast.StructType:
 							ty.Fields = parseFields(structType.Fields.List)
+						case *ast.InterfaceType:
+							ty.InterfaceMethods = parseFields(structType.Methods.List)
+						case *ast.Ident:
+							fmt.Println("ident type spec:",structType.Name)
 						default:
-							ty.Def = parseExpr(structType,false)
-							//fmt.Println("type spec type unknown", reflect.TypeOf(structType))
+							fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 						}
 						data.Structs = append(data.Structs, ty)
 					default:

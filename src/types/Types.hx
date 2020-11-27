@@ -23,7 +23,7 @@ typedef Struct = {
 	exported:Bool,
 	fields:Array<String>,
 	funcs:Array<Func>,
-	def:String,
+	interfaceMethods:Array<String>,
 }
 
 typedef Package = {

@@ -12,6 +12,7 @@ go
 *.bson
 *.exe
 *.dll
+*.exe~
 node_modules
 packages.md
 package-lock.json

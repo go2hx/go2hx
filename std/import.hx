@@ -13,4 +13,5 @@ import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;
 import StdTypes.Float as Float32;
 import StdTypes.Float as Float16;
+import StdTypes.Float as Float64;
 import StdTypes.Int as Byte;

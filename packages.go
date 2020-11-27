@@ -162,15 +162,28 @@ var excludes = map[string]bool{
 
 	"database/sql/driver": true,
 }
+var types = []string{
+	"float",
+	"int",
+	"string", 
+	"bool", 
+	"uint64", 
+	"byte", 
+	"int64",
+	"int32",
+	"float32",
+	"float64",
+	//"uint", //declared below
+}
 var replaceMap = map[string]string{}
 var exportData = Data{}
-var debugComment = true
+var debugComment = !true
 var debugTypeTrace = false
 var noFieldName = false
 var mapField = false
 var asserted = ""
 var labels = []string{}
-var importLoadBool = false
+var importLoadBool = true
 
 var replaceFunctionContext map[string]string
 var deferStack []string
@@ -179,14 +192,15 @@ var funcDecl *ast.FuncDecl
 const debug = true
 
 func main() {
+	excludes = make(map[string]bool) //clear excludes
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-	types := []string{"float", "int", "string", "bool", "uint64", "byte", "int64", "int32"}
 	for _, ty := range types {
 		/*if ty == "byte" {
 			fmt.Println("title byte",strings.Title(ty))
 		}*/
 		replaceMap[ty] = strings.Title(ty)
 	}
+	replaceMap["uint"] = "UInt" //cap diffrent
 	replaceMap["errors"] = "std.Errors"
 	replaceMap["error"] = "std.Errors"
 	replaceMap["nil"] = "null"
@@ -901,13 +915,19 @@ func parseExpr(expr ast.Expr, init bool) string {
 		value := expr.Value
 		switch expr.Kind {
 			case token.STRING:
-				char := value[0:1]
-				if char == "`" {
-					value = `"` + value[1:len(value) - 2] + `"`
+				if len(value) > 1 {
+					char := value[0:1]
+					if char == "`" {
+						value = `'` + value[1:len(value) - 1] + `'`
+					}
 				}
 				value = strings.ReplaceAll(value,`\`,`\\`)
-				fmt.Println("char",char)
-				fmt.Println("value",value)
+			case token.INT:
+			
+			case token.FLOAT:
+
+			case token.CHAR:
+
 			default:
 				fmt.Println("unknown basic literal kind, value:",value,"kind:",expr.Kind.String())
 		}
@@ -1053,7 +1073,7 @@ func getDefaultType(expr ast.Expr) string {
 		return buffer.String()
 	case *ast.Ident:
 		switch expr.Name {
-		case "int", "float", "uint64":
+		case "int", "float", "uint64","uint","int64":
 			return "0"
 		case "string":
 			return "''"

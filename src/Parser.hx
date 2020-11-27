@@ -66,6 +66,8 @@ class Parser {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index);
 		}
+		if (pkgPath.charAt(pkgPath.length - 1) == ".")
+			pkgPath = pkgPath.substr(0,pkgPath.length - 1);
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];
 		var imports = [];
@@ -123,25 +125,30 @@ class Parser {
 		if (file.structs != null)
 			for (struct in file.structs) {
 				var first = struct.exported ? "" : "private";
-				main.push(first + "class " + struct.name + " {");
-				var init:String = "";
-				if (struct.fields == null) {
-
+				trace("def: " + struct.def);
+				if (struct.def != "") {
+					main.push(first + "typedef " + struct.name + " = " + struct.def);
 				}else{
-					for (field in struct.fields) {
-						main.push('public var $field;');
-						init += ',?$field';
+					main.push(first + "class " + struct.name + " {");
+					var init:String = "";
+					if (struct.fields == null) {
+						
+					}else{
+						for (field in struct.fields) {
+							main.push('public var $field;');
+							init += ',?$field';
+						}
 					}
+					init = init.substr(1);
+					main.push('public function new($init) {');
+					main.push("std.Macro.initLocals();");
+					main.push("}\n");
+					if (struct.funcs != null)
+						for (func in struct.funcs) {
+							main = main.concat(printFunc(func,"public"));
+						}
+					main.push("}");
 				}
-				init = init.substr(1);
-				main.push('public function new($init) {');
-				main.push("std.Macro.initLocals();");
-				main.push("}\n");
-				if (struct.funcs != null)
-					for (func in struct.funcs) {
-						main = main.concat(printFunc(func,"public"));
-					}
-				main.push("}");
 			}
 		main = inital.concat(imports).concat(main);
 		File.saveContent(path, main.join("\n"));

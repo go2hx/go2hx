@@ -61,10 +61,10 @@ class Parser {
 		pkgPath = StringTools.replace(pkgPath, "/", ".");
 		index = pkgPath.lastIndexOf(".");
 		var last = pkgPath.substr(index + 1);
-		trace("last: " + last + " pkgPath " + pkgPath + " bool " + (last == file.name));
-		if (index != -1 && last == file.name) {
+		index = pkgPath.indexOf(last);
+		if (index != -1) {
 			pkgPath = pkgPath.substr(0, index);
-			path = path.substr(0, index + 1);
+			path = path.substr(0, index);
 		}
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];

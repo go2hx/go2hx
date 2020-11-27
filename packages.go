@@ -10,7 +10,7 @@ import (
 	"strings"
 	"go.mongodb.org/mongo-driver/bson"
 
-	//"go/token"
+	"go/token"
 	//"go/types"
 	//"go/constant"
 	"path/filepath"
@@ -164,13 +164,13 @@ var excludes = map[string]bool{
 }
 var replaceMap = map[string]string{}
 var exportData = Data{}
-var debugComment = false
+var debugComment = true
 var debugTypeTrace = false
 var noFieldName = false
 var mapField = false
 var asserted = ""
 var labels = []string{}
-var importLoadBool = true
+var importLoadBool = false
 
 var replaceFunctionContext map[string]string
 var deferStack []string
@@ -180,7 +180,6 @@ const debug = true
 
 func main() {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-	fmt.Println("program dir:",dir)
 	types := []string{"float", "int", "string", "bool", "uint64", "byte", "int64", "int32"}
 	for _, ty := range types {
 		/*if ty == "byte" {
@@ -211,7 +210,6 @@ func main() {
 		panic(err)
 	}
 	binPath := filepath.Join(currentPath,"bin")
-	fmt.Println("bin path:",binPath)
 	err = os.RemoveAll(binPath)
 	if err != nil {
 		fmt.Println("Remove all error:",err)
@@ -237,7 +235,6 @@ func load(args ...string) {
 			array[i] = reserved(array[i])
 		}
 		pkg.PkgPath = strings.Join(array, "/")
-		//fmt.Println("path:",pkg.PkgPath)
 		data.PackagePath = pkg.PkgPath
 		file := mergePackageFiles(pkg, !true)
 		if file.Name != nil {
@@ -841,7 +838,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 		}
 	case *ast.Ident:
-		buffer.WriteString(rename(expr.Name))
+		name := rename(expr.Name)
+		buffer.WriteString(name)
 	case *ast.StarExpr:
 		buffer.WriteString(parseExpr(expr.X, false))
 	case *ast.MapType:
@@ -899,8 +897,21 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer.WriteString("{\n")
 		buffer.WriteString(strings.Join(parseBody(expr.Body.List), ""))
 		buffer.WriteString("}")
-	case *ast.BasicLit:
-		buffer.WriteString(expr.Value)
+	case *ast.BasicLit: //A literal basic type
+		value := expr.Value
+		switch expr.Kind {
+			case token.STRING:
+				char := value[0:1]
+				if char == "`" {
+					value = `"` + value[1:len(value) - 2] + `"`
+				}
+				value = strings.ReplaceAll(value,`\`,`\\`)
+				fmt.Println("char",char)
+				fmt.Println("value",value)
+			default:
+				fmt.Println("unknown basic literal kind, value:",value,"kind:",expr.Kind.String())
+		}
+		buffer.WriteString(value)
 	case *ast.BinaryExpr:
 		buffer.WriteString(parseExpr(expr.X, false))
 		//buffer.WriteString(" ")
@@ -1094,6 +1105,10 @@ func rename(name string) string {
 	value,ok = replaceFunctionContext[name]
 	if ok {
 		name = value
+	}
+	index := strings.Index(name,"SOFTWARE")
+	if index != -1 {
+		fmt.Println("full name",name,index)
 	}
 	return name
 }

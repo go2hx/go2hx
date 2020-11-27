@@ -1,6 +1,6 @@
--main go2hx.Main
-#-cp bin
---macro go2hx.macro.Res.gen()
+-cp src
+-main Main
+--macro macro.Res.gen()
 --no-inline
 -lib bson
 -D no-deprecation-warnings

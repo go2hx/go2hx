@@ -1,4 +1,4 @@
-package go2hx.types;
+package types;
 
 typedef Func = {
 	name:String,

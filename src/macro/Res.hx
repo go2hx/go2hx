@@ -1,4 +1,4 @@
-package go2hx.macro;
+package macro;
 
 import haxe.Resource;
 import haxe.macro.Context;

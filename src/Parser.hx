@@ -1,4 +1,4 @@
-package go2hx;
+package;
 
 import bson.Bson;
 import sys.io.Process;
@@ -6,7 +6,7 @@ import sys.FileSystem;
 import haxe.Resource;
 import haxe.Json;
 import sys.io.File;
-import go2hx.types.Types;
+import types.Types;
 import haxe.io.Path;
 
 class Parser {

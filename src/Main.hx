@@ -1,11 +1,11 @@
-package go2hx;
+package;
 
 import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
 import haxe.Json;
 import haxe.Template;
-import go2hx.hxargs.Args;
+import hxargs.Args;
 
 class Main {
 	static function main() {

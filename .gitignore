@@ -18,3 +18,5 @@ package-lock.json
 *.json
 *.yaml
 notes.txt
+go2hx
+parser

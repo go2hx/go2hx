@@ -1,4 +1,4 @@
-package go2hx;
+package;
 
 import sys.io.File;
 import sys.io.Process;

@@ -1,4 +1,4 @@
-package go2hx.hxargs;
+package hxargs;
 
 /**
 	Forked again from dts2hx by Haxiomic (@haxiomic)

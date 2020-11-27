@@ -56,6 +56,8 @@ class Parser {
 		if (index > -1) {
 			path = path.substr(index + programPath.length);
 		}
+		if (path.charAt(0) == ".")
+			path = path.substr(1);
 		var pkgPath = path;
 		pkgPath = Path.removeTrailingSlashes(pkgPath);
 		pkgPath = StringTools.replace(pkgPath, "/", ".");

@@ -68,7 +68,7 @@ type structType struct {
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = map[string]bool{	
 	"math": true,
-	"flag": true,
+	//"flag": true,
 	"errors": true,
 	"internal/reflectlite": true,
 	"internal/unsafeheader": true,

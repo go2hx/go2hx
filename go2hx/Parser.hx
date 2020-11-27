@@ -61,6 +61,7 @@ class Parser {
 		pkgPath = StringTools.replace(pkgPath, "/", ".");
 		index = pkgPath.lastIndexOf(".");
 		var last = pkgPath.substr(index + 1);
+		trace("last: " + last + " pkgPath " + pkgPath + " bool " + (last == file.name));
 		if (index != -1 && last == file.name) {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index + 1);
@@ -156,7 +157,6 @@ class Parser {
 			result = "";
 			if (func.results.length == 1) {
 				result = func.results[0].substr(result.indexOf(":") + 1);
-				trace("result! " + result + " before " + func.results[0]);
 			}else{
 				for (res in func.results) {
 					result += ',$res';

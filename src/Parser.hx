@@ -18,7 +18,6 @@ class Parser {
 	public function new(exportPath:String, format:Bool) {
 		exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
-		trace("export path: " + exportPath);
 		if (!FileSystem.exists("export.bson")) {
 			trace("export.bson not found");
 			return;
@@ -33,7 +32,7 @@ class Parser {
 		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
 		if (format)
-			Sys.command("haxelib run formatter -s .");
+			new Process("haxelib run formatter -s .");
 	}
 	private function importData(string:String):Array<Dynamic> {
 		var array = [];
@@ -53,9 +52,8 @@ class Parser {
 		programPath = StringTools.replace(programPath,":","_");
 		path = Path.addTrailingSlash(Path.normalize(path));
 		var index = path.indexOf(programPath);
-		if (index > -1) {
+		if (index > -1)
 			path = path.substr(index + programPath.length);
-		}
 		if (path.charAt(0) == ".")
 			path = path.substr(1);
 		var pkgPath = path;

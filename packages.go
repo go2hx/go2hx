@@ -8,13 +8,14 @@ import (
 	"os/exec"
 	"reflect"
 	"strings"
+
 	"go.mongodb.org/mongo-driver/bson"
 
 	"go/token"
 	//"go/types"
 	//"go/constant"
-	"path/filepath"
 	"os"
+	"path/filepath"
 
 	//"go/parser"
 	//"path/filepath"
@@ -29,6 +30,7 @@ import (
 	"go/ast"
 	//"golang.org/x/tools/go/ssa"
 )
+
 type Data struct {
 	Pkgs []packageType `json:"pkgs"`
 }
@@ -39,7 +41,7 @@ type funcType struct {
 	Results  []string `json:"results"`
 	Doc      string   `json:"doc"`
 	Body     []string `json:"body"`
-	Recv     string `json:"recv"`
+	Recv     string   `json:"recv"`
 }
 type varType struct {
 	Name     string `json:"name"`
@@ -57,70 +59,71 @@ type packageType struct {
 	Structs     []structType `json:"structs"`
 }
 type structType struct {
-	Name     string   `json:"name"`
-	Exported bool     `json:"exported"`
-	Fields   []string `json:"fields"`
-	InterfaceMethods []string `json:"interfaceMethods"`
+	Name             string   `json:"name"`
+	Exported         bool     `json:"exported"`
+	Fields           []string `json:"fields"`
+	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
+	Def              string   `json:"def"`
 }
 
 // Example demonstrates how to load the packages specified on the
 // command line from source syntax.
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
-var excludes = map[string]bool{	
+var excludes = map[string]bool{
 	"math": true,
 	//"flag": true,
-	"errors": true,
-	"internal/reflectlite": true,
-	"internal/unsafeheader": true,
-	"unsafe": true,
-	"runtime": true,
-	"internal/cpu": true,
-	"runtime/internal/sys": true,
-	"runtime/internal/atomic": true,
-	"runtime/internal/math": true,
-	"internal/bytealg": true,
-	"io": true,
-	"sync": true,
-	"sync/atomic": true,
-	"internal/race": true,
-	"reflect": true,
-	"strconv": true,
-	"math/bits": true,
-	"unicode/utf8": true,
-	"unicode": true,
-	"sort": true,
-	"strings": true,
-	"io/ioutil": true,
-	"bytes": true,
-	"path/filepath": true,
-	"syscall": true,
+	"errors":                          true,
+	"internal/reflectlite":            true,
+	"internal/unsafeheader":           true,
+	"unsafe":                          true,
+	"runtime":                         true,
+	"internal/cpu":                    true,
+	"runtime/internal/sys":            true,
+	"runtime/internal/atomic":         true,
+	"runtime/internal/math":           true,
+	"internal/bytealg":                true,
+	"io":                              true,
+	"sync":                            true,
+	"sync/atomic":                     true,
+	"internal/race":                   true,
+	"reflect":                         true,
+	"strconv":                         true,
+	"math/bits":                       true,
+	"unicode/utf8":                    true,
+	"unicode":                         true,
+	"sort":                            true,
+	"strings":                         true,
+	"io/ioutil":                       true,
+	"bytes":                           true,
+	"path/filepath":                   true,
+	"syscall":                         true,
 	"internal/syscall/windows/sysdll": true,
-	"unicode/utf16": true,
-	"internal/oserror": true,
+	"unicode/utf16":                   true,
+	"internal/oserror":                true,
 	//"go/token": true,
-	"encoding/json": true,
-	"encoding": true,
+	"encoding/json":   true,
+	"encoding":        true,
 	"encoding/base64": true,
 	"encoding/binary": true,
 	//"golang.org/x/tools/go/packages"
-	"os/exec": true,
-	"context": true,
+	"os/exec":                  true,
+	"context":                  true,
 	"internal/syscall/execenv": true,
 	"internal/syscall/windows": true,
 	//"go/types": true,
 	//"go/ast": true,
 	//"go/scanner": true,
 	//"go/constant": true,
-	"math/big": true,
+	"math/big":  true,
 	"math/rand": true,
 	//"go/parser": true,
 	"container/heap": true,
-	"log": true,
-	"path": true,
+	"log":            true,
+	"path":           true,
 	//"golang.org/x/tools/go/internal/packagesdriver": true,
 	"golang.org/x/tools/internal/gocommand": true,
-	"regexp": true,
-	"regexp/syntax": true,
+	"regexp":                                true,
+	"regexp/syntax":                         true,
 	//"golang.org/x/tools/internal/event": true,
 	//"golang.org/x/tools/internal/event/core": true,
 	//"golang.org/x/tools/internal/event/label": true,
@@ -131,13 +134,13 @@ var excludes = map[string]bool{
 	//"golang.org/x/tools/go/gcexportdata": true,
 	"bufio": true,
 	"golang.org/x/tools/go/internal/gcimporter": true,
-	"go/build": true,
-	"go/doc": true,
+	"go/build":            true,
+	"go/doc":              true,
 	"internal/lazyregexp": true,
-	"text/template": true,
-	"internal/fmtsort": true,
+	"text/template":       true,
+	"internal/fmtsort":    true,
 	"text/template/parse": true,
-	"net/url": true,
+	"net/url":             true,
 	//"internal/goroot": true,
 	//"internal/goversion": true,
 	"text/scanner": true,
@@ -151,11 +154,11 @@ var excludes = map[string]bool{
 	//"golang.org/x/tools/go/ssa": true,
 	//"golang.org/x/tools/go/types/typeutil"
 
-	"internal/nettrace": true,
+	"internal/nettrace":                      true,
 	"vendor/golang.org/x/net/dns/dnsmessage": true,
-	"internal/poll": true,
-	"internal/singleflight": true,
-	"internal/testlog": true,
+	"internal/poll":                          true,
+	"internal/singleflight":                  true,
+	"internal/testlog":                       true,
 	//"hash": true,
 	//"hash/crc32": true,
 	//"compress/flate": true,
@@ -165,10 +168,10 @@ var excludes = map[string]bool{
 var types = []string{
 	"float",
 	"int",
-	"string", 
-	"bool", 
-	"uint64", 
-	"byte", 
+	"string",
+	"bool",
+	"uint64",
+	"byte",
 	"int64",
 	"int32",
 	"float32",
@@ -192,12 +195,15 @@ var funcDecl *ast.FuncDecl
 const debug = true
 
 func main() {
-	excludes = make(map[string]bool) //clear excludes
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+
+	cmd := exec.Command("haxe", "build.hxml")
+	cmd.Dir = dir
+	o, _ := cmd.CombinedOutput()
+	fmt.Println((string(o[:])))
+
+	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range types {
-		/*if ty == "byte" {
-			fmt.Println("title byte",strings.Title(ty))
-		}*/
 		replaceMap[ty] = strings.Title(ty)
 	}
 	replaceMap["uint"] = "UInt" //cap diffrent
@@ -213,25 +219,23 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	exportPath := filepath.Join(dir,"export.bson")
+	exportPath := filepath.Join(dir, "export.bson")
 	os.Remove(exportPath)
 	_ = ioutil.WriteFile(exportPath, bytes, 0644)
-	cmd := exec.Command("haxe","build.hxml")
-	cmd.Dir = dir
-	cmd.Run()
+
 	currentPath, err := os.Getwd()
 	if err != nil {
 		panic(err)
 	}
-	binPath := filepath.Join(currentPath,"bin")
+	binPath := filepath.Join(currentPath, "bin")
 	err = os.RemoveAll(binPath)
 	if err != nil {
-		fmt.Println("Remove all error:",err)
+		fmt.Println("Remove all error:", err)
 		return
 	}
-	cmd = exec.Command("parser",binPath)
+	cmd = exec.Command("parser", binPath)
 	cmd.Dir = dir
-	out,_ := cmd.CombinedOutput()
+	out, _ := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
 }
 func load(args ...string) {
@@ -307,10 +311,9 @@ func load(args ...string) {
 							ty.Fields = parseFields(structType.Fields.List)
 						case *ast.InterfaceType:
 							ty.InterfaceMethods = parseFields(structType.Methods.List)
-						case *ast.Ident:
-							fmt.Println("ident type spec:",structType.Name)
 						default:
-							fmt.Println("type spec type unknown", reflect.TypeOf(structType))
+							ty.Def = parseExpr(spec.Type, false)
+							//fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 						}
 						data.Structs = append(data.Structs, ty)
 					default:
@@ -343,16 +346,16 @@ func load(args ...string) {
 				if decl.Recv != nil {
 					//fn.
 					if len(decl.Recv.List) != 1 {
-						fmt.Println("error recv list is not length of 1:",decl.Recv.List)
+						fmt.Println("error recv list is not length of 1:", decl.Recv.List)
 					}
 					recv := decl.Recv.List[0]
-					fn.Recv = parseExpr(recv.Type,false)
+					fn.Recv = parseExpr(recv.Type, false)
 					if len(recv.Names) == 1 {
 						replaceFunctionContext[recv.Names[0].Name] = "this"
 						replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
-					}else{
+					} else {
 						if len(recv.Names) > 1 {
-							fmt.Println("function error recv names more then 1:",recv.Names)
+							fmt.Println("function error recv names more then 1:", recv.Names)
 						}
 					}
 				}
@@ -360,7 +363,7 @@ func load(args ...string) {
 					fn.Body = parseBody(decl.Body.List)
 				}
 				if len(deferStack) > 0 {
-					fn.Body = append(fn.Body,deferStack...) //add defer to end of function
+					fn.Body = append(fn.Body, deferStack...) //add defer to end of function
 				}
 				data.Funcs = append(data.Funcs, fn)
 			default:
@@ -420,7 +423,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 	case *ast.ReturnStmt:
 		buffer := strings.Builder{}
 		if len(deferStack) > 0 {
-			for _,obj := range deferStack {
+			for _, obj := range deferStack {
 				buffer.WriteString(obj)
 				buffer.WriteString("\n")
 			}
@@ -433,11 +436,11 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 				if index > 0 {
 					buffer.WriteString(",")
 				}
-				name := parseFieldName(funcDecl.Type.Results.List,index)
+				name := parseFieldName(funcDecl.Type.Results.List, index)
 				if name == "" {
 					buffer.WriteString("v")
 					buffer.WriteString(strconv.Itoa(index))
-				}else{
+				} else {
 					buffer.WriteString(name)
 				}
 				//buffer.WriteString(funcDecl.Type.Results.List[index].Type)
@@ -687,13 +690,13 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		body = append(body, buffer.String())
 	case *ast.DeferStmt:
 		buffer := strings.Builder{}
-		buffer.WriteString(parseExpr(stmt.Call,init))
+		buffer.WriteString(parseExpr(stmt.Call, init))
 		buffer.WriteString("/*defer*/")
-		deferStack = append(deferStack,buffer.String())
+		deferStack = append(deferStack, buffer.String())
 	case *ast.SelectStmt:
 		buffer := strings.Builder{}
 		_ = buffer
-		
+
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -807,8 +810,8 @@ func parseFieldName(list []*ast.Field, index int) string {
 	if field == nil {
 		return ""
 	}
-	for _,name := range field.Names {
-		return untitle(parseExpr(name,false))
+	for _, name := range field.Names {
+		return untitle(parseExpr(name, false))
 	}
 	return ""
 }
@@ -823,7 +826,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	buffer := strings.Builder{}
 	if debugTypeTrace {
 		debugTypeTrace = false
-		fmt.Println("debug type trace:",reflect.TypeOf(expr))
+		fmt.Println("debug type trace:", reflect.TypeOf(expr))
 	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
@@ -882,18 +885,18 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer.WriteString(parseExpr(expr.Key, false))
 			if mapField {
 				buffer.WriteString(" : ")
-			}else{
+			} else {
 				buffer.WriteString(" => ")
 			}
 		}
 		buffer.WriteString(parseExpr(expr.Value, false))
 	case *ast.ArrayType:
-		name := rename(parseExpr(expr.Elt,false))
+		name := rename(parseExpr(expr.Elt, false))
 		writeArrayBool := true
 		switch name {
-			case "byte":
-				writeArrayBool = false
-				buffer.WriteString("haxe.io.BytesData")
+		case "byte":
+			writeArrayBool = false
+			buffer.WriteString("haxe.io.BytesData")
 		}
 		if writeArrayBool {
 			buffer.WriteString("Array<")
@@ -917,22 +920,22 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.BasicLit: //A literal basic type
 		value := expr.Value
 		switch expr.Kind {
-			case token.STRING:
-				if len(value) > 1 {
-					char := value[0:1]
-					if char == "`" {
-						value = `'` + value[1:len(value) - 1] + `'`
-					}
+		case token.STRING:
+			if len(value) > 1 {
+				char := value[0:1]
+				if char == "`" {
+					value = `'` + value[1:len(value)-1] + `'`
 				}
-				value = strings.ReplaceAll(value,`\`,`\\`)
-			case token.INT:
-			
-			case token.FLOAT:
+			}
+			value = strings.ReplaceAll(value, `\`, `\\`)
+		case token.INT:
 
-			case token.CHAR:
+		case token.FLOAT:
 
-			default:
-				fmt.Println("unknown basic literal kind, value:",value,"kind:",expr.Kind.String())
+		case token.CHAR:
+
+		default:
+			fmt.Println("unknown basic literal kind, value:", value, "kind:", expr.Kind.String())
 		}
 		buffer.WriteString(value)
 	case *ast.BinaryExpr:
@@ -942,7 +945,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		//buffer.WriteString(" ")
 		buffer.WriteString(parseExpr(expr.Y, false))
 	case *ast.SelectorExpr: //1st class
-		name := rename(parseExpr(expr.X,false))
+		name := rename(parseExpr(expr.X, false))
 		buffer.WriteString(name)
 		buffer.WriteString(".")
 		sel := reserved(rename(untitle(expr.Sel.Name)))
@@ -1025,7 +1028,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			mapField = false
 			buffer.WriteString("]")
 		case nil:
-			buffer.WriteString(strings.Join(parseExprs(expr.Elts,false), ","))
+			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
 		default:
 			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}
@@ -1076,7 +1079,7 @@ func getDefaultType(expr ast.Expr) string {
 		return buffer.String()
 	case *ast.Ident:
 		switch expr.Name {
-		case "int", "float", "uint64","uint","int64":
+		case "int", "float", "uint64", "uint", "int64":
 			return "0"
 		case "string":
 			return "''"
@@ -1125,13 +1128,13 @@ func rename(name string) string {
 	if ok {
 		name = value
 	}
-	value,ok = replaceFunctionContext[name]
+	value, ok = replaceFunctionContext[name]
 	if ok {
 		name = value
 	}
-	index := strings.Index(name,"SOFTWARE")
+	index := strings.Index(name, "SOFTWARE")
 	if index != -1 {
-		fmt.Println("full name",name,index)
+		fmt.Println("full name", name, index)
 	}
 	return name
 }
@@ -1161,11 +1164,11 @@ func unparan(name string) string {
 }
 func reserved(str string) string {
 	switch str {
-	case "switch","case","break","continue","default":
-	case "abstract","cast","catch","class","do":
-	case "dynamic","else","enum","extends","extern","true","false","final","for","function","if","interface":
-	case "implements","import","in","inline","macro","new","null","operator","overload","override","package","private":
-	case "public","return","static","this","throw","try","typedef","untyped","using","var","while":
+	case "switch", "case", "break", "continue", "default":
+	case "abstract", "cast", "catch", "class", "do":
+	case "dynamic", "else", "enum", "extends", "extern", "true", "false", "final", "for", "function", "if", "interface":
+	case "implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private":
+	case "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while":
 	default:
 		return str
 	}

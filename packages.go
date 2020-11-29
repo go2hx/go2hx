@@ -8,10 +8,10 @@ import (
 	"os/exec"
 	"reflect"
 	"strings"
-
 	"go.mongodb.org/mongo-driver/bson"
 
 	"go/token"
+	"go/printer"
 	//"go/types"
 	//"go/constant"
 	"os"
@@ -191,12 +191,18 @@ var importLoadBool = true
 var replaceFunctionContext map[string]string
 var deferStack []string
 var funcDecl *ast.FuncDecl
-
+var generateGo = true
+var sources = []source{}
 const debug = true
+
+
+type source struct {
+	file ast.File
+	path string
+}
 
 func main() {
 	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
-
 	cmd := exec.Command("haxe", "build.hxml")
 	cmd.Dir = dir
 	o, _ := cmd.CombinedOutput()
@@ -239,6 +245,18 @@ func main() {
 	cmd.Dir = dir
 	out, _ := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
+	//print go
+	if generateGo {
+		fmt.Println("sources",len(sources))
+		for _,source := range sources {
+			path := filepath.Join(binPath,source.file.Name.Name) + ".go"
+			f,err := os.OpenFile(path,os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+			if err != nil {
+				fmt.Println("print open file",path,"error:",err)
+			}
+			printer.Fprint(f,token.NewFileSet(),&source.file)
+		}
+	}
 }
 func load(args ...string) {
 	inital, err := packages.Load(cfg, args...)
@@ -257,6 +275,7 @@ func load(args ...string) {
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
 		file := mergePackageFiles(pkg, !true)
+		sources = append(sources,source{file,data.PackagePath})
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}

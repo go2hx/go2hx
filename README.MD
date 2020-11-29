@@ -22,5 +22,6 @@ Go Language to Haxe Language Transpiler
 # Inspiration
 * Haxiomic's [dts2hx](https://github.com/haxiomic/dts2hx) (typescript defs to haxe externs)
 * Elliott5's [tardisgo](https://github.com/tardisgo/tardisgo) (Go to Haxe written in Go)
-* Simn's [hxparse](https://github.com/Simn/hxparse) (Haxe Lexer and Parser library)
+* Simn's [hxparse](https://github.com/Simn/hxparse) and [haxeparser](https://github.com/Simn/haxeparser) (Haxe Lexer and Parser library)
+* Alex's [formatter](https://github.com/HaxeCheckstyle/haxe-formatter) (Haxe code formatter)
 * [gopherjs](https://github.com/gopherjs/gopherjs) (Go to Javascript compiler)

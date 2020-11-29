@@ -51,10 +51,11 @@ class Parser {
 		var programPath = Path.normalize(Path.directory(Sys.getCwd()));
 		programPath = StringTools.replace(programPath,":","_");
 		path = Path.addTrailingSlash(Path.normalize(path));
+		path = path.toLowerCase();
 		var index = path.indexOf(programPath);
 		if (index > -1)
 			path = path.substr(index + programPath.length);
-		if (path.charAt(0) == ".")
+		if (path.charAt(0) == "." || path.charAt(0) == "_")
 			path = path.substr(1);
 		var pkgPath = path;
 		pkgPath = Path.removeTrailingSlashes(pkgPath);
@@ -66,7 +67,7 @@ class Parser {
 			pkgPath = pkgPath.substr(0, index);
 			path = path.substr(0, index);
 		}
-		if (pkgPath.charAt(pkgPath.length - 1) == ".")
+		if (pkgPath.charAt(pkgPath.length - 1) == "." || pkgPath.charAt(pkgPath.length - 1) == "_")
 			pkgPath = pkgPath.substr(0,pkgPath.length - 1);
 		var className = cap(file.name);
 		var inital = ['package $pkgPath;'];

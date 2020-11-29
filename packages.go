@@ -71,7 +71,9 @@ type structType struct {
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = map[string]bool{
 	"math": true,
-	//"flag": true,
+	"fmt": true,
+	"os": true,
+	"flag": true,
 	"errors":                          true,
 	"internal/reflectlite":            true,
 	"internal/unsafeheader":           true,
@@ -141,6 +143,7 @@ var excludes = map[string]bool{
 	"internal/fmtsort":    true,
 	"text/template/parse": true,
 	"net/url":             true,
+	"time": true,
 	//"internal/goroot": true,
 	//"internal/goversion": true,
 	"text/scanner": true,
@@ -153,7 +156,7 @@ var excludes = map[string]bool{
 	//"golang.org/x/tools/go/buildutil": true,
 	//"golang.org/x/tools/go/ssa": true,
 	//"golang.org/x/tools/go/types/typeutil"
-
+	"internal/syscall/windows/registry":      true,
 	"internal/nettrace":                      true,
 	"vendor/golang.org/x/net/dns/dnsmessage": true,
 	"internal/poll":                          true,
@@ -881,8 +884,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.Ident:
 		name := rename(expr.Name)
 		buffer.WriteString(name)
-	case *ast.StarExpr:
-		buffer.WriteString(parseExpr(expr.X, false))
+	case *ast.StarExpr: //pointer
+		buffer.WriteString(parseExpr(expr.X, false) + ".pointer()")
 	case *ast.MapType:
 		buffer.WriteString("Map<")
 		buffer.WriteString(parseExpr(expr.Key, false))
@@ -969,7 +972,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		name := rename(parseExpr(expr.X, false))
 		buffer.WriteString(name)
 		buffer.WriteString(".")
-		sel := reserved(rename(untitle(expr.Sel.Name)))
+		sel := reserved(untitle(rename(expr.Sel.Name)))
 		switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction
@@ -1152,10 +1155,6 @@ func rename(name string) string {
 	value, ok = replaceFunctionContext[name]
 	if ok {
 		name = value
-	}
-	index := strings.Index(name, "SOFTWARE")
-	if index != -1 {
-		fmt.Println("full name", name, index)
 	}
 	return name
 }

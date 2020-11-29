@@ -46,9 +46,11 @@ class Go {
 	}
 
 	public static macro function setMulti(cond, expr) {
+		trace("c " + cond.expr);
 		var type = Context.typeof(expr);
 		var values:Array<haxe.macro.Expr> = [];
 		var index:Int = -1;
+		trace("c " + cond.expr);
 		switch cond.expr {
 			case EArrayDecl(array):
 				for (v in array) {
@@ -90,6 +92,14 @@ class Go {
 				set.push(macro $value = $get);
 			}
 		}
+		function getAbstract(t:haxe.macro.Type.Ref<haxe.macro.Type.AbstractType>,params) {
+			switch t.get().type {
+				case TAbstract(tt, params):
+					getAbstract(t,params);
+				default:
+					trace("TAbstract unknown " + t.get().type);
+			}
+		}
 		switch type {
 			case TInst(t, params):
 				var value = values[0];
@@ -111,15 +121,7 @@ class Go {
 						trace("ttype unknown " + t.get().type);
 				}
 			case TAbstract(t, params):
-				switch t.get().type {
-					case TAbstract(tt, params):
-						switch tt.get().type {
-							default:
-								trace("TAbstract unknown of unknown " + tt.get().type);
-						}
-					default:
-						trace("TAbstract unknown " + t.get().type);
-				}
+				getAbstract(t,params);
 			case TAnonymous(a):
 				anonFields(a.get());
 			default:
@@ -205,13 +207,5 @@ class Go {
 		};
 	}
 }
-class Pointer<T> {
-	public var value:T;
-	public function new(value:T) {
-		this.value = value;
-	}
-}
-typedef StringErrorReturn = {value:String, ?error:Exception}
-typedef BytesErorReturn = {value:Bytes, ?error:Exception}
 @:generic
-typedef ErrorReturn<T> = {value:T,?error:Exception}
+typedef ErrorReturn<T> = {value:T,?error:Exception};

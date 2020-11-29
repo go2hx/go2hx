@@ -48,7 +48,7 @@ class Parser {
 	}
 	public function read(file:Package, path:String) {
 		// get className and path
-		var programPath = Path.normalize(Path.directory(Sys.getCwd()));
+		var programPath = Path.normalize(Path.directory(Sys.getCwd())).toLowerCase();
 		programPath = StringTools.replace(programPath,":","_");
 		path = Path.addTrailingSlash(Path.normalize(path));
 		path = path.toLowerCase();
@@ -192,8 +192,7 @@ class Parser {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports.push("go"); //main class
-		stdimports.push("macro");
+		stdimports = stdimports.concat(["go","pointer","macro"]); //add main classes
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

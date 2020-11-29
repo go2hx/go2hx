@@ -17,3 +17,5 @@ import StdTypes.Float as Float64;
 import StdTypes.Int as Byte;
 import UInt as UInt32;
 import UInt as Uint64;
+using std.Pointer.Tools;
+import std.Pointer;

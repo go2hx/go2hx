@@ -5,6 +5,7 @@ main
 bin
 examples/*.hx
 *.dat
+graph.png
 *.n
 dump
 *.js

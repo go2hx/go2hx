@@ -15,3 +15,5 @@ import StdTypes.Float as Float32;
 import StdTypes.Float as Float16;
 import StdTypes.Float as Float64;
 import StdTypes.Int as Byte;
+import UInt as UInt32;
+import UInt as Uint64;

@@ -207,6 +207,8 @@ func main() {
 		replaceMap[ty] = strings.Title(ty)
 	}
 	replaceMap["uint"] = "UInt" //cap diffrent
+	replaceMap["uint32"] = "UInt32"
+	replaceMap["uint64"] = "UInt64"
 	replaceMap["errors"] = "std.Errors"
 	replaceMap["error"] = "std.Errors"
 	replaceMap["nil"] = "null"

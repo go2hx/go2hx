@@ -46,11 +46,9 @@ class Go {
 	}
 
 	public static macro function setMulti(cond, expr) {
-		trace("c " + cond.expr);
 		var type = Context.typeof(expr);
 		var values:Array<haxe.macro.Expr> = [];
 		var index:Int = -1;
-		trace("c " + cond.expr);
 		switch cond.expr {
 			case EArrayDecl(array):
 				for (v in array) {

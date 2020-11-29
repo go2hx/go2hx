@@ -885,7 +885,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		name := rename(expr.Name)
 		buffer.WriteString(name)
 	case *ast.StarExpr: //pointer
-		buffer.WriteString(parseExpr(expr.X, false) + ".pointer()")
+		buffer.WriteString("std.Pointer.make(" + parseExpr(expr.X, false) + ")")
 	case *ast.MapType:
 		buffer.WriteString("Map<")
 		buffer.WriteString(parseExpr(expr.Key, false))

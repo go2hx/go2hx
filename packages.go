@@ -402,90 +402,76 @@ func parseComment(comments *ast.CommentGroup) string {
 	if comments == nil {
 		return ""
 	}
-	buffer := strings.Builder{}
+	buffer := ""
 	//buffer.WriteString("/**\n")
 	/*for _, comment := range comments.List {
 		buffer.WriteString(comment.Text[2:])
 		buffer.WriteString("\n")
 	}*/
 	//buffer.WriteString("**/")
-	return buffer.String()
+	return buffer
 }
 func addSemicolon(obj interface{}, init bool) string {
 	if init {
-		buffer := strings.Builder{}
-		buffer.WriteString(";")
-		buffer.WriteString(addDebug(obj))
-		return buffer.String()
+		return ";" + addDebug(obj)
 	}
 	return ""
 }
 func addDebug(obj interface{}) string {
-	buffer := strings.Builder{}
 	if debugComment && obj != nil {
-		buffer.WriteString("//")
-		buffer.WriteString(reflect.TypeOf(obj).String())
-		buffer.WriteString("\n")
-		return buffer.String()
+		return "//" + reflect.TypeOf(obj).String() + "\n"
 	}
-	return buffer.String()
+	return ""
 }
 func parseStatement(stmt ast.Stmt, init bool) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 	case *ast.LabeledStmt:
-		buffer := strings.Builder{}
-
+		buffer := "function " + stmt.Label.Name + "() {\n"
 		labels = append(labels, stmt.Label.Name)
-		buffer.WriteString("function ")
-		buffer.WriteString(stmt.Label.Name)
-		buffer.WriteString("() {\n")
-
-		body = append(body, buffer.String())
+		body = append(body, buffer)
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init))
 	case *ast.ReturnStmt:
-		buffer := strings.Builder{}
+		buffer := ""
 		if len(deferStack) > 0 {
 			for _, obj := range deferStack {
-				buffer.WriteString(obj)
-				buffer.WriteString("\n")
+				buffer += obj + "\n"
 			}
 		}
-		buffer.WriteString("return ")
+		buffer += "return "
 
 		if len(stmt.Results) > 1 {
-			buffer.WriteString("{")
+			buffer += "{"
 			for index, res := range stmt.Results {
 				if index > 0 {
-					buffer.WriteString(",")
+					buffer += ","
 				}
 				name := parseFieldName(funcDecl.Type.Results.List, index)
 				if name == "" {
-					buffer.WriteString("v")
-					buffer.WriteString(strconv.Itoa(index))
+					buffer += "v"
+					buffer += strconv.Itoa(index)
 				} else {
-					buffer.WriteString(name)
+					buffer += name
 				}
 				//buffer.WriteString(funcDecl.Type.Results.List[index].Type)
-				buffer.WriteString(" : ")
-				buffer.WriteString(parseExpr(res, false))
-				buffer.WriteString(" ")
+				buffer += " : "
+				buffer += parseExpr(res, false)
+				buffer += " "
 			}
-			buffer.WriteString("}")
+			buffer += "}"
 		} else if len(stmt.Results) == 1 {
-			buffer.WriteString(parseExpr(stmt.Results[0], false))
+			buffer += parseExpr(stmt.Results[0], false)
 		}
-		buffer.WriteString(";\n")
-		body = append(body, buffer.String())
+		buffer += ";\n"
+		body = append(body, buffer)
 	case *ast.TypeSwitchStmt:
-		buffer := strings.Builder{}
-		buffer.WriteString("{\n")
+		buffer := "{\n"
 		if stmt.Init != nil {
-			buffer.WriteString(strings.Join(parseStatement(stmt.Init, true), "\n"))
+			buffer += strings.Join(parseStatement(stmt.Init, true), "\n")
 		}
 		asserted = ""
-		buffer.WriteString(strings.Join(parseStatement(stmt.Assign, true), ""))
+		buffer += strings.Join(parseStatement(stmt.Assign, true), "")
 		def := ast.CaseClause{}
 		setDefault := false
 		first := true
@@ -498,9 +484,9 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					continue
 				}
 				if !first {
-					buffer.WriteString("else ")
+					buffer += "else "
 				}
-				buffer.WriteString(caseAsIf(stmt, asserted))
+				buffer += caseAsIf(stmt, asserted)
 			default:
 				fmt.Println("switch-type", reflect.TypeOf(stmt))
 			}
@@ -508,17 +494,16 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		}
 		if setDefault {
 			if len(stmt.Body.List) > 1 {
-				buffer.WriteString("else ")
+				buffer += "else "
 			}
-			buffer.WriteString(caseAsIf(&def, ""))
+			buffer += caseAsIf(&def, "")
 		}
-		buffer.WriteString("}")
-		body = append(body, buffer.String())
+		buffer += "}"
+		body = append(body, buffer)
 	case *ast.SwitchStmt:
-		buffer := strings.Builder{}
+		buffer := ""
 		if stmt.Init != nil {
-			buffer.WriteString("{")
-			buffer.WriteString(strings.Join(parseStatement(stmt.Init, true), "\n"))
+			buffer += "{" + strings.Join(parseStatement(stmt.Init, true), "\n")
 		}
 		if stmt.Tag == nil {
 			//if statements
@@ -534,9 +519,9 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 						continue
 					}
 					if !first {
-						buffer.WriteString("else ")
+						buffer += "else "
 					}
-					buffer.WriteString(caseAsIf(stmt, ""))
+					buffer += caseAsIf(stmt, "")
 				default:
 					fmt.Println("switch-if", reflect.TypeOf(stmt))
 				}
@@ -544,48 +529,42 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			}
 			if setDefault {
 				if len(stmt.Body.List) > 1 {
-					buffer.WriteString("else ")
+					buffer += "else "
 				}
-				buffer.WriteString(caseAsIf(&def, ""))
+				buffer += caseAsIf(&def, "")
 			}
 		} else {
 			//actual switch
-			buffer.WriteString("switch(")
-			buffer.WriteString(parseExpr(stmt.Tag, false))
-			buffer.WriteString(") {\n")
+			buffer += "switch(" + parseExpr(stmt.Tag, false) + ") {\n"
 			//body
-			buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
-			buffer.WriteString("}")
+			buffer += strings.Join(parseBody(stmt.Body.List), "\n")
+			buffer += "}"
 		}
 		if stmt.Init != nil {
-			buffer.WriteString("}")
+			buffer += "}"
 		}
-		body = append(body, buffer.String())
+		body = append(body, buffer)
 	case *ast.DeclStmt:
 		switch stmt := stmt.Decl.(type) {
 		case *ast.GenDecl:
 			for _, spec := range stmt.Specs {
 				switch spec := spec.(type) {
 				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
-					buffer := strings.Builder{}
+					buffer := ""
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
-						buffer.WriteString("var ")
-						buffer.WriteString(spec.Names[i].Name)
+						buffer += "var " + spec.Names[i].Name
 						if spec.Type != nil {
-							buffer.WriteString(":")
-							buffer.WriteString(parseExpr(spec.Type, false))
+							buffer += ":" + parseExpr(spec.Type, false)
 						}
 						if len(spec.Values) > i {
-							buffer.WriteString(" = ")
-							buffer.WriteString(parseExpr(spec.Values[i], false))
+							buffer += " = " + parseExpr(spec.Values[i], false)
 						} else {
-							buffer.WriteString(" = ")
-							buffer.WriteString(getDefaultType(spec.Type))
+							buffer += " = " + getDefaultType(spec.Type)
 						}
-						buffer.WriteString(addSemicolon(stmt, init))
+						buffer += addSemicolon(stmt, init)
 					}
-					body = append(body, buffer.String())
+					body = append(body, buffer)
 				default:
 					fmt.Println("decl not found", reflect.TypeOf(spec))
 				}
@@ -594,133 +573,108 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			fmt.Println("gen decl not found", reflect.TypeOf(stmt))
 		}
 	case *ast.AssignStmt: //short variable declaration.
-		buffer := strings.Builder{}
-		buffer.WriteString(parseAssignStatement(stmt, init))
-		body = append(body, buffer.String())
+		buffer := parseAssignStatement(stmt, init)
+		body = append(body, buffer)
 	case *ast.ForStmt:
 		//fmt.Println("post",reflect.TypeOf(stmt.Post))
-
-		buffer := strings.Builder{}
+		buffer := ""
 		if stmt.Init != nil {
-			buffer.WriteString("{")
+			buffer += "{"
 			switch init := stmt.Init.(type) {
 			case *ast.AssignStmt:
-				buffer.WriteString(parseAssignStatement(init, true))
+				buffer += parseAssignStatement(init, true)
 			case *ast.IncDecStmt:
-				buffer.WriteString(parseExpr(init.X, true))
+				buffer += parseExpr(init.X, true)
 			}
 		}
 		if stmt.Post != nil {
-			buffer.WriteString("cfor(")
+			buffer += "cfor("
 		} else {
-			buffer.WriteString("while(")
+			buffer += "while("
 		}
 		if stmt.Cond != nil {
-			buffer.WriteString(parseExpr(stmt.Cond, false))
+			buffer += parseExpr(stmt.Cond, false)
 			if stmt.Post != nil {
-				buffer.WriteString(",")
-
-				/*post := stmt.Post.(*ast.IncDecStmt)
-				buffer.WriteString(post.X.(*ast.Ident).Name)
-				buffer.WriteString(post.Tok.String())*/
-
-				buffer.WriteString(strings.Join(parseStatement(stmt.Post, false), "\n"))
-				buffer.WriteString(",")
+				buffer += "," + strings.Join(parseStatement(stmt.Post, false), "\n") + ","
 			}
 		} else {
-			buffer.WriteString("true")
+			buffer += "true"
 		}
 		if stmt.Post == nil {
-			buffer.WriteString(") {\n")
+			buffer += ") {\n"
 		} else {
-			buffer.WriteString(" {\n")
+			buffer += " {\n"
 		}
 
-		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
-		buffer.WriteString("}")
+		buffer += strings.Join(parseBody(stmt.Body.List), "\n")
+		buffer += "}"
 		if stmt.Post != nil {
-			buffer.WriteString(");")
+			buffer += ");"
 		}
 		if stmt.Init != nil {
-			buffer.WriteString("}")
+			buffer += "}"
 		}
-		body = append(body, buffer.String())
+		body = append(body, buffer)
 	case *ast.BranchStmt:
-		buffer := strings.Builder{}
-		buffer.WriteString(stmt.Tok.String())
-		buffer.WriteString(";")
-		body = append(body, buffer.String())
+		buffer := stmt.Tok.String() + ";"
+		body = append(body, buffer)
 	case *ast.IfStmt:
-		buffer := strings.Builder{}
+		buffer := ""
 		if stmt.Init != nil {
-			buffer.WriteString("{")
+			buffer += "{"
 			switch init := stmt.Init.(type) {
 			case *ast.AssignStmt:
-				buffer.WriteString(parseAssignStatement(init, true))
+				buffer += parseAssignStatement(init, true)
 			default:
 				fmt.Println("if init unknown type", reflect.TypeOf(init))
 			}
 		}
-		buffer.WriteString("if(")
-		buffer.WriteString(parseExpr(stmt.Cond, false))
-		buffer.WriteString(") {")
-		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), ""))
-		buffer.WriteString("}")
+		buffer += "if(" + parseExpr(stmt.Cond, false) + ") {"
+		buffer += strings.Join(parseBody(stmt.Body.List), "")
+		buffer += "}"
 		if stmt.Else != nil {
-			buffer.WriteString("else {")
+			buffer += "else {"
 			switch stmt := stmt.Else.(type) {
 			case *ast.BlockStmt:
-				buffer.WriteString(strings.Join(parseBody(stmt.List), ""))
+				buffer += strings.Join(parseBody(stmt.List), "")
 			default:
-				buffer.WriteString(strings.Join(parseStatement(stmt, true), ""))
+				buffer += strings.Join(parseStatement(stmt, true), "")
 			}
-			buffer.WriteString("}")
+			buffer += "}"
 		}
 		if stmt.Init != nil {
-			buffer.WriteString("}")
+			buffer += "}"
 		}
-		body = append(body, buffer.String())
+		body = append(body, buffer)
 	case *ast.CaseClause:
 		//stmt.List
-		buffer := strings.Builder{}
+		buffer := ""
 		if len(stmt.List) > 0 {
-			buffer.WriteString("case ")
-			buffer.WriteString(strings.Join(parseExprs(stmt.List, false), ","))
+			buffer += "case "
+			buffer += strings.Join(parseExprs(stmt.List, false), ",")
 		} else {
-			buffer.WriteString("default")
+			buffer += "default"
 		}
-		buffer.WriteString(":\n")
-		buffer.WriteString(strings.Join(parseBody(stmt.Body), "\n"))
-		body = append(body, buffer.String())
+		buffer += ":\n"
+		buffer += strings.Join(parseBody(stmt.Body), "\n")
+		body = append(body, buffer)
 	case *ast.GoStmt:
 		body = append(body, "//go routines not supported yet\n")
 	case *ast.IncDecStmt:
-		buffer := strings.Builder{}
-		buffer.WriteString(parseExpr(stmt.X, false))
-		buffer.WriteString(stmt.Tok.String())
-		buffer.WriteString(addSemicolon(stmt, init))
-		body = append(body, buffer.String())
+		buffer := parseExpr(stmt.X, false) + stmt.Tok.String() + addSemicolon(stmt, init)
+		body = append(body, buffer)
 	case *ast.RangeStmt:
-		buffer := strings.Builder{}
-		buffer.WriteString("range(")
-		buffer.WriteString(parseExpr(stmt.Key, false))
-		buffer.WriteString(",")
-		buffer.WriteString(parseExpr(stmt.Value, false))
-		buffer.WriteString(",")
-		buffer.WriteString(parseExpr(stmt.X, false))
-		buffer.WriteString(", {\n")
-		buffer.WriteString(strings.Join(parseBody(stmt.Body.List), "\n"))
-		buffer.WriteString("});")
-		body = append(body, buffer.String())
+		buffer := "range(" + parseExpr(stmt.Key, false) + ","
+		buffer += parseExpr(stmt.Value, false) + "," 
+		buffer += parseExpr(stmt.X, false) + ", {\n"
+		buffer += strings.Join(parseBody(stmt.Body.List), "\n") + "});"
+		body = append(body, buffer)
 	case *ast.DeferStmt:
-		buffer := strings.Builder{}
-		buffer.WriteString(parseExpr(stmt.Call, init))
-		buffer.WriteString("/*defer*/")
-		deferStack = append(deferStack, buffer.String())
+		buffer := parseExpr(stmt.Call, init) + "/*defer*/"
+		deferStack = append(deferStack, buffer)
 	case *ast.SelectStmt:
-		buffer := strings.Builder{}
+		buffer := "/*select*/"
 		_ = buffer
-
 	default:
 		fmt.Println("statement not found", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
@@ -746,7 +700,7 @@ func parseBody(stmts []ast.Stmt) []string {
 
 //multiple-value test() in single-value context
 func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
-	buffer := strings.Builder{}
+	buffer := ""
 	args := []string{}
 	for i := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
@@ -755,19 +709,14 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 			continue
 		}
 		if stmt.Tok.String() == ":=" {
-			buffer.WriteString("var ")
-			buffer.WriteString(set)
-			buffer.WriteString(addSemicolon(stmt, init))
+			buffer += "var " + set + addSemicolon(stmt, init)
 		}
 		args = append(args, set)
 	}
-	buffer.WriteString("setMulti([")
-	buffer.WriteString(strings.Join(args, ","))
-	buffer.WriteString("],")
-	buffer.WriteString(parseExpr(stmt.Rhs[0], false))
-	buffer.WriteString(")")
-	buffer.WriteString(addSemicolon(stmt, init))
-	return buffer.String()
+	buffer += "setMulti([" + strings.Join(args, ",") + "],"
+	buffer += parseExpr(stmt.Rhs[0], false) + ")"
+	buffer += addSemicolon(stmt, init)
+	return buffer
 }
 func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	multi := false
@@ -785,42 +734,39 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	if multi {
 		return parseMultiReturn(stmt, init)
 	}
-	buffer := strings.Builder{}
+	buffer := ""
 	for i, _ := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
 		if set == "_" {
 			continue
 		}
 		if stmt.Tok.String() == ":=" {
-			buffer.WriteString("var ")
+			buffer += "var "
 		}
-		buffer.WriteString(set)
-		buffer.WriteString(" = ")
-		buffer.WriteString(parseExpr(stmt.Rhs[i], false))
-		buffer.WriteString(addSemicolon(stmt, init))
+		buffer += set + " = "
+		buffer += parseExpr(stmt.Rhs[i], false)
+		buffer += addSemicolon(stmt, init)
 	}
-	return buffer.String()
+	return buffer
 }
 func removeParan(str string) string {
 	return str[1 : len(str)-1]
 }
 func parseFields(list []*ast.Field) []string {
 	array := []string{}
-	buffer := strings.Builder{}
+	buffer := ""
 	for _, field := range list {
 		ty := parseExpr(field.Type, false)
 		if len(field.Names) == 0 {
 			array = append(array, ty)
 		} else {
 			for _, name := range field.Names {
-				buffer.Reset()
+				buffer = ""
 				if !noFieldName {
-					buffer.WriteString(untitle(parseExpr(name, false)))
-					buffer.WriteString(":")
+					buffer += untitle(parseExpr(name, false)) + ":"
 				}
-				buffer.WriteString(ty)
-				//fmt.Println("field:",buffer.String())
-				array = append(array, buffer.String())
+				buffer += ty
+				array = append(array, buffer)
 			}
 		}
 	}
@@ -847,7 +793,7 @@ func parseExprs(list []ast.Expr, init bool) []string {
 	return array
 }
 func parseExpr(expr ast.Expr, init bool) string {
-	buffer := strings.Builder{}
+	buffer := ""
 	if debugTypeTrace {
 		debugTypeTrace = false
 		fmt.Println("debug type trace:", reflect.TypeOf(expr))
@@ -857,90 +803,81 @@ func parseExpr(expr ast.Expr, init bool) string {
 		params := parseFields(expr.Params.List)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
-			buffer.WriteString("Void")
+			buffer += "Void"
 		} else if len(params) == 1 {
-			buffer.WriteString(params[0])
+			buffer += params[0]
 		} else {
-			buffer.WriteString("(")
-			buffer.WriteString(strings.Join(params, ", "))
-			buffer.WriteString(")")
+			buffer += "(" + strings.Join(params, ", ") + ")"
 		}
-		buffer.WriteString(" -> ")
+		buffer += " -> "
 		if expr.Results == nil {
-			buffer.WriteString("Void")
+			buffer += "Void"
 		} else {
 			res := parseFields(expr.Results.List)
 			if len(res) == 0 {
-				buffer.WriteString("Void")
+				buffer += "Void"
 			} else if len(res) == 1 {
-				buffer.WriteString(res[0])
+				buffer += res[0]
 			} else {
-				buffer.WriteString("{")
+				buffer += "{"
 
-				buffer.WriteString(strings.Join(res, ","))
-				buffer.WriteString("}")
+				buffer += strings.Join(res, ",")
+				buffer += "}"
 			}
 		}
 	case *ast.Ident:
 		name := rename(expr.Name)
-		buffer.WriteString(name)
+		buffer += name
 	case *ast.StarExpr: //pointer
-		buffer.WriteString("std.Pointer.make(" + parseExpr(expr.X, false) + ")")
+		buffer = "std.Pointer.make(" + parseExpr(expr.X, false) + ")"
 	case *ast.MapType:
-		buffer.WriteString("Map<")
-		buffer.WriteString(parseExpr(expr.Key, false))
-		buffer.WriteString(",")
-		buffer.WriteString(parseExpr(expr.Value, false))
-		buffer.WriteString(">")
+		buffer = "Map<" + parseExpr(expr.Key, false) + "," + parseExpr(expr.Value, false) + ">"
 	case *ast.ChanType:
-		buffer.WriteString("Dynamic")
+		buffer = "Dynamic"
 	case *ast.Ellipsis:
-		buffer.WriteString("...")
-		buffer.WriteString(parseExpr(expr.Elt, false))
+		buffer = "..." + parseExpr(expr.Elt, false)
 	case *ast.InterfaceType:
 		if expr.Methods == nil || len(expr.Methods.List) == 0 {
 			return "Any"
 		}
 		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
-		buffer.WriteString(strings.Join(parseFields(expr.Fields.List), ",\n"))
+		buffer = strings.Join(parseFields(expr.Fields.List), ",\n")
 	case *ast.KeyValueExpr: //map
 		if !noFieldName {
-			buffer.WriteString(parseExpr(expr.Key, false))
+			buffer = parseExpr(expr.Key, false)
 			if mapField {
-				buffer.WriteString(" : ")
+				buffer += " : "
 			} else {
-				buffer.WriteString(" => ")
+				buffer += " => "
 			}
 		}
-		buffer.WriteString(parseExpr(expr.Value, false))
+		buffer += parseExpr(expr.Value, false)
 	case *ast.ArrayType:
 		name := rename(parseExpr(expr.Elt, false))
 		writeArrayBool := true
 		switch name {
 		case "byte":
 			writeArrayBool = false
-			buffer.WriteString("haxe.io.BytesData")
+			buffer = "haxe.io.BytesData"
 		}
 		if writeArrayBool {
-			buffer.WriteString("Array<")
-			buffer.WriteString(name)
-			buffer.WriteString(">")
+			buffer = "Array<" + name + ">"
 		}
 	case *ast.FuncLit:
-		buffer.WriteString("function(")
+		buffer = "function("
 		if expr.Type.Params != nil {
 			params := parseFields(expr.Type.Params.List)
-			buffer.WriteString(strings.Join(params, ","))
+			buffer += strings.Join(params, ",")
 		}
-		buffer.WriteString(")")
+		buffer += ")"
 		if expr.Type.Results != nil {
 			res := parseFields(expr.Type.Results.List)
 			_ = res
 		}
-		buffer.WriteString("{\n")
-		buffer.WriteString(strings.Join(parseBody(expr.Body.List), ""))
-		buffer.WriteString("}")
+		buffer += "{\n"
+		buffer += strings.Join(parseBody(expr.Body.List), "")
+		buffer += "}"
 	case *ast.BasicLit: //A literal basic type
 		value := expr.Value
 		switch expr.Kind {
@@ -961,23 +898,17 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			fmt.Println("unknown basic literal kind, value:", value, "kind:", expr.Kind.String())
 		}
-		buffer.WriteString(value)
+		buffer = value
 	case *ast.BinaryExpr:
-		buffer.WriteString(parseExpr(expr.X, false))
-		//buffer.WriteString(" ")
-		buffer.WriteString(expr.Op.String())
-		//buffer.WriteString(" ")
-		buffer.WriteString(parseExpr(expr.Y, false))
+		buffer = parseExpr(expr.X, false) + expr.Op.String() + parseExpr(expr.Y, false)
 	case *ast.SelectorExpr: //1st class
 		name := rename(parseExpr(expr.X, false))
-		buffer.WriteString(name)
-		buffer.WriteString(".")
 		sel := reserved(untitle(rename(expr.Sel.Name)))
 		switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction
 		}
-		buffer.WriteString(sel)
+		buffer = name + "." + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		makeBool := false
 		switch init := expr.Fun.(type) {
@@ -992,91 +923,73 @@ func parseExpr(expr ast.Expr, init bool) string {
 				name = "new "
 				makeBool = true
 			}
-			buffer.WriteString(name)
+			buffer = name
 		case *ast.ArrayType:
 			value := parseExpr(init.Elt, false)
 			switch value {
 			case "Rune":
-				buffer.WriteString("Std.int")
+				buffer += "Std.int"
 			case "Byte":
-				buffer.WriteString("haxe.io.Bytes.ofString")
+				buffer += "haxe.io.Bytes.ofString"
 			}
 		default:
-			buffer.WriteString(parseExpr(expr.Fun, false))
+			buffer += parseExpr(expr.Fun, false)
 		}
 		if makeBool && len(expr.Args) == 1 {
-			buffer.WriteString(parseExpr(expr.Args[0], false))
-			buffer.WriteString("()")
+			buffer += parseExpr(expr.Args[0], false)
+			buffer += "()"
 		} else {
-			buffer.WriteString("(")
-			buffer.WriteString(strings.Join(parseExprs(expr.Args, false), ", "))
-			buffer.WriteString(")")
+			buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
 		}
-		buffer.WriteString(addSemicolon(expr, init))
+		buffer += addSemicolon(expr, init)
 	case *ast.UnaryExpr: //3rd class
 		op := expr.Op.String()
 		if op != "*" && op != "&" {
-			buffer.WriteString(op)
-			buffer.WriteString(" ")
+			buffer = op + " "
 		}
-		buffer.WriteString(parseExpr(expr.X, false))
+		buffer += parseExpr(expr.X, false)
 	case *ast.TypeAssertExpr: //pass through
-		buffer.WriteString(typeAssert(*expr, init))
+		buffer += typeAssert(*expr, init)
 	case *ast.IndexExpr:
-		buffer.WriteString(parseExpr(expr.X, false))
-		buffer.WriteString("[")
-		buffer.WriteString(parseExpr(expr.Index, false))
-		buffer.WriteString("]")
-		/*switch ty := x.Obj.Type.(type) {
-			case *ast.ArrayType:
-				ty.
-		}*/
+		buffer = parseExpr(expr.X, false) + "[" + parseExpr(expr.Index, false) + "]"
 	case *ast.CompositeLit:
 		switch ty := expr.Type.(type) {
 		case *ast.ArrayType:
-			buffer.WriteString("[")
-			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
-			buffer.WriteString("]")
+			buffer = "[" + strings.Join(parseExprs(expr.Elts, false), ",") + "]"
 		case *ast.SelectorExpr, *ast.Ident:
-			buffer.WriteString("new ")
-			buffer.WriteString(parseExpr(ty, false))
-			buffer.WriteString("(")
+			buffer = "new " + parseExpr(ty, false) + "("
 			noFieldName = true
-			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
 			noFieldName = false
-			buffer.WriteString(")")
+			buffer += ")"
 		case *ast.MapType:
-			buffer.WriteString("[")
+			buffer = "["
 			mapField = true
-			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
 			mapField = false
-			buffer.WriteString("]")
+			buffer += "]"
 		case nil:
-			buffer.WriteString(strings.Join(parseExprs(expr.Elts, false), ","))
+			buffer = strings.Join(parseExprs(expr.Elts, false), ",")
 		default:
 			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
 		//ast.Print(nil, expr)
-		buffer.WriteString(parseExpr(expr.X, false))
-		buffer.WriteString(".slice(")
+		buffer = parseExpr(expr.X, false) + ".slice("
 		low := "0"
 		if expr.Low != nil {
 			low = parseExpr(expr.Low, false)
 		}
-		buffer.WriteString(low)
+		buffer += low
 		if expr.High != nil {
-			buffer.WriteString(",")
-			buffer.WriteString(parseExpr(expr.High, false))
+			buffer += "," + parseExpr(expr.High, false)
 		}
-		buffer.WriteString(")")
+		buffer += ")"
 		if expr.Max != nil {
-			buffer.WriteString(".slice(0,")
-			buffer.WriteString(parseExpr(expr.Max, false))
-			buffer.WriteString(")")
+			buffer += ".slice(0," + parseExpr(expr.Max, false) + ")"
 		}
 	case *ast.ParenExpr:
-		buffer.WriteString(parseExpr(expr.X, false))
+		buffer = parseExpr(expr.X, false)
 	case nil:
 
 	default:
@@ -1084,23 +997,20 @@ func parseExpr(expr ast.Expr, init bool) string {
 		//ast.Print(nil,expr)
 		return addDebug(expr)
 	}
-	return buffer.String()
+	return buffer
 }
 func getDefaultType(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
-		buffer := strings.Builder{}
-		buffer.WriteString("[")
+		buffer := ""
+		buffer += "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
-			buffer.WriteString("for (i in 0...")
-			buffer.WriteString(l.Value)
-			buffer.WriteString(")")
+			buffer += "for (i in 0..." + l.Value + ")"
 		}
-		buffer.WriteString(getDefaultType(expr.Elt))
-
-		buffer.WriteString("]")
-		return buffer.String()
+		buffer += getDefaultType(expr.Elt)
+		buffer += "]"
+		return buffer
 	case *ast.Ident:
 		switch expr.Name {
 		case "int", "float", "uint64", "uint", "int64":
@@ -1118,34 +1028,31 @@ func getDefaultType(expr ast.Expr) string {
 }
 func caseAsIf(stmt *ast.CaseClause, obj string) string {
 	//stmt.List
-	buffer := strings.Builder{}
+	buffer := ""
 	if len(stmt.List) > 0 {
-		buffer.WriteString("if")
-		buffer.WriteString("(")
+		buffer = "if("
 		list := []string{}
 		for _, stmt := range stmt.List {
-			piece := strings.Builder{}
+			piece := ""
 			if obj != "" {
 				/*piece.WriteString("Std.isOfType(")
 				piece.WriteString(obj)
 				piece.WriteString(",")*/
-				piece.WriteString("(")
-				piece.WriteString(obj)
-				piece.WriteString(" is ")
+				piece = "(" + obj + " is "
 			}
-			piece.WriteString(parseExpr(stmt, false))
+			piece += parseExpr(stmt,false)
 			if obj != "" {
-				piece.WriteString(")")
+				piece += ")"
 			}
-			list = append(list, piece.String())
+			list = append(list, piece)
 		}
-		buffer.WriteString(strings.Join(list, "||"))
-		buffer.WriteString(") ")
+		buffer += strings.Join(list, "||")
+		buffer += ") "
 	}
-	buffer.WriteString("{\n")
-	buffer.WriteString(strings.Join(parseBody(stmt.Body), ""))
-	buffer.WriteString("}")
-	return buffer.String()
+	buffer += "{\n"
+	buffer += strings.Join(parseBody(stmt.Body), "")
+	buffer += "}"
+	return buffer
 }
 func rename(name string) string {
 	value, ok := replaceMap[name]
@@ -1159,28 +1066,20 @@ func rename(name string) string {
 	return name
 }
 func typeAssert(expr ast.TypeAssertExpr, init bool) string {
-	buffer := strings.Builder{}
-	//buffer.WriteString("Type.typeof(")
 	asserted = parseExpr(expr.X, false)
-	buffer.WriteString(asserted)
-	//buffer.WriteString(")")
-	return buffer.String()
+	return asserted
 }
 func untitle(name string) string {
-	buffer := strings.Builder{}
-	buffer.WriteString(strings.ToLower(name[0:1]))
-	buffer.WriteString(name[1:len(name)])
-	return buffer.String()
+	buffer := strings.ToLower(name[0:1]) + name[1:len(name)]
+	return buffer
 }
 func getName(path string) string {
 	index := strings.LastIndex(path, "/") + 1
 	return path[index:len(path)]
 }
 func unparan(name string) string {
-	buffer := strings.Builder{}
-	buffer.WriteString(strings.ToLower(name[0:1]))
-	buffer.WriteString(name[1:len(name)])
-	return buffer.String()
+	buffer := strings.ToLower(name[0:1]) + name[1:len(name)]
+	return buffer
 }
 func reserved(str string) string {
 	switch str {

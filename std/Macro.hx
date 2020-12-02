@@ -47,45 +47,4 @@ class Macro {
 		}
 		return fields;
 	}
-
-	public static macro function star(expr) {
-		if (isPointer(expr)) {
-			return macro ${expr}.value;
-		} else {
-			return macro $expr;
-		}
-	}
-
-	public static macro function address(expr) {
-		if (isPointer(expr)) {
-			return macro ${expr}.address();
-		} else {
-			return macro std.Pointer.make(() -> $expr, (tmp) -> $expr = tmp);
-		}
-		return macro null;
-	}
-
-	static function isPointer(expr:Expr):Bool {
-		var type = Context.typeof(expr);
-		var name:String = "";
-		switch type {
-			case TInst(t, params):
-				var t = t.get();
-				name = t.pack.join(".") + t.name;
-			case TAbstract(t, params):
-				var t = t.get();
-				name = t.pack.join(".") + t.name;
-				if (name == "Null") {
-					var param = params[0];
-					switch param {
-						case TInst(t, params):
-							var t = t.get();
-							name = t.pack.join(".") + t.name;
-						default:
-					}
-				}
-			default:
-		}
-		return name == "stdPointer";
-	}
 }

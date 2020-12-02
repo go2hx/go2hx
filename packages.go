@@ -844,8 +844,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer += name
 	case *ast.StarExpr: //pointer
 		x := parseExpr(expr.X, false)
-		buffer = "std.Macro.star(" + x + ")"
-		//std.Pointer.make(() -> " + x + ",(tmp) -> " + x + " = tmp)
+		buffer = x + ".value"
 	case *ast.MapType:
 		buffer = "Map<" + parseExpr(expr.Key, false) + "," + parseExpr(expr.Value, false) + ">"
 	case *ast.ChanType:
@@ -964,7 +963,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false)
-			buffer = "std.Macro.address(" + x + ")"
+			buffer = "std.Pointer.make(() -> " + x + ", (tmp) -> " + x + " = tmp)"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false)
 		}

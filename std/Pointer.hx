@@ -15,17 +15,22 @@ class Pointer<T> {
     }
     var base_i:Int;
     var get:Void->T;
-    var set:T->Void;
+    var set:T->T;
     private static var index:Int = 0;
     private static var map = new Map<Int,Pointer<Any>>();
-    public function new(get:Void->T,set:T->Void,base_i:Int=0) {
+    public function new(get:Void->T,set:T->T,base_i:Int=0) {
+        this.get = get;
+        this.set = set;
         this.base_i = base_i;
         if (this.base_i == 0)
             this.base_i = ++index;
     }
-    public function address():Int {
+    /*public function address():Int {
         map.set(base_i,cast this);
         return base_i;
+    }*/
+    public function address():Pointer<T> {
+        return this;
     }
     public function copy():Pointer<T> {
         return new Pointer<T>(get,set,base_i);
@@ -35,5 +40,8 @@ class Pointer<T> {
     }
     public static function make<T>(get,set):Pointer<T> {
         return new Pointer<T>(get,set);
+    }
+    public function toString():String {
+        return '$base_i=$value';
     }
 }

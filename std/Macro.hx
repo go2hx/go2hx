@@ -47,4 +47,10 @@ class Macro {
 		}
 		return fields;
 	}
+	public static function build() {
+		Context.onTypeNotFound(function(str) {
+			trace("str " + str);
+			return null;
+		});
+	}
 }

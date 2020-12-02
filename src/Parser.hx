@@ -188,7 +188,7 @@ class Parser {
 	function buildConfig(path:String, main:String) {
 		if (path.length > 0)
 			path += ".";
-		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n-lib printf\n' + "--interp");
+		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n-lib printf\n--macro std.Macro.build()\n' + "--interp");
 	}
 
 	function imports(path:String) {

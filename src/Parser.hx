@@ -188,14 +188,14 @@ class Parser {
 	function buildConfig(path:String, main:String) {
 		if (path.length > 0)
 			path += ".";
-		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n' + "--interp");
+		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n-lib printf\n' + "--interp");
 	}
 
 	function imports(path:String) {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports = stdimports.concat(["go","pointer","macro"]); //add main classes
+		stdimports = stdimports.concat(["go","pointer","macro","types"]); //add main classes
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

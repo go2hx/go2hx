@@ -8,6 +8,9 @@ import std.Go.str;
 import std.Go.setMulti;
 import std.Go.range;
 import std.Go.append;
+
+import std.Types.Args;
+
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;
 import StdTypes.Float as Float32;

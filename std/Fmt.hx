@@ -1,51 +1,44 @@
 package std;
-
-class Fmt {
-	public static inline function println(?v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
-		var str = v == null ? "" : _print(v, v1, v2, v3, v4);
-		#if js
-		js.Browser.console.log(str);
-		#elseif sys
-		Sys.println(str);
-		#end
+import polygonal.Printf;
+import haxe.macro.Expr.ExprOf;
+import haxe.macro.Expr;
+class Fmt { //https://haxe.org/manual/macro-reification-expression.html
+	public static function println(args:Args<String>) {
+		return log(getArgs(args) + "\n");
 	}
 
-	public static inline function print(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
-		var str = _print(v, v1, v2, v3, v4);
-		#if js
-		js.Browser.console.log(str);
-		#elseif sys
-		Sys.print(str);
-		#end
+	public static function print(args:Args<String>) {
+		return log(getArgs(args));
+		
 	}
 
-	public static inline function printf(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
-		var str = _print(v, v1, v2, v3, v4);
-		#if js
-		js.Browser.console.log(str);
-		#elseif sys
-		Sys.print(str);
-		#end
+	public static function printf(fmt:String,args:Args<Dynamic>) {
+		return Printf.format(fmt,args);
 	}
 
-	public static inline function sprint(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
+	public static function sprint(args:Args<String>):String {
+		return getArgs(args);
+	}
+
+	public static function sprintln(args:Args<String>):String {
+		return getArgs(args) + "\n";
+	}
+
+	public static inline function sprintf(fmt:String,args:Args<Dynamic>):String {
+		return Printf.format(fmt,args);
+	}
+	static function getArgs(args:Args<String>):String {
+		//return args == null? "" : args.join(" ");
 		return "";
 	}
-
-	public static inline function sprintln(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
-		return "";
+	static function log(string:String) {
+		#if sys
+			Sys.print(string);
+		#elseif js
+			js.Browser.console(string);
+		#end
 	}
-
-	public static inline function sprintf(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any) {
-		return "";
+	static function format() {
+		
 	}
-
-	private static inline function _print(v:Dynamic, ?v1:Any, ?v2:Any, ?v3:Any, ?v4:Any):String {
-		function value(v:Any):String {
-			return (v != null ? ' $v' : "");
-		}
-		return v + value(v1) + value(v2) + value(v3) + value(v4);
-	}
-
-	// TODO: Turn this into macro function using Sys.println or Browser.console
 }

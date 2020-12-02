@@ -121,9 +121,6 @@ class Go {
 			default:
 				trace("not an inst or func " + type);
 		}
-		var printer = new Printer();
-		// trace(printer.printExprs(set,"  "));
-		// trace(printer.printExprs(set,"\n"));
 		return macro {
 			var tmp = $expr;
 			$b{set}

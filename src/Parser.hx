@@ -55,6 +55,7 @@ class Parser {
 		var index = path.indexOf(programPath);
 		if (index > -1)
 			path = path.substr(index + programPath.length);
+		trace("path: " + path);
 		if (path.charAt(0) == "." || path.charAt(0) == "_")
 			path = path.substr(1);
 		var pkgPath = path;
@@ -137,7 +138,7 @@ class Parser {
 					}else{
 						for (field in struct.fields) {
 							main.push('public var $field;');
-							init += ',?$field';
+							init += ',$field';
 						}
 					}
 					init = init.substr(1);
@@ -185,7 +186,9 @@ class Parser {
 	}
 
 	function buildConfig(path:String, main:String) {
-		File.saveContent(exportPath + "build.hxml", '-main $path.$main\n-D std-encoding-utf8\n' + "--interp");
+		if (path.length > 0)
+			path += ".";
+		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n' + "--interp");
 	}
 
 	function imports(path:String) {

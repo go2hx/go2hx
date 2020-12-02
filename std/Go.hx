@@ -1,5 +1,6 @@
 package std;
 
+import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
 import haxe.Exception;
@@ -15,11 +16,6 @@ class Go {
 	}
 
 	public static macro function slice(type, length) {
-		return macro null;
-	}
-	public static macro function make(type,list) {
-		var ty = Context.typeof(type);
-		trace("type: " + ty);
 		return macro null;
 	}
 

@@ -48,9 +48,69 @@ class Macro {
 		return fields;
 	}
 	public static function build() {
-		Context.onTypeNotFound(function(str) {
-			trace("str " + str);
-			return null;
+		Context.onAfterTyping((types) -> {
+			for (type in types) {
+				switch type {
+					case TClassDecl(c):
+						var c = c.get();
+						if (isHaxeStd(c.pack[0])) 
+							continue;
+						for (field in c.fields.get()) {
+							for (param in field.params) {
+
+							}
+						}
+					default:
+				}
+			}
 		});
+	}
+	static function isHaxeStd(path:String):Bool {
+		return [	
+			"cpp",
+			"cs",
+			"eval",
+			"flash",
+			"haxe",
+			"hl",
+			"java",
+			"js",
+			"jvm",
+			"lua",
+			"neko",
+			"php",
+			"python",
+			"sys",
+			"Any",
+			"Array",
+			"Class",
+			"Date",
+			"DateTools",
+			"EReg",
+			"Enum",
+			"EnumValue",
+			"IntIterator",
+			"Lambda",
+			"List",
+			"Map",
+			"Math",
+			"Reflect",
+			"Std",
+			"StdTypes",
+			"String",
+			"StringBuf",
+			"StringTools",
+			"Sys",
+			"Type",
+			"UInt",
+			"UnicodeString",
+			"Xml",
+
+			"_UInt",
+			"_EnumValue",
+			"_Any",
+
+			"polygonal",
+		].indexOf(path) > -1;
 	}
 }

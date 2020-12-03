@@ -16,7 +16,8 @@ class Parser {
 	public var exportPath:String;
 
 	public function new(exportPath:String, format:Bool) {
-		exportPath = Path.addTrailingSlash(exportPath);
+		if (exportPath.length > 0)
+			exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
 		if (!FileSystem.exists("export.bson")) {
 			trace("export.bson not found");
@@ -55,8 +56,7 @@ class Parser {
 		var index = path.indexOf(programPath);
 		if (index > -1)
 			path = path.substr(index + programPath.length);
-		trace("path: " + path);
-		if (path.charAt(0) == "." || path.charAt(0) == "_")
+		if (path.charAt(0) == "." || path.charAt(0) == "_" || path.charAt(0) == "/")
 			path = path.substr(1);
 		var pkgPath = path;
 		pkgPath = Path.removeTrailingSlashes(pkgPath);
@@ -203,7 +203,7 @@ class Parser {
 			File.saveContent(path, Resource.getString(i));
 		}
 		// global
-		File.saveContent(Path.addTrailingSlash(exportPath) + "import.hx", Resource.getString("import"));
+		File.saveContent(exportPath + "import.hx", Resource.getString("import"));
 	}
 
 	function cap(string:String, reverse:Bool = false):String {

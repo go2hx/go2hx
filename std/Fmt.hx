@@ -1,44 +1,48 @@
 package std;
+import haxe.macro.ExprTools;
 import polygonal.Printf;
-import haxe.macro.Expr.ExprOf;
 import haxe.macro.Expr;
+import haxe.macro.Expr.ExprOf;
 class Fmt { //https://haxe.org/manual/macro-reification-expression.html
-	public static function println(args:Args<Any>) {
-		return log(getArgs(args) + "\n");
+	public static macro function println(args:Array<Expr>) {
+		return macro ${log($v{getArgs(args)} + "\n")};
 	}
 
-	public static function print(args:Args<Any>) {
-		return log(getArgs(args));
-		
+	public static macro function print(args:Array<Expr>) {
+		return macro ${log($v{getArgs(args)} + "\n")};
 	}
 
-	public static function printf(fmt:String,args:Args<Any>) {
+	public static macro function printf(fmt:ExprOf<String>,args:Array<Expr>) { //format
+		return ${log($v{format(fmt,args)})};
+	}
+
+	public static macro function sprint(args:Array<Expr>) {
+		return macro $v{getArgs(args)};
+	}
+
+	public static function sprintln(args:Array<Expr>) {
+		return macro $v{getArgs(args) + "\n"};
+	}
+	public static macro function sprintf(fmt:ExprOf<String>,args:Array<Expr>) { //format
+		return macro $v{format(fmt,args)};
+	}
+	private static function argArray(args:Array<Expr>) {
+		return [for (arg in args) ExprTools.getValue(arg)];
+	}
+	private static function getArgs(args:Array<Expr>):String {
+		var args = argArray(args);
+		return args == null ? "" : args.join(" ");
+	}
+	private static function format(fmt:ExprOf<String>,args:Array<Expr>):String {
+		var args:Array<Any> = argArray(args);
+		var fmt:String = ExprTools.getValue(fmt);
 		return Printf.format(fmt,args);
 	}
-
-	public static function sprint(args:Args<Any>):String {
-		return getArgs(args);
-	}
-
-	public static function sprintln(args:Args<Any>):String {
-		return getArgs(args) + "\n";
-	}
-
-	public static inline function sprintf(fmt:String,args:Args<Any>):String {
-		return Printf.format(fmt,args);
-	}
-	static function getArgs(args:Args<Any>):String {
-		//return args == null? "" : args.join(" ");
-		return "";
-	}
-	static function log(string:String) {
+	private static function log(string:String) {
 		#if sys
-			Sys.print(string);
+			return macro Sys.print($v{string});
 		#elseif js
-			js.Browser.console(string);
+			return macro js.Browser.console($v{string});
 		#end
-	}
-	static function format() {
-		
 	}
 }

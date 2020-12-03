@@ -8,10 +8,12 @@ import (
 	"os/exec"
 	"reflect"
 	"strings"
+
 	"go.mongodb.org/mongo-driver/bson"
 
-	"go/token"
 	"go/printer"
+	"go/token"
+
 	//"go/types"
 	//"go/constant"
 	"os"
@@ -70,10 +72,10 @@ type structType struct {
 // command line from source syntax.
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = map[string]bool{
-	"math": true,
-	"fmt": true,
-	"os": true,
-	"flag": true,
+	"math":                            true,
+	"fmt":                             true,
+	"os":                              true,
+	"flag":                            true,
 	"errors":                          true,
 	"internal/reflectlite":            true,
 	"internal/unsafeheader":           true,
@@ -143,7 +145,7 @@ var excludes = map[string]bool{
 	"internal/fmtsort":    true,
 	"text/template/parse": true,
 	"net/url":             true,
-	"time": true,
+	"time":                true,
 	//"internal/goroot": true,
 	//"internal/goversion": true,
 	"text/scanner": true,
@@ -196,8 +198,8 @@ var deferStack []string
 var funcDecl *ast.FuncDecl
 var generateGo = true
 var sources = []source{}
-const debug = true
 
+const debug = true
 
 type source struct {
 	file ast.File
@@ -250,14 +252,14 @@ func main() {
 	fmt.Println(string(out[:]))
 	//print go
 	if generateGo {
-		fmt.Println("sources",len(sources))
-		for _,source := range sources {
-			path := filepath.Join(binPath,source.file.Name.Name) + ".go"
-			f,err := os.OpenFile(path,os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
+		fmt.Println("sources", len(sources))
+		for _, source := range sources {
+			path := filepath.Join(binPath, source.file.Name.Name) + ".go"
+			f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 			if err != nil {
-				fmt.Println("print open file",path,"error:",err)
+				fmt.Println("print open file", path, "error:", err)
 			}
-			printer.Fprint(f,token.NewFileSet(),&source.file)
+			printer.Fprint(f, token.NewFileSet(), &source.file)
 		}
 	}
 }
@@ -278,7 +280,7 @@ func load(args ...string) {
 		pkg.PkgPath = strings.Join(array, "/")
 		data.PackagePath = pkg.PkgPath
 		file := mergePackageFiles(pkg, !true)
-		sources = append(sources,source{file,data.PackagePath})
+		sources = append(sources, source{file, data.PackagePath})
 		if file.Name != nil {
 			data.Name = file.Name.Name
 		}
@@ -332,9 +334,9 @@ func load(args ...string) {
 						replaceMap[spec.Name.Name] = ty.Name
 						switch structType := spec.Type.(type) {
 						case *ast.StructType:
-							ty.Fields = parseFields(structType.Fields.List,true)
+							ty.Fields = parseFields(structType.Fields.List, true)
 						case *ast.InterfaceType:
-							ty.InterfaceMethods = parseFields(structType.Methods.List,true)
+							ty.InterfaceMethods = parseFields(structType.Methods.List, true)
 						default:
 							ty.Def = parseTypeExpr(spec.Type)
 							//fmt.Println("type spec type unknown", reflect.TypeOf(structType))
@@ -362,10 +364,10 @@ func load(args ...string) {
 					fn.Doc = ""
 				}
 				if decl.Type.Params != nil {
-					fn.Params = parseFields(decl.Type.Params.List,true)
+					fn.Params = parseFields(decl.Type.Params.List, true)
 				}
 				if decl.Type.Results != nil {
-					fn.Results = parseFields(decl.Type.Results.List,false)
+					fn.Results = parseFields(decl.Type.Results.List, false)
 				}
 				if decl.Recv != nil {
 					//fn.
@@ -665,7 +667,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		body = append(body, buffer)
 	case *ast.RangeStmt:
 		buffer := "range(" + parseExpr(stmt.Key, false) + ","
-		buffer += parseExpr(stmt.Value, false) + "," 
+		buffer += parseExpr(stmt.Value, false) + ","
 		buffer += parseExpr(stmt.X, false) + ", {\n"
 		buffer += strings.Join(parseBody(stmt.Body.List), "\n") + "});"
 		body = append(body, buffer)
@@ -753,17 +755,17 @@ func removeParan(str string) string {
 	return str[1 : len(str)-1]
 }
 func parseTypeExpr(expr ast.Expr) string {
-	switch expr := expr.(type){
+	switch expr := expr.(type) {
 	case *ast.StarExpr:
-		x := parseExpr(expr.X,false)
+		x := parseExpr(expr.X, false)
 		return "std.Pointer<" + x + ">"
 	case *ast.Ident: //pass through
 	default:
-		fmt.Println("type expr unknown:",reflect.TypeOf(expr))
+		fmt.Println("type expr unknown:", reflect.TypeOf(expr))
 	}
-	return parseExpr(expr,false)
+	return parseExpr(expr, false)
 }
-func parseFields(list []*ast.Field,defaults bool) []string {
+func parseFields(list []*ast.Field, defaults bool) []string {
 	array := []string{}
 	buffer := ""
 	for _, field := range list {
@@ -814,7 +816,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
-		params := parseFields(expr.Params.List,true)
+		params := parseFields(expr.Params.List, true)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer += "Void"
@@ -827,7 +829,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Results == nil {
 			buffer += "Void"
 		} else {
-			res := parseFields(expr.Results.List,true)
+			res := parseFields(expr.Results.List, true)
 			if len(res) == 0 {
 				buffer += "Void"
 			} else if len(res) == 1 {
@@ -857,7 +859,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
-		buffer = strings.Join(parseFields(expr.Fields.List,true), ",\n")
+		buffer = strings.Join(parseFields(expr.Fields.List, true), ",\n")
 	case *ast.KeyValueExpr: //map
 		if !noFieldName {
 			buffer = parseExpr(expr.Key, false)
@@ -882,12 +884,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.FuncLit:
 		buffer = "function("
 		if expr.Type.Params != nil {
-			params := parseFields(expr.Type.Params.List,true)
+			params := parseFields(expr.Type.Params.List, true)
 			buffer += strings.Join(params, ",")
 		}
 		buffer += ")"
 		if expr.Type.Results != nil {
-			res := parseFields(expr.Type.Results.List,false)
+			res := parseFields(expr.Type.Results.List, false)
 			_ = res
 		}
 		buffer += "{\n"
@@ -1059,7 +1061,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 				piece.WriteString(",")*/
 				piece = "(" + obj + " is "
 			}
-			piece += parseExpr(stmt,false)
+			piece += parseExpr(stmt, false)
 			if obj != "" {
 				piece += ")"
 			}

@@ -3,7 +3,7 @@
 --macro macro.Res.gen()
 --no-inline
 -lib bson
--lib printf
+-lib polygonal-printf
 -D no-deprecation-warnings
 -D std-encoding-utf8
 #--interp

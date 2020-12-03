@@ -4,7 +4,7 @@ Go Language to Haxe Language Transpiler
 
 # Getting started
 * add repo to environment PATH
-* ```lix download``` or ```haxelib git bson https://github.com/kevinresol/bson```
+* ```lix download``` or ```haxelib git bson https://github.com/kevinresol/bson && haxelib git polygonal-printf https://github.com/polygonal/printf```
 
 * run command:  ```go build .```
 * next: ```go2hx library_path``` (tip: you may need to add ./ before directory) this will create a bin folder with the transpiled command and build.hxml to run it.

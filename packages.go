@@ -905,7 +905,17 @@ func parseExpr(expr ast.Expr, init bool) string {
 					value = `'` + value[1:len(value)-1] + `'`
 				}
 			}
-			value = strings.ReplaceAll(value, `\`, `\\`)
+			//remove invalid sequence
+			//\b, \t, \n, \f, \r, \”, \’, \\
+			for i := 0; i < len(value) - 1; i++ {
+				if string(value[i]) == `\` {
+					switch string(value[i + 1]) {
+						case "b","t","n","f",`"`,"’",`\`:
+						default:
+							value = string(value[0:i]) + string(value[i + 1])
+					}
+				}
+			}
 		case token.INT:
 
 		case token.FLOAT:

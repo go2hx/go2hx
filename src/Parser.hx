@@ -195,7 +195,7 @@ class Parser {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports = stdimports.concat(["go","pointer","macro","types"]); //add main classes
+		stdimports = stdimports.concat(["go","pointer","macro"]); //add main classes
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

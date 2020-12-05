@@ -1,48 +1,55 @@
 package std;
+
+import haxe.macro.Context;
 import haxe.macro.ExprTools;
 import polygonal.Printf;
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
-class Fmt { //https://haxe.org/manual/macro-reification-expression.html
+import haxe.macro.TypeTools;
+
+class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	public static macro function println(args:Array<Expr>) {
-		return macro ${log($v{getArgs(args)} + "\n")};
+		return macro {
+			var args:Array<Dynamic> = $a{args};
+			std.Fmt.log(args.join(" ") + "\n");
+		}
 	}
 
 	public static macro function print(args:Array<Expr>) {
-		return macro ${log($v{getArgs(args)} + "\n")};
+		return macro {
+			var args:Array<Dynamic> = $a{args};
+			std.Fmt.log($a{args}.join(" "));
+		}
 	}
 
-	public static macro function printf(fmt:ExprOf<String>,args:Array<Expr>) { //format
-		return ${log($v{format(fmt,args)})};
+	public static macro function printf(fmt:ExprOf<String>, args:Array<Expr>) { // format
+		return macro {
+			var args:Array<Dynamic> = $a{args};
+			std.Fmt.log(std.Fmt.format($fmt,args));
+		}
 	}
 
 	public static macro function sprint(args:Array<Expr>) {
-		return macro $v{getArgs(args)};
+		return macro $a{args}.join(" ");
 	}
 
 	public static function sprintln(args:Array<Expr>) {
-		return macro $v{getArgs(args) + "\n"};
+		return macro $a{args}.join(" ") + "\n";
 	}
-	public static macro function sprintf(fmt:ExprOf<String>,args:Array<Expr>) { //format
-		return macro $v{format(fmt,args)};
+
+	public static macro function sprintf(fmt:ExprOf<String>, args:Array<Expr>) { // format
+		return macro std.Fmt.format($fmt, $a{args});
 	}
-	private static function argArray(args:Array<Expr>) {
-		return [for (arg in args) ExprTools.getValue(arg)];
+
+	public static function format(fmt:String, args:Array<Dynamic>):String {
+		return Printf.format(fmt, args);
 	}
-	private static function getArgs(args:Array<Expr>):String {
-		var args = argArray(args);
-		return args == null ? "" : args.join(" ");
-	}
-	private static function format(fmt:ExprOf<String>,args:Array<Expr>):String {
-		var args:Array<Any> = argArray(args);
-		var fmt:String = ExprTools.getValue(fmt);
-		return Printf.format(fmt,args);
-	}
-	private static function log(string:String) {
+
+	public static function log(string:String) {
 		#if sys
-			return macro Sys.print($v{string});
+		Sys.print(string);
 		#elseif js
-			return macro js.Browser.console($v{string});
+		js.Browser.console(string);
 		#end
 	}
 }

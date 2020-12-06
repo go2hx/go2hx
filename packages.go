@@ -213,7 +213,7 @@ func main() {
 	o, _ := cmd.CombinedOutput()
 	fmt.Println((string(o[:])))
 
-	//excludes = make(map[string]bool) //clear excludes
+	excludes = make(map[string]bool) //clear excludes
 	for _, ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
@@ -254,6 +254,7 @@ func main() {
 	if generateGo {
 		fmt.Println("sources", len(sources))
 		for _, source := range sources {
+			fmt.Println("source", source.file)
 			path := filepath.Join(binPath, source.file.Name.Name) + ".go"
 			f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 			if err != nil {
@@ -760,6 +761,9 @@ func parseTypeExpr(expr ast.Expr) string {
 		x := parseExpr(expr.X, false)
 		return "std.Pointer<" + x + ">"
 	case *ast.Ident: //pass through
+	case *ast.SelectorExpr: //pass through
+	case *ast.ArrayType: //pass through
+	case *ast.InterfaceType:
 	default:
 		fmt.Println("type expr unknown:", reflect.TypeOf(expr))
 	}
@@ -870,17 +874,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 		}
 		buffer += parseExpr(expr.Value, false)
-	case *ast.ArrayType:
-		name := rename(parseExpr(expr.Elt, false))
-		writeArrayBool := true
-		switch name {
-		case "byte":
-			writeArrayBool = false
-			buffer = "haxe.io.BytesData"
-		}
-		if writeArrayBool {
-			buffer = "Array<" + name + ">"
-		}
 	case *ast.FuncLit:
 		buffer = "function("
 		if expr.Type.Params != nil {
@@ -907,12 +900,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 			//remove invalid sequence
 			//\b, \t, \n, \f, \r, \”, \’, \\
-			for i := 0; i < len(value) - 1; i++ {
+			for i := 0; i < len(value)-1; i++ {
 				if string(value[i]) == `\` {
-					switch string(value[i + 1]) {
-						case "b","t","n","f",`"`,"’",`\`:
-						default:
-							value = string(value[0:i]) + string(value[i + 1])
+					switch string(value[i+1]) {
+					case "b", "t", "n", "f", `"`, "’", `\`:
+					default:
+						value = string(value[0:i]) + string(value[i+1])
 					}
 				}
 			}
@@ -930,6 +923,17 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer = value
 	case *ast.BinaryExpr:
 		buffer = parseExpr(expr.X, false) + expr.Op.String() + parseExpr(expr.Y, false)
+	case *ast.ArrayType:
+		name := rename(parseExpr(expr.Elt, false))
+		writeArrayBool := true
+		switch name {
+		case "byte":
+			writeArrayBool = false
+			return "haxe.io.BytesData"
+		}
+		if writeArrayBool {
+			return "Array<" + name + ">"
+		}
 	case *ast.SelectorExpr: //1st class
 		name := rename(parseExpr(expr.X, false))
 		sel := reserved(untitle(rename(expr.Sel.Name)))
@@ -1198,6 +1202,8 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 					declData.Body.List = []ast.Stmt{}
 				}
 				data.Decls = append(data.Decls, &declData)
+			case *ast.TypeSpec:
+				decl.
 			default:
 				_ = decl
 				fmt.Println("decl not found")

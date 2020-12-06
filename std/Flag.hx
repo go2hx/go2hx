@@ -25,3 +25,6 @@ class Flag {
         p.value = value;
     }
 }
+class FlagSet {
+    
+}

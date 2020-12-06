@@ -921,7 +921,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case token.FLOAT:
 
 		case token.CHAR:
-
+			if expr.Value == `\` {
+				value = `"\\".substring(1)`
+			}
 		default:
 			fmt.Println("unknown basic literal kind, value:", value, "kind:", expr.Kind.String())
 		}

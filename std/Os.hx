@@ -15,6 +15,10 @@ class Os {
 		return {value: null};
 	}
 
+	public static inline function exit(code:Int) {
+		Sys.exit(code);
+	}
+
 	public static inline function removeAll(path:String) {
 		if (sys.FileSystem.exists(path) && sys.FileSystem.isDirectory(path)) {
 			var entries = sys.FileSystem.readDirectory(path);

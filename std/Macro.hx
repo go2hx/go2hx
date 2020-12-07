@@ -1,5 +1,6 @@
 package std;
 
+import haxe.macro.Compiler;
 import haxe.macro.Context;
 import haxe.macro.Expr.Field;
 import haxe.macro.Expr;
@@ -48,22 +49,7 @@ class Macro {
 		return fields;
 	}
 	public static function build() {
-		Context.onAfterTyping((types) -> {
-			for (type in types) {
-				switch type {
-					case TClassDecl(c):
-						var c = c.get();
-						if (isHaxeStd(c.pack[0])) 
-							continue;
-						for (field in c.fields.get()) {
-							for (param in field.params) {
-
-							}
-						}
-					default:
-				}
-			}
-		});
+		
 	}
 	static function isHaxeStd(path:String):Bool {
 		return [	

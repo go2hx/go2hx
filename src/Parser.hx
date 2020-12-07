@@ -130,7 +130,9 @@ class Parser {
 				var first = struct.exported ? "" : "private";
 				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0) {
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); //add methods to stack
-				}else{
+				}else if (struct.def != "") {
+					main.push(first + "typedef " + struct.name + " = " + struct.def + ";");
+				}else{	
 					main.push(first + "class " + struct.name + " {");
 					var init:String = "";
 					if (struct.fields == null) {

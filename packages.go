@@ -19,10 +19,6 @@ import (
 	"os"
 	"path/filepath"
 
-	//"go/parser"
-	//"path/filepath"
-	//"encoding/json"
-
 	"strconv"
 
 	"golang.org/x/tools/go/packages"
@@ -65,6 +61,7 @@ type structType struct {
 	Exported         bool     `json:"exported"`
 	Fields           []string `json:"fields"`
 	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
+	InterfaceBool bool `json:"interfaceBool"` //toggles interface whether it's an interface or class
 	Def              string   `json:"def"`
 }
 
@@ -75,7 +72,7 @@ var excludes = map[string]bool{
 	"math":                            true,
 	"fmt":                             true,
 	"os":                              true,
-	"flag":                            true,
+	//"flag":                            true,
 	"errors":                          true,
 	"internal/reflectlite":            true,
 	"internal/unsafeheader":           true,
@@ -106,6 +103,7 @@ var excludes = map[string]bool{
 	"internal/oserror":                true,
 	//"go/token": true,
 	"encoding/json":   true,
+	"encoding/hex":    true,
 	"encoding":        true,
 	"encoding/base64": true,
 	"encoding/binary": true,
@@ -128,6 +126,7 @@ var excludes = map[string]bool{
 	"golang.org/x/tools/internal/gocommand": true,
 	"regexp":                                true,
 	"regexp/syntax":                         true,
+	"golang.org/x/sys/cpu": true,
 	//"golang.org/x/tools/internal/event": true,
 	//"golang.org/x/tools/internal/event/core": true,
 	//"golang.org/x/tools/internal/event/label": true,
@@ -145,6 +144,7 @@ var excludes = map[string]bool{
 	"internal/fmtsort":    true,
 	"text/template/parse": true,
 	"net/url":             true,
+	"net":                 true,
 	"time":                true,
 	//"internal/goroot": true,
 	//"internal/goversion": true,
@@ -160,13 +160,25 @@ var excludes = map[string]bool{
 	//"golang.org/x/tools/go/types/typeutil"
 	"internal/syscall/windows/registry":      true,
 	"internal/nettrace":                      true,
-	"vendor/golang.org/x/net/dns/dnsmessage": true,
+	"golang.org/x/net/dns/dnsmessage": true,
+	"golang.org/x/text/unicode/bidi":  true,
+	"golang.org/x/text/transform":     true,
+	"golang.org/x/text/secure/bidirule":  true,
+	"golang.org/x/text/unicode/norm":     true,
 	"internal/poll":                          true,
 	"internal/singleflight":                  true,
 	"internal/testlog":                       true,
-	//"hash": true,
-	//"hash/crc32": true,
-	//"compress/flate": true,
+	"hash": true,
+	"crypto/internal/randutil": true,
+	"crypto": true,
+	"crypto/hmac": true,
+	"crypto/sha1": true,
+	"crypto/rand": true,
+	"crypto/sha256": true,
+	"hash/crc32": true,
+	"hash/adler32": true,
+	"crypto/md5": true,
+	"compress/flate": true,
 
 	"database/sql/driver": true,
 }
@@ -196,7 +208,7 @@ var importLoadBool = true
 var replaceFunctionContext map[string]string
 var deferStack []string
 var funcDecl *ast.FuncDecl
-var generateGo = true
+var generateGo = false
 var sources = []source{}
 
 const debug = true
@@ -213,7 +225,7 @@ func main() {
 	o, _ := cmd.CombinedOutput()
 	fmt.Println((string(o[:])))
 
-	excludes = make(map[string]bool) //clear excludes
+	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range types {
 		replaceMap[ty] = strings.Title(ty)
 	}
@@ -226,7 +238,14 @@ func main() {
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
-	load(args...)
+	inital, err := packages.Load(cfg, args...)
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "load: %v\n", err)
+		return
+	}
+	for i := 0; i < len(inital); i++ {
+		load(inital[i])
+	}
 	bytes, err := bson.Marshal(exportData)
 	if err != nil {
 		fmt.Println(err)
@@ -254,7 +273,9 @@ func main() {
 	if generateGo {
 		fmt.Println("sources", len(sources))
 		for _, source := range sources {
-			fmt.Println("source", source.file)
+			if source.file.Name == nil {
+				continue
+			}
 			path := filepath.Join(binPath, source.file.Name.Name) + ".go"
 			f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 			if err != nil {
@@ -264,142 +285,139 @@ func main() {
 		}
 	}
 }
-func load(args ...string) {
-	inital, err := packages.Load(cfg, args...)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "load: %v\n", err)
-		return
+func load(pkg *packages.Package) {
+	str := strings.Replace(pkg.PkgPath, ".", "_", -1)
+	str = strings.Replace(str, "-", "_", -1)
+	array := strings.Split(str, "/")
+	for i, _ := range array {
+		array[i] = reserved(array[i])
 	}
-	for _, pkg := range inital {
-		data := packageType{}
-		str := strings.Replace(pkg.PkgPath, ".", "_", -1)
-		str = strings.Replace(str, "-", "_", -1)
-		array := strings.Split(str, "/")
-		for i, _ := range array {
-			array[i] = reserved(array[i])
-		}
-		pkg.PkgPath = strings.Join(array, "/")
-		data.PackagePath = pkg.PkgPath
-		file := mergePackageFiles(pkg, !true)
-		sources = append(sources, source{file, data.PackagePath})
-		if file.Name != nil {
-			data.Name = file.Name.Name
-		}
-		for _, decl := range file.Decls {
-			//fmt.Println(ast.Print(nil, decl))
-			switch decl := decl.(type) {
-			case *ast.GenDecl:
-				for _, spec := range decl.Specs {
-					switch spec := spec.(type) {
-					case *ast.ImportSpec:
-						if spec.Path.Value != "" {
-							path := spec.Path.Value
-							path = removeParan(path)
-							imp := [2]string{strings.Replace(path, ".", "_", -1), ""}
-							if spec.Name != nil {
-								imp[1] = spec.Name.Name
-							}
-							data.Imports = append(data.Imports, imp)
-							//fmt.Println("excludes", path, excludes[path])
-							if !excludes[path] {
-								if importLoadBool {
-									load(path)
-								}
-								excludes[path] = true
-							}
-							name := getName(path)
-							replaceMap[imp[1]] = strings.Title(imp[1])
-							replaceMap[name] = strings.Title(name)
-						}
-					case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
-						for i, _ := range spec.Names {
-							v := varType{}
-							//spec.Names[i].Obj.Kind
-							v.Constant = spec.Names[i].Obj.Kind.String() == "const"
-							v.Exported = spec.Names[i].IsExported()
-							name := untitle(spec.Names[i].Name)
-							if name != spec.Names[i].Name {
-								replaceMap[spec.Names[i].Name] = name
-							}
-							v.Name = name
-							if i >= len(spec.Values) {
-								continue
-							}
-							v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
-							data.Vars = append(data.Vars, v)
-						}
-					case *ast.TypeSpec:
-						ty := structType{}
-						ty.Name = strings.Title(spec.Name.Name)
-						ty.Exported = spec.Name.IsExported()
-						replaceMap[spec.Name.Name] = ty.Name
-						switch structType := spec.Type.(type) {
-						case *ast.StructType:
-							ty.Fields = parseFields(structType.Fields.List, true)
-						case *ast.InterfaceType:
-							ty.InterfaceMethods = parseFields(structType.Methods.List, true)
-						default:
-							ty.Def = parseTypeExpr(spec.Type)
-							//fmt.Println("type spec type unknown", reflect.TypeOf(structType))
-						}
-						data.Structs = append(data.Structs, ty)
-					default:
-						_ = spec
-						fmt.Println("spec not found", reflect.TypeOf(spec))
-					}
-				}
-			case *ast.FuncDecl:
-				deferStack = []string{}
-				replaceFunctionContext = make(map[string]string)
-				funcDecl = decl
-				fn := funcType{}
-				fn.Exported = decl.Name.IsExported()
-				fn.Name = untitle(decl.Name.Name)
-				if fn.Name != decl.Name.Name {
-					replaceMap[decl.Name.Name] = fn.Name
-				}
-				//fmt.Println("name:",fn.Name,"export:",fn.Exported)
-				if fn.Exported {
-					fn.Doc = parseComment(decl.Doc)
-				} else {
-					fn.Doc = ""
-				}
-				if decl.Type.Params != nil {
-					fn.Params = parseFields(decl.Type.Params.List, true)
-				}
-				if decl.Type.Results != nil {
-					fn.Results = parseFields(decl.Type.Results.List, false)
-				}
-				if decl.Recv != nil {
-					//fn.
-					if len(decl.Recv.List) != 1 {
-						fmt.Println("error recv list is not length of 1:", decl.Recv.List)
-					}
-					recv := decl.Recv.List[0]
-					fn.Recv = parseTypeExpr(recv.Type)
-					if len(recv.Names) == 1 {
-						replaceFunctionContext[recv.Names[0].Name] = "this"
-						replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
-					} else {
-						if len(recv.Names) > 1 {
-							fmt.Println("function error recv names more then 1:", recv.Names)
-						}
-					}
-				}
-				if decl.Body != nil {
-					fn.Body = parseBody(decl.Body.List)
-				}
-				if len(deferStack) > 0 {
-					fn.Body = append(fn.Body, deferStack...) //add defer to end of function
-				}
-				data.Funcs = append(data.Funcs, fn)
-			default:
-				_ = decl
-				fmt.Println("decl not found")
+	pkg.PkgPath = strings.Join(array, "/")
+	file := mergePackageFiles(pkg, !true)
+	sources = append(sources, source{file, pkg.PkgPath})
+	for path,imp := range pkg.Imports {
+		if !excludes[path] {
+			if importLoadBool {
+				load(imp)
+				fmt.Println(path)
 			}
+			excludes[path] = true
 		}
-		exportData.Pkgs = append(exportData.Pkgs, data)
 	}
+}
+func compile(src source) {
+	data := packageType{}
+	data.PackagePath = src.path
+	file := src.file
+	for _, decl := range file.Decls {
+		//fmt.Println(ast.Print(nil, decl))
+		switch decl := decl.(type) {
+		case *ast.GenDecl:
+			for _, spec := range decl.Specs {
+				switch spec := spec.(type) {
+				case *ast.ImportSpec:
+					if spec.Path.Value != "" {
+						path := spec.Path.Value
+						path = removeParan(path)
+						imp := [2]string{strings.Replace(path, ".", "_", -1), ""}
+						if spec.Name != nil {
+							imp[1] = spec.Name.Name
+						}
+						data.Imports = append(data.Imports, imp)
+						name := getName(path)
+						replaceMap[imp[1]] = strings.Title(imp[1])
+						replaceMap[name] = strings.Title(name)
+					}
+				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
+					for i, _ := range spec.Names {
+						v := varType{}
+						//spec.Names[i].Obj.Kind
+						v.Constant = spec.Names[i].Obj.Kind.String() == "const"
+						v.Exported = spec.Names[i].IsExported()
+						name := untitle(spec.Names[i].Name)
+						if name != spec.Names[i].Name {
+							replaceMap[spec.Names[i].Name] = name
+						}
+						v.Name = name
+						if i >= len(spec.Values) {
+							continue
+						}
+						v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
+						data.Vars = append(data.Vars, v)
+					}
+				case *ast.TypeSpec:
+					ty := structType{}
+					ty.Name = strings.Title(spec.Name.Name)
+					ty.Exported = spec.Name.IsExported()
+					replaceMap[spec.Name.Name] = ty.Name
+					switch structType := spec.Type.(type) {
+					case *ast.StructType:
+						ty.Fields = parseFields(structType.Fields.List, true)
+					case *ast.InterfaceType:
+						ty.InterfaceMethods = parseFields(structType.Methods.List, true)
+					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
+						ty.Def = parseTypeExpr(spec.Type)
+					default:
+						ty.Def = parseTypeExpr(spec.Type)
+						fmt.Println("type spec type unknown", reflect.TypeOf(structType))
+					}
+					data.Structs = append(data.Structs, ty)
+				default:
+					_ = spec
+					fmt.Println("spec not found", reflect.TypeOf(spec))
+				}
+			}
+		case *ast.FuncDecl:
+			deferStack = []string{}
+			replaceFunctionContext = make(map[string]string)
+			funcDecl = decl
+			fn := funcType{}
+			fn.Exported = decl.Name.IsExported()
+			fn.Name = untitle(decl.Name.Name)
+			if fn.Name != decl.Name.Name {
+				replaceMap[decl.Name.Name] = fn.Name
+			}
+			//fmt.Println("name:",fn.Name,"export:",fn.Exported)
+			if fn.Exported {
+				fn.Doc = parseComment(decl.Doc)
+			} else {
+				fn.Doc = ""
+			}
+			if decl.Type.Params != nil {
+				fn.Params = parseFields(decl.Type.Params.List, true)
+			}
+			if decl.Type.Results != nil {
+				fn.Results = parseFields(decl.Type.Results.List, false)
+			}
+			if decl.Recv != nil {
+				//fn.
+				if len(decl.Recv.List) != 1 {
+					fmt.Println("error recv list is not length of 1:", decl.Recv.List)
+				}
+				recv := decl.Recv.List[0]
+				fn.Recv = parseTypeExpr(recv.Type)
+				if len(recv.Names) == 1 {
+					replaceFunctionContext[recv.Names[0].Name] = "this"
+					replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
+				} else {
+					if len(recv.Names) > 1 {
+						fmt.Println("function error recv names more then 1:", recv.Names)
+					}
+				}
+			}
+			if decl.Body != nil {
+				fn.Body = parseBody(decl.Body.List)
+			}
+			if len(deferStack) > 0 {
+				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
+			}
+			data.Funcs = append(data.Funcs, fn)
+		default:
+			_ = decl
+			fmt.Println("decl not found loader",reflect.TypeOf(decl))
+		}
+	}
+	exportData.Pkgs = append(exportData.Pkgs, data)
 }
 func parseComment(comments *ast.CommentGroup) string {
 	if comments == nil {
@@ -568,6 +586,8 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 						buffer += addSemicolon(stmt, init)
 					}
 					body = append(body, buffer)
+				case *ast.TypeSpec:
+					
 				default:
 					fmt.Println("decl not found", reflect.TypeOf(spec))
 				}
@@ -764,6 +784,11 @@ func parseTypeExpr(expr ast.Expr) string {
 	case *ast.SelectorExpr: //pass through
 	case *ast.ArrayType: //pass through
 	case *ast.InterfaceType:
+	case *ast.FuncType:
+	case *ast.MapType:
+	case *ast.Ellipsis:
+	case *ast.ChanType:
+	case *ast.StructType:
 	default:
 		fmt.Println("type expr unknown:", reflect.TypeOf(expr))
 	}
@@ -852,7 +877,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		x := parseExpr(expr.X, false)
 		buffer = x + ".value"
 	case *ast.MapType:
-		buffer = "Map<" + parseExpr(expr.Key, false) + "," + parseExpr(expr.Value, false) + ">"
+		buffer = "Map<" + parseTypeExpr(expr.Key) + "," + parseTypeExpr(expr.Value) + ">"
 	case *ast.ChanType:
 		buffer = "Dynamic"
 	case *ast.Ellipsis:
@@ -941,7 +966,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case "new":
 			sel = "New" //in order to get around the restriction
 		}
+		
 		buffer = name + "." + sel
+		
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		makeBool := false
 		switch init := expr.Fun.(type) {
@@ -1160,19 +1187,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						//names := []*ast.Ident{}
-						//values := []ast.Expr{}
-						for index := range specType.Names {
-							/*if specType.Names[index].IsExported() {
-								specType.Names[index].Name = name
-								names = append(names, specType.Names[index])
-								if index < len(specType.Values) {
-									values = append(values, specType.Values[index])
-								}
-							}*/
-							_ = index
-						}
-						//spec = specType
+						
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {
@@ -1202,11 +1217,9 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 					declData.Body.List = []ast.Stmt{}
 				}
 				data.Decls = append(data.Decls, &declData)
-			case *ast.TypeSpec:
-				decl.
 			default:
 				_ = decl
-				fmt.Println("decl not found")
+				fmt.Println("decl merge package not found")
 			}
 		}
 	}

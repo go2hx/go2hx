@@ -13,8 +13,6 @@ import (
 
 	"go/printer"
 	"go/token"
-
-	//"go/types"
 	//"go/constant"
 	"os"
 	"path/filepath"
@@ -182,7 +180,7 @@ var excludes = map[string]bool{
 
 	"database/sql/driver": true,
 }
-var types = []string{
+var goTypes = []string{
 	"float",
 	"int",
 	"string",
@@ -209,8 +207,8 @@ var replaceFunctionContext map[string]string
 var deferStack []string
 var funcDecl *ast.FuncDecl
 var generateGo = false
-var sources = []source{}
-
+var sources = map[string]source{}
+var file ast.File
 const debug = true
 
 type source struct {
@@ -226,7 +224,7 @@ func main() {
 	fmt.Println((string(o[:])))
 
 	//excludes = make(map[string]bool) //clear excludes
-	for _, ty := range types {
+	for _, ty := range goTypes {
 		replaceMap[ty] = strings.Title(ty)
 	}
 	replaceMap["uint"] = "UInt" //cap diffrent
@@ -245,6 +243,9 @@ func main() {
 	}
 	for i := 0; i < len(inital); i++ {
 		load(inital[i])
+	}
+	for _,source := range sources {
+		compile(source)
 	}
 	bytes, err := bson.Marshal(exportData)
 	if err != nil {
@@ -294,7 +295,8 @@ func load(pkg *packages.Package) {
 	}
 	pkg.PkgPath = strings.Join(array, "/")
 	file := mergePackageFiles(pkg, !true)
-	sources = append(sources, source{file, pkg.PkgPath})
+	fmt.Println("source name:",file.Name.Name)
+	sources[file.Name.Name] = source{file, pkg.PkgPath}
 	for path,imp := range pkg.Imports {
 		if !excludes[path] {
 			if importLoadBool {
@@ -307,8 +309,12 @@ func load(pkg *packages.Package) {
 }
 func compile(src source) {
 	data := packageType{}
+	fmt.Println("src path:",src.path)
 	data.PackagePath = src.path
-	file := src.file
+	file = src.file
+	if file.Name != nil {
+		data.Name = file.Name.Name
+	}
 	for _, decl := range file.Decls {
 		//fmt.Println(ast.Print(nil, decl))
 		switch decl := decl.(type) {
@@ -960,15 +966,24 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "Array<" + name + ">"
 		}
 	case *ast.SelectorExpr: //1st class
-		name := rename(parseExpr(expr.X, false))
-		sel := reserved(untitle(rename(expr.Sel.Name)))
+		name := parseExpr(expr.X, false)
+		sel := expr.Sel.Name
 		switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction
 		}
-		
-		buffer = name + "." + sel
-		
+		buffer = rename(name) + "."
+		if !excludes[untitle(name)] {
+			value, ok := sources[name]
+			sel = untitle(sel)
+			if ok {
+				obj := value.file.Scope.Lookup(sel)
+				if obj == nil {
+					sel = strings.Title(sel)
+				}
+			}
+		}
+		buffer += reserved(rename(sel))
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		makeBool := false
 		switch init := expr.Fun.(type) {
@@ -1157,8 +1172,23 @@ func reserved(str string) string {
 	}
 	return strings.Join([]string{str, "tmp"}, "_")
 }
+func scopeInsert(scope *ast.Scope, obj *ast.Object) {
+	switch obj.Kind { //ast.Con = Constant
+		case ast.Bad:
+		case ast.Pkg:
+		case ast.Typ: obj.Name = strings.Title(obj.Name)
+		case ast.Fun,ast.Var,ast.Con: obj.Name = untitle(obj.Name)
+		case ast.Lbl: //nothing
+		default:
+	}
+	scope.Insert(obj)
+}
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}
+	data.Scope = &ast.Scope{}
+	data.Scope.Objects = map[string]*ast.Object{}
+	data.Scope.Outer = &ast.Scope{}
+	data.Scope.Outer.Objects = map[string]*ast.Object{}
 	//data.Name = ast.NewIdent(pkg.Name)
 	names := make(map[string]bool)
 	imports := make(map[string]bool)
@@ -1174,6 +1204,18 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
 		data.Name = file.Name
+		if file.Scope != nil {
+			if file.Scope.Objects != nil {
+				for _,obj := range file.Scope.Objects {
+					scopeInsert(data.Scope,obj)
+				}
+			}
+			if file.Scope.Outer != nil && file.Scope.Outer.Objects != nil {
+				for _,obj := range file.Scope.Outer.Objects {
+					scopeInsert(data.Scope.Outer,obj)
+				}
+			}
+		}
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:

@@ -1,23 +1,23 @@
 package std;
 
 class Strings {
-	public static function contains(s:String, value:String):Bool {
+	public static function Contains(s:String, value:String):Bool {
 		return StringTools.contains(s, value);
 	}
 
-	public static function hasPrefix(s:String, value:String):Bool {
+	public static function HasPrefix(s:String, value:String):Bool {
 		return s.substr(0, value.length) == value;
 	}
 
-	public static function hasSuffix(s:String, value:String):Bool {
+	public static function HasSuffix(s:String, value:String):Bool {
 		return s.substr(s.length - value.length) == value;
 	}
 
-	public static function toUpper(s:String):String {
+	public static function ToUpper(s:String):String {
 		return s.toUpperCase();
 	}
 
-	public static function toLower(s:String):String {
+	public static function ToLower(s:String):String {
 		return s.toLowerCase();
 	}
 }

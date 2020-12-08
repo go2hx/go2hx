@@ -14,33 +14,6 @@ class Go {
 	public static function str(v:Dynamic):String {
 		return v.toString();
 	}
-
-	public static macro function slice(type, length) {
-		return macro null;
-	}
-
-	public static macro function len(expr) {
-		var ty = Context.typeof(expr);
-		switch (ty) {
-			case TInst(t, params):
-				switch (t.get().name) {
-					case "Array", "Vector":
-						return macro $expr.length;
-					case "Iterable", "Map":
-						return macro Lambda.count($expr);
-					default:
-				}
-			default:
-		}
-		return macro $expr;
-	}
-
-	public static macro function append(cond, expr) {
-		return macro {
-			$cond.push($expr);
-		};
-	}
-
 	public static macro function setMulti(cond, expr) {
 		var type = Context.typeof(expr);
 		var values:Array<haxe.macro.Expr> = [];
@@ -126,7 +99,6 @@ class Go {
 			$b{set}
 		}
 	}
-
 	public static macro function range(key, value, x, expr) {
 		var print = new Printer();
 		function getName(expr:haxe.macro.Expr) {

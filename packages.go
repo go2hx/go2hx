@@ -266,7 +266,9 @@ func main() {
 		fmt.Println("Remove all error:", err)
 		return
 	}
-	cmd = exec.Command("parser", binPath)
+	fmt.Println("dir:",dir)
+	//cmd = exec.Command("parser", binPath)
+	cmd = exec.Command("neko", "parser.n",binPath)
 	cmd.Dir = dir
 	out, _ := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
@@ -295,7 +297,6 @@ func load(pkg *packages.Package) {
 	}
 	pkg.PkgPath = strings.Join(array, "/")
 	file := mergePackageFiles(pkg, !true)
-	fmt.Println("source name:",file.Name.Name)
 	sources[file.Name.Name] = source{file, pkg.PkgPath}
 	for path,imp := range pkg.Imports {
 		if !excludes[path] {
@@ -309,7 +310,6 @@ func load(pkg *packages.Package) {
 }
 func compile(src source) {
 	data := packageType{}
-	fmt.Println("src path:",src.path)
 	data.PackagePath = src.path
 	file = src.file
 	if file.Name != nil {
@@ -955,7 +955,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.BinaryExpr:
 		buffer = parseExpr(expr.X, false) + expr.Op.String() + parseExpr(expr.Y, false)
 	case *ast.ArrayType:
-		name := rename(parseExpr(expr.Elt, false))
+		name := rename(parseTypeExpr(expr.Elt))
 		writeArrayBool := true
 		switch name {
 		case "byte":
@@ -968,10 +968,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.SelectorExpr: //1st class
 		name := parseExpr(expr.X, false)
 		sel := expr.Sel.Name
-		switch sel {
+		/*switch sel {
 		case "new":
 			sel = "New" //in order to get around the restriction
-		}
+		}*/
 		buffer = rename(name) + "."
 		if !excludes[untitle(name)] {
 			value, ok := sources[name]
@@ -994,9 +994,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 				name = "str"
 			case "Int64":
 				name = ""
-			case "make", "new":
-				name = "new "
+			case "make":
+				name = "make"
 				makeBool = true
+			case "new":
+				name = "new "
+				makeBool = false
 			}
 			buffer = name
 		case *ast.ArrayType:
@@ -1010,8 +1013,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			buffer += parseExpr(expr.Fun, false)
 		}
-		if makeBool && len(expr.Args) == 1 {
-			buffer += parseExpr(expr.Args[0], false)
+		if !makeBool && len(expr.Args) == 1 {
+			ty := parseTypeExpr(expr.Args[0])
+			buffer += ty
 			buffer += "()"
 		} else {
 			buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
@@ -1036,7 +1040,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case *ast.ArrayType:
 			buffer = "[" + strings.Join(parseExprs(expr.Elts, false), ",") + "]"
 		case *ast.SelectorExpr, *ast.Ident:
-			buffer = "new " + parseExpr(ty, false) + "("
+			buffer = "new " + parseTypeExpr(ty) + "("
 			noFieldName = true
 			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
 			noFieldName = false

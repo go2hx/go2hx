@@ -6,6 +6,4 @@
 -lib polygonal-printf
 -D no-deprecation-warnings
 -D std-encoding-utf8
-#--interp
 -neko parser.n
---cmd nekotools boot parser.n

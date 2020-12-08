@@ -1,2 +1,3 @@
 spec: https://golang.org/ref/spec
 std:  https://golang.org/pkg/
+builtin: https://golang.org/pkg/builtin/

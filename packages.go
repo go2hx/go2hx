@@ -242,7 +242,9 @@ func main() {
 		return
 	}
 	for i := 0; i < len(inital); i++ {
-		load(inital[i])
+		if inital[i] != nil {
+			load(inital[i])
+		}
 	}
 	for _,source := range sources {
 		compile(source)
@@ -963,7 +965,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "haxe.io.BytesData"
 		}
 		if writeArrayBool {
-			return "Array<" + name + ">"
+			return "Vector<" + name + ">"
 		}
 	case *ast.SelectorExpr: //1st class
 		name := parseExpr(expr.X, false)
@@ -1076,14 +1078,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 func getDefaultType(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
-		buffer := ""
+		buffer := "Vector.fromArrayCopy("
 		buffer += "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
 			buffer += "for (i in 0..." + l.Value + ")"
 		}
 		buffer += getDefaultType(expr.Elt)
-		buffer += "]"
+		buffer += "])"
 		return buffer
 	case *ast.Ident:
 		switch expr.Name {

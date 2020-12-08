@@ -9,8 +9,8 @@ import hxargs.Args;
 
 class Main {
 	static function main() {
-		trace("init!");
 		init();
+		MacroTest.main();
 	}
 
 	static function init() {

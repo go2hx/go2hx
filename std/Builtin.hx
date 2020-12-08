@@ -39,23 +39,22 @@ class Builtin { // https://golang.org/pkg/builtin/
 	}
 
 	public static macro function len(expr) {
-		var ty = Context.typeof(expr);
+        var ty = Context.typeof(expr);
+        var name = "";
 		switch (ty) {
 			case TInst(t, params):
-				switch (t.get().name) {
-					case "Array", "Vector":
-						return macro $expr.length;
-					case "Iterable", "Map":
-						return macro Lambda.count($expr);
-					default:
-				}
+				name = t.get().name;
+            case TAbstract(t, params):
+                name = t.get().name;
 			default:
-		}
+        }
+        switch name {
+            case "Array", "haxe.ds.Vector", "Vector":
+                return macro $expr.length;
+            case "Iterable", "Map":
+                return macro Lambda.count($expr);
+        }
 		return macro $expr;
-	}
-
-	public static macro function make(type:Expr, length:ExprOf<Int>) {
-		return macro null;
 	}
 
 	public static macro function create(t) { // new

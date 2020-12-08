@@ -5,7 +5,7 @@ import sys.io.File as Base;
 import sys.FileSystem;
 
 class Os {
-	public static var args = Sys.args();
+	public static var Args = Sys.args();
 
 	public static inline function Mkdir(path:String, ?perm:Int) {
 		FileSystem.createDirectory(path);
@@ -24,7 +24,7 @@ class Os {
 			var entries = sys.FileSystem.readDirectory(path);
 			for (entry in entries) {
 				if (sys.FileSystem.isDirectory(path + '/' + entry)) {
-					removeAll(path + '/' + entry);
+					RemoveAll(path + '/' + entry);
 					sys.FileSystem.deleteDirectory(path + '/' + entry);
 				} else {
 					sys.FileSystem.deleteFile(path + '/' + entry);

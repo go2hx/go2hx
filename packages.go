@@ -384,7 +384,7 @@ func compile(src source) {
 			funcDecl = decl
 			fn := funcType{}
 			fn.Exported = decl.Name.IsExported()
-			fn.Name = untitle(decl.Name.Name)
+			fn.Name = reserved(untitle(decl.Name.Name))
 			if fn.Name != decl.Name.Name {
 				replaceMap[decl.Name.Name] = fn.Name
 			}

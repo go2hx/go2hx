@@ -29,4 +29,5 @@ class Time {
 	public static final Saturday:Int = 6;
 	public static final Sunday:Int = 0;
 }
-typedef Duration = Int64; 
+
+typedef Duration = Int64;

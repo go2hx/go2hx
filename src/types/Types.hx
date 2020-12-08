@@ -7,7 +7,8 @@ typedef Func = {
 	exported:Bool,
 	body:Array<String>,
 	doc:String,
-	recv:String, //name of recived function
+	recv:String,
+	// name of recived function
 }
 
 typedef Var = {

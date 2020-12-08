@@ -21,18 +21,17 @@ class Main {
 		var outputPath:String = "";
 		var argHandler = Args.generate([@doc("Ping test")
 			"-ping" => () -> ping = true, @doc("Show help")
-
 			"-help" => () -> help = true,
 			@doc("Output directory for the transpiled Go code into Haxe")
 			["-output", "-o"] => (path:String) -> {
-				//outputPath = path;
+				// outputPath = path;
 			},
 			@doc("Use formatter library to format the transpiled go to haxe code")
 			["-format", "-formatted", "-f"] => () -> format = true,
 			_ => (path:String) -> {
 				if (path.charAt(0) == "-")
 					throw 'Unknown argument "$path"';
-				//inputPaths.push(path);
+				// inputPaths.push(path);
 				outputPath = path;
 			}
 		]);
@@ -49,8 +48,8 @@ class Main {
 			Sys.println("Pong!");
 			return;
 		}
-		new Parser(outputPath,true);
-		//Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
+		new Parser(outputPath, true);
+		// Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
 	}
 
 	static function printDoc(argHandler:ArgHandler) {

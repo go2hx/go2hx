@@ -1,4 +1,2 @@
-class List<T> {
-    
-}
+class List<T> {}
 typedef Element<T> = {value:T}

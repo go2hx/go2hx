@@ -14,6 +14,7 @@ class Go {
 	public static function str(v:Dynamic):String {
 		return v.toString();
 	}
+
 	public static macro function setMulti(cond, expr) {
 		var type = Context.typeof(expr);
 		var values:Array<haxe.macro.Expr> = [];
@@ -59,10 +60,10 @@ class Go {
 				set.push(macro $value = $get);
 			}
 		}
-		function getAbstract(t:haxe.macro.Type.Ref<haxe.macro.Type.AbstractType>,params) {
+		function getAbstract(t:haxe.macro.Type.Ref<haxe.macro.Type.AbstractType>, params) {
 			switch t.get().type {
 				case TAbstract(tt, params):
-					getAbstract(t,params);
+					getAbstract(t, params);
 				default:
 					trace("TAbstract unknown " + t.get().type);
 			}
@@ -88,7 +89,7 @@ class Go {
 						trace("ttype unknown " + t.get().type);
 				}
 			case TAbstract(t, params):
-				getAbstract(t,params);
+				getAbstract(t, params);
 			case TAnonymous(a):
 				anonFields(a.get());
 			default:
@@ -99,6 +100,7 @@ class Go {
 			$b{set}
 		}
 	}
+
 	public static macro function range(key, value, x, expr) {
 		var print = new Printer();
 		function getName(expr:haxe.macro.Expr) {
@@ -170,5 +172,6 @@ class Go {
 		};
 	}
 }
+
 @:generic
-typedef ErrorReturn<T> = {value:T,?error:Exception};
+typedef ErrorReturn<T> = {value:T, ?error:Exception};

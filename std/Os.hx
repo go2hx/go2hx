@@ -33,8 +33,7 @@ class Os {
 		}
 	}
 }
-class File {
-	public function new() {
 
-	}
+class File {
+	public function new() {}
 }

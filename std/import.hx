@@ -5,7 +5,6 @@ import std.Go.cfor;
 import std.Go.str;
 import std.Go.setMulti;
 import std.Go.range;
-
 import std.Builtin.append;
 import std.Builtin.close;
 import std.Builtin.complex;
@@ -20,7 +19,6 @@ import std.Builtin.print;
 import std.Builtin.println;
 import std.Builtin.real;
 import std.Builtin.recover;
-
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;
 import StdTypes.Float as Float32;

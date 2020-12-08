@@ -299,6 +299,9 @@ func load(pkg *packages.Package) {
 	}
 	pkg.PkgPath = strings.Join(array, "/")
 	file := mergePackageFiles(pkg, !true)
+	if file.Name == nil {
+		return
+	}
 	sources[file.Name.Name] = source{file, pkg.PkgPath}
 	for path,imp := range pkg.Imports {
 		if !excludes[path] {
@@ -499,8 +502,8 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		if stmt.Init != nil {
 			buffer += strings.Join(parseStatement(stmt.Init, true), "\n")
 		}
-		asserted = ""
-		buffer += strings.Join(parseStatement(stmt.Assign, true), "")
+		asserted := strings.Join(parseStatement(stmt.Assign, true), "")
+		//buffer += strings.Join(parseStatement(stmt.Assign, true), "")
 		def := ast.CaseClause{}
 		setDefault := false
 		first := true
@@ -957,7 +960,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.BinaryExpr:
 		buffer = parseExpr(expr.X, false) + expr.Op.String() + parseExpr(expr.Y, false)
 	case *ast.ArrayType:
-		name := rename(parseTypeExpr(expr.Elt))
+		name := parseTypeExpr(expr.Elt)
 		writeArrayBool := true
 		switch name {
 		case "byte":
@@ -996,7 +999,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 			case "Int64":
 				name = ""
 			case "make":
-				name = "make"
+				name = "new "
+				name += parseTypeExpr(expr.Args[0])
+				expr.Args = expr.Args[1:]
 			case "new":
 				name = "create"
 			}
@@ -1116,7 +1121,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 				piece.WriteString(",")*/
 				piece = "(" + obj + " is "
 			}
-			piece += parseExpr(stmt, false)
+			piece += parseTypeExpr(stmt)
 			if obj != "" {
 				piece += ")"
 			}

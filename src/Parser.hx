@@ -24,6 +24,9 @@ class Parser {
 			return;
 		}
 		var data:Data = Bson.decode(File.getBytes("export.bson"));
+		if (data.pkgs == null) {
+			throw "no packages found";
+		}
 		trace("amount of pkgs: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;

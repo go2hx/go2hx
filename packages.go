@@ -985,7 +985,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += reserved(rename(sel))
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
-		makeBool := false
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
 			name := rename(init.Name)
@@ -996,10 +995,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 				name = ""
 			case "make":
 				name = "make"
-				makeBool = true
 			case "new":
-				name = "new "
-				makeBool = false
+				name = "create"
 			}
 			buffer = name
 		case *ast.ArrayType:
@@ -1013,13 +1010,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			buffer += parseExpr(expr.Fun, false)
 		}
-		if !makeBool && len(expr.Args) == 1 {
-			ty := parseTypeExpr(expr.Args[0])
-			buffer += ty
-			buffer += "()"
-		} else {
-			buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
-		}
+		buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
 		buffer += addSemicolon(expr, init)
 	case *ast.UnaryExpr: //star and address
 		op := expr.Op.String()

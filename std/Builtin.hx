@@ -1,4 +1,11 @@
 package std;
+import haxe.macro.Expr;
+import haxe.macro.Printer;
+import haxe.io.Bytes;
+import haxe.Exception;
+import haxe.macro.ExprTools;
+import haxe.macro.Context;
+
 
 class Builtin { //https://golang.org/pkg/builtin/
 	public static macro function append(cond, expr) {
@@ -18,7 +25,7 @@ class Builtin { //https://golang.org/pkg/builtin/
     public static macro function copy(dst,src) {
         return macro null;
     }
-    public static macro function delete(m:ExprOf<Map<T,K>>,key:T) {
+    public static macro function delete(map:Expr,key:Expr) {
         return macro null;
     }
     public static macro function imag(c) {
@@ -43,7 +50,7 @@ class Builtin { //https://golang.org/pkg/builtin/
 		return macro null;
 	}
     public static macro function create(t) { //new
-
+        return macro null;
     }
     public static macro function panic(expr) {
         return macro throw $expr;

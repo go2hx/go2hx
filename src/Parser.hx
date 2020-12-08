@@ -33,7 +33,8 @@ class Parser {
 		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
 		if (format)
-			new Process("haxelib run formatter -s .");
+			Sys.command("haxelib run formatter -s .");
+		Sys.command("haxe build.hxml");
 	}
 	private function importData(string:String):Array<Dynamic> {
 		var array = [];
@@ -190,14 +191,14 @@ class Parser {
 	function buildConfig(path:String, main:String) {
 		if (path.length > 0)
 			path += ".";
-		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n-D no-deprecation-warnings\n-lib printf\n--macro std.Macro.build()\n-dce full\n' + "--interp");
+		File.saveContent(exportPath + "build.hxml", '-main $path$main\n-D std-encoding-utf8\n-D no-deprecation-warnings\n-lib polygonal-printf\n--macro std.Macro.build()\n-dce full\n' + "--interp");
 	}
 
 	function imports(path:String) {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports = stdimports.concat(["go","pointer","macro"]); //add main classes
+		stdimports = stdimports.concat(["go","pointer","macro","builtin"]); //add main classes
 		for (i in stdimports) {
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))

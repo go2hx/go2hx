@@ -33,9 +33,11 @@ class Parser {
 		imports(exportPath + "std");
 		Sys.setCwd(exportPath);
 		if (format) {
-			var folders = FileSystem.readDirectory(".");
-			folders.remove("std");
-			Sys.command('haxelib run formatter -s ${folders.join(" ")}');
+			var files = FileSystem.readDirectory(".");
+			files.remove("std");
+			files.remove("import.hx");
+			files.remove("build.hxml");
+			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
 		}
 		Sys.command("haxe build.hxml");
 	}

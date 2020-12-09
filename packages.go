@@ -34,7 +34,8 @@ type funcType struct {
 	Name     string   `json:"name"`
 	Exported bool     `json:"exported"`
 	Params   []string `json:"params"`
-	Results  []string `json:"results"`
+	Defaults []string `json:"defaults"`
+	Result   string `json:"results"`
 	Doc      string   `json:"doc"`
 	Body     []string `json:"body"`
 	Recv     string   `json:"recv"`
@@ -60,6 +61,7 @@ type structType struct {
 	Fields           []string `json:"fields"`
 	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
 	InterfaceBool bool `json:"interfaceBool"` //toggles interface whether it's an interface or class
+	Imps []string `json:"imps"` //interface implements
 	Def              string   `json:"def"`
 }
 
@@ -90,7 +92,7 @@ var excludes = map[string]bool{
 	"math/bits":                       true,
 	"unicode/utf8":                    true,
 	"unicode":                         true,
-	"sort":                            true,
+	//"sort":                            true,
 	"strings":                         true,
 	"io/ioutil":                       true,
 	"bytes":                           true,
@@ -211,6 +213,7 @@ var funcDecl *ast.FuncDecl
 var generateGo = false
 var sources = map[string]source{}
 var file ast.File
+var imps []string
 const debug = true
 
 type source struct {
@@ -381,8 +384,10 @@ func compile(src source) {
 					switch structType := spec.Type.(type) {
 					case *ast.StructType:
 						ty.Fields = parseFields(structType.Fields.List, true)
+						ty.Imps = imps
 					case *ast.InterfaceType:
 						ty.InterfaceMethods = parseFields(structType.Methods.List, true)
+						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
 						ty.Def = parseTypeExpr(spec.Type)
 					default:
@@ -412,10 +417,12 @@ func compile(src source) {
 				fn.Doc = ""
 			}
 			if decl.Type.Params != nil {
-				fn.Params = parseFields(decl.Type.Params.List, true)
+				fn.Params = parseFields(decl.Type.Params.List, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Results = parseFields(decl.Type.Results.List, false)
+				fn.Result = parseRes(parseFields(decl.Type.Results.List, false))
+			}else{
+				fn.Result = "Void"
 			}
 			if decl.Recv != nil {
 				//fn.
@@ -808,10 +815,11 @@ func removeParan(str string) string {
 func parseTypeExpr(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
-		x := parseExpr(expr.X, false)
+		x := parseTypeExpr(expr.X)
 		return "std.Pointer<" + x + ">"
 	case *ast.Ident: //pass through
-	case *ast.SelectorExpr: //pass through
+	case *ast.SelectorExpr:
+		return parseExpr(expr.X,false) + "." + expr.Sel.Name
 	case *ast.ArrayType: //pass through
 	case *ast.InterfaceType:
 	case *ast.FuncType:
@@ -825,18 +833,19 @@ func parseTypeExpr(expr ast.Expr) string {
 	return parseExpr(expr, false)
 }
 func parseFields(list []*ast.Field, defaults bool) []string {
-	
+	imps = []string{}
 	array := []string{}
 	buffer := ""
 	for _, field := range list {
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
-			array = append(array, ty)
+			//array = append(array, ty)
+			imps = append(imps,ty)
 		} else {
 			for _, name := range field.Names {
 				if !noFieldName {
 					buffer = parseExpr(name, false)
-					
+					buffer += ":"
 				}
 				buffer += ty
 				if defaults {
@@ -876,7 +885,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
-		params := parseFields(expr.Params.List, true)
+		params := parseFields(expr.Params.List, false)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer += "Void"
@@ -889,17 +898,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Results == nil {
 			buffer += "Void"
 		} else {
-			res := parseFields(expr.Results.List, true)
-			if len(res) == 0 {
-				buffer += "Void"
-			} else if len(res) == 1 {
-				buffer += res[0]
-			} else {
-				buffer += "{"
-
-				buffer += strings.Join(res, ",")
-				buffer += "}"
-			}
+			res := parseFields(expr.Results.List, false)
+			buffer += parseRes(res)
 		}
 	case *ast.Ident:
 		name := rename(expr.Name)
@@ -933,19 +933,16 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.FuncLit:
 		buffer = "function("
 		if expr.Type.Params != nil {
-			params := parseFields(expr.Type.Params.List, true)
+			params := parseFields(expr.Type.Params.List, false)
 			buffer += strings.Join(params, ",")
 		}
-		buffer += ")"
+		buffer += "):"
 		if expr.Type.Results != nil {
-			res := strings.Join(parseFields(expr.Type.Results.List, false),",")
-			if len(expr.Type.Results.List) > 1 {
-			buffer += ":{" + res + "}"
-			}else{
-				buffer += res
-			}
+			buffer += parseRes(parseFields(expr.Type.Results.List,false))
+		}else{
+			buffer += "Void"
 		}
-		buffer += "{\n"
+		buffer += " {\n"
 		buffer += strings.Join(parseBody(expr.Body.List), "")
 		buffer += "}"
 	case *ast.BasicLit: //A literal basic type
@@ -997,7 +994,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.SelectorExpr: //1st class
 		name := ""
 		sel := strings.Title(reserved(rename(expr.Sel.Name)))
-		switch expr.X.(type) {
+		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
 			name = parseExpr(expr.X,false)
 			for _,ty := range typeNames {
@@ -1011,16 +1008,18 @@ func parseExpr(expr ast.Expr, init bool) string {
 			name = parseExpr(x.X,false) + "." + untitle(x.Sel.Name)
 			sel = untitle(sel)
 		default:
+			name = parseExpr(expr.X,false)
 		}
 		buffer = name + "." + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
+		finish := true
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
-			name := rename(init.Name)
+			name := untitle(rename(init.Name))
 			switch name {
-			case "String":
+			case "string":
 				name = "str"
-			case "Int64":
+			case "int64":
 				name = ""
 			case "make":
 				name = "new "
@@ -1028,6 +1027,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 				expr.Args = expr.Args[1:]
 			case "new":
 				name = "create"
+			case "len":
+				name = "length"
+				finish = false
 			}
 			buffer = name
 		case *ast.ArrayType:
@@ -1041,7 +1043,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			buffer += parseExpr(expr.Fun, false)
 		}
-		buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
+		if finish {
+			buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
+		}
 		buffer += addSemicolon(expr, init)
 	case *ast.UnaryExpr: //star and address
 		op := expr.Op.String()
@@ -1104,6 +1108,20 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	return buffer
 }
+func parseRes(res []string) string {
+	buffer := ""
+	if len(res) == 0 {
+		buffer += "Void"
+	} else if len(res) == 1 {
+		buffer += res[0]
+	} else {
+		buffer += "{"
+
+		buffer += strings.Join(res, ",")
+		buffer += "}"
+	}
+	return buffer
+}
 func getDefaultType(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
@@ -1118,7 +1136,7 @@ func getDefaultType(expr ast.Expr) string {
 		return buffer
 	case *ast.Ident:
 		switch expr.Name {
-		case "int", "float", "uint64", "uint", "int64":
+		case "int", "float", "uint64", "uint", "int64","float64":
 			return "0"
 		case "string":
 			return "''"

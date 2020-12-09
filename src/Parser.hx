@@ -144,7 +144,15 @@ class Parser {
 				} else if (struct.def != "") {
 					main.push(first + "typedef " + struct.name + " = " + struct.def + ";");
 				} else {
-					main.push(first + "class " + struct.name + " {");
+					var ty = "class ";
+					var end = "";
+					if (struct.interfaceBool) {
+						ty = "interface ";
+					}
+					if (struct.imps != null && struct.imps.length > 0) {
+						
+					}
+					main.push(first + ty + struct.name + " " + end + " {");
 					var init:String = "";
 					if (struct.fields == null) {} else {
 						for (field in struct.fields) {
@@ -153,9 +161,11 @@ class Parser {
 						}
 					}
 					init = init.substr(1);
-					main.push('public function new($init) {');
-					main.push("std.Macro.initLocals();");
-					main.push("}\n");
+					if (struct.interfaceBool) {
+						main.push('public function new($init) {');
+						main.push("std.Macro.initLocals();");
+						main.push("}\n");
+					}
 					if (struct.funcs != null)
 						for (func in struct.funcs) {
 							main = main.concat(printFunc(func, "public"));
@@ -175,18 +185,7 @@ class Parser {
 		var main:Array<String> = [];
 		main.push(func.doc);
 		var first = func.exported ? publicString : "private";
-		var result = "Void";
-		if (func.results != null && func.results.length > 0) {
-			result = "";
-			if (func.results.length == 1) {
-				result = func.results[0].substr(result.indexOf(":") + 1);
-			} else {
-				for (res in func.results) {
-					result += ',$res';
-				}
-				result = "{" + result.substr(1) + "}";
-			}
-		}
+		var result = func.result;
 		main.push('$first function ${func.name}(${func.params.join(", ")}):$result {');
 		if (func.body != null)
 			for (expr in func.body) {

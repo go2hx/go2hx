@@ -3,7 +3,8 @@ package types;
 typedef Func = {
 	name:String,
 	params:Array<String>,
-	results:Array<String>,
+	defaults:Array<String>,
+	result:String,
 	exported:Bool,
 	body:Array<String>,
 	doc:String,
@@ -25,6 +26,7 @@ typedef Struct = {
 	def:String,
 	interfaceBool:Bool,
 	fields:Array<String>,
+	imps:Array<String>,
 	funcs:Array<Func>,
 	interfaceMethods:Array<String>,
 }

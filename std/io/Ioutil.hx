@@ -1,25 +1,25 @@
 package std.io;
 
 class Ioutil {
-	public static function ReadAll(r:Io.reader) {}
+	public static function readAll(r:Io.reader) {}
 
-	public static function ReadFile(filename:String) {}
+	public static function readFile(filename:String) {}
 
-	public static function WriteFile(filename:String, data:Array<Byte>, perm:Os.fileMode) {}
+	public static function writeFile(filename:String, data:Array<Byte>, perm:Os.fileMode) {}
 
-	public static function ReadDir(dirname:String) {}
+	public static function readDir(dirname:String) {}
 
-	public static function Close() {}
+	public static function close() {}
 
-	public static function NopCloser(r:Io.reader) {}
+	public static function nopCloser(r:Io.reader) {}
 
-	public static function Write(p:Array<Byte>) {}
+	public static function write(p:Array<Byte>) {}
 
-	public static function WriteString(s:String) {}
+	public static function writeString(s:String) {}
 
-	public static function ReadFrom(r:Io.reader) {}
+	public static function readFrom(r:Io.reader) {}
 
-	public static function TempFile(dir:Stringpattern:String) {}
+	public static function tempFile(dir:Stringpattern:String) {}
 
-	public static function TempDir(dir:Stringpattern:String) {}
+	public static function tempDir(dir:Stringpattern:String) {}
 }

@@ -1,55 +1,55 @@
 package std;
 
 class GoMath {
-	public static inline function Max(a, b) {
+	public static inline function max(a, b) {
 		return Math.max(a, b);
 	}
 
-	public static inline function Min(a, b) {
+	public static inline function min(a, b) {
 		return Math.min(a, b);
 	}
 
-	public static inline function Abs(v) {
+	public static inline function abs(v) {
 		return Math.abs(v);
 	}
 
-	public static inline function Acos(v) {
+	public static inline function acos(v) {
 		return Math.acos(v);
 	}
 
-	public static inline function Acosh(v) {
+	public static inline function acosh(v) {
 		return 0;
 	}
 
-	public static inline function Asin(v) {
+	public static inline function asin(v) {
 		return Math.asin(v);
 	}
 
-	public static inline function Asinh(v) {
+	public static inline function asinh(v) {
 		return 0;
 	}
 
-	public static inline function Atan(v) {
+	public static inline function atan(v) {
 		return Math.atan(v);
 	}
 
-	public static inline function Atan2(y, x) {
+	public static inline function atan2(y, x) {
 		return Math.atan2(y, x);
 	}
 
-	public static inline function Ceil(v) {
+	public static inline function ceil(v) {
 		return Math.ceil(v);
 	}
 
-	public static inline function NaN() {
+	public static inline function naN() {
 		return Math.NaN;
 	}
 
-	public static inline function Round(v) {
+	public static inline function round(v) {
 		return Math.round(v);
 	}
 
-	public static inline function Sin(v) {
+	public static inline function sin(v) {
 		return Math.sin(v);
 	}
 }

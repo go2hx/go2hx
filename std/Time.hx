@@ -9,25 +9,25 @@ class Time {
 		this.date = date;
 	}
 
-	public static function Now():Time {
+	public static function now():Time {
 		return new Time(Date.now());
 	}
 
-	public function Hour():Int {
+	public function hour():Int {
 		return date.getHours();
 	}
 
-	public function Weekday():Int {
+	public function weekday():Int {
 		return date.getDay();
 	}
 
-	public static final Monday:Int = 1;
-	public static final Tuesday:Int = 2;
-	public static final Wensday:Int = 3;
-	public static final Thursday:Int = 4;
-	public static final Friday:Int = 5;
-	public static final Saturday:Int = 6;
-	public static final Sunday:Int = 0;
+	public static final monday:Int = 1;
+	public static final tuesday:Int = 2;
+	public static final wensday:Int = 3;
+	public static final thursday:Int = 4;
+	public static final friday:Int = 5;
+	public static final saturday:Int = 6;
+	public static final sunday:Int = 0;
 }
 
 typedef Duration = Int64;

@@ -236,6 +236,18 @@ func main() {
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
+	//parse out commands from source input
+	for i := 0; i < len(args); i++ {
+		str := args[i]
+		if string(str[0:1]) == "-" {
+			switch string(str[1:]) {
+			case "test","testing":
+				cfg.Tests = true
+				cfg.
+			}
+			args = append(args[:i], args[i + 1:]...)
+		}
+	}
 	inital, err := packages.Load(cfg, args...)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "load: %v\n", err)
@@ -479,17 +491,19 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 				if index > 0 {
 					buffer += ","
 				}
-				name := parseFieldName(funcDecl.Type.Results.List, index)
-				if name == "" {
-					buffer += "v"
-					buffer += strconv.Itoa(index)
-				} else {
-					buffer += name
+				if funcDecl.Type.Results != nil  {
+					name := parseFieldName(funcDecl.Type.Results.List, index)
+					if name == "" {
+						buffer += "v"
+						buffer += strconv.Itoa(index)
+					} else {
+						buffer += name
+					}
+					//buffer.WriteString(funcDecl.Type.Results.List[index].Type)
+					buffer += " : "
+					buffer += parseExpr(res, false)
+					buffer += " "
 				}
-				//buffer.WriteString(funcDecl.Type.Results.List[index].Type)
-				buffer += " : "
-				buffer += parseExpr(res, false)
-				buffer += " "
 			}
 			buffer += "}"
 		} else if len(stmt.Results) == 1 {

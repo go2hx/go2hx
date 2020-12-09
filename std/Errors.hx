@@ -3,9 +3,6 @@ package std;
 import haxe.Exception;
 
 class Errors extends Exception {
-	public static function New(text:String) {
-		return new Errors(text);
-	}
 
 	private function new(text:String) {
 		super(text);
@@ -53,7 +50,7 @@ class Errors extends Exception {
 	//
 	// then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for
 	// an example in the standard library.
-	public static function Is(err:haxe.Exception, target:haxe.Exception):Bool {
+	public static function is(err:haxe.Exception, target:haxe.Exception):Bool {
 		return false;
 	}
 }

@@ -5,21 +5,21 @@ import sys.io.File as Base;
 import sys.FileSystem;
 
 class Os {
-	public static var Args = Sys.args();
+	public static var args = Sys.args();
 
-	public static inline function Mkdir(path:String, ?perm:Int) {
+	public static inline function mkdir(path:String, ?perm:Int) {
 		FileSystem.createDirectory(path);
 	}
 
-	public static inline function Create(path:String):ErrorReturn<File> {
+	public static inline function create(path:String):ErrorReturn<File> {
 		return {value: null};
 	}
 
-	public static inline function Exit(code:Int) {
+	public static inline function exit(code:Int) {
 		Sys.exit(code);
 	}
 
-	public static inline function RemoveAll(path:String) {
+	public static inline function removeAll(path:String) {
 		if (sys.FileSystem.exists(path) && sys.FileSystem.isDirectory(path)) {
 			var entries = sys.FileSystem.readDirectory(path);
 			for (entry in entries) {

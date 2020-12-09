@@ -995,13 +995,22 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "Vector<" + name + ">"
 		}
 	case *ast.SelectorExpr: //1st class
-		name := rename(parseExpr(expr.X, false))
+		name := ""
 		sel := strings.Title(reserved(rename(expr.Sel.Name)))
-		for _,ty := range typeNames {
-			if ty == name {
-				sel = untitle(sel)
-				break
+		switch expr.X.(type) {
+		case *ast.Ident:
+			name = parseExpr(expr.X,false)
+			for _,ty := range typeNames {
+				if ty == name {
+					sel = untitle(sel)
+					break
+				}
 			}
+		case *ast.SelectorExpr:
+			x := expr.X.(*ast.SelectorExpr)
+			name = parseExpr(x.X,false) + "." + untitle(x.Sel.Name)
+			sel = untitle(sel)
+		default:
 		}
 		buffer = name + "." + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
@@ -1246,7 +1255,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						
+
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {

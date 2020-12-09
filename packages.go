@@ -204,6 +204,8 @@ var labels = []string{}
 var importLoadBool = true
 
 var replaceFunctionContext map[string]string
+var typeNames []string
+
 var deferStack []string
 var funcDecl *ast.FuncDecl
 var generateGo = false
@@ -243,7 +245,6 @@ func main() {
 			switch string(str[1:]) {
 			case "test","testing":
 				cfg.Tests = true
-				cfg.
 			}
 			args = append(args[:i], args[i + 1:]...)
 		}
@@ -329,6 +330,8 @@ func compile(src source) {
 	data := packageType{}
 	data.PackagePath = src.path
 	file = src.file
+	typeNames = []string{}
+
 	if file.Name != nil {
 		data.Name = file.Name.Name
 	}
@@ -350,6 +353,8 @@ func compile(src source) {
 						name := getName(path)
 						replaceMap[imp[1]] = strings.Title(imp[1])
 						replaceMap[name] = strings.Title(name)
+						name = strings.Title(name)
+						typeNames = append(typeNames, name)
 					}
 				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
 					for i, _ := range spec.Names {
@@ -820,6 +825,7 @@ func parseTypeExpr(expr ast.Expr) string {
 	return parseExpr(expr, false)
 }
 func parseFields(list []*ast.Field, defaults bool) []string {
+	
 	array := []string{}
 	buffer := ""
 	for _, field := range list {
@@ -828,9 +834,9 @@ func parseFields(list []*ast.Field, defaults bool) []string {
 			array = append(array, ty)
 		} else {
 			for _, name := range field.Names {
-				buffer = ""
 				if !noFieldName {
-					buffer += untitle(parseExpr(name, false)) + ":"
+					buffer = parseExpr(name, false)
+					
 				}
 				buffer += ty
 				if defaults {
@@ -932,8 +938,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += ")"
 		if expr.Type.Results != nil {
-			res := parseFields(expr.Type.Results.List, false)
-			_ = res
+			res := strings.Join(parseFields(expr.Type.Results.List, false),",")
+			if len(expr.Type.Results.List) > 1 {
+			buffer += ":{" + res + "}"
+			}else{
+				buffer += res
+			}
 		}
 		buffer += "{\n"
 		buffer += strings.Join(parseBody(expr.Body.List), "")
@@ -985,24 +995,15 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "Vector<" + name + ">"
 		}
 	case *ast.SelectorExpr: //1st class
-		name := parseExpr(expr.X, false)
-		sel := expr.Sel.Name
-		/*switch sel {
-		case "new":
-			sel = "New" //in order to get around the restriction
-		}*/
-		buffer = rename(name) + "."
-		if !excludes[untitle(name)] {
-			value, ok := sources[name]
-			sel = untitle(sel)
-			if ok {
-				obj := value.file.Scope.Lookup(sel)
-				if obj == nil {
-					sel = strings.Title(sel)
-				}
+		name := rename(parseExpr(expr.X, false))
+		sel := strings.Title(reserved(rename(expr.Sel.Name)))
+		for _,ty := range typeNames {
+			if ty == name {
+				sel = untitle(sel)
+				break
 			}
 		}
-		buffer += reserved(rename(sel))
+		buffer = name + "." + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
@@ -1251,6 +1252,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						if name != specType.Name.Name {
 							replaceMap[specType.Name.Name] = name
 						}
+						typeNames = append(typeNames, name)
 						specType.Name.Name = name
 						if exports && !specType.Name.IsExported() {
 							continue

@@ -9,10 +9,12 @@ import (
 	"reflect"
 	"strings"
 
+	"github.com/kardianos/osext"
 	"go.mongodb.org/mongo-driver/bson"
 
 	"go/printer"
 	"go/token"
+
 	//"go/constant"
 	"os"
 	"path/filepath"
@@ -35,7 +37,7 @@ type funcType struct {
 	Exported bool     `json:"exported"`
 	Params   []string `json:"params"`
 	Defaults []string `json:"defaults"`
-	Result   string `json:"results"`
+	Result   string   `json:"results"`
 	Doc      string   `json:"doc"`
 	Body     []string `json:"body"`
 	Recv     string   `json:"recv"`
@@ -60,8 +62,8 @@ type structType struct {
 	Exported         bool     `json:"exported"`
 	Fields           []string `json:"fields"`
 	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
-	InterfaceBool bool `json:"interfaceBool"` //toggles interface whether it's an interface or class
-	Imps []string `json:"imps"` //interface implements
+	InterfaceBool    bool     `json:"interfaceBool"`    //toggles interface whether it's an interface or class
+	Imps             []string `json:"imps"`             //interface implements
 	Def              string   `json:"def"`
 }
 
@@ -69,29 +71,29 @@ type structType struct {
 // command line from source syntax.
 var cfg = &packages.Config{Mode: packages.LoadAllSyntax, Tests: false}
 var excludes = map[string]bool{
-	"math":                            true,
-	"fmt":                             true,
-	"os":                              true,
+	"math": true,
+	"fmt":  true,
+	"os":   true,
 	//"flag":                            true,
-	"errors":                          true,
-	"internal/reflectlite":            true,
-	"internal/unsafeheader":           true,
-	"unsafe":                          true,
-	"runtime":                         true,
-	"internal/cpu":                    true,
-	"runtime/internal/sys":            true,
-	"runtime/internal/atomic":         true,
-	"runtime/internal/math":           true,
-	"internal/bytealg":                true,
-	"io":                              true,
-	"sync":                            true,
-	"sync/atomic":                     true,
-	"internal/race":                   true,
-	"reflect":                         true,
-	"strconv":                         true,
-	"math/bits":                       true,
-	"unicode/utf8":                    true,
-	"unicode":                         true,
+	"errors":                  true,
+	"internal/reflectlite":    true,
+	"internal/unsafeheader":   true,
+	"unsafe":                  true,
+	"runtime":                 true,
+	"internal/cpu":            true,
+	"runtime/internal/sys":    true,
+	"runtime/internal/atomic": true,
+	"runtime/internal/math":   true,
+	"internal/bytealg":        true,
+	"io":                      true,
+	"sync":                    true,
+	"sync/atomic":             true,
+	"internal/race":           true,
+	"reflect":                 true,
+	"strconv":                 true,
+	"math/bits":               true,
+	"unicode/utf8":            true,
+	"unicode":                 true,
 	//"sort":                            true,
 	"strings":                         true,
 	"io/ioutil":                       true,
@@ -126,7 +128,7 @@ var excludes = map[string]bool{
 	"golang.org/x/tools/internal/gocommand": true,
 	"regexp":                                true,
 	"regexp/syntax":                         true,
-	"golang.org/x/sys/cpu": true,
+	"golang.org/x/sys/cpu":                  true,
 	//"golang.org/x/tools/internal/event": true,
 	//"golang.org/x/tools/internal/event/core": true,
 	//"golang.org/x/tools/internal/event/label": true,
@@ -158,27 +160,27 @@ var excludes = map[string]bool{
 	//"golang.org/x/tools/go/buildutil": true,
 	//"golang.org/x/tools/go/ssa": true,
 	//"golang.org/x/tools/go/types/typeutil"
-	"internal/syscall/windows/registry":      true,
-	"internal/nettrace":                      true,
-	"golang.org/x/net/dns/dnsmessage": true,
-	"golang.org/x/text/unicode/bidi":  true,
-	"golang.org/x/text/transform":     true,
-	"golang.org/x/text/secure/bidirule":  true,
-	"golang.org/x/text/unicode/norm":     true,
-	"internal/poll":                          true,
-	"internal/singleflight":                  true,
-	"internal/testlog":                       true,
-	"hash": true,
-	"crypto/internal/randutil": true,
-	"crypto": true,
-	"crypto/hmac": true,
-	"crypto/sha1": true,
-	"crypto/rand": true,
-	"crypto/sha256": true,
-	"hash/crc32": true,
-	"hash/adler32": true,
-	"crypto/md5": true,
-	"compress/flate": true,
+	"internal/syscall/windows/registry": true,
+	"internal/nettrace":                 true,
+	"golang.org/x/net/dns/dnsmessage":   true,
+	"golang.org/x/text/unicode/bidi":    true,
+	"golang.org/x/text/transform":       true,
+	"golang.org/x/text/secure/bidirule": true,
+	"golang.org/x/text/unicode/norm":    true,
+	"internal/poll":                     true,
+	"internal/singleflight":             true,
+	"internal/testlog":                  true,
+	"hash":                              true,
+	"crypto/internal/randutil":          true,
+	"crypto":                            true,
+	"crypto/hmac":                       true,
+	"crypto/sha1":                       true,
+	"crypto/rand":                       true,
+	"crypto/sha256":                     true,
+	"hash/crc32":                        true,
+	"hash/adler32":                      true,
+	"crypto/md5":                        true,
+	"compress/flate":                    true,
 
 	"database/sql/driver": true,
 }
@@ -214,6 +216,7 @@ var generateGo = false
 var sources = map[string]source{}
 var file ast.File
 var imps []string
+
 const debug = true
 
 type source struct {
@@ -222,11 +225,13 @@ type source struct {
 }
 
 func main() {
-	dir, err := filepath.Abs(filepath.Dir(os.Args[0]))
+	dir, _ := osext.ExecutableFolder()
+	fmt.Println(dir)
 	cmd := exec.Command("haxe", "build.hxml")
 	cmd.Dir = dir
 	o, _ := cmd.CombinedOutput()
 	fmt.Println((string(o[:])))
+	return
 
 	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range goTypes {
@@ -246,10 +251,10 @@ func main() {
 		str := args[i]
 		if string(str[0:1]) == "-" {
 			switch string(str[1:]) {
-			case "test","testing":
+			case "test", "testing":
 				cfg.Tests = true
 			}
-			args = append(args[:i], args[i + 1:]...)
+			args = append(args[:i], args[i+1:]...)
 		}
 	}
 	inital, err := packages.Load(cfg, args...)
@@ -262,7 +267,7 @@ func main() {
 			load(inital[i])
 		}
 	}
-	for _,source := range sources {
+	for _, source := range sources {
 		compile(source)
 	}
 	bytes, err := bson.Marshal(exportData)
@@ -275,6 +280,7 @@ func main() {
 	_ = ioutil.WriteFile(exportPath, bytes, 0644)
 
 	currentPath, err := os.Getwd()
+	fmt.Println("current path:", currentPath)
 	if err != nil {
 		panic(err)
 	}
@@ -284,9 +290,7 @@ func main() {
 		fmt.Println("Remove all error:", err)
 		return
 	}
-	fmt.Println("dir:",dir)
-	//cmd = exec.Command("parser", binPath)
-	cmd = exec.Command("neko", "parser.n",binPath)
+	cmd = exec.Command("neko", "parser.n", binPath)
 	cmd.Dir = dir
 	out, _ := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
@@ -319,7 +323,7 @@ func load(pkg *packages.Package) {
 		return
 	}
 	sources[file.Name.Name] = source{file, pkg.PkgPath}
-	for path,imp := range pkg.Imports {
+	for path, imp := range pkg.Imports {
 		if !excludes[path] {
 			if importLoadBool {
 				load(imp)
@@ -421,7 +425,7 @@ func compile(src source) {
 			}
 			if decl.Type.Results != nil {
 				fn.Result = parseRes(parseFields(decl.Type.Results.List, false))
-			}else{
+			} else {
 				fn.Result = "Void"
 			}
 			if decl.Recv != nil {
@@ -449,7 +453,7 @@ func compile(src source) {
 			data.Funcs = append(data.Funcs, fn)
 		default:
 			_ = decl
-			fmt.Println("decl not found loader",reflect.TypeOf(decl))
+			fmt.Println("decl not found loader", reflect.TypeOf(decl))
 		}
 	}
 	exportData.Pkgs = append(exportData.Pkgs, data)
@@ -503,7 +507,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 				if index > 0 {
 					buffer += ","
 				}
-				if funcDecl.Type.Results != nil  {
+				if funcDecl.Type.Results != nil {
 					name := parseFieldName(funcDecl.Type.Results.List, index)
 					if name == "" {
 						buffer += "v"
@@ -624,7 +628,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					}
 					body = append(body, buffer)
 				case *ast.TypeSpec:
-					
+
 				default:
 					fmt.Println("decl not found", reflect.TypeOf(spec))
 				}
@@ -819,7 +823,7 @@ func parseTypeExpr(expr ast.Expr) string {
 		return "std.Pointer<" + x + ">"
 	case *ast.Ident: //pass through
 	case *ast.SelectorExpr:
-		return parseExpr(expr.X,false) + "." + expr.Sel.Name
+		return parseExpr(expr.X, false) + "." + expr.Sel.Name
 	case *ast.ArrayType: //pass through
 	case *ast.InterfaceType:
 	case *ast.FuncType:
@@ -840,7 +844,7 @@ func parseFields(list []*ast.Field, defaults bool) []string {
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
 			//array = append(array, ty)
-			imps = append(imps,ty)
+			imps = append(imps, ty)
 		} else {
 			for _, name := range field.Names {
 				if !noFieldName {
@@ -938,8 +942,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List,false))
-		}else{
+			buffer += parseRes(parseFields(expr.Type.Results.List, false))
+		} else {
 			buffer += "Void"
 		}
 		buffer += " {\n"
@@ -996,8 +1000,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		sel := strings.Title(reserved(rename(expr.Sel.Name)))
 		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
-			name = parseExpr(expr.X,false)
-			for _,ty := range typeNames {
+			name = parseExpr(expr.X, false)
+			for _, ty := range typeNames {
 				if ty == name {
 					sel = untitle(sel)
 					break
@@ -1005,10 +1009,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 		case *ast.SelectorExpr:
 			x := expr.X.(*ast.SelectorExpr)
-			name = parseExpr(x.X,false) + "." + untitle(x.Sel.Name)
+			name = parseExpr(x.X, false) + "." + untitle(x.Sel.Name)
 			sel = untitle(sel)
 		default:
-			name = parseExpr(expr.X,false)
+			name = parseExpr(expr.X, false)
 		}
 		buffer = name + "." + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
@@ -1136,7 +1140,7 @@ func getDefaultType(expr ast.Expr) string {
 		return buffer
 	case *ast.Ident:
 		switch expr.Name {
-		case "int", "float", "uint64", "uint", "int64","float64":
+		case "int", "float", "uint64", "uint", "int64", "float64":
 			return "0"
 		case "string":
 			return "''"
@@ -1218,12 +1222,14 @@ func reserved(str string) string {
 }
 func scopeInsert(scope *ast.Scope, obj *ast.Object) {
 	switch obj.Kind { //ast.Con = Constant
-		case ast.Bad:
-		case ast.Pkg:
-		case ast.Typ: obj.Name = strings.Title(obj.Name)
-		case ast.Fun,ast.Var,ast.Con: obj.Name = untitle(obj.Name)
-		case ast.Lbl: //nothing
-		default:
+	case ast.Bad:
+	case ast.Pkg:
+	case ast.Typ:
+		obj.Name = strings.Title(obj.Name)
+	case ast.Fun, ast.Var, ast.Con:
+		obj.Name = untitle(obj.Name)
+	case ast.Lbl: //nothing
+	default:
 	}
 	scope.Insert(obj)
 }
@@ -1250,13 +1256,13 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 		data.Name = file.Name
 		if file.Scope != nil {
 			if file.Scope.Objects != nil {
-				for _,obj := range file.Scope.Objects {
-					scopeInsert(data.Scope,obj)
+				for _, obj := range file.Scope.Objects {
+					scopeInsert(data.Scope, obj)
 				}
 			}
 			if file.Scope.Outer != nil && file.Scope.Outer.Objects != nil {
-				for _,obj := range file.Scope.Outer.Objects {
-					scopeInsert(data.Scope.Outer,obj)
+				for _, obj := range file.Scope.Outer.Objects {
+					scopeInsert(data.Scope.Outer, obj)
 				}
 			}
 		}

@@ -130,6 +130,7 @@ class Parser {
 				}
 			}
 		// write
+		trace("exportPathPath",exportPath + path);
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";

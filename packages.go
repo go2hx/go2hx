@@ -64,7 +64,7 @@ type structType struct {
 	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
 	InterfaceBool    bool     `json:"interfaceBool"`    //toggles interface whether it's an interface or class
 	Imps             []string `json:"imps"`             //interface implements
-	Def              string   `json:"def"`
+	Define string `json:"define"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -209,11 +209,13 @@ var importLoadBool = true
 
 var replaceFunctionContext map[string]string
 var typeNames []string
+var typedefNames []string
 
 var deferStack []string
 var funcDecl *ast.FuncDecl
 var generateGo = false
 var sources = map[string]source{}
+var src source
 var file ast.File
 var imps []string
 
@@ -226,12 +228,11 @@ type source struct {
 
 func main() {
 	dir, _ := osext.ExecutableFolder()
-	fmt.Println(dir)
 	cmd := exec.Command("haxe", "build.hxml")
 	cmd.Dir = dir
 	o, _ := cmd.CombinedOutput()
 	fmt.Println((string(o[:])))
-	return
+
 
 	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range goTypes {
@@ -242,6 +243,7 @@ func main() {
 	replaceMap["uint64"] = "UInt64"
 	replaceMap["errors"] = "std.Errors"
 	replaceMap["error"] = "std.Errors"
+	replaceMap["rune"] = "Int"
 	replaceMap["nil"] = "null"
 	// Examples: . , fmt, math, etc
 	flag.Parse()
@@ -337,7 +339,6 @@ func compile(src source) {
 	data := packageType{}
 	data.PackagePath = src.path
 	file = src.file
-	typeNames = []string{}
 
 	if file.Name != nil {
 		data.Name = file.Name.Name
@@ -383,6 +384,7 @@ func compile(src source) {
 				case *ast.TypeSpec:
 					ty := structType{}
 					ty.Name = strings.Title(spec.Name.Name)
+					typeNames = append(typeNames, ty.Name)
 					ty.Exported = spec.Name.IsExported()
 					replaceMap[spec.Name.Name] = ty.Name
 					switch structType := spec.Type.(type) {
@@ -393,9 +395,10 @@ func compile(src source) {
 						ty.InterfaceMethods = parseFields(structType.Methods.List, true)
 						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
-						ty.Def = parseTypeExpr(spec.Type)
+						ty.Define = parseTypeExpr(spec.Type)
+						typedefNames = append(typedefNames, spec.Name.Name)
+						ty.Imps = imps
 					default:
-						ty.Def = parseTypeExpr(spec.Type)
 						fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 					}
 					data.Structs = append(data.Structs, ty)
@@ -784,16 +787,16 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 }
 func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	multi := false
-	if len(stmt.Lhs) != len(stmt.Rhs) {
-		multi = true
-	}
-	if !multi && len(stmt.Rhs) == 1 {
+	if len(stmt.Rhs) == 1 && len(stmt.Lhs) > 1 {
 		switch stmt.Rhs[0].(type) {
 		case *ast.CallExpr, *ast.FuncLit:
 			multi = true
 		default:
 			multi = false
 		}
+	}
+	if len(stmt.Lhs) != len(stmt.Rhs) {
+		multi = true
 	}
 	if multi {
 		return parseMultiReturn(stmt, init)
@@ -997,7 +1000,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 	case *ast.SelectorExpr: //1st class
 		name := ""
-		sel := strings.Title(reserved(rename(expr.Sel.Name)))
+		sel := reserved(rename(expr.Sel.Name))
+		//sel = strings.Title(sel)
 		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
 			name = parseExpr(expr.X, false)
@@ -1007,6 +1011,13 @@ func parseExpr(expr ast.Expr, init bool) string {
 					break
 				}
 			}
+			switch name {
+			case "this":
+				name = ""
+				sel = untitle(sel)
+			default:
+				name += "."
+			}
 		case *ast.SelectorExpr:
 			x := expr.X.(*ast.SelectorExpr)
 			name = parseExpr(x.X, false) + "." + untitle(x.Sel.Name)
@@ -1014,26 +1025,36 @@ func parseExpr(expr ast.Expr, init bool) string {
 		default:
 			name = parseExpr(expr.X, false)
 		}
-		buffer = name + "." + sel
+		buffer = name + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		finish := true
+		start := true
 		switch init := expr.Fun.(type) {
 		case *ast.Ident:
-			name := untitle(rename(init.Name))
-			switch name {
-			case "string":
-				name = "str"
-			case "int64":
-				name = ""
-			case "make":
-				name = "new "
-				name += parseTypeExpr(expr.Args[0])
-				expr.Args = expr.Args[1:]
-			case "new":
-				name = "create"
-			case "len":
-				name = "length"
-				finish = false
+			name := rename(init.Name)
+			for _,n := range typeNames {
+				if n == name {
+					start = false
+					name = "new " + name
+					break
+				}
+			}
+			if start {
+				name = untitle(name)
+				switch name {
+				case "this":
+					name = ""
+				case "string":
+					name = "str"
+				case "int64":
+					name = ""
+				case "make":
+					name = "new "
+					name += parseTypeExpr(expr.Args[0])
+					expr.Args = expr.Args[1:]
+				case "new":
+					name = "create"
+				}
 			}
 			buffer = name
 		case *ast.ArrayType:
@@ -1254,7 +1275,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	//            multiple declarations are common.
 	for _, file := range pkg.Syntax {
 		data.Name = file.Name
-		if file.Scope != nil {
+		/*if file.Scope != nil {
 			if file.Scope.Objects != nil {
 				for _, obj := range file.Scope.Objects {
 					scopeInsert(data.Scope, obj)
@@ -1265,7 +1286,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 					scopeInsert(data.Scope.Outer, obj)
 				}
 			}
-		}
+		}*/
 		for index := range file.Decls {
 			switch decl := file.Decls[index].(type) {
 			case *ast.GenDecl:
@@ -1279,13 +1300,12 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-
+						
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {
 							replaceMap[specType.Name.Name] = name
 						}
-						typeNames = append(typeNames, name)
 						specType.Name.Name = name
 						if exports && !specType.Name.IsExported() {
 							continue

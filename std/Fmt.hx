@@ -25,7 +25,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	public static macro function printf(fmt:ExprOf<String>, args:Array<Expr>) { // format
 		return macro {
 			var args:Array<Dynamic> = $a{args};
-			std.Fmt.log(std.Fmt.Format($fmt, args));
+			std.Fmt.log(std.Fmt.format($fmt, args));
 		}
 	}
 

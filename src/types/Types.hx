@@ -17,18 +17,18 @@ typedef Var = {
 	constant:Bool,
 	exported:Bool,
 	type:String,
-	value:String
+	value:String,
 }
 
 typedef Struct = {
 	name:String,
 	exported:Bool,
-	def:String,
 	interfaceBool:Bool,
 	fields:Array<String>,
 	imps:Array<String>,
 	funcs:Array<Func>,
 	interfaceMethods:Array<String>,
+	define:String,
 }
 
 typedef Package = {

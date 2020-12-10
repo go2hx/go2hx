@@ -140,39 +140,44 @@ class Parser {
 		if (file.structs != null)
 			for (struct in file.structs) {
 				var first = struct.exported ? "" : "private";
-				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0) {
+				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0)
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); // add methods to stack
-				} else if (struct.def != "") {
-					main.push(first + "typedef " + struct.name + " = " + struct.def + ";");
-				} else {
-					var ty = "class ";
-					var end = "";
-					if (struct.interfaceBool) {
-						ty = "interface ";
-					}
-					if (struct.imps != null && struct.imps.length > 0) {
-						
-					}
-					main.push(first + ty + struct.name + " " + end + " {");
-					var init:String = "";
-					if (struct.fields == null) {} else {
-						for (field in struct.fields) {
-							main.push('public var $field;');
-							init += ',$field';
-						}
-					}
-					init = init.substr(1);
-					if (struct.interfaceBool) {
-						main.push('public function new($init) {');
-						main.push("std.Macro.initLocals();");
-						main.push("}\n");
-					}
-					if (struct.funcs != null)
-						for (func in struct.funcs) {
-							main = main.concat(printFunc(func, "public"));
-						}
-					main.push("}");
+				var ty = "class ";
+				var end = "";
+				if (struct.interfaceBool) {
+					ty = "interface ";
 				}
+				/*if (struct.imps != null && struct.imps.length > 0) {
+					
+				}*/
+				if (struct.define != "") {
+					ty = "abstract ";
+					end = "(" + struct.define + ")";
+				}
+				main.push(first + ty + struct.name + " " + end + " {");
+				var init:String = "";
+				if (struct.fields == null) {} else {
+					for (field in struct.fields) {
+						main.push('public var $field;');
+						init += ',$field';
+					}
+				}
+				init = init.substr(1);
+				if (struct.define != "") {
+					main.push('    public function new(value:${struct.define}) {');
+					main.push("        this = value;");
+					main.push("    }\n");
+				}else if (struct.interfaceBool) {
+					main.push('    public function new($init) {');
+					main.push("        std.Macro.initLocals();");
+					main.push("    }\n");
+				}
+				if (struct.funcs != null)
+					for (func in struct.funcs) {
+						main = main.concat(printFunc(func, "public"));
+					}
+				main.push("}");
+			
 			}
 		if (interfaceStack.length > 0) {
 			trace("interface stack: " + interfaceStack);

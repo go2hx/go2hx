@@ -42,7 +42,11 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	}
 
 	public static function format(fmt:String, args:Array<Dynamic>):String {
-		return polygonal.Printf.format(fmt, args);
+		try {
+			return polygonal.Printf.format(fmt, args);
+		}catch(e) {
+			return e.details();
+		}
 	}
 
 	public static function log(string:String) {

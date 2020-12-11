@@ -23,7 +23,7 @@ typedef Var = {
 typedef Struct = {
 	name:String,
 	exported:Bool,
-	interfaceBool:Bool,
+	interfacebool:Bool,
 	fields:Array<String>,
 	imps:Array<String>,
 	funcs:Array<Func>,

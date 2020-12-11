@@ -197,6 +197,7 @@ var goTypes = []string{
 	"float64",
 	//"uint", //declared below
 }
+var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
 var exportData = Data{}
 var debugComment = !true
@@ -238,13 +239,15 @@ func main() {
 	for _, ty := range goTypes {
 		replaceMap[ty] = strings.Title(ty)
 	}
-	replaceMap["uint"] = "UInt" //cap diffrent
-	replaceMap["uint32"] = "UInt32"
-	replaceMap["uint64"] = "UInt64"
-	replaceMap["errors"] = "std.Errors"
-	replaceMap["error"] = "std.Errors"
-	replaceMap["rune"] = "Int"
+	replaceTypeMap["uint"] = "UInt" //cap diffrent
+	replaceTypeMap["uint32"] = "UInt32"
+	replaceTypeMap["uint64"] = "UInt64"
+	replaceTypeMap["errors"] = "std.Errors"
+	replaceTypeMap["error"] = "std.Errors"
+	replaceTypeMap["rune"] = "String"
+
 	replaceMap["nil"] = "null"
+	replaceMap["_"] = "null"
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
@@ -392,7 +395,6 @@ func compile(src source) {
 						ty.Fields = parseFields(structType.Fields.List, true)
 						ty.Imps = imps
 					case *ast.InterfaceType:
-						ty.InterfaceMethods = parseFields(structType.Methods.List, true)
 						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
 						ty.Define = parseTypeExpr(spec.Type)
@@ -427,9 +429,9 @@ func compile(src source) {
 				fn.Params = parseFields(decl.Type.Params.List, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = parseRes(parseFields(decl.Type.Results.List, false))
+				fn.Result = parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
 			} else {
-				fn.Result = "Void"
+				fn.Result = ":Void"
 			}
 			if decl.Recv != nil {
 				//fn.
@@ -771,10 +773,6 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 	args := []string{}
 	for i := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
-		if set == "_" {
-			args = append(args, "null")
-			continue
-		}
 		if stmt.Tok.String() == ":=" {
 			buffer += "var " + set + addSemicolon(stmt, init)
 		}
@@ -824,7 +822,11 @@ func parseTypeExpr(expr ast.Expr) string {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X)
 		return "std.Pointer<" + x + ">"
-	case *ast.Ident: //pass through
+	case *ast.Ident:
+		value,ok := replaceTypeMap[expr.Name]
+		if ok {
+			return value
+		}
 	case *ast.SelectorExpr:
 		return parseExpr(expr.X, false) + "." + expr.Sel.Name
 	case *ast.ArrayType: //pass through
@@ -906,7 +908,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += "Void"
 		} else {
 			res := parseFields(expr.Results.List, false)
-			buffer += parseRes(res)
+			buffer += parseRes(res,expr.Results.NumFields())
 		}
 	case *ast.Ident:
 		name := rename(expr.Name)
@@ -945,7 +947,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List, false))
+			buffer += parseRes(parseFields(expr.Type.Results.List, false),expr.Type.Results.NumFields())
 		} else {
 			buffer += "Void"
 		}
@@ -1133,10 +1135,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	return buffer
 }
-func parseRes(res []string) string {
-	buffer := ""
+func parseRes(res []string,numFields int) string {
+	buffer := ":"
 	if len(res) == 0 {
-		buffer += "Void"
+		if numFields > 0 {
+			buffer = ""
+		}else{
+			buffer += "Void"
+		}
 	} else if len(res) == 1 {
 		buffer += res[0]
 	} else {
@@ -1154,9 +1160,8 @@ func getDefaultType(expr ast.Expr) string {
 		buffer += "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
-			buffer += "for (i in 0..." + l.Value + ")"
+			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt)
 		}
-		buffer += getDefaultType(expr.Elt)
 		buffer += "])"
 		return buffer
 	case *ast.Ident:

@@ -116,7 +116,7 @@ class Go {
 			return "";
 		}
 		var keyName = getName(key);
-		if (keyName == "_")
+		if (keyName == "null")
 			keyName = "i";
 		var init = Context.parse('var $keyName = 0;', Context.currentPos());
 		var post = Context.parse('$keyName++', Context.currentPos());
@@ -139,6 +139,19 @@ class Go {
 		}
 		expr = func(expr);
 		#end
+		var xType = Context.typeof(x);
+		switch xType {
+			case TInst(t, params):
+				var name = t.get().name;
+				switch (name) {
+					case "String":
+						//x = macro new haxe.iterators.StringIterator($x);
+					default:
+						trace('unknown iterator inst name: $name');
+				}
+			default:
+				trace('unknown iterator type: $xType');
+		}
 		return macro {
 			$init;
 			for (tmp in $x) {

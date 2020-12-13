@@ -24,7 +24,7 @@ class Os {
 			var entries = sys.FileSystem.readDirectory(path);
 			for (entry in entries) {
 				if (sys.FileSystem.isDirectory(path + '/' + entry)) {
-					RemoveAll(path + '/' + entry);
+					removeAll(path + '/' + entry);
 					sys.FileSystem.deleteDirectory(path + '/' + entry);
 				} else {
 					sys.FileSystem.deleteFile(path + '/' + entry);

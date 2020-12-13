@@ -45,7 +45,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		try {
 			return polygonal.Printf.format(fmt, args);
 		}catch(e) {
-			return e.details();
+			return "";
 		}
 	}
 

@@ -8,10 +8,11 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 class Builtin { // https://golang.org/pkg/builtin/
-	public static macro function append(cond, expr) {
+	public static macro function append(cond:Expr, args:Array<Expr>) {
 		return macro {
-			$cond.push($expr);
-		};
+			var src = $a{args};
+			haxe.ds.Vector.fromArrayCopy($cond.toArray().concat(src));
+		}
 	}
 
 	public function cap(v) {

@@ -146,6 +146,7 @@ class Go {
 				switch (name) {
 					case "String":
 						//x = macro new haxe.iterators.StringIterator($x);
+						x = macro $x.split("");
 					default:
 						trace('unknown iterator inst name: $name');
 				}

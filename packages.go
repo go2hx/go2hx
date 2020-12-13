@@ -243,8 +243,8 @@ func main() {
 	replaceTypeMap["uint"] = "UInt" //cap diffrent
 	replaceTypeMap["uint32"] = "UInt32"
 	replaceTypeMap["uint64"] = "UInt64"
-	replaceTypeMap["errors"] = "std.Errors"
-	replaceTypeMap["error"] = "std.Errors"
+	replaceTypeMap["errors"] = "Errors"
+	replaceTypeMap["error"] = "Errors"
 	replaceTypeMap["rune"] = "String"
 
 	replaceMap["nil"] = "null"
@@ -824,7 +824,7 @@ func parseTypeExpr(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X)
-		return "std.Pointer<" + x + ">"
+		return "Pointer<" + x + ">"
 	case *ast.Ident:
 		value,ok := replaceTypeMap[expr.Name]
 		if ok {
@@ -1084,7 +1084,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false)
-			buffer = "std.Pointer.make(() -> " + x + ", (tmp) -> " + x + " = tmp)"
+			buffer = "Pointer.make(() -> " + x + ", (tmp) -> " + x + " = tmp)"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false)
 		}

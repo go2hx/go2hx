@@ -99,7 +99,6 @@ class Parser {
 				var as = capPkg(imp[1]);
 				if (Resource.listNames().indexOf(imp[0]) != -1) {
 					stdimports.push(imp[0]);
-					name = 'std.$name';
 				}
 
 				if (as.length > 0)
@@ -182,7 +181,7 @@ class Parser {
 						main.push("    }\n");
 					}else{
 						main.push('    public function new($init) {');
-						main.push("        std.Macro.initLocals();");
+						main.push("        Macro.initLocals();");
 						main.push("    }\n");
 					}
 					if (struct.funcs != null)
@@ -217,8 +216,16 @@ class Parser {
 	function buildConfig(path:String, main:String) {
 		if (path.length > 0)
 			path += ".";
-		File.saveContent(exportPath + "build.hxml",
-			'-main $path$main\n-D std-encoding-utf8\n-D no-deprecation-warnings\n-lib polygonal-printf\n--macro std.Macro.build()\n-dce full\n' + "--interp");
+		var config = [
+			"-D std-encoding-utf8",
+			"-D no-deprecation-warnings",
+			"-lib polygonal-printf",
+			"--macro Macro.build()",
+			"-dce full",
+			"--interp",
+			'-main $path$main',
+		];
+		File.saveContent(exportPath + "build.hxml",config.join("\n"));
 	}
 
 	function imports(path:String) {

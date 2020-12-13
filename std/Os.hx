@@ -1,4 +1,4 @@
-import std.Go.ErrorReturn;
+import Go.ErrorReturn;
 import sys.io.File as Base;
 import sys.FileSystem;
 

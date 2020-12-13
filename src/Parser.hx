@@ -144,12 +144,12 @@ class Parser {
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); // add methods to stack
 				if (struct.interfacebool) {
 					main.push("@:forward");
-					main.push("abstract " + struct.name + "(Dynamic) {");
-					main.push('public function new(x) {');
-					main.push('this = x;');
+					main.push("abstract " + struct.name + "<T>(T) {");
+					main.push('public function new(value = null) {');
+					main.push('this = value;');
 					main.push('}');
 					main.push("@:from");
-					main.push("public static function set(value:Dynamic):" + struct.name + " {");
+					main.push("public static function set(value) {");
 					main.push("return new " + struct.name + "(value);");
 					main.push("}");
 					main.push('}');

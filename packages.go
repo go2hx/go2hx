@@ -621,13 +621,15 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
 						buffer += "var " + spec.Names[i].Name
+						defType := ""
 						if spec.Type != nil {
-							buffer += ":" + parseTypeExpr(spec.Type)
+							//buffer += ":" + defType
+							defType = parseTypeExpr(spec.Type)
 						}
 						if len(spec.Values) > i {
 							buffer += " = " + parseExpr(spec.Values[i], false)
 						} else {
-							buffer += " = " + getDefaultType(spec.Type)
+							buffer += " = " + getDefaultType(spec.Type,defType)
 						}
 						buffer += addSemicolon(stmt, init)
 					}
@@ -858,7 +860,7 @@ func parseFields(list []*ast.Field, defaults bool) []string {
 				}
 				buffer += ty
 				if defaults {
-					buffer += " = " + getDefaultType(field.Type)
+					buffer += " = " + getDefaultType(field.Type,"")
 				}
 				array = append(array, buffer)
 			}
@@ -1153,14 +1155,14 @@ func parseRes(res []string,numFields int) string {
 	}
 	return buffer
 }
-func getDefaultType(expr ast.Expr) string {
+func getDefaultType(expr ast.Expr, defType string) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
 		buffer := "Vector.fromArrayCopy("
 		buffer += "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
-			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt)
+			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt,defType)
 		}
 		buffer += "])"
 		return buffer
@@ -1172,6 +1174,8 @@ func getDefaultType(expr ast.Expr) string {
 			return "''"
 		case "bool":
 			return "false"
+		default:
+			return "new " + defType + "()"
 		}
 		return "null"
 	default:

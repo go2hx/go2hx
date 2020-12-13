@@ -1,5 +1,3 @@
-package std;
-
 import haxe.Exception;
 
 class Errors extends Exception {

@@ -33,11 +33,18 @@ class Parser {
 			path = Path.addTrailingSlash(path);
 			read(pkg, path);
 		}
-		imports(exportPath + "std");
+		imports(exportPath);
 		Sys.setCwd(exportPath);
 		if (format) {
 			var files = FileSystem.readDirectory(".");
-			files.remove("std");
+			//files.remove("std");
+			for (name in Resource.listNames()) {
+				var path = name.split("/");
+				var last = path.pop();
+				last = last.charAt(0).toUpperCase() + last.substr(1) + ".hx";
+				path.push(last);
+				files.remove(path.join("/"));
+			}
 			files.remove("import.hx");
 			files.remove("build.hxml");
 			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');

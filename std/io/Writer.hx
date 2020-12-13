@@ -1,3 +1,3 @@
-package std.io;
+package io;
 
 class Writer {}

@@ -1,5 +1,3 @@
-package std;
-
 import haxe.macro.Expr;
 
 class Pointer<T> {

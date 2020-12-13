@@ -1,9 +1,9 @@
-package std.encoding;
+package encoding;
 
 import haxe.Exception;
 import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;
-import std.Go.ErrorReturn;
+import Go.ErrorReturn;
 
 class Base64 {
 	public static var stdEncoding = new StdEncoding();

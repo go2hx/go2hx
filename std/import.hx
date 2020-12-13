@@ -1,25 +1,25 @@
-package std;
+package;
 
 // https://haxe.org/manual/type-system-import-defaults.html , thanks Nadako for the refrence :)
-import std.Go.cfor;
-import std.Go.str;
-import std.Go.setMulti;
-import std.Go.range;
+import Go.cfor;
+import Go.str;
+import Go.setMulti;
+import Go.range;
 
-import std.Builtin.append;
-import std.Builtin.close;
-import std.Builtin.complex;
-import std.Builtin.copy;
-import std.Builtin.delete;
-import std.Builtin.imag;
-import std.Builtin.len;
-//import std.Builtin.make;
-import std.Builtin.create;
-import std.Builtin.panic;
-import std.Builtin.print;
-import std.Builtin.println;
-import std.Builtin.real;
-import std.Builtin.recover;
+import Builtin.append;
+import Builtin.close;
+import Builtin.complex;
+import Builtin.copy;
+import Builtin.delete;
+import Builtin.imag;
+import Builtin.len;
+//import Builtin.make;
+import Builtin.create;
+import Builtin.panic;
+import Builtin.print;
+import Builtin.println;
+import Builtin.real;
+import Builtin.recover;
 
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;

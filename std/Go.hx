@@ -1,5 +1,3 @@
-package std;
-
 import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;

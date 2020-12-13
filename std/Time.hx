@@ -1,6 +1,5 @@
-package std;
-
 import haxe.zip.Compress;
+import haxe.Int64;
 
 class Time {
 	var date:Date;

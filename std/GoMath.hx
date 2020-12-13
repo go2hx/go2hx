@@ -1,5 +1,3 @@
-package std;
-
 class GoMath {
 	public static inline function max(a, b) {
 		return Math.max(a, b);

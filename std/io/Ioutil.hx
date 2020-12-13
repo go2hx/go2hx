@@ -1,4 +1,4 @@
-package std.io;
+package io;
 
 class Ioutil {
 	public static function readAll(r:Io.reader) {}

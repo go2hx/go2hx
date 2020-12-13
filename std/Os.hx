@@ -1,5 +1,3 @@
-package std;
-
 import std.Go.ErrorReturn;
 import sys.io.File as Base;
 import sys.FileSystem;

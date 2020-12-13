@@ -1,9 +1,9 @@
-import std.Fmt;
-import std.Builtin;
+import Fmt;
+import Builtin;
 import haxe.ds.Vector;
-import std.Pointer;
-import std.Go;
-import std.Builtin.append;
+import Pointer;
+import Go;
+import Builtin.append;
 function main() {
     
 }

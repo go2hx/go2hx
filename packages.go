@@ -74,6 +74,7 @@ var excludes = map[string]bool{
 	"math": true,
 	"fmt":  true,
 	"os":   true,
+	"sort": true,
 	//"flag":                            true,
 	"errors":                  true,
 	"internal/reflectlite":    true,
@@ -429,7 +430,7 @@ func compile(src source) {
 				fn.Params = parseFields(decl.Type.Params.List, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
+				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
 			} else {
 				fn.Result = ":Void"
 			}
@@ -829,6 +830,7 @@ func parseTypeExpr(expr ast.Expr) string {
 		if ok {
 			return value
 		}
+		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
 		return parseExpr(expr.X, false) + "." + expr.Sel.Name
 	case *ast.ArrayType: //pass through
@@ -844,14 +846,12 @@ func parseTypeExpr(expr ast.Expr) string {
 	return parseExpr(expr, false)
 }
 func parseFields(list []*ast.Field, defaults bool) []string {
-	imps = []string{}
 	array := []string{}
 	buffer := ""
 	for _, field := range list {
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
-			//array = append(array, ty)
-			imps = append(imps, ty)
+			array = append(array, ty)
 		} else {
 			for _, name := range field.Names {
 				if !noFieldName {
@@ -860,7 +860,7 @@ func parseFields(list []*ast.Field, defaults bool) []string {
 				}
 				buffer += ty
 				if defaults {
-					buffer += " = " + getDefaultType(field.Type,"")
+					buffer += " = " + getDefaultType(field.Type,parseTypeExpr(field.Type))
 				}
 				array = append(array, buffer)
 			}
@@ -910,7 +910,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += "Void"
 		} else {
 			res := parseFields(expr.Results.List, false)
-			buffer += parseRes(res,expr.Results.NumFields())
+			resString := parseRes(res,expr.Results.NumFields())
+			buffer += resString
 		}
 	case *ast.Ident:
 		name := rename(expr.Name)
@@ -1027,7 +1028,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 			name = parseExpr(x.X, false) + "." + untitle(x.Sel.Name)
 			sel = untitle(sel)
 		default:
-			name = parseExpr(expr.X, false)
+			name = parseExpr(expr.X, false) + "."
+			sel = untitle(sel)
 		}
 		buffer = name + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
@@ -1138,12 +1140,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 	return buffer
 }
 func parseRes(res []string,numFields int) string {
-	buffer := ":"
+	buffer := ""
 	if len(res) == 0 {
 		if numFields > 0 {
-			buffer = ""
+			return "Any"
 		}else{
-			buffer += "Void"
+			return "Void"
 		}
 	} else if len(res) == 1 {
 		buffer += res[0]
@@ -1177,7 +1179,6 @@ func getDefaultType(expr ast.Expr, defType string) string {
 		default:
 			return "new " + defType + "()"
 		}
-		return "null"
 	default:
 		_ = expr
 		return "null"

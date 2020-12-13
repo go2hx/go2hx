@@ -1,5 +1,3 @@
-package std;
-
 import haxe.macro.Context;
 import haxe.macro.ExprTools;
 import polygonal.Printf;

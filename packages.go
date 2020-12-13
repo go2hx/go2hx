@@ -324,6 +324,7 @@ func load(pkg *packages.Package) {
 		array[i] = reserved(array[i])
 	}
 	pkg.PkgPath = strings.Join(array, "/")
+	imps = []string{}
 	file := mergePackageFiles(pkg, !true)
 	if file.Name == nil {
 		return
@@ -394,13 +395,14 @@ func compile(src source) {
 					switch structType := spec.Type.(type) {
 					case *ast.StructType:
 						ty.Fields = parseFields(structType.Fields.List, true)
-						ty.Imps = imps
+						//ty.Imps = imps
 					case *ast.InterfaceType:
+						imps = append(imps,ty.Name)
 						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
 						ty.Define = parseTypeExpr(spec.Type)
 						typedefNames = append(typedefNames, spec.Name.Name)
-						ty.Imps = imps
+						//ty.Imps = imps
 					default:
 						fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 					}
@@ -830,6 +832,11 @@ func parseTypeExpr(expr ast.Expr) string {
 		if ok {
 			return value
 		}
+		for _,imp := range imps {
+			if imp == expr.Name {
+				return "Any"
+			}
+		}
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
 		return parseExpr(expr.X, false) + "." + expr.Sel.Name
@@ -1047,6 +1054,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 			if start {
 				name = untitle(name)
+				fmt.Println("name:",name)
 				switch name {
 				case "this":
 					name = ""
@@ -1160,14 +1168,15 @@ func parseRes(res []string,numFields int) string {
 func getDefaultType(expr ast.Expr, defType string) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
-		buffer := "Vector.fromArrayCopy("
+		/*buffer := "Vector.fromArrayCopy("
 		buffer += "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
 			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt,defType)
 		}
 		buffer += "])"
-		return buffer
+		return buffer*/
+		return "null"
 	case *ast.Ident:
 		switch expr.Name {
 		case "int", "float", "uint64", "uint", "int64", "float64":
@@ -1177,7 +1186,8 @@ func getDefaultType(expr ast.Expr, defType string) string {
 		case "bool":
 			return "false"
 		default:
-			return "new " + defType + "()"
+			//return "new " + defType + "()"
+			return "null"
 		}
 	default:
 		_ = expr

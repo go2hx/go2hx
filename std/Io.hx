@@ -1,1 +1,3 @@
-typedef Io = Dynamic;
+class Writer {
+    
+}

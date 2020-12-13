@@ -151,7 +151,7 @@ class Parser {
 				if (struct.interfacebool) {
 					main.push("@:forward");
 					main.push("abstract " + struct.name + "<T>(T) {");
-					main.push('public function new(value = null) {');
+					main.push('public function new(?value) {');
 					main.push('this = value;');
 					main.push('}');
 					main.push("@:from");
@@ -176,7 +176,7 @@ class Parser {
 					}
 					init = init.substr(1);
 					if (struct.define != "") {
-						main.push('    public function new(value:${struct.define}) {');
+						main.push('    public function new(?value:${struct.define}) {');
 						main.push("        this = value;");
 						main.push("    }\n");
 					}else{

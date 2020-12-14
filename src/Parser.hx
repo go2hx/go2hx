@@ -37,14 +37,7 @@ class Parser {
 		Sys.setCwd(exportPath);
 		if (format) {
 			var files = FileSystem.readDirectory(".");
-			//files.remove("std");
-			for (name in Resource.listNames()) {
-				var path = name.split("/");
-				var last = path.pop();
-				last = last.charAt(0).toUpperCase() + last.substr(1) + ".hx";
-				path.push(last);
-				files.remove(path.join("/"));
-			}
+			files.remove("std");
 			files.remove("import.hx");
 			files.remove("build.hxml");
 			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
@@ -222,6 +215,7 @@ class Parser {
 			"-lib polygonal-printf",
 			"--macro Macro.build()",
 			"-dce full",
+			"-cp std",
 			"--interp",
 			'-main $path$main',
 		];
@@ -234,7 +228,7 @@ class Parser {
 			FileSystem.createDirectory(path);
 		stdimports = stdimports.concat(["go", "pointer", "macro", "builtin"]); // add main classes
 		for (i in stdimports) {
-			var path = '$path/${capPkg(i)}.hx';
+			var path = '$path/std/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))
 				FileSystem.createDirectory(Path.directory(path));
 			File.saveContent(path, Resource.getString(i));

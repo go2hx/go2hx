@@ -9,21 +9,21 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	public static macro function println(args:Array<Expr>) {
 		return macro {
 			var args:Array<Dynamic> = $a{args};
-			std.Fmt.log(args.join(" ") + "\n");
+			Fmt.log(args.join(" ") + "\n");
 		}
 	}
 
 	public static macro function print(args:Array<Expr>) {
 		return macro {
 			var args:Array<Dynamic> = $a{args};
-			std.Fmt.log($a{args}.join(" "));
+			Fmt.log($a{args}.join(" "));
 		}
 	}
 
 	public static macro function printf(fmt:ExprOf<String>, args:Array<Expr>) { // format
 		return macro {
 			var args:Array<Dynamic> = $a{args};
-			std.Fmt.log(std.Fmt.format($fmt, args));
+			Fmt.log(std.Fmt.format($fmt, args));
 		}
 	}
 
@@ -36,7 +36,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	}
 
 	public static macro function sprintf(fmt:ExprOf<String>, args:Array<Expr>) { // format
-		return macro std.Fmt.format($fmt, $a{args});
+		return macro Fmt.format($fmt, $a{args});
 	}
 
 	public static function format(fmt:String, args:Array<Dynamic>):String {

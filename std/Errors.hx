@@ -2,7 +2,7 @@ import haxe.Exception;
 
 class Errors extends Exception {
 
-	private function new(text:String) {
+	public function new(text:String) {
 		super(text);
 	}
 

@@ -839,7 +839,8 @@ func parseTypeExpr(expr ast.Expr) string {
 		}
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
-		return parseExpr(expr.X, false) + "." + expr.Sel.Name
+		sel := expr.Sel.Name
+		return parseExpr(expr.X, false) + "." + sel
 	case *ast.ArrayType: //pass through
 	case *ast.InterfaceType:
 	case *ast.FuncType:
@@ -1023,10 +1024,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 					break
 				}
 			}
-			switch name {
-			case "this":
-				name = ""
-				sel = untitle(sel)
+			switch sel {
+			case "new":
+				name = "new " + strings.Title(name)
+				sel = ""
 			default:
 				name += "."
 			}
@@ -1054,7 +1055,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 			if start {
 				name = untitle(name)
-				fmt.Println("name:",name)
 				switch name {
 				case "this":
 					name = ""

@@ -198,6 +198,7 @@ var goTypes = []string{
 	"float64",
 	//"uint", //declared below
 }
+var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
 var exportData = Data{}
@@ -340,6 +341,7 @@ func load(pkg *packages.Package) {
 		}
 	}
 }
+var lastValue ast.Expr
 func compile(src source) {
 	data := packageType{}
 	data.PackagePath = src.path
@@ -352,6 +354,7 @@ func compile(src source) {
 		//fmt.Println(ast.Print(nil, decl))
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
+			iotaIndex = -1
 			for _, spec := range decl.Specs {
 				switch spec := spec.(type) {
 				case *ast.ImportSpec:
@@ -370,7 +373,35 @@ func compile(src source) {
 						typeNames = append(typeNames, name)
 					}
 				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
-					for i, _ := range spec.Names {
+					/*if v, ok := spec.Values[0].(*ast.Ident); ok && v.Name == "iota" {
+						
+					}*/
+					iotaBool := false
+					if len(spec.Values) > 0 {
+						if v, ok := spec.Values[0].(*ast.Ident); ok && v.Name == "iota" {
+							iotaBool = true
+							lastValue = nil
+						} else if v, ok := spec.Values[0].(*ast.CallExpr); ok && len(v.Args) == 1 {
+							iotaBool = true
+							lastValue = nil
+						}
+					}
+					_ = iotaBool
+					if len(spec.Names) > len(spec.Values) && spec.Type == nil {
+						if lastValue == nil {
+							iotaIndex++
+							spec.Values = append(spec.Values, &ast.BasicLit{
+								Kind: token.INT,
+								Value: strconv.Itoa(iotaIndex),
+							})
+							iotaBool = true
+							lastValue = nil
+						}else{
+							spec.Values = append(spec.Values, lastValue)
+						}
+						
+					}
+					for i := range spec.Names {
 						v := varType{}
 						//spec.Names[i].Obj.Kind
 						v.Constant = spec.Names[i].Obj.Kind.String() == "const"
@@ -380,10 +411,13 @@ func compile(src source) {
 							replaceMap[spec.Names[i].Name] = name
 						}
 						v.Name = name
-						if i >= len(spec.Values) {
+						if len(spec.Values) <= i {
 							continue
 						}
-						v.Value = parseExpr(spec.Values[i], false) //as to not add semicolon
+						if !iotaBool {
+							lastValue = spec.Values[i]
+						}
+						v.Value = parseExpr(spec.Values[i], false)
 						data.Vars = append(data.Vars, v)
 					}
 				case *ast.TypeSpec:
@@ -1223,6 +1257,10 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 	return buffer
 }
 func rename(name string) string {
+	if name == "iota" {
+		iotaIndex++
+		return strconv.Itoa(iotaIndex)
+	}
 	value, ok := replaceMap[name]
 	if ok {
 		name = value
@@ -1260,6 +1298,24 @@ func reserved(str string) string {
 		return str
 	}
 	return strings.Join([]string{str, "tmp"}, "_")
+}
+//https://github.com/elliotchance/switch-check/blob/master/main.go
+func getIotaType(ty ast.Expr, values []ast.Expr) ast.Expr {
+	if len(values) == 0 {
+		return nil
+	}
+
+	// "iota" as the raw keyword
+	if v, ok := values[0].(*ast.Ident); ok && v.Name == "iota" {
+		return ty
+	}
+
+	// iota wrapped in a type cast, like: Foo(iota)
+	if v, ok := values[0].(*ast.CallExpr); ok && len(v.Args) == 1 {
+		return getIotaType(v.Fun, v.Args)
+	}
+
+	return nil
 }
 func scopeInsert(scope *ast.Scope, obj *ast.Object) {
 	switch obj.Kind { //ast.Con = Constant

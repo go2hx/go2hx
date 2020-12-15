@@ -17,7 +17,13 @@ function str(v:Dynamic):String {
 
 macro function copy(expr) {
 	var type = Context.typeof(expr);
-	if (isBasic(type)) {
+	var exception = false;
+	switch expr.expr {
+		case ENew(t, params):
+			exception = true;
+		default:
+	}
+	if (isBasic(type) || exception) {
 		return expr;
 	}else{
 		switch type {

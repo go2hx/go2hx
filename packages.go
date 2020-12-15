@@ -658,6 +658,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
 						name := spec.Names[i].Name
+						fmt.Println("name:",name)
 						if name == "null" {
 							buffer = ""
 						}else{
@@ -669,7 +670,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 							defType = parseTypeExpr(spec.Type)
 						}
 						if len(spec.Values) > i {
-							buffer += " = " + parseExpr(spec.Values[i], false)
+							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false) + ")"
 						} else {
 							buffer += " = " + getDefaultType(spec.Type,defType)
 						}
@@ -846,14 +847,18 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	buffer := ""
 	for i, _ := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
-		if set == "_" {
-			continue
+		fmt.Println("set:",set)
+		empty := false
+		if set == "null" {
+			empty = true
 		}
-		if stmt.Tok.String() == ":=" {
-			buffer += "var "
+		if !empty {
+			if stmt.Tok.String() == ":=" {
+				buffer += "var "
+			}
+			buffer += set + " = "
 		}
-		buffer += set + " = "
-		buffer += parseExpr(stmt.Rhs[i], false)
+		buffer += "Go.copy(" + parseExpr(stmt.Rhs[i], false) + ")"
 		buffer += addSemicolon(stmt, init)
 	}
 	return buffer
@@ -1161,7 +1166,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
-		//ast.Print(nil, expr)
 		buffer = parseExpr(expr.X, false) + ".slice("
 		low := "0"
 		if expr.Low != nil {
@@ -1181,7 +1185,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 
 	default:
 		fmt.Println("parse expr not found", reflect.TypeOf(expr))
-		//ast.Print(nil,expr)
 		return addDebug(expr)
 	}
 	return buffer

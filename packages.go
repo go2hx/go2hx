@@ -657,7 +657,12 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					buffer := ""
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
-						buffer += "var " + spec.Names[i].Name
+						name := spec.Names[i].Name
+						if name == "null" {
+							buffer = ""
+						}else{
+							buffer += "var " + name
+						}
 						defType := ""
 						if spec.Type != nil {
 							//buffer += ":" + defType
@@ -812,7 +817,7 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 	args := []string{}
 	for i := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
-		if stmt.Tok.String() == ":=" {
+		if stmt.Tok.String() == ":=" && set != "null" {
 			buffer += "var " + set + addSemicolon(stmt, init)
 		}
 		args = append(args, set)
@@ -960,7 +965,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer += name
 	case *ast.StarExpr: //pointer
 		x := parseExpr(expr.X, false)
-		buffer = x + ".value"
+		buffer = "Go.star(" + x + ")"
 	case *ast.MapType:
 		buffer = "Map<" + parseTypeExpr(expr.Key) + "," + parseTypeExpr(expr.Value) + ">"
 	case *ast.ChanType:
@@ -1126,7 +1131,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false)
-			buffer = "Pointer.make(() -> " + x + ", (tmp) -> " + x + " = tmp)"
+			buffer = "Go.makePointer(" + x + ")"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false)
 		}
@@ -1376,7 +1381,9 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						
+						for _,name := range specType.Names {
+							replaceMap[name.Name] = untitle(name.Name)
+						}
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {

@@ -1,3 +1,4 @@
+import Go.ErrorReturn;
 import haxe.macro.Context;
 import haxe.macro.ExprTools;
 import polygonal.Printf;
@@ -24,6 +25,13 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		return macro {
 			var args:Array<Dynamic> = $a{args};
 			Fmt.log(std.Fmt.format($fmt, args));
+		}
+	}
+
+	public static macro function fprintf(w:ExprOf<Io.Writer>,args:Array<Expr>) {
+		return macro {
+			var data:Go.ErrorReturn<Int> = {value:0,error: null};
+			data;
 		}
 	}
 

@@ -1,3 +1,4 @@
+import Pointer.InternalPointer;
 import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
@@ -182,6 +183,61 @@ class Go {
 				$post;
 			}
 		};
+	}
+	public static macro function makePointer(expr) {
+		var type = Context.typeof(expr);
+		var basic = isBasic(type);
+		trace("basic: " + basic);
+		if (basic) {
+			return macro new Pointer(InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
+		}else{
+			return macro new Pointer($expr);
+		}
+		return macro null;
+	}
+	public static macro function star(expr) {
+		var isReal = isRealPointer(Context.typeof(expr));
+		return isReal ? macro $expr.value : macro $expr;
+	}
+	public static macro function addressPointer(expr) {
+		var type = Context.typeof(expr);
+		return macro null;
+	}
+	private static function isRealPointer(type:haxe.macro.Type):Bool {
+		switch type {
+			case TAbstract(t, params):
+				if (params.length == 0)
+					return false;
+				var param = params[0];
+				switch param {
+					case TInst(t, params):
+						var name = t.get().name;
+						trace("name: " + name);
+						if (name == "InternalPointer")
+							return true;
+					default:
+				}
+				return false;
+			default:
+				return false;
+		}
+		
+	}
+	private static function isBasic(type:haxe.macro.Type):Bool {
+		return switch type {
+			case TAbstract(t, params):
+				switch (t.get().name) {
+					case "Bool":
+					case "Float":
+					case "Int":
+					case "String":
+					default:
+						false;
+				}
+				true;
+			default:
+				false;
+		}
 	}
 }
 

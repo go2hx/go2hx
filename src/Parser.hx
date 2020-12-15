@@ -116,6 +116,13 @@ class Parser {
 			for (func in file.funcs) {
 				if (func.recv != "") {
 					func.exported = true;
+					var pointerString = "Pointer<";
+					//remove pointer type
+					if (func.recv.substr(0,pointerString.length) == pointerString) {
+						func.recv = func.recv.substr(pointerString.length);
+						func.recv = func.recv.substr(0,func.recv.length - 1);
+					}
+					trace("func recv " + func.recv);
 					for (struct in file.structs) {
 						if (struct.name == func.recv) {
 							if (struct.funcs == null)

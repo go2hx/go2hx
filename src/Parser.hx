@@ -119,7 +119,6 @@ class Parser {
 						func.recv = func.recv.substr(pointerString.length);
 						func.recv = func.recv.substr(0,func.recv.length - 1);
 					}
-					trace("func recv " + func.recv);
 					for (struct in file.structs) {
 						if (struct.name == func.recv) {
 							if (struct.funcs == null)

@@ -453,10 +453,12 @@ func compile(src source) {
 			fn := funcType{}
 			fn.Exported = decl.Name.IsExported()
 			fn.Name = reserved(untitle(decl.Name.Name))
+			if fn.Name == "newUintValue" {
+				ast.Print(nil,decl)
+			}
 			if fn.Name != decl.Name.Name {
 				replaceMap[decl.Name.Name] = fn.Name
 			}
-			//fmt.Println("name:",fn.Name,"export:",fn.Exported)
 			if fn.Exported {
 				fn.Doc = parseComment(decl.Doc)
 			} else {
@@ -658,7 +660,6 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
 						name := spec.Names[i].Name
-						fmt.Println("name:",name)
 						if name == "null" {
 							buffer = ""
 						}else{
@@ -847,7 +848,6 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 	buffer := ""
 	for i, _ := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false)
-		fmt.Println("set:",set)
 		empty := false
 		if set == "null" {
 			empty = true
@@ -1122,6 +1122,11 @@ func parseExpr(expr ast.Expr, init bool) string {
 				buffer += "Std.int"
 			case "Byte":
 				buffer += "haxe.io.Bytes.ofString"
+			}
+		case *ast.ParenExpr: //casting conversion
+			if len(expr.Args) == 1 {
+				buffer = "cast(" +  parseExpr(expr.Args[0],false) + "," + parseTypeExpr(expr.Fun.(*ast.ParenExpr).X) + ")"
+				finish = false
 			}
 		default:
 			buffer += parseExpr(expr.Fun, false)

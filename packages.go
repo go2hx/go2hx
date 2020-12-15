@@ -201,6 +201,7 @@ var goTypes = []string{
 var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
+var ellipsisFuncMap = map[string]int{}
 var exportData = Data{}
 var debugComment = !true
 var debugTypeTrace = false
@@ -221,6 +222,7 @@ var sources = map[string]source{}
 var src source
 var file ast.File
 var imps []string
+var ellipsisBool = false
 
 const debug = true
 
@@ -465,7 +467,11 @@ func compile(src source) {
 				fn.Doc = ""
 			}
 			if decl.Type.Params != nil {
+				ellipsisBool = false
 				fn.Params = parseFields(decl.Type.Params.List, false)
+				if ellipsisBool {
+
+				}
 			}
 			if decl.Type.Results != nil {
 				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
@@ -890,6 +896,8 @@ func parseTypeExpr(expr ast.Expr) string {
 	case *ast.FuncType:
 	case *ast.MapType:
 	case *ast.Ellipsis:
+		ellipsisBool = true
+		return "Array<" + parseTypeExpr(expr.Elt) + ">"
 	case *ast.ChanType:
 	case *ast.StructType:
 	default:

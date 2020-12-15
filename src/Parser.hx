@@ -11,8 +11,6 @@ import haxe.io.Path;
 
 class Parser {
 	var replaceMap:Map<String, String> = [];
-	var stdimports:Array<String> = [];
-
 	public var exportPath:String;
 
 	public function new(exportPath:String, format:Bool) {
@@ -90,9 +88,8 @@ class Parser {
 			for (imp in file.imports) {
 				var name = capPkg(imp[0]);
 				var as = capPkg(imp[1]);
-				if (Resource.listNames().indexOf(imp[0]) != -1) {
-					stdimports.push(imp[0]);
-				}
+				//if (Resource.listNames().indexOf(imp[0]) != -1)
+				//	stdimports.push(imp[0]);
 
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
@@ -233,8 +230,8 @@ class Parser {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		stdimports = stdimports.concat(["go", "pointer", "macro", "builtin"]); // add main classes
-		for (i in stdimports) {
+		//stdimports = stdimports.concat(["go", "pointer", "macro", "builtin"]); // add main classes
+		for (i in Resource.listNames()) {
 			var path = '$path/std/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))
 				FileSystem.createDirectory(Path.directory(path));

@@ -499,6 +499,7 @@ func compile(src source) {
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
+				
 			}
 			data.Funcs = append(data.Funcs, fn)
 		default:
@@ -792,7 +793,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		body = append(body, buffer)
 	case *ast.DeferStmt:
 		buffer := parseExpr(stmt.Call, init) + "/*defer*/"
-		deferStack = append(deferStack, buffer)
+		deferStack = append([]string{buffer}, deferStack...)
 	case *ast.SelectStmt:
 		buffer := "/*select*/"
 		_ = buffer

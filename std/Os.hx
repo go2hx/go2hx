@@ -9,8 +9,8 @@ class Os {
 		FileSystem.createDirectory(path);
 	}
 
-	public static inline function create(path:String):ErrorReturn<File> {
-		return {value: null};
+	public static inline function create(path:String):ErrorReturn<Pointer<File>> {
+		return {value: new Pointer(null)};
 	}
 
 	public static inline function exit(code:Int) {

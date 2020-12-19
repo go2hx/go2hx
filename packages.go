@@ -1004,7 +1004,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += parseExpr(expr.Value, false)
 	case *ast.FuncLit:
-		buffer = "function("
+		buffer = "{\n"
+		buffer += "function anon("
 		if expr.Type.Params != nil {
 			params := parseFields(expr.Type.Params.List, false)
 			buffer += strings.Join(params, ",")
@@ -1017,6 +1018,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += " {\n"
 		buffer += strings.Join(parseBody(expr.Body.List), "")
+		buffer += "}\n"
+		buffer += "anon();\n"
 		buffer += "}"
 	case *ast.BasicLit: //A literal basic type
 		value := expr.Value
@@ -1096,9 +1099,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		finish := true
 		start := true
-		switch init := expr.Fun.(type) {
+		switch initType := expr.Fun.(type) {
+		case *ast.FuncLit:
+			finish = false
+			buffer = parseExpr(initType,false)
 		case *ast.Ident:
-			name := rename(init.Name)
+			name := rename(initType.Name)
 			for _,n := range typeNames {
 				if n == name {
 					start = false
@@ -1125,7 +1131,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 			buffer = name
 		case *ast.ArrayType:
-			value := parseExpr(init.Elt, false)
+			value := parseExpr(initType.Elt, false)
 			switch value {
 			case "Rune":
 				buffer += "Std.int"

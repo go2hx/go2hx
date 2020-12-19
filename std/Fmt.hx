@@ -34,7 +34,6 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 			data;
 		}
 	}
-	public static macro function errorf
 
 	public static macro function sprint(args:Array<Expr>) {
 		return macro $a{args}.join(" ");

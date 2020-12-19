@@ -16,8 +16,8 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 
 	public static macro function print(args:Array<Expr>) {
 		return macro {
-			var args:Array<Dynamic> = $a{args};
-			Fmt.log($a{args}.join(" "));
+			//var args:Array<Dynamic> = $a{args};
+			//Fmt.log($a{args}.join(" "));
 		}
 	}
 

@@ -222,7 +222,6 @@ var sources = map[string]source{}
 var src source
 var file ast.File
 var imps []string
-var ellipsisBool = false
 
 const debug = true
 
@@ -467,11 +466,7 @@ func compile(src source) {
 				fn.Doc = ""
 			}
 			if decl.Type.Params != nil {
-				ellipsisBool = false
 				fn.Params = parseFields(decl.Type.Params.List, false)
-				if ellipsisBool {
-
-				}
 			}
 			if decl.Type.Results != nil {
 				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
@@ -897,8 +892,7 @@ func parseTypeExpr(expr ast.Expr) string {
 	case *ast.FuncType:
 	case *ast.MapType:
 	case *ast.Ellipsis:
-		ellipsisBool = true
-		return "Array<" + parseTypeExpr(expr.Elt) + ">"
+		return "haxe.Rest<" + parseTypeExpr(expr.Elt) + ">"
 	case *ast.ChanType:
 	case *ast.StructType:
 	default:
@@ -1147,7 +1141,11 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += parseExpr(expr.Fun, false)
 		}
 		if finish {
-			buffer += "(" + strings.Join(parseExprs(expr.Args, false), ", ") + ")"
+			args := parseExprs(expr.Args, false)
+			if expr.Ellipsis != token.NoPos {
+				args[len(args) - 1] = "..." + args[len(args) - 1]
+			}
+			buffer += "(" + strings.Join(args, ", ") + ")"
 		}
 		buffer += addSemicolon(expr, init)
 	case *ast.UnaryExpr: //star and address

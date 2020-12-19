@@ -18,8 +18,15 @@ function str(v:Dynamic):String {
 macro function copy(expr) {
 	var type = Context.typeof(expr);
 	var exception = false;
+	//trace("expr: " + expr.expr);
 	switch expr.expr {
 		case ENew(t, params):
+			exception = true;
+		case EArrayDecl(values):
+			exception = true;
+		case EObjectDecl(fields):
+			exception = true;
+		case EIs(e, t):
 			exception = true;
 		default:
 	}
@@ -171,11 +178,12 @@ macro function range(key, value, x, expr) {
 	}
 	expr = func(expr);
 	#end
-	var xType = Context.typeof(x);
+	var xType = Context.followWithAbstracts(Context.typeof(x));
 	switch xType {
 		case TInst(t, params):
 			var name = t.get().name;
 			switch (name) {
+				case "Array":
 				case "String":
 					//x = macro new haxe.iterators.StringIterator($x);
 					x = macro $x.split("");

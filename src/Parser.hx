@@ -93,7 +93,13 @@ class Parser {
 
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
-				var line = 'import ${StringTools.replace(name, "/", ".")}';
+				name = StringTools.replace(name, "/", ".");
+				switch name {
+					case "Math":
+						name = "GoMath";
+						as = "Math";
+				}
+				var line = 'import $name';
 				if (as != "") {
 					line += ' as $as';
 				}
@@ -132,7 +138,6 @@ class Parser {
 				}
 			}
 		// write
-		trace("exportPathPath",exportPath + path);
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
@@ -145,16 +150,7 @@ class Parser {
 				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0)
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); // add methods to stack
 				if (struct.interfacebool) {
-					main.push("@:forward");
-					main.push("abstract " + struct.name + "<T>(T) {");
-					main.push('public function new(?value) {');
-					main.push('this = value;');
-					main.push('}');
-					main.push("@:from");
-					main.push("public static function set(value) {");
-					main.push("return new " + struct.name + "(value);");
-					main.push("}");
-					main.push('}');
+					main.push("typedef " + struct.name + " = Dynamic");
 				}else{
 					var ty = "class ";
 					var end = "";

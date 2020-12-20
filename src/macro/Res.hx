@@ -25,7 +25,7 @@ class Res {
 				if (FileSystem.isDirectory(path + name)) {
 					readDir(path + name);
 				} else {
-					var className = path.substr(4) + name.withoutExtension().toLowerCase();
+					var className = path.substr(4) + name.withoutExtension();
 					Context.addResource(className, File.getBytes(path + name));
 				}
 			}

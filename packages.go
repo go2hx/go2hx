@@ -582,6 +582,12 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 		} else {
 			if len(data.vars) == 1 {
 				buffer += data.vars[0]
+			} else if len(data.vars) > 1 {
+				params := []string{}
+				for i := 0; i < len(data.vars); i++ {
+					params = append(params,data.vars[i] + ":" + data.vars[i])
+				}
+				buffer += "{" + strings.Join(params,", ") + "}"
 			}
 		}
 		buffer += ";\n"
@@ -1260,6 +1266,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 }
 func parseRes(res []string, numFields int,data *funcData) string {
 	buffer := ""
+	index := 0
+	for _,str := range res {
+		index = strings.Index(str,":")
+		if index != -1 {
+			data.vars = append(data.vars,string(str[0:index]))
+			data.types = append(data.types, string(str[index + 1:]))
+		}
+	}
 	if len(res) == 0 {
 		if numFields > 0 {
 			return "Any"
@@ -1268,15 +1282,12 @@ func parseRes(res []string, numFields int,data *funcData) string {
 		}
 	} else if len(res) == 1 {
 		buffer += res[0]
-		index := strings.Index(buffer,":")
-		if index != -1 {
-			data.vars = append(data.vars,string(buffer[0:index]))
-			ty := string(buffer[index + 1:])
-			data.types = append(data.types, ty)
-			return ty
+		if index != -1 && len(data.vars) == 1 {
+			return data.types[0]
 		}
 	}
 	if len(res) != 1 {
+		
 		buffer = "{" + strings.Join(res,",") + "}"
 	}
 	return buffer

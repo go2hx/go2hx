@@ -229,6 +229,10 @@ type source struct {
 	file ast.File
 	path string
 }
+type funcData struct {
+	vars []string
+	types []string
+}
 
 func main() {
 	dir, _ := osext.ExecutableFolder()
@@ -282,7 +286,8 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	exportPath := "export.bson" //filepath.Join(dir, "export.bson")
+	//exportPath := "export.bson" 
+	exportPath := filepath.Join(dir, "export.bson")
 	os.Remove(exportPath)
 	_ = ioutil.WriteFile(exportPath, bytes, 0644)
 
@@ -301,8 +306,8 @@ func main() {
 	cmd.Dir = dir
 	out, err := cmd.CombinedOutput()
 	fmt.Println(string(out[:]))
-	out, _ = exec.Command("parser", binPath).Output()
-	fmt.Println(string(out[:]))
+	/*out, _ = exec.Command("parser", binPath).Output()
+	fmt.Println(string(out[:]))*/
 	//print go
 	if generateGo {
 		fmt.Println("sources", len(sources))
@@ -347,15 +352,15 @@ func load(pkg *packages.Package) {
 var lastValue ast.Expr
 
 func compile(src source) {
-	data := packageType{}
-	data.PackagePath = src.path
+	export := packageType{}
+	export.PackagePath = src.path
 	file = src.file
 
 	if file.Name != nil {
-		data.Name = file.Name.Name
+		export.Name = file.Name.Name
 	}
 	for _, decl := range file.Decls {
-		//fmt.Println(ast.Print(nil, decl))
+		fmt.Println(ast.Print(nil, decl))
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
 			iotaIndex = -1
@@ -369,7 +374,7 @@ func compile(src source) {
 						if spec.Name != nil {
 							imp[1] = spec.Name.Name
 						}
-						data.Imports = append(data.Imports, imp)
+						export.Imports = append(export.Imports, imp)
 						name := getName(path)
 						replaceMap[imp[1]] = strings.Title(imp[1])
 						replaceMap[name] = strings.Title(name)
@@ -422,7 +427,7 @@ func compile(src source) {
 							lastValue = spec.Values[i]
 						}
 						v.Value = parseExpr(spec.Values[i], false)
-						data.Vars = append(data.Vars, v)
+						export.Vars = append(export.Vars, v)
 					}
 				case *ast.TypeSpec:
 					ty := structType{}
@@ -444,13 +449,14 @@ func compile(src source) {
 					default:
 						fmt.Println("type spec type unknown", reflect.TypeOf(structType))
 					}
-					data.Structs = append(data.Structs, ty)
+					export.Structs = append(export.Structs, ty)
 				default:
 					_ = spec
 					fmt.Println("spec not found", reflect.TypeOf(spec))
 				}
 			}
 		case *ast.FuncDecl:
+			data := funcData{}
 			deferStack = []string{}
 			replaceFunctionContext = make(map[string]string)
 			funcDecl = decl
@@ -472,7 +478,7 @@ func compile(src source) {
 				fn.Params = parseFields(decl.Type.Params.List, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false), decl.Type.Results.NumFields())
+				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false), decl.Type.Results.NumFields(),&data)
 			} else {
 				fn.Result = ":Void"
 			}
@@ -493,19 +499,19 @@ func compile(src source) {
 				}
 			}
 			if decl.Body != nil {
-				fn.Body = parseBody(decl.Body.List)
+				fn.Body = parseBody(decl.Body.List,&data)
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
 
 			}
-			data.Funcs = append(data.Funcs, fn)
+			export.Funcs = append(export.Funcs, fn)
 		default:
 			_ = decl
 			fmt.Println("decl not found loader", reflect.TypeOf(decl))
 		}
 	}
-	exportData.Pkgs = append(exportData.Pkgs, data)
+	exportData.Pkgs = append(exportData.Pkgs, export)
 }
 func parseComment(comments *ast.CommentGroup) string {
 	if comments == nil {
@@ -532,7 +538,7 @@ func addDebug(obj interface{}) string {
 	}
 	return ""
 }
-func parseStatement(stmt ast.Stmt, init bool) []string {
+func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 	case *ast.LabeledStmt:
@@ -573,15 +579,19 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			buffer += "}"
 		} else if len(stmt.Results) == 1 {
 			buffer += parseExpr(stmt.Results[0], false)
+		} else {
+			if len(data.vars) == 1 {
+				buffer += data.vars[0]
+			}
 		}
 		buffer += ";\n"
 		body = append(body, buffer)
 	case *ast.TypeSwitchStmt:
 		buffer := "{\n"
 		if stmt.Init != nil {
-			buffer += strings.Join(parseStatement(stmt.Init, true), "\n")
+			buffer += strings.Join(parseStatement(stmt.Init, true,nil), "\n")
 		}
-		asserted := strings.Join(parseStatement(stmt.Assign, true), "")
+		asserted := strings.Join(parseStatement(stmt.Assign, true,nil), "")
 		//buffer += strings.Join(parseStatement(stmt.Assign, true), "")
 		def := ast.CaseClause{}
 		setDefault := false
@@ -614,7 +624,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 	case *ast.SwitchStmt:
 		buffer := ""
 		if stmt.Init != nil {
-			buffer += "{" + strings.Join(parseStatement(stmt.Init, true), "\n")
+			buffer += "{" + strings.Join(parseStatement(stmt.Init, true,nil), "\n")
 		}
 		if stmt.Tag == nil {
 			//if statements
@@ -648,7 +658,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			//actual switch
 			buffer += "switch(" + parseExpr(stmt.Tag, false) + ") {\n"
 			//body
-			buffer += strings.Join(parseBody(stmt.Body.List), "\n")
+			buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n")
 			buffer += "}"
 		}
 		if stmt.Init != nil {
@@ -708,14 +718,14 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			}
 		}
 		if stmt.Post != nil {
-			buffer += "cfor("
+			buffer += "Go.cfor("
 		} else {
 			buffer += "while("
 		}
 		if stmt.Cond != nil {
 			buffer += parseExpr(stmt.Cond, false)
 			if stmt.Post != nil {
-				buffer += "," + strings.Join(parseStatement(stmt.Post, false), "\n") + ","
+				buffer += "," + strings.Join(parseStatement(stmt.Post, false,nil), "\n") + ","
 			}
 		} else {
 			buffer += "true"
@@ -726,7 +736,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			buffer += " {\n"
 		}
 
-		buffer += strings.Join(parseBody(stmt.Body.List), "\n")
+		buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n")
 		buffer += "}"
 		if stmt.Post != nil {
 			buffer += ");"
@@ -750,15 +760,15 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			}
 		}
 		buffer += "if(" + parseExpr(stmt.Cond, false) + ") {"
-		buffer += strings.Join(parseBody(stmt.Body.List), "")
+		buffer += strings.Join(parseBody(stmt.Body.List,nil), "")
 		buffer += "}"
 		if stmt.Else != nil {
 			buffer += "else {"
 			switch stmt := stmt.Else.(type) {
 			case *ast.BlockStmt:
-				buffer += strings.Join(parseBody(stmt.List), "")
+				buffer += strings.Join(parseBody(stmt.List,nil), "")
 			default:
-				buffer += strings.Join(parseStatement(stmt, true), "")
+				buffer += strings.Join(parseStatement(stmt, true,nil), "")
 			}
 			buffer += "}"
 		}
@@ -776,7 +786,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 			buffer += "default"
 		}
 		buffer += ":\n"
-		buffer += strings.Join(parseBody(stmt.Body), "\n")
+		buffer += strings.Join(parseBody(stmt.Body,nil), "\n")
 		body = append(body, buffer)
 	case *ast.GoStmt:
 		body = append(body, "//go routines not supported yet\n")
@@ -784,10 +794,10 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 		buffer := parseExpr(stmt.X, false) + stmt.Tok.String() + addSemicolon(stmt, init)
 		body = append(body, buffer)
 	case *ast.RangeStmt:
-		buffer := "range(" + parseExpr(stmt.Key, false) + ","
+		buffer := "Go.range(" + parseExpr(stmt.Key, false) + ","
 		buffer += parseExpr(stmt.Value, false) + ","
 		buffer += parseExpr(stmt.X, false) + ", {\n"
-		buffer += strings.Join(parseBody(stmt.Body.List), "\n") + "});"
+		buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n") + "});"
 		body = append(body, buffer)
 	case *ast.DeferStmt:
 		buffer := parseExpr(stmt.Call, init) + "/*defer*/"
@@ -801,11 +811,11 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 	}
 	return body
 }
-func parseBody(stmts []ast.Stmt) []string {
+func parseBody(stmts []ast.Stmt,data *funcData) []string {
 	body := []string{}
 	before := len(labels)
 	for _, stmt := range stmts {
-		body = append(body, parseStatement(stmt, true)...)
+		body = append(body, parseStatement(stmt, true,data)...)
 	}
 	if before != len(labels) {
 		tmp := labels[before:len(labels)]
@@ -814,6 +824,14 @@ func parseBody(stmts []ast.Stmt) []string {
 		}
 		//slice
 		labels = labels[0:before]
+	}
+	if len(data.vars) > 0 {
+		vars := []string{}
+		for i := 0; i < len(data.vars); i++ {
+			vars = append(vars, "var " + data.vars[i] + " = " + getDefaultTypeFromName(untitle(data.types[i])) + ";")
+		}
+		fmt.Println("vars:",vars)
+		body = append(vars, body...)
 	}
 	return body
 }
@@ -857,14 +875,19 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 		if set == "null" {
 			empty = true
 		}
+		copyBool := true
 		if !empty {
-			if stmt.Tok.String() == ":=" {
+			switch stmt.Tok.String() {
+			case ":=":
 				buffer += "var "
+			case "=":
+			default:
+				copyBool = false
 			}
-			buffer += set + " = "
+			
+			buffer += set + " " + stmt.Tok.String()
 		}
 		str := parseExpr(stmt.Rhs[i], false)
-		copyBool := true
 		switch stmt.Rhs[i].(type) {
 			case *ast.BasicLit:
 				copyBool = false
@@ -977,6 +1000,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
+		data := funcData{}
 		params := parseFields(expr.Params.List, false)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
@@ -991,7 +1015,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += "Void"
 		} else {
 			res := parseFields(expr.Results.List, false)
-			resString := parseRes(res, expr.Results.NumFields())
+			resString := parseRes(res, expr.Results.NumFields(),&data)
 			buffer += resString
 		}
 	case *ast.Ident:
@@ -1025,6 +1049,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer += parseExpr(expr.Value, false)
 	case *ast.FuncLit:
 		buffer = "{\n"
+		data := funcData{}
 		buffer += "function anon("
 		if expr.Type.Params != nil {
 			params := parseFields(expr.Type.Params.List, false)
@@ -1032,12 +1057,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List, false), expr.Type.Results.NumFields())
+			buffer += parseRes(parseFields(expr.Type.Results.List, false), expr.Type.Results.NumFields(),&data)
 		} else {
 			buffer += "Void"
 		}
 		buffer += " {\n"
-		buffer += strings.Join(parseBody(expr.Body.List), "")
+		buffer += strings.Join(parseBody(expr.Body.List,&data), "")
 		buffer += "}\n"
 		buffer += "anon();\n"
 		buffer += "}"
@@ -1138,7 +1163,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 				case "this":
 					name = ""
 				case "string":
-					name = "str"
+					name = "Go.str"
 				case "int64":
 					name = ""
 				case "make":
@@ -1233,7 +1258,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	return buffer
 }
-func parseRes(res []string, numFields int) string {
+func parseRes(res []string, numFields int,data *funcData) string {
 	buffer := ""
 	if len(res) == 0 {
 		if numFields > 0 {
@@ -1243,13 +1268,31 @@ func parseRes(res []string, numFields int) string {
 		}
 	} else if len(res) == 1 {
 		buffer += res[0]
-	} else {
-		buffer += "{"
-
-		buffer += strings.Join(res, ",")
-		buffer += "}"
+		index := strings.Index(buffer,":")
+		if index != -1 {
+			data.vars = append(data.vars,string(buffer[0:index]))
+			ty := string(buffer[index + 1:])
+			data.types = append(data.types, ty)
+			return ty
+		}
+	}
+	if len(res) != 1 {
+		buffer = "{" + strings.Join(res,",") + "}"
 	}
 	return buffer
+}
+func getDefaultTypeFromName(name string) string {
+	switch name {
+	case "int", "float", "uint64", "uint", "int64", "float64":
+		return "0"
+	case "string":
+		return "''"
+	case "bool":
+		return "false"
+	default:
+		//return "new " + defType + "()"
+		return "null"
+	}
 }
 func getDefaultType(expr ast.Expr, defType string) string {
 	switch expr := expr.(type) {
@@ -1264,17 +1307,7 @@ func getDefaultType(expr ast.Expr, defType string) string {
 		return buffer*/
 		return "null"
 	case *ast.Ident:
-		switch expr.Name {
-		case "int", "float", "uint64", "uint", "int64", "float64":
-			return "0"
-		case "string":
-			return "''"
-		case "bool":
-			return "false"
-		default:
-			//return "new " + defType + "()"
-			return "null"
-		}
+		return getDefaultTypeFromName(expr.Name)
 	default:
 		_ = expr
 		return "null"
@@ -1304,7 +1337,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 		buffer += ") "
 	}
 	buffer += "{\n"
-	buffer += strings.Join(parseBody(stmt.Body), "")
+	buffer += strings.Join(parseBody(stmt.Body,nil), "")
 	buffer += "}"
 	return buffer
 }

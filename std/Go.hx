@@ -7,15 +7,14 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // typedef Byte = haxe.io.Bytes
-function panic(v) {
-	throw v;
-}
+
 
 function str(v:Dynamic):String {
 	return v.toString();
 }
 inline function slice<T>(src:Vector<T>,low:Int,high:Int=0,max:Int=0):Vector<T> {
-	return Vector.blit(src,start)
+	Vector.blit(src,low,src,low + high,low + high + max);
+	return src;
 }
 
 macro function copy(expr) {
@@ -36,6 +35,22 @@ macro function copy(expr) {
 		case EBinop(op, e1, e2):
 			exception = true;
 		case ECall(e, params):
+			switch e.expr {
+				case EField(f, field):
+					switch f.expr {
+						case EConst(c):
+							switch c {
+								case CIdent(s):
+									trace("s: " + s);
+									if (s == "Go")
+										exception = true;
+								default:
+							}
+						default:
+					}
+				default:
+			}
+			trace("e: " + e);
 		default:
 			trace("expr: " + expr.expr);
 	}
@@ -55,7 +70,7 @@ macro function copy(expr) {
 					values.push('$main.' + field.name);
 				}
 				var str = "new " + t.pack.join(".") + t.name+ '(${values.join(",")})';
-				trace("copy str: " + str);
+				//trace("copy str: " + str);
 				var init = Context.parse(str,Context.currentPos());
 				return macro $init;
 			case TMono(t):
@@ -67,7 +82,7 @@ macro function copy(expr) {
 			default:
 				trace("copy type unknown: " + type);
 		}
-		return macro null;
+		return macro expr;
 	}
 }
 

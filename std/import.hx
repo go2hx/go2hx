@@ -1,11 +1,6 @@
 package;
 
 // https://haxe.org/manual/type-system-import-defaults.html , thanks Nadako for the refrence :)
-import Go.cfor;
-import Go.str;
-import Go.setMulti;
-import Go.range;
-import Go.slice;
 
 import Builtin.append;
 import Builtin.close;

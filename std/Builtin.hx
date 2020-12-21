@@ -26,7 +26,7 @@ macro function complex(r, i) {
 }
 
 inline function copy(dst, src) {
-	dst = Go.copy(src);
+	//dst = Go.copy(src);
 }
 
 macro function delete(map:Expr, key:Expr) {

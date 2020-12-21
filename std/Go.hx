@@ -50,7 +50,7 @@ macro function copy(expr) {
 					}
 				default:
 			}
-			trace("e: " + e);
+			//trace("e: " + e);
 		default:
 			trace("expr: " + expr.expr);
 	}

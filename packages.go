@@ -205,7 +205,6 @@ var ellipsisFuncMap = map[string]int{}
 var exportData = Data{}
 var debugComment = !true
 var debugTypeTrace = false
-var noFieldName = false
 var mapField = false
 var asserted = ""
 var labels = []string{}
@@ -360,7 +359,7 @@ func compile(src source) {
 		export.Name = file.Name.Name
 	}
 	for _, decl := range file.Decls {
-		fmt.Println(ast.Print(nil, decl))
+		//fmt.Println(ast.Print(nil, decl))
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
 			iotaIndex = -1
@@ -437,7 +436,7 @@ func compile(src source) {
 					replaceMap[spec.Name.Name] = ty.Name
 					switch structType := spec.Type.(type) {
 					case *ast.StructType:
-						ty.Fields = parseFields(structType.Fields.List, true)
+						ty.Fields = parseFields(structType.Fields.List, true,false)
 						//ty.Imps = imps
 					case *ast.InterfaceType:
 						imps = append(imps, ty.Name)
@@ -475,10 +474,10 @@ func compile(src source) {
 				fn.Doc = ""
 			}
 			if decl.Type.Params != nil {
-				fn.Params = parseFields(decl.Type.Params.List, false)
+				fn.Params = parseFields(decl.Type.Params.List, false,false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false), decl.Type.Results.NumFields(),&data)
+				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false,true), decl.Type.Results.NumFields(),&data)
 			} else {
 				fn.Result = ":Void"
 			}
@@ -831,12 +830,11 @@ func parseBody(stmts []ast.Stmt,data *funcData) []string {
 		//slice
 		labels = labels[0:before]
 	}
-	if len(data.vars) > 0 {
+	if data != nil && len(data.vars) > 0 {
 		vars := []string{}
 		for i := 0; i < len(data.vars); i++ {
 			vars = append(vars, "var " + data.vars[i] + " = " + getDefaultTypeFromName(untitle(data.types[i])) + ";")
 		}
-		fmt.Println("vars:",vars)
 		body = append(vars, body...)
 	}
 	return body
@@ -853,7 +851,7 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool) string {
 		}
 		args = append(args, set)
 	}
-	buffer += "setMulti([" + strings.Join(args, ",") + "],"
+	buffer += "Go.setMulti([" + strings.Join(args, ",") + "],"
 	buffer += parseExpr(stmt.Rhs[0], false) + ")"
 	buffer += addSemicolon(stmt, init)
 	return buffer
@@ -882,16 +880,18 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 			empty = true
 		}
 		copyBool := true
+		tok := stmt.Tok.String()
 		if !empty {
-			switch stmt.Tok.String() {
+			switch tok {
 			case ":=":
 				buffer += "var "
+				tok = "="
 			case "=":
 			default:
 				copyBool = false
 			}
 			
-			buffer += set + " " + stmt.Tok.String()
+			buffer += set + " " + tok
 		}
 		str := parseExpr(stmt.Rhs[i], false)
 		switch stmt.Rhs[i].(type) {
@@ -955,25 +955,27 @@ func parseTypeExpr(expr ast.Expr) string {
 	}
 	return parseExpr(expr, false)
 }
-func parseFields(list []*ast.Field, defaults bool) []string {
+func parseFields(list []*ast.Field, defaults bool,result bool) []string {
 	array := []string{}
 	buffer := ""
-	for _, field := range list {
+	for index,field := range list {
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
-			array = append(array, ty)
+			if result {
+				array = append(array, "v" + strconv.Itoa(index) + ":" + ty)
+			}else{
+				array = append(array, ty)
+			}
 		} else {
 			for _, name := range field.Names {
-				if !noFieldName {
-					buffer = parseExpr(name, false)
-					buffer += ":"
-				}
+				name := parseExpr(name, false)
+				buffer = name + ":"
 				buffer += ty
 				if defaults {
 					buffer += " = " + getDefaultType(field.Type, parseTypeExpr(field.Type))
 				}
-				array = append(array, buffer)
 			}
+			array = append(array, buffer)
 		}
 	}
 	return array
@@ -1007,7 +1009,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		data := funcData{}
-		params := parseFields(expr.Params.List, false)
+		params := parseFields(expr.Params.List, false,false)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer += "Void"
@@ -1020,7 +1022,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Results == nil {
 			buffer += "Void"
 		} else {
-			res := parseFields(expr.Results.List, false)
+			res := parseFields(expr.Results.List, false,true)
 			resString := parseRes(res, expr.Results.NumFields(),&data)
 			buffer += resString
 		}
@@ -1042,15 +1044,13 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
-		buffer = strings.Join(parseFields(expr.Fields.List, true), ",\n")
+		buffer = strings.Join(parseFields(expr.Fields.List, true,false), ",\n")
 	case *ast.KeyValueExpr: //map
-		if !noFieldName {
-			buffer = parseExpr(expr.Key, false)
-			if mapField {
-				buffer += " : "
-			} else {
-				buffer += " => "
-			}
+		buffer = parseExpr(expr.Key, false)
+		if mapField {
+			buffer += " : "
+		} else {
+			buffer += " => "
 		}
 		buffer += parseExpr(expr.Value, false)
 	case *ast.FuncLit:
@@ -1058,12 +1058,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 		data := funcData{}
 		buffer += "function anon("
 		if expr.Type.Params != nil {
-			params := parseFields(expr.Type.Params.List, false)
+			params := parseFields(expr.Type.Params.List, false,false)
 			buffer += strings.Join(params, ",")
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List, false), expr.Type.Results.NumFields(),&data)
+			buffer += parseRes(parseFields(expr.Type.Results.List, false,true), expr.Type.Results.NumFields(),&data)
 		} else {
 			buffer += "Void"
 		}
@@ -1225,9 +1225,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer = "[" + strings.Join(parseExprs(expr.Elts, false), ",") + "]"
 		case *ast.SelectorExpr, *ast.Ident:
 			buffer = "new " + parseTypeExpr(ty) + "("
-			noFieldName = true
 			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
-			noFieldName = false
 			buffer += ")"
 		case *ast.MapType:
 			buffer = "["

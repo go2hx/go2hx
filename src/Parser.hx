@@ -40,6 +40,7 @@ class Parser {
 			files.remove("build.hxml");
 			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
 		}
+		trace("path: " + Sys.getCwd());
 		Sys.command("haxe build.hxml");
 	}
 

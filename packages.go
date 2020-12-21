@@ -64,7 +64,7 @@ type structType struct {
 	InterfaceMethods []string `json:"interfaceMethods"` //interface haxe
 	InterfaceBool    bool     `json:"interfaceBool"`    //toggles interface whether it's an interface or class
 	Imps             []string `json:"imps"`             //interface implements
-	Define string `json:"define"`
+	Define           string   `json:"define"`
 }
 
 // Example demonstrates how to load the packages specified on the
@@ -237,7 +237,6 @@ func main() {
 	o, _ := cmd.CombinedOutput()
 	fmt.Println((string(o[:])))
 
-
 	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range goTypes {
 		replaceMap[ty] = strings.Title(ty)
@@ -283,7 +282,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	exportPath := filepath.Join(dir, "export.bson")
+	exportPath := "export.bson" //filepath.Join(dir, "export.bson")
 	os.Remove(exportPath)
 	_ = ioutil.WriteFile(exportPath, bytes, 0644)
 
@@ -300,7 +299,9 @@ func main() {
 	}
 	cmd = exec.Command("neko", "parser.n", binPath)
 	cmd.Dir = dir
-	out, _ := cmd.CombinedOutput()
+	out, err := cmd.CombinedOutput()
+	fmt.Println(string(out[:]))
+	out, _ = exec.Command("parser", binPath).Output()
 	fmt.Println(string(out[:]))
 	//print go
 	if generateGo {
@@ -342,7 +343,9 @@ func load(pkg *packages.Package) {
 		}
 	}
 }
+
 var lastValue ast.Expr
+
 func compile(src source) {
 	data := packageType{}
 	data.PackagePath = src.path
@@ -375,7 +378,7 @@ func compile(src source) {
 					}
 				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
 					/*if v, ok := spec.Values[0].(*ast.Ident); ok && v.Name == "iota" {
-						
+
 					}*/
 					iotaBool := false
 					if len(spec.Values) > 0 {
@@ -392,15 +395,15 @@ func compile(src source) {
 						if lastValue == nil {
 							iotaIndex++
 							spec.Values = append(spec.Values, &ast.BasicLit{
-								Kind: token.INT,
+								Kind:  token.INT,
 								Value: strconv.Itoa(iotaIndex),
 							})
 							iotaBool = true
 							lastValue = nil
-						}else{
+						} else {
 							spec.Values = append(spec.Values, lastValue)
 						}
-						
+
 					}
 					for i := range spec.Names {
 						v := varType{}
@@ -432,7 +435,7 @@ func compile(src source) {
 						ty.Fields = parseFields(structType.Fields.List, true)
 						//ty.Imps = imps
 					case *ast.InterfaceType:
-						imps = append(imps,ty.Name)
+						imps = append(imps, ty.Name)
 						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
 						ty.Define = parseTypeExpr(spec.Type)
@@ -455,7 +458,7 @@ func compile(src source) {
 			fn.Exported = decl.Name.IsExported()
 			fn.Name = reserved(untitle(decl.Name.Name))
 			if fn.Name == "newUintValue" {
-				ast.Print(nil,decl)
+				ast.Print(nil, decl)
 			}
 			if fn.Name != decl.Name.Name {
 				replaceMap[decl.Name.Name] = fn.Name
@@ -469,7 +472,7 @@ func compile(src source) {
 				fn.Params = parseFields(decl.Type.Params.List, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false),decl.Type.Results.NumFields())
+				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false), decl.Type.Results.NumFields())
 			} else {
 				fn.Result = ":Void"
 			}
@@ -494,7 +497,7 @@ func compile(src source) {
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
-				
+
 			}
 			data.Funcs = append(data.Funcs, fn)
 		default:
@@ -664,7 +667,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 						name := spec.Names[i].Name
 						if name == "null" {
 							buffer = ""
-						}else{
+						} else {
 							buffer += "var " + name
 						}
 						defType := ""
@@ -675,7 +678,7 @@ func parseStatement(stmt ast.Stmt, init bool) []string {
 						if len(spec.Values) > i {
 							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false) + ")"
 						} else {
-							buffer += " = " + getDefaultType(spec.Type,defType)
+							buffer += " = " + getDefaultType(spec.Type, defType)
 						}
 						buffer += addSemicolon(stmt, init)
 					}
@@ -874,11 +877,11 @@ func parseTypeExpr(expr ast.Expr) string {
 		x := parseTypeExpr(expr.X)
 		return "Pointer<" + x + ">"
 	case *ast.Ident:
-		value,ok := replaceTypeMap[expr.Name]
+		value, ok := replaceTypeMap[expr.Name]
 		if ok {
 			return value
 		}
-		for _,imp := range imps {
+		for _, imp := range imps {
 			if imp == expr.Name {
 				return "Any"
 			}
@@ -915,7 +918,7 @@ func parseFields(list []*ast.Field, defaults bool) []string {
 				}
 				buffer += ty
 				if defaults {
-					buffer += " = " + getDefaultType(field.Type,parseTypeExpr(field.Type))
+					buffer += " = " + getDefaultType(field.Type, parseTypeExpr(field.Type))
 				}
 				array = append(array, buffer)
 			}
@@ -965,7 +968,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += "Void"
 		} else {
 			res := parseFields(expr.Results.List, false)
-			resString := parseRes(res,expr.Results.NumFields())
+			resString := parseRes(res, expr.Results.NumFields())
 			buffer += resString
 		}
 	case *ast.Ident:
@@ -1006,7 +1009,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List, false),expr.Type.Results.NumFields())
+			buffer += parseRes(parseFields(expr.Type.Results.List, false), expr.Type.Results.NumFields())
 		} else {
 			buffer += "Void"
 		}
@@ -1096,10 +1099,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 		switch initType := expr.Fun.(type) {
 		case *ast.FuncLit:
 			finish = false
-			buffer = parseExpr(initType,false)
+			buffer = parseExpr(initType, false)
 		case *ast.Ident:
 			name := rename(initType.Name)
-			for _,n := range typeNames {
+			for _, n := range typeNames {
 				if n == name {
 					start = false
 					name = "new " + name
@@ -1134,7 +1137,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			}
 		case *ast.ParenExpr: //casting conversion
 			if len(expr.Args) == 1 {
-				buffer = "cast(" +  parseExpr(expr.Args[0],false) + "," + parseTypeExpr(expr.Fun.(*ast.ParenExpr).X) + ")"
+				buffer = "cast(" + parseExpr(expr.Args[0], false) + "," + parseTypeExpr(expr.Fun.(*ast.ParenExpr).X) + ")"
 				finish = false
 			}
 		default:
@@ -1143,7 +1146,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if finish {
 			args := parseExprs(expr.Args, false)
 			if expr.Ellipsis != token.NoPos {
-				args[len(args) - 1] = "..." + args[len(args) - 1]
+				args[len(args)-1] = "..." + args[len(args)-1]
 			}
 			buffer += "(" + strings.Join(args, ", ") + ")"
 		}
@@ -1207,12 +1210,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	return buffer
 }
-func parseRes(res []string,numFields int) string {
+func parseRes(res []string, numFields int) string {
 	buffer := ""
 	if len(res) == 0 {
 		if numFields > 0 {
 			return "Any"
-		}else{
+		} else {
 			return "Void"
 		}
 	} else if len(res) == 1 {
@@ -1325,6 +1328,7 @@ func reserved(str string) string {
 	}
 	return strings.Join([]string{str, "tmp"}, "_")
 }
+
 //https://github.com/elliotchance/switch-check/blob/master/main.go
 func getIotaType(ty ast.Expr, values []ast.Expr) ast.Expr {
 	if len(values) == 0 {
@@ -1402,7 +1406,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						for _,name := range specType.Names {
+						for _, name := range specType.Names {
 							replaceMap[name.Name] = untitle(name.Name)
 						}
 					case *ast.TypeSpec:

@@ -863,7 +863,30 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 			}
 			buffer += set + " = "
 		}
-		buffer += "Go.copy(" + parseExpr(stmt.Rhs[i], false) + ")"
+		str := parseExpr(stmt.Rhs[i], false)
+		copyBool := true
+		switch stmt.Rhs[i].(type) {
+			case *ast.BasicLit:
+				copyBool = false
+			case *ast.SelectorExpr:
+				switch stmt.Rhs[i].(*ast.SelectorExpr).Sel.Name {
+				case "new":
+					copyBool = false
+				}
+			case *ast.CallExpr:
+				switch initType := stmt.Rhs[i].(*ast.CallExpr).Fun.(type) {
+					case *ast.Ident:
+						switch initType.Name {
+						case "make","new","append","copy":
+							copyBool = false
+						}
+					}
+		}
+		if copyBool {
+			buffer += "Go.copy(" + str + ")"
+		}else{
+			buffer += str
+		}
 		buffer += addSemicolon(stmt, init)
 	}
 	return buffer

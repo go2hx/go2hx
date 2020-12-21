@@ -5,6 +5,7 @@ import Go.cfor;
 import Go.str;
 import Go.setMulti;
 import Go.range;
+import Go.slice;
 
 import Builtin.append;
 import Builtin.close;

@@ -14,9 +14,12 @@ function panic(v) {
 function str(v:Dynamic):String {
 	return v.toString();
 }
+inline function slice<T>(src:Vector<T>,low:Int,high:Int=0,max:Int=0):Vector<T> {
+	return Vector.blit(src,start)
+}
 
 macro function copy(expr) {
-	var type = Context.typeof(expr);
+	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var exception = false;
 	//trace("expr: " + expr.expr);
 	switch expr.expr {
@@ -28,7 +31,13 @@ macro function copy(expr) {
 			exception = true;
 		case EIs(e, t):
 			exception = true;
+		case EConst(c):
+			exception = true;
+		case EBinop(op, e1, e2):
+			exception = true;
+		case ECall(e, params):
 		default:
+			trace("expr: " + expr.expr);
 	}
 	if (isBasic(type) || exception) {
 		return expr;
@@ -45,8 +54,16 @@ macro function copy(expr) {
 				for (field in fields) {
 					values.push('$main.' + field.name);
 				}
-				var init = Context.parse("new " + t.pack.join(".") + t.name+ '(${values.join(",")})',Context.currentPos());
+				var str = "new " + t.pack.join(".") + t.name+ '(${values.join(",")})';
+				trace("copy str: " + str);
+				var init = Context.parse(str,Context.currentPos());
 				return macro $init;
+			case TMono(t):
+				var t = t.get();
+				switch t {
+					default:
+						trace("unknown tmono type: " + t);
+				}
 			default:
 				trace("copy type unknown: " + type);
 		}

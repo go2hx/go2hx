@@ -17,7 +17,7 @@ inline function slice<T>(src:Vector<T>,low:Int,high:Int=0,max:Int=0):Vector<T> {
 	return src;
 }
 
-macro function copy(expr) {
+macro function copy(expr) { //slices and maps are ref types
 	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var exception = false;
 	//trace("expr: " + expr.expr);
@@ -42,7 +42,7 @@ macro function copy(expr) {
 							switch c {
 								case CIdent(s):
 									trace("s: " + s);
-									if (s == "Go")
+									if (s == "Go" || s == "Map") //map is by ref
 										exception = true;
 								default:
 							}

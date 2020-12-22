@@ -255,42 +255,8 @@ func main() {
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
-	// Examples: . , fmt, math, etc
-	flag.Parse()
-	args := flag.Args()
-	//parse out commands from source input
-	for i := 0; i < len(args); i++ {
-		str := args[i]
-		if string(str[0:1]) == "-" {
-			switch string(str[1:]) {
-			case "test", "testing":
-				cfg.Tests = true
-			}
-			args = append(args[:i], args[i+1:]...)
-		}
-	}
-	inital, err := packages.Load(cfg, args...)
-	if err != nil {
-		fmt.Fprintf(os.Stderr, "load: %v\n", err)
-		return
-	}
-	for i := 0; i < len(inital); i++ {
-		if inital[i] != nil {
-			load(inital[i])
-		}
-	}
-	for _, source := range sources {
-		compile(source)
-	}
-	bytes, err := bson.Marshal(exportData)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	//exportPath := "export.bson"
-	exportPath := filepath.Join(dir, "export.bson")
-	os.Remove(exportPath)
-	_ = ioutil.WriteFile(exportPath, bytes, 0644)
+	setup(dir)
+	
 
 	currentPath, err := os.Getwd()
 	fmt.Println("current path:", currentPath)
@@ -324,6 +290,54 @@ func main() {
 			printer.Fprint(f, token.NewFileSet(), &source.file)
 		}
 	}
+}
+func setup(dir string) {
+	// Examples: . , fmt, math, etc
+	flag.Parse()
+	args := flag.Args()
+	//parse out commands from source input
+	for i := 0; i < len(args); i++ {
+		str := args[i]
+		if string(str[0:1]) == "-" {
+			switch string(str[1:]) {
+			case "test", "testing":
+				cfg.Tests = true
+			}
+			args = append(args[:i], args[i+1:]...)
+		}
+	}
+	inital, err := packages.Load(cfg, args...)
+	runGoRenameBool := false
+	for _,pkg := range inital {
+		if runGoRename(pkg) {
+			runGoRenameBool = true
+		}
+	}
+	if runGoRenameBool {
+		//recursive try setup again
+		setup(dir)
+		return 
+	}
+	if err != nil {
+		fmt.Fprintf(os.Stderr, "load: %v\n", err)
+		return
+	}
+	for i := 0; i < len(inital); i++ {
+		if inital[i] != nil {
+			load(inital[i])
+		}
+	}
+	for _, source := range sources {
+		compile(source)
+	}
+	bytes, err := bson.Marshal(exportData)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	exportPath := filepath.Join(dir, "export.bson")
+	os.Remove(exportPath)
+	_ = ioutil.WriteFile(exportPath, bytes, 0644)
 }
 func load(pkg *packages.Package) {
 	str := strings.Replace(pkg.PkgPath, ".", "_", -1)
@@ -1450,6 +1464,58 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 	names[name] = true
 	return name
 }
+func setStructField(pkg *packages.Package, def string, field string, fields []string) string {
+	for i := 0; i < len(fields); i++ {
+		if untitle(field) == fields[i] {
+			fmt.Println("NAME CONFLICT",field,fields[i])
+			break
+		}
+	}
+	return untitle(field)
+}
+func runGoRename(pkg *packages.Package) bool {
+	names := make(map[string]bool)
+	structs := make(map[string][]string)
+	_ = names
+	//struct type
+	for _,file := range pkg.Syntax {
+		for i := 0; i < len(file.Decls); i++ {
+			switch decl := file.Decls[i].(type) {
+			case *ast.GenDecl: //token.IMPORT  *ImportSpec*ValueSpec*TypeSpec *ValueSpec
+				for _,spec := range decl.Specs {
+					switch spec := spec.(type) {
+					case *ast.TypeSpec:
+						switch typeExpr := spec.Type.(type) {
+						case *ast.StructType:
+							fields := structs[spec.Name.Name]
+							for _,field := range typeExpr.Fields.List {
+								for _,name := range field.Names {
+									fields = append(fields,setStructField(pkg,spec.Name.Name,name.Name,fields))
+								}
+							}
+							structs[spec.Name.Name] = fields
+						}
+					}
+				}
+			case *ast.FuncDecl:
+				if decl.Recv != nil {
+					recvName := ""
+					switch expr := decl.Recv.List[0].Type.(type) {
+					case *ast.StarExpr:
+						recvName = expr.X.(*ast.Ident).Name
+					case *ast.Ident:
+						recvName = expr.Name
+					}
+					fields := structs[recvName]
+					fields = append(fields, setStructField(pkg,recvName,decl.Name.Name,fields))
+					structs[recvName] = fields
+				}
+			}
+		}
+	}
+	fmt.Println("structs: ",structs["FlagSet"])
+	return false
+}
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}
 	data.Scope = &ast.Scope{}
@@ -1457,10 +1523,8 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data.Scope.Outer = &ast.Scope{}
 	data.Scope.Outer.Objects = map[string]*ast.Object{}
 	//data.Name = ast.NewIdent(pkg.Name)
-	names := make(map[string]bool)
 	imports := make(map[string]bool)
 	_ = imports
-	_ = names
 	// A language entity may be declared multiple
 	// times in different package files; only at
 	// build time declarations must be unique.
@@ -1499,14 +1563,14 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						for i, name := range specType.Names {
 							nameString := untitle(name.Name)
 							replaceMap[name.Name] = nameString
-							specType.Names[i].Name = scopePackageName(nameString,names,pkg)
+							specType.Names[i].Name = nameString
 						}
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {
 							replaceMap[specType.Name.Name] = name
 						}
-						specType.Name.Name = scopePackageName(name,names,pkg)
+						specType.Name.Name = name
 					default:
 						fmt.Println("spec not found2", reflect.TypeOf(spec))
 					}
@@ -1519,7 +1583,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				}
 				declData := ast.FuncDecl{}
 				declData.Name = decl.Name
-				declData.Name.Name = scopePackageName(decl.Name.Name,names,pkg)
+				declData.Name.Name = decl.Name.Name
 				declData.Type = decl.Type
 				declData.Body = decl.Body
 				declData.Recv = decl.Recv

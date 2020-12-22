@@ -1,3 +1,4 @@
+import haxe.Rest;
 import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
@@ -6,11 +7,8 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-macro function append(cond:Expr, args:Array<Expr>) {
-	return macro {
-		var src = $a{args};
-		haxe.ds.Vector.fromArrayCopy($cond.toArray().concat(src));
-	}
+inline function append<T>(array:Array<T>,args:Rest<T>) {
+	array = array.concat(args);
 }
 
 function cap(v) {
@@ -26,11 +24,12 @@ macro function complex(r, i) {
 }
 
 inline function copy(dst, src) {
-	//dst = Go.copy(src);
+	dst = Go.copy(src);
 }
 
-macro function delete(map:Expr, key:Expr) {
-	return macro null;
+inline function delete<K,V>(map:Map<K,V>, key:K) {
+	map.remove(key);
+	
 }
 
 macro function imag(c) {

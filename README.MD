@@ -12,10 +12,7 @@ Go Language to Haxe Language Transpiler
 # Roadmap
 
 * Finish writing go's core standard library in haxe e.g strconv, strings, utf8, os, net, encoding, a lot of crypto.
-* Add Pointer emulation.
 * Go routines using haxe 4.2's coroutines.
-* Change Arrays to Vectors.
-* Use data visualizer to see package import inheritance in order to map out exactly what should be in go's core standard library.
 * Pass the [test suite](https://github.com/pxshadow/go2hxtest)
 
 

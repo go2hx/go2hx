@@ -361,7 +361,6 @@ func compile(src source) {
 		export.Name = file.Name.Name
 	}
 	for _, decl := range file.Decls {
-		//fmt.Println(ast.Print(nil, decl))
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
 			iotaIndex = -1
@@ -896,6 +895,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 		}
 		str := parseExpr(stmt.Rhs[i], false)
 		switch stmt.Rhs[i].(type) {
+		case *ast.FuncLit:
+			copyBool = false
 		case *ast.BasicLit:
 			copyBool = false
 		case *ast.SelectorExpr:
@@ -960,6 +961,7 @@ func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 	array := []string{}
 	buffer := ""
 	for index, field := range list {
+		_ = index
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
 			if result {
@@ -975,10 +977,11 @@ func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 				if defaults {
 					buffer += " = " + getDefaultType(field.Type, parseTypeExpr(field.Type))
 				}
+				array = append(array, buffer)
 			}
-			array = append(array, buffer)
 		}
 	}
+	//fmt.Println("array field:",array)
 	return array
 }
 func parseFieldName(list []*ast.Field, index int) string {
@@ -1055,9 +1058,8 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		buffer += parseExpr(expr.Value, false)
 	case *ast.FuncLit:
-		buffer = "{\n"
 		data := funcData{}
-		buffer += "function anon("
+		buffer = "function("
 		if expr.Type.Params != nil {
 			params := parseFields(expr.Type.Params.List, false, false)
 			buffer += strings.Join(params, ",")
@@ -1071,8 +1073,6 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer += " {\n"
 		buffer += strings.Join(parseBody(expr.Body.List, &data), "")
 		buffer += "}\n"
-		buffer += "anon();\n"
-		buffer += "}"
 	case *ast.BasicLit: //A literal basic type
 		value := expr.Value
 		switch expr.Kind {
@@ -1151,10 +1151,13 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		finish := true
 		start := true
+		end := false
 		switch initType := expr.Fun.(type) {
 		case *ast.FuncLit:
-			finish = false
-			buffer = parseExpr(initType, false)
+			buffer = "{\n var a = "
+			buffer += parseExpr(initType, false)
+			buffer += ";\na"
+			end = true
 		case *ast.Ident:
 			name := renameString(initType.Name)
 			for _, n := range typeNames {
@@ -1206,6 +1209,10 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer += "(" + strings.Join(args, ", ") + ")"
 		}
 		buffer += addSemicolon(expr, init)
+		if end {
+			buffer += ";\n}"
+			buffer += addSemicolon(expr, init)
+		}
 	case *ast.UnaryExpr: //star and address
 		op := expr.Op.String()
 		switch op {
@@ -1431,6 +1438,18 @@ func scopeInsert(scope *ast.Scope, obj *ast.Object) {
 	}
 	scope.Insert(obj)
 }
+var gorenameExecuted = false
+func scopePackageName(name string, names map[string]bool,pkg *packages.Package) string {
+	if !names[name] {
+		names[name] = true
+		return name
+	}
+	gorenameExecuted = true
+	renameScope(pkg.ExportFile,name,"","_" + name)
+	name = "_" + name
+	names[name] = true
+	return name
+}
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}
 	data.Scope = &ast.Scope{}
@@ -1477,18 +1496,17 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 							continue
 						}
 					case *ast.ValueSpec:
-						for _, name := range specType.Names {
-							replaceMap[name.Name] = untitle(name.Name)
+						for i, name := range specType.Names {
+							nameString := untitle(name.Name)
+							replaceMap[name.Name] = nameString
+							specType.Names[i].Name = scopePackageName(nameString,names,pkg)
 						}
 					case *ast.TypeSpec:
 						name := strings.Title(specType.Name.Name)
 						if name != specType.Name.Name {
 							replaceMap[specType.Name.Name] = name
 						}
-						specType.Name.Name = name
-						if exports && !specType.Name.IsExported() {
-							continue
-						}
+						specType.Name.Name = scopePackageName(name,names,pkg)
 					default:
 						fmt.Println("spec not found2", reflect.TypeOf(spec))
 					}
@@ -1501,6 +1519,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				}
 				declData := ast.FuncDecl{}
 				declData.Name = decl.Name
+				declData.Name.Name = scopePackageName(decl.Name.Name,names,pkg)
 				declData.Type = decl.Type
 				declData.Body = decl.Body
 				declData.Recv = decl.Recv

@@ -12,6 +12,7 @@ import (
 	"github.com/kardianos/osext"
 	"go.mongodb.org/mongo-driver/bson"
 
+	"go/build"
 	"go/printer"
 	"go/token"
 
@@ -27,6 +28,7 @@ import (
 	//"golang.org/x/tools/go/ast/inspector"
 	"go/ast"
 	//"golang.org/x/tools/go/ssa"
+	"golang.org/x/tools/refactor/rename"
 )
 
 type Data struct {
@@ -229,7 +231,7 @@ type source struct {
 	path string
 }
 type funcData struct {
-	vars []string
+	vars  []string
 	types []string
 }
 
@@ -285,7 +287,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	//exportPath := "export.bson" 
+	//exportPath := "export.bson"
 	exportPath := filepath.Join(dir, "export.bson")
 	os.Remove(exportPath)
 	_ = ioutil.WriteFile(exportPath, bytes, 0644)
@@ -436,7 +438,7 @@ func compile(src source) {
 					replaceMap[spec.Name.Name] = ty.Name
 					switch structType := spec.Type.(type) {
 					case *ast.StructType:
-						ty.Fields = parseFields(structType.Fields.List, true,false)
+						ty.Fields = parseFields(structType.Fields.List, true, false)
 						//ty.Imps = imps
 					case *ast.InterfaceType:
 						imps = append(imps, ty.Name)
@@ -462,9 +464,6 @@ func compile(src source) {
 			fn := funcType{}
 			fn.Exported = decl.Name.IsExported()
 			fn.Name = reserved(untitle(decl.Name.Name))
-			if fn.Name == "newUintValue" {
-				ast.Print(nil, decl)
-			}
 			if fn.Name != decl.Name.Name {
 				replaceMap[decl.Name.Name] = fn.Name
 			}
@@ -474,10 +473,10 @@ func compile(src source) {
 				fn.Doc = ""
 			}
 			if decl.Type.Params != nil {
-				fn.Params = parseFields(decl.Type.Params.List, false,false)
+				fn.Params = parseFields(decl.Type.Params.List, false, false)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false,true), decl.Type.Results.NumFields(),&data)
+				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false, true), decl.Type.Results.NumFields(), &data)
 			} else {
 				fn.Result = ":Void"
 			}
@@ -498,7 +497,7 @@ func compile(src source) {
 				}
 			}
 			if decl.Body != nil {
-				fn.Body = parseBody(decl.Body.List,&data)
+				fn.Body = parseBody(decl.Body.List, &data)
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
@@ -537,7 +536,7 @@ func addDebug(obj interface{}) string {
 	}
 	return ""
 }
-func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
+func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 	case *ast.LabeledStmt:
@@ -579,14 +578,16 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 		} else if len(stmt.Results) == 1 {
 			buffer += parseExpr(stmt.Results[0], false)
 		} else {
-			if len(data.vars) == 1 {
-				buffer += data.vars[0]
-			} else if len(data.vars) > 1 {
-				params := []string{}
-				for i := 0; i < len(data.vars); i++ {
-					params = append(params,data.vars[i] + ":" + data.vars[i])
+			if data != nil {
+				if len(data.vars) == 1 {
+					buffer += data.vars[0]
+				} else if len(data.vars) > 1 {
+					params := []string{}
+					for i := 0; i < len(data.vars); i++ {
+						params = append(params, data.vars[i]+":"+data.vars[i])
+					}
+					buffer += "{" + strings.Join(params, ", ") + "}"
 				}
-				buffer += "{" + strings.Join(params,", ") + "}"
 			}
 		}
 		buffer += ";\n"
@@ -594,9 +595,9 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 	case *ast.TypeSwitchStmt:
 		buffer := "{\n"
 		if stmt.Init != nil {
-			buffer += strings.Join(parseStatement(stmt.Init, true,nil), "\n")
+			buffer += strings.Join(parseStatement(stmt.Init, true, nil), "\n")
 		}
-		asserted := strings.Join(parseStatement(stmt.Assign, true,nil), "")
+		asserted := strings.Join(parseStatement(stmt.Assign, true, nil), "")
 		//buffer += strings.Join(parseStatement(stmt.Assign, true), "")
 		def := ast.CaseClause{}
 		setDefault := false
@@ -629,7 +630,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 	case *ast.SwitchStmt:
 		buffer := ""
 		if stmt.Init != nil {
-			buffer += "{" + strings.Join(parseStatement(stmt.Init, true,nil), "\n")
+			buffer += "{" + strings.Join(parseStatement(stmt.Init, true, nil), "\n")
 		}
 		if stmt.Tag == nil {
 			//if statements
@@ -663,7 +664,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 			//actual switch
 			buffer += "switch(" + parseExpr(stmt.Tag, false) + ") {\n"
 			//body
-			buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n")
+			buffer += strings.Join(parseBody(stmt.Body.List, nil), "\n")
 			buffer += "}"
 		}
 		if stmt.Init != nil {
@@ -730,7 +731,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 		if stmt.Cond != nil {
 			buffer += parseExpr(stmt.Cond, false)
 			if stmt.Post != nil {
-				buffer += "," + strings.Join(parseStatement(stmt.Post, false,nil), "\n") + ","
+				buffer += "," + strings.Join(parseStatement(stmt.Post, false, nil), "\n") + ","
 			}
 		} else {
 			buffer += "true"
@@ -741,7 +742,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 			buffer += " {\n"
 		}
 
-		buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n")
+		buffer += strings.Join(parseBody(stmt.Body.List, nil), "\n")
 		buffer += "}"
 		if stmt.Post != nil {
 			buffer += ");"
@@ -765,15 +766,15 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 			}
 		}
 		buffer += "if(" + parseExpr(stmt.Cond, false) + ") {"
-		buffer += strings.Join(parseBody(stmt.Body.List,nil), "")
+		buffer += strings.Join(parseBody(stmt.Body.List, nil), "")
 		buffer += "}"
 		if stmt.Else != nil {
 			buffer += "else {"
 			switch stmt := stmt.Else.(type) {
 			case *ast.BlockStmt:
-				buffer += strings.Join(parseBody(stmt.List,nil), "")
+				buffer += strings.Join(parseBody(stmt.List, nil), "")
 			default:
-				buffer += strings.Join(parseStatement(stmt, true,nil), "")
+				buffer += strings.Join(parseStatement(stmt, true, nil), "")
 			}
 			buffer += "}"
 		}
@@ -791,7 +792,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 			buffer += "default"
 		}
 		buffer += ":\n"
-		buffer += strings.Join(parseBody(stmt.Body,nil), "\n")
+		buffer += strings.Join(parseBody(stmt.Body, nil), "\n")
 		body = append(body, buffer)
 	case *ast.GoStmt:
 		body = append(body, "//go routines not supported yet\n")
@@ -802,7 +803,7 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 		buffer := "Go.range(" + parseExpr(stmt.Key, false) + ","
 		buffer += parseExpr(stmt.Value, false) + ","
 		buffer += parseExpr(stmt.X, false) + ", {\n"
-		buffer += strings.Join(parseBody(stmt.Body.List,nil), "\n") + "});"
+		buffer += strings.Join(parseBody(stmt.Body.List, nil), "\n") + "});"
 		body = append(body, buffer)
 	case *ast.DeferStmt:
 		buffer := parseExpr(stmt.Call, init) + "/*defer*/"
@@ -816,11 +817,11 @@ func parseStatement(stmt ast.Stmt, init bool,data *funcData) []string {
 	}
 	return body
 }
-func parseBody(stmts []ast.Stmt,data *funcData) []string {
+func parseBody(stmts []ast.Stmt, data *funcData) []string {
 	body := []string{}
 	before := len(labels)
 	for _, stmt := range stmts {
-		body = append(body, parseStatement(stmt, true,data)...)
+		body = append(body, parseStatement(stmt, true, data)...)
 	}
 	if before != len(labels) {
 		tmp := labels[before:len(labels)]
@@ -833,7 +834,7 @@ func parseBody(stmts []ast.Stmt,data *funcData) []string {
 	if data != nil && len(data.vars) > 0 {
 		vars := []string{}
 		for i := 0; i < len(data.vars); i++ {
-			vars = append(vars, "var " + data.vars[i] + " = " + getDefaultTypeFromName(untitle(data.types[i])) + ";")
+			vars = append(vars, "var "+data.vars[i]+" = "+getDefaultTypeFromName(untitle(data.types[i]))+";")
 		}
 		body = append(vars, body...)
 	}
@@ -890,30 +891,30 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 			default:
 				copyBool = false
 			}
-			
+
 			buffer += set + " " + tok
 		}
 		str := parseExpr(stmt.Rhs[i], false)
 		switch stmt.Rhs[i].(type) {
-			case *ast.BasicLit:
+		case *ast.BasicLit:
+			copyBool = false
+		case *ast.SelectorExpr:
+			switch stmt.Rhs[i].(*ast.SelectorExpr).Sel.Name {
+			case "new":
 				copyBool = false
-			case *ast.SelectorExpr:
-				switch stmt.Rhs[i].(*ast.SelectorExpr).Sel.Name {
-				case "new":
+			}
+		case *ast.CallExpr:
+			switch initType := stmt.Rhs[i].(*ast.CallExpr).Fun.(type) {
+			case *ast.Ident:
+				switch initType.Name {
+				case "make", "new", "append", "copy":
 					copyBool = false
 				}
-			case *ast.CallExpr:
-				switch initType := stmt.Rhs[i].(*ast.CallExpr).Fun.(type) {
-					case *ast.Ident:
-						switch initType.Name {
-						case "make","new","append","copy":
-							copyBool = false
-						}
-					}
+			}
 		}
 		if copyBool {
 			buffer += "Go.copy(" + str + ")"
-		}else{
+		} else {
 			buffer += str
 		}
 		buffer += addSemicolon(stmt, init)
@@ -955,15 +956,15 @@ func parseTypeExpr(expr ast.Expr) string {
 	}
 	return parseExpr(expr, false)
 }
-func parseFields(list []*ast.Field, defaults bool,result bool) []string {
+func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 	array := []string{}
 	buffer := ""
-	for index,field := range list {
+	for index, field := range list {
 		ty := parseTypeExpr(field.Type)
 		if len(field.Names) == 0 {
 			if result {
-				array = append(array, "v" + strconv.Itoa(index) + ":" + ty)
-			}else{
+				array = append(array, "v"+strconv.Itoa(index)+":"+ty)
+			} else {
 				array = append(array, ty)
 			}
 		} else {
@@ -1009,7 +1010,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		data := funcData{}
-		params := parseFields(expr.Params.List, false,false)
+		params := parseFields(expr.Params.List, false, false)
 		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer += "Void"
@@ -1022,12 +1023,12 @@ func parseExpr(expr ast.Expr, init bool) string {
 		if expr.Results == nil {
 			buffer += "Void"
 		} else {
-			res := parseFields(expr.Results.List, false,true)
-			resString := parseRes(res, expr.Results.NumFields(),&data)
+			res := parseFields(expr.Results.List, false, true)
+			resString := parseRes(res, expr.Results.NumFields(), &data)
 			buffer += resString
 		}
 	case *ast.Ident:
-		name := rename(expr.Name)
+		name := renameString(expr.Name)
 		buffer += name
 	case *ast.StarExpr: //pointer
 		x := parseExpr(expr.X, false)
@@ -1044,7 +1045,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		}
 		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
-		buffer = strings.Join(parseFields(expr.Fields.List, true,false), ",\n")
+		buffer = strings.Join(parseFields(expr.Fields.List, true, false), ",\n")
 	case *ast.KeyValueExpr: //map
 		buffer = parseExpr(expr.Key, false)
 		if mapField {
@@ -1058,17 +1059,17 @@ func parseExpr(expr ast.Expr, init bool) string {
 		data := funcData{}
 		buffer += "function anon("
 		if expr.Type.Params != nil {
-			params := parseFields(expr.Type.Params.List, false,false)
+			params := parseFields(expr.Type.Params.List, false, false)
 			buffer += strings.Join(params, ",")
 		}
 		buffer += "):"
 		if expr.Type.Results != nil {
-			buffer += parseRes(parseFields(expr.Type.Results.List, false,true), expr.Type.Results.NumFields(),&data)
+			buffer += parseRes(parseFields(expr.Type.Results.List, false, true), expr.Type.Results.NumFields(), &data)
 		} else {
 			buffer += "Void"
 		}
 		buffer += " {\n"
-		buffer += strings.Join(parseBody(expr.Body.List,&data), "")
+		buffer += strings.Join(parseBody(expr.Body.List, &data), "")
 		buffer += "}\n"
 		buffer += "anon();\n"
 		buffer += "}"
@@ -1116,11 +1117,11 @@ func parseExpr(expr ast.Expr, init bool) string {
 			return "haxe.io.BytesData"
 		}
 		if writeArrayBool {
-			return "Vector<" + name + ">"
+			return "Array<" + name + ">"
 		}
 	case *ast.SelectorExpr: //1st class
 		name := ""
-		sel := reserved(rename(expr.Sel.Name))
+		sel := reserved(renameString(expr.Sel.Name))
 		//sel = strings.Title(sel)
 		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
@@ -1155,7 +1156,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			finish = false
 			buffer = parseExpr(initType, false)
 		case *ast.Ident:
-			name := rename(initType.Name)
+			name := renameString(initType.Name)
 			for _, n := range typeNames {
 				if n == name {
 					start = false
@@ -1262,14 +1263,14 @@ func parseExpr(expr ast.Expr, init bool) string {
 	}
 	return buffer
 }
-func parseRes(res []string, numFields int,data *funcData) string {
+func parseRes(res []string, numFields int, data *funcData) string {
 	buffer := ""
 	index := 0
-	for _,str := range res {
-		index = strings.Index(str,":")
+	for _, str := range res {
+		index = strings.Index(str, ":")
 		if index != -1 {
-			data.vars = append(data.vars,string(str[0:index]))
-			data.types = append(data.types, string(str[index + 1:]))
+			data.vars = append(data.vars, string(str[0:index]))
+			data.types = append(data.types, string(str[index+1:]))
 		}
 	}
 	if len(res) == 0 {
@@ -1285,8 +1286,8 @@ func parseRes(res []string, numFields int,data *funcData) string {
 		}
 	}
 	if len(res) != 1 {
-		
-		buffer = "{" + strings.Join(res,",") + "}"
+
+		buffer = "{" + strings.Join(res, ",") + "}"
 	}
 	return buffer
 }
@@ -1306,15 +1307,13 @@ func getDefaultTypeFromName(name string) string {
 func getDefaultType(expr ast.Expr, defType string) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
-		/*buffer := "Vector.fromArrayCopy("
-		buffer += "["
+		buffer := "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
 			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt,defType)
 		}
-		buffer += "])"
-		return buffer*/
-		return "null"
+		buffer += "]"
+		return buffer
 	case *ast.Ident:
 		return getDefaultTypeFromName(expr.Name)
 	default:
@@ -1346,11 +1345,18 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 		buffer += ") "
 	}
 	buffer += "{\n"
-	buffer += strings.Join(parseBody(stmt.Body,nil), "")
+	buffer += strings.Join(parseBody(stmt.Body, nil), "")
 	buffer += "}"
 	return buffer
 }
-func rename(name string) string {
+func renameScope(pkg string, def string, method string, to string) {
+	from := `"` + pkg + `".` + def
+	if method != "" {
+		from += "::" + method
+	}
+	rename.Main(&build.Default, "", from, to)
+}
+func renameString(name string) string {
 	if name == "iota" {
 		iotaIndex++
 		return strconv.Itoa(iotaIndex)

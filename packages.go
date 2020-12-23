@@ -192,13 +192,26 @@ var goTypes = []string{
 	"int",
 	"string",
 	"bool",
-	"uint64",
+	//"uint64",
 	"byte",
 	"int64",
 	"int32",
 	"float32",
 	"float64",
 	//"uint", //declared below
+}
+var basicTypes = map[string]bool{
+	"Float": true,
+	"Int": true,
+	"String":true,
+	"Bool": true,
+	"UInt64":true,
+	"UInt32": true,
+	"UInt": true,
+	"Float32": true,
+	"Float64": true,
+	"Int32": true,
+	"Int64": true,
 }
 var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
@@ -943,7 +956,11 @@ func parseTypeExpr(expr ast.Expr) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X)
-		return "Pointer<" + x + ">"
+		if basicTypes[x] {
+			return "Pointer<Pointer.InternalPointer<" + x + ">>"
+		}else{
+			return "Pointer<Pointer.PointerWrapper<" + x + ">>"
+		}
 	case *ast.Ident:
 		value, ok := replaceTypeMap[expr.Name]
 		if ok {
@@ -1049,7 +1066,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 		buffer += name
 	case *ast.StarExpr: //pointer
 		x := parseExpr(expr.X, false)
-		buffer = "Go.star(" + x + ")"
+		buffer = x + "._value"
 	case *ast.MapType:
 		buffer = "Map<" + parseTypeExpr(expr.Key) + "," + parseTypeExpr(expr.Value) + ">"
 	case *ast.ChanType:
@@ -1513,7 +1530,6 @@ func runGoRename(pkg *packages.Package) bool {
 			}
 		}
 	}
-	fmt.Println("structs: ",structs["FlagSet"])
 	return false
 }
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {

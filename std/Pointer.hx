@@ -1,13 +1,13 @@
 import haxe.macro.Expr;
 
 class InternalPointer<T> {
-	public var value(get, set):T;
+	public var _value(get, set):T;
 
-	function get_value():T {
+	function get__value():T {
 		return get();
 	}
 
-	function set_value(value:T):T {
+	function set__value(value:T):T {
 		set(value);
 		return value;
 	}
@@ -28,5 +28,20 @@ class InternalPointer<T> {
 abstract Pointer<T>(T) {
 	public function new(value) {
 		this = value;
+	}
+}
+@:forward
+abstract PointerWrapper<T>(T) {
+	public function new(value) {
+		this = value;
+	}
+	public var _value(get, set):T;
+	
+	inline function get__value():T {
+		return this;
+	}
+	
+	inline function set__value(_value:T):T {
+		return this = _value;
 	}
 }

@@ -9,7 +9,7 @@ class Os {
 		FileSystem.createDirectory(path);
 	}
 
-	public static inline function create(path:String):ErrorReturn<Pointer<File>> {
+	public static inline function create(path:String):ErrorReturn<Pointer<Pointer.PointerWrapper<File>>> {
 		return {value: new Pointer(null)};
 	}
 

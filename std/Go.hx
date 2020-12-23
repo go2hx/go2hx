@@ -259,19 +259,12 @@ macro function cfor(cond, post, expr) {
 }
 macro function makePointer(expr) {
 	var type = Context.typeof(expr);
-	if (isBasic(type)) {
-		return macro new Pointer(InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
+	var basicBool = isBasic(type);
+	if (basicBool) {
+		return macro new Pointer(Pointer.InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
 	}else{
-		return macro new Pointer($expr);
+		return macro new Pointer(new Pointer.PointerWrapper($expr));
 	}
-	return macro null;
-}
-macro function star(expr) {
-	var isReal = isRealPointer(Context.typeof(expr));
-	return isReal ? macro $expr.value : macro $expr;
-}
-macro function addressPointer(expr) {
-	var type = Context.typeof(expr);
 	return macro null;
 }
 private function isRealPointer(type:haxe.macro.Type):Bool {

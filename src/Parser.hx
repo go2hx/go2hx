@@ -151,7 +151,7 @@ class Parser {
 				if (struct.interfaceMethods != null && struct.interfaceMethods.length > 0)
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); // add methods to stack
 				if (struct.interfacebool) {
-					main.push("typedef " + struct.name + " = Dynamic");
+					main.push("typedef " + struct.name + " = Dynamic;");
 				}else{
 					var ty = "class ";
 					var end = "";

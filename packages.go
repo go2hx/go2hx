@@ -568,7 +568,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		body = append(body, buffer)
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init))
-	case *ast.ReturnStmt:
+	case *ast.ReturnStmt: //return expr;
 		buffer := ""
 		if len(deferStack) > 0 {
 			for _, obj := range deferStack {
@@ -717,7 +717,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 						if len(spec.Values) > i {
 							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false) + ")"
 						} else {
-							buffer += " = " + getDefaultType(spec.Type, defType)
+							buffer += " = " + getDefaultValue(spec.Type, defType)
 						}
 						buffer += addSemicolon(stmt, init)
 					}
@@ -1003,7 +1003,7 @@ func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 				buffer = name + ":"
 				buffer += ty
 				if defaults {
-					buffer += " = " + getDefaultType(field.Type, parseTypeExpr(field.Type))
+					buffer += " = " + getDefaultValue(field.Type, parseTypeExpr(field.Type))
 				}
 				array = append(array, buffer)
 			}
@@ -1339,13 +1339,13 @@ func getDefaultTypeFromName(name string) string {
 		return "null"
 	}
 }
-func getDefaultType(expr ast.Expr, defType string) string {
+func getDefaultValue(expr ast.Expr, defType string) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
 		buffer := "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
-			buffer += "for (i in 0..." + l.Value + ")" + getDefaultType(expr.Elt,defType)
+			buffer += "for (i in 0..." + l.Value + ")" + getDefaultValue(expr.Elt,defType)
 		}
 		buffer += "]"
 		return buffer
@@ -1389,6 +1389,7 @@ func renameScope(pkg string, def string, method string, to string, allowGlobal b
 	if method != "" {
 		from += "." + method
 	}
+	fmt.Println("-from","'" + from + "'")
 	gorenameExecuted = true
 	rename.Main(&build.Default, "", from, to,allowGlobal)
 }
@@ -1479,17 +1480,6 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 	names[name] = true
 	return name
 }
-func setStructField(pkg *packages.Package, def string, field string, fields []string) string {
-	for i := 0; i < len(fields); i++ {
-		if untitle(field) == fields[i] {
-			fmt.Println("NAME CONFLICT",field,fields[i])
-			fmt.Println("path:",pkg.PkgPath,"def",def,field)
-			renameScope(pkg.PkgPath,def,field,"_" + field,false)
-			break
-		}
-	}
-	return untitle(field)
-}
 func runGoRename(pkg *packages.Package) {
 	names := make(map[string]bool)
 	structs := make(map[string][]string)
@@ -1507,7 +1497,7 @@ func runGoRename(pkg *packages.Package) {
 							fields := structs[spec.Name.Name]
 							for _,field := range typeExpr.Fields.List {
 								for _,name := range field.Names {
-									fields = append(fields,setStructField(pkg,spec.Name.Name,name.Name,fields))
+									fields = append(fields,name.Name)
 								}
 							}
 							structs[spec.Name.Name] = fields
@@ -1524,10 +1514,33 @@ func runGoRename(pkg *packages.Package) {
 						recvName = expr.Name
 					}
 					fields := structs[recvName]
-					fields = append(fields, setStructField(pkg,recvName,decl.Name.Name,fields))
+					fields = append(fields, decl.Name.Name)
 					structs[recvName] = fields
 				}
 			}
+		}
+	}
+	//go through and find issues with naming
+	for structName := range structs {
+		fields := structs[structName]
+		for i := 0; i < len(fields); i++ {
+			c := fields[i][0:1]
+			//skip uppercase
+			if c == strings.Title(c) {
+				continue
+			}
+			for j := 0; i < len(fields); i++ {
+				if fields[i] == untitle(fields[j]) {
+					fmt.Println("NAME CONFLICT",fields[i],fields[j])
+					renameScope(pkg.GoFiles[0],structName,fields[i],"_" + fields[i],false)
+				}
+			}
+			/*if untitle(field) == fields[i] {
+				fmt.Println("NAME CONFLICT",field,fields[i])
+				fmt.Println("path:",pkg.PkgPath,"def",def,field)
+				renameScope(pkg.PkgPath,def,field,"_" + field,false)
+				break
+			}*/
 		}
 	}
 }

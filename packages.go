@@ -28,7 +28,7 @@ import (
 	//"golang.org/x/tools/go/ast/inspector"
 	"go/ast"
 	//"golang.org/x/tools/go/ssa"
-	"golang.org/x/tools/refactor/rename"
+	"github.com/pxshadow/gotools/refactor/rename"
 )
 
 type Data struct {
@@ -320,13 +320,10 @@ func setup(dir string) {
 		}
 	}
 	inital, err := packages.Load(cfg, args...)
-	runGoRenameBool := false
 	for _,pkg := range inital {
-		if runGoRename(pkg) {
-			runGoRenameBool = true
-		}
+		runGoRename(pkg)
 	}
-	if runGoRenameBool {
+	if gorenameExecuted {
 		//recursive try setup again
 		setup(dir)
 		return 
@@ -1387,12 +1384,13 @@ func caseAsIf(stmt *ast.CaseClause, obj string) string {
 	buffer += "}"
 	return buffer
 }
-func renameScope(pkg string, def string, method string, to string) {
+func renameScope(pkg string, def string, method string, to string, allowGlobal bool) {
 	from := `"` + pkg + `".` + def
 	if method != "" {
-		from += "::" + method
+		from += "." + method
 	}
-	rename.Main(&build.Default, "", from, to)
+	gorenameExecuted = true
+	rename.Main(&build.Default, "", from, to,allowGlobal)
 }
 func renameString(name string) string {
 	if name == "iota" {
@@ -1476,7 +1474,7 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 		return name
 	}
 	gorenameExecuted = true
-	renameScope(pkg.ExportFile,name,"","_" + name)
+	renameScope(pkg.ExportFile,name,"","_" + name,true)
 	name = "_" + name
 	names[name] = true
 	return name
@@ -1485,12 +1483,14 @@ func setStructField(pkg *packages.Package, def string, field string, fields []st
 	for i := 0; i < len(fields); i++ {
 		if untitle(field) == fields[i] {
 			fmt.Println("NAME CONFLICT",field,fields[i])
+			fmt.Println("path:",pkg.PkgPath,"def",def,field)
+			renameScope(pkg.PkgPath,def,field,"_" + field,false)
 			break
 		}
 	}
 	return untitle(field)
 }
-func runGoRename(pkg *packages.Package) bool {
+func runGoRename(pkg *packages.Package) {
 	names := make(map[string]bool)
 	structs := make(map[string][]string)
 	_ = names
@@ -1530,7 +1530,6 @@ func runGoRename(pkg *packages.Package) bool {
 			}
 		}
 	}
-	return false
 }
 func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 	data := ast.File{}

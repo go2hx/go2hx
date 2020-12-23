@@ -1,3 +1,4 @@
+import Pointer.PointerWrapper;
 import Go.ErrorReturn;
 import sys.io.File as Base;
 import sys.FileSystem;
@@ -10,7 +11,7 @@ class Os {
 	}
 
 	public static inline function create(path:String):ErrorReturn<Pointer<Pointer.PointerWrapper<File>>> {
-		return {value: new Pointer(null)};
+		return {value: new Pointer(new PointerWrapper(null))};
 	}
 
 	public static inline function exit(code:Int) {

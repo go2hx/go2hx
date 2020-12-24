@@ -225,7 +225,6 @@ var asserted = ""
 var labels = []string{}
 var importLoadBool = true
 
-var replaceFunctionContext map[string]string
 var typeNames []string
 var typedefNames []string
 
@@ -501,7 +500,6 @@ func compile(src source) {
 		case *ast.FuncDecl:
 			data := funcData{}
 			deferStack = []string{}
-			replaceFunctionContext = make(map[string]string)
 			funcDecl = decl
 			fn := funcType{}
 			fn.Exported = decl.Name.IsExported()
@@ -530,8 +528,17 @@ func compile(src source) {
 				recv := decl.Recv.List[0]
 				fn.Recv = parseTypeExpr(recv.Type)
 				if len(recv.Names) == 1 {
-					replaceFunctionContext[recv.Names[0].Name] = "this"
-					replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
+					//replaceFunctionContext[recv.Names[0].Name] = "this"
+					//replaceFunctionContext[untitle(recv.Names[0].Name)] = "this"
+					buffer := "var " + untitle(recv.Names[0].Name) + " = "
+					switch recv.Type.(type) {
+					case *ast.StarExpr:
+						buffer += "Go.makePointer(this)"
+					default:
+						buffer += "Go.copy(this)"
+					}
+					buffer += ";"
+					fn.Body = append(fn.Body, buffer)
 				} else {
 					if len(recv.Names) > 1 {
 						fmt.Println("function error recv names more then 1:", recv.Names)
@@ -539,7 +546,7 @@ func compile(src source) {
 				}
 			}
 			if decl.Body != nil {
-				fn.Body = parseBody(decl.Body.List, &data)
+				fn.Body = append(fn.Body,parseBody(decl.Body.List, &data)...)
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
@@ -1431,7 +1438,11 @@ func renameScope(pkg string, def string, method string, to string, allowGlobal b
 	}
 	fmt.Println("-from","'" + from + "'")
 	gorenameExecuted = true
-	rename.Main(&build.Default, "", from, to,allowGlobal)
+	err := rename.Main(&build.Default, "", from, to,allowGlobal)
+	if err != nil {
+		fmt.Println(err)
+		gorenameExecuted = false
+	}
 }
 func renameString(name string) string {
 	if name == "iota" {
@@ -1439,10 +1450,6 @@ func renameString(name string) string {
 		return strconv.Itoa(iotaIndex)
 	}
 	value, ok := replaceMap[name]
-	if ok {
-		name = value
-	}
-	value, ok = replaceFunctionContext[name]
 	if ok {
 		name = value
 	}
@@ -1569,7 +1576,11 @@ func runGoRename(pkg *packages.Package) {
 			if c == strings.Title(c) {
 				continue
 			}
+			fmt.Println("f",fields[i])
 			for j := 0; i < len(fields); i++ {
+				if i == j {
+					continue
+				}
 				if fields[i] == untitle(fields[j]) {
 					fmt.Println("NAME CONFLICT",fields[i],fields[j])
 					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false)

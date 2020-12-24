@@ -20,7 +20,6 @@ inline function slice<T>(src:Vector<T>,low:Int,high:Int=0,max:Int=0):Vector<T> {
 macro function copy(expr) { //slices and maps are ref types
 	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var exception = false;
-	//trace("expr: " + expr.expr);
 	switch expr.expr {
 		case ENew(t, params):
 			exception = true;
@@ -31,7 +30,12 @@ macro function copy(expr) { //slices and maps are ref types
 		case EIs(e, t):
 			exception = true;
 		case EConst(c):
-			exception = true;
+			switch c {
+				case CIdent(s):
+					if (s == "null")
+						exception = true;
+				default:
+			}
 		case EBinop(op, e1, e2):
 			exception = true;
 		case ECall(e, params):
@@ -42,7 +46,7 @@ macro function copy(expr) { //slices and maps are ref types
 							switch c {
 								case CIdent(s):
 									trace("s: " + s);
-									if (s == "Go" || s == "Map") //map is by ref
+									if (s == "Go" || s == "Map" || s == "Array") //map and array is by ref
 										exception = true;
 								default:
 							}
@@ -69,15 +73,23 @@ macro function copy(expr) { //slices and maps are ref types
 				var values = [];
 				var main = ExprTools.toString(expr);
 				for (field in fields) {
-					values.push('$main.' + field.name);
+					switch field.kind {
+						case FVar(read, write):
+							values.push('$main.' + field.name);
+						case FMethod(k):
+					}
 				}
+				values.sort(function(a, b) {
+					return 0;
+				});
 				var str = "new " + t.pack.join(".") + t.name+ '(${values.join(",")})';
-				//trace("copy str: " + str);
+				trace("copy str: " + str);
 				var init = Context.parse(str,Context.currentPos());
 				return macro $init;
 			case TMono(t):
 				var t = t.get();
 				switch t {
+					case null:
 					default:
 						trace("unknown tmono type: " + t);
 				}
@@ -86,7 +98,7 @@ macro function copy(expr) { //slices and maps are ref types
 			default:
 				trace("copy type unknown: " + type);
 		}
-		return macro expr;
+		return expr;
 	}
 }
 

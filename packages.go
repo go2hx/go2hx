@@ -213,7 +213,6 @@ var basicTypes = map[string]bool{
 	"Int32": true,
 	"Int64": true,
 }
-var assignType string = ""
 var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
@@ -278,7 +277,8 @@ func main() {
 		panic(err)
 	}
 	binPath := filepath.Join(currentPath, "bin")
-	err = os.RemoveAll(binPath)
+	//err = os.RemoveAll(binPath)
+	err = removeContents(binPath)
 	if err != nil {
 		fmt.Println("Remove all error:", err)
 		return
@@ -305,6 +305,24 @@ func main() {
 		}
 	}
 }
+func removeContents(dir string) error {
+    d, err := os.Open(dir)
+    if err != nil {
+        return err
+    }
+    defer d.Close()
+    names, err := d.Readdirnames(-1)
+    if err != nil {
+        return err
+    }
+    for _, name := range names {
+        err = os.RemoveAll(filepath.Join(dir, name))
+        if err != nil {
+            return err
+        }
+    }
+    return nil
+}
 func setup(dir string) {
 	// Examples: . , fmt, math, etc
 	flag.Parse()
@@ -320,8 +338,8 @@ func setup(dir string) {
 			args = append(args[:i], args[i+1:]...)
 		}
 	}
-	inital, err := packages.Load(cfg, args...)
-	for _,pkg := range inital {
+	initial, err := packages.Load(cfg, args...)
+	for _,pkg := range initial {
 		runGoRename(pkg)
 	}
 	if gorenameExecuted {
@@ -333,9 +351,9 @@ func setup(dir string) {
 		fmt.Fprintf(os.Stderr, "load: %v\n", err)
 		return
 	}
-	for i := 0; i < len(inital); i++ {
-		if inital[i] != nil {
-			load(inital[i])
+	for i := 0; i < len(initial); i++ {
+		if initial[i] != nil {
+			load(initial[i])
 		}
 	}
 	for _, source := range sources {
@@ -916,14 +934,14 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 				copyBool = false
 			}
 		}
-		assignType = ""
 		str := parseExpr(stmt.Rhs[i], false)
 		buffer += set
-		if assignType != "" {
-			buffer += ":" + assignType
-		}
 		buffer += " " + tok
 		switch stmt.Rhs[i].(type) {
+		case *ast.UnaryExpr:
+			copyBool = false
+		case *ast.StarExpr:
+			copyBool = false
 		case *ast.FuncLit:
 			copyBool = false
 		case *ast.BasicLit:
@@ -1263,11 +1281,24 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.CompositeLit:
 		switch ty := expr.Type.(type) { //specifically for lists of types
 		case *ast.ArrayType:
-			buffer = "[" + strings.Join(parseExprs(expr.Elts, false), ",") + "]"
+			list := strings.Join(parseExprs(expr.Elts, false), ",")
+			buffer = "[" + list + "]"
 		case *ast.SelectorExpr, *ast.Ident:
-			buffer = "new " + parseTypeExpr(ty) + "("
-			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
-			buffer += ")"
+			name := parseTypeExpr(ty)
+			fmt.Println("name from selector/ident",name)
+			list := strings.Join(parseExprs(expr.Elts, false), ",")
+			if len(expr.Elts) == 0 {
+				buffer = "new " + name + "(" + list + ")"
+			}else{
+				switch expr.Elts[0].(type) {
+				case *ast.KeyValueExpr:
+					buffer = "{var _a:" + name + " = {" + list + "};\n_a;}"
+				default:
+					buffer = "new " + name + "(" + list + ")"
+				}
+				
+				fmt.Println("type:",reflect.TypeOf(expr.Elts[0]),"name:",name)
+			}
 		case *ast.MapType:
 			buffer = "["
 			mapField = true
@@ -1484,7 +1515,7 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 		return name
 	}
 	gorenameExecuted = true
-	renameScope(pkg.ExportFile,name,"","_" + name,true)
+	renameScope(pkg.PkgPath,name,"","_" + name,true)
 	name = "_" + name
 	names[name] = true
 	return name
@@ -1541,7 +1572,7 @@ func runGoRename(pkg *packages.Package) {
 			for j := 0; i < len(fields); i++ {
 				if fields[i] == untitle(fields[j]) {
 					fmt.Println("NAME CONFLICT",fields[i],fields[j])
-					renameScope(pkg.GoFiles[0],structName,fields[i],"_" + fields[i],false)
+					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false)
 				}
 			}
 			/*if untitle(field) == fields[i] {

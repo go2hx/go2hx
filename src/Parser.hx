@@ -127,7 +127,9 @@ class Parser {
 						func.recv = func.recv.substr(0,func.recv.length - 1);
 					}
 					for (struct in file.structs) {
-						if (struct.name == func.recv) {
+						var index = func.recv.lastIndexOf("<");
+						if (index == -1 && struct.name == func.recv ||
+							index != -1 && func.recv.substring(index + 1,func.recv.indexOf(">")) == struct.name) {
 							if (struct.funcs == null)
 								struct.funcs = [];
 							struct.funcs.push(func);

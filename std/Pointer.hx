@@ -8,8 +8,7 @@ class InternalPointer<T> {
 	}
 
 	function set__value(value:T):T {
-		set(value);
-		return value;
+		return set(value);
 	}
 
 	var base_i:Int;

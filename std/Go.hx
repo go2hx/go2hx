@@ -83,7 +83,6 @@ macro function copy(expr) { //slices and maps are ref types
 					return 0;
 				});
 				var str = "new " + t.pack.join(".") + t.name+ '(${values.join(",")})';
-				trace("copy str: " + str);
 				var init = Context.parse(str,Context.currentPos());
 				return macro $init;
 			case TMono(t):
@@ -276,6 +275,18 @@ macro function cfor(cond, post, expr) {
 macro function makePointer(expr) {
 	var type = Context.typeof(expr);
 	var basicBool = isBasic(type);
+	trace("expr: " + expr.expr);
+	switch expr.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "this")
+						basicBool = false;
+				default:
+			}
+		default:
+	}
+	trace("isBasic " + basicBool);
 	if (basicBool) {
 		return macro new Pointer(Pointer.InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
 	}else{

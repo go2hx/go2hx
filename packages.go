@@ -737,8 +737,8 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 						}
 						defType := ""
 						if spec.Type != nil {
-							//buffer += ":" + defType
 							defType = parseTypeExpr(spec.Type)
+							buffer += ":" + defType
 						}
 						if len(spec.Values) > i {
 							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false) + ")"
@@ -1039,7 +1039,6 @@ func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 			}
 		}
 	}
-	//fmt.Println("array field:",array)
 	return array
 }
 func parseFieldName(list []*ast.Field, index int) string {
@@ -1534,6 +1533,7 @@ func runGoRename(pkg *packages.Package) {
 	//struct type
 	for _,file := range pkg.Syntax {
 		for i := 0; i < len(file.Decls); i++ {
+			//fmt.Println(ast.Print(nil, file.Decls[i]))
 			switch decl := file.Decls[i].(type) {
 			case *ast.GenDecl: //token.IMPORT  *ImportSpec*ValueSpec*TypeSpec *ValueSpec
 				for _,spec := range decl.Specs {

@@ -174,6 +174,9 @@ class Parser {
 						main.push('    public function new(?value:${struct.define}) {');
 						main.push("        this = value;");
 						main.push("    }\n");
+						main.push("    @:from static function from(value) {");
+						main.push("        return new " + struct.name + "(value);");
+						main.push("    }");
 					}else{
 						main.push('    public function new($init) {');
 						main.push("        Macro.initLocals();");
@@ -181,7 +184,10 @@ class Parser {
 					}
 					if (struct.funcs != null)
 						for (func in struct.funcs) {
-							main = main.concat(printFunc(func, "public"));
+							var publicString = "public";
+							if (struct.define != "")
+								publicString = "inline " + publicString;
+							main = main.concat(printFunc(func, publicString));
 						}
 					main.push("}");
 				}

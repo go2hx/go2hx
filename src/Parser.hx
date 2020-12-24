@@ -153,7 +153,7 @@ class Parser {
 				if (struct.interfacebool) {
 					main.push("typedef " + struct.name + " = Dynamic;");
 				}else{
-					var ty = "class ";
+					var ty = "@:structInit\nclass ";
 					var end = "";
 					if (struct.define != "") {
 						ty = "abstract ";

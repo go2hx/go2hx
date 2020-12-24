@@ -50,6 +50,8 @@ macro function copy(expr) { //slices and maps are ref types
 					}
 				default:
 			}
+		case EField(e, field):
+			exception = true;
 			//trace("e: " + e);
 		default:
 			trace("expr: " + expr.expr);
@@ -79,6 +81,8 @@ macro function copy(expr) { //slices and maps are ref types
 					default:
 						trace("unknown tmono type: " + t);
 				}
+			case TDynamic(t):
+				trace("t " + t.getName());
 			default:
 				trace("copy type unknown: " + type);
 		}

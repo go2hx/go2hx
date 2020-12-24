@@ -213,6 +213,7 @@ var basicTypes = map[string]bool{
 	"Int32": true,
 	"Int64": true,
 }
+var assignType string = ""
 var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
@@ -717,7 +718,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 						if len(spec.Values) > i {
 							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false) + ")"
 						} else {
-							buffer += " = " + getDefaultValue(spec.Type, defType)
+							buffer += " = " + getDefaultValue(spec.Type, defType,false)
 						}
 						buffer += addSemicolon(stmt, init)
 					}
@@ -914,10 +915,14 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool) string {
 			default:
 				copyBool = false
 			}
-
-			buffer += set + " " + tok
 		}
+		assignType = ""
 		str := parseExpr(stmt.Rhs[i], false)
+		buffer += set
+		if assignType != "" {
+			buffer += ":" + assignType
+		}
+		buffer += " " + tok
 		switch stmt.Rhs[i].(type) {
 		case *ast.FuncLit:
 			copyBool = false
@@ -1003,7 +1008,7 @@ func parseFields(list []*ast.Field, defaults bool, result bool) []string {
 				buffer = name + ":"
 				buffer += ty
 				if defaults {
-					buffer += " = " + getDefaultValue(field.Type, parseTypeExpr(field.Type))
+					buffer += " = " + getDefaultValue(field.Type, parseTypeExpr(field.Type),true)
 				}
 				array = append(array, buffer)
 			}
@@ -1080,9 +1085,9 @@ func parseExpr(expr ast.Expr, init bool) string {
 	case *ast.KeyValueExpr: //map
 		buffer = parseExpr(expr.Key, false)
 		if mapField {
-			buffer += " : "
-		} else {
 			buffer += " => "
+		} else {
+			buffer += " : "
 		}
 		buffer += parseExpr(expr.Value, false)
 	case *ast.FuncLit:
@@ -1267,6 +1272,7 @@ func parseExpr(expr ast.Expr, init bool) string {
 			buffer = "["
 			mapField = true
 			buffer += strings.Join(parseExprs(expr.Elts, false), ",")
+			fmt.Println("mapType:",buffer)
 			mapField = false
 			buffer += "]"
 		case nil:
@@ -1339,13 +1345,16 @@ func getDefaultTypeFromName(name string) string {
 		return "null"
 	}
 }
-func getDefaultValue(expr ast.Expr, defType string) string {
+func getDefaultValue(expr ast.Expr, defType string,forceConstant bool) string {
 	switch expr := expr.(type) {
 	case *ast.ArrayType:
+		if forceConstant {
+			return "null"
+		}
 		buffer := "["
 		switch l := expr.Len.(type) {
 		case *ast.BasicLit:
-			buffer += "for (i in 0..." + l.Value + ")" + getDefaultValue(expr.Elt,defType)
+			buffer += "for (i in 0..." + l.Value + ")" + getDefaultValue(expr.Elt,defType,false)
 		}
 		buffer += "]"
 		return buffer

@@ -6,6 +6,10 @@ class Errors extends Exception {
 		super(text);
 	}
 
+	public function copy():Errors {
+		return new Errors(message);
+	}
+
 	// As finds the first error in err's chain that matches target, and if so, sets
 	// target to that error value and returns true. Otherwise, it returns false.
 	//
@@ -22,16 +26,16 @@ class Errors extends Exception {
 	//
 	// As panics if target is not a non-nil pointer to either a type that implements
 	// error, or to any interface type.
-	public static function As(err:Errors, target:Any):Bool {
+	public static function as(err:Errors, target:Any):Bool {
 		return false;
 	}
 
 	// Unwrap returns the result of calling the Unwrap method on err, if err's
 	// type contains an Unwrap method returning error.
 	// Otherwise, Unwrap returns nil.
-	public static function Unwrap(err:Errors):Errors {
+	/*public static function unwrap(err:Errors):Errors {
 		return null;
-	}
+	}*/
 
 	// Is reports whether any error in err's chain matches target.
 	//

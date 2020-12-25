@@ -44,7 +44,10 @@ macro function len(expr) {
 			name = t.get().name;
 		case TAbstract(t, params):
 			name = t.get().name;
+		case TType(t, params):
+			name = t.get().name;
 		default:
+			trace("ty: " + ty);
 	}
 	switch name {
 		case "Array", "haxe.ds.Vector", "Vector":

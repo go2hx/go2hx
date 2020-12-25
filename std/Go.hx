@@ -66,6 +66,10 @@ macro function copy(expr) { //slices and maps are ref types
 		switch type {
 			case TInst(t, params):
 				var t = t.get();
+				switch t.pack.join(".") + t.name {
+					case "Errors":
+						return macro $expr.copy();
+				}
 				var fields = t.fields.get();
 				fields.sort(function(a, b) {
 					return 0;
@@ -203,7 +207,7 @@ macro function range(key, value, x, expr) {
 	}
 	var keyName = getName(key);
 	if (keyName == "null")
-		keyName = "i";
+		keyName = "_iterate";
 	var init = Context.parse('var $keyName = 0;', Context.currentPos());
 	var post = Context.parse('$keyName++', Context.currentPos());
 	var set = macro null;
@@ -234,6 +238,15 @@ macro function range(key, value, x, expr) {
 				case "String":
 					//x = macro new haxe.iterators.StringIterator($x);
 					x = macro $x.split("");
+				case "StringMap","Map","IntMap","HashMap","ObjectMap","UnsafeStringMap","WeakMap":
+					x = macro $x.keys();
+					var string = 'var $keyName = tmp;';
+					if (valueName != "_") {
+						string += 'var $valueName = ${ExprTools.toString(x)}[tmp];';
+					}
+					set = Context.parse(string,Context.currentPos());
+					init = macro null;
+					post = macro null;
 				default:
 					trace('unknown iterator inst name: $name');
 			}
@@ -275,7 +288,6 @@ macro function cfor(cond, post, expr) {
 macro function makePointer(expr) {
 	var type = Context.typeof(expr);
 	var basicBool = isBasic(type);
-	trace("expr: " + expr.expr);
 	switch expr.expr {
 		case EConst(c):
 			switch c {
@@ -286,7 +298,6 @@ macro function makePointer(expr) {
 			}
 		default:
 	}
-	trace("isBasic " + basicBool);
 	if (basicBool) {
 		return macro new Pointer(Pointer.InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
 	}else{
@@ -331,4 +342,4 @@ private function isBasic(type:haxe.macro.Type):Bool {
 	}
 }
 @:generic
-typedef ErrorReturn<T> = {value:T, ?error:Exception};
+typedef ErrorReturn<T> = {value:T, ?error:Errors};

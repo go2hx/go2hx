@@ -30,7 +30,7 @@ abstract Pointer<T>(T) {
 	}
 }
 @:forward
-abstract PointerWrapper<T>(T) {
+abstract PointerWrapper<T>(T) from T to T {
 	public function new(value) {
 		this = value;
 	}

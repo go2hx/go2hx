@@ -1226,17 +1226,22 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		}
 	case *ast.SelectorExpr: //1st class
 		name := ""
-		sel := reserved(renameString(expr.Sel.Name,data))
+		sel := renameString(expr.Sel.Name,data)
 		//sel = strings.Title(sel)
 		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
 			name = parseExpr(expr.X, false,data)
+			isType := false
 			for _, ty := range typeNames {
 				if ty == name {
-					sel = untitle(sel)
+					isType = true
 					break
 				}
 			}
+			if !isType {
+				
+			}
+			sel = untitle(sel)
 			switch sel {
 			case "new":
 				name = "new " + strings.Title(name)
@@ -1256,6 +1261,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			name = parseExpr(expr.X, false,data) + "."
 			sel = untitle(sel)
 		}
+		sel = reserved(sel)
 		buffer = name + sel
 	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
 		finish := true
@@ -1484,7 +1490,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string, data *funcData) string {
 				/*piece.WriteString("Std.isOfType(")
 				piece.WriteString(obj)
 				piece.WriteString(",")*/
-				piece = "(" + obj + " is "
+				piece = "Std.isOfType(" + obj + ", "
 			}
 			piece += parseTypeExpr(stmt,data)
 			if obj != "" {

@@ -7,8 +7,9 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(array:Array<T>,args:Rest<T>) {
+inline function append<T>(array:Array<T>,args:Rest<T>):Array<T> {
 	array = array.concat(args);
+	return array;
 }
 
 function cap(v) {
@@ -50,7 +51,7 @@ macro function len(expr) {
 			trace("ty: " + ty);
 	}
 	switch name {
-		case "Array", "haxe.ds.Vector", "Vector":
+		case "Array", "haxe.ds.Vector", "Vector", "String":
 			return macro $expr.length;
 		case "Iterable", "Map":
 			return macro Lambda.count($expr);

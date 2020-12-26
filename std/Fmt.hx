@@ -1,3 +1,4 @@
+import haxe.Rest;
 import Go.ErrorReturn;
 import haxe.macro.Context;
 import haxe.macro.ExprTools;
@@ -7,44 +8,32 @@ import haxe.macro.Expr.ExprOf;
 import haxe.macro.TypeTools;
 
 class Fmt { // https://haxe.org/manual/macro-reification-expression.html
-	public static macro function println(args:Array<Expr>) {
-		return macro {
-			var args:Array<Dynamic> = $a{args};
-			Fmt.log(args.join(" ") + "\n");
-		}
+
+	public static inline function println(args:Rest<Dynamic>) {
+		Fmt.log(args.toArray().join(" ") + "\n");
+	}
+	public static inline function print(args:Rest<Dynamic>) {
+		Fmt.log(args.toArray().join(" ") + "\n");
 	}
 
-	public static macro function print(args:Array<Expr>) {
-		return macro {
-			//var args:Array<Dynamic> = $a{args};
-			//Fmt.log($a{args}.join(" "));
-		}
+	public static inline function printf(fmt:String, args:Rest<Dynamic>) { // format
+		Fmt.log(Fmt.format(fmt, args));
 	}
 
-	public static macro function printf(fmt:ExprOf<String>, args:Array<Expr>) { // format
-		return macro {
-			var args:Array<Dynamic> = $a{args};
-			Fmt.log(Fmt.format($fmt, args));
-		}
+	public static inline function fprintf(w:Io.Writer,args:Rest<Dynamic>) {
+		
 	}
 
-	public static macro function fprintf(w:ExprOf<Io.Writer>,args:Array<Expr>) {
-		return macro {
-			var data:Go.ErrorReturn<Int> = {value:0,error: null};
-			data;
-		}
+	public static inline function sprint(args:Rest<Dynamic>) {
+		return args.toArray().join(" ");
 	}
 
-	public static macro function sprint(args:Array<Expr>) {
-		return macro $a{args}.join(" ");
+	public static function sprintln(args:Rest<Dynamic>) {
+		return args.toArray().join(" ") + "\n";
 	}
 
-	public static function sprintln(args:Array<Expr>) {
-		return macro $a{args}.join(" ") + "\n";
-	}
-
-	public static macro function sprintf(fmt:ExprOf<String>, args:Array<Expr>) { // format
-		return macro Fmt.format($fmt, $a{args});
+	public static inline function sprintf(fmt:String, args:Rest<Dynamic>) { // format
+		return Fmt.format(fmt, args);
 	}
 
 	public static function format(fmt:String, args:Array<Dynamic>):String {

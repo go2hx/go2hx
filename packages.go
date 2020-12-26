@@ -273,7 +273,7 @@ func main() {
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
-	setup(dir)
+	setup(dir,true)
 	
 
 	currentPath, err := os.Getwd()
@@ -328,7 +328,7 @@ func removeContents(dir string) error {
     }
     return nil
 }
-func setup(dir string) {
+func setup(dir string,rename bool) {
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
@@ -344,13 +344,14 @@ func setup(dir string) {
 		}
 	}
 	initial, err := packages.Load(cfg, args...)
-	for _,pkg := range initial {
-		runGoRename(pkg)
-	}
-	if gorenameExecuted {
-		//recursive try setup again
-		setup(dir)
-		return 
+	if rename {
+		for _,pkg := range initial {
+			runGoRename(pkg)
+		}
+		if gorenameExecuted {
+			setup(dir,false)
+			return 
+		}
 	}
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "load: %v\n", err)
@@ -861,6 +862,9 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		if key != "null" && key != "_" {
 			buffer += "var " + key + ";\n"
 		}
+		if value == "" {
+			value = "null"
+		}
 		if value != "null" && key != "_" {
 			buffer += "var " + value + ";\n" 
 		}
@@ -959,6 +963,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		buffer += set
 		buffer += " " + tok
 		switch stmt.Rhs[i].(type) {
+		case *ast.SliceExpr:
+			copyBool = false
 		case *ast.UnaryExpr:
 			copyBool = false
 		case *ast.StarExpr:
@@ -1345,8 +1351,6 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				default:
 					buffer = "new " + name + "(" + list + ")"
 				}
-				
-				fmt.Println("type:",reflect.TypeOf(expr.Elts[0]),"name:",name)
 			}
 		case *ast.MapType:
 			buffer = "["
@@ -1361,7 +1365,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
-		buffer = parseExpr(expr.X, false,data) + ".slice("
+		buffer = "Go.slice(" + parseExpr(expr.X, false,data) + ","
 		low := "0"
 		if expr.Low != nil {
 			low = parseExpr(expr.Low, false,data)
@@ -1593,7 +1597,8 @@ func runGoRename(pkg *packages.Package) {
 									fields = append(fields,name.Name)
 								}
 							}
-							structs[spec.Name.Name] = fields
+							structs[spec.Name.Name] = append(structs[spec.Name.Name],fields...)
+							//fmt.Println("specName:",spec.Name.Name)
 						}
 					}
 				}
@@ -1607,6 +1612,7 @@ func runGoRename(pkg *packages.Package) {
 						recvName = expr.Name
 					}
 					fields := structs[recvName]
+					//fmt.Println("recvname:",recvName)
 					fields = append(fields, decl.Name.Name)
 					structs[recvName] = fields
 				}
@@ -1618,12 +1624,10 @@ func runGoRename(pkg *packages.Package) {
 		fields := structs[structName]
 		for i := 0; i < len(fields); i++ {
 			c := fields[i][0:1]
-			//skip uppercase
-			if c == strings.Title(c) {
+			if c == strings.ToTitle(c) {
 				continue
 			}
-			fmt.Println("f",fields[i])
-			for j := 0; i < len(fields); i++ {
+			for j := 0; j < len(fields); j++ {
 				if i == j {
 					continue
 				}
@@ -1632,12 +1636,6 @@ func runGoRename(pkg *packages.Package) {
 					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false)
 				}
 			}
-			/*if untitle(field) == fields[i] {
-				fmt.Println("NAME CONFLICT",field,fields[i])
-				fmt.Println("path:",pkg.PkgPath,"def",def,field)
-				renameScope(pkg.PkgPath,def,field,"_" + field,false)
-				break
-			}*/
 		}
 	}
 }

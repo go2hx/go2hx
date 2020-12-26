@@ -12,9 +12,11 @@ import haxe.macro.Context;
 function str(v:Dynamic):String {
 	return v.toString();
 }
-inline function slice<T>(src:Vector<T>,low:Int,high:Int=0,max:Int=0):Vector<T> {
-	Vector.blit(src,low,src,low + high,low + high + max);
-	return src;
+inline function slice<T>(src:Array<T>,low:Int,high:Int=0,max:Int=0):Array<T> {
+	var slice = src.slice(low,high);
+	if (max > 0)
+		return slice.slice(0,max);
+	return slice;
 }
 
 macro function copy(expr) { //slices and maps are ref types
@@ -45,7 +47,7 @@ macro function copy(expr) { //slices and maps are ref types
 						case EConst(c):
 							switch c {
 								case CIdent(s):
-									trace("s: " + s);
+									//trace("s: " + s);
 									if (s == "Go" || s == "Map" || s == "Array") //map and array is by ref
 										exception = true;
 								default:
@@ -253,14 +255,16 @@ macro function range(key, value, x, expr) {
 		default:
 			trace('unknown iterator type: $xType');
 	}
-	return macro {
+	var exprMacro = macro {
 		$init;
 		for (tmp in $x) {
 			$set;
 			$expr;
 			$post;
 		}
-	}
+	};
+	trace("range: " + new Printer().printExpr(exprMacro));
+	return exprMacro;
 }
 
 macro function cfor(cond, post, expr) {

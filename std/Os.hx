@@ -5,6 +5,7 @@ import sys.FileSystem;
 
 class Os {
 	public static var args = Sys.args();
+	public static var stderr:Io.Writer;
 
 	public static inline function mkdir(path:String, ?perm:Int) {
 		FileSystem.createDirectory(path);

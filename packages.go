@@ -1490,7 +1490,7 @@ func caseAsIf(stmt *ast.CaseClause, obj string, data *funcData) string {
 				/*piece.WriteString("Std.isOfType(")
 				piece.WriteString(obj)
 				piece.WriteString(",")*/
-				piece = "Std.isOfType(" + obj + ", "
+				piece = "(" + obj + " is "
 			}
 			piece += parseTypeExpr(stmt,data)
 			if obj != "" {

@@ -159,7 +159,7 @@ class Parser {
 					var end = "";
 					if (struct.define != "") {
 						ty = "abstract ";
-						end = "(" + struct.define + ")";
+						end = "(" + struct.define + ') from ${struct.define} to ${struct.define}';
 					}
 					main.push(first + ty + struct.name + " " + end + " {");
 					var init:String = "";
@@ -174,9 +174,6 @@ class Parser {
 						main.push('    public function new(?value:${struct.define}) {');
 						main.push("        this = value;");
 						main.push("    }\n");
-						main.push("    @:from static function from(value) {");
-						main.push("        return new " + struct.name + "(value);");
-						main.push("    }");
 					}else{
 						main.push('    public function new($init) {');
 						main.push("        Macro.initLocals();");

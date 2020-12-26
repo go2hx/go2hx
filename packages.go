@@ -203,7 +203,8 @@ var goTypes = []string{
 var basicTypes = map[string]bool{
 	"Float": true,
 	"Int": true,
-	"String":true,
+	//"String":true,
+	"GoString":true,
 	"Bool": true,
 	"UInt64":true,
 	"UInt32": true,
@@ -230,7 +231,7 @@ var typedefNames []string
 
 var deferStack []string
 var funcDataDefault = funcData{
-	replaceMap: make(map[string]string),
+	replaceMap: make(map[string]string), //blank map as to not cause problems
 }
 var funcDecl *ast.FuncDecl
 var generateGo = false
@@ -264,12 +265,13 @@ func main() {
 	for _, ty := range goTypes {
 		replaceMap[ty] = strings.Title(ty)
 	}
+	replaceTypeMap["string"] = "GoString"
 	replaceTypeMap["uint"] = "UInt" //cap diffrent
 	replaceTypeMap["uint32"] = "UInt32"
 	replaceTypeMap["uint64"] = "UInt64"
 	replaceTypeMap["errors"] = "Errors"
 	replaceTypeMap["error"] = "Errors"
-	replaceTypeMap["rune"] = "String"
+	replaceTypeMap["rune"] = "GoString"
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
@@ -553,7 +555,7 @@ func compile(src source) {
 				}
 			}
 			if decl.Body != nil {
-				fn.Body = append(fn.Body,parseBody(decl.Body.List, &data,false)...)
+				fn.Body = append(fn.Body,parseBody(decl.Body.List, &data,true)...)
 			}
 			if len(deferStack) > 0 {
 				fn.Body = append(fn.Body, deferStack...) //add defer to end of function
@@ -902,7 +904,7 @@ func parseBody(stmts []ast.Stmt, data *funcData, isFuncBody bool) []string {
 	if isFuncBody && data != nil && len(data.vars) > 0 {
 		vars := []string{}
 		for i := 0; i < len(data.vars); i++ {
-			vars = append(vars, "var "+data.vars[i]+" = "+ getDefaultTypeFromName(untitle(data.types[i])) + ";")
+			vars = append(vars, "var "+data.vars[i]+ ":" + data.types[i] +" = "+ getDefaultTypeFromName(untitle(data.types[i])) + ";")
 		}
 		body = append(vars, body...)
 	}
@@ -945,6 +947,7 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 	for i, _ := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false,data)
 		empty := false
+		isInit := false
 		if set == "null" {
 			empty = true
 		}
@@ -954,6 +957,7 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			switch tok {
 			case ":=":
 				buffer += "var "
+				isInit = true
 				tok = "="
 			case "=":
 			default:
@@ -961,7 +965,6 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			}
 		}
 		buffer += set
-		buffer += " " + tok
 		switch stmt.Rhs[i].(type) {
 		case *ast.SliceExpr:
 			copyBool = false
@@ -979,14 +982,23 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 				copyBool = false
 			}
 		case *ast.CallExpr:
-			switch initType := stmt.Rhs[i].(*ast.CallExpr).Fun.(type) {
+			call := stmt.Rhs[i].(*ast.CallExpr)
+			copyBool = false
+			switch initType := call.Fun.(type) {
 			case *ast.Ident:
 				switch initType.Name {
-				case "make", "new", "append", "copy":
-					copyBool = false
+				case "make":
+					//copyBool = false
+					if isInit {
+						buffer += ":" + parseTypeExpr(call.Args[0],data)
+					}
+				case "new", "append", "copy":
+					//copyBool = false
 				}
+
 			}
 		}
+		buffer += " " + tok
 		if set == "this" {
 			data.thisBool = true
 			copyBool = false
@@ -1275,7 +1287,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				switch name {
 				case "this":
 					name = ""
-				case "string":
+				case "string", "GoString":
 					name = "Go.str"
 				case "int64":
 					name = ""
@@ -1391,11 +1403,25 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 func parseRes(res []string, numFields int, data *funcData) string {
 	buffer := ""
 	index := 0
+	name := ""
+	ty := ""
+	add := func() {
+		data.vars = append(data.vars, name)
+		data.types = append(data.types, ty)
+	}
 	for _, str := range res {
 		index = strings.Index(str, ":")
 		if index != -1 {
-			data.vars = append(data.vars, string(str[0:index]))
-			data.types = append(data.types, string(str[index+1:]))
+			name = string(str[0:index])
+			ty = string(str[index+1:])
+			if len(name) > 3 || name[0:1] != "v" {
+				add()
+			}else {
+				_,err := strconv.Atoi(name[1:])
+				if err != nil {
+					add()
+				}
+			}
 		}
 	}
 	if len(res) == 0 {
@@ -1405,13 +1431,11 @@ func parseRes(res []string, numFields int, data *funcData) string {
 			return "Void"
 		}
 	} else if len(res) == 1 {
-		buffer += res[0]
-		if index != -1 && len(data.vars) == 1 {
-			return data.types[0]
+		if index != -1 {
+			return res[0][index+1:]
 		}
 	}
 	if len(res) != 1 {
-
 		buffer = "{" + strings.Join(res, ",") + "}"
 	}
 	return buffer
@@ -1420,7 +1444,7 @@ func getDefaultTypeFromName(name string) string {
 	switch name {
 	case "int", "float", "uint64", "uint", "int64", "float64":
 		return "0"
-	case "string":
+	case "string", "GoString":
 		return "''"
 	case "bool":
 		return "false"

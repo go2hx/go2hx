@@ -12,11 +12,32 @@ import haxe.macro.Context;
 function str(v:Dynamic):String {
 	return v.toString();
 }
-inline function slice<T>(src:Array<T>,low:Int,high:Int=0,max:Int=0):Array<T> {
-	var slice = src.slice(low,high);
+macro function slice(src:Expr,low:ExprOf<Int>,high:ExprOf<Int>=null,max:ExprOf<Int>=null) {
+	var type = Context.followWithAbstracts(Context.typeof(src));
+	var isString = false;
+	switch type {
+		case TInst(t, params):
+			var t = t.get();
+			switch t.pack.join(".") + t.name {
+				case "String":
+					isString = true;
+				default:
+			}
+		default:
+	}
+	if (high == null)
+		high = macro 0;
+	if (max == null)
+		max = macro 0;
+	if (isString) {
+		return macro $src.substring($low,$high).substr($max);
+	}else{
+		return macro $src.slice($low,$high).slice($max);
+	}
+	/*var slice = src.slice(low,high);
 	if (max > 0)
 		return slice.slice(0,max);
-	return slice;
+	return slice;*/
 }
 
 macro function copy(expr) { //slices and maps are ref types
@@ -108,7 +129,7 @@ macro function copy(expr) { //slices and maps are ref types
 }
 
 macro function setMulti(cond, expr) {
-	var type = Context.typeof(expr);
+	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var values:Array<haxe.macro.Expr> = [];
 	var index:Int = -1;
 	switch cond.expr {
@@ -152,14 +173,6 @@ macro function setMulti(cond, expr) {
 			set.push(macro $value = $get);
 		}
 	}
-	function getAbstract(t:haxe.macro.Type.Ref<haxe.macro.Type.AbstractType>, params) {
-		switch t.get().type {
-			case TAbstract(tt, params):
-				getAbstract(t, params);
-			default:
-				trace("TAbstract unknown " + t.get().type);
-		}
-	}
 	switch type {
 		case TInst(t, params):
 			var value = values[0];
@@ -180,8 +193,6 @@ macro function setMulti(cond, expr) {
 				default:
 					trace("ttype unknown " + t.get().type);
 			}
-		case TAbstract(t, params):
-			getAbstract(t, params);
 		case TAnonymous(a):
 			anonFields(a.get());
 		default:
@@ -237,7 +248,7 @@ macro function range(key, value, x, expr) {
 			var name = t.get().name;
 			switch (name) {
 				case "Array":
-				case "String":
+				case "String","GoString":
 					//x = macro new haxe.iterators.StringIterator($x);
 					x = macro $x.split("");
 				case "StringMap","Map","IntMap","HashMap","ObjectMap","UnsafeStringMap","WeakMap":
@@ -263,7 +274,6 @@ macro function range(key, value, x, expr) {
 			$post;
 		}
 	};
-	trace("range: " + new Printer().printExpr(exprMacro));
 	return exprMacro;
 }
 
@@ -282,12 +292,14 @@ macro function cfor(cond, post, expr) {
 	}
 	expr = func(expr);
 	#end
-	return macro {
+	var exprMacro = macro {
 		while ($cond) {
 			$expr;
 			$post;
 		}
 	};
+	trace(new Printer().printExpr(exprMacro));
+	return exprMacro;
 }
 macro function makePointer(expr) {
 	var type = Context.typeof(expr);

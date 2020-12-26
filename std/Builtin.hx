@@ -51,7 +51,7 @@ macro function len(expr) {
 			trace("ty: " + ty);
 	}
 	switch name {
-		case "Array", "haxe.ds.Vector", "Vector", "String":
+		case "Array", "haxe.ds.Vector", "Vector", "String", "GoString":
 			return macro $expr.length;
 		case "Iterable", "Map":
 			return macro Lambda.count($expr);

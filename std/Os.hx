@@ -5,7 +5,7 @@ import sys.FileSystem;
 
 class Os {
 	public static var args = Sys.args();
-	public static var stderr:Io.Writer;
+	public static var stderr:io.Writer;
 
 	public static inline function mkdir(path:String, ?perm:Int) {
 		FileSystem.createDirectory(path);
@@ -33,6 +33,8 @@ class Os {
 		}
 	}
 }
+
+typedef FileMode = Int;
 
 class File {
 	public function new() {}

@@ -9,6 +9,10 @@ import haxe.macro.TypeTools;
 
 class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 
+	public static inline function errorf(fmt:String,args:Rest<Dynamic>):Errors {
+		return new Errors(Fmt.format(fmt,args));
+	}
+
 	public static inline function println(args:Rest<Dynamic>) {
 		Fmt.log(args.toArray().join(" ") + "\n");
 	}
@@ -20,7 +24,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		Fmt.log(Fmt.format(fmt, args));
 	}
 
-	public static inline function fprintf(w:Io.Writer,args:Rest<Dynamic>) {
+	public static inline function fprintf(w:io.Writer,args:Rest<Dynamic>) {
 		
 	}
 

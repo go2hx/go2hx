@@ -655,11 +655,12 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		if stmt.Init != nil {
 			buffer += strings.Join(parseStatement(stmt.Init, true, data), "\n")
 		}
-		asserted := strings.Join(parseStatement(stmt.Assign, true, data), "")
+		//asserted := strings.Join(parseStatement(stmt.Assign, true, data), "")
 		//buffer += strings.Join(parseStatement(stmt.Assign, true), "")
 		def := ast.CaseClause{}
 		setDefault := false
 		first := true
+		_ = first
 		for _, stmt := range stmt.Body.List {
 			switch stmt := stmt.(type) {
 			case *ast.CaseClause:
@@ -668,10 +669,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 					setDefault = true
 					continue
 				}
-				if !first {
-					buffer += "else "
-				}
-				buffer += caseAsIf(stmt, asserted,data)
+				//buffer += caseAsIf(stmt, asserted,data)
 			default:
 				fmt.Println("switch-type", reflect.TypeOf(stmt))
 			}
@@ -681,7 +679,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 			if len(stmt.Body.List) > 1 {
 				buffer += "else "
 			}
-			buffer += caseAsIf(&def, "",data)
+			buffer += caseAsIf(&def, data)
 		}
 		buffer += "}"
 		body = append(body, buffer)
@@ -706,7 +704,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 					if !first {
 						buffer += "else "
 					}
-					buffer += caseAsIf(stmt, "",data)
+					buffer += caseAsIf(stmt, data)
 				default:
 					fmt.Println("switch-if", reflect.TypeOf(stmt))
 				}
@@ -716,7 +714,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 				if len(stmt.Body.List) > 1 {
 					buffer += "else "
 				}
-				buffer += caseAsIf(&def, "",data)
+				buffer += caseAsIf(&def, data)
 			}
 		} else {
 			//actual switch
@@ -1200,7 +1198,18 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				}
 			}
 		case token.INT:
-
+			index := 0
+			for i := 0; i < len(value); i++ {
+				char := string(value[i])
+				if char == "0" {
+					index++
+				}else{
+					break
+				}
+			}
+			if index > 0 {
+				value = expr.Value[index:]
+			}
 		case token.FLOAT:
 
 		case token.CHAR:
@@ -1478,24 +1487,14 @@ func getDefaultValue(expr ast.Expr, defType string,forceConstant bool) string {
 		return "null"
 	}
 }
-func caseAsIf(stmt *ast.CaseClause, obj string, data *funcData) string {
+func caseAsIf(stmt *ast.CaseClause, data *funcData) string {
 	//stmt.List
 	buffer := ""
 	if len(stmt.List) > 0 {
 		buffer = "if("
 		list := []string{}
 		for _, stmt := range stmt.List {
-			piece := ""
-			if obj != "" {
-				/*piece.WriteString("Std.isOfType(")
-				piece.WriteString(obj)
-				piece.WriteString(",")*/
-				piece = "(" + obj + " is "
-			}
-			piece += parseTypeExpr(stmt,data)
-			if obj != "" {
-				piece += ")"
-			}
+			piece := parseTypeExpr(stmt,data)
 			list = append(list, piece)
 		}
 		buffer += strings.Join(list, "||")

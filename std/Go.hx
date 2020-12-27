@@ -6,9 +6,6 @@ import haxe.Exception;
 import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
-// typedef Byte = haxe.io.Bytes
-
-
 function str(v:Dynamic):String {
 	return v.toString();
 }
@@ -68,7 +65,7 @@ macro function copy(expr) { //slices and maps are ref types
 						case EConst(c):
 							switch c {
 								case CIdent(s):
-									//trace("s: " + s);
+									trace("s: " + s);
 									if (s == "Go" || s == "Map" || s == "Array") //map and array is by ref
 										exception = true;
 								default:
@@ -175,8 +172,17 @@ macro function setMulti(cond, expr) {
 	}
 	switch type {
 		case TInst(t, params):
-			var value = values[0];
-			set.push(macro $value = $expr);
+			trace("type: " + type + " expr: " + new Printer().printExpr(expr)," exprdef: " + expr.expr);
+			switch expr.expr {
+				case EArray(e1, e2):
+					var value = values[0];
+					var ok = values[1];
+					set.push(macro $value = $expr);
+					set.push(macro $ok = $value != null);
+				default:
+					var value = values[0];
+					set.push(macro $value = $expr);
+			}
 		case TFun(args, ret):
 			switch ret {
 				case TAbstract(t, params):
@@ -195,6 +201,8 @@ macro function setMulti(cond, expr) {
 			}
 		case TAnonymous(a):
 			anonFields(a.get());
+		case TMono(t):
+
 		default:
 			trace("not an inst or func " + type);
 	}
@@ -348,7 +356,7 @@ private function isBasic(type:haxe.macro.Type):Bool {
 				case "Bool":
 				case "Float":
 				case "Int":
-				case "String":
+				case "String","GoString":
 				default:
 					false;
 			}

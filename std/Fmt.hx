@@ -1,3 +1,4 @@
+import haxe.io.Output;
 import haxe.Rest;
 import Go.ErrorReturn;
 import haxe.macro.Context;
@@ -14,7 +15,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	}
 
 	public static inline function println(args:Rest<Dynamic>) {
-		//Fmt.log(args.toArray().join(" ") + "\n");
+		Fmt.log(args.toArray().join(" ") + "\n");
 	}
 	public static inline function print(args:Rest<Dynamic>) {
 		Fmt.log(args.toArray().join(" ") + "\n");
@@ -24,8 +25,8 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		Fmt.log(Fmt.format(fmt, args));
 	}
 
-	public static inline function fprintf(w:io.Writer,args:Rest<Dynamic>) {
-		
+	public static inline function fprintf(w:Output,fmt:String,args:Rest<Dynamic>) {
+		w.writeString(Fmt.format(fmt,args));
 	}
 
 	public static inline function sprint(args:Rest<Dynamic>) {

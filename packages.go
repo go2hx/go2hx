@@ -279,17 +279,12 @@ func main() {
 	
 
 	currentPath, err := os.Getwd()
-	fmt.Println("current path:", currentPath)
 	if err != nil {
 		panic(err)
 	}
 	binPath := filepath.Join(currentPath, "bin")
 	//err = os.RemoveAll(binPath)
-	err = removeContents(binPath)
-	if err != nil {
-		fmt.Println("Remove all error:", err)
-		return
-	}
+	removeContents(binPath)
 	cmd = exec.Command("neko", "parser.n", binPath)
 	cmd.Dir = dir
 	out, err := cmd.CombinedOutput()
@@ -312,23 +307,22 @@ func main() {
 		}
 	}
 }
-func removeContents(dir string) error {
+func removeContents(dir string) {
     d, err := os.Open(dir)
     if err != nil {
-        return err
+        return
     }
     defer d.Close()
     names, err := d.Readdirnames(-1)
     if err != nil {
-        return err
+        return
     }
     for _, name := range names {
         err = os.RemoveAll(filepath.Join(dir, name))
         if err != nil {
-            return err
+        	return
         }
     }
-    return nil
 }
 func setup(dir string,rename bool) {
 	// Examples: . , fmt, math, etc

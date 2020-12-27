@@ -7,7 +7,9 @@ import sys.FileSystem;
 
 class Os {
 	public static var args = Sys.args();
-	public static var stderr:io.Writer;
+	public static var stderr = Sys.stderr();
+	public static var stdin = Sys.stdin();
+	public static var stdout = Sys.stdout();
 
 	public static inline function mkdir(path:String, ?perm:Int):Errors {
 		try {

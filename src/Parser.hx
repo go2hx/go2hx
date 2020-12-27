@@ -25,7 +25,7 @@ class Parser {
 		if (data.pkgs == null) {
 			throw "no packages found";
 		}
-		trace("amount of pkgs: " + data.pkgs.length);
+		trace("pkgs amount: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
 			var path = pkg.packagepath;
 			path = Path.addTrailingSlash(path);
@@ -41,7 +41,6 @@ class Parser {
 			files.remove("build.hxml");
 			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
 		}
-		trace("path: " + Sys.getCwd());
 		Sys.command("haxe build.hxml");
 	}
 
@@ -229,7 +228,6 @@ class Parser {
 		for (i in Resource.listNames()) {
 			if (i.substr(0,stdStartPath.length) == stdStartPath)
 				continue;
-			trace("i: " + i + " dir: " + Path.directory(i));
 			if (!FileSystem.exists(exportPath + Path.directory(i)))
 				FileSystem.createDirectory(exportPath + Path.directory(i));
 			File.saveBytes(Path.join([exportPath,i]),Resource.getBytes(i));

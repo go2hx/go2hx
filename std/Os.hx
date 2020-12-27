@@ -7,8 +7,13 @@ class Os {
 	public static var args = Sys.args();
 	public static var stderr:io.Writer;
 
-	public static inline function mkdir(path:String, ?perm:Int) {
-		FileSystem.createDirectory(path);
+	public static inline function mkdir(path:String, ?perm:Int):Errors {
+		try {
+			FileSystem.createDirectory(path);
+			return null;
+		}catch(e) {
+			return cast e;
+		}
 	}
 
 	public static inline function create(path:String):ErrorReturn<Pointer<Pointer.PointerWrapper<File>>> {
@@ -35,7 +40,14 @@ class Os {
 }
 
 typedef FileMode = Int;
-
+class FileInfo {
+	public function new() {
+		
+	}
+	public function isDir():String {
+		return "";
+	}
+}
 class File {
 	public function new() {}
 }

@@ -1,11 +1,13 @@
 package io;
 
+import haxe.io.Bytes;
+
 class Ioutil {
 	public static function readAll(r:io.Reader) {}
 
 	public static function readFile(filename:String) {}
 
-	public static function writeFile(filename:String, data:Array<Byte>, perm:Os.FileMode) {}
+	public static function writeFile(filename:String, data:Bytes, perm:Os.FileMode) {}
 
 	public static function readDir(dirname:String) {}
 
@@ -13,7 +15,7 @@ class Ioutil {
 
 	public static function nopCloser(r:io.Reader) {}
 
-	public static function write(p:Array<Byte>) {}
+	public static function write(p:Bytes) {}
 
 	public static function writeString(s:String) {}
 

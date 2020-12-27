@@ -22,3 +22,5 @@ package-lock.json
 notes.txt
 go2hx
 parser
+test
+test.hxml

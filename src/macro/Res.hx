@@ -11,6 +11,7 @@ using haxe.io.Path;
 class Res {
 	#if macro
 	public static function gen() {
+		Context.addResource("import.hx",File.getBytes("import.hx"));
 		Context.addResource(".haxerc",File.getBytes(".haxerc"));
 		var dir = "haxe_libraries/";
 		for (path in FileSystem.readDirectory("haxe_libraries")) {

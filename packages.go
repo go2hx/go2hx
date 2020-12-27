@@ -1199,16 +1199,18 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			}
 		case token.INT:
 			index := 0
-			for i := 0; i < len(value); i++ {
-				char := string(value[i])
-				if char == "0" {
-					index++
-				}else{
-					break
+			if len(value) > 1 {
+				for i := 0; i < len(value); i++ {
+					char := string(value[i])
+					if char == "0" {
+						index++
+					}else{
+						break
+					}
 				}
-			}
-			if index > 0 {
-				value = expr.Value[index:]
+				if index > 0 {
+					value = expr.Value[index:]
+				}
 			}
 		case token.FLOAT:
 

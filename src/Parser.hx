@@ -245,7 +245,6 @@ class Parser {
 		for (i in Resource.listNames()) {
 			if (i.substr(0,stdStartPath.length) != stdStartPath)
 				continue;
-			trace("path: " + path);
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))
 				FileSystem.createDirectory(Path.directory(path));

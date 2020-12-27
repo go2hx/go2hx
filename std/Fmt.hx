@@ -14,7 +14,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	}
 
 	public static inline function println(args:Rest<Dynamic>) {
-		Fmt.log(args.toArray().join(" ") + "\n");
+		//Fmt.log(args.toArray().join(" ") + "\n");
 	}
 	public static inline function print(args:Rest<Dynamic>) {
 		Fmt.log(args.toArray().join(" ") + "\n");
@@ -48,11 +48,11 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		}
 	}
 
-	public static function log(string:String) {
+	public static function log(v:Dynamic) {
 		#if sys
-		Sys.print(string);
+		Sys.print(v);
 		#elseif js
-		js.Browser.console(string);
+		js.Browser.console(v);
 		#end
 	}
 }

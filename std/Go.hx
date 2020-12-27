@@ -306,7 +306,6 @@ macro function cfor(cond, post, expr) {
 			$post;
 		}
 	};
-	trace(new Printer().printExpr(exprMacro));
 	return exprMacro;
 }
 macro function makePointer(expr) {

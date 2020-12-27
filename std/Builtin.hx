@@ -7,8 +7,8 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(array:Array<T>,args:Rest<T>):Array<T> {
-	array = array.concat(args);
+inline function append<T>(array:Array<T>,args:Rest<Dynamic>) {
+	array = array.concat(cast args.toArray());
 	return array;
 }
 

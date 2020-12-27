@@ -49,11 +49,11 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		}
 	}
 
-	private static function log(v:Dynamic) {
+	private static inline function log(v:Dynamic) {
 		#if sys
 		Sys.print(v);
 		#elseif js
-		js.Browser.console(v);
+		js.html.Console.log(v);
 		#end
 	}
 }

@@ -11,6 +11,12 @@ using haxe.io.Path;
 class Res {
 	#if macro
 	public static function gen() {
+		Context.addResource(".haxerc",File.getBytes(".haxerc"));
+		var dir = "haxe_libraries/";
+		for (path in FileSystem.readDirectory("haxe_libraries")) {
+			path = dir + path;
+			Context.addResource(path,File.getBytes(path));
+		}
 		readDir("std");
 	}
 
@@ -25,7 +31,7 @@ class Res {
 				if (FileSystem.isDirectory(path + name)) {
 					readDir(path + name);
 				} else {
-					var className = path.substr(4) + name.withoutExtension();
+					var className = path + name.withoutExtension();
 					Context.addResource(className, File.getBytes(path + name));
 				}
 			}

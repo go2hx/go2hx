@@ -32,6 +32,7 @@ class Parser {
 			read(pkg, path);
 		}
 		imports(exportPath);
+
 		Sys.setCwd(exportPath);
 		if (format) {
 			var files = FileSystem.readDirectory(".");
@@ -225,6 +226,7 @@ class Parser {
 			'-main $path$main',
 		];
 		File.saveContent(exportPath + "build.hxml",config.join("\n"));
+		File.saveContent(exportPath + ".haxerc",Resource.getString(".haxerc"));
 	}
 
 	function imports(path:String) {
@@ -232,14 +234,18 @@ class Parser {
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
 		//stdimports = stdimports.concat(["go", "pointer", "macro", "builtin"]); // add main classes
+		var startPath = "std/";
 		for (i in Resource.listNames()) {
-			var path = '$path/std/${capPkg(i)}.hx';
+			if (i.substr(0,startPath.length) != startPath)
+				continue;
+			trace("path: " + path);
+			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))
 				FileSystem.createDirectory(Path.directory(path));
 			File.saveContent(path, Resource.getString(i));
 		}
 		// global
-		File.saveContent(exportPath + "import.hx", Resource.getString("import"));
+		File.saveContent(exportPath + "import.hx", Resource.getString("std/import"));
 	}
 
 	function cap(string:String, reverse:Bool = false):String {

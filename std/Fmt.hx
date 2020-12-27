@@ -11,22 +11,22 @@ import haxe.macro.TypeTools;
 class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 
 	public static inline function errorf(fmt:String,args:Rest<Dynamic>):Errors {
-		return new Errors(Fmt.format(fmt,args));
+		return new Errors(format(fmt,args.toArray()));
 	}
 
 	public static inline function println(args:Rest<Dynamic>) {
-		Fmt.log(args.toArray().join(" ") + "\n");
+		log(args.toArray().join(" ") + "\n");
 	}
 	public static inline function print(args:Rest<Dynamic>) {
-		Fmt.log(args.toArray().join(" ") + "\n");
+		log(args.toArray().join(" ") + "\n");
 	}
 
 	public static inline function printf(fmt:String, args:Rest<Dynamic>) { // format
-		Fmt.log(Fmt.format(fmt, args));
+		log(format(fmt, args.toArray()));
 	}
 
 	public static inline function fprintf(w:Output,fmt:String,args:Rest<Dynamic>) {
-		w.writeString(Fmt.format(fmt,args));
+		w.writeString(format(fmt,args.toArray()));
 	}
 
 	public static inline function sprint(args:Rest<Dynamic>) {
@@ -38,18 +38,18 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	}
 
 	public static inline function sprintf(fmt:String, args:Rest<Dynamic>) { // format
-		return Fmt.format(fmt, args);
+		return format(fmt, args.toArray());
 	}
 
-	public static function format(fmt:String, args:Array<Dynamic>):String {
+	private static function format(fmt:String, args:Array<Dynamic>):String {
 		try {
 			return polygonal.Printf.format(fmt, args);
 		}catch(e) {
-			return "";
+			return e.message;
 		}
 	}
 
-	public static function log(v:Dynamic) {
+	private static function log(v:Dynamic) {
 		#if sys
 		Sys.print(v);
 		#elseif js

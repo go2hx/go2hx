@@ -958,6 +958,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		}
 		buffer += set
 		switch stmt.Rhs[i].(type) {
+		case *ast.CompositeLit:
+			copyBool = false
 		case *ast.SliceExpr:
 			copyBool = false
 		case *ast.UnaryExpr:

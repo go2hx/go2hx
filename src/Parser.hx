@@ -39,6 +39,7 @@ class Parser {
 			files.remove("std");
 			files.remove("import.hx");
 			files.remove("build.hxml");
+			files.remove("haxe_libraries");
 			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
 		}
 		Sys.command("haxe build.hxml");

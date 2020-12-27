@@ -1,3 +1,3 @@
-# @install: lix --silent download "gh://github.com/polygonal/printf#75796e5cc161b6c49cc05eeda5adb3fc81f45fd3" into polygonal-printf/1.0.2-beta/github/75796e5cc161b6c49cc05eeda5adb3fc81f45fd3
--cp ${HAXE_LIBCACHE}/polygonal-printf/1.0.2-beta/github/75796e5cc161b6c49cc05eeda5adb3fc81f45fd3/src
+# @install: lix --silent download "gh://github.com/PXshadow/printf#64ce35e5077f1f5524f05ddb9b948596d3bf7835" into polygonal-printf/1.0.2-beta/github/64ce35e5077f1f5524f05ddb9b948596d3bf7835
+-cp ${HAXE_LIBCACHE}/polygonal-printf/1.0.2-beta/github/64ce35e5077f1f5524f05ddb9b948596d3bf7835/src
 -D polygonal-printf=1.0.2-beta

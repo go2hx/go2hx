@@ -665,7 +665,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 				}
 				//buffer += caseAsIf(stmt, asserted,data)
 			default:
-				fmt.Println("switch-type", reflect.TypeOf(stmt))
+				fmt.Println("switch-type type not found:", reflect.TypeOf(stmt))
 			}
 			first = false
 		}
@@ -700,7 +700,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 					}
 					buffer += caseAsIf(stmt, data)
 				default:
-					fmt.Println("switch-if", reflect.TypeOf(stmt))
+					fmt.Println("switch-if type not found:", reflect.TypeOf(stmt))
 				}
 				first = false
 			}
@@ -752,17 +752,16 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 				case *ast.TypeSpec:
 
 				default:
-					fmt.Println("decl not found", reflect.TypeOf(spec))
+					fmt.Println("decl not found:", reflect.TypeOf(spec))
 				}
 			}
 		default:
-			fmt.Println("gen decl not found", reflect.TypeOf(stmt))
+			fmt.Println("gen decl not found:", reflect.TypeOf(stmt))
 		}
 	case *ast.AssignStmt: //short variable declaration.
 		buffer := parseAssignStatement(stmt, init,data)
 		body = append(body, buffer)
 	case *ast.ForStmt:
-		//fmt.Println("post",reflect.TypeOf(stmt.Post))
 		buffer := ""
 		if stmt.Init != nil {
 			buffer += "{"
@@ -812,7 +811,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 			case *ast.AssignStmt:
 				buffer += parseAssignStatement(init, true,data)
 			default:
-				fmt.Println("if init unknown type", reflect.TypeOf(init))
+				fmt.Println("if init unknown type:", reflect.TypeOf(init))
 			}
 		}
 		buffer += "if(" + parseExpr(stmt.Cond, false,data) + ") {"
@@ -874,7 +873,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		buffer := "/*select*/"
 		_ = buffer
 	default:
-		fmt.Println("statement not found", reflect.TypeOf(stmt))
+		fmt.Println("statement not found type:", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
 	}
 	return body
@@ -1144,7 +1143,6 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		if expr.Methods == nil || len(expr.Methods.List) == 0 {
 			return "Any"
 		}
-		//fmt.Println("count", len(expr.Methods.List))
 	case *ast.StructType:
 		buffer = strings.Join(parseFields(expr.Fields.List, true, false,data), ",\n")
 	case *ast.KeyValueExpr: //map
@@ -1381,13 +1379,12 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			buffer = "["
 			mapField = true
 			buffer += strings.Join(parseExprs(expr.Elts, false,data), ",")
-			fmt.Println("mapType:",buffer)
 			mapField = false
 			buffer += "]"
 		case nil:
 			buffer = strings.Join(parseExprs(expr.Elts, false,data), ",")
 		default:
-			fmt.Println("compositelit type unknown", reflect.TypeOf(ty))
+			fmt.Println("compositelit type unknown:", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
 		buffer = "Go.slice(" + parseExpr(expr.X, false,data) + ","
@@ -1408,7 +1405,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 	case nil:
 
 	default:
-		fmt.Println("parse expr not found", reflect.TypeOf(expr))
+		fmt.Println("parse expr not found type:", reflect.TypeOf(expr))
 		return addDebug(expr)
 	}
 	return buffer
@@ -1508,11 +1505,10 @@ func renameScope(pkg string, def string, method string, to string, allowGlobal b
 	if method != "" {
 		from += "." + method
 	}
-	fmt.Println("-from","'" + from + "'")
 	gorenameExecuted = true
 	err := rename.Main(&build.Default, "", from, to,allowGlobal)
 	if err != nil {
-		fmt.Println(err)
+		fmt.Println("renameScope error:",err)
 		gorenameExecuted = false
 	}
 }
@@ -1625,7 +1621,6 @@ func runGoRename(pkg *packages.Package) {
 								}
 							}
 							structs[spec.Name.Name] = append(structs[spec.Name.Name],fields...)
-							//fmt.Println("specName:",spec.Name.Name)
 						}
 					}
 				}
@@ -1639,7 +1634,6 @@ func runGoRename(pkg *packages.Package) {
 						recvName = expr.Name
 					}
 					fields := structs[recvName]
-					//fmt.Println("recvname:",recvName)
 					fields = append(fields, decl.Name.Name)
 					structs[recvName] = fields
 				}

@@ -10,7 +10,6 @@ import hxargs.Args;
 class Main {
 	static function main() {
 		init();
-		MacroTest.main();
 	}
 
 	static function init() {

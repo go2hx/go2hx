@@ -1,6 +1,6 @@
 Go Language to Haxe Language Transpiler
 ==========
-**warning:** *early work in progress*
+**warning:** *early work in progress, please use Haxe version in .haxerc or later*
 
 # Getting started
 * add repo to environment PATH

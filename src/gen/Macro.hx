@@ -19,5 +19,19 @@ macro function getGitCommitHash() {
     #end
   }
 macro function gostd() {
-  return macro $v{[for (path in FileSystem.readDirectory("gostd")) Path.withoutExtension(path)].join(",")};
+  var paths:Array<String> = [];
+  function dir(paths:Array<String>) {
+    for (path in paths) {
+      var path = path;
+      if (!FileSystem.exists(path))
+        continue;
+      if (FileSystem.isDirectory(path)) {
+        dir([for (dir in FileSystem.readDirectory(path)) Path.join([path,dir])]);
+      }else{
+        paths.push(StringTools.replace(path,"/","."));
+      }
+    }
+  }
+  dir(["gostd"]);
+  return macro $v{paths.join(",")};
 }

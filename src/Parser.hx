@@ -117,6 +117,9 @@ class Parser {
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
 				name = StringTools.replace(name, "/", ".");
+				if (gostd.indexOf(name) != -1) {
+					name = 'gostd.$name';
+				}
 				switch name {
 					case "Math":
 						name = "GoMath";

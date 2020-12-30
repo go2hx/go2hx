@@ -1,10 +1,18 @@
 -cp src
--cp std
 -main Main
---macro macro.Res.gen()
---no-inline
 -lib bson
--lib polygonal-printf
+-lib hxnodejs
+#for formatter
+-lib formatter
+-lib tokentree
+-lib haxeparser
+-lib hxparse
+-lib json2object
+-lib hxargs
+
 -D no-deprecation-warnings
 -D std-encoding-utf8
--neko parser.n
+--macro gen.Res.build()
+-dce full
+-D analyzer-optimize
+-js go2hx.js

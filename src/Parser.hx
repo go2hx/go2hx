@@ -1,5 +1,6 @@
 package;
 
+import formatter.Formatter;
 import bson.Bson;
 import sys.io.Process;
 import sys.FileSystem;
@@ -32,17 +33,38 @@ class Parser {
 			read(pkg, path);
 		}
 		imports(exportPath);
-
-		Sys.setCwd(exportPath);
 		if (format) {
-			var files = FileSystem.readDirectory(".");
-			files.remove("std");
-			files.remove("import.hx");
-			files.remove("build.hxml");
-			files.remove("haxe_libraries");
-			Sys.command('haxelib run formatter -s ${files.join(" -s ")}');
+			formatRun([exportPath]);
 		}
-		Sys.command("haxe build.hxml");
+	}
+	function formatRun(paths:Array<String>) {
+		for (path in paths) {
+			var path:String = StringTools.trim(path);
+			if (!FileSystem.exists(path)) {
+				Sys.println('Skipping \'$path\' (path does not exist)');
+				continue;
+			}
+			if (FileSystem.isDirectory(path)) {
+				formatRun([for (file in FileSystem.readDirectory(path)) Path.join([path, file])]);
+			} else {
+				formatFile(path);
+			}
+		}
+	}
+	function formatFile(path:String) {
+		if (Path.extension(path) == "hx") {
+			var config = Formatter.loadConfig(path);
+			var content:String = File.getContent(path);
+			var result:Result = Formatter.format(Code(content), config);
+			switch (result) {
+				case Success(formattedCode):
+					File.saveContent(path, formattedCode);
+				case Failure(errorMessage):
+					Sys.stderr().writeString('Failed to format $path\n');
+				case Disabled:
+					
+			}
+		}
 	}
 
 	private function importData(string:String):Array<Dynamic> {
@@ -85,13 +107,12 @@ class Parser {
 		var inital = ['package $pkgPath;'];
 		var imports = [];
 		var main = [];
+		var gostd = gen.Macro.gostd().split(",");
 		// imports
 		if (file.imports != null)
 			for (imp in file.imports) {
 				var name = capPkg(imp[0]);
 				var as = capPkg(imp[1]);
-				//if (Resource.listNames().indexOf(imp[0]) != -1)
-				//	stdimports.push(imp[0]);
 
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
@@ -108,7 +129,6 @@ class Parser {
 				line += ";";
 				imports.push(line);
 			}
-		// main.push('class $className {');
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
@@ -146,7 +166,6 @@ class Parser {
 			FileSystem.createDirectory(exportPath + path);
 		var path = exportPath + path + className + ".hx";
 		var interfaceStack:Array<String> = [];
-		// main.push("}");
 		// struct classes
 		if (file.structs != null)
 			for (struct in file.structs) {
@@ -213,6 +232,7 @@ class Parser {
 	}
 
 	function buildConfig(path:String, main:String) {
+		//TODO: should only be included if there is a main package, if so point to it.
 		if (path.length > 0)
 			path += ".";
 		var config = [
@@ -226,13 +246,6 @@ class Parser {
 			'-main $path$main',
 		];
 		File.saveContent(exportPath + "build.hxml",config.join("\n"));
-		for (i in Resource.listNames()) {
-			if (i.substr(0,stdStartPath.length) == stdStartPath)
-				continue;
-			if (!FileSystem.exists(exportPath + Path.directory(i)))
-				FileSystem.createDirectory(exportPath + Path.directory(i));
-			File.saveBytes(Path.join([exportPath,i]),Resource.getBytes(i));
-		}
 		//File.saveContent(exportPath + ".haxerc",Resource.getString(".haxerc"));
 	}
 	var stdStartPath = "std/";
@@ -240,7 +253,6 @@ class Parser {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
-		//stdimports = stdimports.concat(["go", "pointer", "macro", "builtin"]); // add main classes
 		for (i in Resource.listNames()) {
 			if (i.substr(0,stdStartPath.length) != stdStartPath)
 				continue;

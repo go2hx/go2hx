@@ -1,61 +1,60 @@
 package;
 
+import haxe.Resource;
 import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
 import haxe.Json;
 import haxe.Template;
-import hxargs.Args;
+import Args.ArgHandler;
 
-class Main {
-	static function main() {
-		init();
+function main() {
+	var help:Bool = false;
+	var ping:Bool = false;
+	var inputPaths:Array<String> = [];
+	var format:Bool = true;
+	var outputPath:String = "golibs";
+	var argHandler = Args.generate([@doc("Ping test")
+		_ => (path:String) -> inputPaths.push(path),
+		"-ping" => () -> ping = true, @doc("Show help")
+		"-help" => () -> help = true,
+		@doc('Output directory default: golibs')
+		["-output", "-o"] => (path:String) -> {
+			outputPath = path;
+		},
+	]);
+	try
+		argHandler.parse(Sys.args())
+	catch (e:String) {
+		throw 'error: $e';
 	}
-
-	static function init() {
-		var help:Bool = false;
-		var ping:Bool = false;
-		var inputPaths:Array<String> = [];
-		var format:Bool = false;
-		var outputPath:String = "";
-		var argHandler = Args.generate([@doc("Ping test")
-			"-ping" => () -> ping = true, @doc("Show help")
-			"-help" => () -> help = true,
-			@doc("Output directory for the transpiled Go code into Haxe")
-			["-output", "-o"] => (path:String) -> {
-				// outputPath = path;
-			},
-			@doc("Use formatter library to format the transpiled go to haxe code")
-			["-format", "-formatted", "-f"] => () -> format = true,
-			_ => (path:String) -> {
-				if (path.charAt(0) == "-")
-					throw 'Unknown argument "$path"';
-				// inputPaths.push(path);
-				outputPath = path;
-			}
-		]);
-		try
-			argHandler.parse(Sys.args())
-		catch (e:String) {
-			throw('error: $e');
-		}
-		if (help) {
-			printDoc(argHandler);
-			return;
-		}
-		if (ping) {
-			Sys.println("Pong!");
-			return;
-		}
-		new Parser(outputPath, true);
-		// Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx src -output bin");
+	if (help) {
+		printDoc(argHandler);
+		return;
 	}
+	if (ping) {
+		Sys.println("Pong!");
+		return;
+	}
+	if (inputPaths.length == 0) {
+		Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx [src or main.go]");
+		return;
+	}
+	//go4hx run here
+	var ext = gen.Res.ext;
+	trace("unpackaging go4hx...");
+	File.saveBytes('go4hx$ext',haxe.zip.Uncompress.run(Resource.getBytes("go4hx")));
+	trace("running go4hx:");
+	Sys.command("./go4hx",inputPaths);
+	FileSystem.deleteFile('go4hx$ext');
+	trace("running go2hx's Parser");
+	new Parser(outputPath, true);
+}
 
-	static function printDoc(argHandler:ArgHandler) {
-		for (option in argHandler.options) {
-			if (option.doc == null)
-				continue;
-			Sys.println(option.flags.join(", ") + " " + option.args.map(a -> '{${a.opt ? '?' : ''}${a.name}}').join(', '));
-		}
+function printDoc(argHandler:ArgHandler) {
+	for (option in argHandler.options) {
+		if (option.doc == null)
+			continue;
+		Sys.println(option.flags.join(", ") + " " + option.args.map(a -> '{${a.opt ? '?' : ''}${a.name}}').join(', '));
 	}
 }

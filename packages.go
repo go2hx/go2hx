@@ -1,37 +1,25 @@
 package main
 
 import (
-	//"bytes"
 	"flag"
 	"fmt"
 	"io/ioutil"
-	"os/exec"
 	"reflect"
 	"strings"
-
-	"github.com/kardianos/osext"
 	"go.mongodb.org/mongo-driver/bson"
-
 	"go/build"
 	"go/printer"
 	"go/token"
-
-	//"go/constant"
 	"os"
 	"path/filepath"
-
 	"strconv"
-
 	"golang.org/x/tools/go/packages"
-
-	//"golang.org/x/tools/go/ssa/ssautil"
-	//"golang.org/x/tools/go/ast/inspector"
 	"go/ast"
-	//"golang.org/x/tools/go/ssa"
 	"github.com/pxshadow/gotools/refactor/rename"
 )
 
 type Data struct {
+	args []string `json:"args"`
 	Pkgs []packageType `json:"pkgs"`
 }
 type funcType struct {
@@ -219,6 +207,7 @@ var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
 var ellipsisFuncMap = map[string]int{}
 var exportData = Data{}
+var fset *token.FileSet
 var debugComment = !true
 var debugTypeTrace = false
 var mapField = false
@@ -255,12 +244,6 @@ type funcData struct {
 }
 
 func main() {
-	dir, _ := osext.ExecutableFolder()
-	cmd := exec.Command("haxe", "build.hxml")
-	cmd.Dir = dir
-	o, _ := cmd.CombinedOutput()
-	fmt.Println((string(o[:])))
-
 	//excludes = make(map[string]bool) //clear excludes
 	for _, ty := range goTypes {
 		replaceMap[ty] = strings.Title(ty)
@@ -275,22 +258,8 @@ func main() {
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
-	setup(dir,true)
-	
+	setup(true)
 
-	currentPath, err := os.Getwd()
-	if err != nil {
-		panic(err)
-	}
-	binPath := filepath.Join(currentPath, "bin")
-	//err = os.RemoveAll(binPath)
-	removeContents(binPath)
-	cmd = exec.Command("neko", "parser.n", binPath)
-	cmd.Dir = dir
-	out, err := cmd.CombinedOutput()
-	fmt.Println(string(out[:]))
-	/*out, _ = exec.Command("parser", binPath).Output()
-	fmt.Println(string(out[:]))*/
 	//print go
 	if generateGo {
 		fmt.Println("sources", len(sources))
@@ -298,7 +267,7 @@ func main() {
 			if source.file.Name == nil {
 				continue
 			}
-			path := filepath.Join(binPath, source.file.Name.Name) + ".go"
+			path := source.file.Name.Name + ".go"
 			f, err := os.OpenFile(path, os.O_CREATE|os.O_WRONLY|os.O_TRUNC, 0644)
 			if err != nil {
 				fmt.Println("print open file", path, "error:", err)
@@ -324,16 +293,17 @@ func removeContents(dir string) {
         }
     }
 }
-func setup(dir string,rename bool) {
+func setup(rename bool) {
 	// Examples: . , fmt, math, etc
 	flag.Parse()
 	args := flag.Args()
+	exportData.args = args
 	//parse out commands from source input
 	for i := 0; i < len(args); i++ {
 		str := args[i]
 		if string(str[0:1]) == "-" {
 			switch string(str[1:]) {
-			case "test", "testing":
+			case "test":
 				cfg.Tests = true
 			}
 			args = append(args[:i], args[i+1:]...)
@@ -345,7 +315,7 @@ func setup(dir string,rename bool) {
 			runGoRename(pkg)
 		}
 		if gorenameExecuted {
-			setup(dir,false)
+			setup(false)
 			return 
 		}
 	}
@@ -366,9 +336,9 @@ func setup(dir string,rename bool) {
 		fmt.Println(err)
 		return
 	}
-	exportPath := filepath.Join(dir, "export.bson")
-	os.Remove(exportPath)
-	_ = ioutil.WriteFile(exportPath, bytes, 0644)
+	exportDataPath := "export.bson"
+	os.Remove(exportDataPath)
+	_ = ioutil.WriteFile(exportDataPath, bytes, 0644)
 }
 func load(pkg *packages.Package) {
 	str := strings.Replace(pkg.PkgPath, ".", "_", -1)
@@ -378,6 +348,7 @@ func load(pkg *packages.Package) {
 		array[i] = reserved(array[i])
 	}
 	pkg.PkgPath = strings.Join(array, "/")
+	fset = pkg.Fset
 	imps = []string{}
 	file := mergePackageFiles(pkg, !true)
 	if file.Name == nil {
@@ -1047,9 +1018,12 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	case *ast.ChanType:
 	case *ast.StructType:
 	default:
-		fmt.Println("type expr unknown:", reflect.TypeOf(expr))
+		fmt.Println(posInfo(expr.Pos()),"type expr unknown:", reflect.TypeOf(expr))
 	}
 	return parseExpr(expr, false,data)
+}
+func posInfo(pos token.Pos) string {
+	return fset.Position(pos).String()
 }
 func parseFields(list []*ast.Field, defaults bool, result bool,data *funcData) []string {
 	array := []string{}
@@ -1101,14 +1075,13 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 	buffer := ""
 	if debugTypeTrace {
 		debugTypeTrace = false
-		fmt.Println("debug type trace:", reflect.TypeOf(expr))
+		fmt.Println(posInfo(expr.Pos()),"debug type trace:", reflect.TypeOf(expr))
 	}
 	switch expr := expr.(type) {
 	case *ast.FuncType:
 		data := funcData{}
 		data.replaceMap = make(map[string]string)
 		params := parseFields(expr.Params.List, false, false,&data)
-		//fmt.Println("count of params", len(params))
 		if len(params) == 0 {
 			buffer += "Void"
 		} else if len(params) == 1 {
@@ -1213,7 +1186,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				value = `"\\".substring(1)`
 			}
 		default:
-			fmt.Println("unknown basic literal kind, value:", value, "kind:", expr.Kind.String())
+			fmt.Println(posInfo(expr.Pos()),"unknown basic literal kind, value:", value, "kind:", expr.Kind.String())
 		}
 		buffer = value
 	case *ast.BinaryExpr:
@@ -1384,7 +1357,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		case nil:
 			buffer = strings.Join(parseExprs(expr.Elts, false,data), ",")
 		default:
-			fmt.Println("compositelit type unknown:", reflect.TypeOf(ty))
+			fmt.Println(posInfo(expr.Pos()),"compositelit type unknown:", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
 		buffer = "Go.slice(" + parseExpr(expr.X, false,data) + ","
@@ -1405,7 +1378,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 	case nil:
 
 	default:
-		fmt.Println("parse expr not found type:", reflect.TypeOf(expr))
+		fmt.Println(posInfo(expr.Pos()),"parse expr not found type:", reflect.TypeOf(expr))
 		return addDebug(expr)
 	}
 	return buffer
@@ -1716,7 +1689,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 						}
 						specType.Name.Name = name
 					default:
-						fmt.Println("spec not found2", reflect.TypeOf(spec))
+						fmt.Println(posInfo(spec.Pos()),"spec not found2", reflect.TypeOf(spec))
 					}
 					declData.Specs = append(declData.Specs, spec)
 				}

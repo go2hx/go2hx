@@ -1,12 +1,12 @@
-module github.com/pxshadow/go2hx
+module github.com/pxshadow/go4hx //not a real repo, used to set the name to go4hx.
 
 go 1.15
 
 require (
 	github.com/google/go-cmp v0.5.4 // indirect
-	github.com/kardianos/osext v0.0.0-20190222173326-2bc1f35cddc0
 	github.com/kr/text v0.2.0 // indirect
 	github.com/pxshadow/gotools v0.0.0-20201223103632-601f56989595
+	github.com/russross/blackfriday v1.6.0
 	github.com/tidwall/pretty v1.0.2 // indirect
 	go.mongodb.org/mongo-driver v1.4.4
 	golang.org/x/mod v0.4.0 // indirect

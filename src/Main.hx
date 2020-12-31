@@ -42,7 +42,7 @@ function main() {
 		return;
 	}
 	//go4hx run here
-	Sys.println("cwd: " + Sys.getCwd());
+	Sys.println("cwd: " + Sys.getCwd() + " args: " + Sys.args());
 	var ext = gen.Res.ext;
 	Sys.println("unpackaging go4hx...");
 	File.saveBytes('go4hx$ext',haxe.zip.Uncompress.run(Resource.getBytes("go4hx")));

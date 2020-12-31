@@ -23,7 +23,7 @@ class Parser {
 			return;
 		}
 		var data:Data = Bson.decode(File.getBytes("export.bson"));
-		FileSystem.deleteFile("export.json");
+		FileSystem.deleteFile("export.bson");
 		if (data.pkgs == null) {
 			throw "no packages found";
 		}

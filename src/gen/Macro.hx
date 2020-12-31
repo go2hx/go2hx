@@ -17,21 +17,28 @@ macro function getGitCommitHash() {
     #else 
     return macro $v{""};
     #end
-  }
+}
 macro function gostd() {
-  var paths:Array<String> = [];
-  function dir(paths:Array<String>) {
-    for (path in paths) {
-      var path = path;
-      if (!FileSystem.exists(path))
-        continue;
-      if (FileSystem.isDirectory(path)) {
-        dir([for (dir in FileSystem.readDirectory(path)) Path.join([path,dir])]);
-      }else{
-        paths.push(StringTools.replace(path,"/","."));
+  var pkgs:Array<String> = [];
+  function readDir(path:String) {
+    path = Path.addTrailingSlash(path);
+    if (FileSystem.exists(path) && FileSystem.isDirectory(path)) {
+      var dir = FileSystem.readDirectory(path);
+      for (name in dir) {
+        if (name.substring(0, 1) == ".")
+          continue; // skip git
+  
+        if (FileSystem.isDirectory(path + name)) {
+          readDir(path + name);
+        } else {
+          var className = path.substr("gostd/".length) + Path.withoutExtension(name);
+          className = Path.normalize(className);
+          className = StringTools.replace(className,"/",".");
+          pkgs.push(className);
+        }
       }
     }
   }
-  dir(["gostd"]);
-  return macro $v{paths.join(",")};
+  readDir("gostd");
+  return macro $v{pkgs.join(",")};
 }

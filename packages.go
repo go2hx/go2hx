@@ -13,7 +13,6 @@ import (
 	"reflect"
 	"strconv"
 	"strings"
-	"time"
 
 	"github.com/pxshadow/gotools/refactor/rename"
 	"go.mongodb.org/mongo-driver/bson"
@@ -277,7 +276,6 @@ func main() {
 			printer.Fprint(f, token.NewFileSet(), &source.file)
 		}
 	}
-	time.Sleep(5 * time.Second)
 }
 func removeContents(dir string) {
     d, err := os.Open(dir)
@@ -466,12 +464,12 @@ func compile(src source) {
 						typedefNames = append(typedefNames, spec.Name.Name)
 						//ty.Imps = imps
 					default:
-						fmt.Println("type spec type unknown", reflect.TypeOf(structType))
+						fmt.Println(posInfo(structType.Pos()),"type spec type unknown", reflect.TypeOf(structType))
 					}
 					export.Structs = append(export.Structs, ty)
 				default:
 					_ = spec
-					fmt.Println("spec not found", reflect.TypeOf(spec))
+					fmt.Println(posInfo(spec.Pos()),"spec not found", reflect.TypeOf(spec))
 				}
 			}
 		case *ast.FuncDecl:
@@ -501,7 +499,7 @@ func compile(src source) {
 			if decl.Recv != nil {
 				//fn.
 				if len(decl.Recv.List) != 1 {
-					fmt.Println("error recv list is not length of 1:", decl.Recv.List)
+					fmt.Println(posInfo(decl.Recv.Pos()),"error recv list is not length of 1:", decl.Recv.List)
 				}
 				recv := decl.Recv.List[0]
 				fn.Recv = parseTypeExpr(recv.Type,&data)
@@ -514,11 +512,11 @@ func compile(src source) {
 					case *ast.StarExpr:
 						data.replaceMap[name] = "this"
 					default:
-						fn.Body = append(fn.Body,"var " + name + " = Go.copy(this);")
+						fn.Body = append(fn.Body,"var " + name + " = gostd.Go.copy(this);")
 					}
 				} else {
 					if len(recv.Names) > 1 {
-						fmt.Println("function error recv names more then 1:", recv.Names)
+						fmt.Println(posInfo(recv.Pos()),"function error recv names more then 1:", recv.Names)
 					}
 				}
 			}
@@ -532,7 +530,7 @@ func compile(src source) {
 			export.Funcs = append(export.Funcs, fn)
 		default:
 			_ = decl
-			fmt.Println("decl not found loader", reflect.TypeOf(decl))
+			fmt.Println(posInfo(decl.Pos()),"decl not found loader", reflect.TypeOf(decl))
 		}
 	}
 	exportData.Pkgs = append(exportData.Pkgs, export)
@@ -639,7 +637,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 				}
 				//buffer += caseAsIf(stmt, asserted,data)
 			default:
-				fmt.Println("switch-type type not found:", reflect.TypeOf(stmt))
+				fmt.Println(posInfo(stmt.Pos()),"switch-type type not found:", reflect.TypeOf(stmt))
 			}
 			first = false
 		}
@@ -674,7 +672,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 					}
 					buffer += caseAsIf(stmt, data)
 				default:
-					fmt.Println("switch-if type not found:", reflect.TypeOf(stmt))
+					fmt.Println(posInfo(stmt.Pos()),"switch-if type not found:", reflect.TypeOf(stmt))
 				}
 				first = false
 			}
@@ -716,7 +714,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 							buffer += ":" + defType
 						}
 						if len(spec.Values) > i {
-							buffer += " = " + "Go.copy(" + parseExpr(spec.Values[i], false,data) + ")"
+							buffer += " = " + "gostd.Go.copy(" + parseExpr(spec.Values[i], false,data) + ")"
 						} else {
 							buffer += " = " + getDefaultValue(spec.Type, defType,false)
 						}
@@ -726,11 +724,11 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 				case *ast.TypeSpec:
 
 				default:
-					fmt.Println("decl not found:", reflect.TypeOf(spec))
+					fmt.Println(posInfo(spec.Pos()),"decl not found:", reflect.TypeOf(spec))
 				}
 			}
 		default:
-			fmt.Println("gen decl not found:", reflect.TypeOf(stmt))
+			fmt.Println(posInfo(stmt.Pos()),"gen decl not found:", reflect.TypeOf(stmt))
 		}
 	case *ast.AssignStmt: //short variable declaration.
 		buffer := parseAssignStatement(stmt, init,data)
@@ -747,7 +745,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 			}
 		}
 		if stmt.Post != nil {
-			buffer += "Go.cfor("
+			buffer += "gostd.Go.cfor("
 		} else {
 			buffer += "while("
 		}
@@ -785,7 +783,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 			case *ast.AssignStmt:
 				buffer += parseAssignStatement(init, true,data)
 			default:
-				fmt.Println("if init unknown type:", reflect.TypeOf(init))
+				fmt.Println(posInfo(init.Pos()),"if init unknown type:", reflect.TypeOf(init))
 			}
 		}
 		buffer += "if(" + parseExpr(stmt.Cond, false,data) + ") {"
@@ -835,7 +833,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		if value != "null" && key != "_" {
 			buffer += "var " + value + ";\n" 
 		}
-		buffer += "Go.range(" + key + ","
+		buffer += "gostd.Go.range(" + key + ","
 		buffer += value + ","
 		buffer += parseExpr(stmt.X, false,data) + ", {\n"
 		buffer += strings.Join(parseBody(stmt.Body.List, data,false), "\n") + "});"
@@ -843,11 +841,14 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	case *ast.DeferStmt:
 		buffer := parseExpr(stmt.Call, init,data) + "/*defer*/"
 		deferStack = append([]string{buffer}, deferStack...)
+		body = append(body, buffer)
 	case *ast.SelectStmt:
 		buffer := "/*select*/"
 		_ = buffer
+	case *ast.BlockStmt:
+		body = append(body,("{" + strings.Join(parseBody(stmt.List,data,false),",") + "}"))
 	default:
-		fmt.Println("statement not found type:", reflect.TypeOf(stmt))
+		fmt.Println(posInfo(stmt.Pos()),"statement not found type:", reflect.TypeOf(stmt))
 		body = append(body, addDebug(stmt))
 	}
 	return body
@@ -887,7 +888,7 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool,data *funcData) string {
 		}
 		args = append(args, set)
 	}
-	buffer += "Go.setMulti([" + strings.Join(args, ",") + "],"
+	buffer += "gostd.Go.setMulti([" + strings.Join(args, ",") + "],"
 	buffer += parseExpr(stmt.Rhs[0], false,data) + ")"
 	buffer += addSemicolon(stmt, init)
 	return buffer
@@ -973,7 +974,7 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		str := parseExpr(stmt.Rhs[i], false,data)
 		data.thisBool = false
 		if copyBool {
-			buffer += "Go.copy(" + str + ")"
+			buffer += "gostd.Go.copy(" + str + ")"
 		} else {
 			buffer += str
 		}
@@ -988,11 +989,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X,data)
-		if basicTypes[x] {
-			return "Pointer<Pointer.InternalPointer<" + x + ">>"
-		}else{
-			return "Pointer<Pointer.PointerWrapper<" + x + ">>"
-		}
+		return "Pointer<" + x + ">"
 	case *ast.Ident:
 		value, ok := replaceTypeMap[expr.Name]
 		if ok {
@@ -1277,7 +1274,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				case "this":
 					name = ""
 				case "string", "GoString":
-					name = "Go.str"
+					name = "gostd.Go.str"
 				case "int64":
 					name = ""
 				case "make":
@@ -1327,7 +1324,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false,data)
-			buffer = "Go.makePointer(" + x + ")"
+			buffer = "new gostd.Pointer(" + x + ")"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false,data)
 		}
@@ -1365,7 +1362,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			fmt.Println(posInfo(expr.Pos()),"compositelit type unknown:", reflect.TypeOf(ty))
 		}
 	case *ast.SliceExpr:
-		buffer = "Go.slice(" + parseExpr(expr.X, false,data) + ","
+		buffer = "gostd.Go.slice(" + parseExpr(expr.X, false,data) + ","
 		low := "0"
 		if expr.Low != nil {
 			low = parseExpr(expr.Low, false,data)
@@ -1488,6 +1485,8 @@ func renameScope(pkg string, def string, method string, to string, allowGlobal b
 	if err != nil {
 		fmt.Println("renameScope error:",err)
 		gorenameExecuted = false
+	}else{
+		fmt.Println("renamed scope successfully, recompiling...")
 	}
 }
 func renameString(name string,data *funcData) string {
@@ -1631,7 +1630,7 @@ func runGoRename(pkg *packages.Package) {
 					continue
 				}
 				if fields[i] == untitle(fields[j]) {
-					fmt.Println("NAME CONFLICT",fields[i],fields[j])
+					fmt.Println("name conflict found:",fields[i],fields[j],"attempting to rename")
 					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false)
 				}
 			}

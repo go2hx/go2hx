@@ -14,14 +14,17 @@ import haxe.io.Path;
 class Parser {
 	var replaceMap:Map<String, String> = [];
 	public var exportPath:String;
+	var localBool:Bool;
 
-	public function new(exportPath:String,exportBytes:Bytes,format:Bool) {
+	public function new(exportPath:String,exportBytes:Bytes,format:Bool,localBool:Bool) {
+		this.localBool = localBool;
 		if (exportPath.length > 0)
 			exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
 		var data:Data = Bson.decode(exportBytes);
 		if (data.pkgs == null) {
-			throw "no packages found";
+			trace("no packages found");
+			return;
 		}
 		trace("pkgs amount: " + data.pkgs.length);
 		for (pkg in data.pkgs) {
@@ -118,6 +121,9 @@ class Parser {
 					name = 'gostd.$name';
 				}
 				switch name {
+					case "Reflect":
+						name = "GoReflect";
+						as = "Reflect";
 					case "Math":
 						name = "GoMath";
 						as = "Math";
@@ -196,7 +202,7 @@ class Parser {
 						main.push("    }\n");
 					}else{
 						main.push('    public function new($init) {');
-						main.push("        Macro.initLocals();");
+						main.push("        gostd.internal.Macro.initLocals();");
 						main.push("    }\n");
 					}
 					if (struct.funcs != null)
@@ -238,14 +244,19 @@ class Parser {
 		var config = [
 			"-D std-encoding-utf8",
 			"-D no-deprecation-warnings",
-			"-lib polygonal-printf",
-			"--macro Macro.build()",
+			!localBool ? "-lib go2hx" : "-cp ..",
 			"-dce full",
-			"-cp std",
 			"--interp",
 			'-main $path$main',
 		];
+
 		File.saveContent(exportPath + "build.hxml",config.join("\n"));
+
+		Sys.setCwd(exportPath);
+		Sys.command("lix scope create");
+		Sys.command("lix install https://github.com/PXshadow/go2hx");
+		Sys.println("Test run:");
+		Sys.command("haxe build.hxml");
 		//File.saveContent(exportPath + ".haxerc",Resource.getString(".haxerc"));
 	}
 	var stdStartPath = "std/";

@@ -14,7 +14,6 @@ class Macro {
 		var exprs:Array<Expr> = [];
 		for (local in locals.keys()) {
 			if (fields.exists(function(field) return field.name == local)) {
-				
 				exprs.push(macro if ($i{local} != null) this.$local = $i{local});
 			} else {
 				throw new Error(Context.getLocalClass() + " has no field " + local, Context.currentPos());

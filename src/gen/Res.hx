@@ -12,7 +12,8 @@ class Res {
 	#if macro
 	public static function build() {
         Context.onGenerate(_ -> {
-			Sys.command('go build -ldflags "-s -w"');
+			//Sys.command('go build -ldflags "-s -w"');
+			Sys.command("go build");
 		});
 	}
 	#end

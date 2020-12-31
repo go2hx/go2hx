@@ -1,7 +1,7 @@
 package gostd;
 import haxe.io.Output;
 import haxe.Rest;
-import Go.ErrorReturn;
+import gostd.internal.ErrorReturn;
 import haxe.macro.Context;
 import haxe.macro.ExprTools;
 import gostd.internal.Printf;
@@ -44,7 +44,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 
 	private static function format(fmt:String, args:Array<Dynamic>):String {
 		try {
-			return polygonal.Printf.format(fmt, args);
+			return gostd.internal.Printf.format(fmt, args);
 		}catch(e) {
 			return e.message;
 		}

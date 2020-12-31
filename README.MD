@@ -1,9 +1,9 @@
 Go Language to Haxe Language Transpiler
 ==========
-**warning:** *experimental and still very much a work in progress*
+**warning:** *experimental and still very much a work in progress*, this project also uses **gorename** and will rename private functions and variables that have case name conflicts (making it so no programs should technically break from the renaming) please be aware!
 
 # Getting started
-* if you don't have go download [here](https://golang.org/dl/)
+* if you don't have go download it [here](https://golang.org/dl/)
 * if you don't have lix run: ``npm install lix -g``
 * ``lix scope create``
 * ``lix install https://github.com/PXshadow/go2hx``

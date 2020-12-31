@@ -1,5 +1,4 @@
 package gostd;
-import Pointer.InternalPointer;
 import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
@@ -309,46 +308,6 @@ macro function cfor(cond, post, expr) {
 	};
 	return exprMacro;
 }
-macro function makePointer(expr) {
-	var type = Context.typeof(expr);
-	var basicBool = isBasic(type);
-	switch expr.expr {
-		case EConst(c):
-			switch c {
-				case CIdent(s):
-					if (s == "this")
-						basicBool = false;
-				default:
-			}
-		default:
-	}
-	if (basicBool) {
-		return macro new Pointer(Pointer.InternalPointer.make(() -> $expr,(tmp) -> $expr = tmp));
-	}else{
-		return macro new Pointer(new Pointer.PointerWrapper($expr));
-	}
-	return macro null;
-}
-private function isRealPointer(type:haxe.macro.Type):Bool {
-	switch type {
-		case TAbstract(t, params):
-			if (params.length == 0)
-				return false;
-			var param = params[0];
-			switch param {
-				case TInst(t, params):
-					var name = t.get().name;
-					trace("name: " + name);
-					if (name == "InternalPointer")
-						return true;
-				default:
-			}
-			return false;
-		default:
-			return false;
-	}
-	
-}
 private function isBasic(type:haxe.macro.Type):Bool {
 	return switch type {
 		case TAbstract(t, params):
@@ -365,5 +324,3 @@ private function isBasic(type:haxe.macro.Type):Bool {
 			false;
 	}
 }
-@:generic
-typedef ErrorReturn<T> = {value:T, ?error:Errors};

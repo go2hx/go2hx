@@ -14,10 +14,10 @@ class Res {
 	public static function build() {
         Context.onGenerate(_ -> {
 			Context.addResource(".haxerc",File.getBytes(".haxerc"));
-			trace("Building go4hx (go code for haxe :D)");
+			Sys.println("Building go4hx (go code for haxe :D)");
 			Sys.command('go build -ldflags "-s -w"');
 			var go4hxBinary = haxe.zip.Compress.run(File.getBytes("go4hx" + ext),1);
-			trace("Packaging go4hx size: " + go4hxBinary.length + " into go2hx");
+			Sys.println("Packaging go4hx size: " + go4hxBinary.length + " into go2hx");
 			Context.addResource("go4hx",go4hxBinary);
 			FileSystem.deleteFile("go4hx" + ext);
 		});

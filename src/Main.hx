@@ -42,13 +42,19 @@ function main() {
 		return;
 	}
 	//go4hx run here
-	var ext = gen.Res.ext;
 	Sys.println("cwd: " + Sys.getCwd());
+	var ext = gen.Res.ext;
 	Sys.println("unpackaging go4hx...");
 	File.saveBytes('go4hx$ext',haxe.zip.Uncompress.run(Resource.getBytes("go4hx")));
 	Sys.println("running go4hx:");
 	Sys.command("./go4hx",inputPaths);
 	FileSystem.deleteFile('go4hx$ext');
+	var gopath = Sys.getEnv("GOPATH");
+	Sys.println('Setting $GOPATH($gopath) to local');
+	Sys.putEnv("GOPATH",Sys.getCwd());
+	for (i in 0...outputPath.length) {
+		
+	}
 	Sys.println("running go2hx's Parser");
 	new Parser(outputPath, true);
 }

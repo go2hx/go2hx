@@ -4,6 +4,7 @@
 main
 bin
 examples/*/
+examples/.haxerc
 *.dat
 graph.png
 *.n

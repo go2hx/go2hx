@@ -43,12 +43,13 @@ function main() {
 	}
 	//go4hx run here
 	var ext = gen.Res.ext;
-	trace("unpackaging go4hx...");
+	Sys.println("cwd: " + Sys.getCwd());
+	Sys.println("unpackaging go4hx...");
 	File.saveBytes('go4hx$ext',haxe.zip.Uncompress.run(Resource.getBytes("go4hx")));
-	trace("running go4hx:");
+	Sys.println("running go4hx:");
 	Sys.command("./go4hx",inputPaths);
 	FileSystem.deleteFile('go4hx$ext');
-	trace("running go2hx's Parser");
+	Sys.println("running go2hx's Parser");
 	new Parser(outputPath, true);
 }
 

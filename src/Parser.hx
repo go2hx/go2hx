@@ -1,5 +1,6 @@
 package;
 
+import haxe.io.Bytes;
 import formatter.Formatter;
 import bson.Bson;
 import sys.io.Process;
@@ -14,16 +15,11 @@ class Parser {
 	var replaceMap:Map<String, String> = [];
 	public var exportPath:String;
 
-	public function new(exportPath:String, format:Bool) {
+	public function new(exportPath:String,exportBytes:Bytes,format:Bool) {
 		if (exportPath.length > 0)
 			exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
-		if (!FileSystem.exists("export.bson")) {
-			trace("export.bson not found");
-			return;
-		}
-		var data:Data = Bson.decode(File.getBytes("export.bson"));
-		FileSystem.deleteFile("export.bson");
+		var data:Data = Bson.decode(exportBytes);
 		if (data.pkgs == null) {
 			throw "no packages found";
 		}

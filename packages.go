@@ -3,19 +3,21 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
-	"reflect"
-	"strings"
-	"go.mongodb.org/mongo-driver/bson"
+	"go/ast"
 	"go/build"
 	"go/printer"
 	"go/token"
+	"io/ioutil"
 	"os"
 	"path/filepath"
+	"reflect"
 	"strconv"
-	"golang.org/x/tools/go/packages"
-	"go/ast"
+	"strings"
+	"time"
+
 	"github.com/pxshadow/gotools/refactor/rename"
+	"go.mongodb.org/mongo-driver/bson"
+	"golang.org/x/tools/go/packages"
 )
 
 type Data struct {
@@ -275,6 +277,7 @@ func main() {
 			printer.Fprint(f, token.NewFileSet(), &source.file)
 		}
 	}
+	time.Sleep(5 * time.Second)
 }
 func removeContents(dir string) {
     d, err := os.Open(dir)
@@ -1569,8 +1572,8 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 		return name
 	}
 	gorenameExecuted = true
-	renameScope(pkg.PkgPath,name,"","_" + name,true)
-	name = "_" + name
+	renameScope(pkg.PkgPath,name,"",name + "_",true)
+	name += "_"
 	names[name] = true
 	return name
 }

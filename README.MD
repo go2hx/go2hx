@@ -2,10 +2,12 @@ Go Language to Haxe Language Transpiler
 ==========
 **warning:** *experimental and still very much a work in progress*
 
-# How to build
-* if you don't have lix run: ```npm install lix -g```
-* ```lix download```
-* ```haxe build.hxml```
+# Getting started
+* if you don't have go download [here](https://golang.org/dl/)
+* if you don't have lix run: ``npm install lix -g``
+* ``lix scope create``
+* ``lix install https://github.com/PXshadow/go2hx``
+* ``lix run ./main.go`` or ``lix run github.com/tidwall/btree``
 
 # Roadmap
 

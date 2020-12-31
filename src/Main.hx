@@ -24,8 +24,12 @@ function main() {
 			outputPath = path;
 		},
 	]);
+	var args = Sys.args();
+	var cwd = Sys.getCwd();
+	Sys.println('cwd: $cwd');
+	var localPath = args.length > 1 ? args.pop() : cwd;
 	try
-		argHandler.parse(Sys.args())
+		argHandler.parse(args)
 	catch (e:String) {
 		throw 'error: $e';
 	}
@@ -42,21 +46,37 @@ function main() {
 		return;
 	}
 	//go4hx run here
-	Sys.println("cwd: " + Sys.getCwd() + " args: " + Sys.args());
-	var ext = gen.Res.ext;
-	Sys.println("unpackaging go4hx...");
-	File.saveBytes('go4hx$ext',haxe.zip.Uncompress.run(Resource.getBytes("go4hx")));
+	var gopath = Sys.getEnv("GOPATH");
+	Sys.println('Setting GOPATH($gopath) to local: $localPath/gopath');
+	Sys.putEnv("GOPATH",localPath + "/gopath");
+	var httpsString = "https://";
+	//Sys.putEnv("GODEBUG","modcacheunzipinplace=1");
+	for (i in 0...inputPaths.length) {
+		var path = inputPaths[i];
+		if (StringTools.startsWith(path,httpsString))
+			path = path.substr(httpsString.length);
+		if (Path.extension(path) == "go")
+			continue;
+		if (path.charAt(0) == ".")
+			continue;
+		if (path.indexOf("/") == -1)
+			continue;
+		var command = 'go get -u $path';
+		Sys.command(command);
+	}
 	Sys.println("running go4hx:");
 	Sys.command("./go4hx",inputPaths);
-	FileSystem.deleteFile('go4hx$ext');
-	var gopath = Sys.getEnv("GOPATH");
-	Sys.println('Setting GOPATH($gopath) to local');
-	Sys.putEnv("GOPATH",Sys.getCwd());
-	for (i in 0...outputPath.length) {
-		
+	Sys.println('Setting back GOPATH');
+	Sys.putEnv("GOPATH",gopath);
+	if (!FileSystem.exists("export.bson")) {
+		trace("export.bson not found");
+		return;
 	}
+	var exportBytes = File.getBytes("export.bson");
+	FileSystem.deleteFile("export.bson");
+	Sys.setCwd(localPath);
 	Sys.println("running go2hx's Parser");
-	new Parser(outputPath, true);
+	new Parser(outputPath, exportBytes,true);
 }
 
 function printDoc(argHandler:ArgHandler) {

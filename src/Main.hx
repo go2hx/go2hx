@@ -50,7 +50,7 @@ function main() {
 	Sys.command("./go4hx",inputPaths);
 	FileSystem.deleteFile('go4hx$ext');
 	var gopath = Sys.getEnv("GOPATH");
-	Sys.println('Setting $GOPATH($gopath) to local');
+	Sys.println('Setting GOPATH($gopath) to local');
 	Sys.putEnv("GOPATH",Sys.getCwd());
 	for (i in 0...outputPath.length) {
 		

@@ -1,7 +1,9 @@
 <p align="left"><img src="logo.png"/></p>
-The Go to Haxe Language Transpiler
+
+go2hx
 ==========
-<image>
+The Go to Haxe transpiler
+
 **warning:** *experimental and still very much a work in progress.*
 
 **caution:** *this program uses **gorename** to rename package uppercase/lowercase conflicts, it only renames non exported methods so it shouldn't break any libraries, however no guarantee.*

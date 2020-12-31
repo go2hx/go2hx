@@ -2,11 +2,11 @@
 	"name": "go2hx",
 	"description": "A Go to Haxe transpiler",
 	"dependencies": {},
+	"classPath": "src",
 	"url": "http://github.com/pxshadow/go2hx",
 	"contributors": [
 		"pxshadow"
 	],
-	"postDownload": "lix download && haxe build.hxml",
 	"version": "0.0.1",
 	"tags": [
 		"go",

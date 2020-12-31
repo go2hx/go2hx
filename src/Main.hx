@@ -1,3 +1,4 @@
+//! -lib hxnodejs
 package;
 
 import haxe.Resource;

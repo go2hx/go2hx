@@ -215,6 +215,7 @@ var mapField = false
 var asserted = ""
 var labels = []string{}
 var importLoadBool = true
+var export packageType
 
 var typeNames []string
 var typedefNames []string
@@ -251,11 +252,22 @@ func main() {
 	}
 	replaceTypeMap["string"] = "GoString"
 	replaceTypeMap["uint"] = "UInt" //cap diffrent
-	replaceTypeMap["uint32"] = "UInt32"
-	replaceTypeMap["uint64"] = "UInt64"
-	replaceTypeMap["errors"] = "Errors"
-	replaceTypeMap["error"] = "Errors"
-	replaceTypeMap["rune"] = "GoString"
+	replaceTypeMap["uint8"] = "UInt"
+	replaceTypeMap["uint16"] = "UInt"
+	replaceTypeMap["uint32"] = "UInt"
+	replaceTypeMap["uint64"] = "UInt"
+	replaceTypeMap["int16"] = "Int"
+	replaceTypeMap["int16"] = "Int"
+	replaceTypeMap["int32"] = "haxe.Int32"
+	replaceTypeMap["int64"] = "haxe.Int64"
+	replaceTypeMap["float"] = "float"
+	replaceTypeMap["float16"] = "float"
+	replaceTypeMap["float32"] = "float"
+	replaceTypeMap["float64"] = "float"
+	replaceTypeMap["byte"] = "int"
+	replaceTypeMap["errors"] = "gostd.Errors"
+	replaceTypeMap["error"] = "gostd.Errors"
+	replaceTypeMap["rune"] = "gostd.GoString"
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
@@ -370,7 +382,7 @@ func load(pkg *packages.Package) {
 var lastValue ast.Expr
 
 func compile(src source) {
-	export := packageType{}
+	export = packageType{}
 	export.PackagePath = src.path
 	file = src.file
 
@@ -989,6 +1001,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X,data)
+		addImport("gostd/pointer","pointer")
 		return "Pointer<" + x + ">"
 	case *ast.Ident:
 		value, ok := replaceTypeMap[expr.Name]
@@ -1086,7 +1099,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		params := parseFields(expr.Params.List, false, false,&data)
 		if len(params) == 0 {
 			buffer += "Void"
-		} else if len(params) == 1 {
+		} else if len(params) == 1 && strings.Index(params[0],":") == -1 {
 			buffer += params[0]
 		} else {
 			buffer += "(" + strings.Join(params, ", ") + ")"
@@ -1106,7 +1119,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		x := parseExpr(expr.X, false,data)
 		buffer = x
 		if x != "this" {
-			buffer +=  "._value"
+			buffer +=  "[0]"
 		}
 	case *ast.MapType:
 		buffer = "Map<" + parseTypeExpr(expr.Key,data) + "," + parseTypeExpr(expr.Value,data) + ">"
@@ -1286,7 +1299,9 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 					name = getDefaultValue(expr.Args[0],defType,false)
 					finish = false
 				case "new":
-					name = "create"
+					ty := parseTypeExpr(expr.Args[0],data)
+					name = "new " + ty + "()"
+					finish = false
 				}
 			}
 			buffer = name
@@ -1324,7 +1339,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false,data)
-			buffer = "new gostd.Pointer(" + x + ")"
+			buffer = "gostd.Pointer.make(" + x + ")"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false,data)
 		}
@@ -1530,7 +1545,7 @@ func reserved(str string) string {
 	default:
 		return str
 	}
-	return strings.Join([]string{str, "tmp"}, "_")
+	return str + "_"
 }
 
 //https://github.com/elliotchance/switch-check/blob/master/main.go
@@ -1550,6 +1565,14 @@ func getIotaType(ty ast.Expr, values []ast.Expr) ast.Expr {
 	}
 
 	return nil
+}
+func addImport(path string, as string) {
+	for _,imp := range export.Imports {
+		if path == imp[0] {
+			return
+		}
+	}
+	export.Imports = append(export.Imports, [2]string{path,as})
 }
 func scopeInsert(scope *ast.Scope, obj *ast.Object) {
 	switch obj.Kind { //ast.Con = Constant

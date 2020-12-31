@@ -77,6 +77,8 @@ macro function copy(expr) { //slices and maps are ref types
 		case EField(e, field):
 			exception = true;
 			//trace("e: " + e);
+		case EArray(e1, e2):
+			return macro $expr.copy();
 		default:
 			trace("expr: " + expr.expr);
 	}

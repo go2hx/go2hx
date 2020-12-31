@@ -8,7 +8,6 @@
 -lib hxparse
 -lib json2object
 -lib hxargs
-
 -D no-deprecation-warnings
 -D std-encoding-utf8
 --macro gen.Res.build()

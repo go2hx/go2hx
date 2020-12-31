@@ -15,9 +15,11 @@ class Parser {
 	var replaceMap:Map<String, String> = [];
 	public var exportPath:String;
 	var localBool:Bool;
-
-	public function new(exportPath:String,exportBytes:Bytes,format:Bool,localBool:Bool) {
+	var filePaths:Array<String> = [];
+	var forceMain:Bool;
+	public function new(exportPath:String,exportBytes:Bytes,localBool:Bool,forceMain:Bool) {
 		this.localBool = localBool;
+		this.forceMain = forceMain;
 		if (exportPath.length > 0)
 			exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
@@ -33,36 +35,23 @@ class Parser {
 			read(pkg, path);
 		}
 		imports(exportPath);
-		if (format) {
-			formatRun([exportPath]);
-		}
-	}
-	function formatRun(paths:Array<String>) {
-		for (path in paths) {
-			var path:String = StringTools.trim(path);
-			if (!FileSystem.exists(path)) {
-				Sys.println('Skipping \'$path\' (path does not exist)');
-				continue;
-			}
-			if (FileSystem.isDirectory(path)) {
-				formatRun([for (file in FileSystem.readDirectory(path)) Path.join([path, file])]);
-			} else {
-				formatFile(path);
-			}
-		}
+		trace("run formatter: " + filePaths);
+		for (path in filePaths)
+			formatFile(path);
 	}
 	function formatFile(path:String) {
 		if (Path.extension(path) == "hx") {
-			var config = Formatter.loadConfig(path);
-			var content:String = File.getContent(path);
-			var result:Result = Formatter.format(Code(content), config);
+			var content:String = File.getContent("./" + path);
+			var result:Result = Formatter.format(Code(content));
 			switch (result) {
 				case Success(formattedCode):
+					trace("formatter sucessful");
 					File.saveContent(path, formattedCode);
 				case Failure(errorMessage):
-					Sys.stderr().writeString('Failed to format $path\n');
+					trace('Failed to format $path\n');
+					SyntaxParse.read(path); //if the formatting fails, find the error
 				case Disabled:
-					
+					trace("formatter is disabled");
 			}
 		}
 	}
@@ -170,7 +159,7 @@ class Parser {
 		// write
 		if (!FileSystem.exists(exportPath + path))
 			FileSystem.createDirectory(exportPath + path);
-		var path = exportPath + path + className + ".hx";
+		var path = path + className + ".hx";
 		var interfaceStack:Array<String> = [];
 		// struct classes
 		if (file.structs != null)
@@ -219,8 +208,24 @@ class Parser {
 			trace("interface stack: " + interfaceStack);
 		}
 		main = inital.concat(imports).concat(main);
+		var isMain = file.name == "main";
+		if (forceMain || isMain) {
+			buildConfig(path,className,isMain);
+			if (forceMain) {
+				var mainExists:Bool = false;
+				for (func in file.funcs) {
+					if (func.name == "main") {
+						mainExists = true;
+						break;
+					}
+				}
+				if (!mainExists)
+					main.push("function main() {}");
+			}
+		}
+		path = exportPath + path;
+		filePaths.push(path);
 		File.saveContent(path, main.join("\n"));
-		buildConfig(pkgPath, className);
 	}
 
 	function printFunc(func:Func, publicString:String = ""):Array<String> {
@@ -237,10 +242,17 @@ class Parser {
 		return main;
 	}
 
-	function buildConfig(path:String, main:String) {
+	function buildConfig(path:String,main:String,isMain:Bool) {
+		path = Path.withoutExtension(path);
+		path = StringTools.replace(path,"/",".");
+		if (isMain)
+			main = "";
+		if (!isMain && path.length > 0) {
+			var index = path.lastIndexOf(".");
+			if (index != -1)
+				path = path.substr(0,index + 1);
+		}
 		//TODO: should only be included if there is a main package, if so point to it.
-		if (path.length > 0)
-			path += ".";
 		var config = [
 			"-D std-encoding-utf8",
 			"-D no-deprecation-warnings",
@@ -257,7 +269,7 @@ class Parser {
 		Sys.command("lix install https://github.com/PXshadow/go2hx");
 		Sys.println("Test run:");
 		Sys.command("haxe build.hxml");
-		//File.saveContent(exportPath + ".haxerc",Resource.getString(".haxerc"));
+		Sys.setCwd("..");
 	}
 	var stdStartPath = "std/";
 	function imports(path:String) {

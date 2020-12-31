@@ -1,4 +1,4 @@
-package gostd;
+package gostd.internal;
 import haxe.macro.Compiler;
 import haxe.macro.Context;
 import haxe.macro.Expr.Field;

@@ -13,25 +13,28 @@ function main() {
 	var help:Bool = false;
 	var ping:Bool = false;
 	var inputPaths:Array<String> = [];
-	var format:Bool = true;
+	var forceMain:Bool = false;
 	var outputPath:String = "golibs";
+	var argCount:Int = 0;
 	var argHandler = Args.generate([@doc("Ping test")
 		_ => (path:String) -> inputPaths.push(path),
-		"-ping" => () -> ping = true, @doc("Show help")
-		"-help" => () -> help = true,
+		"-ping" => () -> {ping = true; argCount++;}, @doc("Show help")
+		"-help" => () -> {help = true; argCount++;},
+		"-forceMain" => () -> {forceMain = true; argCount++;},
 		@doc('Output directory default: golibs')
 		["-output", "-o"] => (path:String) -> {
-			outputPath = path;
+			outputPath = path; argCount++;
 		},
 	]);
 	var args = Sys.args();
 	var cwd = Sys.getCwd();
-	var localPath = args.length > 1 ? args.pop() : cwd;
-	try
-		argHandler.parse(args)
-	catch (e:String) {
+	try {
+		argHandler.parse(args);
+	} catch (e:String) {
 		throw 'error: $e';
 	}
+	trace("arg count: " + argCount);
+	var localPath = args.length > 1 + argCount ? args.pop() : cwd;
 	if (help) {
 		printDoc(argHandler);
 		return;
@@ -72,7 +75,7 @@ function main() {
 	var localBool = localPath == cwd;
 	Sys.setCwd(localPath);
 	Sys.println("running go2hx's Parser:");
-	new Parser(outputPath, exportBytes,true,localBool);
+	new Parser(outputPath, exportBytes,localBool,forceMain);
 }
 
 function printDoc(argHandler:ArgHandler) {

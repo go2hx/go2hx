@@ -1,7 +1,6 @@
 -cp src
 -main Main
 -lib bson
--lib hxnodejs
 #for formatter
 -lib formatter
 -lib tokentree
@@ -15,4 +14,4 @@
 --macro gen.Res.build()
 -dce full
 -D analyzer-optimize
--js go2hx.js
+-neko run.n

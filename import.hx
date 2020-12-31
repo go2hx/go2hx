@@ -2,20 +2,20 @@ package;
 
 // https://haxe.org/manual/type-system-import-defaults.html , thanks Nadako for the refrence :)
 
-import Builtin.append;
-import Builtin.close;
-import Builtin.complex;
-import Builtin.copy;
-import Builtin.delete;
-import Builtin.imag;
-import Builtin.len;
-import Builtin.create;
-import Builtin.create;
-import Builtin.panic;
-import Builtin.print;
-import Builtin.println;
-import Builtin.real;
-import Builtin.recover;
+import gostd.Builtin.append;
+import gostd.Builtin.close;
+import gostd.Builtin.complex;
+import gostd.Builtin.copy;
+import gostd.Builtin.delete;
+import gostd.Builtin.imag;
+import gostd.Builtin.len;
+import gostd.Builtin.create;
+import gostd.Builtin.create;
+import gostd.Builtin.panic;
+import gostd.Builtin.print;
+import gostd.Builtin.println;
+import gostd.Builtin.real;
+import gostd.Builtin.recover;
 
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;

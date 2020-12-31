@@ -1017,6 +1017,8 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 		return "haxe.Rest<" + parseTypeExpr(expr.Elt,data) + ">"
 	case *ast.ChanType:
 	case *ast.StructType:
+	case *ast.BinaryExpr:
+	case *ast.CallExpr:
 	default:
 		fmt.Println(posInfo(expr.Pos()),"type expr unknown:", reflect.TypeOf(expr))
 	}

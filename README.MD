@@ -3,7 +3,7 @@ Go Language to Haxe Language Transpiler
 **warning:** *experimental and still very much a work in progress*
 
 # How to build
-* if you don't have lix *the dependable haxe package manager* run: ```npm install lix -g```
+* if you don't have lix run: ```npm install lix -g```
 * ```lix download```
 * ```haxe build.hxml```
 

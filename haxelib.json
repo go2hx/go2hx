@@ -1,0 +1,20 @@
+{
+	"name": "go2hx",
+	"description": "A Go to Haxe transpiler",
+	"dependencies": {},
+	"url": "http://github.com/pxshadow/go2hx",
+	"contributors": [
+		"pxshadow"
+	],
+	"postDownload": "lix download && haxe build.hxml",
+	"version": "0.0.1",
+	"tags": [
+		"go",
+		"golang",
+		"haxe",
+        "transpiler",
+        "compiler",
+        "macro"
+	],
+	"license": "MIT"
+}

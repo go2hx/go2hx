@@ -12,12 +12,14 @@ import Args.ArgHandler;
 function main() {
 	var help:Bool = false;
 	var ping:Bool = false;
+	var test:Bool = false;
 	var inputPaths:Array<String> = [];
 	var forceMain:Bool = false;
 	var outputPath:String = "golibs";
 	var argCount:Int = 0;
 	var argHandler = Args.generate([@doc("Ping test")
 		_ => (path:String) -> inputPaths.push(path),
+		"-test" => () -> {test = true; argCount++;}, @doc("Enable testing")
 		"-ping" => () -> {ping = true; argCount++;}, @doc("Show help")
 		"-help" => () -> {help = true; argCount++;},
 		"-forceMain" => () -> {forceMain = true; argCount++;},
@@ -33,7 +35,6 @@ function main() {
 	} catch (e:String) {
 		throw 'error: $e';
 	}
-	trace("arg count: " + argCount);
 	var localPath = args.length > 1 + argCount ? args.pop() : cwd;
 	if (help) {
 		printDoc(argHandler);
@@ -63,6 +64,8 @@ function main() {
 		Sys.command(command);
 	}
 	Sys.println("running go4hx:");
+	if (test)
+		inputPaths.unshift("-test");
 	var err = Sys.command("./go4hx",inputPaths);
 	if (err != 0)
 		Sys.println("go4hx ERROR");

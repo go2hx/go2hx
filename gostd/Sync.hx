@@ -1,2 +1,7 @@
 package gostd;
-typedef Sync = Dynamic;
+class Sync {
+
+}
+class Mutux {
+    
+}

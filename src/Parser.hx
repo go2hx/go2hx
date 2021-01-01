@@ -106,15 +106,16 @@ class Parser {
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
 				name = StringTools.replace(name, "/", ".");
+				name = StringTools.replace(name,"-","_");
 				if (gostd.indexOf(name) != -1) {
 					name = 'gostd.$name';
 				}
 				switch name {
 					case "Reflect":
-						name = "GoReflect";
+						name = "gostd.GoReflect";
 						as = "Reflect";
 					case "Math":
-						name = "GoMath";
+						name = "gostd.GoMath";
 						as = "Math";
 				}
 				var line = 'import $name';

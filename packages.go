@@ -111,7 +111,7 @@ var excludes = map[string]bool{
 	//"go/scanner": true,
 	//"go/constant": true,
 	"math/big":  true,
-	"math/rand": true,
+	//"math/rand": true,
 	//"go/parser": true,
 	"container/heap": true,
 	"log":            true,
@@ -216,7 +216,7 @@ var asserted = ""
 var labels = []string{}
 var importLoadBool = true
 var export packageType
-
+var args []string
 var typeNames []string
 var typedefNames []string
 
@@ -258,19 +258,28 @@ func main() {
 	replaceTypeMap["uint64"] = "UInt"
 	replaceTypeMap["int16"] = "Int"
 	replaceTypeMap["int16"] = "Int"
+	replaceTypeMap["int8"] = "Int"
 	replaceTypeMap["int32"] = "haxe.Int32"
 	replaceTypeMap["int64"] = "haxe.Int64"
-	replaceTypeMap["float"] = "float"
-	replaceTypeMap["float16"] = "float"
-	replaceTypeMap["float32"] = "float"
-	replaceTypeMap["float64"] = "float"
-	replaceTypeMap["byte"] = "int"
+	replaceTypeMap["float"] = "Float"
+	replaceTypeMap["float16"] = "Float"
+	replaceTypeMap["float32"] = "Float"
+	replaceTypeMap["float64"] = "Float"
+	replaceTypeMap["byte"] = "UInt"
 	replaceTypeMap["errors"] = "gostd.Errors"
 	replaceTypeMap["error"] = "gostd.Errors"
 	replaceTypeMap["rune"] = "gostd.GoString"
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
+
+	test := flag.Bool("test",false,"testing the go library in haxe")
+	flag.Parse()
+	args = flag.Args()
+	exportData.args = args
+	if (*test) {
+		cfg.Tests = true
+	}
 	setup(true)
 
 	//print go
@@ -308,24 +317,12 @@ func removeContents(dir string) {
 }
 func setup(rename bool) {
 	// Examples: . , fmt, math, etc
-	flag.Parse()
-	args := flag.Args()
-	exportData.args = args
-	//parse out commands from source input
-	for i := 0; i < len(args); i++ {
-		str := args[i]
-		if string(str[0:1]) == "-" {
-			switch string(str[1:]) {
-			case "test":
-				cfg.Tests = true
-			}
-			args = append(args[:i], args[i+1:]...)
-		}
-	}
+	//cfg.Tests = true
 	initial, err := packages.Load(cfg, args...)
 	if rename {
 		for _,pkg := range initial {
-			runGoRename(pkg)
+			fset = pkg.Fset
+			pkgGoRename(pkg)
 		}
 		if gorenameExecuted {
 			setup(false)
@@ -363,7 +360,8 @@ func load(pkg *packages.Package) {
 	pkg.PkgPath = strings.Join(array, "/")
 	fset = pkg.Fset
 	imps = []string{}
-	file := mergePackageFiles(pkg, !true)
+	extern := false
+	file := mergePackageFiles(pkg, extern)
 	if file.Name == nil {
 		return
 	}
@@ -1182,9 +1180,9 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		case token.INT:
 			index := 0
 			if len(value) > 1 {
-				for i := 0; i < len(value); i++ {
+				for i := 0; i < len(value) - 1; i++ {
 					char := string(value[i])
-					if char == "0" {
+					if char == "0" && string(value[i + 1]) != "x" {
 						index++
 					}else{
 						break
@@ -1490,13 +1488,16 @@ func caseAsIf(stmt *ast.CaseClause, data *funcData) string {
 	buffer += "}"
 	return buffer
 }
-func renameScope(pkg string, def string, method string, to string, allowGlobal bool) {
+func renameScope(pkg string, def string, method string, to string, allowGlobal bool,offsetFlag string) {
 	from := `"` + pkg + `".` + def
 	if method != "" {
 		from += "." + method
 	}
+	if pkg == "" {
+		from = ""
+	}
 	gorenameExecuted = true
-	err := rename.Main(&build.Default, "", from, to,allowGlobal)
+	err := rename.Main(&build.Default, offsetFlag, from, to,allowGlobal)
 	if err != nil {
 		fmt.Println("renameScope error:",err)
 		gorenameExecuted = false
@@ -1594,17 +1595,25 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 		return name
 	}
 	gorenameExecuted = true
-	renameScope(pkg.PkgPath,name,"",name + "_",true)
+	renameScope(pkg.PkgPath,name,"",name + "_",true,"")
 	name += "_"
 	names[name] = true
 	return name
 }
-func runGoRename(pkg *packages.Package) {
-	names := make(map[string]bool)
+func pkgGoRename(pkg *packages.Package) {
+	names := []string{}
+	pos := []string{}
 	structs := make(map[string][]string)
 	_ = names
+	_ = pos
 	//struct type
-	for _,file := range pkg.Syntax {
+	for index,file := range pkg.Syntax {
+		fileName := pkg.GoFiles[index]
+		_ = fileName
+		/*index := strings.LastIndex(fileName,`\`)
+		if index != -1 {
+			fileName = string(fileName[index + 1:])
+		}*/
 		for i := 0; i < len(file.Decls); i++ {
 			//fmt.Println(ast.Print(nil, file.Decls[i]))
 			switch decl := file.Decls[i].(type) {
@@ -1636,6 +1645,9 @@ func runGoRename(pkg *packages.Package) {
 					fields := structs[recvName]
 					fields = append(fields, decl.Name.Name)
 					structs[recvName] = fields
+				}else{
+					names = append(names, decl.Name.Name)
+					pos = append(pos, fileName + ":#" + strconv.Itoa(fset.Position(decl.Name.Pos()).Offset))
 				}
 			}
 		}
@@ -1653,21 +1665,38 @@ func runGoRename(pkg *packages.Package) {
 					continue
 				}
 				if fields[i] == untitle(fields[j]) {
-					fmt.Println("name conflict found:",fields[i],fields[j],"attempting to rename")
-					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false)
+					fmt.Println("structure name conflict found:",fields[i],fields[j],"attempting to rename")
+					renameScope(pkg.PkgPath,structName,fields[i],"_" + fields[i],false,"")
 				}
 			}
 		}
 	}
+	//func names
+	for i := range names {
+		c := names[i][0:1]
+		if c == strings.ToTitle(c) {
+			continue
+		}
+		for j := range names {
+			if i == j {
+				continue
+			}
+			if names[i] == untitle(names[j]) {
+				renameScope("","","","_" + names[i],false,pos[i])
+			}
+		}
+	}
 }
-func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
+func mergePackageFiles(pkg *packages.Package, extern bool) ast.File {
 	data := ast.File{}
 	data.Scope = &ast.Scope{}
 	data.Scope.Objects = map[string]*ast.Object{}
 	data.Scope.Outer = &ast.Scope{}
 	data.Scope.Outer.Objects = map[string]*ast.Object{}
 	//data.Name = ast.NewIdent(pkg.Name)
+	names := make(map[string]bool)
 	imports := make(map[string]bool)
+	_ = names
 	_ = imports
 	// A language entity may be declared multiple
 	// times in different package files; only at
@@ -1722,9 +1751,10 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				}
 				data.Decls = append(data.Decls, &declData)
 			case *ast.FuncDecl:
-				if exports && !decl.Name.IsExported() {
+				if extern && !decl.Name.IsExported() {
 					continue
 				}
+				
 				declData := ast.FuncDecl{}
 				declData.Name = decl.Name
 				declData.Name.Name = decl.Name.Name
@@ -1732,7 +1762,7 @@ func mergePackageFiles(pkg *packages.Package, exports bool) ast.File {
 				declData.Body = decl.Body
 				declData.Recv = decl.Recv
 				declData.Doc = decl.Doc
-				if exports && declData.Body != nil {
+				if extern && declData.Body != nil {
 					declData.Body.List = []ast.Stmt{}
 				}
 				data.Decls = append(data.Decls, &declData)

@@ -1,4 +1,4 @@
-<p align="left"><img src="logo.png"/></p>
+<p align="left"><img src="logo.svg"/></p>
 
 go2hx
 ==========

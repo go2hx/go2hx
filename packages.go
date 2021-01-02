@@ -189,20 +189,6 @@ var goTypes = []string{
 	"float64",
 	//"uint", //declared below
 }
-var basicTypes = map[string]bool{
-	"Float": true,
-	"Int": true,
-	//"String":true,
-	"GoString":true,
-	"Bool": true,
-	"UInt64":true,
-	"UInt32": true,
-	"UInt": true,
-	"Float32": true,
-	"Float64": true,
-	"Int32": true,
-	"Int64": true,
-}
 var iotaIndex = -1
 var replaceTypeMap = map[string]string{}
 var replaceMap = map[string]string{}
@@ -872,6 +858,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	return body
 }
 func parseBody(stmts []ast.Stmt, data *funcData, isFuncBody bool) []string {
+	//fmt.Println(ast.Print(nil, stmts))
 	body := []string{}
 	before := len(labels)
 	for _, stmt := range stmts {
@@ -1259,7 +1246,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		}
 		sel = reserved(sel)
 		buffer = name + sel
-	case *ast.CallExpr: //1st class TODO: Type Conversions The expression T(v) converts the value v to the type T.
+	case *ast.CallExpr: //1st class
 		finish := true
 		start := true
 		end := false
@@ -1282,6 +1269,12 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 						name = "new " + name
 					}
 					break
+				}
+			}
+			for key,value := range replaceTypeMap {
+				if key == name {
+					start = false
+					name = "cast(" + parseExpr(expr.Args[0],false,data) + "," + value + ")"
 				}
 			}
 			if start {

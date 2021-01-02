@@ -319,21 +319,20 @@ func setup(rename bool) {
 	// Examples: . , fmt, math, etc
 	//cfg.Tests = true
 	initial, err := packages.Load(cfg, args...)
-	if rename {
-		for _,pkg := range initial {
-			fset = pkg.Fset
-			pkgGoRename(pkg)
-		}
-		if gorenameExecuted {
-			setup(false)
-			return 
-		}
-	}
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "load: %v\n", err)
 		return
 	}
 	for i := 0; i < len(initial); i++ {
+		if initial[i] != nil {
+			initial = append(initial,loadImport(initial[i],false)...)
+		}
+	}
+	if gorenameExecuted {
+		setup(false)
+		return 
+	}
+	for i := 0; i < len(initial); i ++ {
 		if initial[i] != nil {
 			load(initial[i])
 		}
@@ -350,7 +349,25 @@ func setup(rename bool) {
 	os.Remove(exportDataPath)
 	_ = ioutil.WriteFile(exportDataPath, bytes, 0644)
 }
+func loadImport(pkg *packages.Package,imported bool) []*packages.Package {
+	pkgs := []*packages.Package{}
+	if imported {
+		pkgs = append(pkgs, pkg)
+	}
+	pkgGoRename(pkg)
+	for path, imp := range pkg.Imports {
+		if !excludes[path] {
+			if importLoadBool {
+				loadImport(imp,true)
+				fmt.Println(path)
+			}
+			excludes[path] = true
+		}
+	}
+	return pkgs
+}
 func load(pkg *packages.Package) {
+	//skip as pkg is already going to be regenerated
 	str := strings.Replace(pkg.PkgPath, ".", "_", -1)
 	str = strings.Replace(str, "-", "_", -1)
 	array := strings.Split(str, "/")
@@ -366,15 +383,6 @@ func load(pkg *packages.Package) {
 		return
 	}
 	sources[file.Name.Name] = source{file, pkg.PkgPath}
-	for path, imp := range pkg.Imports {
-		if !excludes[path] {
-			if importLoadBool {
-				load(imp)
-				fmt.Println(path)
-			}
-			excludes[path] = true
-		}
-	}
 }
 
 var lastValue ast.Expr

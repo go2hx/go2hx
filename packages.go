@@ -1186,22 +1186,19 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				}
 			}
 		case token.INT:
-			index := 0
-			if len(value) > 1 {
-				for i := 0; i < len(value) - 1; i++ {
-					char := string(value[i])
-					if char == "0" && string(value[i + 1]) != "x" {
-						index++
-					}else{
-						break
-					}
-				}
-				if index > 0 {
-					value = expr.Value[index:]
-				}
+			i,err := strconv.ParseInt(value,0,64)
+			if err != nil {
+				fmt.Println("parse int error:",err)
+			}else{
+				value = fmt.Sprint(i)
 			}
 		case token.FLOAT:
-
+			/*i,err := strconv.ParseFloat(value,64)
+			if err != nil {
+				fmt.Println("parse float error:",err)
+			}else{
+				value = fmt.Sprint(i)
+			}*/
 		case token.CHAR:
 			if expr.Value == `\` {
 				value = `"\\".substring(1)`
@@ -1611,6 +1608,7 @@ func scopePackageName(name string, names map[string]bool,pkg *packages.Package) 
 func pkgGoRename(pkg *packages.Package) {
 	names := []string{}
 	pos := []string{}
+	fset = pkg.Fset
 	structs := make(map[string][]string)
 	_ = names
 	_ = pos

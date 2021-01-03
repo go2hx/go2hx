@@ -8,6 +8,7 @@ import sys.io.File;
 import haxe.Json;
 import haxe.Template;
 import Args.ArgHandler;
+import bson.Bson;
 
 function main() {
 	var help:Bool = false;
@@ -76,6 +77,9 @@ function main() {
 		var command = 'go get -u $path';
 		Sys.command(command);
 	}
+	var base = gostdBase();
+	trace("gostd base: " + base);
+	File.saveBytes("gostd.bson", Bson.encode({base: base}));
 	Sys.println("running go4hx:");
 	if (test)
 		inputPaths.unshift("-test");
@@ -86,12 +90,12 @@ function main() {
 		trace("error: export.bson not found");
 		return;
 	}
-	var exportBytes = File.getBytes("export.bson");
+	var exportData = Bson.decode(File.getBytes("export.bson"));
 	FileSystem.deleteFile("export.bson");
 	var localBool = localPath == cwd;
 	Sys.setCwd(localPath);
 	Sys.println("running go2hx's Parser:");
-	new Parser(outputPath, exportBytes, localBool, forceMain);
+	new Parser(outputPath, exportData, localBool, forceMain);
 }
 
 function printDoc(argHandler:ArgHandler) {
@@ -100,4 +104,14 @@ function printDoc(argHandler:ArgHandler) {
 			continue;
 		Sys.println(option.flags.join(", ") + " " + option.args.map(a -> '{${a.opt ? '?' : ''}${a.name}}').join(', '));
 	}
+}
+
+function gostdBase():Array<String> {
+	var pkgs:Array<String> = [];
+	for (name in FileSystem.readDirectory("gostd")) {
+		pkgs.push(Path.withoutExtension(name));
+	}
+	// for (exception in ["internal","goreflect","gomath"])
+	//	pkgs.remove(exception);
+	return pkgs;
 }

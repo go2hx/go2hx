@@ -1,4 +1,4 @@
 package gostd;
 
 class Sync {}
-class Mutux {}
+class Mutex {}

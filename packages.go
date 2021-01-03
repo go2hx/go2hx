@@ -57,6 +57,9 @@ type structType struct {
 	Imps             []string `json:"imps"`             //interface implements
 	Define           string   `json:"define"`
 }
+type gostdType struct {
+	Base []string `json:"base"`
+}
 
 // Example demonstrates how to load the packages specified on the
 // command line from source syntax.
@@ -216,6 +219,7 @@ var sources = map[string]source{}
 var src source
 var file ast.File
 var imps []string
+var stdbase []string
 
 const debug = true
 
@@ -258,6 +262,23 @@ func main() {
 
 	replaceMap["nil"] = "null"
 	replaceMap["_"] = "null"
+
+	gostdBytes,err := ioutil.ReadFile("gostd.bson")
+	if err != nil {
+		fmt.Println("reading gostd.bson error:",err)
+		return
+	}
+	gostdData := gostdType{}
+	err = bson.Unmarshal(gostdBytes,&gostdData)
+	if err != nil {
+		fmt.Println("parsing gostd.bson error:",err)
+		return
+	}
+	//os.Remove("gostd.bson")
+	stdbase = gostdData.Base
+	fmt.Println("stdbase:",stdbase)
+
+	
 
 	test := flag.Bool("test",false,"testing the go library in haxe")
 	flag.Parse()
@@ -333,7 +354,7 @@ func setup(rename bool) {
 	}
 	exportDataPath := "export.bson"
 	os.Remove(exportDataPath)
-	_ = ioutil.WriteFile(exportDataPath, bytes, 0644)
+	ioutil.WriteFile(exportDataPath, bytes, 0644)
 }
 func loadImport(pkg *packages.Package,imported bool) []*packages.Package {
 	pkgs := []*packages.Package{}
@@ -347,7 +368,7 @@ func loadImport(pkg *packages.Package,imported bool) []*packages.Package {
 				loadImport(imp,true)
 				fmt.Println(path)
 			}
-			excludes[path] = true
+			excludes[path] = true //TODO: have a system that adds to the list of excludes based on what is already inside of the golibs folder
 		}
 	}
 	return pkgs
@@ -395,7 +416,7 @@ func compile(src source) {
 						if spec.Name != nil {
 							imp[1] = spec.Name.Name
 						}
-						export.Imports = append(export.Imports, imp)
+						addImport(imp[0],imp[1])
 						name := getName(path)
 						replaceMap[imp[1]] = strings.Title(imp[1])
 						replaceMap[name] = strings.Title(name)
@@ -702,7 +723,7 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		case *ast.GenDecl:
 			for _, spec := range stmt.Specs {
 				switch spec := spec.(type) {
-				case *ast.ValueSpec: //TODO: Variables declared without an explicit initial value are given their zero value.
+				case *ast.ValueSpec:
 					buffer := ""
 					for i, _ := range spec.Names {
 						//spec.Names[i].Obj.Kind
@@ -950,7 +971,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		case *ast.BasicLit:
 			copyBool = false
 		case *ast.SelectorExpr:
-			switch stmt.Rhs[i].(*ast.SelectorExpr).Sel.Name {
+			sel := stmt.Rhs[i].(*ast.SelectorExpr)
+			switch sel.Sel.Name {
 			case "new":
 				copyBool = false
 			}
@@ -994,7 +1016,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X,data)
-		addImport("gostd/pointer","pointer")
+		addImport("pointer","")
 		return "Pointer<" + x + ">"
 	case *ast.Ident:
 		value, ok := replaceTypeMap[expr.Name]
@@ -1008,7 +1030,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 		}
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
-		sel := expr.Sel.Name
+		sel := renameString(expr.Sel.Name,data)
 		name := parseExpr(expr.X, false,data)
 		if name == "this" {
 			return sel
@@ -1516,6 +1538,8 @@ func renameString(name string,data *funcData) string {
 	if ok {
 		name = value
 	}
+	//TODO: this only needs to run on selector expr
+	name = renameImportBase(name,false)
 	return name
 }
 func typeAssert(expr ast.TypeAssertExpr, init bool, data *funcData) string {
@@ -1565,7 +1589,40 @@ func getIotaType(ty ast.Expr, values []ast.Expr) ast.Expr {
 
 	return nil
 }
+func renameImportBase(name string,slash bool) string {
+	if name == "gostd" {
+		return name
+	}
+	for _,std := range stdbase {
+		if name == std {
+			if slash {
+				return "gostd/" + name
+			}else{
+				return "gostd." + name
+			}
+		}
+	}
+	return name
+}
+func renameImport(path string) string {
+	index := strings.Index(path,"/")
+	if index != -1 {
+		base := renameImportBase(path[0:index],true)
+		return base + path[index + 1:]
+	}else{
+		return renameImportBase(path,true)
+	}
+}
 func addImport(path string, as string) {
+	switch path {
+		case "math":
+			path = "GoMath"
+			as = "math"
+		case "reflect":
+			path = "GoReflect"
+			as = "reflect"
+	}
+	path = renameImport(strings.Title(path))
 	for _,imp := range export.Imports {
 		if path == imp[0] {
 			return

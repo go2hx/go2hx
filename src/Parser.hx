@@ -20,13 +20,12 @@ class Parser {
 	var filePaths:Array<String> = [];
 	var forceMain:Bool;
 
-	public function new(exportPath:String, exportBytes:Bytes, localBool:Bool, forceMain:Bool) {
+	public function new(exportPath:String, data:Data, localBool:Bool, forceMain:Bool) {
 		this.localBool = localBool;
 		this.forceMain = forceMain;
 		if (exportPath.length > 0)
 			exportPath = Path.addTrailingSlash(exportPath);
 		this.exportPath = exportPath;
-		var data:Data = Bson.decode(exportBytes);
 		if (data.pkgs == null) {
 			trace("no packages found");
 			return;
@@ -100,7 +99,6 @@ class Parser {
 		var inital = ['package $pkgPath;'];
 		var imports = [];
 		var main = [];
-		var gostd = gen.Macro.gostd().split(",");
 		// imports
 		if (file.imports != null)
 			for (imp in file.imports) {
@@ -111,17 +109,6 @@ class Parser {
 					replaceMap.set(as, as = capPkg(as));
 				name = StringTools.replace(name, "/", ".");
 				name = StringTools.replace(name, "-", "_");
-				if (gostd.indexOf(name) != -1) {
-					name = 'gostd.$name';
-				}
-				switch name {
-					case "Reflect":
-						name = "gostd.GoReflect";
-						as = "Reflect";
-					case "Math":
-						name = "gostd.GoMath";
-						as = "Math";
-				}
 				var line = 'import $name';
 				if (as != "") {
 					line += ' as $as';
@@ -294,30 +281,6 @@ class Parser {
 			File.saveContent(path, Resource.getString(i));
 		}
 	}
-
-	var pkgs:Array<String> = [];
-
-	function readDir(path:String) {
-		path = Path.addTrailingSlash(path);
-		if (FileSystem.exists(path) && FileSystem.isDirectory(path)) {
-			var dir = FileSystem.readDirectory(path);
-			for (name in dir) {
-				if (name.substring(0, 1) == ".")
-					continue; // skip git
-
-				if (FileSystem.isDirectory(path + name)) {
-					readDir(path + name);
-				} else {
-					var className = path.substr("gostd/".length) + Path.withoutExtension(name);
-					className = Path.normalize(className);
-					className = StringTools.replace(className, "/", ".");
-					pkgs.push(className);
-				}
-			}
-		}
-		readDir("gostd");
-	}
-
 	function cap(string:String, reverse:Bool = false):String {
 		return (reverse ? string.charAt(0).toLowerCase() : string.charAt(0).toUpperCase()) + string.substr(1);
 	}

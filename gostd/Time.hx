@@ -1,4 +1,5 @@
 package gostd;
+
 import haxe.zip.Compress;
 import haxe.Int64;
 

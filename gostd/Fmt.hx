@@ -1,4 +1,5 @@
 package gostd;
+
 import haxe.io.Output;
 import haxe.Rest;
 import gostd.internal.ErrorReturn;
@@ -10,14 +11,14 @@ import haxe.macro.Expr.ExprOf;
 import haxe.macro.TypeTools;
 
 class Fmt { // https://haxe.org/manual/macro-reification-expression.html
-
-	public static inline function errorf(fmt:String,args:Rest<Dynamic>):Errors {
-		return new Errors(format(fmt,args.toArray()));
+	public static inline function errorf(fmt:String, args:Rest<Dynamic>):Errors {
+		return new Errors(format(fmt, args.toArray()));
 	}
 
 	public static inline function println(args:Rest<Dynamic>) {
 		log(args.toArray().join(" ") + "\n");
 	}
+
 	public static inline function print(args:Rest<Dynamic>) {
 		log(args.toArray().join(" ") + "\n");
 	}
@@ -26,8 +27,8 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 		log(format(fmt, args.toArray()));
 	}
 
-	public static inline function fprintf(w:Output,fmt:String,args:Rest<Dynamic>) {
-		w.writeString(format(fmt,args.toArray()));
+	public static inline function fprintf(w:Output, fmt:String, args:Rest<Dynamic>) {
+		w.writeString(format(fmt, args.toArray()));
 	}
 
 	public static inline function sprint(args:Rest<Dynamic>) {
@@ -45,7 +46,7 @@ class Fmt { // https://haxe.org/manual/macro-reification-expression.html
 	private static function format(fmt:String, args:Array<Dynamic>):String {
 		try {
 			return gostd.internal.Printf.format(fmt, args);
-		}catch(e) {
+		} catch (e) {
 			return e.message;
 		}
 	}

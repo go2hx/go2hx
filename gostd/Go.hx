@@ -1,4 +1,5 @@
 package gostd;
+
 import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
@@ -9,7 +10,8 @@ import haxe.macro.Context;
 function str(v:Dynamic):String {
 	return v.toString();
 }
-macro function slice(src:Expr,low:ExprOf<Int>,high:ExprOf<Int>=null,max:ExprOf<Int>=null) {
+
+macro function slice(src:Expr, low:ExprOf<Int>, high:ExprOf<Int> = null, max:ExprOf<Int> = null) {
 	var type = Context.followWithAbstracts(Context.typeof(src));
 	var isString = false;
 	switch type {
@@ -27,17 +29,17 @@ macro function slice(src:Expr,low:ExprOf<Int>,high:ExprOf<Int>=null,max:ExprOf<I
 	if (max == null)
 		max = macro 0;
 	if (isString) {
-		return macro $src.substring($low,$high).substr($max);
-	}else{
-		return macro $src.slice($low,$high).slice($max);
+		return macro $src.substring($low, $high).substr($max);
+	} else {
+		return macro $src.slice($low, $high).slice($max);
 	}
 	/*var slice = src.slice(low,high);
-	if (max > 0)
-		return slice.slice(0,max);
-	return slice;*/
+		if (max > 0)
+			return slice.slice(0,max);
+		return slice; */
 }
 
-macro function copy(expr) { //slices and maps are ref types
+macro function copy(expr) { // slices and maps are ref types
 	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var exception = false;
 	switch expr.expr {
@@ -52,8 +54,7 @@ macro function copy(expr) { //slices and maps are ref types
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null")
-						exception = true;
+					if (s == "null") exception = true;
 				default:
 			}
 		case EBinop(op, e1, e2):
@@ -66,7 +67,7 @@ macro function copy(expr) { //slices and maps are ref types
 							switch c {
 								case CIdent(s):
 									trace("s: " + s);
-									if (s == "Go" || s == "Map" || s == "Array") //map and array is by ref
+									if (s == "Go" || s == "Map" || s == "Array") // map and array is by ref
 										exception = true;
 								default:
 							}
@@ -76,7 +77,7 @@ macro function copy(expr) { //slices and maps are ref types
 			}
 		case EField(e, field):
 			exception = true;
-			//trace("e: " + e);
+		// trace("e: " + e);
 		case EArray(e1, e2):
 			return macro $expr.copy();
 		default:
@@ -84,7 +85,7 @@ macro function copy(expr) { //slices and maps are ref types
 	}
 	if (isBasic(type) || exception) {
 		return expr;
-	}else{
+	} else {
 		switch type {
 			case TInst(t, params):
 				var t = t.get();
@@ -108,8 +109,8 @@ macro function copy(expr) { //slices and maps are ref types
 				values.sort(function(a, b) {
 					return 0;
 				});
-				var str = "new " + t.pack.join(".") + t.name+ '(${values.join(",")})';
-				var init = Context.parse(str,Context.currentPos());
+				var str = "new " + t.pack.join(".") + t.name + '(${values.join(",")})';
+				var init = Context.parse(str, Context.currentPos());
 				return macro $init;
 			case TMono(t):
 				var t = t.get();
@@ -174,7 +175,7 @@ macro function setMulti(cond, expr) {
 	}
 	switch type {
 		case TInst(t, params):
-			trace("type: " + type + " expr: " + new Printer().printExpr(expr)," exprdef: " + expr.expr);
+			trace("type: " + type + " expr: " + new Printer().printExpr(expr), " exprdef: " + expr.expr);
 			switch expr.expr {
 				case EArray(e1, e2):
 					var value = values[0];
@@ -258,16 +259,16 @@ macro function range(key, value, x, expr) {
 			var name = t.get().name;
 			switch (name) {
 				case "Array":
-				case "String","GoString":
-					//x = macro new haxe.iterators.StringIterator($x);
+				case "String", "GoString":
+					// x = macro new haxe.iterators.StringIterator($x);
 					x = macro $x.split("");
-				case "StringMap","Map","IntMap","HashMap","ObjectMap","UnsafeStringMap","WeakMap":
+				case "StringMap", "Map", "IntMap", "HashMap", "ObjectMap", "UnsafeStringMap", "WeakMap":
 					x = macro $x.keys();
 					var string = 'var $keyName = tmp;';
 					if (valueName != "_") {
 						string += 'var $valueName = ${ExprTools.toString(x)}[tmp];';
 					}
-					set = Context.parse(string,Context.currentPos());
+					set = Context.parse(string, Context.currentPos());
 					init = macro null;
 					post = macro null;
 				default:
@@ -310,6 +311,7 @@ macro function cfor(cond, post, expr) {
 	};
 	return exprMacro;
 }
+
 private function isBasic(type:haxe.macro.Type):Bool {
 	return switch type {
 		case TAbstract(t, params):
@@ -317,7 +319,7 @@ private function isBasic(type:haxe.macro.Type):Bool {
 				case "Bool":
 				case "Float":
 				case "Int":
-				case "String","GoString":
+				case "String", "GoString":
 				default:
 					false;
 			}

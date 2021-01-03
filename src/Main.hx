@@ -1,4 +1,4 @@
-//! -lib hxnodejs
+// ! -lib hxnodejs
 package;
 
 import haxe.Resource;
@@ -19,13 +19,26 @@ function main() {
 	var argCount:Int = 0;
 	var argHandler = Args.generate([@doc("Ping test")
 		_ => (path:String) -> inputPaths.push(path),
-		"-test" => () -> {test = true; argCount++;}, @doc("Enable testing")
-		"-ping" => () -> {ping = true; argCount++;}, @doc("Show help")
-		"-help" => () -> {help = true; argCount++;},
-		"-forceMain" => () -> {forceMain = true; argCount++;},
+		"-test" => () -> {
+			test = true;
+			argCount++;
+		}, @doc("Enable testing")
+		"-ping" => () -> {
+			ping = true;
+			argCount++;
+		}, @doc("Show help")
+		"-help" => () -> {
+			help = true;
+			argCount++;
+		},
+		"-forceMain" => () -> {
+			forceMain = true;
+			argCount++;
+		},
 		@doc('Output directory default: golibs')
 		["-output", "-o"] => (path:String) -> {
-			outputPath = path; argCount++;
+			outputPath = path;
+			argCount++;
 		},
 	]);
 	var args = Sys.args();
@@ -48,11 +61,11 @@ function main() {
 		Sys.println("go2hx golang to haxe transpiler\n" + "Usage:\n" + "    go2hx [src or main.go]");
 		return;
 	}
-	//go4hx run here
+	// go4hx run here
 	var httpsString = "https://";
 	for (i in 0...inputPaths.length) {
 		var path = inputPaths[i];
-		if (StringTools.startsWith(path,httpsString))
+		if (StringTools.startsWith(path, httpsString))
 			path = path.substr(httpsString.length);
 		if (Path.extension(path) == "go")
 			continue;
@@ -66,7 +79,7 @@ function main() {
 	Sys.println("running go4hx:");
 	if (test)
 		inputPaths.unshift("-test");
-	var err = Sys.command("./go4hx",inputPaths);
+	var err = Sys.command("./go4hx", inputPaths);
 	if (err != 0)
 		Sys.println("go4hx ERROR");
 	if (!FileSystem.exists("export.bson")) {
@@ -78,7 +91,7 @@ function main() {
 	var localBool = localPath == cwd;
 	Sys.setCwd(localPath);
 	Sys.println("running go2hx's Parser:");
-	new Parser(outputPath, exportBytes,localBool,forceMain);
+	new Parser(outputPath, exportBytes, localBool, forceMain);
 }
 
 function printDoc(argHandler:ArgHandler) {

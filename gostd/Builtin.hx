@@ -1,4 +1,5 @@
 package gostd;
+
 import haxe.Rest;
 import haxe.macro.Expr;
 import haxe.macro.Printer;
@@ -8,7 +9,7 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(array:Array<T>,args:Rest<Dynamic>) {
+inline function append<T>(array:Array<T>, args:Rest<Dynamic>) {
 	array = array.concat(cast args.toArray());
 	return array;
 }
@@ -29,9 +30,8 @@ inline function copy(dst, src) {
 	dst = Go.copy(src);
 }
 
-inline function delete<K,V>(map:Map<K,V>, key:K) {
+inline function delete<K, V>(map:Map<K, V>, key:K) {
 	map.remove(key);
-	
 }
 
 macro function imag(c) {

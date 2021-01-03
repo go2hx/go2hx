@@ -1,5 +1,3 @@
 package gostd.io;
 
-class Reader {
-    
-}
+class Reader {}

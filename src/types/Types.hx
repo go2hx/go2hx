@@ -1,4 +1,3 @@
-
 package types;
 
 typedef Func = {

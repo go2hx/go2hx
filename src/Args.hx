@@ -82,8 +82,12 @@ class Args {
 
 			var e = if (!interactive) macro {
 				if (__index + $v{fArgs.length} > __args.length) {
-					if (!$a{fArgs.map(function(arg) return macro $v{arg.opt
-						|| arg.value != null})}[__args.length - 1])
+					if (!$a{
+						fArgs.map(function(arg) return macro $v{
+							arg.opt
+							|| arg.value != null})
+					}
+						[__args.length - 1])
 						throw "Not enough arguments: " + __args[__index - 1] + " expects " + $v{fArgs.length};
 				}
 				${action}($a{args});

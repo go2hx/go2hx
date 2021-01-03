@@ -1,12 +1,14 @@
 package gostd;
+
 @:forward
 @:access(StringTools)
 abstract GoString(String) from String to String {
-  @:arrayAccess
-  inline function get(id:Int) {
-    return this.charAt(id);
-  }
-  @:op(A < B) static function lt(a:GoString, b:GoString):Bool;
+	@:arrayAccess
+	inline function get(id:Int) {
+		return this.charAt(id);
+	}
+
+	@:op(A < B) static function lt(a:GoString, b:GoString):Bool;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool;
 

@@ -14,9 +14,9 @@ class Ioutil {
 
 	public static function writeFile(filename:String, data:Bytes, ?perm:Os.FileMode):Errors {
 		try {
-			File.saveBytes(filename,data);
+			File.saveBytes(filename, data);
 			return null;
-		}catch(e) {
+		} catch (e) {
 			return cast e;
 		}
 	}
@@ -26,11 +26,11 @@ class Ioutil {
 		try {
 			var array:Array<FileInfo> = [];
 			for (path in FileSystem.readDirectory(dirname)) {
-				array.push(new FileInfo(Path.withoutDirectory(path),FileSystem.stat(dirname + path)));
+				array.push(new FileInfo(Path.withoutDirectory(path), FileSystem.stat(dirname + path)));
 			}
 			return {value: array};
-		}catch(e) {
-			return {value: null,error: cast e};
+		} catch (e) {
+			return {value: null, error: cast e};
 		}
 	}
 

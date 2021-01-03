@@ -1,6 +1,8 @@
 package gostd;
+
 class GoMath {
 	public static final pi = Math.PI;
+
 	public static inline function max(a, b) {
 		return Math.max(a, b);
 	}

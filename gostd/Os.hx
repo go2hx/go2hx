@@ -1,4 +1,5 @@
 package gostd;
+
 import sys.FileStat;
 import haxe.io.Path;
 import Pointer.PointerWrapper;
@@ -16,12 +17,13 @@ class Os {
 		try {
 			FileSystem.createDirectory(path);
 			return null;
-		}catch(e) {
+		} catch (e) {
 			return cast e;
 		}
 	}
-	public static inline function mkdirAll(path:String,?perm:Int):Errors {
-		return mkdir(path,perm);
+
+	public static inline function mkdirAll(path:String, ?perm:Int):Errors {
+		return mkdir(path, perm);
 	}
 
 	public static inline function create(path:String):ErrorReturn<Pointer<Pointer.PointerWrapper<File>>> {
@@ -32,7 +34,7 @@ class Os {
 		Sys.exit(code);
 	}
 
-	public static inline function newSyscallError(syscall:String,err:Errors):Errors {
+	public static inline function newSyscallError(syscall:String, err:Errors):Errors {
 		if (err == null)
 			return null;
 		return new Errors(syscall);
@@ -42,7 +44,7 @@ class Os {
 		try {
 			Sys.setCwd(dir);
 			return null;
-		}catch(e) {
+		} catch (e) {
 			return cast e;
 		}
 	}
@@ -51,11 +53,11 @@ class Os {
 		try {
 			if (FileSystem.isDirectory(name)) {
 				FileSystem.deleteDirectory(name);
-			}else{
+			} else {
 				FileSystem.deleteFile(name);
 			}
 			return null;
-		}catch(e) {
+		} catch (e) {
 			return cast e;
 		}
 	}
@@ -77,32 +79,41 @@ class Os {
 }
 
 typedef FileMode = Int;
+
 class FileInfo {
 	var stat:FileStat;
 	var _name:String;
-	public function new(_name:String,stat:FileStat) {
+
+	public function new(_name:String, stat:FileStat) {
 		this.stat = stat;
 		this._name = _name;
 	}
+
 	public function name():String {
 		return _name;
 	}
+
 	public function isDir():Bool {
 		return this.stat.mode != 1;
 	}
+
 	public function mode():FileMode {
 		return stat.mode;
 	}
+
 	public function modeTime() {
 		return stat.mtime;
 	}
+
 	public function size() {
 		return stat.size;
 	}
+
 	public function sys() {
 		return null;
 	}
 }
+
 class File {
 	public function new() {}
 }

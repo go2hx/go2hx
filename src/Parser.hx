@@ -13,11 +13,14 @@ import haxe.io.Path;
 
 class Parser {
 	var replaceMap:Map<String, String> = [];
+
 	public var exportPath:String;
+
 	var localBool:Bool;
 	var filePaths:Array<String> = [];
 	var forceMain:Bool;
-	public function new(exportPath:String,exportBytes:Bytes,localBool:Bool,forceMain:Bool) {
+
+	public function new(exportPath:String, exportBytes:Bytes, localBool:Bool, forceMain:Bool) {
 		this.localBool = localBool;
 		this.forceMain = forceMain;
 		if (exportPath.length > 0)
@@ -39,6 +42,7 @@ class Parser {
 		for (path in filePaths)
 			formatFile(path);
 	}
+
 	function formatFile(path:String) {
 		if (Path.extension(path) == "hx") {
 			var content:String = File.getContent("./" + path);
@@ -49,7 +53,7 @@ class Parser {
 					File.saveContent(path, formattedCode);
 				case Failure(errorMessage):
 					trace('Failed to format $path\n');
-					SyntaxParse.read(path); //if the formatting fails, find the error
+					SyntaxParse.read(path); // if the formatting fails, find the error
 				case Disabled:
 					trace("formatter is disabled");
 			}
@@ -106,7 +110,7 @@ class Parser {
 				if (as.length > 0)
 					replaceMap.set(as, as = capPkg(as));
 				name = StringTools.replace(name, "/", ".");
-				name = StringTools.replace(name,"-","_");
+				name = StringTools.replace(name, "-", "_");
 				if (gostd.indexOf(name) != -1) {
 					name = 'gostd.$name';
 				}
@@ -138,15 +142,17 @@ class Parser {
 				if (func.recv != "") {
 					func.exported = true;
 					var pointerString = "Pointer<";
-					//remove pointer type
-					if (func.recv.substr(0,pointerString.length) == pointerString) {
+					// remove pointer type
+					if (func.recv.substr(0, pointerString.length) == pointerString) {
 						func.recv = func.recv.substr(pointerString.length);
-						func.recv = func.recv.substr(0,func.recv.length - 1);
+						func.recv = func.recv.substr(0, func.recv.length - 1);
 					}
 					for (struct in file.structs) {
 						var index = func.recv.lastIndexOf("<");
-						if (index == -1 && struct.name == func.recv ||
-							index != -1 && func.recv.substring(index + 1,func.recv.indexOf(">")) == struct.name) {
+						if (index == -1
+							&& struct.name == func.recv
+							|| index != -1
+							&& func.recv.substring(index + 1, func.recv.indexOf(">")) == struct.name) {
 							if (struct.funcs == null)
 								struct.funcs = [];
 							struct.funcs.push(func);
@@ -170,7 +176,7 @@ class Parser {
 					interfaceStack = interfaceStack.concat(struct.interfaceMethods); // add methods to stack
 				if (struct.interfacebool) {
 					main.push("typedef " + struct.name + " = Dynamic;");
-				}else{
+				} else {
 					var ty = "@:structInit\nclass ";
 					var end = "";
 					if (struct.define != "") {
@@ -190,7 +196,7 @@ class Parser {
 						main.push('    public function new(?value:${struct.define}) {');
 						main.push("        this = value;");
 						main.push("    }\n");
-					}else{
+					} else {
 						main.push('    public function new($init) {');
 						main.push("        gostd.internal.Macro.initLocals();");
 						main.push("    }\n");
@@ -211,7 +217,7 @@ class Parser {
 		main = inital.concat(imports).concat(main);
 		var isMain = file.name == "main";
 		if (forceMain || isMain) {
-			buildConfig(path,className,isMain);
+			buildConfig(path, className, isMain);
 			if (forceMain) {
 				var mainExists:Bool = false;
 				for (func in file.funcs) {
@@ -243,17 +249,17 @@ class Parser {
 		return main;
 	}
 
-	function buildConfig(path:String,main:String,isMain:Bool) {
+	function buildConfig(path:String, main:String, isMain:Bool) {
 		path = Path.withoutExtension(path);
-		path = StringTools.replace(path,"/",".");
+		path = StringTools.replace(path, "/", ".");
 		if (isMain)
 			main = "";
 		if (!isMain && path.length > 0) {
 			var index = path.lastIndexOf(".");
 			if (index != -1)
-				path = path.substr(0,index + 1);
+				path = path.substr(0, index + 1);
 		}
-		//TODO: should only be included if there is a main package, if so point to it.
+		// TODO: should only be included if there is a main package, if so point to it.
 		var config = [
 			"-D std-encoding-utf8",
 			"-D no-deprecation-warnings",
@@ -263,7 +269,7 @@ class Parser {
 			'-main $path$main',
 		];
 
-		File.saveContent(exportPath + "build.hxml",config.join("\n"));
+		File.saveContent(exportPath + "build.hxml", config.join("\n"));
 
 		Sys.setCwd(exportPath);
 		Sys.command("lix scope create");
@@ -272,19 +278,44 @@ class Parser {
 		Sys.command("haxe build.hxml");
 		Sys.setCwd("..");
 	}
+
 	var stdStartPath = "std/";
+
 	function imports(path:String) {
 		path = Path.normalize(path);
 		if (!FileSystem.exists(path))
 			FileSystem.createDirectory(path);
 		for (i in Resource.listNames()) {
-			if (i.substr(0,stdStartPath.length) != stdStartPath)
+			if (i.substr(0, stdStartPath.length) != stdStartPath)
 				continue;
 			var path = '$path/${capPkg(i)}.hx';
 			if (!FileSystem.exists(Path.directory(path)))
 				FileSystem.createDirectory(Path.directory(path));
 			File.saveContent(path, Resource.getString(i));
 		}
+	}
+
+	var pkgs:Array<String> = [];
+
+	function readDir(path:String) {
+		path = Path.addTrailingSlash(path);
+		if (FileSystem.exists(path) && FileSystem.isDirectory(path)) {
+			var dir = FileSystem.readDirectory(path);
+			for (name in dir) {
+				if (name.substring(0, 1) == ".")
+					continue; // skip git
+
+				if (FileSystem.isDirectory(path + name)) {
+					readDir(path + name);
+				} else {
+					var className = path.substr("gostd/".length) + Path.withoutExtension(name);
+					className = Path.normalize(className);
+					className = StringTools.replace(className, "/", ".");
+					pkgs.push(className);
+				}
+			}
+		}
+		readDir("gostd");
 	}
 
 	function cap(string:String, reverse:Bool = false):String {

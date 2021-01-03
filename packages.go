@@ -1020,11 +1020,11 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 		if ok {
 			return value
 		}
-		for _, imp := range imps {
+		/*for _, imp := range imps {
 			if imp == expr.Name {
 				return "Dynamic"
 			}
-		}
+		}*/
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
 		sel := renameString(expr.Sel.Name,data)
@@ -1295,7 +1295,8 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				}
 			}
 			for key,value := range replaceTypeMap {
-				if key == name {
+				_ = key
+				if value == name {
 					start = false
 					name = "cast(" + parseExpr(expr.Args[0],false,data) + "," + value + ")"
 					finish = false

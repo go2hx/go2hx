@@ -78,7 +78,6 @@ function main() {
 		Sys.command(command);
 	}
 	var base = gostdBase();
-	trace("gostd base: " + base);
 	File.saveBytes("gostd.bson", Bson.encode({base: base}));
 	Sys.println("running go4hx:");
 	if (test)

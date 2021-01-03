@@ -249,8 +249,10 @@ func main() {
 	replaceTypeMap["int16"] = "Int"
 	replaceTypeMap["int16"] = "Int"
 	replaceTypeMap["int8"] = "Int"
-	replaceTypeMap["int32"] = "haxe.Int32"
-	replaceTypeMap["int64"] = "haxe.Int64"
+	//replaceTypeMap["int32"] = "haxe.Int32"
+	//replaceTypeMap["int64"] = "haxe.Int64"
+	replaceTypeMap["int32"] = "Int"
+	replaceTypeMap["int64"] = "Int"
 	replaceTypeMap["float"] = "Float"
 	replaceTypeMap["float16"] = "Float"
 	replaceTypeMap["float32"] = "Float"
@@ -276,9 +278,6 @@ func main() {
 	}
 	//os.Remove("gostd.bson")
 	stdbase = gostdData.Base
-	fmt.Println("stdbase:",stdbase)
-
-	
 
 	test := flag.Bool("test",false,"testing the go library in haxe")
 	flag.Parse()
@@ -589,8 +588,9 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 	case *ast.LabeledStmt:
-		buffer := "function " + stmt.Label.Name + "() {\n"
-		labels = append(labels, stmt.Label.Name)
+		name := "goto_" + stmt.Label.Name;
+		buffer := "var " + name + ":() -> Void;\n" + name + " = function() {\n"
+		labels = append(labels, name)
 		body = append(body, buffer)
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init,data))
@@ -798,7 +798,14 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 		}
 		body = append(body, buffer)
 	case *ast.BranchStmt:
-		buffer := stmt.Tok.String() + ";"
+		tok := stmt.Tok.String()
+		switch tok {
+		case "Goto":
+			tok = "gostd_" + stmt.Label.Name + "()"
+		default:
+
+		}
+		buffer := tok + ";"
 		body = append(body, buffer)
 	case *ast.IfStmt:
 		buffer := ""
@@ -958,17 +965,7 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		}
 		buffer += set
 		switch stmt.Rhs[i].(type) {
-		case *ast.CompositeLit:
-			copyBool = false
-		case *ast.SliceExpr:
-			copyBool = false
-		case *ast.UnaryExpr:
-			copyBool = false
-		case *ast.StarExpr:
-			copyBool = false
-		case *ast.FuncLit:
-			copyBool = false
-		case *ast.BasicLit:
+		case *ast.CompositeLit, *ast.SliceExpr, *ast.UnaryExpr, *ast.StarExpr, *ast.FuncLit, *ast.BasicLit, *ast.BinaryExpr:
 			copyBool = false
 		case *ast.SelectorExpr:
 			sel := stmt.Rhs[i].(*ast.SelectorExpr)
@@ -1025,18 +1022,19 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 		}
 		for _, imp := range imps {
 			if imp == expr.Name {
-				return "Any"
+				return "Dynamic"
 			}
 		}
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
 		sel := renameString(expr.Sel.Name,data)
 		name := parseExpr(expr.X, false,data)
-		if name == "this" {
-			return sel
+		/*if name == "this" {
+			return sel + "."
 		}else{
 			return name + "." + sel
-		}
+		}*/
+		return name + "." + sel
 	case *ast.ArrayType: //pass through
 	case *ast.InterfaceType:
 	case *ast.FuncType:
@@ -1046,6 +1044,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	case *ast.ChanType:
 	case *ast.StructType:
 	case *ast.BinaryExpr:
+		fmt.Println(expr.Pos(),"type expr as Binary expr:",reflect.TypeOf(expr))
 	case *ast.CallExpr:
 	default:
 		fmt.Println(posInfo(expr.Pos()),"type expr unknown:", reflect.TypeOf(expr))
@@ -1259,8 +1258,10 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				}
 			}
 		case *ast.SelectorExpr:
-			x := expr.X.(*ast.SelectorExpr)
+			/*x := expr.X.(*ast.SelectorExpr)
 			name = parseExpr(x.X, false,data) + "." + untitle(x.Sel.Name)
+			sel = untitle(sel)*/
+			name = parseExpr(expr.X, false,data) + "."
 			sel = untitle(sel)
 		default:
 			name = parseExpr(expr.X, false,data) + "."
@@ -1297,6 +1298,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				if key == name {
 					start = false
 					name = "cast(" + parseExpr(expr.Args[0],false,data) + "," + value + ")"
+					finish = false
 				}
 			}
 			if start {
@@ -1444,7 +1446,7 @@ func parseRes(res []string, numFields int, data *funcData) string {
 	}
 	if len(res) == 0 {
 		if numFields > 0 {
-			return "Any"
+			return "Dynamic"
 		} else {
 			return "Void"
 		}

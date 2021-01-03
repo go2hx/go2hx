@@ -281,6 +281,7 @@ class Parser {
 			File.saveContent(path, Resource.getString(i));
 		}
 	}
+
 	function cap(string:String, reverse:Bool = false):String {
 		return (reverse ? string.charAt(0).toLowerCase() : string.charAt(0).toUpperCase()) + string.substr(1);
 	}

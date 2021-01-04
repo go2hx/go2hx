@@ -498,6 +498,10 @@ func compile(src source) {
 			fn := funcType{}
 			fn.Exported = decl.Name.IsExported()
 			fn.Name = reserved(untitle(decl.Name.Name))
+			_,ok := replaceTypeMap[fn.Name]
+			if ok {
+				fn.Name = fn.Name + "_"
+			}
 			if fn.Name != decl.Name.Name {
 				replaceMap[decl.Name.Name] = fn.Name
 			}
@@ -1040,7 +1044,7 @@ func parseTypeExpr(expr ast.Expr,data *funcData) string {
 		}*/
 		return strings.Title(expr.Name)
 	case *ast.SelectorExpr:
-		sel := renameString(expr.Sel.Name,data,false)
+		sel := renameString(expr.Sel.Name,data)
 		name := parseExpr(expr.X, false,data)
 		/*if name == "this" {
 			return sel + "."
@@ -1139,8 +1143,8 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			resString := parseRes(res, expr.Results.NumFields(), &data)
 			buffer += resString
 		}
-	case *ast.Ident:
-		name := renameString(expr.Name,data,false)
+	case *ast.Ident: //1st class
+		name := renameString(expr.Name,data)
 		buffer = name
 	case *ast.StarExpr: //pointer
 		x := parseExpr(expr.X, false,data)
@@ -1243,7 +1247,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		}
 	case *ast.SelectorExpr: //1st class
 		name := ""
-		sel := renameString(expr.Sel.Name,data,false)
+		sel := renameString(expr.Sel.Name,data)
 		//sel = strings.Title(sel)
 		switch expr.X.(type) { //switch for either ident or selector
 		case *ast.Ident:
@@ -1293,7 +1297,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 			buffer += ";\na"
 			end = true
 		case *ast.Ident:
-			name := renameString(initType.Name,data,true)
+			name := parseExpr(initType,false,data)//renameString(initType.Name,data,true)
 			for _, n := range typeNames {
 				if n == name {
 					start = false
@@ -1311,12 +1315,12 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 				arg := parseExpr(expr.Args[0],false,data)
 				for key,value := range replaceTypeMap {
 					_ = key
-					if strings.Title(key) == name {
+					if strings.Title(key) == name || name == "UInt" { //issue with the naming of UInt as titling turns to Uint
 						start = false
-						switch value {
+						switch name {
 						case "Int":
 							name = "Std.int(" + arg + ")"
-						case "UInt":
+						case "Uint", "UInt":
 							name = "(Std.int(" + arg + ") : UInt)"
 						case "String":
 							name = "Std.string(" + arg + ")"
@@ -1325,7 +1329,9 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 						default:
 							name = "(" + arg + " : " + value + ")"
 						}
+						start = false
 						finish = false
+						break
 					}
 				}
 			}
@@ -1491,12 +1497,14 @@ func parseRes(res []string, numFields int, data *funcData) string {
 }
 func getDefaultTypeFromName(name string) string {
 	switch name {
-	case "int", "float", "uint64", "uint", "int64", "float64":
+	case "Int","UInt","Float":
 		return "0"
-	case "string", "GoString":
+	case "String", "GoString","gostd.GoString":
 		return "''"
-	case "bool":
+	case "Bool":
 		return "false"
+	case "Bytes":
+		return "haxe.io.Bytes.alloc(0)"
 	default:
 		//return "new " + defType + "()"
 		return "null"
@@ -1515,7 +1523,7 @@ func getDefaultValue(expr ast.Expr, defType string,forceConstant bool) string {
 		buffer += "]"
 		return buffer
 	case *ast.Ident:
-		return getDefaultTypeFromName(expr.Name)
+		return getDefaultTypeFromName(parseExpr(expr,false,&funcDataDefault))
 	default:
 		_ = expr
 		return "null"
@@ -1556,7 +1564,7 @@ func renameScope(pkg string, def string, method string, to string, allowGlobal b
 		fmt.Println("renamed scope successfully, recompiling...")
 	}
 }
-func renameString(name string,data *funcData,lowercase bool) string {
+func renameString(name string,data *funcData) string {
 	if name == "iota" {
 		iotaIndex++
 		return strconv.Itoa(iotaIndex)
@@ -1569,15 +1577,14 @@ func renameString(name string,data *funcData,lowercase bool) string {
 	if ok {
 		name = value
 	}
-	if lowercase {
-		if string(name[0:1]) != strings.Title(string(name[0:1])) {
-			//lowercase and could be type
-			value,ok = replaceTypeMap[name]
-			if ok {
-				return value
-			}
+	value,ok = replaceTypeMap[name]
+	if ok {
+		return value
+	}else{
+		_,ok = replaceTypeMap[untitle(name)]
+		if ok {
+			return name + "_"
 		}
-		name = untitle(name)
 	}
 	//TODO: this only needs to run on selector expr
 	name = renameImportBase(name,false)

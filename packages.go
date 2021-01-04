@@ -916,8 +916,12 @@ func parseMultiReturn(stmt *ast.AssignStmt, init bool,data *funcData) string {
 	args := []string{}
 	for i := range stmt.Lhs {
 		set := parseExpr(stmt.Lhs[i], false,data)
-		if stmt.Tok.String() == ":=" && set != "null" {
-			buffer += "var " + set + addSemicolon(stmt, init)
+		if  set != "_" {
+			if stmt.Tok.String() == ":=" {
+				buffer += "var " + set + addSemicolon(stmt, init)
+			}
+		}else{
+			set = "null"
 		}
 		args = append(args, set)
 	}
@@ -952,6 +956,7 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 		}
 		copyBool := true
 		tok := stmt.Tok.String()
+		str := parseExpr(stmt.Rhs[i], false,data)
 		if !empty {
 			switch tok {
 			case ":=":
@@ -959,6 +964,10 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 				isInit = true
 				tok = "="
 			case "=":
+			case "^=","<<=",">>=",">>>=","|=","&=":
+				//int types
+				str = "Std.int(" + str + ")"
+				copyBool = false
 			default:
 				copyBool = false
 			}
@@ -995,7 +1004,6 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			data.thisBool = true
 			copyBool = false
 		}
-		str := parseExpr(stmt.Rhs[i], false,data)
 		data.thisBool = false
 		if copyBool {
 			buffer += "gostd.Go.copy(" + str + ")"
@@ -1009,12 +1017,23 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 func removeParan(str string) string {
 	return str[1 : len(str)-1]
 }
+func isPointer(x string) bool {
+	switch x {
+	case "Int","Float","UInt","Bool":
+		return true
+	}
+	return false
+}
 func parseTypeExpr(expr ast.Expr,data *funcData) string {
 	switch expr := expr.(type) {
 	case *ast.StarExpr:
 		x := parseTypeExpr(expr.X,data)
-		addImport("pointer","")
-		return "Pointer<" + x + ">"
+		if isPointer(x) {
+			addImport("pointer","")
+			return "Pointer<" + x + ">"
+		}else{
+			return x
+		}
 	case *ast.Ident:
 		value, ok := replaceTypeMap[expr.Name]
 		if ok {
@@ -1133,7 +1152,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		x := parseExpr(expr.X, false,data)
 		buffer = x
 		if x != "this" {
-			buffer +=  "[0]"
+			buffer +=  "._value" //pointer property
 		}
 	case *ast.MapType:
 		buffer = "Map<" + parseTypeExpr(expr.Key,data) + "," + parseTypeExpr(expr.Value,data) + ">"
@@ -1294,11 +1313,23 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 					break
 				}
 			}
+			arg := parseExpr(expr.Args[0],false,data)
 			for key,value := range replaceTypeMap {
 				_ = key
-				if value == name {
+				if key == untitle(name) {
 					start = false
-					name = "cast(" + parseExpr(expr.Args[0],false,data) + "," + value + ")"
+					switch value {
+					case "Int":
+						name = "Std.int(" + arg + ")"
+					case "UInt":
+						name = "(Std.int(" + arg + ") : UInt)"
+					case "String":
+						name = "Std.string(" + arg + ")"
+					case "Bool":
+						name = "(" + arg + ")"
+					default:
+						name = "(" + arg + " : " + value + ")"
+					}
 					finish = false
 				}
 			}
@@ -1360,7 +1391,11 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
 			x := parseExpr(expr.X, false,data)
-			buffer = "gostd.Pointer.make(" + x + ")"
+			if isPointer(x) {
+				buffer = "new gostd.Pointer(" + x + ")"
+			}else{
+				buffer = x
+			}
 		default:
 			buffer = op + " " + parseExpr(expr.X, false,data)
 		}

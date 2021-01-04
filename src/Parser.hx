@@ -116,6 +116,7 @@ class Parser {
 				line += ";";
 				imports.push(line);
 			}
+			imports.push("import gostd.Builtin;");
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {

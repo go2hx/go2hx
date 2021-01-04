@@ -1,11 +1,13 @@
 package gostd;
 
 // snippit by tink haxe library
-
-typedef Pointer<T> = haxe.ds.Vector<T>;
-
-function make<T>(value:T):Pointer<T> {
-	var pointer = new Pointer<T>(1);
-	pointer[0] = value;
-	return pointer;
+abstract Pointer<T>(haxe.ds.Vector<T>) {
+	inline function new(value:T) {
+		this = new haxe.ds.Vector(1);
+		this[0] = value;
+	}
+	public var _value(get, set):T;
+	@:to inline function get__value():T return this[0];
+	inline function set__value(v:T):T return this[0] = v;
+	public function toString():String return '@[' + Std.string(_value)+']';
 }

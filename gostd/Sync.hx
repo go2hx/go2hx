@@ -1,4 +1,11 @@
 package gostd;
 
 class Sync {}
-class Mutex {}
+class Mutex {
+    public function lock() {
+
+    }
+    public function unlock() {
+        
+    }
+}

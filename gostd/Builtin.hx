@@ -14,17 +14,11 @@ inline function append<T>(array:Array<T>, args:Rest<Dynamic>) {
 	return array;
 }
 
-function cap(v) {
-	return macro null;
-}
+inline function cap(v) {}
 
-macro function close(expr) {
-	return macro null;
-}
+inline function close(v) {}
 
-macro function complex(r, i) {
-	return macro null;
-}
+inline function complex(r, i) {}
 
 inline function copy(dst, src) {
 	dst = Go.copy(src);
@@ -34,9 +28,7 @@ inline function delete<K, V>(map:Map<K, V>, key:K) {
 	map.remove(key);
 }
 
-macro function imag(c) {
-	return macro null;
-}
+function imag(c) {}
 
 macro function len(expr) {
 	var ty = Context.typeof(expr);
@@ -64,22 +56,18 @@ macro function create(t) { // new
 	return macro null;
 }
 
-macro function panic(expr) {
-	return macro throw $expr;
+inline function panic(v) {
+	return throw v;
 }
 
-macro function print(args:Array<Expr>) {
-	return macro null;
+inline function print(args:Rest<Dynamic>) {
+	return Fmt.print(args);
 }
 
-macro function println(args:Array<Expr>) {
-	return macro null;
+inline function println(args:Rest<Dynamic>) {
+	return Fmt.println(args);
 }
 
-macro function real(c) {
-	return macro null;
-}
+inline function real(c) {}
 
-macro function recover() {
-	return macro null;
-}
+inline function recover() {}

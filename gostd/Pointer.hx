@@ -2,7 +2,7 @@ package gostd;
 
 // snippit by tink haxe library
 abstract Pointer<T>(haxe.ds.Vector<T>) {
-	inline function new(value:T) {
+	public function new(value:T) {
 		this = new haxe.ds.Vector(1);
 		this[0] = value;
 	}

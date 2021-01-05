@@ -996,23 +996,6 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			}
 		}
 		buffer += set
-		switch lhs := stmt.Lhs[i].(type) {
-		case *ast.Ident:
-			if lhs.Obj != nil {
-				switch decl := lhs.Obj.Decl.(type) {
-				case *ast.AssignStmt:
-
-				case *ast.ValueSpec:
-					if isInit {
-						buffer += ":" + parseTypeExpr(decl.Type,data)
-					}
-				case *ast.Field:
-
-				default:
-					fmt.Println(posInfo(lhs.Obj.Pos()),"unknown left side assign object type:",reflect.TypeOf(decl))
-				}
-			}
-		}
 		switch stmt.Rhs[i].(type) {
 		case *ast.CompositeLit, *ast.SliceExpr, *ast.UnaryExpr, *ast.StarExpr, *ast.FuncLit, *ast.BasicLit, *ast.BinaryExpr:
 			copyBool = false
@@ -1022,6 +1005,8 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			case "new":
 				copyBool = false
 			}
+		case *ast.Ident:
+			
 		case *ast.CallExpr:
 			call := stmt.Rhs[i].(*ast.CallExpr)
 			copyBool = false
@@ -1030,7 +1015,6 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 				if initType.Obj != nil {
 					switch decl := initType.Obj.Decl.(type) {
 					case *ast.ValueSpec:
-						fmt.Println("type:",decl.Type)
 						switch parseTypeExpr(decl.Type,data) {
 						case "Float","Int","Bool","UInt","String","GoString":
 							copyBool = false
@@ -1297,7 +1281,17 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		}
 		buffer = value
 	case *ast.BinaryExpr:
-		buffer = parseExpr(expr.X,false,data) + expr.Op.String() + parseExpr(expr.Y,false,data)
+		op := expr.Op.String()
+		x := parseExpr(expr.X,false,data)
+		y := parseExpr(expr.Y,false,data)
+		switch op {
+		case "/":
+			expr.
+		case ">>","<<","&","|",">>>","^":
+			buffer = "Std.int(" + x + ")" + op + "Std.int(" + y + ")"
+		default:
+			buffer = x + op + y
+		}
 	case *ast.ArrayType:
 		name := parseTypeExpr(expr.Elt,data)
 		writeArrayBool := true
@@ -1454,22 +1448,8 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		op := expr.Op.String()
 		switch op {
 		case "*": //represented as *ast.StarExpr
-		case "&": //adress acess
-			switch x := expr.X.(type) {
-			case *ast.Ident:
-				switch x.Obj.Decl {
-					
-				default:
-					fmt.Println(posInfo(x.Obj.Pos()),"unknown unary expr obj decl:",reflect.TypeOf(x))
-				}
-			default:
-				fmt.Println(posInfo(expr.X.Pos()),"unknown unary expr x:",reflect.TypeOf(x))
-			}
-			/*if isPointer() {
-				buffer = "new gostd.Pointer(" + x + ")"
-			}else{
-				buffer = x
-			}*/
+		case "&": //address access
+			buffer = "new gostd.Pointer(" + parseExpr(expr.X,false,data) + ")"
 		default:
 			buffer = op + " " + parseExpr(expr.X, false,data)
 		}

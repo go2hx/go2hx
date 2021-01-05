@@ -9,6 +9,7 @@ import haxe.Json;
 import haxe.Template;
 import Args.ArgHandler;
 import bson.Bson;
+import Ast;
 
 function main() {
 	var help:Bool = false;

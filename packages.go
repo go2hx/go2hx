@@ -189,12 +189,15 @@ var debugComment = !true
 var debugTypeTrace = false
 var mapField = false
 var asserted = ""
-var labels = []string{}
+var assignType = ""
+var labels []string
+var labelsVoid []bool
 var importLoadBool = true
 var export packageType
 var args []string
 var typeNames []string
 var typedefNames []string
+
 
 var deferStack []string
 var funcDataDefault = funcData{
@@ -220,6 +223,7 @@ type funcData struct {
 	thisBool bool
 	replaceMap map[string]string
 	recv string
+	result string
 }
 
 func main() {
@@ -391,6 +395,7 @@ func compile(src source) {
 	export = packageType{}
 	export.PackagePath = src.path
 	file = src.file
+	typedefNames = []string{}
 
 	if file.Name != nil {
 		export.Name = file.Name.Name
@@ -476,10 +481,11 @@ func compile(src source) {
 						//ty.Imps = imps
 					case *ast.InterfaceType:
 						imps = append(imps, ty.Name)
+						typedefNames = append(typedefNames,ty.Name) //currently a dynamic typedef
 						ty.InterfaceBool = true
 					case *ast.Ident, *ast.ArrayType, *ast.SelectorExpr:
 						ty.Define = parseTypeExpr(spec.Type,&funcDataDefault)
-						typedefNames = append(typedefNames, spec.Name.Name)
+						typedefNames = append(typedefNames, ty.Name)
 						//ty.Imps = imps
 					default:
 						fmt.Println(posInfo(structType.Pos()),"type spec type unknown", reflect.TypeOf(structType))
@@ -514,10 +520,11 @@ func compile(src source) {
 				fn.Params = parseFields(decl.Type.Params.List, false, false,&data)
 			}
 			if decl.Type.Results != nil {
-				fn.Result = ":" + parseRes(parseFields(decl.Type.Results.List, false, true,&data), decl.Type.Results.NumFields(), &data)
+				data.result = parseRes(parseFields(decl.Type.Results.List, false, true,&data), decl.Type.Results.NumFields(), &data)
 			} else {
-				fn.Result = ":Void"
+				data.result = "Void"
 			}
+			fn.Result = ":" + data.result
 			if decl.Recv != nil {
 				//fn.
 				if len(decl.Recv.List) != 1 {
@@ -586,9 +593,20 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	body := []string{}
 	switch stmt := stmt.(type) {
 	case *ast.LabeledStmt:
-		name := "goto_" + stmt.Label.Name;
-		buffer := "var " + name + ":() -> Void;\n" + name + " = function() {\n"
+		name := "label_" + stmt.Label.Name;
+		result := data.result
+		isVoid := true
+		if result != "Void" {
+			result = "Null<" + result + ">"
+			isVoid = false
+		}
+		buffer := "var " + name + ":() -> " + result + ";\n"
+		buffer += name + " = function() {\n"
+		if stmt.Stmt != nil {
+			buffer += strings.Join(parseStatement(stmt.Stmt,true,data),"\n")
+		}
 		labels = append(labels, name)
+		labelsVoid = append(labelsVoid,isVoid)
 		body = append(body, buffer)
 	case *ast.ExprStmt:
 		body = append(body, parseExpr(stmt.X, init,data))
@@ -798,8 +816,8 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 	case *ast.BranchStmt:
 		tok := stmt.Tok.String()
 		switch tok {
-		case "Goto":
-			tok = "gostd_" + stmt.Label.Name + "()"
+		case "goto":
+			tok = "label_" + stmt.Label.Name + "()"
 		default:
 
 		}
@@ -823,9 +841,9 @@ func parseStatement(stmt ast.Stmt, init bool, data *funcData) []string {
 			buffer += "else {"
 			switch stmt := stmt.Else.(type) {
 			case *ast.BlockStmt:
-				buffer += strings.Join(parseBody(stmt.List,data,false), "")
+				buffer += strings.Join(parseBody(stmt.List,data,false), "\n")
 			default:
-				buffer += strings.Join(parseStatement(stmt, true,data), "")
+				buffer += strings.Join(parseStatement(stmt, true,data), "\n")
 			}
 			buffer += "}"
 		}
@@ -891,9 +909,16 @@ func parseBody(stmts []ast.Stmt, data *funcData, isFuncBody bool) []string {
 		body = append(body, parseStatement(stmt, true, data)...)
 	}
 	if before != len(labels) {
-		tmp := labels[before:len(labels)]
-		for _, label := range tmp {
-			body = append(body, strings.Join([]string{"}\n", label, "();"}, ""))
+		labels := labels[before:len(labels)]
+		labelsVoid = labelsVoid[before:len(labelsVoid)]
+		for i := range labels {
+			if !labelsVoid[i] {
+				buffer := "return null;\n}\n"
+				buffer += "return " + labels[i] + "();\n"
+				body = append(body, buffer)
+			}else{
+				body = append(body, "}\n" + labels[i] + "();")
+			}
 		}
 		//slice
 		labels = labels[0:before]
@@ -971,6 +996,23 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			}
 		}
 		buffer += set
+		switch lhs := stmt.Lhs[i].(type) {
+		case *ast.Ident:
+			if lhs.Obj != nil {
+				switch decl := lhs.Obj.Decl.(type) {
+				case *ast.AssignStmt:
+
+				case *ast.ValueSpec:
+					if isInit {
+						buffer += ":" + parseTypeExpr(decl.Type,data)
+					}
+				case *ast.Field:
+
+				default:
+					fmt.Println(posInfo(lhs.Obj.Pos()),"unknown left side assign object type:",reflect.TypeOf(decl))
+				}
+			}
+		}
 		switch stmt.Rhs[i].(type) {
 		case *ast.CompositeLit, *ast.SliceExpr, *ast.UnaryExpr, *ast.StarExpr, *ast.FuncLit, *ast.BasicLit, *ast.BinaryExpr:
 			copyBool = false
@@ -985,6 +1027,20 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 			copyBool = false
 			switch initType := call.Fun.(type) {
 			case *ast.Ident:
+				if initType.Obj != nil {
+					switch decl := initType.Obj.Decl.(type) {
+					case *ast.ValueSpec:
+						fmt.Println("type:",decl.Type)
+						switch parseTypeExpr(decl.Type,data) {
+						case "Float","Int","Bool","UInt","String","GoString":
+							copyBool = false
+						}
+					case *ast.FuncDecl:
+						copyBool = false
+					default:
+						fmt.Println(posInfo(initType.Obj.Pos()),"unknown assign statement ident:",reflect.TypeOf(decl))
+					}
+				}
 				switch initType.Name {
 				case "make":
 					//copyBool = false
@@ -996,6 +1052,9 @@ func parseAssignStatement(stmt *ast.AssignStmt, init bool, data *funcData) strin
 				}
 
 			}
+		}
+		if assignType != "" {
+			buffer += ":" + assignType
 		}
 		buffer += " " + tok
 		if set == "this" {
@@ -1017,8 +1076,13 @@ func removeParan(str string) string {
 }
 func isPointer(x string) bool {
 	switch x {
-	case "Int","Float","UInt","Bool":
+	case "Int","Float","UInt","Bool","GoString","String":
 		return true
+	}
+	for _,name := range typedefNames {
+		if x == name {
+			return true
+		}
 	}
 	return false
 }
@@ -1233,7 +1297,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		}
 		buffer = value
 	case *ast.BinaryExpr:
-		buffer = parseExpr(expr.X, false,data) + expr.Op.String() + parseExpr(expr.Y, false,data)
+		buffer = parseExpr(expr.X,false,data) + expr.Op.String() + parseExpr(expr.Y,false,data)
 	case *ast.ArrayType:
 		name := parseTypeExpr(expr.Elt,data)
 		writeArrayBool := true
@@ -1326,6 +1390,8 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 							name = "Std.string(" + arg + ")"
 						case "Bool":
 							name = "(" + arg + ")"
+						case "Float":
+							name = arg
 						default:
 							name = "(" + arg + " : " + value + ")"
 						}
@@ -1389,12 +1455,21 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		switch op {
 		case "*": //represented as *ast.StarExpr
 		case "&": //adress acess
-			x := parseExpr(expr.X, false,data)
-			if isPointer(x) {
+			switch x := expr.X.(type) {
+			case *ast.Ident:
+				switch x.Obj.Decl {
+					
+				default:
+					fmt.Println(posInfo(x.Obj.Pos()),"unknown unary expr obj decl:",reflect.TypeOf(x))
+				}
+			default:
+				fmt.Println(posInfo(expr.X.Pos()),"unknown unary expr x:",reflect.TypeOf(x))
+			}
+			/*if isPointer() {
 				buffer = "new gostd.Pointer(" + x + ")"
 			}else{
 				buffer = x
-			}
+			}*/
 		default:
 			buffer = op + " " + parseExpr(expr.X, false,data)
 		}

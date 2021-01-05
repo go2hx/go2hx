@@ -78,8 +78,7 @@ macro function copy(expr) { // slices and maps are ref types
 		case EField(e, field):
 			exception = true;
 		// trace("e: " + e);
-		case EArray(e1, e2):
-			return macro $expr.copy();
+		case EArray(e1, e2): //expr[i] : passthrough
 		default:
 			trace("expr: " + expr.expr);
 	}
@@ -168,7 +167,7 @@ macro function setMulti(cond, expr) {
 				continue;
 			if (index >= values.length)
 				continue;
-			var get = Context.parse('tmp.${field.name}', Context.currentPos());
+			var get = Context.parse(ExprTools.toString(expr) + '.${field.name}', Context.currentPos());
 			var value = values[index];
 			set.push(macro $value = $get);
 		}
@@ -206,11 +205,17 @@ macro function setMulti(cond, expr) {
 			anonFields(a.get());
 		case TMono(t):
 
+		case TDynamic(t):
+			switch t {
+				case null:
+					set.push(expr);
+				default:
+					trace("unknown TDynamic t type: " + t);
+			}
 		default:
 			trace("not an inst or func " + type);
 	}
 	return macro {
-		var tmp = $expr;
 		$b{set}
 	}
 }

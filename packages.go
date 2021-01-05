@@ -1286,7 +1286,7 @@ func parseExpr(expr ast.Expr, init bool,data *funcData) string {
 		y := parseExpr(expr.Y,false,data)
 		switch op {
 		case "/":
-			expr.
+			buffer = "Std.int(" + x + op + y + ")"
 		case ">>","<<","&","|",">>>","^":
 			buffer = "Std.int(" + x + ")" + op + "Std.int(" + y + ")"
 		default:
@@ -1697,11 +1697,18 @@ func renameImportBase(name string,slash bool) string {
 		return name
 	}
 	for _,std := range stdbase {
-		if name == std {
-			if slash {
-				return "gostd/" + name
-			}else{
-				return "gostd." + name
+		for _,imp := range export.Imports {
+			path := imp[0]
+			path = strings.ReplaceAll(path,"/",".")
+			if std != path {
+				continue
+			}
+			if name == std {
+				if slash {
+					return "gostd/" + name
+				}else{
+					return "gostd." + name
+				}
 			}
 		}
 	}

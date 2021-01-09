@@ -20,7 +20,7 @@ class Parser {
 	var filePaths:Array<String> = [];
 	var forceMain:Bool;
 
-	public function new(exportPath:String, data:Data, localBool:Bool, forceMain:Bool) {
+	public function new(exportPath:String, data:Data, localBool:Bool) {
 		this.localBool = localBool;
 		this.forceMain = forceMain;
 		if (exportPath.length > 0)
@@ -116,7 +116,7 @@ class Parser {
 				line += ";";
 				imports.push(line);
 			}
-		imports.push("import gostd.Builtin;");
+		imports.push("import stdgo.Builtin;");
 		// vars and consts
 		if (file.vars != null)
 			for (v in file.vars) {
@@ -186,7 +186,7 @@ class Parser {
 						main.push("    }\n");
 					} else {
 						main.push('    public function new($init) {');
-						main.push("        gostd.internal.Macro.initLocals();");
+						main.push("        stdgo.internal.Macro.initLocals();");
 						main.push("    }\n");
 					}
 					if (struct.funcs != null)

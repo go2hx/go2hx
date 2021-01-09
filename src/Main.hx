@@ -1,6 +1,7 @@
 // ! -lib hxnodejs
 package;
 
+import Typer.DataType;
 import haxe.Resource;
 import sys.FileSystem;
 import haxe.io.Path;
@@ -12,29 +13,34 @@ import bson.Bson;
 import Ast;
 
 function main() {
-	var help:Bool = false;
-	var ping:Bool = false;
-	var test:Bool = false;
+	var jsonBool:Bool = false;
+	var helpBool:Bool = false;
+	var pingBool:Bool = false;
+	var testBool:Bool = false;
 	var inputPaths:Array<String> = [];
-	var forceMain:Bool = false;
+	var configPath:String = "";
 	var outputPath:String = "golibs";
 	var argCount:Int = 0;
 	var argHandler = Args.generate([@doc("Ping test")
 		_ => (path:String) -> inputPaths.push(path),
 		"-test" => () -> {
-			test = true;
+			testBool = true;
 			argCount++;
 		}, @doc("Enable testing")
 		"-ping" => () -> {
-			ping = true;
+			pingBool = true;
 			argCount++;
 		}, @doc("Show help")
 		"-help" => () -> {
-			help = true;
+			helpBool = true;
 			argCount++;
 		},
-		"-forceMain" => () -> {
-			forceMain = true;
+		"-config" => (path:String) -> {
+			configPath = path;
+			argCount++;
+		},
+		"-json" => () -> {
+			jsonBool = true;
 			argCount++;
 		},
 		@doc('Output directory default: golibs')
@@ -51,11 +57,11 @@ function main() {
 		throw 'error: $e';
 	}
 	var localPath = args.length > 1 + argCount ? args.pop() : cwd;
-	if (help) {
+	if (helpBool) {
 		printDoc(argHandler);
 		return;
 	}
-	if (ping) {
+	if (pingBool) {
 		Sys.println("Pong!");
 		return;
 	}
@@ -78,24 +84,42 @@ function main() {
 		var command = 'go get -u $path';
 		Sys.command(command);
 	}
-	var base = gostdBase();
-	File.saveBytes("gostd.bson", Bson.encode({base: base}));
-	Sys.println("running go4hx:");
-	if (test)
+	Sys.println("> parser: " + inputPaths.length);
+	if (testBool)
 		inputPaths.unshift("-test");
+	if (jsonBool)
+		inputPaths.unshift("-json");
 	var err = Sys.command("./go4hx", inputPaths);
 	if (err != 0)
 		Sys.println("go4hx ERROR");
-	if (!FileSystem.exists("export.bson")) {
-		trace("error: export.bson not found");
+	var exportName = "export." + (jsonBool ? "json" : "bson");
+	if (!FileSystem.exists(exportName)) {
+		trace('error: $exportName not found');
 		return;
 	}
-	var exportData = Bson.decode(File.getBytes("export.bson"));
-	FileSystem.deleteFile("export.bson");
+	var exportData:DataType = jsonBool ? Json.parse(File.getContent(exportName)) : Bson.decode(File.getBytes(exportName));
+	//FileSystem.deleteFile(exportName);
 	var localBool = localPath == cwd;
 	Sys.setCwd(localPath);
-	Sys.println("running go2hx's Parser:");
-	new Parser(outputPath, exportData, localBool, forceMain);
+	Sys.println("> typer: " + exportData.pkgs.length);
+	var modules = Typer.main(exportData);
+	Sys.println("> post processer: " + modules.length);
+	for (module in modules) {
+		PostProcess.run(module);
+	}
+	Sys.println("> generator: " + modules.length);
+	outputPath = Path.addTrailingSlash(outputPath);
+	for (module in modules) {
+		Gen.create(outputPath,module);
+	}
+	/*if (configPath != "") {
+		Sys.println("> config generator:");
+		//create a config with lix scope create, go2hx as a library and the build.hxml with --next for each
+		var args:Array<String> = [];
+		for (module in modules) {
+
+		}
+	}*/
 }
 
 function printDoc(argHandler:ArgHandler) {
@@ -104,14 +128,4 @@ function printDoc(argHandler:ArgHandler) {
 			continue;
 		Sys.println(option.flags.join(", ") + " " + option.args.map(a -> '{${a.opt ? '?' : ''}${a.name}}').join(', '));
 	}
-}
-
-function gostdBase():Array<String> {
-	var pkgs:Array<String> = [];
-	for (name in FileSystem.readDirectory("gostd")) {
-		pkgs.push(Path.withoutExtension(name));
-	}
-	// for (exception in ["internal","goreflect","gomath"])
-	//	pkgs.remove(exception);
-	return pkgs;
 }

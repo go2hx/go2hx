@@ -1,20 +1,20 @@
 package;
 
 // https://haxe.org/manual/type-system-import-defaults.html , thanks Nadako for the refrence :)
-import gostd.Builtin.append;
-import gostd.Builtin.close;
-import gostd.Builtin.complex;
-import gostd.Builtin.copy;
-import gostd.Builtin.delete;
-import gostd.Builtin.imag;
-import gostd.Builtin.len;
-import gostd.Builtin.create;
-import gostd.Builtin.create;
-import gostd.Builtin.panic;
-import gostd.Builtin.print;
-import gostd.Builtin.println;
-import gostd.Builtin.real;
-import gostd.Builtin.recover;
+import stdgo.Builtin.append;
+import stdgo.Builtin.close;
+import stdgo.Builtin.complex;
+import stdgo.Builtin.copy;
+import stdgo.Builtin.delete;
+import stdgo.Builtin.imag;
+import stdgo.Builtin.len;
+import stdgo.Builtin.create;
+import stdgo.Builtin.create;
+import stdgo.Builtin.panic;
+import stdgo.Builtin.print;
+import stdgo.Builtin.println;
+import stdgo.Builtin.real;
+import stdgo.Builtin.recover;
 import haxe.Int64 as Int64;
 import haxe.Int32 as Int32;
 import StdTypes.Float as Float32;

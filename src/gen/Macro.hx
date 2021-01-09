@@ -1,5 +1,8 @@
 package gen;
 
+import haxe.macro.Context;
+import haxe.macro.ExprTools;
+import haxe.macro.Expr;
 import haxe.io.Path;
 import sys.FileSystem;
 

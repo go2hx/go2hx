@@ -1,8 +1,8 @@
 package;
 
-typedef Node = {
+/*typedef Node = {
 	pos:Int
-};
+};*/
 
 typedef Expr = Dynamic;
 typedef Stmt = Dynamic;
@@ -12,8 +12,8 @@ typedef ObjKind = Int;
 typedef ChanDir = Int;
 
 typedef Comment = {
-	slash:Pos,
 	text:String,
+	pos:Int,
 };
 
 typedef CommentGroup = {
@@ -35,39 +35,43 @@ typedef FieldList = {
 };
 
 typedef BadExpr = {
-	> Node,
+	//> Node,
 	from:Pos,
 	to:Pos,
 };
 
-typedef Ident = {
-	> Node,
+/*typedef Ident = {
+	//> Node,
 	namePos:Pos,
 	name:String,
 	obj:Object,
-};
+};*/
+typedef Ident = {
+	name:String,
+	type:Dynamic
+}
 
 typedef Ellipsis = {
-	> Node,
+	//> Node,
 	ellipsis:Pos,
 	elt:Expr,
 };
 
 typedef BasicLit = {
-	> Node,
+	//> Node,
 	valuePos:Pos,
 	kind:Token,
-	value:String,
+	value:Dynamic,
 };
 
 typedef FuncLit = {
-	> Node,
+	//> Node,
 	type:FuncType,
 	body:BlockStmt,
 };
 
 typedef CompositeLit = {
-	> Node,
+	//> Node,
 	type:Expr,
 	lbrace:Pos,
 	elts:Array<Expr>,
@@ -76,20 +80,20 @@ typedef CompositeLit = {
 };
 
 typedef ParenExpr = {
-	> Node,
+	//> Node,
 	lparen:Pos,
 	x:Expr,
 	rparen:Pos,
 };
 
 typedef SelectorExpr = {
-	> Node,
+	//> Node,
 	x:Expr,
 	sel:Ident,
 };
 
 typedef IndexExpr = {
-	> Node,
+	//> Node,
 	x:Expr,
 	lbrack:Pos,
 	index:Expr,
@@ -97,7 +101,7 @@ typedef IndexExpr = {
 };
 
 typedef SliceExpr = {
-	> Node,
+	//> Node,
 	x:Expr,
 	lbrack:Pos,
 	low:Expr,
@@ -108,7 +112,7 @@ typedef SliceExpr = {
 };
 
 typedef TypeAssertExpr = {
-	> Node,
+	//> Node,
 	x:Expr,
 	lparen:Pos,
 	type:Expr,
@@ -116,7 +120,7 @@ typedef TypeAssertExpr = {
 };
 
 typedef CallExpr = {
-	> Node,
+	//> Node,
 	fun:Expr,
 	lparen:Pos,
 	args:Array<Expr>,
@@ -125,20 +129,20 @@ typedef CallExpr = {
 };
 
 typedef StarExpr = {
-	> Node,
+	//> Node,
 	star:Pos,
 	x:Expr,
 };
 
 typedef UnaryExpr = {
-	> Node,
+	//> Node,
 	opPos:Pos,
 	op:Token,
 	x:Expr,
 };
 
 typedef BinaryExpr = {
-	> Node,
+	//> Node,
 	x:Expr,
 	opPos:Pos,
 	op:Token,
@@ -146,50 +150,50 @@ typedef BinaryExpr = {
 };
 
 typedef KeyValueExpr = {
-	> Node,
+	//> Node,
 	key:Expr,
 	colon:Pos,
 	value:Expr,
 };
 
 typedef ArrayType = {
-	> Node,
+	//> Node,
 	lbrack:Pos,
 	len:Expr,
 	elt:Expr,
 };
 
 typedef StructType = {
-	> Node,
+	//> Node,
 	struct:Pos,
 	fields:FieldList,
 	incomplete:Bool,
 };
 
 typedef FuncType = {
-	> Node,
+	//> Node,
 	func:Pos,
 	params:FieldList,
 	results:FieldList,
 };
 
 typedef InterfaceType = {
-	> Node,
-	inter:Pos,
+	//> Node,
+	interfacePos:Pos,
 	// interface TODO: turn interface -> inter
 	methods:FieldList,
 	incomplete:Bool,
 };
 
 typedef MapType = {
-	> Node,
+	//> Node,
 	map:Pos,
 	key:Expr,
 	value:Expr,
 };
 
 typedef ChanType = {
-	> Node,
+	//> Node,
 	begin:Pos,
 	arrow:Pos,
 	dir:ChanDir,
@@ -197,50 +201,50 @@ typedef ChanType = {
 };
 
 typedef BadStmt = {
-	> Node,
+	//> Node,
 	from:Pos,
 	to:Pos,
 };
 
 typedef DeclStmt = {
-	> Node,
+	//> Node,
 	decl:Decl,
 };
 
 typedef EmptyStmt = {
-	> Node,
+	//> Node,
 	semicolon:Pos,
 	implicit:Bool,
 };
 
 typedef LabeledStmt = {
-	> Node,
+	//> Node,
 	label:Ident,
 	colon:Pos,
 	stmt:Stmt,
 };
 
 typedef ExprStmt = {
-	> Node,
+	//> Node,
 	x:Expr,
 };
 
 typedef SendStmt = {
-	> Node,
+	//> Node,
 	chan:Expr,
 	arrow:Pos,
 	value:Expr,
 };
 
 typedef IncDecStmt = {
-	> Node,
+	//> Node,
 	x:Expr,
 	tokPos:Pos,
 	tok:Token,
 };
 
 typedef AssignStmt = {
-	> Node,
+	//> Node,
 	lhs:Array<Expr>,
 	tokPos:Pos,
 	tok:Token,
@@ -248,19 +252,19 @@ typedef AssignStmt = {
 };
 
 typedef GoStmt = {
-	> Node,
+	//> Node,
 	go:Pos,
 	call:CallExpr,
 };
 
 typedef DeferStmt = {
-	> Node,
+	//> Node,
 	defer:Pos,
 	call:CallExpr,
 };
 
 typedef ReturnStmt = {
-	> Node,
+	//> Node,
 	returnPos:Pos,
 	// return TODO: return -> returnPos
 	results:Array<Expr>,
@@ -279,7 +283,7 @@ typedef BlockStmt = {
 };
 
 typedef IfStmt = {
-	condPos:Pos,
+	ifPos:Pos,
 	// if TODO: if -> ifPos
 	init:Stmt,
 	cond:Expr,
@@ -349,7 +353,7 @@ typedef Spec = Dynamic; // A go interface
 
 typedef ImportSpec = {
 	doc:CommentGroup,
-	name:Ident,
+	name:String, //Ident
 	path:BasicLit,
 	comment:CommentGroup,
 	endPos:Pos,
@@ -391,25 +395,6 @@ typedef FuncDecl = {
 	name:Ident,
 	type:FuncType,
 	body:BlockStmt,
-};
-
-typedef FileType = { // from File -> FileType
-	doc:CommentGroup,
-	packagePos:Pos,
-	// package TODO: package -> packagePos
-	name:Ident,
-	decls:Array<Decl>,
-	scope:Scope,
-	imports:Array<ImportSpec>,
-	unresolved:Array<Ident>,
-	comments:Array<CommentGroup>,
-};
-
-typedef Package = {
-	name:String,
-	scope:Scope,
-	imports:Map<String, Object>,
-	files:Map<String, FileType>,
 };
 
 typedef Object = {

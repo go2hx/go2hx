@@ -15,6 +15,7 @@ go
 *.exe
 *.dll
 *.exe~
+*.json
 node_modules
 packages.md
 package-lock.json
@@ -28,3 +29,4 @@ gobyexample
 golibs
 gopath
 test.hxml
+old/*

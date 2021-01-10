@@ -14,7 +14,16 @@ function create(outputPath:String,module:Module) {
     var content = "";
     for (file in module.files) {
         content = pkgPath;
-        //content += printer.printExpr()
+        for (imp in file.imports) {
+            trace("imp: " + imp);
+            content += "import " + imp.path;
+            if (imp.alias != "" && imp.alias != null)
+                content += " as " + imp.alias;
+            content += ";\n";
+        }
+        for (def in file.defs) {
+            content += printer.printTypeDefinition(def,false);
+        }
         save(outputPath + module.path + "/",file.name,content);
     }
 }

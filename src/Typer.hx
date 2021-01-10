@@ -7,7 +7,6 @@ import haxe.macro.Type.ClassType;
 import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
 import haxe.DynamicAccess;
-
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
@@ -51,6 +50,8 @@ function main(data:DataType){
     return list;
 }
 function typeStmt(stmt:Dynamic):Expr {
+    if (stmt == null)
+        return null;
     var def = switch stmt.id {
         case "ReturnStmt": typeReturnStmt(stmt);
         case "IfStmt": typeIfStmt(stmt);
@@ -64,17 +65,27 @@ function typeStmt(stmt:Dynamic):Expr {
         case "DeferStmt": typeDeferStmt(stmt);
         case "IncDecStmt": typeIncDecStmt(stmt);
         case "LabeledStmt": typeLabeledStmt(stmt);
+        case "BlockStmt": typeBlockStmt(stmt);
         case "BadStmt": trace("BAD STATEMENT TYPED"); null;
+        case "GoStmt": typeGoStmt(stmt);
         default:
             trace("unknown stmt id: " + stmt.id);
             null;
     }
-    return {
+    return def == null ? {trace("stmt null: " + stmt.id); null;} : {
         expr: def,
         pos: null,
     };
 }
 //STMT
+function typeGoStmt(stmt:Ast.GoStmt):ExprDef {
+    return null;
+}
+function typeBlockStmt(stmt:Ast.BlockStmt):ExprDef {
+    return EBlock([
+        for (stmt in stmt.list) typeStmt(stmt)
+    ]);
+}
 function typeLabeledStmt(stmt:Ast.LabeledStmt):ExprDef {
     return null;
 }
@@ -103,10 +114,13 @@ function typeAssignStmt(stmt:Ast.AssignStmt):ExprDef {
     return null;
 }
 function typeExprStmt(stmt:Ast.ExprStmt):ExprDef {
-    return null;
+    return typeExpr(stmt.x).expr;
 }
 function typeIfStmt(stmt:Ast.IfStmt):ExprDef {
-    return null;
+    return EBlock([
+        typeStmt(stmt.init),
+        {pos: null, expr: EIf(typeExpr(stmt.cond),typeStmt(stmt.body),typeStmt(stmt.elseStmt))},
+    ]);
 }
 function typeReturnStmt(stmt:Ast.ReturnStmt):ExprDef {
     if (stmt.results.length == 0)
@@ -117,6 +131,8 @@ function typeReturnStmt(stmt:Ast.ReturnStmt):ExprDef {
     return EReturn();
 }
 function typeExprType(expr:Dynamic):ComplexType { //get the type of an expr
+    if (expr == null)
+        return null;
     return switch expr.id {
         case "MapType": mapType(expr);
         case "ChanType": chanType(expr);
@@ -163,6 +179,8 @@ function ellipsisType(expr:Ast.Ellipsis):ComplexType {
     return null;
 }
 function typeExpr(expr:Dynamic):Expr {
+    if (expr == null)
+        return null;
     var def = switch expr.id {
         case "Ident": typeIdent(expr);
         case "CallExpr": typeCallExpr(expr);
@@ -181,10 +199,10 @@ function typeExpr(expr:Dynamic):Expr {
         case "KeyValueExpr": typeKeyValueExpr(expr);
         case "BadExpr": trace("BAD EXPRESSION TYPED"); null;
         default:
-            trace("unknown expr id: " + expr.id + " expr: " + expr);
+            trace("unknown expr id: " + expr.id);
             null;
     };
-    return {
+    return def == null ? {trace("expr null: " + expr.id); null;} : {
         expr: def,
         pos: null,
     };
@@ -227,7 +245,7 @@ function typeBinaryExpr(expr:Ast.BinaryExpr):ExprDef {
     return null;
 }
 function typeSelectorExpr(expr:Ast.SelectorExpr):ExprDef {
-    return null;
+    return EField(typeExpr(expr.x),expr.sel.name);
 }
 function typeSliceExpr(expr:Ast.SliceExpr):ExprDef {
     var x = typeExpr(expr.x);
@@ -249,20 +267,29 @@ function typeParenExpr(expr:Ast.ParenExpr):ExprDef {
 //SPECS
 function typeFunc(decl:Ast.FuncDecl):TypeDefinition {
     var exprs:Array<Expr> = [];
-    if (decl.body.list != null) for (stmt in decl.body.list) {
-        typeStmt(stmt);
-    }
+    if (decl.body.list != null) 
+        exprs = [for (stmt in decl.body.list) typeStmt(stmt)];
     var block:Expr = {
         expr: EBlock(exprs),
         pos: null
     };
-    return {
+    var def:TypeDefinition = {
         name: decl.name.name,
         pos: null,
         pack: [],
         fields: [],
-        kind: TDField(FFun({ret: null,params: null,expr: block,args: []})),
+        kind: TDField(FFun({ret: typeFieldListRes(decl.type.results),params: null,expr: block, args: typeFieldListArgs(decl.type.params)})), //args = Array<FunctionArg>, ret = ComplexType
+    };
+    if (decl.recv != null) { //now is a static extension function
+           def.meta = [{pos: null,name: "using"}];
     }
+    return def;
+}
+function typeFieldListRes(field:Ast.FieldList) { //A single type or Anonymous struct type
+    return null;
+}
+function typeFieldListArgs(field:Ast.FieldList):Array<FunctionArg> { //Array of FunctionArgs
+    return [];
 }
 function typeType(spec:Ast.TypeSpec):TypeDefinition {
     return {
@@ -276,7 +303,7 @@ function typeType(spec:Ast.TypeSpec):TypeDefinition {
 }
 function typeImport(imp:Ast.ImportSpec):ImportType {
     return {
-        path: imp.path.value.substr(1,imp.path.value.length - 2),
+        path: imp.path.value,
         alias: imp.name,
     }
 }

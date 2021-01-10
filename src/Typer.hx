@@ -9,7 +9,7 @@ import haxe.macro.Expr;
 import haxe.DynamicAccess;
 import sys.FileSystem;
 
-final gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name)];
+final gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()];
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
@@ -234,6 +234,10 @@ function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));
 }
 function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
+    switch expr.fun.id {
+        case "SelectorExpr":
+            expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
+    }
     return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
 }
 function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
@@ -261,6 +265,26 @@ function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     return null;
 }
 function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
+    var count = 0;
+    function firstSelector(selector:Ast.Expr) {
+        count++;
+        return switch selector.x.id {
+            case "SelectorExpr": return selector.x;
+            case "Ident": return selector;
+            default: null;
+        }
+    }
+    var first = firstSelector(expr);
+    if (gostdList.indexOf(first.x.name) != -1) {
+        first.x.name = title(first.x.name);
+        if (count > 1) {
+            first.x = {
+                id: "SelectorExpr",
+                x: {id: "Ident",name: "gostd"},
+                sel: first.x,
+            };
+        }
+    }
     return EField(typeExpr(expr.x,info),expr.sel.name);
 }
 function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
@@ -319,11 +343,10 @@ function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 }
 function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
-    var last = path.pop();
-    if (gostdList.indexOf(title(last)) != -1)
+    if (gostdList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
-    path.push(title(last));
-    info.types[last] = path.join(".");
+    path[path.length - 1] = title(path[path.length - 1]);
+    info.types[untitle(path[path.length - 1])] = path.join(".");
     return {
         path: path,
         alias: imp.name,

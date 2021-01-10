@@ -41,7 +41,7 @@ function main(data:DataType){
                                 case "TypeSpec":
                                     data.defs.push(typeType(spec,info));
                                 default:
-                                    trace("unknown spec: " + spec.id);
+                                    error("unknown spec: " + spec.id);
                             }
                         }
                     case "FuncDecl":
@@ -76,16 +76,22 @@ function typeStmt(stmt:Dynamic,info:Info):Expr {
         case "IncDecStmt": typeIncDecStmt(stmt,info);
         case "LabeledStmt": typeLabeledStmt(stmt,info);
         case "BlockStmt": typeBlockStmt(stmt,info);
-        case "BadStmt": trace("BAD STATEMENT TYPED"); null;
+        case "BadStmt": error("BAD STATEMENT TYPED"); null;
         case "GoStmt": typeGoStmt(stmt,info);
         default:
-            trace("unknown stmt id: " + stmt.id);
+            error("unknown stmt id: " + stmt.id);
             null;
     }
-    return def == null ? {trace("stmt null: " + stmt.id); null;} : {
+    return def == null ? {error("stmt null: " + stmt.id); null;} : {
         expr: def,
         pos: null,
     };
+}
+var errorCache = new StringMap<Bool>();
+function error(message:String) {
+    if (!errorCache.exists(message))
+        trace(message);
+    errorCache.set(message,true);
 }
 //STMT
 function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
@@ -154,7 +160,7 @@ function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an
         case "Ident": identType(expr,info); //identifier type
         case "SelectorExpr": selectorType(expr,info);//path
         case "Ellipsis": ellipsisType(expr,info); //Rest arg
-        default: trace("Type expr unknown: " + expr,info); null;
+        default: error("Type expr unknown: " + expr); null;
     }
 }
 //TYPE EXPR
@@ -207,12 +213,12 @@ function typeExpr(expr:Dynamic,info:Info):Expr {
         case "ParenExpr": typeParenExpr(expr,info);
         case "Ellipsis": typeEllipsis(expr,info);
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
-        case "BadExpr": trace("BAD EXPRESSION TYPED"); null;
+        case "BadExpr": error("BAD EXPRESSION TYPED"); null;
         default:
             trace("unknown expr id: " + expr.id);
             null;
     };
-    return def == null ? {trace("expr null: " + expr.id); null;} : {
+    return def == null ? {error("expr null: " + expr.id); null;} : {
         expr: def,
         pos: null,
     };
@@ -238,7 +244,7 @@ function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
         case CHAR: EConst(CString(expr.value));
         case IDENT: EConst(CIdent(ident(expr.value)));
         default:
-            trace("basic lit kind unknown: " + expr.kind);
+            error("basic lit kind unknown: " + expr.kind);
             null;
     }
 }
@@ -291,7 +297,7 @@ function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         kind: TDField(FFun({ret: typeFieldListRes(decl.type.results),params: null,expr: block, args: typeFieldListArgs(decl.type.params)})), //args = Array<FunctionArg>, ret = ComplexType
     };
     if (decl.recv != null) { //now is a static extension function
-           def.meta = [{pos: null,name: "using"}];
+           def.meta = [{pos: null,name: ":using"}];
     }
     return def;
 }

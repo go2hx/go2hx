@@ -15,7 +15,7 @@ go
 *.exe
 *.dll
 *.exe~
-*.json
+export.json
 node_modules
 packages.md
 package-lock.json

@@ -33,125 +33,30 @@ type fileType struct {
 	Path string `json:"path"`
 	Decls []map[string]interface{} `json:"decls"`
 }
-var excludes = map[string]bool{
-	"math": true,
-	"fmt":  true,
-	"os":   true,
-	"sort": true,
-	//"flag":                            true,
-	"errors":                  true,
-	"internal/reflectlite":    true,
-	"internal/unsafeheader":   true,
-	"unsafe":                  true,
-	"runtime":                 true,
-	"internal/cpu":            true,
-	"runtime/internal/sys":    true,
-	"runtime/internal/atomic": true,
-	"runtime/internal/math":   true,
-	"internal/bytealg":        true,
-	"io":                      true,
-	"sync":                    true,
-	"sync/atomic":             true,
-	"internal/race":           true,
-	"reflect":                 true,
-	"strconv":                 true,
-	"math/bits":               true,
-	"unicode/utf8":            true,
-	"unicode":                 true,
-	//"sort":                            true,
-	"strings":                         true,
-	"io/ioutil":                       true,
-	"bytes":                           true,
-	"path/filepath":                   true,
-	"syscall":                         true,
-	"internal/syscall/windows/sysdll": true,
-	"unicode/utf16":                   true,
-	"internal/oserror":                true,
-	//"go/token": true,
-	"encoding/json":   true,
-	"encoding/hex":    true,
-	"encoding":        true,
-	"encoding/base64": true,
-	"encoding/binary": true,
-	//"golang.org/x/tools/go/packages"
-	"os/exec":                  true,
-	"context":                  true,
-	"internal/syscall/execenv": true,
-	"internal/syscall/windows": true,
-	//"go/types": true,
-	//"go/ast": true,
-	//"go/scanner": true,
-	//"go/constant": true,
-	"math/big":  true,
-	//"math/rand": true,
-	//"go/parser": true,
-	"container/heap": true,
-	"log":            true,
-	"path":           true,
-	//"golang.org/x/tools/go/internal/packagesdriver": true,
-	"golang.org/x/tools/internal/gocommand": true,
-	"regexp":                                true,
-	"regexp/syntax":                         true,
-	"golang.org/x/sys/cpu":                  true,
-	//"golang.org/x/tools/internal/event": true,
-	//"golang.org/x/tools/internal/event/core": true,
-	//"golang.org/x/tools/internal/event/label": true,
-	//"golang.org/x/tools/internal/event/keys": true,
-	//"golang.org/x/mod/semver": true,
-	//"golang.org/x/xerrors": true,
-	//"golang.org/x/xerrors/internal": true,
-	//"golang.org/x/tools/go/gcexportdata": true,
-	"bufio": true,
-	"golang.org/x/tools/go/internal/gcimporter": true,
-	"go/build":            true,
-	"go/doc":              true,
-	"internal/lazyregexp": true,
-	"text/template":       true,
-	"internal/fmtsort":    true,
-	"text/template/parse": true,
-	"net/url":             true,
-	"net":                 true,
-	"time":                true,
-	//"internal/goroot": true,
-	//"internal/goversion": true,
-	"text/scanner": true,
-	//"golang.org/x/tools/internal/packagesinternal": true,
-	//"golang.org/x/tools/internal/typesinternal": true,
-	//"golang.org/x/tools/go/ssa/ssautil": true,
-	//"golang.org/x/tools/go/loader": true,
-	//"golang.org/x/tools/go/ast/astutil": true,
-	//"golang.org/x/tools/go/internal/cgo": true,
-	//"golang.org/x/tools/go/buildutil": true,
-	//"golang.org/x/tools/go/ssa": true,
-	//"golang.org/x/tools/go/types/typeutil"
-	"internal/syscall/windows/registry": true,
-	"internal/nettrace":                 true,
-	"golang.org/x/net/dns/dnsmessage":   true,
-	"golang.org/x/text/unicode/bidi":    true,
-	"golang.org/x/text/transform":       true,
-	"golang.org/x/text/secure/bidirule": true,
-	"golang.org/x/text/unicode/norm":    true,
-	"internal/poll":                     true,
-	"internal/singleflight":             true,
-	"internal/testlog":                  true,
-	"hash":                              true,
-	"crypto/internal/randutil":          true,
-	"crypto":                            true,
-	"crypto/hmac":                       true,
-	"crypto/sha1":                       true,
-	"crypto/rand":                       true,
-	"crypto/sha256":                     true,
-	"hash/crc32":                        true,
-	"hash/adler32":                      true,
-	"crypto/md5":                        true,
-	"compress/flate":                    true,
-
-	"database/sql/driver": true,
+type ExcludesType struct {
+	Excludes []string `json:"excludes"`
 }
+var excludes map[string]bool
 
 var fset *token.FileSet
 
 func main() {
+	//exclude types system
+	excludesBytes,err := ioutil.ReadFile("excludes.json")
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	var excludesData ExcludesType
+	err = json.Unmarshal(excludesBytes,&excludesData)
+	if err != nil {
+		fmt.Println(err)
+	}
+	excludes = make(map[string]bool,len(excludesData.Excludes))
+	for _,exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
+	//flags
 	testBool := flag.Bool("test",false,"testing the go library in haxe")
 	jsonBool := flag.Bool("json",false,"default is bson encoding")
 	flag.Parse()

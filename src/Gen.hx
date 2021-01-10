@@ -21,7 +21,7 @@ function create(outputPath:String,module:Module) {
             content += ";\n";
         }
         for (def in file.defs) {
-            content += printer.printTypeDefinition(def,false);
+            content += printer.printTypeDefinition(def,false) + "\n";
         }
         save(outputPath + module.path + "/",file.name,content);
     }

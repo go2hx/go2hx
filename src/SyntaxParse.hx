@@ -55,7 +55,6 @@ function parse(path:String) {
 		});
 	} catch (e:Dynamic) {
 		hasError = true;
-		// trace('While parsing $path');
 		trace(e);
 	}
 }

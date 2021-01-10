@@ -6,7 +6,6 @@ import haxe.macro.Context;
 import haxe.macro.Type.ClassType;
 import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
-import haxe.macro.Printer;
 import haxe.DynamicAccess;
 
 function main(data:DataType){

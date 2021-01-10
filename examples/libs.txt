@@ -1,2 +1,0 @@
-github.com/tidwall/btree
-github.com/floyernick/Data-Structures-and-Algorithms

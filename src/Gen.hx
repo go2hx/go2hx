@@ -17,12 +17,6 @@ function create(outputPath:String,module:Module) {
         //content += printer.printExpr()
         save(outputPath + module.path + "/",file.name,content);
     }
-    //HELLO FRIEND ITS ME FROM THE PAST, YOU SEE I am like you however you have taken my tech debt on to you and for that
-    //I applaud you for your service, please go here -> https://github.com/HaxeFoundation/haxe/blob/4.1.3/std/haxe/macro/Expr.hx#L880
-    //look at how TypeDefinition can be both a typedef/class/abstract
-    //modular level functions with static extenion using in order to not need abstract classes to represent
-    //ClassKind.KModuleFields
-    //printer.printTypeDefinition(def);
 }
 private function save(dir:String,name:String,content:String) {
     if (!FileSystem.exists(dir))

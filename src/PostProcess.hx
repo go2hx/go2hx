@@ -5,10 +5,7 @@ import Typer.Module;
 
 
 function run(module:Module) {
-    module.path = StringTools.replace(module.path,".","_");
-    module.path = StringTools.replace(module.path,":","_");
-    module.path = StringTools.replace(module.path,"-","_");
-
+    module.path = normalizePath(module.path);
     var top = "";
     var main:FileType = null;
     var index = module.path.lastIndexOf("/");
@@ -16,6 +13,7 @@ function run(module:Module) {
         top = module.path.substr(index + 1);
         module.path = module.path.substr(0,index);
         for (file in module.files) {
+            file.name = normalizePath(file.name);
             if (file.name == top) {
                 main = file;
                 break;
@@ -32,6 +30,12 @@ function run(module:Module) {
     for (file in module.files) {
         file.name = title(file.name);
     }
+}
+private function normalizePath(path:String):String {
+    path = StringTools.replace(path,".","_");
+    path = StringTools.replace(path,":","_");
+    path = StringTools.replace(path,"-","_");
+    return path;
 }
 private function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);

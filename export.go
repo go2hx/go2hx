@@ -242,6 +242,14 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 func parseData(node ast.Node) map[string]interface{} {
 	data := make(map[string]interface{})
 	data["id"] = getId(node)
+	switch node := node.(type) {
+	case *ast.BasicLit:
+		return parseBasicLit(node)
+	case *ast.Ident:
+		return parseIdent(node)
+	default:
+		fmt.Println("node:",reflect.TypeOf((node)))
+	}
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if !e.IsValid() {
 		return data
@@ -260,40 +268,7 @@ func parseData(node ast.Node) map[string]interface{} {
 		case *ast.ArrayType,*ast.StructType,*ast.FuncType,*ast.InterfaceType,*ast.MapType,*ast.ChanType:
 			data[field.Name] = parseData(value.(ast.Node))
 		case *ast.BasicLit:
-			var output interface{} = value.Value
-			switch value.Kind {
-			case token.INT:
-				i,err := strconv.ParseInt(value.Value,0,64)
-				if err != nil {
-					j,err2 := strconv.ParseUint(value.Value,0,64)
-					if err2 != nil {
-						fmt.Println("parse int 64 error:",err2)
-						fmt.Println("parse uint 64 error:",err2)
-					}else{
-						output = j
-					}
-				}else{
-					output = i
-				}
-			case token.FLOAT:
-				i,err := strconv.ParseFloat(value.Value,64)
-				if err != nil {
-					fmt.Println("parse float 64 error:",err)
-				}
-				output = i
-			case token.CHAR:
-				if output == `\` {
-					output = `"\\"`
-				}
-			case token.STRING:
-				value.Value = strings.ReplaceAll(value.Value,`\`,"\\")
-				output = string(value.Value[1:len(value.Value) - 1])
-			}
-			data[field.Name] = map[string]interface{}{
-				"id": "BasicLit",
-				"kind": value.Kind.String(),
-				"value": output,
-			}
+			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr,*ast.Ellipsis,*ast.FuncLit,*ast.CompositeLit,*ast.ParenExpr:
 			data[field.Name] = parseData(value.(ast.Node))
 		case *ast.SelectorExpr,*ast.IndexExpr,*ast.SliceExpr,*ast.TypeAssertExpr,*ast.CallExpr,*ast.StarExpr,*ast.UnaryExpr,*ast.BinaryExpr,*ast.KeyValueExpr:
@@ -307,13 +282,7 @@ func parseData(node ast.Node) map[string]interface{} {
 			file.Decls = append(file.Decls, value)
 			data[field.Name] = parseFile(&file,"")
 		case *ast.Ident:
-			if value == nil {
-				continue
-			}
-			data[field.Name] = map[string]interface{}{
-				"id": "Ident",
-				"name": value.Name,
-			}
+			data[field.Name] = parseIdent(value)
 		case ast.ChanDir: //is an int
 			data[field.Name] = value
 		case bool:
@@ -361,6 +330,51 @@ func parseData(node ast.Node) map[string]interface{} {
 		}
 	}
 	return data
+}
+func parseIdent(value *ast.Ident) map[string]interface{} {
+	if value == nil {
+		return nil
+	}
+	return map[string]interface{}{
+		"id": "Ident",
+		"name": value.Name,
+	}
+}
+func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
+	var output interface{} = value.Value
+	switch value.Kind {
+	case token.INT:
+		i,err := strconv.ParseInt(value.Value,0,64)
+		if err != nil {
+			j,err2 := strconv.ParseUint(value.Value,0,64)
+			if err2 != nil {
+				fmt.Println("parse int 64 error:",err2)
+				fmt.Println("parse uint 64 error:",err2)
+			}else{
+				output = j
+			}
+		}else{
+			output = i
+		}
+	case token.FLOAT:
+		i,err := strconv.ParseFloat(value.Value,64)
+		if err != nil {
+			fmt.Println("parse float 64 error:",err)
+		}
+		output = i
+	case token.CHAR:
+		if output == `\` {
+			output = `"\\"`
+		}
+	case token.STRING:
+		output = strings.ReplaceAll(value.Value,`\`,"\\")
+		output = string(value.Value[1:len(value.Value) - 1])
+	}
+	return map[string]interface{}{
+		"id": "BasicLit",
+		"kind": value.Kind.String(),
+		"value": output,
+	}
 }
 func getId(obj interface{}) string {
 	if obj == nil {

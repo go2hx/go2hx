@@ -1,0 +1,4 @@
+-cp examples
+-cp examples/golibs
+-main Main
+--interp

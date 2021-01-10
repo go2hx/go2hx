@@ -12,6 +12,8 @@ function create(outputPath:String,module:Module) {
     pkgPath = 'package $pkgPath;\n';
     var printer = new Printer("    ");
     var content = "";
+    var count = module.files.length;
+    Sys.println("generating " + count + " file"  + (count != 1 ? "s" : "") + "...");
     for (file in module.files) {
         content = pkgPath;
         for (imp in file.imports) {
@@ -23,7 +25,7 @@ function create(outputPath:String,module:Module) {
         for (def in file.defs) {
             content += printer.printTypeDefinition(def,false) + "\n";
         }
-        save(outputPath + module.path + "/",file.name,content);
+        save(outputPath + module.path + "/",Typer.title(file.name),content);
     }
 }
 private function save(dir:String,name:String,content:String) {

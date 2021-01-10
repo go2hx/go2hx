@@ -61,6 +61,18 @@ func main() {
 	jsonBool := flag.Bool("json",false,"default is bson encoding")
 	flag.Parse()
 	args := flag.Args()
+	cwd := args[len(args) - 1]
+	rootPath,err := os.Getwd()
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	err = os.Chdir(cwd)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+	args = args[0:len(args) - 1] //remove chdir
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax | packages.NeedDeps |
 		packages.NeedImports | packages.NeedTypes |
@@ -69,6 +81,11 @@ func main() {
 	initial,err := packages.Load(cfg,args...)
 	if err != nil {
 		fmt.Println("load error:", err)
+		return
+	}
+	err = os.Chdir(rootPath)
+	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	encoding := "bson"

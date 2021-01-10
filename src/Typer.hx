@@ -9,13 +9,13 @@ import haxe.macro.Expr;
 import haxe.DynamicAccess;
 import sys.FileSystem;
 
-final gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()];
+var gostdList:Array<String>;
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
         if (pkg.files == null)
             continue;
-        var module:Module = {path: pkg.path,files: []};
+        var module:Module = {path: normalizePath(pkg.path),files: []};
         var main:FileType = null;
         for (file in pkg.files) {
             if (file.decls == null)
@@ -59,7 +59,7 @@ function main(data:DataType){
     }
     return list;
 }
-function typeStmt(stmt:Dynamic,info:Info):Expr {
+private function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
         return null;
     var def = switch stmt.id {
@@ -88,57 +88,58 @@ function typeStmt(stmt:Dynamic,info:Info):Expr {
     };
 }
 var errorCache = new StringMap<Bool>();
-function error(message:String) {
+private function error(message:String) {
     if (!errorCache.exists(message))
         trace(message);
     errorCache.set(message,true);
 }
 //STMT
-function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
+private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
     return null;
 }
-function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
+private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     return EBlock([
         for (stmt in stmt.list) typeStmt(stmt,info)
     ]);
 }
-function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
+private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
     return null;
 }
-function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
+private function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
     return null;
 }
-function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
+private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     return null;
 }
-function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
+private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     return null;
 }
-function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
+private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     return null;
 }
-function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
+private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     return null;
 }
-function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
+private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     return null;
 }
-function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
+private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     return null;
 }
-function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
+private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     return null;
 }
-function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
-    return typeExpr(stmt.x,info).expr;
+private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
+    var expr = typeExpr(stmt.x,info);
+    return expr != null ? expr.expr : null;
 }
-function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
+private function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
     return EBlock([
         typeStmt(stmt.init,info),
         {pos: null, expr: EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info))},
     ]);
 }
-function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
+private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     if (stmt.results.length == 0)
         return EReturn();
     if (stmt.results.length == 1)
@@ -146,7 +147,7 @@ function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     //multireturn
     return EReturn();
 }
-function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an expr
+private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an expr
     if (expr == null)
         return null;
     return switch expr.id {
@@ -164,37 +165,37 @@ function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an
     }
 }
 //TYPE EXPR
-function mapType(expr:Ast.MapType,info:Info):ComplexType {
+private function mapType(expr:Ast.MapType,info:Info):ComplexType {
     return null;
 }
-function chanType(expr:Ast.ChanType,info:Info):ComplexType {
+private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
     return null;
 }
-function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
+private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     return null;
 }
-function structType(expr:Ast.StructType,info:Info):ComplexType {
+private function structType(expr:Ast.StructType,info:Info):ComplexType {
     return null;
 }
-function funcType(expr:Ast.FuncType,info:Info):ComplexType {
+private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
     return null;
 }
-function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
+private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     return null;
 }
-function starType(expr:Ast.StarExpr,info:Info):ComplexType {
+private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
     return null;
 }
-function identType(expr:Ast.Ident,info:Info):ComplexType {
+private function identType(expr:Ast.Ident,info:Info):ComplexType {
     return null;
 }
-function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
+private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
     return null;
 }
-function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
+private function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
     return null;
 }
-function typeExpr(expr:Dynamic,info:Info):Expr {
+private function typeExpr(expr:Dynamic,info:Info):Expr {
     if (expr == null)
         return null;
     var def = switch expr.id {
@@ -224,23 +225,23 @@ function typeExpr(expr:Dynamic,info:Info):Expr {
     };
 }
 //EXPR
-function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
+private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
-function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
+private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return null;
 }
-function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
+private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));
 }
-function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
+private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     switch expr.fun.id {
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
     }
     return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
 }
-function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
+private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {
         case STRING: EConst(CString(expr.value));
         case INT: EConst(CInt(expr.value));
@@ -252,30 +253,29 @@ function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             null;
     }
 }
-function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
+private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     return null;
 }
-function typeCompositeLit(expr:Ast.FuncLit,info:Info):ExprDef {
+private function typeCompositeLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
-function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
+private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
-function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
+private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     return null;
 }
-function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
+private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
     var count = 0;
     function firstSelector(selector:Ast.Expr) {
         count++;
         return switch selector.x.id {
-            case "SelectorExpr": return selector.x;
             case "Ident": return selector;
-            default: null;
+            default: null; return selector.x;
         }
     }
     var first = firstSelector(expr);
-    if (gostdList.indexOf(first.x.name) != -1) {
+    if (first.x != null && first.x.id == "Ident" && gostdList.indexOf(first.x.name) != -1) {
         first.x.name = title(first.x.name);
         if (count > 1) {
             first.x = {
@@ -287,25 +287,25 @@ function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
     }
     return EField(typeExpr(expr.x,info),expr.sel.name);
 }
-function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
+private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
 
     return null;
 }
-function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
-    return ECast(expr.x,typeExprType(expr.type,info));
+private function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
+    return ECast(typeExpr(expr.x,info),typeExprType(expr.type,info));
 }
-function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
+private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
     return EArray(typeExpr(expr.x,info),typeExpr(expr.index,info));
 }
-function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
+private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     return null;
 }
-function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
+private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     return EParenthesis(typeExpr(expr.x,info));
 }
 //SPECS
-function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
+private function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
     if (decl.body.list != null) 
         exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
@@ -325,13 +325,13 @@ function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     }
     return def;
 }
-function typeFieldListRes(field:Ast.FieldList) { //A single type or Anonymous struct type
+private function typeFieldListRes(field:Ast.FieldList) { //A single type or Anonymous struct type
     return null;
 }
-function typeFieldListArgs(field:Ast.FieldList):Array<FunctionArg> { //Array of FunctionArgs
+private function typeFieldListArgs(field:Ast.FieldList):Array<FunctionArg> { //Array of FunctionArgs
     return [];
 }
-function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
+private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     return {
         name: spec.name.name,
         pos: null,
@@ -341,7 +341,7 @@ function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         kind: TypeDefKind.TDStructure,
     };
 }
-function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
+private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
     if (gostdList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
@@ -352,7 +352,7 @@ function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
         alias: imp.name,
     }
 }
-function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
+private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
     var defs:Array<TypeDefinition> = [];
     for (name in value.names) {
         var ty = ComplexType.TPath({pack: ["TYPE"],name: "TYPE"});
@@ -366,7 +366,7 @@ function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
     }
     return defs;
 }
-function ident(name:String):String {
+private function ident(name:String):String {
     if (name == "nil")
         name = "null";
     return name;
@@ -377,10 +377,10 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,"-","_");
     return path;
 }
-private function title(string:String):String {
+function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);
 }
-private function untitle(string:String):String {
+function untitle(string:String):String {
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
 typedef Info = {types:Map<String,String>}

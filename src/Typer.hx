@@ -7,12 +7,16 @@ import haxe.macro.Type.ClassType;
 import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
 import haxe.DynamicAccess;
+import sys.FileSystem;
+
+final gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name)];
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
         if (pkg.files == null)
             continue;
         var module:Module = {path: pkg.path,files: []};
+        var main:FileType = null;
         for (file in pkg.files) {
             if (file.decls == null)
                 continue;
@@ -22,26 +26,32 @@ function main(data:DataType){
                 file.path = file.path.substr(index + 1);
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
+            data.name = normalizePath(data.name);
+            var info:Info = {types: []};
+            var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
                     case "GenDecl":
                         for (spec in cast(decl.specs,Array<Dynamic>)) {
                             switch spec.id {
                                 case "ImportSpec":
-                                    data.imports.push(typeImport(spec));
+                                    data.imports.push(typeImport(spec,info));
                                 case "ValueSpec":
-                                    data.defs = data.defs.concat(typeValue(spec));
+                                    data.defs = data.defs.concat(typeValue(spec,info));
                                 case "TypeSpec":
-                                    data.defs.push(typeType(spec));
+                                    data.defs.push(typeType(spec,info));
                                 default:
                                     trace("unknown spec: " + spec.id);
                             }
                         }
                     case "FuncDecl":
-                        data.defs.push(typeFunc(decl));
+                        declFuncs.push(decl);
                     default:
 
                 }
+            }
+            for (decl in declFuncs) { //parse function bodies last
+                data.defs.push(typeFunc(decl,info));
             }
             module.files.push(data);
         }
@@ -49,25 +59,25 @@ function main(data:DataType){
     }
     return list;
 }
-function typeStmt(stmt:Dynamic):Expr {
+function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
         return null;
     var def = switch stmt.id {
-        case "ReturnStmt": typeReturnStmt(stmt);
-        case "IfStmt": typeIfStmt(stmt);
-        case "ExprStmt": typeExprStmt(stmt);
-        case "AssignStmt": typeAssignStmt(stmt);
-        case "ForStmt": typeForStmt(stmt);
-        case "SwitchStmt": typeSwitchStmt(stmt);
-        case "TypeSwitchStmt": typeTypeSwitchStmt(stmt);
-        case "DeclStmt": typeDeclStmt(stmt);
-        case "RangeStmt": typeRangeStmt(stmt);
-        case "DeferStmt": typeDeferStmt(stmt);
-        case "IncDecStmt": typeIncDecStmt(stmt);
-        case "LabeledStmt": typeLabeledStmt(stmt);
-        case "BlockStmt": typeBlockStmt(stmt);
+        case "ReturnStmt": typeReturnStmt(stmt,info);
+        case "IfStmt": typeIfStmt(stmt,info);
+        case "ExprStmt": typeExprStmt(stmt,info);
+        case "AssignStmt": typeAssignStmt(stmt,info);
+        case "ForStmt": typeForStmt(stmt,info);
+        case "SwitchStmt": typeSwitchStmt(stmt,info);
+        case "TypeSwitchStmt": typeTypeSwitchStmt(stmt,info);
+        case "DeclStmt": typeDeclStmt(stmt,info);
+        case "RangeStmt": typeRangeStmt(stmt,info);
+        case "DeferStmt": typeDeferStmt(stmt,info);
+        case "IncDecStmt": typeIncDecStmt(stmt,info);
+        case "LabeledStmt": typeLabeledStmt(stmt,info);
+        case "BlockStmt": typeBlockStmt(stmt,info);
         case "BadStmt": trace("BAD STATEMENT TYPED"); null;
-        case "GoStmt": typeGoStmt(stmt);
+        case "GoStmt": typeGoStmt(stmt,info);
         default:
             trace("unknown stmt id: " + stmt.id);
             null;
@@ -78,125 +88,125 @@ function typeStmt(stmt:Dynamic):Expr {
     };
 }
 //STMT
-function typeGoStmt(stmt:Ast.GoStmt):ExprDef {
+function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
     return null;
 }
-function typeBlockStmt(stmt:Ast.BlockStmt):ExprDef {
+function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     return EBlock([
-        for (stmt in stmt.list) typeStmt(stmt)
+        for (stmt in stmt.list) typeStmt(stmt,info)
     ]);
 }
-function typeLabeledStmt(stmt:Ast.LabeledStmt):ExprDef {
+function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
     return null;
 }
-function typeIncDecStmt(stmt:Ast.IncDecStmt):ExprDef {
+function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
     return null;
 }
-function typeDeferStmt(stmt:Ast.DeferStmt):ExprDef {
+function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     return null;
 }
-function typeRangeStmt(stmt:Ast.RangeStmt):ExprDef {
+function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     return null;
 }
-function typeDeclStmt(stmt:Ast.DeclStmt):ExprDef {
+function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     return null;
 }
-function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt):ExprDef {
+function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     return null;
 }
-function typeSwitchStmt(stmt:Ast.SwitchStmt):ExprDef {
+function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     return null;
 }
-function typeForStmt(stmt:Ast.ForStmt):ExprDef {
+function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     return null;
 }
-function typeAssignStmt(stmt:Ast.AssignStmt):ExprDef {
+function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     return null;
 }
-function typeExprStmt(stmt:Ast.ExprStmt):ExprDef {
-    return typeExpr(stmt.x).expr;
+function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
+    return typeExpr(stmt.x,info).expr;
 }
-function typeIfStmt(stmt:Ast.IfStmt):ExprDef {
+function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
     return EBlock([
-        typeStmt(stmt.init),
-        {pos: null, expr: EIf(typeExpr(stmt.cond),typeStmt(stmt.body),typeStmt(stmt.elseStmt))},
+        typeStmt(stmt.init,info),
+        {pos: null, expr: EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info))},
     ]);
 }
-function typeReturnStmt(stmt:Ast.ReturnStmt):ExprDef {
+function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     if (stmt.results.length == 0)
         return EReturn();
     if (stmt.results.length == 1)
-        return EReturn(typeExpr(stmt.results[0]));
+        return EReturn(typeExpr(stmt.results[0],info));
     //multireturn
     return EReturn();
 }
-function typeExprType(expr:Dynamic):ComplexType { //get the type of an expr
+function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an expr
     if (expr == null)
         return null;
     return switch expr.id {
-        case "MapType": mapType(expr);
-        case "ChanType": chanType(expr);
-        case "InterfaceType": interfaceType(expr);
-        case "StructType": structType(expr);
-        case "FuncType": funcType(expr);
-        case "ArrayType": arrayType(expr);
-        case "StarExpr": starType(expr); //pointer
-        case "Ident": identType(expr); //identifier type
-        case "SelectorExpr": selectorType(expr);//path
-        case "Ellipsis": ellipsisType(expr); //Rest arg
-        default: trace("Type expr unknown: " + expr); null;
+        case "MapType": mapType(expr,info);
+        case "ChanType": chanType(expr,info);
+        case "InterfaceType": interfaceType(expr,info);
+        case "StructType": structType(expr,info);
+        case "FuncType": funcType(expr,info);
+        case "ArrayType": arrayType(expr,info);
+        case "StarExpr": starType(expr,info); //pointer
+        case "Ident": identType(expr,info); //identifier type
+        case "SelectorExpr": selectorType(expr,info);//path
+        case "Ellipsis": ellipsisType(expr,info); //Rest arg
+        default: trace("Type expr unknown: " + expr,info); null;
     }
 }
 //TYPE EXPR
-function mapType(expr:Ast.MapType):ComplexType {
+function mapType(expr:Ast.MapType,info:Info):ComplexType {
     return null;
 }
-function chanType(expr:Ast.ChanType):ComplexType {
+function chanType(expr:Ast.ChanType,info:Info):ComplexType {
     return null;
 }
-function interfaceType(expr:Ast.InterfaceType):ComplexType {
+function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     return null;
 }
-function structType(expr:Ast.StructType):ComplexType {
+function structType(expr:Ast.StructType,info:Info):ComplexType {
     return null;
 }
-function funcType(expr:Ast.FuncType):ComplexType {
+function funcType(expr:Ast.FuncType,info:Info):ComplexType {
     return null;
 }
-function arrayType(expr:Ast.ArrayType):ComplexType {
+function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     return null;
 }
-function starType(expr:Ast.StarExpr):ComplexType {
+function starType(expr:Ast.StarExpr,info:Info):ComplexType {
     return null;
 }
-function identType(expr:Ast.Ident):ComplexType {
+function identType(expr:Ast.Ident,info:Info):ComplexType {
     return null;
 }
-function selectorType(expr:Ast.SelectorExpr):ComplexType {
+function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
     return null;
 }
-function ellipsisType(expr:Ast.Ellipsis):ComplexType {
+function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
     return null;
 }
-function typeExpr(expr:Dynamic):Expr {
+function typeExpr(expr:Dynamic,info:Info):Expr {
     if (expr == null)
         return null;
     var def = switch expr.id {
-        case "Ident": typeIdent(expr);
-        case "CallExpr": typeCallExpr(expr);
-        case "BasicLit": typeBasicLit(expr);
-        case "UnaryExpr": typeUnaryExpr(expr);
-        case "SelectorExpr": typeSelectorExpr(expr);
-        case "BinaryExpr": typeBinaryExpr(expr);
-        case "FuncLit": typeFuncLit(expr);
-        case "CompositeLit": typeCompositeLit(expr);
-        case "SliceExpr": typeSliceExpr(expr);
-        case "TypeAssertExpr": typeAssertExpr(expr);
-        case "IndexExpr": typeIndexExpr(expr);
-        case "StarExpr": typeStarExpr(expr);
-        case "ParenExpr": typeParenExpr(expr);
-        case "Ellipsis": typeEllipsis(expr);
-        case "KeyValueExpr": typeKeyValueExpr(expr);
+        case "Ident": typeIdent(expr,info);
+        case "CallExpr": typeCallExpr(expr,info);
+        case "BasicLit": typeBasicLit(expr,info);
+        case "UnaryExpr": typeUnaryExpr(expr,info);
+        case "SelectorExpr": typeSelectorExpr(expr,info);
+        case "BinaryExpr": typeBinaryExpr(expr,info);
+        case "FuncLit": typeFuncLit(expr,info);
+        case "CompositeLit": typeCompositeLit(expr,info);
+        case "SliceExpr": typeSliceExpr(expr,info);
+        case "TypeAssertExpr": typeAssertExpr(expr,info);
+        case "IndexExpr": typeIndexExpr(expr,info);
+        case "StarExpr": typeStarExpr(expr,info);
+        case "ParenExpr": typeParenExpr(expr,info);
+        case "Ellipsis": typeEllipsis(expr,info);
+        case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "BadExpr": trace("BAD EXPRESSION TYPED"); null;
         default:
             trace("unknown expr id: " + expr.id);
@@ -208,19 +218,19 @@ function typeExpr(expr:Dynamic):Expr {
     };
 }
 //EXPR
-function typeKeyValueExpr(expr:Ast.KeyValueExpr):ExprDef {
+function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
-function typeEllipsis(expr:Ast.Ellipsis):ExprDef {
+function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return null;
 }
-function typeIdent(expr:Ast.Ident):ExprDef {
+function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));
 }
-function typeCallExpr(expr:Ast.CallExpr):ExprDef {
-    return ECall(typeExpr(expr.fun),[for (arg in expr.args) typeExpr(arg)]);
+function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
+    return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
 }
-function typeBasicLit(expr:Ast.BasicLit):ExprDef {
+function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {
         case STRING: EConst(CString(expr.value));
         case INT: EConst(CInt(expr.value));
@@ -232,43 +242,43 @@ function typeBasicLit(expr:Ast.BasicLit):ExprDef {
             null;
     }
 }
-function typeUnaryExpr(expr:Ast.UnaryExpr):ExprDef {
+function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     return null;
 }
-function typeCompositeLit(expr:Ast.FuncLit):ExprDef {
+function typeCompositeLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
-function typeFuncLit(expr:Ast.FuncLit):ExprDef {
+function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
-function typeBinaryExpr(expr:Ast.BinaryExpr):ExprDef {
+function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     return null;
 }
-function typeSelectorExpr(expr:Ast.SelectorExpr):ExprDef {
-    return EField(typeExpr(expr.x),expr.sel.name);
+function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
+    return EField(typeExpr(expr.x,info),expr.sel.name);
 }
-function typeSliceExpr(expr:Ast.SliceExpr):ExprDef {
-    var x = typeExpr(expr.x);
+function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
+    var x = typeExpr(expr.x,info);
 
     return null;
 }
-function typeAssertExpr(expr:Ast.TypeAssertExpr):ExprDef {
-    return ECast(expr.x,typeExprType(expr.type));
+function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
+    return ECast(expr.x,typeExprType(expr.type,info));
 }
-function typeIndexExpr(expr:Ast.IndexExpr):ExprDef {
-    return EArray(typeExpr(expr.x),typeExpr(expr.index));
+function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
+    return EArray(typeExpr(expr.x,info),typeExpr(expr.index,info));
 }
-function typeStarExpr(expr:Ast.StarExpr):ExprDef {
+function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     return null;
 }
-function typeParenExpr(expr:Ast.ParenExpr):ExprDef {
-    return EParenthesis(typeExpr(expr.x));
+function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
+    return EParenthesis(typeExpr(expr.x,info));
 }
 //SPECS
-function typeFunc(decl:Ast.FuncDecl):TypeDefinition {
+function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
     if (decl.body.list != null) 
-        exprs = [for (stmt in decl.body.list) typeStmt(stmt)];
+        exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
     var block:Expr = {
         expr: EBlock(exprs),
         pos: null
@@ -291,7 +301,7 @@ function typeFieldListRes(field:Ast.FieldList) { //A single type or Anonymous st
 function typeFieldListArgs(field:Ast.FieldList):Array<FunctionArg> { //Array of FunctionArgs
     return [];
 }
-function typeType(spec:Ast.TypeSpec):TypeDefinition {
+function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     return {
         name: spec.name.name,
         pos: null,
@@ -301,13 +311,19 @@ function typeType(spec:Ast.TypeSpec):TypeDefinition {
         kind: TypeDefKind.TDStructure,
     };
 }
-function typeImport(imp:Ast.ImportSpec):ImportType {
+function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
+    var path = (imp.path.value : String).split("/");
+    var last = path.pop();
+    if (gostdList.indexOf(title(last)) != -1)
+        path.unshift("stdgo");
+    path.push(title(last));
+    info.types[last] = path.join(".");
     return {
-        path: imp.path.value,
+        path: path,
         alias: imp.name,
     }
 }
-function typeValue(value:Ast.ValueSpec):Array<TypeDefinition> {
+function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
     var defs:Array<TypeDefinition> = [];
     for (name in value.names) {
         var ty = ComplexType.TPath({pack: ["TYPE"],name: "TYPE"});
@@ -326,8 +342,22 @@ function ident(name:String):String {
         name = "null";
     return name;
 }
+private function normalizePath(path:String):String {
+    path = StringTools.replace(path,".","_");
+    path = StringTools.replace(path,":","_");
+    path = StringTools.replace(path,"-","_");
+    return path;
+}
+private function title(string:String):String {
+    return string.charAt(0).toUpperCase() + string.substr(1);
+}
+private function untitle(string:String):String {
+    return string.charAt(0).toLowerCase() + string.substr(1);
+}
+typedef Info = {types:Map<String,String>}
+
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};
 typedef Module = {path:String,files:Array<FileType>}
-typedef ImportType = {path:String,alias:String}
+typedef ImportType = {path:Array<String>,alias:String}
 typedef FileType = {name:String,imports:Array<ImportType>,defs:Array<TypeDefinition>};

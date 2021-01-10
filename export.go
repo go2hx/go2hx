@@ -248,7 +248,7 @@ func parseData(node ast.Node) map[string]interface{} {
 	case *ast.Ident:
 		return parseIdent(node)
 	default:
-		fmt.Println("node:",reflect.TypeOf((node)))
+		//fmt.Println("node:",reflect.TypeOf((node)))
 	}
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if !e.IsValid() {

@@ -103,10 +103,6 @@ function main() {
 	Sys.setCwd(localPath);
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);
-	Sys.println("> post processer: " + modules.length);
-	for (module in modules) {
-		PostProcess.run(module);
-	}
 	Sys.println("> generator: " + modules.length);
 	outputPath = Path.addTrailingSlash(outputPath);
 	for (module in modules) {

@@ -456,7 +456,7 @@ typedef Pos = Int;
 	public var NEQ = "!=";
 	public var LEQ = "<=";
 	public var GEQ = ">=";
-	public var DEFINE = " ==";
+	public var DEFINE = ":=";
 	public var ELLIPSIS = "...";
 	public var LPAREN = "(";
 	public var LBRACK = "[";

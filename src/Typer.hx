@@ -10,6 +10,13 @@ import haxe.DynamicAccess;
 import sys.FileSystem;
 
 var gostdList:Array<String>;
+final reserved = [
+    "switch", "case", "break", "continue", "default",
+	"abstract", "cast", "catch", "class", "do",
+	"dynamic", "else", "enum", "extends", "extern", "true", "false", "final", "for", "function", "if", "interface",
+	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
+	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
+];
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
@@ -24,7 +31,7 @@ function main(data:DataType){
             var index = file.path.lastIndexOf("/");
             if (index != -1)
                 file.path = file.path.substr(index + 1);
-            file.path = Path.withoutExtension(file.path);
+            file.path = normalizePath(Path.withoutExtension(file.path));
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
             var info:Info = {types: []};
@@ -116,7 +123,12 @@ private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
     return null;
 }
 private function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
-    return null;
+    var x = typeExpr(stmt.x,info);
+    return switch stmt.tok {
+        case INC: EUnop(OpIncrement,true,x);
+        case DEC: EUnop(OpDecrement,true,x);
+        default: error("unknown IncDec token: " + stmt.tok); null;
+    }
 }
 private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     return null;
@@ -134,19 +146,60 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     return null;
 }
 private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
-    /*if (stmt.init != null) {
-        trace("init " + stmt.init);
-    }
-    if (stmt.post == null) {
-
-    }else if (stmt.post.id == "IncDecStmt" && post.tok == Ast.Token.INC) {
-        var post:Ast.IncDecStmt = stmt.post;
-        post.
-    }*/
-    var it = typeExpr(stmt.cond,info);
-    return EFor(it,{pos: null, expr: typeBlockStmt(stmt.body,info)});
+    
+    var cond = stmt.cond == null ? {pos: null,expr: EConst(CIdent("true"))} : typeExpr(stmt.cond,info);
+    var body = {pos: null, expr: typeBlockStmt(stmt.body,info)};
+    var def:ExprDef = null;
+    if (stmt.post != null) {
+        def = EWhile(macro {var _b = $cond; $e{typeStmt(stmt.post,info)}; _b;},body,true);
+    }else
+        def = EWhile(cond,body,true);
+    if (stmt.init != null)
+        return EBlock([
+            typeStmt(stmt.init,info),
+            {pos: null, expr: def},
+        ]);
+    return def;
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
+    switch stmt.tok {
+        case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN:
+            if (stmt.lhs.length == stmt.rhs.length) {
+                if (stmt.lhs.length == 1) {
+                    return EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info));
+                }else{
+                    return EBlock([
+                        for (i in 0...stmt.lhs.length) {pos: null, expr: EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info))}
+                    ]);
+                }
+            }else if (stmt.lhs.length > stmt.rhs.length) { 
+                //destructure system
+            }else if (stmt.rhs.length == 1) {
+                
+            }else{
+                error("unknown type assign type: " + stmt);
+            }
+        case DEFINE:
+            if (stmt.lhs.length == stmt.rhs.length) {
+                //normal vars
+                var vars:Array<Var> = [];
+                for (i in 0...stmt.lhs.length) {
+                    vars.push({
+                        name: stmt.lhs[i].name,
+                        expr: typeExpr(stmt.rhs[i],info),
+                    });
+                }
+                return EVars(vars);
+            }else if (stmt.lhs.length > stmt.rhs.length) { 
+                //destructure system
+            }else if (stmt.rhs.length == 1) {
+                
+            }else{
+                error("unknown type assign type: " + stmt);
+            }
+        default:
+            error("type assign tok not found: " + stmt.tok);
+    }
     return null;
 }
 private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
@@ -154,10 +207,10 @@ private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
     return expr != null ? expr.expr : null;
 }
 private function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
-    return EBlock([
-        typeStmt(stmt.init,info),
-        {pos: null, expr: EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info))},
-    ]);
+    var ifStmt:Expr =  {pos: null, expr: EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info))};
+    if (stmt.init != null)
+        return EBlock([typeStmt(stmt.init,info),ifStmt]);
+    return ifStmt.expr;
 }
 private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     if (stmt.results.length == 0)
@@ -283,7 +336,6 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
-    trace("y: " + expr.y);
     return EBinop(typeOp(expr.op),typeExpr(expr.x,info),typeExpr(expr.y,info));
 }
 private function typeOp(token:Ast.Token):Binop {
@@ -432,7 +484,11 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,".","_");
     path = StringTools.replace(path,":","_");
     path = StringTools.replace(path,"-","_");
-    return path;
+    var path = path.split("/");
+    for (i in 0...path.length)
+        if (reserved.indexOf(path[i]) != -1)
+            path[i] += "_";
+    return path.join("/");
 }
 function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);

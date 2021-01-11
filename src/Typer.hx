@@ -78,6 +78,7 @@ private function typeStmt(stmt:Dynamic,info:Info):Expr {
         case "BlockStmt": typeBlockStmt(stmt,info);
         case "BadStmt": error("BAD STATEMENT TYPED"); null;
         case "GoStmt": typeGoStmt(stmt,info);
+        case "BranchStmt": typeBranchStmt(stmt,info);
         default:
             error("unknown stmt id: " + stmt.id);
             null;
@@ -94,6 +95,15 @@ private function error(message:String) {
     errorCache.set(message,true);
 }
 //STMT
+private function typeBranchStmt(stmt:Ast.BranchStmt,info:Info):ExprDef {
+    return switch stmt.tok {
+        case CONTINUE: EContinue;
+        case BREAK: EBreak;
+        case GOTO: EBreak; //TODO
+        case FALLTHROUGH: EBreak; //TODO
+        default: EBreak;
+    }
+}
 private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
     return null;
 }
@@ -124,7 +134,17 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     return null;
 }
 private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
-    return null;
+    /*if (stmt.init != null) {
+        trace("init " + stmt.init);
+    }
+    if (stmt.post == null) {
+
+    }else if (stmt.post.id == "IncDecStmt" && post.tok == Ast.Token.INC) {
+        var post:Ast.IncDecStmt = stmt.post;
+        post.
+    }*/
+    var it = typeExpr(stmt.cond,info);
+    return EFor(it,{pos: null, expr: typeBlockStmt(stmt.body,info)});
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     return null;
@@ -263,7 +283,44 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
-    return null;
+    trace("y: " + expr.y);
+    return EBinop(typeOp(expr.op),typeExpr(expr.x,info),typeExpr(expr.y,info));
+}
+private function typeOp(token:Ast.Token):Binop {
+    return switch token {
+        case ADD: OpAdd;
+        case SUB: OpSub;
+        case MUL: OpMult;
+        case QUO: OpDiv;
+        case ASSIGN: OpAssign;
+        case EQL: OpEq;
+        case NEQ: OpNotEq;
+        case GTR: OpGt;
+        case GEQ: OpGte;
+        case LSS: OpLt;
+        case LEQ: OpLte;
+        case AND: OpAnd;
+        case OR: OpOr;
+        case XOR: OpXor;
+        case LAND: OpBoolAnd;
+        case LOR: OpBoolOr;
+        case SHL: OpShl;
+        case SHR: OpShr;
+        case REM: OpMod;
+
+        case ADD_ASSIGN: OpAssignOp(OpAdd); 
+        case SUB_ASSIGN: OpAssignOp(OpSub);
+        case MUL_ASSIGN: OpAssignOp(OpMult);
+        case QUO_ASSIGN: OpAssignOp(OpDiv);
+        case REM_ASSIGN: OpAssignOp(OpMod);
+        case SHL_ASSIGN: OpAssignOp(OpShl);
+        case SHR_ASSIGN: OpAssignOp(OpShr);
+        case XOR_ASSIGN: OpAssignOp(OpXor);
+
+        case RANGE: OpInterval; //TODO turn into iterator
+        case ELLIPSIS: OpInterval;
+        default: {error("unknown token: " + token); OpInterval;};
+    }
 }
 private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
     var count = 0;

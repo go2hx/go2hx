@@ -263,7 +263,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	}
 }
 func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
-	var output interface{} = value.Value
+	output := ""
 	switch value.Kind {
 	case token.INT:
 		i,err := strconv.ParseInt(value.Value,0,64)
@@ -273,24 +273,26 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 				fmt.Println("parse int 64 error:",err2)
 				fmt.Println("parse uint 64 error:",err2)
 			}else{
-				output = j
+				output = fmt.Sprint(j)
 			}
 		}else{
-			output = i
+			output = fmt.Sprint(i)
 		}
 	case token.FLOAT:
 		i,err := strconv.ParseFloat(value.Value,64)
 		if err != nil {
 			fmt.Println("parse float 64 error:",err)
 		}
-		output = i
+		output = fmt.Sprint(i)
 	case token.CHAR:
-		if output == `\` {
-			output = `"\\"`
+		if value.Value == `\` {
+			value.Value = `"\\"`
 		}
+		output = fmt.Sprint(value.Value)
 	case token.STRING:
-		output = strings.ReplaceAll(value.Value,`\`,"\\")
-		output = string(value.Value[1:len(value.Value) - 1])
+		value.Value = strings.ReplaceAll(value.Value,`\`,"\\")
+		value.Value = string(value.Value[1:len(value.Value) - 1])
+		output = value.Value
 	}
 	return map[string]interface{}{
 		"id": "BasicLit",

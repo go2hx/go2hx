@@ -8,11 +8,9 @@ import haxe.io.Path;
 import sys.io.File;
 import haxe.Json;
 import haxe.Template;
-import bson.Bson;
 import Ast;
 function main() {
 	var cwd = Path.normalize(Sys.getCwd());
-	var jsonBool:Bool = false;
 	var args = Sys.args();
 	var localPath = args.pop();
 	var outputPath = "golibs";
@@ -23,8 +21,6 @@ function main() {
 	for (i in 0...args.length) {
 		var arg = args[i];
 		if (arg.charAt(0) == "-") {
-			if (arg == "-json")
-				jsonBool = true;
 			if (arg == "-o" || arg == "-output" || arg == "-out") {
 				outputPath = args[i + 1];
 				argRemove.push(arg);
@@ -51,12 +47,12 @@ function main() {
 	var err = Sys.command("./go4hx", args);
 	if (err != 0)
 		Sys.println("go4hx ERROR");
-	var exportName = "export." + (jsonBool ? "json" : "bson");
+	var exportName = "export.json";
 	if (!FileSystem.exists(exportName)) {
 		trace('error: $exportName not found');
 		return;
 	}
-	var exportData:DataType = jsonBool ? Json.parse(File.getContent(exportName)) : Bson.decode(File.getBytes(exportName));
+	var exportData:DataType = Json.parse(File.getContent(exportName));
 	Typer.gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()];
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);

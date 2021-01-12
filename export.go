@@ -8,16 +8,9 @@ import (
 	"go/token"
 	"strconv"
 	"strings"
-
-	//"strings"
-
-	//"go/token"
 	"io/ioutil"
 	"os"
 	"reflect"
-
-	//"strings"
-	"go.mongodb.org/mongo-driver/bson"
 	"golang.org/x/tools/go/packages"
 )
 type dataType struct {
@@ -58,7 +51,6 @@ func main() {
 	}
 	//flags
 	testBool := flag.Bool("test",false,"testing the go library in haxe")
-	jsonBool := flag.Bool("json",false,"default is bson encoding")
 	flag.Parse()
 	args := flag.Args()
 	cwd := args[len(args) - 1]
@@ -88,22 +80,15 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	encoding := "bson"
 	data := parsePkgList(initial)
 	data.Args = args
-	var bytes []byte
-	if *jsonBool {
-		bytes,err =  json.MarshalIndent(data,"","    ")
-		encoding = "json"
-	}else{
-		bytes,err =  bson.Marshal(data)
-	}
+	bytes,err :=  json.MarshalIndent(data,"","    ")
 	if err != nil {
 		fmt.Println("encoding err:",err)
 		return
 	}
-	os.Remove("export." + encoding)
-	ioutil.WriteFile("export." + encoding,bytes,0644)
+	os.Remove("export.json")
+	ioutil.WriteFile("export.json",bytes,0644)
 }
 func parsePkgList (list []*packages.Package) dataType {
 	data := dataType{}
@@ -292,7 +277,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 	case token.STRING:
 		value.Value = strings.ReplaceAll(value.Value,`\`,"\\")
 		value.Value = string(value.Value[1:len(value.Value) - 1])
-		output = value.Value
+		output = fmt.Sprint(value.Value)
 	}
 	return map[string]interface{}{
 		"id": "BasicLit",

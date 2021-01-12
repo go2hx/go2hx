@@ -10,7 +10,6 @@ import Typer.Module;
 function create(outputPath:String,module:Module) {
     var pkgPath = StringTools.replace(module.path,"/",".");
     pkgPath = 'package $pkgPath;\n';
-    var printer = new Printer("    ");
     var content = "";
     var count = module.files.length;
     Sys.println("generating " + count + " file"  + (count != 1 ? "s" : "") + "...");
@@ -23,7 +22,7 @@ function create(outputPath:String,module:Module) {
             content += ";\n";
         }
         for (def in file.defs) {
-            content += printer.printTypeDefinition(def,false) + "\n";
+            content += Typer.printer.printTypeDefinition(def,false) + "\n";
         }
         save(outputPath + module.path + "/",Typer.title(file.name),content);
     }

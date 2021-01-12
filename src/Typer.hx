@@ -17,6 +17,7 @@ final reserved = [
 	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
 	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
 ];
+var printer = new haxe.macro.Printer("    ");
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
@@ -58,7 +59,7 @@ function main(data:DataType){
                 }
             }
             for (decl in declFuncs) { //parse function bodies last
-                data.defs.push(typeFunc(decl,info));
+                data.defs.push(typeFunction(decl,info));
             }
             module.files.push(data);
         }
@@ -174,8 +175,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 }
             }else if (stmt.lhs.length > stmt.rhs.length) { 
                 //destructure system
-            }else if (stmt.rhs.length == 1) {
-                
             }else{
                 error("unknown type assign type: " + stmt);
             }
@@ -192,10 +191,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 return EVars(vars);
             }else if (stmt.lhs.length > stmt.rhs.length) { 
                 //destructure system
-            }else if (stmt.rhs.length == 1) {
-                
             }else{
-                error("unknown type assign type: " + stmt);
+                error("unknown type assign define type: " + stmt);
             }
         default:
             error("type assign tok not found: " + stmt.tok);
@@ -327,7 +324,13 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     }
 }
 private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
-    return null;
+    var x = typeExpr(expr.x,info);
+    if (expr.op == AND) {
+        //pointer access
+        return (macro new stdgo.Pointer($x)).expr;
+    }else{
+        return EUnop(typeUnOp(expr.op),false,x);
+    }
 }
 private function typeCompositeLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
@@ -337,6 +340,13 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     return EBinop(typeOp(expr.op),typeExpr(expr.x,info),typeExpr(expr.y,info));
+}
+private function typeUnOp(token:Ast.Token):Unop {
+    return switch token {
+        case NOT: OpNot;
+        case SUB: OpNeg;
+        default: error("unknown unop token: " + token); OpNegBits;
+    }
 }
 private function typeOp(token:Ast.Token):Binop {
     return switch token {
@@ -371,7 +381,7 @@ private function typeOp(token:Ast.Token):Binop {
 
         case RANGE: OpInterval; //TODO turn into iterator
         case ELLIPSIS: OpInterval;
-        default: {error("unknown token: " + token); OpInterval;};
+        default: error("unknown op token: " + token); OpInterval;
     }
 }
 private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
@@ -414,41 +424,65 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     return EParenthesis(typeExpr(expr.x,info));
 }
 //SPECS
-private function typeFunc(decl:Ast.FuncDecl,info:Info):TypeDefinition {
+private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
+    var metaName = ":noUsing";
     if (decl.body.list != null) 
         exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
     var block:Expr = {
         expr: EBlock(exprs),
         pos: null
     };
-    var def:TypeDefinition = {
+    if (decl.recv != null) { //now is a static extension function
+        var recvType = typeExprType(decl.recv[1].type,info);
+        metaName = ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL"})';
+    }
+    return {
         name: decl.name.name,
         pos: null,
         pack: [],
         fields: [],
-        kind: TDField(FFun({ret: typeFieldListRes(decl.type.results),params: null,expr: block, args: typeFieldListArgs(decl.type.params)})), //args = Array<FunctionArg>, ret = ComplexType
+        meta: [{pos: null, name: metaName}],
+        kind: TDField(FFun({ret: typeFieldListRes(decl.type.results,info),params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
     };
-    if (decl.recv != null) { //now is a static extension function
-           def.meta = [{pos: null,name: ":using"}];
-    }
-    return def;
 }
-private function typeFieldListRes(field:Ast.FieldList) { //A single type or Anonymous struct type
+private function typeFieldListRes(field:Ast.FieldList,info:Info) { //A single type or Anonymous struct type
     return null;
 }
-private function typeFieldListArgs(field:Ast.FieldList):Array<FunctionArg> { //Array of FunctionArgs
+private function typeFieldListArgs(field:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
     return [];
 }
+private function typeFieldListTypes(field:Ast.FieldList,info:Info):Array<TypeDefinition> {
+    var defs:Array<TypeDefinition> = [];
+    for (field in field.list) {
+        var type = typeExprType(field.type,info);
+        for (name in field.names) {
+            defs.push({
+                name: untitle(name.name),
+                pos: null,
+                pack: [],
+                fields: [],
+                kind: null,
+            });
+        }
+    }
+    return defs;
+}
 private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
-    return {
-        name: spec.name.name,
-        pos: null,
-        params: [], //<---- fill this for typedefs
-        fields: [], //<--- this for interfaces
-        pack: [],
-        kind: TypeDefKind.TDStructure,
-    };
+    return switch spec.type.id {
+        case "StructType":
+            var struct:Ast.StructType = spec.type;
+        {
+            name: title(cast spec.name.name),
+            pos: null,
+            params: [], //<---- fill this for typedefs
+            fields: [], //<--- this for interfaces
+            pack: [],
+            meta: [{pos: null, name: ":structInit"}],
+            kind: TDClass(),
+        }
+        default: error("unknown type spec: " + spec.type.id); null;
+    }
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
@@ -462,18 +496,21 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     }
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
-    var defs:Array<TypeDefinition> = [];
-    for (name in value.names) {
-        var ty = ComplexType.TPath({pack: ["TYPE"],name: "TYPE"});
-        defs.push({
-            name: name.name,
-            pos: null,
-            pack: [],
-            fields: [],
-            kind: TDField(FVar(ty,null),null)
-        });
-    }
-    return defs;
+    var type = typeExprType(value.type,info);
+    return [for (i in 0...value.names.length)
+        {
+            {
+                name: untitle(cast value.names[i]),
+                pos: null,
+                pack: [],
+                fields: [],
+                kind: TDField(FVar(type,typeExpr(value.values[i],info)),typeAccess(cast value.names[i]))
+            };
+        }
+    ];
+}
+private function typeAccess(name:String):Array<Access> {
+    return isTitle(name) ? [] : [APrivate];
 }
 private function ident(name:String):String {
     if (name == "nil")
@@ -489,6 +526,9 @@ private function normalizePath(path:String):String {
         if (reserved.indexOf(path[i]) != -1)
             path[i] += "_";
     return path.join("/");
+}
+function isTitle(string:String):Bool {
+    return string.charAt(0) == string.charAt(0).toUpperCase();
 }
 function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);

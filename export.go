@@ -213,10 +213,6 @@ func parseData(node ast.Node) map[string]interface{} {
 		case []ast.Spec:
 			data[field.Name] = parseSpecList(value)
 		case *ast.Object: //skip
-			/*if value == nil {
-				continue
-			}
-			data[field.Name] = value.Name*/
 		case []*ast.Ident:
 			list := make([]string,len(value))
 			for i := range value {
@@ -231,7 +227,6 @@ func parseData(node ast.Node) map[string]interface{} {
 			data[field.Name] = list
 		case *ast.Scope:
 		case *ast.CommentGroup: //TODO: figure out comments
-
 		default:
 			fmt.Println(reflect.TypeOf(value))
 		}
@@ -293,7 +288,7 @@ func getId(obj interface{}) string {
 	return id
 }
 func parseFieldList(list []*ast.Field)[]map[string]interface{} {
-	data := make([]map[string]interface{},0)
+	data := []map[string]interface{}{}
 	for _,field := range list {
 		data = append(data, parseField(field)...)
 	}

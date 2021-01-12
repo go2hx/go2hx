@@ -332,7 +332,10 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
         return EUnop(typeUnOp(expr.op),false,x);
     }
 }
-private function typeCompositeLit(expr:Ast.FuncLit,info:Info):ExprDef {
+private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
+    //keyValue
+
+    //list
     return null;
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
@@ -446,15 +449,24 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         kind: TDField(FFun({ret: typeFieldListRes(decl.type.results,info),params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
     };
 }
-private function typeFieldListRes(field:Ast.FieldList,info:Info) { //A single type or Anonymous struct type
+private function typeFieldListRes(list:Ast.FieldList,info:Info) { //A single type or Anonymous struct type
     return null;
 }
-private function typeFieldListArgs(field:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
+private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
     return [];
 }
-private function typeFieldListTypes(field:Ast.FieldList,info:Info):Array<TypeDefinition> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info):Array<Field> {
+    if (list.list == null)
+        return [];
+    trace("list: " + list.list);
+    for (field in list.list) {
+        if (field.type != null) trace("type: " + field.type);
+    }
+    return [];
+}
+private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefinition> {
     var defs:Array<TypeDefinition> = [];
-    for (field in field.list) {
+    for (field in list.list) {
         var type = typeExprType(field.type,info);
         for (name in field.names) {
             defs.push({
@@ -472,15 +484,15 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     return switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-        {
-            name: title(cast spec.name.name),
-            pos: null,
-            params: [], //<---- fill this for typedefs
-            fields: [], //<--- this for interfaces
-            pack: [],
-            meta: [{pos: null, name: ":structInit"}],
-            kind: TDClass(),
-        }
+            trace("struct: " + struct);
+            {
+                name: title(cast spec.name.name),
+                pos: null,
+                fields: typeFieldListFields(struct.fields,info),
+                pack: [],
+                meta: [{pos: null, name: ":structInit"}],
+                kind: TDClass(),
+            }
         default: error("unknown type spec: " + spec.type.id); null;
     }
 }

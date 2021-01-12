@@ -30,3 +30,5 @@ golibs
 gopath
 test.hxml
 old/*
+go.mod
+go.sum

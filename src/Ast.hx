@@ -391,7 +391,7 @@ typedef GenDecl = {
 
 typedef FuncDecl = {
 	doc:CommentGroup,
-	recv:Array<Field>,
+	recv:FieldList,
 	name:Ident,
 	type:FuncType,
 	body:BlockStmt,

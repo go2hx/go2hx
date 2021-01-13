@@ -27,7 +27,7 @@ function runRepo(user:String,repo:String,path:String,examples:Array<String>,pre:
         command('neko ../run.n ./$repo/$pre$example $path');
 }
 function command(cmd:String) {
-    //Sys.println(cmd);
+    Sys.println(cmd);
     var err = Sys.command(cmd);
     if (err != 0)
         throw '$cmd error: $err';

@@ -293,10 +293,9 @@ func getId(obj interface{}) string {
 }
 func parseFieldList(list []*ast.Field)map[string]interface{} {
 	data := make([]map[string]interface{},len(list))
-	for _,field := range list {
-		data = append(data,parseField(field))
+	for i,field := range list {
+		data[i] = parseField(field)
 	}
-	//fmt.Println("data:",data,"len",len(data))
 	return map[string]interface{}{
 		"id": "FieldList",
 		"list": data,

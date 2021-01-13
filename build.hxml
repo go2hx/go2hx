@@ -1,6 +1,5 @@
 -cp src
 -main Main
--lib bson
 -D no-deprecation-warnings
 -D std-encoding-utf8
 -dce full

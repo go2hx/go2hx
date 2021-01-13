@@ -6,11 +6,12 @@ import (
 	"fmt"
 	"go/ast"
 	"go/token"
-	"strconv"
-	"strings"
 	"io/ioutil"
 	"os"
 	"reflect"
+	"strconv"
+	"strings"
+
 	"golang.org/x/tools/go/packages"
 )
 type dataType struct {
@@ -134,6 +135,7 @@ func parseBody(list []ast.Stmt) []map[string]interface{} {
 }
 func parseExprList(list []ast.Expr) []map[string]interface{} {
 	data := make([]map[string]interface{},len(list))
+	//fmt.Println("list:",list)
 	for i,obj := range list {
 		data[i] = parseData(obj)
 	}
@@ -287,22 +289,35 @@ func getId(obj interface{}) string {
 	id := reflect.TypeOf(obj).Elem().Name()
 	return id
 }
-func parseFieldList(list []*ast.Field)[]map[string]interface{} {
-	data := []map[string]interface{}{}
+func parseFieldList(list []*ast.Field)map[string]interface{} {
+	data := make([]map[string]interface{},len(list))
 	for _,field := range list {
-		data = append(data, parseField(field)...)
+		data = append(data,parseField(field))
 	}
-	return data
+	//fmt.Println("data:",data,"len",len(data))
+	return map[string]interface{}{
+		"id": "FieldList",
+		"list": data,
+	}
 }
-func parseField(field *ast.Field)[]map[string]interface{} {
-	data := make([]map[string]interface{},len(field.Names))
-	ty := parseData(field.Type)
-	for _,name := range field.Names {
-		obj := make(map[string]interface{})
-		obj["name"] = name.Name
-		obj["type"] = ty
-		//obj["tag"] = parseData(field.Tag)
-		data = append(data, obj)
+func parseField(field *ast.Field)map[string]interface{} {
+	names := make([]map[string]interface{},len(field.Names))
+	for i,name := range field.Names {
+		names[i] = map[string]interface{}{
+			"id": "Ident",
+			"type": nil,
+			"name": name.Name,
+		}
 	}
-	return data
+	var tag map[string]interface{} = nil
+	if field.Tag != nil {
+		tag = parseBasicLit(field.Tag)
+	}
+	return map[string]interface{}{
+		//"doc": parseData(field.Doc)
+		"names": names,
+		"type": parseData(field.Type),
+		"tag": tag,
+		//"comment": parseData(field.Comment)
+	}
 }

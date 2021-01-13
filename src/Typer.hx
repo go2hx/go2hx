@@ -456,11 +456,9 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     return [];
 }
 private function typeFieldListFields(list:Ast.FieldList,info:Info):Array<Field> {
-    if (list.list == null)
-        return [];
-    trace("list: " + list.list);
     for (field in list.list) {
-        if (field.type != null) trace("type: " + field.type);
+        if (field == null)
+            continue;
     }
     return [];
 }
@@ -484,7 +482,6 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     return switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            trace("struct: " + struct);
             {
                 name: title(cast spec.name.name),
                 pos: null,

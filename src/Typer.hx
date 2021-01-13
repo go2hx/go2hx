@@ -28,11 +28,7 @@ function main(data:DataType){
         for (file in pkg.files) {
             if (file.decls == null)
                 continue;
-            file.path = Path.normalize(file.path);
-            var index = file.path.lastIndexOf("/");
-            if (index != -1)
-                file.path = file.path.substr(index + 1);
-            file.path = normalizePath(Path.withoutExtension(file.path));
+            file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
             var info:Info = {types: []};
@@ -456,6 +452,7 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     return [];
 }
 private function typeFieldListFields(list:Ast.FieldList,info:Info):Array<Field> {
+    trace("list: " + list);
     for (field in list.list) {
         if (field == null)
             continue;

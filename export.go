@@ -8,6 +8,7 @@ import (
 	"go/token"
 	"io/ioutil"
 	"os"
+	"path/filepath"
 	"reflect"
 	"strconv"
 	"strings"
@@ -120,6 +121,7 @@ func parsePkg (pkg *packages.Package) packageType {
 
 func parseFile (file *ast.File, path string) fileType {
 	data := fileType{}
+	path = filepath.Base(path)
 	data.Path = path
 	for _,decl := range file.Decls {
 		data.Decls = append(data.Decls,parseData(decl))

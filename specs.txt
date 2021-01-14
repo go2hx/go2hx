@@ -1,3 +1,4 @@
 spec: https://golang.org/ref/spec
 std:  https://golang.org/pkg/
 builtin: https://golang.org/pkg/builtin/
+types: https://github.com/golang/example/tree/master/gotypes#scopes

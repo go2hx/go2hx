@@ -48,7 +48,7 @@ typedef BadExpr = {
 };*/
 typedef Ident = {
 	name:String,
-	type:Dynamic
+	type:Expr,
 }
 
 typedef Ellipsis = {

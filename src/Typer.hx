@@ -32,7 +32,7 @@ function main(data:DataType){
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-            var info:Info = {types: [],imports: []};
+            var info:Info = {types: [],imports: [],ret: null};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -197,8 +197,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 //normal vars
                 var vars:Array<Var> = [];
                 for (i in 0...stmt.lhs.length) {
+                    var type = typeExprType(stmt.lhs[i].type,info);
+                    trace("ty: " + type);
                     vars.push({
                         name: stmt.lhs[i].name,
+                        type: type,
                         expr: typeExpr(stmt.rhs[i],info),
                     });
                 }
@@ -265,7 +268,11 @@ private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the ty
 }
 //TYPE EXPR
 private function mapType(expr:Ast.MapType,info:Info):ComplexType {
-    return null;
+    return TPath({
+        name: "Map",
+        pack: [],
+        params: [TPType(typeExprType(expr.key,info)),TPType(typeExprType(expr.value,info))],
+    });
 }
 private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
     return null;
@@ -283,7 +290,7 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     }
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
-    return null;
+    return TAnonymous(typeFieldListFields(expr.fields,info));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
 
@@ -349,9 +356,9 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "Ellipsis": typeEllipsis(expr,info);
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
-        case "ArrayType": typeArrayType(expr,info);
+        case "InterfaceType": (macro {}).expr;
         default:
-            trace("unknown expr id: " + expr.id); 
+            throw("unknown expr id: " + expr.id); 
             null;
     };
     return def == null ? {error("expr null: " + expr.id); null;} : {
@@ -360,10 +367,6 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
     };
 }
 //EXPR
-private function typeArrayType(expr:Ast.ArrayType,info:Info):ExprDef {
-    trace("elt: " + expr.len);
-    return null;
-}
 private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
@@ -379,17 +382,35 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
-            if (expr.fun.name == "new") {
-                var type = typeExprType(expr.args[0],info);
-                if (type == null)
-                    return null;
-                return switch type {
-                    case TPath(p): ENew(p,[]);
-                    default: null;
-                }
+            switch expr.fun.name {
+                case "new":
+                    var type = typeExprType(expr.args[0],info);
+                    if (type == null)
+                        return null;
+                    return switch type {
+                        case TPath(p): ENew(p,[]);
+                        default: null;
+                    }
+                case "make":
+                    var type = typeExprType(expr.args[0],info);
+                    if (type == null)
+                        return null;
+                    return switch type {
+                        case TPath(p): ENew(p,[]);
+                        default: null;
+                    }
             }
             if (builtinFunctions.indexOf(expr.fun.name) != -1)
                 addImport("gostd.Builtin.*",info);
+        case "ParenExpr":
+            //type set
+            return null;
+        case "ArrayType":
+            //define array
+            return null;
+        case "InterfaceType":
+            //set dynamic
+            return null;
     }
     return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
 }
@@ -418,8 +439,8 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     }
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
+    var type = typeExprType(expr.type,info);
     if (expr.elts.length == 0) {
-        var type = typeExprType(expr.type,info);
         if (type == null)
             return null;
         return switch type {
@@ -427,6 +448,18 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
             default: null;  
         }
     }else {
+        if (type != null) {
+            switch type {
+                case TPath(p):
+                    if (p.pack.length == 0 && p.name == "Array") {
+                        return ECheckType({expr: EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]), pos: null},type);
+                    }
+                default:
+            }
+        }else{
+           
+        }
+        trace("type: " + type);
         return null;
     }
 }
@@ -499,6 +532,10 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
                 sel: first.x,
             };
         }
+    }
+    switch first.id {
+        case "StructType": return EConst(CIdent(expr.sel.name));
+        default:
     }
     return EField(typeExpr(expr.x,info),expr.sel.name);
 }
@@ -682,7 +719,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>}
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType}
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

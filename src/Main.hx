@@ -60,8 +60,10 @@ function init(args:Array<String>) {
 	Sys.println("> parser:");
 	Sys.setCwd(cwd);
 	var err = Sys.command("./go4hx", args);
-	if (err != 0)
+	if (err != 0) {
 		Sys.println("go4hx ERROR");
+		return;
+	}
 	var exportName = "export.json";
 	if (!FileSystem.exists(exportName)) {
 		trace('error: $exportName not found');

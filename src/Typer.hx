@@ -10,6 +10,7 @@ import haxe.DynamicAccess;
 import sys.FileSystem;
 
 var gostdList:Array<String>;
+var externs:Bool = false;
 final reserved = [
     "switch", "case", "break", "continue", "default",
 	"abstract", "cast", "catch", "class", "do",
@@ -348,8 +349,9 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "Ellipsis": typeEllipsis(expr,info);
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
+        case "ArrayType": typeArrayType(expr,info);
         default:
-            trace("unknown expr id: " + expr.id);
+            trace("unknown expr id: " + expr.id); 
             null;
     };
     return def == null ? {error("expr null: " + expr.id); null;} : {
@@ -358,6 +360,10 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
     };
 }
 //EXPR
+private function typeArrayType(expr:Ast.ArrayType,info:Info):ExprDef {
+    trace("elt: " + expr.len);
+    return null;
+}
 private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
@@ -375,17 +381,12 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         case "Ident":
             if (expr.fun.name == "new") {
                 var type = typeExprType(expr.args[0],info);
-                var name:String = type != null ? printer.printComplexType(type) : "#NULL";
-                var pack:Array<String> = [];
-                var index = name.lastIndexOf(".");
-                if (index != -1) {
-                    pack = name.substr(0,index).split(".");
-                    name = name.substr(index + 1);
+                if (type == null)
+                    return null;
+                return switch type {
+                    case TPath(p): ENew(p,[]);
+                    default: null;
                 }
-                return ENew({
-                    name: expr.args[0].name,
-                    pack: pack,
-                },[]);
             }
             if (builtinFunctions.indexOf(expr.fun.name) != -1)
                 addImport("gostd.Builtin.*",info);
@@ -418,26 +419,14 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     if (expr.elts.length == 0) {
-        return null;
+        var type = typeExprType(expr.type,info);
+        if (type == null)
+            return null;
+        return switch type {
+            case TPath(p): ENew(p,[]);
+            default: null;  
+        }
     }else {
-        /*switch expr.elts[0].id {
-            case "KeyValueExpr":
-                var fields:Array<ObjectField> = [];
-                for (e in expr.elts) {
-                    var obj:Ast.KeyValueExpr = e;
-                    fields.push({
-                        field: obj.key.name,
-                        expr: typeExpr(obj.value,info),
-                    });
-                }
-                var type = typeExprType(expr.type,info);
-                if (type == null)
-                    return EObjectDecl(fields);
-                return ECheckType({pos: null, expr: EObjectDecl(fields)},type);
-            default:
-                error("unknown compositelit type: " + expr.elts[0].id); return null;
-        }*/
-        //does not work
         return null;
     }
 }
@@ -542,22 +531,51 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     };
     if (decl.recv != null) { //now is a static extension function
         var recvType = typeExprType(decl.recv.list[0].type,info);
-        metaName = ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL"})';
+        metaName = ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})';
     }
     var name = untitle(decl.name.name);
     if (reserved.indexOf(name) != -1)
         name += "_";
+    var ret = typeFieldListRes(decl.type.results,info);
+    //info.ret = ret;
     return {
         name: name,
         pos: null,
         pack: [],
         fields: [],
         meta: [{pos: null, name: metaName}],
-        kind: TDField(FFun({ret: typeFieldListRes(decl.type.results,info),params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
+        kind: TDField(FFun({ret: ret,params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
     };
 }
-private function typeFieldListRes(list:Ast.FieldList,info:Info) { //A single type or Anonymous struct type
-    return null;
+private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType { //A single type or Anonymous struct type
+    if (fieldList != null) {
+        var list:Array<{name:String,type:ComplexType}> = [];
+        for (group in fieldList.list) {
+            var type = typeExprType(group.type,info);
+            for (name in group.names) {
+                list.push({
+                    name: name.name,
+                    type: type,
+                });
+            }
+        }
+        if (list.length > 1) {
+            //anonymous
+            return TAnonymous([
+                for (field in list) {
+                    name: field.name,
+                    pos: null,
+                    kind: FVar(field.type)
+                }
+            ]);
+        }else if (list.length == 1) {
+            return list[0].type;
+        }
+    }
+    return TPath({
+        name: "Void",
+        pack: [],
+    });
 }
 private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
     return [];
@@ -660,6 +678,8 @@ function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);
 }
 function untitle(string:String):String {
+    if (string.length > 1 && string.charAt(1).toUpperCase() == string.charAt(1))
+        return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
 typedef Info = {types:Map<String,String>,imports:Map<String,String>}

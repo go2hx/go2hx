@@ -9,9 +9,9 @@ import sys.io.File;
 import haxe.Json;
 import haxe.Template;
 import Ast;
+final cwd = Sys.getCwd();
 function main() {
 	#if debug
-	var cwd = Sys.getCwd();
 	var localPath = Path.addTrailingSlash(cwd) + "examples";
 	Sys.setCwd(localPath);
 	var err = Sys.command("haxe --run Run.hx debug");
@@ -28,7 +28,6 @@ function main() {
 	#end
 }
 function init(args:Array<String>) {
-	var cwd = Path.normalize(Sys.getCwd());
 	var localPath = args[args.length - 1];
 	var outputPath = "golibs";
 	//for (arg in args)
@@ -73,7 +72,7 @@ function init(args:Array<String>) {
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);
 	Sys.println("> generator: " + modules.length);
-	Sys.setCwd(cwd);
+	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
 	for (module in modules) {
 		Gen.create(outputPath,module);

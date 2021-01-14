@@ -115,6 +115,8 @@ private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
     return null;
 }
 private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
+    if (stmt.list == null)
+        return null;
     return EBlock([
         for (stmt in stmt.list) typeStmt(stmt,info)
     ]);
@@ -149,16 +151,26 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     
     var cond = stmt.cond == null ? {pos: null,expr: EConst(CIdent("true"))} : typeExpr(stmt.cond,info);
     var body = {pos: null, expr: typeBlockStmt(stmt.body,info)};
+    if (cond.expr == null || body.expr == null)
+        return null;
     var def:ExprDef = null;
     if (stmt.post != null) {
-        def = EWhile(macro {var _b = $cond; $e{typeStmt(stmt.post,info)}; _b;},body,true);
-    }else
+        var ty = typeStmt(stmt.post,info);
+        if (ty == null)
+            return null;
+        def = EWhile(macro {var _b = $cond; $ty; _b;},body,true);
+    }else{
         def = EWhile(cond,body,true);
-    if (stmt.init != null)
+    }
+    if (stmt.init != null) {
+        var init = typeStmt(stmt.init,info);
+        if (init == null)
+            return null;
         return EBlock([
-            typeStmt(stmt.init,info),
+            init,
             {pos: null, expr: def},
         ]);
+    }
     return def;
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
@@ -172,12 +184,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                         for (i in 0...stmt.lhs.length) {pos: null, expr: EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info))}
                     ]);
                 }
-            }else if (stmt.lhs.length > stmt.rhs.length) { 
+            }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
                 //destructure system
+                return null;
             }else{
                 error("unknown type assign type: " + stmt);
+                return null;
             }
-        case DEFINE:
+        case DEFINE: //var expr = x;
             if (stmt.lhs.length == stmt.rhs.length) {
                 //normal vars
                 var vars:Array<Var> = [];
@@ -188,15 +202,27 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                     });
                 }
                 return EVars(vars);
-            }else if (stmt.lhs.length > stmt.rhs.length) { 
+            }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
                 //destructure system
+                var vars:Array<Var> = [{
+                    name: "_o",
+                    expr: typeExpr(stmt.rhs[0],info)
+                }];
+                for (i in 0...stmt.lhs.length) {
+                    vars.push({
+                        name:  stmt.lhs[i].name,
+                        expr: macro _o,
+                    });
+                }
+                return EVars(vars);
             }else{
                 error("unknown type assign define type: " + stmt);
+                return null;
             }
         default:
             error("type assign tok not found: " + stmt.tok);
+            return null;
     }
-    return null;
 }
 private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
     var expr = typeExpr(stmt.x,info);
@@ -259,6 +285,7 @@ private function structType(expr:Ast.StructType,info:Info):ComplexType {
     return null;
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
+
     return TFunction([],TPath({
         name: "Void",
         pack: [],
@@ -383,25 +410,35 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
         //pointer access
         return (macro new stdgo.Pointer($x)).expr;
     }else{
-        return EUnop(typeUnOp(expr.op),false,x);
+        var type = typeUnOp(expr.op);
+        if (type == null)
+            return x.expr;
+        return EUnop(type,false,x);
     }
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     if (expr.elts.length == 0) {
         return null;
-    }else switch expr.elts[0].id {
-        case "KeyValueExpr":
-            var fields:Array<ObjectField> = [];
-            for (e in expr.elts) {
-                var obj:Ast.KeyValueExpr = e;
-                fields.push({
-                    field: obj.key.name,
-                    expr: typeExpr(obj.value,info),
-                });
-            }
-            return ECheckType({pos: null, expr: EObjectDecl(fields)},typeExprType(expr.type,info));
-        default:
-            error("unknown compositelit type: " + expr.elts[0].id); return null;
+    }else {
+        /*switch expr.elts[0].id {
+            case "KeyValueExpr":
+                var fields:Array<ObjectField> = [];
+                for (e in expr.elts) {
+                    var obj:Ast.KeyValueExpr = e;
+                    fields.push({
+                        field: obj.key.name,
+                        expr: typeExpr(obj.value,info),
+                    });
+                }
+                var type = typeExprType(expr.type,info);
+                if (type == null)
+                    return EObjectDecl(fields);
+                return ECheckType({pos: null, expr: EObjectDecl(fields)},type);
+            default:
+                error("unknown compositelit type: " + expr.elts[0].id); return null;
+        }*/
+        //does not work
+        return null;
     }
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
@@ -414,6 +451,7 @@ private function typeUnOp(token:Ast.Token):Unop {
     return switch token {
         case NOT: OpNot;
         case SUB: OpNeg;
+        case ADD: null;
         default: error("unknown unop token: " + token); OpNegBits;
     }
 }
@@ -578,7 +616,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     info.types[untitle(path[path.length - 1])] = path.join(".");
     return {
         path: path,
-        alias: imp.name,
+        alias: imp.name == null ? null : imp.name.name,
     }
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {

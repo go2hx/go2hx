@@ -55,13 +55,13 @@ func main() {
 	testBool := flag.Bool("test",false,"testing the go library in haxe")
 	flag.Parse()
 	args := flag.Args()
-	cwd := args[len(args) - 1]
-	rootPath,err := os.Getwd()
+	localPath := args[len(args) - 1]
+	cwd,err := os.Getwd()
 	if err != nil {
 		fmt.Println(err)
 		return
 	}
-	err = os.Chdir(cwd)
+	err = os.Chdir(localPath)
 	if err != nil {
 		fmt.Println(err)
 		return
@@ -77,16 +77,16 @@ func main() {
 		fmt.Println("load error:", err)
 		return
 	}
-	err = os.Chdir(rootPath)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
 	data := parsePkgList(initial)
 	data.Args = args
 	bytes,err :=  json.MarshalIndent(data,"","    ")
 	if err != nil {
 		fmt.Println("encoding err:",err)
+		return
+	}
+	err = os.Chdir(cwd)
+	if err != nil {
+		fmt.Println(err)
 		return
 	}
 	os.Remove("export.json")
@@ -96,12 +96,18 @@ func parsePkgList (list []*packages.Package) dataType {
 	data := dataType{}
 	data.Pkgs = make([]packageType, len(list))
 	for _,pkg := range list {
-		data.Pkgs = append(data.Pkgs, parsePkg(pkg))
+		syntax := parsePkg(pkg)
+		if len(syntax.Files) > 1 {
+			data.Pkgs = append(data.Pkgs, syntax)
+		}
 		for _,val := range pkg.Imports {
 			if excludes[val.Name] {
 				continue
 			}
-			data.Pkgs = append(data.Pkgs, parsePkg(val))
+			syntax := parsePkg(val)
+			if  len(syntax.Files) > 1 {
+				data.Pkgs = append(data.Pkgs, syntax)
+			}
 		}
 	}
 	return data

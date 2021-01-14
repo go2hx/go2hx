@@ -10,15 +10,32 @@ import haxe.Json;
 import haxe.Template;
 import Ast;
 function main() {
+	#if debug
+	var cwd = Sys.getCwd();
+	var localPath = Path.addTrailingSlash(cwd) + "examples";
+	Sys.setCwd(localPath);
+	var err = Sys.command("haxe --run Run.hx debug");
+	if (err != 0) {
+		trace("error: " + err);
+		return;
+	}
+	var examples = File.getContent("log.txt").split("\n");
+	examples.push(localPath);
+	Sys.setCwd(cwd);
+	init(examples);
+	#else
+	init(Sys.args());
+	#end
+}
+function init(args:Array<String>) {
 	var cwd = Path.normalize(Sys.getCwd());
-	var args = Sys.args();
-	var localPath = args.pop();
+	var localPath = args[args.length - 1];
 	var outputPath = "golibs";
 	//for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
 	var argRemove:Array<String> = [];
-	for (i in 0...args.length) {
+	for (i in 0...args.length - 1) {
 		var arg = args[i];
 		if (arg.charAt(0) == "-") {
 			if (arg == "-o" || arg == "-output" || arg == "-out") {
@@ -41,9 +58,8 @@ function main() {
 	}
 	for (arg in argRemove)
 		args.remove(arg);
-	args.push(cwd); //for go to know cwd of go2hx
 	Sys.println("> parser:");
-	Sys.setCwd(localPath);
+	Sys.setCwd(cwd);
 	var err = Sys.command("./go4hx", args);
 	if (err != 0)
 		Sys.println("go4hx ERROR");

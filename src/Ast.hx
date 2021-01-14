@@ -353,7 +353,7 @@ typedef Spec = Dynamic; // A go interface
 
 typedef ImportSpec = {
 	doc:CommentGroup,
-	name:String, //Ident
+	name:Ident, //Ident
 	path:BasicLit,
 	comment:CommentGroup,
 	endPos:Pos,

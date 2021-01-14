@@ -30,3 +30,4 @@ golibs
 gopath
 test.hxml
 old/*
+examples/*.txt

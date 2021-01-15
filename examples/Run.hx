@@ -30,6 +30,7 @@ function main() {
         }
         file.close();
     }
+    tests = ["append.go","helloworld.go"];
     goRepo.run(tests,"test/");
 
     if (debug) {

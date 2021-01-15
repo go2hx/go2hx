@@ -61,11 +61,11 @@ inline function panic(v) {
 }
 
 inline function print(args:Rest<Dynamic>) {
-	return Fmt.print(args);
+	return Fmt.print(...args);
 }
 
 inline function println(args:Rest<Dynamic>) {
-	return Fmt.println(args);
+	return Fmt.println(...args);
 }
 
 inline function real(c) {}

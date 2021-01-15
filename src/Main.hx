@@ -70,7 +70,7 @@ function init(args:Array<String>) {
 		return;
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));
-	Typer.gostdList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()];
+	Typer.stdgoList = [for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()];
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);
 	Sys.println("> generator: " + modules.length);

@@ -176,7 +176,7 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     switch stmt.tok {
-        case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN:
+        case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
                 if (stmt.lhs.length == 1) {
                     return EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info));
@@ -459,7 +459,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         }else{
            
         }
-        trace("type: " + type);
         return null;
     }
 }

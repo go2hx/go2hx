@@ -125,50 +125,83 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
 	for i, file := range pkg.Syntax {
-		data.Files[i] = parseFile(file, pkg.GoFiles[i], pkg.TypesInfo.Scopes[file])
+		data.Files[i] = parseFile(file, pkg.GoFiles[i], pkg.TypesInfo)
 	}
 	return data
 }
 
-func parseFile(file *ast.File, path string, scope *types.Scope) fileType {
+func parseFile(file *ast.File, path string, info *types.Info) fileType {
 	data := fileType{}
 	path = filepath.Base(path)
 	data.Path = path
 	for _, decl := range file.Decls {
-		data.Decls = append(data.Decls, parseData(decl, scope))
+		data.Decls = append(data.Decls, parseData(decl, info))
 	}
 	return data
 }
-func parseBody(list []ast.Stmt, scope *types.Scope) []map[string]interface{} {
+func parseBody(list []ast.Stmt, info *types.Info) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj, scope)
+		data[i] = parseData(obj, info)
 	}
 	return data
 }
-func parseExprList(list []ast.Expr, scope *types.Scope) []map[string]interface{} {
+func parseExprList(list []ast.Expr, info *types.Info) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	//fmt.Println("list:",list)
 	for i, obj := range list {
-		data[i] = parseData(obj, scope)
+		data[i] = parseData(obj, info)
 	}
 	return data
 }
-func parseSpecList(list []ast.Spec, scope *types.Scope) []map[string]interface{} {
+func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj, scope)
+		data[i] = parseData(obj, info)
 	}
 	return data
 }
-func parseData(node ast.Node, scope *types.Scope) map[string]interface{} {
+func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
+	e := reflect.Indirect(reflect.ValueOf(node))
+	if !e.IsValid() {
+		return data
+	}
 	data["id"] = getId(node)
+	et := e.Type()
+	for i := 0; i < et.NumField(); i++ {
+		field, val := et.Field(i),e.Field(i)
+		field.Name = strings.ToLower(string(field.Name[:1])) + string(field.Name[1:])
+		value := parseKind(val)
+		if value != nil {
+			data[field.Name] = value
+		}
+	}
+	return data
+}
+func parseKind(val reflect.Value) interface{} {
+	switch val.Kind() {
+	//case reflect.Interface:
+	case reflect.String: return val.String()
+	case reflect.Ptr: return parseKind(reflect.New(val.Type().Elem()).Elem())
+	case reflect.Int,reflect.Int8,reflect.Int16,reflect.Int32,reflect.Int64: return val.Int()
+	case reflect.Uint,reflect.Uint8,reflect.Uint16,reflect.Uint32,reflect.Uint64: return val.Uint()
+	case reflect.Slice: return reflect.New(val.Type().Elem()).Elem().Interface()
+	case reflect.Interface: return nil
+	case reflect.Bool: return val.Bool()
+	case reflect.Struct: return nil
+	default:
+		fmt.Println("unknown type kind:",val.Kind())
+		return nil
+	}
+}
+func parseData(node interface{}, info *types.Info) map[string]interface{} {
+	data := make(map[string]interface{})
 	switch node := node.(type) {
 	case *ast.BasicLit:
 		return parseBasicLit(node)
 	case *ast.Ident:
-		return parseIdent(node, scope)
+		return parseIdent(node, info)
 	default:
 		//fmt.Println("node:",reflect.TypeOf((node)))
 	}
@@ -176,6 +209,7 @@ func parseData(node ast.Node, scope *types.Scope) map[string]interface{} {
 	if !e.IsValid() {
 		return data
 	}
+	data["id"] = getId(node)
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
 		field, val := et.Field(i), e.Field(i)
@@ -188,45 +222,43 @@ func parseData(node ast.Node, scope *types.Scope) map[string]interface{} {
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.ArrayType, *ast.StructType, *ast.FuncType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
-			data[field.Name] = parseData(value.(ast.Node), scope)
+			data[field.Name] = parseData(value, info)
 		case *ast.BasicLit:
 			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
-			data[field.Name] = parseData(value.(ast.Node), scope)
+			data[field.Name] = parseData(value, info)
 		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.BinaryExpr, *ast.KeyValueExpr:
-			data[field.Name] = parseData(value.(ast.Node), scope)
+			data[field.Name] = parseData(value, info)
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.ExprStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.AssignStmt, *ast.GoStmt, ast.DeferStmt:
-			data[field.Name] = parseData(value.(ast.Node), scope)
+			data[field.Name] = parseData(value, info)
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.SelectStmt, *ast.ForStmt, *ast.RangeStmt:
-			data[field.Name] = parseData(value.(ast.Node), scope)
+			data[field.Name] = parseData(value, info)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)
-			data[field.Name] = parseFile(&file, "", scope)
+			data[field.Name] = parseFile(&file, "", info)
 		case *ast.Ident:
-			data[field.Name] = parseIdent(value, scope)
+			data[field.Name] = parseIdent(value, info)
 		case ast.ChanDir: //is an int
 			data[field.Name] = value
-		case bool:
-			data[field.Name] = value
-		case string:
+		case bool,string,int:
 			data[field.Name] = value
 		case ast.FieldList:
-			data[field.Name] = parseFieldList(value.List, scope)
+			data[field.Name] = parseFieldList(value.List, info)
 		case *ast.FieldList:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseFieldList(value.List, scope)
+			data[field.Name] = parseFieldList(value.List, info)
 		case []ast.Stmt:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseBody(value, scope)
+			data[field.Name] = parseBody(value, info)
 		case []ast.Expr:
-			data[field.Name] = parseExprList(value, scope)
+			data[field.Name] = parseExprList(value, info)
 		case []ast.Spec:
-			data[field.Name] = parseSpecList(value, scope)
+			data[field.Name] = parseSpecList(value, info)
 		case *ast.Object: //skip
 		case []*ast.Ident:
 			list := make([]string, len(value))
@@ -248,16 +280,18 @@ func parseData(node ast.Node, scope *types.Scope) map[string]interface{} {
 	}
 	return data
 }
-func parseIdent(value *ast.Ident, scope *types.Scope) map[string]interface{} {
+func parseIdent(value *ast.Ident, info *types.Info) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
 	data := map[string]interface{}{
 		"id":   "Ident",
 		"name": value.Name,
+		"type": nil,
 	}
-	if value.Obj != nil {
-		fmt.Println("type", value.Obj)
+	use := info.Uses[value]
+	if use != nil {
+		data["type"] = parseType(use.Type())
 	}
 	return data
 }
@@ -303,20 +337,19 @@ func getId(obj interface{}) string {
 	if obj == nil {
 		return ""
 	}
-	id := reflect.TypeOf(obj).Elem().Name()
-	return id
+	return reflect.TypeOf(obj).Elem().Name()
 }
-func parseFieldList(list []*ast.Field, scope *types.Scope) map[string]interface{} {
+func parseFieldList(list []*ast.Field, info *types.Info) map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, field := range list {
-		data[i] = parseField(field, scope)
+		data[i] = parseField(field, info)
 	}
 	return map[string]interface{}{
 		"id":   "FieldList",
 		"list": data,
 	}
 }
-func parseField(field *ast.Field, scope *types.Scope) map[string]interface{} {
+func parseField(field *ast.Field, info *types.Info) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
@@ -332,7 +365,7 @@ func parseField(field *ast.Field, scope *types.Scope) map[string]interface{} {
 	return map[string]interface{}{
 		//"doc": parseData(field.Doc)
 		"names": names,
-		"type":  parseData(field.Type, scope),
+		"type":  parseData(field.Type, info),
 		"tag":   tag,
 		//"comment": parseData(field.Comment)
 	}

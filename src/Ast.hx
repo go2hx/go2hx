@@ -39,13 +39,6 @@ typedef BadExpr = {
 	from:Pos,
 	to:Pos,
 };
-
-/*typedef Ident = {
-	//> Node,
-	namePos:Pos,
-	name:String,
-	obj:Object,
-};*/
 typedef Ident = {
 	name:String,
 	type:Expr,
@@ -147,6 +140,7 @@ typedef BinaryExpr = {
 	opPos:Pos,
 	op:Token,
 	y:Expr,
+	type:Dynamic,
 };
 
 typedef KeyValueExpr = {
@@ -249,6 +243,7 @@ typedef AssignStmt = {
 	tokPos:Pos,
 	tok:Token,
 	rhs:Array<Expr>,
+	type:Dynamic,
 };
 
 typedef GoStmt = {

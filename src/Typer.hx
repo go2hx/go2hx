@@ -197,8 +197,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 //normal vars
                 var vars:Array<Var> = [];
                 for (i in 0...stmt.lhs.length) {
-                    var type = typeExprType(stmt.lhs[i].type,info);
-                    trace("ty: " + type);
+                    var type = typeExprType(stmt.lhs[i],info);
                     vars.push({
                         name: stmt.lhs[i].name,
                         type: type,

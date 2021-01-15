@@ -164,10 +164,13 @@ func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
 func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
-	if !e.IsValid() {
+	if !e.IsValid() || node == nil {
 		return data
 	}
 	data["id"] = getId(node)
+	if data["id"] == "" {
+		return data
+	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
 		field, val := et.Field(i),e.Field(i)
@@ -181,15 +184,21 @@ func parseType(node interface{}) map[string]interface{} {
 }
 func parseKind(val reflect.Value) interface{} {
 	switch val.Kind() {
-	//case reflect.Interface:
 	case reflect.String: return val.String()
 	case reflect.Ptr: return parseKind(reflect.New(val.Type().Elem()).Elem())
 	case reflect.Int,reflect.Int8,reflect.Int16,reflect.Int32,reflect.Int64: return val.Int()
 	case reflect.Uint,reflect.Uint8,reflect.Uint16,reflect.Uint32,reflect.Uint64: return val.Uint()
 	case reflect.Slice: return reflect.New(val.Type().Elem()).Elem().Interface()
-	case reflect.Interface: return nil
 	case reflect.Bool: return val.Bool()
-	case reflect.Struct: return nil
+	case reflect.Struct: 
+	i := val.Interface()
+	return parseType(&i)
+	case reflect.Interface:
+		if val.CanSet() {
+			i := val.Interface()
+			return parseType(&i)
+		}
+		return nil
 	default:
 		fmt.Println("unknown type kind:",val.Kind())
 		return nil
@@ -213,7 +222,10 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
 		field, val := et.Field(i), e.Field(i)
-		field.Name = strings.ToLower(string(field.Name[:1])) + string(field.Name[1:])
+		if field.Name[:1] == strings.ToLower(field.Name[:1]) {
+			continue
+		}
+		field.Name = strings.ToLower(field.Name[:1]) + field.Name[1:]
 		_ = field
 		value := val.Interface()
 		switch value := value.(type) {
@@ -221,18 +233,28 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		case token.Pos:
 		case token.Token:
 			data[field.Name] = value.String()
-		case *ast.ArrayType, *ast.StructType, *ast.FuncType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
+		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
 			data[field.Name] = parseData(value, info)
 		case *ast.BasicLit:
 			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
 			data[field.Name] = parseData(value, info)
-		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.BinaryExpr, *ast.KeyValueExpr:
+		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
 			data[field.Name] = parseData(value, info)
-		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.ExprStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.AssignStmt, *ast.GoStmt, ast.DeferStmt:
+		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.ExprStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value, info)
-		case *ast.ReturnStmt, *ast.BranchStmt, *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.SelectStmt, *ast.ForStmt, *ast.RangeStmt:
+		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
 			data[field.Name] = parseData(value, info)
+		case *ast.BinaryExpr:
+			obj := parseData(value,info)
+			ty := info.TypeOf(value)
+			obj["type"] = parseType(ty)
+			data[field.Name] = obj
+			
+		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: //in scopes
+			data[field.Name] = parseData(value, info)
+		case *ast.AssignStmt:
+			data[field.Name] = parseData(value,info)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)

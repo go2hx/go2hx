@@ -256,6 +256,9 @@ func parseIdent(value *ast.Ident, scope *types.Scope) map[string]interface{} {
 		"id":   "Ident",
 		"name": value.Name,
 	}
+	if value.Obj != nil {
+		fmt.Println("type", value.Obj)
+	}
 	return data
 }
 func parseBasicLit(value *ast.BasicLit) map[string]interface{} {

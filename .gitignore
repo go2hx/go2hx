@@ -31,3 +31,4 @@ gopath
 test.hxml
 old/*
 examples/*.txt
+package.json

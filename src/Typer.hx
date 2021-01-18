@@ -454,6 +454,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
                     if (p.pack.length == 0 && p.name == "Array") {
                         return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
                     }
+                    
                     trace("pp: " + p.name);
                 default:
                     throw(type);
@@ -652,16 +653,24 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     return switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            
             {
-                name: title(cast spec.name.name),
+                name: title(spec.name.name),
                 pos: null,
                 fields: typeFieldListFields(struct.fields,info),
                 pack: [],
                 meta: [{pos: null, name: ":structInit"}],
                 kind: TDClass(),
             }
-        default: error("unknown type spec: " + spec.type.id); null;
+        case "InterfaceType":
+            error("unknown interface type spec"); null;
+        default:
+            {
+                name: title(spec.name.name),
+                pack: [],
+                pos: null,
+                fields: [],
+                kind: TDAlias(typeExprType(spec.type,info))
+            }
     }
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {

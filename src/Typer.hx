@@ -405,7 +405,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //type set
             return null;
         case "ArrayType":
-            //define array
+            //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
             return null;
         case "InterfaceType":
             //set dynamic
@@ -447,20 +447,39 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
             default: null;  
         }
     }else {
-        if (type != null) {
-            info.typeStack.push(type);
-            switch type {
+        if (type == null) {
+            if (info.typeStack.length == 0)
+                return null;
+            //type grab underlying type
+            switch info.typeStack[0] {
                 case TPath(p):
-                    if (p.pack.length == 0 && p.name == "Array") {
-                        return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
+                    if (p.params != null && p.params.length == 1) {
+                        switch (p.params[0]) {
+                            case TPType(t):
+                                type = t;
+                            default:
+                        }
                     }
-                    
-                    trace("pp: " + p.name);
                 default:
-                    throw(type);
             }
         }else{
-           
+            info.typeStack.push(type);
+        }
+        switch type {
+            case TPath(p):
+                if (p.pack.length == 0 && p.name == "Array") {
+                    return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
+                }
+            case TAnonymous(fields):
+                //return null;
+                return EObjectDecl([
+                    for (i in 0...expr.elts.length) {
+                        field: fields[i].name,
+                        expr: typeExpr(expr.elts[i],info)
+                    }
+                ]);
+            default:
+                throw(type);
         }
         return null;
     }
@@ -543,8 +562,12 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
 }
 private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
-
-    return null;
+    var low = expr.low != null ? typeExpr(expr.low,info) : macro 0;
+    var high = expr.high != null ? typeExpr(expr.high,info): null;
+    x = high != null ? macro $x.slice($low,$high) : macro $x.slice($low);
+    if (expr.slice3)
+        x = macro $x.slice(${typeExpr(expr.max,info)});
+    return x.expr;
 }
 private function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
     return ECast(typeExpr(expr.x,info),typeExprType(expr.type,info));
@@ -572,9 +595,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         var recvType = typeExprType(decl.recv.list[0].type,info);
         metaName = ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})';
     }
-    var name = untitle(decl.name.name);
-    if (reserved.indexOf(name) != -1)
-        name += "_";
+    var name = nameIdent(untitle(decl.name.name));
     var ret = typeFieldListRes(decl.type.results,info);
     //info.ret = ret;
     return {
@@ -706,9 +727,12 @@ private function typeAccess(name:String,isField:Bool=false):Array<Access> {
 private function ident(name:String):String {
     if (name == "nil")
         name = "null";
-    if (reserved.indexOf(name) != -1)
-        name += "_";
     return name;
+}
+private function nameIdent(string:String):String {
+    if (reserved.indexOf(string) != -1)
+        string += "_";
+    return string;
 }
 private function normalizePath(path:String):String {
     path = StringTools.replace(path,".","_");
@@ -716,8 +740,7 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,"-","_");
     var path = path.split("/");
     for (i in 0...path.length)
-        if (reserved.indexOf(path[i]) != -1)
-            path[i] += "_";
+        path[i] = nameIdent(path[i]);
     return path.join("/");
 }
 function isTitle(string:String):Bool {

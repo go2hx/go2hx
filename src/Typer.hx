@@ -137,7 +137,28 @@ private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     return null;
 }
 private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
-    return null;
+    var key = typeExpr(stmt.key,info); //iterator int
+    var value = typeExpr(stmt.value,info); //value of x[key]
+    var x = typeExpr(stmt.x,info);
+    var body = typeBlockStmt(stmt.body,info);
+    var inits:Array<Expr> = [];
+    if (stmt.tok == DEFINE) {
+        if (key.expr.match(EConst(CIdent("_")))) {
+            var valueType = stmt.x.type;
+            if (valueType != null) {
+                switch valueType.id {
+                    case "Slice":
+                    case "Array":
+                    default:
+                        trace("unknown range x type: " + valueType.id);
+                }
+            }
+            return (macro for($value in $x) ${{expr: body, pos: null}}).expr;
+        }
+        return null;
+    }else{
+        return null; //TODO: implement
+    }
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     return null;

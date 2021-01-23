@@ -57,5 +57,12 @@ typedef Signature = {
 typedef Tuple = {
     vars:Array<Var>
 };
+typedef Named = {
+    info:Dynamic,
+    obj:Dynamic,
+    orig:Dynamic,
+    underlying:Dynamic,
+    methods:Array<Func>
+};
 typedef Var = Dynamic;
 typedef Func = Dynamic;

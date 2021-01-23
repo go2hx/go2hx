@@ -32,23 +32,12 @@ function main(data:DataType){
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-            var info:Info = {types: [],imports: [],ret: null,typeStack: []};
+            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
                     case "GenDecl":
-                        for (spec in cast(decl.specs,Array<Dynamic>)) {
-                            switch spec.id {
-                                case "ImportSpec":
-                                    data.imports.push(typeImport(spec,info));
-                                case "ValueSpec":
-                                    data.defs = data.defs.concat(typeValue(spec,info));
-                                case "TypeSpec":
-                                    data.defs.push(typeType(spec,info));
-                                default:
-                                    error("unknown spec: " + spec.id);
-                            }
-                        }
+                        typeGenDecl(decl,info);
                     case "FuncDecl":
                         declFuncs.push(decl);
                     default:
@@ -66,6 +55,20 @@ function main(data:DataType){
         list.push(module);
     }
     return list;
+}
+private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
+    for (spec in cast(decl.specs,Array<Dynamic>)) {
+        switch spec.id {
+            case "ImportSpec":
+                info.data.imports.push(typeImport(spec,info));
+            case "ValueSpec":
+                info.data.defs = info.data.defs.concat(typeValue(spec,info));
+            case "TypeSpec":
+                info.data.defs.push(typeType(spec,info));
+            default:
+                error("unknown spec: " + spec.id);
+        }
+    }
 }
 private function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
@@ -138,22 +141,39 @@ private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
 }
 private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var key = typeExpr(stmt.key,info); //iterator int
-    var value = typeExpr(stmt.value,info); //value of x[key]
     var x = typeExpr(stmt.x,info);
-    var body = typeBlockStmt(stmt.body,info);
+    var body = {expr: typeBlockStmt(stmt.body,info), pos: null};
     var inits:Array<Expr> = [];
+    var xType = stmt.x.type;
+    function length(x) {
+        return macro $x.length;
+    }
     if (stmt.tok == DEFINE) {
-        if (key.expr.match(EConst(CIdent("_")))) {
-            var valueType = stmt.x.type;
-            if (valueType != null) {
-                switch valueType.id {
+        if (stmt.value != null) {
+            var value = typeExpr(stmt.value,info); //value of x[key]
+            if (key.expr.match(EConst(CIdent("_")))) {
+                switch xType.id {
                     case "Slice":
                     case "Array":
                     default:
-                        trace("unknown range x type: " + valueType.id);
+                        trace("unknown range x type: " + xType.id);
                 }
+                return (macro for($value in $x) $body).expr;
             }
-            return (macro for($value in $x) ${{expr: body, pos: null}}).expr;
+            var valueName = printer.printExpr(value);
+            switch body.expr {
+                case EBlock(exprs):
+                    exprs.unshift(macro var $valueName = $x[$key]);
+                default:
+            }
+            return (macro for ($key in 0...${length(x)}) $body).expr;
+        }else{
+            //trace("x: " + stmt.x);
+            switch xType.id {
+                default:
+                    trace("unknown range x type 2: " + xType.id);
+            }
+            return (macro for ($key in 0... ${length(x)}) $body).expr;
         }
         return null;
     }else{
@@ -161,7 +181,11 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     }
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
-    return null;
+    var decls:Array<Ast.GenDecl> = stmt.decl.decls;
+    for (decl in decls) {
+        typeGenDecl(decl,info);
+    }
+    return (macro {}).expr;
 }
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     return null;
@@ -775,7 +799,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>}
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

@@ -73,6 +73,7 @@ private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
 private function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
         return null;
+    info.typeStack = [];
     var def = switch stmt.id {
         case "ReturnStmt": typeReturnStmt(stmt,info);
         case "IfStmt": typeIfStmt(stmt,info);
@@ -144,7 +145,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var x = typeExpr(stmt.x,info);
     var body = {expr: typeBlockStmt(stmt.body,info), pos: null};
     var inits:Array<Expr> = [];
-    var xType = stmt.x.type;
+    var xType:Dynamic = stmt.x.type;
     function length(x) {
         return macro $x.length;
     }
@@ -170,6 +171,12 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
         }else{
             //trace("x: " + stmt.x);
             switch xType.id {
+                case "Named":
+                    switch x.expr {
+                        case EConst(CIdent(s)):
+                            trace("named: " + s);
+                        default:
+                    }
                 default:
                     trace("unknown range x type 2: " + xType.id);
             }
@@ -220,6 +227,8 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     return def;
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
+    if (stmt.tok == ASSIGN)
+        info.typeStack = [];
     switch stmt.tok {
         case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
@@ -489,9 +498,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
             return null;
         return switch type {
             case TPath(p): ENew(p,[]);
-            default: null;  
+            default: null;
         }
-    }else {
+    }else{
         if (type == null) {
             if (info.typeStack.length == 0)
                 return null;
@@ -510,24 +519,50 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         }else{
             info.typeStack.push(type);
         }
-        switch type {
-            case TPath(p):
-                if (p.pack.length == 0 && p.name == "Array") {
-                    return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
-                }
-            case TAnonymous(fields):
-                //return null;
-                return EObjectDecl([
-                    for (i in 0...expr.elts.length) {
-                        field: fields[i].name,
-                        expr: typeExpr(expr.elts[i],info)
+        function gen():ExprDef {
+            switch type {
+                case TPath(p):
+                    trace("name: " + p.name);
+                    switch p.name {
+                        case "Array":
+                            if (p.pack.length == 0)
+                                return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
+                        default:
+                            if (p.pack.length == 0) {
+                                //local type
+                                type = getTypeAlias(p.name,info);
+                                if (type != null)
+                                    return gen();
+                            }
                     }
-                ]);
-            default:
-                throw(type);
+                case TAnonymous(fields):
+                    //return null;
+                    return EObjectDecl([
+                        for (i in 0...expr.elts.length) {
+                            field: fields[i].name,
+                            expr: typeExpr(expr.elts[i],info)
+                        }
+                    ]);
+                default:
+                    throw(type);
+            }
+            return null;
         }
-        return null;
+        return gen();
     }
+}
+private function getTypeAlias(name:String,info:Info):ComplexType {
+    for (def in info.data.defs) {
+        switch def.kind {
+            case TDAlias(t):
+                if (def.name == name) {
+                    return t;
+                }
+            default:
+
+        }
+    }
+    return null;
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;

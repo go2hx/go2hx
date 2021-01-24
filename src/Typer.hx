@@ -122,8 +122,11 @@ private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
 private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     if (stmt.list == null)
         return null;
+    return typeStmtList(stmt.list,info);
+}
+private function typeStmtList(list:Array<Ast.Stmt>,info:Info):ExprDef {
     return EBlock([
-        for (stmt in stmt.list) typeStmt(stmt,info)
+        for (stmt in list) typeStmt(stmt,info)
     ]);
 }
 private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
@@ -194,11 +197,29 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     }
     return (macro {}).expr;
 }
-private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
+private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef { //a switch statement of a type
     return null;
 }
 private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
-    return null;
+    var main:ExprDef = null;
+    if (stmt.tag == null) {
+
+    }else{
+        var cases:Array<Case> = [];
+        var edef:Expr = null;
+        for (obj in stmt.body.list) {
+            switch obj.id {
+                case "CaseClause":
+                    var obj:Ast.CaseClause = obj;
+                    cases.push({
+                        values: [for (expr in obj.list) typeExpr(expr,info)],
+                        expr: {expr: typeStmtList(obj.body,info), pos: null},
+                    });
+            }
+        }
+        main = ESwitch(typeExpr(stmt.tag,info),cases,edef);
+    }
+    return main;
 }
 private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     
@@ -519,50 +540,28 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         }else{
             info.typeStack.push(type);
         }
-        function gen():ExprDef {
-            switch type {
-                case TPath(p):
-                    trace("name: " + p.name);
-                    switch p.name {
-                        case "Array":
-                            if (p.pack.length == 0)
-                                return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
-                        default:
-                            if (p.pack.length == 0) {
-                                //local type
-                                type = getTypeAlias(p.name,info);
-                                if (type != null)
-                                    return gen();
-                            }
-                    }
-                case TAnonymous(fields):
-                    //return null;
-                    return EObjectDecl([
-                        for (i in 0...expr.elts.length) {
-                            field: fields[i].name,
-                            expr: typeExpr(expr.elts[i],info)
-                        }
-                    ]);
-                default:
-                    throw(type);
-            }
-            return null;
-        }
-        return gen();
-    }
-}
-private function getTypeAlias(name:String,info:Info):ComplexType {
-    for (def in info.data.defs) {
-        switch def.kind {
-            case TDAlias(t):
-                if (def.name == name) {
-                    return t;
+        switch type {
+            case TPath(p):
+                switch p.name {
+                    case "Array":
+                        if (p.pack.length == 0)
+                            return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
+                    default:
+                        return ENew(p,[for (expr in expr.elts) typeExpr(expr,info)]);
                 }
+            case TAnonymous(fields):
+                //return null;
+                return EObjectDecl([
+                    for (i in 0...expr.elts.length) {
+                        field: fields[i].name,
+                        expr: typeExpr(expr.elts[i],info)
+                    }
+                ]);
             default:
-
+                throw(type);
         }
+        return null;
     }
-    return null;
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;

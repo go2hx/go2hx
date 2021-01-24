@@ -18,6 +18,13 @@ final reserved = [
 	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
 	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
 ];
+final basicTypes = [
+    "uint","uint8","uint16","uint32","uint64",
+    "int","int8","int16","int32","int64",
+    "float32","float64","complex64","complex128",
+    "byte", //alias for uint8
+    "rune" //alias for int32
+];
 var printer = new haxe.macro.Printer("    ");
 function main(data:DataType){
     var list:Array<Module> = [];
@@ -472,6 +479,17 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     return switch type {
                         case TPath(p): ENew(p,[]);
                         default: null;
+                    }
+                case null:
+                default:
+                    if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
+                        var arg = typeExpr(expr.args[0],info);
+                        switch expr.fun.name { //to value
+                            case "string":
+                                return (macro Std.string($arg)).expr;
+                            default:
+                                return ECast(arg,typeExprType(expr.fun,info));
+                        }
                     }
             }
             if (builtinFunctions.indexOf(expr.fun.name) != -1)

@@ -1,6 +1,6 @@
 
 
-enum abstract BasicKind(Int) {
+enum abstract BasicKind(Int) to Int {
     var invalid = 0;
     var bool = 1;
     var int = 2;
@@ -29,41 +29,41 @@ enum abstract BasicKind(Int) {
     var untypedString = 24;
     var untypedNil = 25;
 
-    var byte = BasicKind.uint;
+    var byte = BasicKind.uint8;
     var rune = BasicKind.int32;
 }
 
-typedef Type = Dynamic;
+typedef TypeData = Dynamic;
 
 typedef Basic = {
     kind: BasicKind,
     name:String,
 };
 
-typedef Array = {
+typedef ArrayData = {
     len:Int,
-    elem:Type,
+    elem:TypeData,
 };
 typedef Interface = {
-    methods:Array<Func>,// ordered list of explicitly declared methods
-    embeddeds:Array<Type>,// ordered list of explicitly embedded types
-    allMethods:Array<Func>,// ordered list of methods declared with or embedded in this interface (TODO(gri): replace with mset)
+    methods:Array<FuncData>,// ordered list of explicitly declared methods
+    embeddeds:Array<TypeData>,// ordered list of explicitly embedded types
+    allMethods:Array<FuncData>,// ordered list of methods declared with or embedded in this interface (TODO(gri): replace with mset)
 }
 typedef Signature = {
-    recv:Var,
+    recv:VarData,
     params:Tuple,
     results:Tuple,
     variadic:Bool,
 };
 typedef Tuple = {
-    vars:Array<Var>
+    vars:Array<VarData>
 };
 typedef Named = {
     info:Dynamic,
     obj:Dynamic,
     orig:Dynamic,
     underlying:Dynamic,
-    methods:Array<Func>
+    methods:Array<FuncData>
 };
-typedef Var = Dynamic;
-typedef Func = Dynamic;
+typedef VarData = Dynamic;
+typedef FuncData = Dynamic;

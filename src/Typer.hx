@@ -1,3 +1,5 @@
+import Types.TypeData;
+import Types.BasicKind;
 import haxe.io.Path;
 import haxe.ds.StringMap;
 import haxe.macro.Type.ClassField;
@@ -499,15 +501,22 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return null;
         case "ArrayType":
             //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
-            var type:Ast.ArrayType = expr.fun;
-            switch 
-            trace("elt: " + type.elt);
+            if (expr.fun.elt.type == null && expr.fun.elt.type.id == "Basic")
+                return null;
+            var kind:Int = expr.fun.elt.type._kind;
+            switch kind {
+                case byte: //string -> byte array
+                    expr.args[0]
+            }
             return null;
         case "InterfaceType":
             //set dynamic
             return null;
     }
     return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
+}
+private function getExprType(expr:Ast.Expr):TypeData {
+    return null;
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {

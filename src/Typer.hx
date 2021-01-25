@@ -499,6 +499,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return null;
         case "ArrayType":
             //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
+            var type:Ast.ArrayType = expr.fun;
+            switch 
+            trace("elt: " + type.elt);
             return null;
         case "InterfaceType":
             //set dynamic
@@ -783,7 +786,6 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;
-            trace("interface: " + struct + " is true: " + (struct.methods.list.length == 0));
             if (struct.methods.list.length == 0)
                 return {
                     name: name,

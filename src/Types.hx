@@ -1,32 +1,33 @@
 
 
 enum abstract BasicKind(Int) {
-    var bool = 0;
-    var int = 1;
-    var int8 = 2;
-    var int16 = 3;
-    var int32 = 4;
-    var int64 = 5;
-    var uint = 6;
-    var uint8 = 7;
-    var uint16 = 8;
-    var uint32 = 9;
-    var uint64 = 10;
-    var uintptr = 11;
-    var float32 = 12;
-    var float64 = 13;
-    var complex64 = 14;
-    var complex128 = 15;
-    var string = 16;
-    var unsafePointer = 17;
+    var invalid = 0;
+    var bool = 1;
+    var int = 2;
+    var int8 = 3;
+    var int16 = 4;
+    var int32 = 5;
+    var int64 = 6;
+    var uint = 7;
+    var uint8 = 8;
+    var uint16 = 9;
+    var uint32 = 10;
+    var uint64 = 11;
+    var uintptr = 12;
+    var float32 = 13;
+    var float64 = 14;
+    var complex64 = 15;
+    var complex128 = 16;
+    var string = 17;
+    var unsafePointer = 18;
 
-    var untypedBool = 18;
-    var untypedInt = 19;
-    var untypedRune = 20;
-    var untypedFloat = 21;
-    var untypedComplex = 22;
-    var untypedString = 23;
-    var untypedNil = 24;
+    var untypedBool = 19;
+    var untypedInt = 20;
+    var untypedRune = 21;
+    var untypedFloat = 22;
+    var untypedComplex = 23;
+    var untypedString = 24;
+    var untypedNil = 25;
 
     var byte = BasicKind.uint;
     var rune = BasicKind.int32;

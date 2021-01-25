@@ -1,3 +1,4 @@
+import Types.Kind;
 import Types.TypeData;
 import Types.BasicKind;
 import haxe.io.Path;
@@ -184,11 +185,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
             //trace("x: " + stmt.x);
             switch xType.id {
                 case "Named":
-                    switch x.expr {
-                        case EConst(CIdent(s)):
-                            trace("named: " + s);
-                        default:
-                    }
+                    var xType:Types.Named = xType;
+                    trace("xType: " + xType);
                 default:
                     trace("unknown range x type 2: " + xType.id);
             }
@@ -467,6 +465,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         case "Ident":
             switch expr.fun.name {
                 case "new":
+                    //Dynamic cannot be constructed
                     var type = typeExprType(expr.args[0],info);
                     if (type == null)
                         return null;
@@ -475,6 +474,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                         default: null;
                     }
                 case "make":
+                    //Dynamic cannot be constructed
                     var type = typeExprType(expr.args[0],info);
                     if (type == null)
                         return null;
@@ -503,10 +503,21 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
             if (expr.fun.elt.type == null && expr.fun.elt.type.id == "Basic")
                 return null;
-            var kind:Int = expr.fun.elt.type._kind;
-            switch kind {
-                case byte: //string -> byte array
-                    expr.args[0]
+            var to = getExprType(expr.fun.elt); //Array<to>
+            var from = getExprType(expr.args[0]); //from -> to array
+            if (from == NULL) {
+                return (macro []).expr;
+            }
+            switch to {
+                case UINT8: //string -> byte array
+                    switch from {
+                        case STRING:
+                            return (macro [for (c in ${typeExpr(expr.args[0],info)}.split("")) c.code]).expr;
+                        default:
+                            trace('unsupported array type conversion: $from->$to');
+                    }
+                default:
+                    trace('unsupported array type conversion: $from');
             }
             return null;
         case "InterfaceType":
@@ -515,8 +526,55 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     }
     return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
 }
-private function getExprType(expr:Ast.Expr):TypeData {
-    return null;
+private function getExprType(expr:Ast.Expr):Kind {
+    switch expr.id {
+        case "Ident":
+            var expr:Ast.Ident = expr;
+            if (expr.type == null)
+                INVALID;
+            switch expr.type.id {
+                case "Basic":
+                var kind:Int = expr.type._kind;
+                return switch kind {
+                    case string: STRING;
+                    case uint8: UINT8;
+                    case uint16: UINT16;
+                    case uint32: UINT32;
+                    case uint64: UINT64;
+                    case int: INT;
+                    case int8: INT8;
+                    case int16: INT16;
+                    case int32: INT32;
+                    case int64: INT64;
+                    case float32: FLOAT32;
+                    case float64: FLOAT64;
+                    case bool: BOOL;
+                    case complex64: COMPLEX64;
+                    case complex128: COMPLEX128;
+                    case untypedNil: NULL;
+                    default: 
+                    trace("invalid basic ident type conversion to kind: " + kind);
+                    INVALID;
+                }
+                default: return INVALID;
+            }
+        case "BasicLit":
+            var expr:Ast.BasicLit = expr;
+            return switch expr.kind {
+                case Ast.Token.STRING: STRING;
+                case Ast.Token.INT: INT;
+                case Ast.Token.FLOAT: FLOAT;
+                case Ast.Token.IDENT:
+                    trace("token ident value: " + expr.value);
+                    INVALID;
+                default:
+                    trace("unknown expr kind token: " + expr.kind);
+                    INVALID;
+            }
+        default:
+            trace("unknown get expr type: " + expr.id);
+    }
+    return INVALID;
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {

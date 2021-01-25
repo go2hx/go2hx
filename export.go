@@ -171,6 +171,13 @@ func parseType(node interface{}) map[string]interface{} {
 	if data["id"] == "" {
 		return data
 	}
+	if data["id"] == "Named" {
+		named := node.(*types.Named)
+		_ = named
+		return map[string]interface{}{
+
+		}
+	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
 		field, val := et.Field(i),e.Field(i)

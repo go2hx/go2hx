@@ -33,6 +33,33 @@ enum abstract BasicKind(Int) to Int {
     var rune = BasicKind.int32;
 }
 
+
+enum Kind {
+    STRING;
+    INT8;
+    INT16;
+    INT32;
+    INT64;
+    INT;
+    UINT8;
+    UINT16;
+    UINT32;
+    UINT64;
+    BOOL;
+    INVALID;
+    UINTPTR;
+    FLOAT32;
+    FLOAT64;
+    COMPLEX64;
+    COMPLEX128;
+    UNSAFE_POINTER;
+    FLOAT;
+    NULL;
+    TYPE(name:String);
+}
+
+final numbers = [UINT8,UINT16,UINT32,UINT64,INT,INT8,INT16,INT32,INT64,UINT8,UINT16,UINT32,UINT64,COMPLEX64,COMPLEX128];
+
 typedef TypeData = Dynamic;
 
 typedef Basic = {

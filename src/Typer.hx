@@ -768,11 +768,12 @@ private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefi
     return defs;
 }
 private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
-    return switch spec.type.id {
+    var name = title(spec.name.name);
+    switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            {
-                name: title(spec.name.name),
+            return {
+                name: name,
                 pos: null,
                 fields: typeFieldListFields(struct.fields,info),
                 pack: [],
@@ -780,10 +781,22 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 kind: TDClass(),
             }
         case "InterfaceType":
-            error("unknown interface type spec"); null;
+            //var interface:Ast.InterfaceType = spec.type;
+            var struct:Ast.InterfaceType = spec.type;
+            trace("interface: " + struct + " is true: " + (struct.methods.list.length == 0));
+            if (struct.methods.list.length == 0)
+                return {
+                    name: name,
+                    pos: null,
+                    fields: [],
+                    pack: [],
+                    kind: TDAlias(TPath({name: "Dynamic",pack: []})),
+                }
+            return null;
+            //error("unknown interface type spec"); null;
         default:
-            {
-                name: title(spec.name.name),
+            return {
+                name: name,
                 pack: [],
                 pos: null,
                 fields: [],

@@ -171,12 +171,37 @@ func parseType(node interface{}) map[string]interface{} {
 	if data["id"] == "" {
 		return data
 	}
-	if data["id"] == "Named" {
+	switch data["id"] {
+	case "Named":
 		named := node.(*types.Named)
+		data["path"] = named.String()
+		data["underlying"] = parseType(named.Underlying())
 		_ = named
-		return map[string]interface{}{
-
+		return data
+	case "Slice":
+		s := node.(*types.Slice)
+		data["elem"] = parseType(s.Elem())
+		return data
+	case "Struct":
+		s := node.(*types.Struct)
+		fields := make([]map[string]interface{},s.NumFields())
+		for i := 0; i < s.NumFields(); i++ {
+			v := s.Field(i)
+			fields[i] = map[string]interface{}{
+				"name": v.Name(),
+				"type": parseType(v.Type()),
+			}
 		}
+		data["fields"] = fields
+		return data
+	case "Interface":
+		s := node.(*types.Interface)
+		methods := make([]map[string]interface{},s.NumMethods())
+		embeds := make([]map[string]interface{},s.NumEmbeddeds())
+		_ = methods
+		_ = embeds
+		_ = s
+		return data
 	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {

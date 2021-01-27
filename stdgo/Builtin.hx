@@ -11,7 +11,7 @@ import haxe.macro.Context;
 inline function append<T>(array:Array<T>, args:Rest<T>):Array<T> {
 	if (args.length == 0)
 		return array;
-	
+	array = array.concat(args.toArray());
 	return array;
 }
 

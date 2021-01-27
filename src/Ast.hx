@@ -401,7 +401,10 @@ typedef Object = {
 };
 
 typedef Position = {};
-typedef Pos = Int;
+typedef Pos = {
+	string:String,
+	noPos:Bool,
+}
 
 @:enum abstract Token(String) {
 	public var ILLEGAL = "ILLEGAL";

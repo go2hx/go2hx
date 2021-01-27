@@ -35,10 +35,8 @@ type fileType struct {
 type ExcludesType struct {
 	Excludes []string `json:"excludes"`
 }
-
-var excludes map[string]bool
-
 var fset *token.FileSet
+var excludes map[string]bool
 
 func main() {
 	//exclude types system
@@ -263,6 +261,11 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
+			data[field.Name] = map[string]interface{}{
+				"id": "Pos",
+				"string": "",
+				"noPos": value == token.NoPos,
+			}
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:

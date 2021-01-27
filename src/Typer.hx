@@ -555,7 +555,13 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //set dynamic
             return null;
     }
-    return ECall(typeExpr(expr.fun,info),[for (arg in expr.args) typeExpr(arg,info)]);
+    var args = [for (arg in expr.args) typeExpr(arg,info)];
+    if (!expr.ellipsis.noPos) {
+        var last = args.pop();
+        last = macro ...$last;
+        args.push(last);
+    }
+    return ECall(typeExpr(expr.fun,info),args);
 }
 private function getExprType(expr:Ast.Expr):Kind {
     switch expr.id {

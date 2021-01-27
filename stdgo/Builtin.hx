@@ -5,14 +5,13 @@ import haxe.macro.Expr;
 import haxe.macro.Printer;
 import haxe.io.Bytes;
 import haxe.Exception;
-import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-macro function append<T>(array:Expr, args:Expr=null):Expr {
-	if (args == null)
+inline function append<T>(array:Array<T>, args:Rest<T>):Array<T> {
+	if (args.length == 0)
 		return array;
-	trace("args: " + args);
+	
 	return array;
 }
 

@@ -445,6 +445,7 @@ private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
     return null;
 }
 private function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
+    
     return null;
 }
 private function typeExpr(expr:Dynamic,info:Info):Expr {
@@ -482,7 +483,7 @@ private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
-    return null;
+    return (macro haxe.Rest.of(${typeExpr(expr.elt,info)})).expr;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));

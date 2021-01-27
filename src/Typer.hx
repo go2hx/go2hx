@@ -59,7 +59,7 @@ function main(data:DataType){
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-            
+
             var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: []};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
@@ -837,17 +837,28 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
     });
 }
 private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
-    return [];
+    var args:Array<FunctionArg> = [];
+    for (field in list.list) {
+        var type = typeExprType(field.type,info);
+        for (name in field.names) {
+            args.push({
+                name: name.name,
+                type: type,
+            });
+        }
+    }
+    return args;
 }
 private function typeFieldListFields(list:Ast.FieldList,info:Info,accessBool:Bool=true):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
+        var type = typeExprType(field.type,info);
         for (name in field.names) {
             fields.push({
                name: name.name,
                pos: null,
                access: accessBool ? typeAccess(name.name,true) : [],
-               kind: FVar(typeExprType(field.type,info))
+               kind: FVar(type)
             });
         }
     }

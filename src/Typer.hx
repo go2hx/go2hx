@@ -59,7 +59,7 @@ function main(data:DataType){
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-            trace("name: " + data.name);
+            
             var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: []};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
@@ -206,7 +206,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
             switch xType.id {
                 case "Named":
                     var xType:Types.Named = xType;
-                    trace("xType: " + xType);
+                    //trace("xType: " + xType);
                 default:
                     trace("unknown range x type 2: " + xType.id);
             }

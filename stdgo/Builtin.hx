@@ -9,8 +9,10 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(array:Array<T>, args:Rest<T>) {
-	array = array.concat(cast args.toArray());
+macro function append<T>(array:Expr, args:Expr=null):Expr {
+	if (args == null)
+		return array;
+	trace("args: " + args);
 	return array;
 }
 

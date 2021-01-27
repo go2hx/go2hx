@@ -55,7 +55,7 @@ enum Kind {
     UNSAFE_POINTER;
     FLOAT;
     NULL;
-    TYPE(name:String);
+    STRUCT(fields:Array<Kind>);
 }
 
 final numbers = [UINT8,UINT16,UINT32,UINT64,INT,INT8,INT16,INT32,INT64,UINT8,UINT16,UINT32,UINT64,COMPLEX64,COMPLEX128];

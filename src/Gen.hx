@@ -12,7 +12,7 @@ function create(outputPath:String,module:Module) {
     pkgPath = 'package $pkgPath;\n';
     var content = "";
     var count = module.files.length;
-    Sys.println("generating " + count + " file"  + (count != 1 ? "s" : "") + "...");
+    Sys.println("generating " + count + " file"  + (count > 1 ? "s" : "") + "...");
     for (file in module.files) {
         content = pkgPath;
         for (imp in file.imports) {
@@ -20,11 +20,12 @@ function create(outputPath:String,module:Module) {
             if (imp.alias != "" && imp.alias != null)
                 content += " as " + imp.alias;
             content += ";\n";
+            
         }
         for (def in file.defs) {
             content += Typer.printer.printTypeDefinition(def,false) + "\n";
         }
-        save(outputPath + module.path + "/",Typer.title(file.name),content);
+        save(outputPath + module.path + "/",file.name,content);
     }
 }
 private function save(dir:String,name:String,content:String) {

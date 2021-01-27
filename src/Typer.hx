@@ -21,6 +21,23 @@ final reserved = [
 	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
 	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
 ];
+final reservedClassNames = [
+    "Class","T",
+    //"String","Int","UInt","Bool","Float",
+    "Single", //Single is a 32bit float
+    "Array","Any",
+    "Dynamic",
+    "Null",
+    "Reflect",
+    "Date","ArrayAccess","DateTools","EReg",
+    "Enum","EnumValue",
+    "IntIterator","Iterable","Iterator","KeyValueIterable","KeyValueIterator",
+    "Lambda","List","Map","Math","Std","Sys",
+    "StringBuf","StringTools",
+    "SysError","Type","UnicodeString","ValueType",
+    //"Void",
+    "Xml","XmlType",
+];
 final basicTypes = [
     "uint","uint8","uint16","uint32","uint64",
     "int","int8","int16","int32","int64",
@@ -42,7 +59,8 @@ function main(data:DataType){
             file.path = Path.withoutExtension(file.path);
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data};
+            trace("name: " + data.name);
+            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: []};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -60,6 +78,8 @@ function main(data:DataType){
             data.imports.push({path: ["stdgo","StdTypes"],alias: ""});
             for (path => alias in info.imports)
                 data.imports.push({path: path.split("."),alias: alias});
+            //set name
+            data.name = className(Typer.title(data.name));
             module.files.push(data);
         }
         list.push(module);
@@ -197,8 +217,15 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
         return null; //TODO: implement
     }
 }
+private function className(name:String):String {
+    if (reservedClassNames.indexOf(name) != -1)
+        name += "_";
+    return name;
+}
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     var decls:Array<Ast.GenDecl> = stmt.decl.decls;
+    //local type decl
+    info.local = true;
     for (decl in decls) {
         typeGenDecl(decl,info);
     }
@@ -406,9 +433,12 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
     
     if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
         expr.name = "UInt" + expr.name.substr("uint".length);
+    var name = className(title(expr.name));
+    if (info.local && info.localRenameMap.exists(name))
+        name = info.localRenameMap[name];
     return TPath({
         pack: [],
-        name: title(expr.name),
+        name: name,
     });
 }
 private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
@@ -512,7 +542,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 case UINT8: //string -> byte array
                     switch from {
                         case STRING:
-                            return (macro [for (c in ${typeExpr(expr.args[0],info)}.split("")) c.code]).expr;
+                            return (macro [for (c in ${typeExpr(expr.args[0],info)}.split("")) c.charCodeAt(0)]).expr;
                         default:
                             trace('unsupported array type conversion: $from->$to');
                     }
@@ -752,6 +782,8 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
     var metaName = ":noUsing";
+    info.localRenameMap.clear(); //clear renaming as it's a new function
+    info.local = false;
     if (decl.body.list != null) 
         exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
     var block:Expr = {
@@ -837,8 +869,24 @@ private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefi
     }
     return defs;
 }
+private function renameDef(name:String,info:Info):String {
+    for (decl in info.data.defs) {
+        if (decl.name == name) {
+            return renameDef(name + "_",info);
+        }
+    }
+    return name;
+}
 private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
-    var name = title(spec.name.name);
+    var name = className(title(spec.name.name));
+
+    if (info.local) {
+        var newName = renameDef(name,info);
+        if (newName != name) {
+            info.localRenameMap[name] = newName;
+        }
+        name = newName;
+    }
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
@@ -933,7 +981,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType};
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,localRenameMap:Map<String,String>};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

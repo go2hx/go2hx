@@ -155,7 +155,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     return typeStmtList(stmt.list,info);
 }
 private function typeStmtList(list:Array<Ast.Stmt>,info:Info):ExprDef {
-    return EBlock([
+    return EBlock(list == null ? [] : [
         for (stmt in list) typeStmt(stmt,info)
     ]);
 }
@@ -179,6 +179,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var body = {expr: typeBlockStmt(stmt.body,info), pos: null};
     var inits:Array<Expr> = [];
     var xType:Dynamic = stmt.x.type;
+    if (xType == null)
+        return null;
     function length(x) {
         return macro $x.length;
     }
@@ -376,10 +378,14 @@ private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the ty
 }
 //TYPE EXPR
 private function mapType(expr:Ast.MapType,info:Info):ComplexType {
+    var keyType = typeExprType(expr.key,info);
+    var valueType = typeExprType(expr.value,info);
+    if (keyType == null || valueType == null)
+        return null;
     return TPath({
         name: "Map",
         pack: [],
-        params: [TPType(typeExprType(expr.key,info)),TPType(typeExprType(expr.value,info))],
+        params: [TPType(keyType),TPType(valueType)],
     });
 }
 private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
@@ -532,8 +538,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return null;
         case "ArrayType":
             //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
-            if (expr.fun.elt.type == null && expr.fun.elt.type.id == "Basic")
-                return null;
+            //if (expr.fun.elt.type == null && expr.fun.elt.type.id == "Basic")
+            //    return null;
             var to = getExprType(expr.fun.elt); //Array<to>
             var from = getExprType(expr.args[0]); //from -> to array
             if (from == NULL) {
@@ -548,7 +554,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                             trace('unsupported array type conversion: $from->$to');
                     }
                 default:
-                    trace('unsupported array type conversion: $from');
+                    trace('unsupported array type conversion: $from->$to');
             }
             return null;
         case "InterfaceType":
@@ -568,7 +574,7 @@ private function getExprType(expr:Ast.Expr):Kind {
         case "Ident":
             var expr:Ast.Ident = expr;
             if (expr.type == null)
-                INVALID;
+                return INVALID;
             switch expr.type.id {
                 case "Basic":
                 var kind:Int = expr.type._kind;
@@ -665,6 +671,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         }else{
             info.typeStack.push(type);
         }
+        if (type == null)
+            return null;
         switch type {
             case TPath(p):
                 switch p.name {
@@ -818,6 +826,8 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
         var list:Array<{name:String,type:ComplexType}> = [];
         for (group in fieldList.list) {
             var type = typeExprType(group.type,info);
+            if (type == null)
+                continue;
             for (name in group.names) {
                 list.push({
                     name: name.name,
@@ -889,6 +899,8 @@ private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefi
 }
 private function renameDef(name:String,info:Info):String {
     for (decl in info.data.defs) {
+        if (decl == null)
+            continue;
         if (decl.name == name) {
             return renameDef(name + "_",info);
         }
@@ -930,12 +942,15 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
             return null;
             //error("unknown interface type spec"); null;
         default:
+            var type = typeExprType(spec.type,info);
+            if (type == null)
+                return null;
             return {
                 name: name,
                 pack: [],
                 pos: null,
                 fields: [],
-                kind: TDAlias(typeExprType(spec.type,info))
+                kind: TDAlias(type)
             }
     }
 }

@@ -1,0 +1,4 @@
+-cp tests
+-cp src
+-main Run
+-hl tests.hl

@@ -56,6 +56,7 @@ func main() {
 	}
 	//flags
 	testBool := flag.Bool("test", false, "testing the go library in haxe")
+	identBool := flag.Bool("ident",false,"ident json")
 	flag.Parse()
 	args := flag.Args()
 	localPath := args[len(args)-1]
@@ -81,8 +82,14 @@ func main() {
 		return
 	}
 	data := parsePkgList(initial)
+
 	data.Args = args
-	bytes, err := json.MarshalIndent(data, "", "    ")
+	var bytes []byte
+	if *identBool {
+		bytes, err = json.MarshalIndent(data, "", "    ")
+	}else{
+		bytes, err = json.Marshal(data)
+	}
 	if err != nil {
 		fmt.Println("encoding err:", err)
 		return
@@ -104,7 +111,7 @@ func parsePkgList(list []*packages.Package) dataType {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
 		for _, val := range pkg.Imports {
-			if excludes[val.Name] {
+			if excludes[val.PkgPath] {
 				continue
 			}
 			syntax := parsePkg(val)
@@ -123,7 +130,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
 	for i, file := range pkg.Syntax {
-		data.Files[i] = parseFile(file, pkg.GoFiles[i], pkg.TypesInfo)
+		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i], pkg.TypesInfo))
 	}
 	return data
 }
@@ -133,7 +140,8 @@ func parseFile(file *ast.File, path string, info *types.Info) fileType {
 	path = filepath.Base(path)
 	data.Path = path
 	for _, decl := range file.Decls {
-		data.Decls = append(data.Decls, parseData(decl, info))
+		obj := parseData(decl, info)
+		data.Decls = append(data.Decls, obj)
 	}
 	return data
 }
@@ -381,7 +389,9 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		output = fmt.Sprint(value.Value)
 	case token.STRING:
 		value.Value = strings.ReplaceAll(value.Value, `\`, "\\")
-		value.Value = string(value.Value[1 : len(value.Value)-1])
+		if len(value.Value) >= 2 && value.Value[0:1] == `"` {
+			value.Value = string(value.Value[1 : len(value.Value)-1])
+		}
 		output = fmt.Sprint(value.Value)
 	}
 	return map[string]interface{}{

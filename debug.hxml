@@ -1,9 +1,0 @@
--cp src
--main Main
--D no-deprecation-warnings
--D std-encoding-utf8
--lib deep_equal
--dce full
--D analyzer-optimize
--D debug
--hl debug.hl

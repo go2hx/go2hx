@@ -11,21 +11,7 @@ import haxe.Template;
 import Ast;
 final cwd = Sys.getCwd();
 function main() {
-	#if debug
-	var localPath = Path.addTrailingSlash(cwd) + "examples";
-	Sys.setCwd(localPath);
-	var err = Sys.command("haxe --run Run.hx debug");
-	if (err != 0) {
-		trace("error: " + err);
-		return;
-	}
-	var examples = File.getContent("log.txt").split("\n");
-	examples.push(localPath);
-	Sys.setCwd(cwd);
-	init(examples);
-	#else
 	init(Sys.args());
-	#end
 }
 function init(args:Array<String>) {
 	var localPath = args[args.length - 1];

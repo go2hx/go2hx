@@ -1,4 +1,4 @@
 -cp examples
 -cp src
 -main Examples
---interp
+-neko examples.n

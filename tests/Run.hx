@@ -17,8 +17,17 @@ function main() {
 }
 function gen() {
     var tests = load();
-   tests.push(path);
-   Main.init(tests);
+    tests = ["./go/test/append.go"];
+    tests.push(path);
+    Main.exportBool = true;
+    Main.init(tests);
+
+    tests.pop();
+    Sys.setCwd("..");
+    for (path in Main.exportPaths) {
+        path = StringTools.replace(path,"/",".");
+        Sys.command('haxe -cp tests/golibs -main $path');
+    }
 }
 function load():Array<String> {
     var repo = "go/test";
@@ -40,7 +49,4 @@ function load():Array<String> {
         file.close();
     }
     return tests;
-}
-function run() {
-
 }

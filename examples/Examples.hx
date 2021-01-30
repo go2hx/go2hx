@@ -18,11 +18,11 @@ function gen() {
 }
 function load():Array<String> {
     var tests:Array<String> = [];
-    /*if (!FileSystem.exists("gobyexample"))
+    if (!FileSystem.exists("gobyexample"))
         Sys.command("git clone https://github.com/mmcgrana/gobyexample");
     var repo = "gobyexample/examples";
     for (path in FileSystem.readDirectory(repo)) {
         tests.push('./$repo/$path');
-    }*/
+    }
     return tests;
 }

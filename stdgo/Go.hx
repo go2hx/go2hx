@@ -1,7 +1,6 @@
 package stdgo;
 
 import haxe.macro.Expr;
-import haxe.macro.Printer;
 import haxe.io.Bytes;
 import haxe.Exception;
 import haxe.macro.ExprTools;
@@ -174,7 +173,6 @@ macro function setMulti(cond, expr) {
 	}
 	switch type {
 		case TInst(t, params):
-			trace("type: " + type + " expr: " + new Printer().printExpr(expr), " exprdef: " + expr.expr);
 			switch expr.expr {
 				case EArray(e1, e2):
 					var value = values[0];
@@ -221,7 +219,6 @@ macro function setMulti(cond, expr) {
 }
 
 macro function range(key, value, x, expr) {
-	var print = new Printer();
 	function getName(expr:haxe.macro.Expr) {
 		switch expr.expr {
 			case EConst(c):

@@ -2,7 +2,6 @@ import haxe.macro.Expr;
 import haxe.macro.Expr.TypeDefKind;
 import haxe.macro.Type.ClassKind;
 import haxe.macro.Expr.TypeDefinition;
-import haxe.macro.Printer;
 import sys.FileSystem;
 import sys.io.File;
 import Typer.Module;

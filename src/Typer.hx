@@ -45,7 +45,7 @@ final basicTypes = [
     "byte", //alias for uint8
     "rune" //alias for int32
 ];
-var printer = new haxe.macro.Printer("    ");
+var printer = new Printer();
 function main(data:DataType){
     var list:Array<Module> = [];
     for (pkg in data.pkgs) {
@@ -60,7 +60,7 @@ function main(data:DataType){
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
 
-            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: []};
+            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: [],print: false};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -363,7 +363,7 @@ private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the ty
         case "MapType": mapType(expr,info);
         case "ChanType": chanType(expr,info);
         case "InterfaceType": interfaceType(expr,info);
-        case "StructType": structType(expr,info,false);
+        case "StructType": structType(expr,info);
         case "FuncType": funcType(expr,info);
         case "ArrayType": arrayType(expr,info);
         case "StarExpr": starType(expr,info); //pointer
@@ -403,8 +403,8 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
         return null;
     }
 }
-private function structType(expr:Ast.StructType,info:Info,accessBool:Bool=true):ComplexType {
-    return TAnonymous(typeFieldListFields(expr.fields,info,accessBool));
+private function structType(expr:Ast.StructType,info:Info):ComplexType {
+    return TAnonymous(typeFieldListFields(expr.fields,info,[]));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
 
@@ -457,6 +457,8 @@ private function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
 private function typeExpr(expr:Dynamic,info:Info):Expr {
     if (expr == null)
         return null;
+    if (info.print)
+        trace("id: " + expr.id);
     var def = switch expr.id {
         case "Ident": typeIdent(expr,info);
         case "CallExpr": typeCallExpr(expr,info);
@@ -489,7 +491,7 @@ private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
-    return (macro haxe.Rest.of(${typeExpr(expr.elt,info)})).expr;
+    return (macro ...${typeExpr(expr.elt,info)}).expr;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));
@@ -549,7 +551,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 case UINT8: //string -> byte array
                     switch from {
                         case STRING:
-                            return (macro [for (c in ${typeExpr(expr.args[0],info)}.split("")) c.charCodeAt(0)]).expr;
+                            return stringToByteArray(typeExpr(expr.args[0],info)).expr;
                         default:
                             trace('unsupported array type conversion: $from->$to');
                     }
@@ -564,10 +566,22 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args = [for (arg in expr.args) typeExpr(arg,info)];
     if (!expr.ellipsis.noPos) {
         var last = args.pop();
+        switch last.expr {
+            case EConst(c):
+                switch c {
+                    case CString(s, kind):
+                        last = stringToByteArray(last);
+                    default:
+                }
+            default:
+        }
         last = macro ...$last;
         args.push(last);
     }
     return ECall(typeExpr(expr.fun,info),args);
+}
+private function stringToByteArray(expr:Expr):Expr {
+    return macro [for (c in $expr.split("")) c.charCodeAt(0)];
 }
 private function getExprType(expr:Ast.Expr):Kind {
     switch expr.id {
@@ -683,11 +697,10 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
                         return ENew(p,[for (expr in expr.elts) typeExpr(expr,info)]);
                 }
             case TAnonymous(fields):
-                //return null;
                 return EObjectDecl([
                     for (i in 0...expr.elts.length) {
                         field: fields[i].name,
-                        expr: typeExpr(expr.elts[i],info)
+                        expr: typeExpr(expr.elts[i],info),
                     }
                 ]);
             default:
@@ -866,7 +879,7 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,accessBool:Bool=true):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
         var type = typeExprType(field.type,info);
@@ -874,7 +887,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,accessBool:Boo
             fields.push({
                name: name.name,
                pos: null,
-               access: accessBool ? typeAccess(name.name,true) : [],
+               access: access == null ? typeAccess(name.name,true) : access,
                kind: FVar(type)
             });
         }
@@ -1014,7 +1027,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,localRenameMap:Map<String,String>};
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,localRenameMap:Map<String,String>,print:Bool};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

@@ -2,7 +2,6 @@ package stdgo;
 
 import haxe.Rest;
 import haxe.macro.Expr;
-import haxe.macro.Printer;
 import haxe.io.Bytes;
 import haxe.Exception;
 import haxe.macro.Context;

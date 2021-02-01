@@ -416,6 +416,10 @@ private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
 private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     //array is pass by copy, slice is pass by ref except for its length
     var type = typeExprType(expr.elt,info);
+    if (expr.len != null) {
+        //array
+    }
+    //slice
     return TPath({
         pack: [],
         name: "Array",
@@ -583,6 +587,19 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
 private function stringToByteArray(expr:Expr):Expr {
     return macro [for (c in $expr.split("")) c.charCodeAt(0)];
 }
+private function getDefaultValue(type:ComplexType,allowComplex:Bool=true):Expr {
+    return switch type {
+        case TPath(p):
+            switch p.pack.join(".") + p.name {
+                case "String", "GoString": macro "";
+                case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Complex64","Complex128","Float": macro 0; 
+                case "Bool": macro false;
+                default: macro null;
+            }
+        case TAnonymous(fields): macro null; //todo recursively set the default values of anon type
+        default: macro null;
+    }
+}
 private function getExprType(expr:Ast.Expr):Kind {
     switch expr.id {
         case "Ident":
@@ -690,7 +707,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         switch type {
             case TPath(p):
                 switch p.name {
-                    case "Array":
+                    case "Array","Slice":
                         if (p.pack.length == 0)
                             return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
                     default:
@@ -879,7 +896,7 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null,setDefault:Bool=false):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
         var type = typeExprType(field.type,info);
@@ -888,7 +905,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                name: name.name,
                pos: null,
                access: access == null ? typeAccess(name.name,true) : access,
-               kind: FVar(type)
+               kind: FVar(type,setDefault ? getDefaultValue(type) : null),
             });
         }
     }
@@ -933,10 +950,31 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
+            var fields = typeFieldListFields(struct.fields,info,null,true);
+            fields.push({
+                name: "new",
+                pos: null,
+                access: [APublic],
+                kind: FFun({args: [
+                    for (field in fields) {
+                        switch (field.kind) {
+                            case FVar(t, e): {
+                                type: t,
+                                name: field.name,
+                                opt: true,
+                            }
+                            default: null;
+                        }
+                    }
+                ],
+                expr: macro {
+                    stdgo.internal.Macro.initLocals();
+                }
+            })});
             return {
                 name: name,
                 pos: null,
-                fields: typeFieldListFields(struct.fields,info),
+                fields: fields,
                 pack: [],
                 meta: [{pos: null, name: ":structInit"}],
                 kind: TDClass(),

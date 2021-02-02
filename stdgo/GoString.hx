@@ -8,6 +8,10 @@ abstract GoString(String) from String to String {
 		return this.charAt(id);
 	}
 
+	public function toString():String {
+		return this;
+	}
+
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool;

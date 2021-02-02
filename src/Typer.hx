@@ -420,9 +420,10 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
         //array
     }
     //slice
+    addImport("stdgo.Slice",info);
     return TPath({
         pack: [],
-        name: "Array",
+        name: "Slice",
         params: type != null ? [TPType(type)] : []
     });
 }
@@ -495,7 +496,8 @@ private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
-    return (macro ...${typeExpr(expr.elt,info)}).expr;
+    var expr = typeExpr(expr.elt,info);
+    return typeRest(expr).expr;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     return EConst(CIdent(ident(expr.name)));
@@ -543,19 +545,16 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //type set
             return null;
         case "ArrayType":
-            //return EArrayDecl([for (arg in expr.args) typeExpr(arg,info)]);
-            //if (expr.fun.elt.type == null && expr.fun.elt.type.id == "Basic")
-            //    return null;
             var to = getExprType(expr.fun.elt); //Array<to>
             var from = getExprType(expr.args[0]); //from -> to array
             if (from == NULL) {
-                return (macro []).expr;
+                return (macro new Slice()).expr;
             }
             switch to {
                 case UINT8: //string -> byte array
                     switch from {
                         case STRING:
-                            return stringToByteArray(typeExpr(expr.args[0],info)).expr;
+                            return stringToByteSlice(typeExpr(expr.args[0],info)).expr;
                         default:
                             trace('unsupported array type conversion: $from->$to');
                     }
@@ -574,18 +573,20 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             case EConst(c):
                 switch c {
                     case CString(s, kind):
-                        last = stringToByteArray(last);
+                        last = stringToByteSlice(last);
                     default:
                 }
             default:
         }
-        last = macro ...$last;
-        args.push(last);
+        last = typeRest(last);
     }
     return ECall(typeExpr(expr.fun,info),args);
 }
-private function stringToByteArray(expr:Expr):Expr {
-    return macro [for (c in $expr.split("")) c.charCodeAt(0)];
+private function typeRest(expr:Expr):Expr {
+    return expr == null ? null : macro ...$expr.toArray();
+}
+private function stringToByteSlice(expr:Expr):Expr {
+    return macro new Slice(...[for (c in $expr.split("")) c.charCodeAt(0)]);
 }
 private function getDefaultValue(type:ComplexType,allowComplex:Bool=true):Expr {
     return switch type {
@@ -676,54 +677,39 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     var type = typeExprType(expr.type,info);
-    if (expr.elts.length == 0) {
-        if (type == null)
+    if (type == null) {
+        if (info.typeStack.length == 0)
             return null;
-        return switch type {
-            case TPath(p): ENew(p,[]);
-            default: null;
+        //type grab underlying type
+        switch info.typeStack[0] {
+            case TPath(p):
+                if (p.params != null && p.params.length == 1) {
+                    switch (p.params[0]) {
+                        case TPType(t):
+                            type = t;
+                        default:
+                    }
+                }
+            default:
         }
     }else{
-        if (type == null) {
-            if (info.typeStack.length == 0)
-                return null;
-            //type grab underlying type
-            switch info.typeStack[0] {
-                case TPath(p):
-                    if (p.params != null && p.params.length == 1) {
-                        switch (p.params[0]) {
-                            case TPType(t):
-                                type = t;
-                            default:
-                        }
-                    }
-                default:
-            }
-        }else{
-            info.typeStack.push(type);
-        }
-        if (type == null)
-            return null;
-        switch type {
-            case TPath(p):
-                switch p.name {
-                    case "Array","Slice":
-                        if (p.pack.length == 0)
-                            return EArrayDecl([for (expr in expr.elts) typeExpr(expr,info)]);
-                    default:
-                        return ENew(p,[for (expr in expr.elts) typeExpr(expr,info)]);
+        info.typeStack.push(type);
+    }
+    trace("type: " + type);
+    switch type {
+        case TPath(p):
+            return ENew(p,[
+                for (e in expr.elts) typeExpr(e,info)
+            ]);
+        case TAnonymous(fields):
+            return EObjectDecl([
+                for (i in 0...expr.elts.length) {
+                    field: fields[i].name,
+                    expr: typeExpr(expr.elts[i],info),
                 }
-            case TAnonymous(fields):
-                return EObjectDecl([
-                    for (i in 0...expr.elts.length) {
-                        field: fields[i].name,
-                        expr: typeExpr(expr.elts[i],info),
-                    }
-                ]);
-            default:
-                throw(type);
-        }
-        return null;
+            ]);
+        default:
+           throw type;
     }
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {

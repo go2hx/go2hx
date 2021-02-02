@@ -125,7 +125,6 @@ macro function copy(expr) { // slices and maps are ref types
 		return expr;
 	}
 }
-
 macro function setMulti(cond, expr) {
 	var type = Context.followWithAbstracts(Context.typeof(expr));
 	var values:Array<haxe.macro.Expr> = [];

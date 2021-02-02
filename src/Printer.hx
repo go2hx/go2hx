@@ -5,6 +5,8 @@ class Printer extends haxe.macro.Printer {
         super("    ");
     }
     override function printExpr(e:Expr):String {
+        if (e == null)
+            return "#NULL_EXPR";
         return switch (e.expr) {
             case EArrayDecl(el) if (el.length > 10): '[\n${printExprs(el, ",\n")}]';
             default: super.printExpr(e);

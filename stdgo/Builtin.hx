@@ -5,16 +5,24 @@ import haxe.macro.Expr;
 import haxe.io.Bytes;
 import haxe.Exception;
 import haxe.macro.Context;
+import stdgo.Slice;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(array:Array<T>, args:Rest<T>):Array<T> {
+inline function append<T>(slice:Slice<T>, args:Rest<Dynamic>):Slice<T> {
 	if (args.length == 0)
-		return array;
-	array = array.concat(args.toArray());
-	return array;
+		return slice;
+	var pos = slice.length;
+	slice.resize(args.length);
+	var args = args.toArray();
+	for (i in 0...args.length) {
+		slice[i + pos] = args[i];
+	}
+	return slice;
 }
 
-inline function cap(v) {}
+inline function cap<T>(slice:Slice<T>) {
+	return slice.cap;
+}
 
 inline function close(v) {}
 
@@ -44,7 +52,7 @@ macro function len(expr) {
 			trace("ty: " + ty);
 	}
 	switch name {
-		case "Array", "haxe.ds.Vector", "Vector", "String", "GoString":
+		case "Slice","Array", "haxe.ds.Vector", "Vector", "String", "GoString":
 			return macro $expr.length;
 		case "Iterable", "Map":
 			return macro Lambda.count($expr);

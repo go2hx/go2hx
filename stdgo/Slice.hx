@@ -47,4 +47,7 @@ class SliceData<T> {
     public function iterator() {
         return vector.toArray().iterator();
     }
+    public function toString() {
+        return vector.toArray().toString();
+    }
 }

@@ -26,7 +26,9 @@ function gen() {
     Sys.setCwd("..");
     for (path in Main.exportPaths) {
         path = StringTools.replace(path,"/",".");
-        Sys.command('haxe -cp tests/golibs -main $path');
+        var command = 'haxe -cp tests/golibs -main $path --interp -lib deep_equal';
+        trace(command);
+        Sys.command(command);
     }
 }
 function load():Array<String> {

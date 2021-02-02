@@ -503,6 +503,8 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return typeRest(expr).expr;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
+    if (info.types.exists(expr.name))
+        expr.name = info.types[expr.name];
     return EConst(CIdent(ident(expr.name)));
 }
 final builtinFunctions = "append cap close complex copy delete imag len make new panic print println real recover".split(" ");
@@ -530,6 +532,10 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                         case TPath(p): ENew(p,[]);
                         default: null;
                     }
+                    var size:Expr = null;
+                    var 
+                    if (expr.args.length > 1)
+                        size = 
                 case null:
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
@@ -1005,6 +1011,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     if (path.length == 1) {
         switch name {
             case "math","reflect":
+                alias = title(name);
                 path[0] = 'Go$alias';
                 path.unshift("stdgo");
                 create = false;

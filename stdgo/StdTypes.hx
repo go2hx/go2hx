@@ -1,4 +1,5 @@
 package stdgo;
+
 typedef UInt8 = UInt;
 typedef UInt16 = UInt;
 typedef UInt32 = UInt;

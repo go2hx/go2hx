@@ -10,3 +10,7 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
     }
     #end
 }
+
+class GoReflect {
+    
+}

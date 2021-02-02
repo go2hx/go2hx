@@ -15,6 +15,8 @@ function create(outputPath:String,module:Module) {
     for (file in module.files) {
         content = pkgPath;
         for (imp in file.imports) {
+            if (imp == null)
+                continue;
             content += "import " + imp.path.join(".");
             if (imp.alias != "" && imp.alias != null)
                 content += " as " + imp.alias;

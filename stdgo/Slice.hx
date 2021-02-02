@@ -45,6 +45,6 @@ class SliceData<T> {
         return vector.toArray();
     }
     public function iterator() {
-        return @:privateAccess vector.toData().iterator();
+        return vector.toArray().iterator();
     }
 }

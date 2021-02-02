@@ -445,6 +445,10 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
     if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
         expr.name = "UInt" + expr.name.substr("uint".length);
     var name = className(title(expr.name));
+    if (name == "String") {
+        addImport("stdgo.GoString",info);
+        name = "GoString";
+    }
     if (info.local && info.localRenameMap.exists(name))
         name = info.localRenameMap[name];
     return TPath({
@@ -533,7 +537,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                         var arg = typeExpr(expr.args[0],info);
                         switch expr.fun.name { //to value
                             case "string":
-                                return (macro Std.string($arg)).expr;
+                                addImport("stdgo.GoString",info);
+                                return (macro new GoString(Std.string($arg))).expr;
                             default:
                                 return ECast(arg,typeExprType(expr.fun,info));
                         }
@@ -695,7 +700,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     }else{
         info.typeStack.push(type);
     }
-    trace("type: " + type);
     switch type {
         case TPath(p):
             return ENew(p,[
@@ -993,13 +997,26 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
+    var alias = imp.name == null ? null : imp.name.name;
     if (stdgoList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
-    path[path.length - 1] = title(path[path.length - 1]);
-    info.types[untitle(path[path.length - 1])] = path.join(".");
+    var name = path[path.length - 1];
+    path[path.length - 1] = title(name);
+    var create:Bool = true;
+    if (path.length == 1) {
+        switch name {
+            case "math","reflect":
+                path[0] = 'Go$alias';
+                path.unshift("stdgo");
+                create = false;
+        }
+    }
+    info.types[name] = path.join(".");
+    if (!create)
+        return null;
     return {
         path: path,
-        alias: imp.name == null ? null : imp.name.name,
+        alias: alias,
     }
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {

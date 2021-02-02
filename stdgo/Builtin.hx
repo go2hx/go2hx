@@ -28,8 +28,11 @@ inline function close(v) {}
 
 inline function complex(r, i) {}
 
-inline function copy(dst, src) {
-	dst = Go.copy(src);
+inline function copy<T>(dst:Slice<T>, src:Slice<T>) {
+	final length = dst.length > src.length ? src.length : dst.length;
+	for (i in 0...length) {
+		dst[i] = src[i]; //TODO: copy contents so that are no longer linked
+	}
 }
 
 inline function delete<K, V>(map:Map<K, V>, key:K) {

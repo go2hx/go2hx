@@ -15,11 +15,10 @@ import sys.FileSystem;
 var stdgoList:Array<String>;
 var externs:Bool = false;
 final reserved = [
-    "switch", "case", "break", "continue", "default",
 	"abstract", "cast", "catch", "class", "do",
-	"dynamic", "else", "enum", "extends", "extern", "true", "false", "final", "for", "function", "if", "interface",
-	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
-	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
+	"dynamic", "enum", "extends", "extern", "final", "function",
+	"implements", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "private",
+	"public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while",
 ];
 final reservedClassNames = [
     "Class","T",

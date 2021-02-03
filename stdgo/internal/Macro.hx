@@ -50,7 +50,9 @@ class Macro {
 		return fields;
 	}
 
-	public static function build() {}
+	public static function build() {
+		
+	}
 
 	static function isHaxeStd(path:String):Bool {
 		return [

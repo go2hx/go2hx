@@ -66,7 +66,7 @@ macro function copy(expr) { // slices and maps are ref types
 							switch c {
 								case CIdent(s):
 									trace("s: " + s);
-									if (s == "Go" || s == "Map" || s == "Array") // map and array is by ref
+									if (s == "Go" || s == "Map" || s == "Array" || s == "Slice") // map and array is by ref
 										exception = true;
 								default:
 							}

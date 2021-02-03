@@ -66,6 +66,9 @@ macro function len(expr) {
 macro function create(t) { // new
 	return macro null;
 }
+macro function make(t,?size,?cap) {
+	return macro null;
+}
 
 inline function panic(v) {
 	return throw v;

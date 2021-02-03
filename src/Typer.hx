@@ -18,10 +18,11 @@ final reserved = [
 	"abstract", "cast", "catch", "class", "do",
 	"dynamic", "enum", "extends", "extern", "final", "function",
 	"implements", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "private",
-	"public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while",
+    "public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while","create", //replacement for new
+    "construct"  // replacement for composite lit
 ];
 final reservedClassNames = [
-    "Class","T",
+    "Class","T","K","S",
     //"String","Int","UInt","Bool","Float",
     "Single", //Single is a 32bit float
     "Array","Any",
@@ -514,28 +515,10 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
             switch expr.fun.name {
-                case "new":
-                    //Dynamic cannot be constructed
-                    var type = typeExprType(expr.args[0],info);
-                    if (type == null)
-                        return null;
-                    return switch type {
-                        case TPath(p): ENew(p,[]);
-                        default: null;
-                    }
-                case "make":
-                    //Dynamic cannot be constructed
-                    var type = typeExprType(expr.args[0],info);
-                    if (type == null)
-                        return null;
-                    return switch type {
-                        case TPath(p): ENew(p,[]);
-                        default: null;
-                    }
-                    var size:Expr = null;
-                    var 
-                    if (expr.args.length > 1)
-                        size = 
+                case "new","make": 
+                    if (expr.fun.name == "new")
+                        expr.fun.name = "create";
+                    expr.args[0] = {id: "Ident", name: printer.printComplexType(typeExprType(expr.args[0],info))};
                 case null:
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
@@ -579,6 +562,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args = [for (arg in expr.args) typeExpr(arg,info)];
     if (!expr.ellipsis.noPos) {
         var last = args.pop();
+        if (last == null)
+            return null;
         switch last.expr {
             case EConst(c):
                 switch c {
@@ -598,16 +583,15 @@ private function typeRest(expr:Expr):Expr {
 private function stringToByteSlice(expr:Expr):Expr {
     return macro new Slice(...[for (c in $expr.split("")) c.charCodeAt(0)]);
 }
-private function getDefaultValue(type:ComplexType,allowComplex:Bool=true):Expr {
+private function getDefaultValue(type:ComplexType):Expr {
     return switch type {
         case TPath(p):
-            switch p.pack.join(".") + p.name {
+            switch p.name {
                 case "String", "GoString": macro "";
                 case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Complex64","Complex128","Float": macro 0; 
                 case "Bool": macro false;
-                default: macro null;
+                default: {pos: null,expr: ENew(p,[])};
             }
-        case TAnonymous(fields): macro null; //todo recursively set the default values of anon type
         default: macro null;
     }
 }
@@ -687,24 +671,8 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     var type = typeExprType(expr.type,info);
-    if (type == null) {
-        if (info.typeStack.length == 0)
-            return null;
-        //type grab underlying type
-        switch info.typeStack[0] {
-            case TPath(p):
-                if (p.params != null && p.params.length == 1) {
-                    switch (p.params[0]) {
-                        case TPType(t):
-                            type = t;
-                        default:
-                    }
-                }
-            default:
-        }
-    }else{
-        info.typeStack.push(type);
-    }
+    if (type == null)
+        return null;
     switch type {
         case TPath(p):
             return ENew(p,[
@@ -821,7 +789,7 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
 //SPECS
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
-    var metaName = ":noUsing";
+    var meta:Metadata = [{name: ":noUsing",pos: null}];
     info.localRenameMap.clear(); //clear renaming as it's a new function
     info.local = false;
     if (decl.body.list != null) 
@@ -830,9 +798,12 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         expr: EBlock(exprs),
         pos: null
     };
+    
     if (decl.recv != null) { //now is a static extension function
         var recvType = typeExprType(decl.recv.list[0].type,info);
-        metaName = ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})';
+        meta = [
+            {name: ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})', pos: null},
+        ];
     }
     var name = nameIdent(untitle(decl.name.name));
     var ret = typeFieldListRes(decl.type.results,info);
@@ -842,7 +813,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         pos: null,
         pack: [],
         fields: [],
-        meta: [{pos: null, name: metaName}],
+        meta: meta,
         kind: TDField(FFun({ret: ret,params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
     };
 }
@@ -945,34 +916,14 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            var fields = typeFieldListFields(struct.fields,info,null,true);
-            fields.push({
-                name: "new",
-                pos: null,
-                access: [APublic],
-                kind: FFun({args: [
-                    for (field in fields) {
-                        switch (field.kind) {
-                            case FVar(t, e): {
-                                type: t,
-                                name: field.name,
-                                opt: true,
-                            }
-                            default: null;
-                        }
-                    }
-                ],
-                expr: macro {
-                    stdgo.internal.Macro.initLocals();
-                }
-            })});
+            var fields = typeFieldListFields(struct.fields,info,[]);
             return {
                 name: name,
                 pos: null,
                 fields: fields,
                 pack: [],
-                meta: [{pos: null, name: ":structInit"}],
-                kind: TDClass(),
+                meta: [],
+                kind: TDStructure,
             }
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;

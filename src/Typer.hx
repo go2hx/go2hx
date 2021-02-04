@@ -60,7 +60,7 @@ function main(data:DataType){
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
 
-            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,localRenameMap: [],print: false};
+            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,retypeMap: [],print: false};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -226,10 +226,17 @@ private function className(name:String):String {
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     var decls:Array<Ast.GenDecl> = stmt.decl.decls;
-    //local type decl
-    info.local = true;
     for (decl in decls) {
-        typeGenDecl(decl,info);
+        for (spec in decl.specs) {
+            switch spec.id {
+                case "TypeSpec":
+                    var spec:Ast.TypeSpec = spec;
+                    var name = className(title(spec.name.name));
+                    var type = typeExprType(spec.type,info);
+                    info.retypeMap[name] = type;
+                    
+            }
+        }
     }
     return (macro {}).expr;
 }
@@ -449,8 +456,8 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
-    if (info.local && info.localRenameMap.exists(name))
-        name = info.localRenameMap[name];
+    if (info.retypeMap.exists(name))
+        return info.retypeMap[name];
     return TPath({
         pack: [],
         name: name,
@@ -510,6 +517,7 @@ private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
 }
 final builtinFunctions = "append cap close complex copy delete imag len make new panic print println real recover".split(" ");
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
+    var args:Array<Expr> = [];
     switch expr.fun.id {
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
@@ -518,7 +526,16 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 case "new","make": 
                     if (expr.fun.name == "new")
                         expr.fun.name = "create";
-                    expr.args[0] = {id: "Ident", name: printer.printComplexType(typeExprType(expr.args[0],info))};
+
+                    var type = expr.args.shift();
+                    args = [for (arg in expr.args) typeExpr(arg,info)];
+                    switch type.id {
+                        case "Ident":
+                            var type = typeExprType(type,info);
+                            args.unshift({expr: ECheckType(macro _,type), pos: null});
+                        default:
+                            trace("call first arg type: " + type.name);
+                    }
                 case null:
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
@@ -559,7 +576,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //set dynamic
             return null;
     }
-    var args = [for (arg in expr.args) typeExpr(arg,info)];
+    if (args.length == 0)
+        args = [for (arg in expr.args) typeExpr(arg,info)];
     if (!expr.ellipsis.noPos) {
         var last = args.pop();
         if (last == null)
@@ -790,7 +808,7 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
     var meta:Metadata = [{name: ":noUsing",pos: null}];
-    info.localRenameMap.clear(); //clear renaming as it's a new function
+    info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     if (decl.body.list != null) 
         exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
@@ -908,9 +926,6 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 
     if (info.local) {
         var newName = renameDef(name,info);
-        if (newName != name) {
-            info.localRenameMap[name] = newName;
-        }
         name = newName;
     }
     switch spec.type.id {
@@ -1025,7 +1040,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,localRenameMap:Map<String,String>,print:Bool};
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

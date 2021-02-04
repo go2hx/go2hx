@@ -69,6 +69,9 @@ macro function create(t) { // new
 macro function make(t,?size,?cap) {
 	return macro null;
 }
+macro function literal(t) { //composite literal
+	return macro null;
+}
 
 inline function panic(v) {
 	return throw v;

@@ -16,13 +16,15 @@ function main() {
 	init(Sys.args());
 }
 function init(args:Array<String>) {
+	if (args.length <= 1)
+		args.push(cwd);
 	var localPath = args[args.length - 1];
 	var outputPath = "golibs";
 	//for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
 	var argRemove:Array<String> = [];
-	for (i in 0...args.length - 1) {
+	for (i in 0...args.length) {
 		var arg = args[i];
 		if (arg.charAt(0) == "-") {
 			if (arg == "-o" || arg == "-output" || arg == "-out") {

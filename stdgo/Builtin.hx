@@ -1,5 +1,7 @@
 package stdgo;
 
+import haxe.macro.TypeTools;
+import haxe.macro.ComplexTypeTools;
 import haxe.Rest;
 import haxe.macro.Expr;
 import haxe.io.Bytes;
@@ -63,14 +65,91 @@ macro function len(expr) {
 	return macro $expr;
 }
 
-macro function create(t) { // new
+macro function create(t:Expr) { // new pointer
+	var type = follow(ComplexTypeTools.toType, Context.getExpectedType, Context.followWithAbstracts, getType(t));
+	if (type == null)
+		return macro null;
 	return macro null;
 }
-macro function make(t,?size,?cap) {
+macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
+	var type = follow(ComplexTypeTools.toType, Context.getExpectedType, Context.followWithAbstracts, getType(t));
+	if (type == null)
+		return macro null;
 	return macro null;
 }
-macro function literal(t) { //composite literal
+macro function literal(t:Expr,params:Array<Expr>):Expr { //composite literal
+	var type = follow(ComplexTypeTools.toType, Context.getExpectedType, Context.followWithAbstracts, getType(t));
+	if (type == null)
+		return macro null;
+	switch type {
+		case TAnonymous(fields):
+			return createAnonType(Context.currentPos(),fields,params);
+		default:
+			trace("create type: " + t.expr);
+	}
 	return macro null;
+}
+function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
+	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
+		var expr:Expr = macro null;
+		if (params[i] == null) {
+			switch fields[i].kind {
+				case FVar(t, e):
+					expr = defaultValue(t);
+				default: //FFunc is nil by default
+			}
+		}else{
+			expr = params[i];
+		}
+		{
+			field: fields[i].name,
+			expr: expr,
+		};
+	}])};
+}
+function defaultValue(t:ComplexType):Expr {
+	switch t {
+		case TPath(p):
+			var name = p.sub;
+			switch name {
+				case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+					return macro 0;
+				case "GoString","String":
+					return macro "";
+				case "Bool":
+					return macro false;
+				case "Slice","Vector","Array":
+				default:
+					trace("default type missing: " + name);
+			}
+		default:
+	}
+	return macro null;
+}
+function follow(toType:(c:ComplexType) -> Null<haxe.macro.Type>, getExpectedType:() -> Null<haxe.macro.Type>, followWithAbstracts:(t:haxe.macro.Type, ?once:Bool) -> haxe.macro.Type, type:ComplexType):ComplexType {
+	if (type == null) {
+		var expect = getExpectedType();
+		if (expect == null)
+			return null;
+		type = TypeTools.toComplexType(expect);
+	}
+	if (type == null)
+		return null;
+	type =  TypeTools.toComplexType(followWithAbstracts(toType(type)));
+	return type;
+}
+private function getType(expr:Expr):ComplexType {
+	var type:ComplexType = null;
+	if (expr == null)
+		return type;
+	switch expr.expr {
+		case EParenthesis(e):
+			return getType(e);
+		case ECheckType(e, t):
+			type = t;
+		default:
+	}
+	return type;
 }
 
 inline function panic(v) {

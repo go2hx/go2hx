@@ -2,7 +2,9 @@
 
 go2hx
 ==========
-The Go to Haxe transpiler
+The goal, to bring as many possible Go libraries to Haxe, easy integration, usage and modification in Haxe.
+
+A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5), The developer that has set the building blocks conceptually for this project, as well as a code contributor, with use of some of his code from Tardisgo.
 
 **warning:** *experimental and still very much a work in progress.*
 

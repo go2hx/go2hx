@@ -1,0 +1,4 @@
+-cp tests/golibs 
+-main command_line_arguments.Append
+--interp
+--times

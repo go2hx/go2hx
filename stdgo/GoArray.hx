@@ -16,6 +16,11 @@ abstract GoArray<T>(ArrayData<T>) {
     @:op([]) inline function set(index:Int,value:T):T {
         return this.vector[index] = value;
     }
+    public function copy():GoArray<T> {
+        var array = new GoArray<T>();
+        array.vector = this.vector.copy();
+        return array;
+    }
 }
 
 
@@ -40,11 +45,13 @@ class ArrayData<T> {
         setCap();
         var tmp = new Vector<T>(cap);
         Vector.blit(vector,0,tmp,0,vector.length);
+        trace("before: " + vector);
         vector = tmp;
+        trace("after: " + vector);
         return this;
     }
     public function toArray():Array<T> {
-        return vector.toArray();
+        return [for (i in 0...length) vector[i]];
     }
     public function toVector():Vector<T> {
         return vector;

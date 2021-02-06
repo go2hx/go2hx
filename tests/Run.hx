@@ -4,10 +4,6 @@ import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
 
-import Main;
-
-
-
 var path:String;
 
 function main() {
@@ -26,7 +22,7 @@ function gen() {
     Sys.setCwd("..");
     for (path in Main.exportPaths) {
         path = StringTools.replace(path,"/",".");
-        var command = 'haxe -cp tests/golibs -main $path --interp -lib deep_equal extraParams.hxml';
+        var command = 'haxe -cp tests/golibs -main $path --interp';
         trace(command);
         Sys.command(command);
     }

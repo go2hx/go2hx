@@ -6,6 +6,9 @@ import stdgo.GoArray;
 abstract Slice<T>(ArrayData<T>) {
     public function new(args:Rest<T>) {
         this = new ArrayData(args.length);
+        for (i in 0...args.length) {
+            this.vector[i] = args[i];
+        }
     }
     @:op([]) inline function get(index:Int):T {
         return this.vector[index];
@@ -17,5 +20,10 @@ abstract Slice<T>(ArrayData<T>) {
         if (high == 0)
             high = this.length;
         return new Slice<T>(...[for (i in low...high) get(i)]);
+    }
+    public function copy():Slice<T> {
+        var slice = new Slice<T>();
+        slice.vector = this.vector.copy();
+        return slice;
     }
 }

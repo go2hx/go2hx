@@ -1,5 +1,7 @@
 package stdgo;
 
+import haxe.iterators.StringIterator;
+
 @:forward
 @:access(StringTools)
 abstract GoString(String) from String to String {
@@ -10,6 +12,16 @@ abstract GoString(String) from String to String {
 
 	public function toString():String {
 		return this;
+	}
+
+	public function iterator():StringIterator {
+		return new StringIterator(this);
+	}
+
+	public function slice(start:Int,end:Int=0):GoString {
+		if (end == 0)
+			end = this.length;
+		return this.substring(start,end);
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool;

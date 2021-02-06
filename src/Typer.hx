@@ -536,13 +536,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
 
                     var type = expr.args.shift();
                     args = [for (arg in expr.args) typeExpr(arg,info)];
-                    switch type.id {
-                        case "Ident":
-                            var type = typeExprType(type,info);
-                            args.unshift({expr: ECheckType(macro _,type), pos: null});
-                        default:
-                            trace("call first arg type: " + type.name);
-                    }
+                    args.unshift({expr: ECheckType(macro _,typeExprType(type,info)), pos: null});
                 case null:
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
@@ -615,6 +609,7 @@ private function getDefaultValue(type:ComplexType):Expr {
                 case "String", "GoString": macro "";
                 case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Complex64","Complex128","Float": macro 0; 
                 case "Bool": macro false;
+                case "Slice": macro new stdgo.Slice();
                 default: {pos: null,expr: ENew(p,[])};
             }
         default: macro null;

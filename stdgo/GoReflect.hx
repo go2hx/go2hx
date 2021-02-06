@@ -1,16 +1,21 @@
 package stdgo;
+import stdgo.GoArray.ArrayData;
+import stdgo.StdTypes;
 function deepEqual(a:Dynamic,b:Dynamic):Bool {
-    #if !deep_equal
-    throw "library needed for reflect deep equal https://github.com/kevinresol/deep_equal";
-    return false;
-    #else
-    return switch deepequal.DeepEqual.compare(a,b) {
-        case Success(s): true;
-        case Failure(f): false;
+    if (a == null)
+        return a == b;
+    try {
+        if (Std.isOfType(a,ArrayData)) {
+            if (a.length != b.length)
+                return false;
+            for (i in 0...a.length) {
+                if (a[i] != b[i])
+                    return false;
+            }
+            return true;
+        }
+    }catch(e) {
+        return false;
     }
-    #end
-}
-
-class GoReflect {
-    
+    return a == b;
 }

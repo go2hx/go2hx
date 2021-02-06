@@ -9,6 +9,7 @@ var path:String;
 function main() {
     Sys.setCwd("tests");
     path = Path.normalize(Sys.getCwd());
+    stdgo.Go.assert(("012" : stdgo.Slice<Int>));
     gen();
 }
 function gen() {

@@ -97,8 +97,8 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						var value:Expr = null;
 						switch p.params[0] {
 							case TPType(t):
-								type = Context.toComplexType(Context.follow(ComplexTypeTools.toType(type)));
-								value = defaultValue(type,Context.currentPos());
+								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+								value = defaultValue(t,Context.currentPos());
 							default:
 						}
 						return {expr: ENew(p,[macro ...[ for(i in 0...$size) $value]]), pos: Context.currentPos()};
@@ -184,18 +184,41 @@ function defaultValue(t:ComplexType,pos:Position):Expr {
 		case TPath(p):
 			var name = p.name;
 			switch name {
-				case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
-					return macro 0;
+				case "StdTypes":
+					switch p.sub {
+						case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+							return macro 0;
+					}
 				case "GoString","String":
 					return macro "";
 				case "Bool":
 					return macro false;
-				case "Slice":
+				case "Pointer":
 					return macro null;
+				case "Slice":
+					return {expr: ENew(p,[]), pos: pos};
+				case "Dynamic":
+					return macro {};
 				default:
 					trace("default type missing: " + p);
 			}
+		case TAnonymous(fields):
+			return {pos: pos,expr: EObjectDecl([
+				for (field in fields) {
+					var type:ComplexType = null;
+					switch field.kind {
+						case FVar(t, e):
+							type = t;
+						default:
+					}
+					{
+						field: field.name,
+						expr: defaultValue(type,pos),
+					};
+				}
+			])};
 		default:
+			trace("unknown type for default value: " + t);
 	}
 	return macro null;
 }

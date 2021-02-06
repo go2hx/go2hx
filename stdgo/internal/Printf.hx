@@ -136,17 +136,17 @@ class Printf {
 
 				case Tag(type, tagArgs):
 					if (tagArgs.width == null) {
-						if (!Std.is(args[argIndex], Int))
+						if (!Std.isOfType(args[argIndex], Int))
 							throw new PrintfError("invalid 'width' argument");
 						tagArgs.width = args[argIndex++];
 					}
 
 					if (tagArgs.precision == null) {
-						if (!Std.is(args[argIndex], Int))
+						if (!Std.isOfType(args[argIndex], Int))
 							throw new PrintfError("invalid 'precision' argument");
 						tagArgs.precision = args[argIndex++];
 					}
-
+					
 					var value:Dynamic;
 					if (tagArgs.pos > -1) {
 						if (tagArgs.pos > args.length - 1)

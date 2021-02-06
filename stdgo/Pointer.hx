@@ -1,13 +1,18 @@
 package stdgo;
 
-// snippit by tink haxe library
-abstract Pointer<T>(haxe.ds.Vector<T>) {
-	public function new(value:T) {
-		this = new haxe.ds.Vector(1);
-		this[0] = value;
+import haxe.macro.Context;
+
+abstract Pointer<T>(Dynamic) {
+	public function new(?obj,?get,?set) {
+		this = new PointerData(get,set);
 	}
-	public var _value(get, set):T;
-	@:to inline function get__value():T return this[0];
-	inline function set__value(v:T):T return this[0] = v;
-	public function toString():String return '@[' + Std.string(_value)+']';
+	
+}
+class PointerData<T> {
+	public var get:()->T;
+	public var set:T->T;
+	public function new(get,set) {
+		this.get = get;
+		this.set = set;
+	}
 }

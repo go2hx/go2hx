@@ -1,6 +1,3 @@
-import Types.Kind;
-import Types.TypeData;
-import Types.BasicKind;
 import haxe.io.Path;
 import haxe.ds.StringMap;
 import haxe.macro.Type.ClassField;
@@ -11,11 +8,12 @@ import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
 import haxe.DynamicAccess;
 import sys.FileSystem;
+import Types.Kind;
 
 var stdgoList:Array<String>;
 var externs:Bool = false;
 final reserved = [
-	"abstract", "cast", "catch", "class", "do",
+	"abstract", "cast", "catch", "class", "do","macro","is",
 	"dynamic", "enum", "extends", "extern", "final", "function",
 	"implements", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "private",
     "public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while","create", //replacement for new
@@ -60,7 +58,7 @@ function main(data:DataType){
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
 
-            var info:Info = {types: [],imports: [],ret: null,typeStack: [], data: data,local: false,retypeMap: [],print: false,meta: []};
+            var info:Info = {types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: []};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -76,6 +74,8 @@ function main(data:DataType){
                 data.defs.push(typeFunction(decl,info));
             }
             data.imports.push({path: ["stdgo","StdTypes"],alias: ""});
+            data.imports.push({path: ["stdgo","Go"],alias: ""});
+            data.imports.push({path: ["stdgo","Builtin"],alias: ""});
             for (path => alias in info.imports)
                 data.imports.push({path: path.split("."),alias: alias});
             //set name
@@ -103,7 +103,7 @@ private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
 private function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
         return null;
-    info.typeStack = [];
+    info.type = null;
     var def = switch stmt.id {
         case "ReturnStmt": typeReturnStmt(stmt,info);
         case "IfStmt": typeIfStmt(stmt,info);
@@ -291,8 +291,6 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     return def;
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
-    if (stmt.tok == ASSIGN)
-        info.typeStack = [];
     switch stmt.tok {
         case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
@@ -311,15 +309,16 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 return null;
             }
         case DEFINE: //var expr = x;
-            info.typeStack = [];
             if (stmt.lhs.length == stmt.rhs.length) {
                 //normal vars
                 var vars:Array<Var> = [];
                 for (i in 0...stmt.lhs.length) {
+                    info.type = null;
+                    var expr = typeExpr(stmt.rhs[i],info);
                     vars.push({
                         name: stmt.lhs[i].name,
-                        type: null,
-                        expr: typeExpr(stmt.rhs[i],info),
+                        type: stmt.rhs[i].id == "BasicLit" ? info.type : null,
+                        expr: expr,
                     });
                 }
                 return EVars(vars);
@@ -522,7 +521,6 @@ private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
         expr.name = info.types[expr.name];
     return EConst(CIdent(ident(expr.name)));
 }
-final builtinFunctions = "append cap close complex copy delete imag len make new panic print println real recover".split(" ");
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args:Array<Expr> = [];
     var ellipsisFunc = null;
@@ -535,7 +533,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 case EConst(c):
                     switch c {
                         case CString(s, kind):
-                            last = stringToByteSlice(last);
+                            last = macro Go.assert(($last:Slice<String>));
                         default:
                     }
                 default:
@@ -569,29 +567,14 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                         }
                     }
             }
-            if (builtinFunctions.indexOf(expr.fun.name) != -1)
-                addImport("stdgo.Builtin",info);
         case "ParenExpr":
             //type set
             return null;
         case "ArrayType":
-            var to = getExprType(expr.fun.elt); //Array<to>
-            var from = getExprType(expr.args[0]); //from -> to array
-            if (from == NULL) {
-                return (macro new Slice()).expr;
-            }
-            switch to {
-                case UINT8: //string -> byte array
-                    switch from {
-                        case STRING:
-                            return stringToByteSlice(typeExpr(expr.args[0],info)).expr;
-                        default:
-                            trace('unsupported array type conversion: $from->$to');
-                    }
-                default:
-                    trace('unsupported array type conversion: $from->$to');
-            }
-            return null;
+            //set assert type
+            var type = typeExprType(expr.fun,info);
+            var expr = typeExpr(expr.args[0],info);
+            return (macro Go.assert(${{expr: ECheckType(expr,type),pos: null}})).expr;
         case "InterfaceType":
             //set dynamic
             return null;
@@ -604,15 +587,13 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
 private function typeRest(expr:Expr):Expr {
     return expr == null ? null : macro ...$expr.toArray();
 }
-private function stringToByteSlice(expr:Expr):Expr {
-    return macro new Slice(...[for (c in $expr.split("")) c.charCodeAt(0)]);
-}
 private function getDefaultValue(type:ComplexType):Expr {
     return switch type {
         case TPath(p):
+            if (stdgo.Go.isNumber(p.name))
+                return macro 0;
             switch p.name {
                 case "String", "GoString": macro "";
-                case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Complex64","Complex128","Float": macro 0; 
                 case "Bool": macro false;
                 case "Slice": macro new stdgo.Slice();
                 default: {pos: null,expr: ENew(p,[])};
@@ -631,7 +612,7 @@ private function getExprType(expr:Ast.Expr):Kind {
             switch expr.type.id {
                 case "Basic":
                 var kind:Int = expr.type._kind;
-                return switch kind {
+                /*return switch kind {
                     case string: STRING;
                     case uint8: UINT8;
                     case uint16: UINT16;
@@ -651,7 +632,7 @@ private function getExprType(expr:Ast.Expr):Kind {
                     default: 
                     trace("invalid basic ident type conversion to kind: " + kind);
                     INVALID;
-                }
+                }*/
                 default: return INVALID;
             }
         case "BasicLit":
@@ -674,10 +655,19 @@ private function getExprType(expr:Ast.Expr):Kind {
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {
-        case STRING: EConst(CString(expr.value));
-        case INT: EConst(CInt(expr.value));
-        case FLOAT: EConst(CFloat(expr.value));
-        case CHAR: EConst(CString(expr.value));
+        case STRING:
+            addImport("stdgo.GoString",info);
+            info.type = TPath({name: "GoString",pack: []});
+            EConst(CString(expr.value));
+        case INT:
+            info.type = TPath({name: "Int",pack: []});
+            EConst(CInt(expr.value));
+        case FLOAT:
+            info.type = TPath({name: "Float",pack: []});
+            EConst(CFloat(expr.value));
+        case CHAR:
+            info.type = TPath({name: "GoString",pack: []});
+            EConst(CString(expr.value));
         case IDENT: EConst(CIdent(ident(expr.value)));
         default:
             error("basic lit kind unknown: " + expr.kind);
@@ -688,7 +678,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
-        return (macro new stdgo.Pointer($x)).expr;
+        return (macro Go.makePointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)
@@ -1000,8 +990,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     }
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
-    var mainType = typeExprType(value.type,info);
-    info.typeStack = [];
+    var type = typeExprType(value.type,info);
     return [for (i in 0...value.names.length)
         {
             var expr = typeExpr(value.values[i],info);
@@ -1010,7 +999,7 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
                 pos: null,
                 pack: [],
                 fields: [],
-                kind: TDField(FVar(mainType != null ? mainType : (info.typeStack.length > 0 ? info.typeStack[0] : null),expr),typeAccess(cast value.names[i]))
+                kind: TDField(FVar(type,expr),typeAccess(cast value.names[i]))
             };
         }
     ];
@@ -1048,7 +1037,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,typeStack:Array<ComplexType>, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Metadata};
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Metadata};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

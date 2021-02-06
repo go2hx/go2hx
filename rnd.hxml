@@ -1,0 +1,4 @@
+-cp rnd
+-cp src
+-main Run
+--interp

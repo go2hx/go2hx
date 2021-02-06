@@ -107,6 +107,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 					case "Chan":
 						return null;
 					default:
+						trace("make unknown: " + p);
 						return null;
 				}
 			default:

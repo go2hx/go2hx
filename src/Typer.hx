@@ -529,7 +529,6 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     ellipsisFunc = function() {
         if (!expr.ellipsis.noPos) {
             var last = args.pop();
-            trace("ellipsis: " + args + " last: " + last);
             if (last == null)
                 return;
             switch last.expr {
@@ -541,7 +540,6 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     }
                 default:
             }
-            trace("last: " + last);
             last = typeRest(last);
             args.push(last);
         }
@@ -619,7 +617,9 @@ private function getDefaultValue(type:ComplexType):Expr {
                 case "Slice": macro new stdgo.Slice();
                 default: {pos: null,expr: ENew(p,[])};
             }
-        default: macro null;
+        default:
+            trace("default value unknown: " + type);
+            macro null;
     }
 }
 private function getExprType(expr:Ast.Expr):Kind {
@@ -886,7 +886,7 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null,setDefault:Bool=false):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
         info.meta = [];
@@ -897,7 +897,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                pos: null,
                meta: info.meta,
                access: access == null ? typeAccess(name.name,true) : access,
-               kind: FVar(type,setDefault ? getDefaultValue(type) : null),
+               kind: FVar(type),
             });
         }
     }

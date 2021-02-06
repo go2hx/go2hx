@@ -525,6 +525,27 @@ private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
 final builtinFunctions = "append cap close complex copy delete imag len make new panic print println real recover".split(" ");
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args:Array<Expr> = [];
+    var ellipsisFunc = null;
+    ellipsisFunc = function() {
+        if (!expr.ellipsis.noPos) {
+            var last = args.pop();
+            trace("ellipsis: " + args + " last: " + last);
+            if (last == null)
+                return;
+            switch last.expr {
+                case EConst(c):
+                    switch c {
+                        case CString(s, kind):
+                            last = stringToByteSlice(last);
+                        default:
+                    }
+                default:
+            }
+            trace("last: " + last);
+            last = typeRest(last);
+            args.push(last);
+        }
+    }
     switch expr.fun.id {
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
@@ -579,21 +600,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     }
     if (args.length == 0)
         args = [for (arg in expr.args) typeExpr(arg,info)];
-    if (!expr.ellipsis.noPos) {
-        var last = args.pop();
-        if (last == null)
-            return null;
-        switch last.expr {
-            case EConst(c):
-                switch c {
-                    case CString(s, kind):
-                        last = stringToByteSlice(last);
-                    default:
-                }
-            default:
-        }
-        last = typeRest(last);
-    }
+    ellipsisFunc();
     return ECall(typeExpr(expr.fun,info),args);
 }
 private function typeRest(expr:Expr):Expr {

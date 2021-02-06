@@ -28,26 +28,19 @@ abstract GoArray<T>(ArrayData<T>) {
 class ArrayData<T> {
     public var vector:Vector<T>;
     public var cap:Int = 0;
-    public var length:Int = 0;
-    public function new(length:Int,cap:Int=0) {
-        this.length = length;
-        if (cap == 0)
-            setCap();
-        vector = new Vector<T>(cap);
+    public var length(get, null):Int;
+    
+    function get_length():Int {
+        return vector.length;
     }
-    private function setCap() {
-        this.cap = length > 1000 ? Std.int(length * 1.2) : length * 2;
+    public function new(length:Int,cap:Int=0) {
+        this.cap = length;
+        vector = new Vector<T>(this.cap);
     }
     public function resize(increase:Int):ArrayData<T> {
-        length += increase;
-        if (cap > length)
-            return this;
-        setCap();
-        var tmp = new Vector<T>(cap);
+        var tmp = new Vector<T>(length + increase);
         Vector.blit(vector,0,tmp,0,vector.length);
-        trace("before: " + vector);
         vector = tmp;
-        trace("after: " + vector);
         return this;
     }
     public function toArray():Array<T> {

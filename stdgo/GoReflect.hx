@@ -4,18 +4,25 @@ import stdgo.StdTypes;
 function deepEqual(a:Dynamic,b:Dynamic):Bool {
     if (a == null)
         return a == b;
-    try {
-        if (Std.isOfType(a,ArrayData)) {
-            if (a.length != b.length)
-                return false;
-            for (i in 0...a.length) {
-                if (a[i] != b[i])
+    var cl = Type.getClass(a);
+    if (cl != null) {
+        var name = Type.getClassName(cl);
+        switch name {
+            case "stdgo.ArrayData":
+                if (a.vector.length != b.vector.length)
                     return false;
-            }
-            return true;
+                var a:ArrayData<Dynamic> = a;
+                var b:ArrayData<Dynamic> = b;
+                for (i in 0...a.vector.length) {
+                    if (!deepEqual(a.vector[i],b.vector[i]))
+                        return false;
+                }
+                return true;
+            case "String":
+                return a == b;
+            default:
+                trace("unknown reflect name: " + name);
         }
-    }catch(e) {
-        return false;
     }
     return a == b;
 }

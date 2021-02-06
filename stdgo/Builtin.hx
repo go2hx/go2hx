@@ -11,7 +11,7 @@ import haxe.macro.Context;
 import stdgo.Slice;
 
 // https://golang.org/pkg/builtin/
-inline function append<T>(slice:Slice<T>, args:Rest<Dynamic>):Slice<T> {
+inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 	if (args.length == 0)
 		return slice;
 	slice = slice.copy();
@@ -21,7 +21,6 @@ inline function append<T>(slice:Slice<T>, args:Rest<Dynamic>):Slice<T> {
 	for (i in 0...args.length) {
 		slice[i + pos] = args[i];
 	}
-	trace("done: " + slice);
 	return slice;
 }
 

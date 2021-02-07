@@ -35,6 +35,7 @@ type fileType struct {
 type ExcludesType struct {
 	Excludes []string `json:"excludes"`
 }
+
 var fset *token.FileSet
 var excludes map[string]bool
 
@@ -56,7 +57,7 @@ func main() {
 	}
 	//flags
 	testBool := flag.Bool("test", false, "testing the go library in haxe")
-	identBool := flag.Bool("ident",false,"ident json")
+	identBool := flag.Bool("ident", false, "ident json")
 	flag.Parse()
 	args := flag.Args()
 	localPath := args[len(args)-1]
@@ -87,7 +88,7 @@ func main() {
 	var bytes []byte
 	if *identBool {
 		bytes, err = json.MarshalIndent(data, "", "    ")
-	}else{
+	} else {
 		bytes, err = json.Marshal(data)
 	}
 	if err != nil {
@@ -190,7 +191,7 @@ func parseType(node interface{}) map[string]interface{} {
 		return data
 	case "Struct":
 		s := node.(*types.Struct)
-		fields := make([]map[string]interface{},s.NumFields())
+		fields := make([]map[string]interface{}, s.NumFields())
 		for i := 0; i < s.NumFields(); i++ {
 			v := s.Field(i)
 			fields[i] = map[string]interface{}{
@@ -202,8 +203,8 @@ func parseType(node interface{}) map[string]interface{} {
 		return data
 	case "Interface":
 		s := node.(*types.Interface)
-		methods := make([]map[string]interface{},s.NumMethods())
-		embeds := make([]map[string]interface{},s.NumEmbeddeds())
+		methods := make([]map[string]interface{}, s.NumMethods())
+		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		_ = methods
 		_ = embeds
 		_ = s
@@ -211,7 +212,7 @@ func parseType(node interface{}) map[string]interface{} {
 	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
-		field, val := et.Field(i),e.Field(i)
+		field, val := et.Field(i), e.Field(i)
 		field.Name = strings.ToLower(string(field.Name[:1])) + string(field.Name[1:])
 		value := parseKind(val)
 		if value != nil {
@@ -222,15 +223,21 @@ func parseType(node interface{}) map[string]interface{} {
 }
 func parseKind(val reflect.Value) interface{} {
 	switch val.Kind() {
-	case reflect.String: return val.String()
-	case reflect.Ptr: return parseKind(reflect.New(val.Type().Elem()).Elem())
-	case reflect.Int,reflect.Int8,reflect.Int16,reflect.Int32,reflect.Int64: return val.Int()
-	case reflect.Uint,reflect.Uint8,reflect.Uint16,reflect.Uint32,reflect.Uint64: return val.Uint()
-	case reflect.Slice: return reflect.New(val.Type().Elem()).Elem().Interface()
-	case reflect.Bool: return val.Bool()
-	case reflect.Struct: 
-	i := val.Interface()
-	return parseType(&i)
+	case reflect.String:
+		return val.String()
+	case reflect.Ptr:
+		return parseKind(reflect.New(val.Type().Elem()).Elem())
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+		return val.Int()
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
+		return val.Uint()
+	case reflect.Slice:
+		return reflect.New(val.Type().Elem()).Elem().Interface()
+	case reflect.Bool:
+		return val.Bool()
+	case reflect.Struct:
+		i := val.Interface()
+		return parseType(&i)
 	case reflect.Interface:
 		if val.CanSet() {
 			i := val.Interface()
@@ -238,7 +245,7 @@ func parseKind(val reflect.Value) interface{} {
 		}
 		return nil
 	default:
-		fmt.Println("unknown type kind:",val.Kind())
+		fmt.Println("unknown type kind:", val.Kind())
 		return nil
 	}
 }
@@ -270,9 +277,9 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		case nil:
 		case token.Pos:
 			data[field.Name] = map[string]interface{}{
-				"id": "Pos",
+				"id":     "Pos",
 				"string": "",
-				"noPos": value == token.NoPos,
+				"noPos":  value == token.NoPos,
 			}
 		case token.Token:
 			data[field.Name] = value.String()
@@ -289,15 +296,15 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
 			data[field.Name] = parseData(value, info)
 		case *ast.BinaryExpr:
-			obj := parseData(value,info)
+			obj := parseData(value, info)
 			ty := info.TypeOf(value)
 			obj["type"] = parseType(ty)
 			data[field.Name] = obj
-			
+
 		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: //in scopes
 			data[field.Name] = parseData(value, info)
 		case *ast.AssignStmt:
-			data[field.Name] = parseData(value,info)
+			data[field.Name] = parseData(value, info)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)
@@ -306,7 +313,7 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 			data[field.Name] = parseIdent(value, info)
 		case ast.ChanDir: //is an int
 			data[field.Name] = value
-		case bool,string,int:
+		case bool, string, int:
 			data[field.Name] = value
 		case ast.FieldList:
 			data[field.Name] = parseFieldList(value.List, info)

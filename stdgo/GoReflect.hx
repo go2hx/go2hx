@@ -1,5 +1,4 @@
 package stdgo;
-import stdgo.GoArray.ArrayData;
 import stdgo.StdTypes;
 function deepEqual(a:Dynamic,b:Dynamic):Bool {
     if (a == null)
@@ -12,13 +11,23 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
                 if (a.get == null)
                     return false;
                 return deepEqual(a.get(),b.get());
-            case "stdgo.ArrayData":
-                if (a.vector.length != b.vector.length)
+            case "haxe.ds.Vector":
+                if (a.length != b.length)
                     return false;
-                var a:ArrayData<Dynamic> = a;
-                var b:ArrayData<Dynamic> = b;
-                for (i in 0...a.vector.length) {
-                    if (!deepEqual(a.vector[i],b.vector[i]))
+                var a:haxe.ds.Vector<Dynamic> = a;
+                var b:haxe.ds.Vector<Dynamic> = b;
+                for (i in 0...a.length) {
+                    if (!deepEqual(a[i],b[i]))
+                        return false;
+                }
+                return true;
+            case "stdgo.SliceData":
+                if (a.length != b.length)
+                    return false;
+                var a:stdgo.Slice.SliceData<Dynamic> = a;
+                var b:stdgo.Slice.SliceData<Dynamic> = b;
+                for (i in 0...a.length) {
+                    if (!deepEqual(a.get(i),b.get(i)))
                         return false;
                 }
                 return true;

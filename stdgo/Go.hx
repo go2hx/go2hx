@@ -219,7 +219,14 @@ class Go {
 						case "String", "GoString":
 							switch typeName(to) {
 								case "Slice":
-									return macro new stdgo.Slice(...[for (c in $e.split("")) c.charCodeAt(0)]);
+									return macro {
+										var array = $e.split("");
+										var slice = new stdgo.Slice<stdgo.StdTypes.Byte>(array.length);
+										for (i in 0...array.length) {
+											slice[i] = array[i].charCodeAt(0);
+										}
+										slice;
+									}
 								default:
 									missing();
 							}

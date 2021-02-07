@@ -14,29 +14,33 @@ import stdgo.Slice;
 inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 	if (args.length == 0)
 		return slice;
-	slice = slice.copy();
-	var pos = slice.length;
-	slice.resize(args.length);
-	var args = args.toArray();
-	for (i in 0...args.length) {
-		slice[i + pos] = args[i];
-	}
-	return slice;
-}
-
-inline function cap<T>(slice:Slice<T>) {
-	return slice.cap;
+	return slice.append(args.toArray());
 }
 
 inline function close(v) {}
 
 inline function complex(r, i) {}
 
-inline function copy<T>(dst:Slice<T>, src:Slice<T>) {
-	final length = dst.length > src.length ? src.length : dst.length;
-	for (i in 0...length) {
-		dst[i] = src[i]; //TODO: copy contents so that are no longer linked
+macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
+	var type = Context.toComplexType(Context.follow(Context.typeof(dst)));
+	switch type {
+		case TPath(p):
+			switch p.name {
+				case "Slice":
+					return macro {
+						var int = $dst.length > $src.length ? $src.length : $dst.length;
+						for (i in 0...int) {
+							$dst[i] = $src[i];
+						}
+						int;
+					}
+				default:
+					trace("unknown copy type path: " + p.name);
+			}
+		default:
+			trace("unknown copy type: " + type);
 	}
+	return src;
 }
 
 inline function delete<K, V>(map:Map<K, V>, key:K) {
@@ -45,36 +49,6 @@ inline function delete<K, V>(map:Map<K, V>, key:K) {
 
 function imag(c) {}
 
-macro function len(expr) {
-	var ty = Context.follow(Context.typeof(expr));
-	var name = "";
-	var func = null;
-	func = () -> {
-		switch (ty) {
-			case TInst(t, params):
-				name = t.get().name;
-			case TAbstract(t, params):
-				name = t.get().name;
-			case TType(t, params):
-				name = t.get().name;
-			case TMono(t):
-				ty = t.get();
-				func();
-				return;
-			default:
-				trace("ty: " + ty);
-		}
-	}
-	func();
-	switch name {
-		case "Slice","Array", "haxe.ds.Vector", "Vector", "String", "GoString":
-			return macro $expr.length;
-		case "Iterable", "Map":
-			return macro Lambda.count($expr);
-	}
-	return macro $expr;
-}
-
 macro function create(t:Expr) { // new pointer
 	var type = getType(t);
 	if (type == null)
@@ -82,12 +56,12 @@ macro function create(t:Expr) { // new pointer
 	return macro null;
 }
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
-	var type = getType(t);
-	if (type == null)
+	var t = getType(t);
+	if (t == null)
 		return macro null;
 	var func = null;
 	func = function():Expr {
-		switch type {
+		switch t {
 			case TPath(p):
 				var name = p.name;
 				switch name {
@@ -101,7 +75,13 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 								value = defaultValue(t,Context.currentPos());
 							default:
 						}
-						return {expr: ENew(p,[macro ...[ for(i in 0...$size) $value]]), pos: Context.currentPos()};
+						return macro {
+							var slice = ${{expr: ENew(p,[size]), pos: Context.currentPos()}};
+							for (i in 0...$size) {
+								slice[i] = $value;
+							}
+							slice; 
+						}
 					case "Map":
 						return {expr: ENew(p,[]), pos: Context.currentPos()};
 					case "Chan":
@@ -111,7 +91,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						return null;
 				}
 			default:
-				trace("make unknown: " + type);
+				trace("make unknown: " + t);
 				return null;
 		}
 	}
@@ -141,7 +121,11 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 					case "Dynamic":
 						return macro {};
 					case "Slice":
-						return {expr: ENew(p,params), pos: Context.currentPos()};
+						var size = macro $v{params.length};
+						return macro {
+							var slice = ${{expr: ENew(p,[size,size].concat(params)), pos: Context.currentPos()}};
+							slice;
+						}
 					case "StdTypes":
 						switch p.sub {
 							case "Int":
@@ -167,7 +151,7 @@ function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Exp
 		if (params[i] == null) {
 			switch fields[i].kind {
 				case FVar(t, e):
-					expr = defaultValue(t,pos);
+					expr = defaultValue(t,pos,fields[i].meta);
 				default: //FFunc is nil by default
 			}
 		}else{
@@ -179,7 +163,7 @@ function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Exp
 		};
 	}])};
 }
-function defaultValue(t:ComplexType,pos:Position):Expr {
+function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr {
 	switch t {
 		case TPath(p):
 			var name = p.name;
@@ -196,7 +180,7 @@ function defaultValue(t:ComplexType,pos:Position):Expr {
 				case "Pointer":
 					return macro null;
 				case "Slice":
-					return {expr: ENew(p,[]), pos: pos};
+					return {expr: ENew(p,[macro 0]), pos: pos};
 				case "Dynamic":
 					return macro {};
 				default:

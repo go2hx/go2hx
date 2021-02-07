@@ -547,6 +547,10 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
             switch expr.fun.name {
+                case "cap":
+                    return (macro ${typeExpr(expr.args[0],info)}.cap()).expr;
+                case "len":
+                    return (macro ${typeExpr(expr.args[0],info)}.length).expr;
                 case "new","make": 
                     if (expr.fun.name == "new")
                         expr.fun.name = "create";

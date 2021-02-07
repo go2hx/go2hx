@@ -56,7 +56,7 @@ macro function create(t:Expr) { // new pointer
 	return macro null;
 }
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
-	var t = getType(t);
+	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
 		return macro null;
 	var func = null;

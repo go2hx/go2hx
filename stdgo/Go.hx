@@ -195,6 +195,8 @@ class Go {
 				return "";
 			switch t {
 				case TPath(p):
+					if (p.name == "StdTypes")
+						return p.sub;
 					return p.name;
 				default:
 					return "";
@@ -215,6 +217,12 @@ class Go {
 					function missing() {
 						trace("unsupported assert: " + typeName(from) + " -> " + typeName(to));
 					}
+					function standard() {
+						return macro {
+							var x:$to = $e;
+							x;
+						}
+					}
 					switch typeName(from) {
 						case "String", "GoString":
 							switch typeName(to) {
@@ -227,6 +235,18 @@ class Go {
 										}
 										slice;
 									}
+								default:
+									missing();
+							}
+						case "Int":
+							switch typeName(to) {
+								case "Float":
+									return macro ($e : Float);
+							}
+						case "Dynamic":
+							switch typeName(to) {
+								case "Slice":
+									return standard();
 								default:
 									missing();
 							}

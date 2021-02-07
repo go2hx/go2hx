@@ -562,13 +562,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
                         var arg = typeExpr(expr.args[0],info);
-                        switch expr.fun.name { //to value
-                            case "string":
-                                addImport("stdgo.GoString",info);
-                                return (macro new GoString(Std.string($arg))).expr;
-                            default:
-                                return ECast(arg,typeExprType(expr.fun,info));
-                        }
+                        var type = typeExprType(expr.fun,info);
+                        return (macro Go.assert(($arg : $type))).expr;
                     }
             }
         case "ParenExpr":

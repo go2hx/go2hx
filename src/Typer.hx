@@ -784,7 +784,9 @@ private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
     return x.expr;
 }
 private function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
-    return ECast(typeExpr(expr.x,info),typeExprType(expr.type,info));
+    var type = typeExprType(expr.type,info);
+    var expr = typeExpr(expr.x,info);
+    return (macro Go.assert(($expr : $type))).expr;
 }
 private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
     return EArray(typeExpr(expr.x,info),typeExpr(expr.index,info));

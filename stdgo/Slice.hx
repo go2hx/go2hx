@@ -28,8 +28,8 @@ abstract Slice<T>(SliceData<T>) {
     inline public function slice(low:Int,high:Int=-1):Slice<T> {
         var pos = low;
         if (high == -1)
-            high = length - low;
-        var length = low + high;
+            high = length;
+        var length = high - low;
         var slice = new Slice<T>(0);
         slice.setUnderlying(this.underlying(),pos,length);
         return slice; 
@@ -37,7 +37,8 @@ abstract Slice<T>(SliceData<T>) {
     public function copy():Slice<T> {
         var slice = new Slice<T>(this.length,this.cap());
         for (i in 0...slice.length) {
-            slice[i] = get(i);
+            slice[i] = 
+            get(i);
         }
         return slice;
     }

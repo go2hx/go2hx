@@ -7,6 +7,7 @@ abstract Pointer<T>(Dynamic) {
 	public function new(obj,?get,?set) {
 		if (obj == null)
 			this = new PointerData(get,set);
+		this = new PointerData(get,set);
 	}
 	@:op([]) inline function get(index:Int):T {
         return !this.real ? this.get() : this;

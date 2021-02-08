@@ -14,7 +14,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/append.go"];
+    tests = ["./go/test/alias1.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);
@@ -40,7 +40,7 @@ function load():Array<String> {
         try {
             var line = file.readLine();
             line = line.substr(3);
-            if (line == "run")
+            if (["run","runoutput"].indexOf(line) != -1)
                 tests.push('./$repo/$path');
         }catch(e) {
             trace(e);

@@ -241,7 +241,44 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     return (macro {}).expr;
 }
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef { //a switch statement of a type
-    return null;
+    var init:Expr = null;
+    if (stmt.init != null)
+        init = {expr: typeSwitchStmt(stmt.init,info),pos: null};
+    
+    var assign:Expr = null;
+    switch stmt.assign.id {
+        case "ExprStmt":
+            var stmt:Ast.ExprStmt = stmt.assign;
+            switch stmt.x.id {
+                case "TypeAssertExpr":
+                    var stmt:Ast.TypeAssertExpr = stmt.x;
+                    assign = typeExpr(stmt.x,info);
+                default:
+                    trace("unknown assign expr: " + stmt.x.id);
+            }
+        default:
+            trace("unknown assign: " + stmt.assign.id);
+    }
+    if (assign == null)
+        return null;
+    function condition(obj:Ast.CaseClause,i:Int=0) {
+        var t = typeExprType(obj.list[i],info);
+        var value = macro ($assign is $t);
+        if (i + 1 >= obj.list.length)
+            return value;
+        var next = condition(obj,i + 1);
+        return {expr: EBinop(OpBoolOr,value,next), pos: null};
+    }
+    function ifs(i:Int=0) {
+        var obj:Ast.CaseClause = stmt.body.list[i];
+        var cond = condition(obj);
+        var block = {expr: typeStmtList(obj.body,info),pos: null};
+        if (i + 1 >= stmt.body.list.length)
+            return macro if ($cond) $block;
+        var next = ifs(i + 1);
+        return macro if ($cond) $block else $next;
+    }
+    return ifs().expr;
 }
 private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     var main:ExprDef = null;

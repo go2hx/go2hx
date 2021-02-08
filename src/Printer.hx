@@ -14,6 +14,11 @@ class Printer extends haxe.macro.Printer {
             default: super.printExpr(e);
         }
     }
+    override function printComplexType(ct:ComplexType):String {
+        if (ct == null)
+            return "#NULL_TYPE";
+        return super.printComplexType(ct);
+    }
     override function printField(field:Field):String {
         return super.printField(field);
     }

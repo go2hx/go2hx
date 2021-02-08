@@ -165,8 +165,8 @@ private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
 private function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
     var x = typeExpr(stmt.x,info);
     return switch stmt.tok {
-        case INC: EUnop(OpIncrement,true,x);
-        case DEC: EUnop(OpDecrement,true,x);
+        case INC: return (macro $x++).expr;
+        case DEC: return (macro $x--).expr;
         default: error("unknown IncDec token: " + stmt.tok); null;
     }
 }
@@ -295,10 +295,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
         case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
                 if (stmt.lhs.length == 1) {
-                    return EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info));
+                    var op = typeOp(stmt.tok);
+                    var x = typeExpr(stmt.lhs[0],info);
+                    var y = typeExpr(stmt.rhs[0],info);
+                    return EBinop(op,x,y);
                 }else{
                     return EBlock([
-                        for (i in 0...stmt.lhs.length) {pos: null, expr: EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info))}
+                        for (i in 0...stmt.lhs.length) 
+                            {pos: null, expr: EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info))}
                     ]);
                 }
             }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
@@ -557,7 +561,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
 
                     var type = expr.args.shift();
                     args = [for (arg in expr.args) typeExpr(arg,info)];
-                    args.unshift({expr: ECheckType(macro _,typeExprType(type,info)), pos: null});
+                    var t = typeExprType(type,info);
+                    args.unshift(macro (_ : $t)); //ECheckType
                 case null:
                 default:
                     if (expr.args.length == 1 && basicTypes.indexOf(expr.fun.name) != -1) {
@@ -573,7 +578,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //set assert type
             var type = typeExprType(expr.fun,info);
             var expr = typeExpr(expr.args[0],info);
-            return (macro Go.assert(${{expr: ECheckType(expr,type),pos: null}})).expr;
+            return (macro Go.assert(($expr : $type))).expr;
         case "InterfaceType":
             //set dynamic
             return null;
@@ -581,7 +586,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     if (args.length == 0)
         args = [for (arg in expr.args) typeExpr(arg,info)];
     ellipsisFunc();
-    return ECall(typeExpr(expr.fun,info),args);
+    var e = typeExpr(expr.fun,info);
+    return ECall(e,args);
 }
 private function typeRest(expr:Expr):Expr {
     return expr == null ? null : macro ...$expr.toArray();
@@ -595,7 +601,7 @@ private function getDefaultValue(type:ComplexType):Expr {
                 case "String", "GoString": macro "";
                 case "Bool": macro false;
                 case "Slice": macro new stdgo.Slice();
-                default: {pos: null,expr: ENew(p,[])};
+                default: macro new $p();
             }
         default:
             trace("default value unknown: " + type);
@@ -696,13 +702,16 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     for (elt in expr.elts) {
         params.push(typeExpr(elt,info));
     }
-    return ECall(macro literal,params);
+    return (macro literal($a{params})).expr; //ECall
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
-    return EBinop(typeOp(expr.op),typeExpr(expr.x,info),typeExpr(expr.y,info));
+    var op = typeOp(expr.op);
+    var x = typeExpr(expr.x,info);
+    var y = typeExpr(expr.y,info);
+    return EBinop(op,x,y);
 }
 private function typeUnOp(token:Ast.Token):Unop {
     return switch token {
@@ -772,7 +781,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
         case "StructType": return EConst(CIdent(expr.sel.name));
         default:
     }
-    return EField(typeExpr(expr.x,info),expr.sel.name);
+    var x = typeExpr(expr.x,info);
+    var sel = expr.sel.name;
+    return (macro $x.$sel).expr; //EField
 }
 private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
@@ -789,13 +800,16 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
     return (macro Go.assert(($expr : $type))).expr;
 }
 private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
-    return EArray(typeExpr(expr.x,info),typeExpr(expr.index,info));
+    var x = typeExpr(expr.x,info);
+    var index = typeExpr(expr.index,info);
+    return (macro $x[$index]).expr;
 }
 private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     return null;
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
-    return EParenthesis(typeExpr(expr.x,info));
+    var x = typeExpr(expr.x,info);
+    return (macro ($x)).expr;
 }
 //SPECS
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {

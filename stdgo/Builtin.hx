@@ -67,7 +67,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 				switch name {
 					case "Slice":
 						if (size == null)
-							return {expr: ENew(p,[]), pos: Context.currentPos()};
+							return macro new $p();
 						var value:Expr = null;
 						switch p.params[0] {
 							case TPType(t):
@@ -76,14 +76,14 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 							default:
 						}
 						return macro {
-							var slice = ${{expr: ENew(p,[size]), pos: Context.currentPos()}};
+							var slice = new $p($size);
 							for (i in 0...$size) {
 								slice[i] = $value;
 							}
 							slice; 
 						}
 					case "Map":
-						return {expr: ENew(p,[]), pos: Context.currentPos()};
+						return macro new $p();
 					case "Chan":
 						return null;
 					default:
@@ -123,7 +123,7 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 					case "Slice":
 						var size = macro $v{params.length};
 						return macro {
-							var slice = ${{expr: ENew(p,[size,size].concat(params)), pos: Context.currentPos()}};
+							var slice = new $p($size,$size,...$a{params});
 							slice;
 						}
 					case "StdTypes":
@@ -180,7 +180,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 				case "Pointer":
 					return macro null;
 				case "Slice":
-					return {expr: ENew(p,[macro 0]), pos: pos};
+					return macro new $p(0);
 				case "Dynamic":
 					return macro {};
 				default:

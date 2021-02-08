@@ -41,7 +41,6 @@ typedef BadExpr = {
 };
 typedef Ident = {
 	name:String,
-	type:Expr,
 }
 
 typedef Ellipsis = {
@@ -140,7 +139,6 @@ typedef BinaryExpr = {
 	opPos:Pos,
 	op:Token,
 	y:Expr,
-	type:Dynamic,
 };
 
 typedef KeyValueExpr = {
@@ -243,7 +241,6 @@ typedef AssignStmt = {
 	tokPos:Pos,
 	tok:Token,
 	rhs:Array<Expr>,
-	type:Dynamic,
 };
 
 typedef GoStmt = {

@@ -10,7 +10,6 @@ import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
 import haxe.DynamicAccess;
 import sys.FileSystem;
-import Types.Kind;
 
 var stdgoList:Array<String>;
 var externs:Bool = false;
@@ -206,14 +205,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
             }
             return (macro for ($key in 0...${length(x)}) $body).expr;
         }else{
-            //trace("x: " + stmt.x);
-            switch xType.id {
-                case "Named":
-                    var xType:Types.Named = xType;
-                    //trace("xType: " + xType);
-                default:
-                    trace("unknown range x type 2: " + xType.id);
-            }
             return (macro for ($key in 0... ${length(x)}) $body).expr;
         }
         return null;
@@ -658,56 +649,6 @@ private function getDefaultValue(type:ComplexType):Expr {
             trace("default value unknown: " + type);
             macro null;
     }
-}
-private function getExprType(expr:Ast.Expr):Kind {
-    switch expr.id {
-        case "Ident":
-            var expr:Ast.Ident = expr;
-            if (expr.type == null)
-                return INVALID;
-            switch expr.type.id {
-                case "Basic":
-                var kind:Int = expr.type._kind;
-                /*return switch kind {
-                    case string: STRING;
-                    case uint8: UINT8;
-                    case uint16: UINT16;
-                    case uint32: UINT32;
-                    case uint64: UINT64;
-                    case int: INT;
-                    case int8: INT8;
-                    case int16: INT16;
-                    case int32: INT32;
-                    case int64: INT64;
-                    case float32: FLOAT32;
-                    case float64: FLOAT64;
-                    case bool: BOOL;
-                    case complex64: COMPLEX64;
-                    case complex128: COMPLEX128;
-                    case untypedNil: NULL;
-                    default: 
-                    trace("invalid basic ident type conversion to kind: " + kind);
-                    INVALID;
-                }*/
-                default: return INVALID;
-            }
-        case "BasicLit":
-            var expr:Ast.BasicLit = expr;
-            return switch expr.kind {
-                case Ast.Token.STRING: STRING;
-                case Ast.Token.INT: INT;
-                case Ast.Token.FLOAT: FLOAT;
-                case Ast.Token.IDENT:
-                    trace("token ident value: " + expr.value);
-                    INVALID;
-                default:
-                    trace("unknown expr kind token: " + expr.kind);
-                    INVALID;
-            }
-        default:
-            trace("unknown get expr type: " + expr.id);
-    }
-    return INVALID;
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     return switch expr.kind {

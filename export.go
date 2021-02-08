@@ -75,7 +75,7 @@ func main() {
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax | packages.NeedDeps |
 		packages.NeedImports | packages.NeedTypes |
-		packages.NeedTypesInfo | packages.NeedFiles}
+		packages.NeedFiles}
 	cfg.Tests = *testBool
 	initial, err := packages.Load(cfg, args...)
 	if err != nil {
@@ -131,37 +131,37 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
 	for i, file := range pkg.Syntax {
-		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i], pkg.TypesInfo))
+		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
 	return data
 }
 
-func parseFile(file *ast.File, path string, info *types.Info) fileType {
+func parseFile(file *ast.File, path string) fileType {
 	data := fileType{}
 	path = filepath.Base(path)
 	data.Path = path
 	for _, decl := range file.Decls {
-		obj := parseData(decl, info)
+		obj := parseData(decl)
 		data.Decls = append(data.Decls, obj)
 	}
 	return data
 }
-func parseBody(list []ast.Stmt, info *types.Info) []map[string]interface{} {
+func parseBody(list []ast.Stmt) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj, info)
+		data[i] = parseData(obj)
 	}
 	return data
 }
-func parseExprList(list []ast.Expr, info *types.Info) []map[string]interface{} {
+func parseExprList(list []ast.Expr) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	//fmt.Println("list:",list)
 	for i, obj := range list {
-		data[i] = parseData(obj, info)
+		data[i] = parseData(obj)
 	}
 	return data
 }
-func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
+func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
 		switch obj := obj.(type) {
@@ -172,16 +172,16 @@ func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
 			}
 			values := make([]map[string]interface{},len(obj.Values))
 			for i := range obj.Values {
-				values[i] = parseData(obj.Values[i],info)
+				values[i] = parseData(obj.Values[i])
 			}
 			data[i] = map[string]interface{}{
 				"names": parseIdents(obj.Names),
-				"type": parseData(obj.Type,info),
+				"type": parseData(obj.Type),
 				"values": values,
 				"constants": constants,
 			}
 		default:
-			data[i] = parseData(obj, info)
+			data[i] = parseData(obj)
 		}
 	}
 	return data
@@ -267,13 +267,13 @@ func parseKind(val reflect.Value) interface{} {
 		return nil
 	}
 }
-func parseData(node interface{}, info *types.Info) map[string]interface{} {
+func parseData(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
 	case *ast.BasicLit:
 		return parseBasicLit(node)
 	case *ast.Ident:
-		return parseIdent(node, info)
+		return parseIdent(node)
 	default:
 		//fmt.Println("node:",reflect.TypeOf((node)))
 	}
@@ -303,53 +303,50 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.BasicLit:
 			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.ExprStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.BinaryExpr:
-			obj := parseData(value, info)
-			ty := info.TypeOf(value)
-			obj["type"] = parseType(ty)
+			obj := parseData(value)
 			data[field.Name] = obj
-
 		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: //in scopes
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.AssignStmt:
-			data[field.Name] = parseData(value, info)
+			data[field.Name] = parseData(value)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)
-			data[field.Name] = parseFile(&file, "", info)
+			data[field.Name] = parseFile(&file, "")
 		case *ast.Ident:
-			data[field.Name] = parseIdent(value, info)
+			data[field.Name] = parseIdent(value)
 		case ast.ChanDir: //is an int
 			data[field.Name] = value
 		case bool, string, int:
 			data[field.Name] = value
 		case ast.FieldList:
-			data[field.Name] = parseFieldList(value.List, info)
+			data[field.Name] = parseFieldList(value.List)
 		case *ast.FieldList:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseFieldList(value.List, info)
+			data[field.Name] = parseFieldList(value.List)
 		case []ast.Stmt:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseBody(value, info)
+			data[field.Name] = parseBody(value)
 		case []ast.Expr:
-			data[field.Name] = parseExprList(value, info)
+			data[field.Name] = parseExprList(value)
 		case []ast.Spec:
-			data[field.Name] = parseSpecList(value, info)
+			data[field.Name] = parseSpecList(value)
 		case *ast.Object: //skip
 		case []*ast.Ident:
 			data[field.Name] = parseIdents(value)
@@ -374,18 +371,13 @@ func parseIdents(value []*ast.Ident)[]string {
 	}
 	return list
 }
-func parseIdent(value *ast.Ident, info *types.Info) map[string]interface{} {
+func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
 	data := map[string]interface{}{
 		"id":   "Ident",
 		"name": value.Name,
-		"type": nil,
-	}
-	use := info.Uses[value]
-	if use != nil {
-		data["type"] = parseType(use.Type())
 	}
 	return data
 }
@@ -435,17 +427,17 @@ func getId(obj interface{}) string {
 	}
 	return reflect.TypeOf(obj).Elem().Name()
 }
-func parseFieldList(list []*ast.Field, info *types.Info) map[string]interface{} {
+func parseFieldList(list []*ast.Field) map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, field := range list {
-		data[i] = parseField(field, info)
+		data[i] = parseField(field)
 	}
 	return map[string]interface{}{
 		"id":   "FieldList",
 		"list": data,
 	}
 }
-func parseField(field *ast.Field, info *types.Info) map[string]interface{} {
+func parseField(field *ast.Field) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
@@ -461,7 +453,7 @@ func parseField(field *ast.Field, info *types.Info) map[string]interface{} {
 	return map[string]interface{}{
 		//"doc": parseData(field.Doc)
 		"names": names,
-		"type":  parseData(field.Type, info),
+		"type":  parseData(field.Type),
 		"tag":   tag,
 		//"comment": parseData(field.Comment)
 	}

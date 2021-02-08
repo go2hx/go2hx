@@ -14,7 +14,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/alias1.go"];
+    tests = ["./go/test/align.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);

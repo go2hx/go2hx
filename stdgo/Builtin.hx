@@ -126,6 +126,12 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 							var slice = new $p($size,$size,...$a{params});
 							slice;
 						}
+					case "GoArray":
+						var size = macro $v{params.length};
+						return macro {
+							var array = new $p($size,...$a{params});
+							array;
+						}
 					case "StdTypes":
 						switch p.sub {
 							case "Int":
@@ -135,7 +141,11 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 								return null;
 						}
 					default:
-						type = Context.toComplexType(Context.follow(Context.resolveType(type,Context.currentPos())));
+						try {
+							type = Context.toComplexType(Context.follow(Context.resolveType(type,Context.currentPos())));
+						}catch(e) {
+							trace("name: " + p.name + " error: " + e);
+						}
 						return func();
 				}
 			default:

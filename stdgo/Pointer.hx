@@ -4,9 +4,11 @@ import haxe.macro.Context;
 @:forward
 abstract Pointer<T>(Dynamic) {
 
-	public function new(obj,?get,?set) {
-		if (obj == null)
-			this = new PointerData(get,set);
+	public inline function new(obj,?get,?set) {
+		if (obj != null) {
+			this = obj;
+			return;
+		}
 		this = new PointerData(get,set);
 	}
 	@:op([]) inline function get(index:Int):T {

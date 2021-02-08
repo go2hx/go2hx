@@ -275,6 +275,11 @@ class Go {
 		var isRealPointer = false;
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
+			case TMono(t):
+				type = t.get();
+			default:
+		}
+		switch type {
 			case TAbstract(t, params):
 				var t = t.get();
 				if (isNumber(t.name)) {
@@ -285,6 +290,8 @@ class Go {
 							isRealPointer = true;
 					}
 				}
+			case TAnonymous(a):
+
 			default:
 				trace("unknown make pointer type: " + type);
 		}

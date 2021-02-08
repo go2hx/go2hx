@@ -14,8 +14,13 @@ abstract GoArray<T>(Vector<T>) {
         return 0;
     }
 
-    public inline function new(length:Int=0) {
+    public inline function new(length:Int=0,args:Rest<T>) {
         this = new Vector<T>(length);
+        if (args.length == 0)
+            return;
+        for (i in 0...args.length) {
+            set(i,args[i]);
+        }
     }
     @:op([]) public inline function get(index:Int):T {
         return this.get(index);

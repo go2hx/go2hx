@@ -893,6 +893,10 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
 }
 private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType { //A single type or Anonymous struct type
     if (fieldList != null) {
+
+        if (fieldList.list.length == 1) {
+            return typeExprType(fieldList.list[0].type,info);
+        }
         var list:Array<{name:String,type:ComplexType,meta:Metadata}> = [];
         for (group in fieldList.list) {
             info.meta = [];
@@ -916,8 +920,6 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
                     kind: FVar(field.type)
                 }
             ]);
-        }else if (list.length == 1) {
-            return list[0].type;
         }
     }
     return TPath({

@@ -2,8 +2,8 @@ package stdgo;
 
 typedef UInt8 = UInt;
 typedef UInt16 = UInt;
-typedef UInt32 = UInt;
-typedef UInt64 = UInt;
+typedef UInt32 = haxe.Int64;
+typedef UInt64 = haxe.Int64; //low = int64, high = int64
 typedef Int8 = Int;
 typedef Int16 = Int;
 typedef Int32 = haxe.Int32;
@@ -11,7 +11,7 @@ typedef Int64 = haxe.Int64;
 typedef Float32 = Float;
 typedef Float64 = Float;
 typedef Complex64 = Float;
-typedef Complex128 = Float;
+typedef Complex128 = Float; //low = float, high = float
 typedef Byte = UInt;
 typedef Rune = Int;
 /*

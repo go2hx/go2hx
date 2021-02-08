@@ -164,17 +164,20 @@ func parseExprList(list []ast.Expr, info *types.Info) []map[string]interface{} {
 func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		fmt.Println(reflect.TypeOf(obj))
 		switch obj := obj.(type) {
 		case *ast.ValueSpec:
 			constants := make([]bool,len(obj.Names))
 			for i := range constants {
 				constants[i] = obj.Names[i].Obj.Kind.String() == "const"
 			}
+			values := make([]map[string]interface{},len(obj.Values))
+			for i := range obj.Values {
+				values[i] = parseData(obj.Values[i],info)
+			}
 			data[i] = map[string]interface{}{
-				"names": obj.Names,
-				"type": obj.Type,
-				"values": obj.Values,
+				"names": parseIdents(obj.Names),
+				"type": parseData(obj.Type,info),
+				"values": values,
 				"constants": constants,
 			}
 		default:
@@ -349,11 +352,7 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 			data[field.Name] = parseSpecList(value, info)
 		case *ast.Object: //skip
 		case []*ast.Ident:
-			list := make([]string, len(value))
-			for i := range value {
-				list[i] = value[i].Name
-			}
-			data[field.Name] = list
+			data[field.Name] = parseIdents(value)
 		case []ast.Ident:
 			list := make([]string, len(value))
 			for i := range value {
@@ -367,6 +366,13 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		}
 	}
 	return data
+}
+func parseIdents(value []*ast.Ident)[]string {
+	list := make([]string, len(value))
+	for i := range value {
+		list[i] = value[i].Name
+	}
+	return list
 }
 func parseIdent(value *ast.Ident, info *types.Info) map[string]interface{} {
 	if value == nil {

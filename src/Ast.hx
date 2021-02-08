@@ -356,7 +356,7 @@ typedef ImportSpec = {
 
 typedef ValueSpec = {
 	doc:CommentGroup,
-	names:Array<Ident>,
+	names:Array<String>,
 	type:Expr,
 	values:Array<Expr>,
 	comment:CommentGroup,

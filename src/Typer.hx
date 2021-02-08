@@ -234,7 +234,16 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     var name = className(title(spec.name.name));
                     var type = typeExprType(spec.type,info);
                     info.retypeMap[name] = type;
-                    
+                case "ValueSpec":
+                    var spec:Ast.ValueSpec = spec;
+                    var type = typeExprType(spec.type,info);
+                    return EVars([
+                        for (i in 0...spec.names.length) {
+                            name: spec.names[i],
+                            type: type,
+                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : null,
+                        }
+                    ]);
             }
         }
     }
@@ -261,7 +270,10 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     }
     if (assign == null)
         return null;
+    var def:Expr = null;
     function condition(obj:Ast.CaseClause,i:Int=0) {
+        if (obj.list.length == 0)
+            return null;
         var t = typeExprType(obj.list[i],info);
         var value = macro ($assign is $t);
         if (i + 1 >= obj.list.length)
@@ -274,7 +286,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         var cond = condition(obj);
         var block = {expr: typeStmtList(obj.body,info),pos: null};
         if (i + 1 >= stmt.body.list.length)
-            return macro if ($cond) $block;
+            return cond == null ? macro $block : macro if ($cond) $block;
         var next = ifs(i + 1);
         return macro if ($cond) $block else $next;
     }
@@ -1047,11 +1059,11 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         {
             var expr = typeExpr(value.values[i],info);
             {
-                name: untitle(cast value.names[i]),
+                name: untitle(value.names[i]),
                 pos: null,
                 pack: [],
                 fields: [],
-                kind: TDField(FVar(type,expr),typeAccess(cast value.names[i]))
+                kind: TDField(FVar(type,expr),typeAccess(value.names[i]))
             };
         }
     ];

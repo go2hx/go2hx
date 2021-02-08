@@ -54,7 +54,7 @@ typedef BasicLit = {
 	//> Node,
 	valuePos:Pos,
 	kind:Token,
-	value:Dynamic,
+	value:String,
 };
 
 typedef FuncLit = {
@@ -360,6 +360,7 @@ typedef ValueSpec = {
 	type:Expr,
 	values:Array<Expr>,
 	comment:CommentGroup,
+	constants:Array<Bool>,
 };
 
 typedef TypeSpec = {

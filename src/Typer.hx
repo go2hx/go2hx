@@ -1,3 +1,5 @@
+import haxe.Int64;
+import haxe.Int64Helper;
 import haxe.io.Path;
 import haxe.ds.StringMap;
 import haxe.macro.Type.ClassField;
@@ -715,6 +717,13 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             EConst(CString(expr.value));
         case INT:
             info.type = TPath({name: "Int",pack: []});
+            if (expr.value.length > 10) {
+                var i = Int64Helper.parseString(expr.value);
+                if (i > 2147483647 || i < -2147483647) {
+                    info.type = TPath({name: "Int64",pack: []});
+                    return (macro haxe.Int64Helper.fromFloat(${{expr: EConst(CFloat(expr.value)),pos: null}})).expr;
+                }
+            }
             EConst(CInt(expr.value));
         case FLOAT:
             info.type = TPath({name: "Float",pack: []});
@@ -1059,13 +1068,14 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
     var type = typeExprType(value.type,info);
     return [for (i in 0...value.names.length)
         {
+            info.type = null;
             var expr = typeExpr(value.values[i],info);
             {
                 name: untitle(value.names[i]),
                 pos: null,
                 pack: [],
                 fields: [],
-                kind: TDField(FVar(type,expr),typeAccess(value.names[i]))
+                kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),typeAccess(value.names[i]))
             };
         }
     ];

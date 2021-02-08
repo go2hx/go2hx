@@ -164,7 +164,22 @@ func parseExprList(list []ast.Expr, info *types.Info) []map[string]interface{} {
 func parseSpecList(list []ast.Spec, info *types.Info) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj, info)
+		fmt.Println(reflect.TypeOf(obj))
+		switch obj := obj.(type) {
+		case *ast.ValueSpec:
+			constants := make([]bool,len(obj.Names))
+			for i := range constants {
+				constants[i] = obj.Names[i].Obj.Kind.String() == "const"
+			}
+			data[i] = map[string]interface{}{
+				"names": obj.Names,
+				"type": obj.Type,
+				"values": obj.Values,
+				"constants": constants,
+			}
+		default:
+			data[i] = parseData(obj, info)
+		}
 	}
 	return data
 }
@@ -273,6 +288,7 @@ func parseData(node interface{}, info *types.Info) map[string]interface{} {
 		field.Name = strings.ToLower(field.Name[:1]) + field.Name[1:]
 		_ = field
 		value := val.Interface()
+
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:

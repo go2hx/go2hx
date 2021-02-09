@@ -175,6 +175,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				values[i] = parseData(obj.Values[i])
 			}
 			data[i] = map[string]interface{}{
+				"id": "ValueSpec",
 				"names": parseIdents(obj.Names),
 				"type": parseData(obj.Type),
 				"values": values,
@@ -404,14 +405,13 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = fmt.Sprint(i)
 	case token.CHAR:
-		if value.Value == `\` {
-			value.Value = `"\\"`
+		if len(value.Value) >= 2 && value.Value[0:1] == `'` {
+			value.Value = value.Value[1: len(value.Value)-1]
 		}
 		output = fmt.Sprint(value.Value)
 	case token.STRING:
-		value.Value = strings.ReplaceAll(value.Value, `\`, "\\")
 		if len(value.Value) >= 2 && value.Value[0:1] == `"` {
-			value.Value = string(value.Value[1 : len(value.Value)-1])
+			value.Value = string(value.Value[1 : len(value.Value)- 1])
 		}
 		output = fmt.Sprint(value.Value)
 	}

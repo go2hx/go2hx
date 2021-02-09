@@ -651,11 +651,24 @@ private function getDefaultValue(type:ComplexType):Expr {
     }
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
+    function formatEscapeCodes(value:String):String {
+        var bs = "\\".charAt(0);
+        value = StringTools.replace(value,bs + "a","\x07");
+        value = StringTools.replace(value,bs + "b","\x07");
+        value = StringTools.replace(value,bs + "e","\x1B");
+        value = StringTools.replace(value,bs + "f","\x0C");
+        value = StringTools.replace(value,bs + "n","\x0A");
+        value = StringTools.replace(value,bs + "r","\x0D");
+        value = StringTools.replace(value,bs + "t","\x09");
+        value = StringTools.replace(value,bs + "v","\x0B");
+        //value = StringTools.replace(value,bs + "" ,"\x27");
+        return value;
+    }
     return switch expr.kind {
         case STRING:
             addImport("stdgo.GoString",info);
             info.type = TPath({name: "GoString",pack: []});
-            EConst(CString(expr.value));
+            EConst(CString(formatEscapeCodes(expr.value)));
         case INT:
             info.type = TPath({name: "Int",pack: []});
             if (expr.value.length > 10) {
@@ -671,8 +684,9 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             EConst(CFloat(expr.value));
         case CHAR:
             info.type = TPath({name: "GoString",pack: []});
-            EConst(CString(expr.value));
-        case IDENT: EConst(CIdent(ident(expr.value)));
+            EConst(CString(formatEscapeCodes(expr.value)));
+        case IDENT: 
+            EConst(CIdent(ident(expr.value)));
         default:
             error("basic lit kind unknown: " + expr.kind);
             null;
@@ -707,9 +721,14 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return null;
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
-    var op = typeOp(expr.op);
     var x = typeExpr(expr.x,info);
     var y = typeExpr(expr.y,info);
+    switch expr.op {
+        case AND_NOT: //refrenced from Simon's Tardisgo
+            return (macro $x & ($y ^ Int64.make(-1,-1))).expr;
+        default:
+    }
+    var op = typeOp(expr.op);
     return EBinop(op,x,y);
 }
 private function typeUnOp(token:Ast.Token):Unop {
@@ -1007,19 +1026,22 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
     var type = typeExprType(value.type,info);
-    return [for (i in 0...value.names.length)
-        {
-            info.type = null;
-            var expr = typeExpr(value.values[i],info);
-            {
-                name: untitle(value.names[i]),
-                pos: null,
-                pack: [],
-                fields: [],
-                kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),typeAccess(value.names[i]))
-            };
-        }
-    ];
+    var values:Array<TypeDefinition> = [];
+    for (i in 0...value.names.length)
+    {
+        info.type = null;
+        var expr = typeExpr(value.values[i],info);
+        if (expr == null)
+            continue;
+        values.push({
+            name: untitle(value.names[i]),
+            pos: null,
+            pack: [],
+            fields: [],
+            kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),typeAccess(value.names[i]))
+        });
+    }
+    return values;
 }
 private function typeAccess(name:String,isField:Bool=false):Array<Access> {
     return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];

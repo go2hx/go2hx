@@ -14,7 +14,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/atomicload.go"];
+    tests = ["./go/test/char_lit.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);

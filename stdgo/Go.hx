@@ -259,7 +259,7 @@ class Go {
 				default:
 					trace("unknown expr def for assert: " + expr.expr);
 			}
-			return macro null;
+			return expr;
 		}
 		return func();
 	}

@@ -610,6 +610,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         }
     }
     switch expr.fun.id {
+        case "FuncLit":
+            var expr = typeExpr(expr.fun,info);
+            return (macro {$expr; __a();}).expr;
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
@@ -755,7 +758,11 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     return (macro literal($a{params})).expr; //ECall
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
-    return null;
+    return EFunction(FNamed("__a",true),{
+        ret: typeFieldListRes(expr.type.results,info),
+        args: typeFieldListArgs(expr.type.params,info),
+        expr: {expr: typeBlockStmt(expr.body,info),pos: null},
+    });
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);

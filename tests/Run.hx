@@ -9,12 +9,11 @@ var path:String;
 function main() {
     Sys.setCwd("tests");
     path = Path.normalize(Sys.getCwd());
-    stdgo.Go.assert(("012" : stdgo.Slice<Int>));
     gen();
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/char_lit.go"];
+    tests = ["./go/test/closure1.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);

@@ -179,6 +179,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var x = typeExpr(stmt.x,info);
     var body = {expr: typeBlockStmt(stmt.body,info), pos: null};
     if (stmt.value == null) {
+        if (stmt.key == null)
+            key = macro _i;
         return (macro for ($key in 0...$x) $body).expr; //only index no need to use Go.range
     }
     var value = typeExpr(stmt.value,info); //value of x[key]
@@ -327,24 +329,31 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     return main;
 }
 private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
-    
     var cond = stmt.cond == null ? {pos: null,expr: EConst(CIdent("true"))} : typeExpr(stmt.cond,info);
     var body = {pos: null, expr: typeBlockStmt(stmt.body,info)};
-    if (cond.expr == null || body.expr == null)
+    if (body.expr == null)
+        body = macro {};
+    if (cond.expr == null || body.expr == null) {
+        trace("for stmt error: " + cond.expr + " body: " + body.expr);
         return null;
+    }
     var def:ExprDef = null;
     if (stmt.post != null) {
         var ty = typeStmt(stmt.post,info);
-        if (ty == null)
+        if (ty == null) {
+            trace("for stmt error post: " + stmt.post);
             return null;
+        }
         def = EWhile(macro {var _b = $cond; $ty; _b;},body,true);
     }else{
         def = EWhile(cond,body,true);
     }
     if (stmt.init != null) {
         var init = typeStmt(stmt.init,info);
-        if (init == null)
+        if (init == null) {
+            trace("for stmt eror init: " + stmt.init);
             return null;
+        }
         return EBlock([
             init,
             {pos: null, expr: def},
@@ -477,7 +486,12 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     }
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
-    return TAnonymous(typeFieldListFields(expr.fields,info,[]));
+    var data = typeFieldListFields(expr.fields,info,[]);
+    trace("extend!: " + data.extend);
+    var anon = TAnonymous(data.fields);
+    if (data.extend.length == 0)
+        return anon;
+    return TIntersection([anon].concat(data.extend));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
 
@@ -612,7 +626,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     switch expr.fun.id {
         case "FuncLit":
             var expr = typeExpr(expr.fun,info);
-            return (macro {$expr; __a();}).expr;
+            return (macro {var a = $expr; a;}).expr;
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
@@ -758,7 +772,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     return (macro literal($a{params})).expr; //ECall
 }
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
-    return EFunction(FNamed("__a",true),{
+    return EFunction(FAnonymous,{
         ret: typeFieldListRes(expr.type.results,info),
         args: typeFieldListArgs(expr.type.params,info),
         expr: {expr: typeBlockStmt(expr.body,info),pos: null},
@@ -955,11 +969,18 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):{fields:Array<Field>,extend:Array<ComplexType>} {
     var fields:Array<Field> = [];
+    var extend:Array<ComplexType> = [];
     for (field in list.list) {
         info.meta = [];
         var type = typeExprType(field.type,info);
+        if (field.names.length == 0) {
+            //extend
+            trace("extend:");
+            extend.push(type);
+            continue;
+        }
         for (name in field.names) {
             fields.push({
                name: name.name,
@@ -970,7 +991,9 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
             });
         }
     }
-    return fields;
+    if (fields.length > 0)
+        trace("field: " + printer.printField(fields[0]));
+    return {fields: fields,extend: extend};
 }
 private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefinition> {
     var defs:Array<TypeDefinition> = [];
@@ -1008,15 +1031,24 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            var fields = typeFieldListFields(struct.fields,info,[]);
+            var data = typeFieldListFields(struct.fields,info);
+            if (data.extend.length == 0)
+                return {
+                    name: name,
+                    pos: null,
+                    fields: data.fields,
+                    pack: [],
+                    meta: [],
+                    kind: TDStructure,
+                }
             return {
                 name: name,
                 pos: null,
-                fields: fields,
                 pack: [],
                 meta: [],
-                kind: TDStructure,
-            }
+                fields: [],
+                kind: TDAlias(TIntersection([TAnonymous(data.fields)].concat(data.extend)))
+            };
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;

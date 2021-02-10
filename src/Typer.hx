@@ -178,39 +178,59 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var key = typeExpr(stmt.key,info); //iterator int
     var x = typeExpr(stmt.x,info);
     var body = {expr: typeBlockStmt(stmt.body,info), pos: null};
-    var inits:Array<Expr> = [];
-    var xType:Dynamic = stmt.x.type;
-    if (xType == null)
-        return null;
-    function length(x) {
-        return macro $x.length;
+    if (stmt.value == null) {
+        return (macro for ($key in 0...$x) $body).expr; //only index no need to use Go.range
     }
-    if (stmt.tok == DEFINE) {
-        if (stmt.value != null) {
-            var value = typeExpr(stmt.value,info); //value of x[key]
-            if (key.expr.match(EConst(CIdent("_")))) {
-                switch xType.id {
-                    case "Slice":
-                    case "Array":
-                    default:
-                        trace("unknown range x type: " + xType.id);
-                }
-                return (macro for($value in $x) $body).expr;
-            }
-            var valueName = printer.printExpr(value);
+    var value = typeExpr(stmt.value,info); //value of x[key]
+
+    if (key.expr.match(EConst(CIdent("_")))) {
+        if (stmt.tok == DEFINE) {
+            return (macro for($value in $x) $body).expr; //iterate through values using "in" for loop
+        }else{
             switch body.expr {
                 case EBlock(exprs):
-                    exprs.unshift(macro var $valueName = $x[$key]);
+                    exprs.unshift(macro $value = _value);
                 default:
             }
-            return (macro for ($key in 0...${length(x)}) $body).expr;
-        }else{
-            return (macro for ($key in 0... ${length(x)}) $body).expr;
+            return (macro for (_value in $x) $body).expr; //iterator through values using "in" for loop, and assign value to not defined value
         }
-        return null;
-    }else{
-        return null; //TODO: implement
     }
+    //both key and value
+    if (stmt.tok == DEFINE) {
+        switch body.expr {
+            case EBlock(exprs):
+                var keyString:String = "_";
+                var valueString:String = "_";
+                switch key.expr {
+                    case EConst(c):
+                        switch c {
+                            case CIdent(s): keyString = s;
+                            default:
+                        }
+                    default:
+                }
+                switch value.expr {
+                    case EConst(c):
+                        switch c {
+                            case CIdent(s): valueString = s;
+                            default:
+                        }
+                    default:
+                }
+                exprs.unshift(macro var $keyString = _obj.key);
+                exprs.unshift(macro var $valueString = _obj.value);
+            default:
+        }
+    }else{
+        switch body.expr {
+            case EBlock(exprs):
+                exprs.unshift(macro $key = _obj.key);
+                exprs.unshift(macro $value = _obj.value);
+            default:
+        }
+    }
+    return (macro for (_obj in Go.range($x)) $body).expr;
+    return null;
 }
 private function className(name:String):String {
     if (reservedClassNames.indexOf(name) != -1)
@@ -434,8 +454,9 @@ private function mapType(expr:Ast.MapType,info:Info):ComplexType {
     var valueType = typeExprType(expr.value,info);
     if (keyType == null || valueType == null)
         return null;
+    addImport("stdgo.GoMap",info);
     return TPath({
-        name: "Map",
+        name: "GoMap",
         pack: [],
         params: [TPType(keyType),TPType(valueType)],
     });
@@ -654,13 +675,20 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     function formatEscapeCodes(value:String):String {
         var bs = "\\".charAt(0);
         value = StringTools.replace(value,bs + "a","\x07");
-        value = StringTools.replace(value,bs + "b","\x07");
+        value = StringTools.replace(value,bs + "b","\x08");
         value = StringTools.replace(value,bs + "e","\x1B");
         value = StringTools.replace(value,bs + "f","\x0C");
         value = StringTools.replace(value,bs + "n","\x0A");
         value = StringTools.replace(value,bs + "r","\x0D");
         value = StringTools.replace(value,bs + "t","\x09");
         value = StringTools.replace(value,bs + "v","\x0B");
+        value = StringTools.replace(value,bs + "x",bs + "u00");
+        value = StringTools.replace(value,bs + "U",bs + "u");
+        if (value.charAt(0) == bs && value.charAt(1) == "u") {
+            value = value.substring(2);
+            value = bs + 'u{$value}';
+        }
+        
         //value = StringTools.replace(value,bs + "" ,"\x27");
         return value;
     }
@@ -684,7 +712,13 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             EConst(CFloat(expr.value));
         case CHAR:
             info.type = TPath({name: "GoString",pack: []});
-            EConst(CString(formatEscapeCodes(expr.value)));
+            var value = formatEscapeCodes(expr.value);
+            var const = {expr: EConst(CString(value)),pos: null};
+            if (value == "\\'" || value == "\\") {
+                return (macro $const.charCodeAt(0)).expr;
+            }else{
+                EField(const,"code");
+            }
         case IDENT: 
             EConst(CIdent(ident(expr.value)));
         default:

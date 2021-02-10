@@ -2,9 +2,9 @@ package stdgo;
 
 import sys.FileStat;
 import haxe.io.Path;
-import Pointer.PointerWrapper;
-import Go.ErrorReturn;
+import stdgo.internal.ErrorReturn;
 import sys.io.File as Base;
+import stdgo.Pointer;
 import sys.FileSystem;
 
 class Os {
@@ -26,8 +26,9 @@ class Os {
 		return mkdir(path, perm);
 	}
 
-	public static inline function create(path:String):ErrorReturn<Pointer<Pointer.PointerWrapper<File>>> {
-		return {value: new Pointer(new PointerWrapper(null))};
+	public static inline function create(path:String):ErrorReturn<Pointer<File>> {
+		var file = new File();
+		return {value: Go.makePointer(file)};
 	}
 
 	public static inline function exit(code:Int) {

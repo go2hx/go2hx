@@ -271,6 +271,23 @@ class Go {
 				false;
 		}
 	}
+	public static macro function range(expr) {
+		var type = Context.follow(Context.typeof(expr));
+		switch type {
+			case TMono(t): type = t.get();
+			default:
+		}
+		switch type {
+			case TAbstract(t, params):
+				var t = t.get();
+				switch t.name {
+					case "GoString", "String","Slice","GoArray","Array","GoMap":
+
+				}
+			default:
+		}
+		return macro null;
+	}
 	public static macro function makePointer(expr) {
 		var isRealPointer = false;
 		var type = Context.follow(Context.typeof(expr));
@@ -291,83 +308,11 @@ class Go {
 					}
 				}
 			case TAnonymous(a):
-
+			case TInst(t, params):
 			default:
 				trace("unknown make pointer type: " + type);
 		}
 		return isRealPointer ? macro new Pointer(null,() -> $expr,(v) -> $expr = v) : macro new Pointer($expr);
-	}
-
-	public static macro function range(key, value, x, expr) {
-		function getName(expr:haxe.macro.Expr) {
-			switch expr.expr {
-				case EConst(c):
-					switch c {
-						case CIdent(s):
-							return s;
-						default:
-					}
-				default:
-			}
-			return "";
-		}
-		var keyName = getName(key);
-		if (keyName == "null")
-			keyName = "_iterate";
-		var init = Context.parse('var $keyName = 0;', Context.currentPos());
-		var post = Context.parse('$keyName++', Context.currentPos());
-		var set = macro null;
-		var valueName = getName(value);
-		if (valueName != "_") {
-			set = Context.parse('var $valueName = tmp;', Context.currentPos());
-		}
-		#if !display
-		var func = null;
-		func = function(expr:haxe.macro.Expr) {
-			return switch (expr.expr) {
-				case EContinue: macro {$post; $expr;}
-				case EWhile(_, _, _): expr;
-				case ECall(macro cfor, _): expr;
-				case EFor(_): expr;
-				// case EIn(_): expr;
-				default: haxe.macro.ExprTools.map(expr, func);
-			}
-		}
-		expr = func(expr);
-		#end
-		var xType = Context.followWithAbstracts(Context.typeof(x));
-		switch xType {
-			case TInst(t, params):
-				var name = t.get().name;
-				switch (name) {
-					case "Array":
-					case "String", "GoString":
-						// x = macro new haxe.iterators.StringIterator($x);
-						x = macro $x.split("");
-					case "StringMap", "Map", "IntMap", "HashMap", "ObjectMap", "UnsafeStringMap", "WeakMap":
-						x = macro $x.keys();
-						var string = 'var $keyName = tmp;';
-						if (valueName != "_") {
-							string += 'var $valueName = ${ExprTools.toString(x)}[tmp];';
-						}
-						set = Context.parse(string, Context.currentPos());
-						init = macro null;
-						post = macro null;
-					default:
-						trace('unknown iterator inst name: $name');
-				}
-			default:
-				trace('unknown iterator type: $xType');
-		}
-		var exprMacro = macro {
-			$init;
-			for (tmp in $x) {
-				$set;
-				$expr;
-				$post;
-			}
-		};
-		return exprMacro;
 	}
 
 	public static macro function cfor(cond, post, expr) {

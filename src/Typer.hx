@@ -672,8 +672,8 @@ private function getDefaultValue(type:ComplexType):Expr {
     }
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
+    final bs = "\\".charAt(0);
     function formatEscapeCodes(value:String):String {
-        var bs = "\\".charAt(0);
         value = StringTools.replace(value,bs + "a","\x07");
         value = StringTools.replace(value,bs + "b","\x08");
         value = StringTools.replace(value,bs + "e","\x1B");
@@ -696,7 +696,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
         case STRING:
             addImport("stdgo.GoString",info);
             info.type = TPath({name: "GoString",pack: []});
-            EConst(CString(formatEscapeCodes(expr.value)));
+            EConst(CString(expr.value));
         case INT:
             info.type = TPath({name: "Int",pack: []});
             if (expr.value.length > 10) {
@@ -714,11 +714,14 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             info.type = TPath({name: "GoString",pack: []});
             var value = formatEscapeCodes(expr.value);
             var const = {expr: EConst(CString(value)),pos: null};
-            if (value == "\\'" || value == "\\") {
-                return (macro $const.charCodeAt(0)).expr;
-            }else{
-                EField(const,"code");
+            if (value == bs + "'") {
+                value = "'";
             }
+            var const = {expr: EConst(CString(value)),pos: null};
+            if (value == "\\") {
+                return (macro $const.charCodeAt(0)).expr;
+            }
+            return EField(const,"code");
         case IDENT: 
             EConst(CIdent(ident(expr.value)));
         default:

@@ -258,12 +258,17 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     info.retypeMap[name] = type;
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
+                    info.meta = [];
                     var type = typeExprType(spec.type,info);
+                    var value = macro null;
+                    if (spec.type.id == "ArrayType" && info.meta.length > 0) {
+                        value = macro ${{expr: EConst(CInt(Std.string(stdgo.Builtin.getMetaLength(info.meta)))),pos: null}};
+                    }
                     return EVars([
                         for (i in 0...spec.names.length) {
                             name: spec.names[i],
                             type: type,
-                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : null,
+                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro literal($value),
                         }
                     ]);
             }
@@ -761,18 +766,22 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     }
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
+    info.meta = [];
     var type = typeExprType(expr.type,info);
     var params:Array<Expr> = [];
-    if (type == null) {
-        params.push(macro null);
+
+    if (expr.type.id == "ArrayType" && info.meta.length > 0) {
+        var length = stdgo.Builtin.getMetaLength(info.meta);
+        params.push({expr: ECheckType({expr: EConst(CInt(Std.string(length))),pos: null},type),pos: null});
     }else{
-        params.push({expr: ECheckType(macro _,type),pos: null});
+        params.push({expr: ECheckType(macro _,type),pos: null}); //normal
     }
     for (elt in expr.elts) {
         params.push(typeExpr(elt,info));
     }
-    return (macro literal($a{params})).expr; //ECall
+    return (macro literal($a{params})).expr;
 }
+
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return EFunction(FAnonymous,{
         ret: typeFieldListRes(expr.type.results,info),

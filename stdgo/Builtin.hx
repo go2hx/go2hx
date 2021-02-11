@@ -1,5 +1,6 @@
 package stdgo;
 
+import haxe.macro.ExprTools;
 import haxe.macro.PositionTools;
 import haxe.macro.TypeTools;
 import haxe.macro.ComplexTypeTools;
@@ -110,6 +111,8 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 	var func = null;
 	func = function():ExprOf<T> {
  		switch type {
+			case TFunction(args, ret):
+				return macro null;
 			case TAnonymous(fields):
 				fields.sort((a,b) -> {
 					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
@@ -124,7 +127,10 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 						var size = macro $v{params.length};
 						return macro new $p($size,$size,...$a{params});
 					case "GoArray":
-						var size = macro $v{params.length};
+						//var size = getData()
+						var size = getData(t);
+						if (size == null)
+							size = macro 0;
 						return macro new $p($size,...$a{params});
 					case "StdTypes":
 						switch p.sub {
@@ -143,7 +149,7 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 						return func();
 				}
 			default:
-				trace("create type: " + type);
+				trace("missing type: " + type);
 				return null;
 		}
 	}
@@ -187,6 +193,12 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					return macro new $p(0);
 				case "Dynamic":
 					return macro {};
+				case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+					return macro 0;
+				case "GoArray":
+					var length = {expr: EConst(CInt(Std.string(getMetaLength(meta)))),pos: pos};
+					return macro new $p($length);
+					//return macro new $p($v{length});
 				default:
 					trace("default type missing: " + p);
 			}
@@ -201,7 +213,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					}
 					{
 						field: field.name,
-						expr: defaultValue(type,pos),
+						expr: defaultValue(type,pos,field.meta),
 					};
 				}
 			])};
@@ -209,6 +221,30 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 			trace("unknown type for default value: " + t);
 	}
 	return macro null;
+}
+
+function getMetaLength(meta:Metadata):Int {
+	for (m in meta) {
+		if (m.name != "length")
+			continue;
+		switch m.params[0].expr {
+			case EConst(c):
+				switch c {
+					case CInt(v):
+						return Std.parseInt(v);
+					default:
+				}
+			default:
+		}
+	}
+	return 0;
+}
+private function getData(expr:Expr):Expr {
+	return switch expr.expr {
+		case ECheckType(e, t): return e;
+		case EParenthesis(e): return getData(e);
+		default: expr;
+	}
 }
 private function getType(expr:Expr):ComplexType {
 	var type:ComplexType = null;

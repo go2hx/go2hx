@@ -181,10 +181,17 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     if (stmt.value == null) {
         if (stmt.key == null)
             key = macro _i;
-        return (macro for ($key in 0...$x) $body).expr; //only index no need to use Go.range
+        if (stmt.tok != DEFINE && stmt.key != null) {
+            switch body.expr {
+                case EBlock(exprs):
+                    exprs.unshift(macro $key = _i);
+                default:
+            }
+            key = macro _i;
+        }
+        return (macro for ($key in 0...$x.length) $body).expr; //only index no need to use Go.range
     }
     var value = typeExpr(stmt.value,info); //value of x[key]
-
     if (key.expr.match(EConst(CIdent("_")))) {
         if (stmt.tok == DEFINE) {
             return (macro for($value in $x) $body).expr; //iterate through values using "in" for loop
@@ -197,6 +204,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
             return (macro for (_value in $x) $body).expr; //iterator through values using "in" for loop, and assign value to not defined value
         }
     }
+
     //both key and value
     if (stmt.tok == DEFINE) {
         switch body.expr {
@@ -232,7 +240,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
         }
     }
     return (macro for (_obj in Go.range($x)) $body).expr;
-    return null;
 }
 private function className(name:String):String {
     if (reservedClassNames.indexOf(name) != -1)
@@ -365,17 +372,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     switch stmt.tok {
         case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
-                if (stmt.lhs.length == 1) {
-                    var op = typeOp(stmt.tok);
-                    var x = typeExpr(stmt.lhs[0],info);
-                    var y = typeExpr(stmt.rhs[0],info);
-                    return EBinop(op,x,y);
-                }else{
-                    return EBlock([
-                        for (i in 0...stmt.lhs.length) 
-                            {pos: null, expr: EBinop(typeOp(stmt.tok),typeExpr(stmt.lhs[0],info),typeExpr(stmt.rhs[0],info))}
-                    ]);
-                }
+                var op = typeOp(stmt.tok);
+                var exprs = [for (i in 0...stmt.lhs.length) {
+                    var x = typeExpr(stmt.lhs[i],info);
+                    var y = typeExpr(stmt.rhs[i],info);
+                    x.expr.match(EConst(CIdent("_"))) ? y : {pos: null, expr: EBinop(op,x,y)}; 
+                }];
+                if (exprs.length == 1)
+                    return exprs[0].expr;
+                return EBlock(exprs);
             }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
                 //destructure system
                 return null;
@@ -487,18 +492,15 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
     var data = typeFieldListFields(expr.fields,info,[]);
-    trace("extend!: " + data.extend);
     var anon = TAnonymous(data.fields);
     if (data.extend.length == 0)
         return anon;
     return TIntersection([anon].concat(data.extend));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
-
-    return TFunction([],TPath({
-        name: "Void",
-        pack: [],
-    }));
+    var ret = typeFieldListRes(expr.results,info);
+    var params = typeFieldListComplexTypes(expr.params,info);
+    return TFunction(params,ret);
 }
 private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     //array is pass by copy, slice is pass by ref except for its length
@@ -626,7 +628,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     switch expr.fun.id {
         case "FuncLit":
             var expr = typeExpr(expr.fun,info);
-            return (macro {var a = $expr; a;}).expr;
+            return (macro {var a = $expr; a();}).expr;
         case "SelectorExpr":
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
@@ -969,6 +971,16 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     }
     return args;
 }
+private function typeFieldListComplexTypes(list:Ast.FieldList,info:Info):Array<ComplexType> {
+    var args:Array<ComplexType> = [];
+    for (field in list.list) {
+        var type = typeExprType(field.type,info);
+        for (name in field.names) {
+            args.push(TNamed(name.name,type));
+        }
+    }
+    return args;
+}
 private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):{fields:Array<Field>,extend:Array<ComplexType>} {
     var fields:Array<Field> = [];
     var extend:Array<ComplexType> = [];
@@ -977,7 +989,6 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
         var type = typeExprType(field.type,info);
         if (field.names.length == 0) {
             //extend
-            trace("extend:");
             extend.push(type);
             continue;
         }

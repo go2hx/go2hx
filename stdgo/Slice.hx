@@ -57,6 +57,9 @@ abstract Slice<T>(SliceData<T>) {
     inline public function iterator():Iterator<T> {
         return this.iterator();
     }
+    inline public function keyValueIterator() {
+        return this.keyValueIterator();
+    }
     inline public function cap():Int {
         return this.cap();
     }
@@ -68,6 +71,19 @@ abstract Slice<T>(SliceData<T>) {
     }
     inline public function setUnderlying(array:GoArray<T>,pos:Int,length:Int) {
         this.setUnderlying(array,pos,length);
+    }
+}
+class SliceKeyValueIterator<T> {
+    var pos:Int = 0;
+    var slice:SliceData<T>;
+    public inline function new(slice) {
+        this.slice = slice;
+    }
+    public inline function hasNext() {
+        return pos < slice.length;
+    }
+    public inline function next() {
+        return {key: pos, value: slice.get(pos++)};
     }
 }
 class SliceIterator<T> {
@@ -102,6 +118,9 @@ class SliceData<T> {
     }
     inline public function iterator():Iterator<T> {
         return new SliceIterator(this);
+    }
+    inline public function keyValueIterator():KeyValueIterator<Int,T> {
+        return new SliceKeyValueIterator(this);
     }
     inline public function cap():Int {
         return 0;

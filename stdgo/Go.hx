@@ -282,9 +282,14 @@ class Go {
 				var t = t.get();
 				switch t.name {
 					case "GoString", "String","Slice","GoArray","Array","GoMap":
-
+						return macro $expr.keyValueIterator();
+					default:
+						trace("unknown type abstract range: " + t.name);
 				}
+			case TAnonymous(a):
+				trace("a: " + a.get().fields);
 			default:
+				trace("unknown range type: " + type);
 		}
 		return macro null;
 	}

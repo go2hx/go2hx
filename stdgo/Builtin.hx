@@ -14,7 +14,7 @@ import stdgo.Slice;
 inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 	if (args.length == 0)
 		return slice;
-	return slice.append(args.toArray());
+	return slice.append(args);
 }
 
 inline function close(v) {}
@@ -122,16 +122,10 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 						return macro {};
 					case "Slice":
 						var size = macro $v{params.length};
-						return macro {
-							var slice = new $p($size,$size,...$a{params});
-							slice;
-						}
+						return macro new $p($size,$size,...$a{params});
 					case "GoArray":
 						var size = macro $v{params.length};
-						return macro {
-							var array = new $p($size,...$a{params});
-							array;
-						}
+						return macro new $p($size,...$a{params});
 					case "StdTypes":
 						switch p.sub {
 							case "Int":

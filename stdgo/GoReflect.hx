@@ -7,6 +7,9 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
     if (cl != null) {
         var name = Type.getClassName(cl);
         switch name {
+            case "haxe._Int64.___Int64": //standard compare
+                var compare = Int64.compare(a,b);
+                return compare == 0;
             case "stdgo.PointerData":
                 if (a.get == null)
                     return false;
@@ -51,5 +54,7 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
        }
        return true;
     }
-    return a == b;
+    var bool = a == b;
+    trace("bool: " + bool);
+    return bool;
 }

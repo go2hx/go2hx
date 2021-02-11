@@ -11,4 +11,10 @@ abstract GoMap<K,V>(Map<K,V>) {
     public inline function new(length:Int=0,cap:Int=0) {
         this = new Map<K,V>();
     }
+    public inline function iterator() {
+        return this.iterator();
+    }
+    public inline function keyValueIterator() {
+        return this.keyValueIterator();
+    }
 }

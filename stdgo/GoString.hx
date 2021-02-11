@@ -1,5 +1,6 @@
 package stdgo;
 
+import haxe.iterators.StringKeyValueIterator;
 import haxe.iterators.StringIterator;
 
 @:forward
@@ -16,6 +17,9 @@ abstract GoString(String) from String to String {
 
 	public function iterator():StringIterator {
 		return new StringIterator(this);
+	}
+	public function keyValueIterator() {
+		return new StringKeyValueIterator(this);
 	}
 
 	public function slice(start:Int,end:Int=0):GoString {

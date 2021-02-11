@@ -14,6 +14,10 @@ abstract GoArray<T>(Vector<T>) {
         return 0;
     }
 
+    public inline function iterator() {
+        return new VectorIterator(this);
+    }
+
     public inline function new(length:Int=0,args:Rest<T>) {
         this = new Vector<T>(length);
         if (args.length == 0)
@@ -40,5 +44,33 @@ abstract GoArray<T>(Vector<T>) {
     public function copy():GoArray<T> {
         var array = new GoArray<T>();
         return array;
+    }
+}
+
+class VectorKeyValueIterator<T> {
+    var pos:Int = 0;
+    var vector:Vector<T>;
+    public inline function new(vector) {
+        this.vector = vector;
+    }
+    public inline function hasNext() {
+        return pos < vector.length;
+    }
+    public inline function next() {
+        return {key: pos, value: vector.get(pos++)};
+    }
+}
+
+class VectorIterator<T> {
+    var pos:Int = 0;
+    var vector:Vector<T>;
+    public inline function new(vector) {
+        this.vector = vector;
+    }
+    public inline function hasNext() {
+        return pos < vector.length;
+    }
+    public inline function next() {
+        return vector.get(pos++);
     }
 }

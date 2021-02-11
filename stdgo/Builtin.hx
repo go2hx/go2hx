@@ -227,6 +227,8 @@ function getMetaLength(meta:Metadata):Int {
 	for (m in meta) {
 		if (m.name != "length")
 			continue;
+		if (m.params[0] == null)
+			continue;
 		switch m.params[0].expr {
 			case EConst(c):
 				switch c {

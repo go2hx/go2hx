@@ -602,7 +602,8 @@ private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     var expr = typeExpr(expr.elt,info);
-    return typeRest(expr).expr;
+    var rest = typeRest(expr);
+    return rest != null ? rest.expr : null;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     if (info.types.exists(expr.name))
@@ -768,6 +769,8 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     info.meta = [];
     var type = typeExprType(expr.type,info);
+    if (type == null)
+        return null;
     var params:Array<Expr> = [];
 
     if (expr.type.id == "ArrayType" && info.meta.length > 0) {
@@ -997,9 +1000,15 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
         info.meta = [];
         var type = typeExprType(field.type,info);
         if (field.names.length == 0) {
-            //extend
-            extend.push(type);
-            continue;
+            var name = field.type.name;
+            switch name {
+                case "string","int","bool","uint","byte","rune":
+                    field.names.push({name: name});
+                default:
+                    //extend
+                    extend.push(type);
+                    continue;
+            }
         }
         for (name in field.names) {
             fields.push({
@@ -1011,8 +1020,6 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
             });
         }
     }
-    if (fields.length > 0)
-        trace("field: " + printer.printField(fields[0]));
     return {fields: fields,extend: extend};
 }
 private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefinition> {

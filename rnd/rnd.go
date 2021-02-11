@@ -1,21 +1,22 @@
 package main
 
 import (
-	"fmt"
+	_ "fmt"
 )
 
+
+type T struct {
+	int
+}
+
+func f() *T {
+	return &T{1}
+}
+
 func main() {
-	var g func() int
-	q := 0
-	for range [2]int{} {
-		q++
-		g = func() int {
-			return q // test that we capture by ref here
-			// q++ must on a different decldepth than q declaration
-		}
+	x := f()
+	y := f()
+	if x == y {
+		panic("not allocating & composite literals")
 	}
-	if g() != 2 {
-		panic("g() != 2")
-	}
-	fmt.Println("end!")
 }

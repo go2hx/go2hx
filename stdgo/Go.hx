@@ -281,7 +281,7 @@ class Go {
 			case TAbstract(t, params):
 				var t = t.get();
 				switch t.name {
-					case "GoString", "String","Slice","GoArray","Array","GoMap":
+					case "GoString","Slice","GoArray","Array","GoMap":
 						return macro $expr.keyValueIterator();
 					default:
 						trace("unknown type abstract range: " + t.name);

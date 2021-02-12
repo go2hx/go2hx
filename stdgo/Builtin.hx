@@ -193,6 +193,8 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					return macro new $p(0);
 				case "Dynamic":
 					return macro {};
+				case "GoDynamic":
+					return macro new stdgo.GoDynamic();
 				case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoArray":

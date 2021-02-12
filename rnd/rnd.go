@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	_ "fmt"
 )
 
@@ -14,9 +15,10 @@ func f() *T {
 }
 
 func main() {
-	x := f()
-	y := f()
-	if x == y {
-		panic("not allocating & composite literals")
-	}
+	var (
+		five = 5
+		four = 4
+		six = "hi"
+	)
+	fmt.Println("four:",four,"five:",five)
 }

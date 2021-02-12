@@ -36,6 +36,8 @@ final reservedClassNames = [
     "SysError","Type","UnicodeString","ValueType",
     //"Void",
     "Xml","XmlType",
+
+    "GoArray","GoDynamic","GoMath","Go","Slice","Pointer",
 ];
 final basicTypes = [
     "uint","uint8","uint16","uint32","uint64",
@@ -214,7 +216,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
                 switch key.expr {
                     case EConst(c):
                         switch c {
-                            case CIdent(s): keyString = s;
+                            case CIdent(s): keyString = nameIdent(s);
                             default:
                         }
                     default:
@@ -222,7 +224,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
                 switch value.expr {
                     case EConst(c):
                         switch c {
-                            case CIdent(s): valueString = s;
+                            case CIdent(s): valueString = nameIdent(s);
                             default:
                         }
                     default:
@@ -248,7 +250,9 @@ private function className(name:String):String {
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
     var decls:Array<Ast.GenDecl> = stmt.decl.decls;
+    var vars:Array<Var> = [];
     for (decl in decls) {
+        
         for (spec in decl.specs) {
             switch spec.id {
                 case "TypeSpec":
@@ -258,23 +262,27 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     info.retypeMap[name] = type;
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
+                    trace("names: " + spec.names);
                     info.meta = [];
+                    info.type = null;
                     var type = typeExprType(spec.type,info);
                     var value = macro null;
                     if (spec.type.id == "ArrayType" && info.meta.length > 0) {
                         value = macro ${{expr: EConst(CInt(Std.string(stdgo.Builtin.getMetaLength(info.meta)))),pos: null}};
                     }
-                    return EVars([
+                    vars = vars.concat([
                         for (i in 0...spec.names.length) {
-                            name: spec.names[i],
-                            type: type,
+                            name: nameIdent(spec.names[i]),
+                            type: type != null ? type : info.type,
                             expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro literal($value),
                         }
                     ]);
             }
         }
     }
-    return (macro {}).expr;
+    if (vars.length > 0)
+        return EVars(vars);
+    return (macro {}).expr; //blank expr def
 }
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef { //a switch statement of a type
     var init:Expr = null;
@@ -401,7 +409,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                     info.type = null;
                     var expr = typeExpr(stmt.rhs[i],info);
                     vars.push({
-                        name: stmt.lhs[i].name,
+                        name: nameIdent(stmt.lhs[i].name),
                         type: stmt.rhs[i].id == "BasicLit" ? info.type : null,
                         expr: expr,
                     });
@@ -415,7 +423,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 }];
                 for (i in 0...stmt.lhs.length) {
                     vars.push({
-                        name:  stmt.lhs[i].name,
+                        name:  nameIdent(stmt.lhs[i].name),
                         expr: macro _o,
                     });
                 }
@@ -486,8 +494,9 @@ private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
 private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     if (expr.methods.list.length == 0) {
         //dynamic
+        addImport("stdgo.GoDynamic",info);
         return TPath({
-            name: "Dynamic",
+            name: "GoDynamic",
             pack: [],
         });
     }else{
@@ -586,7 +595,9 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "Ellipsis": typeEllipsis(expr,info);
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
-        case "InterfaceType": (macro {}).expr;
+        case "InterfaceType":
+            addImport("stdgo.GoDynamic",info);
+            (macro new GoDynamic()).expr;
         default:
             throw("unknown expr id: " + expr.id); 
             null;
@@ -608,11 +619,14 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     if (info.types.exists(expr.name))
         expr.name = info.types[expr.name];
-    return EConst(CIdent(ident(expr.name)));
+    return EConst(CIdent(nameIdent(expr.name)));
 }
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args:Array<Expr> = [];
     var ellipsisFunc = null;
+    function genArgs() {
+        args = [for (arg in expr.args) typeExpr(arg,info)];
+    }
     ellipsisFunc = function() {
         if (!expr.ellipsis.noPos) {
             var last = args.pop();
@@ -639,6 +653,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
             switch expr.fun.name {
+                case "string":
+                    genArgs();
+                    return (macro Std.string($a{args})).expr;
                 case "cap":
                     return (macro ${typeExpr(expr.args[0],info)}.cap()).expr;
                 case "len":
@@ -648,7 +665,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                         expr.fun.name = "create";
 
                     var type = expr.args.shift();
-                    args = [for (arg in expr.args) typeExpr(arg,info)];
+                    genArgs();
                     var t = typeExprType(type,info);
                     args.unshift(macro (_ : $t)); //ECheckType
                 case null:
@@ -661,7 +678,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             }
         case "ParenExpr":
             //type set
-            return null;
+            var e:Ast.ParenExpr = expr.fun;
+            var t = typeExprType(e.x,info);
+            return (macro literal((_ : $t))).expr;
         case "ArrayType":
             //set assert type
             var type = typeExprType(expr.fun,info);
@@ -669,10 +688,11 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return (macro Go.assert(($expr : $type))).expr;
         case "InterfaceType":
             //set dynamic
-            return null;
+            addImport("stdgo.GoDynamic",info);
+            return (macro new GoDynamic()).expr;
     }
     if (args.length == 0)
-        args = [for (arg in expr.args) typeExpr(arg,info)];
+        genArgs();
     ellipsisFunc();
     var e = typeExpr(expr.fun,info);
     return ECall(e,args);
@@ -748,7 +768,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             }
             return EField(const,"code");
         case IDENT: 
-            EConst(CIdent(ident(expr.value)));
+            EConst(CIdent(nameIdent(expr.value)));
         default:
             error("basic lit kind unknown: " + expr.kind);
             null;
@@ -769,15 +789,16 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     info.meta = [];
     var type = typeExprType(expr.type,info);
-    if (type == null)
-        return null;
     var params:Array<Expr> = [];
-
-    if (expr.type.id == "ArrayType" && info.meta.length > 0) {
-        var length = stdgo.Builtin.getMetaLength(info.meta);
-        params.push({expr: ECheckType({expr: EConst(CInt(Std.string(length))),pos: null},type),pos: null});
+    if (type == null) {
+        params.push(macro null);
     }else{
-        params.push({expr: ECheckType(macro _,type),pos: null}); //normal
+        if (expr.type.id == "ArrayType" && info.meta.length > 0) {
+            var length = stdgo.Builtin.getMetaLength(info.meta);
+            params.push({expr: ECheckType({expr: EConst(CInt(Std.string(length))),pos: null},type),pos: null});
+        }else{
+            params.push({expr: ECheckType(macro _,type),pos: null}); //normal
+        }
     }
     for (elt in expr.elts) {
         params.push(typeExpr(elt,info));
@@ -899,7 +920,7 @@ private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
-    return (macro ($x)).expr;
+    return x != null ? EParenthesis(x) : null;
 }
 //SPECS
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
@@ -1079,13 +1100,14 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;
+            addImport("stdgo.GoDynamic",info);
             if (struct.methods.list.length == 0)
                 return {
                     name: name,
                     pos: null,
                     fields: [],
                     pack: [],
-                    kind: TDAlias(TPath({name: "Dynamic",pack: []})),
+                    kind: TDAlias(TPath({name: "GoDynamic",pack: []})),
                 }
             return null;
             //error("unknown interface type spec"); null;
@@ -1105,6 +1127,8 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
     var alias = imp.name == null ? null : imp.name.name;
+    if (alias == "_")
+        alias = "";
     if (stdgoList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
     var name = path[path.length - 1];
@@ -1149,15 +1173,12 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
 private function typeAccess(name:String,isField:Bool=false):Array<Access> {
     return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
-private function ident(name:String):String {
+private function nameIdent(name:String):String {
+    if (reserved.indexOf(name) != -1)
+        name += "_";
     if (name == "nil")
         name = "null";
     return name;
-}
-private function nameIdent(string:String):String {
-    if (reserved.indexOf(string) != -1)
-        string += "_";
-    return string;
 }
 private function normalizePath(path:String):String {
     path = StringTools.replace(path,".","_");

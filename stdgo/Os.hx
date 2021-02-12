@@ -22,6 +22,10 @@ class Os {
 		}
 	}
 
+	public static inline function getenv(path:String):String {
+		return Sys.getEnv(path);
+	}
+
 	public static inline function mkdirAll(path:String, ?perm:Int):Errors {
 		return mkdir(path, perm);
 	}

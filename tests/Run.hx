@@ -13,7 +13,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/compos.go"];
+    tests = ["./go/test/append.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);

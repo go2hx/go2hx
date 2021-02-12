@@ -20,30 +20,30 @@ inline function mkdir(path:String, ?perm:Int):Errors {
 	}
 }
 @:noUsing
-public static inline function getenv(path:String):String {
+inline function getenv(path:String):String {
 	return Sys.getEnv(path);
 }
 @:noUsing
-public static inline function mkdirAll(path:String, ?perm:Int):Errors {
+inline function mkdirAll(path:String, ?perm:Int):Errors {
 	return mkdir(path, perm);
 }
 @:noUsing
-public static inline function create(path:String):ErrorReturn<Pointer<File>> {
-	var file = new File();
+inline function create(path:String):ErrorReturn<Pointer<File>> {
+	var file:File = null;
 	return {value: Go.makePointer(file)};
 }
 @:noUsing
-public static inline function exit(code:Int) {
+inline function exit(code:Int) {
 	Sys.exit(code);
 }
 @:noUsing
-public static inline function newSyscallError(syscall:String, err:Errors):Errors {
+inline function newSyscallError(syscall:String, err:Errors):Errors {
 	if (err == null)
 		return null;
 	return new Errors(syscall);
 }
 @:noUsing
-public static inline function chdir(dir:String):Errors {
+inline function chdir(dir:String):Errors {
 	try {
 		Sys.setCwd(dir);
 		return null;
@@ -52,7 +52,7 @@ public static inline function chdir(dir:String):Errors {
 	}
 }
 @:noUsing
-public static inline function remove(name:String):Errors {
+inline function remove(name:String):Errors {
 	try {
 		if (FileSystem.isDirectory(name)) {
 			FileSystem.deleteDirectory(name);
@@ -81,11 +81,12 @@ inline function removeAll(path:String):Errors {
 }
 
 typedef FileMode = Int;
+typedef File = {};
 
-typedef FileInfo {
-	stat:FileStat,
-	@:noCompleition _name:String,
-}
+typedef FileInfo = {
+	var stat:FileStat;
+	@:noCompletion var _name:String;
+};
 
 function name(info:FileInfo):String {
 	return info._name;
@@ -105,8 +106,4 @@ function modeTime(info:FileInfo) {
 
 function size(info:FileInfo) {
 	return info.stat.size;
-}
-
-function sys(info:FileInfo) {
-	return null;
 }

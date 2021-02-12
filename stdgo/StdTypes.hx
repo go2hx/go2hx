@@ -3,7 +3,7 @@ package stdgo;
 typedef UInt8 = GoUInt;
 typedef UInt16 = GoUInt;
 typedef UInt32 = Int64;
-typedef UInt64 = UInt; //low = int64, high = int64
+typedef UInt64 = GoUInt; //low = int64, high = int64
 typedef Int8 = GoInt;
 typedef Int16 = GoInt;
 typedef Int32 = GoInt;
@@ -11,8 +11,8 @@ typedef Float32 = Float;
 typedef Float64 = Float;
 typedef Complex64 = Float;
 typedef Complex128 = Float; //low = float, high = float
-typedef Byte = UInt;
-typedef Rune = Int;
+typedef Byte = GoUInt;
+typedef Rune = GoInt;
 
 abstract Int64(haxe.Int64) from haxe.Int64 {
     public function new(n:haxe.Int64) {
@@ -28,24 +28,45 @@ abstract Int64(haxe.Int64) from haxe.Int64 {
         return new Int64(haxe.Int64.fromFloat(f));
     }
 }
-abstract GoInt(Int) from Int {
+abstract GoInt(Int) from Int to Int {
     public function new(n) {
         this = n;
     }
     @:from public static function fromFloat(f:Float) {
         return new GoInt(Std.int(f));
     }
-    @:to public static function toFloat(x:GoInt):Float {
-        return cast x.toInt();
-    }
-    @:op(a / b) public static function divideInts(a:GoInt,b:GoInt) {
-        return new GoInt(Std.int(a.toInt() / b.toInt()));
-    }
+    @:op(A < B) static function lt(a:GoInt,b:GoInt):Bool;
+    @:op(A > B) static function rt(a:GoInt,b:GoInt):Bool;
+    @:op(A <= B) static function lte(a:GoInt,b:GoInt):Bool;
+    @:op(A >= B) static function rte(a:GoInt,b:GoInt):Bool;
+    @:op(A == B) static function equal(a:GoInt,b:GoInt):Bool;
+
+    @:op(A % B) static function mod(a:GoInt,b:GoInt):GoInt;
+    @:op(A / B) static function div(a:GoInt,b:GoInt):GoInt;
+    @:op(A * B) static function mul(a:GoInt,b:GoInt):GoInt;
+    @:op(A - B) static function sub(a:GoInt,b:GoInt):GoInt;
+    @:op(A + B) static function add(a:GoInt,b:GoInt):GoInt;
+    @:op(A << B) static function sl(a:GoInt,b:GoInt):GoInt;
+    @:op(A >> B) static function sr(a:GoInt,b:GoInt):GoInt;
+    @:op(A >>> B) static function usr(a:GoInt,b:GoInt):GoInt;
+    @:op(A & B) static function and(a:GoInt,b:GoInt):GoInt;
+    @:op(A | B) static function or(a:GoInt,b:GoInt):GoInt;
+    @:op(A ^ B) static function xor(a:GoInt,b:GoInt):GoInt;
+
+    @:op(A += B) static function assignAdd(a:GoInt,b:GoInt):GoInt;
+    @:op(A -= B) static function assignSub(a:GoInt,b:GoInt):GoInt;
+    @:op(A /= B) static function assignDiv(a:GoInt,b:GoInt):GoInt;
+    @:op(A *= B) static function assignMul(a:GoInt,b:GoInt):GoInt;
+    @:op(A %= B) static function assignMod(a:GoInt,b:GoInt):GoInt;
+    @:op(A &= B) static function assignAnd(a:GoInt,b:GoInt):GoInt;
+    @:op(A |= B) static function assignOr(a:GoInt,b:GoInt):GoInt;
+    @:op(A ^= B) static function assignXor(a:GoInt,b:GoInt):GoInt;
+    @:op(A <<= B) static function assignSl(a:GoInt,b:GoInt):GoInt;
+    @:op(A >>= B) static function assignSr(a:GoInt,b:GoInt):GoInt;
+    @:op(A >>= B) static function assignUsr(a:GoInt,b:GoInt):GoInt;
+
     public inline function toInt() {
         return this;
-    }
-    public static function int(x:Int) {
-        return new GoInt(x);
     }
 }
 abstract GoUInt(Int) from Int {
@@ -58,17 +79,13 @@ abstract GoUInt(Int) from Int {
 }
 
 
-abstract GoDynamic(Dynamic) from Dynamic {
-    public function new(?obj) {
-        if (obj == null)
-            obj = {};
+abstract GoDynamic(Dynamic) from Dynamic to Dynamic {
+    public function new(obj:Dynamic) {
         this = obj;
     }
     @:op(A == B) static public function equals(a:Dynamic,b:GoDynamic):Bool {
+        trace("1:");
         return stdgo.GoReflect.deepEqual(a,b);
-    }
-    public inline function toDynamic():Dynamic {
-        return this;
     }
 }
 /*

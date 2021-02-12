@@ -6,11 +6,15 @@ function typeOf(a:Dynamic):Dynamic {
 }
 @:noUsing
 function deepEqual(a:Dynamic,b:Dynamic):Bool {
-    if (a == null)
-        return a == b;
     var cl = Type.getClass(a);
     if (cl != null) {
         var name = Type.getClassName(cl);
+        var cl2 = Type.getClass(b);
+        if (cl2 == null)
+            return false;
+        var name2 = Type.getClassName(cl2);
+        if (name != name2)
+            return false;
         switch name {
             case "haxe._Int64.___Int64": //standard compare
                 var compare = Int64.compare(a,b);
@@ -45,10 +49,7 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
                 trace("unknown reflect name: " + name);
         }
     }
-    if (Std.isOfType(a,Dynamic)) {
-       var isObject = Reflect.isObject(a);
-       if (!isObject)
-            return isObject == Reflect.isObject(b);
+    if (Reflect.isObject(a) && Reflect.isObject(b)) {
        var aFields = Reflect.fields(a);
        var bFields = Reflect.fields(b);
        if (aFields.length != bFields.length) 
@@ -60,6 +61,5 @@ function deepEqual(a:Dynamic,b:Dynamic):Bool {
        return true;
     }
     var bool = a == b;
-    trace("bool: " + bool);
     return bool;
 }

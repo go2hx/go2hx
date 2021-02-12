@@ -214,18 +214,23 @@ class Go {
 					var from = Context.toComplexType(Context.follow(Context.typeof(e)));
 					if (to == null || from == null)
 						trace("could not resolve types: " + e.expr + " : " + t);
-					function missing() {
-						trace("unsupported assert: " + typeName(from) + " -> " + typeName(to));
-					}
+					var fromString = typeName(from);
+					var toString = typeName(to);
 					function standard() {
 						return macro {
 							var x:$to = $e;
 							x;
 						}
 					}
-					switch typeName(from) {
+					function assertString() {
+						return macro (Std.string($e) : GoString);
+					}
+					if (fromString == toString)
+						return e;
+
+					switch fromString {
 						case "String", "GoString":
-							switch typeName(to) {
+							switch toString {
 								case "Slice":
 									return macro {
 										var array = $e.split("");
@@ -235,24 +240,26 @@ class Go {
 										}
 										slice;
 									}
-								default:
-									missing();
 							}
-						case "Int":
-							switch typeName(to) {
+						case "GoInt":
+							switch toString {
 								case "Float":
 									return macro ($e : Float);
+								case "GoString":
+									return assertString();
+							}
+						case "Int":
+							switch toString {
+								case "GoInt":
+									return macro new GoInt($e);
 							}
 						case "Dynamic":
-							switch typeName(to) {
+							switch toString {
 								case "Slice":
 									return standard();
-								default:
-									missing();
 							}
-						default:
-							missing();
 					}
+				trace("unsupported assert: " + fromString + " -> " + toString);
 				case EParenthesis(e):
 					expr = e;
 					return func();

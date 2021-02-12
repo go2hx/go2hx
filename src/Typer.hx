@@ -43,6 +43,7 @@ final basicTypes = [
     "uint","uint8","uint16","uint32","uint64",
     "int","int8","int16","int32","int64",
     "float32","float64","complex64","complex128",
+    "string",
     "byte", //alias for uint8
     "rune" //alias for int32
 ];
@@ -654,9 +655,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
         case "Ident":
             switch expr.fun.name {
-                case "string":
+                /*case "string":
                     genArgs();
-                    return (macro Std.string($a{args})).expr;
+                    return (macro Std.string($a{args})).expr;*/
                 case "cap":
                     return (macro ${typeExpr(expr.args[0],info)}.cap()).expr;
                 case "len":
@@ -689,7 +690,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return (macro Go.assert(($expr : $type))).expr;
         case "InterfaceType":
             //set dynamic
-            return (macro new GoDynamic()).expr;
+            genArgs();
+            return (macro new GoDynamic($a{args})).expr;
     }
     if (args.length == 0)
         genArgs();
@@ -825,7 +827,17 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr, OpXor:
             var expr = {expr: EBinop(op,macro Std.int($x),macro Std.int($y)), pos: null};
-            return (macro GoInt.int($expr)).expr;
+            return (macro new GoInt($expr)).expr;
+        case OpDiv:
+            var isInt:Bool = false;
+            if (expr.x.id == "BasicLit" && expr.x.kind == Ast.Token.INT)
+                isInt = true;
+            if (!isInt && expr.y.id == "BasicLit" && expr.y.kind == Ast.Token.INT)
+                isInt = true;
+            if (isInt) {
+                var expr = {expr: EBinop(op,x,y),pos: null};
+                return (macro ($expr : GoInt)).expr;
+            }
         default:
     }
     return EBinop(op,x,y);

@@ -137,7 +137,7 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 							case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Float","Float32","Float64","Complex64","Complex128","GoInt","GoUInt":
 								return macro 0;
 							case "GoDynamic":
-								return macro new GoDynamic();
+								return macro new GoDynamic({});
 							default:
 								trace("unknown StdTypes of literal: " + p.sub);
 								return null;

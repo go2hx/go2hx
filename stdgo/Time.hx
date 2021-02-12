@@ -4,11 +4,11 @@ import haxe.zip.Compress;
 import haxe.Int64;
 
 typedef Time = {
-	@:noCompleition date:Date,
+	@:noCompletion var date:Date;
 }
 @:noUsing
 function now():Time {
-	return new Time(Date.now());
+	return {date: Date.now()};
 }
 function hour(time:Time):Int {
 	return time.date.getHours();

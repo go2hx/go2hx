@@ -1,9 +1,10 @@
 package stdgo;
 import stdgo.StdTypes;
-
+@:noUsing
 function typeOf(a:Dynamic):Dynamic {
     return 0;
 }
+@:noUsing
 function deepEqual(a:Dynamic,b:Dynamic):Bool {
     if (a == null)
         return a == b;

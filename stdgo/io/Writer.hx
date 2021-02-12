@@ -1,3 +1,3 @@
 package stdgo.io;
 
-class Writer {}
+typedef Writer = {}

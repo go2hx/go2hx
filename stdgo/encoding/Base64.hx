@@ -5,10 +5,10 @@ import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;
 import Go.ErrorReturn;
 
-class Base64 {
-	public static var stdEncoding = new StdEncoding();
-	public static var uRLEncoding = new UrlEncoding();
-}
+var stdEncoding = new StdEncoding();
+var uRLEncoding = new UrlEncoding();
+
+typedef StdEncoding = {encodeToString: function encodeToString(bytes:Bytes):ErrorReturn<String>}
 
 private class StdEncoding {
 	public function new() {}

@@ -27,6 +27,7 @@ class Errors extends Exception {
 	//
 	// As panics if target is not a non-nil pointer to either a type that implements
 	// error, or to any interface type.
+	@:noUsing
 	public static function as(err:Errors, target:Any):Bool {
 		return false;
 	}

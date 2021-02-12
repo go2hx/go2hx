@@ -1,57 +1,65 @@
 package stdgo;
+final pi = Math.PI;
 
-class GoMath {
-	public static final pi = Math.PI;
+inline function max(a, b) {
+	return Math.max(a, b);
+}
+@:noUsing
+inline function min(a, b) {
+	return Math.min(a, b);
+}
 
-	public static inline function max(a, b) {
-		return Math.max(a, b);
-	}
+@:noUsing
+inline function abs(v) {
+	return Math.abs(v);
+}
 
-	public static inline function min(a, b) {
-		return Math.min(a, b);
-	}
+@:noUsing
+inline function acos(v) {
+	return Math.acos(v);
+}
 
-	public static inline function abs(v) {
-		return Math.abs(v);
-	}
+@:noUsing
+inline function acosh(v) {
+	return 0;
+}
 
-	public static inline function acos(v) {
-		return Math.acos(v);
-	}
+@:noUsing
+inline function asin(v) {
+	return Math.asin(v);
+}
 
-	public static inline function acosh(v) {
-		return 0;
-	}
+@:noUsing
+inline function asinh(v) {
+	return 0;
+}
 
-	public static inline function asin(v) {
-		return Math.asin(v);
-	}
+@:noUsing
+inline function atan(v) {
+	return Math.atan(v);
+}
 
-	public static inline function asinh(v) {
-		return 0;
-	}
+@:noUsing
+inline function atan2(y, x) {
+	return Math.atan2(y, x);
+}
 
-	public static inline function atan(v) {
-		return Math.atan(v);
-	}
+@:noUsing
+inline function ceil(v) {
+	return Math.ceil(v);
+}
 
-	public static inline function atan2(y, x) {
-		return Math.atan2(y, x);
-	}
+@:noUsing
+inline function naN() {
+	return Math.NaN;
+}
 
-	public static inline function ceil(v) {
-		return Math.ceil(v);
-	}
+@:noUsing
+inline function round(v) {
+	return Math.round(v);
+}
 
-	public static inline function naN() {
-		return Math.NaN;
-	}
-
-	public static inline function round(v) {
-		return Math.round(v);
-	}
-
-	public static inline function sin(v) {
-		return Math.sin(v);
-	}
+@:noUsing
+inline function sin(v) {
+	return Math.sin(v);
 }

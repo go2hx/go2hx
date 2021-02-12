@@ -1,3 +1,3 @@
 package stdgo.io;
 
-class Reader {}
+typedef Reader = {}

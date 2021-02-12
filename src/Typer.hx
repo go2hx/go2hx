@@ -61,7 +61,7 @@ function main(data:DataType){
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
 
-            var info:Info = {types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: []};
+            var info:Info = {types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -816,12 +816,18 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     var y = typeExpr(expr.y,info);
-    switch expr.op {
+    switch expr.op { //operators that don't exist in haxe needle to be handled here
         case AND_NOT: //refrenced from Simon's Tardisgo
             return (macro $x & ($y ^ Int64.make(-1,-1))).expr;
         default:
     }
     var op = typeOp(expr.op);
+    switch op {
+        case OpShr, OpShl, OpUShr, OpAnd, OpOr, OpXor:
+            var expr = {expr: EBinop(op,macro Std.int($x),macro Std.int($y)), pos: null};
+            return (macro GoInt.int($expr)).expr;
+        default:
+    }
     return EBinop(op,x,y);
 }
 private function typeUnOp(token:Ast.Token):Unop {
@@ -1136,8 +1142,11 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         var expr = typeExpr(value.values[i],info);
         if (expr == null)
             continue;
+        var name = untitle(value.names[i]);
+        if (name == "_")
+            name = name + (info.blankCounter++);
         values.push({
-            name: untitle(value.names[i]),
+            name: name,
             pos: null,
             pack: [],
             fields: [],
@@ -1180,7 +1189,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Metadata};
+typedef Info = {types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Metadata,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

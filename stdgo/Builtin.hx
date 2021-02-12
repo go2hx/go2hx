@@ -142,13 +142,17 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 								trace("unknown StdTypes of literal: " + p.sub);
 								return null;
 						}
+					case "Pointer":
+						return macro null;
 					default:
+						trace("type unknown: " + type);
 						try {
 							type = Context.toComplexType(Context.follow(Context.resolveType(type,Context.currentPos())));
+							return func();
 						}catch(e) {
 							trace("name: " + p.name + " error: " + e);
 						}
-						return func();
+						return null;
 				}
 			default:
 				trace("missing type: " + type);

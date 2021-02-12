@@ -35,6 +35,18 @@ abstract GoInt(Int) from Int {
     @:from public static function fromFloat(f:Float) {
         return new GoInt(Std.int(f));
     }
+    @:to public static function toFloat(x:GoInt):Float {
+        return cast x.toInt();
+    }
+    @:op(a / b) public static function divideInts(a:GoInt,b:GoInt) {
+        return new GoInt(Std.int(a.toInt() / b.toInt()));
+    }
+    public inline function toInt() {
+        return this;
+    }
+    public static function int(x:Int) {
+        return new GoInt(x);
+    }
 }
 abstract GoUInt(Int) from Int {
     public function new(n) {

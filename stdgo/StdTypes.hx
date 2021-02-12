@@ -1,19 +1,64 @@
 package stdgo;
 
-typedef UInt8 = UInt;
-typedef UInt16 = UInt;
-typedef UInt32 = haxe.Int64;
-typedef UInt64 = haxe.Int64; //low = int64, high = int64
-typedef Int8 = Int;
-typedef Int16 = Int;
-typedef Int32 = haxe.Int32;
-typedef Int64 = haxe.Int64;
+typedef UInt8 = GoUInt;
+typedef UInt16 = GoUInt;
+typedef UInt32 = Int64;
+typedef UInt64 = UInt; //low = int64, high = int64
+typedef Int8 = GoInt;
+typedef Int16 = GoInt;
+typedef Int32 = GoInt;
 typedef Float32 = Float;
 typedef Float64 = Float;
 typedef Complex64 = Float;
 typedef Complex128 = Float; //low = float, high = float
 typedef Byte = UInt;
 typedef Rune = Int;
+
+abstract Int64(haxe.Int64) from haxe.Int64 {
+    public function new(n:haxe.Int64) {
+        this = n;
+    }
+    public static inline function compare(a,b) {
+        return haxe.Int64.compare(a,b);
+    }
+    @:from public static inline function fromInt(x:Int) {
+        return new Int64(haxe.Int64.ofInt(x));
+    }
+    @:from public static function fromFloat(f:Float) {
+        return new Int64(haxe.Int64.fromFloat(f));
+    }
+}
+abstract GoInt(Int) from Int {
+    public function new(n) {
+        this = n;
+    }
+    @:from public static function fromFloat(f:Float) {
+        return new GoInt(Std.int(f));
+    }
+}
+abstract GoUInt(Int) from Int {
+    public function new(n) {
+        this = n;
+    }
+    @:from public static function fromFloat(f:Float) {
+        return new GoUInt(Std.int(f));
+    }
+}
+
+
+abstract GoDynamic(Dynamic) from Dynamic {
+    public function new(?obj) {
+        if (obj == null)
+            obj = {};
+        this = obj;
+    }
+    @:op(A == B) static public function equals(a:Dynamic,b:GoDynamic):Bool {
+        return stdgo.GoReflect.deepEqual(a,b);
+    }
+    public inline function toDynamic():Dynamic {
+        return this;
+    }
+}
 /*
 uint8       the set of all unsigned  8-bit integers (0 to 255)
 uint16      the set of all unsigned 16-bit integers (0 to 65535)

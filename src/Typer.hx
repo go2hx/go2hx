@@ -216,7 +216,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
                 switch key.expr {
                     case EConst(c):
                         switch c {
-                            case CIdent(s): keyString = nameIdent(s);
+                            case CIdent(s): keyString = nameIdent(s,info);
                             default:
                         }
                     default:
@@ -224,7 +224,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
                 switch value.expr {
                     case EConst(c):
                         switch c {
-                            case CIdent(s): valueString = nameIdent(s);
+                            case CIdent(s): valueString = nameIdent(s,info);
                             default:
                         }
                     default:
@@ -262,7 +262,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     info.retypeMap[name] = type;
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
-                    trace("names: " + spec.names);
                     info.meta = [];
                     info.type = null;
                     var type = typeExprType(spec.type,info);
@@ -272,7 +271,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     }
                     vars = vars.concat([
                         for (i in 0...spec.names.length) {
-                            name: nameIdent(spec.names[i]),
+                            name: nameIdent(spec.names[i],info),
                             type: type != null ? type : info.type,
                             expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro literal($value),
                         }
@@ -409,7 +408,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                     info.type = null;
                     var expr = typeExpr(stmt.rhs[i],info);
                     vars.push({
-                        name: nameIdent(stmt.lhs[i].name),
+                        name: nameIdent(stmt.lhs[i].name,info),
                         type: stmt.rhs[i].id == "BasicLit" ? info.type : null,
                         expr: expr,
                     });
@@ -423,7 +422,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 }];
                 for (i in 0...stmt.lhs.length) {
                     vars.push({
-                        name:  nameIdent(stmt.lhs[i].name),
+                        name:  nameIdent(stmt.lhs[i].name,info),
                         expr: macro _o,
                     });
                 }
@@ -494,7 +493,6 @@ private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
 private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     if (expr.methods.list.length == 0) {
         //dynamic
-        addImport("stdgo.GoDynamic",info);
         return TPath({
             name: "GoDynamic",
             pack: [],
@@ -559,6 +557,10 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
+    if (name == "UInt")
+        name = "GoUInt";
+    if (name == "Int")
+        name = "GoInt";
     if (info.retypeMap.exists(name))
         return info.retypeMap[name];
     return TPath({
@@ -596,7 +598,6 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
         case "InterfaceType":
-            addImport("stdgo.GoDynamic",info);
             (macro new GoDynamic()).expr;
         default:
             throw("unknown expr id: " + expr.id); 
@@ -619,7 +620,7 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
     if (info.types.exists(expr.name))
         expr.name = info.types[expr.name];
-    return EConst(CIdent(nameIdent(expr.name)));
+    return EConst(CIdent(nameIdent(expr.name,info)));
 }
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args:Array<Expr> = [];
@@ -688,7 +689,6 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             return (macro Go.assert(($expr : $type))).expr;
         case "InterfaceType":
             //set dynamic
-            addImport("stdgo.GoDynamic",info);
             return (macro new GoDynamic()).expr;
     }
     if (args.length == 0)
@@ -768,7 +768,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             }
             return EField(const,"code");
         case IDENT: 
-            EConst(CIdent(nameIdent(expr.value)));
+            EConst(CIdent(nameIdent(expr.value,info)));
         default:
             error("basic lit kind unknown: " + expr.kind);
             null;
@@ -869,29 +869,6 @@ private function typeOp(token:Ast.Token):Binop {
     }
 }
 private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
-    var count = 0;
-    function firstSelector(selector:Ast.Expr) {
-        count++;
-        return switch selector.x.id {
-            case "Ident": return selector;
-            default: null; return selector.x;
-        }
-    }
-    var first = firstSelector(expr);
-    if (first.x != null && first.x.id == "Ident" && stdgoList.indexOf(first.x.name) != -1) {
-        first.x.name = title(first.x.name);
-        if (count > 1) {
-            first.x = {
-                id: "SelectorExpr",
-                x: {id: "Ident",name: "stdgo"},
-                sel: first.x,
-            };
-        }
-    }
-    switch first.id {
-        case "StructType": return EConst(CIdent(expr.sel.name));
-        default:
-    }
     var x = typeExpr(expr.x,info);
     var sel = expr.sel.name;
     return (macro $x.$sel).expr; //EField
@@ -941,7 +918,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             {name: ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})', pos: null},
         ];
     }
-    var name = nameIdent(untitle(decl.name.name));
+    var name = nameIdent(untitle(decl.name.name),info);
     var ret = typeFieldListRes(decl.type.results,info);
     //info.ret = ret;
     return {
@@ -1100,7 +1077,6 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;
-            addImport("stdgo.GoDynamic",info);
             if (struct.methods.list.length == 0)
                 return {
                     name: name,
@@ -1173,11 +1149,13 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
 private function typeAccess(name:String,isField:Bool=false):Array<Access> {
     return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
-private function nameIdent(name:String):String {
+private function nameIdent(name:String,info:Info):String {
     if (reserved.indexOf(name) != -1)
         name += "_";
     if (name == "nil")
         name = "null";
+    if (info.imports.exists(name))
+        return info.imports[name];
     return name;
 }
 private function normalizePath(path:String):String {
@@ -1185,8 +1163,10 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,":","_");
     path = StringTools.replace(path,"-","_");
     var path = path.split("/");
-    for (i in 0...path.length)
-        path[i] = nameIdent(path[i]);
+    for (i in 0...path.length) {
+        if (reserved.indexOf(path[i]) != -1)
+            path[i] += "_";
+    }
     return path.join("/");
 }
 function isTitle(string:String):Bool {

@@ -134,8 +134,10 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 						return macro new $p($size,...$a{params});
 					case "StdTypes":
 						switch p.sub {
-							case "Int":
+							case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Float","Float32","Float64","Complex64","Complex128","GoInt","GoUInt":
 								return macro 0;
+							case "GoDynamic":
+								return macro new GoDynamic();
 							default:
 								trace("unknown StdTypes of literal: " + p.sub);
 								return null;
@@ -180,8 +182,12 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 			switch name {
 				case "StdTypes":
 					switch p.sub {
-						case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+						case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128","GoInt":
 							return macro 0;
+						case "GoDynamic":
+							return macro new GoDynamic();
+						default:
+							trace("unknown default value StdType: " + p.sub);
 					}
 				case "GoString","String":
 					return macro "";
@@ -191,12 +197,6 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					return macro null;
 				case "Slice":
 					return macro new $p(0);
-				case "Dynamic":
-					return macro {};
-				case "GoDynamic":
-					return macro new stdgo.GoDynamic();
-				case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
-					return macro 0;
 				case "GoArray":
 					var length = {expr: EConst(CInt(Std.string(getMetaLength(meta)))),pos: pos};
 					return macro new $p($length);

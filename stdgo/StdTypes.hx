@@ -13,6 +13,7 @@ typedef Complex64 = Float;
 typedef Complex128 = Float; //low = float, high = float
 typedef Byte = GoUInt;
 typedef Rune = GoInt;
+typedef UIntptr = GoUInt;
 
 abstract Int64(haxe.Int64) from haxe.Int64 {
     public function new(n:haxe.Int64) {
@@ -84,8 +85,7 @@ abstract GoDynamic(Dynamic) from Dynamic to Dynamic {
         this = obj;
     }
     @:op(A == B) static public function equals(a:Dynamic,b:GoDynamic):Bool {
-        trace("1:");
-        return stdgo.GoReflect.deepEqual(a,b);
+        return false;//stdgo.GoReflect.deepEqual(a,b);
     }
 }
 /*

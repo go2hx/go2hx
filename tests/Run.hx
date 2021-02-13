@@ -1,5 +1,6 @@
 package;
 
+import sys.io.FileInput;
 import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
@@ -32,19 +33,29 @@ function load():Array<String> {
     var tests:Array<String> = [];
     if (!FileSystem.isDirectory("go"))
         Sys.command("git clone https://github.com/golang/go");
-    for (path in FileSystem.readDirectory(repo)) {
-        if (FileSystem.isDirectory('$repo/$path') || Path.extension(path) != "go")
-            continue;
-        var file = File.read('$repo/$path',false);
+    function readLine(file:FileInput):Bool {
         try {
             var line = file.readLine();
             line = line.substr(3);
             if (["run","runoutput"].indexOf(line) != -1)
-                tests.push('./$repo/$path');
+                return true;
         }catch(e) {
             trace(e);
         }
         file.close();
+        return false;
+    }
+    for (path in FileSystem.readDirectory(repo)) {
+        if (FileSystem.isDirectory('$repo/$path') || Path.extension(path) != "go")
+            continue;
+        readLine(File.read('$repo/$path',false));
+    }
+    for (path in FileSystem.readDirectory('$repo/interface')) {
+        if (FileSystem.isDirectory('$repo/test/$path') || Path.extension(path) != "go")
+            continue;
+        var p = '$repo/test/$path';
+        var file = File.read(p,false);
+        readLine(file);
     }
     return tests;
 }

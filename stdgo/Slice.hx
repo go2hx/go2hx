@@ -111,6 +111,10 @@ class SliceData<T> {
         array = new GoArray<T>(cap);
     }
     public function get(index:Int):T {
+        #if !no_check_bounds
+        if (index + pos > length)
+            throw "slice out of bounds";
+        #end
         return array.get(index + pos);
     }
     public function set(index:Int,value:T):T {

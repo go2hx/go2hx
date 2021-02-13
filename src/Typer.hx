@@ -45,7 +45,8 @@ final basicTypes = [
     "float32","float64","complex64","complex128",
     "string",
     "byte", //alias for uint8
-    "rune" //alias for int32
+    "rune", //alias for int32
+    "uintptr",
 ];
 var printer = new Printer();
 function main(data:DataType){
@@ -389,6 +390,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 var exprs = [for (i in 0...stmt.lhs.length) {
                     var x = typeExpr(stmt.lhs[i],info);
                     var y = typeExpr(stmt.rhs[i],info);
+                    if (x == null || y == null)
+                        return null;
                     x.expr.match(EConst(CIdent("_"))) ? y : {pos: null, expr: EBinop(op,x,y)}; 
                 }];
                 if (exprs.length == 1)
@@ -511,8 +514,10 @@ private function structType(expr:Ast.StructType,info:Info):ComplexType {
     return TIntersection([anon].concat(data.extend));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
+    trace("expr: " + expr);
     var ret = typeFieldListRes(expr.results,info);
     var params = typeFieldListComplexTypes(expr.params,info);
+    trace("ret: " + ret + " params: " + params);
     return TFunction(params,ret);
 }
 private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
@@ -747,10 +752,14 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
         case INT:
             info.type = TPath({name: "Int",pack: []});
             if (expr.value.length > 10) {
+                try {
                 var i = Int64Helper.parseString(expr.value);
                 if (i > 2147483647 || i < -2147483647) {
                     info.type = TPath({name: "Int64",pack: []});
                     return (macro haxe.Int64Helper.fromFloat(${{expr: EConst(CFloat(expr.value)),pos: null}})).expr;
+                }
+                }catch(e) {
+                    trace("basic lit int error: " + e);
                 }
             }
             EConst(CInt(expr.value));

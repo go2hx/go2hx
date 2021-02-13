@@ -111,14 +111,20 @@ class SliceData<T> {
         array = new GoArray<T>(cap);
     }
     public function get(index:Int):T {
+        final i = index + pos;
+        boundsCheck(i);
+        return array.get(i + pos);
+    }
+    private inline function boundsCheck(i:Int) {
         #if !no_check_bounds
-        if (index + pos > length)
+        if (i >= length)
             throw "slice out of bounds";
         #end
-        return array.get(index + pos);
     }
     public function set(index:Int,value:T):T {
-        return array.set(index + pos,value);
+        final i = index + pos;
+        boundsCheck(i);
+        return array.set(i,value);
     }
     inline public function iterator():Iterator<T> {
         return new SliceIterator(this);

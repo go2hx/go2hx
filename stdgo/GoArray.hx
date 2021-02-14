@@ -26,10 +26,20 @@ abstract GoArray<T>(Vector<T>) {
             set(i,args[i]);
         }
     }
+    private inline function boundsCheck(i:Int) {
+        #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
+        if (i >= length)
+            throw "slice out of length bounds";
+        if (i < 0)
+            throw "slice negative index out of bounds";
+        #end
+    }
     @:op([]) public inline function get(index:Int):T {
+        boundsCheck(index);
         return this.get(index);
     }
     @:op([]) public inline function set(index:Int,value:T):T {
+        boundsCheck(index);
         return this.set(index,value);
     }
     public inline function toArray():Array<T> {

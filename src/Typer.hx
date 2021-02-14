@@ -822,7 +822,10 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)
-            return x.expr;
+            return switch expr.op {
+                case XOR: EBinop(OpXor,macro -1,x);
+                default: x.expr;  
+            }
         return EUnop(type,false,x);
     }
 }
@@ -866,9 +869,11 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     }
     var op = typeOp(expr.op);
     switch op {
-        case OpShr, OpShl, OpUShr, OpAnd, OpOr, OpXor:
+        case OpShr, OpShl, OpUShr, OpAnd, OpOr:
             var expr = {expr: EBinop(op,macro Std.int($x),macro Std.int($y)), pos: null};
             return (macro new GoInt($expr)).expr;
+        case OpXor:
+
         case OpDiv:
             var isInt:Bool = false;
             if (expr.x.id == "BasicLit" && expr.x.kind == Ast.Token.INT)
@@ -887,7 +892,7 @@ private function typeUnOp(token:Ast.Token):Unop {
     return switch token {
         case NOT: OpNot;
         case SUB: OpNeg;
-        case ADD: null;
+        case XOR: null;
         default: error("unknown unop token: " + token); OpNegBits;
     }
 }

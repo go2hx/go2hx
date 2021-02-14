@@ -49,7 +49,7 @@ func main() {
 	var excludesData ExcludesType
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		fmt.Println(err)
+		panic("excludes json data parsing error")
 	}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
@@ -60,6 +60,8 @@ func main() {
 	identBool := flag.Bool("ident", false, "ident json")
 	flag.Parse()
 	args := flag.Args()
+	fmt.Println("args:",args)
+	fmt.Println("ident:",*identBool,"test:",*testBool)
 	localPath := args[len(args)-1]
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -359,6 +361,11 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = list
 		case *ast.Scope:
 		case *ast.CommentGroup: //TODO: figure out comments
+			list := make([]string,10)
+			data[field.Name] = map[string]interface{}{
+				"id": "CommentGroup",
+				"list": list,
+			}
 		default:
 			fmt.Println(reflect.TypeOf(value))
 		}

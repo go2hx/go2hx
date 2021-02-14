@@ -16,23 +16,18 @@ function main() {
 	init(Sys.args());
 }
 function init(args:Array<String>) {
-	if (args.length <= 1)
+	var argsCount = 0;
+	for (arg in args)
+		if (arg.charAt(0) != "-")
+			argsCount++;
+	if (argsCount <= 1)
 		args.push(cwd);
 	var localPath = args[args.length - 1];
 	var outputPath = "golibs";
 	//for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
-	var argRemove:Array<String> = [];
-	for (i in 0...args.length) {
-		var arg = args[i];
-		if (arg.charAt(0) == "-") {
-			if (arg == "-o" || arg == "-output" || arg == "-out") {
-				outputPath = args[i + 1];
-				argRemove.push(arg);
-			}
-			continue;
-		}
+	for (arg in args) {
 		var path = arg;
 		if (StringTools.startsWith(path, httpsString))
 			path = path.substr(httpsString.length);
@@ -45,8 +40,6 @@ function init(args:Array<String>) {
 		var command = 'go get -u $path';
 		Sys.command(command);
 	}
-	for (arg in argRemove)
-		args.remove(arg);
 	Sys.println("> parser:");
 	Sys.setCwd(cwd);
 	var err = Sys.command("./go4hx", args);

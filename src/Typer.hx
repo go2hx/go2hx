@@ -22,7 +22,7 @@ final reserved = [
 ];
 final reservedClassNames = [
     "Class","T","K","S",
-    //"String","Int","UInt","Bool","Float",
+    "String","Int","UInt","Bool","Float","Int8","Int16","Int32","Int64","UInt8","UInt16","UInt32","UInt64",
     "Single", //Single is a 32bit float
     "Array","Any",
     "Dynamic",
@@ -126,6 +126,8 @@ private function typeStmt(stmt:Dynamic,info:Info):Expr {
         case "BadStmt": error("BAD STATEMENT TYPED"); null;
         case "GoStmt": typeGoStmt(stmt,info);
         case "BranchStmt": typeBranchStmt(stmt,info);
+        case "SelectStmt": typeSelectStmt(stmt,info);
+        case "SendStmt": typeSendStmt(stmt,info);
         default:
             error("unknown stmt id: " + stmt.id);
             null;
@@ -142,6 +144,12 @@ private function error(message:String) {
     errorCache.set(message,true);
 }
 //STMT
+private function typeSendStmt(stmt:Ast.SendStmt,info:Info):ExprDef {
+    return null;
+}
+private function typeSelectStmt(stmt:Ast.SelectStmt,info:Info):ExprDef {
+    return null;
+}
 private function typeBranchStmt(stmt:Ast.BranchStmt,info:Info):ExprDef {
     return switch stmt.tok {
         case CONTINUE: EContinue;
@@ -472,7 +480,7 @@ private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the ty
         case "Ident": identType(expr,info); //identifier type
         case "SelectorExpr": selectorType(expr,info);//path
         case "Ellipsis": ellipsisType(expr,info); //Rest arg
-        default: error("Type expr unknown: " + expr); null;
+        default: error("Type expr unknown: " + expr.id); null;
     }
     if (type == null)
         error("Type expr is null: " + expr.id);
@@ -514,10 +522,10 @@ private function structType(expr:Ast.StructType,info:Info):ComplexType {
     return TIntersection([anon].concat(data.extend));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
-    trace("expr: " + expr);
     var ret = typeFieldListRes(expr.results,info);
     var params = typeFieldListComplexTypes(expr.params,info);
-    trace("ret: " + ret + " params: " + params);
+    if (ret == null || params == null)
+        return null;
     return TFunction(params,ret);
 }
 private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
@@ -578,8 +586,12 @@ private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
     return null;
 }
 private function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
-    
-    return null;
+    var t = typeExprType(expr.elt,info);
+    return TPath({
+        name: "Rest",
+        pack: ["haxe"],
+        params: [TPType(t)],
+    });
 }
 private function typeExpr(expr:Dynamic,info:Info):Expr {
     if (expr == null)
@@ -606,7 +618,7 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "InterfaceType":
             (macro new GoDynamic()).expr;
         default:
-            throw("unknown expr id: " + expr.id); 
+            trace("unknown expr id: " + expr.id); 
             null;
     };
     return def == null ? {error("expr null: " + expr.id); null;} : {
@@ -696,6 +708,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         case "InterfaceType":
             //set dynamic
             genArgs();
+            trace("args: " + args);
             return (macro new GoDynamic($a{args})).expr;
     }
     if (args.length == 0)
@@ -759,7 +772,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
                     return (macro haxe.Int64Helper.fromFloat(${{expr: EConst(CFloat(expr.value)),pos: null}})).expr;
                 }
                 }catch(e) {
-                    trace("basic lit int error: " + e);
+                    trace("basic lit int error: " + e + " value: " + expr.value);
                 }
             }
             EConst(CInt(expr.value));

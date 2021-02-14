@@ -17,7 +17,6 @@
     "sync",
     "sync/atomic",
     "internal/race",
-    //"reflect",
     "strconv",
     "math/bits",
     "unicode/utf8",

@@ -118,7 +118,9 @@ class SliceData<T> {
     private inline function boundsCheck(i:Int) {
         #if !no_check_bounds
         if (i >= length)
-            throw "slice out of bounds";
+            throw "slice out of length bounds";
+        if (i < 0)
+            throw "slice negative index out of bounds";
         #end
     }
     public function set(index:Int,value:T):T {

@@ -342,18 +342,22 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
 
     }else{
         var cases:Array<Case> = [];
-        var edef:Expr = null;
+        var def:Expr = null;
         for (obj in stmt.body.list) {
             switch obj.id {
                 case "CaseClause":
                     var obj:Ast.CaseClause = obj;
-                    cases.push({
-                        values: [for (expr in obj.list) typeExpr(expr,info)],
-                        expr: {expr: typeStmtList(obj.body,info), pos: null},
-                    });
+                    if (obj.list.length > 0) {
+                        cases.push({
+                            values: [for (expr in obj.list) typeExpr(expr,info)],
+                            expr: {expr: typeStmtList(obj.body,info), pos: null},
+                        });
+                    }else{
+                        def = {expr: typeStmtList(obj.body,info), pos: null};
+                    }
             }
         }
-        main = ESwitch(typeExpr(stmt.tag,info),cases,edef);
+        main = ESwitch(typeExpr(stmt.tag,info),cases,def);
     }
     return main;
 }

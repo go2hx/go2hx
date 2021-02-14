@@ -85,7 +85,7 @@ abstract GoDynamic(Dynamic) from Dynamic to Dynamic {
         this = obj;
     }
     @:op(A == B) static public function equals(a:Dynamic,b:GoDynamic):Bool {
-        return false;//stdgo.GoReflect.deepEqual(a,b);
+        return false;
     }
 }
 /*

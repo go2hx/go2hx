@@ -252,6 +252,8 @@ class Go {
 							switch toString {
 								case "GoInt":
 									return macro new GoInt($e);
+								case "Float":
+									return macro ($e : Float);
 							}
 						case "Dynamic":
 							switch toString {

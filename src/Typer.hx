@@ -22,7 +22,6 @@ final reserved = [
 ];
 final reservedClassNames = [
     "Class","T","K","S",
-    "String","Int","UInt","Bool","Float","Int8","Int16","Int32","Int64","UInt8","UInt16","UInt32","UInt64",
     "Single", //Single is a 32bit float
     "Array","Any",
     "Dynamic",
@@ -169,7 +168,8 @@ private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
 }
 private function typeStmtList(list:Array<Ast.Stmt>,info:Info):ExprDef {
     return EBlock(list == null ? [] : [
-        for (stmt in list) typeStmt(stmt,info)
+        for (stmt in list) 
+            typeStmt(stmt,info)
     ]);
 }
 private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
@@ -563,7 +563,6 @@ private function addImport(path:String,info:Info,alias:String="") {
         info.imports[path] = alias;
 }
 private function identType(expr:Ast.Ident,info:Info):ComplexType {
-    
     if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
         expr.name = "UInt" + expr.name.substr("uint".length);
     var name = className(title(expr.name));
@@ -571,10 +570,6 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
-    if (name == "UInt")
-        name = "GoUInt";
-    if (name == "Int")
-        name = "GoInt";
     if (info.retypeMap.exists(name))
         return info.retypeMap[name];
     return TPath({
@@ -583,7 +578,22 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
     });
 }
 private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
-    return null;
+    function func(x:Ast.Expr):Array<String> {
+        switch x.id {
+            case "Ident":
+                return [x.name];
+            case "SelectorExpr":
+                var x:Ast.SelectorExpr = x;
+                return [x.sel.name].concat(func(x.x));
+            default:
+                trace("unknown x id: " + x.id);
+                return [];
+        }
+    }
+    return TPath({
+        name: expr.sel.name,
+        pack: func(expr.x),
+    });
 }
 private function ellipsisType(expr:Ast.Ellipsis,info:Info):ComplexType {
     var t = typeExprType(expr.elt,info);
@@ -614,6 +624,7 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "ParenExpr": typeParenExpr(expr,info);
         case "Ellipsis": typeEllipsis(expr,info);
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
+        case "MapType": typeMapType(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
         case "InterfaceType":
             (macro new GoDynamic()).expr;
@@ -627,6 +638,9 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
     };
 }
 //EXPR
+private function typeMapType(expr:Ast.MapType,info:Info):ExprDef {
+    return null;
+}
 private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
     return null;
 }
@@ -763,7 +777,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             info.type = TPath({name: "GoString",pack: []});
             EConst(CString(expr.value));
         case INT:
-            info.type = TPath({name: "Int",pack: []});
+            info.type = TPath({name: "GoInt",pack: []});
             if (expr.value.length > 10) {
                 try {
                 var i = Int64Helper.parseString(expr.value);
@@ -793,6 +807,8 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             return EField(const,"code");
         case IDENT: 
             EConst(CIdent(nameIdent(expr.value,info)));
+        case IMAG: //TODO: IMPLEMENT COMPLEX NUMBER
+            EConst(CInt("0"));
         default:
             error("basic lit kind unknown: " + expr.kind);
             null;
@@ -831,10 +847,13 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
 }
 
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
+    var ret = typeFieldListRes(expr.type.results,info);
+    var args = typeFieldListArgs(expr.type.params,info);
+    var block = typeBlockStmt(expr.body,info);
     return EFunction(FAnonymous,{
-        ret: typeFieldListRes(expr.type.results,info),
-        args: typeFieldListArgs(expr.type.params,info),
-        expr: {expr: typeBlockStmt(expr.body,info),pos: null},
+        ret: ret,
+        args: args,
+        expr: block != null ? {expr: block,pos: null} : null,
     });
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
@@ -933,7 +952,8 @@ private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
     return (macro $x[$index]).expr;
 }
 private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
-    return null;
+    var x = typeExpr(expr.x,info);
+    return (macro $x[0]).expr;
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
@@ -942,7 +962,7 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
 //SPECS
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
-    var meta:Metadata = [{name: ":noUsing",pos: null}];
+    var meta:Metadata = [];
     info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     if (decl.body.list != null) 
@@ -958,59 +978,65 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             {name: ':access(${recvType != null ? printer.printComplexType(recvType) : "#NULL(ACCESS_META)"})', pos: null},
         ];
     }
+
     var name = nameIdent(untitle(decl.name.name),info);
     var ret = typeFieldListRes(decl.type.results,info);
-    //info.ret = ret;
+    var args = typeFieldListArgs(decl.type.params,info);
+
     return {
         name: name,
         pos: null,
         pack: [],
         fields: [],
         meta: meta,
-        kind: TDField(FFun({ret: ret,params: null,expr: block, args: typeFieldListArgs(decl.type.params,info)}))
+        kind: TDField(FFun({ret: ret,params: null,expr: block, args: args}))
     };
 }
 private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType { //A single type or Anonymous struct type
-    if (fieldList != null) {
-
-        if (fieldList.list.length == 1) {
-            return typeExprType(fieldList.list[0].type,info);
-        }
-        var list:Array<{name:String,type:ComplexType,meta:Metadata}> = [];
-        for (group in fieldList.list) {
-            info.meta = [];
-            var type = typeExprType(group.type,info);
-            if (type == null)
-                continue;
-            for (name in group.names) {
-                list.push({
-                    name: name.name,
-                    type: type,
-                    meta: info.meta,
-                });
-            }
-        }
-        if (list.length > 1) {
-            //anonymous
-            return TAnonymous([
-                for (field in list) {
-                    name: field.name,
-                    pos: null,
-                    kind: FVar(field.type)
-                }
-            ]);
+    if (fieldList == null)
+        return TPath({
+            name: "Void",
+            pack: [],
+        });
+    var list:Array<{name:String,type:ComplexType,meta:Metadata}> = [];
+    for (group in fieldList.list) {
+        info.meta = [];
+        var type = typeExprType(group.type,info);
+        if (type == null)
+            continue;
+        for (name in group.names) {
+            list.push({
+                name: name.name,
+                type: type,
+                meta: info.meta,
+            });
         }
     }
-    return TPath({
-        name: "Void",
-        pack: [],
-    });
+    if (list.length > 1) {
+        //anonymous
+        return TAnonymous([
+            for (field in list) {
+                name: field.name,
+                pos: null,
+                kind: FVar(field.type)
+            }
+        ]);
+    }else{
+        if (list.length == 0)
+            return TPath({
+                name: "Void",
+                pack: [],
+            });
+        return list[0].type;
+    }
 }
 private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
     var args:Array<FunctionArg> = [];
     for (field in list.list) {
         info.meta = [];
         var type = typeExprType(field.type,info);
+        if (type == null)
+            continue;
         for (name in field.names) {
             args.push({
                 name: name.name,
@@ -1152,7 +1178,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var create:Bool = true;
     if (path.length == 1) {
         switch name {
-            case "math","reflect":
+            case "math":
                 alias = title(name);
                 path[0] = 'Go$alias';
                 path.unshift("stdgo");

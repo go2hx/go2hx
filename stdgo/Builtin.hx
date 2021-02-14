@@ -145,7 +145,7 @@ macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composit
 					case "Pointer":
 						return macro null;
 					default:
-						trace("type unknown: " + type);
+						//unknown
 						try {
 							type = Context.toComplexType(Context.follow(Context.resolveType(type,Context.currentPos())));
 							return func();
@@ -189,7 +189,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 						case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128","GoInt":
 							return macro 0;
 						case "GoDynamic":
-							return macro new GoDynamic();
+							return macro new GoDynamic({});
 						default:
 							trace("unknown default value StdType: " + p.sub);
 					}

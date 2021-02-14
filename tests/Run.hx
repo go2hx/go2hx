@@ -14,7 +14,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/const.go"];
+    tests = ["./go/test/append.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);
@@ -29,7 +29,6 @@ function gen() {
     }
 }
 function load():Array<String> {
-    var repo = "go/test";
     var tests:Array<String> = [];
     if (!FileSystem.isDirectory("go"))
         Sys.command("git clone https://github.com/golang/go");
@@ -45,15 +44,16 @@ function load():Array<String> {
         file.close();
         return false;
     }
+    var repo = "go/test";
     for (path in FileSystem.readDirectory(repo)) {
         if (FileSystem.isDirectory('$repo/$path') || Path.extension(path) != "go")
             continue;
         readLine(File.read('$repo/$path',false));
     }
     for (path in FileSystem.readDirectory('$repo/interface')) {
-        if (FileSystem.isDirectory('$repo/test/$path') || Path.extension(path) != "go")
+        if (FileSystem.isDirectory('$repo/interface/$path') || Path.extension(path) != "go")
             continue;
-        var p = '$repo/test/$path';
+        var p = '$repo/interface/$path';
         var file = File.read(p,false);
         readLine(file);
     }

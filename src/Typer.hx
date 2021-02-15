@@ -296,6 +296,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         init = {expr: typeSwitchStmt(stmt.init,info),pos: null};
 
     var assign:Expr = null;
+    var set:String = "";
     switch stmt.assign.id {
         case "ExprStmt":
             var stmt:Ast.ExprStmt = stmt.assign;
@@ -307,19 +308,37 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
                     trace("unknown assign expr: " + stmt.x.id);
             }
         case "AssignStmt":
-            assign = typeStmt(stmt.assign,info);
-            trace("assign: " + assign);
+            var stmt:Ast.AssignStmt = stmt.assign;
+            var rhs = stmt.rhs[0];
+            switch rhs.id {
+                case "TypeAssertExpr":
+                    var rhs:Ast.TypeAssertExpr = rhs;
+                    assign = typeExpr(rhs.x,info);
+                default:
+                    trace("unknown assign rhs type switch expr: " + rhs.id);
+            }
+            var lhs = stmt.lhs[0];
+            switch lhs.id {
+                case "Ident":
+                    var lhs:Ast.Ident = lhs;
+                    var name = lhs.name;
+                    set = lhs.name;
+                default:
+                    trace("unknown assign lhs type switch expr: " + rhs.id);
+            }
         default:
             trace("unknown assign: " + stmt.assign.id);
     }
     if (assign == null)
         return null;
     var def:Expr = null;
+    var types:Array<ComplexType> = [];
     function condition(obj:Ast.CaseClause,i:Int=0) {
         if (obj.list.length == 0)
             return null;
         var t = typeExprType(obj.list[i],info);
         var value = macro ($assign is $t);
+        types.push(t);
         if (i + 1 >= obj.list.length)
             return value;
         var next = condition(obj,i + 1);
@@ -327,8 +346,29 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     }
     function ifs(i:Int=0) {
         var obj:Ast.CaseClause = stmt.body.list[i];
+        types = [];
         var cond = condition(obj);
+        var t:ComplexType = null;
+        if (types.length > 1 || types.length == 0) {
+            t = TPath({
+                name: "GoDynamic",
+                pack: [],
+            });
+        }else{
+            t = types[0];
+        }
         var block = {expr: typeStmtList(obj.body,info),pos: null};
+        if (set != "") {
+            switch block.expr {
+                case EBlock(exprs):
+                    exprs.unshift(toExpr(EVars([{
+                        name: set,
+                        type: t,
+                        expr: assign,
+                    }])));
+                default:
+            }
+        }
         if (i + 1 >= stmt.body.list.length)
             return cond == null ? macro $block : macro if ($cond) $block;
         var next = ifs(i + 1);
@@ -570,7 +610,6 @@ private function addImport(path:String,info:Info,alias:String="") {
         info.imports[path] = alias;
 }
 private function identType(expr:Ast.Ident,info:Info):ComplexType {
-    trace("name: " + expr.name);
     if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
         expr.name = "UInt" + expr.name.substr("uint".length);
     var name = className(title(expr.name));

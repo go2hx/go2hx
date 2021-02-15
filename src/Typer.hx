@@ -131,10 +131,7 @@ private function typeStmt(stmt:Dynamic,info:Info):Expr {
             error("unknown stmt id: " + stmt.id);
             null;
     }
-    return def == null ? {error("stmt null: " + stmt.id); null;} : {
-        expr: def,
-        pos: null,
-    };
+    return def == null ? {error("stmt null: " + stmt.id); null;} : toExpr(def);
 }
 var errorCache = new StringMap<Bool>();
 private function error(message:String) {
@@ -297,7 +294,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     var init:Expr = null;
     if (stmt.init != null)
         init = {expr: typeSwitchStmt(stmt.init,info),pos: null};
-    
+
     var assign:Expr = null;
     switch stmt.assign.id {
         case "ExprStmt":
@@ -309,6 +306,9 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
                 default:
                     trace("unknown assign expr: " + stmt.x.id);
             }
+        case "AssignStmt":
+            assign = typeStmt(stmt.assign,info);
+            trace("assign: " + assign);
         default:
             trace("unknown assign: " + stmt.assign.id);
     }
@@ -389,10 +389,13 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
         }
         return EBlock([
             init,
-            {pos: null, expr: def},
+            toExpr(def),
         ]);
     }
     return def;
+}
+private function toExpr(def:ExprDef):Expr {
+    return {expr: def,pos: null};
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     switch stmt.tok {
@@ -404,7 +407,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                     var y = typeExpr(stmt.rhs[i],info);
                     if (x == null || y == null)
                         return null;
-                    x.expr.match(EConst(CIdent("_"))) ? y : {pos: null, expr: EBinop(op,x,y)}; 
+                    x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op,x,y)); 
                 }];
                 if (exprs.length == 1)
                     return exprs[0].expr;
@@ -457,7 +460,7 @@ private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
     return expr != null ? expr.expr : null;
 }
 private function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
-    var ifStmt:Expr =  {pos: null, expr: EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info))};
+    var ifStmt:Expr = toExpr(EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info)));
     if (stmt.init != null)
         return EBlock([typeStmt(stmt.init,info),ifStmt]);
     return ifStmt.expr;
@@ -567,6 +570,7 @@ private function addImport(path:String,info:Info,alias:String="") {
         info.imports[path] = alias;
 }
 private function identType(expr:Ast.Ident,info:Info):ComplexType {
+    trace("name: " + expr.name);
     if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
         expr.name = "UInt" + expr.name.substr("uint".length);
     var name = className(title(expr.name));
@@ -636,10 +640,7 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
             trace("unknown expr id: " + expr.id); 
             null;
     };
-    return def == null ? {error("expr null: " + expr.id); null;} : {
-        expr: def,
-        pos: null,
-    };
+    return def == null ? {error("expr null: " + expr.id); null;} : toExpr(def);
 }
 //EXPR
 private function typeMapType(expr:Ast.MapType,info:Info):ExprDef {
@@ -787,7 +788,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
                 var i = Int64Helper.parseString(expr.value);
                 if (i > 2147483647 || i < -2147483647) {
                     info.type = TPath({name: "Int64",pack: []});
-                    return (macro haxe.Int64Helper.fromFloat(${{expr: EConst(CFloat(expr.value)),pos: null}})).expr;
+                    return (macro haxe.Int64Helper.fromFloat(${toExpr(EConst(CFloat(expr.value)))})).expr;
                 }
                 }catch(e) {
                     trace("basic lit int error: " + e + " value: " + expr.value);
@@ -800,11 +801,11 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
         case CHAR:
             info.type = TPath({name: "GoString",pack: []});
             var value = formatEscapeCodes(expr.value);
-            var const = {expr: EConst(CString(value)),pos: null};
+            var const = toExpr(EConst(CString(value)));
             if (value == bs + "'") {
                 value = "'";
             }
-            var const = {expr: EConst(CString(value)),pos: null};
+            var const = toExpr(EConst(CString(value)));
             if (value == "\\") {
                 return (macro $const.charCodeAt(0)).expr;
             }
@@ -842,9 +843,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     }else{
         if (expr.type.id == "ArrayType" && info.meta.length > 0) {
             var length = stdgo.Builtin.getMetaLength(info.meta);
-            params.push({expr: ECheckType({expr: EConst(CInt(Std.string(length))),pos: null},type),pos: null});
+            params.push(toExpr(ECheckType(toExpr(EConst(CInt(Std.string(length)))),type)));
         }else{
-            params.push({expr: ECheckType(macro _,type),pos: null}); //normal
+            params.push(toExpr(ECheckType(macro _,type))); //normal
         }
     }
     for (elt in expr.elts) {
@@ -860,7 +861,7 @@ private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     return EFunction(FAnonymous,{
         ret: ret,
         args: args,
-        expr: block != null ? {expr: block,pos: null} : null,
+        expr: block != null ? toExpr(block) : null,
     });
 }
 private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
@@ -874,7 +875,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     var op = typeOp(expr.op);
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
-            var expr = {expr: EBinop(op,macro Std.int($x),macro Std.int($y)), pos: null};
+            var expr = toExpr(EBinop(op,macro Std.int($x),macro Std.int($y)));
             return (macro new GoInt($expr)).expr;
         case OpXor:
 
@@ -885,7 +886,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
             if (!isInt && expr.y.id == "BasicLit" && expr.y.kind == Ast.Token.INT)
                 isInt = true;
             if (isInt) {
-                var expr = {expr: EBinop(op,x,y),pos: null};
+                var expr = toExpr(EBinop(op,x,y));
                 return (macro ($expr : GoInt)).expr;
             }
         default:
@@ -951,9 +952,11 @@ private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {
     return x.expr;
 }
 private function typeAssertExpr(expr:Ast.TypeAssertExpr,info:Info):ExprDef {
+    var e = typeExpr(expr.x,info);
+    if (expr.type == null)
+        return e.expr;
     var type = typeExprType(expr.type,info);
-    var expr = typeExpr(expr.x,info);
-    return (macro Go.assert(($expr : $type))).expr;
+    return (macro Go.assert(($e : $type))).expr;
 }
 private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
@@ -976,10 +979,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     info.local = false;
     if (decl.body.list != null) 
         exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
-    var block:Expr = {
-        expr: EBlock(exprs),
-        pos: null
-    };
+    var block:Expr = toExpr(EBlock(exprs));
     
     if (decl.recv != null) { //now is a static extension function
         var recvType = typeExprType(decl.recv.list[0].type,info);

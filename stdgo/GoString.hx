@@ -47,4 +47,8 @@ abstract GoString(String) from String to String {
 	@:op(A + B) @:commutative static function add(a:GoString, b:String):GoString;
 
 	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
+
+	public inline function typeName() {
+		return "GoString";
+	}
 }

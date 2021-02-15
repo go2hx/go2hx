@@ -72,6 +72,9 @@ abstract Slice<T>(SliceData<T>) {
     inline public function setUnderlying(array:GoArray<T>,pos:Int,length:Int) {
         this.setUnderlying(array,pos,length);
     }
+    public inline function typeName() {
+        return "Slice";
+    }
 }
 class SliceKeyValueIterator<T> {
     var pos:Int = 0;

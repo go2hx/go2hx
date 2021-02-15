@@ -14,11 +14,12 @@ typedef Complex128 = Float; //low = float, high = float
 typedef Byte = GoUInt;
 typedef Rune = GoInt;
 typedef UIntptr = GoUInt;
+
 typedef GoInterface = {
     typeName:()->String,
 };
 
-abstract Int64(haxe.Int64) from haxe.Int64 {
+abstract Int64(haxe.Int64) from haxe.Int64 to haxe.Int64 {
     public function new(n:haxe.Int64) {
         this = n;
     }
@@ -31,10 +32,12 @@ abstract Int64(haxe.Int64) from haxe.Int64 {
     @:from public static function fromFloat(f:Float) {
         return new Int64(haxe.Int64.fromFloat(f));
     }
-    public inline function typeName():String {
-        return "int64";
+
+    public inline function typeName() {
+        return "Int64";
     }
 }
+
 abstract GoInt(Int) from Int to Int {
     public function new(n) {
         this = n;
@@ -72,38 +75,23 @@ abstract GoInt(Int) from Int to Int {
     @:op(A >>= B) static function assignSr(a:GoInt,b:GoInt):GoInt;
     @:op(A >>= B) static function assignUsr(a:GoInt,b:GoInt):GoInt;
 
-    public inline function toInt() {
-        return this;
-    }
-    public inline function typeName():String {
-        return "int";
+    public inline function typeName() {
+        return "GoInt";
     }
 }
-abstract GoUInt(Int) from Int {
+@:runtimeValue
+abstract GoUInt(UInt) to UInt from UInt {
     public function new(n) {
         this = n;
     }
     @:from public static function fromFloat(f:Float) {
         return new GoUInt(Std.int(f));
     }
-    public inline function typeName():String {
-        return "uint";
+    public inline function typeName() {
+        return "GoUInt";
     }
-}
-
-
-abstract GoDynamic(Dynamic) from Dynamic to Dynamic {
-    public function new(obj:Dynamic) {
-        this = obj;
-    }
-    @:op(A == B) static public function equals(a:Dynamic,b:GoDynamic):Bool {
-        return false;
-    }
-    public inline function typeName():String {
-        var b = !this.typeName;
-        if (b)
-            return this.typeName();
-        return "interface{}";
+    @:to public static inline function toAny(i:GoUInt):Any {
+        return (i : GoUInt);
     }
 }
 /*

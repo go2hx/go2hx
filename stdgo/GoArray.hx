@@ -55,6 +55,9 @@ abstract GoArray<T>(Vector<T>) {
         var array = new GoArray<T>();
         return array;
     }
+    public inline function typeName() {
+        return "GoArray";
+    }
 }
 
 class VectorKeyValueIterator<T> {

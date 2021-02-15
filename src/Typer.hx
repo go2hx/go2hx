@@ -36,7 +36,7 @@ final reservedClassNames = [
     //"Void",
     "Xml","XmlType",
 
-    "GoArray","GoDynamic","GoMath","Go","Slice","Pointer",
+    "GoArray","GoMath","Go","Slice","Pointer",
 ];
 final basicTypes = [
     "uint","uint8","uint16","uint32","uint64",
@@ -253,6 +253,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
 private function className(name:String):String {
     if (reservedClassNames.indexOf(name) != -1)
         name += "_";
+    if (name.substr(0,5) == "Uint")
+        name = "UInt";
     return name;
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
@@ -338,6 +340,15 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
             return null;
         var t = typeExprType(obj.list[i],info);
         var value = macro ($assign is $t);
+        switch t {
+            case TPath(p):
+                switch p.name {
+                    case "GoUInt","GoInt","GoString","Int64":
+                        value = macro ($assign : GoInterface).typeName() == $v{p.name};
+                    default:
+                }
+            default:
+        }
         types.push(t);
         if (i + 1 >= obj.list.length)
             return value;
@@ -349,14 +360,8 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         types = [];
         var cond = condition(obj);
         var t:ComplexType = null;
-        if (types.length > 1 || types.length == 0) {
-            t = TPath({
-                name: "GoDynamic",
-                pack: [],
-            });
-        }else{
+        if (types.length == 1)
             t = types[0];
-        }
         var block = {expr: typeStmtList(obj.body,info),pos: null};
         if (set != "") {
             switch block.expr {
@@ -364,7 +369,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
                     exprs.unshift(toExpr(EVars([{
                         name: set,
                         type: t,
-                        expr: assign,
+                        expr: macro cast $assign,
                     }])));
                 default:
             }
@@ -553,7 +558,7 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     if (expr.methods.list.length == 0) {
         //dynamic
         return TPath({
-            name: "GoDynamic",
+            name: "Any",
             pack: [],
         });
     }else{
@@ -610,13 +615,15 @@ private function addImport(path:String,info:Info,alias:String="") {
         info.imports[path] = alias;
 }
 private function identType(expr:Ast.Ident,info:Info):ComplexType {
-    if ((expr.name.length == 6 || expr.name.length == 5) && expr.name.substr(0,"uint".length) == "uint") //UInt fix naming
-        expr.name = "UInt" + expr.name.substr("uint".length);
     var name = className(title(expr.name));
     if (name == "String") {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
+    if (name == "Int")
+        name = "GoInt";
+    if (name == "UInt")
+        name = "GoUInt";
     if (info.retypeMap.exists(name))
         return info.retypeMap[name];
     return TPath({
@@ -673,8 +680,7 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "MapType": typeMapType(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
-        case "InterfaceType":
-            (macro new GoDynamic()).expr;
+        case "InterfaceType": null;
         default:
             trace("unknown expr id: " + expr.id); 
             null;
@@ -767,7 +773,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //set dynamic
             genArgs();
             trace("args: " + args);
-            return (macro new GoDynamic($a{args})).expr;
+            return args[0].expr;
     }
     if (args.length == 0)
         genArgs();
@@ -1082,9 +1088,8 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
     var args:Array<FunctionArg> = [];
     for (field in list.list) {
         info.meta = [];
-        var type = typeExprType(field.type,info);
-        if (type == null)
-            continue;
+        var type = typeExprType(field.type,info); //null can be assumed as interface{}
+
         for (name in field.names) {
             args.push({
                 name: name.name,
@@ -1197,7 +1202,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     pos: null,
                     fields: [],
                     pack: [],
-                    kind: TDAlias(TPath({name: "GoDynamic",pack: []})),
+                    kind: TDAlias(TPath({name: "Any",pack: []})),
                 }
             return null;
             //error("unknown interface type spec"); null;

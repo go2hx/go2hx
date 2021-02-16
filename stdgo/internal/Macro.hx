@@ -15,14 +15,55 @@ class Macro {
 		var exprs:Array<Expr> = [];
 		for (local in locals.keys()) {
 			if (fields.exists(function(field) return field.name == local)) {
-				exprs.push(macro if ($i{local} != null)
-					this.$local = $i{local});
+				exprs.push(macro this.$local = $i{local});
 			} else {
 				throw new Error(Context.getLocalClass() + " has no field " + local, Context.currentPos());
 			}
 		}
 		// Generates a block expression from the given expression array
 		return macro $b{exprs};
+	}
+
+	public static function struct() {
+		var fields = Context.getBuildFields();
+		var cl = Context.getLocalClass().get();
+		if (!cl.meta.has(":extend"))
+			return fields;
+		var extend = cl.meta.extract(":extend");
+		for (param in extend[0].params) {
+			var t = Context.follow(Context.typeof(param));
+			switch t {
+				case TAnonymous(f):
+					var f = f.get();
+					switch f.status {
+						case AClassStatics(t):
+							var t = t.get();
+							var fs = t.fields.get();
+							for (f in fs) {
+								var t:ComplexType = Context.toComplexType(f.type);
+								var kind:FieldType = null;
+								switch f.kind {
+									case FVar(read, write): //var
+										//kind = FVar(t,Context.getTypedExpr(f.expr()));
+										kind = FVar(t,null);
+									case FMethod(k): //function
+										
+								}
+								fields.push({
+									name: f.name,
+									doc: f.doc,
+									pos: f.pos,
+									meta: f.meta.get(),
+									kind: kind,
+									access: f.isPublic ? [APublic] : [],
+								});
+							}
+						default:
+					}
+				default:
+			}
+		}
+		return fields;
 	}
 
 	public static macro function intEnum():Array<Field> {
@@ -48,10 +89,6 @@ class Macro {
 			}
 		}
 		return fields;
-	}
-
-	public static function build() {
-		
 	}
 
 	static function isHaxeStd(path:String):Bool {

@@ -11,7 +11,9 @@ abstract Slice<T>(SliceData<T>) {
     private function set_length(length:Int):Int {
         return 0;
     }
-    public function new(length:Int,cap:Int=0,args:Rest<T>) {
+    public function new(args:Rest<T>) {
+        var length = args.length;
+        var cap = length;
         this = new SliceData(length,cap);
         if (args.length == 0)
             return;
@@ -30,15 +32,15 @@ abstract Slice<T>(SliceData<T>) {
         if (high == -1)
             high = length;
         var length = high - low;
-        var slice = new Slice<T>(0);
+        var slice = new Slice<T>();
         slice.setUnderlying(this.underlying(),pos,length);
         return slice; 
     }
     public function copy():Slice<T> {
-        var slice = new Slice<T>(this.length,this.cap());
+        var slice = new Slice<T>();
+        slice.grow(length);
         for (i in 0...slice.length) {
-            slice[i] = 
-            get(i);
+            slice[i] = get(i);
         }
         return slice;
     }
@@ -111,7 +113,8 @@ class SliceData<T> {
         this.length = length;
         if (cap == 0)
             cap = length;
-        array = new GoArray<T>(cap);
+        array = new GoArray<T>();
+        array.setSize(length);
     }
     public function get(index:Int):T {
         final i = index + pos;

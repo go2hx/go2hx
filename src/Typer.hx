@@ -344,7 +344,8 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
             case TPath(p):
                 switch p.name {
                     case "GoUInt","GoInt","GoString","Int64":
-                        value = macro ($assign : GoInterface).typeName() == $v{p.name};
+                        //value = macro ($assign : GoInterface).typeName() == $v{p.name};
+                        value = macro null;
                     default:
                 }
             default:
@@ -571,7 +572,8 @@ private function structType(expr:Ast.StructType,info:Info):ComplexType {
     var anon = TAnonymous(data.fields);
     if (data.extend.length == 0)
         return anon;
-    return TIntersection([anon].concat(data.extend));
+    return null;
+    //return TIntersection([anon].concat(data.extend));
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
     var ret = typeFieldListRes(expr.results,info);
@@ -1110,26 +1112,27 @@ private function typeFieldListComplexTypes(list:Ast.FieldList,info:Info):Array<C
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):{fields:Array<Field>,extend:Array<ComplexType>} {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):{fields:Array<Field>,extend:Array<Expr>} {
     var fields:Array<Field> = [];
-    var extend:Array<ComplexType> = [];
+    var extend:Array<Expr> = [];
     for (field in list.list) {
         info.meta = [];
         var type = typeExprType(field.type,info);
         if (field.names.length == 0) {
-            var name = field.type.name;
-            switch name {
-                case "string","int","bool","uint","byte","rune":
-                    field.names.push({name: name});
+            switch type {
+                case TPath(p):
+                    switch p.name {
+                        case "GoString","GoInt","Bool","GoUInt","Byte","Rune": //add field with name same as type
+
+                        default:
+                            extend.push(toExpr(EConst(CIdent(p.name))));
+                    }
                 default:
-                    //extend
-                    extend.push(type);
-                    continue;
-            }
+            } 
         }
         for (name in field.names) {
             fields.push({
-               name: name.name,
+               name: name.name,''
                pos: null,
                meta: info.meta,
                access: access == null ? typeAccess(name.name,true) : access,
@@ -1176,23 +1179,23 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         case "StructType":
             var struct:Ast.StructType = spec.type;
             var data = typeFieldListFields(struct.fields,info);
-            if (data.extend.length == 0)
-                return {
-                    name: name,
-                    pos: null,
-                    fields: data.fields,
-                    pack: [],
-                    meta: [],
-                    kind: TDStructure,
-                }
+            var meta:haxe.macro.Metadata = [
+                {name: ":structInit",pos: null},
+            ];
+            if (data.extend.length > 0) {
+                meta = meta.concat([
+                    {name: ":extend",params: data.extend,pos: null},
+                    {name: ":build",pos: null, params: [macro stdgo.internal.Macro.struct()]}
+                ]);
+            }
             return {
                 name: name,
                 pos: null,
+                fields: data.fields,
                 pack: [],
-                meta: [],
-                fields: [],
-                kind: TDAlias(TIntersection([TAnonymous(data.fields)].concat(data.extend)))
-            };
+                meta: meta,
+                kind: TDClass(null,null,false,true,false),
+            }
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;

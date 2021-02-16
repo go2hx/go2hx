@@ -5,18 +5,20 @@ import (
 )
 
 func main() {
-	var i uint = 10
-	whatAmI := func(i interface{}) {
-        switch t := i.(type) {
-        case bool:
-            fmt.Println("I'm a bool")
-        case int:
-            fmt.Println("I'm an int")
-        case uint:
-            fmt.Println("I'm a uint")
-        default:
-            fmt.Printf("Don't know type %T\n", t)
-        }
-    }
-	whatAmI(i)
+	d := data{}
+    fmt.Println(d)
+}
+
+type data struct {
+    data2
+    int
+    x int
+    y int
+    Z int
+}
+
+type data2 struct {
+    a int
+    b int
+    C int
 }

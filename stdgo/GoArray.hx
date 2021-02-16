@@ -18,13 +18,16 @@ abstract GoArray<T>(Vector<T>) {
         return new VectorIterator(this);
     }
 
-    public inline function new(length:Int=0,args:Rest<T>) {
-        this = new Vector<T>(length);
+    public inline function new(args:Rest<T>) {
+        this = new Vector<T>(args.length);
         if (args.length == 0)
             return;
         for (i in 0...args.length) {
             set(i,args[i]);
         }
+    }
+    public inline function setSize(length:Int) {
+        this = new Vector<T>(length);
     }
     private inline function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.

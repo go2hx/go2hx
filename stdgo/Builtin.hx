@@ -50,12 +50,6 @@ inline function delete<K, V>(map:Map<K, V>, key:K) {
 
 function imag(c) {}
 
-macro function create(t:Expr) { // new pointer
-	var type = getType(t);
-	if (type == null)
-		return macro null;
-	return macro null;
-}
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
@@ -98,69 +92,6 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	}
 	return func();
 }
-macro function literal<T>(t:ExprOf<T>,params:Array<Expr>):ExprOf<T> { //composite literal
-	var type = getType(t);
-	if (type == null) {
-		var expected = Context.getExpectedType();
-		if (expected == null) {
-			trace("expected literal type null");
-			return macro null;
-		}
-		type = Context.toComplexType(expected);
-	}
-	var func = null;
-	func = function():ExprOf<T> {
- 		switch type {
-			case TFunction(args, ret):
-				return macro null;
-			case TAnonymous(fields):
-				fields.sort((a,b) -> {
-					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
-				});
-				return createAnonType(Context.currentPos(),fields,params);
-			case TPath(p):
-				var name = p.name;
-				switch name {
-					case "Dynamic":
-						return macro {};
-					case "Slice":
-						var size = macro $v{params.length};
-						return macro new $p($size,$size,...$a{params});
-					case "GoArray":
-						//var size = getData()
-						var size = getData(t);
-						if (size == null)
-							size = macro 0;
-						return macro new $p($size,...$a{params});
-					case "StdTypes":
-						switch p.sub {
-							case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Float","Float32","Float64","Complex64","Complex128","GoInt","GoUInt":
-								return macro 0;
-							case "Any":
-								return macro {};
-							default:
-								trace("unknown StdTypes of literal: " + p.sub);
-								return null;
-						}
-					case "Pointer":
-						return macro null;
-					default:
-						//unknown
-						try {
-							type = Context.toComplexType(Context.follow(Context.resolveType(type,Context.currentPos())));
-							return func();
-						}catch(e) {
-							trace("name: " + p.name + " error: " + e);
-						}
-						return null;
-				}
-			default:
-				trace("missing type: " + type);
-				return null;
-		}
-	}
-	return func();
-}
 function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
 	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
 		var expr:Expr = macro null;
@@ -183,30 +114,19 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 	switch t {
 		case TPath(p):
 			var name = p.name;
+			if (p.name == "StdTypes")
+				name = p.sub;
 			switch name {
-				case "StdTypes":
-					switch p.sub {
-						case "UInt","UInt8","UInt16","UInt32","UInt64","Int","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128","GoInt":
-							return macro 0;
-						case "Any":
-							return macro {};
-						default:
-							trace("unknown default value StdType: " + p.sub);
-					}
-				case "GoString","String":
-					return macro "";
+				case "GoInt","GoUInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+					return macro 0;
+				case "GoDynamic":
+					return macro {typeName: "GoDynamic",value: {}};
 				case "Bool":
 					return macro false;
 				case "Pointer":
 					return macro null;
-				case "Slice":
-					return macro new $p(0);
-				case "GoArray":
-					var length = {expr: EConst(CInt(Std.string(getMetaLength(meta)))),pos: pos};
-					return macro new $p($length);
-					//return macro new $p($v{length});
 				default:
-					trace("default type missing: " + p);
+					return macro new $p();
 			}
 		case TAnonymous(fields):
 			return {pos: pos,expr: EObjectDecl([

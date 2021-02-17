@@ -272,14 +272,6 @@ class Go {
 		}
 		return func();
 	}
-	public static function isNumber(name:String):Bool {
-		return switch name {
-			case "Int","Int8","Int16","Int32","Int64","UInt","UInt8","UInt16","UInt32","UInt64","Complex64","Complex128","Float":
-				true;
-			default:
-				false;
-		}
-	}
 	public static macro function range(expr) {
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
@@ -313,7 +305,7 @@ class Go {
 		switch type {
 			case TAbstract(t, params):
 				var t = t.get();
-				if (isNumber(t.name)) {
+				if (stdgo.internal.Macro.isNumber(t.name)) {
 					isRealPointer = true;
 				}else{
 					switch t.name {

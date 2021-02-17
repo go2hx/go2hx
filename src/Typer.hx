@@ -17,7 +17,7 @@ final reserved = [
 	"abstract", "cast", "catch", "class", "do","macro","is",
 	"dynamic", "enum", "extends", "extern", "final", "function",
 	"implements", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "private",
-    "public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while","create", //replacement for new
+    "public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while", //replacement for new
     "construct"  // replacement for composite lit
 ];
 final reservedClassNames = [
@@ -745,7 +745,9 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     return (macro ${typeExpr(expr.args[0],info)}.cap()).expr;
                 case "len":
                     return (macro ${typeExpr(expr.args[0],info)}.length).expr;
-                case "new","make": 
+                case "new": //create default value put into pointer
+
+                case "make": 
                     if (expr.fun.name == "new")
                         expr.fun.name = "create";
 
@@ -765,7 +767,12 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             //type set
             var e:Ast.ParenExpr = expr.fun;
             var t = typeExprType(e.x,info);
-            return (macro literal((_ : $t))).expr;
+            switch t {
+                case TPath(p):
+                    return (macro new $p()).expr;
+                default:
+                    trace("unknown type paren expr");
+            }
         case "ArrayType":
             //set assert type
             var type = typeExprType(expr.fun,info);
@@ -789,7 +796,7 @@ private function typeRest(expr:Expr):Expr {
 private function getDefaultValue(type:ComplexType):Expr {
     return switch type {
         case TPath(p):
-            if (stdgo.Go.isNumber(p.name))
+            if (stdgo.internal.Macro.isNumber(p.name))
                 return macro 0;
             switch p.name {
                 case "String", "GoString": macro "";
@@ -870,7 +877,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
-        return (macro Go.makePointer($x)).expr;
+        return (macro new Pointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)
@@ -885,20 +892,20 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     info.meta = [];
     var type = typeExprType(expr.type,info);
     var params:Array<Expr> = [];
+    var p:TypePath = null;
     if (type == null) {
-        params.push(macro null);
+        return null;
     }else{
-        if (expr.type.id == "ArrayType" && info.meta.length > 0) {
-            var length = stdgo.Builtin.getMetaLength(info.meta);
-            params.push(toExpr(ECheckType(toExpr(EConst(CInt(Std.string(length)))),type)));
-        }else{
-            params.push(toExpr(ECheckType(macro _,type))); //normal
+        switch type {
+            case TPath(tp):
+                p = tp;
+            default:
         }
     }
     for (elt in expr.elts) {
         params.push(typeExpr(elt,info));
     }
-    return (macro literal($a{params})).expr;
+    return (macro new $p($a{params})).expr;
 }
 
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
@@ -1121,22 +1128,24 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
         if (field.names.length == 0) {
             switch type {
                 case TPath(p):
-                    switch p.name {
-                        case "GoString","GoInt","Bool","GoUInt","Byte","Rune": //add field with name same as type
-
-                        default:
-                            extend.push(toExpr(EConst(CIdent(p.name))));
-                    }
+                    fields.push({
+                        name: untitle(field.type.name),
+                        pos: null,
+                        meta: info.meta,
+                        access: access == null ? typeAccess(field.type.name,true) : access,
+                        kind: FVar(type,stdgo.Builtin.defaultValue(type,null))
+                    });
                 default:
-            } 
+            }
         }
+        
         for (name in field.names) {
             fields.push({
-               name: name.name,''
+               name: untitle(name.name),
                pos: null,
                meta: info.meta,
                access: access == null ? typeAccess(name.name,true) : access,
-               kind: FVar(type),
+               kind: FVar(type,stdgo.Builtin.defaultValue(type,null)),
             });
         }
     }
@@ -1188,6 +1197,15 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     {name: ":build",pos: null, params: [macro stdgo.internal.Macro.struct()]}
                 ]);
             }
+            data.fields.push({
+                name: "new",
+                pos: null,
+                access: [APublic],
+                kind: FFun({
+                    args: [for (field in data.fields) {name: field.name,opt: true}],
+                    expr: macro stdgo.internal.Macro.initLocals(),
+                }),
+            });
             return {
                 name: name,
                 pos: null,

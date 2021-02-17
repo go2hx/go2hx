@@ -15,10 +15,6 @@ typedef Byte = GoUInt;
 typedef Rune = GoInt;
 typedef UIntptr = GoUInt;
 
-typedef GoInterface = {
-    typeName:()->String,
-};
-
 abstract Int64(haxe.Int64) from haxe.Int64 to haxe.Int64 {
     public function new(n:haxe.Int64) {
         this = n;
@@ -39,7 +35,7 @@ abstract Int64(haxe.Int64) from haxe.Int64 to haxe.Int64 {
 }
 
 abstract GoInt(Int) from Int to Int {
-    public function new(n) {
+    public function new(n=0) {
         this = n;
     }
     @:from public static function fromFloat(f:Float) {
@@ -81,7 +77,7 @@ abstract GoInt(Int) from Int to Int {
 }
 @:runtimeValue
 abstract GoUInt(UInt) to UInt from UInt {
-    public function new(n) {
+    public function new(n=0) {
         this = n;
     }
     @:from public static function fromFloat(f:Float) {

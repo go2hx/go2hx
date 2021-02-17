@@ -278,19 +278,27 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     var type = typeExprType(spec.type,info);
                     var value = macro null;
                     var args:Array<Expr> = [];
+                    var t = type != null ? type : info.type;
                     if (spec.type.id == "ArrayType" && info.meta.length > 0) {
                         for (meta in info.meta) {
                             args.push(toExpr(EConst(CInt(Std.string(stdgo.Builtin.getMetaLength(meta))))));
                         }
-                    }
-                    var t = type != null ? type : info.type;
-                    vars = vars.concat([
                         for (i in 0...spec.names.length) {
-                            name: nameIdent(spec.names[i],info),
-                            type: t,
-                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro make((_:$t),$a{args}),
+                            vars.push({
+                                name: nameIdent(spec.names[i],info),
+                                type: t,
+                                expr: macro make((_:$t),$a{args})
+                            });
                         }
-                    ]);
+                    }else{
+                        vars = vars.concat([
+                            for (i in 0...spec.names.length) {
+                                name: nameIdent(spec.names[i],info),
+                                type: t,
+                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : stdgo.Builtin.defaultValue(t,null),
+                            }
+                        ]);
+                    }
             }
         }
     }

@@ -10,7 +10,7 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/arrays"];
+    tests = ["./gobyexample/examples/variables"];
     final libs = false;
     //libraries to download
     if (libs) {

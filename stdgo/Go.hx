@@ -255,6 +255,12 @@ class Go {
 								case "Float":
 									return macro ($e : Float);
 							}
+						case "Float":
+							switch toString {
+								case "Int64":
+									return macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
+								default:
+							}
 						case "Dynamic":
 							switch toString {
 								case "Slice":

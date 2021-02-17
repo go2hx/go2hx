@@ -18,7 +18,7 @@ function main() {
 function init(args:Array<String>) {
 	var argsCount = 0;
 	for (arg in args)
-		if (arg.charAt(0) != "-")
+		if (arg.charAt(0) != "-") //check if flag
 			argsCount++;
 	if (argsCount <= 1)
 		args.push(cwd);
@@ -29,13 +29,9 @@ function init(args:Array<String>) {
 	var httpsString = "https://";
 	for (arg in args) {
 		var path = arg;
-		if (StringTools.startsWith(path, httpsString))
+		if (StringTools.startsWith(path, httpsString)) 
 			path = path.substr(httpsString.length);
-		if (Path.extension(path) == "go")
-			continue;
-		if (path.charAt(0) == ".")
-			continue;
-		if (path.indexOf("/") == -1)
+		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 		var command = 'go get -u $path';
 		Sys.command(command);

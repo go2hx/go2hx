@@ -14,11 +14,11 @@ import sys.FileSystem;
 var stdgoList:Array<String>;
 var externs:Bool = false;
 final reserved = [
-	"abstract", "cast", "catch", "class", "do","macro","is",
-	"dynamic", "enum", "extends", "extern", "final", "function",
-	"implements", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "private",
-    "public", "static", "this", "throw", "try", "typedef", "untyped", "using", "while", //replacement for new
-    "construct"  // replacement for composite lit
+    "switch", "case", "break", "continue", "default","is",
+	"abstract", "cast", "catch", "class", "do","function",
+	"dynamic", "else", "enum", "extends", "extern", "true", "false", "final", "for", "function", "if", "interface",
+	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
+	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while","construct",
 ];
 final reservedClassNames = [
     "Class","T","K","S",
@@ -58,7 +58,7 @@ function main(data:DataType){
         for (file in pkg.files) {
             if (file.decls == null)
                 continue;
-            file.path = Path.withoutExtension(file.path);
+            file.path = normalizePath(Path.withoutExtension(file.path));
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
 
@@ -1403,9 +1403,11 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,"-","_");
     var path = path.split("/");
     for (i in 0...path.length) {
+        trace("p: " + path[i]);
         if (reserved.indexOf(path[i]) != -1)
             path[i] += "_";
     }
+    trace("path: " + path);
     return path.join("/");
 }
 function isTitle(string:String):Bool {

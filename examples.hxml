@@ -1,4 +1,4 @@
 -cp examples
 -cp src
 -main Examples
--neko examples.n
+-hl examples.hl

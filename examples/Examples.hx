@@ -10,11 +10,27 @@ function main() {
 
 function gen() {
     var tests = load();
-    Sys.command("go get -u github.com/tidwall/btree");
-    Sys.setCwd("..");
+    tests = ["./gobyexample/examples/arrays"];
+    final libs = false;
+    //libraries to download
+    if (libs) {
+        Sys.command("go get -u github.com/tidwall/btree");
+    }
     tests.push(path);
+    Main.exportBool = true;
     Main.init(tests);
-    Main.init(["-ident","github.com/tidwall/btree",path]);
+    Sys.setCwd("..");
+    for (path in Main.exportPaths) {
+        path = StringTools.replace(path,"/",".");
+        var command = 'haxe -cp examples/golibs -main $path --interp';
+        trace(command);
+        Sys.command(command);
+    }
+    Main.exportBool = false;
+    //run libraries
+    if (libs) {
+        Main.init(["-ident","github.com/tidwall/btree",path]);
+    }
 }
 function load():Array<String> {
     var tests:Array<String> = [];

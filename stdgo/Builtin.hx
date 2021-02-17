@@ -71,12 +71,14 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 							default:
 						}
 						return macro {
-							var slice = new $p($size);
+							var slice = new $p();
+							slice.grow 
 							for (i in 0...$size) {
 								slice[i] = $value;
 							}
 							slice; 
 						}
+					case "Make":
 					case "Map":
 						return macro new $p();
 					case "Chan":
@@ -117,6 +119,10 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 			if (p.name == "StdTypes")
 				name = p.sub;
 			switch name {
+				case "GoArray":
+					return macro make((_:$t),0);
+				case "Slice":
+					return macro new $p();
 				case "GoInt","GoUInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoDynamic":

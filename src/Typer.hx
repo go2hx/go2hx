@@ -277,14 +277,18 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     info.type = null;
                     var type = typeExprType(spec.type,info);
                     var value = macro null;
+                    var args:Array<Expr> = [];
                     if (spec.type.id == "ArrayType" && info.meta.length > 0) {
-                        value = macro ${{expr: EConst(CInt(Std.string(stdgo.Builtin.getMetaLength(info.meta)))),pos: null}};
+                        for (meta in info.meta) {
+                            args.push(toExpr(EConst(CInt(Std.string(stdgo.Builtin.getMetaLength(meta))))));
+                        }
                     }
+                    var t = type != null ? type : info.type;
                     vars = vars.concat([
                         for (i in 0...spec.names.length) {
                             name: nameIdent(spec.names[i],info),
-                            type: type != null ? type : info.type,
-                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro literal($value),
+                            type: t,
+                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : macro make((_:$t),$a{args}),
                         }
                     ]);
             }
@@ -586,7 +590,7 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     if (expr.len != null) {
         //array
         addImport("stdgo.GoArray",info);
-        info.meta = [{pos: null,name: "length",params: [typeExpr(expr.len,info)]}];
+        info.meta.push([{pos: null,name: "length",params: [typeExpr(expr.len,info)]}]);
         return TPath({
             pack: [],
             name: "GoArray",
@@ -1122,7 +1126,7 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
             list.push({
                 name: name.name,
                 type: type,
-                meta: info.meta,
+                meta: info.meta.shift(),
             });
         }
     }
@@ -1154,7 +1158,7 @@ private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionA
             args.push({
                 name: name.name,
                 type: type,
-                meta: info.meta,
+                meta: info.meta.shift(),
             });
         }
     }
@@ -1181,7 +1185,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                     fields.push({
                         name: untitle(field.type.name),
                         pos: null,
-                        meta: info.meta,
+                        meta: info.meta.shift(),
                         access: access == null ? typeAccess(field.type.name,true) : access,
                         kind: FVar(type,stdgo.Builtin.defaultValue(type,null))
                     });
@@ -1193,7 +1197,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
             fields.push({
                name: untitle(name.name),
                pos: null,
-               meta: info.meta,
+               meta: info.meta.shift(),
                access: access == null ? typeAccess(name.name,true) : access,
                kind: FVar(type,stdgo.Builtin.defaultValue(type,null)),
             });
@@ -1407,7 +1411,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Metadata,blankCounter:Int};
+typedef Info = {disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

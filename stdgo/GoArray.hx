@@ -20,8 +20,7 @@ abstract GoArray<T>(Vector<T>) {
 
     public inline function new(args:Rest<T>) {
         this = new Vector<T>(args.length);
-        if (args.length == 0)
-            return;
+        
         for (i in 0...args.length) {
             set(i,args[i]);
         }

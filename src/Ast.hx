@@ -457,13 +457,13 @@ typedef Pos = {
 	public var LPAREN = "(";
 	public var LBRACK = "[";
 	public var LBRACE = "{";
-	public var COMMA = ";";
+	public var COMMA = ",";
 	public var PERIOD = ".";
 	public var RPAREN = ")";
 	public var RBRACK = "]";
 	public var RBRACE = "}";
 	public var SEMICOLON = ";";
-	public var COLON = " =";
+	public var COLON = ":";
 	public var operator_end = "";
 	public var keyword_beg = "";
 	public var BREAK = "break";

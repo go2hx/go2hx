@@ -49,7 +49,6 @@ inline function delete<K, V>(map:Map<K, V>, key:K) {
 }
 
 function imag(c) {}
-
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
@@ -72,13 +71,48 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						}
 						return macro {
 							var slice = new $p();
-							slice.grow 
+							slice.grow($size);
 							for (i in 0...$size) {
 								slice[i] = $value;
 							}
-							slice; 
+							slice;
+						};
+					case "GoArray":
+						if (size == null)
+							return macro new $p();
+						var value:Expr = null;
+						var meta:Metadata = [];
+
+						switch size.expr {
+							case EArrayDecl(values):
+								meta = [
+									for(value in values) {
+										name: ":length",
+										params: [value],
+										pos: null,
+									}
+								];
+							default:
 						}
-					case "Make":
+						switch p.params[0] {
+							case TPType(t):
+								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+								value = defaultValue(t,Context.currentPos(),meta);
+							default:
+						}
+						var length:Expr = null;
+						switch size.expr {
+							case EArrayDecl(values):
+								length = values[0];
+							default:
+						}
+						return macro {
+							var array = new $p();
+							array.setSize($length);
+							for (i in 0...array.length)
+								array[i] = $value;
+							array;
+						};
 					case "Map":
 						return macro new $p();
 					case "Chan":
@@ -120,7 +154,13 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 				name = p.sub;
 			switch name {
 				case "GoArray":
-					return macro make((_:$t),0);
+					var exprs:Array<Expr> = [];
+					for (m in meta) {
+						exprs.push(m.params[0]);
+					}
+					var a = macro $a{exprs};
+					trace(exprs[0].expr);
+					return macro make((_:$t),$a);
 				case "Slice":
 					return macro new $p();
 				case "GoInt","GoUInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":

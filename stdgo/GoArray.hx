@@ -22,7 +22,7 @@ abstract GoArray<T>(Vector<T>) {
         this = new Vector<T>(args.length);
         
         for (i in 0...args.length) {
-            set(i,args[i]);
+            this.set(i,args[i]);
         }
     }
     public inline function setSize(length:Int) {
@@ -30,8 +30,10 @@ abstract GoArray<T>(Vector<T>) {
     }
     private inline function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
-        if (i >= length)
+        if (i >= length) {
+            trace(this + " index: " + i + " length: " + length);
             throw "slice out of length bounds";
+        }
         if (i < 0)
             throw "slice negative index out of bounds";
         #end

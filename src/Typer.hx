@@ -429,7 +429,7 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
             trace("for stmt error post: " + stmt.post);
             return null;
         }
-        def = EWhile(macro {var _b = $cond; $ty; _b;},body,true);
+        def = (macro Go.cfor($cond, $ty, $body)).expr;
     }else{
         def = EWhile(cond,body,true);
     }

@@ -568,12 +568,8 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     }
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
-    var data = typeFieldListFields(expr.fields,info,[]);
-    var anon = TAnonymous(data.fields);
-    if (data.extend.length == 0)
-        return anon;
-    return null;
-    //return TIntersection([anon].concat(data.extend));
+    var fields = typeFieldListFields(expr.fields,info,[]);
+    return TAnonymous(fields);
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
     var ret = typeFieldListRes(expr.results,info);
@@ -1119,9 +1115,8 @@ private function typeFieldListComplexTypes(list:Ast.FieldList,info:Info):Array<C
     }
     return args;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):{fields:Array<Field>,extend:Array<Expr>} {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
     var fields:Array<Field> = [];
-    var extend:Array<Expr> = [];
     for (field in list.list) {
         info.meta = [];
         var type = typeExprType(field.type,info);
@@ -1149,7 +1144,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
             });
         }
     }
-    return {fields: fields,extend: extend};
+    return fields;
 }
 private function typeFieldListTypes(list:Ast.FieldList,info:Info):Array<TypeDefinition> {
     var defs:Array<TypeDefinition> = [];
@@ -1187,31 +1182,22 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
-            var data = typeFieldListFields(struct.fields,info);
-            var meta:haxe.macro.Metadata = [
-                {name: ":structInit",pos: null},
-            ];
-            if (data.extend.length > 0) {
-                meta = meta.concat([
-                    {name: ":extend",params: data.extend,pos: null},
-                    {name: ":build",pos: null, params: [macro stdgo.internal.Macro.struct()]}
-                ]);
-            }
-            data.fields.push({
+            var fields = typeFieldListFields(struct.fields,info);
+            fields.push({
                 name: "new",
                 pos: null,
                 access: [APublic],
                 kind: FFun({
-                    args: [for (field in data.fields) {name: field.name,opt: true}],
+                    args: [for (field in fields) {name: field.name,opt: true}],
                     expr: macro stdgo.internal.Macro.initLocals(),
                 }),
             });
             return {
                 name: name,
                 pos: null,
-                fields: data.fields,
+                fields: fields,
                 pack: [],
-                meta: meta,
+                meta: [{name: ":structInit",pos: null}],
                 kind: TDClass(null,null,false,true,false),
             }
         case "InterfaceType":

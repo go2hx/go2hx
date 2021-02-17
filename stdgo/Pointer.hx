@@ -7,7 +7,7 @@ abstract Pointer<T>(Dynamic) {
 	public inline function new(expr) {
 		var data = stdgo.internal.Macro.pointer(expr);
 		if (data.obj != null) {
-			this = obj;
+			this = data.obj;
 			return;
 		}
 		this = new PointerData(data.get,data.set);

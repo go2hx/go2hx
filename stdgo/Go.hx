@@ -294,32 +294,6 @@ class Go {
 		}
 		return macro null;
 	}
-	public static macro function makePointer(expr) {
-		var isRealPointer = false;
-		var type = Context.follow(Context.typeof(expr));
-		switch type {
-			case TMono(t):
-				type = t.get();
-			default:
-		}
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				if (stdgo.internal.Macro.isNumber(t.name)) {
-					isRealPointer = true;
-				}else{
-					switch t.name {
-						case "GoString","String","Bool","Slice","Map","Array","GoArray":
-							isRealPointer = true;
-					}
-				}
-			case TAnonymous(a):
-			case TInst(t, params):
-			default:
-				trace("unknown make pointer type: " + type);
-		}
-		return isRealPointer ? macro new Pointer(null,() -> $expr,(v) -> $expr = v) : macro new Pointer($expr);
-	}
 
 	public static macro function cfor(cond, post, expr) {
 		#if !display

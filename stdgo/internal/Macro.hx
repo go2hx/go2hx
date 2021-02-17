@@ -49,7 +49,7 @@ class Macro {
 		return fields;
 	}
 
-	macro function pointer(expr) {
+	public static macro function pointer(expr) {
 		var isRealPointer = false;
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
@@ -57,6 +57,8 @@ class Macro {
 				type = t.get();
 			default:
 		}
+		if (type == null)
+			return macro null;
 		switch type {
 			case TAbstract(t, params):
 				var t = t.get();
@@ -95,11 +97,11 @@ class Macro {
 			},
 			{
 				field: "get",
-				expr: null,
+				expr: macro null,
 			},
 			{
 				field: "set",
-				expr: null,
+				expr: macro null,
 			},
 		]),pos: Context.currentPos()};
 	}

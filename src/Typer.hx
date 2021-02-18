@@ -491,8 +491,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                     return exprs[0].expr;
                 return EBlock(exprs);
             }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
-                //destructure system
-                return null;
+                //non variable assign, destructure system
+                var exprs:Array<Expr> = [];
+                for (lhs in stmt.lhs) {
+                    exprs.push(typeExpr(lhs,info));
+                }
+                for (rhs in stmt.rhs) {
+                    exprs.push(typeExpr(rhs,info));
+                }
+                return (macro Go.destruct($a{exprs})).expr;
             }else{
                 error("unknown type assign type: " + stmt);
                 return null;
@@ -512,18 +519,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 }
                 return EVars(vars);
             }else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { 
-                //destructure system
-                var vars:Array<Var> = [{
-                    name: "_o",
-                    expr: typeExpr(stmt.rhs[0],info)
-                }];
-                for (i in 0...stmt.lhs.length) {
-                    vars.push({
-                        name:  nameIdent(stmt.lhs[i].name,info),
-                        expr: macro _o,
-                    });
+                //variable destructure system
+                var exprs:Array<Expr> = [];
+                for (lhs in stmt.lhs) {
+                    exprs.push(toExpr(EConst(CString(lhs.name))));
                 }
-                return EVars(vars);
+                for (rhs in stmt.rhs) {
+                    exprs.push(typeExpr(rhs,info));
+                }
+                return (macro Go.destruct($a{exprs})).expr;
             }else{
                 error("unknown type assign define type: " + stmt);
                 return null;
@@ -549,6 +553,17 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     if (stmt.results.length == 1)
         return EReturn(typeExpr(stmt.results[0],info));
     //multireturn
+    trace("ret: " + info.ret);
+    switch info.ret[0] {
+        case TAnonymous(fields):
+            var expr = toExpr(EObjectDecl([for (i in 0...fields.length) {
+                field: fields[i].name,
+                expr: typeExpr(stmt.results[i],info),
+            }]));
+            return EReturn(expr);
+        default:
+            trace("unknown multi return type: " + info.ret[0]);
+    }
     return EReturn();
 }
 private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an expr
@@ -941,8 +956,10 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
 
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     var ret = typeFieldListRes(expr.type.results,info);
+    info.ret.unshift(ret);
     var args = typeFieldListArgs(expr.type.params,info);
     var block = typeBlockStmt(expr.body,info);
+    info.ret = info.ret.slice(1);
     return EFunction(FAnonymous,{
         ret: ret,
         args: args,
@@ -1088,6 +1105,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
 
     var name = nameIdent(untitle(decl.name.name),info);
     var ret = typeFieldListRes(decl.type.results,info);
+    info.ret = [ret];
     var args = typeFieldListArgs(decl.type.params,info);
 
     if (decl.recv != null) { //now is a static extension function
@@ -1161,6 +1179,7 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
             pack: [],
         });
     var list:Array<{name:String,type:ComplexType,meta:Metadata}> = [];
+    var i:Int = 0;
     for (group in fieldList.list) {
         info.meta = [];
         var type = typeExprType(group.type,info);
@@ -1168,7 +1187,7 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
             continue;
         if (group.names.length == 0) {
             list.push({
-                name: "",
+                name: "v" + (i++),
                 type: type,
                 meta: null,
             });
@@ -1463,7 +1482,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:ComplexType,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

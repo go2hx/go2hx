@@ -96,96 +96,11 @@ class Go {
 			return expr;
 		}
 	}
-	public static macro function destruct(cond, expr) {
+	public static macro function destruct(exprs:Array<Expr>) {
+		var expr = exprs.pop(); //expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
-		var values:Array<haxe.macro.Expr> = [];
-		var index:Int = -1;
-		switch cond.expr {
-			case EArrayDecl(array):
-				for (v in array) {
-					switch v.expr {
-						case EConst(c):
-							switch c {
-								case CIdent(s):
-									if (s == "null") {
-										values.push(null);
-									} else {
-										values.push(v);
-									}
-								default:
-									trace("not indent " + c);
-							}
-						case EArray(e1, e2):
-							values.push(v);
-						default:
-							trace("not constant " + v.expr);
-					}
-				}
-			default:
-				throw "needs array for set multi";
-		}
-		var set:Array<haxe.macro.Expr> = [];
-		function anonFields(a:haxe.macro.Type.AnonType) {
-			var fields = a.fields;
-			fields.sort(function(a, b) {
-				return 0;
-			});
-			for (field in fields) {
-				index++;
-				if (values[index] == null)
-					continue;
-				if (index >= values.length)
-					continue;
-				var get = Context.parse(ExprTools.toString(expr) + '.${field.name}', Context.currentPos());
-				var value = values[index];
-				set.push(macro $value = $get);
-			}
-		}
-		switch type {
-			case TInst(t, params):
-				switch expr.expr {
-					case EArray(e1, e2):
-						var value = values[0];
-						var ok = values[1];
-						set.push(macro $value = $expr);
-						set.push(macro $ok = $value != null);
-					default:
-						var value = values[0];
-						set.push(macro $value = $expr);
-				}
-			case TFun(args, ret):
-				switch ret {
-					case TAbstract(t, params):
-						var value = values[0];
-						var get = expr;
-						set.push(macro $value = $get);
-					default:
-						trace("not abstract");
-				}
-			case TType(t, params):
-				switch t.get().type {
-					case TAnonymous(a):
-						anonFields(a.get());
-					default:
-						trace("ttype unknown " + t.get().type);
-				}
-			case TAnonymous(a):
-				anonFields(a.get());
-			case TMono(t):
 
-			case TDynamic(t):
-				switch t {
-					case null:
-						set.push(expr);
-					default:
-						trace("unknown TDynamic t type: " + t);
-				}
-			default:
-				trace("not an inst or func " + type);
-		}
-		return macro {
-			$b{set}
-		}
+		return null;
 	}
 
 	public static macro function assert(expr:Expr) {

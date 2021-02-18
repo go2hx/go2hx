@@ -10,13 +10,14 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/slices"];
+    tests = ["./gobyexample/examples/functions"];
     final libs = false;
     //libraries to download
     if (libs) {
         Sys.command("go get -u github.com/tidwall/btree");
     }
     tests.push(path);
+    tests.unshift("-ident");
     Main.exportBool = true;
     Main.init(tests);
     Sys.setCwd("..");

@@ -722,7 +722,9 @@ private function typeMapType(expr:Ast.MapType,info:Info):ExprDef {
     return null;
 }
 private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
-    return null;
+    var key = typeExpr(expr.key,info);
+    var value = typeExpr(expr.value,info);
+    return (macro {key: $key, value: $value}).expr;
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     var expr = typeExpr(expr.elt,info);
@@ -862,7 +864,8 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
         case STRING:
             addImport("stdgo.GoString",info);
             info.type = TPath({name: "GoString",pack: []});
-            EConst(CString(expr.value));
+            var expr = toExpr(EConst(CString(expr.value)));
+            return (macro new GoString($expr)).expr;
         case INT:
             info.type = TPath({name: "GoInt",pack: []});
             if (expr.value.length > 10) {
@@ -1163,12 +1166,20 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info):ComplexType
         var type = typeExprType(group.type,info);
         if (type == null)
             continue;
-        for (name in group.names) {
+        if (group.names.length == 0) {
             list.push({
-                name: name.name,
+                name: "",
                 type: type,
-                meta: info.meta.shift(),
+                meta: null,
             });
+        }else{
+            for (name in group.names) {
+                list.push({
+                    name: name.name,
+                    type: type,
+                    meta: info.meta.shift(),
+                });
+            }
         }
     }
     if (list.length > 1) {

@@ -44,7 +44,7 @@ macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
 	return src;
 }
 
-inline function delete<K, V>(map:Map<K, V>, key:K) {
+inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 	map.remove(key);
 }
 
@@ -113,7 +113,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 								array[i] = $value;
 							array;
 						};
-					case "Map":
+					case "GoMap":
 						return macro new $p();
 					case "Chan":
 						return null;

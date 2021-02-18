@@ -6,6 +6,11 @@ import haxe.iterators.StringIterator;
 @:forward
 @:access(StringTools)
 abstract GoString(String) from String to String {
+
+	public inline function new(str:String="") {
+		this = str;
+	}
+
 	@:arrayAccess
 	inline function get(id:Int) {
 		return this.charAt(id);

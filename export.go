@@ -60,7 +60,6 @@ func main() {
 	identBool := flag.Bool("ident", false, "ident json")
 	flag.Parse()
 	args := flag.Args()
-	fmt.Println("args:",args)
 	fmt.Println("ident:",*identBool,"test:",*testBool)
 	localPath := args[len(args)-1]
 	cwd, err := os.Getwd()

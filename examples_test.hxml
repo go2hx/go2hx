@@ -1,0 +1,3 @@
+-cp examples/golibs
+-main tests.gobyexample.examples.slices.Slices
+-hl examples_test.hl

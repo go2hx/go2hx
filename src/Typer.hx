@@ -1022,7 +1022,6 @@ private function typeOp(token:Ast.Token):Binop {
 private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     var sel = expr.sel.name;
-    trace("x: " + x.expr);
     switch x.expr {
         case EField(e, field):
             if (field.charAt(0) == field.charAt(0).toUpperCase())
@@ -1437,11 +1436,9 @@ private function normalizePath(path:String):String {
     path = StringTools.replace(path,"-","_");
     var path = path.split("/");
     for (i in 0...path.length) {
-        trace("p: " + path[i]);
         if (reserved.indexOf(path[i]) != -1)
             path[i] += "_";
     }
-    trace("path: " + path);
     return path.join("/");
 }
 function isTitle(string:String):Bool {

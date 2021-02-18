@@ -57,6 +57,10 @@ abstract GoArray<T>(Vector<T>) {
     }
     public function copy():GoArray<T> {
         var array = new GoArray<T>();
+        array.setSize(length);
+        for (i in 0...array.length) {
+            array.set(i,this.get(i));
+        }
         return array;
     }
     public inline function typeName() {

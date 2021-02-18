@@ -159,10 +159,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 						exprs.push(m.params[0]);
 					}
 					var a = macro $a{exprs};
-					trace(exprs[0].expr);
 					return macro make((_:$t),$a);
-				case "Slice":
-					return macro new $p();
 				case "GoInt","GoUInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoDynamic":

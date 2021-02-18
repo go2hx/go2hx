@@ -116,18 +116,19 @@ class SliceData<T> {
         array = new GoArray<T>();
         array.setSize(length);
     }
-    public function get(index:Int):T {
-        final i = index + pos;
-        boundsCheck(i);
-        return array.get(i + pos);
-    }
     private inline function boundsCheck(i:Int) {
         #if !no_check_bounds
-        if (i >= length)
-            throw "slice out of length bounds";
+        if (i >= length + pos) {
+            throw "slice out of length bounds: " + i + " len: " + length;
+        }
         if (i < 0)
             throw "slice negative index out of bounds";
         #end
+    }
+    public function get(index:Int):T {
+        final i = index + pos;
+        boundsCheck(i);
+        return array.get(i);
     }
     public function set(index:Int,value:T):T {
         final i = index + pos;
@@ -144,7 +145,9 @@ class SliceData<T> {
         return 0;
     }
     inline public function toArray():Array<T> { //unrolling derefrences
-        return [for (i in 0...length) get(i)];
+        return [for (i in 0...length)
+            get(i)
+        ];
     }
     inline public function toVector():Vector<T> { //derefrence
         var vector = array.toVector();

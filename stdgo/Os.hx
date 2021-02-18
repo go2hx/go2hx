@@ -10,7 +10,7 @@ var args = Sys.args();
 var stderr = Sys.stderr();
 var stdin = Sys.stdin();
 var stdout = Sys.stdout();
-@:noUsing
+
 inline function mkdir(path:String, ?perm:Int):Errors {
 	try {
 		FileSystem.createDirectory(path);
@@ -19,30 +19,30 @@ inline function mkdir(path:String, ?perm:Int):Errors {
 		return cast e;
 	}
 }
-@:noUsing
+
 inline function getenv(path:String):String {
 	return Sys.getEnv(path);
 }
-@:noUsing
+
 inline function mkdirAll(path:String, ?perm:Int):Errors {
 	return mkdir(path, perm);
 }
-@:noUsing
+
 inline function create(path:String):ErrorReturn<Pointer<File>> {
 	var file:File = null;
 	return {value: Go.makePointer(file)};
 }
-@:noUsing
+
 inline function exit(code:Int) {
 	Sys.exit(code);
 }
-@:noUsing
+
 inline function newSyscallError(syscall:String, err:Errors):Errors {
 	if (err == null)
 		return null;
 	return new Errors(syscall);
 }
-@:noUsing
+
 inline function chdir(dir:String):Errors {
 	try {
 		Sys.setCwd(dir);
@@ -51,7 +51,7 @@ inline function chdir(dir:String):Errors {
 		return cast e;
 	}
 }
-@:noUsing
+
 inline function remove(name:String):Errors {
 	try {
 		if (FileSystem.isDirectory(name)) {
@@ -64,7 +64,7 @@ inline function remove(name:String):Errors {
 		return cast e;
 	}
 }
-@:noUsing
+
 inline function removeAll(path:String):Errors {
 	if (sys.FileSystem.exists(path) && sys.FileSystem.isDirectory(path)) {
 		var entries = sys.FileSystem.readDirectory(path);

@@ -3,26 +3,30 @@ package stdgo;
 import haxe.zip.Compress;
 import haxe.Int64;
 
-typedef Time = {
-	@:noCompletion var date:Date;
-}
-@:noUsing
-function now():Time {
-	return {date: Date.now()};
-}
-function hour(time:Time):Int {
-	return time.date.getHours();
-}
+class Time {
+	var date:Date;
+	public function new(date:Date) {
+		this.date = date;
+	}
 
-function weekday(time:Time):Int {
-	return time.date.getDay();
-}
-final monday:Int = 1;
-final tuesday:Int = 2;
-final wensday:Int = 3;
-final thursday:Int = 4;
-final friday:Int = 5;
-final saturday:Int = 6;
-final sunday:Int = 0;
+	public static inline function now():Time {
+		return new Time(Date.now());
+	}
+	public function hour():Int {
+		return date.getHours();
+	}
+	public function weekday():Int {
+		return date.getDay();
+	}
 
+	
+public static final monday:Int = 1;
+public static final tuesday:Int = 2;
+public static final wensday:Int = 3;
+public static final thursday:Int = 4;
+public static final friday:Int = 5;
+public static final saturday:Int = 6;
+public static final sunday:Int = 0;
+
+}
 typedef Duration = Int64;

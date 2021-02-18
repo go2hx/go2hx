@@ -7,11 +7,11 @@ import Go.ErrorReturn;
 import sys.io.File;
 import haxe.io.Bytes;
 
-@:noUsing
+
 function readAll(r:io.Reader) {}
-@:noUsing
+
 function readFile(filename:String) {}
-@:noUsing
+
 function writeFile(filename:String, data:Bytes, ?perm:Os.FileMode):Errors {
 	try {
 		File.saveBytes(filename, data);
@@ -20,7 +20,7 @@ function writeFile(filename:String, data:Bytes, ?perm:Os.FileMode):Errors {
 		return cast e;
 	}
 }
-@:noUsing
+
 function readDir(dirname:String):ErrorReturn<Array<FileInfo>> {
 	dirname = Path.addTrailingSlash(dirname);
 	try {
@@ -34,23 +34,23 @@ function readDir(dirname:String):ErrorReturn<Array<FileInfo>> {
 	}
 }
 
-@:noUsing
+
 function close() {}
 
-@:noUsing
+
 function nopCloser(r:io.Reader) {}
 
-@:noUsing
+
 function write(p:Bytes) {}
 
-@:noUsing
+
 function writeString(s:String) {}
 
-@:noUsing
+
 function readFrom(r:io.Reader) {}
 
-@:noUsing
+
 function tempFile(dir:String) {}
 
-@:noUsing
+
 function tempDir(dir:String) {}

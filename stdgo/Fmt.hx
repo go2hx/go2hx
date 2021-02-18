@@ -9,7 +9,7 @@ import stdgo.internal.Printf;
 import haxe.macro.Expr;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.TypeTools;
-@:noUsing
+
 inline function errorf(fmt:String, args:Rest<Dynamic>):Errors {
 	return new Errors(format(fmt, args.toArray()));
 }
@@ -17,23 +17,23 @@ inline function errorf(fmt:String, args:Rest<Dynamic>):Errors {
 inline function println(args:Rest<Dynamic>) {
 	log(args.toArray().join(" ") + "\n");
 }
-@:noUsing
+
 inline function print(args:Rest<Dynamic>) {
 	log(args.toArray().join(" ") + "\n");
 }
-@:noUsing
+
 inline function printf(fmt:String, args:Rest<Dynamic>) { // format
 	log(format(fmt, args.toArray()));
 }
-@:noUsing
+
 inline function fprintf(w:Output, fmt:String, args:Rest<Dynamic>) {
 	w.writeString(format(fmt, args.toArray()));
 }
-@:noUsing
+
 inline function sprint(args:Rest<Dynamic>) {
 	return args.toArray().join(" ");
 }
-@:noUsing
+
 function sprintln(args:Rest<Dynamic>) {
 	return args.toArray().join(" ") + "\n";
 }

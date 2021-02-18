@@ -16,7 +16,7 @@ var externs:Bool = false;
 final reserved = [
     "switch", "case", "break", "continue", "default","is",
 	"abstract", "cast", "catch", "class", "do","function",
-	"dynamic", "else", "enum", "extends", "extern", "true", "false", "final", "for", "function", "if", "interface",
+	"dynamic", "else", "enum", "extends", "extern", "final", "for", "function", "if", "interface",
 	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
 	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while","construct",
 ];
@@ -309,7 +309,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef { //a switch statement of a type
     var init:Expr = null;
     if (stmt.init != null)
-        init = {expr: typeSwitchStmt(stmt.init,info),pos: null};
+        init = toExpr(typeSwitchStmt(stmt.init,info));
 
     var assign:Expr = null;
     var set:String = "";
@@ -368,7 +368,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         if (i + 1 >= obj.list.length)
             return value;
         var next = condition(obj,i + 1);
-        return {expr: EBinop(OpBoolOr,value,next), pos: null};
+        return toExpr(EBinop(OpBoolOr,value,next));
     }
     function ifs(i:Int=0) {
         var obj:Ast.CaseClause = stmt.body.list[i];
@@ -377,7 +377,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         var t:ComplexType = null;
         if (types.length == 1)
             t = types[0];
-        var block = {expr: typeStmtList(obj.body,info),pos: null};
+        var block = toExpr(typeStmtList(obj.body,info));
         if (set != "") {
             switch block.expr {
                 case EBlock(exprs):
@@ -397,9 +397,28 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     return ifs().expr;
 }
 private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
-    var main:ExprDef = null;
     if (stmt.tag == null) {
+        //this is an if else chain
+        function condition(obj:Ast.CaseClause,i:Int=0) {
+            if (obj.list.length == 0)
+                return null;
+            var value = typeExpr(obj.list[i],info);
+            if (i + 1 >= obj.list.length)
+                return value;
+            var next = condition(obj,i + 1);
+            return toExpr(EBinop(OpBoolOr,value,next));
+        }
+        function ifs(i:Int=0) {
+            var obj:Ast.CaseClause = stmt.body.list[i];
+            var cond = condition(obj);
+            var block = toExpr(typeStmtList(obj.body,info));
 
+            if (i + 1 >= stmt.body.list.length)
+                return cond == null ? macro $block : macro if ($cond) $block;
+            var next = ifs(i + 1);
+            return macro if ($cond) $block else $next;
+        }
+        return ifs().expr;
     }else{
         var cases:Array<Case> = [];
         var def:Expr = null;
@@ -410,20 +429,19 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
                     if (obj.list.length > 0) {
                         cases.push({
                             values: [for (expr in obj.list) typeExpr(expr,info)],
-                            expr: {expr: typeStmtList(obj.body,info), pos: null},
+                            expr: toExpr(typeStmtList(obj.body,info)),
                         });
                     }else{
-                        def = {expr: typeStmtList(obj.body,info), pos: null};
+                        def = toExpr(typeStmtList(obj.body,info));
                     }
             }
         }
-        main = ESwitch(typeExpr(stmt.tag,info),cases,def);
+        return ESwitch(typeExpr(stmt.tag,info),cases,def);
     }
-    return main;
 }
 private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
-    var cond = stmt.cond == null ? {pos: null,expr: EConst(CIdent("true"))} : typeExpr(stmt.cond,info);
-    var body = {pos: null, expr: typeBlockStmt(stmt.body,info)};
+    var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond,info);
+    var body = toExpr(typeBlockStmt(stmt.body,info));
     if (body.expr == null)
         body = macro {};
     if (cond.expr == null || body.expr == null) {
@@ -1004,6 +1022,22 @@ private function typeOp(token:Ast.Token):Binop {
 private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     var sel = expr.sel.name;
+    trace("x: " + x.expr);
+    switch x.expr {
+        case EField(e, field):
+            if (field.charAt(0) == field.charAt(0).toUpperCase())
+                sel = untitle(sel);
+        case EConst(c):
+            switch c {
+                case CIdent(s):
+                    var index = s.lastIndexOf(".");
+                    var field = s.substr(index + 1);
+                    if (field.charAt(0) == field.charAt(0).toUpperCase())
+                        sel = untitle(sel);
+                default:
+            }
+        default:
+    }
     return (macro $x.$sel).expr; //EField
 }
 private function typeSliceExpr(expr:Ast.SliceExpr,info:Info):ExprDef {

@@ -96,6 +96,36 @@ class Go {
 			return expr;
 		}
 	}
+	public static macro function divide(a:Expr,b:Expr) {
+		
+		return null;
+	}
+	public static macro function pointer(expr) {
+		var isRealPointer = false;
+		var type = Context.follow(Context.typeof(expr));
+		switch type {
+			case TMono(t):
+				type = t.get();
+			default:
+		}
+		if (type == null)
+			return macro null;
+		switch type {
+			case TAbstract(t, params):
+				var t = t.get();
+				switch t.name {
+					case "GoString","String","Bool","Slice","Map","Array","GoArray","Int","Float","UInt":
+						isRealPointer = true;
+				}
+			case TAnonymous(a):
+			case TInst(t, params):
+			default:
+				trace("unknown make pointer type: " + type);
+		}
+		if (isRealPointer)
+			return macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
+		return macro new Pointer($expr);
+	}
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); //expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));

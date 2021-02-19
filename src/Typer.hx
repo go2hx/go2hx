@@ -918,7 +918,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
-        return (macro new Pointer($x)).expr;
+        return (macro Go.pointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)

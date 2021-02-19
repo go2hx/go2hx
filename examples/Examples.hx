@@ -10,7 +10,7 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/variadic-functions"];
+    tests = ["./gobyexample/examples/pointers"];
     final libs = false;
     //libraries to download
     if (libs) {

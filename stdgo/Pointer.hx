@@ -4,13 +4,8 @@ import haxe.macro.Context;
 @:forward
 abstract Pointer<T>(Dynamic) {
 
-	public inline function new(expr) {
-		var data = stdgo.internal.Macro.pointer(expr);
-		if (data.obj != null) {
-			this = data.obj;
-			return;
-		}
-		this = new PointerData(data.get,data.set);
+	public inline function new(expr:Dynamic) {
+		this = expr;
 	}
 	@:op([]) inline function get(index:Int):T {
         return !this.real ? this.get() : this;
@@ -26,5 +21,8 @@ class PointerData<T> {
 	public function new(get,set) {
 		this.get = get;
 		this.set = set;
+	}
+	public inline function toString() {
+		return Std.string("* " + get());
 	}
 }

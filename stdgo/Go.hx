@@ -208,19 +208,12 @@ class Go {
 										slice;
 									}
 							}
-						case "GoInt":
+						case "Int":
 							switch toString {
 								case "Float":
 									return macro ($e : Float);
 								case "GoString":
 									return assertString();
-							}
-						case "Int":
-							switch toString {
-								case "GoInt":
-									return macro new GoInt($e);
-								case "Float":
-									return macro ($e : Float);
 							}
 						case "Float":
 							switch toString {

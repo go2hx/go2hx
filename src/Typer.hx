@@ -357,8 +357,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         switch t {
             case TPath(p):
                 switch p.name {
-                    case "GoUInt","GoInt","GoString","Int64":
-                        //value = macro ($assign : GoInterface).typeName() == $v{p.name};
+                    case "GoString":
                         value = macro null;
                     default:
                 }
@@ -664,10 +663,7 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
-    if (name == "Int")
-        name = "GoInt";
-    if (name == "UInt")
-        name = "GoUInt";
+
     if (info.retypeMap.exists(name))
         return info.retypeMap[name];
     return TPath({
@@ -881,12 +877,12 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             var expr = toExpr(EConst(CString(expr.value)));
             return (macro new GoString($expr)).expr;
         case INT:
-            info.type = TPath({name: "GoInt",pack: []});
+            info.type = TPath({name: "Int",pack: []});
             if (expr.value.length > 10) {
                 try {
                 var i = Int64Helper.parseString(expr.value);
                 if (i > 2147483647 || i < -2147483647) {
-                    info.type = TPath({name: "Int64",pack: []});
+                    info.type = TPath({name: "Int64",pack: ["haxe"]});
                     return (macro haxe.Int64Helper.fromFloat(${toExpr(EConst(CFloat(expr.value)))})).expr;
                 }
                 }catch(e) {
@@ -976,10 +972,9 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     var op = typeOp(expr.op);
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
-            var expr = toExpr(EBinop(op,macro Std.int($x),macro Std.int($y)));
-            return (macro new GoInt($expr)).expr;
+            return EBinop(op,macro Std.int($x),macro Std.int($y));
         case OpXor:
-
+            return null;
         case OpDiv:
             var isInt:Bool = false;
             if (expr.x.id == "BasicLit" && expr.x.kind == Ast.Token.INT)
@@ -988,7 +983,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
                 isInt = true;
             if (isInt) {
                 var expr = toExpr(EBinop(op,x,y));
-                return (macro ($expr : GoInt)).expr;
+                return (macro ($expr : Int)).expr;
             }
         default:
     }

@@ -160,7 +160,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					}
 					var a = macro $a{exprs};
 					return macro make((_:$t),$a);
-				case "GoInt","GoUInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+				case "Int","UInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoDynamic":
 					return macro {typeName: "GoDynamic",value: {}};

@@ -19,7 +19,7 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function print(args:Rest<Dynamic>) {
-	log(args.toArray().join(" ") + "\n");
+	log(args.toArray().join(" "));
 }
 
 inline function printf(fmt:String, args:Rest<Dynamic>) { // format

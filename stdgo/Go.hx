@@ -99,8 +99,60 @@ class Go {
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); //expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
+		var fields:Array<String> = [];
+		switch type {
+			case TAnonymous(a):
+				for (field in a.get().fields) {
+					fields.push(field.name);
+				}
+			default:
+				trace("unknown destruct type: " + type);
+		}
+		var valueType = Context.typeof(exprs[0]);
+		var isDefine:Bool = false;
+		switch valueType {
+			case TInst(t, params):
+				if (t.get().name == "String")
+					isDefine = true;
+			default:
+				trace("unknown type " + valueType);
+		}
+		var main:Var = {
+			name: "_obj",
+			expr: expr,
+		};
 
-		return null;
+		if (isDefine) {
+			var vars:Array<Var> = [];
+			for (i in 0...exprs.length) {
+				var name:String = "";
+				switch exprs[i].expr {
+					case EConst(c):
+						switch c {
+							case CString(s, kind):
+								name = s;
+							default:
+						}
+					default:
+				}
+				vars.push({
+					name: name,
+					expr: Context.parse("_obj." + fields[i],Context.currentPos()),
+				});
+			}
+			vars.unshift(main);
+			return {expr: EVars(vars),pos: Context.currentPos()};
+		}
+		//assign
+		var v:Expr = {expr: EVars([main]),pos: Context.currentPos()};
+		var set:Array<Expr> = [];
+		for (i in 0...exprs.length) {
+			set.push(macro ${exprs[i]} = ${Context.parse("_obj." + fields[i],Context.currentPos())});
+		}
+		return macro {
+			$v;
+			$b{set};
+		}
 	}
 
 	public static macro function assert(expr:Expr) {

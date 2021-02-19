@@ -553,7 +553,6 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
     if (stmt.results.length == 1)
         return EReturn(typeExpr(stmt.results[0],info));
     //multireturn
-    trace("ret: " + info.ret);
     switch info.ret[0] {
         case TAnonymous(fields):
             var expr = toExpr(EObjectDecl([for (i in 0...fields.length) {

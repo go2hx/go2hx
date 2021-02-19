@@ -81,6 +81,8 @@ function main(data:DataType){
                 if (func != null)
                     data.defs.push(func);
             }
+            typeImplements(info);
+            //setup implements
             data.imports.push({path: ["stdgo","StdTypes"],alias: ""});
             data.imports.push({path: ["stdgo","Go"],alias: ""});
             data.imports.push({path: ["stdgo","Builtin"],alias: ""});
@@ -93,6 +95,115 @@ function main(data:DataType){
         list.push(module);
     }
     return list;
+}
+private function typeImplements(info:Info) {
+    for (cl in info.data.defs) {
+        switch cl.kind {
+            case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+                if (isInterface)
+                    continue;
+                for (inter in info.data.defs) {
+                    switch inter.kind {
+                        case TDClass(superClass, interfaces2, isInterface, isFinal, isAbstract):
+                            if (!isInterface)
+                                continue;
+                            for (interField in inter.fields) {
+
+                                for (clField in cl.fields) {
+                                    if (interField.name != clField.name)
+                                        continue;
+                                    var interFunc:Function = null;
+                                    var clFunc:Function = null;
+                                    switch interField.kind {
+                                        case FFun(f):
+                                            interFunc = f;
+                                        default:
+
+                                    }
+                                    switch clField.kind {
+                                        case FFun(f):
+                                            clFunc = f;
+                                        default:
+                                    }
+                                    if (interFunc == null || clFunc == null)
+                                        continue;
+                                    if (!compareComplexType(interFunc.ret,clFunc.ret))
+                                        continue;
+                                    var passed:Bool = true;
+                                    if (interFunc.args.length != clFunc.args.length)
+                                        continue;
+                                    for (i in 0...interFunc.args.length) {
+                                        if (interFunc.args[0].name != clFunc.args[0].name) {
+                                            passed = false;
+                                            break;
+                                        }
+                                        if (!compareComplexType(interFunc.args[0].type, clFunc.args[0].type)) {
+                                            passed = false;
+                                            break;
+                                        }
+                                    }
+                                    if (!passed)
+                                        continue;
+                                    trace("finish");
+                                    interfaces.push({
+                                        name: inter.name,
+                                        pack: inter.pack,
+                                    });
+                                }
+                            }
+                        default:
+                    }
+                }
+            default:
+        }
+    }
+}
+private function compareComplexType(a:ComplexType,b:ComplexType):Bool {
+    switch a {
+        case TPath(p):
+            switch b {
+                case TPath(p2):
+                    if (p.name != p2.name)
+                        return false;
+                    if (p.pack.length != p2.pack.length)
+                        return false;
+                    for (i in 0...p.pack.length) {
+                        if (p.pack[i] != p2.pack[i])
+                            return false;
+                    }
+                    return true;
+                default:
+                    return false;
+            }
+        case TAnonymous(fields):
+            switch b {
+                case TAnonymous(fields2):
+                    if (fields.length != fields2.length)
+                        return false;
+                    for (i in 0...fields.length) {
+                        if (fields[i].name != fields2[i].name)
+                            return false;
+                        switch fields[i].kind {
+                            case FVar(t, e):
+                                switch fields2[i].kind {
+                                    case FVar(t2, e):
+                                        if (!compareComplexType(t,t2))
+                                            return false;
+                                    default:
+                                        return false;
+                                }
+                            default:
+                                return false;
+                        }
+                    }
+                    return true;
+                default:
+                    return false;
+            }
+        default:
+            trace("unknown compare complex type: " + a);
+            return false;
+    }
 }
 private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
     for (spec in cast(decl.specs,Array<Dynamic>)) {
@@ -1136,7 +1247,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                     def.fields.push({
                         name: name,
                         pos: null,
-                        access: [APublic], //TODO: allow private access within own package, public/private works normally outside of package.
+                        access: typeAccess(name), //TODO: allow private access within own package, public/private works normally outside of package.
                         kind: FFun({
                             args: args,
                             ret: ret,
@@ -1250,6 +1361,30 @@ private function typeFieldListComplexTypes(list:Ast.FieldList,info:Info):Array<C
         }
     }
     return args;
+}
+private function typeFieldListMethods(list:Ast.FieldList,info:Info):Array<Field> {
+    var fields:Array<Field> = [];
+    for (field in list.list) {
+        var expr:Ast.FuncType = field.type;
+
+        var ret = typeFieldListRes(expr.results,info);
+        var params = typeFieldListArgs(expr.params,info);
+        if (ret == null || params == null)
+            continue;
+
+        for (name in field.names) {
+            fields.push({
+                name: untitle(name.name),
+                pos: null,
+                access: typeAccess(name.name,true),
+                kind: FFun({
+                    args: params,
+                    ret: ret,
+                })
+            });
+        }
+    }
+    return fields;
 }
 private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
     var fields:Array<Field> = [];
@@ -1376,8 +1511,8 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 fields: fields,
                 pack: [],
-                meta: [{name: ":structInit",pos: null}, {name: ":allow",params: [toExpr(EConst(CIdent(info.path)))],pos: null}],
-                kind: TDClass(null,null,false,true,false),
+                meta: [{name: ":structInit",pos: null}, getAllow(info)],
+                kind: TDClass(null,[],false,true,false),
             }
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
@@ -1390,7 +1525,15 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     pack: [],
                     kind: TDAlias(TPath({name: "Any",pack: []})),
                 }
-            return null;
+            var fields = typeFieldListMethods(struct.methods,info);
+            return {
+                name: name,
+                pack: [],
+                pos: null,
+                fields: fields,
+                meta: [getAllow(info)],
+                kind: TDClass(null,[],true)
+            };
             //error("unknown interface type spec"); null;
         default:
             var type = typeExprType(spec.type,info);
@@ -1404,6 +1547,9 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 kind: TDAlias(type)
             }
     }
+}
+private function getAllow(info:Info) {
+    return {name: ":allow",params: [toExpr(EConst(CIdent(info.path)))],pos: null};
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");

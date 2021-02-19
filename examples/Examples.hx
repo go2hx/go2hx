@@ -10,7 +10,7 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/structs"];
+    tests = ["./gobyexample/examples/interfaces"];
     final libs = false;
     //libraries to download
     if (libs) {

@@ -61,8 +61,10 @@ function main(data:DataType){
             file.path = normalizePath(Path.withoutExtension(file.path));
             var data:FileType = {name: file.path,imports: [],defs: []};
             data.name = normalizePath(data.name);
-
-            var info:Info = {disablePointerAccess: false, types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var p = StringTools.replace(module.path,"/",".");
+            if (p == "")
+                p == "std";
+            var info:Info = {path: p, disablePointerAccess: false, types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -717,7 +719,7 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
         case "StarExpr": typeStarExpr(expr,info);
         case "ParenExpr": typeParenExpr(expr,info);
         case "Ellipsis": typeEllipsis(expr,info);
-        case "KeyValueExpr": typeKeyValueExpr(expr,info);
+        //case "KeyValueExpr": typeKeyValueExpr(expr,info);
         case "MapType": typeMapType(expr,info);
         case "BadExpr": error("BAD EXPRESSION TYPED"); null;
         case "InterfaceType": null;
@@ -731,10 +733,9 @@ private function typeExpr(expr:Dynamic,info:Info):Expr {
 private function typeMapType(expr:Ast.MapType,info:Info):ExprDef {
     return null;
 }
-private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info):ExprDef {
-    var key = typeExpr(expr.key,info);
+private function typeKeyValueExpr(expr:Ast.KeyValueExpr,info:Info) {
     var value = typeExpr(expr.value,info);
-    return (macro {key: $key, value: $value}).expr;
+    return {key: (expr.key.name : String), value: value};
 }
 private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     var expr = typeExpr(expr.elt,info);
@@ -942,6 +943,17 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
                 p = tp;
             default:
         }
+    }
+    if (expr.elts.length > 0 && expr.elts[0].id == "KeyValueExpr") {
+        var e = toExpr(EObjectDecl([for(elt in expr.elts) {
+            var e = typeKeyValueExpr(elt,info);
+            {
+                field: e.key,
+                expr: e.value,
+            };
+        }]));
+
+        return (macro ($e : $type)).expr;
     }
     for (elt in expr.elts) {
         params.push(typeExpr(elt,info));
@@ -1320,7 +1332,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
             for (field in fields) {
                 switch field.kind {
                     case FVar(t, e):
-                        toStringValue += "$" + field.name + " ";
+                        toStringValue += "${Std.string(" + field.name + ")} ";
                     default:
                 }
             }
@@ -1364,7 +1376,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 fields: fields,
                 pack: [],
-                meta: [{name: ":structInit",pos: null}],
+                meta: [{name: ":structInit",pos: null}, {name: ":allow",params: [toExpr(EConst(CIdent(info.path)))],pos: null}],
                 kind: TDClass(null,null,false,true,false),
             }
         case "InterfaceType":
@@ -1476,7 +1488,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

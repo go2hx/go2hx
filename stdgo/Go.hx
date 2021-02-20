@@ -209,7 +209,7 @@ class Go {
 
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;
-		var okBool = ok != null;
+		var okBool = (ok != null || ok.expr.match(EConst(CIdent("null"))));
 		function typeName(t:ComplexType):String {
 			if (t == null)
 				return "";

@@ -116,7 +116,9 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 					case "GoMap":
 						return macro new $p();
 					case "Chan":
-						return macro new $p();
+						if (size == null || size.expr.match(EConst(CIdent("null"))))
+							size = macro 0;
+						return macro new $p($size);
 					default:
 						trace("make unknown: " + p);
 						return null;

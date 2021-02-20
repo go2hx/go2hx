@@ -1,13 +1,14 @@
 package stdgo;
 
-abstract Chan<T>(ChanData<T>) {
+class Chan<T> {
+    var data:T = null;
     public function new() {
-        this = new ChanData();
+
     }
-}
-
-class ChanData<T> {
-    public function new() {
-
+    public inline function get():T {
+        return data;
+    }
+    public inline function send(value:T) {
+        data = value;
     }
 }

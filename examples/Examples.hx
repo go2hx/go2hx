@@ -10,7 +10,7 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/goroutines"];
+    tests = ["./gobyexample/examples/channels"];
     final libs = false;
     //libraries to download
     if (libs) {

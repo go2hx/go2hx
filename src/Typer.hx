@@ -255,7 +255,9 @@ private function error(message:String) {
 }
 //STMT
 private function typeSendStmt(stmt:Ast.SendStmt,info:Info):ExprDef {
-    return null;
+    var chan = typeExpr(stmt.chan,info);
+    var value = typeExpr(stmt.value,info);
+    return (macro $chan.send($value)).expr;
 }
 private function typeSelectStmt(stmt:Ast.SelectStmt,info:Info):ExprDef {
     return null;
@@ -711,7 +713,13 @@ private function mapType(expr:Ast.MapType,info:Info):ComplexType {
     });
 }
 private function chanType(expr:Ast.ChanType,info:Info):ComplexType {
-    return null;
+    var type = typeExprType(expr.value,info);
+    addImport("stdgo.Chan",info);
+    return TPath({
+        name: "Chan",
+        pack: [],
+        params: [TPType(type)],
+    });
 }
 private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     if (expr.methods.list.length == 0) {
@@ -1037,6 +1045,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
         if (type == null)
             return switch expr.op {
                 case XOR: EBinop(OpXor,macro -1,x);
+                case ARROW: return (macro $x.get()).expr;
                 default: x.expr;  
             }
         return EUnop(type,false,x);
@@ -1117,6 +1126,7 @@ private function typeUnOp(token:Ast.Token):Unop {
     return switch token {
         case NOT: OpNot;
         case SUB: OpNeg;
+        case ARROW: null;
         case XOR: null;
         default: error("unknown unop token: " + token); OpNegBits;
     }

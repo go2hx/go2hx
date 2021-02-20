@@ -7,11 +7,12 @@ import haxe.macro.Context;
 import haxe.macro.ExprTools;
 import stdgo.internal.Printf;
 import haxe.macro.Expr;
+import stdgo.Errors;
 import haxe.macro.Expr.ExprOf;
 import haxe.macro.TypeTools;
 
-inline function errorf(fmt:String, args:Rest<Dynamic>):Errors {
-	return new Errors(format(fmt, args.toArray()));
+inline function errorf(fmt:String, args:Rest<Dynamic>):Error {
+	return stdgo.Errors.new_(format(fmt, args.toArray()));
 }
 
 inline function println(args:Rest<Dynamic>) {

@@ -144,7 +144,6 @@ private function typeImplements(info:Info) {
                                     }
                                     if (!passed)
                                         continue;
-                                    trace("finish");
                                     interfaces.push({
                                         name: inter.name,
                                         pack: inter.pack,
@@ -887,7 +886,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             var expr = typeExpr(expr.fun,info);
             return (macro {var a = $expr; a();}).expr;
         case "SelectorExpr":
-            expr.fun.sel.name = untitle(expr.fun.sel.name); //all functions lowercase
+            expr.fun.sel.name =  nameIdent(untitle(expr.fun.sel.name),info); //all functions lowercase
         case "Ident":
             switch expr.fun.name {
                 /*case "string":
@@ -1254,7 +1253,6 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                             expr: block,
                         })
                     });
-                    trace("class: " + def.name);
                 default:
                     continue;
             }
@@ -1556,6 +1554,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var alias = imp.name == null ? null : imp.name.name;
     if (alias == "_")
         alias = "";
+    trace("path: " + path);
     if (stdgoList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
     var name = path[path.length - 1];

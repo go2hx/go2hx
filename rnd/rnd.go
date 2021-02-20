@@ -1,29 +1,30 @@
 package main
 
 import (
-	"fmt"
+    "fmt"
 )
 
 func main() {
-	d := data{0,10,20,data2{0,0,0},10}
-    d.test()
-    fmt.Println(d)
+	i,e := test()
+    _ = i
+    _ = e
+    fmt.Println(i,e)
+}
+func test() (int,error) {
+    return -1, data{-1,"error"};
 }
 
 type data struct {
-    x int
-    y int
-    Z int
-    data2
     int
+    prob string
+}
+
+func (d *data) Error() string {
+    return d.prob
 }
 
 type data2 struct {
     a int
     b int
     C int
-}
-
-func (d *data) test() {
-    d.x = 300
 }

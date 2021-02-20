@@ -64,7 +64,7 @@ class Go {
 					}
 					var fields = t.fields.get();
 					fields.sort(function(a, b) {
-						return 0;
+						return 0;//Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
 					});
 					var values = [];
 					var main = ExprTools.toString(expr);
@@ -130,10 +130,32 @@ class Go {
 		var expr = exprs.pop(); //expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
 		var fields:Array<String> = [];
+		switch expr.expr {
+			case ECall(e, params):
+				switch e.expr {
+					case EField(e2, field):
+						if (field == "assert" && e2.expr.match(EConst(CIdent("Go")))) {
+							params.push(macro null);
+							expr = macro Go.assert($a{params});
+						}
+					default:
+				}
+			default:
+		}
 		switch type {
 			case TAnonymous(a):
-				for (field in a.get().fields) {
+				var f = a.get().fields;
+				f.sort(function(a, b) {
+					return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
+				});
+				for (field in f) {
 					fields.push(field.name);
+				}
+			case TDynamic(t):
+				if (t != null) {
+					trace("unknown dynamic type destruct: " + t);
+				}else{
+					
 				}
 			default:
 				trace("unknown destruct type: " + type);
@@ -185,8 +207,9 @@ class Go {
 		}
 	}
 
-	public static macro function assert(expr:Expr) {
+	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;
+		var okBool = ok != null;
 		function typeName(t:ComplexType):String {
 			if (t == null)
 				return "";
@@ -255,6 +278,20 @@ class Go {
 							switch toString {
 								case "Slice":
 									return standard();
+								case "Pointer":
+									if (okBool)
+										return macro {value: Go.pointer($e), ok: true};
+									return macro Go.pointer($e);
+							}
+						default:
+							switch toString {
+								case "Pointer":
+									if (okBool)
+										return macro {value: Go.pointer($e), ok: true};
+									return macro Go.pointer($e);
+								default:
+									//normal conversion TODO: implement
+									trace("standard type conversion not supported yet");
 							}
 					}
 				trace("unsupported assert: " + fromString + " -> " + toString);

@@ -270,7 +270,8 @@ private function typeBranchStmt(stmt:Ast.BranchStmt,info:Info):ExprDef {
     }
 }
 private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
-    return null;
+    var call = typeExpr(stmt.call,info);
+    return (macro Go.routine($call)).expr;
 }
 private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     if (stmt.list == null)
@@ -884,7 +885,8 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     switch expr.fun.id {
         case "FuncLit":
             var expr = typeExpr(expr.fun,info);
-            return (macro {var a = $expr; a();}).expr;
+            genArgs();
+            return (macro {var a = $expr; a($a{args});}).expr;
         case "SelectorExpr":
             expr.fun.sel.name =  nameIdent(untitle(expr.fun.sel.name),info); //all functions lowercase
         case "Ident":
@@ -1554,7 +1556,6 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var alias = imp.name == null ? null : imp.name.name;
     if (alias == "_")
         alias = "";
-    trace("path: " + path);
     if (stdgoList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
     var name = path[path.length - 1];

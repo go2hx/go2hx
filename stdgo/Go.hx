@@ -305,6 +305,10 @@ class Go {
 		}
 		return func();
 	}
+	//GOROUTINE
+	public static macro function routine(expr) {
+		return expr;
+	}
 	public static macro function range(expr) {
 		var type = Context.follow(Context.typeof(expr));
 		switch type {

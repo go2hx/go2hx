@@ -64,7 +64,7 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {path: p, disablePointerAccess: false, types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var info:Info = {funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -250,7 +250,7 @@ private function typeStmt(stmt:Dynamic,info:Info):Expr {
 var errorCache = new StringMap<Bool>();
 private function error(message:String) {
     if (!errorCache.exists(message))
-        trace(message);
+        throw(message);
     errorCache.set(message,true);
 }
 //STMT
@@ -384,8 +384,12 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                 case "TypeSpec":
                     var spec:Ast.TypeSpec = spec;
                     var name = className(title(spec.name.name));
-                    var type = typeExprType(spec.type,info);
-                    info.retypeMap[name] = type;
+                    spec.name.name += "_" + info.funcName;
+                    info.retypeMap[name] = TPath({
+                        name: className(title(spec.name.name)),
+                        pack: [],
+                    }); 
+                    info.data.defs.push(typeType(spec,info));
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
                     info.meta = [];
@@ -734,7 +738,7 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
     }
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
-    var fields = typeFieldListFields(expr.fields,info,[]);
+    var fields = typeFieldListFields(expr.fields,info,[],false);
     return TAnonymous(fields);
 }
 private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
@@ -784,7 +788,9 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
-
+    if (name.substr(0,4) == "Uint") {
+        name = "UInt" + name.substr(4);
+    }
     if (info.retypeMap.exists(name))
         return info.retypeMap[name];
     return TPath({
@@ -959,10 +965,12 @@ private function getDefaultValue(type:ComplexType):Expr {
         case TPath(p):
             if (stdgo.internal.Macro.isNumber(p.name))
                 return macro 0;
+    
             switch p.name {
                 case "String", "GoString": macro "";
                 case "Bool": macro false;
                 case "Slice": macro new stdgo.Slice();
+                case "Any","Dynamic","GoDynamic": macro {};
                 default: macro new $p();
             }
         default:
@@ -1053,18 +1061,27 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     info.meta = [];
-    var type = typeExprType(expr.type,info);
     var params:Array<Expr> = [];
     var p:TypePath = null;
-    if (type == null) {
-        return null;
+    var type:ComplexType = null;
+    function getParams() {
+        for (elt in expr.elts) {
+            params.push(typeExpr(elt,info));
+        }
+    }
+    if (expr.type == null) {
+        getParams();
+        return (macro Go.set($a{params})).expr;
     }else{
+        type = typeExprType(expr.type,info);
         switch type {
             case TPath(tp):
                 p = tp;
             default:
+                throw "unknown type expr type: " + type;
         }
     }
+
     if (expr.elts.length > 0 && expr.elts[0].id == "KeyValueExpr") {
         var e = toExpr(EObjectDecl([for(elt in expr.elts) {
             var e = typeKeyValueExpr(elt,info);
@@ -1076,9 +1093,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
 
         return (macro ($e : $type)).expr;
     }
-    for (elt in expr.elts) {
-        params.push(typeExpr(elt,info));
-    }
+    getParams();
+    if (p == null)
+        throw "type path new is null: " + expr;
     return (macro new $p($a{params})).expr;
 }
 
@@ -1103,6 +1120,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
         default:
     }
     var op = typeOp(expr.op);
+    trace("op: " + op);
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
             return EBinop(op,macro Std.int($x),macro Std.int($y));
@@ -1224,7 +1242,6 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var meta:Metadata = [];
     info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
-
     function getBlock() {
         if (decl.body.list != null) 
             exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
@@ -1232,6 +1249,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     }
 
     var name = nameIdent(untitle(decl.name.name),info);
+    info.funcName = name;
     var ret = typeFieldListRes(decl.type.results,info);
     info.ret = [ret];
     var args = typeFieldListArgs(decl.type.params,info);
@@ -1396,7 +1414,7 @@ private function typeFieldListMethods(list:Ast.FieldList,info:Info):Array<Field>
     }
     return fields;
 }
-private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null,defaultBool:Bool=true):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
         info.meta = [];
@@ -1404,12 +1422,13 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
         if (field.names.length == 0) {
             switch type {
                 case TPath(p):
+                    var name:String = field.type.id == "SelectorExpr" ? field.type.sel.name : field.type.name;
                     fields.push({
-                        name: untitle(field.type.name),
+                        name: untitle(name),
                         pos: null,
                         meta: info.meta.shift(),
-                        access: access == null ? typeAccess(field.type.name,true) : access,
-                        kind: FVar(type,stdgo.Builtin.defaultValue(type,null))
+                        access: access == null ? typeAccess(name,true) : access,
+                        kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null)
                     });
                 default:
             }
@@ -1421,7 +1440,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                pos: null,
                meta: info.meta.shift(),
                access: access == null ? typeAccess(name.name,true) : access,
-               kind: FVar(type,stdgo.Builtin.defaultValue(type,null)),
+               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null),
             });
         }
     }
@@ -1573,7 +1592,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var create:Bool = true;
     if (path.length == 1) {
         switch name {
-            case "math":
+            case "math","reflect":
                 alias = title(name);
                 path[0] = 'Go$alias';
                 path.unshift("stdgo");
@@ -1589,7 +1608,9 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     }
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
-    var type = typeExprType(value.type,info);
+    var type:ComplexType = null;
+    if (value.type.id != null)
+      type = typeExprType(value.type,info);
     var values:Array<TypeDefinition> = [];
     for (i in 0...value.names.length)
     {
@@ -1644,7 +1665,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {funcName:String, path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};

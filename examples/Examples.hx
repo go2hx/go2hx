@@ -10,7 +10,7 @@ function main() {
 
 function gen() {
     var tests = load();
-    tests = ["./gobyexample/examples/channel-buffering"];
+    tests = ["./gobyexample/examples/select"];
     final libs = false;
     //libraries to download
     if (libs) {

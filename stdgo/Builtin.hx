@@ -130,24 +130,6 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	}
 	return func();
 }
-function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
-	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
-		var expr:Expr = macro null;
-		if (params[i] == null) {
-			switch fields[i].kind {
-				case FVar(t, e):
-					expr = defaultValue(t,pos,fields[i].meta);
-				default: //FFunc is nil by default
-			}
-		}else{
-			expr = params[i];
-		}
-		{
-			field: fields[i].name,
-			expr: expr,
-		};
-	}])};
-}
 function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr {
 	switch t {
 		case TPath(p):
@@ -157,6 +139,10 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 			switch name {
 				case "GoArray":
 					var exprs:Array<Expr> = [];
+					if (meta == null) {
+						trace("error Array metadata missing for length");
+						return null;
+					}
 					for (m in meta) {
 						exprs.push(m.params[0]);
 					}
@@ -164,8 +150,8 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					return macro make((_:$t),$a);
 				case "Int","UInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
-				case "GoDynamic":
-					return macro {typeName: "GoDynamic",value: {}};
+				case "GoDynamic","Any","Dynamic":
+					return macro {};
 				case "Bool":
 					return macro false;
 				case "Pointer":

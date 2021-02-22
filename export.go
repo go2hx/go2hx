@@ -195,6 +195,7 @@ func parseType(node interface{}) map[string]interface{} {
 		return data
 	}
 	data["id"] = getId(node)
+	fmt.Println("id:",data["id"])
 	if data["id"] == "" {
 		return data
 	}
@@ -229,6 +230,8 @@ func parseType(node interface{}) map[string]interface{} {
 		_ = embeds
 		_ = s
 		return data
+	default:
+		fmt.Println("unknown parse type id:",data["id"])
 	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {

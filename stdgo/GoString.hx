@@ -19,6 +19,9 @@ abstract GoString(String) from String to String {
 	public function toString():String {
 		return this;
 	}
+	public function toArray() {
+		return [for (i in 0...this.length) this.charCodeAt(i)];
+	}
 
 	public function iterator():StringIterator {
 		return new StringIterator(this);

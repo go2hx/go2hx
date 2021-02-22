@@ -1,5 +1,6 @@
 package stdgo;
 
+import haxe.macro.PositionTools;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.TypeTools;
 import haxe.macro.Expr;
@@ -206,6 +207,43 @@ class Go {
 			$b{set};
 		}
 	}
+	public static macro function set(params:Array<Expr>) {
+		var t = Context.toComplexType(Context.getExpectedType());
+		switch t {
+			case TPath(p):
+				return macro new $p($a{params});
+			case TFunction(args, ret):
+				return macro null;
+			case TAnonymous(fields):
+				fields.sort((a,b) -> {
+					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
+				});
+				return createAnonType(Context.currentPos(),fields,params);
+			default:
+				throw ("unknown go set type: " + t);
+		}
+		return macro null;
+	}
+
+	
+private static function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
+	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
+		var expr:Expr = macro null;
+		if (params[i] == null) {
+			switch fields[i].kind {
+				case FVar(t, e):
+					expr = stdgo.Builtin.defaultValue(t,pos,fields[i].meta);
+				default: //FFunc is nil by default
+			}
+		}else{
+			expr = params[i];
+		}
+		{
+			field: fields[i].name,
+			expr: expr,
+		};
+	}])};
+}
 
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;

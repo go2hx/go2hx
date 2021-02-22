@@ -15,6 +15,7 @@ typedef Byte = UInt;
 typedef Rune = Int;
 typedef UIntptr = UInt;
 
+
 /*
 uint8       the set of all unsigned  8-bit integers (0 to 255)
 uint16      the set of all unsigned 16-bit integers (0 to 65535)

@@ -1,6 +1,7 @@
 {"excludes": [
     "math",
     "fmt",
+    "reflect",
     "os",
     "sort",
     "errors",

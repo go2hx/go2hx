@@ -19,8 +19,11 @@ abstract GoString(String) from String to String {
 	public function toString():String {
 		return this;
 	}
-	public function toArray() {
+	public function toArray():Array<Int> {
 		return [for (i in 0...this.length) this.charCodeAt(i)];
+	}
+	public function toSlice() {
+		return new Slice(...toArray());
 	}
 
 	public function iterator():StringIterator {

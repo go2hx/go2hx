@@ -30,12 +30,12 @@ abstract GoArray<T>(Vector<T>) {
     }
     private inline function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
-        if (i >= length) {
+        if (i >= this.length) {
             trace(this + " index: " + i + " length: " + length);
-            throw "slice out of length bounds";
+            throw "array out of length bounds";
         }
         if (i < 0)
-            throw "slice negative index out of bounds";
+            throw "array negative index out of bounds";
         #end
     }
     @:op([]) public inline function get(index:Int):T {

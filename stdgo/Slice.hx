@@ -118,7 +118,7 @@ class SliceData<T> {
     }
     private inline function boundsCheck(i:Int) {
         #if !no_check_bounds
-        if (i >= length + pos) {
+        if (i - 1 >= length + pos) {
             throw "slice out of length bounds: " + i + " len: " + length;
         }
         if (i < 0)

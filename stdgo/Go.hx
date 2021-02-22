@@ -218,7 +218,8 @@ class Go {
 				fields.sort((a,b) -> {
 					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
 				});
-				return createAnonType(Context.currentPos(),fields,params);
+				var anon = createAnonType(Context.currentPos(),fields,params);
+				return anon;
 			default:
 				throw ("unknown go set type: " + t);
 		}
@@ -285,19 +286,12 @@ private static function createAnonType(pos:Position,fields:Array<Field>,params:A
 					}
 					if (fromString == toString)
 						return e;
-
+					//trace(fromString + " -> " + toString);
 					switch fromString {
 						case "String", "GoString":
 							switch toString {
 								case "Slice":
-									return macro {
-										var array = $e.split("");
-										var slice = new stdgo.Slice<stdgo.StdTypes.Byte>(array.length);
-										for (i in 0...array.length) {
-											slice[i] = array[i].charCodeAt(0);
-										}
-										slice;
-									}
+									return macro $e.toSlice();
 							}
 						case "Int":
 							switch toString {

@@ -1120,7 +1120,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
         default:
     }
     var op = typeOp(expr.op);
-    trace("op: " + op);
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
             return EBinop(op,macro Std.int($x),macro Std.int($y));

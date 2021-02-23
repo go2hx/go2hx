@@ -75,6 +75,9 @@ func main() {
 		return
 	}
 	args = args[0 : len(args)-1] //remove chdir
+
+	//args = args[0:10]
+
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax | packages.NeedDeps |
 		packages.NeedImports | packages.NeedTypes |
@@ -85,6 +88,7 @@ func main() {
 		fmt.Println("load error:", err)
 		return
 	}
+
 	data := parsePkgList(initial)
 
 	data.Args = args
@@ -326,6 +330,7 @@ func parseData(node interface{}) map[string]interface{} {
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
 				"id": "ExprStmt",
+				"x": parseData(value.X),
 				"pos": fset.Position(value.X.Pos()).Offset,
 				"end": fset.Position(value.X.End()).Offset,
 			}

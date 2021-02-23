@@ -227,7 +227,7 @@ class Go {
 	}
 
 	
-private static function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
+public static function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
 	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
 		var expr:Expr = macro null;
 		if (params[i] == null) {

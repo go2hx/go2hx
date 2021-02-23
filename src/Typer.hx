@@ -66,7 +66,7 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: null,type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var info:Info = {deferBool: false,funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -243,6 +243,7 @@ private function typeStmt(stmt:Dynamic,info:Info):Expr {
         case "BranchStmt": typeBranchStmt(stmt,info);
         case "SelectStmt": typeSelectStmt(stmt,info);
         case "SendStmt": typeSendStmt(stmt,info);
+        case "CommClause": typeCommClause(stmt,info);
         default:
             error("unknown stmt id: " + stmt.id);
             null;
@@ -256,13 +257,24 @@ private function error(message:String) {
     errorCache.set(message,true);
 }
 //STMT
+private function typeCommClause(stmt:Ast.CommClause,info:Info):ExprDef { //selector case system
+    var list:Array<Ast.Stmt> = stmt.body;
+    if (stmt.comm != null) {
+        if (list == null)
+            return typeStmt(stmt.comm,info).expr;
+        list.unshift(stmt.comm);
+        return typeStmtList(list,info);
+    }
+    return (macro null).expr;
+}
 private function typeSendStmt(stmt:Ast.SendStmt,info:Info):ExprDef {
     var chan = typeExpr(stmt.chan,info);
     var value = typeExpr(stmt.value,info);
     return (macro $chan.send($value)).expr;
 }
 private function typeSelectStmt(stmt:Ast.SelectStmt,info:Info):ExprDef {
-    return null;
+
+    return typeBlockStmt(stmt.body,info);
 }
 private function typeBranchStmt(stmt:Ast.BranchStmt,info:Info):ExprDef {
     return switch stmt.tok {
@@ -300,7 +312,12 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
     }
 }
 private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
-    return null;
+    info.deferBool = true;
+    //Reflect.callMethod(null,)
+    var fun = typeExpr(stmt.call.fun,info);
+    var args = [for (arg in stmt.call.args) typeExpr(arg,info)];
+    args.unshift(fun);
+    return (macro deferstack.push($a{args})).expr;
 }
 private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var key = typeExpr(stmt.key,info); //iterator int
@@ -396,7 +413,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     var spec:Ast.ValueSpec = spec;
                     info.meta = [];
                     info.type = null;
-                    var type = typeExprType(spec.type,info);
+                    var type = spec.type.id != null ? typeExprType(spec.type,info) : null;
                     var value = macro null;
                     var args:Array<Expr> = [];
                     var t = type != null ? type : info.type;
@@ -597,7 +614,7 @@ private function toExpr(def:ExprDef):Expr {
 }
 private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     switch stmt.tok {
-        case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN:
+        case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
                 var op = typeOp(stmt.tok);
                 var exprs = [for (i in 0...stmt.lhs.length) {
@@ -681,7 +698,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
             }]));
             return EReturn(expr);
         default:
-            trace("unknown multi return type: " + info.ret[0]);
+            trace("unknown multi return type: " + info.ret[0] + " results: " + stmt.results);
     }
     return EReturn();
 }
@@ -915,7 +932,13 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                 case "len":
                     return (macro ${typeExpr(expr.args[0],info)}.length).expr;
                 case "new": //create default value put into pointer
-
+                    var t = typeExprType(expr.args[0],info);
+                    switch t {
+                        case TPath(p):
+                            return (macro Go.pointer(new $p())).expr;
+                        default:
+                    }
+                    //return (macro new ).expr;
                 case "make": 
                     if (expr.fun.name == "new")
                         expr.fun.name = "create";
@@ -1079,20 +1102,20 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         switch type {
             case TPath(tp):
                 p = tp;
+            case TAnonymous(fields):
+                if (isKeyValueExpr(expr.elts)) {
+                    return getKeyValueExpr(expr.elts,info).expr;
+                }else{
+                    getParams();
+                    return stdgo.Go.createAnonType(null,fields,params).expr;
+                }
             default:
                 throw "unknown type expr type: " + type;
         }
     }
 
-    if (expr.elts.length > 0 && expr.elts[0].id == "KeyValueExpr") {
-        var e = toExpr(EObjectDecl([for(elt in expr.elts) {
-            var e = typeKeyValueExpr(elt,info);
-            {
-                field: e.key,
-                expr: e.value,
-            };
-        }]));
-
+    if (isKeyValueExpr(expr.elts)) {
+        var e = getKeyValueExpr(expr.elts,info);
         return (macro ($e : $type)).expr;
     }
     getParams();
@@ -1101,12 +1124,27 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     return (macro new $p($a{params})).expr;
 }
 
+private function isKeyValueExpr(elts:Array<Ast.Expr>) {
+    return elts.length > 0 && elts[0].id == "KeyValueExpr";
+}
+private function getKeyValueExpr(elts:Array<Ast.Expr>,info:Info) {
+    var e = toExpr(EObjectDecl([for(elt in elts) {
+        var e = typeKeyValueExpr(elt,info);
+        {
+            field: e.key,
+            expr: e.value,
+        };
+    }]));
+    return e;
+}
+
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
     var ret = typeFieldListRes(expr.type.results,info);
     info.ret.unshift(ret);
     var args = typeFieldListArgs(expr.type.params,info);
     var block = typeBlockStmt(expr.body,info);
-    info.ret = info.ret.slice(1);
+    //info.ret = info.ret.slice(1);
+    info.deferBool = false;
     return EFunction(FAnonymous,{
         ret: ret,
         args: args,
@@ -1126,7 +1164,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
             return EBinop(op,macro Std.int($x),macro Std.int($y));
         case OpXor:
-            return null;
+            return EBinop(op,x,y);
         case OpDiv:
             var isInt:Bool = false;
             if (expr.x.id == "BasicLit" && expr.x.kind == Ast.Token.INT)
@@ -1147,6 +1185,7 @@ private function typeUnOp(token:Ast.Token):Unop {
         case SUB: OpNeg;
         case ARROW: null;
         case XOR: null;
+        case ADD: null;
         default: error("unknown unop token: " + token); OpNegBits;
     }
 }
@@ -1180,6 +1219,7 @@ private function typeOp(token:Ast.Token):Binop {
         case SHL_ASSIGN: OpAssignOp(OpShl);
         case SHR_ASSIGN: OpAssignOp(OpShr);
         case XOR_ASSIGN: OpAssignOp(OpXor);
+        case OR_ASSIGN: OpAssignOp(OpOr);
 
         case RANGE: OpInterval; //TODO turn into iterator
         case ELLIPSIS: OpInterval;
@@ -1243,9 +1283,12 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var meta:Metadata = [];
     info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
+    info.deferBool = false;
     function getBlock() {
         if (decl.body.list != null) 
             exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
+        if (info.deferBool)
+            exprs.unshift(macro var deferstack = []);
         return toExpr(EBlock(exprs));
     }
 
@@ -1264,14 +1307,15 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                     if (def.name != recvInfo.name)
                         continue;
                     var block:Expr = null;
-                    var varName = decl.recv.list[0].names[0].name;
-                    if (recvInfo.isPointer) {
-                        info.disablePointerAccess = true;
-                        block = getBlock();
-                        info.disablePointerAccess = false;
-                        exprs.unshift(macro var $varName = this);
-                    }else{
-                        block = getBlock();
+                    if (decl.recv.list[0].names.length > 0) {
+                        var varName = decl.recv.list[0].names[0].name;
+                        if (recvInfo.isPointer) {
+                            info.disablePointerAccess = true;
+                            block = getBlock();
+                            info.disablePointerAccess = false;
+                        }else{
+                            block = getBlock();
+                        }
                         exprs.unshift(macro var $varName = this);
                     }
                     def.fields.push({
@@ -1695,7 +1739,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {funcName:String, path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {deferBool:Bool, funcName:String, path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

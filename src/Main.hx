@@ -38,6 +38,9 @@ function init(args:Array<String>) {
 	}
 	Sys.println("> parser:");
 	Sys.setCwd(cwd);
+	var p = args.pop();
+	args = args.slice(0,40);
+	args.push(p);
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");

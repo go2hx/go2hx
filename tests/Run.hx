@@ -14,11 +14,11 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/append.go"];
+    //tests = ["./go/test/append.go"];
+    //trace(tests);
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);
-
     tests.pop();
     Sys.setCwd("..");
     for (path in Main.exportPaths) {
@@ -46,16 +46,18 @@ function load():Array<String> {
     }
     var repo = "go/test";
     for (path in FileSystem.readDirectory(repo)) {
-        if (FileSystem.isDirectory('$repo/$path') || Path.extension(path) != "go")
+        var p = '$repo/$path';
+        if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
             continue;
-        readLine(File.read('$repo/$path',false));
+        if (readLine(File.read(p,false)))
+            tests.push('./$p');
     }
     for (path in FileSystem.readDirectory('$repo/interface')) {
-        if (FileSystem.isDirectory('$repo/interface/$path') || Path.extension(path) != "go")
-            continue;
         var p = '$repo/interface/$path';
-        var file = File.read(p,false);
-        readLine(file);
+        if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
+            continue;
+        if (readLine(File.read(p,false)))
+            tests.push('./$p');
     }
     return tests;
 }

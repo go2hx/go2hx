@@ -219,6 +219,8 @@ typedef LabeledStmt = {
 typedef ExprStmt = {
 	//> Node,
 	x:Expr,
+	end:Int,
+	pos:Int,
 };
 
 typedef SendStmt = {
@@ -358,6 +360,8 @@ typedef ValueSpec = {
 	values:Array<Expr>,
 	comment:CommentGroup,
 	constants:Array<Bool>,
+	pos:Int,
+	end:Int,
 };
 
 typedef TypeSpec = {
@@ -366,6 +370,8 @@ typedef TypeSpec = {
 	assign:Pos,
 	type:Expr,
 	comment:CommentGroup,
+	pos:Int,
+	end:Int,
 };
 
 typedef BadDecl = {
@@ -388,6 +394,8 @@ typedef FuncDecl = {
 	name:Ident,
 	type:FuncType,
 	body:BlockStmt,
+	pos:Int,
+	end:Int,
 };
 
 typedef Object = {

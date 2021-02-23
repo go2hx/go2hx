@@ -30,7 +30,9 @@ type packageType struct {
 }
 type fileType struct {
 	Path  string                   `json:"path"`
+	Location string `json:"location"`
 	Decls []map[string]interface{} `json:"decls"`
+	Doc map[string]interface{} `json:"doc"`
 }
 type ExcludesType struct {
 	Excludes []string `json:"excludes"`
@@ -139,6 +141,8 @@ func parsePkg(pkg *packages.Package) packageType {
 
 func parseFile(file *ast.File, path string) fileType {
 	data := fileType{}
+	data.Location = path
+	data.Doc = parseData(file.Doc)
 	path = filepath.Base(path)
 	data.Path = path
 	for _, decl := range file.Decls {
@@ -181,13 +185,17 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"type": parseData(obj.Type),
 				"values": values,
 				"constants": constants,
+				"doc":  parseData(obj.Comment),
 			}
 		default:
 			data[i] = parseData(obj)
 		}
+		data[i]["pos"] = fset.Position(obj.Pos()).Offset
+		data[i]["end"] = fset.Position(obj.End()).Offset
 	}
 	return data
 }
+
 func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
@@ -315,7 +323,13 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseData(value)
 		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
 			data[field.Name] = parseData(value)
-		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.ExprStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
+		case *ast.ExprStmt:
+			data[field.Name] = map[string]interface{}{
+				"id": "ExprStmt",
+				"pos": fset.Position(value.X.Pos()).Offset,
+				"end": fset.Position(value.X.End()).Offset,
+			}
+		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value)
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
 			data[field.Name] = parseData(value)
@@ -362,8 +376,16 @@ func parseData(node interface{}) map[string]interface{} {
 			}
 			data[field.Name] = list
 		case *ast.Scope:
-		case *ast.CommentGroup: //TODO: figure out comments
-			list := make([]string,10)
+		case *ast.CommentGroup:
+			var list []string
+			if value == nil {
+				list = []string{}
+			}else{
+				list = make([]string,len(value.List))
+				for i := 0; i < len(list); i++ {
+					list[i] = value.List[i].Text
+				}
+			}
 			data[field.Name] = map[string]interface{}{
 				"id": "CommentGroup",
 				"list": list,
@@ -371,6 +393,12 @@ func parseData(node interface{}) map[string]interface{} {
 		default:
 			fmt.Println(reflect.TypeOf(value))
 		}
+	}
+	if data["id"] == "FuncDecl" {
+		node := node.(*ast.FuncDecl)
+		data["pos"] = fset.Position(node.Pos()).Offset
+		data["end"] = fset.Position(node.End()).Offset
+		
 	}
 	return data
 }

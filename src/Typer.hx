@@ -1,3 +1,4 @@
+import sys.io.File;
 import haxe.Int64;
 import haxe.Int64Helper;
 import haxe.io.Path;
@@ -59,7 +60,8 @@ function main(data:DataType){
             if (file.decls == null)
                 continue;
             file.path = normalizePath(Path.withoutExtension(file.path));
-            var data:FileType = {name: file.path,imports: [],defs: []};
+            file.location = Path.normalize(file.location);
+            var data:FileType = {name: file.path,imports: [],defs: [],location: file.location};
             data.name = normalizePath(data.name);
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
@@ -1288,12 +1290,15 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             return null;
         }
     }
+    var doc = getDoc(decl) + getSource(decl,info);
+
     return {
         name: name,
         pos: null,
         pack: [],
         fields: [],
         meta: meta,
+        doc: doc,
         kind: TDField(FFun({ret: ret,params: null,expr: getBlock(), args: args}),typeAccess(name))
     };
 }
@@ -1478,6 +1483,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
         var newName = renameDef(name,info);
         name = newName;
     }
+    var doc:String = getComment(spec) + getDoc(spec) + getSource(spec,info);
     switch spec.type.id {
         case "StructType":
             var struct:Ast.StructType = spec.type;
@@ -1539,6 +1545,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 fields: fields,
                 pack: [],
+                doc: doc,
                 meta: [{name: ":structInit",pos: null}, getAllow(info)],
                 kind: TDClass(null,[],false,true,false),
             }
@@ -1558,6 +1565,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 name: name,
                 pack: [],
                 pos: null,
+                doc: doc,
                 fields: fields,
                 meta: [getAllow(info)],
                 kind: TDClass(null,[],true)
@@ -1571,6 +1579,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 name: name,
                 pack: [],
                 pos: null,
+                doc: doc,
                 fields: [],
                 kind: TDAlias(type)
             }
@@ -1620,15 +1629,37 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         var name = untitle(value.names[i]);
         if (name == "_")
             name = name + (info.blankCounter++);
+        var doc:String = getComment(value) + getDoc(value) + getSource(value,info);
+
         values.push({
             name: name,
             pos: null,
             pack: [],
             fields: [],
+            doc: doc,
             kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),typeAccess(value.names[i]))
         });
     }
     return values;
+}
+private function getComment(value:{comment:Ast.CommentGroup}):String {
+    if (value.comment == null || value.comment.list == null)
+        return "";
+    return value.comment.list.join("\n");
+}
+private function getDoc(value:{doc:Ast.CommentGroup}):String {
+    if (value.doc == null || value.doc.list == null)
+        return "";
+    return value.doc.list.join("\n");
+}
+private function getSource(value:{pos:Int,end:Int},info:Info):String {
+    if (value.pos == value.end)
+        return "";
+    var file = File.read(info.data.location,false);
+    file.seek(value.pos,sys.io.FileSeek.SeekBegin);
+    var source = file.readString(value.end - value.pos);
+    file.close();
+    return source;
 }
 private function typeAccess(name:String,isField:Bool=false):Array<Access> {
     return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
@@ -1667,7 +1698,7 @@ function untitle(string:String):String {
 typedef Info = {funcName:String, path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
-typedef PackageType = {path:String,name:String,files:Array<{path:String,decls:Array<Dynamic>}>};
+typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here
 typedef Module = {path:String,files:Array<FileType>}
 typedef ImportType = {path:Array<String>,alias:String}
-typedef FileType = {name:String,imports:Array<ImportType>,defs:Array<TypeDefinition>};
+typedef FileType = {name:String,imports:Array<ImportType>,defs:Array<TypeDefinition>,location:String}; //location is the global path to the file

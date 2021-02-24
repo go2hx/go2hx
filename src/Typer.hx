@@ -317,7 +317,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     var fun = typeExpr(stmt.call.fun,info);
     var args = [for (arg in stmt.call.args) typeExpr(arg,info)];
     args.unshift(fun);
-    return (macro deferstack.push($a{args})).expr;
+    return (macro deferstack.push([$a{args}])).expr;
 }
 private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
     var key = typeExpr(stmt.key,info); //iterator int
@@ -685,10 +685,19 @@ private function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
     return ifStmt.expr;
 }
 private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
+    function ret(e:ExprDef) {
+        if (info.deferBool) {
+            return EBlock([
+                typeDeferReturn(),
+                toExpr(e),
+            ]);
+        }
+        return e;
+    }
     if (stmt.results.length == 0)
-        return EReturn();
+        return ret(EReturn());
     if (stmt.results.length == 1)
-        return EReturn(typeExpr(stmt.results[0],info));
+        return ret(EReturn(typeExpr(stmt.results[0],info)));
     //multireturn
     switch info.ret[0] {
         case TAnonymous(fields):
@@ -696,11 +705,11 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt,info:Info):ExprDef {
                 field: fields[i].name,
                 expr: typeExpr(stmt.results[i],info),
             }]));
-            return EReturn(expr);
+            return ret(EReturn(expr));
         default:
             trace("unknown multi return type: " + info.ret[0] + " results: " + stmt.results);
     }
-    return EReturn();
+    return ret(EReturn());
 }
 private function typeExprType(expr:Dynamic,info:Info):ComplexType { //get the type of an expr
     if (expr == null)
@@ -821,10 +830,12 @@ private function selectorType(expr:Ast.SelectorExpr,info:Info):ComplexType {
     function func(x:Ast.Expr):Array<String> {
         switch x.id {
             case "Ident":
-                return [x.name];
+                var name = nameIdent(x.name,info);
+                return [name];
             case "SelectorExpr":
                 var x:Ast.SelectorExpr = x;
-                return [x.sel.name].concat(func(x.x));
+                var name = nameIdent(x.sel.name,info);
+                return [name].concat(func(x.x));
             default:
                 trace("unknown x id: " + x.id);
                 return [];
@@ -887,8 +898,6 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return rest != null ? rest.expr : null;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
-    if (info.types.exists(expr.name))
-        expr.name = info.types[expr.name];
     return EConst(CIdent(nameIdent(expr.name,info)));
 }
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
@@ -1278,6 +1287,9 @@ private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     return x != null ? EParenthesis(x) : null;
 }
 //SPECS
+private function typeDeferReturn():Expr {
+    return macro for (defer in deferstack) Reflect.callMethod(null,defer[0],defer.slice(1));
+}
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
     var meta:Metadata = [];
@@ -1287,8 +1299,10 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     function getBlock() {
         if (decl.body.list != null) 
             exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
-        if (info.deferBool)
-            exprs.unshift(macro var deferstack = []);
+        if (info.deferBool) {
+            exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
+            exprs.push(typeDeferReturn());
+        }
         return toExpr(EBlock(exprs));
     }
 
@@ -1715,6 +1729,8 @@ private function nameIdent(name:String,info:Info):String {
         name = "null";
     if (info.imports.exists(name))
         return info.imports[name];
+    if (info.types.exists(name))
+        name = info.types[name];
     return name;
 }
 private function normalizePath(path:String):String {

@@ -1,6 +1,6 @@
 package stdgo;
 
-import haxe.io.Output;
+import stdgo.Io.Writer;
 import haxe.Rest;
 import stdgo.internal.ErrorReturn;
 import haxe.macro.Context;
@@ -27,8 +27,11 @@ inline function printf(fmt:String, args:Rest<Dynamic>) { // format
 	log(format(fmt, args.toArray()));
 }
 
-inline function fprintf(w:Output, fmt:String, args:Rest<Dynamic>) {
-	w.writeString(format(fmt, args.toArray()));
+inline function fprintf(w:Writer, fmt:String, args:Rest<Dynamic>) {
+	w.write(new GoString(format(fmt, args.toArray())).toArray());
+}
+inline function fprintln(w:Writer,args:Rest<Dynamic>) {
+	w.write(new GoString(args.toArray().join(" ")).toArray().concat(["\n".code]));
 }
 
 inline function sprint(args:Rest<Dynamic>) {

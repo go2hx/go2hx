@@ -2,7 +2,7 @@ package stdgo;
 
 import haxe.macro.Context;
 @:forward
-abstract Pointer<T>(Dynamic) {
+abstract Pointer<T>(Dynamic) to Dynamic {
 
 	public inline function new(expr:Dynamic) {
 		this = expr;

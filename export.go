@@ -207,7 +207,7 @@ func parseType(node interface{}) map[string]interface{} {
 		return data
 	}
 	data["id"] = getId(node)
-	fmt.Println("id:",data["id"])
+	//fmt.Println("id:",data["id"])
 	if data["id"] == "" {
 		return data
 	}
@@ -381,6 +381,11 @@ func parseData(node interface{}) map[string]interface{} {
 			}
 			data[field.Name] = list
 		case *ast.Scope:
+		case []*ast.Comment:
+			list := make([]string,len(value))
+			for i := range value {
+				list[i] = value[i].Text
+			}
 		case *ast.CommentGroup:
 			var list []string
 			if value == nil {
@@ -396,7 +401,7 @@ func parseData(node interface{}) map[string]interface{} {
 				"list": list,
 			}
 		default:
-			fmt.Println(reflect.TypeOf(value))
+			fmt.Println("unknown parse data value:",reflect.TypeOf(value))
 		}
 	}
 	if data["id"] == "FuncDecl" {

@@ -6,12 +6,27 @@ import stdgo.internal.ErrorReturn;
 import sys.io.File as Base;
 import stdgo.Pointer;
 import sys.FileSystem;
+import stdgo.Errors.Error;
+import stdgo.StdTypes.Byte;
+import haxe.io.Output;
 var args = Sys.args();
-var stderr = Sys.stderr();
-var stdin = Sys.stdin();
-var stdout = Sys.stdout();
+var stderr = new OutputWriter(Sys.stderr());
+//var stdin = new OutputWriter(Sys.stdin());
+var stdout = new OutputWriter(Sys.stdout());
 
-inline function mkdir(path:String, ?perm:Int):Errors {
+class OutputWriter implements stdgo.Io.Writer {
+	var output:Output;
+	public function new(output) {
+		this.output = output;
+	}
+	public function write(p:Array<Byte>):{n:Int,err:Error} {
+		for (c in p)
+			output.writeByte(c);
+		return {n: 0,err: null};
+	}
+}
+
+inline function mkdir(path:String, ?perm:Int):Error {
 	try {
 		FileSystem.createDirectory(path);
 		return null;
@@ -24,26 +39,30 @@ inline function getenv(path:String):String {
 	return Sys.getEnv(path);
 }
 
-inline function mkdirAll(path:String, ?perm:Int):Errors {
+inline function mkdirAll(path:String, ?perm:Int):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):ErrorReturn<Pointer<File>> {
-	var file:File = null;
-	return {value: Go.makePointer(file)};
+inline function create(path:String):ErrorReturn<Pointer<stdgo.Os.File>> {
+	var dir = haxe.io.Path.directory(path);
+	if (!sys.FileSystem.exists(dir))
+		sys.FileSystem.createDirectory(dir);
+	sys.io.File.saveContent(path,"");
+	var file = new stdgo.Os.File(sys.io.File.read(path),sys.io.File.write(path));
+	return {value: Go.pointer(file)};
 }
 
 inline function exit(code:Int) {
 	Sys.exit(code);
 }
 
-inline function newSyscallError(syscall:String, err:Errors):Errors {
+inline function newSyscallError(syscall:String, err:Error):Error {
 	if (err == null)
 		return null;
-	return new Errors(syscall);
+	return stdgo.Errors.new_(syscall);
 }
 
-inline function chdir(dir:String):Errors {
+inline function chdir(dir:String):Error {
 	try {
 		Sys.setCwd(dir);
 		return null;
@@ -52,7 +71,7 @@ inline function chdir(dir:String):Errors {
 	}
 }
 
-inline function remove(name:String):Errors {
+inline function remove(name:String):Error {
 	try {
 		if (FileSystem.isDirectory(name)) {
 			FileSystem.deleteDirectory(name);
@@ -65,7 +84,7 @@ inline function remove(name:String):Errors {
 	}
 }
 
-inline function removeAll(path:String):Errors {
+inline function removeAll(path:String):Error {
 	if (sys.FileSystem.exists(path) && sys.FileSystem.isDirectory(path)) {
 		var entries = sys.FileSystem.readDirectory(path);
 		for (entry in entries) {
@@ -80,30 +99,20 @@ inline function removeAll(path:String):Errors {
 	return null;
 }
 
-typedef FileMode = Int;
-typedef File = {};
-
-typedef FileInfo = {
-	var stat:FileStat;
-	@:noCompletion var _name:String;
-};
-
-function name(info:FileInfo):String {
-	return info._name;
-}
-
-function isDir(info:FileInfo):Bool {
-	return info.stat.mode != 1;
-}
-
-function mode(info:FileInfo):FileMode {
-	return info.stat.mode;
-}
-
-function modeTime(info:FileInfo) {
-	return info.stat.mtime;
-}
-
-function size(info:FileInfo) {
-	return info.stat.size;
+class File implements stdgo.Io.Writer {
+	var input:sys.io.FileInput;
+	var output:sys.io.FileOutput;
+	public function new(input,output) {
+		this.input = input;
+		this.output = output;
+	}
+	public function write(p:Array<Byte>):{n:Int,err:Error} {
+		for (c in p)
+			output.writeByte(c);
+		return {n: p.length,err: null};
+	}
+	public function close() {
+		input.close();
+		output.close();
+	}
 }

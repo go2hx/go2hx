@@ -27,10 +27,12 @@ function init(args:Array<String>) {
 	//for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
-	for (arg in args) {
-		var path = arg;
-		if (StringTools.startsWith(path, httpsString)) 
+	for (i in 0...args.length) {
+		var path = args[i];
+		if (StringTools.startsWith(path, httpsString)) {
 			path = path.substr(httpsString.length);
+			args[i] = path;
+		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 		var command = 'go get -u $path';
@@ -38,9 +40,6 @@ function init(args:Array<String>) {
 	}
 	Sys.println("> parser:");
 	Sys.setCwd(cwd);
-	var p = args.pop();
-	args = args.slice(0,40);
-	args.push(p);
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");

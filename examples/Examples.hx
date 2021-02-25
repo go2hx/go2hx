@@ -11,7 +11,7 @@ function main() {
 function gen() {
     var tests = load();
     tests = ["./gobyexample/examples/defer"];
-    final libs = false;
+    final libs = true;
     //libraries to download
     if (libs) {
         Sys.command("go get -u github.com/tidwall/btree");

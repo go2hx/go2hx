@@ -132,6 +132,8 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 }
 function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr {
 	switch t {
+		case TFunction(args, ret):
+			return macro null;
 		case TPath(p):
 			var name = p.name;
 			if (p.name == "StdTypes")
@@ -180,23 +182,13 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 	return macro null;
 }
 
-function getMetaLength(meta:Metadata):Int {
+function getMetaLength(meta:Metadata):ExprDef {
 	for (m in meta) {
 		if (m.name != "length")
 			continue;
-		if (m.params[0] == null)
-			continue;
-		switch m.params[0].expr {
-			case EConst(c):
-				switch c {
-					case CInt(v):
-						return Std.parseInt(v);
-					default:
-				}
-			default:
-		}
+		return m.params[0].expr;
 	}
-	return 0;
+	return EConst(CIdent("0"));
 }
 private function getData(expr:Expr):Expr {
 	return switch expr.expr {

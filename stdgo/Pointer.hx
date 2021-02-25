@@ -7,17 +7,21 @@ abstract Pointer<T>(Dynamic) to Dynamic {
 	public inline function new(expr:Dynamic) {
 		this = expr;
 	}
-	@:op([]) inline function get(index:Int):T {
-        return !this.real ? this.get() : this;
+	@:op([]) inline function get(index:Int) {
+		if (index == -200)
+        	return !this._realpointer ? this.get() : this;
+		return this[index];
     }
     @:op([]) inline function set(index:Int,value:T):T {
-        return !this.real ? this.set(value) : this = value;
+		if (index == -200)
+        	return !this._realpointer  ? this.set(value) : this = value;
+		return this[index] = value;
     }
 }
 class PointerData<T> {
 	public var get:()->T;
 	public var set:T->T;
-	public var real:Bool = true;
+	public var _realpointer:Bool = true;
 	public function new(get,set) {
 		this.get = get;
 		this.set = set;

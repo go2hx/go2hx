@@ -46,6 +46,20 @@ abstract GoArray<T>(Vector<T>) {
         boundsCheck(index);
         return this.set(index,value);
     }
+    public inline function slice(low:Int,high:Int=-1):Slice<T> {
+        var pos = low;
+        if (high == -1)
+            high = length;
+        var length = high - low;
+        var slice = new Slice<T>();
+        var array = new GoArray<T>();
+        array.setVector(this);
+        slice.setUnderlying(array,pos,length);
+        return slice;
+    }
+    public inline function setVector(vector:Vector<T>) {
+        this = vector;
+    }
     public inline function toArray():Array<T> {
         return [for (i in 0...length) this.get(i)];
     }

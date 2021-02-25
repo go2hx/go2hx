@@ -98,8 +98,23 @@ class Go {
 		}
 	}
 	public static macro function divide(a:Expr,b:Expr) {
-		
-		return null;
+		var aType = Context.follow(Context.typeof(a));
+		var bType = Context.follow(Context.typeof(b));
+
+		function checkInt(t:haxe.macro.Type) {
+			switch t {
+				case TAbstract(t, params):
+					var name = t.get().name;
+					if (["Float","Float32","Float64"].indexOf(name) == -1)
+						return true;
+				default:
+			}
+			return false;
+		}
+		var isInt = checkInt(aType);
+		if (!isInt)
+			isInt = checkInt(bType);
+		return macro 0;
 	}
 	public static macro function pointer(expr) {
 		var isRealPointer = false;

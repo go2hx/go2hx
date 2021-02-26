@@ -116,32 +116,6 @@ class Go {
 			isInt = checkInt(bType);
 		return macro 0;
 	}
-	public static macro function pointer(expr) {
-		var isRealPointer = false;
-		var type = Context.follow(Context.typeof(expr));
-		switch type {
-			case TMono(t):
-				type = t.get();
-			default:
-		}
-		if (type == null)
-			return macro null;
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				switch t.name {
-					case "GoString","String","Bool","Slice","Map","Array","GoArray","Int","Float","UInt":
-						isRealPointer = true;
-				}
-			case TAnonymous(a):
-			case TInst(t, params):
-			default:
-				trace("unknown make pointer type: " + type);
-		}
-		if (isRealPointer)
-			return macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
-		return macro new Pointer($expr);
-	}
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); //expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
@@ -285,17 +259,21 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 							return @:privateAccess Builtin.defaultValue(t,Context.currentPos());
 						default:
 					}
-					var from = Context.toComplexType(Context.follow(Context.typeof(e)));
-					if (to == null || from == null)
-						trace("could not resolve types: " + e.expr + " : " + t);
-					var fromString = typeName(from);
-					var toString = typeName(to);
 					function standard() {
 						return macro {
 							var x:$to = $e;
 							x;
 						}
 					}
+					var from = Context.toComplexType(Context.follow(Context.typeof(e)));
+					if (from == null) {
+						//most likely pointer
+						return standard() ;
+					}
+					if (to == null)
+						trace("could not resolve types: " + e.expr + " : " + t);
+					var fromString = typeName(from);
+					var toString = typeName(to);
 					function assertString() {
 						return macro (Std.string($e) : GoString);
 					}
@@ -312,8 +290,15 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 							switch toString {
 								case "Float":
 									return macro ($e : Float);
+								case "UInt":
+									return macro ($e : UInt);
 								case "GoString":
 									return assertString();
+							}
+						case "UInt":
+							switch  toString {
+								case "Int":
+									return macro ($e : Int);
 							}
 						case "Float":
 							switch toString {
@@ -327,15 +312,15 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 									return standard();
 								case "Pointer":
 									if (okBool)
-										return macro {value: Go.pointer($e), ok: true};
-									return macro Go.pointer($e);
+										return macro {value: new Pointer($e), ok: true};
+									return macro new Pointer($e);
 							}
 						default:
 							switch toString {
 								case "Pointer":
 									if (okBool)
-										return macro {value: Go.pointer($e), ok: true};
-									return macro Go.pointer($e);
+										return macro {value: new Pointer($e), ok: true};
+									return macro new Pointer($e);
 								default:
 									//normal conversion TODO: implement
 									trace("standard type conversion not supported yet");

@@ -49,7 +49,7 @@ inline function create(path:String):ErrorReturn<Pointer<stdgo.Os.File>> {
 		sys.FileSystem.createDirectory(dir);
 	sys.io.File.saveContent(path,"");
 	var file = new stdgo.Os.File(sys.io.File.read(path),sys.io.File.write(path));
-	return {value: Go.pointer(file)};
+	return {value: new Pointer(file)};
 }
 
 inline function exit(code:Int) {

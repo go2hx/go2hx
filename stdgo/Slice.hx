@@ -21,10 +21,10 @@ abstract Slice<T>(SliceData<T>) {
             set(i,args[i]);
         }
     }
-    @:op([]) inline function get(index:Int):T {
+    @:op([]) public inline function get(index:Int):T {
         return this.get(index);
     }
-    @:op([]) inline function set(index:Int,value:T):T {
+    @:op([]) public inline function set(index:Int,value:T):T {
         return this.set(index,value);
     }
     inline public function slice(low:Int,high:Int=-1):Slice<T> {

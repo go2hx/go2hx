@@ -66,7 +66,7 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {retValues: [],deferBool: false,funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var info:Info = {thisName: "",className: "", remapThisFields: [], retValues: [],deferBool: false,funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             var nameCache:Array<String> = [];
             for (decl in file.decls) {
@@ -79,7 +79,7 @@ function main(data:DataType){
                         }
                     case "FuncDecl":
                         var decl:Ast.FuncDecl = decl;
-                        if (nameCache.indexOf(decl.name.name) == -1)
+                        if (decl.recv == null && nameCache.indexOf(decl.name.name) == -1)
                             nameCache.push(decl.name.name);
                         declFuncs.push(decl);
                     default:
@@ -94,6 +94,31 @@ function main(data:DataType){
                 if (nameCache.indexOf(name.charAt(0).toUpperCase() + name.substr(1)) == -1)
                     continue;
                 info.types[name] = "_" + name;
+            }
+            //duplicate names within a type
+            for (decl in declFuncs) {
+                if (decl.recv == null)
+                    continue;
+                var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type,info));
+                for (def in info.data.defs) {
+                    switch def.kind {
+                        case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+                            if (def.name != recvInfo.name)
+                                continue;
+                        for (field in def.fields) {
+                            if (field.name != nameIdent(decl.name.name,info))
+                                continue;
+                            //field.name
+                            var name = nameIdent(field.name,info);
+                            field.name = "_" + name;
+                            var clName = className(def.name);
+                            if (!info.remapThisFields.exists(clName))
+                                info.remapThisFields[clName] = [];
+                            info.remapThisFields[clName].push(name);
+                        }
+                        default:
+                    }
+                }
             }
             for (decl in declFuncs) { //parse function bodies last
                 var func = typeFunction(decl,info);
@@ -994,7 +1019,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     var t = typeExprType(expr.args[0],info);
                     switch t {
                         case TPath(p):
-                            return (macro Go.pointer(new $p())).expr;
+                            return (macro new Pointer(new $p())).expr; //TODO does not work for non constructed types, such as basic types
                         default:
                     }
                 case "make": 
@@ -1112,7 +1137,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
-        return (macro Go.pointer($x)).expr;
+        return (macro new Pointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)
@@ -1260,7 +1285,7 @@ private function typeOp(token:Ast.Token):Binop {
         default: error("unknown op token: " + token); OpInterval;
     }
 }
-private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
+private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef { //EField
     var x = typeExpr(expr.x,info);
     var sel = expr.sel.name;
     switch x.expr {
@@ -1274,6 +1299,12 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr,info:Info):ExprDef {
                     var field = s.substr(index + 1);
                     if (field.charAt(0) == field.charAt(0).toUpperCase())
                         sel = nameIdent(sel,info);
+                    if (sel == info.thisName && info.remapThisFields.exists(info.className)) {
+                        //this system
+                        var array = info.remapThisFields[info.className];
+                        if (array.indexOf(sel) > -1)
+                            sel = "_" + sel; //remap name
+                    }
                 default:
             }
         default:
@@ -1305,7 +1336,7 @@ private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (info.disablePointerAccess)
         return (macro x).expr;
-    return (macro $x[-200]).expr; //-200 is pointer code
+    return (macro $x._value_).expr; //pointer code
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
@@ -1380,6 +1411,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                         }else{
                             block = getBlock();
                         }
+                        info.thisName = varName;
                         exprs.unshift(macro var $varName = this);
                     }
                     def.fields.push({
@@ -1558,6 +1590,8 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
         }
         
         for (name in field.names) {
+            if (name.name == "_")
+                continue;
             fields.push({
                name: nameIdent(name.name,info),
                pos: null,
@@ -1597,7 +1631,7 @@ private function renameDef(name:String,info:Info):String {
 }
 private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
     var name = className(title(spec.name.name));
-
+    info.className = name;
     if (info.local) {
         var newName = renameDef(name,info);
         name = newName;
@@ -1741,13 +1775,14 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
     var values:Array<TypeDefinition> = [];
     for (i in 0...value.names.length)
     {
+        if (value.names[i] == "_")
+            continue;
         info.type = null;
         var expr = typeExpr(value.values[i],info);
         if (expr == null)
             continue;
         var name = nameIdent(value.names[i],info);
-        if (name == "_")
-            continue;
+
         var doc:String = getComment(value) + getDoc(value) + getSource(value,info);
 
         values.push({
@@ -1817,7 +1852,7 @@ function untitle(string:String):String {
         return string;
     return string.charAt(0).toLowerCase() + string.substr(1);
 }
-typedef Info = {retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, funcName:String, path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String, remapThisFields:Map<String,Array<String>>,path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

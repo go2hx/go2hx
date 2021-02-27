@@ -43,13 +43,13 @@ inline function mkdirAll(path:String, ?perm:Int):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):ErrorReturn<Pointer<stdgo.Os.File>> {
+inline function create(path:String):ErrorReturn<PointerWrapper<stdgo.Os.File>> {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);
 	sys.io.File.saveContent(path,"");
 	var file = new stdgo.Os.File(sys.io.File.read(path),sys.io.File.write(path));
-	return {value: new Pointer(file)};
+	return {value: new PointerWrapper(file)};
 }
 
 inline function exit(code:Int) {
@@ -111,8 +111,9 @@ class File implements stdgo.Io.Writer {
 			output.writeByte(c);
 		return {n: p.length,err: null};
 	}
-	public function close() {
+	public function close():Error {
 		input.close();
 		output.close();
+		return null;
 	}
 }

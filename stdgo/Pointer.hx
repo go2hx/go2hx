@@ -2,34 +2,31 @@ package stdgo;
 
 import haxe.ds.Either;
 import haxe.macro.Context;
-@:transitive
+
 abstract Pointer<T>(PointerData<T>) {
-	var _value_(get, set):T;
-	public inline function new(expr:T) {
-		this = new PointerData(() -> expr,set -> expr);
+	var value(get, set):T;
+	public inline function new(obj:PointerData<T>) {
+		this = obj;
 	}
-	private function get__value_():T {
+	private function get_value():T {
 		return this.get();
 	}
 
-	private inline function set__value_(value:T):T {
+	private inline function set_value(value:T):T {
 		return this.set(value);
 	}
 	@:to
 	public inline function to():T {
-		return _value_;
+		return value;
 	}
-	@:op(a.b) public function fieldRead(name:String)
-		return Reflect.field(_value_,name);
-	@:op(a.b) public function fieldWrite(name:String, value:String)
-		return Reflect.setField(_value_,name,value);
-	@:op([]) inline function get(index:Int) {
-		return (_value_ : Dynamic).get(index);
-    }
-    @:op([]) inline function set(index:Int,value:T) {
-		return (_value_ : Dynamic).set(index,value);
-    }
 }
+@:forward
+abstract PointerWrapper<T>(T) from T to T {
+	public function new(obj:T) {
+		this = obj;
+	}
+}
+
 class PointerData<T> {
 	public var get:()->T;
 	public var set:T->T;

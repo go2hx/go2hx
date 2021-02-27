@@ -877,12 +877,56 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
 }
 private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
     var type = typeExprType(expr.x,info);
-    addImport("stdgo.Pointer",info);
+    var basicBool = isBasic(type,info);
+    if (basicBool) {
+        addImport("stdgo.Pointer",info);
+        return TPath({
+            pack: [],
+            name: "Pointer",
+            params: type != null ? [TPType(type)] : [],
+        });
+    }
+    addImport("stdgo.Pointer.PointerWrapper",info);
     return TPath({
         pack: [],
-        name: "Pointer",
-        params: type != null ? [TPType(type)] : []
+        name: "PointerWrapper",
+        params: type != null ? [TPType(type)] : [],
     });
+}
+private function isBasic(type:ComplexType, info:Info):Bool {
+    var basicBool:Bool = true;
+    switch type {
+        case TPath(p):
+            if (p.pack.length > 0) {
+                switch p.name {
+                    case "Int","UInt":
+                    case "Int8","Int16","Int32","Int64","UInt8","UInt16","UInt32","UInt64":
+                    case "Float", "Float32", "Float64", "Complex64", "Complex128":
+                    case "Bool", "GoString":
+                    default:
+                        basicBool = false;
+                }
+                if (basicBool) //lowest underlying type already found
+                    return true;
+                //look for type alias
+                for (def in info.data.defs) {
+                    if (p.name != def.name)
+                        continue;
+                    switch def.kind {
+                        case TDAlias(t):
+                            return isBasic(t,info);
+                        case TDStructure:
+                            return false;
+                        default:
+                    }
+                }
+                return false;
+            }else{
+                return false;
+            }
+        default:
+    }
+    return false;
 }
 private function addImport(path:String,info:Info,alias:String="") {
     if (!info.imports.exists(path))
@@ -1019,7 +1063,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     var t = typeExprType(expr.args[0],info);
                     switch t {
                         case TPath(p):
-                            return (macro new Pointer(new $p())).expr; //TODO does not work for non constructed types, such as basic types
+                            return (macro Go.pointer(new $p())).expr; //TODO does not work for non constructed types, such as basic types
                         default:
                     }
                 case "make": 
@@ -1137,7 +1181,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
-        return (macro new Pointer($x)).expr;
+        return (macro Go.pointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
         if (type == null)
@@ -1336,7 +1380,7 @@ private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (info.disablePointerAccess)
         return (macro x).expr;
-    return (macro $x._value_).expr; //pointer code
+    return (macro $x.value).expr; //pointer code
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);

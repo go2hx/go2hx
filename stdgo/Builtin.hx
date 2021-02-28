@@ -156,7 +156,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					return macro {};
 				case "Bool":
 					return macro false;
-				case "Pointer":
+				case "Pointer", "PointerWrapper","GoArrayPointer":
 					return macro null;
 				default:
 					return macro new $p();

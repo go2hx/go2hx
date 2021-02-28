@@ -248,11 +248,17 @@ public static macro function pointer(expr) {
 		case TAbstract(t, params):
 			var t = t.get();
 			switch t.name {
-				case "GoString","String","Bool","Slice","Map","Array","GoArray","Int","Float","UInt":
+				case "GoArray":
+					return macro new stdgo.GoArray.GoArrayPointer($expr);
+				case "Slice", "Map":
+					return expr;
+				case "GoString","String","Bool","Int","Float","UInt":
 					isRealPointer = true;
 			}
 		case TAnonymous(a):
 		case TInst(t, params):
+		case TDynamic(t):
+			return macro null;
 		default:
 			trace("unknown make pointer type: " + type);
 	}

@@ -2,7 +2,6 @@ package stdgo;
 
 import haxe.ds.Either;
 import haxe.macro.Context;
-
 abstract Pointer<T>(PointerData<T>) {
 	var value(get, set):T;
 	public inline function new(obj:PointerData<T>) {
@@ -26,7 +25,7 @@ abstract PointerWrapper<T>(T) from T to T {
 		this = obj;
 	}
 }
-
+@:access(T)
 class PointerData<T> {
 	public var get:()->T;
 	public var set:T->T;

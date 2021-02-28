@@ -8,4 +8,10 @@ class RWMutex {
     public function new() {
         mutux = new Mutex();
     }
+    public function lock() {
+
+    }
+    public function unlock() {
+        
+    }
 }

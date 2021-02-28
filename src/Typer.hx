@@ -96,21 +96,46 @@ function main(data:DataType){
                 info.types[name] = "_" + name;
             }
             //duplicate names within a type
-            for (decl in declFuncs) {
-                if (decl.recv == null)
+            for (i in 0...declFuncs.length) {
+                if (declFuncs[i].recv == null)
                     continue;
-                var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type,info));
+                var recvInfo = getRecvInfo(typeExprType(declFuncs[i].recv.list[0].type,info));
+                //check for the same function
+                for (j in 0...declFuncs.length) {
+                    if (i == j || declFuncs[j].recv == null)
+                        continue;
+                    var recvInfo2 = getRecvInfo(typeExprType(declFuncs[j].recv.list[0].type,info));
+                    if (recvInfo.name != recvInfo2.name)
+                        continue;
+                    if (declFuncs[i].name.name.toLowerCase() != declFuncs[j].name.name.toLowerCase())
+                        continue;
+                    var name = "";
+                    if (declFuncs[i].name.name.charAt(0) == declFuncs[i].name.name.charAt(0).toLowerCase()) {
+                        //1st is lower case
+                        name = nameIdent(declFuncs[i].name.name,info);
+                        declFuncs[i].name.name = "_" + declFuncs[i].name.name;
+                    }else{
+                        //2nd is lowercase
+                        name = nameIdent(declFuncs[j].name.name,info);
+                        declFuncs[j].name.name = "_" + declFuncs[j].name.name;
+                    }
+                    var clName = className(recvInfo.name);
+                    if (!info.remapThisFields.exists(clName))
+                        info.remapThisFields[clName] = [];
+                    info.remapThisFields[clName].push(name);
+                }
+                //check for variable matching being the same
                 for (def in info.data.defs) {
                     switch def.kind {
                         case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
                             if (def.name != recvInfo.name)
                                 continue;
                         for (field in def.fields) {
-                            if (field.name != nameIdent(decl.name.name,info))
+                            if (field.name != nameIdent(declFuncs[i].name.name,info))
                                 continue;
                             //field.name
+                            field.name = "_" + field.name;
                             var name = nameIdent(field.name,info);
-                            field.name = "_" + name;
                             var clName = className(def.name);
                             if (!info.remapThisFields.exists(clName))
                                 info.remapThisFields[clName] = [];
@@ -126,6 +151,22 @@ function main(data:DataType){
                     data.defs.push(func);
             }
             typeImplements(info);
+            //access for each type for every other type in the file
+            var addAccess:Metadata = [];
+            for (def in info.data.defs) {
+                switch def.kind {
+                    case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+                        addAccess.push({name: ":access",params: [toExpr(EConst(CIdent(def.name)))],pos: null});
+                    default:
+                }
+            }
+            for (def in info.data.defs) {
+                switch def.kind {
+                    case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+                        def.meta = addAccess.concat(def.meta);
+                    default:
+                }
+            }
             //setup implements
             data.imports.push({path: ["stdgo","StdTypes"],alias: ""});
             data.imports.push({path: ["stdgo","Go"],alias: ""});
@@ -886,6 +927,21 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
             params: type != null ? [TPType(type)] : [],
         });
     }
+    switch type {
+        case TPath(p):
+            switch p.name {
+                case "Slice","GoMap":
+                    return type;
+                case "GoArray":
+                    addImport("stdgo.GoArray.GoArrayPointer",info);
+                    return TPath({
+                        pack: [],
+                        name: "GoArrayPointer",
+                        params: p.params,
+                    });
+            }
+        default:
+    }
     addImport("stdgo.Pointer.PointerWrapper",info);
     return TPath({
         pack: [],
@@ -1461,6 +1517,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                     def.fields.push({
                         name: name,
                         pos: null,
+                        meta: null,//[{params: [toExpr(EConst(CIdent(def.name)))],name: ":access",pos: null}],
                         access: typeAccess(decl.name.name),
                         kind: FFun({
                             args: args,
@@ -1475,7 +1532,6 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         }
     }
     var doc = getDoc(decl) + getSource(decl,info);
-
     return {
         name: name,
         pos: null,
@@ -1496,7 +1552,7 @@ private function getRetValues(info:Info) {
 private function getRecvInfo(recvType:ComplexType):{name:String,isPointer:Bool} {
     switch recvType {
         case TPath(p):
-            if (p.name == "Pointer") {
+            if (p.name == "Pointer" || p.name == "PointerWrapper") {
                 switch p.params[0] {
                     case TPType(t):
                         switch t {
@@ -1736,14 +1792,15 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     },
                 }),
             });
-
+            var meta:Metadata = [{name: ":structInit",pos: null}, getAllow(info)];
+            
             return {
                 name: name,
                 pos: null,
                 fields: fields,
                 pack: [],
                 doc: doc,
-                meta: [{name: ":structInit",pos: null}, getAllow(info)],
+                meta: meta,
                 kind: TDClass(null,[],false,true,false),
             }
         case "InterfaceType":

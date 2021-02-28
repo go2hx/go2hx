@@ -15,6 +15,15 @@ typedef Byte = UInt;
 typedef Rune = Int;
 typedef UIntptr = UInt;
 
+interface ArrayAccess<T> {
+	function get(i:Int):T;
+	function set(i:Int,value:T):T;
+}
+interface MapAccess<K,V> {
+    function get(k:K):Null<V>;
+    function set(k:K,v:V):Void;
+}
+
 
 /*
 uint8       the set of all unsigned  8-bit integers (0 to 255)

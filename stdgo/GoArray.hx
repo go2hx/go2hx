@@ -3,6 +3,19 @@ import haxe.rtti.Meta;
 import haxe.ds.Vector;
 import haxe.Rest;
 
+@:forward
+abstract GoArrayPointer<T>(GoArray<T>) {
+    public function new(obj:GoArray<T>) {
+        this = obj;
+    }
+    @:op([]) public inline function get(index:Int):T {
+        return this.get(index);
+    }
+    @:op([]) public inline function set(index:Int,value:T):T {
+        return this.set(index,value);
+    }
+}
+
 abstract GoArray<T>(Vector<T>) {
 
     public var length(get,never):Int;
@@ -20,7 +33,6 @@ abstract GoArray<T>(Vector<T>) {
 
     public inline function new(args:Rest<T>) {
         this = new Vector<T>(args.length);
-        
         for (i in 0...args.length) {
             this.set(i,args[i]);
         }

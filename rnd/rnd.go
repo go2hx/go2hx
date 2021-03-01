@@ -5,26 +5,10 @@ import (
 )
 
 func main() {
-	i,e := test()
-    _ = i
-    _ = e
-    fmt.Println(i,e)
+    foo := 42
+    doubleInc(&foo)
+    fmt.Println(foo) // should be 44
 }
-func test() (int,error) {
-    return -1, data{-1,"error"};
-}
-
-type data struct {
-    int
-    prob string
-}
-
-func (d *data) Error() string {
-    return d.prob
-}
-
-type data2 struct {
-    a int
-    b int
-    C int
+func doubleInc(p *int) { 
+    *p += 2 
 }

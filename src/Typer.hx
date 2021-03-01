@@ -916,11 +916,17 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
         params: type != null ? [TPType(type)] : []
     });
 }
+private function addPointerImports(info:Info) {
+    addImport("stdgo.Pointer",info);
+    addImport("stdgo.Pointer.PointerWrapper",info);
+    addImport("stdgo.GoArray.GoArrayPointer",info);
+}
 private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
     var type = typeExprType(expr.x,info);
     var basicBool = isBasic(type,info);
+    addPointerImports(info);
     if (basicBool) {
-        addImport("stdgo.Pointer",info);
+        addPointerImports(info);
         return TPath({
             pack: [],
             name: "Pointer",
@@ -930,10 +936,15 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
     switch type {
         case TPath(p):
             switch p.name {
+                case "Int","Float","Bool","GoString","String","UInt":
+                    return TPath({
+                        pack: [],
+                        name: "Pointer",
+                        params:  type != null ? [TPType(type)] : [],
+                    });
                 case "Slice","GoMap":
                     return type;
                 case "GoArray":
-                    addImport("stdgo.GoArray.GoArrayPointer",info);
                     return TPath({
                         pack: [],
                         name: "GoArrayPointer",
@@ -942,7 +953,6 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType {
             }
         default:
     }
-    addImport("stdgo.Pointer.PointerWrapper",info);
     return TPath({
         pack: [],
         name: "PointerWrapper",
@@ -1117,6 +1127,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     return (macro ${typeExpr(expr.args[0],info)}.length).expr;
                 case "new": //create default value put into pointer
                     var t = typeExprType(expr.args[0],info);
+                    addPointerImports(info);
                     switch t {
                         case TPath(p):
                             return (macro Go.pointer(new $p())).expr; //TODO does not work for non constructed types, such as basic types
@@ -1237,6 +1248,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (expr.op == AND) {
         //pointer access
+        addPointerImports(info);
         return (macro Go.pointer($x)).expr;
     }else{
         var type = typeUnOp(expr.op);
@@ -1436,7 +1448,7 @@ private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (info.disablePointerAccess)
         return (macro x).expr;
-    return (macro $x.value).expr; //pointer code
+    return (macro $x._value_).expr; //pointer code
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
@@ -1912,7 +1924,12 @@ private function getSource(value:{pos:Int,end:Int},info:Info):String {
         return "";
     var file = File.read(info.data.location,false);
     file.seek(value.pos,sys.io.FileSeek.SeekBegin);
-    var source = file.readString(value.end - value.pos);
+    var source:String = "";
+    try {
+        source = file.readString(value.end - value.pos);
+    }catch(e) {
+        trace(e);
+    }
     file.close();
     return source;
 }

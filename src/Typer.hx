@@ -406,10 +406,14 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt,info:Info):ExprDef {
 }
 private function typeDeferStmt(stmt:Ast.DeferStmt,info:Info):ExprDef {
     info.deferBool = true;
-    //Reflect.callMethod(null,)
-    var fun = typeExpr(stmt.call.fun,info);
-    var args = [for (arg in stmt.call.args) typeExpr(arg,info)];
-    args.unshift(fun);
+    var call = typeCallExpr(stmt.call,info);
+    var args:Array<Expr> = [];
+    switch call {
+        case ECall(e, params):
+            args = params;
+            args.unshift(e);
+        default:
+    }
     return (macro deferstack.push([$a{args}])).expr;
 }
 private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
@@ -1118,9 +1122,17 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             genArgs();
             return (macro {var a = $expr; a($a{args});}).expr;
         case "SelectorExpr":
-            expr.fun.sel.name =  nameIdent(expr.fun.sel.name,info); //all functions lowercase
+            var name = untitle(expr.fun.sel.name);
+            expr.fun.sel.name =  nameIdent(name,info); //all functions lowercase
         case "Ident":
+            expr.fun.name = untitle(expr.fun.name);
             switch expr.fun.name {
+                case "slice","append","close","complex","copy","delete","imag","panic","print","println","real","recover":
+                    if (info.className != "") {
+                        var field = toExpr(EField(toExpr(EField(toExpr(EConst(CIdent("stdgo"))),"Builtin")),expr.fun.name));
+                        genArgs();
+                        return (macro $field($a{args})).expr;
+                    }
                 case "cap":
                     return (macro ${typeExpr(expr.args[0],info)}.cap()).expr;
                 case "len":
@@ -1447,7 +1459,7 @@ private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
 private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
     if (info.disablePointerAccess)
-        return (macro x).expr;
+        return (macro $x).expr;
     return (macro $x._value_).expr; //pointer code
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
@@ -1504,7 +1516,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var ret = typeFieldListRes(decl.type.results,info,true);
     info.ret = [ret];
     var args = typeFieldListArgs(decl.type.params,info);
-
+    info.thisName = "";
     if (decl.recv != null) { //now is a static extension function
         var recvType = typeExprType(decl.recv.list[0].type,info);
         var recvInfo = getRecvInfo(recvType);
@@ -1966,9 +1978,15 @@ function title(string:String):String {
     return string.charAt(0).toUpperCase() + string.substr(1);
 }
 function untitle(string:String):String {
-    if (string.length > 1 && string.charAt(1).toUpperCase() == string.charAt(1))
-        return string;
-    return string.charAt(0).toLowerCase() + string.substr(1);
+    var index:Int = 0;
+    for (i in 0...string.length) {
+        if (string.charAt(i) == string.charAt(i).toLowerCase())
+            break;
+        index = i;
+    }
+    index++;
+    string = string.substr(0,index).toLowerCase() + string.substr(index);
+    return string;
 }
 typedef Info = {thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String, remapThisFields:Map<String,Array<String>>,path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 

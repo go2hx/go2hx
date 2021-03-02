@@ -15,18 +15,34 @@ type Item struct {
 func byKeys(a, b interface{}) bool {
 	i1, i2 := a.(*Item), b.(*Item)
 	//fmt.Println("key1",i1.Key,"key2",i2.Key,"greater",(i1.Key < i2.Key))
-	return i1.Key < i2.Key
+	fmt.Println("compare:",i1.Key,i2.Key)
+	bo := i1.Key < i2.Key
+	if bo {
+		fmt.Println("t")
+	}else{
+		fmt.Println("f")
+	}
+	return bo
 }
 
 // byVals is a comparison function that compares item values and returns true
 // when a is less than b.
+var count = 30
 func byVals(a, b interface{}) bool {
 	i1, i2 := a.(*Item), b.(*Item)
-	fmt.Println("val1",i1.Val,"val2",i2.Val,"greater",(i1.Val < i2.Val))
+	//fmt.Println("val1",i1.Val,"val2",i2.Val,"greater",(i1.Val < i2.Val))
+	count--
+	if (count < 0) {
+		panic("error")
+	}
 	if i1.Val < i2.Val {
+		fmt.Println("compare:",i1.Val,i2.Val)
+		fmt.Println("t")
 		return true
 	}
 	if i1.Val > i2.Val {
+		fmt.Println("compare:",i1.Val,i2.Val)
+		fmt.Println("f")
 		return false
 	}
 	// Both vals are equal so we should fall though

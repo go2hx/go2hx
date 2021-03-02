@@ -33,7 +33,6 @@ abstract PointerWrapper<T>(T) from T to T {
 		this = obj;
 	}
 }
-@:access(T)
 class PointerData<T> {
 	public var get:()->T;
 	public var set:T->T;

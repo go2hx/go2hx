@@ -254,6 +254,8 @@ public static macro function pointer(expr) {
 					return expr;
 				case "GoString","String","Bool","Int","Float","UInt":
 					isRealPointer = true;
+				case "Pointer","PointerWrapper": //double or even triple pointer
+					isRealPointer = true;
 			}
 		case TAnonymous(a):
 		case TInst(t, params):

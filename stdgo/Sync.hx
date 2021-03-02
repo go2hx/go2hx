@@ -14,4 +14,10 @@ class RWMutex {
     public function unlock() {
         
     }
+    public function rlock() {
+
+    }
+    public function runlock() {
+        
+    }
 }

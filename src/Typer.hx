@@ -66,7 +66,7 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, disablePointerAccess: false, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var info:Info = {thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
             var nameCache:Array<String> = [];
             for (decl in file.decls) {
@@ -1415,8 +1415,6 @@ private function typeIndexExpr(expr:Ast.IndexExpr,info:Info):ExprDef {
 }
 private function typeStarExpr(expr:Ast.StarExpr,info:Info):ExprDef {
     var x = typeExpr(expr.x,info);
-    if (info.disablePointerAccess)
-        return (macro $x).expr;
     return (macro $x._value_).expr; //pointer code
 }
 private function typeParenExpr(expr:Ast.ParenExpr,info:Info):ExprDef {
@@ -1488,14 +1486,12 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
                     if (decl.recv.list[0].names.length > 0) {
                         var varName = decl.recv.list[0].names[0].name;
                         if (recvInfo.isPointer) {
-                            info.disablePointerAccess = true;
                             block = getBlock();
-                            info.disablePointerAccess = false;
                         }else{
                             block = getBlock();
                         }
                         info.thisName = varName;
-                        exprs.unshift(macro var $varName = this);
+                        exprs.unshift(macro var $varName = new PointerWrapper(this));
                     }
                     def.fields.push({
                         name: name,
@@ -1840,6 +1836,7 @@ private function getAllow(info:Info) {
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
     var path = (imp.path.value : String).split("/");
+    trace("path: " + path);
     var alias = imp.name == null ? null : imp.name.name;
     if (alias == "_")
         alias = "";
@@ -1962,7 +1959,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, disablePointerAccess:Bool, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

@@ -114,7 +114,9 @@ class Go {
 		var isInt = checkInt(aType);
 		if (!isInt)
 			isInt = checkInt(bType);
-		return macro 0;
+		if (isInt)
+			return macro Std.int($a / $b);
+		return macro $a / $b;
 	}
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); //expr to destructure
@@ -270,18 +272,31 @@ public static macro function pointer(expr) {
 }
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;
-		var okBool = (ok != null || ok.expr.match(EConst(CIdent("null"))));
+		var okBool = true;
+		switch ok.expr {
+			case EConst(c):
+				switch c {
+					case CIdent(s):
+						if (s == "null")
+							okBool = false;
+					default:
+				}
+			default:
+		}
 		function typeName(t:ComplexType):String {
 			if (t == null)
 				return "";
 			switch t {
 				case TPath(p):
-					if (p.name == "StdTypes")
+					if (p.sub != null)
 						return p.sub;
 					return p.name;
 				default:
 					return "";
 			}
+		}
+		function assertPointer() {
+			
 		}
 		func = function():Expr {
 			switch expr.expr {
@@ -313,52 +328,58 @@ public static macro function pointer(expr) {
 					if (fromString == toString)
 						return e;
 					//trace(fromString + " -> " + toString);
+					var expr:Expr = null;
 					switch fromString {
 						case "String", "GoString":
 							switch toString {
 								case "Slice":
-									return macro $e.toSlice();
+									expr = macro $e.toSlice();
 							}
 						case "Int":
 							switch toString {
 								case "Float":
-									return macro ($e : Float);
+									expr = macro ($e : Float);
 								case "UInt":
-									return macro ($e : UInt);
+									expr = macro ($e : UInt);
 								case "GoString":
-									return assertString();
+									expr = assertString();
 							}
 						case "UInt":
 							switch  toString {
 								case "Int":
-									return macro ($e : Int);
+									expr = macro ($e : Int);
 							}
 						case "Float":
 							switch toString {
 								case "Int64":
-									return macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
+									expr = macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
 								default:
 							}
-						case "Dynamic":
+						case "Any":
 							switch toString {
 								case "Slice":
-									return standard();
-								case "Pointer":
-									if (okBool)
-										return macro {value: new Pointer($e), ok: true};
-									return macro new Pointer($e);
-							}
-						default:
-							switch toString {
-								case "Pointer":
-									if (okBool)
-										return macro {value: new Pointer($e), ok: true};
-									return macro new Pointer($e);
-								default:
-									//normal conversion TODO: implement
-									trace("standard type conversion not supported yet");
+									expr =  standard();
 							}
 					}
+					if (expr == null)
+						switch toString {
+							case "Pointer":
+								if (okBool) {
+									expr = macro {value: new Pointer($e), ok: true};
+								}else{
+									expr = macro new Pointer($e);
+								}
+							case "PointerWrapper":
+								if (okBool) {
+									expr = macro {value: new PointerWrapper($e), ok: true};
+								}
+								expr = macro new PointerWrapper($e);
+							default:
+								//normal conversion TODO: implement
+								trace("standard type conversion not supported yet");
+						}
+					if (expr != null)
+						return macro ($e : $t);
 				trace("unsupported assert: " + fromString + " -> " + toString);
 				case EParenthesis(e):
 					expr = e;

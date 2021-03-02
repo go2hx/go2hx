@@ -480,7 +480,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                             for (i in 0...spec.names.length) {
                                 name: nameIdent(spec.names[i],info),
                                 type: t,
-                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : stdgo.Builtin.defaultValue(t,null),
+                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : t != null ? stdgo.Builtin.defaultValue(t,null) : null,
                             }
                         ]);
                     }
@@ -1684,12 +1684,13 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                 if (name.charAt(0) == name.charAt(0).toLowerCase())
                     name = "_" + name;
             }
+            var meta = info.meta.shift();
             fields.push({
                name: nameIdent(name,info),
                pos: null,
-               meta: info.meta.shift(),
+               meta: meta,
                access: access == null ? typeAccess(n.name,true) : access,
-               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null),
+               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null,meta) : null),
             });
         }
     }
@@ -1835,28 +1836,16 @@ private function getAllow(info:Info) {
     return {name: ":allow",params: [toExpr(EConst(CIdent(info.path)))],pos: null};
 }
 private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
-    var path = (imp.path.value : String).split("/");
-    trace("path: " + path);
+    
+    var path = normalizePath(imp.path.value).split("/");
     var alias = imp.name == null ? null : imp.name.name;
     if (alias == "_")
         alias = "";
     if (stdgoList.indexOf(path[0]) != -1)
         path.unshift("stdgo");
     var name = path[path.length - 1];
-    path[path.length - 1] = title(name);
-    var create:Bool = true;
-    if (path.length == 1) {
-        switch name {
-            case "math","reflect":
-                alias = title(name);
-                path[0] = 'Go$alias';
-                path.unshift("stdgo");
-                create = false;
-        }
-    }
+    path.push(title(name));
     info.types[name] = path.join(".");
-    if (!create)
-        return null;
     return {
         path: path,
         alias: alias,

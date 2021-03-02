@@ -1,4 +1,5 @@
 -cp rnd
 -cp src
 -main Run
+--times
 --interp

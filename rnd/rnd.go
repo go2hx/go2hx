@@ -14,6 +14,7 @@ type Item struct {
 // when a is less than b.
 func byKeys(a, b interface{}) bool {
 	i1, i2 := a.(*Item), b.(*Item)
+	//fmt.Println("key1",i1.Key,"key2",i2.Key,"greater",(i1.Key < i2.Key))
 	return i1.Key < i2.Key
 }
 
@@ -21,6 +22,7 @@ func byKeys(a, b interface{}) bool {
 // when a is less than b.
 func byVals(a, b interface{}) bool {
 	i1, i2 := a.(*Item), b.(*Item)
+	fmt.Println("val1",i1.Val,"val2",i2.Val,"greater",(i1.Val < i2.Val))
 	if i1.Val < i2.Val {
 		return true
 	}

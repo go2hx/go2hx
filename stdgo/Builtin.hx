@@ -49,6 +49,7 @@ inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 }
 
 function imag(c) {}
+
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
@@ -95,9 +96,9 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 							default:
 						}
 						switch p.params[0] {
-							case TPType(t):
-								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-								value = defaultValue(t,Context.currentPos(),meta);
+							case TPType(tt):
+								tt = Context.toComplexType(Context.follow(ComplexTypeTools.toType(tt)));
+								value = defaultValue(tt,Context.currentPos(),meta);
 							default:
 						}
 						var length:Expr = null;
@@ -142,8 +143,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 				case "GoArray":
 					var exprs:Array<Expr> = [];
 					if (meta == null) {
-						trace("error Array metadata missing for length");
-						return null;
+						throw("error Array metadata missing for length");
 					}
 					for (m in meta) {
 						exprs.push(m.params[0]);
@@ -184,7 +184,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 
 function getMetaLength(meta:Metadata):ExprDef {
 	for (m in meta) {
-		if (m.name != "length")
+		if (m.name != ":length")
 			continue;
 		return m.params[0].expr;
 	}
@@ -216,11 +216,11 @@ inline function panic(v) {
 }
 
 inline function print(args:Rest<Dynamic>) {
-	return Fmt.print(...args);
+	return stdgo.fmt.Fmt.print(...args);
 }
 
 inline function println(args:Rest<Dynamic>) {
-	return Fmt.println(...args);
+	return stdgo.fmt.Fmt.println(...args);
 }
 
 inline function real(c) {}

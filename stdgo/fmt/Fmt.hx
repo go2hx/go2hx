@@ -5,7 +5,7 @@ import haxe.Rest;
 import stdgo.internal.ErrorReturn;
 import haxe.macro.Expr;
 
-inline function errorf(fmt:String, args:Rest<Dynamic>):Error {
+inline function errorf(fmt:String, args:Rest<Dynamic>) {
 	return stdgo.errors.Errors.new_(format(fmt, args.toArray()));
 }
 

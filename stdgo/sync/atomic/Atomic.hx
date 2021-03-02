@@ -1,0 +1,1 @@
+package stdgo.sync.atomic;

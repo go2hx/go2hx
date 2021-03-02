@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.sync;
 
 import sys.thread.Mutex;
 

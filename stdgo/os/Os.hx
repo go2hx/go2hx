@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.os;
 
 import sys.FileStat;
 import haxe.io.Path;
@@ -6,7 +6,7 @@ import stdgo.internal.ErrorReturn;
 import sys.io.File as Base;
 import stdgo.Pointer;
 import sys.FileSystem;
-import stdgo.Errors.Error;
+import stdgo.errors.Errors.Error;
 import stdgo.StdTypes.Byte;
 import haxe.io.Output;
 var args = Sys.args();

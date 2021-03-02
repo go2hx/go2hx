@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.sort;
 
 function ints(slice:Array<Int>) {
 	slice.sort((a, b) -> {

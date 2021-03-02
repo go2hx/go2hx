@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.errors;
 
 import haxe.Exception;
 

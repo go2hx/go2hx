@@ -1,18 +1,12 @@
-package stdgo;
+package stdgo.fmt;
 
-import stdgo.Io.Writer;
+import stdgo.io.Io.Writer;
 import haxe.Rest;
 import stdgo.internal.ErrorReturn;
-import haxe.macro.Context;
-import haxe.macro.ExprTools;
-import stdgo.internal.Printf;
 import haxe.macro.Expr;
-import stdgo.Errors;
-import haxe.macro.Expr.ExprOf;
-import haxe.macro.TypeTools;
 
 inline function errorf(fmt:String, args:Rest<Dynamic>):Error {
-	return stdgo.Errors.new_(format(fmt, args.toArray()));
+	return stdgo.errors.Errors.new_(format(fmt, args.toArray()));
 }
 
 inline function println(args:Rest<Dynamic>) {

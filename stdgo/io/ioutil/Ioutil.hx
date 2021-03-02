@@ -1,14 +1,14 @@
-package stdgo.io;
+package stdgo.io.ioutil;
 
 import haxe.io.Path;
-import Os.FileInfo;
+import stdgo.os.Os.FileInfo;
 import sys.FileSystem;
-import Go.ErrorReturn;
+import stdgo.Go.ErrorReturn;
 import sys.io.File;
 import haxe.io.Bytes;
 
 
-function readAll(r:io.Reader) {}
+function readAll(r:stdgo.io.Io.Reader) {}
 
 function readFile(filename:String) {}
 

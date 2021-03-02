@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.strings;
 
 inline function contains(s:String, value:String):Bool {
 	return StringTools.contains(s, value);

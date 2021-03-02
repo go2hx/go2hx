@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.reflect;
 
 function deepEqual(a1:Dynamic,a2:Dynamic):Bool {
     if (a1 == a2)

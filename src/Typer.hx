@@ -1090,6 +1090,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
                     if (info.className != "") {
                         var field = toExpr(EField(toExpr(EField(toExpr(EConst(CIdent("stdgo"))),"Builtin")),expr.fun.name));
                         genArgs();
+                        ellipsisFunc();
                         return (macro $field($a{args})).expr;
                     }
                 case "cap":
@@ -1148,7 +1149,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     return ECall(e,args);
 }
 private function typeRest(expr:Expr):Expr {
-    return expr == null ? null : macro ...$expr.toArray();
+    return macro ...$expr.toArray();
 }
 private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
     final bs = "\\".charAt(0);

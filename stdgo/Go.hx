@@ -328,58 +328,54 @@ public static macro function pointer(expr) {
 					if (fromString == toString)
 						return e;
 					//trace(fromString + " -> " + toString);
-					var expr:Expr = null;
 					switch fromString {
 						case "String", "GoString":
 							switch toString {
 								case "Slice":
-									expr = macro $e.toSlice();
+									return macro new stdgo.Slice(...($e.toArray()));
 							}
 						case "Int":
 							switch toString {
 								case "Float":
-									expr = macro ($e : Float);
+									return macro ($e : Float);
 								case "UInt":
-									expr = macro ($e : UInt);
+									return macro ($e : UInt);
 								case "GoString":
-									expr = assertString();
+									return assertString();
 							}
 						case "UInt":
 							switch  toString {
 								case "Int":
-									expr = macro ($e : Int);
+									return macro ($e : Int);
 							}
 						case "Float":
 							switch toString {
 								case "Int64":
-									expr = macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
+									return macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
 								default:
 							}
 						case "Any":
 							switch toString {
 								case "Slice":
-									expr =  standard();
+									return standard();
 							}
 					}
-					if (expr == null)
-						switch toString {
-							case "Pointer":
-								if (okBool) {
-									expr = macro {value: new Pointer($e), ok: true};
-								}else{
-									expr = macro new Pointer($e);
-								}
-							case "PointerWrapper":
-								if (okBool) {
-									expr = macro {value: new PointerWrapper($e), ok: true};
-								}
-								expr = macro new PointerWrapper($e);
-							default:
-								//normal conversion TODO: implement
-								trace("standard type conversion not supported yet");
-						}
-					if (expr != null)
-						return macro ($e : $t);
+					switch toString {
+						case "Pointer":
+							if (okBool) {
+								return macro {value: new Pointer($e), ok: true};
+							}else{
+								return macro new Pointer($e);
+							}
+						case "PointerWrapper":
+							if (okBool) {
+								return macro {value: new PointerWrapper($e), ok: true};
+							}
+							return macro new PointerWrapper($e);
+						default:
+							//normal conversion TODO: implement
+							trace("standard type conversion not supported yet");
+					}
 				trace("unsupported assert: " + fromString + " -> " + toString);
 				case EParenthesis(e):
 					expr = e;

@@ -117,13 +117,13 @@ class SliceData<T> {
         array.setSize(length);
     }
     private inline function boundsCheck(i:Int) {
-        #if !no_check_bounds
+        /*#if !no_check_bounds
         if (pos + i > this.length) {
             throw "slice out of bounds, index: " + i + " length: " + this.length;
         }
         if (pos + i < 0)
             throw "slice negative index out of bounds";
-        #end
+        #end*/
     }
     public function get(index:Int):T {
         boundsCheck(index);

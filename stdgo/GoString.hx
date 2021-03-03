@@ -20,10 +20,7 @@ abstract GoString(String) from String to String {
 		return this;
 	}
 	public function toArray():Array<Int> {
-		return [for (i in 0...this.length) this.charCodeAt(i)];
-	}
-	public function toSlice() {
-		return new Slice(...toArray());
+		return [for (code in new StringIterator(this)) code];
 	}
 
 	public function iterator():StringIterator {

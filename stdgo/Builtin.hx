@@ -29,13 +29,10 @@ macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
 			switch p.name {
 				case "Slice":
 					return macro {
-						trace("dst: " + $dst.length + " src: " + $src.length);
 						var length = $dst.length > $src.length ? $src.length : $dst.length; //min length
 						for (i in 0...length) {
-							trace("i: " + i);
 							$dst[i] = $src[i];
 						}
-						trace("finish");
 						length;
 					}
 				default:

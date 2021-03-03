@@ -360,18 +360,28 @@ public static macro function pointer(expr) {
 									return standard();
 							}
 					}
+					var param:ComplexType = null;
+					switch t {
+						case TPath(p):
+							switch p.params[0] {
+								case TPType(t):
+									param = t;
+								default:
+							}
+						default:
+					}
 					switch toString {
 						case "Pointer":
 							if (okBool) {
 								return macro {value: new Pointer($e), ok: true};
 							}else{
-								return macro new Pointer($e);
+								return macro new Pointer(($e : $param));
 							}
 						case "PointerWrapper":
 							if (okBool) {
 								return macro {value: new PointerWrapper($e), ok: true};
 							}
-							return macro new PointerWrapper($e);
+							return macro new PointerWrapper(($e : $param));
 						default:
 							//normal conversion TODO: implement
 							trace("standard type conversion not supported yet");

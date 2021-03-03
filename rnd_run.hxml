@@ -1,0 +1,3 @@
+-cp golibs
+-main github_com.pxshadow.go4hx.rnd.Rnd
+-hl rnd_hl.hl

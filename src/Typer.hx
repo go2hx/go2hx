@@ -333,7 +333,7 @@ private function typeGoStmt(stmt:Ast.GoStmt,info:Info):ExprDef {
 }
 private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     if (stmt.list == null)
-        return null;
+        return (macro {}).expr;
     return typeStmtList(stmt.list,info);
 }
 private function typeStmtList(list:Array<Ast.Stmt>,info:Info):ExprDef {
@@ -838,7 +838,8 @@ private function interfaceType(expr:Ast.InterfaceType,info:Info):ComplexType {
         });
     }else{
         //anonymous struct
-        return null;
+        var fields = typeFieldListFields(expr.methods,info,[],false,true);
+        return TAnonymous(fields);
     }
 }
 private function structType(expr:Ast.StructType,info:Info):ComplexType {
@@ -849,7 +850,7 @@ private function funcType(expr:Ast.FuncType,info:Info):ComplexType {
     var ret = typeFieldListRes(expr.results,info,false);
     var params = typeFieldListComplexTypes(expr.params,info);
     if (ret == null || params == null)
-        return null;
+        return TFunction([],TPath({name: "Void",pack: []}));
     return TFunction(params,ret);
 }
 private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
@@ -1124,12 +1125,16 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
         case "ParenExpr":
             //type set
             var e:Ast.ParenExpr = expr.fun;
-            var t = typeExprType(e.x,info);
-            switch t {
-                case TPath(p):
-                    return (macro new $p()).expr;
-                default:
-                    trace("unknown type paren expr");
+            if (e.x.id != "FuncLit") { 
+                var t = typeExprType(e.x,info);
+                switch t {
+                    case TPath(p):
+                        return (macro new $p()).expr;
+                    default:
+                        //trace("unknown type paren expr");
+                        var arg = typeExpr(expr.args[0],info);
+                        return (macro Go.assert(($arg : $t))).expr;
+                }
             }
         case "ArrayType":
             //set assert type
@@ -1206,7 +1211,7 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             if (value == "\\") {
                 return (macro $const.charCodeAt(0)).expr;
             }
-            return EField(const,"code");
+            EField(const,"code");
         case IDENT: 
             EConst(CIdent(nameIdent(expr.value,info)));
         case IMAG: //TODO: IMPLEMENT COMPLEX NUMBER
@@ -1243,6 +1248,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
             params.push(typeExpr(elt,info));
         }
     }
+    if (isKeyValueExpr(expr.elts)) {
+        return getKeyValueExpr(expr.elts,info).expr;
+    }
     if (expr.type == null) {
         getParams();
         return (macro Go.set($a{params})).expr;
@@ -1252,12 +1260,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
             case TPath(tp):
                 p = tp;
             case TAnonymous(fields):
-                if (isKeyValueExpr(expr.elts)) {
-                    return getKeyValueExpr(expr.elts,info).expr;
-                }else{
-                    getParams();
-                    return stdgo.Go.createAnonType(null,fields,params).expr;
-                }
+                getParams();
+                return stdgo.Go.createAnonType(null,fields,params).expr;
             default:
                 throw "unknown type expr type: " + type;
         }
@@ -1277,14 +1281,17 @@ private function isKeyValueExpr(elts:Array<Ast.Expr>) {
     return elts.length > 0 && elts[0].id == "KeyValueExpr";
 }
 private function getKeyValueExpr(elts:Array<Ast.Expr>,info:Info) {
-    var e = toExpr(EObjectDecl([for(elt in elts) {
+    var fields:Array<ObjectField> = [];
+    for (elt in elts) {
         var e = typeKeyValueExpr(elt,info);
-        {
+        if (e.key == null)
+            continue;
+        fields.push({
             field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key,info),
             expr: e.value,
-        };
-    }]));
-    return e;
+        });
+    }
+    return toExpr(EObjectDecl(fields));
 }
 
 private function typeFuncLit(expr:Ast.FuncLit,info:Info):ExprDef {
@@ -1440,7 +1447,8 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
         //label and goto system
         var labels:Array<String> = [];
-        for (i in 0...decl.body.list.length) {
+        
+        if (decl.body.list != null) for (i in 0...decl.body.list.length) {
             switch decl.body.list[i].id {
                 case "LabeledStmt":
                     var stmt:Ast.LabeledStmt = decl.body.list[i];
@@ -1665,6 +1673,8 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
             switch type {
                 case TPath(p):
                     var name:String = field.type.id == "SelectorExpr" ? field.type.sel.name : field.type.name;
+                    if (name == null)
+                        continue;
                     if (underlineBool) {
                         if (name.charAt(0) == name.charAt(0).toLowerCase())
                             name = "_" + name;

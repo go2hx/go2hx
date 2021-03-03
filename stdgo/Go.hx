@@ -304,7 +304,7 @@ public static macro function pointer(expr) {
 					var to = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
 					switch e.expr {
 						case EConst(CIdent("null")):
-							return @:privateAccess Builtin.defaultValue(t,Context.currentPos());
+							return Builtin.defaultValue(t,Context.currentPos());
 						default:
 					}
 					function standard() {
@@ -381,7 +381,10 @@ public static macro function pointer(expr) {
 							if (okBool) {
 								return macro {value: new PointerWrapper($e), ok: true};
 							}
-							return macro new PointerWrapper(($e : $param));
+							return macro {
+								var e:$param = $e;
+								new PointerWrapper(e);
+							}
 						default:
 							//normal conversion TODO: implement
 							trace("standard type conversion not supported yet");

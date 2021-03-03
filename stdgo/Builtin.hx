@@ -153,7 +153,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 				case "Int","UInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoDynamic","Any","Dynamic":
-					return macro {};
+					return macro null;
 				case "Bool":
 					return macro false;
 				case "Pointer", "PointerWrapper","GoArrayPointer":

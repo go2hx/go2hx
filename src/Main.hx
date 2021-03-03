@@ -27,7 +27,7 @@ function init(args:Array<String>) {
 	//for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
-	for (i in 0...args.length) {
+	for (i in 0...args.length - 1) {
 		var path = args[i];
 		if (StringTools.startsWith(path, httpsString)) {
 			path = path.substr(httpsString.length);

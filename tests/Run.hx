@@ -14,8 +14,7 @@ function main() {
 }
 function gen() {
     var tests = load();
-    tests = ["./go/test/append.go"];
-    //trace(tests);
+    //tests = ["./go/test/append.go"];
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);
@@ -27,6 +26,9 @@ function gen() {
         trace(command);
         Sys.command(command);
     }
+}
+function run(tests:Array<String>) {
+    
 }
 function load():Array<String> {
     var tests:Array<String> = [];
@@ -52,12 +54,12 @@ function load():Array<String> {
         if (readLine(File.read(p,false)))
             tests.push('./$p');
     }
-    for (path in FileSystem.readDirectory('$repo/interface')) {
+    /*for (path in FileSystem.readDirectory('$repo/interface')) {
         var p = '$repo/interface/$path';
         if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
             continue;
         if (readLine(File.read(p,false)))
             tests.push('./$p');
-    }
+    }*/
     return tests;
 }

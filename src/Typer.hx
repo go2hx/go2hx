@@ -739,7 +739,10 @@ private function typeExprStmt(stmt:Ast.ExprStmt,info:Info):ExprDef {
     var expr = typeExpr(stmt.x,info);
     return expr != null ? expr.expr : null;
 }
+//written by Eliott issue #17
 private function typeIfStmt(stmt:Ast.IfStmt,info:Info):ExprDef {
+    var obj:haxe.DynamicAccess<Dynamic> = cast stmt; // new - set-up DynamicAccess
+    stmt.elseStmt = obj.get("else"); // new - dynamically access the JSON element with the reserved name
     var ifStmt:Expr = toExpr(EIf(typeExpr(stmt.cond,info),typeStmt(stmt.body,info),typeStmt(stmt.elseStmt,info)));
     if (stmt.init != null)
         return EBlock([typeStmt(stmt.init,info),ifStmt]);

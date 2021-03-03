@@ -118,21 +118,21 @@ class SliceData<T> {
     }
     private inline function boundsCheck(i:Int) {
         #if !no_check_bounds
-        if (i - 1 >= length + pos) {
-            throw "slice out of length bounds: " + i + " len: " + length;
+        if (pos + i > this.length) {
+            throw "slice out of bounds, index: " + i + " length: " + this.length;
         }
-        if (i < 0)
+        if (pos + i < 0)
             throw "slice negative index out of bounds";
         #end
     }
     public function get(index:Int):T {
+        boundsCheck(index);
         final i = index + pos;
-        boundsCheck(i);
         return array.get(i);
     }
     public function set(index:Int,value:T):T {
+        boundsCheck(index);
         final i = index + pos;
-        boundsCheck(i);
         return array.set(i,value);
     }
     inline public function iterator():Iterator<T> {

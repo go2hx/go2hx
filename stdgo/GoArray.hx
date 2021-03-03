@@ -42,9 +42,8 @@ abstract GoArray<T>(Vector<T>) {
     }
     private inline function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
-        if (i >= this.length) {
-            trace(this + " index: " + i + " length: " + length);
-            throw "array out of length bounds";
+        if (i > this.length) {
+            throw "array out of bounds, index: " + i + " length: " + length;
         }
         if (i < 0)
             throw "array negative index out of bounds";

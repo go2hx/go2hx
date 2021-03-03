@@ -29,11 +29,14 @@ macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
 			switch p.name {
 				case "Slice":
 					return macro {
-						var int = $dst.length > $src.length ? $src.length : $dst.length;
-						for (i in 0...int) {
+						trace("dst: " + $dst.length + " src: " + $src.length);
+						var length = $dst.length > $src.length ? $src.length : $dst.length; //min length
+						for (i in 0...length) {
+							trace("i: " + i);
 							$dst[i] = $src[i];
 						}
-						int;
+						trace("finish");
+						length;
 					}
 				default:
 					trace("unknown copy type path: " + p.name);

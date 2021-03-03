@@ -156,10 +156,10 @@ class Go {
 		var isDefine:Bool = false;
 		switch valueType {
 			case TInst(t, params):
-				if (t.get().name == "String")
+				var t = t.get();
+				if (t.name == "String")
 					isDefine = true;
 			default:
-				trace("unknown type " + valueType);
 		}
 		var main:Var = {
 			name: "_obj",

@@ -12,8 +12,8 @@ abstract GoString(String) from String to String {
 	}
 
 	@:arrayAccess
-	inline function get(id:Int) {
-		return this.charAt(id);
+	inline function get(index:Int) {
+		return this.charCodeAt(index);
 	}
 
 	public function toString():String {

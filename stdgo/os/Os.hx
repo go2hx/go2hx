@@ -3,7 +3,6 @@ package stdgo.os;
 import sys.FileStat;
 import haxe.io.Path;
 import stdgo.internal.ErrorReturn;
-import sys.io.File as Base;
 import stdgo.Pointer;
 import sys.FileSystem;
 import stdgo.errors.Errors.Error;
@@ -43,7 +42,7 @@ inline function mkdirAll(path:String, ?perm:Int):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):ErrorReturn<PointerWrapper<stdgo.Os.File>> {
+inline function create(path:String):ErrorReturn<PointerWrapper<File>> {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);

@@ -1895,14 +1895,16 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         var name = nameIdent(value.names[i],info);
 
         var doc:String = getComment(value) + getDoc(value) + getSource(value,info);
-
+        var access = typeAccess(value.names[i]);
+        if (value.constants[i])
+            access.push(AFinal);
         values.push({
             name: name,
             pos: null,
             pack: [],
             fields: [],
             doc: doc,
-            kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),typeAccess(value.names[i]))
+            kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),access)
         });
     }
     return values;

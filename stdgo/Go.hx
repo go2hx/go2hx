@@ -216,6 +216,10 @@ class Go {
 		}
 		return macro null;
 	}
+	public static macro function setKeys(expr:Expr) {
+		var t = Context.toComplexType(Context.getExpectedType());
+		return macro ($expr : $t);
+	}
 
 	
 public static function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {

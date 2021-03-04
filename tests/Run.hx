@@ -15,6 +15,9 @@ function main() {
 function gen() {
     var tests = load();
     //tests = ["./go/test/append.go"];
+    //currently skipping these tests
+    tests.remove("./go/test/initialize.go");
+    tests.remove("./go/test/method7.go");
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);

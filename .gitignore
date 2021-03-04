@@ -21,7 +21,7 @@ node_modules
 packages.md
 package-lock.json
 *.yaml
-notes.txt
+*.txt
 go2hx
 parser
 test

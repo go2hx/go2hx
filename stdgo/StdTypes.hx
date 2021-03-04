@@ -7,6 +7,7 @@ typedef UInt64 = UInt; //low = int64, high = int64
 typedef Int8 = Int;
 typedef Int16 = Int;
 typedef Int32 = Int;
+typedef Int64 = Int;
 typedef Float32 = Float;
 typedef Float64 = Float;
 typedef Complex64 = Float;

@@ -22,22 +22,61 @@ function gen() {
     //Error: Class name must start with an uppercase letter
     tests.remove("./go/test/235.go");
     tests.remove("./go/test/64bit.go");
-
     //trace(tests);
     tests.push(path);
     Main.exportBool = true;
     Main.init(tests);
     tests.pop();
     Sys.setCwd("..");
-    for (path in Main.exportPaths) {
+    File.saveContent("tests.txt","");
+    var output = File.append("tests.txt",false);
+    var length = Main.exportPaths.length;
+    var passedCount = 0;
+    for (i in 0...length) {
+        var path = Main.exportPaths[i];
         path = StringTools.replace(path,"/",".");
         var command = 'haxe -cp tests/golibs -main $path --interp';
-        trace(command);
-        Sys.command(command);
+        var proc = new sys.io.Process(command);
+        var code:Null<Int> = null;
+        Sys.println('------ $path ------ $i/$length');
+        for (i in 0...60 * 10) {
+            code = proc.exitCode(false);
+            if (code != null)
+                break;
+            Sys.sleep(1/60);
+        }
+        if (code == null) {
+            Sys.println("timed out...");
+            var line:String = "";
+            try {
+                line = getLine(proc.stderr.readLine());
+                Sys.println(line + "\n" + proc.stderr.readAll().toString());
+            }catch(e) {
+
+            }
+            output.writeString('- [ ] $path    - $line (timed out)\n');
+        }else{
+            if (code <= 0) {
+                Sys.println(proc.stdout.readAll().toString());
+                passedCount++;
+                output.writeString('- [x] $path\n');
+            }else{
+                var line = getLine(proc.stderr.readLine());
+                Sys.println(line + "\n" + proc.stderr.readAll().toString());
+                output.writeString('- [ ] $path    - $line \n');
+            }
+        }
+        proc.kill();
+        output.flush();
     }
+    output.writeString('\n\n\nPASSING: $passedCount/$length');
+    output.close();
 }
-function run(tests:Array<String>) {
-    
+function getLine(line:String):String {
+    var sub = ".hx:";
+    var index = line.indexOf(sub);
+    index = index == -1 ? 0 : index + sub.length - 1;
+    return line.substr(index);
 }
 function load():Array<String> {
     var tests:Array<String> = [];

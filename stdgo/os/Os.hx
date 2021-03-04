@@ -13,7 +13,7 @@ var stderr = new OutputWriter(Sys.stderr());
 //var stdin = new OutputWriter(Sys.stdin());
 var stdout = new OutputWriter(Sys.stdout());
 
-class OutputWriter implements stdgo.Io.Writer {
+class OutputWriter implements stdgo.io.Io.Writer {
 	var output:Output;
 	public function new(output) {
 		this.output = output;
@@ -98,7 +98,7 @@ inline function removeAll(path:String):Error {
 	return null;
 }
 
-class File implements stdgo.Io.Writer {
+class File implements stdgo.io.Io.Writer {
 	var input:sys.io.FileInput;
 	var output:sys.io.FileOutput;
 	public function new(input,output) {

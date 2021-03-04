@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.unsafe;
 
 import stdgo.StdTypes.UIntptr;
 

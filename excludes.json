@@ -9,6 +9,8 @@
     "internal/unsafeheader",
     "unsafe",
     "runtime",
+    "runtime/debug",
+    "runtime/pprof",
     "internal/cpu",
     "runtime/internal/sys",
     "runtime/internal/atomic",

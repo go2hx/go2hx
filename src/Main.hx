@@ -63,9 +63,9 @@ function init(args:Array<String>) {
 	if (exportBool) {
 		exportPaths = [];
 		for (module in modules) {
-			if (module.files.length == 0)
-				continue;
-			exportPaths.push(module.path + "/" + module.files[0].name);
+			for (file in module.files) {
+				exportPaths.push(module.path + "/" + file.name);
+			}
 		}
 	}
 }

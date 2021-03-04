@@ -3,12 +3,10 @@ package stdgo.encoding;
 import haxe.Exception;
 import haxe.io.Bytes;
 import haxe.crypto.Base64 as Base;
-import Go.ErrorReturn;
+import stdgo.internal.ErrorReturn;
 
 var stdEncoding = new StdEncoding();
 var uRLEncoding = new UrlEncoding();
-
-typedef StdEncoding = {encodeToString: function encodeToString(bytes:Bytes):ErrorReturn<String>}
 
 private class StdEncoding {
 	public function new() {}

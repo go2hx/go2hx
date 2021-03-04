@@ -542,6 +542,15 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         switch t {
             case TPath(p):
                 switch p.name {
+                    case "UInt8", "Byte":
+                        value = macro ($assign is Int);
+                    default:
+                }
+            default:
+        }
+        switch t {
+            case TPath(p):
+                switch p.name {
                     case "GoString":
                         value = macro null;
                     default:
@@ -679,6 +688,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
     switch stmt.tok {
         case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN,SHL_ASSIGN,SHR_ASSIGN,XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
             if (stmt.lhs.length == stmt.rhs.length) {
+                if (stmt.tok == ASSIGN && stmt.lhs.length == 1 && stmt.rhs.length == 1 && stmt.lhs[0].id == "Ident" && stmt.lhs[0].name == "_") {
+                    var y = typeExpr(stmt.rhs[0],info);
+                    return y.expr;
+                }
                 var op = typeOp(stmt.tok);
                 var exprs = [for (i in 0...stmt.lhs.length) {
                     var x = typeExpr(stmt.lhs[i],info);
@@ -1595,7 +1608,7 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info,retValuesBoo
             for (name in group.names) {
                 var meta = info.meta.shift();
                 list.push({
-                    name: name.name,
+                    name: nameIdent(name.name,info),
                     type: type,
                     meta: meta,
                 });

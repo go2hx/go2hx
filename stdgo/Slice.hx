@@ -124,8 +124,7 @@ class SliceData<T> {
         this.length = length;
         if (cap == 0)
             cap = length;
-        array = new GoArray<T>();
-        array.setSize(length);
+        array = new GoArray<T>(length);
     }
     private inline function boundsCheck(i:Int) {
         /*#if !no_check_bounds

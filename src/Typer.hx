@@ -50,8 +50,38 @@ final basicTypes = [
     "uintptr",
 ];
 var printer = new Printer();
+
+typedef Alias = {name:String,type:ComplexType,meta:Metadata};
+var aliases:Map<String,Array<Alias>>;
 function main(data:DataType){
     var list:Array<Module> = [];
+    var info:Info = defaultInfo();
+    //alias system
+    aliases = new Map<String,Array<Alias>>();
+    for (pkg in data.pkgs) {
+        if (pkg.files == null)
+            continue;
+        pkg.path = normalizePath(pkg.path);
+        info.path = pkg.path;
+
+        aliases[pkg.path] = [];
+        for (file in pkg.files) {
+            if (file.decls == null)
+                continue;
+            for (decl in file.decls) {
+                switch decl.id {
+                    case "GenDecl":
+                        for (spec in cast(decl.specs,Array<Dynamic>)) {
+                            switch spec.id {
+                                case "TypeSpec":
+                                   setAlias(spec,info);
+                            }
+                        }
+                }
+            }
+        }
+    }
+    //module system
     for (pkg in data.pkgs) {
         if (pkg.files == null)
             continue;
@@ -67,7 +97,7 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            info = defaultInfo(data,p);
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -131,6 +161,27 @@ function main(data:DataType){
         list.push(module);
     }
     return list;
+}
+private function setAlias(spec:Ast.TypeSpec,info:Info) {
+    switch spec.type.id {
+        case "InterfaceType":
+            //var interface:Ast.InterfaceType = spec.type;
+            var struct:Ast.InterfaceType = spec.type;
+            if (struct.methods.list.length == 0) {
+                aliases[info.path].push({name: spec.name.name,type: TPath({name: "Any",pack: []}),meta: []});
+            }
+        case "StructType":
+        default:
+            var type = typeExprType(spec.type,info);
+            aliases[info.path].push({
+                name: spec.name.name,
+                meta: info.meta[0],
+                type: type,
+            });
+    }
+}
+private function defaultInfo(data:FileType=null,p:String=""):Info {
+    return {layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
 }
 private function typeImplements(info:Info) {
     for (cl in info.data.defs) {
@@ -336,10 +387,12 @@ private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info):ExprDef {
     return typeStmtList(stmt.list,info);
 }
 private function typeStmtList(list:Array<Ast.Stmt>,info:Info):ExprDef {
+    info.layerIndex++;
     return EBlock(list == null ? [] : [
         for (stmt in list) 
             typeStmt(stmt,info)
     ]);
+    info.layerIndex--;
 }
 private function typeLabeledStmt(stmt:Ast.LabeledStmt,info:Info):ExprDef {
     var stmt = typeStmt(stmt.stmt,info);
@@ -449,11 +502,12 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                 case "TypeSpec":
                     var spec:Ast.TypeSpec = spec;
                     var name = className(title(spec.name.name));
-                    spec.name.name += "_" + info.funcName;
+                    spec.name.name += "_" + info.funcName + "_" + info.layerIndex;
                     info.retypeMap[name] = TPath({
                         name: className(title(spec.name.name)),
                         pack: [],
-                    }); 
+                    });
+                    setAlias(spec,info);
                     info.data.defs.push(typeType(spec,info));
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
@@ -1274,6 +1328,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         return (macro Go.set($a{params})).expr;
     }else{
         type = typeExprType(expr.type,info);
+        type = follow(type,aliases.copy(),info);
+        trace("type: " + type);
         switch type {
             case TPath(tp):
                 p = tp;
@@ -1297,6 +1353,24 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     if (p == null)
         throw "type path new is null: " + expr;
     return (macro new $p($a{params})).expr;
+}
+
+private function follow(type:ComplexType,aliases:Map<String,Array<Alias>>,info:Info):ComplexType {
+    switch type {
+        case TPath(p):
+            if (p.pack.length == 0 && (p.params == null || p.params.length == 0)) {
+                var array = aliases[info.path];
+                for (a in array) {
+                    if (a.name != p.name)
+                        continue;
+                    info.meta.unshift(a.meta);
+                    array.remove(a);
+                    return follow(a.type,aliases,info);
+                }
+            }
+        default:
+    }
+    return type;
 }
 
 private function isKeyValueExpr(elts:Array<Ast.Expr>) {
@@ -1498,6 +1572,7 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     info.deferBool = false;
+    info.layerIndex = 0;
     function getBlock() {
         if (decl.body.list != null) 
             exprs = [for (stmt in decl.body.list) typeStmt(stmt,info)];
@@ -1900,6 +1975,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 doc: doc,
                 fields: [],
+                meta: info.meta[0],
                 kind: TDAlias(type)
             }
     }
@@ -2028,7 +2104,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType,meta:Null<Metadata>}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType,meta:Null<Metadata>}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

@@ -31,8 +31,8 @@ abstract GoArray<T>(Vector<T>) {
         return new VectorIterator(this);
     }
 
-    public inline function new(args:Rest<T>) {
-        this = new Vector<T>(args.length);
+    public inline function new(length:Int,args:Rest<T>) {
+        this = new Vector<T>(length);
         for (i in 0...args.length) {
             this.set(i,args[i]);
         }
@@ -63,7 +63,7 @@ abstract GoArray<T>(Vector<T>) {
             high = length;
         var length = high - low;
         var slice = new Slice<T>();
-        var array = new GoArray<T>();
+        var array = new GoArray<T>(0);
         array.setVector(this);
         slice.setUnderlying(array,pos,length);
         return slice;
@@ -81,8 +81,7 @@ abstract GoArray<T>(Vector<T>) {
         this = value;
     }
     public function copy():GoArray<T> {
-        var array = new GoArray<T>();
-        array.setSize(length);
+        var array = new GoArray<T>(length);
         for (i in 0...array.length) {
             array.set(i,this.get(i));
         }

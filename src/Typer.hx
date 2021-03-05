@@ -909,7 +909,7 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType { //pointer t
     switch type {
         case TPath(p):
             switch p.name {
-                case "Int","Float","Bool","GoString","String","UInt":
+                case "GoString","String","Bool","Int","Float","UInt","Rune","Byte","Int8","Int16","Int32","Int64","UIn8","UInt16","UInt32","UInt64","Complex","Complex64","Complex128":
                     return TPath({
                         pack: [],
                         name: "Pointer",

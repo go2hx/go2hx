@@ -258,7 +258,7 @@ public static macro function pointer(expr) {
 					return macro new stdgo.GoArray.GoArrayPointer($expr);
 				case "Slice", "Map":
 					return expr;
-				case "GoString","String","Bool","Int","Float","UInt":
+				case "GoString","String","Bool","Int","Float","UInt","Rune","Byte","Int8","Int16","Int32","Int64","UIn8","UInt16","UInt32","UInt64","Complex","Complex64","Complex128":
 					isRealPointer = true;
 				case "Pointer","PointerWrapper": //double or even triple pointer
 					isRealPointer = true;

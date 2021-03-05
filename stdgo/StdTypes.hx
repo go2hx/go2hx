@@ -14,7 +14,7 @@ typedef Complex64 = Float;
 typedef Complex128 = Float; //low = float, high = float
 typedef Byte = UInt;
 typedef Rune = Int;
-typedef UIntptr = UInt;
+typedef UIntPtr = UInt;
 
 interface ArrayAccess<T> {
 	function get(i:Int):T;

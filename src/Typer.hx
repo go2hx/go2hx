@@ -1902,7 +1902,13 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         if (value.names[i] == "_")
             continue;
         info.type = null;
-        var expr = typeExpr(value.values[i],info);
+        var expr:Expr = null;
+        if (value.values[i] == null) {
+            if (type != null)
+                expr = stdgo.Builtin.defaultValue(type,null,info.meta[0]);
+        }else{
+            expr = typeExpr(value.values[i],info);
+        }
         if (expr == null)
             continue;
         var name = nameIdent(value.names[i],info);
@@ -1917,7 +1923,7 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
             pack: [],
             fields: [],
             doc: doc,
-            kind: TDField(FVar(type == null && value.values[i].id == "BasicLit" ? info.type : type,expr),access)
+            kind: TDField(FVar(type == null && value.values[i] != null && value.values[i].id == "BasicLit" ? info.type : type,expr),access)
         });
     }
     return values;

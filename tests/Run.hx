@@ -36,6 +36,7 @@ function gen() {
         var path = Main.exportPaths[i];
         path = StringTools.replace(path,"/",".");
         var command = 'haxe -cp tests/golibs -main $path --interp';
+        path = path.substr(path.lastIndexOf(".") + 1); //get the final name
         var proc = new sys.io.Process(command);
         var code:Null<Int> = null;
         Sys.println('------ $path ------ $i/$length');
@@ -54,7 +55,7 @@ function gen() {
             }catch(e) {
 
             }
-            output.writeString('- [ ] $path    - $line (timed out)\n');
+            output.writeString('- [ ] $path$line (timed out)\n');
         }else{
             if (code <= 0) {
                 Sys.println(proc.stdout.readAll().toString());
@@ -63,7 +64,7 @@ function gen() {
             }else{
                 var line = getLine(proc.stderr.readLine());
                 Sys.println(line + "\n" + proc.stderr.readAll().toString());
-                output.writeString('- [ ] $path    - $line \n');
+                output.writeString('- [ ] $path$line \n');
             }
         }
         proc.kill();

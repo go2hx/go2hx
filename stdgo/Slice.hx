@@ -2,9 +2,20 @@ package stdgo;
 import haxe.Rest;
 import haxe.ds.Vector;
 import stdgo.GoArray;
-abstract Slice<T>(SliceData<T>) {
 
+abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     public var length(get,never):Int;
+
+    //pretend to be pointer if neeeded
+    public var _value_(get, set):Slice<T>;
+
+    private inline function get__value_():Slice<T> {
+        return this;
+    }
+
+    private inline function set__value_(_value_:Slice<T>):Slice<T> {
+        return this = _value_;
+    }
     private function get_length():Int {
         return this.length;
     }

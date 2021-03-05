@@ -64,7 +64,7 @@ function gen() {
             }else{
                 var line = getLine(proc.stderr.readLine());
                 Sys.println(line + "\n" + proc.stderr.readAll().toString());
-                output.writeString('- [ ] $path$line \n');
+                output.writeString('- [ ] $path    - $line \n');
             }
         }
         proc.kill();
@@ -74,9 +74,10 @@ function gen() {
     output.close();
 }
 function getLine(line:String):String {
-    var sub = ".hx:";
-    var index = line.indexOf(sub);
-    index = index == -1 ? 0 : index + sub.length - 1;
+    var sub = "/";
+    var index2 = line.indexOf(".hx:");
+    var index = line.substr(0,index2).lastIndexOf(sub);
+    index = index == -1 ? 0 : index + sub.length;
     return line.substr(index);
 }
 function load():Array<String> {

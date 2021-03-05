@@ -97,6 +97,20 @@ class Go {
 			return expr;
 		}
 	}
+	public static macro function isNull(expr:Expr) {
+		var type = Context.follow(Context.typeof(expr));
+		switch type {
+			case TAbstract(t, params):
+				var t = t.get();
+				switch t.name {
+					case "Slice":
+						return macro $expr.length == 0;
+				}
+			default:
+				trace("unknown type: " + type);
+		}
+		return expr;
+	}
 	public static macro function divide(a:Expr,b:Expr) {
 		var aType = Context.follow(Context.typeof(a));
 		var bType = Context.follow(Context.typeof(b));
@@ -367,10 +381,12 @@ public static macro function pointer(expr) {
 					var param:ComplexType = null;
 					switch t {
 						case TPath(p):
-							switch p.params[0] {
-								case TPType(t):
-									param = t;
-								default:
+							if (p.params != null && p.params[0] != null) {
+								switch p.params[0] {
+									case TPType(t):
+										param = t;
+									default:
+								}
 							}
 						default:
 					}
@@ -389,11 +405,8 @@ public static macro function pointer(expr) {
 								var e:$param = $e;
 								new PointerWrapper(e);
 							}
-						default:
-							//normal conversion TODO: implement
-							trace("standard type conversion not supported yet");
 					}
-				trace("unsupported assert: " + fromString + " -> " + toString);
+				return standard();
 				case EParenthesis(e):
 					expr = e;
 					return func();

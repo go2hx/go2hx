@@ -18,6 +18,12 @@ abstract Pointer<T>(PointerData<T>) {
 	public inline function to():T {
 		return _value_;
 	}
+	@:op(A == B) private static function equals<T>(a:Pointer<T>,b:Pointer<T>):Bool {
+		return a._value_ == b._value_;
+	}
+	@:op(A != B) private static function notEquals<T>(a:Pointer<T>,b:Pointer<T>):Bool {
+		return a._value_ != b._value_;
+	}
 }
 @:forward
 abstract PointerWrapper<T>(T) from T to T {
@@ -31,6 +37,9 @@ abstract PointerWrapper<T>(T) from T to T {
 	}
 	public function new(obj:T) {
 		this = obj;
+	}
+	@:op(A == B) static function equals<T>(a:PointerWrapper<T>,b:PointerWrapper<T>):Bool {
+		return a._value_ == b._value_;
 	}
 }
 class PointerData<T> {

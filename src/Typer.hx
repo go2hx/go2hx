@@ -18,8 +18,9 @@ final reserved = [
     "switch", "case", "break", "continue", "default","is",
 	"abstract", "cast", "catch", "class", "do","function",
 	"dynamic", "else", "enum", "extends", "extern", "final", "for", "function", "if", "interface",
-	"implements", "import", "in", "inline", "macro", "new", "null", "operator", "overload", "override", "package", "private",
+	"implements", "import", "in", "inline", "macro", "new", "operator", "overload", "override", "package", "private",
 	"public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while","construct",
+    "null",
 ];
 final reservedClassNames = [
     "Class","T","K","S",
@@ -66,35 +67,35 @@ function main(data:DataType){
             var p = StringTools.replace(module.path,"/",".");
             if (p == "")
                 p == "std";
-            var info:Info = {thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+            var info:Info = {fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
             var declFuncs:Array<Ast.FuncDecl> = [];
-            var nameCache:Array<String> = [];
             for (decl in file.decls) {
                 switch decl.id {
                     case "GenDecl":
-                        var names = typeGenDecl(decl,info);
-                        for (name in names) {
-                            if (nameCache.indexOf(name) == -1)
-                                nameCache.push(name);
-                        }
+                        typeGenDecl(decl,info);
                     case "FuncDecl":
                         var decl:Ast.FuncDecl = decl;
-                        if (decl.recv == null && nameCache.indexOf(decl.name.name) == -1)
-                            nameCache.push(decl.name.name);
+                        if (decl.recv == null && info.fieldNames.indexOf(decl.name.name) == -1)
+                            info.fieldNames.push(decl.name.name);
                         declFuncs.push(decl);
                     default:
 
                 }
             }
-            //process potential duplicate names from all casing to lower
-            for (name in nameCache) {
-                if (name.charAt(0) == name.charAt(0).toUpperCase())
-                    continue;
-                //check if uppercase version of name exists too
-                if (nameCache.indexOf(name.charAt(0).toUpperCase() + name.substr(1)) == -1)
-                    continue;
-                info.types[name] = "_" + name;
+
+            function processNames(cache:Array<String>) {
+                //process potential duplicate names from all casing to lower
+                for (name in cache) {
+                    if (name.charAt(0) == name.charAt(0).toUpperCase())
+                        continue;
+                    //check if uppercase version of name exists too
+                    if (cache.indexOf(name.charAt(0).toUpperCase() + name.substr(1)) == -1)
+                        continue;
+                    info.types[name] = "_" + name;
+                }
             }
+            processNames(info.fieldNames);
+            processNames(info.typeNames);
             for (decl in declFuncs) { //parse function bodies last
                 var func = typeFunction(decl,info);
                 if (func != null)
@@ -239,25 +240,23 @@ private function compareComplexType(a:ComplexType,b:ComplexType):Bool {
             return false;
     }
 }
-private function typeGenDecl(decl:Ast.GenDecl,info:Info):Array<String> {
-    var names:Array<String> = [];
+private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
     for (spec in cast(decl.specs,Array<Dynamic>)) {
         switch spec.id {
             case "ImportSpec":
                 info.data.imports.push(typeImport(spec,info));
             case "ValueSpec":
                 var spec:Ast.ValueSpec = spec;
-                names = names.concat(spec.names);
+                info.fieldNames = info.fieldNames.concat(spec.names);
                 info.data.defs = info.data.defs.concat(typeValue(spec,info));
             case "TypeSpec":
                 var spec:Ast.TypeSpec = spec;
-                names.push(spec.name.name);
+                info.typeNames.push(spec.name.name);
                 info.data.defs.push(typeType(spec,info));
             default:
                 error("unknown spec: " + spec.id);
         }
     }
-    return names;
 }
 private function typeStmt(stmt:Dynamic,info:Info):Expr {
     if (stmt == null)
@@ -690,7 +689,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
             if (stmt.lhs.length == stmt.rhs.length) {
                 if (stmt.tok == ASSIGN && stmt.lhs.length == 1 && stmt.rhs.length == 1 && stmt.lhs[0].id == "Ident" && stmt.lhs[0].name == "_") {
                     var y = typeExpr(stmt.rhs[0],info);
-                    return y.expr;
+                    return y.expr; //only underscore assign, therefore only need to type right side.
                 }
                 var op = typeOp(stmt.tok);
                 var exprs = [for (i in 0...stmt.lhs.length) {
@@ -1068,7 +1067,8 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return rest != null ? rest.expr : null;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
-    return EConst(CIdent(nameIdent(expr.name,info)));
+    var name = nameIdent(expr.name,info);
+    return EConst(CIdent(name));
 }
 private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
     var args:Array<Expr> = [];
@@ -1340,6 +1340,29 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
         default:
     }
     var op = typeOp(expr.op);
+    function isNil() {
+        switch x.expr {
+            case EConst(c):
+                switch c {
+                    case CIdent(s):
+                        if (s == "null")
+                            return y;
+                    default:
+                }
+            default:
+        }
+        switch y.expr {
+            case EConst(c):
+                switch c {
+                    case CIdent(s):
+                        if (s == "null")
+                            return x;
+                    default:
+                }
+            default:
+        }
+        return null;
+    }
     switch op {
         case OpShr, OpShl, OpUShr, OpAnd, OpOr:
             return EBinop(op,macro Std.int($x),macro Std.int($y));
@@ -1347,6 +1370,14 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
             return EBinop(op,x,y);
         case OpDiv:
             return (macro Go.divide($x,$y)).expr;
+        case OpEq:
+            var value = isNil();
+            if (value != null)
+                return (macro Go.isNull($value)).expr;
+        case OpNotEq:
+            var value = isNil();
+            if (value != null)
+                return (macro !Go.isNull($value)).expr;
         default:
     }
     return EBinop(op,x,y);
@@ -1956,6 +1987,8 @@ private function typeAccess(name:String,isField:Bool=false):Array<Access> {
     return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
 private function nameIdent(name:String,info:Info):String {
+    if (name == "nil")
+        return "null";
     if (info.imports.exists(name))
         return info.imports[name];
     if (info.types.exists(name))
@@ -1963,8 +1996,6 @@ private function nameIdent(name:String,info:Info):String {
     name = untitle(name);
     if (reserved.indexOf(name) != -1)
         name += "_";
-    if (name == "nil")
-        name = "null";
     return name;
 }
 private function normalizePath(path:String):String {
@@ -1997,7 +2028,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {thisName:String,retValues:Array<Array<{name:String,type:ComplexType,meta:Null<Metadata>}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType,meta:Null<Metadata>}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

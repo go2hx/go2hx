@@ -126,14 +126,12 @@ class SliceData<T> {
             cap = length;
         array = new GoArray<T>(length);
     }
-    private inline function boundsCheck(i:Int) {
-        /*#if !no_check_bounds
-        if (pos + i > this.length) {
-            throw "slice out of bounds, index: " + i + " length: " + this.length;
+    private function boundsCheck(i:Int) {
+        #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
+        if (i < 0 || i >= this.length) { 
+            throw "array out of bounds, index: " + i + " length: " + length;
         }
-        if (pos + i < 0)
-            throw "slice negative index out of bounds";
-        #end*/
+        #end
     }
     public function get(index:Int):T {
         boundsCheck(index);

@@ -40,13 +40,11 @@ abstract GoArray<T>(Vector<T>) {
     public inline function setSize(length:Int) {
         this = new Vector<T>(length);
     }
-    private inline function boundsCheck(i:Int) {
+    private function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
-        if (i > this.length) {
+        if (i < 0 || i >= this.length) { 
             throw "array out of bounds, index: " + i + " length: " + length;
         }
-        if (i < 0)
-            throw "array negative index out of bounds";
         #end
     }
     @:op([]) public inline function get(index:Int):T {

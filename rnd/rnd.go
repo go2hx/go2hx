@@ -1,87 +1,25 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/tidwall/btree"
-)
-
-type Item struct {
-	Key, Val string
-}
-
-// byKeys is a comparison function that compares item keys and returns true
-// when a is less than b.
-func byKeys(a, b interface{}) bool {
-	i1, i2 := a.(*Item), b.(*Item)
-	return i1.Key < i2.Key
-}
-
-// byVals is a comparison function that compares item values and returns true
-// when a is less than b.
-func byVals(a, b interface{}) bool {
-	i1, i2 := a.(*Item), b.(*Item)
-	if i1.Val < i2.Val {
-		return true
-	}
-	if i1.Val > i2.Val {
-		return false
-	}
-	// Both vals are equal so we should fall though
-	// and let the key comparison take over.
-	return byKeys(a, b)
-}
+import "fmt"
 
 func main() {
-	// Create a tree for keys and a tree for values.
-	// The "keys" tree will be sorted on the Keys field.
-	// The "values" tree will be sorted on the Values field.
-	keys := btree.New(byKeys)
-	vals := btree.New(byVals)
-
-	// Create some items.
-	users := []*Item{
-		&Item{Key: "user:1", Val: "Jane"},
-		&Item{Key: "user:2", Val: "Andy"},
-		&Item{Key: "user:3", Val: "Steve"},
-		&Item{Key: "user:4", Val: "Andrea"},
-		&Item{Key: "user:5", Val: "Janet"},
-		&Item{Key: "user:6", Val: "Andy"},
+	var ar [4]int
+	for i := 0; i < 4; i++ { // change to 5 to fail
+		ar[i] = i
 	}
+	//ar[-1] = 42 // will not compile in go
 
-	// Insert each user into both trees
-	for _, user := range users {
-		keys.Set(user)
-		vals.Set(user)
+	sl := make([]int, 5)
+	for i := 0; i < 5; i++ { // change to 6 to fail
+		sl[i] = i
 	}
+	//sl[-1]=42 // will not compile in go
 
-	// Iterate over each user in the key tree
-	keys.Ascend(nil, func(item interface{}) bool {
-		kvi := item.(*Item)
-		fmt.Printf("%s %s\n", kvi.Key, kvi.Val)
-		return true
-	})
+	sl2 := sl[1:3]
+	for i := 0; i < 2; i++ { // change to 3 to fail
+		sl2[i] = sl2[i] + 10
+	}
+	//sl2[-1]=42 // will not compile in go
 
-	fmt.Printf("\n")
-	// Iterate over each user in the val tree
-	vals.Ascend(nil, func(item interface{}) bool {
-		kvi := item.(*Item)
-		fmt.Printf("%s %s\n", kvi.Key, kvi.Val)
-		return true
-	})
-
-	// Output:
-	// user:1 Jane
-	// user:2 Andy
-	// user:3 Steve
-	// user:4 Andrea
-	// user:5 Janet
-	// user:6 Andy
-	//
-	// user:4 Andrea
-	// user:2 Andy
-	// user:6 Andy
-	// user:1 Jane
-	// user:5 Janet
-	// user:3 Steve
+	fmt.Println(ar, sl, sl2)
 }

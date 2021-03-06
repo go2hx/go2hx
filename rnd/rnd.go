@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+var ar3[3][2]int
+
+type data struct {
+	ar4 [1][2]int
+}
+
 func main() {
 	var ar [4]int
 	for i := 0; i < 4; i++ { // change to 5 to fail
@@ -22,4 +28,11 @@ func main() {
 	//sl2[-1]=42 // will not compile in go
 
 	fmt.Println(ar, sl, sl2)
+
+	var ar2 [2][4]int
+
+	fmt.Println(ar2)
+	fmt.Println(ar3)
+	d := data{}
+	fmt.Println(d.ar4)
 }

@@ -108,8 +108,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 							default:
 						}
 						return macro {
-							var array = new $p();
-							array.setSize($length);
+							var array = new $p($length);
 							for (i in 0...array.length)
 								array[i] = $value;
 							array;

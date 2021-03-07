@@ -31,14 +31,12 @@ abstract GoArray<T>(Vector<T>) {
         return new VectorIterator(this);
     }
 
-    public inline function new(length:Int,args:Rest<T>) {
+    public inline function new(args:Rest<T>) {
+        var length = 0;
         this = new Vector<T>(length);
         for (i in 0...args.length) {
             this.set(i,args[i]);
         }
-    }
-    public inline function setSize(length:Int) {
-        this = new Vector<T>(length);
     }
     private function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
@@ -61,7 +59,7 @@ abstract GoArray<T>(Vector<T>) {
             high = length;
         var length = high - low;
         var slice = new Slice<T>();
-        var array = new GoArray<T>(0);
+        var array = new GoArray<T>();
         array.setVector(this);
         slice.setUnderlying(array,pos,length);
         return slice;
@@ -78,8 +76,12 @@ abstract GoArray<T>(Vector<T>) {
     public inline function replace(value:Vector<T>) {
         this = value;
     }
+    public inline function setSize(length:Int) {
+        this = new Vector<T>(length);
+    }
     public function copy():GoArray<T> {
-        var array = new GoArray<T>(length);
+        var array = new GoArray<T>();
+        array.setSize(array.length);
         for (i in 0...array.length) {
             array.set(i,this.get(i));
         }

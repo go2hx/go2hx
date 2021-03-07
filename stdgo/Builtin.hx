@@ -98,7 +98,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						switch p.params[0] {
 							case TPType(tt):
 								tt = Context.toComplexType(Context.follow(ComplexTypeTools.toType(tt)));
-								value = defaultValue(tt,Context.currentPos(),meta);
+								value = defaultValue(tt,Context.currentPos());
 							default:
 						}
 						var length:Expr = null;
@@ -130,7 +130,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	}
 	return func();
 }
-function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr {
+function defaultValue(t:ComplexType,pos:Position):Expr {
 	switch t {
 		case TFunction(args, ret):
 			return macro null;
@@ -140,15 +140,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 				name = p.sub;
 			switch name {
 				case "GoArray":
-					var exprs:Array<Expr> = [];
-					if (meta == null) {
-						throw("error Array metadata missing for length");
-					}
-					for (m in meta) {
-						exprs.push(m.params[0]);
-					}
-					var a = macro $a{exprs};
-					return macro make((_:$t),$a);
+					
 				case "Byte","Rune","Int","UInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
 					return macro 0;
 				case "GoDynamic","Any","Dynamic":
@@ -171,7 +163,7 @@ function defaultValue(t:ComplexType,pos:Position,meta:Null<Metadata>=null):Expr 
 					}
 					{
 						field: field.name,
-						expr: defaultValue(type,pos,field.meta),
+						expr: defaultValue(type,pos),
 					};
 				}
 			])};

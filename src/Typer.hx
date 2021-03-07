@@ -51,7 +51,7 @@ final basicTypes = [
 ];
 var printer = new Printer();
 
-typedef Alias = {name:String,type:ComplexType,meta:Metadata};
+typedef Alias = {name:String,type:ComplexType};
 var aliases:Map<String,Array<Alias>>;
 function main(data:DataType){
     var list:Array<Module> = [];
@@ -168,20 +168,19 @@ private function setAlias(spec:Ast.TypeSpec,info:Info) {
             //var interface:Ast.InterfaceType = spec.type;
             var struct:Ast.InterfaceType = spec.type;
             if (struct.methods.list.length == 0) {
-                aliases[info.path].push({name: spec.name.name,type: TPath({name: "Any",pack: []}),meta: []});
+                aliases[info.path].push({name: spec.name.name,type: TPath({name: "Any",pack: []})});
             }
         case "StructType":
         default:
             var type = typeExprType(spec.type,info);
             aliases[info.path].push({
                 name: spec.name.name,
-                meta: info.meta[0],
                 type: type,
             });
     }
 }
 private function defaultInfo(data:FileType=null,p:String=""):Info {
-    return {layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,meta: [],blankCounter: 0};
+    return {layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,blankCounter: 0};
 }
 private function typeImplements(info:Info) {
     for (cl in info.data.defs) {
@@ -511,16 +510,12 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     info.data.defs.push(typeType(spec,info));
                 case "ValueSpec":
                     var spec:Ast.ValueSpec = spec;
-                    info.meta = [];
                     info.type = null;
                     var type = spec.type.id != null ? typeExprType(spec.type,info) : null;
                     var value = macro null;
                     var args:Array<Expr> = [];
                     var t = type != null ? type : info.type;
-                    if (spec.type.id == "ArrayType" && info.meta.length > 0) {
-                        for (meta in info.meta) {
-                            args.push(toExpr(stdgo.Builtin.getMetaLength(meta)));
-                        }
+                    if (spec.type.id == "ArrayType") {
                         for (i in 0...spec.names.length) {
                             vars.push({
                                 name: nameIdent(spec.names[i],info),
@@ -927,7 +922,6 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     if (expr.len != null) {
         //array
         addImport("stdgo.GoArray",info);
-        info.meta.push([{pos: null,name: ":length",params: [typeExpr(expr.len,info)]}]);
         return TPath({
             pack: [],
             name: "GoArray",
@@ -1310,7 +1304,6 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr,info:Info):ExprDef {
     }
 }
 private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
-    info.meta = [];
     var params:Array<Expr> = [];
     var p:TypePath = null;
     var type:ComplexType = null;
@@ -1328,8 +1321,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
         return (macro Go.set($a{params})).expr;
     }else{
         type = typeExprType(expr.type,info);
-        type = follow(type,aliases.copy(),info);
-        trace("type: " + type);
         switch type {
             case TPath(tp):
                 p = tp;
@@ -1353,24 +1344,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit,info:Info):ExprDef {
     if (p == null)
         throw "type path new is null: " + expr;
     return (macro new $p($a{params})).expr;
-}
-
-private function follow(type:ComplexType,aliases:Map<String,Array<Alias>>,info:Info):ComplexType {
-    switch type {
-        case TPath(p):
-            if (p.pack.length == 0 && (p.params == null || p.params.length == 0)) {
-                var array = aliases[info.path];
-                for (a in array) {
-                    if (a.name != p.name)
-                        continue;
-                    info.meta.unshift(a.meta);
-                    array.remove(a);
-                    return follow(a.type,aliases,info);
-                }
-            }
-        default:
-    }
-    return type;
 }
 
 private function isKeyValueExpr(elts:Array<Ast.Expr>) {
@@ -1568,7 +1541,6 @@ private function typeDeferReturn():Expr {
 }
 private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
     var exprs:Array<Expr> = [];
-    var meta:Metadata = [];
     info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     info.deferBool = false;
@@ -1659,7 +1631,6 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
         pos: null,
         pack: [],
         fields: [],
-        meta: meta,
         doc: doc,
         kind: TDField(FFun({ret: ret,params: null,expr: getBlock(), args: args}),typeAccess(decl.name.name))
     };
@@ -1668,7 +1639,7 @@ private function getRetValues(info:Info) {
     return toExpr(EVars([for (value in info.retValues[0]) {
         name: value.name,
         type: value.type,
-        expr: stdgo.Builtin.defaultValue(value.type,null,value.meta),
+        expr: stdgo.Builtin.defaultValue(value.type,null),
     }]));
 }
 private function getRecvInfo(recvType:ComplexType):{name:String,isPointer:Bool} {
@@ -1696,11 +1667,10 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info,retValuesBoo
             name: "Void",
             pack: [],
         });
-    var list:Array<{name:String,type:ComplexType,meta:Metadata}> = [];
-    var r:Array<{name:String,type:ComplexType,meta:Null<Metadata>}> = [];
+    var list:Array<{name:String,type:ComplexType}> = [];
+    var r:Array<{name:String,type:ComplexType}> = [];
     var i:Int = 0;
     for (group in fieldList.list) {
-        info.meta = [];
         var type = typeExprType(group.type,info);
         if (type == null)
             continue;
@@ -1708,17 +1678,14 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info,retValuesBoo
             list.push({
                 name: "v" + (i++),
                 type: type,
-                meta: null,
             });
         }else{
             for (name in group.names) {
-                var meta = info.meta.shift();
                 list.push({
                     name: nameIdent(name.name,info),
                     type: type,
-                    meta: meta,
                 });
-                r.push({name: name.name,type: type, meta: meta});
+                r.push({name: name.name,type: type});
             }
         }
     }
@@ -1745,14 +1712,12 @@ private function typeFieldListRes(fieldList:Ast.FieldList,info:Info,retValuesBoo
 private function typeFieldListArgs(list:Ast.FieldList,info:Info):Array<FunctionArg> { //Array of FunctionArgs
     var args:Array<FunctionArg> = [];
     for (field in list.list) {
-        info.meta = [];
         var type = typeExprType(field.type,info); //null can be assumed as interface{}
 
         for (name in field.names) {
             args.push({
                 name: nameIdent(name.name,info),
                 type: type,
-                meta: info.meta.shift(),
             });
         }
     }
@@ -1800,7 +1765,6 @@ private function typeFieldListMethods(list:Ast.FieldList,info:Info,underlineBool
 private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<Access> = null,defaultBool:Bool,underlineBool:Bool):Array<Field> {
     var fields:Array<Field> = [];
     for (field in list.list) {
-        info.meta = [];
         var type = typeExprType(field.type,info);
         if (field.names.length == 0) {
             switch type {
@@ -1815,7 +1779,6 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                     fields.push({
                         name: nameIdent(name,info),
                         pos: null,
-                        meta: info.meta.shift(),
                         access: access == null ? typeAccess(name,true) : access,
                         kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null)
                     });
@@ -1831,13 +1794,11 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                 if (name.charAt(0) == name.charAt(0).toLowerCase())
                     name = "_" + name;
             }
-            var meta = info.meta.shift();
             fields.push({
                name: nameIdent(name,info),
                pos: null,
-               meta: meta,
                access: access == null ? typeAccess(n.name,true) : access,
-               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null,meta) : null),
+               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null),
             });
         }
     }
@@ -1975,7 +1936,6 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 doc: doc,
                 fields: [],
-                meta: info.meta[0],
                 kind: TDAlias(type)
             }
     }
@@ -2012,7 +1972,7 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         var expr:Expr = null;
         if (value.values[i] == null) {
             if (type != null)
-                expr = stdgo.Builtin.defaultValue(type,null,info.meta[0]);
+                expr = stdgo.Builtin.defaultValue(type,null);
         }else{
             expr = typeExpr(value.values[i],info);
         }
@@ -2104,7 +2064,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType,meta:Null<Metadata>}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,meta:Array<Metadata>,blankCounter:Int};
+typedef Info = {layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

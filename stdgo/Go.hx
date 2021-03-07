@@ -242,7 +242,7 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 		if (params[i] == null) {
 			switch fields[i].kind {
 				case FVar(t, e):
-					expr = stdgo.Builtin.defaultValue(t,pos,fields[i].meta);
+					expr = stdgo.Builtin.defaultValue(t,pos);
 				default: //FFunc is nil by default
 			}
 		}else{

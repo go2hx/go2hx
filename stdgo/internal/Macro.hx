@@ -24,6 +24,11 @@ class Macro {
 		return macro $b{exprs};
 	}
 
+	public static macro function arrayLength(expr:Expr) {
+		
+		return expr;
+	}
+
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {
 			case KAbstractImpl(_.get() => {type: TAbstract(_.get() => {name: "Int"}, _)}):

@@ -38,6 +38,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     @:op([]) public inline function set(index:Int,value:T):T {
         return this.set(index,value);
     }
+    public inline function getOffset():Int {
+        return this.pos;
+    }
     inline public function slice(low:Int,high:Int=-1):Slice<T> {
         var pos = low;
         if (high == -1)

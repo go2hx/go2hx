@@ -254,8 +254,18 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 		};
 	}])};
 }
-public static macro function pointer(expr) {
+public static macro function pointer(expr:Expr) {
 	var isRealPointer = false;
+	var isArrayAccess = false;
+	var array:Expr = null;
+	var index:Expr = null;
+	switch expr.expr {
+		case EArray(e1, e2):
+			array = e1;
+			index = e2;
+			isArrayAccess = true;
+		default:
+	}
 	var type = Context.follow(Context.typeof(expr));
 	switch type {
 		case TMono(t):
@@ -285,8 +295,15 @@ public static macro function pointer(expr) {
 			trace("unknown make pointer type: " + type);
 	}
 	if (isRealPointer)
-		return macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
-	return macro new PointerWrapper($expr);
+		expr = macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
+	expr = macro new PointerWrapper($expr);
+	if (isArrayAccess)
+		return macro {
+			var _co_ = $array.getOffset();
+			$array[$index - $array.getOffset() + _co_];
+			$expr;
+		}
+	return expr;
 }
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;

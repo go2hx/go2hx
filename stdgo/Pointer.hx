@@ -41,6 +41,9 @@ abstract PointerWrapper<T>(T) from T to T {
 	@:op(A == B) static function equals<T>(a:PointerWrapper<T>,b:PointerWrapper<T>):Bool {
 		return a._value_ == b._value_;
 	}
+	@:op(A != B) static function notEquals<T>(a:PointerWrapper<T>,b:PointerWrapper<T>):Bool {
+		return a._value_ != b._value_;
+	}
 }
 class PointerData<T> {
 	public var get:()->T;

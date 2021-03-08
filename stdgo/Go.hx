@@ -256,16 +256,6 @@ public static function createAnonType(pos:Position,fields:Array<Field>,params:Ar
 }
 public static macro function pointer(expr:Expr) {
 	var isRealPointer = false;
-	var isArrayAccess = false;
-	var array:Expr = null;
-	var index:Expr = null;
-	switch expr.expr {
-		case EArray(e1, e2):
-			array = e1;
-			index = e2;
-			isArrayAccess = true;
-		default:
-	}
 	var type = Context.follow(Context.typeof(expr));
 	switch type {
 		case TMono(t):
@@ -294,16 +284,30 @@ public static macro function pointer(expr:Expr) {
 		default:
 			trace("unknown make pointer type: " + type);
 	}
+	switch expr.expr {
+		case EArray(e1, e2):
+			var t = Context.follow(Context.typeof(e1));
+			switch t {
+				case TAbstract(t, params):
+					var t = t.get();
+					if (t.name == "Slice") {
+						if (isRealPointer)
+							return macro {
+								var _offset_ = ${e1}.getOffset();
+								new Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v));
+							};
+						return macro {
+							var _offset_ = ${e1}.getOffset();
+							new PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
+						};
+					}
+				default:
+			}
+		default:
+	}
 	if (isRealPointer)
-		expr = macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
-	expr = macro new PointerWrapper($expr);
-	if (isArrayAccess)
-		return macro {
-			var _co_ = $array.getOffset();
-			$array[$index - $array.getOffset() + _co_];
-			$expr;
-		}
-	return expr;
+		return macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
+	return macro new PointerWrapper($expr);
 }
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;

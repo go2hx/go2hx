@@ -22,6 +22,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     private function set_length(length:Int):Int {
         return 0;
     }
+    inline public function getUnderlying():GoArray<T> {
+        return this.underlying();
+    }
     public function new(args:Rest<T>) {
         var length = args.length;
         var cap = length;

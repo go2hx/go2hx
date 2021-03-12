@@ -2,6 +2,7 @@ package stdgo;
 
 import haxe.iterators.StringKeyValueIterator;
 import haxe.iterators.StringIterator;
+import stdgo.StdGoTypes.AnyInterface;
 
 @:forward
 @:access(StringTools)
@@ -10,12 +11,13 @@ abstract GoString(String) from String to String {
 	public inline function new(str:String="") {
 		this = str;
 	}
-
+	@:to inline function __promote() {
+        return new AnyInterface({value: this,typeName: "string"});
+	}
 	@:arrayAccess
 	inline function get(index:Int) {
 		return this.charCodeAt(index);
 	}
-
 	public function toString():String {
 		return this;
 	}

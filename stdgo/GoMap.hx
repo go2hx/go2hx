@@ -1,7 +1,10 @@
 package stdgo;
 
+import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
+import haxe.Constraints.Constructible;
 @:forward
+@:generic
 abstract GoMap<K,V>(MapData<K,V>) {
     public var length(get, never):Int;
 
@@ -32,6 +35,12 @@ abstract GoMap<K,V>(MapData<K,V>) {
     }
     public inline function keyValueIterator() {
         return this.keyValueIterator();
+    }
+    @:generic
+    inline public function _typename_<K:Constructible<Void->Void>,V:Constructible<Void->Void>>() {
+        var k:Dynamic = new K();
+        var v:Dynamic = new V();
+        return '[${k.typeName()}]${v.typeName()}';
     }
 }
 class MapData<K,V> {

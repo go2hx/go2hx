@@ -6,7 +6,7 @@ import stdgo.internal.ErrorReturn;
 import stdgo.Pointer;
 import sys.FileSystem;
 import stdgo.errors.Errors.Error;
-import stdgo.StdTypes.Byte;
+import stdgo.StdGoTypes.Byte;
 import haxe.io.Output;
 var args = Sys.args();
 var stderr = new OutputWriter(Sys.stderr());

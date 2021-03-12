@@ -71,7 +71,8 @@ function main(data:DataType){
             for (decl in file.decls) {
                 switch decl.id {
                     case "GenDecl":
-                        for (spec in cast(decl.specs,Array<Dynamic>)) {
+                        var specs:Array<Ast.Spec> = decl.specs; 
+                        for (spec in specs) {
                             switch spec.id {
                                 case "TypeSpec":
                                    setAlias(spec,info);
@@ -149,7 +150,7 @@ function main(data:DataType){
                 }
             }
             //setup implements
-            data.imports.push({path: ["stdgo","StdTypes"],alias: ""});
+            data.imports.push({path: ["stdgo","StdGoTypes"],alias: ""});
             data.imports.push({path: ["stdgo","Go"],alias: ""});
             data.imports.push({path: ["stdgo","Builtin"],alias: ""});
             for (path => alias in info.imports)
@@ -291,20 +292,26 @@ private function compareComplexType(a:ComplexType,b:ComplexType):Bool {
     }
 }
 private function typeGenDecl(decl:Ast.GenDecl,info:Info) {
-    for (spec in cast(decl.specs,Array<Dynamic>)) {
+    var specs:Array<Ast.Spec> = decl.specs;
+    //types first
+    for (spec in specs) {
         switch spec.id {
             case "ImportSpec":
                 info.data.imports.push(typeImport(spec,info));
-            case "ValueSpec":
-                var spec:Ast.ValueSpec = spec;
-                info.fieldNames = info.fieldNames.concat(spec.names);
-                info.data.defs = info.data.defs.concat(typeValue(spec,info));
             case "TypeSpec":
                 var spec:Ast.TypeSpec = spec;
                 info.typeNames.push(spec.name.name);
                 info.data.defs.push(typeType(spec,info));
+        }
+    }
+    //variables after so that all types can be refrenced by a value and have it exist.
+    for (spec in specs) {
+        switch spec.id {
+            case "ValueSpec":
+                var spec:Ast.ValueSpec = spec;
+                info.fieldNames = info.fieldNames.concat(spec.names);
+                info.data.defs = info.data.defs.concat(typeValue(spec,info));
             default:
-                error("unknown spec: " + spec.id);
         }
     }
 }
@@ -528,7 +535,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                             for (i in 0...spec.names.length) {
                                 name: nameIdent(spec.names[i],info),
                                 type: t,
-                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : t != null ? stdgo.Builtin.defaultValue(t,null) : null,
+                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : t != null ? defaultValue(t,info) : null,
                             }
                         ]);
                     }
@@ -702,7 +709,7 @@ private function typeForStmt(stmt:Ast.ForStmt,info:Info):ExprDef {
     }else{
         def = EWhile(cond,body,true);
         if (stmt.cond == null) {
-            var retValue = stdgo.Builtin.defaultValue(info.ret[0],null);
+            var retValue = defaultValue(info.ret[0],info);
             switch info.ret[0] {
                 case TPath(p):
                     if (p.name == "Void")
@@ -922,10 +929,12 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
     if (expr.len != null) {
         //array
         addImport("stdgo.GoArray",info);
+        var len = typeExpr(expr.len,info);
         return TPath({
             pack: [],
             name: "GoArray",
-            params: type != null ? [TPType(type)] : []
+            //params: type != null ? [TPType(type)] : []
+            params: type != null ? [TPExpr(len), TPType(type)] : [],
         });
     }
     //slice
@@ -939,7 +948,6 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
 private function addPointerImports(info:Info) {
     addImport("stdgo.Pointer",info);
     addImport("stdgo.Pointer.PointerWrapper",info);
-    addImport("stdgo.GoArray.GoArrayPointer",info);
 }
 private function starType(expr:Ast.StarExpr,info:Info):ComplexType { //pointer type
     var type = typeExprType(expr.x,info);
@@ -956,7 +964,7 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType { //pointer t
     switch type {
         case TPath(p):
             switch p.name {
-                case "GoString","String","Bool","Int","Float","UInt","Rune","Byte","Int8","Int16","Int32","Int64","UIn8","UInt16","UInt32","UInt64","Complex","Complex64","Complex128":
+                case "GoString","String","Bool","GoInt","GoFloat","GoUInt","GoRune","GoByte","GoInt8","GoInt16","GoInt32","GoInt64","GoUIn8","GoUInt16","GoUInt32","GoUInt64","GoComplex","GoComplex64","GoComplex128":
                     return TPath({
                         pack: [],
                         name: "Pointer",
@@ -968,14 +976,8 @@ private function starType(expr:Ast.StarExpr,info:Info):ComplexType { //pointer t
                         name: "Pointer",
                         params: type != null ? [TPType(type)] : [],
                     });
-                case "Slice","GoMap":
+                case "Slice","GoMap","GoArray" :
                     return type;
-                case "GoArray":
-                    return TPath({
-                        pack: [],
-                        name: "GoArrayPointer",
-                        params: p.params,
-                    });
             }
         default:
     }
@@ -991,9 +993,9 @@ private function isBasic(type:ComplexType, info:Info):Bool {
         case TPath(p):
             if (p.pack.length > 0) {
                 switch p.name {
-                    case "Int","UInt":
-                    case "Int8","Int16","Int32","Int64","UInt8","UInt16","UInt32","UInt64":
-                    case "Float", "Float32", "Float64", "Complex64", "Complex128":
+                    case "GoInt","GoUInt":
+                    case "GoInt8","GoInt16","GoInt32","GoInt64","GoUInt8","GoUInt16","GoUInt32","GoUInt64":
+                    case "GoFloat", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
                     case "Bool", "GoString":
                     default:
                         basicBool = false;
@@ -1249,12 +1251,12 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             var expr = toExpr(EConst(CString(expr.value)));
             return (macro new GoString($expr)).expr;
         case INT:
-            info.type = TPath({name: "Int",pack: []});
+            info.type = TPath({name: "GoInt",pack: []});
             if (expr.value.length > 10) {
                 try {
                 var i = Int64Helper.parseString(expr.value);
                 if (i > 2147483647 || i < -2147483647) {
-                    info.type = TPath({name: "Int64",pack: ["haxe"]});
+                    info.type = TPath({name: "GoInt64",pack: ["haxe"]});
                     return (macro haxe.Int64Helper.fromFloat(${toExpr(EConst(CFloat(expr.value)))})).expr;
                 }
                 }catch(e) {
@@ -1639,8 +1641,30 @@ private function getRetValues(info:Info) {
     return toExpr(EVars([for (value in info.retValues[0]) {
         name: value.name,
         type: value.type,
-        expr: stdgo.Builtin.defaultValue(value.type,null),
+        expr: defaultValue(value.type,info),
     }]));
+}
+private function defaultValue(type:ComplexType,info:Info):Expr { 
+    /*switch type {
+        case TPath(p):
+            if (p.pack.length > 0)
+                return macro null; //TODO implement imported type following
+            for (def in info.data.defs) {
+                switch def.kind {
+                    case TDAlias(t):
+                        switch t {
+                            case TPath(p2):
+                                if (p.name == p2.name)
+                                    return defaultValue(t,info);
+                            default:
+                        }
+                    default:
+                }
+            }
+        default:
+            trace("unknown default value type: " + type);
+    }*/
+    return stdgo.Builtin.defaultValue(type,null);
 }
 private function getRecvInfo(recvType:ComplexType):{name:String,isPointer:Bool} {
     switch recvType {
@@ -1780,7 +1804,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                         name: nameIdent(name,info),
                         pos: null,
                         access: access == null ? typeAccess(name,true) : access,
-                        kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null)
+                        kind: FVar(type,defaultBool ? defaultValue(type,info) : null)
                     });
                 default:
             }
@@ -1798,7 +1822,7 @@ private function typeFieldListFields(list:Ast.FieldList,info:Info,access:Array<A
                name: nameIdent(name,info),
                pos: null,
                access: access == null ? typeAccess(n.name,true) : access,
-               kind: FVar(type,defaultBool ? stdgo.Builtin.defaultValue(type,null) : null),
+               kind: FVar(type,defaultBool ? defaultValue(type,info) : null),
             });
         }
     }
@@ -1893,6 +1917,18 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     },
                 }),
             });
+            fields.push({
+                name: "_is_pointer_",
+                pos: null,
+                access: [APublic],
+                kind: FVar(null, macro false),
+            });
+            fields.push({
+                name: "_typeName_",
+                pos: null,
+                access: [APublic,AFinal],
+                kind: FVar(null,toExpr(EConst(CIdent(spec.name.name)))),
+            });
             var meta:Metadata = [{name: ":structInit",pos: null}, getAllow(info)];
             
             return {
@@ -1902,7 +1938,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pack: [],
                 doc: doc,
                 meta: meta,
-                kind: TDClass(null,[],false,true,false),
+                kind: TDClass(null,[{name: "InterfaceType",pack: []}],false,true,false),
             }
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;
@@ -1972,7 +2008,7 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         var expr:Expr = null;
         if (value.values[i] == null) {
             if (type != null)
-                expr = stdgo.Builtin.defaultValue(type,null);
+                expr = defaultValue(type,info);
         }else{
             expr = typeExpr(value.values[i],info);
         }

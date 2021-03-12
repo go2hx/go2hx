@@ -140,8 +140,8 @@ function defaultValue(t:ComplexType,pos:Position):Expr {
 				name = p.sub;
 			switch name {
 				case "GoArray":
-					
-				case "Byte","Rune","Int","UInt","UInt8","UInt16","UInt32","UInt64","Int8","Int16","Int32","Int64","Float32","Float64","Complex64","Complex128":
+					return macro new $p();
+				case "GoByte","GoRune","GoInt","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoInt8","GoInt16","GoInt32","GoInt64","GoFloat32","GoFloat64","GoComplex64","GoComplex128":
 					return macro 0;
 				case "GoDynamic","Any","Dynamic":
 					return macro null;

@@ -24,11 +24,24 @@ class Macro {
 		return macro $b{exprs};
 	}
 
-	public static macro function arrayLength(expr:Expr) {
-		
-		return expr;
+	public static function buildArray() {
+		//trace("c: " + Context.getLocalType());
 	}
-
+	#if macro
+	public static function externsGo() {
+		
+		Context.onAfterTyping(types -> {
+			#if macro
+				for (type in types) {
+					switch type {
+						default:
+							trace("t: " + type);
+					}
+				}
+			#end
+		});
+	}
+	#end
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {
 			case KAbstractImpl(_.get() => {type: TAbstract(_.get() => {name: "Int"}, _)}):

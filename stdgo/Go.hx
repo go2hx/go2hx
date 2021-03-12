@@ -269,16 +269,19 @@ public static macro function pointer(expr:Expr) {
 			var t = t.get();
 			switch t.name {
 				case "GoArray":
-					return macro new stdgo.GoArray.GoArrayPointer($expr);
+					return macro new stdgo.Pointer.PointerWrapper($expr);
 				case "Slice", "Map":
 					return expr;
-				case "GoString","String","Bool","Int","Float","UInt","Rune","Byte","Int8","Int16","Int32","Int64","UIn8","UInt16","UInt32","UInt64","Complex","Complex64","Complex128":
+				case "GoString","String","Bool","GoInt","GoFloat","GoUInt","GoRune","GoByte","GoInt8","GoInt16","GoInt32","GoInt64","GoUIn8","GoUInt16","GoUInt32","GoUInt64","GoComplex","GoComplex64","GoComplex128":
 					isRealPointer = true;
 				case "Pointer","PointerWrapper": //double or even triple pointer
 					isRealPointer = true;
 			}
 		case TAnonymous(a):
 		case TInst(t, params):
+    	var t = t.get();
+    	if (t.name == "String")
+        	isRealPointer = true;
 		case TDynamic(t):
 			return macro null;
 		default:
@@ -294,11 +297,11 @@ public static macro function pointer(expr:Expr) {
 						if (isRealPointer)
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								new Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v));
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v));
 							};
 						return macro {
 							var _offset_ = ${e1}.getOffset();
-							new PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
+							new stdgo.PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
 						};
 					}
 				default:
@@ -306,8 +309,11 @@ public static macro function pointer(expr:Expr) {
 		default:
 	}
 	if (isRealPointer)
-		return macro new Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
-	return macro new PointerWrapper($expr);
+		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
+	return macro {
+	$expr._is_pointer_ = true;
+	new stdgo.PointerWrapper($expr);
+	}
 }
 	public static macro function assert(expr:Expr,?ok:Expr) {
 		var func = null;

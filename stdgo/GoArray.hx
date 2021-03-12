@@ -2,20 +2,9 @@ package stdgo;
 import haxe.rtti.Meta;
 import haxe.ds.Vector;
 import haxe.Rest;
-
-@:forward
-abstract GoArrayPointer<T>(GoArray<T>) {
-    public function new(obj:GoArray<T>) {
-        this = obj;
-    }
-    @:op([]) public inline function get(index:Int):T {
-        return this.get(index);
-    }
-    @:op([]) public inline function set(index:Int,value:T):T {
-        return this.set(index,value);
-    }
-}
-
+import stdgo.StdGoTypes.AnyInterface;
+@:generic
+@:genericBuild(stdgo.internal.Macro.buildArray())
 abstract GoArray<T>(Vector<T>) {
 
     public var length(get,never):Int;
@@ -59,9 +48,7 @@ abstract GoArray<T>(Vector<T>) {
             high = length;
         var length = high - low;
         var slice = new Slice<T>();
-        var array = new GoArray<T>();
-        array.setVector(this);
-        slice.setUnderlying(array,pos,length);
+        slice.setUnderlying(this,pos,length);
         return slice;
     }
     public inline function setVector(vector:Vector<T>) {
@@ -79,7 +66,7 @@ abstract GoArray<T>(Vector<T>) {
     public inline function setSize(length:Int) {
         this = new Vector<T>(length);
     }
-    public function copy():GoArray<T> {
+    public function copy() {
         var array = new GoArray<T>();
         array.setSize(array.length);
         for (i in 0...array.length) {
@@ -87,8 +74,8 @@ abstract GoArray<T>(Vector<T>) {
         }
         return array;
     }
-    public inline function typeName() {
-        return "GoArray";
+    inline public function _typename_() {
+        return '[$length]';
     }
 }
 

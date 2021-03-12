@@ -1,8 +1,9 @@
 package stdgo;
+import haxe.Constraints.Constructible;
+import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
 import haxe.ds.Vector;
-import stdgo.GoArray;
-
+@:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     public var length(get,never):Int;
 
@@ -22,7 +23,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     private function set_length(length:Int):Int {
         return 0;
     }
-    inline public function getUnderlying():GoArray<T> {
+    inline public function getUnderlying():Vector<T> {
         return this.underlying();
     }
     public function new(args:Rest<T>) {
@@ -70,6 +71,15 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
         }
         return slice;
     }
+
+    inline public function _typename_() {
+        var typeName = "";
+        /*if (length > 0) {
+            var i:AnyInterface = get(0);
+            typeName = i.typeName();
+        }*/
+        return '[]${typeName}';
+    }
     inline public function grow(size:Int) {
         this.grow(size);
     }
@@ -88,11 +98,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     inline public function toVector() {
         return this.toVector();
     }
-    inline public function setUnderlying(array:GoArray<T>,pos:Int,length:Int) {
-        this.setUnderlying(array,pos,length);
-    }
-    public inline function typeName() {
-        return "Slice";
+    inline public function setUnderlying(vector:Vector<T>,pos:Int,length:Int) {
+        this.setUnderlying(vector,pos,length);
     }
 }
 class SliceKeyValueIterator<T> {
@@ -122,7 +129,7 @@ class SliceIterator<T> {
     }
 }
 class SliceData<T> {
-    var array:GoArray<T>;
+    var vector:Vector<T>;
     public var pos:Int = 0;
     public var length:Int = 0;
     public static var forceLength:Int = 0;
@@ -130,8 +137,7 @@ class SliceData<T> {
         this.length = length;
         if (cap == 0)
             cap = length;
-        array = new GoArray<T>();
-        array.setSize(length);
+        vector = new Vector<T>(length);
     }
     private function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
@@ -143,12 +149,12 @@ class SliceData<T> {
     public function get(index:Int):T {
         boundsCheck(index);
         final i = index + pos;
-        return array.get(i);
+        return vector.get(i);
     }
     public function set(index:Int,value:T):T {
         boundsCheck(index);
         final i = index + pos;
-        return array.set(i,value);
+        return vector.set(i,value);
     }
     inline public function iterator():Iterator<T> {
         return new SliceIterator(this);
@@ -165,27 +171,24 @@ class SliceData<T> {
         ];
     }
     inline public function toVector():Vector<T> { //derefrence
-        var vector = array.toVector();
-        var dest = new Vector<T>(length);
-        Vector.blit(vector,pos,dest,0,length);
-        return dest;
+        return vector;
     }
     inline public function toString():String {
         return toArray().toString();
     }
-    inline public function underlying():GoArray<T> {
-        return array;
+    inline public function underlying():Vector<T> {
+        return vector;
     }
     inline public function grow(size:Int) {
-        if (array.length >= size + length)
+        if (vector.length >= size + length)
             return;
         length += size;
         var dest = new Vector<T>(length);
-        Vector.blit(array.toVector(),0,dest,0,array.length);
-        array.replace(dest);
+        Vector.blit(vector,0,dest,0,vector.length);
+        vector = dest;
     }
-    inline public function setUnderlying(value:GoArray<T>,pos:Int,length:Int) {
-        array = value;
+    inline public function setUnderlying(value:Vector<T>,pos:Int,length:Int) {
+        vector = value;
         this.pos = pos;
         this.length = length;
     }

@@ -2,6 +2,7 @@ package stdgo;
 
 import haxe.ds.Either;
 import haxe.macro.Context;
+import haxe.Constraints.Constructible;
 abstract Pointer<T>(PointerData<T>) {
 	public var _value_(get, set):T;
 	private function get__value_():T {

@@ -11,8 +11,28 @@ class Printer extends haxe.macro.Printer {
             case EArrayDecl(el) if (el.length > 10): '[\n${printExprs(el, ",\n")}]';
             case ENew(tp, el) if (el.length > 10): 'new ${printTypePath(tp)}(\n${printExprs(el, ",\n")})';
             case ECall(e1, el) if(el.length > 10): '${printExpr(e1)}(${printExprs(el, ",\n")})';
+            case ESwitch(e1, cl, edef):
+				var old = tabs;
+				tabs += tabString;
+				var s = 'switch ${printExpr(e1)} {\n$tabs'
+					+ cl.map(function(c) return 'case ${printExprs(c.values, ", ")}' + (c.guard != null ? ' if (${printExpr(c.guard)}):' : ":")
+						+ (c.expr != null ? (opt(c.expr, printBlock)) : ""))
+						.join('\n$tabs');
+				if (edef != null)
+					s += '\n${tabs}default:' + (edef.expr == null ? "" : printBlock(edef));
+				tabs = old;
+				s + '\n$tabs}';
             default: super.printExpr(e);
         }
+    }
+    public function printBlock(e:Expr):String {
+        switch e.expr {
+            case EBlock(exprs):
+                return '\n$tabs' + [for (expr in exprs) printExpr(expr)].join(";\n") + ";";
+            default:
+
+        }
+        return printExpr(e) + ";";
     }
     override function printComplexType(ct:ComplexType):String {
         if (ct == null)

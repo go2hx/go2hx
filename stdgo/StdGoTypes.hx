@@ -59,6 +59,88 @@ abstract GoInt(Int) from Int to Int {
         return "int";
     public inline function new()
         this = 0;
+    @:commutative @:op(A + B) private static function addI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:commutative @:op(A + B) private static function addF(lhs:GoInt, rhs:Float):Float;
+
+	@:op(A + B) private static function add(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:commutative @:op(A * B) private static function mulI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:commutative @:op(A * B) private static function mulF(lhs:GoInt, rhs:Float):Float;
+
+	@:op(A * B) private static function mul(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:op(A % B) private static function modI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A % B) private static function modF(lhs:GoInt, rhs:Float):Float;
+
+	@:op(A % B) private static function mod(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:op(A - B) private static function subI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A - B) private static function subF(lhs:GoInt, rhs:Float):Float;
+
+	@:op(A - B) private static function sub(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:op(A / B) private static function divI(lhs:GoInt, rhs:Int):Float;
+
+	@:op(A / B) private static function divF(lhs:GoInt, rhs:Float):Float;
+
+	@:op(A / B) private static function div(lhs:GoInt, rhs:GoInt):Float;
+
+	@:commutative @:op(A | B) private static function orI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A | B) private static function or(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:commutative @:op(A ^ B) private static function xorI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A ^ B) private static function xor(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:commutative @:op(A & B) private static function andI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A & B) private static function and(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:op(A << B) private static function shl(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A >> B) private static inline function shr(lhs:GoInt, rhs:Int):GoInt
+		return lhs >>> rhs;
+
+	@:op(A >>> B) private static function ushr(lhs:GoInt, rhs:Int):GoInt;
+
+	@:op(A > B) private static function gt(lhs:GoInt, rhs:GoInt):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoInt, rhs:GoInt):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoInt, rhs:GoInt):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoInt, rhs:GoInt):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoInt, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoInt, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoInt, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoInt, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt):Bool;
+
+	@:op(~A) private static function bneg(t:GoInt):GoInt;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt, b:T):Bool;
 }
 abstract GoUInt(Int) from Int to Int {
 

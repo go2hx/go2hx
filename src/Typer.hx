@@ -181,7 +181,7 @@ private function setAlias(spec:Ast.TypeSpec,info:Info) {
     }
 }
 private function defaultInfo(data:FileType=null,p:String=""):Info {
-    return {layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,blankCounter: 0};
+    return {iota: 0,layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: p, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeMap: [],print: false,blankCounter: 0};
 }
 private function typeImplements(info:Info) {
     for (cl in info.data.defs) {
@@ -1117,6 +1117,9 @@ private function typeEllipsis(expr:Ast.Ellipsis,info:Info):ExprDef {
     return rest != null ? rest.expr : null;
 }
 private function typeIdent(expr:Ast.Ident,info:Info):ExprDef {
+    if (expr.name == "iota") {
+        return EConst(CInt(Std.string(info.iota++)));
+    }
     var name = nameIdent(expr.name,info);
     return EConst(CIdent(name));
 }
@@ -2007,8 +2010,12 @@ private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> 
         info.type = null;
         var expr:Expr = null;
         if (value.values[i] == null) {
-            if (type != null)
+            if (type != null) {
                 expr = defaultValue(type,info);
+            }else{
+                //IOTA
+                expr = toExpr(EConst(CInt(Std.string(info.iota++))));
+            }
         }else{
             expr = typeExpr(value.values[i],info);
         }
@@ -2100,7 +2107,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,blankCounter:Int};
+typedef Info = {iota:Int,layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeMap:Map<String,ComplexType>,print:Bool,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

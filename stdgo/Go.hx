@@ -346,7 +346,7 @@ public static macro function pointer(expr:Expr) {
 		func = function():Expr {
 			switch expr.expr {
 				case ECheckType(e, t):
-					var to = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+					var to = Context.toComplexType(ComplexTypeTools.toType(t));
 					switch e.expr {
 						case EConst(CIdent("null")):
 							return Builtin.defaultValue(t,Context.currentPos());
@@ -358,7 +358,7 @@ public static macro function pointer(expr:Expr) {
 							x;
 						}
 					}
-					var from = Context.toComplexType(Context.follow(Context.typeof(e)));
+					var from = Context.toComplexType(Context.typeof(e));
 					if (from == null) {
 						//most likely pointer
 						return standard() ;
@@ -399,10 +399,12 @@ public static macro function pointer(expr:Expr) {
 									return macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
 								default:
 							}
-						case "Any":
+						case "AnyInterface":
 							switch toString {
 								case "Slice":
 									return standard();
+								default:
+									return e;
 							}
 					}
 					var param:ComplexType = null;

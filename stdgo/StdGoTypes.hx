@@ -2,7 +2,20 @@ package stdgo;
 import stdgo.Pointer.PointerData;
 import stdgo.StdGoTypes.AnyInterface;
 
-typedef Byte = GoInt;
+typedef Byte = GoUInt8;
+typedef Rune = GoInt32;
+
+typedef Int = StdTypes.Int;
+typedef Int8 = Int;
+typedef Int16 = Int;
+typedef Int32 = Int;
+typedef Int64 = Int;
+
+typedef UInt = Int;
+typedef UInt8 = Int;
+typedef UInt16 = Int;
+typedef UInt32 = Int;
+typedef UInt64 = Int;
 
 abstract GoUIntPtr(UInt) from UInt to UInt {
     @:to inline function __promote()
@@ -213,6 +226,10 @@ abstract AnyInterface({value:Any,typeName:String}) {
     }
     @:to private inline function to<T>() {
         return (this.value : T);
+    }
+    @:from private static inline function from<T>(x:T) {
+        trace("Unknown type Any expr: " + x);
+        return new AnyInterface({value: x,typeName: "unknown"});
     }
     public inline function typeName() {
         return this.typeName;

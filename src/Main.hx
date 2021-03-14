@@ -1,7 +1,5 @@
 // ! -lib hxnodejs
 package;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.GoString;
 import Typer.DataType;
 import haxe.Resource;
 import sys.FileSystem;

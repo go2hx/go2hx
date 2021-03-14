@@ -21,7 +21,7 @@ abstract GoString(String) from String to String {
 	public function toString():String {
 		return this;
 	}
-	public function toArray():Array<Int> {
+	public function toArray():Array<StdGoTypes.GoByte> {
 		return [for (code in new StringIterator(this)) code];
 	}
 

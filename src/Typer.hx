@@ -1998,7 +1998,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pack: [],
                 doc: doc,
                 meta: meta,
-                kind: TDClass(null,[{name: "InterfaceType",pack: []}],false,true,false),
+                kind: TDClass(null,[{name: "StructType",pack: []}],false,true,false),
             }
         case "InterfaceType":
             //var interface:Ast.InterfaceType = spec.type;

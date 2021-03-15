@@ -297,7 +297,7 @@ public static macro function pointer(expr:Expr) {
 						if (isRealPointer)
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v));
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v,$v{Context.signature(Context.signature(e1) + Context.signature(e2))} + _offset_));
 							};
 						return macro {
 							var _offset_ = ${e1}.getOffset();
@@ -309,7 +309,7 @@ public static macro function pointer(expr:Expr) {
 		default:
 	}
 	if (isRealPointer)
-		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v));
+		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v,$v{Context.signature(expr)}));
 	return macro {
 	$expr._is_pointer_ = true;
 	new stdgo.PointerWrapper($expr);

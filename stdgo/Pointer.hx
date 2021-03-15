@@ -20,10 +20,13 @@ abstract Pointer<T>(PointerData<T>) {
 		return _value_;
 	}
 	@:op(A == B) private static function equals<T>(a:Pointer<T>,b:Pointer<T>):Bool {
-		return a._value_ == b._value_;
+		return a.address() == b.address();
 	}
 	@:op(A != B) private static function notEquals<T>(a:Pointer<T>,b:Pointer<T>):Bool {
-		return a._value_ != b._value_;
+		return a.address() != b.address();
+	}
+	public inline function address() {
+		return this.address;
 	}
 }
 @:forward
@@ -49,9 +52,11 @@ abstract PointerWrapper<T>(T) from T to T {
 class PointerData<T> {
 	public var get:()->T;
 	public var set:T->T;
-	public function new(get,set) {
+	public var address:String;
+	public function new(get,set,address) {
 		this.get = get;
 		this.set = set;
+		this.address = address;
 	}
 	public inline function toString() {
 		return Std.string("* " + get());

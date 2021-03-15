@@ -595,7 +595,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     var init:Expr = null;
     if (stmt.init != null)
         init = toExpr(typeSwitchStmt(stmt.init,info));
-
+    
     var assign:Expr = null;
     var set:String = "";
     switch stmt.assign.id {
@@ -632,62 +632,9 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
     }
     if (assign == null)
         return null;
+    var cases:Array<Case> = [];
     var def:Expr = null;
-    var types:Array<ComplexType> = [];
-    function condition(obj:Ast.CaseClause,i:Int=0) {
-        if (obj.list.length == 0)
-            return null;
-        var t = typeExprType(obj.list[i],info);
-        var value = macro ($assign is $t);
-        switch t {
-            case TPath(p):
-                switch p.name {
-                    case "UInt8", "Byte":
-                        value = macro ($assign is Int);
-                    default:
-                }
-            default:
-        }
-        switch t {
-            case TPath(p):
-                switch p.name {
-                    case "GoString":
-                        value = macro null;
-                    default:
-                }
-            default:
-        }
-        types.push(t);
-        if (i + 1 >= obj.list.length)
-            return value;
-        var next = condition(obj,i + 1);
-        return toExpr(EBinop(OpBoolOr,value,next));
-    }
-    function ifs(i:Int=0) {
-        var obj:Ast.CaseClause = stmt.body.list[i];
-        types = [];
-        var cond = condition(obj);
-        var t:ComplexType = null;
-        if (types.length == 1)
-            t = types[0];
-        var block = toExpr(typeStmtList(obj.body,info));
-        if (set != "") {
-            switch block.expr {
-                case EBlock(exprs):
-                    exprs.unshift(toExpr(EVars([{
-                        name: set,
-                        type: t,
-                        expr: macro cast $assign,
-                    }])));
-                default:
-            }
-        }
-        if (i + 1 >= stmt.body.list.length)
-            return cond == null ? macro $block : macro if ($cond) $block;
-        var next = ifs(i + 1);
-        return macro if ($cond) $block else $next;
-    }
-    return ifs().expr;
+    return ESwitch(macro assign.typeName(),cases,def);
 }
 private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     if (stmt.tag == null) {
@@ -1080,8 +1027,14 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
         addImport("stdgo.GoString",info);
         name = "GoString";
     }
-    if (name.substr(0,4) == "Uint") {
-        name = "UInt" + name.substr(4);
+    for (t in basicTypes) {
+        if (name == t) {
+            name = "Go" + title(name);
+            break;
+        }
+    }
+    if (name.substr(2,6) == "Uint") {
+        name = "GoUInt" + name.substr(6);
     }
     for (retype in info.retypeList) {
         if (retype.name != name || retype.index != info.layerIndex)

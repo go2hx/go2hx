@@ -268,10 +268,8 @@ public static macro function pointer(expr:Expr) {
 		case TAbstract(t, params):
 			var t = t.get();
 			switch t.name {
-				case "GoArray":
+				case "GoArray", "Slice","Map":
 					return macro new stdgo.Pointer.PointerWrapper($expr);
-				case "Slice", "Map":
-					return expr;
 				case "GoString","String","Bool","GoInt","GoFloat","GoUInt","GoRune","GoByte","GoInt8","GoInt16","GoInt32","GoInt64","GoUIn8","GoUInt16","GoUInt32","GoUInt64","GoComplex","GoComplex64","GoComplex128":
 					isRealPointer = true;
 				case "Pointer","PointerWrapper": //double or even triple pointer
@@ -297,7 +295,8 @@ public static macro function pointer(expr:Expr) {
 						if (isRealPointer)
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v,$v{Context.signature(Context.signature(e1) + Context.signature(e2))} + _offset_));
+								var _address_ = ${e1}._address_ + _offset_ + ${e2};
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v,_address_));
 							};
 						return macro {
 							var _offset_ = ${e1}.getOffset();

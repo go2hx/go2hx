@@ -1,4 +1,5 @@
 package stdgo;
+import stdgo.StdGoTypes.StructType;
 import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
@@ -9,6 +10,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
     //pretend to be pointer if neeeded
     public var _value_(get, set):Slice<T>;
+    public var _address_(get,never):String;
+
+    private inline function get__address_():String {
+        return this._address_;
+    }
 
     private inline function get__value_():Slice<T> {
         return this;
@@ -128,16 +134,21 @@ class SliceIterator<T> {
         return slice.get(pos++);
     }
 }
-class SliceData<T> {
+class SliceData<T>{
     var vector:Vector<T>;
     public var pos:Int = 0;
     public var length:Int = 0;
     public static var forceLength:Int = 0;
+    public var _address_:String;
+    private static var _addressCounter:Int = 0;
+    public var _is_pointer_:Bool = false;
     public function new(length:Int=0,cap:Int=0) {
         this.length = length;
         if (cap == 0)
             cap = length;
         vector = new Vector<T>(length);
+        _address_ = "s" + _addressCounter;
+        _addressCounter++;
     }
     private function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.

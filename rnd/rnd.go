@@ -2,12 +2,14 @@ package main
 
 import "fmt"
 
+var a = []string{"", "the same value", "the same value"}
+
 func main() {
-	a1 := "the same value"
-	p1 := &a1
-	p3 := &a1
-	a2 := "the same value"
-	p2 := &a2
-	fmt.Println(p1 == p2) // false in Go, true in go2hx
-	fmt.Println(p1 == p3)
+	p1 := &a[1]
+	p3 := &a[2]
+	fmt.Println(p1 == P2(&a), P2(&a) == p3) // Go=false,true go2hx=false,false
+}
+
+func P2(b *[]string) *string {
+	return &(*b)[2]
 }

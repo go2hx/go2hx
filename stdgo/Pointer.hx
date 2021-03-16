@@ -47,10 +47,10 @@ abstract PointerWrapper<T>(T) from T to T {
 		this = obj;
 	}
 	@:op(A == B) static function equals<T>(a:PointerWrapper<T>,b:PointerWrapper<T>):Bool {
-		return a._value_ == b._value_;
+		return (a._value_:Dynamic)._address_ == (b._value_:Dynamic)._address_;
 	}
 	@:op(A != B) static function notEquals<T>(a:PointerWrapper<T>,b:PointerWrapper<T>):Bool {
-		return a._value_ != b._value_;
+		return (a._value_:Dynamic)._address_ != (b._value_:Dynamic)._address_;
 	}
 	@:to inline function __promote() {
         return new AnyInterface({value: this,typeName: "*" + (_value_ : AnyInterface).typeName()});

@@ -53,12 +53,13 @@ function imag(c) {}
 macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
-		return macro null;
+		throw t;
 	var func = null;
 	func = function():Expr {
 		switch t {
 			case TPath(p):
 				var name = p.name;
+				trace("name: " + name);
 				switch name {
 					case "Slice":
 						if (size == null)
@@ -136,7 +137,7 @@ function defaultValue(t:ComplexType,pos:Position):Expr {
 			return macro null;
 		case TPath(p):
 			var name = p.name;
-			if (p.name == "StdTypes")
+			if (p.name == "StdGoTypes")
 				name = p.sub;
 			switch name {
 				case "Void":

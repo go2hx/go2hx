@@ -396,7 +396,7 @@ public static macro function pointer(expr:Expr) {
 						case "Float":
 							switch toString {
 								case "Int64":
-									return macro new stdgo.StdTypes.Int64(haxe.Int64Helper.fromFloat($e));
+									return macro new stdgo.StdGoTypes.Int64(haxe.Int64Helper.fromFloat($e));
 								default:
 							}
 						case "AnyInterface":

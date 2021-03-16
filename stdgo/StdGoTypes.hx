@@ -3,19 +3,21 @@ import stdgo.Pointer.PointerData;
 import stdgo.StdGoTypes.AnyInterface;
 
 typedef GoByte = GoUInt8;
-typedef GoRune = GoInt32;
+typedef GoRune = GoInt;
+typedef GoInt32 = GoInt;
+typedef GoFloat64 = GoFloat;
 
 private typedef Int = StdTypes.Int;
 private typedef Int8 = #if cpp cpp.Int8 #elseif cs cs.Int8 #elseif java java.Int8 #else Int #end;
 private typedef Int16 = #if cpp cpp.Int16 #elseif cs cs.Int16 #elseif java java.Int16 #else Int #end;
-private typedef Int32 = #if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
-private typedef Int64 = #if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
+private typedef Int32 = haxe.Int32; //#if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
+private typedef Int64 = haxe.Int64; //#if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
 
 private typedef UInt = Int;
 private typedef UInt8 = #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
 private typedef UInt16 = #if hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
 private typedef UInt32 = #if cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
-private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else __UInt64 #end;
+private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else haxe.Int64 #end//__UInt64 #end;
 
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if (java || cs || hl || cpp) StdTypes.Single #else Float #end;
@@ -29,9 +31,14 @@ private class __UInt64 {
         this.high = high;
         this.low = low;
     }
+	public static inline function ofInt(x:Int) {
+		return new __UInt64(x >> 31,x);
+	}
 }
 
 abstract GoUIntPtr(UInt) from UInt to UInt {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -118,6 +125,8 @@ abstract GoUIntPtr(UInt) from UInt to UInt {
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUIntPtr, b:T):Bool;
 }
 abstract GoFloat(Float) from Float to Float {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -205,6 +214,8 @@ abstract GoFloat(Float) from Float to Float {
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat, b:T):Bool;
 }
 abstract GoFloat32(Float32) from Float32 to Float32 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -294,97 +305,16 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
         //TODO: Clamp Float32
     #end
 }
-abstract GoFloat64(Float64) from Float64 to Float64 {
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "float64";
-    @:commutative @:op(A + B) private static function addI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:commutative @:op(A + B) private static function addF(lhs:GoFloat64, rhs:Float):Float;
-
-	@:op(A + B) private static function add(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:commutative @:op(A * B) private static function mulI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:commutative @:op(A * B) private static function mulF(lhs:GoFloat64, rhs:Float):Float;
-
-	@:op(A * B) private static function mul(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:op(A % B) private static function modI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A % B) private static function modF(lhs:GoFloat64, rhs:Float):Float;
-
-	@:op(A % B) private static function mod(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:op(A - B) private static function subI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A - B) private static function subF(lhs:GoFloat64, rhs:Float):Float;
-
-	@:op(A - B) private static function sub(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:op(A / B) private static function divI(lhs:GoFloat64, rhs:Int):Float;
-
-	@:op(A / B) private static function divF(lhs:GoFloat64, rhs:Float):Float;
-
-	@:op(A / B) private static function div(lhs:GoFloat64, rhs:GoFloat64):Float;
-
-	@:commutative @:op(A | B) private static function orI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A | B) private static function or(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:commutative @:op(A ^ B) private static function xorI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A ^ B) private static function xor(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:commutative @:op(A & B) private static function andI(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A & B) private static function and(lhs:GoFloat64, rhs:GoFloat64):GoFloat64;
-
-	@:op(A << B) private static function shl(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A >> B) private static function shr(lhs:GoFloat64, rhs:Int):GoFloat64;
-	@:op(A >>> B) private static function ushr(lhs:GoFloat64, rhs:Int):GoFloat64;
-
-	@:op(A > B) private static function gt(lhs:GoFloat64, rhs:GoFloat64):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoFloat64, rhs:GoFloat64):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoFloat64, rhs:GoFloat64):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoFloat64, rhs:GoFloat64):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoFloat64, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoFloat64):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoFloat64, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoFloat64):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoFloat64, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoFloat64):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoFloat64, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoFloat64):Bool;
-
-	@:op(~A) private static function bneg(t:GoFloat64):GoFloat64;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoFloat64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoFloat64, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoFloat64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat64, b:T):Bool;
-}
 abstract GoComplex64(Int64) from Int64 to Int64 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
+
+	@:from public static inline function ofInt(x:Int):GoComplex64
+		#if lua return new GoComplex64(Int64.make((x : Int32) >> 31, (x : Int32))); #else return new GoComplex64(Int64.make(x >> 31, x)); #end
     public inline function _typeName_()
-        return "complex64";
+       return "complex64";
     @:commutative @:op(A + B) private static function addI(lhs:GoComplex64, rhs:Int):GoComplex64;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoComplex64, rhs:Float):Float;
@@ -467,8 +397,13 @@ abstract GoComplex64(Int64) from Int64 to Int64 {
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoComplex64, b:T):Bool;
 }
 abstract GoComplex128(Int64) from Int64 to Int64 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
+
+	@:from public static inline function ofInt(x:Int):GoComplex128
+		#if lua return (Int64.make((x : Int32) >> 31, (x : Int32)) : GoComplex128); #else return (Int64.make(x >> 31, x) : GoComplex128); #end
     public inline function _typeName_()
         return "complex128";
     @:commutative @:op(A + B) private static function addI(lhs:GoComplex128, rhs:Int):GoComplex128;
@@ -552,13 +487,13 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoComplex128, b:T):Bool;
 }
-abstract GoInt(Int) from Int to Int {
+abstract GoInt(Int) from Int32 to Int32 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "int";
-    public inline function new()
-        this = 0;
     @:commutative @:op(A + B) private static function addI(lhs:GoInt, rhs:Int):GoInt;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt, rhs:Float):Float;
@@ -642,9 +577,8 @@ abstract GoInt(Int) from Int to Int {
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt, b:T):Bool;
 }
 abstract GoUInt(Int) from Int to Int {
-
-    public inline function new()
-        this = 0;
+    public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -652,6 +586,8 @@ abstract GoUInt(Int) from Int to Int {
     //TODO: clamp uint, increase number range
 }
 abstract GoInt8(Int8) from Int8 to Int8 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -743,6 +679,8 @@ abstract GoInt8(Int8) from Int8 to Int8 {
     #end
 }
 abstract GoInt16(Int16) from Int16 to Int16 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -833,98 +771,17 @@ abstract GoInt16(Int16) from Int16 to Int16 {
         //TODO: clamp int16
     #end
 }
-abstract GoInt32(Int32) from Int32 to Int32 {
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "int32";
-    @:commutative @:op(A + B) private static function addI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:commutative @:op(A + B) private static function addF(lhs:GoInt32, rhs:Float):Float;
-
-	@:op(A + B) private static function add(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:commutative @:op(A * B) private static function mulI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:commutative @:op(A * B) private static function mulF(lhs:GoInt32, rhs:Float):Float;
-
-	@:op(A * B) private static function mul(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:op(A % B) private static function modI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A % B) private static function modF(lhs:GoInt32, rhs:Float):Float;
-
-	@:op(A % B) private static function mod(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:op(A - B) private static function subI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A - B) private static function subF(lhs:GoInt32, rhs:Float):Float;
-
-	@:op(A - B) private static function sub(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:op(A / B) private static function divI(lhs:GoInt32, rhs:Int):Float;
-
-	@:op(A / B) private static function divF(lhs:GoInt32, rhs:Float):Float;
-
-	@:op(A / B) private static function div(lhs:GoInt32, rhs:GoInt32):Float;
-
-	@:commutative @:op(A | B) private static function orI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A | B) private static function or(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:commutative @:op(A ^ B) private static function xorI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A ^ B) private static function xor(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:commutative @:op(A & B) private static function andI(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A & B) private static function and(lhs:GoInt32, rhs:GoInt32):GoInt32;
-
-	@:op(A << B) private static function shl(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A >> B) private static function shr(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A >>> B) private static function ushr(lhs:GoInt32, rhs:Int):GoInt32;
-
-	@:op(A > B) private static function gt(lhs:GoInt32, rhs:GoInt32):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoInt32, rhs:GoInt32):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoInt32, rhs:GoInt32):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoInt32, rhs:GoInt32):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoInt32, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt32):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoInt32, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt32):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoInt32, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt32):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoInt32, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt32):Bool;
-
-	@:op(~A) private static function bneg(t:GoInt32):GoInt32;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt32, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt32, b:T):Bool;
-}
 abstract GoInt64(Int64) from Int64 to Int64 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "int64";
+
+	@:from public static inline function ofInt(x:Int):GoInt64
+		return (Int64.make(x >> 31, x) : GoInt64);
+
     @:commutative @:op(A + B) private static function addI(lhs:GoInt64, rhs:Int):GoInt64;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt64, rhs:Float):Float;
@@ -1008,6 +865,8 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 }
 
 abstract GoUInt8(UInt8) from UInt8 to UInt8 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -1098,6 +957,8 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
     #end
 }
 abstract GoUInt16(UInt16) from UInt16 to UInt16 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
@@ -1188,10 +1049,20 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
     #end
 }
 abstract GoUInt32(UInt32) from UInt32 to UInt32 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "uint32";
+
+	@:from public static inline function ofInt(x:Int):GoUInt32 {
+		return (x : GoUInt32);
+	}
+	@:from public static inline function ofFloat(x:Float):GoUInt32 {
+		return (Std.int(x) : GoUInt32);
+	}
+
     #if (cs || cpp)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32;
 
@@ -1278,10 +1149,18 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
     #end
 }
 abstract GoUInt64(UInt64) from UInt64 to UInt64 {
+	public inline function new(x)
+		this = x;
     @:to inline function __promote()
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "uint64";
+	@:from public static inline function ofInt(x:Int):GoUInt64 {
+		return new GoUInt64(UInt64.ofInt(x));
+	}
+	@:from public static inline function ofFloat(x:Float):GoUInt64 {
+		return (Std.int(x) : GoUInt64);
+	}
     #if (cs || cpp || eval)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt64, rhs:Int):GoUInt64;
 
@@ -1369,7 +1248,8 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 }
 
 interface StructType {
-    public var _typeName_:String;
+    public final _typeName_:String;
+	public final _address_:String;
     public var _is_pointer_:Bool;
 }
 

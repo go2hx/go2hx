@@ -9,45 +9,45 @@ import eval.vm.Gc;
 import java.vm.Gc;
 #end
 
-import stdgo.StdTypes.UInt64;
+import stdgo.StdGoTypes.GoUInt64;
 
 class MemStats {
-    public var alloc(get, null):UInt64;
+    public var alloc(get, null):GoUInt64;
     
-    function get_alloc():UInt64 {
+    function get_alloc():GoUInt64 {
         return 0;   
     }
-    public var totalAlloc(get, null):UInt64;
+    public var totalAlloc(get, null):GoUInt64;
     
-    function get_totalAlloc():UInt64 {
+    function get_totalAlloc():GoUInt64 {
         return 0;   
     }
-    public var sys(get, null):UInt64;
+    public var sys(get, null):GoUInt64;
     
-    function get_sys():UInt64 {
+    function get_sys():GoUInt64 {
         return 0;   
     }
-    public var mallocs(get, null):UInt64;
+    public var mallocs(get, null):GoUInt64;
     
-    function get_mallocs():UInt64 {
-        return 0;   
-    }
-
-    public var frees(get, null):UInt64;
-    
-    function get_frees():UInt64 {
+    function get_mallocs():GoUInt64 {
         return 0;   
     }
 
-    public var heapAlloc(get, null):UInt64;
+    public var frees(get, null):GoUInt64;
     
-    function get_heapAlloc():UInt64 {
+    function get_frees():GoUInt64 {
         return 0;   
     }
 
-    public var heapSys(get, null):UInt64;
+    public var heapAlloc(get, null):GoUInt64;
     
-    function get_heapSys():UInt64 {
+    function get_heapAlloc():GoUInt64 {
+        return 0;   
+    }
+
+    public var heapSys(get, null):GoUInt64;
+    
+    function get_heapSys():GoUInt64 {
         
         return 0;   
     }

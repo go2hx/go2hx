@@ -1,22 +1,23 @@
-package stdgo;
-final pi = Math.PI;
+package stdgo.math;
+import Math as M;
+final pi = M.PI;
 
 inline function max(a, b) {
-	return Math.max(a, b);
+	return M.max(a, b);
 }
 
 inline function min(a, b) {
-	return Math.min(a, b);
+	return M.min(a, b);
 }
 
 
 inline function abs(v) {
-	return Math.abs(v);
+	return M.abs(v);
 }
 
 
 inline function acos(v) {
-	return Math.acos(v);
+	return M.acos(v);
 }
 
 
@@ -26,7 +27,7 @@ inline function acosh(v) {
 
 
 inline function asin(v) {
-	return Math.asin(v);
+	return M.asin(v);
 }
 
 
@@ -36,30 +37,30 @@ inline function asinh(v) {
 
 
 inline function atan(v) {
-	return Math.atan(v);
+	return M.atan(v);
 }
 
 
 inline function atan2(y, x) {
-	return Math.atan2(y, x);
+	return M.atan2(y, x);
 }
 
 
 inline function ceil(v) {
-	return Math.ceil(v);
+	return M.ceil(v);
 }
 
 
 inline function naN() {
-	return Math.NaN;
+	return M.NaN;
 }
 
 
 inline function round(v) {
-	return Math.round(v);
+	return M.round(v);
 }
 
 
 inline function sin(v) {
-	return Math.sin(v);
+	return M.sin(v);
 }

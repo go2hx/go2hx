@@ -1,7 +1,5 @@
 import stdgo.Pointer.PointerWrapper;
 import sys.io.File;
-import haxe.Int64;
-import haxe.Int64Helper;
 import haxe.io.Path;
 import haxe.ds.StringMap;
 import haxe.macro.Type.ClassField;
@@ -539,8 +537,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt,info:Info):ExprDef {
 private function className(name:String):String {
     if (reservedClassNames.indexOf(name) != -1)
         name += "_";
-    if (name.substr(0,5) == "Uint")
-        name = "UInt";
     return name;
 }
 private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
@@ -634,7 +630,54 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt,info:Info):ExprDef {
         return null;
     var cases:Array<Case> = [];
     var def:Expr = null;
-    return ESwitch(macro assign.typeName(),cases,def);
+    for (stmt in stmt.body.list) {
+        var stmt:Ast.CaseClause = stmt;
+        var values:Array<Expr> = [];
+        var body = toExpr(typeStmtList(stmt.body,info));
+        if (stmt.list.length == 0) {
+            def = body;
+            continue;
+        }
+        for (expr in stmt.list) {
+            values.push(toExpr(EConst(CString(exprTypeString(expr)))));
+        }
+        cases.push({
+            values: values,
+            expr: body,
+        });
+    }
+    return ESwitch(macro $assign.typeName(),cases,def);
+}
+private function exprTypeString(expr:Ast.Expr):String {
+    switch expr.id {
+        case "Ident":
+            var name = expr.name;
+            switch name {
+                case "byte":
+                    name = "uint8";
+                case "rune":
+                    name = "int";
+                case "int32":
+                    name = "int";
+            }
+            return name;
+        case "ChanType":
+            var expr:Ast.ChanType = expr;
+            return "chan " + exprTypeString(expr.value);
+        case "ArrayType":
+            var expr:Ast.ArrayType = expr;
+            return "[" + (expr.len == null ? "" : exprTypeString(expr.len)) + "]" + exprTypeString(expr.elt);
+        case "MapType":
+            var expr:Ast.MapType = expr;
+            return "[" + exprTypeString(expr.key) + "]" + exprTypeString(expr.value);
+        case "FuncType":
+            var expr:Ast.FuncType = expr;
+            return "func(" + [for (param in expr.params.list) exprTypeString(param.type)].join(" ,") + ") -> " + [for (result in expr.results.list) exprTypeString(result.type)].join(" ,");
+        case "InterfaceType":
+            return "";
+        default:
+            throw "unknown case value: " + expr.id;
+    }
 }
 private function typeSwitchStmt(stmt:Ast.SwitchStmt,info:Info):ExprDef {
     if (stmt.tag == null) {
@@ -1022,7 +1065,7 @@ private function addImport(path:String,info:Info,alias:String="") {
         info.imports[path] = alias;
 }
 private function identType(expr:Ast.Ident,info:Info):ComplexType {
-    var name = className(title(expr.name));
+    var name = expr.name;
     if (name == "String") {
         addImport("stdgo.GoString",info);
         name = "GoString";
@@ -1033,11 +1076,13 @@ private function identType(expr:Ast.Ident,info:Info):ComplexType {
             break;
         }
     }
-    if (name.substr(2,6) == "Uint") {
+    if (name.substr(2,4) == "Uint") {
         name = "GoUInt" + name.substr(6);
     }
+    name = className(title(name));
+    //name = title(name);
     for (retype in info.retypeList) {
-        if (retype.name != name || retype.index != info.layerIndex)
+        if (retype.name != name /*|| retype.index <= info.layerIndex*/)
             continue;
         return retype.type;
     }
@@ -1272,9 +1317,9 @@ private function typeBasicLit(expr:Ast.BasicLit,info:Info):ExprDef {
             info.type = TPath({name: "GoInt",pack: []});
             if (expr.value.length > 10) {
                 try {
-                var i = Int64Helper.parseString(expr.value);
+                var i = haxe.Int64Helper.parseString(expr.value);
                 if (i > 2147483647 || i < -2147483647) {
-                    info.type = TPath({name: "GoInt64",pack: ["haxe"]});
+                    info.type = TPath({name: "GoInt64",pack: []});
                     return (macro haxe.Int64Helper.fromFloat(${toExpr(EConst(CFloat(expr.value)))})).expr;
                 }
                 }catch(e) {
@@ -1403,7 +1448,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr,info:Info):ExprDef {
     var y = typeExpr(expr.y,info);
     switch expr.op { //operators that don't exist in haxe needle to be handled here
         case AND_NOT: //refrenced from Simon's Tardisgo
-            return (macro $x & ($y ^ Int64.make(-1,-1))).expr;
+            return (macro $x & ($y ^ haxe.Int64.make(-1,-1))).expr;
         default:
     }
     var op = typeOp(expr.op);
@@ -1987,10 +2032,16 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 name: "_typeName_",
                 pos: null,
                 access: [APublic,AFinal],
-                kind: FVar(null,toExpr(EConst(CIdent(spec.name.name)))),
+                kind: FVar(null,toExpr(EConst(CString(spec.name.name)))),
+            });
+            fields.push({
+                name: "_address_",
+                pos: null,
+                access: [APublic,AFinal],
+                kind: FVar(null,toExpr(EConst(CString(haxe.crypto.Md5.encode(info.path + info.data.name + spec.name.name))))),
             });
             var meta:Metadata = [{name: ":structInit",pos: null}, getAllow(info)];
-            
+
             return {
                 name: name,
                 pos: null,
@@ -2009,6 +2060,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                     pos: null,
                     fields: [],
                     pack: [],
+                    meta: [{name: ":eagar",pos: null}],
                     kind: TDAlias(TPath({name: "AnyInterface",pack: []})),
                 }
             var fields = typeFieldListMethods(struct.methods,info,true);
@@ -2032,6 +2084,7 @@ private function typeType(spec:Ast.TypeSpec,info:Info):TypeDefinition {
                 pos: null,
                 doc: doc,
                 fields: [],
+                meta: [{name: ":eagar",pos: null}],
                 kind: TDAlias(type)
             }
     }

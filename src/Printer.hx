@@ -29,7 +29,7 @@ class Printer extends haxe.macro.Printer {
         switch e.expr {
             case EBlock(exprs):
                 var t = tabs + tabString;
-                return '\n$t' + [for (expr in exprs) printExpr(expr)].join(";\n") + ";";
+                return '\n$t' + [for (expr in exprs) printExpr(expr)].join(";\n") + (exprs.length > 0 ? ";" : "");
             default:
 
         }

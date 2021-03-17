@@ -4,25 +4,17 @@ import haxe.ds.Vector;
 import haxe.Rest;
 import stdgo.StdGoTypes.AnyInterface;
 @:generic
-@:genericBuild(stdgo.internal.Macro.buildArray())
-abstract GoArray<T>(Vector<T>) {
-
+abstract GoArray<T>(Vector<T>) from Vector<T> {
     public var length(get,never):Int;
     private function get_length():Int {
         return this.length;
     }
-
-    private function set_length(length:Int):Int {
-        return 0;
-    }
-
     public inline function iterator() {
         return new VectorIterator(this);
     }
 
     public inline function new(args:Rest<T>) {
-        var length = 0;
-        this = new Vector<T>(length);
+        this = new Vector<T>(args.length);
         for (i in 0...args.length) {
             this.set(i,args[i]);
         }
@@ -76,6 +68,9 @@ abstract GoArray<T>(Vector<T>) {
     }
     inline public function _typename_() {
         return '[$length]';
+    }
+    inline public function toString() {
+        return this.toArray().toString();
     }
 }
 

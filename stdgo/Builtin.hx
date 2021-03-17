@@ -80,40 +80,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 							slice;
 						};
 					case "GoArray":
-						if (size == null)
-							return macro new $p();
-						var value:Expr = null;
-						var meta:Metadata = [];
-
-						switch size.expr {
-							case EArrayDecl(values):
-								meta = [
-									for(value in values) {
-										name: ":length",
-										params: [value],
-										pos: null,
-									}
-								];
-							default:
-						}
-						switch p.params[0] {
-							case TPType(tt):
-								tt = Context.toComplexType(Context.follow(ComplexTypeTools.toType(tt)));
-								value = defaultValue(tt,Context.currentPos());
-							default:
-						}
-						var length:Expr = null;
-						switch size.expr {
-							case EArrayDecl(values):
-								length = values[0];
-							default:
-						}
-						return macro {
-							var array = new $p($length);
-							for (i in 0...array.length)
-								array[i] = $value;
-							array;
-						};
+						throw("cannot make GoArray must be type generated");
 					case "GoMap":
 						return macro new $p();
 					case "Chan":

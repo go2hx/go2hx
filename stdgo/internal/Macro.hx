@@ -23,10 +23,6 @@ class Macro {
 		// Generates a block expression from the given expression array
 		return macro $b{exprs};
 	}
-
-	public static function buildArray() {
-		//trace("c: " + Context.getLocalType());
-	}
 	#if macro
 	public static function externsGo() {
 		

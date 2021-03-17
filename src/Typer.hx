@@ -182,7 +182,7 @@ private function setAlias(spec:Ast.TypeSpec,info:Info) {
     }
 }
 private function defaultInfo(data:FileType=null,path:String=""):Info {
-    return {iota: 0,aliasStaticExtensionMap: [],layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: path, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeList: [],print: false,blankCounter: 0};
+    return {lengths: [], iota: 0,aliasStaticExtensionMap: [],layerIndex:0,fieldNames: [], typeNames: [],thisName: "",className: "", retValues: [],deferBool: false,funcName: "",path: path, types: [],imports: [],ret: [],type: null, data: data,local: false,retypeList: [],print: false,blankCounter: 0};
 }
 private function typeImplements(info:Info) {
     for (cl in info.data.defs) {
@@ -563,23 +563,13 @@ private function typeDeclStmt(stmt:Ast.DeclStmt,info:Info):ExprDef {
                     var value = macro null;
                     var args:Array<Expr> = [];
                     var t = type != null ? type : info.type;
-                    if (spec.type.id == "ArrayType") {
+                    vars = vars.concat([
                         for (i in 0...spec.names.length) {
-                            vars.push({
-                                name: nameIdent(spec.names[i],info),
-                                type: t,
-                                expr: macro make((_:$t),$a{args})
-                            });
+                            name: nameIdent(spec.names[i],info),
+                            type: t,
+                            expr: i < spec.values.length ? typeExpr(spec.values[i],info) : t != null ? defaultValue(t,info) : null,
                         }
-                    }else{
-                        vars = vars.concat([
-                            for (i in 0...spec.names.length) {
-                                name: nameIdent(spec.names[i],info),
-                                type: t,
-                                expr: i < spec.values.length ? typeExpr(spec.values[i],info) : t != null ? defaultValue(t,info) : null,
-                            }
-                        ]);
-                    }
+                    ]);
             }
         }
     }
@@ -808,6 +798,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 return null;
             }
         case DEFINE: //var expr = x;
+            info.lengths = [];
             if (stmt.lhs.length == stmt.rhs.length) {
                 //normal vars
                 var vars:Array<Var> = [];
@@ -968,11 +959,11 @@ private function arrayType(expr:Ast.ArrayType,info:Info):ComplexType {
         //array
         addImport("stdgo.GoArray",info);
         var len = typeExpr(expr.len,info);
+        info.lengths.unshift(len);
         return TPath({
             pack: [],
             name: "GoArray",
-            //params: type != null ? [TPType(type)] : []
-            params: type != null ? [TPExpr(len), TPType(type)] : [],
+            params: type != null ? [TPType(type)] : [],
         });
     }
     //slice
@@ -1749,26 +1740,22 @@ private function getRetValues(info:Info) {
         expr: defaultValue(value.type,info),
     }]));
 }
-private function defaultValue(type:ComplexType,info:Info):Expr { 
-    /*switch type {
+private function defaultValue(type:ComplexType,info:Info,index:Int=0):Expr {
+    switch type {
         case TPath(p):
-            if (p.pack.length > 0)
-                return macro null; //TODO implement imported type following
-            for (def in info.data.defs) {
-                switch def.kind {
-                    case TDAlias(t):
-                        switch t {
-                            case TPath(p2):
-                                if (p.name == p2.name)
-                                    return defaultValue(t,info);
-                            default:
-                        }
-                    default:
+            if (p.name == "GoArray") {
+                for (param in p.params) {
+                    switch param {
+                        case TPType(t):
+                            var df = defaultValue(t,info,index + 1);
+                            var j = index;
+                            return macro new GoArray(...[for (i in 0...${info.lengths[j]}) $df]);
+                        default:
+                    }
                 }
             }
         default:
-            trace("unknown default value type: " + type);
-    }*/
+    }
     return stdgo.Builtin.defaultValue(type,null);
 }
 private function getRecvInfo(recvType:ComplexType):{name:String,isPointer:Bool} {
@@ -2110,11 +2097,11 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
 }
 private function typeValue(value:Ast.ValueSpec,info:Info):Array<TypeDefinition> {
     var type:ComplexType = null;
+    info.lengths = [];
     if (value.type.id != null)
       type = typeExprType(value.type,info);
     var values:Array<TypeDefinition> = [];
-    for (i in 0...value.names.length)
-    {
+    for (i in 0...value.names.length) {
         if (value.names[i] == "_")
             continue;
         info.type = null;
@@ -2217,7 +2204,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {iota:Int,aliasStaticExtensionMap:Map<String,Bool>,layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeList:Array<{name:String,index:Int,type:ComplexType}>,print:Bool,blankCounter:Int};
+typedef Info = {lengths:Array<Expr>,iota:Int,aliasStaticExtensionMap:Map<String,Bool>,layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeList:Array<{name:String,index:Int,type:ComplexType}>,print:Bool,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

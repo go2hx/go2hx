@@ -125,7 +125,7 @@ function main(data:DataType){
                     //check if uppercase version of name exists too
                     if (cache.indexOf(name.charAt(0).toUpperCase() + name.substr(1)) == -1)
                         continue;
-                    info.types[name] = "_" + name;
+                    info.types.push({name: name,rename: "_" + name,index: 0});
                 }
             }
             processNames(info.fieldNames);
@@ -395,7 +395,6 @@ private function typeBlockStmt(stmt:Ast.BlockStmt,info:Info,needReturn:Bool=fals
 }
 private function typeStmtList(list:Array<Ast.Stmt>,info:Info,needReturn:Bool=false):ExprDef {
     info.layerIndex++;
-
     var exprs:Array<Expr> = [];
     if (list != null) 
         exprs = [for (stmt in list) typeStmt(stmt,info)];
@@ -436,6 +435,11 @@ private function typeStmtList(list:Array<Ast.Stmt>,info:Info,needReturn:Bool=fal
         if (retype.index > info.layerIndex)
             continue;
         info.retypeList.remove(retype);
+    }
+    for (type in info.types) {
+        if (type.index > info.layerIndex)
+            continue;
+        info.types.remove(type);
     }
     info.layerIndex--;
     //add potential return value variables
@@ -805,8 +809,21 @@ private function typeAssignStmt(stmt:Ast.AssignStmt,info:Info):ExprDef {
                 for (i in 0...stmt.lhs.length) {
                     info.type = null;
                     var expr = typeExpr(stmt.rhs[i],info);
+                    var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
+                    var name = nameIdent(stmt.lhs[i].name,info);
+                    var newName = name;
+                    var tempName = isTitled ? untitle(name) : title(name);
+                    for (type in info.types) {
+                        if (type.name == tempName) {
+                            newName = "_" + newName;
+                            name = !isTitled ? untitle(name) : title(name);
+                            break;
+                        }
+                    }
+                    info.types.push({name: name,rename: newName,index: info.layerIndex});
+                    name = newName;
                     vars.push({
-                        name: nameIdent(stmt.lhs[i].name,info),
+                        name: name,
                         type: stmt.rhs[i].id == "BasicLit" ? info.type : null,
                         expr: expr,
                     });
@@ -1601,6 +1618,11 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             continue;
         info.retypeList.remove(retype);
     }
+    for (type in info.types) {
+        if (type.index == 0)
+            continue;
+        info.types.remove(type);
+    }
     //info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     info.deferBool = false;
@@ -2089,7 +2111,7 @@ private function typeImport(imp:Ast.ImportSpec,info:Info):ImportType {
         path.unshift("stdgo");
     var name = path[path.length - 1];
     path.push(title(name));
-    info.types[name] = path.join(".");
+    info.types.push({name: name,rename: path.join("."),index: 0});
     return {
         path: path,
         alias: alias,
@@ -2167,8 +2189,14 @@ private function nameIdent(name:String,info:Info):String {
         return "null";
     if (info.imports.exists(name))
         return info.imports[name];
-    if (info.types.exists(name))
-        name = info.types[name];
+    for (type in info.types) {
+        if (info.layerIndex < type.index || type.name == type.rename)
+            continue;
+        if (name == type.name) {
+            name = type.rename;
+            break;
+        }
+    }
     name = untitle(name);
     if (reserved.indexOf(name) != -1)
         name += "_";
@@ -2204,7 +2232,7 @@ function untitle(string:String):String {
     string = string.substr(0,index).toLowerCase() + string.substr(index);
     return string;
 }
-typedef Info = {lengths:Array<Expr>,iota:Int,aliasStaticExtensionMap:Map<String,Bool>,layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Map<String,String>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeList:Array<{name:String,index:Int,type:ComplexType}>,print:Bool,blankCounter:Int};
+typedef Info = {lengths:Array<Expr>,iota:Int,aliasStaticExtensionMap:Map<String,Bool>,layerIndex:Int,fieldNames:Array<String>,typeNames:Array<String>,thisName:String,retValues:Array<Array<{name:String,type:ComplexType}>>,deferBool:Bool, className:String,funcName:String,path:String, types:Array<{name:String,rename:String,index:Int}>,imports:Map<String,String>,ret:Array<ComplexType>,type:ComplexType, data:FileType,local:Bool,retypeList:Array<{name:String,index:Int,type:ComplexType}>,print:Bool,blankCounter:Int};
 
 typedef DataType = {args:Array<String>,pkgs:Array<PackageType>};
 typedef PackageType = {path:String,name:String,files:Array<{path:String,location:String,decls:Array<Dynamic>}>}; //filepath of export.json also stored here

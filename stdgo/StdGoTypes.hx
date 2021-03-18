@@ -71,7 +71,7 @@ abstract GoUIntPtr(UInt) from UInt to UInt {
 
 	@:op(A / B) private static function divF(lhs:GoUIntPtr, rhs:Float):Float;
 
-	@:op(A / B) private static function div(lhs:GoUIntPtr, rhs:GoUIntPtr):Float;
+	@:op(A / B) private static function div(lhs:GoUIntPtr, rhs:GoUIntPtr):GoUIntPtr;
 
 	@:commutative @:op(A | B) private static function orI(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
 

@@ -53,7 +53,7 @@ function gen() {
                 line = getLine(proc.stderr.readLine());
                 Sys.println(line + "\n" + proc.stderr.readAll().toString());
             }catch(e) {
-
+                trace(e);
             }
             output.writeString('- [ ] $path$line (timed out)\n');
         }else{

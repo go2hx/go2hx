@@ -431,17 +431,18 @@ private function typeStmtList(list:Array<Ast.Stmt>,info:Info,needReturn:Bool=fal
 
         exprs.push(toExpr(ret)); //blank return
     }
+    info.layerIndex--;
+    //remove types and retypes that no longer are in scope
     for (retype in info.retypeList) {
-        if (retype.index > info.layerIndex)
+        if (retype.index <= info.layerIndex)
             continue;
         info.retypeList.remove(retype);
     }
     for (type in info.types) {
-        if (type.index > info.layerIndex)
+        if (type.index <= info.layerIndex)
             continue;
         info.types.remove(type);
     }
-    info.layerIndex--;
     //add potential return value variables
     if (info.retValues.length > 0 && info.retValues[0].length > 0)
         exprs.unshift(getRetValues(info));
@@ -1213,7 +1214,7 @@ private function typeCallExpr(expr:Ast.CallExpr,info:Info):ExprDef {
             var name = untitle(expr.fun.sel.name);
             expr.fun.sel.name =  nameIdent(name,info); //all functions lowercase*/
         case "Ident":
-            expr.fun.name = untitle(expr.fun.name);
+            expr.fun.name = expr.fun.name;
             switch expr.fun.name {
                 case "slice","append","close","complex","copy","delete","imag","panic","print","println","real","recover":
                     if (info.className != "") {
@@ -1618,11 +1619,13 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             continue;
         info.retypeList.remove(retype);
     }
+    trace("types: " + info.types);
     for (type in info.types) {
         if (type.index == 0)
             continue;
         info.types.remove(type);
     }
+    trace("after: " + info.types);
     //info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     info.deferBool = false;
@@ -2190,8 +2193,8 @@ private function nameIdent(name:String,info:Info):String {
     if (info.imports.exists(name))
         return info.imports[name];
     for (type in info.types) {
-        if (info.layerIndex < type.index || type.name == type.rename)
-            continue;
+        //if (info.layerIndex < type.index || type.name == type.rename)
+        //    continue;
         if (name == type.name) {
             name = type.rename;
             break;

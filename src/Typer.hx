@@ -61,9 +61,12 @@ function main(data:DataType){
         if (pkg.files == null)
             continue;
         pkg.path = normalizePath(pkg.path);
-        info.path = pkg.path;
+        pkg.path = StringTools.replace(pkg.path,"/",".");
+        if (pkg.path == "")
+            pkg.path == "std";
 
-        aliases[pkg.path] = [];
+        info.path = pkg.path;
+        aliases[info.path] = [];
         for (file in pkg.files) {
             if (file.decls == null)
                 continue;
@@ -85,7 +88,7 @@ function main(data:DataType){
     for (pkg in data.pkgs) {
         if (pkg.files == null)
             continue;
-        var module:Module = {path: normalizePath(pkg.path),files: []};
+        var module:Module = {path: pkg.path,files: []};
         var main:FileType = null;
         for (file in pkg.files) {
             if (file.decls == null)
@@ -96,12 +99,8 @@ function main(data:DataType){
             data.name = normalizePath(data.name);
             //set name
             data.name = className(Typer.title(data.name));
-
             
-            var path = StringTools.replace(module.path,"/",".");
-            if (path == "")
-                path == "std";
-            info = defaultInfo(data,path);
+            info = defaultInfo(data,module.path);
             var declFuncs:Array<Ast.FuncDecl> = [];
             for (decl in file.decls) {
                 switch decl.id {
@@ -427,9 +426,21 @@ private function typeStmtList(list:Array<Ast.Stmt>,info:Info,needReturn:Bool=fal
         exprs.push(typeDeferReturn());
     }
     if (!returnBool && needReturn) {
-        var ret = typeReturnStmt({returnPos: null,results: []},info);
-
-        exprs.push(toExpr(ret)); //blank return
+        var isVoid:Bool = false;
+        if (info.ret.length == 1) {
+            switch info.ret[0] {
+                case TPath(p):
+                    switch p.name {
+                        case "Void":
+                            isVoid = true;
+                    }
+                default:
+            }
+        }
+        if (!isVoid) {
+            var ret = typeReturnStmt({returnPos: null,results: []},info);
+            exprs.push(toExpr(ret)); //blank return
+        }
     }
     info.layerIndex--;
     //remove types and retypes that no longer are in scope
@@ -1619,13 +1630,11 @@ private function typeFunction(decl:Ast.FuncDecl,info:Info):TypeDefinition {
             continue;
         info.retypeList.remove(retype);
     }
-    trace("types: " + info.types);
     for (type in info.types) {
         if (type.index == 0)
             continue;
         info.types.remove(type);
     }
-    trace("after: " + info.types);
     //info.retypeMap.clear(); //clear renaming as it's a new function
     info.local = false;
     info.deferBool = false;

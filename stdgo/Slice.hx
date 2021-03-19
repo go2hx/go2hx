@@ -26,9 +26,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
     private function get_length():Int {
         return this.length;
     }
-    private function set_length(length:Int):Int {
-        return 0;
-    }
     inline public function getUnderlying():Vector<T> {
         return this.underlying();
     }
@@ -56,9 +53,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
         if (high == -1)
             high = length;
         var length = high - low;
-        var slice = new Slice<T>();
-        slice.setUnderlying(this.underlying(),pos,length);
-        return slice; 
+        var obj = new Slice<T>();
+        obj.setUnderlying(this.underlying(),pos,length);
+        return obj; 
     }
     public function copy():Slice<T> {
         var slice = new Slice<T>();
@@ -138,7 +135,6 @@ class SliceData<T>{
     var vector:Vector<T>;
     public var pos:Int = 0;
     public var length:Int = 0;
-    public static var forceLength:Int = 0;
     public var _address_:String;
     private static var _addressCounter:Int = 0;
     public var _is_pointer_:Bool = false;
@@ -152,7 +148,7 @@ class SliceData<T>{
     }
     private function boundsCheck(i:Int) {
         #if (!no_check_bounds && !(java || jvm || python || cs)) //checked all targets except php for native bounds checking.
-        if (i < 0 || i >= this.length) { 
+        if (i < 0 || i >= length) { 
             throw "array out of bounds, index: " + i + " length: " + length;
         }
         #end

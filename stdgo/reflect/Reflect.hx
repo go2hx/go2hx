@@ -7,7 +7,6 @@ function deepEqual(a1:Dynamic,a2:Dynamic):Bool {
         return false;
     }
     var t = Type.typeof(a1);
-
     switch  t {
         case TObject:
             return compareStruct(a1,a2);
@@ -18,8 +17,10 @@ function deepEqual(a1:Dynamic,a2:Dynamic):Bool {
                     if (a1.length != a2.length)
                         return false;
                     for (i in 0...a1.length) {
-                        if (!deepEqual(a1.get(i),a2.get(i)))
+                        if (!deepEqual(a1.get(i),a2.get(i))) {
+                            trace("a1 not equal: " + a1);
                             return false;
+                        }
                     }
                     return true;
                 case "stdgo.PointerData":
@@ -32,6 +33,11 @@ function deepEqual(a1:Dynamic,a2:Dynamic):Bool {
             return compareStruct(a1,a2);
         case TFunction:
             return Reflect.compareMethods(a1,a2);
+        case TInt:
+            trace("a---- " + a1);
+            return a1 == a2;
+        case TFloat:
+            return a1 == a2;
         default:
             trace('unknown type: $t');
     }
@@ -44,8 +50,12 @@ function compareStruct(a1:Dynamic,a2:Dynamic) {
     if (f1.length != f2.length)
         return false;
     for (i in 0...f1.length) {
-        if (!deepEqual(Reflect.field(a1,f1[i]),Reflect.field(a2,f2[i])))
+        if (f1[i] == "_address_")
+            continue;
+        if (!deepEqual(Reflect.field(a1,f1[i]),Reflect.field(a2,f2[i]))) {
+            trace("field not equal: " + f1[i]);
             return false;
+        }
     }
     return true;
 }

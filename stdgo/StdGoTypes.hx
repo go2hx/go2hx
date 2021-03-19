@@ -1262,7 +1262,6 @@ abstract AnyInterface({value:Any,typeName:String}) {
         return (this.value : T);
     }
     @:from private static inline function from<T>(x:T) {
-        trace("Unknown type Any expr: " + x);
         return new AnyInterface({value: x,typeName: "unknown"});
     }
     public inline function typeName() {

@@ -29,9 +29,11 @@ macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
 			switch p.name {
 				case "Slice":
 					return macro {
-						var length = $dst.length > $src.length ? $src.length : $dst.length; //min length
+						var src = $src;
+						var dst = $dst;
+						var length = dst.length >= src.length ? src.length : dst.length; //min length
 						for (i in 0...length) {
-							$dst[i] = $src[i];
+							dst[i] = src[i];
 						}
 						length;
 					}
@@ -59,7 +61,6 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 		switch t {
 			case TPath(p):
 				var name = p.name;
-				trace("name: " + name);
 				switch name {
 					case "Slice":
 						if (size == null)
@@ -73,9 +74,11 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						}
 						return macro {
 							var slice = new $p();
+							var size = $size;
+							var value = $value;
 							slice.grow($size);
-							for (i in 0...$size) {
-								slice[i] = $value;
+							for (i in 0...size) {
+								slice[i] = value;
 							}
 							slice;
 						};

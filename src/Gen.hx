@@ -7,8 +7,8 @@ import sys.io.File;
 import Typer.Module;
 
 function create(outputPath:String,module:Module) {
-    var pkgPath = StringTools.replace(module.path,"/",".");
-    pkgPath = 'package $pkgPath;\n';
+    var actualPath = StringTools.replace(module.path,".","/");
+    var pkgPath = 'package ${module.path};\n';
     var content = "";
     var count = module.files.length;
     Sys.println("generating " + count + " file"  + (count > 1 ? "s" : "") + "...");
@@ -26,7 +26,7 @@ function create(outputPath:String,module:Module) {
         for (def in file.defs) {
             content += Typer.printer.printTypeDefinition(def,false) + "\n";
         }
-        save(outputPath + module.path + "/",file.name,content);
+        save(outputPath + actualPath + "/",file.name,content);
     }
 }
 private function save(dir:String,name:String,content:String) {

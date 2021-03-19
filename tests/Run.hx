@@ -48,14 +48,8 @@ function gen() {
         }
         if (code == null) {
             Sys.println("timed out...");
-            var line:String = "";
-            try {
-                line = getLine(proc.stderr.readLine());
-                Sys.println(line + "\n" + proc.stderr.readAll().toString());
-            }catch(e) {
-                trace(e);
-            }
-            output.writeString('- [ ] $path$line (timed out)\n');
+            Sys.println('command run: $command');
+            output.writeString('- [ ] $path (timed out)\n');
         }else{
             if (code <= 0) {
                 Sys.println(proc.stdout.readAll().toString());

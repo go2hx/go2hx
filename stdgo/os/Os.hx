@@ -6,7 +6,7 @@ import stdgo.internal.ErrorReturn;
 import stdgo.Pointer;
 import sys.FileSystem;
 import stdgo.errors.Errors.Error;
-import stdgo.StdGoTypes.Byte;
+import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
 var args = Sys.args();
 var stderr = new OutputWriter(Sys.stderr());
@@ -18,7 +18,7 @@ class OutputWriter implements stdgo.io.Io.Writer {
 	public function new(output) {
 		this.output = output;
 	}
-	public function write(p:Array<Byte>):{n:Int,err:Error} {
+	public function write(p:Array<GoByte>):{n:Int,err:Error} {
 		for (c in p)
 			output.writeByte(c);
 		return {n: 0,err: null};
@@ -47,7 +47,7 @@ inline function create(path:String):ErrorReturn<PointerWrapper<File>> {
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);
 	sys.io.File.saveContent(path,"");
-	var file = new stdgo.Os.File(sys.io.File.read(path),sys.io.File.write(path));
+	var file = new stdgo.os.Os.File(sys.io.File.read(path),sys.io.File.write(path));
 	return {value: new PointerWrapper(file)};
 }
 
@@ -58,7 +58,7 @@ inline function exit(code:Int) {
 inline function newSyscallError(syscall:String, err:Error):Error {
 	if (err == null)
 		return null;
-	return stdgo.Errors.new_(syscall);
+	return stdgo.errors.Errors.new_(syscall);
 }
 
 inline function chdir(dir:String):Error {
@@ -105,7 +105,7 @@ class File implements stdgo.io.Io.Writer {
 		this.input = input;
 		this.output = output;
 	}
-	public function write(p:Array<Byte>):{n:Int,err:Error} {
+	public function write(p:Array<GoByte>):{n:Int,err:Error} {
 		for (c in p)
 			output.writeByte(c);
 		return {n: p.length,err: null};

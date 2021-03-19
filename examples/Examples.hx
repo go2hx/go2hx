@@ -29,6 +29,7 @@ function gen() {
     }
     Main.exportBool = false;
     //run libraries
+    trace("run libraries");
     if (libs) {
         Main.init(["-ident","github.com/tidwall/btree",path]);
     }

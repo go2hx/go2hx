@@ -105,11 +105,22 @@ class Go {
 				switch t.name {
 					case "Slice":
 						return macro $expr.length == 0;
+					case "PointerWrapper":
+						return macro $expr == null;
+					case "AnyInterface":
+						return macro $expr.value == null;
+					default:
+						trace("unknown abstract: " + t.name);
 				}
+			case TDynamic(t):
+				if (t == null)
+					return macro true;
+			case TFun(args, ret):
+				return macro false;
 			default:
 				trace("unknown type: " + type);
 		}
-		return expr;
+		return macro false;
 	}
 	public static macro function divide(a:Expr,b:Expr) {
 		var aType = Context.follow(Context.typeof(a));

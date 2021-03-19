@@ -38,6 +38,7 @@ class Macro {
 		});
 	}
 	#end
+
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {
 			case KAbstractImpl(_.get() => {type: TAbstract(_.get() => {name: "Int"}, _)}):

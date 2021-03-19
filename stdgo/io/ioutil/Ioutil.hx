@@ -7,9 +7,7 @@ import stdgo.Go.ErrorReturn;
 import sys.io.File;
 import haxe.io.Bytes;
 
-
 function readAll(r:stdgo.io.Io.Reader) {}
-
 function readFile(filename:String) {}
 
 function writeFile(filename:String, data:Bytes, ?perm:Os.FileMode):Errors {
@@ -34,23 +32,10 @@ function readDir(dirname:String):ErrorReturn<Array<FileInfo>> {
 	}
 }
 
-
 function close() {}
-
-
 function nopCloser(r:io.Reader) {}
-
-
 function write(p:Bytes) {}
-
-
 function writeString(s:String) {}
-
-
 function readFrom(r:io.Reader) {}
-
-
 function tempFile(dir:String) {}
-
-
 function tempDir(dir:String) {}

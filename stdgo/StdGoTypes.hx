@@ -1,4 +1,5 @@
 package stdgo;
+
 import stdgo.Pointer.PointerData;
 import stdgo.StdGoTypes.AnyInterface;
 
@@ -6,44 +7,45 @@ typedef GoByte = GoUInt8;
 typedef GoRune = GoInt;
 typedef GoInt32 = GoInt;
 typedef GoFloat64 = GoFloat;
-
 private typedef Int = StdTypes.Int;
 private typedef Int8 = #if cpp cpp.Int8 #elseif cs cs.Int8 #elseif java java.Int8 #else Int #end;
 private typedef Int16 = #if cpp cpp.Int16 #elseif cs cs.Int16 #elseif java java.Int16 #else Int #end;
-private typedef Int32 = haxe.Int32; //#if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
-private typedef Int64 = haxe.Int64; //#if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
-
+private typedef Int32 = haxe.Int32; // #if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
+private typedef Int64 = haxe.Int64; // #if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
 private typedef UInt = Int;
 private typedef UInt8 = #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
 private typedef UInt16 = #if hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
 private typedef UInt32 = #if cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
-private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else haxe.Int64 #end//__UInt64 #end;
-
+private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else haxe.Int64 #end // __UInt64 #end;
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if (java || cs || hl || cpp) StdTypes.Single #else Float #end;
 private typedef Float64 = #if cpp cpp.Float64 #else Float #end
 
-
 private class __UInt64 {
-    public var high:Int64;
-    public var low:Int64;
-    public inline function new(high,low) {
-        this.high = high;
-        this.low = low;
-    }
+	public var high:Int64;
+	public var low:Int64;
+
+	public inline function new(high, low) {
+		this.high = high;
+		this.low = low;
+	}
+
 	public static inline function ofInt(x:Int) {
-		return new __UInt64(x >> 31,x);
+		return new __UInt64(x >> 31, x);
 	}
 }
 
 abstract GoUIntPtr(UInt) from UInt to UInt {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uintptr";
-    @:commutative @:op(A + B) private static function addI(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uintptr";
+
+	@:commutative @:op(A + B) private static function addI(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUIntPtr, rhs:Float):Float;
 
@@ -88,6 +90,7 @@ abstract GoUIntPtr(UInt) from UInt to UInt {
 	@:op(A << B) private static function shl(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
 
 	@:op(A >> B) private static function shr(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
+
 	@:op(A >>> B) private static function ushr(lhs:GoUIntPtr, rhs:Int):GoUIntPtr;
 
 	@:op(A > B) private static function gt(lhs:GoUIntPtr, rhs:GoUIntPtr):Bool;
@@ -124,15 +127,18 @@ abstract GoUIntPtr(UInt) from UInt to UInt {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUIntPtr, b:T):Bool;
 }
+
 abstract GoFloat(Float) from Float to Float {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "float";
 
-    @:commutative @:op(A + B) private static function addI(lhs:GoFloat, rhs:Int):GoFloat;
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "float";
+
+	@:commutative @:op(A + B) private static function addI(lhs:GoFloat, rhs:Int):GoFloat;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoFloat, rhs:Float):Float;
 
@@ -177,6 +183,7 @@ abstract GoFloat(Float) from Float to Float {
 	@:op(A << B) private static function shl(lhs:GoFloat, rhs:Int):GoFloat;
 
 	@:op(A >> B) private static function shr(lhs:GoFloat, rhs:Int):GoFloat;
+
 	@:op(A >>> B) private static function ushr(lhs:GoFloat, rhs:Int):GoFloat;
 
 	@:op(A > B) private static function gt(lhs:GoFloat, rhs:GoFloat):Bool;
@@ -213,13 +220,17 @@ abstract GoFloat(Float) from Float to Float {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat, b:T):Bool;
 }
+
 abstract GoFloat32(Float32) from Float32 to Float32 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "float32";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "float32";
+
 	@:op(A > B) private static function gt(lhs:GoFloat32, rhs:GoFloat32):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoFloat32, rhs:GoFloat32):Bool;
@@ -251,8 +262,9 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoFloat32, b:T):Bool;
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat32, b:T):Bool;
-    #if (java || cs || hl || cpp) 
-    @:commutative @:op(A + B) private static function addI(lhs:GoFloat32, rhs:Int):GoFloat32;
+
+	#if (java || cs || hl || cpp)
+	@:commutative @:op(A + B) private static function addI(lhs:GoFloat32, rhs:Int):GoFloat32;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoFloat32, rhs:Float):Float;
 
@@ -297,25 +309,29 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 	@:op(A << B) private static function shl(lhs:GoFloat32, rhs:Int):GoFloat32;
 
 	@:op(A >> B) private static function shr(lhs:GoFloat32, rhs:Int):GoFloat32;
+
 	@:op(A >>> B) private static function ushr(lhs:GoFloat32, rhs:Int):GoFloat32;
 
 	@:op(~A) private static function bneg(t:GoFloat32):GoFloat32;
-    #else
-        //TODO: Clamp Float32
-
-    #end
+	#else
+	// TODO: Clamp Float32
+	#end
 }
+
 abstract GoComplex64(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
 
-	@:from public static inline function ofInt(x:Int):GoComplex64
-		#if lua return new GoComplex64(Int64.make((x : Int32) >> 31, (x : Int32))); #else return new GoComplex64(Int64.make(x >> 31, x)); #end
-    public inline function _typeName_()
-       return "complex64";
-    @:commutative @:op(A + B) private static function addI(lhs:GoComplex64, rhs:Int):GoComplex64;
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	@:from public static inline function ofInt(x:Int):GoComplex64 #if lua return new GoComplex64(Int64.make((x : Int32) >> 31,
+		(x : Int32))); #else return new GoComplex64(Int64.make(x >> 31, x)); #end
+
+	public inline function _typeName_()
+		return "complex64";
+
+	@:commutative @:op(A + B) private static function addI(lhs:GoComplex64, rhs:Int):GoComplex64;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoComplex64, rhs:Float):Float;
 
@@ -360,6 +376,7 @@ abstract GoComplex64(Int64) from Int64 to Int64 {
 	@:op(A << B) private static function shl(lhs:GoComplex64, rhs:Int):GoComplex64;
 
 	@:op(A >> B) private static function shr(lhs:GoComplex64, rhs:Int):GoComplex64;
+
 	@:op(A >>> B) private static function ushr(lhs:GoComplex64, rhs:Int):GoComplex64;
 
 	@:op(A > B) private static function gt(lhs:GoComplex64, rhs:GoComplex64):Bool;
@@ -396,17 +413,21 @@ abstract GoComplex64(Int64) from Int64 to Int64 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoComplex64, b:T):Bool;
 }
+
 abstract GoComplex128(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
 
 	@:from public static inline function ofInt(x:Int):GoComplex128
 		return (Int64.make(x >> 31, x) : GoComplex128);
-    public inline function _typeName_()
-        return "complex128";
-    @:commutative @:op(A + B) private static function addI(lhs:GoComplex128, rhs:Int):GoComplex128;
+
+	public inline function _typeName_()
+		return "complex128";
+
+	@:commutative @:op(A + B) private static function addI(lhs:GoComplex128, rhs:Int):GoComplex128;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoComplex128, rhs:Float):Float;
 
@@ -451,6 +472,7 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 	@:op(A << B) private static function shl(lhs:GoComplex128, rhs:Int):GoComplex128;
 
 	@:op(A >> B) private static function shr(lhs:GoComplex128, rhs:Int):GoComplex128;
+
 	@:op(A >>> B) private static function ushr(lhs:GoComplex128, rhs:Int):GoComplex128;
 
 	@:op(A > B) private static function gt(lhs:GoComplex128, rhs:GoComplex128):Bool;
@@ -487,14 +509,18 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoComplex128, b:T):Bool;
 }
+
 abstract GoInt(Int) from Int32 to Int32 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "int";
-    @:commutative @:op(A + B) private static function addI(lhs:GoInt, rhs:Int):GoInt;
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "int";
+
+	@:commutative @:op(A + B) private static function addI(lhs:GoInt, rhs:Int):GoInt;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt, rhs:Float):Float;
 
@@ -576,13 +602,17 @@ abstract GoInt(Int) from Int32 to Int32 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt, b:T):Bool;
 }
+
 abstract GoUInt(Int) from Int to Int {
-    public inline function new(x)
+	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uint";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uint";
+
 	@:commutative @:op(A + B) private static function addI(lhs:GoUInt, rhs:Int):GoUInt;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUInt, rhs:Float):Float;
@@ -664,15 +694,20 @@ abstract GoUInt(Int) from Int to Int {
 	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt, b:T):Bool;
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt, b:T):Bool;
-    //TODO: clamp uint, increase number range
+
+	// TODO: clamp uint, increase number range
 }
+
 abstract GoInt8(Int8) from Int8 to Int8 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "int8";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "int8";
+
 	@:op(A > B) private static function gt(lhs:GoInt8, rhs:GoInt8):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoInt8, rhs:GoInt8):Bool;
@@ -705,8 +740,8 @@ abstract GoInt8(Int8) from Int8 to Int8 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt8, b:T):Bool;
 
-    #if (cpp || cs || java)
-    @:commutative @:op(A + B) private static function addI(lhs:GoInt8, rhs:Int):GoInt8;
+	#if (cpp || cs || java)
+	@:commutative @:op(A + B) private static function addI(lhs:GoInt8, rhs:Int):GoInt8;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt8, rhs:Float):Float;
 
@@ -755,24 +790,28 @@ abstract GoInt8(Int8) from Int8 to Int8 {
 	@:op(A >>> B) private static function ushr(lhs:GoInt8, rhs:Int):GoInt8;
 
 	@:op(~A) private static function bneg(t:GoInt8):GoInt8;
-    #else
-        //TODO: clamp int8
-		static function clamp(x:Int):Int {
-			var r = x & 0xFF;
-			if ((r & 0x80) != 0) {
-				return -1 - 0xFF + r;
-			}
-			return r;
+	#else
+	// TODO: clamp int8
+	static function clamp(x:Int):Int {
+		var r = x & 0xFF;
+		if ((r & 0x80) != 0) {
+			return -1 - 0xFF + r;
 		}
-    #end
+		return r;
+	}
+	#end
 }
+
 abstract GoInt16(Int16) from Int16 to Int16 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "int16";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "int16";
+
 	@:op(A > B) private static function gt(lhs:GoInt16, rhs:GoInt16):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoInt16, rhs:GoInt16):Bool;
@@ -804,10 +843,11 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt16, b:T):Bool;
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt16, b:T):Bool;
-    #if (java || cs || cpp)
+
+	#if (java || cs || cpp)
 	@:op(~A) private static function bneg(t:GoInt16):GoInt16;
 
-    @:commutative @:op(A + B) private static function addI(lhs:GoInt16, rhs:Int):GoInt16;
+	@:commutative @:op(A + B) private static function addI(lhs:GoInt16, rhs:Int):GoInt16;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt16, rhs:Float):Float;
 
@@ -854,28 +894,31 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 	@:op(A >> B) private static function shr(lhs:GoInt16, rhs:Int):GoInt16;
 
 	@:op(A >>> B) private static function ushr(lhs:GoInt16, rhs:Int):GoInt16;
-    #else
-		static function clamp(x:Int):Int {
-			var r = x & 0xFFFF;
-			if ((r & 0x8000) != 0) {
-				return -1 - 0xFFFF + r;
-			}
-			return r;
+	#else
+	static function clamp(x:Int):Int {
+		var r = x & 0xFFFF;
+		if ((r & 0x8000) != 0) {
+			return -1 - 0xFFFF + r;
 		}
-    #end
+		return r;
+	}
+	#end
 }
+
 abstract GoInt64(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "int64";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "int64";
 
 	@:from public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
 
-    @:commutative @:op(A + B) private static function addI(lhs:GoInt64, rhs:Int):GoInt64;
+	@:commutative @:op(A + B) private static function addI(lhs:GoInt64, rhs:Int):GoInt64;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt64, rhs:Float):Float;
 
@@ -920,6 +963,7 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 	@:op(A << B) private static function shl(lhs:GoInt64, rhs:Int):GoInt64;
 
 	@:op(A >> B) private static function shr(lhs:GoInt64, rhs:Int):GoInt64;
+
 	@:op(A >>> B) private static function ushr(lhs:GoInt64, rhs:Int):GoInt64;
 
 	@:op(A > B) private static function gt(lhs:GoInt64, rhs:GoInt64):Bool;
@@ -960,10 +1004,13 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uint8";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uint8";
+
 	@:op(A > B) private static function gt(lhs:GoUInt8, rhs:GoUInt8):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoUInt8, rhs:GoUInt8):Bool;
@@ -987,6 +1034,7 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 	@:op(A <= B) private static function ltef(lhs:GoUInt8, rhs:Float):Bool;
 
 	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt8):Bool;
+
 	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt8, b:T):Bool;
 
 	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt8, b:T):Bool;
@@ -995,8 +1043,8 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt8, b:T):Bool;
 
-    #if (cs || cpp || hl)
-    @:commutative @:op(A + B) private static function addI(lhs:GoUInt8, rhs:Int):GoUInt8;
+	#if (cs || cpp || hl)
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt8, rhs:Int):GoUInt8;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUInt8, rhs:Float):Float;
 
@@ -1041,23 +1089,28 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 	@:op(A << B) private static function shl(lhs:GoUInt8, rhs:Int):GoUInt8;
 
 	@:op(A >> B) private static function shr(lhs:GoUInt8, rhs:Int):GoUInt8;
+
 	@:op(A >>> B) private static function ushr(lhs:GoUInt8, rhs:Int):GoUInt8;
 
 	@:op(~A) private static function bneg(t:GoUInt8):GoUInt8;
-    #else
-        //TODO: clamp uint8
-		static function clamp(x:Int):Int {
-			return x & 0xFF;
-		}
-    #end
+	#else
+	// TODO: clamp uint8
+	static function clamp(x:Int):Int {
+		return x & 0xFF;
+	}
+	#end
 }
+
 abstract GoUInt16(UInt16) from UInt16 to UInt16 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uint16";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uint16";
+
 	@:op(A > B) private static function gt(lhs:GoUInt16, rhs:GoUInt16):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoUInt16, rhs:GoUInt16):Bool;
@@ -1089,8 +1142,9 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
 	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt16, b:T):Bool;
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt16, b:T):Bool;
-    #if (cs || cpp || hl)
-    @:commutative @:op(A + B) private static function addI(lhs:GoUInt16, rhs:Int):GoUInt16;
+
+	#if (cs || cpp || hl)
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt16, rhs:Int):GoUInt16;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUInt16, rhs:Float):Float;
 
@@ -1135,27 +1189,32 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
 	@:op(A << B) private static function shl(lhs:GoUInt16, rhs:Int):GoUInt16;
 
 	@:op(A >> B) private static function shr(lhs:GoUInt16, rhs:Int):GoUInt16;
+
 	@:op(A >>> B) private static function ushr(lhs:GoUInt16, rhs:Int):GoUInt16;
 
 	@:op(~A) private static function bneg(t:GoUInt16):GoUInt16;
-    #else
-        //TODO: clamp uint16
-		static function clamp(x:Int):Int {
-			return x & 0xFFFF;
-		}
-    #end
+	#else
+	// TODO: clamp uint16
+	static function clamp(x:Int):Int {
+		return x & 0xFFFF;
+	}
+	#end
 }
+
 abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uint32";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uint32";
 
 	@:from public static inline function ofInt(x:Int):GoUInt32 {
 		return (x : GoUInt32);
 	}
+
 	@:from public static inline function ofFloat(x:Float):GoUInt32 {
 		return (Std.int(x) : GoUInt32);
 	}
@@ -1192,8 +1251,8 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt32, b:T):Bool;
 
-    #if (cs || cpp)
-    @:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32;
+	#if (cs || cpp)
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUInt32, rhs:Float):Float;
 
@@ -1238,30 +1297,36 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 	@:op(A << B) private static function shl(lhs:GoUInt32, rhs:Int):GoUInt32;
 
 	@:op(A >> B) private static function shr(lhs:GoUInt32, rhs:Int):GoUInt32;
+
 	@:op(A >>> B) private static function ushr(lhs:GoUInt32, rhs:Int):GoUInt32;
 
 	@:op(~A) private static function bneg(t:GoUInt32):GoUInt32;
-    #else
-        //TODO: clamp uint32, increase number range
-		static function clamp(x:Int):Int {
-			return x;
-		}
-    #end
+	#else
+	// TODO: clamp uint32, increase number range
+	static function clamp(x:Int):Int {
+		return x;
+	}
+	#end
 }
+
 abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	public inline function new(x)
 		this = x;
-    @:to inline function __promote()
-        return new AnyInterface({value: this,typeName: _typeName_()});
-    public inline function _typeName_()
-        return "uint64";
+
+	@:to inline function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_()});
+
+	public inline function _typeName_()
+		return "uint64";
+
 	@:from public static inline function ofInt(x:Int):GoUInt64 {
 		return new GoUInt64(UInt64.ofInt(x));
 	}
+
 	@:from public static inline function ofFloat(x:Float):GoUInt64 {
 		return (Std.int(x) : GoUInt64);
 	}
-	
+
 	@:op(A > B) private static function gt(lhs:GoUInt64, rhs:GoUInt64):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoUInt64, rhs:GoUInt64):Bool;
@@ -1294,8 +1359,8 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt64, b:T):Bool;
 
-    #if (cs || cpp || eval)
-    @:commutative @:op(A + B) private static function addI(lhs:GoUInt64, rhs:Int):GoUInt64;
+	#if (cs || cpp || eval)
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt64, rhs:Int):GoUInt64;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoUInt64, rhs:Float):Float;
 
@@ -1340,66 +1405,69 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	@:op(A << B) private static function shl(lhs:GoUInt64, rhs:Int):GoUInt64;
 
 	@:op(A >> B) private static function shr(lhs:GoUInt64, rhs:Int):GoUInt64;
+
 	@:op(A >>> B) private static function ushr(lhs:GoUInt64, rhs:Int):GoUInt64;
 
 	@:op(~A) private static function bneg(t:GoUInt64):GoUInt64;
-    #else
-        //TODO: clamp uint64, increase number range
-    #end
+	#else
+	// TODO: clamp uint64, increase number range
+	#end
 }
 
 interface StructType {
-    public final _typeName_:String;
+	public final _typeName_:String;
 	public final _address_:String;
-    public var _is_pointer_:Bool;
+	public var _is_pointer_:Bool;
 }
 
+abstract AnyInterface({value:Any, typeName:String}) {
+	public inline function new(obj) {
+		this = obj;
+	}
 
-abstract AnyInterface({value:Any,typeName:String}) {
-    public inline function new(obj) {
-        this = obj;
-    }
-    @:to private inline function to<T>() {
-        return (this.value : T);
-    }
-    @:from private static inline function from<T>(x:T) {
-        return new AnyInterface({value: x,typeName: "unknown"});
-    }
-    public inline function typeName() {
-        return this.typeName;
-    }
-    public inline function value() {
-        return this.value;
-    }
+	@:to private inline function to<T>() {
+		return (this.value : T);
+	}
+
+	@:from private static inline function from<T>(x:T) {
+		return new AnyInterface({value: x, typeName: "unknown"});
+	}
+
+	public inline function typeName() {
+		return this.typeName;
+	}
+
+	public inline function value() {
+		return this.value;
+	}
 }
 
 interface ArrayAccess<T> {
 	function get(i:Int):T;
-	function set(i:Int,value:T):T;
-}
-interface MapAccess<K,V> {
-    function get(k:K):Null<V>;
-    function set(k:K,v:V):Void;
+	function set(i:Int, value:T):T;
 }
 
-
+interface MapAccess<K, V> {
+	function get(k:K):Null<V>;
+	function set(k:K, v:V):Void;
+}
 /*
-uint8       the set of all unsigned  8-bit integers (0 to 255)
-uint16      the set of all unsigned 16-bit integers (0 to 65535)
-uint32      the set of all unsigned 32-bit integers (0 to 4294967295)
-uint64      the set of all unsigned 64-bit integers (0 to 18446744073709551615)
+	uint8       the set of all unsigned  8-bit integers (0 to 255)
+	uint16      the set of all unsigned 16-bit integers (0 to 65535)
+	uint32      the set of all unsigned 32-bit integers (0 to 4294967295)
+	uint64      the set of all unsigned 64-bit integers (0 to 18446744073709551615)
 
-int8        the set of all signed  8-bit integers (-128 to 127)
-int16       the set of all signed 16-bit integers (-32768 to 32767)
-int32       the set of all signed 32-bit integers (-2147483648 to 2147483647)
-int64       the set of all signed 64-bit integers (-9223372036854775808 to 9223372036854775807)
+	int8        the set of all signed  8-bit integers (-128 to 127)
+	int16       the set of all signed 16-bit integers (-32768 to 32767)
+	int32       the set of all signed 32-bit integers (-2147483648 to 2147483647)
+	int64       the set of all signed 64-bit integers (-9223372036854775808 to 9223372036854775807)
 
-float32     the set of all IEEE-754 32-bit floating-point numbers
-float64     the set of all IEEE-754 64-bit floating-point numbers
+	float32     the set of all IEEE-754 32-bit floating-point numbers
+	float64     the set of all IEEE-754 64-bit floating-point numbers
 
-complex64   the set of all complex numbers with float32 real and imaginary parts
-complex128  the set of all complex numbers with float64 real and imaginary parts
+	complex64   the set of all complex numbers with float32 real and imaginary parts
+	complex128  the set of all complex numbers with float64 real and imaginary parts
 
-byte        alias for uint8
-rune        alias for int32
-*/
+	byte        alias for uint8
+	rune        alias for int32
+ */

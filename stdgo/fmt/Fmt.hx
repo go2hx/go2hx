@@ -24,7 +24,8 @@ inline function printf(fmt:String, args:Rest<Dynamic>) { // format
 inline function fprintf(w:Writer, fmt:String, args:Rest<Dynamic>) {
 	w.write(new GoString(format(fmt, args.toArray())).toArray());
 }
-inline function fprintln(w:Writer,args:Rest<Dynamic>) {
+
+inline function fprintln(w:Writer, args:Rest<Dynamic>) {
 	w.write(new GoString(args.toArray().join(" ")).toArray().concat(["\n".code]));
 }
 

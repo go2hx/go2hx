@@ -146,7 +146,7 @@ class Printf {
 							throw new PrintfError("invalid 'precision' argument");
 						tagArgs.precision = args[argIndex++];
 					}
-					
+
 					var value:Dynamic;
 					if (tagArgs.pos > -1) {
 						if (tagArgs.pos > args.length - 1)

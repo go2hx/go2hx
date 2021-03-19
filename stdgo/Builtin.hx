@@ -19,10 +19,9 @@ inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 }
 
 inline function close(v) {}
-
 inline function complex(r, i) {}
 
-macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
+macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
 	var type = Context.toComplexType(Context.follow(Context.typeof(dst)));
 	switch type {
 		case TPath(p):
@@ -31,7 +30,7 @@ macro function copy<T>(dst:Expr,src:ExprOf<Slice<T>>) {
 					return macro {
 						var src = $src;
 						var dst = $dst;
-						var length = dst.length >= src.length ? src.length : dst.length; //min length
+						var length = dst.length >= src.length ? src.length : dst.length; // min length
 						for (i in 0...length) {
 							dst[i] = src[i];
 						}
@@ -52,7 +51,7 @@ inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 
 function imag(c) {}
 
-macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
+macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
 		throw t;
@@ -69,7 +68,7 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 						switch p.params[0] {
 							case TPType(t):
 								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-								value = defaultValue(t,Context.currentPos());
+								value = defaultValue(t, Context.currentPos());
 							default:
 						}
 						return macro {
@@ -101,7 +100,8 @@ macro function make(t:Expr,?size:Expr,?cap:Expr) { //for slice/array and map
 	}
 	return func();
 }
-function defaultValue(t:ComplexType,pos:Position):Expr {
+
+function defaultValue(t:ComplexType, pos:Position):Expr {
 	switch t {
 		case TFunction(args, ret):
 			return macro null;
@@ -114,32 +114,36 @@ function defaultValue(t:ComplexType,pos:Position):Expr {
 					return null;
 				case "GoArray":
 					return macro new $p();
-				case "GoByte","GoRune","GoInt","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoInt8","GoInt16","GoInt32","GoInt64","GoFloat32","GoFloat64","GoComplex64","GoComplex128":
+				case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
+					"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
 					return macro 0;
-				case "GoDynamic","Any","Dynamic","AnyInterface":
+				case "GoDynamic", "Any", "Dynamic", "AnyInterface":
 					return macro null;
 				case "Bool":
 					return macro false;
-				case "Pointer", "PointerWrapper","GoArrayPointer":
+				case "Pointer", "PointerWrapper", "GoArrayPointer":
 					return macro null;
 				default:
 					return macro new $p();
 			}
 		case TAnonymous(fields):
-			return {pos: pos,expr: EObjectDecl([
-				for (field in fields) {
-					var type:ComplexType = null;
-					switch field.kind {
-						case FVar(t, e):
-							type = t;
-						default:
+			return {
+				pos: pos,
+				expr: EObjectDecl([
+					for (field in fields) {
+						var type:ComplexType = null;
+						switch field.kind {
+							case FVar(t, e):
+								type = t;
+							default:
+						}
+						{
+							field: field.name,
+							expr: defaultValue(type, pos),
+						};
 					}
-					{
-						field: field.name,
-						expr: defaultValue(type,pos),
-					};
-				}
-			])};
+				])
+			};
 		default:
 			trace("unknown type for default value: " + t);
 	}
@@ -154,6 +158,7 @@ function getMetaLength(meta:Metadata):ExprDef {
 	}
 	return EConst(CIdent("0"));
 }
+
 private function getData(expr:Expr):Expr {
 	return switch expr.expr {
 		case ECheckType(e, t): return e;
@@ -161,6 +166,7 @@ private function getData(expr:Expr):Expr {
 		default: expr;
 	}
 }
+
 private function getType(expr:Expr):ComplexType {
 	var type:ComplexType = null;
 	if (expr == null)
@@ -188,5 +194,4 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function real(c) {}
-
 inline function recover() {}

@@ -4,8 +4,8 @@ import Go.ErrorReturn;
 import haxe.Rest;
 
 using haxe.io.Path;
-var errBadPattern = new Errors("syntax error in pattern");
 
+var errBadPattern = new Errors("syntax error in pattern");
 
 function base(path:String):String {
 	path = path.normalize();

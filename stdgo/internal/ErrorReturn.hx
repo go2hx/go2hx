@@ -1,4 +1,5 @@
 package stdgo.internal;
+
 import stdgo.errors.Errors.Error;
 
 @:generic

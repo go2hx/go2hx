@@ -49,7 +49,7 @@ class Go {
 			case EField(e, field):
 				exception = true;
 			// trace("e: " + e);
-			case EArray(e1, e2): //expr[i] : passthrough
+			case EArray(e1, e2): // expr[i] : passthrough
 			default:
 				trace("expr: " + expr.expr);
 		}
@@ -65,7 +65,7 @@ class Go {
 					}
 					var fields = t.fields.get();
 					fields.sort(function(a, b) {
-						return 0;//Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
+						return 0; // Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
 					});
 					var values = [];
 					var main = ExprTools.toString(expr);
@@ -97,6 +97,7 @@ class Go {
 			return expr;
 		}
 	}
+
 	public static macro function isNull(expr:Expr) {
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
@@ -122,7 +123,8 @@ class Go {
 		}
 		return macro false;
 	}
-	public static macro function divide(a:Expr,b:Expr) {
+
+	public static macro function divide(a:Expr, b:Expr) {
 		var aType = Context.follow(Context.typeof(a));
 		var bType = Context.follow(Context.typeof(b));
 
@@ -130,7 +132,7 @@ class Go {
 			switch t {
 				case TAbstract(t, params):
 					var name = t.get().name;
-					if (["Float","Float32","Float64"].indexOf(name) == -1)
+					if (["Float", "Float32", "Float64"].indexOf(name) == -1)
 						return true;
 				default:
 			}
@@ -143,8 +145,9 @@ class Go {
 			return macro Std.int($a / $b);
 		return macro $a / $b;
 	}
+
 	public static macro function destruct(exprs:Array<Expr>) {
-		var expr = exprs.pop(); //expr to destructure
+		var expr = exprs.pop(); // expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
 		var fields:Array<String> = [];
 		switch expr.expr {
@@ -171,9 +174,7 @@ class Go {
 			case TDynamic(t):
 				if (t != null) {
 					trace("unknown dynamic type destruct: " + t);
-				}else{
-					
-				}
+				} else {}
 			default:
 				trace("unknown destruct type: " + type);
 		}
@@ -206,23 +207,24 @@ class Go {
 				}
 				vars.push({
 					name: name,
-					expr: Context.parse("_obj." + fields[i],Context.currentPos()),
+					expr: Context.parse("_obj." + fields[i], Context.currentPos()),
 				});
 			}
 			vars.unshift(main);
-			return {expr: EVars(vars),pos: Context.currentPos()};
+			return {expr: EVars(vars), pos: Context.currentPos()};
 		}
-		//assign
-		var v:Expr = {expr: EVars([main]),pos: Context.currentPos()};
+		// assign
+		var v:Expr = {expr: EVars([main]), pos: Context.currentPos()};
 		var set:Array<Expr> = [];
 		for (i in 0...exprs.length) {
-			set.push(macro ${exprs[i]} = ${Context.parse("_obj." + fields[i],Context.currentPos())});
+			set.push(macro ${exprs[i]} = ${Context.parse("_obj." + fields[i], Context.currentPos())});
 		}
 		return macro {
 			$v;
 			$b{set};
 		}
 	}
+
 	public static macro function set(params:Array<Expr>) {
 		var t = Context.toComplexType(Context.getExpectedType());
 		switch t {
@@ -231,109 +233,117 @@ class Go {
 			case TFunction(args, ret):
 				return macro null;
 			case TAnonymous(fields):
-				fields.sort((a,b) -> {
+				fields.sort((a, b) -> {
 					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
 				});
-				var anon = createAnonType(Context.currentPos(),fields,params);
+				var anon = createAnonType(Context.currentPos(), fields, params);
 				return anon;
 			default:
-				throw ("unknown go set type: " + t);
+				throw("unknown go set type: " + t);
 		}
 		return macro null;
-	}
-	public static macro function setKeys(expr:Expr) {
-		var t = Context.toComplexType(Context.getExpectedType());
-		return macro ($expr : $t);
 	}
 
-	
-public static function createAnonType(pos:Position,fields:Array<Field>,params:Array<Expr>):Expr {
-	return {pos: pos, expr: EObjectDecl([for (i in 0...fields.length) {
-		var expr:Expr = macro null;
-		if (params[i] == null) {
-			switch fields[i].kind {
-				case FVar(t, e):
-					expr = stdgo.Builtin.defaultValue(t,pos);
-				default: //FFunc is nil by default
-			}
-		}else{
-			expr = params[i];
-		}
-		{
-			field: fields[i].name,
-			expr: expr,
+	public static macro function setKeys(expr:Expr) {
+		var t = Context.toComplexType(Context.getExpectedType());
+		return macro($expr : $t);
+	}
+
+	public static function createAnonType(pos:Position, fields:Array<Field>, params:Array<Expr>):Expr {
+		return {
+			pos: pos,
+			expr: EObjectDecl([
+				for (i in 0...fields.length) {
+					var expr:Expr = macro null;
+					if (params[i] == null) {
+						switch fields[i].kind {
+							case FVar(t, e):
+								expr = stdgo.Builtin.defaultValue(t, pos);
+							default: // FFunc is nil by default
+						}
+					} else {
+						expr = params[i];
+					}
+					{
+						field: fields[i].name,
+						expr: expr,
+					};
+				}
+			])
 		};
-	}])};
-}
-public static macro function pointer(expr:Expr) {
-	var isRealPointer = false;
-	var type = Context.follow(Context.typeof(expr));
-	switch type {
-		case TMono(t):
-			type = t.get();
-		default:
 	}
-	if (type == null)
-		return macro null;
-	switch type {
-		case TAbstract(t, params):
-			var t = t.get();
-			switch t.name {
-				case "GoArray", "Slice","Map":
-					return macro new stdgo.Pointer.PointerWrapper($expr);
-				case "GoString","String","Bool","GoInt","GoFloat","GoUInt","GoRune","GoByte","GoInt8","GoInt16","GoInt32","GoInt64","GoUIn8","GoUInt16","GoUInt32","GoUInt64","GoComplex","GoComplex64","GoComplex128":
-					isRealPointer = true;
-				case "Pointer","PointerWrapper": //double or even triple pointer
-					isRealPointer = true;
-			}
-		case TAnonymous(a):
-		case TInst(t, params):
-    	var t = t.get();
-    	if (t.name == "String")
-        	isRealPointer = true;
-		case TDynamic(t):
+
+	public static macro function pointer(expr:Expr) {
+		var isRealPointer = false;
+		var type = Context.follow(Context.typeof(expr));
+		switch type {
+			case TMono(t):
+				type = t.get();
+			default:
+		}
+		if (type == null)
 			return macro null;
-		default:
-			trace("unknown make pointer type: " + type);
-	}
-	switch expr.expr {
-		case EArray(e1, e2):
-			var t = Context.follow(Context.typeof(e1));
-			switch t {
-				case TAbstract(t, params):
-					var t = t.get();
-					if (t.name == "Slice") {
-						if (isRealPointer)
+		switch type {
+			case TAbstract(t, params):
+				var t = t.get();
+				switch t.name {
+					case "GoArray", "Slice", "Map":
+						return macro new stdgo.Pointer.PointerWrapper($expr);
+					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUIn8",
+						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
+						isRealPointer = true;
+					case "Pointer", "PointerWrapper": // double or even triple pointer
+						isRealPointer = true;
+				}
+			case TAnonymous(a):
+			case TInst(t, params):
+				var t = t.get();
+				if (t.name == "String")
+					isRealPointer = true;
+			case TDynamic(t):
+				return macro null;
+			default:
+				trace("unknown make pointer type: " + type);
+		}
+		switch expr.expr {
+			case EArray(e1, e2):
+				var t = Context.follow(Context.typeof(e1));
+				switch t {
+					case TAbstract(t, params):
+						var t = t.get();
+						if (t.name == "Slice") {
+							if (isRealPointer)
+								return macro {
+									var _offset_ = ${e1}.getOffset();
+									var _address_ = ${e1}._address_ + _offset_ + ${e2};
+									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],
+										(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v, _address_));
+								};
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								var _address_ = ${e1}._address_ + _offset_ + ${e2};
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v,_address_));
+								new stdgo.PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
 							};
-						return macro {
-							var _offset_ = ${e1}.getOffset();
-							new stdgo.PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
-						};
-					}
-				default:
-			}
-		default:
+						}
+					default:
+				}
+			default:
+		}
+		if (isRealPointer)
+			return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, $v{Context.signature(expr)}));
+		return macro {
+			$expr._is_pointer_ = true;
+			new stdgo.PointerWrapper($expr);
+		}
 	}
-	if (isRealPointer)
-		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr,(v) -> $expr = v,$v{Context.signature(expr)}));
-	return macro {
-	$expr._is_pointer_ = true;
-	new stdgo.PointerWrapper($expr);
-	}
-}
-	public static macro function assert(expr:Expr,?ok:Expr) {
+
+	public static macro function assert(expr:Expr, ?ok:Expr) {
 		var func = null;
 		var okBool = true;
 		switch ok.expr {
 			case EConst(c):
 				switch c {
 					case CIdent(s):
-						if (s == "null")
-							okBool = false;
+						if (s == "null") okBool = false;
 					default:
 				}
 			default:
@@ -350,16 +360,14 @@ public static macro function pointer(expr:Expr) {
 					return "";
 			}
 		}
-		function assertPointer() {
-			
-		}
+		function assertPointer() {}
 		func = function():Expr {
 			switch expr.expr {
 				case ECheckType(e, t):
 					var to = Context.toComplexType(ComplexTypeTools.toType(t));
 					switch e.expr {
 						case EConst(CIdent("null")):
-							return Builtin.defaultValue(t,Context.currentPos());
+							return Builtin.defaultValue(t, Context.currentPos());
 						default:
 					}
 					function standard() {
@@ -370,19 +378,19 @@ public static macro function pointer(expr:Expr) {
 					}
 					var from = Context.toComplexType(Context.typeof(e));
 					if (from == null) {
-						//most likely pointer
-						return standard() ;
+						// most likely pointer
+						return standard();
 					}
 					if (to == null)
 						trace("could not resolve types: " + e.expr + " : " + t);
 					var fromString = typeName(from);
 					var toString = typeName(to);
 					function assertString() {
-						return macro (Std.string($e) : GoString);
+						return macro(Std.string($e) : GoString);
 					}
 					if (fromString == toString)
 						return e;
-					//trace(fromString + " -> " + toString);
+					// trace(fromString + " -> " + toString);
 					switch fromString {
 						case "String", "GoString":
 							switch toString {
@@ -392,16 +400,16 @@ public static macro function pointer(expr:Expr) {
 						case "Int":
 							switch toString {
 								case "Float":
-									return macro ($e : Float);
+									return macro($e : Float);
 								case "UInt":
-									return macro ($e : UInt);
+									return macro($e : UInt);
 								case "GoString":
 									return assertString();
 							}
 						case "UInt":
-							switch  toString {
+							switch toString {
 								case "Int":
-									return macro ($e : Int);
+									return macro($e : Int);
 							}
 						case "Float":
 							switch toString {
@@ -433,7 +441,7 @@ public static macro function pointer(expr:Expr) {
 						case "Pointer":
 							if (okBool) {
 								return macro {value: new Pointer($e), ok: true};
-							}else{
+							} else {
 								return macro new Pointer(($e : $param));
 							}
 						case "PointerWrapper":
@@ -445,7 +453,7 @@ public static macro function pointer(expr:Expr) {
 								new PointerWrapper(e);
 							}
 					}
-				return standard();
+					return standard();
 				case EParenthesis(e):
 					expr = e;
 					return func();
@@ -456,21 +464,24 @@ public static macro function pointer(expr:Expr) {
 		}
 		return func();
 	}
-	//GOROUTINE
+
+	// GOROUTINE
 	public static macro function routine(expr) {
 		return expr;
 	}
+
 	public static macro function range(expr) {
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
-			case TMono(t): type = t.get();
+			case TMono(t):
+				type = t.get();
 			default:
 		}
 		switch type {
 			case TAbstract(t, params):
 				var t = t.get();
 				switch t.name {
-					case "GoString","Slice","GoArray","Array","GoMap":
+					case "GoString", "Slice", "GoArray", "Array", "GoMap":
 						return macro $expr.keyValueIterator();
 					default:
 						trace("unknown type abstract range: " + t.name);

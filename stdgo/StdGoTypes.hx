@@ -220,6 +220,37 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "float32";
+	@:op(A > B) private static function gt(lhs:GoFloat32, rhs:GoFloat32):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoFloat32, rhs:GoFloat32):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoFloat32, rhs:GoFloat32):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoFloat32, rhs:GoFloat32):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoFloat32, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoFloat32):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoFloat32, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoFloat32):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoFloat32, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoFloat32):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoFloat32, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoFloat32):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoFloat32, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoFloat32, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoFloat32, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat32, b:T):Bool;
     #if (java || cs || hl || cpp) 
     @:commutative @:op(A + B) private static function addI(lhs:GoFloat32, rhs:Int):GoFloat32;
 
@@ -268,41 +299,10 @@ abstract GoFloat32(Float32) from Float32 to Float32 {
 	@:op(A >> B) private static function shr(lhs:GoFloat32, rhs:Int):GoFloat32;
 	@:op(A >>> B) private static function ushr(lhs:GoFloat32, rhs:Int):GoFloat32;
 
-	@:op(A > B) private static function gt(lhs:GoFloat32, rhs:GoFloat32):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoFloat32, rhs:GoFloat32):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoFloat32, rhs:GoFloat32):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoFloat32, rhs:GoFloat32):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoFloat32, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoFloat32):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoFloat32, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoFloat32):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoFloat32, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoFloat32):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoFloat32, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoFloat32):Bool;
-
 	@:op(~A) private static function bneg(t:GoFloat32):GoFloat32;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoFloat32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoFloat32, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoFloat32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoFloat32, b:T):Bool;
     #else
         //TODO: Clamp Float32
+
     #end
 }
 abstract GoComplex64(Int64) from Int64 to Int64 {
@@ -403,7 +403,7 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
         return new AnyInterface({value: this,typeName: _typeName_()});
 
 	@:from public static inline function ofInt(x:Int):GoComplex128
-		#if lua return (Int64.make((x : Int32) >> 31, (x : Int32)) : GoComplex128); #else return (Int64.make(x >> 31, x) : GoComplex128); #end
+		return (Int64.make(x >> 31, x) : GoComplex128);
     public inline function _typeName_()
         return "complex128";
     @:commutative @:op(A + B) private static function addI(lhs:GoComplex128, rhs:Int):GoComplex128;
@@ -583,6 +583,87 @@ abstract GoUInt(Int) from Int to Int {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "uint";
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:commutative @:op(A + B) private static function addF(lhs:GoUInt, rhs:Float):Float;
+
+	@:op(A + B) private static function add(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:commutative @:op(A * B) private static function mulI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:commutative @:op(A * B) private static function mulF(lhs:GoUInt, rhs:Float):Float;
+
+	@:op(A * B) private static function mul(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:op(A % B) private static function modI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A % B) private static function modF(lhs:GoUInt, rhs:Float):Float;
+
+	@:op(A % B) private static function mod(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:op(A - B) private static function subI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A - B) private static function subF(lhs:GoUInt, rhs:Float):Float;
+
+	@:op(A - B) private static function sub(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:op(A / B) private static function divI(lhs:GoUInt, rhs:Int):Float;
+
+	@:op(A / B) private static function divF(lhs:GoUInt, rhs:Float):Float;
+
+	@:op(A / B) private static function div(lhs:GoUInt, rhs:GoUInt):Float;
+
+	@:commutative @:op(A | B) private static function orI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A | B) private static function or(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:commutative @:op(A ^ B) private static function xorI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A ^ B) private static function xor(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:commutative @:op(A & B) private static function andI(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A & B) private static function and(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:op(A << B) private static function shl(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A >> B) private static function shr(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A >>> B) private static function ushr(lhs:GoUInt, rhs:Int):GoUInt;
+
+	@:op(A > B) private static function gt(lhs:GoUInt, rhs:GoUInt):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoUInt, rhs:GoUInt):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoUInt, rhs:GoUInt):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoUInt, rhs:GoUInt):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoUInt, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoUInt, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoUInt, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoUInt, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt):Bool;
+
+	@:op(~A) private static function bneg(t:GoUInt):GoUInt;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt, b:T):Bool;
     //TODO: clamp uint, increase number range
 }
 abstract GoInt8(Int8) from Int8 to Int8 {
@@ -592,6 +673,38 @@ abstract GoInt8(Int8) from Int8 to Int8 {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "int8";
+	@:op(A > B) private static function gt(lhs:GoInt8, rhs:GoInt8):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoInt8, rhs:GoInt8):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoInt8, rhs:GoInt8):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoInt8, rhs:GoInt8):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoInt8, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt8):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoInt8, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt8):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoInt8, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt8):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoInt8, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt8):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt8, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt8, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt8, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt8, b:T):Bool;
+
     #if (cpp || cs || java)
     @:commutative @:op(A + B) private static function addI(lhs:GoInt8, rhs:Int):GoInt8;
 
@@ -641,41 +754,16 @@ abstract GoInt8(Int8) from Int8 to Int8 {
 
 	@:op(A >>> B) private static function ushr(lhs:GoInt8, rhs:Int):GoInt8;
 
-	@:op(A > B) private static function gt(lhs:GoInt8, rhs:GoInt8):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoInt8, rhs:GoInt8):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoInt8, rhs:GoInt8):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoInt8, rhs:GoInt8):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoInt8, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt8):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoInt8, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt8):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoInt8, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt8):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoInt8, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt8):Bool;
-
 	@:op(~A) private static function bneg(t:GoInt8):GoInt8;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt8, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt8, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt8, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt8, b:T):Bool;
     #else
         //TODO: clamp int8
+		static function clamp(x:Int):Int {
+			var r = x & 0xFF;
+			if ((r & 0x80) != 0) {
+				return -1 - 0xFF + r;
+			}
+			return r;
+		}
     #end
 }
 abstract GoInt16(Int16) from Int16 to Int16 {
@@ -685,7 +773,40 @@ abstract GoInt16(Int16) from Int16 to Int16 {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "int16";
+	@:op(A > B) private static function gt(lhs:GoInt16, rhs:GoInt16):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoInt16, rhs:GoInt16):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoInt16, rhs:GoInt16):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoInt16, rhs:GoInt16):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoInt16, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt16):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoInt16, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt16):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoInt16, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt16):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoInt16, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt16):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt16, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt16, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt16, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt16, b:T):Bool;
     #if (java || cs || cpp)
+	@:op(~A) private static function bneg(t:GoInt16):GoInt16;
+
     @:commutative @:op(A + B) private static function addI(lhs:GoInt16, rhs:Int):GoInt16;
 
 	@:commutative @:op(A + B) private static function addF(lhs:GoInt16, rhs:Float):Float;
@@ -733,42 +854,14 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 	@:op(A >> B) private static function shr(lhs:GoInt16, rhs:Int):GoInt16;
 
 	@:op(A >>> B) private static function ushr(lhs:GoInt16, rhs:Int):GoInt16;
-
-	@:op(A > B) private static function gt(lhs:GoInt16, rhs:GoInt16):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoInt16, rhs:GoInt16):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoInt16, rhs:GoInt16):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoInt16, rhs:GoInt16):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoInt16, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt16):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoInt16, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt16):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoInt16, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt16):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoInt16, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt16):Bool;
-
-	@:op(~A) private static function bneg(t:GoInt16):GoInt16;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt16, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoInt16, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoInt16, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoInt16, b:T):Bool;
     #else
-        //TODO: clamp int16
+		static function clamp(x:Int):Int {
+			var r = x & 0xFFFF;
+			if ((r & 0x8000) != 0) {
+				return -1 - 0xFFFF + r;
+			}
+			return r;
+		}
     #end
 }
 abstract GoInt64(Int64) from Int64 to Int64 {
@@ -871,6 +964,37 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "uint8";
+	@:op(A > B) private static function gt(lhs:GoUInt8, rhs:GoUInt8):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoUInt8, rhs:GoUInt8):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoUInt8, rhs:GoUInt8):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoUInt8, rhs:GoUInt8):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoUInt8, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt8):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoUInt8, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt8):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoUInt8, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt8):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoUInt8, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt8):Bool;
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt8, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt8, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt8, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt8, b:T):Bool;
+
     #if (cs || cpp || hl)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt8, rhs:Int):GoUInt8;
 
@@ -919,41 +1043,12 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 	@:op(A >> B) private static function shr(lhs:GoUInt8, rhs:Int):GoUInt8;
 	@:op(A >>> B) private static function ushr(lhs:GoUInt8, rhs:Int):GoUInt8;
 
-	@:op(A > B) private static function gt(lhs:GoUInt8, rhs:GoUInt8):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoUInt8, rhs:GoUInt8):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoUInt8, rhs:GoUInt8):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoUInt8, rhs:GoUInt8):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoUInt8, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt8):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoUInt8, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt8):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoUInt8, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt8):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoUInt8, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt8):Bool;
-
 	@:op(~A) private static function bneg(t:GoUInt8):GoUInt8;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt8, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt8, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt8, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt8, b:T):Bool;
     #else
         //TODO: clamp uint8
+		static function clamp(x:Int):Int {
+			return x & 0xFF;
+		}
     #end
 }
 abstract GoUInt16(UInt16) from UInt16 to UInt16 {
@@ -963,6 +1058,37 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
         return new AnyInterface({value: this,typeName: _typeName_()});
     public inline function _typeName_()
         return "uint16";
+	@:op(A > B) private static function gt(lhs:GoUInt16, rhs:GoUInt16):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoUInt16, rhs:GoUInt16):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoUInt16, rhs:GoUInt16):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoUInt16, rhs:GoUInt16):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoUInt16, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt16):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoUInt16, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt16):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoUInt16, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt16):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoUInt16, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt16):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt16, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt16, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt16, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt16, b:T):Bool;
     #if (cs || cpp || hl)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt16, rhs:Int):GoUInt16;
 
@@ -1011,41 +1137,12 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
 	@:op(A >> B) private static function shr(lhs:GoUInt16, rhs:Int):GoUInt16;
 	@:op(A >>> B) private static function ushr(lhs:GoUInt16, rhs:Int):GoUInt16;
 
-	@:op(A > B) private static function gt(lhs:GoUInt16, rhs:GoUInt16):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoUInt16, rhs:GoUInt16):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoUInt16, rhs:GoUInt16):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoUInt16, rhs:GoUInt16):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoUInt16, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt16):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoUInt16, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt16):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoUInt16, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt16):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoUInt16, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt16):Bool;
-
 	@:op(~A) private static function bneg(t:GoUInt16):GoUInt16;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt16, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt16, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt16, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt16, b:T):Bool;
     #else
         //TODO: clamp uint16
+		static function clamp(x:Int):Int {
+			return x & 0xFFFF;
+		}
     #end
 }
 abstract GoUInt32(UInt32) from UInt32 to UInt32 {
@@ -1062,6 +1159,38 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 	@:from public static inline function ofFloat(x:Float):GoUInt32 {
 		return (Std.int(x) : GoUInt32);
 	}
+
+	@:op(A > B) private static function gt(lhs:GoUInt32, rhs:GoUInt32):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoUInt32, rhs:GoUInt32):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoUInt32, rhs:GoUInt32):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoUInt32, rhs:GoUInt32):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoUInt32, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt32):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoUInt32, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt32):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoUInt32, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt32):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoUInt32, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt32):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt32, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt32, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt32, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt32, b:T):Bool;
 
     #if (cs || cpp)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32;
@@ -1111,41 +1240,12 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 	@:op(A >> B) private static function shr(lhs:GoUInt32, rhs:Int):GoUInt32;
 	@:op(A >>> B) private static function ushr(lhs:GoUInt32, rhs:Int):GoUInt32;
 
-	@:op(A > B) private static function gt(lhs:GoUInt32, rhs:GoUInt32):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoUInt32, rhs:GoUInt32):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoUInt32, rhs:GoUInt32):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoUInt32, rhs:GoUInt32):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoUInt32, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt32):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoUInt32, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt32):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoUInt32, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt32):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoUInt32, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt32):Bool;
-
 	@:op(~A) private static function bneg(t:GoUInt32):GoUInt32;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt32, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt32, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt32, b:T):Bool;
     #else
         //TODO: clamp uint32, increase number range
+		static function clamp(x:Int):Int {
+			return x;
+		}
     #end
 }
 abstract GoUInt64(UInt64) from UInt64 to UInt64 {
@@ -1161,6 +1261,39 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	@:from public static inline function ofFloat(x:Float):GoUInt64 {
 		return (Std.int(x) : GoUInt64);
 	}
+	
+	@:op(A > B) private static function gt(lhs:GoUInt64, rhs:GoUInt64):Bool;
+
+	@:op(A >= B) private static function gte(lhs:GoUInt64, rhs:GoUInt64):Bool;
+
+	@:op(A < B) private static function lt(lhs:GoUInt64, rhs:GoUInt64):Bool;
+
+	@:op(A <= B) private static function lte(lhs:GoUInt64, rhs:GoUInt64):Bool;
+
+	@:op(A > B) private static function gtf(lhs:GoUInt64, rhs:Float):Bool;
+
+	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt64):Bool;
+
+	@:op(A >= B) private static function gtef(lhs:GoUInt64, rhs:Float):Bool;
+
+	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt64):Bool;
+
+	@:op(A < B) private static function ltf(lhs:GoUInt64, rhs:Float):Bool;
+
+	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt64):Bool;
+
+	@:op(A <= B) private static function ltef(lhs:GoUInt64, rhs:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt64):Bool;
+
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt64, b:T):Bool;
+
     #if (cs || cpp || eval)
     @:commutative @:op(A + B) private static function addI(lhs:GoUInt64, rhs:Int):GoUInt64;
 
@@ -1209,39 +1342,7 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	@:op(A >> B) private static function shr(lhs:GoUInt64, rhs:Int):GoUInt64;
 	@:op(A >>> B) private static function ushr(lhs:GoUInt64, rhs:Int):GoUInt64;
 
-	@:op(A > B) private static function gt(lhs:GoUInt64, rhs:GoUInt64):Bool;
-
-	@:op(A >= B) private static function gte(lhs:GoUInt64, rhs:GoUInt64):Bool;
-
-	@:op(A < B) private static function lt(lhs:GoUInt64, rhs:GoUInt64):Bool;
-
-	@:op(A <= B) private static function lte(lhs:GoUInt64, rhs:GoUInt64):Bool;
-
-	@:op(A > B) private static function gtf(lhs:GoUInt64, rhs:Float):Bool;
-
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt64):Bool;
-
-	@:op(A >= B) private static function gtef(lhs:GoUInt64, rhs:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt64):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoUInt64, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt64):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoUInt64, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt64):Bool;
-
 	@:op(~A) private static function bneg(t:GoUInt64):GoUInt64;
-
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt64, b:T):Bool;
     #else
         //TODO: clamp uint64, increase number range
     #end

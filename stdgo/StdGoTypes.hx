@@ -514,6 +514,10 @@ abstract GoInt(Int) from Int32 to Int32 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
+	@:to inline function toUInt32()
+		return new GoUInt32(this);
+	@:to inline function toInt32()
+		return new GoInt32(this);
 	public inline function toInt():Int {
 		return this;
 	}
@@ -544,11 +548,11 @@ abstract GoInt(Int) from Int32 to Int32 {
 
 	@:op(A - B) private static function sub(lhs:GoInt, rhs:GoInt):GoInt;
 
-	@:op(A / B) private static function divI(lhs:GoInt, rhs:Int):Float;
+	//@:op(A / B) private static function divI(lhs:GoInt, rhs:Int):Float;
 
-	@:op(A / B) private static function divF(lhs:GoInt, rhs:Float):Float;
+	//@:op(A / B) private static function divF(lhs:GoInt, rhs:Float):Float;
 
-	@:op(A / B) private static function div(lhs:GoInt, rhs:GoInt):Float;
+	//@:op(A / B) private static function div(lhs:GoInt, rhs:GoInt):Float;
 
 	@:commutative @:op(A | B) private static function orI(lhs:GoInt, rhs:Int):GoInt;
 
@@ -704,7 +708,9 @@ abstract GoInt8(Int8) from Int8 to Int8 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-
+	@:from static function ofUInt8(x:GoUInt8):GoInt8 {
+		return new GoInt8(x);
+	}
 	public inline function _typeName_()
 		return "int8";
 
@@ -917,9 +923,19 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
+	@:to inline function toString() {
+		return haxe.Int64.toStr(this);
+	}
 
 	public inline function _typeName_()
 		return "int64";
+
+	@:from public static inline function ofInt8(x:GoInt8):GoInt64 {
+		return ofInt(x);
+	}
+	@:from public static inline function ofUInt8(x:GoUInt8):GoInt64 {
+		return ofInt(x);
+	}
 
 	@:from public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
@@ -997,6 +1013,13 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt64):Bool;
 
 	@:op(~A) private static function bneg(t:GoInt64):GoInt64;
+
+	@:op(A == B) private static function equals(a:GoInt64,b:GoInt64):Bool {
+		return haxe.Int64.eq(a,b);
+	}
+	@:op(A != B) private static function notEquals(a:GoInt64,b:GoInt64):Bool {
+		return !haxe.Int64.eq(a,b);
+	}
 
 	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoInt64, b:T):Bool;
 
@@ -1259,6 +1282,18 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt32, b:T):Bool;
 
+	@:op(A / B) private static function divI(lhs:GoUInt32, rhs:Int):GoUInt32 {
+		return clamp(Std.int((lhs : Int) / (rhs : Int)));
+	}
+
+	@:op(A / B) private static function divF(lhs:GoUInt32, rhs:Float):GoUInt32 {
+		return clamp(Std.int((lhs : Int) / rhs));
+	}
+
+	@:op(A / B) private static function div(lhs:GoUInt32, rhs:GoUInt32):GoUInt32 {
+		return clamp(Std.int((lhs : Int) / (rhs : Int)));
+	}
+
 	#if (cs || cpp)
 	@:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32;
 
@@ -1284,12 +1319,6 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 
 	@:op(A - B) private static function sub(lhs:GoUInt32, rhs:GoUInt32):GoUInt32;
 
-	@:op(A / B) private static function divI(lhs:GoUInt32, rhs:Int):Float;
-
-	@:op(A / B) private static function divF(lhs:GoUInt32, rhs:Float):Float;
-
-	@:op(A / B) private static function div(lhs:GoUInt32, rhs:GoUInt32):Float;
-
 	@:commutative @:op(A | B) private static function orI(lhs:GoUInt32, rhs:Int):GoUInt32;
 
 	@:op(A | B) private static function or(lhs:GoUInt32, rhs:GoUInt32):GoUInt32;
@@ -1310,6 +1339,18 @@ abstract GoUInt32(UInt32) from UInt32 to UInt32 {
 
 	@:op(~A) private static function bneg(t:GoUInt32):GoUInt32;
 	#else
+	@:commutative @:op(A + B) private static function addI(lhs:GoUInt32, rhs:Int):GoUInt32 {
+		return clamp((lhs : Int) + (rhs : Int));
+	}
+	@:commutative @:op(A ^ B) private static function xor(lhs:GoUInt32, rhs:Int):GoUInt32 {
+		return clamp((lhs : Int) ^ (rhs : Int));
+	}
+	@:commutative @:op(A - B) private static function subI(lhs:GoUInt32, rhs:Int):GoUInt32 {
+		return clamp((lhs : Int) - (rhs : Int));
+	}
+	@:commutative @:op(A * B) private static function mulI(lhs:GoUInt32, rhs:Int):GoUInt32 {
+		return clamp((lhs : Int) * (rhs : Int));
+	}
 	// TODO: clamp uint32, increase number range
 	static function clamp(x:Int):Int {
 		return x;
@@ -1392,11 +1433,11 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 	@:op(A - B) private static function sub(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
 
-	@:op(A / B) private static function divI(lhs:GoUInt64, rhs:Int):Float;
+	//@:op(A / B) private static function divI(lhs:GoUInt64, rhs:Int):Float;
 
-	@:op(A / B) private static function divF(lhs:GoUInt64, rhs:Float):Float;
+	//@:op(A / B) private static function divF(lhs:GoUInt64, rhs:Float):Float;
 
-	@:op(A / B) private static function div(lhs:GoUInt64, rhs:GoUInt64):Float;
+	//@:op(A / B) private static function div(lhs:GoUInt64, rhs:GoUInt64):Float;
 
 	@:commutative @:op(A | B) private static function orI(lhs:GoUInt64, rhs:Int):GoUInt64;
 

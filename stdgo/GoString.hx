@@ -23,7 +23,9 @@ abstract GoString(String) from String to String {
 	public function toString():String {
 		return this;
 	}
-
+	@:to public function toSlice():Slice<StdGoTypes.GoByte> {
+		return new Slice(...toArray());
+	}
 	public function toArray():Array<StdGoTypes.GoByte> {
 		return [for (code in new StringIterator(this)) code];
 	}

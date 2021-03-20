@@ -1588,7 +1588,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var y = typeExpr(expr.y, info);
 	switch expr.op { // operators that don't exist in haxe needle to be handled here
 		case AND_NOT: // refrenced from Simon's Tardisgo
-			return (macro $x & ($y ^ haxe.Int64.make(-1, -1))).expr;
+			return (macro $x & ($y ^ -1)).expr;
 		default:
 	}
 	var op = typeOp(expr.op);
@@ -1618,8 +1618,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			return EBinop(op, macro Std.int($x), macro Std.int($y));
 		case OpXor:
 			return EBinop(op, x, y);
-		case OpDiv:
-			return (macro Go.divide($x, $y)).expr;
 		case OpEq:
 			var value = isNil();
 			if (value != null)

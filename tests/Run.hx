@@ -49,7 +49,7 @@ function gen() {
 		}
 		if (code == null) {
 			Sys.println("timed out...");
-			Sys.println('command run: $command');
+			Sys.println('command: $command');
 			output.writeString('- [ ] $path (timed out)\n');
 		} else {
 			if (code <= 0) {
@@ -58,6 +58,7 @@ function gen() {
 				output.writeString('- [x] $path\n');
 			} else {
 				var line = getLine(proc.stderr.readLine());
+				Sys.println('command: $command');
 				Sys.println(line + "\n" + proc.stderr.readAll().toString());
 				output.writeString('- [ ] $path    - $line \n');
 			}

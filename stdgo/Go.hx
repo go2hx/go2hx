@@ -127,28 +127,6 @@ class Go {
 		return macro $expr == null;
 	}
 
-	public static macro function divide(a:Expr, b:Expr) {
-		var aType = Context.follow(Context.typeof(a));
-		var bType = Context.follow(Context.typeof(b));
-
-		function checkInt(t:haxe.macro.Type) {
-			switch t {
-				case TAbstract(t, params):
-					var name = t.get().name;
-					if (["Float", "Float32", "Float64"].indexOf(name) == -1)
-						return true;
-				default:
-			}
-			return false;
-		}
-		var isInt = checkInt(aType);
-		if (!isInt)
-			isInt = checkInt(bType);
-		if (isInt)
-			return macro Std.int($a / $b);
-		return macro $a / $b;
-	}
-
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); // expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));
@@ -292,7 +270,7 @@ class Go {
 				switch t.name {
 					case "GoArray", "Slice", "Map":
 						return macro new stdgo.Pointer.PointerWrapper($expr);
-					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUIn8",
+					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt8",
 						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
 						isRealPointer = true;
 					case "Pointer", "PointerWrapper": // double or even triple pointer

@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.GoUInt8;
 import haxe.iterators.StringKeyValueIterator;
 import haxe.iterators.StringIterator;
 import stdgo.StdGoTypes.AnyInterface;
@@ -13,6 +14,10 @@ abstract GoString(String) from String to String {
 
 	@:to inline function __promote() {
 		return new AnyInterface({value: this, typeName: "string"});
+	}
+
+	@:from static function ofUInt8(x:GoUInt8):GoString {
+		return String.fromCharCode(x);
 	}
 
 	@:arrayAccess
@@ -43,6 +48,9 @@ abstract GoString(String) from String to String {
 			end = this.length;
 		return this.substring(start, end);
 	}
+	public inline function typeName() {
+		return "GoString";
+	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool;
 
@@ -58,13 +66,11 @@ abstract GoString(String) from String to String {
 
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString;
 
-	@:op(A += B) static function assignAdd(a:GoString, b:GoString):GoString;
+	@:op(A += B) inline function assignAddGo(a:GoString):GoString {
+		return this = this + a;
+	}
 
 	@:op(A + B) @:commutative static function add(a:GoString, b:String):GoString;
 
 	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
-
-	public inline function typeName() {
-		return "GoString";
-	}
 }

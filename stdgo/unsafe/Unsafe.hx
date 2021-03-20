@@ -1,17 +1,18 @@
 package stdgo.unsafe;
 
-import stdgo.StdTypes.UIntptr;
+import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoUIntptr;
 
-typedef ArbitraryType = Dynamic;
+typedef ArbitraryType = AnyInterface;
 
-function sizeof(x:ArbitraryType):UIntptr {
+function sizeof(x:ArbitraryType):GoUIntptr {
 	return 0;
 }
 
-function offsetof(x:ArbitraryType):UIntptr {
+function offsetof(x:ArbitraryType):GoUIntptr {
 	return 0;
 }
 
-function alignof(x:ArbitraryType):UIntptr {
+function alignof(x:ArbitraryType):GoUIntptr {
 	return 0;
 }

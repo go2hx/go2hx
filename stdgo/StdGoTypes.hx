@@ -1400,14 +1400,6 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt64):Bool;
 
-	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt64, b:T):Bool;
-
-	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt64, b:T):Bool;
-
 	#if (cs || cpp || eval)
 	@:commutative @:op(A + B) private static function addI(lhs:GoUInt64, rhs:Int):GoUInt64;
 
@@ -1458,7 +1450,29 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 	@:op(A >>> B) private static function ushr(lhs:GoUInt64, rhs:Int):GoUInt64;
 
 	@:op(~A) private static function bneg(t:GoUInt64):GoUInt64;
+	#if eval
+	@:op(A != B) static function eq(a:GoUInt64, b:GoUInt64):Bool;
+	@:op(A == B) static function ne(a:GoUInt64, b:GoUInt64):Bool;
+	@:op(A < B) static function lt(a:GoUInt64, b:GoUInt64):Bool;
+	@:op(A > B) static function gt(a:GoUInt64, b:GoUInt64):Bool;
+	@:op(A <= B) static function lte(a:GoUInt64, b:GoUInt64):Bool;
+	@:op(A >= B) static function gte(a:GoUInt64, b:GoUInt64):Bool;
+	
+	@:commutative @:op(A != B) static inline function eq(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) != 0;
+	@:commutative @:op(A == B) static inline function ne(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) == 0;
+	@:commutative @:op(A < B) static inline function lt(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) < 0;
+	@:commutative @:op(A > B) static inline function gt(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) > 0;
+	@:commutative @:op(A <= B) static inline function lte(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) <= 0;
+	@:commutative @:op(A >= B) static inline function gte(a:GoUInt64, b:Int):Bool return eval.integers.UInt64.compare(a,eval.integers.UInt64.ofInt(b)) >= 0;
+	#end
 	#else
+	@:commutative @:op(A == B) private static function equalsInt<T:Int>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsInt<T:Int>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A == B) private static function equalsFloat<T:Float>(a:GoUInt64, b:T):Bool;
+
+	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoUInt64, b:T):Bool;
 	// TODO: clamp uint64, increase number range
 	#end
 }

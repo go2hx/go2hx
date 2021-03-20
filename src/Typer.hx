@@ -1820,6 +1820,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 							default:
 						}
 					}
+					//push field function to class
 					def.fields.push({
 						name: name,
 						pos: null,
@@ -2150,6 +2151,8 @@ private function renameDef(name:String, info:Info):String {
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(title(spec.name.name));
+	if (name == "_")
+		name = "_" + (info.blankCounter++);
 	info.className = name;
 	if (info.local) {
 		var newName = renameDef(name, info);

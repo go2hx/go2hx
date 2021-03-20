@@ -7,6 +7,7 @@ import sys.FileSystem;
 import haxe.io.Path;
 import sys.io.File;
 import haxe.Json;
+import stdgo.StdGoTypes;
 
 final cwd = Sys.getCwd();
 var exportPaths:Array<String> = [];

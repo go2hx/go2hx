@@ -59,10 +59,18 @@ abstract PointerWrapper<T>(T) from T to T {
 	}
 
 	@:op(A == B) static function equals<T>(a:PointerWrapper<T>, b:PointerWrapper<T>):Bool {
+		if (a == null)
+			return b == null ? true : false;
+		if (b == null)
+			return a == null ? true : false;
 		return (a._value_ : Dynamic)._address_ == (b._value_ : Dynamic)._address_;
 	}
 
 	@:op(A != B) static function notEquals<T>(a:PointerWrapper<T>, b:PointerWrapper<T>):Bool {
+		if (a == null)
+			return b == null ? !true : !false;
+		if (b == null)
+			return a == null ? !true : !false;
 		return (a._value_ : Dynamic)._address_ != (b._value_ : Dynamic)._address_;
 	}
 

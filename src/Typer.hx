@@ -436,7 +436,6 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case CONTINUE: EContinue;
 		case BREAK: EBreak;
 		case GOTO:
-			stmt.label.name += "_label";
 			var name = toExpr(typeIdent(stmt.label, info));
 			return (macro return $name()).expr;
 		case FALLTHROUGH: EBreak; // TODO
@@ -468,7 +467,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			switch list[i].id {
 				case "LabeledStmt":
 					var stmt:Ast.LabeledStmt = list[i];
-					var name = nameIdent(stmt.label.name, info) + "_label";
+					var name = nameIdent(stmt.label.name, info);
 					labels.push(name);
 					var body = exprs.splice(i, list.length);
 					var func = toExpr(EFunction(null, {
@@ -525,8 +524,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 }
 
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
-	var stmt = typeStmt(stmt.stmt, info);
-	return stmt.expr;
+	return (macro {}).expr;
 }
 
 private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
@@ -1323,7 +1321,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EConst(c):
 					switch c {
 						case CString(s, kind):
-							last = macro Go.assert(($last : Slice<String>));
+							last = macro ($last : Slice<String>);
 						default:
 					}
 				default:
@@ -1385,7 +1383,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (isType) {
 							var arg = typeExpr(expr.args[0], info);
 							var type = typeExprType(expr.fun, info);
-							return (macro Go.assert(($arg : $type))).expr;
+							return (macro ($arg : $type)).expr;
 						}
 					}
 			}
@@ -1400,14 +1398,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					default:
 						// trace("unknown type paren expr");
 						var arg = typeExpr(expr.args[0], info);
-						return (macro Go.assert(($arg : $t))).expr;
+						return (macro ($arg : $t)).expr;
 				}
 			}
 		case "ArrayType":
 			// set assert type
 			var type = typeExprType(expr.fun, info);
 			var expr = typeExpr(expr.args[0], info);
-			return (macro Go.assert(($expr : $type))).expr;
+			return (macro ($expr : $type)).expr;
 		case "InterfaceType":
 			// set dynamic
 			genArgs();
@@ -1734,7 +1732,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 	if (expr.type == null)
 		return e.expr;
 	var type = typeExprType(expr.type, info);
-	return (macro Go.assert(($e : $type))).expr;
+	return (macro ($e : $type)).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
@@ -1745,6 +1743,18 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
+	if (info.thisName != "") {
+		switch x.expr {
+			case EConst(c):
+				switch c {
+					case CIdent(s):
+						if (s == info.thisName)
+							return x.expr;
+					default:
+				}
+			default:
+		}
+	}
 	return (macro $x._value_).expr; // pointer code
 }
 
@@ -1795,6 +1805,8 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 						continue;
 					if (decl.recv.list[0].names.length > 0) {
 						var varName = decl.recv.list[0].names[0].name;
+						info.thisName = varName;
+						block = toExpr(typeBlockStmt(decl.body,info,true)); //rerun so thisName system can be used
 						switch block.expr {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
@@ -1805,7 +1817,6 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 								block.expr = EBlock(exprs);
 							default:
 						}
-						info.thisName = varName;
 					}
 					def.fields.push({
 						name: name,

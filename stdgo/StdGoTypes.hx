@@ -134,7 +134,6 @@ abstract GoFloat(Float) from Float to Float {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	public inline function _typeName_()
 		return "float";
 
@@ -423,7 +422,6 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 
 	@:from public static inline function ofInt(x:Int):GoComplex128
 		return (Int64.make(x >> 31, x) : GoComplex128);
-
 	public inline function _typeName_()
 		return "complex128";
 
@@ -516,7 +514,9 @@ abstract GoInt(Int) from Int32 to Int32 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-
+	public inline function toInt():Int {
+		return this;
+	}
 	public inline function _typeName_()
 		return "int";
 
@@ -812,6 +812,10 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 	public inline function _typeName_()
 		return "int16";
 
+	@:from private static inline function fromUInt8(x:GoUInt8):GoInt16 {
+		return new GoInt16(x);
+	}
+
 	@:op(A > B) private static function gt(lhs:GoInt16, rhs:GoInt16):Bool;
 
 	@:op(A >= B) private static function gte(lhs:GoInt16, rhs:GoInt16):Bool;
@@ -895,6 +899,8 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 
 	@:op(A >>> B) private static function ushr(lhs:GoInt16, rhs:Int):GoInt16;
 	#else
+	@:op(A + B) private static inline function add(a:GoInt16,b:GoInt16):GoInt16
+		return clamp((a : Int) + (b : Int));
 	static function clamp(x:Int):Int {
 		var r = x & 0xFFFF;
 		if ((r & 0x8000) != 0) {
@@ -1007,7 +1013,9 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-
+	@:from public static inline function ofInt(x:Int):GoUInt8 {
+		return new GoUInt8(x);
+	}
 	public inline function _typeName_()
 		return "uint8";
 
@@ -1430,6 +1438,8 @@ abstract AnyInterface({value:Any, typeName:String}) {
 	}
 
 	@:from private static inline function from<T>(x:T) {
+		if (x == null)
+			return new AnyInterface({value: null,typeName: "null"});
 		return new AnyInterface({value: x, typeName: "unknown"});
 	}
 

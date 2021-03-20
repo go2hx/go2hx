@@ -116,7 +116,7 @@ function defaultValue(t:ComplexType, pos:Position):Expr {
 					return macro new $p();
 				case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
 					"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
-					return macro 0;
+					return macro (0 : $t);
 				case "GoDynamic", "Any", "Dynamic", "AnyInterface":
 					return macro null;
 				case "Bool":

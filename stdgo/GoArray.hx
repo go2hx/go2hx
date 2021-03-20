@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes;
 import haxe.rtti.Meta;
 import haxe.ds.Vector;
 import haxe.Rest;
@@ -31,7 +32,6 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		}
 		#end
 	}
-
 	@:op([]) public inline function get(index:Int):T {
 		boundsCheck(index);
 		return this.get(index);

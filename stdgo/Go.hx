@@ -107,9 +107,11 @@ class Go {
 					case "Slice":
 						return macro $expr.length == 0;
 					case "PointerWrapper":
-						return macro $expr == null;
+						return macro Go.isNull($expr._value_);
 					case "AnyInterface":
-						return macro $expr.value == null;
+						return macro Go.isNull($expr.value);
+					case "GoArray":
+						return macro false;
 					default:
 						trace("unknown abstract: " + t.name);
 				}
@@ -118,10 +120,11 @@ class Go {
 					return macro true;
 			case TFun(args, ret):
 				return macro false;
+			case TInst(t, params):
 			default:
 				trace("unknown type: " + type);
 		}
-		return macro false;
+		return macro $expr == null;
 	}
 
 	public static macro function divide(a:Expr, b:Expr) {
@@ -334,135 +337,6 @@ class Go {
 			$expr._is_pointer_ = true;
 			new stdgo.PointerWrapper($expr);
 		}
-	}
-
-	public static macro function assert(expr:Expr, ?ok:Expr) {
-		var func = null;
-		var okBool = true;
-		switch ok.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s):
-						if (s == "null") okBool = false;
-					default:
-				}
-			default:
-		}
-		function typeName(t:ComplexType):String {
-			if (t == null)
-				return "";
-			switch t {
-				case TPath(p):
-					if (p.sub != null)
-						return p.sub;
-					return p.name;
-				default:
-					return "";
-			}
-		}
-		function assertPointer() {}
-		func = function():Expr {
-			switch expr.expr {
-				case ECheckType(e, t):
-					var to = Context.toComplexType(ComplexTypeTools.toType(t));
-					switch e.expr {
-						case EConst(CIdent("null")):
-							return Builtin.defaultValue(t, Context.currentPos());
-						default:
-					}
-					function standard() {
-						return macro {
-							var x:$to = $e;
-							x;
-						}
-					}
-					var from = Context.toComplexType(Context.typeof(e));
-					if (from == null) {
-						// most likely pointer
-						return standard();
-					}
-					if (to == null)
-						trace("could not resolve types: " + e.expr + " : " + t);
-					var fromString = typeName(from);
-					var toString = typeName(to);
-					function assertString() {
-						return macro(Std.string($e) : GoString);
-					}
-					if (fromString == toString)
-						return e;
-					// trace(fromString + " -> " + toString);
-					switch fromString {
-						case "String", "GoString":
-							switch toString {
-								case "Slice":
-									return macro new stdgo.Slice(...($e.toArray()));
-							}
-						case "Int":
-							switch toString {
-								case "Float":
-									return macro($e : Float);
-								case "UInt":
-									return macro($e : UInt);
-								case "GoString":
-									return assertString();
-							}
-						case "UInt":
-							switch toString {
-								case "Int":
-									return macro($e : Int);
-							}
-						case "Float":
-							switch toString {
-								case "Int64":
-									return macro new stdgo.StdGoTypes.Int64(haxe.Int64Helper.fromFloat($e));
-								default:
-							}
-						case "AnyInterface":
-							switch toString {
-								case "Slice":
-									return standard();
-								default:
-									return e;
-							}
-					}
-					var param:ComplexType = null;
-					switch t {
-						case TPath(p):
-							if (p.params != null && p.params[0] != null) {
-								switch p.params[0] {
-									case TPType(t):
-										param = t;
-									default:
-								}
-							}
-						default:
-					}
-					switch toString {
-						case "Pointer":
-							if (okBool) {
-								return macro {value: new Pointer($e), ok: true};
-							} else {
-								return macro new Pointer(($e : $param));
-							}
-						case "PointerWrapper":
-							if (okBool) {
-								return macro {value: new PointerWrapper($e), ok: true};
-							}
-							return macro {
-								var e:$param = $e;
-								new PointerWrapper(e);
-							}
-					}
-					return standard();
-				case EParenthesis(e):
-					expr = e;
-					return func();
-				default:
-					trace("unknown expr def for assert: " + expr.expr);
-			}
-			return expr;
-		}
-		return func();
 	}
 
 	// GOROUTINE

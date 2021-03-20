@@ -10,6 +10,7 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 class Go {
+	public static var addressIndex:Int = 1;
 	public static macro function copy(expr) { // slices and maps are ref types
 		var type = Context.followWithAbstracts(Context.typeof(expr));
 		var exception = false;

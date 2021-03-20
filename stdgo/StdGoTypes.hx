@@ -1465,7 +1465,7 @@ abstract GoUInt64(UInt64) from UInt64 to UInt64 {
 
 interface StructType {
 	public final _typeName_:String;
-	public final _address_:String;
+	public var _address_:Int;
 	public var _is_pointer_:Bool;
 }
 

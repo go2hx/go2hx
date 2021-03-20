@@ -1066,6 +1066,8 @@ private function interfaceType(expr:Ast.InterfaceType, info:Info):ComplexType {
 }
 
 private function structType(expr:Ast.StructType, info:Info):ComplexType {
+	if (expr.fields == null || expr.fields.list == null || expr.fields.list.length == 0)
+		return TPath({name: "Dynamic",pack: []});
 	var fields = typeFieldListFields(expr.fields, info, [], false, true);
 	return TAnonymous(fields);
 }
@@ -1527,6 +1529,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		switch type {
 			case TPath(tp):
 				p = tp;
+				if (p.name == "Dynamic" && p.pack.length == 0)
+					return (macro {}).expr;
 			case TAnonymous(fields):
 				if (isKeyValueExpr(expr.elts)) {
 					return getKeyValueExpr(expr.elts, info).expr;
@@ -2162,7 +2166,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				access: [APublic],
 				kind: FFun({
 					args: [for (field in fields) {name: field.name, opt: true}],
-					expr: macro stdgo.internal.Macro.initLocals(),
+					expr: macro {
+						stdgo.internal.Macro.initLocals();
+						_address_ = ++Go.addressIndex;
+					},
 				}),
 			});
 			var toStringValue = "{";
@@ -2222,8 +2229,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			fields.push({
 				name: "_address_",
 				pos: null,
-				access: [APublic, AFinal],
-				kind: FVar(null, toExpr(EConst(CString(haxe.crypto.Md5.encode(info.path + info.data.name + spec.name.name))))),
+				access: [APublic],
+				kind: FVar(null, macro 0),
 			});
 			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
 

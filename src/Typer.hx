@@ -1464,7 +1464,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 					var i = haxe.Int64Helper.parseString(expr.value);
 					if (i > 2147483647 || i < -2147483647) {
 						info.type = TPath({name: "GoInt64", pack: []});
-						return (macro haxe.Int64Helper.fromFloat(${toExpr(EConst(CFloat(expr.value)))})).expr;
+						return (macro haxe.Int64Helper.parseString(${toExpr(EConst(CString(expr.value)))})).expr;
 					}
 				} catch (e) {
 					trace("basic lit int error: " + e + " value: " + expr.value);

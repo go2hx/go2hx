@@ -19,7 +19,9 @@ inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 }
 
 inline function close(v) {}
-inline function complex(r, i) {}
+inline function complex(r, i) {
+	return 0; //TODO: implement complex function
+}
 
 macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
 	var type = Context.toComplexType(Context.follow(Context.typeof(dst)));

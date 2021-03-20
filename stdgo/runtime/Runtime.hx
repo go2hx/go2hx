@@ -18,7 +18,13 @@ function gc() {
 	//run garbage collector
 }
 function setFinalizer(obj:AnyInterface,finalizer:AnyInterface) {
-	
+
+}
+function gosched() {
+	//yields the current processor
+}
+function numGoroutine() {
+	return 0;
 }
 
 class MemStats implements StructType {

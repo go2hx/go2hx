@@ -1484,7 +1484,7 @@ interface StructType {
 }
 
 abstract AnyInterface({value:Any, typeName:String}) {
-	public inline function new(obj) {
+	public inline function new(obj=null) {
 		this = obj;
 	}
 

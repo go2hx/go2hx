@@ -1776,7 +1776,11 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 
 // SPECS
 private function typeDeferReturn():Expr {
-	return macro for (defer in deferstack) Reflect.callMethod(null, defer[0], defer.slice(1));
+	return macro for (defer in deferstack) {
+		var args = defer.slice(1);
+		if (args != null)
+			Reflect.callMethod(null, defer[0], args);
+	};
 }
 
 private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {

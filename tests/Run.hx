@@ -57,7 +57,12 @@ function gen() {
 				passedCount++;
 				output.writeString('- [x] $path\n');
 			} else {
-				var line = getLine(proc.stderr.readLine());
+				var line:String = "";
+				try {
+					line = getLine(proc.stderr.readLine());
+				}catch(e) {
+					line = 'unable to read line, error: $e';
+				}
 				Sys.println('command: $command');
 				Sys.println(line + "\n" + proc.stderr.readAll().toString());
 				output.writeString('- [ ] $path    - $line \n');

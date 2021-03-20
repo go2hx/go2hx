@@ -221,7 +221,7 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		thisName: "",
 		className: "",
 		retValues: [],
-		deferBool: false,
+		deferIndexes: [],
 		funcName: "",
 		path: path,
 		types: [],
@@ -484,7 +484,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			}
 		}
 	// defer system
-	if (info.deferBool) {
+	if (info.deferIndexes.indexOf(info.layerIndex) != -1) {
 		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
 		exprs.push(typeDeferReturn());
 	}
@@ -539,14 +539,20 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	info.deferBool = true;
+	info.deferIndexes.push(info.layerIndex);
 	var call = typeCallExpr(stmt.call, info);
 	var args:Array<Expr> = [];
 	switch call {
 		case ECall(e, params):
 			args = params;
 			args.unshift(e);
+		case EBlock(exprs):
+			return (macro {
+				var a = function() ${toExpr(call)};
+				deferstack.push([a]);
+			}).expr;
 		default:
+			throw call;
 	}
 	return (macro deferstack.push([$a{args}])).expr;
 }
@@ -960,7 +966,7 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferBool) {
+		if (info.deferIndexes.indexOf(info.layerIndex) != -1) {
 			return EBlock([typeDeferReturn(), toExpr(e),]);
 		}
 		return e;
@@ -1579,7 +1585,10 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	// allows multiple nested values
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
-	info.deferBool = false;
+	for (index in info.deferIndexes) {
+		if (index == info.layerIndex + 1)
+			info.deferIndexes.remove(index);
+	}
 	return EFunction(FAnonymous, {
 		ret: ret,
 		args: args,
@@ -1783,7 +1792,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	}
 	// info.retypeMap.clear(); //clear renaming as it's a new function
 	info.local = false;
-	info.deferBool = false;
+	info.deferIndexes = [];
 	info.layerIndex = 1;
 
 	var name = nameIdent(decl.name.name, info);
@@ -2433,7 +2442,7 @@ function untitle(string:String):String {
 }
 
 typedef Info = {lengths:Array<Expr>, iota:Int, aliasStaticExtensionMap:Map<String, Bool>, layerIndex:Int, fieldNames:Array<String>, typeNames:Array<String>,
-	thisName:String, retValues:Array<Array<{name:String, type:ComplexType}>>, deferBool:Bool, className:String, funcName:String, path:String,
+	thisName:String, retValues:Array<Array<{name:String, type:ComplexType}>>, deferIndexes:Array<Int>, className:String, funcName:String, path:String,
 	types:Array<{name:String, rename:String, index:Int}>, imports:Map<String, String>, ret:Array<ComplexType>, type:ComplexType, data:FileType, local:Bool,
 	retypeList:Array<{name:String, index:Int, type:ComplexType}>, print:Bool, blankCounter:Int};
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};

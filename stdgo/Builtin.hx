@@ -194,4 +194,6 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function real(c) {}
-inline function recover() {}
+inline function recover() {
+	return null;
+}

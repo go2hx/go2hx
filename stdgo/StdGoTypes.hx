@@ -36,7 +36,7 @@ private class __UInt64 {
 }
 
 abstract GoUIntptr(UInt) from UInt to UInt {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -129,7 +129,7 @@ abstract GoUIntptr(UInt) from UInt to UInt {
 }
 
 abstract GoFloat(Float) from Float to Float {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -221,7 +221,7 @@ abstract GoFloat(Float) from Float to Float {
 }
 
 abstract GoFloat32(Float32) from Float32 to Float32 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -414,7 +414,7 @@ abstract GoComplex64(Int64) from Int64 to Int64 {
 }
 
 abstract GoComplex128(Int64) from Int64 to Int64 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -509,7 +509,7 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 }
 
 abstract GoInt(Int) from Int32 to Int32 {
-	public inline function new(x)
+	public inline function new(x:Int32=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -608,7 +608,7 @@ abstract GoInt(Int) from Int32 to Int32 {
 }
 
 abstract GoUInt(Int) from Int to Int {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -703,7 +703,7 @@ abstract GoUInt(Int) from Int to Int {
 }
 
 abstract GoInt8(Int8) from Int8 to Int8 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -809,7 +809,7 @@ abstract GoInt8(Int8) from Int8 to Int8 {
 }
 
 abstract GoInt16(Int16) from Int16 to Int16 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -918,7 +918,7 @@ abstract GoInt16(Int16) from Int16 to Int16 {
 }
 
 abstract GoInt64(Int64) from Int64 to Int64 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -1031,7 +1031,7 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 }
 
 abstract GoUInt8(UInt8) from UInt8 to UInt8 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -1133,7 +1133,7 @@ abstract GoUInt8(UInt8) from UInt8 to UInt8 {
 }
 
 abstract GoUInt16(UInt16) from UInt16 to UInt16 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()
@@ -1233,7 +1233,7 @@ abstract GoUInt16(UInt16) from UInt16 to UInt16 {
 }
 
 abstract GoUInt32(UInt32) from UInt32 to UInt32 {
-	public inline function new(x)
+	public inline function new(x=0)
 		this = x;
 
 	@:to inline function __promote()

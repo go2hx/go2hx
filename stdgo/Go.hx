@@ -109,6 +109,8 @@ class Go {
 						return macro $expr.length == 0;
 					case "PointerWrapper":
 						return macro Go.isNull($expr._value_);
+					case "Pointer":
+						return macro Go.isNull($expr._value_);
 					case "AnyInterface":
 						return macro Go.isNull($expr.value);
 					case "GoArray":

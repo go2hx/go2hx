@@ -1,5 +1,7 @@
 package stdgo.runtime;
 
+import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.StructType;
 #if hl
 import hl.Gc;
 #elseif cpp
@@ -11,8 +13,19 @@ import java.vm.Gc;
 #end
 import stdgo.StdGoTypes.GoUInt64;
 
-class MemStats {
+var memProfileRate:Int = 0;
+function gc() {
+	//run garbage collector
+}
+function setFinalizer(obj:AnyInterface,finalizer:AnyInterface) {
+	
+}
+
+class MemStats implements StructType {
 	public var alloc(get, null):GoUInt64;
+	public var _is_pointer_:Bool = false;
+	public var _address_:Int = 0;
+	public final _typeName_:String = "MemStats";
 
 	function get_alloc():GoUInt64 {
 		return 0;

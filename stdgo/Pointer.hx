@@ -82,7 +82,7 @@ abstract PointerWrapper<T>(T) from T to T {
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;
-	public var address:String;
+	public var address:Int;
 
 	public function new(get, set, address) {
 		this.get = get;

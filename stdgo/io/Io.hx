@@ -1,6 +1,6 @@
 package stdgo.io;
 
-import stdgo.errors.Errors.Error;
+import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 
 interface Writer {

@@ -1402,6 +1402,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				var t = typeExprType(e.x, info);
 				switch t {
 					case TPath(p):
+						if (p.name == "Pointer" || p.name == "PointerWrapper") {
+							switch p.params[0] {
+								case TPType(t2):
+									var value = stdgo.Builtin.defaultValue(t2,null);
+									return (macro Go.pointer($value)).expr;
+								default:
+							}
+						}
 						return (macro new $p()).expr;
 					default:
 						// trace("unknown type paren expr");

@@ -1,6 +1,6 @@
 package stdgo.internal;
 
-import stdgo.errors.Errors.Error;
+import stdgo.StdGoTypes.Error;
 
 @:generic
 typedef ErrorReturn<T> = {value:T, ?error:Error};

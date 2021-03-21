@@ -102,6 +102,13 @@ class Go {
 	public static macro function isNull(expr:Expr) {
 		var type = Context.follow(Context.typeof(expr));
 		switch type {
+			case TMono(t):
+				type = t.get();
+				if (type == null)
+					return macro true;
+			default:
+		}
+		switch type {
 			case TAbstract(t, params):
 				var t = t.get();
 				switch t.name {
@@ -124,6 +131,7 @@ class Go {
 			case TFun(args, ret):
 				return macro false;
 			case TInst(t, params):
+
 			default:
 				trace("unknown type: " + type);
 		}
@@ -289,6 +297,7 @@ class Go {
 			default:
 				trace("unknown make pointer type: " + type);
 		}
+		var declare:Bool = false;
 		switch expr.expr {
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
@@ -310,10 +319,32 @@ class Go {
 						}
 					default:
 				}
+			case ENew(t, params):
+				declare = true;
+			case ECheckType(e, t):
+				switch e.expr {
+					case EConst(c):
+						declare = true;
+					default:
+				}
+			case EConst(c):
+				declare = true;
 			default:
 		}
-		if (isRealPointer)
-			return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, $v{Context.signature(expr)}));
+		if (isRealPointer) {
+			if (declare)
+				return macro {
+					var e = $expr;
+					new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v, ++Go.addressIndex));
+				};
+			return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, ++Go.addressIndex));
+		}
+		if (declare)
+			return macro {
+				var e = $expr;
+				$expr._is_pointer_ = true;
+					new stdgo.PointerWrapper(e);
+			};
 		return macro {
 			$expr._is_pointer_ = true;
 			new stdgo.PointerWrapper($expr);

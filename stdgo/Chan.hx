@@ -3,7 +3,7 @@ package stdgo;
 import haxe.ds.Vector;
 
 class Chan<T> {
-	var data:Vector<T>;
+	var data:Vector<T> = null;
 	var getIndex:Int = 0;
 	var setIndex:Int = 0;
 
@@ -23,5 +23,8 @@ class Chan<T> {
 
 	public inline function send(value:T) {
 		data[setIndex++] = value;
+	}
+	public inline function cap() {
+		return data.length;
 	}
 }

@@ -10,6 +10,7 @@ import haxe.io.Bytes;
 import haxe.Exception;
 import haxe.macro.Context;
 import stdgo.Slice;
+import stdgo.StdGoTypes.Error;
 
 // https://golang.org/pkg/builtin/
 inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
@@ -54,6 +55,10 @@ inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 function imag(c) {}
 
 macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
+	//convert from int64 to int
+	size = macro ($size : Int);
+	cap = macro ($cap : Int);
+
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
 		throw t;
@@ -196,6 +201,6 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function real(c) {}
-inline function recover() {
+inline function recover():Error {
 	return null;
 }

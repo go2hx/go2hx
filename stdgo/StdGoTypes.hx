@@ -13,7 +13,7 @@ private typedef Int16 = #if cpp cpp.Int16 #elseif cs cs.Int16 #elseif java java.
 private typedef Int32 = haxe.Int32; // #if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
 private typedef Int64 = haxe.Int64; // #if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
 private typedef UInt = Int;
-private typedef UInt8 = #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
+private typedef UInt8 = Int;//#if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
 private typedef UInt16 = #if hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
 private typedef UInt32 = #if cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
 private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else haxe.Int64 #end // __UInt64 #end;
@@ -508,6 +508,7 @@ abstract GoComplex128(Int64) from Int64 to Int64 {
 	@:commutative @:op(A != B) private static function notEqualsFloat<T:Float>(a:GoComplex128, b:T):Bool;
 }
 
+
 abstract GoInt(Int) from Int32 to Int32 {
 	public inline function new(x:Int32=0)
 		this = x;
@@ -518,7 +519,8 @@ abstract GoInt(Int) from Int32 to Int32 {
 		return new GoUInt32(this);
 	@:to inline function toInt32()
 		return new GoInt32(this);
-	public inline function toInt():Int {
+
+	@:to public inline function toInt():Int {
 		return this;
 	}
 	public inline function _typeName_()
@@ -939,6 +941,12 @@ abstract GoInt64(Int64) from Int64 to Int64 {
 
 	@:from public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
+	@:to public inline function toInt():Int {
+		return haxe.Int64.toInt(this);
+	}
+	@:to public inline function toGoInt():GoInt {
+		return new GoInt(toInt());
+	}
 
 	@:commutative @:op(A + B) private static function addI(lhs:GoInt64, rhs:Int):GoInt64;
 
@@ -1481,6 +1489,9 @@ interface StructType {
 	public final _typeName_:String;
 	public var _address_:Int;
 	public var _is_pointer_:Bool;
+}
+interface Error {
+	public function error():String;
 }
 
 abstract AnyInterface({value:Any, typeName:String}) {

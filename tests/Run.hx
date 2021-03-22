@@ -15,7 +15,7 @@ function main() {
 
 function gen() {
 	var tests = load();
-	tests = ["./go/test/chancap.go"];
+	tests = ["./go/test/armimm.go"];
 	// currently skipping these tests
 	tests.remove("./go/test/initialize.go");
 	tests.remove("./go/test/method7.go");

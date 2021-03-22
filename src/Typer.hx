@@ -1466,13 +1466,13 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			var expr = toExpr(EConst(CString(expr.value)));
 			return (macro new GoString($expr)).expr;
 		case INT:
-			info.type = TPath({name: "GoInt", pack: []});
+			info.type = TPath({name: "IntegerTypeInt", pack: []});
 			if (expr.value.length > 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(expr.value);
 					if (i > 2147483647 || i < -2147483647) {
-						info.type = TPath({name: "GoInt64", pack: []});
-						return (macro haxe.Int64Helper.parseString(${toExpr(EConst(CString(expr.value)))})).expr;
+						info.type = TPath({name: "IntegerTypeInt64", pack: []});
+						return EConst(CString(expr.value));
 					}
 				} catch (e) {
 					trace("basic lit int error: " + e + " value: " + expr.value);
@@ -1635,8 +1635,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		return null;
 	}
 	switch op {
-		case OpShr, OpShl, OpUShr, OpAnd, OpOr:
-			return EBinop(op, macro Std.int($x), macro Std.int($y));
 		case OpXor:
 			return EBinop(op, x, y);
 		case OpEq:

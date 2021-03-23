@@ -30,6 +30,7 @@ import haxe.Int64;
 typedef GoByte = GoUInt8;
 typedef GoRune = GoInt;
 typedef GoInt32 = GoInt;
+typedef GoUInt32 = GoUInt;
 typedef GoFloat64 = GoFloat;
 private typedef Int = StdTypes.Int;
 private typedef Int8 = #if !native_num Int #elseif cpp cpp.Int8 #elseif cs cs.Int8 #elseif java java.Int8 #else Int #end;
@@ -74,6 +75,26 @@ private class __Int128 {
 	public function toString():String
 		return GoComplex128.toStr(cast this);
 }
+function clampInt8(x:Int):Int {
+	var r = x & 0xFF;
+	if ((r & 0x80) != 0) {
+		return -1 - 0xFF + r;
+	}
+	return r;
+}
+function clampInt16(x:Int):Int {
+	var r = x & 0xFFFF;
+	if ((r & 0x8000) != 0) {
+		return -1 - 0xFFFF + r;
+	}
+	return r;
+}
+function clampUInt8(x:Int):Int
+	return x & 0xFF;
+function clampUInt16(x:Int):Int
+	return x & 0xFFFF;
+
+
 
 abstract GoUIntptr(UInt) from UInt {
 	public inline function new(x=0)
@@ -86,40 +107,19 @@ abstract GoUIntptr(UInt) from UInt {
 	public inline function _typeName_()
 		return "uintptr";
 
-
-
 	@:op(A + B) private static function add(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
-
-
 
 	@:op(A * B) private static function mul(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(A % B) private static function modI(a:GoUIntptr, b:Int):GoUIntptr;
-
-	@:op(A % B) private static function modF(a:GoUIntptr, b:Float):Float;
-
 	@:op(A % B) private static function mod(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
-
-	@:op(A - B) private static function subI(a:GoUIntptr, b:Int):GoUIntptr;
-
-	@:op(A - B) private static function subF(a:GoUIntptr, b:Float):Float;
 
 	@:op(A - B) private static function sub(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-
 	@:op(A | B) private static function or(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
-
 
 	@:op(A ^ B) private static function xor(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-
 	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
-
-	@:op(A << B) private static function shl(a:GoUIntptr, b:Int):GoUIntptr;
-
-	@:op(A >> B) private static function shr(a:GoUIntptr, b:Int):GoUIntptr;
-
-	@:op(A >>> B) private static function ushr(a:GoUIntptr, b:Int):GoUIntptr;
 
 	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;
 
@@ -129,25 +129,7 @@ abstract GoUIntptr(UInt) from UInt {
 
 	@:op(A <= B) private static function lte(a:GoUIntptr, b:GoUIntptr):Bool;
 
-	@:op(A > B) private static function gtf(a:GoUIntptr, b:Float):Bool;
-
-	@:op(A > B) private static function gtf2(a:Float, b:GoUIntptr):Bool;
-
-	@:op(A >= B) private static function gtef(a:GoUIntptr, b:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(a:Float, b:GoUIntptr):Bool;
-
-	@:op(A < B) private static function ltf(a:GoUIntptr, b:Float):Bool;
-
-	@:op(A < B) private static function ltf2(a:Float, b:GoUIntptr):Bool;
-
-	@:op(A <= B) private static function ltef(a:GoUIntptr, b:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(a:Float, b:GoUIntptr):Bool;
-
 	@:op(~A) private static function bneg(t:GoUIntptr):GoUIntptr;
-
-
 
 
 }
@@ -572,7 +554,6 @@ abstract GoComplex128(__Int128) from __Int128 {
 	}
 }
 
-
 abstract GoInt(Int) from Int32 {
 	public inline function new(x:Int32=0)
 		this = x;
@@ -585,8 +566,6 @@ abstract GoInt(Int) from Int32 {
 
 	public static function ofInt(x:Int):GoInt
 		return x;
-
-
 
 	@:op(A + B) private static function add(a:GoInt, b:GoInt):GoInt;
 
@@ -752,26 +731,26 @@ abstract GoInt8(Int8) from Int8 {
 	@:op(A <= B) private static function lte(a:GoInt8, b:GoInt8):Bool;
 
 	@:op(A >> B) private static function shr(a:GoInt8,b:GoInt8):GoInt8
-		return a.toBasic() >> b.toBasic();
+		return clamp(a.toBasic() >> b.toBasic()); 
 	@:op(A << B) private static function shl(a:GoInt8,b:GoInt8):GoInt8
-		return a.toBasic() << b.toBasic();
+		return clamp(a.toBasic() << b.toBasic());
 	@:op(A >>> B) private static function ushr(a:GoInt8,b:GoInt8):GoInt8
-		return a.toBasic() << b.toBasic();
+		return clamp(a.toBasic() << b.toBasic());
 
 	@:op(A + B) private static function add(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() + b.toBasic());
+		return clamp(Std.int(a.toBasic() + b.toBasic()));
 	@:op(A - B) private static function sub(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() - b.toBasic());
+		return clamp(Std.int(a.toBasic() - b.toBasic()));
 	@:op(A * B) private static function mul(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() - b.toBasic());
+		return clamp(Std.int(a.toBasic() - b.toBasic()));
 	@:op(A & B) private static function and(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() & b.toBasic());
+		return clamp(Std.int(a.toBasic() & b.toBasic()));
 	@:op(A | B) private static function or(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() | b.toBasic());
+		return clamp(Std.int(a.toBasic() | b.toBasic()));
 	@:op(A ^ B) private static function xor(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() ^ b.toBasic());
+		return clamp(Std.int(a.toBasic() ^ b.toBasic()));
 	@:op(A % B) private static function mod(a:GoInt8,b:GoInt8):GoInt8
-		return Std.int(a.toBasic() % b.toBasic());
+		return clamp(Std.int(a.toBasic() % b.toBasic()));
 
 	@:op(A > B) private static function gt(a:GoInt8,b:GoInt8):Bool
 		return a.toBasic() > b.toBasic();
@@ -785,13 +764,8 @@ abstract GoInt8(Int8) from Int8 {
 	@:op(A / B) private static function div(a:GoInt8,b:GoInt8):GoInt8
 		return Std.int(a.toBasic() / b.toBasic());
 	// TODO: clamp int8
-	static function clamp(x:Int):Int {
-		var r = x & 0xFF;
-		if ((r & 0x80) != 0) {
-			return -1 - 0xFF + r;
-		}
-		return r;
-	}
+	static function clamp(x:Int)
+		return clampInt8(x);
 }
 
 abstract GoInt16(Int16) from Int16 {
@@ -866,592 +840,35 @@ abstract GoInt16(Int16) from Int16 {
 		return a.toBasic() < b.toBasic();
 	@:op(A <= B) private static function lte(a:GoInt16,b:GoInt16):Bool
 		return a.toBasic() <= b.toBasic();
-	static function clamp(x:Int):Int {
-		var r = x & 0xFFFF;
-		if ((r & 0x8000) != 0) {
-			return -1 - 0xFFFF + r;
-		}
-		return r;
-	}
+	static function clamp(x:Int):Int
+		return clampInt16(x);
 }
-@:transitive
-abstract IntegerTypeInt(Int) from Int to Int {
+
+abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x) {
 		this = x;
 	}
 	function toString():String
 		return Std.string(this);
-	@:commutative @:op(A + B) private static inline function addInt(a:IntegerTypeInt, b:GoInt):GoInt
-		return GoInt.ofInt(a) + b;
-	@:op(A - B) private static inline function sublInt(a:IntegerTypeInt, b:GoInt):GoInt
-		return GoInt.ofInt(a) - b;
-	@:op(A - B) private static inline function subrInt(a:GoInt,b:IntegerTypeInt):GoInt
-		return a - GoInt.ofInt(b);
-	@:op(A * B) private static inline function mulInt(b:GoInt,a:IntegerTypeInt):GoInt
-		return b * GoInt.ofInt(a);
-	@:op(A / B) private static inline function divlInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) / b;
-	@:op(A / B) private static inline function divrInt(a:GoInt,b:IntegerTypeInt):GoInt
-		return b / GoInt.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modInt(a:IntegerTypeInt,b:GoInt):GoInt
-		return GoInt.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrInt(a:GoInt,b:IntegerTypeInt):Bool
-		return a > GoInt.ofInt(b);
-	@:op(A >= B) private static inline function gtelInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterInt(a:GoInt,b:IntegerTypeInt):Bool
-		return a >= GoInt.ofInt(b);
-	@:op(A < B) private static inline function ltlInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrInt(a:GoInt,b:IntegerTypeInt):Bool
-		return a < GoInt.ofInt(b);
-	@:op(A <= B) private static inline function ltelInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterInt(a:GoInt,b:IntegerTypeInt):Bool
-		return a <= GoInt.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqInt(a:IntegerTypeInt,b:GoInt):Bool
-		return GoInt.ofInt(a) == b;
-
-
-	@:commutative @:op(A + B) private static inline function addInt8(a:IntegerTypeInt, b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) + b;
-	@:op(A - B) private static inline function sublInt8(a:IntegerTypeInt, b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) - b;
-	@:op(A - B) private static inline function subrInt8(a:GoInt8,b:IntegerTypeInt):GoInt8
-		return a - GoInt8.ofInt(b);
-	@:op(A * B) private static inline function mulInt8(b:GoInt8,a:IntegerTypeInt):GoInt8
-		return b * GoInt8.ofInt(a);
-	@:op(A / B) private static inline function divlInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) / b;
-	@:op(A / B) private static inline function divrInt8(a:GoInt8,b:IntegerTypeInt):GoInt8
-		return b / GoInt8.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modInt8(a:IntegerTypeInt,b:GoInt8):GoInt8
-		return GoInt8.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrInt8(a:GoInt8,b:IntegerTypeInt):Bool
-		return a > GoInt8.ofInt(b);
-	@:op(A >= B) private static inline function gtelInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterInt8(a:GoInt8,b:IntegerTypeInt):Bool
-		return a >= GoInt8.ofInt(b);
-	@:op(A < B) private static inline function ltlInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrInt8(a:GoInt8,b:IntegerTypeInt):Bool
-		return a < GoInt8.ofInt(b);
-	@:op(A <= B) private static inline function ltelInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterInt8(a:GoInt8,b:IntegerTypeInt):Bool
-		return a <= GoInt8.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqInt8(a:IntegerTypeInt,b:GoInt8):Bool
-		return GoInt8.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addInt16(a:IntegerTypeInt, b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) + b;
-	@:op(A - B) private static inline function sublInt16(a:IntegerTypeInt, b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) - b;
-	@:op(A - B) private static inline function subrInt16(a:GoInt16,b:IntegerTypeInt):GoInt16
-		return a - GoInt16.ofInt(b);
-	@:op(A * B) private static inline function mulInt16(b:GoInt16,a:IntegerTypeInt):GoInt16
-		return b * GoInt16.ofInt(a);
-	@:op(A / B) private static inline function divlInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) / b;
-	@:op(A / B) private static inline function divrInt16(a:GoInt16,b:IntegerTypeInt):GoInt16
-		return b / GoInt16.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modInt16(a:IntegerTypeInt,b:GoInt16):GoInt16
-		return GoInt16.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrInt16(a:GoInt16,b:IntegerTypeInt):Bool
-		return a > GoInt16.ofInt(b);
-	@:op(A >= B) private static inline function gtelInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterInt16(a:GoInt16,b:IntegerTypeInt):Bool
-		return a >= GoInt16.ofInt(b);
-	@:op(A < B) private static inline function ltlInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrInt16(a:GoInt16,b:IntegerTypeInt):Bool
-		return a < GoInt16.ofInt(b);
-	@:op(A <= B) private static inline function ltelInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterInt16(a:GoInt16,b:IntegerTypeInt):Bool
-		return a <= GoInt16.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqInt16(a:IntegerTypeInt,b:GoInt16):Bool
-		return GoInt16.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addInt32(a:IntegerTypeInt, b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) + b;
-	@:op(A - B) private static inline function sublInt32(a:IntegerTypeInt, b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) - b;
-	@:op(A - B) private static inline function subrInt32(a:GoInt32,b:IntegerTypeInt):GoInt32
-		return a - GoInt32.ofInt(b);
-	@:op(A * B) private static inline function mulInt32(b:GoInt32,a:IntegerTypeInt):GoInt32
-		return b * GoInt32.ofInt(a);
-	@:op(A / B) private static inline function divlInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) / b;
-	@:op(A / B) private static inline function divrInt32(a:GoInt32,b:IntegerTypeInt):GoInt32
-		return b / GoInt32.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modInt32(a:IntegerTypeInt,b:GoInt32):GoInt32
-		return GoInt32.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrInt32(a:GoInt32,b:IntegerTypeInt):Bool
-		return a > GoInt32.ofInt(b);
-	@:op(A >= B) private static inline function gtelInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterInt32(a:GoInt32,b:IntegerTypeInt):Bool
-		return a >= GoInt32.ofInt(b);
-	@:op(A < B) private static inline function ltlInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrInt32(a:GoInt32,b:IntegerTypeInt):Bool
-		return a < GoInt32.ofInt(b);
-	@:op(A <= B) private static inline function ltelInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterInt32(a:GoInt32,b:IntegerTypeInt):Bool
-		return a <= GoInt32.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqInt32(a:IntegerTypeInt,b:GoInt32):Bool
-		return GoInt32.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addInt64(a:IntegerTypeInt, b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) + b;
-	@:op(A - B) private static inline function sublInt64(a:IntegerTypeInt, b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) - b;
-	@:op(A - B) private static inline function subrInt64(a:GoInt64,b:IntegerTypeInt):GoInt64
-		return a - GoInt64.ofInt(b);
-	@:op(A * B) private static inline function mulInt64(b:GoInt64,a:IntegerTypeInt):GoInt64
-		return b * GoInt64.ofInt(a);
-	@:op(A / B) private static inline function divlInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) / b;
-	@:op(A / B) private static inline function divrInt64(a:GoInt64,b:IntegerTypeInt):GoInt64
-		return a / GoInt64.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modInt64(a:IntegerTypeInt,b:GoInt64):GoInt64
-		return GoInt64.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrInt64(a:GoInt64,b:IntegerTypeInt):Bool
-		return a > GoInt64.ofInt(b);
-	@:op(A >= B) private static inline function gtelInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterInt64(a:GoInt64,b:IntegerTypeInt):Bool
-		return a >= GoInt64.ofInt(b);
-	@:op(A < B) private static inline function ltlInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrInt64(a:GoInt64,b:IntegerTypeInt):Bool
-		return a < GoInt64.ofInt(b);
-	@:op(A <= B) private static inline function ltelInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterInt64(a:GoInt64,b:IntegerTypeInt):Bool
-		return a <= GoInt64.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqInt64(a:IntegerTypeInt,b:GoInt64):Bool
-		return GoInt64.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addUInt(a:IntegerTypeInt, b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) + b;
-	@:op(A - B) private static inline function sublUInt(a:IntegerTypeInt, b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) - b;
-	@:op(A - B) private static inline function subrUInt(a:GoUInt,b:IntegerTypeInt):GoUInt
-		return a - GoUInt.ofInt(b);
-	@:op(A * B) private static inline function mulUInt(b:GoUInt,a:IntegerTypeInt):GoUInt
-		return b * GoUInt.ofInt(a);
-	@:op(A / B) private static inline function divlUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) / b;
-	@:op(A / B) private static inline function divrUInt(a:GoUInt,b:IntegerTypeInt):GoUInt
-		return b / GoUInt.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modUInt(a:IntegerTypeInt,b:GoUInt):GoUInt
-		return GoUInt.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrUInt(a:GoUInt,b:IntegerTypeInt):Bool
-		return a > GoUInt.ofInt(b);
-	@:op(A >= B) private static inline function gtelUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterUInt(a:GoUInt,b:IntegerTypeInt):Bool
-		return a >= GoUInt.ofInt(b);
-	@:op(A < B) private static inline function ltlUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrUInt(a:GoUInt,b:IntegerTypeInt):Bool
-		return a < GoUInt.ofInt(b);
-	@:op(A <= B) private static inline function ltelUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterUInt(a:GoUInt,b:IntegerTypeInt):Bool
-		return a <= GoUInt.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqUInt(a:IntegerTypeInt,b:GoUInt):Bool
-		return GoUInt.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addUInt8(a:IntegerTypeInt, b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) + b;
-	@:op(A - B) private static inline function sublUInt8(a:IntegerTypeInt, b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) - b;
-	@:op(A - B) private static inline function subrUInt8(a:GoUInt8,b:IntegerTypeInt):GoUInt8
-		return a - GoUInt8.ofInt(b);
-	@:op(A * B) private static inline function mulUInt8(b:GoUInt8,a:IntegerTypeInt):GoUInt8
-		return b * GoUInt8.ofInt(a);
-	@:op(A / B) private static inline function divlUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) / b;
-	@:op(A / B) private static inline function divrUInt8(a:GoUInt8,b:IntegerTypeInt):GoUInt8
-		return a / GoUInt8.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modUInt8(a:IntegerTypeInt,b:GoUInt8):GoUInt8
-		return GoUInt8.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrUInt8(a:GoUInt8,b:IntegerTypeInt):Bool
-		return a > GoUInt8.ofInt(b);
-	@:op(A >= B) private static inline function gtelUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterUInt8(a:GoUInt8,b:IntegerTypeInt):Bool
-		return a >= GoUInt8.ofInt(b);
-	@:op(A < B) private static inline function ltlUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrUInt8(a:GoUInt8,b:IntegerTypeInt):Bool
-		return a < GoUInt8.ofInt(b);
-	@:op(A <= B) private static inline function ltelUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterUInt8(a:GoUInt8,b:IntegerTypeInt):Bool
-		return a <= GoUInt8.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqUInt8(a:IntegerTypeInt,b:GoUInt8):Bool
-		return GoUInt8.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addUInt16(a:IntegerTypeInt, b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) + b;
-	@:op(A - B) private static inline function sublUInt16(a:IntegerTypeInt, b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) - b;
-	@:op(A - B) private static inline function subrUInt16(a:GoUInt16,b:IntegerTypeInt):GoUInt16
-		return a - GoUInt16.ofInt(b);
-	@:op(A * B) private static inline function mulUInt16(b:GoUInt16,a:IntegerTypeInt):GoUInt16
-		return b * GoUInt16.ofInt(a);
-	@:op(A / B) private static inline function divlUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) / b;
-	@:op(A / B) private static inline function divrUInt16(a:GoUInt16,b:IntegerTypeInt):GoUInt16
-		return b / GoUInt16.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modUInt16(a:IntegerTypeInt,b:GoUInt16):GoUInt16
-		return GoUInt16.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrUInt16(a:GoUInt16,b:IntegerTypeInt):Bool
-		return a > GoUInt16.ofInt(b);
-	@:op(A >= B) private static inline function gtelUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterUInt16(a:GoUInt16,b:IntegerTypeInt):Bool
-		return a >= GoUInt16.ofInt(b);
-	@:op(A < B) private static inline function ltlUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrUInt16(a:GoUInt16,b:IntegerTypeInt):Bool
-		return a < GoUInt16.ofInt(b);
-	@:op(A <= B) private static inline function ltelUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterUInt16(a:GoUInt16,b:IntegerTypeInt):Bool
-		return a <= GoUInt16.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqUInt16(a:IntegerTypeInt,b:GoUInt16):Bool
-		return GoUInt16.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addUInt32(a:IntegerTypeInt, b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) + b;
-	@:op(A - B) private static inline function sublUInt32(a:IntegerTypeInt, b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) - b;
-	@:op(A - B) private static inline function subrUInt32(a:GoUInt32,b:IntegerTypeInt):GoUInt32
-		return a - GoUInt32.ofInt(b);
-	@:op(A * B) private static inline function mulUInt32(b:GoUInt32,a:IntegerTypeInt):GoUInt32
-		return b * GoUInt32.ofInt(a);
-	@:op(A / B) private static inline function divlUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) / b;
-	@:op(A / B) private static inline function divrUInt32(a:GoUInt32,b:IntegerTypeInt):GoUInt32
-		return b / GoUInt32.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modUInt32(a:IntegerTypeInt,b:GoUInt32):GoUInt32
-		return GoUInt32.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrUInt32(a:GoUInt32,b:IntegerTypeInt):Bool
-		return a > GoUInt32.ofInt(b);
-	@:op(A >= B) private static inline function gtelUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterUInt32(a:GoUInt32,b:IntegerTypeInt):Bool
-		return a >= GoUInt32.ofInt(b);
-	@:op(A < B) private static inline function ltlUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrUInt32(a:GoUInt32,b:IntegerTypeInt):Bool
-		return a < GoUInt32.ofInt(b);
-	@:op(A <= B) private static inline function ltelUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterUInt32(a:GoUInt32,b:IntegerTypeInt):Bool
-		return a <= GoUInt32.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqUInt32(a:IntegerTypeInt,b:GoUInt32):Bool
-		return GoUInt32.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addUInt64(a:IntegerTypeInt, b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) + b;
-	@:op(A - B) private static inline function sublUInt64(a:IntegerTypeInt, b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) - b;
-	@:op(A - B) private static inline function subrUInt64(a:GoUInt64,b:IntegerTypeInt):GoUInt64
-		return a - GoUInt64.ofInt(b);
-	@:op(A * B) private static inline function mulUInt64(b:GoUInt64,a:IntegerTypeInt):GoUInt64
-		return b * GoUInt64.ofInt(a);
-	@:op(A / B) private static inline function divlUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) / b;
-	@:op(A / B) private static inline function divrUInt64(a:GoUInt64,b:IntegerTypeInt):GoUInt64
-		return b / GoUInt64.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modUInt64(a:IntegerTypeInt,b:GoUInt64):GoUInt64
-		return GoUInt64.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrUInt64(a:GoUInt64,b:IntegerTypeInt):Bool
-		return a > GoUInt64.ofInt(b);
-	@:op(A >= B) private static inline function gtelUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterUInt64(a:GoUInt64,b:IntegerTypeInt):Bool
-		return a >= GoUInt64.ofInt(b);
-	@:op(A < B) private static inline function ltlUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrUInt64(a:GoUInt64,b:IntegerTypeInt):Bool
-		return a < GoUInt64.ofInt(b);
-	@:op(A <= B) private static inline function ltelUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterUInt64(a:GoUInt64,b:IntegerTypeInt):Bool
-		return a <= GoUInt64.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqUInt64(a:IntegerTypeInt,b:GoUInt64):Bool
-		return GoUInt64.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addComplex64(a:IntegerTypeInt, b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) + b;
-	@:op(A - B) private static inline function sublComplex64(a:IntegerTypeInt, b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) - b;
-	@:op(A - B) private static inline function subrComplex64(a:GoComplex64,b:IntegerTypeInt):GoComplex64
-		return a - GoComplex64.ofInt(b);
-	@:commutative @:op(A * B) private static inline function mulComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) * b;
-	@:op(A / B) private static inline function divlComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) / b;
-	@:op(A / B) private static inline function divrComplex64(a:GoComplex64,b:IntegerTypeInt):GoComplex64
-		return b / GoComplex64.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) & b;
-	@:commutative @:op(A >> B) private static inline function shlComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) << b;
-	@:commutative @:op(A << B) private static inline function shrComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) << b;
-	@:commutative @:op(A % B) private static inline function modComplex64(a:IntegerTypeInt,b:GoComplex64):GoComplex64
-		return GoComplex64.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrComplex64(a:GoComplex64,b:IntegerTypeInt):Bool
-		return a > GoComplex64.ofInt(b);
-	@:op(A >= B) private static inline function gtelComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterComplex64(a:GoComplex64,b:IntegerTypeInt):Bool
-		return a >= GoComplex64.ofInt(b);
-	@:op(A < B) private static inline function ltlComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrComplex64(a:GoComplex64,b:IntegerTypeInt):Bool
-		return a < GoComplex64.ofInt(b);
-	@:op(A <= B) private static inline function ltelComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterComplex64(a:GoComplex64,b:IntegerTypeInt):Bool
-		return a <= GoComplex64.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqComplex64(a:IntegerTypeInt,b:GoComplex64):Bool
-		return GoComplex64.ofInt(a) == b;
-
-	@:commutative @:op(A + B) private static inline function addComplex128(a:IntegerTypeInt, b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) + b;
-	@:op(A - B) private static inline function sublComplex128(a:IntegerTypeInt, b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) - b;
-	@:op(A - B) private static inline function subrComplex128(a:GoComplex128,b:IntegerTypeInt):GoComplex128
-		return a - GoComplex128.ofInt(b);
-	@:op(A * B) private static inline function mulComplex128(b:GoComplex128,a:IntegerTypeInt):GoComplex128
-		return b * GoComplex128.ofInt(a);
-	@:op(A / B) private static inline function divlComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) / b;
-	@:op(A / B) private static inline function divrComplex128(a:GoComplex128,b:IntegerTypeInt):GoComplex128
-		return a / GoComplex128.ofInt(b);
-	@:commutative @:op(A | B) private static inline function orComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) | b;
-	@:commutative @:op(A ^ B) private static inline function xorComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) ^ b;
-	@:commutative @:op(A & B) private static inline function andComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) & b;
-	@:commutative @:op(A << B) private static inline function shlComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) << b;
-	@:commutative @:op(A >> B) private static inline function shrComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) >> b;
-	@:commutative @:op(A % B) private static inline function modComplex128(a:IntegerTypeInt,b:GoComplex128):GoComplex128
-		return GoComplex128.ofInt(a) % b;
-	@:op(A > B) private static inline function gtlComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) > b;
-	@:op(A > B) private static inline function gtrComplex128(a:GoComplex128,b:IntegerTypeInt):Bool
-		return a > GoComplex128.ofInt(b);
-	@:op(A >= B) private static inline function gtelComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) >= b;
-	@:op(A >= B) private static inline function gterComplex128(a:GoComplex128,b:IntegerTypeInt):Bool
-		return a >= GoComplex128.ofInt(b);
-	@:op(A < B) private static inline function ltlComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) < b;
-	@:op(A < B) private static inline function ltrComplex128(a:GoComplex128,b:IntegerTypeInt):Bool
-		return a < GoComplex128.ofInt(b);
-	@:op(A <= B) private static inline function ltelComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) <= b;
-	@:op(A <= B) private static inline function lterComplex128(a:GoComplex128,b:IntegerTypeInt):Bool
-		return a <= GoComplex128.ofInt(b);
-	@:commutative @:op(A != B) private static inline function neqComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) != b;
-	@:commutative @:op(A == B) private static inline function eqComplex128(a:IntegerTypeInt,b:GoComplex128):Bool
-		return GoComplex128.ofInt(a) == b;
-}
-abstract IntegerTypeInt64(Int64) {
-	public inline function new(x) {
-		this = x;
+	@:to function toInt():GoInt
+		return Int64.toInt(this);
+	@:to function toInt8():GoInt8
+		return clampInt8(Int64.toInt(this));
+	@:to function toInt16():GoInt16
+		return clampInt16(Int64.toInt(this));
+	@:to function toInt64():GoInt64
+		return this;
+	@:to function toUInt():GoUInt {
+		if (this.high > 0)
+			return this.high - this.low;
+		return Int64.toInt(this);
 	}
-	@:from public static inline function ofString(x:String) {
-		try {
-			return new IntegerTypeInt64(Int64.parseString(x));
-		}catch(e) {
-			trace("integer type from string error: " + e);
-			return new IntegerTypeInt64(Int64.make(0,0));
-		}
-	}
-	function toString()
-		return @:privateAccess this.toString();
-}
-
-abstract IntegerTypeInt128(GoComplex128) from GoComplex128 to GoComplex128 {
-	public inline function new(x) {
-		this = x;
-	}
-	@:from public static inline function ofString(x:String):IntegerTypeInt128 {
-		try {
-			return GoComplex128.parseString(x);
-		}catch(e) {
-			trace("integer type from string error: " + e);
-			return  GoComplex128.ofInt(0);
-		}
-	}
-	function toString()
-		return @:privateAccess this.toString();
+	@:to function toUInt8():GoUInt8
+		return clampUInt8(Int64.toInt(this));
+	@:to function toUInt16():GoUInt16
+		return clampUInt16(Int64.toInt(this));
+	@:to function toUInt64():GoInt64
+		return this; //when processed from string -> int64 should flow into negative range in order to fill
 }
 
 abstract GoInt64(Int64) from Int64 {
@@ -1542,31 +959,30 @@ abstract GoUInt8(UInt8) from UInt8 {
 
 	
 @:op(A + B) private static function add(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() + b.toBasic();
+	return clamp(a.toBasic() + b.toBasic());
 @:op(A - B) private static function sub(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() - b.toBasic();
+	return clamp(a.toBasic() - b.toBasic());
 @:op(A * B) private static function mul(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() * b.toBasic();
+	return clamp(a.toBasic() * b.toBasic());
 @:op(A & B) private static function and(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() & b.toBasic();
+	return clamp(a.toBasic() & b.toBasic());
 @:op(A | B) private static function or(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() | b.toBasic();
+	return clamp(a.toBasic() | b.toBasic());
 @:op(A ^ B) private static function xor(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() ^ b.toBasic();
+	return clamp(a.toBasic() ^ b.toBasic());
 @:op(A % B) private static function mod(a:GoUInt8,b:GoUInt8):GoUInt8
-	return a.toBasic() % b.toBasic();
+	return clamp(a.toBasic() % b.toBasic());
 @:op(A / B) private static function div(a:GoUInt8,b:GoUInt8):GoUInt8
-    return Std.int(a.toBasic() / b.toBasic());
+    return clamp(Std.int(a.toBasic() / b.toBasic()));
 
 	@:op(A << B) private static function shl(a:GoUInt8, b:GoUInt8):GoUInt8
-		return a.toBasic() << b.toBasic();
+		return clamp(a.toBasic() << b.toBasic());
 
 	@:op(A >> B) private static function shr(a:GoUInt8, b:GoUInt8):GoUInt8
-		return a.toBasic() << b.toBasic();
+		return clamp(a.toBasic() << b.toBasic());
 	// TODO: clamp uint8
-	static function clamp(x:Int):Int {
-		return x & 0xFF;
-	}
+	static function clamp(x:Int)
+		return clampUInt8(x);
 }
 
 abstract GoUInt16(UInt16) from UInt16 {
@@ -1598,73 +1014,24 @@ abstract GoUInt16(UInt16) from UInt16 {
 
 	
 @:op(A + B) private static function add(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() + b.toBasic();
+	return clamp(a.toBasic() + b.toBasic());
 @:op(A - B) private static function sub(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() - b.toBasic();
+	return clamp(a.toBasic() - b.toBasic());
 @:op(A * B) private static function mul(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() * b.toBasic();
+	return clamp(a.toBasic() * b.toBasic());
 @:op(A & B) private static function and(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() & b.toBasic();
+	return clamp(a.toBasic() & b.toBasic());
 @:op(A | B) private static function or(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() | b.toBasic();
+	return clamp(a.toBasic() | b.toBasic());
 @:op(A ^ B) private static function xor(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() ^ b.toBasic();
+	return clamp(a.toBasic() ^ b.toBasic());
 @:op(A % B) private static function mod(a:GoUInt16,b:GoUInt16):GoUInt16
-	return a.toBasic() % b.toBasic();
+	return clamp(a.toBasic() % b.toBasic());
 @:op(A / B) private static function div(a:GoUInt16,b:GoUInt16):GoUInt16
     return Std.int(a.toBasic() / b.toBasic());
-	static function clamp(x:Int):Int {
-		return x & 0xFFFF;
-	}
+	static function clamp(x:Int)
+		return clampUInt16(x);
 }
-abstract GoUInt32(UInt32) from UInt32 {
-	public inline function new(x)
-		this = x;
-	public inline function toBasic()
-		return this;
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "uint32";
-
-	public static function ofInt(x:Int):GoUInt32
-		return x;
-
-	@:op(A + B) private static function add(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() + b.toBasic();
-	@:op(A - B) private static function sub(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() - b.toBasic();
-	@:op(A * B) private static function mul(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() * b.toBasic();
-	@:op(A / B) private static function div(a:GoUInt32,b:GoUInt32):GoUInt32
-		return Std.int(a.toBasic() / b.toBasic());
-	@:op(A % B) private static function mod(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() % b.toBasic();
-	@:op(A & B) private static function and(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() & b.toBasic();
-	@:op(A | B) private static function or(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() | b.toBasic();
-	@:op(A ^ B) private static function xor(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() ^ b.toBasic();
-	@:op(A >> B) private static function shr(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() >> b.toBasic();
-	@:op(A << B) private static function shl(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() << b.toBasic();
-	@:op(A >>> B) private static function ushr(a:GoUInt32,b:GoUInt32):GoUInt32
-		return a.toBasic() << b.toBasic();
-
-	@:op(A > B) private static function gt(a:GoUInt32,b:GoUInt32):Bool
-		return a.toBasic() > b.toBasic();
-	@:op(A >= B) private static function gte(a:GoUInt32,b:GoUInt32):Bool
-		return a.toBasic() >= b.toBasic();
-	@:op(A < B) private static function lt(a:GoUInt32,b:GoUInt32):Bool
-		return a.toBasic() < b.toBasic();
-	@:op(A <= B) private static function lte(a:GoUInt32,b:GoUInt32):Bool
-		return a.toBasic() <= b.toBasic();
-
-}
-
 
 abstract GoUInt64(UInt64) from UInt64 {
 	public inline function new(x)

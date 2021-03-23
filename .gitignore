@@ -34,3 +34,4 @@ test.hxml
 old/*
 examples/*.txt
 package.json
+!gen.txt

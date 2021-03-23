@@ -39,7 +39,7 @@ private typedef Int64 = haxe.Int64; // #if cpp cpp.Int64 #elseif cs cs.system.In
 private typedef UInt = Int;
 private typedef UInt8 = Int;//#if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
 private typedef UInt16 = #if hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
-private typedef UInt32 = #if cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int64 #end;
+private typedef UInt32 = #if cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
 private typedef UInt64 = #if cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else haxe.Int64 #end // __UInt64 #end;
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if (java || cs || hl || cpp) StdTypes.Single #else Float #end;
@@ -88,62 +88,62 @@ abstract GoUIntptr(UInt) from UInt {
 
 
 
-	@:op(A + B) private static function add(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A + B) private static function add(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A * B) private static function mul(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(A % B) private static function modI(lhs:GoUIntptr, rhs:Int):GoUIntptr;
+	@:op(A % B) private static function modI(a:GoUIntptr, b:Int):GoUIntptr;
 
-	@:op(A % B) private static function modF(lhs:GoUIntptr, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoUIntptr, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A % B) private static function mod(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(A - B) private static function subI(lhs:GoUIntptr, rhs:Int):GoUIntptr;
+	@:op(A - B) private static function subI(a:GoUIntptr, b:Int):GoUIntptr;
 
-	@:op(A - B) private static function subF(lhs:GoUIntptr, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoUIntptr, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
-
-
-	@:op(A | B) private static function or(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A - B) private static function sub(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A | B) private static function or(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 
-	@:op(A & B) private static function and(lhs:GoUIntptr, rhs:GoUIntptr):GoUIntptr;
+	@:op(A ^ B) private static function xor(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(A << B) private static function shl(lhs:GoUIntptr, rhs:Int):GoUIntptr;
 
-	@:op(A >> B) private static function shr(lhs:GoUIntptr, rhs:Int):GoUIntptr;
+	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(A >>> B) private static function ushr(lhs:GoUIntptr, rhs:Int):GoUIntptr;
+	@:op(A << B) private static function shl(a:GoUIntptr, b:Int):GoUIntptr;
 
-	@:op(A > B) private static function gt(lhs:GoUIntptr, rhs:GoUIntptr):Bool;
+	@:op(A >> B) private static function shr(a:GoUIntptr, b:Int):GoUIntptr;
 
-	@:op(A >= B) private static function gte(lhs:GoUIntptr, rhs:GoUIntptr):Bool;
+	@:op(A >>> B) private static function ushr(a:GoUIntptr, b:Int):GoUIntptr;
 
-	@:op(A < B) private static function lt(lhs:GoUIntptr, rhs:GoUIntptr):Bool;
+	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoUIntptr, rhs:GoUIntptr):Bool;
+	@:op(A >= B) private static function gte(a:GoUIntptr, b:GoUIntptr):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoUIntptr, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoUIntptr, b:GoUIntptr):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUIntptr):Bool;
+	@:op(A <= B) private static function lte(a:GoUIntptr, b:GoUIntptr):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoUIntptr, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoUIntptr, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUIntptr):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoUIntptr):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoUIntptr, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoUIntptr, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUIntptr):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoUIntptr):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoUIntptr, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoUIntptr, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUIntptr):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoUIntptr):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoUIntptr, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoUIntptr):Bool;
 
 	@:op(~A) private static function bneg(t:GoUIntptr):GoUIntptr;
 
@@ -164,62 +164,62 @@ abstract GoFloat(Float) from Float {
 
 
 
-	@:op(A + B) private static function add(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A + B) private static function add(a:GoFloat, b:GoFloat):GoFloat;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A * B) private static function mul(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A % B) private static function modI(lhs:GoFloat, rhs:Int):GoFloat;
+	@:op(A % B) private static function modI(a:GoFloat, b:Int):GoFloat;
 
-	@:op(A % B) private static function modF(lhs:GoFloat, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoFloat, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A % B) private static function mod(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A - B) private static function subI(lhs:GoFloat, rhs:Int):GoFloat;
+	@:op(A - B) private static function subI(a:GoFloat, b:Int):GoFloat;
 
-	@:op(A - B) private static function subF(lhs:GoFloat, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoFloat, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoFloat, rhs:GoFloat):GoFloat;
-
-
-	@:op(A | B) private static function or(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A - B) private static function sub(a:GoFloat, b:GoFloat):GoFloat;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A | B) private static function or(a:GoFloat, b:GoFloat):GoFloat;
 
 
-	@:op(A & B) private static function and(lhs:GoFloat, rhs:GoFloat):GoFloat;
+	@:op(A ^ B) private static function xor(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A << B) private static function shl(lhs:GoFloat, rhs:Int):GoFloat;
 
-	@:op(A >> B) private static function shr(lhs:GoFloat, rhs:Int):GoFloat;
+	@:op(A & B) private static function and(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A >>> B) private static function ushr(lhs:GoFloat, rhs:Int):GoFloat;
+	@:op(A << B) private static function shl(a:GoFloat, b:Int):GoFloat;
 
-	@:op(A > B) private static function gt(lhs:GoFloat, rhs:GoFloat):Bool;
+	@:op(A >> B) private static function shr(a:GoFloat, b:Int):GoFloat;
 
-	@:op(A >= B) private static function gte(lhs:GoFloat, rhs:GoFloat):Bool;
+	@:op(A >>> B) private static function ushr(a:GoFloat, b:Int):GoFloat;
 
-	@:op(A < B) private static function lt(lhs:GoFloat, rhs:GoFloat):Bool;
+	@:op(A > B) private static function gt(a:GoFloat, b:GoFloat):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoFloat, rhs:GoFloat):Bool;
+	@:op(A >= B) private static function gte(a:GoFloat, b:GoFloat):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoFloat, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoFloat, b:GoFloat):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoFloat):Bool;
+	@:op(A <= B) private static function lte(a:GoFloat, b:GoFloat):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoFloat, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoFloat, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoFloat):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoFloat):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoFloat, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoFloat, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoFloat):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoFloat):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoFloat, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoFloat, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoFloat):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoFloat):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoFloat, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat):Bool;
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
 
@@ -235,33 +235,32 @@ abstract GoFloat32(Float32) from Float32 {
 		return this;
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	public inline function _typeName_()
 		return "float32";
 
-	@:op(A > B) private static function gt(lhs:GoFloat32, rhs:GoFloat32):Bool;
+	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoFloat32, rhs:GoFloat32):Bool;
+	@:op(A >= B) private static function gte(a:GoFloat32, b:GoFloat32):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoFloat32, rhs:GoFloat32):Bool;
+	@:op(A < B) private static function lt(a:GoFloat32, b:GoFloat32):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoFloat32, rhs:GoFloat32):Bool;
+	@:op(A <= B) private static function lte(a:GoFloat32, b:GoFloat32):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoFloat32, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoFloat32, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoFloat32):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoFloat32):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoFloat32, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoFloat32, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoFloat32):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoFloat32):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoFloat32, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoFloat32, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoFloat32):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoFloat32):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoFloat32, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoFloat32, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoFloat32):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat32):Bool;
 
 
 
@@ -270,38 +269,38 @@ abstract GoFloat32(Float32) from Float32 {
 	#if (java || cs || hl || cpp)
 
 
-	@:op(A + B) private static function add(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A + B) private static function add(a:GoFloat32, b:GoFloat32):GoFloat32;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A * B) private static function mul(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A % B) private static function modI(lhs:GoFloat32, rhs:Int):GoFloat32;
+	@:op(A % B) private static function modI(a:GoFloat32, b:Int):GoFloat32;
 
-	@:op(A % B) private static function modF(lhs:GoFloat32, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoFloat32, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A % B) private static function mod(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A - B) private static function subI(lhs:GoFloat32, rhs:Int):GoFloat32;
+	@:op(A - B) private static function subI(a:GoFloat32, b:Int):GoFloat32;
 
-	@:op(A - B) private static function subF(lhs:GoFloat32, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoFloat32, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
-
-
-	@:op(A | B) private static function or(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A - B) private static function sub(a:GoFloat32, b:GoFloat32):GoFloat32;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A | B) private static function or(a:GoFloat32, b:GoFloat32):GoFloat32;
 
 
-	@:op(A & B) private static function and(lhs:GoFloat32, rhs:GoFloat32):GoFloat32;
+	@:op(A ^ B) private static function xor(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A << B) private static function shl(lhs:GoFloat32, rhs:Int):GoFloat32;
 
-	@:op(A >> B) private static function shr(lhs:GoFloat32, rhs:Int):GoFloat32;
+	@:op(A & B) private static function and(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A >>> B) private static function ushr(lhs:GoFloat32, rhs:Int):GoFloat32;
+	@:op(A << B) private static function shl(a:GoFloat32, b:Int):GoFloat32;
+
+	@:op(A >> B) private static function shr(a:GoFloat32, b:Int):GoFloat32;
+
+	@:op(A >>> B) private static function ushr(a:GoFloat32, b:Int):GoFloat32;
 
 	@:op(~A) private static function bneg(t:GoFloat32):GoFloat32;
 	#else
@@ -325,62 +324,62 @@ abstract GoComplex64(Int64) from Int64 {
 
 
 
-	@:op(A + B) private static function add(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A + B) private static function add(a:GoComplex64, b:GoComplex64):GoComplex64;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A * B) private static function mul(a:GoComplex64, b:GoComplex64):GoComplex64;
 
-	@:op(A % B) private static function modI(lhs:GoComplex64, rhs:Int):GoComplex64;
+	@:op(A % B) private static function modI(a:GoComplex64, b:Int):GoComplex64;
 
-	@:op(A % B) private static function modF(lhs:GoComplex64, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoComplex64, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A % B) private static function mod(a:GoComplex64, b:GoComplex64):GoComplex64;
 
-	@:op(A - B) private static function subI(lhs:GoComplex64, rhs:Int):GoComplex64;
+	@:op(A - B) private static function subI(a:GoComplex64, b:Int):GoComplex64;
 
-	@:op(A - B) private static function subF(lhs:GoComplex64, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoComplex64, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
-
-
-	@:op(A | B) private static function or(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A - B) private static function sub(a:GoComplex64, b:GoComplex64):GoComplex64;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A | B) private static function or(a:GoComplex64, b:GoComplex64):GoComplex64;
 
 
-	@:op(A & B) private static function and(lhs:GoComplex64, rhs:GoComplex64):GoComplex64;
+	@:op(A ^ B) private static function xor(a:GoComplex64, b:GoComplex64):GoComplex64;
 
-	@:op(A << B) private static function shl(lhs:GoComplex64, rhs:Int):GoComplex64;
 
-	@:op(A >> B) private static function shr(lhs:GoComplex64, rhs:Int):GoComplex64;
+	@:op(A & B) private static function and(a:GoComplex64, b:GoComplex64):GoComplex64;
 
-	@:op(A >>> B) private static function ushr(lhs:GoComplex64, rhs:Int):GoComplex64;
+	@:op(A << B) private static function shl(a:GoComplex64, b:Int):GoComplex64;
 
-	@:op(A > B) private static function gt(lhs:GoComplex64, rhs:GoComplex64):Bool;
+	@:op(A >> B) private static function shr(a:GoComplex64, b:Int):GoComplex64;
 
-	@:op(A >= B) private static function gte(lhs:GoComplex64, rhs:GoComplex64):Bool;
+	@:op(A >>> B) private static function ushr(a:GoComplex64, b:Int):GoComplex64;
 
-	@:op(A < B) private static function lt(lhs:GoComplex64, rhs:GoComplex64):Bool;
+	@:op(A > B) private static function gt(a:GoComplex64, b:GoComplex64):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoComplex64, rhs:GoComplex64):Bool;
+	@:op(A >= B) private static function gte(a:GoComplex64, b:GoComplex64):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoComplex64, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoComplex64, b:GoComplex64):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoComplex64):Bool;
+	@:op(A <= B) private static function lte(a:GoComplex64, b:GoComplex64):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoComplex64, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoComplex64, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoComplex64):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoComplex64):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoComplex64, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoComplex64, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoComplex64):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoComplex64):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoComplex64, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoComplex64, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoComplex64):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoComplex64):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoComplex64, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoComplex64):Bool;
 
 	@:op(~A) private static function bneg(t:GoComplex64):GoComplex64;
 
@@ -640,64 +639,67 @@ abstract GoInt(Int) from Int32 {
 	public inline function _typeName_()
 		return "int";
 
+	public static function ofInt(x:Int):GoInt
+		return x;
 
 
-	@:op(A + B) private static function add(lhs:GoInt, rhs:GoInt):GoInt;
+
+	@:op(A + B) private static function add(a:GoInt, b:GoInt):GoInt;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoInt, rhs:GoInt):GoInt;
+	@:op(A * B) private static function mul(a:GoInt, b:GoInt):GoInt;
 
-	@:op(A % B) private static function modI(lhs:GoInt, rhs:Int):GoInt;
+	@:op(A % B) private static function modI(a:GoInt, b:Int):GoInt;
 
-	@:op(A % B) private static function modF(lhs:GoInt, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoInt, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoInt, rhs:GoInt):GoInt;
+	@:op(A % B) private static function mod(a:GoInt, b:GoInt):GoInt;
 
-	@:op(A - B) private static function subI(lhs:GoInt, rhs:Int):GoInt;
+	@:op(A - B) private static function subI(a:GoInt, b:Int):GoInt;
 
-	@:op(A - B) private static function subF(lhs:GoInt, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoInt, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoInt, rhs:GoInt):GoInt;
-
-
-	@:op(A | B) private static function or(lhs:GoInt, rhs:GoInt):GoInt;
+	@:op(A - B) private static function sub(a:GoInt, b:GoInt):GoInt;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoInt, rhs:GoInt):GoInt;
+	@:op(A | B) private static function or(a:GoInt, b:GoInt):GoInt;
 
 
-	@:op(A & B) private static function and(lhs:GoInt, rhs:GoInt):GoInt;
+	@:op(A ^ B) private static function xor(a:GoInt, b:GoInt):GoInt;
 
-	@:op(A << B) private static function shl(lhs:GoInt, rhs:Int):GoInt;
 
-	@:op(A >> B) private static function shr(lhs:GoInt, rhs:Int):GoInt;
+	@:op(A & B) private static function and(a:GoInt, b:GoInt):GoInt;
 
-	@:op(A >>> B) private static function ushr(lhs:GoInt, rhs:Int):GoInt;
+	@:op(A << B) private static function shl(a:GoInt, b:Int):GoInt;
 
-	@:op(A > B) private static function gt(lhs:GoInt, rhs:GoInt):Bool;
+	@:op(A >> B) private static function shr(a:GoInt, b:Int):GoInt;
 
-	@:op(A >= B) private static function gte(lhs:GoInt, rhs:GoInt):Bool;
+	@:op(A >>> B) private static function ushr(a:GoInt, b:Int):GoInt;
 
-	@:op(A < B) private static function lt(lhs:GoInt, rhs:GoInt):Bool;
+	@:op(A > B) private static function gt(a:GoInt, b:GoInt):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoInt, rhs:GoInt):Bool;
+	@:op(A >= B) private static function gte(a:GoInt, b:GoInt):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoInt, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoInt, b:GoInt):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt):Bool;
+	@:op(A <= B) private static function lte(a:GoInt, b:GoInt):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoInt, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoInt, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoInt):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoInt, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoInt, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoInt):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoInt, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoInt, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoInt):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoInt, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoInt):Bool;
 
 	@:op(~A) private static function bneg(t:GoInt):GoInt;
 
@@ -719,64 +721,67 @@ abstract GoUInt(Int) from Int {
 	public inline function _typeName_()
 		return "uint";
 
+	public static function ofInt(x:Int):GoUInt
+		return x;
 
 
-	@:op(A + B) private static function add(lhs:GoUInt, rhs:GoUInt):GoUInt;
+
+	@:op(A + B) private static function add(a:GoUInt, b:GoUInt):GoUInt;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoUInt, rhs:GoUInt):GoUInt;
+	@:op(A * B) private static function mul(a:GoUInt, b:GoUInt):GoUInt;
 
-	@:op(A % B) private static function modI(lhs:GoUInt, rhs:Int):GoUInt;
+	@:op(A % B) private static function modI(a:GoUInt, b:Int):GoUInt;
 
-	@:op(A % B) private static function modF(lhs:GoUInt, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoUInt, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoUInt, rhs:GoUInt):GoUInt;
+	@:op(A % B) private static function mod(a:GoUInt, b:GoUInt):GoUInt;
 
-	@:op(A - B) private static function subI(lhs:GoUInt, rhs:Int):GoUInt;
+	@:op(A - B) private static function subI(a:GoUInt, b:Int):GoUInt;
 
-	@:op(A - B) private static function subF(lhs:GoUInt, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoUInt, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoUInt, rhs:GoUInt):GoUInt;
-
-
-	@:op(A | B) private static function or(lhs:GoUInt, rhs:GoUInt):GoUInt;
+	@:op(A - B) private static function sub(a:GoUInt, b:GoUInt):GoUInt;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoUInt, rhs:GoUInt):GoUInt;
+	@:op(A | B) private static function or(a:GoUInt, b:GoUInt):GoUInt;
 
 
-	@:op(A & B) private static function and(lhs:GoUInt, rhs:GoUInt):GoUInt;
+	@:op(A ^ B) private static function xor(a:GoUInt, b:GoUInt):GoUInt;
 
-	@:op(A << B) private static function shl(lhs:GoUInt, rhs:Int):GoUInt;
 
-	@:op(A >> B) private static function shr(lhs:GoUInt, rhs:Int):GoUInt;
+	@:op(A & B) private static function and(a:GoUInt, b:GoUInt):GoUInt;
 
-	@:op(A >>> B) private static function ushr(lhs:GoUInt, rhs:Int):GoUInt;
+	@:op(A << B) private static function shl(a:GoUInt, b:Int):GoUInt;
 
-	@:op(A > B) private static function gt(lhs:GoUInt, rhs:GoUInt):Bool;
+	@:op(A >> B) private static function shr(a:GoUInt, b:Int):GoUInt;
 
-	@:op(A >= B) private static function gte(lhs:GoUInt, rhs:GoUInt):Bool;
+	@:op(A >>> B) private static function ushr(a:GoUInt, b:Int):GoUInt;
 
-	@:op(A < B) private static function lt(lhs:GoUInt, rhs:GoUInt):Bool;
+	@:op(A > B) private static function gt(a:GoUInt, b:GoUInt):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoUInt, rhs:GoUInt):Bool;
+	@:op(A >= B) private static function gte(a:GoUInt, b:GoUInt):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoUInt, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoUInt, b:GoUInt):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt):Bool;
+	@:op(A <= B) private static function lte(a:GoUInt, b:GoUInt):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoUInt, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoUInt, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoUInt):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoUInt, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoUInt, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoUInt):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoUInt, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoUInt, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoUInt):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoUInt, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt):Bool;
 
 	@:op(~A) private static function bneg(t:GoUInt):GoUInt;
 
@@ -794,34 +799,37 @@ abstract GoInt8(Int8) from Int8 {
 	public inline function toBasic()
 		return this;
 
+	public static function ofInt(x:Int):GoInt8
+		return x;
+
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
 	public inline function _typeName_()
 		return "int8";
 
-	@:op(A > B) private static function gt(lhs:GoInt8, rhs:GoInt8):Bool;
+	@:op(A > B) private static function gt(a:GoInt8, b:GoInt8):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoInt8, rhs:GoInt8):Bool;
+	@:op(A >= B) private static function gte(a:GoInt8, b:GoInt8):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoInt8, rhs:GoInt8):Bool;
+	@:op(A < B) private static function lt(a:GoInt8, b:GoInt8):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoInt8, rhs:GoInt8):Bool;
+	@:op(A <= B) private static function lte(a:GoInt8, b:GoInt8):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoInt8, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoInt8, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt8):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoInt8):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoInt8, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoInt8, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt8):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoInt8):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoInt8, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoInt8, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt8):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoInt8):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoInt8, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoInt8, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt8):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoInt8):Bool;
 
 
 
@@ -830,38 +838,38 @@ abstract GoInt8(Int8) from Int8 {
 	#if (cpp || cs || java)
 
 
-	@:op(A + B) private static function add(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A + B) private static function add(a:GoInt8, b:GoInt8):GoInt8;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A * B) private static function mul(a:GoInt8, b:GoInt8):GoInt8;
 
-	@:op(A % B) private static function modI(lhs:GoInt8, rhs:Int):GoInt8;
+	@:op(A % B) private static function modI(a:GoInt8, b:Int):GoInt8;
 
-	@:op(A % B) private static function modF(lhs:GoInt8, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoInt8, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A % B) private static function mod(a:GoInt8, b:GoInt8):GoInt8;
 
-	@:op(A - B) private static function subI(lhs:GoInt8, rhs:Int):GoInt8;
+	@:op(A - B) private static function subI(a:GoInt8, b:Int):GoInt8;
 
-	@:op(A - B) private static function subF(lhs:GoInt8, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoInt8, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoInt8, rhs:GoInt8):GoInt8;
-
-
-	@:op(A | B) private static function or(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A - B) private static function sub(a:GoInt8, b:GoInt8):GoInt8;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A | B) private static function or(a:GoInt8, b:GoInt8):GoInt8;
 
 
-	@:op(A & B) private static function and(lhs:GoInt8, rhs:GoInt8):GoInt8;
+	@:op(A ^ B) private static function xor(a:GoInt8, b:GoInt8):GoInt8;
 
-	@:op(A << B) private static function shl(lhs:GoInt8, rhs:Int):GoInt8;
 
-	@:op(A >> B) private static function shr(lhs:GoInt8, rhs:Int):GoInt8;
+	@:op(A & B) private static function and(a:GoInt8, b:GoInt8):GoInt8;
 
-	@:op(A >>> B) private static function ushr(lhs:GoInt8, rhs:Int):GoInt8;
+	@:op(A << B) private static function shl(a:GoInt8, b:Int):GoInt8;
+
+	@:op(A >> B) private static function shr(a:GoInt8, b:Int):GoInt8;
+
+	@:op(A >>> B) private static function ushr(a:GoInt8, b:Int):GoInt8;
 
 	@:op(~A) private static function bneg(t:GoInt8):GoInt8;
 	#else
@@ -883,35 +891,38 @@ abstract GoInt16(Int16) from Int16 {
 	public inline function toBasic()
 		return this;
 
+	public static function ofInt(x:Int):GoInt16
+		return x;
+
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
 
 	public inline function _typeName_()
 		return "int16";
 
-	@:op(A > B) private static function gt(lhs:GoInt16, rhs:GoInt16):Bool;
+	@:op(A > B) private static function gt(a:GoInt16, b:GoInt16):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoInt16, rhs:GoInt16):Bool;
+	@:op(A >= B) private static function gte(a:GoInt16, b:GoInt16):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoInt16, rhs:GoInt16):Bool;
+	@:op(A < B) private static function lt(a:GoInt16, b:GoInt16):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoInt16, rhs:GoInt16):Bool;
+	@:op(A <= B) private static function lte(a:GoInt16, b:GoInt16):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoInt16, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoInt16, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt16):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoInt16):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoInt16, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoInt16, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt16):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoInt16):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoInt16, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoInt16, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt16):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoInt16):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoInt16, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoInt16, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt16):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoInt16):Bool;
 
 
 
@@ -922,38 +933,38 @@ abstract GoInt16(Int16) from Int16 {
 
 
 
-	@:op(A + B) private static function add(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A + B) private static function add(a:GoInt16, b:GoInt16):GoInt16;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A * B) private static function mul(a:GoInt16, b:GoInt16):GoInt16;
 
-	@:op(A % B) private static function modI(lhs:GoInt16, rhs:Int):GoInt16;
+	@:op(A % B) private static function modI(a:GoInt16, b:Int):GoInt16;
 
-	@:op(A % B) private static function modF(lhs:GoInt16, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoInt16, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A % B) private static function mod(a:GoInt16, b:GoInt16):GoInt16;
 
-	@:op(A - B) private static function subI(lhs:GoInt16, rhs:Int):GoInt16;
+	@:op(A - B) private static function subI(a:GoInt16, b:Int):GoInt16;
 
-	@:op(A - B) private static function subF(lhs:GoInt16, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoInt16, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoInt16, rhs:GoInt16):GoInt16;
-
-
-	@:op(A | B) private static function or(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A - B) private static function sub(a:GoInt16, b:GoInt16):GoInt16;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A | B) private static function or(a:GoInt16, b:GoInt16):GoInt16;
 
 
-	@:op(A & B) private static function and(lhs:GoInt16, rhs:GoInt16):GoInt16;
+	@:op(A ^ B) private static function xor(a:GoInt16, b:GoInt16):GoInt16;
 
-	@:op(A << B) private static function shl(lhs:GoInt16, rhs:Int):GoInt16;
 
-	@:op(A >> B) private static function shr(lhs:GoInt16, rhs:Int):GoInt16;
+	@:op(A & B) private static function and(a:GoInt16, b:GoInt16):GoInt16;
 
-	@:op(A >>> B) private static function ushr(lhs:GoInt16, rhs:Int):GoInt16;
+	@:op(A << B) private static function shl(a:GoInt16, b:Int):GoInt16;
+
+	@:op(A >> B) private static function shr(a:GoInt16, b:Int):GoInt16;
+
+	@:op(A >>> B) private static function ushr(a:GoInt16, b:Int):GoInt16;
 	#else
 	@:op(A + B) private static inline function add(a:GoInt16,b:GoInt16):GoInt16
 		return clamp(a.toBasic() + b.toBasic());
@@ -966,40 +977,14 @@ abstract GoInt16(Int16) from Int16 {
 	}
 	#end
 }
+@:transitive
 abstract IntegerTypeInt(Int) from Int to Int {
 	public inline function new(x) {
 		this = x;
 	}
-	@:commutative @:op(A + B) private static inline function addI(lhs:IntegerTypeInt, rhs:Int):Int {
-		return (lhs : Int) + rhs;
-	}
-	@:commutative @:op(A + B) private static inline function addI64(lhs:IntegerTypeInt, rhs:Int64):Int64 {
-		return (lhs : Int64) + rhs;
-	}
-	@:commutative @:op(A - B) private static inline function subI(lhs:IntegerTypeInt, rhs:Int):Int {
-		return (lhs : Int) - rhs;
-	}
-	@:commutative @:op(A - B) private static inline function subI64(lhs:IntegerTypeInt, rhs:Int64):Int64 {
-		return (lhs : Int64) - rhs;
-	}
-	@:commutative @:op(A | B) private static inline function orI(lhs:IntegerTypeInt, rhs:Int):Int {
-		return (lhs : Int) | rhs;
-	}
-	@:commutative @:op(A | B) private static inline function orI64(lhs:IntegerTypeInt, rhs:Int64):Int64 {
-		return (lhs : Int64) | rhs;
-	}
-	@:commutative @:op(A ^ B) private static inline function xorI(lhs:IntegerTypeInt, rhs:Int):Int {
-		return (lhs : Int) ^ rhs;
-	}
-	@:commutative @:op(A ^ B) private static inline function xorI64(lhs:IntegerTypeInt, rhs:Int64):Int64 {
-		return (lhs : Int64) ^ rhs;
-	}
-	@:commutative @:op(A & B) private static inline function andI(lhs:IntegerTypeInt, rhs:Int):Int {
-		return (lhs : Int) & rhs;
-	}
-	@:commutative @:op(A & B) private static inline function andI64(lhs:IntegerTypeInt, rhs:Int64):Int64 {
-		return (lhs : Int64) & rhs;
-	}
+	function toString():String
+		return Std.string(this);
+
 }
 abstract IntegerTypeInt64(Int64) {
 	public inline function new(x) {
@@ -1013,6 +998,24 @@ abstract IntegerTypeInt64(Int64) {
 			return new IntegerTypeInt64(Int64.make(0,0));
 		}
 	}
+	function toString()
+		return @:privateAccess this.toString();
+}
+
+abstract IntegerTypeInt128(GoComplex128) from GoComplex128 to GoComplex128 {
+	public inline function new(x) {
+		this = x;
+	}
+	@:from public static inline function ofString(x:String):IntegerTypeInt128 {
+		try {
+			return GoComplex128.parseString(x);
+		}catch(e) {
+			trace("integer type from string error: " + e);
+			return  GoComplex128.ofInt(0);
+		}
+	}
+	function toString()
+		return @:privateAccess this.toString();
 }
 
 abstract GoInt64(Int64) from Int64 {
@@ -1023,71 +1026,70 @@ abstract GoInt64(Int64) from Int64 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-	@:to inline function toString() {
+	function toString()
 		return haxe.Int64.toStr(this);
-	}
 
 	public inline function _typeName_()
 		return "int64";
 
-	@:from public static inline function ofInt(x:Int):GoInt64
+	public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
 
-	@:op(A + B) private static function add(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A + B) private static function add(a:GoInt64, b:GoInt64):GoInt64;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A * B) private static function mul(a:GoInt64, b:GoInt64):GoInt64;
 
-	@:op(A % B) private static function modI(lhs:GoInt64, rhs:Int):GoInt64;
+	@:op(A % B) private static function modI(a:GoInt64, b:Int):GoInt64;
 
-	@:op(A % B) private static function modF(lhs:GoInt64, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoInt64, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A % B) private static function mod(a:GoInt64, b:GoInt64):GoInt64;
 
-	@:op(A - B) private static function subI(lhs:GoInt64, rhs:Int):GoInt64;
+	@:op(A - B) private static function subI(a:GoInt64, b:Int):GoInt64;
 
-	@:op(A - B) private static function subF(lhs:GoInt64, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoInt64, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A - B) private static function sub(a:GoInt64, b:GoInt64):GoInt64;
 
-	@:op(A | B) private static function or(lhs:GoInt64, rhs:GoInt64):GoInt64;
-
-
-	@:op(A ^ B) private static function xor(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A | B) private static function or(a:GoInt64, b:GoInt64):GoInt64;
 
 
-	@:op(A & B) private static function and(lhs:GoInt64, rhs:GoInt64):GoInt64;
+	@:op(A ^ B) private static function xor(a:GoInt64, b:GoInt64):GoInt64;
 
-	@:op(A << B) private static function shl(lhs:GoInt64, rhs:Int):GoInt64;
 
-	@:op(A >> B) private static function shr(lhs:GoInt64, rhs:Int):GoInt64;
+	@:op(A & B) private static function and(a:GoInt64, b:GoInt64):GoInt64;
 
-	@:op(A >>> B) private static function ushr(lhs:GoInt64, rhs:Int):GoInt64;
+	@:op(A << B) private static function shl(a:GoInt64, b:Int):GoInt64;
 
-	@:op(A > B) private static function gt(lhs:GoInt64, rhs:GoInt64):Bool;
+	@:op(A >> B) private static function shr(a:GoInt64, b:Int):GoInt64;
 
-	@:op(A >= B) private static function gte(lhs:GoInt64, rhs:GoInt64):Bool;
+	@:op(A >>> B) private static function ushr(a:GoInt64, b:Int):GoInt64;
 
-	@:op(A < B) private static function lt(lhs:GoInt64, rhs:GoInt64):Bool;
+	@:op(A > B) private static function gt(a:GoInt64, b:GoInt64):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoInt64, rhs:GoInt64):Bool;
+	@:op(A >= B) private static function gte(a:GoInt64, b:GoInt64):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoInt64, rhs:Float):Bool;
+	@:op(A < B) private static function lt(a:GoInt64, b:GoInt64):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoInt64):Bool;
+	@:op(A <= B) private static function lte(a:GoInt64, b:GoInt64):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoInt64, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoInt64, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoInt64):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoInt64):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoInt64, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoInt64, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoInt64):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoInt64):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoInt64, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoInt64, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoInt64):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoInt64):Bool;
+
+	@:op(A <= B) private static function ltef(a:GoInt64, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoInt64):Bool;
 
 	@:op(~A) private static function bneg(t:GoInt64):GoInt64;
 
@@ -1110,35 +1112,34 @@ abstract GoUInt8(UInt8) from UInt8 {
 		return this;
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-	@:from public static inline function ofInt(x:Int):GoUInt8 {
-		return new GoUInt8(x);
-	}
+	public static inline function ofInt(x:Int)
+		return x;
 	public inline function _typeName_()
 		return "uint8";
 
-	@:op(A > B) private static function gt(lhs:GoUInt8, rhs:GoUInt8):Bool;
+	@:op(A > B) private static function gt(a:GoUInt8, b:GoUInt8):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoUInt8, rhs:GoUInt8):Bool;
+	@:op(A >= B) private static function gte(a:GoUInt8, b:GoUInt8):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoUInt8, rhs:GoUInt8):Bool;
+	@:op(A < B) private static function lt(a:GoUInt8, b:GoUInt8):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoUInt8, rhs:GoUInt8):Bool;
+	@:op(A <= B) private static function lte(a:GoUInt8, b:GoUInt8):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoUInt8, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoUInt8, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt8):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoUInt8):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoUInt8, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoUInt8, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt8):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoUInt8):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoUInt8, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoUInt8, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt8):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoUInt8):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoUInt8, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoUInt8, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt8):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt8):Bool;
 
 
 
@@ -1147,37 +1148,37 @@ abstract GoUInt8(UInt8) from UInt8 {
 	#if (cs || cpp || hl)
 
 
-	@:op(A + B) private static function add(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A + B) private static function add(a:GoUInt8, b:GoUInt8):GoUInt8;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A * B) private static function mul(a:GoUInt8, b:GoUInt8):GoUInt8;
 
-	@:op(A % B) private static function modI(lhs:GoUInt8, rhs:Int):GoUInt8;
+	@:op(A % B) private static function modI(a:GoUInt8, b:Int):GoUInt8;
 
-	@:op(A % B) private static function modF(lhs:GoUInt8, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoUInt8, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A % B) private static function mod(a:GoUInt8, b:GoUInt8):GoUInt8;
 
-	@:op(A - B) private static function subI(lhs:GoUInt8, rhs:Int):GoUInt8;
+	@:op(A - B) private static function subI(a:GoUInt8, b:Int):GoUInt8;
 
-	@:op(A - B) private static function subF(lhs:GoUInt8, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoUInt8, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A - B) private static function sub(a:GoUInt8, b:GoUInt8):GoUInt8;
 
-	@:op(A | B) private static function or(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
-
-
-	@:op(A ^ B) private static function xor(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A | B) private static function or(a:GoUInt8, b:GoUInt8):GoUInt8;
 
 
-	@:op(A & B) private static function and(lhs:GoUInt8, rhs:GoUInt8):GoUInt8;
+	@:op(A ^ B) private static function xor(a:GoUInt8, b:GoUInt8):GoUInt8;
 
-	@:op(A << B) private static function shl(lhs:GoUInt8, rhs:Int):GoUInt8;
 
-	@:op(A >> B) private static function shr(lhs:GoUInt8, rhs:Int):GoUInt8;
+	@:op(A & B) private static function and(a:GoUInt8, b:GoUInt8):GoUInt8;
 
-	@:op(A >>> B) private static function ushr(lhs:GoUInt8, rhs:Int):GoUInt8;
+	@:op(A << B) private static function shl(a:GoUInt8, b:Int):GoUInt8;
+
+	@:op(A >> B) private static function shr(a:GoUInt8, b:Int):GoUInt8;
+
+	@:op(A >>> B) private static function ushr(a:GoUInt8, b:Int):GoUInt8;
 
 	@:op(~A) private static function bneg(t:GoUInt8):GoUInt8;
 	#else
@@ -1196,32 +1197,35 @@ abstract GoUInt16(UInt16) from UInt16 {
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
 
+	public static function ofInt(x:Int):GoUInt16
+		return x;
+
 	public inline function _typeName_()
 		return "uint16";
 
-	@:op(A > B) private static function gt(lhs:GoUInt16, rhs:GoUInt16):Bool;
+	@:op(A > B) private static function gt(a:GoUInt16, b:GoUInt16):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoUInt16, rhs:GoUInt16):Bool;
+	@:op(A >= B) private static function gte(a:GoUInt16, b:GoUInt16):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoUInt16, rhs:GoUInt16):Bool;
+	@:op(A < B) private static function lt(a:GoUInt16, b:GoUInt16):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoUInt16, rhs:GoUInt16):Bool;
+	@:op(A <= B) private static function lte(a:GoUInt16, b:GoUInt16):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoUInt16, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoUInt16, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt16):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoUInt16):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoUInt16, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoUInt16, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt16):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoUInt16):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoUInt16, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoUInt16, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt16):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoUInt16):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoUInt16, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoUInt16, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt16):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt16):Bool;
 
 
 
@@ -1230,38 +1234,38 @@ abstract GoUInt16(UInt16) from UInt16 {
 	#if (cs || cpp || hl)
 
 
-	@:op(A + B) private static function add(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A + B) private static function add(a:GoUInt16, b:GoUInt16):GoUInt16;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A * B) private static function mul(a:GoUInt16, b:GoUInt16):GoUInt16;
 
-	@:op(A % B) private static function modI(lhs:GoUInt16, rhs:Int):GoUInt16;
+	@:op(A % B) private static function modI(a:GoUInt16, b:Int):GoUInt16;
 
-	@:op(A % B) private static function modF(lhs:GoUInt16, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoUInt16, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A % B) private static function mod(a:GoUInt16, b:GoUInt16):GoUInt16;
 
-	@:op(A - B) private static function subI(lhs:GoUInt16, rhs:Int):GoUInt16;
+	@:op(A - B) private static function subI(a:GoUInt16, b:Int):GoUInt16;
 
-	@:op(A - B) private static function subF(lhs:GoUInt16, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoUInt16, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
-
-
-	@:op(A | B) private static function or(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A - B) private static function sub(a:GoUInt16, b:GoUInt16):GoUInt16;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A | B) private static function or(a:GoUInt16, b:GoUInt16):GoUInt16;
 
 
-	@:op(A & B) private static function and(lhs:GoUInt16, rhs:GoUInt16):GoUInt16;
+	@:op(A ^ B) private static function xor(a:GoUInt16, b:GoUInt16):GoUInt16;
 
-	@:op(A << B) private static function shl(lhs:GoUInt16, rhs:Int):GoUInt16;
 
-	@:op(A >> B) private static function shr(lhs:GoUInt16, rhs:Int):GoUInt16;
+	@:op(A & B) private static function and(a:GoUInt16, b:GoUInt16):GoUInt16;
 
-	@:op(A >>> B) private static function ushr(lhs:GoUInt16, rhs:Int):GoUInt16;
+	@:op(A << B) private static function shl(a:GoUInt16, b:Int):GoUInt16;
+
+	@:op(A >> B) private static function shr(a:GoUInt16, b:Int):GoUInt16;
+
+	@:op(A >>> B) private static function ushr(a:GoUInt16, b:Int):GoUInt16;
 
 	@:op(~A) private static function bneg(t:GoUInt16):GoUInt16;
 	#else
@@ -1272,9 +1276,8 @@ abstract GoUInt16(UInt16) from UInt16 {
 	#end
 }
 abstract GoUInt32(UInt32) from UInt32 {
-	public inline function new(x=0)
+	public inline function new(x)
 		this = x;
-
 	public inline function toBasic()
 		return this;
 	@:to inline function __promote()
@@ -1283,7 +1286,31 @@ abstract GoUInt32(UInt32) from UInt32 {
 	public inline function _typeName_()
 		return "uint32";
 
-	// TODO: clamp uint32, increase number range
+	public static function ofInt(x:Int):GoUInt32
+		return x;
+
+	@:op(A + B) private static function add(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() + b.toBasic();
+	@:op(A - B) private static function sub(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() - b.toBasic();
+	@:op(A * B) private static function mul(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() * b.toBasic();
+	@:op(A / B) private static function div(a:GoUInt32,b:GoUInt32):GoUInt32
+		return Std.int(a.toBasic() / b.toBasic());
+	@:op(A % B) private static function mod(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() % b.toBasic();
+	@:op(A & B) private static function and(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() & b.toBasic();
+	@:op(A | B) private static function or(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() | b.toBasic();
+	@:op(A ^ B) private static function xor(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() ^ b.toBasic();
+	@:op(A >> B) private static function shr(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() >> b.toBasic();
+	@:op(A << B) private static function shl(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() << b.toBasic();
+	@:op(A >>> B) private static function ushr(a:GoUInt32,b:GoUInt32):GoUInt32
+		return a.toBasic() << b.toBasic();
 }
 
 
@@ -1307,65 +1334,67 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return (Std.int(x) : GoUInt64);
 	}
 
-	@:op(A > B) private static function gt(lhs:GoUInt64, rhs:GoUInt64):Bool;
+	@:op(A > B) private static function gt(a:GoUInt64, b:GoUInt64):Bool;
 
-	@:op(A >= B) private static function gte(lhs:GoUInt64, rhs:GoUInt64):Bool;
+	@:op(A >= B) private static function gte(a:GoUInt64, b:GoUInt64):Bool;
 
-	@:op(A < B) private static function lt(lhs:GoUInt64, rhs:GoUInt64):Bool;
+	@:op(A < B) private static function lt(a:GoUInt64, b:GoUInt64):Bool;
 
-	@:op(A <= B) private static function lte(lhs:GoUInt64, rhs:GoUInt64):Bool;
+	@:op(A <= B) private static function lte(a:GoUInt64, b:GoUInt64):Bool;
 
-	@:op(A > B) private static function gtf(lhs:GoUInt64, rhs:Float):Bool;
+	@:op(A > B) private static function gtf(a:GoUInt64, b:Float):Bool;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoUInt64):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoUInt64):Bool;
 
-	@:op(A >= B) private static function gtef(lhs:GoUInt64, rhs:Float):Bool;
+	@:op(A >= B) private static function gtef(a:GoUInt64, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoUInt64):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoUInt64):Bool;
 
-	@:op(A < B) private static function ltf(lhs:GoUInt64, rhs:Float):Bool;
+	@:op(A < B) private static function ltf(a:GoUInt64, b:Float):Bool;
 
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoUInt64):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoUInt64):Bool;
 
-	@:op(A <= B) private static function ltef(lhs:GoUInt64, rhs:Float):Bool;
+	@:op(A <= B) private static function ltef(a:GoUInt64, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoUInt64):Bool;
+	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt64):Bool;
 
 	#if (cs || cpp || eval)
 
 
-	@:op(A + B) private static function add(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A + B) private static function add(a:GoUInt64, b:GoUInt64):GoUInt64;
 
 
 
-	@:op(A * B) private static function mul(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A * B) private static function mul(a:GoUInt64, b:GoUInt64):GoUInt64;
 
-	@:op(A % B) private static function modI(lhs:GoUInt64, rhs:Int):GoUInt64;
+	@:op(A % B) private static function modI(a:GoUInt64, b:Int):GoUInt64;
 
-	@:op(A % B) private static function modF(lhs:GoUInt64, rhs:Float):Float;
+	@:op(A % B) private static function modF(a:GoUInt64, b:Float):Float;
 
-	@:op(A % B) private static function mod(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A % B) private static function mod(a:GoUInt64, b:GoUInt64):GoUInt64;
 
-	@:op(A - B) private static function subI(lhs:GoUInt64, rhs:Int):GoUInt64;
+	@:op(A - B) private static function subI(a:GoUInt64, b:Int):GoUInt64;
 
-	@:op(A - B) private static function subF(lhs:GoUInt64, rhs:Float):Float;
+	@:op(A - B) private static function subF(a:GoUInt64, b:Float):Float;
 
-	@:op(A - B) private static function sub(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
-
-
-	@:op(A | B) private static function or(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A - B) private static function sub(a:GoUInt64, b:GoUInt64):GoUInt64;
 
 
-	@:op(A ^ B) private static function xor(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A | B) private static function or(a:GoUInt64, b:GoUInt64):GoUInt64;
 
 
-	@:op(A & B) private static function and(lhs:GoUInt64, rhs:GoUInt64):GoUInt64;
+	@:op(A ^ B) private static function xor(a:GoUInt64, b:GoUInt64):GoUInt64;
 
-	@:op(A << B) private static function shl(lhs:GoUInt64, rhs:Int):GoUInt64;
 
-	@:op(A >> B) private static function shr(lhs:GoUInt64, rhs:Int):GoUInt64;
+	@:op(A & B) private static function and(a:GoUInt64, b:GoUInt64):GoUInt64;
 
-	@:op(A >>> B) private static function ushr(lhs:GoUInt64, rhs:Int):GoUInt64;
+	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64
+		return a.toBasic() << b.toBasic().toInt();
+	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64
+		return a.toBasic() >> b.toBasic().toInt();
+
+	@:op(A >>> B) private static function ushr(a:GoUInt64, b:GoUInt64):GoUInt64
+		return a.toBasic().toInt() >>> b.toBasic().toInt();
 
 	@:op(~A) private static function bneg(t:GoUInt64):GoUInt64;
 	#if eval

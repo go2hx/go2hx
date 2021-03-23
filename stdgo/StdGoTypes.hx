@@ -1,3 +1,25 @@
+/*
+ * Copyright (C)2005-2021 Haxe Foundation
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a
+ * copy of this software and associated documentation files (the "Software"),
+ * to deal in the Software without restriction, including without limitation
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense,
+ * and/or sell copies of the Software, and to permit persons to whom the
+ * Software is furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+ * DEALINGS IN THE SOFTWARE.
+ */
+
 package stdgo;
 
 import stdgo.Pointer.PointerData;
@@ -47,8 +69,10 @@ private class __Int128 {
 		this.low = low;
 	}
 	public static inline function ofInt(x:Int) {
-		return new __Int128(x >> 31, x);
+		return new __Int128(x >> 63, x);
 	}
+	public function toString():String
+		return GoComplex128.toStr(cast this);
 }
 
 abstract GoUIntptr(UInt) from UInt {
@@ -284,7 +308,7 @@ abstract GoFloat32(Float32) from Float32 {
 	// TODO: Clamp Float32
 	#end
 }
-
+@:transitive
 abstract GoComplex64(Int64) from Int64 {
 	public inline function new(x)
 		this = x;
@@ -293,8 +317,8 @@ abstract GoComplex64(Int64) from Int64 {
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
 
-	@:from public static inline function ofInt(x:Int):GoComplex64 #if lua return new GoComplex64(Int64.make((x : Int32) >> 31,
-		(x : Int32))); #else return new GoComplex64(Int64.make(x >> 31, x)); #end
+	@:from public static inline function ofInt(x:Int):GoComplex64 
+		return new GoComplex64(Int64.make(x >> 31, x));
 
 	public inline function _typeName_()
 		return "complex64";
@@ -360,13 +384,9 @@ abstract GoComplex64(Int64) from Int64 {
 
 	@:op(~A) private static function bneg(t:GoComplex64):GoComplex64;
 
-
-
-
 }
-
-abstract GoComplex128(Int64) {
-	public inline function new(x=0)
+abstract GoComplex128(__Int128) from __Int128 {
+	public inline function new(x)
 		this = x;
 	public inline function toBasic()
 		return this;
@@ -375,70 +395,238 @@ abstract GoComplex128(Int64) {
 	public inline function _typeName_()
 		return "complex128";
 
+	public static inline function toStr(x:GoComplex128):String
+		return x.toString();
+	function toString():String {
+		var i:GoComplex128 = cast this;
+		if (i == ofInt(0))
+			return "0";
+		var str = "";
+		var neg = false;
+		if (i.isNeg())
+			neg = true;
+		var ten:GoComplex128 = ofInt(10);
+		var zero = ofInt(0);
+		while (i != zero) {
+			var r = divMod(i,ten);
+			if (r.modulus.isNeg()) {
+				str = GoComplex128.neg(r.modulus).low + str;
+				i = GoComplex128.neg(r.quotient);
+			} else {
+				str = r.modulus.low + str;
+				i = r.quotient;
+			}
+		}
+		if (neg)
+			str = "-" + str;
+		return str;
+	}
+	public function isNeg():Bool {
+		return this.high < 0;
+	}
+	public static function divMod(dividend:GoComplex128, divisor:GoComplex128):{quotient:GoComplex128, modulus:GoComplex128} {
+		// Handle special cases of 0 and 1
+		if (divisor.high == 0) {
+			if (divisor.low == 0) {
+				throw "divide by zero";
+			} else if (divisor.low == 1) {
+				return {quotient: dividend.copy(), modulus: ofInt(0)};
+			}
+		}
 
+		var divSign = dividend.isNeg() != divisor.isNeg();
 
-	@:op(A + B) private static function add(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+		var modulus = dividend.isNeg() ? -dividend : dividend.copy();
+		divisor = divisor.isNeg() ? -divisor : divisor;
 
+		var quotient:GoComplex128 = ofInt(0);
+		var mask:GoComplex128 = ofInt(1);
 
+		while (!divisor.isNeg()) {
+			var cmp = ucompare(divisor, modulus);
+			divisor <<= 1;
+			mask <<= 1;
+			if (cmp >= 0)
+				break;
+		}
+		var zero = ofInt(0);
+		while (mask != zero) {
+			if (ucompare(modulus, divisor) >= 0) {
+				quotient |= mask;
+				modulus -= divisor;
+			}
+			mask >>>= 1;
+			divisor >>>= 1;
+		}
+		if (divSign)
+			quotient = -quotient;
+		if (dividend.isNeg())
+			modulus = -modulus;
 
-	@:op(A * B) private static function mul(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+		return {
+			quotient: quotient,
+			modulus: modulus
+		};
+	}
 
-	@:op(A % B) private static function modI(lhs:GoComplex128, rhs:Int):GoComplex128;
+	@:op(A * B)
+	public static #if !lua inline #end function mul(a:GoComplex128, b:GoComplex128):GoComplex128 {
+		var mask = 0xFFFF;
+		var al = a.low & mask, ah = a.low >>> 16;
+		var bl = b.low & mask, bh = b.low >>> 16;
+		var p00 = al * bl;
+		var p10 = ah * bl;
+		var p01 = al * bh;
+		var p11 = ah * bh;
+		var low = p00;
+		var high = p11 + (p01 >>> 16) + (p10 >>> 16);
+		p01 <<= 16;
+		low += p01;
+		if (Int64.ucompare(low, p01) < 0)
+			high++;
+		p10 <<= 16;
+		low += p10;
+		if (Int64.ucompare(low, p10) < 0)
+			high++;
+		high += a.low * b.high + a.high * b.low;
+		return make(high, low);
+	}
 
-	@:op(A % B) private static function modF(lhs:GoComplex128, rhs:Float):Float;
+	public static inline function compare(a:GoComplex128, b:GoComplex128):Int64 {
+		var v = a.high - b.high;
+		v = if (v != 0) v else Int64.ucompare(a.low, b.low);
+		return a.high < 0 ? (b.high < 0 ? v : -1) : (b.high >= 0 ? v : 1);
+	}
+	public static inline function ucompare(a:GoComplex128,b:GoComplex128):Int64 {
+		var v = Int64.compare(a.high,b.high);
+		return if (v != 0) v else Int64.ucompare(a.low,b.low);
+	}
+	public inline function copy()
+		return make(this.high.copy(),this.low.copy());
+	public static inline function make(high:Int64,low:Int64):GoComplex128
+		return new GoComplex128(new __Int128(high,low));
+	public static inline function ofInt(x:Int):GoComplex128 {
+		return make(x >> 63,x);
+	}
 
-	@:op(A % B) private static function mod(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+	@:op(A == B) public static inline function eq(a:GoComplex128, b:GoComplex128):Bool
+		return a.high == b.high && a.low == b.low;
 
-	@:op(A - B) private static function subI(lhs:GoComplex128, rhs:Int):GoComplex128;
+	@:op(A != B) public static inline function neq(a:GoComplex128, b:GoComplex128):Bool {
+		return a.high != b.high || a.low != b.low;
+	}
 
-	@:op(A - B) private static function subF(lhs:GoComplex128, rhs:Float):Float;
+	@:op(A < B) private static inline function lt(a:GoComplex128, b:GoComplex128):Bool
+		return compare(a, b) < 0;
 
-	@:op(A - B) private static function sub(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+	@:op(A <= B) private static inline function lte(a:GoComplex128, b:GoComplex128):Bool
+		return compare(a, b) <= 0;
 
+	@:op(A > B) private static inline function gt(a:GoComplex128, b:GoComplex128):Bool
+		return compare(a, b) > 0;
 
-	@:op(A | B) private static function or(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+	@:op(A >= B) private static inline function gte(a:GoComplex128, b:GoComplex128):Bool
+		return compare(a, b) >= 0;
 
+	@:op(-A) public static inline function neg(x:GoComplex128):GoComplex128 {
+		var high = ~x.high;
+		var low = -x.low;
+		if (low == 0)
+			high++;
+		return make(high, low);
+	}
+	@:op(~A) private static inline function complement(a:GoComplex128):GoComplex128
+		return make(~a.high, ~a.low);
 
-	@:op(A ^ B) private static function xor(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+	@:op(A >> B) public static inline function shr(a:GoComplex128, b:Int):GoComplex128 {
+		b &= 127;
+		return if (b == 0) a.copy() else if (b < 64) make(a.high >> b, (a.high << (64 - b)) | (a.low >>> b)); else make(a.high >> 63, a.high >> (b - 64));
+	}
+	@:op(A ^ B) public static inline function xor(a:GoComplex128, b:GoComplex128):GoComplex128
+		return make(a.high ^ b.high, a.low ^ b.low);
 
+	@:op(A << B) public static inline function shl(a:GoComplex128, b:Int):GoComplex128 {
+		b &= 127;
+		return if (b == 0) a.copy() else if (b < 64) make((a.high << b) | (a.low >>> (64 - b)), a.low << b) else make(a.low << (b - 64), 0);
+	}
 
-	@:op(A & B) private static function and(lhs:GoComplex128, rhs:GoComplex128):GoComplex128;
+	@:op(A & B) public static inline function and(a:GoComplex128, b:GoComplex128):GoComplex128
+		return make(a.high & b.high, a.low & b.low);
+	@:op(A | B) public static inline function or(a:GoComplex128, b:GoComplex128):GoComplex128
+		return make(a.high | b.high, a.low | b.low);
+	@:op(A >>> B) public static inline function ushr(a:GoComplex128, b:Int):GoComplex128 {
+		b &= 127;
+		return if (b == 0) a.copy() else if (b < 64) make(a.high >>> b, (a.high << (64 - b)) | (a.low >>> b)); else make(0, a.high >>> (b - 64));
+	}
+	@:op(A + B) public static inline function add(a:GoComplex128, b:GoComplex128):GoComplex128 {
+		var high = a.high + b.high;
+		var low = a.low + b.low;
+		if (Int64.ucompare(low, a.low) < 0)
+			high++;
+		return make(high, low);
+	}
+	@:op(A - B) public static inline function sub(a:GoComplex128, b:GoComplex128):GoComplex128 {
+		var high = a.high - b.high;
+		var low = a.low - b.low;
+		if (Int64.ucompare(a.low, b.low) < 0)
+			high--;
+		return make(high, low);
+	}
 
-	@:op(A << B) private static function shl(lhs:GoComplex128, rhs:Int):GoComplex128;
+	public var high(get, never):Int64;
 
-	@:op(A >> B) private static function shr(lhs:GoComplex128, rhs:Int):GoComplex128;
+	private inline function get_high()
+		return this.high;
 
-	@:op(A >>> B) private static function ushr(lhs:GoComplex128, rhs:Int):GoComplex128;
+	private inline function set_high(x)
+		return this.high = x;
 
-	@:op(A > B) private static function gt(lhs:GoComplex128, rhs:GoComplex128):Bool;
+	public var low(get, never):Int64;
 
-	@:op(A >= B) private static function gte(lhs:GoComplex128, rhs:GoComplex128):Bool;
+	private inline function get_low()
+		return this.low;
 
-	@:op(A < B) private static function lt(lhs:GoComplex128, rhs:GoComplex128):Bool;
+	private inline function set_low(x)
+		return this.low = x;
+	public static function parseString(sParam:String):GoComplex128 {
+		var base = GoComplex128.ofInt(10);
+		var current = GoComplex128.ofInt(0);
+		var multiplier = GoComplex128.ofInt(1);
+		var sIsNegative = false;
 
-	@:op(A <= B) private static function lte(lhs:GoComplex128, rhs:GoComplex128):Bool;
+		var s = StringTools.trim(sParam);
+		if (s.charAt(0) == "-") {
+			sIsNegative = true;
+			s = s.substring(1, s.length);
+		}
+		var len = s.length;
 
-	@:op(A > B) private static function gtf(lhs:GoComplex128, rhs:Float):Bool;
+		for (i in 0...len) {
+			var digitInt = s.charCodeAt(len - 1 - i) - '0'.code;
 
-	@:op(A > B) private static function gtf2(lhs:Float, rhs:GoComplex128):Bool;
+			if (digitInt < 0 || digitInt > 9) {
+				throw "NumberFormatError";
+			}
 
-	@:op(A >= B) private static function gtef(lhs:GoComplex128, rhs:Float):Bool;
+			if (digitInt != 0) {
+				var digit:GoComplex128 = GoComplex128.ofInt(digitInt);
+				if (sIsNegative) {
+					current = GoComplex128.sub(current, GoComplex128.mul(multiplier, digit));
+					if (!current.isNeg()) {
+						throw "NumberFormatError: Underflow";
+					}
+				} else {
+					current = GoComplex128.add(current, GoComplex128.mul(multiplier, digit));
+					if (current.isNeg()) {
+						throw "NumberFormatError: Overflow";
+					}
+				}
+			}
 
-	@:op(A >= B) private static function gtef2(lhs:Float, rhs:GoComplex128):Bool;
-
-	@:op(A < B) private static function ltf(lhs:GoComplex128, rhs:Float):Bool;
-
-	@:op(A < B) private static function ltf2(lhs:Float, rhs:GoComplex128):Bool;
-
-	@:op(A <= B) private static function ltef(lhs:GoComplex128, rhs:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(lhs:Float, rhs:GoComplex128):Bool;
-
-	@:op(~A) private static function bneg(t:GoComplex128):GoComplex128;
-
-
-
-
+			multiplier = GoComplex128.mul(multiplier, base);
+		}
+		return current;
+	}
 }
 
 
@@ -608,9 +796,6 @@ abstract GoInt8(Int8) from Int8 {
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
-	@:from static function ofUInt8(x:GoUInt8):GoInt8 {
-		return new GoInt8(x);
-	}
 	public inline function _typeName_()
 		return "int8";
 
@@ -771,7 +956,7 @@ abstract GoInt16(Int16) from Int16 {
 	@:op(A >>> B) private static function ushr(lhs:GoInt16, rhs:Int):GoInt16;
 	#else
 	@:op(A + B) private static inline function add(a:GoInt16,b:GoInt16):GoInt16
-		return clamp((a : Int) + (b : Int));
+		return clamp(a.toBasic() + b.toBasic());
 	static function clamp(x:Int):Int {
 		var r = x & 0xFFFF;
 		if ((r & 0x8000) != 0) {
@@ -845,17 +1030,8 @@ abstract GoInt64(Int64) from Int64 {
 	public inline function _typeName_()
 		return "int64";
 
-	@:from public static inline function ofInt8(x:GoInt8):GoInt64 {
-		return ofInt(x);
-	}
-	@:from public static inline function ofUInt8(x:GoUInt8):GoInt64 {
-		return ofInt(x);
-	}
-
 	@:from public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
-
-
 
 	@:op(A + B) private static function add(lhs:GoInt64, rhs:GoInt64):GoInt64;
 
@@ -916,10 +1092,10 @@ abstract GoInt64(Int64) from Int64 {
 	@:op(~A) private static function bneg(t:GoInt64):GoInt64;
 
 	@:op(A == B) private static function equals(a:GoInt64,b:GoInt64):Bool {
-		return haxe.Int64.eq(a,b);
+		return Int64.eq(a.toBasic(),b.toBasic());
 	}
 	@:op(A != B) private static function notEquals(a:GoInt64,b:GoInt64):Bool {
-		return !haxe.Int64.eq(a,b);
+		return Int64.neq(a.toBasic(),b.toBasic());
 	}
 
 
@@ -1107,14 +1283,7 @@ abstract GoUInt32(UInt32) from UInt32 {
 	public inline function _typeName_()
 		return "uint32";
 
-	@:commutative @:op(A ^ B) private static inline function xor(lhs:GoUInt32, rhs:Int):GoUInt32 {
-		return Int64.xor(lhs.toBasic(),Int64.ofInt(rhs));
-	}
-
 	// TODO: clamp uint32, increase number range
-	static function clamp(x:Int):Int {
-		return x;
-	}
 }
 
 

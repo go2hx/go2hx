@@ -17,7 +17,7 @@ abstract GoString(String) from String to String {
 	}
 
 	@:from static function ofUInt8(x:GoUInt8):GoString {
-		return String.fromCharCode(x);
+		return String.fromCharCode(x.toBasic());
 	}
 
 	@:arrayAccess

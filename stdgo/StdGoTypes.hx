@@ -93,6 +93,7 @@ function clampUInt8(x:Int):Int
 	return x & 0xFF;
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
+//no clamp for UInt32 or UInt64 as they overflow into negative range
 
 
 
@@ -640,39 +641,23 @@ abstract GoUInt(Int) from Int {
 
 	public static function ofInt(x:Int):GoUInt
 		return x;
-
-	@:op(A + B) private static function add(a:GoUInt, b:GoUInt):GoUInt;
-
-	@:op(A >> B) private static function shr(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() >> b.toBasic();
-	@:op(A << B) private static function shl(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() << b.toBasic();
-
-	@:op(A * B) private static function mul(a:GoUInt, b:GoUInt):GoUInt;
-
-	@:op(A / B) private static function mul(a:GoUInt, b:GoUInt):GoUInt
+	@:op(A + B) private static function add(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() + b.toBasic();
+	@:op(A - B) private static function sub(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() - b.toBasic();
+	@:op(A * B) private static function mul(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() * b.toBasic();
+	@:op(A & B) private static function and(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() & b.toBasic();
+	@:op(A | B) private static function or(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() | b.toBasic();
+	@:op(A ^ B) private static function xor(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() ^ b.toBasic();
+	@:op(A % B) private static function mod(a:GoUInt,b:GoUInt):GoUInt
+		return a.toBasic() % b.toBasic();
+	@:op(A / B) private static function div(a:GoUInt,b:GoUInt):GoUInt
 		return Std.int(a.toBasic() / b.toBasic());
 
-	@:op(A % B) private static function modI(a:GoUInt, b:Int):GoUInt;
-
-	@:op(A % B) private static function modF(a:GoUInt, b:Float):Float;
-
-	@:op(A % B) private static function mod(a:GoUInt, b:GoUInt):GoUInt;
-
-	@:op(A - B) private static function subI(a:GoUInt, b:Int):GoUInt;
-
-	@:op(A - B) private static function subF(a:GoUInt, b:Float):Float;
-
-	@:op(A - B) private static function sub(a:GoUInt, b:GoUInt):GoUInt;
-
-
-	@:op(A | B) private static function or(a:GoUInt, b:GoUInt):GoUInt;
-
-
-	@:op(A ^ B) private static function xor(a:GoUInt, b:GoUInt):GoUInt;
-
-
-	@:op(A & B) private static function and(a:GoUInt, b:GoUInt):GoUInt;
 
 	@:op(A > B) private static function gt(a:GoUInt, b:GoUInt):Bool;
 
@@ -697,14 +682,6 @@ abstract GoUInt(Int) from Int {
 	@:op(A <= B) private static function ltef(a:GoUInt, b:Float):Bool;
 
 	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt):Bool;
-
-	@:op(~A) private static function bneg(t:GoUInt):GoUInt;
-
-
-
-
-
-	// TODO: clamp uint, increase number range
 }
 
 abstract GoInt8(Int8) from Int8 {
@@ -844,12 +821,19 @@ abstract GoInt16(Int16) from Int16 {
 		return clampInt16(x);
 }
 
-abstract IntegerType(Int64) from Int64 to Int64 {
+abstract IntegerType(Int64) from Int64 {
 	public inline function new(x) {
 		this = x;
 	}
 	function toString():String
 		return Std.string(this);
+	function toBasic():Int64
+		return this;
+
+	@:from private static function fromString(x:String):IntegerType
+		return Int64.parseString(x);
+	@:from private static function fromInt(x:Int):IntegerType
+		return Int64.ofInt(x);
 	@:to function toInt():GoInt
 		return Int64.toInt(this);
 	@:to function toInt8():GoInt8
@@ -859,16 +843,47 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	@:to function toInt64():GoInt64
 		return this;
 	@:to function toUInt():GoUInt {
-		if (this.high > 0)
-			return this.high - this.low;
-		return Int64.toInt(this);
+		var i = this;
+		if (i.high > 0)
+			return i.high - i.low;
+		return Int64.toInt(i);
 	}
 	@:to function toUInt8():GoUInt8
 		return clampUInt8(Int64.toInt(this));
 	@:to function toUInt16():GoUInt16
 		return clampUInt16(Int64.toInt(this));
-	@:to function toUInt64():GoInt64
+	@:to function toUInt64():GoUInt64
 		return this; //when processed from string -> int64 should flow into negative range in order to fill
+
+	@:op(A * B) private static function mul(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A / B) private static function div(a:IntegerType,b:IntegerType):IntegerType
+		return Int64.div(a.toBasic(),b.toBasic());
+	@:op(A - B) private static function sub(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A + B) private static function add(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A & B) private static function and(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A | B) private static function or(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A ^ B) private static function xor(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() ^ b.toBasic();
+	@:op(A % B) private static function mod(a:IntegerType,b:IntegerType):IntegerType;
+
+	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A >= B) private static function gte(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A < B) private static function lt(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A <= B) private static function lte(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):IntegerType;
+
+	@:op(A << B) private static function shl(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() << Int64.toInt(b.toBasic());
+	@:op(A >> B) private static function shr(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() >> Int64.toInt(b.toBasic());
+	@:op(A >>> B) private static function ushr(a:IntegerType,b:IntegerType):IntegerType;
+
+	@:op(~A) private static function neg(a:IntegerType):IntegerType;
+	@:op(++A) private static function preInc(a:IntegerType):IntegerType;
+	@:op(A++) private static function postInc(a:IntegerType):IntegerType;
+	@:op(--A) private static function preDec(a:IntegerType):IntegerType;
+	@:op(A--) private static function postDec(a:IntegerType):IntegerType;
 }
 
 abstract GoInt64(Int64) from Int64 {
@@ -1045,13 +1060,12 @@ abstract GoUInt64(UInt64) from UInt64 {
 	public inline function _typeName_()
 		return "uint64";
 
-	@:from public static inline function ofInt(x:Int):GoUInt64 {
-		return new GoUInt64(UInt64.ofInt(x));
-	}
-
-	@:from public static inline function ofFloat(x:Float):GoUInt64 {
+	@:from public static inline function ofString(x:String):GoUInt64
+		return UInt64.parseString(x);
+	@:from public static inline function ofInt(x:Int):GoUInt64
+		return UInt64.ofInt(x);
+	@:from public static inline function ofFloat(x:Float):GoUInt64
 		return (Std.int(x) : GoUInt64);
-	}
 
 	@:op(A > B) private static function gt(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() > b.toBasic();

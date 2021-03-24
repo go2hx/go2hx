@@ -1466,12 +1466,12 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			var expr = toExpr(EConst(CString(expr.value)));
 			return (macro new GoString($expr)).expr;
 		case INT:
-			info.type = TPath({name: "IntegerTypeInt", pack: []});
+			info.type = TPath({name: "IntegerType", pack: []});
 			if (expr.value.length > 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(expr.value);
 					if (i > 2147483647 || i < -2147483647) {
-						info.type = TPath({name: "IntegerTypeInt64", pack: []});
+						info.type = TPath({name: "IntegerType", pack: []});
 						return EConst(CString(expr.value));
 					}
 				} catch (e) {
@@ -1609,7 +1609,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var y = typeExpr(expr.y, info);
 	switch expr.op { // operators that don't exist in haxe needle to be handled here
 		case AND_NOT: // refrenced from Simon's Tardisgo
-			return (macro $x & ($y ^ -1)).expr;
+			return (macro $x & ($y ^ (-1 : IntegerType))).expr;
 		default:
 	}
 	var op = typeOp(expr.op);

@@ -704,7 +704,7 @@ abstract GoInt16(Int16) from Int16 {
 		return clampInt16(x);
 }
 
-abstract IntegerType(Int64) from Int64 {
+abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
 	function toString():String
@@ -737,16 +737,8 @@ abstract IntegerType(Int64) from Int64 {
 	@:to function toUInt64():GoUInt64
 		return this; //when processed from string -> int64 should flow into negative range in order to fill
 
-	@:op(A * B) private static function mul(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A / B) private static function div(a:IntegerType,b:IntegerType):IntegerType
-		return Int64.div(a.toBasic(),b.toBasic());
-	@:op(A - B) private static function sub(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A + B) private static function add(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A & B) private static function and(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A | B) private static function or(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A ^ B) private static function xor(a:IntegerType,b:IntegerType):IntegerType
-		return a.toBasic() ^ b.toBasic();
-	@:op(A % B) private static function mod(a:IntegerType,b:IntegerType):IntegerType;
+	@:to function toHaxeInt():Int
+		return Int64.toInt(this);
 
 	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):Bool
 		return a.toBasic() > b.toBasic();
@@ -757,13 +749,14 @@ abstract IntegerType(Int64) from Int64 {
 	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):Bool;
 	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):Bool;
 
-	@:op(A << B) private static function shl(a:IntegerType,b:IntegerType):IntegerType
-		return a.toBasic() << Int64.toInt(b.toBasic());
-	@:op(A >> B) private static function shr(a:IntegerType,b:IntegerType):IntegerType
-		return a.toBasic() >> Int64.toInt(b.toBasic());
-	@:op(A >>> B) private static function ushr(a:IntegerType,b:IntegerType):IntegerType;
-
-	@:op(~A) private static function neg(a:IntegerType):IntegerType;
+	@:op(A++) private inline function postInc():IntegerType {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(++A) private inline function preInc():IntegerType {
+		return @:privateAccess this.preIncrement();
+	}
 }
 
 abstract GoInt64(Int64) from Int64 {

@@ -227,7 +227,6 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		types: [],
 		imports: [],
 		ret: [],
-		type: null,
 		data: data,
 		local: false,
 		retypeList: [],
@@ -371,7 +370,6 @@ private function typeGenDecl(decl:Ast.GenDecl, info:Info) {
 private function typeStmt(stmt:Dynamic, info:Info):Expr {
 	if (stmt == null)
 		return null;
-	info.type = null;
 	var def = switch stmt.id {
 		case "ReturnStmt": typeReturnStmt(stmt, info);
 		case "IfStmt": typeIfStmt(stmt, info);
@@ -653,17 +651,15 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					info.data.defs.push(typeType(spec, info));
 				case "ValueSpec":
 					var spec:Ast.ValueSpec = spec;
-					info.type = null;
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
-					var t = type != null ? type : info.type;
 					vars = vars.concat([
 						for (i in 0...spec.names.length)
 							{
 								name: nameIdent(spec.names[i], info),
-								type: t,
-								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : t != null ? defaultValue(t, info) : null,
+								type: type,
+								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info) : null,
 							}
 					]);
 			}
@@ -907,7 +903,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				// normal vars
 				var vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
-					info.type = null;
 					var expr = typeExpr(stmt.rhs[i], info);
 					var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
 					var name = nameIdent(stmt.lhs[i].name, info);
@@ -924,7 +919,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					name = newName;
 					vars.push({
 						name: name,
-						type: stmt.rhs[i].id == "BasicLit" ? info.type : null,
+						type: null,
 						expr: expr,
 					});
 				}
@@ -1462,30 +1457,24 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	return switch expr.kind {
 		case STRING:
 			addImport("stdgo.GoString", info);
-			info.type = TPath({name: "GoString", pack: []});
 			var expr = toExpr(EConst(CString(expr.value)));
-			return (macro new GoString($expr)).expr;
+			return (macro ($expr : GoString)).expr;
 		case INT:
-			info.type = TPath({name: "IntegerType", pack: []});
 			if (expr.value.length > 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(expr.value);
 					if (i > 2147483647 || i < -2147483647) {
-						info.type = TPath({name: "IntegerType", pack: []});
 						return EConst(CString(expr.value));
 					}
 				} catch (e) {
 					trace("basic lit int error: " + e + " value: " + expr.value);
 				}
 			}
-			EConst(CInt(expr.value));
+			ECheckType(toExpr(EConst(CInt(expr.value))),TPath({name: "IntegerType", pack: []}));
 		case FLOAT:
-			info.type = TPath({name: "Float", pack: []});
 			EConst(CFloat(expr.value));
 		case CHAR:
-			info.type = TPath({name: "GoString", pack: []});
 			var value = formatEscapeCodes(expr.value);
-			var const = toExpr(EConst(CString(value)));
 			if (value == bs + "'") {
 				value = "'";
 			}
@@ -2333,7 +2322,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	for (i in 0...value.names.length) {
 		if (value.names[i] == "_")
 			continue;
-		info.type = null;
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
@@ -2359,9 +2347,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			pack: [],
 			fields: [],
 			doc: doc,
-			kind: TDField(FVar(type == null
-				&& value.values[i] != null
-				&& value.values[i].id == "BasicLit" ? info.type : type, expr), access)
+			kind: TDField(FVar(type, expr), access)
 		});
 	}
 	return values;
@@ -2453,7 +2439,7 @@ function untitle(string:String):String {
 
 typedef Info = {lengths:Array<Expr>, iota:Int, aliasStaticExtensionMap:Map<String, Bool>, layerIndex:Int, fieldNames:Array<String>, typeNames:Array<String>,
 	thisName:String, retValues:Array<Array<{name:String, type:ComplexType}>>, deferIndexes:Array<Int>, className:String, funcName:String, path:String,
-	types:Array<{name:String, rename:String, index:Int}>, imports:Map<String, String>, ret:Array<ComplexType>, type:ComplexType, data:FileType, local:Bool,
+	types:Array<{name:String, rename:String, index:Int}>, imports:Map<String, String>, ret:Array<ComplexType>, data:FileType, local:Bool,
 	retypeList:Array<{name:String, index:Int, type:ComplexType}>, print:Bool, blankCounter:Int};
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here

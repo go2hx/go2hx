@@ -374,7 +374,6 @@ abstract GoInt(Int) from Int32 {
 		this = x;
 	public inline function toBasic()
 		return this;
-
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 	@:to inline function toInt():GoInt
@@ -453,8 +452,10 @@ abstract GoInt(Int) from Int32 {
 
 	@:op(~A) private static function bneg(t:GoInt):GoInt;
 
-
-
+	@:op(++A) private static function preInc(a:GoInt):GoInt;
+	@:op(A++) private static function postInc(a:GoInt):GoInt;
+	@:op(--A) private static function preDec(a:GoInt):GoInt;
+	@:op(A--) private static function postDec(a:GoInt):GoInt;
 
 }
 
@@ -747,12 +748,14 @@ abstract IntegerType(Int64) from Int64 {
 		return a.toBasic() ^ b.toBasic();
 	@:op(A % B) private static function mod(a:IntegerType,b:IntegerType):IntegerType;
 
-	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A >= B) private static function gte(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A < B) private static function lt(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A <= B) private static function lte(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):IntegerType;
-	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):IntegerType;
+	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() > b.toBasic();
+	@:op(A >= B) private static function gte(a:IntegerType,b:IntegerType):Bool;
+	@:op(A < B) private static function lt(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() < b.toBasic();
+	@:op(A <= B) private static function lte(a:IntegerType,b:IntegerType):Bool;
+	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):Bool;
+	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):Bool;
 
 	@:op(A << B) private static function shl(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() << Int64.toInt(b.toBasic());
@@ -761,10 +764,6 @@ abstract IntegerType(Int64) from Int64 {
 	@:op(A >>> B) private static function ushr(a:IntegerType,b:IntegerType):IntegerType;
 
 	@:op(~A) private static function neg(a:IntegerType):IntegerType;
-	@:op(++A) private static function preInc(a:IntegerType):IntegerType;
-	@:op(A++) private static function postInc(a:IntegerType):IntegerType;
-	@:op(--A) private static function preDec(a:IntegerType):IntegerType;
-	@:op(A--) private static function postDec(a:IntegerType):IntegerType;
 }
 
 abstract GoInt64(Int64) from Int64 {
@@ -794,6 +793,11 @@ abstract GoInt64(Int64) from Int64 {
 	@:op(A + B) public static function add(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() + b.toBasic();
 
+	@:op(++A) public static function preInc(a:GoInt64):GoInt64;
+	@:op(A++) public static function postInc(a:GoInt64):GoInt64;
+	@:op(--A) public static function preDec(a:GoInt64):GoInt64;
+	@:op(A--) public static function postDec(a:GoInt64):GoInt64;
+
 	@:op(A * B) public static function mul(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() * b.toBasic();
 
@@ -821,10 +825,8 @@ abstract GoInt64(Int64) from Int64 {
 	@:op(A >= B) private static function gte(a:GoInt64, b:GoInt64):Bool
 		return a.toBasic() >= b.toBasic();
 
-	@:op(A < B) private static function lt(a:GoInt64, b:GoInt64):Bool {
-		trace("A");
+	@:op(A < B) private static function lt(a:GoInt64, b:GoInt64):Bool
 		return a.toBasic() < b.toBasic();
-	}
 
 	@:op(A <= B) private static function lte(a:GoInt64, b:GoInt64):Bool
 		return a.toBasic() <= b.toBasic();

@@ -56,6 +56,10 @@ function imag(c) {}
 
 macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
 	//convert from int64 to int
+	if (size == null || size.expr.match(EConst(CIdent("null"))))
+		size = macro 0;
+	if (cap == null || cap.expr.match(EConst(CIdent("null"))))
+		cap = macro 0;
 	size = macro ($size : Int);
 	cap = macro ($cap : Int);
 
@@ -93,8 +97,6 @@ macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
 					case "GoMap":
 						return macro new $p();
 					case "Chan":
-						if (size == null || size.expr.match(EConst(CIdent("null"))))
-							size = macro 0;
 						return macro new $p($size);
 					default:
 						trace("make unknown: " + p);

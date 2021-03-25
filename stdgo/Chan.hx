@@ -3,7 +3,7 @@ package stdgo;
 import haxe.ds.Vector;
 
 class Chan<T> {
-	var data:Vector<T> = null;
+	var data:Vector<T>;
 	var getIndex:Int = 0;
 	var setIndex:Int = 0;
 

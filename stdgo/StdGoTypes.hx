@@ -1084,6 +1084,12 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64
 		return a.toBasic() >> (b.toBasic().low : Int);
 
+	@:op(A != B) private static function neq(a:GoUInt64, b:GoUInt64):Bool
+		return a.toBasic() != b.toBasic();
+
+	@:op(A == B) private static function equals(a:GoUInt64, b:GoUInt64):Bool
+		return a.toBasic() == b.toBasic();
+
 	
 @:op(A + B) private static function add(a:GoUInt64,b:GoUInt64):GoUInt64
 	return a.toBasic() + b.toBasic();

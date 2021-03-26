@@ -767,6 +767,23 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	@:op(++A) private inline function preInc():IntegerType {
 		return @:privateAccess this.preIncrement();
 	}
+
+	@:op(A % B) static function mod(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() % b.toBasic();
+	@:op(A + B) static function add(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() % b.toBasic();
+	@:op(A - B) static function sub(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() % b.toBasic();
+	@:op(A * B) static function mul(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() * b.toBasic();
+	@:op(A / B) static function div(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() / b.toBasic();
+	@:op(A | B) static function or(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() | b.toBasic();
+	@:op(A & B) static function and(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() & b.toBasic();
+	@:op(A ^ B) static function xor(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() ^ b.toBasic();
 }
 
 abstract GoInt64(Int64) from Int64 {
@@ -779,6 +796,8 @@ abstract GoInt64(Int64) from Int64 {
 		return new AnyInterface({value: this, typeName: _typeName_()});
 	@:from static function fromString(x:String):GoInt64
 		return Int64.parseString(x);
+	@:from static function fromInt(x:Int):GoInt64
+		return Int64.ofInt(x);
 	function toString()
 		return haxe.Int64.toStr(this);
 

@@ -110,7 +110,7 @@ macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
 	return func();
 }
 
-function defaultValue(t:ComplexType, pos:Position):Expr {
+function defaultValue(t:ComplexType, pos:Position,strict:Bool=true):Expr {
 	switch t {
 		case TFunction(args, ret):
 			return macro null;
@@ -125,13 +125,19 @@ function defaultValue(t:ComplexType, pos:Position):Expr {
 					return macro new $p();
 				case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
 					"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
-					return macro (0 : $t);
+					if (strict)
+						return macro (0 : $t);
+					return macro 0;
 				case "GoDynamic", "Any", "Dynamic", "AnyInterface":
 					return macro null;
 				case "Bool":
 					return macro false;
 				case "Pointer", "PointerWrapper", "GoArrayPointer":
 					return macro null;
+				case "GoString":
+					if (strict)
+						return macro ("" : GoString);
+					return macro "";
 				default:
 					return macro new $p();
 			}

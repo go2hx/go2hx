@@ -570,6 +570,21 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			}
 			key = macro _i;
 		}
+		var key_i:String = "";
+		switch body.expr {
+			case EBlock(exprs):
+				switch key.expr {
+					case EConst(c):
+						switch c {
+							case CIdent(s):
+								key_i = s;
+							default:
+						}
+					default:
+				}
+				exprs.unshift(macro var $key_i:IntegerType = $key);
+			default:
+		}
 		return (macro for ($key in 0...$x.length) $body).expr; // only index no need to use Go.range
 	}
 	var value = typeExpr(stmt.value, info); // value of x[key]
@@ -659,7 +674,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							{
 								name: nameIdent(spec.names[i], info),
 								type: type,
-								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info) : null,
+								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info,0,false) : null,
 							}
 					]);
 			}
@@ -819,7 +834,7 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	} else {
 		def = EWhile(cond, body, true);
 		if (stmt.cond == null) {
-			var retValue = defaultValue(info.ret[0], info);
+			var retValue = defaultValue(info.ret[0], info,0,false);
 			switch info.ret[0] {
 				case TPath(p):
 					if (p.name == "Void")
@@ -966,7 +981,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			}
 		}
 		if (info.ret[0] != null)
-			return ret(EReturn(stdgo.Builtin.defaultValue(info.ret[0], null)));
+			return ret(EReturn(defaultValue(info.ret[0], null,0,false)));
 		return ret(EReturn());
 	}
 	if (stmt.results.length == 1)
@@ -1383,7 +1398,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (p.name == "Pointer" || p.name == "PointerWrapper") {
 							switch p.params[0] {
 								case TPType(t2):
-									var value = stdgo.Builtin.defaultValue(t2,null);
+									var value = defaultValue(t2,null);
 									return (macro Go.pointer($value)).expr;
 								default:
 							}
@@ -1919,12 +1934,12 @@ private function getRetValues(info:Info) {
 			{
 				name: value.name,
 				type: value.type,
-				expr: defaultValue(value.type, info),
+				expr: defaultValue(value.type, info,0,false),
 			}
 	]));
 }
 
-private function defaultValue(type:ComplexType, info:Info, index:Int = 0):Expr {
+private function defaultValue(type:ComplexType, info:Info, index:Int = 0,strict:Bool=true):Expr {
 	switch type {
 		case TPath(p):
 			if (p.name == "GoArray") {
@@ -1940,7 +1955,7 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0):Expr {
 			}
 		default:
 	}
-	return stdgo.Builtin.defaultValue(type, null);
+	return stdgo.Builtin.defaultValue(type, null,strict);
 }
 
 private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool} {
@@ -2087,7 +2102,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultValue(type, info) : null)
+						kind: FVar(type, defaultBool ? defaultValue(type, info,0,false) : null)
 					});
 				default:
 			}
@@ -2105,7 +2120,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultValue(type, info) : null),
+				kind: FVar(type, defaultBool ? defaultValue(type, info,0,false) : null),
 			});
 		}
 	}
@@ -2308,7 +2323,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
-				expr = defaultValue(type, info);
+				expr = defaultValue(type, info,0,false);
 			} else {
 				// IOTA
 				expr = toExpr(EConst(CInt(Std.string(info.iota++))));

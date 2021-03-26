@@ -766,54 +766,37 @@ private function exprTypeString(expr:Ast.Expr):String {
 	}
 }
 
-private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef {
-	if (stmt.tag == null) {
-		// this is an if else chain
-		function condition(obj:Ast.CaseClause, i:Int = 0) {
-			if (obj.list.length == 0)
-				return null;
-			var value = typeExpr(obj.list[i], info);
-			if (i + 1 >= obj.list.length)
-				return value;
-			var next = condition(obj, i + 1);
-			return toExpr(EBinop(OpBoolOr, value, next));
-		}
-		function ifs(i:Int = 0) {
-			var obj:Ast.CaseClause = stmt.body.list[i];
-			var cond = condition(obj);
-			var block = toExpr(typeStmtList(obj.body, info));
-
-			if (i + 1 >= stmt.body.list.length)
-				return cond == null ? macro $block : macro if ($cond)
-					$block;
-			var next = ifs(i + 1);
-			return macro if ($cond)
-				$block
-			else
-				$next;
-		}
-		if (stmt.body.list == null)
-			return (macro {}).expr;
-		return ifs().expr;
-	} else {
-		var cases:Array<Case> = [];
-		var def:Expr = null;
-		for (obj in stmt.body.list) {
-			switch obj.id {
-				case "CaseClause":
-					var obj:Ast.CaseClause = obj;
-					if (obj.list.length > 0) {
-						cases.push({
-							values: [for (expr in obj.list) typeExpr(expr, info)],
-							expr: toExpr(typeStmtList(obj.body, info)),
-						});
-					} else {
-						def = toExpr(typeStmtList(obj.body, info));
-					}
-			}
-		}
-		return ESwitch(typeExpr(stmt.tag, info), cases, def);
+private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { //always an if else chain to deal with int64s and complex numbers
+	// this is an if else chain
+	var tag = stmt.tag == null ? null : typeExpr(stmt.tag,info);
+	function condition(obj:Ast.CaseClause, i:Int = 0) {
+		if (obj.list.length == 0)
+			return null;
+		var value = typeExpr(obj.list[i], info);
+		if (tag != null)
+			value = macro $tag == $value;
+		if (i + 1 >= obj.list.length)
+			return value;
+		var next = condition(obj, i + 1);
+		return toExpr(EBinop(OpBoolOr, value, next));
 	}
+	function ifs(i:Int = 0) {
+		var obj:Ast.CaseClause = stmt.body.list[i];
+		var cond = condition(obj);
+		var block = toExpr(typeStmtList(obj.body, info));
+
+		if (i + 1 >= stmt.body.list.length)
+			return cond == null ? macro $block : macro if ($cond)
+				$block;
+		var next = ifs(i + 1);
+		return macro if ($cond)
+			$block
+		else
+			$next;
+	}
+	if (stmt.body.list == null)
+		return (macro {}).expr;
+	return ifs().expr;
 }
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {

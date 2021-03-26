@@ -1,5 +1,7 @@
 package stdgo.reflect;
 
+import stdgo.StdGoTypes.AnyInterface;
+
 function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 	if (a1 == a2)
 		return true;
@@ -60,3 +62,6 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	}
 	return true;
 }
+
+function typeOf(x:AnyInterface)
+	return null;

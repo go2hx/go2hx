@@ -703,7 +703,6 @@ abstract GoInt16(Int16) from Int16 {
 	static function clamp(x:Int):Int
 		return clampInt16(x);
 }
-
 abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
@@ -737,8 +736,19 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	@:to function toUInt64():GoUInt64
 		return this; //when processed from string -> int64 should flow into negative range in order to fill
 
+	@:to function toFloat64():GoFloat64
+		return Int64.toInt(this);
+	@:to function toFloat32():GoFloat64
+		return Int64.toInt(this);
+
 	@:to function toHaxeInt():Int
 		return Int64.toInt(this);
+	@:to function toHaxeInt64():Int64
+		return this;
+	@:to function toComplex64():GoComplex64
+		return new GoComplex64(Int64.toInt(this),0);
+	@:to function toComplex128():GoComplex128
+		return new GoComplex128(Int64.toInt(this),0);
 
 	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):Bool
 		return a.toBasic() > b.toBasic();

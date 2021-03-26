@@ -15,7 +15,7 @@ function main() {
 
 function gen() {
 	var tests = load();
-	tests = ["./go/test/zerodivide.go"];
+	//tests = ["./go/test/zerodivide.go"];
 	// currently skipping these tests
 	tests.remove("./go/test/initialize.go");
 	tests.remove("./go/test/method7.go");
@@ -85,6 +85,17 @@ function getLine(line:String):String {
 
 function load():Array<String> {
 	var tests:Array<String> = [];
+	if (!FileSystem.isDirectory("tinygo"))
+		Sys.command("git clone https://github.com/tinygo-org/tinygo");
+	var repo = "tinygo/testdata";
+	for (path in FileSystem.readDirectory(repo)) {
+		var p = '$repo/$path';
+		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
+			continue;
+		tests.push('./$p');
+	}
+	return tests;
+
 	if (!FileSystem.isDirectory("go"))
 		Sys.command("git clone https://github.com/golang/go");
 	function readLine(file:FileInput):Bool {

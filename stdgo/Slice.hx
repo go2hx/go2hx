@@ -63,13 +63,13 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.pos;
 	}
 
-	inline public function slice(low:Int, high:Int = -1):Slice<T> {
+	inline public function slice(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
 		var obj = new Slice<T>();
-		obj.setUnderlying(this.underlying(), pos, length);
+		obj.setUnderlying(this.underlying(), pos.toBasic(), length.toBasic());
 		return obj;
 	}
 

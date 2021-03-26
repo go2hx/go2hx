@@ -778,6 +778,11 @@ private function exprTypeString(expr:Ast.Expr):String {
 					[for (result in expr.results.list) exprTypeString(result.type)].join(" ,");
 		case "InterfaceType":
 			return "";
+		case "StarExpr":
+			return "*" + exprTypeString(expr.x);
+		case "StructType":
+			var expr:Ast.StructType = expr;
+			return "{todo_structtype}";
 		default:
 			throw "unknown case value: " + expr.id;
 	}
@@ -2038,6 +2043,8 @@ private function typeFieldListRes(fieldList:Ast.FieldList, info:Info, retValuesB
 
 private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
 	var args:Array<FunctionArg> = [];
+	if (list == null)
+		return [];
 	for (field in list.list) {
 		var type = typeExprType(field.type, info); // null can be assumed as interface{}
 

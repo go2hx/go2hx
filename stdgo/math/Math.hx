@@ -1,5 +1,7 @@
 package stdgo.math;
 
+import stdgo.StdGoTypes.GoFloat64;
+import stdgo.StdGoTypes.GoInt;
 import Math as M;
 
 final pi = M.PI;
@@ -7,6 +9,19 @@ final pi = M.PI;
 inline function max(a, b) {
 	return M.max(a, b);
 }
+
+inline function inf(sign:GoInt) {
+	if (sign >= 0)
+		return Math.POSITIVE_INFINITY;
+	return Math.NEGATIVE_INFINITY;
+}
+
+inline function signbit(x:GoFloat64) {
+	return x <= 0;
+}
+
+inline function isNaN(x:GoFloat64)
+	return M.isNaN(x.toBasic());
 
 inline function min(a, b) {
 	return M.min(a, b);

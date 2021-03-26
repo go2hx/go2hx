@@ -27,6 +27,11 @@ function numGoroutine() {
 	return 0;
 }
 
+interface Error extends stdgo.StdGoTypes.Error {
+	public function runtimeError():Void;
+	public function error():String;
+}
+
 class MemStats implements StructType {
 	public var alloc(get, null):GoUInt64;
 	public var _is_pointer_:Bool = false;

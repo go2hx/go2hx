@@ -210,6 +210,13 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function real(c) {}
-inline function recover():Error {
+inline function recover():stdgo.runtime.Runtime.Error {
+	//return new _Error();
 	return null;
+}
+
+private class _Error implements stdgo.StdGoTypes.Error {
+	public function new() {}
+	public function error():String
+		return "builtin error";
 }

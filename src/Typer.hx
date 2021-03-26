@@ -212,6 +212,7 @@ private function setAlias(spec:Ast.TypeSpec, info:Info) {
 
 private function defaultInfo(data:FileType = null, path:String = ""):Info {
 	return {
+		hasType: false,
 		lengths: [],
 		iota: 0,
 		aliasStaticExtensionMap: [],
@@ -368,6 +369,7 @@ private function typeGenDecl(decl:Ast.GenDecl, info:Info) {
 }
 
 private function typeStmt(stmt:Dynamic, info:Info):Expr {
+	info.hasType = false;
 	if (stmt == null)
 		return null;
 	var def = switch stmt.id {
@@ -1322,7 +1324,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EConst(c):
 					switch c {
 						case CString(s, kind):
-							last = macro ($last : Slice<String>);
+							last = macro (($last) : Slice<String>);
 						default:
 					}
 				default:
@@ -1455,8 +1457,10 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	return switch expr.kind {
 		case STRING:
 			addImport("stdgo.GoString", info);
-			var expr = toExpr(EConst(CString(expr.value)));
-			return (macro ($expr : GoString)).expr;
+			var e = toExpr(EConst(CString(expr.value)));
+			if (info.hasType)
+				return e.expr;
+			return (macro ($e : GoString)).expr;
 		case INT:
 			if (expr.value.length > 10) {
 				try {
@@ -1468,7 +1472,10 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 					trace("basic lit int error: " + e + " value: " + expr.value);
 				}
 			}
-			ECheckType(toExpr(EConst(CInt(expr.value))),TPath({name: "IntegerType", pack: []}));
+			var e = toExpr(EConst(CInt(expr.value)));
+			if (info.hasType)
+				return e.expr;
+			ECheckType(e,TPath({name: "IntegerType", pack: []}));
 		case FLOAT:
 			EConst(CFloat(expr.value));
 		case CHAR:
@@ -1484,6 +1491,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
+			trace("IMAG: " + expr.value);
 			EConst(CInt("0"));
 		default:
 			error("basic lit kind unknown: " + expr.kind);
@@ -1585,7 +1593,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 			info.deferIndexes.remove(index);
 	}
 	return EFunction(FAnonymous, {
-		ret: ret,
+		ret: null, //ret,
 		args: args,
 		expr: block != null ? toExpr(block) : null,
 	});
@@ -2314,8 +2322,10 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
 	var type:ComplexType = null;
 	info.lengths = [];
-	if (value.type.id != null)
+	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
+		info.hasType = true;
+	}
 	var values:Array<TypeDefinition> = [];
 	for (i in 0...value.names.length) {
 		if (value.names[i] == "_")
@@ -2435,7 +2445,7 @@ function untitle(string:String):String {
 	return string;
 }
 
-typedef Info = {lengths:Array<Expr>, iota:Int, aliasStaticExtensionMap:Map<String, Bool>, layerIndex:Int, fieldNames:Array<String>, typeNames:Array<String>,
+typedef Info = {hasType:Bool,lengths:Array<Expr>, iota:Int, aliasStaticExtensionMap:Map<String, Bool>, layerIndex:Int, fieldNames:Array<String>, typeNames:Array<String>,
 	thisName:String, retValues:Array<Array<{name:String, type:ComplexType}>>, deferIndexes:Array<Int>, className:String, funcName:String, path:String,
 	types:Array<{name:String, rename:String, index:Int}>, imports:Map<String, String>, ret:Array<ComplexType>, data:FileType, local:Bool,
 	retypeList:Array<{name:String, index:Int, type:ComplexType}>, print:Bool, blankCounter:Int};

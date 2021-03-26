@@ -110,6 +110,12 @@ abstract GoUIntptr(UInt) from UInt {
 	public inline function _typeName_()
 		return "uintptr";
 
+	@:op(A / B) private static function div(a:GoUIntptr,b:GoUIntptr):GoUIntptr {
+		if (b == 0)
+			throw "division by zero";
+		return Std.int(a.toBasic() / b.toBasic());
+	}
+
 	@:op(A + B) private static function add(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 	@:op(A * B) private static function mul(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
@@ -123,6 +129,21 @@ abstract GoUIntptr(UInt) from UInt {
 	@:op(A ^ B) private static function xor(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+
+	@:op(++A) inline function preInc():GoUIntptr
+		return this = this + 1;
+	@:op(A++) inline function postInc():GoUIntptr {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoUIntptr
+		return this = this - 1;
+	@:op(A--) inline function postDec():GoUIntptr {
+		var ret = this;
+		preDec();
+		return ret;
+	}
 
 	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;
 
@@ -151,7 +172,11 @@ abstract GoFloat(Float) from Float {
 
 	@:op(A + B) private static function add(a:GoFloat, b:GoFloat):GoFloat;
 
-
+	@:op(A / B) private static function div(a:GoFloat,b:GoFloat):GoFloat {
+		if (b == 0)
+			return Math.NaN;
+		return a.toBasic() / b.toBasic();
+	}
 
 	@:op(A * B) private static function mul(a:GoFloat, b:GoFloat):GoFloat;
 
@@ -231,8 +256,11 @@ abstract GoFloat32(Float32) from Float32 {
 		return clamp(a.toBasic() * b.toBasic());
 	@:op(A % B) private static function mod(a:GoFloat32,b:GoFloat32):GoFloat32
 		return clamp(a.toBasic() % b.toBasic());
-	@:op(A / B) private static function div(a:GoFloat32,b:GoFloat32):GoFloat32
-		return Std.int(a.toBasic() / b.toBasic());
+	@:op(A / B) private static function div(a:GoFloat32,b:GoFloat32):GoFloat32 {
+		if (b == 0)
+			return Math.NaN;
+		return a.toBasic() / b.toBasic();
+	}
 
 	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool;
 
@@ -290,8 +318,8 @@ abstract GoComplex64(Complex64) from Complex64 {
 	@:op(A * B) private static function mul(a:GoComplex64, b:GoComplex64):GoComplex64
 		return new GoComplex64((a.real.toBasic() * b.real.toBasic()) - (a.imag.toBasic() * b.imag.toBasic()),(a.imag.toBasic() * b.real.toBasic()) + (a.real.toBasic() * b.imag.toBasic()));
 	@:op(A / B) private static function div(a:GoComplex64,b:GoComplex64):GoComplex64 {
-		if (b.real == 0.0 && b.imag == 0.0)
-			return new GoComplex64(0.0,0.0);
+		//if (b.real == 0.0 && b.imag == 0.0)
+		//	return Math.NaN;
 		return new GoComplex64(
 			((a.real.toBasic() * b.real.toBasic()) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real.toBasic() * b.real.toBasic()) + (b.imag.toBasic() * b.imag.toBasic())),
 			((a.imag.toBasic() * b.real.toBasic()) - (a.real.toBasic() * b.imag.toBasic())) / ((b.real.toBasic() * b.real.toBasic()) + (b.imag.toBasic() * b.imag.toBasic()))
@@ -401,8 +429,12 @@ abstract GoInt(Int) from Int32 {
 
 	@:op(A + B) private static function add(a:GoInt, b:GoInt):GoInt;
 
-	@:op(A / B) private static function div(a:GoInt,b:GoInt):GoInt
+	@:op(A / B) private static inline function div(a:GoInt,b:GoInt):GoInt {
+		if (b == 0)
+			throw "division by zero";
 		return Std.int(a.toBasic() / b.toBasic());
+	}
+
 
 	@:op(A * B) private static function mul(a:GoInt, b:GoInt):GoInt;
 
@@ -502,21 +534,42 @@ abstract GoUInt(Int) from Int {
 	public static function ofInt(x:Int):GoUInt
 		return x;
 	@:op(A + B) private static function add(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() + b.toBasic();
+		return clamp(a.toBasic() + b.toBasic());
 	@:op(A - B) private static function sub(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() - b.toBasic();
+		return clamp(a.toBasic() - b.toBasic());
 	@:op(A * B) private static function mul(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() * b.toBasic();
+		return clamp(a.toBasic() * b.toBasic());
 	@:op(A & B) private static function and(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() & b.toBasic();
+		return clamp(a.toBasic() & b.toBasic());
 	@:op(A | B) private static function or(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() | b.toBasic();
+		return clamp(a.toBasic() | b.toBasic());
 	@:op(A ^ B) private static function xor(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() ^ b.toBasic();
+		return clamp(a.toBasic() ^ b.toBasic());
 	@:op(A % B) private static function mod(a:GoUInt,b:GoUInt):GoUInt
-		return a.toBasic() % b.toBasic();
-	@:op(A / B) private static function div(a:GoUInt,b:GoUInt):GoUInt
+		return clamp(a.toBasic() % b.toBasic());
+	@:op(A / B) private static function div(a:GoUInt,b:GoUInt):GoUInt {
+		if (b == 0)
+			throw "division by zero";
 		return Std.int(a.toBasic() / b.toBasic());
+	}
+
+	@:op(++A) inline function preInc():GoUInt
+		return this = clamp(this + 1);
+	@:op(A++) inline function postInc():GoUInt {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoUInt
+		return this = clamp(this - 1);
+	@:op(A--) inline function postDec():GoUInt {
+		var ret = this;
+		preDec();
+		return ret;
+	}
+
+	static function clamp(x:Int):Int
+		return clampUInt(x);
 
 
 	@:op(A > B) private static function gt(a:GoUInt, b:GoUInt):Bool;
@@ -605,6 +658,21 @@ abstract GoInt8(Int8) from Int8 {
 	@:op(A % B) private static function mod(a:GoInt8,b:GoInt8):GoInt8
 		return clamp(Std.int(a.toBasic() % b.toBasic()));
 
+	@:op(++A) inline function preInc():GoInt8
+		return this = clamp(this + 1);
+	@:op(A++) inline function postInc():GoInt8 {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoInt8
+		return this = clamp(this - 1);
+	@:op(A--) inline function postDec():GoInt8 {
+		var ret = this;
+		preDec();
+		return ret;
+	}
+
 	@:op(A > B) private static function gt(a:GoInt8,b:GoInt8):Bool
 		return a.toBasic() > b.toBasic();
 	@:op(A >= B) private static function gte(a:GoInt8,b:GoInt8):Bool
@@ -614,8 +682,11 @@ abstract GoInt8(Int8) from Int8 {
 	@:op(A <= B) private static function lte(a:GoInt8,b:GoInt8):Bool
 		return a.toBasic() <= b.toBasic();
 
-	@:op(A / B) private static function div(a:GoInt8,b:GoInt8):GoInt8
+	@:op(A / B) private static function div(a:GoInt8,b:GoInt8):GoInt8 {
+		if (b == 0)
+			throw "division by zero";
 		return Std.int(a.toBasic() / b.toBasic());
+	}
 	// TODO: clamp int8
 	static function clamp(x:Int)
 		return clampInt8(x);
@@ -699,8 +770,26 @@ abstract GoInt16(Int16) from Int16 {
 		return clamp(a.toBasic() ^ b.toBasic());
 	@:op(A % B) private static function mod(a:GoInt16,b:GoInt16):GoInt16
 		return clamp(a.toBasic() % b.toBasic());
-	@:op(A / B) private static function div(a:GoInt16,b:GoInt16):GoInt16
+
+	@:op(++A) inline function preInc():GoInt16
+		return this = clamp(this + 1);
+	@:op(A++) inline function postInc():GoInt16 {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoInt16
+		return this = clamp(this - 1);
+	@:op(A--) inline function postDec():GoInt16 {
+		var ret = this;
+		preDec();
+		return ret;
+	}
+	@:op(A / B) private static function div(a:GoInt16,b:GoInt16):GoInt16 {
+		if (b == 0)
+			throw "division by zero";
 		return Std.int(a.toBasic() / b.toBasic());
+	}
 
 	@:op(A > B) private static function gt(a:GoInt16,b:GoInt16):Bool
 		return a.toBasic() > b.toBasic();
@@ -805,8 +894,11 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return a.toBasic() % b.toBasic();
 	@:op(A * B) static function mul(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() * b.toBasic();
-	@:op(A / B) static function div(a:IntegerType,b:IntegerType):IntegerType
+	@:op(A / B) static function div(a:IntegerType,b:IntegerType):IntegerType {
+		if (b == 0)
+			throw "division by zero";
 		return a.toBasic() / b.toBasic();
+	}
 	@:op(A | B) static function or(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() | b.toBasic();
 	@:op(A & B) static function and(a:IntegerType,b:IntegerType):IntegerType
@@ -927,6 +1019,20 @@ abstract GoUInt8(UInt8) from UInt8 {
 
 	@:op(A <= B) private static function lte(a:GoUInt8, b:GoUInt8):Bool;
 
+	@:op(++A) inline function preInc():GoUInt8
+		return this = clamp(this + 1);
+	@:op(A++) inline function postInc():GoUInt8 {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoUInt8
+		return this = clamp(this - 1);
+	@:op(A--) inline function postDec():GoUInt8 {
+		var ret = this;
+		preDec();
+		return ret;
+	}
 	
 @:op(A + B) private static function add(a:GoUInt8,b:GoUInt8):GoUInt8
 	return clamp(a.toBasic() + b.toBasic());
@@ -942,8 +1048,11 @@ abstract GoUInt8(UInt8) from UInt8 {
 	return clamp(a.toBasic() ^ b.toBasic());
 @:op(A % B) private static function mod(a:GoUInt8,b:GoUInt8):GoUInt8
 	return clamp(a.toBasic() % b.toBasic());
-@:op(A / B) private static function div(a:GoUInt8,b:GoUInt8):GoUInt8
-    return clamp(Std.int(a.toBasic() / b.toBasic()));
+@:op(A / B) private static function div(a:GoUInt8,b:GoUInt8):GoUInt8 {
+	if (b == 0)
+		throw "division by zero";
+	return clamp(Std.int(a.toBasic() / b.toBasic()));
+}
 
 	@:op(A << B) private static function shl(a:GoUInt8, b:GoUInt8):GoUInt8
 		return clamp(a.toBasic() << b.toBasic());
@@ -1014,8 +1123,26 @@ abstract GoUInt16(UInt16) from UInt16 {
 	return clamp(a.toBasic() ^ b.toBasic());
 @:op(A % B) private static function mod(a:GoUInt16,b:GoUInt16):GoUInt16
 	return clamp(a.toBasic() % b.toBasic());
-@:op(A / B) private static function div(a:GoUInt16,b:GoUInt16):GoUInt16
-    return Std.int(a.toBasic() / b.toBasic());
+@:op(A / B) private static function div(a:GoUInt16,b:GoUInt16):GoUInt16 {
+	if (b == 0)
+		throw "division by zero";
+    return clamp(Std.int(a.toBasic() / b.toBasic()));
+}
+
+@:op(++A) inline function preInc():GoUInt16
+	return this = clamp(this + 1);
+@:op(A++) inline function postInc():GoUInt16 {
+	var ret = this;
+	preInc();
+	return ret;
+}
+@:op(--A) inline function preDec():GoUInt16
+	return this = clamp(this - 1);
+@:op(A--) inline function postDec():GoUInt16 {
+	var ret = this;
+	preDec();
+	return ret;
+}
 	static function clamp(x:Int)
 		return clampUInt16(x);
 }
@@ -1079,6 +1206,21 @@ abstract GoUInt64(UInt64) from UInt64 {
 	return a.toBasic() % b.toBasic();
 @:op(A / B) private static function div(a:GoUInt64,b:GoUInt64):GoUInt64
     return Int64.div(a.toBasic(), b.toBasic());
+
+@:op(++A) inline function preInc():GoUInt64
+	return this = this + (1 : UInt64);
+@:op(A++) inline function postInc():GoUInt64 {
+	var ret = this;
+	preInc();
+	return ret;
+}
+@:op(--A) inline function preDec():GoUInt64
+	return this = this - (1 : UInt64);
+@:op(A--) inline function postDec():GoUInt64 {
+	var ret = this;
+	preDec();
+	return ret;
+}
 }
 interface StructType {
 	public final _typeName_:String;

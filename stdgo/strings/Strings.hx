@@ -12,6 +12,9 @@ inline function hasSuffix(s:String, value:String):Bool {
 	return s.substr(s.length - value.length) == value;
 }
 
+inline function index(s:String,substr:String):Int
+	return s.indexOf(substr);
+
 function replace(s:String,sub:String,by:String,count:Int):GoString {
 	if (count == 0)
 		return s;

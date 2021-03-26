@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
 import haxe.Constraints.Constructible;
@@ -7,7 +8,7 @@ import haxe.Constraints.Constructible;
 @:forward
 @:generic
 abstract GoMap<K, V>(MapData<K, V>) {
-	public var length(get, never):Int;
+	public var length(get, never):GoInt;
 
 	public inline function new(args:Rest<{key:K, value:V}>) {
 		this = new MapData<K, V>();
@@ -27,11 +28,11 @@ abstract GoMap<K, V>(MapData<K, V>) {
 		return v;
 	}
 
-	private function get_length():Int {
+	private function get_length():GoInt {
 		return this.length();
 	}
 
-	public function cap():Int {
+	public function cap():GoInt {
 		return this.length();
 	}
 
@@ -74,7 +75,7 @@ class MapData<K, V> {
 	}
 
 	public function remove(key:K) {
-		for (i in 0...slice.length) {
+		for (i in 0...slice.length.toBasic()) {
 			if (slice[i].key == key) {
 				slice[i] = null;
 				return;
@@ -88,7 +89,7 @@ class MapData<K, V> {
 	}
 
 	public inline function keyValueIterator() {
-		return slice.iterator();
+		return slice.keyValueIterator();
 	}
 
 	public inline function length() {

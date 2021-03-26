@@ -5,12 +5,13 @@ import haxe.rtti.Meta;
 import haxe.ds.Vector;
 import haxe.Rest;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoInt;
 
 @:generic
 abstract GoArray<T>(Vector<T>) from Vector<T> {
-	public var length(get, never):Int;
+	public var length(get, never):GoInt;
 
-	private function get_length():Int {
+	private function get_length():GoInt {
 		return this.length;
 	}
 
@@ -32,6 +33,10 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		}
 		#end
 	}
+	@:op([]) public inline function getGoInt(index:GoInt):T
+		return get(index.toBasic());
+	@:op([]) public inline function setGoInt(index:GoInt, value:T):T
+		return set(index.toBasic(),value);
 	@:op([]) public inline function get(index:Int):T {
 		boundsCheck(index);
 		return this.get(index);
@@ -45,7 +50,7 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 	public inline function slice(low:Int, high:Int = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
-			high = length;
+			high = length.toBasic();
 		var length = high - low;
 		var slice = new Slice<T>();
 		slice.setUnderlying(this, pos, length);
@@ -57,7 +62,7 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 	}
 
 	public inline function toArray():Array<T> {
-		return [for (i in 0...length) this.get(i)];
+		return [for (i in 0...length.toBasic()) this.get(i)];
 	}
 
 	public inline function toVector():Vector<T> {
@@ -74,8 +79,8 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 
 	public function copy() {
 		var array = new GoArray<T>();
-		array.setSize(array.length);
-		for (i in 0...array.length) {
+		array.setSize(array.length.toBasic());
+		for (i in 0...array.length.toBasic()) {
 			array.set(i, this.get(i));
 		}
 		return array;
@@ -103,7 +108,7 @@ class VectorKeyValueIterator<T> {
 	}
 
 	public inline function next() {
-		return {key: pos, value: vector.get(pos++)};
+		return {key: (pos : GoInt), value: vector.get(pos++)};
 	}
 }
 

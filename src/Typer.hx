@@ -582,10 +582,10 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 						}
 					default:
 				}
-				exprs.unshift(macro var $key_i:IntegerType = $key);
+				exprs.unshift(macro var $key_i:IntegerType = $key); //
 			default:
 		}
-		return (macro for ($key in 0...$x.length) $body).expr; // only index no need to use Go.range
+		return (macro for ($key in 0...$x.length.toBasic()) $body).expr; // only index no need to use Go.range
 	}
 	var value = typeExpr(stmt.value, info); // value of x[key]
 	if (key.expr.match(EConst(CIdent("_")))) {
@@ -1946,9 +1946,9 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0,strict:
 				for (param in p.params) {
 					switch param {
 						case TPType(t):
-							var df = defaultValue(t, info, index + 1);
+							var df = defaultValue(t, info, index + 1,false);
 							var j = index;
-							return macro new GoArray(...[for (i in 0...${info.lengths[j]}) $df]);
+							return macro new $p(...[for (i in 0...${info.lengths[j]}) $df]);
 						default:
 					}
 				}

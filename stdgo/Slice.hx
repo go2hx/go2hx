@@ -5,10 +5,11 @@ import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
 import haxe.ds.Vector;
+import stdgo.StdGoTypes.GoInt;
 
 @:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
-	public var length(get, never):Int;
+	public var length(get, never):GoInt;
 
 	// pretend to be pointer if neeeded
 	public var _value_(get, set):Slice<T>;
@@ -45,6 +46,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		}
 	}
 
+	@:op([]) public inline function getGoInt(index:GoInt):T
+		return get(index.toBasic());
+	@:op([]) public inline function setGoInt(index:GoInt,value:T):T
+		return set(index.toBasic(),value);
+
 	@:op([]) public inline function get(index:Int):T {
 		return this.get(index);
 	}
@@ -60,7 +66,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	inline public function slice(low:Int, high:Int = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
-			high = length;
+			high = length.toBasic();
 		var length = high - low;
 		var obj = new Slice<T>();
 		obj.setUnderlying(this.underlying(), pos, length);
@@ -69,8 +75,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function copy():Slice<T> {
 		var slice = new Slice<T>();
-		slice.grow(length);
-		for (i in 0...slice.length) {
+		slice.grow(length.toBasic());
+		for (i in 0...slice.length.toBasic()) {
 			slice[i] = get(i);
 		}
 		return slice;
@@ -78,7 +84,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function append(args:Array<T>):Slice<T> {
 		var slice = copy();
-		var pos = slice.length;
+		var pos = slice.length.toBasic();
 		slice.grow(args.length);
 		for (i in 0...args.length) {
 			slice[pos + i] = args[i];
@@ -137,7 +143,7 @@ class SliceKeyValueIterator<T> {
 	}
 
 	public inline function next() {
-		return {key: pos, value: slice.get(pos++)};
+		return {key: (pos : GoInt), value: slice.get(pos++)};
 	}
 }
 
@@ -185,7 +191,6 @@ class SliceData<T> {
 		}
 		#end
 	}
-
 	public function get(index:Int):T {
 		boundsCheck(index);
 		final i = index + pos;
@@ -202,7 +207,7 @@ class SliceData<T> {
 		return new SliceIterator(this);
 	}
 
-	inline public function keyValueIterator():KeyValueIterator<Int, T> {
+	inline public function keyValueIterator():KeyValueIterator<GoInt, T> {
 		return new SliceKeyValueIterator(this);
 	}
 

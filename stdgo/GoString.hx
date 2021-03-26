@@ -1,8 +1,8 @@
 package stdgo;
 
+import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoUInt8;
-import haxe.iterators.StringKeyValueIterator;
-import haxe.iterators.StringIterator;
 import stdgo.StdGoTypes.AnyInterface;
 
 @:forward
@@ -73,4 +73,33 @@ abstract GoString(String) from String to String {
 	@:op(A + B) @:commutative static function add(a:GoString, b:String):GoString;
 
 	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
+}
+
+
+class StringIterator {
+	var offset:Int = 0;
+	var s:String;
+	public inline function new(s:String) {
+		this.s = s;
+	}
+	public inline function hasNext() {
+		return offset < s.length;
+	}
+	public inline function next():GoByte {
+		return StringTools.unsafeCodeAt(s, offset++);
+	}
+}
+
+class StringKeyValueIterator {
+	var offset:Int = 0;
+	var s:String;
+	public inline function new(s:String) {
+		this.s = s;
+	}
+	public inline function hasNext() {
+		return offset < s.length;
+	}
+	public inline function next() {
+		return {key: (offset : GoInt), value: StringTools.fastCodeAt(s,offset++)};
+	}
 }

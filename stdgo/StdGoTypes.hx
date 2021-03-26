@@ -452,10 +452,20 @@ abstract GoInt(Int) from Int32 {
 
 	@:op(~A) private static function bneg(t:GoInt):GoInt;
 
-	@:op(++A) private static function preInc(a:GoInt):GoInt;
-	@:op(A++) private static function postInc(a:GoInt):GoInt;
-	@:op(--A) private static function preDec(a:GoInt):GoInt;
-	@:op(A--) private static function postDec(a:GoInt):GoInt;
+	@:op(++A) inline function preInc():GoInt
+		return this = this + 1;
+	@:op(A++) inline function postInc():GoInt {
+		var ret = this;
+		preInc();
+		return ret;
+	}
+	@:op(--A) inline function preDec():GoInt
+		return this = this - 1;
+	@:op(A--) inline function postDec():GoInt {
+		var ret = this;
+		preDec();
+		return ret;
+	}
 
 }
 
@@ -715,6 +725,23 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return Int64.parseString(x);
 	@:from private static function fromInt(x:Int):IntegerType
 		return Int64.ofInt(x);
+	@:from private static function fromGoInt(x:GoInt):IntegerType
+		return x.toBasic();
+	@:from private static function fromUInt(x:GoUInt):IntegerType
+		return x.toBasic();
+	@:from private static function fromInt8(x:GoInt8):IntegerType
+		return x.toBasic();
+	@:from private static function fromInt16(x:GoInt16):IntegerType
+		return x.toBasic();
+	@:from private static function fromUInt8(x:GoUInt8):IntegerType
+		return x.toBasic();
+	@:from private static function fromUInt16(x:GoUInt16):IntegerType
+		return x.toBasic();
+	@:from private static function fromInt64(x:GoInt64):IntegerType
+		return x.toBasic();
+	@:from private static function fromUInt64(x:GoUInt64):IntegerType
+		return x.toBasic();
+
 	@:to function toInt():GoInt
 		return Int64.toInt(this);
 	@:to function toInt8():GoInt8
@@ -738,7 +765,7 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	@:to function toFloat64():GoFloat64
 		return Int64.toInt(this);
-	@:to function toFloat32():GoFloat64
+	@:to function toFloat32():GoFloat32
 		return Int64.toInt(this);
 
 	@:to function toHaxeInt():Int
@@ -749,6 +776,8 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return new GoComplex64(Int64.toInt(this),0);
 	@:to function toComplex128():GoComplex128
 		return new GoComplex128(Int64.toInt(this),0);
+	@:to function toUIntPtr():GoUIntptr
+		return Int64.toInt(this);
 
 	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):Bool
 		return a.toBasic() > b.toBasic();
@@ -1087,6 +1116,21 @@ abstract AnyInterface({value:Any, typeName:String}) {
 interface ArrayAccess<T> {
 	function get(i:Int):T;
 	function set(i:Int, value:T):T;
+}
+
+class GoIntIterator {
+	var min:Int;
+	var max:Int;
+	public inline function new(min:GoInt, max:GoInt) {
+		this.min = min.toBasic();
+		this.max = max.toBasic();
+	}
+	public inline function hasNext() {
+		return min < max;
+	}
+	public inline function next():GoInt {
+		return min++;
+	}
 }
 
 interface MapAccess<K, V> {

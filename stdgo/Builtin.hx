@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.IntegerType;
 import haxe.macro.ExprTools;
 import haxe.macro.PositionTools;
 import haxe.macro.TypeTools;
@@ -34,7 +35,7 @@ macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
 						var src = $src;
 						var dst = $dst;
 						var length = dst.length >= src.length ? src.length : dst.length; // min length
-						for (i in 0...length) {
+						for (i in 0...length.toBasic()) {
 							dst[i] = src[i];
 						}
 						length;
@@ -54,14 +55,12 @@ inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 
 function imag(c) {}
 
-macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
+macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice/array and map
 	//convert from int64 to int
 	if (size == null || size.expr.match(EConst(CIdent("null"))))
 		size = macro 0;
 	if (cap == null || cap.expr.match(EConst(CIdent("null"))))
 		cap = macro 0;
-	size = macro ($size : Int);
-	cap = macro ($cap : Int);
 
 	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
 	if (t == null)
@@ -84,11 +83,13 @@ macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
 						}
 						return macro {
 							var slice = new $p();
-							var size = $size;
+							var size:IntegerType = $size;
 							var value = $value;
-							slice.grow($size);
-							for (i in 0...size) {
+							slice.grow(size);
+							var i = 0;
+							while (i < size) {
 								slice[i] = value;
+								i++;
 							}
 							slice;
 						};

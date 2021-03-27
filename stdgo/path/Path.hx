@@ -1,11 +1,11 @@
-package stdgo;
+package stdgo.path;
 
-import Go.ErrorReturn;
+import stdgo.internal.ErrorReturn;
 import haxe.Rest;
 
 using haxe.io.Path;
 
-var errBadPattern = new Errors("syntax error in pattern");
+var errBadPattern = stdgo.errors.Errors.new_("syntax error in pattern");
 
 function base(path:String):String {
 	path = path.normalize();

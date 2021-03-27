@@ -36,7 +36,7 @@ function gen() {
 	tests.remove("./go/test/method7.go"); //not sure
 	//skipping because they require recover to properly function.
 	for (test in ["chancap","closedchan","cmp","method","method5","nil","nilptr2","nilptr_aix","recover","recover2","recover3","zerodivide"])
-		tests.remove('./go/test/$test');
+		tests.remove('./go/test/$test.go');
 
 	// Error: Class name must start with an uppercase letter
 	tests.remove("./go/test/235.go");

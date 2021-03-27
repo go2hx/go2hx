@@ -1,4 +1,5 @@
 package stdgo.path.filepath;
+import stdgo.path.Path;
+import stdgo.StdGoTypes;
 
-typedef Filepath = Path;
-typedef WalkFunc = (path:String, info:Os.FileInfo, err:Errors) -> Errors;
+

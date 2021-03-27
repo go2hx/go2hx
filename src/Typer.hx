@@ -1329,7 +1329,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EConst(c):
 					switch c {
 						case CString(s, kind):
-							last = macro (($last) : Slice<String>);
+							last = macro (($last) : Slice<GoString>);
 						default:
 					}
 				default:
@@ -1523,6 +1523,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 }
 
 private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
+	info.hasType = false;
 	var params:Array<Expr> = [];
 	var p:TypePath = null;
 	var type:ComplexType = null;

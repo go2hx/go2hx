@@ -418,6 +418,10 @@ abstract GoInt(Int) from Int32 {
 		return clampUInt16(this);
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+	@:to inline function toFloat32():GoFloat32
+		return this;
+	@:to inline function toFloat64():GoFloat64
+		return this;
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});

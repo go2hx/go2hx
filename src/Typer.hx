@@ -1092,7 +1092,9 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	if (expr.len != null) {
 		// array
 		addImport("stdgo.GoArray", info);
+		info.hasType = true;
 		var len = typeExpr(expr.len, info);
+		info.hasType = false;
 		info.lengths.unshift(len);
 		return TPath({
 			pack: [],
@@ -1492,7 +1494,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			if (value == "\\") {
 				return (macro $const.charCodeAt(0)).expr;
 			}
-			EField(const, "code");
+			ECheckType(toExpr(EField(const, "code")),TPath({name: "GoByte",pack: []}));
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
@@ -1956,13 +1958,14 @@ private function getRetValues(info:Info) {
 private function defaultValue(type:ComplexType, info:Info, index:Int = 0,strict:Bool=true):Expr {
 	switch type {
 		case TPath(p):
-			if (p.name == "GoArray") {
+			if (p.name == "GoArray") { //goarray generation
 				for (param in p.params) {
 					switch param {
 						case TPType(t):
 							var df = defaultValue(t, info, index + 1,false);
 							var j = index;
-							return macro new $p(...[for (i in 0...${info.lengths[j]}) $df]);
+							var len = macro (${info.lengths[j]} : GoInt);
+							return macro new $p(...[for (i in 0...$len.toBasic()) $df]);
 						default:
 					}
 				}
@@ -2329,6 +2332,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 
 private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
 	var type:ComplexType = null;
+	info.hasType = false;
 	info.lengths = [];
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);

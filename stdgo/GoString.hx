@@ -19,15 +19,15 @@ abstract GoString(String) from String to String {
 	@:from static function ofUInt8(x:GoUInt8):GoString {
 		return String.fromCharCode(x.toBasic());
 	}
-
 	@:arrayAccess
-	inline function get(index:Int) {
+	inline function getGoInt(index:GoInt)
+		return get(index.toBasic());
+	@:arrayAccess
+	inline function get(index:Int)
 		return this.charCodeAt(index);
-	}
 
-	public function toString():String {
+	public function toString():String
 		return this;
-	}
 	@:to public function toSlice():Slice<StdGoTypes.GoByte> {
 		return new Slice(...toArray());
 	}

@@ -30,6 +30,7 @@ function tinygo() {
 
 function gen() {
 	var tests = load();
+	tests = ["./go/test/turing.go"];
 	// currently skipping these tests
 	tests.remove("./go/test/mergemul.go"); //prints close to the same, timesout though with no exit code
 	tests.remove("./go/test/initialize.go"); //not sure

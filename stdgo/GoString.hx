@@ -19,21 +19,26 @@ abstract GoString(String) from String to String {
 	@:from static function ofUInt8(x:GoUInt8):GoString {
 		return String.fromCharCode(x.toBasic());
 	}
+
 	@:from static function ofSlice(x:Slice<GoByte>):GoString {
 		return [for (i in x) (i : GoString)].join("");
 	}
+
 	@:arrayAccess
 	inline function getGoInt(index:GoInt)
 		return get(index.toBasic());
+
 	@:arrayAccess
 	inline function get(index:Int)
 		return this.charCodeAt(index);
 
 	public function toString():String
 		return this;
+
 	@:to public function toSlice():Slice<StdGoTypes.GoByte> {
 		return new Slice(...toArray());
 	}
+
 	public function toArray():Array<StdGoTypes.GoByte> {
 		return [for (code in new StringIterator(this)) code];
 	}
@@ -51,6 +56,7 @@ abstract GoString(String) from String to String {
 			end = this.length;
 		return this.substring(start, end);
 	}
+
 	public inline function typeName() {
 		return "GoString";
 	}
@@ -78,16 +84,18 @@ abstract GoString(String) from String to String {
 	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
 }
 
-
 class StringIterator {
 	var offset:Int = 0;
 	var s:String;
+
 	public inline function new(s:String) {
 		this.s = s;
 	}
+
 	public inline function hasNext() {
 		return offset < s.length;
 	}
+
 	public inline function next():GoByte {
 		return StringTools.unsafeCodeAt(s, offset++);
 	}
@@ -96,13 +104,16 @@ class StringIterator {
 private class StringKeyValueIterator {
 	var offset:Int = 0;
 	var s:String;
+
 	public inline function new(s:String) {
 		this.s = s;
 	}
+
 	public inline function hasNext() {
 		return offset < s.length;
 	}
+
 	public inline function next() {
-		return {key: (offset : GoInt), value: StringTools.fastCodeAt(s,offset++)};
+		return {key: (offset : GoInt), value: StringTools.fastCodeAt(s, offset++)};
 	}
 }

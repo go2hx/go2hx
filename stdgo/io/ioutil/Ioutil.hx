@@ -26,9 +26,7 @@ function readDir(dirname:String):ErrorReturn<Array<FileInfo>> {
 	dirname = Path.addTrailingSlash(dirname);
 	try {
 		var array:Array<FileInfo> = [];
-		for (path in FileSystem.readDirectory(dirname)) {
-			
-		}
+		for (path in FileSystem.readDirectory(dirname)) {}
 		return {value: array};
 	} catch (e) {
 		return {value: null, error: cast e};

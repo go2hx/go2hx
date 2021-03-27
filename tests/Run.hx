@@ -11,7 +11,7 @@ function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
 	gen();
-	//tinygo();
+	// tinygo();
 }
 
 function tinygo() {
@@ -32,14 +32,15 @@ function gen() {
 	var tests = load();
 	// currently skipping these tests
 	for (test in [
-		"goprint","locklinear","mallocfin","gcgort","channel", //using gosched
-		"stackobj", //gc attempts to collect from the heap
-		"named", //very strange argument as typename function arguments, really obscure only test if real code runs into it.
-		"mergemul", //prints close to the same, times out though with no exit code
-		"initialize", //not sure
-		"method7", //not sure
-		"chancap","closedchan","cmp","method","method5","nil","nilptr2","nilptr_aix","recover","recover2","recover3","zerodivide", //requires recover to properly function.
-		"235", "64bit", //Class name must start with an uppercase letter
+		"goprint", "locklinear", "mallocfin", "gcgort", "channel", // using gosched
+		"stackobj", // gc attempts to collect from the heap
+		"named", // very strange argument as typename function arguments, really obscure only test if real code runs into it.
+		"mergemul", // prints close to the same, times out though with no exit code
+		"initialize", // not sure
+		"method7", // not sure
+		"chancap", "closedchan",
+		"cmp", "method", "method5", "nil", "nilptr2", "nilptr_aix", "recover", "recover2", "recover3", "zerodivide", // requires recover to properly function.
+		"235", "64bit", // Class name must start with an uppercase letter
 
 	])
 		tests.remove('./go/test/$test.go');
@@ -87,7 +88,7 @@ function run() {
 				var line:String = "";
 				try {
 					line = getLine(proc.stderr.readLine());
-				}catch(e) {
+				} catch (e) {
 					line = 'unable to read line, error: $e';
 				}
 				Sys.println('command: $command');

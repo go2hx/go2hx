@@ -33,10 +33,13 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		}
 		#end
 	}
+
 	@:op([]) public inline function getGoInt(index:GoInt):T
 		return get(index.toBasic());
+
 	@:op([]) public inline function setGoInt(index:GoInt, value:T):T
-		return set(index.toBasic(),value);
+		return set(index.toBasic(), value);
+
 	@:op([]) public inline function get(index:Int):T {
 		boundsCheck(index);
 		return this.get(index);

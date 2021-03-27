@@ -48,8 +48,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:op([]) public inline function getGoInt(index:GoInt):T
 		return get(index.toBasic());
-	@:op([]) public inline function setGoInt(index:GoInt,value:T):T
-		return set(index.toBasic(),value);
+
+	@:op([]) public inline function setGoInt(index:GoInt, value:T):T
+		return set(index.toBasic(), value);
 
 	@:op([]) public inline function get(index:Int):T {
 		return this.get(index);
@@ -191,6 +192,7 @@ class SliceData<T> {
 		}
 		#end
 	}
+
 	public function get(index:Int):T {
 		boundsCheck(index);
 		final i = index + pos;

@@ -124,5 +124,4 @@ class File implements stdgo.io.Io.Writer {
 	}
 }
 
-
 typedef FileInfo = stdgo.io.fs.Fs.FileInfo;

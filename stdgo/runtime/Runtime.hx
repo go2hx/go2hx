@@ -15,21 +15,25 @@ import java.vm.Gc;
 import stdgo.StdGoTypes.GoUInt64;
 
 var memProfileRate:Int = 0;
-function gc() {
-	//run garbage collector
-}
-function setFinalizer(obj:AnyInterface,finalizer:AnyInterface) {
 
+function gc() {
+	// run garbage collector
 }
+
+function setFinalizer(obj:AnyInterface, finalizer:AnyInterface) {}
+
 function gosched() {
-	//yields the current processor
+	// yields the current processor
 }
+
 function numGoroutine() {
 	return 0;
 }
+
 function gomaxprocs(num:GoInt):GoInt {
 	return num;
 }
+
 function keepAlive(x:AnyInterface) {}
 
 interface Error extends stdgo.StdGoTypes.Error {

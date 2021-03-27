@@ -13,6 +13,7 @@ private class ErrorData implements Error {
 	public function new(message:String) {
 		this.message = message;
 	}
+
 	public function error():String
 		return message;
 }

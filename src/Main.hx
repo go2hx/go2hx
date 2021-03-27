@@ -54,7 +54,8 @@ function init(args:Array<String>) {
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));
 	Typer.stdgoList = [
-		for (name in FileSystem.readDirectory("stdgo")) Path.withoutExtension(name).toLowerCase()
+		for (name in FileSystem.readDirectory("stdgo"))
+			Path.withoutExtension(name).toLowerCase()
 	];
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);

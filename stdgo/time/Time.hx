@@ -6,6 +6,7 @@ import haxe.Int64;
 
 class Time implements StructType {
 	var date:Date;
+
 	public var _is_pointer_:Bool = false;
 	public var _address_:Int = 0;
 	public final _typeName_:String = "Time";
@@ -40,5 +41,6 @@ final sunday:Int = 0;
 inline function sleep(seconds:Float) {
 	Sys.sleep(seconds);
 }
+
 final millisecond = 0.01;
 typedef Duration = Int64;

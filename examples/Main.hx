@@ -3,7 +3,6 @@ package;
 import github_com.tidwall.btree.Btree.new_ as newBtree;
 import stdgo.StdGoTypes;
 
-
 typedef Item = {
 	key:String,
 	val:String,

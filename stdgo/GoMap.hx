@@ -99,18 +99,20 @@ class MapData<K, V> {
 	}
 }
 
-
-private class MapKeyValueIterator<K,V> {
+private class MapKeyValueIterator<K, V> {
 	var offset:Int = 0;
 	var slice:Slice<{key:K, value:V}>;
+
 	public inline function new(slice:Slice<{key:K, value:V}>) {
 		this.slice = slice;
 	}
+
 	public inline function hasNext() {
 		return offset < slice.length;
 	}
+
 	public inline function next() {
-		var o:{key:K,value:V} = null;
+		var o:{key:K, value:V} = null;
 		while (offset < slice.length) {
 			o = slice[offset++];
 			if (o != null)

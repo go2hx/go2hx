@@ -21,8 +21,9 @@ inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 }
 
 inline function close(v) {}
+
 inline function complex(r, i) {
-	return 0; //TODO: implement complex function
+	return 0; // TODO: implement complex function
 }
 
 macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
@@ -56,7 +57,7 @@ inline function delete<K, V>(map:GoMap<K, V>, key:K) {
 function imag(c) {}
 
 macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice/array and map
-	//convert from int64 to int
+	// convert from int64 to int
 	if (size == null || size.expr.match(EConst(CIdent("null"))))
 		size = macro 0;
 	if (cap == null || cap.expr.match(EConst(CIdent("null"))))
@@ -111,7 +112,7 @@ macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice
 	return func();
 }
 
-function defaultValue(t:ComplexType, pos:Position,strict:Bool=true):Expr {
+function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
 	switch t {
 		case TFunction(args, ret):
 			return macro null;
@@ -127,7 +128,7 @@ function defaultValue(t:ComplexType, pos:Position,strict:Bool=true):Expr {
 				case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
 					"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
 					if (strict)
-						return macro (0 : $t);
+						return macro(0 : $t);
 					return macro 0;
 				case "GoDynamic", "Any", "Dynamic", "AnyInterface":
 					return macro null;
@@ -137,7 +138,7 @@ function defaultValue(t:ComplexType, pos:Position,strict:Bool=true):Expr {
 					return macro null;
 				case "GoString":
 					if (strict)
-						return macro ("" : GoString);
+						return macro("" : GoString);
 					return macro "";
 				default:
 					return macro new $p();
@@ -210,13 +211,15 @@ inline function println(args:Rest<Dynamic>) {
 }
 
 inline function real(c) {}
+
 inline function recover():stdgo.runtime.Runtime.Error {
-	//return new _Error();
+	// return new _Error();
 	return null;
 }
 
 private class _Error implements stdgo.StdGoTypes.Error {
 	public function new() {}
+
 	public function error():String
 		return "builtin error";
 }

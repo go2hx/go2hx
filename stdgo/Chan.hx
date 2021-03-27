@@ -24,6 +24,7 @@ class Chan<T> {
 	public inline function send(value:T) {
 		data[setIndex++] = value;
 	}
+
 	public inline function cap() {
 		return data.length;
 	}

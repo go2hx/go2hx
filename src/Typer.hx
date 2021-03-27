@@ -600,7 +600,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 					}
 					exprs.unshift(macro var $valueString = _obj.value);
 				}
-				if (key != null) 
+				if (key != null)
 					exprs.unshift(macro var $keyString = _obj.key);
 			default:
 		}
@@ -653,7 +653,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							{
 								name: nameIdent(spec.names[i], info),
 								type: type,
-								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info,0,false) : null,
+								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info, 0, false) : null,
 							}
 					]);
 			}
@@ -765,9 +765,9 @@ private function exprTypeString(expr:Ast.Expr):String {
 	}
 }
 
-private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { //always an if else chain to deal with int64s and complex numbers
+private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
 	// this is an if else chain
-	var tag = stmt.tag == null ? null : typeExpr(stmt.tag,info);
+	var tag = stmt.tag == null ? null : typeExpr(stmt.tag, info);
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
 			return null;
@@ -818,7 +818,7 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	} else {
 		def = EWhile(cond, body, true);
 		if (stmt.cond == null) {
-			var retValue = defaultValue(info.ret[0], info,0,false);
+			var retValue = defaultValue(info.ret[0], info, 0, false);
 			switch info.ret[0] {
 				case TPath(p):
 					if (p.name == "Void")
@@ -965,7 +965,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			}
 		}
 		if (info.ret[0] != null)
-			return ret(EReturn(defaultValue(info.ret[0], null,0,false)));
+			return ret(EReturn(defaultValue(info.ret[0], null, 0, false)));
 		return ret(EReturn());
 	}
 	if (stmt.results.length == 1)
@@ -1050,7 +1050,7 @@ private function interfaceType(expr:Ast.InterfaceType, info:Info):ComplexType {
 
 private function structType(expr:Ast.StructType, info:Info):ComplexType {
 	if (expr.fields == null || expr.fields.list == null || expr.fields.list.length == 0)
-		return TPath({name: "Dynamic",pack: []});
+		return TPath({name: "Dynamic", pack: []});
 	var fields = typeFieldListFields(expr.fields, info, [], false, true);
 	return TAnonymous(fields);
 }
@@ -1308,7 +1308,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EConst(c):
 					switch c {
 						case CString(s, kind):
-							last = macro (($last) : Slice<GoString>);
+							last = macro(($last) : Slice<GoString>);
 						default:
 					}
 				default:
@@ -1370,7 +1370,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (isType) {
 							var arg = typeExpr(expr.args[0], info);
 							var type = typeExprType(expr.fun, info);
-							return (macro ($arg : $type)).expr;
+							return (macro($arg : $type)).expr;
 						}
 					}
 			}
@@ -1384,7 +1384,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (p.name == "Pointer" || p.name == "PointerWrapper") {
 							switch p.params[0] {
 								case TPType(t2):
-									var value = defaultValue(t2,null);
+									var value = defaultValue(t2, null);
 									return (macro Go.pointer($value)).expr;
 								default:
 							}
@@ -1393,14 +1393,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					default:
 						// trace("unknown type paren expr");
 						var arg = typeExpr(expr.args[0], info);
-						return (macro ($arg : $t)).expr;
+						return (macro($arg : $t)).expr;
 				}
 			}
 		case "ArrayType":
 			// set assert type
 			var type = typeExprType(expr.fun, info);
 			var expr = typeExpr(expr.args[0], info);
-			return (macro ($expr : $type)).expr;
+			return (macro($expr : $type)).expr;
 		case "InterfaceType":
 			// set dynamic
 			genArgs();
@@ -1444,7 +1444,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			var e = toExpr(EConst(CString(expr.value)));
 			if (info.hasType)
 				return e.expr;
-			return (macro ($e : GoString)).expr;
+			return (macro($e : GoString)).expr;
 		case INT:
 			if (expr.value.length > 10) {
 				try {
@@ -1459,7 +1459,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			var e = toExpr(EConst(CInt(expr.value)));
 			if (info.hasType)
 				return e.expr;
-			ECheckType(e,TPath({name: "IntegerType", pack: []}));
+			ECheckType(e, TPath({name: "IntegerType", pack: []}));
 		case FLOAT:
 			EConst(CFloat(expr.value));
 		case CHAR:
@@ -1471,7 +1471,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			if (value == "\\") {
 				return (macro $const.charCodeAt(0)).expr;
 			}
-			ECheckType(toExpr(EField(const, "code")),TPath({name: "GoByte",pack: []}));
+			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoByte", pack: []}));
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
@@ -1578,7 +1578,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 			info.deferIndexes.remove(index);
 	}
 	return EFunction(FAnonymous, {
-		ret: null, //ret,
+		ret: null, // ret,
 		args: args,
 		expr: block != null ? toExpr(block) : null,
 	});
@@ -1729,7 +1729,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 	if (expr.type == null)
 		return e.expr;
 	var type = typeExprType(expr.type, info);
-	return (macro ($e : $type)).expr;
+	return (macro($e : $type)).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
@@ -1745,8 +1745,7 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 			case EConst(c):
 				switch c {
 					case CIdent(s):
-						if (s == info.thisName)
-							return x.expr;
+						if (s == info.thisName) return x.expr;
 					default:
 				}
 			default:
@@ -1807,7 +1806,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 					if (decl.recv.list[0].names.length > 0) {
 						var varName = decl.recv.list[0].names[0].name;
 						info.thisName = varName;
-						block = toExpr(typeBlockStmt(decl.body,info,true)); //rerun so thisName system can be used
+						block = toExpr(typeBlockStmt(decl.body, info, true)); // rerun so thisName system can be used
 						switch block.expr {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
@@ -1819,7 +1818,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 							default:
 						}
 					}
-					//push field function to class
+					// push field function to class
 					def.fields.push({
 						name: name,
 						pos: null,
@@ -1841,8 +1840,11 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 								if (!info.aliasStaticExtensionMap.exists(p.name)) {
 									if (def.meta == null)
 										def.meta = [];
-									def.meta.push({name: ":using", params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),
-										extensionClassName))], pos: null});
+									def.meta.push({
+										name: ":using",
+										params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
+										pos: null
+									});
 									extensionClass = {
 										name: extensionClassName,
 										pos: null,
@@ -1927,21 +1929,21 @@ private function getRetValues(info:Info) {
 			{
 				name: value.name,
 				type: value.type,
-				expr: defaultValue(value.type, info,0,false),
+				expr: defaultValue(value.type, info, 0, false),
 			}
 	]));
 }
 
-private function defaultValue(type:ComplexType, info:Info, index:Int = 0,strict:Bool=true):Expr {
+private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict:Bool = true):Expr {
 	switch type {
 		case TPath(p):
-			if (p.name == "GoArray") { //goarray generation
+			if (p.name == "GoArray") { // goarray generation
 				for (param in p.params) {
 					switch param {
 						case TPType(t):
-							var df = defaultValue(t, info, index + 1,false);
+							var df = defaultValue(t, info, index + 1, false);
 							var j = index;
-							var len = macro (${info.lengths[j]} : GoInt);
+							var len = macro(${info.lengths[j]} : GoInt);
 							return macro new $p(...[for (i in 0...$len.toBasic()) $df]);
 						default:
 					}
@@ -1949,7 +1951,7 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0,strict:
 			}
 		default:
 	}
-	return stdgo.Builtin.defaultValue(type, null,strict);
+	return stdgo.Builtin.defaultValue(type, null, strict);
 }
 
 private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool} {
@@ -2098,7 +2100,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultValue(type, info,0,false) : null)
+						kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null)
 					});
 				default:
 			}
@@ -2116,7 +2118,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultValue(type, info,0,false) : null),
+				kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null),
 			});
 		}
 	}
@@ -2322,7 +2324,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
-				expr = defaultValue(type, info,0,false);
+				expr = defaultValue(type, info, 0, false);
 			} else {
 				// IOTA
 				expr = toExpr(EConst(CInt(Std.string(info.iota++))));
@@ -2434,10 +2436,30 @@ function untitle(string:String):String {
 	return string;
 }
 
-typedef Info = {hasType:Bool,lengths:Array<Expr>, iota:Int, aliasStaticExtensionMap:Map<String, Bool>, layerIndex:Int, fieldNames:Array<String>, typeNames:Array<String>,
-	thisName:String, retValues:Array<Array<{name:String, type:ComplexType}>>, deferIndexes:Array<Int>, className:String, funcName:String, path:String,
-	types:Array<{name:String, rename:String, index:Int}>, imports:Map<String, String>, ret:Array<ComplexType>, data:FileType, local:Bool,
-	retypeList:Array<{name:String, index:Int, type:ComplexType}>, print:Bool, blankCounter:Int};
+typedef Info = {
+	hasType:Bool,
+	lengths:Array<Expr>,
+	iota:Int,
+	aliasStaticExtensionMap:Map<String, Bool>,
+	layerIndex:Int,
+	fieldNames:Array<String>,
+	typeNames:Array<String>,
+	thisName:String,
+	retValues:Array<Array<{name:String, type:ComplexType}>>,
+	deferIndexes:Array<Int>,
+	className:String,
+	funcName:String,
+	path:String,
+	types:Array<{name:String, rename:String, index:Int}>,
+	imports:Map<String, String>,
+	ret:Array<ComplexType>,
+	data:FileType,
+	local:Bool,
+	retypeList:Array<{name:String, index:Int, type:ComplexType}>,
+	print:Bool,
+	blankCounter:Int
+};
+
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
 typedef Module = {path:String, files:Array<FileType>}

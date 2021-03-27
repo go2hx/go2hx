@@ -11,6 +11,7 @@ import haxe.macro.Context;
 
 class Go {
 	public static var addressIndex:Int = 1;
+
 	public static macro function copy(expr) { // slices and maps are ref types
 		var type = Context.followWithAbstracts(Context.typeof(expr));
 		var exception = false;
@@ -343,7 +344,7 @@ class Go {
 			return macro {
 				var e = $expr;
 				$expr._is_pointer_ = true;
-					new stdgo.PointerWrapper(e);
+				new stdgo.PointerWrapper(e);
 			};
 		return macro {
 			$expr._is_pointer_ = true;

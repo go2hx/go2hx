@@ -30,6 +30,7 @@ function numGoroutine() {
 function gomaxprocs(num:GoInt):GoInt {
 	return num;
 }
+function keepAlive(x:AnyInterface) {}
 
 interface Error extends stdgo.StdGoTypes.Error {
 	public function runtimeError():Void;

@@ -19,6 +19,9 @@ abstract GoString(String) from String to String {
 	@:from static function ofUInt8(x:GoUInt8):GoString {
 		return String.fromCharCode(x.toBasic());
 	}
+	@:from static function ofSlice(x:Slice<GoByte>):GoString {
+		return [for (i in x) (i : GoString)].join("");
+	}
 	@:arrayAccess
 	inline function getGoInt(index:GoInt)
 		return get(index.toBasic());

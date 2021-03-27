@@ -561,36 +561,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var body = {expr: typeBlockStmt(stmt.body, info), pos: null};
-	if (stmt.value == null) {
-		if (stmt.key == null)
-			key = macro _i;
-		if (stmt.tok != DEFINE && stmt.key != null) {
-			switch body.expr {
-				case EBlock(exprs):
-					exprs.unshift(macro $key = _i);
-				default:
-			}
-			key = macro _i;
-		}
-		var key_i:String = "";
-		switch body.expr {
-			case EBlock(exprs):
-				switch key.expr {
-					case EConst(c):
-						switch c {
-							case CIdent(s):
-								key_i = s;
-							default:
-						}
-					default:
-				}
-				exprs.unshift(macro var $key_i:IntegerType = $key); //
-			default:
-		}
-		return (macro for ($key in 0...$x.length.toBasic()) $body).expr; // only index no need to use Go.range
-	}
-	var value = typeExpr(stmt.value, info); // value of x[key]
-	if (key.expr.match(EConst(CIdent("_")))) {
+	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
+	if (key != null && key.expr.match(EConst(CIdent("_")))) {
 		if (stmt.tok == DEFINE) {
 			return (macro for ($value in $x) $body).expr; // iterate through values using "in" for loop
 		} else {
@@ -617,23 +589,28 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 						}
 					default:
 				}
-				switch value.expr {
-					case EConst(c):
-						switch c {
-							case CIdent(s): valueString = nameIdent(s, info);
-							default:
-						}
-					default:
+				if (value != null) {
+					switch value.expr {
+						case EConst(c):
+							switch c {
+								case CIdent(s): valueString = nameIdent(s, info);
+								default:
+							}
+						default:
+					}
+					exprs.unshift(macro var $valueString = _obj.value);
 				}
-				exprs.unshift(macro var $keyString = _obj.key);
-				exprs.unshift(macro var $valueString = _obj.value);
+				if (key != null) 
+					exprs.unshift(macro var $keyString = _obj.key);
 			default:
 		}
 	} else {
 		switch body.expr {
 			case EBlock(exprs):
-				exprs.unshift(macro $key = _obj.key);
-				exprs.unshift(macro $value = _obj.value);
+				if (key != null)
+					exprs.unshift(macro $key = _obj.key);
+				if (value != null)
+					exprs.unshift(macro $value = _obj.value);
 			default:
 		}
 	}

@@ -30,8 +30,9 @@ function tinygo() {
 
 function gen() {
 	var tests = load();
-	tests = ["./go/test/turing.go"];
 	// currently skipping these tests
+	for (test in ["goprint","locklinear","mallocfin","gcgort","channel"]) //using gosched
+		tests.remove('./go/test/$test.go');
 	tests.remove("./go/test/mergemul.go"); //prints close to the same, timesout though with no exit code
 	tests.remove("./go/test/initialize.go"); //not sure
 	tests.remove("./go/test/method7.go"); //not sure

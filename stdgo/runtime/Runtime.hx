@@ -1,5 +1,6 @@
 package stdgo.runtime;
 
+import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.StructType;
 #if hl
@@ -25,6 +26,9 @@ function gosched() {
 }
 function numGoroutine() {
 	return 0;
+}
+function gomaxprocs(num:GoInt):GoInt {
+	return num;
 }
 
 interface Error extends stdgo.StdGoTypes.Error {

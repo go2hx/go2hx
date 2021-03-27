@@ -90,7 +90,7 @@ class StringIterator {
 	}
 }
 
-class StringKeyValueIterator {
+private class StringKeyValueIterator {
 	var offset:Int = 0;
 	var s:String;
 	public inline function new(s:String) {

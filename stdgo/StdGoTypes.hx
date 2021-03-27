@@ -451,6 +451,8 @@ abstract GoInt(Int) from Int32 {
 
 	@:op(A & B) private static function and(a:GoInt, b:GoInt):GoInt;
 
+	@:op(-A) private static function neg(a:GoInt):GoInt;
+
 	@:op(A >> B) private static function shr(a:GoInt,b:GoInt):GoInt
 		return a.toBasic() >> b.toBasic();
 	@:op(A << B) private static function shl(a:GoInt,b:GoInt):GoInt
@@ -483,6 +485,7 @@ abstract GoInt(Int) from Int32 {
 	@:op(A <= B) private static function ltef2(a:Float, b:GoInt):Bool;
 
 	@:op(~A) private static function bneg(t:GoInt):GoInt;
+
 
 	@:op(++A) inline function preInc():GoInt
 		return this = this + 1;
@@ -805,8 +808,8 @@ abstract GoInt16(Int16) from Int16 {
 abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
-	function toString():String
-		return Std.string(this);
+	public inline function toString():String
+		return Int64.toStr(this);
 	function toBasic():Int64
 		return this;
 
@@ -830,7 +833,6 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return x.toBasic();
 	@:from private static function fromUInt64(x:GoUInt64):IntegerType
 		return x.toBasic();
-
 	@:to function toInt():GoInt
 		return Int64.toInt(this);
 	@:to function toInt8():GoInt8
@@ -856,26 +858,27 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return Int64.toInt(this);
 	@:to function toFloat32():GoFloat32
 		return Int64.toInt(this);
-
-	@:to function toHaxeInt():Int
-		return Int64.toInt(this);
-	@:to function toHaxeInt64():Int64
-		return this;
 	@:to function toComplex64():GoComplex64
 		return new GoComplex64(Int64.toInt(this),0);
 	@:to function toComplex128():GoComplex128
 		return new GoComplex128(Int64.toInt(this),0);
 	@:to function toUIntPtr():GoUIntptr
 		return Int64.toInt(this);
+	@:to function toHaxeInt():Int
+		return Int64.toInt(this);
 
 	@:op(A > B) private static function gt(a:IntegerType,b:IntegerType):Bool
 		return a.toBasic() > b.toBasic();
-	@:op(A >= B) private static function gte(a:IntegerType,b:IntegerType):Bool;
+	@:op(A >= B) private static function gte(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() >= b.toBasic();
 	@:op(A < B) private static function lt(a:IntegerType,b:IntegerType):Bool
 		return a.toBasic() < b.toBasic();
-	@:op(A <= B) private static function lte(a:IntegerType,b:IntegerType):Bool;
-	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):Bool;
-	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):Bool;
+	@:op(A <= B) private static function lte(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() <= b.toBasic();
+	@:op(A == B) private static function equal(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() == b.toBasic();
+	@:op(A != B) private static function neq(a:IntegerType,b:IntegerType):Bool
+		return a.toBasic() != b.toBasic();
 
 	@:op(A++) private inline function postInc():IntegerType {
 		var ret = this;
@@ -885,13 +888,17 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	@:op(++A) private inline function preInc():IntegerType {
 		return @:privateAccess this.preIncrement();
 	}
-
+	@:op(A >> B) static function shr(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() >> Int64.toInt(b.toBasic());
+	@:op(A << B) static function shl(a:IntegerType,b:IntegerType):IntegerType
+		return a.toBasic() << Int64.toInt(b.toBasic());
+	
 	@:op(A % B) static function mod(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() % b.toBasic();
 	@:op(A + B) static function add(a:IntegerType,b:IntegerType):IntegerType
-		return a.toBasic() % b.toBasic();
+		return a.toBasic() + b.toBasic();
 	@:op(A - B) static function sub(a:IntegerType,b:IntegerType):IntegerType
-		return a.toBasic() % b.toBasic();
+		return a.toBasic() - b.toBasic();
 	@:op(A * B) static function mul(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() * b.toBasic();
 	@:op(A / B) static function div(a:IntegerType,b:IntegerType):IntegerType {
@@ -905,6 +912,8 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return a.toBasic() & b.toBasic();
 	@:op(A ^ B) static function xor(a:IntegerType,b:IntegerType):IntegerType
 		return a.toBasic() ^ b.toBasic();
+	@:op(-A) inline function neg():IntegerType
+		return this * -1;
 }
 
 abstract GoInt64(Int64) from Int64 {

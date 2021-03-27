@@ -5,7 +5,7 @@ import haxe.io.Path;
 import stdgo.internal.ErrorReturn;
 import stdgo.Pointer;
 import sys.FileSystem;
-import stdgo.errors.Errors.Error;
+import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
 
@@ -24,7 +24,7 @@ class OutputWriter implements stdgo.io.Io.Writer {
 
 	public function write(p:Array<GoByte>):{n:Int, err:Error} {
 		for (c in p)
-			output.writeByte(c);
+			output.writeByte(c.toBasic());
 		return {n: 0, err: null};
 	}
 }
@@ -113,7 +113,7 @@ class File implements stdgo.io.Io.Writer {
 
 	public function write(p:Array<GoByte>):{n:Int, err:Error} {
 		for (c in p)
-			output.writeByte(c);
+			output.writeByte(c.toBasic());
 		return {n: p.length, err: null};
 	}
 

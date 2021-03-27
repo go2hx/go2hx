@@ -11,24 +11,49 @@ function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
 	gen();
+	//tinygo();
+}
+
+function tinygo() {
+	var tests:Array<String> = [];
+	if (!FileSystem.isDirectory("tinygo"))
+		Sys.command("git clone https://github.com/tinygo-org/tinygo");
+	var repo = "tinygo/testdata";
+	for (path in FileSystem.readDirectory(repo)) {
+		var p = '$repo/$path';
+		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
+			continue;
+		tests.push('./$p');
+	}
+	compile(tests);
 }
 
 function gen() {
 	var tests = load();
-	//tests = ["./go/test/zerodivide.go"];
 	// currently skipping these tests
-	tests.remove("./go/test/initialize.go");
-	tests.remove("./go/test/method7.go");
+	tests.remove("./go/test/mergemul.go"); //prints close to the same, timesout though with no exit code
+	tests.remove("./go/test/initialize.go"); //not sure
+	tests.remove("./go/test/method7.go"); //not sure
+	//skipping because they require recover to properly function.
+	for (test in ["chancap","closedchan","cmp","method","method5","nil","nilptr2","nilptr_aix","recover","recover2","recover3","zerodivide"])
+		tests.remove('./go/test/$test');
 
 	// Error: Class name must start with an uppercase letter
 	tests.remove("./go/test/235.go");
 	tests.remove("./go/test/64bit.go");
-	// trace(tests);
+	compile(tests);
+}
+
+function compile(tests:Array<String>) {
 	tests.push(path);
 	Main.exportBool = true;
 	Main.init(tests);
 	tests.pop();
 	Sys.setCwd("..");
+	run();
+}
+
+function run() {
 	File.saveContent("tests.txt", "");
 	var output = File.append("tests.txt", false);
 	var length = Main.exportPaths.length;
@@ -41,11 +66,11 @@ function gen() {
 		var proc = new sys.io.Process(command);
 		var code:Null<Int> = null;
 		Sys.println('------ $path ------ $i/$length');
-		for (i in 0...60 * 10) {
+		for (i in 0...10 * 10) {
 			code = proc.exitCode(false);
 			if (code != null)
 				break;
-			Sys.sleep(1 / 60);
+			Sys.sleep(1 / 10);
 		}
 		if (code == null) {
 			Sys.println("timed out...");
@@ -85,19 +110,9 @@ function getLine(line:String):String {
 
 function load():Array<String> {
 	var tests:Array<String> = [];
-	if (!FileSystem.isDirectory("tinygo"))
-		Sys.command("git clone https://github.com/tinygo-org/tinygo");
-	var repo = "tinygo/testdata";
-	for (path in FileSystem.readDirectory(repo)) {
-		var p = '$repo/$path';
-		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
-			continue;
-		tests.push('./$p');
-	}
-	return tests;
-
 	if (!FileSystem.isDirectory("go"))
 		Sys.command("git clone https://github.com/golang/go");
+
 	function readLine(file:FileInput):Bool {
 		try {
 			var line = file.readLine();

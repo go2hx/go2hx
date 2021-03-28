@@ -12,11 +12,11 @@ inline function errorf(fmt:String, args:Rest<Dynamic>) {
 	return stdgo.errors.Errors.new_(format(fmt, parse(args)));
 }
 
-inline function println(args:Rest<Dynamic>) {
+function println(args:Rest<Dynamic>) {
 	log(parse(args).join(" ") + "\n");
 }
 
-inline function print(args:Rest<Dynamic>) {
+function print(args:Rest<Dynamic>) {
 	log(parse(args).join(" "));
 }
 

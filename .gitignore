@@ -35,3 +35,4 @@ old/*
 examples/*.txt
 package.json
 !gen.txt
+Test.hx

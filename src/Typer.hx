@@ -158,7 +158,6 @@ function main(data:DataType) {
 			processNames(info.fieldNames);
 			processNames(info.typeNames);
 			for (decl in declFuncs) { // parse function bodies last
-				info.recover = false;
 				var func = typeFunction(decl, info);
 				if (func != null)
 					data.defs.push(func);
@@ -215,7 +214,6 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 	return {
 		hasType: false,
 		lengths: [],
-		recover: false,
 		iota: 0,
 		aliasStaticExtensionMap: [],
 		layerIndex: 0,
@@ -489,21 +487,19 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 	if (info.deferIndexes.indexOf(info.layerIndex) != -1) {
 		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
 		exprs.push(typeDeferReturn());
+		if (info.layerIndex == 1) {  //written by Elliott the designer of the recover system for go2hx
+			exprs.unshift(macro Go.recover_exception = null);
+			var trydef = ETry(toExpr(EBlock(exprs.slice(2))),[{name: "e",expr: macro {
+				Go.recover_exception = e;
+				${typeDeferReturn()};
+				if (Go.recover_exception != null)
+					throw Go.recover_exception;
+			}}]); //don't include recover and defer stack
+			exprs = exprs.slice(0,2);
+			exprs.push(toExpr(trydef));
+		}
 	}
-	
-	if (info.layerIndex == 1 && info.recover) { //written by Elliott the designer of the recover system for go2hx
-		exprs.unshift(macro var recover_exception:Dynamic = null);
-		var trydef = ETry(toExpr(EBlock(exprs.slice(2))),[{name: "e",expr: macro {
-			recover_exception = e;
-			for (defer in deferstack) {
-				var args = defer.slice(1);
-				if (args != null)
-					Reflect.callMethod(null,defer[0],args);
-			}
-		}}]); //don't include recover and defer stack
-		exprs = exprs.slice(0,2);
-		exprs.push(toExpr(trydef));
-	}
+
 	if (!returnBool && needReturn) {
 		var isVoid:Bool = false;
 		if (info.ret.length == 1) {
@@ -1344,10 +1340,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case "Ident":
 			expr.fun.name = expr.fun.name;
 			switch expr.fun.name {
+				case "panic":
+					genArgs();
+					ellipsisFunc();
+					return (macro throw ${args[0]}).expr;
 				case "recover":
-					info.recover = true;
-					return (macro recover_exception).expr;
-				case "slice", "append", "close", "complex", "copy", "delete", "imag", "panic", "print", "println", "real":
+					return (macro recover()).expr;
+				case "slice", "append", "close", "complex", "copy", "delete", "imag", "print", "println", "real":
 					if (info.className != "") {
 						var field = toExpr(EField(toExpr(EField(toExpr(EConst(CIdent("stdgo"))), "Builtin")), expr.fun.name));
 						genArgs();
@@ -1783,7 +1782,7 @@ private function typeDeferReturn():Expr {
 	return macro for (defer in deferstack) {
 		var args = defer.slice(1);
 		if (args != null)
-			Reflect.callMethod(null, defer[0], args);
+			Reflect.callMethod(null, defer[0], haxe.Rest.of(args));
 	};
 }
 
@@ -2458,7 +2457,6 @@ function untitle(string:String):String {
 typedef Info = {
 	hasType:Bool,
 	lengths:Array<Expr>,
-	recover:Bool,
 	iota:Int,
 	aliasStaticExtensionMap:Map<String, Bool>,
 	layerIndex:Int,

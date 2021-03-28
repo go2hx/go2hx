@@ -198,23 +198,20 @@ private function getType(expr:Expr):ComplexType {
 	return type;
 }
 
-inline function panic(v) {
-	return throw v;
-}
-
 inline function print(args:Rest<Dynamic>) {
 	return stdgo.fmt.Fmt.print(...args);
 }
 
 inline function println(args:Rest<Dynamic>) {
-	return stdgo.fmt.Fmt.println(...args);
+	//return stdgo.fmt.Fmt.println(...args);
 }
 
 inline function real(c) {}
 
-inline function recover():stdgo.runtime.Runtime.Error {
-	// return new _Error();
-	return null;
+inline function recover()/*:stdgo.runtime.Runtime.Error*/ {
+	var r = Go.recover_exception;
+	Go.recover_exception = null;
+	return r;
 }
 
 private class _Error implements stdgo.StdGoTypes.Error {

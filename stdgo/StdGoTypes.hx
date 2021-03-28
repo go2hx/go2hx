@@ -607,6 +607,11 @@ abstract GoUInt(Int) from Int {
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
+	@:op(A >> B) private static function shr(a:GoUInt,b:GoUInt):GoUInt
+		return clamp(a.toBasic() >> b.toBasic());
+	@:op(A << B) private static function shl(a:GoUInt,b:GoUInt):GoUInt
+		return clamp(a.toBasic() << b.toBasic());
+
 	@:op(++A) inline function preInc():GoUInt
 		return this = clamp(this + 1);
 

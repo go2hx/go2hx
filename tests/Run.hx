@@ -10,8 +10,8 @@ var path:String;
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
+	tinygo();
 	gen();
-	// tinygo();
 }
 
 function tinygo() {
@@ -25,6 +25,10 @@ function tinygo() {
 			continue;
 		tests.push('./$p');
 	}
+	for (test in [
+		"atomic",
+	])
+		tests.remove('./tinygo/testdata/$test.go');
 	compile(tests);
 }
 

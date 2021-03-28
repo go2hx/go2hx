@@ -30,6 +30,7 @@ go4hx
 gobyexample
 golibs
 gopath
+tinygo
 test.hxml
 old/*
 examples/*.txt

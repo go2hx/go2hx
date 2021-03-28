@@ -1830,7 +1830,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 								if (recvInfo.isPointer) {
 									exprs.unshift(macro var $varName = this);
 								} else {
-									exprs.unshift(macro var $varName = this.copy());
+									exprs.unshift(macro var $varName = this.__copy__());
 								}
 								block.expr = EBlock(exprs);
 							default:
@@ -2125,8 +2125,10 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 		}
 
 		for (n in field.names) {
+			//if (n.name == "_")
+			//	continue;
 			if (n.name == "_")
-				continue;
+				n.name += Std.string(info.blankCounter++);
 			var name = n.name;
 			if (underlineBool) {
 				if (name.charAt(0) == name.charAt(0).toLowerCase())

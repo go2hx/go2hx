@@ -203,15 +203,17 @@ inline function print(args:Rest<Dynamic>) {
 }
 
 inline function println(args:Rest<Dynamic>) {
-	//return stdgo.fmt.Fmt.println(...args);
+	return stdgo.fmt.Fmt.println(...args);
 }
 
 inline function real(c) {}
 
-inline function recover()/*:stdgo.runtime.Runtime.Error*/ {
-	var r = Go.recover_exception;
-	Go.recover_exception = null;
-	return r;
+macro  function recover() {
+	return untyped macro {
+		var r = recover_exception;
+		recover_exception = null;
+		r;
+	}
 }
 
 private class _Error implements stdgo.StdGoTypes.Error {

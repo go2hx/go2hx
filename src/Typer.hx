@@ -222,7 +222,8 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		thisName: "",
 		className: "",
 		retValues: [],
-		deferIndexes: [],
+		deferData: [],
+		deferIndex: [],
 		funcName: "",
 		path: path,
 		types: [],
@@ -456,6 +457,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, needReturn:Bool = 
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool = false):ExprDef {
 	info.layerIndex++;
+	info.deferIndex[info.layerIndex] = 0;
 	var exprs:Array<Expr> = [];
 	if (list != null)
 		exprs = [for (stmt in list) typeStmt(stmt, info)];
@@ -484,20 +486,27 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			}
 		}
 	// defer system
-	if (info.deferIndexes.indexOf(info.layerIndex) != -1) {
-		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
-		exprs.push(typeDeferReturn());
-		if (info.layerIndex == 1) {  //written by Elliott the designer of the recover system for go2hx
-			exprs.unshift(macro Go.recover_exception = null);
-			var trydef = ETry(toExpr(EBlock(exprs.slice(2))),[{name: "e",expr: macro {
-				Go.recover_exception = e;
-				${typeDeferReturn()};
-				if (Go.recover_exception != null)
-					throw Go.recover_exception;
-			}}]); //don't include recover and defer stack
-			exprs = exprs.slice(0,2);
-			exprs.push(toExpr(trydef));
+	if (info.deferData.exists(info.layerIndex)) {
+		var data = info.deferData[info.layerIndex];
+		for (i in 0...data.length) {
+			var e = data[i].call;
+			exprs.unshift(macro var $e = null);
 		}
+		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
+		exprs.push(typeDeferReturn(info,false));
+		var pos = 2 + data.length;
+		//written by Elliott the designer of the recover system for go2hx
+		exprs.unshift(macro var recover_exception:Dynamic = null);
+		var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
+			recover_exception = e;
+			${typeDeferReturn(info,true)};
+			if (recover_exception != null)
+				throw recover_exception;
+		}}]); //don't include recover and defer stack
+		exprs = exprs.slice(0,pos);
+		exprs.push(toExpr(trydef));
+		//returnBool = false;
+		//needReturn = true; //add default return to end of try catch
 	}
 
 	if (!returnBool && needReturn) {
@@ -551,22 +560,28 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	info.deferIndexes.push(info.layerIndex);
 	var call = typeCallExpr(stmt.call, info);
 	var args:Array<Expr> = [];
+	if (!info.deferData.exists(info.layerIndex))
+		info.deferData[info.layerIndex] = [];
+	var data = info.deferData[info.layerIndex];
+	var index = data.length;
+	var idString:String = "_defercall_" + index;
+	var id:Expr = toExpr(EConst(CIdent(idString)));
 	switch call {
 		case ECall(e, params):
 			args = params;
-			args.unshift(e);
-		case EBlock(exprs):
+			data.push({call: idString,length: args.length,index: info.deferIndex[info.layerIndex]++});
 			return (macro {
-				var a = function() ${toExpr(call)};
-				deferstack.push([a]);
+				$id = $e;
+				deferstack.push([$a{args}]);
 			}).expr;
+		case EBlock(exprs):
+			data.push({call: idString,length: 0,index: 0});
+			return (macro $id = function () ${toExpr(call)}).expr;
 		default:
 			throw call;
 	}
-	return (macro deferstack.push([$a{args}])).expr;
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
@@ -955,8 +970,8 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferIndexes.indexOf(info.layerIndex) != -1) {
-			return EBlock([typeDeferReturn(), toExpr(e),]);
+		if (info.deferData.exists(info.layerIndex)) {
+			return EBlock([typeDeferReturn(info,false), toExpr(e),]);
 		}
 		return e;
 	}
@@ -1591,10 +1606,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	// allows multiple nested values
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
-	for (index in info.deferIndexes) {
-		if (index == info.layerIndex + 1)
-			info.deferIndexes.remove(index);
-	}
+	info.deferData.remove(info.layerIndex + 1);
 	return EFunction(FAnonymous, {
 		ret: null, // ret,
 		args: args,
@@ -1778,12 +1790,27 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 }
 
 // SPECS
-private function typeDeferReturn():Expr {
-	return macro for (defer in deferstack) {
-		var args = defer.slice(1);
-		if (args != null)
-			Reflect.callMethod(null, defer[0], haxe.Rest.of(args));
-	};
+private function typeDeferReturn(info:Info,nullcheck:Bool):Expr {
+	var data = info.deferData[info.layerIndex];
+	if (data == null)
+		throw "defer return lengths is null";
+	var exprs:Array<Expr> = [];
+	function toInt(i:Int) {
+		return toExpr(EConst(CInt('$i')));
+	}
+	for (obj in data) {
+		var args:Array<Expr> = [];
+		for (i in 0...obj.length) {
+			args.push(macro deferstack[${toInt(obj.index)}][${toInt(i)}]);
+		}
+		var e = toExpr(EConst(CIdent(obj.call)));
+		if (nullcheck) {
+			exprs.push(macro if ($e != null) $e($a{args}));
+		}else{
+			exprs.push(macro $e($a{args}));
+		}
+	}
+	return toExpr(EBlock(exprs));
 }
 
 private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
@@ -1798,8 +1825,10 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 		info.types.remove(type);
 	}
 	// info.retypeMap.clear(); //clear renaming as it's a new function
+	//layer index is 0 for initlization of module function, the body will be 1
 	info.local = false;
-	info.deferIndexes = [];
+	info.deferData.clear();
+	info.deferIndex.clear();
 	info.layerIndex = 0;
 
 	var name = nameIdent(decl.name.name, info);
@@ -2464,7 +2493,8 @@ typedef Info = {
 	typeNames:Array<String>,
 	thisName:String,
 	retValues:Array<Array<{name:String, type:ComplexType}>>,
-	deferIndexes:Array<Int>,
+	deferData:Map<Int,Array<{call:String,length:Int,index:Int}>>,
+	deferIndex:Map<Int,Int>,
 	className:String,
 	funcName:String,
 	path:String,

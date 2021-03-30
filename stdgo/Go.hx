@@ -11,7 +11,6 @@ import haxe.macro.Context;
 
 class Go {
 	public static var addressIndex:Int = 1;
-	public static var recover_exception:Dynamic = null;
 
 	public static macro function copy(expr) { // slices and maps are ref types
 		var type = Context.followWithAbstracts(Context.typeof(expr));

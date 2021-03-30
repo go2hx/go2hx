@@ -56,11 +56,12 @@ inline function sprintf(fmt:String, args:Rest<Dynamic>) { // format
 }
 
 private function format(fmt:String, args:Array<Dynamic>):String {
-	try {
+	/*try {
 		return stdgo.internal.Printf.format(fmt, args);
 	} catch (e) {
 		return e.message;
-	}
+	}*/
+	return " " + args + " -> " + fmt;
 }
 
 private inline function log(v:Dynamic) {

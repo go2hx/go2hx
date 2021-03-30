@@ -2396,6 +2396,9 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 		trace(e);
 	}
 	file.close();
+	//sanatize comments
+	source = StringTools.replace(source,"/*","/|*");
+	source = StringTools.replace(source,"*/","*|/");
 	return source;
 }
 

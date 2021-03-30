@@ -210,7 +210,7 @@ inline function real(c) {}
 
 macro  function recover() {
 	return untyped macro {
-		var r = recover_exception;
+		var r:Any = recover_exception;
 		recover_exception = null;
 		r;
 	}

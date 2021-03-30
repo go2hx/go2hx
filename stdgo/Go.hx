@@ -123,6 +123,8 @@ class Go {
 						return macro Go.isNull($expr.value);
 					case "GoArray":
 						return macro false;
+					case "Any":
+						return macro $expr == null;
 					default:
 						trace("unknown abstract: " + t.name);
 				}

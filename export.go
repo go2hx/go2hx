@@ -331,8 +331,8 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = map[string]interface{}{
 				"id": "ExprStmt",
 				"x": parseData(value.X),
-				"pos": fset.Position(value.X.Pos()).Offset,
-				"end": fset.Position(value.X.End()).Offset,
+				"pos": fset.PositionFor(value.X.Pos(),true).Offset,
+				"end": fset.PositionFor(value.X.End(),true).Offset,
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value)

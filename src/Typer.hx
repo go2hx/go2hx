@@ -2355,7 +2355,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		if (expr == null)
 			continue;
 		var name = nameIdent(value.names[i], info);
-
 		var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
 		var access = typeAccess(value.names[i]);
 		if (value.constants[i])
@@ -2387,18 +2386,14 @@ private function getDoc(value:{doc:Ast.CommentGroup}):String {
 private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 	if (value.pos == value.end)
 		return "";
-	var file = File.read(info.data.location, false);
-	file.seek(value.pos, sys.io.FileSeek.SeekBegin);
 	var source:String = "";
-	try {
-		source = file.readString(value.end - value.pos);
-	} catch (e) {
-		trace(e);
-	}
-	file.close();
+	source = File.getContent(info.data.location);
+	source = source.substring(value.pos,value.end);
 	//sanatize comments
-	source = StringTools.replace(source,"/*","/|*");
-	source = StringTools.replace(source,"*/","*|/");
+	if (source != "") {
+		source = StringTools.replace(source,"/*","/|*");
+		source = StringTools.replace(source,"*/","*|/");
+	}
 	return source;
 }
 

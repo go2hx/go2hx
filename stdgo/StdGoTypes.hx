@@ -189,15 +189,7 @@ abstract GoFloat(Float) from Float {
 
 	@:op(A * B) private static function mul(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A % B) private static function modI(a:GoFloat, b:Int):GoFloat;
-
-	@:op(A % B) private static function modF(a:GoFloat, b:Float):Float;
-
 	@:op(A % B) private static function mod(a:GoFloat, b:GoFloat):GoFloat;
-
-	@:op(A - B) private static function subI(a:GoFloat, b:Int):GoFloat;
-
-	@:op(A - B) private static function subF(a:GoFloat, b:Float):Float;
 
 	@:op(A - B) private static function sub(a:GoFloat, b:GoFloat):GoFloat;
 
@@ -238,6 +230,7 @@ abstract GoFloat(Float) from Float {
 	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat):Bool;
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
+	@:op(-A) private static function neg(t:GoFloat):GoFloat;
 }
 
 abstract GoFloat32(Float32) from Float32 {
@@ -951,6 +944,11 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	@:from private static function fromUInt64(x:GoUInt64):IntegerType
 		return x.toBasic();
 
+	@:from private static function fromFloat32(x:GoFloat32):IntegerType
+		return Int64.fromFloat(x.toBasic());
+	@:from private static function fromFloat64(x:GoFloat64):IntegerType
+		return Int64.fromFloat(x.toBasic());
+
 	@:to function toInt():GoInt
 		return Int64.toInt(this);
 
@@ -1078,6 +1076,31 @@ abstract GoInt64(Int64) from Int64 {
 	@:from static function fromInt(x:Int):GoInt64
 		return Int64.ofInt(x);
 
+	@:to inline function toInt():GoInt
+		return this.low;
+
+	@:to inline function toInt8():GoInt8
+		return this.low;
+
+	@:to inline function toInt16():GoInt16
+		return this.low;
+
+	@:to inline function toUInt():GoUInt
+		return clampUInt(this.low);
+
+	@:to inline function toUInt8():GoUInt8
+		return clampUInt8(this.low);
+
+	@:to inline function toUInt16():GoUInt16
+		return clampUInt16(this.low);
+
+	@:to inline function toUInt64():GoUInt64
+		return this > 0 ? this : 0;
+	@:to inline function toFloat32():GoFloat32
+		return this.low;
+	@:to inline function toFloat64():GoFloat64
+		return this.low;
+
 	function toString()
 		return haxe.Int64.toStr(this);
 
@@ -1185,6 +1208,10 @@ abstract GoUInt8(UInt8) from UInt8 {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+	@:to inline function toFloat32():GoFloat32
+		return this;
+	@:to inline function toFloat64():GoFloat64
+		return this;
 
 	@:op(A > B) private static function gt(a:GoUInt8, b:GoUInt8):Bool;
 

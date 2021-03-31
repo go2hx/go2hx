@@ -3,7 +3,7 @@ package stdgo.time;
 import stdgo.Builtin.make;
 import stdgo.StdGoTypes.StructType;
 import haxe.zip.Compress;
-import haxe.Int64;
+import stdgo.StdGoTypes;
 
 class Time implements StructType {
 	var date:Date;
@@ -21,34 +21,34 @@ class Time implements StructType {
 		return new Time(Date.now());
 	}
 
-	public function hour():Int {
+	public function hour():GoInt {
 		return date.getHours();
 	}
 
-	public function weekday():Int {
+	public function weekday():GoInt {
 		return date.getDay();
 	}
 }
 
-final second:Int = 1;
-final monday:Int = 1;
-final tuesday:Int = 2;
-final wensday:Int = 3;
-final thursday:Int = 4;
-final friday:Int = 5;
-final saturday:Int = 6;
-final sunday:Int = 0;
+final second:GoInt = 1;
+final monday:GoInt = 1;
+final tuesday:GoInt = 2;
+final wensday:GoInt = 3;
+final thursday:GoInt = 4;
+final friday:GoInt = 5;
+final saturday:GoInt = 6;
+final sunday:GoInt = 0;
 
-inline function sleep(seconds:Float) {
-	Sys.sleep(seconds);
+inline function sleep(d:Duration) {
+	Sys.sleep(haxe.Int64.toInt(d.toBasic()));
 }
 inline function after(d:Duration):Chan<Time> {
 	var chan = make((_: Chan<Time>));
 	haxe.Timer.delay(() -> {
 		chan.send(Time.now());
-	},Int64.toInt(d/1000));
+	},haxe.Int64.toInt(d.toBasic()/1000));
 	return chan;
 }
 
 final millisecond = 0.01;
-typedef Duration = Int64;
+typedef Duration = GoInt64;

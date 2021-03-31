@@ -39,7 +39,8 @@ inline function mkdir(path:String, ?perm:Int):Error {
 }
 
 inline function getenv(path:String):String {
-	return Sys.getEnv(path);
+	var e = Sys.getEnv(path);
+	return e == null ? "" : e;
 }
 
 inline function mkdirAll(path:String, ?perm:Int):Error {

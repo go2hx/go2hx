@@ -31,6 +31,10 @@ inline function abs(v) {
 	return M.abs(v);
 }
 
+inline function exp(v:GoFloat64) {
+	return M.exp(v.toBasic());
+}
+
 inline function acos(v) {
 	return M.acos(v);
 }

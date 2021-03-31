@@ -1513,7 +1513,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			if (value == "\\") {
 				return (macro $const.charCodeAt(0)).expr;
 			}
-			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoByte", pack: []}));
+			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER

@@ -137,31 +137,40 @@ function main(data:DataType) {
 						typeGenDecl(decl, info);
 					case "FuncDecl":
 						var decl:Ast.FuncDecl = decl;
-						if (decl.recv == null && info.fieldNames.indexOf(decl.name.name) == -1)
-							info.fieldNames.push(decl.name.name);
 						declFuncs.push(decl);
 					default:
 				}
 			}
-
-			function processNames(cache:Array<String>) {
-				// process potential duplicate names from all casing to lower
-				for (name in cache) {
-					if (name.charAt(0) == name.charAt(0).toUpperCase())
-						continue;
-					// check if uppercase version of name exists too
-					if (cache.indexOf(name.charAt(0).toUpperCase() + name.substr(1)) == -1)
-						continue;
-					info.types.push({name: name, rename: "_" + name, index: 0});
-				}
-			}
-			processNames(info.fieldNames);
-			processNames(info.typeNames);
 			for (decl in declFuncs) { // parse function bodies last
 				var func = typeFunction(decl, info);
 				if (func != null)
 					data.defs.push(func);
 			}
+
+			for (i in 0...info.data.defs.length) {
+				var defRename = null;
+				var def = info.data.defs[i];
+				for (j in 0...info.data.defs.length) {
+					if (i == j)
+						continue;
+					var def2 = info.data.defs[j];
+					if (def.name == def2.name) {
+						switch def2.kind {
+							case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+								defRename = def;
+							case TDField(kind, access):
+								defRename = access.contains(APrivate) ? def2 : def;
+							default:
+						}
+						break;
+					}
+				}
+				if (defRename == null)
+					continue;
+				
+				info.types.push({name: defRename.name,rename: defRename.name = defRename.name = "_" + defRename.name,index: 0});
+			}
+
 			typeImplements(info);
 			// access for each type for every other type in the file
 			var addAccess:Metadata = [];
@@ -217,7 +226,6 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		iota: 0,
 		aliasStaticExtensionMap: [],
 		layerIndex: 0,
-		fieldNames: [],
 		typeNames: [],
 		thisName: "",
 		className: "",
@@ -362,7 +370,6 @@ private function typeGenDecl(decl:Ast.GenDecl, info:Info) {
 		switch spec.id {
 			case "ValueSpec":
 				var spec:Ast.ValueSpec = spec;
-				info.fieldNames = info.fieldNames.concat(spec.names);
 				info.data.defs = info.data.defs.concat(typeValue(spec, info));
 			default:
 		}
@@ -1311,10 +1318,12 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 	var rest = typeRest(expr);
 	return rest != null ? rest.expr : null;
 }
-
+private function iotaExpr(info:Info):Expr {
+	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota++)))),TPath({name: "IntegerType",pack: []})));
+}
 private function typeIdent(expr:Ast.Ident, info:Info):ExprDef {
 	if (expr.name == "iota") {
-		return EConst(CInt(Std.string(info.iota++)));
+		return iotaExpr(info).expr;
 	}
 	var name = nameIdent(expr.name, info);
 	return EConst(CIdent(name));
@@ -2376,7 +2385,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				expr = defaultValue(type, info, 0, false);
 			} else {
 				// IOTA
-				expr = toExpr(EConst(CInt(Std.string(info.iota++))));
+				expr = iotaExpr(info);//toExpr(EConst(CInt(Std.string(info.iota++))));
 			}
 		} else {
 			expr = typeExpr(value.values[i], info);
@@ -2489,7 +2498,6 @@ typedef Info = {
 	iota:Int,
 	aliasStaticExtensionMap:Map<String, Bool>,
 	layerIndex:Int,
-	fieldNames:Array<String>,
 	typeNames:Array<String>,
 	thisName:String,
 	retValues:Array<Array<{name:String, type:ComplexType}>>,

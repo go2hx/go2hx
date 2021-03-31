@@ -118,7 +118,7 @@ function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
 			return macro null;
 		case TPath(p):
 			var name = p.name;
-			if (p.name == "StdGoTypes")
+			if (p.name == "StdGoTypes" || p.name == "StdTypes")
 				name = p.sub;
 			switch name {
 				case "Void":

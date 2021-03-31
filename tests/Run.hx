@@ -10,7 +10,7 @@ var path:String;
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
-	tinygo();
+	//tinygo();
 	gen();
 }
 

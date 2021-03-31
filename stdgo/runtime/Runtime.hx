@@ -15,6 +15,7 @@ import java.vm.Gc;
 import stdgo.StdGoTypes.GoUInt64;
 
 var memProfileRate:Int = 0;
+var compiler:GoString = "gccgo";
 
 function gc() {
 	// run garbage collector

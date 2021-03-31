@@ -1,5 +1,6 @@
 package stdgo.time;
 
+import stdgo.Builtin.make;
 import stdgo.StdGoTypes.StructType;
 import haxe.zip.Compress;
 import haxe.Int64;
@@ -16,7 +17,7 @@ class Time implements StructType {
 		_address_ = ++Go.addressIndex;
 	}
 
-	inline function now():Time {
+	public static function now():Time {
 		return new Time(Date.now());
 	}
 
@@ -40,6 +41,13 @@ final sunday:Int = 0;
 
 inline function sleep(seconds:Float) {
 	Sys.sleep(seconds);
+}
+inline function after(d:Duration):Chan<Time> {
+	var chan = make((_: Chan<Time>));
+	haxe.Timer.delay(() -> {
+		chan.send(Time.now());
+	},Int64.toInt(d/1000));
+	return chan;
 }
 
 final millisecond = 0.01;

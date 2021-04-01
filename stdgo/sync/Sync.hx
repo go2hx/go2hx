@@ -8,10 +8,11 @@ class RWMutex implements StructType {
 
 	public var _is_pointer_:Bool = false;
 	public final _typeName_:String = "RWMutex";
-	public final _address_:String = "RWMutex";
+	public var _address_:Int = 0;
 
 	public function new() {
 		mutux = new Mutex();
+		_address_ = Go.addressIndex++;
 	}
 
 	public function lock() {}

@@ -141,6 +141,43 @@ class Go {
 		return macro $expr == null;
 	}
 
+	public static macro function equals(a:Expr,b:Expr) {
+		var type = Context.follow(Context.typeof(a));
+		var exprs:Array<Expr> = [];
+		switch a.expr {
+			case ENew(t, params):
+				exprs.push(macro var a = $a);
+				exprs.push(macro var b = $b);
+				a = macro $i{"a"};
+				b = macro $i{"b"};
+			default:
+		}
+		switch type {
+			case TInst(t, params):
+				var t = t.get();
+				var fields = t.fields.get();
+				for (field in fields) {
+					if (field.name == "_address_")
+						continue;
+					switch field.type {
+						case TFun(args, ret):
+
+						default:
+							var fieldName = field.name;
+							exprs.push(macro if ($a.$fieldName != $b.$fieldName) return false);
+					}
+				}
+				exprs.push(macro return true);
+				//trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
+				return macro {
+					function a() $b{exprs};
+					a();
+				};
+			default:
+		}
+		return macro $a == $b;
+	}
+
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); // expr to destructure
 		var type = Context.followWithAbstracts(Context.typeof(expr));

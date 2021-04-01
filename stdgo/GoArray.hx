@@ -50,13 +50,13 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		return this.set(index, value);
 	}
 
-	public inline function slice(low:Int, high:Int = -1):Slice<T> {
+	public inline function slice(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
 		var slice = new Slice<T>();
-		slice.setUnderlying(this, pos, length);
+		slice.setUnderlying(this, pos.toBasic(), length.toBasic());
 		return slice;
 	}
 

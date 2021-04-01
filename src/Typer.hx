@@ -1660,10 +1660,12 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			var value = isNil();
 			if (value != null)
 				return (macro Go.isNull($value)).expr;
+			return (macro Go.equals($x,$y)).expr;
 		case OpNotEq:
 			var value = isNil();
 			if (value != null)
 				return (macro !Go.isNull($value)).expr;
+			return (macro !Go.equals($x,$y)).expr;
 		default:
 	}
 	return EBinop(op, x, y);

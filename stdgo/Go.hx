@@ -191,20 +191,34 @@ class Go {
 
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); // expr to destructure
-		var type = Context.followWithAbstracts(Context.typeof(expr));
 		var fields:Array<String> = [];
 		switch expr.expr {
 			case ECall(e, params):
 				switch e.expr {
 					case EField(e2, field):
+						//special exceptions
 						if (field == "assert" && e2.expr.match(EConst(CIdent("Go")))) {
 							params.push(macro null);
 							expr = macro Go.assert($a{params});
+						} else if (field == "get") {
+							var e2type = Context.follow(Context.typeof(e2));
+							switch e2type {
+								case TInst(t, params2):
+									if (params2.length > 0) {
+										var t = t.get();
+										if (t.name == "Chan" && t.pack.length == 1 && t.pack[0] == "stdgo") {
+											field = "getMulti";
+											expr = macro ${e2}.$field($a{params});
+										}
+									}
+								default:
+							}
 						}
 					default:
 				}
 			default:
 		}
+		var type = Context.followWithAbstracts(Context.typeof(expr));
 		switch type {
 			case TAnonymous(a):
 				var f = a.get().fields;

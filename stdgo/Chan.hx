@@ -20,6 +20,8 @@ class Chan<T> {
 	public inline function get():T {
 		return data[getIndex++];
 	}
+	public inline function getMulti():{value:T,ok:Bool}
+		return {value: get(),ok: true};
 
 	public inline function send(value:T) {
 		data[setIndex++] = value;

@@ -221,6 +221,7 @@ private function setAlias(spec:Ast.TypeSpec, info:Info) {
 
 private function defaultInfo(data:FileType = null, path:String = ""):Info {
 	return {
+		recover: [],
 		hasType: false,
 		lengths: [],
 		iota: 0,
@@ -279,10 +280,10 @@ private function typeImplements(info:Info) {
 									if (interFunc.args.length != clFunc.args.length)
 										continue;
 									for (i in 0...interFunc.args.length) {
-										if (interFunc.args[0].name != clFunc.args[0].name) {
+										/*if (interFunc.args[0].name != clFunc.args[0].name) {
 											passed = false;
 											break;
-										}
+										}*/
 										if (!compareComplexType(interFunc.args[0].type, clFunc.args[0].type)) {
 											passed = false;
 											break;
@@ -503,16 +504,16 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 		var pos = 2 + data.length;
 		//written by Elliott the designer of the recover system for go2hx
 		exprs.unshift(macro var recover_exception:Dynamic = null);
-		var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
-			recover_exception = e;
-			${typeDeferReturn(info,true)};
-			if (recover_exception != null)
-				throw recover_exception;
-		}}]); //don't include recover and defer stack
-		exprs = exprs.slice(0,pos);
-		exprs.push(toExpr(trydef));
-		//returnBool = false;
-		//needReturn = true; //add default return to end of try catch
+		if (info.recover.exists(info.layerIndex)) {
+			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
+				recover_exception = e;
+				${typeDeferReturn(info,true)};
+				if (recover_exception != null)
+					throw recover_exception;
+			}}]); //don't include recover and defer stack
+			exprs = exprs.slice(0,pos);
+			exprs.push(toExpr(trydef));
+		}
 	}
 
 	if (!returnBool && needReturn) {
@@ -1001,8 +1002,16 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			return ret(EReturn(defaultValue(info.ret[0], null, 0, false)));
 		return ret(EReturn());
 	}
-	if (stmt.results.length == 1)
-		return ret(EReturn(typeExpr(stmt.results[0], info)));
+	if (stmt.results.length == 1) {
+		//could be a function lit and therefore change it out
+		var e = typeExpr(stmt.results[0],info);
+		/*switch e.expr {
+			case EFunction(kind, f):
+				e = macro {$e;};
+			default:
+		}*/
+		return ret(EReturn(e));
+	}
 	// multireturn
 	switch info.ret[0] {
 		case TAnonymous(fields):
@@ -1307,9 +1316,10 @@ private function typeMapType(expr:Ast.MapType, info:Info):ExprDef {
 	return null;
 }
 
-private function typeKeyValueExpr(expr:Ast.KeyValueExpr, info:Info) {
+private function typeKeyValueData(expr:Ast.KeyValueExpr, info:Info):{key:String,value:Expr,kind:String} {
 	var value = typeExpr(expr.value, info);
-	return {key: (expr.key.name : String), value: value};
+	var type = expr.key.id == "Ident" ? "" : expr.key.kind;
+	return {key: type == "" ? expr.key.name : expr.key.value, value: value, kind: type};
 }
 
 private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
@@ -1368,6 +1378,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					ellipsisFunc();
 					return (macro throw ${args[0]}).expr;
 				case "recover":
+					info.recover[info.layerIndex] = true;
 					return (macro recover()).expr;
 				case "slice", "append", "close", "complex", "copy", "delete", "imag", "print", "println", "real":
 					if (info.className != "") {
@@ -1553,8 +1564,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	}
 	if (expr.type == null) {
 		if (isKeyValueExpr(expr.elts)) {
-			var expr = getKeyValueExpr(expr.elts, info);
-			return (macro Go.setKeys($expr)).expr;
+			var exprs = getKeyValueExpr(expr.elts, info);
+			return (macro Go.setKeys($a{exprs})).expr;
 		}
 		getParams();
 		return (macro Go.set($a{params})).expr;
@@ -1567,7 +1578,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 					return (macro {}).expr;
 			case TAnonymous(fields):
 				if (isKeyValueExpr(expr.elts)) {
-					return getKeyValueExpr(expr.elts, info).expr;
+					return getKeyValueExpr(expr.elts, info)[0].expr;
 				} else {
 					getParams();
 					return stdgo.Go.createAnonType(null, fields, params).expr;
@@ -1579,7 +1590,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 
 	if (isKeyValueExpr(expr.elts)) {
 		var e = getKeyValueExpr(expr.elts, info);
-		return (macro($e : $type)).expr;
+		if (e.length > 0)
+			return (macro new $p($a{e})).expr;
+		return (macro (${e[0]} : $type)).expr;
 	}
 	getParams();
 	if (p == null)
@@ -1591,18 +1604,35 @@ private function isKeyValueExpr(elts:Array<Ast.Expr>) {
 	return elts.length > 0 && elts[0].id == "KeyValueExpr";
 }
 
-private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info) {
+private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 	var fields:Array<ObjectField> = [];
+	var exprs:Array<Expr> = [];
 	for (elt in elts) {
-		var e = typeKeyValueExpr(elt, info);
+		var e = typeKeyValueData(elt, info);
 		if (e.key == null)
 			continue;
-		fields.push({
-			field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info),
-			expr: e.value,
-		});
+		if (e.kind == "") {
+			fields.push({
+				field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info),
+				expr: e.value,
+			});
+		}else{
+			var key:Expr = null;
+			switch e.kind {
+				case "INT": key = toExpr(EConst(CInt(e.key)));
+				case "FLOAT": key = toExpr(EConst(CFloat(e.key)));
+				case "STRING": key = toExpr(EConst(CString(e.key)));
+				default: throw "unknown key kind: " + e.kind;
+			}
+			exprs.push(macro {
+				key: $key,
+				value: ${e.value},
+			});
+		}
 	}
-	return toExpr(EObjectDecl(fields));
+	if (exprs.length > 0)
+		return exprs;
+	return [toExpr(EObjectDecl(fields))];
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
@@ -1614,6 +1644,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
 	info.deferData.remove(info.layerIndex + 1);
+	info.recover.remove(info.layerIndex + 1);
 	return EFunction(FAnonymous, {
 		ret: null, // ret,
 		args: args,
@@ -1838,6 +1869,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	info.local = false;
 	info.deferData.clear();
 	info.deferIndex.clear();
+	info.recover.clear();
 	info.layerIndex = 0;
 
 	var name = nameIdent(decl.name.name, info);
@@ -2082,11 +2114,18 @@ private function typeFieldListRes(fieldList:Ast.FieldList, info:Info, retValuesB
 
 private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
 	var args:Array<FunctionArg> = [];
+	var counter:Int = 0;
 	if (list == null)
 		return [];
 	for (field in list.list) {
 		var type = typeExprType(field.type, info); // null can be assumed as interface{}
-
+		if (field.names.length == 0) {
+			args.push({
+				name: "arg" + counter++,
+				type: type,
+			});
+			continue;
+		}
 		for (name in field.names) {
 			args.push({
 				name: nameIdent(name.name, info),
@@ -2101,9 +2140,10 @@ private function typeFieldListComplexTypes(list:Ast.FieldList, info:Info):Array<
 	var args:Array<ComplexType> = [];
 	for (field in list.list) {
 		var type = typeExprType(field.type, info);
-		for (name in field.names) {
+		/*for (name in field.names) {
 			args.push(TNamed(name.name, type));
-		}
+		}*/
+		args.push(type);
 	}
 	return args;
 }
@@ -2311,7 +2351,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					pos: null,
 					fields: [],
 					pack: [],
-					meta: [{name: ":eagar", pos: null}],
+					meta: [],
 					kind: TDAlias(TPath({name: "AnyInterface", pack: []})),
 				}
 			var fields = typeFieldListMethods(struct.methods, info, true);
@@ -2335,7 +2375,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				doc: doc,
 				fields: [],
-				meta: [{name: ":eagar", pos: null}],
+				meta: [],
 				kind: TDAlias(type)
 			}
 	}
@@ -2487,6 +2527,7 @@ function untitle(string:String):String {
 }
 
 typedef Info = {
+	recover:Map<Int,Bool>,
 	hasType:Bool,
 	lengths:Array<Expr>,
 	iota:Int,

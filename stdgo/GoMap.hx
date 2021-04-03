@@ -97,6 +97,9 @@ class MapData<K, V> {
 	public inline function length() {
 		return slice.length - nullcount;
 	}
+	public inline function toString():String {
+		return slice.toArray().toString();
+	}
 }
 
 private class MapKeyValueIterator<K, V> {

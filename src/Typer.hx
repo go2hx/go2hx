@@ -172,19 +172,19 @@ function main(data:DataType) {
 			}
 
 			typeImplements(info);
-			// access for each type for every other type in the file
-			var addAccess:Metadata = [];
+			//make blank identifiers not name conflicting for global
+			var blankCounter:Int = 0;
 			for (def in info.data.defs) {
 				switch def.kind {
 					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-						addAccess.push({name: ":access", params: [toExpr(EConst(CIdent(def.name)))], pos: null});
-					default:
-				}
-			}
-			for (def in info.data.defs) {
-				switch def.kind {
-					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-						def.meta = addAccess.concat(def.meta);
+						var blankCounter:Int = 0;
+						for (field in def.fields) {
+							if (field.name == "_")
+								field.name += blankCounter++;
+						}
+					case TDField(kind, access):
+						if (def.name == "_")
+							def.name += blankCounter++;
 					default:
 				}
 			}
@@ -241,7 +241,6 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		local: false,
 		retypeList: [],
 		print: false,
-		blankCounter: 0
 	};
 }
 
@@ -1517,8 +1516,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
-			trace("IMAG: " + expr.value);
-			EConst(CInt("0"));
+			return (macro complex(0,${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
 			error("basic lit kind unknown: " + expr.kind);
 			null;
@@ -2165,10 +2163,6 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 		}
 
 		for (n in field.names) {
-			//if (n.name == "_")
-			//	continue;
-			if (n.name == "_")
-				n.name += Std.string(info.blankCounter++);
 			var name = n.name;
 			if (underlineBool) {
 				if (name.charAt(0) == name.charAt(0).toLowerCase())
@@ -2215,8 +2209,6 @@ private function renameDef(name:String, info:Info):String {
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(title(spec.name.name));
-	if (name == "_")
-		name = "_" + (info.blankCounter++);
 	info.className = name;
 	if (info.local) {
 		var newName = renameDef(name, info);
@@ -2514,8 +2506,7 @@ typedef Info = {
 	data:FileType,
 	local:Bool,
 	retypeList:Array<{name:String, index:Int, type:ComplexType}>,
-	print:Bool,
-	blankCounter:Int
+	print:Bool
 };
 
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};

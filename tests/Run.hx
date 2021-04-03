@@ -10,9 +10,11 @@ var path:String;
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
-	//tinygo();
-	gen();
+	tinygo();
+	//gen();
 }
+
+var pathto:String = "";
 
 function tinygo() {
 	var tests:Array<String> = [];
@@ -25,16 +27,18 @@ function tinygo() {
 			continue;
 		tests.push('./$p');
 	}
+	pathto = "/tinygo/testdata/";
 	for (test in [
 		"atomic",
 	])
-		tests.remove('./tinygo/testdata/$test.go');
-	compile(tests);
+		tests.remove('.$pathto$test.go');
+	compile(tests,true);
 }
 
 function gen() {
 	var tests = load();
 	// currently skipping these tests
+	pathto = "/go/test/";
 	for (test in [
 		"goprint", "locklinear", "mallocfin", "gcgort", "channel", // using gosched
 		"stackobj", // gc attempts to collect from the heap
@@ -47,20 +51,20 @@ function gen() {
 		"235", "64bit", // Class name must start with an uppercase letter
 
 	])
-		tests.remove('./go/test/$test.go');
-	compile(tests);
+		tests.remove('.$pathto$test.go');
+	compile(tests,false);
 }
 
-function compile(tests:Array<String>) {
+function compile(tests:Array<String>,compareOutput:Bool) {
 	tests.push(path);
 	Main.exportBool = true;
 	Main.init(tests);
 	tests.pop();
 	Sys.setCwd("..");
-	run();
+	run(compareOutput);
 }
 
-function run() {
+function run(compareOutput:Bool) {
 	File.saveContent("tests.txt", "");
 	var output = File.append("tests.txt", false);
 	var length = Main.exportPaths.length;
@@ -69,7 +73,7 @@ function run() {
 		var path = Main.exportPaths[i];
 		path = StringTools.replace(path, "/", ".");
 		var command = 'haxe -cp tests/golibs -main $path --interp';
-		path = path.substr(path.lastIndexOf(".") + 1); // get the final name
+		var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
 		var proc = new sys.io.Process(command);
 		var code:Null<Int> = null;
 		Sys.println('------ $path ------ $i/$length');
@@ -77,17 +81,34 @@ function run() {
 			code = proc.exitCode(false);
 			if (code != null)
 				break;
-			Sys.sleep(1 / 10);
+			Sys.sleep(1 / 20);
 		}
 		if (code == null) {
 			Sys.println("timed out...");
 			Sys.println('command: $command');
-			output.writeString('- [ ] $path (timed out)\n');
+			output.writeString('- [ ] $name (timed out)\n');
 		} else {
 			if (code <= 0) {
-				Sys.println(proc.stdout.readAll().toString());
+				var outputText = proc.stdout.readAll().toString();
+				if (compareOutput) {
+					var compareFile = name.toLowerCase() + ".txt";
+					var compare = File.getContent('./tests$pathto$compareFile');
+					var b = outputText != compare;
+					if (b) {
+						output.writeString('- [ ] $name failed compare');
+						Sys.println('command: $command');
+						var lines1 = outputText.split("\n");
+						var lines2 = compare.split("\n");
+						for (i in 0...lines1.length) {
+							lines1[i] = lines1[i] + " = " + (lines1[i] == lines2[i] ? "yes" : "no") + " " + i;
+						}
+						Sys.println(lines1.join("\n"));
+						continue;
+					}
+				}
+				Sys.println(outputText);
 				passedCount++;
-				output.writeString('- [x] $path\n');
+				output.writeString('- [x] $name\n');
 			} else {
 				var line:String = "";
 				try {
@@ -97,7 +118,7 @@ function run() {
 				}
 				Sys.println('command: $command');
 				Sys.println(line + "\n" + proc.stderr.readAll().toString());
-				output.writeString('- [ ] $path    - $line \n');
+				output.writeString('- [ ] $name    - $line \n');
 			}
 		}
 		proc.kill();

@@ -462,7 +462,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = fmt.Sprint(value.Value)
 	case token.IMAG: //TODO: implement imaginary numbers (complex)
-		output = "0"
+		output = value.Value[0:len(value.Value) - 1]
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

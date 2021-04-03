@@ -1,5 +1,7 @@
 package stdgo;
 
+import stdgo.StdGoTypes.GoFloat64;
+import stdgo.StdGoTypes.GoComplex128;
 import stdgo.StdGoTypes.IntegerType;
 import haxe.macro.ExprTools;
 import haxe.macro.PositionTools;
@@ -22,8 +24,8 @@ inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 
 inline function close(v) {}
 
-inline function complex(r, i) {
-	return 0; // TODO: implement complex function
+inline function complex(r:GoFloat64, i:GoFloat64):GoComplex128 {
+	return new GoComplex128(r.toBasic(),i.toBasic()); // TODO: implement complex function
 }
 
 macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {

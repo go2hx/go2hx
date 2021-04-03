@@ -153,11 +153,22 @@ class Go {
 			default:
 		}
 		switch type {
+			case TAbstract(t, params):
+				var t = t.get();
+				switch t.name {
+					case "GoArray","Slice":
+						exprs.push(macro if ($a.length != $b.length) return false);
+						exprs.push(macro for(i in 0...$a.length.toBasic()) {
+							if (!Go.equals($a[i],$b[i]))
+								return false;
+						});
+					default:
+				}
 			case TInst(t, params):
 				var t = t.get();
 				var fields = t.fields.get();
 				for (field in fields) {
-					if (field.name == "_address_")
+					if (field.name == "_address_" || field.name == "_" || field.name == "__")
 						continue;
 					switch field.type {
 						case TFun(args, ret):
@@ -167,15 +178,15 @@ class Go {
 							exprs.push(macro if ($a.$fieldName != $b.$fieldName) return false);
 					}
 				}
-				exprs.push(macro return true);
-				//trace(new haxe.macro.Printer().printExpr(macro $b{exprs}));
-				return macro {
-					function a() $b{exprs};
-					a();
-				};
 			default:
 		}
-		return macro $a == $b;
+		if (exprs.length == 0)
+			return macro $a == $b;
+		exprs.push(macro return true);
+		return macro {
+			function a() $b{exprs};
+			a();
+		};
 	}
 
 	public static macro function destruct(exprs:Array<Expr>) {

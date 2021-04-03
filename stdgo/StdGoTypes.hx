@@ -77,30 +77,27 @@ class Complex<T> {
 	}
 }
 
-function clampInt8(x:Int):Int {
-	var r = x & 0xFF;
-	if ((r & 0x80) != 0) {
-		return -1 - 0xFF + r;
-	}
-	return r;
-}
+function shiftGuard(x:Int):Bool
+	return x > 0xFF || x < 0;
 
-function clampInt16(x:Int):Int {
-	var r = x & 0xFFFF;
-	if ((r & 0x8000) != 0) {
-		return -1 - 0xFFFF + r;
-	}
-	return r;
-}
+function clampInt8(x:Int):Int
+	return x > 0xFF ? 0 : x < -0xFF ? 0 : x;
+
+function clampInt16(x:Int):Int
+	return x > 0xFFFF ? 0 : x < -0xFFFF ? 0 : x;
 
 function clampUInt(x:Int):Int
-	return x > 0 ? x : 0;
+	return x < 0 ? 0 : x;
 
-function clampUInt8(x:Int):Int
-	return x & 0xFF;
+function clampUInt8(x:Int):Int {
+	trace("before: " + x);
+	x = x > 0xFF ? 0 :  x < 0 ? 0 : x;
+	trace(x);
+	return x;
+}
 
 function clampUInt16(x:Int):Int
-	return x & 0xFFFF;
+	return x > 0xFFFF ? 0 : x < 0 ? 0 : x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
@@ -189,21 +186,7 @@ abstract GoFloat(Float) from Float {
 
 	@:op(A * B) private static function mul(a:GoFloat, b:GoFloat):GoFloat;
 
-	@:op(A % B) private static function mod(a:GoFloat, b:GoFloat):GoFloat;
-
 	@:op(A - B) private static function sub(a:GoFloat, b:GoFloat):GoFloat;
-
-	@:op(A | B) private static function or(a:GoFloat, b:GoFloat):GoFloat;
-
-	@:op(A ^ B) private static function xor(a:GoFloat, b:GoFloat):GoFloat;
-
-	@:op(A & B) private static function and(a:GoFloat, b:GoFloat):GoFloat;
-
-	@:op(A << B) private static function shl(a:GoFloat, b:Int):GoFloat;
-
-	@:op(A >> B) private static function shr(a:GoFloat, b:Int):GoFloat;
-
-	@:op(A >>> B) private static function ushr(a:GoFloat, b:Int):GoFloat;
 
 	@:op(A > B) private static function gt(a:GoFloat, b:GoFloat):Bool;
 
@@ -231,6 +214,8 @@ abstract GoFloat(Float) from Float {
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
 	@:op(-A) private static function neg(t:GoFloat):GoFloat;
+	@:op(++A) private static function prevInc(t:GoFloat):GoFloat;
+	@:op(A++) private static function postInc(t:GoFloat):GoFloat;
 }
 
 abstract GoFloat32(Float32) from Float32 {
@@ -377,7 +362,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new Complex128(x, 0);
 
 	public inline function _typeName_()
-		return "complex64";
+		return "complex128";
 
 	@:op(A + B) private static function add(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real + b.real, a.imag + b.imag);
@@ -409,6 +394,11 @@ abstract GoComplex128(Complex128) from Complex128 {
 
 	@:op(~A) private static function bneg(t:GoComplex128):GoComplex128
 		return new GoComplex128(0.0 - t.real, 0.0 - t.imag);
+
+	@:op(A == B) private static function eq(a:GoComplex128,b:GoComplex128):Bool
+		return a.real == b.real && a.imag == b.imag;
+	@:op(A != B) private static function neq(a:GoComplex128,b:GoComplex128):Bool
+		return a.real != b.real || a.imag != b.imag;
 }
 
 abstract GoInt(Int) from Int32 {
@@ -479,14 +469,17 @@ abstract GoInt(Int) from Int32 {
 
 	@:op(-A) private static function neg(a:GoInt):GoInt;
 
-	@:op(A >> B) private static function shr(a:GoInt, b:GoInt):GoInt
+	@:op(A >> B) private static function shr(a:GoInt, b:GoInt):GoInt {
+		if (shiftGuard(b.toBasic()))
+			return a < 0 ? -1 : 0;
 		return a.toBasic() >> b.toBasic();
+	}
 
-	@:op(A << B) private static function shl(a:GoInt, b:GoInt):GoInt
+	@:op(A << B) private static function shl(a:GoInt, b:GoInt):GoInt {
+		if (shiftGuard(b.toBasic()))
+			return a < 0 ? -1 : 0;
 		return a.toBasic() << b.toBasic();
-
-	@:op(A >>> B) private static function ushr(a:GoInt, b:GoInt):GoInt
-		return a.toBasic() << b.toBasic();
+	}
 
 	@:op(A > B) private static function gt(a:GoInt, b:GoInt):Bool;
 
@@ -600,10 +593,17 @@ abstract GoUInt(Int) from Int {
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
-	@:op(A >> B) private static function shr(a:GoUInt,b:GoUInt):GoUInt
+	@:op(A >> B) private static function shr(a:GoUInt,b:GoUInt):GoUInt {
+		if (shiftGuard(b.toBasic()))
+			return 0;
 		return clamp(a.toBasic() >> b.toBasic());
-	@:op(A << B) private static function shl(a:GoUInt,b:GoUInt):GoUInt
+	}
+
+	@:op(A << B) private static function shl(a:GoUInt,b:GoUInt):GoUInt {
+		if (shiftGuard(b.toBasic()))
+			return 0;
 		return clamp(a.toBasic() << b.toBasic());
+	}
 
 	@:op(++A) inline function preInc():GoUInt
 		return this = clamp(this + 1);
@@ -699,14 +699,17 @@ abstract GoInt8(Int8) from Int8 {
 
 	@:op(A <= B) private static function lte(a:GoInt8, b:GoInt8):Bool;
 
-	@:op(A >> B) private static function shr(a:GoInt8, b:GoInt8):GoInt8
+	@:op(A >> B) private static function shr(a:GoInt8, b:GoInt8):GoInt8 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
 		return clamp(a.toBasic() >> b.toBasic());
+	}
 
-	@:op(A << B) private static function shl(a:GoInt8, b:GoInt8):GoInt8
+	@:op(A << B) private static function shl(a:GoInt8, b:GoInt8):GoInt8 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
 		return clamp(a.toBasic() << b.toBasic());
-
-	@:op(A >>> B) private static function ushr(a:GoInt8, b:GoInt8):GoInt8
-		return clamp(a.toBasic() << b.toBasic());
+	}
 
 	@:op(A + B) private static function add(a:GoInt8, b:GoInt8):GoInt8
 		return clamp(Std.int(a.toBasic() + b.toBasic()));
@@ -834,14 +837,17 @@ abstract GoInt16(Int16) from Int16 {
 
 	@:op(A <= B) private static function ltef2(a:Float, b:GoInt16):Bool;
 
-	@:op(A >> B) private static function shr(a:GoInt16, b:GoInt16):GoInt16
+	@:op(A >> B) private static function shr(a:GoInt16, b:GoInt16):GoInt16 {
+		if (shiftGuard(b.toBasic()))
+			return a < 0 ? -1 : 0;
 		return clamp(a.toBasic() >> b.toBasic());
+	}
 
-	@:op(A << B) private static function shl(a:GoInt16, b:GoInt16):GoInt16
-		return clamp(a.toBasic() << b.toBasic());
-
-	@:op(A >>> B) private static function ushr(a:GoInt16, b:GoInt16):GoInt16
-		return clamp(a.toBasic() << b.toBasic());
+	@:op(A << B) private static function shl(a:GoInt16, b:GoInt16):GoInt16 {
+		if (shiftGuard(b.toBasic()))
+			return a < 0 ? -1 : 0;
+		return clamp(a.toBasic() >> b.toBasic());
+	}
 
 	@:op(A + B) private static function add(a:GoInt16, b:GoInt16):GoInt16
 		return clamp(a.toBasic() + b.toBasic());
@@ -902,6 +908,13 @@ abstract GoInt16(Int16) from Int16 {
 
 	static function clamp(x:Int):Int
 		return clampInt16(x);
+}
+//TODO: implement other number types
+abstract FloatType(Float64) from Float64 to Float64 {
+
+}
+abstract ComplexType(Complex128) from Complex128 to Complex128 {
+
 }
 
 abstract IntegerType(Int64) from Int64 to Int64 {
@@ -1023,12 +1036,17 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 		return @:privateAccess this.preIncrement();
 	}
 
-	@:op(A >> B) static function shr(a:IntegerType, b:IntegerType):IntegerType
-		return a.toBasic() >> Int64.toInt(b.toBasic());
+	@:op(A >> B) static function shr(a:IntegerType, b:IntegerType):IntegerType {
+		if (shiftGuard(b.toBasic().low))
+			return a < 0 ? -1 : 0;
+		return a.toBasic() >> b.toBasic().low;
+	}
 
-	@:op(A << B) static function shl(a:IntegerType, b:IntegerType):IntegerType
-		return a.toBasic() << Int64.toInt(b.toBasic());
-
+	@:op(A << B) static function shl(a:IntegerType, b:IntegerType):IntegerType {
+		if (shiftGuard(b.toBasic().low))
+			return a < 0 ? -1 : 0;
+		return a.toBasic() << b.toBasic().low;
+	}
 	@:op(A % B) static function mod(a:IntegerType, b:IntegerType):IntegerType
 		return a.toBasic() % b.toBasic();
 
@@ -1110,11 +1128,17 @@ abstract GoInt64(Int64) from Int64 {
 	public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
 
-	@:op(A >> B) private static function shr(a:GoInt64, b:GoInt64):GoInt64
-		return a.toBasic() >> (b.toBasic().low : Int);
+	@:op(A >> B) private static function shr(a:GoInt64, b:GoInt64):GoInt64 {
+		if (shiftGuard(b.toBasic().low))
+			return a < 0 ? -1 : 0;
+		return a.toBasic() >> b.toBasic().low;
+	}
 
-	@:op(A << B) private static function shl(a:GoInt64, b:GoInt64):GoInt64
-		return a.toBasic() << (b.toBasic().low : Int);
+	@:op(A << B) private static function shl(a:GoInt64, b:GoInt64):GoInt64 {
+		if (shiftGuard(b.toBasic().low))
+			return a < 0 ? -1 : 0;
+		return a.toBasic() << b.toBasic().low;
+	}
 
 	@:op(A + B) public static function add(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() + b.toBasic();
@@ -1266,11 +1290,17 @@ abstract GoUInt8(UInt8) from UInt8 {
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
-	@:op(A << B) private static function shl(a:GoUInt8, b:GoUInt8):GoUInt8
+	@:op(A << B) private static function shl(a:GoUInt8, b:GoUInt8):GoUInt8 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
 		return clamp(a.toBasic() << b.toBasic());
+	}
 
-	@:op(A >> B) private static function shr(a:GoUInt8, b:GoUInt8):GoUInt8
-		return clamp(a.toBasic() << b.toBasic());
+	@:op(A >> B) private static function shr(a:GoUInt8, b:GoUInt8):GoUInt8 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
+		return clamp(a.toBasic() >> b.toBasic());
+	}
 
 	// TODO: clamp uint8
 	static function clamp(x:Int)
@@ -1325,11 +1355,17 @@ abstract GoUInt16(UInt16) from UInt16 {
 
 	@:op(A <= B) private static function lte(a:GoUInt16, b:GoUInt16):Bool;
 
-	@:op(A >> B) private static function shr(a:GoUInt16, b:GoUInt16):GoUInt16
-		return a.toBasic() >> b.toBasic();
+	@:op(A >> B) private static function shr(a:GoUInt16, b:GoUInt16):GoUInt16 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
+		return clamp(a.toBasic() >> b.toBasic());
+	}
 
-	@:op(A << B) private static function shl(a:GoUInt16, b:GoUInt16):GoUInt16
-		return a.toBasic() << b.toBasic();
+	@:op(A << B) private static function shl(a:GoUInt16, b:GoUInt16):GoUInt16 {
+		if (shiftGuard(b.toBasic()))
+			return 0;
+		return clamp(a.toBasic() << b.toBasic());
+	}
 
 	@:op(A + B) private static function add(a:GoUInt16, b:GoUInt16):GoUInt16
 		return clamp(a.toBasic() + b.toBasic());
@@ -1414,11 +1450,17 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A <= B) private static function lte(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() <= b.toBasic();
 
-	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64
-		return a.toBasic() << (b.toBasic().low : Int);
+	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
+		if (shiftGuard(b.toBasic().low))
+			return 0;
+		return a.toBasic() << b.toBasic().low;
+	}
 
-	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64
-		return a.toBasic() >> (b.toBasic().low : Int);
+	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64 {
+		if (shiftGuard(b.toBasic().low))
+			return 0;
+		return a.toBasic() >> b.toBasic().low;
+	}
 
 	@:op(A != B) private static function neq(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() != b.toBasic();

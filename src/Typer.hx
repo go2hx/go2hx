@@ -1845,9 +1845,9 @@ private function typeDeferReturn(info:Info,nullcheck:Bool):Expr {
 		}
 		var e = toExpr(EConst(CIdent(obj.call)));
 		if (nullcheck) {
-			exprs.push(macro if ($e != null) $e($a{args}));
+			exprs.unshift(macro if ($e != null) $e($a{args}));
 		}else{
-			exprs.push(macro $e($a{args}));
+			exprs.unshift(macro $e($a{args}));
 		}
 	}
 	return toExpr(EBlock(exprs));

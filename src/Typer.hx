@@ -227,12 +227,12 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		iota: 0,
 		aliasStaticExtensionMap: [],
 		layerIndex: 0,
+		funcIndex: 0,
 		typeNames: [],
 		thisName: "",
 		className: "",
 		retValues: [],
 		deferData: [],
-		deferIndex: [],
 		funcName: "",
 		path: path,
 		types: [],
@@ -393,7 +393,7 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "DeferStmt": typeDeferStmt(stmt, info);
 		case "IncDecStmt": typeIncDecStmt(stmt, info);
 		case "LabeledStmt": typeLabeledStmt(stmt, info);
-		case "BlockStmt": typeBlockStmt(stmt, info);
+		case "BlockStmt": typeBlockStmt(stmt, info,false,false);
 		case "BadStmt":
 			error("BAD STATEMENT TYPED");
 			null;
@@ -424,7 +424,7 @@ private function typeCommClause(stmt:Ast.CommClause, info:Info):ExprDef { // sel
 		if (list == null)
 			return typeStmt(stmt.comm, info).expr;
 		list.unshift(stmt.comm);
-		return typeStmtList(list, info);
+		return typeStmtList(list, info,false,false);
 	}
 	return (macro null).expr;
 }
@@ -436,7 +436,7 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	return typeBlockStmt(stmt.body, info);
+	return typeBlockStmt(stmt.body, info,false,false);
 }
 
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
@@ -456,15 +456,16 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 	return (macro Go.routine($call)).expr;
 }
 
-private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, needReturn:Bool = false):ExprDef {
+private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool,needReturn:Bool):ExprDef {
 	if (stmt.list == null)
 		return (macro {}).expr;
-	return typeStmtList(stmt.list, info, needReturn);
+	return typeStmtList(stmt.list, info, isFunc,needReturn);
 }
 
-private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool = false):ExprDef {
+private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool,needReturn:Bool):ExprDef {
 	info.layerIndex++;
-	info.deferIndex[info.layerIndex] = 0;
+	if (isFunc)
+		info.funcIndex++;
 	var exprs:Array<Expr> = [];
 	if (list != null)
 		exprs = [for (stmt in list) typeStmt(stmt, info)];
@@ -493,21 +494,14 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			}
 		}
 	// defer system
-	if (info.deferData.exists(info.layerIndex)) {
-		var data = info.deferData[info.layerIndex];
-		for (i in 0...data.length) {
-			var e = data[i].call;
-			exprs.unshift(macro var $e = null);
-		}
-		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
-		//exprs.push(typeDeferReturn(info,false));
-		var pos = 2 + data.length;
-		//written by Elliott the designer of the recover system for go2hx
-		exprs.unshift(macro var recover_exception:Dynamic = null);
-		if (info.recover.exists(info.layerIndex)) {
+	if (info.deferData.exists(info.funcIndex) && isFunc) {
+		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
+		exprs.push(typeDeferReturn(info,true));
+		if (info.recover.exists(info.funcIndex)) {
+			exprs.unshift(macro var recover_exception:Dynamic = null);
+			var pos = 2;
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
 				recover_exception = e;
-				//${typeDeferReturn(info,true)};
 				if (recover_exception != null)
 					throw recover_exception;
 			}}]); //don't include recover and defer stack
@@ -533,7 +527,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			exprs.push(toExpr(ret)); // blank return
 		}
 	}
-	info.layerIndex--;
+	if (isFunc)
+		info.funcIndex--;
 	// remove types and retypes that no longer are in scope
 	for (retype in info.retypeList) {
 		if (retype.index <= info.layerIndex)
@@ -567,34 +562,22 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	var call = typeCallExpr(stmt.call, info);
-	var args:Array<Expr> = [];
-	if (!info.deferData.exists(info.layerIndex))
-		info.deferData[info.layerIndex] = [];
-	var data = info.deferData[info.layerIndex];
-	var index = data.length;
-	var idString:String = "_defercall_" + index;
-	var id:Expr = toExpr(EConst(CIdent(idString)));
-	switch call {
+	var call = toExpr(typeCallExpr(stmt.call, info));
+	info.deferData[info.funcIndex] = true;
+	switch call.expr {
 		case ECall(e, params):
-			args = params;
-			data.push({call: idString,length: args.length,index: info.deferIndex[info.layerIndex]++});
-			return (macro {
-				$id = $e;
-				deferstack.push([$a{args}]);
-			}).expr;
+			return (macro deferstack.unshift(() -> $call)).expr;
 		case EBlock(exprs):
-			data.push({call: idString,length: 0,index: 0});
-			return (macro $id = function () ${toExpr(call)}).expr;
+			return (macro deferstack.unshift(() -> $call)).expr;
 		default:
-			throw call;
+			throw "unknown defer call expr: " + call;
 	}
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
-	var body = {expr: typeBlockStmt(stmt.body, info), pos: null};
+	var body = {expr: typeBlockStmt(stmt.body, info,false,false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
 		if (stmt.tok == DEFINE) {
@@ -744,7 +727,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	for (stmt in stmt.body.list) {
 		var stmt:Ast.CaseClause = stmt;
 		var values:Array<Expr> = [];
-		var body = toExpr(typeStmtList(stmt.body, info));
+		var body = toExpr(typeStmtList(stmt.body, info,false,false));
 		if (stmt.list.length == 0) {
 			def = body;
 			continue;
@@ -816,7 +799,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
-		var block = toExpr(typeStmtList(obj.body, info));
+		var block = toExpr(typeStmtList(obj.body, info,false,false));
 
 		if (i + 1 >= stmt.body.list.length)
 			return cond == null ? macro $block : macro if ($cond)
@@ -834,7 +817,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
-	var body = toExpr(typeBlockStmt(stmt.body, info));
+	var body = toExpr(typeBlockStmt(stmt.body, info,false,false));
 	if (body.expr == null)
 		body = macro {};
 	if (cond.expr == null || body.expr == null) {
@@ -977,7 +960,7 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferData.exists(info.layerIndex)) {
+		if (info.deferData.exists(info.funcIndex)) {
 			return EBlock([typeDeferReturn(info,false), toExpr(e),]);
 		}
 		return e;
@@ -1378,7 +1361,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					ellipsisFunc();
 					return (macro throw ${args[0]}).expr;
 				case "recover":
-					info.recover[info.layerIndex - 1] = true;
+					info.recover[info.funcIndex - 1] = true;
 					return (macro recover()).expr;
 				case "slice", "append", "close", "complex", "copy", "delete", "imag", "print", "println", "real":
 					if (info.className != "") {
@@ -1639,12 +1622,12 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	var ret = typeFieldListRes(expr.type.results, info, true);
 	info.ret.unshift(ret);
 	var args = typeFieldListArgs(expr.type.params, info);
-	var block = typeBlockStmt(expr.body, info, true);
+	var block = typeBlockStmt(expr.body, info, true,true);
 	// allows multiple nested values
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
-	info.deferData.remove(info.layerIndex + 1);
-	info.recover.remove(info.layerIndex + 1);
+	info.deferData.remove(info.funcIndex + 1);
+	info.recover.remove(info.funcIndex + 1);
 	return EFunction(FAnonymous, {
 		ret: null, // ret,
 		args: args,
@@ -1831,26 +1814,9 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 
 // SPECS
 private function typeDeferReturn(info:Info,nullcheck:Bool):Expr {
-	var data = info.deferData[info.layerIndex];
-	if (data == null)
-		throw "defer return lengths is null";
-	var exprs:Array<Expr> = [];
-	function toInt(i:Int) {
-		return toExpr(EConst(CInt('$i')));
-	}
-	for (obj in data) {
-		var args:Array<Expr> = [];
-		for (i in 0...obj.length) {
-			args.push(macro deferstack[${toInt(obj.index)}][${toInt(i)}]);
-		}
-		var e = toExpr(EConst(CIdent(obj.call)));
-		if (nullcheck) {
-			exprs.unshift(macro if ($e != null) $e($a{args}));
-		}else{
-			exprs.unshift(macro $e($a{args}));
-		}
-	}
-	return toExpr(EBlock(exprs));
+	return macro for (defer in deferstack) {
+		defer();
+	};
 }
 
 private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
@@ -1867,10 +1833,9 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	// info.retypeMap.clear(); //clear renaming as it's a new function
 	//layer index is 0 for initlization of module function, the body will be 1
 	info.local = false;
-	info.deferData.clear();
-	info.deferIndex.clear();
 	info.recover.clear();
 	info.layerIndex = 0;
+	info.funcIndex = 0;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
@@ -1879,7 +1844,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
-	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true));
+	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true,true));
 	var meta:Metadata = null;
 	if (decl.recv != null) { // now is a static extension function
 		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
@@ -1894,7 +1859,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 					if (decl.recv.list[0].names.length > 0) {
 						var varName = decl.recv.list[0].names[0].name;
 						info.thisName = varName;
-						block = toExpr(typeBlockStmt(decl.body, info, true)); // rerun so thisName system can be used
+						block = toExpr(typeBlockStmt(decl.body, info, true,true)); // rerun so thisName system can be used
 						switch block.expr {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
@@ -2532,12 +2497,12 @@ typedef Info = {
 	lengths:Array<Expr>,
 	iota:Int,
 	aliasStaticExtensionMap:Map<String, Bool>,
+	funcIndex:Int,
 	layerIndex:Int,
 	typeNames:Array<String>,
 	thisName:String,
 	retValues:Array<Array<{name:String, type:ComplexType}>>,
-	deferData:Map<Int,Array<{call:String,length:Int,index:Int}>>,
-	deferIndex:Map<Int,Int>,
+	deferData:Map<Int,Bool>,
 	className:String,
 	funcName:String,
 	path:String,

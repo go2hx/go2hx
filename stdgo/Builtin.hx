@@ -132,8 +132,10 @@ function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
 					if (strict)
 						return macro(0 : $t);
 					return macro 0;
-				case "GoDynamic", "Any", "Dynamic", "AnyInterface":
-					return macro null;
+				case "AnyInterface":
+					return macro new AnyInterface({});
+				case "GoDynamic", "Any", "Dynamic":
+					return macro {};
 				case "Bool":
 					return macro false;
 				case "Pointer", "PointerWrapper", "GoArrayPointer":

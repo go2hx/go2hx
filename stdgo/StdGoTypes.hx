@@ -80,24 +80,28 @@ class Complex<T> {
 function shiftGuard(x:Int):Bool
 	return x > 0xFF || x < 0;
 
-function clampInt8(x:Int):Int
-	return x > 0xFF ? 0 : x < -0xFF ? 0 : x;
-
-function clampInt16(x:Int):Int
-	return x > 0xFFFF ? 0 : x < -0xFFFF ? 0 : x;
-
-function clampUInt(x:Int):Int
-	return x < 0 ? 0 : x;
-
-function clampUInt8(x:Int):Int {
-	trace("before: " + x);
-	x = x > 0xFF ? 0 :  x < 0 ? 0 : x;
-	trace(x);
+function clampInt8(x:Int):Int {
+	x = x & 0xFF;
+	if (x & 0x80 != 0)
+		return -1 - 0xFF + x;
 	return x;
 }
 
+function clampInt16(x:Int):Int {
+	x = x & 0xFFFF;
+	if (x & 0x8000 != 0)
+		return -1 - 0xFFFF + x;
+	return x;
+}
+
+function clampUInt8(x:Int):Int
+	return x & 0xFF;
+
 function clampUInt16(x:Int):Int
-	return x > 0xFFFF ? 0 : x < 0 ? 0 : x;
+	return x & 0xFFFF;
+
+function clampUInt(x:Int):Int
+	return x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 

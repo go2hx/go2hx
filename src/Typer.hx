@@ -500,14 +500,14 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, needReturn:Bool =
 			exprs.unshift(macro var $e = null);
 		}
 		exprs.unshift(macro var deferstack:Array<Array<Dynamic>> = []);
-		exprs.push(typeDeferReturn(info,false));
+		//exprs.push(typeDeferReturn(info,false));
 		var pos = 2 + data.length;
 		//written by Elliott the designer of the recover system for go2hx
 		exprs.unshift(macro var recover_exception:Dynamic = null);
 		if (info.recover.exists(info.layerIndex)) {
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
 				recover_exception = e;
-				${typeDeferReturn(info,true)};
+				//${typeDeferReturn(info,true)};
 				if (recover_exception != null)
 					throw recover_exception;
 			}}]); //don't include recover and defer stack
@@ -1378,7 +1378,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					ellipsisFunc();
 					return (macro throw ${args[0]}).expr;
 				case "recover":
-					info.recover[info.layerIndex] = true;
+					info.recover[info.layerIndex - 1] = true;
 					return (macro recover()).expr;
 				case "slice", "append", "close", "complex", "copy", "delete", "imag", "print", "println", "real":
 					if (info.className != "") {

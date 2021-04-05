@@ -1597,6 +1597,16 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		switch type {
 			case TPath(tp):
 				p = tp;
+				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
+					switch p.params[1] {
+						case TPType(t):
+							params.push(stdgo.Builtin.defaultValue(t,null,false));
+							var e = getKeyValueExpr(expr.elts, info);
+							params = params.concat(e);
+							return (macro new $p($a{params})).expr;
+						default:
+					}
+				}
 				if (p.name == "Dynamic" && p.pack.length == 0)
 					return (macro {}).expr;
 			case TAnonymous(fields):
@@ -1620,6 +1630,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	getParams();
 	if (p == null)
 		throw "type path new is null: " + expr;
+	trace("params: " + params + " p: " + p);
 	return (macro new $p($a{params})).expr;
 }
 

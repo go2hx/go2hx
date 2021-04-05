@@ -99,9 +99,21 @@ macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice
 					case "GoArray":
 						throw("cannot make GoArray must be type generated");
 					case "GoMap":
-						return macro new $p();
+						switch p.params[1] {
+							case TPType(t):
+								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+								return macro new $p(${defaultValue(t,Context.currentPos(),false)});
+							default:
+						}
+						return null;
 					case "Chan":
-						return macro new $p($size);
+						switch p.params[0] {
+							case TPType(t):
+								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+								return macro new $p($size,${defaultValue(t,Context.currentPos(),false)});
+							default:
+						}
+						return null;
 					default:
 						trace("make unknown: " + p);
 						return null;
@@ -127,7 +139,7 @@ function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
 					return null;
 				case "GoArray":
 					return macro new $p();
-				case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
+				case "FloatType","IntegerType","GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
 					"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
 					if (strict)
 						return macro(0 : $t);
@@ -144,6 +156,8 @@ function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
 					if (strict)
 						return macro("" : GoString);
 					return macro "";
+				case "Chan":
+					return macro null;
 				default:
 					return macro new $p();
 			}

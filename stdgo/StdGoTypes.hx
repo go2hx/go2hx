@@ -1088,6 +1088,9 @@ abstract GoInt64(Int64) from Int64 {
 
 	public inline function toBasic()
 		return this;
+	public inline function copy():GoInt64
+		return this.copy();
+
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
@@ -1423,6 +1426,9 @@ abstract GoUInt16(UInt16) from UInt16 {
 abstract GoUInt64(UInt64) from UInt64 {
 	public inline function new(x)
 		this = x;
+
+	public inline function copy():GoUInt64
+		return this.copy();
 
 	public inline function toBasic()
 		return this;

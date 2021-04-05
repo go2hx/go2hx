@@ -131,7 +131,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 }
 
-class SliceKeyValueIterator<T> {
+private class SliceKeyValueIterator<T> {
 	var pos:Int = 0;
 	var slice:SliceData<T>;
 

@@ -13,7 +13,7 @@ class Go {
 	public static var addressIndex:Int = 1;
 
 	public static macro function copy(expr) { // slices and maps are ref types
-		var type = Context.followWithAbstracts(Context.typeof(expr));
+		var type = Context.follow(Context.typeof(expr));
 		var exception = false;
 		switch expr.expr {
 			case ENew(t, params):
@@ -59,6 +59,10 @@ class Go {
 			return expr;
 		} else {
 			switch type {
+				case TAbstract(t, params):
+					var t = t.get();
+					if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoUInt64" || t.name == "GoInt64"))
+						return macro $expr.copy();
 				case TInst(t, params):
 					var t = t.get();
 					switch t.pack.join(".") + t.name {

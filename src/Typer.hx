@@ -585,7 +585,8 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		} else {
 			switch body.expr {
 				case EBlock(exprs):
-					exprs.unshift(macro $value = _value);
+					if (value != null)
+						exprs.unshift(macro $value = _value);
 				default:
 			}
 			return (macro for (_value in $x) $body).expr; // iterator through values using "in" for loop, and assign value to not defined value

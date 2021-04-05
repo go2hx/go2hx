@@ -1,5 +1,6 @@
 package stdgo.time;
 
+import haxe.Int64;
 import stdgo.Builtin.make;
 import stdgo.StdGoTypes.StructType;
 import haxe.zip.Compress;
@@ -29,8 +30,6 @@ class Time implements StructType {
 		return date.getDay();
 	}
 }
-
-final second:GoInt = 1;
 final monday:GoInt = 1;
 final tuesday:GoInt = 2;
 final wensday:GoInt = 3;
@@ -40,15 +39,24 @@ final saturday:GoInt = 6;
 final sunday:GoInt = 0;
 
 inline function sleep(d:Duration) {
-	Sys.sleep(haxe.Int64.toInt(d.toBasic()));
+	Sys.sleep(durationToSecond(d));
+}
+private inline function durationToSecond(d:Duration):Int {
+	trace("d: " + d);
+	var x = (d.toBasic() / (1000 * 1000 * 1000)).low;
+	return x;
 }
 inline function after(d:Duration):Chan<Time> {
 	var chan = make((_: Chan<Time>));
 	haxe.Timer.delay(() -> {
 		chan.send(Time.now());
-	},haxe.Int64.toInt(d.toBasic()/1000));
+	},durationToSecond(d) * 1000);
 	return chan;
 }
-
-final millisecond = 0.01;
+final nanosecond:Duration = 1;
+final microsecond:Duration = 1000 * nanosecond;
+final millisecond:Duration = 1000 * microsecond;
+final second:Duration = 1000 * millisecond;
+final minute:Duration = 60 * second;
+final hour:Duration = 60 * minute;
 typedef Duration = GoInt64;

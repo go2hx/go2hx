@@ -563,17 +563,27 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	var call = toExpr(typeCallExpr(stmt.call, info));
 	info.deferBool[info.funcIndex] = true;
 	info.hasDefer = true;
-	switch call.expr {
-		case ECall(e, params):
-			return (macro deferstack.unshift(() -> $call)).expr;
-		case EBlock(exprs):
-			return (macro deferstack.unshift(() -> $call)).expr;
-		default:
-			throw "unknown defer call expr: " + call;
+	if (stmt.call.fun.id == "CallExpr") {
+		var call = toExpr(typeCallExpr(stmt.call, info));
+		return (macro deferstack.unshift(() -> $call)).expr;
 	}
+	//otherwise it's a funclit
+	if (stmt.call.fun.id != "FuncLit")
+		throw "defer func type id not call or funclit: " + stmt.call.fun.id;
+		var args:Array<Expr> = [];
+		var exprs:Array<Expr> = [];
+		for (i in 0...stmt.call.args.length) {
+			var arg = typeExpr(stmt.call.args[i],info);
+			var name = "a" + i;
+			exprs.push(macro var $name = $arg);
+			stmt.call.args[i] = {id: "Ident",name: name}; //switch out call arguments
+			args[i] = macro $i{name};
+		}
+		var call = toExpr(typeCallExpr(stmt.call, info));
+		exprs.push(macro deferstack.unshift(() -> $call));
+		return EBlock(exprs);
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
@@ -1381,10 +1391,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case "FuncLit":
 			var expr = typeExpr(expr.fun, info);
 			genArgs();
-			return (macro {var a = $expr; a($a{args});}).expr;
-		/*case "SelectorExpr":
-			var name = untitle(expr.fun.sel.name);
-			expr.fun.sel.name =  nameIdent(name,info); //all functions lowercase */
+			return (macro {
+				var a = $expr;
+				a($a{args});
+			}).expr;
 		case "Ident":
 			expr.fun.name = expr.fun.name;
 			switch expr.fun.name {

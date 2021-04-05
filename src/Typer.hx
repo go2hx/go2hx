@@ -565,23 +565,24 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	info.deferBool[info.funcIndex] = true;
 	info.hasDefer = true;
+	var exprs:Array<Expr> = [];
+	for (i in 0...stmt.call.args.length) {
+		var arg = typeExpr(stmt.call.args[i],info);
+		var name = "a" + i;
+		exprs.push(macro var $name = $arg);
+		stmt.call.args[i] = {id: "Ident",name: name}; //switch out call arguments
+	}
 	if (stmt.call.fun.id == "FuncLit") {
-		var args:Array<Expr> = [];
-		var exprs:Array<Expr> = [];
-		for (i in 0...stmt.call.args.length) {
-			var arg = typeExpr(stmt.call.args[i],info);
-			var name = "a" + i;
-			exprs.push(macro var $name = $arg);
-			stmt.call.args[i] = {id: "Ident",name: name}; //switch out call arguments
-			args[i] = macro $i{name};
-		}
 		var call = toExpr(typeCallExpr(stmt.call, info));
 		exprs.push(macro deferstack.unshift(() -> $call));
 		return EBlock(exprs);
 	}
 	//otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
-	return (macro deferstack.unshift(() -> $call)).expr;
+	var e = macro deferstack.unshift(() -> $call);
+	if (exprs.length > 0)
+		return EBlock(exprs.concat([e]));
+	return e.expr;
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {

@@ -565,13 +565,7 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	info.deferBool[info.funcIndex] = true;
 	info.hasDefer = true;
-	if (stmt.call.fun.id == "CallExpr") {
-		var call = toExpr(typeCallExpr(stmt.call, info));
-		return (macro deferstack.unshift(() -> $call)).expr;
-	}
-	//otherwise it's a funclit
-	if (stmt.call.fun.id != "FuncLit")
-		throw "defer func type id not call or funclit: " + stmt.call.fun.id;
+	if (stmt.call.fun.id == "FuncLit") {
 		var args:Array<Expr> = [];
 		var exprs:Array<Expr> = [];
 		for (i in 0...stmt.call.args.length) {
@@ -584,6 +578,10 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 		var call = toExpr(typeCallExpr(stmt.call, info));
 		exprs.push(macro deferstack.unshift(() -> $call));
 		return EBlock(exprs);
+	}
+	//otherwise its Ident, Selector etc
+	var call = toExpr(typeCallExpr(stmt.call, info));
+	return (macro deferstack.unshift(() -> $call)).expr;
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {

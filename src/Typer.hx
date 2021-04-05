@@ -232,7 +232,8 @@ private function defaultInfo(data:FileType = null, path:String = ""):Info {
 		thisName: "",
 		className: "",
 		retValues: [],
-		deferData: [],
+		hasDefer: false,
+		deferBool: [],
 		funcName: "",
 		path: path,
 		types: [],
@@ -494,7 +495,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool,needR
 			}
 		}
 	// defer system
-	if (info.deferData.exists(info.funcIndex) && isFunc) {
+	if (info.deferBool.exists(info.funcIndex) && isFunc) {
 		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 		exprs.push(typeDeferReturn(info,true));
 		if (info.recover.exists(info.funcIndex)) {
@@ -563,7 +564,8 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	var call = toExpr(typeCallExpr(stmt.call, info));
-	info.deferData[info.funcIndex] = true;
+	info.deferBool[info.funcIndex] = true;
+	info.hasDefer = true;
 	switch call.expr {
 		case ECall(e, params):
 			return (macro deferstack.unshift(() -> $call)).expr;
@@ -577,6 +579,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
+	info.hasDefer = false;
 	var body = {expr: typeBlockStmt(stmt.body, info,false,false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
@@ -592,13 +595,12 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			return (macro for (_value in $x) $body).expr; // iterator through values using "in" for loop, and assign value to not defined value
 		}
 	}
-
+	var keyString:String = "_";
+	var valueString:String = "_";
 	// both key and value
 	if (stmt.tok == DEFINE) {
 		switch body.expr {
 			case EBlock(exprs):
-				var keyString:String = "_";
-				var valueString:String = "_";
 				switch key.expr {
 					case EConst(c):
 						switch c {
@@ -616,23 +618,51 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 							}
 						default:
 					}
-					exprs.unshift(macro var $valueString = _obj.value);
+					if (info.hasDefer) {
+						exprs.unshift(macro $i{valueString} = _obj.value); //not a local variable but declared outside for block
+					}else{
+						exprs.unshift(macro var $valueString = _obj.value);
+					}
 				}
-				if (key != null)
-					exprs.unshift(macro var $keyString = _obj.key);
+				if (key != null) {
+					if (info.hasDefer) {
+						exprs.unshift(macro $i{keyString} = _obj.key); //not a local variable but declared outside for block
+					}else{
+						exprs.unshift(macro var $keyString = _obj.key);
+					}
+				}
 			default:
 		}
 	} else {
 		switch body.expr {
 			case EBlock(exprs):
-				if (key != null)
-					exprs.unshift(macro $key = _obj.key);
-				if (value != null)
-					exprs.unshift(macro $value = _obj.value);
+				if (key != null) {
+					if (info.hasDefer) {
+						exprs.unshift(macro $i{keyString} = _obj.key); //not a local variable but declared outside for block
+					}else{
+						exprs.unshift(macro var $keyString = _obj.key);
+					}
+				}
+				if (value != null) {
+					if (info.hasDefer) {
+						exprs.unshift(macro $i{valueString} = _obj.value); //not a local variable but declared outside for block
+					}else{
+						exprs.unshift(macro var $valueString = _obj.value);
+					}
+				}
 			default:
 		}
 	}
-	return (macro for (_obj in Go.range($x)) $body).expr;
+	var e = macro for (_obj in Go.range($x)) $body;
+	if (info.hasDefer) {
+		var inits:Array<Expr> = [];
+		if (keyString != "_")
+			inits.push(macro var $keyString);
+		if (valueString != "_")
+			inits.push(macro var $valueString);
+		e = toExpr(EBlock(inits.concat([e])));
+	}
+	return e.expr;
 }
 
 private function className(name:String):String {
@@ -818,6 +848,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
+	info.hasDefer = false;
 	var body = toExpr(typeBlockStmt(stmt.body, info,false,false));
 	if (body.expr == null)
 		body = macro {};
@@ -825,16 +856,16 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 		trace("for stmt error: " + cond.expr + " body: " + body.expr);
 		return null;
 	}
-	var def:ExprDef = null;
+	var def:Expr = null;
 	if (stmt.post != null) {
 		var ty = typeStmt(stmt.post, info);
 		if (ty == null) {
 			trace("for stmt error post: " + stmt.post);
 			return null;
 		}
-		def = (macro Go.cfor($cond, $ty, $body)).expr;
+		def = macro Go.cfor($cond, $ty, $body);
 	} else {
-		def = EWhile(cond, body, true);
+		def = toExpr(EWhile(cond, body, true));
 		if (stmt.cond == null) {
 			var retValue = defaultValue(info.ret[0], info, 0, false);
 			switch info.ret[0] {
@@ -843,9 +874,9 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 						retValue = null;
 				default:
 			}
-			return EBlock([toExpr(def), toExpr(EReturn(retValue)),]);
+			return EBlock([def, toExpr(EReturn(retValue))]);
 		}
-		return def;
+		return def.expr;
 	}
 	if (stmt.init != null) {
 		var init = typeStmt(stmt.init, info);
@@ -853,9 +884,9 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 			trace("for stmt eror init: " + stmt.init);
 			return null;
 		}
-		return EBlock([init, toExpr(def),]);
+		return EBlock([init, def]);
 	}
-	return def;
+	return def.expr;
 }
 
 private function toExpr(def:ExprDef):Expr {
@@ -961,7 +992,7 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferData.exists(info.funcIndex)) {
+		if (info.deferBool.exists(info.funcIndex)) {
 			return EBlock([typeDeferReturn(info,false), toExpr(e),]);
 		}
 		return e;
@@ -1627,7 +1658,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	// allows multiple nested values
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
-	info.deferData.remove(info.funcIndex + 1);
+	info.deferBool.remove(info.funcIndex + 1);
 	info.recover.remove(info.funcIndex + 1);
 	return EFunction(FAnonymous, {
 		ret: null, // ret,
@@ -1835,6 +1866,8 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	//layer index is 0 for initlization of module function, the body will be 1
 	info.local = false;
 	info.recover.clear();
+	info.deferBool.clear();
+	info.hasDefer = false;
 	info.layerIndex = 0;
 	info.funcIndex = 0;
 
@@ -2503,7 +2536,8 @@ typedef Info = {
 	typeNames:Array<String>,
 	thisName:String,
 	retValues:Array<Array<{name:String, type:ComplexType}>>,
-	deferData:Map<Int,Bool>,
+	deferBool:Map<Int,Bool>,
+	hasDefer:Bool,
 	className:String,
 	funcName:String,
 	path:String,

@@ -500,12 +500,13 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		if (info.recover.exists(info.funcIndex)) {
 			exprs.unshift(macro var recover_exception:Dynamic = null);
 			var pos = 2;
+			var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 				{
 					name: "e",
 					expr: macro {
 						recover_exception = e;
-						${typeDeferReturn(info,true)}
+						$ret;
 						if (recover_exception != null)
 							throw recover_exception;
 					}

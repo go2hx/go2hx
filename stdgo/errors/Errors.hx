@@ -1,7 +1,7 @@
 package stdgo.errors;
 
 import haxe.Exception;
-import stdgo.StdGoTypes.Error;
+import stdgo.StdGoTypes;
 
 inline function new_(message:String):Error {
 	return new ErrorData(message);
@@ -14,6 +14,7 @@ private class ErrorData implements Error {
 		this.message = message;
 	}
 
-	public function error():String
+	public function error():GoString {
 		return message;
+	}
 }

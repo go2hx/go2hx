@@ -46,7 +46,7 @@ class Go {
 					case "Chan":
 						return macro null;
 					case "GoMap":
-						switch p.params[0] {
+						switch p.params[1] { //value default value add
 							case TPType(t):
 								return macro new $p(${Go.defaultValue(t,null,false)});
 							default:
@@ -619,7 +619,7 @@ class Go {
 
 	public static macro function recover() {
 		return untyped macro {
-			var r:Any = recover_exception;
+			var r = stdgo.errors.Errors.new_(recover_exception.toString());
 			recover_exception = null;
 			r;
 		}

@@ -73,7 +73,7 @@ private class MapData<K, V> {
 	}
 
 	public inline function set(key:K, value:V) {
-		slice = slice.append([{key: key, value: value}]);
+		slice = slice.append({key: key, value: value});
 		return value;
 	}
 

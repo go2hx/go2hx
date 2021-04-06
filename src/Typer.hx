@@ -1422,7 +1422,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
-					return (macro e.remove($key)).expr;
+					return (macro $e.remove($key)).expr;
 				case "print":
 					genArgs();
 					ellipsisFunc();
@@ -1463,7 +1463,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
 					return (macro Go.make($a{args})).expr;
-				case null:
 				default:
 					if (expr.args.length == 1) {
 						var isType = basicTypes.indexOf(expr.fun.name) != -1;
@@ -1595,7 +1594,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
-			return (macro complex(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
+			return (macro new GoComplex128(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
 			error("basic lit kind unknown: " + expr.kind);
 			null;

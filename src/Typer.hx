@@ -505,6 +505,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 					name: "e",
 					expr: macro {
 						recover_exception = e;
+						${typeDeferReturn(info,true)}
 						if (recover_exception != null)
 							throw recover_exception;
 					}
@@ -602,35 +603,40 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			switch body.expr {
 				case EBlock(exprs):
 					if (value != null)
-						exprs.unshift(macro $value = _value);
+						exprs.unshift(macro $value = _obj.value);
 				default:
 			}
-			return (macro for (_value in $x) $body).expr; // iterator through values using "in" for loop, and assign value to not defined value
+			return (macro for (_obj in $x) $body).expr; // iterator through values using "in" for loop, and assign value to not defined value
 		}
 	}
 	var keyString:String = "_";
 	var valueString:String = "_";
+
+	if (value != null) {
+		switch value.expr {
+			case EConst(c):
+				switch c {
+					case CIdent(s): valueString = nameIdent(s, info);
+					default:
+				}
+			default:
+		}
+	}
+	if (key != null) {
+		switch key.expr {
+			case EConst(c):
+				switch c {
+					case CIdent(s): keyString = nameIdent(s, info);
+					default:
+				}
+			default:
+		}
+	}
 	// both key and value
 	if (stmt.tok == DEFINE) {
 		switch body.expr {
 			case EBlock(exprs):
-				switch key.expr {
-					case EConst(c):
-						switch c {
-							case CIdent(s): keyString = nameIdent(s, info);
-							default:
-						}
-					default:
-				}
 				if (value != null) {
-					switch value.expr {
-						case EConst(c):
-							switch c {
-								case CIdent(s): valueString = nameIdent(s, info);
-								default:
-							}
-						default:
-					}
 					if (info.hasDefer) {
 						exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
 					} else {
@@ -646,21 +652,21 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 				}
 			default:
 		}
-	} else {
+	} else { //ASSIGN
 		switch body.expr {
 			case EBlock(exprs):
 				if (key != null) {
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
+						exprs.unshift(macro $i{keyString} = _obj.key); // no diffrence with assign
 					} else {
-						exprs.unshift(macro var $keyString = _obj.key);
+						exprs.unshift(macro $i{keyString} = _obj.key);
 					}
 				}
 				if (value != null) {
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
+						exprs.unshift(macro $i{valueString} = _obj.value); // no diffrence with assign
 					} else {
-						exprs.unshift(macro var $valueString = _obj.value);
+						exprs.unshift(macro $i{valueString} = _obj.value);
 					}
 				}
 			default:
@@ -1496,13 +1502,42 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								default:
 							}
 						}
-						return (macro new $p()).expr;
+						return (macro ${stdgo.Go.defaultValue(t,null,true)}).expr;
 					default:
 						// trace("unknown type paren expr");
-						var arg = typeExpr(expr.args[0], info);
-						return (macro($arg : $t)).expr;
+						var expr = typeExpr(expr.args[0], info);
+						switch expr.expr {
+							case EConst(c):
+								switch c {
+									case CIdent(s):
+										if (s == "null") {
+											var e = stdgo.Go.defaultValue(t, null, true);
+											return e.expr;
+										}
+									default:
+								}
+							default:
+						}
+						return (macro($expr : $t)).expr;
 				}
 			}
+		case "MapType":
+			// set assert type
+			var type = typeExprType(expr.fun, info);
+			var expr = typeExpr(expr.args[0], info);
+			switch expr.expr {
+				case EConst(c):
+					switch c {
+						case CIdent(s):
+							if (s == "null") {
+								var e = stdgo.Go.defaultValue(type, null, true);
+								return e.expr;
+							}
+						default:
+					}
+				default:
+			}
+			return (macro($expr : $type)).expr;
 		case "ArrayType":
 			// set assert type
 			var type = typeExprType(expr.fun, info);

@@ -13,7 +13,9 @@ class Time implements StructType {
 	public var _address_:Int = 0;
 	public final _typeName_:String = "Time";
 
-	public function new(date:Date) {
+	public function new(date:Date=null) {
+		if (date == null)
+			date = new Date(1,1,1,0,0,0);
 		this.date = date;
 		_address_ = ++Go.addressIndex;
 	}

@@ -1460,7 +1460,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					addPointerImports(info);
 					switch t {
 						case TPath(p):
-							return (macro Go.pointer(new $p())).expr; // TODO does not work for non constructed types, such as basic types
+							return (macro Go.pointer(${defaultValue(t,info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -1502,7 +1502,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								default:
 							}
 						}
-						return (macro ${stdgo.Go.defaultValue(t,null,true)}).expr;
+						return (macro ${defaultValue(t,null,true)}).expr;
 					default:
 						// trace("unknown type paren expr");
 						var expr = typeExpr(expr.args[0], info);
@@ -1511,7 +1511,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								switch c {
 									case CIdent(s):
 										if (s == "null") {
-											var e = stdgo.Go.defaultValue(t, null, true);
+											var e = defaultValue(t, null, true);
 											return e.expr;
 										}
 									default:
@@ -1530,7 +1530,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = stdgo.Go.defaultValue(type, null, true);
+								var e = defaultValue(type, null, true);
 								return e.expr;
 							}
 						default:
@@ -1547,7 +1547,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = stdgo.Go.defaultValue(type, null, true);
+								var e = defaultValue(type, null, true);
 								return e.expr;
 							}
 						default:
@@ -1679,7 +1679,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(stdgo.Go.defaultValue(t, null, false));
+							params.push(defaultValue(t, null, false));
 							var e = getKeyValueExpr(expr.elts, info);
 							params = params.concat(e);
 							return (macro new $p($a{params})).expr;
@@ -1920,7 +1920,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = stdgo.Go.defaultValue(type, null, true);
+						var e = defaultValue(type, null, true);
 						return e.expr;
 					}
 				default:

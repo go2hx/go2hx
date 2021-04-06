@@ -26,8 +26,8 @@ class Go {
 						return null;
 					case "GoArray":
 						return macro new $p();
-					case "FloatType","IntegerType","GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8", "GoInt16", "GoInt32", "GoInt64",
-						"GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
+					case "FloatType", "IntegerType", "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8",
+						"GoInt16", "GoInt32", "GoInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
 						if (strict)
 							return macro(0 : $t);
 						return macro 0;
@@ -71,6 +71,7 @@ class Go {
 		}
 		return macro null;
 	}
+
 	static function getMetaLength(meta:Metadata):ExprDef {
 		for (m in meta) {
 			if (m.name != ":length")
@@ -79,7 +80,7 @@ class Go {
 		}
 		return EConst(CIdent("0"));
 	}
-	
+
 	static private function getData(expr:Expr):Expr {
 		return switch expr.expr {
 			case ECheckType(e, t): return e;
@@ -87,7 +88,7 @@ class Go {
 			default: expr;
 		}
 	}
-	
+
 	static private function getType(expr:Expr):ComplexType {
 		var type:ComplexType = null;
 		if (expr == null)
@@ -101,74 +102,74 @@ class Go {
 		}
 		return type;
 	}
-	
-public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice/array and map
-	// convert from int64 to int
-	if (size == null || size.expr.match(EConst(CIdent("null"))))
-		size = macro 0;
-	if (cap == null || cap.expr.match(EConst(CIdent("null"))))
-		cap = macro 0;
 
-	var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
-	if (t == null)
-		throw t;
-	var func = null;
-	func = function():Expr {
-		switch t {
-			case TPath(p):
-				var name = p.name;
-				switch name {
-					case "Slice":
-						if (size == null)
-							return macro new $p();
-						var value:Expr = null;
-						switch p.params[0] {
-							case TPType(t):
-								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-								value = defaultValue(t, Context.currentPos());
-							default:
-						}
-						return macro {
-							var slice = new $p();
-							var size:IntegerType = $size;
-							var value = $value;
-							slice.grow(size);
-							var i = 0;
-							while (i < size) {
-								slice[i] = value;
-								i++;
+	public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) { // for slice/array and map
+		// convert from int64 to int
+		if (size == null || size.expr.match(EConst(CIdent("null"))))
+			size = macro 0;
+		if (cap == null || cap.expr.match(EConst(CIdent("null"))))
+			cap = macro 0;
+
+		var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
+		if (t == null)
+			throw t;
+		var func = null;
+		func = function():Expr {
+			switch t {
+				case TPath(p):
+					var name = p.name;
+					switch name {
+						case "Slice":
+							if (size == null)
+								return macro new $p();
+							var value:Expr = null;
+							switch p.params[0] {
+								case TPType(t):
+									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+									value = defaultValue(t, Context.currentPos());
+								default:
 							}
-							slice;
-						};
-					case "GoArray":
-						throw("cannot make GoArray must be type generated");
-					case "GoMap":
-						switch p.params[1] {
-							case TPType(t):
-								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-								return macro new $p(${defaultValue(t,Context.currentPos(),false)});
-							default:
-						}
-						return null;
-					case "Chan":
-						switch p.params[0] {
-							case TPType(t):
-								t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-								return macro new $p($size,${defaultValue(t,Context.currentPos(),false)});
-							default:
-						}
-						return null;
-					default:
-						trace("make unknown: " + p);
-						return null;
-				}
-			default:
-				trace("make unknown: " + t);
-				return null;
+							return macro {
+								var slice = new $p();
+								var size:IntegerType = $size;
+								var value = $value;
+								slice.grow(size);
+								var i = 0;
+								while (i < size) {
+									slice[i] = value;
+									i++;
+								}
+								slice;
+							};
+						case "GoArray":
+							throw("cannot make GoArray must be type generated");
+						case "GoMap":
+							switch p.params[1] {
+								case TPType(t):
+									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+									return macro new $p(${defaultValue(t, Context.currentPos(), false)});
+								default:
+							}
+							return null;
+						case "Chan":
+							switch p.params[0] {
+								case TPType(t):
+									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
+									return macro new $p($size, ${defaultValue(t, Context.currentPos(), false)});
+								default:
+							}
+							return null;
+						default:
+							trace("make unknown: " + p);
+							return null;
+					}
+				default:
+					trace("make unknown: " + t);
+					return null;
+			}
 		}
+		return func();
 	}
-	return func();
-}
 
 	public static macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
 		var type = Context.toComplexType(Context.follow(Context.typeof(dst)));
@@ -193,6 +194,7 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 		}
 		return src;
 	}
+
 	public static macro function passCopy(expr) { // slices and maps are ref types
 		var type = Context.follow(Context.typeof(expr));
 		var exception = false;
@@ -326,7 +328,7 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 		return macro $expr == null;
 	}
 
-	public static macro function equals(a:Expr,b:Expr) {
+	public static macro function equals(a:Expr, b:Expr) {
 		var type = Context.follow(Context.typeof(a));
 		var exprs:Array<Expr> = [];
 		switch a.expr {
@@ -341,10 +343,11 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 			case TAbstract(t, params):
 				var t = t.get();
 				switch t.name {
-					case "GoArray","Slice":
-						exprs.push(macro if ($a.length != $b.length) return false);
-						exprs.push(macro for(i in 0...$a.length.toBasic()) {
-							if (!Go.equals($a[i],$b[i]))
+					case "GoArray", "Slice":
+						exprs.push(macro if ($a.length != $b.length)
+							return false);
+						exprs.push(macro for (i in 0...$a.length.toBasic()) {
+							if (!Go.equals($a[i], $b[i]))
 								return false;
 						});
 					default:
@@ -360,7 +363,8 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 
 						default:
 							var fieldName = field.name;
-							exprs.push(macro if ($a.$fieldName != $b.$fieldName) return false);
+							exprs.push(macro if ($a.$fieldName != $b.$fieldName)
+								return false);
 					}
 				}
 			default:
@@ -369,7 +373,8 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 			return macro $a == $b;
 		exprs.push(macro return true);
 		return macro {
-			function a() $b{exprs};
+			function a()
+				$b{exprs};
 			a();
 		};
 	}
@@ -381,7 +386,7 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 			case ECall(e, params):
 				switch e.expr {
 					case EField(e2, field):
-						//special exceptions
+						// special exceptions
 						if (field == "assert" && e2.expr.match(EConst(CIdent("Go")))) {
 							params.push(macro null);
 							expr = macro Go.assert($a{params});
@@ -606,7 +611,7 @@ public static macro function make(t:Expr, ?size:Expr, ?cap:ExprOf<IntegerType>) 
 		return expr;
 	}
 
-	macro  function recover() {
+	macro function recover() {
 		return untyped macro {
 			var r:Any = recover_exception;
 			recover_exception = null;

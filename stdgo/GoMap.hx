@@ -10,7 +10,7 @@ import haxe.Constraints.Constructible;
 abstract GoMap<K, V>(MapData<K, V>) {
 	public var length(get, never):GoInt;
 
-	public inline function new(defaultValue:V,args:Rest<{key:K, value:V}>) {
+	public inline function new(defaultValue:V, args:Rest<{key:K, value:V}>) {
 		this = new MapData<K, V>(defaultValue);
 		for (arg in args) {
 			this.set(arg.key, arg.value);
@@ -61,6 +61,7 @@ private class MapData<K, V> {
 		slice = new Slice<{key:K, value:V}>();
 		this.defaultValue = defaultValue;
 	}
+
 	public function get(key:K) {
 		for (obj in slice) {
 			if (obj == null)
@@ -98,6 +99,7 @@ private class MapData<K, V> {
 	public inline function length() {
 		return slice.length - nullcount;
 	}
+
 	public inline function toString():String {
 		return slice.toArray().toString();
 	}

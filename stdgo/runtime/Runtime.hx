@@ -26,8 +26,8 @@ function gc() {
 	// run garbage collector
 }
 
-function memProfile(p:Slice<MemProfileRecord>,inUseZero:Bool):{n:GoInt,ok:Bool} {
-	return {n: 0,ok: false};
+function memProfile(p:Slice<MemProfileRecord>, inUseZero:Bool):{n:GoInt, ok:Bool} {
+	return {n: 0, ok: false};
 }
 
 function setFinalizer(obj:AnyInterface, finalizer:AnyInterface) {}
@@ -60,11 +60,13 @@ class Frames implements StructType {
 	public var _is_pointer_:Bool = false;
 	public var _address_:Int = 0;
 	public final _typeName_ = "Frames";
+
 	public function new() {
 		_address_ = Go.addressIndex++;
 	}
-	public function next():{frame:Frame,more:Bool} {
-		return {frame: new Frame(),more: false};
+
+	public function next():{frame:Frame, more:Bool} {
+		return {frame: new Frame(), more: false};
 	}
 }
 
@@ -74,6 +76,7 @@ class Frame implements StructType {
 	public final _typeName_ = "Frame";
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
+
 	public function new() {
 		_address_ = Go.addressIndex++;
 	}
@@ -125,7 +128,6 @@ class MemStats implements StructType {
 		return 0;
 	}
 }
-
 
 class MemProfileRecord {
 	public var allocBytes:GoInt64 = 0;

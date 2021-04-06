@@ -28,7 +28,7 @@ function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 				case "stdgo.AnyInterfaceData", "stdgo._StdGoTypes.AnyInterfaceData":
 					if (a1.typeName != a2.typeName)
 						return false;
-					return deepEqual(a1.value,a2.value);
+					return deepEqual(a1.value, a2.value);
 				case "stdgo.PointerData":
 					return deepEqual(a1.get(), a2.get());
 				case "haxe._Int64.___Int64":
@@ -36,7 +36,7 @@ function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 				case "stdgo.Complex":
 					return a1.real == a2.real && a1.imag == a2.imag;
 				default:
-					//trace("unknown name: " + name);
+					// trace("unknown name: " + name);
 			}
 			return compareStruct(a1, a2);
 		case TFunction:

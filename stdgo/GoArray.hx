@@ -102,7 +102,6 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 	}
 }
 
-
 private class GoArrayKeyValueIterator<T> {
 	var pos:Int = 0;
 	var vector:Vector<T>;

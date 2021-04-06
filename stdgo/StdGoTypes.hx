@@ -217,8 +217,11 @@ abstract GoFloat(Float) from Float {
 	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat):Bool;
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
+
 	@:op(-A) private static function neg(t:GoFloat):GoFloat;
+
 	@:op(++A) private static function prevInc(t:GoFloat):GoFloat;
+
 	@:op(A++) private static function postInc(t:GoFloat):GoFloat;
 }
 
@@ -399,9 +402,10 @@ abstract GoComplex128(Complex128) from Complex128 {
 	@:op(~A) private static function bneg(t:GoComplex128):GoComplex128
 		return new GoComplex128(0.0 - t.real, 0.0 - t.imag);
 
-	@:op(A == B) private static function eq(a:GoComplex128,b:GoComplex128):Bool
+	@:op(A == B) private static function eq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real == b.real && a.imag == b.imag;
-	@:op(A != B) private static function neq(a:GoComplex128,b:GoComplex128):Bool
+
+	@:op(A != B) private static function neq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real != b.real || a.imag != b.imag;
 }
 
@@ -597,13 +601,13 @@ abstract GoUInt(Int) from Int {
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
-	@:op(A >> B) private static function shr(a:GoUInt,b:GoUInt):GoUInt {
+	@:op(A >> B) private static function shr(a:GoUInt, b:GoUInt):GoUInt {
 		if (shiftGuard(b.toBasic()))
 			return 0;
 		return clamp(a.toBasic() >> b.toBasic());
 	}
 
-	@:op(A << B) private static function shl(a:GoUInt,b:GoUInt):GoUInt {
+	@:op(A << B) private static function shl(a:GoUInt, b:GoUInt):GoUInt {
 		if (shiftGuard(b.toBasic()))
 			return 0;
 		return clamp(a.toBasic() << b.toBasic());
@@ -913,13 +917,10 @@ abstract GoInt16(Int16) from Int16 {
 	static function clamp(x:Int):Int
 		return clampInt16(x);
 }
-//TODO: implement other number types
-abstract FloatType(Float64) from Float64 to Float64 {
 
-}
-abstract ComplexType(Complex128) from Complex128 to Complex128 {
-
-}
+// TODO: implement other number types
+abstract FloatType(Float64) from Float64 to Float64 {}
+abstract ComplexType(Complex128) from Complex128 to Complex128 {}
 
 abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x)
@@ -963,6 +964,7 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	@:from private static function fromFloat32(x:GoFloat32):IntegerType
 		return Int64.fromFloat(x.toBasic());
+
 	@:from private static function fromFloat64(x:GoFloat64):IntegerType
 		return Int64.fromFloat(x.toBasic());
 
@@ -1051,6 +1053,7 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 			return a < 0 ? -1 : 0;
 		return a.toBasic() << b.toBasic().low;
 	}
+
 	@:op(A % B) static function mod(a:IntegerType, b:IntegerType):IntegerType
 		return a.toBasic() % b.toBasic();
 
@@ -1088,9 +1091,9 @@ abstract GoInt64(Int64) from Int64 {
 
 	public inline function toBasic()
 		return this;
+
 	public inline function copy():GoInt64
 		return this.copy();
-
 
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
@@ -1121,8 +1124,10 @@ abstract GoInt64(Int64) from Int64 {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+
 	@:to inline function toFloat32():GoFloat32
 		return this.low;
+
 	@:to inline function toFloat64():GoFloat64
 		return this.low;
 
@@ -1239,8 +1244,10 @@ abstract GoUInt8(UInt8) from UInt8 {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+
 	@:to inline function toFloat32():GoFloat32
 		return this;
+
 	@:to inline function toFloat64():GoFloat64
 		return this;
 
@@ -1530,11 +1537,13 @@ interface StructType {
 interface Error {
 	public function error():String;
 }
+
 @:structInit
 private class AnyInterfaceData {
 	public var value:Any;
 	public var typeName:String;
-	public function new(value:Any,typeName:String) {
+
+	public function new(value:Any, typeName:String) {
 		this.value = value;
 		this.typeName = typeName;
 	}

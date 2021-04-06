@@ -12,9 +12,9 @@ class Time implements StructType {
 	public var _address_:Int = 0;
 	public final _typeName_:String = "Time";
 
-	public function new(date:Date=null) {
+	public function new(date:Date = null) {
 		if (date == null)
-			date = new Date(1,1,1,0,0,0);
+			date = new Date(1, 1, 1, 0, 0, 0);
 		this.date = date;
 		_address_ = ++Go.addressIndex;
 	}
@@ -31,6 +31,7 @@ class Time implements StructType {
 		return date.getDay();
 	}
 }
+
 final monday:GoInt = 1;
 final tuesday:GoInt = 2;
 final wensday:GoInt = 3;
@@ -42,18 +43,21 @@ final sunday:GoInt = 0;
 inline function sleep(d:Duration) {
 	Sys.sleep(durationToSecond(d));
 }
+
 private inline function durationToSecond(d:Duration):Int {
 	trace("d: " + d);
 	var x = (d.toBasic() / (1000 * 1000 * 1000)).low;
 	return x;
 }
+
 inline function after(d:Duration):Chan<Time> {
-	var chan = stdgo.Go.make((_: Chan<Time>));
+	var chan = stdgo.Go.make((_ : Chan<Time>));
 	haxe.Timer.delay(() -> {
 		chan.send(Time.now());
-	},durationToSecond(d) * 1000);
+	}, durationToSecond(d) * 1000);
 	return chan;
 }
+
 final nanosecond:Duration = 1;
 final microsecond:Duration = 1000 * nanosecond;
 final millisecond:Duration = 1000 * microsecond;

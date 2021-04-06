@@ -11,7 +11,7 @@ function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
 	tinygo();
-	//gen();
+	// gen();
 }
 
 var pathto:String = "";
@@ -28,11 +28,9 @@ function tinygo() {
 		tests.push('./$p');
 	}
 	pathto = "/tinygo/testdata/";
-	for (test in [
-		"atomic",
-	])
+	for (test in ["atomic",])
 		tests.remove('.$pathto$test.go');
-	compile(tests,true);
+	compile(tests, true);
 }
 
 function gen() {
@@ -52,10 +50,10 @@ function gen() {
 
 	])
 		tests.remove('.$pathto$test.go');
-	compile(tests,false);
+	compile(tests, false);
 }
 
-function compile(tests:Array<String>,compareOutput:Bool) {
+function compile(tests:Array<String>, compareOutput:Bool) {
 	tests.push(path);
 	Main.exportBool = true;
 	Main.init(tests);

@@ -167,12 +167,12 @@ function main(data:DataType) {
 				}
 				if (defRename == null)
 					continue;
-				
-				info.types.push({name: defRename.name,rename: defRename.name = defRename.name = "_" + defRename.name,index: 0});
+
+				info.types.push({name: defRename.name, rename: defRename.name = defRename.name = "_" + defRename.name, index: 0});
 			}
 
 			typeImplements(info);
-			//make blank identifiers not name conflicting for global
+			// make blank identifiers not name conflicting for global
 			var blankCounter:Int = 0;
 			for (def in info.data.defs) {
 				switch def.kind {
@@ -393,7 +393,7 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "DeferStmt": typeDeferStmt(stmt, info);
 		case "IncDecStmt": typeIncDecStmt(stmt, info);
 		case "LabeledStmt": typeLabeledStmt(stmt, info);
-		case "BlockStmt": typeBlockStmt(stmt, info,false,false);
+		case "BlockStmt": typeBlockStmt(stmt, info, false, false);
 		case "BadStmt":
 			error("BAD STATEMENT TYPED");
 			null;
@@ -424,7 +424,7 @@ private function typeCommClause(stmt:Ast.CommClause, info:Info):ExprDef { // sel
 		if (list == null)
 			return typeStmt(stmt.comm, info).expr;
 		list.unshift(stmt.comm);
-		return typeStmtList(list, info,false,false);
+		return typeStmtList(list, info, false, false);
 	}
 	return (macro null).expr;
 }
@@ -436,7 +436,7 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	return typeBlockStmt(stmt.body, info,false,false);
+	return typeBlockStmt(stmt.body, info, false, false);
 }
 
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
@@ -456,13 +456,13 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 	return (macro Go.routine($call)).expr;
 }
 
-private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool,needReturn:Bool):ExprDef {
+private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	if (stmt.list == null)
 		return (macro {}).expr;
-	return typeStmtList(stmt.list, info, isFunc,needReturn);
+	return typeStmtList(stmt.list, info, isFunc, needReturn);
 }
 
-private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool,needReturn:Bool):ExprDef {
+private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	info.layerIndex++;
 	if (isFunc)
 		info.funcIndex++;
@@ -496,16 +496,21 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool,needR
 	// defer system
 	if (info.deferBool.exists(info.funcIndex) && isFunc) {
 		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
-		exprs.push(typeDeferReturn(info,true));
+		exprs.push(typeDeferReturn(info, true));
 		if (info.recover.exists(info.funcIndex)) {
 			exprs.unshift(macro var recover_exception:Dynamic = null);
 			var pos = 2;
-			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))),[{name: "e",expr: macro {
-				recover_exception = e;
-				if (recover_exception != null)
-					throw recover_exception;
-			}}]); //don't include recover and defer stack
-			exprs = exprs.slice(0,pos);
+			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
+				{
+					name: "e",
+					expr: macro {
+						recover_exception = e;
+						if (recover_exception != null)
+							throw recover_exception;
+					}
+				}
+			]); // don't include recover and defer stack
+			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
 		}
 	}
@@ -566,17 +571,17 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	info.hasDefer = true;
 	var exprs:Array<Expr> = [];
 	for (i in 0...stmt.call.args.length) {
-		var arg = typeExpr(stmt.call.args[i],info);
+		var arg = typeExpr(stmt.call.args[i], info);
 		var name = "a" + i;
 		exprs.push(macro var $name = $arg);
-		stmt.call.args[i] = {id: "Ident",name: name}; //switch out call arguments
+		stmt.call.args[i] = {id: "Ident", name: name}; // switch out call arguments
 	}
 	if (stmt.call.fun.id == "FuncLit") {
 		var call = toExpr(typeCallExpr(stmt.call, info));
 		exprs.push(macro deferstack.unshift(() -> $call));
 		return EBlock(exprs);
 	}
-	//otherwise its Ident, Selector etc
+	// otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
 	var e = macro deferstack.unshift(() -> $call);
 	if (exprs.length > 0)
@@ -588,7 +593,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	info.hasDefer = false;
-	var body = {expr: typeBlockStmt(stmt.body, info,false,false), pos: null};
+	var body = {expr: typeBlockStmt(stmt.body, info, false, false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
 		if (stmt.tok == DEFINE) {
@@ -627,15 +632,15 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 						default:
 					}
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{valueString} = _obj.value); //not a local variable but declared outside for block
-					}else{
+						exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
+					} else {
 						exprs.unshift(macro var $valueString = _obj.value);
 					}
 				}
 				if (key != null) {
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{keyString} = _obj.key); //not a local variable but declared outside for block
-					}else{
+						exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
+					} else {
 						exprs.unshift(macro var $keyString = _obj.key);
 					}
 				}
@@ -646,15 +651,15 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			case EBlock(exprs):
 				if (key != null) {
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{keyString} = _obj.key); //not a local variable but declared outside for block
-					}else{
+						exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
+					} else {
 						exprs.unshift(macro var $keyString = _obj.key);
 					}
 				}
 				if (value != null) {
 					if (info.hasDefer) {
-						exprs.unshift(macro $i{valueString} = _obj.value); //not a local variable but declared outside for block
-					}else{
+						exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
+					} else {
 						exprs.unshift(macro var $valueString = _obj.value);
 					}
 				}
@@ -766,7 +771,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	for (stmt in stmt.body.list) {
 		var stmt:Ast.CaseClause = stmt;
 		var values:Array<Expr> = [];
-		var body = toExpr(typeStmtList(stmt.body, info,false,false));
+		var body = toExpr(typeStmtList(stmt.body, info, false, false));
 		if (stmt.list.length == 0) {
 			def = body;
 			continue;
@@ -838,7 +843,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
-		var block = toExpr(typeStmtList(obj.body, info,false,false));
+		var block = toExpr(typeStmtList(obj.body, info, false, false));
 
 		if (i + 1 >= stmt.body.list.length)
 			return cond == null ? macro $block : macro if ($cond)
@@ -857,7 +862,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
 	info.hasDefer = false;
-	var body = toExpr(typeBlockStmt(stmt.body, info,false,false));
+	var body = toExpr(typeBlockStmt(stmt.body, info, false, false));
 	if (body.expr == null)
 		body = macro {};
 	if (cond.expr == null || body.expr == null) {
@@ -1001,7 +1006,7 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
 		if (info.deferBool.exists(info.funcIndex)) {
-			return EBlock([typeDeferReturn(info,false), toExpr(e),]);
+			return EBlock([typeDeferReturn(info, false), toExpr(e),]);
 		}
 		return e;
 	}
@@ -1026,8 +1031,8 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		return ret(EReturn());
 	}
 	if (stmt.results.length == 1) {
-		//could be a function lit and therefore change it out
-		var e = typeExpr(stmt.results[0],info);
+		// could be a function lit and therefore change it out
+		var e = typeExpr(stmt.results[0], info);
 		/*switch e.expr {
 			case EFunction(kind, f):
 				e = macro {$e;};
@@ -1339,7 +1344,7 @@ private function typeMapType(expr:Ast.MapType, info:Info):ExprDef {
 	return null;
 }
 
-private function typeKeyValueData(expr:Ast.KeyValueExpr, info:Info):{key:String,value:Expr,kind:String} {
+private function typeKeyValueData(expr:Ast.KeyValueExpr, info:Info):{key:String, value:Expr, kind:String} {
 	var value = typeExpr(expr.value, info);
 	var type = expr.key.id == "Ident" ? "" : expr.key.kind;
 	return {key: type == "" ? expr.key.name : expr.key.value, value: value, kind: type};
@@ -1350,9 +1355,11 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 	var rest = typeRest(expr);
 	return rest != null ? rest.expr : null;
 }
+
 private function iotaExpr(info:Info):Expr {
-	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota++)))),TPath({name: "IntegerType",pack: []})));
+	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota++)))), TPath({name: "IntegerType", pack: []})));
 }
+
 private function typeIdent(expr:Ast.Ident, info:Info):ExprDef {
 	if (expr.name == "iota") {
 		return iotaExpr(info).expr;
@@ -1506,7 +1513,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = stdgo.Go.defaultValue(type,null,true);
+								var e = stdgo.Go.defaultValue(type, null, true);
 								return e.expr;
 							}
 						default:
@@ -1588,7 +1595,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case IDENT:
 			EConst(CIdent(nameIdent(expr.value, info)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
-			return (macro complex(0,${toExpr(EConst(CFloat(expr.value)))})).expr;
+			return (macro complex(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
 			error("basic lit kind unknown: " + expr.kind);
 			null;
@@ -1638,7 +1645,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(stdgo.Go.defaultValue(t,null,false));
+							params.push(stdgo.Go.defaultValue(t, null, false));
 							var e = getKeyValueExpr(expr.elts, info);
 							params = params.concat(e);
 							return (macro new $p($a{params})).expr;
@@ -1663,7 +1670,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExpr(expr.elts, info);
 		if (e.length > 0)
 			return (macro new $p($a{e})).expr;
-		return (macro (${e[0]} : $type)).expr;
+		return (macro(${e[0]} : $type)).expr;
 	}
 	getParams();
 	if (p == null)
@@ -1687,13 +1694,17 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 				field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info),
 				expr: e.value,
 			});
-		}else{
+		} else {
 			var key:Expr = null;
 			switch e.kind {
-				case "INT": key = toExpr(EConst(CInt(e.key)));
-				case "FLOAT": key = toExpr(EConst(CFloat(e.key)));
-				case "STRING": key = toExpr(EConst(CString(e.key)));
-				default: throw "unknown key kind: " + e.kind;
+				case "INT":
+					key = toExpr(EConst(CInt(e.key)));
+				case "FLOAT":
+					key = toExpr(EConst(CFloat(e.key)));
+				case "STRING":
+					key = toExpr(EConst(CString(e.key)));
+				default:
+					throw "unknown key kind: " + e.kind;
 			}
 			exprs.push(macro {
 				key: $key,
@@ -1710,7 +1721,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	var ret = typeFieldListRes(expr.type.results, info, true);
 	info.ret.unshift(ret);
 	var args = typeFieldListArgs(expr.type.params, info);
-	var block = typeBlockStmt(expr.body, info, true,true);
+	var block = typeBlockStmt(expr.body, info, true, true);
 	// allows multiple nested values
 	info.retValues = info.retValues.slice(1);
 	info.ret = info.ret.slice(1); // has been used now remove it
@@ -1760,12 +1771,12 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			var value = isNil();
 			if (value != null)
 				return (macro Go.isNull($value)).expr;
-			return (macro Go.equals($x,$y)).expr;
+			return (macro Go.equals($x, $y)).expr;
 		case OpNotEq:
 			var value = isNil();
 			if (value != null)
 				return (macro !Go.isNull($value)).expr;
-			return (macro !Go.equals($x,$y)).expr;
+			return (macro !Go.equals($x, $y)).expr;
 		default:
 	}
 	return EBinop(op, x, y);
@@ -1875,7 +1886,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = stdgo.Go.defaultValue(type,null,true);
+						var e = stdgo.Go.defaultValue(type, null, true);
 						return e.expr;
 					}
 				default:
@@ -1913,7 +1924,7 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 }
 
 // SPECS
-private function typeDeferReturn(info:Info,nullcheck:Bool):Expr {
+private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	return macro for (defer in deferstack) {
 		defer();
 	};
@@ -1935,7 +1946,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	}
 	info.types = list;
 	// info.retypeMap.clear(); //clear renaming as it's a new function
-	//layer index is 0 for initlization of module function, the body will be 1
+	// layer index is 0 for initlization of module function, the body will be 1
 	info.local = false;
 	info.recover.clear();
 	info.deferBool.clear();
@@ -1950,7 +1961,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
-	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true,true));
+	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
 	var meta:Metadata = null;
 	if (decl.recv != null) { // now is a static extension function
 		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
@@ -1965,7 +1976,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 					if (decl.recv.list[0].names.length > 0) {
 						var varName = decl.recv.list[0].names[0].name;
 						info.thisName = varName;
-						block = toExpr(typeBlockStmt(decl.body, info, true,true)); // rerun so thisName system can be used
+						block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
 						switch block.expr {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
@@ -2490,7 +2501,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				expr = defaultValue(type, info, 0, false);
 			} else {
 				// IOTA
-				expr = iotaExpr(info);//toExpr(EConst(CInt(Std.string(info.iota++))));
+				expr = iotaExpr(info); // toExpr(EConst(CInt(Std.string(info.iota++))));
 			}
 		} else {
 			expr = typeExpr(value.values[i], info);
@@ -2531,11 +2542,11 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 		return "";
 	var source:String = "";
 	source = File.getContent(info.data.location);
-	source = source.substring(value.pos,value.end);
-	//sanatize comments
+	source = source.substring(value.pos, value.end);
+	// sanatize comments
 	if (source != "") {
-		source = StringTools.replace(source,"/*","/|*");
-		source = StringTools.replace(source,"*/","*|/");
+		source = StringTools.replace(source, "/*", "/|*");
+		source = StringTools.replace(source, "*/", "*|/");
 	}
 	return source;
 }
@@ -2598,7 +2609,7 @@ function untitle(string:String):String {
 }
 
 typedef Info = {
-	recover:Map<Int,Bool>,
+	recover:Map<Int, Bool>,
 	hasType:Bool,
 	lengths:Array<Expr>,
 	iota:Int,
@@ -2608,7 +2619,7 @@ typedef Info = {
 	typeNames:Array<String>,
 	thisName:String,
 	retValues:Array<Array<{name:String, type:ComplexType}>>,
-	deferBool:Map<Int,Bool>,
+	deferBool:Map<Int, Bool>,
 	hasDefer:Bool,
 	className:String,
 	funcName:String,

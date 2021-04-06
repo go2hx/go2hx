@@ -1,7 +1,6 @@
 package stdgo.time;
 
 import haxe.Int64;
-import stdgo.Builtin.make;
 import stdgo.StdGoTypes.StructType;
 import haxe.zip.Compress;
 import stdgo.StdGoTypes;
@@ -49,7 +48,7 @@ private inline function durationToSecond(d:Duration):Int {
 	return x;
 }
 inline function after(d:Duration):Chan<Time> {
-	var chan = make((_: Chan<Time>));
+	var chan = stdgo.Go.make((_: Chan<Time>));
 	haxe.Timer.delay(() -> {
 		chan.send(Time.now());
 	},durationToSecond(d) * 1000);

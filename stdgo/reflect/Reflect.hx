@@ -15,7 +15,7 @@ function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 		case TClass(c):
 			var name = Type.getClassName(c);
 			switch name {
-				case "stdgo.SliceData":
+				case "stdgo.SliceData", "stdgo._Slice.SliceData":
 					if (a1.length != a2.length)
 						return false;
 					for (i in 0...a1.length) {
@@ -25,18 +25,23 @@ function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 						}
 					}
 					return true;
+				case "stdgo.AnyInterfaceData", "stdgo._StdGoTypes.AnyInterfaceData":
+					if (a1.typeName != a2.typeName)
+						return false;
+					return deepEqual(a1.value,a2.value);
 				case "stdgo.PointerData":
 					return deepEqual(a1.get(), a2.get());
 				case "haxe._Int64.___Int64":
 					return haxe.Int64.eq(a1, a2);
+				case "stdgo.Complex":
+					return a1.real == a2.real && a1.imag == a2.imag;
 				default:
-					// trace("unknown name: " + name);
+					//trace("unknown name: " + name);
 			}
 			return compareStruct(a1, a2);
 		case TFunction:
 			return Reflect.compareMethods(a1, a2);
 		case TInt:
-			trace("a---- " + a1);
 			return a1 == a2;
 		case TFloat:
 			return a1 == a2;
@@ -56,7 +61,7 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 		if (f1[i] == "_address_")
 			continue;
 		if (!deepEqual(Reflect.field(a1, f1[i]), Reflect.field(a2, f2[i]))) {
-			trace("field not equal: " + f1[i]);
+			trace("field not equal: " + f1[i] + " fields: " + f1);
 			return false;
 		}
 	}

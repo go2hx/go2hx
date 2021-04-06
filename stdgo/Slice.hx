@@ -83,7 +83,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return slice;
 	}
 
-	public function append(args:Array<T>):Slice<T> {
+	public function append(args:Rest<T>):Slice<T> {
 		var slice = copy();
 		var pos = slice.length.toBasic();
 		slice.grow(args.length);

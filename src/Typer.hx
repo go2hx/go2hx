@@ -191,7 +191,6 @@ function main(data:DataType) {
 			// setup implements
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: ""});
-			data.imports.push({path: ["stdgo", "Builtin"], alias: ""});
 			for (path => alias in info.imports)
 				data.imports.push({path: path.split("."), alias: alias});
 			module.files.push(data);
@@ -1403,14 +1402,37 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro throw ${args[0]}).expr;
 				case "recover":
 					info.recover[info.funcIndex - 1] = true;
-					return (macro recover()).expr;
-				case "slice", "append","complex", "copy", "delete", "imag", "print", "println", "real":
-					if (info.className != "") {
-						var field = toExpr(EField(toExpr(EField(toExpr(EConst(CIdent("stdgo"))), "Builtin")), expr.fun.name));
-						genArgs();
-						ellipsisFunc();
-						return (macro $field($a{args})).expr;
-					}
+					return (macro Go.recover()).expr;
+				case "append":
+					genArgs();
+					ellipsisFunc();
+					var e = args.shift();
+					return (macro $e.append($a{args})).expr;
+				case "copy":
+					genArgs();
+					ellipsisFunc();
+					return (macro Go.copy($a{args})).expr;
+				case "delete":
+					var e = typeExpr(expr.args[0], info);
+					var key = typeExpr(expr.args[1], info);
+					return (macro e.remove($key)).expr;
+				case "print":
+					genArgs();
+					ellipsisFunc();
+					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
+				case "println":
+					genArgs();
+					ellipsisFunc();
+					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
+				case "complex":
+					genArgs();
+					return (macro new GoComplex128($a{args})).expr;
+				case "real":
+					var e = typeExpr(expr.args[0], info);
+					return (macro e.real).expr;
+				case "imag":
+					var e = typeExpr(expr.args[0], info);
+					return (macro e.imag).expr;
 				case "close":
 					var e = typeExpr(expr.args[0], info);
 					return (macro $e.close()).expr;
@@ -1429,13 +1451,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						default:
 					}
 				case "make":
-					if (expr.fun.name == "new")
-						expr.fun.name = "create";
-
 					var type = expr.args.shift();
 					genArgs();
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
+					return (macro Go.make($a{args})).expr;
 				case null:
 				default:
 					if (expr.args.length == 1) {
@@ -1481,6 +1501,18 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			// set assert type
 			var type = typeExprType(expr.fun, info);
 			var expr = typeExpr(expr.args[0], info);
+			switch expr.expr {
+				case EConst(c):
+					switch c {
+						case CIdent(s):
+							if (s == "null") {
+								var e = stdgo.Go.defaultValue(type,null,true);
+								return e.expr;
+							}
+						default:
+					}
+				default:
+			}
 			return (macro($expr : $type)).expr;
 		case "InterfaceType":
 			// set dynamic
@@ -1606,7 +1638,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(stdgo.Builtin.defaultValue(t,null,false));
+							params.push(stdgo.Go.defaultValue(t,null,false));
 							var e = getKeyValueExpr(expr.elts, info);
 							params = params.concat(e);
 							return (macro new $p($a{params})).expr;
@@ -1838,6 +1870,18 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 	if (expr.type == null)
 		return e.expr;
 	var type = typeExprType(expr.type, info);
+	switch e.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "null") {
+						var e = stdgo.Go.defaultValue(type,null,true);
+						return e.expr;
+					}
+				default:
+			}
+		default:
+	}
 	return (macro($e : $type)).expr;
 }
 
@@ -1876,16 +1920,20 @@ private function typeDeferReturn(info:Info,nullcheck:Bool):Expr {
 }
 
 private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
+	var list = [];
 	for (retype in info.retypeList) {
-		if (retype.index == 0)
+		if (retype.index != 0)
 			continue;
-		info.retypeList.remove(retype);
+		list.push(retype);
 	}
+	info.retypeList = list;
+	var list = [];
 	for (type in info.types) {
-		if (type.index == 0)
+		if (type.index != 0)
 			continue;
-		info.types.remove(type);
+		list.push(type);
 	}
+	info.types = list;
 	// info.retypeMap.clear(); //clear renaming as it's a new function
 	//layer index is 0 for initlization of module function, the body will be 1
 	info.local = false;
@@ -2062,7 +2110,7 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict
 			}
 		default:
 	}
-	return stdgo.Builtin.defaultValue(type, null, strict);
+	return stdgo.Go.defaultValue(type, null, strict);
 }
 
 private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool} {

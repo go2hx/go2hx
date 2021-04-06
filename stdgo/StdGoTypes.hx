@@ -284,8 +284,8 @@ abstract GoFloat32(Float32) from Float32 {
 }
 
 abstract GoComplex64(Complex64) from Complex64 {
-	public inline function new(r, i)
-		this = new Complex64(r, i);
+	public inline function new(r:GoFloat32, i:GoFloat32)
+		this = new Complex64(r.toBasic(), i.toBasic());
 
 	public inline function toBasic()
 		return this;
@@ -344,8 +344,8 @@ abstract GoComplex64(Complex64) from Complex64 {
 }
 
 abstract GoComplex128(Complex128) from Complex128 {
-	public inline function new(r, i)
-		this = new Complex128(r, i);
+	public inline function new(r:GoFloat64, i:GoFloat64)
+		this = new Complex128(r.toBasic(), i.toBasic());
 
 	public inline function toBasic()
 		return this;
@@ -1530,8 +1530,17 @@ interface StructType {
 interface Error {
 	public function error():String;
 }
+@:structInit
+private class AnyInterfaceData {
+	public var value:Any;
+	public var typeName:String;
+	public function new(value:Any,typeName:String) {
+		this.value = value;
+		this.typeName = typeName;
+	}
+}
 
-abstract AnyInterface({value:Any, typeName:String}) {
+abstract AnyInterface(AnyInterfaceData) {
 	public inline function new(obj = null) {
 		this = obj;
 	}

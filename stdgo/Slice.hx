@@ -148,7 +148,7 @@ private class SliceKeyValueIterator<T> {
 	}
 }
 
-class SliceIterator<T> {
+private class SliceIterator<T> {
 	var pos:Int = 0;
 	var slice:SliceData<T>;
 
@@ -165,7 +165,7 @@ class SliceIterator<T> {
 	}
 }
 
-class SliceData<T> {
+private class SliceData<T> {
 	var vector:Vector<T>;
 
 	public var pos:Int = 0;

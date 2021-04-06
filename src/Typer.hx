@@ -1404,17 +1404,22 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "recover":
 					info.recover[info.funcIndex - 1] = true;
 					return (macro recover()).expr;
-				case "slice", "append", "close", "complex", "copy", "delete", "imag", "print", "println", "real":
+				case "slice", "append","complex", "copy", "delete", "imag", "print", "println", "real":
 					if (info.className != "") {
 						var field = toExpr(EField(toExpr(EField(toExpr(EConst(CIdent("stdgo"))), "Builtin")), expr.fun.name));
 						genArgs();
 						ellipsisFunc();
 						return (macro $field($a{args})).expr;
 					}
+				case "close":
+					var e = typeExpr(expr.args[0], info);
+					return (macro $e.close()).expr;
 				case "cap":
-					return (macro ${typeExpr(expr.args[0], info)}.cap()).expr;
+					var e = typeExpr(expr.args[0], info);
+					return (macro $e.cap()).expr;
 				case "len":
-					return (macro ${typeExpr(expr.args[0], info)}.length).expr;
+					var e = typeExpr(expr.args[0], info);
+					return (macro $e.length).expr;
 				case "new": // create default value put into pointer
 					var t = typeExprType(expr.args[0], info);
 					addPointerImports(info);
@@ -1631,7 +1636,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	getParams();
 	if (p == null)
 		throw "type path new is null: " + expr;
-	trace("params: " + params + " p: " + p);
 	return (macro new $p($a{params})).expr;
 }
 

@@ -84,7 +84,7 @@ abstract GoString(String) from String to String {
 	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
 }
 
-class StringIterator {
+private class StringIterator {
 	var offset:Int = 0;
 	var s:String;
 

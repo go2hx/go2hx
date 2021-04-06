@@ -439,14 +439,19 @@ class Go {
 					case "GoString", "Slice", "GoArray", "Array", "GoMap":
 						return macro $expr.keyValueIterator();
 					default:
-						trace("unknown type abstract range: " + t.name);
+						throw "unknown type abstract range: " + t.name;
 				}
 			case TAnonymous(a):
-				trace("a: " + a.get().fields);
+				throw "unknown anon range type: " + [for (field in a.get().fields) field.name];
+			case TInst(t, params):
+				var t = t.get();
+				if (t.name == "Chan" && t.params.length == 1 && t.pack.length == 1) {
+					return macro $expr.keyValueIterator();
+				}
+				throw "unknown TInst range type: " + t;
 			default:
-				trace("unknown range type: " + type);
+				throw "unknown range type: " + type;
 		}
-		return macro null;
 	}
 
 	public static macro function cfor(cond, post, expr) {

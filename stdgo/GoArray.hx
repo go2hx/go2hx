@@ -120,7 +120,7 @@ private class GoArrayKeyValueIterator<T> {
 	}
 }
 
-class VectorKeyValueIterator<T> {
+private class VectorKeyValueIterator<T> {
 	var pos:Int = 0;
 	var vector:Vector<T>;
 
@@ -137,7 +137,7 @@ class VectorKeyValueIterator<T> {
 	}
 }
 
-class VectorIterator<T> {
+private class VectorIterator<T> {
 	var pos:Int = 0;
 	var vector:Vector<T>;
 

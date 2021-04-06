@@ -22,8 +22,6 @@ inline function append<T>(slice:Slice<T>, args:Rest<T>):Slice<T> {
 	return slice.append(args);
 }
 
-inline function close(v) {}
-
 inline function complex(r:GoFloat64, i:GoFloat64):GoComplex128 {
 	return new GoComplex128(r.toBasic(),i.toBasic()); // TODO: implement complex function
 }

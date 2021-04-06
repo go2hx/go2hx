@@ -52,7 +52,7 @@ abstract GoMap<K, V>(MapData<K, V>) {
 	}
 }
 
-class MapData<K, V> {
+private class MapData<K, V> {
 	var slice:Slice<{key:K, value:V}>;
 	var nullcount:GoInt = 0;
 	var defaultValue:V = null;

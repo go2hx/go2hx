@@ -1133,7 +1133,7 @@ private function structType(expr:Ast.StructType, info:Info):ComplexType {
 }
 
 private function funcType(expr:Ast.FuncType, info:Info):ComplexType {
-	var ret = typeFieldListRes(expr.results, info, false);
+	var ret = typeFieldListReturn(expr.results, info, false);
 	var params = typeFieldListComplexTypes(expr.params, info);
 	if (ret == null || params == null)
 		return TFunction([], TPath({name: "Void", pack: []}));
@@ -1753,7 +1753,7 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
-	var ret = typeFieldListRes(expr.type.results, info, true);
+	var ret = typeFieldListReturn(expr.type.results, info, true);
 	info.ret.unshift(ret);
 	var args = typeFieldListArgs(expr.type.params, info);
 	var block = typeBlockStmt(expr.body, info, true, true);
@@ -1992,7 +1992,7 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
 	info.retValues = [];
-	var ret = typeFieldListRes(decl.type.results, info, true);
+	var ret = typeFieldListReturn(decl.type.results, info, true);
 	info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
@@ -2179,7 +2179,7 @@ private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool}
 	return {name: "", isPointer: false};
 }
 
-private function typeFieldListRes(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
+private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
 	if (fieldList == null)
 		return TPath({
 			name: "Void",
@@ -2270,7 +2270,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBo
 	for (field in list.list) {
 		var expr:Ast.FuncType = field.type;
 
-		var ret = typeFieldListRes(expr.results, info, false);
+		var ret = typeFieldListReturn(expr.results, info, false);
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;

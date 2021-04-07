@@ -78,7 +78,7 @@ var aliases:Map<String, Array<Alias>>;
 
 function main(data:DataType) {
 	var list:Array<Module> = [];
-	var info:Info = defaultInfo();
+	var info = new Info();
 	// alias system
 	aliases = new Map<String, Array<Alias>>();
 	for (pkg in data.pkgs) {
@@ -88,7 +88,6 @@ function main(data:DataType) {
 		pkg.path = StringTools.replace(pkg.path, "/", ".");
 		if (pkg.path == "")
 			pkg.path == "std";
-
 		info.path = pkg.path;
 		aliases[info.path] = [];
 		for (file in pkg.files) {
@@ -113,7 +112,6 @@ function main(data:DataType) {
 		if (pkg.files == null)
 			continue;
 		var module:Module = {path: pkg.path, files: []};
-		var main:FileType = null;
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -128,8 +126,8 @@ function main(data:DataType) {
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
-
-			info = defaultInfo(data, module.path);
+			//var info = new Info();
+			info.data = data;
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			for (decl in file.decls) {
 				switch decl.id {
@@ -168,7 +166,7 @@ function main(data:DataType) {
 				if (defRename == null)
 					continue;
 
-				info.types.push({name: defRename.name, rename: defRename.name = defRename.name = "_" + defRename.name, index: 0});
+				info.global.types.push({name: defRename.name, rename: defRename.name = defRename.name = "_" + defRename.name});
 			}
 
 			typeImplements(info);
@@ -191,8 +189,8 @@ function main(data:DataType) {
 			// setup implements
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: ""});
-			for (path => alias in info.imports)
-				data.imports.push({path: path.split("."), alias: alias});
+			for (path => alias in info.global.imports)
+				info.data.imports.push({path: path.split("."), alias: alias});
 			module.files.push(data);
 		}
 		list.push(module);
@@ -216,33 +214,6 @@ private function setAlias(spec:Ast.TypeSpec, info:Info) {
 				type: type,
 			});
 	}
-}
-
-private function defaultInfo(data:FileType = null, path:String = ""):Info {
-	return {
-		recover: [],
-		hasType: false,
-		lengths: [],
-		iota: 0,
-		aliasStaticExtensionMap: [],
-		layerIndex: 0,
-		funcIndex: 0,
-		typeNames: [],
-		thisName: "",
-		className: "",
-		retValues: [],
-		hasDefer: false,
-		deferBool: [],
-		funcName: "",
-		path: path,
-		types: [],
-		imports: [],
-		ret: [],
-		data: data,
-		local: false,
-		retypeList: [],
-		print: false,
-	};
 }
 
 private function typeImplements(info:Info) {
@@ -463,7 +434,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needR
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
-	info.layerIndex++;
+	info.scopeIndex++;
 	if (isFunc)
 		info.funcIndex++;
 	var exprs:Array<Expr> = [];
@@ -494,10 +465,10 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			}
 		}
 	// defer system
-	if (info.deferBool.exists(info.funcIndex) && isFunc) {
+	if (info.deferBool && isFunc) {
 		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 		exprs.push(typeDeferReturn(info, true));
-		if (info.recover.exists(info.funcIndex)) {
+		if (info.recover) {
 			exprs.unshift(macro var recover_exception:Dynamic = null);
 			var pos = 2;
 			var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
@@ -519,7 +490,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 
 	if (!returnBool && needReturn) {
 		var isVoid:Bool = false;
-		if (info.ret.length == 1) {
+		/*if (info.ret !=) {
 			switch info.ret[0] {
 				case TPath(p):
 					switch p.name {
@@ -528,7 +499,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 					}
 				default:
 			}
-		}
+		}*/
 		if (!isVoid) {
 			var ret = typeReturnStmt({returnPos: null, results: []}, info);
 			exprs.push(toExpr(ret)); // blank return
@@ -536,20 +507,9 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 	}
 	if (isFunc)
 		info.funcIndex--;
-	// remove types and retypes that no longer are in scope
-	for (retype in info.retypeList) {
-		if (retype.index <= info.layerIndex)
-			continue;
-		info.retypeList.remove(retype);
-	}
-	for (type in info.types) {
-		if (type.index <= info.layerIndex)
-			continue;
-		info.types.remove(type);
-	}
 	// add potential return value variables
-	if (info.retValues.length > 0 && info.retValues[0].length > 0)
-		exprs.unshift(getRetValues(info));
+	//if (info.retValues.length > 0 && info.retValues[0].length > 0)
+	//	exprs.unshift(getRetValues(local));
 	return EBlock(exprs);
 }
 
@@ -569,7 +529,7 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 }
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
-	info.deferBool[info.funcIndex] = true;
+	info.deferBool = true;
 	info.hasDefer = true;
 	var exprs:Array<Expr> = [];
 	for (i in 0...stmt.call.args.length) {
@@ -700,10 +660,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					var name = className(title(spec.name.name));
-					spec.name.name += "_" + info.funcName + "_" + info.layerIndex;
+					spec.name.name += "_" + info.funcName + "_" + info.scopeIndex;
 					info.retypeList.push({
 						name: name,
-						index: info.layerIndex,
 						type: TPath({
 							name: className(title(spec.name.name)),
 							pack: [],
@@ -886,16 +845,6 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 		def = macro Go.cfor($cond, $ty, $body);
 	} else {
 		def = toExpr(EWhile(cond, body, true));
-		if (stmt.cond == null) {
-			var retValue = defaultValue(info.ret[0], info, 0, false);
-			switch info.ret[0] {
-				case TPath(p):
-					if (p.name == "Void")
-						retValue = null;
-				default:
-			}
-			return EBlock([def, toExpr(EReturn(retValue))]);
-		}
 		return def.expr;
 	}
 	if (stmt.init != null) {
@@ -966,7 +915,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							break;
 						}
 					}
-					info.types.push({name: name, rename: newName, index: info.layerIndex});
+					info.types.push({name: name, rename: newName});
 					name = newName;
 					vars.push({
 						name: name,
@@ -1012,16 +961,16 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
-		if (info.deferBool.exists(info.funcIndex)) {
+		if (info.deferBool) {
 			return EBlock([typeDeferReturn(info, false), toExpr(e),]);
 		}
 		return e;
 	}
 	// blank return
-	if (stmt.results.length == 0) {
+	/*if (stmt.results.length == 0) {
 		if (info.retValues.length > 0) {
 			if (info.retValues[0].length == 1)
-				return ret(EReturn(toExpr(EConst(CIdent(info.retValues[0][0].name)))));
+				return ret(EReturn(toExpr(EConst(CIdent(info.retValues[0].name)))));
 			if (info.retValues.length > 1) {
 				var expr = toExpr(EObjectDecl([
 					for (value in info.retValues[0])
@@ -1033,10 +982,10 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				return ret(EReturn(expr));
 			}
 		}
-		if (info.ret[0] != null)
-			return ret(EReturn(defaultValue(info.ret[0], null, 0, false)));
+		if (info.ret != null)
+			return ret(EReturn(defaultValue(info.ret, null, 0, false)));
 		return ret(EReturn());
-	}
+	}*/
 	if (stmt.results.length == 1) {
 		// could be a function lit and therefore change it out
 		var e = typeExpr(stmt.results[0], info);
@@ -1047,8 +996,10 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		}*/
 		return ret(EReturn(e));
 	}
+	if (info.ret == null)
+		return EReturn();
 	// multireturn
-	switch info.ret[0] {
+	switch info.ret {
 		case TAnonymous(fields):
 			var expr = toExpr(EObjectDecl([
 				for (i in 0...fields.length)
@@ -1059,7 +1010,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			]));
 			return ret(EReturn(expr));
 		default:
-			trace("unknown multi return type: " + info.ret[0] + " results: " + stmt.results);
+			throw "unknown multi return type: " + info.ret + " results: " + stmt.results; 
 	}
 	return ret(EReturn());
 }
@@ -1089,7 +1040,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 
 // TYPE EXPR
 private function mapType(expr:Ast.MapType, info:Info):ComplexType {
-	var keyType = typeExprType(expr.key, info);
+	var keyType = typeExprType(expr.key,info);
 	var valueType = typeExprType(expr.value, info);
 	if (keyType == null || valueType == null)
 		return null;
@@ -1247,8 +1198,8 @@ private function isBasic(type:ComplexType, info:Info):Bool {
 }
 
 private function addImport(path:String, info:Info, alias:String = "") {
-	if (!info.imports.exists(path))
-		info.imports[path] = alias;
+	if (!info.global.imports.exists(path))
+		info.global.imports[path] = alias;
 }
 
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
@@ -1312,8 +1263,6 @@ private function ellipsisType(expr:Ast.Ellipsis, info:Info):ComplexType {
 private function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (expr == null)
 		return null;
-	if (info.print)
-		trace("id: " + expr.id);
 	var def = switch expr.id {
 		case "Ident": typeIdent(expr, info);
 		case "CallExpr": typeCallExpr(expr, info);
@@ -1415,7 +1364,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					ellipsisFunc();
 					return (macro throw ${args[0]}).expr;
 				case "recover":
-					info.recover[info.funcIndex - 1] = true;
+					info.recover = true;
 					return (macro Go.recover()).expr;
 				case "append":
 					genArgs();
@@ -1754,16 +1703,11 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	var ret = typeFieldListReturn(expr.type.results, info, true);
-	info.ret.unshift(ret);
 	var args = typeFieldListArgs(expr.type.params, info);
 	var block = typeBlockStmt(expr.body, info, true, true);
 	// allows multiple nested values
-	info.retValues = info.retValues.slice(1);
-	info.ret = info.ret.slice(1); // has been used now remove it
-	info.deferBool.remove(info.funcIndex + 1);
-	info.recover.remove(info.funcIndex + 1);
 	return EFunction(FAnonymous, {
-		ret: null, // ret,
+		ret: ret,
 		args: args,
 		expr: block != null ? toExpr(block) : null,
 	});
@@ -1965,35 +1909,23 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	};
 }
 
-private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
-	var list = [];
-	for (retype in info.retypeList) {
-		if (retype.index != 0)
-			continue;
-		list.push(retype);
-	}
-	info.retypeList = list;
-	var list = [];
-	for (type in info.types) {
-		if (type.index != 0)
-			continue;
-		list.push(type);
-	}
-	info.types = list;
-	// info.retypeMap.clear(); //clear renaming as it's a new function
+private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
+	var info = data.clone();
+	info.types = [];
+	info.retypeList = [];
+	//clear renaming as it's a new function
 	// layer index is 0 for initlization of module function, the body will be 1
-	info.local = false;
-	info.recover.clear();
-	info.deferBool.clear();
+	info.recover = false;
+	info.deferBool = false;
 	info.hasDefer = false;
-	info.layerIndex = 0;
 	info.funcIndex = 0;
+	info.scopeIndex = 0;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
 	info.retValues = [];
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-	info.ret = [ret];
+	//info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
@@ -2129,14 +2061,15 @@ private function typeFunction(decl:Ast.FuncDecl, info:Info):TypeDefinition {
 }
 
 private function getRetValues(info:Info) {
-	return toExpr(EVars([
+	/*return toExpr(EVars([
 		for (value in info.retValues[0])
 			{
 				name: value.name,
 				type: value.type,
 				expr: defaultValue(value.type, info, 0, false),
 			}
-	]));
+	]));*/
+	return null;
 }
 
 private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict:Bool = true):Expr {
@@ -2207,8 +2140,8 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			}
 		}
 	}
-	if (retValuesBool && r.length > 0)
-		info.retValues.unshift(r);
+	//if (retValuesBool && r.length > 0)
+	//	info.retValues.unshift(r);
 	if (list.length > 1) {
 		// anonymous
 		return TAnonymous([
@@ -2367,10 +2300,6 @@ private function renameDef(name:String, info:Info):String {
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(title(spec.name.name));
 	info.className = name;
-	if (info.local) {
-		var newName = renameDef(name, info);
-		name = newName;
-	}
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
@@ -2511,7 +2440,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 		path.unshift("stdgo");
 	var name = path[path.length - 1];
 	path.push(title(name));
-	info.types.push({name: name, rename: path.join("."), index: 0});
+	info.global.types.push({name: name, rename: path.join(".")});
 	return {
 		path: path,
 		alias: alias,
@@ -2593,11 +2522,10 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 private function nameIdent(name:String, info:Info):String {
 	if (name == "nil")
 		return "null";
-	if (info.imports.exists(name))
-		return info.imports[name];
-	for (type in info.types) {
-		// if (info.layerIndex < type.index || type.name == type.rename)
-		//    continue;
+	if (info.global.imports.exists(name))
+		return info.global.imports[name];
+	var types = info.global.types.concat(info.types);
+	for (type in types) {
 		if (name == type.name) {
 			name = type.rename;
 			break;
@@ -2643,30 +2571,59 @@ function untitle(string:String):String {
 	return string;
 }
 
-typedef Info = {
-	recover:Map<Int, Bool>,
-	hasType:Bool,
-	lengths:Array<Expr>,
-	iota:Int,
-	aliasStaticExtensionMap:Map<String, Bool>,
-	funcIndex:Int,
-	layerIndex:Int,
-	typeNames:Array<String>,
-	thisName:String,
-	retValues:Array<Array<{name:String, type:ComplexType}>>,
-	deferBool:Map<Int, Bool>,
-	hasDefer:Bool,
-	className:String,
-	funcName:String,
-	path:String,
-	types:Array<{name:String, rename:String, index:Int}>,
-	imports:Map<String, String>,
-	ret:Array<ComplexType>,
-	data:FileType,
-	local:Bool,
-	retypeList:Array<{name:String, index:Int, type:ComplexType}>,
-	print:Bool
-};
+class Global {
+	public var types:Array<{name:String,rename:String}> = [];
+	public var imports:Map<String, String> = [];
+	public inline function new() {}
+}
+
+class Info {
+	public var recover:Bool = false;
+	public var funcIndex:Int = 0; //function scope such as funclit/function block
+	public var scopeIndex:Int = 0; //scope index any type of block be it for for/if/switch cases etc
+	public var thisName:String = "";
+	public var hasType:Bool = false;
+	public var lengths:Array<Expr> = [];
+	public var retValues:Array<{name:String,type:ComplexType}> = [];
+	public var deferBool:Bool = false;
+	public var hasDefer:Bool = false;
+	public var funcName:String = "";
+	public var types:Array<{name:String,rename:String}> = [];
+	public var ret:ComplexType = null;
+	public var className:String = "";
+	public var retypeList:Array<{name:String, type:ComplexType}> = [];
+	public var aliasStaticExtensionMap:Map<String, Bool> = [];
+	public var typeNames:Array<String> = [];
+	public var iota:Int = 0;
+	public var path:String = "";
+	public var data:FileType;
+	public var global = new Global();
+	public function new() {}
+	public inline function clone() {
+		var info = new Info();
+		info.recover = recover;
+		info.funcIndex = funcIndex;
+		info.scopeIndex = scopeIndex;
+		info.thisName = thisName;
+		info.hasType = hasType;
+		info.lengths = lengths;
+		info.retValues = retValues;
+		info.deferBool = deferBool;
+		info.hasDefer = hasDefer;
+		info.funcName = funcName;
+		info.types = types;
+		info.ret = ret;
+		info.className = className;
+		info.retypeList = retypeList;
+		info.aliasStaticExtensionMap = aliasStaticExtensionMap;
+		info.typeNames = typeNames;
+		info.iota = iota;
+		info.path = path;
+		info.data = data;
+		info.global = global; //imports, types
+		return info;
+	}
+}
 
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here

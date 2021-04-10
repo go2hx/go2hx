@@ -1452,7 +1452,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								default:
 							}
 						}
-						return (macro ${defaultValue(t,null,true)}).expr;
+						return (macro ${defaultValue(t,info,true)}).expr;
 					default:
 						// trace("unknown type paren expr");
 						var expr = typeExpr(expr.args[0], info);

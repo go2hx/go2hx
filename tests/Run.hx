@@ -6,12 +6,15 @@ import haxe.io.Path;
 import sys.io.File;
 
 var path:String;
+var port:Int = 4004;
 
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
-	tinygo();
-	// gen();
+	var completion = new sys.io.Process('haxe --wait $port');
+	//tinygo();
+	 gen();
+	completion.close();
 }
 
 var pathto:String = "";
@@ -70,7 +73,7 @@ function run(compareOutput:Bool) {
 	for (i in 0...length) {
 		var path = Main.exportPaths[i];
 		path = StringTools.replace(path, "/", ".");
-		var command = 'haxe -cp tests/golibs -main $path --interp';
+		var command = 'haxe --connect $port -cp tests/golibs -main $path --interp';
 		var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
 		var proc = new sys.io.Process(command);
 		var code:Null<Int> = null;
@@ -83,6 +86,7 @@ function run(compareOutput:Bool) {
 		}
 		if (code == null) {
 			Sys.println("timed out...");
+			command = cleanCommand(command);
 			Sys.println('command: $command');
 			output.writeString('- [ ] $name (timed out)\n');
 		} else {
@@ -94,6 +98,7 @@ function run(compareOutput:Bool) {
 					var b = outputText != compare;
 					if (b) {
 						output.writeString('- [ ] $name failed compare');
+						command = cleanCommand(command);
 						Sys.println('command: $command');
 						var lines1 = outputText.split("\n");
 						var lines2 = compare.split("\n");
@@ -114,12 +119,13 @@ function run(compareOutput:Bool) {
 				} catch (e) {
 					line = 'unable to read line, error: $e';
 				}
+				command = cleanCommand(command);
 				Sys.println('command: $command');
 				Sys.println(line + "\n" + proc.stderr.readAll().toString());
 				output.writeString('- [ ] $name    - $line \n');
 			}
 		}
-		proc.kill();
+		proc.close();
 		output.flush();
 	}
 	output.writeString('\n\n\nPASSING: $passedCount/$length');
@@ -133,6 +139,8 @@ function getLine(line:String):String {
 	index = index == -1 ? 0 : index + sub.length;
 	return line.substr(index);
 }
+function cleanCommand(command:String):String
+	return StringTools.replace(command,'--connect $port',"");
 
 function load():Array<String> {
 	var tests:Array<String> = [];

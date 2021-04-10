@@ -865,11 +865,23 @@ private function toExpr(def:ExprDef):Expr {
 private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 	switch stmt.tok {
 		case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
-			if (stmt.lhs.length == stmt.rhs.length) {
-				if (stmt.tok == ASSIGN && stmt.lhs.length == 1 && stmt.rhs.length == 1 && stmt.lhs[0].id == "Ident" && stmt.lhs[0].name == "_") {
-					var y = typeExpr(stmt.rhs[0], info);
-					return y.expr; // only underscore assign, therefore only need to type right side.
+			var blankBool:Bool = true;
+			for (lhs in stmt.lhs) {
+				if (lhs.id != "Ident" || lhs.name != "_") {
+					blankBool = false;
+					break;
 				}
+			}
+			if (blankBool) {
+				var exprs:Array<Expr> = [];
+				for (rhs in stmt.rhs) {
+					exprs.push(typeExpr(rhs,info));
+				}
+				if (exprs.length == 1)
+					return exprs[0].expr;
+				return (macro $b{exprs}).expr;
+			}
+			if (stmt.lhs.length == stmt.rhs.length) {
 				var op = typeOp(stmt.tok);
 				var exprs = [
 					for (i in 0...stmt.lhs.length) {

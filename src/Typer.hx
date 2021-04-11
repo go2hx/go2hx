@@ -165,8 +165,7 @@ function main(data:DataType) {
 				}
 				if (defRename == null)
 					continue;
-
-				info.global.types.push({name: defRename.name, rename: defRename.name = defRename.name = "_" + defRename.name});
+				info.global.renameTypes[defRename.name] = defRename.name = defRename.name = "_" + defRename.name;
 			}
 
 			typeImplements(info);
@@ -434,10 +433,11 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needR
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
-	info.scopeIndex++;
-	if (isFunc)
-		info.funcIndex++;
 	var exprs:Array<Expr> = [];
+	/*if (!isFunc) {
+		info.retypeList
+		info.renameTypes
+	}*/
 	if (list != null)
 		exprs = [for (stmt in list) typeStmt(stmt, info)];
 	// label and goto system
@@ -505,8 +505,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			exprs.push(toExpr(ret)); // blank return
 		}
 	}
-	if (isFunc)
-		info.funcIndex--;
 	// add potential return value variables
 	//if (info.retValues.length > 0 && info.retValues[0].length > 0)
 	//	exprs.unshift(getRetValues(local));
@@ -660,13 +658,10 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					var name = className(title(spec.name.name));
-					spec.name.name += "_" + info.funcName + "_" + info.scopeIndex;
-					info.retypeList.push({
-						name: name,
-						type: TPath({
-							name: className(title(spec.name.name)),
-							pack: [],
-						})
+					spec.name.name += "_" + info.funcName + "_" + (info.count++);
+					info.retypeList[name] = TPath({
+						name: className(title(spec.name.name)),
+						pack: [],
 					});
 					setAlias(spec, info);
 					info.data.defs.push(typeType(spec, info));
@@ -920,14 +915,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var name = nameIdent(stmt.lhs[i].name, info);
 					var newName = name;
 					var tempName = isTitled ? untitle(name) : title(name);
-					for (type in info.types) {
-						if (type.name == tempName) {
-							newName = "_" + newName;
-							name = !isTitled ? untitle(name) : title(name);
-							break;
-						}
+					if (info.renameTypes.exists(tempName)) {
+						newName = "_" + newName;
+						name = !isTitled ? untitle(name) : title(name);
 					}
-					info.types.push({name: name, rename: newName});
+					info.renameTypes[name] = newName;
 					name = newName;
 					vars.push({
 						name: name,
@@ -1231,11 +1223,9 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	}
 	name = className(title(name));
 	// name = title(name);
-	for (retype in info.retypeList) {
-		if (retype.name != name /*|| retype.index <= info.layerIndex*/)
-			continue;
-		return retype.type;
-	}
+	if (info.retypeList.exists(name))
+		return info.retypeList[name];
+
 	return TPath({
 		pack: [],
 		name: name,
@@ -1713,7 +1703,16 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 	return [toExpr(EObjectDecl(fields))];
 }
 
+private function funcReset(info:Info) {
+	info.recover = false;
+	info.deferBool = false;
+	info.hasDefer = false;
+}
+
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
+	info = info.clone();
+	funcReset(info);
+
 	var ret = typeFieldListReturn(expr.type.results, info, true);
 	var args = typeFieldListArgs(expr.type.params, info);
 	var block = typeBlockStmt(expr.body, info, true, true);
@@ -1922,16 +1921,8 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 }
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
-	var info = data.clone();
-	info.types = [];
-	info.retypeList = [];
-	//clear renaming as it's a new function
-	// layer index is 0 for initlization of module function, the body will be 1
-	info.recover = false;
-	info.deferBool = false;
-	info.hasDefer = false;
-	info.funcIndex = 0;
-	info.scopeIndex = 0;
+	var info = new Info();
+	info.global = data.global;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
@@ -2133,6 +2124,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	var list:Array<{name:String, type:ComplexType}> = [];
 	var r:Array<{name:String, type:ComplexType}> = [];
 	var i:Int = 0;
+	var named:Bool = false;
 	for (group in fieldList.list) {
 		var type = typeExprType(group.type, info);
 		if (type == null)
@@ -2150,12 +2142,12 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 				});
 				r.push({name: name.name, type: type});
 			}
+			named = true;
 		}
 	}
-	//if (retValuesBool && r.length > 0)
-	//	info.retValues.unshift(r);
 	if (list.length > 1) {
 		// anonymous
+		info.retNamed = named;
 		return TAnonymous([
 			for (field in list)
 				{
@@ -2452,7 +2444,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 		path.unshift("stdgo");
 	var name = path[path.length - 1];
 	path.push(title(name));
-	info.global.types.push({name: name, rename: path.join(".")});
+	info.global.renameTypes[name] = path.join(".");
 	return {
 		path: path,
 		alias: alias,
@@ -2536,13 +2528,10 @@ private function nameIdent(name:String, info:Info):String {
 		return "null";
 	if (info.global.imports.exists(name))
 		return info.global.imports[name];
-	var types = info.global.types.concat(info.types);
-	for (type in types) {
-		if (name == type.name) {
-			name = type.rename;
-			break;
-		}
-	}
+	if (info.global.renameTypes.exists(name))
+		name = info.global.renameTypes[name];
+	if (info.renameTypes.exists(name))
+		name = info.renameTypes[name];
 	name = untitle(name);
 	if (reserved.indexOf(name) != -1)
 		name += "_";
@@ -2584,15 +2573,15 @@ function untitle(string:String):String {
 }
 
 class Global {
-	public var types:Array<{name:String,rename:String}> = [];
+	public var renameTypes:Map<String,String> = [];
 	public var imports:Map<String, String> = [];
 	public inline function new() {}
 }
 
 class Info {
+	public var retNamed:Bool = false;
+	public var count:Int = 0;
 	public var recover:Bool = false;
-	public var funcIndex:Int = 0; //function scope such as funclit/function block
-	public var scopeIndex:Int = 0; //scope index any type of block be it for for/if/switch cases etc
 	public var thisName:String = "";
 	public var hasType:Bool = false;
 	public var lengths:Array<Expr> = [];
@@ -2600,10 +2589,10 @@ class Info {
 	public var deferBool:Bool = false;
 	public var hasDefer:Bool = false;
 	public var funcName:String = "";
-	public var types:Array<{name:String,rename:String}> = [];
+	public var renameTypes:Map<String,String> = [];
 	public var ret:ComplexType = null;
 	public var className:String = "";
-	public var retypeList:Array<{name:String, type:ComplexType}> = [];
+	public var retypeList:Map<String,ComplexType> = [];
 	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
@@ -2614,16 +2603,16 @@ class Info {
 	public inline function clone() {
 		var info = new Info();
 		info.recover = recover;
-		info.funcIndex = funcIndex;
-		info.scopeIndex = scopeIndex;
 		info.thisName = thisName;
 		info.hasType = hasType;
 		info.lengths = lengths;
+		info.retNamed = retNamed;
 		info.retValues = retValues;
 		info.deferBool = deferBool;
 		info.hasDefer = hasDefer;
+		info.count = count;
 		info.funcName = funcName;
-		info.types = types;
+		info.renameTypes = renameTypes;
 		info.ret = ret;
 		info.className = className;
 		info.retypeList = retypeList;

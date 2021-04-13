@@ -434,10 +434,12 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needR
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	var exprs:Array<Expr> = [];
-	/*if (!isFunc) {
-		info.retypeList
-		info.renameTypes
-	}*/
+	var oldRetypeList = null;
+	var oldRenameTypes = null;
+	if (!isFunc) {
+		oldRetypeList = info.retypeList;
+		oldRenameTypes = info.renameTypes;
+	}
 	if (list != null)
 		exprs = [for (stmt in list) typeStmt(stmt, info)];
 	// label and goto system
@@ -488,22 +490,14 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		}
 	}
 
-	if (!returnBool && needReturn) {
-		var isVoid:Bool = false;
-		/*if (info.ret !=) {
-			switch info.ret[0] {
-				case TPath(p):
-					switch p.name {
-						case "Void":
-							isVoid = true;
-					}
-				default:
-			}
-		}*/
-		if (!isVoid) {
-			var ret = typeReturnStmt({returnPos: null, results: []}, info);
-			exprs.push(toExpr(ret)); // blank return
-		}
+	if (!returnBool && needReturn && info.returnNamed) {
+		var ret = typeReturnStmt({returnPos: null, results: []}, info);
+		exprs.push(toExpr(ret)); // blank return
+	}
+	if (!isFunc) {
+		//leave scope and set back to before
+		info.renameTypes = oldRenameTypes;
+		info.retypeList = oldRetypeList;
 	}
 	// add potential return value variables
 	//if (info.retValues.length > 0 && info.retValues[0].length > 0)
@@ -966,57 +960,46 @@ private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	function ret(e:ExprDef) {
 		if (info.deferBool) {
-			return EBlock([typeDeferReturn(info, false), toExpr(e),]);
+			return EBlock([typeDeferReturn(info, false), toExpr(e)]);
 		}
 		return e;
 	}
 	// blank return
-	/*if (stmt.results.length == 0) {
-		if (info.retValues.length > 0) {
-			if (info.retValues[0].length == 1)
-				return ret(EReturn(toExpr(EConst(CIdent(info.retValues[0].name)))));
-			if (info.retValues.length > 1) {
-				var expr = toExpr(EObjectDecl([
-					for (value in info.retValues[0])
-						{
-							field: value.name,
-							expr: toExpr(EConst(CIdent(value.name))),
-						}
-				]));
-				return ret(EReturn(expr));
-			}
+	if (stmt.results.length == 0) {
+		if (info.returnValues.length == 1)
+			return ret(EReturn(toExpr(EConst(CIdent(info.returnValues[0].name)))));
+		if (info.returnValues.length > 1) {
+			var expr = toExpr(EObjectDecl([
+				for (value in info.returnValues) {
+					field: value.name,
+					expr: toExpr(EConst(CIdent(value.name))),
+				}
+			]));
+			return ret(EReturn(expr));
 		}
-		if (info.ret != null)
-			return ret(EReturn(defaultValue(info.ret, null, 0, false)));
+
+		if (info.returnValue != null)
+			return ret(EReturn(defaultValue(info.returnValue, null, 0, false)));
 		return ret(EReturn());
-	}*/
+	}
 	if (stmt.results.length == 1) {
 		// could be a function lit and therefore change it out
 		var e = typeExpr(stmt.results[0], info);
-		/*switch e.expr {
+		switch e.expr {
 			case EFunction(kind, f):
 				e = macro {$e;};
 			default:
-		}*/
+		}
 		return ret(EReturn(e));
 	}
-	if (info.ret == null)
-		return EReturn();
 	// multireturn
-	switch info.ret {
-		case TAnonymous(fields):
-			var expr = toExpr(EObjectDecl([
-				for (i in 0...fields.length)
-					{
-						field: fields[i].name,
-						expr: typeExpr(stmt.results[i], info),
-					}
-			]));
-			return ret(EReturn(expr));
-		default:
-			throw "unknown multi return type: " + info.ret + " results: " + stmt.results; 
-	}
-	return ret(EReturn());
+	var expr = toExpr(EObjectDecl([
+		for (i in 0...stmt.results.length) {
+			field: info.returnValues[i].name,
+			expr: typeExpr(stmt.results[i],info),
+		}
+	]));
+	return ret(EReturn(expr));
 }
 
 private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
@@ -1922,11 +1905,12 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
+	info.data = data.data;
 	info.global = data.global;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
-	info.retValues = [];
+	info.returnValues = [];
 	var ret = typeFieldListReturn(decl.type.results, info, true);
 	//info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
@@ -2122,7 +2106,6 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			pack: [],
 		});
 	var list:Array<{name:String, type:ComplexType}> = [];
-	var r:Array<{name:String, type:ComplexType}> = [];
 	var i:Int = 0;
 	var named:Bool = false;
 	for (group in fieldList.list) {
@@ -2140,14 +2123,13 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 					name: nameIdent(name.name, info),
 					type: type,
 				});
-				r.push({name: name.name, type: type});
 			}
 			named = true;
 		}
-	}
-	if (list.length > 1) {
+	}	if (list.length > 1) {
 		// anonymous
-		info.retNamed = named;
+		info.returnNamed = named;
+		info.returnValues = list;
 		return TAnonymous([
 			for (field in list)
 				{
@@ -2162,6 +2144,12 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 				name: "Void",
 				pack: [],
 			});
+		if (named) { //single named value
+			info.returnNamed = true;
+			info.returnValues = list;
+			return list[0].type;
+		}
+		info.returnValue = list[0].type;
 		return list[0].type;
 	}
 }
@@ -2509,7 +2497,12 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 	if (value.pos == value.end)
 		return "";
 	var source:String = "";
-	source = File.getContent(info.data.location);
+	try {
+		source = File.getContent(info.data.location);
+	}catch(e) {
+		trace(e + " data: " + info.data);
+		return "";
+	}
 	source = source.substring(value.pos, value.end);
 	// sanatize comments
 	if (source != "") {
@@ -2579,18 +2572,18 @@ class Global {
 }
 
 class Info {
-	public var retNamed:Bool = false;
+	public var returnNamed:Bool = false;
 	public var count:Int = 0;
 	public var recover:Bool = false;
 	public var thisName:String = "";
 	public var hasType:Bool = false;
 	public var lengths:Array<Expr> = [];
-	public var retValues:Array<{name:String,type:ComplexType}> = [];
+	public var returnValues:Array<{name:String,type:ComplexType}> = [];
 	public var deferBool:Bool = false;
 	public var hasDefer:Bool = false;
 	public var funcName:String = "";
 	public var renameTypes:Map<String,String> = [];
-	public var ret:ComplexType = null;
+	public var returnValue:ComplexType = null;
 	public var className:String = "";
 	public var retypeList:Map<String,ComplexType> = [];
 	public var aliasStaticExtensionMap:Map<String, Bool> = [];
@@ -2606,14 +2599,14 @@ class Info {
 		info.thisName = thisName;
 		info.hasType = hasType;
 		info.lengths = lengths;
-		info.retNamed = retNamed;
-		info.retValues = retValues;
+		info.returnNamed = returnNamed;
+		info.returnValues = returnValues;
+		info.returnValue = returnValue;
 		info.deferBool = deferBool;
 		info.hasDefer = hasDefer;
 		info.count = count;
 		info.funcName = funcName;
 		info.renameTypes = renameTypes;
-		info.ret = ret;
 		info.className = className;
 		info.retypeList = retypeList;
 		info.aliasStaticExtensionMap = aliasStaticExtensionMap;

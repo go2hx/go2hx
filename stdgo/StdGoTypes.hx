@@ -105,7 +105,7 @@ function clampUInt(x:Int):Int
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
-abstract GoUIntptr(UInt) from UInt {
+abstract GoUIntptr(UInt) from UInt from Int {
 	public inline function new(x = 0)
 		this = x;
 
@@ -409,7 +409,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return a.real != b.real || a.imag != b.imag;
 }
 
-abstract GoInt(Int) from Int32 {
+abstract GoInt(Int) from Int32 from Int {
 	public inline function new(x:Int32 = 0)
 		this = x;
 
@@ -659,7 +659,7 @@ abstract GoUInt(Int) from Int {
 	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt):Bool;
 }
 
-abstract GoInt8(Int8) from Int8 {
+abstract GoInt8(Int8) from Int8 from Int {
 	public inline function new(x = 0)
 		this = x;
 
@@ -781,7 +781,7 @@ abstract GoInt8(Int8) from Int8 {
 		return clampInt8(x);
 }
 
-abstract GoInt16(Int16) from Int16 {
+abstract GoInt16(Int16) from Int16 from Int {
 	public inline function new(x = 0)
 		this = x;
 
@@ -1205,7 +1205,7 @@ abstract GoInt64(Int64) from Int64 {
 		return Int64.neq(a.toBasic(), b.toBasic());
 }
 
-abstract GoUInt8(UInt8) from UInt8 {
+abstract GoUInt8(UInt8) from UInt8 from Int {
 	public inline function new(x = 0)
 		this = x;
 
@@ -1321,7 +1321,7 @@ abstract GoUInt8(UInt8) from UInt8 {
 		return clampUInt8(x);
 }
 
-abstract GoUInt16(UInt16) from UInt16 {
+abstract GoUInt16(UInt16) from UInt16 from Int {
 	public inline function new(x = 0)
 		this = x;
 

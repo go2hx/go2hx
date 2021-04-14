@@ -525,8 +525,20 @@ class Go {
 			])
 		};
 	}
+	static function escapeParens(expr:Expr):Expr {
+		while (true) {
+			switch expr.expr {
+				case EParenthesis(e):
+					expr = e;
+				default:
+					break;
+			}
+		}
+		return expr;
+	}
 
 	public static macro function pointer(expr:Expr) {
+		expr = escapeParens(expr);
 		var isRealPointer = false;
 		var type = Context.follow(Context.typeof(expr));
 		switch type {

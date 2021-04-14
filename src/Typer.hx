@@ -435,10 +435,12 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needR
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	var exprs:Array<Expr> = [];
 	var oldRetypeList = null;
+	var oldLocalVars = null;
 	var oldRenameTypes = null;
 	if (!isFunc) {
-		oldRetypeList = info.retypeList;
-		oldRenameTypes = info.renameTypes;
+		oldRetypeList = info.retypeList.copy();
+		oldLocalVars = info.localVars.copy();
+		oldRenameTypes = info.renameTypes.copy();
 	}
 	if (list != null)
 		exprs = [for (stmt in list) typeStmt(stmt, info)];
@@ -470,24 +472,23 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 	if (info.deferBool && isFunc) {
 		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 		exprs.push(typeDeferReturn(info, true));
-		if (info.recover) {
-			exprs.unshift(macro var recover_exception:Dynamic = null);
-			var pos = 2;
-			var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
-			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
-				{
-					name: "e",
-					expr: macro {
-						recover_exception = e;
-						$ret;
-						if (recover_exception != null)
-							throw recover_exception;
-					}
+		//recover
+		exprs.unshift(macro var recover_exception:Dynamic = null);
+		var pos = 2;
+		var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
+		var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
+			{
+				name: "e",
+				expr: macro {
+					recover_exception = e;
+					$ret;
+					if (recover_exception != null)
+						throw recover_exception;
 				}
-			]); // don't include recover and defer stack
-			exprs = exprs.slice(0, pos);
-			exprs.push(toExpr(trydef));
-		}
+			}
+		]); // don't include recover and defer stack
+		exprs = exprs.slice(0, pos);
+		exprs.push(toExpr(trydef));
 	}
 
 	if (!returnBool && needReturn && info.returnNamed) {
@@ -498,6 +499,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		//leave scope and set back to before
 		info.renameTypes = oldRenameTypes;
 		info.retypeList = oldRetypeList;
+		info.localVars = oldLocalVars;
 	}
 	// add potential return value variables
 	//if (info.retValues.length > 0 && info.retValues[0].length > 0)
@@ -824,6 +826,17 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 		trace("for stmt error: " + cond.expr + " body: " + body.expr);
 		return null;
 	}
+	function ret(def:ExprDef):ExprDef {
+		if (stmt.init != null) {
+			var init = typeStmt(stmt.init, info);
+			if (init == null) {
+				trace("for stmt eror init: " + stmt.init);
+				return null;
+			}
+			return EBlock([init, toExpr(def)]);
+		}
+		return def;
+	}
 	var def:Expr = null;
 	if (stmt.post != null) {
 		var ty = typeStmt(stmt.post, info);
@@ -834,17 +847,9 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 		def = macro Go.cfor($cond, $ty, $body);
 	} else {
 		def = toExpr(EWhile(cond, body, true));
-		return def.expr;
+		return ret(def.expr);
 	}
-	if (stmt.init != null) {
-		var init = typeStmt(stmt.init, info);
-		if (init == null) {
-			trace("for stmt eror init: " + stmt.init);
-			return null;
-		}
-		return EBlock([init, def]);
-	}
-	return def.expr;
+	return ret(def.expr);
 }
 
 private function toExpr(def:ExprDef):Expr {
@@ -878,7 +883,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						var y = typeExpr(stmt.rhs[i], info);
 						if (x == null || y == null)
 							return null;
-						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y));
+						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y)); //blank means no assign/define just the rhs expr
 					}
 				];
 				if (exprs.length == 1)
@@ -906,7 +911,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
 					var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
-					var name = nameIdent(stmt.lhs[i].name, info);
+					var name = nameIdent(stmt.lhs[i].name, info,true);
 					var newName = name;
 					var tempName = isTitled ? untitle(name) : title(name);
 					if (info.renameTypes.exists(tempName)) {
@@ -1687,7 +1692,6 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 }
 
 private function funcReset(info:Info) {
-	info.recover = false;
 	info.deferBool = false;
 	info.hasDefer = false;
 }
@@ -1907,6 +1911,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
 	info.data = data.data;
 	info.global = data.global;
+	info.path = data.path;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
@@ -2516,18 +2521,24 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
 
-private function nameIdent(name:String, info:Info):String {
+private function nameIdent(name:String, info:Info, forceString:Bool=false):String {
 	if (name == "nil")
 		return "null";
-	if (info.global.imports.exists(name))
-		return info.global.imports[name];
-	if (info.global.renameTypes.exists(name))
-		name = info.global.renameTypes[name];
-	if (info.renameTypes.exists(name))
-		name = info.renameTypes[name];
-	name = untitle(name);
-	if (reserved.indexOf(name) != -1)
-		name += "_";
+	if (info.localVars.exists(name))
+		forceString = true;
+	if (!forceString) {
+		if (info.global.imports.exists(name))
+			return info.global.imports[name];
+		if (info.global.renameTypes.exists(name))
+			name = info.global.renameTypes[name];
+		if (info.renameTypes.exists(name))
+			name = info.renameTypes[name];
+		name = untitle(name);
+		if (reserved.indexOf(name) != -1)
+			name += "_";
+	}else{
+		info.localVars[name] = true;
+	}
 	return name;
 }
 
@@ -2573,6 +2584,7 @@ class Global {
 
 class Info {
 	public var returnNamed:Bool = false;
+	public var localVars:Map<String,Bool> = [];
 	public var count:Int = 0;
 	public var recover:Bool = false;
 	public var thisName:String = "";
@@ -2595,7 +2607,6 @@ class Info {
 	public function new() {}
 	public inline function clone() {
 		var info = new Info();
-		info.recover = recover;
 		info.thisName = thisName;
 		info.hasType = hasType;
 		info.lengths = lengths;
@@ -2607,6 +2618,7 @@ class Info {
 		info.count = count;
 		info.funcName = funcName;
 		info.renameTypes = renameTypes;
+		info.localVars = localVars;
 		info.className = className;
 		info.retypeList = retypeList;
 		info.aliasStaticExtensionMap = aliasStaticExtensionMap;

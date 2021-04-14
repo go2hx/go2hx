@@ -11,9 +11,9 @@ var port:Int = 4004;
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
-	var completion = new sys.io.Process('haxe --wait $port');
+	var completion = new sys.io.Process('haxe --wait $port',null,true);
 	//tinygo();
-	 gen();
+	gen();
 	completion.close();
 }
 
@@ -50,9 +50,12 @@ function gen() {
 		"chancap", "closedchan",
 		"cmp", "method", "method5", "nil", "nilptr2", "nilptr_aix", "recover", "recover2", "recover3", "zerodivide", // requires recover to properly function.
 		"235", "64bit", // Class name must start with an uppercase letter
+		"peano", //breaks testing system causes all other tests to timeout after
+		"stack", //passes but is super flakey with the completion server, potential error on the Haxe side
 
 	])
 		tests.remove('.$pathto$test.go');
+	tests = ['.$pathto' + "iota.go"];
 	compile(tests, false);
 }
 

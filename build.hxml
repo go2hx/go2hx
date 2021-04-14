@@ -2,6 +2,6 @@
 -main Main
 -D no-deprecation-warnings
 -D std-encoding-utf8
--dce full
+--dce full
 -D analyzer-optimize
 -neko run.n

@@ -76,7 +76,7 @@ function run(compareOutput:Bool) {
 	for (i in 0...length) {
 		var path = Main.exportPaths[i];
 		path = StringTools.replace(path, "/", ".");
-		var command = 'haxe --connect $port -cp tests/golibs -main $path --interp';
+		var command = 'haxe ' + (compareOutput ? "" : '--connect $port ') + '-cp tests/golibs -main $path --interp';
 		var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
 		var proc = new sys.io.Process(command);
 		var code:Null<Int> = null;

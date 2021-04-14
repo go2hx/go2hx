@@ -87,9 +87,9 @@ function main(data:DataType) {
 		pkg.path = normalizePath(pkg.path);
 		pkg.path = StringTools.replace(pkg.path, "/", ".");
 		if (pkg.path == "")
-			pkg.path == "std";
-		info.path = pkg.path;
-		aliases[info.path] = [];
+			pkg.path = "std";
+		info.global.path = pkg.path;
+		aliases[info.global.path] = [];
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -128,6 +128,7 @@ function main(data:DataType) {
 			data.name = className(Typer.title(data.name));
 			//var info = new Info();
 			info.data = data;
+			info.global.path = module.path;
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			for (decl in file.decls) {
 				switch decl.id {
@@ -203,12 +204,12 @@ private function setAlias(spec:Ast.TypeSpec, info:Info) {
 			// var interface:Ast.InterfaceType = spec.type;
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0) {
-				aliases[info.path].push({name: spec.name.name, type: TPath({name: "AnyInterface", pack: []})});
+				aliases[info.global.path].push({name: spec.name.name, type: TPath({name: "AnyInterface", pack: []})});
 			}
 		case "StructType":
 		default:
 			var type = typeExprType(spec.type, info);
-			aliases[info.path].push({
+			aliases[info.global.path].push({
 				name: spec.name.name,
 				type: type,
 			});
@@ -489,6 +490,14 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		]); // don't include recover and defer stack
 		exprs = exprs.slice(0, pos);
 		exprs.push(toExpr(trydef));
+	}
+
+	if (info.returnNamed) {
+		for (value in info.returnValues) {
+			var name = value.name;
+			var type = value.type;
+			exprs.unshift(macro var $name:$type = ${stdgo.Go.defaultValue(type,null,false)});
+		}
 	}
 
 	if (!returnBool && needReturn && info.returnNamed) {
@@ -1354,7 +1363,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					ellipsisFunc();
 					return (macro throw ${args[0]}).expr;
 				case "recover":
-					info.recover = true;
 					return (macro Go.recover()).expr;
 				case "append":
 					genArgs();
@@ -1698,6 +1706,9 @@ private function funcReset(info:Info) {
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	info = info.clone();
+	info.returnNamed = false;
+	info.returnValue = null;
+	info.returnValues = [];
 	funcReset(info);
 
 	var ret = typeFieldListReturn(expr.type.results, info, true);
@@ -1911,7 +1922,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
 	info.data = data.data;
 	info.global = data.global;
-	info.path = data.path;
 
 	var name = nameIdent(decl.name.name, info);
 	info.funcName = name;
@@ -2425,7 +2435,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 }
 
 private function getAllow(info:Info) {
-	return {name: ":allow", params: [toExpr(EConst(CIdent(info.path)))], pos: null};
+	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
 }
 
 private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
@@ -2579,6 +2589,7 @@ function untitle(string:String):String {
 class Global {
 	public var renameTypes:Map<String,String> = [];
 	public var imports:Map<String, String> = [];
+	public var path:String = "";
 	public inline function new() {}
 }
 
@@ -2586,7 +2597,6 @@ class Info {
 	public var returnNamed:Bool = false;
 	public var localVars:Map<String,Bool> = [];
 	public var count:Int = 0;
-	public var recover:Bool = false;
 	public var thisName:String = "";
 	public var hasType:Bool = false;
 	public var lengths:Array<Expr> = [];
@@ -2601,7 +2611,6 @@ class Info {
 	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
-	public var path:String = "";
 	public var data:FileType;
 	public var global = new Global();
 	public function new() {}
@@ -2624,7 +2633,6 @@ class Info {
 		info.aliasStaticExtensionMap = aliasStaticExtensionMap;
 		info.typeNames = typeNames;
 		info.iota = iota;
-		info.path = path;
 		info.data = data;
 		info.global = global; //imports, types
 		return info;

@@ -631,7 +631,7 @@ class Go {
 
 	public static macro function recover() {
 		return untyped macro {
-			var r = stdgo.errors.Errors.new_(recover_exception.toString());
+			var r = stdgo.runtime.Runtime.newRuntime(recover_exception.toString());
 			recover_exception = null;
 			r;
 		}

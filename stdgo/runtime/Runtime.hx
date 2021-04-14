@@ -49,6 +49,23 @@ function callersFrames(callers:Slice<GoUIntptr>):PointerWrapper<Frames> {
 	return Go.pointer(f);
 }
 
+function newRuntime(message:String):Error {
+	return new RuntimeErrorData(message);
+}
+
+private class RuntimeErrorData implements Error {
+	var message:String;
+
+	public function new(message:String) {
+		this.message = message;
+	}
+
+	public function error():GoString {
+		return message;
+	}
+	public function runtimeError():Void {}
+}
+
 function keepAlive(x:AnyInterface) {}
 
 interface Error extends stdgo.StdGoTypes.Error {

@@ -1650,7 +1650,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 
 	if (isKeyValueExpr(expr.elts)) {
 		var e = getKeyValueExpr(expr.elts, info);
-		if (e.length > 0)
+		if (e.length > 1)
 			return (macro new $p($a{e})).expr;
 		return (macro(${e[0]} : $type)).expr;
 	}

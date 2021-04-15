@@ -140,11 +140,6 @@ function main(data:DataType) {
 					default:
 				}
 			}
-			for (decl in declFuncs) { // parse function bodies last
-				var func = typeFunction(decl, info);
-				if (func != null)
-					data.defs.push(func);
-			}
 
 			for (i in 0...info.data.defs.length) {
 				var defRename = null;
@@ -168,7 +163,6 @@ function main(data:DataType) {
 					continue;
 				info.global.renameTypes[defRename.name] = defRename.name = defRename.name = "_" + defRename.name;
 			}
-
 			typeImplements(info);
 			// make blank identifiers not name conflicting for global
 			var blankCounter:Int = 0;
@@ -186,6 +180,13 @@ function main(data:DataType) {
 					default:
 				}
 			}
+
+			for (decl in declFuncs) { // parse function bodies last
+				var func = typeFunction(decl, info);
+				if (func != null)
+					data.defs.push(func);
+			}
+
 			// setup implements
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: ""});
@@ -337,11 +338,14 @@ private function typeGenDecl(decl:Ast.GenDecl, info:Info) {
 		}
 	}
 	// variables after so that all types can be refrenced by a value and have it exist.
+	info.iota = 0;
+	info.lastValue = null;
 	for (spec in specs) {
 		switch spec.id {
 			case "ValueSpec":
 				var spec:Ast.ValueSpec = spec;
 				info.data.defs = info.data.defs.concat(typeValue(spec, info));
+				info.iota++;
 			default:
 		}
 	}
@@ -1312,7 +1316,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function iotaExpr(info:Info):Expr {
-	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota++)))), TPath({name: "IntegerType", pack: []})));
+	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "IntegerType", pack: []})));
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info):ExprDef {
@@ -1765,6 +1769,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			if (value != null)
 				return (macro !Go.isNull($value)).expr;
 			return (macro !Go.equals($x, $y)).expr;
+		case OpShl,OpShr:
+			return EParenthesis(toExpr(EBinop(op,x,y))); //proper math ordering
 		default:
 	}
 	return EBinop(op, x, y);
@@ -2468,14 +2474,16 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			value.names[i] += (info.count++);
 		}
 		var expr:Expr = null;
+
 		if (value.values[i] == null) {
 			if (type != null) {
 				expr = defaultValue(type, info, 0, false);
 			} else {
-				// IOTA
-				expr = iotaExpr(info); // toExpr(EConst(CInt(Std.string(info.iota++))));
+				//last expr use
+				expr = typeExpr(info.lastValue,info);
 			}
 		} else {
+			info.lastValue = value.values[i];
 			expr = typeExpr(value.values[i], info);
 		}
 		if (expr == null)
@@ -2613,11 +2621,13 @@ class Info {
 	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
+	public var lastValue:Ast.Expr = null;
 	public var data:FileType;
 	public var global = new Global();
 	public function new() {}
 	public inline function clone() {
 		var info = new Info();
+		info.lastValue = lastValue;
 		info.thisName = thisName;
 		info.hasType = hasType;
 		info.lengths = lengths;

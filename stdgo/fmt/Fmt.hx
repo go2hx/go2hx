@@ -41,12 +41,9 @@ function sprintln(args:Rest<Dynamic>) {
 }
 
 private function parse(args:Array<Dynamic>):Array<Dynamic> {
-	for (arg in args) {
-		if (Int64.isInt64(arg)) {
-			var str = Int64.toStr(arg);
-			args.push(str);
-			args.remove(arg);
-		}
+	for (i in 0...args.length) {
+		if (Int64.isInt64(args[i]))
+			args[i] = Int64.toStr(args[i]);
 	}
 	return args;
 }

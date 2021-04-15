@@ -2464,8 +2464,9 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	}
 	var values:Array<TypeDefinition> = [];
 	for (i in 0...value.names.length) {
-		if (value.names[i] == "_")
-			continue;
+		if (value.names[i] == "_") {
+			value.names[i] += (info.count++);
+		}
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
@@ -2596,6 +2597,7 @@ class Global {
 class Info {
 	public var returnNamed:Bool = false;
 	public var localVars:Map<String,Bool> = [];
+	public var blankCounter:Int = 0;
 	public var count:Int = 0;
 	public var thisName:String = "";
 	public var hasType:Bool = false;

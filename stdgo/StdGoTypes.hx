@@ -926,8 +926,10 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	public inline function new(x)
 		this = x;
 
-	public inline function toString():String
+	function toString():GoString
 		return Int64.toStr(this);
+	public static inline function toStr(x:IntegerType):GoString
+		return x.toString();
 
 	function toBasic():Int64
 		return this;

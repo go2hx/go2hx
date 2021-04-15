@@ -1,5 +1,7 @@
 package stdgo;
 
+import stdgo.StdGoTypes.IntegerType;
+import stdgo.StdGoTypes.GoRune;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoUInt8;
@@ -16,12 +18,19 @@ abstract GoString(String) from String to String {
 		return new AnyInterface({value: this, typeName: "string"});
 	}
 
-	@:from static function ofUInt8(x:GoUInt8):GoString {
+	@:from static function ofRune(x:GoRune):GoString {
 		return String.fromCharCode(x.toBasic());
 	}
 
 	@:from static function ofSlice(x:Slice<GoByte>):GoString {
-		return [for (i in x) (i : GoString)].join("");
+		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
+		for (i in 0...bytes.length)
+			bytes.set(i,x[i].toBasic());
+		return bytes.toString();
+	}
+
+	@:from static function ofIntegerType(x:IntegerType):GoString {
+		return String.fromCharCode(x);
 	}
 
 	@:arrayAccess

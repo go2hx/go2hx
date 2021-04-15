@@ -932,42 +932,6 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 	function toBasic():Int64
 		return this;
 
-	@:from private static function fromString(x:String):IntegerType
-		return Int64.parseString(x);
-
-	@:from private static function fromInt(x:Int):IntegerType
-		return Int64.ofInt(x);
-
-	@:from private static function fromGoInt(x:GoInt):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromUInt(x:GoUInt):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromInt8(x:GoInt8):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromInt16(x:GoInt16):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromUInt8(x:GoUInt8):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromUInt16(x:GoUInt16):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromInt64(x:GoInt64):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromUInt64(x:GoUInt64):IntegerType
-		return x.toBasic();
-
-	@:from private static function fromFloat32(x:GoFloat32):IntegerType
-		return Int64.fromFloat(x.toBasic());
-
-	@:from private static function fromFloat64(x:GoFloat64):IntegerType
-		return Int64.fromFloat(x.toBasic());
-
 	@:to function toInt():GoInt
 		return Int64.toInt(this);
 
@@ -1013,6 +977,42 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	@:to function toHaxeInt():Int
 		return Int64.toInt(this);
+
+	@:from private static function fromString(x:String):IntegerType
+		return Int64.parseString(x);
+
+	@:from private static function fromInt(x:Int):IntegerType
+		return Int64.ofInt(x);
+
+	@:from private static function fromGoInt(x:GoInt):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromUInt(x:GoUInt):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromInt8(x:GoInt8):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromInt16(x:GoInt16):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromUInt8(x:GoUInt8):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromUInt16(x:GoUInt16):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromInt64(x:GoInt64):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromUInt64(x:GoUInt64):IntegerType
+		return x.toBasic();
+
+	@:from private static function fromFloat32(x:GoFloat32):IntegerType
+		return Int64.fromFloat(x.toBasic());
+
+	@:from private static function fromFloat64(x:GoFloat64):IntegerType
+		return Int64.fromFloat(x.toBasic());
 
 	@:op(A > B) private static function gt(a:IntegerType, b:IntegerType):Bool
 		return a.toBasic() > b.toBasic();

@@ -1628,6 +1628,34 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		switch type {
 			case TPath(tp):
 				p = tp;
+				if (p.name == "GoArray" && p.params != null && p.params.length == 1) {
+					var len = info.lengths.shift();
+					if (len != null) {
+						switch len.expr {
+							case EConst(c):
+								switch c {
+									case CInt(v):
+										getParams();
+										if (p == null)
+											throw "type path new is null: " + expr;
+										var len = Std.parseInt(v);
+										var dif = len - params.length;
+										if (dif > 0) {
+											var a:Ast.ArrayType = expr.type;
+											var elt = typeExprType(a.elt,info);
+											for (i in 0...dif)
+												params.push(defaultValue(elt,info,0,false));
+										}
+										return (macro new $p($a{params})).expr;
+									case CIdent(s):
+										trace("TODO: know constant values");
+									default:
+								}
+							default:
+						}
+					}
+				}
+
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):

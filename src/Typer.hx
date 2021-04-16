@@ -1394,10 +1394,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro new GoComplex128($a{args})).expr;
 				case "real":
 					var e = typeExpr(expr.args[0], info);
-					return (macro e.real).expr;
+					return (macro $e.real).expr;
 				case "imag":
 					var e = typeExpr(expr.args[0], info);
-					return (macro e.imag).expr;
+					return (macro $e.imag).expr;
 				case "close":
 					var e = typeExpr(expr.args[0], info);
 					return (macro $e.close()).expr;

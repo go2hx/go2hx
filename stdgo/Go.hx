@@ -48,7 +48,7 @@ class Go {
 					case "GoMap":
 						switch p.params[1] { //value default value add
 							case TPType(t):
-								return macro new $p(${Go.defaultValue(t,null,false)});
+								return macro new $p(${defaultValue(t,null,false)});
 							default:
 						}
 					default:
@@ -511,7 +511,7 @@ class Go {
 					if (params[i] == null) {
 						switch fields[i].kind {
 							case FVar(t, e):
-								expr = stdgo.Go.defaultValue(t, pos);
+								expr = defaultValue(t, pos);
 							default: // FFunc is nil by default
 						}
 					} else {

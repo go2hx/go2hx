@@ -163,7 +163,6 @@ function main(data:DataType) {
 					continue;
 				info.global.renameTypes[defRename.name] = defRename.name = defRename.name = "_" + defRename.name;
 			}
-			typeImplements(info);
 			// make blank identifiers not name conflicting for global
 			var blankCounter:Int = 0;
 			for (def in info.data.defs) {
@@ -186,8 +185,9 @@ function main(data:DataType) {
 				if (func != null)
 					data.defs.push(func);
 			}
-
 			// setup implements
+			typeImplements(info);
+
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: ""});
 			for (path => alias in info.global.imports)
@@ -500,7 +500,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		for (value in info.returnValues) {
 			var name = value.name;
 			var type = value.type;
-			exprs.unshift(macro var $name:$type = ${stdgo.Go.defaultValue(type,null,false)});
+			exprs.unshift(macro var $name:$type = ${defaultValue(type,info,false)});
 		}
 	}
 
@@ -997,7 +997,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		}
 
 		if (info.returnValue != null)
-			return ret(EReturn(defaultValue(info.returnValue, null, 0, false)));
+			return ret(EReturn(defaultValue(info.returnValue, info, 0, false)));
 		return ret(EReturn());
 	}
 	if (stmt.results.length == 1) {
@@ -1449,7 +1449,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (p.name == "Pointer" || p.name == "PointerWrapper") {
 							switch p.params[0] {
 								case TPType(t2):
-									var value = defaultValue(t2, null);
+									var value = defaultValue(t2, info);
 									return (macro Go.pointer($value)).expr;
 								default:
 							}
@@ -1463,7 +1463,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								switch c {
 									case CIdent(s):
 										if (s == "null") {
-											var e = defaultValue(t, null, true);
+											var e = defaultValue(t, info, 0,true);
 											return e.expr;
 										}
 									default:
@@ -1482,7 +1482,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = defaultValue(type, null, true);
+								var e = defaultValue(type, info, 0, true);
 								return e.expr;
 							}
 						default:
@@ -1499,7 +1499,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = defaultValue(type, null, true);
+								var e = defaultValue(type, info,0, true);
 								return e.expr;
 							}
 						default:
@@ -1631,7 +1631,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(defaultValue(t, null, false));
+							params.push(defaultValue(t, info, 0,false));
 							var e = getKeyValueExpr(expr.elts, info);
 							params = params.concat(e);
 							return (macro new $p($a{params})).expr;
@@ -1880,7 +1880,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(type, null, true);
+						var e = defaultValue(type, info,0, true);
 						return e.expr;
 					}
 				default:
@@ -2068,17 +2068,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	};
 }
 
-private function getRetValues(info:Info) {
-	/*return toExpr(EVars([
-		for (value in info.retValues[0])
-			{
-				name: value.name,
-				type: value.type,
-				expr: defaultValue(value.type, info, 0, false),
-			}
-	]));*/
-	return null;
-}
+var interfaces:Map<String,Bool> = [
+	//store stdgo interfaces here
+];
 
 private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict:Bool = true):Expr {
 	switch type {
@@ -2095,6 +2087,15 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict
 					}
 				}
 			}
+			if (p.name == "Error") { //TODO: check for potential overwrite
+				return macro null;
+			}
+			//interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
+			var name = info.global.path + "/" + info.data.name + "/" + p.name;
+			if (interfaces.exists(name)) { //local instance
+				return macro null;
+			}
+
 		default:
 	}
 	return stdgo.Go.defaultValue(type, null, strict);
@@ -2391,7 +2392,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				kind: FVar(null, macro 0),
 			});
 			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
-
+			interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
 			return {
 				name: name,
 				pos: null,
@@ -2421,7 +2422,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				doc: doc,
 				fields: fields,
 				meta: [getAllow(info)],
-				kind: TDClass(null, [], true)
+				kind: TDClass(null, [], true) //INTERFACE
 			};
 		// error("unknown interface type spec"); null;
 		default:

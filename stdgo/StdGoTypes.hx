@@ -97,6 +97,10 @@ function clampInt16(x:Int):Int {
 function clampUInt8(x:Int):Int
 	return x & 0xFF;
 
+function clampFloat32(x:Float):Float
+	return x;
+	
+
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
@@ -171,6 +175,36 @@ abstract GoFloat(Float) from Float {
 	public inline function new(x = 0)
 		this = x;
 
+	@:to inline function toFloat32():GoFloat32
+		return clampFloat32(this);
+	
+	@:to inline function toInt64():GoInt64
+		return Int64.fromFloat(this);
+
+	@:to inline function toInt():GoInt
+		return Std.int(this);
+
+	@:to inline function toInt8():GoInt8
+		return Std.int(this);
+
+	@:to inline function toInt16():GoInt16
+		return Std.int(this);
+
+	@:to inline function toUInt():GoUInt
+		return clampUInt(Std.int(this));
+
+	@:to inline function toUInt8():GoUInt8
+		return clampUInt8(Std.int(this));
+
+	@:to inline function toUInt16():GoUInt16
+		return clampUInt16(Std.int(this));
+
+	@:to inline function toUInt64():GoUInt64
+		return this > 0 ? this : 0;
+
+	public static function ofInt(x:Int):GoUInt
+		return x;
+
 	public inline function toBasic()
 		return this;
 
@@ -229,6 +263,33 @@ abstract GoFloat32(Float32) from Float32 {
 	public inline function new(x = 0)
 		this = x;
 
+	@:to inline function toFloat64():GoFloat64
+		return this;
+
+	@:to inline function toInt64():GoInt64
+		return Int64.fromFloat(this);
+
+	@:to inline function toInt():GoInt
+		return Std.int(this);
+
+	@:to inline function toInt8():GoInt8
+		return Std.int(this);
+
+	@:to inline function toInt16():GoInt16
+		return Std.int(this);
+
+	@:to inline function toUInt():GoUInt
+		return clampUInt(Std.int(this));
+
+	@:to inline function toUInt8():GoUInt8
+		return clampUInt8(Std.int(this));
+
+	@:to inline function toUInt16():GoUInt16
+		return clampUInt16(Std.int(this));
+
+	@:to inline function toUInt64():GoUInt64
+		return this > 0 ? this : 0;
+
 	public inline function toBasic()
 		return this;
 
@@ -256,6 +317,18 @@ abstract GoFloat32(Float32) from Float32 {
 		return a.toBasic() / b.toBasic();
 	}
 
+	@:op(~A) private static function bneg(t:GoFloat32):GoFloat32;
+
+	@:op(-A) private static function neg(t:GoFloat32):GoFloat32;
+
+	@:op(++A) private inline function preInc():GoFloat32 {
+		return this = this + 1;
+	}
+	@:op(A++) private inline function postInc():GoFloat32 {
+		var ret = this;
+		preInc();
+		return ret;
+	}
 	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool;
 
 	@:op(A >= B) private static function gte(a:GoFloat32, b:GoFloat32):Bool;
@@ -290,6 +363,9 @@ abstract GoComplex64(Complex64) from Complex64 {
 	public inline function new(r:GoFloat32, i:GoFloat32)
 		this = new Complex64(r.toBasic(), i.toBasic());
 
+	@:to inline function toComplex128():GoComplex128
+		return new GoComplex128(real,imag);
+	
 	public inline function toBasic()
 		return this;
 
@@ -344,12 +420,17 @@ abstract GoComplex64(Complex64) from Complex64 {
 
 	@:op(~A) private static function bneg(t:GoComplex64):GoComplex64
 		return new GoComplex64(0.0 - t.real.toBasic(), 0.0 - t.imag.toBasic());
+	@:op(-A) private static function neg(t:GoComplex64):GoComplex64
+		return new GoComplex64(-t.real,t.imag);
 }
 
 abstract GoComplex128(Complex128) from Complex128 {
 	public inline function new(r:GoFloat64, i:GoFloat64)
 		this = new Complex128(r.toBasic(), i.toBasic());
 
+	@:to inline function toComplex64():GoComplex64 {
+		return new GoComplex64(clampFloat32(real),clampFloat32(imag));
+	}
 	public inline function toBasic()
 		return this;
 
@@ -401,6 +482,9 @@ abstract GoComplex128(Complex128) from Complex128 {
 
 	@:op(~A) private static function bneg(t:GoComplex128):GoComplex128
 		return new GoComplex128(0.0 - t.real, 0.0 - t.imag);
+
+	@:op(-A) private static function neg(t:GoComplex128):GoComplex128
+		return new GoComplex128(-t.real,t.imag);
 
 	@:op(A == B) private static function eq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real == b.real && a.imag == b.imag;
@@ -570,6 +654,12 @@ abstract GoUInt(Int) from Int {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+
+	@:to inline function toFloat32():GoFloat32
+		return this;
+
+	@:to inline function toFloat64():GoFloat64
+		return this;
 
 	public static function ofInt(x:Int):GoUInt
 		return x;
@@ -979,12 +1069,14 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	@:to function toHaxeInt():Int
 		return Int64.toInt(this);
-
 	@:from private static function fromString(x:String):IntegerType
 		return Int64.parseString(x);
 
 	@:from private static function fromInt(x:Int):IntegerType
 		return Int64.ofInt(x);
+
+	@:from private static function fromFloat(x:Float):IntegerType
+		return Int64.fromFloat(x);
 
 	@:from private static function fromGoInt(x:GoInt):IntegerType
 		return x.toBasic();

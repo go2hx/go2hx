@@ -178,17 +178,23 @@ abstract GoFloat(Float) from Float {
 	@:to inline function toFloat32():GoFloat32
 		return clampFloat32(this);
 	
-	@:to inline function toInt64():GoInt64
+	@:to inline function toInt64():GoInt64 {
+		if (Math.isNaN(this))
+			return Int64.parseString("-9223372036854775808");
 		return Int64.fromFloat(this);
+	}
 
-	@:to inline function toInt():GoInt
+	@:to inline function toInt():GoInt {
+		if (Math.isNaN(this))
+			return -2147483648;
 		return Std.int(this);
+	}
 
 	@:to inline function toInt8():GoInt8
-		return Std.int(this);
+		return clampInt8(Std.int(this));
 
 	@:to inline function toInt16():GoInt16
-		return Std.int(this);
+		return clampInt16(Std.int(this));
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(Std.int(this));
@@ -199,8 +205,11 @@ abstract GoFloat(Float) from Float {
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(Std.int(this));
 
-	@:to inline function toUInt64():GoUInt64
+	@:to inline function toUInt64():GoUInt64 {
+		if (Math.isNaN(this))
+			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
+	}
 
 	public static function ofInt(x:Int):GoUInt
 		return x;
@@ -266,17 +275,23 @@ abstract GoFloat32(Float32) from Float32 {
 	@:to inline function toFloat64():GoFloat64
 		return this;
 
-	@:to inline function toInt64():GoInt64
+	@:to inline function toInt64():GoInt64 {
+		if (Math.isNaN(this))
+			return Int64.parseString("-9223372036854775808");
 		return Int64.fromFloat(this);
+	}
 
-	@:to inline function toInt():GoInt
+	@:to inline function toInt():GoInt {
+		if (Math.isNaN(this))
+			return -2147483648;
 		return Std.int(this);
+	}
 
 	@:to inline function toInt8():GoInt8
-		return Std.int(this);
+		return clampInt8(Std.int(this));
 
 	@:to inline function toInt16():GoInt16
-		return Std.int(this);
+		return clampInt16(Std.int(this));
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(Std.int(this));
@@ -287,8 +302,11 @@ abstract GoFloat32(Float32) from Float32 {
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(Std.int(this));
 
-	@:to inline function toUInt64():GoUInt64
+	@:to inline function toUInt64():GoUInt64 {
+		if (Math.isNaN(this))
+			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
+	}
 
 	public inline function toBasic()
 		return this;
@@ -1540,8 +1558,13 @@ abstract GoUInt64(UInt64) from UInt64 {
 	public inline function _typeName_()
 		return "uint64";
 
-	@:from public static inline function ofString(x:String):GoUInt64
-		return UInt64.parseString(x);
+	@:from public static inline function ofString(x:String):GoUInt64 {
+		try {
+			return UInt64.parseString(x);
+		}catch(e) { //TODO: implement own uint64 parser in order to support full range of uint64 past positive int64
+			return 0;
+		}
+	}
 
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return UInt64.ofInt(x);

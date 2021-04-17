@@ -370,26 +370,18 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "LabeledStmt": typeLabeledStmt(stmt, info);
 		case "BlockStmt": typeBlockStmt(stmt, info, false, false);
 		case "BadStmt":
-			error("BAD STATEMENT TYPED");
-			null;
+			throw "BAD STATEMENT TYPED";
 		case "GoStmt": typeGoStmt(stmt, info);
 		case "BranchStmt": typeBranchStmt(stmt, info);
 		case "SelectStmt": typeSelectStmt(stmt, info);
 		case "SendStmt": typeSendStmt(stmt, info);
 		case "CommClause": typeCommClause(stmt, info);
 		default:
-			error("unknown stmt id: " + stmt.id);
-			null;
+			throw "unknown stmt id: " + stmt.id;
 	}
-	return def == null ? {error("stmt null: " + stmt.id); null;} : toExpr(def);
-}
-
-var errorCache = new StringMap<Bool>();
-
-private function error(message:String) {
-	if (!errorCache.exists(message))
-		throw(message);
-	errorCache.set(message, true);
+	if (def == null)
+		throw "stmt null: " + stmt.id;
+	return toExpr(def);
 }
 
 // STMT
@@ -530,7 +522,7 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 		case INC: return (macro $x++).expr;
 		case DEC: return (macro $x--).expr;
 		default:
-			error("unknown IncDec token: " + stmt.tok);
+			throw "unknown IncDec token: " + stmt.tok;
 			null;
 	}
 }
@@ -913,7 +905,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				return (macro Go.destruct($a{exprs})).expr;
 			} else {
-				error("unknown type assign type: " + stmt);
+				throw "unknown type assign type: " + stmt;
 				return null;
 			}
 		case DEFINE: // var expr = x;
@@ -951,11 +943,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				return (macro Go.destruct($a{exprs})).expr;
 			} else {
-				error("unknown type assign define type: " + stmt);
+				throw "unknown type assign define type: " + stmt;
 				return null;
 			}
 		default:
-			error("type assign tok not found: " + stmt.tok);
+			throw "type assign tok not found: " + stmt.tok;
 			return null;
 	}
 }
@@ -1035,11 +1027,11 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 		case "SelectorExpr": selectorType(expr, info); // path
 		case "Ellipsis": ellipsisType(expr, info); // Rest arg
 		default:
-			error("Type expr unknown: " + expr.id);
+			throw "Type expr unknown: " + expr.id;
 			null;
 	}
 	if (type == null)
-		error("Type expr is null: " + expr.id);
+		throw "Type expr is null: " + expr.id;
 	return type;
 }
 
@@ -1284,14 +1276,16 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 		// case "KeyValueExpr": typeKeyValueExpr(expr,info);
 		case "MapType": typeMapType(expr, info);
 		case "BadExpr":
-			error("BAD EXPRESSION TYPED");
+			throw "BAD EXPRESSION TYPED";
 			null;
 		case "InterfaceType": typeInterfaceType(expr, info);
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
 	};
-	return def == null ? {error("expr null: " + expr.id); null;} : toExpr(def);
+	if (def == null)
+		throw "expr null: " + expr.id;
+	return toExpr(def);
 }
 
 // EXPR
@@ -1583,7 +1577,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
 			return (macro new GoComplex128(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
-			error("basic lit kind unknown: " + expr.kind);
+			throw "basic lit kind unknown: " + expr.kind;
 			null;
 	}
 }
@@ -1816,7 +1810,7 @@ private function typeUnOp(token:Ast.Token):Unop {
 		case XOR: null;
 		case ADD: null;
 		default:
-			error("unknown unop token: " + token);
+			throw "unknown unop token: " + token;
 			OpNegBits;
 	}
 }
@@ -1859,7 +1853,7 @@ private function typeOp(token:Ast.Token):Binop {
 		case RANGE: OpInterval; // TODO turn into iterator
 		case ELLIPSIS: OpInterval;
 		default:
-			error("unknown op token: " + token);
+			throw "unknown op token: " + token;
 			OpInterval;
 	}
 }
@@ -2456,7 +2450,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				meta: [getAllow(info)],
 				kind: TDClass(null, [], true) //INTERFACE
 			};
-		// error("unknown interface type spec"); null;
 		default:
 			var type = typeExprType(spec.type, info);
 			if (type == null)

@@ -419,7 +419,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case CONTINUE: EContinue;
 		case BREAK: EBreak;
 		case GOTO:
-			var name = toExpr(typeIdent(stmt.label, info));
+			var name = toExpr(typeIdent(stmt.label, info,false));
 			return (macro return $name()).expr;
 		case FALLTHROUGH: EBreak; // TODO
 		default: EBreak;
@@ -457,7 +457,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			switch list[i].id {
 				case "LabeledStmt":
 					var stmt:Ast.LabeledStmt = list[i];
-					var name = nameIdent(stmt.label.name, info);
+					var name = nameIdent(stmt.label.name, info,true,false);
 					labels.push(name);
 					var body = exprs.splice(i, list.length);
 					var func = toExpr(EFunction(null, {
@@ -584,7 +584,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch value.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): valueString = nameIdent(s, info);
+					case CIdent(s): valueString = nameIdent(s, info,false,false);
 					default:
 				}
 			default:
@@ -594,7 +594,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch key.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): keyString = nameIdent(s, info);
+					case CIdent(s): keyString = nameIdent(s, info,false,false);
 					default:
 				}
 			default:
@@ -682,7 +682,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					vars = vars.concat([
 						for (i in 0...spec.names.length)
 							{
-								name: nameIdent(spec.names[i], info),
+								name: nameIdent(spec.names[i], info,false,false),
 								type: type,
 								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info, 0, false) : null,
 							}
@@ -924,7 +924,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
 					var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
-					var name = nameIdent(stmt.lhs[i].name, info,true);
+					var name = nameIdent(stmt.lhs[i].name, info,true,false);
 					var newName = name;
 					var tempName = isTitled ? untitle(name) : title(name);
 					if (info.renameTypes.exists(tempName)) {
@@ -1234,15 +1234,15 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
-	function func(x:Ast.Expr):Array<String> {
+	function func(x:Ast.Expr,isSelector:Bool):Array<String> {
 		switch x.id {
 			case "Ident":
-				var name = nameIdent(x.name, info);
+				var name = nameIdent(x.name, info,false,isSelector);
 				return [name];
 			case "SelectorExpr":
 				var x:Ast.SelectorExpr = x;
-				var name = nameIdent(x.sel.name, info);
-				return [name].concat(func(x.x));
+				var name = nameIdent(x.sel.name, info,false,false);
+				return [name].concat(func(x.x,true));
 			default:
 				trace("unknown x id: " + x.id);
 				return [];
@@ -1250,7 +1250,7 @@ private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
 	}
 	return TPath({
 		name: expr.sel.name,
-		pack: func(expr.x),
+		pack: func(expr.x,false),
 	});
 }
 
@@ -1267,7 +1267,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
-		case "Ident": typeIdent(expr, info);
+		case "Ident": typeIdent(expr, info,false);
 		case "CallExpr": typeCallExpr(expr, info);
 		case "BasicLit": typeBasicLit(expr, info);
 		case "UnaryExpr": typeUnaryExpr(expr, info);
@@ -1319,11 +1319,11 @@ private function iotaExpr(info:Info):Expr {
 	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "IntegerType", pack: []})));
 }
 
-private function typeIdent(expr:Ast.Ident, info:Info):ExprDef {
+private function typeIdent(expr:Ast.Ident, info:Info,isSelect:Bool):ExprDef {
 	if (expr.name == "iota") {
 		return iotaExpr(info).expr;
 	}
-	var name = nameIdent(expr.name, info);
+	var name = nameIdent(expr.name, info,false,isSelect);
 	return EConst(CIdent(name));
 }
 
@@ -1421,7 +1421,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
 					return (macro Go.make($a{args})).expr;
-				default:
+				default: //cast to type ($e : $t)
 					if (expr.args.length == 1) {
 						var isType = basicTypes.indexOf(expr.fun.name) != -1;
 						if (!isType) {
@@ -1579,7 +1579,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			}
 			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
-			EConst(CIdent(nameIdent(expr.value, info)));
+			EConst(CIdent(nameIdent(expr.value, info,false,false)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
 			return (macro new GoComplex128(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
@@ -1635,6 +1635,10 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 							case EConst(c):
 								switch c {
 									case CInt(v):
+										if (isKeyValueExpr(expr.elts)) {
+											var exprs = getKeyValueExpr(expr.elts, info);
+											return (macro Go.setKeys($a{exprs})).expr;
+										}
 										getParams();
 										if (p == null)
 											throw "type path new is null: " + expr;
@@ -1705,7 +1709,7 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 			continue;
 		if (e.kind == "") {
 			fields.push({
-				field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info),
+				field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info,false,false),
 				expr: e.value,
 			});
 		} else {
@@ -1866,9 +1870,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	switch x.expr {
 		case EField(e, field):
 			if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-				sel = nameIdent(sel, info);
+				sel = nameIdent(sel, info,false,true);
 			} else {
-				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info);
+				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
 			}
 		case EConst(c):
 			switch c {
@@ -1876,14 +1880,14 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					var index = s.lastIndexOf(".");
 					var field = s.substr(index + 1);
 					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-						sel = nameIdent(sel, info);
+						sel = nameIdent(sel, info,false,true);
 					} else {
-						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info);
+						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
 					}
 				default:
 			}
 		default:
-			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info);
+			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
 	}
 	return (macro $x.$sel).expr; // EField
 }
@@ -1954,10 +1958,10 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
+	info.typeNames = data.typeNames;
 	info.data = data.data;
 	info.global = data.global;
-
-	var name = nameIdent(decl.name.name, info);
+	var name = nameIdent(decl.name.name, info,false,false);
 	info.funcName = name;
 	info.returnValues = [];
 	var ret = typeFieldListReturn(decl.type.results, info, true);
@@ -2170,7 +2174,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		} else {
 			for (name in group.names) {
 				list.push({
-					name: nameIdent(name.name, info),
+					name: nameIdent(name.name, info,false,false),
 					type: type,
 				});
 			}
@@ -2220,7 +2224,7 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 		}
 		for (name in field.names) {
 			args.push({
-				name: nameIdent(name.name, info),
+				name: nameIdent(name.name, info,false,false),
 				type: type,
 			});
 		}
@@ -2256,7 +2260,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBo
 					name = "_" + name;
 			}
 			fields.push({
-				name: nameIdent(name, info),
+				name: nameIdent(name, info,false,false),
 				pos: null,
 				access: typeAccess(n.name, true),
 				kind: FFun({
@@ -2285,7 +2289,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 							name = "_" + name;
 					}
 					fields.push({
-						name: nameIdent(name, info),
+						name: nameIdent(name, info,false,false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
 						kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null)
@@ -2301,7 +2305,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 					name = "_" + name;
 			}
 			fields.push({
-				name: nameIdent(name, info),
+				name: nameIdent(name, info,false,false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
 				kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null),
@@ -2317,7 +2321,7 @@ private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDef
 		var type = typeExprType(field.type, info);
 		for (name in field.names) {
 			defs.push({
-				name: nameIdent(name.name, info),
+				name: nameIdent(name.name, info,false,false),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -2517,7 +2521,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		}
 		if (expr == null)
 			continue;
-		var name = nameIdent(value.names[i], info);
+		var name = nameIdent(value.names[i], info,false,false);
 		var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
 		var access = typeAccess(value.names[i]);
 		if (value.constants[i])
@@ -2569,7 +2573,7 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
 
-private function nameIdent(name:String, info:Info, forceString:Bool=false):String {
+private function nameIdent(name:String, info:Info, forceString:Bool,isSelect:Bool):String {
 	if (name == "nil")
 		return "null";
 	if (info.localVars.exists(name))
@@ -2584,6 +2588,8 @@ private function nameIdent(name:String, info:Info, forceString:Bool=false):Strin
 		name = untitle(name);
 		if (reserved.indexOf(name) != -1)
 			name += "_";
+		if (!isSelect && name == info.funcName)
+			return info.data.name + "." + name;
 	}else{
 		info.localVars[name] = true;
 	}

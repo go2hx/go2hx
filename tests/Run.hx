@@ -33,6 +33,7 @@ function tinygo() {
 	pathto = "/tinygo/testdata/";
 	for (test in ["atomic",])
 		tests.remove('.$pathto$test.go');
+	//tests = ['.$pathto' + "float.go"];
 	compile(tests, true);
 }
 
@@ -55,7 +56,7 @@ function gen() {
 
 	])
 		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "iota.go"];
+	//tests = ['.$pathto' + "iota.go"];
 	compile(tests, false);
 }
 

@@ -5,7 +5,8 @@ function main() {
 	Main.init(["-ident", "./rnd"]);
 	for (path in Main.exportPaths) {
 		path = StringTools.replace(path, "/", ".");
-		var command = 'haxe -cp golibs -main $path --macro stdgo.internal.GoGen.build() --interp';
+		var command = 'haxe -cp golibs -main $path --interp';
+		//command += ' --macro stdgo.internal.GoGen.build()';
 		trace(command);
 		Sys.command(command);
 	}

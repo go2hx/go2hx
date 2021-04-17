@@ -1593,9 +1593,28 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 		if (type == null)
 			return switch expr.op {
 				case XOR: EBinop(OpXor, macro - 1, x);
-				case ARROW: return (macro $x.get()).expr;
+				case ARROW: (macro $x.get()).expr;
 				default: x.expr;
 			}
+		switch expr.op {
+			case SUB:
+				switch x.expr {
+					case ECheckType(e, t):
+						switch e.expr {
+							case EConst(c):
+								var isConst = true;
+								switch c {
+									case CInt(v): return ECheckType(toExpr(EConst(CInt('-$v'))),t);
+									case CFloat(f):	return ECheckType(toExpr(EConst(CFloat('-$f'))),t);
+									case CString(s, kind): return ECheckType(toExpr(EConst(CString('-$s'))),t);
+									default:
+								}
+							default:
+						}
+					default:
+				}
+			default:
+		}
 		return EUnop(type, false, x);
 	}
 }
@@ -1755,7 +1774,7 @@ private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	var y = typeExpr(expr.y, info);
-	switch expr.op { // operators that don't exist in haxe needle to be handled here
+	switch expr.op { // operators that don't exist in haxe need to be handled here
 		case AND_NOT: // refrenced from Simon's Tardisgo
 			return (macro $x & ($y ^ (-1 : IntegerType))).expr;
 		default:

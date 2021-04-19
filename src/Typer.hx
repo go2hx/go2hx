@@ -126,7 +126,7 @@ function main(data:DataType) {
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
-			//var info = new Info();
+			// var info = new Info();
 			info.data = data;
 			info.global.path = module.path;
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -140,7 +140,7 @@ function main(data:DataType) {
 					default:
 				}
 			}
-			//check for overriding functions
+			// check for overriding functions
 			var removal = [];
 			for (i in 0...declFuncs.length) {
 				for (j in 0...declFuncs.length) {
@@ -198,7 +198,7 @@ function main(data:DataType) {
 			}
 			// setup implements
 			typeImplements(info);
-			//init system
+			// init system
 			if (info.global.initBlock.length > 0) {
 				data.defs.push({
 					name: "__init__",
@@ -436,7 +436,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case CONTINUE: EContinue;
 		case BREAK: EBreak;
 		case GOTO:
-			var name = toExpr(typeIdent(stmt.label, info,false));
+			var name = toExpr(typeIdent(stmt.label, info, false));
 			return (macro return $name()).expr;
 		case FALLTHROUGH: EBreak; // TODO
 		default: EBreak;
@@ -474,7 +474,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			switch list[i].id {
 				case "LabeledStmt":
 					var stmt:Ast.LabeledStmt = list[i];
-					var name = nameIdent(stmt.label.name, info,true,false);
+					var name = nameIdent(stmt.label.name, info, true, false);
 					labels.push(name);
 					var body = exprs.splice(i, list.length);
 					var func = toExpr(EFunction(null, {
@@ -494,7 +494,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 	if (info.deferBool && isFunc) {
 		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 		exprs.push(typeDeferReturn(info, true));
-		//recover
+		// recover
 		exprs.unshift(macro var recover_exception:Dynamic = null);
 		var pos = 2;
 		var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
@@ -517,7 +517,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		for (value in info.returnValues) {
 			var name = value.name;
 			var type = value.type;
-			exprs.unshift(macro var $name:$type = ${defaultValue(type,info,false)});
+			exprs.unshift(macro var $name:$type = ${defaultValue(type, info, false)});
 		}
 	}
 
@@ -526,13 +526,13 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		exprs.push(toExpr(ret)); // blank return
 	}
 	if (!isFunc) {
-		//leave scope and set back to before
+		// leave scope and set back to before
 		info.renameTypes = oldRenameTypes;
 		info.retypeList = oldRetypeList;
 		info.localVars = oldLocalVars;
 	}
 	// add potential return value variables
-	//if (info.retValues.length > 0 && info.retValues[0].length > 0)
+	// if (info.retValues.length > 0 && info.retValues[0].length > 0)
 	//	exprs.unshift(getRetValues(local));
 	return EBlock(exprs);
 }
@@ -601,7 +601,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch value.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): valueString = nameIdent(s, info,false,false);
+					case CIdent(s): valueString = nameIdent(s, info, false, false);
 					default:
 				}
 			default:
@@ -611,7 +611,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch key.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): keyString = nameIdent(s, info,false,false);
+					case CIdent(s): keyString = nameIdent(s, info, false, false);
 					default:
 				}
 			default:
@@ -637,7 +637,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 				}
 			default:
 		}
-	} else { //ASSIGN
+	} else { // ASSIGN
 		switch body.expr {
 			case EBlock(exprs):
 				if (key != null) {
@@ -699,7 +699,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					vars = vars.concat([
 						for (i in 0...spec.names.length)
 							{
-								name: nameIdent(spec.names[i], info,false,false),
+								name: nameIdent(spec.names[i], info, false, false),
 								type: type,
 								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info, 0, false) : null,
 							}
@@ -899,7 +899,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			if (blankBool) {
 				var exprs:Array<Expr> = [];
 				for (rhs in stmt.rhs) {
-					exprs.push(typeExpr(rhs,info));
+					exprs.push(typeExpr(rhs, info));
 				}
 				if (exprs.length == 1)
 					return exprs[0].expr;
@@ -913,7 +913,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						var y = typeExpr(stmt.rhs[i], info);
 						if (x == null || y == null)
 							return null;
-						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y)); //blank means no assign/define just the rhs expr
+						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y)); // blank means no assign/define just the rhs expr
 					}
 				];
 				if (exprs.length == 1)
@@ -941,7 +941,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
 					var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
-					var name = nameIdent(stmt.lhs[i].name, info,true,false);
+					var name = nameIdent(stmt.lhs[i].name, info, true, false);
 					var newName = name;
 					var tempName = isTitled ? untitle(name) : title(name);
 					if (info.renameTypes.exists(tempName)) {
@@ -1005,10 +1005,11 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 			return ret(EReturn(toExpr(EConst(CIdent(info.returnValues[0].name)))));
 		if (info.returnValues.length > 1) {
 			var expr = toExpr(EObjectDecl([
-				for (value in info.returnValues) {
-					field: value.name,
-					expr: toExpr(EConst(CIdent(value.name))),
-				}
+				for (value in info.returnValues)
+					{
+						field: value.name,
+						expr: toExpr(EConst(CIdent(value.name))),
+					}
 			]));
 			return ret(EReturn(expr));
 		}
@@ -1029,10 +1030,11 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	// multireturn
 	var expr = toExpr(EObjectDecl([
-		for (i in 0...stmt.results.length) {
-			field: info.returnValues[i].name,
-			expr: typeExpr(stmt.results[i],info),
-		}
+		for (i in 0...stmt.results.length)
+			{
+				field: info.returnValues[i].name,
+				expr: typeExpr(stmt.results[i], info),
+			}
 	]));
 	return ret(EReturn(expr));
 }
@@ -1062,7 +1064,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 
 // TYPE EXPR
 private function mapType(expr:Ast.MapType, info:Info):ComplexType {
-	var keyType = typeExprType(expr.key,info);
+	var keyType = typeExprType(expr.key, info);
 	var valueType = typeExprType(expr.value, info);
 	if (keyType == null || valueType == null)
 		return null;
@@ -1251,15 +1253,15 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
-	function func(x:Ast.Expr,isSelector:Bool):Array<String> {
+	function func(x:Ast.Expr, isSelector:Bool):Array<String> {
 		switch x.id {
 			case "Ident":
-				var name = nameIdent(x.name, info,false,isSelector);
+				var name = nameIdent(x.name, info, false, isSelector);
 				return [name];
 			case "SelectorExpr":
 				var x:Ast.SelectorExpr = x;
-				var name = nameIdent(x.sel.name, info,false,false);
-				return [name].concat(func(x.x,true));
+				var name = nameIdent(x.sel.name, info, false, false);
+				return [name].concat(func(x.x, true));
 			default:
 				trace("unknown x id: " + x.id);
 				return [];
@@ -1267,7 +1269,7 @@ private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
 	}
 	return TPath({
 		name: expr.sel.name,
-		pack: func(expr.x,false),
+		pack: func(expr.x, false),
 	});
 }
 
@@ -1284,7 +1286,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (expr == null)
 		return null;
 	var def = switch expr.id {
-		case "Ident": typeIdent(expr, info,false);
+		case "Ident": typeIdent(expr, info, false);
 		case "CallExpr": typeCallExpr(expr, info);
 		case "BasicLit": typeBasicLit(expr, info);
 		case "UnaryExpr": typeUnaryExpr(expr, info);
@@ -1338,11 +1340,11 @@ private function iotaExpr(info:Info):Expr {
 	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "IntegerType", pack: []})));
 }
 
-private function typeIdent(expr:Ast.Ident, info:Info,isSelect:Bool):ExprDef {
+private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 	if (expr.name == "iota") {
 		return iotaExpr(info).expr;
 	}
-	var name = nameIdent(expr.name, info,false,isSelect);
+	var name = nameIdent(expr.name, info, false, isSelect);
 	return EConst(CIdent(name));
 }
 
@@ -1431,7 +1433,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					addPointerImports(info);
 					switch t {
 						case TPath(p):
-							return (macro Go.pointer(${defaultValue(t,info)})).expr; // TODO does not work for non constructed types, such as basic types
+							return (macro Go.pointer(${defaultValue(t, info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -1440,7 +1442,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
 					return (macro Go.make($a{args})).expr;
-				default: //cast to type ($e : $t)
+				default: // cast to type ($e : $t)
 					if (expr.args.length == 1) {
 						var isType = basicTypes.indexOf(expr.fun.name) != -1;
 						if (!isType) {
@@ -1473,7 +1475,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								default:
 							}
 						}
-						return (macro ${defaultValue(t,info,true)}).expr;
+						return (macro ${defaultValue(t, info, true)}).expr;
 					default:
 						// trace("unknown type paren expr");
 						var expr = typeExpr(expr.args[0], info);
@@ -1482,7 +1484,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								switch c {
 									case CIdent(s):
 										if (s == "null") {
-											var e = defaultValue(t, info, 0,true);
+											var e = defaultValue(t, info, 0, true);
 											return e.expr;
 										}
 									default:
@@ -1518,7 +1520,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = defaultValue(type, info,0, true);
+								var e = defaultValue(type, info, 0, true);
 								return e.expr;
 							}
 						default:
@@ -1567,7 +1569,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		case STRING:
 			addImport("stdgo.GoString", info);
 			var value = expr.value;
-			value = StringTools.replace(value,"\\","\"".substr(0,1));
+			value = StringTools.replace(value, "\\", "\"".substr(0, 1));
 			var e = toExpr(EConst(CString(value)));
 			if (info.hasType)
 				return e.expr;
@@ -1600,7 +1602,7 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			}
 			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
-			EConst(CIdent(nameIdent(expr.value, info,false,false)));
+			EConst(CIdent(nameIdent(expr.value, info, false, false)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
 			return (macro new GoComplex128(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
 		default:
@@ -1631,9 +1633,9 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 							case EConst(c):
 								var isConst = true;
 								switch c {
-									case CInt(v): return ECheckType(toExpr(EConst(CInt('-$v'))),t);
-									case CFloat(f):	return ECheckType(toExpr(EConst(CFloat('-$f'))),t);
-									case CString(s, kind): return ECheckType(toExpr(EConst(CString('-$s'))),t);
+									case CInt(v): return ECheckType(toExpr(EConst(CInt('-$v'))), t);
+									case CFloat(f): return ECheckType(toExpr(EConst(CFloat('-$f'))), t);
+									case CString(s, kind): return ECheckType(toExpr(EConst(CString('-$s'))), t);
 									default:
 								}
 							default:
@@ -1680,8 +1682,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 										if (isKeyValueExpr(expr.elts)) {
 											var exprs = getKeyValueExpr(expr.elts, info);
 											if (exprs == null) {
-												return (macro null).expr; //TODO: FIX
-												//throw "composite lit unknown type, keyvalue expr is null";
+												return (macro null).expr; // TODO: FIX
+												// throw "composite lit unknown type, keyvalue expr is null";
 											}
 											return (macro Go.setKeys($a{exprs})).expr;
 										}
@@ -1692,9 +1694,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 										var dif = len - params.length;
 										if (dif > 0) {
 											var a:Ast.ArrayType = expr.type;
-											var elt = typeExprType(a.elt,info);
+											var elt = typeExprType(a.elt, info);
 											for (i in 0...dif)
-												params.push(defaultValue(elt,info,0,false));
+												params.push(defaultValue(elt, info, 0, false));
 										}
 										return (macro new $p($a{params})).expr;
 									case CIdent(s):
@@ -1709,7 +1711,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(defaultValue(t, info, 0,false));
+							params.push(defaultValue(t, info, 0, false));
 							var e = getKeyValueExpr(expr.elts, info);
 							if (e != null)
 								params = params.concat(e);
@@ -1756,7 +1758,8 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 			continue;
 		if (e.kind == "") {
 			fields.push({
-				field: (e.key.charAt(0) == "_" || e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info,false,false),
+				field: (e.key.charAt(0) == "_"
+					|| e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info, false, false),
 				expr: e.value,
 			});
 		} else {
@@ -1850,8 +1853,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			if (value != null)
 				return (macro !Go.isNull($value)).expr;
 			return (macro !Go.equals($x, $y)).expr;
-		case OpShl,OpShr:
-			return EParenthesis(toExpr(EBinop(op,x,y))); //proper math ordering
+		case OpShl, OpShr:
+			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
 		default:
 	}
 	return EBinop(op, x, y);
@@ -1919,9 +1922,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	switch x.expr {
 		case EField(e, field):
 			if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-				sel = nameIdent(sel, info,false,true);
+				sel = nameIdent(sel, info, false, true);
 			} else {
-				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
+				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
 			}
 		case EConst(c):
 			switch c {
@@ -1929,14 +1932,14 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					var index = s.lastIndexOf(".");
 					var field = s.substr(index + 1);
 					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-						sel = nameIdent(sel, info,false,true);
+						sel = nameIdent(sel, info, false, true);
 					} else {
-						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
+						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
 					}
 				default:
 			}
 		default:
-			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
+			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
 	}
 	return (macro $x.$sel).expr; // EField
 }
@@ -1961,7 +1964,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(type, info,0, true);
+						var e = defaultValue(type, info, 0, true);
 						return e.expr;
 					}
 				default:
@@ -2010,7 +2013,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	info.typeNames = data.typeNames;
 	info.data = data.data;
 	info.global = data.global;
-	var name = nameIdent(decl.name.name, info,false,false);
+	var name = nameIdent(decl.name.name, info, false, false);
 	if (name == "init") {
 		switch typeBlockStmt(decl.body, info, true, true) {
 			case EBlock(exprs):
@@ -2022,7 +2025,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	info.funcName = name;
 	info.returnValues = [];
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-	//info.ret = [ret];
+	// info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
@@ -2157,8 +2160,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	};
 }
 
-var interfaces:Map<String,Bool> = [
-	//store stdgo interfaces here
+var interfaces:Map<String, Bool> = [
+	// store stdgo interfaces here
 ];
 
 private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict:Bool = true):Expr {
@@ -2176,12 +2179,12 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict
 					}
 				}
 			}
-			if (p.name == "Error") { //TODO: check for potential overwrite
+			if (p.name == "Error") { // TODO: check for potential overwrite
 				return macro null;
 			}
-			//interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
+			// interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
 			var name = info.global.path + "/" + info.data.name + "/" + p.name;
-			if (interfaces.exists(name)) { //local instance
+			if (interfaces.exists(name)) { // local instance
 				return macro null;
 			}
 
@@ -2231,13 +2234,14 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		} else {
 			for (name in group.names) {
 				list.push({
-					name: nameIdent(name.name, info,false,false),
+					name: nameIdent(name.name, info, false, false),
 					type: type,
 				});
 			}
 			named = true;
 		}
-	}	if (list.length > 1) {
+	}
+	if (list.length > 1) {
 		// anonymous
 		info.returnNamed = named;
 		info.returnValues = list;
@@ -2255,7 +2259,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 				name: "Void",
 				pack: [],
 			});
-		if (named) { //single named value
+		if (named) { // single named value
 			info.returnNamed = true;
 			info.returnValues = list;
 			return list[0].type;
@@ -2281,7 +2285,7 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 		}
 		for (name in field.names) {
 			args.push({
-				name: nameIdent(name.name, info,false,false),
+				name: nameIdent(name.name, info, false, false),
 				type: type,
 			});
 		}
@@ -2317,7 +2321,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBo
 					name = "_" + name;
 			}
 			fields.push({
-				name: nameIdent(name, info,false,false),
+				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: typeAccess(n.name, true),
 				kind: FFun({
@@ -2346,7 +2350,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 							name = "_" + name;
 					}
 					fields.push({
-						name: nameIdent(name, info,false,false),
+						name: nameIdent(name, info, false, false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
 						kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null)
@@ -2362,7 +2366,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 					name = "_" + name;
 			}
 			fields.push({
-				name: nameIdent(name, info,false,false),
+				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
 				kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null),
@@ -2378,7 +2382,7 @@ private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDef
 		var type = typeExprType(field.type, info);
 		for (name in field.names) {
 			defs.push({
-				name: nameIdent(name.name, info,false,false),
+				name: nameIdent(name.name, info, false, false),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -2511,7 +2515,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				doc: doc,
 				fields: fields,
 				meta: [{name: ":rtti", pos: null}, getAllow(info)],
-				kind: TDClass(null, [], true) //INTERFACE
+				kind: TDClass(null, [], true) // INTERFACE
 			};
 		default:
 			var type = typeExprType(spec.type, info);
@@ -2568,8 +2572,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			if (type != null) {
 				expr = defaultValue(type, info, 0, false);
 			} else {
-				//last expr use
-				expr = typeExpr(info.lastValue,info);
+				// last expr use
+				expr = typeExpr(info.lastValue, info);
 			}
 		} else {
 			info.lastValue = value.values[i];
@@ -2577,7 +2581,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		}
 		if (expr == null)
 			continue;
-		var name = nameIdent(value.names[i], info,false,false);
+		var name = nameIdent(value.names[i], info, false, false);
 		var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
 		var access = typeAccess(value.names[i]);
 		if (value.constants[i])
@@ -2612,7 +2616,7 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 	var source:String = "";
 	try {
 		source = File.getContent(info.data.location);
-	}catch(e) {
+	} catch (e) {
 		trace(e + " data: " + info.data);
 		return "";
 	}
@@ -2629,7 +2633,7 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
 
-private function nameIdent(name:String, info:Info, forceString:Bool,isSelect:Bool):String {
+private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool):String {
 	if (name == "nil")
 		return "null";
 	if (info.localVars.exists(name))
@@ -2646,7 +2650,7 @@ private function nameIdent(name:String, info:Info, forceString:Bool,isSelect:Boo
 			name += "_";
 		if (!isSelect && name == info.funcName)
 			return info.data.name + "." + name;
-	}else{
+	} else {
 		info.localVars[name] = true;
 	}
 	return name;
@@ -2687,36 +2691,39 @@ function untitle(string:String):String {
 }
 
 class Global {
-	public var renameTypes:Map<String,String> = [];
+	public var renameTypes:Map<String, String> = [];
 	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
+
 	public inline function new() {}
 }
 
 class Info {
 	public var returnNamed:Bool = false;
-	public var localVars:Map<String,Bool> = [];
+	public var localVars:Map<String, Bool> = [];
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
 	public var thisName:String = "";
 	public var hasType:Bool = false;
 	public var lengths:Array<Expr> = [];
-	public var returnValues:Array<{name:String,type:ComplexType}> = [];
+	public var returnValues:Array<{name:String, type:ComplexType}> = [];
 	public var deferBool:Bool = false;
 	public var hasDefer:Bool = false;
 	public var funcName:String = "";
-	public var renameTypes:Map<String,String> = [];
+	public var renameTypes:Map<String, String> = [];
 	public var returnValue:ComplexType = null;
 	public var className:String = "";
-	public var retypeList:Map<String,ComplexType> = [];
+	public var retypeList:Map<String, ComplexType> = [];
 	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
 	public var lastValue:Ast.Expr = null;
 	public var data:FileType;
 	public var global = new Global();
+
 	public function new() {}
+
 	public inline function clone() {
 		var info = new Info();
 		info.lastValue = lastValue;
@@ -2738,7 +2745,7 @@ class Info {
 		info.typeNames = typeNames;
 		info.iota = iota;
 		info.data = data;
-		info.global = global; //imports, types
+		info.global = global; // imports, types
 		return info;
 	}
 }

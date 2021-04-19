@@ -29,12 +29,12 @@ type packageType struct {
 	Files []fileType `json:"files"`
 }
 type fileType struct {
-	Path  string                   `json:"path"`
-	Location string `json:"location"`
-	Decls []map[string]interface{} `json:"decls"`
-	Doc map[string]interface{} `json:"doc"`
+	Path     string                   `json:"path"`
+	Location string                   `json:"location"`
+	Decls    []map[string]interface{} `json:"decls"`
+	Doc      map[string]interface{}   `json:"doc"`
 }
-type ExcludesType struct {
+type excludesType struct {
 	Excludes []string `json:"excludes"`
 }
 
@@ -48,7 +48,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	var excludesData ExcludesType
+	var excludesData excludesType
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		panic("excludes json data parsing error")
@@ -62,7 +62,7 @@ func main() {
 	identBool := flag.Bool("ident", false, "ident json")
 	flag.Parse()
 	args := flag.Args()
-	fmt.Println("ident:",*identBool,"test:",*testBool)
+	fmt.Println("ident:", *identBool, "test:", *testBool)
 	localPath := args[len(args)-1]
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -175,21 +175,21 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	for i, obj := range list {
 		switch obj := obj.(type) {
 		case *ast.ValueSpec:
-			constants := make([]bool,len(obj.Names))
+			constants := make([]bool, len(obj.Names))
 			for i := range constants {
 				constants[i] = obj.Names[i].Obj.Kind.String() == "const"
 			}
-			values := make([]map[string]interface{},len(obj.Values))
+			values := make([]map[string]interface{}, len(obj.Values))
 			for i := range obj.Values {
 				values[i] = parseData(obj.Values[i])
 			}
 			data[i] = map[string]interface{}{
-				"id": "ValueSpec",
-				"names": parseIdents(obj.Names),
-				"type": parseData(obj.Type),
-				"values": values,
+				"id":        "ValueSpec",
+				"names":     parseIdents(obj.Names),
+				"type":      parseData(obj.Type),
+				"values":    values,
 				"constants": constants,
-				"doc":  parseData(obj.Comment),
+				"doc":       parseData(obj.Comment),
 			}
 		default:
 			data[i] = parseData(obj)
@@ -243,7 +243,7 @@ func parseType(node interface{}) map[string]interface{} {
 		_ = s
 		return data
 	default:
-		fmt.Println("unknown parse type id:",data["id"])
+		fmt.Println("unknown parse type id:", data["id"])
 	}
 	et := e.Type()
 	for i := 0; i < et.NumField(); i++ {
@@ -292,7 +292,6 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.Ident:
 		return parseIdent(node)
 	default:
-		//fmt.Println("node:",reflect.TypeOf((node)))
 	}
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if !e.IsValid() {
@@ -329,10 +328,10 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseData(value)
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
-				"id": "ExprStmt",
-				"x": parseData(value.X),
-				"pos": fset.PositionFor(value.X.Pos(),true).Offset,
-				"end": fset.PositionFor(value.X.End(),true).Offset,
+				"id":  "ExprStmt",
+				"x":   parseData(value.X),
+				"pos": fset.PositionFor(value.X.Pos(), true).Offset,
+				"end": fset.PositionFor(value.X.End(), true).Offset,
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
 			data[field.Name] = parseData(value)
@@ -351,9 +350,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseFile(&file, "")
 		case *ast.Ident:
 			data[field.Name] = parseIdent(value)
-		case ast.ChanDir: //is an int
-			data[field.Name] = value
-		case bool, string, int:
+		case ast.ChanDir, bool, string, int: //is an int
 			data[field.Name] = value
 		case ast.FieldList:
 			data[field.Name] = parseFieldList(value.List)
@@ -382,7 +379,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = list
 		case *ast.Scope:
 		case []*ast.Comment:
-			list := make([]string,len(value))
+			list := make([]string, len(value))
 			for i := range value {
 				list[i] = value[i].Text
 			}
@@ -390,29 +387,29 @@ func parseData(node interface{}) map[string]interface{} {
 			var list []string
 			if value == nil {
 				list = []string{}
-			}else{
-				list = make([]string,len(value.List))
+			} else {
+				list = make([]string, len(value.List))
 				for i := 0; i < len(list); i++ {
 					list[i] = value.List[i].Text
 				}
 			}
 			data[field.Name] = map[string]interface{}{
-				"id": "CommentGroup",
+				"id":   "CommentGroup",
 				"list": list,
 			}
 		default:
-			fmt.Println("unknown parse data value:",reflect.TypeOf(value))
+			fmt.Println("unknown parse data value:", reflect.TypeOf(value))
 		}
 	}
 	if data["id"] == "FuncDecl" {
 		node := node.(*ast.FuncDecl)
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset
-		
+
 	}
 	return data
 }
-func parseIdents(value []*ast.Ident)[]string {
+func parseIdents(value []*ast.Ident) []string {
 	list := make([]string, len(value))
 	for i := range value {
 		list[i] = value[i].Name
@@ -453,16 +450,16 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		output = fmt.Sprint(i)
 	case token.CHAR:
 		if len(value.Value) >= 2 && value.Value[0:1] == `'` {
-			value.Value = value.Value[1: len(value.Value)-1]
+			value.Value = value.Value[1 : len(value.Value)-1]
 		}
 		output = fmt.Sprint(value.Value)
 	case token.STRING:
 		if len(value.Value) >= 2 && value.Value[0:1] == `"` {
-			value.Value = string(value.Value[1 : len(value.Value)- 1])
+			value.Value = string(value.Value[1 : len(value.Value)-1])
 		}
 		output = fmt.Sprint(value.Value)
 	case token.IMAG: //TODO: implement imaginary numbers (complex)
-		output = value.Value[0:len(value.Value) - 1]
+		output = value.Value[0 : len(value.Value)-1]
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

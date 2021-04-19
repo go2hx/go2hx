@@ -99,12 +99,11 @@ function clampUInt8(x:Int):Int
 
 function clampFloat32(x:Float):Float
 	return x;
-	
 
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):Int //TODO: clamp uintr
+function clampUInt(x:Int):Int // TODO: clamp uintr
 	return x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
@@ -177,7 +176,7 @@ abstract GoFloat(Float) from Float {
 
 	@:to inline function toFloat32():GoFloat32
 		return clampFloat32(this);
-	
+
 	@:to inline function toInt64():GoInt64 {
 		if (Math.isNaN(this))
 			return Int64.parseString("-9223372036854775808");
@@ -342,11 +341,13 @@ abstract GoFloat32(Float32) from Float32 {
 	@:op(++A) private inline function preInc():GoFloat32 {
 		return this = this + 1;
 	}
+
 	@:op(A++) private inline function postInc():GoFloat32 {
 		var ret = this;
 		preInc();
 		return ret;
 	}
+
 	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool;
 
 	@:op(A >= B) private static function gte(a:GoFloat32, b:GoFloat32):Bool;
@@ -382,8 +383,8 @@ abstract GoComplex64(Complex64) from Complex64 {
 		this = new Complex64(r.toBasic(), i.toBasic());
 
 	@:to inline function toComplex128():GoComplex128
-		return new GoComplex128(real,imag);
-	
+		return new GoComplex128(real, imag);
+
 	public inline function toBasic()
 		return this;
 
@@ -438,8 +439,9 @@ abstract GoComplex64(Complex64) from Complex64 {
 
 	@:op(~A) private static function bneg(t:GoComplex64):GoComplex64
 		return new GoComplex64(0.0 - t.real.toBasic(), 0.0 - t.imag.toBasic());
+
 	@:op(-A) private static function neg(t:GoComplex64):GoComplex64
-		return new GoComplex64(-t.real,t.imag);
+		return new GoComplex64(-t.real, t.imag);
 }
 
 abstract GoComplex128(Complex128) from Complex128 {
@@ -447,8 +449,9 @@ abstract GoComplex128(Complex128) from Complex128 {
 		this = new Complex128(r.toBasic(), i.toBasic());
 
 	@:to inline function toComplex64():GoComplex64 {
-		return new GoComplex64(clampFloat32(real),clampFloat32(imag));
+		return new GoComplex64(clampFloat32(real), clampFloat32(imag));
 	}
+
 	public inline function toBasic()
 		return this;
 
@@ -502,7 +505,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new GoComplex128(0.0 - t.real, 0.0 - t.imag);
 
 	@:op(-A) private static function neg(t:GoComplex128):GoComplex128
-		return new GoComplex128(-t.real,t.imag);
+		return new GoComplex128(-t.real, t.imag);
 
 	@:op(A == B) private static function eq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real == b.real && a.imag == b.imag;
@@ -1036,6 +1039,7 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	function toString():GoString
 		return Int64.toStr(this);
+
 	public static inline function toStr(x:IntegerType):GoString
 		return x.toString();
 
@@ -1087,6 +1091,7 @@ abstract IntegerType(Int64) from Int64 to Int64 {
 
 	@:to function toHaxeInt():Int
 		return Int64.toInt(this);
+
 	@:from private static function fromString(x:String):IntegerType
 		return Int64.parseString(x);
 
@@ -1561,7 +1566,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:from public static inline function ofString(x:String):GoUInt64 {
 		try {
 			return UInt64.parseString(x);
-		}catch(e) { //TODO: implement own uint64 parser in order to support full range of uint64 past positive int64
+		} catch (e) { // TODO: implement own uint64 parser in order to support full range of uint64 past positive int64
 			return 0;
 		}
 	}

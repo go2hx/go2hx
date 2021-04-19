@@ -6,7 +6,7 @@ function main() {
 	for (path in Main.exportPaths) {
 		path = StringTools.replace(path, "/", ".");
 		var command = 'haxe -cp golibs -main $path --interp';
-		//command += ' --macro stdgo.internal.GoGen.build()';
+		// command += ' --macro stdgo.internal.GoGen.build()';
 		trace(command);
 		Sys.command(command);
 	}

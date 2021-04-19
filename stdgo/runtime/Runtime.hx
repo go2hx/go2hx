@@ -63,6 +63,7 @@ private class RuntimeErrorData implements Error {
 	public function error():GoString {
 		return message;
 	}
+
 	public function runtimeError():Void {}
 }
 

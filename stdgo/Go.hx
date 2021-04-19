@@ -46,9 +46,9 @@ class Go {
 					case "Chan":
 						return macro null;
 					case "GoMap":
-						switch p.params[1] { //value default value add
+						switch p.params[1] { // value default value add
 							case TPType(t):
-								return macro new $p(${defaultValue(t,null,false)}).setNull();
+								return macro new $p(${defaultValue(t, null, false)}).setNull();
 							default:
 						}
 					default:
@@ -525,6 +525,7 @@ class Go {
 			])
 		};
 	}
+
 	static function escapeParens(expr:Expr):Expr {
 		while (true) {
 			switch expr.expr {

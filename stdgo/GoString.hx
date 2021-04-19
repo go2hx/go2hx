@@ -25,7 +25,7 @@ abstract GoString(String) from String to String {
 	@:from static function ofSlice(x:Slice<GoByte>):GoString {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
-			bytes.set(i,x[i].toBasic());
+			bytes.set(i, x[i].toBasic());
 		return bytes.toString();
 	}
 

@@ -48,7 +48,7 @@ class Go {
 					case "GoMap":
 						switch p.params[1] { //value default value add
 							case TPType(t):
-								return macro new $p(${defaultValue(t,null,false)});
+								return macro new $p(${defaultValue(t,null,false)}).setNull();
 							default:
 						}
 					default:
@@ -316,8 +316,8 @@ class Go {
 						return macro Go.isNull($expr.value);
 					case "GoArray":
 						return macro false;
-					case "Any":
-						return macro $expr == null;
+					case "Any", "GoMap":
+						return macro $expr.isNull();
 					default:
 						trace("unknown abstract: " + t.name);
 				}

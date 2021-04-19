@@ -214,7 +214,7 @@ private class SliceData<T> {
 	}
 
 	inline public function cap():Int {
-		return 0;
+		return length;
 	}
 
 	inline public function toArray():Array<T> { // unrolling derefrences

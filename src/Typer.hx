@@ -140,6 +140,17 @@ function main(data:DataType) {
 					default:
 				}
 			}
+			//check for overriding functions
+			var removal = [];
+			for (i in 0...declFuncs.length) {
+				for (j in 0...declFuncs.length) {
+					if (i == j)
+						continue;
+					if (declFuncs[i].name == declFuncs[j].name) {
+						removal.push(declFuncs[i]);
+					}
+				}
+			}
 
 			for (i in 0...info.data.defs.length) {
 				var defRename = null;
@@ -187,7 +198,21 @@ function main(data:DataType) {
 			}
 			// setup implements
 			typeImplements(info);
-
+			//init system
+			if (info.global.initBlock.length > 0) {
+				data.defs.push({
+					name: "__init__",
+					pos: null,
+					pack: [],
+					fields: [],
+					kind: TDField(FFun({
+						ret: null,
+						params: null,
+						expr: toExpr(EBlock(info.global.initBlock)),
+						args: []
+					}), null)
+				});
+			}
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: ""});
 			for (path => alias in info.global.imports)
@@ -1632,6 +1657,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null) {
 		if (isKeyValueExpr(expr.elts)) {
 			var exprs = getKeyValueExpr(expr.elts, info);
+			if (exprs == null)
+				throw "composite lit unknown type, keyvalue expr is null";
 			return (macro Go.setKeys($a{exprs})).expr;
 		}
 		getParams();
@@ -1650,6 +1677,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 									case CInt(v):
 										if (isKeyValueExpr(expr.elts)) {
 											var exprs = getKeyValueExpr(expr.elts, info);
+											
 											return (macro Go.setKeys($a{exprs})).expr;
 										}
 										getParams();
@@ -1678,7 +1706,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						case TPType(t):
 							params.push(defaultValue(t, info, 0,false));
 							var e = getKeyValueExpr(expr.elts, info);
-							params = params.concat(e);
+							if (e != null)
+								params = params.concat(e);
 							return (macro new $p($a{params})).expr;
 						default:
 					}
@@ -1699,7 +1728,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 
 	if (isKeyValueExpr(expr.elts)) {
 		var e = getKeyValueExpr(expr.elts, info);
-		if (e.length > 1)
+		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
 		return (macro(${e[0]} : $type)).expr;
 	}
@@ -1745,6 +1774,8 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 	}
 	if (exprs.length > 0)
 		return exprs;
+	if (fields.length == 0)
+		return null;
 	return [toExpr(EObjectDecl(fields))];
 }
 
@@ -1975,6 +2006,14 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	info.data = data.data;
 	info.global = data.global;
 	var name = nameIdent(decl.name.name, info,false,false);
+	if (name == "init") {
+		switch typeBlockStmt(decl.body, info, true, true) {
+			case EBlock(exprs):
+				info.global.initBlock = info.global.initBlock.concat(exprs);
+			default:
+		}
+		return null;
+	}
 	info.funcName = name;
 	info.returnValues = [];
 	var ret = typeFieldListReturn(decl.type.results, info, true);
@@ -2645,6 +2684,7 @@ function untitle(string:String):String {
 class Global {
 	public var renameTypes:Map<String,String> = [];
 	public var imports:Map<String, String> = [];
+	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public inline function new() {}
 }

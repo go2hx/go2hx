@@ -104,7 +104,7 @@ function clampFloat32(x:Float):Float
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):Int
+function clampUInt(x:Int):Int //TODO: clamp uintr
 	return x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range

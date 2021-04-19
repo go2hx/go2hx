@@ -1566,7 +1566,9 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	return switch expr.kind {
 		case STRING:
 			addImport("stdgo.GoString", info);
-			var e = toExpr(EConst(CString(expr.value)));
+			var value = expr.value;
+			value = StringTools.replace(value,"\\","\"".substr(0,1));
+			var e = toExpr(EConst(CString(value)));
 			if (info.hasType)
 				return e.expr;
 			return (macro($e : GoString)).expr;
@@ -1677,7 +1679,10 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 									case CInt(v):
 										if (isKeyValueExpr(expr.elts)) {
 											var exprs = getKeyValueExpr(expr.elts, info);
-											
+											if (exprs == null) {
+												return (macro null).expr; //TODO: FIX
+												//throw "composite lit unknown type, keyvalue expr is null";
+											}
 											return (macro Go.setKeys($a{exprs})).expr;
 										}
 										getParams();

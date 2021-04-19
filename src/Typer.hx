@@ -2480,7 +2480,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				access: [APublic],
 				kind: FVar(null, macro 0),
 			});
-			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
+			var meta:Metadata = [{name: ":rtti", pos: null}, {name: ":structInit", pos: null}, getAllow(info)];
 			interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
 			return {
 				name: name,
@@ -2510,7 +2510,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				doc: doc,
 				fields: fields,
-				meta: [getAllow(info)],
+				meta: [{name: ":rtti", pos: null}, getAllow(info)],
 				kind: TDClass(null, [], true) //INTERFACE
 			};
 		default:

@@ -126,7 +126,7 @@ function main(data:DataType) {
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
-			// var info = new Info();
+			var info = new Info();
 			info.data = data;
 			info.global.path = module.path;
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -2074,7 +2074,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 							if (p.name == def.name) {
 								var extensionClass:TypeDefinition = null;
 								var extensionClassName = "_" + p.name + "_" + "_extension";
-								if (!info.aliasStaticExtensionMap.exists(p.name)) {
+								if (!info.global.aliasStaticExtensionMap.exists(p.name)) {
 									if (def.meta == null)
 										def.meta = [];
 									def.meta.push({
@@ -2695,6 +2695,7 @@ class Global {
 	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
+	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 
 	public inline function new() {}
 }
@@ -2715,7 +2716,6 @@ class Info {
 	public var returnValue:ComplexType = null;
 	public var className:String = "";
 	public var retypeList:Map<String, ComplexType> = [];
-	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
 	public var lastValue:Ast.Expr = null;
@@ -2741,7 +2741,6 @@ class Info {
 		info.localVars = localVars;
 		info.className = className;
 		info.retypeList = retypeList;
-		info.aliasStaticExtensionMap = aliasStaticExtensionMap;
 		info.typeNames = typeNames;
 		info.iota = iota;
 		info.data = data;

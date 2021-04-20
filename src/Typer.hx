@@ -130,14 +130,41 @@ function main(data:DataType) {
 			info.data = data;
 			info.global.path = module.path;
 			var declFuncs:Array<Ast.FuncDecl> = [];
+			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
 				switch decl.id {
 					case "GenDecl":
-						typeGenDecl(decl, info);
+						declGens.push(decl);
 					case "FuncDecl":
 						var decl:Ast.FuncDecl = decl;
 						declFuncs.push(decl);
 					default:
+				}
+			}
+			for (gen in declGens) {
+				for (spec in gen.specs) {
+					switch spec.id {
+						case "ImportSpec":
+							info.data.imports.push(typeImport(spec, info));
+						case "TypeSpec":
+							var spec:Ast.TypeSpec = spec;
+							info.typeNames.push(spec.name.name);
+							data.defs.push(typeType(spec, info));
+					}
+				}
+			}
+			// variables after so that all types can be refrenced by a value and have it exist.
+			info.iota = 0;
+			info.lastValue = null;
+			for (gen in declGens) {
+				for (spec in gen.specs) {
+					switch spec.id {
+						case "ValueSpec":
+							var spec:Ast.ValueSpec = spec;
+							data.defs = info.data.defs.concat(typeValue(spec, info));
+							info.iota++;
+						default:
+					}
 				}
 			}
 			// check for overriding functions
@@ -243,61 +270,68 @@ private function setAlias(spec:Ast.TypeSpec, info:Info) {
 }
 
 private function typeImplements(info:Info) {
-	for (cl in info.data.defs) {
-		switch cl.kind {
-			case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-				if (isInterface)
+	for (inter in info.data.defs) {
+		switch inter.kind {
+			case TDClass(superClass, _, isInterface, isFinal, isAbstract):
+				if (!isInterface)
 					continue;
-				for (inter in info.data.defs) {
-					switch inter.kind {
-						case TDClass(superClass, interfaces2, isInterface, isFinal, isAbstract):
-							if (!isInterface)
+				for (cl in info.data.defs) {
+					switch cl.kind {
+						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+							if (isInterface)
 								continue;
-							for (interField in inter.fields) {
-								for (clField in cl.fields) {
-									if (interField.name != clField.name)
+							var passed = true;
+							for (interfaceField in inter.fields) {
+								var passField:Bool = false;
+								for (classField in cl.fields) {
+									if (interfaceField.name != classField.name)
 										continue;
-									var interFunc:Function = null;
-									var clFunc:Function = null;
-									switch interField.kind {
+									var interfaceFunc:Function = null;
+									var classFunc:Function = null;
+									switch interfaceField.kind {
 										case FFun(f):
-											interFunc = f;
+											interfaceFunc = f;
 										default:
 									}
-									switch clField.kind {
+									switch classField.kind {
 										case FFun(f):
-											clFunc = f;
+											classFunc = f;
 										default:
 									}
-									if (interFunc == null || clFunc == null)
+									if (interfaceFunc == null || classFunc == null) //if either fields are not functions
 										continue;
-									if (!compareComplexType(interFunc.ret, clFunc.ret))
+									if (!compareComplexType(interfaceFunc.ret, classFunc.ret)) //returns values are not equal
 										continue;
-									var passed:Bool = true;
-									if (interFunc.args.length != clFunc.args.length)
+									if (interfaceFunc.args.length != classFunc.args.length) //the functions don't have the same amount of args
 										continue;
-									for (i in 0...interFunc.args.length) {
-										/*if (interFunc.args[0].name != clFunc.args[0].name) {
-											passed = false;
-											break;
-										}*/
-										if (!compareComplexType(interFunc.args[0].type, clFunc.args[0].type)) {
-											passed = false;
+									var argTypesPass:Bool = true;
+									for (i in 0...interfaceFunc.args.length) {
+										if (!compareComplexType(interfaceFunc.args[i].type, classFunc.args[i].type)) { //compare the arg types
+											argTypesPass = false;
 											break;
 										}
 									}
-									if (!passed)
-										continue;
-									interfaces.push({
-										name: inter.name,
-										pack: inter.pack,
-									});
+									if (argTypesPass) {
+										//the field has passed
+										passField = true;
+										break;
+									}
 								}
+								if (!passField) {
+									passed = false;
+									break;
+								}
+							}
+							if (passed) {
+								interfaces.push({
+									name: inter.name,
+									pack: inter.pack,
+								});
 							}
 						default:
 					}
 				}
-			default:
+				default:
 		}
 	}
 }
@@ -346,33 +380,6 @@ private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 		default:
 			trace("unknown compare complex type: " + a);
 			return false;
-	}
-}
-
-private function typeGenDecl(decl:Ast.GenDecl, info:Info) {
-	var specs:Array<Ast.Spec> = decl.specs;
-	// types first
-	for (spec in specs) {
-		switch spec.id {
-			case "ImportSpec":
-				info.data.imports.push(typeImport(spec, info));
-			case "TypeSpec":
-				var spec:Ast.TypeSpec = spec;
-				info.typeNames.push(spec.name.name);
-				info.data.defs.push(typeType(spec, info));
-		}
-	}
-	// variables after so that all types can be refrenced by a value and have it exist.
-	info.iota = 0;
-	info.lastValue = null;
-	for (spec in specs) {
-		switch spec.id {
-			case "ValueSpec":
-				var spec:Ast.ValueSpec = spec;
-				info.data.defs = info.data.defs.concat(typeValue(spec, info));
-				info.iota++;
-			default:
-		}
 	}
 }
 
@@ -2529,7 +2536,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				doc: doc,
 				fields: [],
 				meta: [],
-				kind: TDAlias(type)
+				kind: TDAlias(type) //generate typedef
 			}
 	}
 }

@@ -2090,6 +2090,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 										meta: [],
 										kind: TDClass(),
 									};
+									info.global.aliasStaticExtensionMap[p.name] = true;
 									info.data.defs.push(extensionClass);
 								} else {
 									for (def in info.data.defs) {

@@ -156,6 +156,7 @@ function main(data:DataType) {
 			// variables after so that all types can be refrenced by a value and have it exist.
 			info.iota = 0;
 			info.lastValue = null;
+			info.lastType = null;
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					switch spec.id {
@@ -2582,9 +2583,11 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			} else {
 				// last expr use
 				expr = typeExpr(info.lastValue, info);
+				type = info.lastType;
 			}
 		} else {
 			info.lastValue = value.values[i];
+			info.lastType = type;
 			expr = typeExpr(value.values[i], info);
 		}
 		if (expr == null)
@@ -2727,6 +2730,7 @@ class Info {
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
 	public var lastValue:Ast.Expr = null;
+	public var lastType:ComplexType = null;
 	public var data:FileType;
 	public var global = new Global();
 
@@ -2734,7 +2738,6 @@ class Info {
 
 	public inline function clone() {
 		var info = new Info();
-		info.lastValue = lastValue;
 		info.thisName = thisName;
 		info.hasType = hasType;
 		info.lengths = lengths;

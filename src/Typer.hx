@@ -2158,8 +2158,22 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var finalDoc = doc + getSource(decl, info);
 	if (index != -1) {
 		var path = doc.substr(index + preamble.length);
-		finalDoc = getBody(path);
-		externBool = true;
+		index = path.indexOf("/");
+		if (index != -1) {
+			finalDoc = getBody(path);
+			externBool = true;
+		}else{ //2nd type
+			var params:Array<Expr> = [
+				for (arg in args)
+					macro $i{arg.name}
+			];
+			var e = macro $i{path}($a{params});
+			if (args.length > 0) {
+				block = macro return $e;
+			}else{
+				block = e;
+			}
+		}
 	}
 	return {
 		name: name,

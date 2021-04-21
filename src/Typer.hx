@@ -4,7 +4,6 @@ import haxe.io.Path;
 import haxe.ds.StringMap;
 import haxe.macro.Type.ClassField;
 import haxe.macro.Type.ClassKind;
-import haxe.macro.Context;
 import haxe.macro.Type.ClassType;
 import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
@@ -2152,14 +2151,24 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 			}
 		}
 	}
-	var doc = getDoc(decl) + getSource(decl, info);
+	var doc = getDoc(decl);
+	var preamble = "//#go2hx ";
+	var externBool:Bool = false;
+	var index = doc.indexOf(preamble);
+	var finalDoc = doc + getSource(decl, info);
+	if (index != -1) {
+		var path = doc.substr(index + preamble.length);
+		finalDoc = getBody(path);
+		externBool = true;
+	}
 	return {
 		name: name,
 		pos: null,
 		pack: [],
 		fields: [],
-		doc: doc,
+		doc: finalDoc,
 		meta: meta,
+		isExtern: externBool,
 		kind: TDField(FFun({
 			ret: ret,
 			params: null,
@@ -2167,6 +2176,83 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 			args: args
 		}), typeAccess(decl.name.name))
 	};
+}
+
+private function getBody(path:String):String {
+	var index = path.lastIndexOf("/");
+	var dir = "";
+	if (index != -1) {
+		dir = path.substr(0,index);
+	}
+	var name = path.substring(index += 1,index = path.indexOf(".",index));
+	var selectors = path.substr(index + 1).split(".");
+	var content = "";
+	path = dir + "/" + name + ".hx";
+	try {
+		content = File.getContent(path);
+	}catch(e) {
+		throw e;
+	}
+	//remove comments
+	var close:String = "";
+	var closeIndex:Int = 0;
+	var len = content.length - 1;
+	var diff = 0;
+	for (i in 0...len) {
+		var i = i + diff;
+		if (close == "") {
+			if (content.charAt(i) == "/") {
+				closeIndex = i;
+				final next = content.charAt(i + 1);
+				switch next {
+					case "/": 
+						close = "\n";
+					case "*": close = "*/";
+				}
+			}
+		}else{
+			if (content.charAt(i) == close.charAt(0) && close.length == 1 || content.charAt(i + 1) == close.charAt(1)) {
+				diff -= i + 2 - closeIndex;
+				content = content.substr(0,closeIndex) + content.substr(i + 2);
+				close = "";
+			}
+		}
+	}
+	if (selectors.length > 1) {
+		//inside of a class
+		index = content.lastIndexOf("class " + selectors[0]);
+		if (index == -1)
+			throw "could not find class name: " + selectors[0] + " in file: " + path;
+		content = content.substr(content.indexOf("{",index) + 1);
+	}
+	var func = selectors.pop();
+	var funcDecl = 'function ';
+
+	while (true) {
+		index = content.indexOf(funcDecl);
+		if (index == -1)
+			break;
+		var name = content.substring(index = index + funcDecl.length,index = content.indexOf("("));
+		var isMain = name == func;
+		index = content.indexOf("{",index) + 1; //first bracket
+		content = content.substr(index);
+		var enclosed:Int = 1;
+		for (i in 0...content.length) {
+			switch content.charAt(i) {
+				case "{":
+					enclosed++;
+				case "}":
+					if (--enclosed <= 0) {
+						//either use the body or continue to cut
+						if (isMain)
+							return "{" + content.substr(0,i) + "}";
+						content = content.substr(i);
+						break;
+					}
+			}
+		}
+	}
+	return "";
 }
 
 var interfaces:Map<String, Bool> = [
@@ -2634,6 +2720,7 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 	source = source.substring(value.pos, value.end);
 	// sanatize comments
 	if (source != "") {
+		source = "\n" + source;
 		source = StringTools.replace(source, "/*", "/|*");
 		source = StringTools.replace(source, "*/", "*|/");
 	}

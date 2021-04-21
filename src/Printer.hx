@@ -37,14 +37,26 @@ class Printer extends haxe.macro.Printer {
 		return printExpr(e) + ";";
 	}
 
+
+	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
+		var doc = "";
+		if (t.isExtern) {
+			doc = t.doc;
+			t.doc = "";
+			t.isExtern = false;
+		}
+		var str = super.printTypeDefinition(t, printPackage);
+		if (doc != "") {
+			str = str.substr(0,str.length - 3); //remove blank block expr
+			str += doc; //add string body
+		}
+		return str;
+	}
+
 	override function printComplexType(ct:ComplexType):String {
 		if (ct == null)
 			return "#NULL_TYPE";
 		return super.printComplexType(ct);
-	}
-
-	override function printField(field:Field):String {
-		return super.printField(field);
 	}
 
 	override function printFunctionArg(arg:FunctionArg):String {

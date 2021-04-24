@@ -25,7 +25,7 @@ func main() {
 		X: 42,
 		y: str,
 	}
-	// showType(m)
+	showType(m)
 	mt := reflect.TypeOf(m)
 	// fmt.Println("MyType fields:")
 	// for i := 0; i < mt.NumField(); i++ {
@@ -49,10 +49,11 @@ func main() {
 	// }
 	// fmt.Println(mt.Implements(ms)) // this is the key requirement for a type switch
 
-	// var k reflect.Kind
-	//  k = 5
-	//  showType(k)
+	var k reflect.Kind
+	k = 5
+	showType(k)
 
+	//testHarness()
 }
 
 func showType(i interface{}) {
@@ -76,7 +77,7 @@ type MyStringer interface {
 	String() string
 }
 
-type NonStructT int
+type NonStructT uint8
 
 func (nst NonStructT) String() string {
 	return "NonStructT-int"
@@ -84,3 +85,6 @@ func (nst NonStructT) String() string {
 
 //#go2hx stdgo.reflect.Reflect.makeNamedGoType
 //func makeNamedGoType(interface_or_namedType, haxePathToFunction string) reflect.Type
+
+//#go2hx stdgo.reflect.Reflect.testHarness
+//func testHarness()

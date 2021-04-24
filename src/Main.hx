@@ -53,10 +53,8 @@ function init(args:Array<String>) {
 		return;
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));
-	Typer.stdgoList = [
-		for (name in FileSystem.readDirectory("stdgo"))
-			Path.withoutExtension(name).toLowerCase()
-	];
+	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
+	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 	Sys.println("> typer: " + exportData.pkgs.length);
 	var modules = Typer.main(exportData);
 	Sys.println("> generator: " + modules.length);

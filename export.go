@@ -19,6 +19,10 @@ import (
 	"golang.org/x/tools/go/packages"
 )
 
+type stdgoListType struct {
+	Stdgo []string `json:"stdgo"`
+}
+
 type dataType struct {
 	Args []string      `json:"args"`
 	Pkgs []packageType `json:"pkgs"`
@@ -40,6 +44,7 @@ type excludesType struct {
 
 var fset *token.FileSet
 var excludes map[string]bool
+var stdgoList map[string]bool
 
 func main() {
 	//exclude types system
@@ -48,14 +53,25 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	stdgoListBytes, err := ioutil.ReadFile("stdgo.json")
 	var excludesData excludesType
+	var stdgoDataList stdgoListType
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		panic("excludes json data parsing error")
+		panic(err.Error())
 	}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
+	}
+
+	err = json.Unmarshal(stdgoListBytes,&stdgoDataList)
+	if err != nil {
+		panic(err.Error())
+	}
+	stdgoList = make(map[string]bool,len(stdgoDataList.Stdgo))
+	for _,stdgo := range stdgoDataList.Stdgo {
+		stdgoList[stdgo] = true
 	}
 	//flags
 	testBool := flag.Bool("test", false, "testing the go library in haxe")
@@ -123,6 +139,12 @@ func parsePkgList(list []*packages.Package) dataType {
 				continue
 			}
 			syntax := parsePkg(val)
+			if stdgoList[val.PkgPath] {
+				stdgoVal := packages.Package{}
+				syntax2 := parsePkg(&stdgoVal)
+				_ = syntax2
+				//merge the files together for the runner
+			}
 			if len(syntax.Files) > 1 {
 				data.Pkgs = append(data.Pkgs, syntax)
 			}

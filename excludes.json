@@ -59,7 +59,6 @@
     "text/template/parse",
     "net/url",
     "net",
-    "time",
     "text/scanner",
     "internal/syscall/windows/registry",
     "internal/nettrace",

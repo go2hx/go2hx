@@ -2097,7 +2097,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 										pos: null,
 										pack: [],
 										fields: [],
-										meta: [],
+										meta: [{name: ":rtti", pos: null}],
 										kind: TDClass(),
 									};
 									info.global.aliasStaticExtensionMap[p.name] = true;

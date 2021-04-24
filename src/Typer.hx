@@ -11,6 +11,7 @@ import haxe.DynamicAccess;
 import sys.FileSystem;
 
 var stdgoList:Array<String>;
+var excludes:Array<String>;
 var externs:Bool = false;
 
 final reserved = [
@@ -178,6 +179,31 @@ function main(data:DataType) {
 					}
 				}
 			}
+			// make blank identifiers not name conflicting for global
+			var blankCounter:Int = 0;
+			for (def in info.data.defs) {
+				switch def.kind {
+					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+						var blankCounter:Int = 0;
+						for (field in def.fields) {
+							if (field.name == "_")
+								field.name += blankCounter++;
+						}
+					case TDField(kind, access):
+						if (def.name == "_")
+							def.name += blankCounter++;
+					default:
+				}
+			}
+
+			for (decl in declFuncs) { // parse function bodies last
+				var func = typeFunction(decl, info);
+				if (func != null)
+					data.defs.push(func);
+			}
+			
+			// setup implements
+			typeImplements(info);
 
 			for (i in 0...info.data.defs.length) {
 				var defRename = null;
@@ -201,30 +227,7 @@ function main(data:DataType) {
 					continue;
 				info.global.renameTypes[defRename.name] = defRename.name = defRename.name = "_" + defRename.name;
 			}
-			// make blank identifiers not name conflicting for global
-			var blankCounter:Int = 0;
-			for (def in info.data.defs) {
-				switch def.kind {
-					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-						var blankCounter:Int = 0;
-						for (field in def.fields) {
-							if (field.name == "_")
-								field.name += blankCounter++;
-						}
-					case TDField(kind, access):
-						if (def.name == "_")
-							def.name += blankCounter++;
-					default:
-				}
-			}
 
-			for (decl in declFuncs) { // parse function bodies last
-				var func = typeFunction(decl, info);
-				if (func != null)
-					data.defs.push(func);
-			}
-			// setup implements
-			typeImplements(info);
 			// init system
 			if (info.global.initBlock.length > 0) {
 				data.defs.push({
@@ -240,10 +243,10 @@ function main(data:DataType) {
 					}), null)
 				});
 			}
-			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: ""});
-			data.imports.push({path: ["stdgo", "Go"], alias: ""});
+			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: "",doc: ""});
+			data.imports.push({path: ["stdgo", "Go"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
-				info.data.imports.push({path: path.split("."), alias: alias});
+				info.data.imports.push({path: path.split("."), alias: alias,doc: ""});
 			module.files.push(data);
 		}
 		list.push(module);
@@ -1358,8 +1361,8 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var ellipsisFunc = null;
-	function genArgs() {
-		args = [for (arg in expr.args) typeExpr(arg, info)];
+	function genArgs(pos:Int=0) {
+		args = [for (arg in expr.args.slice(pos)) typeExpr(arg, info)];
 	}
 	ellipsisFunc = function() {
 		if (!expr.ellipsis.noPos) {
@@ -1444,11 +1447,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						default:
 					}
 				case "make":
-					var type = expr.args.shift();
-					genArgs();
+					var type = expr.args[0];
+					genArgs(1);
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
-					return (macro Go.make($a{args})).expr;
+					return (macro Go.make($a{args.slice(1)})).expr;
 				default: // cast to type ($e : $t)
 					if (expr.args.length == 1) {
 						var isType = basicTypes.indexOf(expr.fun.name) != -1;
@@ -2647,18 +2650,21 @@ private function getAllow(info:Info) {
 }
 
 private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
+	var doc = getDoc(imp);
 	var path = normalizePath(imp.path.value).split("/");
 	var alias = imp.name == null ? null : imp.name.name;
 	if (alias == "_")
 		alias = "";
-	if (stdgoList.indexOf(path[0]) != -1)
+	if (stdgoList.indexOf(path[0]) != -1 && excludes.indexOf(path[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
 		path.unshift("stdgo");
+	}
 	var name = path[path.length - 1];
 	path.push(title(name));
 	info.global.renameTypes[name] = path.join(".");
 	return {
 		path: path,
 		alias: alias,
+		doc: doc,
 	}
 }
 
@@ -2864,5 +2870,5 @@ class Info {
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
 typedef Module = {path:String, files:Array<FileType>}
-typedef ImportType = {path:Array<String>, alias:String}
+typedef ImportType = {path:Array<String>, alias:String, doc:String}
 typedef FileType = {name:String, imports:Array<ImportType>, defs:Array<TypeDefinition>, location:String}; // location is the global path to the file

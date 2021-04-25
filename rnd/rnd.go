@@ -64,6 +64,8 @@ func main() {
 	c := make(chan int8)
 	showType("chan", c, false, false)
 
+	showType("func", showType, false, false)
+
 	//testHarness()
 }
 

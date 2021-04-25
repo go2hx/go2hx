@@ -512,6 +512,8 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 		return GT_float64;
 	if (haxe.Int64.isInt64(v))
 		return GT_int64;
+	if (Reflect.isFunction(v)) // a funcion with no inputs or outputs that can be seen
+		return GT_func(new Array<GoType>(), new Array<GoType>());
 
 	if (!Reflect.isObject(v)) {
 		return haxeTypeUnknown;
@@ -520,9 +522,6 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 	if (Reflect.isEnumValue(v)) {
 		return haxeTypeUnknown; // enums are not used by go2hx
 	}
-
-	if (Reflect.isFunction(v)) // a funcion with no inputs or outputs
-		return GT_func(new Array<GoType>(), new Array<GoType>());
 
 	var fields = new Array<StructField>();
 

@@ -45,6 +45,12 @@ func main() {
 	fmt.Println("reflect.Type implements MyStringer", reflect.TypeOf(mt).Implements(ms)) // this is the key requirement for a type switch
 	fmt.Println("reflect.Kind implements MyStringer", reflect.TypeOf(k).Implements(ms))  // this is the key requirement for a type switch
 
+	A := [2]uint64{0, 1}
+	showType("array", A, false, false)
+
+	S := []bool{true, false}
+	showType("slice", S, false, false)
+
 	//testHarness()
 }
 

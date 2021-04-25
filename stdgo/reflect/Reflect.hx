@@ -83,11 +83,10 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 // 	return null;
 // prototype replacement code below
 
-
 @:using(stdgo.reflect.Reflect._Kind__extension)
 abstract Kind(GoUInt) from(GoUInt) to(GoUInt) {
 	public inline function new(?ui:GoUInt = 0) {
-		this = ui; 
+		this = ui;
 	}
 
 	@:to inline function __promote() // this is why Kind is an abstract
@@ -104,7 +103,7 @@ class _Kind__extension {
 
 	// string must be here to enable it to be seen at runtime
 	public static function string(k:Kind):GoString {
-		var idx:UInt = (k:GoUInt).toBasic();
+		var idx:UInt = (k : GoUInt).toBasic();
 		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
 			return "unsafe.pointer";
@@ -566,6 +565,40 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 	var interfaces = new Array<GoString>();
 
 	var haxePathToType = Type.getClassName(cl);
+
+	var knownClass = nonRttiClassMap[haxePathToType];
+	if (knownClass != null) {
+		switch (knownClass) {
+			case GT_array(typ, len):
+				try {
+					var dyn = v;
+					len = dyn.length;
+					if (len > 0)
+						switch (haxePathToType) {
+							case "eval.Vector":
+								dyn = dyn.toArray();
+								typ = typeOfAnyHaxe(dyn.pop());
+							case _:
+						}
+				} catch (e)
+					trace("failed attempt to infer array type information:", e);
+				return GT_array(typ, len);
+
+			case GT_slice(typ):
+				try {
+					var dyn = v;
+					var len = dyn.length;
+					if (len > 0)
+						typ = typeOfAnyHaxe(dyn.get(0));
+				} catch (e)
+					trace("failed attempt to infer slice type information:", e);
+				return GT_slice(typ);
+
+			case _:
+				throw "unhandled " + haxePathToType + " as " + knownClass;
+		}
+	}
+
 	var cnameParts = haxePathToType.split(".");
 	name = cnameParts.pop();
 	packagePath = cnameParts.join(".");
@@ -688,6 +721,11 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 		return GT_namedType(haxePathToType);
 	}
 }
+
+var nonRttiClassMap:Map<String, GoType> = [
+	"eval.Vector" => GT_array(GT_invalid, 0),
+	"stdgo._Slice.SliceData" => GT_slice(GT_invalid)
+];
 
 var rttiCClassMap:Map<String, GoType> = ["String" => GT_string];
 

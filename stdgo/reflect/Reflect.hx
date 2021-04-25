@@ -760,15 +760,5 @@ function nameToGo(n:GoString):GoString {
 
 function testHarness() {
 	trace("testHarness");
-
-	var cn = Type.getClassName(_GoType__extension /*github_com.pxshadow.go4hx.rnd.Rnd.MyType*/);
-	// var cn = "stdgo.reflect.Reflect.Reflect";
-	var cl = Type.resolveClass(cn);
-	trace(cl);
-	var rtti = haxe.rtti.Rtti.getRtti(cl);
-	// trace(rtti);
-
-	var gt = GT_string;
-	var iface:AnyInterface = gt;
-	trace(iface.value(), iface.typeName());
+	// a space to test ideas...
 }

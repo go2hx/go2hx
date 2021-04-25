@@ -51,6 +51,16 @@ func main() {
 	S := []bool{true, false}
 	showType("slice", S, false, false)
 
+	Map := map[string]Vertex{
+		"Bell Labs": {
+			40.68433, -74.39967,
+		},
+		"Google": {
+			37.42202, -122.08408,
+		},
+	}
+	showType("map", Map, false, false)
+
 	//testHarness()
 }
 
@@ -72,6 +82,10 @@ func showType(name string, i interface{}, isStruct, isNamed bool) {
 			fmt.Println("-", Ti.Method(i))
 		}
 	}
+}
+
+type Vertex struct {
+	Lat, Long float64
 }
 
 type MyType struct {

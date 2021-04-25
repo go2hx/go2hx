@@ -571,13 +571,12 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 		switch (knownClass) {
 			case GT_array(typ, len):
 				try {
-					var dyn = v;
-					len = dyn.length;
+					len = v.length;
 					if (len > 0)
 						switch (haxePathToType) {
 							case "eval.Vector":
-								dyn = dyn.toArray();
-								typ = typeOfAnyHaxe(dyn.pop());
+								var a = v.toArray();
+								typ = typeOfAnyHaxe(a.pop());
 							case _:
 						}
 				} catch (e)
@@ -586,14 +585,22 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 
 			case GT_slice(typ):
 				try {
-					var dyn = v;
-					var len = dyn.length;
+					var len = v.length;
 					if (len > 0)
-						typ = typeOfAnyHaxe(dyn.get(0));
+						typ = typeOfAnyHaxe(v.get(0));
 				} catch (e)
 					trace("failed attempt to infer slice type information:", e);
 				return GT_slice(typ);
+			case GT_map(key, value):
+				var kvi = v.keyValueIterator();
+				if (kvi.hasNext()) {
+					var entry = kvi.next();
+					key = typeOfAnyHaxe(entry.key);
+					value = typeOfAnyHaxe(entry.value);
+				}
+				return GT_map(key, value);
 
+			// case GT_chan(elem,dir):
 			case _:
 				throw "unhandled " + haxePathToType + " as " + knownClass;
 		}
@@ -724,7 +731,8 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 
 var nonRttiClassMap:Map<String, GoType> = [
 	"eval.Vector" => GT_array(GT_invalid, 0),
-	"stdgo._Slice.SliceData" => GT_slice(GT_invalid)
+	"stdgo._Slice.SliceData" => GT_slice(GT_invalid),
+	"stdgo._GoMap.MapData" => GT_map(GT_invalid, GT_invalid)
 ];
 
 var rttiCClassMap:Map<String, GoType> = ["String" => GT_string];

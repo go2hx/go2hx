@@ -61,6 +61,9 @@ func main() {
 	}
 	showType("map", Map, false, false)
 
+	c := make(chan int8)
+	showType("chan", c, false, false)
+
 	//testHarness()
 }
 

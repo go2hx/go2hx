@@ -159,7 +159,7 @@ enum GT_enum {
 	GT_complex64;
 	GT_complex128;
 	GT_array(elem:GoType, len:GoInt);
-	GT_chan(elem:GoType, dir:GoInt);
+	GT_chan(elem:GoType);
 	GT_func(input:Array<GoType>, output:Array<GoType>);
 	GT_interface(haxeClassPath:GoString);
 	GT_map(key:GoType, value:GoType);
@@ -250,7 +250,7 @@ class _GoType__extension {
 				}
 				r += " }";
 				return r;
-			case GT_array(_, _), GT_chan(_, _), GT_func(_, _), GT_map(_, _):
+			case GT_array(_, _), GT_chan(_), GT_func(_, _), GT_map(_, _):
 				return (Std.string(gt) : GoString); // TODO
 			case _:
 				return (Std.string(gt) : GoString); // should not get here
@@ -260,11 +260,7 @@ class _GoType__extension {
 
 	public static function elem(gt:GoType):GoType {
 		switch (gt) {
-			case GT_chan(elem, _):
-				return elem;
-			case GT_ptr(elem), GT_slice(elem):
-				return elem;
-			case GT_array(elem, _):
+			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
 				return elem;
 			case _:
 				throw "reflect.Type.Elem not implemented for " + (string(gt) : String);
@@ -600,7 +596,9 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 				}
 				return GT_map(key, value);
 
-			// case GT_chan(elem,dir):
+			case GT_chan(elem):
+				return GT_chan(elem); // TODO find type of element
+
 			case _:
 				throw "unhandled " + haxePathToType + " as " + knownClass;
 		}
@@ -732,7 +730,8 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 var nonRttiClassMap:Map<String, GoType> = [
 	"eval.Vector" => GT_array(GT_invalid, 0),
 	"stdgo._Slice.SliceData" => GT_slice(GT_invalid),
-	"stdgo._GoMap.MapData" => GT_map(GT_invalid, GT_invalid)
+	"stdgo._GoMap.MapData" => GT_map(GT_invalid, GT_invalid),
+	"stdgo.Chan" => GT_chan(GT_invalid)
 ];
 
 var rttiCClassMap:Map<String, GoType> = ["String" => GT_string];

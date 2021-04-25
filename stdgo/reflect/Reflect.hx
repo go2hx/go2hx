@@ -83,24 +83,19 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 // 	return null;
 // prototype replacement code below
 
+
 @:using(stdgo.reflect.Reflect._Kind__extension)
-abstract Kind(UInt) to(UInt) from(UInt) {
-	public inline function new(?i:GoUInt = 0) {
-		this = i.toBasic();
+abstract Kind(GoUInt) from(GoUInt) to(GoUInt) {
+	public inline function new(?ui:GoUInt = 0) {
+		this = ui; 
 	}
 
-	@:from inline static function __fromIntegerType(i:IntegerType):Kind {
-		return new Kind((i : UInt));
-	}
-
-	@:to inline function __promote()
+	@:to inline function __promote() // this is why Kind is an abstract
 		return new AnyInterface({value: this, typeName: Type.getClassName(_Kind__extension)});
 
-	@:to inline function __GoUInt()
-		return new GoUInt(this);
-
-	@:from inline static function __fromGoUInt(gui:GoUInt)
-		return new Kind(gui);
+	@:from inline static function __fromIntegerType(i:IntegerType):Kind {
+		return new Kind((i : GoUInt));
+	}
 }
 
 @:rtti
@@ -109,7 +104,8 @@ class _Kind__extension {
 
 	// string must be here to enable it to be seen at runtime
 	public static function string(k:Kind):GoString {
-		var r = EnumTools.getConstructors(GT_enum)[k].substr(3);
+		var idx:UInt = (k:GoUInt).toBasic();
+		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
 			return "unsafe.pointer";
 		return r;
@@ -540,17 +536,9 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 	if (cl == null) { // an anonomous structure
 		var flds = Reflect.fields(v);
 		for (fld in flds) {
-			var typ = GT_invalid;
-			if (StringTools.contains(fld, "__")) {
-				var parts = fld.split("__");
-				var typStr = parts[1];
-				typStr = StringTools.replace(typStr, "_", ".");
-				typ = makeGoTypeFromTypeName(typStr);
-			}
-			if (typ == GT_invalid) {
-				var fldValue = Reflect.getProperty(v, fld);
-				typ = typeOfAnyHaxe(fldValue);
-			}
+			// TODO find a way to pass in field types, rather than inspect contents
+			var fldValue = Reflect.getProperty(v, fld);
+			var typ = typeOfAnyHaxe(fldValue);
 			var sf:StructField = {
 				name: nameToGo(fld),
 				type: typ,

@@ -2683,14 +2683,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	}
 }
 
-private function typeToName(type:Ast.Expr):String {
-	switch type.id {
-		case "":
-
-		default:
-	}
-}
-
 private function extensionName(name:String):String
 	return "_" + name + "_extension";
 

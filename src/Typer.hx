@@ -114,10 +114,10 @@ function main(data:DataType) {
 		var module:Module = {path: pkg.path, files: []};
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
-		var index = endPath.indexOf(".");
-		if (index == -1)
-			index = 0;
-		endPath = endPath.substr(index);
+		var index = endPath.lastIndexOf(".");
+		endPath = endPath.substr(index + 1);
+		endPath = className(Typer.title(endPath));
+		trace("endpath: " + endPath);
 
 		var main:FileType = null; //main pkg file
 
@@ -133,10 +133,10 @@ function main(data:DataType) {
 				location: file.location
 			};
 			data.name = normalizePath(data.name);
-			if (data.name == endPath)
-				main = data;
 			// set name
 			data.name = className(Typer.title(data.name));
+			if (data.name == endPath)
+				main = data;
 			var info = new Info();
 			info.data = data;
 			info.global.path = module.path;
@@ -268,28 +268,30 @@ function main(data:DataType) {
 				defs: [],
 				location: "" //does not have a linked go file
 			};
-			for (file in module.files) {
-				for (def in file.defs) {
-					if (def.isExtern == null || !def.isExtern)
-						continue; //not an exported def
-					switch def.kind {
-						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-							main.defs.push({
-								name: def.name,
-								pack: [],
-								pos: null,
-								kind: TDAlias(TPath({name: file.name,sub: def.name,pack: []})),
-								fields: [],
-							});
-						case TDAlias(t):
+			module.files.push(main);
+		}
+		for (file in module.files) {
+			if (file.name == main.name)
+				continue;
+			for (def in file.defs) {
+				if (def.isExtern == null || !def.isExtern)
+					continue; //not an exported def
+				switch def.kind {
+					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+						main.defs.push({
+							name: def.name,
+							pack: [],
+							pos: null,
+							kind: TDAlias(TPath({name: file.name,sub: def.name,pack: []})),
+							fields: [],
+						});
+					case TDAlias(t):
 
-						case TDField(kind, access):
+					case TDField(kind, access):
 
-						default:
-					}
+					default:
 				}
 			}
-			module.files.push(main);
 		}
 		list.push(module);
 	}

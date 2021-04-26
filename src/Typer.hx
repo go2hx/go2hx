@@ -2686,7 +2686,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 }
 
 private function extensionName(name:String):String
-	return "_" + name + "_extension";
+	return "_" + name + "__extension";
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};

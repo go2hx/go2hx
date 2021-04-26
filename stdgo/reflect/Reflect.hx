@@ -82,7 +82,7 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 }
 
 //-------------------------------
-// Go reflect.Type implementation
+// Go reflect.Kind implementation
 //-------------------------------
 
 @:using(stdgo.reflect.Reflect._Kind__extension)
@@ -112,6 +112,10 @@ class _Kind__extension {
 		return r;
 	}
 }
+
+//-------------------------------
+// Go reflect.Type implementation
+//-------------------------------
 
 typedef StructTag = GoString; // TODO methods
 
@@ -206,7 +210,7 @@ class _Type__extension {
 		return Std.string(gt);
 	}
 
-	private static function getNamedTypeInfo(classPath:GoString):NamedTypeData {
+	public static function getNamedTypeInfo(classPath:GoString):NamedTypeData {
 		// trace("getNamedTypeInfo", classPath);
 		var ntd = namedTypeMap.get(classPath);
 		if (ntd == null) {
@@ -430,6 +434,22 @@ class _Type__extension {
 				return gt.assignableTo(ot);
 		}
 		return false;
+	}
+
+	public static function comparable(gt:Type):Bool {
+		switch (gt) {
+			case GT_slice(_), GT_func(_, _), GT_map(_, _):
+				return false;
+			case GT_array(elem, _):
+				return elem.comparable();
+			case GT_struct(fields):
+				for (fld in fields)
+					if (!fld.type.comparable())
+						return false;
+				return true;
+			case _:
+				return true;
+		}
 	}
 }
 
@@ -825,8 +845,109 @@ function nameToGo(n:GoString):GoString {
 //--------------------------------
 // Go reflect.Value implementation
 //--------------------------------
-typedef Value = GoValue
-class GoValue {}
+
+function valueOf(iface:AnyInterface):Value {
+	return new Value(iface.value(), typeOf(iface));
+}
+
+class Value {
+	var val:Any;
+	var surfaceType:Type;
+	var underlyingType:Type;
+
+	public function new(?v:Any = null, t:Type = GT_invalid) {
+		val = v;
+		surfaceType = t;
+		underlyingType = findUnderlying(t);
+	}
+
+	static function findUnderlying(t:Type):Type{
+		switch (t) {
+			case GT_namedType(name):
+				return findUnderlying(_Type__extension.getNamedTypeInfo(name).underlying);
+			case _:
+				return t;
+		}
+	}
+
+	@:to function __promote()
+		return new AnyInterface({value: this, typeName: Type.getClassName(Value)});
+
+	public inline function type()
+		return surfaceType;
+
+	public inline function kind()
+		return surfaceType.kind();
+
+	public inline function interface_()
+		return new AnyInterface({value: val, typeName: surfaceType.serialize()});
+
+	public inline function isNil()
+		return val == null;
+
+	public inline function isValid()
+		return surfaceType != GT_invalid;
+
+	public function bool():Bool {
+		switch (underlyingType) {
+			case GT_bool:
+				return (val : Bool);
+			case _:
+				throw "Value.Bool not implemented for " + underlyingType.string();
+		}
+		return false;
+	}
+
+	public function int():GoInt64 {
+		switch (underlyingType) {
+			case GT_int, GT_int8, GT_int16, GT_int32, GT_int64:
+				return (val : GoInt64);
+			case _:
+				throw "Value.Int not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function uint():GoUInt64 {
+		switch (underlyingType) {
+			case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64:
+				return (val : GoUInt64);
+			case _:
+				throw "Value.Uint not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function float():GoFloat64 {
+		switch (underlyingType) {
+			case GT_float32, GT_float64:
+				return (val : GoFloat64);
+			case _:
+				throw "Value.Float not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function complex():GoComplex128 {
+		switch (underlyingType) {
+			case GT_complex128, GT_complex64:
+				return (val : GoComplex128);
+			case _:
+				throw "Value.Complex not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function string():GoString {
+		switch (underlyingType) {
+			case GT_string:
+				return (val : GoString);
+			case _:
+				throw "Value.String not implemented for " + underlyingType.string();
+		}
+		return "";
+	}
+}
 
 //---------------------------------
 // reflect.HaxeValue implementation

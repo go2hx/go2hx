@@ -1,6 +1,5 @@
 package stdgo.reflect;
 
-// prototype imports
 import stdgo.Pointer.PointerData;
 import haxe.Int64;
 import haxe.EnumTools;
@@ -8,8 +7,13 @@ import stdgo.fmt.Fmt;
 import stdgo.StdGoTypes;
 import stdgo.Go;
 import stdgo.GoString;
-// end prototype imports
+import haxe.Serializer;
+import haxe.Unserializer;
 import stdgo.StdGoTypes.AnyInterface;
+
+//------------------
+// Utiltiy functions
+//------------------
 
 function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 	if (a1 == a2)
@@ -77,106 +81,72 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	return true;
 }
 
-// function typeOf(x:AnyInterface)
-// 	return null;
-// prototype replacement code below
+//-------------------------------
+// Go reflect.Kind implementation
+//-------------------------------
 
+@:using(stdgo.reflect.Reflect._Kind__extension)
 abstract Kind(GoUInt) from(GoUInt) to(GoUInt) {
-	public inline function new(i:GoUInt) {
-		this = i;
+	public inline function new(?ui:GoUInt = 0) {
+		this = ui;
 	}
 
-	public function string():GoString {
-		var r = EnumTools.getConstructors(GoType)[this.toBasic()].substr(3);
+	@:to inline function __promote() // this is why Kind is an abstract
+		return new AnyInterface({value: this, typeName: Type.getClassName(_Kind__extension)});
+
+	@:from inline static function __fromIntegerType(i:IntegerType):Kind {
+		return new Kind((i : GoUInt));
+	}
+}
+
+@:rtti
+class _Kind__extension {
+	static final _typeName_ = "uint";
+
+	// string must be here to enable it to be seen at runtime
+	public static function string(k:Kind):GoString {
+		var idx:UInt = (k : GoUInt).toBasic();
+		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
 			return "unsafe.pointer";
 		return r;
 	}
-
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "reflect.Kind";
 }
 
-function makeUnNamedGoType(typeName:String):GoType {
-	// trace("mNBT:", typeName);
-	var pointerTo = false;
-	if (typeName.length == 0)
-		return GT_invalid;
-	if (StringTools.startsWith(typeName, "*")) {
-		pointerTo = true;
-		typeName = typeName.substr(1);
-	}
-
-	switch (typeName) {
-		case "invalid", "array", "chan", "func", "map", "ptr", "slice", "struct", "namedType":
-			// type needs more parameters
-			return GT_invalid;
-		case _:
-			typeName = "GT_" + typeName;
-			if (!EnumTools.getConstructors(GoType).contains(typeName))
-				return GT_invalid;
-			if (pointerTo)
-				return GT_ptr(EnumTools.createByName(GoType, typeName, []));
-			else
-				return EnumTools.createByName(GoType, typeName, []);
-	}
-}
-
-function makeNamedGoType(typeName:GoString, path:GoString):GoType {
-	switch (typeName) {
-		case "interface", "namedType":
-			return EnumTools.createByName(GoType, "GT_" + typeName, [path]);
-		case _:
-			return GT_invalid;
-	}
-}
+//-------------------------------
+// Go reflect.Type implementation
+//-------------------------------
 
 typedef StructTag = GoString; // TODO methods
 
 typedef StructField = {
 	name:GoString,
 	pkgPath:GoString,
-	type:GoType,
+	// TODO only for private fields
+	type:Type,
 	tag:StructTag,
 	anonymous:Bool,
-	// offset:GoUIntptr;
+	// offset:GoUIntptr; // TODO
 }
 
 typedef Method = {
 	name:GoString,
 	pkgPath:GoString,
-	type:GoType,
-	// func:Value,	// func with receiver as first argument
-	// index:GoInt,	// index for Type.Method
+	type:Type,
+	// func:Value,	// func with receiver as first argument TODO
+	// index:GoInt,	// index for Type.Method TODO
 }
 
 typedef NamedTypeData = {
 	typeName:GoString,
 	packPath:GoString,
 	methods:Array<Method>,
-	underlying:GoType,
-	isInterface:Bool
+	underlying:Type,
+	isInterface:Bool,
+	interfaces:Array<GoString>
 };
 
-var namedTypeMap:Map<GoString, NamedTypeData> = [
-	"unsafe.HaxeTypeUnknown" => {
-		typeName: "HaxeTypeUnknown",
-		packPath: "unsafe",
-		methods: new Array<Method>(),
-		underlying: GT_invalid,
-		isInterface: false
-	}
-];
-
-var haxeTypeUnknown = GT_namedType("unsafe.HaxeTypeUnknown");
-typedef Type = GoType;
-
-@:rtti
-@:using(stdgo.reflect.Reflect._GoType__extension)
-enum GoType {
+enum GT_enum {
 	GT_invalid;
 	GT_bool;
 	GT_int;
@@ -194,34 +164,53 @@ enum GoType {
 	GT_float64;
 	GT_complex64;
 	GT_complex128;
-	GT_array(elem:GoType, len:GoInt);
-	GT_chan(elem:GoType, dir:GoInt);
-	GT_func(input:Array<GoType>, output:Array<GoType>);
+	GT_array(elem:Type, len:GoInt);
+	GT_chan(elem:Type);
+	GT_func(input:Array<Type>, output:Array<Type>);
 	GT_interface(haxeClassPath:GoString);
-	GT_map(key:GoType, value:GoType);
-	GT_ptr(elem:GoType);
-	GT_slice(elem:GoType);
+	GT_map(key:Type, value:Type);
+	GT_ptr(elem:Type);
+	GT_slice(elem:Type);
 	GT_string;
 	GT_struct(fields:Array<StructField>);
 	GT_unsafePointer;
 	GT_namedType(haxeClassPath:GoString);
 }
 
-@:rtti
-class _GoType__extension {
-	public final _typeName_ = "Type";
-
-	public final _underlying_ = haxeTypeUnknown;
-
-	public static function kind(gt:GoType):Kind {
-		return new Kind(new GoUInt(EnumValueTools.getIndex(gt)));
+@:using(stdgo.reflect.Reflect._Type__extension)
+abstract Type(GT_enum) from(GT_enum) to(GT_enum) {
+	public inline function new(?t:GT_enum = GT_invalid) {
+		this = t;
 	}
 
-	public static function toString(gt:GoType):String {
+	@:to function __promote()
+		return new AnyInterface({value: this, typeName: Type.getClassName(_Type__extension)});
+}
+
+@:rtti
+class _Type__extension {
+	static final _typeName_ = "unsafePointer";
+
+	public static function serialize(gt:Type):String {
+		var serializer = new Serializer();
+		serializer.serialize(gt);
+		return serializer.toString();
+	}
+
+	public static function kind(gt:Type):Kind {
+		switch (gt) {
+			case GT_namedType(classPath):
+				return kind(getNamedTypeInfo(classPath).underlying);
+			case _:
+				return new Kind(new GoUInt(EnumValueTools.getIndex(gt)));
+		}
+	}
+
+	public static function toString(gt:Type):String {
 		return Std.string(gt);
 	}
 
-	private static function getNamedTypeInfo(classPath:GoString):NamedTypeData {
+	public static function getNamedTypeInfo(classPath:GoString):NamedTypeData {
 		// trace("getNamedTypeInfo", classPath);
 		var ntd = namedTypeMap.get(classPath);
 		if (ntd == null) {
@@ -241,7 +230,7 @@ class _GoType__extension {
 		return ntd;
 	}
 
-	public static function string(gt:GoType):GoString {
+	public static function string(gt:Type):GoString {
 		var p = EnumValueTools.getParameters(gt);
 		if (p.length == 0)
 			return (gt.kind().string() : GoString);
@@ -265,21 +254,46 @@ class _GoType__extension {
 				}
 				r += " }";
 				return r;
-			case GT_array(_, _), GT_chan(_, _), GT_func(_, _), GT_map(_, _):
-				return (Std.string(gt) : GoString); // TODO
+			case GT_array(typ, len):
+				return "[" + Std.string(len) + "]" + typ.string();
+			case GT_slice(typ):
+				return "[]" + typ.string();
+			case GT_map(key, value):
+				return "map[" + key.string() + "]" + value.string();
+			case GT_chan(typ):
+				return "chan " + typ.string();
+			case GT_func(args, rets):
+				var r:GoString = "func (";
+				var preface = "";
+				for (arg in args) {
+					r += preface;
+					preface = ", ";
+					r += arg.string();
+				}
+				r += ")";
+				if (rets != null) {
+					r += " ";
+					if (rets.length > 1)
+						r += "(";
+					preface = "";
+					for (ret in rets) {
+						r += preface;
+						preface = ", ";
+						r += ret.string();
+					}
+					if (rets.length > 1)
+						r += ")";
+				}
+				return r;
 			case _:
 				return (Std.string(gt) : GoString); // should not get here
 		}
 		return "???"; // should never get here!
 	}
 
-	public static function elem(gt:GoType):GoType {
+	public static function elem(gt:Type):Type {
 		switch (gt) {
-			case GT_chan(elem, _):
-				return elem;
-			case GT_ptr(elem), GT_slice(elem):
-				return elem;
-			case GT_array(elem, _):
+			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
 				return elem;
 			case _:
 				throw "reflect.Type.Elem not implemented for " + (string(gt) : String);
@@ -287,16 +301,16 @@ class _GoType__extension {
 		return GT_invalid;
 	}
 
-	public static function len(gt:GoType):GoInt {
+	public static function len(gt:Type):GoInt {
 		switch (gt) {
-			case GT_array(elem, len):
+			case GT_array(_, len):
 				return (len : GoInt);
 			case _:
 				throw "reflect.Type.Len() not implemented for " + (string(gt) : String);
 		}
 	}
 
-	public static function numMethod(gt:GoType):GoInt {
+	public static function numMethod(gt:Type):GoInt {
 		switch (gt) {
 			case GT_namedType(haxeClassPath), GT_interface(haxeClassPath):
 				var nti = getNamedTypeInfo(haxeClassPath);
@@ -307,7 +321,7 @@ class _GoType__extension {
 		return 0;
 	}
 
-	public static function method(gt:GoType, idx:GoInt):Method {
+	public static function method(gt:Type, idx:GoInt):Method {
 		var i:Int = idx.toBasic();
 		switch (gt) {
 			case GT_namedType(haxeClassPath), GT_interface(haxeClassPath):
@@ -319,7 +333,7 @@ class _GoType__extension {
 		return null;
 	}
 
-	public static function numField(gt:GoType):GoInt {
+	public static function numField(gt:Type):GoInt {
 		switch (gt) {
 			case GT_namedType(haxeClassPath):
 				var nti = getNamedTypeInfo(haxeClassPath);
@@ -332,7 +346,7 @@ class _GoType__extension {
 		return 0;
 	}
 
-	public static function field(gt:GoType, idx:GoInt):Method {
+	public static function field(gt:Type, idx:GoInt):Method {
 		var i:Int = idx.toBasic();
 		switch (gt) {
 			case GT_namedType(haxeClassPath), GT_interface(haxeClassPath):
@@ -346,10 +360,10 @@ class _GoType__extension {
 		return null;
 	}
 
-	public static function assignableTo(gt:GoType, ot:GoType):Bool {
+	public static function assignableTo(gt:Type, ot:Type):Bool {
 		var gtP = EnumValueTools.getParameters(gt);
 		var otP = EnumValueTools.getParameters(ot);
-		if(gtP.length==0 && otP.length==0)
+		if (gtP.length == 0 && otP.length == 0)
 			return gt.kind() == ot.kind();
 
 		switch (gt) {
@@ -390,11 +404,16 @@ class _GoType__extension {
 		return false;
 	}
 
-	public static function implements_(gt:GoType, ot:GoType):Bool {
+	public static function implements_(gt:Type, ot:Type):Bool {
 		switch (gt) {
 			case GT_namedType(ref):
 				switch (ot) {
-					case GT_interface(_):
+					case GT_interface(iref):
+						// check shortcut of rtti implements list
+						var NTI = getNamedTypeInfo(ref);
+						if (NTI.interfaces.contains(iref))
+							return true;
+						// otherwise check the individual methodslong-hand, needed for non go2hx classes
 						var found = 0;
 						for (i in 0...ot.numMethod().toBasic()) {
 							var ifM = ot.method(i);
@@ -416,30 +435,111 @@ class _GoType__extension {
 		}
 		return false;
 	}
+
+	public static function comparable(gt:Type):Bool {
+		switch (gt) {
+			case GT_slice(_), GT_func(_, _), GT_map(_, _):
+				return false;
+			case GT_array(elem, _):
+				return elem.comparable();
+			case GT_struct(fields):
+				for (fld in fields)
+					if (!fld.type.comparable())
+						return false;
+				return true;
+			case _:
+				return true;
+		}
+	}
 }
 
-function ptrTo(t:GoType):GoType {
+function unserializeType(s:String):Type {
+	var unserializer = new Unserializer(s);
+	var ret = unserializer.unserialize();
+	if (Reflect.isEnumValue(ret)) {
+		return ret;
+	}
+	return GT_invalid;
+}
+
+function ptrTo(t:Type):Type {
 	return GT_ptr(t);
 }
 
-function typeOf(iface:AnyInterface):GoType {
+var namedTypeMap:Map<GoString, NamedTypeData> = [];
+
+function typeOf(iface:AnyInterface):Type {
+	if (iface == null)
+		return GT_unsafePointer;
 	var tn = iface.typeName();
 	var v = iface.value();
-	if (tn == "*unknown") { // TODO move similar code to Pointer.hx
-		var elem = (v : Dynamic).get();
-		var elemT = typeOfAnyHaxe(elem);
-		if (elemT != GT_invalid)
-			return GT_ptr(elemT);
+	switch (tn) {
+		case "*unknown": // TODO this code may be in the wrong place
+			var elem = (v : Dynamic).get();
+			var elemT = typeOfAnyHaxe(elem);
+			if (elemT != GT_invalid)
+				return GT_ptr(elemT);
+		case _:
 	}
-	var gt = makeUnNamedGoType(tn);
+	var gt = makeTypeFromTypeName(tn);
 	if (gt != GT_invalid)
 		return gt;
 	return typeOfAnyHaxe(v);
 }
 
-function typeOfAnyHaxe(v:Dynamic):GoType {
+function makeTypeFromTypeName(typeName:String):Type {
+	// trace("mNBT:", typeName);
+
+	if (StringTools.startsWith(typeName, "wy21:stdgo.reflect.GT_enum"))
+		return unserializeType(typeName);
+
+	var pointerTo = false;
+	if (typeName.length == 0)
+		return new Type(GT_invalid);
+	if (StringTools.startsWith(typeName, "*")) {
+		pointerTo = true;
+		typeName = typeName.substr(1);
+	}
+
+	switch (typeName) {
+		case "invalid", "array", "chan", "func", "map", "ptr", "slice", "struct", "namedType":
+			// type needs more parameters
+			return GT_invalid;
+		case _:
+			if (EnumTools.getConstructors(GT_enum).contains("GT_" + typeName)) {
+				if (pointerTo)
+					return GT_ptr(EnumTools.createByName(GT_enum, "GT_" + typeName, []));
+				else
+					return EnumTools.createByName(GT_enum, "GT_" + typeName, []);
+			} else {
+				var nti = namedTypeMap[typeName];
+				if (nti != null) {
+					if (nti.isInterface)
+						return GT_interface(typeName);
+					else
+						return GT_namedType(typeName);
+				} else {
+					if (Type.resolveClass(typeName) != null)
+						return GT_namedType(typeName);
+					else
+						return GT_invalid;
+				}
+			}
+	}
+}
+
+function makeNamedType(typeName:GoString, path:GoString):Type {
+	switch (typeName) {
+		case "interface", "namedType":
+			return EnumTools.createByName(GT_enum, "GT_" + typeName, [path]);
+		case _:
+			return GT_invalid;
+	}
+}
+
+function typeOfAnyHaxe(v:Dynamic):Type {
 	if (v == null)
-		return haxeTypeUnknown;
+		return GT_unsafePointer;
 
 	// fallback to the native haxe types
 	if (Std.isOfType(v, String))
@@ -452,22 +552,16 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 		return GT_float64;
 	if (haxe.Int64.isInt64(v))
 		return GT_int64;
+	if (Reflect.isFunction(v)) // a funcion with no inputs or outputs that can be seen
+		return GT_func(new Array<Type>(), new Array<Type>());
 
 	if (!Reflect.isObject(v)) {
 		return haxeTypeUnknown;
 	}
 
 	if (Reflect.isEnumValue(v)) {
-		var enumName:String = Type.enumConstructor(v);
-		if (enumName == "stdgo.Reflect.GoType")
-			return GT_namedType(Type.getClassName(_GoType__extension));
-
-		// trace("typeOf-enum", enumName);
 		return haxeTypeUnknown; // enums are not used by go2hx
 	}
-
-	if (Reflect.isFunction(v)) // a funcion with no inputs or outputs
-		return GT_func(new Array<GoType>(), new Array<GoType>());
 
 	var fields = new Array<StructField>();
 
@@ -476,6 +570,7 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 	if (cl == null) { // an anonomous structure
 		var flds = Reflect.fields(v);
 		for (fld in flds) {
+			// TODO find a way to pass in field types, rather than inspect contents
 			var fldValue = Reflect.getProperty(v, fld);
 			var typ = typeOfAnyHaxe(fldValue);
 			var sf:StructField = {
@@ -493,19 +588,64 @@ function typeOfAnyHaxe(v:Dynamic):GoType {
 	return typeOfClass(cl, v);
 }
 
-function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
+function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 	var fields = new Array<StructField>();
 
 	var name:GoString = "";
 	var packagePath:GoString = "";
 	var methods = new Array<Method>();
+	var underlying = GT_invalid;
 
 	var isInterface = false;
+	var interfaces = new Array<GoString>();
 
 	var haxePathToType = Type.getClassName(cl);
+
+	var knownClass = nonRttiClassMap[haxePathToType];
+	if (knownClass != null) {
+		switch (knownClass) {
+			case GT_array(typ, len):
+				try {
+					len = v.length;
+					if (len > 0)
+						switch (haxePathToType) {
+							case "eval.Vector":
+								var a = v.toArray();
+								typ = typeOfAnyHaxe(a.pop());
+							case _:
+						}
+				} catch (e)
+					trace("failed attempt to infer array type information:", e);
+				return GT_array(typ, len);
+
+			case GT_slice(typ):
+				try {
+					var len = v.length;
+					if (len > 0)
+						typ = typeOfAnyHaxe(v.get(0));
+				} catch (e)
+					trace("failed attempt to infer slice type information:", e);
+				return GT_slice(typ);
+			case GT_map(key, value):
+				var kvi = v.keyValueIterator();
+				if (kvi.hasNext()) {
+					var entry = kvi.next();
+					key = typeOfAnyHaxe(entry.key);
+					value = typeOfAnyHaxe(entry.value);
+				}
+				return GT_map(key, value);
+
+			case GT_chan(elem):
+				return GT_chan(elem); // TODO find type of element
+
+			case _:
+				throw "unhandled " + haxePathToType + " as " + knownClass;
+		}
+	}
+
 	var cnameParts = haxePathToType.split(".");
 	name = cnameParts.pop();
-	packagePath = cnameParts.join("/");
+	packagePath = cnameParts.join(".");
 
 	var ntCached = namedTypeMap.get(haxePathToType);
 	if (ntCached != null) {
@@ -519,30 +659,67 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 		var rtti = haxe.rtti.Rtti.getRtti(cl);
 		// trace("rtti", rtti);
 		isInterface = rtti.isInterface;
-		for (rttiFld in rtti.fields) {
-			// trace("rtti.field:", rttiFld.name, rttiFld.type, rttiFld.meta);
-			switch (rttiFld.type) {
-				case CFunction(args, ret):
-					var m:Method = {
-						name: nameToGo(rttiFld.name),
-						pkgPath: packagePath,
-						type: typeOfRttiType(rttiFld.type)
-					};
-					methods.push(m);
-				case _:
-					var typ = typeOfRttiType(rttiFld.type);
-					var sf:StructField = {
-						name: nameToGo(rttiFld.name),
-						type: typ,
-						tag: "",
-						pkgPath: packagePath,
-						anonymous: false
-					};
-					fields.push(sf);
+
+		for (iface in rtti.interfaces)
+			interfaces.push((iface.path : GoString));
+
+		if (StringTools.endsWith(haxePathToType, "__extension")) {
+			for (rttiStatic in rtti.statics) {
+				switch (rttiStatic.name) {
+					case "_typeName_":
+						var str = StringTools.trim(rttiStatic.expr);
+						str = str.substr(1, str.length - 2);
+						underlying = makeTypeFromTypeName(str);
+					case _:
+						switch (rttiStatic.type) {
+							case CFunction(args, ret):
+								var fnSig = typeOfRttiType(rttiStatic.type);
+								switch (fnSig) {
+									case GT_func(args, ret):
+										args.shift(); // remove first element
+										fnSig = GT_func(args, ret);
+									case _:
+										throw "not a function";
+								}
+								var m:Method = {
+									name: nameToGo(rttiStatic.name),
+									pkgPath: packagePath,
+									type: fnSig
+								};
+								methods.push(m);
+							case _:
+								// not a function, so we don't care
+						}
+				}
 			}
+		} else {
+			// the fields of the struct{} are in the class
+			for (rttiFld in rtti.fields) {
+				// trace("rtti.field:", rttiFld.name, rttiFld.type, rttiFld.meta);
+				switch (rttiFld.type) {
+					case CFunction(args, ret):
+						var m:Method = {
+							name: nameToGo(rttiFld.name),
+							pkgPath: packagePath,
+							type: typeOfRttiType(rttiFld.type)
+						};
+						methods.push(m);
+					case _:
+						var typ = typeOfRttiType(rttiFld.type);
+						var sf:StructField = {
+							name: nameToGo(rttiFld.name),
+							type: typ,
+							tag: "",
+							pkgPath: packagePath,
+							anonymous: false
+						};
+						fields.push(sf);
+				}
+			}
+			underlying = GT_struct(fields);
 		}
 	} else {
-		// a non-rtti class - TODO
+		// a non-rtti class
 		var flds = Type.getInstanceFields(cl);
 		for (fld in flds) {
 			var typ = haxeTypeUnknown;
@@ -569,14 +746,16 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 					fields.push(sf);
 			}
 		}
+		underlying = GT_struct(fields);
 	}
 
 	var ntd:NamedTypeData = {
 		typeName: name,
 		packPath: packagePath,
 		methods: methods,
-		underlying: GT_struct(fields),
-		isInterface: isInterface
+		underlying: underlying,
+		isInterface: isInterface,
+		interfaces: interfaces
 	}
 	namedTypeMap[haxePathToType] = ntd;
 
@@ -587,16 +766,23 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):GoType {
 	}
 }
 
-var rttiCClassMap:Map<String, GoType> = ["String" => GT_string];
+var nonRttiClassMap:Map<String, Type> = [
+	"eval.Vector" => GT_array(GT_invalid, 0),
+	"stdgo._Slice.SliceData" => GT_slice(GT_invalid),
+	"stdgo._GoMap.MapData" => GT_map(GT_invalid, GT_invalid),
+	"stdgo.Chan" => GT_chan(GT_invalid)
+];
 
-var rttiCAbstractMap:Map<String, GoType> = [
+var rttiCClassMap:Map<String, Type> = ["String" => GT_string];
+
+var rttiCAbstractMap:Map<String, Type> = [
 	"stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoIntq6" => GT_int16, "stdgo.GoInt32" => GT_int32, "stdgo.GoInt64" => GT_int64,
 	"stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUIntq6" => GT_uint16, "stdgo.GoUInt32" => GT_uint32, "stdgo.GoUInt64" => GT_uint64,
 	"stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32, "stdgo.GoFloat64" => GT_float64, "stdgo.GoComplex64" => GT_complex64,
 	"stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "Void" => null
 ];
 
-function typeOfRttiType(rttiT:haxe.rtti.CType):GoType {
+function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 	var returnEnum = haxeTypeUnknown;
 	switch (rttiT) {
 		case CClass(name, params):
@@ -610,21 +796,22 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):GoType {
 			// trace("rttiT typedef", name, params);
 			var parts = name.split(".");
 			var tName = parts.pop();
-			var tPath = parts.join("/");
+			var tPath = parts.join(".");
 			var ntd:NamedTypeData = {
 				typeName: tName,
 				packPath: tPath,
 				methods: new Array<Method>(),
 				underlying: haxeTypeUnknown,
-				isInterface: false
+				isInterface: false,
+				interfaces: new Array<GoString>()
 			};
 			namedTypeMap[name] = ntd;
 			returnEnum = GT_namedType(name);
 
 		case CFunction(args, ret):
 			// trace("rttiT function", args, ret);
-			var input = new Array<GoType>();
-			var output = new Array<GoType>();
+			var input = new Array<Type>();
+			var output = new Array<Type>();
 			for (arg in args)
 				input.push(typeOfRttiType(arg.t));
 			var retT = typeOfRttiType(ret);
@@ -653,4 +840,145 @@ function nameToGo(n:GoString):GoString {
 	if (firstChar == firstChar.toLowerCase())
 		return firstChar.toUpperCase() + n.substr(1);
 	return n;
+}
+
+//--------------------------------
+// Go reflect.Value implementation
+//--------------------------------
+
+function valueOf(iface:AnyInterface):Value {
+	return new Value(iface.value(), typeOf(iface));
+}
+
+class Value {
+	var val:Any;
+	var surfaceType:Type;
+	var underlyingType:Type;
+
+	public function new(?v:Any = null, t:Type = GT_invalid) {
+		val = v;
+		surfaceType = t;
+		underlyingType = findUnderlying(t);
+	}
+
+	static function findUnderlying(t:Type):Type{
+		switch (t) {
+			case GT_namedType(name):
+				return findUnderlying(_Type__extension.getNamedTypeInfo(name).underlying);
+			case _:
+				return t;
+		}
+	}
+
+	@:to function __promote()
+		return new AnyInterface({value: this, typeName: Type.getClassName(Value)});
+
+	public inline function type()
+		return surfaceType;
+
+	public inline function kind()
+		return surfaceType.kind();
+
+	public inline function interface_()
+		return new AnyInterface({value: val, typeName: surfaceType.serialize()});
+
+	public inline function isNil()
+		return val == null;
+
+	public inline function isValid()
+		return surfaceType != GT_invalid;
+
+	public function bool():Bool {
+		switch (underlyingType) {
+			case GT_bool:
+				return (val : Bool);
+			case _:
+				throw "Value.Bool not implemented for " + underlyingType.string();
+		}
+		return false;
+	}
+
+	public function int():GoInt64 {
+		switch (underlyingType) {
+			case GT_int, GT_int8, GT_int16, GT_int32, GT_int64:
+				return (val : GoInt64);
+			case _:
+				throw "Value.Int not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function uint():GoUInt64 {
+		switch (underlyingType) {
+			case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64:
+				return (val : GoUInt64);
+			case _:
+				throw "Value.Uint not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function float():GoFloat64 {
+		switch (underlyingType) {
+			case GT_float32, GT_float64:
+				return (val : GoFloat64);
+			case _:
+				throw "Value.Float not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function complex():GoComplex128 {
+		switch (underlyingType) {
+			case GT_complex128, GT_complex64:
+				return (val : GoComplex128);
+			case _:
+				throw "Value.Complex not implemented for " + underlyingType.string();
+		}
+		return 0;
+	}
+
+	public function string():GoString {
+		switch (underlyingType) {
+			case GT_string:
+				return (val : GoString);
+			case _:
+				throw "Value.String not implemented for " + underlyingType.string();
+		}
+		return "";
+	}
+}
+
+//---------------------------------
+// reflect.HaxeValue implementation
+// only method is String()
+//---------------------------------
+var haxeTypeUnknown = GT_namedType("stdgo.reflect._HaxeValue__extension");
+
+@:using(stdgo.reflect.Reflect._HaxeValue__extension)
+abstract HaxeValue(Any) from(Any) to(Any) {
+	public inline function new(?a:Any = null) {
+		this = a;
+	}
+
+	@:to inline function __promote() // this is why Kind is an abstract
+		return new AnyInterface({value: this, typeName: Type.getClassName(_HaxeValue__extension)});
+}
+
+@:rtti
+class _HaxeValue__extension {
+	static final _typeName_ = "unsafePointer";
+
+	// string must be here to enable it to be seen at runtime
+	public static function string(hv:Any):GoString {
+		return Std.string(hv);
+	}
+}
+
+//------------
+// TODO remove
+//------------
+function testHarness() {
+	trace("testHarness");
+	// a space to test ideas...
 }

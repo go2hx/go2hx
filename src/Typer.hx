@@ -2125,36 +2125,15 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						case TPath(p):
 							if (p.name == def.name) {
 								var extensionClass:TypeDefinition = null;
-								var extensionClassName = "_" + p.name + "_" + "_extension";
-								if (!info.global.aliasStaticExtensionMap.exists(p.name)) {
-									if (def.meta == null)
-										def.meta = [];
-									def.meta.push({
-										name: ":using",
-										params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
-										pos: null
-									});
-									extensionClass = {
-										name: extensionClassName,
-										pos: null,
-										pack: [],
-										fields: [],
-										isExtern: true,
-										meta: [{name: ":rtti", pos: null}],
-										kind: TDClass(),
-									};
-									info.global.aliasStaticExtensionMap[p.name] = true;
-									info.data.defs.push(extensionClass);
-								} else {
-									for (def in info.data.defs) {
-										switch def.kind {
-											case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-												if (def.name == extensionClassName) {
-													extensionClass = def;
-													break;
-												}
-											default:
-										}
+								var extensionClassName = extensionName(p.name);
+								for (def in info.data.defs) {
+									switch def.kind {
+										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+											if (def.name == extensionClassName) {
+												extensionClass = def;
+												break;
+											}
+										default:
 									}
 								}
 								if (decl.recv.list[0].names.length > 0) {
@@ -2672,17 +2651,48 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			var type = typeExprType(spec.type, info);
 			if (type == null)
 				return null;
+			var extensionClassName = extensionName(name);
+			var extensionClass:TypeDefinition = {
+				name: extensionClassName,
+				pos: null,
+				pack: [],
+				fields: [{
+					name: "_typeName_",
+					pos: null,
+					kind: FVar(null,toExpr(EConst(CString(exprTypeString(spec.type))))),
+				}],
+				isExtern: true,
+				meta: [{name: ":rtti", pos: null}],
+				kind: TDClass(),
+			};
+			info.data.defs.push(extensionClass);
+
 			return {
 				name: name,
 				pack: [],
 				pos: null,
 				doc: doc,
 				fields: [],
-				meta: [],
+				meta: [{
+					name: ":using",
+					params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
+					pos: null
+				}],
 				kind: TDAlias(type) //generate typedef
 			}
 	}
 }
+
+private function typeToName(type:Ast.Expr):String {
+	switch type.id {
+		case "":
+
+		default:
+	}
+}
+
+private function extensionName(name:String):String
+	return "_" + name + "_extension";
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
@@ -2852,7 +2862,6 @@ class Global {
 	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
-	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 
 	public inline function new() {}
 }

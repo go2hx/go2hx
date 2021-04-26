@@ -81,6 +81,7 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	return true;
 }
 
+
 //-------------------------------
 // Go reflect.Kind implementation
 //-------------------------------
@@ -112,40 +113,40 @@ class _Kind__extension {
 		return r;
 	}
 }
+/**
+    reflect.Kind constants - must be same order as GT_enum
+**/
+final invalid : Kind = (0 : IntegerType);
+final bool : Kind = (1 : IntegerType);
+final int : Kind = (2 : IntegerType);
+final int8 : Kind = (3 : IntegerType);
+final int16 : Kind = (4 : IntegerType);
+final int32 : Kind = (5 : IntegerType);
+final int64 : Kind = (6 : IntegerType);
+final uint : Kind = (7 : IntegerType);
+final uint8 : Kind = (8 : IntegerType);
+final uint16 : Kind = (9 : IntegerType);
+final uint32 : Kind = (10 : IntegerType);
+final uint64 : Kind = (11 : IntegerType);
+final uintptr : Kind = (12 : IntegerType);
+final float32 : Kind = (13 : IntegerType);
+final float64 : Kind = (14 : IntegerType);
+final complex64 : Kind = (15 : IntegerType);
+final complex128 : Kind = (16 : IntegerType);
+final string : Kind = (17 : IntegerType);
+final unsafePointer : Reflect.Kind = (18 : IntegerType);
+final chan : Kind = (19 : IntegerType);
+final interface_ : Kind = (20 : IntegerType);
+final ptr : Kind = (21 : IntegerType);
+final slice : Kind = (22 : IntegerType);
+final array : Kind = (23 : IntegerType);
+final func : Kind = (24 : IntegerType);
+final map : Kind = (25 : IntegerType);
+final struct : Kind = (26 : IntegerType);
 
 //-------------------------------
 // Go reflect.Type implementation
 //-------------------------------
-
-typedef StructTag = GoString; // TODO methods
-
-typedef StructField = {
-	name:GoString,
-	pkgPath:GoString,
-	// TODO only for private fields
-	type:Type,
-	tag:StructTag,
-	anonymous:Bool,
-	// offset:GoUIntptr; // TODO
-}
-
-typedef Method = {
-	name:GoString,
-	pkgPath:GoString,
-	type:Type,
-	// func:Value,	// func with receiver as first argument TODO
-	// index:GoInt,	// index for Type.Method TODO
-}
-
-typedef NamedTypeData = {
-	typeName:GoString,
-	packPath:GoString,
-	methods:Array<Method>,
-	underlying:Type,
-	isInterface:Bool,
-	interfaces:Array<GoString>
-};
-
 enum GT_enum {
 	GT_invalid;
 	GT_bool;
@@ -164,17 +165,17 @@ enum GT_enum {
 	GT_float64;
 	GT_complex64;
 	GT_complex128;
-	GT_array(elem:Type, len:GoInt);
+	GT_string;
+	GT_unsafePointer;
 	GT_chan(elem:Type);
-	GT_func(input:Array<Type>, output:Array<Type>);
 	GT_interface(haxeClassPath:GoString);
-	GT_map(key:Type, value:Type);
 	GT_ptr(elem:Type);
 	GT_slice(elem:Type);
-	GT_string;
+	GT_array(elem:Type, len:GoInt);
+	GT_func(input:Array<Type>, output:Array<Type>);
+	GT_map(key:Type, value:Type);
 	GT_struct(fields:Array<StructField>);
-	GT_unsafePointer;
-	GT_namedType(haxeClassPath:GoString);
+	GT_namedType(haxeClassPath:GoString); // pseudo Kind
 }
 
 @:using(stdgo.reflect.Reflect._Type__extension)
@@ -466,6 +467,38 @@ function ptrTo(t:Type):Type {
 	return GT_ptr(t);
 }
 
+typedef StructTag = GoString; // TODO methods
+
+typedef StructField = {
+	name:GoString,
+	haxeName:GoString,
+	pkgPath:GoString,
+	// TODO only for private fields
+	type:Type,
+	tag:StructTag,
+	anonymous:Bool,
+	// offset:GoUIntptr; // TODO
+}
+
+typedef Method = {
+	name:GoString,
+	haxeName:GoString,
+	pkgPath:GoString,
+	type:Type,
+	// func:Value,	// func with receiver as first argument TODO
+	// index:GoInt,	// index for Type.Method TODO
+}
+
+typedef NamedTypeData = {
+	typeName:GoString,
+	haxeTypeName:GoString,
+	packPath:GoString,
+	methods:Array<Method>,
+	underlying:Type,
+	isInterface:Bool,
+	interfaces:Array<GoString>
+};
+
 var namedTypeMap:Map<GoString, NamedTypeData> = [];
 
 function typeOf(iface:AnyInterface):Type {
@@ -488,11 +521,11 @@ function typeOf(iface:AnyInterface):Type {
 }
 
 /*
-The types that can be created from a text value are those that are:
-- the xxxxx of a GT_xxxxx enum that has no parameters
-- the name of a Haxe class (for interfaces and named types)
-- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
-*/
+	The types that can be created from a text value are those that are:
+	- the xxxxx of a GT_xxxxx enum that has no parameters
+	- the name of a Haxe class (for interfaces and named types)
+	- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
+ */
 function makeTypeFromTypeName(typeName:String):Type {
 	// trace("mNBT:", typeName);
 
@@ -581,6 +614,7 @@ function typeOfAnyHaxe(v:Dynamic):Type {
 			var typ = typeOfAnyHaxe(fldValue);
 			var sf:StructField = {
 				name: nameToGo(fld),
+				haxeName: fld,
 				type: typ,
 				tag: "",
 				pkgPath: "",
@@ -632,6 +666,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				} catch (e)
 					trace("failed attempt to infer slice type information:", e);
 				return GT_slice(typ);
+
 			case GT_map(key, value):
 				var kvi = v.keyValueIterator();
 				if (kvi.hasNext()) {
@@ -669,7 +704,14 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 		for (iface in rtti.interfaces)
 			interfaces.push((iface.path : GoString));
 
-		if (StringTools.endsWith(haxePathToType, "__extension")) {
+		var xtnPostfix ="__extension";
+		if (StringTools.endsWith(haxePathToType,xtnPostfix )) {
+
+			// get the right Go type name from the extension class
+			name = name.split(xtnPostfix)[0];
+			if(StringTools.startsWith(name,"_"))
+				name = name.substr(1);
+
 			for (rttiStatic in rtti.statics) {
 				switch (rttiStatic.name) {
 					case "_typeName_":
@@ -689,6 +731,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 								}
 								var m:Method = {
 									name: nameToGo(rttiStatic.name),
+									haxeName: rttiStatic.name,
 									pkgPath: packagePath,
 									type: fnSig
 								};
@@ -706,6 +749,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 					case CFunction(args, ret):
 						var m:Method = {
 							name: nameToGo(rttiFld.name),
+							haxeName: rttiFld.name,
 							pkgPath: packagePath,
 							type: typeOfRttiType(rttiFld.type)
 						};
@@ -714,6 +758,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 						var typ = typeOfRttiType(rttiFld.type);
 						var sf:StructField = {
 							name: nameToGo(rttiFld.name),
+							haxeName: rttiFld.name,
 							type: typ,
 							tag: "",
 							pkgPath: packagePath,
@@ -737,6 +782,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				case GT_func(_, _):
 					var m:Method = {
 						name: nameToGo(fld),
+						haxeName: fld,
 						pkgPath: packagePath,
 						type: typ
 					};
@@ -744,6 +790,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				case _:
 					var sf:StructField = {
 						name: nameToGo(fld),
+						haxeName: fld,
 						type: typ,
 						tag: "",
 						pkgPath: "",
@@ -757,6 +804,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 
 	var ntd:NamedTypeData = {
 		typeName: name,
+		haxeTypeName: haxePathToType,
 		packPath: packagePath,
 		methods: methods,
 		underlying: underlying,
@@ -805,6 +853,7 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 			var tPath = parts.join(".");
 			var ntd:NamedTypeData = {
 				typeName: tName,
+				haxeTypeName: name,
 				packPath: tPath,
 				methods: new Array<Method>(),
 				underlying: haxeTypeUnknown,
@@ -840,10 +889,12 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 function nameToGo(n:GoString):GoString {
 	if (n.length == 0)
 		return "";
-	if (StringTools.startsWith(n, "_"))
+	if (StringTools.endsWith(n,"_")) // probably added to fix a name clash
+		n = n.substr(0,n.length-1);
+	if (StringTools.startsWith(n, "_")) // a lower-case Go name
 		return n.substr(1);
 	var firstChar = n.substr(0, 1);
-	if (firstChar == firstChar.toLowerCase())
+	if (firstChar == firstChar.toLowerCase()) // an upper-case Go name
 		return firstChar.toUpperCase() + n.substr(1);
 	return n;
 }
@@ -867,7 +918,7 @@ class Value {
 		underlyingType = findUnderlying(t);
 	}
 
-	static function findUnderlying(t:Type):Type{
+	static function findUnderlying(t:Type):Type {
 		switch (t) {
 			case GT_namedType(name):
 				return findUnderlying(_Type__extension.getNamedTypeInfo(name).underlying);

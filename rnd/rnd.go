@@ -17,9 +17,9 @@ func main() {
 	spt := reflect.PtrTo(reflect.TypeOf(str))
 	fmt.Println(spt)
 	showType("anonymous", struct {
-		A int32
-		b string
-		K reflect.Kind
+		A         int32
+		Interface string
+		K         reflect.Kind
 	}{42, str, 4}, true, false)
 
 	m := MyType{
@@ -80,14 +80,14 @@ func showType(name string, i interface{}, isStruct, isNamed bool) {
 	Kn := Ki.String()
 
 	fmt.Println(name, Ti.String(), Kui, Kn, Ti.Comparable())
-	switch Kn {
-	case "bool":
+	switch Ki { //kind
+	case reflect.Bool:
 		fmt.Println("Value.Bool()", Tv.Bool())
-	case "int", "int8", "int16", "int32", "int64":
+	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		fmt.Println("Value.Int()", Tv.Int())
-	case "uint", "uint8", "uint16", "uint32", "uint64":
+	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
 		fmt.Println("Value.Uint()", Tv.Uint())
-	case "string":
+	case reflect.String:
 		fmt.Println("Value.String()", Tv.String())
 	}
 	if isStruct {
@@ -109,8 +109,9 @@ type Vertex struct {
 }
 
 type MyType struct {
-	X uint8
-	y string
+	X         uint8
+	y         string
+	Interface uintptr
 }
 
 // MyType does not implement the MyStringer interface

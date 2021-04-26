@@ -16,9 +16,9 @@ private inline function durationToSecond(d:Duration):Int {
 
 inline function after(d:Duration):Chan<Time> {
 	var chan = stdgo.Go.make((_ : Chan<Time>));
-	haxe.Timer.delay(() -> {
+	/*haxe.Timer.delay(() -> {
 		chan.send(Time.now());
-	}, durationToSecond(d) * 1000);
+	}, durationToSecond(d) * 1000);*/
 	return chan;
 }
 

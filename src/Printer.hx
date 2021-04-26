@@ -39,17 +39,57 @@ class Printer extends haxe.macro.Printer {
 
 
 	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
-		var doc = "";
+		var externBool:Bool = false;
 		if (t.isExtern) {
-			doc = t.doc;
-			t.doc = "";
 			t.isExtern = false;
+			externBool = true;
 		}
-		var str = super.printTypeDefinition(t, printPackage);
-		if (doc != "") {
-			str = str.substr(0,str.length - 3); //remove blank block expr
-			str += doc; //add string body
+		switch t.kind {
+			case TDAlias(td):
+				return super.printTypeDefinition(t,printPackage);
+			case TDField(kind, access):
+				return super.printTypeDefinition(t,printPackage);
+			default:
 		}
+		var old = tabs;
+		tabs = tabString;
+		//isExtern = public/private access for all TypeDefs except TDFields
+		var str = t == null ? "#NULL" : (printPackage && t.pack.length > 0 && t.pack[0] != "" ? "package " + t.pack.join(".") + ";\n" : "")
+			+ (t.doc != null && t.doc != "" ? "/**\n" + tabString + StringTools.replace(t.doc, "\n", "\n" + tabString) + "\n**/\n" : "")
+			+ (t.meta != null && t.meta.length > 0 ? t.meta.map(printMetadata).join(" ") + " " : "")
+			+ (externBool ? "" : "private ") + switch t.kind {
+				case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+					(isFinal ? "final " : "")
+						+ (isAbstract ? "abstract " : "")
+						+ (isInterface ? "interface " : "class ")
+						+ t.name
+						+ (t.params != null && t.params.length > 0 ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "")
+						+ (superClass != null ? " extends " + printTypePath(superClass) : "")
+						+ (interfaces != null ? (isInterface ? [for (tp in interfaces) " extends " + printTypePath(tp)] : [
+							for (tp in interfaces)
+								" implements " + printTypePath(tp)
+						]).join("") : "")
+						+ " {\n"
+						+ [
+							for (f in t.fields) {
+								tabs + printFieldWithDelimiter(f);
+							}
+						].join("\n")
+						+ "\n}";
+				case TDAlias(ct):
+					"typedef "
+					+ t.name
+					+ ((t.params != null && t.params.length > 0) ? "<" + t.params.map(printTypeParamDecl).join(", ") + ">" : "")
+					+ " = "
+					+ (switch (ct) {
+						case TExtend(tpl, fields): printExtension(tpl, fields);
+						case TAnonymous(fields): printStructure(fields);
+						case _: printComplexType(ct);
+					})
+					+ ";";
+				default:
+					"";
+			}
 		return str;
 	}
 

@@ -112,6 +112,15 @@ function main(data:DataType) {
 		if (pkg.files == null)
 			continue;
 		var module:Module = {path: pkg.path, files: []};
+		//holds the last path to refrence against to see if a file has the main package name
+		var endPath = pkg.path;
+		var index = endPath.lastIndexOf(".");
+		endPath = endPath.substr(index + 1);
+		endPath = className(Typer.title(endPath));
+		trace("endpath: " + endPath);
+
+		var main:FileType = null; //main pkg file
+
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -126,6 +135,8 @@ function main(data:DataType) {
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
+			if (data.name == endPath)
+				main = data;
 			var info = new Info();
 			info.data = data;
 			info.global.path = module.path;
@@ -243,11 +254,44 @@ function main(data:DataType) {
 					}), null)
 				});
 			}
+			//default imports
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: "",doc: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
 				info.data.imports.push({path: path.split("."), alias: alias,doc: ""});
 			module.files.push(data);
+		}
+		if (main == null) {
+			main = {
+				name: endPath,
+				imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
+				defs: [],
+				location: "" //does not have a linked go file
+			};
+			module.files.push(main);
+		}
+		for (file in module.files) {
+			if (file.name == main.name)
+				continue;
+			for (def in file.defs) {
+				if (def.isExtern == null || !def.isExtern)
+					continue; //not an exported def
+				switch def.kind {
+					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+						main.defs.push({
+							name: def.name,
+							pack: [],
+							pos: null,
+							kind: TDAlias(TPath({name: file.name,sub: def.name,pack: []})),
+							fields: [],
+						});
+					case TDAlias(t):
+
+					case TDField(kind, access):
+
+					default:
+				}
+			}
 		}
 		list.push(module);
 	}
@@ -1451,7 +1495,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs(1);
 					var t = typeExprType(type, info);
 					args.unshift(macro(_ : $t)); // ECheckType
-					return (macro Go.make($a{args.slice(1)})).expr;
+					return (macro Go.make($a{args})).expr;
 				default: // cast to type ($e : $t)
 					if (expr.args.length == 1) {
 						var isType = basicTypes.indexOf(expr.fun.name) != -1;
@@ -2083,35 +2127,15 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						case TPath(p):
 							if (p.name == def.name) {
 								var extensionClass:TypeDefinition = null;
-								var extensionClassName = "_" + p.name + "_" + "_extension";
-								if (!info.global.aliasStaticExtensionMap.exists(p.name)) {
-									if (def.meta == null)
-										def.meta = [];
-									def.meta.push({
-										name: ":using",
-										params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
-										pos: null
-									});
-									extensionClass = {
-										name: extensionClassName,
-										pos: null,
-										pack: [],
-										fields: [],
-										meta: [{name: ":rtti", pos: null}],
-										kind: TDClass(),
-									};
-									info.global.aliasStaticExtensionMap[p.name] = true;
-									info.data.defs.push(extensionClass);
-								} else {
-									for (def in info.data.defs) {
-										switch def.kind {
-											case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-												if (def.name == extensionClassName) {
-													extensionClass = def;
-													break;
-												}
-											default:
-										}
+								var extensionClassName = extensionName(p.name);
+								for (def in info.data.defs) {
+									switch def.kind {
+										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+											if (def.name == extensionClassName) {
+												extensionClass = def;
+												break;
+											}
+										default:
 									}
 								}
 								if (decl.recv.list[0].names.length > 0) {
@@ -2156,26 +2180,19 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	}
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";
-	var externBool:Bool = false;
 	var index = doc.indexOf(preamble);
 	var finalDoc = doc + getSource(decl, info);
 	if (index != -1) {
 		var path = doc.substr(index + preamble.length);
-		index = path.indexOf("/");
-		if (index != -1) {
-			finalDoc = getBody(path);
-			externBool = true;
-		}else{ //2nd type
-			var params:Array<Expr> = [
-				for (arg in args)
-					macro $i{arg.name}
-			];
-			var e = macro $i{path}($a{params});
-			if (args.length > 0) {
-				block = macro return $e;
-			}else{
-				block = e;
-			}
+		var params:Array<Expr> = [
+			for (arg in args)
+				macro $i{arg.name}
+		];
+		var e = macro $i{path}($a{params});
+		if (args.length > 0) {
+			block = macro return $e;
+		}else{
+			block = e;
 		}
 	}
 	return {
@@ -2185,7 +2202,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 		fields: [],
 		doc: finalDoc,
 		meta: meta,
-		isExtern: externBool,
+		isExtern: isTitle(decl.name.name),
 		kind: TDField(FFun({
 			ret: ret,
 			params: null,
@@ -2249,8 +2266,8 @@ private function getBody(path:String):String {
 		index = content.indexOf(funcDecl);
 		if (index == -1)
 			break;
-		var name = content.substring(index = index + funcDecl.length,index = content.indexOf("("));
-		var isMain = name == func;
+		final name = content.substring(index = index + funcDecl.length,index = content.indexOf("("));
+		final isMain = name == func;
 		index = content.indexOf("{",index) + 1; //first bracket
 		content = content.substr(index);
 		var enclosed:Int = 1;
@@ -2518,6 +2535,7 @@ private function renameDef(name:String, info:Info):String {
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(title(spec.name.name));
+	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
@@ -2604,6 +2622,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				fields: fields,
 				pack: [],
 				doc: doc,
+				isExtern: externBool,
 				meta: meta,
 				kind: TDClass(null, [{name: "StructType", pack: []}], false, true, false),
 			}
@@ -2626,6 +2645,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				doc: doc,
 				fields: fields,
+				isExtern: externBool,
 				meta: [{name: ":rtti", pos: null}, getAllow(info)],
 				kind: TDClass(null, [], true) // INTERFACE
 			};
@@ -2633,17 +2653,40 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			var type = typeExprType(spec.type, info);
 			if (type == null)
 				return null;
+			var extensionClassName = extensionName(name);
+			var extensionClass:TypeDefinition = {
+				name: extensionClassName,
+				pos: null,
+				pack: [],
+				fields: [{
+					name: "_typeName_",
+					pos: null,
+					kind: FVar(null,toExpr(EConst(CString(exprTypeString(spec.type))))),
+				}],
+				isExtern: true,
+				meta: [{name: ":rtti", pos: null}],
+				kind: TDClass(),
+			};
+			info.data.defs.push(extensionClass);
+
 			return {
 				name: name,
 				pack: [],
 				pos: null,
 				doc: doc,
 				fields: [],
-				meta: [],
+				meta: [{
+					name: ":using",
+					params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
+					pos: null
+				}],
 				kind: TDAlias(type) //generate typedef
 			}
 	}
 }
+
+private function extensionName(name:String):String
+	return "_" + name + "__extension";
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
@@ -2813,7 +2856,6 @@ class Global {
 	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
-	public var aliasStaticExtensionMap:Map<String, Bool> = [];
 
 	public inline function new() {}
 }

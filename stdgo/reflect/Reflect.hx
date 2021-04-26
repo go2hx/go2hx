@@ -487,6 +487,12 @@ function typeOf(iface:AnyInterface):Type {
 	return typeOfAnyHaxe(v);
 }
 
+/*
+The types that can be created from a text value are those that are:
+- the xxxxx of a GT_xxxxx enum that has no parameters
+- the name of a Haxe class (for interfaces and named types)
+- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
+*/
 function makeTypeFromTypeName(typeName:String):Type {
 	// trace("mNBT:", typeName);
 

@@ -66,6 +66,8 @@ func main() {
 
 	showType("func", showType, false, false)
 
+	showType("nil", nil, false, false)
+
 	//testHarness()
 }
 

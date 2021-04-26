@@ -1,6 +1,5 @@
 package stdgo.reflect;
 
-// prototype imports
 import stdgo.Pointer.PointerData;
 import haxe.Int64;
 import haxe.EnumTools;
@@ -10,8 +9,11 @@ import stdgo.Go;
 import stdgo.GoString;
 import haxe.Serializer;
 import haxe.Unserializer;
-// end prototype imports
 import stdgo.StdGoTypes.AnyInterface;
+
+//------------------
+// Utiltiy functions
+//------------------
 
 function deepEqual(a1:Dynamic, a2:Dynamic):Bool {
 	if (a1 == a2)
@@ -79,9 +81,10 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	return true;
 }
 
-// function typeOf(x:AnyInterface)
-// 	return null;
-// prototype replacement code below
+//-------------------------------
+// Go reflect.Type implementation
+//-------------------------------
+typedef Type = GoType;
 
 @:using(stdgo.reflect.Reflect._Kind__extension)
 abstract Kind(GoUInt) from(GoUInt) to(GoUInt) {
@@ -171,8 +174,6 @@ enum GT_enum {
 	GT_namedType(haxeClassPath:GoString);
 }
 
-typedef Type = GoType;
-
 @:using(stdgo.reflect.Reflect._GoType__extension)
 abstract GoType(GT_enum) from(GT_enum) to(GT_enum) {
 	public inline function new(?t:GT_enum = GT_invalid) {
@@ -185,7 +186,7 @@ abstract GoType(GT_enum) from(GT_enum) to(GT_enum) {
 
 @:rtti
 class _GoType__extension {
-	static final _typeName_ = "reflect.HaxeTypeUnknown";
+	static final _typeName_ = "unsafePointer";
 
 	public static function serialize(gt:GoType):String {
 		var serializer = new Serializer();
@@ -250,8 +251,37 @@ class _GoType__extension {
 				}
 				r += " }";
 				return r;
-			case GT_array(_, _), GT_chan(_), GT_func(_, _), GT_map(_, _):
-				return (Std.string(gt) : GoString); // TODO
+			case GT_array(typ, len):
+				return "[" + Std.string(len) + "]" + typ.string();
+			case GT_slice(typ):
+				return "[]" + typ.string();
+			case GT_map(key, value):
+				return "map[" + key.string() + "]" + value.string();
+			case GT_chan(typ):
+				return "chan " + typ.string();
+			case GT_func(args, rets):
+				var r:GoString = "func (";
+				var preface = "";
+				for (arg in args) {
+					r += preface;
+					preface = ", ";
+					r += arg.string();
+				}
+				r += ")";
+				if (rets != null) {
+					r += " ";
+					if (rets.length > 1)
+						r += "(";
+					preface = "";
+					for (ret in rets) {
+						r += preface;
+						preface = ", ";
+						r += ret.string();
+					}
+					if (rets.length > 1)
+						r += ")";
+				}
+				return r;
 			case _:
 				return (Std.string(gt) : GoString); // should not get here
 		}
@@ -417,20 +447,11 @@ function ptrTo(t:GoType):GoType {
 	return GT_ptr(t);
 }
 
-var namedTypeMap:Map<GoString, NamedTypeData> = [
-	"reflect.HaxeTypeUnknown" => {
-		typeName: "HaxeTypeUnknown",
-		packPath: "reflect",
-		methods: new Array<Method>(),
-		underlying: GT_struct(new Array<StructField>()), // struct{}
-		isInterface: false,
-		interfaces: new Array<GoString>()
-	}
-];
-
-var haxeTypeUnknown = GT_namedType("reflect.HaxeTypeUnknown");
+var namedTypeMap:Map<GoString, NamedTypeData> = [];
 
 function typeOf(iface:AnyInterface):GoType {
+	if (iface == null)
+		return GT_unsafePointer;
 	var tn = iface.typeName();
 	var v = iface.value();
 	switch (tn) {
@@ -499,7 +520,7 @@ function makeNamedGoType(typeName:GoString, path:GoString):GoType {
 
 function typeOfAnyHaxe(v:Dynamic):GoType {
 	if (v == null)
-		return haxeTypeUnknown;
+		return GT_unsafePointer;
 
 	// fallback to the native haxe types
 	if (Std.isOfType(v, String))
@@ -802,6 +823,41 @@ function nameToGo(n:GoString):GoString {
 	return n;
 }
 
+//--------------------------------
+// Go reflect.Value implementation
+//--------------------------------
+typedef Value = GoValue
+class GoValue {}
+
+//---------------------------------
+// reflect.HaxeValue implementation
+// only method is String()
+//---------------------------------
+var haxeTypeUnknown = GT_namedType("stdgo.reflect._HaxeValue__extension");
+
+@:using(stdgo.reflect.Reflect._HaxeValue__extension)
+abstract HaxeValue(Any) from(Any) to(Any) {
+	public inline function new(?a:Any = null) {
+		this = a;
+	}
+
+	@:to inline function __promote() // this is why Kind is an abstract
+		return new AnyInterface({value: this, typeName: Type.getClassName(_HaxeValue__extension)});
+}
+
+@:rtti
+class _HaxeValue__extension {
+	static final _typeName_ = "unsafePointer";
+
+	// string must be here to enable it to be seen at runtime
+	public static function string(hv:Any):GoString {
+		return Std.string(hv);
+	}
+}
+
+//------------
+// TODO remove
+//------------
 function testHarness() {
 	trace("testHarness");
 	// a space to test ideas...

@@ -488,6 +488,7 @@ typedef StructField = {
 	anonymous:Bool
 }
 
+// FieldInfo is cut-down data for the type declaration
 typedef FieldInfo = {
 	// n: haxe name for field
 	n:GoString,
@@ -526,12 +527,12 @@ abstract StructFieldSet(Array<StructField>) from(Array<StructField>) to(Array<St
 
 typedef Method = {
 	// Name is the method name.
+	name:GoString,
 	// PkgPath is the package path that qualifies a lower case (unexported)
 	// method name. It is empty for upper case (exported) method names.
 	// The combination of PkgPath and Name uniquely identifies a method
 	// in a method set.
 	// See https://golang.org/ref/spec#Uniqueness_of_identifiers
-	name:GoString,
 	pkgPath:GoString,
 	type:Type,
 	// func with receiver as first argument
@@ -776,7 +777,6 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 								var fnSig = typeOfRttiType(rttiStatic.type);
 								switch (fnSig) {
 									case GT_func(args, ret):
-										args.shift(); // remove first element
 										fnSig = GT_func(args, ret);
 									case _:
 										throw "not a function";
@@ -804,7 +804,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 						var m:Method = {
 							name: nameToGo(rttiFld.name),
 							pkgPath: packagePath,
-							type: typeOfRttiType(rttiFld.type),
+							type: funcAddReceiver(typeOfRttiType(rttiFld.type),GT_namedType(haxePathToType)),
 							func: null,
 							index: 0
 						};
@@ -897,6 +897,18 @@ var rttiCAbstractMap:Map<String, Type> = [
 	"stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32, "stdgo.GoFloat64" => GT_float64, "stdgo.GoComplex64" => GT_complex64,
 	"stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "Void" => null
 ];
+
+// take func type and add receiver as first argument
+function funcAddReceiver(f:Type,r:Type):Type{
+	switch(f){
+		case GT_func(inputs, output):
+			inputs.unshift(r);
+			return GT_func(inputs,output);
+		case _:
+			return f; // no change if not a function, rather than error
+	}
+}
+
 
 function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 	var returnEnum = haxeTypeUnknown;

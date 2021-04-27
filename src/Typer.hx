@@ -2661,6 +2661,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				fields: [{
 					name: "_typeName_",
 					pos: null,
+					access: [AStatic,AFinal],
 					kind: FVar(null,toExpr(EConst(CString(exprTypeString(spec.type))))),
 				}],
 				isExtern: true,

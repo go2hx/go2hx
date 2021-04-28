@@ -566,7 +566,17 @@ typedef NamedTypeData = {
 	interfaces:Array<GoString>
 };
 
-var namedTypeMap:Map<GoString, NamedTypeData> = [];
+var namedTypeMap:Map<GoString, NamedTypeData> = [
+	"" => {
+		typeName: "interface{}",
+		haxeTypeName: "",
+		packPath: "",
+		methods: new Array<MethodInfo>(),
+		underlying: haxeTypeUnknown,
+		isInterface: true,
+		interfaces: new Array<GoString>()
+	}
+];
 
 function typeOf(iface:AnyInterface):Type {
 	if (iface == null)
@@ -738,7 +748,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				return GT_chan(elem); // TODO find type of element
 
 			case _:
-				throw new Error("typeOfClass: unhandled " + haxePathToType + " as " + knownClass);
+				throw new Error("typeOfClass: unhandled " + haxePathToType + " as " + knownClass.string());
 		}
 	}
 
@@ -806,8 +816,8 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				// trace("rtti.field:", rttiFld.name, rttiFld.type, rttiFld.meta);
 				switch (rttiFld.type) {
 					case CFunction(args, ret):
-						var ignore = go2hxIgnore_isFunc[rttiFld.name];
-						if (ignore == null || ignore == false) {
+						var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
+						if (ignoreFn == null || !ignoreFn) {
 							var m:Method = {
 								name: nameToGo(rttiFld.name),
 								pkgPath: packagePath,
@@ -822,8 +832,8 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 							methods.push(mi);
 						}
 					case _:
-						var ignore = go2hxIgnore_isFunc[rttiFld.name];
-						if (ignore == null || ignore == true) {
+						var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
+						if (ignoreFn == null || ignoreFn) {
 							var typ = typeOfRttiType(rttiFld.type);
 							var fi:FieldInfo = {
 								n: rttiFld.name,
@@ -900,7 +910,8 @@ var go2hxIgnore_isFunc:Map<String, Bool> = [
 	"_address_" => false,
 	"toString" => true,
 	"__copy__" => true,
-	"new" => true
+	"new" => true,
+	"__promote" => true
 ];
 
 var nonRttiClassMap:Map<String, Type> = [
@@ -910,13 +921,12 @@ var nonRttiClassMap:Map<String, Type> = [
 	"stdgo.Chan" => GT_chan(GT_invalid)
 ];
 
-var rttiCClassMap:Map<String, Type> = ["String" => GT_string];
-
-var rttiCAbstractMap:Map<String, Type> = [
-	"stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoIntq6" => GT_int16, "stdgo.GoInt32" => GT_int32, "stdgo.GoInt64" => GT_int64,
-	"stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUIntq6" => GT_uint16, "stdgo.GoUInt32" => GT_uint32, "stdgo.GoUInt64" => GT_uint64,
-	"stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32, "stdgo.GoFloat64" => GT_float64, "stdgo.GoComplex64" => GT_complex64,
-	"stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "Void" => null
+var rttiClassMap:Map<String, Type> = [
+	"Any" => GT_interface(""), "stdgo.AnyInterface" => GT_interface(""), "stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoIntq6" => GT_int16,
+	"stdgo.GoInt32" => GT_int32, "stdgo.GoInt64" => GT_int64, "stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUIntq6" => GT_uint16,
+	"stdgo.GoUInt32" => GT_uint32, "stdgo.GoUInt64" => GT_uint64, "stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32,
+	"stdgo.GoFloat64" => GT_float64, "stdgo.GoComplex64" => GT_complex64, "stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string,
+	"String" => GT_string, "Bool" => GT_bool, "Void" => null,
 ];
 
 // take func type and add receiver as first argument
@@ -935,27 +945,32 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 	switch (rttiT) {
 		case CClass(name, params):
 			// trace("rttiT class", name, params);
-			var ctyp = rttiCClassMap[name];
+			var ctyp = rttiClassMap[name];
 			if (ctyp == null)
 				returnEnum = GT_namedType(name);
 			else
 				returnEnum = ctyp;
 		case CTypedef(name, params):
 			// trace("rttiT typedef", name, params);
-			var parts = name.split(".");
-			var tName = parts.pop();
-			var tPath = parts.join(".");
-			var ntd:NamedTypeData = {
-				typeName: tName,
-				haxeTypeName: name,
-				packPath: tPath,
-				methods: new Array<MethodInfo>(),
-				underlying: haxeTypeUnknown,
-				isInterface: false,
-				interfaces: new Array<GoString>()
-			};
-			namedTypeMap[name] = ntd;
-			returnEnum = GT_namedType(name);
+			var ctyp = rttiClassMap[name];
+			if (ctyp != null)
+				returnEnum = ctyp;
+			else {
+				var parts = name.split(".");
+				var tName = parts.pop();
+				var tPath = parts.join(".");
+				var ntd:NamedTypeData = {
+					typeName: tName,
+					haxeTypeName: name,
+					packPath: tPath,
+					methods: new Array<MethodInfo>(),
+					underlying: haxeTypeUnknown,
+					isInterface: false,
+					interfaces: new Array<GoString>()
+				};
+				namedTypeMap[name] = ntd;
+				returnEnum = GT_namedType(name);
+			}
 
 		case CFunction(args, ret):
 			// trace("rttiT function", args, ret);
@@ -970,13 +985,22 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 
 		case CAbstract(name, params):
 			// trace("rttiT abstract", name, params);
-			var atyp = rttiCAbstractMap[name];
+			var atyp = rttiClassMap[name];
 			if (atyp != null)
 				returnEnum = atyp;
+			else {
+				var parts = name.split(".");
+				var cname = parts.pop();
+				returnEnum = GT_namedType(parts.join(".") + "._" + cname + "__extension");
+			}
 
 		case _:
 			// everything else is some opaque Haxe value...
 	}
+
+	// if (returnEnum == haxeTypeUnknown)
+	// 	trace(rttiT);
+
 	return returnEnum;
 }
 
@@ -1001,16 +1025,20 @@ function valueOf(iface:AnyInterface):Value {
 	return new Value(iface.value(), typeOf(iface));
 }
 
-@rtti class Value {
+@:rtti class Value extends StdGo2hx {
 	var val:Any;
 	var surfaceType:Type;
 	var underlyingType:Type;
 
 	public function new(?v:Any = null, t:Type = GT_invalid) {
+		super(Type.getClassName(Value));
 		val = v;
 		surfaceType = t;
 		underlyingType = findUnderlying(t);
 	}
+
+	@:to public function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_});
 
 	static function findUnderlying(t:Type):Type {
 		switch (t) {
@@ -1020,9 +1048,6 @@ function valueOf(iface:AnyInterface):Value {
 				return t;
 		}
 	}
-
-	@:to function __promote()
-		return new AnyInterface({value: this, typeName: Type.getClassName(Value)});
 
 	public inline function type()
 		return surfaceType;
@@ -1103,14 +1128,18 @@ function valueOf(iface:AnyInterface):Value {
 // A ValueError occurs when a Value method is invoked on
 // a Value that does not support it. Such cases are documented
 // in the description of each method.
-@:rtti class ValueError {
+@:rtti class ValueError extends StdGo2hx {
 	var method:GoString;
 	var kind:Kind;
 
 	public inline function new(m:GoString, k:Kind) {
+		super(Type.getClassName(ValueError));
 		method = m;
 		kind = k;
 	}
+
+	@:to public function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_});
 
 	public function error():GoString {
 		if (this.kind == invalid) {
@@ -1118,17 +1147,28 @@ function valueOf(iface:AnyInterface):Value {
 		}
 		return "reflect: call of " + this.method + " on " + this.kind.string() + " Value";
 	}
+
+	public function toString()
+		return (this.error() : String);
 }
 
 // a local generic error
-@:rtti class Error {
+@:rtti class Error extends StdGo2hx {
 	var message:GoString;
 
-	public inline function new(m:GoString)
+	public inline function new(m:GoString) {
+		super(Type.getClassName(Error));
 		message = m;
+	}
+
+	@:to public function __promote()
+		return new AnyInterface({value: this, typeName: _typeName_});
 
 	public function error()
 		return message;
+
+	public function toString()
+		return (this.error() : String);
 }
 
 //---------------------------------
@@ -1155,6 +1195,18 @@ class _HaxeValue__extension {
 	public static function string(hv:Any):GoString {
 		return Std.string(hv);
 	}
+}
+
+// StdGo2hx holds some of the standard fields in a go2hx generated class
+class StdGo2hx {
+	public function new(tn:String) {
+		_typeName_ = tn;
+		_address_ = ++Go.addressIndex;
+	}
+
+	public var _is_pointer_ = false;
+	public var _typeName_ = "invalid";
+	public var _address_ = 0;
 }
 
 //------------

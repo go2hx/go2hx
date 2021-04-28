@@ -22,16 +22,18 @@ func main() {
 	// 	K         reflect.Kind
 	// }{42, str, 4}, true, false)
 
-	m := MyType{
-		X: 42,
-		y: str,
-	}
-	showType("MyType", m, true, true)
+	// m := MyType{
+	// 	X: 42,
+	// 	y: str,
+	// }
+	// showType("MyType", m, true, true)
 	// mt := reflect.TypeOf(m)
 	// showType("reflect.Type", mt, false, true)
 
-	var k reflect.Kind = 5
-	showType("reflect.Kind", k, false, true)
+	// var k reflect.Kind = 5
+	// showType("reflect.Kind", k, false, true)
+
+	showType("valueOf(str)", reflect.ValueOf(str), true, true)
 
 	// nst := NonStructT(42)
 	// showType("NonStructT", nst, false, false) // TODO methods can't be seen yet
@@ -93,13 +95,13 @@ func showType(name string, i interface{}, isStruct, isNamed bool) {
 	if isStruct {
 		fmt.Println("fields:")
 		for i := 0; i < Ti.NumField(); i++ {
-			fmt.Println("=", Ti.Field(i))
+			fmt.Println("=", Ti.Field(i).Name, Ti.Field(i).Type.String())
 		}
 	}
 	if isNamed {
 		fmt.Println("methods:")
 		for i := 0; i < Ti.NumMethod(); i++ {
-			fmt.Println("-", Ti.Method(i))
+			fmt.Println("-", Ti.Method(i).Name, Ti.Method(i).Type.String())
 		}
 	}
 }

@@ -862,6 +862,9 @@ private function exprTypeString(expr:Ast.Expr):String {
 		case "StructType":
 			var expr:Ast.StructType = expr;
 			return "{todo_structtype}";
+		case "BasicLit": //for arrays
+			var expr:Ast.BasicLit = expr;
+			return expr.value;
 		default:
 			throw "unknown case value: " + expr.id;
 	}
@@ -2653,36 +2656,26 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			var type = typeExprType(spec.type, info);
 			if (type == null)
 				return null;
-			var extensionClassName = extensionName(name);
-			var extensionClass:TypeDefinition = {
-				name: extensionClassName,
+			var str = toExpr(EConst(CString(exprTypeString(spec.type))));
+			return  {
+				name: name,
 				pos: null,
 				pack: [],
 				fields: [{
-					name: "_typeName_",
+					name: "__promote",
 					pos: null,
-					access: [AStatic,AFinal],
-					kind: FVar(null,toExpr(EConst(CString(exprTypeString(spec.type))))),
+					access: [AInline],
+					meta: [{name: ":to",pos: null}],
+					kind: FFun({
+						args: [],
+						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: $str}))),
+					}),
 				}],
-				isExtern: true,
-				meta: [{name: ":rtti", pos: null}],
-				kind: TDClass(),
-			};
-			info.data.defs.push(extensionClass);
-
-			return {
-				name: name,
-				pack: [],
-				pos: null,
 				doc: doc,
-				fields: [],
-				meta: [{
-					name: ":using",
-					params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))), extensionClassName))],
-					pos: null
-				}],
-				kind: TDAlias(type) //generate typedef
-			}
+				isExtern: true,
+				meta: [{name: ":rtti", pos: null},{name: ":transitive",pos: null}],
+				kind: TDAbstract(type,[type],[type]),
+			};
 	}
 }
 

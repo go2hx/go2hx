@@ -49,6 +49,8 @@ class Printer extends haxe.macro.Printer {
 				return super.printTypeDefinition(t,printPackage);
 			case TDField(kind, access):
 				return super.printTypeDefinition(t,printPackage);
+			case TDAbstract(tthis, from, to):
+				return super.printTypeDefinition(t,printPackage);
 			default:
 		}
 		var old = tabs;

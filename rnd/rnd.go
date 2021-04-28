@@ -27,8 +27,8 @@ func main() {
 		y: str,
 	}
 	showType("MyType", m, true, true)
-	mt := reflect.TypeOf(m)
-	showType("reflect.Type", mt, false, true)
+	// mt := reflect.TypeOf(m)
+	// showType("reflect.Type", mt, false, true)
 
 	var k reflect.Kind = 5
 	showType("reflect.Kind", k, false, true)

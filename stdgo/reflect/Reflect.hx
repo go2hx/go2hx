@@ -220,15 +220,15 @@ class _Type__extension {
 		if (ntd == null) {
 			var classObj = Type.resolveClass(classPath);
 			if (classObj == null)
-				throw "unable to resolve class " + classPath;
+				throw new Error("getNamedTypeInfo: unable to resolve class " + classPath);
 			var t = typeOfClass(classObj, null); // has side effect of putting result in map
 			switch (t) {
 				case GT_namedType(_), GT_interface(_):
 					ntd = namedTypeMap.get(classPath);
 					if (ntd == null)
-						throw "unable to retrive named type info for " + Std.string(classObj);
+						throw new Error("getNamedTypeInfo: unable to retrive named type info for " + Std.string(classObj));
 				case _:
-					throw "class is not a named type " + Std.string(classObj);
+					throw new Error("getNamedTypeInfo: class is not a named type " + Std.string(classObj));
 			}
 		}
 		return ntd;
@@ -301,7 +301,7 @@ class _Type__extension {
 			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
 				return elem;
 			case _:
-				throw "reflect.Type.Elem not implemented for " + (string(gt) : String);
+				throw new Error("reflect.Type.Elem not implemented for " + (string(gt) : String));
 		}
 		return GT_invalid;
 	}
@@ -311,7 +311,7 @@ class _Type__extension {
 			case GT_array(_, len):
 				return (len : GoInt);
 			case _:
-				throw "reflect.Type.Len() not implemented for " + (string(gt) : String);
+				throw new Error("reflect.Type.Len() not implemented for " + (string(gt) : String));
 		}
 	}
 
@@ -321,7 +321,7 @@ class _Type__extension {
 				var nti = getNamedTypeInfo(haxeClassPath);
 				return nti.methods.length;
 			case _:
-				throw "reflect.NumMethods not implemented for " + string(gt);
+				throw new Error("reflect.NumMethods not implemented for " + string(gt));
 		}
 		return 0;
 	}
@@ -333,7 +333,7 @@ class _Type__extension {
 				var nti = getNamedTypeInfo(haxeClassPath);
 				return nti.methods[i].m;
 			case _:
-				throw "reflect.Method not implemented for " + string(gt);
+				throw new Error("reflect.Method not implemented for " + string(gt));
 		}
 		return null;
 	}
@@ -346,7 +346,7 @@ class _Type__extension {
 			case GT_struct(_, fieldsInfo):
 				return fieldsInfo.length;
 			case _:
-				throw "reflect.NumMethods not implemented for " + string(gt);
+				throw new Error("reflect.NumMethods not implemented for " + string(gt));
 		}
 		return 0;
 	}
@@ -361,7 +361,7 @@ class _Type__extension {
 				var sfs = new StructFieldSet(path, fields);
 				return (sfs : Array<StructField>)[i];
 			case _:
-				throw "reflect.Field not implemented for " + string(gt);
+				throw new Error("reflect.Field not implemented for " + string(gt));
 		}
 		return null;
 	}
@@ -373,9 +373,19 @@ class _Type__extension {
 			return gt.kind() == ot.kind();
 
 		switch (gt) {
-			case GT_struct(_, _):
-				// TODO
-				throw "reflect.assignable not yet implemented for struct";
+			case GT_struct(_, gtFlds):
+				switch (ot) {
+					case GT_struct(_, otFlds):
+						if (gtFlds.length != otFlds.length)
+							return false;
+						for (idx in 0...gtFlds.length)
+							if (!assignableTo(gtFlds[idx].t, otFlds[idx].t))
+								return false;
+						return true;
+
+					case _:
+						return false;
+				}
 			case GT_namedType(gtRef):
 				switch (ot) {
 					case GT_namedType(otRef):
@@ -406,7 +416,7 @@ class _Type__extension {
 						return false;
 				}
 			case _:
-				throw "refelect.AssignableTo not implemented for ( " + Std.string(gt) + " , " + Std.string(gt) + " )";
+				throw new Error("refelect.AssignableTo not implemented for ( " + Std.string(gt) + " , " + Std.string(gt) + " )");
 		}
 		return false;
 	}
@@ -563,14 +573,6 @@ function typeOf(iface:AnyInterface):Type {
 		return GT_unsafePointer;
 	var tn = iface.typeName();
 	var v = iface.value();
-	switch (tn) {
-		case "*unknown": // TODO this code may be in the wrong place
-			var elem = (v : Dynamic).get();
-			var elemT = typeOfAnyHaxe(elem);
-			if (elemT != GT_invalid)
-				return GT_ptr(elemT);
-		case _:
-	}
 	var gt = makeTypeFromTypeName(tn);
 	if (gt != GT_invalid)
 		return gt;
@@ -589,12 +591,17 @@ function makeTypeFromTypeName(typeName:String):Type {
 	if (StringTools.startsWith(typeName, "wy21:stdgo.reflect.GT_enum"))
 		return unserializeType(typeName);
 
-	var pointerTo = false;
 	if (typeName.length == 0)
 		return new Type(GT_invalid);
 	if (StringTools.startsWith(typeName, "*")) {
-		pointerTo = true;
 		typeName = typeName.substr(1);
+		var pointedAt = makeTypeFromTypeName(typeName);
+		switch (pointedAt) {
+			case GT_invalid:
+				return GT_invalid;
+			default:
+				return GT_ptr(pointedAt);
+		}
 	}
 
 	switch (typeName) {
@@ -603,10 +610,7 @@ function makeTypeFromTypeName(typeName:String):Type {
 			return GT_invalid;
 		case _:
 			if (EnumTools.getConstructors(GT_enum).contains("GT_" + typeName)) {
-				if (pointerTo)
-					return GT_ptr(EnumTools.createByName(GT_enum, "GT_" + typeName, []));
-				else
-					return EnumTools.createByName(GT_enum, "GT_" + typeName, []);
+				return EnumTools.createByName(GT_enum, "GT_" + typeName, []);
 			} else {
 				var nti = namedTypeMap[typeName];
 				if (nti != null) {
@@ -734,7 +738,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				return GT_chan(elem); // TODO find type of element
 
 			case _:
-				throw "unhandled " + haxePathToType + " as " + knownClass;
+				throw new Error("typeOfClass: unhandled " + haxePathToType + " as " + knownClass);
 		}
 	}
 
@@ -777,19 +781,20 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 								var fnSig = typeOfRttiType(rttiStatic.type);
 								switch (fnSig) {
 									case GT_func(args, ret):
+										args[0] = GT_namedType(haxePathToType);
 										fnSig = GT_func(args, ret);
+										var meth:Method = {
+											name: nameToGo(rttiStatic.name),
+											pkgPath: packagePath,
+											type: fnSig,
+											func: null,
+											index: 0
+										};
+										var mi:MethodInfo = {m: meth, haxeName: rttiStatic.name};
+										methods.push(mi);
 									case _:
-										throw "not a function";
+										// not a function - why?
 								}
-								var meth:Method = {
-									name: nameToGo(rttiStatic.name),
-									pkgPath: packagePath,
-									type: fnSig,
-									func: null,
-									index: 0
-								};
-								var mi:MethodInfo = {m:meth,haxeName:rttiStatic.name};
-								methods.push(mi);
 							case _:
 								// not a function, so we don't care
 						}
@@ -801,26 +806,32 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				// trace("rtti.field:", rttiFld.name, rttiFld.type, rttiFld.meta);
 				switch (rttiFld.type) {
 					case CFunction(args, ret):
-						var m:Method = {
-							name: nameToGo(rttiFld.name),
-							pkgPath: packagePath,
-							type: funcAddReceiver(typeOfRttiType(rttiFld.type),GT_namedType(haxePathToType)),
-							func: null,
-							index: 0
-						};
-						var mi:MethodInfo = {
-							m:m,
-							haxeName: rttiFld.name
-						};
-						methods.push(mi);
+						var ignore = go2hxIgnore_isFunc[rttiFld.name];
+						if (ignore == null || ignore == false) {
+							var m:Method = {
+								name: nameToGo(rttiFld.name),
+								pkgPath: packagePath,
+								type: funcAddReceiver(typeOfRttiType(rttiFld.type), GT_namedType(haxePathToType)),
+								func: null,
+								index: 0
+							};
+							var mi:MethodInfo = {
+								m: m,
+								haxeName: rttiFld.name
+							};
+							methods.push(mi);
+						}
 					case _:
-						var typ = typeOfRttiType(rttiFld.type);
-						var fi:FieldInfo = {
-							n: rttiFld.name,
-							t: typ,
-							m: ""
-						};
-						fields.push(fi);
+						var ignore = go2hxIgnore_isFunc[rttiFld.name];
+						if (ignore == null || ignore == true) {
+							var typ = typeOfRttiType(rttiFld.type);
+							var fi:FieldInfo = {
+								n: rttiFld.name,
+								t: typ,
+								m: ""
+							};
+							fields.push(fi);
+						}
 				}
 			}
 			underlying = GT_struct(packagePath, fields);
@@ -844,7 +855,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 						index: 0
 					};
 					var mi:MethodInfo = {
-						m:m,
+						m: m,
 						haxeName: fld
 					};
 					methods.push(mi);
@@ -861,8 +872,8 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 	}
 
 	// add the correct method index
-	for (idx in 0...methods.length) 
-		methods[idx].m.index=idx;
+	for (idx in 0...methods.length)
+		methods[idx].m.index = idx;
 
 	var ntd:NamedTypeData = {
 		typeName: name,
@@ -882,6 +893,16 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 	}
 }
 
+// list of boilerplate go2hx fields not to show in Go reflect
+var go2hxIgnore_isFunc:Map<String, Bool> = [
+	"_is_pointer_" => false,
+	"_typeName_" => false,
+	"_address_" => false,
+	"toString" => true,
+	"__copy__" => true,
+	"new" => true
+];
+
 var nonRttiClassMap:Map<String, Type> = [
 	"eval.Vector" => GT_array(GT_invalid, 0),
 	"stdgo._Slice.SliceData" => GT_slice(GT_invalid),
@@ -899,16 +920,15 @@ var rttiCAbstractMap:Map<String, Type> = [
 ];
 
 // take func type and add receiver as first argument
-function funcAddReceiver(f:Type,r:Type):Type{
-	switch(f){
+function funcAddReceiver(f:Type, r:Type):Type {
+	switch (f) {
 		case GT_func(inputs, output):
 			inputs.unshift(r);
-			return GT_func(inputs,output);
+			return GT_func(inputs, output);
 		case _:
 			return f; // no change if not a function, rather than error
 	}
 }
-
 
 function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 	var returnEnum = haxeTypeUnknown;
@@ -981,7 +1001,7 @@ function valueOf(iface:AnyInterface):Value {
 	return new Value(iface.value(), typeOf(iface));
 }
 
-class Value {
+@rtti class Value {
 	var val:Any;
 	var surfaceType:Type;
 	var underlyingType:Type;
@@ -1024,7 +1044,7 @@ class Value {
 			case GT_bool:
 				return (val : Bool);
 			case _:
-				throw "Value.Bool not implemented for " + underlyingType.string();
+				throw new ValueError("Bool", underlyingType.kind());
 		}
 		return false;
 	}
@@ -1034,7 +1054,7 @@ class Value {
 			case GT_int, GT_int8, GT_int16, GT_int32, GT_int64:
 				return (val : GoInt64);
 			case _:
-				throw "Value.Int not implemented for " + underlyingType.string();
+				throw new ValueError("Int", underlyingType.kind());
 		}
 		return 0;
 	}
@@ -1044,7 +1064,7 @@ class Value {
 			case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64:
 				return (val : GoUInt64);
 			case _:
-				throw "Value.Uint not implemented for " + underlyingType.string();
+				throw new ValueError("Uint", underlyingType.kind());
 		}
 		return 0;
 	}
@@ -1054,7 +1074,7 @@ class Value {
 			case GT_float32, GT_float64:
 				return (val : GoFloat64);
 			case _:
-				throw "Value.Float not implemented for " + underlyingType.string();
+				throw new ValueError("Float", underlyingType.kind());
 		}
 		return 0;
 	}
@@ -1064,7 +1084,7 @@ class Value {
 			case GT_complex128, GT_complex64:
 				return (val : GoComplex128);
 			case _:
-				throw "Value.Complex not implemented for " + underlyingType.string();
+				throw new ValueError("Complex", underlyingType.kind());
 		}
 		return 0;
 	}
@@ -1074,10 +1094,41 @@ class Value {
 			case GT_string:
 				return (val : GoString);
 			case _:
-				throw "Value.String not implemented for " + underlyingType.string();
+				throw new ValueError("String", underlyingType.kind());
 		}
 		return "";
 	}
+}
+
+// A ValueError occurs when a Value method is invoked on
+// a Value that does not support it. Such cases are documented
+// in the description of each method.
+@:rtti class ValueError {
+	var method:GoString;
+	var kind:Kind;
+
+	public inline function new(m:GoString, k:Kind) {
+		method = m;
+		kind = k;
+	}
+
+	public function error():GoString {
+		if (this.kind == invalid) {
+			return "reflect: call of " + this.method + " on zero Value";
+		}
+		return "reflect: call of " + this.method + " on " + this.kind.string() + " Value";
+	}
+}
+
+// a local generic error
+@:rtti class Error {
+	var message:GoString;
+
+	public inline function new(m:GoString)
+		message = m;
+
+	public function error()
+		return message;
 }
 
 //---------------------------------

@@ -485,9 +485,10 @@ function ptrTo(t:Type):Type {
 	return GT_ptr(t);
 }
 
-typedef StructTag = GoString; // TODO methods
+typedef StructTag = GoString; // TODO methods on this type
 
 // same fields as Go reflect
+// TODO - make a go2hx standard class, so that it can be accurately reflected upon
 typedef StructField = {
 	name:GoString,
 	pkgPath:GoString,
@@ -535,6 +536,7 @@ abstract StructFieldSet(Array<StructField>) from(Array<StructField>) to(Array<St
 	}
 }
 
+// TODO - make a go2hx standard class, so that it can be accurately reflected upon
 typedef Method = {
 	// Name is the method name.
 	name:GoString,
@@ -1042,8 +1044,15 @@ function valueOf(iface:AnyInterface):Value {
 		underlyingType = findUnderlying(t);
 	}
 
+	public function __copy__()
+		return new Value(val, surfaceType);
+
 	@:to public function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_});
+
+	public function toString() {
+		return (this.string() : String);
+	}
 
 	static function findUnderlying(t:Type):Type {
 		switch (t) {
@@ -1143,8 +1152,15 @@ function valueOf(iface:AnyInterface):Value {
 		kind = k;
 	}
 
+	public function __copy__()
+		return new ValueError(method, kind);
+
 	@:to public function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_});
+
+	public function toString() {
+		return (this.error() : String);
+	}
 
 	public function error():GoString {
 		if (this.kind == invalid) {
@@ -1152,9 +1168,6 @@ function valueOf(iface:AnyInterface):Value {
 		}
 		return "reflect: call of " + this.method + " on " + this.kind.string() + " Value";
 	}
-
-	public function toString()
-		return (this.error() : String);
 }
 
 // a local generic error
@@ -1165,6 +1178,9 @@ function valueOf(iface:AnyInterface):Value {
 		super(Type.getClassName(Error));
 		message = m;
 	}
+
+	public function __copy__()
+		return new Error(message);
 
 	@:to public function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_});

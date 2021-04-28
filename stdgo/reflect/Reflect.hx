@@ -780,69 +780,71 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 				name = name.substr(1);
 
 			for (rttiStatic in rtti.statics) {
-				switch (rttiStatic.name) {
-					case "_typeName_":
-						var str = StringTools.trim(rttiStatic.expr);
-						str = str.substr(1, str.length - 2);
-						underlying = makeTypeFromTypeName(str);
-					case _:
-						switch (rttiStatic.type) {
-							case CFunction(args, ret):
-								var fnSig = typeOfRttiType(rttiStatic.type);
-								switch (fnSig) {
-									case GT_func(args, ret):
-										args[0] = GT_namedType(haxePathToType);
-										fnSig = GT_func(args, ret);
-										var meth:Method = {
-											name: nameToGo(rttiStatic.name),
-											pkgPath: packagePath,
-											type: fnSig,
-											func: null,
-											index: 0
-										};
-										var mi:MethodInfo = {m: meth, haxeName: rttiStatic.name};
-										methods.push(mi);
-									case _:
-										// not a function - why?
-								}
-							case _:
-								// not a function, so we don't care
-						}
-				}
+				if (rttiStatic.isPublic)
+					switch (rttiStatic.name) {
+						case "_typeName_":
+							var str = StringTools.trim(rttiStatic.expr);
+							str = str.substr(1, str.length - 2);
+							underlying = makeTypeFromTypeName(str);
+						case _:
+							switch (rttiStatic.type) {
+								case CFunction(args, ret):
+									var fnSig = typeOfRttiType(rttiStatic.type);
+									switch (fnSig) {
+										case GT_func(args, ret):
+											args[0] = GT_namedType(haxePathToType);
+											fnSig = GT_func(args, ret);
+											var meth:Method = {
+												name: nameToGo(rttiStatic.name),
+												pkgPath: packagePath,
+												type: fnSig,
+												func: null,
+												index: 0
+											};
+											var mi:MethodInfo = {m: meth, haxeName: rttiStatic.name};
+											methods.push(mi);
+										case _:
+											// not a function - why?
+									}
+								case _:
+									// not a function, so we don't care
+							}
+					}
 			}
 		} else {
 			// the fields of the struct{} are in the class
 			for (rttiFld in rtti.fields) {
-				// trace("rtti.field:", rttiFld.name, rttiFld.type, rttiFld.meta);
-				switch (rttiFld.type) {
-					case CFunction(args, ret):
-						var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
-						if (ignoreFn == null || !ignoreFn) {
-							var m:Method = {
-								name: nameToGo(rttiFld.name),
-								pkgPath: packagePath,
-								type: funcAddReceiver(typeOfRttiType(rttiFld.type), GT_namedType(haxePathToType)),
-								func: null,
-								index: 0
-							};
-							var mi:MethodInfo = {
-								m: m,
-								haxeName: rttiFld.name
-							};
-							methods.push(mi);
-						}
-					case _:
-						var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
-						if (ignoreFn == null || ignoreFn) {
-							var typ = typeOfRttiType(rttiFld.type);
-							var fi:FieldInfo = {
-								n: rttiFld.name,
-								t: typ,
-								m: ""
-							};
-							fields.push(fi);
-						}
-				}
+				// trace("rtti.field:", rttiFld.name, rttiFld.isPublic, rttiFld.type, rttiFld.meta);
+				if (rttiFld.isPublic)
+					switch (rttiFld.type) {
+						case CFunction(args, ret):
+							var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
+							if (ignoreFn == null || !ignoreFn) {
+								var m:Method = {
+									name: nameToGo(rttiFld.name),
+									pkgPath: packagePath,
+									type: funcAddReceiver(typeOfRttiType(rttiFld.type), GT_namedType(haxePathToType)),
+									func: null,
+									index: 0
+								};
+								var mi:MethodInfo = {
+									m: m,
+									haxeName: rttiFld.name
+								};
+								methods.push(mi);
+							}
+						case _:
+							var ignoreFn = go2hxIgnore_isFunc[rttiFld.name];
+							if (ignoreFn == null || ignoreFn) {
+								var typ = typeOfRttiType(rttiFld.type);
+								var fi:FieldInfo = {
+									n: rttiFld.name,
+									t: typ,
+									m: ""
+								};
+								fields.push(fi);
+							}
+					}
 			}
 			underlying = GT_struct(packagePath, fields);
 		}
@@ -922,11 +924,11 @@ var nonRttiClassMap:Map<String, Type> = [
 ];
 
 var rttiClassMap:Map<String, Type> = [
-	"Any" => GT_interface(""), "stdgo.AnyInterface" => GT_interface(""), "stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoIntq6" => GT_int16,
-	"stdgo.GoInt32" => GT_int32, "stdgo.GoInt64" => GT_int64, "stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUIntq6" => GT_uint16,
-	"stdgo.GoUInt32" => GT_uint32, "stdgo.GoUInt64" => GT_uint64, "stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32,
-	"stdgo.GoFloat64" => GT_float64, "stdgo.GoComplex64" => GT_complex64, "stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string,
-	"String" => GT_string, "Bool" => GT_bool, "Void" => null,
+	"stdgo.AnyInterface" => GT_interface(""), "stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoInt16" => GT_int16, "stdgo.GoInt32" => GT_int32,
+	"stdgo.GoInt64" => GT_int64, "stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUInt16" => GT_uint16, "stdgo.GoUInt32" => GT_uint32,
+	"stdgo.GoUInt64" => GT_uint64, "stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32, "stdgo.GoFloat64" => GT_float64,
+	"stdgo.GoComplex64" => GT_complex64, "stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "Any" => haxeTypeUnknown,
+	"Dynamic" => haxeTypeUnknown, "String" => GT_string, "Bool" => GT_bool, "Float" => GT_float64, "Int" => GT_int, "Void" => null
 ];
 
 // take func type and add receiver as first argument
@@ -991,7 +993,8 @@ function typeOfRttiType(rttiT:haxe.rtti.CType):Type {
 			else {
 				var parts = name.split(".");
 				var cname = parts.pop();
-				returnEnum = GT_namedType(parts.join(".") + "._" + cname + "__extension");
+				if (parts.length > 0) // this is go2hx specific
+					returnEnum = GT_namedType(parts.join(".") + "._" + cname + "__extension");
 			}
 
 		case _:

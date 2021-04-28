@@ -10,28 +10,28 @@ func main() {
 
 	// Code below highlights what works so far in the reflect prototype
 	str := "hitchhiker"
-	// showType("42", 42, false, false)
-	// showType("uint8(42)", uint8(42), false, false)
-	// showType("str", str, false, false)
-	// showType("&str", &str, false, false)
-	// spt := reflect.PtrTo(reflect.TypeOf(str))
-	// fmt.Println(spt)
-	// showType("anonymous", struct {
-	// 	A         int32
-	// 	Interface string
-	// 	K         reflect.Kind
-	// }{42, str, 4}, true, false)
+	showType("42", 42, false, false)
+	showType("uint8(42)", uint8(42), false, false)
+	showType("str", str, false, false)
+	showType("&str", &str, false, false)
+	spt := reflect.PtrTo(reflect.TypeOf(str))
+	fmt.Println(spt.String())
+	showType("anonymous", struct {
+		A         int32
+		Interface string
+		K         reflect.Kind
+	}{42, str, 4}, true, false)
 
-	// m := MyType{
-	// 	X: 42,
-	// 	y: str,
-	// }
-	// showType("MyType", m, true, true)
-	// mt := reflect.TypeOf(m)
-	// showType("reflect.Type", mt, false, true)
+	m := MyType{
+		X: 42,
+		y: str,
+	}
+	showType("MyType", m, true, true)
+	mt := reflect.TypeOf(m)
+	showType("reflect.Type", mt, false, true)
 
-	// var k reflect.Kind = 5
-	// showType("reflect.Kind", k, false, true)
+	var k reflect.Kind = 5
+	showType("reflect.Kind", k, false, true)
 
 	showType("valueOf(str)", reflect.ValueOf(str), true, true)
 
@@ -46,30 +46,30 @@ func main() {
 	// fmt.Println("reflect.Kind implements MyStringer", reflect.TypeOf(k).Implements(ms))  // this is the key requirement for a type switch
 	// end not working in Go section
 
-	// A := [2]uint64{0, 1}
-	// showType("array", A, false, false)
+	A := [2]uint64{0, 1}
+	showType("array", A, false, false)
 
-	// S := []bool{true, false}
-	// showType("slice", S, false, false)
+	S := []bool{true, false}
+	showType("slice", S, false, false)
 
-	// Map := map[string]Vertex{
-	// 	"Bell Labs": {
-	// 		40.68433, -74.39967,
-	// 	},
-	// 	"Google": {
-	// 		37.42202, -122.08408,
-	// 	},
-	// }
-	// showType("map", Map, false, false)
+	Map := map[string]Vertex{
+		"Bell Labs": {
+			40.68433, -74.39967,
+		},
+		"Google": {
+			37.42202, -122.08408,
+		},
+	}
+	showType("map", Map, false, false)
 
-	// c := make(chan int8)
-	// showType("chan", c, false, false)
+	c := make(chan int8)
+	showType("chan", c, false, false)
 
-	// showType("func", showType, false, false)
+	showType("func", showType, false, false)
 
-	// var i42 uint32 = 42
-	// var pi42 *uint32 = &i42
-	// showType("*uint32", pi42, false, false)
+	var i42 uint32 = 42
+	var pi42 *uint32 = &i42
+	showType("*uint32", pi42, false, false)
 
 	//testHarness()
 }
@@ -135,4 +135,4 @@ func (NonStructT) String() string {
 // func makeNamedType(interface_or_namedType, haxePathToFunction string) reflect.Type
 
 //#go2hx stdgo.reflect.Reflect.testHarness
-//func testHarness()
+func testHarness()

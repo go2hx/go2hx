@@ -71,7 +71,7 @@ func main() {
 	var pi42 *uint32 = &i42
 	showType("*uint32", pi42, false, false)
 
-	//testHarness()
+	fmt.Println(declareType("interface{}").String())
 }
 
 func showType(name string, i interface{}, isStruct, isNamed bool) {
@@ -134,5 +134,8 @@ func (NonStructT) String() string {
 //#go2hx stdgo.reflect.Reflect.makeNamedType
 // func makeNamedType(interface_or_namedType, haxePathToFunction string) reflect.Type
 
+//#go2hx stdgo.reflect.Reflect.declareType
+func declareType(spec string) reflect.Type
+
 //#go2hx stdgo.reflect.Reflect.testHarness
-func testHarness()
+//func testHarness()

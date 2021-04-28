@@ -583,7 +583,7 @@ function typeOf(iface:AnyInterface):Type {
 		return GT_unsafePointer;
 	var tn = iface.typeName();
 	var v = iface.value();
-	var gt = makeTypeFromTypeName(tn);
+	var gt = declareType(tn);
 	if (gt != GT_invalid)
 		return gt;
 	return typeOfAnyHaxe(v);
@@ -591,11 +591,12 @@ function typeOf(iface:AnyInterface):Type {
 
 /*
 	The types that can be created from a text value are those that are:
+	- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
 	- the xxxxx of a GT_xxxxx enum that has no parameters
 	- the name of a Haxe class (for interfaces and named types)
-	- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
+	- a Go type declaration with all elements separated by spaces
  */
-function makeTypeFromTypeName(typeName:String):Type {
+function declareType(typeName:String):Type {
 	// trace("mNBT:", typeName);
 
 	if (StringTools.startsWith(typeName, "wy21:stdgo.reflect.GT_enum"))
@@ -605,7 +606,7 @@ function makeTypeFromTypeName(typeName:String):Type {
 		return new Type(GT_invalid);
 	if (StringTools.startsWith(typeName, "*")) {
 		typeName = typeName.substr(1);
-		var pointedAt = makeTypeFromTypeName(typeName);
+		var pointedAt = declareType(typeName);
 		switch (pointedAt) {
 			case GT_invalid:
 				return GT_invalid;
@@ -615,6 +616,8 @@ function makeTypeFromTypeName(typeName:String):Type {
 	}
 
 	switch (typeName) {
+		case "interface{}":
+			return GT_interface("");
 		case "invalid", "array", "chan", "func", "map", "ptr", "slice", "struct", "namedType":
 			// type needs more parameters
 			return GT_invalid;
@@ -785,7 +788,7 @@ function typeOfClass(cl:Class<Dynamic>, v:Dynamic):Type {
 						case "_typeName_":
 							var str = StringTools.trim(rttiStatic.expr);
 							str = str.substr(1, str.length - 2);
-							underlying = makeTypeFromTypeName(str);
+							underlying = declareType(str);
 						case _:
 							switch (rttiStatic.type) {
 								case CFunction(args, ret):

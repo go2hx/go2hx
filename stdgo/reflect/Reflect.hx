@@ -594,7 +594,6 @@ function typeOf(iface:AnyInterface):Type {
 	- the [Haxe serialisation format](https://haxe.org/manual/std-serialization-format.html) encoded form of a GT_enum (allowing full type information to be passed using the typeName)
 	- the xxxxx of a GT_xxxxx enum that has no parameters
 	- the name of a Haxe class (for interfaces and named types)
-	- a Go type declaration with all elements separated by spaces
  */
 function declareType(typeName:String):Type {
 	// trace("mNBT:", typeName);

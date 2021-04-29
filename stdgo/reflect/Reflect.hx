@@ -1142,11 +1142,11 @@ function valueOf(iface:AnyInterface):Value {
 // A ValueError occurs when a Value method is invoked on
 // a Value that does not support it. Such cases are documented
 // in the description of each method.
-@:rtti class ValueError extends StdGo2hx {
+@:rtti class ValueError extends StdGo2hx implements stdgo.StdGoTypes.Error {
 	var method:GoString;
 	var kind:Kind;
 
-	public inline function new(m:GoString, k:Kind) {
+	public function new(m:GoString, k:Kind) {
 		super(Type.getClassName(ValueError));
 		method = m;
 		kind = k;
@@ -1171,10 +1171,10 @@ function valueOf(iface:AnyInterface):Value {
 }
 
 // a local generic error
-@:rtti class Error extends StdGo2hx {
+@:rtti class Error extends StdGo2hx implements stdgo.StdGoTypes.Error {
 	var message:GoString;
 
-	public inline function new(m:GoString) {
+	public function new(m:GoString) {
 		super(Type.getClassName(Error));
 		message = m;
 	}
@@ -1233,11 +1233,7 @@ class StdGo2hx {
 //------------
 // TODO remove
 //------------
-function testHarness(v:Dynamic,p:Dynamic) {
-	//trace("testHarness");
+function testHarness() {
+	 trace("testHarness");
 	// a space to test ideas...
-	//trace(v,p);
-	//trace(Reflect.fields(v),Reflect.fields(p));
-	trace("vert._address_=",Reflect.getProperty(v,"_address_"),"vertP._address_=",Reflect.getProperty(p,"_address_"));
-	trace("vert._is_pointer_",Reflect.getProperty(v,"_is_pointer_"),"vertP._is_pointer_",Reflect.getProperty(p,"_is_pointer_"));
 }

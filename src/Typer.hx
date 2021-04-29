@@ -2680,7 +2680,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				name: "_" + name,
 				pos: null,
 				pack: [],
-				meta: [{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}],
+				meta: [{name: ":rtti",pos: null},{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}],
 				fields: [],
 				kind: TDAlias(type),
 			});

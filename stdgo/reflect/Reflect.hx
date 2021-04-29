@@ -1233,7 +1233,11 @@ class StdGo2hx {
 //------------
 // TODO remove
 //------------
-function testHarness() {
-	trace("testHarness");
+function testHarness(v:Dynamic,p:Dynamic) {
+	//trace("testHarness");
 	// a space to test ideas...
+	//trace(v,p);
+	//trace(Reflect.fields(v),Reflect.fields(p));
+	trace("vert._address_=",Reflect.getProperty(v,"_address_"),"vertP._address_=",Reflect.getProperty(p,"_address_"));
+	trace("vert._is_pointer_",Reflect.getProperty(v,"_is_pointer_"),"vertP._is_pointer_",Reflect.getProperty(p,"_is_pointer_"));
 }

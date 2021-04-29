@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.AnyInterface;
 import haxe.macro.PositionTools;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.TypeTools;
@@ -624,6 +625,43 @@ class Go {
 	// GOROUTINE
 	public static macro function routine(expr) {
 		return expr;
+	}
+
+	public static macro function getInterface(expr) {
+		var type = Context.toComplexType(Context.typeof(expr));
+		switch type {
+			case TPath(p):
+				if (p.params != null && p.params.length > 0) {
+					var typeName:Expr = null;
+					switch p.name {
+						case "Slice":
+							switch p.params[0] {
+								case TPType(t):
+									switch t {
+										case TPath(p):
+											if (p.name == "StdGoTypes") {
+												var sub = p.sub.substr(2).toLowerCase();
+												typeName = macro $v{"[]" + sub};
+											}
+										default:
+									}
+								default:
+							}
+						case "GoMap": //2 params
+
+						case "GoArray":
+
+						case "Chan":
+
+						default:
+							trace("unknown interface generic type: " + p.name);
+					}
+					return macro ({value: $expr, typeName: $typeName} : AnyInterface);
+				}
+			default:
+				trace(type);
+		}
+		return macro ($expr : AnyInterface);
 	}
 
 	public static macro function recover() {

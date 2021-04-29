@@ -749,13 +749,16 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
+					var interfaceBool = isInterface(type);
 					vars = vars.concat([
-						for (i in 0...spec.names.length)
+						for (i in 0...spec.names.length) {
+							var expr = typeExpr(spec.values[i], info);
 							{
 								name: nameIdent(spec.names[i], info, false, false),
 								type: type,
-								expr: i < spec.values.length ? typeExpr(spec.values[i], info) : type != null ? defaultValue(type, info, 0, false) : null,
-							}
+								expr: i < spec.values.length ? (interfaceBool ? checkType(expr,type) : expr) : type != null ? defaultValue(type, info, 0, false) : null,
+							};
+						}
 					]);
 			}
 		}
@@ -1512,7 +1515,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (isType) {
 							var arg = typeExpr(expr.args[0], info);
 							var type = typeExprType(expr.fun, info);
-							return (macro($arg : $type)).expr;
+							return checkType(arg,type).expr;
 						}
 					}
 			}
@@ -1547,7 +1550,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								}
 							default:
 						}
-						return (macro($expr : $t)).expr;
+						return checkType(expr,t).expr;
 				}
 			}
 		case "MapType":
@@ -1566,7 +1569,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 				default:
 			}
-			return (macro($expr : $type)).expr;
+			return checkType(expr,type).expr;
 		case "ArrayType":
 			// set assert type
 			var type = typeExprType(expr.fun, info);
@@ -1583,7 +1586,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 				default:
 			}
-			return (macro($expr : $type)).expr;
+			return checkType(expr,type).expr;
 		case "InterfaceType":
 			// set dynamic
 			genArgs();
@@ -1594,6 +1597,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	ellipsisFunc();
 	var e = typeExpr(expr.fun, info);
 	return ECall(e, args);
+}
+
+private function checkType(expr:Expr,type:ComplexType):Expr {
+	if (isInterface(type))
+		return macro Go.getInterface($expr);
+	return macro ($expr : $type);
 }
 
 private function typeRest(expr:Expr):Expr {
@@ -1793,7 +1802,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExpr(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
-		return (macro(${e[0]} : $type)).expr;
+		return checkType(e[0],type).expr;
 	}
 	getParams();
 	if (p == null)
@@ -2027,7 +2036,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-	return (macro($e : $type)).expr;
+	return checkType(e,type).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
@@ -2700,12 +2709,24 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	}
 }
 
+private function isInterface(type:ComplexType):Bool {
+	switch type {
+		case TPath(p):
+			if (p.name == "AnyInterface")
+				return true;
+		default:
+	}
+	return false;
+}
+
 private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
 	var type:ComplexType = null;
 	info.hasType = false;
 	info.lengths = [];
+	var interfaceBool = false;
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
+		interfaceBool = isInterface(type);
 		info.hasType = true;
 	}
 	var values:Array<TypeDefinition> = [];
@@ -2714,7 +2735,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			value.names[i] += (info.count++);
 		}
 		var expr:Expr = null;
-
 		if (value.values[i] == null) {
 			if (type != null) {
 				expr = defaultValue(type, info, 0, false);
@@ -2728,6 +2748,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			info.lastType = type;
 			expr = typeExpr(value.values[i], info);
 		}
+		if (interfaceBool)
+			expr = checkType(expr,type);
 		if (expr == null)
 			continue;
 		var name = nameIdent(value.names[i], info, false, false);

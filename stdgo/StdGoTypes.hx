@@ -1656,6 +1656,10 @@ interface StructType {
 	public var _is_pointer_:Bool;
 }
 
+extern interface BaseType {
+	public static final _typeName_:String;
+}
+
 interface Error {
 	public function error():String;
 }
@@ -1669,9 +1673,11 @@ private class AnyInterfaceData {
 		this.value = value;
 		this.typeName = typeName;
 	}
+	public inline function toString()
+		return "value: " + value + " typeName: " + typeName;
 }
 
-abstract AnyInterface(AnyInterfaceData) {
+abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	public inline function new(obj = null) {
 		this = obj;
 	}

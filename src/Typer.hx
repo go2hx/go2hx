@@ -117,7 +117,6 @@ function main(data:DataType) {
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = className(Typer.title(endPath));
-		trace("endpath: " + endPath);
 
 		var main:FileType = null; //main pkg file
 
@@ -2090,8 +2089,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	if (decl.recv != null) { // now is a static extension function
 		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
 			name = "_" + name;
-		var recvType = typeExprType(decl.recv.list[0].type, info);
-		var recvInfo = getRecvInfo(recvType);
+		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info));
 		for (def in info.data.defs) {
 			switch def.kind {
 				case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
@@ -2125,48 +2123,31 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						})
 					});
 					return null;
-				case TDAlias(t):
-					switch recvType {
+				case TDAbstract(t):
+					switch recvInfo.type {
 						case TPath(p):
 							if (p.name == def.name) {
-								var extensionClass:TypeDefinition = null;
-								var extensionClassName = extensionName(p.name);
-								for (def in info.data.defs) {
-									switch def.kind {
-										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-											if (def.name == extensionClassName) {
-												extensionClass = def;
-												break;
-											}
-										default:
-									}
-								}
+								var typeClass:TypeDefinition = def;
+								var abstractType:ComplexType = TPath({name: def.name,pack: def.pack});
 								if (decl.recv.list[0].names.length > 0) {
 									var varName = decl.recv.list[0].names[0].name;
-									args.unshift({
-										name: varName,
-										type: recvType,
-									});
 									switch block.expr {
 										case EBlock(exprs):
 											if (recvInfo.isPointer) {
-												exprs.unshift(macro var $varName = new PointerWrapper($i{varName}));
+												exprs.unshift(macro var $varName = new PointerWrapper((this : $abstractType)));
+											}else{
+												exprs.unshift(macro var $varName = (this : $abstractType));
 											}
 											block.expr = EBlock(exprs);
 										default:
 									}
-								} else {
-									args.unshift({ // to enable the static extension
-										name: "___using",
-										type: recvType,
-									});
 								}
 								// add the function
-								extensionClass.fields.push({
+								typeClass.fields.push({
 									name: name,
 									pos: null,
 									meta: null,
-									access: [APublic, AStatic],
+									access: [APublic],
 									kind: FFun({
 										args: args,
 										ret: ret,
@@ -2325,7 +2306,7 @@ private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict
 	return stdgo.Go.defaultValue(type, null, strict);
 }
 
-private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool} {
+private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool,type:ComplexType} {
 	switch recvType {
 		case TPath(p):
 			if (p.name == "Pointer" || p.name == "PointerWrapper") {
@@ -2333,16 +2314,16 @@ private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool}
 					case TPType(t):
 						switch t {
 							case TPath(p):
-								return {name: p.name, isPointer: true};
+								return {name: p.name, isPointer: true,type: t};
 							default:
 						}
 					default:
 				}
 			}
-			return {name: p.name, isPointer: false};
+			return {name: p.name, isPointer: false, type: recvType};
 		default:
 	}
-	return {name: "", isPointer: false};
+	return {name: "", isPointer: false, type: recvType};
 }
 
 private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
@@ -2656,24 +2637,38 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			var type = typeExprType(spec.type, info);
 			if (type == null)
 				return null;
-			var str = toExpr(EConst(CString(exprTypeString(spec.type))));
+			var typeName = toExpr(EConst(CString(exprTypeString(spec.type))));
+			var extensionName = toExpr(EConst(CString(extensionName(name))));
 			return  {
 				name: name,
 				pos: null,
 				pack: [],
 				fields: [{
+					name: "_typeName_",
+					pos: null,
+					access: [APublic],
+					kind: FProp("get","never",TPath({name: "String",pack: []})),
+				},{
+					name: "get__typeName_",
+					pos: null,
+					access: [AInline],
+					kind: FFun({
+						args: [],
+						expr: macro return $typeName,
+					}),
+				},{
 					name: "__promote",
 					pos: null,
 					access: [AInline],
 					meta: [{name: ":to",pos: null}],
 					kind: FFun({
 						args: [],
-						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: $str}))),
+						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: $extensionName}))),
 					}),
 				}],
 				doc: doc,
 				isExtern: true,
-				meta: [{name: ":rtti", pos: null},{name: ":transitive",pos: null}],
+				meta: [{name: ":rtti", pos: null},{name: ":transitive",pos: null},{name: ":forward",pos: null}],
 				kind: TDAbstract(type,[type],[type]),
 			};
 	}

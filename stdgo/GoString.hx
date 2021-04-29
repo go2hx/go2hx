@@ -48,6 +48,9 @@ abstract GoString(String) from String to String {
 		return new Slice(...toArray());
 	}
 
+	@:from static function toDynamic(obj:Dynamic):GoString
+		return "";
+
 	public function toArray():Array<StdGoTypes.GoByte> {
 		return [for (code in new StringIterator(this)) code];
 	}

@@ -2132,24 +2132,43 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						})
 					});
 					return null;
-				case TDAbstract(t):
+				case TDAlias(t):
 					switch recvInfo.type {
 						case TPath(p):
-							if (p.name == def.name) {
-								var typeClass:TypeDefinition = def;
-								var abstractType:ComplexType = TPath({name: def.name,pack: def.pack});
+							if ("_" + p.name == def.name) {
+								var typeClass:TypeDefinition = null;
+								var recvType:ComplexType = TPath({name: def.name,pack: def.pack});
+								var extensionClassName = extensionName(p.name);
+								for (def in info.data.defs) {
+									switch def.kind {
+										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+											if (def.name == extensionClassName) {
+												typeClass = def;
+												break;
+											}
+										default:
+									}
+								}
+								
 								if (decl.recv.list[0].names.length > 0) {
 									var varName = decl.recv.list[0].names[0].name;
+									args.unshift({
+										name: varName,
+										type: recvType,
+									});
 									switch block.expr {
 										case EBlock(exprs):
 											if (recvInfo.isPointer) {
-												exprs.unshift(macro var $varName = new PointerWrapper((this : $abstractType)));
-											}else{
-												exprs.unshift(macro var $varName = (this : $abstractType));
+												exprs.unshift(macro var $varName = new PointerWrapper((this : $recvType)));
 											}
 											block.expr = EBlock(exprs);
 										default:
 									}
+								}else{
+									args.unshift({ // to enable the static extension
+										name: "___using",
+										type: recvType,
+									});
 								}
 								// add the function
 								typeClass.fields.push({
@@ -2647,7 +2666,28 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			if (type == null)
 				return null;
 			var typeName = toExpr(EConst(CString(exprTypeString(spec.type))));
-			var extensionName = toExpr(EConst(CString(extensionName(name))));
+			var extensionName = extensionName(name);
+			info.data.defs.push({ //extension class
+				name: extensionName,
+				pos: null,
+				pack: [],
+				isExtern: true,
+				meta: [{name: ":rtti", pos: null}],
+				fields: [],
+				kind: TDClass(),
+			});
+			info.data.defs.push({ //typedef
+				name: "_" + name,
+				pos: null,
+				pack: [],
+				meta: [{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}],
+				fields: [],
+				kind: TDAlias(type),
+			});
+			var aliasType:ComplexType = TPath({
+				name: "_" + name,
+				pack: [],
+			});
 			return  {
 				name: name,
 				pos: null,
@@ -2672,13 +2712,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					meta: [{name: ":to",pos: null}],
 					kind: FFun({
 						args: [],
-						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: $extensionName}))),
+						ret: TPath({
+							name: "AnyInterface",
+							pack: [],
+						}),
+						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: Type.getClassName(${toExpr(EConst(CIdent(extensionName)))})}))),
 					}),
 				}],
 				doc: doc,
 				isExtern: true,
-				meta: [{name: ":rtti", pos: null},{name: ":transitive",pos: null},{name: ":forward",pos: null}],
-				kind: TDAbstract(type,[type],[type]),
+				meta: [{name: ":transitive",pos: null},{name: ":forward",pos: null}],
+				kind: TDAbstract(aliasType,[aliasType],[aliasType]),
 			};
 	}
 }

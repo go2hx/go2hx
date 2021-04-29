@@ -616,13 +616,9 @@ class Go {
 		if (declare)
 			return macro {
 				var e = $expr;
-				$expr._is_pointer_ = true;
 				new stdgo.PointerWrapper(e);
 			};
-		return macro {
-			$expr._is_pointer_ = true;
-			new stdgo.PointerWrapper($expr);
-		}
+		return macro new stdgo.PointerWrapper($expr);
 	}
 
 	// GOROUTINE

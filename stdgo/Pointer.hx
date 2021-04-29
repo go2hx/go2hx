@@ -45,6 +45,11 @@ abstract Pointer<T>(PointerData<T>) {
 @:forward
 abstract PointerWrapper<T>(T) from T to T {
 	public var _value_(get, set):T;
+	public var _is_pointer_(get,never):Bool;
+
+	private inline function get__is_pointer_():Bool {
+		return true;
+	}
 
 	private inline function get__value_():T {
 		return this;

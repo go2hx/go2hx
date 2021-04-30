@@ -1,15 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
 
+	"github.com/go2hx/go4hx/rnd/data"
+)
 func main() {
-	var x NonStructT = 42
-	var i interface{} = x
+	data.Test()
+	var i data.Example = 0
 	fmt.Println(i)
-}
-
-type NonStructT uint8
-
-func (nst NonStructT) String() string {
-	return "NonStructT-int"
 }

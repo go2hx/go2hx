@@ -2198,7 +2198,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 									name: name,
 									pos: null,
 									meta: null,
-									access: [APublic],
+									access: [APublic,AStatic],
 									kind: FFun({
 										args: args,
 										ret: ret,
@@ -2699,8 +2699,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				fields: [{
 					name: "_typeName_",
 					pos: null,
-					access: [APublic, AFinal],
-					kind: FVar(null, toExpr(EConst(CString(spec.name.name)))),
+					access: [APublic, AStatic, AFinal],
+					kind: FVar(null, toExpr(EConst(CString(exprTypeString(spec.type))))),
 				}],
 				kind: TDClass(),
 			});

@@ -277,17 +277,30 @@ function main(data:DataType) {
 					continue; //not an exported def
 				switch def.kind {
 					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+						if (StringTools.endsWith(def.name,"__extension"))
+							continue;
+						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: []});
 						main.defs.push({
 							name: def.name,
 							pack: [],
 							pos: null,
-							kind: TDAlias(TPath({name: file.name,sub: def.name,pack: []})),
+							kind: TDAlias(t),
 							fields: [],
 						});
 					case TDAlias(t):
 
 					case TDField(kind, access):
 
+					case TDAbstract(tthis, from, to):
+						var t:ComplexType = TPath({name: file.name,sub: "_" + def.name,pack: []});
+						main.defs.push({
+							name: def.name,
+							pack: [],
+							pos: null,
+							fields: [promotionAliasField(file.name + "." + extensionName(def.name))],
+							meta: [{name: ":transitive",pos: null},{name: ":forward",pos: null}],
+							kind: TDAbstract(t,[t],[t]),
+						});
 					default:
 				}
 			}
@@ -749,7 +762,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
-					var interfaceBool = isInterface(type);
+					var interfaceBool = type == null ? false : isInterface(type);
 					vars = vars.concat([
 						for (i in 0...spec.names.length) {
 							var expr = typeExpr(spec.values[i], info);
@@ -2683,7 +2696,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pack: [],
 				isExtern: true,
 				meta: [{name: ":rtti", pos: null}],
-				fields: [],
+				fields: [{
+					name: "_typeName_",
+					pos: null,
+					access: [APublic, AFinal],
+					kind: FVar(null, toExpr(EConst(CString(spec.name.name)))),
+				}],
 				kind: TDClass(),
 			});
 			info.data.defs.push({ //typedef
@@ -2702,39 +2720,30 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				name: name,
 				pos: null,
 				pack: [],
-				fields: [{
-					name: "_typeName_",
-					pos: null,
-					access: [APublic],
-					kind: FProp("get","never",TPath({name: "String",pack: []})),
-				},{
-					name: "get__typeName_",
-					pos: null,
-					access: [AInline],
-					kind: FFun({
-						args: [],
-						expr: macro return $typeName,
-					}),
-				},{
-					name: "__promote",
-					pos: null,
-					access: [AInline],
-					meta: [{name: ":to",pos: null}],
-					kind: FFun({
-						args: [],
-						ret: TPath({
-							name: "AnyInterface",
-							pack: [],
-						}),
-						expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: Type.getClassName(${toExpr(EConst(CIdent(extensionName)))})}))),
-					}),
-				}],
+				fields: [promotionAliasField(extensionName)],
 				doc: doc,
 				isExtern: true,
 				meta: [{name: ":transitive",pos: null},{name: ":forward",pos: null}],
 				kind: TDAbstract(aliasType,[aliasType],[aliasType]),
 			};
 	}
+}
+
+private function promotionAliasField(extensionName:String):haxe.macro.Expr.Field {
+	return {
+		name: "__promote",
+		pos: null,
+		access: [AInline],
+		meta: [{name: ":to",pos: null}],
+		kind: FFun({
+			args: [],
+			ret: TPath({
+				name: "AnyInterface",
+				pack: [],
+			}),
+			expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: Type.getClassName(${toExpr(EConst(CIdent(extensionName)))})}))),
+		}),
+	};
 }
 
 private function extensionName(name:String):String

@@ -922,6 +922,16 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 				trace("for stmt eror init: " + stmt.init);
 				return null;
 			}
+			switch init.expr {
+				case EVars(vars):
+					for (v in vars) {
+						v.type = TPath({
+							name: "GoInt",
+							pack: [],
+						});
+					}
+				default:
+			}
 			return EBlock([init, toExpr(def)]);
 		}
 		return def;

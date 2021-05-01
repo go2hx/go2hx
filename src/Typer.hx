@@ -276,18 +276,33 @@ function main(data:DataType) {
 			path: pkg.path,
 			files: [main],
 		});
-
+		var mainImportList:Array<ImportType> = [];
+		var mainImportExists:Map<String,Bool> = [];
+		
 		for (file in module.files) {
 			if (file.name == main.name)
 				continue;
 			for (def in file.defs) {
 				if (def.isExtern == null || !def.isExtern)
 					continue; //not an exported def
+				//export out imports
+				var imp:ImportType = {
+					path: module.path.split(".").concat([file.name]),
+					alias: "",
+					doc: "",
+				};
+				var key = imp.path.join(".");
+				if (!mainImportExists.exists(key)) {
+					main.imports.push(imp);
+					mainImportList.push(imp);
+					mainImportExists[key] = true;
+				}
+
 				switch def.kind { //export out fields, export fields
 					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 						if (StringTools.endsWith(def.name,"__extension"))
 							continue;
-						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
+						var t:ComplexType = TPath({name: def.name,pack: module.path.split(".").concat([file.name])});
 						main.defs.push({
 							name: def.name,
 							pack: [],
@@ -296,7 +311,7 @@ function main(data:DataType) {
 							fields: [],
 						});
 					case TDAlias(t):
-						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
+						var t:ComplexType = TPath({name: def.name,pack: []});
 						main.defs.push({
 							name: def.name,
 							pack: [],
@@ -307,6 +322,8 @@ function main(data:DataType) {
 					case TDField(kind, access):
 						switch kind {
 							case FVar(t, e):
+								if (t == null)
+									t = TPath({name: "Dynamic",pack: []});
 								var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
 								main.defs.unshift({
 									name: "get_" + def.name,
@@ -335,10 +352,9 @@ function main(data:DataType) {
 									pack: [],
 									pos: null,
 									fields: [],
-									kind: TDField(FProp("get","set",t),access),
+									kind: TDField(FProp("get","set",t)),
 								});
 							case FFun(f):
-
 							default:
 						}
 					case TDAbstract(tthis, from, to): //export out alias type
@@ -353,6 +369,19 @@ function main(data:DataType) {
 					default:
 				}
 			}
+		}
+		//add to main import list from main
+		var path = module.path.split(".");
+		path.pop(); //remove pkg as main is top level
+		path.push(main.name);
+		mainImportList.push({
+			path: path,
+			alias: "",
+			doc: "",
+		});
+		//add main import to all module files
+		for (file in module.files) {
+			file.imports = file.imports.concat(mainImportList);
 		}
 		list.push(module);
 	}
@@ -2954,7 +2983,7 @@ private function normalizePath(path:String):String {
 }
 
 function isTitle(string:String):Bool {
-	return string.charAt(0) == string.charAt(0).toUpperCase();
+	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
 
 function title(string:String):String {

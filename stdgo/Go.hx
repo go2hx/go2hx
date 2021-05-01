@@ -557,7 +557,7 @@ class Go {
 					case "GoArray", "Slice", "Map":
 						return macro new stdgo.Pointer.PointerWrapper($expr);
 					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt8",
-						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
+						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128", "IntegerType":
 						isRealPointer = true;
 					case "Pointer", "PointerWrapper": // double or even triple pointer
 						isRealPointer = true;
@@ -603,7 +603,7 @@ class Go {
 					default:
 				}
 			case EConst(c):
-				declare = true;
+				
 			default:
 		}
 		if (isRealPointer) {

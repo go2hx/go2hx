@@ -111,7 +111,7 @@ function main(data:DataType) {
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
-		var module:Module = {path: pkg.path, files: []};
+		var module:Module = {path: pkg.path + ".pkg", files: []};
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
@@ -134,8 +134,7 @@ function main(data:DataType) {
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
-			if (data.name == endPath)
-				main = data;
+
 			var info = new Info();
 			info.data = data;
 			info.global.path = module.path;
@@ -257,8 +256,12 @@ function main(data:DataType) {
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: "",doc: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
-				info.data.imports.push({path: path.split("."), alias: alias,doc: ""});
-			module.files.push(data);
+				data.imports.push({path: path.split("."), alias: alias,doc: ""});
+			if (data.name == endPath) {
+				main = data;
+			}else{
+				module.files.push(data);
+			}
 		}
 		if (main == null) {
 			main = {
@@ -267,19 +270,24 @@ function main(data:DataType) {
 				defs: [],
 				location: "" //does not have a linked go file
 			};
-			module.files.push(main);
 		}
+		//add to main module list
+		list.push({
+			path: pkg.path,
+			files: [main],
+		});
+
 		for (file in module.files) {
 			if (file.name == main.name)
 				continue;
 			for (def in file.defs) {
 				if (def.isExtern == null || !def.isExtern)
 					continue; //not an exported def
-				switch def.kind {
+				switch def.kind { //export out fields, export fields
 					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 						if (StringTools.endsWith(def.name,"__extension"))
 							continue;
-						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: []});
+						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
 						main.defs.push({
 							name: def.name,
 							pack: [],
@@ -288,18 +296,59 @@ function main(data:DataType) {
 							fields: [],
 						});
 					case TDAlias(t):
-
-					case TDField(kind, access):
-
-					case TDAbstract(tthis, from, to):
-						var t:ComplexType = TPath({name: file.name,sub: "_" + def.name,pack: []});
+						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
 						main.defs.push({
 							name: def.name,
 							pack: [],
 							pos: null,
-							fields: [promotionAliasField(file.name + "." + extensionName(def.name))],
-							meta: [{name: ":transitive",pos: null},{name: ":forward",pos: null}],
-							kind: TDAbstract(t,[t],[t]),
+							kind: TDAlias(t),
+							fields: [],
+						});
+					case TDField(kind, access):
+						switch kind {
+							case FVar(t, e):
+								var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
+								main.defs.unshift({
+									name: "get_" + def.name,
+									pack: [],
+									pos: null,
+									fields: [],
+									kind: TDField(FFun({
+										ret: t,
+										args: [],
+										expr: macro return $ident,
+									}),[AInline]),
+								});
+								main.defs.unshift({
+									name: "set_" + def.name,
+									pack: [],
+									pos: null,
+									fields: [],
+									kind: TDField(FFun({
+										ret: t,
+										args: [{name: "value",type: t}],
+										expr: macro return $ident = value,
+									}),[AInline]),
+								});
+								main.defs.unshift({
+									name: def.name,
+									pack: [],
+									pos: null,
+									fields: [],
+									kind: TDField(FProp("get","set",t),access),
+								});
+							case FFun(f):
+
+							default:
+						}
+					case TDAbstract(tthis, from, to): //export out alias type
+						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
+						main.defs.unshift({
+							name: def.name,
+							pack: [],
+							pos: null,
+							kind: TDAlias(t),
+							fields: [],
 						});
 					default:
 				}
@@ -547,10 +596,10 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 						expr: toExpr(EBlock(body)),
 						args: [],
 					}));
-					var v = toExpr(EConst(CIdent(name)));
+					var v = toExpr(EConst(CString((name))));
 					exprs.unshift(macro $v = $func);
 					exprs.unshift(macro var $name = null);
-					exprs.push(macro return $v());
+					exprs.push(macro return $v);
 				case "ReturnStmt":
 					returnBool = true;
 				default:
@@ -2825,6 +2874,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			pos: null,
 			pack: [],
 			fields: [],
+			isExtern: isTitle(value.names[i]),
 			doc: doc,
 			kind: TDField(FVar(type, expr), access)
 		});

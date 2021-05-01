@@ -9,4 +9,11 @@ func main() {
 	data.Test()
 	var i data.Example = 0
 	fmt.Println(i)
+
+	fmt.Println("ex:",data.Ex)
+
+	s := data.Struct{}
+	fmt.Println("s:",s)
+
+	data.Test()
 }

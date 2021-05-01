@@ -3,17 +3,25 @@ package main
 import (
 	"fmt"
 
-	"github.com/go2hx/go4hx/rnd/data"
+	//"github.com/go2hx/go4hx/rnd/data"
 )
 func main() {
-	data.Test()
-	var i data.Example = 0
-	fmt.Println(i)
 
-	fmt.Println("ex:",data.Ex)
+	//data.Test()
+	//var i data.Example = 0
+	//fmt.Println(i)
 
-	s := data.Struct{}
-	fmt.Println("s:",s)
+	//fmt.Println("ex:",data.Ex)
 
-	data.Test()
+	//s := data.Struct{}
+	//fmt.Println("s:",s)
+
+	//data.Test()
+//}
+
+	fmt.Println("start")
+	th()
 }
+
+//#go2hx stdgo.reflect.Reflect.testHarness
+func th()

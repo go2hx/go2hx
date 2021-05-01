@@ -1,13 +1,11 @@
 package stdgo.reflect;
 
-import stdgo.Pointer.PointerData;
-import stdgo.fmt.Fmt;
+import haxe.macro.Context;
 import stdgo.StdGoTypes;
 import stdgo.Go;
 import stdgo.GoString;
 import stdgo.Slice;
 import stdgo.StdGoTypes.AnyInterface;
-import haxe.Int64;
 import haxe.EnumTools;
 import haxe.Serializer;
 import haxe.Unserializer;
@@ -102,7 +100,7 @@ abstract Kind(GoUInt) from(GoUInt) to(GoUInt) {
 
 @:rtti
 class _Kind__extension {
-	static final _typeName_ = "uint";
+	public static final _typeName_ = "uint";
 
 	// string must be here to enable it to be seen at runtime
 	public static function string(k:Kind):GoString {
@@ -193,7 +191,7 @@ abstract Type(GT_enum) from(GT_enum) to(GT_enum) {
 
 @:rtti
 class _Type__extension {
-	static final _typeName_ = "unsafePointer";
+	public static final _typeName_ = GT_struct("", []);
 
 	public static function serialize(gt:Type):String {
 		var serializer = new Serializer();
@@ -321,7 +319,7 @@ class _Type__extension {
 				var nti = getNamedTypeInfo(haxeClassPath);
 				return nti.methods.length;
 			case _:
-				throw new Error("reflect.NumMethods not implemented for " + string(gt));
+				throw new Error("reflect.NumMethod not implemented for " + string(gt));
 		}
 		return 0;
 	}
@@ -346,7 +344,7 @@ class _Type__extension {
 			case GT_struct(_, fieldsInfo):
 				return fieldsInfo.length;
 			case _:
-				throw new Error("reflect.NumMethods not implemented for " + string(gt));
+				throw new Error("reflect.NumField not implemented for " + string(gt));
 		}
 		return 0;
 	}
@@ -619,6 +617,10 @@ function declareType(typeName:String):Type {
 	switch (typeName) {
 		case "interface{}":
 			return GT_interface("");
+		case "float":
+			return GT_float64;
+		case "rune":
+			return GT_int32;
 		case "invalid", "array", "chan", "func", "map", "ptr", "slice", "struct", "namedType":
 			// type needs more parameters
 			return GT_invalid;
@@ -931,8 +933,9 @@ var rttiClassMap:Map<String, Type> = [
 	"stdgo.AnyInterface" => GT_interface(""), "stdgo.GoInt" => GT_int, "stdgo.GoInt8" => GT_int8, "stdgo.GoInt16" => GT_int16, "stdgo.GoInt32" => GT_int32,
 	"stdgo.GoInt64" => GT_int64, "stdgo.GoUInt" => GT_uint, "stdgo.GoUInt8" => GT_uint8, "stdgo.GoUInt16" => GT_uint16, "stdgo.GoUInt32" => GT_uint32,
 	"stdgo.GoUInt64" => GT_uint64, "stdgo.GoUIntptr" => GT_uintptr, "stdgo.GoFloat32" => GT_float32, "stdgo.GoFloat64" => GT_float64,
-	"stdgo.GoComplex64" => GT_complex64, "stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "Any" => haxeTypeUnknown,
-	"Dynamic" => haxeTypeUnknown, "String" => GT_string, "Bool" => GT_bool, "Float" => GT_float64, "Int" => GT_int, "Void" => null
+	"stdgo.GoComplex64" => GT_complex64, "stdgo.GoComplex128" => GT_complex128, "stdgo.GoString" => GT_string, "stdgo.GoByte" => GT_uint8,
+	"stdgo.GoRune" => GT_int32, "stdgo.GoFloat" => GT_float64, "Any" => haxeTypeUnknown, "Dynamic" => haxeTypeUnknown, "String" => GT_string,
+	"Bool" => GT_bool, "Float" => GT_float64, "Int" => GT_int, "Void" => null
 ];
 
 // take func type and add receiver as first argument
@@ -1230,10 +1233,213 @@ class StdGo2hx {
 	public var _address_ = 0;
 }
 
+//--------------------------------------
+// utility macro to cast to AnyInterface
+//--------------------------------------
+
+macro function cast_AnyInterface(e:haxe.macro.Expr)
+	return macro new AnyInterface({
+		value: $e,
+		typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
+	});
+
+private function gtDecode(t:haxe.macro.Type):GT_enum {
+	// trace("gtDecode:", t);
+	var ret = GT_invalid;
+	switch (t) {
+		case TType(ref, params):
+			// trace("TType:", ref, params);
+			var sref = ref.toString();
+			ret = gtLookUp(sref);
+
+		case TAbstract(ref, params):
+			// trace("TAbstract:", ref, params);
+			var sref:String = ref.toString();
+			switch (sref) {
+				case "stdgo.Slice":
+					ret = GT_slice(gtParams(params)[0]);
+
+				case "stdgo.GoArray":
+					ret = GT_array(gtParams(params)[0], -1); // TODO go2hx does not store the length in the type
+
+				case "stdgo.Pointer", "stdgo.PointerWrapper", "stdgo.GoArrayPointer":
+					ret = GT_ptr(gtParams(params)[0]);
+
+				case "stdgo.GoMap":
+					var ps = gtParams(params);
+					ret = GT_map(ps[0], ps[1]);
+
+				case "Void":
+					ret = GT_struct("", []); // TODO is this correct for Void
+
+				default:
+					ret = gtLookUp(sref);
+					if (ret == GT_invalid) {
+						var imp = ref.get().impl;
+						if (imp != null)
+							ret = gtLookUp("Class<" + imp.toString() + ">");
+						else
+							throw "unhandled abstract type " + sref;
+					}
+			}
+
+		case TInst(ref, params):
+			// trace("TInst",ref,params);
+			var sref = ref.toString();
+			switch (sref) {
+				case "stdgo.Chan":
+					ret = GT_chan(gtParams(params)[0]);
+
+				default:
+					ret = gtLookUp("Class<" + ref + ">");
+			}
+
+		default:
+			throw "unhandled typeof" + t;
+	}
+	return ret;
+}
+
+private function gtParams(params:Array<haxe.macro.Type>):Array<GT_enum> {
+	// trace("gtLookupParameters", params);
+	var pTypes = new Array<GT_enum>();
+	for (i in 0...params.length)
+		pTypes.push(gtDecode(params[i]));
+	return pTypes;
+}
+
+private function gtLookUp(ref:String):GT_enum {
+	// trace("gtLookup", ref);
+	var ret = rttiClassMap[ref];
+	if (ret == null) {
+		var classPrefix = "Class<";
+		var classPostfix = ">";
+		if (StringTools.startsWith(ref, classPrefix) && StringTools.endsWith(ref, classPostfix)) {
+			ref = ref.substr(classPrefix.length, ref.length - classPrefix.length - classPostfix.length);
+			var stdgoPrefix = "stdgo._StdGoTypes.";
+			var implPostfix = "_Impl_";
+			if (StringTools.startsWith(ref, stdgoPrefix) && StringTools.endsWith(ref, implPostfix)) {
+				ref = ref.substr(stdgoPrefix.length, ref.length - stdgoPrefix.length - implPostfix.length);
+				ret = gtLookUp("stdgo." + ref);
+			} else {
+				// trace(ref);
+				if (StringTools.endsWith(ref, implPostfix)) {
+					var parts = ref.split(".");
+					var cname = parts.pop();
+					cname = "_" + cname.substr(0, cname.length - implPostfix.length) + "__extension"; // go2hx naming convention
+					parts.pop(); // remove hidden _Impl_ location
+					parts.push(cname); // put the revised class name back on the end
+					ref = parts.join(".");
+					ret = GT_namedType(ref);
+				} else { // just a class
+					ret = GT_namedType(ref);
+				}
+			}
+		} else // not a class
+			ret = GT_invalid;
+	}
+	// trace("gtLookup=>", ref, ret);
+	return ret;
+}
+
 //------------
 // TODO remove
 //------------
 function testHarness() {
-	 trace("testHarness");
+	trace("testHarness");
 	// a space to test ideas...
+	var x = new Array<AnyInterface>();
+	var aif:AnyInterface;
+	aif = cast_AnyInterface((42 : GoFloat));
+	x.push(aif);
+	var a:GoArray<Bool> = new GoArray<Bool>(...[for (i in 0...((3 : GoInt)).toBasic()) false]);
+	aif = cast_AnyInterface(a);
+	x.push(aif);
+	// TODO Go.pointer not working -> stdgo/Go.hx:620: characters 9-28 : Type not found : stdgo.PointerWrapper
+	// var i = 42;
+	// var p = Go.pointer(i);
+	// aif = cast_AnyInterface(p);
+	x.push(aif);
+	aif = cast_AnyInterface(new Slice<GoRune>());
+	x.push(aif);
+	aif = cast_AnyInterface(new GoMap<GoString, Bool>(false));
+	x.push(aif);
+	aif = cast_AnyInterface((new Chan<NonStructT>(12, (0 : NonStructT))));
+	x.push(aif);
+	aif = cast_AnyInterface(((42 : NonStructT)));
+	x.push(aif);
+	aif = cast_AnyInterface((new Type(GT_complex128)));
+	x.push(aif);
+	aif = cast_AnyInterface((new StructT("hello")));
+	x.push(aif);
+
+	for (ai in x) {
+		trace("---");
+		var tn = ai.typeName();
+		var t = declareType(tn);
+		trace(t, t.kind().string());
+		switch (t) {
+			case GT_namedType(cn):
+				switch (t.kind()) {
+					case struct:
+						trace("numField", t.numField());
+					default:
+				}
+				trace("numMethod", t.numMethod());
+			default:
+		}
+	}
+}
+
+// TODO - remove!
+// BELOW SOME GENERATED TYPES FOR TEST HARNESS TO INSPECT
+
+@:rtti class _NonStructT__extension {
+	public static final _typeName_ = "uint8";
+
+	public static function string(nst:_NonStructT):GoString {
+		return (("NonStructT-int8" : GoString));
+	}
+}
+
+@:rtti @:using(stdgo.reflect.Reflect._NonStructT__extension) typedef _NonStructT = GoUInt8;
+
+/**
+
+	NonStructT uint8
+**/
+@:transitive @:forward abstract NonStructT(_NonStructT) from _NonStructT to _NonStructT {
+	@:to
+	inline function __promote():AnyInterface
+		return new AnyInterface({value: this, typeName: Type.getClassName(_NonStructT__extension)});
+}
+
+/**
+
+	structT struct{ X string }
+**/
+@:rtti @:structInit @:allow(github_com.pxshadow.go4hx.rnd) private final class StructT implements StructType {
+	public var x:GoString = "";
+
+	public function new(?x) {
+		stdgo.internal.Macro.initLocals();
+		_address_ = ++Go.addressIndex;
+	}
+
+	public function toString() {
+		return '{${Std.string(x)}}';
+	}
+
+	public function __copy__() {
+		return new StructT(x);
+	}
+
+	public var _is_pointer_ = false;
+	public final _typeName_ = "structT";
+	public var _address_ = 0;
+
+	public function string():GoString {
+		var s = this.__copy__();
+		return s.x;
+	}
 }

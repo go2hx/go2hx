@@ -70,7 +70,14 @@ class Once implements StructType {
 	public final _typeName_ = "Once";
 	public var _address_:Int;
 	public var _is_pointer_:Bool = false;
+	public var done:Bool = false;
 	public function new() {
 		_address_ = Go.addressIndex++;
+	}
+	public function do_(f:haxe.Constraints.Function) {
+		if (done)
+			return;
+		done = true;
+		f();
 	}
 }

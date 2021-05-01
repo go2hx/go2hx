@@ -2225,7 +2225,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						name: name,
 						pos: null,
 						meta: null,
-						access: decl.recv != null ? [APublic] : typeAccess(decl.name.name),
+						access: [APublic],
 						kind: FFun({
 							args: args,
 							ret: ret,
@@ -2321,7 +2321,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 			params: null,
 			expr: block,
 			args: args
-		}), typeAccess(decl.name.name))
+		}), [])
 	};
 }
 
@@ -2895,7 +2895,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			continue;
 		var name = nameIdent(value.names[i], info, false, false);
 		var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
-		var access = typeAccess(value.names[i]);
+		var access = [];//typeAccess(value.names[i]);
 		if (value.constants[i])
 			access.push(AFinal);
 		values.push({

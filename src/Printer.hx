@@ -59,7 +59,7 @@ class Printer extends haxe.macro.Printer {
 		var str = t == null ? "#NULL" : (printPackage && t.pack.length > 0 && t.pack[0] != "" ? "package " + t.pack.join(".") + ";\n" : "")
 			+ (t.doc != null && t.doc != "" ? "/**\n" + tabString + StringTools.replace(t.doc, "\n", "\n" + tabString) + "\n**/\n" : "")
 			+ (t.meta != null && t.meta.length > 0 ? t.meta.map(printMetadata).join(" ") + " " : "")
-			+ (externBool ? "" : "private ") + switch t.kind {
+			+ (externBool ? "" : "") + switch t.kind {
 				case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 					(isFinal ? "final " : "")
 						+ (isAbstract ? "abstract " : "")

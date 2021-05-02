@@ -1560,6 +1560,32 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:to inline function __promote()
 		return new AnyInterface({value: this, typeName: _typeName_()});
 
+	@:to inline function toInt64():GoInt64
+		return this;
+
+	@:to inline function toInt():GoInt
+		return this.low;
+
+	@:to inline function toInt8():GoInt8
+		return this.low;
+
+	@:to inline function toInt16():GoInt16
+		return this.low;
+
+	@:to inline function toUInt():GoUInt
+		return clampUInt(this.low);
+
+	@:to inline function toUInt8():GoUInt8
+		return clampUInt8(this.low);
+
+	@:to inline function toUInt16():GoUInt16
+		return clampUInt16(this.low);
+	@:to inline function toUInt64():GoUInt64
+		return this > 0 ? this : 0;
+
+	@:from public static inline function ofInt(x:Int):GoUInt64
+		return UInt64.ofInt(x);
+
 	public inline function _typeName_()
 		return "uint64";
 
@@ -1570,9 +1596,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 			return 0;
 		}
 	}
-
-	@:from public static inline function ofInt(x:Int):GoUInt64
-		return UInt64.ofInt(x);
 
 	@:from public static inline function ofFloat(x:Float):GoUInt64
 		return (Std.int(x) : GoUInt64);

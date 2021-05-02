@@ -1292,12 +1292,11 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 					ret = GT_map(ps[0], ps[1]);
 
 				case "Void":
-					ret = GT_invalid; // TODO is this correct for Void
+					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 
 				default:
 					ret = gtLookUp(sref);
 					if (ret == GT_invalid) {
-						var info = ref.get();
 						var info = ref.get();
 						var imp = info.impl;
 						if (imp != null)

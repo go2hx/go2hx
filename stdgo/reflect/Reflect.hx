@@ -1259,7 +1259,7 @@ macro function cast_AnyInterface(e:haxe.macro.Expr)
 		typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
 	});
 
-private function gtDecode(t:haxe.macro.Type):GT_enum {
+function gtDecode(t:haxe.macro.Type):GT_enum {
 	// trace("gtDecode:", t);
 	var ret = GT_invalid;
 	switch (t) {

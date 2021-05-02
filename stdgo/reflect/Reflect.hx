@@ -108,7 +108,7 @@ class _Kind__extension {
 		var idx:UInt = (k : GoUInt).toBasic();
 		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
-			return "unsafe.pointer";
+			return "unsafe.Pointer";
 		return r;
 	}
 }
@@ -1254,21 +1254,21 @@ class StdGo2hx {
 //--------------------------------------
 
 macro function cast_AnyInterface(e:haxe.macro.Expr)
-	if (e == null)
-		return macro new AnyInterface({
-			value: null,
-			typeName: "interface{}"
-		});
-	else
-		return macro new AnyInterface({
-			value: $e,
-			typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
-		});
+	return macro new AnyInterface({
+		value: $e,
+		typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
+	});
 
 private function gtDecode(t:haxe.macro.Type):GT_enum {
 	// trace("gtDecode:", t);
 	var ret = GT_invalid;
 	switch (t) {
+		case TMono(ref):
+			if (ref.get() == null)
+				ret = GT_unsafePointer;
+			else
+				ret = GT_namedType(ref.toString()); // TODO what could appear here?
+
 		case TType(ref, params):
 			// trace("TType:", ref, params);
 			var sref = ref.toString();
@@ -1441,6 +1441,8 @@ function testHarness() {
 	aif = cast_AnyInterface(new Slice<GoMap<NonStructT, GoArray<Chan<Pointer<StructT>>>>>()); // complex type
 	x.push(aif);
 	aif = cast_AnyInterface(new AnyInterface({value: 42, typeName: "int"}));
+	x.push(aif);
+	aif = cast_AnyInterface(null);
 	x.push(aif);
 
 	for (ai in x) {

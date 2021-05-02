@@ -21,6 +21,15 @@ import stdgo.StdGoTypes.GoUInt64;
 var memProfileRate:Int = 0;
 var compiler:GoString = "gccgo";
 var goarch:GoString = "";
+final goos = #if (!sys && js) "js" #else switch (Sys.systemName()) {
+	case "Linux": "linux";
+	case "Windows": "windows";
+	case "Mac": "darwin";
+	case "Android": "android";
+	case "BSD": "freebsd";
+	default: "linux";
+}
+#end 
 
 function gc() {
 	// run garbage collector

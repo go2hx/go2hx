@@ -2,6 +2,7 @@ package stdgo.reflect;
 
 import haxe.macro.Context;
 import stdgo.StdGoTypes;
+import stdgo.Pointer;
 import stdgo.Go;
 import stdgo.GoString;
 import stdgo.Slice;
@@ -217,16 +218,31 @@ class _Type__extension {
 		var ntd = namedTypeMap.get(classPath);
 		if (ntd == null) {
 			var classObj = Type.resolveClass(classPath);
-			if (classObj == null)
-				throw new Error("getNamedTypeInfo: unable to resolve class " + classPath);
-			var t = typeOfClass(classObj, null); // has side effect of putting result in map
-			switch (t) {
-				case GT_namedType(_), GT_interface(_):
-					ntd = namedTypeMap.get(classPath);
-					if (ntd == null)
-						throw new Error("getNamedTypeInfo: unable to retrive named type info for " + Std.string(classObj));
-				case _:
-					throw new Error("getNamedTypeInfo: class is not a named type " + Std.string(classObj));
+			if (classObj == null) {
+				// assume it is an opaque Haxe type
+				// so make an entry for it
+				var parts = classPath.split(".");
+				var tName = parts.pop();
+				var tPath = parts.join(".");
+				ntd = {
+					typeName: tName,
+					haxeTypeName: tName,
+					packPath: tPath,
+					methods: new Array<MethodInfo>(),
+					underlying: haxeTypeUnknown,
+					isInterface: false,
+					interfaces: new Array<GoString>()
+				};
+			} else {
+				var t = typeOfClass(classObj, null); // has side effect of putting result in map
+				switch (t) {
+					case GT_namedType(_), GT_interface(_):
+						ntd = namedTypeMap.get(classPath);
+						if (ntd == null)
+							throw "unable to retrive named type info for " + classPath;
+					case _:
+						throw new Error("getNamedTypeInfo: class is not a named type " + Std.string(classObj));
+				}
 			}
 		}
 		return ntd;
@@ -1213,7 +1229,7 @@ abstract HaxeValue(Any) from(Any) to(Any) {
 
 @:rtti
 class _HaxeValue__extension {
-	static final _typeName_ = "unsafePointer";
+	static final _typeName_ = new Type(GT_struct("", [])).serialize();
 
 	// string must be here to enable it to be seen at runtime
 	public static function string(hv:Any):GoString {
@@ -1238,10 +1254,16 @@ class StdGo2hx {
 //--------------------------------------
 
 macro function cast_AnyInterface(e:haxe.macro.Expr)
-	return macro new AnyInterface({
-		value: $e,
-		typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
-	});
+	if (e == null)
+		return macro new AnyInterface({
+			value: null,
+			typeName: "interface{}"
+		});
+	else
+		return macro new AnyInterface({
+			value: $e,
+			typeName: $v{(new Type(gtDecode(Context.typeof(e)))).serialize()}
+		});
 
 private function gtDecode(t:haxe.macro.Type):GT_enum {
 	// trace("gtDecode:", t);
@@ -1270,16 +1292,22 @@ private function gtDecode(t:haxe.macro.Type):GT_enum {
 					ret = GT_map(ps[0], ps[1]);
 
 				case "Void":
-					ret = GT_struct("", []); // TODO is this correct for Void
+					ret = GT_invalid; // TODO is this correct for Void
 
 				default:
 					ret = gtLookUp(sref);
 					if (ret == GT_invalid) {
-						var imp = ref.get().impl;
+						var info = ref.get();
+						var info = ref.get();
+						var imp = info.impl;
 						if (imp != null)
 							ret = gtLookUp("Class<" + imp.toString() + ">");
-						else
-							throw "unhandled abstract type " + sref;
+						else {
+							var path = info.name;
+							if (info.module.length > 0)
+								path = info.module + "." + path;
+							ret = GT_namedType(path); // NOTE does not actually have an implementation
+						}
 					}
 			}
 
@@ -1294,8 +1322,40 @@ private function gtDecode(t:haxe.macro.Type):GT_enum {
 					ret = gtLookUp("Class<" + ref + ">");
 			}
 
+		case TAnonymous(a):
+			var fields = a.get().fields;
+			var members = new Array<FieldInfo>();
+			for (field in fields) {
+				var fi:FieldInfo = {
+					n: field.name,
+					t: gtDecode(field.type),
+					m: ""
+				};
+				members.push(fi);
+			}
+			ret = GT_struct("", members);
+
+		case TFun(args, result):
+			var inputs = new Array<GT_enum>();
+			for (arg in args) {
+				inputs.push(gtDecode(arg.t));
+			}
+			var isVoid = false;
+			switch (result) {
+				case TAbstract(t, _):
+					if (t.toString() == "Void") isVoid = true;
+				default:
+			}
+			if (isVoid)
+				ret = GT_func(inputs, []);
+			else
+				ret = GT_func(inputs, [gtDecode(result)]);
+
+		case TDynamic(t):
+			return haxeTypeUnknown;
+
 		default:
-			throw "unhandled typeof" + t;
+			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 	}
 	return ret;
 }
@@ -1352,13 +1412,15 @@ function testHarness() {
 	var aif:AnyInterface;
 	aif = cast_AnyInterface((42 : GoFloat));
 	x.push(aif);
+	var z:{var x:GoInt16; var y:Bool;} = {x: ((0 : GoInt16)), y: false};
+	aif = cast_AnyInterface(z);
+	x.push(aif);
 	var a:GoArray<Bool> = new GoArray<Bool>(...[for (i in 0...((3 : GoInt)).toBasic()) false]);
 	aif = cast_AnyInterface(a);
 	x.push(aif);
-	// TODO Go.pointer not working -> stdgo/Go.hx:620: characters 9-28 : Type not found : stdgo.PointerWrapper
-	// var i = 42;
-	// var p = Go.pointer(i);
-	// aif = cast_AnyInterface(p);
+	var i = 42;
+	var p = Go.pointer(i);
+	aif = cast_AnyInterface(p);
 	x.push(aif);
 	aif = cast_AnyInterface(new Slice<GoRune>());
 	x.push(aif);
@@ -1372,19 +1434,27 @@ function testHarness() {
 	x.push(aif);
 	aif = cast_AnyInterface((new StructT("hello")));
 	x.push(aif);
+	aif = cast_AnyInterface((typeOfClass)); // func with return value
+	x.push(aif);
+	aif = cast_AnyInterface((doLittle)); // func with Void return
+	x.push(aif);
+	aif = cast_AnyInterface(new Slice<GoMap<NonStructT, GoArray<Chan<Pointer<StructT>>>>>()); // complex type
+	x.push(aif);
+	aif = cast_AnyInterface(new AnyInterface({value: 42, typeName: "int"}));
+	x.push(aif);
 
 	for (ai in x) {
 		trace("---");
 		var tn = ai.typeName();
 		var t = declareType(tn);
-		trace(t, t.kind().string());
+		trace(t, t.kind().string(), t.string());
+		switch (t.kind()) {
+			case struct:
+				trace("numField", t.numField());
+			default:
+		}
 		switch (t) {
 			case GT_namedType(cn):
-				switch (t.kind()) {
-					case struct:
-						trace("numField", t.numField());
-					default:
-				}
 				trace("numMethod", t.numMethod());
 			default:
 		}
@@ -1393,6 +1463,8 @@ function testHarness() {
 
 // TODO - remove!
 // BELOW SOME GENERATED TYPES FOR TEST HARNESS TO INSPECT
+
+function doLittle(a:GoString, b:GoUInt32):Void {}
 
 @:rtti class _NonStructT__extension {
 	public static final _typeName_ = "uint8";

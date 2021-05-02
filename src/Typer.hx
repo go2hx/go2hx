@@ -594,7 +594,7 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	if (stmt.list == null)
-		return (macro {}).expr;
+		return (macro throw "no block expr").expr;
 	return typeStmtList(stmt.list, info, isFunc, needReturn);
 }
 

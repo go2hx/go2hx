@@ -205,6 +205,80 @@ function main(data:DataType) {
 				}
 			}
 
+			var namedDecls:Array<Ast.Decl> = [];
+			for (decl in declFuncs) {
+				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0)
+					namedDecls.push(decl);
+			}
+			for (gen in declGens) {
+				for (spec in gen.specs) {
+					switch spec.id {
+						case "ValueSpec", "TypeSpec": namedDecls.push(spec);
+						default:
+					}
+				}
+			}
+
+			function hasName(name:String,exception:Int):String {
+				for (i in 0...namedDecls.length) {
+					if (i == exception)
+						continue;
+					var decl = namedDecls[i];
+					var change = false;
+					switch decl.id {
+						case "ValueSpec":
+							var decl:Ast.ValueSpec = decl;
+							for (i in 0...decl.names.length) {
+								if (untitle(name) != decl.names[i])
+									continue;
+								change = !isTitle(name);
+								name = change ? name : decl.names[i];
+								trace("value_name: " + name);
+								decl.names[i] = "_" + name;
+								break;
+							}
+							continue;
+						default:
+							if (untitle(name) != decl.name.name)
+								continue;
+							change = !isTitle(name);
+							name = change ? name : decl.name.name;
+							decl.name.name = "_" + name;
+					}
+					return name;
+				}
+				return "";
+			}
+			for (i in 0...namedDecls.length) {
+				var decl = namedDecls[i];
+				var defRename = "";
+				switch decl.id {
+					case "ValueSpec":
+						var decl:Ast.ValueSpec = decl;
+						for (i in 0...decl.names.length) {
+							if (!isTitle(decl.names[i]))
+								continue;
+							var result = hasName(decl.names[i],i);
+							if (result == "")
+								continue;
+							defRename = result;
+							break;
+						}
+					default:
+						if (!isTitle(decl.name.name))
+							continue;
+						var decl:Ast.TypeSpec = decl;
+						var result = hasName(decl.name.name,i);
+						if (result == "")
+							continue;
+						defRename = result;
+				}
+				if (defRename == "")
+					continue;
+				info.global.renameTypes[defRename] = "_" + defRename;
+			}
+
+
 			for (decl in declFuncs) { // parse function bodies last
 				var func = typeFunction(decl, info);
 				if (func != null)
@@ -213,29 +287,6 @@ function main(data:DataType) {
 			
 			// setup implements
 			typeImplements(info);
-
-			for (i in 0...info.data.defs.length) {
-				var defRename = null;
-				var def = info.data.defs[i];
-				for (j in 0...info.data.defs.length) {
-					if (i == j)
-						continue;
-					var def2 = info.data.defs[j];
-					if (def.name == def2.name) {
-						switch def2.kind {
-							case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-								defRename = def;
-							case TDField(kind, access):
-								defRename = access.contains(APrivate) ? def2 : def;
-							default:
-						}
-						break;
-					}
-				}
-				if (defRename == null)
-					continue;
-				info.global.renameTypes[defRename.name] = defRename.name = defRename.name = "_" + defRename.name;
-			}
 
 			// init system
 			if (info.global.initBlock.length > 0) {
@@ -2950,8 +3001,10 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool):String {
 	if (name == "nil")
 		return "null";
+
 	if (info.localVars.exists(name))
 		forceString = true;
+
 	if (!forceString) {
 		if (info.global.imports.exists(name))
 			return info.global.imports[name];

@@ -628,7 +628,10 @@ class Go {
 	}
 
 	public static macro function getInterface(expr) {
-		return stdgo.reflect.Reflect.cast_AnyInterface(expr);
+		return macro new AnyInterface({
+			value: $expr,
+			typeName: $v{(new stdgo.reflect.Reflect.Type(stdgo.reflect.Reflect.gtDecode(Context.typeof(expr)))).serialize()}
+		});
 	}
 
 	public static macro function recover() {

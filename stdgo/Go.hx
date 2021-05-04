@@ -429,6 +429,14 @@ class Go {
 				if (t != null) {
 					trace("unknown dynamic type destruct: " + t);
 				} else {}
+			case TInst(t, params):
+				var f = t.get().fields.get();
+				f.sort(function(a,b) {
+					return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
+				});
+				for (field in f) {
+					fields.push(field.name);
+				}
 			default:
 				trace("unknown destruct type: " + type);
 		}

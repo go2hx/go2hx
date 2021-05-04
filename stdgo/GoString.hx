@@ -63,10 +63,10 @@ abstract GoString(String) from String to String {
 		return new StringKeyValueIterator(this);
 	}
 
-	public function slice(start:Int, end:Int = 0):GoString {
+	public function slice(start:GoInt, end:GoInt = 0):GoString {
 		if (end == 0)
 			end = this.length;
-		return this.substring(start, end);
+		return this.substring(start.toBasic(), end.toBasic());
 	}
 
 	public inline function typeName() {

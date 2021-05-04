@@ -32,14 +32,9 @@ abstract GoString(String) from String to String {
 	@:from static function ofIntegerType(x:IntegerType):GoString {
 		return String.fromCharCode(x);
 	}
-
-	@:arrayAccess
-	inline function getGoInt(index:GoInt)
-		return get(index.toBasic());
-
-	@:arrayAccess
-	inline function get(index:Int)
-		return this.charCodeAt(index);
+	@:op([])
+	public inline function get(index:GoInt)
+		return this.charCodeAt(index.toBasic());
 
 	public function toString():String
 		return this;
@@ -87,13 +82,7 @@ abstract GoString(String) from String to String {
 
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString;
 
-	@:op(A += B) inline function assignAddGo(a:GoString):GoString {
-		return this = this + a;
-	}
-
 	@:op(A + B) @:commutative static function add(a:GoString, b:String):GoString;
-
-	@:op(A += B) @:commutative static function assignAdd(a:GoString, b:String):GoString;
 }
 
 private class StringIterator {

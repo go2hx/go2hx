@@ -37,21 +37,13 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		}
 		#end
 	}
-
-	@:op([]) public inline function getGoInt(index:GoInt):T
-		return get(index.toBasic());
-
-	@:op([]) public inline function setGoInt(index:GoInt, value:T):T
+	
+	@:op([]) public inline function set(index:GoInt, value:T):T
 		return set(index.toBasic(), value);
 
-	@:op([]) public inline function get(index:Int):T {
-		boundsCheck(index);
-		return this.get(index);
-	}
-
-	@:op([]) public inline function set(index:Int, value:T):T {
-		boundsCheck(index);
-		return this.set(index, value);
+	@:op([]) public inline function get(index:GoInt):T {
+		boundsCheck(index.toBasic());
+		return this.get(index.toBasic());
 	}
 
 	public inline function slice(low:GoInt, high:GoInt = -1):Slice<T> {

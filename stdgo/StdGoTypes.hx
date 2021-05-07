@@ -114,13 +114,6 @@ abstract GoUIntptr(UInt) from UInt from Int {
 
 	public inline function toBasic()
 		return this;
-
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "uintptr";
-
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		if (b == 0)
 			throw "division by zero";
@@ -216,12 +209,6 @@ abstract GoFloat(Float) from Float {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "float";
-
 	@:op(A + B) private static function add(a:GoFloat, b:GoFloat):GoFloat;
 
 	@:op(A / B) private static function div(a:GoFloat, b:GoFloat):GoFloat {
@@ -310,12 +297,6 @@ abstract GoFloat32(Float32) from Float32 {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "float32";
-
 	@:op(A + B) private static function add(a:GoFloat32, b:GoFloat32):GoFloat32
 		return clamp(a.toBasic() + b.toBasic());
 
@@ -397,14 +378,8 @@ abstract GoComplex64(Complex64) from Complex64 {
 	private inline function get_imag()
 		return this.imag;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	@:from public static inline function ofInt(x:Int):GoComplex64
 		return new Complex64(x, 0);
-
-	public inline function _typeName_()
-		return "complex64";
 
 	@:op(A + B) private static function add(a:GoComplex64, b:GoComplex64):GoComplex64
 		return new GoComplex64(a.real.toBasic() + b.real.toBasic(), a.imag.toBasic() + b.imag.toBasic());
@@ -464,14 +439,8 @@ abstract GoComplex128(Complex128) from Complex128 {
 	private inline function get_imag()
 		return this.imag;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	@:from public static inline function ofInt(x:Int):GoComplex128
 		return new Complex128(x, 0);
-
-	public inline function _typeName_()
-		return "complex128";
 
 	@:op(A + B) private static function add(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real + b.real, a.imag + b.imag);
@@ -550,12 +519,6 @@ abstract GoInt(Int) from Int32 from Int {
 
 	@:to inline function toFloat64():GoFloat64
 		return this;
-
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "int";
 
 	public static function ofInt(x:Int):GoInt
 		return x;
@@ -645,12 +608,6 @@ abstract GoUInt(Int) from Int {
 
 	public inline function toBasic()
 		return this;
-
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "uint";
 
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
@@ -804,12 +761,6 @@ abstract GoInt8(Int8) from Int8 from Int {
 	public static function ofInt(x:Int):GoInt8
 		return x;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "int8";
-
 	@:op(A > B) private static function gt(a:GoInt8, b:GoInt8):Bool;
 
 	@:op(A >= B) private static function gte(a:GoInt8, b:GoInt8):Bool;
@@ -925,12 +876,6 @@ abstract GoInt16(Int16) from Int16 from Int {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
-
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
-	public inline function _typeName_()
-		return "int16";
 
 	@:op(A > B) private static function gt(a:GoInt16, b:GoInt16):Bool;
 
@@ -1212,9 +1157,6 @@ abstract GoInt64(Int64) from Int64 {
 	public inline function copy():GoInt64
 		return this.copy();
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	@:from static function fromString(x:String):GoInt64
 		return Int64.parseString(x);
 
@@ -1250,9 +1192,6 @@ abstract GoInt64(Int64) from Int64 {
 
 	function toString()
 		return haxe.Int64.toStr(this);
-
-	public inline function _typeName_()
-		return "int64";
 
 	public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
@@ -1329,14 +1268,8 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	public static inline function ofInt(x:Int)
 		return x;
-
-	public inline function _typeName_()
-		return "uint8";
 
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
@@ -1445,9 +1378,6 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 
@@ -1474,9 +1404,6 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 
 	public static function ofInt(x:Int):GoUInt16
 		return x;
-
-	public inline function _typeName_()
-		return "uint16";
 
 	@:op(A > B) private static function gt(a:GoUInt16, b:GoUInt16):Bool;
 
@@ -1557,9 +1484,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function __promote()
-		return new AnyInterface({value: this, typeName: _typeName_()});
-
 	@:to inline function toInt64():GoInt64
 		return this;
 
@@ -1585,9 +1509,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return UInt64.ofInt(x);
-
-	public inline function _typeName_()
-		return "uint64";
 
 	@:from public static inline function ofString(x:String):GoUInt64 {
 		try {
@@ -1674,13 +1595,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 }
 
 interface StructType {
-	public final _typeName_:String;
 	public var _address_:Int;
-	public var _is_pointer_:Bool;
-}
-
-extern interface BaseType {
-	public static final _typeName_:String;
 }
 
 interface Error {
@@ -1690,37 +1605,22 @@ interface Error {
 @:structInit
 private class AnyInterfaceData {
 	public var value:Any;
-	public var typeName:String;
+	public var type:stdgo.reflect.Reflect.Type;
 
-	public function new(value:Any, typeName:String) {
+	public function new(value,type) {
 		this.value = value;
-		this.typeName = typeName;
+		this.type = type;
 	}
-	public inline function toString()
-		return "value: " + value + " typeName: " + typeName;
+	public inline function toString():GoString
+		return type.toString();
 }
-
+@:forward
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	public inline function new(obj = null) {
 		this = obj;
 	}
-
 	@:to private inline function to<T>() {
 		return (this.value : T);
-	}
-
-	@:from private static inline function from<T>(x:T) {
-		if (x == null)
-			return new AnyInterface({value: null, typeName: "null"});
-		return new AnyInterface({value: x, typeName: "unknown"});
-	}
-
-	public inline function typeName() {
-		return this.typeName;
-	}
-
-	public inline function value() {
-		return this.value;
 	}
 }
 

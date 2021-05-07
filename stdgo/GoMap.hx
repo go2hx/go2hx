@@ -51,13 +51,6 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 	public inline function keyValueIterator() {
 		return this.keyValueIterator();
 	}
-
-	@:generic
-	inline public function _typename_<K:Constructible<Void->Void>, V:Constructible<Void->Void>>() {
-		var k:Dynamic = new K();
-		var v:Dynamic = new V();
-		return '[${k.typeName()}]${v.typeName()}';
-	}
 }
 
 private class MapData<K, V> {

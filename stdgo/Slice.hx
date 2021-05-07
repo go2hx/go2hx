@@ -87,15 +87,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return slice;
 	}
 
-	inline public function _typename_() {
-		var typeName = "";
-		/*if (length > 0) {
-			var i:AnyInterface = get(0);
-			typeName = i.typeName();
-		}*/
-		return '[]${typeName}';
-	}
-
 	inline public function grow(size:Int) {
 		this.grow(size);
 	}
@@ -167,8 +158,6 @@ private class SliceData<T> {
 	public var _address_:String;
 
 	private static var _addressCounter:Int = 0;
-
-	public var _is_pointer_:Bool = false;
 
 	public function new(length:Int = 0, cap:Int = 0) {
 		this.length = length;

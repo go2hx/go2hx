@@ -85,10 +85,6 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 		return array;
 	}
 
-	inline public function _typename_() {
-		return '[$length]';
-	}
-
 	inline public function toString() {
 		return this.toArray().toString();
 	}

@@ -73,15 +73,10 @@ final basicTypes = [
 ];
 
 var printer = new Printer();
-typedef Alias = {name:String, type:haxe.macro.Type};
-var aliases:Map<String, Array<Alias>>;
-var aliasTypes:Array<{alias:TypeDefinition,cl:TypeDefinition}> = [];
 
 function main(data:DataType) {
 	var list:Array<Module> = [];
 	var info = new Info();
-	// alias system
-	aliases = new Map<String, Array<Alias>>();
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -91,7 +86,6 @@ function main(data:DataType) {
 		if (pkg.path == "")
 			pkg.path = "std";
 		info.global.path = pkg.path;
-		aliases[info.global.path + ".pkg"] = [];
 		var module:Module = {path: pkg.path + ".pkg", files: []};
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
@@ -2262,7 +2256,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 							if ("_" + p.name == def.name) {
 								var typeClass:TypeDefinition = null;
 								var recvType:ComplexType = TPath({name: def.name,pack: def.pack});
-								var extensionClassName = extensionName(p.name);
+								var extensionClassName = p.name + "__extension";
 								for (def in info.data.defs) {
 									switch def.kind {
 										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
@@ -2681,28 +2675,22 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 		return null;
 
 	var typeName = toExpr(EConst(CString(exprTypeString(spec.type))));
-	var extensionName = extensionName(name);
+	var extensionName = name + "__extension";
 	var defs:Array<TypeDefinition> = [];
 	defs.push({ //extension class
 		name: extensionName,
 		pos: null,
 		pack: [],
 		isExtern: true,
-		meta: [{name: ":rtti", pos: null}],
-		fields: [{
-			name: "_typeName_",
-			pos: null,
-			access: [APublic, AStatic, AFinal],
-			kind: FVar(null, toExpr(EConst(CString(exprTypeString(spec.type))))),
-		}],
+		meta: [],
+		fields: [],
 		kind: TDClass(),
 	});
 	var alias:TypeDefinition = { //typedef
-		name: "_" + name,
+		name: name,
 		pos: null,
 		pack: [],
 		meta: [
-			{name: ":rtti",pos: null},
 			{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}
 		],
 		isExtern: false,
@@ -2710,107 +2698,6 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 		kind: TDAlias(type),
 	};
 	defs.push(alias);
-	var aliasType:ComplexType = TPath({
-		name: "_" + name,
-		pack: [],
-	});
-	var abstractType:ComplexType = TPath({
-		name: name,
-		pack: [],
-	});
-	var fields:Array<Field> = [];
-	switch type {
-		case TPath(p):
-			switch p.name {
-				case "GoString","Slice","GoArray","GoMap":
-					fields.push({
-						name: "get",
-						pos: null,
-						access: [AInline],
-						meta: [{name: ":op",pos: null, params: [macro []]}],
-						kind: FFun({
-							args: [{name: "index"}],
-							expr: macro return this.get(index),
-						}),
-					});
-					if (p.name != "GoString") {
-						fields.push({
-							name: "set",
-							pos: null,
-							access: [AInline],
-							meta: [{name: ":op",pos: null, params: [macro []]}],
-							kind: FFun({
-								args: [{name: "index"},{name: "value"}],
-								expr: macro return this.set(index,value),
-							}),
-						});
-					}
-			}
-		default:
-	}
-	var t:TypeDefinition = {
-		name: name,
-		pos: null,
-		pack: [],
-		fields: fields.concat([
-			{
-				name: "postInc",
-				pos: null,
-				access: [AStatic],
-				meta: [{name: ":op",pos: null, params: [macro A++]}],
-				kind: FFun({
-					args: [{name: "a",type: abstractType}],
-					ret: abstractType,
-				}),
-			},
-			{
-				name: "postDec",
-				pos: null,
-				access: [AStatic],
-				meta: [{name: ":op",pos: null, params: [macro A--]}],
-				kind: FFun({
-					args: [{name: "a",type: abstractType}],
-					ret: abstractType,
-				}),
-			},
-			{
-				name: "add",
-				pos: null,
-				access: [AStatic],
-				meta: [{name: ":op",pos: null, params: [macro A + B]}],
-				kind: FFun({
-					args: [{name: "a",type: abstractType},{name: "b",type: abstractType}],
-					//expr: macro return this = this + a,
-					ret: abstractType,
-				}),
-			},
-			{
-				name: "sub",
-				pos: null,
-				access: [AStatic],
-				meta: [{name: ":op",pos: null, params: [macro A - B]}],
-				kind: FFun({
-					args: [{name: "a",type: abstractType},{name: "b",type: abstractType}],
-					//expr: macro return this = this + a,
-					ret: abstractType,
-				}),
-			},
-			promotionAliasField(extensionName)
-		]),
-		doc: doc,
-		isExtern: true,
-		meta: [{name: ":transitive",pos: null},{name: ":forward",pos: null}],
-		kind: TDAbstract(aliasType,[aliasType],[aliasType]),
-	};
-	defs.push(t);
-	aliasTypes.push({cl: t, alias: alias});
-	aliases[info.global.path].push({
-		name: name,
-		type: TType(
-			{get: () -> {type: follow(type,info),pos: null,params: [],pack: [],name: "",module: "",meta: null,isPrivate: false,isExtern: false,exclude: () -> {},doc: null}, toString: () -> ""},
-			[]
-		),
-	});
 	return defs;
 }
 
@@ -2878,24 +2765,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				}),
 			});
 			fields.push({
-				name: "_is_pointer_",
-				pos: null,
-				access: [APublic],
-				kind: FVar(null, macro false),
-			});
-			fields.push({
-				name: "_typeName_",
-				pos: null,
-				access: [APublic, AFinal],
-				kind: FVar(null, toExpr(EConst(CString(spec.name.name)))),
-			});
-			fields.push({
 				name: "_address_",
 				pos: null,
 				access: [APublic],
 				kind: FVar(null, macro 0),
 			});
-			var meta:Metadata = [{name: ":rtti", pos: null}, {name: ":structInit", pos: null}, getAllow(info)];
+			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
 			interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
 			return {
 				name: name,
@@ -2911,7 +2786,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			// var interface:Ast.InterfaceType = spec.type;
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0) {
-				aliases[info.global.path].push({name: name, type: TDynamic(null)});
 				return {
 					name: name,
 					pos: null,
@@ -2929,47 +2803,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				doc: doc,
 				fields: fields,
 				isExtern: externBool,
-				meta: [{name: ":rtti", pos: null}, getAllow(info)],
+				meta: [getAllow(info)],
 				kind: TDClass(null, [], true) // INTERFACE
 			};
 		default:
 			return null;
 	}
 }
-
-private function follow(type:ComplexType,info:Info):haxe.macro.Type {
-	switch type {
-		case TPath(p):
-			var pack = p.pack.length > 0 ? p.pack.join(".") : info.global.path;
-			for (alias in aliases[pack]) {
-				if (alias.name != p.name)
-					continue;
-			}
-		default:
-	}
-
-	return null;
-}
-
-private function promotionAliasField(extensionName:String):haxe.macro.Expr.Field {
-	return {
-		name: "__promote",
-		pos: null,
-		access: [AInline],
-		meta: [{name: ":to",pos: null}],
-		kind: FFun({
-			args: [],
-			ret: TPath({
-				name: "AnyInterface",
-				pack: [],
-			}),
-			expr: toExpr(EReturn(macro new AnyInterface({value: this, typeName: Type.getClassName(${toExpr(EConst(CIdent(extensionName)))})}))),
-		}),
-	};
-}
-
-private function extensionName(name:String):String
-	return "_" + name + "__extension";
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};

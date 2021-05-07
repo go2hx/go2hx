@@ -636,10 +636,13 @@ class Go {
 	}
 
 	public static macro function getInterface(expr) {
+		/*var e = macro $v{stdgo.reflect.Reflect.gtDecode(Context.typeof(expr))};
 		return macro new AnyInterface({
 			value: $expr,
-			typeName: $v{(new stdgo.reflect.Reflect.Type(stdgo.reflect.Reflect.gtDecode(Context.typeof(expr)))).serialize()}
-		});
+			type: new stdgo.reflect.Reflect.Type($e),
+		});*/
+		//TODO
+		return expr;
 	}
 
 	public static macro function recover() {

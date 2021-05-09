@@ -25,63 +25,14 @@ enum GT_enum {
 	GT_string;
 	GT_unsafePointer;
 	GT_chan(elem:GT_enum);
-	GT_interface;
+	GT_interface(name:String,type:GT_enum);
 	GT_ptr(elem:GT_enum);
 	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
 	GT_func(input:Array<GT_enum>, output:Array<GT_enum>);
 	GT_map(key:GT_enum, value:GT_enum);
-	GT_struct(fields:Array<StructField>);
-	// go2hx Type system internal enum, no Kind equivalent
-	GT_namedType;
-}
-
-
-// TODO - make a go2hx standard class, so that it can be accurately reflected upon
-typedef Method = {
-	// Name is the method name.
-	name:GoString,
-	// PkgPath is the package path that qualifies a lower case (unexported)
-	// method name. It is empty for upper case (exported) method names.
-	// The combination of PkgPath and Name uniquely identifies a method
-	// in a method set.
-	// See https://golang.org/ref/spec#Uniqueness_of_identifiers
-	pkgPath:GoString,
-	type:Type,
-	// func with receiver as first argument
-	func:Value,
-	// index for Type.Method
-	index:GoInt
-}
-
-typedef MethodInfo = {
-	m:Method,
-	haxeName:GoString
-}
-
-typedef NamedTypeData = {
-	typeName:GoString,
-	haxeTypeName:GoString,
-	packPath:GoString,
-	methods:Array<MethodInfo>,
-	underlying:Type,
-	isInterface:Bool,
-	interfaces:Array<GoString>
-};
-
-class StructField implements StructType {
-	public var name:GoString;
-	public var pkgPath:GoString;
-	public var type:Type;
-	public var tag:StructTag;
-	public var offset:GoUIntptr;
-	public var index:Slice<GoInt>;
-	public var anonymous:Bool;
-	public var _address_:Int;
-	public function new(?name:GoString,?pkgPath:GoString,?type:Type,?tag:StructTag,?offset:GoUIntptr,?index:Slice<GoInt>,?anonymous:Bool) {
-		stdgo.internal.Macro.initLocals();
-		_address_ = ++Go.addressIndex;
-	}
+	GT_struct(fields:Array<GT_enum>);
+	GT_namedType(name:String,type:GT_enum,interfaces:Array<GT_enum>); //used for fields and named structs/interfaces
 }
 
 class Error implements StructType implements stdgo.StdGoTypes.Error {
@@ -108,9 +59,9 @@ class Value implements StructType {
 	var underlyingType:Type;
 	public var _address_:Int;
 
-	public function new(?v:Any = null, ?t:Type) {
+	public function new(v:Any = null, t:Type=null) {
 		if (t == null)
-			t = new Type();
+			t = new Type(GT_invalid);
 		_address_ = ++Go.addressIndex;
 		val = v;
 		surfaceType = t;
@@ -121,12 +72,12 @@ class Value implements StructType {
 		return new Value(val, surfaceType);
 
 	public function toString() {
-		return (this.toString() : String);
+		return '$val';
 	}
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_namedType:
+			case GT_namedType(name,type,_):
                 return null; //TODO
 			default:
 				return t;
@@ -239,21 +190,123 @@ function deepEqual(a1:AnyInterface,a2:AnyInterface):Bool {
 	return false; //TODO
 }
 
+function typeOf(iface:AnyInterface):Type {
+	if (iface == null)
+		return new Type(GT_unsafePointer);
+	return iface.type;
+}
+
+function valueOf(iface:AnyInterface):Value {
+	return new Value(iface.value,iface.type);
+}
+
+private function gtParams(params:Array<haxe.macro.Type>):Array<GT_enum> {
+	// trace("gtLookupParameters", params);
+	var pTypes = new Array<GT_enum>();
+	for (i in 0...params.length)
+		pTypes.push(gtDecode(params[i]));
+	return pTypes;
+}
+
+function gtDecode(t:haxe.macro.Type):GT_enum {
+	// trace("gtDecode:", t);
+	var ret = GT_invalid;
+	switch (t) {
+		case TMono(ref):
+			trace("not implemented mono gtDecode");
+
+		case TType(ref, params):
+			var ref = ref.get();
+			ret = GT_namedType(ref.name,GT_struct([]),[]);
+		case TAbstract(ref, params):
+			// trace("TAbstract:", ref, params);
+			var sref:String = ref.toString();
+			switch (sref) {
+				case "stdgo.Slice":
+					ret = GT_slice(gtParams(params)[0]);
+				case "stdgo.GoArray":
+					ret = GT_array(gtParams(params)[0], -1); // TODO go2hx does not store the length in the type
+				case "stdgo.Pointer", "stdgo.PointerWrapper", "stdgo.GoArrayPointer":
+					ret = GT_ptr(gtParams(params)[0]);
+				case "stdgo.GoMap":
+					var ps = gtParams(params);
+					ret = GT_map(ps[0], ps[1]);
+				case "stdgo.IntegerType":
+					ret = GT_int;
+				case "stdgo.GoInt8":
+					ret = GT_int8;
+				case "stdgo.GoInt16":
+					ret = GT_int16;
+				case "stdgo.GoInt32":
+					ret = GT_int32;
+				case "stdgo.GoInt", "Int":
+					ret = GT_int;
+				case "stdgo.GoInt64":
+					ret = GT_int64;
+				case "stdgo.GoUInt8":
+					ret = GT_uint8;
+				case "stdgo.GoUInt16":
+				ret = GT_uint16;
+				case "stdgo.GoUInt":
+				ret = GT_uint;
+				case "stdgo.GoUInt32":
+				ret = GT_uint32;
+				case "stdgo.GoUInt64":
+					ret = GT_uint64;
+				case "stdgo.GoString":
+					ret = GT_string;
+				case "stdgo.GoComplex64":
+					ret = GT_complex64;
+				case "stdgo.GoComplex128":
+					ret = GT_complex128;
+				case "stdgo.ComplexType":
+					ret = GT_complex128;
+				case "stdgo.GoFloat32":
+					ret = GT_float32;
+				case "stdgo.GoFloat64","Float":
+					ret = GT_float64;
+				case "stdgo.FloatType":
+					ret = GT_float64;
+				case "Bool":
+					ret = GT_bool;
+				case "stdgo.AnyInterface":
+					ret = GT_interface("",null);
+				case "Void":
+					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
+				default:
+					trace("unknown abstract name: " + sref);
+			}
+		case TInst(ref, params):
+			
+
+		case TAnonymous(a):
+			
+
+		case TFun(args, result):
+
+
+		default:
+			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
+	}
+	return ret;
+}
+
 
 class Type {
 	public var gt:GT_enum;
-	public inline function new(?t:GT_enum= GT_invalid) {
+	public inline function new(t:GT_enum) {
 		gt = t;
 	}
 	public function serialize():String {
-		var serializer = new Serializer();
-		serializer.serialize(gt);
-		return serializer.toString();
+		Serializer.USE_CACHE = true;
+		Serializer.USE_ENUM_INDEX = true;
+		var str = Serializer.run(gt);
+		return str;
 	}
 
 	public function kind():Kind {
 		switch (gt) {
-			case GT_namedType:
+			case GT_namedType(name,type,_):
 				return new Kind(0); //TODO
 			default:
 				return new Kind(EnumValueTools.getIndex(gt));
@@ -261,16 +314,27 @@ class Type {
 	}
 
 	public function toString():GoString {
-		var p = EnumValueTools.getParameters(gt);
-		if (p.length == 0)
-			return (kind().toString() : GoString);
-
 		switch (gt) {
-			case GT_namedType, GT_interface:
-				//TODO 
-                return null;
+			case GT_int: return "int";
+			case GT_int8: return "int8";
+			case GT_int16: return "int16";
+			case GT_int32: return "int32";
+			case GT_int64: return "int64";
+			case GT_uint8: return "uint8";
+			case GT_uint16: return "uint16";
+			case GT_uint32: return "uint32";
+			case GT_uint64: return "uint64";
+			case GT_float32: return "float32";
+			case GT_float64: return "float64";
+			case GT_complex64: return "complex64";
+			case GT_complex128: return "complex128";
+			case GT_bool: return "bool";
+			case GT_string: return "string";
+			case GT_namedType(name,type,_), GT_interface(name,type):
+				//TODO
+				return "";
 			case GT_ptr(elem):
-				return ("*" : GoString) + new Type(elem).toString();
+				return "*" + new Type(elem).toString();
 			case GT_struct(fields):
                 return ""; //TODO
 			case GT_array(typ, len):
@@ -304,10 +368,11 @@ class Type {
 						r += ")";
 				}
 				return r;
+			case GT_invalid:
+				return "invalid";
 			default:
-				return (Std.string(gt) : GoString); // should not get here
+				throw "not found enum toString " + gt; //should never get here!!!
 		}
-		return "???"; // should never get here!
 	}
 
 	public function elem():Type {
@@ -331,142 +396,35 @@ class Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case GT_namedType, GT_interface:
-				//var nti = getNamedTypeInfo(haxeClassPath);
-				//return nti.methods.length;
-                return 0; //TODO
+			case GT_namedType(name,type,_), GT_interface(name,type):
+				return 0; //TODO
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
 		}
 		return 0;
 	}
 
-	public function method(idx:GoInt):Method {
-		var i:Int = idx.toBasic();
-		switch (gt) {
-			case GT_namedType, GT_interface:
-                return null;
-				//var nti = getNamedTypeInfo(haxeClassPath);
-				//return nti.methods[i].m; //TODO
-			default:
-				throw new Error("reflect.Method not implemented for " + toString());
-		}
-		return null;
-	}
-
 	public function numField():GoInt {
 		switch (gt) {
-			case GT_namedType:
-				return 0; //TODO
-			case GT_struct(fieldsInfo):
-				return fieldsInfo.length;
+			case GT_namedType(def,type,_):
+				return new Type(type).numField();
+			case GT_struct(fields):
+				return fields.length;
 			default:
 				throw new Error("reflect.NumField not implemented for " + toString());
 		}
 		return 0;
 	}
 
-	public function field(idx:GoInt):StructField {
-		var i:Int = idx.toBasic();
-		switch (gt) {
-			case GT_namedType, GT_interface:
-                //TODO
-				return null;
-			case GT_struct(fields):
-                //TODO
-				return null;
-			default:
-				throw new Error("reflect.Field not implemented for " + toString());
-		}
-		return null;
-	}
-
 	public function assignableTo(ot:Type):Bool {
-		var gtP = EnumValueTools.getParameters(gt);
-		var otP = EnumValueTools.getParameters(ot.gt);
-		if (gtP.length == 0 && otP.length == 0)
-			return kind() == ot.kind();
-
-		switch (gt) {
-			case GT_struct(gtFlds):
-				switch (ot.gt) {
-					case GT_struct(otFlds):
-                        //TODO
-						/*if (gtFlds.length != otFlds.length)
-							return false;
-						for (idx in 0...gtFlds.length)
-							if (!gtFlds[idx].t.assignableTo(otFlds[idx].t))
-								return false;*/
-						return true;
-
-					default:
-						return false;
-				}
-			case GT_namedType:
-                //TODO
-				/*switch (ot.gt) {
-					case GT_namedType(otRef):
-						return gtRef == otRef;
-					default:
-						return false;
-				}*/
-			case GT_interface:
-                //TODO
-				/*switch (ot.gt) {
-					case GT_interface(otRef):
-						return gtRef == otRef;
-					default:
-						return false;
-				}*/
-			case GT_func(gtArgs, gtRets):
-				switch (ot.gt) {
-					case GT_func(otArgs, otRets):
-						for (gtArg in gtArgs)
-							for (otArg in otArgs)
-								if (!new Type(gtArg).assignableTo(new Type(otArg)))
-									return false;
-						for (gtRet in gtRets)
-							for (otRet in otRets)
-								if (!new Type(gtRet).assignableTo(new Type(otRet)))
-									return false;
-						return true;
-					default:
-						return false;
-				}
-			default:
-				throw new Error("refelect.AssignableTo not implemented for ( " + Std.string(gt) + " , " + Std.string(gt) + " )");
-		}
 		return false;
 	}
 
 	public function implements_(ot:Type):Bool {
 		switch (gt) {
-			case GT_namedType:
+			case GT_namedType(name,type,_):
                 //TODO
                 return false;
-				/*switch (ot.gt) {
-					case GT_interface(iref):
-						// check shortcut of rtti implements list
-						var NTI = getNamedTypeInfo(ref);
-						if (NTI.interfaces.contains(iref))
-							return true;
-						// otherwise check the individual methodslong-hand, needed for non go2hx classes
-						var found = 0;
-						for (i in 0...ot.numMethod().toBasic()) {
-							var ifM = ot.method(i);
-							for (j in 0...numMethod().toBasic()) {
-								var ntM = method(j);
-								if (ifM.name == ntM.name)
-									if (ifM.type.assignableTo(ntM.type))
-										found++;
-							}
-						}
-						return found == ot.numMethod().toBasic();
-					case GT_namedType(ntRef):
-						return ref == ntRef;
-					default:
-						return false;
-				}*/
 			default:
 				return assignableTo(ot);
 		}
@@ -493,13 +451,14 @@ class Type {
 	}
 }
 
-function unserializeType(s:String):Type {
-	var unserializer = new Unserializer(s);
-	var ret = unserializer.unserialize();
-	if (Reflect.isEnumValue(ret)) {
-		return ret;
+function unserializeType(str:String,expr:Dynamic):stdgo.reflect.Reflect.Type {
+	var ret:GT_enum = Unserializer.run(str);
+	switch ret { //add array length
+		case GT_array(elem, len):
+			ret = GT_array(elem,expr.length);
+		default:
 	}
-	return new Type(GT_invalid);
+	return new Type(ret);
 }
 
 function ptrTo(t:Type):Type {

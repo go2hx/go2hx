@@ -42,8 +42,20 @@ function sprintln(args:Rest<Dynamic>) {
 
 private function parse(args:Array<Dynamic>):Array<Dynamic> {
 	for (i in 0...args.length) {
-		if (Int64.isInt64(args[i]))
+		var t = Type.typeof(args[i]);
+		switch t {
+			case TClass(c):
+				var name = Type.getClassName(c);
+				trace(name);
+				switch name {
+					case "stdgo._StdGoTypes.AnyInterfaceData":
+						args[i] = args[i].value;
+				}
+			default:
+		}
+		if (Int64.isInt64(args[i])) {
 			args[i] = Int64.toStr(args[i]);
+		}
 	}
 	return args;
 }

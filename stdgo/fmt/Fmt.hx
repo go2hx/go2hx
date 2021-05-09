@@ -46,7 +46,6 @@ private function parse(args:Array<Dynamic>):Array<Dynamic> {
 		switch t {
 			case TClass(c):
 				var name = Type.getClassName(c);
-				trace(name);
 				switch name {
 					case "stdgo._StdGoTypes.AnyInterfaceData":
 						args[i] = args[i].value;

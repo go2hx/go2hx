@@ -295,6 +295,7 @@ function main(data:DataType) {
 			//default imports
 			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: "",doc: ""});
 			data.imports.push({path: ["stdgo", "Go"], alias: "",doc: ""});
+			data.imports.push({path: ["stdgo", "GoString"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
 				data.imports.push({path: path.split("."), alias: alias,doc: ""});
 			if (data.name == endPath) {
@@ -1406,10 +1407,6 @@ private function addImport(path:String, info:Info, alias:String = "") {
 
 private function identType(expr:Ast.Ident, info:Info):ComplexType {
 	var name = expr.name;
-	if (name == "String") {
-		addImport("stdgo.GoString", info);
-		name = "GoString";
-	}
 	for (t in basicTypes) {
 		if (name == t) {
 			name = "Go" + title(name);
@@ -1551,6 +1548,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 	}
 	switch expr.fun.id {
+		case "SelectorExpr":
+			switch expr.fun.sel.name {
+				case "String": expr.fun.sel.name = "ToString"; //titled in order to export
+			}
 		case "FuncLit":
 			var expr = typeExpr(expr.fun, info);
 			genArgs();
@@ -1561,6 +1562,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case "Ident":
 			expr.fun.name = expr.fun.name;
 			switch expr.fun.name {
+				case "String":
+					expr.fun.name = "toString";
 				case "panic":
 					genArgs();
 					ellipsisFunc();
@@ -1571,7 +1574,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs();
 					ellipsisFunc();
 					var e = args.shift();
-					return (macro $e.append($a{args})).expr;
+					return (macro Go.call($e.append($a{args}))).expr;
 				case "copy":
 					genArgs();
 					ellipsisFunc();
@@ -1579,7 +1582,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
-					return (macro $e.remove($key)).expr;
+					return (macro Go.call($e.remove($key))).expr;
 				case "print":
 					genArgs();
 					ellipsisFunc();
@@ -1714,7 +1717,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		genArgs();
 	ellipsisFunc();
 	var e = typeExpr(expr.fun, info);
-	return ECall(e, args);
+	return (macro Go.call($e{toExpr(ECall(e, args))})).expr;
 }
 
 private function checkType(expr:Expr,type:ComplexType):Expr {
@@ -1750,7 +1753,6 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	}
 	return switch expr.kind {
 		case STRING:
-			addImport("stdgo.GoString", info);
 			var value = expr.value;
 			value = StringTools.replace(value, "\\", "\"".substr(0, 1));
 			var e = toExpr(EConst(CString(value)));

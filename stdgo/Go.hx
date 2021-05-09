@@ -636,12 +636,58 @@ class Go {
 	}
 
 	public static macro function getInterface(expr) {
-		/*var e = macro $v{stdgo.reflect.Reflect.gtDecode(Context.typeof(expr))};
-		return macro new AnyInterface({
+		var t = Context.typeof(expr);
+		switch t {
+			case TAbstract(t, params):
+				var t = t.get();
+				if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
+					return expr;
+				}
+			default:
+		}
+		var value = new stdgo.reflect.Reflect.Type(stdgo.reflect.Reflect.gtDecode(t)).serialize();
+		return macro ({
 			value: $expr,
-			type: new stdgo.reflect.Reflect.Type($e),
-		});*/
-		//TODO
+			type: stdgo.reflect.Reflect.unserializeType($v{value},$expr),
+		} : AnyInterface);
+	}
+
+	public static macro function call(expr) {
+		//wrap a function call and change out all AnyInterfaces arg types to be wrapped with getInterface
+		switch expr.expr {
+			case ECall(e, params):
+				var t = Context.follow(Context.typeof(e)); //follow in case of typedefs/alias types
+				switch t {
+					case TFun(args, ret):
+						for (i in 0...args.length) {
+							switch args[i].t {
+								case TAbstract(t, params2):
+									var t = t.get();
+									if (i == 0 && params2.length == 1 && t.name == "Rest" && t.pack.length == 1 && t.pack[0] == "haxe") {
+										switch params2[0] {
+											case TAbstract(t2, params3):
+												var t2 = t2.get();
+												if (t2.name == "AnyInterface" && t2.pack.length == 1 && t2.pack[0] == "stdgo") {
+													for (i in 0...params.length) {
+														params[i] = macro Go.getInterface(${params[i]});
+													}
+													return macro $e($a{params});
+												}
+											default:
+										}
+									}
+									//normal
+									if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
+										params[i] = macro Go.getInterface(${params[i]});
+									}
+								default:
+							}
+						}
+					default:
+				}
+			default:
+				trace("expr is not a call: " + expr.expr);
+		}
 		return expr;
 	}
 

@@ -33,7 +33,7 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_class(name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>); //used for fields and named structs/interfaces
+	GT_namedType(name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum); //used for fields and named structs/interfaces
 }
 
 class Error implements StructType implements stdgo.StdGoTypes.Error {
@@ -78,7 +78,7 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_class(name, methods, fields, interfaces):
+			case GT_namedType(name, methods, fields, interfaces, type):
                 return null; //TODO
 			default:
 				return t;
@@ -218,7 +218,7 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 
 		case TType(ref, params):
 			var ref = ref.get();
-			ret = GT_class(ref.name, [], [], []);
+			ret = GT_namedType(ref.name, [], [], [],GT_invalid);
 		case TAbstract(ref, params):
 			// trace("TAbstract:", ref, params);
 			var sref:String = ref.toString();
@@ -307,7 +307,7 @@ class Type {
 
 	public function kind():Kind {
 		switch (gt) {
-			case GT_class(name, methods, fields, interfaces):
+			case GT_namedType(name, methods, fields, interfaces, type):
 				return new Kind(0); //TODO
 			default:
 				return new Kind(EnumValueTools.getIndex(gt));
@@ -331,7 +331,7 @@ class Type {
 			case GT_complex128: return "complex128";
 			case GT_bool: return "bool";
 			case GT_string: return "string";
-			case GT_class(name, methods, fields, interfaces):
+			case GT_namedType(name, methods, fields, interfaces, type):
 				//TODO
 				return "";
 			case GT_ptr(elem):
@@ -397,7 +397,7 @@ class Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case GT_class(name, methods,_,_), GT_interface(name,methods):
+			case GT_namedType(name, methods,_,_,_), GT_interface(name,methods):
 				return 0; //TODO
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
@@ -407,7 +407,7 @@ class Type {
 
 	public function numField():GoInt {
 		switch (gt) {
-			case GT_class(name, methods, fields, interfaces):
+			case GT_namedType(name, methods, fields, interfaces, type):
 				return methods.length + fields.length;
 			case GT_struct(fields):
 				return fields.length;
@@ -423,7 +423,7 @@ class Type {
 
 	public function implements_(ot:Type):Bool {
 		switch (gt) {
-			case GT_class(name, methods, fields, interfaces):
+			case GT_namedType(name, methods, fields, interfaces, type):
                 //TODO
                 return false;
 			default:

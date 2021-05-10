@@ -215,7 +215,6 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 	switch (t) {
 		case TMono(ref):
 			trace("not implemented mono gtDecode");
-
 		case TType(ref, params):
 			var ref = ref.get();
 			ret = GT_namedType(ref.name, [], [], [],GT_invalid);
@@ -247,11 +246,11 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 				case "stdgo.GoUInt8":
 					ret = GT_uint8;
 				case "stdgo.GoUInt16":
-				ret = GT_uint16;
+					ret = GT_uint16;
 				case "stdgo.GoUInt":
-				ret = GT_uint;
+					ret = GT_uint;
 				case "stdgo.GoUInt32":
-				ret = GT_uint32;
+					ret = GT_uint32;
 				case "stdgo.GoUInt64":
 					ret = GT_uint64;
 				case "stdgo.GoString":
@@ -264,7 +263,7 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 					ret = GT_complex128;
 				case "stdgo.GoFloat32":
 					ret = GT_float32;
-				case "stdgo.GoFloat64","Float":
+				case "stdgo.GoFloat64":
 					ret = GT_float64;
 				case "stdgo.FloatType":
 					ret = GT_float64;
@@ -281,8 +280,14 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 			
 
 		case TAnonymous(a):
-			
-
+			var a = a.get();
+			a.fields.sort((a,b) -> {
+				return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
+			});
+			ret = GT_struct([
+				for (field in a.fields) 
+					GT_field(field.name,gtDecode(field.type),"")
+			]);
 		case TFun(args, result):
 
 
@@ -337,7 +342,12 @@ class Type {
 			case GT_ptr(elem):
 				return "*" + new Type(elem).toString();
 			case GT_struct(fields):
-                return ""; //TODO
+                return "struct { " + [for (field in fields) switch field {
+					case GT_field(name, type, tag):
+						(name.charAt(0) == "_" ? name.substr(1) : name.toUpperCase()) + " " + new Type(type).toString();
+					default:
+						"invalid field";
+				}].join("; ") + " }"; //TODO
 			case GT_array(typ, len):
 				return "[" + Std.string(len) + "]" + new Type(typ).toString();
 			case GT_slice(typ):

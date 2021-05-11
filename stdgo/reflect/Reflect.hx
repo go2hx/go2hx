@@ -33,7 +33,8 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_namedType(name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum); //used for fields and named structs/interfaces
+	GT_namedType(name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
+	GT_previouslyNamed(name:String,prev:GT_enum);
 }
 
 class Error implements StructType implements stdgo.StdGoTypes.Error {
@@ -277,8 +278,52 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 					trace("unknown abstract name: " + sref);
 			}
 		case TInst(ref, params):
-			
-
+			var ref = ref.get();
+			var methods:Array<GT_enum> = [];
+			var fields:Array<GT_enum> = [];
+			var interfaces:Array<GT_enum> = [];
+			for (field in ref.fields.get()) {
+				
+				switch field.kind {
+					case FMethod(k):
+						switch field.name {
+							case "new", "__copy__":
+								continue;
+						}
+						switch field.type {
+							case TFun(args, ret):
+								var params:Array<GT_enum> = [];
+								var rets:Array<GT_enum> = [];
+								for (arg in args) {
+									params.push(gtDecode(arg.t));
+								}
+								switch ret {
+									case TAnonymous(a):
+										var fs = a.get().fields;
+										for (f in fs) {
+											rets.push(GT_field(f.name,gtDecode(f.type),""));
+										}
+									default:
+										if (field.name == "toString") {
+											switch ret {
+												case TInst(t, params):
+													var t = t.get();
+													if (t.name == "String")
+														continue;
+												default:
+											}
+										}
+										trace(ret);
+										rets.push(gtDecode(ret));
+								}
+								methods.push(GT_field(field.name,GT_func(params,rets),""));
+							default:
+								throw "method needs to be a function";
+						}
+					default:
+				}
+			}
+			GT_namedType(ref.name,methods,fields,interfaces,GT_invalid);
 		case TAnonymous(a):
 			var a = a.get();
 			a.fields.sort((a,b) -> {
@@ -291,6 +336,8 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 		case TFun(args, result):
 
 
+		case TDynamic(t):
+			ret = GT_interface("",[]);
 		default:
 			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 	}

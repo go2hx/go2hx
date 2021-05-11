@@ -132,7 +132,7 @@ function main(data:DataType) {
 							info.data.imports.push(typeImport(spec, info));
 						case "TypeSpec":
 							info.typeNames.push(spec.name.name);
-							switch spec.id {
+							switch spec.type.id {
 								case "StructType","InterfaceType": data.defs.push(typeType(spec, info));
 								default: data.defs = data.defs.concat(typeAlias(spec,info));
 							}
@@ -140,18 +140,6 @@ function main(data:DataType) {
 					}
 				}
 			}
-			/*for (type in aliasTypes) {
-				switch type.alias.kind {
-					case TDAlias(t):
-						switch t {
-							case TPath(p):
-								
-							default 
-						}
-						var t = follow(t,info);
-					default:
-				}
-			}*/
 			// variables after so that all types can be refrenced by a value and have it exist.
 			info.iota = 0;
 			info.lastValue = null;
@@ -1775,7 +1763,8 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 				return e.expr;
 			ECheckType(e, TPath({name: "IntegerType", pack: []}));
 		case FLOAT:
-			EConst(CFloat(expr.value));
+			var e = toExpr(EConst(CFloat(expr.value)));
+			ECheckType(e,TPath({name: "GoFloat64",pack: []}));
 		case CHAR:
 			var value = formatEscapeCodes(expr.value);
 			if (value == bs + "'") {

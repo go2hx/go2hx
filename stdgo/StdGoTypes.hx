@@ -32,7 +32,7 @@ typedef GoByte = GoUInt8;
 typedef GoRune = GoInt;
 typedef GoInt32 = GoInt;
 typedef GoUInt32 = GoUInt;
-typedef GoFloat64 = GoFloat;
+typedef GoFloat = GoFloat64;
 private typedef Int = StdTypes.Int;
 private typedef Int8 = #if !native_num Int #elseif cpp cpp.Int8 #elseif cs cs.Int8 #elseif java java.Int8 #else Int #end;
 private typedef Int16 = #if !native_num Int #elseif cpp cpp.Int16 #elseif cs cs.Int16 #elseif java java.Int16 #else Int #end;
@@ -163,7 +163,7 @@ abstract GoUIntptr(UInt) from UInt from Int {
 	@:op(~A) private static function bneg(t:GoUIntptr):GoUIntptr;
 }
 
-abstract GoFloat(Float) from Float {
+abstract GoFloat64(Float) from Float {
 	public inline function new(x = 0)
 		this = x;
 

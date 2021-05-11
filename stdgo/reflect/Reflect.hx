@@ -25,7 +25,7 @@ enum GT_enum {
 	GT_string;
 	GT_unsafePointer;
 	GT_chan(elem:GT_enum);
-	GT_interface(name:String,methods:Array<GT_enum>);
+	GT_interface(module:String,name:String,methods:Array<GT_enum>);
 	GT_ptr(elem:GT_enum);
 	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
@@ -33,8 +33,8 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_namedType(name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
-	GT_previouslyNamed(name:String,prev:GT_enum);
+	GT_namedType(module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
+	GT_previouslyNamed(name:String);
 }
 
 class Error implements StructType implements stdgo.StdGoTypes.Error {
@@ -79,7 +79,7 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_namedType(name, methods, fields, interfaces, type):
+			case GT_namedType(module, name, methods, fields, interfaces, type):
                 return null; //TODO
 			default:
 				return t;
@@ -211,14 +211,14 @@ private function gtParams(params:Array<haxe.macro.Type>):Array<GT_enum> {
 }
 
 function gtDecode(t:haxe.macro.Type):GT_enum {
-	// trace("gtDecode:", t);
+	trace("gtDecode:", t);
 	var ret = GT_invalid;
 	switch (t) {
 		case TMono(ref):
 			trace("not implemented mono gtDecode");
 		case TType(ref, params):
 			var ref = ref.get();
-			ret = GT_namedType(ref.name, [], [], [],GT_invalid);
+			ret = GT_namedType(parseModule(ref.module),ref.name, [], [], [], gtDecode(ref.type));
 		case TAbstract(ref, params):
 			// trace("TAbstract:", ref, params);
 			var sref:String = ref.toString();
@@ -271,59 +271,14 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 				case "Bool":
 					ret = GT_bool;
 				case "stdgo.AnyInterface":
-					ret = GT_interface("",null);
+					ret = GT_interface("","interface",[]);
 				case "Void":
 					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 				default:
 					trace("unknown abstract name: " + sref);
 			}
 		case TInst(ref, params):
-			var ref = ref.get();
-			var methods:Array<GT_enum> = [];
-			var fields:Array<GT_enum> = [];
-			var interfaces:Array<GT_enum> = [];
-			for (field in ref.fields.get()) {
-				
-				switch field.kind {
-					case FMethod(k):
-						switch field.name {
-							case "new", "__copy__":
-								continue;
-						}
-						switch field.type {
-							case TFun(args, ret):
-								var params:Array<GT_enum> = [];
-								var rets:Array<GT_enum> = [];
-								for (arg in args) {
-									params.push(gtDecode(arg.t));
-								}
-								switch ret {
-									case TAnonymous(a):
-										var fs = a.get().fields;
-										for (f in fs) {
-											rets.push(GT_field(f.name,gtDecode(f.type),""));
-										}
-									default:
-										if (field.name == "toString") {
-											switch ret {
-												case TInst(t, params):
-													var t = t.get();
-													if (t.name == "String")
-														continue;
-												default:
-											}
-										}
-										trace(ret);
-										rets.push(gtDecode(ret));
-								}
-								methods.push(GT_field(field.name,GT_func(params,rets),""));
-							default:
-								throw "method needs to be a function";
-						}
-					default:
-				}
-			}
-			GT_namedType(ref.name,methods,fields,interfaces,GT_invalid);
+			ret = gtDecodeClassType(ref.get());
 		case TAnonymous(a):
 			var a = a.get();
 			a.fields.sort((a,b) -> {
@@ -337,11 +292,63 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 
 
 		case TDynamic(t):
-			ret = GT_interface("",[]);
+			ret = GT_interface("","interface", []);
 		default:
 			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 	}
+	trace("end: " + ret);
 	return ret;
+}
+
+function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
+	var methods:Array<GT_enum> = [];
+	var fields:Array<GT_enum> = [];
+	var interfaces:Array<GT_enum> = [];
+	for (inter in ref.interfaces) {
+		var inter = inter.t.get();
+		interfaces.push(gtDecodeClassType(inter));
+	}
+	for (field in ref.fields.get()) {
+		
+		switch field.kind {
+			case FMethod(k):
+				switch field.name {
+					case "new", "__copy__":
+						continue;
+				}
+				switch field.type {
+					case TFun(args, ret):
+						var params:Array<GT_enum> = [];
+						var rets:Array<GT_enum> = [];
+						for (arg in args) {
+							params.push(gtDecode(arg.t));
+						}
+						switch ret {
+							case TAnonymous(a):
+								var fs = a.get().fields;
+								for (f in fs) {
+									rets.push(GT_field(f.name,gtDecode(f.type),""));
+								}
+							default:
+								if (field.name == "toString") {
+									switch ret {
+										case TInst(t, params):
+											var t = t.get();
+											if (t.name == "String")
+												continue;
+										default:
+									}
+								}
+								rets.push(gtDecode(ret));
+						}
+						methods.push(GT_field(field.name,GT_func(params,rets),""));
+					default:
+						throw "method needs to be a function";
+				}
+			default:
+		}
+	}
+	return GT_namedType(parseModule(ref.module), ref.name,methods,fields,interfaces,GT_invalid);
 }
 
 
@@ -359,7 +366,7 @@ class Type {
 
 	public function kind():Kind {
 		switch (gt) {
-			case GT_namedType(name, methods, fields, interfaces, type):
+			case GT_namedType(module, name, methods, fields, interfaces, type):
 				return new Kind(0); //TODO
 			default:
 				return new Kind(EnumValueTools.getIndex(gt));
@@ -383,9 +390,9 @@ class Type {
 			case GT_complex128: return "complex128";
 			case GT_bool: return "bool";
 			case GT_string: return "string";
-			case GT_namedType(name, methods, fields, interfaces, type):
+			case GT_namedType(module, name, methods, fields, interfaces, type):
 				//TODO
-				return "";
+				return module + "." + name;
 			case GT_ptr(elem):
 				return "*" + new Type(elem).toString();
 			case GT_struct(fields):
@@ -454,8 +461,8 @@ class Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case GT_namedType(name, methods,_,_,_), GT_interface(name,methods):
-				return 0; //TODO
+			case GT_namedType(_,_,methods,_,_,_), GT_interface(_,_,methods):
+				return methods.length; //TODO
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
 		}
@@ -464,7 +471,7 @@ class Type {
 
 	public function numField():GoInt {
 		switch (gt) {
-			case GT_namedType(name, methods, fields, interfaces, type):
+			case GT_namedType(module, name, methods, fields, interfaces, type):
 				return methods.length + fields.length;
 			case GT_struct(fields):
 				return fields.length;
@@ -480,7 +487,7 @@ class Type {
 
 	public function implements_(ot:Type):Bool {
 		switch (gt) {
-			case GT_namedType(name, methods, fields, interfaces, type):
+			case GT_namedType(module, name, methods, fields, interfaces, type):
                 //TODO
                 return false;
 			default:
@@ -519,9 +526,16 @@ function unserializeType(str:String,expr:Dynamic):stdgo.reflect.Reflect.Type {
 	return new Type(ret);
 }
 
-function ptrTo(t:Type):Type {
-	return new Type(GT_ptr(t.gt));
+private function parseModule(module:String):String {
+	var index = module.lastIndexOf(".");
+	var name = module.substr(index + 1);
+	module = module.substr(0,index);
+	module = module.substr(module.lastIndexOf(".") + 1);
+	if (module == name.charAt(0).toLowerCase() + name.substr(1))
+		module = "main";
+	return module;
 }
+
 
 typedef StructTag = GoString; // TODO methods on this type
 

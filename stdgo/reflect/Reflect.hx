@@ -29,7 +29,7 @@ enum GT_enum {
 	GT_ptr(elem:GT_enum);
 	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
-	GT_func(input:Array<GT_enum>, output:Array<GT_enum>,recv:Array<GT_enum>);
+	GT_func(input:Array<GT_enum>, output:Array<GT_enum>);
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
@@ -189,7 +189,23 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 }
 
 function deepEqual(a1:AnyInterface,a2:AnyInterface):Bool {
-	return false; //TODO
+	if (a1 == null || a2 == null)
+		return false;
+	switch a1.type.gt {
+		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			switch a2.type.gt {
+				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2, type2):
+					for (i in 0...pack.length) {
+						if (pack[i] != pack2[i])
+							return false;
+					}
+					return true;
+				default:
+					return false;
+			}
+		default:
+			return a1.type == a2.type && a1 == a2;
+	}
 }
 
 function typeOf(iface:AnyInterface):Type {
@@ -214,7 +230,10 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 	var ret = GT_invalid;
 	switch (t) {
 		case TMono(ref):
-			trace("not implemented mono gtDecode");
+			var ref = ref.get();
+			if (ref == null)
+				return GT_invalid;
+			return gtDecode(ref);
 		case TType(ref, params):
 			var ref = ref.get();
 			ret = GT_namedType(ref.pack,parseModule(ref.module),ref.name, [], [], [], gtDecode(ref.type));
@@ -320,6 +339,7 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 		interfaces.push(gtDecodeInterfaceType(inter));
 	}
 	var fs = ref.fields.get();
+	var module = parseModule(ref.module);
 	for (field in fs) {
 		switch field.kind {
 			case FMethod(k):
@@ -352,9 +372,8 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 								}
 								rets.push(gtDecode(ret));
 						}
-						var recv:Array<GT_enum> = [];
-
-						methods.push(GT_field(field.name,GT_func(params,rets,recv),""));
+						params.unshift(GT_field("this",GT_previouslyNamed(module + "." + ref.name),"")); //recv
+						methods.push(GT_field(field.name,GT_func(params,rets),""));
 					default:
 						throw "method needs to be a function";
 				}
@@ -364,7 +383,7 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 				fields.push(GT_field(field.name,gtDecode(field.type),""));
 		}
 	}
-	return GT_namedType(ref.pack,parseModule(ref.module), ref.name,methods,fields,interfaces,GT_invalid);
+	return GT_namedType(ref.pack,module, ref.name,methods,fields,interfaces,GT_invalid);
 }
 
 
@@ -391,6 +410,7 @@ class Type {
 
 	public function toString():GoString {
 		switch (gt) {
+			case GT_previouslyNamed(name): return name;
 			case GT_int: return "int";
 			case GT_int8: return "int8";
 			case GT_int16: return "int16";
@@ -406,8 +426,9 @@ class Type {
 			case GT_complex128: return "complex128";
 			case GT_bool: return "bool";
 			case GT_string: return "string";
+			case GT_field(name, type, tag):
+				return new Type(type).toString();
 			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-				//TODO
 				return module + "." + name;
 			case GT_ptr(elem):
 				return "*" + new Type(elem).toString();
@@ -426,19 +447,8 @@ class Type {
 				return "map[" + new Type(key).toString() + "]" + new Type(value).toString();
 			case GT_chan(typ):
 				return "chan " + new Type(typ).toString();
-			case GT_func(args, rets, recv):
-				var r:GoString = "func ";
-				if (recv.length > 0) {
-					r += "(";
-					var preface = "";
-					for (re in recv ) {
-						r += preface;
-						preface = ", ";
-						r += new Type(re).toString();
-					}
-					r += ")";
-				}
-				r += "(";
+			case GT_func(args, rets):
+				var r:GoString = "func(";
 				var preface = "";
 				for (arg in args) {
 					r += preface;

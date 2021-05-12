@@ -29,7 +29,7 @@ enum GT_enum {
 	GT_ptr(elem:GT_enum);
 	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
-	GT_func(input:Array<GT_enum>, output:Array<GT_enum>);
+	GT_func(input:Array<GT_enum>, output:Array<GT_enum>,recv:Array<GT_enum>);
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
@@ -74,7 +74,7 @@ class Value implements StructType {
 		return new Value(val, surfaceType);
 
 	public function toString() {
-		return '$val';
+		return '<$surfaceType $val>';
 	}
 
 	static function findUnderlying(t:Type):Type {
@@ -320,7 +320,6 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 		interfaces.push(gtDecodeInterfaceType(inter));
 	}
 	var fs = ref.fields.get();
-	trace("fields len: " + fs.length + " " + ref.name);
 	for (field in fs) {
 		switch field.kind {
 			case FMethod(k):
@@ -353,7 +352,9 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 								}
 								rets.push(gtDecode(ret));
 						}
-						methods.push(GT_field(field.name,GT_func(params,rets),""));
+						var recv:Array<GT_enum> = [];
+
+						methods.push(GT_field(field.name,GT_func(params,rets,recv),""));
 					default:
 						throw "method needs to be a function";
 				}
@@ -425,8 +426,19 @@ class Type {
 				return "map[" + new Type(key).toString() + "]" + new Type(value).toString();
 			case GT_chan(typ):
 				return "chan " + new Type(typ).toString();
-			case GT_func(args, rets):
-				var r:GoString = "func (";
+			case GT_func(args, rets, recv):
+				var r:GoString = "func ";
+				if (recv.length > 0) {
+					r += "(";
+					var preface = "";
+					for (re in recv ) {
+						r += preface;
+						preface = ", ";
+						r += new Type(re).toString();
+					}
+					r += ")";
+				}
+				r += "(";
 				var preface = "";
 				for (arg in args) {
 					r += preface;
@@ -482,6 +494,27 @@ class Type {
 				throw new Error("reflect.NumMethod not implemented for " + toString());
 		}
 		return 0;
+	}
+
+	public function method(index:GoInt):Method {
+		switch gt {
+			case GT_namedType(_, _, methods, _, _, _), GT_interface(_, _, methods):
+				var method = methods[index.toBasic()];
+				switch method {
+					case GT_field(name, type, tag):
+						return {
+							name: name,
+							pkgPath: "",
+							type: new Type(type),
+							func: null,
+							index: index,
+						};
+					default:
+						throw "method is not a field: " + method;
+				}
+			default:
+				throw "invalid type for method access: " + gt;
+		}
 	}
 
 	public function field(index:GoInt):StructField {

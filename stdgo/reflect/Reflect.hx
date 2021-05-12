@@ -530,7 +530,7 @@ class Type {
 							tag: tag,
 							offset: 0,
 							index: null,
-							anonymous: false,
+							anonymous: name == "" || name == "_",
 						};
 					default:
 						throw "not a valid field: " + field;

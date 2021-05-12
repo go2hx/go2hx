@@ -312,7 +312,7 @@ function main(data:DataType) {
 			if (file.name == main.name)
 				continue;
 			for (def in file.defs) {
-				if (def.isExtern == null || !def.isExtern)
+				if (def == null || def.isExtern == null || !def.isExtern)
 					continue; //not an exported def
 				//export out imports
 				var imp:ImportType = {
@@ -418,11 +418,15 @@ function main(data:DataType) {
 }
 private function typeImplements(info:Info) {
 	for (inter in info.data.defs) {
+		if (inter == null || inter.kind == null)
+			continue;
 		switch inter.kind {
 			case TDClass(superClass, _, isInterface, isFinal, isAbstract):
 				if (!isInterface)
 					continue;
 				for (cl in info.data.defs) {
+					if (cl == null || cl.kind == null)
+						continue;
 					switch cl.kind {
 						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 							if (isInterface)
@@ -917,57 +921,15 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			def = body;
 			continue;
 		}
-		for (expr in stmt.list) {
+		/*for (expr in stmt.list) {
 			values.push(toExpr(EConst(CString(exprTypeString(expr)))));
-		}
+		}*/
 		cases.push({
 			values: values,
 			expr: body,
 		});
 	}
 	return ESwitch(macro $assign.typeName(), cases, def);
-}
-
-private function exprTypeString(expr:Ast.Expr):String {
-	switch expr.id {
-		case "Ident":
-			var name = expr.name;
-			switch name {
-				case "byte":
-					name = "uint8";
-				case "rune":
-					name = "int";
-				case "int32":
-					name = "int";
-			}
-			return name;
-		case "ChanType":
-			var expr:Ast.ChanType = expr;
-			return "chan " + exprTypeString(expr.value);
-		case "ArrayType":
-			var expr:Ast.ArrayType = expr;
-			return "[" + (expr.len == null ? "" : exprTypeString(expr.len)) + "]" + exprTypeString(expr.elt);
-		case "MapType":
-			var expr:Ast.MapType = expr;
-			return "[" + exprTypeString(expr.key) + "]" + exprTypeString(expr.value);
-		case "FuncType":
-			var expr:Ast.FuncType = expr;
-			return "func("
-				+ [for (param in expr.params.list) exprTypeString(param.type)].join(" ,") + ") -> " +
-					[for (result in expr.results.list) exprTypeString(result.type)].join(" ,");
-		case "InterfaceType":
-			return "";
-		case "StarExpr":
-			return "*" + exprTypeString(expr.x);
-		case "StructType":
-			var expr:Ast.StructType = expr;
-			return "{todo_structtype}";
-		case "BasicLit": //for arrays
-			var expr:Ast.BasicLit = expr;
-			return expr.value;
-		default:
-			throw "unknown case value: " + expr.id;
-	}
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
@@ -1220,6 +1182,7 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 		case "Ident": identType(expr, info); // identifier type
 		case "SelectorExpr": selectorType(expr, info); // path
 		case "Ellipsis": ellipsisType(expr, info); // Rest arg
+		case "ParenExpr": return typeExprType(expr.x,info);
 		default:
 			throw "Type expr unknown: " + expr.id;
 			null;
@@ -1369,7 +1332,7 @@ private function isBasic(type:ComplexType, info:Info):Bool {
 					return true;
 				// look for type alias
 				for (def in info.data.defs) {
-					if (p.name != def.name)
+					if (def == null || p.name != def.name)
 						continue;
 					switch def.kind {
 						case TDAlias(t):
@@ -1601,10 +1564,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(expr.args[0], info);
 					addPointerImports(info);
 					switch t {
-						case TPath(p):
+						case TPath(_), TFunction(_,_), TAnonymous(_):
 							return (macro Go.pointer(${defaultValue(t, info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
+					trace("t: " + t);
 				case "make":
 					var type = expr.args[0];
 					genArgs(1);
@@ -1636,7 +1600,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				var t = typeExprType(e.x, info);
 				switch t {
 					case TPath(p):
-						if (p.name == "Pointer" || p.name == "PointerWrapper") {
+						if ((p.name == "Pointer" || p.name == "PointerWrapper") && p.params != null) {
 							switch p.params[0] {
 								case TPType(t2):
 									var value = defaultValue(t2, info);
@@ -2244,7 +2208,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 				case TDAlias(t):
 					switch recvInfo.type {
 						case TPath(p):
-							if ("_" + p.name == def.name) {
+							if (p.name == def.name) {
 								var typeClass:TypeDefinition = null;
 								var recvType:ComplexType = TPath({name: def.name,pack: def.pack});
 								var extensionClassName = p.name + "__extension";
@@ -2665,7 +2629,6 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 	if (type == null)
 		return null;
 
-	var typeName = toExpr(EConst(CString(exprTypeString(spec.type))));
 	var extensionName = name + "__extension";
 	var defs:Array<TypeDefinition> = [];
 	defs.push({ //extension class

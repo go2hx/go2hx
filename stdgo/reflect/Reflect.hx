@@ -211,7 +211,6 @@ private function gtParams(params:Array<haxe.macro.Type>):Array<GT_enum> {
 }
 
 function gtDecode(t:haxe.macro.Type):GT_enum {
-	trace("gtDecode:", t);
 	var ret = GT_invalid;
 	switch (t) {
 		case TMono(ref):
@@ -271,14 +270,19 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 				case "Bool":
 					ret = GT_bool;
 				case "stdgo.AnyInterface":
-					ret = GT_interface("","interface",[]);
+					ret = GT_interface("","interface{}",[]);
 				case "Void":
 					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 				default:
 					trace("unknown abstract name: " + sref);
 			}
 		case TInst(ref, params):
-			ret = gtDecodeClassType(ref.get());
+			var ref = ref.get();
+			if (ref.isInterface) {
+				ret = gtDecodeInterfaceType(ref);
+			}else{
+				ret = gtDecodeClassType(ref);
+			}
 		case TAnonymous(a):
 			var a = a.get();
 			a.fields.sort((a,b) -> {
@@ -292,12 +296,19 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 
 
 		case TDynamic(t):
-			ret = GT_interface("","interface", []);
+			ret = GT_interface("","interface{}", []);
 		default:
 			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 	}
-	trace("end: " + ret);
 	return ret;
+}
+
+function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType):GT_enum {
+	var methods:Array<GT_enum> = [];
+	for (method in ref.fields.get()) {
+		methods.push(GT_field(method.name,gtDecode(method.type),""));
+	}
+	return GT_interface(ref.module,ref.name,methods);
 }
 
 function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
@@ -306,10 +317,11 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 	var interfaces:Array<GT_enum> = [];
 	for (inter in ref.interfaces) {
 		var inter = inter.t.get();
-		interfaces.push(gtDecodeClassType(inter));
+		interfaces.push(gtDecodeInterfaceType(inter));
 	}
-	for (field in ref.fields.get()) {
-		
+	var fs = ref.fields.get();
+	trace("fields len: " + fs.length + " " + ref.name);
+	for (field in fs) {
 		switch field.kind {
 			case FMethod(k):
 				switch field.name {
@@ -346,6 +358,9 @@ function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
 						throw "method needs to be a function";
 				}
 			default:
+				if (field.name == "_address_")
+					continue;
+				fields.push(GT_field(field.name,gtDecode(field.type),""));
 		}
 	}
 	return GT_namedType(parseModule(ref.module), ref.name,methods,fields,interfaces,GT_invalid);
@@ -462,17 +477,44 @@ class Type {
 	public function numMethod():GoInt {
 		switch (gt) {
 			case GT_namedType(_,_,methods,_,_,_), GT_interface(_,_,methods):
-				return methods.length; //TODO
+				return methods.length;
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
 		}
 		return 0;
 	}
 
+	public function field(index:GoInt):StructField {
+		switch gt {
+			case GT_namedType(module, name, methods, fields, interfaces, type):
+				var field = fields[index.toBasic()];
+				switch field {
+					case GT_field(name, type, tag):
+						return {
+							name: name,
+							pkgPath: "",
+							type: new Type(type),
+							tag: tag,
+							offset: 0,
+							index: null,
+							anonymous: false,
+						};
+					default:
+						throw "not a valid field: " + field;
+				}
+			default:
+				throw "cannot get field";
+		}
+	}
+
+	public function bits():GoInt {
+		return 0;
+	}
+
 	public function numField():GoInt {
 		switch (gt) {
 			case GT_namedType(module, name, methods, fields, interfaces, type):
-				return methods.length + fields.length;
+				return fields.length;
 			case GT_struct(fields):
 				return fields.length;
 			default:
@@ -537,7 +579,57 @@ private function parseModule(module:String):String {
 }
 
 
-typedef StructTag = GoString; // TODO methods on this type
+class StructTag__extension {
+	public static function get(tag:StructTag,key:GoString):GoString {
+		return "";
+	}
+	public static function lookup(tag:StructTag,key:GoString):{ var value : GoString; var ok : Bool; } {
+		var ok:Bool = false;
+		var value:GoString = "";
+		return { value : "", ok : false };
+	}
+}
+@:using(Reflect.StructTag__extension) typedef StructTag = GoString;
+
+
+@:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class Method implements StructType {
+    public var name : GoString = "";
+    public var pkgPath : GoString = "";
+    public var type : Type = new Type(GT_invalid);
+    public var func : Value = new Value();
+    public var index : GoInt = 0;
+    public function new(?name, ?pkgPath, ?type, ?func, ?index) {
+        stdgo.internal.Macro.initLocals();
+        _address_ = ++Go.addressIndex;
+    }
+    public function toString() {
+        return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(func)} ${Std.string(index)}}';
+    }
+    public function __copy__() {
+        return new Method(name, pkgPath, type, func, index);
+    }
+    public var _address_ = 0;
+}
+@:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class StructField implements StructType {
+    public var name : GoString = "";
+    public var pkgPath : GoString = "";
+    public var type : Type = new Type(GT_invalid);
+    public var tag : StructTag = new StructTag();
+    public var offset : GoUIntptr = new GoUIntptr();
+    public var index : Slice<GoInt> = new Slice<GoInt>(0);
+    public var anonymous : Bool = false;
+    public function new(?name, ?pkgPath, ?type, ?tag, ?offset, ?index, ?anonymous) {
+        stdgo.internal.Macro.initLocals();
+        _address_ = ++Go.addressIndex;
+    }
+    public function toString() {
+        return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(tag)} ${Std.string(offset)} ${Std.string(index)} ${Std.string(anonymous)}}';
+    }
+    public function __copy__() {
+        return new StructField(name, pkgPath, type, tag, 0, index, anonymous); //TODO set offset, stdgo.GoUIntptr should be Null<Int>
+    }
+    public var _address_ = 0;
+}
 
 
 

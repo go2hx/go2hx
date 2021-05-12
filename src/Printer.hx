@@ -40,6 +40,8 @@ class Printer extends haxe.macro.Printer {
 
 	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
 		var externBool:Bool = false;
+		if (t == null)
+			return "";
 		if (t.isExtern) {
 			t.isExtern = false;
 			externBool = true;

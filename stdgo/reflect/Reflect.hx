@@ -525,11 +525,11 @@ class Type {
 					case GT_field(name, type, tag):
 						return {
 							name: name,
-							pkgPath: "",
+							pkgPath: module,
 							type: new Type(type),
 							tag: tag,
 							offset: 0,
-							index: null,
+							index: new Slice(index),
 							anonymous: name == "" || name == "_",
 						};
 					default:

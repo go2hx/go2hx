@@ -230,10 +230,7 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 	var ret = GT_invalid;
 	switch (t) {
 		case TMono(ref):
-			var ref = ref.get();
-			if (ref == null)
-				return GT_invalid;
-			return gtDecode(ref);
+			return GT_unsafePointer;
 		case TType(ref, params):
 			var ref = ref.get();
 			ret = GT_namedType(ref.pack,parseModule(ref.module),ref.name, [], [], [], gtDecode(ref.type));

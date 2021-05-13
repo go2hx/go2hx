@@ -2120,16 +2120,14 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	if (info.thisName != "") {
-		switch x.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s):
-						if (s == info.thisName) return x.expr;
-					default:
-				}
-			default:
-		}
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if ((info.thisName == "" && s == info.thisName) || s == "this") return x.expr;
+				default:
+			}
+		default:
 	}
 	return (macro $x._value_).expr; // pointer code
 }
@@ -2174,16 +2172,48 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info));
 		for (def in info.data.defs) {
 			switch def.kind {
-				case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+				case TDAbstract(_, _, _):
 					if (def.name != recvInfo.name)
 						continue;
 					if (decl.recv.list[0].names.length > 0) {
 						var varName = decl.recv.list[0].names[0].name;
-						info.thisName = varName;
-						block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
 						switch block.expr {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
+									info.renameTypes[varName] = "this";
+									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
+									info.renameTypes.remove(varName);
+								} else {
+									exprs.unshift(macro var $varName = this);
+									block.expr = EBlock(exprs);
+								}
+							default:
+						}
+					}
+					// push field function to class
+					def.fields.push({
+						name: name,
+						pos: null,
+						meta: null,
+						access: [AInline,APublic],
+						kind: FFun({
+							args: args,
+							ret: ret,
+							expr: block,
+						})
+					});
+					return null;
+				case TDClass(_, _, _, _, _):
+					if (def.name != recvInfo.name)
+						continue;
+					if (decl.recv.list[0].names.length > 0) {
+						var varName = decl.recv.list[0].names[0].name;
+						switch block.expr {
+							case EBlock(exprs):
+								if (recvInfo.isPointer) {
+									info.thisName = varName;
+									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
+									
 									exprs.unshift(macro var $varName = this);
 								} else {
 									exprs.unshift(macro var $varName = this.__copy__());
@@ -2232,7 +2262,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 									switch block.expr {
 										case EBlock(exprs):
 											if (recvInfo.isPointer) {
-												exprs.unshift(macro var $varName = new PointerWrapper((this : $recvType)));
+												exprs.unshift(macro var $varName = new PointerWrapper((${toExpr(EConst(CIdent(varName)))} : $recvType)));
 											}
 											block.expr = EBlock(exprs);
 										default:
@@ -2625,33 +2655,78 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 
 	var type = typeExprType(spec.type, info);
-	
 	if (type == null)
 		return null;
 
 	var extensionName = name + "__extension";
 	var defs:Array<TypeDefinition> = [];
-	defs.push({ //extension class
-		name: extensionName,
-		pos: null,
-		pack: [],
-		isExtern: true,
-		meta: [],
-		fields: [],
-		kind: TDClass(),
-	});
-	var alias:TypeDefinition = { //typedef
-		name: name,
-		pos: null,
-		pack: [],
-		meta: [
-			{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}
-		],
-		isExtern: false,
-		fields: [],
-		kind: TDAlias(type),
-	};
-	defs.push(alias);
+
+	var isBasicBool = isBasic(type,info);
+
+	trace(isBasicBool);
+	if (isBasicBool) {
+		defs.push({ //extension class
+			name: extensionName,
+			pos: null,
+			pack: [],
+			isExtern: true,
+			meta: [],
+			fields: [],
+			kind: TDClass(),
+		});
+		var alias:TypeDefinition = { //typedef
+			name: name,
+			pos: null,
+			pack: [],
+			meta: [
+				{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}
+			],
+			isExtern: false,
+			fields: [],
+			kind: TDAlias(type),
+		};
+		defs.push(alias);
+	}else{
+		var abstractType = TPath({pack: [],name: name});
+		defs.push({
+			name: name,
+			pos: null,
+			pack: [],
+			isExtern: true,
+			meta: [{name: ":forward",pos: null},{name: ":transitive",pos: null}],
+			fields: [{
+				name: "__postInc",
+				pos: null,
+				meta: [{name: ":op",pos: null,params: [macro A++]}],
+				access: [AStatic],
+				kind: FFun({
+					args: [{name: "a",type: abstractType}],
+					ret: abstractType,
+				})
+			},
+			{
+				name: "__postDec",
+				pos: null,
+				meta: [{name: ":op",pos: null,params: [macro A--]}],
+				access: [AStatic],
+				kind: FFun({
+					args: [{name: "a",type: abstractType}],
+					ret: abstractType,
+				})
+			},{
+				name: "__get",
+				pos: null,
+				meta: [{name: ":op",pos: null,params: [macro []]}],
+				access: [AInline],
+				kind: FFun({
+					args: [{name: "i",type: TPath({pack: [],name: "GoInt"})}],
+					ret: abstractType,
+					expr: macro return untyped this.get(i),
+				})
+			}],
+			kind: TDAbstract(type,[type],[type])
+		});
+	}
 	return defs;
 }
 
@@ -2897,10 +2972,13 @@ private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bo
 			return info.global.imports[name];
 		if (info.global.renameTypes.exists(name))
 			name = info.global.renameTypes[name];
-		if (info.renameTypes.exists(name))
+		var rt = false; //retype
+		if (info.renameTypes.exists(name)) {
 			name = info.renameTypes[name];
+			rt = true;
+		}
 		name = untitle(name);
-		if (reserved.indexOf(name) != -1)
+		if (reserved.indexOf(name) != -1 && !rt)
 			name += "_";
 		if (!isSelect && name == info.funcName)
 			return info.data.name + "." + name;

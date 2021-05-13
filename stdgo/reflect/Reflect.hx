@@ -503,6 +503,23 @@ class Type {
 		return 0;
 	}
 
+	public function hasName():Bool {
+		switch gt {
+			case GT_namedType(_,_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_):
+				return true;
+			default:
+		}
+		return false;
+	}
+	public function name():GoString {
+		switch gt {
+			case GT_namedType(_, _, name, _, _, _, _), GT_interface(_,_,name,_), GT_field(name,_,_):
+				return name;
+			default:
+				return "";
+		}
+	}
+
 	public function method(index:GoInt):Method {
 		switch gt {
 			case GT_namedType(pack,module, name, methods, _, _, _), GT_interface(pack,module, name, methods):
@@ -568,18 +585,17 @@ class Type {
 	}
 
 	public function assignableTo(ot:Type):Bool {
-		return false;
+		if (ot == null)
+			throw "reflect: nil type passed to Type.AssignableTo";
+		return directlyAssignable(ot,this) || implementsMethod(ot,this);
 	}
 
 	public function implements_(ot:Type):Bool {
-		switch (gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-                //TODO
-                return false;
-			default:
-				return assignableTo(ot);
-		}
-		return false;
+		if (ot == null)
+			throw "reflect: nil type passed to Type.Implements";
+		if (ot.kind() != Kind.interface_)
+			throw "reflect: non-interface type passed to Type.Implements";
+		return implementsMethod(ot,this);
 	}
 
 	public function comparable():Bool {
@@ -589,12 +605,12 @@ class Type {
 			case GT_array(elem, _):
 				return new Type(elem).comparable();
 			case GT_struct(fields):
-                //TODO
-				/*var sfs = new StructFieldSet(path, fields);
-				for (fld in sfs)
-					if (!fld.type.comparable())
-						return false;*/
+				for (field in fields)
+					if (!new Type(field).comparable())
+						return false;
 				return true;
+			case GT_field(name, type, tag):
+				return new Type(type).comparable();
 			default:
 				// TODO named types
 				return true;
@@ -673,6 +689,90 @@ class StructTag__extension {
         return new StructField(name, pkgPath, type, tag, 0, index, anonymous); //TODO set offset, stdgo.GoUIntptr should be Null<Int>
     }
     public var _address_ = 0;
+}
+
+private function directlyAssignable(t:Type,v:Type):Bool {
+	switch t.gt {
+		case GT_struct(fields):
+			switch v.gt {
+				case GT_struct(fields2):
+					if (fields.length != fields2.length)
+						return false;
+					for (i in 0...fields.length) {
+						switch fields[i] {
+							case GT_field(name, type, tag):
+								switch fields2[i] {
+									case GT_field(name2, type2, tag2):
+										if (!directlyAssignable(new Type(type),new Type(type2)))
+											return false;
+									default:
+								}
+							default:
+						}
+					}
+					return true;
+				default:
+					return false;
+			}
+		default:
+	}
+	return false;
+}
+
+private function sortMethods(methods:Array<GT_enum>) {
+	methods.sort((a,b) -> {
+		switch a {
+			case GT_field(name, type, tag):
+				switch b {
+					case GT_field(name2, type2, tag2):
+						return name > name2 ? 1 : -1;
+					default:
+				}
+			default:
+		}
+		return 0;
+	});
+}
+
+private function implementsMethod(t:Type,v:Type):Bool {
+	switch t.gt {
+		case GT_interface(pack, module, name, methods):
+			if (methods.length == 0)
+				return true;
+			sortMethods(methods);
+			switch v.gt {
+				case GT_interface(pack2, module2, name2, methods2):
+					sortMethods(methods2);
+					for (j in 0...methods2.length) {
+						switch methods[j] {
+							case GT_field(name, type, tag):
+								switch type {
+									case GT_func(input, output):
+										switch methods2[j] {
+											case GT_field(name2, type2, tag2):
+												switch type2 {
+													case GT_func(input, output):
+														//here
+														
+													default:
+														throw "error 4";
+												}
+											default:
+												throw "error 3";
+										}
+									default:
+										throw "error 2";
+								}
+							default:
+								throw "error 1";
+						}
+					}
+				default:
+					throw "error 0";
+			}
+		default:
+	}
+	return false;
 }
 
 

@@ -290,7 +290,8 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 				case "Void":
 					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 				default:
-					trace("unknown abstract name: " + sref);
+					var ref = ref.get();
+					ret = GT_namedType(ref.pack,ref.module,ref.name,[],[],[],gtDecode(ref.type));
 			}
 		case TInst(ref, params):
 			var ref = ref.get();
@@ -505,7 +506,7 @@ class Type {
 
 	public function hasName():Bool {
 		switch gt {
-			case GT_namedType(_,_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_):
+			case GT_namedType(_,_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_), GT_previouslyNamed(_):
 				return true;
 			default:
 		}
@@ -513,7 +514,7 @@ class Type {
 	}
 	public function name():GoString {
 		switch gt {
-			case GT_namedType(_, _, name, _, _, _, _), GT_interface(_,_,name,_), GT_field(name,_,_):
+			case GT_namedType(_, _, name, _, _, _, _), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name):
 				return name;
 			default:
 				return "";
@@ -532,7 +533,7 @@ class Type {
 						var a:AnyInterface = Go.getInterface(f);
 						return {
 							name: name2,
-							pkgPath: "",
+							pkgPath: pack,
 							type: new Type(type),
 							func: new Value(f,a.type),
 							index: index,

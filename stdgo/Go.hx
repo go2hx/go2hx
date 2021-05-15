@@ -386,6 +386,26 @@ class Go {
 		};
 	}
 
+	public static macro function assignable(expr:Expr) {
+		function parens(expr) {
+			return switch expr.expr {
+				case EParenthesis(e): parens(e);
+				default: expr;
+			}
+		}
+		expr = parens(expr);
+		switch expr.expr {
+			case ECheckType(e, t):
+				var t = ComplexTypeTools.toType(t);
+				if (t == null)
+					throw "complexType converted to type is null";
+				var value = new stdgo.reflect.Reflect.Type(stdgo.reflect.Reflect.gtDecode(t)).serialize();
+				return macro $e.type.assignableTo(stdgo.reflect.Reflect.unserializeType($v{value}));
+			default:
+				throw "unknown assignable expr: " + expr.expr;
+		}
+	}
+
 	public static macro function destruct(exprs:Array<Expr>) {
 		var expr = exprs.pop(); // expr to destructure
 		var fields:Array<String> = [];

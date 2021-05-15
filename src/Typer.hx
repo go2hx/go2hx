@@ -874,9 +874,8 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	var init:Expr = null;
 	if (stmt.init != null)
 		init = toExpr(typeSwitchStmt(stmt.init, info));
-
 	var assign:Expr = null;
-	var set:String = "";
+	var setVar:String = "";
 	switch stmt.assign.id {
 		case "ExprStmt":
 			var stmt:Ast.ExprStmt = stmt.assign;
@@ -902,34 +901,52 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 				case "Ident":
 					var lhs:Ast.Ident = lhs;
 					var name = lhs.name;
-					set = lhs.name;
+					setVar = lhs.name;
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
 			}
 		default:
 			trace("unknown assign: " + stmt.assign.id);
 	}
-	if (assign == null)
-		return null;
-	var cases:Array<Case> = [];
-	var def:Expr = null;
-	for (stmt in stmt.body.list) {
-		var stmt:Ast.CaseClause = stmt;
-		var values:Array<Expr> = [];
-		var body = toExpr(typeStmtList(stmt.body, info, false, false));
-		if (stmt.list.length == 0) {
-			def = body;
-			continue;
-		}
-		/*for (expr in stmt.list) {
-			values.push(toExpr(EConst(CString(exprTypeString(expr)))));
-		}*/
-		cases.push({
-			values: values,
-			expr: body,
-		});
+	var types:Array<ComplexType> = [];
+	function condition(obj:Ast.CaseClause, i:Int = 0) {
+		if (obj.list.length == 0)
+			return null;
+		var type = typeExprType(obj.list[i], info);
+		types.push(type);
+		var value = macro Go.assignable(($assign : $type));
+		if (i + 1 >= obj.list.length)
+			return value;
+		var next = condition(obj, i + 1);
+		return toExpr(EBinop(OpBoolOr, value, next));
 	}
-	return ESwitch(macro $assign.typeName(), cases, def);
+	function ifs(i:Int = 0) {
+		var obj:Ast.CaseClause = stmt.body.list[i];
+		types = [];
+		var cond = condition(obj);
+		var block = toExpr(typeStmtList(obj.body, info, false, false));
+		if (setVar != "") {
+			switch block.expr {
+				case EBlock(exprs):
+					var type:ComplexType = TPath({pack: [],name: "AnyInterface"});
+					if (types.length == 1)
+						type = types[0];
+					exprs.unshift(macro var $setVar:$type = $assign);
+					block.expr = EBlock(exprs);
+				default:
+			}
+		}
+
+		if (i + 1 >= stmt.body.list.length)
+			return cond == null ? macro $block : macro if ($cond)
+				$block;
+		var next = ifs(i + 1);
+		return macro if ($cond)
+			$block
+		else
+			$next;
+	}
+	return ifs().expr;
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
@@ -2662,8 +2679,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 	var defs:Array<TypeDefinition> = [];
 
 	var isBasicBool = isBasic(type,info);
-
-	trace(isBasicBool);
+	
 	if (isBasicBool) {
 		defs.push({ //extension class
 			name: extensionName,

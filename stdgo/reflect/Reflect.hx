@@ -619,11 +619,11 @@ class Type {
 	}
 }
 
-function unserializeType(str:String,expr:Dynamic):stdgo.reflect.Reflect.Type {
+function unserializeType(str:String,expr:Dynamic=null):stdgo.reflect.Reflect.Type {
 	var ret:GT_enum = Unserializer.run(str);
 	switch ret { //add array length
 		case GT_array(elem, len):
-			ret = GT_array(elem,expr.length);
+			ret = GT_array(elem,expr != null ? expr.length : -1);
 		default:
 	}
 	return new Type(ret);
@@ -715,7 +715,19 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				default:
 					return false;
 			}
+		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			switch v.gt {
+				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2, type2):
+					if (module != module2)
+						return false;
+					if (name != name2)
+						return false;
+					return true;
+				default:
+					return false;
+			}
 		default:
+			trace("unknown gt type: " + t.gt);
 	}
 	return false;
 }

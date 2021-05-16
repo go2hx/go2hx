@@ -310,8 +310,12 @@ function gtDecode(t:haxe.macro.Type):GT_enum {
 					GT_field(field.name,gtDecode(field.type),"")
 			]);
 		case TFun(args, result):
-
-
+			ret = GT_func([
+				for (arg in args)
+					gtDecode(arg.t)
+			],[ //TODO handle multi returns
+				gtDecode(result)
+			]);
 		case TDynamic(t):
 			ret = GT_interface([],"","interface{}", []);
 		default:
@@ -726,8 +730,17 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				default:
 					return false;
 			}
+		case GT_interface(pack, module, name, methods):
+			if (methods.length == 0)
+				return true;
+			return false; //checked by implements instead
 		default:
-			trace("unknown gt type: " + t.gt);
+			if (t.gt.getParameters().length == 0 && v.gt.getParameters().length == 0) {
+				if (t.gt.getIndex() == v.gt.getIndex())
+					return true;
+			}else{
+				trace("unknown gt type: " + t.gt);
+			}
 	}
 	return false;
 }
@@ -748,42 +761,28 @@ private function sortMethods(methods:Array<GT_enum>) {
 }
 
 private function implementsMethod(t:Type,v:Type):Bool {
+	var interfaceModule:String = "";
+	var interfaceName:String = "";
 	switch t.gt {
 		case GT_interface(pack, module, name, methods):
-			if (methods.length == 0)
-				return true;
-			sortMethods(methods);
-			switch v.gt {
-				case GT_interface(pack2, module2, name2, methods2):
-					sortMethods(methods2);
-					for (j in 0...methods2.length) {
-						switch methods[j] {
-							case GT_field(name, type, tag):
-								switch type {
-									case GT_func(input, output):
-										switch methods2[j] {
-											case GT_field(name2, type2, tag2):
-												switch type2 {
-													case GT_func(input, output):
-														//here
-														
-													default:
-														throw "error 4";
-												}
-											default:
-												throw "error 3";
-										}
-									default:
-										throw "error 2";
-								}
-							default:
-								throw "error 1";
-						}
-					}
-				default:
-					throw "error 0";
+			interfaceModule = module;
+			interfaceName = name;
+		default:
+			throw "not an interface: " + v.gt;
+	}
+	switch v.gt {
+		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			for (i in interfaces) {
+				switch i {
+					case GT_interface(_, module, name, _):
+						if (interfaceModule == module && interfaceName == name)
+							return true;
+					default:
+						throw "not an interface: " + i;
+				}
 			}
 		default:
+			throw "not a named type " + t.gt;
 	}
 	return false;
 }

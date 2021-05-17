@@ -428,52 +428,96 @@ private function typeImplements(info:Info) {
 					if (cl == null || cl.kind == null)
 						continue;
 					switch cl.kind {
-						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-							if (isInterface)
-								continue;
-							var passed = true;
-							for (interfaceField in inter.fields) {
-								var passField:Bool = false;
-								for (classField in cl.fields) {
-									if (interfaceField.name != classField.name)
-										continue;
-									var interfaceFunc:Function = null;
-									var classFunc:Function = null;
-									switch interfaceField.kind {
+						case TDAbstract(tthis, from, to):
+							if (implementsFields(inter.fields,cl.fields)) {
+								var interfaceType = TPath({name: inter.name,pack: inter.pack});
+								var fields:Array<Field> = [];
+								var kind:FieldType = null;
+								var clType = TPath({name: cl.name,pack: cl.pack});
+								for (field in inter.fields) {
+									switch field.kind {
 										case FFun(f):
-											interfaceFunc = f;
+											var isReturn:Bool = true;
+											if (f.ret == null) {
+												isReturn = false;
+											}else{
+												switch f.ret {
+													case TPath(p):
+														if (p.name == "Void" && p.pack.length == 0)
+															isReturn = false;
+													default:
+												}
+											}
+											var args:Array<Expr> = [for (arg in f.args) 
+												macro $i{arg.name}
+											];
+											var fieldName = field.name;
+											var expr = macro t.$fieldName($a{args});
+											if (isReturn)
+												expr = macro return $expr;
+											kind = FFun({
+												ret: f.ret,
+												params: f.params,
+												expr: expr,
+												args: f.args,
+											});
 										default:
 									}
-									switch classField.kind {
-										case FFun(f):
-											classFunc = f;
-										default:
-									}
-									if (interfaceFunc == null || classFunc == null) //if either fields are not functions
-										continue;
-									if (!compareComplexType(interfaceFunc.ret, classFunc.ret)) //returns values are not equal
-										continue;
-									if (interfaceFunc.args.length != classFunc.args.length) //the functions don't have the same amount of args
-										continue;
-									var argTypesPass:Bool = true;
-									for (i in 0...interfaceFunc.args.length) {
-										if (!compareComplexType(interfaceFunc.args[i].type, classFunc.args[i].type)) { //compare the arg types
-											argTypesPass = false;
-											break;
-										}
-									}
-									if (argTypesPass) {
-										//the field has passed
-										passField = true;
-										break;
-									}
+									fields.push({
+										name: field.name,
+										pos: field.pos,
+										kind: kind,
+										access: field.access,
+									});
 								}
-								if (!passField) {
-									passed = false;
-									break;
-								}
+								var wrapperName = "__" + cl.name + "_" + inter.name + "_" + "InterfaceWrapper";
+								var wrapperType:TypePath = {
+									name: wrapperName,
+									pack: [],
+								};
+								info.data.defs.push({
+									name: wrapperName,
+									pos: null,
+									pack: [],
+									fields: [{
+										name: "t",
+										pos: null,
+										kind: FVar(clType),
+									},{
+										name: "new",
+										pos: null,
+										kind: FFun({
+											args: [{name: "t"}],
+											expr: macro this.t = t,
+										}),
+										access: [APublic],
+									},{
+										name: "toString",
+										pos: null,
+										kind: FFun({
+											args: [],
+											expr: macro return '$t',
+										}),
+										access: [APublic]
+									}].concat(fields),
+									kind: TDClass(null,[{name: inter.name,pack: inter.pack}]),
+									isExtern: false,
+								});
+								cl.fields.push({
+									name: "__to" + inter.name,
+									pos: null,
+									kind: FFun({
+										args: [],
+										ret: interfaceType,
+										expr: macro return new $wrapperType(this),
+									}),
+									meta: [{name: ":to",pos: null}],
+								});
 							}
-							if (passed) {
+						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
+							if (isInterface || isAbstract)
+								continue;
+							if (implementsFields(inter.fields,cl.fields)) {
 								interfaces.push({
 									name: inter.name,
 									pack: inter.pack,
@@ -485,6 +529,50 @@ private function typeImplements(info:Info) {
 				default:
 		}
 	}
+}
+
+private function implementsFields(interfaceFields:Array<Field>,classFields:Array<Field>):Bool {
+	var passed = true;
+	for (interfaceField in interfaceFields) {
+		var passField:Bool = false;
+		for (classField in classFields) {
+			if (interfaceField.name != classField.name)
+				continue;
+			var interfaceFunc:Function = null;
+			var classFunc:Function = null;
+			switch interfaceField.kind {
+				case FFun(f):
+					interfaceFunc = f;
+				default:
+			}
+			switch classField.kind {
+				case FFun(f):
+					classFunc = f;
+				default:
+			}
+			if (interfaceFunc == null || classFunc == null) //if either fields are not functions
+				continue;
+			if (!compareComplexType(interfaceFunc.ret, classFunc.ret)) //returns values are not equal
+				continue;
+			if (interfaceFunc.args.length != classFunc.args.length) //the functions don't have the same amount of args
+				continue;
+			var argTypesPass:Bool = true;
+			for (i in 0...interfaceFunc.args.length) {
+				if (!compareComplexType(interfaceFunc.args[i].type, classFunc.args[i].type)) { //compare the arg types
+					argTypesPass = false;
+					break;
+				}
+			}
+			if (argTypesPass) {
+				//the field has passed
+				passField = true;
+				break;
+			}
+		}
+		if (!passField)
+			return false;
+	}
+	return true;
 }
 
 private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
@@ -1497,6 +1585,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	function genArgs(pos:Int=0) {
 		args = [for (arg in expr.args.slice(pos)) typeExpr(arg, info)];
 	}
+	function callWrap(expr:Expr):Expr {
+		if (args.length == 0)
+			return expr;
+		return macro Go.call($expr);
+	}
 	ellipsisFunc = function() {
 		if (!expr.ellipsis.noPos) {
 			var last = args.pop();
@@ -1542,7 +1635,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs();
 					ellipsisFunc();
 					var e = args.shift();
-					return (macro Go.call($e.append($a{args}))).expr;
+					return callWrap(macro $e.append($a{args})).expr;
 				case "copy":
 					genArgs();
 					ellipsisFunc();
@@ -1550,7 +1643,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
-					return (macro Go.call($e.remove($key))).expr;
+					return callWrap(macro $e.remove($key)).expr;
 				case "print":
 					genArgs();
 					ellipsisFunc();
@@ -1686,7 +1779,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		genArgs();
 	ellipsisFunc();
 	var e = typeExpr(expr.fun, info);
-	return (macro Go.call($e{toExpr(ECall(e, args))})).expr;
+	return callWrap(macro $e{toExpr(ECall(e, args))}).expr;
 }
 
 private function checkType(expr:Expr,type:ComplexType):Expr {
@@ -2252,60 +2345,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 						})
 					});
 					return null;
-				case TDAlias(t):
-					switch recvInfo.type {
-						case TPath(p):
-							if (p.name == def.name) {
-								var typeClass:TypeDefinition = null;
-								var recvType:ComplexType = TPath({name: def.name,pack: def.pack});
-								var extensionClassName = p.name + "__extension";
-								for (def in info.data.defs) {
-									switch def.kind {
-										case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-											if (def.name == extensionClassName) {
-												typeClass = def;
-												break;
-											}
-										default:
-									}
-								}
-								
-								if (decl.recv.list[0].names.length > 0) {
-									var varName = decl.recv.list[0].names[0].name;
-									args.unshift({
-										name: varName,
-										type: recvType,
-									});
-									switch block.expr {
-										case EBlock(exprs):
-											if (recvInfo.isPointer) {
-												exprs.unshift(macro var $varName = new PointerWrapper((${toExpr(EConst(CIdent(varName)))} : $recvType)));
-											}
-											block.expr = EBlock(exprs);
-										default:
-									}
-								}else{
-									args.unshift({ // to enable the static extension
-										name: "___using",
-										type: recvType,
-									});
-								}
-								// add the function
-								typeClass.fields.push({
-									name: name,
-									pos: null,
-									meta: null,
-									access: [APublic,AStatic],
-									kind: FFun({
-										args: args,
-										ret: ret,
-										expr: block,
-									})
-								});
-								return null;
-							}
-						default:
-					}
 				default:
 			}
 		}
@@ -2678,71 +2717,44 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 	var extensionName = name + "__extension";
 	var defs:Array<TypeDefinition> = [];
 
-	var isBasicBool = isBasic(type,info);
-	
-	if (isBasicBool) {
-		defs.push({ //extension class
-			name: extensionName,
+	var abstractType = TPath({pack: [],name: name});
+	defs.push({
+		name: name,
+		pos: null,
+		pack: [],
+		isExtern: true,
+		meta: [{name: ":forward",pos: null},{name: ":forward.new",pos: null},{name: ":callable",pos: null},{name: ":transitive",pos: null}],
+		fields: [{
+			name: "__postInc",
 			pos: null,
-			pack: [],
-			isExtern: true,
-			meta: [],
-			fields: [],
-			kind: TDClass(),
-		});
-		var alias:TypeDefinition = { //typedef
-			name: name,
+			meta: [{name: ":op",pos: null,params: [macro A++]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a",type: abstractType}],
+				ret: abstractType,
+			})
+		},{
+			name: "__postDec",
 			pos: null,
-			pack: [],
-			meta: [
-				{name: ":using", pos: null, params: [toExpr(EField(toExpr(EConst(CIdent(info.data.name))),extensionName))]}
-			],
-			isExtern: false,
-			fields: [],
-			kind: TDAlias(type),
-		};
-		defs.push(alias);
-	}else{
-		var abstractType = TPath({pack: [],name: name});
-		defs.push({
-			name: name,
+			meta: [{name: ":op",pos: null,params: [macro A--]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a",type: abstractType}],
+				ret: abstractType,
+			})
+		},{
+			name: "__get",
 			pos: null,
-			pack: [],
-			isExtern: true,
-			meta: [{name: ":forward",pos: null},{name: ":transitive",pos: null}],
-			fields: [{
-				name: "__postInc",
-				pos: null,
-				meta: [{name: ":op",pos: null,params: [macro A++]}],
-				access: [AStatic],
-				kind: FFun({
-					args: [{name: "a",type: abstractType}],
-					ret: abstractType,
-				})
-			},
-			{
-				name: "__postDec",
-				pos: null,
-				meta: [{name: ":op",pos: null,params: [macro A--]}],
-				access: [AStatic],
-				kind: FFun({
-					args: [{name: "a",type: abstractType}],
-					ret: abstractType,
-				})
-			},{
-				name: "__get",
-				pos: null,
-				meta: [{name: ":op",pos: null,params: [macro []]}],
-				access: [AInline],
-				kind: FFun({
-					args: [{name: "i",type: TPath({pack: [],name: "GoInt"})}],
-					ret: abstractType,
-					expr: macro return untyped this.get(i),
-				})
-			}],
-			kind: TDAbstract(type,[type],[type])
-		});
-	}
+			meta: [{name: ":op",pos: null,params: [macro []]}],
+			access: [AInline],
+			kind: FFun({
+				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})}],
+				ret: abstractType,
+				expr: macro return untyped this.get(i),
+			})
+		}],
+		kind: TDAbstract(type,[type],[type])
+	});
 	return defs;
 }
 
@@ -2771,7 +2783,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			for (field in fields) {
 				switch field.kind {
 					case FVar(t, e):
-						toStringValue += "${Std.string(" + field.name + ")} ";
+						toStringValue += "$" + field.name + " ";
 					default:
 				}
 			}

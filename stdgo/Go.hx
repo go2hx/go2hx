@@ -898,13 +898,13 @@ class Go {
 								default:
 							}
 						}
-						/*ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType(
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType(
 							$v{ref.pack.join(".")},
 							$v{ref.module},$v{ref.name},
 							[],[],
 							$a{interfaces},
 							${gtDecode(ref.type)}
-						);*/
+						);
 				}
 			case TInst(ref, params):
 				var ref = ref.get();

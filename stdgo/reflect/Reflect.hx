@@ -230,6 +230,10 @@ class Type {
 		}
 	}
 
+	public function size():GoUIntptr {
+		return 0;
+	}
+
 	public function toString():GoString {
 		switch (gt) {
 			case GT_previouslyNamed(name): return name;
@@ -341,7 +345,15 @@ class Type {
 			case GT_namedType(_, _, name, _, _, _, _), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name):
 				return name;
 			default:
+				trace("gt: " + gt);
 				return "";
+		}
+	}
+	public function pkgPath():GoString {
+		return switch gt {
+			case GT_namedType(pack, _, _, _, _, _, _), GT_interface(pack,_,_,_): pack;
+			case GT_previouslyNamed(name): name.substr(0,name.lastIndexOf("."));
+			default: "";
 		}
 	}
 
@@ -596,11 +608,13 @@ private function implementsMethod(t:Type,v:Type):Bool {
 @:enum abstract Kind(stdgo.StdGoTypes.GoUInt) from stdgo.StdGoTypes.GoUInt {
 	public inline function new(i:stdgo.StdGoTypes.GoUInt)
 		this = i;
-	public function toString() {
+	@:to
+	public function toString():GoString {
 		var idx:UInt = this.toBasic();
 		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
 			return "unsafe.Pointer";
+		trace("r: " + r);
 		return r;
 	}
 	final invalid:GoUInt = 0;

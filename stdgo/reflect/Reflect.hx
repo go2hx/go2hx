@@ -1,6 +1,4 @@
 package stdgo.reflect;
-import haxe.Unserializer;
-import haxe.Serializer;
 import stdgo.StdGoTypes;
 import haxe.EnumTools;
 
@@ -25,7 +23,7 @@ enum GT_enum {
 	GT_string;
 	GT_unsafePointer;
 	GT_chan(elem:GT_enum);
-	GT_interface(pack:Array<String>,module:String,name:String,methods:Array<GT_enum>);
+	GT_interface(pack:String,module:String,name:String,methods:Array<GT_enum>);
 	GT_ptr(elem:GT_enum);
 	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
@@ -33,7 +31,7 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_namedType(pack:Array<String>,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
+	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
 	GT_previouslyNamed(name:String);
 }
 
@@ -61,7 +59,7 @@ class Value implements StructType {
 	var underlyingType:Type;
 	public var _address_:Int;
 
-	public function new(v:Any = null, t:Type=null) {
+	public function new(v:AnyInterface<UnknownMono> = null, t:Type=null) {
 		if (t == null)
 			t = new Type(GT_invalid);
 		_address_ = ++Go.addressIndex;
@@ -80,7 +78,7 @@ class Value implements StructType {
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
 			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-                return null; //TODO
+                return new Type(type);
 			default:
 				return t;
 		}
@@ -93,7 +91,7 @@ class Value implements StructType {
 		return surfaceType.kind();
 
 	public inline function interface_()
-		return (val : AnyInterface);
+		return val;
 
 	public inline function isNil()
 		return val == null;
@@ -188,17 +186,15 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 	}
 }
 
-function deepEqual(a1:AnyInterface,a2:AnyInterface):Bool {
+function deepEqual(a1:AnyInterface<UnknownMono>,a2:AnyInterface<UnknownMono>):Bool {
 	if (a1 == null || a2 == null)
 		return false;
 	switch a1.type.gt {
 		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
 			switch a2.type.gt {
 				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2, type2):
-					for (i in 0...pack.length) {
-						if (pack[i] != pack2[i])
-							return false;
-					}
+					if (module != module2)
+						return false;
 					return true;
 				default:
 					return false;
@@ -208,184 +204,14 @@ function deepEqual(a1:AnyInterface,a2:AnyInterface):Bool {
 	}
 }
 
-function typeOf(iface:AnyInterface):Type {
+function typeOf(iface:AnyInterface<UnknownMono>):Type {
 	if (iface == null)
 		return new Type(GT_unsafePointer);
 	return iface.type;
 }
 
-function valueOf(iface:AnyInterface):Value {
+function valueOf(iface:AnyInterface<UnknownMono>):Value {
 	return new Value(iface.value,iface.type);
-}
-
-private function gtParams(params:Array<haxe.macro.Type>):Array<GT_enum> {
-	// trace("gtLookupParameters", params);
-	var pTypes = new Array<GT_enum>();
-	for (i in 0...params.length)
-		pTypes.push(gtDecode(params[i]));
-	return pTypes;
-}
-
-function gtDecode(t:haxe.macro.Type):GT_enum {
-	var ret = GT_invalid;
-	switch (t) {
-		case TMono(ref):
-			return GT_unsafePointer;
-		case TType(ref, params):
-			var ref = ref.get();
-			ret = GT_namedType(ref.pack,parseModule(ref.module),ref.name, [], [], [], gtDecode(ref.type));
-		case TAbstract(ref, params):
-			// trace("TAbstract:", ref, params);
-			var sref:String = ref.toString();
-			switch (sref) {
-				case "stdgo.Slice":
-					ret = GT_slice(gtParams(params)[0]);
-				case "stdgo.GoArray":
-					ret = GT_array(gtParams(params)[0], -1); // TODO go2hx does not store the length in the type
-				case "stdgo.Pointer", "stdgo.PointerWrapper", "stdgo.GoArrayPointer":
-					ret = GT_ptr(gtParams(params)[0]);
-				case "stdgo.GoMap":
-					var ps = gtParams(params);
-					ret = GT_map(ps[0], ps[1]);
-				case "stdgo.IntegerType":
-					ret = GT_int;
-				case "stdgo.GoInt8":
-					ret = GT_int8;
-				case "stdgo.GoInt16":
-					ret = GT_int16;
-				case "stdgo.GoInt32":
-					ret = GT_int32;
-				case "stdgo.GoInt", "Int":
-					ret = GT_int;
-				case "stdgo.GoInt64":
-					ret = GT_int64;
-				case "stdgo.GoUInt8":
-					ret = GT_uint8;
-				case "stdgo.GoUInt16":
-					ret = GT_uint16;
-				case "stdgo.GoUInt":
-					ret = GT_uint;
-				case "stdgo.GoUInt32":
-					ret = GT_uint32;
-				case "stdgo.GoUInt64":
-					ret = GT_uint64;
-				case "stdgo.GoString":
-					ret = GT_string;
-				case "stdgo.GoComplex64":
-					ret = GT_complex64;
-				case "stdgo.GoComplex128":
-					ret = GT_complex128;
-				case "stdgo.ComplexType":
-					ret = GT_complex128;
-				case "stdgo.GoFloat32":
-					ret = GT_float32;
-				case "stdgo.GoFloat64":
-					ret = GT_float64;
-				case "stdgo.FloatType":
-					ret = GT_float64;
-				case "Bool":
-					ret = GT_bool;
-				case "stdgo.AnyInterface":
-					ret = GT_interface([],"","interface{}",[]);
-				case "Void":
-					ret = GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
-				default:
-					var ref = ref.get();
-					ret = GT_namedType(ref.pack,ref.module,ref.name,[],[],[],gtDecode(ref.type));
-			}
-		case TInst(ref, params):
-			var ref = ref.get();
-			if (ref.isInterface) {
-				ret = gtDecodeInterfaceType(ref);
-			}else{
-				ret = gtDecodeClassType(ref);
-			}
-		case TAnonymous(a):
-			var a = a.get();
-			a.fields.sort((a,b) -> {
-				return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
-			});
-			ret = GT_struct([
-				for (field in a.fields) 
-					GT_field(field.name,gtDecode(field.type),"")
-			]);
-		case TFun(args, result):
-			ret = GT_func([
-				for (arg in args)
-					gtDecode(arg.t)
-			],[ //TODO handle multi returns
-				gtDecode(result)
-			]);
-		case TDynamic(t):
-			ret = GT_interface([],"","interface{}", []);
-		default:
-			throw "reflect.cast_AnyInterface - unhandled typeof " + t;
-	}
-	return ret;
-}
-
-function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType):GT_enum {
-	var methods:Array<GT_enum> = [];
-	for (method in ref.fields.get()) {
-		methods.push(GT_field(method.name,gtDecode(method.type),""));
-	}
-	return GT_interface(ref.pack,ref.module,ref.name,methods);
-}
-
-function gtDecodeClassType(ref:haxe.macro.Type.ClassType):GT_enum {
-	var methods:Array<GT_enum> = [];
-	var fields:Array<GT_enum> = [];
-	var interfaces:Array<GT_enum> = [];
-	for (inter in ref.interfaces) {
-		var inter = inter.t.get();
-		interfaces.push(gtDecodeInterfaceType(inter));
-	}
-	var fs = ref.fields.get();
-	var module = parseModule(ref.module);
-	for (field in fs) {
-		switch field.kind {
-			case FMethod(k):
-				switch field.name {
-					case "new", "__copy__":
-						continue;
-				}
-				switch field.type {
-					case TFun(args, ret):
-						var params:Array<GT_enum> = [];
-						var rets:Array<GT_enum> = [];
-						for (arg in args) {
-							params.push(gtDecode(arg.t));
-						}
-						switch ret {
-							case TAnonymous(a):
-								var fs = a.get().fields;
-								for (f in fs) {
-									rets.push(GT_field(f.name,gtDecode(f.type),""));
-								}
-							default:
-								if (field.name == "toString") {
-									switch ret {
-										case TInst(t, params):
-											var t = t.get();
-											if (t.name == "String")
-												continue;
-										default:
-									}
-								}
-								rets.push(gtDecode(ret));
-						}
-						params.unshift(GT_field("this",GT_previouslyNamed(module + "." + ref.name),"")); //recv
-						methods.push(GT_field(field.name,GT_func(params,rets),""));
-					default:
-						throw "method needs to be a function";
-				}
-			default:
-				if (field.name == "_address_")
-					continue;
-				fields.push(GT_field(field.name,gtDecode(field.type),""));
-		}
-	}
-	return GT_namedType(ref.pack,module, ref.name,methods,fields,interfaces,GT_invalid);
 }
 
 
@@ -394,17 +220,11 @@ class Type {
 	public inline function new(t:GT_enum) {
 		gt = t;
 	}
-	public function serialize():String {
-		Serializer.USE_CACHE = true;
-		Serializer.USE_ENUM_INDEX = true;
-		var str = Serializer.run(gt);
-		return str;
-	}
 
 	public function kind():Kind {
 		switch (gt) {
 			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-				return new Kind(0); //TODO
+				return type == null ? new Kind(26) : new Type(type).kind(); //TODO
 			default:
 				return new Kind(EnumValueTools.getIndex(gt));
 		}
@@ -531,15 +351,15 @@ class Type {
 				var method = methods[index.toBasic()];
 				switch method {
 					case GT_field(name2, type, tag):
-						var path = pack.join(".") + "." + name;
+						var path = pack + "." + name;
 						var cl = std.Type.resolveClass(path);
 						var f = Reflect.field(cl,name2);
-						var a:AnyInterface = Go.getInterface(f);
+						var t = new Type(type);
 						return {
 							name: name2,
 							pkgPath: pack,
-							type: new Type(type),
-							func: new Value(f,a.type),
+							type: t,
+							func: new Value(f,t),
 							index: index,
 						};
 					default:
@@ -592,7 +412,7 @@ class Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		return directlyAssignable(ot,this) || implementsMethod(ot,this);
+		return false;//directlyAssignable(ot,this) || implementsMethod(ot,this);
 	}
 
 	public function implements_(ot:Type):Bool {
@@ -600,7 +420,7 @@ class Type {
 			throw "reflect: nil type passed to Type.Implements";
 		if (ot.kind() != Kind.interface_)
 			throw "reflect: non-interface type passed to Type.Implements";
-		return implementsMethod(ot,this);
+		return false;//implementsMethod(ot,this);
 	}
 
 	public function comparable():Bool {
@@ -622,27 +442,6 @@ class Type {
 		}
 	}
 }
-
-function unserializeType(str:String,expr:Dynamic=null):stdgo.reflect.Reflect.Type {
-	var ret:GT_enum = Unserializer.run(str);
-	switch ret { //add array length
-		case GT_array(elem, len):
-			ret = GT_array(elem,expr != null ? expr.length : -1);
-		default:
-	}
-	return new Type(ret);
-}
-
-private function parseModule(module:String):String {
-	var index = module.lastIndexOf(".");
-	var name = module.substr(index + 1);
-	module = module.substr(0,index);
-	module = module.substr(module.lastIndexOf(".") + 1);
-	if (module == name.charAt(0).toLowerCase() + name.substr(1))
-		module = "main";
-	return module;
-}
-
 
 class StructTag__extension {
 	public static function get(tag:StructTag,key:GoString):GoString {
@@ -671,7 +470,7 @@ class StructTag__extension {
         return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(func)} ${Std.string(index)}}';
     }
     public function __copy__() {
-        return new Method(name, pkgPath, type, func, index);
+        return new Method(name, [], type, func, index);
     }
     public var _address_ = 0;
 }
@@ -799,31 +598,31 @@ private function implementsMethod(t:Type,v:Type):Bool {
 			return "unsafe.Pointer";
 		return r;
 	}
-	final invalid = 0;
-	final bool = 1;
-	final int = 2;
-	final int8 = 3;
-	final int16 = 4;
-	final int32 = 5;
-	final int64 = 6;
-	final uint = 7;
-	final uint8 = 8;
-	final uint16 = 9;
-	final uint32 = 10;
-	final uint64 = 11;
-	final uintptr = 12;
-	final float32 = 13;
-	final float64 = 14;
-	final complex64 = 15;
-	final complex128 = 16;
-	final _string = 17;
-	final unsafePointer = 18;
-	final chan = 19;
-	final interface_ = 20;
-	final ptr = 21;
-	final slice = 22;
-	final array = 23;
-	final func = 24;
-	final map = 25;
-	final struct = 26;
+	final invalid:GoUInt = 0;
+	final bool:GoUInt = 1;
+	final int:GoUInt = 2;
+	final int8:GoUInt = 3;
+	final int16:GoUInt = 4;
+	final int32:GoUInt = 5;
+	final int64:GoUInt = 6;
+	final uint:GoUInt = 7;
+	final uint8:GoUInt = 8;
+	final uint16:GoUInt = 9;
+	final uint32:GoUInt = 10;
+	final uint64:GoUInt = 11;
+	final uintptr:GoUInt = 12;
+	final float32:GoUInt = 13;
+	final float64:GoUInt = 14;
+	final complex64:GoUInt = 15;
+	final complex128:GoUInt = 16;
+	final _string:GoUInt = 17;
+	final unsafePointer:GoUInt = 18;
+	final chan:GoUInt = 19;
+	final interface_:GoUInt = 20;
+	final ptr:GoUInt = 21;
+	final slice:GoUInt = 22;
+	final array:GoUInt = 23;
+	final func:GoUInt = 24;
+	final map:GoUInt = 25;
+	final struct:GoUInt = 26;
 }

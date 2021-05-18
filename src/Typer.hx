@@ -1782,7 +1782,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 private function checkType(expr:Expr,type:ComplexType):Expr {
 	if (isInterface(type))
 		return macro Go.getInterface($expr);
-	return macro ($expr : $type);
+	return macro Go.checkType(($expr : $type)); //macro ($expr : $type);
 }
 
 private function typeRest(expr:Expr):Expr {

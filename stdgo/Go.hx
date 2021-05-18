@@ -397,7 +397,7 @@ class Go {
 				if (t == null)
 					throw "complexType converted to type is null";
 				var value = gtDecode(t);
-				return macro $e.type.assignableTo(new Type($value));
+				return macro $e.type.assignableTo(new stdgo.reflect.Reflect.Type($value));
 			default:
 				throw "unknown assignable expr: " + expr.expr;
 		}
@@ -649,6 +649,33 @@ class Go {
 
 	// GOROUTINE
 	public static macro function routine(expr) {
+		return expr;
+	}
+	public static macro function checkType(expr) {
+		function parens(expr) {
+			return switch expr.expr {
+				case EParenthesis(e): parens(e);
+				default: expr;
+			}
+		}
+		expr = parens(expr);
+		switch expr.expr {
+			case ECheckType(e, t):
+				var type = Context.typeof(e);
+				switch type {
+					case TAbstract(t2, params):
+						if (params.length == 0)
+							return expr;
+						var t2 = t2.get();
+						if (t2.name == "AnyInterface") {
+							e = macro $e.value;
+							return macro ($e : $t);
+						}
+					default:
+				}
+			default:
+				throw "unknown exprdef for checkType: " + expr.expr;
+		}
 		return expr;
 	}
 	public static macro function getInterface(expr) {

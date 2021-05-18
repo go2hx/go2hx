@@ -1620,10 +1620,11 @@ abstract AnyInterface<T>(AnyInterfaceData<T>) from AnyInterfaceData<T> {
 	public inline function new(obj = null) {
 		this = obj;
 	}
-	@:to private inline function to<K>():K {
-		return ((this.value : T) : K);
+	@:to private inline function to() {
+		return (this.value : T);
 	}
 }
+
 
 interface ArrayAccess<T> {
 	function get(i:Int):T;

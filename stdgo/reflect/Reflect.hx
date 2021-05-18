@@ -412,7 +412,7 @@ class Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		return false;//directlyAssignable(ot,this) || implementsMethod(ot,this);
+		return directlyAssignable(ot,this) || implementsMethod(ot,this);
 	}
 
 	public function implements_(ot:Type):Bool {
@@ -420,7 +420,7 @@ class Type {
 			throw "reflect: nil type passed to Type.Implements";
 		if (ot.kind() != Kind.interface_)
 			throw "reflect: non-interface type passed to Type.Implements";
-		return false;//implementsMethod(ot,this);
+		return implementsMethod(ot,this);
 	}
 
 	public function comparable():Bool {
@@ -564,6 +564,8 @@ private function implementsMethod(t:Type,v:Type):Bool {
 	var interfaceName:String = "";
 	switch t.gt {
 		case GT_interface(pack, module, name, methods):
+			if (methods.length == 0)
+				return true;
 			interfaceModule = module;
 			interfaceName = name;
 		default:
@@ -580,6 +582,9 @@ private function implementsMethod(t:Type,v:Type):Bool {
 						throw "not an interface: " + i;
 				}
 			}
+		case GT_interface(pack, module, name, methods):
+			if (interfaceModule == module && interfaceName == name)
+				return true;
 		default:
 			throw "not a named type " + t.gt;
 	}

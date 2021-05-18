@@ -21,11 +21,15 @@
  */
 
 package stdgo;
-
 import stdgo.Pointer.PointerData;
-import stdgo.StdGoTypes.AnyInterface;
 import haxe.Int32;
 import haxe.Int64;
+
+//thanks Gama11
+#if !macro
+@:genericBuild(stdgo.internal.Macro.buildMono()) class UnknownMono {}
+#end
+
 
 // native_num define flag
 typedef GoByte = GoUInt8;
@@ -54,6 +58,7 @@ private class __UInt64 {
 	public inline function new(high, low) {
 		this.high = high;
 		this.low = low;
+		
 	}
 
 	public static inline function ofInt(x:Int) {
@@ -1597,8 +1602,8 @@ interface Error {
 }
 
 @:structInit
-private class AnyInterfaceData {
-	public var value:Any;
+private class AnyInterfaceData<T> {
+	public var value:T;
 	public var type:stdgo.reflect.Reflect.Type;
 
 	public function new(value,type) {
@@ -1610,12 +1615,13 @@ private class AnyInterfaceData {
 	}
 }
 @:forward
-abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
+@:transitive
+abstract AnyInterface<T>(AnyInterfaceData<T>) from AnyInterfaceData<T> {
 	public inline function new(obj = null) {
 		this = obj;
 	}
-	@:to private inline function to<T>() {
-		return (this.value : T);
+	@:to private inline function to<K>():K {
+		return ((this.value : T) : K);
 	}
 }
 

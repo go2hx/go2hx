@@ -8,6 +8,11 @@ import haxe.macro.Expr;
 using Lambda;
 
 class Macro {
+	#if macro
+	public static function buildMono() {
+		return null;
+	}
+	#end
 	public static macro function initLocals() {
 		// Grab the variables accessible in the context the macro was called.
 		var locals = Context.getLocalVars();
@@ -26,20 +31,10 @@ class Macro {
 	}
 
 	#if macro
-	public static function externsGo() {
-		Context.onAfterTyping(types -> {
-			#if macro
-			for (type in types) {
-				switch type {
-					default:
-						trace("t: " + type);
-				}
-			}
-			#end
-		});
+	public static function run() {
+		
 	}
 	#end
-
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {
 			case KAbstractImpl(_.get() => {type: TAbstract(_.get() => {name: "Int"}, _)}):

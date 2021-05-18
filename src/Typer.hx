@@ -1016,7 +1016,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):
-					var type:ComplexType = TPath({pack: [],name: "AnyInterface"});
+					var type:ComplexType = anyInterfaceType();
 					if (types.length == 1)
 						type = types[0];
 					exprs.unshift(macro var $setVar:$type = $assign);
@@ -1324,10 +1324,7 @@ private function chanType(expr:Ast.ChanType, info:Info):ComplexType {
 private function interfaceType(expr:Ast.InterfaceType, info:Info):ComplexType {
 	if (expr.methods.list.length == 0) {
 		// dynamic
-		return TPath({
-			name: "AnyInterface",
-			pack: [],
-		});
+		return anyInterfaceType();
 	} else {
 		// anonymous struct
 		var fields = typeFieldListFields(expr.methods, info, [], false, true);
@@ -2849,7 +2846,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					fields: [],
 					pack: [],
 					meta: [],
-					kind: TDAlias(TPath({name: "AnyInterface", pack: []})),
+					kind: TDAlias(anyInterfaceType()),
 				}
 			}
 			var fields = typeFieldListMethods(struct.methods, info, true);
@@ -2867,6 +2864,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			return null;
 	}
 }
+
+private function anyInterfaceType()
+	return TPath({name: "AnyInterface", pack: [], params: [TPType(TPath({name: "UnknownMono", pack: []}))]});
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
@@ -2894,7 +2894,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 private function isInterface(type:ComplexType):Bool {
 	switch type {
 		case TPath(p):
-			if (p.name == "AnyInterface")
+			if (p.name == "AnyInterface" && p.params != null)
 				return true;
 		default:
 	}

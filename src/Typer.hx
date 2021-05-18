@@ -1790,6 +1790,10 @@ private function typeRest(expr:Expr):Expr {
 }
 
 private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
+	return setBasicLit(expr.kind,expr.value,info);
+}
+
+private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 	final bs = "\\".charAt(0);
 	function formatEscapeCodes(value:String):String {
 		value = StringTools.replace(value, bs + "a", "\x07");
@@ -1810,34 +1814,33 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 		// value = StringTools.replace(value,bs + "" ,"\x27");
 		return value;
 	}
-	return switch expr.kind {
+	return switch kind {
 		case STRING:
-			var value = expr.value;
 			value = StringTools.replace(value, "\\", "\"".substr(0, 1));
 			var e = toExpr(EConst(CString(value)));
 			if (info.hasType)
 				return e.expr;
 			return (macro($e : GoString)).expr;
 		case INT:
-			if (expr.value.length > 10) {
+			if (value.length > 10) {
 				try {
-					var i = haxe.Int64Helper.parseString(expr.value);
+					var i = haxe.Int64Helper.parseString(value);
 					if (i > 2147483647 || i < -2147483647) {
-						return EConst(CString(expr.value));
+						return EConst(CString(value));
 					}
 				} catch (e) {
-					trace("basic lit int error: " + e + " value: " + expr.value);
+					trace("basic lit int error: " + e + " value: " + value);
 				}
 			}
-			var e = toExpr(EConst(CInt(expr.value)));
+			var e = toExpr(EConst(CInt(value)));
 			if (info.hasType)
 				return e.expr;
 			ECheckType(e, TPath({name: "IntegerType", pack: []}));
 		case FLOAT:
-			var e = toExpr(EConst(CFloat(expr.value)));
+			var e = toExpr(EConst(CFloat(value)));
 			ECheckType(e,TPath({name: "GoFloat64",pack: []}));
 		case CHAR:
-			var value = formatEscapeCodes(expr.value);
+			var value = formatEscapeCodes(value);
 			if (value == bs + "'") {
 				value = "'";
 			}
@@ -1847,11 +1850,11 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 			}
 			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
-			EConst(CIdent(nameIdent(expr.value, info, false, false)));
+			EConst(CIdent(nameIdent(value, info, false, false)));
 		case IMAG: // TODO: IMPLEMENT COMPLEX NUMBER
-			return (macro new GoComplex128(0, ${toExpr(EConst(CFloat(expr.value)))})).expr;
+			(macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))})).expr;
 		default:
-			throw "basic lit kind unknown: " + expr.kind;
+			throw "basic lit kind unknown: " + kind;
 			null;
 	}
 }
@@ -2008,17 +2011,16 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 				expr: e.value,
 			});
 		} else {
-			var key:Expr = null;
-			switch e.kind {
-				case "INT":
-					key = toExpr(EConst(CInt(e.key)));
-				case "FLOAT":
-					key = toExpr(EConst(CFloat(e.key)));
-				case "STRING":
-					key = toExpr(EConst(CString(e.key)));
+			var kind:Ast.Token = switch e.kind {
+				case "INT": INT;
+				case "FLOAT": FLOAT;
+				case "STRING": STRING;
+				case "CHAR": CHAR;
+				case "IMAG": IMAG;
 				default:
 					throw "unknown key kind: " + e.kind;
-			}
+			};
+			var key:Expr = toExpr(setBasicLit(kind,e.key,info));
 			exprs.push(macro {
 				key: $key,
 				value: ${e.value},

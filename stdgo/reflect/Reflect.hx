@@ -31,7 +31,8 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>,type:GT_enum);
+	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>);
+	GT_aliasType(pack:String,module:String,name:String,type:GT_enum);
 	GT_previouslyNamed(name:String);
 }
 
@@ -59,11 +60,11 @@ class Value implements StructType {
 	var underlyingType:Type;
 	public var _address_:Int;
 
-	public function new(v:AnyInterface<UnknownMono> = null, t:Type=null) {
+	public function new(val:Any = null, t:Type=null) {
 		if (t == null)
 			t = new Type(GT_invalid);
 		_address_ = ++Go.addressIndex;
-		val = v;
+		this.val = val;
 		surfaceType = t;
 		underlyingType = findUnderlying(t);
 	}
@@ -77,8 +78,10 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			case GT_aliasType(pack, module, name, type):
                 return new Type(type);
+			case GT_ptr(elem):
+				return new Type(elem);
 			default:
 				return t;
 		}
@@ -102,7 +105,7 @@ class Value implements StructType {
 	public function bool():Bool {
 		switch (underlyingType.gt) {
 			case GT_bool:
-				return (val : Bool);
+				return val;
 			default:
 				throw new ValueError("Bool", underlyingType.kind());
 		}
@@ -112,7 +115,7 @@ class Value implements StructType {
 	public function int():GoInt64 {
 		switch (underlyingType.gt) {
 			case GT_int, GT_int8, GT_int16, GT_int32, GT_int64:
-				return (val : GoInt64);
+				return val;
 			default:
 				throw new ValueError("Int", underlyingType.kind());
 		}
@@ -122,7 +125,7 @@ class Value implements StructType {
 	public function uint():GoUInt64 {
 		switch (underlyingType.gt) {
 			case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64:
-				return (val : GoUInt64);
+				return val;
 			default:
 				throw new ValueError("Uint", underlyingType.kind());
 		}
@@ -132,7 +135,7 @@ class Value implements StructType {
 	public function float():GoFloat64 {
 		switch (underlyingType.gt) {
 			case GT_float32, GT_float64:
-				return (val : GoFloat64);
+				return val;
 			default:
 				throw new ValueError("Float", underlyingType.kind());
 		}
@@ -142,7 +145,7 @@ class Value implements StructType {
 	public function complex():GoComplex128 {
 		switch (underlyingType.gt) {
 			case GT_complex128, GT_complex64:
-				return (val : GoComplex128);
+				return val;
 			default:
 				throw new ValueError("Complex", underlyingType.kind());
 		}
@@ -152,7 +155,7 @@ class Value implements StructType {
 	public function string():GoString {
 		switch (underlyingType.gt) {
 			case GT_string:
-				return (val : GoString);
+				return val;
 			default:
 				throw new ValueError("String", underlyingType.kind());
 		}
@@ -185,23 +188,72 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 		return "reflect: call of " + this.method + " on " + this.kind.toString() + " Value";
 	}
 }
-
-function deepEqual(a1:AnyInterface<UnknownMono>,a2:AnyInterface<UnknownMono>):Bool {
-	if (a1 == null || a2 == null)
+function deepEqual(a1:AnyInterface<UnknownMono>, a2:AnyInterface<UnknownMono>):Bool {
+	var value:Dynamic = a1.value;
+	var value2:Dynamic = a2.value;
+	if (value == value)
+		return true;
+	if (value == null || value2 == null) {
 		return false;
-	switch a1.type.gt {
-		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-			switch a2.type.gt {
-				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2, type2):
-					if (module != module2)
-						return false;
-					return true;
-				default:
-					return false;
-			}
-		default:
-			return a1.type == a2.type && a1 == a2;
 	}
+	var t = Type.typeof(value);
+	switch t {
+		case TObject:
+			return compareStruct(value, value2);
+		case TClass(c):
+			var name = Type.getClassName(c);
+			switch name {
+				case "stdgo.SliceData", "stdgo._Slice.SliceData":
+					if (value.length != value.length)
+						return false;
+					for (i in 0...value.length) {
+						if (!deepEqual(value.get(i), value2.get(i))) {
+							trace("a1 not equal: " + a1);
+							return false;
+						}
+					}
+					return true;
+				case "stdgo.AnyInterfaceData", "stdgo._StdGoTypes.AnyInterfaceData":
+					if (value.typeName != value2.typeName)
+						return false;
+					return deepEqual(value.value, value2.value);
+				case "stdgo.PointerData":
+					return deepEqual(value.get(), value2.get());
+				case "haxe._Int64.___Int64":
+					return haxe.Int64.eq(value, value2);
+				case "stdgo.Complex":
+					return value.real == value2.real && value.imag == value2.imag;
+				default:
+					// trace("unknown name: " + name);
+			}
+			return compareStruct(value, value2);
+		case TFunction:
+			return Reflect.compareMethods(value, value2);
+		case TInt:
+			return value == value2;
+		case TFloat:
+			return value == value2;
+		default:
+			trace('unknown type: $t');
+	}
+	return false;
+}
+
+function compareStruct(a1:Dynamic, a2:Dynamic) {
+	// fields
+	var f1 = Reflect.fields(a1);
+	var f2 = Reflect.fields(a2);
+	if (f1.length != f2.length)
+		return false;
+	for (i in 0...f1.length) {
+		if (f1[i] == "_address_")
+			continue;
+		if (!deepEqual(Reflect.field(a1, f1[i]), Reflect.field(a2, f2[i]))) {
+			trace("field not equal: " + f1[i] + " fields: " + f1);
+			return false;
+		}
+	}
+	return true;
 }
 
 function typeOf(iface:AnyInterface<UnknownMono>):Type {
@@ -223,8 +275,10 @@ class Type {
 
 	public function kind():Kind {
 		switch (gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
-				return type == null ? new Kind(26) : new Type(type).kind(); //TODO
+			case GT_namedType(pack, module, name, methods, fields, interfaces):
+				return new Kind(26);
+			case GT_aliasType(pack, module, name, type):
+				return new Type(type).kind(); //TODO
 			default:
 				return new Kind(EnumValueTools.getIndex(gt));
 		}
@@ -254,7 +308,9 @@ class Type {
 			case GT_string: return "string";
 			case GT_field(name, type, tag):
 				return new Type(type).toString();
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			case GT_namedType(pack, module, name, methods, fields, interfaces):
+				return module + "." + name;
+			case GT_aliasType(pack, module, name, type):
 				return module + "." + name;
 			case GT_ptr(elem):
 				return "*" + new Type(elem).toString();
@@ -324,7 +380,7 @@ class Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case GT_namedType(_,_,_,methods,_,_,_), GT_interface(_,_,_,methods):
+			case GT_namedType(_,_,_,methods,_,_), GT_interface(_,_,_,methods):
 				return methods.length;
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
@@ -334,7 +390,7 @@ class Type {
 
 	public function hasName():Bool {
 		switch gt {
-			case GT_namedType(_,_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_), GT_previouslyNamed(_):
+			case GT_namedType(_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_), GT_previouslyNamed(_):
 				return true;
 			default:
 		}
@@ -342,7 +398,7 @@ class Type {
 	}
 	public function name():GoString {
 		switch gt {
-			case GT_namedType(_, _, name, _, _, _, _), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name):
+			case GT_namedType(_, _, name, _, _,_), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name), GT_aliasType(_,_,name,_):
 				return name;
 			default:
 				trace("gt: " + gt);
@@ -351,15 +407,26 @@ class Type {
 	}
 	public function pkgPath():GoString {
 		return switch gt {
-			case GT_namedType(pack, _, _, _, _, _, _), GT_interface(pack,_,_,_): pack;
+			case GT_namedType(pack, _, _, _, _, _), GT_interface(pack,_,_,_), GT_aliasType(pack,_,_,_): pack;
 			case GT_previouslyNamed(name): name.substr(0,name.lastIndexOf("."));
 			default: "";
 		}
 	}
 
+	public function isVariadic():Bool {
+		return switch gt {
+			case GT_func(input,_): false;//TODO handle variadic
+			case GT_aliasType(_, _, _, type): 
+				if (type == null || type == GT_invalid) 
+					throw "not an alias type: " + type;
+				new Type(type).isVariadic();
+			default: throw "not a function: " + gt;
+		}
+	}
+
 	public function method(index:GoInt):Method {
 		switch gt {
-			case GT_namedType(pack,module, name, methods, _, _, _), GT_interface(pack,module, name, methods):
+			case GT_namedType(pack,module, name, methods, _, _), GT_interface(pack,module, name, methods):
 				var method = methods[index.toBasic()];
 				switch method {
 					case GT_field(name2, type, tag):
@@ -384,7 +451,7 @@ class Type {
 
 	public function field(index:GoInt):StructField {
 		switch gt {
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			case GT_namedType(pack, module, name, methods, fields, interfaces):
 				var field = fields[index.toBasic()];
 				switch field {
 					case GT_field(name, type, tag):
@@ -411,7 +478,7 @@ class Type {
 
 	public function numField():GoInt {
 		switch (gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+			case GT_namedType(pack, module, name, methods, fields, interfaces):
 				return fields.length;
 			case GT_struct(fields):
 				return fields.length;
@@ -455,7 +522,7 @@ class Type {
 	}
 }
 
-class StructTag__extension {
+class StructTag__extension { //TODO implement functionality for methods
 	public static function get(tag:StructTag,key:GoString):GoString {
 		return "";
 	}
@@ -509,6 +576,29 @@ class StructTag__extension {
 
 private function directlyAssignable(t:Type,v:Type):Bool {
 	switch t.gt {
+		case GT_chan(elem), GT_slice(elem):
+			return switch v.gt {
+				case GT_chan(elem2): new Type(elem).assignableTo(new Type(elem2));
+				default: false;
+			}
+		case GT_array(elem, len):
+			return switch v.gt {
+				case GT_array(elem2, len2):
+					if (len != len2)
+						return false;
+					new Type(elem).assignableTo(new Type(elem2));
+				default: false;
+			}
+		case GT_map(key, value):
+			return switch v.gt {
+				case GT_map(key2, value2):
+					if (!new Type(key).assignableTo(new Type(key2)))
+						return false;
+					if (!new Type(value).assignableTo(new Type(value2)))
+						return false;
+					true;
+				default: false;
+			}
 		case GT_struct(fields):
 			switch v.gt {
 				case GT_struct(fields2):
@@ -530,9 +620,9 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				default:
 					return false;
 			}
-		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+		case GT_namedType(pack, module, name, methods, fields, interfaces):
 			switch v.gt {
-				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2, type2):
+				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2):
 					if (module != module2)
 						return false;
 					if (name != name2)
@@ -541,10 +631,33 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				default:
 					return false;
 			}
+		case GT_aliasType(pack, module, name, type):
+			switch v.gt {
+				case GT_aliasType(pack2, module2, name2, type2):
+					if (module != module2)
+						return false;
+					if (name != name2)
+						return false;
+				default:
+					return false;
+			}
 		case GT_interface(pack, module, name, methods):
 			if (methods.length == 0)
 				return true;
 			return false; //checked by implements instead
+		case GT_func(input,output):
+			return false; //TODO: don't know what to do here to be honest, if assinable can even be checked
+			/*switch v.gt {
+				case GT_func(input2,output2):
+					if (input.length != input2.length)
+						return false;
+					if (output.length != output2.length)
+						return false;
+
+					return true;
+				default:
+					return false;
+			}*/
 		default:
 			if (t.gt.getParameters().length == 0 && v.gt.getParameters().length == 0) {
 				if (t.gt.getIndex() == v.gt.getIndex())
@@ -580,11 +693,13 @@ private function implementsMethod(t:Type,v:Type):Bool {
 				return true;
 			interfaceModule = module;
 			interfaceName = name;
+		case GT_func(_,_):
+			return false; //implements method not checked for functions
 		default:
 			throw "not an interface: " + v.gt;
 	}
 	switch v.gt {
-		case GT_namedType(pack, module, name, methods, fields, interfaces, type):
+		case GT_namedType(pack, module, name, methods, fields, interfaces):
 			for (i in interfaces) {
 				switch i {
 					case GT_interface(_, module, name, _):

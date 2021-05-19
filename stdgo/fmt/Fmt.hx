@@ -1,7 +1,6 @@
 package stdgo.fmt;
 
 import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.IntegerType;
 import haxe.Int64;
 import stdgo.io.Io.Writer;
 import haxe.Rest;

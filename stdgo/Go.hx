@@ -25,7 +25,7 @@ class Go {
 						return null;
 					case "GoArray":
 						return macro new $p();
-					case "FloatType", "IntegerType", "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8",
+					case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8",
 						"GoInt16", "GoInt32", "GoInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
 						if (strict)
 							return macro(0 : $t);
@@ -136,7 +136,7 @@ class Go {
 							}
 							return macro {
 								var slice = new $p();
-								var size:IntegerType = $size;
+								var size:GoInt64 = $size;
 								var value = $value;
 								slice.grow(size);
 								var i = 0;
@@ -582,7 +582,7 @@ class Go {
 					case "GoArray", "Slice", "Map":
 						return macro new stdgo.Pointer.PointerWrapper($expr);
 					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt8",
-						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128", "IntegerType":
+						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
 						isRealPointer = true;
 					case "Pointer", "PointerWrapper": // double or even triple pointer
 						isRealPointer = true;
@@ -727,6 +727,7 @@ class Go {
 									}
 									//normal
 									if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
+										trace("params: " + t.params);
 										params[i] = macro Go.getInterface(${params[i]});
 									}
 								default:
@@ -845,8 +846,6 @@ class Go {
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
 						ret = macro macro stdgo.reflect.Reflect.GT_enum.GT_map(ps[0], ps[1]);
-					case "stdgo.IntegerType":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_int;
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_int8;
 					case "stdgo.GoInt16":

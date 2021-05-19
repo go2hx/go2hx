@@ -1,6 +1,6 @@
 package stdgo;
 
-import stdgo.StdGoTypes.IntegerType;
+import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoRune;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoByte;
@@ -24,8 +24,8 @@ abstract GoString(String) from String to String {
 		return bytes.toString();
 	}
 
-	@:from static function ofIntegerType(x:IntegerType):GoString {
-		return String.fromCharCode(x);
+	@:from static function ofInt64(x:GoInt64):GoString {
+		return String.fromCharCode(x.toBasic().low);
 	}
 	@:op([])
 	public inline function get(index:GoInt)

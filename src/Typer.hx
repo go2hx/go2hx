@@ -1565,7 +1565,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function iotaExpr(info:Info):Expr {
-	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "IntegerType", pack: []})));
+	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "GoInt64", pack: []})));
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
@@ -1835,7 +1835,7 @@ private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 			var e = toExpr(EConst(CInt(value)));
 			if (info.hasType)
 				return e.expr;
-			ECheckType(e, TPath({name: "IntegerType", pack: []}));
+			ECheckType(e, TPath({name: "GoInt64", pack: []}));
 		case FLOAT:
 			var e = toExpr(EConst(CFloat(value)));
 			ECheckType(e,TPath({name: "GoFloat64",pack: []}));
@@ -2062,7 +2062,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var y = typeExpr(expr.y, info);
 	switch expr.op { // operators that don't exist in haxe need to be handled here
 		case AND_NOT: // refrenced from Simon's Tardisgo
-			return (macro $x & ($y ^ (-1 : IntegerType))).expr;
+			return (macro $x & ($y ^ (-1 : GoInt64))).expr;
 		default:
 	}
 	var op = typeOp(expr.op);

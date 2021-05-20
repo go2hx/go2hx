@@ -91,8 +91,8 @@ class Value implements StructType {
 	public inline function kind()
 		return surfaceType.kind();
 
-	public inline function interface_()
-		return val;
+	public inline function interface_():AnyInterface<UnknownMono>
+		return Go.getInterface(val);
 
 	public inline function isNil()
 		return val == null;

@@ -898,7 +898,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default:
 						var ref = ref.get();
-						var interfaces = [];
+						var interfaces:Array<Expr> = [];
 						for (t in ref.to) {
 							switch t.t {
 								case TInst(tt, params):
@@ -910,7 +910,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType(
 							$v{ref.pack.join(".")},
 							$v{ref.module},$v{ref.name},
-							[],[],
+							[],
 							$a{interfaces},
 							${gtDecode(ref.type)}
 						);

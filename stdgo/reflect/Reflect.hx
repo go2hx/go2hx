@@ -31,8 +31,7 @@ enum GT_enum {
 	GT_map(key:GT_enum, value:GT_enum);
 	GT_struct(fields:Array<GT_enum>);
 	GT_field(name:String,type:GT_enum,tag:String);
-	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>);
-	GT_aliasType(pack:String,module:String,name:String,type:GT_enum);
+	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,interfaces:Array<GT_enum>, type:GT_enum);
 	GT_previouslyNamed(name:String);
 	GT_variadic(type:GT_enum);
 }
@@ -79,7 +78,7 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_aliasType(pack, module, name, type):
+			case GT_namedType(_,_,_,_,_,type):
                 return new Type(type);
 			case GT_ptr(elem):
 				return new Type(elem);
@@ -275,14 +274,7 @@ class Type {
 	}
 
 	public function kind():Kind {
-		switch (gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces):
-				return new Kind(26);
-			case GT_aliasType(pack, module, name, type):
-				return new Type(type).kind(); //TODO
-			default:
-				return new Kind(EnumValueTools.getIndex(gt));
-		}
+		return new Kind(EnumValueTools.getIndex(gt));
 	}
 
 	public function size():GoUIntptr {
@@ -310,9 +302,7 @@ class Type {
 			case GT_string: return "string";
 			case GT_field(name, type, tag):
 				return new Type(type).toString();
-			case GT_namedType(pack, module, name, methods, fields, interfaces):
-				return module + "." + name;
-			case GT_aliasType(pack, module, name, type):
+			case GT_namedType(_, module, name, _, _, _):
 				return module + "." + name;
 			case GT_ptr(elem):
 				return "*" + new Type(elem).toString();
@@ -384,7 +374,7 @@ class Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case GT_namedType(_,_,_,methods,_,_), GT_interface(_,_,_,methods):
+			case GT_namedType(_, _, _, methods, _, _), GT_interface(_,_,_,methods):
 				return methods.length;
 			default:
 				throw new Error("reflect.NumMethod not implemented for " + toString());
@@ -394,7 +384,7 @@ class Type {
 
 	public function hasName():Bool {
 		switch gt {
-			case GT_namedType(_,_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_), GT_previouslyNamed(_):
+			case GT_namedType(_,_,_,_,_), GT_interface(_, _, _, _), GT_field(_,_,_), GT_previouslyNamed(_):
 				return true;
 			default:
 		}
@@ -402,7 +392,7 @@ class Type {
 	}
 	public function name():GoString {
 		switch gt {
-			case GT_namedType(_, _, name, _, _,_), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name), GT_aliasType(_,_,name,_):
+			case GT_namedType(_, _,name, _,_,_), GT_interface(_,_,name,_), GT_field(name,_,_), GT_previouslyNamed(name):
 				return name;
 			default:
 				trace("gt: " + gt);
@@ -411,7 +401,7 @@ class Type {
 	}
 	public function pkgPath():GoString {
 		return switch gt {
-			case GT_namedType(pack, _, _, _, _, _), GT_interface(pack,_,_,_), GT_aliasType(pack,_,_,_): pack;
+			case GT_namedType(pack, _, _, _, _), GT_interface(pack,_,_,_): pack;
 			case GT_previouslyNamed(name): name.substr(0,name.lastIndexOf("."));
 			default: "";
 		}
@@ -426,7 +416,7 @@ class Type {
 					case GT_variadic(_): true;
 					default: false;
 				}
-			case GT_aliasType(_, _, _, type): 
+			case GT_namedType(_, _,_,_,_,type): 
 				if (type == null || type == GT_invalid) 
 					throw "not an alias type: " + type;
 				new Type(type).isVariadic();
@@ -460,8 +450,15 @@ class Type {
 	}
 
 	public function field(index:GoInt):StructField {
+		var module = "";
 		switch gt {
-			case GT_namedType(pack, module, name, methods, fields, interfaces):
+			case GT_namedType(_, m, _, _, _, type):
+				gt = type;
+				module = m;
+			default:
+		}
+		switch gt {
+			case GT_struct(fields):
 				var field = fields[index.toBasic()];
 				switch field {
 					case GT_field(name, type, tag):
@@ -488,8 +485,8 @@ class Type {
 
 	public function numField():GoInt {
 		switch (gt) {
-			case GT_namedType(pack, module, name, methods, fields, interfaces):
-				return fields.length;
+			case GT_namedType(_, _, _, _,_,type):
+				return new Type(type).numField();
 			case GT_struct(fields):
 				return fields.length;
 			default:
@@ -525,9 +522,10 @@ class Type {
 				return true;
 			case GT_field(name, type, tag):
 				return new Type(type).comparable();
+			case GT_namedType(pack, module, name, methods, interfaces, type):
+				return new Type(type).comparable();
 			default:
-				// TODO named types
-				return true;
+				return false;
 		}
 	}
 }
@@ -630,24 +628,10 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				default:
 					return false;
 			}
-		case GT_namedType(pack, module, name, methods, fields, interfaces):
+		case GT_namedType(_,_,_,_,_,t):
 			switch v.gt {
-				case GT_namedType(pack2, module2, name2, methods2, fields2, interfaces2):
-					if (module != module2)
-						return false;
-					if (name != name2)
-						return false;
-					return true;
-				default:
-					return false;
-			}
-		case GT_aliasType(pack, module, name, type):
-			switch v.gt {
-				case GT_aliasType(pack2, module2, name2, type2):
-					if (module != module2)
-						return false;
-					if (name != name2)
-						return false;
+				case GT_namedType(_,_,_,_,_,t2):
+					return directlyAssignable(new Type(t),new Type(t2));
 				default:
 					return false;
 			}
@@ -716,7 +700,7 @@ private function implementsMethod(t:Type,v:Type):Bool {
 			return false;
 	}
 	switch v.gt {
-		case GT_namedType(pack, module, name, methods, fields, interfaces):
+		case GT_namedType(_, _, _, _, interfaces,_):
 			for (i in interfaces) {
 				switch i {
 					case GT_interface(_, module, name, _):

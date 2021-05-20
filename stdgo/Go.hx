@@ -668,7 +668,15 @@ class Go {
 							return expr;
 						var t2 = t2.get();
 						if (t2.name == "AnyInterface") {
-							e = macro $e.value;
+							var convertToInterface = false;
+							switch ComplexTypeTools.toType(t) {
+								case TInst(t, params):
+									var t = t.get();
+									if (t.isInterface)
+										convertToInterface = true;
+								default:
+							}
+							e = convertToInterface ? macro $e.value : macro ($e.value : Any);
 							return macro ($e : $t);
 						}
 					default:
@@ -727,7 +735,6 @@ class Go {
 									}
 									//normal
 									if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
-										trace("params: " + t.params);
 										params[i] = macro Go.getInterface(${params[i]});
 									}
 								default:
@@ -833,19 +840,22 @@ class Go {
 				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
 			case TType(ref, params):
 				var ref = ref.get();
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType(ref.pack,$v{parseModule(ref.module)},ref.name, [], [], [], gtDecode(ref.type));
+				var t = gtDecode(ref.type);
+				ret = macro stdgo.reflect.Reflect.GT_enum.GT_aliasType($v{ref.pack.join(".")},$v{parseModule(ref.module)},$v{ref.name}, $t);
 			case TAbstract(ref, params):
 				var sref:String = ref.toString();
 				switch (sref) {
+					case "haxe.Rest":
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_variadic($a{gtParams(params)});
 					case "stdgo.Slice":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_slice(gtParams(params)[0]);
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_slice($a{gtParams(params)});
 					case "stdgo.GoArray":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(gtParams(params)[0], -1); // TODO go2hx does not store the length in the type
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, -1); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer", "stdgo.PointerWrapper", "stdgo.GoArrayPointer":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr(gtParams(params)[0]);
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
-						ret = macro macro stdgo.reflect.Reflect.GT_enum.GT_map(ps[0], ps[1]);
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_map($a{ps});
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_int8;
 					case "stdgo.GoInt16":
@@ -907,10 +917,14 @@ class Go {
 				}
 			case TInst(ref, params):
 				var ref = ref.get();
-				if (ref.isInterface) {
-					ret = gtDecodeInterfaceType(ref);
+				if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
+					ret = macro stdgo.reflect.Reflect.GT_enum.GT_chan($a{gtParams(params)});
 				}else{
-					ret = gtDecodeClassType(ref);
+					if (ref.isInterface) {
+						ret = gtDecodeInterfaceType(ref);
+					}else{
+						ret = gtDecodeClassType(ref);
+					}
 				}
 			case TAnonymous(a):
 				var a = a.get();
@@ -927,7 +941,16 @@ class Go {
 				for (arg in a) {
 					args.push(gtDecode(arg.t));
 				}
-				var results = [gtDecode(result)]; //TODO handle multi return
+				var results = []; //TODO handle multi return
+				var isVoid = false;
+				switch result {
+					case TAbstract(t, params):
+						if (t.toString() == "Void")
+							isVoid = true;
+					default:
+				}
+				if (!isVoid)
+					results.push(gtDecode(result));
 				ret = macro stdgo.reflect.Reflect.GT_enum.GT_func($a{args},$a{results});
 			case TDynamic(t):
 				ret = macro stdgo.reflect.Reflect.GT_enum.GT_interface(
@@ -991,18 +1014,19 @@ class Go {
 									}
 									rets.push(gtDecode(ret));
 							}
-							params.unshift(macro stdgo.reflect.Reflect.GT_enum.GT_field("this",macro stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed(module + "." + ref.name),"")); //recv
-							methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field(field.name,macro stdgo.reflect.Reflect.GT_enum.GT_func(params,rets),""));
+							params.unshift(macro stdgo.reflect.Reflect.GT_enum.GT_field("this", stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{module} + "." + $v{ref.name}),"")); //recv
+							methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, stdgo.reflect.Reflect.GT_enum.GT_func($a{params},$a{rets}),""));
 						default:
 							throw "method needs to be a function";
 					}
 				default:
 					if (field.name == "_address_")
 						continue;
-					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field(field.name,gtDecode(field.type),""));
+					var t = gtDecode(field.type);
+					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},$t,""));
 			}
 		}
-		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack},$v{module}, $v{ref.name},$a{methods},$a{fields},$a{interfaces},GT_invalid);
+		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{module}, $v{ref.name},$a{methods},$a{fields},$a{interfaces});
 	}
 
 	private static function parseModule(module:String):String {

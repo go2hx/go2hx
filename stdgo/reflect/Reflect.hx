@@ -34,6 +34,7 @@ enum GT_enum {
 	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,fields:Array<GT_enum>,interfaces:Array<GT_enum>);
 	GT_aliasType(pack:String,module:String,name:String,type:GT_enum);
 	GT_previouslyNamed(name:String);
+	GT_variadic(type:GT_enum);
 }
 
 class Error implements StructType implements stdgo.StdGoTypes.Error {
@@ -296,6 +297,7 @@ class Type {
 			case GT_int16: return "int16";
 			case GT_int32: return "int32";
 			case GT_int64: return "int64";
+			case GT_uint: return "uint";
 			case GT_uint8: return "uint8";
 			case GT_uint16: return "uint16";
 			case GT_uint32: return "uint32";
@@ -354,6 +356,8 @@ class Type {
 				return r;
 			case GT_invalid:
 				return "invalid";
+			case GT_variadic(type):
+				return "..." + new Type(type).toString();
 			default:
 				throw "not found enum toString " + gt; //should never get here!!!
 		}
@@ -415,7 +419,13 @@ class Type {
 
 	public function isVariadic():Bool {
 		return switch gt {
-			case GT_func(input,_): false;//TODO handle variadic
+			case GT_func(inputs,_):
+				if (inputs.length == 0)
+					return false;
+				return switch inputs[inputs.length - 1] {
+					case GT_variadic(_): true;
+					default: false;
+				}
 			case GT_aliasType(_, _, _, type): 
 				if (type == null || type == GT_invalid) 
 					throw "not an alias type: " + type;
@@ -646,8 +656,7 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				return true;
 			return false; //checked by implements instead
 		case GT_func(input,output):
-			return false; //TODO: don't know what to do here to be honest, if assinable can even be checked
-			/*switch v.gt {
+			switch v.gt {
 				case GT_func(input2,output2):
 					if (input.length != input2.length)
 						return false;
@@ -657,10 +666,20 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 					return true;
 				default:
 					return false;
-			}*/
+			}
 		default:
 			if (t.gt.getParameters().length == 0 && v.gt.getParameters().length == 0) {
-				if (t.gt.getIndex() == v.gt.getIndex())
+				var t = t.gt.getIndex();
+				var v = v.gt.getIndex();
+				if (t == GT_int.getIndex()) {
+					if (v == GT_int32.getIndex() || v == GT_int64.getIndex())
+						return true;
+				}
+				if (v == GT_int.getIndex()) {
+					if (t == GT_int32.getIndex() || t == GT_int64.getIndex())
+						return true;
+				}
+				if (t == v)
 					return true;
 			}else{
 				trace("unknown gt type: " + t.gt);
@@ -693,10 +712,8 @@ private function implementsMethod(t:Type,v:Type):Bool {
 				return true;
 			interfaceModule = module;
 			interfaceName = name;
-		case GT_func(_,_):
-			return false; //implements method not checked for functions
 		default:
-			throw "not an interface: " + v.gt;
+			return false;
 	}
 	switch v.gt {
 		case GT_namedType(pack, module, name, methods, fields, interfaces):

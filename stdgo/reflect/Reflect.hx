@@ -78,10 +78,8 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (t.gt) {
-			case GT_namedType(_,_,_,_,_,type):
-                return new Type(type);
-			case GT_ptr(elem):
-				return new Type(elem);
+			case GT_namedType(_,_,_,_,_,elem), GT_ptr(elem):
+				return findUnderlying(new Type(elem));
 			default:
 				return t;
 		}

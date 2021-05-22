@@ -1847,7 +1847,7 @@ private function parseGoType(e:ExprType) {
 		case "Named":
 			named(e.path,parseGoType(e.underlying));
 		case "Struct":
-			struct([for (field in (e.fields : Array<Dynamic>)) parseGoType(field)]);
+			struct([for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: parseGoType(field.type)}]);
 		case null:
 			null;
 		default:
@@ -1972,22 +1972,34 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		for (elt in expr.elts) {
 			params.push(typeExpr(elt, info));
 		}
-		var isInterface = false;
 		var type = parseGoType(expr.typeLit);
+		switch type {
+			case named(path, underlying):
+				type = underlying; //set underlying
+			default:
+		}
 		switch type {
 			case slice(elem):
 				switch elem {
 					case interfaceValue(numMethods):
 						if (numMethods == 0) {
-							isInterface = true;
+							for (i in 0...params.length) //set all to interface{}
+								params[i] = macro Go.getInterface(${params[i]});
 						}
 					default:
+				}
+			case struct(fields):
+				for (i in 0...fields.length) {
+					switch fields[i].type {
+						case interfaceValue(numMethods):
+							if (numMethods == 0)
+								params[i] = macro Go.getInterface(${params[i]});
+						default:
+					}
 				}
 			default:
 				trace(type);
 		}
-		for (i in 0...params.length)
-			params[i] = macro Go.getInterface(${params[i]});
 	}
 	if (expr.type == null) {
 		if (isKeyValueExpr(expr.elts)) {

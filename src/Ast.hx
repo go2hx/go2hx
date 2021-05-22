@@ -440,10 +440,15 @@ enum GoType {
 	interfaceValue(numMethods:Int);
 	slice(elem:GoType);
 	named(path:String,underlying:GoType);
-	struct(fields:Array<GoType>);
+	struct(fields:Array<FieldType>);
 	pointer(elem:GoType);
 	array(elem:GoType,len:Int);
 	map(key:GoType,value:GoType);
+}
+
+typedef FieldType = {
+	name:String,
+	type:GoType,
 }
 
 enum BasicKind {

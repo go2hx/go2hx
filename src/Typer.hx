@@ -1,3 +1,4 @@
+import Ast.ExprType;
 import stdgo.Pointer.PointerWrapper;
 import sys.io.File;
 import haxe.io.Path;
@@ -9,6 +10,7 @@ import haxe.macro.Type.ModuleType;
 import haxe.macro.Expr;
 import haxe.DynamicAccess;
 import sys.FileSystem;
+import Ast.GoType;
 
 var stdgoList:Array<String>;
 var excludes:Array<String>;
@@ -623,7 +625,6 @@ private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
 }
 
 private function typeStmt(stmt:Dynamic, info:Info):Expr {
-	info.hasType = false;
 	if (stmt == null)
 		return null;
 	var def = switch stmt.id {
@@ -958,6 +959,14 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 }
 
+private function isInterface(expr):Bool {
+	return false;
+}
+private function checkType(value,type):Expr {
+	return null;
+}
+
+
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 	var init:Expr = null;
 	if (stmt.init != null)
@@ -1002,7 +1011,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			return null;
 		var type = typeExprType(obj.list[i], info);
 		types.push(type);
-		var value = macro Go.assignable(($assign : $type));
+		var value = macro Go.assignable(($assign: $type));
 		if (i + 1 >= obj.list.length)
 			return value;
 		var next = condition(obj, i + 1);
@@ -1353,9 +1362,7 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	if (expr.len != null) {
 		// array
 		addImport("stdgo.GoArray", info);
-		info.hasType = true;
 		var len = typeExpr(expr.len, info);
-		info.hasType = false;
 		info.lengths.unshift(len);
 		return TPath({
 			pack: [],
@@ -1582,11 +1589,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	function genArgs(pos:Int=0) {
 		args = [for (arg in expr.args.slice(pos)) typeExpr(arg, info)];
 	}
-	function callWrap(expr:Expr):Expr {
-		if (args.length == 0)
-			return expr;
-		return macro Go.call($expr);
-	}
 	ellipsisFunc = function() {
 		if (!expr.ellipsis.noPos) {
 			var last = args.pop();
@@ -1632,7 +1634,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs();
 					ellipsisFunc();
 					var e = args.shift();
-					return callWrap(macro $e.append($a{args})).expr;
+					return (macro $e.append($a{args})).expr;
 				case "copy":
 					genArgs();
 					ellipsisFunc();
@@ -1640,7 +1642,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
-					return callWrap(macro $e.remove($key)).expr;
+					return (macro $e.remove($key)).expr;
 				case "print":
 					genArgs();
 					ellipsisFunc();
@@ -1776,14 +1778,83 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		genArgs();
 	ellipsisFunc();
 	var e = typeExpr(expr.fun, info);
-	return callWrap(macro $e{toExpr(ECall(e, args))}).expr;
+	var isFmt = false;
+	switch e.expr {
+		case EField(e, field):
+			var str = printer.printExpr(e);
+			str = str.substr(0,str.lastIndexOf("."));
+			if (str == "stdgo.fmt")
+				isFmt = true;
+		default:
+	}
+	if (!isFmt) {
+		var type = parseGoType(expr.type);
+		switch type {
+			case signature(variadic, params, results, recv):
+				switch params {
+					case tuple(len, vars):
+						for (i in 0...vars.length) {
+							switch vars[i] {
+								case varValue(name, type):
+									switch type {
+										case interfaceValue(numMethods):
+											if (numMethods == 0) {
+												args[i] = macro Go.getInterface(${args[i]});
+											}
+										default:
+									}
+								default:
+							}
+						}
+					default:
+						throw "params is not a tuple";
+				}
+			default:
+				throw "call is not a signature";
+		}
+	}
+	return (macro $e{toExpr(ECall(e, args))}).expr;
 }
 
-private function checkType(expr:Expr,type:ComplexType):Expr {
-	if (isInterface(type))
-		return macro Go.getInterface($expr);
-	return macro Go.checkType(($expr : $type)); //macro ($expr : $type);
+private function parseGoType(e:ExprType) {
+	return switch e.id {
+		case "Signature":
+			signature(
+				e.variadic,
+				parseGoType(e.params),
+				parseGoType(e.results),
+				parseGoType(e.recv)
+			);
+		case "Basic":
+			basic(e.kind);
+		case "Tuple":
+			tuple(
+				e.len,
+				[for (v in (e.vars : Array<Dynamic>)) parseGoType(v)]
+			);
+		case "Var":
+			varValue(e.name,parseGoType(e.type));
+		case "Interface":
+			interfaceValue(e.numMethods);
+		case "Slice":
+			slice(parseGoType(e.elem));
+		case "Array":
+			array(parseGoType(e.elem),e.len);
+		case "Pointer":
+			pointer(parseGoType(e.elem));
+		case "Map":
+			map(parseGoType(e.key),parseGoType(e.elem));
+		case "Named":
+			named(e.path,parseGoType(e.underlying));
+		case "Struct":
+			struct([for (field in (e.fields : Array<Dynamic>)) parseGoType(field)]);
+		case null:
+			null;
+		default:
+			throw "unknow go type: " + e.id;
+	}
 }
+
 
 private function typeRest(expr:Expr):Expr {
 	return macro...$expr.toArray();
@@ -1818,9 +1889,7 @@ private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 		case STRING:
 			value = StringTools.replace(value, "\\", "\"".substr(0, 1));
 			var e = toExpr(EConst(CString(value)));
-			if (info.hasType)
-				return e.expr;
-			return (macro($e : GoString)).expr;
+			return e.expr;
 		case INT:
 			if (value.length > 10) {
 				try {
@@ -1833,8 +1902,6 @@ private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 				}
 			}
 			var e = toExpr(EConst(CInt(value)));
-			if (info.hasType)
-				return e.expr;
 			ECheckType(e, TPath({name: "GoInt64", pack: []}));
 		case FLOAT:
 			var e = toExpr(EConst(CFloat(value)));
@@ -1897,14 +1964,30 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 }
 
 private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
-	info.hasType = false;
 	var params:Array<Expr> = [];
 	var p:TypePath = null;
 	var type:ComplexType = null;
+	//trace("type: " + expr.typeLit);
 	function getParams() {
 		for (elt in expr.elts) {
 			params.push(typeExpr(elt, info));
 		}
+		var isInterface = false;
+		var type = parseGoType(expr.typeLit);
+		switch type {
+			case slice(elem):
+				switch elem {
+					case interfaceValue(numMethods):
+						if (numMethods == 0) {
+							isInterface = true;
+						}
+					default:
+				}
+			default:
+				trace(type);
+		}
+		for (i in 0...params.length)
+			params[i] = macro Go.getInterface(${params[i]});
 	}
 	if (expr.type == null) {
 		if (isKeyValueExpr(expr.elts)) {
@@ -2868,7 +2951,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 }
 
 private function anyInterfaceType()
-	return TPath({name: "AnyInterface", pack: [], params: [TPType(TPath({name: "UnknownMono", pack: []}))]});
+	return TPath({name: "AnyInterface", pack: []});
 
 private function getAllow(info:Info) {
 	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
@@ -2893,25 +2976,13 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	}
 }
 
-private function isInterface(type:ComplexType):Bool {
-	switch type {
-		case TPath(p):
-			if (p.name == "AnyInterface" && p.params != null)
-				return true;
-		default:
-	}
-	return false;
-}
-
 private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
 	var type:ComplexType = null;
-	info.hasType = false;
 	info.lengths = [];
 	var interfaceBool = false;
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
 		interfaceBool = isInterface(type);
-		info.hasType = true;
 	}
 	var values:Array<TypeDefinition> = [];
 	for (i in 0...value.names.length) {
@@ -3067,7 +3138,6 @@ class Info {
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
 	public var thisName:String = "";
-	public var hasType:Bool = false;
 	public var lengths:Array<Expr> = [];
 	public var returnValues:Array<{name:String, type:ComplexType}> = [];
 	public var deferBool:Bool = false;
@@ -3089,7 +3159,6 @@ class Info {
 	public inline function clone() {
 		var info = new Info();
 		info.thisName = thisName;
-		info.hasType = hasType;
 		info.lengths = lengths;
 		info.returnNamed = returnNamed;
 		info.returnValues = returnValues;

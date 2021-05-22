@@ -5,6 +5,8 @@ package;
 };*/
 typedef Expr = Dynamic;
 typedef Stmt = Dynamic;
+typedef ExprType = Dynamic;
+typedef ExprObject = Dynamic;
 typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ObjKind = Int;
@@ -41,6 +43,7 @@ typedef BadExpr = {
 
 typedef Ident = {
 	name:String,
+	type:ExprObject,
 }
 
 typedef Ellipsis = {
@@ -69,6 +72,7 @@ typedef CompositeLit = {
 	elts:Array<Expr>,
 	rbrace:Pos,
 	incomplete:Bool,
+	typeLit:ExprType,
 };
 
 typedef ParenExpr = {
@@ -82,6 +86,7 @@ typedef SelectorExpr = {
 	// > Node,
 	x:Expr,
 	sel:Ident,
+	type:ExprType,
 };
 
 typedef IndexExpr = {
@@ -90,6 +95,7 @@ typedef IndexExpr = {
 	lbrack:Pos,
 	index:Expr,
 	rbrack:Pos,
+	type:ExprType,
 };
 
 typedef SliceExpr = {
@@ -109,6 +115,7 @@ typedef TypeAssertExpr = {
 	lparen:Pos,
 	type:Expr,
 	rparen:Pos,
+	typeX:ExprType,
 };
 
 typedef CallExpr = {
@@ -118,6 +125,7 @@ typedef CallExpr = {
 	args:Array<Expr>,
 	ellipsis:Pos,
 	rparen:Pos,
+	type:ExprType,
 };
 
 typedef StarExpr = {
@@ -139,6 +147,9 @@ typedef BinaryExpr = {
 	opPos:Pos,
 	op:Token,
 	y:Expr,
+
+	typeX:ExprType,
+	typeY:ExprType,
 };
 
 typedef KeyValueExpr = {
@@ -146,6 +157,9 @@ typedef KeyValueExpr = {
 	key:Expr,
 	colon:Pos,
 	value:Expr,
+
+	typeValue:ExprType,
+	typeKey:ExprType,
 };
 
 typedef ArrayType = {
@@ -160,6 +174,10 @@ typedef StructType = {
 	struct:Pos,
 	fields:FieldList,
 	incomplete:Bool,
+};
+
+typedef PointerType = {
+	elem:ExprType,
 };
 
 typedef FuncType = {
@@ -414,94 +432,141 @@ typedef Pos = {
 	noPos:Bool,
 }
 
+enum GoType {
+	signature(variadic:Bool,params:GoType,results:GoType,recv:GoType);
+	basic(kind:BasicKind);
+	tuple(len:Int,vars:Array<GoType>);
+	varValue(name:String,type:GoType);
+	interfaceValue(numMethods:Int);
+	slice(elem:GoType);
+	named(path:String,underlying:GoType);
+	struct(fields:Array<GoType>);
+	pointer(elem:GoType);
+	array(elem:GoType,len:Int);
+	map(key:GoType,value:GoType);
+}
+
+enum BasicKind {
+	bool_kind;
+	int_kind;
+	int8_kind;
+	int16_kind;
+	int32_kind;
+	int64_kind;
+	uint_kind;
+	uint8_kind;
+	uint16_kind;
+	uint32_kind;
+	uint64_kind;
+	uintptr_kind;
+	float32_kind;
+	float64_kind;
+	complex64_kind;
+	complex128_kind;
+	string_kind;
+	unsafepointer_kind;
+
+	untyped_bool_kind;
+	untyped_int_kind;
+	untyped_rune_kind;
+	untyped_float_kind;
+	untyped_complex_kind;
+	untyped_string_kind;
+	untyped_nil_kind;
+
+	//aliases
+	//byte = uint8
+	//rune = int32
+}
+
 @:enum abstract Token(String) {
-	public var ILLEGAL = "ILLEGAL";
-	public var EOF = "EOF";
-	public var COMMENT = "COMMENT";
-	public var literal_beg = "";
-	public var IDENT = "IDENT";
-	public var INT = "INT";
-	public var FLOAT = "FLOAT";
-	public var IMAG = "IMAG";
-	public var CHAR = "CHAR";
-	public var STRING = "STRING";
-	public var literal_end = "";
-	public var operator_beg = "";
-	public var ADD = "+";
-	public var SUB = "-";
-	public var MUL = "*";
-	public var QUO = "/";
-	public var REM = "%";
-	public var AND = "&";
-	public var OR = "|";
-	public var XOR = "^";
-	public var SHL = "<<";
-	public var SHR = ">>";
-	public var AND_NOT = "&^";
-	public var ADD_ASSIGN = "+=";
-	public var SUB_ASSIGN = "-=";
-	public var MUL_ASSIGN = "*=";
-	public var QUO_ASSIGN = "/=";
-	public var REM_ASSIGN = "%=";
-	public var AND_ASSIGN = "&=";
-	public var OR_ASSIGN = "|=";
-	public var XOR_ASSIGN = "^=";
-	public var SHL_ASSIGN = "<<=";
-	public var SHR_ASSIGN = ">>=";
-	public var AND_NOT_ASSIGN = "&^=";
-	public var LAND = "&&";
-	public var LOR = "||";
-	public var ARROW = "<-";
-	public var INC = "++";
-	public var DEC = "--";
-	public var EQL = "==";
-	public var LSS = "<";
-	public var GTR = ">";
-	public var ASSIGN = "=";
-	public var NOT = "!";
-	public var NEQ = "!=";
-	public var LEQ = "<=";
-	public var GEQ = ">=";
-	public var DEFINE = ":=";
-	public var ELLIPSIS = "...";
-	public var LPAREN = "(";
-	public var LBRACK = "[";
-	public var LBRACE = "{";
-	public var COMMA = ",";
-	public var PERIOD = ".";
-	public var RPAREN = ")";
-	public var RBRACK = "]";
-	public var RBRACE = "}";
-	public var SEMICOLON = ";";
-	public var COLON = ":";
-	public var operator_end = "";
-	public var keyword_beg = "";
-	public var BREAK = "break";
-	public var CASE = "case";
-	public var CHAN = "chan";
-	public var CONST = "const";
-	public var CONTINUE = "continue";
-	public var DEFAULT = "default";
-	public var DEFER = "defer";
-	public var ELSE = "else";
-	public var FALLTHROUGH = "fallthrough";
-	public var FOR = "for";
-	public var FUNC = "func";
-	public var GO = "go";
-	public var GOTO = "goto";
-	public var IF = "if";
-	public var IMPORT = "import";
-	public var INTERFACE = "interface";
-	public var MAP = "map";
-	public var PACKAGE = "package";
-	public var RANGE = "range";
-	public var RETURN = "return";
-	public var SELECT = "select";
-	public var STRUCT = "struct";
-	public var SWITCH = "switch";
-	public var TYPE = "type";
-	public var VAR = "var";
-	public var keyword_end = "";
+	public final ILLEGAL = "ILLEGAL";
+	public final EOF = "EOF";
+	public final COMMENT = "COMMENT";
+	public final literal_beg = "";
+	public final IDENT = "IDENT";
+	public final INT = "INT";
+	public final FLOAT = "FLOAT";
+	public final IMAG = "IMAG";
+	public final CHAR = "CHAR";
+	public final STRING = "STRING";
+	public final literal_end = "";
+	public final operator_beg = "";
+	public final ADD = "+";
+	public final SUB = "-";
+	public final MUL = "*";
+	public final QUO = "/";
+	public final REM = "%";
+	public final AND = "&";
+	public final OR = "|";
+	public final XOR = "^";
+	public final SHL = "<<";
+	public final SHR = ">>";
+	public final AND_NOT = "&^";
+	public final ADD_ASSIGN = "+=";
+	public final SUB_ASSIGN = "-=";
+	public final MUL_ASSIGN = "*=";
+	public final QUO_ASSIGN = "/=";
+	public final REM_ASSIGN = "%=";
+	public final AND_ASSIGN = "&=";
+	public final OR_ASSIGN = "|=";
+	public final XOR_ASSIGN = "^=";
+	public final SHL_ASSIGN = "<<=";
+	public final SHR_ASSIGN = ">>=";
+	public final AND_NOT_ASSIGN = "&^=";
+	public final LAND = "&&";
+	public final LOR = "||";
+	public final ARROW = "<-";
+	public final INC = "++";
+	public final DEC = "--";
+	public final EQL = "==";
+	public final LSS = "<";
+	public final GTR = ">";
+	public final ASSIGN = "=";
+	public final NOT = "!";
+	public final NEQ = "!=";
+	public final LEQ = "<=";
+	public final GEQ = ">=";
+	public final DEFINE = ":=";
+	public final ELLIPSIS = "...";
+	public final LPAREN = "(";
+	public final LBRACK = "[";
+	public final LBRACE = "{";
+	public final COMMA = ",";
+	public final PERIOD = ".";
+	public final RPAREN = ")";
+	public final RBRACK = "]";
+	public final RBRACE = "}";
+	public final SEMICOLON = ";";
+	public final COLON = ":";
+	public final operator_end = "";
+	public final keyword_beg = "";
+	public final BREAK = "break";
+	public final CASE = "case";
+	public final CHAN = "chan";
+	public final CONST = "const";
+	public final CONTINUE = "continue";
+	public final DEFAULT = "default";
+	public final DEFER = "defer";
+	public final ELSE = "else";
+	public final FALLTHROUGH = "fallthrough";
+	public final FOR = "for";
+	public final FUNC = "func";
+	public final GO = "go";
+	public final GOTO = "goto";
+	public final IF = "if";
+	public final IMPORT = "import";
+	public final INTERFACE = "interface";
+	public final MAP = "map";
+	public final PACKAGE = "package";
+	public final RANGE = "range";
+	public final RETURN = "return";
+	public final SELECT = "select";
+	public final STRUCT = "struct";
+	public final SWITCH = "switch";
+	public final TYPE = "type";
+	public final VAR = "var";
+	public final keyword_end = "";
 
 	@:from private static function fromInt(index:Int):Token {
 		return switch index {
@@ -613,154 +678,3 @@ function precedence(op:Token):Int {
 			return 0;
 	}
 }
-/*
-	var tokens = [...]string{
-	ILLEGAL: "ILLEGAL",
-
-	EOF:     "EOF",
-	COMMENT: "COMMENT",
-
-	IDENT:  "IDENT",
-	INT:    "INT",
-	FLOAT:  "FLOAT",
-	IMAG:   "IMAG",
-	CHAR:   "CHAR",
-	STRING: "STRING",
-
-	ADD: "+",
-	SUB: "-",
-	MUL: "*",
-	QUO: "/",
-	REM: "%",
-
-	AND:     "&",
-	OR:      "|",
-	XOR:     "^",
-	SHL:     "<<",
-	SHR:     ">>",
-	AND_NOT: "&^",
-
-	ADD_ASSIGN: "+=",
-	SUB_ASSIGN: "-=",
-	MUL_ASSIGN: "*=",
-	QUO_ASSIGN: "/=",
-	REM_ASSIGN: "%=",
-
-	AND_ASSIGN:     "&=",
-	OR_ASSIGN:      "|=",
-	XOR_ASSIGN:     "^=",
-	SHL_ASSIGN:     "<<=",
-	SHR_ASSIGN:     ">>=",
-	AND_NOT_ASSIGN: "&^=",
-
-	LAND:  "&&",
-	LOR:   "||",
-	ARROW: "<-",
-	INC:   "++",
-	DEC:   "--",
-
-	EQL:    "==",
-	LSS:    "<",
-	GTR:    ">",
-	ASSIGN: "=",
-	NOT:    "!",
-
-	NEQ:      "!=",
-	LEQ:      "<=",
-	GEQ:      ">=",
-	DEFINE:   ":=",
-	ELLIPSIS: "...",
-
-	LPAREN: "(",
-	LBRACK: "[",
-	LBRACE: "{",
-	COMMA:  ",",
-	PERIOD: ".",
-
-	RPAREN:    ")",
-	RBRACK:    "]",
-	RBRACE:    "}",
-	SEMICOLON: ";",
-	COLON:     ":",
-
-	BREAK:    "break",
-	CASE:     "case",
-	CHAN:     "chan",
-	CONST:    "const",
-	CONTINUE: "continue",
-
-	DEFAULT:     "default",
-	DEFER:       "defer",
-	ELSE:        "else",
-	FALLTHROUGH: "fallthrough",
-	FOR:         "for",
-
-	FUNC:   "func",
-	GO:     "go",
-	GOTO:   "goto",
-	IF:     "if",
-	IMPORT: "import",
-
-	INTERFACE: "interface",
-	MAP:       "map",
-	PACKAGE:   "package",
-	RANGE:     "range",
-	RETURN:    "return",
-
-	SELECT: "select",
-	STRUCT: "struct",
-	SWITCH: "switch",
-	TYPE:   "type",
-	VAR:    "var",
-}*/
-/*
-	func (*BadExpr) exprNode()        {}
-	func (*Ident) exprNode()          {}
-	func (*Ellipsis) exprNode()       {}
-	func (*BasicLit) exprNode()       {}
-	func (*FuncLit) exprNode()        {}
-	func (*CompositeLit) exprNode()   {}
-	func (*ParenExpr) exprNode()      {}
-	func (*SelectorExpr) exprNode()   {}
-	func (*IndexExpr) exprNode()      {}
-	func (*SliceExpr) exprNode()      {}
-	func (*TypeAssertExpr) exprNode() {}
-	func (*CallExpr) exprNode()       {}
-	func (*StarExpr) exprNode()       {}
-	func (*UnaryExpr) exprNode()      {}
-	func (*BinaryExpr) exprNode()     {}
-	func (*KeyValueExpr) exprNode()   {}
-
-	func (*ArrayType) exprNode()     {}
-	func (*StructType) exprNode()    {}
-	func (*FuncType) exprNode()      {}
-	func (*InterfaceType) exprNode() {}
-	func (*MapType) exprNode()       {}
-	func (*ChanType) exprNode()      {}
- */
-/*
-	func (*BadStmt) stmtNode()        {}
-	func (*DeclStmt) stmtNode()       {}
-	func (*EmptyStmt) stmtNode()      {}
-	func (*LabeledStmt) stmtNode()    {}
-	func (*ExprStmt) stmtNode()       {}
-	func (*SendStmt) stmtNode()       {}
-	func (*IncDecStmt) stmtNode()     {}
-	func (*AssignStmt) stmtNode()     {}
-	func (*GoStmt) stmtNode()         {}
-	func (*DeferStmt) stmtNode()      {}
-	func (*ReturnStmt) stmtNode()     {}
-	func (*BranchStmt) stmtNode()     {}
-	func (*BlockStmt) stmtNode()      {}
-	func (*IfStmt) stmtNode()         {}
-	func (*CaseClause) stmtNode()     {}
-	func (*SwitchStmt) stmtNode()     {}
-	func (*TypeSwitchStmt) stmtNode() {}
-	func (*CommClause) stmtNode()     {}
-	func (*SelectStmt) stmtNode()     {}
-	func (*ForStmt) stmtNode()        {}
-	func (*RangeStmt) stmtNode()      {} */
-/*
-	func (*BadDecl) declNode()  {}
-	func (*GenDecl) declNode()  {}
-	func (*FuncDecl) declNode() {} */

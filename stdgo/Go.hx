@@ -38,7 +38,7 @@ class Go {
 						return macro false;
 					case "Pointer", "PointerWrapper", "GoArrayPointer":
 						return macro null;
-					case "GoString":
+					case "GoString", "String":
 						if (strict)
 							return macro("" : GoString);
 						return macro "";
@@ -383,6 +383,26 @@ class Go {
 		};
 	}
 
+	public static macro function getInterface(expr) {
+		var t = Context.follow(Context.typeof(expr));
+		switch t {
+			case TMono(ref):
+				throw(ref.get() + " expr: " + expr);
+			default:
+		}
+
+		switch t {
+			case TAbstract(t, params):
+				var t = t.get();
+				if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
+					return expr; //prevent interface{} inside interface{}
+				}
+			default:
+		}
+		var ty = gtDecode(t);
+		return macro new AnyInterface($expr,null,new stdgo.reflect.Reflect.Type($ty));
+	}
+
 	public static macro function assignable(expr:Expr) {
 		function parens(expr) {
 			return switch expr.expr {
@@ -504,30 +524,6 @@ class Go {
 		}
 	}
 
-	public static macro function set(params:Array<Expr>) {
-		var t = Context.toComplexType(Context.getExpectedType());
-		switch t {
-			case TPath(p):
-				return macro new $p($a{params});
-			case TFunction(args, ret):
-				return macro null;
-			case TAnonymous(fields):
-				fields.sort((a, b) -> {
-					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
-				});
-				var anon = createAnonType(Context.currentPos(), fields, params);
-				return anon;
-			default:
-				throw("unknown go set type: " + t);
-		}
-		return macro null;
-	}
-
-	public static macro function setKeys(expr:Expr) {
-		var t = Context.toComplexType(Context.getExpectedType());
-		return macro($expr : $t);
-	}
-
 	public static function createAnonType(pos:Position, fields:Array<Field>, params:Array<Expr>):Expr {
 		return {
 			pos: pos,
@@ -647,107 +643,6 @@ class Go {
 		return macro new stdgo.PointerWrapper($expr);
 	}
 
-	// GOROUTINE
-	public static macro function routine(expr) {
-		return expr;
-	}
-	public static macro function checkType(expr) {
-		function parens(expr) {
-			return switch expr.expr {
-				case EParenthesis(e): parens(e);
-				default: expr;
-			}
-		}
-		expr = parens(expr);
-		switch expr.expr {
-			case ECheckType(e, t):
-				var type = Context.typeof(e);
-				switch type {
-					case TAbstract(t2, params):
-						if (params.length == 0)
-							return expr;
-						var t2 = t2.get();
-						if (t2.name == "AnyInterface") {
-							var convertToInterface = false;
-							switch ComplexTypeTools.toType(t) {
-								case TInst(t, params):
-									var t = t.get();
-									if (t.isInterface)
-										convertToInterface = true;
-								default:
-							}
-							e = convertToInterface ? macro $e.value : macro ($e.value : Any);
-							return macro ($e : $t);
-						}
-					default:
-				}
-			default:
-				throw "unknown exprdef for checkType: " + expr.expr;
-		}
-		return expr;
-	}
-	public static macro function getInterface(expr) {
-		var t = Context.typeof(expr);
-		switch t {
-			case TMono(ref):
-				throw(ref.get() + " expr: " + expr);
-			default:
-		}
-		var ct = Context.toComplexType(t);
-		switch t {
-			case TAbstract(t, params):
-				var t = t.get();
-				if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
-					return expr;
-				}
-			default:
-		}
-		var ty = gtDecode(t);
-		return macro ({
-			value: $expr,
-			type: new stdgo.reflect.Reflect.Type($ty),
-		} : AnyInterface<$ct>);
-	}
-
-	public static macro function call(expr) {
-		//wrap a function call and change out all AnyInterfaces arg types to be wrapped with getInterface
-		switch expr.expr {
-			case ECall(e, params):
-				var t = Context.follow(Context.typeof(e)); //follow in case of typedefs/alias types
-				switch t {
-					case TFun(args, ret):
-						for (i in 0...args.length) {
-							switch args[i].t {
-								case TAbstract(t, params2):
-									var t = t.get();
-									if (i == 0 && params2.length == 1 && t.name == "Rest" && t.pack.length == 1 && t.pack[0] == "haxe") {
-										switch params2[0] {
-											case TAbstract(t2, params3):
-												var t2 = t2.get();
-												if (t2.name == "AnyInterface" && t2.pack.length == 1 && t2.pack[0] == "stdgo") {
-													for (i in 0...params.length) {
-														params[i] = macro Go.getInterface(${params[i]});
-													}
-													return macro $e($a{params});
-												}
-											default:
-										}
-									}
-									//normal
-									if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
-										params[i] = macro Go.getInterface(${params[i]});
-									}
-								default:
-							}
-						}
-					default:
-				}
-			default:
-				trace("expr is not a call: " + expr.expr);
-		}
-		return expr;
-	}
-
 	public static macro function recover() {
 		return untyped macro {
 			var r = stdgo.runtime.Runtime.newRuntime(recover_exception.toString());
@@ -841,7 +736,9 @@ class Go {
 			case TType(ref, params):
 				var ref = ref.get();
 				var t = gtDecode(ref.type);
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_aliasType($v{ref.pack.join(".")},$v{parseModule(ref.module)},$v{ref.name}, $t);
+				var methods = macro [];
+				var interfaces = macro [];
+				ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{parseModule(ref.module)},$v{ref.name},$methods,$interfaces,$t);
 			case TAbstract(ref, params):
 				var sref:String = ref.toString();
 				switch (sref) {
@@ -876,7 +773,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_uint32;
 					case "stdgo.GoUInt64":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_uint64;
-					case "stdgo.GoString":
+					case "stdgo.GoString", "String":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_string;
 					case "stdgo.GoComplex64":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_complex64;
@@ -893,7 +790,7 @@ class Go {
 					case "Bool":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_bool;
 					case "stdgo.AnyInterface":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_interface([],"","interface{}",[]);
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_interface("","","interface{}",[]);
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default:
@@ -976,6 +873,8 @@ class Go {
 		var methods = [];
 		var fields = [];
 		var interfaces = [];
+		if (ref.module == "String")
+			return macro stdgo.reflect.Reflect.GT_enum.GT_string;
 		for (inter in ref.interfaces) {
 			var inter = inter.t.get();
 			interfaces.push(gtDecodeInterfaceType(inter));

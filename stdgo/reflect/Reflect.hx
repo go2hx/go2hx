@@ -91,8 +91,8 @@ class Value implements StructType {
 	public inline function kind()
 		return surfaceType.kind();
 
-	public inline function interface_():AnyInterface<UnknownMono>
-		return Go.getInterface(val);
+	public inline function interface_():AnyInterface
+		return null;
 
 	public inline function isNil()
 		return val == null;
@@ -186,7 +186,7 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 		return "reflect: call of " + this.method + " on " + this.kind.toString() + " Value";
 	}
 }
-function deepEqual(a1:AnyInterface<UnknownMono>, a2:AnyInterface<UnknownMono>):Bool {
+function deepEqual(a1:AnyInterface, a2:AnyInterface):Bool {
 	var value:Dynamic = a1.value;
 	var value2:Dynamic = a2.value;
 	if (value == value)
@@ -254,14 +254,14 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	return true;
 }
 
-function typeOf(iface:AnyInterface<UnknownMono>):Type {
+function typeOf(iface:AnyInterface,type:Type):Type {
 	if (iface == null)
 		return new Type(GT_unsafePointer);
-	return iface.type;
+	return type;
 }
 
-function valueOf(iface:AnyInterface<UnknownMono>):Value {
-	return new Value(iface.value,iface.type);
+function valueOf(iface:AnyInterface,type:Type):Value {
+	return new Value(iface,type);
 }
 
 
@@ -634,8 +634,6 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 					return false;
 			}
 		case GT_interface(pack, module, name, methods):
-			if (methods.length == 0)
-				return true;
 			return false; //checked by implements instead
 		case GT_func(input,output):
 			switch v.gt {
@@ -650,6 +648,8 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 					return false;
 			}
 		default:
+			if (t.gt.getParameters().length != v.gt.getParameters().length)
+				return false;
 			if (t.gt.getParameters().length == 0 && v.gt.getParameters().length == 0) {
 				var t = t.gt.getIndex();
 				var v = v.gt.getIndex();
@@ -664,7 +664,7 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 				if (t == v)
 					return true;
 			}else{
-				trace("unknown gt type: " + t.gt);
+				trace("unknown gt type: " + t.gt + " " + v.gt);
 			}
 	}
 	return false;

@@ -25,12 +25,6 @@ import stdgo.Pointer.PointerData;
 import haxe.Int32;
 import haxe.Int64;
 
-//thanks Gama11
-#if !macro
-@:genericBuild(stdgo.internal.Macro.buildMono()) class UnknownMono {}
-#end
-
-
 // native_num define flag
 typedef GoByte = GoUInt8;
 typedef GoRune = GoInt;
@@ -1433,30 +1427,23 @@ interface StructType {
 interface Error {
 	public function error():String;
 }
-
 @:structInit
-private class AnyInterfaceData<T> {
-	public var value:T;
+class AnyInterfaceData {
+	public var value:Any;
+	public var valueInterface:Any;
 	public var type:stdgo.reflect.Reflect.Type;
-
-	public function new(value,type) {
+	public function new(value,valueInterface,type) {
 		this.value = value;
+		this.valueInterface = valueInterface;
 		this.type = type;
-	}
-	public inline function toString():GoString {
-		return '$value';
 	}
 }
 @:forward
-@:transitive
-abstract AnyInterface<T>(AnyInterfaceData<T>) from AnyInterfaceData<T> {
-	public inline function new(obj = null) {
-		this = obj;
-	}
-	@:to private inline function to() {
-		return (this.value : T);
-	}
-}
+@:forward.new
+abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {}
+
+//holds anon data
+abstract MultiReturn<T>(T) from T to T {}
 
 
 interface ArrayAccess<T> {

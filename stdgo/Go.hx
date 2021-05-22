@@ -31,7 +31,7 @@ class Go {
 							return macro(0 : $t);
 						return macro 0;
 					case "AnyInterface":
-						return macro new AnyInterface(null);
+						return macro null;
 					case "GoDynamic", "Any", "Dynamic":
 						return macro {};
 					case "Bool":

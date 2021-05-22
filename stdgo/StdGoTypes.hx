@@ -1437,6 +1437,8 @@ class AnyInterfaceData {
 		this.valueInterface = valueInterface;
 		this.type = type;
 	}
+	public function toString():GoString
+		return '$value';
 }
 @:forward
 @:forward.new

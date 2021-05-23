@@ -420,6 +420,7 @@ function main(data:DataType) {
 	return list;
 }
 private function typeImplements(info:Info) {
+	var abstractInterfaces:Map<String,TypeDefinition> = [];
 	for (inter in info.data.defs) {
 		if (inter == null || inter.kind == null)
 			continue;
@@ -430,6 +431,17 @@ private function typeImplements(info:Info) {
 				for (cl in info.data.defs) {
 					if (cl == null || cl.kind == null)
 						continue;
+					if (cl.meta != null) {
+						var isSkip = false;
+						for (m in cl.meta) {
+							if (m.name == "noImplicit") {
+								isSkip = true;
+								break;
+							}
+						}
+						if (isSkip)
+							continue;
+					}
 					switch cl.kind {
 						case TDAbstract(tthis, from, to):
 							if (implementsFields(inter.fields,cl.fields)) {
@@ -473,41 +485,66 @@ private function typeImplements(info:Info) {
 										access: field.access,
 									});
 								}
-								var wrapperName = "__" + cl.name + "_" + inter.name + "_" + "InterfaceWrapper";
+								var clName = cl.pack.join(".") + cl.name;
+								var wrapperName = "__" + cl.name + "_" + "InterfaceWrapper";
 								var wrapperType:TypePath = {
 									name: wrapperName,
 									pack: [],
 								};
-								info.data.defs.push({
-									name: wrapperName,
-									pos: null,
-									pack: [],
-									fields: [{
-										name: "t",
-										pos: null,
-										kind: FVar(clType),
-									},{
-										name: "new",
-										pos: null,
-										kind: FFun({
-											args: [{name: "t"}],
-											expr: macro this.t = t,
-										}),
-										access: [APublic],
-									},{
-										name: "toString",
+								if (!abstractInterfaces.exists(clName)) {
+									cl.fields.push({
+										name: "toInterface",
 										pos: null,
 										kind: FFun({
 											args: [],
-											expr: macro return '$t',
+											expr: macro return new $wrapperType(this),
 										}),
-										access: [APublic]
-									}].concat(fields),
-									kind: TDClass(null,[{name: inter.name,pack: inter.pack}]),
-									isExtern: false,
-								});
+										access: [APublic,AInline],
+									});
+									var def:TypeDefinition = {
+										name: wrapperName,
+										pos: null,
+										pack: [],
+										fields: [{
+											name: "t",
+											pos: null,
+											kind: FVar(clType),
+										},{
+											name: "new",
+											pos: null,
+											kind: FFun({
+												args: [{name: "t"}],
+												expr: macro this.t = t,
+											}),
+											access: [APublic],
+										},{
+											name: "toString",
+											pos: null,
+											kind: FFun({
+												args: [],
+												expr: macro return '$t',
+											}),
+											access: [APublic]
+										}],
+										kind: TDClass(null,[]),
+										isExtern: false,
+										meta: [{name: "noImplicit",pos: null}],
+									};
+									info.data.defs.push(def);
+									abstractInterfaces[clName] = def;
+								}
+
+								var abstractInterface = abstractInterfaces[clName];
+								abstractInterface.fields = abstractInterface.fields.concat(fields);
+
+								switch abstractInterface.kind {
+									case TDClass(_,interfaces,_,_,_):
+										interfaces.push({name: inter.name,pack: inter.pack});
+									default:
+								}
+								
 								cl.fields.push({
-									name: "__to" + inter.name,
+									name: "__to_" + inter.name,
 									pos: null,
 									kind: FFun({
 										args: [],
@@ -963,6 +1000,14 @@ private function isInterface(expr):Bool {
 	return false;
 }
 private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
+	//trace("from: " + from + " to: " + to);
+	switch from {
+		case interfaceValue(numMethods):
+			if (numMethods == 0) {
+				return macro Go.fromInterface(($e : $ct));
+			}
+		default:
+	}
 	return macro ($e : $ct);
 }
 
@@ -1793,7 +1838,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		var type = parseType(expr.type);
 		switch type {
 			case signature(variadic, params, results, recv):
-				switch params {
+				if (params != null) switch params {
 					case tuple(len, vars):
 						for (i in 0...vars.length) {
 							switch vars[i] {
@@ -2184,7 +2229,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExpr(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
-		return checkType(e[0],type,typeof(expr.elts[0]),expr.typeLit).expr;
+		return checkType(e[0],type,typeof(expr.elts[0]),parseType(expr.typeLit)).expr;
 	}
 	getParams();
 	if (p == null)
@@ -2418,7 +2463,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 		default:
 	}
 	
-	return checkType(e,type,expr.typeX,expr.typeY).expr;
+	return checkType(e,type,parseType(expr.typeX),parseType(expr.typeY)).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {

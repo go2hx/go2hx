@@ -399,8 +399,9 @@ class Go {
 						isInterface = t.get().isInterface;
 					default:
 				}
-				if (isInterface)
-					return macro try { ($e.value : $ct); }catch(e) { ($e.valueInterface : $ct); };
+				if (isInterface) {
+					return macro $e.valueInterface != null ? ($e.valueInterface : $ct) : ($e.value : $ct);
+				}
 				return macro ($e.value : $ct);
 			default:
 				throw "not a checkType";
@@ -418,7 +419,21 @@ class Go {
 			default:
 		}
 		var ty = gtDecode(t);
-		return macro new AnyInterface($expr,null,new stdgo.reflect.Reflect.Type($ty));
+		var exprInterface = macro null;
+		switch t {
+			case TAbstract(t, params):
+				var t = t.get();
+				if (t.impl != null) {
+					var fields = t.impl.get().statics.get();
+					for (field in fields) {
+						if (field.name == "toInterface") {
+							exprInterface = macro $expr.toInterface();
+						}
+					}
+				}
+			default:
+		}
+		return macro new AnyInterface($expr,$exprInterface,new stdgo.reflect.Reflect.Type($ty));
 	}
 
 	public static macro function assignable(expr:Expr) {
@@ -787,8 +802,8 @@ class Go {
 	}
 	
 	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType):Expr {
-		var methods = [];
-		var fields = [];
+		var methods:Array<Expr> = [];
+		var fields:Array<Expr> = [];
 		var interfaces = [];
 		if (ref.module == "String")
 			return macro stdgo.reflect.Reflect.GT_enum.GT_string;
@@ -842,7 +857,9 @@ class Go {
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},$t,""));
 			}
 		}
-		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{module}, $v{ref.name},$a{methods},$a{fields},$a{interfaces});
+		var fields = macro $a{fields};
+		var t = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
+		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{module}, $v{ref.name},$a{methods}, $a{interfaces},$t);
 	}
 
 	private static function parseModule(module:String):String {

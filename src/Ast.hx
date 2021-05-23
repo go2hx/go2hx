@@ -6,7 +6,6 @@ package;
 typedef Expr = Dynamic;
 typedef Stmt = Dynamic;
 typedef ExprType = Dynamic;
-typedef ExprObject = Dynamic;
 typedef Decl = Dynamic;
 typedef Scope = Dynamic;
 typedef ObjKind = Int;
@@ -43,7 +42,7 @@ typedef BadExpr = {
 
 typedef Ident = {
 	name:String,
-	type:ExprObject,
+	type:ExprType,
 }
 
 typedef Ellipsis = {
@@ -116,6 +115,7 @@ typedef TypeAssertExpr = {
 	type:Expr,
 	rparen:Pos,
 	typeX:ExprType,
+	typeY:ExprType,
 };
 
 typedef CallExpr = {
@@ -374,7 +374,7 @@ typedef ImportSpec = {
 
 typedef ValueSpec = {
 	doc:CommentGroup,
-	names:Array<String>,
+	names:Array<Ast.Ident>,
 	type:Expr,
 	values:Array<Expr>,
 	comment:CommentGroup,
@@ -452,6 +452,7 @@ typedef FieldType = {
 }
 
 enum BasicKind {
+	invalid_kind;
 	bool_kind;
 	int_kind;
 	int8_kind;

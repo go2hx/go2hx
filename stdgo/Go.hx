@@ -382,14 +382,32 @@ class Go {
 			a();
 		};
 	}
-
-	public static macro function getInterface(expr) {
-		var t = Context.follow(Context.typeof(expr));
-		switch t {
-			case TMono(ref):
-				throw(ref.get() + " expr: " + expr);
-			default:
+	public static macro function fromInterface(expr) {
+		function parens(expr) {
+			return switch expr.expr {
+				case EParenthesis(e): parens(e);
+				default: expr;
+			}
 		}
+		expr = parens(expr);
+		switch expr.expr {
+			case ECheckType(e, ct):
+				var t = Context.follow(ComplexTypeTools.toType(ct));
+				var isInterface = false;
+				switch t {
+					case TInst(t, params):
+						isInterface = t.get().isInterface;
+					default:
+				}
+				if (isInterface)
+					return macro try { ($e.value : $ct); }catch(e) { ($e.valueInterface : $ct); };
+				return macro ($e.value : $ct);
+			default:
+				throw "not a checkType";
+		}
+	}
+	public static macro function toInterface(expr) {
+		var t = Context.follow(Context.typeof(expr));
 
 		switch t {
 			case TAbstract(t, params):
@@ -420,107 +438,6 @@ class Go {
 				return macro $e.type.assignableTo(new stdgo.reflect.Reflect.Type($value));
 			default:
 				throw "unknown assignable expr: " + expr.expr;
-		}
-	}
-
-	public static macro function destruct(exprs:Array<Expr>) {
-		var expr = exprs.pop(); // expr to destructure
-		var fields:Array<String> = [];
-		switch expr.expr {
-			case ECall(e, params):
-				switch e.expr {
-					case EField(e2, field):
-						// special exceptions
-						if (field == "assert" && e2.expr.match(EConst(CIdent("Go")))) {
-							params.push(macro null);
-							expr = macro Go.assert($a{params});
-						} else if (field == "get") {
-							var e2type = Context.follow(Context.typeof(e2));
-							switch e2type {
-								case TInst(t, params2):
-									if (params2.length > 0) {
-										var t = t.get();
-										if (t.name == "Chan" && t.pack.length == 1 && t.pack[0] == "stdgo") {
-											field = "getMulti";
-											expr = macro ${e2}.$field($a{params});
-										}
-									}
-								default:
-							}
-						}
-					default:
-				}
-			default:
-		}
-		var type = Context.followWithAbstracts(Context.typeof(expr));
-		switch type {
-			case TAnonymous(a):
-				var f = a.get().fields;
-				f.sort(function(a, b) {
-					return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
-				});
-				for (field in f) {
-					fields.push(field.name);
-				}
-			case TDynamic(t):
-				if (t != null) {
-					trace("unknown dynamic type destruct: " + t);
-				} else {}
-			case TInst(t, params):
-				var f = t.get().fields.get();
-				f.sort(function(a,b) {
-					return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
-				});
-				for (field in f) {
-					fields.push(field.name);
-				}
-			default:
-				trace("unknown destruct type: " + type);
-		}
-		var valueType = Context.typeof(exprs[0]);
-		var isDefine:Bool = false;
-		switch valueType {
-			case TInst(t, params):
-				var t = t.get();
-				if (t.name == "String")
-					isDefine = true;
-			default:
-		}
-		var main:Var = {
-			name: "_obj",
-			expr: expr,
-		};
-
-		if (isDefine) {
-			var vars:Array<Var> = [];
-			for (i in 0...exprs.length) {
-				var name:String = "";
-				switch exprs[i].expr {
-					case EConst(c):
-						switch c {
-							case CString(s, kind):
-								name = s;
-							default:
-						}
-					default:
-				}
-				vars.push({
-					name: name,
-					expr: Context.parse("_obj." + fields[i], Context.currentPos()),
-				});
-			}
-			vars.unshift(main);
-			return {expr: EVars(vars), pos: Context.currentPos()};
-		}
-		// assign
-		var v:Expr = {expr: EVars([main]), pos: Context.currentPos()};
-		var set:Array<Expr> = [];
-		for (i in 0...exprs.length) {
-			set.push(macro ${exprs[i]} = ${Context.parse("_obj." + fields[i], Context.currentPos())});
-		}
-		return macro {
-			$v;
-			$b{set};
 		}
 	}
 

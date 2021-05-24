@@ -652,6 +652,7 @@ class Go {
 				false;
 		}
 	}
+	#if macro
 	//reflect decode
 	private static function gtParams(params:Array<haxe.macro.Type>):Array<Expr> {
 		var pTypes = [];
@@ -860,6 +861,87 @@ class Go {
 		var fields = macro $a{fields};
 		var t = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
 		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{module}, $v{ref.name},$a{methods}, $a{interfaces},$t);
+	}
+	#end
+
+	public static macro function set(params:Array<Expr>) {
+		var t = Context.toComplexType(Context.getExpectedType());
+		switch t {
+			case TPath(p):
+				return macro new $p($a{params});
+			case TFunction(args, ret):
+				return macro null;
+			case TAnonymous(fields):
+				fields.sort((a, b) -> {
+					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
+				});
+				var anon = createAnonType(Context.currentPos(), fields, params);
+				return anon;
+			default:
+				throw("unknown go set type: " + t);
+		}
+		return macro null;
+	}
+
+	public static macro function setKeys(expr:Expr) {
+		var t = Context.toComplexType(Context.getExpectedType());
+		return macro($expr : $t);
+	}
+
+	public static macro function destruct(exprs:Array<Expr>) {
+		var varNames:Array<String> = [];
+		for (expr in exprs) {
+			switch expr.expr {
+				case EConst(c):
+					switch c {
+						case CString(s, kind):
+							varNames.push(s);
+						default:
+					}
+				default:
+			}
+		}
+		var func = exprs.pop();
+		var funcType = Context.followWithAbstracts(Context.typeof(func));
+		var f = [];
+		switch funcType {
+			case TAnonymous(a):
+				f = a.get().fields;
+			case TInst(t, params):
+				f = t.get().fields.get();
+			default:
+				throw "unknown funcType";
+		}
+		f.sort((a,b) -> {
+			return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
+		});
+		var fieldNames = [];
+		for (i in 0...f.length) {
+			fieldNames.push(f[i].name);
+		}
+		var tmp = macro var __tmp__ = $func;
+		if (varNames.length > 0) {
+			switch tmp.expr {
+				case EVars(vars):
+					for (i in 0...varNames.length) {
+						var fieldName = fieldNames[i];
+						vars.push({
+							name: varNames[i],
+							expr: macro __tmp__.$fieldName,
+						});
+					}
+					return tmp;
+				default:
+					throw "tmp needs to be evars";
+			}
+		}else{
+			var block:Array<Expr> = [tmp];
+			for (i in 0...exprs.length) {
+				var fieldName = fieldNames[i];
+				block.push(macro ${exprs[i]} = __tmp__.$fieldName);
+			}
+			return macro $b{block};
+		}
 	}
 
 	private static function parseModule(module:String):String {

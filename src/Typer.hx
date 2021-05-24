@@ -289,30 +289,31 @@ function main(data:DataType) {
 			data.imports.push({path: ["stdgo", "GoString"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
 				data.imports.push({path: path.split("."), alias: alias,doc: ""});
-			if (data.name == endPath) {
+			if (data.name == endPath && pkg.name != "main") {
 				main = data;
 			}else{
 				module.files.push(data);
 			}
 		}
-		if (main == null) {
-			main = {
-				name: endPath,
-				imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
-				defs: [],
-				location: "" //does not have a linked go file
-			};
-		}
-		//add to main module list
-		list.push({
-			path: pkg.path,
-			files: [main],
-		});
+		if (pkg.name != "main") {
+			if (main == null) {
+				main = {
+					name: endPath,
+					imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
+					defs: [],
+					location: "" //does not have a linked go file
+				};
+			}
+			//add to main module list
+			list.push({
+				path: pkg.path,
+				files: [main],
+			});
 		var mainImportList:Array<ImportType> = [];
 		var mainImportExists:Map<String,Bool> = [];
 		
 		for (file in module.files) {
-			if (file.name == main.name)
+			if (main != null && file.name == main.name)
 				continue;
 			for (def in file.defs) {
 				if (def == null || def.isExtern == null || !def.isExtern)
@@ -415,6 +416,7 @@ function main(data:DataType) {
 		for (file in module.files) {
 			file.imports = file.imports.concat(mainImportList);
 		}
+	}
 		list.push(module);
 	}
 	return list;

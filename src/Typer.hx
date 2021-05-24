@@ -1228,7 +1228,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				return EBlock(exprs);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// non variable assign, destructure system
-				return null; //destruct (define)
+				var args = [for (lhs in stmt.lhs) typeExpr(lhs,info)];
+				var func = typeExpr(stmt.rhs[0],info);
+				args.push(func);
+				return (macro Go.destruct($a{args})).expr;
 			} else {
 				throw "unknown type assign type: " + stmt;
 			}
@@ -1259,14 +1262,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				return EVars(vars);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// variable destructure system (vars)
-				return null; //destruct
+				var args = [for (lhs in stmt.lhs) toExpr(EConst(CString(lhs.name)))];
+				var func = typeExpr(stmt.rhs[0],info);
+				args.push(func);
+				return (macro Go.destruct($a{args})).expr;
 			} else {
 				throw "unknown type assign define type: " + stmt;
-				return null;
 			}
 		default:
 			throw "type assign tok not found: " + stmt.tok;
-			return null;
 	}
 }
 
@@ -1737,10 +1741,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				default: // cast to type ($e : $t)
 					if (expr.args.length == 1) {
 						var type = parseType(expr.type);
-						switch type {
+						if (type != null) switch type {
 							case signature(_, _, _, _):
 							default:
-								return checkType(typeExpr(expr.args[0],info),toComplexType(type),typeof(expr.args[0]),parseType(type)).expr;
+								return checkType(typeExpr(expr.args[0],info),toComplexType(type),typeof(expr.args[0]),type).expr;
 						}
 					}
 			}
@@ -1836,9 +1840,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 	if (!isFmt) {
 		var type = parseType(expr.type);
-		switch type {
+		if (type != null) switch type {
+			case invalid:
 			case signature(variadic, params, results, recv):
 				if (params != null) switch params {
+					case invalid:
 					case tuple(len, vars):
 						for (i in 0...vars.length) {
 							switch vars[i] {
@@ -1857,7 +1863,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						throw "params is not a tuple";
 				}
 			default:
-				throw "call is not a signature";
+				//throw "call is not a signatuzre";
 		}
 	}
 	return (macro $e{toExpr(ECall(e, args))}).expr;
@@ -1909,9 +1915,37 @@ private function typeof(e:Ast.Expr):GoType {
 						}
 					}
 				default:
-					throw "unknown cl type: " + cl;
+					cl = invalid;
 			}
 			cl;
+		case "IndexExpr":
+			var e:Ast.IndexExpr = e;
+			parseType(e.type);
+		case "BinaryExpr":
+			var e:Ast.BinaryExpr = e;
+			parseType(e.typeX);
+		case "StarExpr":
+			var e:Ast.StarExpr = e;
+			pointer(parseType(e.type));
+		case "UnaryExpr":
+			var e:Ast.UnaryExpr = e;
+			parseType(e.type);
+		case "TypeAssertExpr":
+			var e:Ast.TypeAssertExpr = e;
+			parseType(e.typeY);
+		case "FuncLit":
+			invalid;
+		case "KeyValueExpr":
+			var e:Ast.KeyValueExpr = e;
+			var key = parseType(e.typeKey);
+			var value = parseType(e.typeValue);
+			map(key,value);
+		case "SliceExpr":
+			var e:Ast.SliceExpr = e;
+			slice(parseType(e.type));
+		case "ParenExpr":
+			var e:Ast.ParenExpr = e;
+			typeof(e.x);
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}
@@ -1940,6 +1974,17 @@ private function toComplexType(e:GoType):ComplexType {
 				case complex128_kind: TPath({pack: [],name: "GoComplex128"});
 				case float32_kind: TPath({pack: [],name: "GoFloat32"});
 				case float64_kind: TPath({pack: [],name: "GoFloat64"});
+
+				case uintptr_kind: TPath({pack: [],name: "GoUIntptr"});
+
+				case untyped_int_kind: TPath({pack: [],name: "GoInt"});
+				case untyped_bool_kind: TPath({pack: [],name: "Bool"});
+				case untyped_float_kind: TPath({pack: [],name: "GoFloat64"});
+				case untyped_rune_kind: TPath({pack: [],name: "GoInt32"});
+				case untyped_complex_kind: TPath({pack: [],name: "GoComplex128"});
+				case untyped_string_kind: TPath({pack: [],name: "GoString"});
+				case untyped_nil_kind: TPath({pack: [],name: "AnyInterface"});
+				case invalid_kind: TPath({pack: [],name: "AnyInterface"});
 				default:
 					throw "unknown kind to complexType: " + kind;
 			}
@@ -1959,6 +2004,39 @@ private function toComplexType(e:GoType):ComplexType {
 		case slice(elem):
 			var ct = toComplexType(elem);
 			TPath({pack: [],name: "GoSlice",params: [TPType(ct)]});
+		case array(elem, len):
+			var ct = toComplexType(elem);
+			TPath({pack: [],name: "GoArray",params: [TPType(ct)]});
+		case map(key, value):
+			var ctKey = toComplexType(key);
+			var ctValue = toComplexType(value);
+			TPath({pack: [],name: "GoMap",params: [TPType(ctKey),TPType(ctValue)]});
+		case invalid, tuple(_, _):
+			null;
+		case pointer(elem):
+			var pointerWrapper = false;
+			switch elem {
+				case basic(_):
+					pointerWrapper = true;
+				default:
+			}
+			var ct = toComplexType(elem);
+			TPath({pack: [],name: pointerWrapper ? "PointerWrapper" : "Pointer",params: [TPType(ct)]});
+		case chan(dir, elem):
+			var ct = toComplexType(elem);
+			TPath({pack: [],name: "Chan",params: [TPType(ct)]});
+		case struct(fields):
+			TAnonymous([
+				for (field in fields) {
+					name: field.name,
+					pos: null,
+					kind: FVar(toComplexType(field.type))
+				}
+			]);
+		case signature(variadic, params, results, recv):
+			var args = [];
+			var ret:ComplexType = null;
+			TFunction(args,ret);
 		default:
 			throw "unknown goType to complexType: " + e;
 	}
@@ -1966,13 +2044,15 @@ private function toComplexType(e:GoType):ComplexType {
 }
 
 private function parseType(e:ExprType) {
+	if (e == null)
+		return invalid;
 	return switch e.id {
 		case "Signature":
 			signature(
 				e.variadic,
 				parseType(e.params),
 				parseType(e.results),
-				parseType(e.recv)
+				e.recv != null ? parseType(e.recv) : null
 			);
 		case "Basic":
 			basic(BasicKind.createByIndex(e.kind));
@@ -1997,7 +2077,11 @@ private function parseType(e:ExprType) {
 			named(e.path,parseType(e.underlying));
 		case "Struct":
 			struct([for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: parseType(field.type)}]);
+		case "Chan":
+			chan(e.dir,parseType(e.elem));
 		case null:
+			trace(e);
+			throw "type id is null: " + e;
 			null;
 		default:
 			throw "unknow go type: " + e.id;
@@ -2121,33 +2205,47 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		for (elt in expr.elts) {
 			params.push(typeExpr(elt, info));
 		}
-		var type = parseType(expr.typeLit);
-		switch type {
-			case named(path, underlying):
-				type = underlying; //set underlying
-			default:
-		}
-		switch type {
-			case slice(elem):
-				switch elem {
-					case interfaceValue(numMethods):
-						if (numMethods == 0) {
-							for (i in 0...params.length) //set all to interface{}
-								params[i] = macro Go.toInterface(${params[i]});
-						}
-					default:
-				}
-			case struct(fields):
-				for (i in 0...params.length) {
-					switch fields[i].type {
+		if (expr.typeLit != null) {
+			var type = parseType(expr.typeLit);
+			switch type {
+				case named(path, underlying):
+					type = underlying; //set underlying
+				default:
+			}
+			switch type {
+				case slice(elem):
+					switch elem {
 						case interfaceValue(numMethods):
-							if (numMethods == 0)
-								params[i] = macro Go.toInterface(${params[i]});
+							if (numMethods == 0) {
+								for (i in 0...params.length) //set all to interface{}
+									params[i] = macro Go.toInterface(${params[i]});
+							}
 						default:
 					}
-				}
-			default:
-				trace(type);
+				case array(elem, len):
+					switch elem {
+						case interfaceValue(numMethods):
+							if (numMethods == 0) {
+								for (i in 0...params.length) //set all to interface{}
+									params[i] = macro Go.toInterface(${params[i]});
+							}
+						default:
+					}
+				case struct(fields):
+					var length = params.length;
+					if (fields.length < length)
+						length = fields.length;
+					for (i in 0...length) {
+						switch fields[i].type {
+							case interfaceValue(numMethods):
+								if (numMethods == 0)
+									params[i] = macro Go.toInterface(${params[i]});
+							default:
+						}
+					}
+				default:
+					trace(type);
+			}
 		}
 	}
 	if (expr.type == null) {

@@ -106,6 +106,7 @@ typedef SliceExpr = {
 	max:Expr,
 	slice3:Bool,
 	rbrack:Pos,
+	type:ExprType,
 };
 
 typedef TypeAssertExpr = {
@@ -132,6 +133,7 @@ typedef StarExpr = {
 	// > Node,
 	star:Pos,
 	x:Expr,
+	type:ExprType,
 };
 
 typedef UnaryExpr = {
@@ -139,6 +141,7 @@ typedef UnaryExpr = {
 	opPos:Pos,
 	op:Token,
 	x:Expr,
+	type:ExprType,
 };
 
 typedef BinaryExpr = {
@@ -433,6 +436,7 @@ typedef Pos = {
 }
 
 enum GoType {
+	invalid;
 	signature(variadic:Bool,params:GoType,results:GoType,recv:GoType);
 	basic(kind:BasicKind);
 	tuple(len:Int,vars:Array<GoType>);
@@ -444,6 +448,8 @@ enum GoType {
 	pointer(elem:GoType);
 	array(elem:GoType,len:Int);
 	map(key:GoType,value:GoType);
+
+	chan(dir:Int,elem:GoType);
 }
 
 typedef FieldType = {

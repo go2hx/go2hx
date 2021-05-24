@@ -66,8 +66,10 @@ function init(args:Array<String>) {
 	if (exportBool) {
 		exportPaths = [];
 		for (module in modules) {
-			for (file in module.files) {
-				exportPaths.push(module.path + "/" + file.name);
+			if (module.isMain) {
+				for (file in module.files) {
+					exportPaths.push(module.path + "/" + file.name);
+				}
 			}
 		}
 	}

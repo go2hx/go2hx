@@ -89,14 +89,16 @@ function main(data:DataType) {
 		if (pkg.path == "")
 			pkg.path = "std";
 		info.global.path = pkg.path;
-		var module:Module = {path: pkg.path + ".pkg", files: []};
+		var module:Module = {path: pkg.path, files: [],isMain: false};
+		if (pkg.name != "main")
+			module.path += ".pkg";
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = className(Typer.title(endPath));
 
-		var main:FileType = null; //main pkg file
+		var pkgExport:FileType = null; //main pkg file
 
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -290,14 +292,14 @@ function main(data:DataType) {
 			for (path => alias in info.global.imports)
 				data.imports.push({path: path.split("."), alias: alias,doc: ""});
 			if (data.name == endPath && pkg.name != "main") {
-				main = data;
+				pkgExport = data;
 			}else{
 				module.files.push(data);
 			}
 		}
 		if (pkg.name != "main") {
-			if (main == null) {
-				main = {
+			if (pkgExport == null) {
+				pkgExport = {
 					name: endPath,
 					imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
 					defs: [],
@@ -307,13 +309,14 @@ function main(data:DataType) {
 			//add to main module list
 			list.push({
 				path: pkg.path,
-				files: [main],
+				files: [pkgExport],
+				isMain: false,
 			});
 		var mainImportList:Array<ImportType> = [];
 		var mainImportExists:Map<String,Bool> = [];
 		
 		for (file in module.files) {
-			if (main != null && file.name == main.name)
+			if (main != null && file.name == pkgExport.name)
 				continue;
 			for (def in file.defs) {
 				if (def == null || def.isExtern == null || !def.isExtern)
@@ -326,7 +329,7 @@ function main(data:DataType) {
 				};
 				var key = imp.path.join(".");
 				if (!mainImportExists.exists(key)) {
-					main.imports.push(imp);
+					pkgExport.imports.push(imp);
 					mainImportList.push(imp);
 					mainImportExists[key] = true;
 				}
@@ -336,7 +339,7 @@ function main(data:DataType) {
 						if (StringTools.endsWith(def.name,"__extension"))
 							continue;
 						var t:ComplexType = TPath({name: def.name,pack: module.path.split(".").concat([file.name])});
-						main.defs.push({
+						pkgExport.defs.push({
 							name: def.name,
 							pack: [],
 							pos: null,
@@ -345,7 +348,7 @@ function main(data:DataType) {
 						});
 					case TDAlias(t):
 						var t:ComplexType = TPath({name: def.name,pack: []});
-						main.defs.push({
+						pkgExport.defs.push({
 							name: def.name,
 							pack: [],
 							pos: null,
@@ -358,7 +361,7 @@ function main(data:DataType) {
 								if (t == null)
 									t = TPath({name: "Dynamic",pack: []});
 								var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
-								main.defs.unshift({
+								pkgExport.defs.unshift({
 									name: "get_" + def.name,
 									pack: [],
 									pos: null,
@@ -369,7 +372,7 @@ function main(data:DataType) {
 										expr: macro return $ident,
 									}),[AInline]),
 								});
-								main.defs.unshift({
+								pkgExport.defs.unshift({
 									name: "set_" + def.name,
 									pack: [],
 									pos: null,
@@ -380,7 +383,7 @@ function main(data:DataType) {
 										expr: macro return $ident = value,
 									}),[AInline]),
 								});
-								main.defs.unshift({
+								pkgExport.defs.unshift({
 									name: def.name,
 									pack: [],
 									pos: null,
@@ -392,7 +395,7 @@ function main(data:DataType) {
 						}
 					case TDAbstract(tthis, from, to): //export out alias type
 						var t:ComplexType = TPath({name: file.name,sub: def.name,pack: module.path.split(".")});
-						main.defs.unshift({
+						pkgExport.defs.unshift({
 							name: def.name,
 							pack: [],
 							pos: null,
@@ -406,7 +409,7 @@ function main(data:DataType) {
 		//add to main import list from main
 		var path = module.path.split(".");
 		path.pop(); //remove pkg as main is top level
-		path.push(main.name);
+		path.push(pkgExport.name);
 		mainImportList.push({
 			path: path,
 			alias: "",
@@ -416,6 +419,8 @@ function main(data:DataType) {
 		for (file in module.files) {
 			file.imports = file.imports.concat(mainImportList);
 		}
+	}else{
+		module.isMain = true;
 	}
 		list.push(module);
 	}
@@ -1979,14 +1984,14 @@ private function toComplexType(e:GoType):ComplexType {
 
 				case uintptr_kind: TPath({pack: [],name: "GoUIntptr"});
 
-				case untyped_int_kind: TPath({pack: [],name: "GoInt"});
+				case untyped_int_kind: null;
 				case untyped_bool_kind: TPath({pack: [],name: "Bool"});
 				case untyped_float_kind: TPath({pack: [],name: "GoFloat64"});
 				case untyped_rune_kind: TPath({pack: [],name: "GoInt32"});
 				case untyped_complex_kind: TPath({pack: [],name: "GoComplex128"});
 				case untyped_string_kind: TPath({pack: [],name: "GoString"});
-				case untyped_nil_kind: TPath({pack: [],name: "AnyInterface"});
-				case invalid_kind: TPath({pack: [],name: "AnyInterface"});
+				case untyped_nil_kind: null;
+				case invalid_kind: null;
 				default:
 					throw "unknown kind to complexType: " + kind;
 			}
@@ -3443,6 +3448,6 @@ class Info {
 
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
-typedef Module = {path:String, files:Array<FileType>}
+typedef Module = {path:String, files:Array<FileType>, isMain:Bool}
 typedef ImportType = {path:Array<String>, alias:String, doc:String}
 typedef FileType = {name:String, imports:Array<ImportType>, defs:Array<TypeDefinition>, location:String}; // location is the global path to the file

@@ -446,7 +446,7 @@ class Go {
 		expr = parens(expr);
 		switch expr.expr {
 			case ECheckType(e, t):
-				var t = ComplexTypeTools.toType(t);
+				var t = Context.follow(ComplexTypeTools.toType(t));
 				if (t == null)
 					throw "complexType converted to type is null";
 				var value = gtDecode(t);

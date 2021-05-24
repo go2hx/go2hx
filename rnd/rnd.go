@@ -2,26 +2,39 @@ package main
 
 import (
 	"fmt"
-
-	//"github.com/go2hx/go4hx/rnd/data"
+	"reflect"
+	//"reflect"
 )
 func main() {
+	
+	x := []interface{}{}
+	var aif interface{} = 42.0
+	z := struct{
+		x int16
+		y bool
+	}{0,false}
 
-	//data.Test()
-	//var i data.Example = 0
-	//fmt.Println(i)
+	x = append(x, aif)
+	x = append(x, z)
 
-	//fmt.Println("ex:",data.Ex)
+	a := [3]bool{}
+	x = append(x, a)
 
-	//s := data.Struct{}
-	//fmt.Println("s:",s)
 
-	//data.Test()
-//}
+	i := 42
+	p := &i
+	x = append(x, p)
 
-	fmt.Println("start")
-	th()
+	x = append(x, []rune{})
+	x = append(x, make(map[string]bool))
+	//x = append(x, chan nonStructT)
+	x = append(x, reflect.TypeOf(complex(10.3,20.5)))
+
+	for _,ai := range x {
+		fmt.Println("----")
+		t := reflect.TypeOf(ai)
+		value := reflect.ValueOf(ai)
+		fmt.Println(t)
+		fmt.Println(value)
+	}
 }
-
-//#go2hx stdgo.reflect.Reflect.testHarness
-func th()

@@ -36,20 +36,11 @@ abstract Pointer<T>(PointerData<T>) {
 	public inline function address() {
 		return this.address;
 	}
-
-	@:to inline function __promote() {
-		return new AnyInterface({value: this, typeName: "*" + (this.get() : AnyInterface).typeName()});
-	}
 }
 
 @:forward
 abstract PointerWrapper<T>(T) from T to T {
 	public var _value_(get, set):T;
-	public var _is_pointer_(get,never):Bool;
-
-	private inline function get__is_pointer_():Bool {
-		return true;
-	}
 
 	private inline function get__value_():T {
 		return this;
@@ -77,10 +68,6 @@ abstract PointerWrapper<T>(T) from T to T {
 		if (b == null)
 			return a == null ? !true : !false;
 		return (a._value_ : Dynamic)._address_ != (b._value_ : Dynamic)._address_;
-	}
-
-	@:to inline function __promote() {
-		return new AnyInterface({value: this, typeName: "*" + (_value_ : AnyInterface).typeName()});
 	}
 }
 

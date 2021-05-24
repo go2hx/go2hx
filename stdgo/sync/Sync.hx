@@ -7,9 +7,6 @@ import sys.thread.Mutex;
 
 class RWMutex implements StructType {
 	var mutux:Mutex;
-
-	public var _is_pointer_:Bool = false;
-	public final _typeName_:String = "RWMutex";
 	public var _address_:Int = 0;
 
 	public function new() {
@@ -27,11 +24,8 @@ class RWMutex implements StructType {
 }
 
 class WaitGroup implements StructType {
-	public var _is_pointer_:Bool = false;
 
 	var lock:Lock;
-
-	public final _typeName_:String = "WaitGroup";
 	public var _address_:Int = 0;
 
 	var counter:GoUInt = 0;
@@ -67,9 +61,7 @@ class WaitGroup implements StructType {
 
 
 class Once implements StructType {
-	public final _typeName_ = "Once";
 	public var _address_:Int;
-	public var _is_pointer_:Bool = false;
 	public var done:Bool = false;
 	public function new() {
 		_address_ = Go.addressIndex++;

@@ -1,6 +1,6 @@
 package stdgo;
 
-import stdgo.StdGoTypes.IntegerType;
+import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoRune;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoByte;
@@ -13,11 +13,6 @@ abstract GoString(String) from String to String {
 	public inline function new(str:String = "") {
 		this = str;
 	}
-
-	@:to inline function __promote() {
-		return new AnyInterface({value: this, typeName: "string"});
-	}
-
 	@:from static function ofRune(x:GoRune):GoString {
 		return String.fromCharCode(x.toBasic());
 	}
@@ -29,8 +24,8 @@ abstract GoString(String) from String to String {
 		return bytes.toString();
 	}
 
-	@:from static function ofIntegerType(x:IntegerType):GoString {
-		return String.fromCharCode(x);
+	@:from static function ofInt64(x:GoInt64):GoString {
+		return String.fromCharCode(x.toBasic().low);
 	}
 	@:op([])
 	public inline function get(index:GoInt)

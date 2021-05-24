@@ -1,7 +1,6 @@
 package stdgo.fmt;
 
 import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.IntegerType;
 import haxe.Int64;
 import stdgo.io.Io.Writer;
 import haxe.Rest;
@@ -42,8 +41,19 @@ function sprintln(args:Rest<Dynamic>) {
 
 private function parse(args:Array<Dynamic>):Array<Dynamic> {
 	for (i in 0...args.length) {
-		if (Int64.isInt64(args[i]))
+		var t = Type.typeof(args[i]);
+		switch t {
+			case TClass(c):
+				var name = Type.getClassName(c);
+				switch name {
+					case "stdgo._StdGoTypes.AnyInterfaceData":
+						args[i] = args[i].value;
+				}
+			default:
+		}
+		if (Int64.isInt64(args[i])) {
 			args[i] = Int64.toStr(args[i]);
+		}
 	}
 	return args;
 }

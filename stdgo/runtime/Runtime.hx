@@ -84,9 +84,7 @@ interface Error extends stdgo.StdGoTypes.Error {
 }
 
 class Frames implements StructType {
-	public var _is_pointer_:Bool = false;
 	public var _address_:Int = 0;
-	public final _typeName_ = "Frames";
 
 	public function new() {
 		_address_ = Go.addressIndex++;
@@ -98,9 +96,7 @@ class Frames implements StructType {
 }
 
 class Frame implements StructType {
-	public var _is_pointer_:Bool = false;
 	public var _address_:Int = 0;
-	public final _typeName_ = "Frame";
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
 
@@ -111,9 +107,7 @@ class Frame implements StructType {
 
 class MemStats implements StructType {
 	public var alloc(get, null):GoUInt64;
-	public var _is_pointer_:Bool = false;
 	public var _address_:Int = 0;
-	public final _typeName_:String = "MemStats";
 
 	function get_alloc():GoUInt64 {
 		return 0;

@@ -1001,6 +1001,12 @@ abstract GoInt64(Int64) from Int64 {
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this.low);
 
+	@:to inline function toComplex64():GoComplex64
+		return new GoComplex64(toFloat32(),0);
+
+	@:to inline function toComplex128():GoComplex128
+		return new GoComplex128(toFloat64(),0);
+
 	@:to inline function toUInt8():GoUInt8
 		return clampUInt8(this.low);
 

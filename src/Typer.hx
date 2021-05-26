@@ -137,10 +137,7 @@ function main(data:DataType) {
 							info.data.imports.push(typeImport(spec, info));
 						case "TypeSpec":
 							info.typeNames.push(spec.name.name);
-							switch spec.type.id {
-								case "StructType","InterfaceType": data.defs.push(typeType(spec, info));
-								default: data.defs = data.defs.concat(typeAlias(spec,info));
-							}
+							typeSpec(spec,info);
 							
 					}
 				}
@@ -979,7 +976,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						name: className(title(spec.name.name)),
 						pack: [],
 					});
-					info.data.defs.push(typeType(spec, info));
+					typeSpec(spec, info);
 				case "ValueSpec":
 					var spec:Ast.ValueSpec = spec;
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
@@ -995,6 +992,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							};
 						}
 					]);
+				default:
+					throw "unknown id: " + spec.id;
 			}
 		}
 	}
@@ -1659,7 +1658,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case EConst(c):
 					switch c {
 						case CString(s, kind):
-							last = macro(($last) : Slice<GoString>);
+							last = macro new GoString($last);
 						default:
 					}
 				default:
@@ -1695,6 +1694,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs();
 					ellipsisFunc();
 					var e = args.shift();
+					if (args.length == 0)
+						return e.expr;
 					return (macro $e.append($a{args})).expr;
 				case "copy":
 					genArgs();
@@ -1751,7 +1752,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (type != null) switch type {
 							case signature(_, _, _, _):
 							default:
-								return checkType(typeExpr(expr.args[0],info),toComplexType(type),typeof(expr.args[0]),type).expr;
+								return checkType(typeExpr(expr.args[0],info),typeExprType(expr.fun,info),typeof(expr.args[0]),type).expr;
 						}
 					}
 			}
@@ -3092,7 +3093,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 				ret: abstractType,
 			})
 		},{
-			name: "__get",
+			name: "__get", //for strings + slices/arrays/maps
 			pos: null,
 			meta: [{name: ":op",pos: null,params: [macro []]}],
 			access: [AInline],
@@ -3101,10 +3102,27 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 				ret: abstractType,
 				expr: macro return untyped this.get(i),
 			})
+		},{
+			name: "__set", //for slices/arrays/maps
+			pos: null,
+			meta: [{name: ":op",pos: null,params: [macro []]}],
+			access: [AInline],
+			kind: FFun({
+				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})},{name: "value"}],
+				ret: abstractType,
+				expr: macro return untyped this.set(i,value),
+			})
 		}],
 		kind: TDAbstract(type,[type],[type])
 	});
 	return defs;
+}
+
+private function typeSpec(spec:Ast.TypeSpec,info:Info) {
+	switch spec.type.id {
+		case "StructType","InterfaceType": info.data.defs.push(typeType(spec, info));
+		default: info.data.defs = info.data.defs.concat(typeAlias(spec,info));
+	}
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {

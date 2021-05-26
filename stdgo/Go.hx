@@ -114,17 +114,18 @@ class Go {
 			size = macro 0;
 		if (cap == null || cap.expr.match(EConst(CIdent("null"))))
 			cap = macro 0;
-
-		var t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(getType(t))));
-		if (t == null)
-			throw t;
+		var type = Context.followWithAbstracts(ComplexTypeTools.toType(getType(t)));
+		var ct = Context.toComplexType(type);
+		if (ct == null)
+			throw ct;
 		var func = null;
 		func = function():Expr {
-			switch t {
+			switch ct {
 				case TPath(p):
 					var name = p.name;
 					switch name {
-						case "Slice":
+						case "SliceData":
+							p = {name: "Slice",pack: []};
 							if (size == null)
 								return macro new $p();
 							var value:Expr = null;
@@ -136,7 +137,7 @@ class Go {
 							}
 							return macro {
 								var slice = new $p();
-								var size:GoInt64 = $size;
+								var size = ($size : GoInt32).toBasic();
 								var value = $value;
 								slice.grow(size);
 								var i = 0;
@@ -146,9 +147,9 @@ class Go {
 								}
 								slice;
 							};
-						case "GoArray":
+						case "Vector":
 							throw("cannot make GoArray must be type generated");
-						case "GoMap":
+						case "MapData":
 							switch p.params[1] {
 								case TPType(t):
 									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
@@ -165,11 +166,11 @@ class Go {
 							}
 							return null;
 						default:
-							trace("make unknown: " + p);
+							trace("make unknown tpath: " + p);
 							return null;
 					}
 				default:
-					trace("make unknown: " + t);
+					trace("make unknown type: " + t);
 					return null;
 			}
 		}
@@ -865,22 +866,39 @@ class Go {
 	#end
 
 	public static macro function set(params:Array<Expr>) {
-		var t = Context.toComplexType(Context.getExpectedType());
+		var t = Context.follow(Context.getExpectedType());
+		var ct = Context.toComplexType(t);
+		var fields = [];
 		switch t {
+			case TAnonymous(a):
+				fields = a.get().fields;
+			case TInst(t, params2):
+				fields = t.get().fields.get();
+			default:
+				throw "unknown set type: " + t;
+		}
+		for (i in 0...fields.length) {
+			var ft = Context.toComplexType(fields[i].type);
+			switch ft {
+				case TPath(p):
+					if (p.name == "StdGoTypes" && p.sub == "AnyInterface") {
+						params[i] = macro Go.toInterface(${params[i]});
+					}
+				default:
+			}
+		}
+		switch ct {
 			case TPath(p):
 				return macro new $p($a{params});
 			case TFunction(args, ret):
 				return macro null;
 			case TAnonymous(fields):
-				fields.sort((a, b) -> {
-					return PositionTools.getInfos(a.pos).min - PositionTools.getInfos(b.pos).min;
-				});
 				var anon = createAnonType(Context.currentPos(), fields, params);
+				//trace(new haxe.macro.Printer().printExpr(anon));
 				return anon;
 			default:
 				throw("unknown go set type: " + t);
 		}
-		return macro null;
 	}
 
 	public static macro function setKeys(expr:Expr) {

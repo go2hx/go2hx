@@ -6,6 +6,7 @@ import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoByte;
 
 @:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
@@ -14,6 +15,11 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	// pretend to be pointer if neeeded
 	public var _value_(get, set):Slice<T>;
 	public var _address_(get, never):String;
+
+	@:from
+	public static function fromString(str:String):Slice<GoByte> {
+		return new GoString(str);
+	}
 
 	private inline function get__address_():String {
 		return this._address_;

@@ -53,10 +53,10 @@ function gen() {
 		"235", "64bit", // Class name must start with an uppercase letter
 		"peano", //breaks testing system causes all other tests to timeout after
 		"stack", //passes but is super flakey with the completion server, potential error on the Haxe side
-
+		"rename", //messed up the typed AST, can be ran on its own in the future TODO
 	])
 		tests.remove('.$pathto$test.go');
-	//tests = ['.$pathto' + "iota.go"];
+	//tests = ['.$pathto' + "append.go"];
 	compile(tests, false);
 }
 

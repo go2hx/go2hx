@@ -11,6 +11,6 @@ function main() {
 	trace(command);
 	Sys.command(command);
 
-	Sys.println("expected:");
+	Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");
 	Sys.command("go run ./rnd");
 }

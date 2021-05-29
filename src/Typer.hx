@@ -1002,8 +1002,13 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 }
 
-private function isInterface(expr):Bool {
-	return false;
+private function isInterface(type:GoType):Bool {
+	return switch type {
+		case named(_,elem):
+			isInterface(type);
+		default:
+			false;
+	}
 }
 private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
 	//trace("from: " + from + " to: " + to);
@@ -1739,7 +1744,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							return (macro Go.pointer(${defaultValue(t, info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
-					trace("t: " + t);
 				case "make":
 					var type = expr.args[0];
 					genArgs(1);
@@ -1928,7 +1932,25 @@ private function typeof(e:Ast.Expr):GoType {
 			cl;
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
-			parseType(e.type);
+			var t = parseType(e.type);
+			var ofType = null;
+			ofType = (t:GoType,isSlice:Bool) -> {
+				return switch t {
+					case slice(elem), array(elem,_):
+						if (isSlice) {
+							elem;
+						}else{
+							ofType(elem,true);
+						}
+					case named(_,elem):
+						ofType(elem,isSlice);
+					default:
+						t;
+				}
+			}
+			t = ofType(t,false);
+			trace("t: " + t);
+			t;
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
 			parseType(e.typeX);
@@ -2088,9 +2110,9 @@ private function parseType(e:ExprType) {
 		case "Chan":
 			chan(e.dir,parseType(e.elem));
 		case null:
-			trace(e);
-			throw "type id is null: " + e;
-			null;
+			//trace("null: " + e);
+			return invalid;
+			//invalid;
 		default:
 			throw "unknow go type: " + e.id;
 	}
@@ -2251,6 +2273,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 							default:
 						}
 					}
+				case invalid:
 				default:
 					trace(type);
 			}
@@ -3099,7 +3122,6 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 			access: [AInline],
 			kind: FFun({
 				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})}],
-				ret: abstractType,
 				expr: macro return untyped this.get(i),
 			})
 		},{
@@ -3109,7 +3131,6 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):Array<TypeDefinition> {
 			access: [AInline],
 			kind: FFun({
 				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})},{name: "value"}],
-				ret: abstractType,
 				expr: macro return untyped this.set(i,value),
 			})
 		}],
@@ -3267,7 +3288,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	var interfaceBool = false;
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
-		interfaceBool = isInterface(type);
+		//interfaceBool = isInterface(type);
 	}
 	var values:Array<TypeDefinition> = [];
 	for (i in 0...value.names.length) {

@@ -15,9 +15,9 @@ go2hx
 
 # Getting started
 * Download Golang [here](https://golang.org/dl/)
-* Download lix with npm: ``npm install lix -g``
-* Installing go2hx: ``lix install https://github.com/go2hx/go2hx --global``
-* Building: ``lix run go2hx ./main.go`` or ``lix run go2hx github.com/tidwall/btree``
+* Download lix with npm: ```npm install lix -g```
+* Installing go2hx: ```lix install https://github.com/go2hx/go2hx --global```
+* Compiling: ```lix run go2hx ./main.go`` or ``lix run go2hx github.com/tidwall/btree```
 
 ## Supported Spec
 
@@ -62,3 +62,14 @@ A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.c
 * Alex's [formatter](https://github.com/HaxeCheckstyle/haxe-formatter) (Haxe code formatter)
 * Simn's [hxparse](https://github.com/Simn/hxparse) and [haxeparser](https://github.com/Simn/haxeparser) (Haxe Lexer and Parser library)
 * [gopherjs](https://github.com/gopherjs/gopherjs) (Go to Javascript compiler)
+
+
+## Build from source
+
+* clone the repo
+* install [go](https://golang.org/dl/)
+* install lix ```npm install lix -g```
+* install haxe version and haxe libraries ```lix download```
+* compile Go side ```go build .```
+* compile Haxe side ```haxe build.hxml```
+* run compiler with ```neko run.n ./main.go .``` the end dot denotes the file location of the compiler it is used for the lix library version.

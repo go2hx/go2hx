@@ -98,7 +98,7 @@ func main() {
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax | packages.NeedDeps |
 		packages.NeedImports | packages.NeedTypes |
-		packages.NeedFiles}
+		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
 	cfg.Tests = *testBool
 	initial, err := packages.Load(cfg, args...)
 	if err != nil {
@@ -142,9 +142,9 @@ func parsePkgList(list []*packages.Package) dataType {
 			}
 			syntax := parsePkg(val)
 			if stdgoList[val.PkgPath] {
-				stdgoVal := packages.Package{}
-				syntax2 := parsePkg(&stdgoVal)
-				_ = syntax2
+				//stdgoVal := packages.Package{}
+				//syntax2 := parsePkg(&stdgoVal)
+				//_ = syntax2
 				//merge the files together for the runner
 			}
 			if len(syntax.Files) > 1 {
@@ -161,59 +161,50 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
-	
 
-	var info = types.Info{
-		Types: make(map[ast.Expr]types.TypeAndValue),
-		Defs:  make(map[*ast.Ident]types.Object),
-		Uses:  make(map[*ast.Ident]types.Object),
-	}
 	conf := types.Config{
-		Importer: importer.ForCompiler(fset,"source",nil ),
-	}
-
-	tpkg, err := conf.Check(pkg.PkgPath,fset,pkg.Syntax,&info)
-	if err != nil {
-		fmt.Println(err)
+		Importer: importer.Default(),
+		//DisableUnusedImportCheck: true,
 	}
 	
-	checker := types.NewChecker(&conf,fset,tpkg,&info)
+	
+	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
 
 	for i, file := range pkg.Syntax {
-		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i],checker))
+		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
 	return data
 }
 
-func parseFile(file *ast.File, path string, checker *types.Checker) fileType {
+func parseFile(file *ast.File, path string) fileType {
 	data := fileType{}
 	data.Location = path
-	data.Doc = parseData(file.Doc,checker)
+	data.Doc = parseData(file.Doc)
 	path = filepath.Base(path)
 	data.Path = path
 
 	for _, decl := range file.Decls {
-		obj := parseData(decl,checker)
+		obj := parseData(decl)
 		data.Decls = append(data.Decls, obj)
 	}
 	return data
 }
-func parseBody(list []ast.Stmt, checker *types.Checker) []map[string]interface{} {
+func parseBody(list []ast.Stmt) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
-		data[i] = parseData(obj,checker)
+		data[i] = parseData(obj)
 	}
 	return data
 }
-func parseExprList(list []ast.Expr, checker *types.Checker) []map[string]interface{} {
+func parseExprList(list []ast.Expr) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	//fmt.Println("list:",list)
 	for i, obj := range list {
-		data[i] = parseData(obj,checker)
+		data[i] = parseData(obj)
 	}
 	return data
 }
-func parseSpecList(list []ast.Spec, checker *types.Checker) []map[string]interface{} {
+func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
 		switch obj := obj.(type) {
@@ -224,18 +215,18 @@ func parseSpecList(list []ast.Spec, checker *types.Checker) []map[string]interfa
 			}
 			values := make([]map[string]interface{}, len(obj.Values))
 			for i := range obj.Values {
-				values[i] = parseData(obj.Values[i],checker)
+				values[i] = parseData(obj.Values[i])
 			}
 			data[i] = map[string]interface{}{
 				"id":        "ValueSpec",
-				"names":     parseIdents(obj.Names,checker,[]string{}),
-				"type":      parseData(obj.Type,checker),
+				"names":     parseIdents(obj.Names),
+				"type":      parseData(obj.Type),
 				"values":    values,
 				"constants": constants,
-				"doc":       parseData(obj.Comment,checker),
+				"doc":       parseData(obj.Comment),
 			}
 		default:
-			data[i] = parseData(obj, checker)
+			data[i] = parseData(obj)
 		}
 		data[i]["pos"] = fset.Position(obj.Pos()).Offset
 		data[i]["end"] = fset.Position(obj.End()).Offset
@@ -243,36 +234,49 @@ func parseSpecList(list []ast.Spec, checker *types.Checker) []map[string]interfa
 	return data
 }
 
-func parseType(node interface{}, checker *types.Checker,path []string) map[string]interface{} {
+var marked map[string]bool
+var checker *types.Checker
+
+func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
-	if !e.IsValid() || node == nil {
-		return data
+	if node == nil {
+		return nil
+	}
+	if !e.IsValid() {
+		return nil
 	}
 	data["id"] = getId(node)
 	if data["id"] == "" {
-		return data
+		panic(data)
 	}
 	switch data["id"] {
 	case "Named":
 		named := node.(*types.Named)
-		data["path"] = named.String()
-		exists := false
-		for _,p := range path {
-			if p == named.String() {
-				exists = true
-				break
+		path := named.String()
+		if !strings.Contains(path, "syscall/") && 
+			!strings.Contains(path, "internal.") && 
+			//!strings.Contains(path, "error") && 
+			!strings.Contains(path,"reflect.") &&
+			!strings.Contains(path,"runtime.") &&
+			!strings.Contains(path,"sync.") &&
+			!marked[path] {
+			init := false
+			if marked == nil {
+				marked = make(map[string]bool)
+				init = true
+			}
+			marked[path] = true
+			data["underlying"] = parseType(named.Underlying())
+			if init {
+				marked = nil
 			}
 		}
-		if  !exists {
-			path = append(path, named.String())
-			data["underlying"] = parseType(named.Underlying(),checker,path)
-		}
-		_ = named
+		data["path"] = path
 		return data
 	case "Slice":
 		s := node.(*types.Slice)
-		data["elem"] = parseType(s.Elem(),checker,path)
+		data["elem"] = parseType(s.Elem())
 		return data
 	case "Struct":
 		s := node.(*types.Struct)
@@ -281,7 +285,7 @@ func parseType(node interface{}, checker *types.Checker,path []string) map[strin
 			v := s.Field(i)
 			fields[i] = map[string]interface{}{
 				"name": v.Name(),
-				"type": parseType(v.Type(),checker,path),
+				"type": parseType(v.Type()),
 			}
 		}
 		data["fields"] = fields
@@ -292,7 +296,7 @@ func parseType(node interface{}, checker *types.Checker,path []string) map[strin
 		return data
 	case "Pointer":
 		s := node.(*types.Pointer)
-		data["elem"] = parseType(s.Elem(),checker,path)
+		data["elem"] = parseType(s.Elem())
 	case "Basic":
 		s := node.(*types.Basic)
 		data["kind"] = s.Kind() //is int
@@ -307,33 +311,37 @@ func parseType(node interface{}, checker *types.Checker,path []string) map[strin
 	case "Signature":
 		s := node.(*types.Signature)
 		data["variadic"] = s.Variadic()
-		data["params"] = parseType(s.Params(), checker,path)
-		data["results"] = parseType(s.Results(), checker,path)
-		data["recv"] = parseType(s.Recv(), checker,path)
+		data["params"] = parseType(s.Params())
+		data["results"] = parseType(s.Results())
+		data["recv"] = parseType(s.Recv())
 	case "Tuple":
 		s := node.(*types.Tuple)
 		data["len"] = s.Len()
 		vars := make([]map[string]interface{},s.Len())
 		for i := 0; i < s.Len(); i++ {
 			a := s.At(i)
-			vars[i] = parseType(a,checker,path)
+			vars[i] = parseType(a)
 		}
 		data["vars"] = vars
 	case "Var":
 		s := node.(*types.Var)
 		data["name"] = s.Name()
-		data["type"] = parseType(s.Type(),checker,path)
+		data["type"] = parseType(s.Type())
+	case "Chan":
+		s := node.(*types.Chan)
+		data["type"] = parseType(s.Elem())
+		data["dir"] = s.Dir()
 	default:
 		fmt.Println("unknown parse type id:", data["id"])
 	}
 	return data
 }
-func parseKind(val reflect.Value, checker *types.Checker) interface{} {
+func parseKind(val reflect.Value) interface{} {
 	switch val.Kind() {
 	case reflect.String:
 		return val.String()
 	case reflect.Ptr:
-		return parseKind(reflect.New(val.Type().Elem()).Elem(), checker)
+		return parseKind(reflect.New(val.Type().Elem()).Elem())
 	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 		return val.Int()
 	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
@@ -344,11 +352,11 @@ func parseKind(val reflect.Value, checker *types.Checker) interface{} {
 		return val.Bool()
 	case reflect.Struct:
 		i := val.Interface()
-		return parseType(&i,checker,[]string{})
+		return parseType(&i)
 	case reflect.Interface:
 		if val.CanSet() {
 			i := val.Interface()
-			return parseType(&i,checker,[]string{})
+			return parseType(&i)
 		}
 		return nil
 	default:
@@ -356,13 +364,13 @@ func parseKind(val reflect.Value, checker *types.Checker) interface{} {
 		return nil
 	}
 }
-func parseData(node interface{}, checker *types.Checker) map[string]interface{} {
+func parseData(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
 	case *ast.BasicLit:
-		return parseBasicLit(node,checker)
+		return parseBasicLit(node)
 	case *ast.Ident:
-		return parseIdent(node,checker,[]string{})
+		return parseIdent(node)
 	default:
 	}
 	e := reflect.Indirect(reflect.ValueOf(node))
@@ -391,58 +399,58 @@ func parseData(node interface{}, checker *types.Checker) map[string]interface{} 
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.BasicLit:
-			data[field.Name] = parseBasicLit(value,checker)
+			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
 				"id":  "ExprStmt",
-				"x":   parseData(value.X,checker),
+				"x":   parseData(value.X),
 				"pos": fset.PositionFor(value.X.Pos(), true).Offset,
 				"end": fset.PositionFor(value.X.End(), true).Offset,
 			}
 		case *ast.BadStmt, *ast.DeclStmt, *ast.EmptyStmt, *ast.LabeledStmt, *ast.SendStmt, *ast.IncDecStmt, *ast.GoStmt, ast.DeferStmt:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.ReturnStmt, *ast.BranchStmt, *ast.SelectStmt:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.BinaryExpr:
-			obj := parseData(value,checker)
+			obj := parseData(value)
 			data[field.Name] = obj
 		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: //in scopes
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.AssignStmt:
-			data[field.Name] = parseData(value,checker)
+			data[field.Name] = parseData(value)
 		case *ast.GenDecl:
 			file := ast.File{}
 			file.Decls = append(file.Decls, value)
-			data[field.Name] = parseFile(&file, "",checker)
+			data[field.Name] = parseFile(&file, "")
 		case *ast.Ident:
-			data[field.Name] = parseIdent(value,checker,[]string{})
+			data[field.Name] = parseIdent(value)
 		case ast.ChanDir, bool, string, int: //is an int
 			data[field.Name] = value
 		case ast.FieldList:
-			data[field.Name] = parseFieldList(value.List,checker)
+			data[field.Name] = parseFieldList(value.List)
 		case *ast.FieldList:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseFieldList(value.List,checker)
+			data[field.Name] = parseFieldList(value.List)
 		case []ast.Stmt:
 			if value == nil {
 				continue
 			}
-			data[field.Name] = parseBody(value,checker)
+			data[field.Name] = parseBody(value)
 		case []ast.Expr:
-			data[field.Name] = parseExprList(value,checker)
+			data[field.Name] = parseExprList(value)
 		case []ast.Spec:
-			data[field.Name] = parseSpecList(value,checker)
+			data[field.Name] = parseSpecList(value)
 		case *ast.Object: //skip
 		case []*ast.Ident:
-			data[field.Name] = parseIdents(value,checker,[]string{})
+			data[field.Name] = parseIdents(value)
 		case []ast.Ident:
 			list := make([]string, len(value))
 			for i := range value {
@@ -475,32 +483,32 @@ func parseData(node interface{}, checker *types.Checker) map[string]interface{} 
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-		data["typeLit"] = parseType(checker.TypeOf(node.Type),checker,[]string{})
+		data["typeLit"] = parseType(checker.TypeOf(node.Type))
 	case *ast.SelectorExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.IndexExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.Ellipsis:
-		data["type"] = parseType(checker.TypeOf(node.Elt),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.Elt))
 	case *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.SliceExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.TypeAssertExpr:
-		data["typeX"] = parseType(checker.TypeOf(node.X),checker,[]string{})
-		data["type"] = parseType(checker.TypeOf(node.Type),checker,[]string{})
+		data["typeX"] = parseType(checker.TypeOf(node.X))
+		data["typeY"] = parseType(checker.TypeOf(node.Type))
 	case *ast.StarExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.CallExpr:
-		data["type"] = parseType(checker.TypeOf(node.Fun),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.Fun))
 	case *ast.UnaryExpr:
-		data["type"] = parseType(checker.TypeOf(node.X),checker,[]string{})
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.BinaryExpr:
-		data["typeX"] = parseType(checker.TypeOf(node.X),checker,[]string{})
-		data["typeY"] = parseType(checker.TypeOf(node.Y),checker,[]string{})
+		data["typeX"] = parseType(checker.TypeOf(node.X))
+		data["typeY"] = parseType(checker.TypeOf(node.Y))
 	case *ast.KeyValueExpr:
-		data["typeKey"] = parseType(checker.TypeOf(node.Key),checker,[]string{})
-		data["typeValue"] = parseType(checker.TypeOf(node.Value),checker,[]string{})
+		data["typeKey"] = parseType(checker.TypeOf(node.Key))
+		data["typeValue"] = parseType(checker.TypeOf(node.Value))
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset
@@ -508,35 +516,32 @@ func parseData(node interface{}, checker *types.Checker) map[string]interface{} 
 	}
 	return data
 }
-func parseIdents(value []*ast.Ident, checker *types.Checker, path []string) []map[string]interface{} {
+func parseIdents(value []*ast.Ident) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
 		list[i] = map[string]interface{}{
 			"id":   "Ident",
-			"type": parseType(checker.TypeOf(value[i]),checker,path),
+			"type": parseType(checker.TypeOf(value[i])),
 			"name": value[i].Name,
 		}
 	}
 	return list
 }
-func parseIdent(value *ast.Ident, checker *types.Checker, path []string) map[string]interface{} {
+func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
 	data := map[string]interface{}{
 		"id":   "Ident",
-		"type": parseTypeObject(checker.ObjectOf(value), checker,path),
 		"name": value.Name,
+	}
+	obj := checker.ObjectOf(value)
+	if obj != nil {
+		data["type"] = parseType(obj.Type())
 	}
 	return data
 }
-func parseTypeObject(obj types.Object,checker *types.Checker, path []string) map[string]interface{} {
-	if obj == nil {
-		return nil
-	}
-	return parseType(obj.Type(),checker,path)
-}
-func parseBasicLit(value *ast.BasicLit, checker *types.Checker) map[string]interface{} {
+func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 	output := ""
 	switch value.Kind {
 	case token.INT:
@@ -583,17 +588,17 @@ func getId(obj interface{}) string {
 	}
 	return reflect.TypeOf(obj).Elem().Name()
 }
-func parseFieldList(list []*ast.Field, checker *types.Checker) map[string]interface{} {
+func parseFieldList(list []*ast.Field) map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, field := range list {
-		data[i] = parseField(field, checker)
+		data[i] = parseField(field)
 	}
 	return map[string]interface{}{
 		"id":   "FieldList",
 		"list": data,
 	}
 }
-func parseField(field *ast.Field, checker *types.Checker) map[string]interface{} {
+func parseField(field *ast.Field) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
@@ -604,12 +609,12 @@ func parseField(field *ast.Field, checker *types.Checker) map[string]interface{}
 	}
 	var tag map[string]interface{} = nil
 	if field.Tag != nil {
-		tag = parseBasicLit(field.Tag, checker)
+		tag = parseBasicLit(field.Tag)
 	}
 	return map[string]interface{}{
 		//"doc": parseData(field.Doc)
 		"names": names,
-		"type":  parseData(field.Type, checker),
+		"type":  parseData(field.Type),
 		"tag":   tag,
 		//"comment": parseData(field.Comment)
 	}

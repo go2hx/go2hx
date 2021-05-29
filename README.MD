@@ -19,7 +19,24 @@ go2hx
 * Installing go2hx: ``lix install https://github.com/go2hx/go2hx --global``
 * Building: ``lix run go2hx ./main.go`` or ``lix run go2hx github.com/tidwall/btree``
 
-## Aknowledgement
+## Supported Spec
+
+* defer
+* slice append and slice/array/map indexing
+* type switches and switches
+* if statements, nill checks, equality, for loops, range
+* interface{} and asserts
+* field access, binary operators
+* most number types
+* pointers
+* structs/interfaces/aliases*
+
+### Standard library support
+
+* a little os, fmt, reflect, time, math
+* most of builtin
+
+## Acknowledgement
 
 A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5), The developer that has set the building blocks conceptually for this project, as well as a code contributor, with use of some of his code from Tardisgo.
 
@@ -29,6 +46,15 @@ A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.c
 * The Haxe side then reads the exported data and begins typing up the data into TypeDefinitions, Fields, and Exprs.
 * The types are generated into Haxe files.
 * The generated code uses the stdgo package, that contains the basic types, builtin functions, and some macro magic.
+
+## Components
+
+* ``haxe build.hxml`` creates run.n a neko executable that holds the Haxe part of the compiler
+* ``go build .`` creates go4hx executable that holds the Go part of the compiler, it is called from the Haxe side and has arguments passed to it, with its output being export.json
+
+## Testing
+* for testing [hashlink](https://github.com/HaxeFoundation/hashlink) virtual machine is required
+* run ``haxe tests.hxml`` then ``hl tests.hl``, this will clone the go and tiny go repos and run their test suites.
 
 ## Inspiration
 * Elliott5's [tardisgo](https://github.com/tardisgo/tardisgo) (Go to Haxe written in Go)

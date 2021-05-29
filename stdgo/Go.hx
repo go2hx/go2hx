@@ -125,7 +125,7 @@ class Go {
 					var name = p.name;
 					switch name {
 						case "SliceData":
-							p = {name: "Slice",pack: []};
+							p = {name: "Slice",pack: [], params: p.params};
 							if (size == null)
 								return macro new $p();
 							var value:Expr = null;
@@ -150,6 +150,7 @@ class Go {
 						case "Vector":
 							throw("cannot make GoArray must be type generated");
 						case "MapData":
+							p = {name: "GoMap",pack: [], params: p.params};
 							switch p.params[1] {
 								case TPType(t):
 									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
@@ -408,9 +409,12 @@ class Go {
 				throw "not a checkType";
 		}
 	}
+	// GOROUTINE
+	public static macro function routine(expr) {
+		return expr;
+	}
 	public static macro function toInterface(expr) {
 		var t = Context.follow(Context.typeof(expr));
-
 		switch t {
 			case TAbstract(t, params):
 				var t = t.get();

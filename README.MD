@@ -17,7 +17,7 @@ go2hx
 * Download Golang [here](https://golang.org/dl/)
 * Download lix with npm: ```npm install lix -g```
 * Installing go2hx: ```lix install https://github.com/go2hx/go2hx --global```
-* Compiling: ```lix run go2hx ./main.go`` or ``lix run go2hx github.com/tidwall/btree```
+* Compiling: ```lix run go2hx ./main.go``` or ```lix run go2hx github.com/tidwall/btree```
 
 ## Supported Spec
 

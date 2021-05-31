@@ -1,6 +1,7 @@
 // ! -lib hxnodejs
 package;
 
+import Gen.create;
 import Typer.DataType;
 import haxe.Resource;
 import sys.FileSystem;
@@ -12,6 +13,8 @@ import stdgo.StdGoTypes;
 final cwd = Sys.getCwd();
 var exportPaths:Array<String> = [];
 var exportBool:Bool = false;
+var target:String = "";
+var targetFolder:Bool = false;
 
 function main() {
 	init(Sys.args());
@@ -19,13 +22,41 @@ function main() {
 
 function init(args:Array<String>) {
 	var argsCount = 0;
-	for (arg in args)
-		if (arg.charAt(0) != "-") // check if flag
+
+	var outputPath = "golibs";
+	var global = false;
+	var addOutput = false;
+
+	for (arg in args) {
+		if (addOutput) {
+			outputPath = arg;
+			args.remove(arg);
+			addOutput = false;
+		}
+		if (arg.charAt(0) != "-") {// check if flag
 			argsCount++;
+		}else{
+			var remove = true;
+			switch arg.substr(1) {
+				//targets
+				case "cpp","c++": target = "cpp"; targetFolder = true;
+				case "cs", "c#": target = "cs"; targetFolder = true;
+				case "java", "jvm": target = "jvm";
+				case "py", "python": target = "python";
+				case "lua": target = "lua";
+				case "js", "javascript": target = "js";
+				case "hl", "hashlink": target = "hl";
+				case "global": global = true;
+				case "o", "out", "output": addOutput = true;
+				default: remove = false;
+			}
+			if (remove)
+				args.remove(arg);
+		}
+	}
 	if (argsCount <= 1)
 		args.push(cwd);
 	var localPath = args[args.length - 1];
-	var outputPath = "golibs";
 	// for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
@@ -41,7 +72,10 @@ function init(args:Array<String>) {
 		Sys.command(command);
 	}
 	Sys.println("> parser:");
+	var haxerc = ".haxerc";
+	var haxercContent = File.getContent(haxerc);
 	Sys.setCwd(cwd);
+	//Sys.println('./go4hx ${args.join(" ")}');
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");
@@ -61,7 +95,25 @@ function init(args:Array<String>) {
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
 	for (module in modules) {
-		Gen.create(outputPath, module);
+		if (global && !module.isMain) {
+			Sys.setCwd(cwd);
+			trace(module.path);
+			var path = StringTools.replace(module.path,".","_");
+			trace(path);
+			var libPath = "libs/" + path + "/";
+			create(libPath,module);
+			Sys.setCwd(localPath);
+		}else{
+			Gen.create(outputPath, module);
+		}
+	}
+	if (target != "") {
+		if (!FileSystem.exists(haxerc))
+			File.saveContent(haxerc,haxercContent);
+		if (!FileSystem.exists(target + ".hxml"))
+			File.saveContent(target + ".hxml","
+
+			");
 	}
 	if (exportBool) {
 		exportPaths = [];

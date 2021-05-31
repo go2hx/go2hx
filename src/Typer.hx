@@ -1130,7 +1130,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		else
 			$next;
 	}
-	if (stmt.body.list == null)
+	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
 	return ifs().expr;
 }
@@ -1949,7 +1949,6 @@ private function typeof(e:Ast.Expr):GoType {
 				}
 			}
 			t = ofType(t,false);
-			trace("t: " + t);
 			t;
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
@@ -2004,6 +2003,7 @@ private function toComplexType(e:GoType):ComplexType {
 				case complex128_kind: TPath({pack: [],name: "GoComplex128"});
 				case float32_kind: TPath({pack: [],name: "GoFloat32"});
 				case float64_kind: TPath({pack: [],name: "GoFloat64"});
+				case bool_kind: TPath({pack: [],name: "Bool"});
 
 				case uintptr_kind: TPath({pack: [],name: "GoUIntptr"});
 
@@ -2275,7 +2275,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 					}
 				case invalid:
 				default:
-					trace(type);
+					//trace(type);
 			}
 		}
 	}
@@ -2403,7 +2403,7 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 	if (exprs.length > 0)
 		return exprs;
 	if (fields.length == 0)
-		return null;
+		return [];
 	return [toExpr(EObjectDecl(fields))];
 }
 

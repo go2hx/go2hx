@@ -128,6 +128,20 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
+func pkgImport (pkg *packages.Package, data *dataType) {
+	for _, val := range pkg.Imports {
+		if excludes[val.PkgPath] {
+			continue
+		}
+		excludes[val.PkgPath] = true
+		syntax := parsePkg(val)
+		if len(syntax.Files) > 0 {
+			data.Pkgs = append(data.Pkgs, syntax)
+			pkgImport(val,data) //recursive
+		}
+	}
+}
+
 func parsePkgList(list []*packages.Package) dataType {
 	data := dataType{}
 	data.Pkgs = make([]packageType, len(list))
@@ -136,21 +150,7 @@ func parsePkgList(list []*packages.Package) dataType {
 		if len(syntax.Files) > 1 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
-		for _, val := range pkg.Imports {
-			if excludes[val.PkgPath] {
-				continue
-			}
-			syntax := parsePkg(val)
-			if stdgoList[val.PkgPath] {
-				//stdgoVal := packages.Package{}
-				//syntax2 := parsePkg(&stdgoVal)
-				//_ = syntax2
-				//merge the files together for the runner
-			}
-			if len(syntax.Files) > 1 {
-				data.Pkgs = append(data.Pkgs, syntax)
-			}
-		}
+		pkgImport(pkg,&data)
 	}
 	return data
 }

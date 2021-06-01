@@ -254,12 +254,12 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Named":
 		named := node.(*types.Named)
 		path := named.String()
-		if !strings.Contains(path, "syscall/") && 
-			!strings.Contains(path, "internal.") && 
+		if !strings.HasPrefix(path, "syscall/") && 
+			!strings.HasPrefix(path, "internal.") && 
 			//!strings.Contains(path, "error") && 
-			!strings.Contains(path,"reflect.") &&
-			!strings.Contains(path,"runtime.") &&
-			!strings.Contains(path,"sync.") &&
+			!strings.HasPrefix(path,"reflect.") &&
+			!strings.HasPrefix(path,"runtime.") &&
+			!strings.HasPrefix(path,"sync.") &&
 			!marked[path] {
 			init := false
 			if marked == nil {

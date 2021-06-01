@@ -94,15 +94,17 @@ function init(args:Array<String>) {
 	Sys.println("> generator: " + modules.length);
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
+	var libs:Array<String> = [];
 	for (module in modules) {
 		if (global && !module.isMain) {
 			Sys.setCwd(cwd);
-			trace(module.path);
-			var path = StringTools.replace(module.path,".","_");
-			trace(path);
-			var libPath = "libs/" + path + "/";
+			var name = module.name;
+			var libPath = "libs/" + name + "/";
 			create(libPath,module);
 			Sys.setCwd(localPath);
+			Sys.command('haxelib dev $name $libPath');
+			if (libs.indexOf(name) == -1)
+				libs.push(name);
 		}else{
 			Gen.create(outputPath, module);
 		}

@@ -89,16 +89,14 @@ function main(data:DataType) {
 		if (pkg.path == "")
 			pkg.path = "std";
 		info.global.path = pkg.path;
-		var module:Module = {path: pkg.path, files: [],isMain: false};
-		if (pkg.name != "main")
+		var module:Module = {path: pkg.path, files: [],isMain: pkg.name == "main",name: pkg.name};
+		if (!module.isMain)
 			module.path += ".pkg";
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = className(Typer.title(endPath));
-
-		var pkgExport:FileType = null; //main pkg file
 
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -288,48 +286,41 @@ function main(data:DataType) {
 			data.imports.push({path: ["stdgo", "GoString"], alias: "",doc: ""});
 			for (path => alias in info.global.imports)
 				data.imports.push({path: path.split("."), alias: alias,doc: ""});
-			if (data.name == endPath && pkg.name != "main") {
-				pkgExport = data;
-			}else{
-				module.files.push(data);
-			}
+			//add file to module
+			module.files.push(data);
 		}
-		if (pkg.name != "main") {
-			if (pkgExport == null) {
-				pkgExport = {
-					name: endPath,
-					imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
-					defs: [],
-					location: "" //does not have a linked go file
-				};
-			}
+		if (!module.isMain) {
+			var pkgExport = {
+				name: endPath,
+				imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
+				defs: [],
+				location: "" //does not have a linked go file
+			};
 			//add to main module list
 			list.push({
 				path: pkg.path,
 				files: [pkgExport],
 				isMain: false,
+				name: pkg.name,
 			});
-		var mainImportList:Array<ImportType> = [];
-		var mainImportExists:Map<String,Bool> = [];
+
+			var imports:Array<ImportType> = [];
 		
 		for (file in module.files) {
-			if (main != null && file.name == pkgExport.name)
+			if (file.name == pkgExport.name)
 				continue;
 			for (def in file.defs) {
-				if (def == null || def.isExtern == null || !def.isExtern)
-					continue; //not an exported def
-				//export out imports
+				if (def == null)
+					continue;
+				//exported and non added to module imports.hx
 				var imp:ImportType = {
-					path: module.path.split(".").concat([file.name]),
+					path: module.path.split(".").concat([file.name,def.name]),
 					alias: "",
 					doc: "",
 				};
-				var key = imp.path.join(".");
-				if (!mainImportExists.exists(key)) {
-					pkgExport.imports.push(imp);
-					mainImportList.push(imp);
-					mainImportExists[key] = true;
-				}
+				imports.push(imp);
+				if (def.isExtern == null || !def.isExtern)
+					continue; //not an exported def
 
 				switch def.kind { //export out fields, export fields
 					case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
@@ -403,19 +394,12 @@ function main(data:DataType) {
 				}
 			}
 		}
-		//add to main import list from main
-		var path = module.path.split(".");
-		path.pop(); //remove pkg as main is top level
-		path.push(pkgExport.name);
-		mainImportList.push({
-			path: path,
-			alias: "",
-			doc: "",
+		module.files.push({
+			name: "imports",
+			imports: imports,
+			defs: [],
+			location: ""
 		});
-		//add main import to all module files
-		for (file in module.files) {
-			file.imports = file.imports.concat(mainImportList);
-		}
 	}else{
 		module.isMain = true;
 	}
@@ -3487,6 +3471,6 @@ class Info {
 
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
-typedef Module = {path:String, files:Array<FileType>, isMain:Bool}
+typedef Module = {name:String, path:String, files:Array<FileType>, isMain:Bool}
 typedef ImportType = {path:Array<String>, alias:String, doc:String}
 typedef FileType = {name:String, imports:Array<ImportType>, defs:Array<TypeDefinition>, location:String}; // location is the global path to the file

@@ -307,8 +307,6 @@ function main(data:DataType) {
 			var imports:Array<ImportType> = [];
 		
 		for (file in module.files) {
-			if (file.name == pkgExport.name)
-				continue;
 			for (def in file.defs) {
 				if (def == null)
 					continue;
@@ -395,7 +393,7 @@ function main(data:DataType) {
 			}
 		}
 		module.files.push({
-			name: "imports",
+			name: "import",
 			imports: imports,
 			defs: [],
 			location: ""

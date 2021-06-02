@@ -2526,7 +2526,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
 				sel = nameIdent(sel, info, false, true);
 			} else {
-				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
+				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel, info);
 			}
 		case EConst(c):
 			switch c {
@@ -2536,12 +2536,12 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
 						sel = nameIdent(sel, info, false, true);
 					} else {
-						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
+						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel,info);
 					}
 				default:
 			}
 		default:
-			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
+			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel,info);
 	}
 	return (macro $x.$sel).expr; // EField
 }
@@ -3347,6 +3347,13 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 
 private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
+}
+
+private function selectIdent(name:String,info:Info):String {
+	name = untitle(name);
+	if (reserved.indexOf(name) != -1)
+		name += "_";
+	return name;
 }
 
 private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool):String {

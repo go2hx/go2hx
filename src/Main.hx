@@ -47,6 +47,7 @@ function init(args:Array<String>) {
 				case "js", "javascript": target = "js";
 				case "hl", "hashlink": target = "hl";
 				case "global": global = true;
+				case "eval", "interp": target = "interp";
 				case "o", "out", "output": addOutput = true;
 				default: remove = false;
 			}
@@ -72,9 +73,9 @@ function init(args:Array<String>) {
 		Sys.command(command);
 	}
 	Sys.println("> parser:");
+	Sys.setCwd(cwd);
 	var haxerc = ".haxerc";
 	var haxercContent = File.getContent(haxerc);
-	Sys.setCwd(cwd);
 	//Sys.println('./go4hx ${args.join(" ")}');
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {

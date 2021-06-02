@@ -1,4 +1,5 @@
 package stdgo.strings;
+import stdgo.StdGoTypes.GoInt;
 
 inline function contains(s:String, value:String):Bool {
 	return StringTools.contains(s, value);
@@ -15,14 +16,14 @@ inline function hasSuffix(s:String, value:String):Bool {
 inline function index(s:String, substr:String):Int
 	return s.indexOf(substr);
 
-function replace(s:String, sub:String, by:String, count:Int):GoString {
+function replace(s:String, sub:String, by:String, count:GoInt):GoString {
 	if (count == 0)
 		return s;
 	if (count == -1)
 		return StringTools.replace(s, sub, by);
 	var str = s;
 	var index = 0;
-	for (i in 0...count) {
+	for (i in 0...count.toBasic()) {
 		var j = str.indexOf(sub, index);
 		if (j == -1)
 			return str;

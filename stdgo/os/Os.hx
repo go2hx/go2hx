@@ -8,6 +8,7 @@ import sys.FileSystem;
 import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
+import stdgo.StdGoTypes.GoInt;
 
 var args = Sys.args();
 var stderr = new OutputWriter(Sys.stderr());
@@ -22,14 +23,14 @@ class OutputWriter implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Array<GoByte>):{n:Int, err:Error} {
+	public function write(p:Array<GoByte>):{n:GoInt, err:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
 		return {n: 0, err: null};
 	}
 }
 
-inline function mkdir(path:String, ?perm:Int):Error {
+inline function mkdir(path:String, ?perm:GoInt):Error {
 	try {
 		FileSystem.createDirectory(path);
 		return null;
@@ -43,7 +44,7 @@ inline function getenv(path:String):String {
 	return e == null ? "" : e;
 }
 
-inline function mkdirAll(path:String, ?perm:Int):Error {
+inline function mkdirAll(path:String, ?perm:GoInt):Error {
 	return mkdir(path, perm);
 }
 
@@ -56,8 +57,8 @@ inline function create(path:String):ErrorReturn<PointerWrapper<File>> {
 	return {value: new PointerWrapper(file)};
 }
 
-inline function exit(code:Int) {
-	Sys.exit(code);
+inline function exit(code:GoInt) {
+	Sys.exit(code.toBasic());
 }
 
 inline function newSyscallError(syscall:String, err:Error):Error {
@@ -112,7 +113,7 @@ class File implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Array<GoByte>):{n:Int, err:Error} {
+	public function write(p:Array<GoByte>):{n:GoInt, err:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
 		return {n: p.length, err: null};

@@ -3251,7 +3251,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	var alias = imp.name == null ? null : imp.name.name;
 	if (alias == "_")
 		alias = "";
-	if (stdgoList.indexOf(path[0]) != -1 && excludes.indexOf(path[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(path[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
 		path.unshift("stdgo");
 	}
 	var name = path[path.length - 1];

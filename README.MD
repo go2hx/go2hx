@@ -72,4 +72,5 @@ A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.c
 * install haxe version and haxe libraries ```lix download```
 * compile Go side ```go build .```
 * compile Haxe side ```haxe build.hxml```
-* run compiler with ```neko run.n ./main.go .``` the end dot denotes the file location of the compiler it is used for the lix library version.
+* set dev version ```haxelib dev go2hx .```
+* run compiler with ```haxelib run go2hx ./main.go .```

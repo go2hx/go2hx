@@ -9,6 +9,7 @@ import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.MultiReturn;
 
 var args = Sys.args();
 var stderr = new OutputWriter(Sys.stderr());
@@ -48,7 +49,7 @@ inline function mkdirAll(path:String, ?perm:GoInt):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):ErrorReturn<PointerWrapper<File>> {
+inline function create(path:String):MultiReturn<ErrorReturn<PointerWrapper<File>>> {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);

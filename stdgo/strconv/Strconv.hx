@@ -1,8 +1,9 @@
 package stdgo.strconv;
 
 import stdgo.internal.ErrorReturn;
+import stdgo.StdGoTypes.MultiReturn;
 
-function parseFloat(s:String, bitSize:Int):ErrorReturn<Float> {
+function parseFloat(s:String, bitSize:Int):MultiReturn<ErrorReturn<Float>> {
 	try {
 		return {value: Std.parseFloat(s)};
 	} catch (e) {
@@ -10,7 +11,7 @@ function parseFloat(s:String, bitSize:Int):ErrorReturn<Float> {
 	}
 }
 
-inline function parseInt(s:String, base:Int, bitSize:Int):ErrorReturn<Int> {
+inline function parseInt(s:String, base:Int, bitSize:Int):MultiReturn<ErrorReturn<Int>> {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
@@ -23,12 +24,12 @@ inline function parseInt(s:String, base:Int, bitSize:Int):ErrorReturn<Int> {
 	}
 }
 
-inline function parseBool(s:String):ErrorReturn<Bool> {
+inline function parseBool(s:String):MultiReturn<ErrorReturn<Bool>> {
 	var bool = s == "true";
 	return {value: bool, error: null};
 }
 
-inline function parseUint(s:String, base:Int, bitSize:Int) {
+inline function parseUint(s:String, base:Int, bitSize:Int):MultiReturn<ErrorReturn<Int>> {
 	return parseInt(s, base, bitSize);
 }
 

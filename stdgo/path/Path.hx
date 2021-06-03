@@ -2,6 +2,7 @@ package stdgo.path;
 
 import stdgo.internal.ErrorReturn;
 import haxe.Rest;
+import stdgo.StdGoTypes.MultiReturn;
 
 using haxe.io.Path;
 
@@ -37,7 +38,7 @@ function join(elem:Rest<String>):String {
 	return haxe.io.Path.join(elem.toArray());
 }
 
-function math(pattern:String, name:String):ErrorReturn<Bool> {
+function math(pattern:String, name:String):MultiReturn<ErrorReturn<Bool>> {
 	return {value: true};
 }
 

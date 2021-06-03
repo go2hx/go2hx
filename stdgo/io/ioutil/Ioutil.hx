@@ -22,12 +22,12 @@ function writeFile(filename:String, data:Bytes, ?perm:GoInt):Error {
 	}
 }
 
-function readDir(dirname:String):ErrorReturn<Array<FileInfo>> {
+function readDir(dirname:String):MultiReturn<ErrorReturn<Slice<FileInfo>>> {
 	dirname = Path.addTrailingSlash(dirname);
 	try {
 		var array:Array<FileInfo> = [];
 		for (path in FileSystem.readDirectory(dirname)) {}
-		return {value: array};
+		return {value: new Slice(...array)};
 	} catch (e) {
 		return {value: null, error: cast e};
 	}

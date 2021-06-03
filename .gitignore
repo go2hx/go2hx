@@ -13,6 +13,7 @@ dump
 *.js
 go
 *.bson
+libs
 *.exe
 *.dll
 *.exe~

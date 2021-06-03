@@ -1,3 +1,0 @@
--cp tests/golibs 
--main command_line_arguments.Append
--hl append.hl

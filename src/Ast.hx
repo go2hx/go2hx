@@ -170,6 +170,7 @@ typedef ArrayType = {
 	lbrack:Pos,
 	len:Expr,
 	elt:Expr,
+	type:ExprType,
 };
 
 typedef StructType = {
@@ -177,6 +178,7 @@ typedef StructType = {
 	struct:Pos,
 	fields:FieldList,
 	incomplete:Bool,
+	type:ExprType,
 };
 
 typedef PointerType = {
@@ -188,6 +190,7 @@ typedef FuncType = {
 	func:Pos,
 	params:FieldList,
 	results:FieldList,
+	type:ExprType,
 };
 
 typedef InterfaceType = {
@@ -196,6 +199,7 @@ typedef InterfaceType = {
 	// interface TODO: turn interface -> inter
 	methods:FieldList,
 	incomplete:Bool,
+	type:ExprType,
 };
 
 typedef MapType = {
@@ -203,6 +207,7 @@ typedef MapType = {
 	map:Pos,
 	key:Expr,
 	value:Expr,
+	type:ExprType,
 };
 
 typedef ChanType = {
@@ -211,6 +216,7 @@ typedef ChanType = {
 	arrow:Pos,
 	dir:ChanDir,
 	value:Expr,
+	type:ExprType,
 };
 
 typedef BadStmt = {

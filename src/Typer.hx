@@ -602,6 +602,8 @@ private function implementsFields(interfaceFields:Array<Field>,classFields:Array
 }
 
 private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
+	if (a == null || b == null)
+		return false;
 	switch a {
 		case TPath(p):
 			switch b {
@@ -1718,7 +1720,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro Go.make($a{args})).expr;
 				default: // cast to type ($e : $t)
 					if (expr.args.length == 1) {
-						var type = parseType(expr.type);
+						var type = typeof(expr.type);
 						if (type != null) switch type {
 							case signature(_, _, _, _):
 							default:
@@ -1756,7 +1758,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								}
 							default:
 						}
-						var type = parseType(expr.type);
+						var type = typeof(expr.type);
 						switch type {
 							default:
 								trace("unknown go type: " + type);
@@ -1797,7 +1799,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 				default:
 			}
-			return checkType(e,type,typeof(expr.args[0]),parseType(expr.type)).expr;
+			return checkType(e,type,typeof(expr.args[0]),typeof(expr.type)).expr;
 		case "InterfaceType":
 			// set dynamic
 			genArgs();
@@ -1817,7 +1819,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		default:
 	}
 	if (!isFmt) {
-		var type = parseType(expr.type);
+		var type = typeof(expr.type);
 		if (type != null) switch type {
 			case invalid:
 			case signature(variadic, params, results, recv):
@@ -1848,10 +1850,48 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 }
 
 private function typeof(e:Ast.Expr):GoType {
+	if (e == null)
+		return invalid;
 	return switch e.id {
+		case "Signature":
+			signature(
+				e.variadic,
+				typeof(e.params),
+				typeof(e.results),
+				e.recv != null ? typeof(e.recv) : null
+			);
+		case "Basic":
+			basic(BasicKind.createByIndex(e.kind));
+		case "Tuple":
+			tuple(
+				e.len,
+				[for (v in (e.vars : Array<Dynamic>)) typeof(v)]
+			);
+		case "Var":
+			varValue(e.name,typeof(e.type));
+		case "Interface":
+			interfaceValue(e.numMethods);
+		case "Slice":
+			slice(typeof(e.elem));
+		case "Array":
+			array(typeof(e.elem),e.len);
+		case "Pointer":
+			pointer(typeof(e.elem));
+		case "Map":
+			map(typeof(e.key),typeof(e.elem));
+		case "Named":
+			named(e.path,typeof(e.underlying));
+		case "Struct":
+			struct([for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: typeof(field.type)}]);
+		case "Chan":
+			chan(e.dir,typeof(e.elem));
+		case null:
+			//trace("null: " + e);
+			return invalid;
+			//invalid;
 		case "CallExpr":
 			var e:Ast.CallExpr = e;
-			var type = parseType(e.type);
+			var type = typeof(e.type);
 			switch type {
 				case signature(variadic, params, results, recv):
 					return results;
@@ -1872,13 +1912,13 @@ private function typeof(e:Ast.Expr):GoType {
 			basic(kind);
 		case "Ident":
 			var e:Ast.Ident = e;
-			parseType(e.type);
+			typeof(e.type);
 		case "CompositeLit":
 			var e:Ast.CompositeLit = e;
-			parseType(e.typeLit);
+			typeof(e.typeLit);
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
-			var cl = parseType(e.type);
+			var cl = typeof(e.type);
 			switch cl {
 				case named(path, underlying):
 					cl = underlying;
@@ -1898,7 +1938,7 @@ private function typeof(e:Ast.Expr):GoType {
 			cl;
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
-			var t = parseType(e.type);
+			var t = typeof(e.type);
 			var ofType = null;
 			ofType = (t:GoType,isSlice:Bool) -> {
 				return switch t {
@@ -1918,26 +1958,26 @@ private function typeof(e:Ast.Expr):GoType {
 			t;
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
-			parseType(e.typeX);
+			typeof(e.typeX);
 		case "StarExpr":
 			var e:Ast.StarExpr = e;
-			pointer(parseType(e.type));
+			pointer(typeof(e.type));
 		case "UnaryExpr":
 			var e:Ast.UnaryExpr = e;
-			parseType(e.type);
+			typeof(e.type);
 		case "TypeAssertExpr":
 			var e:Ast.TypeAssertExpr = e;
-			parseType(e.typeY);
+			typeof(e.typeY);
 		case "FuncLit":
 			invalid;
 		case "KeyValueExpr":
 			var e:Ast.KeyValueExpr = e;
-			var key = parseType(e.typeKey);
-			var value = parseType(e.typeValue);
+			var key = typeof(e.typeKey);
+			var value = typeof(e.typeValue);
 			map(key,value);
 		case "SliceExpr":
 			var e:Ast.SliceExpr = e;
-			slice(parseType(e.type));
+			slice(typeof(e.type));
 		case "ParenExpr":
 			var e:Ast.ParenExpr = e;
 			typeof(e.x);
@@ -1956,8 +1996,9 @@ private function typeof(e:Ast.Expr):GoType {
 		case "StructType":
 			var e:Ast.StructType = e;
 			typeof(e.type);
-		case "Interface":
-			interfaceValue(e.numMethods);
+		case "FuncType":
+			var e:Ast.FuncType = e;
+			typeof(e.type);
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}
@@ -2054,51 +2095,6 @@ private function toComplexType(e:GoType):ComplexType {
 			throw "unknown goType to complexType: " + e;
 	}
 	return null;
-}
-
-private function parseType(e:ExprType) {
-	if (e == null)
-		return invalid;
-	return switch e.id {
-		case "Signature":
-			signature(
-				e.variadic,
-				parseType(e.params),
-				parseType(e.results),
-				e.recv != null ? parseType(e.recv) : null
-			);
-		case "Basic":
-			basic(BasicKind.createByIndex(e.kind));
-		case "Tuple":
-			tuple(
-				e.len,
-				[for (v in (e.vars : Array<Dynamic>)) parseType(v)]
-			);
-		case "Var":
-			varValue(e.name,parseType(e.type));
-		case "Interface":
-			interfaceValue(e.numMethods);
-		case "Slice":
-			slice(parseType(e.elem));
-		case "Array":
-			array(parseType(e.elem),e.len);
-		case "Pointer":
-			pointer(parseType(e.elem));
-		case "Map":
-			map(parseType(e.key),parseType(e.elem));
-		case "Named":
-			named(e.path,parseType(e.underlying));
-		case "Struct":
-			struct([for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: parseType(field.type)}]);
-		case "Chan":
-			chan(e.dir,parseType(e.elem));
-		case null:
-			//trace("null: " + e);
-			return invalid;
-			//invalid;
-		default:
-			throw "unknow go type: " + e.id;
-	}
 }
 
 
@@ -2219,7 +2215,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 			params.push(typeExpr(elt, info));
 		}
 		if (expr.typeLit != null) {
-			var type = parseType(expr.typeLit);
+			var type = typeof(expr.typeLit);
 			switch type {
 				case named(path, underlying):
 					type = underlying; //set underlying
@@ -2341,7 +2337,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExpr(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
-		return checkType(e[0],type,typeof(expr.elts[0]),parseType(expr.typeLit)).expr;
+		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit)).expr;
 	}
 	getParams();
 	if (p == null)
@@ -2574,7 +2570,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 		default:
 	}
 	
-	return checkType(e,type,parseType(expr.typeX),parseType(expr.typeY)).expr;
+	return checkType(e,type,typeof(expr.typeX),typeof(expr.typeY)).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {

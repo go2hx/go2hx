@@ -492,6 +492,8 @@ func parseData(node interface{}) map[string]interface{} {
 		data["type"] = parseType(checker.TypeOf(node.Elt))
 	case *ast.ParenExpr:
 		data["type"] = parseType(checker.TypeOf(node.X))
+	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.SliceExpr:
 		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.TypeAssertExpr:

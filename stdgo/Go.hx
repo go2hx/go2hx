@@ -924,6 +924,21 @@ class Go {
 			}
 		}
 		var func = exprs.pop();
+		var parens = null;
+		parens = (func) -> {
+			return switch func.expr {
+				case EParenthesis(e):
+					parens(e);
+				default:
+					func;
+			}
+		}
+		func = parens(func);
+		switch func.expr {
+			case ECheckType(_, _), ECast(_,_):
+				func = macro {value: $func, ok: true};
+			default:
+		}
 		var funcType = Context.followWithAbstracts(Context.typeof(func));
 		var f = [];
 		switch funcType {

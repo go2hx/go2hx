@@ -1451,6 +1451,9 @@ class AnyInterfaceData {
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {}
 
 //holds anon data
+@:forward
+@:forward.new
+@:forward.variance
 abstract MultiReturn<T>(T) from T to T {}
 
 

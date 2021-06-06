@@ -962,7 +962,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							{
 								name: nameIdent(spec.names[i].name, info, false, false),
 								type: type,
-								expr: i < spec.values.length ? expr : type != null ? defaultValue(type, info, 0, false) : null,
+								expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type)) : null,
 							};
 						}
 					]);
@@ -976,23 +976,41 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 }
 
-private function isInterface(type:GoType):Bool {
+private function isAnyInterface(type:GoType):Bool {
 	return switch type {
 		case named(_,elem):
-			isInterface(type);
+			isAnyInterface(elem);
+		case interfaceValue(numMethods):
+			numMethods == 0;
 		default:
 			false;
 	}
 }
-private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
-	//trace("from: " + from + " to: " + to);
-	switch from {
+private function isInterface(type:GoType):Bool {
+	trace("type: " + type);
+	return switch type {
+		case named(_,elem):
+			isInterface(elem);
 		case interfaceValue(numMethods):
-			if (numMethods == 0) {
-				return macro Go.fromInterface(($e : $ct));
-			}
+			true;
 		default:
+			false;
 	}
+}
+private function pointerUnwrap(type:GoType):GoType {
+	return switch type {
+		case pointer(elem):
+			pointerUnwrap(elem);
+		default:
+			type;
+	}
+}
+private function checkInterfaceType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
+	return macro cast($e,$ct);
+}
+private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
+	if (isAnyInterface(from))
+		return macro Go.fromInterface(($e : $ct));
 	return macro ($e : $ct);
 }
 
@@ -1288,24 +1306,16 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		switch info.returnTypes[0] {
-			case interfaceValue(numMethods):
-				if (numMethods == 0)
-					e = macro Go.toInterface($e);
-			default:
-		}
+		if (info.returnInterfaceBool[0])
+			e = macro Go.toInterface($e);
 		return ret(EReturn(e));
 	}
 	// multireturn
 	var expr = toExpr(EObjectDecl([
 		for (i in 0...stmt.results.length) {
 			var e = typeExpr(stmt.results[i], info);
-			switch info.returnTypes[i] {
-				case interfaceValue(numMethods):
-					if (numMethods == 0)
-						e = macro Go.toInterface($e);
-				default:
-			}
+			if (info.returnInterfaceBool[i])
+				e = macro Go.toInterface($e);
 			{
 				field: info.returnNames[i],
 				expr: e,
@@ -1709,7 +1719,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					addPointerImports(info);
 					switch t {
 						case TPath(_), TFunction(_,_), TAnonymous(_):
-							return (macro Go.pointer(${defaultValue(t, info)})).expr; // TODO does not work for non constructed types, such as basic types
+							return (macro Go.pointer(${defaultValue(typeof(expr.args[0]))})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -1724,7 +1734,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if (type != null) switch type {
 							case signature(_, _, _, _):
 							default:
-								return checkType(typeExpr(expr.args[0],info),typeExprType(expr.fun,info),typeof(expr.args[0]),type).expr;
+								return checkInterfaceType(typeExpr(expr.args[0],info),typeExprType(expr.fun,info),typeof(expr.args[0]),type).expr;
 						}
 					}
 			}
@@ -1738,20 +1748,20 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						if ((p.name == "Pointer" || p.name == "PointerWrapper") && p.params != null) {
 							switch p.params[0] {
 								case TPType(t2):
-									var value = defaultValue(t2, info);
+									var value = defaultValue(typeof(e.x));
 									return (macro Go.pointer($value)).expr;
 								default:
 							}
 						}
-						return (macro ${defaultValue(t, info, true)}).expr;
+						return (macro ${defaultValue(typeof(e.x))}).expr;
 					default:
-						var e = typeExpr(expr.args[0], info);
-						switch e.expr {
+						var ex = typeExpr(expr.args[0], info);
+						switch ex.expr {
 							case EConst(c):
 								switch c {
 									case CIdent(s):
 										if (s == "null") {
-											var e = defaultValue(t, info, 0, true);
+											var e = defaultValue(typeof(e.x));
 											return e.expr;
 										}
 									default:
@@ -1775,7 +1785,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = defaultValue(type, info, 0, true);
+								var e = defaultValue(typeof(expr.fun));
 								return e.expr;
 							}
 						default:
@@ -1792,7 +1802,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch c {
 						case CIdent(s):
 							if (s == "null") {
-								var e = defaultValue(type, info, 0, true);
+								var e = defaultValue(typeof(expr.fun));
 								return e.expr;
 							}
 						default:
@@ -1833,6 +1843,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 										case interfaceValue(numMethods):
 											if (numMethods == 0) {
 												args[i] = macro Go.toInterface(${args[i]});
+											}else{
+												args[i] = macro cast ${args[i]};
+											}
+										case named(path, underlying):
+											switch underlying {
+												case interfaceValue(_):
+													args[i] = macro cast ${args[i]};
+												default:
 											}
 										default:
 									}
@@ -2296,7 +2314,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 											var a:Ast.ArrayType = expr.type;
 											var elt = typeExprType(a.elt, info);
 											for (i in 0...dif)
-												params.push(defaultValue(elt, info, 0, false));
+												params.push(defaultValue(typeof(a.elt)));
 										}
 										return (macro new $p($a{params})).expr;
 									case CIdent(s):
@@ -2311,11 +2329,15 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
 					switch p.params[1] {
 						case TPType(t):
-							params.push(defaultValue(t, info, 0, false));
-							var e = getKeyValueExpr(expr.elts, info);
-							if (e != null)
-								params = params.concat(e);
-							return (macro new $p($a{params})).expr;
+							switch typeof(expr.type) {
+								case map(_,valueType):
+									params.push(defaultValue(valueType));
+									var e = getKeyValueExpr(expr.elts, info);
+									if (e != null)
+										params = params.concat(e);
+									return (macro new $p($a{params})).expr;
+								default:
+							}
 						default:
 					}
 				}
@@ -2562,7 +2584,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(type, info, 0, true);
+						var e = defaultValue(typeof(expr.type));
 						return e.expr;
 					}
 				default:
@@ -2814,33 +2836,58 @@ var interfaces:Map<String, Bool> = [
 	// store stdgo interfaces here
 ];
 
-private function defaultValue(type:ComplexType, info:Info, index:Int = 0, strict:Bool = true):Expr {
-	switch type {
-		case TPath(p):
-			if (p.name == "GoArray") { // goarray generation
-				for (param in p.params) {
-					switch param {
-						case TPType(t):
-							var df = defaultValue(t, info, index + 1, false);
-							var j = index;
-							var len = macro(${info.lengths[j]} : GoInt);
-							return macro new $p(...[for (i in 0...$len.toBasic()) $df]);
-						default:
-					}
-				}
+private function defaultValue(type:GoType):Expr {
+	return switch type {
+		case map(_, _): macro null;
+		case slice(elem):
+			var t = toComplexType(elem);
+			macro new Slice<$t>();
+		case array(elem, len):
+			var t = toComplexType(elem);
+			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem)}]);
+		case interfaceValue(numMethods):
+			macro null;
+		case chan(_, elem):
+			var t = toComplexType(elem);
+			macro new GoChan<$t>();
+		case pointer(_):
+			macro null;
+		case signature(_, _, _, _):
+			macro null;
+		case named(path, underlying):
+			switch underlying {
+				case pointer(_), interfaceValue(_), map(_,_):
+					macro null;
+				default:
+					var index = path.lastIndexOf(".") + 1;
+					var name = className(title(path.substr(index)));
+					var pack = StringTools.replace(path.substr(0,index - 1),"-","_").split(".");
+					var t:TypePath = {pack: pack,name: name};
+					macro new $t();
 			}
-			if (p.name == "Error") { // TODO: check for potential overwrite
-				return macro null;
+		case basic(kind):
+			switch kind {
+				case bool_kind: macro false;
+				case int_kind: macro (0 : GoInt);
+				case int8_kind: macro (0 : GoInt8);
+				case int16_kind: macro (0 : GoInt16);
+				case int32_kind: macro (0 : GoInt32);
+				case int64_kind: macro (0 : GoInt64);
+				case string_kind: macro ("" : GoString);
+				case uint_kind: macro (0 : GoUInt);
+				case uint8_kind: macro (0 : GoUInt8);
+				case uint16_kind: macro (0 : GoUInt16);
+				case uint32_kind: macro (0 : GoUInt32);
+				case uint64_kind: macro (0 : GoUInt64);
+				case uintptr_kind: macro null;
+				case float32_kind: macro (0 : GoFloat32);
+				case float64_kind: macro (0 : GoFloat64);
+				case complex64_kind: macro new GoComplex64(0,0);
+				case complex128_kind: macro new GoComplex128(0,0);
+				default: macro null;
 			}
-			// interfaces[info.global.path + "/" + info.data.name + "/" + name] = true;
-			var name = info.global.path + "/" + info.data.name + "/" + p.name;
-			if (interfaces.exists(name)) { // local instance
-				return macro null;
-			}
-
-		default:
+		default: macro null;
 	}
-	return stdgo.Go.defaultValue(type, null, strict);
 }
 
 private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool,type:ComplexType} {
@@ -2869,18 +2916,22 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			name: "Void",
 			pack: [],
 		});
-	var i:Int = 0;
 	for (group in fieldList.list) {
+		var t = typeExprType(group.type,info);
+		var interfaceBool = isAnyInterface(typeof(group.type));
 		if (group.names.length == 0) {
-			info.returnNames.push("v" + (i++));
-			info.returnTypes.push(typeof(group.type));
-		} else {
-			for (name in group.names) {
-				info.returnNames.push(nameIdent(name.name,info,false,false));
-				info.returnTypes.push(typeof(group.type));
-			}
+			info.returnNames.push("v" + info.returnNames.length);
+			info.returnTypes.push(t);
+			info.returnInterfaceBool.push(interfaceBool);
+			continue;
+		}
+		for (name in group.names) {
+			info.returnNames.push(nameIdent(name.name,info,false,false));
+			info.returnTypes.push(t);
+			info.returnInterfaceBool.push(interfaceBool);
 		}
 	}
+
 	if (info.returnTypes.length > 1) {
 		// anonymous
 		return TPath({ 
@@ -2891,7 +2942,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 					{
 						name: info.returnNames[i],
 						pos: null,
-						kind: FVar(toComplexType(info.returnTypes[i]))
+						kind: FVar(info.returnTypes[i])
 					}
 			]))],
 		});
@@ -2901,7 +2952,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 				name: "Void",
 				pack: [],
 			});
-		return toComplexType(info.returnTypes[0]);
+		return info.returnTypes[0];
 	}
 }
 
@@ -2989,7 +3040,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info, false, false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null)
+						kind: FVar(type, defaultBool ? defaultValue(typeof(field.type)) : null)
 					});
 				default:
 			}
@@ -3005,7 +3056,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultValue(type, info, 0, false) : null),
+				kind: FVar(type, defaultBool ? defaultValue(typeof(field.type)) : null),
 			});
 		}
 	}
@@ -3251,7 +3302,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	var interfaceBool = false;
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
-		//interfaceBool = isInterface(type);
+		interfaceBool = isAnyInterface(typeof(value.type));
 	}
 	var values:Array<TypeDefinition> = [];
 	for (i in 0...value.names.length) {
@@ -3261,7 +3312,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
-				expr = defaultValue(type, info, 0, false);
+				expr = defaultValue(typeof(value.type));
 			} else {
 				// last expr use
 				expr = typeExpr(info.lastValue, info);
@@ -3419,7 +3470,8 @@ class Info {
 	public var funcName:String = "";
 	public var renameTypes:Map<String, String> = [];
 	public var returnNames:Array<String> = [];
-	public var returnTypes:Array<GoType> = [];
+	public var returnTypes:Array<ComplexType> = [];
+	public var returnInterfaceBool:Array<Bool> = [];
 	public var className:String = "";
 	public var retypeList:Map<String, ComplexType> = [];
 	public var typeNames:Array<String> = [];
@@ -3437,6 +3489,7 @@ class Info {
 		info.lengths = lengths;
 		info.returnTypes = returnTypes;
 		info.returnNames = returnNames;
+		info.returnInterfaceBool = returnInterfaceBool;
 		info.deferBool = deferBool;
 		info.hasDefer = hasDefer;
 		info.count = count;

@@ -152,7 +152,7 @@ func parseInterface(pkg *packages.Package) {
 			continue
 		}
 		excludes[val.PkgPath] = true
-		parseInterface(pkg)
+		parseInterface(val)
 	}
 	conf := types.Config{
 		Importer: importer.Default(),
@@ -276,12 +276,12 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 		case *ast.TypeSpec:
 			implements := []interfaceType{}
-			t := checker.TypeOf(obj.Type)
+			named := checker.ObjectOf(obj.Name)
 			for _,inter := range interfaces {
-				if types.Implements(t,inter.t) {
-					if types.Identical(t,inter.t) {
-						continue
-					}
+				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
+					continue
+				}
+				if types.Implements(checker.ObjectOf(obj.Name).Type(),inter.t) {
 					implements = append(implements, interfaceType{inter.name,inter.path})
 				}
 			}

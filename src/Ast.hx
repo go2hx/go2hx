@@ -392,12 +392,18 @@ typedef ValueSpec = {
 	end:Int,
 };
 
+typedef ImplicitType = {
+	name:String,
+	path:String,
+};
+
 typedef TypeSpec = {
 	doc:CommentGroup,
 	name:Ident,
 	assign:Pos,
 	type:Expr,
 	comment:CommentGroup,
+	implicits:Array<ImplicitType>,
 	pos:Int,
 	end:Int,
 };

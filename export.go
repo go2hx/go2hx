@@ -43,9 +43,21 @@ type excludesType struct {
 	Excludes []string `json:"excludes"`
 }
 
+type interfaceType struct {
+	Name string `json:"name"`
+	Path string `json:"path"`
+}
+
+type interfaceData struct {
+	t *types.Interface
+	name string
+	path string
+}
+
 var fset *token.FileSet
 var excludes map[string]bool
 var stdgoList map[string]bool
+var interfaces []interfaceData
 
 func main() {
 	//exclude types system
@@ -60,10 +72,6 @@ func main() {
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		panic(err.Error())
-	}
-	excludes = make(map[string]bool, len(excludesData.Excludes))
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
 	}
 
 	err = json.Unmarshal(stdgoListBytes,&stdgoDataList)
@@ -105,6 +113,16 @@ func main() {
 		fmt.Println("load error:", err)
 		return
 	}
+	excludes = make(map[string]bool)
+	//parse interfaces 1st past
+	for _,pkg := range initial {
+		parseInterface(pkg)
+	}
+	//2nd pass
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
 
 	data := parsePkgList(initial)
 
@@ -128,16 +146,38 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
-func pkgImport (pkg *packages.Package, data *dataType) {
+func parseInterface(pkg *packages.Package) {
 	for _, val := range pkg.Imports {
 		if excludes[val.PkgPath] {
 			continue
 		}
 		excludes[val.PkgPath] = true
-		syntax := parsePkg(val)
-		if len(syntax.Files) > 0 {
-			data.Pkgs = append(data.Pkgs, syntax)
-			pkgImport(val,data) //recursive
+		parseInterface(pkg)
+	}
+	conf := types.Config{
+		Importer: importer.Default(),
+		//DisableUnusedImportCheck: true,
+	}
+	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
+
+	for _,file := range pkg.Syntax {
+		for _,decl := range file.Decls {
+			switch decl := decl.(type) {
+			case *ast.GenDecl:
+				for _,spec := range decl.Specs {
+					switch spec := spec.(type) {
+					case *ast.TypeSpec:
+						t := checker.TypeOf(spec.Type)
+						switch t := t.(type) {
+						case *types.Interface:
+							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkg.PkgPath})
+						default:
+						}
+					default:
+					}
+				}
+			default:
+			}
 		}
 	}
 }
@@ -150,26 +190,34 @@ func parsePkgList(list []*packages.Package) dataType {
 		if len(syntax.Files) > 1 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
-		pkgImport(pkg,&data)
 	}
 	return data
 }
 
 func parsePkg(pkg *packages.Package) packageType {
+
 	fset = pkg.Fset
 	data := packageType{}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
 
+	for _, val := range pkg.Imports {
+		if excludes[val.PkgPath] {
+			continue
+		}
+		excludes[val.PkgPath] = true
+		syntax := parsePkg(val)
+		if len(syntax.Files) > 0 {
+			data.Files = append(data.Files, parsePkg(val).Files...) //recursive
+		}
+	}
+
 	conf := types.Config{
 		Importer: importer.Default(),
-		//DisableUnusedImportCheck: true,
 	}
-	
-	
-	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
 
+	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
 	for i, file := range pkg.Syntax {
 		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
@@ -217,6 +265,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			for i := range obj.Values {
 				values[i] = parseData(obj.Values[i])
 			}
+
 			data[i] = map[string]interface{}{
 				"id":        "ValueSpec",
 				"names":     parseIdents(obj.Names),
@@ -224,6 +273,26 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"values":    values,
 				"constants": constants,
 				"doc":       parseData(obj.Comment),
+			}
+		case *ast.TypeSpec:
+			implements := []interfaceType{}
+			t := checker.TypeOf(obj.Type)
+			for _,inter := range interfaces {
+				if types.Implements(t,inter.t) {
+					if types.Identical(t,inter.t) {
+						continue
+					}
+					implements = append(implements, interfaceType{inter.name,inter.path})
+				}
+			}
+			data[i] = map[string]interface{}{
+				"id": "TypeSpec",
+				"assign": fset.Position(obj.Assign).Offset,
+				"name": parseData(obj.Name),
+				"type": parseData(obj.Type),
+				"doc": parseData(obj.Comment),
+				"comment": parseData(obj.Comment),
+				"implicits": implements,
 			}
 		default:
 			data[i] = parseData(obj)
@@ -293,6 +362,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Interface":
 		s := node.(*types.Interface)
 		data["numMethods"] = s.NumMethods()
+		data["empty"] = s.Empty()
 		return data
 	case "Pointer":
 		s := node.(*types.Pointer)

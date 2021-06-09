@@ -441,6 +441,31 @@ class Go {
 		return macro new AnyInterface($expr,$exprInterface,new stdgo.reflect.Reflect.Type($ty));
 	}
 
+	public static macro function smartcast(expr:Expr) {
+		function panicWrap(e:Expr) {
+			return macro {var e = $e; e == null ? throw "panic: conversion" : e;};
+		}
+		switch expr.expr {
+			case ECast(e, ct):
+				var et = Context.typeof(e);
+				switch et {
+					case TInst(cl, params):
+						var cl = cl.get();
+						if (cl.isInterface) {
+							var t = ComplexTypeTools.toType(ct);
+							switch t {
+								case TAbstract(_, _):
+									return panicWrap(macro ($e.__underlying__() : $ct));
+								default:
+							}
+						}
+					default:
+				}
+			default:
+		}
+		return panicWrap(expr);
+	}
+
 	public static macro function assignable(expr:Expr) {
 		function parens(expr) {
 			return switch expr.expr {

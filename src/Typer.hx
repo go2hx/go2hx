@@ -472,6 +472,12 @@ private function typeAbstractInterfaceWrappers(info:Info) {
 						name: "__t__",
 						pos: null,
 						kind: FVar(clType),
+						access: [APublic],
+					},{
+						name: "__underlying__",
+						pos: null,
+						kind: FFun({args: [],ret: TPath({name: "Any",pack: []}), expr: macro return __t__}),
+						access: [APublic],
 					},{
 						name: "new",
 						pos: null,
@@ -948,8 +954,9 @@ private function pointerUnwrap(type:GoType):GoType {
 private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
 	if (isAnyInterface(from))
 		return macro Go.fromInterface(($e : $ct));
-	if (isInterface(pointerUnwrap(from)))
-		return macro cast($e,$ct);
+	if (isInterface(pointerUnwrap(from))) {
+		return macro Go.smartcast(cast($e,$ct)); //allows correct interface casting
+	}
 	return macro ($e : $ct);
 }
 
@@ -3208,6 +3215,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				}
 			}
 			fields.push({
+				name: "__underlying__",
+				pos: null,
+				kind: FFun({args: [],expr: macro return null, ret: TPath({name: "Any",pack: []})}),
+				access: [APublic],
+			});
+			fields.push({
 				name: "__copy__", // internally used
 				pos: null,
 				access: [APublic],
@@ -3253,6 +3266,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				}
 			}
 			var fields = typeFieldListMethods(struct.methods, info, true);
+			fields.push({
+				name: "__underlying__",
+				pos: null,
+				kind: FFun({args: [],ret: TPath({name: "Any",pack: []})}),
+				access: [APublic],
+			});
 			return {
 				name: name,
 				pack: [],

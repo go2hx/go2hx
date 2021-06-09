@@ -1,8 +1,18 @@
 import haxe.macro.Expr;
+using StringTools;
 
 class Printer extends haxe.macro.Printer {
 	public function new() {
 		super("    ");
+	}
+
+	override function escapeString(s:String, delim:String):String {
+		return delim
+				+ s.replace("\n", "\\n")
+					.replace("\t", "\\t")
+					.replace("\r", "\\r")
+					.replace("'", "\\'")
+					.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
 	}
 
 	override function printExpr(e:Expr):String {

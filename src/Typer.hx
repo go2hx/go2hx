@@ -262,6 +262,9 @@ function main(data:DataType) {
 					data.defs.push(func);
 			}
 
+			//add abstract
+			typeAbstractInterfaceWrappers(info);
+
 			// init system
 			if (info.global.initBlock.length > 0) {
 				data.defs.push({
@@ -401,6 +404,98 @@ function main(data:DataType) {
 		list.push(module);
 	}
 	return list;
+}
+
+private function typeAbstractInterfaceWrappers(info:Info) {
+	for (def in info.data.defs) {
+		switch def.kind {
+			case TDAbstract(_, _, _):
+				var clType = TPath({name: def.name,pack: def.pack});
+				var interfaces:Array<TypePath> = [];
+				var fields:Array<Field> = [];
+				for (field in def.fields) {
+					if (field.meta != null && field.meta.length > 0) {
+						if (field.meta.length == 1 && field.meta[0].name == ":to") {
+							switch field.kind {
+								case FFun(fun):
+									switch fun.ret {
+										case TPath(p):
+											interfaces.push(p);
+										default:
+									}
+								default:
+							}
+						}
+						continue;
+					}
+					if (field.name == "toString" || field.name == "__t__" || field.name == "new")
+						continue; //skip
+					switch field.kind {
+						case FFun(fun):
+							var isVoid = false;
+							if (fun.ret != null) {
+								switch fun.ret {
+									case TPath(p):
+										if (p.name == "Void")
+											isVoid = true;
+									default:
+								}
+							}else{
+								isVoid = true;
+							}
+							var args:Array<Expr> = [for (arg in fun.args) 
+								macro $i{arg.name}
+							];
+							var fieldName = field.name;
+							var e = macro __t__.$fieldName($a{args});
+							if (!isVoid)
+								e = macro return $e;
+							fields.push({
+								name: field.name,
+								pos: null,
+								kind: FFun({
+									ret: fun.ret,
+									args: fun.args,
+									params: fun.params,
+									expr: e,
+								}),
+								access: field.access,
+							});
+						default:
+					}
+				}
+				info.data.defs.push({
+					name: interfaceWrapperName(def.name),
+					pos: null,
+					pack: [],
+					fields: [{
+						name: "__t__",
+						pos: null,
+						kind: FVar(clType),
+					},{
+						name: "new",
+						pos: null,
+						kind: FFun({
+							args: [{name: "t"}],
+							expr: macro this.__t__ = t,
+						}),
+						access: [APublic],
+					},{
+						name: "toString",
+						pos: null,
+						kind: FFun({
+							args: [],
+							expr: macro return '$__t__',
+						}),
+						access: [APublic],
+						meta: [{name: ":keep",pack: []}],
+					}].concat(fields),
+					kind: TDClass(null,interfaces),
+					isExtern: false,
+				});
+			default:
+		}
+	}
 }
 
 private function implementsFields(interfaceFields:Array<Field>,classFields:Array<Field>):Bool {
@@ -2955,8 +3050,14 @@ private function interfaceWrapperName(name:String):String
 	return "__" + name + "_" + "InterfaceWrapper";
 
 private function addAbstractToField(ct:ComplexType,wrapperType:TypePath):Field {
+	var name:String = "";
+	switch ct {
+		case TPath(p):
+			name = p.name;
+		default:
+	}
 	return {
-		name: "__to_" + wrapperType.name,
+		name: "__to_" + name,
 		pos: null,
 		meta: [{name: ":to",pos: null}],
 		kind: FFun({
@@ -3029,6 +3130,14 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})},{name: "value"}],
 				expr: macro return untyped this.set(i,value),
 			})
+		},{
+			name: "toInterface",
+			pos: null,
+			kind: FFun({
+				args: [],
+				expr: macro return new $wrapperType(this),
+			}),
+			access: [APublic,AInline],
 		}].concat(implicits),
 		kind: TDAbstract(type,[type],[type])
 	};
@@ -3043,7 +3152,7 @@ private function typeSpec(spec:Ast.TypeSpec,info:Info) {
 
 private function parseTypePath(path:String,name:String):TypePath {
 	path = normalizePath(path);
-	return {name: className(name),pack: path.split("/")};
+	return {name: className(title(name)),pack: path.split("/")};
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {

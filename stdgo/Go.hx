@@ -935,8 +935,13 @@ class Go {
 		}
 		func = parens(func);
 		switch func.expr {
-			case ECheckType(_, _), ECast(_,_):
-				func = macro {value: $func, ok: true};
+			case ECheckType(_, t), ECast(_,t):
+				var def = defaultValue(t,Context.currentPos()); //default value
+				func = macro try {
+					{value: $func, ok: true}
+				}catch(e) {
+					{value: $def, ok: false};
+				};
 			default:
 		}
 		var funcType = Context.followWithAbstracts(Context.typeof(func));

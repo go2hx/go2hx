@@ -33,6 +33,10 @@ function replace(s:String, sub:String, by:String, count:GoInt):GoString {
 	return str;
 }
 
+function replaceAll(s:String,old:String,n:String):GoString {
+	return StringTools.replace(s,old,n);
+}
+
 inline function toUpper(s:String):GoString {
 	return s.toUpperCase();
 }

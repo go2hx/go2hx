@@ -1,11 +1,17 @@
 package stdgo.strconv;
 
+import stdgo.StdGoTypes.GoByte;
+import stdgo.StdGoTypes.GoFloat64;
+import stdgo.StdGoTypes.GoUInt64;
+import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.Error;
 import stdgo.internal.ErrorReturn;
 import stdgo.StdGoTypes.MultiReturn;
+import stdgo.StdGoTypes.GoFloat;
+import stdgo.StdGoTypes.AnyInterface;
 
-function parseFloat(s:String, bitSize:GoInt64):MultiReturn<ErrorReturn<Float>> {
+function parseFloat(s:String, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat>> {
 	try {
 		return {value: Std.parseFloat(s)};
 	} catch (e) {
@@ -13,7 +19,7 @@ function parseFloat(s:String, bitSize:GoInt64):MultiReturn<ErrorReturn<Float>> {
 	}
 }
 
-inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<Int>> {
+inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
@@ -40,9 +46,21 @@ inline function parseBool(s:String):MultiReturn<ErrorReturn<Bool>> {
 inline function formatBool(b:Bool):GoString
 	return b ? "true" : "false";
 
+inline function formatInt(i:GoInt64,base:GoInt):GoString {
+	return '$i';
+}
 
-private final errRange = stdgo.errors.Errors.new_("value out of range");
-private final errSyntax = stdgo.errors.Errors.new_("invalid syntax");
+inline function formatUint(i:GoUInt64,base:GoInt):GoString {
+	return '$i';
+}
+
+inline function formatFloat(i:GoFloat64,fmt:GoByte,prec:GoInt,bitSize:GoInt):GoString {
+	return '$i';
+}
+
+
+final errRange = stdgo.errors.Errors.new_("value out of range");
+final errSyntax = stdgo.errors.Errors.new_("invalid syntax");
 
 private function syntaxError(fn:String, str:String):NumError {
 	return new NumError(fn,str,errSyntax);
@@ -52,17 +70,22 @@ private function rangeError(fn:String,str:String):NumError {
 	return new NumError(fn,str,errRange);
 }
 
-inline function parseUint(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<Int>> {
+inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
 	return parseInt(s, base, bitSize);
 }
 
 // `Atoi` is a convenience function for basic base-10
 
-inline function atoi(s:String) {
+inline function atoi(s:GoString) {
 	return parseInt(s, 0, 0);
 }
 
+inline function itoa(i:GoInt):GoString
+	return '$i';
+
 class NumError implements Error {
+	public function __underlying__():AnyInterface
+		return null;
 	public var func:GoString;
 	public var num:GoString;
 	public var err:Error;

@@ -1,6 +1,7 @@
 package stdgo.reflect;
 import stdgo.StdGoTypes;
 import haxe.EnumTools;
+import stdgo.StdGoTypes.AnyInterface;
 
 enum GT_enum {
 	GT_invalid;
@@ -44,6 +45,9 @@ class Error implements StructType implements stdgo.StdGoTypes.Error {
 		message = m;
 	}
 
+	public function __underlying__():AnyInterface
+		return null;
+
 	public function __copy__()
 		return new Error(message);
 
@@ -59,6 +63,9 @@ class Value implements StructType {
 	var surfaceType:Type;
 	var underlyingType:Type;
 	public var _address_:Int;
+
+	public function __underlying__():AnyInterface
+		return null;
 
 	public function new(val:Any = null, t:Type=null) {
 		if (t == null)
@@ -166,6 +173,9 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 	var kind:Kind;
 	public var _address_:Int;
 
+	public function __underlying__():AnyInterface
+		return null;
+
 	public function new(m:GoString, k:Kind) {
 		_address_ = ++Go.addressIndex;
 		method = m;
@@ -254,10 +264,42 @@ function compareStruct(a1:Dynamic, a2:Dynamic) {
 	return true;
 }
 
-function typeOf(iface:AnyInterface,type:Type):Type {
+function typeOf(iface:AnyInterface):Type {
 	if (iface == null)
 		return new Type(GT_unsafePointer);
-	return type;
+	return iface.type;
+}
+
+function ptrTo(t:Type):Type {
+	return new Type(GT_ptr(t.gt));
+}
+
+function sliceOf(t:Type):Type {
+	return new Type(GT_slice(t.gt));
+}
+
+function zero(typ:Type):Value {
+	return new Value(defaultValue(typ),typ);
+}
+
+function new_(typ:Type):Value {
+	return new Value(Go.pointer(defaultValue(typ)),new Type(GT_ptr(typ.gt)));
+}
+
+private function defaultValue(typ:Type):Any {
+	return switch typ.gt {
+		case GT_bool: false;
+		case GT_int,GT_int8,GT_int16,GT_int32,GT_int64: 0;
+		case GT_uint,GT_uint8,GT_uint16,GT_uint32,GT_uint64: 0;
+		case GT_float32, GT_float64: 0;
+		case GT_complex64, GT_complex128: 0;
+		case GT_string: 0;
+		case GT_namedType(pack, module, name, methods, interfaces, type):
+			var path = pack + "." + name;
+			var cl = std.Type.resolveClass(path);
+			std.Type.createInstance(cl,[]);
+		default: null;
+	}
 }
 
 function valueOf(iface:AnyInterface,type:Type):Value {
@@ -547,6 +589,9 @@ class StructTag__extension { //TODO implement functionality for methods
     public var type : Type = new Type(GT_invalid);
     public var func : Value = new Value();
     public var index : GoInt = 0;
+
+	public function __underlying__():AnyInterface
+		return null;
     public function new(?name, ?pkgPath, ?type, ?func, ?index) {
         stdgo.internal.Macro.initLocals();
         _address_ = ++Go.addressIndex;
@@ -555,7 +600,7 @@ class StructTag__extension { //TODO implement functionality for methods
         return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(func)} ${Std.string(index)}}';
     }
     public function __copy__() {
-        return new Method(name, [], type, func, index);
+        return new Method(name,pkgPath, type, func, index);
     }
     public var _address_ = 0;
 }
@@ -567,6 +612,10 @@ class StructTag__extension { //TODO implement functionality for methods
     public var offset : GoUIntptr = new GoUIntptr();
     public var index : Slice<GoInt> = new Slice<GoInt>(0);
     public var anonymous : Bool = false;
+
+	public function __underlying__():AnyInterface
+		return null;
+	
     public function new(?name, ?pkgPath, ?type, ?tag, ?offset, ?index, ?anonymous) {
         stdgo.internal.Macro.initLocals();
         _address_ = ++Go.addressIndex;
@@ -718,7 +767,6 @@ private function implementsMethod(t:Type,v:Type):Bool {
 }
 
 
-
 @:enum abstract Kind(stdgo.StdGoTypes.GoUInt) from stdgo.StdGoTypes.GoUInt {
 	public inline function new(i:stdgo.StdGoTypes.GoUInt)
 		this = i;
@@ -759,3 +807,31 @@ private function implementsMethod(t:Type,v:Type):Bool {
 	final map:GoUInt = 25;
 	final struct:GoUInt = 26;
 }
+
+final invalid:GoUInt = Kind.invalid;
+final bool:GoUInt = Kind.bool;
+final int:GoUInt = Kind.int;
+final int8:GoUInt = Kind.int8;
+final int16:GoUInt = Kind.int16;
+final int32:GoUInt = Kind.int32;
+final int64:GoUInt = Kind.int64;
+final uint:GoUInt = Kind.uint;
+final uint8:GoUInt = Kind.uint8;
+final uint16:GoUInt = Kind.uint16;
+final uint32:GoUInt = Kind.uint32;
+final uint64:GoUInt = Kind.uint64;
+final uintptr:GoUInt = Kind.uintptr;
+final float32:GoUInt = Kind.float32;
+final float64:GoUInt = Kind.float64;
+final complex64:GoUInt = Kind.complex64;
+final complex128:GoUInt = Kind.complex128;
+final _string:GoUInt = Kind._string;
+final unsafePointer:GoUInt = Kind.unsafePointer;
+final chan:GoUInt = Kind.chan;
+final interface_:GoUInt = Kind.interface_;
+final ptr:GoUInt = Kind.ptr;
+final slice:GoUInt = Kind.slice;
+final array:GoUInt = Kind.array;
+final func:GoUInt = Kind.func;
+final map:GoUInt = Kind.map;
+final struct:GoUInt = Kind.struct;

@@ -7,6 +7,7 @@ import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.StructType;
+import stdgo.StdGoTypes.AnyInterface;
 #if hl
 import hl.Gc;
 #elseif cpp
@@ -30,6 +31,11 @@ final goos = #if (!sys && js) "js" #else switch (Sys.systemName()) {
 	default: "linux";
 }
 #end 
+
+interface Stringer {
+	public function __underlying__():AnyInterface;
+	function error():GoString;
+}
 
 function gc() {
 	// run garbage collector
@@ -79,12 +85,16 @@ private class RuntimeErrorData implements Error {
 function keepAlive(x:AnyInterface) {}
 
 interface Error extends stdgo.StdGoTypes.Error {
+	public function __underlying__():AnyInterface;
 	public function runtimeError():Void;
 	public function error():String;
 }
 
 class Frames implements StructType {
 	public var _address_:Int = 0;
+
+	public function __underlying__():AnyInterface
+		return null;
 
 	public function new() {
 		_address_ = Go.addressIndex++;
@@ -100,6 +110,9 @@ class Frame implements StructType {
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
 
+	public function __underlying__():AnyInterface
+		return null;
+
 	public function new() {
 		_address_ = Go.addressIndex++;
 	}
@@ -108,6 +121,9 @@ class Frame implements StructType {
 class MemStats implements StructType {
 	public var alloc(get, null):GoUInt64;
 	public var _address_:Int = 0;
+
+	public function __underlying__():AnyInterface
+		return null;
 
 	function get_alloc():GoUInt64 {
 		return 0;

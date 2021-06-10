@@ -6,6 +6,13 @@ import stdgo.io.Io.Writer;
 import haxe.Rest;
 import stdgo.internal.ErrorReturn;
 import haxe.macro.Expr;
+import stdgo.StdGoTypes.AnyInterface;
+
+
+interface Stringer {
+	public function __underlying__():AnyInterface;
+	function toString():GoString;
+}
 
 inline function errorf(fmt:String, args:Rest<Dynamic>) {
 	return stdgo.errors.Errors.new_(format(fmt, parse(args)));
@@ -30,6 +37,11 @@ inline function fprintf(w:Writer, fmt:String, args:Rest<Dynamic>) {
 inline function fprintln(w:Writer, args:Rest<Dynamic>) {
 	w.write(new GoString(parse(args).join(" ")).toArray().concat(["\n".code]));
 }
+
+inline function fprint(w:Writer, args:Rest<Dynamic>) {
+	w.write(new GoString(parse(args).join(" ")).toArray().concat(["\n".code]));
+}
+
 
 inline function sprint(args:Rest<Dynamic>) {
 	return parse(args).join(" ");

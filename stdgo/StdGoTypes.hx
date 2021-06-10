@@ -1428,9 +1428,11 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 interface StructType {
 	public var _address_:Int;
+	public function __underlying__():AnyInterface;
 }
 
 interface Error {
+	public function __underlying__():AnyInterface;
 	public function error():String;
 }
 @:structInit

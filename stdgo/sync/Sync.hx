@@ -9,6 +9,9 @@ class RWMutex implements StructType {
 	var mutux:Mutex;
 	public var _address_:Int = 0;
 
+	public function __underlying__():AnyInterface
+		return null;
+
 	public function new() {
 		mutux = new Mutex();
 		_address_ = Go.addressIndex++;
@@ -29,6 +32,9 @@ class WaitGroup implements StructType {
 	public var _address_:Int = 0;
 
 	var counter:GoUInt = 0;
+
+	public function __underlying__():AnyInterface
+		return null;
 
 	public function new() {
 		_address_ = Go.addressIndex++;
@@ -63,6 +69,9 @@ class WaitGroup implements StructType {
 class Once implements StructType {
 	public var _address_:Int;
 	public var done:Bool = false;
+
+	public function __underlying__():AnyInterface
+		return null;
 	public function new() {
 		_address_ = Go.addressIndex++;
 	}

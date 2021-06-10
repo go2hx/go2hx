@@ -10,14 +10,18 @@ import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.MultiReturn;
+import stdgo.StdGoTypes.AnyInterface;
 
-var args = Sys.args();
+var args = new Slice(...Sys.args());
 var stderr = new OutputWriter(Sys.stderr());
 
 // var stdin = new OutputWriter(Sys.stdin());
 var stdout = new OutputWriter(Sys.stdout());
 
 class OutputWriter implements stdgo.io.Io.Writer {
+
+	public function __underlying__():AnyInterface
+		return null;
 	var output:Output;
 
 	public function new(output) {
@@ -106,6 +110,9 @@ inline function removeAll(path:String):Error {
 }
 
 class File implements stdgo.io.Io.Writer {
+
+	public function __underlying__():AnyInterface
+		return null;
 	var input:sys.io.FileInput;
 	var output:sys.io.FileOutput;
 

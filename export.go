@@ -52,6 +52,7 @@ type interfaceData struct {
 	t *types.Interface
 	name string
 	path string
+	isExport bool
 }
 
 var fset *token.FileSet
@@ -123,7 +124,6 @@ func main() {
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
-
 	data := parsePkgList(initial)
 
 	data.Args = args
@@ -170,7 +170,7 @@ func parseInterface(pkg *packages.Package) {
 						t := checker.TypeOf(spec.Type)
 						switch t := t.(type) {
 						case *types.Interface:
-							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkg.PkgPath})
+							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkg.PkgPath,spec.Name.IsExported()})
 						default:
 						}
 					default:
@@ -190,34 +190,29 @@ func parsePkgList(list []*packages.Package) dataType {
 		if len(syntax.Files) > 1 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
+		for _, val := range pkg.Imports {
+			if excludes[val.PkgPath] {
+				continue
+			}
+			syntax := parsePkg(val)
+			if len(syntax.Files) > 1 {
+				data.Pkgs = append(data.Pkgs, syntax)
+			}
+		}
 	}
 	return data
 }
-
 func parsePkg(pkg *packages.Package) packageType {
-
 	fset = pkg.Fset
 	data := packageType{}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
 
-	for _, val := range pkg.Imports {
-		if excludes[val.PkgPath] {
-			continue
-		}
-		excludes[val.PkgPath] = true
-		syntax := parsePkg(val)
-		if len(syntax.Files) > 0 {
-			data.Files = append(data.Files, parsePkg(val).Files...) //recursive
-		}
-	}
-
-	conf := types.Config{
-		Importer: importer.Default(),
-	}
-
+	conf := types.Config{Importer: importer.Default()}
+	
 	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
+
 	for i, file := range pkg.Syntax {
 		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
@@ -279,6 +274,9 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			named := checker.ObjectOf(obj.Name)
 			for _,inter := range interfaces {
 				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
+					continue
+				}
+				if !inter.isExport && named.Pkg().Path() != inter.path {
 					continue
 				}
 				if types.Implements(checker.ObjectOf(obj.Name).Type(),inter.t) {

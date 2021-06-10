@@ -413,6 +413,7 @@ class Go {
 	public static macro function routine(expr) {
 		return expr;
 	}
+
 	public static macro function toInterface(expr) {
 		var t = Context.follow(Context.typeof(expr));
 		switch t {
@@ -440,7 +441,7 @@ class Go {
 		}
 		return macro new AnyInterface($expr,$exprInterface,new stdgo.reflect.Reflect.Type($ty));
 	}
-
+	
 	public static macro function smartcast(expr:Expr) {
 		function panicWrap(e:Expr) {
 			return macro {var e = $e; e == null ? throw "panic: conversion" : e;};
@@ -479,7 +480,15 @@ class Go {
 				var t = Context.follow(ComplexTypeTools.toType(t));
 				if (t == null)
 					throw "complexType converted to type is null";
+				var et = Context.follow(Context.typeof(e));
 				var value = gtDecode(t);
+				switch et {
+					case TInst(cl, params):
+						var cl = cl.get();
+						if (cl.isInterface)
+							e = macro $e.__underlying__();
+					default:
+				}
 				return macro $e.type.assignableTo(new stdgo.reflect.Reflect.Type($value));
 			default:
 				throw "unknown assignable expr: " + expr.expr;
@@ -557,6 +566,8 @@ class Go {
 		}
 		var declare:Bool = false;
 		switch expr.expr {
+			case EConst(c):
+				declare = true;
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
 				switch t {
@@ -585,8 +596,6 @@ class Go {
 						declare = true;
 					default:
 				}
-			case EConst(c):
-				
 			default:
 		}
 		if (isRealPointer) {
@@ -600,9 +609,9 @@ class Go {
 		if (declare)
 			return macro {
 				var e = $expr;
-				new stdgo.PointerWrapper(e);
+				new stdgo.Pointer.PointerWrapper(e);
 			};
-		return macro new stdgo.PointerWrapper($expr);
+		return macro new stdgo.Pointer.PointerWrapper($expr);
 	}
 
 	public static macro function recover() {
@@ -610,35 +619,6 @@ class Go {
 			var r = stdgo.runtime.Runtime.newRuntime(recover_exception.toString());
 			recover_exception = null;
 			r;
-		}
-	}
-
-	public static macro function range(expr) {
-		var type = Context.follow(Context.typeof(expr));
-		switch type {
-			case TMono(t):
-				type = t.get();
-			default:
-		}
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				switch t.name {
-					case "GoString", "Slice", "GoArray", "Array", "GoMap":
-						return macro $expr.keyValueIterator();
-					default:
-						throw "unknown type abstract range: " + t.name;
-				}
-			case TAnonymous(a):
-				throw "unknown anon range type: " + [for (field in a.get().fields) field.name];
-			case TInst(t, params):
-				var t = t.get();
-				if (t.name == "Chan" && t.params.length == 1 && t.pack.length == 1) {
-					return macro $expr.keyValueIterator();
-				}
-				throw "unknown TInst range type: " + t;
-			default:
-				throw "unknown range type: " + type;
 		}
 	}
 
@@ -818,6 +798,8 @@ class Go {
 					"interface{}",
 					[]
 				);
+			case TLazy(f):
+				ret = gtDecode(f());
 			default:
 				throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 		}
@@ -848,8 +830,13 @@ class Go {
 			switch field.kind {
 				case FMethod(k):
 					switch field.name {
-						case "new", "__copy__":
+						case "new", "__copy__", "__underlying__":
 							continue;
+					}
+					switch field.type {
+						case TLazy(f):
+							field.type = f();
+						default:
 					}
 					switch field.type {
 						case TFun(args, ret):
@@ -879,7 +866,7 @@ class Go {
 							params.unshift(macro stdgo.reflect.Reflect.GT_enum.GT_field("this", stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{module} + "." + $v{ref.name}),"")); //recv
 							methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, stdgo.reflect.Reflect.GT_enum.GT_func($a{params},$a{rets}),""));
 						default:
-							throw "method needs to be a function";
+							throw "method needs to be a function: " + field.type;
 					}
 				default:
 					if (field.name == "_address_")
@@ -959,7 +946,15 @@ class Go {
 			}
 		}
 		func = parens(func);
-		switch func.expr {
+		var funcExpr = func;
+		switch funcExpr.expr {
+			case ECall(e, params):
+				funcExpr = params[0];
+			default:
+		}
+		switch funcExpr.expr {
+			case EArray(e, k):
+				func = macro $e.exists($k) ? {value: $func, ok: true} : {value: $e.defaultValue(), ok: false};
 			case ECheckType(_, t), ECast(_,t):
 				var def = defaultValue(t,Context.currentPos()); //default value
 				func = macro try {

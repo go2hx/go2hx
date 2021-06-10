@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
@@ -17,14 +18,22 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		}
 	}
 
+	public function defaultValue():V {
+		return this.defaultValue;
+	}
+
 	public function setNull():MapData<K, V> {
 		this.nullBool = true;
 		return this;
 	}
 
 	@:arrayAccess
-	public inline function get(key:K) {
+	public inline function get(key:K):V {
 		return this.get(key);
+	}
+
+	public inline function exists(key:K):Bool {
+		return this.exists(key);
 	}
 
 	@:arrayAccess
@@ -56,7 +65,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 private class MapData<K, V> {
 	var slice:Slice<{key:K, value:V}>;
 	var nullcount:GoInt = 0;
-	var defaultValue:V = null;
+	public var defaultValue:V = null;
 
 	public var nullBool:Bool = false;
 
@@ -73,6 +82,16 @@ private class MapData<K, V> {
 				return obj.value;
 		}
 		return defaultValue;
+	}
+
+	public function exists(key:K):Bool {
+		for (obj in slice) {
+			if (obj == null)
+				continue;
+			if (obj.key == key)
+				return true;
+		}
+		return false;
 	}
 
 	public inline function set(key:K, value:V) {
@@ -92,7 +111,7 @@ private class MapData<K, V> {
 	}
 
 	public inline function iterator() {
-		return slice.iterator();
+		return new MapIterator(slice);
 	}
 
 	public inline function keyValueIterator() {
@@ -105,6 +124,30 @@ private class MapData<K, V> {
 
 	public inline function toString():String {
 		return slice.toArray().toString();
+	}
+}
+
+
+private class MapIterator<K, V> {
+	var offset:Int = 0;
+	var slice:Slice<{key:K, value:V}>;
+
+	public inline function new(slice:Slice<{key:K, value:V}>) {
+		this.slice = slice;
+	}
+
+	public inline function hasNext() {
+		return offset < slice.length;
+	}
+
+	public inline function next():V {
+		var o:{key:K, value:V} = null;
+		while (offset < slice.length) {
+			o = slice[offset++];
+			if (o != null)
+				break;
+		}
+		return o.value;
 	}
 }
 
@@ -121,7 +164,7 @@ private class MapKeyValueIterator<K, V> {
 	}
 
 	public inline function next() {
-		var o:{key:K, value:V} = null;
+		var o:MultiReturn<{key:K, value:V}> = null;
 		while (offset < slice.length) {
 			o = slice[offset++];
 			if (o != null)

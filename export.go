@@ -551,34 +551,35 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-		data["typeLit"] = parseType(checker.TypeOf(node.Type))
+		data["typeLit"] = parseType(checker.TypeOf(node))
 	case *ast.SelectorExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.IndexExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.Elt))
 	case *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.SliceExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.TypeAssertExpr:
 		data["typeX"] = parseType(checker.TypeOf(node.X))
 		data["typeY"] = parseType(checker.TypeOf(node.Type))
 	case *ast.StarExpr:
 		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.CallExpr:
-		data["type"] = parseType(checker.TypeOf(node.Fun))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.UnaryExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.BinaryExpr:
 		data["typeX"] = parseType(checker.TypeOf(node.X))
 		data["typeY"] = parseType(checker.TypeOf(node.Y))
 	case *ast.KeyValueExpr:
 		data["typeKey"] = parseType(checker.TypeOf(node.Key))
 		data["typeValue"] = parseType(checker.TypeOf(node.Value))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset

@@ -1,6 +1,5 @@
 package stdgo.runtime;
 
-import stdgo.Pointer.PointerWrapper;
 import stdgo.StdGoTypes.GoUIntptr;
 import stdgo.GoArray;
 import stdgo.StdGoTypes.GoInt64;
@@ -59,7 +58,7 @@ function gomaxprocs(num:GoInt):GoInt {
 	return num;
 }
 
-function callersFrames(callers:Slice<GoUIntptr>):PointerWrapper<Frames> {
+function callersFrames(callers:Slice<GoUIntptr>):Pointer<Frames> {
 	var f = new Frames();
 	return Go.pointer(f);
 }

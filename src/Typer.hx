@@ -1,5 +1,4 @@
 import Ast.ExprType;
-import stdgo.Pointer.PointerWrapper;
 import sys.io.File;
 import haxe.io.Path;
 import haxe.ds.StringMap;
@@ -947,7 +946,17 @@ private function isInterface(type:GoType):Bool {
 	return switch type {
 		case named(_,elem):
 			isInterface(elem);
-		case interfaceValue(numMethods):
+		case interfaceValue(_):
+			true;
+		default:
+			false;
+	}
+}
+private function isPointer(type:GoType):Bool {
+	return switch type {
+		case named(_,elem):
+			isPointer(elem);
+		case pointer(_):
 			true;
 		default:
 			false;
@@ -1391,83 +1400,16 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 
 private function addPointerImports(info:Info) {
 	addImport("stdgo.Pointer", info);
-	addImport("stdgo.Pointer.PointerWrapper", info);
 }
 
 private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer type
-	var type = typeExprType(expr.x, info);
-	var basicBool = isBasic(type, info);
 	addPointerImports(info);
-	if (basicBool) {
-		addPointerImports(info);
-		return TPath({
-			pack: [],
-			name: "Pointer",
-			params: type != null ? [TPType(type)] : [],
-		});
-	}
-	switch type {
-		case TPath(p):
-			switch p.name {
-				case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUIn8",
-					"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
-					return TPath({
-						pack: [],
-						name: "Pointer",
-						params: type != null ? [TPType(type)] : [],
-					});
-				case "Pointer", "PointerWrapper":
-					return TPath({
-						pack: [],
-						name: "Pointer",
-						params: type != null ? [TPType(type)] : [],
-					});
-				case "Slice", "GoMap", "GoArray":
-					return type;
-			}
-		default:
-	}
+	var type = typeExprType(expr.x,info);
 	return TPath({
 		pack: [],
-		name: "PointerWrapper",
+		name: "Pointer",
 		params: type != null ? [TPType(type)] : [],
 	});
-}
-
-private function isBasic(type:ComplexType, info:Info):Bool {
-	var basicBool:Bool = true;
-	switch type {
-		case TPath(p):
-			if (p.pack.length > 0) {
-				switch p.name {
-					case "GoInt", "GoUInt":
-					case "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64":
-					case "GoFloat", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
-					case "Bool", "GoString":
-					default:
-						basicBool = false;
-				}
-				if (basicBool) // lowest underlying type already found
-					return true;
-				// look for type alias
-				for (def in info.data.defs) {
-					if (def == null || p.name != def.name)
-						continue;
-					switch def.kind {
-						case TDAlias(t):
-							return isBasic(t, info);
-						case TDStructure:
-							return false;
-						default:
-					}
-				}
-				return false;
-			} else {
-				return false;
-			}
-		default:
-	}
-	return false;
 }
 
 private function addImport(path:String, info:Info, alias:String = "") {
@@ -1618,14 +1560,22 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 	}
 	var ft = typeof(expr.fun);
+	var notFunction = false;
 	switch ft {
 		case signature(_, _, _, _):
 		case invalid:
 		case basic(kind):
+			switch kind {
+				case invalid_kind:
+				default: notFunction = true;
+			}
 		default: //not a function
-			var ct = typeExprType(expr.fun,info);
-			var e = typeExpr(expr.args[0],info);
-			return checkType(e,ct,typeof(expr.args[0]),typeof(expr.fun)).expr;
+			notFunction = true;
+	}
+	if (notFunction) {
+		var ct = typeExprType(expr.fun,info);
+		var e = typeExpr(expr.args[0],info);
+		return checkType(e,ct,typeof(expr.args[0]),typeof(expr.fun)).expr;
 	}
 
 	switch expr.fun.id {
@@ -1737,12 +1687,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 											if (numMethods == 0) {
 												args[i] = macro Go.toInterface(${args[i]});
 											}else{
-												//args[i] = macro cast ${args[i]};
+												
 											}
 										case named(path, underlying):
 											switch underlying {
 												case interfaceValue(_):
-													//args[i] = macro cast ${args[i]};
+													
 												default:
 											}
 										default:
@@ -1999,14 +1949,8 @@ private function toComplexType(e:GoType):ComplexType {
 		case invalid:
 			null;
 		case pointer(elem):
-			var pointerWrapper = false;
-			switch elem {
-				case basic(_):
-					pointerWrapper = true;
-				default:
-			}
 			var ct = toComplexType(elem);
-			TPath({pack: [],name: pointerWrapper ? "PointerWrapper" : "Pointer",params: [TPType(ct)]});
+			TPath({pack: [],name: "Pointer",params: [TPType(ct)]});
 		case chan(dir, elem):
 			var ct = toComplexType(elem);
 			TPath({pack: [],name: "Chan",params: [TPType(ct)]});
@@ -2454,6 +2398,9 @@ private function typeOp(token:Ast.Token):Binop {
 
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
 	var x = typeExpr(expr.x, info);
+	var typeX = typeof(expr.x);
+	var isThis = false;
+
 	var sel = expr.sel.name;
 	switch x.expr {
 		case EField(e, field):
@@ -2465,6 +2412,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		case EConst(c):
 			switch c {
 				case CIdent(s):
+					if (s == info.thisName)
+						isThis = true;
 					var index = s.lastIndexOf(".");
 					var field = s.substr(index + 1);
 					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
@@ -2477,6 +2426,8 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		default:
 			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel,info);
 	}
+	if (isPointer(typeX) && !isThis)
+		x = macro $x.value;
 	return (macro $x.$sel).expr; // EField
 }
 
@@ -2528,7 +2479,7 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-	return (macro $x._value_).expr; // pointer code
+	return (macro $x.value).expr; // pointer code
 }
 
 private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
@@ -2559,6 +2510,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
 	info.typeNames = data.typeNames;
 	info.data = data.data;
+	info.thisName = "";
 	info.global = data.global;
 	var name = nameIdent(decl.name.name, info, false, false);
 	if (name == "init") {
@@ -2579,7 +2531,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	if (decl.recv != null) { // now is a static extension function
 		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
 			name = "_" + name;
-		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info));
+		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info),typeof(decl.recv.list[0].type));
 		for (def in info.data.defs) {
 			switch def.kind {
 				case TDAbstract(_, _, _):
@@ -2591,6 +2543,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 							case EBlock(exprs):
 								if (recvInfo.isPointer) {
 									info.renameTypes[varName] = "this";
+									info.thisName = varName;
 									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
 									info.renameTypes.remove(varName);
 								} else {
@@ -2627,7 +2580,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 									info.thisName = varName;
 									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
 									
-									exprs.unshift(macro var $varName = this);
+									exprs.unshift(macro var $varName = Go.pointer(this));
 								} else {
 									exprs.unshift(macro var $varName = this.__copy__());
 								}
@@ -2785,7 +2738,7 @@ private function defaultValue(type:GoType):Expr {
 			macro new Slice<$t>();
 		case array(elem, len):
 			var t = toComplexType(elem);
-			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem)}]);
+			macro Go.make((_ : GoArray<$t>),${toExpr(EConst(CInt('$len')))});
 		case interfaceValue(numMethods):
 			macro null;
 		case chan(_, elem):
@@ -2833,10 +2786,10 @@ private function defaultValue(type:GoType):Expr {
 	}
 }
 
-private function getRecvInfo(recvType:ComplexType):{name:String, isPointer:Bool,type:ComplexType} {
+private function getRecvInfo(recvType:ComplexType,type:GoType):{name:String, isPointer:Bool,type:ComplexType} {
 	switch recvType {
 		case TPath(p):
-			if (p.name == "Pointer" || p.name == "PointerWrapper") {
+			if (p.name == "Pointer") {
 				switch p.params[0] {
 					case TPType(t):
 						switch t {

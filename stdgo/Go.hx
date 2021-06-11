@@ -36,7 +36,7 @@ class Go {
 						return macro {};
 					case "Bool":
 						return macro false;
-					case "Pointer", "PointerWrapper", "GoArrayPointer":
+					case "Pointer":
 						return macro null;
 					case "GoString", "String":
 						if (strict)
@@ -308,8 +308,6 @@ class Go {
 				switch t.name {
 					case "Slice":
 						return macro $expr.length == 0;
-					case "PointerWrapper":
-						return macro Go.isNull($expr._value_);
 					case "Pointer":
 						return macro Go.isNull($expr._value_);
 					case "AnyInterface":
@@ -520,50 +518,16 @@ class Go {
 	}
 
 	static function escapeParens(expr:Expr):Expr {
-		while (true) {
-			switch expr.expr {
-				case EParenthesis(e):
-					expr = e;
-				default:
-					break;
-			}
+		return switch expr.expr {
+			case EParenthesis(e):
+				escapeParens(e);
+			default:
+				expr;
 		}
-		return expr;
 	}
 
 	public static macro function pointer(expr:Expr) {
 		expr = escapeParens(expr);
-		var isRealPointer = false;
-		var type = Context.follow(Context.typeof(expr));
-		switch type {
-			case TMono(t):
-				type = t.get();
-			default:
-		}
-		if (type == null)
-			return macro null;
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				switch t.name {
-					case "GoArray", "Slice", "Map":
-						return macro new stdgo.Pointer.PointerWrapper($expr);
-					case "GoString", "String", "Bool", "GoInt", "GoFloat", "GoUInt", "GoRune", "GoByte", "GoInt8", "GoInt16", "GoInt32", "GoInt64", "GoUInt8",
-						"GoUInt16", "GoUInt32", "GoUInt64", "GoComplex", "GoComplex64", "GoComplex128":
-						isRealPointer = true;
-					case "Pointer", "PointerWrapper": // double or even triple pointer
-						isRealPointer = true;
-				}
-			case TAnonymous(a):
-			case TInst(t, params):
-				var t = t.get();
-				if (t.name == "String")
-					isRealPointer = true;
-			case TDynamic(t):
-				return macro null;
-			default:
-				trace("unknown make pointer type: " + type);
-		}
 		var declare:Bool = false;
 		switch expr.expr {
 			case EConst(c):
@@ -574,44 +538,33 @@ class Go {
 					case TAbstract(t, params):
 						var t = t.get();
 						if (t.name == "Slice") {
-							if (isRealPointer)
-								return macro {
-									var _offset_ = ${e1}.getOffset();
-									var _address_ = ${e1}._address_ + _offset_ + ${e2};
-									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],
-										(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v, _address_));
-								};
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								new stdgo.PointerWrapper(${e1}.getUnderlying()[${e2} + _offset_]);
+								var _address_ = ${e1}._address_ + _offset_ + ${e2};
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],
+									(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v, _address_));
 							};
 						}
 					default:
 				}
-			case ENew(t, params):
+			case EObjectDecl(_):
 				declare = true;
-			case ECheckType(e, t):
+			case ENew(_, _):
+				declare = true;
+			case ECheckType(e, _):
 				switch e.expr {
-					case EConst(c):
+					case EConst(_), EObjectDecl(_):
 						declare = true;
 					default:
 				}
 			default:
 		}
-		if (isRealPointer) {
-			if (declare)
-				return macro {
-					var e = $expr;
-					new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v, ++Go.addressIndex));
-				};
-			return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, ++Go.addressIndex));
-		}
 		if (declare)
 			return macro {
 				var e = $expr;
-				new stdgo.Pointer.PointerWrapper(e);
+				new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v, ++Go.addressIndex));
 			};
-		return macro new stdgo.Pointer.PointerWrapper($expr);
+		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, ++Go.addressIndex));
 	}
 
 	public static macro function recover() {
@@ -691,7 +644,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_slice($a{gtParams(params)});
 					case "stdgo.GoArray":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, -1); // TODO go2hx does not store the length in the type
-					case "stdgo.Pointer", "stdgo.PointerWrapper", "stdgo.GoArrayPointer":
+					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
@@ -763,6 +716,8 @@ class Go {
 					if (ref.isInterface) {
 						ret = gtDecodeInterfaceType(ref);
 					}else{
+						trace("ref: " + ref.name);
+						if (ref.name == "Array") throw "eee";
 						ret = gtDecodeClassType(ref);
 					}
 				}
@@ -872,6 +827,7 @@ class Go {
 					if (field.name == "_address_")
 						continue;
 					var t = gtDecode(field.type);
+					trace("field: " + field.name);
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},$t,""));
 			}
 		}

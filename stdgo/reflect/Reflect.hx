@@ -283,7 +283,7 @@ function zero(typ:Type):Value {
 }
 
 function new_(typ:Type):Value {
-	return new Value(Go.pointer(defaultValue(typ)),new Type(GT_ptr(typ.gt)));
+	return new Value(new Pointer(defaultValue(typ)),new Type(GT_ptr(typ.gt)));
 }
 
 private function defaultValue(typ:Type):Any {
@@ -298,6 +298,9 @@ private function defaultValue(typ:Type):Any {
 			var path = pack + "." + name;
 			var cl = std.Type.resolveClass(path);
 			std.Type.createInstance(cl,[]);
+		case GT_map(_, _): null;
+		case GT_slice(elem): new Slice();
+		case GT_array(elem, len): new GoArray([for (i in 0...len) defaultValue(new Type(elem))]);
 		default: null;
 	}
 }
@@ -306,6 +309,7 @@ function valueOf(iface:AnyInterface,type:Type):Value {
 	return new Value(iface,type);
 }
 
+typedef Type_ = Type;
 
 class Type {
 	public var gt:GT_enum;

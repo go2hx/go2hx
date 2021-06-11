@@ -6,13 +6,13 @@ import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
 
 abstract Pointer<T>(PointerData<T>) {
-	public var _value_(get, set):T;
+	public var value(get, set):T;
 
-	private function get__value_():T {
+	private function get_value():T {
 		return this.get();
 	}
 
-	private inline function set__value_(value:T):T {
+	private inline function set_value(value:T):T {
 		return this.set(value);
 	}
 
@@ -35,39 +35,6 @@ abstract Pointer<T>(PointerData<T>) {
 
 	public inline function address() {
 		return this.address;
-	}
-}
-
-@:forward
-abstract PointerWrapper<T>(T) from T to T {
-	public var _value_(get, set):T;
-
-	private inline function get__value_():T {
-		return this;
-	}
-
-	private inline function set__value_(value:T):T {
-		return this = value;
-	}
-
-	public function new(obj:T) {
-		this = obj;
-	}
-
-	@:op(A == B) static function equals<T>(a:PointerWrapper<T>, b:PointerWrapper<T>):Bool {
-		if (a == null)
-			return b == null ? true : false;
-		if (b == null)
-			return a == null ? true : false;
-		return (a._value_ : Dynamic)._address_ == (b._value_ : Dynamic)._address_;
-	}
-
-	@:op(A != B) static function notEquals<T>(a:PointerWrapper<T>, b:PointerWrapper<T>):Bool {
-		if (a == null)
-			return b == null ? !true : !false;
-		if (b == null)
-			return a == null ? !true : !false;
-		return (a._value_ : Dynamic)._address_ != (b._value_ : Dynamic)._address_;
 	}
 }
 

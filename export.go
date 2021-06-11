@@ -109,6 +109,7 @@ func main() {
 		packages.NeedImports | packages.NeedTypes |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
 	cfg.Tests = *testBool
+	cfg.Env = append(os.Environ(), "GOOS=plan9", "GOARCH=386")
 	initial, err := packages.Load(cfg, args...)
 	if err != nil {
 		fmt.Println("load error:", err)
@@ -370,11 +371,11 @@ func parseType(node interface{}) map[string]interface{} {
 		data["kind"] = s.Kind() //is int
 	case "Array":
 		s := node.(*types.Array)
-		data["elem"] = s.Elem()
+		data["elem"] = parseType(s.Elem())
 		data["len"] = s.Len()
 	case "Map":
 		s := node.(*types.Map)
-		data["elem"] = s.Elem()
+		data["elem"] = parseType(s.Elem())
 		data["key"] = s.Key()
 	case "Signature":
 		s := node.(*types.Signature)
@@ -397,7 +398,7 @@ func parseType(node interface{}) map[string]interface{} {
 		data["type"] = parseType(s.Type())
 	case "Chan":
 		s := node.(*types.Chan)
-		data["type"] = parseType(s.Elem())
+		data["elem"] = parseType(s.Elem())
 		data["dir"] = s.Dir()
 	default:
 		fmt.Println("unknown parse type id:", data["id"])
@@ -551,26 +552,26 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-		data["typeLit"] = parseType(checker.TypeOf(node))
+		data["typeLit"] = parseType(checker.TypeOf(node.Type))
 	case *ast.SelectorExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.IndexExpr:
-		data["type"] = parseType(checker.TypeOf(node))
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.Elt))
 	case *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node))
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.SliceExpr:
-		data["type"] = parseType(checker.TypeOf(node))
+		data["type"] = parseType(checker.TypeOf(node.X))
 	case *ast.TypeAssertExpr:
 		data["typeX"] = parseType(checker.TypeOf(node.X))
 		data["typeY"] = parseType(checker.TypeOf(node.Type))
 	case *ast.StarExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
-	case *ast.CallExpr:
 		data["type"] = parseType(checker.TypeOf(node))
+	case *ast.CallExpr:
+		data["type"] = parseType(checker.TypeOf(node.Fun))
 	case *ast.UnaryExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.BinaryExpr:
@@ -579,7 +580,6 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.KeyValueExpr:
 		data["typeKey"] = parseType(checker.TypeOf(node.Key))
 		data["typeValue"] = parseType(checker.TypeOf(node.Value))
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset

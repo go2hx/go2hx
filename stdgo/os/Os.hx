@@ -53,13 +53,13 @@ inline function mkdirAll(path:String, ?perm:GoInt):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):MultiReturn<ErrorReturn<PointerWrapper<File>>> {
+inline function create(path:String):MultiReturn<ErrorReturn<Pointer<File>>> {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);
 	sys.io.File.saveContent(path, "");
 	var file = new stdgo.os.Os.File(sys.io.File.read(path), sys.io.File.write(path));
-	return {value: new PointerWrapper(file)};
+	return {value: Go.pointer(file)};
 }
 
 inline function exit(code:GoInt) {

@@ -26,5 +26,4 @@ inline function parseDuration(s:GoString):MultiReturn<{d:Duration,err:Error}> {
 	return {d: null, err: null};
 }
 
-typedef Time = Dynamic;
-typedef Duration = GoInt64;
+typedef Duration = time.Time.Duration;

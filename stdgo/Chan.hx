@@ -1,6 +1,7 @@
 package stdgo;
 
 import haxe.ds.Vector;
+import stdgo.StdGoTypes.GoInt;
 
 class Chan<T> {
 	var data:Vector<T>;
@@ -9,14 +10,14 @@ class Chan<T> {
 	var defaultValue:T;
 	var closed:Bool = false;
 
-	public var length(get, null):Int;
+	public var length(get, null):GoInt;
 
-	function get_length():Int {
+	function get_length():GoInt {
 		return setIndex - getIndex;
 	}
 
-	public function new(length:Int, defaultValue) {
-		data = new Vector<T>(length);
+	public function new(length:GoInt, defaultValue) {
+		data = new Vector<T>(length.toBasic());
 		this.defaultValue = defaultValue;
 	}
 

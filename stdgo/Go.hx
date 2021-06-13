@@ -910,7 +910,6 @@ class Go {
 				var fields2 = getFields(t);
 				var t = Context.toComplexType(Context.typeof(e));
 				var fields = getFields(t);
-				trace("fields: " + [for (field in fields) field.name] + " field2: " + [for (field in fields2) field.name]);
 				var struct = {expr: EObjectDecl([
 					for (i in 0...fields.length) {
 						var fieldName = fields[i].name;

@@ -1,3 +1,4 @@
+import stdgo.GoString;
 import Ast.ExprType;
 import sys.io.File;
 import haxe.io.Path;
@@ -79,6 +80,13 @@ var printer = new Printer();
 function main(data:DataType) {
 	var list:Array<Module> = [];
 	var info = new Info();
+	//default imports
+	var defaultImports:Array<ImportType> = [
+		{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},
+		{path: ["stdgo", "Go"], alias: "",doc: ""},
+		{path: ["stdgo", "GoString"], alias: "",doc: ""},
+		{path: ["stdgo", "Pointer"],alias: "",doc: ""},
+	];
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -106,7 +114,8 @@ function main(data:DataType) {
 				name: file.path,
 				imports: [],
 				defs: [],
-				location: file.location
+				location: file.location,
+				isMain: module.isMain,
 			};
 			data.name = normalizePath(data.name);
 			// set name
@@ -130,9 +139,12 @@ function main(data:DataType) {
 			}
 			for (gen in declGens) {
 				for (spec in gen.specs) {
+					if (spec == null)
+						continue;
 					switch spec.id {
 						case "ImportSpec":
-							info.data.imports.push(typeImport(spec, info));
+							//info.data.imports.push(typeImport(spec, info));
+							typeImport(spec, info);
 						case "TypeSpec":
 							info.typeNames.push(spec.name.name);
 							typeSpec(spec,info);
@@ -146,6 +158,8 @@ function main(data:DataType) {
 			info.lastType = null;
 			for (gen in declGens) {
 				for (spec in gen.specs) {
+					if (spec == null)
+						continue;
 					switch spec.id {
 						case "ValueSpec":
 							var spec:Ast.ValueSpec = spec;
@@ -190,6 +204,8 @@ function main(data:DataType) {
 			}
 			for (gen in declGens) {
 				for (spec in gen.specs) {
+					if (spec == null)
+						continue;
 					switch spec.id {
 						case "ValueSpec", "TypeSpec": namedDecls.push(spec);
 						default:
@@ -280,10 +296,7 @@ function main(data:DataType) {
 					}), null)
 				});
 			}
-			//default imports
-			data.imports.push({path: ["stdgo", "StdGoTypes"], alias: "",doc: ""});
-			data.imports.push({path: ["stdgo", "Go"], alias: "",doc: ""});
-			data.imports.push({path: ["stdgo", "GoString"], alias: "",doc: ""});
+			data.imports = data.imports.concat(defaultImports);
 			for (path => alias in info.global.imports)
 				data.imports.push({path: path.split("."), alias: alias,doc: ""});
 			//add file to module
@@ -292,9 +305,10 @@ function main(data:DataType) {
 		if (!module.isMain) {
 			var pkgExport = {
 				name: endPath,
-				imports: [{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},{path: ["stdgo", "Go"], alias: "",doc: ""}], //default imports
+				imports: defaultImports , //default imports
 				defs: [],
-				location: "" //does not have a linked go file
+				location: "", //does not have a linked go file
+				isMain: false,
 			};
 			//add to main module list
 			list.push({
@@ -396,7 +410,8 @@ function main(data:DataType) {
 			name: "import",
 			imports: imports,
 			defs: [],
-			location: ""
+			location: "",
+			isMain: module.isMain,
 		});
 	}else{
 		module.isMain = true;
@@ -677,7 +692,7 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	if (stmt.list == null)
-		return (macro throw "no block expr").expr;
+		return (macro {}).expr;
 	return typeStmtList(stmt.list, info, isFunc, needReturn);
 }
 
@@ -748,9 +763,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		info.retypeList = oldRetypeList;
 		info.localVars = oldLocalVars;
 	}
-	// add potential return value variables
-	// if (info.retValues.length > 0 && info.retValues[0].length > 0)
-	//	exprs.unshift(getRetValues(local));
 	return EBlock(exprs);
 }
 
@@ -918,7 +930,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							{
 								name: nameIdent(spec.names[i].name, info, false, false),
 								type: type,
-								expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type)) : null,
+								expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type),info) : null,
 							};
 						}
 					]);
@@ -970,7 +982,17 @@ private function pointerUnwrap(type:GoType):GoType {
 			type;
 	}
 }
-private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType):Expr {
+private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType,info:Info):Expr {
+	if (e != null) switch e.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(i):
+					if (i == "null")
+						return defaultValue(to,info);
+				default:
+			}
+		default:
+	}
 	if (isAnyInterface(from))
 		return macro Go.fromInterface(($e : $ct));
 	if (isInterface(pointerUnwrap(from))) {
@@ -1181,7 +1203,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						switch typeY {
 							case interfaceValue(numMethods):
 								if (numMethods == 0) {
-									var ct = toComplexType(typeX);
+									var ct = toComplexType(typeX,info);
 									y = macro Go.fromInterface(($y : $ct));
 								}
 							default:
@@ -1223,7 +1245,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					name = newName;
 					vars.push({
 						name: name,
-						type: toComplexType(typeof(stmt.rhs[i])),
+						type: toComplexType(typeof(stmt.rhs[i]),info),
 						expr: expr,
 					});
 				}
@@ -1272,17 +1294,17 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		if (info.returnTypes.length == 1) {
 			if (info.returnNames.length == 1)
 				return ret(EReturn(macro $i{info.returnNames[0]}));
-			return ret(EReturn(defaultValue(info.returnTypes[0])));
+			return ret(EReturn(defaultValue(info.returnTypes[0],info)));
 		}
 		var fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
-				{field: info.returnNames[i], expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i])}
+				{field: info.returnNames[i], expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i],info)}
 		];
 		return ret(EReturn(toExpr(EObjectDecl(fields))));
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		if (info.returnInterfaceBool[0])
+		if (isAnyInterface(info.returnTypes[0]))
 			e = macro Go.toInterface($e);
 		return ret(EReturn(e));
 	}
@@ -1290,7 +1312,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	var expr = toExpr(EObjectDecl([
 		for (i in 0...stmt.results.length) {
 			var e = typeExpr(stmt.results[i], info);
-			if (info.returnInterfaceBool[i])
+			if (isAnyInterface(info.returnTypes[i]))
 				e = macro Go.toInterface($e);
 			{
 				field: info.returnNames[i],
@@ -1398,12 +1420,7 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	});
 }
 
-private function addPointerImports(info:Info) {
-	addImport("stdgo.Pointer", info);
-}
-
 private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer type
-	addPointerImports(info);
 	var type = typeExprType(expr.x,info);
 	return TPath({
 		pack: [],
@@ -1429,7 +1446,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		name = "GoUInt" + name.substr(6);
 	}
 	name = className(title(name));
-	// name = title(name);
+
 	if (info.retypeList.exists(name))
 		return info.retypeList[name];
 
@@ -1559,7 +1576,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			args.push(last);
 		}
 	}
-	var ft = typeof(expr.fun);
+	var ft = typeof(expr.type);
 	var notFunction = false;
 	switch ft {
 		case signature(_, _, _, _):
@@ -1575,13 +1592,19 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	if (notFunction) {
 		var ct = typeExprType(expr.fun,info);
 		var e = typeExpr(expr.args[0],info);
-		return checkType(e,ct,typeof(expr.args[0]),typeof(expr.fun)).expr;
+		return checkType(e,ct,typeof(expr.args[0]),typeof(expr.fun),info).expr;
 	}
 
 	switch expr.fun.id {
 		case "SelectorExpr":
 			switch expr.fun.sel.name {
 				case "String": expr.fun.sel.name = "ToString"; //titled in order to export
+			}
+		case "ParenExpr":
+			if (expr.fun.x.id != "FuncLit") {
+				var ct = typeExprType(expr.fun,info);
+				var e = typeExpr(expr.args[0],info);
+				return checkType(e,ct,typeof(expr.args[0]),typeof(expr.fun),info).expr;
 			}
 		case "FuncLit":
 			var expr = typeExpr(expr.fun, info);
@@ -1644,10 +1667,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro $e.length).expr;
 				case "new": // create default value put into pointer
 					var t = typeExprType(expr.args[0], info);
-					addPointerImports(info);
 					switch t {
 						case TPath(_), TFunction(_,_), TAnonymous(_):
-							return (macro Go.pointer(${defaultValue(typeof(expr.args[0]))})).expr; // TODO does not work for non constructed types, such as basic types
+							return (macro Go.pointer(${defaultValue(typeof(expr.args[0]),info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -1809,7 +1831,7 @@ private function typeof(e:Ast.Expr):GoType {
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
 			var t = typeof(e.type);
-			var ofType = null;
+			/*var ofType = null;
 			ofType = (t:GoType,isSlice:Bool) -> {
 				return switch t {
 					case slice(elem), array(elem,_):
@@ -1823,8 +1845,8 @@ private function typeof(e:Ast.Expr):GoType {
 					default:
 						t;
 				}
-			}
-			t = ofType(t,false);
+			}*/
+			//t = ofType(t,false);
 			t;
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
@@ -1875,7 +1897,70 @@ private function typeof(e:Ast.Expr):GoType {
 	return null;
 }
 
-private function toComplexType(e:GoType):ComplexType {
+private function getGlobalPath(info:Info):String {
+	var globalPath = info.global.path;
+	if (StringTools.endsWith(info.global.path,".pkg"))
+		globalPath = globalPath.substr(0,globalPath.length - 4);
+	return globalPath;
+}
+
+private function parseTypePath(path:String,name:String,info:Info):TypePath {
+	path = normalizePath(path);
+	var cl = className(title(name));
+	var globalPath = getGlobalPath(info);
+	if (globalPath == path) {
+		if (info.retypeList.exists(cl))
+			return switch info.retypeList[cl] {
+				case TPath(p):
+					trace("p: " + p);
+					p;
+				default:
+					throw "error";
+			}
+		return {pack: [],name: cl};
+	}
+	var pack = path.split("/");
+	if (stdgoList.indexOf(pack[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
+		pack.unshift("stdgo");
+	}
+	var last = pack.pop();
+	pack.push(last);
+	pack.push(title(last));
+	
+	return {name: cl,pack: pack};
+}
+
+private function namedTypePath(path:GoString,info:Info):TypePath {
+	if (path == "error")
+		return {pack: [],name: "Error"};
+	var last = path.lastIndexOf("/") + 1;
+	var part = path.substr(last);
+	var split = part.lastIndexOf(".");
+	var pkg = part.substr(0,split);
+	var cl = className(title(part.substr(split + 1)));
+	path = path.substr(0,last) + pkg;
+	path = normalizePath(path);
+	var globalPath = getGlobalPath(info);
+	var pack = [];
+	if (globalPath != path) {
+		path += "/" + title(pkg);
+		pack = path.split("/");
+		if (stdgoList.indexOf(pack[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
+			pack.unshift("stdgo");
+		}
+	}else{
+		if (info.retypeList.exists(cl))
+			return switch info.retypeList[cl] {
+				case TPath(p):
+					p;
+				default:
+					throw "error";
+			}
+	}
+	return {pack: pack, name: cl};
+}
+
+private function toComplexType(e:GoType,info:Info):ComplexType {
 	return switch e {
 		case basic(kind):
 			switch kind {
@@ -1917,57 +2002,65 @@ private function toComplexType(e:GoType):ComplexType {
 			//	return TPath({pack: [],name: "AnyInterface"});
 			return TPath({pack: [],name: "AnyInterface"});
 		case named(path, underlying):
-			if (path == "error")
-				return TPath({pack: [],name: "Error"}); 
-			var last = path.lastIndexOf("/") + 1;
-			var part = path.substr(last);
-			var split = part.lastIndexOf(".");
-			var pkg = part.substr(0,split);
-			var cl = className(title(part.substr(split + 1)));
-			path = normalizePath(path);
-			path = StringTools.replace(path,".","_");
-			path = path.substr(0,last) + pkg + "/" + title(pkg);
-			var path = path.split("/");
-			if (stdgoList.indexOf(path[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
-				path.unshift("stdgo");
-			}
-			TPath({pack: path,name: cl});
+			TPath(namedTypePath(path,info));
 		case slice(elem):
-			var ct = toComplexType(elem);
+			var ct = toComplexType(elem,info);
 			TPath({pack: [],name: "Slice",params: [TPType(ct)]});
 		case array(elem, len):
-			var ct = toComplexType(elem);
+			var ct = toComplexType(elem,info);
 			TPath({pack: [],name: "GoArray",params: [TPType(ct)]});
 		case map(key, value):
-			var ctKey = toComplexType(key);
-			var ctValue = toComplexType(value);
+			var ctKey = toComplexType(key,info);
+			var ctValue = toComplexType(value,info);
 			TPath({pack: [],name: "GoMap",params: [TPType(ctKey),TPType(ctValue)]});
 		case tuple(len, vars):
 			if (len == 1)
-				return toComplexType(vars[0]);
+				return toComplexType(vars[0],info);
 			null;
 		case invalid:
 			null;
 		case pointer(elem):
-			var ct = toComplexType(elem);
+			var ct = toComplexType(elem,info);
 			TPath({pack: [],name: "Pointer",params: [TPType(ct)]});
 		case chan(dir, elem):
-			var ct = toComplexType(elem);
+			var ct = toComplexType(elem,info);
 			TPath({pack: [],name: "Chan",params: [TPType(ct)]});
 		case struct(fields):
 			TAnonymous([
 				for (field in fields) {
-					name: field.name,
+					name: nameIdent(field.name,info,false,false),
 					pos: null,
-					kind: FVar(toComplexType(field.type))
+					kind: FVar(toComplexType(field.type,info))
 				}
 			]);
 		case signature(variadic, params, results, recv):
-			var args = [];
-			var ret:ComplexType = null;
+			var args:Array<ComplexType> = [];
+			switch params {
+				case tuple(_,vars):
+					for (v in vars) {
+						args.push(toComplexType(v,info));
+					}
+				case invalid:
+				default:
+					trace(params);
+					throw "unknown params";
+			}
+			var ret:ComplexType = TPath({pack: [],name: "Void"});
+			switch results {
+				case tuple(_, vars):
+					if (vars.length == 1) {
+						ret = toComplexType(vars[0],info);
+					}else{
+						/*ret = TPath({pack: [],name: "MultiReturn",params: [TPType(TAnonymous([
+							
+						]))]});*/
+					}
+				default:
+					throw "results: " + results;
+			}
 			TFunction(args,ret);
 		case varValue(name, type):
-			toComplexType(type);
+			toComplexType(type,info);
 		default:
 			throw "unknown goType to complexType: " + e;
 	}
@@ -2047,8 +2140,6 @@ private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	if (expr.op == AND) {
-		// pointer access
-		addPointerImports(info);
 		return (macro Go.pointer($x)).expr;
 	} else {
 		var type = typeUnOp(expr.op);
@@ -2172,7 +2263,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 											var a:Ast.ArrayType = expr.type;
 											var elt = typeExprType(a.elt, info);
 											for (i in 0...dif)
-												params.push(defaultValue(typeof(a.elt)));
+												params.push(defaultValue(typeof(a.elt),info));
 										}
 										return (macro new $p($a{params})).expr;
 									case CIdent(s):
@@ -2189,7 +2280,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						case TPType(t):
 							switch typeof(expr.type) {
 								case map(_,valueType):
-									params.push(defaultValue(valueType));
+									params.push(defaultValue(valueType,info));
 									var e = getKeyValueExpr(expr.elts, info);
 									if (e != null)
 										params = params.concat(e);
@@ -2217,7 +2308,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExpr(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
-		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit)).expr;
+		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit),info).expr;
 	}
 	getParams();
 	if (p == null)
@@ -2273,10 +2364,6 @@ private function funcReset(info:Info) {
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	info = info.clone();
-	info.returnTypes = [];
-	info.returnComplexTypes = [];
-	info.returnNames = [];
-	info.returnNamed = true;
 	funcReset(info);
 
 	var ret = typeFieldListReturn(expr.type.results, info, true);
@@ -2451,7 +2538,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(typeof(expr.type));
+						var e = defaultValue(typeof(expr.type),info);
 						return e.expr;
 					}
 				default:
@@ -2459,7 +2546,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 		default:
 	}
 	
-	return checkType(e,type,typeof(expr.typeX),typeof(expr.typeY)).expr;
+	return checkType(e,type,typeof(expr.typeX),typeof(expr.typeY),info).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
@@ -2730,19 +2817,19 @@ private function getBody(path:String):String {
 	return "";
 }
 
-private function defaultValue(type:GoType):Expr {
+private function defaultValue(type:GoType,info:Info):Expr {
 	return switch type {
 		case map(_, _): macro null;
 		case slice(elem):
-			var t = toComplexType(elem);
+			var t = toComplexType(elem,info);
 			macro new Slice<$t>();
 		case array(elem, len):
-			var t = toComplexType(elem);
-			macro Go.make((_ : GoArray<$t>),${toExpr(EConst(CInt('$len')))});
+			var t = toComplexType(elem,info);
+			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem,info)}]);
 		case interfaceValue(numMethods):
 			macro null;
 		case chan(_, elem):
-			var t = toComplexType(elem);
+			var t = toComplexType(elem,info);
 			macro new GoChan<$t>();
 		case pointer(_):
 			macro null;
@@ -2753,13 +2840,10 @@ private function defaultValue(type:GoType):Expr {
 				case pointer(_), interfaceValue(_), map(_,_):
 					macro null;
 				case struct(_):
-					var index = path.lastIndexOf(".") + 1;
-					var name = className(title(path.substr(index)));
-					var pack = StringTools.replace(path.substr(0,index - 1),"-","_").split(".");
-					var t:TypePath = {pack: pack,name: name};
+					var t:TypePath = namedTypePath(path,info);
 					macro new $t();
 				default:
-					defaultValue(underlying);
+					defaultValue(underlying,info);
 			}
 		case basic(kind):
 			switch kind {
@@ -2812,47 +2896,55 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			name: "Void",
 			pack: [],
 		});
+	//reset
+	var returnComplexTypes:Array<ComplexType> = [];
+	var returnNamed:Bool = true;
+	var returnNames:Array<String> = [];
+	var returnTypes:Array<GoType> = [];
+
 	for (group in fieldList.list) {
 		var ct = typeExprType(group.type,info);
 		var t = typeof(group.type);
-		var interfaceBool = isAnyInterface(t);
 		if (group.names.length == 0) {
-			info.returnNames.push("v" + info.returnNames.length);
-			info.returnNamed = false;
-			info.returnTypes.push(t);
-			info.returnComplexTypes.push(ct);
-			info.returnInterfaceBool.push(interfaceBool);
+			returnTypes.push(t);
+			returnNames.push("v" + returnNames.length);
+			returnNamed = false;
+			returnComplexTypes.push(ct);
 			continue;
 		}
 		for (name in group.names) {
-			info.returnNames.push(nameIdent(name.name,info,false,false));
-			info.returnTypes.push(t);
-			info.returnComplexTypes.push(ct);
-			info.returnInterfaceBool.push(interfaceBool);
+			returnNames.push(nameIdent(name.name,info,false,false));
+			returnTypes.push(t);
+			returnComplexTypes.push(ct);
 		}
 	}
-
-	if (info.returnTypes.length > 1) {
+	if (retValuesBool) {
+		info.returnNamed = returnNamed;
+		info.returnNames = returnNames;
+		info.returnTypes = returnTypes;
+		info.returnComplexTypes = returnComplexTypes;
+	}
+	if (returnComplexTypes.length > 1) {
 		// anonymous
 		return TPath({ 
 			name: "MultiReturn",
 			pack: [],
 			params: [TPType(TAnonymous([
-				for (i in 0... info.returnTypes.length)
+				for (i in 0... returnComplexTypes.length)
 					{
-						name: info.returnNames[i],
+						name: returnNames[i],
 						pos: null,
-						kind: FVar(info.returnComplexTypes[i])
+						kind: FVar(returnComplexTypes[i])
 					}
 			]))],
 		});
 	} else {
-		if (info.returnTypes.length == 0)
+		if (returnComplexTypes.length == 0)
 			return TPath({
 				name: "Void",
 				pack: [],
 			});
-		return info.returnComplexTypes[0];
+		return returnComplexTypes[0];
 	}
 }
 
@@ -2884,10 +2976,13 @@ private function typeFieldListComplexTypes(list:Ast.FieldList, info:Info):Array<
 	var args:Array<ComplexType> = [];
 	for (field in list.list) {
 		var type = typeExprType(field.type, info);
-		/*for (name in field.names) {
-			args.push(TNamed(name.name, type));
-		}*/
-		args.push(type);
+		if (field.names.length > 0) {
+			for (name in field.names) {
+				args.push(TNamed(name.name, type));
+			}
+		}else{
+			args.push(type);
+		}
 	}
 	return args;
 }
@@ -2940,7 +3035,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info, false, false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultValue(typeof(field.type)) : null)
+						kind: FVar(type, defaultBool ? defaultValue(typeof(field.type),info) : null)
 					});
 				default:
 			}
@@ -2956,7 +3051,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultValue(typeof(field.type)) : null),
+				kind: FVar(type, defaultBool ? defaultValue(typeof(field.type),info) : null),
 			});
 		}
 	}
@@ -3028,7 +3123,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 
 	var implicits:Array<Field> = [];
 	for (imp in spec.implicits) {
-		var ct = TPath(parseTypePath(imp.path,imp.name));
+		var ct = TPath(parseTypePath(imp.path,imp.name,info));
 		implicits.push(addAbstractToField(ct,wrapperType));
 	}
 
@@ -3095,18 +3190,6 @@ private function typeSpec(spec:Ast.TypeSpec,info:Info) {
 	}
 }
 
-private function parseTypePath(path:String,name:String):TypePath {
-	path = normalizePath(path);
-	var pack = path.split("/");
-	if (stdgoList.indexOf(pack[0]) != -1) { //haxe only type, otherwise the go code refrences Haxe
-		pack.unshift("stdgo");
-	}
-	var last = pack.pop();
-	pack.push(last);
-	pack.push(title(last));
-	return {name: className(title(name)),pack: pack};
-}
-
 private function makeString(str:String,?kind):Expr {
 	return toExpr(EConst(CString(str,kind)));
 }
@@ -3166,7 +3249,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
 			var implicits:Array<TypePath> = [];
 			for (imp in spec.implicits) {
-				implicits.push(parseTypePath(imp.path,imp.name));
+				implicits.push(parseTypePath(imp.path,imp.name,info));
 			}
 			var cl:TypeDefinition = {
 				name: name,
@@ -3280,7 +3363,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var expr:Expr = null;
 		if (value.values[i] == null) {
 			if (type != null) {
-				expr = defaultValue(typeof(value.type));
+				expr = defaultValue(typeof(value.type),info);
 			} else {
 				// last expr use
 				expr = typeExpr(info.lastValue, info);
@@ -3461,7 +3544,6 @@ class Info {
 		info.returnComplexTypes = returnComplexTypes;
 		info.returnNames = returnNames;
 		info.returnNamed = returnNamed;
-		info.returnInterfaceBool = returnInterfaceBool;
 		info.deferBool = deferBool;
 		info.hasDefer = hasDefer;
 		info.count = count;
@@ -3482,4 +3564,4 @@ typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
 typedef Module = {name:String, path:String, files:Array<FileType>, isMain:Bool}
 typedef ImportType = {path:Array<String>, alias:String, doc:String}
-typedef FileType = {name:String, imports:Array<ImportType>, defs:Array<TypeDefinition>, location:String}; // location is the global path to the file
+typedef FileType = {name:String, imports:Array<ImportType>, defs:Array<TypeDefinition>, location:String, isMain:Bool}; // location is the global path to the file

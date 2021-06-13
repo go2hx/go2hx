@@ -25,5 +25,6 @@ inline function after(d:Duration):Chan<Time> {
 inline function parseDuration(s:GoString):MultiReturn<{d:Duration,err:Error}> {
 	return {d: null, err: null};
 }
-
+typedef Time = time.Time.Time;
 typedef Duration = time.Time.Duration;
+final second = time.Time.second;

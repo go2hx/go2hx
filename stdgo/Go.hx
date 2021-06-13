@@ -179,11 +179,11 @@ class Go {
 	}
 
 	public static macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
-		var type = Context.toComplexType(Context.follow(Context.typeof(dst)));
+		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
 		switch type {
 			case TPath(p):
 				switch p.name {
-					case "Slice":
+					case "SliceData":
 						return macro {
 							var src = $src;
 							var dst = $dst;
@@ -194,7 +194,7 @@ class Go {
 							length;
 						}
 					default:
-						trace("unknown copy type path: " + p.name);
+						throw("unknown copy type path: " + p.name + " type: " + type);
 				}
 			default:
 				trace("unknown copy type: " + type);
@@ -716,7 +716,6 @@ class Go {
 					if (ref.isInterface) {
 						ret = gtDecodeInterfaceType(ref);
 					}else{
-						trace("ref: " + ref.name);
 						if (ref.name == "Array") throw "eee";
 						ret = gtDecodeClassType(ref);
 					}
@@ -827,7 +826,6 @@ class Go {
 					if (field.name == "_address_")
 						continue;
 					var t = gtDecode(field.type);
-					trace("field: " + field.name);
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},$t,""));
 			}
 		}

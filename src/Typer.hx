@@ -2112,17 +2112,17 @@ private function setBasicLit(kind:Ast.Token,value:String,info:Info) {
 			var e = makeString(value);
 			return e.expr;
 		case INT:
+			var e = toExpr(EConst(CInt(value)));
 			if (value.length > 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(value);
 					if (i > 2147483647 || i < -2147483647) {
-						return makeString(value).expr;
+						e = makeString(value);
 					}
 				} catch (e) {
 					trace("basic lit int error: " + e + " value: " + value);
 				}
 			}
-			var e = toExpr(EConst(CInt(value)));
 			ECheckType(e, TPath({name: "GoInt64", pack: []}));
 		case FLOAT:
 			var e = toExpr(EConst(CFloat(value)));

@@ -113,6 +113,36 @@ abstract GoUIntptr(UInt) from UInt from Int {
 
 	public inline function toBasic()
 		return this;
+
+	@:to inline function toInt64():GoInt64
+		return Int64.ofInt(this);
+
+	@:to inline function toInt():GoInt
+		return this;
+
+	@:to inline function toInt8():GoInt8
+		return this;
+
+	@:to inline function toInt16():GoInt16
+		return this;
+
+	@:to inline function toUInt():GoUInt
+		return clampUInt(this);
+
+	@:to inline function toUInt8():GoUInt8
+		return clampUInt8(this);
+
+	@:to inline function toUInt16():GoUInt16
+		return clampUInt16(this);
+
+	@:to inline function toUInt64():GoUInt64
+		return this > 0 ? this : 0;
+
+	@:to inline function toFloat32():GoFloat32
+		return this;
+
+	@:to inline function toFloat64():GoFloat64
+		return this;
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		if (b == 0)
 			throw "division by zero";
@@ -517,6 +547,9 @@ abstract GoInt(Int) from Int32 from Int {
 		return this;
 
 	@:to inline function toFloat64():GoFloat64
+		return this;
+
+	@:to inline function toUIntptr():GoUIntptr
 		return this;
 
 	public static function ofInt(x:Int):GoInt
@@ -1022,6 +1055,9 @@ abstract GoInt64(Int64) from Int64 {
 	@:to inline function toFloat64():GoFloat64
 		return this.low;
 
+	@:to inline function toUIntptr():GoUIntptr
+		return this.low;
+
 	function toString()
 		return haxe.Int64.toStr(this);
 
@@ -1053,6 +1089,9 @@ abstract GoInt64(Int64) from Int64 {
 
 	@:op(A * B) public static function mul(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() * b.toBasic();
+
+	@:op(-A) private static function neg(t:GoInt64):GoInt64
+		return t * -1;
 
 	@:op(A % B) public static function mod(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() % b.toBasic();

@@ -1243,9 +1243,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					}
 					info.renameTypes[name] = newName;
 					name = newName;
+					var t = typeof(stmt.rhs[i]);
 					vars.push({
 						name: name,
-						type: toComplexType(typeof(stmt.rhs[i]),info),
+						type: toComplexType(t,info),
 						expr: expr,
 					});
 				}
@@ -1869,7 +1870,7 @@ private function typeof(e:Ast.Expr):GoType {
 			map(key,value);
 		case "SliceExpr":
 			var e:Ast.SliceExpr = e;
-			slice(typeof(e.type));
+			typeof(e.type);
 		case "ParenExpr":
 			var e:Ast.ParenExpr = e;
 			typeof(e.x);

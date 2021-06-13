@@ -67,11 +67,15 @@ function newRuntime(message:String):Error {
 	return new RuntimeErrorData(message);
 }
 
-private class RuntimeErrorData implements Error {
+private class RuntimeErrorData implements Error implements StructType {
+	public function __underlying__():AnyInterface
+		return null;
 	var message:String;
+	public var _address_:Int = 0;
 
 	public function new(message:String) {
 		this.message = message;
+		_address_ = ++Go.addressIndex;
 	}
 
 	public function error():GoString {
@@ -164,6 +168,11 @@ class MemStats implements StructType {
 		return 0;
 	}
 }
+
+function goroot():GoString
+	return "";
+
+function readMemStats(m:Pointer<MemStats>) {}
 
 class MemProfileRecord {
 	public var allocBytes:GoInt64 = 0;

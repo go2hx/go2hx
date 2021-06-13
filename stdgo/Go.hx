@@ -876,6 +876,59 @@ class Go {
 		return macro($expr : $t);
 	}
 
+	public static macro function multireturn(expr:Expr):Expr {
+		function getFields(t:ComplexType) {
+			switch t {
+				case TPath(p):
+					switch p.params[0] {
+						case TPType(t):
+							switch t {
+								case TAnonymous(fields):
+									fields.sort((a,b) -> {
+										return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
+									});
+									return fields;
+								default:
+									throw "not anon type: " + t;
+							}
+						default:
+					}
+				default:
+					throw "not multireturn type: " + t;
+			}
+			return [];
+		}
+		function parens(expr) {
+			return switch expr.expr {
+				case EParenthesis(e): parens(e);
+				default: expr;
+			}
+		}
+		expr = parens(expr);
+		switch expr.expr {
+			case ECheckType(e, t):
+				var fields2 = getFields(t);
+				var t = Context.toComplexType(Context.typeof(e));
+				var fields = getFields(t);
+				trace("fields: " + [for (field in fields) field.name] + " field2: " + [for (field in fields2) field.name]);
+				var struct = {expr: EObjectDecl([
+					for (i in 0...fields.length) {
+						var fieldName = fields[i].name;
+						{
+							field: fields2[i].name,
+							expr: macro obj.$fieldName,
+						};
+					}
+				]), pos: Context.currentPos()};
+				return macro {
+					var obj = $e;
+					$struct;
+				}
+			default:
+		}
+		return macro null;
+	}
+
 	public static macro function destruct(exprs:Array<Expr>) {
 		var varNames:Array<String> = [];
 		for (expr in exprs) {
@@ -901,11 +954,11 @@ class Go {
 		}
 		func = parens(func);
 		var funcExpr = func;
-		switch funcExpr.expr {
+		/*switch funcExpr.expr {
 			case ECall(e, params):
 				funcExpr = params[0];
 			default:
-		}
+		}*/
 		switch funcExpr.expr {
 			case EArray(e, k):
 				func = macro $e.exists($k) ? {value: $func, ok: true} : {value: $e.defaultValue(), ok: false};

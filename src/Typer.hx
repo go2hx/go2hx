@@ -691,8 +691,11 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 }
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
-	if (stmt.list == null)
+	if (stmt.list == null) {
+		if (info.returnTypes.length > 0)
+			return (macro throw "not implemeneted").expr;
 		return (macro {}).expr;
+	}
 	return typeStmtList(stmt.list, info, isFunc, needReturn);
 }
 
@@ -959,6 +962,15 @@ private function isInterface(type:GoType):Bool {
 		case named(_,elem):
 			isInterface(elem);
 		case interfaceValue(_):
+			true;
+		default:
+			false;
+	}
+}
+
+private function isSignature(type:GoType):Bool {
+	return switch type {
+		case signature(_,_,_):
 			true;
 		default:
 			false;
@@ -1305,8 +1317,12 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		if (isAnyInterface(info.returnTypes[0]))
+		if (isAnyInterface(info.returnTypes[0])) {
 			e = macro Go.toInterface($e);
+		}else if(info.returnTypes.length > 1) {
+			var ct = info.returnType; 
+			e = macro Go.multireturn(($e : $ct));
+		}
 		return ret(EReturn(e));
 	}
 	// multireturn
@@ -1811,24 +1827,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.typeLit);
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
-			var cl = typeof(e.type);
-			switch cl {
-				case named(path, underlying):
-					cl = underlying;
-				default:
-			}
-			switch cl {
-				case struct(fields):
-					for (field in fields) {
-						if (e.sel.name == field.name) {
-							cl = field.type;
-							break;
-						}
-					}
-				default:
-					cl = invalid;
-			}
-			cl;
+			typeof(e.type);
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
 			var t = typeof(e.type);
@@ -2919,15 +2918,10 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			returnComplexTypes.push(ct);
 		}
 	}
-	if (retValuesBool) {
-		info.returnNamed = returnNamed;
-		info.returnNames = returnNames;
-		info.returnTypes = returnTypes;
-		info.returnComplexTypes = returnComplexTypes;
-	}
-	if (returnComplexTypes.length > 1) {
+	
+	var type = if (returnComplexTypes.length > 1) {
 		// anonymous
-		return TPath({ 
+		TPath({ 
 			name: "MultiReturn",
 			pack: [],
 			params: [TPType(TAnonymous([
@@ -2939,14 +2933,25 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 					}
 			]))],
 		});
-	} else {
-		if (returnComplexTypes.length == 0)
-			return TPath({
+	}else{
+		if (returnComplexTypes.length == 0) {
+			TPath({
 				name: "Void",
 				pack: [],
 			});
-		return returnComplexTypes[0];
+		}else{
+			returnComplexTypes[0];
+		}
 	}
+
+	if (retValuesBool) {
+		info.returnNamed = returnNamed;
+		info.returnNames = returnNames;
+		info.returnTypes = returnTypes;
+		info.returnType = type;
+		info.returnComplexTypes = returnComplexTypes;
+	}
+	return type;
 }
 
 private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
@@ -3522,6 +3527,7 @@ class Info {
 	public var funcName:String = "";
 	public var renameTypes:Map<String, String> = [];
 	public var returnNames:Array<String> = [];
+	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;
 	public var returnTypes:Array<GoType> = [];
 	public var returnComplexTypes:Array<ComplexType> = [];
@@ -3544,6 +3550,7 @@ class Info {
 		info.returnTypes = returnTypes;
 		info.returnComplexTypes = returnComplexTypes;
 		info.returnNames = returnNames;
+		info.returnType = returnType;
 		info.returnNamed = returnNamed;
 		info.deferBool = deferBool;
 		info.hasDefer = hasDefer;

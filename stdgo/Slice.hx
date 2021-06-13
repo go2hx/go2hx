@@ -13,7 +13,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
 	// pretend to be pointer if neeeded
-	public var _value_(get, set):Slice<T>;
 	public var _address_(get, never):String;
 
 	@:from
@@ -23,14 +22,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	private inline function get__address_():String {
 		return this._address_;
-	}
-
-	private inline function get__value_():Slice<T> {
-		return this;
-	}
-
-	private inline function set__value_(_value_:Slice<T>):Slice<T> {
-		return this = _value_;
 	}
 
 	private function get_length():Int {

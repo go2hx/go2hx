@@ -54,6 +54,7 @@ function gen() {
 		"peano", //breaks testing system causes all other tests to timeout after
 		"stack", //passes but is super flakey with the completion server, potential error on the Haxe side
 		"rename", //messed up the typed AST, can be ran on its own in the future TODO
+		"closure", //to integrated with go's runtime
 	])
 		tests.remove('.$pathto$test.go');
 	//tests = ['.$pathto' + "append.go"];

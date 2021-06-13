@@ -109,7 +109,7 @@ func main() {
 		packages.NeedImports | packages.NeedTypes |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
 	cfg.Tests = *testBool
-	cfg.Env = append(os.Environ(), "GOOS=plan9", "GOARCH=386")
+	cfg.Env = append(os.Environ(), "GOOS=linux", "GOARCH=arm")
 	initial, err := packages.Load(cfg, args...)
 	if err != nil {
 		fmt.Println("load error:", err)
@@ -160,6 +160,10 @@ func parseInterface(pkg *packages.Package) {
 		//DisableUnusedImportCheck: true,
 	}
 	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
+	
+	if pkg.Name == "main" {
+		return
+	}
 
 	for _,file := range pkg.Syntax {
 		for _,decl := range file.Decls {
@@ -273,6 +277,9 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 		case *ast.TypeSpec:
 			implements := []interfaceType{}
 			named := checker.ObjectOf(obj.Name)
+			if named == nil {
+				continue
+			}
 			for _,inter := range interfaces {
 				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
 					continue
@@ -280,8 +287,11 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				if !inter.isExport && named.Pkg().Path() != inter.path {
 					continue
 				}
-				if types.Implements(checker.ObjectOf(obj.Name).Type(),inter.t) {
-					implements = append(implements, interfaceType{inter.name,inter.path})
+				obj := checker.ObjectOf(obj.Name)
+				if obj != nil {
+					if types.Implements(obj.Type(),inter.t) {
+						implements = append(implements, interfaceType{inter.name,inter.path})
+					}
 				}
 			}
 			data[i] = map[string]interface{}{

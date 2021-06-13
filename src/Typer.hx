@@ -758,9 +758,19 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		exprs.push(toExpr(trydef));
 	}
 	//add named return values
-
-
-	if (!isFunc) {
+	if (isFunc) {
+		if (info.returnNamed) {
+			var vars:Array<Var> = [];
+			for (i in 0...info.returnNames.length) {
+				vars.push({
+					name: info.returnNames[i],
+					type: info.returnComplexTypes[i],
+					expr: defaultValue(info.returnTypes[i],info),
+				});
+			}
+			exprs.unshift(toExpr(EVars(vars)));
+		}
+	}else{
 		// leave scope and set back to before
 		info.renameTypes = oldRenameTypes;
 		info.retypeList = oldRetypeList;

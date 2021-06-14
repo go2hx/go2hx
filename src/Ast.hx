@@ -153,6 +153,7 @@ typedef BinaryExpr = {
 
 	typeX:ExprType,
 	typeY:ExprType,
+	type:ExprType,
 };
 
 typedef KeyValueExpr = {

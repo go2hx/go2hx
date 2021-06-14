@@ -1877,7 +1877,7 @@ private function typeof(e:Ast.Expr):GoType {
 			t;
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
-			typeof(e.typeX);
+			typeof(e.type);
 		case "StarExpr":
 			var e:Ast.StarExpr = e;
 			pointer(typeof(e.type));

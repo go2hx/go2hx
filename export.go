@@ -312,7 +312,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	return data
 }
 
-var marked map[string]bool
+var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 
 func parseType(node interface{}) map[string]interface{} {
@@ -587,6 +587,7 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.BinaryExpr:
 		data["typeX"] = parseType(checker.TypeOf(node.X))
 		data["typeY"] = parseType(checker.TypeOf(node.Y))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.KeyValueExpr:
 		data["typeKey"] = parseType(checker.TypeOf(node.Key))
 		data["typeValue"] = parseType(checker.TypeOf(node.Value))

@@ -937,21 +937,30 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
-					vars = vars.concat([
-						for (i in 0...spec.names.length) {
-							var expr = typeExpr(spec.values[i], info);
-							{
-								name: nameIdent(spec.names[i].name, info, false, false),
-								type: type,
-								expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type),info) : null,
-							};
-						}
-					]);
+					if (spec.names.length > spec.values.length && spec.values.length > 0) {
+						for (i in 0...spec.names.length)
+							args.push(makeString(spec.names[i].name));
+						args.push(typeExpr(spec.values[0],info));
+						return (macro Go.destruct($a{args})).expr;
+					}else{
+						vars = vars.concat([  //concat because this is in a for loop
+							for (i in 0...spec.names.length) {
+								var expr = typeExpr(spec.values[i], info);
+								{
+									name: nameIdent(spec.names[i].name, info, false, false),
+									type: type,
+									isFinal: spec.constants[i],
+									expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type),info) : null,
+								};
+							}
+						]);
+					}
 				default:
 					throw "unknown id: " + spec.id;
 			}
 		}
 	}
+	trace("vars: " + vars.length);
 	if (vars.length > 0)
 		return EVars(vars);
 	return (macro {}).expr; // blank expr def
@@ -3194,6 +3203,42 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 				expr: macro return new $wrapperType(this),
 			}),
 			access: [APublic,AInline],
+		},{
+			name: "_add_",
+			pos: null,
+			meta: [{name: ":op",pos: null,params: [macro A + B]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a", type: abstractType},{name: "b",type: type}],
+				ret: abstractType,
+			}),
+		},{
+			name: "_sub_",
+			pos: null,
+			meta: [{name: ":op",pos: null,params: [macro A - B]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a", type: abstractType},{name: "b",type: type}],
+				ret: abstractType,
+			}),
+		},{
+			name: "_div_",
+			pos: null,
+			meta: [{name: ":op",pos: null,params: [macro A / B]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a", type: abstractType},{name: "b",type: type}],
+				ret: abstractType,
+			}),
+		},{
+			name: "_mul_",
+			pos: null,
+			meta: [{name: ":op",pos: null,params: [macro A * B]}],
+			access: [AStatic],
+			kind: FFun({
+				args: [{name: "a", type: abstractType},{name: "b",type: type}],
+				ret: abstractType,
+			}),
 		}].concat(implicits),
 		kind: TDAbstract(type,[type],[type])
 	};
@@ -3372,42 +3417,61 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		interfaceBool = isAnyInterface(typeof(value.type));
 	}
 	var values:Array<TypeDefinition> = [];
-	for (i in 0...value.names.length) {
-		if (value.names[i].name == "_") {
-			value.names[i].name += (info.count++);
+	if (value.names.length > value.values.length && value.values.length > 0) {
+		//TODO destructure
+		var t = typeof(value.values[0]);
+		var types:Array<GoType> = [];
+		var names:Array<String> = [];
+		switch t {
+			case tuple(len, vars):
+				for (v in vars) {
+					switch v {
+						case varValue(name, type):
+							names.push(name);
+							types.push(type);
+						default:
+					}
+				}
+			default:
 		}
-		var expr:Expr = null;
-		if (value.values[i] == null) {
-			if (type != null) {
-				expr = defaultValue(typeof(value.type),info);
-			} else {
-				// last expr use
-				expr = typeExpr(info.lastValue, info);
-				type = info.lastType;
+		var tmp = "__tmp__";
+		trace("todo destructure: " + t);
+	}else{
+		for (i in 0...value.names.length) {
+			if (value.names[i].name == "_") {
+				value.names[i].name += (info.count++);
 			}
-		} else {
-			info.lastValue = value.values[i];
-			info.lastType = type;
-			expr = typeExpr(value.values[i], info);
+			var expr:Expr = null;
+			if (value.values[i] == null) {
+				if (type != null) {
+					expr = defaultValue(typeof(value.type),info);
+				} else {
+					// last expr use
+					expr = typeExpr(info.lastValue, info);
+					type = info.lastType;
+				}
+			} else {
+				info.lastValue = value.values[i];
+				info.lastType = type;
+				expr = typeExpr(value.values[i], info);
+			}
+			if (expr == null)
+				continue;
+			var name = nameIdent(value.names[i].name, info, false, false);
+			var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
+			var access = [];//typeAccess(value.names[i]);
+			if (value.constants[i])
+				access.push(AFinal);
+			values.push({
+				name: name,
+				pos: null,
+				pack: [],
+				fields: [],
+				isExtern: isTitle(value.names[i].name),
+				doc: doc,
+				kind: TDField(FVar(type, expr), access)
+			});
 		}
-		// (interfaceBool)
-		//	expr = checkType(expr,type);
-		if (expr == null)
-			continue;
-		var name = nameIdent(value.names[i].name, info, false, false);
-		var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
-		var access = [];//typeAccess(value.names[i]);
-		if (value.constants[i])
-			access.push(AFinal);
-		values.push({
-			name: name,
-			pos: null,
-			pack: [],
-			fields: [],
-			isExtern: isTitle(value.names[i].name),
-			doc: doc,
-			kind: TDField(FVar(type, expr), access)
-		});
 	}
 	return values;
 }

@@ -13,14 +13,14 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
 	// pretend to be pointer if neeeded
-	public var _address_(get, never):String;
+	public var _address_(get, never):Int;
 
 	@:from
 	public static function fromString(str:String):Slice<GoByte> {
 		return new GoString(str);
 	}
 
-	private inline function get__address_():String {
+	private inline function get__address_():Int {
 		return this._address_;
 	}
 
@@ -152,7 +152,7 @@ private class SliceData<T> {
 
 	public var pos:Int = 0;
 	public var length:Int = 0;
-	public var _address_:String;
+	public var _address_:Int;
 
 	private static var _addressCounter:Int = 0;
 
@@ -161,8 +161,7 @@ private class SliceData<T> {
 		if (cap == 0)
 			cap = length;
 		vector = new Vector<T>(length);
-		_address_ = "s" + _addressCounter;
-		_addressCounter++;
+		_address_ = _addressCounter++;
 	}
 
 	private function boundsCheck(i:Int) {

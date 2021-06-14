@@ -250,7 +250,7 @@ class Go {
 			switch type {
 				case TAbstract(t, params):
 					var t = t.get();
-					if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoUInt64" || t.name == "GoInt64"))
+					if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoUInt64" || t.name == "GoInt64" || t.name == "GoComplex64" || t.name == "GoComplex128"))
 						return macro $expr.copy();
 				case TInst(t, params):
 					var t = t.get();
@@ -540,9 +540,9 @@ class Go {
 						if (t.name == "Slice") {
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								var _address_ = ${e1}._address_ + _offset_ + ${e2};
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2} + _offset_],
-									(v) -> ${e1}.getUnderlying()[${e2} + _offset_] = v, _address_));
+								var _address_ = ${e1}._address_ + _offset_ + ${e2}.toBasic();
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2}.toBasic() + _offset_],
+									(v) -> ${e1}.getUnderlying()[(${e2}).toBasic() + _offset_] = v, _address_));
 							};
 						}
 					default:

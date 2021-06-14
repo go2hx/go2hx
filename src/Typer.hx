@@ -1024,6 +1024,14 @@ private function checkType(e:Expr,ct:ComplexType,from:GoType,to:GoType,info:Info
 			}
 		default:
 	}
+	if (!isInterface(to)) {
+		switch from {
+			case named(path,underlying):
+				var ct = toComplexType(underlying,info);
+				e = macro ($e : $ct);
+			default:
+		}
+	}
 	if (isAnyInterface(from))
 		return macro Go.fromInterface(($e : $ct));
 	if (isInterface(pointerUnwrap(from))) {

@@ -19,6 +19,7 @@ class Printer extends haxe.macro.Printer {
 		if (e == null)
 			return "#NULL_EXPR";
 		return switch (e.expr) {
+			case EVars(vl) if (vl[0].isFinal): "final " + vl.map(printVar).join(", ");
 			case EArrayDecl(el) if (el.length > 10): '[\n${printExprs(el, ",\n")}]';
 			case ENew(tp, el) if (el.length > 10): 'new ${printTypePath(tp)}(\n${printExprs(el, ",\n")})';
 			case ECall(e1, el) if (el.length > 10): '${printExpr(e1)}(${printExprs(el, ",\n")})';

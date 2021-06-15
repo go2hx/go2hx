@@ -105,6 +105,116 @@ function main(data:DataType) {
 		endPath = endPath.substr(index + 1);
 		endPath = className(Typer.title(endPath));
 
+		var info = new Info();
+		info.global.path = module.path;
+		info.global.renameTypes["String"] = "toString";
+
+		var namedDecls:Array<Ast.Decl> = [];
+
+		function hasName(name:String,exception:Int):String {
+			for (i in 0...namedDecls.length) {
+				if (i == exception)
+					continue;
+				var decl = namedDecls[i];
+				var change = false;
+				switch decl.id {
+					case "ValueSpec":
+						var decl:Ast.ValueSpec = decl;
+						for (i in 0...decl.names.length) {
+							if (untitle(name) != decl.names[i].name)
+								continue;
+							change = !isTitle(name);
+							name = change ? name : decl.names[i].name;
+							decl.names[i].name = "_" + name;
+							break;
+						}
+						continue;
+					default:
+						if (untitle(name) != decl.name.name)
+							continue;
+						change = !isTitle(name);
+						name = change ? name : decl.name.name;
+						decl.name.name = "_" + name;
+				}
+				return name;
+			}
+			return "";
+		}
+
+		for (file in pkg.files) {
+			if (file.decls == null)
+				continue;
+			
+			var declFuncs:Array<Ast.FuncDecl> = [];
+			var declGens:Array<Ast.GenDecl> = [];
+			for (decl in file.decls) {
+				switch decl.id {
+					case "GenDecl":
+						declGens.push(decl);
+					case "FuncDecl":
+						var decl:Ast.FuncDecl = decl;
+						declFuncs.push(decl);
+					default:
+				}
+			}
+
+			// check for overriding functions
+			var removal = [];
+			for (i in 0...declFuncs.length) {
+				for (j in 0...declFuncs.length) {
+					if (i == j)
+						continue;
+					if (declFuncs[i].name == declFuncs[j].name) {
+						removal.push(declFuncs[i]);
+					}
+				}
+			}
+
+			for (decl in declFuncs) {
+				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0)
+					namedDecls.push(decl);
+			}
+			for (gen in declGens) {
+				for (spec in gen.specs) {
+					if (spec == null)
+						continue;
+					switch spec.id {
+						case "ValueSpec", "TypeSpec": namedDecls.push(spec);
+						default:
+					}
+				}
+			}
+		}
+		//rename per package
+		for (i in 0...namedDecls.length) {
+			var decl = namedDecls[i];
+			var defRename = "";
+			switch decl.id {
+				case "ValueSpec":
+					var decl:Ast.ValueSpec = decl;
+					for (i in 0...decl.names.length) {
+						if (!isTitle(decl.names[i].name))
+							continue;
+						var result = hasName(decl.names[i].name,i);
+						if (result == "")
+							continue;
+						defRename = result;
+						break;
+					}
+				default:
+					if (!isTitle(decl.name.name))
+						continue;
+					var decl:Ast.TypeSpec = decl;
+					var result = hasName(decl.name.name,i);
+					if (result == "")
+						continue;
+					defRename = result;
+			}
+			if (defRename == "")
+				continue;
+			info.global.renameTypes[defRename] = "_" + defRename;
+		}
+		//2nd pass
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -117,14 +227,12 @@ function main(data:DataType) {
 				location: file.location,
 				isMain: module.isMain,
 			};
+			info = new Info(info.global);
+			info.data = data;
 			data.name = normalizePath(data.name);
 			// set name
 			data.name = className(Typer.title(data.name));
 
-			var info = new Info();
-			info.data = data;
-			info.global.path = module.path;
-			info.global.renameTypes["String"] = "toString";
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
@@ -146,16 +254,17 @@ function main(data:DataType) {
 							//info.data.imports.push(typeImport(spec, info));
 							typeImport(spec, info);
 						case "TypeSpec":
-							info.typeNames.push(spec.name.name);
-							typeSpec(spec,info);
+							info.data.defs.push(typeSpec(spec,info));
 							
 					}
 				}
 			}
+
 			// variables after so that all types can be refrenced by a value and have it exist.
 			info.iota = 0;
 			info.lastValue = null;
 			info.lastType = null;
+
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					if (spec == null)
@@ -169,17 +278,13 @@ function main(data:DataType) {
 					}
 				}
 			}
-			// check for overriding functions
-			var removal = [];
-			for (i in 0...declFuncs.length) {
-				for (j in 0...declFuncs.length) {
-					if (i == j)
-						continue;
-					if (declFuncs[i].name == declFuncs[j].name) {
-						removal.push(declFuncs[i]);
-					}
-				}
+
+			for (decl in declFuncs) { // parse function bodies last
+				var func = typeFunction(decl, info);
+				if (func != null)
+					data.defs.push(func);
 			}
+
 			// make blank identifiers not name conflicting for global
 			var blankCounter:Int = 0;
 			for (def in info.data.defs) {
@@ -195,87 +300,6 @@ function main(data:DataType) {
 							def.name += blankCounter++;
 					default:
 				}
-			}
-
-			var namedDecls:Array<Ast.Decl> = [];
-			for (decl in declFuncs) {
-				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0)
-					namedDecls.push(decl);
-			}
-			for (gen in declGens) {
-				for (spec in gen.specs) {
-					if (spec == null)
-						continue;
-					switch spec.id {
-						case "ValueSpec", "TypeSpec": namedDecls.push(spec);
-						default:
-					}
-				}
-			}
-
-			function hasName(name:String,exception:Int):String {
-				for (i in 0...namedDecls.length) {
-					if (i == exception)
-						continue;
-					var decl = namedDecls[i];
-					var change = false;
-					switch decl.id {
-						case "ValueSpec":
-							var decl:Ast.ValueSpec = decl;
-							for (i in 0...decl.names.length) {
-								if (untitle(name) != decl.names[i].name)
-									continue;
-								change = !isTitle(name);
-								name = change ? name : decl.names[i].name;
-								decl.names[i].name = "_" + name;
-								break;
-							}
-							continue;
-						default:
-							if (untitle(name) != decl.name.name)
-								continue;
-							change = !isTitle(name);
-							name = change ? name : decl.name.name;
-							decl.name.name = "_" + name;
-					}
-					return name;
-				}
-				return "";
-			}
-			for (i in 0...namedDecls.length) {
-				var decl = namedDecls[i];
-				var defRename = "";
-				switch decl.id {
-					case "ValueSpec":
-						var decl:Ast.ValueSpec = decl;
-						for (i in 0...decl.names.length) {
-							if (!isTitle(decl.names[i].name))
-								continue;
-							var result = hasName(decl.names[i].name,i);
-							if (result == "")
-								continue;
-							defRename = result;
-							break;
-						}
-					default:
-						if (!isTitle(decl.name.name))
-							continue;
-						var decl:Ast.TypeSpec = decl;
-						var result = hasName(decl.name.name,i);
-						if (result == "")
-							continue;
-						defRename = result;
-				}
-				if (defRename == "")
-					continue;
-				info.global.renameTypes[defRename] = "_" + defRename;
-			}
-
-
-			for (decl in declFuncs) { // parse function bodies last
-				var func = typeFunction(decl, info);
-				if (func != null)
-					data.defs.push(func);
 			}
 
 			//add abstract
@@ -931,7 +955,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						name: className(title(spec.name.name)),
 						pack: [],
 					});
-					typeSpec(spec, info);
+					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec":
 					var spec:Ast.ValueSpec = spec;
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
@@ -1739,38 +1763,42 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 	if (!isFmt) {
 		var type = typeof(expr.type);
+		var vars:Array<GoType> = [];
 		if (type != null) switch type {
 			case invalid:
 			case signature(variadic, params, results, recv):
 				if (params != null) switch params {
 					case invalid:
-					case tuple(len, vars):
-						for (i in 0...vars.length) {
-							switch vars[i] {
-								case varValue(name, type):
-									switch type {
-										case interfaceValue(numMethods):
-											if (numMethods == 0) {
-												args[i] = macro Go.toInterface(${args[i]});
-											}else{
-												
-											}
-										case named(path, underlying):
-											switch underlying {
-												case interfaceValue(_):
-													
-												default:
-											}
-										default:
-									}
-								default:
-							}
-						}
+					case varValue(_, _):
+						vars.push(params);
+					case tuple(_, v):
+						vars = vars.concat(v);
 					default:
-						throw "params is not a tuple";
+						vars.push(varValue("",params));
 				}
 			default:
 				//throw "call is not a signatuzre";
+		}
+		for (i in 0...vars.length) {
+			switch vars[i] {
+				case varValue(name, type):
+					switch type {
+						case interfaceValue(numMethods):
+							if (numMethods == 0) {
+								args[i] = macro Go.toInterface(${args[i]});
+							}else{
+								
+							}
+						case named(path, underlying):
+							switch underlying {
+								case interfaceValue(_):
+									
+								default:
+							}
+						default:
+					}
+				default:
+			}
 		}
 	}
 	return (macro $e($a{args})).expr;
@@ -1799,12 +1827,20 @@ private function typeof(e:Ast.Expr):GoType {
 		case "Basic":
 			basic(BasicKind.createByIndex(e.kind));
 		case "Tuple":
-			tuple(
-				e.len,
-				[for (v in (e.vars : Array<Dynamic>)) typeof(v)]
-			);
+			if (e.len > 1) {
+				tuple(
+					e.len,
+					[for (v in (e.vars : Array<Dynamic>)) typeof(v)]
+				);
+			}else{
+				typeof(e.vars[0]);
+			}
 		case "Var":
-			varValue(e.name,typeof(e.type));
+			if (e.name != "") {
+				varValue(e.name,typeof(e.type));
+			}else{
+				typeof(e.type);
+			}
 		case "Interface":
 			interfaceValue(e.numMethods);
 		case "Slice":
@@ -2622,6 +2658,7 @@ private function implementsError(name:String,type:ComplexType):Bool {
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	var info = new Info();
+	info.renameTypes = data.renameTypes;
 	info.typeNames = data.typeNames;
 	info.data = data.data;
 	info.thisName = "";
@@ -3253,9 +3290,9 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 }
 
 private function typeSpec(spec:Ast.TypeSpec,info:Info) {
-	switch spec.type.id {
-		case "StructType","InterfaceType": info.data.defs.push(typeType(spec, info));
-		default: info.data.defs.push(typeAlias(spec,info));
+	return switch spec.type.id {
+		case "StructType","InterfaceType": typeType(spec, info);
+		default: typeAlias(spec,info);
 	}
 }
 
@@ -3408,7 +3445,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	}
 	var name = path[path.length - 1];
 	path.push(title(name));
-	info.global.renameTypes[name] = path.join(".");
+	info.renameTypes[name] = path.join(".");
 	return {
 		path: path,
 		alias: alias,
@@ -3623,7 +3660,10 @@ class Info {
 	public var data:FileType;
 	public var global = new Global();
 
-	public function new() {}
+	public function new(?global) {
+		if (global != null)
+			this.global = global;
+	}
 
 	public inline function clone() {
 		var info = new Info();

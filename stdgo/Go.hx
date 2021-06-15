@@ -309,7 +309,7 @@ class Go {
 					case "Slice":
 						return macro $expr.length == 0;
 					case "Pointer":
-						return macro Go.isNull($expr._value_);
+						return macro Go.isNull($expr.value);
 					case "AnyInterface":
 						return macro Go.isNull($expr.value);
 					case "GoArray":
@@ -334,6 +334,7 @@ class Go {
 
 	public static macro function equals(a:Expr, b:Expr) {
 		var type = Context.follow(Context.typeof(a));
+		var type2 = Context.follow(Context.typeof(b));
 		var exprs:Array<Expr> = [];
 		switch a.expr {
 			case ENew(t, params):
@@ -373,6 +374,8 @@ class Go {
 				}
 			default:
 		}
+		if (!Context.unify(type,type2))
+			return macro false;
 		if (exprs.length == 0)
 			return macro $a == $b;
 		exprs.push(macro return true);
@@ -540,9 +543,10 @@ class Go {
 						if (t.name == "Slice") {
 							return macro {
 								var _offset_ = ${e1}.getOffset();
-								var _address_ = ${e1}._address_ + _offset_ + ${e2}.toBasic();
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[${e2}.toBasic() + _offset_],
-									(v) -> ${e1}.getUnderlying()[(${e2}).toBasic() + _offset_] = v, _address_));
+								var e2 = (${e2} : GoInt).toBasic();
+								var _address_ = ${e1}._address_ + _offset_ + e2;
+								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
+									(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_));
 							};
 						}
 					default:
@@ -557,6 +561,18 @@ class Go {
 						declare = true;
 					default:
 				}
+			default:
+		}
+		var t = Context.follow(Context.typeof(expr));
+		switch t {
+			case TInst(t, params):
+				var t = t.get();
+				if (t.isInterface) {
+					return macro null;
+				}
+				trace("name: " + t.name);
+				if (t.name == "ParseError")
+					throw "issue";
 			default:
 		}
 		if (declare)
@@ -623,6 +639,8 @@ class Go {
 			pTypes.push(gtDecode(params[i]));
 		return pTypes;
 	}
+
+	static var marked = new Map<String,Bool>();
 	
 	public static function gtDecode(t:haxe.macro.Type):Expr {
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
@@ -710,14 +728,25 @@ class Go {
 				}
 			case TInst(ref, params):
 				var ref = ref.get();
-				if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
-					ret = macro stdgo.reflect.Reflect.GT_enum.GT_chan($a{gtParams(params)});
-				}else{
-					if (ref.isInterface) {
-						ret = gtDecodeInterfaceType(ref);
+				if (!marked.exists(ref.module)) {
+					var init = false;
+					if (marked == null) {
+						marked = new Map<String,Bool>();
+						init = true;
+					}
+					marked[ref.module] = true;
+					if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_chan($a{gtParams(params)});
 					}else{
-						if (ref.name == "Array") throw "eee";
-						ret = gtDecodeClassType(ref);
+						if (ref.isInterface) {
+							ret = gtDecodeInterfaceType(ref);
+						}else{
+							trace("ref: " + ref.name);
+							ret = gtDecodeClassType(ref);
+						}
+					}
+					if (init) {
+						marked = null;
 					}
 				}
 			case TAnonymous(a):
@@ -1005,6 +1034,16 @@ class Go {
 		}else{
 			var block:Array<Expr> = [tmp];
 			for (i in 0...exprs.length) {
+				switch exprs[i].expr {
+					case EConst(c):
+						switch c {
+							case CIdent(s):
+								if (s == "_" || s == "null")
+									continue;
+							default:
+						}
+					default:
+				}
 				var fieldName = fieldNames[i];
 				block.push(macro ${exprs[i]} = __tmp__.$fieldName);
 			}

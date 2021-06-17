@@ -786,6 +786,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		if (info.returnNamed) {
 			var vars:Array<Var> = [];
 			for (i in 0...info.returnNames.length) {
+				info.localVars[info.returnNames[i]] = true;
 				vars.push({
 					name: info.returnNames[i],
 					type: info.returnComplexTypes[i],
@@ -1256,11 +1257,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 
 						var typeX = typeof(stmt.lhs[i]);
 						var typeY = typeof(stmt.rhs[i]);
-
 						switch typeX {
 							case interfaceValue(numMethods):
 								if (numMethods == 0)
 									y = macro Go.toInterface($y);
+							case named(_, underlying):
+								if (op != OpAssign) {
+									var ct = toComplexType(underlying,info);
+									x = macro ($x : $ct);
+								}
 							default:
 						}
 						switch typeY {
@@ -1268,6 +1273,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								if (numMethods == 0) {
 									var ct = toComplexType(typeX,info);
 									y = macro Go.fromInterface(($y : $ct));
+								}
+							case named(_, underlying):
+								if (op != OpAssign) {
+									var ct = toComplexType(underlying,info);
+									y = macro ($y : $ct);
 								}
 							default:
 						}
@@ -1307,6 +1317,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					info.renameTypes[name] = newName;
 					name = newName;
 					var t = typeof(stmt.rhs[i]);
+					info.localVars[name] = true; //set local name
 					vars.push({
 						name: name,
 						type: toComplexType(t,info),
@@ -1316,7 +1327,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				return EVars(vars);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// variable destructure system (vars)
-				var args = [for (lhs in stmt.lhs) makeString(lhs.name)];
+				var args = [for (lhs in stmt.lhs) {
+					info.localVars[lhs.name] = true;
+					makeString(lhs.name);
+				}];
 				var func = typeExpr(stmt.rhs[0],info);
 				args.push(func);
 				return (macro Go.destruct($a{args})).expr;
@@ -2487,6 +2501,24 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
 		default:
 	}
+	var typeX = typeof(expr.typeX);
+	var typeY = typeof(expr.typeY);
+	switch typeX {
+		case named(_, underlying):
+			if (op != OpAssign) {
+				var ct = toComplexType(underlying,info);
+				x = macro ($x : $ct);
+			}
+		default:
+	}
+	switch typeY {
+		case named(_, underlying):
+			if (op != OpAssign) {
+				var ct = toComplexType(underlying,info);
+				y = macro ($y : $ct);
+			}
+		default:
+	}
 	return EBinop(op, x, y);
 }
 
@@ -2683,6 +2715,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
 			name = "_" + name;
 		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info),typeof(decl.recv.list[0].type));
+		var recvType = typeof(decl.recv.list[0].type);
 		for (def in info.data.defs) {
 			switch def.kind {
 				case TDAbstract(_, _, _):
@@ -3248,42 +3281,6 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 				expr: macro return new $wrapperType(this),
 			}),
 			access: [APublic,AInline],
-		},{
-			name: "_add_",
-			pos: null,
-			meta: [{name: ":op",pos: null,params: [macro A + B]}],
-			access: [AStatic],
-			kind: FFun({
-				args: [{name: "a", type: abstractType},{name: "b",type: type}],
-				ret: abstractType,
-			}),
-		},{
-			name: "_sub_",
-			pos: null,
-			meta: [{name: ":op",pos: null,params: [macro A - B]}],
-			access: [AStatic],
-			kind: FFun({
-				args: [{name: "a", type: abstractType},{name: "b",type: type}],
-				ret: abstractType,
-			}),
-		},{
-			name: "_div_",
-			pos: null,
-			meta: [{name: ":op",pos: null,params: [macro A / B]}],
-			access: [AStatic],
-			kind: FFun({
-				args: [{name: "a", type: abstractType},{name: "b",type: type}],
-				ret: abstractType,
-			}),
-		},{
-			name: "_mul_",
-			pos: null,
-			meta: [{name: ":op",pos: null,params: [macro A * B]}],
-			access: [AStatic],
-			kind: FFun({
-				args: [{name: "a", type: abstractType},{name: "b",type: type}],
-				ret: abstractType,
-			}),
 		}].concat(implicits),
 		kind: TDAbstract(type,[type],[type])
 	};
@@ -3321,17 +3318,19 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					},
 				}),
 			});
-			var toStringValue = "{";
+			var toStringExpr:Expr = makeString("{", SingleQuotes);
 			for (field in fields) {
 				switch field.kind {
 					case FVar(t, e):
-						toStringValue += "$" + field.name + " ";
+						toStringExpr = macro $toStringExpr + Std.string($i{field.name}) + " ";
 					default:
 				}
 			}
-			toStringValue = toStringValue.substr(0, toStringValue.length - 1);
-			toStringValue += "}";
-			var toStringExpr = makeString(toStringValue, SingleQuotes);
+			switch toStringExpr.expr {
+				case EBinop(op, e1, e2):
+					toStringExpr.expr = EBinop(op,e1,macro "}");
+				default:
+			}
 			fields.push({
 				name: "toString",
 				pos: null,
@@ -3574,13 +3573,13 @@ private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bo
 	if (!forceString) {
 		if (info.global.imports.exists(name))
 			return info.global.imports[name];
-		if (info.global.renameTypes.exists(name))
-			name = info.global.renameTypes[name];
 		var rt = false; //retype
 		if (info.renameTypes.exists(name)) {
 			name = info.renameTypes[name];
 			rt = true;
 		}
+		if (info.global.renameTypes.exists(name) && !rt)
+			name = info.global.renameTypes[name];
 		name = untitle(name);
 		if (reserved.indexOf(name) != -1 && !rt)
 			name += "_";

@@ -570,9 +570,6 @@ class Go {
 				if (t.isInterface) {
 					return macro null;
 				}
-				trace("name: " + t.name);
-				if (t.name == "ParseError")
-					throw "issue";
 			default:
 		}
 		if (declare)
@@ -741,7 +738,6 @@ class Go {
 						if (ref.isInterface) {
 							ret = gtDecodeInterfaceType(ref);
 						}else{
-							trace("ref: " + ref.name);
 							ret = gtDecodeClassType(ref);
 						}
 					}

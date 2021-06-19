@@ -103,7 +103,7 @@ function main(data:DataType) {
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
-		endPath = className(Typer.title(endPath));
+		endPath = className(endPath,info);
 
 		var info = new Info();
 		info.global.path = module.path;
@@ -214,6 +214,7 @@ function main(data:DataType) {
 				continue;
 			info.global.renameTypes[defRename] = "_" + defRename;
 		}
+		var recvFunctions:Array<Ast.FuncDecl> = [];
 		//2nd pass
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -231,7 +232,7 @@ function main(data:DataType) {
 			info.data = data;
 			data.name = normalizePath(data.name);
 			// set name
-			data.name = className(Typer.title(data.name));
+			data.name = className(data.name,info);
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -279,6 +280,10 @@ function main(data:DataType) {
 			}
 
 			for (decl in declFuncs) { // parse function bodies last
+				if (decl.recv != null && decl.recv.list.length > 0) {
+					recvFunctions.push(decl);
+					continue;
+				}
 				var func = typeFunction(decl, info);
 				if (func != null)
 					data.defs.push(func);
@@ -325,6 +330,46 @@ function main(data:DataType) {
 			//add file to module
 			module.files.push(data);
 		}
+		info.global.module = module;
+		//process recv functions check against all TypeSpecs
+		for (file in module.files) {
+			for (def in file.defs) {
+				var local:Array<Ast.FuncDecl> = [];
+				for (func in recvFunctions) {
+					if (getRecvName(func.recv.list[0].type,info) == def.name)
+						local.push(func);
+						
+				}
+				var restrictedNames = [for (func in local) nameIdent(func.name.name,info,false,false)];
+				info.global.restrictedNames = restrictedNames;
+				for (func in local) {
+					var func = typeFunction(func,info);
+					if (func == null)
+						continue;
+					switch func.kind {
+						case TDField(kind, access):
+							switch kind {
+								case FFun(fun):
+									def.fields.push({
+										name: func.name,
+										pos: null,
+										meta: null,
+										access: [AInline,APublic],
+										kind: FFun({
+											args: fun.args,
+											ret: fun.ret,
+											expr: fun.expr,
+										})
+									});
+								default:
+							}
+						default:
+					}
+				}
+				info.global.restrictedNames = [];
+			}
+		}
+		//main system
 		if (!module.isMain) {
 			var pkgExport = {
 				name: endPath,
@@ -935,9 +980,17 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	return e.expr;
 }
 
-private function className(name:String):String {
+private function className(name:String,info:Info):String {
+	if (info.global.renameTypes.exists(name))
+		name = info.global.renameTypes[name];
+	name = title(name);
+
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
+
+	if (info.global.restrictedNames.indexOf(name) != -1)
+		return getRestrictedName(name,info);
+
 	return name;
 }
 
@@ -949,10 +1002,10 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 			switch spec.id {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
-					var name = className(title(spec.name.name));
+					var name = className(spec.name.name,info);
 					spec.name.name += "_" + info.funcName + "_";
 					info.retypeList[name] = TPath({
-						name: className(title(spec.name.name)),
+						name: className(spec.name.name,info),
 						pack: [],
 					});
 					info.data.defs.push(typeSpec(spec, info));
@@ -1522,11 +1575,10 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 			break;
 		}
 	}
-	if (name.substr(2, 4) == "Uint") {
+	if (name.substr(2, 4) == "uint") {
 		name = "GoUInt" + name.substr(6);
 	}
-	name = className(title(name));
-
+	name = className(name,info);
 	if (info.retypeList.exists(name))
 		return info.retypeList[name];
 
@@ -1981,7 +2033,7 @@ private function getGlobalPath(info:Info):String {
 
 private function parseTypePath(path:String,name:String,info:Info):TypePath {
 	path = normalizePath(path);
-	var cl = className(title(name));
+	var cl = className(name,info);
 	var globalPath = getGlobalPath(info);
 	if (globalPath == path) {
 		if (info.retypeList.exists(cl))
@@ -2012,7 +2064,7 @@ private function namedTypePath(path:GoString,info:Info):TypePath {
 	var part = path.substr(last);
 	var split = part.lastIndexOf(".");
 	var pkg = part.substr(0,split);
-	var cl = className(title(part.substr(split + 1)));
+	var cl = className(part.substr(split + 1),info);
 	path = path.substr(0,last) + pkg;
 	path = normalizePath(path);
 	var globalPath = getGlobalPath(info);
@@ -2693,7 +2745,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	info.data = data.data;
 	info.thisName = "";
 	info.global = data.global;
-	var name = nameIdent(decl.name.name, info, false, false);
+	var name = nameIdent(decl.name.name, info, false, false,false);
 	if (name == "init") {
 		switch typeBlockStmt(decl.body, info, true, true) {
 			case EBlock(exprs):
@@ -2709,98 +2761,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 	info.thisName = "";
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
 	var meta:Metadata = null;
-	if (decl.recv != null) { // now is a static extension function
-		if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
-			name = "_" + name;
-		var recvInfo = getRecvInfo(typeExprType(decl.recv.list[0].type, info),typeof(decl.recv.list[0].type));
-		var recvType = typeof(decl.recv.list[0].type);
-		for (def in info.data.defs) {
-			switch def.kind {
-				case TDAbstract(_, _, _):
-					if (def.name != recvInfo.name)
-						continue;
-					if (decl.recv.list[0].names.length > 0) {
-						var varName = decl.recv.list[0].names[0].name;
-						switch block.expr {
-							case EBlock(exprs):
-								if (recvInfo.isPointer) {
-									info.renameTypes[varName] = "this";
-									info.thisName = varName;
-									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
-									info.renameTypes.remove(varName);
-								} else {
-									exprs.unshift(macro var $varName = this);
-									block.expr = EBlock(exprs);
-								}
-							default:
-						}
-					}
-					if (implementsError(decl.name.name,ret))
-						def.fields.push(addAbstractToField(TPath({name: "Error",pack: []}),{name: interfaceWrapperName(def.name),pack: []}));
-						
-					// push field function to class
-					def.fields.push({
-						name: name,
-						pos: null,
-						meta: null,
-						access: [AInline,APublic],
-						kind: FFun({
-							args: args,
-							ret: ret,
-							expr: block,
-						})
-					});
-					return null;
-				case TDClass(_, interfaces, isInterfaceBool, isFinalBool, _):
-					if (def.name != recvInfo.name)
-						continue;
-					if (decl.recv.list[0].names.length > 0) {
-						var varName = decl.recv.list[0].names[0].name;
-						switch block.expr {
-							case EBlock(exprs):
-								if (recvInfo.isPointer) {
-									info.thisName = varName;
-									block = toExpr(typeBlockStmt(decl.body, info, true, true)); // rerun so thisName system can be used
-									
-									exprs.unshift(macro var $varName = Go.pointer(this));
-								} else {
-									exprs.unshift(macro var $varName = this.__copy__());
-								}
-								block.expr = EBlock(exprs);
-							default:
-						}
-					}
-					if (implementsError(decl.name.name,ret)) {
-						interfaces.push({name: "Error",pack: []});
-						def.kind = TDClass(null,interfaces,isInterfaceBool,isFinalBool);
-					}
-					var f:Field = {
-						name: name,
-						pos: null,
-						meta: null,
-						access: [APublic],
-						kind: FFun({
-							args: args,
-							ret: ret,
-							expr: block,
-						})
-					};
-					
-					// push field function to class
-					if (name == "toString") {
-						for (field in def.fields) {
-							if (field.name == name) {
-								def.fields.remove(field);
-								break;
-							}
-						}
-					}
-					def.fields.push(f);
-					return null;
-				default:
-			}
-		}
-	}
+
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";
 	var index = doc.indexOf(preamble);
@@ -2963,6 +2924,14 @@ private function defaultValue(type:GoType,info:Info):Expr {
 			}
 		default: macro null;
 	}
+}
+
+
+private function getRecvName(recv:Ast.Expr,info:Info):String {
+	if (recv.id == "Pointer") {
+		throw recv;
+	}
+	return className(recv.name,info);
 }
 
 private function getRecvInfo(recvType:ComplexType,type:GoType):{name:String, isPointer:Bool,type:ComplexType} {
@@ -3211,7 +3180,7 @@ private function addAbstractToField(ct:ComplexType,wrapperType:TypePath):Field {
 }
 
 private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
-	var name = className(title(spec.name.name));
+	var name = className(spec.name.name,info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
@@ -3296,7 +3265,7 @@ private function makeString(str:String,?kind):Expr {
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
-	var name = className(title(spec.name.name));
+	var name = className(spec.name.name,info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
@@ -3561,7 +3530,17 @@ private function selectIdent(name:String,info:Info):String {
 	return name;
 }
 
-private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool):String {
+private function getRestrictedName(name:String,info:Info):String {
+	for (file in info.global.module.files) {
+		for (def in file.defs) {
+			if (def.name == name)
+				return file.name + "." + def.name;
+		}
+	}
+	return "#NULL";
+}
+
+private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool,restrictCheck:Bool=true):String {
 	if (name == "nil")
 		return "null";
 
@@ -3581,6 +3560,8 @@ private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bo
 		name = untitle(name);
 		if (reserved.indexOf(name) != -1 && !rt)
 			name += "_";
+		if (restrictCheck && info.global.restrictedNames.indexOf(name) != -1)
+			return getRestrictedName(name,info);
 	} else {
 		info.localVars[name] = true;
 	}
@@ -3604,7 +3585,15 @@ function isTitle(string:String):Bool {
 }
 
 function title(string:String):String {
-	return string.charAt(0).toUpperCase() + string.substr(1);
+	var index:Int = 0;
+	for (i in 0...string.length) {
+		index = i;
+		if (string.charAt(i) != "_")
+			break;
+	}
+	index++;
+	string = string.substr(0, index).toUpperCase() + string.substr(index);
+	return string;
 }
 
 function untitle(string:String):String {
@@ -3626,6 +3615,9 @@ class Global {
 	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
+	public var module:Module = null;
+
+	public var restrictedNames:Array<String> = [];
 
 	public inline function new() {}
 }

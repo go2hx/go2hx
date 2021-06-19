@@ -50,6 +50,6 @@ class PointerData<T> {
 	}
 
 	public inline function toString() {
-		return Std.string("* " + get());
+		return "* " + Std.string(get());
 	}
 }

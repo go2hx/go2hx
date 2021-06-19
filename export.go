@@ -115,16 +115,21 @@ func main() {
 		fmt.Println("load error:", err)
 		return
 	}
-	excludes = make(map[string]bool)
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
 	//parse interfaces 1st past
 	for _,pkg := range initial {
 		parseInterface(pkg)
 	}
 	//2nd pass
+
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
+
 	data := parsePkgList(initial)
 
 	data.Args = args
@@ -161,10 +166,7 @@ func parseInterface(pkg *packages.Package) {
 	}
 	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
 	
-	if pkg.Name == "main" {
-		return
-	}
-
+	fmt.Println("pkg:",pkg.Name)
 	for _,file := range pkg.Syntax {
 		for _,decl := range file.Decls {
 			switch decl := decl.(type) {
@@ -179,6 +181,31 @@ func parseInterface(pkg *packages.Package) {
 						default:
 						}
 					default:
+					}
+				}
+			case *ast.FuncDecl:
+				fmt.Println("func:",decl)
+				if decl.Body != nil {
+					for i := range decl.Body.List {
+						stmt := decl.Body.List[i]
+						switch stmt := stmt.(type) {
+						case *ast.DeclStmt:
+							gen := stmt.Decl.(*ast.GenDecl)
+							for _,spec := range gen.Specs {
+								switch spec := spec.(type) {
+								case *ast.ValueSpec:
+
+								case *ast.TypeSpec:
+									t := checker.TypeOf(spec.Type)
+									switch t := t.(type) {
+									case *types.Interface:
+										interfaces = append(interfaces, interfaceData{t,spec.Name.Name + "_" + decl.Name.Name + "_",pkg.PkgPath,spec.Name.IsExported()})
+									default:
+									}
+								}
+							}
+						default:
+						}
 					}
 				}
 			default:
@@ -349,6 +376,11 @@ func parseType(node interface{}) map[string]interface{} {
 			if init {
 				marked = nil
 			}
+			methods := make([]string,named.NumMethods())
+			for i := 0; i < named.NumMethods(); i++ {
+				methods[i] = named.Method(i).Name()
+			}
+			data["methods"] = methods
 		}
 		data["path"] = path
 		return data

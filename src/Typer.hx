@@ -255,7 +255,6 @@ function main(data:DataType) {
 							typeImport(spec, info);
 						case "TypeSpec":
 							info.data.defs.push(typeSpec(spec,info));
-							
 					}
 				}
 			}
@@ -951,7 +950,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					var name = className(title(spec.name.name));
-					spec.name.name += "_" + info.funcName + "_" + (info.count++);
+					spec.name.name += "_" + info.funcName + "_";
 					info.retypeList[name] = TPath({
 						name: className(title(spec.name.name)),
 						pack: [],
@@ -985,7 +984,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 			}
 		}
 	}
-	trace("vars: " + vars.length);
 	if (vars.length > 0)
 		return EVars(vars);
 	return (macro {}).expr; // blank expr def
@@ -2704,7 +2702,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info):TypeDefinition {
 		}
 		return null;
 	}
-	info.funcName = name;
+	info.funcName = decl.name.name;
 	var ret = typeFieldListReturn(decl.type.results, info, true);
 	// info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
@@ -3583,8 +3581,6 @@ private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bo
 		name = untitle(name);
 		if (reserved.indexOf(name) != -1 && !rt)
 			name += "_";
-		if (!isSelect && name == info.funcName)
-			return info.data.name + "." + name;
 	} else {
 		info.localVars[name] = true;
 	}

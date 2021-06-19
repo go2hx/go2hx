@@ -184,7 +184,6 @@ func parseInterface(pkg *packages.Package) {
 					}
 				}
 			case *ast.FuncDecl:
-				fmt.Println("func:",decl)
 				if decl.Body != nil {
 					for i := range decl.Body.List {
 						stmt := decl.Body.List[i]

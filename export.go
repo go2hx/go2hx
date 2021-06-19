@@ -375,11 +375,6 @@ func parseType(node interface{}) map[string]interface{} {
 			if init {
 				marked = nil
 			}
-			methods := make([]string,named.NumMethods())
-			for i := 0; i < named.NumMethods(); i++ {
-				methods[i] = named.Method(i).Name()
-			}
-			data["methods"] = methods
 		}
 		data["path"] = path
 		return data

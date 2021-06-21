@@ -178,8 +178,17 @@ class Go {
 		return func();
 	}
 
-	public static macro function copy<T>(dst:Expr, src:ExprOf<Slice<T>>) {
+	public static macro function copy<T>(dst:Expr, src:Expr) {
 		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
+		var srcType = Context.toComplexType(Context.followWithAbstracts(Context.typeof(src)));
+		var isString = switch srcType {
+			case TPath(p):
+				p.name == "String" && p.pack.length == 0;	
+			default:
+				false;
+		}
+		if (isString)
+			src = macro ($src : GoString);
 		switch type {
 			case TPath(p):
 				switch p.name {

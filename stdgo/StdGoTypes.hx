@@ -575,7 +575,8 @@ abstract GoInt(Int) from Int32 from Int {
 
 	@:op(A & B) private static function and(a:GoInt, b:GoInt):GoInt;
 
-	@:op(-A) private static function neg(a:GoInt):GoInt;
+	@:op(-A) private static function neg(a:GoInt):GoInt
+		return a * -1;
 
 	@:op(A >> B) private static function shr(a:GoInt, b:GoInt):GoInt {
 		if (shiftGuard(b.toBasic()))
@@ -722,6 +723,9 @@ abstract GoUInt(Int) from Int {
 		return ret;
 	}
 
+	@:op(-A) private static function neg(a:GoUInt):GoUInt
+		return a * -1;
+
 	@:op(--A) inline function preDec():GoUInt
 		return this = clamp(this - 1);
 
@@ -833,6 +837,9 @@ abstract GoInt8(Int8) from Int8 from Int {
 
 	@:op(A % B) private static function mod(a:GoInt8, b:GoInt8):GoInt8
 		return clamp(Std.int(a.toBasic() % b.toBasic()));
+
+	@:op(-A) private static function neg(a:GoInt8):GoInt8
+		return a * -1;
 
 	@:op(++A) inline function preInc():GoInt8
 		return this = clamp(this + 1);
@@ -983,6 +990,9 @@ abstract GoInt16(Int16) from Int16 from Int {
 		preDec();
 		return ret;
 	}
+
+	@:op(-A) private static function neg(a:GoInt16):GoInt16
+		return a * -1;
 
 	@:op(A / B) private static function div(a:GoInt16, b:GoInt16):GoInt16 {
 		if (b == 0)
@@ -1189,6 +1199,9 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 		return ret;
 	}
 
+	@:op(-A) private static function neg(a:GoUInt8):GoUInt8
+		return a * -1;
+
 	@:op(--A) inline function preDec():GoUInt8
 		return this = clamp(this - 1);
 
@@ -1275,6 +1288,9 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 
 	public static function ofInt(x:Int):GoUInt16
 		return x;
+
+	@:op(-A) private static function neg(a:GoUInt16):GoUInt16
+		return a * -1;
 
 	@:op(A > B) private static function gt(a:GoUInt16, b:GoUInt16):Bool;
 
@@ -1454,6 +1470,9 @@ abstract GoUInt64(UInt64) from UInt64 {
 		preInc();
 		return ret;
 	}
+
+	@:op(-A) private static function neg(a:GoUInt64):GoUInt64
+		return a * -1;
 
 	@:op(--A) inline function preDec():GoUInt64
 		return this = this - (1 : UInt64);

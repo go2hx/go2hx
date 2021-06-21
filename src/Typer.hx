@@ -292,10 +292,6 @@ function main(data:DataType) {
 					default:
 				}
 			}
-
-			//add abstract
-			typeAbstractInterfaceWrappers(info);
-
 			// init system
 			if (info.global.initBlock.length > 0) {
 				data.defs.push({
@@ -327,9 +323,33 @@ function main(data:DataType) {
 						local.push(func);
 						
 				}
+				//rename conflicts
+				var change = false;
+				for (i in 0...local.length) {
+					var name = local[i].name.name;
+					for (j in 0...local.length) {
+						if (i == j)
+							continue;
+						if (untitle(name) != local[j].name.name)
+							continue;
+						change = !isTitle(name);
+						name = change ? name : local[j].name.name;
+						local[j].name.name = "_" + name;
+						info.global.renameTypes[name] = local[j].name.name;
+					}
+				}
 				var restrictedNames = [for (func in local) nameIdent(func.name.name,info,false,false)];
-				for (func in local) {
-					var func = typeFunction(func,info,restrictedNames);
+				var isAbstract = switch def.kind {
+					case TDAbstract(_,_,_):
+						true;
+					default:
+						false;
+				}
+				for (decl in local) {
+					
+					if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
+						decl.name.name = "_" + decl.name.name;
+					var func = typeFunction(decl,info,restrictedNames,isAbstract);
 					if (func == null)
 						continue;
 					switch func.kind {
@@ -348,18 +368,32 @@ function main(data:DataType) {
 										name: func.name,
 										pos: null,
 										meta: null,
-										access: [AInline,APublic],
+										access: isAbstract ? [AInline,APublic] : [APublic],
 										kind: FFun({
 											args: fun.args,
 											ret: fun.ret,
 											expr: fun.expr,
 										})
 									});
+									if (implementsError(decl.name.name,fun.ret)) {
+										if (isAbstract) {
+											def.fields.push(addAbstractToField(TPath({name: "Error",pack: []}),{name: interfaceWrapperName(def.name),pack: []}));
+										}else{
+											switch def.kind {
+												case TDClass(_,interfaces,isInterfaceBool,isFinalBool):
+													interfaces.push({name: "Error",pack: []});
+													def.kind = TDClass(null,interfaces,isInterfaceBool,isFinalBool);
+												default:
+											}
+										}
+									}
 								default:
 							}
 						default:
 					}
 				}
+				//add abstract
+				typeAbstractInterfaceWrappers(def,file);
 			}
 		}
 		//main system
@@ -482,110 +516,109 @@ function main(data:DataType) {
 	return list;
 }
 
-private function typeAbstractInterfaceWrappers(info:Info) {
-	for (def in info.data.defs) {
-		switch def.kind {
-			case TDAbstract(_, _, _):
-				var clType = TPath({name: def.name,pack: def.pack});
-				var interfaces:Array<TypePath> = [];
-				var fields:Array<Field> = [];
-				for (field in def.fields) {
-					if (field.meta != null && field.meta.length > 0) {
-						if (field.meta.length == 1 && field.meta[0].name == ":to") {
-							switch field.kind {
-								case FFun(fun):
-									switch fun.ret {
-										case TPath(p):
-											interfaces.push(p);
-										default:
-									}
-								default:
-							}
-						}
-						continue;
-					}
-					if (field.name == "__t__" || field.name == "new")
-						continue; //skip
-					switch field.kind {
-						case FFun(fun):
-							var isVoid = false;
-							if (fun.ret != null) {
+private function typeAbstractInterfaceWrappers(def:TypeDefinition,data:FileType) {
+	
+	switch def.kind {
+		case TDAbstract(_, _, _):
+			var clType = TPath({name: def.name,pack: def.pack});
+			var interfaces:Array<TypePath> = [];
+			var fields:Array<Field> = [];
+			for (field in def.fields) {
+				if (field.meta != null && field.meta.length > 0) {
+					if (field.meta.length == 1 && field.meta[0].name == ":to") {
+						switch field.kind {
+							case FFun(fun):
 								switch fun.ret {
 									case TPath(p):
-										if (p.name == "Void")
-											isVoid = true;
+										interfaces.push(p);
 									default:
 								}
-							}else{
-								isVoid = true;
+							default:
+						}
+					}
+					continue;
+				}
+				if (field.name == "__t__" || field.name == "new")
+					continue; //skip
+				switch field.kind {
+					case FFun(fun):
+						var isVoid = false;
+						if (fun.ret != null) {
+							switch fun.ret {
+								case TPath(p):
+									if (p.name == "Void")
+										isVoid = true;
+								default:
 							}
-							var args:Array<Expr> = [for (arg in fun.args) 
-								macro $i{arg.name}
-							];
-							var fieldName = field.name;
-							var e = macro __t__.$fieldName($a{args});
-							if (!isVoid)
-								e = macro return $e;
-							fields.push({
-								name: field.name,
-								pos: null,
-								kind: FFun({
-									ret: fun.ret,
-									args: fun.args,
-									params: fun.params,
-									expr: e,
-								}),
-								access: field.access,
-							});
-						default:
-					}
+						}else{
+							isVoid = true;
+						}
+						var args:Array<Expr> = [for (arg in fun.args) 
+							macro $i{arg.name}
+						];
+						var fieldName = field.name;
+						var e = macro __t__.$fieldName($a{args});
+						if (!isVoid)
+							e = macro return $e;
+						fields.push({
+							name: field.name,
+							pos: null,
+							kind: FFun({
+								ret: fun.ret,
+								args: fun.args,
+								params: fun.params,
+								expr: e,
+							}),
+							access: field.access,
+						});
+					default:
 				}
-				var toStringBool = false;
-				for (field in fields) {
-					if (field.name == "toString") {
-						toStringBool = true;
-						break;
-					}
+			}
+			var toStringBool = false;
+			for (field in fields) {
+				if (field.name == "toString") {
+					toStringBool = true;
+					break;
 				}
-				if (!toStringBool)
-					fields.push({
-						name: "toString",
-						pos: null,
-						kind: FFun({
-							args: [],
-							expr: macro return '$__t__',
-						}),
-						access: [APublic],
-						meta: [{name: ":keep", pos: null}],
-					});
-				info.data.defs.push({
-					name: interfaceWrapperName(def.name),
+			}
+			if (!toStringBool)
+				fields.push({
+					name: "toString",
 					pos: null,
-					pack: [],
-					fields: [{
-						name: "__t__",
-						pos: null,
-						kind: FVar(clType),
-						access: [APublic],
-					},{
-						name: "__underlying__",
-						pos: null,
-						kind: FFun({args: [],ret: TPath({name: "AnyInterface",pack: []}), expr: macro return Go.toInterface(__t__)}),
-						access: [APublic],
-					},{
-						name: "new",
-						pos: null,
-						kind: FFun({
-							args: [{name: "t"}],
-							expr: macro this.__t__ = t,
-						}),
-						access: [APublic],
-					}].concat(fields),
-					kind: TDClass(null,interfaces),
-					isExtern: false,
+					kind: FFun({
+						args: [],
+						expr: macro return '$__t__',
+					}),
+					access: [APublic],
+					meta: [{name: ":keep", pos: null}],
 				});
-			default:
-		}
+			data.defs.push({
+				name: interfaceWrapperName(def.name),
+				pos: null,
+				pack: [],
+				fields: [{
+					name: "__t__",
+					pos: null,
+					kind: FVar(clType),
+					access: [APublic],
+				},{
+					name: "__underlying__",
+					pos: null,
+					kind: FFun({args: [],ret: TPath({name: "AnyInterface",pack: []}), expr: macro return Go.toInterface(__t__)}),
+					access: [APublic],
+				},{
+					name: "new",
+					pos: null,
+					kind: FFun({
+						args: [{name: "t"}],
+						expr: macro this.__t__ = t,
+					}),
+					access: [APublic],
+				}].concat(fields),
+				kind: TDClass(null,interfaces),
+				isExtern: false,
+			});
+		default:
 	}
 }
 
@@ -1253,7 +1286,15 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	}
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
-	return ifs().expr;
+	var expr = ifs();
+	if (stmt.init != null) {
+		var init = typeStmt(stmt.init,info);
+		return (macro {
+			$init;
+			$expr;
+		}).expr;
+	}
+	return expr.expr;
 }
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
@@ -2765,7 +2806,7 @@ private function implementsError(name:String,type:ComplexType):Bool {
 	return false;
 }
 
-private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String>=null):TypeDefinition {
+private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String>=null,isAbstract:Bool=false):TypeDefinition {
 	var info = new Info();
 	info.renameTypes = data.renameTypes;
 	info.typeNames = data.typeNames;
@@ -2790,7 +2831,24 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
 	info.restricted = null;
 	var meta:Metadata = null;
-
+	if (decl.recv != null) {
+		var varName = decl.recv.list[0].names[0].name;
+		info.thisName = varName;
+		switch block.expr {
+			case EBlock(exprs):
+				if (isPointer(typeof(decl.recv.list[0].type))) {
+					exprs.unshift(macro var $varName = Go.pointer(this));
+				} else {
+					if (isAbstract) {
+						exprs.unshift(macro var $varName = this);
+					}else{
+						exprs.unshift(macro var $varName = this.__copy__());
+					}
+				}
+				block.expr = EBlock(exprs);
+			default:
+		}
+	}
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";
 	var index = doc.indexOf(preamble);
@@ -2807,6 +2865,15 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		}else{
 			block = e;
 		}
+	}
+	if (isAbstract) {
+		var ret = macro __block__();
+		if (info.returnTypes.length > 0)
+			ret = macro return $ret;
+		block = macro {
+			function __block__() $block;
+			$ret;
+		};
 	}
 	return {
 		name: name,
@@ -3582,8 +3649,6 @@ private function getRestrictedName(name:String,info:Info):String {
 				return file.name + "." + def.name;
 		}
 	}
-	trace("local: " + info.localVars + " name: " + name);
-	throw "eeek";
 	return "#NOT_FOUND";
 }
 

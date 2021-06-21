@@ -1103,6 +1103,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 }
 
 private function isAnyInterface(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_,elem):
 			isAnyInterface(elem);
@@ -2251,7 +2253,7 @@ private function toComplexType(e:GoType,info:Info):ComplexType {
 						]))]});*/
 					}
 				default:
-					throw "results: " + results;
+					ret = toComplexType(results,info);
 			}
 			TFunction(args,ret);
 		case varValue(name, type):
@@ -2832,7 +2834,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.restricted = null;
 	var meta:Metadata = null;
 	if (decl.recv != null) {
-		var varName = decl.recv.list[0].names[0].name;
+		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		info.thisName = varName;
 		switch block.expr {
 			case EBlock(exprs):

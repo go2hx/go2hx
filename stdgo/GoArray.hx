@@ -24,6 +24,8 @@ private class VectorData<T> {
 		vector = new Vector<T>(length);
 		_address_ = _addressCounter++;
 	}
+	public inline function toString():GoString
+		return vector.toArray().toString();
 	public inline function get(i:Int):T
 		return vector.get(i);
 	public inline function set(i:Int,value:T):T
@@ -49,7 +51,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	inline public function keyValueIterator():KeyValueIterator<GoInt, T> {
-		return new GoArrayKeyValueIterator(this.vector);
+		return new VectorKeyValueIterator(this.vector);
 	}
 
 	public inline function new(args:Rest<T>) {
@@ -68,7 +70,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 	
 	@:op([]) public inline function set(index:GoInt, value:T):T
-		return set(index.toBasic(), value);
+		return this.set(index.toBasic(), value);
 
 	@:op([]) public inline function get(index:GoInt):T {
 		boundsCheck(index.toBasic());
@@ -112,23 +114,6 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 			array.set(i, this.get(i));
 		}
 		return array;
-	}
-}
-
-private class GoArrayKeyValueIterator<T> {
-	var pos:Int = 0;
-	var vector:Vector<T>;
-
-	public inline function new(vector) {
-		this.vector = vector;
-	}
-
-	public inline function hasNext() {
-		return pos < vector.length;
-	}
-
-	public inline function next() {
-		return {key: (pos : GoInt), value: vector.get(pos++)};
 	}
 }
 

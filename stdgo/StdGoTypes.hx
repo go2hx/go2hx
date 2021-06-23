@@ -163,22 +163,12 @@ abstract GoUIntptr(UInt) from UInt from Int {
 
 	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
-	@:op(++A) inline function preInc():GoUIntptr
-		return this = this + 1;
-
 	@:op(A++) inline function postInc():GoUIntptr {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = this + 1;
 	}
 
-	@:op(--A) inline function preDec():GoUIntptr
-		return this = this - 1;
-
 	@:op(A--) inline function postDec():GoUIntptr {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = this - 1;
 	}
 
 	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;
@@ -278,7 +268,7 @@ abstract GoFloat64(Float) from Float {
 
 	@:op(-A) private static function neg(t:GoFloat):GoFloat;
 
-	@:op(++A) private static function prevInc(t:GoFloat):GoFloat;
+	@:op(A--) private static function postDec(t:GoFloat):GoFloat;
 
 	@:op(A++) private static function postInc(t:GoFloat):GoFloat;
 }
@@ -348,14 +338,8 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:op(-A) private static function neg(t:GoFloat32):GoFloat32;
 
-	@:op(++A) private inline function preInc():GoFloat32 {
-		return this = this + 1;
-	}
-
 	@:op(A++) private inline function postInc():GoFloat32 {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = this + 1;
 	}
 
 	@:op(A > B) private static function gt(a:GoFloat32, b:GoFloat32):Bool;
@@ -616,22 +600,12 @@ abstract GoInt(Int) from Int32 from Int {
 
 	@:op(~A) private static function bneg(t:GoInt):GoInt;
 
-	@:op(++A) inline function preInc():GoInt
-		return this = this + 1;
-
 	@:op(A++) inline function postInc():GoInt {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = this + 1;
 	}
 
-	@:op(--A) inline function preDec():GoInt
-		return this = this - 1;
-
 	@:op(A--) inline function postDec():GoInt {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = this - 1;
 	}
 }
 
@@ -714,25 +688,15 @@ abstract GoUInt(Int) from Int {
 		return clamp(a.toBasic() << b.toBasic());
 	}
 
-	@:op(++A) inline function preInc():GoUInt
-		return this = clamp(this + 1);
-
 	@:op(A++) inline function postInc():GoUInt {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = clamp(this + 1);
 	}
 
 	@:op(-A) private static function neg(a:GoUInt):GoUInt
 		return a * -1;
 
-	@:op(--A) inline function preDec():GoUInt
-		return this = clamp(this - 1);
-
 	@:op(A--) inline function postDec():GoUInt {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = clamp(this - 1);
 	}
 
 	static function clamp(x:Int):Int
@@ -841,22 +805,12 @@ abstract GoInt8(Int8) from Int8 from Int {
 	@:op(-A) private static function neg(a:GoInt8):GoInt8
 		return a * -1;
 
-	@:op(++A) inline function preInc():GoInt8
-		return this = clamp(this + 1);
-
 	@:op(A++) inline function postInc():GoInt8 {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = clamp(this + 1);
 	}
 
-	@:op(--A) inline function preDec():GoInt8
-		return this = clamp(this - 1);
-
 	@:op(A--) inline function postDec():GoInt8 {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = clamp(this - 1);
 	}
 
 	@:op(A > B) private static function gt(a:GoInt8, b:GoInt8):Bool
@@ -973,22 +927,12 @@ abstract GoInt16(Int16) from Int16 from Int {
 	@:op(A % B) private static function mod(a:GoInt16, b:GoInt16):GoInt16
 		return clamp(a.toBasic() % b.toBasic());
 
-	@:op(++A) inline function preInc():GoInt16
-		return this = clamp(this + 1);
-
 	@:op(A++) inline function postInc():GoInt16 {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = clamp(this + 1);
 	}
 
-	@:op(--A) inline function preDec():GoInt16
-		return this = clamp(this - 1);
-
 	@:op(A--) inline function postDec():GoInt16 {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = clamp(this - 1);
 	}
 
 	@:op(-A) private static function neg(a:GoInt16):GoInt16
@@ -1089,13 +1033,12 @@ abstract GoInt64(Int64) from Int64 {
 	@:op(A + B) public static function add(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() + b.toBasic();
 
-	@:op(++A) public static function preInc(a:GoInt64):GoInt64;
+	@:op(A++) inline function postInc():GoInt64 {
+		return this++;
+	}
 
-	@:op(A++) public static function postInc(a:GoInt64):GoInt64;
-
-	@:op(--A) public static function preDec(a:GoInt64):GoInt64;
-
-	@:op(A--) public static function postDec(a:GoInt64):GoInt64;
+	@:op(A--) inline function postDec():GoInt64
+		return this--;
 
 	@:op(A * B) public static function mul(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() * b.toBasic();
@@ -1190,26 +1133,15 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 
 	@:op(A <= B) private static function lte(a:GoUInt8, b:GoUInt8):Bool;
 
-	@:op(++A) inline function preInc():GoUInt8
+	@:op(A++) inline function postInc():GoUInt8
 		return this = clamp(this + 1);
 
-	@:op(A++) inline function postInc():GoUInt8 {
-		var ret = this;
-		preInc();
-		return ret;
-	}
 
 	@:op(-A) private static function neg(a:GoUInt8):GoUInt8
 		return a * -1;
 
-	@:op(--A) inline function preDec():GoUInt8
+	@:op(A--) inline function postDec():GoUInt8
 		return this = clamp(this - 1);
-
-	@:op(A--) inline function postDec():GoUInt8 {
-		var ret = this;
-		preDec();
-		return ret;
-	}
 
 	@:op(A + B) private static function add(a:GoUInt8, b:GoUInt8):GoUInt8
 		return clamp(a.toBasic() + b.toBasic());
@@ -1339,22 +1271,11 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 		return clamp(Std.int(a.toBasic() / b.toBasic()));
 	}
 
-	@:op(++A) inline function preInc():GoUInt16
-		return this = clamp(this + 1);
-
 	@:op(A++) inline function postInc():GoUInt16 {
-		var ret = this;
-		preInc();
-		return ret;
+		return this = clamp(this + 1);
 	}
-
-	@:op(--A) inline function preDec():GoUInt16
-		return this = clamp(this - 1);
-
 	@:op(A--) inline function postDec():GoUInt16 {
-		var ret = this;
-		preDec();
-		return ret;
+		return this = clamp(this - 1);
 	}
 
 	static function clamp(x:Int)
@@ -1462,25 +1383,15 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64
 		return Int64.div(a.toBasic(), b.toBasic());
 
-	@:op(++A) inline function preInc():GoUInt64
-		return this = this + (1 : UInt64);
-
 	@:op(A++) inline function postInc():GoUInt64 {
-		var ret = this;
-		preInc();
-		return ret;
+		return this++;
 	}
 
 	@:op(-A) private static function neg(a:GoUInt64):GoUInt64
 		return a * -1;
 
-	@:op(--A) inline function preDec():GoUInt64
-		return this = this - (1 : UInt64);
-
 	@:op(A--) inline function postDec():GoUInt64 {
-		var ret = this;
-		preDec();
-		return ret;
+		return this--;
 	}
 }
 

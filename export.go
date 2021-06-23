@@ -152,6 +152,65 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
+func parseFileInterface(file *ast.File,pkgPath string)[]interfaceData {
+	interfaces := []interfaceData{}
+	isMain := pkgPath == "main"
+	if isMain {
+		pkgPath = "main__" + file.Name.Name
+	}
+	for _,decl := range file.Decls {
+		switch decl := decl.(type) {
+		case *ast.GenDecl:
+			for _,spec := range decl.Specs {
+				switch spec := spec.(type) {
+				case *ast.TypeSpec:
+					t := checker.TypeOf(spec.Type)
+					switch t := t.(type) {
+					case *types.Interface:
+						if t.NumMethods() > 0 {
+							exported := spec.Name.IsExported()
+							if isMain {
+								exported = false
+							}
+							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkgPath,exported})
+						}
+					default:
+					}
+				default:
+				}
+			}
+		case *ast.FuncDecl:
+			if decl.Body != nil {
+				for i := range decl.Body.List {
+					stmt := decl.Body.List[i]
+					switch stmt := stmt.(type) {
+					case *ast.DeclStmt:
+						gen := stmt.Decl.(*ast.GenDecl)
+						for _,spec := range gen.Specs {
+							switch spec := spec.(type) {
+							case *ast.ValueSpec:
+
+							case *ast.TypeSpec:
+								t := checker.TypeOf(spec.Type)
+								switch t := t.(type) {
+								case *types.Interface:
+									if t.NumMethods() > 0 {
+										interfaces = append(interfaces, interfaceData{t,spec.Name.Name + "_" + decl.Name.Name + "_",pkgPath,spec.Name.IsExported()})
+									}
+								default:
+								}
+							}
+						}
+					default:
+					}
+				}
+			}
+		default:
+		}
+	}
+	return interfaces
+}
+
 func parseInterface(pkg *packages.Package) {
 	for _, val := range pkg.Imports {
 		if excludes[val.PkgPath] {
@@ -165,52 +224,10 @@ func parseInterface(pkg *packages.Package) {
 		//DisableUnusedImportCheck: true,
 	}
 	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
-	
-	fmt.Println("pkg:",pkg.Name)
-	for _,file := range pkg.Syntax {
-		for _,decl := range file.Decls {
-			switch decl := decl.(type) {
-			case *ast.GenDecl:
-				for _,spec := range decl.Specs {
-					switch spec := spec.(type) {
-					case *ast.TypeSpec:
-						t := checker.TypeOf(spec.Type)
-						switch t := t.(type) {
-						case *types.Interface:
-							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkg.PkgPath,spec.Name.IsExported()})
-						default:
-						}
-					default:
-					}
-				}
-			case *ast.FuncDecl:
-				if decl.Body != nil {
-					for i := range decl.Body.List {
-						stmt := decl.Body.List[i]
-						switch stmt := stmt.(type) {
-						case *ast.DeclStmt:
-							gen := stmt.Decl.(*ast.GenDecl)
-							for _,spec := range gen.Specs {
-								switch spec := spec.(type) {
-								case *ast.ValueSpec:
 
-								case *ast.TypeSpec:
-									t := checker.TypeOf(spec.Type)
-									switch t := t.(type) {
-									case *types.Interface:
-										interfaces = append(interfaces, interfaceData{t,spec.Name.Name + "_" + decl.Name.Name + "_",pkg.PkgPath,spec.Name.IsExported()})
-									default:
-									}
-								}
-							}
-						default:
-						}
-					}
-				}
-			default:
-			}
-		}
-	}
+	/*for _,file := range pkg.Syntax {
+		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath)...)
+	}*/
 }
 
 func parsePkgList(list []*packages.Package) dataType {
@@ -306,6 +323,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			if named == nil {
 				continue
 			}
+			interfaces := interfaces
 			for _,inter := range interfaces {
 				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
 					continue

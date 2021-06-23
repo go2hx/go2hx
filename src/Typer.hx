@@ -1106,7 +1106,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 									name: name,
 									type: type,
 									isFinal: spec.constants[i],
-									expr: i < spec.values.length ? expr : type != null ? defaultValue(t,info) : null,
+									expr: i < spec.values.length ? expr : type != null ? defaultComplexTypeValue(typeExprType(spec.type,info),info) : null,
 								};
 							}
 						]);
@@ -1150,6 +1150,17 @@ private function isSignature(type:GoType):Bool {
 			true;
 		default:
 			false;
+	}
+}
+
+private function getStructFields(type:GoType):Array<Ast.FieldType> {
+	return switch type {
+		case named(_,elem):
+			getStructFields(elem);
+		case struct(fields):
+			fields;
+		default:
+			[];
 	}
 }
 private function isPointer(type:GoType):Bool {
@@ -1896,7 +1907,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(expr.args[0], info);
 					switch t {
 						case TPath(_), TFunction(_,_), TAnonymous(_):
-							return (macro Go.pointer(${defaultValue(typeof(expr.args[0]),info)})).expr; // TODO does not work for non constructed types, such as basic types
+							return (macro Go.pointer(${defaultComplexTypeValue(t,info)})).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -2485,7 +2496,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 											var a:Ast.ArrayType = expr.type;
 											var elt = typeExprType(a.elt, info);
 											for (i in 0...dif)
-												params.push(defaultValue(typeof(a.elt),info));
+												params.push(defaultComplexTypeValue(elt,info));
 										}
 										return (macro new $p($a{params})).expr;
 									case CIdent(s):
@@ -2728,13 +2739,18 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var typeX = typeof(expr.x);
 	var isThis = false;
 
+	function setIdent(sel):String {
+		return (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel, info);
+	}
+
 	var sel = expr.sel.name;
+	var style = 0;
 	switch x.expr {
 		case EField(e, field):
 			if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-				sel = nameIdent(sel, info, false, true);
+				style = 0;
 			} else {
-				sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel, info);
+				style = 1;
 			}
 		case EConst(c):
 			switch c {
@@ -2744,17 +2760,50 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 					var index = s.lastIndexOf(".");
 					var field = s.substr(index + 1);
 					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-						sel = nameIdent(sel, info, false, true);
+						style = 0;
 					} else {
-						sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel,info);
+						style = 1;
 					}
 				default:
 			}
 		default:
-			sel = (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel,info);
+			style = 1;
 	}
+	function runStyle(sel):String {
+		return switch style {
+			case 0: nameIdent(sel, info, false, true);
+			case 1: setIdent(sel);
+			default: throw "invalid style: " + style;
+		}
+	}
+	sel = runStyle(sel);
+
 	if (isPointer(typeX) && !isThis)
 		x = macro $x.value;
+	var fields = getStructFields(typeX);
+	if (fields.length > 0) {
+		var chains:Array<String> = [];
+		//style = 0;
+		function recursion(path:String,fields:Array<Ast.FieldType>) {
+			for (field in fields) {
+				path += runStyle(field.name);
+				chains.push(path);
+				path += ".";
+				var structFields = getStructFields(field.type);
+				if (structFields.length > 0)
+					recursion(path,structFields);
+			}
+		}
+		recursion("",fields);
+
+		for (chain in chains) {
+			var field = chain.substr(chain.lastIndexOf(".") + 1);
+			if (field == sel) {
+				sel = chain;
+				break;
+			}
+		}
+	}
 	return (macro $x.$sel).expr; // EField
 }
 
@@ -2778,7 +2827,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(typeof(expr.type),info);
+						var e = defaultComplexTypeValue(type,info);
 						return e.expr;
 					}
 				default:
@@ -3001,6 +3050,15 @@ private function getBody(path:String):String {
 	return "";
 }
 
+private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
+	return switch ct {
+		case TPath(p):
+			macro new $p();
+		default:
+			throw "unknown complex type default value: " + ct;
+	}
+}
+
 private function defaultValue(type:GoType,info:Info):Expr {
 	return switch type {
 		case map(_, _): macro null;
@@ -3023,11 +3081,9 @@ private function defaultValue(type:GoType,info:Info):Expr {
 			switch underlying {
 				case pointer(_), interfaceValue(_), map(_,_):
 					macro null;
-				case struct(_):
-					var t:TypePath = namedTypePath(path,info);
-					macro new $t();
 				default:
-					defaultValue(underlying,info);
+					var t = namedTypePath(path,info);
+					macro new $t();
 			}
 		case basic(kind):
 			switch kind {
@@ -3238,7 +3294,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info, false, false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultValue(typeof(field.type),info) : null)
+						kind: FVar(type, defaultBool ? defaultComplexTypeValue(type,info) : null)
 					});
 				default:
 			}
@@ -3254,7 +3310,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultValue(typeof(field.type),info) : null),
+				kind: FVar(type, defaultBool ? defaultComplexTypeValue(type,info) : null),
 			});
 		}
 	}
@@ -3599,7 +3655,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			var expr:Expr = null;
 			if (value.values[i] == null) {
 				if (type != null) {
-					expr = defaultValue(typeof(value.type),info);
+					expr = defaultComplexTypeValue(typeExprType(value.type,info),info);
 				} else {
 					// last expr use
 					expr = typeExpr(info.lastValue, info);

@@ -2786,16 +2786,16 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		//style = 0;
 		function recursion(path:String,fields:Array<Ast.FieldType>) {
 			for (field in fields) {
-				path += runStyle(field.name);
-				chains.push(path);
-				path += ".";
+				var setPath = path + runStyle(field.name);
+				chains.push(setPath);
+				setPath += ".";
 				var structFields = getStructFields(field.type);
 				if (structFields.length > 0)
-					recursion(path,structFields);
+					recursion(setPath,structFields);
 			}
 		}
 		recursion("",fields);
-
+		
 		for (chain in chains) {
 			var field = chain.substr(chain.lastIndexOf(".") + 1);
 			if (field == sel) {
@@ -3053,7 +3053,28 @@ private function getBody(path:String):String {
 private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
 	return switch ct {
 		case TPath(p):
-			macro new $p();
+			if (p.pack.length == 0 && p.name == "AnyInterface") {
+				macro null;
+			}else{
+				macro new $p();
+			}
+		case TFunction(_, _):
+			macro null;
+		case TAnonymous(fields):
+			var fs:Array<ObjectField> = [];
+			for (field in fields) {
+				switch field.kind {
+					case FVar(t, e):
+						fs.push({
+							field: field.name,
+							expr: defaultComplexTypeValue(t,info),
+						});
+					default:
+						throw "unknown field kind: " + field.kind;
+				}
+			}
+
+			toExpr(EObjectDecl(fs));
 		default:
 			throw "unknown complex type default value: " + ct;
 	}

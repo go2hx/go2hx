@@ -142,6 +142,8 @@ function main(data:DataType) {
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
+
+			file.path = className(normalizePath(Path.withoutExtension(file.path)),info);
 			
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -201,12 +203,11 @@ function main(data:DataType) {
 					hasName(decl.name.name,i,info);
 			}
 		}
-		var recvFunctions:Array<Ast.FuncDecl> = [];
+		var recvFunctions:Array<{decl:Ast.FuncDecl,path:String}> = [];
 		//2nd pass
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
-			file.path = normalizePath(Path.withoutExtension(file.path));
 			file.location = Path.normalize(file.location);
 			var data:FileType = {
 				name: file.path,
@@ -217,9 +218,6 @@ function main(data:DataType) {
 			};
 			info = new Info(info.global);
 			info.data = data;
-			data.name = normalizePath(data.name);
-			// set name
-			data.name = className(data.name,info);
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -268,7 +266,7 @@ function main(data:DataType) {
 
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
-					recvFunctions.push(decl);
+					recvFunctions.push({decl: decl, path: file.path});
 					continue;
 				}
 				var func = typeFunction(decl, info);
@@ -318,9 +316,11 @@ function main(data:DataType) {
 		for (file in module.files) {
 			for (def in file.defs) {
 				var local:Array<Ast.FuncDecl> = [];
-				for (func in recvFunctions) {
-					if (getRecvName(func.recv.list[0].type,info) == def.name)
-						local.push(func);
+				for (recv in recvFunctions) {
+					if (file.isMain && file.name != recv.path)
+						continue;
+					if (getRecvName(recv.decl.recv.list[0].type,info) == def.name)
+						local.push(recv.decl);
 						
 				}
 				//rename conflicts
@@ -346,7 +346,6 @@ function main(data:DataType) {
 						false;
 				}
 				for (decl in local) {
-					
 					if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
 						decl.name.name = "_" + decl.name.name;
 					var func = typeFunction(decl,info,restrictedNames,isAbstract);
@@ -1082,12 +1081,19 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							for (i in 0...spec.names.length) {
 								var expr = typeExpr(spec.values[i], info);
 								var name = nameIdent(spec.names[i].name, info, false, false,false);
+								var t = typeof(spec.type);
+								if (isAnyInterface(t)) {
+									expr = macro Go.toInterface($expr);
+								}
+								if (isAnyInterface(typeof(spec.values[i]))) {
+									expr = macro Go.fromInterface($expr);
+								}
 								info.localVars[name] = true;
 								{
 									name: name,
 									type: type,
 									isFinal: spec.constants[i],
-									expr: i < spec.values.length ? expr : type != null ? defaultValue(typeof(spec.type),info) : null,
+									expr: i < spec.values.length ? expr : type != null ? defaultValue(t,info) : null,
 								};
 							}
 						]);
@@ -1378,10 +1384,14 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 
 						var typeX = typeof(stmt.lhs[i]);
 						var typeY = typeof(stmt.rhs[i]);
+						if (isAnyInterface(typeX)) {
+							y = macro Go.toInterface($y);
+						}
+						if (isAnyInterface(typeY)) {
+							var ct = toComplexType(typeX,info);
+							y = macro Go.fromInterface(($y : $ct));
+						}
 						switch typeX {
-							case interfaceValue(numMethods):
-								if (numMethods == 0)
-									y = macro Go.toInterface($y);
 							case named(_, underlying):
 								if (op != OpAssign) {
 									var ct = toComplexType(underlying,info);
@@ -1390,11 +1400,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							default:
 						}
 						switch typeY {
-							case interfaceValue(numMethods):
-								if (numMethods == 0) {
-									var ct = toComplexType(typeX,info);
-									y = macro Go.fromInterface(($y : $ct));
-								}
 							case named(_, underlying):
 								if (op != OpAssign) {
 									var ct = toComplexType(underlying,info);
@@ -1439,6 +1444,13 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					name = newName;
 					var t = typeof(stmt.rhs[i]);
 					info.localVars[name] = true; //set local name
+					//any interface
+					if (isAnyInterface(typeof(stmt.lhs[i]))) {
+						expr = macro Go.toInterface($expr);
+					}
+					if (isAnyInterface(typeof(stmt.rhs[i]))) {
+						expr = macro Go.fromInterface($expr);
+					}
 					vars.push({
 						name: name,
 						type: toComplexType(t,info),
@@ -2835,20 +2847,22 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var meta:Metadata = null;
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
-		info.thisName = varName;
-		switch block.expr {
-			case EBlock(exprs):
-				if (isPointer(typeof(decl.recv.list[0].type))) {
-					exprs.unshift(macro var $varName = Go.pointer(this));
-				} else {
-					if (isAbstract) {
-						exprs.unshift(macro var $varName = this);
-					}else{
-						exprs.unshift(macro var $varName = this.__copy__());
+		if (varName != "") {
+			info.thisName = varName;
+			switch block.expr {
+				case EBlock(exprs):
+					if (isPointer(typeof(decl.recv.list[0].type))) {
+						exprs.unshift(macro var $varName = Go.pointer(this));
+					} else {
+						if (isAbstract) {
+							exprs.unshift(macro var $varName = this);
+						}else{
+							exprs.unshift(macro var $varName = this.__copy__());
+						}
 					}
-				}
-				block.expr = EBlock(exprs);
-			default:
+					block.expr = EBlock(exprs);
+				default:
+			}
 		}
 	}
 	var doc = getDoc(decl);

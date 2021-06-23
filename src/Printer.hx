@@ -1,3 +1,4 @@
+import haxe.macro.Expr.TypeParam;
 import haxe.macro.Expr;
 using StringTools;
 
@@ -13,6 +14,21 @@ class Printer extends haxe.macro.Printer {
 					.replace("\r", "\\r")
 					.replace("'", "\\'")
 					.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
+	}
+	override function printTypePath(tp:TypePath):String {
+		removeExprParams(tp.params);
+		return super.printTypePath(tp);
+	}
+
+	function removeExprParams(params:Null<Array<TypeParam>>) {
+		if (params == null)
+			return;
+		for (param in params) {
+			switch param {
+				case TPExpr(_): params.remove(param);
+				default:
+			}
+		}
 	}
 
 	override function printExpr(e:Expr):String {

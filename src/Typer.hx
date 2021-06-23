@@ -87,6 +87,19 @@ function main(data:DataType) {
 		{path: ["stdgo", "GoString"], alias: "",doc: ""},
 		{path: ["stdgo", "Pointer"],alias: "",doc: ""},
 	];
+	//seperate out main files into own unique package
+	for (pkg in data.pkgs) {
+		if (pkg.name == "main") {
+			for (file in pkg.files) {
+				data.pkgs.push({
+					files: [file],
+					name: pkg.name,
+					path: pkg.path,
+				});
+			}
+			data.pkgs.remove(pkg);
+		}
+	}
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -2062,7 +2075,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "StarExpr":
 			var e:Ast.StarExpr = e;
-			pointer(typeof(e.type));
+			typeof(e.type);
 		case "UnaryExpr":
 			var e:Ast.UnaryExpr = e;
 			typeof(e.type);
@@ -2235,7 +2248,7 @@ private function toComplexType(e:GoType,info:Info):ComplexType {
 			var ct = toComplexType(elem,info);
 			TPath({pack: [],name: "Chan",params: [TPType(ct)]});
 		case struct(fields):
-			TAnonymous([
+			fields.length == 0 ? TPath({pack: [], name: "Dynamic"}) : TAnonymous([
 				for (field in fields) {
 					name: nameIdent(field.name,info,false,false),
 					pos: null,
@@ -2793,6 +2806,9 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 			}
 		default:
 	}
+	/*var t = typeof(expr);
+	if (isPointer(t))
+		return x.expr;*/
 	return (macro $x.value).expr; // pointer code
 }
 

@@ -147,7 +147,7 @@ class Go {
 								}
 								slice;
 							};
-						case "Vector":
+						case "VectorData":
 							throw("cannot make GoArray must be type generated");
 						case "MapData":
 							p = {name: "GoMap",pack: [], params: p.params};
@@ -549,14 +549,25 @@ class Go {
 				switch t {
 					case TAbstract(t, params):
 						var t = t.get();
-						if (t.name == "Slice") {
-							return macro {
-								var _offset_ = ${e1}.getOffset();
-								var e2 = (${e2} : GoInt).toBasic();
-								var _address_ = ${e1}._address_ + _offset_ + e2;
-								new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
-									(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_));
-							};
+						switch t.name {
+							case "Slice":
+								return macro {
+									var _offset_ = ${e1}.getOffset();
+									var e2 = (${e2} : GoInt).toBasic();
+									var _address_ = ${e1}._address_ + _offset_ + e2;
+									new stdgo.Pointer(
+										new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
+										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_,1)
+									);
+								};
+							case "GoArray":
+								return macro {
+									var _address_ = ${e1}._address_;
+									new stdgo.Pointer(
+										new stdgo.Pointer.PointerData(() -> $expr,
+										(v) -> $expr = v, _address_,2)
+									);
+								}
 						}
 					default:
 				}

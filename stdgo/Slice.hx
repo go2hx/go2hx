@@ -12,7 +12,7 @@ import stdgo.StdGoTypes.GoByte;
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
-	// pretend to be pointer if neeeded
+	// used for underlying pointer system
 	public var _address_(get, never):Int;
 
 	@:from

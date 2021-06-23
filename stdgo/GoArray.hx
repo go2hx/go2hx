@@ -7,24 +7,53 @@ import haxe.Rest;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 
+
+private class VectorData<T> {
+	public var vector:Vector<T>;
+
+	public var length(get, never):Int;
+
+	public var _address_:Int;
+
+	private static var _addressCounter:Int = 0;
+	
+	function get_length():Int {
+		return vector.length;
+	}
+	public function new(length) {
+		vector = new Vector<T>(length);
+		_address_ = _addressCounter++;
+	}
+	public inline function get(i:Int):T
+		return vector.get(i);
+	public inline function set(i:Int,value:T):T
+		return vector.set(i,value);
+}
+
 @:generic
-abstract GoArray<T>(Vector<T>) from Vector<T> {
+abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
+
+	public var _address_(get, never):Int;
+
+	private inline function get__address_():Int {
+		return this._address_;
+	}
 
 	private function get_length():GoInt {
 		return this.length;
 	}
 
 	public inline function iterator() {
-		return new VectorIterator(this);
+		return new VectorIterator(this.vector);
 	}
 
 	inline public function keyValueIterator():KeyValueIterator<GoInt, T> {
-		return new GoArrayKeyValueIterator(this);
+		return new GoArrayKeyValueIterator(this.vector);
 	}
 
 	public inline function new(args:Rest<T>) {
-		this = new Vector<T>(args.length);
+		this = new VectorData<T>(args.length);
 		for (i in 0...args.length) {
 			this.set(i, args[i]);
 		}
@@ -52,12 +81,12 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 			high = length.toBasic();
 		var length = high - low;
 		var slice = new Slice<T>();
-		slice.setUnderlying(this, pos.toBasic(), length.toBasic());
+		slice.setUnderlying(this.vector, pos.toBasic(), length.toBasic());
 		return slice;
 	}
 
 	public inline function setVector(vector:Vector<T>) {
-		this = vector;
+		this.vector = vector;
 	}
 
 	public inline function toArray():Array<T> {
@@ -65,15 +94,15 @@ abstract GoArray<T>(Vector<T>) from Vector<T> {
 	}
 
 	public inline function toVector():Vector<T> {
-		return this;
+		return this.vector;
 	}
 
 	public inline function replace(value:Vector<T>) {
-		this = value;
+		this.vector = value;
 	}
 
 	public inline function setSize(length:Int) {
-		this = new Vector<T>(length);
+		this = new VectorData<T>(length);
 	}
 
 	public function copy() {

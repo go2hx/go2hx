@@ -990,19 +990,11 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	} else { // ASSIGN
 		switch body.expr {
 			case EBlock(exprs):
-				if (key != null) {
-					if (info.hasDefer) {
-						exprs.unshift(macro $i{keyString} = _obj.key); // no diffrence with assign
-					} else {
-						exprs.unshift(macro $i{keyString} = _obj.key);
-					}
-				}
-				if (value != null) {
-					if (info.hasDefer) {
-						exprs.unshift(macro $i{valueString} = _obj.value); // no diffrence with assign
-					} else {
-						exprs.unshift(macro $i{valueString} = _obj.value);
-					}
+				if (stmt.tok == ASSIGN) {
+					if (key != null)
+						exprs.unshift(macro $key = _obj.key); // no diffrence with assign
+					if (value != null)
+						exprs.unshift(macro $value = _obj.value); // no diffrence with assign
 				}
 			default:
 		}
@@ -1449,7 +1441,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				throw "unknown type assign type: " + stmt;
 			}
 		case DEFINE: // var expr = x;
-			info.lengths = [];
 			if (stmt.lhs.length == stmt.rhs.length) {
 				// normal vars
 				var vars:Array<Var> = [];
@@ -1643,11 +1634,10 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 		// array
 		addImport("stdgo.GoArray", info);
 		var len = typeExpr(expr.len, info);
-		info.lengths.unshift(len);
 		return TPath({
 			pack: [],
 			name: "GoArray",
-			params: type != null ? [TPType(type)] : [],
+			params: type != null ? [TPType(type),TPExpr(len)] : [],
 		});
 	}
 	// slice
@@ -2472,39 +2462,13 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		switch type {
 			case TPath(tp):
 				p = tp;
-				if (p.name == "GoArray" && p.params != null && p.params.length == 1) {
-					var len = info.lengths.shift();
-					if (len != null) {
-						switch len.expr {
-							case EConst(c):
-								switch c {
-									case CInt(v):
-										if (isKeyValueExpr(expr.elts)) {
-											var exprs = getKeyValueExpr(expr.elts, info);
-											if (exprs == null) {
-												return (macro null).expr; // TODO: FIX
-												// throw "composite lit unknown type, keyvalue expr is null";
-											}
-											return (macro Go.setKeys($a{exprs})).expr;
-										}
-										getParams();
-										if (p == null)
-											throw "type path new is null: " + expr;
-										var len = Std.parseInt(v);
-										var dif = len - params.length;
-										if (dif > 0) {
-											var a:Ast.ArrayType = expr.type;
-											var elt = typeExprType(a.elt, info);
-											for (i in 0...dif)
-												params.push(defaultComplexTypeValue(elt,info));
-										}
-										return (macro new $p($a{params})).expr;
-									case CIdent(s):
-										trace("TODO: know constant values");
-									default:
-								}
-							default:
-						}
+				if (p.name == "GoArray" && p.params != null && p.params.length == 2) {
+					var len = switch p.params[1] {
+						case TPExpr(e): e;
+						default: throw "length param unknown: " + p.params[1];
+					}
+					if (expr.elts.length == 0) {
+						return defaultComplexTypeValue(type,info).expr;
 					}
 				}
 
@@ -3053,11 +3017,29 @@ private function getBody(path:String):String {
 private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
 	return switch ct {
 		case TPath(p):
-			if (p.pack.length == 0 && p.name == "AnyInterface") {
-				macro null;
-			}else{
-				macro new $p();
+			if (p.pack.length == 0) {
+				switch p.name {
+					case "AnyInterface":
+						return macro null;
+					case "GoArray":
+						var param:ComplexType = null;
+						switch p.params[0] {
+							case TPType(t):
+								param = t;
+							default:
+						}
+						return macro new $p(...[for (i in 0...2) ${defaultComplexTypeValue(param,info)}]);
+					case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
+						return macro (0 : $ct);
+					case "GoComplex64","GoComplex128":
+						return macro new $p(0,0);
+					case "Bool":
+						return macro false;
+					case "GoString":
+						return macro ("" : GoString);
+				}
 			}
+			macro new $p();
 		case TFunction(_, _):
 			macro null;
 		case TAnonymous(fields):
@@ -3120,7 +3102,7 @@ private function defaultValue(type:GoType,info:Info):Expr {
 				case uint16_kind: macro (0 : GoUInt16);
 				case uint32_kind: macro (0 : GoUInt32);
 				case uint64_kind: macro (0 : GoUInt64);
-				case uintptr_kind: macro null;
+				case uintptr_kind: macro (0 : GoUintptr);
 				case float32_kind: macro (0 : GoFloat32);
 				case float64_kind: macro (0 : GoFloat64);
 				case complex64_kind: macro new GoComplex64(0,0);
@@ -3631,7 +3613,6 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 
 private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
 	var type:ComplexType = null;
-	info.lengths = [];
 	var interfaceBool = false;
 	if (value.type.id != null) {
 		type = typeExprType(value.type, info);
@@ -3845,7 +3826,6 @@ class Info {
 	public var count:Int = 0;
 	public var restricted:Array<String> = null;
 	public var thisName:String = "";
-	public var lengths:Array<Expr> = [];
 	public var deferBool:Bool = false;
 	public var hasDefer:Bool = false;
 	public var funcName:String = "";
@@ -3873,7 +3853,6 @@ class Info {
 	public inline function clone() {
 		var info = new Info();
 		info.thisName = thisName;
-		info.lengths = lengths;
 		info.returnTypes = returnTypes;
 		info.returnComplexTypes = returnComplexTypes;
 		info.returnNames = returnNames;

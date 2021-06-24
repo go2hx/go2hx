@@ -882,8 +882,18 @@ class Go {
 
 	public static macro function set(params:Array<Expr>) {
 		var t = Context.follow(Context.getExpectedType());
-		var ct = Context.toComplexType(t);
 		var fields = [];
+		var isPointer = false;
+		switch t {
+			case TAbstract(ta, params):
+				var ta = ta.get();
+				if (ta.name == "Pointer") {
+					t = params[0];
+					isPointer = true;
+				}
+			default:
+		}
+		var ct = Context.toComplexType(t);
 		switch t {
 			case TAnonymous(a):
 				fields = a.get().fields;
@@ -902,18 +912,22 @@ class Go {
 				default:
 			}
 		}
+		var e:Expr = null;
 		switch ct {
 			case TPath(p):
-				return macro new $p($a{params});
+				e = macro new $p($a{params});
 			case TFunction(args, ret):
-				return macro null;
+				e = macro null;
 			case TAnonymous(fields):
 				var anon = createAnonType(Context.currentPos(), fields, params);
 				//trace(new haxe.macro.Printer().printExpr(anon));
-				return anon;
+				e = anon;
 			default:
 				throw("unknown go set type: " + t);
 		}
+		if (isPointer)
+			e = macro Go.pointer($e);
+		return e;
 	}
 
 	public static macro function setKeys(expr:Expr) {

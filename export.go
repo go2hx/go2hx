@@ -606,7 +606,6 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-		data["typeLit"] = parseType(checker.TypeOf(node.Type))
 	case *ast.SelectorExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.IndexExpr:
@@ -633,8 +632,7 @@ func parseData(node interface{}) map[string]interface{} {
 		data["typeY"] = parseType(checker.TypeOf(node.Y))
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.KeyValueExpr:
-		data["typeKey"] = parseType(checker.TypeOf(node.Key))
-		data["typeValue"] = parseType(checker.TypeOf(node.Value))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset

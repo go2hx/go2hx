@@ -162,8 +162,7 @@ typedef KeyValueExpr = {
 	colon:Pos,
 	value:Expr,
 
-	typeValue:ExprType,
-	typeKey:ExprType,
+	type:ExprType,
 };
 
 typedef ArrayType = {

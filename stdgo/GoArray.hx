@@ -38,6 +38,9 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 
 	public var _address_(get, never):Int;
 
+	public function cap():GoInt
+		return length;
+
 	private inline function get__address_():Int {
 		return this._address_;
 	}

@@ -975,7 +975,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 					exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
 				}
 				if (key != null) {
-					trace("key: " + keyString);
 					exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
 				}
 			default:
@@ -2040,7 +2039,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "CompositeLit":
 			var e:Ast.CompositeLit = e;
-			typeof(e.typeLit);
+			typeof(e.type);
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
 			typeof(e.type);
@@ -2080,9 +2079,7 @@ private function typeof(e:Ast.Expr):GoType {
 			invalid;
 		case "KeyValueExpr":
 			var e:Ast.KeyValueExpr = e;
-			var key = typeof(e.typeKey);
-			var value = typeof(e.typeValue);
-			map(key,value);
+			map(typeof(e.key),typeof(e.value));
 		case "SliceExpr":
 			var e:Ast.SliceExpr = e;
 			typeof(e.type);
@@ -2097,7 +2094,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "MapType":
 			var e:Ast.MapType = e;
-			typeof(e.type);
+			map(typeof(e.key),typeof(e.value));
 		case "ChanType":
 			var e:Ast.ChanType = e;
 			typeof(e.type);
@@ -3011,7 +3008,7 @@ private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
 		case TPath(p):
 			if (p.pack.length == 0) {
 				switch p.name {
-					case "AnyInterface":
+					case "AnyInterface","Pointer":
 						return macro null;
 					case "GoArray":
 						var param:ComplexType = null;

@@ -904,7 +904,6 @@ private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 
 private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	info.deferBool = true;
-	info.hasDefer = true;
 	var exprs:Array<Expr> = [];
 	for (i in 0...stmt.call.args.length) {
 		var arg = typeExpr(stmt.call.args[i], info);
@@ -928,7 +927,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
-	info.hasDefer = false;
+	var hasDefer = false;
 	var body = {expr: typeBlockStmt(stmt.body, info, false, false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
@@ -969,25 +968,19 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	}
 	// both key and value
 	if (stmt.tok == DEFINE) {
+		hasDefer = true;
 		switch body.expr {
 			case EBlock(exprs):
 				if (value != null) {
-					if (info.hasDefer) {
-						exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
-					} else {
-						exprs.unshift(macro var $valueString = _obj.value);
-					}
+					exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
 				}
 				if (key != null) {
-					if (info.hasDefer) {
-						exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
-					} else {
-						exprs.unshift(macro var $keyString = _obj.key);
-					}
+					trace("key: " + keyString);
+					exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
 				}
 			default:
 		}
-	} else { // ASSIGN
+	}else{ // ASSIGN
 		switch body.expr {
 			case EBlock(exprs):
 				if (stmt.tok == ASSIGN) {
@@ -1000,7 +993,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		}
 	}
 	var e = macro for (_obj in $x.keyValueIterator()) $body;
-	if (info.hasDefer) {
+	if (hasDefer) {
 		var inits:Array<Expr> = [];
 		if (keyString != "_")
 			inits.push(macro var $keyString);
@@ -1323,7 +1316,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
-	info.hasDefer = false;
+	var hasDefer = false;
 	var body = toExpr(typeBlockStmt(stmt.body, info, false, false));
 	if (body.expr == null)
 		body = macro {};
@@ -2556,7 +2549,6 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 
 private function funcReset(info:Info) {
 	info.deferBool = false;
-	info.hasDefer = false;
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
@@ -3827,7 +3819,6 @@ class Info {
 	public var restricted:Array<String> = null;
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
-	public var hasDefer:Bool = false;
 	public var funcName:String = "";
 	public var renameTypes:Map<String, String> = [];
 	public var returnNames:Array<String> = [];
@@ -3859,7 +3850,6 @@ class Info {
 		info.returnType = returnType;
 		info.returnNamed = returnNamed;
 		info.deferBool = deferBool;
-		info.hasDefer = hasDefer;
 		info.count = count;
 		info.funcName = funcName;
 		info.renameTypes = renameTypes;

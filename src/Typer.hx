@@ -1625,7 +1625,13 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	if (expr.len != null) {
 		// array
 		addImport("stdgo.GoArray", info);
-		var len = toExpr(EConst(CInt(expr.len.value)));
+		var len:Expr = null;
+		switch expr.len.id {
+			case "BasicLit":
+				len = toExpr(EConst(CInt(expr.len.value)));
+			case "Ellipsis":
+				len = toExpr(EConst(CInt("0")));
+		}
 		return TPath({
 			pack: [],
 			name: "GoArray",
@@ -2462,6 +2468,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						case EConst(c):
 							switch c {
 								case CInt(value):
+									trace("int value: " + value);
 									lenInt = Std.parseInt(value);
 								default:
 							}
@@ -2475,8 +2482,11 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 							case TPType(t): t;
 							default: throw "array param unknown: " + p.params[0];
 						}
-						for (i in 0...lenInt - expr.elts.length) {
-							params.push(defaultComplexTypeValue(ct,info));
+						if (lenInt > 0) {
+							var sum = lenInt - expr.elts.length;
+							for (i in 0...sum) {
+								params.push(defaultComplexTypeValue(ct,info));
+							}
 						}
 						return (macro new $p($a{params})).expr;
 					}
@@ -3748,7 +3758,7 @@ private function getRestrictedName(name:String,info:Info):String {
 				return file.name + "." + def.name;
 		}
 	}
-	return "#NOT_FOUND";
+	return name;
 }
 
 private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool,restrictCheck:Bool=true):String {

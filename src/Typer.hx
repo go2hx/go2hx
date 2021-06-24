@@ -1625,7 +1625,7 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	if (expr.len != null) {
 		// array
 		addImport("stdgo.GoArray", info);
-		var len = typeExpr(expr.len, info);
+		var len = toExpr(EConst(CInt(expr.len.value)));
 		return TPath({
 			pack: [],
 			name: "GoArray",
@@ -2457,8 +2457,28 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						case TPExpr(e): e;
 						default: throw "length param unknown: " + p.params[1];
 					}
-					if (expr.elts.length == 0) {
+					var lenInt = 0; 
+					switch len.expr {
+						case EConst(c):
+							switch c {
+								case CInt(value):
+									lenInt = Std.parseInt(value);
+								default:
+							}
+						default:
+					}
+					if (expr.elts.length == lenInt) {
 						return defaultComplexTypeValue(type,info).expr;
+					}else{
+						getParams();
+						var ct = switch p.params[0] {
+							case TPType(t): t;
+							default: throw "array param unknown: " + p.params[0];
+						}
+						for (i in 0...lenInt - expr.elts.length) {
+							params.push(defaultComplexTypeValue(ct,info));
+						}
+						return (macro new $p($a{params})).expr;
 					}
 				}
 

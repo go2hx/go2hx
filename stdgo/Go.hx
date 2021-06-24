@@ -318,7 +318,7 @@ class Go {
 					case "Slice":
 						return macro $expr.length == 0;
 					case "Pointer":
-						return macro Go.isNull($expr.value);
+						return macro $expr == null || Go.isNull($expr.value);
 					case "AnyInterface":
 						return macro Go.isNull($expr.value);
 					case "GoArray":

@@ -529,7 +529,6 @@ function main(data:DataType) {
 }
 
 private function typeAbstractInterfaceWrappers(def:TypeDefinition,data:FileType) {
-	
 	switch def.kind {
 		case TDAbstract(_, _, _):
 			var clType = TPath({name: def.name,pack: def.pack});
@@ -1044,7 +1043,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
 					var name = className(spec.name.name,info);
-					spec.name.name += "_" + info.funcName + "_";
+					spec.name.name += "_" + info.funcName + "_" + (info.count++);
 					info.retypeList[name] = TPath({
 						name: className(spec.name.name,info),
 						pack: [],
@@ -2468,7 +2467,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						case EConst(c):
 							switch c {
 								case CInt(value):
-									trace("int value: " + value);
 									lenInt = Std.parseInt(value);
 								default:
 							}
@@ -3047,7 +3045,13 @@ private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
 								param = t;
 							default:
 						}
-						return macro new $p(...[for (i in 0...2) ${defaultComplexTypeValue(param,info)}]);
+						var len:Expr = null;
+						switch p.params[1] {
+							case TPExpr(e):
+								len = e;
+							default:
+						}
+						return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,info)}]);
 					case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
 						return macro (0 : $ct);
 					case "GoComplex64","GoComplex128":
@@ -3407,8 +3411,40 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 		var ct = TPath(parseTypePath(imp.path,imp.name,info));
 		implicits.push(addAbstractToField(ct,wrapperType));
 	}
-
 	var abstractType = TPath({pack: [],name: name});
+	var fields:Array<Field> = [];
+	switch type {
+		case TPath(p):
+			if (p.name == "GoArray" && p.pack.length == 0) {
+
+				var param:ComplexType = null;
+				switch p.params[0] {
+					case TPType(t):
+						param = t;
+					default:
+				}
+				var len:Expr = null;
+				switch p.params[1] {
+					case TPExpr(e):
+						len = e;
+					default:
+				}
+				//return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,info)}]);
+
+				var value = defaultComplexTypeValue(param,info);
+
+				fields.push({
+					name: "new",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [{name: "args",type: TPath({pack: ["haxe"],name: "Rest",params: [p.params[0]]})}],
+						expr: macro this = new $p(...(args.toArray().concat([for(i in 0...$len - args.length) $value]))),
+					}),
+				});
+			}
+		default:
+	}
 	return {
 		name: name,
 		pos: null,
@@ -3459,7 +3495,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 				expr: macro return new $wrapperType(this),
 			}),
 			access: [APublic,AInline],
-		}].concat(implicits),
+		}].concat(implicits).concat(fields),
 		kind: TDAbstract(type,[type],[type])
 	};
 }
@@ -3690,7 +3726,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			if (expr == null)
 				continue;
 			var name = nameIdent(value.names[i].name, info, false, false);
-			var doc:String = getComment(value) + getDoc(value) + getSource(value, info);
+			var doc:String = getComment(value) + getDoc(value); //+ getSource(value, info);
 			var access = [];//typeAccess(value.names[i]);
 			if (value.constants[i])
 				access.push(AFinal);

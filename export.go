@@ -430,7 +430,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Map":
 		s := node.(*types.Map)
 		data["elem"] = parseType(s.Elem())
-		data["key"] = s.Key()
+		data["key"] = parseType(s.Key())
 	case "Signature":
 		s := node.(*types.Signature)
 		data["variadic"] = s.Variadic()

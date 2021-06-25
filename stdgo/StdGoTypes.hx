@@ -1419,7 +1419,34 @@ class AnyInterfaceData {
 }
 @:forward
 @:forward.new
-abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {}
+abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
+	@:op(A == B) private static function eq(a:AnyInterface, b:AnyInterface):Bool {
+		if (!a.type.assignableTo(b.type)) {
+			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
+		}
+		return switch a.type.gt {
+			case GT_bool,GT_string,GT_int,GT_int8,GT_int16,GT_int32,GT_int64,GT_uint,GT_uint8,GT_uint16,GT_uint32,GT_uint64,GT_uintptr:
+				a.value == b.value;
+			case GT_namedType(_, _, _, _, _, type):
+				a.type.gt = type;
+				switch b.type.gt {
+					case GT_namedType(_, _, _, _, _, type2):
+						b.type.gt = type2;
+						return eq(a,b);
+					default:
+				}
+				true;
+			case GT_struct(fields):
+				switch b.type.gt {
+					case GT_struct(fields2):
+						return false;
+					default: throw '';
+				}
+			default:
+				throw "unknown type: " + a.type.gt;
+		}
+	}
+}
 
 //holds anon data
 @:forward

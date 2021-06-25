@@ -342,57 +342,7 @@ class Go {
 	}
 
 	public static macro function equals(a:Expr, b:Expr) {
-		var type = Context.follow(Context.typeof(a));
-		var type2 = Context.follow(Context.typeof(b));
-		var exprs:Array<Expr> = [];
-		switch a.expr {
-			case ENew(t, params):
-				exprs.push(macro var a = $a);
-				exprs.push(macro var b = $b);
-				a = macro $i{"a"};
-				b = macro $i{"b"};
-			default:
-		}
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				switch t.name {
-					case "GoArray", "Slice":
-						exprs.push(macro if ($a.length != $b.length)
-							return false);
-						exprs.push(macro for (i in 0...$a.length.toBasic()) {
-							if (!Go.equals($a[i], $b[i]))
-								return false;
-						});
-					default:
-				}
-			case TInst(t, params):
-				var t = t.get();
-				var fields = t.fields.get();
-				for (field in fields) {
-					if (field.name == "_address_" || field.name == "_" || field.name == "__")
-						continue;
-					switch field.type {
-						case TFun(args, ret):
-
-						default:
-							var fieldName = field.name;
-							exprs.push(macro if ($a.$fieldName != $b.$fieldName)
-								return false);
-					}
-				}
-			default:
-		}
-		if (!Context.unify(type,type2))
-			return macro false;
-		if (exprs.length == 0)
-			return macro $a == $b;
-		exprs.push(macro return true);
-		return macro {
-			function a()
-				$b{exprs};
-			a();
-		};
+		return macro Go.toInterface($a) == Go.toInterface($b);
 	}
 	public static macro function fromInterface(expr) {
 		function parens(expr) {
@@ -658,6 +608,7 @@ class Go {
 	}
 
 	static var marked = new Map<String,Bool>();
+	static var markedEmpty = true;
 	
 	public static function gtDecode(t:haxe.macro.Type):Expr {
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
@@ -745,13 +696,13 @@ class Go {
 				}
 			case TInst(ref, params):
 				var ref = ref.get();
-				if (!marked.exists(ref.module)) {
+				if (!marked.exists(ref.module + "." + ref.name)) {
 					var init = false;
-					if (marked == null) {
-						marked = new Map<String,Bool>();
+					if (markedEmpty) {
+						markedEmpty = false; 
 						init = true;
 					}
-					marked[ref.module] = true;
+					marked[ref.module + "." + ref.name] = true;
 					if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_chan($a{gtParams(params)});
 					}else{
@@ -762,7 +713,8 @@ class Go {
 						}
 					}
 					if (init) {
-						marked = null;
+						markedEmpty = true;
+						marked.clear();
 					}
 				}
 			case TAnonymous(a):
@@ -799,6 +751,8 @@ class Go {
 				);
 			case TLazy(f):
 				ret = gtDecode(f());
+			case TEnum(_, _):
+				ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 			default:
 				throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 		}

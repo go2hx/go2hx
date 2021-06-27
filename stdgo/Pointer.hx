@@ -26,30 +26,26 @@ abstract Pointer<T>(PointerData<T>) {
 	}
 
 	@:op(A == B) private static function equals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
-		return a.address() == b.address() && a.addressType() == b.addressType();
+		return a.address() == b.address();
 	}
 
 	@:op(A != B) private static function notEquals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
-		return a.address() != b.address() || a.addressType() != b.addressType();
+		return a.address() != b.address();
 	}
 
 	public inline function address()
 		return this.address;
-	public inline function addressType()
-		return this.addressType;
 }
 
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;
 	public var address:Int;
-	public var addressType:Int;
 
-	public function new(get, set, address,addressType=0) {
+	public function new(get, set, address) {
 		this.get = get;
 		this.set = set;
 		this.address = address;
-		this.addressType = addressType;
 	}
 
 	public inline function toString() {

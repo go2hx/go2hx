@@ -2260,10 +2260,9 @@ private function toComplexType(e:GoType,info:Info):ComplexType {
 					}
 				case invalid:
 				default:
-					trace(params);
-					throw "unknown params";
+					args.push(toComplexType(params,info));
 			}
-			var ret:ComplexType = TPath({pack: [],name: "Void"});
+			var ret:ComplexType = null;
 			switch results {
 				case tuple(_, vars):
 					if (vars.length == 1) {
@@ -2276,6 +2275,8 @@ private function toComplexType(e:GoType,info:Info):ComplexType {
 				default:
 					ret = toComplexType(results,info);
 			}
+			if (ret == null)
+				ret = TPath({pack: [],name: "Void"});
 			TFunction(args,ret);
 		case varValue(name, type):
 			toComplexType(type,info);
@@ -2454,6 +2455,9 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		return (macro Go.set($a{params})).expr;
 	} else {
 		type = typeExprType(expr.type, info);
+		if (isKeyValueExpr(expr.elts)) {
+			return (macro null).expr; //TODO
+		}
 		switch type {
 			case TPath(tp):
 				p = tp;
@@ -2621,6 +2625,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		}
 		return null;
 	}
+	var typeX = typeof(expr.typeX);
+	var typeY = typeof(expr.typeY);
 	switch op {
 		case OpXor:
 			return EBinop(op, x, y);
@@ -2628,7 +2634,17 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			var value = isNil();
 			if (value != null)
 				return (macro Go.isNull($value)).expr;
-			return (macro Go.equals($x, $y)).expr;
+			var t = typeX;
+			switch t {
+				case named(_,underlying):
+					t = underlying;
+				default:
+			}
+			switch t {
+				case struct(_):
+					return (macro Go.toInterface($x) == Go.toInterface($y)).expr;
+				default:
+			}
 		case OpNotEq:
 			var value = isNil();
 			if (value != null)
@@ -2638,8 +2654,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
 		default:
 	}
-	var typeX = typeof(expr.typeX);
-	var typeY = typeof(expr.typeY);
 	switch typeX {
 		case named(_, underlying):
 			if (op != OpAssign) {

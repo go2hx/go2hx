@@ -1,11 +1,13 @@
 package stdgo;
 
-import stdgo.StdGoTypes.GoInt64;
-import stdgo.StdGoTypes.GoRune;
-import stdgo.StdGoTypes.GoInt;
+
+import stdgo.StdGoTypes.GoInt32;
 import stdgo.StdGoTypes.GoByte;
+import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoUInt8;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoRune;
 
 @:forward
 @:access(StringTools)
@@ -28,7 +30,7 @@ abstract GoString(String) from String to String {
 		return String.fromCharCode(x.toBasic().low);
 	}
 	@:op([])
-	public inline function get(index:GoInt)
+	public inline function get(index:GoInt):GoInt32
 		return this.charCodeAt(index.toBasic());
 
 	public function toString():String
@@ -53,8 +55,8 @@ abstract GoString(String) from String to String {
 		return new StringKeyValueIterator(this);
 	}
 
-	public function slice(start:GoInt, end:GoInt = 0):GoString {
-		if (end == 0)
+	public function slice(start:GoInt, end:GoInt = -1):GoString {
+		if (end == -1)
 			end = this.length;
 		return this.substring(start.toBasic(), end.toBasic());
 	}

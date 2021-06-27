@@ -166,6 +166,94 @@ class Value implements StructType {
 		}
 		return "";
 	}
+	public function index(i:GoInt):Value {
+		return switch type().gt {
+			case GT_array(elem, _), GT_slice(elem): new Value((val : Dynamic).get(i),new Type(elem));
+			case GT_string: null; //new Value((val : Dynamic).get(i),GT_int32);
+			default: throw "not supported";
+		}
+	}
+	public function numField():GoInt {
+		var type = type().gt;
+		switch type {
+			case GT_namedType(_, _, _, _, _, t):
+				type = t;
+			default:
+		}
+		switch type {
+			case GT_struct(fields):
+				return fields.length;
+			default:
+		}
+		throw "unsupported";
+	}
+	public function field(i:GoInt):Value {
+		var type = type().gt;
+		switch type {
+			case GT_namedType(_, _, _, _, _, t):
+				type = t;
+			default:
+		}
+		switch type {
+			case GT_struct(fields):
+				switch fields[i.toBasic()] {
+					case GT_field(name, type, _):
+						return new Value(Reflect.field(val,name),new Type(type));
+					default:
+				}
+			default:
+		}
+		throw "unsupported";
+	}
+	public function pointer():GoUIntptr {
+		return 0;
+	}
+	public function mapIndex(key:Value):Value {
+		return switch type().gt {
+			case GT_map(_, value):
+				new Value((val : GoMap<Dynamic,Dynamic>).get(key.val),new Type(value));
+			default:
+				throw "not a map";
+		}
+	}
+	public function mapKeys():Slice<Value> {
+		var val:GoMap<Dynamic,Dynamic> = val;
+		switch type().gt {
+			case GT_map(key, value):
+				var slice = new Slice<Value>(...[for (obj in val.toSlice())
+					new Value(obj.key,new Type(value))
+				]);
+				return slice;
+			default:
+				throw "map index incorrect type: " + val.type.gt;
+		}
+	}
+	public function elem():Value {
+		var k = kind();
+		switch k {
+			case ptr:
+				if (val == null)
+					return new Value();
+				switch type().gt {
+					case GT_ptr(elem):
+						return new Value((val : Pointer<Dynamic>),new Type(elem));
+					default:
+				}
+			case interface_:
+				return null; //TODO
+		}
+		throw new ValueError("reflect.Value.Elem",k);
+	}
+	public function len():GoInt {
+		var k = kind();
+		switch k {
+			case array,chan,slice,map:
+				return (val : Dynamic).length;
+			case toString:
+				return (val : Dynamic).length;
+		}
+		throw "not supported";
+	}
 }
 
 class ValueError implements StructType implements stdgo.StdGoTypes.Error {
@@ -195,73 +283,6 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 		}
 		return "reflect: call of " + this.method + " on " + this.kind.toString() + " Value";
 	}
-}
-function deepEqual(a1:AnyInterface, a2:AnyInterface):Bool {
-	var value:Dynamic = a1.value;
-	var value2:Dynamic = a2.value;
-	if (value == value)
-		return true;
-	if (value == null || value2 == null) {
-		return false;
-	}
-	var t = Type.typeof(value);
-	switch t {
-		case TObject:
-			return compareStruct(value, value2);
-		case TClass(c):
-			var name = Type.getClassName(c);
-			switch name {
-				case "stdgo.SliceData", "stdgo._Slice.SliceData":
-					if (value.length != value.length)
-						return false;
-					for (i in 0...value.length) {
-						if (!deepEqual(value.get(i), value2.get(i))) {
-							trace("a1 not equal: " + a1);
-							return false;
-						}
-					}
-					return true;
-				case "stdgo.AnyInterfaceData", "stdgo._StdGoTypes.AnyInterfaceData":
-					if (value.typeName != value2.typeName)
-						return false;
-					return deepEqual(value.value, value2.value);
-				case "stdgo.PointerData":
-					return deepEqual(value.get(), value2.get());
-				case "haxe._Int64.___Int64":
-					return haxe.Int64.eq(value, value2);
-				case "stdgo.Complex":
-					return value.real == value2.real && value.imag == value2.imag;
-				default:
-					// trace("unknown name: " + name);
-			}
-			return compareStruct(value, value2);
-		case TFunction:
-			return Reflect.compareMethods(value, value2);
-		case TInt:
-			return value == value2;
-		case TFloat:
-			return value == value2;
-		default:
-			trace('unknown type: $t');
-	}
-	return false;
-}
-
-function compareStruct(a1:Dynamic, a2:Dynamic) {
-	// fields
-	var f1 = Reflect.fields(a1);
-	var f2 = Reflect.fields(a2);
-	if (f1.length != f2.length)
-		return false;
-	for (i in 0...f1.length) {
-		if (f1[i] == "_address_")
-			continue;
-		if (!deepEqual(Reflect.field(a1, f1[i]), Reflect.field(a2, f2[i]))) {
-			trace("field not equal: " + f1[i] + " fields: " + f1);
-			return false;
-		}
-	}
-	return true;
 }
 
 function typeOf(iface:AnyInterface):Type {
@@ -305,8 +326,8 @@ private function defaultValue(typ:Type):Any {
 	}
 }
 
-function valueOf(iface:AnyInterface,type:Type):Value {
-	return new Value(iface,type);
+function valueOf(iface:AnyInterface):Value {
+	return new Value(iface,iface.type);
 }
 
 typedef Type_ = Type;
@@ -548,7 +569,7 @@ class Type {
 	public function implements_(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.Implements";
-		if (ot.kind() != Kind.interface_)
+		if (ot.kind() != interface_)
 			throw "reflect: non-interface type passed to Type.Implements";
 		return implementsMethod(ot,this);
 	}
@@ -770,11 +791,15 @@ private function implementsMethod(t:Type,v:Type):Bool {
 	return false;
 }
 
-
-@:enum abstract Kind(stdgo.StdGoTypes.GoUInt) from stdgo.StdGoTypes.GoUInt {
-	public inline function new(i:stdgo.StdGoTypes.GoUInt)
-		this = i;
-	@:to
+@:forward @:forward.new @:callable @:transitive abstract Kind(GoUInt) from GoUInt to GoUInt {
+    @:op(A++)
+    static function __postInc(a:Kind):Kind;
+    @:op(A--)
+    static function __postDec(a:Kind):Kind;
+    @:op([])
+    inline function __get(i:GoInt) return untyped this.get(i);
+    @:op([])
+    inline function __set(i:GoInt, value) return untyped this.set(i, value);
 	public function toString():GoString {
 		var idx:UInt = this.toBasic();
 		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
@@ -783,59 +808,158 @@ private function implementsMethod(t:Type,v:Type):Bool {
 		trace("r: " + r);
 		return r;
 	}
-	final invalid:GoUInt = 0;
-	final bool:GoUInt = 1;
-	final int:GoUInt = 2;
-	final int8:GoUInt = 3;
-	final int16:GoUInt = 4;
-	final int32:GoUInt = 5;
-	final int64:GoUInt = 6;
-	final uint:GoUInt = 7;
-	final uint8:GoUInt = 8;
-	final uint16:GoUInt = 9;
-	final uint32:GoUInt = 10;
-	final uint64:GoUInt = 11;
-	final uintptr:GoUInt = 12;
-	final float32:GoUInt = 13;
-	final float64:GoUInt = 14;
-	final complex64:GoUInt = 15;
-	final complex128:GoUInt = 16;
-	final _string:GoUInt = 17;
-	final unsafePointer:GoUInt = 18;
-	final chan:GoUInt = 19;
-	final interface_:GoUInt = 20;
-	final ptr:GoUInt = 21;
-	final slice:GoUInt = 22;
-	final array:GoUInt = 23;
-	final func:GoUInt = 24;
-	final map:GoUInt = 25;
-	final struct:GoUInt = 26;
+}
+final invalid : Kind = (0 : GoInt64);
+final bool : Kind = (1 : GoInt64);
+final int : Kind = (2 : GoInt64);
+final int8 : Kind = (3 : GoInt64);
+final int16 : Kind = (4 : GoInt64);
+final int32 : Kind = (5 : GoInt64);
+final int64 : Kind = (6 : GoInt64);
+final uint : Kind = (7 : GoInt64);
+final uint8 : Kind = (8 : GoInt64);
+final uint16 : Kind = (9 : GoInt64);
+final uint32 : Kind = (10 : GoInt64);
+final uint64 : Kind = (11 : GoInt64);
+final uintptr : Kind = (12 : GoInt64);
+final float32 : Kind = (13 : GoInt64);
+final float64 : Kind = (14 : GoInt64);
+final complex64 : Kind = (15 : GoInt64);
+final complex128 : Kind = (16 : GoInt64);
+final array : Kind = (17 : GoInt64);
+final chan : Kind = (18 : GoInt64);
+final func : Kind = (19 : GoInt64);
+final interface_ : Kind = (20 : GoInt64);
+final map : Kind = (21 : GoInt64);
+final ptr : Kind = (22 : GoInt64);
+final slice : Kind = (23 : GoInt64);
+final toString : Kind = (24 : GoInt64);
+final struct : Kind = (25 : GoInt64);
+final unsafePointer : Kind = (26 : GoInt64);
+
+@:structInit @:allow(github_com.go2hx.go4hx.rnd) final class Visit implements StructType {
+    public var _a1:stdgo.unsafe.Pointer = null;
+    public var _a2:stdgo.unsafe.Pointer = null;
+    public var _typ : Type_ = null;
+    public function new(?_a1, ?_a2, ?_typ) {
+        stdgo.internal.Macro.initLocals();
+        _address_ = ++Go.addressIndex;
+    }
+    public function toString() {
+        return '{' + Std.string(_a1) + " " + Std.string(_a2) + " " + Std.string(_typ) + "}";
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new Visit(_a1, _a2, _typ);
+    }
+    public var _address_ = 0;
 }
 
-final invalid:GoUInt = Kind.invalid;
-final bool:GoUInt = Kind.bool;
-final int:GoUInt = Kind.int;
-final int8:GoUInt = Kind.int8;
-final int16:GoUInt = Kind.int16;
-final int32:GoUInt = Kind.int32;
-final int64:GoUInt = Kind.int64;
-final uint:GoUInt = Kind.uint;
-final uint8:GoUInt = Kind.uint8;
-final uint16:GoUInt = Kind.uint16;
-final uint32:GoUInt = Kind.uint32;
-final uint64:GoUInt = Kind.uint64;
-final uintptr:GoUInt = Kind.uintptr;
-final float32:GoUInt = Kind.float32;
-final float64:GoUInt = Kind.float64;
-final complex64:GoUInt = Kind.complex64;
-final complex128:GoUInt = Kind.complex128;
-final _string:GoUInt = Kind._string;
-final unsafePointer:GoUInt = Kind.unsafePointer;
-final chan:GoUInt = Kind.chan;
-final interface_:GoUInt = Kind.interface_;
-final ptr:GoUInt = Kind.ptr;
-final slice:GoUInt = Kind.slice;
-final array:GoUInt = Kind.array;
-final func:GoUInt = Kind.func;
-final map:GoUInt = Kind.map;
-final struct:GoUInt = Kind.struct;
+
+function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
+    if (!v1.isValid() || !v2.isValid()) {
+        return v1.isValid() == v2.isValid();
+    };
+	if (!v1.type().implements_(v2.type()))
+		return false;
+    var hard = function(v1:Value, v2:Value):Bool {
+        if (v1.kind() == ptr) {
+			if ((v1.interface_().value : Pointer<Dynamic>).address() == (v2.interface_().value : Pointer<Dynamic>).address())
+				return false;
+		}
+        if (v1.kind() == map || v1.kind() == slice || v1.kind() == interface_) {
+            return !v1.isNil() && !v2.isNil();
+        };
+        return false;
+    };
+    if (hard(v1, v2)) {
+        
+    };
+    if (v1.kind() == array) {
+        {
+            var i:GoInt = (0 : GoInt64);
+            Go.cfor(i < v1.len(), i++, {
+                if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+                    return false;
+                };
+            });
+        };
+        return true;
+    } else if (v1.kind() == slice) {
+        if (v1.isNil() != v2.isNil()) {
+            return false;
+        };
+        if (v1.len() != v2.len()) {
+            return false;
+        };
+        if (v1.pointer() != v2.pointer()) {
+            return true;
+        };
+        {
+            var i:GoInt = (0 : GoInt64);
+            Go.cfor(i < v1.len(), i++, {
+                if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+                    return false;
+                };
+            });
+        };
+        return true;
+    } else if (v1.kind() == interface_) {
+        if (v1.isNil() || v2.isNil()) {
+            return v1.isNil() ==v2.isNil();
+        };
+        return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
+    } else if (v1.kind() == ptr) {
+        if (v1.pointer() == v2.pointer()) {
+            return true;
+        };
+        return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
+    } else if (v1.kind() == struct) {
+        {
+            var i:GoInt = (0 : GoInt64), n:GoInt = v1.numField();
+            Go.cfor(i < n, i++, {
+                if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
+                    return false;
+                };
+            });
+        };
+        return true;
+    } else if (v1.kind() == map) {
+        if (v1.isNil() != v2.isNil()) {
+            return false;
+        };
+        if (v1.len() != v2.len()) {
+            return false;
+        };
+        if (v1.pointer() ==v2.pointer()) {
+            return true;
+        };
+        for (k in v1.mapKeys()) {
+            var val1 = v1.mapIndex(k);
+            var val2 = v2.mapIndex(k);
+            if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
+                return false;
+            };
+        };
+        return true;
+    } else if (v1.kind() == func) {
+        if (v1.isNil() && v2.isNil()) {
+            return true;
+        };
+        return false;
+    } else { 
+		//TODO
+		return v1.interface_() == v2.interface_();
+	};
+}
+function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
+    if (new Value(y.value,y.type).isNil() || new Value(x.value,x.type).isNil()) {
+        return x == y;
+    };
+    var v1 = valueOf(x);
+    var v2 = valueOf(y);
+    if (!v1.type().implements_(v2.type())) {
+        return false;
+    };
+    return deepValueEqual(v1, v2, Go.make(((_ : GoMap<Visit, Bool>))), (0 : GoInt64));
+}

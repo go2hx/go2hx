@@ -154,7 +154,9 @@ class Go {
 							switch p.params[1] {
 								case TPType(t):
 									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-									return macro new $p(${defaultValue(t, Context.currentPos(), false)});
+									var value = defaultValue(t, Context.currentPos(), false);
+									var t = gtDecode(type);
+									return macro new $p(new stdgo.reflect.Reflect.Type($t));
 								default:
 							}
 							return null;
@@ -211,139 +213,6 @@ class Go {
 		return src;
 	}
 
-	public static macro function passCopy(expr) { // slices and maps are ref types
-		var type = Context.follow(Context.typeof(expr));
-		var exception = false;
-		switch expr.expr {
-			case ENew(t, params):
-				exception = true;
-			case EArrayDecl(values):
-				exception = true;
-			case EObjectDecl(fields):
-				exception = true;
-			case EIs(e, t):
-				exception = true;
-			case EConst(c):
-				switch c {
-					case CIdent(s):
-						if (s == "null") exception = true;
-					default:
-				}
-			case EBinop(op, e1, e2):
-				exception = true;
-			case ECall(e, params):
-				switch e.expr {
-					case EField(f, field):
-						switch f.expr {
-							case EConst(c):
-								switch c {
-									case CIdent(s):
-										trace("s: " + s);
-										if (s == "Go" || s == "Map" || s == "Array" || s == "Slice") // map and array is by ref
-											exception = true;
-									default:
-								}
-							default:
-						}
-					default:
-				}
-			case EField(e, field):
-				exception = true;
-			case EArray(e1, e2): // expr[i] : passthrough
-			default:
-				trace("expr: " + expr.expr);
-		}
-		if (isBasic(type) || exception) {
-			return expr;
-		} else {
-			switch type {
-				case TAbstract(t, params):
-					var t = t.get();
-					if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name == "GoUInt64" || t.name == "GoInt64" || t.name == "GoComplex64" || t.name == "GoComplex128"))
-						return macro $expr.copy();
-				case TInst(t, params):
-					var t = t.get();
-					switch t.pack.join(".") + t.name {
-						case "Errors":
-							return macro $expr.copy();
-					}
-					var fields = t.fields.get();
-					fields.sort(function(a, b) {
-						return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
-					});
-					var values = [];
-					var main = ExprTools.toString(expr);
-					for (field in fields) {
-						switch field.kind {
-							case FVar(read, write):
-								values.push('$main.' + field.name);
-							case FMethod(k):
-						}
-					}
-					values.sort(function(a, b) {
-						return 0;
-					});
-					var str = "new " + t.pack.join(".") + t.name + '(${values.join(",")})';
-					var init = Context.parse(str, Context.currentPos());
-					return macro $init;
-				case TMono(t):
-					var t = t.get();
-					switch t {
-						case null:
-						default:
-							trace("unknown tmono type: " + t);
-					}
-				case TDynamic(t):
-					trace("t " + t.getName());
-				default:
-					trace("copy type unknown: " + type);
-			}
-			return expr;
-		}
-	}
-
-	public static macro function isNull(expr:Expr) {
-		var type = Context.follow(Context.typeof(expr));
-		switch type {
-			case TMono(t):
-				type = t.get();
-				if (type == null)
-					return macro true;
-			default:
-		}
-		switch type {
-			case TAbstract(t, params):
-				var t = t.get();
-				switch t.name {
-					case "Slice":
-						return macro $expr.length == 0;
-					case "Pointer":
-						return macro $expr == null || Go.isNull($expr.value);
-					case "AnyInterface":
-						return macro Go.isNull($expr.value);
-					case "GoArray":
-						return macro false;
-					case "Any", "GoMap":
-						return macro $expr.isNull();
-					default:
-						trace("unknown abstract: " + t.name);
-				}
-			case TDynamic(t):
-				if (t == null)
-					return macro true;
-			case TFun(args, ret):
-				return macro false;
-			case TInst(t, params):
-
-			default:
-				trace("unknown type: " + type);
-		}
-		return macro $expr == null;
-	}
-
-	public static macro function equals(a:Expr, b:Expr) {
-		return macro Go.toInterface($a) == Go.toInterface($b);
-	}
 	public static macro function fromInterface(expr) {
 		function parens(expr) {
 			return switch expr.expr {
@@ -507,15 +376,16 @@ class Go {
 									var _address_ = ${e1}._address_ + _offset_ + e2;
 									new stdgo.Pointer(
 										new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
-										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_,1)
+										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_)
 									);
 								};
 							case "GoArray":
 								return macro {
-									var _address_ = ${e1}._address_;
+									var e2 = (${e2} : GoInt).toBasic();
+									var _address_ = ${e1}._address_ + e2;
 									new stdgo.Pointer(
 										new stdgo.Pointer.PointerData(() -> $expr,
-										(v) -> $expr = v, _address_,2)
+										(v) -> $expr = v, _address_)
 									);
 								}
 						}
@@ -723,10 +593,13 @@ class Go {
 					return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
 				});
 				var fields = [];
-					for (field in a.fields) {
-						fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field(field.name,gtDecode(field.type),""));
-					}
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_struct($a{fields});
+				for (field in a.fields) {
+					var t = gtDecode(field.type);
+					var name:Expr = macro $v{field.name};
+					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name,$t,""));
+				}
+				var fields = macro $a{fields};
+				ret = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields );
 			case TFun(a, result):
 				var args = [];
 				for (arg in a) {
@@ -751,8 +624,7 @@ class Go {
 				);
 			case TLazy(f):
 				ret = gtDecode(f());
-			case TEnum(_, _):
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
+			case TEnum(_, _): ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 			default:
 				throw "reflect.cast_AnyInterface - unhandled typeof " + t;
 		}
@@ -830,7 +702,8 @@ class Go {
 		}
 		var fields = macro $a{fields};
 		var t = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
-		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")},$v{module}, $v{ref.name},$a{methods}, $a{interfaces},$t);
+		var pack = ref.pack.join(".");
+		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{pack},$v{module}, $v{ref.name},$a{methods}, $a{interfaces},$t);
 	}
 	#end
 

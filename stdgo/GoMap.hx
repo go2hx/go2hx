@@ -1,8 +1,10 @@
 package stdgo;
 
+import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.reflect.Reflect.Type;
 import haxe.Rest;
 import haxe.Constraints.Constructible;
 
@@ -11,15 +13,11 @@ import haxe.Constraints.Constructible;
 abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 	public var length(get, never):GoInt;
 
-	public inline function new(defaultValue:V, args:Rest<{key:K, value:V}>) {
-		this = new MapData<K, V>(defaultValue);
+	public inline function new(type:Type, args:Rest<{key:K, value:V}>) {
+		this = new MapData<K, V>(type);
 		for (arg in args) {
 			this.set(arg.key, arg.value);
 		}
-	}
-
-	public function defaultValue():V {
-		return this.defaultValue;
 	}
 
 	public function setNull():MapData<K, V> {
@@ -60,28 +58,38 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 	public inline function keyValueIterator() {
 		return this.keyValueIterator();
 	}
+	public inline function toSlice()
+		return this.toSlice();
 }
 
 private class MapData<K, V> {
 	var slice:Slice<{key:K, value:V}>;
 	var nullcount:GoInt = 0;
-	public var defaultValue:V = null;
+	public var type:Type = null;
 
 	public var nullBool:Bool = false;
 
-	public function new(defaultValue:V) {
+	public function new(type:Type) {
 		slice = new Slice<{key:K, value:V}>();
-		this.defaultValue = defaultValue;
+		this.type = type;
 	}
 
 	public function get(key:K) {
+		trace("key: " + key);
 		for (obj in slice) {
 			if (obj == null)
 				continue;
-			if (obj.key == key)
+			final equals = obj.key == key;
+			trace(obj.key + " " + key + " eq: " + equals);
+			if (equals)
 				return obj.value;
 		}
-		return defaultValue;
+		switch type.gt {
+			case GT_map(key, value):
+				return @:privateAccess stdgo.reflect.Reflect.defaultValue(new Type(value));
+			default:
+				throw "type not map";
+		}
 	}
 
 	public function exists(key:K):Bool {
@@ -95,7 +103,9 @@ private class MapData<K, V> {
 	}
 
 	public inline function set(key:K, value:V) {
-		slice = slice.append({key: key, value: value});
+		var obj = {key: key, value: value};
+		trace(obj);
+		slice = slice.append(obj);
 		return value;
 	}
 
@@ -124,6 +134,9 @@ private class MapData<K, V> {
 
 	public inline function toString():String {
 		return slice.toArray().toString();
+	}
+	public inline function toSlice() {
+		return slice;
 	}
 }
 

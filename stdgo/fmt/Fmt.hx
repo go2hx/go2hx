@@ -23,7 +23,7 @@ function println(args:Rest<Dynamic>) {
 }
 
 function print(args:Rest<Dynamic>) {
-	log(parse(args).join(" "));
+	log(parse(args).join(""));
 }
 
 inline function printf(fmt:String, args:Rest<Dynamic>) { // format

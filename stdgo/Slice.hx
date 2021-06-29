@@ -154,14 +154,12 @@ private class SliceData<T> {
 	public var length:Int = 0;
 	public var _address_:Int;
 
-	private static var _addressCounter:Int = 0;
-
 	public function new(length:Int = 0, cap:Int = 0) {
 		this.length = length;
 		if (cap == 0)
 			cap = length;
 		vector = new Vector<T>(length);
-		_address_ = _addressCounter++;
+		_address_ = ++Go.addressIndex;
 	}
 
 	private function boundsCheck(i:Int) {

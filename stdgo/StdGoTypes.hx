@@ -1420,7 +1420,7 @@ class AnyInterfaceData {
 @:forward
 @:forward.new
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
-	@:op(A == B) private static function eq(a:AnyInterface, b:AnyInterface):Bool {
+	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
@@ -1432,16 +1432,25 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 				switch b.type.gt {
 					case GT_namedType(_, _, _, _, _, type2):
 						b.type.gt = type2;
-						return eq(a,b);
+						return equals(a,b);
 					default:
 				}
 				true;
 			case GT_struct(fields):
-				switch b.type.gt {
-					case GT_struct(fields2):
-						return false;
-					default: throw '';
+				for (i in 0...fields.length) {
+					switch fields[i] {
+						case GT_field(name, type, _):
+							var fieldValue = Reflect.field(a.value,name);
+							var fieldValue2 = Reflect.field(b.value,name);
+							var a = new AnyInterface(fieldValue,null,new stdgo.reflect.Reflect.Type(type));
+							var b = new AnyInterface(fieldValue2,null,new stdgo.reflect.Reflect.Type(type));
+							var bool = equals(a,b);
+							if (!bool)
+								return false;
+						default:
+					}
 				}
+				true;
 			default:
 				throw "unknown type: " + a.type.gt;
 		}

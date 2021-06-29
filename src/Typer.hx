@@ -12,6 +12,7 @@ import haxe.DynamicAccess;
 import sys.FileSystem;
 import Ast.GoType;
 import Ast.BasicKind;
+import stdgo.Go;
 
 var stdgoList:Array<String>;
 var excludes:Array<String>;
@@ -1089,7 +1090,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 									name: name,
 									type: type,
 									isFinal: spec.constants[i],
-									expr: i < spec.values.length ? expr : type != null ? defaultComplexTypeValue(typeExprType(spec.type,info),info) : null,
+									expr: i < spec.values.length ? expr : type != null ? Go.defaultComplexTypeValue(typeExprType(spec.type,info),null) : null,
 								};
 							}
 						]);
@@ -1894,7 +1895,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(expr.args[0], info);
 					switch t {
 						case TPath(_), TFunction(_,_), TAnonymous(_):
-							return (macro Go.pointer(${defaultComplexTypeValue(t,info)})).expr; // TODO does not work for non constructed types, such as basic types
+							var value = Go.defaultComplexTypeValue(t,null);
+							return (macro Go.pointer($value)).expr; // TODO does not work for non constructed types, such as basic types
 						default:
 					}
 				case "make":
@@ -1967,6 +1969,54 @@ private function follow(t:GoType):GoType {
 			follow(underlying);
 		default:
 			t;
+	}
+}
+
+private function toReflectType(t:GoType):Expr {
+	return switch t {
+		case map(key,value):
+			var key = toReflectType(key);
+			var value = toReflectType(value);
+			macro stdgo.reflect.Reflect.GT_enum.GT_map($key,$value);
+		case basic(kind):
+			switch kind {
+				case int_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_int;
+				case int8_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_int8;
+				case int16_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_int16;
+				case int32_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_int32;
+				case int64_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_int64;
+				case uint_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_uint;
+				case uint8_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_uint8;
+				case uint16_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_uint16;
+				case uint32_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_uint32;
+				case uint64_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_uint64;
+				case bool_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_bool;
+				case float32_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_float32;
+				case float64_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_float64;
+				case complex64_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_complex64;
+				case complex128_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_complex128;
+				case string_kind:
+					macro stdgo.reflect.Reflect.GT_enum.GT_string;
+				default:
+					throw "unsupported reflect type basic: " + kind;
+			}
+		default:
+			throw "unsupported reflect type: " + t;
 	}
 }
 
@@ -2395,7 +2445,6 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	var params:Array<Expr> = [];
 	var p:TypePath = null;
 	var type:ComplexType = null;
-	//trace("type: " + expr.typeLit);
 	function getParams() {
 		for (elt in expr.elts) {
 			params.push(typeExpr(elt, info));
@@ -2445,19 +2494,10 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 	if (expr.type == null) {
-		if (isKeyValueExpr(expr.elts)) {
-			var exprs = getKeyValueExpr(expr.elts, info);
-			if (exprs == null)
-				throw "composite lit unknown type, keyvalue expr is null";
-			return (macro Go.setKeys($a{exprs})).expr;
-		}
 		getParams();
 		return (macro Go.set($a{params})).expr;
 	} else {
 		type = typeExprType(expr.type, info);
-		if (isKeyValueExpr(expr.elts)) {
-			return (macro null).expr; //TODO
-		}
 		switch type {
 			case TPath(tp):
 				p = tp;
@@ -2477,7 +2517,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						default:
 					}
 					if (expr.elts.length == lenInt) {
-						return defaultComplexTypeValue(type,info).expr;
+						return Go.defaultComplexTypeValue(type,null).expr;
 					}else{
 						getParams();
 						var ct = switch p.params[0] {
@@ -2487,7 +2527,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 						if (lenInt > 0) {
 							var sum = lenInt - expr.elts.length;
 							for (i in 0...sum) {
-								params.push(defaultComplexTypeValue(ct,info));
+								params.push(Go.defaultComplexTypeValue(ct,null));
 							}
 						}
 						return (macro new $p($a{params})).expr;
@@ -2495,25 +2535,16 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				}
 
 				if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
-					switch p.params[1] {
-						case TPType(t):
-							switch typeof(expr.type) {
-								case map(_,valueType):
-									params.push(defaultValue(valueType,info));
-									var e = getKeyValueExpr(expr.elts, info);
-									if (e != null)
-										params = params.concat(e);
-									return (macro new $p($a{params})).expr;
-								default:
-							}
-						default:
-					}
+					var params = getKeyValueExprs(expr.elts, info);
+					var t = toReflectType(typeof(expr.type));
+					params.unshift(macro new stdgo.reflect.Reflect.Type($t));
+					return (macro new $p($a{params})).expr;
 				}
 				if (p.name == "Dynamic" && p.pack.length == 0)
 					return (macro {}).expr;
 			case TAnonymous(fields):
-				if (isKeyValueExpr(expr.elts)) {
-					return getKeyValueExpr(expr.elts, info)[0].expr;
+				if (hasKeyValueExpr(expr.elts)) {
+					return getKeyValueExprs(expr.elts, info)[0].expr;
 				} else {
 					getParams();
 					return stdgo.Go.createAnonType(null, fields, params).expr;
@@ -2523,8 +2554,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 
-	if (isKeyValueExpr(expr.elts)) {
-		var e = getKeyValueExpr(expr.elts, info);
+	if (hasKeyValueExpr(expr.elts)) {
+		var e = getKeyValueExprs(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
 		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit),info).expr;
@@ -2535,11 +2566,15 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	return (macro new $p($a{params})).expr;
 }
 
-private function isKeyValueExpr(elts:Array<Ast.Expr>) {
-	return elts.length > 0 && elts[0].id == "KeyValueExpr";
+private function hasKeyValueExpr(elts:Array<Ast.Expr>) {
+	for (e in elts) {
+		if (e.id == "KeyValueExpr")
+			return true;
+	}
+	return false;
 }
 
-private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
+private function getKeyValueExprs(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 	var fields:Array<ObjectField> = [];
 	var exprs:Array<Expr> = [];
 	for (elt in elts) {
@@ -2552,7 +2587,7 @@ private function getKeyValueExpr(elts:Array<Ast.Expr>, info:Info):Array<Expr> {
 					|| e.key.charAt(0) == e.key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(e.key, info, false, false),
 				expr: e.value,
 			});
-		} else {
+		}else{
 			var kind:Ast.Token = switch e.kind {
 				case "INT": INT;
 				case "FLOAT": FLOAT;
@@ -2822,7 +2857,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultComplexTypeValue(type,info);
+						var e = Go.defaultComplexTypeValue(type,null);
 						return e.expr;
 					}
 				default:
@@ -3045,59 +3080,7 @@ private function getBody(path:String):String {
 	return "";
 }
 
-private function defaultComplexTypeValue(ct:ComplexType,info:Info):Expr {
-	return switch ct {
-		case TPath(p):
-			if (p.pack.length == 0) {
-				switch p.name {
-					case "AnyInterface","Pointer":
-						return macro null;
-					case "GoArray":
-						var param:ComplexType = null;
-						switch p.params[0] {
-							case TPType(t):
-								param = t;
-							default:
-						}
-						var len:Expr = null;
-						switch p.params[1] {
-							case TPExpr(e):
-								len = e;
-							default:
-						}
-						return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,info)}]);
-					case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
-						return macro (0 : $ct);
-					case "GoComplex64","GoComplex128":
-						return macro new $p(0,0);
-					case "Bool":
-						return macro false;
-					case "GoString":
-						return macro ("" : GoString);
-				}
-			}
-			macro new $p();
-		case TFunction(_, _):
-			macro null;
-		case TAnonymous(fields):
-			var fs:Array<ObjectField> = [];
-			for (field in fields) {
-				switch field.kind {
-					case FVar(t, e):
-						fs.push({
-							field: field.name,
-							expr: defaultComplexTypeValue(t,info),
-						});
-					default:
-						throw "unknown field kind: " + field.kind;
-				}
-			}
 
-			toExpr(EObjectDecl(fs));
-		default:
-			throw "unknown complex type default value: " + ct;
-	}
-}
 
 private function defaultValue(type:GoType,info:Info):Expr {
 	return switch type {
@@ -3334,7 +3317,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 						name: nameIdent(name, info, false, false),
 						pos: null,
 						access: access == null ? typeAccess(name, true) : access,
-						kind: FVar(type, defaultBool ? defaultComplexTypeValue(type,info) : null)
+						kind: FVar(type, defaultBool ? Go.defaultComplexTypeValue(type,null) : null)
 					});
 				default:
 			}
@@ -3350,7 +3333,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 				name: nameIdent(name, info, false, false),
 				pos: null,
 				access: access == null ? typeAccess(n.name, true) : access,
-				kind: FVar(type, defaultBool ? defaultComplexTypeValue(type,info) : null),
+				kind: FVar(type, defaultBool ? Go.defaultComplexTypeValue(type,null) : null),
 			});
 		}
 	}
@@ -3445,7 +3428,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 				}
 				//return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,info)}]);
 
-				var value = defaultComplexTypeValue(param,info);
+				var value = stdgo.Go.defaultComplexTypeValue(param,null);
 
 				fields.push({
 					name: "new",
@@ -3726,7 +3709,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			var expr:Expr = null;
 			if (value.values[i] == null) {
 				if (type != null) {
-					expr = defaultComplexTypeValue(typeExprType(value.type,info),info);
+					expr = Go.defaultComplexTypeValue(typeExprType(value.type,info),null);
 				} else {
 					// last expr use
 					expr = typeExpr(info.lastValue, info);

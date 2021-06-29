@@ -12,69 +12,59 @@ import haxe.macro.Context;
 class Go {
 	public static var addressIndex:Int = 1;
 
-	public static function defaultValue(t:ComplexType, pos:Position, strict:Bool = true):Expr {
-		switch t {
-			case TFunction(args, ret):
-				return macro null;
+	public static function defaultComplexTypeValue(ct:ComplexType,pos:Position=null):Expr {
+		return switch ct {
 			case TPath(p):
-				var name = p.name;
-				if (p.name == "StdGoTypes" || p.name == "StdTypes")
-					name = p.sub;
-				switch name {
-					case "Void":
-						return null;
-					case "GoArray":
-						return macro new $p();
-					case "GoByte", "GoRune", "GoInt", "GoUInt", "GoUInt8", "GoUInt16", "GoUInt32", "GoUInt64", "GoInt8",
-						"GoInt16", "GoInt32", "GoInt64", "GoFloat32", "GoFloat64", "GoComplex64", "GoComplex128":
-						if (strict)
-							return macro(0 : $t);
-						return macro 0;
-					case "AnyInterface":
-						return macro null;
-					case "GoDynamic", "Any", "Dynamic":
-						return macro {};
-					case "Bool":
-						return macro false;
-					case "Pointer":
-						return macro null;
-					case "GoString", "String":
-						if (strict)
-							return macro("" : GoString);
-						return macro "";
-					case "Chan":
-						return macro null;
-					case "GoMap":
-						switch p.params[1] { // value default value add
-							case TPType(t):
-								return macro new $p(${defaultValue(t, null, false)}).setNull();
-							default:
-						}
-					default:
-						return macro new $p();
-				}
-			case TAnonymous(fields):
-				return {
-					pos: pos,
-					expr: EObjectDecl([
-						for (field in fields) {
-							var type:ComplexType = null;
-							switch field.kind {
-								case FVar(t, e):
-									type = t;
+				if (p.pack.length == 0) {
+					switch p.name {
+						case "AnyInterface","Pointer":
+							return macro null;
+						case "GoMap":
+							return macro null;
+						case "GoArray":
+							var param:ComplexType = null;
+							switch p.params[0] {
+								case TPType(t):
+									param = t;
 								default:
 							}
-							{
+							var len:Expr = null;
+							switch p.params[1] {
+								case TPExpr(e):
+									len = e;
+								default:
+							}
+							return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,pos)}]);
+						case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
+							return macro (0 : $ct);
+						case "GoComplex64","GoComplex128":
+							return macro new $p(0,0);
+						case "Bool":
+							return macro false;
+						case "GoString":
+							return macro ("" : GoString);
+					}
+				}
+				macro new $p();
+			case TFunction(_, _):
+				macro null;
+			case TAnonymous(fields):
+				var fs:Array<ObjectField> = [];
+				for (field in fields) {
+					switch field.kind {
+						case FVar(t, e):
+							fs.push({
 								field: field.name,
-								expr: defaultValue(type, pos),
-							};
-						}
-					])
-				};
+								expr: defaultComplexTypeValue(t,pos),
+							});
+						default:
+							throw "unknown field kind: " + field.kind;
+					}
+				}
+				{expr: EObjectDecl(fs), pos: pos};
 			default:
-				trace("unknown type for default value: " + t);
+				throw "unknown complex type default value: " + ct;
 		}
-		return macro null;
 	}
 
 	static function getMetaLength(meta:Metadata):ExprDef {
@@ -114,70 +104,48 @@ class Go {
 			size = macro 0;
 		if (cap == null || cap.expr.match(EConst(CIdent("null"))))
 			cap = macro 0;
-		var type = Context.followWithAbstracts(ComplexTypeTools.toType(getType(t)));
-		var ct = Context.toComplexType(type);
-		if (ct == null)
-			throw ct;
-		var func = null;
-		func = function():Expr {
-			switch ct {
+		var type = Context.toComplexType(Context.followWithAbstracts(ComplexTypeTools.toType(getType(t))));
+		function gen() {
+			switch type {
 				case TPath(p):
-					var name = p.name;
-					switch name {
+					switch p.name {
 						case "SliceData":
 							p = {name: "Slice",pack: [], params: p.params};
-							if (size == null)
-								return macro new $p();
-							var value:Expr = null;
 							switch p.params[0] {
 								case TPType(t):
-									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-									value = defaultValue(t, Context.currentPos());
-								default:
+									var value = defaultComplexTypeValue(t,Context.currentPos());
+									var size = macro ($size : GoInt32).toBasic();
+									return macro new $p(...[for (i in 0...$size) $value]);
+								default: throw "Slice not a complex type param: " + p.params;
+									
 							}
-							return macro {
-								var slice = new $p();
-								var size = ($size : GoInt32).toBasic();
-								var value = $value;
-								slice.grow(size);
-								var i = 0;
-								while (i < size) {
-									slice[i] = value;
-									i++;
-								}
-								slice;
-							};
-						case "VectorData":
-							throw("cannot make GoArray must be type generated");
+						case "VectorData": throw "cannot make GoArray must be type generated";
 						case "MapData":
 							p = {name: "GoMap",pack: [], params: p.params};
 							switch p.params[1] {
 								case TPType(t):
-									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-									var value = defaultValue(t, Context.currentPos(), false);
-									var t = gtDecode(type);
+									var t = gtDecode(ComplexTypeTools.toType(t));
 									return macro new $p(new stdgo.reflect.Reflect.Type($t));
-								default:
+								default: throw "Map not a complex type param: " + p.params;
+
 							}
-							return null;
 						case "Chan":
 							switch p.params[0] {
 								case TPType(t):
-									t = Context.toComplexType(Context.follow(ComplexTypeTools.toType(t)));
-									return macro new $p($size, ${defaultValue(t, Context.currentPos(), false)});
-								default:
+									var value = defaultComplexTypeValue(t,Context.currentPos());
+									return macro new $p($size,$value);
+								default: throw "Chan not a complex type param: " + p.params;
 							}
-							return null;
 						default:
-							trace("make unknown tpath: " + p);
+							throw "make unknown type: " + t;
 							return null;
 					}
 				default:
-					trace("make unknown type: " + t);
+					throw "make unknown type: " + t;
 					return null;
 			}
 		}
-		return func();
+		return gen();
 	}
 
 	public static macro function copy<T>(dst:Expr, src:Expr) {
@@ -333,7 +301,7 @@ class Go {
 					if (params[i] == null) {
 						switch fields[i].kind {
 							case FVar(t, e):
-								expr = defaultValue(t, pos);
+								expr = defaultComplexTypeValue(t, pos);
 							default: // FFunc is nil by default
 						}
 					} else {
@@ -848,7 +816,7 @@ class Go {
 			case EArray(e, k):
 				func = macro $e.exists($k) ? {value: $func, ok: true} : {value: $e.defaultValue(), ok: false};
 			case ECheckType(_, t), ECast(_,t):
-				var def = defaultValue(t,Context.currentPos()); //default value
+				var def = defaultComplexTypeValue(t,Context.currentPos()); //default value
 				func = macro try {
 					{value: $func, ok: true}
 				}catch(e) {

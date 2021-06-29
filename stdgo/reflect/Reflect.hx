@@ -218,14 +218,15 @@ class Value implements StructType {
 	}
 	public function mapKeys():Slice<Value> {
 		var val:GoMap<Dynamic,Dynamic> = val;
-		switch type().gt {
+		var gt = type().gt;
+		switch gt {
 			case GT_map(key, value):
 				var slice = new Slice<Value>(...[for (obj in val.toSlice())
 					new Value(obj.key,new Type(value))
 				]);
 				return slice;
 			default:
-				throw "map index incorrect type: " + val.type.gt;
+				throw "map index incorrect type: " + gt;
 		}
 	}
 	public function elem():Value {
@@ -307,7 +308,7 @@ function new_(typ:Type):Value {
 	return new Value(new Pointer(defaultValue(typ)),new Type(GT_ptr(typ.gt)));
 }
 
-private function defaultValue(typ:Type):Any {
+function defaultValue(typ:Type):Any {
 	return switch typ.gt {
 		case GT_bool: false;
 		case GT_int,GT_int8,GT_int16,GT_int32,GT_int64: 0;

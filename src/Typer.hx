@@ -80,7 +80,6 @@ var printer = new Printer();
 
 function main(data:DataType) {
 	var list:Array<Module> = [];
-	var info = new Info();
 	//default imports
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "",doc: ""},
@@ -105,23 +104,26 @@ function main(data:DataType) {
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
 			continue;
+		
 		pkg.path = normalizePath(pkg.path);
 		pkg.path = StringTools.replace(pkg.path, "/", ".");
 		if (pkg.path == "")
 			pkg.path = "std";
-		info.global.path = pkg.path;
+		
 		var module:Module = {path: pkg.path, files: [],isMain: pkg.name == "main",name: pkg.name};
 		if (!module.isMain)
 			module.path += ".pkg";
+
+		var info = new Info();
+		info.global.path = pkg.path;
+		info.global.path = module.path;
+		info.global.renameTypes["String"] = "toString";
+		
 		//holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = className(endPath,info);
-
-		var info = new Info();
-		info.global.path = module.path;
-		info.global.renameTypes["String"] = "toString";
 
 		var namedDecls:Array<Ast.Decl> = [];
 
@@ -2015,6 +2017,30 @@ private function toReflectType(t:GoType):Expr {
 				default:
 					throw "unsupported reflect type basic: " + kind;
 			}
+		case named(path, underlying):
+			var last = path.lastIndexOf(".");
+			var pack = makeString(path.substr(0,last));
+			var module = makeString(path);
+			var name = makeString(path.substr(last + 1));
+			var methods = [];
+			var interfaces = [];
+			var t = toReflectType(underlying);
+			macro stdgo.reflect.Reflect.GT_enum.GT_namedType($pack,$module,$name,$a{methods},$a{interfaces},$t);
+		case array(elem, len):
+			var elem = toReflectType(elem);
+			var len:Expr = {expr: EConst(CInt('$len')),pos: null};
+			macro stdgo.reflect.Reflect.GT_enum.GT_array($elem, $len);
+		case interfaceValue(numMethods):
+			macro stdgo.reflect.Reflect.GT_enum.GT_interface("","","interface{}",[]);
+		case struct(structFields):
+			var fields = [];
+			for (field in structFields) {
+				var t = toReflectType(field.type);
+				var name = makeString(field.name);
+				fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name,$t,""));
+			}
+			var fields = macro $a{fields};
+			macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
 		default:
 			throw "unsupported reflect type: " + t;
 	}
@@ -2494,6 +2520,12 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 	if (expr.type == null) {
+		if (hasKeyValueExpr(expr.elts)) {
+				var e = getKeyValueExprs(expr.elts, info);
+			if (e != null && e.length > 1)
+				return (macro new $p($a{e})).expr;
+			return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit),info).expr;
+		}
 		getParams();
 		return (macro Go.set($a{params})).expr;
 	} else {
@@ -2519,6 +2551,14 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 					if (expr.elts.length == lenInt) {
 						return Go.defaultComplexTypeValue(type,null).expr;
 					}else{
+						if (hasKeyValueExpr(expr.elts)) {
+							for (elt in expr.elts) {
+								if (elt.id == "KeyValueExpr") {
+									expr.elts.remove(elt);
+								}
+							}
+							//TODO use keyValueExprs for non map types
+						}
 						getParams();
 						var ct = switch p.params[0] {
 							case TPType(t): t;
@@ -2684,7 +2724,17 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			var value = isNil();
 			if (value != null)
 				return (macro !Go.isNull($value)).expr;
-			return (macro !Go.equals($x, $y)).expr;
+			var t = typeX;
+			switch t {
+				case named(_,underlying):
+					t = underlying;
+				default:
+			}
+			switch t {
+				case struct(_):
+					return (macro Go.toInterface($x) != Go.toInterface($y)).expr;
+				default:
+			}
 		case OpShl, OpShr:
 			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
 		default:

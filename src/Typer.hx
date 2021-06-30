@@ -3748,7 +3748,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i].name),
-				kind: TDField(FVar(null,macro $tmpExpr.$fieldName),access)
+				kind: TDField(FVar(type,macro $tmpExpr.$fieldName),access)
 			});
 		}
 	}else{
@@ -3772,6 +3772,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			}
 			if (expr == null)
 				continue;
+			if (type == null)
+				type = toComplexType(typeof(value.values[i]),info);
 			var name = nameIdent(value.names[i].name, info, false, false);
 			var doc:String = getComment(value) + getDoc(value); //+ getSource(value, info);
 			var access = [];//typeAccess(value.names[i]);

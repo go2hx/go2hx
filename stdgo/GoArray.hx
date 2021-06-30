@@ -80,6 +80,16 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.get(index.toBasic());
 	}
 
+	@:op(A == B) static function equals<T>(a:GoArray<T>,b:GoArray<T>):Bool {
+		if (a.length != b.length)
+			return false;
+		for (i in 0...a.length.toBasic()) {
+			if (a[i] == b[i])
+				return false;
+		}
+		return true;
+	}
+
 	public inline function slice(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)

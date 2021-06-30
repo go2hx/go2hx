@@ -1425,7 +1425,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
 		return switch a.type.gt {
-			case GT_bool,GT_string,GT_int,GT_int8,GT_int16,GT_int32,GT_int64,GT_uint,GT_uint8,GT_uint16,GT_uint32,GT_uint64,GT_uintptr:
+			case GT_bool,GT_string,GT_int,GT_int8,GT_int16,GT_int32,GT_int64,GT_uint,GT_uint8,GT_uint16,GT_uint32,GT_uint64,GT_uintptr,GT_float64,GT_float32,GT_complex64,GT_complex128:
 				a.value == b.value;
 			case GT_namedType(_, _, _, _, _, type):
 				a.type.gt = type;

@@ -20,6 +20,9 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		}
 	}
 
+	public function defaultValue():V
+		return this.defaultValue();
+
 	public function setNull():MapData<K, V> {
 		this.nullBool = true;
 		return this;
@@ -105,9 +108,11 @@ private class MapData<K, V> {
 			if (equals(key,obj.key))
 				return obj.value;
 		}
-		switch type.gt {
-			case GT_map(key, value):
-				return stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect.Type(value));
+		return defaultValue();
+	}
+	public inline function defaultValue():V {
+		return switch type.gt {
+			case GT_map(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect.Type(value));
 			default: throw "unknown type: " + type.gt;
 		}
 	}

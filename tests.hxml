@@ -1,4 +1,4 @@
 -cp tests
 -cp src
--main Run
+-main Tests
 -hl tests.hl

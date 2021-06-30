@@ -567,7 +567,7 @@ class Go {
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name,$t,""));
 				}
 				var fields = macro $a{fields};
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields );
+				ret = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
 			case TFun(a, result):
 				var args = [];
 				for (arg in a) {

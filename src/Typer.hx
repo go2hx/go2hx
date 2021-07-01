@@ -77,8 +77,10 @@ final basicTypes = [
 ];
 
 var printer = new Printer();
+var config = {printGoCode:false}; //typer config
 
-function main(data:DataType) {
+function main(data:DataType,printGoCode:Bool=false) {
+	config.printGoCode = printGoCode;
 	var list:Array<Module> = [];
 	//default imports
 	var defaultImports:Array<ImportType> = [
@@ -1980,6 +1982,14 @@ private function toReflectType(t:GoType):Expr {
 			var key = toReflectType(key);
 			var value = toReflectType(value);
 			macro stdgo.reflect.Reflect.GT_enum.GT_map($key,$value);
+		case pointer(elem):
+			var elem = toReflectType(elem);
+			macro stdgo.reflect.Reflect.GT_enum.GT_pointer($elem);
+		case slice(elem):
+			var elem = toReflectType(elem);
+			macro stdgo.reflect.Reflect.GT_enum.GT_slice($elem);
+		case invalid:
+			macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 		case basic(kind):
 			switch kind {
 				case int_kind:
@@ -2548,7 +2558,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 							}
 						default:
 					}
-					if (expr.elts.length == lenInt) {
+					if (expr.elts.length == 0) {
 						return Go.defaultComplexTypeValue(type,null).expr;
 					}else{
 						if (hasKeyValueExpr(expr.elts)) {
@@ -2705,10 +2715,16 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	switch op {
 		case OpXor:
 			return EBinop(op, x, y);
-		case OpEq:
+		case OpEq,OpNotEq:
 			var value = isNil();
-			if (value != null)
-				return (macro Go.isNull($value)).expr;
+			if (value != null) {
+				switch op {
+					case OpEq:
+						return (macro $value == null || $value.isNill()).expr;
+					default:
+						return (macro $value == null || !$value.isNll()).expr;
+				}
+			}
 			var t = typeX;
 			switch t {
 				case named(_,underlying):
@@ -2717,22 +2733,20 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			}
 			switch t {
 				case struct(_):
-					return (macro Go.toInterface($x) == Go.toInterface($y)).expr;
-				default:
-			}
-		case OpNotEq:
-			var value = isNil();
-			if (value != null)
-				return (macro !Go.isNull($value)).expr;
-			var t = typeX;
-			switch t {
-				case named(_,underlying):
-					t = underlying;
-				default:
-			}
-			switch t {
-				case struct(_):
-					return (macro Go.toInterface($x) != Go.toInterface($y)).expr;
+					return EBinop(op,macro Go.toInterface($x),macro Go.toInterface($y));
+				case array(elem, len):
+					return (macro {
+						var bool = true;
+						trace($x + " " + $x.length.toBasic());
+						for (i in 0...$x.length.toBasic()) {
+							if (Go.toInterface($x[i]) != Go.toInterface($y[i])) {
+								bool = false;
+								trace("here!");
+								break;
+							};
+						}
+						bool;
+					}).expr;
 				default:
 			}
 		case OpShl, OpShr:
@@ -3806,7 +3820,7 @@ private function getDoc(value:{doc:Ast.CommentGroup}):String {
 }
 
 private function getSource(value:{pos:Int, end:Int}, info:Info):String {
-	if (value.pos == value.end)
+	if (!config.printGoCode || value.pos == value.end)
 		return "";
 	var source:String = "";
 	try {

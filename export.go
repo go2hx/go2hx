@@ -49,9 +49,9 @@ type interfaceType struct {
 }
 
 type interfaceData struct {
-	t *types.Interface
-	name string
-	path string
+	t        *types.Interface
+	name     string
+	path     string
 	isExport bool
 }
 
@@ -75,18 +75,19 @@ func main() {
 		panic(err.Error())
 	}
 
-	err = json.Unmarshal(stdgoListBytes,&stdgoDataList)
+	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
 	if err != nil {
 		panic(err.Error())
 	}
-	stdgoList = make(map[string]bool,len(stdgoDataList.Stdgo))
-	for _,stdgo := range stdgoDataList.Stdgo {
+	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
+	for _, stdgo := range stdgoDataList.Stdgo {
 		stdgoList[stdgo] = true
 	}
 	//flags
 	testBool := flag.Bool("test", false, "testing the go library in haxe")
 	identBool := flag.Bool("ident", false, "ident json")
-	flag.Parse()
+	os.Remove("export.json")
+	flag.Parse() //help stops the program here
 	args := flag.Args()
 	fmt.Println("ident:", *identBool, "test:", *testBool)
 	localPath := args[len(args)-1]
@@ -120,7 +121,7 @@ func main() {
 		excludes[exclude] = true
 	}
 	//parse interfaces 1st past
-	for _,pkg := range initial {
+	for _, pkg := range initial {
 		parseInterface(pkg)
 	}
 	//2nd pass
@@ -148,20 +149,19 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	os.Remove("export.json")
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
-func parseFileInterface(file *ast.File,pkgPath string)[]interfaceData {
+func parseFileInterface(file *ast.File, pkgPath string) []interfaceData {
 	interfaces := []interfaceData{}
 	isMain := pkgPath == "main"
 	if isMain {
 		pkgPath = "main__" + file.Name.Name
 	}
-	for _,decl := range file.Decls {
+	for _, decl := range file.Decls {
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
-			for _,spec := range decl.Specs {
+			for _, spec := range decl.Specs {
 				switch spec := spec.(type) {
 				case *ast.TypeSpec:
 					t := checker.TypeOf(spec.Type)
@@ -172,7 +172,7 @@ func parseFileInterface(file *ast.File,pkgPath string)[]interfaceData {
 							if isMain {
 								exported = false
 							}
-							interfaces = append(interfaces, interfaceData{t,spec.Name.Name,pkgPath,exported})
+							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkgPath, exported})
 						}
 					default:
 					}
@@ -186,7 +186,7 @@ func parseFileInterface(file *ast.File,pkgPath string)[]interfaceData {
 					switch stmt := stmt.(type) {
 					case *ast.DeclStmt:
 						gen := stmt.Decl.(*ast.GenDecl)
-						for _,spec := range gen.Specs {
+						for _, spec := range gen.Specs {
 							switch spec := spec.(type) {
 							case *ast.ValueSpec:
 
@@ -195,7 +195,7 @@ func parseFileInterface(file *ast.File,pkgPath string)[]interfaceData {
 								switch t := t.(type) {
 								case *types.Interface:
 									if t.NumMethods() > 0 {
-										interfaces = append(interfaces, interfaceData{t,spec.Name.Name + "_" + decl.Name.Name + "_",pkgPath,spec.Name.IsExported()})
+										interfaces = append(interfaces, interfaceData{t, spec.Name.Name + "_" + decl.Name.Name + "_", pkgPath, spec.Name.IsExported()})
 									}
 								default:
 								}
@@ -223,7 +223,7 @@ func parseInterface(pkg *packages.Package) {
 		Importer: importer.Default(),
 		//DisableUnusedImportCheck: true,
 	}
-	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
+	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 
 	/*for _,file := range pkg.Syntax {
 		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath)...)
@@ -258,8 +258,8 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Files = make([]fileType, len(pkg.Syntax))
 
 	conf := types.Config{Importer: importer.Default()}
-	
-	checker = types.NewChecker(&conf,pkg.Fset,pkg.Types,pkg.TypesInfo)
+
+	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 
 	for i, file := range pkg.Syntax {
 		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
@@ -324,7 +324,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				continue
 			}
 			interfaces := interfaces
-			for _,inter := range interfaces {
+			for _, inter := range interfaces {
 				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
 					continue
 				}
@@ -333,18 +333,18 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				}
 				obj := checker.ObjectOf(obj.Name)
 				if obj != nil {
-					if types.Implements(obj.Type(),inter.t) {
-						implements = append(implements, interfaceType{inter.name,inter.path})
+					if types.Implements(obj.Type(), inter.t) {
+						implements = append(implements, interfaceType{inter.name, inter.path})
 					}
 				}
 			}
 			data[i] = map[string]interface{}{
-				"id": "TypeSpec",
-				"assign": fset.Position(obj.Assign).Offset,
-				"name": parseData(obj.Name),
-				"type": parseData(obj.Type),
-				"doc": parseData(obj.Comment),
-				"comment": parseData(obj.Comment),
+				"id":        "TypeSpec",
+				"assign":    fset.Position(obj.Assign).Offset,
+				"name":      parseData(obj.Name),
+				"type":      parseData(obj.Type),
+				"doc":       parseData(obj.Comment),
+				"comment":   parseData(obj.Comment),
 				"implicits": implements,
 			}
 		default:
@@ -376,12 +376,12 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Named":
 		named := node.(*types.Named)
 		path := named.String()
-		if !strings.HasPrefix(path, "syscall/") && 
-			!strings.HasPrefix(path, "internal.") && 
-			//!strings.Contains(path, "error") && 
-			!strings.HasPrefix(path,"reflect.") &&
-			!strings.HasPrefix(path,"runtime.") &&
-			!strings.HasPrefix(path,"sync.") &&
+		if !strings.HasPrefix(path, "syscall/") &&
+			!strings.HasPrefix(path, "internal.") &&
+			//!strings.Contains(path, "error") &&
+			!strings.HasPrefix(path, "reflect.") &&
+			!strings.HasPrefix(path, "runtime.") &&
+			!strings.HasPrefix(path, "sync.") &&
 			!marked[path] {
 			init := false
 			if marked == nil {
@@ -440,7 +440,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Tuple":
 		s := node.(*types.Tuple)
 		data["len"] = s.Len()
-		vars := make([]map[string]interface{},s.Len())
+		vars := make([]map[string]interface{}, s.Len())
 		for i := 0; i < s.Len(); i++ {
 			a := s.At(i)
 			vars[i] = parseType(a)
@@ -726,7 +726,7 @@ func parseField(field *ast.Field) map[string]interface{} {
 	names := make([]map[string]interface{}, len(field.Names))
 	for i, name := range field.Names {
 		names[i] = map[string]interface{}{
-			"id":   "Ident",
+			"id": "Ident",
 
 			"name": name.Name,
 		}

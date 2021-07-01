@@ -26,6 +26,7 @@ function init(args:Array<String>) {
 	var outputPath = "golibs";
 	var global = false;
 	var addOutput = false;
+	var printGoCode = false;
 
 	for (arg in args) {
 		if (addOutput) {
@@ -37,7 +38,10 @@ function init(args:Array<String>) {
 			argsCount++;
 		}else{
 			var remove = true;
-			switch arg.substr(1) {
+			switch arg.substr(1).toLowerCase() {
+				case "global", "g": global = true;
+				case "o", "out", "output": addOutput = true;
+				case "printgocode": printGoCode = true;
 				//targets
 				case "cpp","c++": target = "cpp"; targetFolder = true;
 				case "cs", "c#": target = "cs"; targetFolder = true;
@@ -46,9 +50,7 @@ function init(args:Array<String>) {
 				case "lua": target = "lua";
 				case "js", "javascript": target = "js";
 				case "hl", "hashlink": target = "hl";
-				case "global": global = true;
 				case "eval", "interp": target = "interp";
-				case "o", "out", "output": addOutput = true;
 				default: remove = false;
 			}
 			if (remove)
@@ -84,14 +86,37 @@ function init(args:Array<String>) {
 	}
 	var exportName = "export.json";
 	if (!FileSystem.exists(exportName)) {
-		trace('error: $exportName not found');
+		Sys.println("Usage of go2hx:");
+		Sys.println("    -output");
+		Sys.println("        transpile out code to directory or file location");
+		Sys.println("    -printGoCode");
+		Sys.println("        print out go code in code comments");
+		Sys.println("    -global");
+		Sys.println("        all go packages except main are turned into global haxelib dev libs");
+		Sys.println("Targets:");
+		Sys.println("    -cpp");
+		Sys.println("        target c++");
+		Sys.println("    -js");
+		Sys.println("        target javascript");
+		Sys.println("    -java");
+		Sys.println("        target java");
+		Sys.println("    -cs");
+		Sys.println("        target c#");
+		Sys.println("    -lua");
+		Sys.println("        target lua");
+		Sys.println("    -python");
+		Sys.println("        target python");
+		Sys.println("    -interp");
+		Sys.println("        target Haxe interpreted target");
+		Sys.println("    -hl");
+		Sys.println("        target Hashlink virtual machine");
 		return;
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));
 	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 	Sys.println("> typer: " + exportData.pkgs.length);
-	var modules = Typer.main(exportData);
+	var modules = Typer.main(exportData,printGoCode);
 	Sys.println("> generator: " + modules.length);
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);

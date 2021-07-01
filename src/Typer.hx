@@ -89,19 +89,6 @@ function main(data:DataType,printGoCode:Bool=false) {
 		{path: ["stdgo", "GoString"], alias: "",doc: ""},
 		{path: ["stdgo", "Pointer"],alias: "",doc: ""},
 	];
-	//seperate out main files into own unique package
-	for (pkg in data.pkgs) {
-		if (pkg.name == "main") {
-			for (file in pkg.files) {
-				data.pkgs.push({
-					files: [file],
-					name: pkg.name,
-					path: pkg.path,
-				});
-			}
-			data.pkgs.remove(pkg);
-		}
-	}
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -2735,18 +2722,22 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 				case struct(_):
 					return EBinop(op,macro Go.toInterface($x),macro Go.toInterface($y));
 				case array(elem, len):
-					return (macro {
+					var e = macro {
 						var bool = true;
-						trace($x + " " + $x.length.toBasic());
 						for (i in 0...$x.length.toBasic()) {
 							if (Go.toInterface($x[i]) != Go.toInterface($y[i])) {
 								bool = false;
-								trace("here!");
 								break;
 							};
 						}
 						bool;
-					}).expr;
+					};
+					switch op {
+						case OpNotEq:
+							return (macro !$e).expr;
+						default:
+							return e.expr;
+					}
 				default:
 			}
 		case OpShl, OpShr:
@@ -3389,9 +3380,14 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 
 		for (n in field.names) {
 			var name = n.name;
-			if (underlineBool) {
-				if (name.charAt(0) == name.charAt(0).toLowerCase())
-					name = "_" + name;
+			if (name == "_") {
+				//isBlank
+				name = "__blank__" + (info.blankCounter++);
+			}else{
+				if (underlineBool) {
+					if (name.charAt(0) == name.charAt(0).toLowerCase())
+						name = "_" + name;
+				}
 			}
 			fields.push({
 				name: nameIdent(name, info, false, false),

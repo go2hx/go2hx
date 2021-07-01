@@ -1456,6 +1456,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 				for (i in 0...fields.length) {
 					switch fields[i] {
 						case GT_field(name, type, _):
+							if (StringTools.startsWith(name,"__blank__"))
+								continue;
 							var fieldValue = Reflect.field(a.value,name);
 							var fieldValue2 = Reflect.field(b.value,name);
 							var a = new AnyInterface(fieldValue,null,new stdgo.reflect.Reflect.Type(type));

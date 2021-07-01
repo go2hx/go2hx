@@ -32,6 +32,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.underlying();
 	}
 
+	inline public function isNill():Bool
+		return this.length == 0;
+
 	public function new(args:Rest<T>) {
 		var length = args.length;
 		var cap = length;

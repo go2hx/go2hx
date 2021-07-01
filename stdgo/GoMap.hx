@@ -47,7 +47,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.length();
 	}
 
-	public function isNull()
+	public function isNill()
 		return this.nullBool;
 
 	public function cap():GoInt {

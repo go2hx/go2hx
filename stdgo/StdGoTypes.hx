@@ -1420,13 +1420,29 @@ class AnyInterfaceData {
 @:forward
 @:forward.new
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
+
+	@:op(A != b) public static function notEquals(a:AnyInterface,b:AnyInterface):Bool {
+		return !equals(a,b);
+	}
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
 		return switch a.type.gt {
-			case GT_bool,GT_string,GT_int,GT_int8,GT_int16,GT_int32,GT_int64,GT_uint,GT_uint8,GT_uint16,GT_uint32,GT_uint64,GT_uintptr,GT_float64,GT_float32,GT_complex64,GT_complex128:
+			case GT_bool,GT_string,GT_int8,GT_int16,GT_int32,GT_uint8,GT_uint16,GT_uint32,GT_uintptr,GT_float64,GT_float32:
 				a.value == b.value;
+			case GT_uint:
+				(a.value : GoUInt) == (b.value : GoUInt);
+			case GT_int:
+				(a.value : GoInt) == (b.value : GoInt);
+			case GT_uint64:
+				(a.value : GoUInt64) == (b.value : GoUInt64);
+			case GT_int64:
+				(a.value : GoInt64) == (b.value : GoInt64);
+			case GT_complex64:
+				(a.value : GoComplex64) == (b.value : GoComplex64);
+			case GT_complex128:
+				(a.value : GoComplex128) == (b.value : GoComplex128);
 			case GT_namedType(_, _, _, _, _, type):
 				a.type.gt = type;
 				switch b.type.gt {

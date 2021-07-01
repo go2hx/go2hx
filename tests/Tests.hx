@@ -84,7 +84,6 @@ function compile(tests:Array<String>, compareOutput:Bool) {
 	Main.init(tests);
 	tests.pop();
 	Sys.setCwd("..");
-	run(compareOutput);
 }
 
 var output:FileOutput = null;

@@ -590,7 +590,7 @@ private function typeAbstractInterfaceWrappers(def:TypeDefinition,data:FileType)
 					pos: null,
 					kind: FFun({
 						args: [],
-						expr: macro return '$__t__',
+						expr: macro return Std.string(__t__),
 					}),
 					access: [APublic],
 					meta: [{name: ":keep", pos: null}],
@@ -1041,7 +1041,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						pack: [],
 					});
 					info.data.defs.push(typeSpec(spec, info));
-				case "ValueSpec":
+				case "ValueSpec": // typeValue
 					var spec:Ast.ValueSpec = spec;
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
@@ -1070,12 +1070,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								var expr = typeExpr(spec.values[i], info);
 								var name = nameIdent(spec.names[i].name, info, false, false,false);
 								var t = typeof(spec.type);
-								if (isAnyInterface(t)) {
-									expr = macro Go.toInterface($expr);
-								}
-								if (isAnyInterface(typeof(spec.values[i]))) {
-									expr = macro Go.fromInterface($expr);
-								}
+
+								expr = assignTranslate(t,typeof(spec.values[i]),expr,info);
+
 								info.localVars[name] = true;
 								{
 									name: name,
@@ -1123,8 +1120,21 @@ private function isSignature(type:GoType):Bool {
 	return switch type {
 		case signature(_,_,_):
 			true;
+		case named(_, underlying):
+			isSignature(underlying);
 		default:
 			false;
+	}
+}
+
+private function getSignature(type:GoType):GoType {
+	return switch type {
+		case signature(_,_,_):
+			type;
+		case named(_, underlying):
+			getSignature(underlying);
+		default:
+			null;
 	}
 }
 
@@ -1354,6 +1364,21 @@ private function toExpr(def:ExprDef):Expr {
 	return {expr: def, pos: null};
 }
 
+private function assignTranslate(typeX:GoType,typeY:GoType,expr:Expr,info:Info):Expr {
+	var y = expr;
+	if (isInterface(typeX) && isPointer(typeY)) {
+		y = macro $y.value;
+	}
+	if (isAnyInterface(typeX)) {
+		y = macro Go.toInterface($y);
+	}
+	if (isAnyInterface(typeY)) {
+		var ct = toComplexType(typeX,info);
+		y = macro Go.fromInterface(($y : $ct));
+	}
+	return y;
+}
+
 private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 	switch stmt.tok {
 		case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
@@ -1380,16 +1405,12 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					for (i in 0...stmt.lhs.length) {
 						var x = typeExpr(stmt.lhs[i], info);
 						var y = typeExpr(stmt.rhs[i], info);
-
+						
 						var typeX = typeof(stmt.lhs[i]);
 						var typeY = typeof(stmt.rhs[i]);
-						if (isAnyInterface(typeX)) {
-							y = macro Go.toInterface($y);
-						}
-						if (isAnyInterface(typeY)) {
-							var ct = toComplexType(typeX,info);
-							y = macro Go.fromInterface(($y : $ct));
-						}
+
+						y = assignTranslate(typeX,typeY,y,info);
+
 						switch typeX {
 							case named(_, underlying):
 								if (op != OpAssign) {
@@ -1406,6 +1427,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								}
 							default:
 						}
+						
 						if (x == null || y == null)
 							return null;
 						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y)); // blank means no assign/define just the rhs expr
@@ -1501,7 +1523,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		if (info.returnTypes.length == 0)
 			return ret(EReturn());
 		if (info.returnTypes.length == 1) {
-			if (info.returnNames.length == 1)
+			if (info.returnNames.length == 1 && info.returnNamed)
 				return ret(EReturn(macro $i{info.returnNames[0]}));
 			return ret(EReturn(defaultValue(info.returnTypes[0],info)));
 		}
@@ -1794,18 +1816,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 	}
 	var ft = typeof(expr.type);
-	var notFunction = false;
-	switch ft {
-		case signature(_, _, _, _):
-		case invalid:
-		case basic(kind):
-			switch kind {
-				case invalid_kind:
-				default: notFunction = true;
-			}
-		default: //not a function
-			notFunction = true;
-	}
+	var notFunction = !isSignature(ft);
+
 	if (notFunction) {
 		var ct = typeExprType(expr.fun,info);
 		var e = typeExpr(expr.args[0],info);
@@ -1914,20 +1926,23 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	if (!isFmt) {
 		var type = typeof(expr.type);
 		var vars:Array<GoType> = [];
-		if (type != null) switch type {
-			case invalid:
-			case signature(variadic, params, results, recv):
-				if (params != null) switch params {
-					case invalid:
-					case varValue(_, _):
-						vars.push(params);
-					case tuple(_, v):
-						vars = vars.concat(v);
+		if (type != null) {
+			type = getSignature(type);
+			if (type != null) {
+				switch type {
+					case signature(variadic, params, results, recv):
+						if (params != null) switch params {
+							case invalid:
+							case varValue(_, _):
+								vars.push(params);
+							case tuple(_, v):
+								vars = vars.concat(v);
+							default:
+								vars.push(varValue("",params));
+						}
 					default:
-						vars.push(varValue("",params));
 				}
-			default:
-				//throw "call is not a signatuzre";
+			}
 		}
 		for (i in 0...vars.length) {
 			switch vars[i] {
@@ -2825,7 +2840,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var isThis = false;
 
 	function setIdent(sel):String {
-		return (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + selectIdent(sel, info);
+		return (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info,false,true);
 	}
 
 	var sel = expr.sel.name;
@@ -3150,7 +3165,8 @@ private function defaultValue(type:GoType,info:Info):Expr {
 			macro null;
 		case chan(_, elem):
 			var t = toComplexType(elem,info);
-			macro new GoChan<$t>();
+			var value = defaultValue(elem,info);
+			macro new Chan<$t>(0,() -> $value);
 		case pointer(_):
 			macro null;
 		case signature(_, _, _, _):
@@ -3779,6 +3795,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				info.lastValue = value.values[i];
 				info.lastType = type;
 				expr = typeExpr(value.values[i], info);
+				expr = assignTranslate(typeof(value.type),typeof(value.values[i]),expr,info);
 			}
 			if (expr == null)
 				continue;
@@ -3838,14 +3855,6 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 	return isTitle(name) ? (isField ? [APublic] : []) : [APrivate];
 }
-
-private function selectIdent(name:String,info:Info):String {
-	name = untitle(name);
-	if (reserved.indexOf(name) != -1)
-		name += "_";
-	return name;
-}
-
 private function getRestrictedName(name:String,info:Info):String {
 	for (file in info.global.module.files) {
 		for (def in file.defs) {

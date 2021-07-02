@@ -38,7 +38,7 @@ function tinygo() {
 		"atomic"
 	])
 		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "binop.go"];
+	tests = ['.$pathto' + "calls.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test],true);

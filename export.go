@@ -225,9 +225,9 @@ func parseInterface(pkg *packages.Package) {
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 
-	/*for _,file := range pkg.Syntax {
+	for _,file := range pkg.Syntax {
 		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath)...)
-	}*/
+	}
 }
 
 func parsePkgList(list []*packages.Package) dataType {
@@ -331,9 +331,10 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				if !inter.isExport && named.Pkg().Path() != inter.path {
 					continue
 				}
-				obj := checker.ObjectOf(obj.Name)
-				if obj != nil {
-					if types.Implements(obj.Type(), inter.t) {
+				object := checker.ObjectOf(obj.Name)
+				if object != nil {
+					b := types.Implements(types.NewPointer(object.Type()), inter.t)
+					if b {
 						implements = append(implements, interfaceType{inter.name, inter.path})
 					}
 				}

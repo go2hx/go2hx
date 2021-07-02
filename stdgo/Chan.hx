@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.StdGoTypes.MultiReturn;
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
 
@@ -7,7 +8,7 @@ class Chan<T> {
 	var data:Vector<T>;
 	var getIndex:Int = 0;
 	var setIndex:Int = 0;
-	var defaultValue:T;
+	var defaultValue:Void->T;
 	var closed:Bool = false;
 
 	public var length(get, null):GoInt;
@@ -23,8 +24,14 @@ class Chan<T> {
 
 	public inline function get():T {
 		if (data.length <= getIndex)
-			return defaultValue;
+			return defaultValue();
 		return data[getIndex++];
+	}
+	
+	public inline function smartGet():MultiReturn<{value:T,ok:Bool}> {
+		if (data.length <= getIndex)
+			return {value: defaultValue(),ok: false};
+		return {value: data[getIndex++],ok: false};
 	}
 
 	public inline function getMulti():{value:T, ok:Bool} {

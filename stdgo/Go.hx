@@ -17,6 +17,15 @@ class Go {
 			case TPath(p):
 				if (p.pack.length == 0) {
 					switch p.name {
+						case "Chan":
+							var param:ComplexType = null;
+							switch p.params[0] {
+								case TPType(t):
+									param = t;
+								default:
+							}
+							var value = defaultComplexTypeValue(param,pos);
+							macro new $p(0,() -> $value);
 						case "AnyInterface","Pointer":
 							return macro null;
 						case "GoMap":
@@ -34,7 +43,8 @@ class Go {
 									len = e;
 								default:
 							}
-							return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,pos)}]);
+							var value = defaultComplexTypeValue(param,pos);
+							return macro new $p(...[for (i in 0...$len) $value]);
 						case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
 							return macro (0 : $ct);
 						case "GoComplex64","GoComplex128":
@@ -133,7 +143,7 @@ class Go {
 							switch p.params[0] {
 								case TPType(t):
 									var value = defaultComplexTypeValue(t,Context.currentPos());
-									return macro new $p($size,$value);
+									return macro new $p($size,() -> $value);
 								default: throw "Chan not a complex type param: " + p.params;
 							}
 						default:
@@ -330,7 +340,13 @@ class Go {
 		var declare:Bool = false;
 		switch expr.expr {
 			case EConst(c):
-				declare = true;
+				switch c {
+					case CIdent(s):
+						if (s == "this")
+							declare = true;
+					default:
+						declare = true;
+				}
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
 				switch t {
@@ -813,6 +829,23 @@ class Go {
 			default:
 		}*/
 		switch funcExpr.expr {
+			case ECall(e, field):
+				switch e.expr {
+					case EField(e, field):
+						if (field == "get") {
+							var t = Context.followWithAbstracts(Context.typeof(e));
+							switch t {
+								case TInst(t, params):
+									var t = t.get();
+									switch t.module {
+										case "stdgo.Chan":
+											func = macro $e.smartGet();
+									}
+								default:
+							}
+						}
+					default:
+				}
 			case EArray(e, k):
 				func = macro $e.exists($k) ? {value: $func, ok: true} : {value: $e.defaultValue(), ok: false};
 			case ECheckType(_, t), ECast(_,t):
@@ -832,7 +865,7 @@ class Go {
 			case TInst(t, params):
 				f = t.get().fields.get();
 			default:
-				throw "unknown funcType";
+				throw "unknown funcType: " + funcType;
 		}
 		f.sort((a,b) -> {
 			return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;

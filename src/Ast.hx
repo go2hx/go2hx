@@ -442,10 +442,7 @@ typedef Object = {
 
 typedef Position = {};
 
-typedef Pos = {
-	string:String,
-	noPos:Bool,
-}
+typedef Pos = Int;
 
 enum GoType {
 	invalid;

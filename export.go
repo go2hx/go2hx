@@ -515,11 +515,7 @@ func parseData(node interface{}) map[string]interface{} {
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
-			data[field.Name] = map[string]interface{}{
-				"id":     "Pos",
-				"string": "",
-				"noPos":  value == token.NoPos,
-			}
+			data[field.Name] = fset.PositionFor(value,true).Offset
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:

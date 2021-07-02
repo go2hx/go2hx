@@ -854,7 +854,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 		// recover
 		exprs.unshift(macro var recover_exception:Dynamic = null);
 		var pos = 2;
-		var ret = toExpr(typeReturnStmt({returnPos: null, results: []}, info));
+		var ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 		var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 			{
 				name: "e",
@@ -1798,7 +1798,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		args = [for (arg in expr.args.slice(pos)) typeExpr(arg, info)];
 	}
 	ellipsisFunc = function() {
-		if (!expr.ellipsis.noPos) {
+		if (expr.ellipsis != 0) {
 			var last = args.pop();
 			if (last == null)
 				return;
@@ -3476,6 +3476,17 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 	var type = typeExprType(spec.type, info);
 	if (type == null)
 		return null;
+
+	if (spec.assign != 0) {
+		return {
+			name: name,
+			pos: null,
+			pack: [],
+			isExtern: true,
+			fields: [],
+			kind: TDAlias(type),
+		}
+	}
 
 	var wrapperType:TypePath = {name: interfaceWrapperName(name),pack: []};
 

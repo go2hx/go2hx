@@ -12,7 +12,7 @@ import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.AnyInterface;
 
-var args = new Slice(...Sys.args());
+var args = new Slice<GoString>(...Sys.args());
 var stderr = new OutputWriter(Sys.stderr());
 
 // var stdin = new OutputWriter(Sys.stdin());
@@ -44,9 +44,16 @@ inline function mkdir(path:String, ?perm:GoInt):Error {
 	}
 }
 
-inline function getenv(path:String):String {
+inline function getenv(path:String):GoString {
 	var e = Sys.getEnv(path);
 	return e == null ? "" : e;
+}
+
+inline function lookupEnv(path:String):MultiReturn<{value:GoString,ok:Bool}> {
+	var e = Sys.getEnv(path);
+	if (e == null)
+		return {value: "", ok: false};
+	return {value: e, ok: true};
 }
 
 inline function mkdirAll(path:String, ?perm:GoInt):Error {

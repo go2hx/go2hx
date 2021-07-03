@@ -21,6 +21,7 @@
  */
 
 package stdgo;
+import stdgo.reflect.Reflect.GT_enum;
 import stdgo.Pointer.PointerData;
 import haxe.Int32;
 import haxe.Int64;
@@ -73,6 +74,9 @@ class Complex<T> {
 	public function new(r:T, i:T) {
 		real = r;
 		imag = i;
+	}
+	inline function toString():GoString {
+		return "(+" + Std.string(real) + "+" + Std.string(imag) + "i)";
 	}
 }
 
@@ -221,6 +225,10 @@ abstract GoFloat64(Float) from Float {
 			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
 	}
+	@:to inline function toComplex64():GoComplex64
+		return new GoComplex64(this,0);
+	@:to inline function toComplex128():GoComplex128
+		return new GoComplex128(this,0);
 
 	public static function ofInt(x:Int):GoUInt
 		return x;
@@ -312,6 +320,11 @@ abstract GoFloat32(Float32) from Float32 {
 			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
 	}
+
+	@:to inline function toComplex64():GoComplex64
+		return new GoComplex64(this,0);
+	@:to inline function toComplex128():GoComplex128
+		return new GoComplex128(this,0);
 
 	public inline function toBasic()
 		return this;
@@ -1419,7 +1432,7 @@ class AnyInterfaceData {
 }
 @:forward
 @:forward.new
-abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
+abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 
 	@:op(A != b) public static function notEquals(a:AnyInterface,b:AnyInterface):Bool {
 		return !equals(a,b);
@@ -1428,7 +1441,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
-		return switch a.type.gt {
+		var gt = a.type.gt;
+		return switch gt {
 			case GT_bool,GT_string,GT_int8,GT_int16,GT_int32,GT_uint8,GT_uint16,GT_uint32,GT_uintptr,GT_float64,GT_float32:
 				a.value == b.value;
 			case GT_uint:
@@ -1444,6 +1458,21 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 			case GT_complex128:
 				(a.value : GoComplex128) == (b.value : GoComplex128);
 			case GT_namedType(_, _, _, _, _, type):
+				function isReflectType(type:GT_enum) {
+					return switch type {
+						case GT_namedType(pack, _, name, _, _, type):
+							if (pack == "stdgo.reflect" && name == "Type") {
+								true;
+							}else{
+								isReflectType(type);
+							}
+						default:
+							false;
+					}
+				}
+				trace("type: " + isReflectType(gt));
+				if (isReflectType(gt))
+					return (a.value : stdgo.reflect.Reflect.Type).assignableTo(b.value);
 				a.type.gt = type;
 				switch b.type.gt {
 					case GT_namedType(_, _, _, _, _, type2):
@@ -1469,6 +1498,11 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData to Dynamic {
 					}
 				}
 				true;
+			case GT_invalid:
+				switch b.type.gt {
+					case GT_invalid: true;
+					default: false;
+				}
 			default:
 				throw "unknown type: " + a.type.gt;
 		}

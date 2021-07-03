@@ -17,6 +17,8 @@ class Go {
 			case TPath(p):
 				if (p.pack.length == 0) {
 					switch p.name {
+						case "Dynamic":
+							return macro {};
 						case "Chan":
 							var param:ComplexType = null;
 							switch p.params[0] {
@@ -25,7 +27,7 @@ class Go {
 								default:
 							}
 							var value = defaultComplexTypeValue(param,pos);
-							macro new $p(0,() -> $value);
+							return macro new $p(0,() -> $value);
 						case "AnyInterface","Pointer":
 							return macro null;
 						case "GoMap":
@@ -239,8 +241,8 @@ class Go {
 				if (t.impl != null) {
 					var fields = t.impl.get().statics.get();
 					for (field in fields) {
-						if (field.name == "toInterface") {
-							exprInterface = macro $expr.toInterface();
+						if (field.name == "__toInterface__") {
+							exprInterface = macro $expr.__toInterface__();
 						}
 					}
 				}

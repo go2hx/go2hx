@@ -12,14 +12,19 @@ class Chan<T> {
 	var closed:Bool = false;
 
 	public var length(get, null):GoInt;
+	public var _address_:Int;
 
 	function get_length():GoInt {
 		return setIndex - getIndex;
 	}
 
+	public function isNill():Bool
+		return false;
+
 	public function new(length:GoInt, defaultValue) {
 		data = new Vector<T>(length.toBasic());
 		this.defaultValue = defaultValue;
+		this._address_ = ++Go.addressIndex;
 	}
 
 	public inline function get():T {

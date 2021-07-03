@@ -614,19 +614,15 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.SliceExpr:
-		data["type"] = parseType(checker.TypeOf(node.X))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.TypeAssertExpr:
-		data["typeX"] = parseType(checker.TypeOf(node.X))
-		data["typeY"] = parseType(checker.TypeOf(node.Type))
 	case *ast.StarExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.CallExpr:
-		data["type"] = parseType(checker.TypeOf(node.Fun))
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.UnaryExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.BinaryExpr:
-		data["typeX"] = parseType(checker.TypeOf(node.X))
-		data["typeY"] = parseType(checker.TypeOf(node.Y))
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.KeyValueExpr:
 		data["type"] = parseType(checker.TypeOf(node))

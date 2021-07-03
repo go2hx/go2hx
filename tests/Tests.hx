@@ -33,12 +33,19 @@ function tinygo() {
 			continue;
 		tests.push('./$p');
 	}
+
 	pathto = "/tinygo/testdata/";
 	for (test in [
-		"atomic"
+		"atomic",
+		"env",       //needs test runner to set enviorment variables and sys args before program execution
+		"channel",   //uses time pkg not supported yet
+		"interface", //uses time pkg not supported yet
+		"float",     //uses fmt formatter for numbers not supported yet
+		"print",     //uses fmt formatter for numbers not supported yet
+		"gc",        //timed to closely to go's runtime gc
 	])
 		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "calls.go"];
+	tests = ['.$pathto' + "reflect.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test],true);

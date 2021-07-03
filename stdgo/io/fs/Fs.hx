@@ -9,7 +9,8 @@ interface FileInfo {
 	public function name():GoString;
 	public function size():GoInt64;
 	public function mode():FileMode;
-	public function modTime():stdgo.time.Time;
+	//public function modTime():stdgo.time.Time;
+	public function modTime():Dynamic;
 	public function isDir():Bool;
 	public function sys():AnyInterface;
 }

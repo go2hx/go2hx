@@ -656,6 +656,16 @@ class StructTag__extension { //TODO implement functionality for methods
 }
 
 private function directlyAssignable(t:Type,v:Type):Bool {
+	function getUnderlying(t:GT_enum) {
+		return switch t {
+			case GT_namedType(_, _, _, _, _, type):
+				getUnderlying(type);
+			default:
+				t;
+		}
+	}
+	t.gt = getUnderlying(t.gt);
+	v.gt = getUnderlying(v.gt);
 	switch t.gt {
 		case GT_chan(elem), GT_slice(elem):
 			return switch v.gt {
@@ -698,13 +708,6 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 						}
 					}
 					return true;
-				default:
-					return false;
-			}
-		case GT_namedType(_,_,_,_,_,t):
-			switch v.gt {
-				case GT_namedType(_,_,_,_,_,t2):
-					return directlyAssignable(new Type(t),new Type(t2));
 				default:
 					return false;
 			}
@@ -839,8 +842,8 @@ final struct : Kind = (25 : GoInt64);
 final unsafePointer : Kind = (26 : GoInt64);
 
 @:structInit @:allow(github_com.go2hx.go4hx.rnd) final class Visit implements StructType {
-    public var _a1:stdgo.unsafe.Pointer = null;
-    public var _a2:stdgo.unsafe.Pointer = null;
+    public var _a1:stdgo.unsafe.Unsafe.Pointer = null;
+    public var _a2:stdgo.unsafe.Unsafe.Pointer = null;
     public var _typ : Type_ = null;
     public function new(?_a1, ?_a2, ?_typ) {
         stdgo.internal.Macro.initLocals();

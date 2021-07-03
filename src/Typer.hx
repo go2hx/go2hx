@@ -1072,7 +1072,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								var t = typeof(spec.type);
 
 								expr = assignTranslate(t,typeof(spec.values[i]),expr,info);
-
 								info.localVars[name] = true;
 								{
 									name: name,
@@ -1122,6 +1121,29 @@ private function isSignature(type:GoType):Bool {
 			true;
 		case named(_, underlying):
 			isSignature(underlying);
+		default:
+			false;
+	}
+}
+private function isNamed(type:GoType):Bool {
+	return switch type {
+		case named(_,_): true;
+		default: false;
+	}
+}
+private function isInvalid(type:GoType):Bool {
+	return switch type {
+		case invalid:
+			true;
+		case basic(kind):
+			switch kind {
+				case invalid_kind:
+					true;
+				default:
+					false;
+			}
+		case named(_, underlying):
+			isInvalid(underlying);
 		default:
 			false;
 	}
@@ -1638,12 +1660,16 @@ private function arrayType(expr:Ast.ArrayType, info:Info):ComplexType {
 	if (expr.len != null) {
 		// array
 		addImport("stdgo.GoArray", info);
+		addImport("stdgo.Slice", info);
 		var len:Expr = null;
 		switch expr.len.id {
 			case "BasicLit":
 				len = toExpr(EConst(CInt(expr.len.value)));
 			case "Ellipsis":
 				len = toExpr(EConst(CInt("0")));
+			default:
+				len = typeExpr(expr.len,info);
+				len = macro ($len : GoInt).toBasic();
 		}
 		return TPath({
 			pack: [],
@@ -1815,8 +1841,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			args.push(last);
 		}
 	}
-	var ft = typeof(expr.type);
-	var notFunction = !isSignature(ft);
+	var ft = typeof(expr.fun);
+	var notFunction = !isSignature(ft) && !isInvalid(ft);
 
 	if (notFunction) {
 		var ct = typeExprType(expr.fun,info);
@@ -1924,7 +1950,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		default:
 	}
 	if (!isFmt) {
-		var type = typeof(expr.type);
+		var type = typeof(expr.fun);
 		var vars:Array<GoType> = [];
 		if (type != null) {
 			type = getSignature(type);
@@ -2167,7 +2193,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "TypeAssertExpr":
 			var e:Ast.TypeAssertExpr = e;
-			typeof(e.typeY);
+			typeof(e.type);
 		case "FuncLit":
 			invalid;
 		case "KeyValueExpr":
@@ -2487,8 +2513,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		for (elt in expr.elts) {
 			params.push(typeExpr(elt, info));
 		}
-		if (expr.typeLit != null) {
-			var type = typeof(expr.typeLit);
+		if (expr.type != null) {
+			var type = typeof(expr.type);
 			switch type {
 				case named(path, underlying):
 					type = underlying; //set underlying
@@ -2536,7 +2562,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 				var e = getKeyValueExprs(expr.elts, info);
 			if (e != null && e.length > 1)
 				return (macro new $p($a{e})).expr;
-			return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit),info).expr;
+			return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.type),info).expr;
 		}
 		getParams();
 		return (macro Go.set($a{params})).expr;
@@ -2610,7 +2636,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 		var e = getKeyValueExprs(expr.elts, info);
 		if (e != null && e.length > 1)
 			return (macro new $p($a{e})).expr;
-		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.typeLit),info).expr;
+		return checkType(e[0],type,typeof(expr.elts[0]),typeof(expr.type),info).expr;
 	}
 	getParams();
 	if (p == null)
@@ -2712,19 +2738,21 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		}
 		return null;
 	}
-	var typeX = typeof(expr.typeX);
-	var typeY = typeof(expr.typeY);
+	var typeX = typeof(expr.x);
+	var typeY = typeof(expr.y);
 	switch op {
 		case OpXor:
 			return EBinop(op, x, y);
 		case OpEq,OpNotEq:
 			var value = isNil();
 			if (value != null) {
+				if (isInterface(typeX) || isInterface(typeY))
+					return EBinop(op,x,y);
 				switch op {
 					case OpEq:
 						return (macro $value == null || $value.isNill()).expr;
 					default:
-						return (macro $value == null || !$value.isNll()).expr;
+						return (macro $value != null && !$value.isNill()).expr;
 				}
 			}
 			var t = typeX;
@@ -2759,21 +2787,9 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
 		default:
 	}
-	switch typeX {
-		case named(_, underlying):
-			if (op != OpAssign) {
-				var ct = toComplexType(underlying,info);
-				x = macro ($x : $ct);
-			}
-		default:
-	}
-	switch typeY {
-		case named(_, underlying):
-			if (op != OpAssign) {
-				var ct = toComplexType(underlying,info);
-				y = macro ($y : $ct);
-			}
-		default:
+	if (isInvalid(typeX) || isNamed(typeX) || isInterface(typeX)) {
+		x = macro Go.toInterface($x);
+		y = macro Go.toInterface($y);
 	}
 	return EBinop(op, x, y);
 }
@@ -2935,7 +2951,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 		default:
 	}
 	
-	return checkType(e,type,typeof(expr.typeX),typeof(expr.typeY),info).expr;
+	return checkType(e,type,typeof(expr.x),typeof(expr.type),info).expr;
 }
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
@@ -3560,7 +3576,7 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 			access: [AInline],
 			kind: FFun({
 				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})}],
-				expr: macro return untyped this.get(i),
+				expr: macro return untyped this[i],
 			})
 		},{
 			name: "__set", //for slices/arrays/maps
@@ -3569,14 +3585,23 @@ private function typeAlias(spec:Ast.TypeSpec,info:Info):TypeDefinition {
 			access: [AInline],
 			kind: FFun({
 				args: [{name: "i",type: TPath({pack: [],name: "GoInt"})},{name: "value"}],
-				expr: macro return untyped this.set(i,value),
+				expr: macro return untyped this[i] = value,
 			})
 		},{
-			name: "toInterface",
+			name: "__toInterface__",
 			pos: null,
 			kind: FFun({
 				args: [],
 				expr: macro return new $wrapperType(this),
+			}),
+			access: [APublic,AInline],
+		},{
+			name: "__elem__",
+			pos: null,
+			kind: FFun({
+				args: [],
+				ret: type,
+				expr: macro return this,
 			}),
 			access: [APublic,AInline],
 		}].concat(implicits).concat(fields),

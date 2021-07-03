@@ -71,7 +71,6 @@ typedef CompositeLit = {
 	elts:Array<Expr>,
 	rbrace:Pos,
 	incomplete:Bool,
-	typeLit:ExprType,
 };
 
 typedef ParenExpr = {
@@ -115,8 +114,6 @@ typedef TypeAssertExpr = {
 	lparen:Pos,
 	type:Expr,
 	rparen:Pos,
-	typeX:ExprType,
-	typeY:ExprType,
 };
 
 typedef CallExpr = {
@@ -150,9 +147,6 @@ typedef BinaryExpr = {
 	opPos:Pos,
 	op:Token,
 	y:Expr,
-
-	typeX:ExprType,
-	typeY:ExprType,
 	type:ExprType,
 };
 

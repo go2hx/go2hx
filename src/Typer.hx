@@ -1517,10 +1517,29 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				return EBlock(exprs);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
 				// non variable assign, destructure system
-				var args = [for (lhs in stmt.lhs) typeExpr(lhs, info)];
 				var func = typeExpr(stmt.rhs[0], info);
-				args.push(func);
-				return (macro Go.destruct($a{args})).expr;
+				var t = typeof(stmt.rhs[0]);
+				var names:Array<String> = [];
+				switch t {
+					case tuple(_,vars):
+						for (i in 0...vars.length) {
+							var v = vars[i];
+							switch v {
+								case varValue(name,_):
+									names.push(name == "_" ? 'v$i' : name);
+								default:
+									names.push('v$i');
+							}
+						}
+					default:
+				}
+				var assigns:Array<Expr> = [];
+				for (i in 0...stmt.lhs.length) {
+					var e = typeExpr(stmt.lhs[i],info);
+					var fieldName = names[i];
+					assigns.push(macro $e = __tmp__.$fieldName);
+				}
+				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {
 				throw "unknown type assign type: " + stmt;
 			}
@@ -1553,16 +1572,32 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				return EVars(vars);
 			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) {
-				// variable destructure system (vars)
-				var args = [
-					for (lhs in stmt.lhs) {
-						info.localVars[lhs.name] = true;
-						makeString(lhs.name);
-					}
-				];
+				// non variable assign, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
-				args.push(func);
-				return (macro Go.destruct($a{args})).expr;
+				var t = typeof(stmt.rhs[0]);
+				var names:Array<String> = [];
+				switch t {
+					case tuple(_,vars):
+						for (i in 0...vars.length) {
+							var v = vars[i];
+							switch v {
+								case varValue(name,_):
+									names.push(name == "_" ? 'v$i' : name);
+								default:
+									names.push('v$i');
+							}
+						}
+					default:
+				}
+				var defines:Array<Var> = [];
+				for (i in 0...stmt.lhs.length) {
+					if (stmt.lhs[i].id != "Ident")
+						throw "define left side not an ident";
+					var varName = stmt.lhs[i].name;
+					var fieldName = names[i];
+					defines.push({name: varName,expr: macro __tmp__.$fieldName});
+				}
+				return EVars([{name: "__tmp__", expr: func}].concat(defines));
 			} else {
 				throw "unknown type assign define type: " + stmt;
 			}
@@ -3376,7 +3411,11 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			continue;
 		}
 		for (name in group.names) {
-			returnNames.push(nameIdent(name.name, info, false, false));
+			if (name.name == "_") {
+				returnNames.push("v" + returnNames.length);
+			}else{
+				returnNames.push(nameIdent(name.name, info, false, false));
+			}
 			returnTypes.push(t);
 			returnComplexTypes.push(ct);
 		}

@@ -1523,7 +1523,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (new AnyInterface(a[i], null, t) != new AnyInterface(b[i], null, t))
+					if (AnyInterface.equals(new AnyInterface(a[i], null, t),new AnyInterface(b[i], null, t)))
 						return false;
 				}
 				true;

@@ -21,16 +21,20 @@ enum GT_enum {
 	GT_float64;
 	GT_complex64;
 	GT_complex128;
-	GT_string;
-	GT_unsafePointer;
-	GT_chan(elem:GT_enum);
-	GT_interface(pack:String,module:String,name:String,methods:Array<GT_enum>);
-	GT_ptr(elem:GT_enum);
-	GT_slice(elem:GT_enum);
 	GT_array(elem:GT_enum, len:Int);
+
+	GT_chan(elem:GT_enum);
+
 	GT_func(input:Array<GT_enum>, output:Array<GT_enum>);
+	GT_interface(pack:String,module:String,name:String,methods:Array<GT_enum>);
 	GT_map(key:GT_enum, value:GT_enum);
+
+	GT_ptr(elem:GT_enum);
+
+	GT_slice(elem:GT_enum);
+	GT_string;
 	GT_struct(fields:Array<GT_enum>);
+	GT_unsafePointer(elem:GT_enum);
 	GT_field(name:String,type:GT_enum,tag:String);
 	GT_namedType(pack:String,module:String,name:String,methods:Array<GT_enum>,interfaces:Array<GT_enum>, type:GT_enum);
 	GT_previouslyNamed(name:String);
@@ -41,6 +45,7 @@ class Error implements StructType implements stdgo.StdGoTypes.Error {
 	var message:GoString;
 	public var _address_:Int;
 	public function new(m:GoString) {
+		Go.addressIndex = 20;
 		_address_ = ++Go.addressIndex;
 		message = m;
 	}
@@ -76,6 +81,85 @@ class Value implements StructType {
 		underlyingType = findUnderlying(t);
 	}
 
+	public function canSet():Bool {
+		return true; //TODO
+	}
+
+	public function canAddr():Bool {
+		return true; //TODO
+	}
+
+	public function cap():GoInt {
+		switch kind() {
+			case array:
+				return (val : GoArray<Any>).cap();
+			case slice:
+				trace("val: " + (val == null));
+				return (val : Slice<Any>).cap();
+			case chan:
+				return (val : Chan<Any>).cap();
+			default:
+				throw "not a cap type";
+		}
+
+	}
+
+	public function set(x:Value) {
+		val = x.val;
+	}
+
+	public function setInt(x:GoInt64) {
+		switch kind() {
+			case int8, int16, int32, int64:
+				val = x;
+			default:
+				throw "not an int kind";
+		}
+	}
+
+	public function setString(x:GoString) {
+		val = x;
+	}
+
+	public function setUint(x:GoUInt64) {
+		switch kind() {
+			case uint8,uint16,uint32,uint64:
+				val = x;
+			default:
+				throw "not an int kind";
+		}
+	}
+
+	public function setComplex(x:GoComplex128) {
+		switch kind() {
+			case complex64, complex128:
+				val = x;
+			default:
+				throw "not a complex kind";
+		}
+	}
+
+	public function setFloat(x:GoFloat64) {
+		switch kind() {
+			case float32, float64:
+				val = x;
+			default:
+				throw "not a float kind";
+		}
+	}
+	
+	public function setBytes(x:Slice<GoByte>) {
+		val = x;
+	}
+
+	public function setBool(x:Bool) {
+		val = x;
+	}
+
+	public function canInterface():Bool {
+		return true; //TODO
+	}
+
 	public function __copy__()
 		return new Value(val, surfaceType);
 
@@ -99,7 +183,7 @@ class Value implements StructType {
 		return surfaceType.kind();
 
 	public inline function interface_():AnyInterface
-		return null;
+		return new AnyInterface(val,null,type());
 
 	public inline function isNil()
 		return val == null;
@@ -288,7 +372,7 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 
 function typeOf(iface:AnyInterface):Type {
 	if (iface == null)
-		return new Type(GT_unsafePointer);
+		return new Type(GT_unsafePointer(iface.type.gt));
 	return iface.type;
 }
 
@@ -339,12 +423,53 @@ class Type {
 		gt = t;
 	}
 
+	public function bits():GoInt {
+		return switch kind() {
+			case int8: 8;
+			case int16: 16;
+			case int32: 32;
+			case int64: 64;
+			case uint8: 8;
+			case uint16: 16;
+			case uint32: 32;
+			case uint64: 64;
+			case float32: 32;
+			case float64: 64;
+			case complex64: 64;
+			case complex128: 128;
+			default: 0;
+		}
+	}
+
 	public function kind():Kind {
+		switch gt {
+			case GT_namedType(_, _, _, _, _, type):
+				gt = type;
+			default:
+		}
 		return new Kind(EnumValueTools.getIndex(gt));
 	}
 
 	public function size():GoUIntptr {
-		return 0;
+		return switch kind() {
+			case bool,int8,uint8: 1;
+			case int16,uint16: 2;
+			case int32,uint32,int,uint: 4;
+			case int64,uint64: 8;
+			case float32: 4;
+			case float64: 8;
+			case complex64: 8;
+			case complex128: 16;
+			case string: 16;
+			//TODO
+			case slice: 0;
+			case interface_: 0;
+			case func: 0;
+			case array: 0;
+			case struct: 0;
+			default:
+				throw "unimplemented: size of type";
+		}
 	}
 
 	public function toString():GoString {
@@ -414,6 +539,15 @@ class Type {
 				return "invalid";
 			case GT_variadic(type):
 				return "..." + new Type(type).toString();
+			case GT_unsafePointer(elem):
+				return "unsafePointer " + new Type(elem).toString();
+			case GT_interface(_, _, _, methods):
+				var r = "";
+				for (method in methods) {
+					r += " " + new Type(method).toString();
+				}
+				r = r.substr(1);
+				return "interface {" + r + "}";
 			default:
 				throw "not found enum toString " + gt; //should never get here!!!
 		}
@@ -421,7 +555,7 @@ class Type {
 
 	public function elem():Type {
 		switch (gt) {
-			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
+			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _),GT_unsafePointer(elem):
 				return new Type(elem);
 			default:
 				throw new Error("reflect.Type.Elem not implemented for " + toString());
@@ -545,10 +679,6 @@ class Type {
 		}
 	}
 
-	public function bits():GoInt {
-		return 0;
-	}
-
 	public function numField():GoInt {
 		switch (gt) {
 			case GT_namedType(_, _, _, _,_,type):
@@ -571,7 +701,7 @@ class Type {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.Implements";
 		if (ot.kind() != interface_)
-			throw "reflect: non-interface type passed to Type.Implements";
+			throw "reflect: non-interface type passed to Type.Implements: " + ot.kind();
 		return implementsMethod(ot,this);
 	}
 
@@ -596,18 +726,6 @@ class Type {
 	}
 }
 
-class StructTag__extension { //TODO implement functionality for methods
-	public static function get(tag:StructTag,key:GoString):GoString {
-		return "";
-	}
-	public static function lookup(tag:StructTag,key:GoString):{ var value : GoString; var ok : Bool; } {
-		var ok:Bool = false;
-		var value:GoString = "";
-		return { value : "", ok : false };
-	}
-}
-@:using(Reflect.StructTag__extension) typedef StructTag = GoString;
-
 
 @:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class Method implements StructType {
     public var name : GoString = "";
@@ -630,11 +748,78 @@ class StructTag__extension { //TODO implement functionality for methods
     }
     public var _address_ = 0;
 }
+
+@:forward @:forward.new @:callable @:transitive abstract StructTag(GoString) from GoString to GoString {
+    @:op(A++)
+    static function __postInc(a:StructTag):StructTag;
+    @:op(A--)
+    static function __postDec(a:StructTag):StructTag;
+    @:op([])
+    inline function __get(i:GoInt) return untyped this[i];
+    public inline function __elem__():GoString return this;
+    inline public function get(key:GoString):GoString {
+        function __block__() {
+            var obj = lookup(key);
+			var v = obj.value;
+            return v;
+        };
+        return __block__();
+    }
+    inline public function lookup(key:GoString):MultiReturn<{ var value : GoString; var ok : Bool; }> {
+        function __block__() {
+            var tag = this;
+            var value:GoString = (("" : GoString)), ok:Bool = false;
+            while (Go.toInterface(tag) != Go.toInterface("")) {
+                var i:GoInt64 = (0 : GoInt64);
+                while (i < tag.length && tag[i] == (" ".code : GoRune)) {
+                    i++;
+                };
+                tag = tag.slice(i);
+                if (Go.toInterface(tag) == Go.toInterface("")) {
+                    break;
+                };
+                i = (0 : GoInt64);
+                while (i < tag.length && tag[i] > (" ".code : GoRune) && tag[i] != (":".code : GoRune) && tag[i] != ("\"".code : GoRune) && tag[i] != (127 : GoInt64)) {
+                    i++;
+                };
+                if (i == (0 : GoInt64) || i + (1 : GoInt64) >= tag.length || tag[i] != (":".code : GoRune) || tag[i + (1 : GoInt64)] != ("\"".code : GoRune)) {
+                    break;
+                };
+                var name:GoString = ((((tag.slice(0, i) : GoString)) : GoString));
+                tag = tag.slice(i + (1 : GoInt64));
+                i = (1 : GoInt64);
+                while (i < tag.length && tag[i] != ("\"".code : GoRune)) {
+                    if (tag[i] == ("\\".code : GoRune)) {
+                        i++;
+                    };
+                    i++;
+                };
+                if (i >= tag.length) {
+                    break;
+                };
+                var qvalue:GoString = ((((tag.slice(0, i + (1 : GoInt64)) : GoString)) : GoString));
+                tag = tag.slice(i + (1 : GoInt64));
+                if (key == name) {
+                    var obj = stdgo.strconv.Strconv.unquote(qvalue);
+					var value = obj.value;
+					var err = obj.error;
+                    if (err != null) {
+                        break;
+                    };
+                    return { value : value, ok : true };
+                };
+            };
+            return { value : "", ok : false };
+        };
+        return __block__();
+    }
+}
+
 @:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class StructField implements StructType {
     public var name : GoString = "";
     public var pkgPath : GoString = "";
     public var type : Type = new Type(GT_invalid);
-    public var tag : StructTag = new StructTag();
+    public var tag : StructTag = {};//new StructTag();
     public var offset : GoUIntptr = new GoUIntptr();
     public var index : Slice<GoInt> = new Slice<GoInt>(0);
     public var anonymous : Bool = false;
@@ -666,10 +851,11 @@ private function directlyAssignable(t:Type,v:Type):Bool {
 	}
 	t.gt = getUnderlying(t.gt);
 	v.gt = getUnderlying(v.gt);
+
 	switch t.gt {
 		case GT_chan(elem), GT_slice(elem):
 			return switch v.gt {
-				case GT_chan(elem2): new Type(elem).assignableTo(new Type(elem2));
+				case GT_chan(elem2), GT_slice(elem2): new Type(elem).assignableTo(new Type(elem2));
 				default: false;
 			}
 		case GT_array(elem, len):
@@ -809,7 +995,6 @@ private function implementsMethod(t:Type,v:Type):Bool {
 		var r = EnumTools.getConstructors(GT_enum)[idx].substr(3);
 		if (r == "unsafePointer")
 			return "unsafe.Pointer";
-		trace("r: " + r);
 		return r;
 	}
 }
@@ -841,20 +1026,22 @@ final toString : Kind = (24 : GoInt64);
 final struct : Kind = (25 : GoInt64);
 final unsafePointer : Kind = (26 : GoInt64);
 
+final string : Kind = (24 : GoInt64);
+
 @:structInit @:allow(github_com.go2hx.go4hx.rnd) final class Visit implements StructType {
-    public var _a1:stdgo.unsafe.Unsafe.Pointer = null;
-    public var _a2:stdgo.unsafe.Unsafe.Pointer = null;
+    //public var _a1:stdgo.unsafe.Unsafe.Pointer = null;
+    //public var _a2:stdgo.unsafe.Unsafe.Pointer = null;
     public var _typ : Type_ = null;
-    public function new(?_a1, ?_a2, ?_typ) {
+    public function new(/*?_a1, ?_a2,*/ ?_typ) {
         stdgo.internal.Macro.initLocals();
         _address_ = ++Go.addressIndex;
     }
     public function toString() {
-        return '{' + Std.string(_a1) + " " + Std.string(_a2) + " " + Std.string(_typ) + "}";
+        return '{' + /*Std.string(_a1) + " " + Std.string(_a2) + " " +*/ Std.string(_typ) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new Visit(_a1, _a2, _typ);
+        return new Visit(/*_a1, _a2,*/ _typ);
     }
     public var _address_ = 0;
 }
@@ -864,8 +1051,8 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
     if (!v1.isValid() || !v2.isValid()) {
         return v1.isValid() == v2.isValid();
     };
-	if (!v1.type().implements_(v2.type()))
-		return false;
+	/*if (!v1.type().implements_(v2.type()))
+		return false;*/
     var hard = function(v1:Value, v2:Value):Bool {
         if (v1.kind() == ptr) {
 			if ((v1.interface_().value : Pointer<Dynamic>).address() == (v2.interface_().value : Pointer<Dynamic>).address())
@@ -962,8 +1149,8 @@ function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
     };
     var v1 = valueOf(x);
     var v2 = valueOf(y);
-    if (!v1.type().implements_(v2.type())) {
+    /*if (!v1.type().implements_(v2.type())) {
         return false;
-    };
-    return deepValueEqual(v1, v2, Go.make(((_ : GoMap<Visit, Bool>))), (0 : GoInt64));
+    };*/
+    return deepValueEqual(v1, v2,null,0);
 }

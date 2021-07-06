@@ -11,8 +11,8 @@ var port:Int = 4004;
 function main() {
 	Sys.setCwd("tests");
 	path = Path.normalize(Sys.getCwd());
-	var completion = new sys.io.Process('haxe --wait $port',null,true);
-	//tinygo();
+	var completion = new sys.io.Process('haxe --wait $port', null, true);
+	// tinygo();
 	gen();
 	completion.close();
 }
@@ -33,7 +33,7 @@ function tinygo() {
 	pathto = "/tinygo/testdata/";
 	for (test in ["atomic",])
 		tests.remove('.$pathto$test.go');
-	//tests = ['.$pathto' + "float.go"];
+	// tests = ['.$pathto' + "float.go"];
 	compile(tests, true);
 }
 
@@ -51,13 +51,13 @@ function gen() {
 		"chancap", "closedchan",
 		"cmp", "method", "method5", "nil", "nilptr2", "nilptr_aix", "recover", "recover2", "recover3", "zerodivide", // requires recover to properly function.
 		"235", "64bit", // Class name must start with an uppercase letter
-		"peano", //breaks testing system causes all other tests to timeout after
-		"stack", //passes but is super flakey with the completion server, potential error on the Haxe side
-		"rename", //messed up the typed AST, can be ran on its own in the future TODO
-		"closure", //to integrated with go's runtime
+		"peano", // breaks testing system causes all other tests to timeout after
+		"stack", // passes but is super flakey with the completion server, potential error on the Haxe side
+		"rename", // messed up the typed AST, can be ran on its own in the future TODO
+		"closure", // to integrated with go's runtime
 	])
 		tests.remove('.$pathto$test.go');
-	//tests = ['.$pathto' + "append.go"];
+	// tests = ['.$pathto' + "append.go"];
 	compile(tests, false);
 }
 
@@ -144,8 +144,9 @@ function getLine(line:String):String {
 	index = index == -1 ? 0 : index + sub.length;
 	return line.substr(index);
 }
+
 function cleanCommand(command:String):String
-	return StringTools.replace(command,'--connect $port',"");
+	return StringTools.replace(command, '--connect $port', "");
 
 function load():Array<String> {
 	var tests:Array<String> = [];

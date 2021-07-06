@@ -7,7 +7,6 @@ import haxe.Rest;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 
-
 private class VectorData<T> {
 	public var vector:Vector<T>;
 
@@ -16,20 +15,24 @@ private class VectorData<T> {
 	public var _address_:Int;
 
 	private static var _addressCounter:Int = 0;
-	
+
 	function get_length():Int {
 		return vector.length;
 	}
+
 	public function new(length) {
 		vector = new Vector<T>(length);
 		_address_ = _addressCounter++;
 	}
+
 	public inline function toString():GoString
 		return vector.toArray().toString();
+
 	public inline function get(i:Int):T
 		return vector.get(i);
-	public inline function set(i:Int,value:T):T
-		return vector.set(i,value);
+
+	public inline function set(i:Int, value:T):T
+		return vector.set(i, value);
 }
 
 @:generic
@@ -71,7 +74,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		}
 		#end
 	}
-	
+
 	@:op([]) public inline function set(index:GoInt, value:T):T
 		return this.set(index.toBasic(), value);
 

@@ -4,6 +4,7 @@ import haxe.ds.Either;
 import haxe.macro.Context;
 import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
+
 abstract Pointer<T>(PointerData<T>) {
 	public var value(get, set):T;
 

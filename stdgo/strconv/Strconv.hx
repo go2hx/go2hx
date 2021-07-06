@@ -19,6 +19,12 @@ function parseFloat(s:String, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat>>
 	}
 }
 
+inline function unquote(s:String):MultiReturn<ErrorReturn<GoString>> {
+	if (s.length < 2)
+		return {value: "", error: errSyntax};
+	return {value: "", error: null};
+}
+
 inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
 	try {
 		var value = Std.parseInt(s);
@@ -34,40 +40,39 @@ inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<Er
 
 inline function parseBool(s:String):MultiReturn<ErrorReturn<Bool>> {
 	return switch s {
-		case "1","t","T","true","TRUE","True":
+		case "1", "t", "T", "true", "TRUE", "True":
 			{value: true};
 		case "0", "f", "F", "false", "FALSE", "False":
 			{value: false};
 		default:
-			{value: false, error: syntaxError("parseBool",s)};
+			{value: false, error: syntaxError("parseBool", s)};
 	}
 }
 
 inline function formatBool(b:Bool):GoString
 	return b ? "true" : "false";
 
-inline function formatInt(i:GoInt64,base:GoInt):GoString {
+inline function formatInt(i:GoInt64, base:GoInt):GoString {
 	return '$i';
 }
 
-inline function formatUint(i:GoUInt64,base:GoInt):GoString {
+inline function formatUint(i:GoUInt64, base:GoInt):GoString {
 	return '$i';
 }
 
-inline function formatFloat(i:GoFloat64,fmt:GoByte,prec:GoInt,bitSize:GoInt):GoString {
+inline function formatFloat(i:GoFloat64, fmt:GoByte, prec:GoInt, bitSize:GoInt):GoString {
 	return '$i';
 }
-
 
 final errRange = stdgo.errors.Errors.new_("value out of range");
 final errSyntax = stdgo.errors.Errors.new_("invalid syntax");
 
 private function syntaxError(fn:String, str:String):NumError {
-	return new NumError(fn,str,errSyntax);
+	return new NumError(fn, str, errSyntax);
 }
 
-private function rangeError(fn:String,str:String):NumError {
-	return new NumError(fn,str,errRange);
+private function rangeError(fn:String, str:String):NumError {
+	return new NumError(fn, str, errRange);
 }
 
 inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
@@ -86,16 +91,20 @@ inline function itoa(i:GoInt):GoString
 class NumError implements Error {
 	public function __underlying__():AnyInterface
 		return null;
+
 	public var func:GoString;
 	public var num:GoString;
 	public var err:Error;
-	public function new(func,num,err) {
+
+	public function new(func, num, err) {
 		this.func = func;
 		this.num = num;
 		this.err = err;
 	}
+
 	public function error():GoString
 		return this.err.error();
+
 	public function unwrap():Error
 		return this.err;
 }

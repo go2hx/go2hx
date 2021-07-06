@@ -32,11 +32,11 @@ class Chan<T> {
 			return defaultValue();
 		return data[getIndex++];
 	}
-	
-	public inline function smartGet():MultiReturn<{value:T,ok:Bool}> {
+
+	public inline function smartGet():MultiReturn<{value:T, ok:Bool}> {
 		if (data.length <= getIndex)
-			return {value: defaultValue(),ok: false};
-		return {value: data[getIndex++],ok: false};
+			return {value: defaultValue(), ok: false};
+		return {value: data[getIndex++], ok: false};
 	}
 
 	public inline function getMulti():{value:T, ok:Bool} {

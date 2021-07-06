@@ -435,24 +435,23 @@ typedef Object = {
 };
 
 typedef Position = {};
-
 typedef Pos = Int;
 
 enum GoType {
 	invalid;
-	signature(variadic:Bool,params:GoType,results:GoType,recv:GoType);
+	signature(variadic:Bool, params:GoType, results:GoType, recv:GoType);
 	basic(kind:BasicKind);
-	tuple(len:Int,vars:Array<GoType>);
-	varValue(name:String,type:GoType);
+	tuple(len:Int, vars:Array<GoType>);
+	varValue(name:String, type:GoType);
 	interfaceValue(numMethods:Int);
 	slice(elem:GoType);
-	named(path:String,underlying:GoType);
+	named(path:String, underlying:GoType);
 	struct(fields:Array<FieldType>);
 	pointer(elem:GoType);
-	array(elem:GoType,len:Int);
-	map(key:GoType,value:GoType);
+	array(elem:GoType, len:Int);
+	map(key:GoType, value:GoType);
 
-	chan(dir:Int,elem:GoType);
+	chan(dir:Int, elem:GoType);
 }
 
 typedef FieldType = {
@@ -488,10 +487,9 @@ enum BasicKind {
 	untyped_complex_kind;
 	untyped_string_kind;
 	untyped_nil_kind;
-
-	//aliases
-	//byte = uint8
-	//rune = int32
+	// aliases
+	// byte = uint8
+	// rune = int32
 }
 
 @:enum abstract Token(String) {

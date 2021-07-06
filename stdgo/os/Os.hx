@@ -19,9 +19,9 @@ var stderr = new OutputWriter(Sys.stderr());
 var stdout = new OutputWriter(Sys.stdout());
 
 class OutputWriter implements stdgo.io.Io.Writer {
-
 	public function __underlying__():AnyInterface
 		return null;
+
 	var output:Output;
 
 	public function new(output) {
@@ -49,7 +49,7 @@ inline function getenv(path:String):GoString {
 	return e == null ? "" : e;
 }
 
-inline function lookupEnv(path:String):MultiReturn<{value:GoString,ok:Bool}> {
+inline function lookupEnv(path:String):MultiReturn<{value:GoString, ok:Bool}> {
 	var e = Sys.getEnv(path);
 	if (e == null)
 		return {value: "", ok: false};
@@ -117,9 +117,9 @@ inline function removeAll(path:String):Error {
 }
 
 class File implements stdgo.io.Io.Writer {
-
 	public function __underlying__():AnyInterface
 		return null;
+
 	var input:sys.io.FileInput;
 	var output:sys.io.FileOutput;
 

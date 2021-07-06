@@ -45,7 +45,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			set(i, args[i]);
 		}
 	}
-	
+
 	@:op([]) public inline function get(index:GoInt):T {
 		return this.get(index.toBasic());
 	}

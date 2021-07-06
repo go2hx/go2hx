@@ -21,15 +21,20 @@ import stdgo.StdGoTypes.GoUInt64;
 var memProfileRate:Int = 0;
 var compiler:GoString = "gccgo";
 var goarch:GoString = "";
-final goos = #if (!sys && js) "js" #else switch (Sys.systemName()) {
-	case "Linux": "linux";
-	case "Windows": "windows";
-	case "Mac": "darwin";
-	case "Android": "android";
-	case "BSD": "freebsd";
-	default: "linux";
-}
-#end 
+
+final goos =
+	#if (!sys && js)
+	"js"
+	#else
+	switch (Sys.systemName()) {
+		case "Linux": "linux";
+		case "Windows": "windows";
+		case "Mac": "darwin";
+		case "Android": "android";
+		case "BSD": "freebsd";
+		default: "linux";
+	}
+	#end
 
 interface Stringer {
 	public function __underlying__():AnyInterface;
@@ -70,7 +75,9 @@ function newRuntime(message:String):Error {
 private class RuntimeErrorData implements Error implements StructType {
 	public function __underlying__():AnyInterface
 		return null;
+
 	var message:String;
+
 	public var _address_:Int = 0;
 
 	public function new(message:String) {

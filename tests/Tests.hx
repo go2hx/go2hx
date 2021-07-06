@@ -15,8 +15,8 @@ function main() {
 	initOutput();
 
 	tinygo();
-	//gotests();
-	//completion.close();
+	// gotests();
+	// completion.close();
 	output.close();
 }
 
@@ -37,18 +37,18 @@ function tinygo() {
 	pathto = "/tinygo/testdata/";
 	for (test in [
 		"atomic",
-		"env",       //needs test runner to set enviorment variables and sys args before program execution
-		"channel",   //uses time pkg not supported yet
-		"interface", //uses time pkg not supported yet
-		"float",     //uses fmt formatter for numbers not supported yet
-		"print",     //uses fmt formatter for numbers not supported yet
-		"gc",        //timed to closely to go's runtime gc
+		"env", // needs test runner to set enviorment variables and sys args before program execution
+		"channel", // uses time pkg not supported yet
+		"interface", // uses time pkg not supported yet
+		"float", // uses fmt formatter for numbers not supported yet
+		"print", // uses fmt formatter for numbers not supported yet
+		"gc", // timed to closely to go's runtime gc
 	])
 		tests.remove('.$pathto$test.go');
 	tests = ['.$pathto' + "reflect.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],true);
+		compile([test], true);
 		passed += run(true);
 	}
 }
@@ -58,27 +58,41 @@ function gotests() {
 	// currently skipping these tests
 	pathto = "/go/test/";
 	for (test in [
-		"goprint", "locklinear", "mallocfin", "gcgort", "channel", // using gosched
+		"goprint",
+		"locklinear",
+		"mallocfin",
+		"gcgort",
+		"channel", // using gosched
 		"stackobj", // gc attempts to collect from the heap
 		"named", // very strange argument as typename function arguments, really obscure only test if real code runs into it.
 		"mergemul", // prints close to the same, times out though with no exit code
 		"initialize", // not sure
 		"method7", // not sure
-		"chancap", "closedchan",
-		"cmp", "method", "method5", "nil", "nilptr2", "nilptr_aix", "recover", "recover2", "recover3", "zerodivide", // requires recover to properly function.
-		"235", "64bit", // Class name must start with an uppercase letter
-		"peano", //breaks testing system causes all other tests to timeout after
-		"stack", //passes but is super flakey with the completion server, potential error on the Haxe side
-		//"rename", //messed up the typed AST, can be ran on its own in the future TODO
-		"closure", //to integrated with go's runtime
+		"chancap",
+		"closedchan",
+		"cmp",
+		"method",
+		"method5",
+		"nil",
+		"nilptr2",
+		"nilptr_aix",
+		"recover",
+		"recover2",
+		"recover3",
+		"zerodivide", // requires recover to properly function.
+		"235",
+		"64bit", // Class name must start with an uppercase letter
+		"peano", // breaks testing system causes all other tests to timeout after
+		"stack", // passes but is super flakey with the completion server, potential error on the Haxe side
+		// "rename", //messed up the typed AST, can be ran on its own in the future TODO
+		"closure", // to integrated with go's runtime
 	])
 		tests.remove('.$pathto$test.go');
-	//tests = ['.$pathto' + "bigmap.go"];
+	tests = ['.$pathto' + "append.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],false);
+		compile([test], false);
 		passed += run(false);
-
 	}
 }
 
@@ -105,18 +119,18 @@ function initOutput() {
 function run(compareOutput:Bool):Int {
 	var completion = null;
 	if (!compareOutput)
-		completion = new sys.io.Process('haxe --wait $port',null,true);
+		completion = new sys.io.Process('haxe --wait $port', null, true);
 	var length = Main.exportPaths.length;
 	var passedCount = 0;
 	for (i in 0...length) {
 		var path = Main.exportPaths[i];
 		path = StringTools.replace(path, "/", ".");
-		var name = path.substr(path.lastIndexOf(".") + 1); //get the final name
+		var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
 		var command = '-cp tests/golibs -main $path --interp';
 		var textFile = 'tests/results/$name.txt';
 		if (compareOutput) {
 			command += ' > $textFile';
-		}else{
+		} else {
 			command = ' --connect $port $command';
 		}
 		command = 'haxe $command';
@@ -141,7 +155,8 @@ function run(compareOutput:Bool):Int {
 					var content = File.getContent(textFile);
 					var name = name.toLowerCase();
 					switch name {
-						case "math_": name = "math";
+						case "math_":
+							name = "math";
 					}
 					var compareFile = name + ".txt";
 					var compare = File.getContent('./tests$pathto$compareFile');
@@ -156,10 +171,10 @@ function run(compareOutput:Bool):Int {
 							}
 						}
 						Sys.println(lines.join("\n"));
-					}else{
+					} else {
 						Sys.println("EQUAL");
 					}
-				}else{
+				} else {
 					Sys.println(outputText);
 				}
 				passedCount++;
@@ -192,8 +207,9 @@ function getLine(line:String):String {
 	index = index == -1 ? 0 : index + sub.length;
 	return line.substr(index);
 }
+
 function cleanCommand(command:String):String
-	return StringTools.replace(command,'--connect $port',"");
+	return StringTools.replace(command, '--connect $port', "");
 
 function loadGoTests():Array<String> {
 	var tests:Array<String> = [];

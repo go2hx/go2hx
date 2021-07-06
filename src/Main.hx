@@ -34,24 +34,38 @@ function init(args:Array<String>) {
 			args.remove(arg);
 			addOutput = false;
 		}
-		if (arg.charAt(0) != "-") {// check if flag
+		if (arg.charAt(0) != "-") { // check if flag
 			argsCount++;
-		}else{
+		} else {
 			var remove = true;
 			switch arg.substr(1).toLowerCase() {
-				case "global", "g": global = true;
-				case "o", "out", "output": addOutput = true;
-				case "printgocode": printGoCode = true;
-				//targets
-				case "cpp","c++": target = "cpp"; targetFolder = true;
-				case "cs", "c#": target = "cs"; targetFolder = true;
-				case "java", "jvm": target = "jvm";
-				case "py", "python": target = "python";
-				case "lua": target = "lua";
-				case "js", "javascript": target = "js";
-				case "hl", "hashlink": target = "hl";
-				case "eval", "interp": target = "interp";
-				default: remove = false;
+				case "global", "g":
+					global = true;
+				case "o", "out", "output":
+					addOutput = true;
+				case "printgocode":
+					printGoCode = true;
+				// targets
+				case "cpp", "c++":
+					target = "cpp";
+					targetFolder = true;
+				case "cs", "c#":
+					target = "cs";
+					targetFolder = true;
+				case "java", "jvm":
+					target = "jvm";
+				case "py", "python":
+					target = "python";
+				case "lua":
+					target = "lua";
+				case "js", "javascript":
+					target = "js";
+				case "hl", "hashlink":
+					target = "hl";
+				case "eval", "interp":
+					target = "interp";
+				default:
+					remove = false;
 			}
 			if (remove)
 				args.remove(arg);
@@ -78,7 +92,7 @@ function init(args:Array<String>) {
 	Sys.setCwd(cwd);
 	var haxerc = ".haxerc";
 	var haxercContent = File.getContent(haxerc);
-	//Sys.println('./go4hx ${args.join(" ")}');
+	// Sys.println('./go4hx ${args.join(" ")}');
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");
@@ -118,7 +132,7 @@ function init(args:Array<String>) {
 	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 	Sys.println("> typer: " + exportData.pkgs.length);
-	var modules = Typer.main(exportData,printGoCode);
+	var modules = Typer.main(exportData, printGoCode);
 	Sys.println("> generator: " + modules.length);
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
@@ -128,22 +142,23 @@ function init(args:Array<String>) {
 			Sys.setCwd(cwd);
 			var name = module.name;
 			var libPath = "libs/" + name + "/";
-			create(libPath,module);
+			create(libPath, module);
 			Sys.setCwd(localPath);
 			Sys.command('haxelib dev $name $libPath');
 			if (libs.indexOf(name) == -1)
 				libs.push(name);
-		}else{
+		} else {
 			Gen.create(outputPath, module);
 		}
 	}
 	if (target != "") {
 		if (!FileSystem.exists(haxerc))
-			File.saveContent(haxerc,haxercContent);
+			File.saveContent(haxerc, haxercContent);
 		if (!FileSystem.exists(target + ".hxml"))
-			File.saveContent(target + ".hxml","
+			File.saveContent(target + ".hxml", "
 
 			");
+
 	}
 	if (exportBool) {
 		exportPaths = [];

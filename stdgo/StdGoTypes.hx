@@ -21,6 +21,7 @@
  */
 
 package stdgo;
+
 import stdgo.reflect.Reflect.GT_enum;
 import stdgo.Pointer.PointerData;
 import haxe.Int32;
@@ -53,7 +54,6 @@ private class __UInt64 {
 	public inline function new(high, low) {
 		this.high = high;
 		this.low = low;
-		
 	}
 
 	public static inline function ofInt(x:Int) {
@@ -75,6 +75,7 @@ class Complex<T> {
 		real = r;
 		imag = i;
 	}
+
 	inline function toString():GoString {
 		return "(+" + Std.string(real) + "+" + Std.string(imag) + "i)";
 	}
@@ -147,6 +148,7 @@ abstract GoUIntptr(UInt) from UInt from Int {
 
 	@:to inline function toFloat64():GoFloat64
 		return this;
+
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		if (b == 0)
 			throw "division by zero";
@@ -225,10 +227,12 @@ abstract GoFloat64(Float) from Float {
 			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
 	}
+
 	@:to inline function toComplex64():GoComplex64
-		return new GoComplex64(this,0);
+		return new GoComplex64(this, 0);
+
 	@:to inline function toComplex128():GoComplex128
-		return new GoComplex128(this,0);
+		return new GoComplex128(this, 0);
 
 	public static function ofInt(x:Int):GoUInt
 		return x;
@@ -322,9 +326,10 @@ abstract GoFloat32(Float32) from Float32 {
 	}
 
 	@:to inline function toComplex64():GoComplex64
-		return new GoComplex64(this,0);
+		return new GoComplex64(this, 0);
+
 	@:to inline function toComplex128():GoComplex128
-		return new GoComplex128(this,0);
+		return new GoComplex128(this, 0);
 
 	public inline function toBasic()
 		return this;
@@ -1002,10 +1007,10 @@ abstract GoInt64(Int64) from Int64 {
 		return clampUInt(this.low);
 
 	@:to inline function toComplex64():GoComplex64
-		return new GoComplex64(toFloat32(),0);
+		return new GoComplex64(toFloat32(), 0);
 
 	@:to inline function toComplex128():GoComplex128
-		return new GoComplex128(toFloat64(),0);
+		return new GoComplex128(toFloat64(), 0);
 
 	@:to inline function toUInt8():GoUInt8
 		return clampUInt8(this.low);
@@ -1047,12 +1052,14 @@ abstract GoInt64(Int64) from Int64 {
 		return a.toBasic() + b.toBasic();
 
 	@:op(A++) inline function postInc():GoInt64 {
-		return this++;
+		return this
+		++;
 	}
 
 	@:op(A--) inline function postDec():GoInt64
-		return this--;
+		return this
 
+	--;
 	@:op(A * B) public static function mul(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() * b.toBasic();
 
@@ -1148,7 +1155,6 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 
 	@:op(A++) inline function postInc():GoUInt8
 		return this = clamp(this + 1);
-
 
 	@:op(-A) private static function neg(a:GoUInt8):GoUInt8
 		return a * -1;
@@ -1287,6 +1293,7 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 	@:op(A++) inline function postInc():GoUInt16 {
 		return this = clamp(this + 1);
 	}
+
 	@:op(A--) inline function postDec():GoUInt16 {
 		return this = clamp(this - 1);
 	}
@@ -1325,6 +1332,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(this.low);
+
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
 
@@ -1397,14 +1405,16 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return Int64.div(a.toBasic(), b.toBasic());
 
 	@:op(A++) inline function postInc():GoUInt64 {
-		return this++;
+		return this
+		++;
 	}
 
 	@:op(-A) private static function neg(a:GoUInt64):GoUInt64
 		return a * -1;
 
 	@:op(A--) inline function postDec():GoUInt64 {
-		return this--;
+		return this
+		--;
 	}
 }
 
@@ -1417,33 +1427,37 @@ interface Error {
 	public function __underlying__():AnyInterface;
 	public function error():String;
 }
+
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
 	public var valueInterface:Any;
 	public var type:stdgo.reflect.Reflect.Type;
-	public function new(value,valueInterface,type) {
+
+	public function new(value, valueInterface, type) {
 		this.value = value;
 		this.valueInterface = valueInterface;
 		this.type = type;
 	}
+
 	public function toString():GoString
 		return '$value';
 }
+
 @:forward
 @:forward.new
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
-
-	@:op(A != b) public static function notEquals(a:AnyInterface,b:AnyInterface):Bool {
-		return !equals(a,b);
+	@:op(A != b) public static function notEquals(a:AnyInterface, b:AnyInterface):Bool {
+		return !equals(a, b);
 	}
+
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
 		var gt = a.type.gt;
 		return switch gt {
-			case GT_bool,GT_string,GT_int8,GT_int16,GT_int32,GT_uint8,GT_uint16,GT_uint32,GT_uintptr,GT_float64,GT_float32:
+			case GT_bool, GT_string, GT_int8, GT_int16, GT_int32, GT_uint8, GT_uint16, GT_uint32, GT_uintptr, GT_float64, GT_float32:
 				a.value == b.value;
 			case GT_uint:
 				(a.value : GoUInt) == (b.value : GoUInt);
@@ -1463,7 +1477,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						case GT_namedType(pack, _, name, _, _, type):
 							if (pack == "stdgo.reflect" && name == "Type") {
 								true;
-							}else{
+							} else {
 								isReflectType(type);
 							}
 						default:
@@ -1477,7 +1491,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				switch b.type.gt {
 					case GT_namedType(_, _, _, _, _, type2):
 						b.type.gt = type2;
-						return equals(a,b);
+						return equals(a, b);
 					default:
 				}
 				true;
@@ -1485,15 +1499,14 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				for (i in 0...fields.length) {
 					switch fields[i] {
 						case GT_field(name, type, _):
-							if (StringTools.startsWith(name,"__blank__"))
+							if (StringTools.startsWith(name, "__blank__"))
 								continue;
-							var fieldValue = Reflect.field(a.value,name);
-							var fieldValue2 = Reflect.field(b.value,name);
-							var a = new AnyInterface(fieldValue,null,new stdgo.reflect.Reflect.Type(type));
-							var b = new AnyInterface(fieldValue2,null,new stdgo.reflect.Reflect.Type(type));
-							var bool = equals(a,b);
-							if (!bool)
-								return false;
+							var fieldValue = Reflect.field(a.value, name);
+							var fieldValue2 = Reflect.field(b.value, name);
+							var a = new AnyInterface(fieldValue, null, new stdgo.reflect.Reflect.Type(type));
+							var b = new AnyInterface(fieldValue2, null, new stdgo.reflect.Reflect.Type(type));
+							var bool = equals(a, b);
+							if (!bool) return false;
 						default:
 					}
 				}
@@ -1510,7 +1523,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (new AnyInterface(a[i],null,t) != new AnyInterface(b[i],null,t))
+					if (new AnyInterface(a[i], null, t) != new AnyInterface(b[i], null, t))
 						return false;
 				}
 				true;
@@ -1520,12 +1533,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 }
 
-//holds anon data
+// holds anon data
+
 @:forward
 @:forward.new
 @:forward.variance
 abstract MultiReturn<T>(T) from T to T {}
-
 
 interface ArrayAccess<T> {
 	function get(i:Int):T;

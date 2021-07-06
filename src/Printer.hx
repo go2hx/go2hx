@@ -1,5 +1,6 @@
 import haxe.macro.Expr.TypeParam;
 import haxe.macro.Expr;
+
 using StringTools;
 
 class Printer extends haxe.macro.Printer {
@@ -9,12 +10,13 @@ class Printer extends haxe.macro.Printer {
 
 	override function escapeString(s:String, delim:String):String {
 		return delim
-				+ s.replace("\n", "\\n")
-					.replace("\t", "\\t")
-					.replace("\r", "\\r")
-					.replace("'", "\\'")
-					.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
+			+ s.replace("\n", "\\n")
+				.replace("\t", "\\t")
+				.replace("\r", "\\r")
+				.replace("'", "\\'")
+				.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
 	}
+
 	override function printTypePath(tp:TypePath):String {
 		removeExprParams(tp.params);
 		return super.printTypePath(tp);
@@ -25,7 +27,8 @@ class Printer extends haxe.macro.Printer {
 			return;
 		for (param in params) {
 			switch param {
-				case TPExpr(_): params.remove(param);
+				case TPExpr(_):
+					params.remove(param);
 				default:
 			}
 		}
@@ -64,7 +67,6 @@ class Printer extends haxe.macro.Printer {
 		return printExpr(e) + ";";
 	}
 
-
 	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
 		var externBool:Bool = false;
 		if (t == null)
@@ -75,20 +77,21 @@ class Printer extends haxe.macro.Printer {
 		}
 		switch t.kind {
 			case TDAlias(td):
-				return super.printTypeDefinition(t,printPackage);
+				return super.printTypeDefinition(t, printPackage);
 			case TDField(kind, access):
-				return super.printTypeDefinition(t,printPackage);
+				return super.printTypeDefinition(t, printPackage);
 			case TDAbstract(tthis, from, to):
-				return super.printTypeDefinition(t,printPackage);
+				return super.printTypeDefinition(t, printPackage);
 			default:
 		}
 		var old = tabs;
 		tabs = tabString;
-		//isExtern = public/private access for all TypeDefs except TDFields
+		// isExtern = public/private access for all TypeDefs except TDFields
 		var str = t == null ? "#NULL" : (printPackage && t.pack.length > 0 && t.pack[0] != "" ? "package " + t.pack.join(".") + ";\n" : "")
 			+ (t.doc != null && t.doc != "" ? "/**\n" + tabString + StringTools.replace(t.doc, "\n", "\n" + tabString) + "\n**/\n" : "")
 			+ (t.meta != null && t.meta.length > 0 ? t.meta.map(printMetadata).join(" ") + " " : "")
-			+ (externBool ? "" : "") + switch t.kind {
+			+ (externBool ? "" : "")
+			+ switch t.kind {
 				case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 					(isFinal ? "final " : "")
 						+ (isAbstract ? "abstract " : "")
@@ -105,8 +108,7 @@ class Printer extends haxe.macro.Printer {
 							for (f in t.fields) {
 								tabs + printFieldWithDelimiter(f);
 							}
-						].join("\n")
-						+ "\n}";
+						].join("\n") + "\n}";
 				case TDAlias(ct):
 					"typedef "
 					+ t.name

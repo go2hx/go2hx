@@ -1,5 +1,3 @@
 package stdgo.crypto.md5;
 
-function new_() {
-    
-}
+function new_() {}

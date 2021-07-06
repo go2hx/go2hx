@@ -45,107 +45,107 @@ inline function cos(x:Float):Float {
 }
 
 inline function acosh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function atanh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function cosh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function cbrt(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function erf(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function erfc(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function exp2(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function expm1(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
-inline function frexp(x:Float):MultiReturn<{frac:Float,exp:GoInt}> {
-	return {frac: 0, exp: 0}; //TODO
+inline function frexp(x:Float):MultiReturn<{frac:Float, exp:GoInt}> {
+	return {frac: 0, exp: 0}; // TODO
 }
 
-inline function hypot(x:Float,y:Float):Float {
-	return 0; //TODO
+inline function hypot(x:Float, y:Float):Float {
+	return 0; // TODO
 }
 
-inline function mod(x:Float,y:Float):Float {
-	return 0; //TODO
+inline function mod(x:Float, y:Float):Float {
+	return 0; // TODO
 }
 
 inline function floor(x:Float):Float {
 	return M.ffloor(x.toBasic());
 }
 
-inline function pow(x:Float,y:Float):Float {
-	return M.pow(x.toBasic(),y.toBasic());
+inline function pow(x:Float, y:Float):Float {
+	return M.pow(x.toBasic(), y.toBasic());
 }
 
 inline function trunc(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
-inline function remainder(x:Float,y:Float):Float {
-	return 0; //TODO
+inline function remainder(x:Float, y:Float):Float {
+	return 0; // TODO
 }
 
-inline function modf(x:Float):MultiReturn<{int:Float,frac:Float}> {
-	return {int: 0, frac: 0}; //TODO
+inline function modf(x:Float):MultiReturn<{int:Float, frac:Float}> {
+	return {int: 0, frac: 0}; // TODO
 }
 
-inline function ldexp(x:Float,y:Float):Float {
-	return 0; //TODO
+inline function ldexp(x:Float, y:Float):Float {
+	return 0; // TODO
 }
 
 inline function log(x:Float):Float {
 	return M.log(x.toBasic());
 }
+
 inline function logp(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function log1p(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function log10(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function log2(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
-
 
 inline function asin(x:Float):Float {
 	return M.asin(x.toBasic());
 }
 
 inline function asinh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function sinh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function tanh(x:Float):Float {
-	return 0; //TODO
+	return 0; // TODO
 }
 
 inline function tan(x:Float):Float {

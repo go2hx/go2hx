@@ -3,7 +3,7 @@ package;
 function main() {
 	Main.exportBool = true;
 	Main.init(["-ident", "./rnd"]);
-	
+
 	var path = Main.exportPaths[0];
 	path = StringTools.replace(path, "/", ".");
 	var command = 'haxe -cp golibs -main $path --interp';

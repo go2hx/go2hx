@@ -3,8 +3,9 @@ package stdgo.unsafe;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoUIntptr;
 import stdgo.Pointer as BasePointer;
-//Pointer -> uintptr
-//Pointer -> pointer
+
+// Pointer -> uintptr
+// Pointer -> pointer
 class PointerData {
 	public var get:() -> Dynamic;
 	public var set:Dynamic->Dynamic;
@@ -20,10 +21,12 @@ class PointerData {
 		return "* " + Std.string(get());
 	}
 }
+
 abstract Pointer(PointerData) from PointerData {
 	public inline function new(obj:PointerData) {
 		this = obj;
 	}
+
 	@:to
 	static function toAddress(x:Pointer):GoUIntptr {
 		return 0;

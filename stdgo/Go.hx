@@ -1,5 +1,6 @@
 package stdgo;
 
+import stdgo.reflect.Reflect.Type;
 import haxe.macro.PositionTools;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.TypeTools;
@@ -12,72 +13,7 @@ import haxe.macro.Context;
 class Go {
 	public static var addressIndex:Int = 1;
 
-	public static function defaultComplexTypeValue(ct:ComplexType,pos:Position=null):Expr {
-		return switch ct {
-			case TPath(p):
-				if (p.pack.length == 0) {
-					switch p.name {
-						case "Dynamic":
-							return macro {};
-						case "Chan":
-							var param:ComplexType = null;
-							switch p.params[0] {
-								case TPType(t):
-									param = t;
-								default:
-							}
-							var value = defaultComplexTypeValue(param,pos);
-							return macro new $p(0,() -> $value);
-						case "AnyInterface","Pointer":
-							return macro null;
-						case "GoMap":
-							return macro null;
-						case "GoArray":
-							var param:ComplexType = null;
-							switch p.params[0] {
-								case TPType(t):
-									param = t;
-								default:
-							}
-							var len:Expr = null;
-							switch p.params[1] {
-								case TPExpr(e):
-									len = e;
-								default:
-							}
-							var value = defaultComplexTypeValue(param,pos);
-							return macro new $p(...[for (i in 0...$len) $value]);
-						case "GoInt","GoInt8","GoInt16","GoInt32","GoInt64","GoUInt","GoUInt8","GoUInt16","GoUInt32","GoUInt64","GoFloat32","GoFloat64","GoByte","GoRune","GoUIntptr":
-							return macro (0 : $ct);
-						case "GoComplex64","GoComplex128":
-							return macro new $p(0,0);
-						case "Bool":
-							return macro false;
-						case "GoString":
-							return macro ("" : GoString);
-					}
-				}
-				macro new $p();
-			case TFunction(_, _):
-				macro null;
-			case TAnonymous(fields):
-				var fs:Array<ObjectField> = [];
-				for (field in fields) {
-					switch field.kind {
-						case FVar(t, e):
-							fs.push({
-								field: field.name,
-								expr: defaultComplexTypeValue(t,pos),
-							});
-						default:
-							throw "unknown field kind: " + field.kind;
-					}
-				}
-				{expr: EObjectDecl(fs), pos: pos};
-			default:
-				throw "unknown complex type default value: " + ct;
-		}
-	}
+	public static var addresses = new Map<Int,{value:String,type:Type}>();
 
 	static function getMetaLength(meta:Metadata):ExprDef {
 		for (m in meta) {
@@ -108,56 +44,6 @@ class Go {
 			default:
 		}
 		return type;
-	}
-
-	public static macro function make(t:Expr, ?size:Expr, ?cap:Expr) { // for slice/array and map
-		// convert from int64 to int
-		if (size == null || size.expr.match(EConst(CIdent("null"))))
-			size = macro 0;
-		if (cap == null || cap.expr.match(EConst(CIdent("null"))))
-			cap = macro 0;
-		var type = Context.toComplexType(Context.followWithAbstracts(ComplexTypeTools.toType(getType(t))));
-		function gen() {
-			switch type {
-				case TPath(p):
-					switch p.name {
-						case "SliceData":
-							p = {name: "Slice",pack: [], params: p.params};
-							switch p.params[0] {
-								case TPType(t):
-									var value = defaultComplexTypeValue(t,Context.currentPos());
-									var size = macro ($size : GoInt32).toBasic();
-									return macro new $p(...[for (i in 0...$size) $value]);
-								default: throw "Slice not a complex type param: " + p.params;
-									
-							}
-						case "VectorData": throw "cannot make GoArray must be type generated";
-						case "MapData":
-							p = {name: "GoMap",pack: [], params: p.params};
-							switch p.params[1] {
-								case TPType(t):
-									var t = gtDecode(ComplexTypeTools.toType(t));
-									return macro new $p(new stdgo.reflect.Reflect.Type($t));
-								default: throw "Map not a complex type param: " + p.params;
-
-							}
-						case "Chan":
-							switch p.params[0] {
-								case TPType(t):
-									var value = defaultComplexTypeValue(t,Context.currentPos());
-									return macro new $p($size,() -> $value);
-								default: throw "Chan not a complex type param: " + p.params;
-							}
-						default:
-							throw "make unknown type: " + t;
-							return null;
-					}
-				default:
-					throw "make unknown type: " + t;
-					return null;
-			}
-		}
-		return gen();
 	}
 
 	public static macro function copy<T>(dst:Expr, src:Expr) {
@@ -304,30 +190,6 @@ class Go {
 		}
 	}
 
-	public static function createAnonType(pos:Position, fields:Array<Field>, params:Array<Expr>):Expr {
-		return {
-			pos: pos,
-			expr: EObjectDecl([
-				for (i in 0...fields.length) {
-					var expr:Expr = macro null;
-					if (params[i] == null) {
-						switch fields[i].kind {
-							case FVar(t, e):
-								expr = defaultComplexTypeValue(t, pos);
-							default: // FFunc is nil by default
-						}
-					} else {
-						expr = params[i];
-					}
-					{
-						field: fields[i].name,
-						expr: expr,
-					};
-				}
-			])
-		};
-	}
-
 	static function escapeParens(expr:Expr):Expr {
 		return switch expr.expr {
 			case EParenthesis(e):
@@ -336,7 +198,12 @@ class Go {
 				expr;
 		}
 	}
-
+	public static macro function unsafePointer(expr:Expr) {
+		//uintptr -> Pointer
+		//pointer -> Pointer
+		
+		return macro null;
+	}
 	public static macro function pointer(expr:Expr) {
 		expr = escapeParens(expr);
 		var declare:Bool = false;
@@ -344,8 +211,12 @@ class Go {
 			case EConst(c):
 				switch c {
 					case CIdent(s):
-						if (s == "this")
-							declare = true;
+						switch s {
+							case "null":
+								return macro null;
+							case "this","false", "true":
+								declare = true;
+						}
 					default:
 						declare = true;
 				}
@@ -470,7 +341,9 @@ class Go {
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 		switch (t) {
 			case TMono(ref):
-				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
+				var ref = ref.get();
+				var elem = ref == null ? ret : gtDecode(ref);
+				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer($elem);
 			case TType(ref, params):
 				var ref = ref.get();
 				var t = gtDecode(ref.type);
@@ -488,6 +361,8 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, -1); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
+					case "stdgo.unsafe.Pointer":
+						throw "cannot gtDecode an unsafePointer expected to be done via macro";
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_map($a{ps});
@@ -692,57 +567,6 @@ class Go {
 		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{pack},$v{module}, $v{ref.name},$a{methods}, $a{interfaces},$t);
 	}
 	#end
-
-	public static macro function set(params:Array<Expr>) {
-		var t = Context.follow(Context.getExpectedType());
-		var fields = [];
-		var isPointer = false;
-		switch t {
-			case TAbstract(ta, params):
-				var ta = ta.get();
-				if (ta.name == "Pointer") {
-					t = params[0];
-					isPointer = true;
-				}
-			default:
-		}
-		var ct = Context.toComplexType(t);
-		switch t {
-			case TAnonymous(a):
-				fields = a.get().fields;
-			case TInst(t, params2):
-				fields = t.get().fields.get();
-			default:
-				throw "unknown set type: " + t;
-		}
-		for (i in 0...fields.length) {
-			var ft = Context.toComplexType(fields[i].type);
-			switch ft {
-				case TPath(p):
-					if (p.name == "StdGoTypes" && p.sub == "AnyInterface") {
-						params[i] = macro Go.toInterface(${params[i]});
-					}
-				default:
-			}
-		}
-		var e:Expr = null;
-		switch ct {
-			case TPath(p):
-				e = macro new $p($a{params});
-			case TFunction(args, ret):
-				e = macro null;
-			case TAnonymous(fields):
-				var anon = createAnonType(Context.currentPos(), fields, params);
-				//trace(new haxe.macro.Printer().printExpr(anon));
-				e = anon;
-			default:
-				throw("unknown go set type: " + t);
-		}
-		if (isPointer)
-			e = macro Go.pointer($e);
-		return e;
-	}
-
 	public static macro function setKeys(expr:Expr) {
 		var t = Context.toComplexType(Context.getExpectedType());
 		return macro($expr : $t);
@@ -798,117 +622,6 @@ class Go {
 			default:
 		}
 		return macro null;
-	}
-
-	public static macro function destruct(exprs:Array<Expr>) {
-		var varNames:Array<String> = [];
-		for (expr in exprs) {
-			switch expr.expr {
-				case EConst(c):
-					switch c {
-						case CString(s, kind):
-							varNames.push(s);
-						default:
-					}
-				default:
-			}
-		}
-		var func = exprs.pop();
-		var parens = null;
-		parens = (func) -> {
-			return switch func.expr {
-				case EParenthesis(e):
-					parens(e);
-				default:
-					func;
-			}
-		}
-		func = parens(func);
-		var funcExpr = func;
-		/*switch funcExpr.expr {
-			case ECall(e, params):
-				funcExpr = params[0];
-			default:
-		}*/
-		switch funcExpr.expr {
-			case ECall(e, field):
-				switch e.expr {
-					case EField(e, field):
-						if (field == "get") {
-							var t = Context.followWithAbstracts(Context.typeof(e));
-							switch t {
-								case TInst(t, params):
-									var t = t.get();
-									switch t.module {
-										case "stdgo.Chan":
-											func = macro $e.smartGet();
-									}
-								default:
-							}
-						}
-					default:
-				}
-			case EArray(e, k):
-				func = macro $e.exists($k) ? {value: $func, ok: true} : {value: $e.defaultValue(), ok: false};
-			case ECheckType(_, t), ECast(_,t):
-				var def = defaultComplexTypeValue(t,Context.currentPos()); //default value
-				func = macro try {
-					{value: $func, ok: true}
-				}catch(e) {
-					{value: $def, ok: false};
-				};
-			default:
-		}
-		var funcType = Context.followWithAbstracts(Context.typeof(func));
-		var f = [];
-		switch funcType {
-			case TAnonymous(a):
-				f = a.get().fields;
-			case TInst(t, params):
-				f = t.get().fields.get();
-			default:
-				throw "unknown funcType: " + funcType;
-		}
-		f.sort((a,b) -> {
-			return Context.getPosInfos(a.pos).min - Context.getPosInfos(b.pos).min;
-		});
-		var fieldNames = [];
-		for (i in 0...f.length) {
-			fieldNames.push(f[i].name);
-		}
-		var tmp = macro var __tmp__ = $func;
-		if (varNames.length > 0) {
-			switch tmp.expr {
-				case EVars(vars):
-					for (i in 0...varNames.length) {
-						var fieldName = fieldNames[i];
-						vars.push({
-							name: varNames[i],
-							expr: macro __tmp__.$fieldName,
-						});
-					}
-					return tmp;
-				default:
-					throw "tmp needs to be evars";
-			}
-		}else{
-			var block:Array<Expr> = [tmp];
-			for (i in 0...exprs.length) {
-				switch exprs[i].expr {
-					case EConst(c):
-						switch c {
-							case CIdent(s):
-								if (s == "_" || s == "null")
-									continue;
-							default:
-						}
-					default:
-				}
-				var fieldName = fieldNames[i];
-				block.push(macro ${exprs[i]} = __tmp__.$fieldName);
-			}
-			return macro $b{block};
-		}
 	}
 
 	private static function parseModule(module:String):String {

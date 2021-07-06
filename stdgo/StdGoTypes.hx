@@ -1503,6 +1503,17 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					case GT_invalid: true;
 					default: false;
 				}
+			case GT_slice(elem):
+				var a:Slice<Any> = a.value;
+				var b:Slice<Any> = b.value;
+				var t = new stdgo.reflect.Reflect.Type(elem);
+				if (a.length != b.length)
+					return false;
+				for (i in 0...a.length.toBasic()) {
+					if (new AnyInterface(a[i],null,t) != new AnyInterface(b[i],null,t))
+						return false;
+				}
+				true;
 			default:
 				throw "unknown type: " + a.type.gt;
 		}

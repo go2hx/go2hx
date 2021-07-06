@@ -61,10 +61,6 @@ abstract GoString(String) from String to String {
 		return this.substring(start.toBasic(), end.toBasic());
 	}
 
-	public inline function typeName() {
-		return "GoString";
-	}
-
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool;
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool;

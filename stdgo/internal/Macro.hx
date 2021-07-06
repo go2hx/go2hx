@@ -24,12 +24,6 @@ class Macro {
 		// Generates a block expression from the given expression array
 		return macro $b{exprs};
 	}
-
-	#if macro
-	public static function run() {
-		
-	}
-	#end
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {
 			case KAbstractImpl(_.get() => {type: TAbstract(_.get() => {name: "Int"}, _)}):

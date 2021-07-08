@@ -1267,7 +1267,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	if (!isInterface(to)) {
 		switch from {
 			case named(path, underlying):
-				var ct = toComplexType(underlying, info);
+				final ct = toComplexType(underlying, info);
 				e = macro($e : $ct);
 			default:
 		}
@@ -1486,7 +1486,7 @@ private function assignTranslate(typeX:GoType, typeY:GoType, expr:Expr, info:Inf
 		y = macro Go.toInterface($y);
 	}
 	if (isAnyInterface(typeY)) {
-		var ct = toComplexType(typeX, info);
+		final ct = toComplexType(typeX, info);
 		if (ct != null)
 			y = macro Go.fromInterface(($y : $ct));
 	}
@@ -1530,7 +1530,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						switch typeX {
 							case named(_, underlying):
 								if (op != OpAssign) {
-									var ct = toComplexType(underlying, info);
+									final ct = toComplexType(underlying, info);
 									x = macro($x : $ct);
 								}
 							default:
@@ -1538,7 +1538,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						switch typeY {
 							case named(_, underlying):
 								if (op != OpAssign) {
-									var ct = toComplexType(underlying, info);
+									final ct = toComplexType(underlying, info);
 									y = macro($y : $ct);
 								}
 							default:
@@ -1951,7 +1951,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var notFunction = !isSignature(ft) && !isInvalid(ft);
 
 	if (notFunction) {
-		var ct = typeExprType(expr.fun, info);
+		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
 		return checkType(e, ct, typeof(expr.args[0]), typeof(expr.fun), info).expr;
 	}
@@ -2452,14 +2452,14 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case named(path, underlying):
 			TPath(namedTypePath(path, info));
 		case slice(elem):
-			var ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Slice", params: [TPType(ct)]});
 		case array(elem, len):
-			var ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "GoArray", params: [TPType(ct)]});
 		case map(key, value):
-			var ctKey = toComplexType(key, info);
-			var ctValue = toComplexType(value, info);
+			final ctKey = toComplexType(key, info);
+			final ctValue = toComplexType(value, info);
 			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case tuple(len, vars):
 			if (len == 1)
@@ -2468,10 +2468,10 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case invalid:
 			null;
 		case pointer(elem):
-			var ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
 		case chan(dir, elem):
-			var ct = toComplexType(elem, info);
+			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Chan", params: [TPType(ct)]});
 		case struct(fields):
 			var fields = typeFields(fields, info, null, false, true);
@@ -2664,7 +2664,7 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 		return (key.charAt(0) == "_" || key.charAt(0) == key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(key, info, false, false);
 	}
 	function getTypePath():TypePath{
-		var ct = toComplexType(type,info);
+		final ct = toComplexType(type,info);
 		switch ct {
 			case TPath(p):
 				return p;
@@ -2675,8 +2675,8 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 	if (!keyValueBool)
 		switch type {
 			case named(_, _):
-				var ct = toComplexType(type,info);
-				var p = getTypePath();
+				final ct = toComplexType(type,info);
+				final p = getTypePath();
 				var params = [
 					for (elt in expr.elts)
 						typeExpr(elt,info)
@@ -2726,7 +2726,7 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 			}
 			return EObjectDecl(objectFields);
 		case slice(elem):
-			var p = getTypePath();
+			final p = getTypePath();
 			var exprs:Array<{index:Int,expr:Expr}> = [];
 			var index:Int = 0;
 			var max:Int = 0;
@@ -2770,7 +2770,7 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				return (macro new $p($a{params})).expr;
 			}
 		case array(elem,len):
-			var p = getTypePath();
+			final p = getTypePath();
 			if (keyValueBool) {
 				var exprs:Array<{index:Int,expr:Expr}> = [];
 				var index:Int = 0;
@@ -2821,6 +2821,19 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				var values = macro [for (i in 0...$len) $value];
 				return (macro new $p(...($a{exprs}.concat($values)))).expr;
 			}
+		case map(_, _):
+			var t = toReflectType(type);
+			var params:Array<Expr> = [];
+			for (elt in expr.elts) {
+				if (elt.id != "KeyValueExpr")
+					throw "not a KeyValueExpr for Map CompositeLit";
+				var elt:Ast.KeyValueExpr = elt;
+				final key = typeExpr(elt.key,info);
+				final value = typeExpr(elt.value,info);
+				params.push(macro {key: $key,value: $value});
+			}
+			final p = getTypePath();
+			return (macro new $p($a{params})).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}
@@ -2854,34 +2867,39 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		default:
 	}
 	var op = typeOp(expr.op);
-	function isNil() {
-		switch x.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s):
-						if (s == "null") return y;
-					default:
-				}
-			default:
-		}
-		switch y.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s):
-						if (s == "null") return x;
-					default:
-				}
-			default:
-		}
-		return null;
-	}
 	var typeX = typeof(expr.x);
 	var typeY = typeof(expr.y);
+	var isNilExpr:Expr = null;
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "null") isNilExpr = x;
+				default:
+					final ct = toComplexType(typeX,info);
+					if (ct != null)
+						x = macro ($x : $ct);
+			}
+		default:
+	}
+	switch y.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "null") isNilExpr = y;
+				default:
+					final ct = toComplexType(typeY,info);
+					if (ct != null)
+						y = macro ($y : $ct);
+			}
+		default:
+	}
+	
 	switch op {
 		case OpXor:
 			return EBinop(op, x, y);
 		case OpEq, OpNotEq:
-			var value = isNil();
+			var value = isNilExpr;
 			if (value != null) {
 				if (isInterface(typeX) || isInterface(typeY))
 					return EBinop(op, x, y);
@@ -3433,7 +3451,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	var returnTypes:Array<GoType> = [];
 
 	for (group in fieldList.list) {
-		var ct = typeExprType(group.type, info);
+		final ct = typeExprType(group.type, info);
 		var t = typeof(group.type);
 		if (group.names.length == 0) {
 			returnTypes.push(t);
@@ -3569,7 +3587,7 @@ private function typeFields(list:Array<Ast.FieldType>, info:Info, access:Array<A
 	var fields:Array<Field> = [];
 	var blankCounter = 0;
 	for (field in list) {
-		var ct = toComplexType(field.type, info);
+		final ct = toComplexType(field.type, info);
 		var name = field.name;
 		if (name == "_") {
 			// isBlank
@@ -3681,7 +3699,7 @@ private function typeAbstract(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 
 	var implicits:Array<Field> = [];
 	for (imp in spec.implicits) {
-		var ct = TPath(parseTypePath(imp.path, imp.name, info));
+		final ct = TPath(parseTypePath(imp.path, imp.name, info));
 		implicits.push(addAbstractToField(ct, wrapperType));
 	}
 	var abstractType = TPath({pack: [], name: name});

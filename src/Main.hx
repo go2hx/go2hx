@@ -88,7 +88,6 @@ function init(args:Array<String>) {
 		var command = 'go get -u $path';
 		Sys.command(command);
 	}
-	Sys.println("> parser:");
 	Sys.setCwd(cwd);
 	var haxerc = ".haxerc";
 	var haxercContent = File.getContent(haxerc);
@@ -131,9 +130,9 @@ function init(args:Array<String>) {
 	var exportData:DataType = Json.parse(File.getContent(exportName));
 	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
-	Sys.println("> typer: " + exportData.pkgs.length);
+
 	var modules = Typer.main(exportData, printGoCode);
-	Sys.println("> generator: " + modules.length);
+	
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
 	var libs:Array<String> = [];

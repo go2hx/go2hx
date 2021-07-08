@@ -2832,6 +2832,8 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				final value = typeExpr(elt.value,info);
 				params.push(macro {key: $key,value: $value});
 			}
+			t = macro new stdgo.reflect.Reflect.Type($t);
+			params.unshift(t);
 			final p = getTypePath();
 			return (macro new $p($a{params})).expr;
 		default:
@@ -2869,12 +2871,13 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var op = typeOp(expr.op);
 	var typeX = typeof(expr.x);
 	var typeY = typeof(expr.y);
-	var isNilExpr:Expr = null;
+	var nilExpr:Expr = null;
 	switch x.expr {
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null") isNilExpr = x;
+					if (s == "null") 
+						nilExpr = x;
 				default:
 					final ct = toComplexType(typeX,info);
 					if (ct != null)
@@ -2886,7 +2889,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null") isNilExpr = y;
+					if (s == "null") 
+						nilExpr = y;
 				default:
 					final ct = toComplexType(typeY,info);
 					if (ct != null)
@@ -2899,7 +2903,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		case OpXor:
 			return EBinop(op, x, y);
 		case OpEq, OpNotEq:
-			var value = isNilExpr;
+			var value = nilExpr;
 			if (value != null) {
 				if (isInterface(typeX) || isInterface(typeY))
 					return EBinop(op, x, y);

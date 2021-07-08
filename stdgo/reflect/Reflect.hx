@@ -1,5 +1,6 @@
 package stdgo.reflect;
 
+import stdgo.Pointer.PointerData;
 import stdgo.StdGoTypes;
 import haxe.EnumTools;
 import stdgo.StdGoTypes.AnyInterface;
@@ -32,7 +33,7 @@ enum GT_enum {
 	GT_slice(elem:GT_enum);
 	GT_string;
 	GT_struct(fields:Array<GT_enum>);
-	GT_unsafePointer(elem:GT_enum);
+	GT_unsafePointer;
 	GT_field(name:String, type:GT_enum, tag:String);
 	GT_namedType(pack:String, module:String, name:String, methods:Array<GT_enum>, interfaces:Array<GT_enum>, type:GT_enum);
 	GT_previouslyNamed(name:String);
@@ -67,16 +68,20 @@ class Value implements StructType {
 	var val:Any;
 	var surfaceType:Type;
 	var underlyingType:Type;
+	var underlyingValue:Dynamic;
+	var underlyingIndex:GoInt = -1;
 
 	public var _address_:Int;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new(val:Any = null, t:Type = null) {
+	public function new(val:Any = null, t:Type = null,underlyingValue:Dynamic=null,underlyingIndex:GoInt=-1) {
 		if (t == null)
 			t = new Type(GT_invalid);
 		_address_ = ++Go.addressIndex;
+		this.underlyingValue = underlyingValue;
+		this.underlyingIndex = underlyingIndex;
 		this.val = val;
 		surfaceType = t;
 		underlyingType = findUnderlying(t);
@@ -91,11 +96,12 @@ class Value implements StructType {
 	}
 
 	public function cap():GoInt {
+		if (val == null)
+			return 0;
 		switch kind() {
 			case array:
 				return (val : GoArray<Any>).cap();
 			case slice:
-				trace("val: " + (val == null));
 				return (val : Slice<Any>).cap();
 			case chan:
 				return (val : Chan<Any>).cap();
@@ -105,29 +111,75 @@ class Value implements StructType {
 	}
 
 	public function set(x:Value) {
-		val = x.val;
+		switch x.kind() {
+			case int8: setInt((x.val : GoInt8));
+			case int16: setInt((x.val : GoInt16));
+			case int32: setInt((x.val : GoInt32));
+			case int64: setInt((x.val : GoInt64));
+			case _int: setInt((x.val : GoInt));
+			case _uint: setInt((x.val : GoUInt8));
+			case uint16: setInt((x.val : GoUInt16));
+			case uint32: setInt((x.val : GoUInt32));
+			case uint64: setInt((x.val : GoUInt64));
+			case float32: setFloat((x.val : GoFloat32));
+			case float64: setFloat((x.val : GoFloat64));
+			default: val = x.val;
+		}
+		_set();
+	}
+
+	private function _set() {
+		if (underlyingValue != null) {
+			if (underlyingIndex == -1) {
+				underlyingValue.value = val; //set pointer
+			}else{
+				//set array or slice
+				underlyingValue.set(underlyingIndex,val); 
+			}
+		}
 	}
 
 	public function setInt(x:GoInt64) {
-		switch kind() {
-			case int8, int16, int32, int64:
-				val = x;
-			default:
-				throw "not an int kind";
+		val = switch kind() {
+			case int8: (x : GoInt8);
+			case int16: (x : GoInt16);
+			case int32: (x : GoInt32);
+			case int64: (x : GoInt64);
+			case _int: (x : GoInt);
+			case _uint: (x : GoUInt);
+			case uint8: (x : GoUInt8);
+			case uint16: (x : GoUInt16);
+			case uint32: (x : GoUInt32);
+			case uint64: (x : GoUInt64);
+			case float32: (x : GoFloat32);
+			case float64: (x : GoFloat64);
+			default: x;
 		}
+		_set();
 	}
 
 	public function setString(x:GoString) {
 		val = x;
+		_set();
 	}
 
 	public function setUint(x:GoUInt64) {
-		switch kind() {
-			case uint8, uint16, uint32, uint64:
-				val = x;
-			default:
-				throw "not an int kind";
+		val = switch kind() {
+			case int8: (x : GoInt8);
+			case int16: (x : GoInt16);
+			case int32: (x : GoInt32);
+			case int64: (x : GoInt64);
+			case _int: (x : GoInt);
+			case _uint: (x : GoUInt);
+			case uint8: (x : GoUInt8);
+			case uint16: (x : GoUInt16);
+			case uint32: (x : GoUInt32);
+			case uint64: (x : GoUInt64);
+			case float32: (x : GoFloat32);
+			case float64: (x : GoFloat64);
+			default: x;
 		}
+		_set();
 	}
 
 	public function setComplex(x:GoComplex128) {
@@ -137,23 +189,22 @@ class Value implements StructType {
 			default:
 				throw "not a complex kind";
 		}
+		_set();
 	}
 
 	public function setFloat(x:GoFloat64) {
-		switch kind() {
-			case float32, float64:
-				val = x;
-			default:
-				throw "not a float kind";
-		}
+		val = x;
+		_set();
 	}
 
 	public function setBytes(x:Slice<GoByte>) {
 		val = x;
+		_set();
 	}
 
 	public function setBool(x:Bool) {
 		val = x;
+		_set();
 	}
 
 	public function canInterface():Bool {
@@ -164,7 +215,7 @@ class Value implements StructType {
 		return new Value(val, surfaceType);
 
 	public function toString() {
-		return '<$surfaceType $val>';
+		return Std.string(val);
 	}
 
 	static function findUnderlying(t:Type):Type {
@@ -202,33 +253,57 @@ class Value implements StructType {
 	}
 
 	public function int():GoInt64 {
-		switch (underlyingType.gt) {
-			case GT_int, GT_int8, GT_int16, GT_int32, GT_int64:
-				return val;
-			default:
-				throw new ValueError("Int", underlyingType.kind());
+		return switch kind() {
+			case int8: (val : GoInt8);
+			case int16: (val : GoInt16);
+			case int32: (val : GoInt32);
+			case int64: (val : GoInt64);
+			case _int: (val : GoInt);
+			case _uint: (val : GoUInt);
+			case uint8: (val : GoUInt8);
+			case uint16: (val : GoUInt16);
+			case uint32: (val : GoUInt32);
+			case uint64: (val : GoUInt64);
+			case float32: (val : GoFloat32);
+			case float64: (val : GoFloat64);
+			default: val;
 		}
-		return 0;
 	}
 
 	public function uint():GoUInt64 {
-		switch (underlyingType.gt) {
-			case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64:
-				return val;
-			default:
-				throw new ValueError("Uint", underlyingType.kind());
+		return switch kind() {
+			case int8: (val : GoInt8);
+			case int16: (val : GoInt16);
+			case int32: (val : GoInt32);
+			case int64: (val : GoInt64);
+			case _int: (val : GoInt);
+			case _uint: (val : GoUInt);
+			case uint8: (val : GoUInt8);
+			case uint16: (val : GoUInt16);
+			case uint32: (val : GoUInt32);
+			case uint64: (val : GoUInt64);
+			case float32: (val : GoFloat32);
+			case float64: (val : GoFloat64);
+			default: val;
 		}
-		return 0;
 	}
 
 	public function float():GoFloat64 {
-		switch (underlyingType.gt) {
-			case GT_float32, GT_float64:
-				return val;
-			default:
-				throw new ValueError("Float", underlyingType.kind());
+		return switch kind() {
+			case int8: (val : GoInt8);
+			case int16: (val : GoInt16);
+			case int32: (val : GoInt32);
+			case int64: (val : GoInt64);
+			case _int: (val : GoInt);
+			case _uint: (val : GoUInt);
+			case uint8: (val : GoUInt8);
+			case uint16: (val : GoUInt16);
+			case uint32: (val : GoUInt32);
+			case uint64: (val : GoUInt64);
+			case float32: (val : GoFloat32);
+			case float64: (val : GoFloat64);
+			default: val;
 		}
-		return 0;
 	}
 
 	public function complex():GoComplex128 {
@@ -253,8 +328,9 @@ class Value implements StructType {
 
 	public function index(i:GoInt):Value {
 		return switch type().gt {
-			case GT_array(elem, _), GT_slice(elem): new Value((val : Dynamic).get(i), new Type(elem));
-			case GT_string: null; // new Value((val : Dynamic).get(i),GT_int32);
+			case GT_array(elem, _), GT_slice(elem): new Value((val : Dynamic).get(i), new Type(elem),val,i);
+			case GT_string:
+				new Value((val : GoString).get(i),new Type(GT_int32));
 			default: throw "not supported";
 		}
 	}
@@ -329,11 +405,11 @@ class Value implements StructType {
 					return new Value();
 				switch type().gt {
 					case GT_ptr(elem):
-						return new Value((val : Pointer<Dynamic>), new Type(elem));
+						return new Value((val : Pointer<Dynamic>).value, new Type(elem),val);
 					default:
 				}
 			case interface_:
-				return null; // TODO
+				return this;
 		}
 		throw new ValueError("reflect.Value.Elem", k);
 	}
@@ -382,7 +458,7 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 
 function typeOf(iface:AnyInterface):Type {
 	if (iface == null)
-		return new Type(GT_unsafePointer(iface.type.gt));
+		return new Type(GT_unsafePointer);
 	return iface.type;
 }
 
@@ -399,7 +475,8 @@ function zero(typ:Type):Value {
 }
 
 function new_(typ:Type):Value {
-	return new Value(new Pointer(defaultValue(typ)), new Type(GT_ptr(typ.gt)));
+	var value = defaultValue(typ);
+	return new Value(new Pointer(new PointerData(() -> value,(x) -> value = x,0)), new Type(GT_ptr(typ.gt)));
 }
 
 function defaultValue(typ:Type):Any {
@@ -422,7 +499,7 @@ function defaultValue(typ:Type):Any {
 }
 
 function valueOf(iface:AnyInterface):Value {
-	return new Value(iface, iface.type);
+	return new Value(iface.value, iface.type);
 }
 
 typedef Type_ = Type;
@@ -453,11 +530,15 @@ class Type {
 	}
 
 	public function kind():Kind {
-		switch gt {
-			case GT_namedType(_, _, _, _, _, type):
-				gt = type;
-			default:
+		function getUnderlying(gt) {
+			return switch gt {
+				case GT_namedType(_, _, _, _, _, type):
+					getUnderlying(type);
+				default:
+					gt;
+			}
 		}
+		gt = getUnderlying(gt);
 		return new Kind(EnumValueTools.getIndex(gt));
 	}
 
@@ -478,8 +559,9 @@ class Type {
 			case func: 0;
 			case array: 0;
 			case struct: 0;
+			case ptr: 0;
 			default:
-				throw "unimplemented: size of type";
+				throw "unimplemented: size of type: " + kind();
 		}
 	}
 
@@ -570,8 +652,8 @@ class Type {
 				return "invalid";
 			case GT_variadic(type):
 				return "..." + new Type(type).toString();
-			case GT_unsafePointer(elem):
-				return "unsafePointer " + new Type(elem).toString();
+			case GT_unsafePointer:
+				return "unsafe.Pointer";
 			case GT_interface(_, _, _, methods):
 				var r = "";
 				for (method in methods) {
@@ -586,7 +668,7 @@ class Type {
 
 	public function elem():Type {
 		switch (gt) {
-			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _), GT_unsafePointer(elem):
+			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
 				return new Type(elem);
 			default:
 				throw new Error("reflect.Type.Elem not implemented for " + toString());
@@ -1082,6 +1164,10 @@ final toString:Kind = (24 : GoInt64);
 final struct:Kind = (25 : GoInt64);
 final unsafePointer:Kind = (26 : GoInt64);
 final string:Kind = (24 : GoInt64);
+
+
+private final _int = int;
+private final _uint = uint;
 
 @:structInit @:allow(github_com.go2hx.go4hx.rnd) final class Visit implements StructType {
 	// public var _a1:stdgo.unsafe.Unsafe.Pointer = null;

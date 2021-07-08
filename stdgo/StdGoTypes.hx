@@ -776,6 +776,12 @@ abstract GoInt8(Int8) from Int8 from Int {
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
 
+	@:to inline function toFloat32():GoFloat32
+		return this;
+
+	@:to inline function toFloat64():GoFloat64
+		return this;
+
 	public static function ofInt(x:Int):GoInt8
 		return x;
 
@@ -887,6 +893,12 @@ abstract GoInt16(Int16) from Int16 from Int {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+
+	@:to inline function toFloat32():GoFloat32
+		return this;
+
+	@:to inline function toFloat64():GoFloat64
+		return this;
 
 	@:op(A > B) private static function gt(a:GoInt16, b:GoInt16):Bool;
 
@@ -1240,6 +1252,12 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 	public static function ofInt(x:Int):GoUInt16
 		return x;
 
+	@:to inline function toFloat32():GoFloat32
+		return this;
+
+	@:to inline function toFloat64():GoFloat64
+		return this;
+
 	@:op(-A) private static function neg(a:GoUInt16):GoUInt16
 		return a * -1;
 
@@ -1335,6 +1353,12 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	@:to inline function toUInt64():GoUInt64
 		return this > 0 ? this : 0;
+
+	@:to inline function toFloat32():GoFloat32
+		return this.low;
+
+	@:to inline function toFloat64():GoFloat64
+		return this.low;
 
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return UInt64.ofInt(x);

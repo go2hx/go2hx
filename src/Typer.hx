@@ -2688,11 +2688,13 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 	switch type {
 		case struct(fields):
 			var objectFields:Array<ObjectField> = [];
+			var fields = fields.copy();
 			if (keyValueBool) {
 				for (i in 0...expr.elts.length) {
 					var elt:Ast.KeyValueExpr = expr.elts[i];
 					var key = elt.key.name;
 					var value = typeExpr(elt.value,info);
+					var removed = false;
 					for (field in fields) {
 						if (field.name == key) {
 							var fieldType = toComplexType(field.type,info);
@@ -2701,8 +2703,12 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 								expr: macro ($value : $fieldType),
 							});
 							fields.remove(field);
+							removed = true;
+							break;
 						}
 					}
+					if (!removed)
+						throw "cannot find field type of name: " + keyFormat(key) + " in names: " + [for (field in fields) field.name];
 				}
 				for (field in fields) {
 					objectFields.push({

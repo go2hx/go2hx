@@ -155,8 +155,6 @@ typedef KeyValueExpr = {
 	key:Expr,
 	colon:Pos,
 	value:Expr,
-
-	type:ExprType,
 };
 
 typedef ArrayType = {

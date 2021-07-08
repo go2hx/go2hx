@@ -2288,7 +2288,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "CompositeLit":
 			var e:Ast.CompositeLit = e;
-			typeof(e.typeLit);
+			typeof(e.type);
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
 			typeof(e.type);
@@ -2563,10 +2563,10 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 					trace("basic lit int error: " + e + " value: " + value);
 				}
 			}
-			ECheckType(e, TPath({name: "GoInt64", pack: []}));
+			e.expr;
 		case FLOAT:
 			var e = toExpr(EConst(CFloat(value)));
-			ECheckType(e, TPath({name: "GoFloat64", pack: []}));
+			e.expr;
 		case CHAR:
 			var value = formatEscapeCodes(value);
 			if (value == bs + "'") {
@@ -2707,37 +2707,114 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				for (field in fields) {
 					objectFields.push({
 						field: keyFormat(field.name),
-						expr: defaultValue(field.type,info)
+						expr: defaultValue(field.type,info,false)
 					});
 				}
 			}else{
 				for (i in 0...fields.length) {
 					objectFields.push({
 						field: keyFormat(fields[i].name),
-						expr: expr.elts.length > i ? typeExpr(expr.elts[i],info) : defaultValue(fields[i].type,info),
+						expr: expr.elts.length > i ? typeExpr(expr.elts[i],info) : defaultValue(fields[i].type,info,false),
 					});
 				}
 			}
 			return EObjectDecl(objectFields);
-		case slice(elem), array(elem,_):
+		case slice(elem):
 			var p = getTypePath();
-			var exprs:Array<Expr> = [];
+			var exprs:Array<{index:Int,expr:Expr}> = [];
+			var index:Int = 0;
+			var max:Int = 0;
+			var keyValueBool:Bool = false;
+			function run(elt:Ast.Expr) {
+				if (elt.id == "CompositeLit") {
+					if (elt.type == null)
+						return {index: index,expr: toExpr(compositeLit(elem,elt,info))};
+				}
+				return {index: index, expr: typeExpr(elt,info)};
+			}
 			for (elt in expr.elts) {
-				switch elt.id {
-					case "CompositeLit":
-						var elt:Ast.CompositeLit = elt;
+				if (elt.id == "KeyValueExpr") {
+					var elt:Ast.KeyValueExpr = elt;
+					index = Std.parseInt(elt.key.value);
+					exprs.push(run(elt.value));
+					keyValueBool = true;
+				}else{
+					exprs.push(run(elt));
+				}
+				index++;
+				if (index > max)
+					max = index;
+			}
+			var length = toExpr(EConst(CInt('$max')));
+			var value = defaultValue(elem,info,false);
+			if (keyValueBool) {
+				var sets:Array<Expr> = [];
+				for (expr in exprs) {
+					var index = toExpr(EConst(CInt('${expr.index}')));
+					var value = expr.expr;
+					sets.push(macro s[$index] = $value);
+				}
+				sets.push(macro s);
+				return EBlock([macro var s = new $p(...([for (i in 0...$length) $value]))].concat(sets));
+			}else{
+				var params:Array<Expr> = [];
+				for (expr in exprs) {
+					params.push(expr.expr);
+				}
+				return (macro new $p($a{params})).expr;
+			}
+		case array(elem,len):
+			var p = getTypePath();
+			if (keyValueBool) {
+				var exprs:Array<{index:Int,expr:Expr}> = [];
+				var index:Int = 0;
+				function run(elt:Ast.Expr) {
+					if (elt.id == "CompositeLit") {
+						if (elt.type == null)
+							return {index: index,expr: toExpr(compositeLit(elem,elt,info))};
+					}
+					return {index: index, expr: typeExpr(elt,info)};
+				}
+				for (elt in expr.elts) {
+					if (elt.id == "KeyValueExpr") {
+						var elt:Ast.KeyValueExpr = elt;
+						index = Std.parseInt(elt.key.value);
+						exprs.push(run(elt.value));
+						keyValueBool = true;
+					}else{
+						exprs.push(run(elt));
+					}
+					index++;
+				}
+				var length = toExpr(EConst(CInt('$len')));
+				var value = defaultValue(elem,info,false);
+				var sets:Array<Expr> = [];
+				for (expr in exprs) {
+					var index = toExpr(EConst(CInt('${expr.index}')));
+					var value = expr.expr;
+					sets.push(macro s[$index] = $value);
+				}
+				sets.push(macro s);
+				return EBlock([macro var s = new $p(...[for (i in 0...$length) $value])].concat(sets));
+			}else{
+				var exprs:Array<Expr> = [];
+				for (elt in expr.elts) {
+					if (elt.id == "CompositeLit") {
 						if (elt.type == null) {
 							exprs.push(toExpr(compositeLit(elem,elt,info)));
-						}else{
-							exprs.push(typeExpr(elt,info));
+							continue;
 						}
-					case "KeyValueExpr":
-
-					default:
-						exprs.push(typeExpr(elt,info));
+					}
+					exprs.push(typeExpr(elt,info));
 				}
+				if (len == exprs.length)
+					return (macro new $p($a{exprs})).expr;
+				var diff = len - exprs.length;
+				var len = toExpr(EConst(CInt('$diff')));
+				var value = defaultValue(elem,info,false);
+				var values = macro [for (i in 0...$len) $value];
+				return (macro new $p(...($a{exprs}.concat($values)))).expr;
 			}
-			return (macro new $p(...[$a{exprs}])).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}
@@ -3222,7 +3299,7 @@ private function getBody(path:String):String {
 	return "";
 }
 
-private function defaultValue(type:GoType, info:Info):Expr {
+private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 	return switch type {
 		case map(_, _): macro null;
 		case slice(elem):
@@ -3250,25 +3327,39 @@ private function defaultValue(type:GoType, info:Info):Expr {
 					macro new $t();
 			}
 		case basic(kind):
-			switch kind {
-				case bool_kind: macro false;
-				case int_kind: macro(0 : GoInt);
-				case int8_kind: macro(0 : GoInt8);
-				case int16_kind: macro(0 : GoInt16);
-				case int32_kind: macro(0 : GoInt32);
-				case int64_kind: macro(0 : GoInt64);
-				case string_kind: macro("" : GoString);
-				case uint_kind: macro(0 : GoUInt);
-				case uint8_kind: macro(0 : GoUInt8);
-				case uint16_kind: macro(0 : GoUInt16);
-				case uint32_kind: macro(0 : GoUInt32);
-				case uint64_kind: macro(0 : GoUInt64);
-				case uintptr_kind: macro(0 : GoUIntptr);
-				case float32_kind: macro(0 : GoFloat32);
-				case float64_kind: macro(0 : GoFloat64);
-				case complex64_kind: macro new GoComplex64(0, 0);
-				case complex128_kind: macro new GoComplex128(0, 0);
-				default: macro null;
+			if (strict) {
+				switch kind {
+					case bool_kind: macro false;
+					case int_kind: macro(0 : GoInt);
+					case int8_kind: macro(0 : GoInt8);
+					case int16_kind: macro(0 : GoInt16);
+					case int32_kind: macro(0 : GoInt32);
+					case int64_kind: macro(0 : GoInt64);
+					case string_kind: macro("" : GoString);
+					case uint_kind: macro(0 : GoUInt);
+					case uint8_kind: macro(0 : GoUInt8);
+					case uint16_kind: macro(0 : GoUInt16);
+					case uint32_kind: macro(0 : GoUInt32);
+					case uint64_kind: macro(0 : GoUInt64);
+					case uintptr_kind: macro(0 : GoUIntptr);
+					case float32_kind: macro(0 : GoFloat32);
+					case float64_kind: macro(0 : GoFloat64);
+					case complex64_kind: macro new GoComplex64(0, 0);
+					case complex128_kind: macro new GoComplex128(0, 0);
+					default: macro null;
+				}
+			}else{
+				switch kind {
+					case bool_kind: macro false;
+					case string_kind: macro "";
+					case int_kind,int8_kind,int16_kind,int32_kind,int64_kind: macro 0;
+					case uint_kind,uint8_kind,uint16_kind,uint32_kind,uint64_kind: macro 0;
+					case uintptr_kind: macro 0;
+					case float32_kind,float64_kind: macro 0;
+					case complex64_kind: macro new GoComplex64(0, 0);
+					case complex128_kind: macro new GoComplex128(0, 0);
+					default: macro null;
+				}
 			}
 		case struct(fields):
 			var fs:Array<ObjectField> = [];
@@ -3570,7 +3661,7 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 	};
 }
 
-private function typeAlias(spec:Ast.TypeSpec, info:Info):TypeDefinition {
+private function typeAbstract(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
@@ -3604,7 +3695,6 @@ private function typeAlias(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 						len = e;
 					default:
 				}
-				// return macro new $p(...[for (i in 0...$len) ${defaultComplexTypeValue(param,info)}]);
 
 				var t = typeof(spec.type);
 				switch t {
@@ -3722,7 +3812,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info) {
 	}
 	return switch spec.type.id {
 		case "StructType", "InterfaceType": typeType(spec, info);
-		default: typeAlias(spec, info);
+		default: typeAbstract(spec, info);
 	}
 }
 

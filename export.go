@@ -89,7 +89,6 @@ func main() {
 	os.Remove("export.json")
 	flag.Parse() //help stops the program here
 	args := flag.Args()
-	fmt.Println("ident:", *identBool, "test:", *testBool)
 	localPath := args[len(args)-1]
 	cwd, err := os.Getwd()
 	if err != nil {
@@ -625,7 +624,6 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.BinaryExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.KeyValueExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
 		data["end"] = fset.Position(node.End()).Offset

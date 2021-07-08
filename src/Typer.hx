@@ -2019,7 +2019,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro $e.cap()).expr;
 				case "len":
 					var e = typeExpr(expr.args[0], info);
-					return (macro $e.length).expr;
+					var t = getUnderlying(typeof(expr.args[0]));
+					return switch t {
+						case map(_,_):
+							(macro ($e == null ? 0 : $e.length)).expr;
+						default:
+							(macro $e.length).expr;
+					}
 				case "new": // create default value put into pointer
 					var t = typeExprType(expr.args[0], info);
 					switch t {
@@ -2877,7 +2883,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") 
-						nilExpr = x;
+						nilExpr = y;
 				default:
 					final ct = toComplexType(typeX,info);
 					if (ct != null)
@@ -2890,7 +2896,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			switch c {
 				case CIdent(s):
 					if (s == "null") 
-						nilExpr = y;
+						nilExpr = x;
 				default:
 					final ct = toComplexType(typeY,info);
 					if (ct != null)
@@ -3116,7 +3122,16 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	var index = typeExpr(expr.index, info);
-	return (macro $x[$index]).expr;
+	var t = typeof(expr.x);
+	t = getUnderlying(t);
+	var e = macro $x[$index];
+	switch t {
+		case map(_,valueType):
+			var value = defaultValue(valueType,info,true);
+			e = macro ($x == null ? $value : $e);
+		default:
+	}
+	return e.expr;
 }
 
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {

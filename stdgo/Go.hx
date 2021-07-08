@@ -338,9 +338,7 @@ class Go {
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 		switch (t) {
 			case TMono(ref):
-				var ref = ref.get();
-				var elem = ref == null ? ret : gtDecode(ref);
-				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer($elem);
+				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
 			case TType(ref, params):
 				var ref = ref.get();
 				var t = gtDecode(ref.type);
@@ -360,7 +358,7 @@ class Go {
 					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
 					case "stdgo.unsafe.Pointer":
-						throw "cannot gtDecode an unsafePointer expected to be done via macro";
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_map($a{ps});

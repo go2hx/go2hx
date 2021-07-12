@@ -17,6 +17,7 @@ import (
 	"strconv"
 	"strings"
 
+	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
 )
 
@@ -151,13 +152,66 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
-func parseFileInterface(file *ast.File, pkgPath string) []interfaceData {
+func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) []interfaceData {
 	interfaces := []interfaceData{}
 	isMain := pkgPath == "main"
 	if isMain {
 		pkgPath = "main__" + file.Name.Name
 	}
-	for _, decl := range file.Decls {
+	count := 0
+	interfaceTypes := make(map[string]*ast.Ident)
+	_ = count
+	_ = interfaceTypes
+	node := astutil.Apply(file,func (cursor *astutil.Cursor) bool {
+		x := cursor.Node()
+		switch cursor.Parent().(type) {
+		case *ast.TypeSpec:
+			return false
+		}
+		_ = x
+		switch x := x.(type) {
+			case *ast.InterfaceType: //grab interface type
+				if x.Methods == nil || x.Methods.NumFields() == 0 {
+					return false
+				}
+				t := checker.TypeOf(x)
+				if t == nil {
+					return false
+				}
+				name,exists := interfaceTypes[t.String()]
+				if !exists {
+					name = ast.NewIdent("_s_" + strconv.Itoa(count))
+					count++
+					interfaceTypes[t.String()] = name
+					//add to interfaces
+					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkgPath, false})
+					//add to file
+					gen := ast.GenDecl{}
+					spec := ast.TypeSpec{}
+
+					spec.Name = name
+					inter := ast.InterfaceType{}
+					inter.Methods = x.Methods
+					spec.Type = ast.Expr(&inter)
+					gen.Tok = token.TYPE
+					gen.Specs = []ast.Spec{&spec}
+					file.Decls = append(file.Decls, &gen)
+					var pos token.Pos = 0
+					typeName := types.NewTypeName(pos,pkg.Types,name.Name,t)
+					pkg.TypesInfo.Defs[name] = types.NewNamed(typeName,t,nil).Obj()
+					tv := types.TypeAndValue{}
+					tv.Type = t
+					pkg.TypesInfo.Types[name] = tv
+				}
+				cursor.Replace(name)
+				return false
+			default:
+				return true
+			}
+			return true
+	},nil)
+	file = node.(*ast.File)
+	for _, decl := range file.Decls { //typespec named interfaces
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
 			for _, spec := range decl.Specs {
@@ -173,35 +227,10 @@ func parseFileInterface(file *ast.File, pkgPath string) []interfaceData {
 							}
 							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkgPath, exported})
 						}
+						
 					default:
 					}
 				default:
-				}
-			}
-		case *ast.FuncDecl:
-			if decl.Body != nil {
-				for i := range decl.Body.List {
-					stmt := decl.Body.List[i]
-					switch stmt := stmt.(type) {
-					case *ast.DeclStmt:
-						gen := stmt.Decl.(*ast.GenDecl)
-						for _, spec := range gen.Specs {
-							switch spec := spec.(type) {
-							case *ast.ValueSpec:
-
-							case *ast.TypeSpec:
-								t := checker.TypeOf(spec.Type)
-								switch t := t.(type) {
-								case *types.Interface:
-									if t.NumMethods() > 0 {
-										interfaces = append(interfaces, interfaceData{t, spec.Name.Name + "_" + decl.Name.Name + "_", pkgPath, spec.Name.IsExported()})
-									}
-								default:
-								}
-							}
-						}
-					default:
-					}
 				}
 			}
 		default:
@@ -223,9 +252,9 @@ func parseInterface(pkg *packages.Package) {
 		//DisableUnusedImportCheck: true,
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-
+	fmt.Println("new checker")
 	for _,file := range pkg.Syntax {
-		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath)...)
+		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath,pkg)...)
 	}
 }
 
@@ -257,9 +286,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	data.Files = make([]fileType, len(pkg.Syntax))
 
 	conf := types.Config{Importer: importer.Default()}
-
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-
 	for i, file := range pkg.Syntax {
 		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
@@ -358,6 +385,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
+var remapTypeIdent map[int]string
 
 func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
@@ -517,7 +545,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = fset.PositionFor(value,true).Offset
 		case token.Token:
 			data[field.Name] = value.String()
-		case *ast.ArrayType, *ast.StructType, *ast.InterfaceType, *ast.MapType, *ast.ChanType:
+		case *ast.InterfaceType, *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
 			data[field.Name] = parseData(value)
 		case *ast.BasicLit:
 			data[field.Name] = parseBasicLit(value)

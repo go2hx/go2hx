@@ -109,4 +109,4 @@ class NumError implements Error {
 		return this.err;
 }
 
-final intSize:GoInt64 = "9223372036854775807";
+//final intSize:GoInt64 = "9223372036854775807";

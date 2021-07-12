@@ -77,12 +77,8 @@ private class RuntimeErrorData implements Error implements StructType {
 		return null;
 
 	var message:String;
-
-	public var _address_:Int = 0;
-
 	public function new(message:String) {
 		this.message = message;
-		_address_ = ++Go.addressIndex;
 	}
 
 	public function error():GoString {
@@ -101,14 +97,11 @@ interface Error extends stdgo.StdGoTypes.Error {
 }
 
 class Frames implements StructType {
-	public var _address_:Int = 0;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new() {
-		_address_ = Go.addressIndex++;
-	}
+	public function new() {}
 
 	public function next():{frame:Frame, more:Bool} {
 		return {frame: new Frame(), more: false};
@@ -116,21 +109,17 @@ class Frames implements StructType {
 }
 
 class Frame implements StructType {
-	public var _address_:Int = 0;
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new() {
-		_address_ = Go.addressIndex++;
-	}
+	public function new() {}
 }
 
 class MemStats implements StructType {
 	public var alloc(get, null):GoUInt64;
-	public var _address_:Int = 0;
 
 	public function __underlying__():AnyInterface
 		return null;

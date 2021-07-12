@@ -12,21 +12,16 @@ private class VectorData<T> {
 
 	public var length(get, never):Int;
 
-	public var _address_:Int;
-
-	private static var _addressCounter:Int = 0;
-
 	function get_length():Int {
 		return vector.length;
 	}
 
 	public function new(length) {
 		vector = new Vector<T>(length);
-		_address_ = _addressCounter++;
 	}
 
 	public inline function toString():GoString
-		return vector.toArray().toString();
+		return "[" + [for (obj in vector) Std.string(obj)].join(" ") + "]";
 
 	public inline function get(i:Int):T
 		return vector.get(i);
@@ -39,14 +34,8 @@ private class VectorData<T> {
 abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
 
-	public var _address_(get, never):Int;
-
 	public function cap():GoInt
 		return length;
-
-	private inline function get__address_():Int {
-		return this._address_;
-	}
 
 	private function get_length():GoInt {
 		return this.length;

@@ -84,7 +84,7 @@ private class MapData<K, V> {
 		switch type.gt {
 			case GT_map(key, _):
 				final t = new Type(key);
-				return new AnyInterface(x, null, t) == new AnyInterface(y, null, t);
+				return new AnyInterface(x, t) == new AnyInterface(y, t);
 			default:
 				throw "unknown type: " + type.gt;
 		}

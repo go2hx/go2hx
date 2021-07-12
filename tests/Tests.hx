@@ -42,7 +42,9 @@ function tinygo() {
 		"interface", // uses time pkg not supported yet
 		"float", // uses fmt formatter for numbers not supported yet
 		"print", // uses fmt formatter for numbers not supported yet
+		"math",  // uses fmt formatter for numbers not supported yet
 		"gc", // timed to closely to go's runtime gc
+		"ldflags",
 	])
 		tests.remove('.$pathto$test.go');
 	tests = ['.$pathto' + "reflect.go"];
@@ -157,6 +159,10 @@ function run(compareOutput:Bool):Int {
 					switch name {
 						case "math_":
 							name = "math";
+						case "reflect_":
+							name = "reflect";
+						case "slice_":
+							name = "slice";
 					}
 					var compareFile = name + ".txt";
 					var compare = File.getContent('./tests$pathto$compareFile');

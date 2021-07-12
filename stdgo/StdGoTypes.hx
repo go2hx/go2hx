@@ -47,6 +47,11 @@ private typedef Float = StdTypes.Float;
 private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
 private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64 #else Float #end
 
+//thanks Gama11
+#if !macro
+@:genericBuild(stdgo.internal.Macro.buildUnknown()) class Unknown {}
+#end
+
 private class __UInt64 {
 	public var high:Int64;
 	public var low:Int64;
@@ -1006,6 +1011,9 @@ abstract GoInt64(Int64) from Int64 {
 	@:from static function fromInt(x:Int):GoInt64
 		return Int64.ofInt(x);
 
+	@:from static function fromFloat(x:Float):GoInt64
+		return Int64.fromFloat(x);
+
 	@:to inline function toInt():GoInt
 		return this.low;
 
@@ -1443,7 +1451,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 }
 
 interface StructType {
-	public var _address_:Int;
 	public function __underlying__():AnyInterface;
 }
 
@@ -1455,12 +1462,10 @@ interface Error {
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var valueInterface:Any;
 	public var type:stdgo.reflect.Reflect.Type;
 
-	public function new(value, valueInterface, type) {
+	public function new(value, type) {
 		this.value = value;
-		this.valueInterface = valueInterface;
 		this.type = type;
 	}
 
@@ -1527,8 +1532,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 								continue;
 							var fieldValue = Reflect.field(a.value, name);
 							var fieldValue2 = Reflect.field(b.value, name);
-							var a = new AnyInterface(fieldValue, null, new stdgo.reflect.Reflect.Type(type));
-							var b = new AnyInterface(fieldValue2, null, new stdgo.reflect.Reflect.Type(type));
+							var a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect.Type(type));
+							var b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect.Type(type));
 							var bool = equals(a, b);
 							if (!bool) return false;
 						default:
@@ -1547,7 +1552,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (AnyInterface.equals(new AnyInterface(a[i], null, t),new AnyInterface(b[i], null, t)))
+					if (AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;

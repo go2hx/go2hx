@@ -24,28 +24,15 @@ abstract Pointer<T>(PointerData<T>) {
 	public static inline function to<T>(p:PointerData<T>):T {
 		return p.get();
 	}
-
-	@:op(A == B) private static function equals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
-		return a.address() == b.address();
-	}
-
-	@:op(A != B) private static function notEquals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
-		return a.address() != b.address();
-	}
-
-	public inline function address()
-		return this.address;
 }
 
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;
-	public var address:Int;
 
-	public function new(get, set, address) {
+	public function new(get, set) {
 		this.get = get;
 		this.set = set;
-		this.address = address;
 	}
 
 	public inline function toString() {

@@ -12,16 +12,9 @@ import stdgo.StdGoTypes.GoByte;
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
-	// used for underlying pointer system
-	public var _address_(get, never):Int;
-
 	@:from
 	public static function fromString(str:String):Slice<GoByte> {
 		return new GoString(str);
-	}
-
-	private inline function get__address_():Int {
-		return this._address_;
 	}
 
 	private function get_length():Int {
@@ -155,14 +148,11 @@ private class SliceData<T> {
 
 	public var pos:Int = 0;
 	public var length:Int = 0;
-	public var _address_:Int;
-
 	public function new(length:Int = 0, cap:Int = 0) {
 		this.length = length;
 		if (cap == 0)
 			cap = length;
 		vector = new Vector<T>(length);
-		_address_ = ++Go.addressIndex;
 	}
 
 	private function boundsCheck(i:Int) {
@@ -208,9 +198,8 @@ private class SliceData<T> {
 		return vector;
 	}
 
-	inline public function toString():String {
-		return toArray().toString();
-	}
+	inline public function toString():String
+		return "[" + [for (obj in vector) Std.string(obj)].join(" ") + "]";
 
 	inline public function underlying():Vector<T> {
 		return vector;

@@ -11,9 +11,6 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 class Go {
-	public static var addressIndex:Int = 1;
-
-	public static var addresses = new Map<Int, {value:String, type:Type}>();
 
 	static function getMetaLength(meta:Metadata):ExprDef {
 		for (m in meta) {
@@ -95,8 +92,8 @@ class Go {
 						isInterface = t.get().isInterface;
 					default:
 				}
-				if (isInterface) {
-					return macro $e.valueInterface != null ? ($e.valueInterface : $ct) : ($e.value : $ct);
+				if (isInterface) { //TODO
+					return macro ($e.value : $ct);
 				}
 				return macro($e.value : $ct);
 			default:
@@ -120,21 +117,7 @@ class Go {
 			default:
 		}
 		var ty = gtDecode(t);
-		var exprInterface = macro null;
-		switch t {
-			case TAbstract(t, params):
-				var t = t.get();
-				if (t.impl != null) {
-					var fields = t.impl.get().statics.get();
-					for (field in fields) {
-						if (field.name == "__toInterface__") {
-							exprInterface = macro $expr.__toInterface__();
-						}
-					}
-				}
-			default:
-		}
-		return macro new AnyInterface($expr, $exprInterface, new stdgo.reflect.Reflect.Type($ty));
+		return macro new AnyInterface($expr, new stdgo.reflect.Reflect.Type($ty));
 	}
 
 	public static macro function smartcast(expr:Expr) {
@@ -214,7 +197,7 @@ class Go {
 					case CIdent(s):
 						switch s {
 							case "null":
-								return macro null;
+								declare = true;
 							case "this", "false", "true":
 								declare = true;
 						}
@@ -231,15 +214,13 @@ class Go {
 								return macro {
 									var _offset_ = ${e1}.getOffset();
 									var e2 = (${e2} : GoInt).toBasic();
-									var _address_ = ${e1}._address_ + _offset_ + e2;
 									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
-										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v, _address_));
+										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v));
 								};
 							case "GoArray":
 								return macro {
 									var e2 = (${e2} : GoInt).toBasic();
-									var _address_ = ${e1}._address_ + e2;
-									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, _address_));
+									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v));
 								}
 						}
 					default:
@@ -268,9 +249,9 @@ class Go {
 		if (declare)
 			return macro {
 				var e = $expr;
-				new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v, ++Go.addressIndex));
+				new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v));
 			};
-		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v, ++Go.addressIndex));
+		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v));
 	}
 
 	public static macro function recover() {
@@ -542,8 +523,6 @@ class Go {
 							throw "method needs to be a function: " + field.type;
 					}
 				default:
-					if (field.name == "_address_")
-						continue;
 					var t = gtDecode(field.type);
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, ""));
 			}

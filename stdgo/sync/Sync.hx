@@ -8,14 +8,11 @@ import sys.thread.Mutex;
 class RWMutex implements StructType {
 	var mutux:Mutex;
 
-	public var _address_:Int = 0;
-
 	public function __underlying__():AnyInterface
 		return null;
 
 	public function new() {
 		mutux = new Mutex();
-		_address_ = Go.addressIndex++;
 	}
 
 	public function lock() {}
@@ -30,15 +27,12 @@ class RWMutex implements StructType {
 class WaitGroup implements StructType {
 	var lock:Lock;
 
-	public var _address_:Int = 0;
-
 	var counter:GoUInt = 0;
 
 	public function __underlying__():AnyInterface
 		return null;
 
 	public function new() {
-		_address_ = Go.addressIndex++;
 		lock = new Lock();
 	}
 
@@ -67,15 +61,12 @@ class WaitGroup implements StructType {
 }
 
 class Once implements StructType {
-	public var _address_:Int;
 	public var done:Bool = false;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new() {
-		_address_ = Go.addressIndex++;
-	}
+	public function new() {}
 
 	public function do_(f:haxe.Constraints.Function) {
 		if (done)

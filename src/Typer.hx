@@ -3156,11 +3156,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				macro $i{arg.name}
 		];
 		var e = macro $i{path}($a{params});
-		if (args.length > 0) {
-			block = macro return $e;
-		} else {
-			block = e;
-		}
+		block = macro return $e;
 	}
 	return {
 		name: name,

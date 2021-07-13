@@ -117,42 +117,43 @@ function clampUInt(x:Int):Int // TODO: clamp uintr
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
-abstract GoUIntptr(UInt) from UInt from Int {
-	public inline function new(x = 0)
+abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
+	public inline function new(?x) {
 		this = x;
+	}
 
 	public inline function toBasic()
-		return this;
+		return 1;
 
 	@:to inline function toInt64():GoInt64
-		return Int64.ofInt(this);
+		return Int64.ofInt(1);
 
 	@:to inline function toInt():GoInt
-		return this;
+		return 1;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return 1;
 
 	@:to inline function toInt16():GoInt16
-		return this;
+		return 1;
 
 	@:to inline function toUInt():GoUInt
-		return clampUInt(this);
+		return 1;
 
 	@:to inline function toUInt8():GoUInt8
-		return clampUInt8(this);
+		return 1;
 
 	@:to inline function toUInt16():GoUInt16
-		return clampUInt16(this);
+		return 1;
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return 1;
 
 	@:to inline function toFloat32():GoFloat32
-		return this;
+		return 1;
 
 	@:to inline function toFloat64():GoFloat64
-		return this;
+		return 1;
 
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		if (b == 0)
@@ -175,11 +176,11 @@ abstract GoUIntptr(UInt) from UInt from Int {
 	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 	@:op(A++) inline function postInc():GoUIntptr {
-		return this = this + 1;
+		return 1 + 1;
 	}
 
 	@:op(A--) inline function postDec():GoUIntptr {
-		return this = this - 1;
+		return 1 - 1;
 	}
 
 	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;

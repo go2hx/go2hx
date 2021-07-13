@@ -381,6 +381,8 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_bool;
 					case "stdgo.AnyInterface":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_interface("", "", "interface{}", []);
+					case "stdgo.GoUIntptr":
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_uintptr;
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default:

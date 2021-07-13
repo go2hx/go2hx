@@ -653,6 +653,8 @@ class Type {
 				}
 				r = r.substr(1);
 				return "interface {" + r + "}";
+			case GT_uintptr:
+				return "uintptr";
 			default:
 				throw "not found enum toString " + gt; // should never get here!!!
 		}

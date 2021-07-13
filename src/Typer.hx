@@ -1377,12 +1377,12 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			y = macro $y.__t__;
 		y = macro $y.value;
 	}
-	if (isAnyInterface(toType)) {
+	if (isAnyInterface(fromType)) {
 		if (isNamed(toType))
 			y = macro $y.__t__;
 		y = macro Go.toInterface($y);
 	}
-	if (isAnyInterface(fromType)) {
+	if (isAnyInterface(toType)) {
 		final ct = toComplexType(fromType, info);
 		if (ct != null) {
 			if (isNamed(toType))
@@ -2458,7 +2458,7 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 	}
 	return switch kind {
 		case STRING:
-			value = StringTools.replace(value, "\\", "\"".substr(0, 1));
+			//value = StringTools.replace(value, "\\", "\"".substr(0, 1));
 			var e = makeString(value);
 			return e.expr;
 		case INT:

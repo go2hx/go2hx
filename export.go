@@ -252,7 +252,6 @@ func parseInterface(pkg *packages.Package) {
 		//DisableUnusedImportCheck: true,
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-	fmt.Println("new checker")
 	for _,file := range pkg.Syntax {
 		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath,pkg)...)
 	}

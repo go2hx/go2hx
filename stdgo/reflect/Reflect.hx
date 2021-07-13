@@ -79,11 +79,11 @@ class Value implements StructType {
 	}
 
 	public function canSet():Bool {
-		return true; // TODO
+		return underlyingValue != null; //TODO add check for use of unexported fields
 	}
 
 	public function canAddr():Bool {
-		return true; // TODO
+		return underlyingValue != null;
 	}
 
 	public function cap():GoInt {
@@ -363,7 +363,7 @@ class Value implements StructType {
 	}
 
 	public function pointer():GoUIntptr {
-		return 0;
+		return value.value != null ? 1 : 0;
 	}
 
 	public function mapIndex(key:Value):Value {
@@ -827,7 +827,7 @@ class Type {
 			case GT_namedType(pack, module, name, methods, interfaces, type):
 				return new Type(type).comparable();
 			default:
-				return false;
+				return true;
 		}
 	}
 }
@@ -882,13 +882,13 @@ class Type {
 		function __block__() {
 			var tag = this;
 			var value:GoString = (("" : GoString)), ok:Bool = false;
-			while (Go.toInterface(tag) != Go.toInterface("")) {
+			while (tag != "") {
 				var i:GoInt64 = (0 : GoInt64);
 				while (i < tag.length && tag[i] == (" ".code : GoRune)) {
 					i++;
 				};
 				tag = tag.slice(i);
-				if (Go.toInterface(tag) == Go.toInterface("")) {
+				if (tag == "") {
 					break;
 				};
 				i = (0 : GoInt64);
@@ -1154,24 +1154,13 @@ final string:Kind = (24 : GoInt64);
 private final _int = int;
 private final _uint = uint;
 
-@:structInit @:allow(github_com.go2hx.go4hx.rnd) final class Visit implements StructType {
+@:structInit @:allow(github_com.go2hx.go4hx.rnd) final private class Visit {
 	// public var _a1:stdgo.unsafe.Unsafe.Pointer = null;
 	// public var _a2:stdgo.unsafe.Unsafe.Pointer = null;
 	public var _typ:Type_ = null;
 
 	public function new(/*?_a1, ?_a2,*/ ?_typ) {
-		stdgo.internal.Macro.initLocals();
-	}
-
-	public function toString() {
-		return '{' + /*Std.string(_a1) + " " + Std.string(_a2) + " " +*/ Std.string(_typ) + "}";
-	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
-	public function __copy__() {
-		return new Visit(/*_a1, _a2,*/ _typ);
+		
 	}
 }
 

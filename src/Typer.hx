@@ -979,7 +979,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								var name = nameIdent(spec.names[i].name, info, false, false, false);
 								var t = typeof(spec.type);
 
-								expr = assignTranslate(t, typeof(spec.values[i]), expr, info);
+								expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
 								info.localVars[name] = true;
 								{
 									name: name,
@@ -1369,7 +1369,6 @@ private function castTranslate(obj:Ast.Expr,e:Expr,info:Info):{expr:Expr,ok:Bool
 			{expr: e, ok: false};
 	}
 }
-
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	var y = expr;
 	if (isInterface(fromType) && isPointer(toType)) {
@@ -1377,12 +1376,12 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			y = macro $y.__t__;
 		y = macro $y.value;
 	}
-	if (isAnyInterface(fromType)) {
+	if (isAnyInterface(toType)) {
 		if (isNamed(toType))
 			y = macro $y.__t__;
 		y = macro Go.toInterface($y);
 	}
-	if (isAnyInterface(toType)) {
+	if (isAnyInterface(fromType)) {
 		final ct = toComplexType(fromType, info);
 		if (ct != null) {
 			if (isNamed(toType))
@@ -1437,7 +1436,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 
 						var toType = typeof(stmt.lhs[i]);
 						var fromType = typeof(stmt.rhs[i]);
-
 						y = assignTranslate(fromType,toType, y, info);
 
 						if (x == null || y == null)

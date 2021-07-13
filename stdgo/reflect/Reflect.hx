@@ -552,6 +552,7 @@ class Type {
 			case array: 0;
 			case struct: 0;
 			case ptr: 0;
+			case uintptr: 0;
 			default:
 				throw "unimplemented: size of type: " + kind();
 		}

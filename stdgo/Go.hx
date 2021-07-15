@@ -206,6 +206,24 @@ class Go {
 
 	public static macro function pointer(expr:Expr,hasSet:Bool=false) {
 		expr = escapeParens(expr);
+
+		var p:TypePath = {name: "Pointer",pack: ["stdgo"]};
+		var pd:TypePath = {name: "Pointer",pack: ["stdgo"],sub: "PointerData"};
+		var expected = Context.getExpectedType();
+		if (expected != null) {
+			var ct = Context.toComplexType(expected);
+			if (ct != null) {
+				switch ct {
+					case TPath(path):
+						if (path.name == "Pointer") {
+							pd.params = path.params;
+							p = path;
+						}
+					default:
+				}
+			}
+		}
+
 		var declare:Bool = false;
 		switch expr.expr {
 			case EConst(c):
@@ -230,13 +248,13 @@ class Go {
 								return macro {
 									var _offset_ = ${e1}.getOffset();
 									var e2 = (${e2} : GoInt).toBasic();
-									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> ${e1}.getUnderlying()[e2 + _offset_],
+									new $p(new $pd(() -> ${e1}.getUnderlying()[e2 + _offset_],
 										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v));
 								};
 							case "GoArray":
 								return macro {
 									var e2 = (${e2} : GoInt).toBasic();
-									new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v));
+									new $p(new $pd(() -> $expr, (v) -> $expr = v));
 								}
 						}
 					default:
@@ -253,7 +271,7 @@ class Go {
 				}
 			default:
 		}
-		var t = Context.follow(Context.typeof(expr));
+		/*var t = Context.follow(Context.typeof(expr));
 		switch t {
 			case TInst(t, params):
 				var t = t.get();
@@ -261,23 +279,8 @@ class Go {
 					return macro null;
 				}
 			default:
-		}
-		var p:TypePath = {name: "Pointer",pack: ["stdgo"]};
-		var pd:TypePath = {name: "Pointer",pack: ["stdgo"],sub: "PointerData"};
-		var expected = Context.getExpectedType();
-		if (expected != null) {
-			var ct = Context.toComplexType(expected);
-			if (ct != null) {
-				switch ct {
-					case TPath(path):
-						if (path.name == "Pointer") {
-							pd.params = path.params;
-							p = path;
-						}
-					default:
-				}
-			}
-		}
+		}*/
+
 		if (declare)
 			return macro {
 				var e = $expr;

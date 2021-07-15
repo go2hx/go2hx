@@ -2357,7 +2357,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceValue(numMethods):
 			if (numMethods == 0)
 				return TPath({pack: [],name: "AnyInterface"});
-			return TPath({pack: [], name: "Unknown"});
+			TPath({pack: [],name: "Any"});
 		case named(path, underlying):
 			TPath(namedTypePath(path, info));
 		case slice(elem):
@@ -3253,8 +3253,13 @@ private function getBody(path:String):String {
 }
 
 private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
+	function ct():ComplexType {
+		return toComplexType(type,info);
+	}
 	return switch type {
-		case map(_, _): macro null;
+		case map(_, _): 
+			final ct = ct();
+			macro (null : $ct);
 		case slice(elem):
 			var t = toComplexType(elem, info);
 			macro new Slice<$t>();
@@ -3274,7 +3279,8 @@ private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 		case named(path, underlying):
 			switch underlying {
 				case pointer(_), interfaceValue(_), map(_, _):
-					macro null;
+					final ct = ct();
+					macro (null : $ct);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();

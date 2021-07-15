@@ -49,23 +49,10 @@ function sprintln(args:Rest<Dynamic>) {
 	return parse(args).join(" ") + "\n";
 }
 
-private function parse(args:Array<Dynamic>):Array<Dynamic> {
-	for (i in 0...args.length) {
-		var t = Type.typeof(args[i]);
-		switch t {
-			case TClass(c):
-				var name = Type.getClassName(c);
-				switch name {
-					case "stdgo._StdGoTypes.AnyInterfaceData":
-						args[i] = args[i].value;
-				}
-			default:
-		}
-		if (Int64.isInt64(args[i])) {
-			args[i] = Int64.toStr(args[i]);
-		}
-	}
-	return args;
+private function parse(args:Array<Dynamic>):Array<String> {
+	return [for (i in 0...args.length) {
+		Go.string(args[i]);
+	}];
 }
 
 inline function sprintf(fmt:String, args:Rest<Dynamic>) { // format

@@ -80,7 +80,7 @@ class Complex<T> {
 	}
 
 	inline function toString():GoString {
-		return "(+" + Std.string(real) + "+" + Std.string(imag) + "i)";
+		return "(+" + Go.string(real) + "+" + Go.string(imag) + "i)";
 	}
 }
 
@@ -120,44 +120,54 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 		this = x;
 	}
 
-	public inline function toBasic()
+	private inline function address():Int {
+		if (haxe.Int64.isInt64(this))
+			return haxe.Int64.toInt(this);
+		if ((this is Int))
+			return this;
+		if ((this is Float))
+			return Std.int(this);
 		return 1;
+	}
 
-	@:to inline function toInt64():GoInt64
-		return Int64.ofInt(1);
+	public inline function toBasic()
+		return address();
+
+	@:to inline function toInt64():GoInt64 
+		return Int64.ofInt(address());
 
 	@:to inline function toInt():GoInt
-		return 1;
+		return address();
 
 	@:to inline function toint32():GoInt32
-		return 1;
+		return address();
 
 	@:to inline function toInt8():GoInt8
-		return 1;
+		return address();
 
 	@:to inline function toInt16():GoInt16
-		return 1;
+		return address();
 
 	@:to inline function toUInt():GoUInt
-		return 1;
+		return address();
 
 	@:to inline function toUInt32():GoUInt32
-		return 1;
+		return address();
 
 	@:to inline function toUInt8():GoUInt8
-		return 1;
+		return address();
 
 	@:to inline function toUInt16():GoUInt16
-		return 1;
+		return address();
 
 	@:to inline function toUInt64():GoUInt64
-		return 1;
+		return address();
 
 	@:to inline function toFloat32():GoFloat32
-		return 1;
+		return address();
 
 	@:to inline function toFloat64():GoFloat64
-		return 1;
+		return address();
 
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
 		if (b == 0)
@@ -180,11 +190,11 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
 
 	@:op(A++) inline function postInc():GoUIntptr {
-		return 1 + 1;
+		return this = address() + 1;
 	}
 
 	@:op(A--) inline function postDec():GoUIntptr {
-		return 1 - 1;
+		return this = address() - 1;
 	}
 
 	@:op(A > B) private static function gt(a:GoUIntptr, b:GoUIntptr):Bool;
@@ -1754,16 +1764,18 @@ interface StructType {
 
 interface Error {
 	public function __underlying__():AnyInterface;
-	public function error():String;
+	public function error():GoString;
 }
 
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
+	public var valueInterface:Any;
 	public var type:stdgo.reflect.Reflect.Type;
 
-	public function new(value, type) {
+	public function new(value,type,valueInterface=null) {
 		this.value = value;
+		this.valueInterface = valueInterface;
 		this.type = type;
 	}
 

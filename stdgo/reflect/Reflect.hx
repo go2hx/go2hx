@@ -57,21 +57,23 @@ class Error implements StructType implements stdgo.StdGoTypes.Error {
 		return message;
 
 	public function toString()
-		return (this.error() : String);
+		return this.error();
 }
 
 class Value implements StructType {
 	var value:AnyInterface;
 	var underlyingValue:Dynamic;
 	var underlyingIndex:GoInt = -1;
+	var underlyingKey:Dynamic = null;
 	var underlyingType:Type = null;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new(value:AnyInterface=null,underlyingValue:Dynamic=null,underlyingIndex:GoInt=-1) {
+	public function new(value:AnyInterface=null,underlyingValue:Dynamic=null,underlyingIndex:GoInt=-1,underlyingKey:Dynamic=null) {
 		this.underlyingValue = underlyingValue;
 		this.underlyingIndex = underlyingIndex;
+		this.underlyingKey = underlyingKey;
 		if (value == null)
 			value = new AnyInterface(null,new Type(GT_invalid));
 		this.value = value;
@@ -122,7 +124,11 @@ class Value implements StructType {
 	private function _set() {
 		if (underlyingValue != null) {
 			if (underlyingIndex == -1) {
-				underlyingValue.set(value.value); //set pointer
+				if (underlyingKey != null) {
+					underlyingValue.set(underlyingKey,value.value);
+				}else{
+					underlyingValue.set(value.value); //set pointer
+				}
 			}else{
 				//set array or slice
 				underlyingValue.set(underlyingIndex,value.value); 
@@ -257,12 +263,13 @@ class Value implements StructType {
 			case uint64: (value.value : GoUInt64);
 			case float32: (value.value : GoFloat32);
 			case float64: (value.value : GoFloat64);
+			case uintptr: (value.value : GoUIntptr);
 			default: value.value;
 		}
 	}
 
 	public function uint():GoUInt64 {
-		return switch kind() {
+		var value:GoUInt64 = switch kind() {
 			case int8: (value.value : GoInt8);
 			case int16: (value.value : GoInt16);
 			case int32: (value.value : GoInt32);
@@ -275,8 +282,10 @@ class Value implements StructType {
 			case uint64: (value.value : GoUInt64);
 			case float32: (value.value : GoFloat32);
 			case float64: (value.value : GoFloat64);
+			case uintptr: (value.value : GoUIntptr);
 			default: value.value;
 		}
+		return value;
 	}
 
 	public function float():GoFloat64 {
@@ -293,6 +302,7 @@ class Value implements StructType {
 			case uint64: (value.value : GoUInt64);
 			case float32: (value.value : GoFloat32);
 			case float64: (value.value : GoFloat64);
+			case uintptr: (value.value : GoUIntptr);
 			default: value.value;
 		}
 	}
@@ -321,7 +331,10 @@ class Value implements StructType {
 		return switch type().gt {
 			case GT_array(elem, _), GT_slice(elem): new Value(new AnyInterface((value.value : Dynamic).get(i),new Type(elem)), value.value,i);
 			case GT_string:
-				new Value(new AnyInterface((value.value : GoString).get(i),new Type(GT_int)),value.value,i);
+				var value = value.value;
+				if ((value is String))
+					value = new GoString(value);
+				new Value(new AnyInterface((value : GoString).get(i),new Type(GT_uint8)));
 			default: throw "not supported";
 		}
 	}
@@ -435,7 +448,7 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 		return new ValueError(method, kind);
 
 	public function toString() {
-		return (this.error() : String);
+		return this.error();
 	}
 
 	public function error():GoString {
@@ -607,7 +620,7 @@ class Type {
 							case GT_field(name, type, tag):
 								(name.charAt(0) == "_" ? name.substr(1) : name.toUpperCase()) + " " + new Type(type).toString();
 							default:
-								"invalid field";
+								new GoString("invalid field");
 						}
 				].join("; ") + " }"; // TODO
 			case GT_array(typ, len):
@@ -650,7 +663,7 @@ class Type {
 			case GT_interface(_, _, _, methods):
 				var r = "";
 				for (method in methods) {
-					r += " " + new Type(method).toString();
+					r += " " + new Type(method).toString().toString();
 				}
 				r = r.substr(1);
 				return "interface {" + r + "}";
@@ -845,7 +858,7 @@ class Type {
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new(?name, ?pkgPath, ?type, ?func, ?index) {
+	public function new(?name:GoString, ?pkgPath:GoString, ?type, ?func, ?index) {
 		stdgo.internal.Macro.initLocals();
 	}
 
@@ -872,67 +885,55 @@ class Type {
 	public inline function __elem__():GoString
 		return this;
 
-	inline public function get(key:GoString):GoString {
-		function __block__() {
-			var obj = lookup(key);
-			var v = obj.value;
-			return v;
-		};
-		return __block__();
+	public function get(key:GoString):GoString {
+		var obj = lookup(key);
+		var v = obj.value;
+		return v;
 	}
 
-	inline public function lookup(key:GoString):MultiReturn<{var value:GoString; var ok:Bool;}> {
-		function __block__() {
-			var tag = this;
-			var value:GoString = (("" : GoString)), ok:Bool = false;
-			while (tag != "") {
-				var i:GoInt64 = (0 : GoInt64);
-				while (i < tag.length && tag[i] == (" ".code : GoRune)) {
-					i++;
-				};
-				tag = tag.slice(i);
-				if (tag == "") {
-					break;
-				};
-				i = (0 : GoInt64);
-				while (i < tag.length && tag[i] > (" ".code : GoRune) && tag[i] != (":".code : GoRune) && tag[i] != ("\"".code : GoRune)
-					&& tag[i] != (127 : GoInt64)) {
-					i++;
-				};
-				if (i == (0 : GoInt64)
-					|| i + (1 : GoInt64) >= tag.length
-						|| tag[i] != (":".code : GoRune)
-						|| tag[i + (1 : GoInt64)] != ("\"".code : GoRune)) {
-					break;
-				};
-				var name:GoString = ((((tag.slice(0, i) : GoString)) : GoString));
-				tag = tag.slice(i + (1 : GoInt64));
-				i = (1 : GoInt64);
-				while (i < tag.length && tag[i] != ("\"".code : GoRune)) {
-					if (tag[i] == ("\\".code : GoRune)) {
-						i++;
-					};
-					i++;
-				};
-				if (i >= tag.length) {
-					break;
-				};
-				var qvalue:GoString = ((((tag.slice(0, i + (1 : GoInt64)) : GoString)) : GoString));
-				tag = tag.slice(i + (1 : GoInt64));
-				if (key == name) {
-					var obj = stdgo.strconv.Strconv.unquote(qvalue);
-					var value = obj.value;
-					var err = obj.error;
-					if (err != null) {
-						break;
-					};
-					return {value: value, ok: true};
-				};
-			};
-			return {value: "", ok: false};
-		};
-		return __block__();
-	}
+	public function lookup(key:GoString):MultiReturn<{ var value : GoString; var ok : Bool; }> {
+        var tag = this;
+        var value:GoString = (("" : GoString)), ok:Bool = false;
+        while (tag != (("" : GoString))) {
+            var i:GoInt64 = 0;
+            while (i < tag.length && tag[i] == (" ".code : GoRune)) {
+                i++;
+            };
+            tag = tag.slice(i);
+            if (tag == (("" : GoString))) {
+                break;
+            };
+            i = 0;
+            while (i < tag.length && tag[i] > (" ".code : GoRune) && tag[i] != (":".code : GoRune) && tag[i] != ("\"".code : GoRune) && tag[i] != ((127 : GoInt64))) {
+                i++;
+            };
+            if (i == ((0 : GoInt64)) || i + ((1 : GoInt64)) >= tag.length || tag[i] != (":".code : GoRune) || tag[i + ((1 : GoInt64))] != ("\"".code : GoRune)) {
+                break;
+            };
+            var name:GoString = tag.slice(0, i);
+            tag = tag.slice(i + ((1 : GoInt64)));
+            i = 1;
+            while (i < tag.length && tag[i] != ("\"".code : GoRune)) {
+                if (tag[i] == ("\\".code : GoRune)) {
+                    i++;
+                };
+                i++;
+            };
+            if (i >= tag.length) {
+                break;
+            };
+            var qvalue:GoString = tag.slice(0, i + ((1 : GoInt64)));
+            tag = tag.slice(i + ((1 : GoInt64)));
+            if (key == name) {
+                var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue), value = __tmp__.value, err = __tmp__.error;
+                if (err != null) {
+                    break;
+                };
+                return { value : value, ok : true };
+            };
+        };
+        return { value : "", ok : false };
+    }
 }
 
 @:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class StructField implements StructType {
@@ -947,7 +948,7 @@ class Type {
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new(?name, ?pkgPath, ?type, ?tag, ?offset, ?index, ?anonymous) {
+	public function new(?name:GoString, ?pkgPath:GoString, ?type, ?tag:GoString, ?offset, ?index, ?anonymous) {
 		stdgo.internal.Macro.initLocals();
 	}
 

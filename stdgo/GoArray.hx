@@ -21,7 +21,7 @@ private class VectorData<T> {
 	}
 
 	public inline function toString():GoString
-		return "[" + [for (obj in vector) Std.string(obj)].join(" ") + "]";
+		return "[" + [for (obj in vector) Go.string(obj)].join(" ") + "]";
 
 	public inline function get(i:Int):T
 		return vector.get(i);

@@ -1161,6 +1161,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	if (toNamed && !fromNamed) {
 		switch ct {
 			case TPath(p):
+				e = assignTranslate(from,getUnderlying(to),e,info);
 				return macro new $p($e);
 			default:
 		}
@@ -1170,6 +1171,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	if (isInterface(pointerUnwrap(from))) {
 		return macro Go.smartcast(cast($e, $ct)); // allows correct interface casting
 	}
+	//e = assignTranslate(from,to,e,info);
 	return macro($e : $ct);
 }
 
@@ -1371,35 +1373,28 @@ private function castTranslate(obj:Ast.Expr,e:Expr,info:Info):{expr:Expr,ok:Bool
 }
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	var y = expr;
+	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType))
+		y = macro $y.__t__;
 	if (isInterface(fromType) && isPointer(toType)) {
-		if (isNamed(fromType))
-			y = macro $y.__t__;
 		y = macro $y.value;
 	}
 	if (isAnyInterface(toType)) {
-		if (isNamed(toType))
-			y = macro $y.__t__;
 		y = macro Go.toInterface($y);
 	}
 	if (isAnyInterface(fromType)) {
 		final ct = toComplexType(fromType, info);
 		if (ct != null) {
-			if (isNamed(toType))
-				y = macro $y.__t__;
 			y = macro Go.fromInterface(($y : $ct));
 		}
 	}
-	if (isUnsafePointer(fromType)) {
-		if (isNamed(toType))
-			y = macro $y.__t__;
-		y = macro Go.unsafePointer($y);
-	}
 	var namedX = isNamed(fromType);
 	var namedY = isNamed(toType);
+
 	if (!namedX && namedY) {
 		var ct = toComplexType(toType,info);
 		switch ct {
 			case TPath(p):
+				y = assignTranslate(fromType,getUnderlying(toType),y,info);
 				y = macro new $p($y);
 			default:
 		}
@@ -2284,7 +2279,7 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	return {name: cl, pack: pack};
 }
 
-private function namedTypePath(path:GoString, info:Info):TypePath {
+private function namedTypePath(path:String, info:Info):TypePath {
 	if (path == "error")
 		return {pack: [], name: "Error"};
 	var last = path.lastIndexOf("/") + 1;
@@ -3635,7 +3630,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		pos: null,
 		access: [APublic],
 		kind: FFun({
-			args: [{name: "t",opt: true}],
+			args: [{name: "t",opt: true,type: ct}],
 			expr: macro {
 				__t__ = t == null ? $value : t;
 			},
@@ -3655,9 +3650,18 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		access: [APublic],
 		kind: FFun({
 			args: [],
-			expr: macro return Std.string(__t__),
+			expr: macro return Go.string(__t__),
 			ret: TPath({name: "GoString",pack: []}),
 		})
+	},{
+		name: "__copy__",
+		pos: null,
+		access: [APublic],
+		kind: FFun({
+			args: [],
+			expr: macro return __t__, //TODO
+			ret: ct,
+		}),
 	}];
 
 	return {
@@ -3709,7 +3713,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				access: [APublic],
 				kind: FFun({
-					args: [for (field in fields) {name: field.name, opt: true}],
+					args: [for (field in fields) {name: field.name, opt: true,type: switch field.kind { case FVar(t,_): t; default: null;}}],
 					expr: macro stdgo.internal.Macro.initLocals(),
 				}),
 			});
@@ -3717,7 +3721,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			for (field in fields) {
 				switch field.kind {
 					case FVar(t, e):
-						toStringExpr = macro $toStringExpr + Std.string($i{field.name}) + " ";
+						toStringExpr = macro $toStringExpr + Go.string($i{field.name}) + " ";
 					default:
 				}
 			}

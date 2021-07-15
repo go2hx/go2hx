@@ -93,11 +93,27 @@ class Go {
 					default:
 				}
 				if (isInterface) { //TODO
-					return macro ($e.value : $ct);
+					return macro ($e.valueInterface : $ct);
 				}
-				return macro($e.value : $ct);
+				return macro $expr.value;
 			default:
 				throw "not a checkType";
+		}
+	}
+
+	public static function string(s:Dynamic):String {
+		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
+			s = s.value;
+		}
+		return if (haxe.Int64.isInt64(s)) {
+			haxe.Int64.toStr(s);
+		}else if ((s is Int)) {
+			Std.string(s);
+		}else if ((s is Float)) {
+			//scientific notation
+			Std.string(s);
+		} else {
+			Std.string(s);
 		}
 	}
 
@@ -108,16 +124,23 @@ class Go {
 
 	public static macro function toInterface(expr) {
 		var t = Context.follow(Context.typeof(expr));
+		var exprInterface = macro null;
 		switch t {
 			case TAbstract(t, params):
 				var t = t.get();
 				if (t.name == "AnyInterface" && t.pack.length == 1 && t.pack[0] == "stdgo") {
 					return expr; // prevent interface{} inside interface{}
 				}
+			case TInst(t, params):
+				var t = t.get();
+				if (t.meta.has(":named")) {
+					exprInterface = macro $expr;
+					expr = macro $expr.__t__;
+				}
 			default:
 		}
 		var ty = gtDecode(t);
-		return macro new AnyInterface($expr, new stdgo.reflect.Reflect.Type($ty));
+		return macro new AnyInterface($expr, new stdgo.reflect.Reflect.Type($ty),$exprInterface);
 	}
 
 	public static macro function smartcast(expr:Expr) {
@@ -179,13 +202,6 @@ class Go {
 			default:
 				expr;
 		}
-	}
-
-	public static macro function unsafePointer(expr:Expr) {
-		// uintptr -> Pointer
-		// pointer -> Pointer
-
-		return macro null;
 	}
 
 	public static macro function pointer(expr:Expr) {
@@ -316,17 +332,11 @@ class Go {
 	static var markedEmpty = true;
 
 	public static function gtDecode(t:haxe.macro.Type):Expr {
+		t = Context.follow(t);
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 		switch (t) {
 			case TMono(ref):
 				return macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
-			case TType(ref, params):
-				var ref = ref.get();
-				var t = gtDecode(ref.type);
-				var methods = macro [];
-				var interfaces = macro [];
-				ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")}, $v{parseModule(ref.module)}, $v{ref.name}, $methods,
-					$interfaces, $t);
 			case TAbstract(ref, params):
 				var sref:String = ref.toString();
 				switch (sref) {
@@ -338,7 +348,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, -1); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
-					case "stdgo.unsafe.Pointer":
+					case "stdgo.unsafe.Unsafe.Pointer", "stdgo.unsafe.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_unsafePointer;
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
@@ -480,6 +490,7 @@ class Go {
 			interfaces.push(gtDecodeInterfaceType(inter));
 		}
 		var fs = ref.fields.get();
+		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		for (field in fs) {
 			switch field.kind {
@@ -525,12 +536,19 @@ class Go {
 							throw "method needs to be a function: " + field.type;
 					}
 				default:
+					if (field.name == "__t__") {
+						underlyingType = field.type;
+						continue;
+					}
 					var t = gtDecode(field.type);
 					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, ""));
 			}
 		}
 		var fields = macro $a{fields};
 		var t = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
+		if (ref.meta.has(":named") && underlyingType != null) {
+			t = gtDecode(underlyingType);
+		}
 		var pack = ref.pack.join(".");
 		return macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{pack}, $v{module}, $v{ref.name}, $a{methods}, $a{interfaces}, $t);
 	}

@@ -5,7 +5,13 @@ import stdgo.StdGoTypes.GoUIntptr;
 import stdgo.Pointer as BasePointer;
 
 abstract Pointer(BasePointer<Dynamic>) from BasePointer<Dynamic> to BasePointer<Dynamic> {
-	
+	@:from static function fromUIntptr(value:GoUIntptr):Pointer {
+		return Go.pointer(value);
+	}
+
+	@:to inline function toUIntptr():GoUIntptr {
+		return this.value;
+	}
 }
 
 function sizeof(x:AnyInterface):GoUIntptr {

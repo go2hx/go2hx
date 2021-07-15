@@ -11,21 +11,21 @@ import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.GoFloat;
 import stdgo.StdGoTypes.AnyInterface;
 
-function parseFloat(s:String, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat>> {
+function parseFloat(s:GoString, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat>> {
 	try {
-		return {value: Std.parseFloat(s)};
+		return {value: Std.parseFloat(s.toString())};
 	} catch (e) {
 		return {value: 0, error: cast e};
 	}
 }
 
-inline function unquote(s:String):MultiReturn<ErrorReturn<GoString>> {
+inline function unquote(s:GoString):MultiReturn<ErrorReturn<GoString>> {
 	if (s.length < 2)
 		return {value: "", error: errSyntax};
 	return {value: "", error: null};
 }
 
-inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
+inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
@@ -38,8 +38,8 @@ inline function parseInt(s:String, base:GoInt64, bitSize:GoInt64):MultiReturn<Er
 	}
 }
 
-inline function parseBool(s:String):MultiReturn<ErrorReturn<Bool>> {
-	return switch s {
+inline function parseBool(s:GoString):MultiReturn<ErrorReturn<Bool>> {
+	return switch s.toString() {
 		case "1", "t", "T", "true", "TRUE", "True":
 			{value: true};
 		case "0", "f", "F", "false", "FALSE", "False":
@@ -67,11 +67,11 @@ inline function formatFloat(i:GoFloat64, fmt:GoByte, prec:GoInt, bitSize:GoInt):
 final errRange = stdgo.errors.Errors.new_("value out of range");
 final errSyntax = stdgo.errors.Errors.new_("invalid syntax");
 
-private function syntaxError(fn:String, str:String):NumError {
+private function syntaxError(fn:GoString, str:GoString):NumError {
 	return new NumError(fn, str, errSyntax);
 }
 
-private function rangeError(fn:String, str:String):NumError {
+private function rangeError(fn:GoString, str:GoString):NumError {
 	return new NumError(fn, str, errRange);
 }
 

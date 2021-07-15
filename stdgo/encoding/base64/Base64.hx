@@ -19,9 +19,9 @@ private class StdEncoding {
 		}
 	}
 
-	public function decodeString(string:String):MultiReturn<ErrorReturn<Bytes>> {
+	public function decodeString(string:GoString):MultiReturn<ErrorReturn<Bytes>> {
 		try {
-			return {value: Base.decode(string)};
+			return {value: Base.decode(string.toString())};
 		} catch (e) {
 			return {value: null, error: e};
 		}
@@ -39,7 +39,7 @@ private class UrlEncoding {
 		}
 	}
 
-	public function decodeString(string:String):ErrorReturn<Bytes> {
+	public function decodeString(string:GoString):ErrorReturn<Bytes> {
 		try {
 			return {value: Base.urlDecode(string)};
 		} catch (e) {

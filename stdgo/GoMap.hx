@@ -141,7 +141,7 @@ private class MapData<K, V> {
 	public function toString():GoString {
 		var params:String = "";
 		for (obj in array) {
-			params = obj.key + ":" + obj.value + " " + params;
+			params = Go.string(obj.key) + ":" + Go.string(obj.value) + " " + params;
 		}
 		params = params.substr(0, params.length - 1);
 		return 'map[$params]';

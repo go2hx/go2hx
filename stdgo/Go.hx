@@ -204,7 +204,7 @@ class Go {
 		}
 	}
 
-	public static macro function pointer(expr:Expr) {
+	public static macro function pointer(expr:Expr,hasSet:Bool=false) {
 		expr = escapeParens(expr);
 		var declare:Bool = false;
 		switch expr.expr {
@@ -262,12 +262,28 @@ class Go {
 				}
 			default:
 		}
+		var p:TypePath = {name: "Pointer",pack: ["stdgo"]};
+		var pd:TypePath = {name: "Pointer",pack: ["stdgo"],sub: "PointerData"};
+		var expected = Context.getExpectedType();
+		if (expected != null) {
+			var ct = Context.toComplexType(expected);
+			if (ct != null) {
+				switch ct {
+					case TPath(path):
+						if (path.name == "Pointer") {
+							pd.params = path.params;
+							p = path;
+						}
+					default:
+				}
+			}
+		}
 		if (declare)
 			return macro {
 				var e = $expr;
-				new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> e, (v) -> e = v));
+				new $p(new $pd(() -> e, (v) -> e = v,$v{hasSet}));
 			};
-		return macro new stdgo.Pointer(new stdgo.Pointer.PointerData(() -> $expr, (v) -> $expr = v));
+		return macro new $p(new $pd(() -> $expr, (v) -> $expr = v,$v{hasSet}));
 	}
 
 	public static macro function recover() {

@@ -171,6 +171,8 @@ function run(compareOutput:Bool):Int {
 						Sys.println("NOT EQUAL");
 						var lines = content.split("\n");
 						var lines2 = compare.split("\n");
+						if (lines.length != lines2.length)
+							Sys.println("line count off: " + lines.length + " != " + lines2.length);
 						for (i in 0...lines.length) {
 							if (lines[i] != lines2[i]) {
 								lines[i] += " != " + lines2[i];

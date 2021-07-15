@@ -24,15 +24,20 @@ abstract Pointer<T>(PointerData<T>) {
 	public static inline function to<T>(p:PointerData<T>):T {
 		return p.get();
 	}
+
+	public function hasSet()
+		return this.hasSet;
 }
 
 class PointerData<T> {
 	public var get:() -> T;
 	public var set:T->T;
+	public var hasSet:Bool = false;
 
-	public function new(get, set) {
+	public function new(get, set,hasSet:Bool=false) {
 		this.get = get;
 		this.set = set;
+		this.hasSet = hasSet;
 	}
 
 	public inline function toString() {

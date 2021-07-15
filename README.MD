@@ -24,7 +24,7 @@ go2hx
 * defer
 * slice append and slice/array/map indexing
 * type switches and switches
-* if statements, nill checks, equality, for loops, range
+* if statements, nil checks, equality, for loops, range
 * interface{} and asserts
 * field access, binary operators
 * most number types

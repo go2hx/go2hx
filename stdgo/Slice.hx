@@ -30,7 +30,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.underlying();
 	}
 
-	inline public function isNill():Bool
+	inline public function isNil():Bool
 		return this.length == 0;
 
 	public function new(args:Rest<T>) {

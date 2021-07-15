@@ -17,7 +17,7 @@ class Chan<T> {
 		return setIndex - getIndex;
 	}
 
-	public function isNill():Bool
+	public function isNil():Bool
 		return false;
 
 	public function new(length:GoInt, defaultValue) {

@@ -233,8 +233,30 @@ class Value implements StructType {
 	public inline function interface_():AnyInterface
 		return value;
 
-	public inline function isNil()
-		return value.value == null;
+	public inline function isNil():Bool {
+		return switch kind() {
+			case chan:
+				(value.value : Chan<Dynamic>).isNil();
+			case slice:
+				(value.value : Slice<Dynamic>).isNil();
+			case ptr:
+				if (value.value == null)
+					return true;
+				if ((value.value : Pointer<Dynamic>).hasSet())
+					return false;
+				if ((value.value : Pointer<Dynamic>).value == null)
+					return true;
+				false;
+			case func:
+				value.value == null;
+			case map:
+				value.value == null || (value.value : GoMap<Dynamic,Dynamic>).isNil();
+			case 20://interface_:
+				value.value == null;
+			default:
+				throw "nil check not supported kind: " + kind(); 
+		}
+	}
 
 	public inline function isValid()
 		return value.type.gt != GT_invalid;
@@ -411,7 +433,7 @@ class Value implements StructType {
 					return new Value();
 				switch type().gt {
 					case GT_ptr(elem):
-						return new Value(new AnyInterface((value.value : Pointer<Dynamic>).value, new Type(elem)));
+						return new Value(new AnyInterface((value.value : Pointer<Dynamic>).value, new Type(elem)),value.value);
 					default:
 				}
 			case interface_:

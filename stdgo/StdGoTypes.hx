@@ -1796,7 +1796,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var gt = a.type.gt;
 		return switch gt {
-			case GT_bool, GT_string, GT_int8, GT_int16, GT_int32, GT_uint8, GT_uint16, GT_uint32, GT_uintptr, GT_float64, GT_float32:
+			case GT_string:
+				(a.value : GoString) == (b.value : GoString);
+			case GT_bool, GT_int8, GT_int16, GT_int32, GT_uint8, GT_uint16, GT_uint32, GT_uintptr, GT_float64, GT_float32:
 				a.value == b.value;
 			case GT_uint:
 				(a.value : GoUInt) == (b.value : GoUInt);

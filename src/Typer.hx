@@ -1921,8 +1921,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var t = typeExprType(expr.args[0], info);
 					switch t {
 						case TPath(_), TFunction(_, _), TAnonymous(_):
-							var value = defaultValue(typeof(expr.args[0]), info);
-							return (macro Go.pointer($value)).expr; // TODO does not work for non constructed types, such as basic types
+							var t = typeof(expr.args[0]);
+							var value = defaultValue(t, info);
+							if (isInterface(t)) {
+								return (macro Go.pointer($value,true)).expr;
+							}else{
+								return (macro Go.pointer($value)).expr;
+							}
+							
 						default:
 					}
 				case "make":
@@ -2823,9 +2829,9 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 					return EBinop(op, x, y);
 				switch op {
 					case OpEq:
-						return (macro $value == null || $value.isNill()).expr;
+						return (macro $value == null || $value.isNil()).expr;
 					default:
-						return (macro $value != null && !$value.isNill()).expr;
+						return (macro $value != null && !$value.isNil()).expr;
 				}
 			}
 			var t = typeX;

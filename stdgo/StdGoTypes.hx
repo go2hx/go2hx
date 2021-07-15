@@ -45,11 +45,6 @@ private typedef Float = StdTypes.Float;
 private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
 private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64 #else Float #end
 
-//thanks Gama11
-#if !macro
-@:genericBuild(stdgo.internal.Macro.buildUnknown()) class Unknown {}
-#end
-
 private class __UInt64 {
 	public var high:Int64;
 	public var low:Int64;

@@ -8,11 +8,6 @@ import haxe.macro.Expr;
 using Lambda;
 
 class Macro {
-	#if macro
-	public static function buildUnknown() {
-		return null;
-	}
-	#end
 	public static macro function initLocals() {
 		// Grab the variables accessible in the context the macro was called.
 		var locals = Context.getLocalVars();

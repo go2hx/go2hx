@@ -355,7 +355,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 				}
 				var restrictedNames = [for (func in local) nameIdent(func.name.name, info, false, false)];
 				var isNamed = false;
-				if (def.meta != null && def.meta[0].name == ":named")
+				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
 				for (decl in local) {
 					if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
@@ -1489,7 +1489,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					}
 					info.renameTypes[name] = newName;
 					name = newName;
-					var t = typeof(stmt.rhs[i]);
+					var t = typeof(stmt.lhs[i]);
 					info.localVars[name] = true; // set local name
 					
 					var toType = typeof(stmt.lhs[i]);
@@ -1583,7 +1583,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		e = assignTranslate(typeof(stmt.results[0]), info.returnTypes[0], e, info);
+		var retType = info.returnTypes[0];
+		if (retType != null)
+			e = assignTranslate(typeof(stmt.results[0]), retType, e, info);
 		return ret(EReturn(e));
 	}
 	// multireturn
@@ -1937,33 +1939,38 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs(1);
 					var size = args[0];
 					var cap = args[1];
+					var setCap:Bool = false;
 					if (size != null)
 						size = macro($size : GoInt).toBasic();
-					if (cap != null)
+					if (cap != null) {
 						cap = macro($cap : GoInt).toBasic();
-					return switch type {
+						setCap = true;
+					}
+					var e = switch type {
 						case slice(elem):
 							var param = toComplexType(elem, info);
 							var value = defaultValue(elem, info);
 							if (size == null)
 								return (macro new Slice<$param>()).expr;
-							(macro new Slice<$param>(...[for (i in 0...$size) $value])).expr;
+							macro new Slice<$param>(...[for (i in 0...$size) $value]);
 						case map(key, value):
 							var t = toReflectType(type);
 							var key = toComplexType(key, info);
 							var value = toComplexType(value, info);
-
-							(macro new GoMap<$key, $value>(new stdgo.reflect.Reflect.Type($t))).expr;
+							macro new GoMap<$key, $value>(new stdgo.reflect.Reflect.Type($t));
 						case chan(dir, elem):
 							var value = defaultValue(elem, info);
 							var param = toComplexType(elem, info);
 							if (size == null)
 								size = macro 0;
 
-							(macro new Chan<$param>($size, () -> $value)).expr;
+							macro new Chan<$param>($size, () -> $value);
 						default:
 							throw "unknown make type: " + type;
 					}
+					if (setCap)
+						return (macro $e.setCap($cap)).expr;
+					return e.expr;
 			}
 	}
 	if (args.length == 0)
@@ -2134,7 +2141,7 @@ private function typeof(e:Ast.Expr):GoType {
 		return invalid;
 	return switch e.id {
 		case "Signature":
-			signature(e.variadic, typeof(e.params), typeof(e.results), e.recv != null ? typeof(e.recv) : null);
+			signature(e.variadic, typeof(e.params), typeof(e.results), e.recv != null ? typeof(e.recv) : invalid);
 		case "Basic":
 			basic(BasicKind.createByIndex(e.kind));
 		case "Tuple":
@@ -2249,7 +2256,6 @@ private function typeof(e:Ast.Expr):GoType {
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}
-	return null;
 }
 
 private function getGlobalPath(info:Info):String {
@@ -2373,9 +2379,9 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case tuple(len, vars):
 			if (len == 1)
 				return toComplexType(vars[0], info);
-			null;
+			TPath({pack: [],name: "Any"});
 		case invalid:
-			null;
+			TPath({pack: [],name: "Any"});
 		case pointer(elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
@@ -2498,7 +2504,7 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	var t = typeof(expr.x);
+	var t = typeof(expr.type);
 	if (isNamed(t))
 		x = macro $x.__t__;
 	if (expr.op == AND) {
@@ -2759,6 +2765,9 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 			params.unshift(t);
 			final p = getTypePath();
 			return (macro new $p($a{params})).expr;
+		case invalid:
+			
+			return (macro @:issue null).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}
@@ -3262,7 +3271,7 @@ private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 			macro (null : $ct);
 		case slice(elem):
 			var t = toComplexType(elem, info);
-			macro new Slice<$t>();
+			macro new Slice<$t>().nil();
 		case array(elem, len):
 			var t = toComplexType(elem, info);
 			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem, info)}]);
@@ -3271,7 +3280,7 @@ private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 		case chan(_, elem):
 			var t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
-			macro new Chan<$t>(0, () -> $value);
+			macro new Chan<$t>(0, () -> $value, true);
 		case pointer(_):
 			macro null;
 		case signature(_, _, _, _):
@@ -3729,19 +3738,25 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					expr: macro stdgo.internal.Macro.initLocals(),
 				}),
 			});
-			var toStringExpr:Expr = makeString("{", SingleQuotes);
-			for (field in fields) {
-				switch field.kind {
-					case FVar(t, e):
-						toStringExpr = macro $toStringExpr + Go.string($i{field.name}) + " ";
+			var toStringExpr:Expr = null;
+			if (fields.length > 0) {
+				toStringExpr = makeString("{", SingleQuotes);
+				for (field in fields) {
+					switch field.kind {
+						case FVar(t, e):
+							toStringExpr = macro $toStringExpr + Go.string($i{field.name}) + " ";
+						default:
+					}
+				}
+				switch toStringExpr.expr {
+					case EBinop(op, e1, e2):
+						toStringExpr.expr = EBinop(op, e1, macro "}");
 					default:
 				}
+			}else{
+				toStringExpr = makeString("{}");
 			}
-			switch toStringExpr.expr {
-				case EBinop(op, e1, e2):
-					toStringExpr.expr = EBinop(op, e1, macro "}");
-				default:
-			}
+
 			fields.push({
 				name: "toString",
 				pos: null,

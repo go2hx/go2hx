@@ -30,18 +30,27 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.underlying();
 	}
 
+	public function nil():Slice<T> {
+		this.nilBool = true;
+		return this;
+	}
+
 	inline public function isNil():Bool
-		return this.length == 0;
+		return this.nilBool;
 
 	public function new(args:Rest<T>) {
 		var length = args.length;
-		var cap = length;
-		this = new SliceData(length, cap);
+		this = new SliceData(length);
 		if (args.length == 0)
 			return;
 		for (i in 0...args.length) {
 			set(i, args[i]);
 		}
+	}
+
+	public function setCap(cap:GoInt):Slice<T> {
+		@:privateAccess this._cap = cap.toBasic();
+		return this;
 	}
 
 	@:op([]) public inline function get(index:GoInt):T {
@@ -97,8 +106,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.keyValueIterator();
 	}
 
-	inline public function cap():Int {
-		return this.cap();
+	inline public function cap():GoInt {
+		return @:privateAccess this._cap == -1 ? length : @:privateAccess this._cap;
 	}
 
 	inline public function toArray() {
@@ -150,13 +159,12 @@ private class SliceIterator<T> {
 
 private class SliceData<T> {
 	var vector:Vector<T>;
-
+	public var nilBool:Bool = false;
 	public var pos:Int = 0;
 	public var length:Int = 0;
-	public function new(length:Int = 0, cap:Int = 0) {
+	var _cap:Int = -1;
+	public function new(length:Int = 0) {
 		this.length = length;
-		if (cap == 0)
-			cap = length;
 		vector = new Vector<T>(length);
 	}
 
@@ -189,7 +197,7 @@ private class SliceData<T> {
 	}
 
 	inline public function cap():Int {
-		return length;
+		return _cap;
 	}
 
 	inline public function toArray():Array<T> { // unrolling derefrences

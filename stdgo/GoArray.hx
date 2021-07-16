@@ -9,6 +9,7 @@ import stdgo.StdGoTypes.GoInt;
 
 private class VectorData<T> {
 	public var vector:Vector<T>;
+	public var cap:Int = -1;
 
 	public var length(get, never):Int;
 
@@ -34,8 +35,13 @@ private class VectorData<T> {
 abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
 
+	public function setCap(cap:GoInt):GoArray<T> {
+		this.cap = cap.toBasic();
+		return this;
+	}
+
 	public function cap():GoInt
-		return length;
+		return this.cap == -1 ? length : this.cap;
 
 	private function get_length():GoInt {
 		return this.length;

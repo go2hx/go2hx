@@ -20,6 +20,11 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		}
 	}
 
+	public function setCap(cap:GoInt):GoMap<K,V> {
+		this.cap = cap.toBasic();
+		return this;
+	}
+
 	public function defaultValue():V
 		return this.defaultValue();
 
@@ -51,7 +56,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.nullBool;
 
 	public function cap():GoInt {
-		return this.length();
+		return this.cap == -1 ? length : this.cap;
 	}
 
 	public inline function iterator() {
@@ -72,6 +77,7 @@ private class MapData<K, V> {
 
 	public var nullBool:Bool = false;
 	public var type:Type = null;
+	public var cap:Int = -1;
 
 	public function new(type:Type) {
 		this.type = type;

@@ -12,17 +12,25 @@ class Chan<T> {
 	var closed:Bool = false;
 
 	public var length(get, null):GoInt;
+	public var _cap:Int = -1;
+	var setNil:Bool = false;
 
 	function get_length():GoInt {
 		return setIndex - getIndex;
 	}
 
 	public function isNil():Bool
-		return false;
+		return setNil;
 
-	public function new(length:GoInt, defaultValue) {
+	public function new(length:GoInt, defaultValue,setNil:Bool=false) {
 		data = new Vector<T>(length.toBasic());
+		this.setNil = setNil;
 		this.defaultValue = defaultValue;
+	}
+
+	public function setCap(cap:GoInt):Chan<T> {
+		this._cap = cap.toBasic();
+		return this;
 	}
 
 	public inline function get():T {
@@ -48,8 +56,8 @@ class Chan<T> {
 		data[setIndex++] = value;
 	}
 
-	public inline function cap() {
-		return data.length;
+	public inline function cap():GoInt {
+		return _cap == -1 ? length : _cap;
 	}
 
 	public inline function close() {

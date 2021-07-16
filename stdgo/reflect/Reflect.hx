@@ -398,6 +398,12 @@ class Value implements StructType {
 	}
 
 	public function pointer():GoUIntptr {
+		switch kind() {
+			case slice:
+				final nil = (value.value : Slice<Dynamic>).isNil();
+				return nil ? 0 : 1;
+			default:
+		}
 		return value.value != null ? 1 : 0;
 	}
 
@@ -444,13 +450,20 @@ class Value implements StructType {
 
 	public function len():GoInt {
 		var k = kind();
-		switch k {
-			case array, chan, slice, map:
-				return (value.value : Dynamic).length;
-			case _string:
-				return (value.value : Dynamic).length;
+		return switch k {
+			case array:
+				(value.value : GoArray<Dynamic>).length;
+			case chan:
+				(value.value : Chan<Dynamic>).length;
+			case slice:
+				(value.value : Slice<Dynamic>).length;
+			case map:
+				(value.value : GoMap<Dynamic,Dynamic>).length;
+			case 24://string_:
+				(value.value : Dynamic).length;
+			default:
+				throw "not supported";
 		}
-		throw "not supported";
 	}
 }
 

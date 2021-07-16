@@ -1583,7 +1583,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		var retType = info.returnTypes[0];
+		final retType = info.returnTypes[0];
 		if (retType != null)
 			e = assignTranslate(typeof(stmt.results[0]), retType, e, info);
 		return ret(EReturn(e));
@@ -1592,7 +1592,9 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	var expr = toExpr(EObjectDecl([
 		for (i in 0...stmt.results.length) {
 			var e = typeExpr(stmt.results[i], info);
-			e = assignTranslate(typeof(stmt.results[i]), info.returnTypes[i], e, info);
+			final retType = info.returnTypes[i];
+			if (retType != null)
+				e = assignTranslate(typeof(stmt.results[i]), retType, e, info);
 			{
 				field: info.returnNames[i],
 				expr: e,
@@ -1842,7 +1844,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 	}
 	var ft = typeof(expr.fun);
-	var notFunction = !isSignature(ft) && !isInvalid(ft);
+	
+	var notFunction = !isSignature(ft) && !isInvalid(ft) && expr.fun.id != "CallExpr";
 	if (notFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
@@ -2057,49 +2060,53 @@ private function toReflectType(t:GoType):Expr {
 		case map(key, value):
 			var key = toReflectType(key);
 			var value = toReflectType(value);
-			macro stdgo.reflect.Reflect.GT_enum.GT_map($key, $value);
+			macro stdgo.reflect.Reflect.GT_map($key, $value);
 		case pointer(elem):
 			var elem = toReflectType(elem);
-			macro stdgo.reflect.Reflect.GT_enum.GT_pointer($elem);
+			macro stdgo.reflect.Reflect.GT_pointer($elem);
 		case slice(elem):
 			var elem = toReflectType(elem);
-			macro stdgo.reflect.Reflect.GT_enum.GT_slice($elem);
+			macro stdgo.reflect.Reflect.GT_slice($elem);
 		case invalid:
-			macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
+			macro stdgo.reflect.Reflect.GT_invalid;
 		case basic(kind):
 			switch kind {
 				case int_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_int;
+					macro stdgo.reflect.Reflect.GT_int;
 				case int8_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_int8;
+					macro stdgo.reflect.Reflect.GT_int8;
 				case int16_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_int16;
+					macro stdgo.reflect.Reflect.GT_int16;
 				case int32_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_int32;
+					macro stdgo.reflect.Reflect.GT_int32;
 				case int64_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_int64;
+					macro stdgo.reflect.Reflect.GT_int64;
 				case uint_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_uint;
+					macro stdgo.reflect.Reflect.GT_uint;
 				case uint8_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_uint8;
+					macro stdgo.reflect.Reflect.GT_uint8;
 				case uint16_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_uint16;
+					macro stdgo.reflect.Reflect.GT_uint16;
 				case uint32_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_uint32;
+					macro stdgo.reflect.Reflect.GT_uint32;
 				case uint64_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_uint64;
+					macro stdgo.reflect.Reflect.GT_uint64;
 				case bool_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_bool;
+					macro stdgo.reflect.Reflect.GT_bool;
 				case float32_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_float32;
+					macro stdgo.reflect.Reflect.GT_float32;
 				case float64_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_float64;
+					macro stdgo.reflect.Reflect.GT_float64;
 				case complex64_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_complex64;
+					macro stdgo.reflect.Reflect.GT_complex64;
 				case complex128_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_complex128;
+					macro stdgo.reflect.Reflect.GT_complex128;
 				case string_kind:
-					macro stdgo.reflect.Reflect.GT_enum.GT_string;
+					macro stdgo.reflect.Reflect.GT_string;
+				case uintptr_kind:
+					macro stdgo.reflect.Reflect.GT_uintptr;
+				case unsafepointer_kind:
+					macro stdgo.reflect.Reflect.GT_unsafePointer;
 				default:
 					throw "unsupported reflect type basic: " + kind;
 			}
@@ -2111,26 +2118,58 @@ private function toReflectType(t:GoType):Expr {
 			var methods = [];
 			var interfaces = [];
 			var t = toReflectType(underlying);
-			macro stdgo.reflect.Reflect.GT_enum.GT_namedType($pack, $module, $name, $a{methods}, $a{interfaces}, $t);
+			macro stdgo.reflect.Reflect.GT_namedType($pack, $module, $name, $a{methods}, $a{interfaces}, $t);
 		case array(elem, len):
 			var elem = toReflectType(elem);
 			var len:Expr = {expr: EConst(CInt('$len')), pos: null};
-			macro stdgo.reflect.Reflect.GT_enum.GT_array($elem, $len);
+			macro stdgo.reflect.Reflect.GT_array($elem, $len);
 		case interfaceValue(numMethods):
 			if (numMethods == 0) {
-				macro stdgo.reflect.Reflect.GT_enum.GT_interface("", "", "interface{}", []);
+				macro stdgo.reflect.Reflect.GT_interface("", "", "interface{}", []);
 			}else{
-				macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
+				macro stdgo.reflect.Reflect.GT_invalid;
 			}
 		case struct(structFields):
 			var fields = [];
 			for (field in structFields) {
 				var t = toReflectType(field.type);
 				var name = makeString(field.name);
-				fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name, $t, ""));
+				fields.push(macro stdgo.reflect.Reflect.GT_field($name, $t, ""));
 			}
 			var fields = macro $a{fields};
-			macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
+			macro stdgo.reflect.Reflect.GT_struct($fields);
+		case signature(variadic, params, results, recv):
+			var input:Array<Expr> = [];
+			var output:Array<Expr> = [];
+			switch params {
+				case tuple(_, vars):
+					for (v in vars)
+						input.push(toReflectType(v));
+				case invalid:
+				default:
+					input = [toReflectType(params)];
+			}
+			switch results {
+				case tuple(_, vars):
+					for (v in vars)
+						output.push(toReflectType(v));
+				case invalid:
+				default:
+					output = [toReflectType(results)];
+			}
+			if (variadic) {
+				var last = output.pop();
+				last = macro stdgo.reflect.Reflect.GT_variadic($last);
+				output.push(last);
+			}
+			macro stdgo.reflect.Reflect.GT_func($a{input},$a{output});
+		case varValue(name, type):
+			var t = toReflectType(type);
+			var name = makeString(name);
+			macro stdgo.reflect.Reflect.GT_field($name,$t);
+		case chan(dir,elem):
+			var elem = toReflectType(elem);
+			macro stdgo.reflect.Reflect.GT_chan($elem);
 		default:
 			throw "unsupported reflect type: " + t;
 	}

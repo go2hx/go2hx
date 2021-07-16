@@ -11,24 +11,50 @@ var port:Int = 4004;
 
 function main() {
 	Sys.setCwd("tests");
+	var completion = new sys.io.Process('haxe --wait $port', null, true);
 	path = Path.normalize(Sys.getCwd());
 	initOutput();
-
-	tinygo();
+	yaegi();
+	//tinygo();
 	// gotests();
-	// completion.close();
+	completion.close();
 	output.close();
 }
 
 var pathto:String = "";
 
+function yaegi() {
+	var tests:Array<String> = [];
+	if (!FileSystem.isDirectory("yaegi"))
+		Sys.command("git clone https://github.com/traefik/yaegi");
+	pathto = "yaegi/_test/";
+	for (path in FileSystem.readDirectory(pathto)) {
+		var p = '$pathto$path';
+		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
+			continue;
+		tests.push('./$p');
+	}
+
+	for (test in [
+
+	])
+		tests.remove('.$pathto$test.go');
+	
+	tests = ['./$pathto' + "addr0.go"];
+	total += tests.length;
+	for (test in tests) {
+		compile([test],false);
+		passed += run(false);
+	}
+}
+
 function tinygo() {
 	var tests:Array<String> = [];
 	if (!FileSystem.isDirectory("tinygo"))
 		Sys.command("git clone https://github.com/tinygo-org/tinygo");
-	var repo = "tinygo/testdata";
-	for (path in FileSystem.readDirectory(repo)) {
-		var p = '$repo/$path';
+	pathto = "tinygo/testdata/";
+	for (path in FileSystem.readDirectory(pathto)) {
+		var p = '$pathto$path';
 		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
 			continue;
 		tests.push('./$p');
@@ -46,8 +72,8 @@ function tinygo() {
 		"gc", // timed to closely to go's runtime gc
 		"ldflags",
 	])
-		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "reflect.go"];
+		tests.remove('./$pathto$test.go');
+	tests = ['./$pathto' + "reflect.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test], true);
@@ -89,8 +115,8 @@ function gotests() {
 		// "rename", //messed up the typed AST, can be ran on its own in the future TODO
 		"closure", // to integrated with go's runtime
 	])
-		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "append.go"];
+		tests.remove('./$pathto$test.go');
+	tests = ['./$pathto' + "append.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test], false);
@@ -119,9 +145,6 @@ function initOutput() {
 }
 
 function run(compareOutput:Bool):Int {
-	var completion = null;
-	if (!compareOutput)
-		completion = new sys.io.Process('haxe --wait $port', null, true);
 	var length = Main.exportPaths.length;
 	var passedCount = 0;
 	for (i in 0...length) {
@@ -203,8 +226,6 @@ function run(compareOutput:Bool):Int {
 		proc.close();
 		output.flush();
 	}
-	if (!compareOutput)
-		completion.close();
 	return passedCount;
 }
 

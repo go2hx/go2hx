@@ -547,7 +547,7 @@ class Type {
 	public var gt:GT_enum;
 	public var stringValue:GoString = "";
 
-	public inline function new(t:GT_enum) {
+	public inline function new(t:GT_enum=GT_invalid) {
 		gt = t;
 		stringValue = toString();
 	}

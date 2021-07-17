@@ -162,11 +162,17 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 	countStruct := 0
 	interfaceTypes := make(map[string]*ast.Ident)
 	structTypes := make(map[string]*ast.Ident)
-	
-	node := astutil.Apply(file,func (cursor *astutil.Cursor) bool {
+	var apply func (cursor *astutil.Cursor) bool = nil
+	apply = func (cursor *astutil.Cursor) bool {
 		x := cursor.Node()
-		switch cursor.Parent().(type) {
+		switch p := cursor.Parent().(type) {
 		case *ast.TypeSpec:
+			switch t := p.Type.(type) {
+			case *ast.StructType:
+				t.Fields = astutil.Apply(t.Fields,apply,nil).(*ast.FieldList)
+			case *ast.InterfaceType:
+				t.Methods = astutil.Apply(t.Methods,apply,nil).(*ast.FieldList)
+			}
 			return false
 		}
 		_ = x
@@ -262,7 +268,9 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 			default:
 				return true
 			}
-	},nil)
+	}
+	
+	node := astutil.Apply(file,apply,nil)
 	file = node.(*ast.File)
 	for _, decl := range file.Decls { //typespec named interfaces
 		switch decl := decl.(type) {

@@ -160,8 +160,8 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 	}
 	count := 0
 	interfaceTypes := make(map[string]*ast.Ident)
-	_ = count
-	_ = interfaceTypes
+	structTypes := make(map[string]*ast.Ident)
+	
 	node := astutil.Apply(file,func (cursor *astutil.Cursor) bool {
 		x := cursor.Node()
 		switch cursor.Parent().(type) {
@@ -170,6 +170,48 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 		}
 		_ = x
 		switch x := x.(type) {
+			case *ast.StructType:
+				t := checker.TypeOf(x)
+				if t == nil {
+					return false
+				}
+				name,exists := structTypes[t.String()]
+				if !exists {
+					name = ast.NewIdent("_s_" + strconv.Itoa(count))
+					count++
+					structTypes[t.String()] = name
+					//add to file
+					gen := ast.GenDecl{}
+					spec := ast.TypeSpec{}
+
+					spec.Name = name
+					struc := ast.StructType{}
+					struc.Fields = x.Fields
+					spec.Type = ast.Expr(&struc)
+					gen.Tok = token.TYPE
+					gen.Specs = []ast.Spec{&spec}
+					file.Decls = append(file.Decls, &gen)
+					var pos token.Pos = 0
+					namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+					tv := types.TypeAndValue{}
+					tv.Type = t
+
+					//remove
+					delete(pkg.TypesInfo.Implicits,x)
+					delete(pkg.TypesInfo.Types,x)
+					delete(pkg.TypesInfo.Scopes,x)
+					//add
+					pkg.TypesInfo.Defs[name] = namedType.Obj()
+					pkg.TypesInfo.Types[name] = tv
+					//replace
+					for key,value := range pkg.TypesInfo.Defs {
+						if value != nil && value.Type() == t {
+							pkg.TypesInfo.Defs[key] = namedType.Obj()
+						}
+					}
+				}
+				cursor.Replace(name)
+				return false
 			case *ast.InterfaceType: //grab interface type
 				if x.Methods == nil || x.Methods.NumFields() == 0 {
 					return false
@@ -197,18 +239,29 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 					gen.Specs = []ast.Spec{&spec}
 					file.Decls = append(file.Decls, &gen)
 					var pos token.Pos = 0
-					typeName := types.NewTypeName(pos,pkg.Types,name.Name,t)
-					pkg.TypesInfo.Defs[name] = types.NewNamed(typeName,t,nil).Obj()
+					namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
 					tv := types.TypeAndValue{}
 					tv.Type = t
+
+					//remove
+					delete(pkg.TypesInfo.Implicits,x)
+					delete(pkg.TypesInfo.Types,x)
+					delete(pkg.TypesInfo.Scopes,x)
+					//add
+					pkg.TypesInfo.Defs[name] = namedType.Obj()
 					pkg.TypesInfo.Types[name] = tv
+					//replace
+					for key,value := range pkg.TypesInfo.Defs {
+						if value != nil && value.Type() == t {
+							pkg.TypesInfo.Defs[key] = namedType.Obj()
+						}
+					}
 				}
 				cursor.Replace(name)
 				return false
 			default:
 				return true
 			}
-			return true
 	},nil)
 	file = node.(*ast.File)
 	for _, decl := range file.Decls { //typespec named interfaces

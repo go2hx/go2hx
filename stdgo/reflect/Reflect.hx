@@ -600,7 +600,19 @@ class Type {
 			case slice: 0;
 			case interface_: 0;
 			case func: 0;
-			case array: 0;
+			case array:
+				var gt = gt;
+				switch gt {
+					case GT_namedType(_, _, _, _, _, type):
+						gt = type;
+					default:
+				}
+				return switch gt {
+					case GT_array(elem, len):
+						(new Type(elem).size().toBasic() * len : GoUIntptr);
+					default:
+						0;
+				}
 			case struct: 0;
 			case ptr: 0;
 			case uintptr: 0;
@@ -809,6 +821,13 @@ class Type {
 		}
 	}
 
+	function formatName(name:String):String {
+		var s = name.charAt(0);
+		if (s == "_")
+			return name.substr(1);
+		return s.toUpperCase() + name.substr(1);
+	}
+
 	public function field(index:GoInt):StructField {
 		var module = "";
 		switch gt {
@@ -823,7 +842,7 @@ class Type {
 				switch field {
 					case GT_field(name, type, tag, embedded):
 						return {
-							name: name,
+							name: formatName(name),
 							pkgPath: module,
 							type: new Type(type),
 							tag: tag,

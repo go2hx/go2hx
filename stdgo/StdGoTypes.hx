@@ -65,7 +65,7 @@ private class __UInt64 {
 typedef Complex64 = Complex<Float32>;
 typedef Complex128 = Complex<Float64>;
 
-class Complex<T> {
+class Complex<T : GoFloat64> {
 	public var real:T;
 	public var imag:T;
 
@@ -74,8 +74,18 @@ class Complex<T> {
 		imag = i;
 	}
 
-	inline function toString():GoString {
-		return "(+" + Go.string(real) + "+" + Go.string(imag) + "i)";
+	inline function toString<T>():GoString {
+		var imagString = Go.string(imag);
+		var realString = Go.string(real);
+
+		function sign(str,num:Float) {
+			if (str.charAt(0) != "+" && str.charAt(0) != "-")
+				return (num >= 0 ? "+" : "-") + str;
+			return str;
+		}
+		imagString = sign(imagString,imag.toBasic());
+		realString = sign(realString,real.toBasic());
+		return "(" + realString + imagString + "i)";
 	}
 }
 

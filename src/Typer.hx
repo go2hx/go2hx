@@ -1893,11 +1893,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "print":
 					genArgs();
 					ellipsisFunc();
-					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
+					return (macro stdgo.fmt.Fmt._print($a{args})).expr;
 				case "println":
 					genArgs();
 					ellipsisFunc();
-					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
+					return (macro stdgo.fmt.Fmt._println($a{args})).expr;
 				case "complex":
 					genArgs();
 					return (macro new GoComplex128($a{args})).expr;
@@ -1982,16 +1982,16 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var e = typeExpr(expr.fun, info);
 	if (isNamed(ft))
 		e = macro $e.__t__;
-	var isFmt = false;
+	var isFmtPrint = false;
 	switch e.expr {
 		case EField(e, field):
 			var str = printer.printExpr(e);
 			str = str.substr(0, str.lastIndexOf("."));
-			if (str == "stdgo.fmt")
-				isFmt = true;
+			if (str == "stdgo.fmt" && field.charAt(field.length - 1) == "f")
+				isFmtPrint = true;
 		default:
 	}
-	if (!isFmt) {
+	if (!isFmtPrint) {
 		var type = typeof(expr.fun);
 		var vars:Array<GoType> = [];
 		if (isInvalid(type)) { // set standard library expected call arguments
@@ -2668,7 +2668,7 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				for (field in fields) {
 					objectFields.push({
 						field: keyFormat(field.name),
-						expr: defaultValue(field.type,info,false)
+						expr: defaultValue(field.type,info,false),
 					});
 				}
 			}else{

@@ -11,7 +11,6 @@ import haxe.macro.ExprTools;
 import haxe.macro.Context;
 
 class Go {
-
 	static function getMetaLength(meta:Metadata):ExprDef {
 		for (m in meta) {
 			if (m.name != ":length")
@@ -101,20 +100,60 @@ class Go {
 		}
 	}
 
+	public static var scientificNotation:Bool = false;
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
-		}else if ((s is Int)) {
-			Std.string(s);
-		}else if ((s is Float)) {
-			//scientific notation
-			Std.string(s);
+		}else if ((s is Float) && !(s is Int) && Go.scientificNotation) { //scientific notation
+			formatFloat(s);
 		} else {
 			Std.string(s);
 		}
+	}
+
+	static function formatFloat(f:Float):String {
+		var buf = new StringBuf();
+		//sign
+		buf.addChar(f >= 0 ? "+".code : "-".code);
+
+		f = Math.abs(f);
+		var length = Math.ceil(Math.log(f + 1) / Math.log(10));
+		final max = 7;
+
+		var int = Math.ffloor(f); 
+		final p = Math.pow(10,max - length);
+		final frac = Math.round(p * (f - int));
+		var str = "";
+		var noInt = false;
+		if (int > 0) {
+			str = Std.string(int);
+			str = str.charAt(0) + "." + str.substr(1);
+			if (str.length - 1 > max) {
+				str = str.substr(0,max);
+			}else{
+				if (frac > 0)
+					str += frac;
+			}
+		}else{
+			str = Std.string(frac);
+			str = str.charAt(0) + "." + str.substr(1);
+			length = 2;
+			noInt = true;
+		}
+		buf.add(str);
+		if (str.length < max + 1)
+			for (i in 0...(max + 1) - str.length)
+				buf.addChar('0'.code);
+		buf.addChar('e'.code);
+		buf.addChar(noInt ? "-".code : "+".code);
+		buf.addChar('0'.code);
+		buf.addChar('0'.code);
+		length--;
+		buf.add(Std.string(length));
+		return buf.toString();
 	}
 
 	// GOROUTINE

@@ -16,6 +16,24 @@ interface Stringer {
 inline function errorf(fmt:String, args:Rest<Dynamic>) {
 	return stdgo.errors.Errors.new_(format(fmt, parse(args)));
 }
+/**
+ * built in println equivlant to: println, instead of fmt.Println
+ * @param args 
+ */
+function _println(args:Rest<Dynamic>) {
+	Go.scientificNotation = true;
+	println(...args);
+	Go.scientificNotation = false;
+}
+/**
+ * built in print equivlant to: print, instead of fmt.Print
+ * @param args 
+ */
+function _print(args:Rest<Dynamic>) {
+	Go.scientificNotation = true;
+	print(...args);
+	Go.scientificNotation = false;
+}
 
 function println(args:Rest<Dynamic>) {
 	log(parse(args).join(" ") + "\n");

@@ -535,7 +535,8 @@ class Go {
 
 	static function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType):Expr {
 		var methods = [];
-		for (method in ref.fields.get()) {
+		var fields = ref.fields.get();
+		for (method in fields) {
 			methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{method.name}, ${gtDecode(method.type)}, "", false));
 		}
 		return macro stdgo.reflect.Reflect.GT_enum.GT_interface($v{ref.pack.join(".")}, $v{ref.module}, $v{ref.name}, $a{methods});
@@ -591,10 +592,11 @@ class Go {
 									}
 									rets.push(gtDecode(ret));
 							}
+							final embedded = field.meta.has(":embedded") ? macro true : macro false;
 							params.unshift(macro stdgo.reflect.Reflect.GT_enum.GT_field("this",
 								stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{module} + "." + $v{ref.name}), "", false)); // recv
 							methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},
-								stdgo.reflect.Reflect.GT_enum.GT_func($a{params}, $a{rets}), "", false));
+								stdgo.reflect.Reflect.GT_enum.GT_func($a{params}, $a{rets}), "", $embedded));
 						default:
 							throw "method needs to be a function: " + field.type;
 					}

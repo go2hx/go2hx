@@ -139,7 +139,7 @@ class Go {
 				}
 			default:
 		}
-		var ty = gtDecode(t);
+		var ty = gtDecode(t,expr);
 		return macro new AnyInterface($expr, new stdgo.reflect.Reflect.Type($ty),$exprInterface);
 	}
 
@@ -350,7 +350,7 @@ class Go {
 	static var marked = new Map<String, Bool>();
 	static var markedEmpty = true;
 
-	public static function gtDecode(t:haxe.macro.Type):Expr {
+	public static function gtDecode(t:haxe.macro.Type,expr:Expr=null):Expr {
 		t = Context.follow(t);
 		var ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid;
 		switch (t) {
@@ -364,7 +364,10 @@ class Go {
 					case "stdgo.Slice":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_slice($a{gtParams(params)});
 					case "stdgo.GoArray":
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, -1); // TODO go2hx does not store the length in the type
+						var len = macro -1;
+						if (expr != null)
+							len = macro ($expr : GoArray<Dynamic>).length.toBasic();
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_array(${gtParams(params)[0]}, $len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_ptr($a{gtParams(params)});
 					case "stdgo.unsafe.Unsafe.Pointer", "stdgo.unsafe.Pointer":
@@ -459,7 +462,8 @@ class Go {
 				for (field in a.fields) {
 					var t = gtDecode(field.type);
 					var name:Expr = macro $v{field.name};
-					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name, $t, ""));
+					final embedded = field.meta.has(":embedded") ? macro true : macro false;
+					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name, $t, "", $embedded));
 				}
 				var fields = macro $a{fields};
 				ret = macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
@@ -493,7 +497,7 @@ class Go {
 	static function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType):Expr {
 		var methods = [];
 		for (method in ref.fields.get()) {
-			methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{method.name}, ${gtDecode(method.type)}, ""));
+			methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{method.name}, ${gtDecode(method.type)}, "", false));
 		}
 		return macro stdgo.reflect.Reflect.GT_enum.GT_interface($v{ref.pack.join(".")}, $v{ref.module}, $v{ref.name}, $a{methods});
 	}
@@ -534,7 +538,8 @@ class Go {
 								case TAnonymous(a):
 									var fs = a.get().fields;
 									for (f in fs) {
-										rets.push(macro stdgo.reflect.Reflect.GT_enum.GT_field(f.name, gtDecode(f.type), ""));
+										final embedded = f.meta.has(":embedded");
+										rets.push(macro stdgo.reflect.Reflect.GT_enum.GT_field(f.name, gtDecode(f.type), "", embedded));
 									}
 								default:
 									if (field.name == "toString") {
@@ -548,9 +553,9 @@ class Go {
 									rets.push(gtDecode(ret));
 							}
 							params.unshift(macro stdgo.reflect.Reflect.GT_enum.GT_field("this",
-								stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{module} + "." + $v{ref.name}), "")); // recv
+								stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{module} + "." + $v{ref.name}), "", false)); // recv
 							methods.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name},
-								stdgo.reflect.Reflect.GT_enum.GT_func($a{params}, $a{rets}), ""));
+								stdgo.reflect.Reflect.GT_enum.GT_func($a{params}, $a{rets}), "", false));
 						default:
 							throw "method needs to be a function: " + field.type;
 					}
@@ -560,7 +565,8 @@ class Go {
 						continue;
 					}
 					var t = gtDecode(field.type);
-					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, ""));
+					final embedded = field.meta.has(":embedded") ? macro true : macro false;
+					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, "", $embedded));
 			}
 		}
 		var fields = macro $a{fields};

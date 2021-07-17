@@ -435,6 +435,7 @@ func parseType(node interface{}) map[string]interface{} {
 			fields[i] = map[string]interface{}{
 				"name": v.Name(),
 				"type": parseType(v.Type()),
+				"embedded": v.Embedded(),
 			}
 		}
 		data["fields"] = fields

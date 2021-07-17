@@ -455,6 +455,7 @@ enum GoType {
 typedef FieldType = {
 	name:String,
 	type:GoType,
+	embedded:Bool,
 }
 
 enum BasicKind {

@@ -34,7 +34,7 @@ enum GT_enum {
 	GT_string;
 	GT_struct(fields:Array<GT_enum>);
 	GT_unsafePointer;
-	GT_field(name:String, type:GT_enum, tag:String);
+	GT_field(name:String, type:GT_enum, tag:String, embedded:Bool);
 	GT_namedType(pack:String, module:String, name:String, methods:Array<GT_enum>, interfaces:Array<GT_enum>, type:GT_enum);
 	GT_previouslyNamed(name:String);
 	GT_variadic(type:GT_enum);
@@ -351,7 +351,8 @@ class Value implements StructType {
 
 	public function index(i:GoInt):Value {
 		return switch type().gt {
-			case GT_array(elem, _), GT_slice(elem): new Value(new AnyInterface((value.value : Dynamic).get(i),new Type(elem)), value.value,i);
+			case GT_array(elem, _): new Value(new AnyInterface((value.value : GoArray<Dynamic>).get(i),new Type(elem)));
+			case GT_slice(elem): new Value(new AnyInterface((value.value : Slice<Dynamic>).get(i),new Type(elem)), value.value,i);
 			case GT_string:
 				var value = value.value;
 				if ((value is String))
@@ -387,7 +388,7 @@ class Value implements StructType {
 			case GT_struct(fields):
 				var t = fields[i.toBasic()];
 				switch t {
-					case GT_field(name, type, _):
+					case GT_field(name, type, _, _):
 						var value = Reflect.field(value.value, name);
 						return new Value(new AnyInterface(value, new Type(t)));
 					default:
@@ -574,6 +575,8 @@ class Type {
 			return switch gt {
 				case GT_namedType(_, _, _, _, _, type):
 					getUnderlying(type);
+				case GT_field(_, type, _, _):
+					getUnderlying(type);
 				default:
 					gt;
 			}
@@ -642,7 +645,7 @@ class Type {
 				return "bool";
 			case GT_string:
 				return "string";
-			case GT_field(name, type, tag):
+			case GT_field(_, type, _, _):
 				return new Type(type).toString();
 			case GT_namedType(_, module, name, _, _, _):
 				return module + "." + name;
@@ -652,7 +655,7 @@ class Type {
 				return "struct { " + [
 					for (field in fields)
 						switch field {
-							case GT_field(name, type, tag):
+							case GT_field(name, type, _, _):
 								(name.charAt(0) == "_" ? name.substr(1) : name.toUpperCase()) + " " + new Type(type).toString();
 							default:
 								new GoString("invalid field");
@@ -739,7 +742,7 @@ class Type {
 
 	public function hasName():Bool {
 		switch gt {
-			case GT_namedType(_, _, _, _, _), GT_interface(_, _, _, _), GT_field(_, _, _), GT_previouslyNamed(_):
+			case GT_namedType(_, _, _, _, _), GT_interface(_, _, _, _), GT_field(_, _, _, _), GT_previouslyNamed(_):
 				return true;
 			default:
 		}
@@ -748,7 +751,7 @@ class Type {
 
 	public function name():GoString {
 		switch gt {
-			case GT_namedType(_, _, name, _, _, _), GT_interface(_, _, name, _), GT_field(name, _, _), GT_previouslyNamed(name):
+			case GT_namedType(_, _, name, _, _, _), GT_interface(_, _, name, _), GT_field(name, _, _, _), GT_previouslyNamed(name):
 				return name;
 			default:
 				trace("gt: " + gt);
@@ -786,7 +789,7 @@ class Type {
 			case GT_namedType(pack, module, name, methods, _, _), GT_interface(pack, module, name, methods):
 				var method = methods[index.toBasic()];
 				switch method {
-					case GT_field(name2, type, tag):
+					case GT_field(name2, type, _, _):
 						var path = pack + "." + name;
 						var cl = std.Type.resolveClass(path);
 						var f = Reflect.field(cl, name2);
@@ -818,7 +821,7 @@ class Type {
 			case GT_struct(fields):
 				var field = fields[index.toBasic()];
 				switch field {
-					case GT_field(name, type, tag):
+					case GT_field(name, type, tag, embedded):
 						return {
 							name: name,
 							pkgPath: module,
@@ -826,7 +829,7 @@ class Type {
 							tag: tag,
 							offset: 0,
 							index: new Slice(index),
-							anonymous: name == "" || name == "_",
+							anonymous: embedded,
 						};
 					default:
 						throw "not a valid field: " + field;
@@ -873,7 +876,7 @@ class Type {
 					if (!new Type(field).comparable())
 						return false;
 				return true;
-			case GT_field(name, type, tag):
+			case GT_field(_, type, _):
 				return new Type(type).comparable();
 			case GT_namedType(pack, module, name, methods, interfaces, type):
 				return new Type(type).comparable();
@@ -1040,9 +1043,9 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 						return false;
 					for (i in 0...fields.length) {
 						switch fields[i] {
-							case GT_field(name, type, tag):
+							case GT_field(name, type, _, _):
 								switch fields2[i] {
-									case GT_field(name2, type2, tag2):
+									case GT_field(name2, type2, _, _):
 										if (!directlyAssignable(new Type(type), new Type(type2))) return false;
 									default:
 								}
@@ -1093,9 +1096,9 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 private function sortMethods(methods:Array<GT_enum>) {
 	methods.sort((a, b) -> {
 		switch a {
-			case GT_field(name, type, tag):
+			case GT_field(name, _, _, _):
 				switch b {
-					case GT_field(name2, type2, tag2):
+					case GT_field(name2, _, _, _):
 						return name > name2 ? 1 : -1;
 					default:
 				}

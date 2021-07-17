@@ -256,7 +256,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 							// info.data.imports.push(typeImport(spec, info));
 							typeImport(spec, info);
 						case "TypeSpec":
-							info.data.defs.push(typeSpec(spec, info));
+							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 					}
 				}
 			}
@@ -402,7 +402,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 				}
 			}
 		}
-		// main system
+		// main system import.hx
 		if (!module.isMain) {
 			var pkgExport = {
 				name: endPath,
@@ -425,6 +425,17 @@ function main(data:DataType, printGoCode:Bool = false) {
 				for (def in file.defs) {
 					if (def == null || def.name == "__init__")
 						continue;
+					if (def.meta != null) {
+						var skip = false;
+						for (meta in def.meta) {
+							if (meta.name == ":local") {
+								skip = true;
+								break;
+							}
+						}
+						if (skip)
+							continue;
+					}
 					// exported and non added to module imports.hx
 					var imp:ImportType = {
 						path: module.path.split(".").concat([file.name, def.name]),
@@ -514,8 +525,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 				location: "",
 				isMain: module.isMain,
 			});
-		} else {
-			module.isMain = true;
 		}
 		list.push(module);
 	}
@@ -3585,6 +3594,7 @@ private function typeFields(list:Array<Ast.FieldType>, info:Info, access:Array<A
 		fields.push({
 			name: nameIdent(name, info, false, false),
 			pos: null,
+			meta: field.embedded ? [{name: ":embedded",pos: null}] : [],
 			access: access == null ? typeAccess(name, true) : access,
 			kind: FVar(toComplexType(field.type, info), defaultBool ? defaultValue(field.type, info) : null)
 		});
@@ -3738,7 +3748,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	}
 }
 
-private function typeSpec(spec:Ast.TypeSpec, info:Info) {
+private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool=false) {
 	if (spec.assign != 0) {
 		var name = className(spec.name.name, info);
 		var type = typeExprType(spec.type, info);
@@ -3754,7 +3764,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info) {
 		}
 	}
 	return switch spec.type.id {
-		case "StructType", "InterfaceType": typeType(spec, info);
+		case "StructType", "InterfaceType": typeType(spec, info, local);
 		default: typeNamed(spec, info);
 	}
 }
@@ -3763,7 +3773,7 @@ private function makeString(str:String, ?kind):Expr {
 	return toExpr(EConst(CString(str, kind)));
 }
 
-private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
+private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool=false):TypeDefinition {
 	var name = className(spec.name.name, info);
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
@@ -3821,6 +3831,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				}
 			}
 			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
+			if (local)
+				meta.push({name: ":local",pos: null,params: []});
 			var implicits:Array<TypePath> = [];
 			for (imp in spec.implicits) {
 				implicits.push(parseTypePath(imp.path, imp.name, info));
@@ -3874,6 +3886,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				kind: FFun({args: [], ret: TPath({name: "AnyInterface", pack: []})}),
 				access: [APublic],
 			});
+			var meta = [getAllow(info)];
+			if (local)
+				meta.push({name: ":local",pos: null,params: []});
 			return {
 				name: name,
 				pack: [],
@@ -3881,7 +3896,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				doc: doc,
 				fields: fields,
 				isExtern: externBool,
-				meta: [getAllow(info)],
+				meta: meta,
 				kind: TDClass(null, [], true) // INTERFACE
 			};
 		default:

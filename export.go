@@ -158,7 +158,8 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 	if isMain {
 		pkgPath = "main__" + file.Name.Name
 	}
-	count := 0
+	countInterface := 0
+	countStruct := 0
 	interfaceTypes := make(map[string]*ast.Ident)
 	structTypes := make(map[string]*ast.Ident)
 	
@@ -177,25 +178,24 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 				}
 				name,exists := structTypes[t.String()]
 				if !exists {
-					name = ast.NewIdent("_s_" + strconv.Itoa(count))
-					count++
+					name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
+					countStruct++
 					structTypes[t.String()] = name
 					//add to file
 					gen := ast.GenDecl{}
+					gen.Tok = token.FUNC //set local
 					spec := ast.TypeSpec{}
 
 					spec.Name = name
 					struc := ast.StructType{}
 					struc.Fields = x.Fields
 					spec.Type = ast.Expr(&struc)
-					gen.Tok = token.TYPE
 					gen.Specs = []ast.Spec{&spec}
 					file.Decls = append(file.Decls, &gen)
 					var pos token.Pos = 0
 					namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
 					tv := types.TypeAndValue{}
 					tv.Type = t
-
 					//remove
 					delete(pkg.TypesInfo.Implicits,x)
 					delete(pkg.TypesInfo.Types,x)
@@ -222,20 +222,20 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 				}
 				name,exists := interfaceTypes[t.String()]
 				if !exists {
-					name = ast.NewIdent("_s_" + strconv.Itoa(count))
-					count++
+					name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
+					countInterface++
 					interfaceTypes[t.String()] = name
 					//add to interfaces
 					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkgPath, false})
 					//add to file
 					gen := ast.GenDecl{}
+					gen.Tok = token.FUNC //set local
 					spec := ast.TypeSpec{}
 
 					spec.Name = name
 					inter := ast.InterfaceType{}
 					inter.Methods = x.Methods
 					spec.Type = ast.Expr(&inter)
-					gen.Tok = token.TYPE
 					gen.Specs = []ast.Spec{&spec}
 					file.Decls = append(file.Decls, &gen)
 					var pos token.Pos = 0

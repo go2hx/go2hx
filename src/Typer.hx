@@ -2638,8 +2638,9 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				throw "ComplexType not a TPath: " + ct;
 		}
 	}
+	final isNamed = isNamed(type);
 	if (!keyValueBool) {
-		if (isNamed(type)) {
+		if (isNamed) {
 			final ct = toComplexType(type,info);
 			final p = getTypePath();
 			type = getUnderlying(type);
@@ -2692,7 +2693,15 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 					});
 				}
 			}
-			return EObjectDecl(objectFields);
+			var obj = EObjectDecl(objectFields);
+
+			if (expr.type != null && expr.type.id == "Ident") {
+				var e = toExpr(obj);
+				var ct = typeExprType(expr.type,info);
+				if (ct != null)
+					return (macro ($e : $ct)).expr; 
+			}
+			return obj;
 		case slice(elem):
 			final p = getTypePath();
 			var exprs:Array<{index:Int,expr:Expr}> = [];

@@ -78,13 +78,6 @@ class Complex<T : GoFloat64> {
 		var imagString = Go.string(imag);
 		var realString = Go.string(real);
 
-		function sign(str,num:Float) {
-			if (str.charAt(0) != "+" && str.charAt(0) != "-")
-				return (num >= 0 ? "+" : "-") + str;
-			return str;
-		}
-		imagString = sign(imagString,imag.toBasic());
-		realString = sign(realString,real.toBasic());
 		return "(" + realString + imagString + "i)";
 	}
 }

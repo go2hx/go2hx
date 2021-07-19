@@ -1811,21 +1811,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case GT_complex128:
 				(a.value : GoComplex128) == (b.value : GoComplex128);
 			case GT_namedType(_, _, _, _, _, type):
-				function isReflectType(type:GT_enum) {
-					return switch type {
-						case GT_namedType(pack, _, name, _, _, type):
-							if (pack == "stdgo.reflect" && name == "Type") {
-								true;
-							} else {
-								isReflectType(type);
-							}
-						default:
-							false;
-					}
-				}
-				trace("type: " + isReflectType(gt));
-				if (isReflectType(gt))
-					return (a.value : stdgo.reflect.Reflect.Type).assignableTo(b.value);
 				a.type.gt = type;
 				switch b.type.gt {
 					case GT_namedType(_, _, _, _, _, type2):

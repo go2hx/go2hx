@@ -1950,7 +1950,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 				case "make":
 					var type = typeof(expr.args[0]);
-					type = getUnderlying(type);
+					var isNamed = false;
+					switch type {
+						case named(_,underlying):
+							type = underlying;
+							isNamed = true;
+						default:
+					}
 					genArgs(1);
 					var size = args[0];
 					var cap = args[1];
@@ -1985,6 +1991,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 					if (setCap)
 						return (macro $e.setCap($cap)).expr;
+					if (isNamed) {
+						var ct = typeExprType(expr.args[0],info);
+						switch ct {
+							case TPath(p):
+								e = macro new $p($e);
+							default:
+						}
+					}
 					return e.expr;
 			}
 	}

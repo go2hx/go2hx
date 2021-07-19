@@ -1960,10 +1960,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					genArgs(1);
 					var size = args[0];
 					var cap = args[1];
-					var setCap:Bool = false;
-					if (size != null)
+					
+					var setCap:Bool = cap != null;
+					if (size != null) {
+						size = assignTranslate(typeof(expr.args[1]),basic(int_kind),size,info);
 						size = macro($size : GoInt).toBasic();
+					}
 					if (cap != null) {
+						cap = assignTranslate(typeof(expr.args[2]),basic(int_kind),cap,info);
 						cap = macro($cap : GoInt).toBasic();
 						setCap = true;
 					}

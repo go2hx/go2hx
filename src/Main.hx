@@ -123,8 +123,6 @@ function init(args:Array<String>) {
 		Sys.println("        target Haxe interpreted target");
 		Sys.println("    -hl");
 		Sys.println("        target Hashlink virtual machine");
-		Sys.println("    -test");
-		Sys.println("        generates and compiles the packages automated testing");
 		return;
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));

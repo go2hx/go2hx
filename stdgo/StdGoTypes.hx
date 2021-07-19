@@ -557,7 +557,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return a.real != b.real || a.imag != b.imag;
 }
 //GoInt32 is an exact copy of GoInt, any changes here should be updated there as well
-abstract GoInt(Int) from Int32 from Int {
+abstract GoInt(Int32) from Int32 from Int32 {
 	public inline function new(x:Int32 = 0)
 		this = x;
 

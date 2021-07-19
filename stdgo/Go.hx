@@ -91,69 +91,24 @@ class Go {
 						isInterface = t.get().isInterface;
 					default:
 				}
-				if (isInterface) { //TODO
+				if (isInterface) {
 					return macro ($e.valueInterface : $ct);
 				}
-				return macro $expr.value;
+				return macro ($e.value : $ct);
 			default:
 				throw "not a checkType";
 		}
 	}
 
-	public static var scientificNotation:Bool = false;
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
-		}else if ((s is Float) && !(s is Int) && Go.scientificNotation) { //scientific notation
-			formatFloat(s);
-		} else {
+		}else {
 			Std.string(s);
 		}
-	}
-
-	static function formatFloat(f:Float):String {
-		var buf = new StringBuf();
-		//sign
-		buf.addChar(f >= 0 ? "+".code : "-".code);
-
-		f = Math.abs(f);
-		var length = Math.ceil(Math.log(f + 1) / Math.log(10));
-		final max = 7;
-
-		var int = Math.ffloor(f); 
-		final p = Math.pow(10,max - length);
-		final frac = Math.round(p * (f - int));
-		var str = "";
-		var noInt = false;
-		if (int > 0) {
-			str = Std.string(int);
-			str = str.charAt(0) + "." + str.substr(1);
-			if (str.length - 1 > max) {
-				str = str.substr(0,max);
-			}else{
-				if (frac > 0)
-					str += frac;
-			}
-		}else{
-			str = Std.string(frac);
-			str = str.charAt(0) + "." + str.substr(1);
-			length = 2;
-			noInt = true;
-		}
-		buf.add(str);
-		if (str.length < max + 1)
-			for (i in 0...(max + 1) - str.length)
-				buf.addChar('0'.code);
-		buf.addChar('e'.code);
-		buf.addChar(noInt ? "-".code : "+".code);
-		buf.addChar('0'.code);
-		buf.addChar('0'.code);
-		length--;
-		buf.add(Std.string(length));
-		return buf.toString();
 	}
 
 	// GOROUTINE
@@ -491,6 +446,9 @@ class Go {
 						markedEmpty = true;
 						marked.clear();
 					}
+				}else{
+					var name = parseModule(ref.module) + "." + ref.name;
+					ret = macro stdgo.reflect.Reflect.GT_enum.GT_previouslyNamed($v{name});
 				}
 			case TAnonymous(a):
 				var a = a.get();
@@ -607,7 +565,8 @@ class Go {
 					}
 					var t = gtDecode(field.type);
 					final embedded = field.meta.has(":embedded") ? macro true : macro false;
-					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, "", $embedded));
+					final tag = field.meta.has(":tag") ? field.meta.extract(":tag")[0].params[0] : macro "";
+					fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($v{field.name}, $t, $tag, $embedded));
 			}
 		}
 		var fields = macro $a{fields};

@@ -32,10 +32,14 @@ final reservedClassNames = [
 	"Single", // Single is a 32bit float
 	"Array",
 	"Any",
+	"Int",
+	"Float",
+	"String",
+	"Int64",
 	"AnyInterface",
 	"Dynamic",
 	"Null",
-	"Reflect",
+	// "Reflect",
 	"Date",
 	"ArrayAccess",
 	"DateTools",
@@ -50,14 +54,14 @@ final reservedClassNames = [
 	"Lambda",
 	"List",
 	"Map",
-	"Math",
+	// "Math",
 	"Std",
 	"Sys",
 	"StringBuf",
 	"StringTools",
 	"SysError",
-	"Type",
-	"UnicodeString",
+	//"Type",
+	//"UnicodeString",
 	"ValueType",
 	// "Void",
 	"Xml",
@@ -1384,9 +1388,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	var y = expr;
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType))
 		y = macro $y.__t__;
-	if (isInterface(fromType) && isPointer(toType)) {
-		y = macro $y.value;
-	}
 	if (isAnyInterface(toType)) {
 		y = macro Go.toInterface($y);
 	}
@@ -1408,6 +1409,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			default:
 		}
 	}
+	if (isPointer(fromType) && isInterface(toType) && !isAnyInterface(toType))
+		y = macro $y.value;
 	return y;
 }
 
@@ -1902,11 +1905,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "print":
 					genArgs();
 					ellipsisFunc();
-					return (macro stdgo.fmt.Fmt._print($a{args})).expr;
+					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
 				case "println":
 					genArgs();
 					ellipsisFunc();
-					return (macro stdgo.fmt.Fmt._println($a{args})).expr;
+					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
 				case "complex":
 					genArgs();
 					return (macro new GoComplex128($a{args})).expr;
@@ -2218,7 +2221,7 @@ private function typeof(e:Ast.Expr):GoType {
 			named(e.path, typeof(e.underlying));
 		case "Struct":
 			struct([
-				for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: typeof(field.type), embedded: field.embedded}
+				for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: typeof(field.type), embedded: field.embedded,tag: field.tag}
 			]);
 		case "Chan":
 			chan(e.dir, typeof(e.elem));
@@ -2411,7 +2414,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceValue(numMethods):
 			if (numMethods == 0)
 				return TPath({pack: [],name: "AnyInterface"});
-			TPath({pack: [],name: "Any"});
+			null;
 		case named(path, underlying):
 			TPath(namedTypePath(path, info));
 		case slice(elem):
@@ -2427,9 +2430,9 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case tuple(len, vars):
 			if (len == 1)
 				return toComplexType(vars[0], info);
-			TPath({pack: [],name: "Any"});
+			null;
 		case invalid:
-			TPath({pack: [],name: "Any"});
+			null;
 		case pointer(elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
@@ -2489,21 +2492,20 @@ private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 }
 
 private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
-	final bs = "\\".charAt(0);
 	function formatEscapeCodes(value:String):String {
-		value = StringTools.replace(value, bs + "a", "\x07");
-		value = StringTools.replace(value, bs + "b", "\x08");
-		value = StringTools.replace(value, bs + "e", "\x1B");
-		value = StringTools.replace(value, bs + "f", "\x0C");
-		value = StringTools.replace(value, bs + "n", "\x0A");
-		value = StringTools.replace(value, bs + "r", "\x0D");
-		value = StringTools.replace(value, bs + "t", "\x09");
-		value = StringTools.replace(value, bs + "v", "\x0B");
-		value = StringTools.replace(value, bs + "x", bs + "u00");
-		value = StringTools.replace(value, bs + "U", bs + "u");
-		if (value.charAt(0) == bs && value.charAt(1) == "u") {
+		value = StringTools.replace(value, "\\a", "\x07");
+		value = StringTools.replace(value,  "\\b", "\x08");
+		value = StringTools.replace(value,  "\\e", "\x1B");
+		value = StringTools.replace(value,  "\\f", "\x0C");
+		value = StringTools.replace(value,  "\\n", "\x0A");
+		value = StringTools.replace(value,  "\\r", "\x0D");
+		value = StringTools.replace(value,  "\\t", "\x09");
+		value = StringTools.replace(value,  "\\v", "\x0B");
+		value = StringTools.replace(value,  "\\x", "\\u00");
+		value = StringTools.replace(value,  "\\U", "\\u");
+		if (value.charAt(0) == "\\" && value.charAt(1) == "u") {
 			value = value.substring(2);
-			value = bs + 'u{$value}';
+			value = '\\u{$value}';
 		}
 
 		// value = StringTools.replace(value,bs + "" ,"\x27");
@@ -2511,7 +2513,8 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 	}
 	return switch kind {
 		case STRING:
-			//value = StringTools.replace(value, "\\", "\"".substr(0, 1));
+			value = StringTools.replace(value, "\\n", "\n");
+			value = StringTools.replace(value,'\\"','"');
 			var e = makeString(value);
 			return e.expr;
 		case INT:
@@ -2532,7 +2535,7 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 			e.expr;
 		case CHAR:
 			var value = formatEscapeCodes(value);
-			if (value == bs + "'") {
+			if (value == "\\'") {
 				value = "'";
 			}
 			var const = makeString(value);
@@ -2660,6 +2663,8 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 					var value = typeExpr(elt.value,info);
 					var removed = false;
 					for (field in fields) {
+						if (field.name == "_")
+							continue;
 						if (field.name == key) {
 							var fieldType = toComplexType(field.type,info);
 							value = assignTranslate(typeof(elt.value), field.type,value,info);
@@ -2683,6 +2688,8 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 				}
 			}else{
 				for (i in 0...fields.length) {
+					if (fields[i].name == "_")
+						continue;
 					objectFields.push({
 						field: keyFormat(fields[i].name),
 						expr: expr.elts.length > i ? {
@@ -3394,6 +3401,7 @@ private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 						name: field.name,
 						type: field.type,
 						embedded: field.embedded,
+						tag: field.tag,
 					}
 			], info, null, true, true);
 			for (field in fields) {
@@ -3600,10 +3608,15 @@ private function typeFields(list:Array<Ast.FieldType>, info:Info, access:Array<A
 					name = "_" + name;
 			}
 		}
+		var meta:Metadata = [];
+		if (field.embedded)
+			meta.push({name: ":embedded",pos: null});
+		if (field.tag != "")
+			meta.push({name: ":tag",pos: null, params: [makeString(field.tag)]});
 		fields.push({
 			name: nameIdent(name, info, false, false),
 			pos: null,
-			meta: field.embedded ? [{name: ":embedded",pos: null}] : [],
+			meta: meta,
 			access: access == null ? typeAccess(name, true) : access,
 			kind: FVar(toComplexType(field.type, info), defaultBool ? defaultValue(field.type, info) : null)
 		});
@@ -3614,16 +3627,31 @@ private function typeFields(list:Array<Ast.FieldType>, info:Info, access:Array<A
 private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool, underlineBool:Bool):Array<Field> {
 	var fields:Array<Field> = [];
 	var fieldList:Array<Ast.FieldType> = [];
+	function getName(type:Ast.Expr) {
+		return switch type.id {
+			case "SelectorExpr": type.sel.name;
+			case "Ident": type.name;
+			case "StarExpr": getName(type.x);
+			case "Pointer": getName(type.elem);
+			default: throw "unknown embedded: " + type.id;
+		}
+	}
 	for (field in list.list) {
 		var type = typeof(field.type);
+		var tag = "";
+		if (field.tag != null) {
+			tag = field.tag.value;
+			tag = tag.substr(1,tag.length - 2);
+		}
 		if (field.names.length == 0) {
-			//embeded
-			var name:String = field.type.id == "SelectorExpr" ? field.type.sel.name : field.type.name;
+			//embedded
+			var name:String = getName(field.type);
 			if (name == null)
 				continue;
 			fieldList.push({
 				name: name,
 				type: type,
+				tag: tag,
 				embedded: true,
 			});
 		} else {
@@ -3633,6 +3661,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 					name: name,
 					type: type,
 					embedded: false,
+					tag: tag,
 				});
 			}
 		}

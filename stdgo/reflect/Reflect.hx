@@ -66,6 +66,7 @@ class Value implements StructType {
 	var underlyingIndex:GoInt = -1;
 	var underlyingKey:Dynamic = null;
 	var underlyingType:Type = null;
+	var canAddrBool:Bool = false;
 
 	public function __underlying__():AnyInterface
 		return null;
@@ -84,8 +85,13 @@ class Value implements StructType {
 		return underlyingValue != null; //TODO add check for use of unexported fields
 	}
 
+	private function setAddr() {
+		canAddrBool = true;
+		return this;
+	}
+
 	public function canAddr():Bool {
-		return underlyingValue != null;
+		return canAddrBool && kind() != interface__;
 	}
 
 	public function cap():GoInt {
@@ -350,9 +356,10 @@ class Value implements StructType {
 	}
 
 	public function index(i:GoInt):Value {
-		return switch type().gt {
-			case GT_array(elem, _): new Value(new AnyInterface((value.value : GoArray<Dynamic>).get(i),new Type(elem)));
-			case GT_slice(elem): new Value(new AnyInterface((value.value : Slice<Dynamic>).get(i),new Type(elem)), value.value,i);
+		final gt = type().gt;
+		return switch gt {
+			case GT_array(elem, _): @:privateAccess new Value(new AnyInterface((value.value : GoArray<Dynamic>).get(i),new Type(unroll(gt,elem))));
+			case GT_slice(elem): @:privateAccess new Value(new AnyInterface((value.value : Slice<Dynamic>).get(i),new Type(unroll(gt,elem))), value.value,i).setAddr();
 			case GT_string:
 				var value = value.value;
 				if ((value is String))
@@ -390,7 +397,7 @@ class Value implements StructType {
 				switch t {
 					case GT_field(name, type, _, _):
 						var value = Reflect.field(value.value, name);
-						return new Value(new AnyInterface(value, new Type(t)));
+						return new Value(new AnyInterface(value,new Type(t)));
 					default:
 				}
 			default:
@@ -440,7 +447,7 @@ class Value implements StructType {
 					return new Value();
 				switch type().gt {
 					case GT_ptr(elem):
-						return new Value(new AnyInterface((value.value : Pointer<Dynamic>).value, new Type(elem)),value.value);
+						return new Value(new AnyInterface((value.value : Pointer<Dynamic>).value, new Type(elem)),value.value).setAddr();
 					default:
 				}
 			case interface_:
@@ -495,10 +502,48 @@ class ValueError implements StructType implements stdgo.StdGoTypes.Error {
 	}
 }
 
+private function unroll(parent:GT_enum,child:GT_enum):GT_enum {
+	var parentName = "";
+	var parentType:GT_enum = null;
+	switch parent {
+		case GT_namedType(_, module, name, _, _, _):
+			parentName = module + "." + name;
+		default:
+			return child;
+	}
+	return switch child {
+		case GT_previouslyNamed(childName):
+			childName == parentName ? parent : child;
+		case GT_ptr(elem):
+			GT_ptr(unroll(parent,elem));
+			
+		case GT_bool: child;
+		case GT_int, GT_int8, GT_int16, GT_int32, GT_int64: child;
+		case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64: child;
+		case GT_float32, GT_float64: child;
+		case GT_complex64, GT_complex128: child;
+		case GT_string: child;
+		case GT_unsafePointer, GT_uintptr: child;
+		default:
+			throw "unsupported unroll gt type: " + child;
+	}
+}
+
 function typeOf(iface:AnyInterface):Type {
 	if (iface == null)
 		return new Type(GT_unsafePointer);
 	return iface.type;
+}
+
+function appendSlice(dst:Value,src:Value):Value {
+	return @:privateAccess new Value(
+		new AnyInterface(
+			(dst.value.value : Slice<Dynamic>).append(
+				...(src.value.value : Slice<Dynamic>).toArray()
+			),
+			dst.type()
+		)
+	);
 }
 
 function ptrTo(t:Type):Type {
@@ -538,6 +583,8 @@ function defaultValue(typ:Type):Any {
 }
 
 function valueOf(iface:AnyInterface):Value {
+	if ((iface.type : Dynamic) == false)
+		throw "issue";
 	return new Value(iface);
 }
 
@@ -830,13 +877,14 @@ class Type {
 
 	public function field(index:GoInt):StructField {
 		var module = "";
+		var underlyingType = gt;
 		switch gt {
 			case GT_namedType(_, m, _, _, _, type):
-				gt = type;
+				underlyingType = type;
 				module = m;
 			default:
 		}
-		switch gt {
+		switch underlyingType {
 			case GT_struct(fields):
 				var field = fields[index.toBasic()];
 				switch field {
@@ -844,7 +892,7 @@ class Type {
 						return {
 							name: formatName(name),
 							pkgPath: module,
-							type: new Type(type),
+							type: new Type(unroll(gt,type)),
 							tag: tag,
 							offset: 0,
 							index: new Slice(index),
@@ -854,7 +902,7 @@ class Type {
 						throw "not a valid field: " + field;
 				}
 			default:
-				throw "cannot get field";
+				throw "cannot get struct: " + gt;
 		}
 	}
 
@@ -1203,6 +1251,7 @@ final array:Kind = (17 : GoInt64);
 final chan:Kind = (18 : GoInt64);
 final func:Kind = (19 : GoInt64);
 final interface_:Kind = (20 : GoInt64);
+final interface__:Kind = interface_;
 final map:Kind = (21 : GoInt64);
 final ptr:Kind = (22 : GoInt64);
 final slice:Kind = (23 : GoInt64);

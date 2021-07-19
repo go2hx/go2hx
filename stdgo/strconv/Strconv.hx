@@ -22,7 +22,8 @@ function parseFloat(s:GoString, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat
 inline function unquote(s:GoString):MultiReturn<ErrorReturn<GoString>> {
 	if (s.length < 2)
 		return {value: "", error: errSyntax};
-	return {value: "", error: null};
+	s = s.substr(1,s.length.toBasic() - 2);
+	return {value: s, error: null};
 }
 
 inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {

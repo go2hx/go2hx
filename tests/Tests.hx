@@ -11,17 +11,37 @@ var port:Int = 4004;
 
 function main() {
 	Sys.setCwd("tests");
-	var completion = new sys.io.Process('haxe --wait $port', null, true);
+	if (!FileSystem.exists("results"))
+		FileSystem.createDirectory("results");
+	var completion = new sys.io.Process('haxe --wait $port --verbose', null, true);
 	path = Path.normalize(Sys.getCwd());
 	initOutput();
-	yaegi();
-	//tinygo();
+	//yaegi();
+	tinygo();
 	// gotests();
 	completion.close();
+	output.writeString("PASSING: " + passed + "/" + total);
 	output.close();
 }
 
 var pathto:String = "";
+
+
+function replaceBuiltinPrint(pathto:String) {
+	for (path in FileSystem.readDirectory(pathto)) {
+		var p = '$pathto$path';
+		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
+			continue;
+		var content = File.getContent(p);
+		content = StringTools.replace(content,"println(","fmt.Println(");
+		content = StringTools.replace(content,"print(","fmt.Print(");
+		//add import
+		final pack = "package main ";
+		var index = content.indexOf(pack) + pack.length;
+		content = content.substr(0,index) + '\n\nimport "fmt"\n' + content.substr(index);
+		File.saveContent(p,content);
+	}
+}
 
 function yaegi() {
 	var tests:Array<String> = [];
@@ -43,16 +63,17 @@ function yaegi() {
 	tests = ['./$pathto' + "addr0.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],false);
-		passed += run(false);
+		compile([test],true);
 	}
 }
 
 function tinygo() {
 	var tests:Array<String> = [];
-	if (!FileSystem.isDirectory("tinygo"))
-		Sys.command("git clone https://github.com/tinygo-org/tinygo");
 	pathto = "tinygo/testdata/";
+	if (!FileSystem.isDirectory("tinygo")) {
+		Sys.command("git clone https://github.com/tinygo-org/tinygo");
+		replaceBuiltinPrint(pathto);
+	}
 	for (path in FileSystem.readDirectory(pathto)) {
 		var p = '$pathto$path';
 		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
@@ -64,20 +85,14 @@ function tinygo() {
 	for (test in [
 		"atomic",
 		"env", // needs test runner to set enviorment variables and sys args before program execution
-		"channel", // uses time pkg not supported yet
-		"interface", // uses time pkg not supported yet
-		"float", // uses fmt formatter for numbers not supported yet
-		"print", // uses fmt formatter for numbers not supported yet
-		"math",  // uses fmt formatter for numbers not supported yet
-		"gc", // timed to closely to go's runtime gc
+		"gc", // relies on gc runtime
 		"ldflags",
 	])
-		tests.remove('./$pathto$test.go');
-	tests = ['./$pathto' + "reflect.go"];
+		tests.remove('.$pathto$test.go');
+	tests = ['.$pathto' + "reflect.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test], true);
-		passed += run(true);
+		compile([test],false);
 	}
 }
 
@@ -115,24 +130,57 @@ function gotests() {
 		// "rename", //messed up the typed AST, can be ran on its own in the future TODO
 		"closure", // to integrated with go's runtime
 	])
-		tests.remove('./$pathto$test.go');
-	tests = ['./$pathto' + "append.go"];
+		tests.remove('.$pathto$test.go');
+	tests = ['.$pathto' + "append.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test], false);
-		passed += run(false);
+		compile([test],true);
 	}
 }
 
 var total:Int = 0;
 var passed:Int = 0;
 
-function compile(tests:Array<String>, compareOutput:Bool) {
+function compile(tests:Array<String>,server:Bool) {
+	server = true;
 	tests.push(path);
 	Main.exportBool = true;
 	Main.init(tests);
 	tests.pop();
 	Sys.setCwd("..");
+
+	var path = Main.exportPaths[0];
+	path = StringTools.replace(path, "/", ".");
+	Sys.println('------ $path ------');
+	var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
+	var command = '-cp tests/golibs -main $path --interp';
+
+	inline function getTextFile(name:String)
+		return 'tests/results/$name.txt';
+	final textFile = getTextFile(name);
+
+	if (server)
+		command += ' --connect $port';
+	command += ' > $textFile';
+	command = 'haxe $command';
+
+	var runner = run(command);
+	final str = File.getContent(textFile);
+	output.writeString('- [' + (runner ? "x" : " ") + '] $name \n    $str\n');
+	if (!runner) {
+		Sys.println(str);
+		return;
+	}
+
+	var program = tests[0];
+	program = "./tests" + program.substr(1);
+	final textFile2 = getTextFile(name + "2");
+	final go = run('go run $program > $textFile2');
+	if (!go) {
+		throw 'go error running: $program';
+	}
+	output.writeString("PASSED\n");
+	passed++;
 }
 
 var output:FileOutput = null;
@@ -144,101 +192,44 @@ function initOutput() {
 	output = File.append("tests.txt", false);
 }
 
-function run(compareOutput:Bool):Int {
-	var length = Main.exportPaths.length;
-	var passedCount = 0;
-	for (i in 0...length) {
-		var path = Main.exportPaths[i];
-		path = StringTools.replace(path, "/", ".");
-		var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
-		var command = '-cp tests/golibs -main $path --interp';
-		var textFile = 'tests/results/$name.txt';
-		if (compareOutput) {
-			command += ' > $textFile';
-		} else {
-			command = ' --connect $port $command';
-		}
-		command = 'haxe $command';
-		var proc = new sys.io.Process(command);
-		var code:Null<Int> = null;
-		Sys.println('------ $path ------');
-		for (i in 0...10 * 10) {
-			code = proc.exitCode(false);
-			if (code != null)
-				break;
-			Sys.sleep(1 / 20);
-		}
-		if (code == null) {
-			Sys.println("timed out...");
-			command = cleanCommand(command);
-			Sys.println('command: $command');
-			output.writeString('- [ ] $name (timed out)\n');
-		} else {
-			if (code <= 0) {
-				var outputText = proc.stdout.readAll().toString();
-				if (compareOutput) {
-					var content = File.getContent(textFile);
-					var name = name.toLowerCase();
-					switch name {
-						case "math_":
-							name = "math";
-						case "reflect_":
-							name = "reflect";
-						case "slice_":
-							name = "slice";
-					}
-					var compareFile = name + ".txt";
-					var compare = File.getContent('./tests$pathto$compareFile');
-					Sys.println("================");
-					if (content != compare) {
-						Sys.println("NOT EQUAL");
-						var lines = content.split("\n");
-						var lines2 = compare.split("\n");
-						if (lines.length != lines2.length)
-							Sys.println("line count off: " + lines.length + " != " + lines2.length);
-						for (i in 0...lines.length) {
-							if (lines[i] != lines2[i]) {
-								lines[i] += " != " + lines2[i];
-							}
-						}
-						Sys.println(lines.join("\n"));
-					} else {
-						Sys.println("EQUAL");
-					}
-				} else {
-					Sys.println(outputText);
-				}
-				passedCount++;
-				output.writeString('- [x] $name\n');
-			} else {
-				var line:String = "";
-				try {
-					line = getLine(proc.stderr.readLine());
-				} catch (e) {
-					line = 'unable to read line, error: $e';
-				}
-				command = cleanCommand(command);
-				Sys.println('command: $command');
-				Sys.println(line + "\n" + proc.stderr.readAll().toString());
-				output.writeString('- [ ] $name    - $line \n');
-			}
-		}
-		proc.close();
-		output.flush();
+typedef Runner = {str:String, error:Bool};
+
+function run(command:String):Bool {
+	final proc = new sys.io.Process(command);
+	var code:Null<Int> = null;
+	Sys.println(cleanCommand(command));
+	for (i in 0...10 * 10) {
+		code = proc.exitCode(false);
+		if (code != null)
+			break;
+		Sys.sleep(1 / 20);
 	}
-	return passedCount;
+	
+	if (code == null) {
+		proc.close();
+		return false;
+	} else {
+		if (code <= 0) {
+			final str = proc.stdout.readAll().toString();
+			proc.close();
+			return true;
+		} else {
+			final str = proc.stderr.readAll().toString();
+			Sys.println(str);
+			proc.close();
+			return false;
+		}
+	}
 }
 
-function getLine(line:String):String {
-	var sub = "/";
-	var index2 = line.indexOf(".hx:");
-	var index = line.substr(0, index2).lastIndexOf(sub);
-	index = index == -1 ? 0 : index + sub.length;
-	return line.substr(index);
-}
 
-function cleanCommand(command:String):String
-	return StringTools.replace(command, '--connect $port', "");
+function cleanCommand(command:String):String {
+	command = StringTools.replace(command, '--connect $port', "");
+	final index = command.lastIndexOf(">");
+	if (index > -1)
+		command = command.substr(0,index);
+	return command;
+}
 
 function loadGoTests():Array<String> {
 	var tests:Array<String> = [];
@@ -257,13 +248,13 @@ function loadGoTests():Array<String> {
 		file.close();
 		return false;
 	}
-	var repo = "go/test";
+	var repo = "/go/test";
 	for (path in FileSystem.readDirectory(repo)) {
 		var p = '$repo/$path';
 		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
 			continue;
 		if (readLine(File.read(p, false)))
-			tests.push('./$p');
+			tests.push('.$p');
 	}
 	return tests;
 }

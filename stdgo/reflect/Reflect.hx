@@ -67,6 +67,7 @@ class Value implements StructType {
 	var underlyingKey:Dynamic = null;
 	var underlyingType:Type = null;
 	var canAddrBool:Bool = false;
+	var notSetBool:Bool = false;
 
 	public function __underlying__():AnyInterface
 		return null;
@@ -80,18 +81,25 @@ class Value implements StructType {
 		this.value = value;
 		underlyingType = findUnderlying(value.type);
 	}
-
+	function setSet(bool:Bool=true) {
+		notSetBool = bool;
+		return this;
+	}
 	public function canSet():Bool {
-		return underlyingValue != null; //TODO add check for use of unexported fields
+		if (!canAddr())
+			return false;
+		if (notSetBool)
+			return false;
+		return true;
 	}
 
-	private function setAddr() {
-		canAddrBool = true;
+	private function setAddr(bool:Bool=true) {
+		canAddrBool = bool;
 		return this;
 	}
 
 	public function canAddr():Bool {
-		return canAddrBool && kind() != interface__;
+		return canAddrBool;
 	}
 
 	public function cap():GoInt {
@@ -385,24 +393,24 @@ class Value implements StructType {
 	}
 
 	public function field(i:GoInt):Value {
-		var type = type().gt;
-		switch type {
-			case GT_namedType(_, _, _, _, _, t):
-				type = t;
-			default:
-		}
-		switch type {
+		final gt = getUnderlying(type().gt);
+		switch gt {
 			case GT_struct(fields):
 				var t = fields[i.toBasic()];
 				switch t {
-					case GT_field(name, type, _, _):
-						var value = Reflect.field(value.value, name);
-						return new Value(new AnyInterface(value,new Type(t)));
+					case GT_field(name, _, _, _):
+						var field = Reflect.field(value.value, name);
+						var value = new Value(new AnyInterface(field,value.type.field(i).type));
+						if (name.charAt(0) == "_") {
+							return value.setSet(false);
+						}else{
+							return value;
+						}
 					default:
 				}
 			default:
 		}
-		throw "unsupported";
+		throw "unsupported: " + gt;
 	}
 
 	public function pointer():GoUIntptr {
@@ -451,7 +459,8 @@ class Value implements StructType {
 					default:
 				}
 			case interface_:
-				return this;
+				var value = this.__copy__().setAddr();
+				return value;
 		}
 		throw new ValueError("reflect.Value.Elem", k);
 	}
@@ -516,7 +525,8 @@ private function unroll(parent:GT_enum,child:GT_enum):GT_enum {
 			childName == parentName ? parent : child;
 		case GT_ptr(elem):
 			GT_ptr(unroll(parent,elem));
-			
+		case GT_map(key, value):
+			GT_map(unroll(parent,key),unroll(parent,value));
 		case GT_bool: child;
 		case GT_int, GT_int8, GT_int16, GT_int32, GT_int64: child;
 		case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64: child;
@@ -524,6 +534,20 @@ private function unroll(parent:GT_enum,child:GT_enum):GT_enum {
 		case GT_complex64, GT_complex128: child;
 		case GT_string: child;
 		case GT_unsafePointer, GT_uintptr: child;
+		case GT_interface(_, _, _, _): child;
+		case GT_namedType(pack, module, name, methods, interfaces, type):
+			GT_namedType(pack,module,name,methods,interfaces,unroll(parent,type));
+		case GT_struct(fields):
+			GT_struct([for (field in fields) {
+				switch field {
+					case GT_field(name, type, tag, embedded):
+						GT_field(name,unroll(parent,type),tag,embedded);
+					default:
+						throw "non field type for struct not supported: " + field;
+				}
+			}]);
+		case GT_slice(elem):
+			GT_slice(unroll(parent,elem));
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}
@@ -590,7 +614,7 @@ function valueOf(iface:AnyInterface):Value {
 
 typedef Type_ = Type;
 
-class Type {
+class Type implements StructType {
 	public var gt:GT_enum;
 	public var stringValue:GoString = "";
 
@@ -598,6 +622,12 @@ class Type {
 		gt = t;
 		stringValue = toString();
 	}
+
+	public function __copy__()
+		return new Type(gt);
+
+	public function __underlying__()
+		return null;
 
 	public function bits():GoInt {
 		return switch kind() {
@@ -618,17 +648,7 @@ class Type {
 	}
 
 	public function kind():Kind {
-		function getUnderlying(gt) {
-			return switch gt {
-				case GT_namedType(_, _, _, _, _, type):
-					getUnderlying(type);
-				case GT_field(_, type, _, _):
-					getUnderlying(type);
-				default:
-					gt;
-			}
-		}
-		gt = getUnderlying(gt);
+		final gt = getUnderlying(gt);
 		return new Kind(EnumValueTools.getIndex(gt));
 	}
 
@@ -877,13 +897,9 @@ class Type {
 
 	public function field(index:GoInt):StructField {
 		var module = "";
-		var underlyingType = gt;
-		switch gt {
-			case GT_namedType(_, m, _, _, _, type):
-				underlyingType = type;
-				module = m;
-			default:
-		}
+		var underlyingType = getUnderlying(gt);
+		
+
 		switch underlyingType {
 			case GT_struct(fields):
 				var field = fields[index.toBasic()];
@@ -1067,26 +1083,29 @@ class Type {
 	}
 }
 
-private function directlyAssignable(t:Type, v:Type):Bool {
-	function getUnderlying(t:GT_enum) {
-		return switch t {
-			case GT_namedType(_, _, _, _, _, type):
-				getUnderlying(type);
-			default:
-				t;
-		}
+private function getUnderlying(gt) {
+	return switch gt {
+		case GT_namedType(_, _, _, _, _, type):
+			getUnderlying(type);
+		case GT_field(_, type, _, _):
+			getUnderlying(type);
+		default:
+			gt;
 	}
-	t.gt = getUnderlying(t.gt);
-	v.gt = getUnderlying(v.gt);
+}
 
-	switch t.gt {
+private function directlyAssignable(t:Type, v:Type):Bool {
+	final tgt = getUnderlying(t.gt);
+	final vgt = getUnderlying(v.gt);
+
+	switch tgt {
 		case GT_chan(elem), GT_slice(elem):
-			return switch v.gt {
+			return switch vgt {
 				case GT_chan(elem2), GT_slice(elem2): new Type(elem).assignableTo(new Type(elem2));
 				default: false;
 			}
 		case GT_array(elem, len):
-			return switch v.gt {
+			return switch vgt {
 				case GT_array(elem2, len2):
 					if (len != len2)
 						return false;
@@ -1094,7 +1113,7 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 				default: false;
 			}
 		case GT_map(key, value):
-			return switch v.gt {
+			return switch vgt {
 				case GT_map(key2, value2):
 					if (!new Type(key).assignableTo(new Type(key2)))
 						return false;
@@ -1104,7 +1123,7 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 				default: false;
 			}
 		case GT_struct(fields):
-			switch v.gt {
+			switch vgt {
 				case GT_struct(fields2):
 					if (fields.length != fields2.length)
 						return false;
@@ -1126,7 +1145,7 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 		case GT_interface(pack, module, name, methods):
 			return false; // checked by implements instead
 		case GT_func(input, output):
-			switch v.gt {
+			switch vgt {
 				case GT_func(input2, output2):
 					if (input.length != input2.length)
 						return false;
@@ -1138,11 +1157,11 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 					return false;
 			}
 		default:
-			if (t.gt.getParameters().length != v.gt.getParameters().length)
+			if (tgt.getParameters().length != vgt.getParameters().length)
 				return false;
-			if (t.gt.getParameters().length == 0 && v.gt.getParameters().length == 0) {
-				var t = t.gt.getIndex();
-				var v = v.gt.getIndex();
+			if (tgt.getParameters().length == 0 && vgt.getParameters().length == 0) {
+				var t = tgt.getIndex();
+				var v = vgt.getIndex();
 				if (t == GT_int.getIndex()) {
 					if (v == GT_int32.getIndex() || v == GT_int64.getIndex())
 						return true;
@@ -1154,7 +1173,7 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 				if (t == v)
 					return true;
 			} else {
-				trace("unknown gt type: " + t.gt + " " + v.gt);
+				trace("unknown gt type: " + tgt + " " + vgt);
 			}
 	}
 	return false;

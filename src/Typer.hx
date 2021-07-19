@@ -1440,6 +1440,25 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					for (i in 0...stmt.lhs.length) {
 						var x = typeExpr(stmt.lhs[i], info);
 						var y = typeExpr(stmt.rhs[i], info);
+						//remove Haxe compiler error: "Assigning a value to itself"
+						switch x.expr {
+							case EConst(c):
+								switch c {
+									case CIdent(s):
+										switch y.expr {
+											case EConst(c):
+												switch c {
+													case CIdent(s2):
+														if (s == s2)
+															continue;
+													default:
+												}
+											default:
+										}
+									default:
+								}
+							default:
+						}
 
 						var toType = typeof(stmt.lhs[i]);
 						var fromType = typeof(stmt.rhs[i]);

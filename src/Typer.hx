@@ -898,6 +898,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			default:
 		}
 	}
+	x = toGoType(x);
 	var e = macro for (_obj in $x.keyValueIterator()) $body;
 	if (hasDefer) {
 		var inits:Array<Expr> = [];
@@ -2506,16 +2507,25 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 	}
 }
 
-private function typeRest(expr:Expr):Expr {
+private function toGoType(expr:Expr):Expr {
 	switch expr.expr {
 		case EConst(c):
 			switch c {
 				case CString(_, _):
-					expr = macro ($expr : GoString);
+					return macro ($expr : GoString);
+				case CInt(_):
+					return macro ($expr : GoInt);
+				case CFloat(_):
+					return macro ($expr : GoFloat64);
 				default:
 			}
 		default:
 	}
+	return expr;
+}
+
+private function typeRest(expr:Expr):Expr {
+	expr = toGoType(expr);
 	return macro...$expr.toArray();
 }
 

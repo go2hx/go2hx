@@ -2504,6 +2504,15 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 }
 
 private function typeRest(expr:Expr):Expr {
+	switch expr.expr {
+		case EConst(c):
+			switch c {
+				case CString(_, _):
+					expr = macro ($expr : GoString);
+				default:
+			}
+		default:
+	}
 	return macro...$expr.toArray();
 }
 

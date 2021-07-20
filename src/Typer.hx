@@ -831,6 +831,9 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
+	var xType = typeof(stmt.x);
+	if (isNamed(xType))
+		x = macro $x.__t__;
 	var hasDefer = false;
 	var body = {expr: typeBlockStmt(stmt.body, info, false, false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
@@ -1386,6 +1389,7 @@ private function castTranslate(obj:Ast.Expr,e:Expr,info:Info):{expr:Expr,ok:Bool
 }
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	var y = expr;
+	//trace("from: " + fromType + " to: " + toType);
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType))
 		y = macro $y.__t__;
 	if (isAnyInterface(toType)) {
@@ -1441,7 +1445,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						var x = typeExpr(stmt.lhs[i], info);
 						var y = typeExpr(stmt.rhs[i], info);
 						//remove Haxe compiler error: "Assigning a value to itself"
-						if (op == OpEq) {
+						if (op == OpAssign) {
 							switch x.expr {
 								case EConst(c):
 									switch c {
@@ -1853,31 +1857,65 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
-	var ellipsisFunc = null;
-	function genArgs(pos:Int = 0) {
-		args = [for (arg in expr.args.slice(pos)) typeExpr(arg, info)];
-	}
-	ellipsisFunc = function() {
+	function genArgs(translateType:Bool, pos:Int = 0) {
+		final exprArgs = expr.args.slice(pos);
+		args = [for (arg in exprArgs) typeExpr(arg, info)];
+
+		//ellipsis
 		if (expr.ellipsis != 0) {
 			var last = args.pop();
-			if (last == null)
-				return;
-			switch last.expr {
-				case EConst(c):
-					switch c {
-						case CString(s, kind):
-							last = macro new GoString($last);
-						default:
-					}
-				default:
-			}
 			last = typeRest(last);
 			args.push(last);
 		}
+
+		final type = typeof(expr.fun);
+		if (translateType && type != null)  {
+			if (isInvalid(type)) { // set standard library expected call arguments
+				if (expr.fun.id == "SelectorExpr") {
+					var fun:Ast.SelectorExpr = expr.fun;
+					if (fun.x.id == "Ident") {
+						switch fun.x.name {
+							case "unsafe":
+								args[0] = macro Go.toInterface(${args[0]});
+						}
+					}
+				}
+				return;
+			}
+			var sig = getSignature(type);
+			switch sig {
+				case signature(variadic, params, _, _):
+					var vars:Array<GoType> = [];
+					if (params != null) {
+						switch params {
+							case varValue(_, v):
+								vars.push(v);
+							case tuple(_, v):
+								vars = vars.concat(v);
+							case invalid:
+								return;
+							default:
+								vars.push(params);
+						}
+					}
+					for (i in 0...args.length) {
+						final fromType = typeof(exprArgs[i]);
+						var toType = vars[i];
+						if (variadic && vars.length <= i + 1) {
+							toType = getElem(vars[vars.length - 1]);
+						}
+						args[i] = assignTranslate(fromType,toType,args[i],info);
+					}
+				default:
+			}
+		}
 	}
 	var ft = typeof(expr.fun);
-	
-	var notFunction = !isSignature(ft) && !isInvalid(ft) && expr.fun.id != "CallExpr";
+	final sig = isSignature(ft);
+	final invalid = isInvalid(ft);
+	final call = expr.fun.id == "CallExpr";
+	final notFunction = !sig && !invalid && !call;
+
 	if (notFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
@@ -1891,7 +1929,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 		case "FuncLit":
 			var expr = typeExpr(expr.fun, info);
-			genArgs();
+			genArgs(true);
 			return (macro {
 				var a = $expr;
 				a($a{args});
@@ -1902,36 +1940,31 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "String":
 					expr.fun.name = "toString";
 				case "panic":
-					genArgs();
-					ellipsisFunc();
+					genArgs(false);
 					return (macro throw ${args[0]}).expr;
 				case "recover":
 					return (macro Go.recover()).expr;
 				case "append":
-					genArgs();
-					ellipsisFunc();
+					genArgs(false);
 					var e = args.shift();
 					if (args.length == 0)
 						return e.expr;
 					return (macro $e.append($a{args})).expr;
 				case "copy":
-					genArgs();
-					ellipsisFunc();
+					genArgs(false);
 					return (macro Go.copy($a{args})).expr;
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
 					return (macro $e.remove($key)).expr;
 				case "print":
-					genArgs();
-					ellipsisFunc();
+					genArgs(false);
 					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
 				case "println":
-					genArgs();
-					ellipsisFunc();
+					genArgs(false);
 					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
 				case "complex":
-					genArgs();
+					genArgs(false);
 					return (macro new GoComplex128($a{args})).expr;
 				case "real":
 					var e = typeExpr(expr.args[0], info);
@@ -1977,7 +2010,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							isNamed = true;
 						default:
 					}
-					genArgs(1);
+					genArgs(false,1);
 					var size = args[0];
 					var cap = args[1];
 					
@@ -2026,9 +2059,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return e.expr;
 			}
 	}
-	if (args.length == 0)
-		genArgs();
-	ellipsisFunc();
 	var e = typeExpr(expr.fun, info);
 	if (isNamed(ft))
 		e = macro $e.__t__;
@@ -2037,62 +2067,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case EField(e, field):
 			var str = printer.printExpr(e);
 			str = str.substr(0, str.lastIndexOf("."));
-			if (str == "stdgo.fmt" && field.charAt(field.length - 1) == "f")
+			if (str == "stdgo.fmt" && field.charAt(field.length - 1) != "f")
 				isFmtPrint = true;
 		default:
 	}
-	if (!isFmtPrint) {
-		var type = typeof(expr.fun);
-		var vars:Array<GoType> = [];
-		if (isInvalid(type)) { // set standard library expected call arguments
-			if (expr.fun.id == "SelectorExpr") {
-				var fun:Ast.SelectorExpr = expr.fun;
-				if (fun.x.id == "Ident") {
-					switch fun.x.name {
-						case "unsafe":
-							args[0] = macro Go.toInterface(${args[0]});
-					}
-				}
-			}
-		}
-		if (type != null) {
-			type = getSignature(type);
-			if (type != null) {
-				switch type {
-					case signature(variadic, params, results, recv):
-						if (params != null)
-							switch params {
-								case varValue(_, _):
-									vars.push(params);
-								case tuple(_, v):
-									vars = vars.concat(v);
-								default:
-									vars.push(varValue("", params));
-							}
-					default:
-				}
-			}
-		}
-		for (i in 0...vars.length) {
-			switch vars[i] {
-				case varValue(name, type):
-					switch type {
-						case interfaceValue(numMethods):
-							if (numMethods == 0) {
-								args[i] = macro Go.toInterface(${args[i]});
-							} else {}
-						case named(path, underlying):
-							switch underlying {
-								case interfaceValue(_):
 
-								default:
-							}
-						default:
-					}
-				default:
-			}
-		}
-	}
+	if (args.length == 0)
+		genArgs(!isFmtPrint);
+
 	return (macro $e($a{args})).expr;
 }
 
@@ -3124,6 +3106,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 
 private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
+	x = assignTranslate(typeof(expr.x),slice(invalid),x,info);
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
 	x = high != null ? macro $x.slice($low, $high) : macro $x.slice($low);

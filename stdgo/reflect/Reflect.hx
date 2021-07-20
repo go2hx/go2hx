@@ -364,7 +364,7 @@ class Value implements StructType {
 	}
 
 	public function index(i:GoInt):Value {
-		final gt = type().gt;
+		final gt = getUnderlying(type().gt);
 		return switch gt {
 			case GT_array(elem, _): @:privateAccess new Value(new AnyInterface((value.value : GoArray<Dynamic>).get(i),new Type(unroll(gt,elem))));
 			case GT_slice(elem): @:privateAccess new Value(new AnyInterface((value.value : Slice<Dynamic>).get(i),new Type(unroll(gt,elem))), value.value,i).setAddr();
@@ -453,7 +453,7 @@ class Value implements StructType {
 			case ptr:
 				if (value.value == null)
 					return new Value();
-				switch type().gt {
+				switch getUnderlying(type().gt) {
 					case GT_ptr(elem):
 						return new Value(new AnyInterface((value.value : Pointer<Dynamic>).value, new Type(elem)),value.value).setAddr();
 					default:
@@ -792,6 +792,7 @@ class Type implements StructType {
 	}
 
 	public function elem():Type {
+		final gt = getUnderlying(gt);
 		switch (gt) {
 			case GT_chan(elem), GT_ptr(elem), GT_slice(elem), GT_array(elem, _):
 				return new Type(elem);

@@ -1050,13 +1050,14 @@ private function isSignature(type:GoType):Bool {
 			false;
 	}
 }
-//named doesn't count for structures
+//named doesn't count for structures or interfaces
 private function isNamed(type:GoType):Bool {
 	return switch type {
 		case named(_,underlying):
 			switch underlying {
 				case struct(_): false;
 				case interfaceValue(_): false;
+				case invalid: false;
 				default: true;
 			} 
 		default: false;
@@ -1172,8 +1173,9 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 		}
 	var fromNamed = isNamed(from);
 	var toNamed = isNamed(to);
-	if (fromNamed && !toNamed && !isInterface(to))
+	if (fromNamed && !toNamed && !isInterface(to)) {
 		return macro $e.__t__;
+	}
 	if (toNamed && !fromNamed) {
 		switch ct {
 			case TPath(p):
@@ -1182,8 +1184,9 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 			default:
 		}
 	}
-	if (isAnyInterface(from))
+	if (isAnyInterface(from)) {
 		return macro Go.fromInterface(($e : $ct));
+	}
 	if (isInterface(pointerUnwrap(from))) {
 		return macro Go.smartcast(cast($e, $ct)); // allows correct interface casting
 	}
@@ -1389,13 +1392,13 @@ private function castTranslate(obj:Ast.Expr,e:Expr,info:Info):{expr:Expr,ok:Bool
 }
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	var y = expr;
-	//trace("from: " + fromType + " to: " + toType);
-	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType))
+	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
+	}
 	if (isAnyInterface(toType)) {
 		y = macro Go.toInterface($y);
 	}
-	if (isAnyInterface(fromType)) {
+	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		final ct = toComplexType(fromType, info);
 		if (ct != null) {
 			y = macro Go.fromInterface(($y : $ct));
@@ -2965,10 +2968,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 				default:
 			}
 		default:
-			/*if (isNamed(typeX))
-				x = macro $x.__t__;
-			if (isNamed(typeY))
-				y = macro $y.__t__;*/
 	}
 	switch op {
 		case OpXor:
@@ -3119,8 +3118,11 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
 	x = high != null ? macro $x.slice($low, $high) : macro $x.slice($low);
-	if (expr.slice3)
-		x = macro $x.slice(${typeExpr(expr.max, info)});
+	if (expr.slice3) {
+		var max = typeExpr(expr.max,info);
+		max = assignTranslate(typeof(expr.max),basic(int_kind),max,info);
+		x = macro $x.setCap(($max : GoInt) - (1 : GoInt));
+	}
 	return x.expr;
 }
 

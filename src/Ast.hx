@@ -130,7 +130,6 @@ typedef StarExpr = {
 	// > Node,
 	star:Pos,
 	x:Expr,
-	type:ExprType,
 };
 
 typedef UnaryExpr = {

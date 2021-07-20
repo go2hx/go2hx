@@ -995,12 +995,17 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 								var expr = typeExpr(spec.values[i], info);
 								var name = nameIdent(spec.names[i].name, info, false, false, false);
 								var t = typeof(spec.type);
-
+								var exprType = type;
+								if (exprType == null) {
+									final specType = typeof(spec.names[i]);
+									if (specType != null)
+										exprType = toComplexType(specType,info);
+								}
 								expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
 								info.localVars[name] = true;
 								{
 									name: name,
-									type: type,
+									type: exprType,
 									isFinal: spec.constants[i],
 									expr: i < spec.values.length ? expr : type != null ? defaultValue(t, info) : null,
 								};
@@ -2292,7 +2297,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "StarExpr":
 			var e:Ast.StarExpr = e;
-			typeof(e.type);
+			pointer(typeof(e.x));
 		case "UnaryExpr":
 			var e:Ast.UnaryExpr = e;
 			typeof(e.type);

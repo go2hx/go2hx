@@ -165,17 +165,20 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 	var apply func (cursor *astutil.Cursor) bool = nil
 	apply = func (cursor *astutil.Cursor) bool {
 		x := cursor.Node()
-		switch p := cursor.Parent().(type) {
+		switch cursor.Parent().(type) {
 		case *ast.TypeSpec:
-			switch t := p.Type.(type) {
+			switch x := x.(type) {
 			case *ast.StructType:
-				t.Fields = astutil.Apply(t.Fields,apply,nil).(*ast.FieldList)
+				x.Fields = astutil.Apply(x.Fields,apply,nil).(*ast.FieldList)
+				cursor.Replace(x)
 			case *ast.InterfaceType:
-				t.Methods = astutil.Apply(t.Methods,apply,nil).(*ast.FieldList)
+				x.Methods = astutil.Apply(x.Methods,apply,nil).(*ast.FieldList)
+				cursor.Replace(x)
+			default:
+				return true
 			}
 			return false
 		}
-		_ = x
 		switch x := x.(type) {
 			case *ast.StructType:
 				t := checker.TypeOf(x)

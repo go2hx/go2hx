@@ -104,7 +104,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 			continue;
 
 		pkg.path = normalizePath(pkg.path);
-		pkg.path = StringTools.replace(pkg.path, "/", ".");
+		pkg.path = toHaxePath(pkg.path);
 		if (pkg.path == "")
 			pkg.path = "std";
 
@@ -161,7 +161,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
-
 			file.path = className(normalizePath(Path.withoutExtension(file.path)), info);
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -224,7 +223,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 		}
 		var recvFunctions:Array<{decl:Ast.FuncDecl, path:String}> = [];
-		// 2nd pass
+		// 2nd pass main typing
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -237,6 +236,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 				isMain: module.isMain,
 			};
 			info = new Info(info.global);
+			locals.clear();
 			info.data = data;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -2216,7 +2216,12 @@ private function toReflectType(t:GoType):Expr {
 	}
 }
 
-private function typeof(e:Ast.Expr):GoType {
+var locals = new Map<Int,GoType>();
+private function getLocalType(hash:Int):GoType {
+	return locals.exists(hash) ? locals.get(hash) : throw "local hash not found: " + hash;
+}
+
+private function typeof(e:Ast.Expr,localBool:Bool=true):GoType {
 	if (e == null)
 		return invalid;
 	return switch e.id {
@@ -2232,12 +2237,21 @@ private function typeof(e:Ast.Expr):GoType {
 			}
 		case "Var":
 			if (e.name != "") {
-				varValue(e.name, typeof(e.type));
+				varValue(e.name, typeof(e.type,false));
 			} else {
-				typeof(e.type);
+				typeof(e.type,false);
 			}
 		case "Interface":
-			interfaceValue(e.numMethods);
+			var obj = interfaceValue(e.numMethods);
+			if (e.numMethods > 0) {
+				if (localBool) {
+					getLocalType(e.hash);
+				}else{
+					obj;
+				}
+			}else{
+				obj;
+			}
 		case "Slice":
 			slice(typeof(e.elem));
 		case "Array":
@@ -2247,11 +2261,16 @@ private function typeof(e:Ast.Expr):GoType {
 		case "Map":
 			map(typeof(e.key), typeof(e.elem));
 		case "Named":
-			named(e.path, typeof(e.underlying));
+			named(e.path, typeof(e.underlying,false));
 		case "Struct":
-			struct([
+			var t:GoType = struct([
 				for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: typeof(field.type), embedded: field.embedded,tag: field.tag}
 			]);
+			if (localBool) {
+				getLocalType(e.hash);
+			}else{
+				t;
+			}
 		case "Chan":
 			chan(e.dir, typeof(e.elem));
 		case null:
@@ -2281,7 +2300,7 @@ private function typeof(e:Ast.Expr):GoType {
 			basic(kind);
 		case "Ident":
 			var e:Ast.Ident = e;
-			typeof(e.type);
+			typeof(e.type,localBool);
 		case "CompositeLit":
 			var e:Ast.CompositeLit = e;
 			typeof(e.type);
@@ -2353,15 +2372,14 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 		if (info.retypeList.exists(cl))
 			return switch info.retypeList[cl] {
 				case TPath(p):
-					trace("p: " + p);
 					p;
 				default:
-					throw "error";
+					throw "error retype list not TPath";
 			}
 		return {pack: [], name: cl};
 	}
 	var pack = path.split("/");
-	if (stdgoList.indexOf(pack[0]) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(pack[0]) != -1) { // Haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
 	var last = pack.pop();
@@ -2369,6 +2387,14 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	pack.push(title(last));
 
 	return {name: cl, pack: pack};
+}
+
+private function toGoPath(path:String):String {
+	return StringTools.replace(path,".","/");
+}
+
+private function toHaxePath(path:String):String {
+	return StringTools.replace(path, "/", ".");
 }
 
 private function namedTypePath(path:String, info:Info):TypePath {
@@ -2382,7 +2408,7 @@ private function namedTypePath(path:String, info:Info):TypePath {
 	path = path.substr(0, last) + pkg;
 	path = normalizePath(path);
 	var globalPath = getGlobalPath(info);
-	globalPath = StringTools.replace(globalPath,".","/");
+	globalPath = toGoPath(globalPath);
 	var pack = [];
 	if (globalPath != path) {
 		path += "/" + title(pkg);
@@ -2877,7 +2903,6 @@ function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 			final p = getTypePath();
 			return (macro new $p($a{params})).expr;
 		case invalid:
-			
 			return (macro @:issue null).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
@@ -3865,6 +3890,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool=false):TypeDe
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
+			final hash:Int = spec.type.type.hash;
+			final nameType:GoType = typeof(spec.name,false);
+			locals[hash] = nameType;
+
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true, true);
 			fields.push({
@@ -3953,6 +3982,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool=false):TypeDe
 			return cl;
 		case "InterfaceType":
 			// var interface:Ast.InterfaceType = spec.type;
+			final hash:Int = spec.type.type.hash;
+			final nameType:GoType = typeof(spec.name,false);
+			locals[hash] = nameType;
+
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0) {
 				return {

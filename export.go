@@ -19,6 +19,7 @@ import (
 
 	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
+	"golang.org/x/tools/go/types/typeutil"
 )
 
 type stdgoListType struct {
@@ -152,162 +153,13 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
-func applyType(valueType types.Type, t types.Type, named *types.Named) types.Type {
-	if valueType == t {
-		return named
-	}else{
-		switch valueType := valueType.(type) {
-		case *types.Interface:
-			return valueType
-		case *types.Struct:
-			return valueType
-		case *types.Tuple:
-			vars := make([]*types.Var,valueType.Len())
-			for i := 0; i < valueType.Len(); i++ {
-				vars[i] = valueType.At(i)
-			}
-			return types.NewTuple(vars...)
-		case *types.Basic:
-			return valueType
-		case *types.Pointer:
-			return types.NewPointer(applyType(valueType.Elem(),t,named))
-		case *types.Named:
-			return valueType
-		case *types.Signature:
-			return types.NewSignature(valueType.Recv(),applyType(valueType.Params(),t,named).(*types.Tuple),applyType(valueType.Results(),t,named).(*types.Tuple),valueType.Variadic())
-		case *types.Array:
-			return types.NewArray(applyType(valueType.Elem(),t,named),valueType.Len())
-		case *types.Slice:
-			return types.NewSlice(applyType(valueType.Elem(),t,named))
-		case *types.Map:
-			return types.NewMap(applyType(valueType.Elem(),t,named),applyType(valueType.Elem(),t,named))
-		case *types.Chan:
-			return types.NewChan(valueType.Dir(),applyType(valueType.Elem(),t,named))
-		}
-		fmt.Println("unknown value type:",reflect.TypeOf(valueType))
-		return valueType
-	}
-}
-
-func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) []interfaceData {
+func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 	interfaces := []interfaceData{}
-	isMain := pkgPath == "main"
+	isMain := pkg.PkgPath == "main"
 	if isMain {
-		pkgPath = "main__" + file.Name.Name
-	}
-	countInterface := 0
-	countStruct := 0
-	interfaceTypes := make(map[string]*ast.Ident)
-	structTypes := make(map[string]*ast.Ident)
-	var apply func (cursor *astutil.Cursor) bool = nil
-	apply = func (cursor *astutil.Cursor) bool {
-		x := cursor.Node()
-		switch cursor.Parent().(type) {
-		case *ast.TypeSpec:
-			switch x := x.(type) {
-			case *ast.StructType:
-				x.Fields = astutil.Apply(x.Fields,apply,nil).(*ast.FieldList)
-				cursor.Replace(x)
-			case *ast.InterfaceType:
-				x.Methods = astutil.Apply(x.Methods,apply,nil).(*ast.FieldList)
-				cursor.Replace(x)
-			default:
-				return true
-			}
-			return false
-		}
-		replaceType := func(name *ast.Ident, x ast.Expr, t types.Type, pkg *packages.Package) {
-			var pos token.Pos = 0
-			namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
-			tv := types.TypeAndValue{}
-			tv.Type = t
-			//remove
-			delete(pkg.TypesInfo.Implicits,x)
-			delete(pkg.TypesInfo.Types,x)
-			delete(pkg.TypesInfo.Scopes,x)
-			//add
-			pkg.TypesInfo.Defs[name] = namedType.Obj()
-			pkg.TypesInfo.Types[name] = tv
-			//replace
-			for key,value := range pkg.TypesInfo.Defs {
-				if value == nil {
-					continue
-				}
-				valueType := value.Type()
-				if valueType == t {
-					pkg.TypesInfo.Defs[key] = namedType.Obj()
-				}else{
-					value = types.NewTypeName(pos,pkg.Types,key.Name,applyType(valueType,t,namedType))
-					pkg.TypesInfo.Defs[key] = value
-				}
-			}
-		}
-
-		switch x := x.(type) {
-			case *ast.StructType:
-				t := checker.TypeOf(x)
-				if t == nil {
-					return false
-				}
-				name,exists := structTypes[t.String()]
-				if !exists {
-					name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
-					countStruct++
-					structTypes[t.String()] = name
-					//add to file
-					gen := ast.GenDecl{}
-					gen.Tok = token.FUNC //set local
-					spec := ast.TypeSpec{}
-					//add to file
-					spec.Name = name
-					struc := ast.StructType{}
-					struc.Fields = x.Fields
-					spec.Type = ast.Expr(&struc)
-					gen.Specs = []ast.Spec{&spec}
-					file.Decls = append(file.Decls, &gen)
-					
-					replaceType(name,x,t,pkg)
-				}
-				cursor.Replace(name)
-				return false
-			case *ast.InterfaceType: //grab interface type
-				if x.Methods == nil || x.Methods.NumFields() == 0 {
-					return false
-				}
-				t := checker.TypeOf(x)
-				if t == nil {
-					return false
-				}
-				name,exists := interfaceTypes[t.String()]
-				if !exists {
-					name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
-					countInterface++
-					interfaceTypes[t.String()] = name
-					//add to interfaces
-					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkgPath, false})
-					//add to file
-					gen := ast.GenDecl{}
-					gen.Tok = token.FUNC //set local
-					spec := ast.TypeSpec{}
-
-					spec.Name = name
-					inter := ast.InterfaceType{}
-					inter.Methods = x.Methods
-					spec.Type = ast.Expr(&inter)
-					gen.Specs = []ast.Spec{&spec}
-					file.Decls = append(file.Decls, &gen)
-
-					replaceType(name,x,t,pkg)
-				}
-				cursor.Replace(name)
-				return false
-			default:
-				return true
-			}
+		pkg.PkgPath = "main__" + file.Name.Name
 	}
 	
-	node := astutil.Apply(file,apply,nil)
-	file = node.(*ast.File)
 	for _, decl := range file.Decls { //typespec named interfaces
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
@@ -322,7 +174,7 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 							if isMain {
 								exported = false
 							}
-							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkgPath, exported})
+							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkg.PkgPath, exported})
 						}
 						
 					default:
@@ -333,6 +185,103 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 		default:
 		}
 	}
+	return interfaces
+}
+
+func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData {
+	interfaceTypes := make(map[string]*ast.Ident) 
+	structTypes := make(map[string]*ast.Ident)
+	countStruct := 0
+	countInterface := 0
+	interfaces := []interfaceData{}
+
+	apply := func (cursor *astutil.Cursor) bool {
+		node := cursor.Node()
+		switch cursor.Parent().(type) {
+		case *ast.TypeSpec:
+			return true
+		}
+		switch node := node.(type) {
+		case *ast.StructType:
+			t := checker.TypeOf(node)
+			if t == nil {
+				return false
+			}
+			name,exists := structTypes[t.String()]
+			if !exists {
+				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
+				countStruct++
+				structTypes[t.String()] = name
+				//add to file
+				gen := ast.GenDecl{}
+				gen.Tok = token.FUNC //set local
+				spec := ast.TypeSpec{}
+
+				spec.Name = name
+				spec.Type = node
+				gen.Specs = []ast.Spec{&spec}
+				file.Decls = append(file.Decls, &gen)
+
+				var pos token.Pos = 0
+				namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+				tv := types.TypeAndValue{}
+				tv.Type = t
+				//add
+				pkg.TypesInfo.Defs[name] = namedType.Obj()
+				pkg.TypesInfo.Types[name] = tv
+				//replace
+				for key,value := range pkg.TypesInfo.Defs {
+					if value != nil && value.Type() == t {
+						pkg.TypesInfo.Defs[key] = namedType.Obj()
+					}
+				}
+			}
+			cursor.Replace(name)
+			return false
+		case *ast.InterfaceType:
+			if node.Methods == nil || node.Methods.NumFields() == 0 {
+				return false
+			}
+			t := checker.TypeOf(node)
+			if t == nil {
+				return false
+			}
+			name,exists := interfaceTypes[t.String()]
+			if !exists {
+				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
+				countInterface++
+				interfaceTypes[t.String()] = name
+				//add to interfaces
+				interfaces = append(interfaces, interfaceData{t.(*types.Interface),name.Name,pkg.PkgPath,false})
+				//add to file
+				gen := ast.GenDecl{}
+				gen.Tok = token.FUNC //set local
+				spec := ast.TypeSpec{}
+
+				spec.Name = name
+				spec.Type = node
+				gen.Specs = []ast.Spec{&spec}
+				file.Decls = append(file.Decls, &gen)
+
+				var pos token.Pos = 0
+				namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+				tv := types.TypeAndValue{}
+				tv.Type = t
+				//add
+				pkg.TypesInfo.Defs[name] = namedType.Obj()
+				pkg.TypesInfo.Types[name] = tv
+				//replace
+				for key,value := range pkg.TypesInfo.Defs {
+					if value != nil && value.Type() == t {
+						pkg.TypesInfo.Defs[key] = namedType.Obj()
+					}
+				}
+			}
+			cursor.Replace(name)
+		}
+		return true
+	}
+	file = astutil.Apply(file,apply,nil).(*ast.File)
 	return interfaces
 }
 
@@ -350,7 +299,8 @@ func parseInterface(pkg *packages.Package) {
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	for _,file := range pkg.Syntax {
-		interfaces = append(interfaces, parseFileInterface(file,pkg.PkgPath,pkg)...)
+		interfaces = append(interfaces, parseFileInterface(file,pkg)...)
+		interfaces = append(interfaces, parseLocalInterface(file,pkg)...)
 	}
 }
 
@@ -482,6 +432,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 var remapTypeIdent map[int]string
+var typeHasher = typeutil.MakeHasher()
 
 func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
@@ -496,6 +447,7 @@ func parseType(node interface{}) map[string]interface{} {
 	if data["id"] == "" {
 		panic(data)
 	}
+	isVar := false
 	switch data["id"] {
 	case "Named":
 		named := node.(*types.Named)
@@ -519,11 +471,9 @@ func parseType(node interface{}) map[string]interface{} {
 			}
 		}
 		data["path"] = path
-		return data
 	case "Slice":
 		s := node.(*types.Slice)
 		data["elem"] = parseType(s.Elem())
-		return data
 	case "Struct":
 		s := node.(*types.Struct)
 		fields := make([]map[string]interface{}, s.NumFields())
@@ -536,12 +486,10 @@ func parseType(node interface{}) map[string]interface{} {
 			}
 		}
 		data["fields"] = fields
-		return data
 	case "Interface":
 		s := node.(*types.Interface)
 		data["numMethods"] = s.NumMethods()
 		data["empty"] = s.Empty()
-		return data
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem())
@@ -575,12 +523,16 @@ func parseType(node interface{}) map[string]interface{} {
 		s := node.(*types.Var)
 		data["name"] = s.Name()
 		data["type"] = parseType(s.Type())
+		isVar = true
 	case "Chan":
 		s := node.(*types.Chan)
 		data["elem"] = parseType(s.Elem())
 		data["dir"] = s.Dir()
 	default:
 		fmt.Println("unknown parse type id:", data["id"])
+	}
+	if !isVar {
+		data["hash"] = typeHasher.Hash(node.(types.Type))
 	}
 	return data
 }

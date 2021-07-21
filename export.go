@@ -152,6 +152,43 @@ func main() {
 	ioutil.WriteFile("export.json", bytes, 0644)
 }
 
+func applyType(valueType types.Type, t types.Type, named *types.Named) types.Type {
+	if valueType == t {
+		return named
+	}else{
+		switch valueType := valueType.(type) {
+		case *types.Interface:
+			return valueType
+		case *types.Struct:
+			return valueType
+		case *types.Tuple:
+			vars := make([]*types.Var,valueType.Len())
+			for i := 0; i < valueType.Len(); i++ {
+				vars[i] = valueType.At(i)
+			}
+			return types.NewTuple(vars...)
+		case *types.Basic:
+			return valueType
+		case *types.Pointer:
+			return types.NewPointer(applyType(valueType.Elem(),t,named))
+		case *types.Named:
+			return valueType
+		case *types.Signature:
+			return types.NewSignature(valueType.Recv(),applyType(valueType.Params(),t,named).(*types.Tuple),applyType(valueType.Results(),t,named).(*types.Tuple),valueType.Variadic())
+		case *types.Array:
+			return types.NewArray(applyType(valueType.Elem(),t,named),valueType.Len())
+		case *types.Slice:
+			return types.NewSlice(applyType(valueType.Elem(),t,named))
+		case *types.Map:
+			return types.NewMap(applyType(valueType.Elem(),t,named),applyType(valueType.Elem(),t,named))
+		case *types.Chan:
+			return types.NewChan(valueType.Dir(),applyType(valueType.Elem(),t,named))
+		}
+		fmt.Println("unknown value type:",reflect.TypeOf(valueType))
+		return valueType
+	}
+}
+
 func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) []interfaceData {
 	interfaces := []interfaceData{}
 	isMain := pkgPath == "main"
@@ -179,6 +216,33 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 			}
 			return false
 		}
+		replaceType := func(name *ast.Ident, x ast.Expr, t types.Type, pkg *packages.Package) {
+			var pos token.Pos = 0
+			namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+			tv := types.TypeAndValue{}
+			tv.Type = t
+			//remove
+			delete(pkg.TypesInfo.Implicits,x)
+			delete(pkg.TypesInfo.Types,x)
+			delete(pkg.TypesInfo.Scopes,x)
+			//add
+			pkg.TypesInfo.Defs[name] = namedType.Obj()
+			pkg.TypesInfo.Types[name] = tv
+			//replace
+			for key,value := range pkg.TypesInfo.Defs {
+				if value == nil {
+					continue
+				}
+				valueType := value.Type()
+				if valueType == t {
+					pkg.TypesInfo.Defs[key] = namedType.Obj()
+				}else{
+					value = types.NewTypeName(pos,pkg.Types,key.Name,applyType(valueType,t,namedType))
+					pkg.TypesInfo.Defs[key] = value
+				}
+			}
+		}
+
 		switch x := x.(type) {
 			case *ast.StructType:
 				t := checker.TypeOf(x)
@@ -194,30 +258,15 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 					gen := ast.GenDecl{}
 					gen.Tok = token.FUNC //set local
 					spec := ast.TypeSpec{}
-
+					//add to file
 					spec.Name = name
 					struc := ast.StructType{}
 					struc.Fields = x.Fields
 					spec.Type = ast.Expr(&struc)
 					gen.Specs = []ast.Spec{&spec}
 					file.Decls = append(file.Decls, &gen)
-					var pos token.Pos = 0
-					namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
-					tv := types.TypeAndValue{}
-					tv.Type = t
-					//remove
-					delete(pkg.TypesInfo.Implicits,x)
-					delete(pkg.TypesInfo.Types,x)
-					delete(pkg.TypesInfo.Scopes,x)
-					//add
-					pkg.TypesInfo.Defs[name] = namedType.Obj()
-					pkg.TypesInfo.Types[name] = tv
-					//replace
-					for key,value := range pkg.TypesInfo.Defs {
-						if value != nil && value.Type() == t {
-							pkg.TypesInfo.Defs[key] = namedType.Obj()
-						}
-					}
+					
+					replaceType(name,x,t,pkg)
 				}
 				cursor.Replace(name)
 				return false
@@ -247,24 +296,8 @@ func parseFileInterface(file *ast.File, pkgPath string, pkg *packages.Package) [
 					spec.Type = ast.Expr(&inter)
 					gen.Specs = []ast.Spec{&spec}
 					file.Decls = append(file.Decls, &gen)
-					var pos token.Pos = 0
-					namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
-					tv := types.TypeAndValue{}
-					tv.Type = t
 
-					//remove
-					delete(pkg.TypesInfo.Implicits,x)
-					delete(pkg.TypesInfo.Types,x)
-					delete(pkg.TypesInfo.Scopes,x)
-					//add
-					pkg.TypesInfo.Defs[name] = namedType.Obj()
-					pkg.TypesInfo.Types[name] = tv
-					//replace
-					for key,value := range pkg.TypesInfo.Defs {
-						if value != nil && value.Type() == t {
-							pkg.TypesInfo.Defs[key] = namedType.Obj()
-						}
-					}
+					replaceType(name,x,t,pkg)
 				}
 				cursor.Replace(name)
 				return false

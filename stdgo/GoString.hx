@@ -93,48 +93,28 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return bytes;
 	}
 
-	public function strValue():Int {
-		var value = 0;
-		for (i in 0...this.length) {
-			value += this.get(i);
-		}
-		return value;
-	}
-
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool {
-		return a.strValue() < b.strValue();
+		return a.toString() < b.toString();
 	}
 
 	@:op(A <= B) static function lte(a:GoString, b:GoString):Bool {
-		return a.strValue() <= b.strValue();
+		return a.toString() <= b.toString();
 	}
 
 	@:op(A > B) static function gt(a:GoString, b:GoString):Bool {
-		return a.strValue() > b.strValue();
+		return a.toString() > b.toString();
 	}
 
 	@:op(A >= B) static function gte(a:GoString, b:GoString):Bool {
-		return a.strValue() >= b.strValue();
+		return a.toString() >= b.toString();
 	}
 
 	@:op(A == B) static function eq(a:GoString, b:GoString):Bool {
-		if (a.length != b.length)
-			return false;
-		for (i in 0...a.length.toBasic()) {
-			if (a.get(i) != b.get(i))
-				return false;
-		}
-		return true;
+		return a.toString() == b.toString();
 	}
 
 	@:op(A != B) static function neq(a:GoString, b:GoString):Bool {
-		if (a.length != b.length)
-			return true;
-		for (i in 0...a.length.toBasic()) {
-			if (a.get(i) != b.get(i))
-				return true;
-		}
-		return false;
+		return !eq(a,b);
 	}
 
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString {

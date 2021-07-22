@@ -1070,6 +1070,24 @@ private function isNamed(type:GoType):Bool {
 	}
 }
 
+private function isStruct(type:GoType):Bool {
+	return switch type {
+		case named(_,underlying):
+			switch underlying {
+				case struct(_): true;
+				default: false;
+			}
+		default: false;
+	}
+}
+
+private function isPointerStruct(type:GoType):Bool {
+	return switch type {
+		case pointer(elem): isStruct(elem);
+		default: false;
+	}
+}
+
 private function isInvalid(type:GoType):Bool {
 	return switch type {
 		case invalid:
@@ -1190,11 +1208,35 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 			default:
 		}
 	}
+	
 	if (isAnyInterface(from)) {
 		return macro Go.fromInterface(($e : $ct));
 	}
 	if (isInterface(pointerUnwrap(from))) {
 		return macro Go.smartcast(cast($e, $ct)); // allows correct interface casting
+	}
+
+	if (isPointerStruct(from) && isPointerStruct(to)) {
+		
+	}
+
+	if (isStruct(from) && isStruct(to)) {
+		switch to {
+			case named(path,underlying):
+				var p = namedTypePath(path,info);
+				var exprs:Array<Expr> = [];
+				switch underlying {
+					case struct(fields):
+						for (field in fields) {
+							final field = (!isTitle(field.name) ? "_" : "") + field.name;
+							exprs.push(macro $e.$field);
+						}
+					default:
+				}
+				return macro new $p($a{exprs});
+			default:
+				throw "struct is unnamed";
+		}
 	}
 	//e = assignTranslate(from,to,e,info);
 	return macro($e : $ct);
@@ -2218,7 +2260,7 @@ private function toReflectType(t:GoType):Expr {
 
 var locals = new Map<Int,GoType>();
 private function getLocalType(hash:Int):GoType {
-	return locals.exists(hash) ? locals.get(hash) : throw "local hash not found: " + hash;
+	return locals.exists(hash) ? locals.get(hash) : null;//throw "local hash not found: " + hash;
 }
 
 private function typeof(e:Ast.Expr,localBool:Bool=true):GoType {
@@ -2266,7 +2308,7 @@ private function typeof(e:Ast.Expr,localBool:Bool=true):GoType {
 			var t:GoType = struct([
 				for (field in (e.fields : Array<Dynamic>)) {name: field.name, type: typeof(field.type), embedded: field.embedded,tag: field.tag}
 			]);
-			if (localBool) {
+			if (localBool && e.fields.length > 0) {
 				getLocalType(e.hash);
 			}else{
 				t;
@@ -2703,7 +2745,7 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 function compositeLit(type:GoType,expr:Ast.CompositeLit,info:Info):ExprDef {
 	var keyValueBool:Bool = hasKeyValueExpr(expr.elts);
 	function keyFormat(key:String):String {
-		return (key.charAt(0) == "_" || key.charAt(0) == key.charAt(0).toLowerCase() ? "_" : "") + nameIdent(key, info, false, false);
+		return (!isTitle(key) ? "_" : "") + nameIdent(key, info, false, false);
 	}
 	function getTypePath():TypePath{
 		final ct = toComplexType(type,info);
@@ -3085,7 +3127,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var isThis = false;
 
 	function setIdent(sel):String {
-		return (sel.charAt(0) == sel.charAt(0).toLowerCase() ? "_" : "") + nameIdent(sel, info, false, true);
+		return (!isTitle(sel) ? "_" : "") + nameIdent(sel, info, false, true);
 	}
 
 	var sel = expr.sel.name;

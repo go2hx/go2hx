@@ -74,11 +74,12 @@ class Complex<T : GoFloat64> {
 		imag = i;
 	}
 
-	inline function toString<T>():GoString {
+	inline function toString():GoString {
 		var imagString = Go.string(imag);
 		var realString = Go.string(real);
-
-		return "(" + realString + imagString + "i)";
+		final sign = imagString.charAt(0) == "-" ? "-" : "+";
+		final sign2 = realString.charAt(0) == "-" ? "-" : "+";
+		return "(" + sign + realString + sign2 + imagString + "i)";
 	}
 }
 

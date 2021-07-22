@@ -265,15 +265,6 @@ class Go {
 				}
 			default:
 		}
-		/*var t = Context.follow(Context.typeof(expr));
-		switch t {
-			case TInst(t, params):
-				var t = t.get();
-				if (t.isInterface) {
-					return macro null;
-				}
-			default:
-		}*/
 
 		if (declare)
 			return macro {
@@ -399,7 +390,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_complex128;
 					case "stdgo.GoFloat32":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_float32;
-					case "stdgo.GoFloat64":
+					case "stdgo.GoFloat64", "Float":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_float64;
 					case "stdgo.FloatType":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_float64;
@@ -412,17 +403,7 @@ class Go {
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default:
-						var ref = ref.get();
-						var interfaces:Array<Expr> = [];
-						for (t in ref.to) {
-							switch t.t {
-								case TInst(tt, params):
-									if (tt.get().isInterface) interfaces.push(gtDecode(t.t));
-								default:
-							}
-						}
-						ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")}, $v{ref.module}, $v{ref.name}, [], $a{interfaces},
-							${gtDecode(ref.type)});
+						throw "unknown abstract type: " + sref;
 				}
 			case TInst(ref, params):
 				var ref = ref.get();

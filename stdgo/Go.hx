@@ -202,7 +202,6 @@ class Go {
 		expr = escapeParens(expr);
 
 		var p:TypePath = {name: "Pointer",pack: ["stdgo"]};
-		var pd:TypePath = {name: "Pointer",pack: ["stdgo"],sub: "PointerData"};
 		var expected = Context.getExpectedType();
 		if (expected != null) {
 			var ct = Context.toComplexType(expected);
@@ -210,7 +209,6 @@ class Go {
 				switch ct {
 					case TPath(path):
 						if (path.name == "Pointer") {
-							pd.params = path.params;
 							p = path;
 						}
 					default:
@@ -242,13 +240,13 @@ class Go {
 								return macro {
 									var _offset_ = ${e1}.getOffset();
 									var e2 = (${e2} : GoInt).toBasic();
-									new $p(new $pd(() -> ${e1}.getUnderlying()[e2 + _offset_],
-										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v));
+									new $p(() -> ${e1}.getUnderlying()[e2 + _offset_],
+										(v) -> ${e1}.getUnderlying()[e2 + _offset_] = v);
 								};
 							case "GoArray":
 								return macro {
 									var e2 = (${e2} : GoInt).toBasic();
-									new $p(new $pd(() -> $expr, (v) -> $expr = v));
+									new $p(() -> $expr, (v) -> $expr = v);
 								}
 						}
 					default:
@@ -269,9 +267,9 @@ class Go {
 		if (declare)
 			return macro {
 				var e = $expr;
-				new $p(new $pd(() -> e, (v) -> e = v,$v{hasSet}));
+				new $p(() -> e, (v) -> e = v,$v{hasSet});
 			};
-		return macro new $p(new $pd(() -> $expr, (v) -> $expr = v,$v{hasSet}));
+		return macro new $p(() -> $expr, (v) -> $expr = v,$v{hasSet});
 	}
 
 	public static macro function recover() {

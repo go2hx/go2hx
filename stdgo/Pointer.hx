@@ -4,7 +4,7 @@ import haxe.ds.Either;
 import haxe.macro.Context;
 import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
-
+@:forward.new
 abstract Pointer<T>(PointerData<T>) {
 	public var value(get, set):T;
 
@@ -14,10 +14,6 @@ abstract Pointer<T>(PointerData<T>) {
 
 	private inline function set_value(value:T):T {
 		return this.set(value);
-	}
-
-	public inline function new(obj:PointerData<T>) {
-		this = obj;
 	}
 
 	@:to

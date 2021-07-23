@@ -584,7 +584,7 @@ function zero(typ:Type):Value {
 
 function new_(typ:Type):Value {
 	var value = defaultValue(typ);
-	return new Value(new AnyInterface(new Pointer(new PointerData(() -> value,(x) -> value = x)),new Type(GT_ptr(typ.gt))));
+	return new Value(new AnyInterface(new Pointer(() -> value,(x) -> value = x),new Type(GT_ptr(typ.gt))));
 }
 
 function defaultValue(typ:Type):Any {

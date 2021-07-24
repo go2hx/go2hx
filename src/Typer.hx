@@ -2047,6 +2047,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
+					var t = typeof(expr.args[0]);
+					t = getUnderlying(t);
+					switch t {
+						case map(keyType, _):
+							key = assignTranslate(typeof(expr.args[1]),keyType,key,info);
+						default:
+							throw "first arg of delete builtin function not of type map: " + t;
+					}
 					return (macro $e.remove($key)).expr;
 				case "print":
 					genArgs(false);
@@ -2257,7 +2265,9 @@ private function toReflectType(t:GoType):Expr {
 			for (field in structFields) {
 				var t = toReflectType(field.type);
 				var name = makeString(field.name);
-				fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name, $t, ""));
+				var tag = field.tag == null ? macro "" : makeString(field.tag);
+				var embedded = field.embedded ? macro true : macro false;
+				fields.push(macro stdgo.reflect.Reflect.GT_enum.GT_field($name, $t, $tag,$embedded));
 			}
 			var fields = macro $a{fields};
 			macro stdgo.reflect.Reflect.GT_enum.GT_struct($fields);
@@ -3273,13 +3283,12 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	var index = typeExpr(expr.index, info);
 	var t = typeof(expr.x);
 	t = getUnderlying(t);
-	var e = macro $x[$index];
 	switch t {
-		case map(_,valueType):
-			var value = defaultValue(valueType,info,true);
-			e = macro ($x == null ? $value : $e);
+		case map(keyType,_):
+			index = assignTranslate(typeof(expr.index),keyType,index,info);
 		default:
 	}
+	var e = macro $x[$index];
 	return e.expr;
 }
 
@@ -3483,9 +3492,11 @@ private function defaultValue(type:GoType, info:Info,strict:Bool=true):Expr {
 		return toComplexType(type,info);
 	}
 	return switch type {
-		case map(_, _): 
-			final ct = ct();
-			macro (null : $ct);
+		case map(key, value): 
+			final key = toComplexType(key,info);
+			final value = toComplexType(value,info);
+			final typ = toReflectType(type);
+			macro new GoMap<$key,$value>(new stdgo.reflect.Reflect.Type($typ)).nil();
 		case slice(elem):
 			var t = toComplexType(elem, info);
 			macro new Slice<$t>().nil();

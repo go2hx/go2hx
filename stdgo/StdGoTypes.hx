@@ -1778,6 +1778,40 @@ class AnyInterfaceData {
 		this.type = type;
 	}
 
+	public function __copy__():AnyInterfaceData {
+		switch type.gt {
+			case GT_bool,GT_int,GT_int8,GT_int16,GT_int32,GT_uint8,GT_uint16,GT_uint32:
+
+			case GT_int64:
+
+			case GT_uint64:
+
+			case GT_unsafePointer:
+
+			case GT_uintptr:
+
+			case GT_float32,GT_float64:
+
+			case GT_complex64:
+
+			case GT_complex128:
+
+			case GT_string:
+
+			case GT_slice(_):
+
+			case GT_array(_, _):
+
+			case GT_map(_, _):
+
+			case GT_chan(_):
+
+			default:
+				throw "unknown copy to interface{} type: " + type.gt;
+		}
+		return new AnyInterfaceData(value,type.__copy__(),valueInterface);
+	}
+
 	public function toString():GoString
 		return '$value';
 }
@@ -1794,40 +1828,61 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
 		var gt = a.type.gt;
+		var gt2 = b.type.gt;
+		function isNamed(gt:GT_enum) {
+			return switch gt {
+				case GT_struct(_):
+					false;
+				default:
+					true;
+			}
+		}
+		var aValue = a.value;
+		var bValue = b.value;
+		//trace("reflect: " + Reflect.fields(aValue) + " gt: " + gt + " is: " + Type.typeof(aValue));
+		switch gt {
+			case GT_namedType(_, _, _, _, _, type):
+				gt = type;
+				if (isNamed(type)) {
+					aValue = (aValue : Dynamic).__t__;
+				}
+			default:
+		}
+		switch gt2 {
+			case GT_namedType(_, _, _, _, _, type):
+				if (isNamed(type)) {
+					bValue = (bValue : Dynamic).__t__;
+				}
+			default:
+		}
 		return switch gt {
 			case GT_string:
-				(a.value : GoString) == (b.value : GoString);
+				(aValue : GoString) == (bValue : GoString);
 			case GT_bool, GT_int8, GT_int16, GT_int32, GT_uint8, GT_uint16, GT_uint32, GT_uintptr, GT_float64, GT_float32:
-				a.value == b.value;
+				aValue == bValue;
 			case GT_uint:
-				(a.value : GoUInt) == (b.value : GoUInt);
+				(aValue : GoUInt) == (bValue : GoUInt);
 			case GT_int:
-				(a.value : GoInt) == (b.value : GoInt);
+				(aValue : GoInt) == (bValue : GoInt);
 			case GT_uint64:
-				(a.value : GoUInt64) == (b.value : GoUInt64);
+				(aValue : GoUInt64) == (bValue : GoUInt64);
 			case GT_int64:
-				(a.value : GoInt64) == (b.value : GoInt64);
+				(aValue : GoInt64) == (bValue : GoInt64);
 			case GT_complex64:
-				(a.value : GoComplex64) == (b.value : GoComplex64);
+				(aValue : GoComplex64) == (bValue : GoComplex64);
 			case GT_complex128:
-				(a.value : GoComplex128) == (b.value : GoComplex128);
-			case GT_namedType(_, _, _, _, _, type):
-				a.type.gt = type;
-				switch b.type.gt {
-					case GT_namedType(_, _, _, _, _, type2):
-						b.type.gt = type2;
-						return equals(a, b);
-					default:
-				}
-				true;
+				(aValue : GoComplex128) == (bValue : GoComplex128);
 			case GT_struct(fields):
 				for (i in 0...fields.length) {
 					switch fields[i] {
 						case GT_field(name, type, _):
 							if (StringTools.startsWith(name, "__blank__"))
 								continue;
-							var fieldValue = Reflect.field(a.value, name);
-							var fieldValue2 = Reflect.field(b.value, name);
+							name =  (!isTitle(name) ? "_" : "") + name;
+							var fieldValue = Reflect.field(aValue, name);
+							var fieldValue2 = Reflect.field(bValue, name);
+							if (fieldValue == null || fieldValue2 == null)
+								throw "fieldValue is null: " + Reflect.fields(aValue) + " " + Reflect.fields(bValue) + " name: " + name;
 							var a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect.Type(type));
 							var b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect.Type(type));
 							var bool = equals(a, b);
@@ -1842,13 +1897,24 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					default: false;
 				}
 			case GT_slice(elem):
-				var a:Slice<Any> = a.value;
-				var b:Slice<Any> = b.value;
+				var a:Slice<Any> = aValue;
+				var b:Slice<Any> = bValue;
 				var t = new stdgo.reflect.Reflect.Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
+					if (!AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
+						return false;
+				}
+				true;
+			case GT_interface(_, _, _, _):
+				a == null && b == null;
+			case GT_array(elem, _):
+				var a:GoArray<Any> = aValue;
+				var b:GoArray<Any> = bValue;
+				var t = new stdgo.reflect.Reflect.Type(elem);
+				for (i in 0...a.length.toBasic()) {
+					if (!AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;
@@ -1856,6 +1922,10 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				throw "unknown type: " + a.type.gt;
 		}
 	}
+}
+
+function isTitle(string:String):Bool {
+	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
 
 // holds anon data

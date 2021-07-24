@@ -127,6 +127,8 @@ class Go {
 				}
 			case TInst(t, params):
 				var t = t.get();
+				if (t.name == "String" && t.pack.length == 0)
+					expr = macro new GoString($expr);
 				if (t.meta.has(":named")) {
 					exprInterface = macro $expr;
 					expr = macro $expr.__t__;
@@ -302,23 +304,6 @@ class Go {
 			}
 		};
 		return exprMacro;
-	}
-
-	static function isBasic(type:haxe.macro.Type):Bool {
-		return switch type {
-			case TAbstract(t, params):
-				switch (t.get().name) {
-					case "Bool":
-					case "Float":
-					case "Int":
-					case "String", "GoString":
-					default:
-						false;
-				}
-				true;
-			default:
-				false;
-		}
 	}
 
 	#if macro

@@ -1,9 +1,6 @@
 package stdgo;
 
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.MultiReturn;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.Type;
 import haxe.Rest;
 import haxe.Constraints.Constructible;
@@ -28,10 +25,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 	public function defaultValue():V
 		return this.defaultValue();
 
-	public function setNull():MapData<K, V> {
-		this.nullBool = true;
-		return this;
-	}
+	
 
 	@:arrayAccess
 	public inline function get(key:K):V {
@@ -52,8 +46,13 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.length();
 	}
 
+	public function nil():GoMap<K,V> {
+		this.nilBool = true;
+		return this;
+	}
+
 	public function isNil()
-		return this.nullBool;
+		return this.nilBool;
 
 	public function cap():GoInt {
 		return this.cap == -1 ? length : this.cap;
@@ -75,7 +74,7 @@ private class MapData<K, V> {
 	var array:Array<{key:K, value:V}> = [];
 	var nullcount:GoInt = 0;
 
-	public var nullBool:Bool = false;
+	public var nilBool:Bool = false;
 	public var type:Type = null;
 	public var cap:Int = -1;
 
@@ -86,11 +85,19 @@ private class MapData<K, V> {
 	public inline function length()
 		return array.length;
 
-	inline function equals(x:K, y:K):Bool {
+	function equals(key:K, objKey:K):Bool {
+		final bool = (key is AnyInterfaceData);
+		if (bool) {
+			final x:AnyInterface = (key : Any);
+			final y:AnyInterface = (objKey : Any);
+			if (!x.type.assignableTo(y.type))
+				return false;
+			return x == y;
+		}
 		switch type.gt {
-			case GT_map(key, _):
-				final t = new Type(key);
-				return new AnyInterface(x, t) == new AnyInterface(y, t);
+			case GT_map(keyType, _):
+				final t = new Type(keyType);
+				return new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
 				throw "unknown type: " + type.gt;
 		}

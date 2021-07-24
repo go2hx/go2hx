@@ -111,7 +111,7 @@ func main() {
 		packages.NeedImports | packages.NeedTypes |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
 	cfg.Tests = *testBool
-	cfg.Env = append(os.Environ(), "GOOS=linux", "GOARCH=arm")
+	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
 	initial, err := packages.Load(cfg, args...)
 	if err != nil {
 		fmt.Println("load error:", err)
@@ -761,7 +761,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = fmt.Sprint(value.Value)
 	case token.STRING:
-		if len(value.Value) >= 2 && value.Value[0:1] == `"` {
+		if len(value.Value) >= 2 && (value.Value[0:1] == `"` || (value.Value[0:1] == "`")) {
 			value.Value = string(value.Value[1 : len(value.Value)-1])
 		}
 		output = fmt.Sprint(value.Value)

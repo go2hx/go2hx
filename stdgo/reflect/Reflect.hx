@@ -594,13 +594,13 @@ function defaultValue(typ:Type):Any {
 		case GT_uint, GT_uint8, GT_uint16, GT_uint32, GT_uint64: 0;
 		case GT_float32, GT_float64: 0;
 		case GT_complex64, GT_complex128: 0;
-		case GT_string: 0;
+		case GT_string: ("" : GoString);
 		case GT_namedType(pack, module, name, methods, interfaces, type):
 			var path = pack + "." + name;
 			var cl = std.Type.resolveClass(path);
 			std.Type.createInstance(cl, []);
-		case GT_map(_, _): null;
-		case GT_slice(elem): new Slice();
+		case GT_slice(elem): new Slice().nil();
+		case GT_map(key,value): new GoMap(typ).nil();
 		case GT_array(elem, len): new GoArray([for (i in 0...len) defaultValue(new Type(elem))]);
 		default: null;
 	}

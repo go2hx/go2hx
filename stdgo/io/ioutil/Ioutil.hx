@@ -10,7 +10,8 @@ import stdgo.StdGoTypes;
 import stdgo.os.Os;
 import stdgo.internal.ErrorReturn;
 
-function readAll(r:stdgo.io.Io.Reader) {}
+function readAll(r:stdgo.io.Io.Reader)
+	return stdgo.io.Io.readAll(r);
 function readFile(filename:String) {}
 
 function writeFile(filename:String, data:Bytes, ?perm:GoInt):Error {

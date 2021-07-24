@@ -24,6 +24,20 @@ class RWMutex implements StructType {
 	public function runlock() {}
 }
 
+class Mutex implements StructType {
+	public function __underlying__():AnyInterface
+		return null;
+	var mutux:Mutex;
+
+	public function lock() {}
+
+	public function unlock() {}
+
+	public function rlock() {}
+
+	public function runlock() {}
+}
+
 class WaitGroup implements StructType {
 	var lock:Lock;
 

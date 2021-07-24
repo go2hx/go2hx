@@ -5,18 +5,14 @@ import haxe.io.Path;
 import stdgo.internal.ErrorReturn;
 import stdgo.Pointer;
 import sys.FileSystem;
-import stdgo.StdGoTypes.Error;
-import stdgo.StdGoTypes.GoByte;
 import haxe.io.Output;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.MultiReturn;
-import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes;
 
-var args = new Slice<GoString>(...Sys.args());
-var stderr = new OutputWriter(Sys.stderr());
+var args = new Slice<GoString>(...[for (arg in Sys.args()) (arg : GoString)]);
+var stderr = Go.pointer(new OutputWriter(Sys.stderr()));
 
-// var stdin = new OutputWriter(Sys.stdin());
-var stdout = new OutputWriter(Sys.stdout());
+var stdin:Dynamic = {value: {name: () -> "name"}};
+var stdout = Go.pointer(new OutputWriter(Sys.stdout()));
 
 class OutputWriter implements stdgo.io.Io.Writer {
 	public function __underlying__():AnyInterface
@@ -28,11 +24,16 @@ class OutputWriter implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Array<GoByte>):{n:GoInt, err:Error} {
+	public function write(p:Slice<GoByte>):{n:GoInt, err:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
 		return {n: 0, err: null};
 	}
+
+	public function name():GoString {
+		return "";
+	}
+	
 }
 
 inline function mkdir(path:String, ?perm:GoInt):Error {
@@ -47,6 +48,14 @@ inline function mkdir(path:String, ?perm:GoInt):Error {
 inline function getenv(path:String):GoString {
 	var e = Sys.getEnv(path);
 	return e == null ? "" : e;
+}
+
+function isNotExist(err:Error):Bool {
+	return false;
+}
+
+inline function open(name:String):MultiReturn<{v0:Pointer<File>,v1:Error}> {
+	return {v0: null, v1: stdgo.errors.Errors.new_("unable to open")};
 }
 
 inline function lookupEnv(path:String):MultiReturn<{value:GoString, ok:Bool}> {
@@ -116,7 +125,7 @@ inline function removeAll(path:String):Error {
 	return null;
 }
 
-class File implements stdgo.io.Io.Writer {
+class File implements stdgo.io.Io.Writer implements stdgo.io.Io.Reader {
 	public function __underlying__():AnyInterface
 		return null;
 
@@ -128,10 +137,17 @@ class File implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Array<GoByte>):{n:GoInt, err:Error} {
+	public function write(p:Slice<GoByte>):{n:GoInt, err:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
 		return {n: p.length, err: null};
+	}
+
+	public function read(p:Slice<GoByte>):{n:GoInt,err:Error} {
+		for (i in 0...p.length.toBasic()) {
+			p[i] = (input.readByte() : GoByte);
+		}
+		return {n: p.length,err: null};
 	}
 
 	public function close():Error {

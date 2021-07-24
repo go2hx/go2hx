@@ -10,6 +10,19 @@ import stdgo.StdGoTypes.GoInt;
 var enoent:Error = null;
 final o_rdonly:GoInt = 0;
 
+function getuid():GoInt
+	return 0;
+function geteuid():GoInt
+	return 0;
+function getgid():GoInt
+	return 0;
+function getegid():GoInt
+	return 0;
+function getpid():GoInt
+	return 0;
+function getppid():GoInt
+	return 0;
+
 function getenv(s:String):MultiReturn<{value:GoString, found:Bool}> {
 	var result = Sys.getEnv(s);
 	if (result == null)

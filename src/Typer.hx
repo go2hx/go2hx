@@ -1117,7 +1117,7 @@ private function getUnderlying(type:GoType):GoType {
 
 private function getElem(type:GoType):GoType {
 	return switch type {
-		case array(elem, _), slice(elem):
+		case array(elem, _), slice(elem), pointer(elem):
 			elem;
 		default:
 			type;
@@ -1183,6 +1183,8 @@ private function pointerUnwrap(type:GoType):GoType {
 private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:Info):Expr {
 	if (e != null)
 		switch e.expr {
+			case EBinop(_, _, _):
+				e = macro ($e);
 			case EConst(c):
 				switch c {
 					case CIdent(i):
@@ -1195,29 +1197,32 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				}
 			default:
 		}
-	var fromNamed = isNamed(from);
-	var toNamed = isNamed(to);
-	if (fromNamed && !toNamed && !isInterface(to)) {
-		return macro $e.__t__;
-	}
-	if (toNamed && !fromNamed) {
-		switch ct {
-			case TPath(p):
-				e = assignTranslate(from,getUnderlying(to),e,info);
-				return macro new $p($e);
-			default:
+
+	function namedCheckCast(from:GoType,to:GoType) {
+		var fromNamed = isNamed(from);
+		var toNamed = isNamed(to);
+		if (fromNamed && !toNamed && !isInterface(to)) {
+			return macro $e.__t__;
 		}
+		if (toNamed && !fromNamed) {
+			switch ct {
+				case TPath(p):
+					e = assignTranslate(from,getUnderlying(to),e,info);
+					return macro new $p($e);
+				default:
+			}
+		}
+		return null;
 	}
+	var ret = namedCheckCast(from,to);
+	if (ret != null)
+		return ret;
 	
 	if (isAnyInterface(from)) {
 		return macro Go.fromInterface(($e : $ct));
 	}
 	if (isInterface(pointerUnwrap(from))) {
 		return macro Go.smartcast(cast($e, $ct)); // allows correct interface casting
-	}
-
-	if (isPointerStruct(from) && isPointerStruct(to)) {
-		
 	}
 
 	if (isStruct(from) && isStruct(to)) {
@@ -1238,7 +1243,42 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				throw "struct is unnamed";
 		}
 	}
-	//e = assignTranslate(from,to,e,info);
+
+	if (isPointerStruct(from) && isPointerStruct(to)) {
+		final ct = toComplexType(to,info);
+		final fromElem = getElem(from);
+		final toElem = getElem(to);
+		switch ct {
+			case TPath(p):
+				final get = checkType(macro $e.value,toComplexType(fromElem,info),fromElem,toElem,info);
+				final set = checkType(macro v,toComplexType(fromElem,info),toElem,fromElem,info);
+				final child = checkType(macro p.ref,toComplexType(fromElem,info),toElem,fromElem,info);
+				return macro {
+					var p = new $p(() -> $get,null,false,$e);
+					p.convert = v -> $set;
+					p;
+				};
+			default:
+				throw "struct type not tpath: " + ct;
+		}
+	}
+
+	if (isPointer(from) && isPointer(to)) {
+		final ct = toComplexType(to,info);
+		final fromElem = getElem(from);
+		final toElem = getElem(to);
+		switch ct {
+			case TPath(p):
+				var e = macro $e.value;
+
+				final get = checkType(e,toComplexType(toElem,info),fromElem,toElem,info);
+				final v = checkType(macro v,toComplexType(fromElem,info),toElem,fromElem,info);
+				final set = checkType(macro $e = $v,toComplexType(toElem,info),fromElem,toElem,info);
+				return macro new $p(() -> $get,v -> $set);
+			default:
+				throw "pointer not tpath: " + ct;
+		}
+	}
 	return macro($e : $ct);
 }
 
@@ -2638,7 +2678,7 @@ private function setBasicLit(kind:Ast.Token, value:String, info:Info) {
 				try {
 					var i = haxe.Int64Helper.parseString(value);
 					if (i > 2147483647 || i < -2147483647) {
-						e = makeString(value);
+						e.expr = ECheckType(makeString(value),TPath({name: "GoInt64",pack: []}));
 					}
 				} catch (e) {
 					trace("basic lit int error: " + e + " value: " + value);
@@ -2689,7 +2729,6 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 					case ECheckType(e, t):
 						switch e.expr {
 							case EConst(c):
-								var isConst = true;
 								switch c {
 									case CInt(v): return ECheckType(toExpr(EConst(CInt('-$v'))), t);
 									case CFloat(f): return ECheckType(toExpr(EConst(CFloat('-$f'))), t);
@@ -3843,6 +3882,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	for (imp in spec.implicits) {
 		implicits.push(parseTypePath(imp.path, imp.name, info));
 	}
+
 	var t = typeof(spec.type);
 	var ct = typeExprType(spec.type,info);
 	var value = defaultValue(t,info,false);
@@ -3901,6 +3941,11 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 }
 
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool=false) {
+
+	final hash:Int = spec.type.type.hash;
+	final nameType:GoType = typeof(spec.name,false);
+	locals[hash] = nameType;
+
 	if (spec.assign != 0) {
 		var name = className(spec.name.name, info);
 		var type = typeExprType(spec.type, info);
@@ -3932,9 +3977,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool=false):TypeDe
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
-			final hash:Int = spec.type.type.hash;
-			final nameType:GoType = typeof(spec.name,false);
-			locals[hash] = nameType;
 
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true, true);
@@ -4023,10 +4065,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool=false):TypeDe
 			});
 			return cl;
 		case "InterfaceType":
-			// var interface:Ast.InterfaceType = spec.type;
-			final hash:Int = spec.type.type.hash;
-			final nameType:GoType = typeof(spec.name,false);
-			locals[hash] = nameType;
 
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0) {

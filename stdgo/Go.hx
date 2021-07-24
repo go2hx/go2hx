@@ -400,8 +400,18 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_uintptr;
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GT_enum.GT_invalid; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
-					default:
-						throw "unknown abstract type: " + sref;
+					default: //used internally such as reflect.Kind
+						var ref = ref.get();
+						var interfaces:Array<Expr> = [];
+						for (t in ref.to) {
+							switch t.t {
+								case TInst(tt, params):
+									if (tt.get().isInterface) interfaces.push(gtDecode(t.t));
+								default:
+							}
+						}
+						ret = macro stdgo.reflect.Reflect.GT_enum.GT_namedType($v{ref.pack.join(".")}, $v{ref.module}, $v{ref.name}, [], $a{interfaces},
+							${gtDecode(ref.type)});
 				}
 			case TInst(ref, params):
 				var ref = ref.get();

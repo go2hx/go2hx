@@ -7,11 +7,10 @@ import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.Error;
 import stdgo.internal.ErrorReturn;
-import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.GoFloat;
 import stdgo.StdGoTypes.AnyInterface;
 
-function parseFloat(s:GoString, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat>> {
+function parseFloat(s:GoString, bitSize:GoInt64):ErrorReturn<GoFloat> {
 	try {
 		return {value: Std.parseFloat(s.toString())};
 	} catch (e) {
@@ -19,14 +18,14 @@ function parseFloat(s:GoString, bitSize:GoInt64):MultiReturn<ErrorReturn<GoFloat
 	}
 }
 
-inline function unquote(s:GoString):MultiReturn<ErrorReturn<GoString>> {
+inline function unquote(s:GoString):ErrorReturn<GoString> {
 	if (s.length < 2)
 		return {value: "", error: errSyntax};
 	s = s.substr(1,s.length.toBasic() - 2);
 	return {value: s, error: null};
 }
 
-inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
+inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):ErrorReturn<GoInt> {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
@@ -39,7 +38,7 @@ inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<
 	}
 }
 
-inline function parseBool(s:GoString):MultiReturn<ErrorReturn<Bool>> {
+inline function parseBool(s:GoString):ErrorReturn<Bool> {
 	return switch s.toString() {
 		case "1", "t", "T", "true", "TRUE", "True":
 			{value: true};
@@ -76,7 +75,7 @@ private function rangeError(fn:GoString, str:GoString):NumError {
 	return new NumError(fn, str, errRange);
 }
 
-inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):MultiReturn<ErrorReturn<GoInt>> {
+inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):ErrorReturn<GoInt> {
 	return parseInt(s, base, bitSize);
 }
 

@@ -23,10 +23,10 @@ inline function after(d:Duration):Chan<Time> {
 	return chan;
 }
 
-inline function parseDuration(s:GoString):MultiReturn<{d:Duration, err:Error}> {
+inline function parseDuration(s:GoString):{d:Duration, err:Error} {
 	return {d: null, err: null};
 }
 
 typedef Time = time.Time.Time;
-typedef Duration = time.Time.Duration;
+typedef Duration = Dynamic;//time.Time.Duration;
 final second = time.Time.second;

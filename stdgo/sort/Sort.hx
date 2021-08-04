@@ -2,20 +2,20 @@ package stdgo.sort;
 import stdgo.Slice;
 import stdgo.StdGoTypes;
 
-function ints(slice:Slice<Int>) {
-	sort(slice,(i, j) -> {
+function ints(slice:Slice<GoInt>) {
+	_sort(slice,(i, j) -> {
 		return slice[i] > slice[j] ? -1 : 1;
 	});
 }
 
 function strings(slice:Slice<GoString>) {
-	sort(slice,(i, j) -> {
+	_sort(slice,(i, j) -> {
 		return slice[i] > slice[j] ? -1 : 1;
 	});
 }
 
-function slice<T>(slice:Slice<Dynamic>,less:(i:GoInt,j:GoInt)->Bool) {
-	sort(slice,(i,j) -> {
+function slice(slice:AnyInterface,less:(i:GoInt,j:GoInt)->Bool) {
+	_sort(slice.value,(i,j) -> {
 		return less(i,j) ? -1 : 1;
 	});
 }
@@ -31,7 +31,7 @@ function intsAreSorted(slice:Slice<Int>):Bool {
 }
 
 
-private function sort(a:Slice<Dynamic>, cmp:Int->Int->Int) {
+private function _sort(a:Slice<Dynamic>, cmp:Int->Int->Int) {
 	rec(a, cmp, 0, a.length.toBasic());
 }
 

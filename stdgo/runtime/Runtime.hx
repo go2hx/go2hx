@@ -68,7 +68,7 @@ function callersFrames(callers:Slice<GoUIntptr>):Pointer<Frames> {
 	return Go.pointer(f);
 }
 
-function newRuntime(message:String):Error {
+function newRuntime(message:GoString):Error {
 	return new RuntimeErrorData(message);
 }
 
@@ -76,8 +76,8 @@ private class RuntimeErrorData implements Error implements StructType {
 	public function __underlying__():AnyInterface
 		return null;
 
-	var message:String;
-	public function new(message:String) {
+	var message:GoString;
+	public function new(message:GoString) {
 		this.message = message;
 	}
 
@@ -93,7 +93,7 @@ function keepAlive(x:AnyInterface) {}
 interface Error extends stdgo.StdGoTypes.Error {
 	public function __underlying__():AnyInterface;
 	public function runtimeError():Void;
-	public function error():String;
+	public function error():GoString;
 }
 
 class Frames implements StructType {

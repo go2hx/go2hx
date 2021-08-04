@@ -12,9 +12,9 @@ import stdgo.internal.ErrorReturn;
 
 function readAll(r:stdgo.io.Io.Reader)
 	return stdgo.io.Io.readAll(r);
-function readFile(filename:String) {}
+function readFile(filename:GoString) {}
 
-function writeFile(filename:String, data:Bytes, ?perm:GoInt):Error {
+function writeFile(filename:GoString, data:Bytes, ?perm:GoInt):Error {
 	try {
 		sys.io.File.saveBytes(filename, data);
 		return null;
@@ -23,7 +23,7 @@ function writeFile(filename:String, data:Bytes, ?perm:GoInt):Error {
 	}
 }
 
-function readDir(dirname:String):MultiReturn<ErrorReturn<Slice<FileInfo>>> {
+function readDir(dirname:GoString):ErrorReturn<Slice<FileInfo>> {
 	dirname = Path.addTrailingSlash(dirname);
 	try {
 		var array:Array<FileInfo> = [];
@@ -37,7 +37,7 @@ function readDir(dirname:String):MultiReturn<ErrorReturn<Slice<FileInfo>>> {
 function close() {}
 function nopCloser(r:Reader) {}
 function write(p:Bytes) {}
-function writeString(s:String) {}
+function writeString(s:GoString) {}
 function readFrom(r:Reader) {}
-function tempFile(dir:String) {}
-function tempDir(dir:String) {}
+function tempFile(dir:GoString) {}
+function tempDir(dir:GoString) {}

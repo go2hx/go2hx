@@ -22,10 +22,10 @@
 
 package stdgo;
 
-import stdgo.reflect.Reflect.GT_enum;
 import stdgo.Pointer.PointerData;
 import haxe.Int32;
 import haxe.Int64;
+import stdgo.reflect.Reflect;
 
 // native_num define flag
 typedef GoByte = GoUInt8;
@@ -43,7 +43,11 @@ private typedef UInt32 = #if !native_num Int #elseif cpp cpp.UInt32 #elseif cs c
 private typedef UInt64 = #if !native_num Int64 #elseif cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else Int64 #end // __UInt64 #end;
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
-private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64 #else Float #end
+private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64; #else Float; #end
+
+typedef GoUnTypedInt = GoInt64;
+typedef GoUnTypedFloat = GoFloat64;
+typedef GoUnTypedComplex = GoComplex128;
 
 private class __UInt64 {
 	public var high:Int64;
@@ -77,9 +81,8 @@ class Complex<T : GoFloat64> {
 	inline function toString():GoString {
 		var imagString = Go.string(imag);
 		var realString = Go.string(real);
-		final sign = imagString.charAt(0) == "-" ? "-" : "+";
-		final sign2 = realString.charAt(0) == "-" ? "-" : "+";
-		return "(" + sign + realString + sign2 + imagString + "i)";
+		final sign2 = realString.charAt(0) == "-" ? "" : "+";
+		return "(" + realString + sign2 + imagString + "i)";
 	}
 }
 
@@ -449,24 +452,66 @@ abstract GoComplex64(Complex64) from Complex64 {
 	@:from public static inline function ofInt(x:Int):GoComplex64
 		return new Complex64(x, 0);
 
+	@:op(A + B) @:commutative private static function addInt(a:GoComplex64,b:GoInt):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt8(a:GoComplex64,b:GoInt8):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt16(a:GoComplex64,b:GoInt16):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt32(a:GoComplex64,b:GoInt32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt64(a:GoComplex64,b:GoInt64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic().low ,a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt(a:GoComplex64,b:GoUInt):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex64,b:GoUInt8):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex64,b:GoUInt16):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex64,b:GoUInt32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt64(a:GoComplex64,b:GoUInt64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic().low ,a.imag);
+
+	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex64,b:GoFloat32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addFloat64(a:GoComplex64,b:GoFloat64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(),a.imag);
+
 	@:op(A + B) private static function add(a:GoComplex64, b:GoComplex64):GoComplex64
-		return new GoComplex64(a.real.toBasic() + b.real.toBasic(), a.imag.toBasic() + b.imag.toBasic());
+		return new GoComplex64(a.real + b.real, a.imag.toBasic() + b.imag.toBasic());
 
 	@:op(A * B) private static function mul(a:GoComplex64, b:GoComplex64):GoComplex64
-		return new GoComplex64((a.real.toBasic() * b.real.toBasic()) - (a.imag.toBasic() * b.imag.toBasic()),
-			(a.imag.toBasic() * b.real.toBasic()) + (a.real.toBasic() * b.imag.toBasic()));
+		return new GoComplex64((a.real * b.real) - (a.imag.toBasic() * b.imag.toBasic()),
+			(a.imag.toBasic() * b.real) + (a.real * b.imag.toBasic()));
 
 	@:op(A / B) private static function div(a:GoComplex64, b:GoComplex64):GoComplex64 {
 		// if (b.real == 0.0 && b.imag == 0.0)
 		//	return Math.NaN;
-		return new GoComplex64(((a.real.toBasic() * b.real.toBasic()) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real.toBasic() * b.real.toBasic())
+		return new GoComplex64(((a.real * b.real) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real * b.real)
 			+ (b.imag.toBasic() * b.imag.toBasic())),
-			((a.imag.toBasic() * b.real.toBasic()) - (a.real.toBasic() * b.imag.toBasic())) / ((b.real.toBasic() * b.real.toBasic())
+			((a.imag.toBasic() * b.real) - (a.real * b.imag.toBasic())) / ((b.real * b.real)
 				+ (b.imag.toBasic() * b.imag.toBasic())));
 	}
 
+	@:op(A - B) private static function subInt(a:GoComplex64, b:GoInt):GoComplex64
+		return new GoComplex64(a.real - b.toBasic(), a.imag);
+
+	@:op(A - B) private static function subInt2(a:GoInt, b:GoComplex64):GoComplex64
+		return new GoComplex64(a.toBasic() - b.real,b.imag);
+
 	@:op(A - B) private static function sub(a:GoComplex64, b:GoComplex64):GoComplex64
-		return new GoComplex64(a.real.toBasic() - b.real.toBasic(), a.imag.toBasic() - b.imag.toBasic());
+		return new GoComplex64(a.real - b.real, a.imag.toBasic() - b.imag.toBasic());
 
 	@:op(A > B) private static function gt(a:GoComplex64, b:GoComplex64):Bool
 		return (a.real > b.real) && (a.imag > b.imag);
@@ -484,7 +529,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 		return new GoComplex64(0.0 - t.real.toBasic(), 0.0 - t.imag.toBasic());
 
 	@:op(-A) private static function neg(t:GoComplex64):GoComplex64
-		return new GoComplex64(-t.real, t.imag);
+		return new GoComplex64(-t.real, -t.imag);
 }
 
 abstract GoComplex128(Complex128) from Complex128 {
@@ -493,6 +538,10 @@ abstract GoComplex128(Complex128) from Complex128 {
 
 	@:to inline function toComplex64():GoComplex64 {
 		return new GoComplex64(clampFloat32(real), clampFloat32(imag));
+	}
+
+	@:from static function fromFloat(f:Float):GoComplex128 {
+		return new GoComplex128(f,0);
 	}
 
 	public inline function toBasic()
@@ -513,6 +562,45 @@ abstract GoComplex128(Complex128) from Complex128 {
 	@:op(A + B) private static function add(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real + b.real, a.imag + b.imag);
 
+	@:op(A + B) @:commutative private static function addInt(a:GoComplex128,b:GoInt):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt8(a:GoComplex128,b:GoInt8):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt16(a:GoComplex128,b:GoInt16):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt32(a:GoComplex128,b:GoInt32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addInt64(a:GoComplex128,b:GoInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low,a.imag);
+
+	@:op(A + B) @:commutative private static function addInt128(a:GoComplex128,b:GoInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low ,a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt(a:GoComplex128,b:GoUInt):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex128,b:GoUInt8):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex128,b:GoUInt16):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex128,b:GoUInt32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addUInt128(a:GoComplex128,b:GoUInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low ,a.imag);
+
+	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex128,b:GoFloat32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
+	@:op(A + B) @:commutative private static function addFloat128(a:GoComplex128,b:GoFloat64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(),a.imag);
+
 	@:op(A * B) private static function mul(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128((a.real * b.real) - (a.imag * b.imag), (a.imag * b.real) + (a.real * b.imag));
 
@@ -522,6 +610,12 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new GoComplex128(((a.real * b.real) + (a.imag * b.imag)) / ((b.real * b.real) + (b.imag * b.imag)),
 			((a.imag * b.real) - (a.real * b.imag)) / ((b.real * b.real) + (b.imag * b.imag)));
 	}
+
+	@:op(A - B) private static function subInt(a:GoComplex128, b:GoInt):GoComplex128
+		return new GoComplex128(a.real - b.toBasic(), a.imag);
+
+	@:op(A - B) private static function subInt2(a:GoInt, b:GoComplex128):GoComplex128
+		return new GoComplex128(a.toBasic() - b.real,b.imag);
 
 	@:op(A - B) private static function sub(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real - b.real, a.imag - b.imag);
@@ -542,7 +636,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new GoComplex128(0.0 - t.real, 0.0 - t.imag);
 
 	@:op(-A) private static function neg(t:GoComplex128):GoComplex128
-		return new GoComplex128(-t.real, t.imag);
+		return new GoComplex128(-t.real, -t.imag);
 
 	@:op(A == B) private static function eq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real == b.real && a.imag == b.imag;
@@ -1769,47 +1863,29 @@ interface Error {
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var valueInterface:Any;
 	public var type:stdgo.reflect.Reflect.Type;
 
-	public function new(value,type,valueInterface=null) {
+	public function new(value,type) {
 		this.value = value;
-		this.valueInterface = valueInterface;
 		this.type = type;
 	}
 
 	public function __copy__():AnyInterfaceData {
-		switch type.gt {
-			case GT_bool,GT_int,GT_int8,GT_int16,GT_int32,GT_uint8,GT_uint16,GT_uint32:
+		switch @:privateAccess type.common().value {
+			case basic(kind):
 
-			case GT_int64:
+			case sliceType(_):
 
-			case GT_uint64:
+			case arrayType(_, _):
 
-			case GT_unsafePointer:
+			case mapType(_, _):
 
-			case GT_uintptr:
-
-			case GT_float32,GT_float64:
-
-			case GT_complex64:
-
-			case GT_complex128:
-
-			case GT_string:
-
-			case GT_slice(_):
-
-			case GT_array(_, _):
-
-			case GT_map(_, _):
-
-			case GT_chan(_):
+			case chanType(_,_):
 
 			default:
-				throw "unknown copy to interface{} type: " + type.gt;
+				throw "unknown copy to interface{} type: " + @:privateAccess type.common().value;
 		}
-		return new AnyInterfaceData(value,type.__copy__(),valueInterface);
+		return new AnyInterfaceData(value,type); //TODO copy type
 	}
 
 	public function toString():GoString
@@ -1827,11 +1903,12 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
-		var gt = a.type.gt;
-		var gt2 = b.type.gt;
-		function isNamed(gt:GT_enum) {
+		var gt:GoType = @:privateAccess a.type.common().value;
+		var gt2:GoType = @:privateAccess b.type.common().value;
+		
+		function isNamed(gt:GoType) {
 			return switch gt {
-				case GT_struct(_):
+				case structType(_):
 					false;
 				default:
 					true;
@@ -1839,67 +1916,76 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var aValue = a.value;
 		var bValue = b.value;
-		//trace("reflect: " + Reflect.fields(aValue) + " gt: " + gt + " is: " + Type.typeof(aValue));
 		switch gt {
-			case GT_namedType(_, _, _, _, _, type):
+			case named(_, _, _, type):
 				gt = type;
-				if (isNamed(type)) {
+				if (isNamed(type))
 					aValue = (aValue : Dynamic).__t__;
-				}
 			default:
 		}
 		switch gt2 {
-			case GT_namedType(_, _, _, _, _, type):
-				if (isNamed(type)) {
+			case named(_,_, _, type):
+				if (isNamed(type))
 					bValue = (bValue : Dynamic).__t__;
-				}
 			default:
 		}
 		return switch gt {
-			case GT_string:
-				(aValue : GoString) == (bValue : GoString);
-			case GT_bool, GT_int8, GT_int16, GT_int32, GT_uint8, GT_uint16, GT_uint32, GT_uintptr, GT_float64, GT_float32:
-				aValue == bValue;
-			case GT_uint:
-				(aValue : GoUInt) == (bValue : GoUInt);
-			case GT_int:
-				(aValue : GoInt) == (bValue : GoInt);
-			case GT_uint64:
-				(aValue : GoUInt64) == (bValue : GoUInt64);
-			case GT_int64:
-				(aValue : GoInt64) == (bValue : GoInt64);
-			case GT_complex64:
-				(aValue : GoComplex64) == (bValue : GoComplex64);
-			case GT_complex128:
-				(aValue : GoComplex128) == (bValue : GoComplex128);
-			case GT_struct(fields):
+			case basic(kind):
+				switch kind {
+					case string_kind:
+						(aValue : GoString) == (bValue : GoString);
+					case uint_kind:
+						(aValue : GoUInt) == (bValue : GoUInt);
+					case int_kind:
+						(aValue : GoInt) == (bValue : GoInt);
+					case uint64_kind:
+						(aValue : GoUInt64) == (bValue : GoUInt64);
+					case int64_kind:
+						(aValue : GoInt64) == (bValue : GoInt64);
+					case complex64_kind:
+						(aValue : GoComplex64) == (bValue : GoComplex64);
+					case complex128_kind:
+						(aValue : GoComplex128) == (bValue : GoComplex128);
+					case untyped_int_kind:
+						if (!haxe.Int64.isInt64(bValue))
+							bValue = haxe.Int64.ofInt(bValue);
+						(aValue : GoUnTypedInt) == (bValue : GoUnTypedInt);
+					case untyped_float_kind:
+						(aValue : GoUnTypedFloat) == (bValue : GoUnTypedFloat);
+					case untyped_complex_kind:
+						(aValue : GoUnTypedComplex) == (bValue : GoUnTypedComplex);
+					default:
+						aValue == bValue;
+				}
+			case structType(fields):
 				for (i in 0...fields.length) {
-					switch fields[i] {
-						case GT_field(name, type, _):
-							if (StringTools.startsWith(name, "__blank__"))
-								continue;
-							name =  (!isTitle(name) ? "_" : "") + name;
-							var fieldValue = Reflect.field(aValue, name);
-							var fieldValue2 = Reflect.field(bValue, name);
-							if (fieldValue == null || fieldValue2 == null)
-								throw "fieldValue is null: " + Reflect.fields(aValue) + " " + Reflect.fields(bValue) + " name: " + name;
-							var a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect.Type(type));
-							var b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect.Type(type));
-							var bool = equals(a, b);
-							if (!bool) return false;
-						default:
-					}
+					final name = fields[i].name;
+					if (StringTools.startsWith(name,"__blank__"))
+						continue;
+					final type = fields[i].type;
+					final fieldValue = Reflect.field(aValue,name);
+					final fieldValue2 = Reflect.field(bValue,name);
+
+					if (fieldValue == null || fieldValue2 == null)
+						throw "struct issue with field name: " + name;
+
+					final a = new AnyInterface(fieldValue,new stdgo.reflect.Reflect._Type(type));
+					final b = new AnyInterface(fieldValue2,new stdgo.reflect.Reflect._Type(type));
+					
+					final bool = equals(a,b);
+					if (!bool)
+						return false;
 				}
 				true;
-			case GT_invalid:
-				switch b.type.gt {
-					case GT_invalid: true;
+			case invalidType:
+				switch @:privateAccess b.type.common().value {
+					case invalidType: true;
 					default: false;
 				}
-			case GT_slice(elem):
+			case sliceType(elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t = new stdgo.reflect.Reflect.Type(elem);
+				var t = new stdgo.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
@@ -1907,19 +1993,21 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case GT_interface(_, _, _, _):
+			case interfaceType(_):
 				a == null && b == null;
-			case GT_array(elem, _):
+			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t = new stdgo.reflect.Reflect.Type(elem);
+				var t = new stdgo.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (!AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;
+			case pointer(_):
+				aValue == bValue;
 			default:
-				throw "unknown type: " + a.type.gt;
+				throw "unknown type: " + @:privateAccess a.type.common().value;
 		}
 	}
 }
@@ -1927,13 +2015,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 function isTitle(string:String):Bool {
 	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
-
-// holds anon data
-
-@:forward
-@:forward.new
-@:forward.variance
-abstract MultiReturn<T>(T) from T to T {}
 
 interface ArrayAccess<T> {
 	function get(i:Int):T;

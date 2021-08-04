@@ -53,8 +53,9 @@ abstract GoString(Bytes) from Bytes to Bytes {
 
 	@:to public function toSliceByte():Slice<StdGoTypes.GoByte> {
 		var slice = new Slice<StdGoTypes.GoByte>();
+		slice.grow(length.toBasic());
 		for (i in 0...length.toBasic()) {
-			slice.append(get(i));
+			slice[i] = get(i);
 		}
 		return slice;
 	}

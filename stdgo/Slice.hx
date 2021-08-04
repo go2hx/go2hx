@@ -12,11 +12,6 @@ import stdgo.StdGoTypes.GoByte;
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
-	@:from 
-	public static function fromGoString(str:GoString):Slice<GoByte> {
-		return str;
-	}
-
 	@:from
 	public static function fromString(str:String):Slice<GoByte> {
 		return new GoString(str);
@@ -83,6 +78,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		}
 		return slice;
 	}
+
+	public function __copy__()
+		return copy();
 
 	public function append(args:Rest<T>):Slice<T> {
 		var slice = copy();
@@ -212,7 +210,7 @@ private class SliceData<T> {
 	}
 
 	inline public function toString():String
-		return "[" + [for (obj in vector) Go.string(obj)].join(" ") + "]";
+		return "[" + [for (i in pos...length - pos) Go.string(vector[i])].join(" ") + "]";
 
 	inline public function underlying():Vector<T> {
 		return vector;

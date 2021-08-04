@@ -2,13 +2,12 @@ package stdgo.path;
 
 import stdgo.internal.ErrorReturn;
 import haxe.Rest;
-import stdgo.StdGoTypes.MultiReturn;
 
 using haxe.io.Path;
 
 var errBadPattern = stdgo.errors.Errors.new_("syntax error in pattern");
 
-function base(path:String):String {
+function base(path:String):GoString {
 	path = path.normalize();
 	var index = path.lastIndexOf("/");
 	if (index != -1)
@@ -16,17 +15,17 @@ function base(path:String):String {
 	return clean(path);
 }
 
-function clean(path:String):String {
+function clean(path:String):GoString {
 	path = path.normalize();
 	return path == "" ? "." : path;
 }
 
-function dir(path:String):String {
+function dir(path:String):GoString {
 	path = path.normalize();
 	return path.directory() == "" ? "." : path;
 }
 
-function ext(path:String):String {
+function ext(path:String):GoString {
 	return path.extension();
 }
 
@@ -34,14 +33,14 @@ function isAbs(path:String):Bool {
 	return path.isAbsolute();
 }
 
-function join(elem:Rest<String>):String {
+function join(elem:Rest<String>):GoString {
 	return haxe.io.Path.join(elem.toArray());
 }
 
-function math(pattern:String, name:String):MultiReturn<ErrorReturn<Bool>> {
+function math(pattern:String, name:String):ErrorReturn<Bool> {
 	return {value: true};
 }
 
-function split(path:String):{dir:String, file:String} {
+function split(path:String):{dir:GoString, file:GoString} {
 	return {dir: dir(path), file: path.withoutDirectory()};
 }

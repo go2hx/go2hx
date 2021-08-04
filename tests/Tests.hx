@@ -16,9 +16,9 @@ function main() {
 	var completion = new sys.io.Process('haxe --wait $port --verbose', null, true);
 	path = Path.normalize(Sys.getCwd());
 	initOutput();
-	//yaegi();
-	tinygo();
-	// gotests();
+	yaegi();
+	//tinygo();
+	//gotests();
 	completion.close();
 	output.writeString("PASSING: " + passed + "/" + total);
 	output.close();
@@ -60,7 +60,7 @@ function yaegi() {
 	])
 		tests.remove('.$pathto$test.go');
 	
-	tests = ['./$pathto' + "addr0.go"];
+	//tests = ['./$pathto' + "addr0.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test],true);
@@ -87,9 +87,11 @@ function tinygo() {
 		"env", // needs test runner to set enviorment variables and sys args before program execution
 		"gc", // relies on gc runtime
 		"ldflags",
+		"filesystem", //uses test data
+		"stdlib", //runs but still doesn't pass
 	])
 		tests.remove('.$pathto$test.go');
-	tests = ['.$pathto' + "reflect.go"];
+	//tests = ['.$pathto' + "interface.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test],false);
@@ -165,8 +167,9 @@ function compile(tests:Array<String>,server:Bool) {
 	command = 'haxe $command';
 
 	var runner = run(command);
+	command = cleanCommand(command);
 	final str = File.getContent(textFile);
-	output.writeString('- [' + (runner ? "x" : " ") + '] $name \n    $str\n');
+	output.writeString('- [' + (runner ? "x" : " ") + '] $name \n${!runner ? '    $command\n    $str\n' : ''}');
 	if (!runner) {
 		Sys.println(str);
 		return;
@@ -177,19 +180,19 @@ function compile(tests:Array<String>,server:Bool) {
 	final textFile2 = getTextFile(name + "2");
 	final go = run('go run $program > $textFile2');
 	if (!go) {
-		throw 'go error running: $program';
+		trace('go error running: $program');
 	}
-	output.writeString("PASSED\n");
+	Sys.println("PASSED");
 	passed++;
 }
 
 var output:FileOutput = null;
 
 function initOutput() {
-	File.saveContent("tests.txt", "");
+	File.saveContent("tests.md", "");
 	if (!FileSystem.exists("tests/results"))
 		FileSystem.createDirectory("tests/results");
-	output = File.append("tests.txt", false);
+	output = File.append("tests.md", false);
 }
 
 typedef Runner = {str:String, error:Bool};

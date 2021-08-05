@@ -11,7 +11,7 @@ var uRLEncoding = new UrlEncoding();
 private class StdEncoding {
 	public function new() {}
 
-	public function encodeToString(bytes:Bytes):MultiReturn<ErrorReturn<String>> {
+	public function encodeToString(bytes:Bytes):ErrorReturn<String> {
 		try {
 			return return {value: Base.encode(bytes)};
 		} catch (e) {
@@ -19,7 +19,7 @@ private class StdEncoding {
 		}
 	}
 
-	public function decodeString(string:GoString):MultiReturn<ErrorReturn<Bytes>> {
+	public function decodeString(string:GoString):ErrorReturn<Bytes> {
 		try {
 			return {value: Base.decode(string.toString())};
 		} catch (e) {
@@ -31,7 +31,7 @@ private class StdEncoding {
 private class UrlEncoding {
 	public function new() {}
 
-	public function encodeToString(bytes:Bytes):MultiReturn<ErrorReturn<String>> {
+	public function encodeToString(bytes:Bytes):ErrorReturn<String> {
 		try {
 			return {value: Base.urlEncode(bytes)};
 		} catch (e) {

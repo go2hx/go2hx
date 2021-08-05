@@ -13,7 +13,7 @@ interface Stringer {
 	function toString():GoString;
 }
 
-inline function errorf(fmt:String, args:Rest<Dynamic>) {
+inline function errorf(fmt:GoString, args:Rest<Dynamic>) {
 	return stdgo.errors.Errors.new_(format(fmt, parse(args)));
 }
 
@@ -25,11 +25,11 @@ function print(args:Rest<Dynamic>) {
 	log(parse(args).join(""));
 }
 
-inline function printf(fmt:String, args:Rest<Dynamic>) { // format
+inline function printf(fmt:GoString, args:Rest<Dynamic>) { // format
 	log(format(fmt, parse(args)));
 }
 
-inline function fprintf(w:Writer, fmt:String, args:Rest<Dynamic>) {
+inline function fprintf(w:Writer, fmt:GoString, args:Rest<Dynamic>) {
 	
 }
 
@@ -55,11 +55,11 @@ private function parse(args:Array<Dynamic>):Array<String> {
 	}];
 }
 
-inline function sprintf(fmt:String, args:Rest<Dynamic>):GoString { // format
+inline function sprintf(fmt:GoString, args:Rest<Dynamic>):GoString { // format
 	return format(fmt, parse(args));
 }
 
-private function format(fmt:String, args:Array<Dynamic>):String {
+private function format(fmt:GoString, args:Array<Dynamic>):GoString {
 	/*try {
 			return stdgo.internal.Printf.format(fmt, args);
 		} catch (e) {

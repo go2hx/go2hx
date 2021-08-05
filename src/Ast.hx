@@ -55,6 +55,7 @@ typedef BasicLit = {
 	// > Node,
 	valuePos:Pos,
 	kind:Token,
+	type:ExprType, 
 	value:String,
 };
 
@@ -93,7 +94,6 @@ typedef IndexExpr = {
 	lbrack:Pos,
 	index:Expr,
 	rbrack:Pos,
-	type:ExprType,
 };
 
 typedef SliceExpr = {
@@ -434,62 +434,6 @@ typedef Object = {
 typedef Position = {};
 typedef Pos = Int;
 
-enum GoType {
-	invalid;
-	signature(variadic:Bool, params:GoType, results:GoType, recv:GoType);
-	basic(kind:BasicKind);
-	tuple(len:Int, vars:Array<GoType>);
-	varValue(name:String, type:GoType);
-	interfaceValue(numMethods:Int);
-	slice(elem:GoType);
-	named(path:String, underlying:GoType);
-	struct(fields:Array<FieldType>);
-	pointer(elem:GoType);
-	array(elem:GoType, len:Int);
-	map(key:GoType, value:GoType);
-
-	chan(dir:Int, elem:GoType);
-}
-
-typedef FieldType = {
-	name:String,
-	type:GoType,
-	tag:String,
-	embedded:Bool,
-}
-
-enum BasicKind {
-	invalid_kind;
-	bool_kind;
-	int_kind;
-	int8_kind;
-	int16_kind;
-	int32_kind;
-	int64_kind;
-	uint_kind;
-	uint8_kind;
-	uint16_kind;
-	uint32_kind;
-	uint64_kind;
-	uintptr_kind;
-	float32_kind;
-	float64_kind;
-	complex64_kind;
-	complex128_kind;
-	string_kind;
-	unsafepointer_kind;
-
-	untyped_bool_kind;
-	untyped_int_kind;
-	untyped_rune_kind;
-	untyped_float_kind;
-	untyped_complex_kind;
-	untyped_string_kind;
-	untyped_nil_kind;
-	// aliases
-	// byte = uint8
-	// rune = int32
-}
 
 @:enum abstract Token(String) {
 	public final ILLEGAL = "ILLEGAL";

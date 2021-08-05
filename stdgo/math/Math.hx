@@ -1,6 +1,5 @@
 package stdgo.math;
 
-import stdgo.StdGoTypes.MultiReturn;
 import stdgo.StdGoTypes.GoFloat64 as Float;
 import stdgo.StdGoTypes.GoInt;
 import Math as M;
@@ -76,8 +75,8 @@ inline function expm1(x:Float):Float {
 	return 0; // TODO
 }
 
-inline function frexp(x:Float):MultiReturn<{frac:Float, exp:GoInt}> {
-	return {frac: 0, exp: 0}; // TODO
+inline function frexp(x:Float):{_frac:Float, _exp:GoInt} {
+	return {_frac: 0, _exp: 0}; // TODO
 }
 
 inline function hypot(x:Float, y:Float):Float {
@@ -104,8 +103,8 @@ inline function remainder(x:Float, y:Float):Float {
 	return 0; // TODO
 }
 
-inline function modf(x:Float):MultiReturn<{int:Float, frac:Float}> {
-	return {int: 0, frac: 0}; // TODO
+inline function modf(x:Float):{_int:Float, _frac:Float} {
+	return {_int: 0, _frac: 0}; // TODO
 }
 
 inline function ldexp(x:Float, y:Float):Float {

@@ -94,12 +94,12 @@ private class MapData<K, V> {
 				return false;
 			return x == y;
 		}
-		switch type.gt {
-			case GT_map(keyType, _):
-				final t = new Type(keyType);
-				return new AnyInterface(key, t) == new AnyInterface(objKey, t);
+		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
+			case mapType(keyType, _):
+				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
+				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
-				throw "unknown type: " + type.gt;
+				throw "unknown type: " + @:privateAccess type.common().value;
 		}
 	}
 
@@ -111,14 +111,13 @@ private class MapData<K, V> {
 		return false;
 	}
 
-	public function remove(key:K):Bool {
+	public function remove(key:K) {
 		for (obj in array) {
 			if (equals(key, obj.key)) {
 				array.remove(obj);
-				return true;
+				return;
 			}
 		}
-		return false;
 	}
 
 	public function get(key:K):V {
@@ -130,9 +129,9 @@ private class MapData<K, V> {
 	}
 
 	public inline function defaultValue():V {
-		return switch type.gt {
-			case GT_map(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect.Type(value));
-			default: throw "unknown type: " + type.gt;
+		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
+			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
+			default: @:privateAccess throw "unknown type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
 		}
 	}
 
@@ -146,6 +145,7 @@ private class MapData<K, V> {
 		for (obj in array) {
 			if (equals(key, obj.key)) {
 				obj.value = value;
+				return;
 			}
 		}
 		array.push({key: key, value: value});
@@ -200,8 +200,8 @@ private class MapKeyValueIterator<K, V> {
 		return offset < slice.length;
 	}
 
-	public inline function next():MultiReturn<{key:K, value:V}> {
-		var o:MultiReturn<{key:K, value:V}> = null;
+	public inline function next():{key:K, value:V} {
+		var o:{key:K, value:V} = null;
 		while (offset < slice.length) {
 			o = slice[offset++];
 			if (o != null)

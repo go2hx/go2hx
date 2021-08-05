@@ -451,26 +451,32 @@ func parseType(node interface{}) map[string]interface{} {
 	switch data["id"] {
 	case "Named":
 		named := node.(*types.Named)
-		path := named.String()
-		if !strings.HasPrefix(path, "syscall/") &&
-			!strings.HasPrefix(path, "internal.") &&
-			//!strings.Contains(path, "error") &&
-			!strings.HasPrefix(path, "reflect.") &&
-			!strings.HasPrefix(path, "runtime.") &&
-			!strings.HasPrefix(path, "sync.") &&
-			!marked[path] {
-			init := false
-			if marked == nil {
-				marked = make(map[string]bool)
-				init = true
+		isAlias := named.Obj().IsAlias()
+		if isAlias {
+			data = parseType(named.Underlying())
+			isVar = true
+		}else{
+			path := named.String()
+			if !strings.HasPrefix(path, "syscall/") &&
+				!strings.HasPrefix(path, "internal.") &&
+				//!strings.Contains(path, "error") &&
+				!strings.HasPrefix(path, "reflect.") &&
+				!strings.HasPrefix(path, "runtime.") &&
+				!strings.HasPrefix(path, "sync.") &&
+				!marked[path] {
+				init := false
+				if marked == nil {
+					marked = make(map[string]bool)
+					init = true
+				}
+				marked[path] = true
+				data["underlying"] = parseType(named.Underlying())
+				if init {
+					marked = nil
+				}
 			}
-			marked[path] = true
-			data["underlying"] = parseType(named.Underlying())
-			if init {
-				marked = nil
-			}
+			data["path"] = named.String()
 		}
-		data["path"] = path
 	case "Slice":
 		s := node.(*types.Slice)
 		data["elem"] = parseType(s.Elem())
@@ -488,7 +494,6 @@ func parseType(node interface{}) map[string]interface{} {
 		data["fields"] = fields
 	case "Interface":
 		s := node.(*types.Interface)
-		data["numMethods"] = s.NumMethods()
 		data["empty"] = s.Empty()
 	case "Pointer":
 		s := node.(*types.Pointer)
@@ -532,7 +537,8 @@ func parseType(node interface{}) map[string]interface{} {
 		fmt.Println("unknown parse type id:", data["id"])
 	}
 	if !isVar {
-		data["hash"] = typeHasher.Hash(node.(types.Type))
+		t := node.(types.Type)
+		data["hash"] = fmt.Sprint(typeHasher.Hash(t))
 	}
 	return data
 }
@@ -680,9 +686,7 @@ func parseData(node interface{}) map[string]interface{} {
 	switch node := node.(type) {
 	case *ast.CompositeLit:
 	case *ast.SelectorExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.IndexExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.Elt))
 	case *ast.ParenExpr:
@@ -772,6 +776,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		"id":    "BasicLit",
 		"kind":  value.Kind.String(),
 		"value": output,
+		"type": parseType(checker.TypeOf(value)), 
 	}
 }
 func getId(obj interface{}) string {

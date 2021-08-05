@@ -24,10 +24,10 @@ class OutputWriter implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Slice<GoByte>):{n:GoInt, err:Error} {
+	public function write(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
-		return {n: 0, err: null};
+		return {_n: 0, _err: null};
 	}
 
 	public function name():GoString {
@@ -36,7 +36,7 @@ class OutputWriter implements stdgo.io.Io.Writer {
 	
 }
 
-inline function mkdir(path:String, ?perm:GoInt):Error {
+inline function mkdir(path:GoString, ?perm:GoInt):Error {
 	try {
 		FileSystem.createDirectory(path);
 		return null;
@@ -45,7 +45,7 @@ inline function mkdir(path:String, ?perm:GoInt):Error {
 	}
 }
 
-inline function getenv(path:String):GoString {
+inline function getenv(path:GoString):GoString {
 	var e = Sys.getEnv(path);
 	return e == null ? "" : e;
 }
@@ -54,22 +54,22 @@ function isNotExist(err:Error):Bool {
 	return false;
 }
 
-inline function open(name:String):MultiReturn<{v0:Pointer<File>,v1:Error}> {
+inline function open(name:GoString):{v0:Pointer<File>,v1:Error} {
 	return {v0: null, v1: stdgo.errors.Errors.new_("unable to open")};
 }
 
-inline function lookupEnv(path:String):MultiReturn<{value:GoString, ok:Bool}> {
+inline function lookupEnv(path:GoString):{_value:GoString, _ok:Bool} {
 	var e = Sys.getEnv(path);
 	if (e == null)
-		return {value: "", ok: false};
-	return {value: e, ok: true};
+		return {_value: "", _ok: false};
+	return {_value: e, _ok: true};
 }
 
-inline function mkdirAll(path:String, ?perm:GoInt):Error {
+inline function mkdirAll(path:GoString, ?perm:GoInt):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:String):MultiReturn<ErrorReturn<Pointer<File>>> {
+inline function create(path:GoString):ErrorReturn<Pointer<File>> {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);
@@ -82,13 +82,13 @@ inline function exit(code:GoInt) {
 	Sys.exit(code.toBasic());
 }
 
-inline function newSyscallError(syscall:String, err:Error):Error {
+inline function newSyscallError(syscall:GoString, err:Error):Error {
 	if (err == null)
 		return null;
 	return stdgo.errors.Errors.new_(syscall);
 }
 
-inline function chdir(dir:String):Error {
+inline function chdir(dir:GoString):Error {
 	try {
 		Sys.setCwd(dir);
 		return null;
@@ -97,7 +97,7 @@ inline function chdir(dir:String):Error {
 	}
 }
 
-inline function remove(name:String):Error {
+inline function remove(name:GoString):Error {
 	try {
 		if (FileSystem.isDirectory(name)) {
 			FileSystem.deleteDirectory(name);
@@ -110,7 +110,7 @@ inline function remove(name:String):Error {
 	}
 }
 
-inline function removeAll(path:String):Error {
+inline function removeAll(path:GoString):Error {
 	if (sys.FileSystem.exists(path) && sys.FileSystem.isDirectory(path)) {
 		var entries = sys.FileSystem.readDirectory(path);
 		for (entry in entries) {

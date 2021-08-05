@@ -17,15 +17,13 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		}
 	}
 
-	public function setCap(cap:GoInt):GoMap<K,V> {
+	public function setCap(cap:GoInt):GoMap<K, V> {
 		this.cap = cap.toBasic();
 		return this;
 	}
 
 	public function defaultValue():V
 		return this.defaultValue();
-
-	
 
 	@:arrayAccess
 	public inline function get(key:K):V {
@@ -46,7 +44,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.length();
 	}
 
-	public function nil():GoMap<K,V> {
+	public function nil():GoMap<K, V> {
 		this.nilBool = true;
 		return this;
 	}

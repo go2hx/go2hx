@@ -11,14 +11,19 @@ final o_rdonly:GoInt = 0;
 
 function getuid():GoInt
 	return 0;
+
 function geteuid():GoInt
 	return 0;
+
 function getgid():GoInt
 	return 0;
+
 function getegid():GoInt
 	return 0;
+
 function getpid():GoInt
 	return 0;
+
 function getppid():GoInt
 	return 0;
 

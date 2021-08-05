@@ -10,7 +10,6 @@ import stdgo.StdGoTypes;
 
 var args = new Slice<GoString>(...[for (arg in Sys.args()) (arg : GoString)]);
 var stderr = Go.pointer(new OutputWriter(Sys.stderr()));
-
 var stdin:Dynamic = {value: {name: () -> "name"}};
 var stdout = Go.pointer(new OutputWriter(Sys.stdout()));
 
@@ -33,7 +32,6 @@ class OutputWriter implements stdgo.io.Io.Writer {
 	public function name():GoString {
 		return "";
 	}
-	
 }
 
 inline function mkdir(path:GoString, ?perm:GoInt):Error {
@@ -54,7 +52,7 @@ function isNotExist(err:Error):Bool {
 	return false;
 }
 
-inline function open(name:GoString):{v0:Pointer<File>,v1:Error} {
+inline function open(name:GoString):{v0:Pointer<File>, v1:Error} {
 	return {v0: null, v1: stdgo.errors.Errors.new_("unable to open")};
 }
 
@@ -143,11 +141,11 @@ class File implements stdgo.io.Io.Writer implements stdgo.io.Io.Reader {
 		return {n: p.length, err: null};
 	}
 
-	public function read(p:Slice<GoByte>):{n:GoInt,err:Error} {
+	public function read(p:Slice<GoByte>):{n:GoInt, err:Error} {
 		for (i in 0...p.length.toBasic()) {
 			p[i] = (input.readByte() : GoByte);
 		}
-		return {n: p.length,err: null};
+		return {n: p.length, err: null};
 	}
 
 	public function close():Error {

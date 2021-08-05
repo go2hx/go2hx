@@ -27,6 +27,7 @@ class RWMutex implements StructType {
 class Mutex implements StructType {
 	public function __underlying__():AnyInterface
 		return null;
+
 	var mutux:Mutex;
 
 	public function lock() {}

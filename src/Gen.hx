@@ -11,7 +11,7 @@ function create(outputPath:String, module:Module) {
 	var pkgPath = 'package ${module.path};\n';
 	var content = "";
 	var count = module.files.length;
-	
+
 	for (file in module.files) {
 		content = pkgPath;
 		for (imp in file.imports) {

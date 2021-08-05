@@ -28,5 +28,5 @@ inline function parseDuration(s:GoString):{d:Duration, err:Error} {
 }
 
 typedef Time = time.Time.Time;
-typedef Duration = Dynamic;//time.Time.Duration;
+typedef Duration = Dynamic; // time.Time.Duration;
 final second = time.Time.second;

@@ -12,6 +12,7 @@ class Chan<T> {
 
 	public var length(get, null):GoInt;
 	public var _cap:Int = -1;
+
 	var setNil:Bool = false;
 
 	function get_length():GoInt {
@@ -21,7 +22,7 @@ class Chan<T> {
 	public function isNil():Bool
 		return setNil;
 
-	public function new(length:GoInt, defaultValue,setNil:Bool=false) {
+	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
 		data = new Vector<T>(length.toBasic());
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;

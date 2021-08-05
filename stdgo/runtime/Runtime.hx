@@ -77,6 +77,7 @@ private class RuntimeErrorData implements Error implements StructType {
 		return null;
 
 	var message:GoString;
+
 	public function new(message:GoString) {
 		this.message = message;
 	}
@@ -97,7 +98,6 @@ interface Error extends stdgo.StdGoTypes.Error {
 }
 
 class Frames implements StructType {
-
 	public function __underlying__():AnyInterface
 		return null;
 

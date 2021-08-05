@@ -157,10 +157,13 @@ private class SliceIterator<T> {
 
 private class SliceData<T> {
 	var vector:Vector<T>;
+
 	public var nilBool:Bool = false;
 	public var pos:Int = 0;
 	public var length:Int = 0;
+
 	var _cap:Int = -1;
+
 	public function new(length:Int = 0) {
 		this.length = length;
 		vector = new Vector<T>(length);

@@ -44,7 +44,6 @@ private typedef UInt64 = #if !native_num Int64 #elseif cpp cpp.UInt64 #elseif ev
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
 private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64; #else Float; #end
-
 typedef GoUnTypedInt = GoInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
@@ -69,7 +68,7 @@ private class __UInt64 {
 typedef Complex64 = Complex<Float32>;
 typedef Complex128 = Complex<Float64>;
 
-class Complex<T : GoFloat64> {
+class Complex<T:GoFloat64> {
 	public var real:T;
 	public var imag:T;
 
@@ -135,7 +134,7 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 	public inline function toBasic()
 		return address();
 
-	@:to inline function toInt64():GoInt64 
+	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(address());
 
 	@:to inline function toInt():GoInt
@@ -452,63 +451,60 @@ abstract GoComplex64(Complex64) from Complex64 {
 	@:from public static inline function ofInt(x:Int):GoComplex64
 		return new Complex64(x, 0);
 
-	@:op(A + B) @:commutative private static function addInt(a:GoComplex64,b:GoInt):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt(a:GoComplex64, b:GoInt):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt8(a:GoComplex64,b:GoInt8):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt8(a:GoComplex64, b:GoInt8):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt16(a:GoComplex64,b:GoInt16):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt16(a:GoComplex64, b:GoInt16):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt32(a:GoComplex64,b:GoInt32):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt32(a:GoComplex64, b:GoInt32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt64(a:GoComplex64,b:GoInt64):GoComplex64
-		return new GoComplex64(a.real + b.toBasic().low ,a.imag);
+	@:op(A + B) @:commutative private static function addInt64(a:GoComplex64, b:GoInt64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic().low, a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt(a:GoComplex64,b:GoUInt):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt(a:GoComplex64, b:GoUInt):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex64,b:GoUInt8):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex64, b:GoUInt8):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex64,b:GoUInt16):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex64, b:GoUInt16):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex64,b:GoUInt32):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex64, b:GoUInt32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt64(a:GoComplex64,b:GoUInt64):GoComplex64
-		return new GoComplex64(a.real + b.toBasic().low ,a.imag);
+	@:op(A + B) @:commutative private static function addUInt64(a:GoComplex64, b:GoUInt64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic().low, a.imag);
 
-	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex64,b:GoFloat32):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex64, b:GoFloat32):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addFloat64(a:GoComplex64,b:GoFloat64):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addFloat64(a:GoComplex64, b:GoFloat64):GoComplex64
+		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
 	@:op(A + B) private static function add(a:GoComplex64, b:GoComplex64):GoComplex64
 		return new GoComplex64(a.real + b.real, a.imag.toBasic() + b.imag.toBasic());
 
 	@:op(A * B) private static function mul(a:GoComplex64, b:GoComplex64):GoComplex64
-		return new GoComplex64((a.real * b.real) - (a.imag.toBasic() * b.imag.toBasic()),
-			(a.imag.toBasic() * b.real) + (a.real * b.imag.toBasic()));
+		return new GoComplex64((a.real * b.real) - (a.imag.toBasic() * b.imag.toBasic()), (a.imag.toBasic() * b.real) + (a.real * b.imag.toBasic()));
 
 	@:op(A / B) private static function div(a:GoComplex64, b:GoComplex64):GoComplex64 {
 		// if (b.real == 0.0 && b.imag == 0.0)
 		//	return Math.NaN;
-		return new GoComplex64(((a.real * b.real) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real * b.real)
-			+ (b.imag.toBasic() * b.imag.toBasic())),
-			((a.imag.toBasic() * b.real) - (a.real * b.imag.toBasic())) / ((b.real * b.real)
-				+ (b.imag.toBasic() * b.imag.toBasic())));
+		return new GoComplex64(((a.real * b.real) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real * b.real) + (b.imag.toBasic() * b.imag.toBasic())),
+			((a.imag.toBasic() * b.real) - (a.real * b.imag.toBasic())) / ((b.real * b.real) + (b.imag.toBasic() * b.imag.toBasic())));
 	}
 
 	@:op(A - B) private static function subInt(a:GoComplex64, b:GoInt):GoComplex64
 		return new GoComplex64(a.real - b.toBasic(), a.imag);
 
 	@:op(A - B) private static function subInt2(a:GoInt, b:GoComplex64):GoComplex64
-		return new GoComplex64(a.toBasic() - b.real,b.imag);
+		return new GoComplex64(a.toBasic() - b.real, b.imag);
 
 	@:op(A - B) private static function sub(a:GoComplex64, b:GoComplex64):GoComplex64
 		return new GoComplex64(a.real - b.real, a.imag.toBasic() - b.imag.toBasic());
@@ -541,7 +537,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 	}
 
 	@:from static function fromFloat(f:Float):GoComplex128 {
-		return new GoComplex128(f,0);
+		return new GoComplex128(f, 0);
 	}
 
 	public inline function toBasic()
@@ -562,44 +558,44 @@ abstract GoComplex128(Complex128) from Complex128 {
 	@:op(A + B) private static function add(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real + b.real, a.imag + b.imag);
 
-	@:op(A + B) @:commutative private static function addInt(a:GoComplex128,b:GoInt):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt(a:GoComplex128, b:GoInt):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt8(a:GoComplex128,b:GoInt8):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt8(a:GoComplex128, b:GoInt8):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt16(a:GoComplex128,b:GoInt16):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt16(a:GoComplex128, b:GoInt16):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt32(a:GoComplex128,b:GoInt32):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addInt32(a:GoComplex128, b:GoInt32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addInt64(a:GoComplex128,b:GoInt64):GoComplex128
-		return new GoComplex128(a.real + b.toBasic().low,a.imag);
+	@:op(A + B) @:commutative private static function addInt64(a:GoComplex128, b:GoInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low, a.imag);
 
-	@:op(A + B) @:commutative private static function addInt128(a:GoComplex128,b:GoInt64):GoComplex128
-		return new GoComplex128(a.real + b.toBasic().low ,a.imag);
+	@:op(A + B) @:commutative private static function addInt128(a:GoComplex128, b:GoInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low, a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt(a:GoComplex128,b:GoUInt):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt(a:GoComplex128, b:GoUInt):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex128,b:GoUInt8):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt8(a:GoComplex128, b:GoUInt8):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex128,b:GoUInt16):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt16(a:GoComplex128, b:GoUInt16):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex128,b:GoUInt32):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addUInt32(a:GoComplex128, b:GoUInt32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addUInt128(a:GoComplex128,b:GoUInt64):GoComplex128
-		return new GoComplex128(a.real + b.toBasic().low ,a.imag);
+	@:op(A + B) @:commutative private static function addUInt128(a:GoComplex128, b:GoUInt64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic().low, a.imag);
 
-	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex128,b:GoFloat32):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex128, b:GoFloat32):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
-	@:op(A + B) @:commutative private static function addFloat128(a:GoComplex128,b:GoFloat64):GoComplex128
-		return new GoComplex128(a.real + b.toBasic(),a.imag);
+	@:op(A + B) @:commutative private static function addFloat128(a:GoComplex128, b:GoFloat64):GoComplex128
+		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
 	@:op(A * B) private static function mul(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128((a.real * b.real) - (a.imag * b.imag), (a.imag * b.real) + (a.real * b.imag));
@@ -615,7 +611,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new GoComplex128(a.real - b.toBasic(), a.imag);
 
 	@:op(A - B) private static function subInt2(a:GoInt, b:GoComplex128):GoComplex128
-		return new GoComplex128(a.toBasic() - b.real,b.imag);
+		return new GoComplex128(a.toBasic() - b.real, b.imag);
 
 	@:op(A - B) private static function sub(a:GoComplex128, b:GoComplex128):GoComplex128
 		return new GoComplex128(a.real - b.real, a.imag - b.imag);
@@ -644,7 +640,8 @@ abstract GoComplex128(Complex128) from Complex128 {
 	@:op(A != B) private static function neq(a:GoComplex128, b:GoComplex128):Bool
 		return a.real != b.real || a.imag != b.imag;
 }
-//GoInt32 is an exact copy of GoInt, any changes here should be updated there as well
+
+// GoInt32 is an exact copy of GoInt, any changes here should be updated there as well
 abstract GoInt(Int32) from Int32 from Int32 {
 	public inline function new(x:Int32 = 0)
 		this = x;
@@ -657,8 +654,9 @@ abstract GoInt(Int32) from Int32 from Int32 {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -668,6 +666,7 @@ abstract GoInt(Int32) from Int32 from Int32 {
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
+
 	@:to inline function toUInt32():GoUInt32
 		return clampUInt(this);
 
@@ -774,8 +773,9 @@ abstract GoInt32(Int) from Int32 from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -876,7 +876,8 @@ abstract GoInt32(Int) from Int32 from Int {
 		return this = this - 1;
 	}
 }
-//GoUInt32 is an exact copy of GoUInt, any changes here should be updated there as well
+
+// GoUInt32 is an exact copy of GoUInt, any changes here should be updated there as well
 abstract GoUInt(Int) from Int {
 	public inline function new(x = 0)
 		this = x;
@@ -898,6 +899,7 @@ abstract GoUInt(Int) from Int {
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
+
 	@:to inline function toUInt32():GoUInt32
 		return clampUInt(this);
 
@@ -1009,8 +1011,9 @@ abstract GoUInt32(Int) from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -1132,8 +1135,9 @@ abstract GoInt8(Int8) from Int8 from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -1255,8 +1259,9 @@ abstract GoInt16(Int16) from Int16 from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -1526,8 +1531,9 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -1629,8 +1635,9 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 
 	@:to inline function toInt():GoInt
 		return this;
+
 	@:to inline function toInt32():GoInt32
-                return this;
+		return this;
 
 	@:to inline function toInt8():GoInt8
 		return this;
@@ -1742,6 +1749,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 
 	@:to inline function toInt32():GoInt32
 		return this.low;
+
 	@:to inline function toInt8():GoInt8
 		return this.low;
 
@@ -1865,7 +1873,7 @@ class AnyInterfaceData {
 	public var value:Any;
 	public var type:stdgo.reflect.Reflect.Type;
 
-	public function new(value,type) {
+	public function new(value, type) {
 		this.value = value;
 		this.type = type;
 	}
@@ -1880,12 +1888,12 @@ class AnyInterfaceData {
 
 			case mapType(_, _):
 
-			case chanType(_,_):
+			case chanType(_, _):
 
 			default:
 				throw "unknown copy to interface{} type: " + @:privateAccess type.common().value;
 		}
-		return new AnyInterfaceData(value,type); //TODO copy type
+		return new AnyInterfaceData(value, type); // TODO copy type
 	}
 
 	public function toString():GoString
@@ -1905,7 +1913,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		}
 		var gt:GoType = @:privateAccess a.type.common().value;
 		var gt2:GoType = @:privateAccess b.type.common().value;
-		
+
 		function isNamed(gt:GoType) {
 			return switch gt {
 				case structType(_):
@@ -1924,7 +1932,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 		}
 		switch gt2 {
-			case named(_,_, _, type):
+			case named(_, _, _, type):
 				if (isNamed(type))
 					bValue = (bValue : Dynamic).__t__;
 			default:
@@ -1960,19 +1968,19 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case structType(fields):
 				for (i in 0...fields.length) {
 					final name = fields[i].name;
-					if (StringTools.startsWith(name,"__blank__"))
+					if (StringTools.startsWith(name, "__blank__"))
 						continue;
 					final type = fields[i].type;
-					final fieldValue = Reflect.field(aValue,name);
-					final fieldValue2 = Reflect.field(bValue,name);
+					final fieldValue = Reflect.field(aValue, name);
+					final fieldValue2 = Reflect.field(bValue, name);
 
 					if (fieldValue == null || fieldValue2 == null)
 						throw "struct issue with field name: " + name;
 
-					final a = new AnyInterface(fieldValue,new stdgo.reflect.Reflect._Type(type));
-					final b = new AnyInterface(fieldValue2,new stdgo.reflect.Reflect._Type(type));
-					
-					final bool = equals(a,b);
+					final a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect._Type(type));
+					final b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect._Type(type));
+
+					final bool = equals(a, b);
 					if (!bool)
 						return false;
 				}
@@ -1989,18 +1997,17 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (!AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
+					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;
-			case interfaceType(_):
-				a == null && b == null;
+			case interfaceType(_): a == null && b == null;
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
 				var t = new stdgo.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
-					if (!AnyInterface.equals(new AnyInterface(a[i], t),new AnyInterface(b[i], t)))
+					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;

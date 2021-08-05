@@ -29,17 +29,9 @@ inline function printf(fmt:GoString, args:Rest<Dynamic>) { // format
 	log(format(fmt, parse(args)));
 }
 
-inline function fprintf(w:Writer, fmt:GoString, args:Rest<Dynamic>) {
-	
-}
-
-inline function fprintln(w:Writer, args:Rest<Dynamic>) {
-
-}
-
-inline function fprint(w:Writer, args:Rest<Dynamic>) {
-
-}
+inline function fprintf(w:Writer, fmt:GoString, args:Rest<Dynamic>) {}
+inline function fprintln(w:Writer, args:Rest<Dynamic>) {}
+inline function fprint(w:Writer, args:Rest<Dynamic>) {}
 
 inline function sprint(args:Rest<Dynamic>):GoString {
 	return parse(args).join(" ");
@@ -50,9 +42,11 @@ function sprintln(args:Rest<Dynamic>):GoString {
 }
 
 private function parse(args:Array<Dynamic>):Array<String> {
-	return [for (i in 0...args.length) {
-		Go.string(args[i]);
-	}];
+	return [
+		for (i in 0...args.length) {
+			Go.string(args[i]);
+		}
+	];
 }
 
 inline function sprintf(fmt:GoString, args:Rest<Dynamic>):GoString { // format
@@ -67,18 +61,19 @@ private function format(fmt:GoString, args:Array<Dynamic>):GoString {
 	}*/
 	return " " + args + " -> " + fmt;
 }
-//scientific notation
+
+// scientific notation
 private function formatFloat(f:Float):String {
 	var buf = new StringBuf();
-	//sign
+	// sign
 	buf.addChar(f >= 0 ? "+".code : "-".code);
 
 	f = Math.abs(f);
 	var length = Math.ceil(Math.log(f + 1) / Math.log(10));
 	final max = 7;
 
-	var int = Math.ffloor(f); 
-	final p = Math.pow(10,max - length);
+	var int = Math.ffloor(f);
+	final p = Math.pow(10, max - length);
 	final frac = Math.round(p * (f - int));
 	var str = "";
 	var noInt = false;
@@ -86,12 +81,12 @@ private function formatFloat(f:Float):String {
 		str = Std.string(int);
 		str = str.charAt(0) + "." + str.substr(1);
 		if (str.length - 1 > max) {
-			str = str.substr(0,max);
-		}else{
+			str = str.substr(0, max);
+		} else {
 			if (frac > 0)
 				str += frac;
 		}
-	}else{
+	} else {
 		str = Std.string(frac);
 		str = str.charAt(0) + "." + str.substr(1);
 		length = 2;

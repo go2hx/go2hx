@@ -130,7 +130,7 @@ function init(args:Array<String>) {
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 
 	var modules = Typer.main(exportData, printGoCode);
-	
+
 	Sys.setCwd(localPath);
 	outputPath = Path.addTrailingSlash(outputPath);
 	var libs:Array<String> = [];

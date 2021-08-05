@@ -21,7 +21,7 @@ function parseFloat(s:GoString, bitSize:GoInt64):ErrorReturn<GoFloat> {
 inline function unquote(s:GoString):ErrorReturn<GoString> {
 	if (s.length < 2)
 		return {value: "", error: errSyntax};
-	s = s.substr(1,s.length.toBasic() - 2);
+	s = s.substr(1, s.length.toBasic() - 2);
 	return {value: s, error: null};
 }
 
@@ -109,4 +109,4 @@ class NumError implements Error {
 		return this.err;
 }
 
-//final intSize:GoInt64 = "9223372036854775807";
+// final intSize:GoInt64 = "9223372036854775807";

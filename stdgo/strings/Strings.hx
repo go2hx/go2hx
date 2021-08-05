@@ -18,7 +18,7 @@ inline function hasSuffix(s:String, value:String):Bool {
 inline function index(s:String, substr:String):Int
 	return s.indexOf(substr);
 
-function indexByte(s:GoString,c:GoByte):GoInt {
+function indexByte(s:GoString, c:GoByte):GoInt {
 	for (i in 0...s.length.toBasic()) {
 		if (s[i] == c)
 			return i;

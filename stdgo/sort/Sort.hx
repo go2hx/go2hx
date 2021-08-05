@@ -1,22 +1,23 @@
 package stdgo.sort;
+
 import stdgo.Slice;
 import stdgo.StdGoTypes;
 
 function ints(slice:Slice<GoInt>) {
-	_sort(slice,(i, j) -> {
+	_sort(slice, (i, j) -> {
 		return slice[i] > slice[j] ? -1 : 1;
 	});
 }
 
 function strings(slice:Slice<GoString>) {
-	_sort(slice,(i, j) -> {
+	_sort(slice, (i, j) -> {
 		return slice[i] > slice[j] ? -1 : 1;
 	});
 }
 
-function slice(slice:AnyInterface,less:(i:GoInt,j:GoInt)->Bool) {
-	_sort(slice.value,(i,j) -> {
-		return less(i,j) ? -1 : 1;
+function slice(slice:AnyInterface, less:(i:GoInt, j:GoInt) -> Bool) {
+	_sort(slice.value, (i, j) -> {
+		return less(i, j) ? -1 : 1;
 	});
 }
 
@@ -29,7 +30,6 @@ function intsAreSorted(slice:Slice<Int>):Bool {
 	}
 	return true;
 }
-
 
 private function _sort(a:Slice<Dynamic>, cmp:Int->Int->Int) {
 	rec(a, cmp, 0, a.length.toBasic());

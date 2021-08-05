@@ -4,6 +4,7 @@ import haxe.ds.Either;
 import haxe.macro.Context;
 import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
+
 @:forward.new
 @:forward
 abstract Pointer<T>(PointerData<T>) {
@@ -18,12 +19,12 @@ abstract Pointer<T>(PointerData<T>) {
 		if (bool) {
 			this.ref = this.get();
 			this.previous.assign = () -> this.convert(this.ref);
-			function recursive(p:Pointer<Any>,value:Void->Any) {
+			function recursive(p:Pointer<Any>, value:Void->Any) {
 				if (p.previous == null)
 					return;
-				p.previous.assign =  () -> p.convert(value());
+				p.previous.assign = () -> p.convert(value());
 			}
-			recursive(this.previous,this.previous.assign);
+			recursive(this.previous, this.previous.assign);
 			return this.ref;
 		}
 		return this.get();
@@ -32,7 +33,7 @@ abstract Pointer<T>(PointerData<T>) {
 	private inline function set_value(value:T):T {
 		if (this.previous == null) {
 			this.set(value);
-		}else{
+		} else {
 			this.ref = value;
 		}
 		return value;
@@ -55,9 +56,8 @@ class PointerData<T> {
 	public var previous:Pointer<Any> = null;
 	public var convert:T->Any;
 	public var assign:Void->T;
-	
 
-	public function new(get,set,hasSet:Bool=false,previous:Pointer<Any>=null) {
+	public function new(get, set, hasSet:Bool = false, previous:Pointer<Any> = null) {
 		this.get = get;
 		this.set = set;
 		this.hasSet = hasSet;

@@ -55,7 +55,7 @@ typedef BasicLit = {
 	// > Node,
 	valuePos:Pos,
 	kind:Token,
-	type:ExprType, 
+	type:ExprType,
 	value:String,
 };
 
@@ -433,7 +433,6 @@ typedef Object = {
 
 typedef Position = {};
 typedef Pos = Int;
-
 
 @:enum abstract Token(String) {
 	public final ILLEGAL = "ILLEGAL";

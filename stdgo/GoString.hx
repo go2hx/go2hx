@@ -10,12 +10,14 @@ import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoRune;
 
 abstract GoString(Bytes) from Bytes to Bytes {
-	public var length(get,never):GoInt;
+	public var length(get, never):GoInt;
+
 	function get_length():GoInt {
 		return this.length;
 	}
+
 	public inline function new(str:String = "") {
-		this = Bytes.ofString(str,UTF8);
+		this = Bytes.ofString(str, UTF8);
 	}
 
 	@:from static function ofRune(x:GoRune):GoString {
@@ -29,10 +31,11 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return bytes.toString();
 	}
 
-	public function lastIndexOf(str:String,?startIndex:Int):Int
-		return toString().lastIndexOf(str,startIndex);
-	public function substr(pos:Int,?len:Int):GoString
-		return toString().substr(pos,len);
+	public function lastIndexOf(str:String, ?startIndex:Int):Int
+		return toString().lastIndexOf(str, startIndex);
+
+	public function substr(pos:Int, ?len:Int):GoString
+		return toString().substr(pos, len);
 
 	@:from static function ofInt64(x:GoInt64):GoString {
 		return String.fromCharCode(x.toBasic().low);
@@ -41,7 +44,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:op([])
 	public function get(index:GoInt):GoUInt8 {
 		return this.get(index.toBasic());
-		//return Bytes.fastGet(this.getData(),index.toBasic());
+		// return Bytes.fastGet(this.getData(),index.toBasic());
 	}
 
 	@:to public function toString():String {
@@ -64,7 +67,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		var str = toString();
 		return new Slice<StdGoTypes.GoRune>(...[
 			for (i in 0...str.length)
-				StringTools.fastCodeAt(str,i)
+				StringTools.fastCodeAt(str, i)
 		]);
 	}
 
@@ -88,8 +91,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 			end = length;
 		final pos = start.toBasic();
 		final len = end.toBasic() - start.toBasic();
-		final bytes = this.sub(pos,len);
-		if (!UnicodeString.validate(bytes,UTF8))
+		final bytes = this.sub(pos, len);
+		if (!UnicodeString.validate(bytes, UTF8))
 			return "";
 		return bytes;
 	}
@@ -115,19 +118,19 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	}
 
 	@:op(A != B) static function neq(a:GoString, b:GoString):Bool {
-		return !eq(a,b);
+		return !eq(a, b);
 	}
 
 	@:op(A + B) static function add(a:GoString, b:GoString):GoString {
 		var bytes = Bytes.alloc(a.length.toBasic() + b.length.toBasic());
 		final len = a.length.toBasic();
-		bytes.blit(0,a,0,len);
-		bytes.blit(len,b,0,b.length.toBasic());
-		return bytes; //TODO
+		bytes.blit(0, a, 0, len);
+		bytes.blit(len, b, 0, b.length.toBasic());
+		return bytes; // TODO
 	}
 
 	@:op(A + B) static function addString(a:GoString, b:String):GoString {
-		return a + Bytes.ofString(b); //TODO
+		return a + Bytes.ofString(b); // TODO
 	}
 
 	@:op(A + B) static function addString2(a:String, b:GoString):GoString {

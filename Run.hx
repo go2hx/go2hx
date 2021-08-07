@@ -11,7 +11,9 @@ function main() {
 		nodeExists = process.exitCode() == 0;
 	}
 	if (Sys.getEnv("HAXELIB_RUN") == "1") {
-		if (args.length > 0) {}
+		if (args.length > 0) {
+			args.push("-localpath");
+		}
 	}
 	var rebuild = false;
 	if (args.indexOf("-rebuild") != -1) { // used to rebuild the compiler each run

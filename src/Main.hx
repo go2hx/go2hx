@@ -73,6 +73,8 @@ function init(args:Array<String>):Array<Typer.Module> {
 					target = "hl";
 				case "eval", "interp":
 					target = "interp";
+				case "localpath":
+					localpath = true;
 				case "color":
 					Util.colorSupported = true;
 				case "nocolor":
@@ -87,6 +89,9 @@ function init(args:Array<String>):Array<Typer.Module> {
 	}
 	for (arg in removal)
 		args.remove(arg);
+
+	if (localpath)
+		args.pop();
 
 	if (argsCount <= 1)
 		args.push(cwd);

@@ -3,35 +3,41 @@ package;
 
 import Gen.create;
 import Typer.DataType;
-import haxe.Resource;
-import sys.FileSystem;
-import haxe.io.Path;
-import sys.io.File;
 import haxe.Json;
+import haxe.Resource;
+import haxe.io.Path;
 import stdgo.StdGoTypes;
+import sys.FileSystem;
+import sys.io.File;
 
 final cwd = Sys.getCwd();
-var exportPaths:Array<String> = [];
 var exportBool:Bool = false;
 var target:String = "";
 var targetFolder:Bool = false;
+var completionPort = "";
 
 function main() {
 	init(Sys.args());
 }
 
-function init(args:Array<String>) {
+function init(args:Array<String>):Array<Typer.Module> {
 	var argsCount = 0;
-
 	var outputPath = "golibs";
 	var global = false;
-	var addOutput = false;
 	var printGoCode = false;
-
+	var localpath = false;
+	var addConnect = false;
+	var addOutput = false;
+	var removal:Array<String> = [];
 	for (arg in args) {
+		if (addConnect) {
+			completionPort = arg;
+			removal.push(arg);
+			addConnect = false;
+		}
 		if (addOutput) {
 			outputPath = arg;
-			args.remove(arg);
+			removal.push(arg);
 			addOutput = false;
 		}
 		if (arg.charAt(0) != "-") { // check if flag
@@ -43,6 +49,8 @@ function init(args:Array<String>) {
 					global = true;
 				case "o", "out", "output":
 					addOutput = true;
+				case "connect", "port", "wait":
+					addConnect = true;
 				case "printgocode":
 					printGoCode = true;
 				// targets
@@ -52,6 +60,7 @@ function init(args:Array<String>) {
 				case "cs", "c#":
 					target = "cs";
 					targetFolder = true;
+				case "rebuild":
 				case "java", "jvm":
 					target = "jvm";
 				case "py", "python":
@@ -64,16 +73,29 @@ function init(args:Array<String>) {
 					target = "hl";
 				case "eval", "interp":
 					target = "interp";
+				case "color":
+					Util.colorSupported = true;
+				case "nocolor":
+					Util.colorSupported = false;
 				default:
 					remove = false;
 			}
-			if (remove)
-				args.remove(arg);
+			if (remove) {
+				removal.push(arg);
+			}
 		}
 	}
+	for (arg in removal)
+		args.remove(arg);
+
 	if (argsCount <= 1)
 		args.push(cwd);
 	var localPath = args[args.length - 1];
+
+	if (args.length == 1) {
+		Repl.init();
+		return [];
+	}
 	// for (arg in args)
 	// go4hx run here
 	var httpsString = "https://";
@@ -89,13 +111,11 @@ function init(args:Array<String>) {
 		Sys.command(command);
 	}
 	Sys.setCwd(cwd);
-	var haxerc = ".haxerc";
-	var haxercContent = File.getContent(haxerc);
-	// Sys.println('./go4hx ${args.join(" ")}');
+
 	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");
-		return;
+		return [];
 	}
 	var exportName = "export.json";
 	if (!FileSystem.exists(exportName)) {
@@ -123,7 +143,7 @@ function init(args:Array<String>) {
 		Sys.println("        target Haxe interpreted target");
 		Sys.println("    -hl");
 		Sys.println("        target Hashlink virtual machine");
-		return;
+		return [];
 	}
 	var exportData:DataType = Json.parse(File.getContent(exportName));
 	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
@@ -149,22 +169,9 @@ function init(args:Array<String>) {
 		}
 	}
 	if (target != "") {
-		if (!FileSystem.exists(haxerc))
-			File.saveContent(haxerc, haxercContent);
-		if (!FileSystem.exists(target + ".hxml"))
-			File.saveContent(target + ".hxml", "
-
-			");
-
+		/*
+			if (!FileSystem.exists(target + ".hxml"))
+				File.saveContent(target + ".hxml", ""); */
 	}
-	if (exportBool) {
-		exportPaths = [];
-		for (module in modules) {
-			if (module.isMain) {
-				for (file in module.files) {
-					exportPaths.push(module.path + "/" + file.name);
-				}
-			}
-		}
-	}
+	return modules;
 }

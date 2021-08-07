@@ -1,0 +1,7 @@
+-cp src
+-main Main
+-D no-deprecation-warnings
+-D std-encoding-utf8
+--dce full
+-D analyzer-optimize
+-hl build.hl

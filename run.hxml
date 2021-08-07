@@ -1,0 +1,3 @@
+-main Run
+-cp src
+--neko run.n

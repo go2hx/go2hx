@@ -6,12 +6,14 @@ test.go
 tests.md
 main
 bin
+repl
 examples/*/
 examples/.haxerc
 tests.txt
 *.dat
 graph.png
 *.n
+!run.n
 dump
 *.js
 go

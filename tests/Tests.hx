@@ -1,10 +1,10 @@
 package;
 
-import sys.io.FileOutput;
-import sys.io.FileInput;
-import sys.FileSystem;
 import haxe.io.Path;
+import sys.FileSystem;
 import sys.io.File;
+import sys.io.FileInput;
+import sys.io.FileOutput;
 
 var path:String;
 var port:Int = 4004;
@@ -17,8 +17,8 @@ function main() {
 	path = Path.normalize(Sys.getCwd());
 	initOutput();
 	yaegi();
-	//tinygo();
-	//gotests();
+	// tinygo();
+	// gotests();
 	completion.close();
 	output.writeString("PASSING: " + passed + "/" + total);
 	output.close();
@@ -26,20 +26,19 @@ function main() {
 
 var pathto:String = "";
 
-
 function replaceBuiltinPrint(pathto:String) {
 	for (path in FileSystem.readDirectory(pathto)) {
 		var p = '$pathto$path';
 		if (FileSystem.isDirectory(p) || Path.extension(path) != "go")
 			continue;
 		var content = File.getContent(p);
-		content = StringTools.replace(content,"println(","fmt.Println(");
-		content = StringTools.replace(content,"print(","fmt.Print(");
-		//add import
+		content = StringTools.replace(content, "println(", "fmt.Println(");
+		content = StringTools.replace(content, "print(", "fmt.Print(");
+		// add import
 		final pack = "package main ";
 		var index = content.indexOf(pack) + pack.length;
-		content = content.substr(0,index) + '\n\nimport "fmt"\n' + content.substr(index);
-		File.saveContent(p,content);
+		content = content.substr(0, index) + '\n\nimport "fmt"\n' + content.substr(index);
+		File.saveContent(p, content);
 	}
 }
 
@@ -55,15 +54,13 @@ function yaegi() {
 		tests.push('./$p');
 	}
 
-	for (test in [
-
-	])
+	for (test in [])
 		tests.remove('.$pathto$test.go');
-	
-	//tests = ['./$pathto' + "addr0.go"];
+
+	// tests = ['./$pathto' + "addr0.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],true);
+		compile([test], true);
 	}
 }
 
@@ -87,14 +84,14 @@ function tinygo() {
 		"env", // needs test runner to set enviorment variables and sys args before program execution
 		"gc", // relies on gc runtime
 		"ldflags",
-		"filesystem", //uses test data
-		"stdlib", //runs but still doesn't pass
+		"filesystem", // uses test data
+		"stdlib", // runs but still doesn't pass
 	])
 		tests.remove('.$pathto$test.go');
-	//tests = ['.$pathto' + "interface.go"];
+	// tests = ['.$pathto' + "interface.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],false);
+		compile([test], false);
 	}
 }
 
@@ -136,14 +133,14 @@ function gotests() {
 	tests = ['.$pathto' + "append.go"];
 	total += tests.length;
 	for (test in tests) {
-		compile([test],true);
+		compile([test], true);
 	}
 }
 
 var total:Int = 0;
 var passed:Int = 0;
 
-function compile(tests:Array<String>,server:Bool) {
+function compile(tests:Array<String>, server:Bool) {
 	server = true;
 	tests.push(path);
 	Main.exportBool = true;
@@ -151,7 +148,7 @@ function compile(tests:Array<String>,server:Bool) {
 	tests.pop();
 	Sys.setCwd("..");
 
-	var path = Main.exportPaths[0];
+	var path = ""; // TODO
 	path = StringTools.replace(path, "/", ".");
 	Sys.println('------ $path ------');
 	var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
@@ -207,7 +204,7 @@ function run(command:String):Bool {
 			break;
 		Sys.sleep(1 / 20);
 	}
-	
+
 	if (code == null) {
 		proc.close();
 		return false;
@@ -225,12 +222,11 @@ function run(command:String):Bool {
 	}
 }
 
-
 function cleanCommand(command:String):String {
 	command = StringTools.replace(command, '--connect $port', "");
 	final index = command.lastIndexOf(">");
 	if (index > -1)
-		command = command.substr(0,index);
+		command = command.substr(0, index);
 	return command;
 }
 

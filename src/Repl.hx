@@ -20,7 +20,11 @@ private function loop() {
 	if (openBracket == 0)
 		Sys.print("> ");
 	var line = Sys.stdin().readLine();
+	if (line == "")
+		return;
 	line = StringTools.trim(line);
+	if (line == "")
+		return;
 	if (StringTools.endsWith(line, "{"))
 		openBracket++;
 	if (StringTools.startsWith(line, "}")) {

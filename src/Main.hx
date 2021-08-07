@@ -117,7 +117,7 @@ function init(args:Array<String>):Array<Typer.Module> {
 	}
 	Sys.setCwd(cwd);
 
-	var err = Sys.command("./go4hx", args);
+	var err = Sys.command((Util.systemName == "Windows" ? "" : "./") + "go4hx", args);
 	if (err != 0) {
 		Sys.println("go4hx ERROR");
 		return [];

@@ -21,6 +21,9 @@ function main() {
 		Sys.println("rebuilding...");
 		rebuild = true;
 	}
+	// run go compiler
+	if (!FileSystem.exists("go4hx"))
+		Sys.command("go build -o go4hx");
 	if (hlExists) {
 		if (!FileSystem.exists("build.hl") || rebuild)
 			Sys.command("haxe buildHashlink.hxml");

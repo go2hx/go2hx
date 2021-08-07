@@ -2,11 +2,14 @@ package;
 
 function main() {
 	Main.exportBool = true;
-	Main.init(["-ident", "./rnd"]);
-	if (Main.exportPaths.length == 0)
+	var modules = Main.init(["-ident", "./rnd"]);
+	if (modules.length == 0)
 		throw "no exported path";
-	var path = Main.exportPaths[0];
-	path = StringTools.replace(path, "/", ".");
+	var path = modules[0].path;
+	var last = path.lastIndexOf(".") + 1;
+	var name = path.substr(last);
+	name = name.charAt(0).toUpperCase() + name.substr(1);
+	path += "." + name;
 	var command = 'haxe -cp golibs -main $path --interp';
 	// command += ' --macro stdgo.internal.GoGen.build()';
 	trace(command);

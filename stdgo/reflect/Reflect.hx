@@ -1,9 +1,9 @@
 package stdgo.reflect;
 
-import stdgo.Pointer.PointerData;
-import stdgo.StdGoTypes;
 import haxe.EnumTools;
+import stdgo.Pointer.PointerData;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes;
 
 enum GoType {
 	invalidType;
@@ -1451,8 +1451,8 @@ class _Type implements StructType implements Type {
 			tag = tag.slice(i + ((1 : GoInt64)));
 			if (key == name) {
 				var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue),
-					value = __tmp__.value,
-					err = __tmp__.error;
+					value = __tmp__.v0,
+					err = __tmp__.v1;
 				if (err != null) {
 					break;
 				};

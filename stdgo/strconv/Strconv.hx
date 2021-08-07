@@ -1,51 +1,51 @@
 package stdgo.strconv;
 
+import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoFloat64;
-import stdgo.StdGoTypes.GoUInt64;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.GoInt64;
-import stdgo.StdGoTypes.Error;
-import stdgo.internal.ErrorReturn;
 import stdgo.StdGoTypes.GoFloat;
-import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoInt64;
+import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoUInt64;
+import stdgo.internal.ErrorReturn;
 
 function parseFloat(s:GoString, bitSize:GoInt64):ErrorReturn<GoFloat> {
 	try {
-		return {value: Std.parseFloat(s.toString())};
+		return {v0: Std.parseFloat(s.toString())};
 	} catch (e) {
-		return {value: 0, error: cast e};
+		return {v0: 0, v1: cast e};
 	}
 }
 
 inline function unquote(s:GoString):ErrorReturn<GoString> {
 	if (s.length < 2)
-		return {value: "", error: errSyntax};
+		return {v0: "", v1: errSyntax};
 	s = s.substr(1, s.length.toBasic() - 2);
-	return {value: s, error: null};
+	return {v0: s, v1: null};
 }
 
 inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):ErrorReturn<GoInt> {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
-			return {value: 0, error: stdgo.errors.Errors.new_('parsing "$s": invalid syntax')};
-		return {value: value};
+			return {v0: 0, v1: stdgo.errors.Errors.new_('parsing "$s": invalid syntax')};
+		return {v0: value};
 	} catch (e) {
 		if (s.substr(0, 2) == "0x")
 			return parseInt(s.substr(2), 0, 0);
-		return {value: 0, error: cast e};
+		return {v0: 0, v1: cast e};
 	}
 }
 
 inline function parseBool(s:GoString):ErrorReturn<Bool> {
 	return switch s.toString() {
 		case "1", "t", "T", "true", "TRUE", "True":
-			{value: true};
+			{v0: true};
 		case "0", "f", "F", "false", "FALSE", "False":
-			{value: false};
+			{v0: false};
 		default:
-			{value: false, error: syntaxError("parseBool", s)};
+			{v0: false, v1: syntaxError("parseBool", s)};
 	}
 }
 

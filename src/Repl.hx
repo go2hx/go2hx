@@ -6,13 +6,18 @@ function init() {
 	var imports = [for (value in imports) '    "$value"'].join("\n");
 	if (!FileSystem.isDirectory("repl")) {
 		FileSystem.createDirectory("repl");
-		File.saveContent("repl/main.go", 'package main\nimport (\n$imports\n)\nfunc main() {\n::code::\n}');
 	}
 	File.saveContent("repl/code.go", "");
 	while (true)
 		loop();
 }
 
+private final imports = [
+	for (value in ["fmt", "reflect", "strconv", "sort", "strings", "math", "math/rand"])
+		'    "$value"'
+].join("\n");
+
+private var tempString = 'package main\nimport (\n$imports\n)\nfunc main() {\n::code::\n}';
 private var code = "";
 private var openBracket = 0;
 
@@ -37,7 +42,7 @@ private function loop() {
 	var failed = false;
 	if (openBracket == 0) {
 		// is an expr/statement can now build
-		var template = new haxe.Template(File.getContent("repl/main.go"));
+		var template = new haxe.Template(tempString);
 		final pastCode = File.getContent("repl/code.go");
 		File.saveContent("repl/run.go", template.execute({code: pastCode + code}));
 		final modules = Main.init(["./repl/run.go"]);

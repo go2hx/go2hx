@@ -7,7 +7,6 @@
 		"pxshadow",
 		"elliott5"
 	],
-	"postDownload": "lix download && go build && haxe build.hxml",
 	"version": "0.0.1",
 	"tags": [
 		"go",

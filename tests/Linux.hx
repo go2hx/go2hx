@@ -1,8 +1,6 @@
-import Util.*;
-
 class Linux {
 	static public function isAptPackageInstalled(aptPackage:String):Bool {
-		return commandSucceed("dpkg-query", ["-W", "-f='${Status}'", aptPackage]);
+		return Util.commandSucceed("dpkg-query", ["-W", "-f='${Status}'", aptPackage]);
 	}
 
 	static public function requireAptPackages(packages:Array<String>):Void {
@@ -14,7 +12,7 @@ class Linux {
 			} else {
 				["apt-get", "install", "-qqy"];
 			};
-			runCommand("sudo", baseCommand.concat(notYetInstalled), true);
+			Util.runCommand("sudo", baseCommand.concat(notYetInstalled), true);
 		}
 	}
 }

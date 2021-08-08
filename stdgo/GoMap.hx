@@ -1,9 +1,9 @@
 package stdgo;
 
-import stdgo.StdGoTypes;
-import stdgo.reflect.Reflect.Type;
-import haxe.Rest;
 import haxe.Constraints.Constructible;
+import haxe.Rest;
+import stdgo.Reflect.Type;
+import stdgo.StdGoTypes;
 
 @:forward
 @:generic
@@ -92,9 +92,9 @@ private class MapData<K, V> {
 				return false;
 			return x == y;
 		}
-		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
+		return switch @:privateAccess (type.common().value : stdgo.Reflect.GoType) {
 			case mapType(keyType, _):
-				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
+				final t:Type = new stdgo.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
 				throw "unknown type: " + @:privateAccess type.common().value;
@@ -127,9 +127,9 @@ private class MapData<K, V> {
 	}
 
 	public inline function defaultValue():V {
-		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
-			default: @:privateAccess throw "unknown type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
+		return switch @:privateAccess (type.common().value : stdgo.Reflect.GoType) {
+			case mapType(key, value): stdgo.Reflect.defaultValue(new stdgo.Reflect._Type(value));
+			default: @:privateAccess throw "unknown type: " + (type.common().value : stdgo.Reflect.GoType);
 		}
 	}
 

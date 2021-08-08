@@ -1,27 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"reflect"
+	"unsafe"
+)
+
+var x unsafe.Pointer = nil
 
 func main() {
-	var c Closer = &Bar{}
-	fmt.Println(c.ee())
+	newInt8 := reflect.New(reflect.TypeOf(int8(0)))
+	fmt.Println("kind:", newInt8.Kind())
+	newInt8.Elem().SetInt(5)
 }
 
-type Bar struct {
-	X int
+/*import (
+	"fmt"
+	"math/rand"
+	"reflect"
+	"sort"
+	"strconv"
+	"strings"
+)
+
+var _ = fmt.Printf
+var _ = strconv.AppendBool
+var _ = sort.Ints
+var _ = strings.Contains
+var _ = reflect.TypeOf
+var _ = rand.ExpFloat64
+
+type s struct {
+	int
 }
 
-func (b *Bar) ee() error {
-	return nil
-}
-
-func (b Bar) a() error {
-	return nil
-}
-
-type Closer interface {
-	ee() error
-	a() error
-}
-
-
+func main() {
+	x := s{}
+	fmt.Println(x)
+}*/

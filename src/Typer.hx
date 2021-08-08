@@ -1,19 +1,19 @@
-import haxe.EnumTools;
-import stdgo.GoString;
 import Ast.ExprType;
-import sys.io.File;
-import haxe.io.Path;
+import Util;
+import haxe.DynamicAccess;
+import haxe.EnumTools;
 import haxe.ds.StringMap;
+import haxe.io.Path;
+import haxe.macro.Expr;
 import haxe.macro.Type.ClassField;
 import haxe.macro.Type.ClassKind;
 import haxe.macro.Type.ClassType;
 import haxe.macro.Type.ModuleType;
-import haxe.macro.Expr;
-import haxe.DynamicAccess;
-import sys.FileSystem;
 import stdgo.Go;
-import stdgo.reflect.Reflect;
-import Util;
+import stdgo.GoString;
+import stdgo.Reflect;
+import sys.FileSystem;
+import sys.io.File;
 
 var stdgoList:Array<String>;
 var excludes:Array<String>;
@@ -1405,6 +1405,16 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	toType = cleanType(toType);
 	var y = expr;
 
+	switch fromType {
+		case basic(kind):
+			switch kind {
+				case untyped_nil_kind:
+					return y;
+				default:
+			}
+		default:
+	}
+
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
 	}
@@ -1799,9 +1809,13 @@ private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
 				return [];
 		}
 	}
+	var name = expr.sel.name;
+	final pack = func(expr.x, false);
+	if (pack.length == 1 && pack[0] == "stdgo.Unsafe" && name == "Pointer")
+		name = "UnsafePointer";
 	return TPath({
-		name: expr.sel.name,
-		pack: func(expr.x, false),
+		name: name,
+		pack: pack,
 	});
 }
 
@@ -2045,7 +2059,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							var t = toReflectType(type);
 							var key = toComplexType(key, info);
 							var value = toComplexType(value, info);
-							macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($t));
+							macro new GoMap<$key, $value>(new stdgo.Reflect._Type($t));
 						case chanType(dir, elem):
 							var value = defaultValue(elem, info);
 							var param = toComplexType(elem, info);
@@ -2076,8 +2090,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	switch e.expr {
 		case EField(e, field):
 			var str = printer.printExpr(e);
-			str = str.substr(0, str.lastIndexOf("."));
-			if (str == "stdgo.fmt" && field.charAt(field.length - 1) != "f")
+			if (str == "stdgo.Fmt" && field.charAt(field.length - 1) != "f")
 				isFmtPrint = true;
 		default:
 	}
@@ -2092,48 +2105,48 @@ private function toReflectType(t:GoType):Expr {
 		case mapType(key, value):
 			final key = toReflectType(key);
 			final value = toReflectType(value);
-			macro stdgo.reflect.Reflect.GoType.mapType($key, $value);
+			macro stdgo.Reflect.GoType.mapType($key, $value);
 		case pointer(elem):
 			final elem = toReflectType(elem);
-			macro stdgo.reflect.Reflect.GoType.pointer($elem);
+			macro stdgo.Reflect.GoType.pointer($elem);
 		case arrayType(elem, len):
 			final elem = toReflectType(elem);
 			final len = toExpr(EConst(CInt('$len')));
-			macro stdgo.reflect.Reflect.GoType.arrayType($elem, $len);
+			macro stdgo.Reflect.GoType.arrayType($elem, $len);
 		case sliceType(elem):
 			final elem = toReflectType(elem);
-			macro stdgo.reflect.Reflect.GoType.sliceType($elem);
+			macro stdgo.Reflect.GoType.sliceType($elem);
 		case basic(kind):
 			final name = macro $i{kind.getName()};
-			macro stdgo.reflect.Reflect.GoType.basic($name);
+			macro stdgo.Reflect.GoType.basic($name);
 		case _var(name, type):
 			toReflectType(type);
 		case chanType(dir, elem):
 			final dir = toExpr(EConst(CInt('$dir')));
 			final elem = toReflectType(elem);
-			macro stdgo.reflect.Reflect.GoType.chanType($dir, $elem);
+			macro stdgo.Reflect.GoType.chanType($dir, $elem);
 		case interfaceType(empty, path, methods):
 			final empty = empty ? macro true : macro false;
 			final path = makeString(path == null ? "" : path);
 			final methods = macro [];
-			macro stdgo.reflect.Reflect.GoType.interfaceType($empty, $path, $methods);
+			macro stdgo.Reflect.GoType.interfaceType($empty, $path, $methods);
 		case invalidType:
-			macro stdgo.reflect.Reflect.GoType.invalidType;
+			macro stdgo.Reflect.GoType.invalidType;
 		case named(path, methods, interfaces, type):
 			final path = makeString(path);
 			final methods = macro [];
 			final interfaces = macro [];
 			final t = toReflectType(type);
-			macro stdgo.reflect.Reflect.GoType.named($path, $methods, $interfaces, $t);
+			macro stdgo.Reflect.GoType.named($path, $methods, $interfaces, $t);
 		case previouslyNamed(path):
 			final path = makeString(path);
-			macro stdgo.reflect.Reflect.GoType.previousNamed($path);
+			macro stdgo.Reflect.GoType.previousNamed($path);
 		case signature(variadic, params, results, recv):
 			final variadic = variadic ? macro true : macro false;
 			final params = macro [];
 			final results = macro [];
 			final recv = toReflectType(recv);
-			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
+			macro stdgo.Reflect.GoType.signature($variadic, $params, $results, $recv);
 		case structType(fields):
 			var exprs:Array<Expr> = [];
 			for (field in fields) {
@@ -2149,11 +2162,11 @@ private function toReflectType(t:GoType):Expr {
 				});
 			}
 			var expr = macro $a{exprs};
-			macro stdgo.reflect.Reflect.GoType.structType($expr);
+			macro stdgo.Reflect.GoType.structType($expr);
 		case tuple(len, vars):
 			final len = toExpr(EConst(CInt('$len')));
 			final vars = [for (v in vars) toReflectType(v)];
-			macro stdgo.reflect.Reflect.GoType.tuple($len, $a{vars});
+			macro stdgo.Reflect.GoType.tuple($len, $a{vars});
 	}
 }
 
@@ -2338,8 +2351,9 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	if (stdgoList.indexOf(pack[0]) != -1) { // Haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
+	trace("pack: " + pack);
 	var last = pack.pop();
-	pack.push(last);
+	// pack.push(last);
 	pack.push(title(last));
 
 	return {name: cl, pack: pack};
@@ -2367,9 +2381,11 @@ private function namedTypePath(path:String, info:Info):TypePath {
 	globalPath = toGoPath(globalPath);
 	var pack = [];
 	if (globalPath != path) {
-		path += "/" + title(pkg);
+		// path += "/" + title(pkg);
+		var last = path.lastIndexOf("/");
+		path = path.substr(0, last + 1) + path.charAt(last + 1).toUpperCase() + path.substr(last + 2);
 		pack = path.split("/");
-		if (stdgoList.indexOf(pack[0]) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
 	} else {
@@ -2418,7 +2434,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				case untyped_string_kind: TPath({pack: [], name: "GoString"});
 				case untyped_nil_kind: null;
 				case invalid_kind: null;
-				case unsafepointer_kind: TPath({pack: ["stdgo", "unsafe", "Unsafe"], name: "Pointer"});
+				case unsafepointer_kind: TPath({pack: ["stdgo", "Unsafe"], name: "UnsafePointer"});
 				default:
 					throw "unknown kind to complexType: " + kind;
 			}
@@ -2851,7 +2867,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 
 				params.push(macro {key: $key, value: $value});
 			}
-			t = macro new stdgo.reflect.Reflect._Type($t);
+			t = macro new stdgo.Reflect._Type($t);
 			params.unshift(t);
 			final p = getTypePath();
 			return (macro new $p($a{params})).expr;
@@ -3299,7 +3315,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
 			final typ = toReflectType(type);
-			macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($typ)).nil();
+			macro new GoMap<$key, $value>(new stdgo.Reflect._Type($typ)).nil();
 		case sliceType(elem):
 			var t = toComplexType(elem, info);
 			macro new Slice<$t>().nil();
@@ -3871,10 +3887,15 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				access: [APublic],
 				kind: FFun({
 					args: [
-						for (field in fields) {name: field.name, opt: true, type: switch field.kind {
-							case FVar(t, _): t;
-							default: null;
-						}}
+						for (field in fields)
+							{
+								name: field.name,
+								opt: true,
+								type: switch field.kind {
+									case FVar(t, _): t;
+									default: null;
+								}
+							}
 					],
 					expr: macro stdgo.internal.Macro.initLocals(),
 				}),
@@ -4008,7 +4029,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 		path.unshift("stdgo");
 	}
 	var name = path[path.length - 1];
-	path.push(title(name));
+	path[path.length - 1] = title(name);
 	info.renameTypes[name] = path.join(".");
 	return {
 		path: path,

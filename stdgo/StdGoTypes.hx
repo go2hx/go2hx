@@ -22,10 +22,10 @@
 
 package stdgo;
 
-import stdgo.Pointer.PointerData;
 import haxe.Int32;
 import haxe.Int64;
-import stdgo.reflect.Reflect;
+import stdgo.Pointer.PointerData;
+import stdgo.Reflect.GoType;
 
 // native_num define flag
 typedef GoByte = GoUInt8;
@@ -1871,7 +1871,7 @@ interface Error {
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var type:stdgo.reflect.Reflect.Type;
+	public var type:stdgo.Reflect.Type;
 
 	public function new(value, type) {
 		this.value = value;
@@ -1977,8 +1977,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					if (fieldValue == null || fieldValue2 == null)
 						throw "struct issue with field name: " + name;
 
-					final a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect._Type(type));
-					final b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect._Type(type));
+					final a = new AnyInterface(fieldValue, new stdgo.Reflect._Type(type));
+					final b = new AnyInterface(fieldValue2, new stdgo.Reflect._Type(type));
 
 					final bool = equals(a, b);
 					if (!bool)
@@ -1993,7 +1993,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case sliceType(elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t = new stdgo.reflect.Reflect._Type(elem);
+				var t = new stdgo.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
@@ -2005,7 +2005,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t = new stdgo.reflect.Reflect._Type(elem);
+				var t = new stdgo.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;

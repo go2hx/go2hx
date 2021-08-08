@@ -13,13 +13,11 @@ function main() {
 	Sys.setCwd("tests");
 	if (!FileSystem.exists("results"))
 		FileSystem.createDirectory("results");
-	var completion = new sys.io.Process('haxe --wait $port --verbose', null, true);
 	path = Path.normalize(Sys.getCwd());
 	initOutput();
-	yaegi();
-	// tinygo();
+	// yaegi();
+	tinygo();
 	// gotests();
-	completion.close();
 	output.writeString("PASSING: " + passed + "/" + total);
 	output.close();
 }
@@ -88,7 +86,7 @@ function tinygo() {
 		"stdlib", // runs but still doesn't pass
 	])
 		tests.remove('.$pathto$test.go');
-	// tests = ['.$pathto' + "interface.go"];
+	tests = ['.$pathto' + "reflect.go"];
 	total += tests.length;
 	for (test in tests) {
 		compile([test], false);
@@ -143,42 +141,15 @@ var passed:Int = 0;
 function compile(tests:Array<String>, server:Bool) {
 	server = true;
 	tests.push(path);
-	Main.exportBool = true;
-	Main.init(tests);
-	tests.pop();
-	Sys.setCwd("..");
-
-	var path = ""; // TODO
+	var modules = Main.init(tests);
+	var path = modules[0].path + "/" + modules[0].files[0].name;
 	path = StringTools.replace(path, "/", ".");
-	Sys.println('------ $path ------');
-	var name = path.substr(path.lastIndexOf(".") + 1); // get the final name
+
 	var command = '-cp tests/golibs -main $path --interp';
-
-	inline function getTextFile(name:String)
-		return 'tests/results/$name.txt';
-	final textFile = getTextFile(name);
-
-	if (server)
-		command += ' --connect $port';
-	command += ' > $textFile';
 	command = 'haxe $command';
-
+	Sys.println(command);
 	var runner = run(command);
-	command = cleanCommand(command);
-	final str = File.getContent(textFile);
-	output.writeString('- [' + (runner ? "x" : " ") + '] $name \n${!runner ? '    $command\n    $str\n' : ''}');
-	if (!runner) {
-		Sys.println(str);
-		return;
-	}
 
-	var program = tests[0];
-	program = "./tests" + program.substr(1);
-	final textFile2 = getTextFile(name + "2");
-	final go = run('go run $program > $textFile2');
-	if (!go) {
-		trace('go error running: $program');
-	}
 	Sys.println("PASSED");
 	passed++;
 }
@@ -197,7 +168,7 @@ typedef Runner = {str:String, error:Bool};
 function run(command:String):Bool {
 	final proc = new sys.io.Process(command);
 	var code:Null<Int> = null;
-	Sys.println(cleanCommand(command));
+	Sys.println(command);
 	for (i in 0...10 * 10) {
 		code = proc.exitCode(false);
 		if (code != null)
@@ -220,14 +191,6 @@ function run(command:String):Bool {
 			return false;
 		}
 	}
-}
-
-function cleanCommand(command:String):String {
-	command = StringTools.replace(command, '--connect $port', "");
-	final index = command.lastIndexOf(">");
-	if (index > -1)
-		command = command.substr(0, index);
-	return command;
 }
 
 function loadGoTests():Array<String> {

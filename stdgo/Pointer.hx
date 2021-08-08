@@ -1,8 +1,8 @@
 package stdgo;
 
+import haxe.Constraints.Constructible;
 import haxe.ds.Either;
 import haxe.macro.Context;
-import haxe.Constraints.Constructible;
 import stdgo.StdGoTypes.AnyInterface;
 
 @:forward.new

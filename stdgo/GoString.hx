@@ -1,13 +1,8 @@
 package stdgo;
 
 import haxe.io.Bytes;
-import stdgo.StdGoTypes.GoInt32;
 import stdgo.StdGoTypes.GoByte;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.GoInt64;
-import stdgo.StdGoTypes.GoUInt8;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoRune;
+import stdgo.StdGoTypes;
 
 abstract GoString(Bytes) from Bytes to Bytes {
 	public var length(get, never):GoInt;

@@ -2351,7 +2351,6 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	if (stdgoList.indexOf(pack[0]) != -1) { // Haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
-	trace("pack: " + pack);
 	var last = pack.pop();
 	// pack.push(last);
 	pack.push(title(last));

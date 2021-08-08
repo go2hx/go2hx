@@ -44,6 +44,8 @@ function init(args:Array<String>):Array<Typer.Module> {
 			argsCount++;
 		} else {
 			var remove = true;
+			if (arg.charAt(1) == "-")
+				arg = arg.substr(1);
 			switch arg.substr(1).toLowerCase() {
 				case "global", "g":
 					global = true;

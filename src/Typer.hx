@@ -1988,10 +1988,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro $e.remove($key)).expr;
 				case "print":
 					genArgs(false);
-					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
+					return (macro stdgo.Fmt.print($a{args})).expr;
 				case "println":
 					genArgs(false);
-					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
+					return (macro stdgo.Fmt.println($a{args})).expr;
 				case "complex":
 					genArgs(false);
 					return (macro new GoComplex128($a{args})).expr;
@@ -2696,6 +2696,9 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 	switch getUnderlying(type) {
+		case pointer(elem):
+			final e = toExpr(compositeLit(elem, expr, info));
+			return (macro Go.pointer($e)).expr;
 		case structType(fields):
 			var objectFields:Array<ObjectField> = [];
 			var fields = fields.copy();

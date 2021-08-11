@@ -1,13 +1,7 @@
 package stdgo;
 
 import stdgo.GoArray;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoInt64;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.GoUInt64;
-import stdgo.StdGoTypes.GoUIntptr;
-import stdgo.StdGoTypes.StructType;
+import stdgo.StdGoTypes;
 #if hl
 import hl.Gc;
 #elseif cpp

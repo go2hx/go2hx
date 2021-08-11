@@ -88,8 +88,10 @@ func main() {
 	//flags
 	testBool := flag.Bool("test", false, "testing the go library in haxe")
 	identBool := flag.Bool("ident", false, "ident json")
-	os.Remove("export.json")
+	exportName := flag.String("export", "export.json", "set export name")
+
 	flag.Parse() //help stops the program here
+
 	args := flag.Args()
 	localPath := args[len(args)-1]
 	cwd, err := os.Getwd()
@@ -150,7 +152,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-	ioutil.WriteFile("export.json", bytes, 0644)
+	ioutil.WriteFile(*exportName, bytes, 0644)
 }
 
 func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
@@ -159,7 +161,7 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 	if isMain {
 		pkg.PkgPath = "main__" + file.Name.Name
 	}
-	
+
 	for _, decl := range file.Decls { //typespec named interfaces
 		switch decl := decl.(type) {
 		case *ast.GenDecl:
@@ -176,7 +178,7 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 							}
 							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkg.PkgPath, exported})
 						}
-						
+
 					default:
 					}
 				default:
@@ -189,13 +191,13 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 }
 
 func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData {
-	interfaceTypes := make(map[string]*ast.Ident) 
+	interfaceTypes := make(map[string]*ast.Ident)
 	structTypes := make(map[string]*ast.Ident)
 	countStruct := 0
 	countInterface := 0
 	interfaces := []interfaceData{}
 
-	apply := func (cursor *astutil.Cursor) bool {
+	apply := func(cursor *astutil.Cursor) bool {
 		node := cursor.Node()
 		switch cursor.Parent().(type) {
 		case *ast.TypeSpec:
@@ -207,7 +209,7 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 			if t == nil {
 				return false
 			}
-			name,exists := structTypes[t.String()]
+			name, exists := structTypes[t.String()]
 			if !exists {
 				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
 				countStruct++
@@ -223,14 +225,14 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 				file.Decls = append(file.Decls, &gen)
 
 				var pos token.Pos = 0
-				namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
 				tv := types.TypeAndValue{}
 				tv.Type = t
 				//add
 				pkg.TypesInfo.Defs[name] = namedType.Obj()
 				pkg.TypesInfo.Types[name] = tv
 				//replace
-				for key,value := range pkg.TypesInfo.Defs {
+				for key, value := range pkg.TypesInfo.Defs {
 					if value != nil && value.Type() == t {
 						pkg.TypesInfo.Defs[key] = namedType.Obj()
 					}
@@ -246,13 +248,13 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 			if t == nil {
 				return false
 			}
-			name,exists := interfaceTypes[t.String()]
+			name, exists := interfaceTypes[t.String()]
 			if !exists {
 				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
 				countInterface++
 				interfaceTypes[t.String()] = name
 				//add to interfaces
-				interfaces = append(interfaces, interfaceData{t.(*types.Interface),name.Name,pkg.PkgPath,false})
+				interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkg.PkgPath, false})
 				//add to file
 				gen := ast.GenDecl{}
 				gen.Tok = token.FUNC //set local
@@ -264,14 +266,14 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 				file.Decls = append(file.Decls, &gen)
 
 				var pos token.Pos = 0
-				namedType := types.NewNamed(types.NewTypeName(pos,pkg.Types,name.Name,nil),t,nil)
+				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
 				tv := types.TypeAndValue{}
 				tv.Type = t
 				//add
 				pkg.TypesInfo.Defs[name] = namedType.Obj()
 				pkg.TypesInfo.Types[name] = tv
 				//replace
-				for key,value := range pkg.TypesInfo.Defs {
+				for key, value := range pkg.TypesInfo.Defs {
 					if value != nil && value.Type() == t {
 						pkg.TypesInfo.Defs[key] = namedType.Obj()
 					}
@@ -281,7 +283,7 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 		}
 		return true
 	}
-	file = astutil.Apply(file,apply,nil).(*ast.File)
+	file = astutil.Apply(file, apply, nil).(*ast.File)
 	return interfaces
 }
 
@@ -298,9 +300,9 @@ func parseInterface(pkg *packages.Package) {
 		//DisableUnusedImportCheck: true,
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-	for _,file := range pkg.Syntax {
-		interfaces = append(interfaces, parseFileInterface(file,pkg)...)
-		interfaces = append(interfaces, parseLocalInterface(file,pkg)...)
+	for _, file := range pkg.Syntax {
+		interfaces = append(interfaces, parseFileInterface(file, pkg)...)
+		interfaces = append(interfaces, parseLocalInterface(file, pkg)...)
 	}
 }
 
@@ -455,7 +457,7 @@ func parseType(node interface{}) map[string]interface{} {
 		if isAlias {
 			data = parseType(named.Underlying())
 			isVar = true
-		}else{
+		} else {
 			path := named.String()
 			if !strings.HasPrefix(path, "syscall/") &&
 				!strings.HasPrefix(path, "internal.") &&
@@ -486,8 +488,8 @@ func parseType(node interface{}) map[string]interface{} {
 		for i := 0; i < s.NumFields(); i++ {
 			v := s.Field(i)
 			fields[i] = map[string]interface{}{
-				"name": v.Name(),
-				"type": parseType(v.Type()),
+				"name":     v.Name(),
+				"type":     parseType(v.Type()),
 				"embedded": v.Embedded(),
 			}
 		}
@@ -597,7 +599,7 @@ func parseData(node interface{}) map[string]interface{} {
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
-			data[field.Name] = fset.PositionFor(value,true).Offset
+			data[field.Name] = fset.PositionFor(value, true).Offset
 		case token.Token:
 			data[field.Name] = value.String()
 		case *ast.InterfaceType, *ast.StructType, *ast.ArrayType, *ast.MapType, *ast.ChanType:
@@ -776,7 +778,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		"id":    "BasicLit",
 		"kind":  value.Kind.String(),
 		"value": output,
-		"type": parseType(checker.TypeOf(value)), 
+		"type":  parseType(checker.TypeOf(value)),
 	}
 }
 func getId(obj interface{}) string {

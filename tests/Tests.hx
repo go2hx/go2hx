@@ -1,3 +1,0 @@
-package;
-
-function main() {}

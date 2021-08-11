@@ -23,7 +23,7 @@ function main() {
 	}
 	// run go compiler
 	if (!FileSystem.exists("go4hx"))
-		Sys.command("go build -o go4hx");
+		Sys.command("go build .");
 	if (hlExists) {
 		if (!FileSystem.exists("build.hl") || rebuild)
 			Sys.command("haxe buildHashlink.hxml");

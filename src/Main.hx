@@ -20,7 +20,7 @@ function main() {
 	init(Sys.args());
 }
 
-function init(args:Array<String>):Array<Typer.Module> {
+function init(args:Array<String>, exportName:String = "export.json"):Array<Typer.Module> {
 	var argsCount = 0;
 	var outputPath = "golibs";
 	var global = false;
@@ -114,17 +114,17 @@ function init(args:Array<String>):Array<Typer.Module> {
 		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
-		var command = 'go get -u $path';
+		var command = 'go get $path';
 		Sys.command(command);
 	}
 	Sys.setCwd(cwd);
-
-	var err = Sys.command((Util.systemName == "Windows" ? "" : "./") + "go4hx", args);
+	args.unshift(exportName);
+	args.unshift("-export");
+	var err = Sys.command("./go4hx", args);
 	if (err != 0) {
-		Sys.println("go4hx ERROR");
+		Sys.println("go4hx error");
 		return [];
 	}
-	var exportName = "export.json";
 	if (!FileSystem.exists(exportName)) {
 		Sys.println("Usage of go2hx:");
 		Sys.println("    -output");

@@ -19,37 +19,9 @@ function main() {
 	results = new TestResults(path);
 	completionServer = new sys.io.Process('haxe -v --wait 4000');
 	Main.setup(0, 4);
-	Main.onComplete = (modules, data) -> {
-		if (modules.length == 0)
-			throw test;
-		final path = Util.modulePath(modules[0]);
-		final command = 'haxe -cp golibs -main $path --interp --connect $completionPort';
-		var proc = new sys.io.Process(command);
-		var code:Null<Int> = null;
-		var timer = new haxe.Timer(30);
-		var count = 0;
-		timer.run = () -> {
-			code = proc.exitCode(false);
-			count++;
-			if (code != null || count > 100) {
-				if (code == null) {
-					Sys.println("timeout...");
-				}
-				--testsLeft;
-				Sys.println((testsTotal - testsLeft) + "/" + testsTotal);
-				assert(data.suiteName, data.testName, code == 0, data.offset);
-				proc.close();
-				timer.stop();
-				if (testsLeft == 0) {
-					results.save();
-					completionServer.close();
-					Main.close();
-				}
-			}
-		};
-	};
-	test("go", "./go/test/", goList, [], 6);
-	test("yaegi", "./yaegi/_test/", yaegiList, ["addr0"], 137); // 47 stop
+	Main.onComplete = complete;
+	test("go", "./go/test/", goList.slice(0, 10), [], 6 + 8);
+	// test("yaegi", "./yaegi/_test/", yaegiList, ["addr0"], 137 + 8); // 47 stop
 	while (true) {
 		Main.update();
 		for (test in tests) {
@@ -70,14 +42,44 @@ function test(suiteName:String, dir:String, list:Array<String>, skip:Array<Strin
 		tests.push({
 			args: [test, path],
 			data: {
-				suitename: suiteName,
+				suiteName: suiteName,
 				testName: testName,
-				offset: offset,
+				offset: i + offset,
 			}
 		});
 		testsTotal++;
 		testsLeft++;
 	}
+}
+
+private function complete(modules, data) {
+	if (modules.length == 0)
+		throw test;
+	final path = Util.modulePath(modules[0]);
+	final command = 'haxe -cp golibs -main $path --interp --connect $completionPort';
+	var proc = new sys.io.Process(command);
+	var code:Null<Int> = null;
+	var timer = new haxe.Timer(30);
+	var count = 0;
+	timer.run = () -> {
+		code = proc.exitCode(false);
+		count++;
+		if (code != null || count > 100) {
+			if (code == null) {
+				Sys.println("timeout...");
+			}
+			--testsLeft;
+			Sys.println((testsTotal - testsLeft) + "/" + testsTotal);
+			assert(data.suiteName, data.testName, code == 0, data.offset);
+			proc.close();
+			timer.stop();
+			if (testsLeft == 0) {
+				results.save();
+				completionServer.close();
+				Main.close();
+			}
+		}
+	};
 }
 
 // @formatter:off

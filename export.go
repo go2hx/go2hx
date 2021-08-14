@@ -1,16 +1,19 @@
 package main
 
 import (
+	"encoding/binary"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"go/ast"
 	"go/importer"
 	"go/token"
 	"go/types"
+	"net"
+	"time"
 
 	//"go/types"
-	"io/ioutil"
+
+	_ "embed"
 	"os"
 	"path/filepath"
 	"reflect"
@@ -62,62 +65,45 @@ var excludes map[string]bool
 var stdgoList map[string]bool
 var interfaces []interfaceData
 
-func main() {
-	//exclude types system
-	excludesBytes, err := ioutil.ReadFile("excludes.json")
-	if err != nil {
-		fmt.Println(err)
-		return
+func compile(params []string, excludesData excludesType) []byte {
+	args := []string{}
+	testBool := false
+	identBool := false
+	for _, param := range params {
+		switch param {
+		case "-ident", "--ident":
+			identBool = true
+		case "-test", "--test":
+			testBool = true
+		default:
+			args = append(args, param)
+		}
 	}
-	stdgoListBytes, err := ioutil.ReadFile("stdgo.json")
-	var excludesData excludesType
-	var stdgoDataList stdgoListType
-	err = json.Unmarshal(excludesBytes, &excludesData)
-	if err != nil {
-		panic(err.Error())
-	}
-
-	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
-	if err != nil {
-		panic(err.Error())
-	}
-	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
-	for _, stdgo := range stdgoDataList.Stdgo {
-		stdgoList[stdgo] = true
-	}
-	//flags
-	testBool := flag.Bool("test", false, "testing the go library in haxe")
-	identBool := flag.Bool("ident", false, "ident json")
-	exportName := flag.String("export", "export.json", "set export name")
-
-	flag.Parse() //help stops the program here
-
-	args := flag.Args()
+	bytes := []byte("null")
 	localPath := args[len(args)-1]
-	cwd, err := os.Getwd()
+	var err error
 	if err != nil {
 		fmt.Println(err)
-		return
+		return bytes
 	}
 	err = os.Chdir(localPath)
 	if err != nil {
 		fmt.Println(err)
-		return
+		return bytes
 	}
 	args = args[0 : len(args)-1] //remove chdir
 
-	//args = args[0:10]
-
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax | packages.NeedDeps |
-		packages.NeedImports | packages.NeedTypes |
+		packages.NeedImports |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
-	cfg.Tests = *testBool
-	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm")
+	cfg.Tests = testBool
+	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	initial, err := packages.Load(cfg, args...)
+	//profile.Stop()
 	if err != nil {
 		fmt.Println("load error:", err)
-		return
+		return []byte{}
 	}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
@@ -137,22 +123,85 @@ func main() {
 	data := parsePkgList(initial)
 
 	data.Args = args
-	var bytes []byte
-	if *identBool {
+
+	if identBool {
 		bytes, err = json.MarshalIndent(data, "", "    ")
 	} else {
 		bytes, err = json.Marshal(data)
 	}
 	if err != nil {
 		fmt.Println("encoding err:", err)
-		return
+		return bytes
 	}
-	err = os.Chdir(cwd)
+	return bytes
+}
+
+//go:embed stdgo.json
+var stdgoListBytes []byte
+
+//go:embed excludes.json
+var excludesBytes []byte
+
+func main() {
+	args := os.Args
+	port := args[len(args)-1]
+	var excludesData excludesType
+	var stdgoDataList stdgoListType
+	var err error
+	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		fmt.Println(err)
+		panic(err)
+	}
+	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
+	if err != nil {
+		panic(err.Error())
+	}
+	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
+	for _, stdgo := range stdgoDataList.Stdgo {
+		stdgoList[stdgo] = true
+	}
+	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
+	if err != nil {
+		fmt.Println("dial:", err)
 		return
 	}
-	ioutil.WriteFile(*exportName, bytes, 0644)
+	for {
+		err = conn.SetReadDeadline(time.Now().Add(5 * time.Second))
+		if err != nil {
+			fmt.Println("read deadline failed:", err)
+			return
+		}
+		input := make([]byte, 1024)
+		c, err := conn.Read(input)
+		if c == 0 {
+			time.Sleep(60 * time.Millisecond)
+			continue
+		}
+		if err != nil {
+			fmt.Println("read error:", err)
+			// some error else, do something else, for example create new conn
+			return
+		}
+		input = input[:c]
+		if string(input) == "exit" {
+			return
+		}
+		args := strings.Split(string(input), " ")
+		data := compile(args, excludesData)
+		length := len(data)
+		buff := make([]byte, 8)
+		binary.LittleEndian.PutUint64(buff, uint64(length))
+		_, err = conn.Write(buff)
+		if err != nil {
+			fmt.Println("write length error:", err)
+			return
+		}
+		_, err = conn.Write(data)
+		if err != nil {
+			fmt.Println("write error:", err)
+			return
+		}
+	}
 }
 
 func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {

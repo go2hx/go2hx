@@ -44,4 +44,6 @@ examples/*.txt
 package.json
 !gen.txt
 Test.hx
+*.bat
+*.pprof
 hxRuntime.hx

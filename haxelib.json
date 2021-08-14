@@ -1,6 +1,6 @@
 {
 	"name": "go2hx",
-	"description": "A Go to Haxe transpiler",
+	"description": "The Go to Haxe compiler",
 	"dependencies": {},
 	"url": "http://github.com/pxshadow/go2hx",
 	"contributors": [

@@ -1,5 +1,4 @@
 -cp rnd
 -cp src
 -main Run
---interp
-#--hl rnd.hl
+--hl rnd.hl

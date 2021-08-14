@@ -1,6 +1,6 @@
 module github.com/go2hx/go4hx //not a real repo, used to set the name to go4hx
 
-go 1.15
+go 1.16
 
 require (
 	golang.org/x/mod v0.4.1 // indirect

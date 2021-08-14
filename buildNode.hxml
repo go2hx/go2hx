@@ -1,8 +1,0 @@
--cp src
--main Main
--D no-deprecation-warnings
--D std-encoding-utf8
--lib hxnodejs
---dce full
--D analyzer-optimize
--js build.js

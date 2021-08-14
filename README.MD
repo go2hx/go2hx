@@ -12,6 +12,7 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 # Getting started
 * [Download Golang](https://golang.org/dl/)
 * [Download Haxe](https://haxe.org/download/)
+* [Download Hashlink](https://hashlink.haxe.org/)
 ```
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```

@@ -4,77 +4,80 @@ import sys.io.File;
 import sys.thread.Mutex;
 
 final path = Sys.getCwd();
-final pool = new sys.thread.FixedThreadPool(2);
+var completionServer:sys.io.Process;
+final completionPort = 4000;
 var results = null;
+var testsLeft:Int = 0;
+var testsTotal:Int = 0;
+var tests:Array<Data> = [];
+typedef Data = {args:Array<String>, data:Dynamic};
 
 function main() {
 	Util.deleteDirectoryRecursively("export");
 	sys.FileSystem.createDirectory("export");
-
 	TestResults.clear(path);
 	results = new TestResults(path);
-	// test("go", "./go/test/", goList, [], 6);
-	test("yaegi", "./yaegi/_test/", yaegiList, [], 137);
-	results.save();
+	completionServer = new sys.io.Process('haxe -v --wait 4000');
+	Main.setup(0, 4);
+	Main.onComplete = (modules, data) -> {
+		if (modules.length == 0)
+			throw test;
+		final path = Util.modulePath(modules[0]);
+		final command = 'haxe -cp golibs -main $path --interp --connect $completionPort';
+		var proc = new sys.io.Process(command);
+		var code:Null<Int> = null;
+		var timer = new haxe.Timer(30);
+		var count = 0;
+		timer.run = () -> {
+			code = proc.exitCode(false);
+			count++;
+			if (code != null || count > 100) {
+				if (code == null) {
+					Sys.println("timeout...");
+				}
+				--testsLeft;
+				Sys.println((testsTotal - testsLeft) + "/" + testsTotal);
+				assert(data.suiteName, data.testName, code == 0, data.offset);
+				proc.close();
+				timer.stop();
+				if (testsLeft == 0) {
+					results.save();
+					completionServer.close();
+					Main.close();
+				}
+			}
+		};
+	};
+	test("go", "./go/test/", goList, [], 6);
+	test("yaegi", "./yaegi/_test/", yaegiList, ["addr0"], 137); // 47 stop
+	while (true) {
+		Main.update();
+		for (test in tests) {
+			var bool = Main.compile(test.args, test.data);
+			if (!bool)
+				break;
+			tests.remove(test);
+		}
+	}
 }
 
 function test(suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int) {
-	// list = list.slice(0, 20);
-	var running = 0;
-	var mutex = new Mutex();
-	var mutexRunning = new Mutex();
-	var mutexPrint = new Mutex();
 	for (i in 0...list.length) {
 		final testName = list[i];
 		if (skip.contains(testName))
 			continue;
 		final test = '$dir$testName.go';
-		running++;
-		pool.run(() -> {
-			try {
-				work(test, path, suiteName, testName, offset + i, mutex, mutexPrint);
-			} catch (e) {
-				Sys.println('thread error: $e');
+		tests.push({
+			args: [test, path],
+			data: {
+				suitename: suiteName,
+				testName: testName,
+				offset: offset,
 			}
-			mutexRunning.acquire();
-			running--;
-			mutexRunning.release();
 		});
+		testsTotal++;
+		testsLeft++;
 	}
-	var last = running;
-	while (running > 0) {
-		mutexPrint.acquire();
-		Sys.println("running: " + running);
-		mutexPrint.release();
-		Sys.sleep(5);
-	}
-}
-
-function work(test, path, suiteName, testName, offset:Int, mutex:Mutex, mutexPrint:Mutex) {
-	final modules = Main.init([test, path], './export/$offset.json');
-	Sys.sleep(0.04);
-	if (modules.length == 0)
-		throw test;
-	final path = Util.modulePath(modules[0]);
-	final command = 'haxe -cp golibs -main $path --interp --connect 4000';
-	var proc = new sys.io.Process(command);
-	var code:Null<Int> = null;
-	for (i in 0...40) {
-		code = proc.exitCode(false);
-		if (code != null)
-			break;
-		Sys.sleep(0.1);
-	}
-	proc.close();
-	mutexPrint.acquire();
-	Sys.println(testName);
-	if (code == null) {
-		Sys.println("timeout...");
-	}
-	mutexPrint.release();
-	mutex.acquire();
-	assert(suiteName, testName, code == 0, offset);
-	mutex.release();
 }
 
 // @formatter:off

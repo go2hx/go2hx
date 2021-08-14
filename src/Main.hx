@@ -5,106 +5,148 @@ import Gen.create;
 import Typer.DataType;
 import haxe.Json;
 import haxe.Resource;
+import haxe.io.Bytes;
 import haxe.io.Path;
+import hl.uv.Loop;
+import hl.uv.Stream;
+import hl.uv.Tcp;
 import stdgo.StdGoTypes;
 import sys.FileSystem;
 import sys.io.File;
+import sys.io.Process;
 
 final cwd = Sys.getCwd();
 var exportBool:Bool = false;
 var target:String = "";
 var targetFolder:Bool = false;
-var completionPort = "";
+final loop = hl.uv.Loop.getDefault();
+final server = new Tcp(loop);
+var clients:Array<Client> = [];
+var processes:Array<Process> = [];
+var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var mainThread = sys.thread.Thread.current();
 
-function main() {
-	init(Sys.args());
+@:structInit
+class Client {
+	public var stream:Stream;
+	public var runnable:Bool = true; // start out as true
+	public var data:Dynamic = null;
+	public var id:Int = 0;
+
+	public function new(stream, id) {
+		this.stream = stream;
+		this.id = id;
+	}
 }
 
-function init(args:Array<String>, exportName:String = "export.json"):Array<Typer.Module> {
-	var argsCount = 0;
-	var outputPath = "golibs";
-	var global = false;
-	var printGoCode = false;
-	var localpath = false;
-	var addConnect = false;
-	var addOutput = false;
-	var removal:Array<String> = [];
-	for (arg in args) {
-		if (addConnect) {
-			completionPort = arg;
-			removal.push(arg);
-			addConnect = false;
-		}
-		if (addOutput) {
-			outputPath = arg;
-			removal.push(arg);
-			addOutput = false;
-		}
-		if (arg.charAt(0) != "-") { // check if flag
-			argsCount++;
+function main() {
+	run(Sys.args());
+}
+
+function run(args:Array<String>) {
+	// var stamp = haxe.Timer.stamp();
+	setup(0, 1, () -> {
+		onComplete = (modules, data) -> {
+			// Sys.println("time: " + (haxe.Timer.stamp() - stamp));
+			close();
+		};
+		if (args.length <= 1) {
+			Repl.init();
 		} else {
-			var remove = true;
-			if (arg.charAt(1) == "-")
-				arg = arg.substr(1);
-			switch arg.substr(1).toLowerCase() {
-				case "global", "g":
-					global = true;
-				case "o", "out", "output":
-					addOutput = true;
-				case "connect", "port", "wait":
-					addConnect = true;
-				case "printgocode":
-					printGoCode = true;
-				// targets
-				case "cpp", "c++":
-					target = "cpp";
-					targetFolder = true;
-				case "cs", "c#":
-					target = "cs";
-					targetFolder = true;
-				case "rebuild":
-				case "java", "jvm":
-					target = "jvm";
-				case "py", "python":
-					target = "python";
-				case "lua":
-					target = "lua";
-				case "js", "javascript":
-					target = "js";
-				case "hl", "hashlink":
-					target = "hl";
-				case "eval", "interp":
-					target = "interp";
-				case "localpath":
-					localpath = true;
-				case "color":
-					Util.colorSupported = true;
-				case "nocolor":
-					Util.colorSupported = false;
-				default:
-					remove = false;
-			}
-			if (remove) {
-				removal.push(arg);
-			}
+			compile(args);
 		}
+	});
+	while (true)
+		update();
+}
+
+function update() {
+	loop.run(NoWait);
+	mainThread.events.progress();
+	Sys.sleep(0.06); // wait
+}
+
+function close() {
+	for (process in processes)
+		process.close();
+	for (client in clients) {
+		client.stream.write(Bytes.ofString("exit"));
+		client.stream.close();
 	}
-	for (arg in removal)
-		args.remove(arg);
+	server.close();
+	Sys.exit(0);
+}
 
-	if (localpath)
-		args.pop();
+function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
+	if (port == 0)
+		port = 6114 + Std.random(200); // random range in case port is still bound from before
+	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
+	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 
-	if (argsCount <= 1)
-		args.push(cwd);
-	var localPath = args[args.length - 1];
-
-	if (args.length == 1) {
-		Repl.init();
-		return [];
+	for (i in 0...processCount) {
+		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
-	// for (arg in args)
-	// go4hx run here
+	server.bind(new sys.net.Host("127.0.0.1"), port);
+	server.noDelay(true);
+	var index = 0;
+	server.listen(0, () -> {
+		final client:Client = {stream: server.accept(), id: index++};
+		clients.push(client);
+		var pos = 0;
+		var buff:Bytes = null;
+		function reset() {
+			client.runnable = true;
+			pos = 0;
+			buff = null;
+		}
+		client.stream.readStart(bytes -> {
+			if (buff == null) {
+				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+				buff = Bytes.alloc(len);
+				bytes = bytes.sub(8, bytes.length - 8);
+			}
+			buff.blit(pos, bytes, 0, bytes.length);
+			pos += bytes.length;
+			if (pos == buff.length) {
+				var exportData:DataType = Json.parse(buff.toString());
+				var modules = Typer.main(exportData);
+				Sys.setCwd(localPath);
+				outputPath = Path.addTrailingSlash(outputPath);
+				var libs:Array<String> = [];
+				reset();
+				for (module in modules) {
+					if (global && !module.isMain) {
+						Sys.setCwd(cwd);
+						var name = module.name;
+						var libPath = "libs/" + name + "/";
+						create(libPath, module);
+						Sys.command('haxelib dev $name $libPath');
+						if (libs.indexOf(name) == -1)
+							libs.push(name);
+					} else {
+						Gen.create(outputPath, module);
+					}
+				}
+				onComplete(modules, client.data);
+			}
+		});
+		if (index == processCount && allAccepted != null)
+			allAccepted();
+	});
+}
+
+var outputPath = "golibs";
+var global = false;
+var printGoCode = false;
+var localPath = "";
+var addConnect = false;
+var addOutput = false;
+var helpBool:Bool = false;
+
+function compile(args:Array<String>, data:Dynamic = null):Bool {
+	if (localPath == "")
+		localPath = args[args.length - 1];
+
 	var httpsString = "https://";
 	for (i in 0...args.length - 1) {
 		var path = args[i];
@@ -117,68 +159,17 @@ function init(args:Array<String>, exportName:String = "export.json"):Array<Typer
 		var command = 'go get $path';
 		Sys.command(command);
 	}
-	Sys.setCwd(cwd);
-	args.unshift(exportName);
-	args.unshift("-export");
-	var err = Sys.command("./go4hx", args);
-	if (err != 0) {
-		Sys.println("go4hx error");
-		return [];
-	}
-	if (!FileSystem.exists(exportName)) {
-		Sys.println("Usage of go2hx:");
-		Sys.println("    -output");
-		Sys.println("        transpile out code to directory or file location");
-		Sys.println("    -printGoCode");
-		Sys.println("        print out go code in code comments");
-		Sys.println("    -global");
-		Sys.println("        all go packages except main are turned into global haxelib dev libs");
-		Sys.println("Targets:");
-		Sys.println("    -cpp");
-		Sys.println("        target c++");
-		Sys.println("    -js");
-		Sys.println("        target javascript");
-		Sys.println("    -java");
-		Sys.println("        target java");
-		Sys.println("    -cs");
-		Sys.println("        target c#");
-		Sys.println("    -lua");
-		Sys.println("        target lua");
-		Sys.println("    -python");
-		Sys.println("        target python");
-		Sys.println("    -interp");
-		Sys.println("        target Haxe interpreted target");
-		Sys.println("    -hl");
-		Sys.println("        target Hashlink virtual machine");
-		return [];
-	}
-	var exportData:DataType = Json.parse(File.getContent(exportName));
-	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
-	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
+	return write(args, data);
+}
 
-	var modules = Typer.main(exportData, printGoCode);
-
-	Sys.setCwd(localPath);
-	outputPath = Path.addTrailingSlash(outputPath);
-	var libs:Array<String> = [];
-	for (module in modules) {
-		if (global && !module.isMain) {
-			Sys.setCwd(cwd);
-			var name = module.name;
-			var libPath = "libs/" + name + "/";
-			create(libPath, module);
-			Sys.setCwd(localPath);
-			Sys.command('haxelib dev $name $libPath');
-			if (libs.indexOf(name) == -1)
-				libs.push(name);
-		} else {
-			Gen.create(outputPath, module);
-		}
+function write(args:Array<String>, data:Dynamic):Bool {
+	for (client in clients) {
+		if (!client.runnable)
+			continue;
+		client.data = data;
+		client.stream.write(Bytes.ofString(args.join(" ")));
+		client.runnable = false;
+		return true;
 	}
-	if (target != "") {
-		/*
-			if (!FileSystem.exists(target + ".hxml"))
-				File.saveContent(target + ".hxml", ""); */
-	}
-	return modules;
+	return false;
 }

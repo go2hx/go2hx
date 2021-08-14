@@ -1,10 +1,10 @@
-import haxe.macro.Expr;
+import Typer.Module;
 import haxe.macro.Expr.TypeDefKind;
-import haxe.macro.Type.ClassKind;
 import haxe.macro.Expr.TypeDefinition;
+import haxe.macro.Expr;
+import haxe.macro.Type.ClassKind;
 import sys.FileSystem;
 import sys.io.File;
-import Typer.Module;
 
 function create(outputPath:String, module:Module) {
 	var actualPath = StringTools.replace(module.path, ".", "/");

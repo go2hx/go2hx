@@ -165,6 +165,7 @@ func main() {
 		fmt.Println("dial:", err)
 		return
 	}
+	tick := 0
 	for {
 		err = conn.SetReadDeadline(time.Now().Add(5 * time.Second))
 		if err != nil {
@@ -173,6 +174,7 @@ func main() {
 		}
 		input := make([]byte, 1024)
 		c, err := conn.Read(input)
+		tick++
 		if c == 0 {
 			time.Sleep(60 * time.Millisecond)
 			continue
@@ -183,9 +185,10 @@ func main() {
 			return
 		}
 		input = input[:c]
-		if string(input) == "exit" {
+		if string(input) == "exit" || tick > 40 {
 			return
 		}
+		tick = 0
 		args := strings.Split(string(input), " ")
 		data := compile(args, excludesData)
 		length := len(data)

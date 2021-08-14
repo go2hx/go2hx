@@ -98,6 +98,8 @@ function isAnyInterface(type:GoType):Bool {
 }
 
 function isInterface(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, _, elem):
 			isInterface(elem);
@@ -109,6 +111,8 @@ function isInterface(type:GoType):Bool {
 }
 
 function isSignature(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case signature(_, _, _):
 			true;
@@ -139,6 +143,8 @@ function isTitle(string:String):Bool {
 }
 
 function isStruct(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, _, underlying):
 			switch underlying {
@@ -150,6 +156,8 @@ function isStruct(type:GoType):Bool {
 }
 
 function isPointerStruct(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case pointer(elem): isStruct(elem);
 		default: false;
@@ -157,6 +165,8 @@ function isPointerStruct(type:GoType):Bool {
 }
 
 function isInvalid(type:GoType):Bool {
+	if (type == null)
+		return true;
 	return switch type {
 		case invalidType:
 			true;
@@ -175,6 +185,8 @@ function isInvalid(type:GoType):Bool {
 }
 
 function getElem(type:GoType):GoType {
+	if (type == null)
+		return type;
 	return switch type {
 		case _var(_, type):
 			getElem(type);
@@ -197,6 +209,8 @@ function getVar(type:GoType):GoType {
 }
 
 function getSignature(type:GoType):GoType {
+	if (type == null)
+		return type;
 	return switch type {
 		case signature(_, _, _):
 			type;
@@ -208,6 +222,8 @@ function getSignature(type:GoType):GoType {
 }
 
 function getStructFields(type:GoType):Array<FieldType> {
+	if (type == null)
+		return [];
 	return switch type {
 		case named(_, _, _, elem):
 			getStructFields(elem);
@@ -219,6 +235,8 @@ function getStructFields(type:GoType):Array<FieldType> {
 }
 
 function isUnsafePointer(type:GoType):Bool {
+	if (type == null)
+		return false;
 	return switch type {
 		case named(_, _, _, elem):
 			isUnsafePointer(elem);
@@ -246,6 +264,8 @@ function isPointer(type:GoType):Bool {
 }
 
 function pointerUnwrap(type:GoType):GoType {
+	if (type == null)
+		return type;
 	return switch type {
 		case pointer(elem):
 			pointerUnwrap(elem);

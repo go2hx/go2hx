@@ -1405,6 +1405,9 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	toType = cleanType(toType);
 	var y = expr;
 
+	if (fromType == null)
+		return expr;
+
 	switch fromType {
 		case basic(kind):
 			switch kind {
@@ -1916,17 +1919,19 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				return;
 			}
 			var sig = getSignature(type);
-			switch sig {
-				case signature(variadic, params, _, _):
-					for (i in 0...args.length) {
-						final fromType = getVar(typeof(exprArgs[i]));
-						var toType = getVar(params[i]);
-						if (variadic && params.length <= i + 1) {
-							toType = getElem(params[params.length - 1]);
+			if (sig != null) {
+				switch sig {
+					case signature(variadic, params, _, _):
+						for (i in 0...args.length) {
+							final fromType = getVar(typeof(exprArgs[i]));
+							var toType = getVar(params[i]);
+							if (variadic && params.length <= i + 1) {
+								toType = getElem(params[params.length - 1]);
+							}
+							args[i] = assignTranslate(fromType, toType, args[i], info);
 						}
-						args[i] = assignTranslate(fromType, toType, args[i], info);
-					}
-				default:
+					default:
+				}
 			}
 		}
 	}
@@ -1934,8 +1939,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	final sig = isSignature(ft);
 	final invalid = isInvalid(ft);
 	final call = expr.fun.id == "CallExpr";
-	final notFunction = !sig && !invalid && !call;
-
+	var notFunction = !sig && !invalid && !call;
+	if (!notFunction && sig)
+		notFunction = expr.fun.id == "ParenExpr" && expr.fun.x.id == "FuncType" || expr.fun.id == "FuncType";
 	if (notFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);

@@ -5,7 +5,7 @@ import sys.thread.Mutex;
 
 final path = Sys.getCwd();
 var completionServer:sys.io.Process;
-final completionPort = 4000;
+final completionPort = 4000 + Std.random(200);
 var results = null;
 var testsLeft:Int = 0;
 var testsTotal:Int = 0;
@@ -17,10 +17,10 @@ function main() {
 	sys.FileSystem.createDirectory("export");
 	TestResults.clear(path);
 	results = new TestResults(path);
-	completionServer = new sys.io.Process('haxe -v --wait 4000');
+	completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.setup(0, 4);
 	Main.onComplete = complete;
-	test("go", "./go/test/", goList.slice(0, 10), [], 6 + 8);
+	test("go", "./go/test/", goList, [], 6 + 8);
 	// test("yaegi", "./yaegi/_test/", yaegiList, ["addr0"], 137 + 8); // 47 stop
 	while (true) {
 		Main.update();
@@ -56,20 +56,22 @@ private function complete(modules, data) {
 	if (modules.length == 0)
 		throw test;
 	final path = Util.modulePath(modules[0]);
-	final command = 'haxe -cp golibs -main $path --interp --connect $completionPort';
-	var proc = new sys.io.Process(command);
+	final command = 'haxe -cp golibs -main $path --interp';
+	var proc = new sys.io.Process(command + ' --connect $completionPort');
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);
 	var count = 0;
 	timer.run = () -> {
 		code = proc.exitCode(false);
 		count++;
-		if (code != null || count > 100) {
+		if (code != null || count > 200) {
 			if (code == null) {
-				Sys.println("timeout...");
+				Sys.println("timeout... " + count);
 			}
 			--testsLeft;
-			Sys.println((testsTotal - testsLeft) + "/" + testsTotal);
+			Sys.println(data.testName + " " + code + " | " + (testsTotal - testsLeft) + "/" + testsTotal);
+			if (code != 0)
+				Sys.println(command);
 			assert(data.suiteName, data.testName, code == 0, data.offset);
 			proc.close();
 			timer.stop();

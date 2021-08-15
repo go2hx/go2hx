@@ -9,6 +9,8 @@ import (
 	"go/token"
 	"go/types"
 	"net"
+	"runtime"
+	"runtime/debug"
 	"time"
 
 	//"go/types"
@@ -60,10 +62,22 @@ type interfaceData struct {
 	isExport bool
 }
 
+//go:embed stdgo.json
+var stdgoListBytes []byte
+
+//go:embed excludes.json
+var excludesBytes []byte
+
 var fset *token.FileSet
 var excludes map[string]bool
 var stdgoList map[string]bool
+
 var interfaces []interfaceData
+
+var conf = types.Config{Importer: importer.Default()}
+var marked map[string]bool //prevent infinite recursion of types
+var checker *types.Checker
+var typeHasher typeutil.Hasher
 
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
@@ -100,28 +114,32 @@ func compile(params []string, excludesData excludesType) []byte {
 	cfg.Tests = testBool
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	initial, err := packages.Load(cfg, args...)
-	//profile.Stop()
+	cfg = nil
 	if err != nil {
 		fmt.Println("load error:", err)
 		return []byte{}
 	}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
+
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
+
 	//parse interfaces 1st past
 	for _, pkg := range initial {
 		parseInterface(pkg)
 	}
+
 	//2nd pass
 
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
-
+	typeHasher = typeutil.MakeHasher()
 	data := parsePkgList(initial)
-
+	typeHasher = typeutil.Hasher{}
+	interfaces = nil
 	data.Args = args
 
 	if identBool {
@@ -136,13 +154,8 @@ func compile(params []string, excludesData excludesType) []byte {
 	return bytes
 }
 
-//go:embed stdgo.json
-var stdgoListBytes []byte
-
-//go:embed excludes.json
-var excludesBytes []byte
-
 func main() {
+	_ = make([]byte, 20<<20) //allocate 20 mb virtually
 	args := os.Args
 	port := args[len(args)-1]
 	var excludesData excludesType
@@ -160,6 +173,7 @@ func main() {
 	for _, stdgo := range stdgoDataList.Stdgo {
 		stdgoList[stdgo] = true
 	}
+
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
 	if err != nil {
 		fmt.Println("dial:", err)
@@ -167,11 +181,6 @@ func main() {
 	}
 	tick := 0
 	for {
-		err = conn.SetReadDeadline(time.Now().Add(5 * time.Second))
-		if err != nil {
-			fmt.Println("read deadline failed:", err)
-			return
-		}
 		input := make([]byte, 1024)
 		c, err := conn.Read(input)
 		tick++
@@ -181,7 +190,6 @@ func main() {
 		}
 		if err != nil {
 			fmt.Println("read error:", err)
-			// some error else, do something else, for example create new conn
 			return
 		}
 		input = input[:c]
@@ -200,10 +208,14 @@ func main() {
 			return
 		}
 		_, err = conn.Write(data)
+		data = nil
+		input = nil
 		if err != nil {
 			fmt.Println("write error:", err)
 			return
 		}
+		debug.FreeOSMemory()
+		runtime.GC()
 	}
 }
 
@@ -347,15 +359,12 @@ func parseInterface(pkg *packages.Package) {
 		excludes[val.PkgPath] = true
 		parseInterface(val)
 	}
-	conf := types.Config{
-		Importer: importer.Default(),
-		//DisableUnusedImportCheck: true,
-	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	for _, file := range pkg.Syntax {
 		interfaces = append(interfaces, parseFileInterface(file, pkg)...)
 		interfaces = append(interfaces, parseLocalInterface(file, pkg)...)
 	}
+	checker = nil
 }
 
 func parsePkgList(list []*packages.Package) dataType {
@@ -370,6 +379,7 @@ func parsePkgList(list []*packages.Package) dataType {
 			if excludes[val.PkgPath] {
 				continue
 			}
+			fmt.Println(val.PkgPath)
 			syntax := parsePkg(val)
 			if len(syntax.Files) > 1 {
 				data.Pkgs = append(data.Pkgs, syntax)
@@ -378,18 +388,19 @@ func parsePkgList(list []*packages.Package) dataType {
 	}
 	return data
 }
+
 func parsePkg(pkg *packages.Package) packageType {
 	fset = pkg.Fset
 	data := packageType{}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	data.Files = make([]fileType, len(pkg.Syntax))
-
-	conf := types.Config{Importer: importer.Default()}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	for i, file := range pkg.Syntax {
 		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
 	}
+	checker = nil
+	fset = nil
 	return data
 }
 
@@ -399,7 +410,6 @@ func parseFile(file *ast.File, path string) fileType {
 	data.Doc = parseData(file.Doc)
 	path = filepath.Base(path)
 	data.Path = path
-
 	for _, decl := range file.Decls {
 		obj := parseData(decl)
 		data.Decls = append(data.Decls, obj)
@@ -415,7 +425,6 @@ func parseBody(list []ast.Stmt) []map[string]interface{} {
 }
 func parseExprList(list []ast.Expr) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
-	//fmt.Println("list:",list)
 	for i, obj := range list {
 		data[i] = parseData(obj)
 	}
@@ -434,7 +443,6 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			for i := range obj.Values {
 				values[i] = parseData(obj.Values[i])
 			}
-
 			data[i] = map[string]interface{}{
 				"id":        "ValueSpec",
 				"names":     parseIdents(obj.Names),
@@ -482,11 +490,6 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	}
 	return data
 }
-
-var marked map[string]bool //prevent infinite recursion of types
-var checker *types.Checker
-var remapTypeIdent map[int]string
-var typeHasher = typeutil.MakeHasher()
 
 func parseType(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
@@ -647,7 +650,6 @@ func parseData(node interface{}) map[string]interface{} {
 		field.Name = strings.ToLower(field.Name[:1]) + field.Name[1:]
 		_ = field
 		value := val.Interface()
-
 		switch value := value.(type) {
 		case nil:
 		case token.Pos:
@@ -734,9 +736,10 @@ func parseData(node interface{}) map[string]interface{} {
 				"list": list,
 			}
 		default:
-			fmt.Println("unknown parse data value:", reflect.TypeOf(value))
+			//fmt.Println("unknown parse data value:", reflect.TypeOf(value))
 		}
 	}
+
 	switch node := node.(type) {
 	case *ast.CompositeLit:
 	case *ast.SelectorExpr:
@@ -769,11 +772,7 @@ func parseData(node interface{}) map[string]interface{} {
 func parseIdents(value []*ast.Ident) []map[string]interface{} {
 	list := make([]map[string]interface{}, len(value))
 	for i := range value {
-		list[i] = map[string]interface{}{
-			"id":   "Ident",
-			"type": parseType(checker.TypeOf(value[i])),
-			"name": value[i].Name,
-		}
+		list[i] = parseIdent(value[i])
 	}
 	return list
 }

@@ -71,6 +71,7 @@ private function complete(modules, data) {
 				Sys.println("timeout... " + count);
 			}
 			--testsLeft;
+			var result = code == 0 ? "true" : "false";
 			if (code == 0 && data.compare != null) {
 				var fail = false;
 				for (i in 0...data.compare.length) {
@@ -82,12 +83,16 @@ private function complete(modules, data) {
 					fail = true;
 					break;
 				}
-				if (fail)
+				if (fail) {
 					code = 3000;
+					result = "naive";
+				}
 			}
-			Sys.println(data.testName + " " + code + " | " + (testsTotal - testsLeft) + "/" + testsTotal);
-			if (code != 0)
-				Sys.println(command);
+			final current = testsTotal - testsLeft;
+			var name = data.testName;
+			name = StringTools.rpad(name, " ", 20);
+			result = StringTools.rpad(result, " ", 5);
+			Sys.println('$name $result $current/$testsTotal');
 			assert(data.suiteName, data.testName, code == 0, data.offset);
 			proc.close();
 			timer.stop();

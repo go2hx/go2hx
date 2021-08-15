@@ -1181,6 +1181,8 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		else
 			$next;
 	}
+	if (stmt.body == null || stmt.body.list == null)
+		return (macro {}).expr;
 	return ifs().expr;
 }
 
@@ -2282,10 +2284,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.sel.type);
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
-			var t = typeof(e.x);
-			t = getUnderlying(t);
-			t = getElem(t);
-			t;
+			typeof(e.type);
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
 			typeof(e.type);
@@ -2880,7 +2879,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 			final p = getTypePath();
 			return (macro new $p($a{params})).expr;
 		case invalidType:
-			throw "invalid composite lit type";
+			return (macro null).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}

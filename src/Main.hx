@@ -86,6 +86,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	for (i in 0...processCount) {
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
+	Sys.println('listening on port: $port');
 	server.bind(new sys.net.Host("127.0.0.1"), port);
 	server.noDelay(true);
 	var index = 0;

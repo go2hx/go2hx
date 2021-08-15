@@ -94,6 +94,7 @@ typedef IndexExpr = {
 	lbrack:Pos,
 	index:Expr,
 	rbrack:Pos,
+	type:ExprType,
 };
 
 typedef SliceExpr = {

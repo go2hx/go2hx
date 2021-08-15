@@ -46,4 +46,5 @@ package.json
 Test.hx
 *.bat
 *.pprof
+results.json
 hxRuntime.hx

@@ -21,7 +21,7 @@ function main() {
 	Main.setup(0, 4);
 	Main.onComplete = complete;
 	test("go", "./go/test/", goList, [], 6 + 8);
-	// test("yaegi", "./yaegi/_test/", yaegiList, ["addr0"], 137 + 8); // 47 stop
+	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8, yaegiOutput); // 47 stop
 	while (true) {
 		Main.update();
 		for (test in tests) {
@@ -33,9 +33,10 @@ function main() {
 	}
 }
 
-function test(suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int) {
+function test(suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int, compare:Array<Array<String>> = null) {
 	for (i in 0...list.length) {
 		final testName = list[i];
+		final compare = compare == null ? null : compare[i];
 		if (skip.contains(testName))
 			continue;
 		final test = '$dir$testName.go';
@@ -45,7 +46,8 @@ function test(suiteName:String, dir:String, list:Array<String>, skip:Array<Strin
 				suiteName: suiteName,
 				testName: testName,
 				offset: i + offset,
-			}
+				compare: compare,
+			},
 		});
 		testsTotal++;
 		testsLeft++;
@@ -69,6 +71,20 @@ private function complete(modules, data) {
 				Sys.println("timeout... " + count);
 			}
 			--testsLeft;
+			if (code == 0 && data.compare != null) {
+				var fail = false;
+				for (i in 0...data.compare.length) {
+					try {
+						final line = proc.stdout.readLine();
+						if (line == data.compare[i])
+							continue;
+					} catch (_) {}
+					fail = true;
+					break;
+				}
+				if (fail)
+					code = 3000;
+			}
 			Sys.println(data.testName + " " + code + " | " + (testsTotal - testsLeft) + "/" + testsTotal);
 			if (code != 0)
 				Sys.println(command);

@@ -5,12 +5,21 @@ import haxe.macro.PositionTools;
 
 using StringTools;
 
-macro function assert(suiteName:Expr, testName:Expr, cond:Expr, ?posExpr:Expr) {
+macro function assert(suiteName:Expr, testName:Expr, cond:Expr, ?posExpr:Expr, ?messageExpr:Expr) {
 	switch posExpr.expr {
 		case EConst(c):
 			switch c {
 				case CIdent(s):
 					if (s == "null") posExpr = macro 0;
+				case _:
+			}
+		case _:
+	}
+	switch messageExpr.expr {
+		case EConst(c):
+			switch c {
+				case CIdent(s):
+					if (s == "null") messageExpr = macro "";
 				case _:
 			}
 		case _:
@@ -33,6 +42,6 @@ macro function assert(suiteName:Expr, testName:Expr, cond:Expr, ?posExpr:Expr) {
 	final fileName = Context.getPosInfos(pos).file;
 	var suiteName = suiteName; // macro $v{Context.getLocalMethod()};
 	final add = macro untyped results.add(SuiteNameAndPos($suiteName, $v{fileName}, $v{line2}), TestNameAndPos($testName, $v{fileName}, $v{line} + $posExpr),
-		0, $cond ? Success : Failure, "", null);
+		0, $cond ? Success : Failure, $messageExpr, null);
 	return add;
 }

@@ -93,7 +93,11 @@ private function complete(modules, data) {
 			name = StringTools.rpad(name, " ", 20);
 			result = StringTools.rpad(result, " ", 5);
 			Sys.println('$name $result $current/$testsTotal');
-			assert(data.suiteName, data.testName, code == 0, data.offset);
+			var message = command;
+			if (result == "naive") {
+				message += "\n" + data.compare.join("\n");
+			}
+			assert(data.suiteName, data.testName, code == 0, data.offset, message);
 			proc.close();
 			timer.stop();
 			if (testsLeft == 0) {

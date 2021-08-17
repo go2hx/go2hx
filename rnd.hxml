@@ -1,4 +1,4 @@
 -cp rnd
 -cp src
--main Run
+-main RunRnd
 --hl rnd.hl

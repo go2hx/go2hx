@@ -1,0 +1,5 @@
+-cp tests
+-cp src
+-main TestRunner
+-lib test-adapter
+--hl test.hl

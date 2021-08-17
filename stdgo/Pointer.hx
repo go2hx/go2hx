@@ -30,6 +30,9 @@ abstract Pointer<T>(PointerData<T>) {
 		return this.get();
 	}
 
+	public inline function isNil()
+		return false;
+
 	private inline function set_value(value:T):T {
 		if (this.previous == null) {
 			this.set(value);

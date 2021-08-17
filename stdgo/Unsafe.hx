@@ -9,6 +9,10 @@ abstract UnsafePointer(Pointer<Dynamic>) from Pointer<Dynamic> to Pointer<Dynami
 		return Go.pointer(value);
 	}
 
+	@:to inline function toDynamic():Dynamic {
+		return this.value;
+	}
+
 	@:to inline function toUIntptr():GoUIntptr {
 		return this.value;
 	}

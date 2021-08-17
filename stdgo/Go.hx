@@ -164,7 +164,7 @@ class Go {
 			case ECheckType(e, t):
 				var t = Context.follow(ComplexTypeTools.toType(t));
 				if (t == null)
-					throw "complexType converted to type is null";
+					Context.error("complexType converted to type is null", Context.currentPos());
 				var et = Context.follow(Context.typeof(e));
 				var value = gtDecode(t);
 				switch et {
@@ -175,7 +175,8 @@ class Go {
 				}
 				return macro $e.type.assignableTo(new stdgo.Reflect._Type($value));
 			default:
-				throw "unknown assignable expr: " + expr.expr;
+				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
+				return macro null;
 		}
 	}
 
@@ -214,7 +215,9 @@ class Go {
 						switch s {
 							case "null":
 								declare = true;
-							case "this", "false", "true":
+							case "this":
+								Context.error('setting "this" to pointer is not allowed', Context.currentPos());
+							case "false", "true":
 								declare = true;
 						}
 					default:
@@ -240,25 +243,15 @@ class Go {
 						}
 					default:
 				}
-			case EObjectDecl(_):
-				declare = true;
-			case ENew(_, _):
-				declare = true;
-			case ECheckType(e, _):
-				switch e.expr {
-					case EConst(_), EObjectDecl(_):
-						declare = true;
-					default:
-				}
 			default:
+				declare = true;
 		}
-
 		if (declare)
 			return macro {
 				var e = $expr;
 				new $p(() -> e, (v) -> e = v, $v{hasSet});
 			};
-		return macro new $p(() -> $expr, (v) -> $expr = v, $v{hasSet});
+		return macro new $p(() -> $expr, (__tmp__) -> $expr = __tmp__, $v{hasSet});
 	}
 
 	public static macro function recover() {
@@ -320,7 +313,7 @@ class Go {
 					case "GoUnTypedComplex":
 						ret = macro stdgo.Reflect.GoType.basic(untyped_complex_kind);
 					default:
-						throw "unknown typedef: " + t.toString();
+						Context.error("unknown typedef: " + t.toString(), Context.currentPos());
 				}
 			case TMono(ref):
 				return macro stdgo.Reflect.GoType.basic(unsafepointer_kind);
@@ -384,7 +377,7 @@ class Go {
 					case "Void":
 						ret = macro stdgo.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
-						throw "unknown abstract type: " + sref;
+						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}
 			case TInst(ref, params):
 				var ref = ref.get();
@@ -411,7 +404,7 @@ class Go {
 									}
 								}
 								if (type == null)
-									throw "unable to find __t__ type";
+									Context.error("unable to find __t__ type", Context.currentPos());
 								var interfaces:Array<Expr> = [];
 								var path = ref.module;
 								ret = macro stdgo.Reflect.GoType.named($v{path}, [], $a{interfaces}, ${gtDecode(type)});
@@ -472,7 +465,7 @@ class Go {
 			case TEnum(_, _):
 				ret = macro stdgo.Reflect.GoType.invalidType;
 			default:
-				throw "reflect.cast_AnyInterface - unhandled typeof " + t;
+				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());
 		}
 		return ret;
 	}
@@ -549,7 +542,7 @@ class Go {
 							stdgo.Reflect.GoType.signature($a{params}, $a{rets}), "", $embedded)); */
 						// TODO
 						default:
-							throw "method needs to be a function: " + field.type;
+							Context.error("method needs to be a function: " + field.type, Context.currentPos());
 					}
 				default:
 					if (field.name == "__t__") {
@@ -586,7 +579,7 @@ class Go {
 					});
 					return fields;
 				default:
-					throw "not anon type: " + t;
+					Context.error('not anon type: $t', Context.currentPos());
 			}
 			return [];
 		}

@@ -38,13 +38,14 @@ gobyexample
 golibs
 gopath
 tinygo
-test.hxml
 old/*
 examples/*.txt
+*.js.map
 package.json
 !gen.txt
 Test.hx
 *.bat
 *.pprof
+diff.json
 results.json
 hxRuntime.hx

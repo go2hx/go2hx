@@ -20,8 +20,8 @@ function main() {
 	completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.setup(0, 4);
 	Main.onComplete = complete;
-	test("go", "./go/test/", goList, [], 6 + 8);
-	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8, yaegiOutput); // 47 stop
+	test("go", "./go/test/", goList, [], 6 + 8 - 2);
+	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8 - 2, yaegiOutput); // 47 stop
 	while (true) {
 		Main.update();
 		for (test in tests) {
@@ -52,6 +52,14 @@ function test(suiteName:String, dir:String, list:Array<String>, skip:Array<Strin
 		testsTotal++;
 		testsLeft++;
 	}
+}
+
+private function close() {
+	results.save();
+	completionServer.close();
+	// run TestData script
+	TestData.main();
+	Main.close();
 }
 
 private function complete(modules, data) {
@@ -101,9 +109,7 @@ private function complete(modules, data) {
 			proc.close();
 			timer.stop();
 			if (testsLeft == 0) {
-				results.save();
-				completionServer.close();
-				Main.close();
+				close();
 			}
 		}
 	};
@@ -111,34 +117,34 @@ private function complete(modules, data) {
 
 // @formatter:off
 final goList = [
-    "235",
-    "64bit",
+    "235", // Haxe classes must start with letter charachter
+    "64bit", // Haxe classes must start with letter charachter
     "alias1",
     "align",
     "append",
     "armimm",
-    "atomicload",
-    "bigalg",
+    "atomicload", // go routines
+    "bigalg", // go routines
     "bigmap",
     "blank",
     "bom",
-    "chancap",
+    "chancap", //need to include more of chans built in functions for use by named types (get,set)
     "char_lit",
-    "clearfat",
-    "closedchan",
-    "closure",
+    "clearfat", // not found: stdgo.Buffer.writeString
+    "closedchan", // need to include more of chans built in functions for use by named types (get,set)
+    "closure", // go routines
     "closure1",
     "closure2",
-    "closure4",
+    "closure4", // issue with defer
     "closure7",
-    "cmp",
-    "complit",
+    "cmp", // local interfaces implement global, x.__underlying__() == y.__underlying__() interface equality
+    "complit", // uses pointer.isNil() 
     "compos",
-    "const",
-    "const3",
-    "const4",
-    "const7",
-    "convert",
+    "const", // equality comparison of AnyInterface and GoInt not implemented yet
+    "const3", // fmt formatter
+    "const4", // get length/cap selection through pointer
+    "const7",  // not found: stdgo.Buffer
+    "convert", // binary operations between number and named number type
     "convert4",
     "convT2X",
     "copy",
@@ -277,8 +283,8 @@ final yaegiList = [
     "a39",
     "a4",
     "a40",
-    "a41",
-    "a42",
+    "a41", // all errors from a41 and above are formatter fmt related
+    "a42", // not found: stdgo.encoding.Binary.littleEndian.putUint64
     "a43",
     "a44",
     "a5",
@@ -289,50 +295,50 @@ final yaegiList = [
     "add0",
     "add1",
     "add2",
-    "addr0",
+    "addr0", // not found: stdgo.net.Http
     "addr1",
-    "addr2",
-    "addr3",
-    "addr4",
-    "addr5",
-    "alias0",
-    "alias1",
+    "addr2", // not found: stdgo.encoding.Xml
+    "addr3", 
+    "addr4", // not found: stdgo.encoding.Json
+    "addr5", // not found: stdgo.net.Url
+    "alias0", // this pointer (TODO)
+    "alias1", // incorrect named type initalization (TODO)
     "and",
     "and0",
     "and1",
     "and2",
     "and3",
     "append0",
-    "append1",
-    "append2",
+    "append1", // not found: stdgo.Bufio.NewScanner
+    "append2", // not found: stdgo.Bufio.NewScanner
     "append3",
     "append4",
-    "assert0",
-    "assert1",
+    "assert0", // not found: stdgo.Time
+    "assert1", // not found: stdgo.Time
     "assign",
-    "assign0",
-    "assign1",
+    "assign0", // not found: stdgo.net.Http
+    "assign1", // sets a slice to nil the output is supposed to be [] 
     "assign10",
-    "assign13",
+    "assign13", // formatter fmt
     "assign14",
     "assign16",
     "assign2",
-    "assign3",
-    "assign4",
-    "assign5",
-    "assign6",
-    "assign7",
+    "assign3", // a,b = b,a (TODO)
+    "assign4", // a,b,c = c,a,b (TODO)
+    "assign5", // t[0], t[1] = t[1], t[0]
+    "assign6", // t["a"], a["b"] = t["b"], t["a"]
+    "assign7", // a, t["b"], s[1] = t["b"], s[1], a
     "assign8",
     "assign9",
-    "bin",
-    "bin0",
-    "bin1",
+    "bin", // fmt.Println Void return instead of n,err tuple (TODO)
+    "bin0", // not implemented: stdgo.Strings.splitN() (TODO)
+    "bin1", // not found: stdgo.Hash
     "bin2",
-    "bin3",
-    "bin5",
-    "binstruct_ptr_map0",
-    "binstruct_ptr_slice0",
-    "binstruct_slice0",
+    "bin3", // fmt formatter
+    "bin5",  // not found: stdgo.Net.TCPAddr
+    "binstruct_ptr_map0", // not found: stdgo.Image
+    "binstruct_ptr_slice0", // not found: stdgo.Image
+    "binstruct_slice0", // not found: stdgo.Image
     "bltn",
     "bool",
     "bool0",
@@ -343,26 +349,26 @@ final yaegiList = [
     "bool5",
     "build0",
     "cap0",
-    "chan0",
-    "chan1",
-    "chan10",
-    "chan2",
-    "chan3",
+    "chan0", // go routines
+    "chan1", // go routines
+    "chan10", // go routines
+    "chan2", // go routines
+    "chan3", // go routines
     "chan4",
     "chan7",
-    "chan8",
-    "chan9",
-    "cli1",
-    "cli2",
-    "cli3",
-    "cli4",
-    "cli5",
-    "cli6",
+    "chan8", // go routines
+    "chan9", // go routines
+    "cli1", // not found: stdgo.net
+    "cli2", // not found: stdgo.net
+    "cli3", // not found: stdgo.net
+    "cli4", // not found: stdgo.net
+    "cli5", // not found: stdgo.net
+    "cli6", // not found: stdgo.net
     "closure0",
     "closure1",
     "closure10",
     "closure11",
-    "closure12",
+    "closure12", //fmt formatter
     "closure2",
     "closure3",
     "closure4",

@@ -85,7 +85,7 @@ private class RuntimeErrorData implements Error implements StructType {
 
 function keepAlive(x:AnyInterface) {}
 
-interface Error extends stdgo.StdGoTypes.Error {
+interface Error_ extends stdgo.StdGoTypes.Error {
 	public function __underlying__():AnyInterface;
 	public function runtimeError():Void;
 	public function error():GoString;

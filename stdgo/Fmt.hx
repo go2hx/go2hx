@@ -6,7 +6,6 @@ import haxe.macro.Expr;
 import stdgo.Io.Writer;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
-import stdgo.internal.ErrorReturn;
 
 interface Stringer {
 	public function __underlying__():AnyInterface;
@@ -17,12 +16,14 @@ inline function errorf(fmt:GoString, args:Rest<Dynamic>) {
 	return stdgo.Errors.new_(format(fmt, parse(args)));
 }
 
-function println(args:Rest<Dynamic>) {
+function println(args:Rest<Dynamic>):{_n:Int, _err:Error} {
 	log(parse(args).join(" ") + "\n");
+	return {_n: 0, _err: null};
 }
 
-function print(args:Rest<Dynamic>) {
+function print(args:Rest<Dynamic>):{_n:Int, _err:Error} {
 	log(parse(args).join(""));
+	return {_n: 0, _err: null};
 }
 
 inline function printf(fmt:GoString, args:Rest<Dynamic>) { // format

@@ -63,10 +63,12 @@ private function close() {
 }
 
 private function complete(modules, data) {
-	if (modules.length == 0)
+	if (modules.length == 0) {
+		trace("make sure to have go and yaegi cloned inside the repo for test suite access");
 		throw test;
+	}
 	final path = Util.modulePath(modules[0]);
-	final command = 'haxe -cp golibs -main $path --interp';
+	final command = 'haxe -cp golibs -main $path --interp extraParams.hxml';
 	var proc = new sys.io.Process(command + ' --connect $completionPort');
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);
@@ -79,7 +81,7 @@ private function complete(modules, data) {
 				Sys.println("timeout... " + count);
 			}
 			--testsLeft;
-			var result = code == 0 ? "true" : "false";
+			var result = code == 0 ? "true" : "false" + " " + code;
 			if (code == 0 && data.compare != null) {
 				var fail = false;
 				for (i in 0...data.compare.length) {
@@ -99,7 +101,7 @@ private function complete(modules, data) {
 			final current = testsTotal - testsLeft;
 			var name = data.testName;
 			name = StringTools.rpad(name, " ", 20);
-			result = StringTools.rpad(result, " ", 5);
+			result = StringTools.rpad(result, " ", 9);
 			Sys.println('$name $result $current/$testsTotal');
 			var message = command;
 			if (result == "naive") {
@@ -166,7 +168,7 @@ final goList = [
     "float_lit2",
     "for",
     "func",
-    "func5",
+    "func5", // go routine
     "func6",
     "func7",
     "func8",

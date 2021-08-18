@@ -25,7 +25,7 @@ package stdgo;
 import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
-import stdgo.Reflect.GoType;
+import stdgo.reflect.Reflect.GoType;
 
 // native_num define flag
 typedef GoByte = GoUInt8;
@@ -121,7 +121,7 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 		this = x;
 	}
 
-	private inline function address():Int {
+	private inline function address():GoInt {
 		if (haxe.Int64.isInt64(this))
 			return haxe.Int64.toInt(this);
 		if ((this is Int))
@@ -131,11 +131,11 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 		return 1;
 	}
 
-	public inline function toBasic()
-		return address();
+	public inline function toBasic():Int
+		return address().toBasic();
 
 	@:to inline function toInt64():GoInt64
-		return Int64.ofInt(address());
+		return address();
 
 	@:to inline function toInt():GoInt
 		return address();
@@ -171,24 +171,29 @@ abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
 		return address();
 
 	@:op(A / B) private static function div(a:GoUIntptr, b:GoUIntptr):GoUIntptr {
-		if (b == 0)
-			throw "division by zero";
-		return Std.int(a.toBasic() / b.toBasic());
+		return a.address() / b.address();
 	}
 
-	@:op(A + B) private static function add(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A + B) private static function add(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() + b.address();
 
-	@:op(A * B) private static function mul(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A * B) private static function mul(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() * b.address();
 
-	@:op(A % B) private static function mod(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A % B) private static function mod(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() % b.address();
 
-	@:op(A - B) private static function sub(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A - B) private static function sub(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() - b.address();
 
-	@:op(A | B) private static function or(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A | B) private static function or(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() | b.address();
 
-	@:op(A ^ B) private static function xor(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A ^ B) private static function xor(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() ^ b.address();
 
-	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr;
+	@:op(A & B) private static function and(a:GoUIntptr, b:GoUIntptr):GoUIntptr
+		return a.address() & b.address();
 
 	@:op(A++) inline function postInc():GoUIntptr {
 		return this = address() + 1;
@@ -217,19 +222,19 @@ abstract GoFloat64(Float) from Float {
 		return clampFloat32(this);
 
 	@:to inline function toInt64():GoInt64 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return Int64.parseString("-9223372036854775808");
 		return Int64.fromFloat(this);
 	}
 
 	@:to inline function toInt():GoInt {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return -2147483648;
 		return Std.int(this);
 	}
 
 	@:to inline function toInt32():GoInt32 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return -2147483648;
 		return Std.int(this);
 	}
@@ -253,7 +258,7 @@ abstract GoFloat64(Float) from Float {
 		return clampUInt16(Std.int(this));
 
 	@:to inline function toUInt64():GoUInt64 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
 	}
@@ -274,7 +279,7 @@ abstract GoFloat64(Float) from Float {
 
 	@:op(A / B) private static function div(a:GoFloat, b:GoFloat):GoFloat {
 		if (b == 0)
-			return Math.NaN;
+			return std.Math.NaN;
 		return a.toBasic() / b.toBasic();
 	}
 
@@ -323,19 +328,19 @@ abstract GoFloat32(Float32) from Float32 {
 		return this;
 
 	@:to inline function toInt64():GoInt64 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return Int64.parseString("-9223372036854775808");
 		return Int64.fromFloat(this);
 	}
 
 	@:to inline function toInt():GoInt {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return -2147483648;
 		return Std.int(this);
 	}
 
 	@:to inline function toInt32():GoInt32 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return -2147483648;
 		return Std.int(this);
 	}
@@ -359,7 +364,7 @@ abstract GoFloat32(Float32) from Float32 {
 		return clampUInt16(Std.int(this));
 
 	@:to inline function toUInt64():GoUInt64 {
-		if (Math.isNaN(this))
+		if (std.Math.isNaN(this))
 			return GoUInt64.ofString("9223372036854775808");
 		return this > 0 ? this : 0;
 	}
@@ -387,7 +392,7 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:op(A / B) private static function div(a:GoFloat32, b:GoFloat32):GoFloat32 {
 		if (b == 0)
-			return Math.NaN;
+			return std.Math.NaN;
 		return a.toBasic() / b.toBasic();
 	}
 
@@ -495,7 +500,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 
 	@:op(A / B) private static function div(a:GoComplex64, b:GoComplex64):GoComplex64 {
 		// if (b.real == 0.0 && b.imag == 0.0)
-		//	return Math.NaN;
+		//	return std.Math.NaN;
 		return new GoComplex64(((a.real * b.real) + (a.imag.toBasic() * b.imag.toBasic())) / ((b.real * b.real) + (b.imag.toBasic() * b.imag.toBasic())),
 			((a.imag.toBasic() * b.real) - (a.real * b.imag.toBasic())) / ((b.real * b.real) + (b.imag.toBasic() * b.imag.toBasic())));
 	}
@@ -1871,7 +1876,7 @@ interface Error {
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;
-	public var type:stdgo.Reflect.Type;
+	public var type:stdgo.reflect.Reflect.Type;
 
 	public function new(value, type) {
 		this.value = value;
@@ -1971,14 +1976,14 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					if (StringTools.startsWith(name, "__blank__"))
 						continue;
 					final type = fields[i].type;
-					final fieldValue = Reflect.field(aValue, name);
-					final fieldValue2 = Reflect.field(bValue, name);
+					final fieldValue = std.Reflect.field(aValue, name);
+					final fieldValue2 = std.Reflect.field(bValue, name);
 
 					if (fieldValue == null || fieldValue2 == null)
 						throw "struct issue with field name: " + name;
 
-					final a = new AnyInterface(fieldValue, new stdgo.Reflect._Type(type));
-					final b = new AnyInterface(fieldValue2, new stdgo.Reflect._Type(type));
+					final a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect._Type(type));
+					final b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect._Type(type));
 
 					final bool = equals(a, b);
 					if (!bool)
@@ -1993,7 +1998,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case sliceType(elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t = new stdgo.Reflect._Type(elem);
+				var t = new stdgo.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
@@ -2005,7 +2010,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t = new stdgo.Reflect._Type(elem);
+				var t = new stdgo.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
 					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;

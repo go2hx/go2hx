@@ -2,3 +2,4 @@
 -cp src
 -main RunRnd
 --hl rnd.hl
+-D debug

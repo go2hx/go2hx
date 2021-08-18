@@ -8,7 +8,7 @@ function main() {
 			if (modules.length == 0)
 				throw "no exported path";
 			final path = Util.modulePath(modules[0]);
-			final command = 'haxe -cp golibs -main $path --interp';
+			final command = 'haxe -cp golibs -main $path --interp extraParams.hxml';
 			Sys.println(command);
 			Sys.command(command);
 			Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");

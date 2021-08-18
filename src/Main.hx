@@ -67,6 +67,13 @@ function update() {
 }
 
 function close() {
+	#if debug
+	processes[0].kill();
+	try {
+		while (true)
+			Sys.println(processes[0].stdout.readLine());
+	} catch (_) {}
+	#end
 	for (process in processes)
 		process.close();
 	for (client in clients) {
@@ -77,7 +84,7 @@ function close() {
 	Sys.exit(0);
 }
 
-function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
+function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs") {
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
@@ -136,7 +143,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	});
 }
 
-var outputPath = "golibs";
 var global = false;
 var printGoCode = false;
 var localPath = "";

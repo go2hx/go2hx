@@ -1,12 +1,11 @@
 package stdgo;
 
-import stdgo.StdGoTypes.StructType;
-import haxe.Constraints.Constructible;
-import stdgo.StdGoTypes.AnyInterface;
 import haxe.Rest;
 import haxe.ds.Vector;
-import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoByte;
+import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.StructType;
 
 @:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {

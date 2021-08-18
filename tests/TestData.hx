@@ -41,7 +41,7 @@ function main() {
 		}
 		final total = cl.methods.length;
 		results.push({
-			timestamp: Std.int(Date.now().getTime()),
+			time: Date.now().toString(),
 			name: cl.name,
 			passing: passing,
 			total: total,
@@ -58,7 +58,7 @@ typedef DiffResult = {
 }
 
 typedef Result = {
-	timestamp:Int,
+	time:String,
 	name:String,
 	passing:Int,
 	total:Int,

@@ -56,56 +56,6 @@ inline function sprintf(fmt:GoString, args:Rest<AnyInterface>):GoString { // for
 	return format(fmt, args);
 }
 
-/*private function formatKey(index:Int, fmt:String, arg:AnyInterface):{index:Int, str:String} {
-	if (index > fmt.length)
-		return {index: 0, str: "<ERROR>"};
-	final char = String.fromCharCode(index);
-	trace(index, char);
-	return switch char {
-		// case "%":
-		//	{index: index, str: "%"};
-		case "#": // alternative format
-			formatKey(index + 1, fmt, arg);
-		case "+": // always print a sign for numeric values ASCII only output for %+q
-			formatKey(index + 1, fmt, arg);
-		case "-": // pad with spaces on the right rather than the left
-			formatKey(index + 1, fmt, arg);
-		case " ": // leave a space for elided sign in numbers, or put spaces between bytes or slices in hex
-			formatKey(index + 1, fmt, arg);
-		case "0": // pad with leading zeros for numbers, padding after the sign
-			formatKey(index + 1, fmt, arg);
-		case "T": // go type
-			{index: index, str: arg.type.toString()};
-		case "v": // default format, plus flag adds field names
-			//$
-		case "d": // int(x)/uint(x) etc
-			//$
-		case "g": // float32/complex64 etc
-			//$
-		case "s": // string
-			//$
-		case "p": // pointer/chan
-			//$
-		case "t": // true or false
-			//$
-		case "b": // int base 2
-			//$
-		case "o": // int base 8
-			//$
-		case "q": // charachter literal
-			//$
-		case "x": // int base 16 lower case letters
-			//$
-		case "X": // based 16 upper case letters
-			//$
-		case "U": // unicode format
-			//$
-		case "f": // float point
-			//$
-		default:
-			formatKey(index + 1, fmt, arg);
-	}
-}*/
 private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 	var i = 0;
 	var c = 0;

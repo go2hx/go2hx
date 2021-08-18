@@ -97,12 +97,12 @@ func compile(params []string, excludesData excludesType) []byte {
 	localPath := args[len(args)-1]
 	var err error
 	if err != nil {
-		fmt.Println(err)
+		throw(err.Error())
 		return bytes
 	}
 	err = os.Chdir(localPath)
 	if err != nil {
-		fmt.Println(err)
+		throw(err.Error())
 		return bytes
 	}
 	args = args[0 : len(args)-1] //remove chdir
@@ -116,7 +116,7 @@ func compile(params []string, excludesData excludesType) []byte {
 	initial, err := packages.Load(cfg, args...)
 	cfg = nil
 	if err != nil {
-		fmt.Println("load error:", err)
+		throw("load error: " + err.Error())
 		return []byte{}
 	}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
@@ -148,7 +148,7 @@ func compile(params []string, excludesData excludesType) []byte {
 		bytes, err = json.Marshal(data)
 	}
 	if err != nil {
-		fmt.Println("encoding err:", err)
+		throw("encoding err: " + err.Error())
 		return bytes
 	}
 	return bytes
@@ -163,11 +163,11 @@ func main() {
 	var err error
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		panic(err)
+		throw(err.Error())
 	}
 	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
 	if err != nil {
-		panic(err.Error())
+		throw(err.Error())
 	}
 	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
 	for _, stdgo := range stdgoDataList.Stdgo {
@@ -176,7 +176,7 @@ func main() {
 
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
 	if err != nil {
-		fmt.Println("dial:", err)
+		throw("dial: " + err.Error())
 		return
 	}
 	tick := 0
@@ -189,7 +189,7 @@ func main() {
 			continue
 		}
 		if err != nil {
-			fmt.Println("read error:", err)
+			throw("read error: " + err.Error())
 			return
 		}
 		input = input[:c]
@@ -204,14 +204,14 @@ func main() {
 		binary.LittleEndian.PutUint64(buff, uint64(length))
 		_, err = conn.Write(buff)
 		if err != nil {
-			fmt.Println("write length error:", err)
+			throw("write length error: " + err.Error())
 			return
 		}
 		_, err = conn.Write(data)
 		data = nil
 		input = nil
 		if err != nil {
-			fmt.Println("write error:", err)
+			throw("write error: " + err.Error())
 			return
 		}
 		debug.FreeOSMemory()
@@ -367,6 +367,10 @@ func parseInterface(pkg *packages.Package) {
 	checker = nil
 }
 
+func throw(str string) {
+	//throw(str)
+}
+
 func parsePkgList(list []*packages.Package) dataType {
 	data := dataType{}
 	data.Pkgs = make([]packageType, len(list))
@@ -379,7 +383,6 @@ func parsePkgList(list []*packages.Package) dataType {
 			if excludes[val.PkgPath] {
 				continue
 			}
-			fmt.Println(val.PkgPath)
 			syntax := parsePkg(val)
 			if len(syntax.Files) > 1 {
 				data.Pkgs = append(data.Pkgs, syntax)
@@ -502,7 +505,7 @@ func parseType(node interface{}) map[string]interface{} {
 	}
 	data["id"] = getId(node)
 	if data["id"] == "" {
-		panic(data)
+		throw("data does not have id")
 	}
 	isVar := false
 	switch data["id"] {
@@ -591,7 +594,7 @@ func parseType(node interface{}) map[string]interface{} {
 		data["elem"] = parseType(s.Elem())
 		data["dir"] = s.Dir()
 	default:
-		fmt.Println("unknown parse type id:", data["id"])
+		throw("unknown parse type id: " + data["id"].(string))
 	}
 	if !isVar {
 		t := node.(types.Type)
@@ -623,7 +626,7 @@ func parseKind(val reflect.Value) interface{} {
 		}
 		return nil
 	default:
-		fmt.Println("unknown type kind:", val.Kind())
+		throw("unknown type kind: " + val.Kind().String())
 		return nil
 	}
 }
@@ -736,7 +739,7 @@ func parseData(node interface{}) map[string]interface{} {
 				"list": list,
 			}
 		default:
-			//fmt.Println("unknown parse data value:", reflect.TypeOf(value))
+			throw("unknown parse data value: " + reflect.TypeOf(value).String())
 		}
 	}
 
@@ -799,8 +802,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		if err != nil {
 			j, err2 := strconv.ParseUint(value.Value, 0, 64)
 			if err2 != nil {
-				fmt.Println("parse int 64 error:", err2)
-				fmt.Println("parse uint 64 error:", err2)
+				throw("parse int 64 error: " + err2.Error())
 			} else {
 				output = fmt.Sprint(j)
 			}
@@ -810,7 +812,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 	case token.FLOAT:
 		i, err := strconv.ParseFloat(value.Value, 64)
 		if err != nil {
-			fmt.Println("parse float 64 error:", err)
+			throw("parse float 64 error: " + err.Error())
 		}
 		output = fmt.Sprint(i)
 	case token.CHAR:

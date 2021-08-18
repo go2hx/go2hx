@@ -1,4 +1,4 @@
-<p align="left"><img src="logo.svg" width="320" align="right"/></p>
+<img src="logo.svg" width="320" align="right"/>
 
 go2hx
 ==========
@@ -20,6 +20,8 @@ haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 haxelib run go2hx ./main.go
 ```
+
+<img src="graph.png" align="center"/></p>
 
 ## Supported Spec
 

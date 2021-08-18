@@ -13,7 +13,6 @@ examples/*/
 examples/.haxerc
 tests.txt
 *.dat
-graph.png
 *.n
 !run.n
 dump

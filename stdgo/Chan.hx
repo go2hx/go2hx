@@ -45,10 +45,6 @@ class Chan<T> {
 		return {value: data[getIndex++], ok: false};
 	}
 
-	public inline function getMulti():{value:T, ok:Bool} {
-		return {value: get(), ok: !closed && data.length > getIndex};
-	}
-
 	public inline function keyValueIterator()
 		return new ChanKeyValueIterator(this);
 

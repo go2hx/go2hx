@@ -3827,6 +3827,33 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	switch t {
 		case chanType(_, elem):
 			capAndLength();
+			fields.push({
+				name: "send",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [{name: "value"}],
+					expr: macro return this.__t__.send(value),
+				}),
+			});
+			fields.push({
+				name: "get",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [],
+					expr: macro return this.__t__.get(),
+				}),
+			});
+			fields.push({
+				name: "close",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [],
+					expr: macro this.__t__.close(),
+				}),
+			});
 		case sliceType(elem):
 			capAndLength();
 			fields.push({

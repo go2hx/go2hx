@@ -2,6 +2,7 @@ package stdgo.fmt;
 
 import haxe.Int64;
 import haxe.Rest;
+import haxe.io.BufferInput;
 import haxe.macro.Expr;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
@@ -12,8 +13,8 @@ interface Stringer {
 	function toString():GoString;
 }
 
-inline function errorf(fmt:GoString, args:Rest<Dynamic>) {
-	return stdgo.errors.Errors.new_(format(fmt, parse(args)));
+inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
+	return stdgo.errors.Errors.new_(format(fmt, args));
 }
 
 function println(args:Rest<Dynamic>):{_n:Int, _err:Error} {
@@ -26,8 +27,8 @@ function print(args:Rest<Dynamic>):{_n:Int, _err:Error} {
 	return {_n: 0, _err: null};
 }
 
-inline function printf(fmt:GoString, args:Rest<Dynamic>) { // format
-	log(format(fmt, parse(args)));
+inline function printf(fmt:GoString, args:Rest<AnyInterface>) { // format
+	log(format(fmt, args));
 }
 
 inline function fprintf(w:Writer, fmt:GoString, args:Rest<Dynamic>) {}
@@ -50,17 +51,130 @@ private function parse(args:Array<Dynamic>):Array<String> {
 	];
 }
 
-inline function sprintf(fmt:GoString, args:Rest<Dynamic>):GoString { // format
-	return format(fmt, parse(args));
+inline function sprintf(fmt:GoString, args:Rest<AnyInterface>):GoString { // format
+
+	return format(fmt, args);
 }
 
-private function format(fmt:GoString, args:Array<Dynamic>):GoString {
-	/*try {
-			return stdgo.internal.Printf.format(fmt, args);
-		} catch (e) {
-			return e.message;
-	}*/
-	return " " + args + " -> " + fmt;
+/*private function formatKey(index:Int, fmt:String, arg:AnyInterface):{index:Int, str:String} {
+	if (index > fmt.length)
+		return {index: 0, str: "<ERROR>"};
+	final char = String.fromCharCode(index);
+	trace(index, char);
+	return switch char {
+		// case "%":
+		//	{index: index, str: "%"};
+		case "#": // alternative format
+			formatKey(index + 1, fmt, arg);
+		case "+": // always print a sign for numeric values ASCII only output for %+q
+			formatKey(index + 1, fmt, arg);
+		case "-": // pad with spaces on the right rather than the left
+			formatKey(index + 1, fmt, arg);
+		case " ": // leave a space for elided sign in numbers, or put spaces between bytes or slices in hex
+			formatKey(index + 1, fmt, arg);
+		case "0": // pad with leading zeros for numbers, padding after the sign
+			formatKey(index + 1, fmt, arg);
+		case "T": // go type
+			{index: index, str: arg.type.toString()};
+		case "v": // default format, plus flag adds field names
+			//$
+		case "d": // int(x)/uint(x) etc
+			//$
+		case "g": // float32/complex64 etc
+			//$
+		case "s": // string
+			//$
+		case "p": // pointer/chan
+			//$
+		case "t": // true or false
+			//$
+		case "b": // int base 2
+			//$
+		case "o": // int base 8
+			//$
+		case "q": // charachter literal
+			//$
+		case "x": // int base 16 lower case letters
+			//$
+		case "X": // based 16 upper case letters
+			//$
+		case "U": // unicode format
+			//$
+		case "f": // float point
+			//$
+		default:
+			formatKey(index + 1, fmt, arg);
+	}
+}*/
+private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
+	var i = 0;
+	var c = 0;
+	var n = 0;
+	final fmt:String = fmt;
+	inline function isDigit(x)
+		return x >= 48 && x <= 57;
+	inline function next()
+		c = StringTools.fastCodeAt(fmt, i++);
+	var buf = new StringBuf();
+	var k = fmt.length;
+	var argIndex = 0;
+	while (i < k) {
+		next();
+		if (c == "%".code) {
+			next();
+			if (c == "%".code) {
+				buf.addChar(c);
+				continue;
+			}
+			switch c {
+				case "#".code: // alternative format
+					next();
+				case "+".code: // always print a sign for numeric values ASCII only output for %+q
+					next();
+				case "-".code: // pad with spaces on the right rather than the left
+					next();
+				case " ".code: // leave a space for elided sign in numbers, or put spaces between bytes or slices in hex
+					next();
+				case "0".code: // pad with leading zeros for numbers, padding after the sign
+					next();
+			}
+			switch c {
+				case "T".code: // go type
+					buf.add(args[argIndex++].type.toString());
+				case "v".code: // default format, plus flag adds field names
+					buf.add(Go.string(args[argIndex++].value));
+				case "d".code: // int(x)/uint(x) etc
+					buf.add(Go.string(args[argIndex++].value));
+				case "g".code: // float32/complex64 etc
+					buf.add(Go.string(args[argIndex++].value));
+				case "s".code: // string
+					buf.add(Go.string(args[argIndex++].value));
+				case "p".code: // pointer/chan
+					buf.add(Go.string(args[argIndex++].value));
+				case "t".code: // true or false
+					buf.add(Go.string(args[argIndex++].value));
+				case "b".code: // int base 2
+					buf.add(Go.string(args[argIndex++].value));
+				case "o".code: // int base 8
+					buf.add(Go.string(args[argIndex++].value));
+				case "q".code: // charachter literal
+					buf.add(Go.string(args[argIndex++].value));
+				case "x".code: // int base 16 lower case letters
+					buf.add(Go.string(args[argIndex++].value));
+				case "X".code: // based 16 upper case letters
+					buf.add(Go.string(args[argIndex++].value));
+				case "U".code: // unicode format
+					buf.add(Go.string(args[argIndex++].value));
+				case "f".code: // float point
+					buf.add(Go.string(args[argIndex++].value));
+				default:
+					buf.addChar(c);
+			}
+		} else {
+			buf.addChar(c);
+		}
+	}
+	return buf.toString();
 }
 
 private inline function log(v:Dynamic) {

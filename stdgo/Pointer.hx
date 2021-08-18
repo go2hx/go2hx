@@ -30,6 +30,19 @@ abstract Pointer<T>(PointerData<T>) {
 		return this.get();
 	}
 
+	@:op(A == B)
+	private static function equals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
+		return (a : Dynamic) == (b : Dynamic)
+			|| a.underlying != null
+			&& a.underlying == b.underlying
+			&& (a.underlyingIndex == null || a.underlyingIndex == b.underlyingIndex);
+	}
+
+	@:op(A != B)
+	private static function notEquals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
+		return !equals(a, b);
+	}
+
 	public inline function isNil()
 		return false;
 
@@ -59,12 +72,17 @@ class PointerData<T> {
 	public var previous:Pointer<Any> = null;
 	public var convert:T->Any;
 	public var assign:Void->T;
+	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map
+	public var underlyingIndex:Any = null; // used for equality of pointers with the index of slice/array/map
 
-	public function new(get, set, hasSet:Bool = false, previous:Pointer<Any> = null) {
+	public function new(get, set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		this.get = get;
 		this.set = set;
 		this.hasSet = hasSet;
 		this.previous = previous;
+
+		this.underlying = underlying;
+		this.underlyingIndex = underlyingIndex;
 	}
 
 	public inline function toString() {

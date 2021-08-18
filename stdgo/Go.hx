@@ -233,12 +233,13 @@ class Go {
 								return macro {
 									var _offset_ = ${e1}.getOffset();
 									var e2 = (${e2} : GoInt).toBasic();
-									new $p(() -> ${e1}.getUnderlying()[e2 + _offset_], (v) -> ${e1}.getUnderlying()[e2 + _offset_] = v);
+									var index = e2 + _offset_;
+									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, null, ${e1}.getUnderlying(), index);
 								};
 							case "GoArray":
 								return macro {
 									var e2 = (${e2} : GoInt).toBasic();
-									new $p(() -> $expr, (v) -> $expr = v);
+									new $p(() -> $expr, (v) -> $expr = v, null, ${e1}, ${e2});
 								}
 						}
 					default:

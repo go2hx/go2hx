@@ -1,5 +1,4 @@
 --macro define('go2hx')
--D std-encoding-utf8
 -D js-es=6
 -D source-map
 -D shallow-expose

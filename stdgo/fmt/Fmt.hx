@@ -131,7 +131,7 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 private inline function log(v:Dynamic) {
 	#if sys
 	// unicode support for hashlink thanks to Zeta
-	Sys.stdout().writeString(v);
+	Sys.stdout().writeString(Std.string(v));
 	#elseif js
 	js.html.Console.log(v);
 	#end

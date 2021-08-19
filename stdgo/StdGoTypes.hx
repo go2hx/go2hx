@@ -1868,11 +1868,6 @@ interface StructType {
 	public function __underlying__():AnyInterface;
 }
 
-interface Error {
-	public function __underlying__():AnyInterface;
-	public function error():GoString;
-}
-
 @:structInit
 class AnyInterfaceData {
 	public var value:Any;

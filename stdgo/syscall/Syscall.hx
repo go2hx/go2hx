@@ -1,6 +1,6 @@
 package stdgo;
 
-import stdgo.StdGoTypes.Error;
+import stdgo.Error;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoInt;

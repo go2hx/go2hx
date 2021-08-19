@@ -1,7 +1,7 @@
 package stdgo.io;
 
+import stdgo.Error;
 import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.Error;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoInt;
 

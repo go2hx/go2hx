@@ -4,7 +4,7 @@ import haxe.Rest;
 
 using haxe.io.Path;
 
-var errBadPattern = stdgo.Errors.new_("syntax error in pattern");
+var errBadPattern = stdgo.errors.Errors.new_("syntax error in pattern");
 
 function base(path:String):GoString {
 	path = path.normalize();
@@ -36,7 +36,7 @@ function join(elem:Rest<String>):GoString {
 	return haxe.io.Path.join(elem.toArray());
 }
 
-function math(pattern:String, name:String):{value:Bool, ?error:stdgo.StdGoTypes.Error} {
+function math(pattern:String, name:String):{value:Bool, ?error:stdgo.Error} {
 	return {value: true};
 }
 

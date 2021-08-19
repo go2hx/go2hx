@@ -21,6 +21,8 @@ haxelib git go2hx https://github.com/go2hx/go2hx
 haxelib run go2hx ./main.go
 ```
 
+*Shows percentage of tests passing out of total*
+
 <img src="graph.png" align="center"/></p>
 
 ## Supported Spec

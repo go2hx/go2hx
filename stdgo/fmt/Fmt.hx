@@ -4,6 +4,7 @@ import haxe.Int64;
 import haxe.Rest;
 import haxe.io.BufferInput;
 import haxe.macro.Expr;
+import stdgo.Error;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.io.Io.Writer;
@@ -17,14 +18,14 @@ inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
 	return stdgo.errors.Errors.new_(format(fmt, args));
 }
 
-function println(args:Rest<Dynamic>):{_n:Int, _err:Error} {
+function println(args:Rest<Dynamic>):{n:Int, err:Error} {
 	log(parse(args).join(" ") + "\n");
-	return {_n: 0, _err: null};
+	return {n: 0, err: null};
 }
 
-function print(args:Rest<Dynamic>):{_n:Int, _err:Error} {
+function print(args:Rest<Dynamic>):{n:Int, err:Error} {
 	log(parse(args).join(""));
-	return {_n: 0, _err: null};
+	return {n: 0, err: null};
 }
 
 inline function printf(fmt:GoString, args:Rest<AnyInterface>) { // format
@@ -129,7 +130,8 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 
 private inline function log(v:Dynamic) {
 	#if sys
-	Sys.print(v);
+	// unicode support for hashlink thanks to Zeta
+	Sys.stdout().writeString(v);
 	#elseif js
 	js.html.Console.log(v);
 	#end

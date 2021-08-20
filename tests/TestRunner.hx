@@ -68,7 +68,7 @@ private function complete(modules, data) {
 		throw test;
 	}
 	final path = Util.modulePath(modules[0]);
-	final command = 'haxe -cp golibs -main $path --interp extraParams.hxml';
+	final command = 'haxe -cp golibs --interp extraParams.hxml -main $path';
 	var proc = new sys.io.Process(command + ' --connect $completionPort');
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);
@@ -130,7 +130,7 @@ final goList = [
     "bigmap",
     "blank",
     "bom",
-    "chancap", //need to include more of chans built in functions for use by named types (get,set)
+    "chancap", //need to include more of chans built in functions for use by named types (get,set) (TODO)
     "char_lit",
     "clearfat", // not found: stdgo.Buffer.writeString
     "closedchan", // need to include more of chans built in functions for use by named types (get,set)
@@ -303,7 +303,7 @@ final yaegiList = [
     "addr3", 
     "addr4", // not found: stdgo.encoding.Json
     "addr5", // not found: stdgo.net.Url
-    "alias0", // this pointer (TODO)
+    "alias0", // this pointer
     "alias1", // incorrect named type initalization (TODO)
     "and",
     "and0",
@@ -325,8 +325,8 @@ final yaegiList = [
     "assign14",
     "assign16",
     "assign2",
-    "assign3", // a,b = b,a (TODO)
-    "assign4", // a,b,c = c,a,b (TODO)
+    "assign3", // a,b = b,a
+    "assign4", // a,b,c = c,a,b
     "assign5", // t[0], t[1] = t[1], t[0]
     "assign6", // t["a"], a["b"] = t["b"], t["a"]
     "assign7", // a, t["b"], s[1] = t["b"], s[1], a
@@ -433,8 +433,8 @@ final yaegiList = [
     "cont",
     "cont0",
     "cont1",
-    "context",
-    "context2",
+    "context", //not found: context
+    "context2", //not found: context
     "convert0",
     "convert1",
     "convert2",

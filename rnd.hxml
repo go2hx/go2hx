@@ -3,3 +3,5 @@
 -main RunRnd
 --hl rnd.hl
 -D debug
+-D watch.run=hl rnd.hl
+-D watch.excludes=golibs

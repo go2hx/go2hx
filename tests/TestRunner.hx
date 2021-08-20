@@ -21,7 +21,7 @@ function main() {
 	Main.setup(0, 4);
 	Main.onComplete = complete;
 	test("go", "./go/test/", goList, [], 6 + 8 - 2);
-	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8 - 2, yaegiOutput); // 47 stop
+	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
 		for (test in tests) {
@@ -68,7 +68,7 @@ private function complete(modules, data) {
 		throw test;
 	}
 	final path = Util.modulePath(modules[0]);
-	final command = 'haxe -cp golibs --interp extraParams.hxml -main $path';
+	final command = 'haxe -cp golibs --interp -D test extraParams.hxml -main $path';
 	var proc = new sys.io.Process(command + ' --connect $completionPort');
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);

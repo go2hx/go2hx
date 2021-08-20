@@ -16,6 +16,21 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return new GoString(str);
 	}
 
+	@:from
+	public static function fromArray<T>(array:Array<T>):Slice<T> {
+		return new Slice(...array);
+	}
+
+	// Conversions from slice to array pointer go 1.17
+
+	@:from
+	private static function fromArrayPointer<T>(ptr:Pointer<GoArray<T>>):Slice<T> {
+		final vector = ptr.value.toVector();
+		var slice = new Slice<T>();
+		slice.setUnderlying(vector, 0, vector.length);
+		return slice;
+	}
+
 	private function get_length():Int {
 		return this.length;
 	}

@@ -1,11 +1,11 @@
 package stdgo;
 
-import stdgo.StdGoTypes;
-import haxe.rtti.Meta;
-import haxe.ds.Vector;
 import haxe.Rest;
+import haxe.ds.Vector;
+import haxe.rtti.Meta;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes;
 
 private class VectorData<T> {
 	public var vector:Vector<T>;
@@ -40,6 +40,12 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this;
 	}
 
+	@:from private static function fromVector<T>(vector:Vector<T>):GoArray<T> {
+		var data = new VectorData<T>(vector.length);
+		data.vector = vector;
+		return data;
+	}
+
 	public function cap():GoInt
 		return this.cap == -1 ? length : this.cap;
 
@@ -71,6 +77,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	@:op([]) public inline function set(index:GoInt, value:T):T
+		
 		return this.set(index.toBasic(), value);
 
 	@:op([]) public inline function get(index:GoInt):T {

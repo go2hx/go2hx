@@ -4,6 +4,7 @@ import haxe.Constraints.Constructible;
 import haxe.ds.Either;
 import haxe.macro.Context;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoInt;
 
 @:forward.new
 @:forward
@@ -55,9 +56,27 @@ abstract Pointer<T>(PointerData<T>) {
 		return value;
 	}
 
+	// Conversions from slice to array pointer go 1.17
+
+	@:from
+	private static function fromSlice<T>(slice:Slice<T>):Pointer<GoArray<T>> {
+		var x:GoArray<T> = slice.getUnderlying();
+		return Go.pointer(x);
+	}
+
 	@:to
 	public static inline function to<T>(p:PointerData<T>):T {
 		return p.get();
+	}
+
+	@:op([])
+	private function get<T>(index:GoInt):T {
+		return ((this.get() : Dynamic) : GoArray<T>)[index];
+	}
+
+	@:op([])
+	private function set<T>(index:GoInt, value:T):T {
+		return ((this.get() : Dynamic) : GoArray<T>)[index] = value;
 	}
 
 	public function hasSet()
@@ -73,7 +92,7 @@ class PointerData<T> {
 	public var convert:T->Any;
 	public var assign:Void->T;
 	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map
-	public var underlyingIndex:Any = null; // used for equality of pointers with the index of slice/array/map
+	public var underlyingIndex:AnyInterface = null; // used for equality of pointers with the index of slice/array/map
 
 	public function new(get, set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		this.get = get;

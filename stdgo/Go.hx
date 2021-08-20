@@ -228,18 +228,28 @@ class Go {
 				switch t {
 					case TAbstract(t, params):
 						var t = t.get();
+						if (t.name == "Pointer") {
+							switch params[0] {
+								case TAbstract(t2, params2):
+									t = t2.get();
+									e1 = macro ${e1}.value;
+								default:
+							}
+						}
 						switch t.name {
 							case "Slice":
 								return macro {
-									var _offset_ = ${e1}.getOffset();
-									var e2 = (${e2} : GoInt).toBasic();
-									var index = e2 + _offset_;
-									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, null, ${e1}.getUnderlying(), index);
+									final _offset_ = ${e1}.getOffset();
+									final index = (${e2} : GoInt).toBasic() + _offset_;
+									final underlying = ${e1}.getUnderlying();
+									var underlyingIndex = Go.toInterface((index : GoInt));
+									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, null, underlying, underlyingIndex);
 								};
 							case "GoArray":
 								return macro {
-									var e2 = (${e2} : GoInt).toBasic();
-									new $p(() -> $expr, (v) -> $expr = v, null, ${e1}, ${e2});
+									final underlying = ${e1}.toVector();
+									final underlyingIndex = Go.toInterface((${e2} : GoInt));
+									new $p(() -> $expr, (v) -> $expr = v, null, underlying, underlyingIndex);
 								}
 						}
 					default:

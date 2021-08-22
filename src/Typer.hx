@@ -90,6 +90,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 	// default imports
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "", doc: ""},
+		{path: ["stdgo", "Error"], alias: "", doc: ""},
 		{path: ["stdgo", "Go"], alias: "", doc: ""},
 		{path: ["stdgo", "GoString"], alias: "", doc: ""},
 		{path: ["stdgo", "Pointer"], alias: "", doc: ""},
@@ -677,6 +678,9 @@ private function typeCommClause(stmt:Ast.CommClause, info:Info):ExprDef { // sel
 
 private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 	var chan = typeExpr(stmt.chan, info);
+	var t = typeof(stmt.chan);
+	if (isNamed(t))
+		chan = macro $chan.__t__;
 	var value = typeExpr(stmt.value, info);
 	return (macro $chan.send($value)).expr;
 }
@@ -685,15 +689,19 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	return typeBlockStmt(stmt.body, info, false, false);
 }
 
+private function typeGoto(label:Expr):Expr {
+	return macro @:goto $label;
+
+}
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	return switch stmt.tok {
 		case CONTINUE: EContinue;
 		case BREAK: EBreak;
 		case GOTO:
-			var name = toExpr(typeIdent(stmt.label, info, false));
-			return (macro return $name()).expr;
-		case FALLTHROUGH: EBreak; // TODO
-		default: EBreak;
+			final name = makeString(stmt.label.name);
+			return typeGoto(name).expr;
+		case FALLTHROUGH: (macro @:fallthrough break).expr; // TODO
+		default: (macro @:unknown break).expr;
 	}
 }
 
@@ -738,52 +746,29 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 	}
 	if (list != null)
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
-	// label and goto system
-	var labels:Array<String> = [];
-	var returnBool:Bool = false;
 	if (list != null)
-		for (i in 0...list.length) {
-			switch list[i].id {
-				case "LabeledStmt":
-					var stmt:Ast.LabeledStmt = list[i];
-					var name = nameIdent(stmt.label.name, info, true, false);
-					labels.push(name);
-					var body = exprs.splice(i, list.length);
-					var func = toExpr(EFunction(null, {
-						expr: toExpr(EBlock(body)),
-						args: [],
-					}));
-					var v = makeString(name);
-					exprs.unshift(macro $v = $func);
-					exprs.unshift(macro var $name = null);
-					exprs.push(macro return $v);
-				case "ReturnStmt":
-					returnBool = true;
-				default:
-			}
-		}
-	// defer system
-	if (info.deferBool && isFunc) {
-		exprs.unshift(macro var deferstack:Array<Void->Void> = []);
-		exprs.push(typeDeferReturn(info, true));
-		// recover
-		exprs.unshift(macro var recover_exception:Dynamic = null);
-		var pos = 2;
-		var ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
-		var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
-			{
-				name: "e",
-				expr: macro {
-					recover_exception = e;
-					$ret;
-					if (recover_exception != null)
-						throw recover_exception;
+		// defer system
+		if (info.deferBool && isFunc) {
+			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
+			exprs.push(typeDeferReturn(info, true));
+			// recover
+			exprs.unshift(macro var recover_exception:Dynamic = null);
+			var pos = 2;
+			var ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
+				{
+					name: "e",
+					expr: macro {
+						recover_exception = e;
+						$ret;
+						if (recover_exception != null)
+							throw recover_exception;
+					}
 				}
-			}
-		]); // don't include recover and defer stack
-		exprs = exprs.slice(0, pos);
-		exprs.push(toExpr(trydef));
-	}
+			]); // don't include recover and defer stack
+			exprs = exprs.slice(0, pos);
+			exprs.push(toExpr(trydef));
+		}
 	if (!isFunc) {
 		// leave scope and set back to before
 		info.renameTypes = oldRenameTypes;
@@ -794,7 +779,10 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 }
 
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
-	return (macro {}).expr;
+	final name = makeString(stmt.label.name);
+	final stmt = typeStmt(stmt.stmt, info);
+	info.gotoSystem = true;
+	return (macro @:label($name) $stmt).expr;
 }
 
 private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
@@ -2023,19 +2011,31 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro new GoComplex128($a{args})).expr;
 				case "real":
 					var e = typeExpr(expr.args[0], info);
+					var t = typeof(expr.args[0]);
+					if (isNamed(t))
+						e = macro $e.__t__;
 					return (macro $e.real).expr;
 				case "imag":
 					var e = typeExpr(expr.args[0], info);
+					var t = typeof(expr.args[0]);
+					if (isNamed(t))
+						e = macro $e.__t__;
 					return (macro $e.imag).expr;
 				case "close":
 					var e = typeExpr(expr.args[0], info);
+					var t = typeof(expr.args[0]);
+					if (isNamed(t))
+						e = macro $e.__t__;
 					return (macro $e.close()).expr;
 				case "cap":
 					var e = typeExpr(expr.args[0], info);
 					return (macro $e.cap()).expr;
 				case "len":
 					var e = typeExpr(expr.args[0], info);
-					var t = getUnderlying(typeof(expr.args[0]));
+					var t = typeof(expr.args[0]);
+					if (isNamed(t))
+						e = macro $e.__t__;
+					t = getUnderlying(t);
 					return switch t {
 						case mapType(_, _):
 							(macro($e == null ? 0 : $e.length)).expr;
@@ -2633,7 +2633,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 		if (type == null)
 			return switch expr.op {
 				case XOR: EBinop(OpXor, macro - 1, x);
-				case ARROW: (macro $x.get()).expr;
+				case ARROW: (macro $x.get()).expr; // $chan.get
 				default: x.expr;
 			}
 		switch expr.op {
@@ -3185,6 +3185,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.data = data.data;
 	info.thisName = "";
 	info.count = 0;
+	info.gotoSystem = false;
 	info.global = data.global;
 	var name = nameIdent(decl.name.name, info, false, false, false);
 	if (name == "init") {
@@ -3197,11 +3198,20 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	info.funcName = decl.name.name;
 	var ret = typeFieldListReturn(decl.type.results, info, true);
-	// info.ret = [ret];
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
 	info.restricted = restricted;
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
+
+	if (info.gotoSystem) {
+		var e = macro stdgo.internal.Macro.controlFlow($block);
+		if (decl.type.results != null && decl.type.results.list.length > 0)
+			e = macro return $e;
+		block = macro {
+			$e;
+		};
+	}
+
 	info.restricted = null;
 	var meta:Metadata = null;
 	if (decl.recv != null) {
@@ -3800,62 +3810,8 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	];
 	final intType = TPath({name: "GoInt", pack: []});
 
-	function capAndLength() {
-		fields.push({
-			name: "length",
-			pos: null,
-			access: [APublic],
-			kind: FProp("get", "never", intType),
-		});
-		fields.push({
-			name: "get_length",
-			pos: null,
-			access: [APublic],
-			kind: FFun({
-				args: [],
-				ret: intType,
-				expr: macro return this.__t__.length,
-			})
-		});
-		fields.push({
-			name: "cap",
-			pos: null,
-			access: [APublic],
-			kind: FFun({args: [], ret: intType, expr: macro return this.__t__.cap()}),
-		});
-	}
-	switch t {
-		case chanType(_, elem):
-			capAndLength();
-			fields.push({
-				name: "send",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [{name: "value"}],
-					expr: macro return this.__t__.send(value),
-				}),
-			});
-			fields.push({
-				name: "get",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [],
-					expr: macro return this.__t__.get(),
-				}),
-			});
-			fields.push({
-				name: "close",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [],
-					expr: macro this.__t__.close(),
-				}),
-			});
+	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 		case sliceType(elem):
-			capAndLength();
 			fields.push({
 				name: "append",
 				pos: null,
@@ -3877,7 +3833,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				})
 			});
 		case arrayType(elem, _):
-			capAndLength();
 			fields.push({
 				name: "slice",
 				pos: null,
@@ -4336,6 +4291,7 @@ class Info {
 	public var deferBool:Bool = false;
 	public var funcName:String = "";
 	public var renameTypes:Map<String, String> = [];
+	public var gotoSystem:Bool = false;
 	public var returnNames:Array<String> = [];
 	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;
@@ -4380,7 +4336,13 @@ class Info {
 }
 
 typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
-typedef PackageType = {path:String, name:String, files:Array<{path:String, location:String, decls:Array<Dynamic>}>}; // filepath of export.json also stored here
+
+typedef PackageType = {
+	path:String,
+	name:String,
+	files:Array<{path:String, location:String, decls:Array<Dynamic>}>
+}; // filepath of export.json also stored here
+
 typedef Module = {name:String, path:String, files:Array<FileType>, isMain:Bool}
 typedef ImportType = {path:Array<String>, alias:String, doc:String}
 

@@ -21,7 +21,74 @@ function main() {
 	Main.setup(0, 4);
 	Main.onComplete = complete;
 	test("go", "./go/test/", goList, [], 6 + 8 - 2);
-	test("yaegi", "./yaegi/_test/", yaegiList, [], 137 + 8 - 2, yaegiOutput);
+	test("yaegi", "./yaegi/_test/", yaegiList, [
+		"assign11", // expect error
+		"assign12", // expect error
+		"assign15", // expect error
+		"bad0", // expect error
+		"const9", // expect error
+		"export1", // non main package
+		"export0", // non main package
+		"for7", // expect error
+		"fun21", // expect error
+		"fun22", // expect error
+		"fun23", // expect error
+		"fun24", // expect error
+		"fun25", // expect error
+		"if2", // expect error
+		"import6", // expect error
+		"init1", // expect error
+		"io0", // uses random number
+		"issue-1093", // expect error
+		"op1", // expect error
+		"op7", // expect error
+		"op9", // expect error
+		"bltn0", // expect error
+		"method16", // private struct field
+		"switch8", // expect error
+		"switch9", // expect error
+		"switch13", // expect error
+		"switch19", // expect error
+		"time0", // display time (similar to random number)
+		"factor", // benchmark
+		"fib", // benchmark
+
+		"type5", // limitation with no workaround
+		"type6", // limitation with no workaround
+
+		"redeclaration0", // expect error
+		"redeclaration1", // expect error
+		"redeclaration2", // expect error
+		"redeclaration3", // expect error
+		"redeclaration4", // expect error
+		"redeclaration5", // expect error
+		"redeclaration-global0", // expect error
+		"redeclaration-global1", // expect error
+		"redeclaration-global2", // expect error
+		"redeclaration-global3", // expect error
+		"redeclaration-global4", // expect error
+		"redeclaration-global5", // expect error
+		"redeclaration-global6", // expect error
+		"redeclaration-global7", // expect error
+		"pkgname0", // has depedencies
+		"pkgname1", // expect error
+		"pkgname2", // has depedencies
+		"ipp_as_key", // has depedencies
+		"restricted0", // expect error
+		"restricted1", // expect error
+		"restricted2", // expect error
+		"restricted3", // expect error
+		"server6", // syntax parsing
+		"server5", // syntax parsing
+		"server4", // syntax parsing
+		"server3", // syntax parsing
+		"server2", // syntax parsing
+		"server1a", // syntax parsing
+		"server1", // syntax parsing
+		"server0", // syntax parsing
+		"server", // syntax parsing
+		"rand9", // expect error
+	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
 		for (test in tests) {

@@ -39,7 +39,7 @@ class Macro {
 					${inLoop?macro break:macro continue};
 			}
 		}
-		func = function(expr:haxe.macro.Expr, inLoop:Bool):Expr {
+		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int):Expr {
 			return switch (expr.expr) {
 				case EMeta(s, e):
 					switch s.name {
@@ -52,31 +52,41 @@ class Macro {
 							expr;
 					}
 				case EWhile(econd, e, normalWhile):
-					expr.expr = EWhile(econd, func(e, true), normalWhile);
+					expr.expr = EWhile(econd, func(e, true, scopeIndex), normalWhile);
 					expr = loop(expr, inLoop);
 					expr;
 				case EFor(it, e):
-					expr.expr = EFor(it, func(e, true));
+					expr.expr = EFor(it, func(e, true, scopeIndex));
 					expr = loop(expr, inLoop);
 					expr;
 				case EBlock(exprs):
 					for (i in 0...exprs.length)
-						exprs[i] = func(exprs[i], inLoop);
+						exprs[i] = func(exprs[i], inLoop, ++scopeIndex);
 					expr.expr = EBlock(exprs);
 					expr;
 				case EIf(econd, eif, eelse):
-					expr.expr = EIf(econd, func(eif, inLoop), eelse == null ? null : func(eelse, inLoop));
+					expr.expr = EIf(econd, func(eif, inLoop, scopeIndex), eelse == null ? null : func(eelse, inLoop, scopeIndex));
 					expr;
 				case EVars(v):
-					vars = vars.concat(v);
-					macro {};
+					if (scopeIndex == 0) {
+						vars = vars.concat(v);
+						if (v.length == 1) {
+							macro $i{v[0].name} = ${v[0].expr};
+						} else {
+							{
+								expr: EBlock([for (v in vars) macro $i{v.name} = ${v.expr}]),
+								pos: Context.currentPos(),
+							};
+						}
+					} else {
+						expr;
+					}
 				case ECall(e, params):
 					var printer = new haxe.macro.Printer();
 					final str = printer.printExpr(e);
-					trace(str);
 					if (str == "Go.cfor") {
 						var block = params.pop();
-						block = func(block, true);
+						block = func(block, true, scopeIndex);
 						params.push(block);
 						expr.expr = ECall(e, params);
 						expr = loop(expr, inLoop);
@@ -87,7 +97,7 @@ class Macro {
 					expr;
 			}
 		}
-		body = func(body, false);
+		body = func(body, false, -1);
 		switch body.expr {
 			case EBlock(exprs):
 				for (i in 0...exprs.length) {
@@ -127,7 +137,6 @@ class Macro {
 				$switchStmt;
 			} while ($i{selectionName} != "");
 		};
-		trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}
 

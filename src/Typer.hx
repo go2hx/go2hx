@@ -108,7 +108,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 		pkg.path = toHaxePath(pkg.path);
 		if (pkg.path == "")
 			pkg.path = "std";
-
 		var module:Module = {
 			path: pkg.path,
 			files: [],
@@ -1383,10 +1382,10 @@ private function cleanType(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case signature(_, _, results, _):
+		/*case signature(_, _, results, _):
 			if (results.length == 0)
 				return invalidType;
-			cleanType(results[0]);
+			cleanType(results[0]); */
 		case _var(_, type):
 			cleanType(type);
 		default:
@@ -1410,6 +1409,37 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 				default:
 			}
 		default:
+	}
+
+	if (isSignature(toType) && isSignature(fromType)) {
+		// conversion example
+		// var x:Vector<String>->Void = (a) -> params(...a.toArray());
+		switch toType {
+			case signature(variadic, params, results, _):
+				if (variadic) {
+					final args:Array<haxe.macro.Expr.FunctionArg> = [];
+					final params = [
+						for (param in params) {
+							switch param {
+								case _var(name, _):
+									args.push({name: name});
+									macro $i{name};
+								default:
+									throw "not a var";
+							}
+						}
+					];
+					var last = params.pop(); // variadic
+					last = macro...$last.toArray();
+					params.push(last);
+					final def = EFunction(FArrow, {
+						args: args,
+						expr: macro $y($a{params}),
+					});
+					return toExpr(def);
+				}
+			default:
+		}
 	}
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
@@ -2299,7 +2329,7 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
-			typeof(e.sel.type);
+			typeof(e.type);
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
 			typeof(e.type);
@@ -2316,7 +2346,8 @@ private function typeof(e:Ast.Expr):GoType {
 			var e:Ast.TypeAssertExpr = e;
 			typeof(e.type);
 		case "FuncLit":
-			invalidType;
+			var e:Ast.FuncLit = e;
+			typeof(e.type.type);
 		case "KeyValueExpr":
 			var e:Ast.KeyValueExpr = e;
 			mapType(typeof(e.key), typeof(e.value));

@@ -18,14 +18,14 @@ inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
 	return stdgo.errors.Errors.new_(format(fmt, args));
 }
 
-function println(args:Rest<Dynamic>):{n:Int, err:Error} {
+function println(args:Rest<Dynamic>):{v0:Int, v1:Error} {
 	log(parse(args).join(" ") + "\n");
-	return {n: 0, err: null};
+	return {v0: 0, v1: null};
 }
 
-function print(args:Rest<Dynamic>):{n:Int, err:Error} {
+function print(args:Rest<Dynamic>):{v0:Int, v1:Error} {
 	log(parse(args).join(""));
-	return {n: 0, err: null};
+	return {v0: 0, v1: null};
 }
 
 inline function printf(fmt:GoString, args:Rest<AnyInterface>) { // format

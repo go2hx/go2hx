@@ -746,6 +746,7 @@ func parseData(node interface{}) map[string]interface{} {
 	switch node := node.(type) {
 	case *ast.CompositeLit:
 	case *ast.SelectorExpr:
+		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.IndexExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.Ellipsis:

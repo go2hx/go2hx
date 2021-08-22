@@ -2868,9 +2868,11 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 					return {index: index, expr: typeExpr(elt, info)};
 				}
 				for (elt in expr.elts) {
-					if (elt.id == "KeyValueExpr") {
+					if (elt.id == "KeyValueExpr") { // array expansion syntax uses KeyValue, value being a string word representation of the number
 						var elt:Ast.KeyValueExpr = elt;
-						index = Std.parseInt(elt.key.value);
+						var int = Std.parseInt(elt.key.value);
+						if (int != null)
+							index = int;
 						exprs.push(run(elt.value));
 						keyValueBool = true;
 					} else {

@@ -2059,6 +2059,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					return (macro $e.close()).expr;
 				case "cap":
 					var e = typeExpr(expr.args[0], info);
+					var t = typeof(expr.args[0]);
+					if (isNamed(t))
+						e = macro $e.__t__;
 					return (macro $e.cap()).expr;
 				case "len":
 					var e = typeExpr(expr.args[0], info);
@@ -2279,8 +2282,9 @@ private function typeof(e:Ast.Expr):GoType {
 			mapType(typeof(e.key), typeof(e.elem));
 		case "Named":
 			var underlying = typeof(e.underlying);
-			if (locals.exists(e.hash))
+			if (locals.exists(e.hash)) {
 				return getLocalType(e.hash, null);
+			}
 			var path = e.path;
 			var methods:Array<MethodType> = [];
 			var interfaces:Array<GoType> = [];
@@ -3842,6 +3846,9 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		}
 	];
 	final intType = TPath({name: "GoInt", pack: []});
+	var meta = [{name: ":named", pos: null}];
+	var superClass:TypePath = null;
+	var isInterface = false;
 
 	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 		case sliceType(elem):
@@ -3875,6 +3882,38 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					expr: macro return this.__t__.slice(low, high),
 				})
 			});
+		case named(_, _, _, type):
+			if (!isNamed(t)) { // is Struct or Interface
+				final path = getTypePath(t, info);
+				superClass = path;
+				fields = [];
+				final params:Array<Expr> = [];
+				final args:Array<FunctionArg> = [];
+				switch type {
+					case structType(fs):
+						for (field in fs) {
+							final name = nameIdent(field.name, info, false, false);
+							params.push(macro $i{name});
+							args.push({opt: true, name: name});
+						}
+						meta.push({name: ":structInit", pos: null});
+						fields = [
+							{
+								name: "new",
+								pos: null,
+								access: [APublic],
+								kind: FFun({
+									args: args,
+									expr: macro super($a{params}),
+								}),
+							}
+						];
+					default: // must be an InterfaceType
+						isInterface = true;
+						fields = [];
+						implicits = [];
+				}
+			}
 		default:
 	}
 	return {
@@ -3882,8 +3921,8 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		pos: null,
 		pack: [],
 		fields: fields,
-		meta: [{name: ":named", pos: null}],
-		kind: TDClass(null, implicits),
+		meta: meta,
+		kind: TDClass(superClass, implicits, isInterface),
 	}
 }
 
@@ -4004,7 +4043,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				doc: doc,
 				isExtern: externBool,
 				meta: meta,
-				kind: TDClass(null, [{name: "StructType", pack: []}].concat(implicits), false, true, false),
+				kind: TDClass(null, [{name: "StructType", pack: []}].concat(implicits), false, false, false),
 			};
 
 			cl.fields.push({

@@ -117,7 +117,13 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			pos += bytes.length;
 			if (pos == buff.length) {
 				var exportData:DataType = Json.parse(buff.toString());
-				var modules = Typer.main(exportData);
+				var modules = [];
+				try {
+					modules = Typer.main(exportData);
+				} catch (e) {
+					Sys.println("Typer args: " + exportData.args);
+					throw e;
+				}
 				Sys.setCwd(localPath);
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];

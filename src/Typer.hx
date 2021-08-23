@@ -700,7 +700,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 			final name = makeString(stmt.label.name);
 			return typeGoto(name).expr;
 		case FALLTHROUGH: (macro @:fallthrough break).expr; // TODO
-		default: (macro @:unknown break).expr;
+		default: (macro @:unknown_branch break).expr;
 	}
 }
 
@@ -2754,7 +2754,10 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 			return (macro new $p($e)).expr;
 		}
 	}
-	switch getUnderlying(type) {
+	final underlying = getUnderlying(type);
+	if (isInvalid(underlying))
+		return (macro @:invalid_compositelit null).expr;
+	switch underlying {
 		case pointer(elem):
 			final e = toExpr(compositeLit(elem, expr, info));
 			return (macro Go.pointer($e)).expr;
@@ -2934,8 +2937,6 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 			params.unshift(t);
 			final p = getTypePath(type, info);
 			return (macro new $p($a{params})).expr;
-		case invalidType:
-			return (macro null).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}

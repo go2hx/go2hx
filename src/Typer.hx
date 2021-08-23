@@ -1393,6 +1393,29 @@ private function cleanType(type:GoType):GoType {
 	}
 }
 
+private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
+	switch block.expr {
+		case EBlock(exprs):
+			for (arg in args) {
+				switch arg.type {
+					case TPath(p):
+						if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe" && p.params != null && p.params.length == 1) {
+							final name = arg.name;
+							switch p.params[0] {
+								case TPType(ct):
+									exprs.unshift(macro var $name = new Slice<$ct>(...$i{name}));
+								default:
+							}
+						}
+					default:
+				}
+			}
+			block.expr = EBlock(exprs);
+		default:
+	}
+	return block;
+}
+
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
@@ -1409,37 +1432,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 				default:
 			}
 		default:
-	}
-
-	if (isSignature(toType) && isSignature(fromType)) {
-		// conversion example
-		// var x:Vector<String>->Void = (a) -> params(...a.toArray());
-		switch toType {
-			case signature(variadic, params, results, _):
-				if (variadic) {
-					final args:Array<haxe.macro.Expr.FunctionArg> = [];
-					final params = [
-						for (param in params) {
-							switch param {
-								case _var(name, _):
-									args.push({name: name});
-									macro $i{name};
-								default:
-									throw "not a var";
-							}
-						}
-					];
-					var last = params.pop(); // variadic
-					last = macro...$last.toArray();
-					params.push(last);
-					final def = EFunction(FArrow, {
-						args: args,
-						expr: macro $y($a{params}),
-					});
-					return toExpr(def);
-				}
-			default:
-		}
 	}
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
@@ -2556,6 +2548,18 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				}
 				ret = TAnonymous(fields);
 			}
+			if (variadic) {
+				var last = args.pop();
+				switch last {
+					case TPath(p):
+						p.name = "Rest";
+						p.pack = ["haxe"];
+						p.sub = null;
+						last = TPath(p);
+					default:
+				}
+				args.push(last);
+			}
 			TFunction(args, ret);
 		case _var(_, type):
 			toComplexType(type, info);
@@ -2795,9 +2799,6 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 					});
 				}
 			} else {
-				/*final ct = toComplexType(type,info);
-					final p = getTypePath();
-					return (macro new $p()).expr; */
 				for (i in 0...fields.length) {
 					if (fields[i].name == "_")
 						continue;
@@ -3240,6 +3241,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.thisName = "";
 	info.restricted = restricted;
 	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
+
+	block = argsTranslate(args, block);
 
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);

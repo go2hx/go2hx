@@ -88,6 +88,26 @@ function main() {
 		"server0", // syntax parsing
 		"server", // syntax parsing
 		"rand9", // expect error
+
+		"composite6", // invalid import
+		"d3", // invalid import
+		"eval0", // runs the yaegi interpreter
+		"import3", // invalid import
+		"import4", // invalid import
+		"import5", // invalid import
+		"import6", // invalid import
+		"import7", // invalid import
+		"import8", // invalid import
+		"import9", // invalid import
+		"inception", // runs the yaegi interpreter
+		"tag0", // invalid import
+		"var14", // invalid import
+		"foo", // invalid import
+		"c1", // invalid import
+		"c2", // invalid import
+		"d2", // invalid import
+		"bar", // invalid import
+		"bir", // invalid import
 	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
@@ -101,12 +121,14 @@ function main() {
 }
 
 function test(suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int, compare:Array<Array<String>> = null) {
+	var count = 0;
 	for (i in 0...list.length) {
 		final testName = list[i];
 		final compare = compare == null ? null : compare[i];
 		if (skip.contains(testName))
 			continue;
 		final test = '$dir$testName.go';
+		count++;
 		tests.push({
 			args: [test, path],
 			data: {
@@ -119,6 +141,7 @@ function test(suiteName:String, dir:String, list:Array<String>, skip:Array<Strin
 		testsTotal++;
 		testsLeft++;
 	}
+	Sys.println(suiteName + ": " + count + " queued");
 }
 
 private function close() {

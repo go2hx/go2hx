@@ -77,7 +77,6 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	@:op([]) public inline function set(index:GoInt, value:T):T
-		
 		return this.set(index.toBasic(), value);
 
 	@:op([]) public inline function get(index:GoInt):T {
@@ -85,14 +84,14 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.get(index.toBasic());
 	}
 
-	public inline function slice(low:GoInt, high:GoInt = -1):Slice<T> {
+	inline public function slice(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		var slice = new Slice<T>();
-		slice.setUnderlying(this.vector, pos.toBasic(), length.toBasic());
-		return slice;
+		var obj = new Slice<T>();
+		obj.setUnderlying(this.vector, pos.toBasic(), length.toBasic());
+		return obj;
 	}
 
 	public inline function setVector(vector:Vector<T>) {

@@ -227,7 +227,7 @@ private class SliceData<T> {
 	}
 
 	inline public function toString():String
-		return "[" + [for (i in pos...length - pos) Go.string(vector[i])].join(" ") + "]";
+		return "[" + [for (i in pos...pos + length) Go.string(vector[i])].join(" ") + "]";
 
 	inline public function underlying():Vector<T> {
 		return vector;

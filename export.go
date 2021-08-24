@@ -763,7 +763,6 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.CallExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.UnaryExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.BinaryExpr:
 		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.KeyValueExpr:

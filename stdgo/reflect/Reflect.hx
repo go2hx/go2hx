@@ -1455,8 +1455,8 @@ class _Type implements StructType implements Type {
 			tag = tag.slice(i + ((1 : GoInt64)));
 			if (key == name) {
 				var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue),
-					value = __tmp__.v0,
-					err = __tmp__.v1;
+					value = __tmp__._i,
+					err = __tmp__._err;
 				if (err != null) {
 					break;
 				};

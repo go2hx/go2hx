@@ -5,5 +5,6 @@ import stdgo.Slice;
 import stdgo.StdGoTypes;
 
 function marshal(v:AnyInterface):{v0:Slice<GoByte>, v1:Error} {
-	return {v0: ((haxe.Json.stringify(v.value) : GoString) : Slice<GoByte>), v1: null};
+	final str:GoString = haxe.Json.stringify(v.value);
+	return {v0: str, v1: null};
 }

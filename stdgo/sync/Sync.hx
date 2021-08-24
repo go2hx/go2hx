@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.sync;
 
 import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;

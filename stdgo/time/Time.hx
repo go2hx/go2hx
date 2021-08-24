@@ -1,4 +1,4 @@
-package stdgo;
+package stdgo.time;
 
 import haxe.Int64;
 import haxe.zip.Compress;
@@ -27,6 +27,7 @@ inline function parseDuration(s:GoString):{d:Duration, err:Error} {
 	return {d: null, err: null};
 }
 
+// (TODO) implement proper bindings to the go transpilation of time
 typedef Time = time.Time.Time;
 typedef Duration = Dynamic; // time.Time.Duration;
 final second = time.Time.second;

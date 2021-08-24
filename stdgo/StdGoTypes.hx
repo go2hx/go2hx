@@ -111,8 +111,8 @@ function clampFloat32(x:Float):Float
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):Int // TODO: clamp uintr
-	return x;
+function clampUInt(x:Int):Int // TODO: clamp uint
+	return x < 0 ? 0 : x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
@@ -441,6 +441,50 @@ abstract GoComplex64(Complex64) from Complex64 {
 	@:to inline function toComplex128():GoComplex128
 		return new GoComplex128(real, imag);
 
+	@:to inline function toInt():GoInt {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toInt8():GoInt8 {
+		return clampInt8(Std.int(this.real));
+	}
+
+	@:to inline function toInt16():GoInt16 {
+		return clampInt16(Std.int(this.real));
+	}
+
+	@:to inline function toInt32():GoInt32 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toInt64():GoInt64 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toUInt8():GoUInt8 {
+		return clampUInt8(Std.int(this.real));
+	}
+
+	@:to inline function toUInt16():GoUInt16 {
+		return clampUInt16(Std.int(this.real));
+	}
+
+	@:to inline function toUInt32():GoUInt32 {
+		return clampUInt(Std.int(this.real));
+	}
+
+	@:to inline function toUInt64():GoUInt64 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toFloat32():GoFloat32 {
+		return this.real;
+	}
+
+	@:to inline function toFloat64():GoFloat64 {
+		return this.real;
+	}
+
 	public inline function toBasic()
 		return this;
 
@@ -539,6 +583,50 @@ abstract GoComplex128(Complex128) from Complex128 {
 
 	@:to inline function toComplex64():GoComplex64 {
 		return new GoComplex64(clampFloat32(real), clampFloat32(imag));
+	}
+
+	@:to inline function toInt():GoInt {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toInt8():GoInt8 {
+		return clampInt8(Std.int(this.real));
+	}
+
+	@:to inline function toInt16():GoInt16 {
+		return clampInt16(Std.int(this.real));
+	}
+
+	@:to inline function toInt32():GoInt32 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toInt64():GoInt64 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toUInt8():GoUInt8 {
+		return clampUInt8(Std.int(this.real));
+	}
+
+	@:to inline function toUInt16():GoUInt16 {
+		return clampUInt16(Std.int(this.real));
+	}
+
+	@:to inline function toUInt32():GoUInt32 {
+		return clampUInt(Std.int(this.real));
+	}
+
+	@:to inline function toUInt64():GoUInt64 {
+		return Std.int(this.real);
+	}
+
+	@:to inline function toFloat32():GoFloat32 {
+		return this.real;
+	}
+
+	@:to inline function toFloat64():GoFloat64 {
+		return this.real;
 	}
 
 	@:from static function fromFloat(f:Float):GoComplex128 {
@@ -664,10 +752,10 @@ abstract GoInt(Int32) from Int32 from Int32 {
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
-		return this;
+		return clampInt16(this);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
@@ -893,14 +981,14 @@ abstract GoUInt(Int) from Int {
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 
-	@:to inline function toInt():GoInt
+	@:to inline function toInt():GoInt // TODO GoUInt max conversion check if result is same as go
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
-		return this;
+		return clampInt16(this);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
@@ -1017,14 +1105,14 @@ abstract GoUInt32(Int) from Int {
 	@:to inline function toInt():GoInt
 		return this;
 
-	@:to inline function toInt32():GoInt32
+	@:to inline function toInt32():GoInt32 // TODO check if max range conversion is the same as go
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
-		return this;
+		return clampInt16(this);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
@@ -1244,7 +1332,6 @@ abstract GoInt8(Int8) from Int8 from Int {
 		return Std.int(a.toBasic() / b.toBasic());
 	}
 
-	// TODO: clamp int8
 	static function clamp(x:Int)
 		return clampInt8(x);
 }
@@ -1269,7 +1356,7 @@ abstract GoInt16(Int16) from Int16 from Int {
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
 		return this;
@@ -1411,10 +1498,10 @@ abstract GoInt64(Int64) from Int64 {
 		return this.low;
 
 	@:to inline function toInt8():GoInt8
-		return this.low;
+		return clampInt8(this.low);
 
 	@:to inline function toInt16():GoInt16
-		return this.low;
+		return clampInt16(this.low);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this.low);
@@ -1541,7 +1628,7 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
 		return this;
@@ -1645,10 +1732,10 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 		return this;
 
 	@:to inline function toInt8():GoInt8
-		return this;
+		return clampInt8(this);
 
 	@:to inline function toInt16():GoInt16
-		return this;
+		return clampInt16(this);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);
@@ -1756,10 +1843,10 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return this.low;
 
 	@:to inline function toInt8():GoInt8
-		return this.low;
+		return clampInt8(this.low);
 
 	@:to inline function toInt16():GoInt16
-		return this.low;
+		return clampInt16(this.low);
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this.low);

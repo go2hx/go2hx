@@ -995,6 +995,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 }
 
 private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:Info):Expr {
+	// trace("\nfrom: " + from + "\nto: " + to + "\nexpr: " + printer.printExpr(e) + "\nct: " + printer.printComplexType(ct));
 	if (e != null)
 		switch e.expr {
 			case EBinop(_, _, _):
@@ -1018,6 +1019,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 		if (fromNamed && !toNamed && !isInterface(to)) {
 			return macro $e.__t__;
 		}
+		// trace("from Named: " + fromNamed + " to: " + toNamed);
 		if (toNamed && !fromNamed) {
 			switch ct {
 				case TPath(p):
@@ -1458,6 +1460,7 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
+	// trace("\nfrom: " + fromType + "\nto: " + toType + "\nexpr: " + printer.printExpr(expr));
 	var y = expr;
 
 	if (fromType == null)
@@ -2016,7 +2019,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	if (notFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
-		return checkType(e, ct, typeof(expr.args[0]), typeof(expr.fun), info).expr;
+		final fromType = typeof(expr.args[0]);
+		return checkType(e, ct, fromType, typeof(expr.fun), info).expr;
 	}
 
 	switch expr.fun.id {
@@ -2378,7 +2382,14 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		case "UnaryExpr":
 			var e:Ast.UnaryExpr = e;
-			typeof(e.type);
+			switch e.op {
+				case ARROW:
+					getElem(typeof(e.x));
+				case AND:
+					pointer(typeof(e.x));
+				default:
+					typeof(e.x);
+			}
 		case "TypeAssertExpr":
 			var e:Ast.TypeAssertExpr = e;
 			typeof(e.type);
@@ -2630,7 +2641,8 @@ private function typeRest(expr:Expr):Expr {
 }
 
 private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
-	return setBasicLit(expr.kind, expr.value, typeof(expr.type), info);
+	final type = typeof(expr.type);
+	return setBasicLit(expr.kind, expr.value, type, info);
 }
 
 private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Info) {
@@ -2701,14 +2713,14 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	var t = typeof(expr.type);
-	if (isNamed(t))
+	var t = typeof(expr.x);
+	if (isNamed(t) && expr.op != AND) // exception of not using underlying type is for creating a pointer
 		x = macro $x.__t__;
 	if (expr.op == AND) {
 		return (macro Go.pointer($x)).expr;
 	} else {
-		var type = typeUnOp(expr.op);
-		if (type == null)
+		var op = typeUnOp(expr.op);
+		if (op == null)
 			return switch expr.op {
 				case XOR: EBinop(OpXor, macro - 1, x);
 				case ARROW: (macro $x.get()).expr; // $chan.get
@@ -2732,14 +2744,8 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 				}
 			default:
 		}
-		return EUnop(type, false, x);
+		return EUnop(op, false, x);
 	}
-}
-
-enum CompositeType {
-	map;
-	struct;
-	named;
 }
 
 /*

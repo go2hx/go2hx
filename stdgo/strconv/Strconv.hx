@@ -10,7 +10,7 @@ function parseFloat(s:GoString, bitSize:GoInt64):{_i:GoFloat, ?_err:Error} {
 	}
 }
 
-inline function unquote(s:GoString):{_i:GoString, ?_err:Error} {
+inline function unquote(s:GoString):{_i:GoString, ?_err:Error} { // TODO check if unquote has the same result if the input string has no quotes
 	if (s.length < 2)
 		return {_i: "", _err: errSyntax};
 	s = s.substr(1, s.length.toBasic() - 2);

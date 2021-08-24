@@ -139,7 +139,6 @@ typedef UnaryExpr = {
 	opPos:Pos,
 	op:Token,
 	x:Expr,
-	type:ExprType,
 };
 
 typedef BinaryExpr = {

@@ -54,9 +54,9 @@ private function yaegi() {
 		}
 		sub.add('    "$name",\n');
 
-		output.add("    [");
+		output.add('    {name: "$name", output: [');
 		output.add(lines.join(","));
-		output.add("],\n");
+		output.add("]},\n");
 	}
 	sub.add("]");
 	output.add("]");

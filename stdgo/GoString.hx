@@ -29,6 +29,9 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	public function lastIndexOf(str:String, ?startIndex:Int):Int
 		return toString().lastIndexOf(str, startIndex);
 
+	public function indexOf(str:String, ?startIndex:Int):Int
+		return toString().lastIndexOf(str, startIndex);
+
 	public function substr(pos:Int, ?len:Int):GoString
 		return toString().substr(pos, len);
 

@@ -3203,6 +3203,15 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CString(_):
+					x = macro($x : GoString);
+				default:
+			}
+		default:
+	}
 	var index = typeExpr(expr.index, info);
 	var t = typeof(expr.x);
 	if (isNamed(t))

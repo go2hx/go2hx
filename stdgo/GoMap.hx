@@ -146,7 +146,7 @@ private class MapData<K, V> {
 				return;
 			}
 		}
-		array.push({key: key, value: value});
+		array.unshift({key: key, value: value});
 	}
 
 	public function toString():GoString {

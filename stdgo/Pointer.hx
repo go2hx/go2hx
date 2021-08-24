@@ -105,6 +105,6 @@ class PointerData<T> {
 	}
 
 	public inline function toString() {
-		return "0x0";
+		return "&" + Go.string(get());
 	}
 }

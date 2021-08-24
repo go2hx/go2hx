@@ -5,23 +5,23 @@ import stdgo.StdGoTypes;
 
 function ints(slice:Slice<GoInt>) {
 	_sort(slice, (i, j) -> {
-		return slice[i] > slice[j] ? -1 : 1;
+		return slice[i] > slice[j] ? 1 : -1;
 	});
 }
 
 function strings(slice:Slice<GoString>) {
 	_sort(slice, (i, j) -> {
-		return slice[i] > slice[j] ? -1 : 1;
+		return slice[i] > slice[j] ? 1 : -1;
 	});
 }
 
 function slice(slice:AnyInterface, less:(i:GoInt, j:GoInt) -> Bool) {
 	_sort(slice.value, (i, j) -> {
-		return less(i, j) ? -1 : 1;
+		return less(i, j) ? 1 : -1;
 	});
 }
 
-function intsAreSorted(slice:Slice<Int>):Bool {
+function intsAreSorted(slice:Slice<GoInt>):Bool {
 	var min = slice[0];
 	for (i in 1...slice.length.toBasic()) {
 		if (min > slice[i])

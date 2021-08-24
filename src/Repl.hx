@@ -11,13 +11,11 @@ function init() {
 		FileSystem.createDirectory("repl");
 	}
 	File.saveContent("repl/code.go", "");
-	final completionPort = 6784 + Std.random(200);
-	final completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.onComplete = (modules, data) -> {
 		final length = modules.length;
 		if (length > 0) {
 			// show the haxe equivlant
-			var haxeOutput = File.getContent("golibs/command_line_arguments/Run.hx");
+			var haxeOutput = File.getContent("golibs/command_line_arguments/Eval.hx");
 			haxeOutput = haxeOutput.substring(haxeOutput.indexOf("{\n") + 2, haxeOutput.lastIndexOf("}"));
 			var exprs = haxeOutput.split('"-$-";\n');
 			var exprString = exprs.length > 0 ? exprs.pop() : "";
@@ -26,8 +24,9 @@ function init() {
 			Util.infoMsg(exprString);
 			// execute since there is an output
 			File.saveContent("repl/error", "1");
-			File.saveContent("Repl.hx", 'function main() {command_line_arguments.Run.main(); sys.io.File.saveContent("repl/error","0");}');
-			var command = "haxe -cp golibs -main Repl --interp --connect " + completionPort;
+			final path = Util.modulePath(modules[0]);
+			File.saveContent("Repl.hx", 'function main() {$path.main(); sys.io.File.saveContent("repl/error","0");}');
+			var command = "haxe -cp golibs -main Repl --interp";
 			Sys.command(command);
 			FileSystem.deleteFile("Repl.hx");
 			final success = File.getContent("repl/error") == "0";
@@ -92,8 +91,8 @@ private function loop() {
 		// is an expr/statement can now build
 		var template = new haxe.Template(tempString);
 		pastCode = File.getContent("repl/code.go");
-		File.saveContent("repl/run.go", template.execute({code: pastCode + code}));
-		Main.compile(["./repl/run.go", Sys.getCwd()]);
+		File.saveContent("repl/eval.go", template.execute({code: pastCode + code}));
+		Main.compile(["./repl/eval.go", Sys.getCwd()]);
 		waiting = true;
 	}
 }

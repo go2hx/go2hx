@@ -2471,9 +2471,7 @@ private function namedTypePath(path:String, info:Info):TypePath {
 	globalPath = toGoPath(globalPath);
 	var pack = [];
 	if (globalPath != path) {
-		// path += "/" + title(pkg);
-		var last = path.lastIndexOf("/");
-		path = path.substr(0, last + 1) + path.charAt(last + 1).toUpperCase() + path.substr(last + 2);
+		path += "/" + title(pkg);
 		pack = path.split("/");
 		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");

@@ -127,9 +127,10 @@ class Go {
 		return macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
 	}
 
-	public static macro function smartcast(expr:Expr) {
+	public static macro function smartcast(expr:Expr, toPointer:Bool = false) {
 		function panicWrap(e:Expr) {
-			return macro {var e = $e; e == null ?throw "panic: conversion":e;};
+			final set = toPointer ? macro Go.pointer($e) : macro $e;
+			return macro {var e = $e; e == null ?throw "panic: conversion":$set;};
 		}
 		switch expr.expr {
 			case ECast(e, ct):

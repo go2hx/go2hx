@@ -20,8 +20,21 @@ function main() {
 	completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.setup(0, 4);
 	Main.onComplete = complete;
-	test("go", "./go/test/", goList, [], 6 + 8 - 2);
+	test("go", "./go/test/", goList, [
+		"atomiccload", // go routine
+		"bigalg", // go routine
+		"closure", // go routine
+		"func5", // go routine
+	], 6 + 8 - 2);
 	test("yaegi", "./yaegi/_test/", yaegiList, [
+		"chan0", // go routine
+		"chan1", // go routine
+		"chan10", // go routine
+		"chan2", // go routine
+		"chan3", // go routine
+		"chan8", // go routine
+		"chan9", // go routine
+
 		"assign11", // expect error
 		"assign12", // expect error
 		"assign15", // expect error
@@ -110,6 +123,7 @@ function main() {
 		"bir", // invalid import
 
 		"sieve", // uses go routines and includes 2 infinite for loops inside of go functions
+
 	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
@@ -376,8 +390,8 @@ final yaegiList = [
     "a25",
     "a26",
     "a27",
-    "a28", // WORKING NOW
-    "a29", // WORKING NOW
+    "a28",
+    "a29",
     "a3",
     "a30",
     "a31",

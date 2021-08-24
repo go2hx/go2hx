@@ -1035,8 +1035,23 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	if (isAnyInterface(from)) {
 		return macro($e.value : $ct);
 	}
+
 	if (isInterface(pointerUnwrap(from))) {
-		return macro Go.smartcast(cast($e, $ct)); // allows correct interface casting
+		final args:Array<Expr> = [];
+		if (!isPointer(from) && isPointer(to)) {
+			args.push(macro true);
+			switch ct {
+				case TPath(p):
+					switch p.params[0] {
+						case TPType(t):
+							ct = t;
+						default:
+					}
+				default:
+			}
+		}
+		args.unshift(macro cast($e, $ct)); // add to start, allows correct interface casting
+		return macro Go.smartcast($a{args}); // add all args to smart cast macro function
 	}
 
 	if (isStruct(from) && isStruct(to)) {

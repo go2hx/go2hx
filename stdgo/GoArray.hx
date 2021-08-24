@@ -117,9 +117,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public function copy() {
 		var array = new GoArray<T>();
 		array.setSize(array.length.toBasic());
-		for (i in 0...array.length.toBasic()) {
-			array.set(i, this.get(i));
-		}
+		array.setVector(this.vector.copy());
 		return array;
 	}
 }

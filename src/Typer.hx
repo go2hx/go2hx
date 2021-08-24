@@ -1416,6 +1416,30 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
 	return block;
 }
 
+private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr {
+	if (y == null)
+		return y;
+	switch y.expr {
+		case EBlock(_):
+			return y;
+		default:
+	}
+	if (!isPointer(fromType) && (toType == null || !isPointer(toType))) {
+		var isNamed = isNamed(fromType) || isStruct(fromType);
+		switch getUnderlying(fromType) {
+			case basic(_):
+			case signature(_, _, _, _):
+			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
+			case arrayType(_, _): // pass by copy
+				y = macro $y.copy();
+			case structType(_):
+				y = macro $y.__copy__();
+			default:
+		}
+	}
+	return y;
+}
+
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
@@ -1433,6 +1457,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			}
 		default:
 	}
+
+	y = passByCopy(fromType, y, toType);
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
@@ -3800,6 +3826,8 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var ct = typeExprType(spec.type, info);
 	var value = defaultValue(t, info, false);
 	var p:TypePath = {name: name, pack: []};
+	var copyT = macro __t__;
+	copyT = passByCopy(t, copyT);
 	var fields:Array<Field> = [
 		{
 			name: "__t__",
@@ -3844,8 +3872,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			access: [APublic],
 			kind: FFun({
 				args: [],
-				expr: macro return __t__,
-				ret: ct,
+				expr: macro return new $p($copyT),
 			}),
 		}
 	];
@@ -3990,7 +4017,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}),
 			});
 			var toStringExpr:Expr = null;
-			if (fields.length > 0) {
+			if (fields.length > 1) { // 1 because new is already defined
 				toStringExpr = makeString("{", SingleQuotes);
 				for (field in fields) {
 					switch field.kind {
@@ -4202,14 +4229,14 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				} else {
 					// last expr use iota
 					expr = typeExpr(info.lastValue, info);
-					// expr = assignTranslate(typeof(info.lastValue), typeof(value.type), expr, info);
-					type = info.lastType;
+					type = toComplexType(info.lastType, info);
+					expr = assignTranslate(typeof(info.lastValue), info.lastType, expr, info);
 				}
 			} else {
 				info.lastValue = value.values[i];
-				info.lastType = type;
+				info.lastType = typeof(value.type);
 				expr = typeExpr(value.values[i], info);
-				expr = assignTranslate(typeof(value.values[i]), typeof(value.type), expr, info);
+				expr = assignTranslate(typeof(value.values[i]), info.lastType, expr, info);
 			}
 			if (expr == null)
 				continue;
@@ -4379,7 +4406,7 @@ class Info {
 	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
 	public var lastValue:Ast.Expr = null;
-	public var lastType:ComplexType = null;
+	public var lastType:GoType = null;
 	public var data:FileType;
 	public var global = new Global();
 

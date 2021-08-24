@@ -154,8 +154,6 @@ function isStruct(type:GoType):Bool {
 				case structType(_): true;
 				default: false;
 			}
-		case structType(_):
-			true;
 		default: false;
 	}
 }

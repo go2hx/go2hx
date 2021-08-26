@@ -48,9 +48,8 @@ A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.c
 
 ## Build from source
 
-*dependencies: haxe, go, [utest](https://github.com/haxe-utest/utest)*
-
 ```
 haxelib dev go2hx .
 ```
-Look at Run.hx to see how the building occurs.
+
+Look at [Run.hx](./Run.hx) to see how the building occurs.

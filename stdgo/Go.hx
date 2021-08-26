@@ -86,6 +86,9 @@ class Go {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
+		if ((s is stdgo.Error)) {
+			s = s.error();
+		}
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
 		} else {

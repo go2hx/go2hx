@@ -1209,6 +1209,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 		default:
 	}
 	var nilExpr:Expr = null;
+	var nilType:GoType = null;
 	if (isNamed(typeX))
 		x = macro $x.__t__;
 	if (isNamed(typeY))
@@ -1217,7 +1218,10 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null") nilExpr = y;
+					if (s == "null") {
+						nilExpr = y;
+						nilType = typeY;
+					}
 				default:
 					final ct = toComplexType(typeX, info);
 					if (ct != null) x = macro($x : $ct);
@@ -1228,7 +1232,10 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 		case EConst(c):
 			switch c {
 				case CIdent(s):
-					if (s == "null") nilExpr = x;
+					if (s == "null") {
+						nilExpr = x;
+						nilType = typeX;
+					}
 				default:
 					final ct = toComplexType(typeY, info);
 					if (ct != null) y = macro($y : $ct);
@@ -1239,6 +1246,16 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 	if (value != null) {
 		if (isInterface(typeX) || isInterface(typeY))
 			return toExpr(EBinop(op, x, y));
+		switch nilType {
+			case signature(_, _, _, _), interfaceType(_, _, _):
+				switch op {
+					case OpEq:
+						return macro $value == null;
+					default:
+						return macro $value != null;
+				}
+			default:
+		}
 		switch op {
 			case OpEq:
 				return macro $value == null || $value.isNil();
@@ -1470,7 +1487,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		case basic(kind):
 			switch kind {
 				case untyped_nil_kind:
-					return y;
+					return defaultValue(toType, info);
+				// return y;
 				default:
 			}
 		default:
@@ -1601,6 +1619,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				var assigns:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
+					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
+						continue;
 					var e = typeExpr(stmt.lhs[i], info);
 					var fieldName = names[i];
 					assigns.push(macro $e = __tmp__.$fieldName);
@@ -1957,7 +1977,7 @@ private function iotaExpr(info:Info):Expr {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
-	if (expr.name == "iota") {
+	if (expr.name == "iota" && !isSelect) {
 		return iotaExpr(info).expr;
 	}
 	var name = nameIdent(expr.name, info, false, isSelect);

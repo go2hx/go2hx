@@ -1175,17 +1175,19 @@ class _Type implements StructType implements Type {
 					r += "...";
 				r += ")";
 				if (rets != null) {
-					r += " ";
-					if (rets.length > 1)
-						r += "(";
-					preface = "";
-					for (ret in rets) {
-						r += preface;
-						preface = ", ";
-						r += new _Type(ret).toString();
+					if (rets.length > 0) {
+						r += " ";
+						if (rets.length > 1)
+							r += "(";
+						preface = "";
+						for (ret in rets) {
+							r += preface;
+							preface = ", ";
+							r += new _Type(ret).toString();
+						}
+						if (rets.length > 1)
+							r += ")";
 					}
-					if (rets.length > 1)
-						r += ")";
 				}
 				r;
 			case invalidType:

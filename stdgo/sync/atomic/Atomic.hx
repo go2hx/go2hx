@@ -1,4 +1,4 @@
-package stdgo.sync;
+package stdgo.sync.atomic;
 
 import haxe.Int32;
 import haxe.Int64;

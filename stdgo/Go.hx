@@ -344,11 +344,13 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.arrayType(${gtParams(params)[0]}, $len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
 						ret = macro stdgo.reflect.Reflect.GoType.pointer($a{gtParams(params)});
-					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer":
+					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
 						return macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":
 						var ps = gtParams(params);
 						ret = macro stdgo.reflect.Reflect.GoType.mapType($a{ps});
+					case "haxe.Rest":
+						ret = macro stdgo.reflect.Reflect.GoType.slice($a{gtParams(params)});
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int8_kind);
 					case "stdgo.GoInt16":

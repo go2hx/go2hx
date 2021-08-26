@@ -270,7 +270,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 					}
 				}
 			}
-
+			var values = [];
 			for (gen in declGens) {
 				// variables after so that all types can be refrenced by a value and have it exist.
 				info.iota = 0;
@@ -282,12 +282,24 @@ function main(data:DataType, printGoCode:Bool = false) {
 					switch spec.id {
 						case "ValueSpec":
 							var spec:Ast.ValueSpec = spec;
-							data.defs = info.data.defs.concat(typeValue(spec, info));
+							values = values.concat(typeValue(spec, info));
 							info.iota++;
 						default:
 					}
 				}
 			}
+
+			values.sort((a, b) -> {
+				final a2 = extractTypeDefIdents(a);
+				final b2 = extractTypeDefIdents(b);
+				if (a2.indexOf(b.name) != -1)
+					return 1;
+				if (b2.indexOf(a.name) != -1)
+					return -1;
+				return a2.length - b2.length;
+			});
+
+			data.defs = data.defs.concat(values);
 
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
@@ -1488,7 +1500,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			switch kind {
 				case untyped_nil_kind:
 					return defaultValue(toType, info);
-				// return y;
 				default:
 			}
 		default:
@@ -2301,6 +2312,37 @@ private function getTuple(e:Dynamic):Array<GoType> {
 		tuples.push(_var(v.name, typeof(v.type)));
 	}
 	return tuples;
+}
+
+private function extractTypeDefIdents(e:TypeDefinition):Array<String> {
+	if (e == null)
+		return [];
+	switch e.kind {
+		case TDField(kind, _):
+			switch kind {
+				case FVar(_, expr):
+					final list = extractIdents(expr);
+					return list;
+				default:
+			}
+		default:
+	}
+	return [];
+}
+
+private function extractIdents(e:Expr):Array<String> {
+	final list = [];
+	var func = null;
+	func = e -> {
+		switch e.expr {
+			case EConst(CIdent(s)):
+				list.push(s);
+			default:
+				haxe.macro.ExprTools.iter(e, func);
+		}
+	};
+	func(e);
+	return list;
 }
 
 private function typeof(e:Ast.Expr):GoType {
@@ -3473,7 +3515,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
 			final typ = toReflectType(type);
-			macro new GoMap<$key, $value>(new stdgo.Reflect._Type($typ)).nil();
+			macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($typ)).nil();
 		case sliceType(elem):
 			var t = toComplexType(elem, info);
 			macro new Slice<$t>().nil();

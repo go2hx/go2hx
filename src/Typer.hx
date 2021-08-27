@@ -1486,7 +1486,7 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 	return y;
 }
 
-private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info):Expr {
+private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
 	// trace("\nfrom: " + fromType + "\nto: " + toType + "\nexpr: " + printer.printExpr(expr));
@@ -1504,8 +1504,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			}
 		default:
 	}
-
-	y = passByCopy(fromType, y, toType);
+	if (passCopy)
+		y = passByCopy(fromType, y, toType);
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
@@ -2397,7 +2397,9 @@ private function typeof(e:Ast.Expr):GoType {
 						embedded: field.embedded,
 						tag: field.tag == null ? "" : field.tag
 					}
+
 			]);
+			t = getLocalType(e.hash, t);
 			t;
 		case "Chan":
 			chanType(e.dir, typeof(e.elem));
@@ -2562,6 +2564,8 @@ private function namedTypePath(path:String, info:Info):TypePath {
 }
 
 private function toComplexType(e:GoType, info:Info):ComplexType {
+	if (e == null)
+		return TPath({pack: [], name: "Any"});
 	return switch e {
 		case basic(kind):
 			switch kind {
@@ -3510,6 +3514,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 	function ct():ComplexType {
 		return toComplexType(type, info);
 	}
+	if (type == null)
+		return macro @:unknown_default_value null;
 	return switch type {
 		case mapType(key, value):
 			final key = toComplexType(key, info);
@@ -4050,7 +4056,8 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	if (spec.type.type != null) {
 		final hash:String = spec.type.type.hash;
-		final nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path, []) : typeof(spec.type);
+		final nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path,
+			[]) : named(spec.name.type.path, [], [], typeof(spec.type)); // local types cannot have interfaces
 		locals[hash] = nameType;
 	}
 	if (spec.assign != 0) {

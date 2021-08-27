@@ -125,6 +125,8 @@ func compile(params []string, excludesData excludesType) []byte {
 		excludes[exclude] = true
 	}
 
+	typeHasher = typeutil.MakeHasher()
+
 	//parse interfaces 1st past
 	for _, pkg := range initial {
 		parseInterface(pkg)
@@ -136,7 +138,6 @@ func compile(params []string, excludesData excludesType) []byte {
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
-	typeHasher = typeutil.MakeHasher()
 	data := parsePkgList(initial)
 	typeHasher = typeutil.Hasher{}
 	interfaces = nil
@@ -255,8 +256,8 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 }
 
 func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData {
-	interfaceTypes := make(map[string]*ast.Ident)
-	structTypes := make(map[string]*ast.Ident)
+	interfaceTypes := make(map[uint32]*ast.Ident)
+	structTypes := make(map[uint32]*ast.Ident)
 	countStruct := 0
 	countInterface := 0
 	interfaces := []interfaceData{}
@@ -273,11 +274,12 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 			if t == nil {
 				return false
 			}
-			name, exists := structTypes[t.String()]
+			hash := typeHasher.Hash(t)
+			name, exists := structTypes[hash]
 			if !exists {
 				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
 				countStruct++
-				structTypes[t.String()] = name
+				structTypes[hash] = name
 				//add to file
 				gen := ast.GenDecl{}
 				gen.Tok = token.FUNC //set local
@@ -312,11 +314,12 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 			if t == nil {
 				return false
 			}
-			name, exists := interfaceTypes[t.String()]
+			hash := typeHasher.Hash(t)
+			name, exists := interfaceTypes[hash]
 			if !exists {
 				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
 				countInterface++
-				interfaceTypes[t.String()] = name
+				interfaceTypes[hash] = name
 				//add to interfaces
 				interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkg.PkgPath, false})
 				//add to file

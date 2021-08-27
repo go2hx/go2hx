@@ -68,11 +68,13 @@ function update() {
 
 function close() {
 	#if debug
-	processes[0].kill();
-	try {
-		while (true)
-			Sys.println(processes[0].stdout.readLine());
-	} catch (_) {}
+	if (processes.length > 0) {
+		processes[0].kill();
+		try {
+			while (true)
+				Sys.println(processes[0].stdout.readLine());
+		} catch (_) {}
+	}
 	#end
 	for (process in processes)
 		process.close();
@@ -139,7 +141,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				onComplete(modules, client.data);
 			}
 		});
-		if (index == processCount && allAccepted != null)
+		if (index >= processCount && allAccepted != null)
 			allAccepted();
 	});
 }

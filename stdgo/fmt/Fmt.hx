@@ -89,37 +89,42 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 				case "0".code: // pad with leading zeros for numbers, padding after the sign
 					next();
 			}
-			switch c {
-				case "T".code: // go type
-					buf.add(args[argIndex++].type.toString());
-				case "v".code: // default format, plus flag adds field names
-					buf.add(Go.string(args[argIndex++].value));
-				case "d".code: // int(x)/uint(x) etc
-					buf.add(Go.string(args[argIndex++].value));
-				case "g".code: // float32/complex64 etc
-					buf.add(Go.string(args[argIndex++].value));
-				case "s".code: // string
-					buf.add(Go.string(args[argIndex++].value));
-				case "p".code: // pointer/chan
-					buf.add(Go.string(args[argIndex++].value));
-				case "t".code: // true or false
-					buf.add(Go.string(args[argIndex++].value));
-				case "b".code: // int base 2
-					buf.add(Go.string(args[argIndex++].value));
-				case "o".code: // int base 8
-					buf.add(Go.string(args[argIndex++].value));
-				case "q".code: // charachter literal
-					buf.add(Go.string(args[argIndex++].value));
-				case "x".code: // int base 16 lower case letters
-					buf.add(Go.string(args[argIndex++].value));
-				case "X".code: // based 16 upper case letters
-					buf.add(Go.string(args[argIndex++].value));
-				case "U".code: // unicode format
-					buf.add(Go.string(args[argIndex++].value));
-				case "f".code: // float point
-					buf.add(Go.string(args[argIndex++].value));
-				default:
-					buf.addChar(c);
+			if (args[argIndex] == null) {
+				buf.add("null");
+				argIndex++;
+			} else {
+				switch c {
+					case "T".code: // go type
+						buf.add(args[argIndex++].type.toString());
+					case "v".code: // default format, plus flag adds field names
+						buf.add(Go.string(args[argIndex++].value));
+					case "d".code: // int(x)/uint(x) etc
+						buf.add(Go.string(args[argIndex++].value));
+					case "g".code: // float32/complex64 etc
+						buf.add(Go.string(args[argIndex++].value));
+					case "s".code: // string
+						buf.add(Go.string(args[argIndex++].value));
+					case "p".code: // pointer/chan
+						buf.add(Go.string(args[argIndex++].value));
+					case "t".code: // true or false
+						buf.add(Go.string(args[argIndex++].value));
+					case "b".code: // int base 2
+						buf.add(Go.string(args[argIndex++].value));
+					case "o".code: // int base 8
+						buf.add(Go.string(args[argIndex++].value));
+					case "q".code: // charachter literal
+						buf.add(Go.string(args[argIndex++].value));
+					case "x".code: // int base 16 lower case letters
+						buf.add(Go.string(args[argIndex++].value));
+					case "X".code: // based 16 upper case letters
+						buf.add(Go.string(args[argIndex++].value));
+					case "U".code: // unicode format
+						buf.add(Go.string(args[argIndex++].value));
+					case "f".code: // float point
+						buf.add(Go.string(args[argIndex++].value));
+					default:
+						buf.addChar(c);
+				}
 			}
 		} else {
 			buf.addChar(c);

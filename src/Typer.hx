@@ -1638,7 +1638,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						continue;
 					var e = typeExpr(stmt.lhs[i], info);
 					var fieldName = names[i];
-					assigns.push(macro $e = __tmp__.$fieldName);
+					var e2 = macro __tmp__.$fieldName;
+					e2 = assignTranslate(t, typeof(stmt.lhs[i]), e2, info);
+					assigns.push(macro $e = ${e2});
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {

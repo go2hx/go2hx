@@ -186,6 +186,9 @@ func main() {
 		c, err := conn.Read(input)
 		tick++
 		if c == 0 {
+			if tick > 40 {
+				return
+			}
 			time.Sleep(60 * time.Millisecond)
 			continue
 		}
@@ -194,7 +197,7 @@ func main() {
 			return
 		}
 		input = input[:c]
-		if string(input) == "exit" || tick > 40 {
+		if string(input) == "exit" {
 			return
 		}
 		tick = 0

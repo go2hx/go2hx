@@ -1472,14 +1472,18 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 	}
 	if (!isPointer(fromType) && (toType == null || !isPointer(toType))) {
 		var isNamed = isNamed(fromType) || isStruct(fromType);
-		switch getUnderlying(fromType) {
+		switch fromType {
 			case basic(_):
 			case signature(_, _, _, _):
+			case interfaceType(_, _, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
 			case arrayType(_, _): // pass by copy
 				y = macro $y.copy();
 			case structType(_):
 				y = macro $y.__copy__();
+			case named(_, _, _, type):
+				if (!isInterface(type))
+					y = macro $y.__copy__();
 			default:
 		}
 	}
@@ -4056,9 +4060,15 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	if (spec.type.type != null) {
 		final hash:String = spec.type.type.hash;
-		final nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path,
-			[]) : named(spec.name.type.path, [], [], typeof(spec.type)); // local types cannot have interfaces
-		locals[hash] = nameType;
+		if (!locals.exists(hash)) {
+			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path, []) : typeof(spec.type);
+			switch nameType {
+				case structType(_):
+					nameType = named(spec.name.type.path, [], [], nameType);
+				default:
+			}
+			locals[hash] = nameType;
+		}
 	}
 	if (spec.assign != 0) {
 		var name = className(spec.name.name, info);

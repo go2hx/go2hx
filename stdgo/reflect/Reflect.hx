@@ -135,6 +135,8 @@ function isNamed(type:GoType):Bool {
 			switch underlying {
 				case structType(_): false;
 				case interfaceType(_, _, _): false;
+				case named(_, _, _, type):
+					isNamed(type);
 				default: true;
 			}
 		default: false;
@@ -152,6 +154,8 @@ function isStruct(type:GoType):Bool {
 		case named(_, _, _, underlying):
 			switch underlying {
 				case structType(_): true;
+				case named(_, _, _, type):
+					isStruct(type);
 				default: false;
 			}
 		default: false;
@@ -1520,7 +1524,7 @@ private function namedUnderlying(obj:AnyInterface) {
 function getUnderlying(gt:GoType) {
 	return switch gt {
 		case named(_, _, _, type):
-			type;
+			getUnderlying(type);
 		default:
 			gt;
 	}

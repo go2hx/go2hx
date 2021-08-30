@@ -11,7 +11,7 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 
 # Getting started
 * [Download Go 1.16+](https://golang.org/dl/)
-* [Download Haxe 4.2.0+](https://haxe.org/download/)
+* [Download Haxe 4.2.3+](https://haxe.org/download/)
 * [Download Hashlink](https://hashlink.haxe.org/)
 ```
 haxelib git go2hx https://github.com/go2hx/go2hx
@@ -25,22 +25,24 @@ haxelib run go2hx ./main.go
 
 <img src="graph.png" align="center"/></p>
 
-## Supported Spec
+# Language features
 
-* defer
-* slice append and slice/array/map indexing
-* type switches and switches
-* if statements, nil checks, equality, for loops, range
-* interface{} and asserts
-* field access, binary operators
-* most number types
-* pointers
-* structs/interfaces/aliases*
+go2hx supports a subset of language features that have not been extensively tested yet. It does not include any support for go routines, The list includes:
 
-### Standard library support
+* control flow statements for/if/range
+* all statements except statements relating to go routines, control-flows/branches/decls
+* all exprs conversion/literals/access
 
-* a little os, fmt, reflect, time, math
-* most of builtin
+# Standard library support
+
+The standard library that has been rewritten in Haxe has partial support, It does not include any support for unsafe, embeds, testing, and cgo, The most supported libraries in order includes:
+
+* reflect
+* fmt
+* os
+* strings
+* strconv
+* math
 
 ## Acknowledgement
 

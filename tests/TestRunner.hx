@@ -13,20 +13,23 @@ var tests:Array<Data> = [];
 typedef Data = {args:Array<String>, data:Dynamic};
 
 function main() {
-	Util.deleteDirectoryRecursively("export");
-	sys.FileSystem.createDirectory("export");
 	TestResults.clear(path);
 	results = new TestResults(path);
 	completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.setup(0, 4);
 	Main.onComplete = complete;
-	test("go", "./go/test/", goList, [
+
+	test("go", "./tests/go/test/", goList, [
 		"atomiccload", // go routine
 		"bigalg", // go routine
 		"closure", // go routine
 		"func5", // go routine
+
+		"closure2", // flucuate to much
+		"closure4", // flucuate to much
 	], 6 + 8 - 2);
-	test("yaegi", "./yaegi/_test/", yaegiList, [
+
+	test("yaegi", "./tests/yaegi/_test/", yaegiList, [
 		"chan0", // go routine
 		"chan1", // go routine
 		"chan10", // go routine
@@ -34,6 +37,7 @@ function main() {
 		"chan3", // go routine
 		"chan8", // go routine
 		"chan9", // go routine
+		"select2", // go routine
 
 		"assign11", // expect error
 		"assign12", // expect error
@@ -184,7 +188,8 @@ private function close() {
 
 private function complete(modules, data) {
 	if (modules.length == 0) {
-		trace("make sure to have go and yaegi cloned inside the repo for test suite access");
+		trace(data);
+		trace("make sure to have go and yaegi cloned inside the tests dir for test suite access");
 		throw test;
 	}
 	final path = Util.modulePath(modules[0]);
@@ -196,7 +201,7 @@ private function complete(modules, data) {
 	timer.run = () -> {
 		code = proc.exitCode(false);
 		count++;
-		if (code != null || count > 200) {
+		if (code != null || count > 400) {
 			if (code == null) {
 				Sys.println("timeout... " + count);
 			}
@@ -257,7 +262,7 @@ final goList = [
     "closure", // go routines
     "closure1",
     "closure2",
-    "closure4", // issue with defer
+    "closure4",
     "closure7",
     "cmp", // local interfaces implement global, x.__underlying__() == y.__underlying__() interface equality
     "complit", // uses pointer.isNil() 
@@ -405,7 +410,7 @@ final yaegiList = [
     "a39",
     "a4",
     "a40",
-    "a41", // all errors from a41 and above are formatter fmt related
+    "a41",
     "a42", // not found: stdgo.encoding.Binary.littleEndian.putUint64
     "a43",
     "a44",
@@ -423,7 +428,7 @@ final yaegiList = [
     "addr3", 
     "addr4", // not found: stdgo.encoding.Json
     "addr5", // not found: stdgo.net.Url
-    "alias0", // this pointer
+    "alias0",
     "alias1",
     "and",
     "and0",
@@ -439,24 +444,24 @@ final yaegiList = [
     "assert1", // not found: stdgo.Time
     "assign",
     "assign0", // not found: stdgo.net.Http
-    "assign1", // sets a slice to nil the output is supposed to be [] 
+    "assign1",
     "assign10",
-    "assign13", // formatter fmt
+    "assign13",
     "assign14",
     "assign16",
     "assign2",
-    "assign3", // a,b = b,a
-    "assign4", // a,b,c = c,a,b
-    "assign5", // t[0], t[1] = t[1], t[0]
-    "assign6", // t["a"], a["b"] = t["b"], t["a"]
-    "assign7", // a, t["b"], s[1] = t["b"], s[1], a
+    "assign3",
+    "assign4",
+    "assign5",
+    "assign6",
+    "assign7",
     "assign8",
     "assign9",
     "bin",
-    "bin0", // not implemented: stdgo.Strings.splitN() (TODO)
+    "bin0",
     "bin1", // not found: stdgo.Hash
     "bin2",
-    "bin3", // fmt formatter
+    "bin3",
     "bin5",  // not found: stdgo.Net.TCPAddr
     "binstruct_ptr_map0", // not found: stdgo.Image
     "binstruct_ptr_slice0", // not found: stdgo.Image
@@ -469,7 +474,6 @@ final yaegiList = [
     "bool3",
     "bool4",
     "bool5",
-    "build0",
     "cap0",
     "chan0", // go routines
     "chan1", // go routines
@@ -490,7 +494,7 @@ final yaegiList = [
     "closure1",
     "closure10",
     "closure11",
-    "closure12", //fmt formatter
+    "closure12",
     "closure2",
     "closure3",
     "closure4",
@@ -510,13 +514,13 @@ final yaegiList = [
     "composite0",
     "composite1",
     "composite10",
-    "composite11",
+    "composite11", // type not found: stdgo.image.color.Color
     "composite12",
     "composite13",
     "composite14",
     "composite15",
-    "composite16",
-    "composite17",
+    "composite16", // not found: stdgo.net.url.Url
+    "composite17", // not found: stdgo.html.template.Template
     "composite2",
     "composite3",
     "composite4",
@@ -530,16 +534,16 @@ final yaegiList = [
     "const1",
     "const10",
     "const11",
-    "const12",
-    "const13",
-    "const14",
-    "const15",
+    "const12", // stdgo.GoInt64 should be command_line_arguments.Kind
+    "const13", // missing expression inside a checkTypeExpr
+    "const14", // not found: stdgo.compress.flate.Flate
+    "const15", // stdgo.GoInt8 should be Null<command_line_arguments._T1>
     "const16",
     "const17",
-    "const18",
-    "const19",
+    "const18", // not found: time.Time
+    "const19", // not found: time.Time
     "const2",
-    "const20",
+    "const20", // int64(int(^uint(0) >> 1)) = -1 should be 9223372036854775807
     "const21",
     "const22",
     "const23",
@@ -555,30 +559,30 @@ final yaegiList = [
     "cont1",
     "context", //not found: context
     "context2", //not found: context
-    "convert0",
-    "convert1",
-    "convert2",
+    "convert0", // checkType mistakenly taken as a type named var
+    "convert1", // checkType mistakenly taken as a type named var
+    "convert2", // not found: bufio.Bufio
     "copy0",
-    "copy1",
+    "copy1",    // stdgo.Pointer<stdgo.GoArray<stdgo.GoInt>> has no field slice
     "copy2",
     "d3",
     "defer0",
     "defer1",
     "defer2",
-    "defer3",
-    "defer4",
+    "defer3", // not found: stdgo.net.http.Http
+    "defer4", // stdgo.sync.Mutex not properly supported
     "defer5",
-    "defer6",
-    "defer7",
-    "defer8",
+    "defer6", // SHOULD WORK
+    "defer7", // var is restricted name "in"
+    "defer8", // map toString results are in reversed order
     "defer9",
     "delete0",
     "eval0",
     "export0",
     "export1",
     "fib0",
-    "file_access",
-    "flag0",
+    "file_access", // incorrect return tuple names for Ioutil
+    "flag0", // invalid generation of flag.Flag
     "for0",
     "for1",
     "for10",
@@ -608,17 +612,17 @@ final yaegiList = [
     "fun19",
     "fun2",
     "fun20",
-    "fun26",
+    "fun26", // checkType mistakenly taken as a type named var
     "fun3",
     "fun4",
     "fun5",
-    "fun6",
-    "fun7",
+    "fun6", // not found: stdgo.sync.Sync.Pool
+    "fun7", // import alias not supported and uses flag
     "fun8",
     "fun9",
     "goto0",
     "goto1",
-    "heap",
+    "heap", // not found: stdgo.container.heap.Heap
     "if",
     "if0",
     "if1",
@@ -629,8 +633,8 @@ final yaegiList = [
     "if7",
     "imag0",
     "import0",
-    "import1",
-    "import2",
+    "import1", // import alias not supported
+    "import2", // import alias . not supported
     "import3",
     "import4",
     "import5",
@@ -642,56 +646,56 @@ final yaegiList = [
     "interface0",
     "interface1",
     "interface10",
-    "interface11",
+    "interface11", // pointer struct -> interface
     "interface12",
     "interface13",
-    "interface14",
-    "interface15",
-    "interface16",
+    "interface14", // interfaces are not equal conditional
+    "interface15", // interfaces are not equal conditional
+    "interface16", // interfaces are not equal conditional
     "interface17",
-    "interface18",
+    "interface18", // interfaces are not equal conditional
     "interface19",
-    "interface2",
+    "interface2", // typeswitch variables assign to what the compiler already know are impossible casts, either delete those entries or add untyped before var decleration
     "interface20",
     "interface21",
-    "interface22",
+    "interface22", // append argument not getting run through assignTranslate (TODO) WORK NOW
     "interface23",
     "interface24",
     "interface25",
-    "interface26",
+    "interface26", // append argument not getting run through assignTranslate (TODO) WORK NOW
     "interface27",
     "interface28",
     "interface29",
     "interface3",
     "interface30",
     "interface31",
-    "interface32",
+    "interface32", // composite literal array arguments not getting run through assignTranslate (TODO) WORK NOW
     "interface33",
-    "interface34",
+    "interface34", // composite literal array keyValueMap arguments not getting run through assignTranslate (TODO) WORK NOW
     "interface35",
-    "interface36",
+    "interface36", // don't know
     "interface37",
-    "interface38",
-    "interface39",
-    "interface4",
-    "interface40",
-    "interface41",
-    "interface42",
+    "interface38", // stdgo.fmt.Stringer interface does not implement local type
+    "interface39", // stdgo.fmt.Stringer interface does not implement local type
+    "interface4", // embedded type does not bring in it's method
+    "interface40", // stdgo.fmt.Stringer interface does not implement local type
+    "interface41", // stdgo.fmt.Stringer interface does not implement local type
+    "interface42", // Basic type tries to checkType to interface{} (TODO)
     "interface43",
     "interface44",
-    "interface45",
+    "interface45", // assign _ = x underline should be as a var or remove left side (TODO) 
     "interface46",
-    "interface47",
+    "interface47", // function type does not use the default unnamed names (v0,v1,v2...)
     "interface48",
     "interface49",
-    "interface5",
+    "interface5", // function arg incorrect modification should be named -> interface instead it operates as if named -> basic
     "interface50",
-    "interface51",
-    "interface52",
-    "interface6",
-    "interface7",
-    "interface8",
-    "interface9",
+    "interface51", // embedded method in interface not being typed into the field list
+    "interface52", // type not found: stdgo.testing.Testing
+    "interface6", // function return incorrect modification should be named -> interface instead it operates as if named -> basic
+    "interface7", // function return incorrect modification should be named -> interface instead it operates as if named -> basic
+    "interface8", // don't know
+    "interface9", // stdgo.fmt.Stringer interface does not implement local type
     "io1",
     "iota",
     "iota0",
@@ -879,30 +883,30 @@ final yaegiList = [
     "range5",
     "range6",
     "range7",
-    "range8",
+    "range8", // not found: time.Time
     "real0",
-    "recover0",
-    "recover1",
-    "recover2",
-    "recover3",
-    "recover4",
-    "recurse0",
+    "recover0", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message() (TODO)
+    "recover1", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message()
+    "recover2", // assignTranslate attempts to turn the function recover() to an interface WORK NOW
+    "recover3", // assignTranslate attempts to turn the function recover() to an interface WORK NOW
+    "recover4", // incorrect naming of local var
+    "recurse0", // WORKING NOW
     "restricted0",
     "restricted1",
     "restricted2",
     "restricted3",
-    "ret1",
+    "ret1", // incorrect naming of local var
     "ret2",
-    "ret3",
+    "ret3", // print tuple properly
     "ret4",
-    "ret5",
+    "ret5", // invalid field names for destructing with a tuple without names
     "ret6",
     "ret7",
-    "ret8",
-    "run0",
-    "run1",
+    "ret8", // named type incorrect casting when should stay same for interface
+    "run0", // tuple can fill function arguments (TODO)
+    "run1", // tuple can fill function arguments (TODO)
     "run10",
-    "run11",
+    "run11", // print tuple properly
     "run12",
     "run13",
     "run4",
@@ -921,25 +925,25 @@ final yaegiList = [
     "scope5",
     "scope6",
     "scope7",
-    "select0",
-    "select1",
-    "select10",
-    "select11",
+    "select0", // go routine
+    "select1", // go routine
+    "select10", // select stmt not implemented fully
+    "select11", // select stmt not implemented fully
     "select12",
-    "select13",
-    "select14",
-    "select15",
+    "select13", // select stmt not implemented fully
+    "select14", // not found: time.Time
+    "select15", // go routine
     "select2",
-    "select3",
-    "select4",
-    "select5",
+    "select3", // select stmt not implemented fully
+    "select4", // go routine
+    "select5", // go routine
     "select6",
-    "select7",
-    "select8",
-    "select9",
-    "selector-scope0",
+    "select7", // go routine
+    "select8", // go routine
+    "select9", // go routine
+    "selector-scope0", // time as field name incorrectly pulling import path
     "shift0",
-    "shift1",
+    "shift1", // int64 -> int display type (TODO)
     "shift2",
     "shift3",
     "sieve",
@@ -949,26 +953,26 @@ final yaegiList = [
     "str1",
     "str2",
     "str3",
-    "str4",
+    "str4", // not found: stdgo.unicode.utf8.Utf8
     "struct",
     "struct0",
     "struct0a",
     "struct1",
     "struct10",
-    "struct11",
+    "struct11", // type not found: stdgo.net.http.Http
     "struct12",
-    "struct13",
-    "struct14",
-    "struct15",
-    "struct16",
-    "struct17",
-    "struct18",
+    "struct13", // type not found: stdgo.net.http.Http
+    "struct14", // type not found: stdgo.net.http.Http
+    "struct15", // type not found: stdgo.net.http.Http
+    "struct16", // embedded field fallback not working
+    "struct17", // embedded field fallback not working
+    "struct18", // type not found: stdgo.net.http.Http
     "struct19",
     "struct2",
     "struct20",
     "struct21",
     "struct22",
-    "struct23",
+    "struct23", // not found: stdgo.encoding.json.Json
     "struct24",
     "struct25",
     "struct26",
@@ -976,56 +980,56 @@ final yaegiList = [
     "struct28",
     "struct29",
     "struct3",
-    "struct30",
+    "struct30", // WORKING NOW
     "struct31",
     "struct32",
     "struct33",
     "struct34",
     "struct35",
-    "struct36",
-    "struct37",
+    "struct36", // type not found: stdgo.net.http.Http
+    "struct37", // type not found: stdgo.net.http.Http
     "struct38",
-    "struct39",
+    "struct39", // field name double underscore when should be one
     "struct4",
     "struct40",
     "struct41",
     "struct42",
     "struct43",
     "struct44",
-    "struct45",
+    "struct45", // embedded field fallback not working
     "struct46",
     "struct47",
     "struct48",
-    "struct49",
+    "struct49", // WORKING NOW
     "struct5",
     "struct50",
-    "struct51",
+    "struct51", // not found: stdgo.encoding.json.Json
     "struct52",
     "struct53",
-    "struct55",
-    "struct56",
-    "struct57",
-    "struct58",
-    "struct59",
+    "struct55", // not found: stdgo.log.Log.Logger
+    "struct56", // invalid json result
+    "struct57", // invalid json result
+    "struct58", // refelct.fieldByName not supported yet
+    "struct59", // WORKING NOW
     "struct6",
     "struct7",
     "struct8",
     "struct9",
-    "switch",
+    "switch", // class name changed to Switch_ and default not at bottom
     "switch0",
     "switch1",
-    "switch10",
-    "switch11",
-    "switch12",
-    "switch14",
-    "switch15",
-    "switch16",
-    "switch17",
-    "switch18",
+    "switch10", // slight tweak to printing (TODO)
+    "switch11", // typeswitch init stmt inside a switchtype (TODO)
+    "switch12", // switch type nil not supported (TODO)
+    "switch14", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
+    "switch15", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
+    "switch16", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
+    "switch17", // type switch casting and checking types that can never be be assignable to
+    "switch18", // type switch casting and checking types that can never be be assignable to
     "switch2",
     "switch20",
-    "switch21",
-    "switch22",
+    "switch21", // not found: stdgo.fmt.Fmt.Formatter
+    "switch22", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
     "switch23",
     "switch24",
     "switch25",
@@ -1033,8 +1037,8 @@ final yaegiList = [
     "switch27",
     "switch28",
     "switch29",
-    "switch3",
-    "switch30",
+    "switch3", // fallthrough
+    "switch30", // default is at start
     "switch31",
     "switch32",
     "switch33",
@@ -1042,10 +1046,10 @@ final yaegiList = [
     "switch35",
     "switch36",
     "switch37",
-    "switch38",
-    "switch4",
-    "switch5",
-    "switch6",
+    "switch38", // WORKING NOW
+    "switch4", // fallthrough
+    "switch5", // fallthrough
+    "switch6", // fallthrough
     "switch7",
     "tag0",
     "time1",
@@ -1066,9 +1070,9 @@ final yaegiList = [
     "time9",
     "type0",
     "type1",
-    "type10",
-    "type11",
-    "type12",
+    "type10", // not found: stdgo.sync.Sync.Pool
+    "type11", // not found: stdgo.sync.Sync.Pool
+    "type12", // this pointer, not needed if type is itsself a pointer
     "type13",
     "type14",
     "type15",
@@ -1076,20 +1080,20 @@ final yaegiList = [
     "type17",
     "type18",
     "type19",
-    "type2",
-    "type20",
-    "type21",
-    "type22",
-    "type23",
-    "type24",
-    "type25",
-    "type26",
+    "type2", // time name conflict with time import
+    "type20", // not found: stdgo.io.Io.Closer
+    "type21", // not found: time.TIme
+    "type22", // copy for extended named type need to override __copy__
+    "type23", // not found: stdgo.net.http.Http
+    "type24", // not found: stdgo.net.http.Http
+    "type25", // not found: stdgo.sync.atomic.Atomic.Value
+    "type26", // not found: stdgo.sync.atomic.Atomic.Value
     "type3",
     "type4",
     "type5",
     "type6",
     "type7",
-    "type8",
+    "type8", // not found: time.Time
     "type9",
     "unsafe0",
     "unsafe1",
@@ -1115,15 +1119,15 @@ final yaegiList = [
     "variadic",
     "variadic0",
     "variadic1",
-    "variadic10",
+    "variadic10", // not found: stdgo.log.Log.Logger
     "variadic2",
     "variadic3",
     "variadic4",
     "variadic5",
     "variadic6",
-    "variadic7",
-    "variadic8",
-    "variadic9",
+    "variadic7", // not found: stdgo.fmt.Fmt.sscanf
+    "variadic8", // not found: time.Time
+    "variadic9", // spread operator used inside Go.toInterface for last function argument because of conversion change
 ];
 final yaegiOutput = [
     {name: "a1", output: ["2","1","2","3","4"]},
@@ -1225,7 +1229,6 @@ final yaegiOutput = [
     {name: "bool3", output: ["1"]},
     {name: "bool4", output: ["1"]},
     {name: "bool5", output: ["1"]},
-    {name: "build0", output: ["hello world"]},
     {name: "cap0", output: ["2","2"]},
     {name: "chan0", output: ["ping"]},
     {name: "chan1", output: ["ping"]},
@@ -1324,7 +1327,7 @@ final yaegiOutput = [
     {name: "defer3", output: ["hello"]},
     {name: "defer4", output: ["test"]},
     {name: "defer5", output: ["hello","f3-end","f3-begin","f2-end","f2-begin","f1-end","f1-begin"]},
-    {name: "defer6", output: ["hello f3-end f3-begin f2-end f2-begin f1-end f1-begin"]},
+    {name: "defer6", output: ["hello f3-end f3-begin f2-end f2-begin f1-end f1-begin "]},
     {name: "defer7", output: ["[foo bar]"]},
     {name: "defer8", output: ["map[baz:bat foo:bar]","map[baz:bat]"]},
     {name: "defer9", output: ["foo"]},

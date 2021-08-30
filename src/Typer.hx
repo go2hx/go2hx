@@ -711,8 +711,15 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case GOTO:
 			final name = makeString(stmt.label.name);
 			return typeGoto(name).expr;
-		case FALLTHROUGH: (macro @:fallthrough break).expr; // TODO
-		default: (macro @:unknown_branch break).expr;
+		case FALLTHROUGH:
+			final e = info.switchTag;
+			var next = typeExpr(info.switchNextTag, info);
+			next = assignTranslate(typeof(info.switchNextTag), info.switchTagType, next, info, false);
+			(macro {
+				$e = $next;
+				continue;
+			}).expr;
+		default: (macro @:unknown_branch_stmt break).expr;
 	}
 }
 
@@ -1302,12 +1309,60 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
+	if (stmt.body == null || stmt.body.list == null)
+		return (macro {}).expr;
 	// this is an if else chain
 	var tag:Expr = null;
 	var tagType:GoType = null;
 	if (stmt.tag != null) {
 		tagType = typeof(stmt.tag);
 		tag = typeExpr(stmt.tag, info);
+	}
+	var hasFallThrough = false;
+	for (i in 0...stmt.body.list.length) {
+		var obj:Ast.CaseClause = stmt.body.list[i];
+		if (obj.body != null) {
+			for (i in 0...obj.body.length) {
+				if (obj.body[i].id == "BranchStmt") {
+					final stmt:Ast.BranchStmt = obj.body[i];
+					switch stmt.tok {
+						case FALLTHROUGH:
+							hasFallThrough = true;
+						default:
+					}
+				}
+			}
+		}
+	}
+	if (hasFallThrough) {
+		for (i in 0...stmt.body.list.length) {
+			var obj:Ast.CaseClause = stmt.body.list[i];
+			var localFallThrough = false;
+			if (obj.body != null) {
+				for (i in 0...obj.body.length) {
+					if (obj.body[i].id == "BranchStmt") {
+						final branch:Ast.BranchStmt = obj.body[i];
+						switch branch.tok {
+							case FALLTHROUGH:
+								localFallThrough = true;
+							default:
+						}
+					}
+				}
+
+				if (!localFallThrough) {
+					var breakStmt = {
+						id: "BranchStmt",
+						tokPos: 0,
+						label: null,
+						tok: Ast.Token.BREAK
+					};
+					obj.body.push(breakStmt);
+				}
+			}
+		}
+		info.switchTag = tag;
+		info.switchTagType = tagType;
 	}
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
@@ -1324,6 +1379,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
+		info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
 		var block = toExpr(typeStmtList(obj.body, info, false, false));
 
 		if (i + 1 >= stmt.body.list.length)
@@ -1335,9 +1391,11 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		else
 			$next;
 	}
-	if (stmt.body == null || stmt.body.list == null)
-		return (macro {}).expr;
 	var expr = ifs();
+	if (hasFallThrough) {
+		expr = macro while (true)
+			$expr;
+	}
 	if (stmt.init != null) {
 		var init = typeStmt(stmt.init, info);
 		return (macro {
@@ -1482,7 +1540,7 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 			case structType(_):
 				y = macro $y.__copy__();
 			case named(_, _, _, type):
-				if (!isInterface(type))
+				if (!isInterface(type) && !isAnyInterface(type))
 					y = macro $y.__copy__();
 			default:
 		}
@@ -2087,6 +2145,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					var e = args.shift();
 					if (args.length == 0)
 						return e.expr;
+					var eType = getElem(typeof(expr.args[0]));
+					for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
+						final aType = typeof(expr.args[i + 1]);
+						args[i] = assignTranslate(aType, eType, args[i], info);
+					}
 					return (macro $e.append($a{args})).expr;
 				case "copy":
 					genArgs(false);
@@ -3225,6 +3288,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				chains.push(setPath);
 				setPath += ".";
 				var structFields = getStructFields(field.type);
+				if (isPointer(field.type)) {
+					setPath += "value.";
+				}
 				if (structFields.length > 0)
 					recursion(setPath, structFields);
 			}
@@ -4517,6 +4583,9 @@ class Info {
 	public var lastValue:Ast.Expr = null;
 	public var lastType:GoType = null;
 	public var data:FileType;
+	public var switchTag:Expr = null;
+	public var switchTagType:GoType = null;
+	public var switchNextTag:Ast.Expr = null;
 	public var global = new Global();
 
 	public function new(?global) {

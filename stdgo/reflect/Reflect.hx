@@ -195,6 +195,8 @@ function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
+		case named(_, _, _, type):
+			getElem(type);
 		case _var(_, type):
 			getElem(type);
 		case arrayType(elem, _), sliceType(elem), pointer(elem):
@@ -232,7 +234,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, _, elem):
+		case named(_, _, _, elem), pointer(elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;

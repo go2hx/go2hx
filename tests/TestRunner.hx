@@ -4,8 +4,6 @@ import sys.io.File;
 import sys.thread.Mutex;
 
 final path = Sys.getCwd();
-var completionServer:sys.io.Process = null;
-final completionPort = 4000 + Std.random(200);
 var results = null;
 var testsLeft:Int = 0;
 var testsTotal:Int = 0;
@@ -15,7 +13,6 @@ typedef Data = {args:Array<String>, data:Dynamic};
 function main() {
 	TestResults.clear(path);
 	results = new TestResults(path);
-	completionServer = new sys.io.Process('haxe --wait $completionPort');
 	Main.setup(0, 4);
 	Main.onComplete = complete;
 
@@ -176,8 +173,6 @@ function test(suiteName:String, dir:String, list:Array<String>, skip:Array<Strin
 
 private function close() {
 	final debug = false;
-	if (completionServer != null)
-		completionServer.close();
 	if (!debug) {
 		results.save();
 		// run TestData script
@@ -194,7 +189,7 @@ private function complete(modules, data) {
 	}
 	final path = Util.modulePath(modules[0]);
 	final command = 'haxe -cp golibs --interp -D test extraParams.hxml -main $path';
-	var proc = new sys.io.Process(command + ' --connect $completionPort');
+	var proc = new sys.io.Process(command);
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);
 	var count = 0;
@@ -221,6 +216,15 @@ private function complete(modules, data) {
 				if (fail) {
 					code = 3000;
 					result = "naive";
+				}
+			}
+			if (code == 2) {
+				while (true) {
+					try {
+						Sys.println(proc.stderr.readLine());
+					} catch (_) {
+						break;
+					}
 				}
 			}
 			final current = testsTotal - testsLeft;

@@ -64,7 +64,7 @@ final reservedClassNames = [
 	// "Type",
 	// "UnicodeString",
 	"ValueType",
-	// "Void",
+	"Void",
 	"Xml",
 	"XmlType",
 	"GoArray",
@@ -122,8 +122,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 
 		var info = new Info();
 		info.global.path = pkg.path;
-		// info.global.path = module.path; //this potentially adds .pkg to end
-		info.global.renameTypes["String"] = "toString";
 
 		// holds the last path to refrence against to see if a file has the main package name
 		var endPath = pkg.path;
@@ -132,34 +130,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 		endPath = className(endPath, info);
 
 		var namedDecls:Array<Ast.Decl> = [];
-
-		function hasName(name:String, exception:Int, info:Info) {
-			for (i in 0...namedDecls.length) {
-				if (i == exception)
-					continue;
-				var decl = namedDecls[i];
-				var change = false;
-				switch decl.id {
-					case "ValueSpec":
-						var decl:Ast.ValueSpec = decl;
-						for (i in 0...decl.names.length) {
-							if (untitle(name) != decl.names[i].name)
-								continue;
-							change = !isTitle(name);
-							name = change ? name : decl.names[i].name;
-							decl.names[i].name = "_" + name;
-							info.global.renameTypes[name] = decl.names[i].name;
-						}
-					default:
-						if (untitle(name) != decl.name.name)
-							continue;
-						change = !isTitle(name);
-						name = change ? name : decl.name.name;
-						decl.name.name = "_" + name;
-						info.global.renameTypes[name] = decl.name.name;
-				}
-			}
-		}
 
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -205,24 +175,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 						default:
 					}
 				}
-			}
-		}
-		// rename per package
-		for (i in 0...namedDecls.length) {
-			var decl = namedDecls[i];
-			switch decl.id {
-				case "ValueSpec":
-					var decl:Ast.ValueSpec = decl;
-					for (i in 0...decl.names.length) {
-						if (!isTitle(decl.names[i].name))
-							continue;
-						hasName(decl.names[i].name, i, info);
-					}
-				default:
-					if (!isTitle(decl.name.name))
-						continue;
-					var decl:Ast.TypeSpec = decl;
-					hasName(decl.name.name, i, info);
 			}
 		}
 		var recvFunctions:Array<{decl:Ast.FuncDecl, path:String}> = [];
@@ -343,8 +295,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 				});
 			}
 			data.imports = data.imports.concat(defaultImports);
-			for (path => alias in info.global.imports)
-				data.imports.push({path: path.split("."), alias: alias, doc: ""});
 			// add file to module
 			module.files.push(data);
 		}
@@ -359,29 +309,11 @@ function main(data:DataType, printGoCode:Bool = false) {
 					if (getRecvName(recv.decl.recv.list[0].type, info) == def.name)
 						local.push(recv.decl);
 				}
-				// rename conflicts
-				var change = false;
-				for (i in 0...local.length) {
-					var name = local[i].name.name;
-					for (j in 0...local.length) {
-						if (i == j)
-							continue;
-						if (untitle(name) != local[j].name.name)
-							continue;
-						change = !isTitle(name);
-						name = change ? name : local[j].name.name;
-						local[j].name.name = "_" + name;
-						info.global.renameTypes[name] = local[j].name.name;
-					}
-				}
-				var restrictedNames = [for (func in local) nameIdent(func.name.name, info, false, false)];
+				var restrictedNames = [for (func in local) nameIdent(func.name.name, info)];
 				var isNamed = false;
 				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
 				for (decl in local) {
-					if (decl.name.name.charAt(0) == decl.name.name.charAt(0).toLowerCase())
-						decl.name.name = "_" + decl.name.name;
-
 					var func = typeFunction(decl, info, restrictedNames, isNamed);
 					if (func == null)
 						continue;
@@ -739,20 +671,12 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needR
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
 	var exprs:Array<Expr> = [];
-	var oldRetypeList = null;
-	var oldLocalVars = null;
-	var oldRenameTypes = null;
-	if (!isFunc) {
-		oldRetypeList = info.retypeList.copy();
-		oldLocalVars = info.localVars.copy();
-		oldRenameTypes = info.renameTypes.copy();
-	}
+
 	// add named return values
 	if (isFunc) {
 		if (info.returnNamed) {
 			var vars:Array<Var> = [];
 			for (i in 0...info.returnNames.length) {
-				info.localVars[info.returnNames[i]] = true;
 				vars.push({
 					name: info.returnNames[i],
 					type: info.returnComplexTypes[i],
@@ -787,12 +711,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
 		}
-	if (!isFunc) {
-		// leave scope and set back to before
-		info.renameTypes = oldRenameTypes;
-		info.retypeList = oldRetypeList;
-		info.localVars = oldLocalVars;
-	}
 	return EBlock(exprs);
 }
 
@@ -824,7 +742,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 		var arg = typeExpr(stmt.call.args[i], info);
 		var name = "a" + i;
 		exprs.push(macro var $name = $arg);
-		stmt.call.args[i] = {id: "Ident", name: name}; // switch out call arguments
+		stmt.call.args[i] = {id: "Ident", name: "A" + i}; // switch out call arguments
 	}
 	if (stmt.call.fun.id == "FuncLit") {
 		var call = toExpr(typeCallExpr(stmt.call, info));
@@ -868,7 +786,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch value.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): valueString = nameIdent(s, info, false, false);
+					case CIdent(s): valueString = s;
 					default:
 				}
 			default:
@@ -878,7 +796,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch key.expr {
 			case EConst(c):
 				switch c {
-					case CIdent(s): keyString = nameIdent(s, info, false, false);
+					case CIdent(s): keyString = s;
 					default:
 				}
 			default:
@@ -923,15 +841,22 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 }
 
 private function className(name:String, info:Info):String {
-	if (info.global.renameTypes.exists(name))
-		name = info.global.renameTypes[name];
-	name = title(name);
+	if (info.renameClasses.exists(name))
+		return info.renameClasses[name];
+
+	if (name == "error")
+		return "Error";
+	if (name == "Error")
+		return "T_error";
+
+	if (!isTitle(name))
+		name = "T_" + name;
 
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
 
-	if (info.restricted != null && info.restricted.indexOf(name) != -1)
-		return getRestrictedName(name, info);
+	// if (info.restricted != null && info.restricted.indexOf(name) != -1)
+	//	return getRestrictedName(name, info);
 
 	return name;
 }
@@ -944,12 +869,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 			switch spec.id {
 				case "TypeSpec":
 					var spec:Ast.TypeSpec = spec;
-					var name = className(spec.name.name, info);
+					final name = spec.name.name;
 					spec.name.name += "_" + info.funcName + "_" + (info.count++);
-					info.retypeList[name] = TPath({
-						name: className(spec.name.name, info),
-						pack: [],
-					});
+					info.renameClasses[name] = className(spec.name.name, info);
 					info.data.defs.push(typeSpec(spec, info));
 				case "ValueSpec": // typeValue
 					var spec:Ast.ValueSpec = spec;
@@ -972,8 +894,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var tuples = getReturnTuple(type);
 						for (i in 0...spec.names.length) {
 							var fieldName = tuples[i];
-							var name = nameIdent(spec.names[i].name, info, false, false, false);
-							info.localVars[name] = true;
+							var name = nameIdent(spec.names[i].name, info);
 							vars.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
@@ -984,7 +905,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							// concat because this is in a for loop
 							for (i in 0...spec.names.length) {
 								var expr = typeExpr(spec.values[i], info);
-								var name = nameIdent(spec.names[i].name, info, false, false, false);
+								var name = nameIdent(spec.names[i].name, info);
 								var t = typeof(spec.type);
 								var exprType = type;
 								if (exprType == null) {
@@ -993,7 +914,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 										exprType = toComplexType(specType, info);
 								}
 								expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
-								info.localVars[name] = true;
 								{
 									name: name,
 									type: exprType,
@@ -1162,8 +1082,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			switch lhs.id {
 				case "Ident":
 					var lhs:Ast.Ident = lhs;
-					var name = lhs.name;
-					setVar = lhs.name;
+					setVar = nameIdent(lhs.name, info);
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
 			}
@@ -1710,18 +1629,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
-					var isTitled = stmt.lhs[i].name == stmt.lhs[i].name.toUpperCase();
-					var name = nameIdent(stmt.lhs[i].name, info, true, false);
-					var newName = name;
-					var tempName = isTitled ? untitle(name) : title(name);
-					if (info.renameTypes.exists(tempName)) {
-						newName = "_" + newName;
-						name = !isTitled ? untitle(name) : title(name);
-					}
-					info.renameTypes[name] = newName;
-					name = newName;
+					var name = nameIdent(stmt.lhs[i].name, info);
+
 					var t = typeof(stmt.lhs[i]);
-					info.localVars[name] = true; // set local name
 
 					var toType = typeof(stmt.lhs[i]);
 					var fromType = typeof(stmt.rhs[i]);
@@ -1761,7 +1671,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id != "Ident")
 						throw "define left side not an ident";
-					var varName = stmt.lhs[i].name;
+					var varName = nameIdent(stmt.lhs[i].name, info);
 					var fieldName = names[i];
 					defines.push({name: varName, expr: macro __tmp__.$fieldName});
 				}
@@ -1888,7 +1798,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 		return anyInterfaceType();
 	} else {
 		// anonymous struct
-		var fields = typeFieldListFields(expr.methods, info, [], false, true);
+		var fields = typeFieldListFields(expr.methods, info, [], false);
 		return TAnonymous(fields);
 	}
 }
@@ -1896,7 +1806,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 private function structTypeExpr(expr:Ast.StructType, info:Info):ComplexType {
 	if (expr.fields == null || expr.fields.list == null || expr.fields.list.length == 0)
 		return TPath({name: "Dynamic", pack: []});
-	var fields = typeFieldListFields(expr.fields, info, [], false, true);
+	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
 }
 
@@ -1958,8 +1868,6 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		}
 	}
 	name = className(name, info);
-	if (info.retypeList.exists(name))
-		return info.retypeList[name];
 	return TPath({
 		pack: [],
 		name: name,
@@ -1970,18 +1878,18 @@ private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
 	function func(x:Ast.Expr, isSelector:Bool):Array<String> {
 		switch x.id {
 			case "Ident":
-				var name = nameIdent(x.name, info, false, isSelector);
+				var name = nameIdent(x.name, info);
 				return [name];
 			case "SelectorExpr":
 				var x:Ast.SelectorExpr = x;
-				var name = nameIdent(x.sel.name, info, false, false);
+				var name = nameIdent(x.sel.name, info);
 				return [name].concat(func(x.x, true));
 			default:
 				trace("unknown x id: " + x.id);
 				return [];
 		}
 	}
-	var name = expr.sel.name;
+	var name = className(expr.sel.name, info);
 	final pack = func(expr.x, false);
 	if (pack.length == 1 && pack[0] == "stdgo.unsafe.Unsafe" && name == "Pointer")
 		name = "UnsafePointer";
@@ -2055,7 +1963,7 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 	if (expr.name == "iota" && !isSelect) {
 		return iotaExpr(info).expr;
 	}
-	var name = nameIdent(expr.name, info, false, isSelect);
+	var name = nameIdent(expr.name, info);
 	return EConst(CIdent(name));
 }
 
@@ -2572,24 +2480,14 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	path = normalizePath(path);
 	var cl = className(name, info);
 	var globalPath = getGlobalPath(info);
-	if (globalPath == path) {
-		if (info.retypeList.exists(cl))
-			return switch info.retypeList[cl] {
-				case TPath(p):
-					p;
-				default:
-					throw "error retype list not TPath";
-			}
-		return {pack: [], name: cl};
+	globalPath = toGoPath(globalPath);
+	var pack = [];
+	if (globalPath != path) {
+		pack = path.split("/");
+		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
+			pack.unshift("stdgo");
+		}
 	}
-	var pack = path.split("/");
-	if (stdgoList.indexOf(pack[0]) != -1) { // Haxe only type, otherwise the go code refrences Haxe
-		pack.unshift("stdgo");
-	}
-	var last = pack.pop();
-	pack.push(last); // shorten package here
-	pack.push(title(last));
-
 	return {name: cl, pack: pack};
 }
 
@@ -2620,14 +2518,6 @@ private function namedTypePath(path:String, info:Info):TypePath {
 		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
-	} else {
-		if (info.retypeList.exists(cl))
-			return switch info.retypeList[cl] {
-				case TPath(p):
-					p;
-				default:
-					throw "error";
-			}
 	}
 	return {pack: pack, name: cl};
 }
@@ -2703,7 +2593,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Chan", params: [TPType(ct)]});
 		case structType(fields):
-			var fields = typeFields(fields, info, null, false, true);
+			var fields = typeFields(fields, info, null, false);
 			fields.length == 0 ? TPath({pack: [], name: "Dynamic"}) : TAnonymous([
 				for (field in fields)
 					{
@@ -2837,7 +2727,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			}
 			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
-			EConst(CIdent(nameIdent(value, info, false, false)));
+			EConst(CIdent(nameIdent(value, info)));
 		case IMAG:
 			(macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))})).expr;
 		default:
@@ -2923,11 +2813,12 @@ function getTypePath(type:GoType, info:Info):TypePath {
 	}
 }
 
+private function title(name:String):String {
+	return name.charAt(0).toUpperCase() + name.substring(1);
+}
+
 function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 	var keyValueBool:Bool = hasKeyValueExpr(expr.elts);
-	function keyFormat(key:String):String {
-		return (!isTitle(key) ? "_" : "") + nameIdent(key, info, false, false);
-	}
 	final isNamed = isNamed(type);
 	if (!keyValueBool) {
 		if (isNamed) {
@@ -2961,7 +2852,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 							// var fieldType = toComplexType(field.type,info);
 							value = assignTranslate(typeof(elt.value), field.type, value, info);
 							objectFields.push({
-								field: keyFormat(key),
+								field: nameIdent(key, info),
 								expr: value, // macro ($value : $fieldType),
 							});
 							fields.remove(field);
@@ -2970,11 +2861,11 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 						}
 					}
 					if (!removed)
-						throw "cannot find field type of name: " + keyFormat(key) + " in names: " + [for (field in fields) field.name];
+						throw "cannot find field type of name: " + key + " in names: " + [for (field in fields) field.name];
 				}
 				for (field in fields) {
 					objectFields.push({
-						field: keyFormat(field.name),
+						field: nameIdent(field.name, info),
 						expr: defaultValue(field.type, info, false),
 					});
 				}
@@ -2983,7 +2874,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 					if (fields[i].name == "_")
 						continue;
 					objectFields.push({
-						field: keyFormat(fields[i].name),
+						field: nameIdent(fields[i].name, info),
 						expr: expr.elts.length > i ? {
 							var e = typeExpr(expr.elts[i], info);
 							e = assignTranslate(typeof(expr.elts[i]), fields[i].type, e, info);
@@ -3237,54 +3128,16 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var typeX = typeof(expr.x);
 	var isThis = false;
 
-	function setIdent(sel):String {
-		return (!isTitle(sel) ? "_" : "") + nameIdent(sel, info, false, true);
-	}
-
-	var sel = expr.sel.name;
-	var style = 0;
-	switch x.expr {
-		case EField(e, field):
-			if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-				style = 0;
-			} else {
-				style = 1;
-			}
-		case EConst(c):
-			switch c {
-				case CIdent(s):
-					if (s == info.thisName)
-						isThis = true;
-					var index = s.lastIndexOf(".");
-					var field = s.substr(index + 1);
-					if (field.charAt(0) == field.charAt(0).toUpperCase() && field.charAt(0) != "_") {
-						style = 0;
-					} else {
-						style = 1;
-					}
-				default:
-			}
-		default:
-			style = 1;
-	}
-	function runStyle(sel):String {
-		return switch style {
-			case 0: nameIdent(sel, info, false, true);
-			case 1: setIdent(sel);
-			default: throw "invalid style: " + style;
-		}
-	}
-	sel = runStyle(sel);
+	var sel = nameIdent(expr.sel.name, info);
 
 	if (isPointer(typeX) && !isThis)
 		x = macro $x.value;
 	var fields = getStructFields(typeX);
 	if (fields.length > 0) {
 		var chains:Array<String> = [];
-		// style = 0;
 		function recursion(path:String, fields:Array<FieldType>) {
 			for (field in fields) {
-				var setPath = path + runStyle(field.name);
+				var setPath = path + nameIdent(field.name, info);
 				chains.push(setPath);
 				setPath += ".";
 				var structFields = getStructFields(field.type);
@@ -3411,15 +3264,15 @@ private function implementsError(name:String, type:ComplexType):Bool {
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false):TypeDefinition {
 	var info = new Info();
-	info.renameTypes = data.renameTypes;
-	info.typeNames = data.typeNames;
 	info.data = data.data;
+	info.renameClasses = data.renameClasses;
+	info.renameIdents = data.renameIdents;
 	info.thisName = "";
 	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
-	var name = nameIdent(decl.name.name, info, false, false, false);
-	if (name == "init") {
+	var name = nameIdent(decl.name.name, info);
+	if (decl.name.name == "init") {
 		switch typeBlockStmt(decl.body, info, true, true) {
 			case EBlock(exprs):
 				info.global.initBlock = info.global.initBlock.concat(exprs);
@@ -3427,7 +3280,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		}
 		return null;
 	}
-	info.funcName = decl.name.name;
+	info.funcName = name;
 	var ret = typeFieldListReturn(decl.type.results, info, true);
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
@@ -3450,6 +3303,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		if (varName != "") {
+			varName = nameIdent(varName, info);
 			info.thisName = varName;
 			switch block.expr {
 				case EBlock(exprs):
@@ -3670,7 +3524,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 						embedded: field.embedded,
 						tag: field.tag,
 					}
-			], info, null, true, true);
+			], info, null, true);
 			for (field in fields) {
 				switch field.kind {
 					case FVar(_, e):
@@ -3801,7 +3655,7 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 		}
 		for (name in field.names) {
 			args.push({
-				name: nameIdent(name.name, info, false, false),
+				name: nameIdent(name.name, info),
 				type: type,
 			});
 		}
@@ -3824,7 +3678,7 @@ private function typeFieldListComplexTypes(list:Ast.FieldList, info:Info):Array<
 	return args;
 }
 
-private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBool:Bool):Array<Field> {
+private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field> {
 	var fields:Array<Field> = [];
 	for (field in list.list) {
 		var expr:Ast.FuncType = field.type;
@@ -3835,12 +3689,8 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBo
 			continue;
 		for (n in field.names) {
 			var name = n.name;
-			if (underlineBool) {
-				if (name.charAt(0) == name.charAt(0).toLowerCase())
-					name = "_" + name;
-			}
 			fields.push({
-				name: nameIdent(name, info, false, false),
+				name: nameIdent(name, info),
 				pos: null,
 				access: typeAccess(n.name, true),
 				kind: FFun({
@@ -3854,7 +3704,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info, underlineBo
 }
 
 // can also be used for ObjectFields
-private function typeFields(list:Array<FieldType>, info:Info, access:Array<Access> = null, defaultBool:Bool, underlineBool:Bool):Array<Field> {
+private function typeFields(list:Array<FieldType>, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
 	var fields:Array<Field> = [];
 	var blankCounter = 0;
 	for (field in list) {
@@ -3863,11 +3713,6 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		if (name == "_") {
 			// isBlank
 			name = "__blank__" + (blankCounter++);
-		} else {
-			if (underlineBool) {
-				if (name.charAt(0) == name.charAt(0).toLowerCase())
-					name = "_" + name;
-			}
 		}
 		var meta:Metadata = [];
 		if (field.embedded)
@@ -3875,7 +3720,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		fields.push({
-			name: nameIdent(name, info, false, false),
+			name: nameIdent(name, info),
 			pos: null,
 			meta: meta,
 			access: access == null ? typeAccess(name, true) : access,
@@ -3885,7 +3730,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 	return fields;
 }
 
-private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool, underlineBool:Bool):Array<Field> {
+private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array<Access> = null, defaultBool:Bool):Array<Field> {
 	var fields:Array<Field> = [];
 	var fieldList:Array<FieldType> = [];
 	function getName(type:Ast.Expr) {
@@ -3926,7 +3771,7 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 			}
 		}
 	}
-	return typeFields(fieldList, info, access, defaultBool, underlineBool);
+	return typeFields(fieldList, info, access, defaultBool);
 }
 
 private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDefinition> {
@@ -3935,7 +3780,7 @@ private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDef
 		var type = typeExprType(field.type, info);
 		for (name in field.names) {
 			defs.push({
-				name: nameIdent(name.name, info, false, false),
+				name: nameIdent(name.name, info),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -3944,17 +3789,6 @@ private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDef
 		}
 	}
 	return defs;
-}
-
-private function renameDef(name:String, info:Info):String {
-	for (decl in info.data.defs) {
-		if (decl == null)
-			continue;
-		if (decl.name == name) {
-			return renameDef(name + "_", info);
-		}
-	}
-	return name;
 }
 
 private function interfaceWrapperName(name:String):String
@@ -4091,7 +3925,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				switch type {
 					case structType(fs):
 						for (field in fs) {
-							final name = nameIdent(field.name, info, false, false);
+							final name = nameIdent(field.name, info);
 							params.push(macro $i{name});
 							args.push({opt: true, name: name});
 						}
@@ -4171,7 +4005,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	switch spec.type.id {
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
-			var fields = typeFieldListFields(struct.fields, info, [APublic], true, true);
+			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
 			fields.push({
 				name: "new",
 				pos: null,
@@ -4292,7 +4126,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					kind: TDAlias(anyInterfaceType()),
 				}
 			}
-			var fields = typeFieldListMethods(struct.methods, info, true);
+			var fields = typeFieldListMethods(struct.methods, info);
 			fields.push({
 				name: "__underlying__",
 				pos: null,
@@ -4341,8 +4175,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	}
 	var name = path[path.length - 1];
 	path.push(title(name)); // shorten path here
-	// path[path.length - 1] = title(name);
-	info.renameTypes[name] = path.join(".");
+	info.renameIdents[name] = path.join(".");
 	return {
 		path: path,
 		alias: alias,
@@ -4384,7 +4217,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			if (value.constants[i])
 				access.push(AFinal);
 			values.push({
-				name: nameIdent(value.names[i].name, info, false, false),
+				name: nameIdent(value.names[i].name, info),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -4417,7 +4250,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				continue;
 			if (type == null)
 				type = toComplexType(typeof(value.values[i]), info);
-			var name = nameIdent(value.names[i].name, info, false, false);
+			var name = nameIdent(value.names[i].name, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
 			if (value.constants[i])
@@ -4482,29 +4315,40 @@ private function getRestrictedName(name:String, info:Info):String {
 	return name;
 }
 
-private function nameIdent(name:String, info:Info, forceString:Bool, isSelect:Bool, restrictCheck:Bool = true):String {
+private function nameIdent(name:String, info:Info):String {
 	if (name == "nil")
 		return "null";
-
-	if (info.localVars.exists(name))
-		forceString = true;
-
-	if (!forceString) {
-		if (info.global.imports.exists(name))
-			return info.global.imports[name];
-		var rt = false; // retype
-		if (info.renameTypes.exists(name)) {
-			name = info.renameTypes[name];
-			rt = true;
+	if (name == "null")
+		return "nil";
+	if (name == "false" || name == "true" || name == "main")
+		return name;
+	if (name == "False" || name == "True" || name == "Main")
+		return "_" + name;
+	if (name == "String")
+		return "toString";
+	if (info.renameIdents.exists(name)) {
+		name = info.renameIdents[name];
+	} else {
+		if (name.charAt(0) == "_") {
+			name = name = "_" + name;
+		} else {
+			if (isTitle(name)) { // nicer styling turns "GC" -> "gc" instead of "gC"
+				var index = 0;
+				while (index < name.length) {
+					if (!isTitle(name.charAt(index)))
+						break;
+					index++;
+				}
+				name = name.substr(0, index).toLowerCase() + name.substring(index);
+			} else {
+				name = "_" + name;
+			}
 		}
-		if (info.global.renameTypes.exists(name) && !rt)
-			name = info.global.renameTypes[name];
-		name = untitle(name);
-		if (reserved.indexOf(name) != -1 && !rt)
-			name += "_";
-		if (restrictCheck && info.restricted != null && info.restricted.indexOf(name) != -1)
-			return getRestrictedName(name, info);
 	}
+	if (info.restricted != null && info.restricted.indexOf(name) != -1)
+		name = getRestrictedName(name, info);
+	if (reserved.indexOf(name) != -1)
+		name = name + "_";
 	return name;
 }
 
@@ -4524,51 +4368,29 @@ private function formatHaxeFieldName(name:String) {
 	return (!isTitle(name) ? "_" : "") + name;
 }
 
-function title(string:String):String {
-	var index:Int = 0;
-	for (i in 0...string.length) {
-		index = i;
-		if (string.charAt(i) != "_")
-			break;
-	}
-	index++;
-	string = string.substr(0, index).toUpperCase() + string.substr(index);
-	return string;
-}
-
-function untitle(string:String):String {
-	var index:Int = 0;
-	for (i in 0...string.length) {
-		if (string.charAt(i) == "_")
-			continue;
-		if (string.charAt(i) == string.charAt(i).toLowerCase())
-			break;
-		index = i;
-	}
-	index++;
-	string = string.substr(0, index).toLowerCase() + string.substr(index);
-	return string;
-}
-
 class Global {
-	public var renameTypes:Map<String, String> = [];
-	public var imports:Map<String, String> = [];
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
 	public var module:Module = null;
 
 	public inline function new() {}
+
+	public function copy():Global {
+		var g = new Global();
+		g.initBlock = initBlock.copy();
+		g.path = path;
+		g.module = module;
+		return g;
+	}
 }
 
 class Info {
-	public var localVars:Map<String, Bool> = [];
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
 	public var restricted:Array<String> = null;
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
 	public var funcName:String = "";
-	public var renameTypes:Map<String, String> = [];
 	public var gotoSystem:Bool = false;
 	public var returnNames:Array<String> = [];
 	public var returnType:ComplexType = null;
@@ -4577,8 +4399,6 @@ class Info {
 	public var returnComplexTypes:Array<ComplexType> = [];
 	public var returnInterfaceBool:Array<Bool> = [];
 	public var className:String = "";
-	public var retypeList:Map<String, ComplexType> = [];
-	public var typeNames:Array<String> = [];
 	public var iota:Int = 0;
 	public var lastValue:Ast.Expr = null;
 	public var lastType:GoType = null;
@@ -4586,6 +4406,10 @@ class Info {
 	public var switchTag:Expr = null;
 	public var switchTagType:GoType = null;
 	public var switchNextTag:Ast.Expr = null;
+
+	public var renameIdents:Map<String, String> = []; // identifiers
+	public var renameClasses:Map<String, String> = ["bool" => "Bool"]; // class names i.e TPath
+
 	public var global = new Global();
 
 	public function new(?global) {
@@ -4596,22 +4420,20 @@ class Info {
 	public inline function clone() {
 		var info = new Info();
 		info.thisName = thisName;
-		info.returnTypes = returnTypes;
-		info.returnComplexTypes = returnComplexTypes;
-		info.returnNames = returnNames;
+		info.returnTypes = returnTypes.copy();
+		info.returnComplexTypes = returnComplexTypes.copy();
+		info.returnNames = returnNames.copy();
 		info.returnType = returnType;
 		info.returnNamed = returnNamed;
 		info.deferBool = deferBool;
 		info.count = count;
 		info.funcName = funcName;
-		info.renameTypes = renameTypes;
-		info.localVars = localVars;
 		info.className = className;
-		info.retypeList = retypeList;
-		info.typeNames = typeNames;
 		info.iota = iota;
 		info.data = data;
-		info.global = global; // imports, types
+		info.global = global.copy(); // imports, types
+		info.renameIdents = renameIdents.copy();
+		info.renameClasses = renameClasses.copy();
 		return info;
 	}
 }

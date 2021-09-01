@@ -4,6 +4,8 @@ import stdgo.Pointer;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoUIntptr;
 
+typedef Pointer_ = UnsafePointer;
+
 abstract UnsafePointer(Pointer<Dynamic>) from Pointer<Dynamic> to Pointer<Dynamic> {
 	@:from static function fromUIntptr(value:GoUIntptr):UnsafePointer {
 		return Go.pointer(value);

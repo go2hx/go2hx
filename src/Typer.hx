@@ -1475,7 +1475,6 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
-	// trace("from: " + fromType + " to: " + toType + " expr: " + printer.printExpr(expr));
 	var y = expr;
 
 	if (fromType == null)
@@ -3840,11 +3839,16 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		implicits.push(parseTypePath(imp.path, imp.name, info));
 	}
 
-	var t = getUnderlying(typeof(spec.type));
+	var t = typeof(spec.type);
+	var underlyingType = getUnderlying(t);
+	var underlyingComplexType = toComplexType(underlyingType, info);
+	var e = macro t;
+	e = assignTranslate(underlyingType, t, e, info, false);
 	var ct = typeExprType(spec.type, info);
 	var value = defaultValue(t, info, false);
 	var p:TypePath = {name: name, pack: []};
 	var copyT = macro __t__;
+	copyT = assignTranslate(t, underlyingType, copyT, info, false);
 	copyT = passByCopy(t, copyT);
 	var fields:Array<Field> = [
 		{
@@ -3858,9 +3862,9 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			pos: null,
 			access: [APublic],
 			kind: FFun({
-				args: [{name: "t", opt: true, type: ct}],
+				args: [{name: "t", opt: true, type: underlyingComplexType}],
 				expr: macro {
-					__t__ = t == null ? $value : t;
+					__t__ = t == null ? $value : $e;
 				},
 			})
 		},

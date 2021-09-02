@@ -3,16 +3,15 @@ package stdgo.sync;
 import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;
 import sys.thread.Lock;
-import sys.thread.Mutex;
 
 class RWMutex implements StructType {
-	var mutux:Mutex;
+	var mutux:sys.thread.Mutex;
 
 	public function __underlying__():AnyInterface
 		return null;
 
 	public function new() {
-		mutux = new Mutex();
+		mutux = new sys.thread.Mutex();
 	}
 
 	public function lock() {}

@@ -689,8 +689,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 	if (list != null)
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
-		// defer system
-		if (info.deferBool && isFunc) {
+		if (info.deferBool && isFunc) { // defer system
 			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
 			// recover
@@ -711,6 +710,9 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
 		}
+	if (needReturn) {
+		exprs.push(toExpr(typeReturnStmt({results: [], returnPos: 0}, info)));
+	}
 	return EBlock(exprs);
 }
 
@@ -3193,7 +3195,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 
 private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	// x = assignTranslate(typeof(expr.x),slice(invalid),x,info);
+	final xType = typeof(expr.x);
+	if (isPointer(xType)) // get pointer refrence of slice/array if pointer type
+		x = macro $x.value;
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
 	x = high != null ? macro $x.slice($low, $high) : macro $x.slice($low);

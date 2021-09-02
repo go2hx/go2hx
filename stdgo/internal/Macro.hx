@@ -32,6 +32,18 @@ class Macro {
 		var cases:Array<Case> = [];
 		var vars:Array<Var> = [];
 
+		var ret:Expr = null; // get return at end of block so the compiler is happy since the control flow is wrapped inside a while loop
+		switch body.expr {
+			case EBlock(exprs):
+				switch exprs[exprs.length - 1].expr {
+					case EReturn(_):
+						ret = exprs.pop();
+						body.expr = EBlock(exprs);
+					default:
+				}
+			default:
+		}
+
 		function loop(e:Expr, inLoop:Bool):Expr {
 			return macro {
 				$e;
@@ -149,7 +161,14 @@ class Macro {
 				$switchStmt;
 			} while ($i{selectionName} != "");
 		};
-		// trace(new haxe.macro.Printer().printExpr(e));
+		if (ret != null) {
+			switch e.expr {
+				case EBlock(exprs):
+					exprs.push(ret);
+					e.expr = EBlock(exprs);
+				default:
+			}
+		}
 		return e;
 	}
 

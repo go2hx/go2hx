@@ -593,7 +593,7 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "DeferStmt": typeDeferStmt(stmt, info);
 		case "IncDecStmt": typeIncDecStmt(stmt, info);
 		case "LabeledStmt": typeLabeledStmt(stmt, info);
-		case "BlockStmt": typeBlockStmt(stmt, info, false, false);
+		case "BlockStmt": typeBlockStmt(stmt, info, false);
 		case "BadStmt": throw "BAD STATEMENT TYPED";
 		case "GoStmt": typeGoStmt(stmt, info);
 		case "BranchStmt": typeBranchStmt(stmt, info);
@@ -614,7 +614,7 @@ private function typeCommClause(stmt:Ast.CommClause, info:Info):ExprDef { // sel
 		if (list == null)
 			return typeStmt(stmt.comm, info).expr;
 		list.unshift(stmt.comm);
-		return typeStmtList(list, info, false, false);
+		return typeStmtList(list, info, false);
 	}
 	return (macro null).expr;
 }
@@ -629,7 +629,7 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	return typeBlockStmt(stmt.body, info, false, false);
+	return typeBlockStmt(stmt.body, info, false);
 }
 
 private function typeGoto(label:Expr):Expr {
@@ -645,12 +645,19 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 			return typeGoto(name).expr;
 		case FALLTHROUGH:
 			final e = info.switchTag;
-			var next = typeExpr(info.switchNextTag, info);
-			next = assignTranslate(typeof(info.switchNextTag), info.switchTagType, next, info, false);
-			(macro {
-				$e = $next;
-				continue;
-			}).expr;
+			if (info.switchNextTag == null) {
+				(macro {
+					__default__ = true;
+					continue;
+				}).expr;
+			} else {
+				var next = typeExpr(info.switchNextTag, info);
+				next = assignTranslate(typeof(info.switchNextTag), info.switchTagType, next, info, false);
+				(macro {
+					$e = $next;
+					continue;
+				}).expr;
+			}
 		default: (macro @:unknown_branch_stmt break).expr;
 	}
 }
@@ -660,18 +667,17 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 	return (macro Go.routine($call)).expr;
 }
 
-private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
+private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 	if (stmt.list == null) {
 		if (info.returnTypes.length > 0)
 			return (macro throw "not implemeneted").expr;
 		return (macro {}).expr;
 	}
-	return typeStmtList(stmt.list, info, isFunc, needReturn);
+	return typeStmtList(stmt.list, info, isFunc);
 }
 
-private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, needReturn:Bool):ExprDef {
+private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
 	var exprs:Array<Expr> = [];
-
 	// add named return values
 	if (isFunc) {
 		if (info.returnNamed) {
@@ -710,9 +716,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
 		}
-	if (needReturn) {
-		exprs.push(toExpr(typeReturnStmt({results: [], returnPos: 0}, info)));
-	}
 	return EBlock(exprs);
 }
 
@@ -771,7 +774,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	if (isNamed(xType))
 		x = macro $x.__t__;
 	var hasDefer = false;
-	var body = {expr: typeBlockStmt(stmt.body, info, false, false), pos: null};
+	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
 	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
 		if (stmt.tok == DEFINE) {
@@ -1117,7 +1120,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		types = [];
 		var cond = condition(obj);
-		var block = toExpr(typeStmtList(obj.body, info, false, false));
+		var block = toExpr(typeStmtList(obj.body, info, false));
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):
@@ -1244,6 +1247,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		return (macro {}).expr;
 	// this is an if else chain
 	var tag:Expr = null;
+	var defaultBlock:Expr = null;
 	var tagType:GoType = null;
 	if (stmt.tag != null) {
 		tagType = typeof(stmt.tag);
@@ -1311,11 +1315,14 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
 		info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
-		var block = toExpr(typeStmtList(obj.body, info, false, false));
+		var block = toExpr(typeStmtList(obj.body, info, false));
 
-		if (i + 1 >= stmt.body.list.length)
+		if (i + 1 >= stmt.body.list.length) {
+			if (cond == null)
+				defaultBlock = block;
 			return cond == null ? macro $block : macro if ($cond)
 				$block;
+		}
 		var next = ifs(i + 1);
 		return macro if ($cond)
 			$block
@@ -1324,8 +1331,26 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	}
 	var expr = ifs();
 	if (hasFallThrough) {
-		expr = macro while (true)
-			$expr;
+		var needsReturn = exprWillReturn(expr);
+		if (defaultBlock != null) {
+			expr = macro if (__default__)
+				$defaultBlock
+			else
+				$expr;
+		}
+		expr = macro {
+			var __default__ = false;
+			while (true)
+				$expr;
+		}
+		if (needsReturn) {
+			switch expr.expr {
+				case EBlock(exprs):
+					exprs.push(toExpr(typeReturnStmt({results: [], returnPos: 0}, info)));
+					expr.expr = EBlock(exprs);
+				default:
+			}
+		}
 	}
 	if (stmt.init != null) {
 		var init = typeStmt(stmt.init, info);
@@ -1340,7 +1365,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 	var cond = stmt.cond == null ? toExpr(EConst(CIdent("true"))) : typeExpr(stmt.cond, info);
 	var hasDefer = false;
-	var body = toExpr(typeBlockStmt(stmt.body, info, false, false));
+	var body = toExpr(typeBlockStmt(stmt.body, info, false));
 	if (body.expr == null)
 		body = macro {};
 	if (cond.expr == null || body.expr == null) {
@@ -3040,18 +3065,41 @@ private function funcReset(info:Info) {
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
-	info = info.clone();
+	final info = info.clone();
 	funcReset(info);
 
-	var ret = typeFieldListReturn(expr.type.results, info, true);
 	var args = typeFieldListArgs(expr.type.params, info);
-	var block = typeBlockStmt(expr.body, info, true, true);
+	var ret = typeFieldListReturn(expr.type.results, info, true);
+	var block = typeBlockStmt(expr.body, info, true);
 	// allows multiple nested values
 	return EFunction(FAnonymous, {
 		ret: ret,
 		args: args,
 		expr: block != null ? toExpr(block) : null,
 	});
+}
+
+private function exprWillReturn(expr:Expr):Bool {
+	if (expr == null)
+		return false;
+	return switch expr.expr {
+		case EIf(_, eif, eelse): exprWillReturn(eif) && exprWillReturn(eelse);
+		case EReturn(_): true;
+		case EBlock(exprs):
+			for (expr in exprs) {
+				if (exprWillReturn(expr))
+					return true;
+			}
+			false;
+		case ESwitch(_, cases, _):
+			for (c in cases) {
+				if (!exprWillReturn(c.expr))
+					return false;
+			}
+			true;
+		default:
+			false;
+	}
 }
 
 private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
@@ -3297,7 +3345,7 @@ private function implementsError(name:String, type:ComplexType):Bool {
 }
 
 private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false):TypeDefinition {
-	var info = new Info();
+	final info = new Info();
 	info.data = data.data;
 	info.renameClasses = data.renameClasses;
 	info.renameIdents = data.renameIdents;
@@ -3307,7 +3355,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.global = data.global;
 	var name = nameIdent(decl.name.name, info);
 	if (decl.name.name == "init") {
-		switch typeBlockStmt(decl.body, info, true, true) {
+		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):
 				info.global.initBlock = info.global.initBlock.concat(exprs);
 			default:
@@ -3319,7 +3367,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
 	info.restricted = restricted;
-	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true, true));
+	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true));
 
 	block = argsTranslate(args, block);
 
@@ -3604,16 +3652,25 @@ private function getRecvInfo(recvType:ComplexType, type:GoType):{name:String, is
 }
 
 private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValuesBool:Bool):ComplexType { // A single type or Anonymous struct type
-	if (fieldList == null)
-		return TPath({
+	// reset
+	var returnComplexTypes:Array<ComplexType> = [];
+	var returnNamed:Bool = false;
+	var returnNames:Array<String> = [];
+	var returnTypes:Array<GoType> = [];
+	if (fieldList == null) {
+		final t = TPath({
 			name: "Void",
 			pack: [],
 		});
-	// reset
-	var returnComplexTypes:Array<ComplexType> = [];
-	var returnNamed:Bool = true;
-	var returnNames:Array<String> = [];
-	var returnTypes:Array<GoType> = [];
+		if (retValuesBool) {
+			info.returnNamed = returnNamed;
+			info.returnNames = returnNames;
+			info.returnTypes = returnTypes;
+			info.returnType = t;
+			info.returnComplexTypes = returnComplexTypes;
+		}
+		return t;
+	}
 
 	for (group in fieldList.list) {
 		final ct = typeExprType(group.type, info);
@@ -3621,9 +3678,10 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		if (group.names.length == 0) {
 			returnTypes.push(t);
 			returnNames.push("v" + returnNames.length);
-			returnNamed = false;
 			returnComplexTypes.push(ct);
 			continue;
+		} else {
+			returnNamed = true;
 		}
 		for (name in group.names) {
 			if (name.name == "_") {

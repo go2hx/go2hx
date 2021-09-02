@@ -110,6 +110,18 @@ class Macro {
 										cases.push({values: [macro ""], expr: {expr: EBlock(exprs.slice(0, i)), pos: Context.currentPos()}});
 									}
 									cases.push({values: [s.params[0]], expr: {expr: EBlock(exprs.slice(i)), pos: Context.currentPos()}});
+
+									switch e.expr { // takes out labled Vars statement from scoped block
+										case EBlock(exprs2):
+											if (exprs2.length == 1) {
+												switch exprs2[0].expr {
+													case EVars(_):
+														exprs[i].expr = exprs2[0].expr;
+													default:
+												}
+											}
+										default:
+									}
 							}
 						default:
 					}
@@ -137,6 +149,7 @@ class Macro {
 				$switchStmt;
 			} while ($i{selectionName} != "");
 		};
+		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}
 

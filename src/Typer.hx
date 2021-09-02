@@ -716,7 +716,12 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool, need
 
 private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 	final name = makeString(stmt.label.name);
-	final stmt = typeStmt(stmt.stmt, info);
+	var stmt = typeStmt(stmt.stmt, info);
+	switch stmt.expr {
+		case EVars(_):
+			stmt = macro {${stmt}};
+		default:
+	}
 	info.gotoSystem = true;
 	return (macro @:label($name) $stmt).expr;
 }
@@ -848,17 +853,22 @@ private function className(name:String, info:Info):String {
 		return "Error";
 	if (name == "Error")
 		return "T_error";
-
-	if (!isTitle(name))
+	if (!isTitle(name) || isInvalidTitle(name))
 		name = "T_" + name;
 
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
 
-	// if (info.restricted != null && info.restricted.indexOf(name) != -1)
-	//	return getRestrictedName(name, info);
-
 	return name;
+}
+
+private function isInvalidTitle(name:String):Bool {
+	final c = name.charAt(0);
+	if ([for (i in 0...10 + 1) '$i'].indexOf(c) != -1)
+		return true;
+	if (c == "_")
+		return true;
+	return false;
 }
 
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
@@ -2290,7 +2300,12 @@ private function getTuple(e:Dynamic):Array<GoType> {
 	var vars:Array<Dynamic> = e.vars;
 	var tuples:Array<GoType> = [];
 	for (v in vars) {
-		tuples.push(_var(v.name, typeof(v.type)));
+		final t = typeof(v.type);
+		if (v.name == "_" || v.name == "") {
+			tuples.push(t);
+			continue;
+		}
+		tuples.push(_var(v.name, t));
 	}
 	return tuples;
 }
@@ -3644,12 +3659,6 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		info.returnTypes = returnTypes;
 		info.returnType = type;
 		info.returnComplexTypes = returnComplexTypes;
-	} else {
-		info.returnNames = [];
-		info.returnTypes = [];
-		info.returnType = null;
-		info.returnNamed = false;
-		info.returnComplexTypes = [];
 	}
 	return type;
 }

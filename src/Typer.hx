@@ -1459,6 +1459,11 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 			case structType(_):
 				y = macro $y.__copy__();
 			case named(_, _, _, type):
+				switch getUnderlying(type) {
+					case basic(_):
+						return y;
+					default:
+				}
 				if (!isInterface(type) && !isAnyInterface(type))
 					y = macro $y.__copy__();
 			default:
@@ -1470,7 +1475,7 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
-	// trace("\nfrom: " + fromType + "\nto: " + toType + "\nexpr: " + printer.printExpr(expr));
+	// trace("from: " + fromType + " to: " + toType + " expr: " + printer.printExpr(expr));
 	var y = expr;
 
 	if (fromType == null)
@@ -1956,7 +1961,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function iotaExpr(info:Info):Expr {
-	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "GoInt64", pack: []})));
+	return toExpr(ECheckType(toExpr(EConst(CInt(Std.string(info.iota)))), TPath({name: "GoUnTypedInt", pack: []})));
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
@@ -3053,18 +3058,29 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 			return translateEquals(x, y, typeX, typeY, op, info).expr;
 		default:
 	}
+	var paren = false;
 	switch op {
 		case OpXor:
 			return EBinop(op, x, y);
 		case OpShl, OpShr:
-			return EParenthesis(toExpr(EBinop(op, x, y))); // proper math ordering
+			paren = true;
+
 		default:
 	}
 	if (isInvalid(typeX) || isInterface(typeX)) {
 		x = macro Go.toInterface($x);
 		y = macro Go.toInterface($y);
 	}
-	return EBinop(op, x, y);
+
+	if (isNamed(typeX))
+		x = macro $x.__t__;
+	if (isNamed(typeY))
+		y = macro $y.__t__;
+	var e = toExpr(EBinop(op, x, y));
+	e = assignTranslate(getUnderlying(typeX), typeof(expr.type), e, info);
+	if (paren)
+		e = toExpr(EParenthesis(e)); // proper math ordering
+	return e.expr;
 }
 
 private function typeUnOp(token:Ast.Token):Unop {
@@ -3824,7 +3840,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		implicits.push(parseTypePath(imp.path, imp.name, info));
 	}
 
-	var t = typeof(spec.type);
+	var t = getUnderlying(typeof(spec.type));
 	var ct = typeExprType(spec.type, info);
 	var value = defaultValue(t, info, false);
 	var p:TypePath = {name: name, pack: []};

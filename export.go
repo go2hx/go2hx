@@ -791,9 +791,14 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
+	kind := 0
+	if value.Obj != nil {
+		kind = int(value.Obj.Kind)
+	}
 	data := map[string]interface{}{
 		"id":   "Ident",
 		"name": value.Name,
+		"kind": kind,
 	}
 	obj := checker.ObjectOf(value)
 	if obj != nil {

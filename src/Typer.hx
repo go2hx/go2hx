@@ -900,7 +900,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var data = castTranslate(spec.values[0], func, info);
 						func = data.expr;
 						if (data.ok)
-							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];
+							spec.names = [{name: "value", type: null, kind: typ}, {name: "ok", type: null, kind: typ}];
 						vars.push({
 							name: tmp,
 							expr: func
@@ -2055,9 +2055,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 	var ft = typeof(expr.fun);
 	final sig = isSignature(ft);
-	final invalid = isInvalid(ft);
-	final call = expr.fun.id == "CallExpr";
-	var notFunction = !sig && !invalid && !call;
+	var kind:Ast.ObjKind = expr.fun.id == "SelectorExpr" ? expr.fun.sel.kind : expr.fun.kind;
+	var notFunction = kind == Ast.ObjKind.typ || (!sig && !isInvalid(ft) && expr.fun.id != "CallExpr");
 	if (!notFunction && sig)
 		notFunction = expr.fun.id == "ParenExpr" && expr.fun.x.id == "FuncType" || expr.fun.id == "FuncType";
 	if (notFunction) {
@@ -4293,7 +4292,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;
 		if (data.ok)
-			value.names = [{name: "value", type: null}, {name: "ok", type: null}];
+			value.names = [{name: "value", type: null, kind: typ}, {name: "ok", type: null, kind: typ}];
 		values.push({
 			name: tmp,
 			pos: null,

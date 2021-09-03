@@ -8,8 +8,17 @@ typedef Stmt = Dynamic;
 typedef ExprType = Dynamic;
 typedef Decl = Dynamic;
 typedef Scope = Dynamic;
-typedef ObjKind = Int;
 typedef ChanDir = Int;
+
+enum abstract ObjKind(Int) {
+	public final bad = 0; // for error handling
+	public final pkg = 1; // package
+	public final con = 2; // constant
+	public final typ = 3; // type
+	public final _var = 4; // variable
+	public final fun = 5; // function or method
+	public final lbl = 7; // label
+}
 
 typedef Comment = {
 	text:String,
@@ -43,6 +52,7 @@ typedef BadExpr = {
 typedef Ident = {
 	name:String,
 	type:ExprType,
+	kind:ObjKind,
 }
 
 typedef Ellipsis = {
@@ -435,7 +445,7 @@ typedef Object = {
 typedef Position = {};
 typedef Pos = Int;
 
-@:enum abstract Token(String) {
+enum abstract Token(String) {
 	public final ILLEGAL = "ILLEGAL";
 	public final EOF = "EOF";
 	public final COMMENT = "COMMENT";

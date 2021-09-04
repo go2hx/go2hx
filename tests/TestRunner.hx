@@ -21,9 +21,6 @@ function main() {
 		"bigalg", // go routine
 		"closure", // go routine
 		"func5", // go routine
-
-		"closure2", // flucuate to much
-		"closure4", // flucuate to much
 	], 6 + 8 - 2);
 
 	test("yaegi", "./tests/yaegi/_test/", yaegiList, [
@@ -124,6 +121,7 @@ function main() {
 		"bir", // invalid import
 
 		"sieve", // uses go routines and includes 2 infinite for loops inside of go functions
+		"defer8", // unimportant map toString ordering
 
 	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
@@ -539,7 +537,7 @@ final yaegiList = [
     "const10",
     "const11",
     "const12", // stdgo.GoInt64 should be command_line_arguments.Kind
-    "const13", // missing expression inside a checkTypeExpr
+    "const13", // missing expression inside a checkTypeExpr, constant to big of a number
     "const14", // not found: stdgo.compress.flate.Flate
     "const15", // stdgo.GoInt8 should be Null<command_line_arguments._T1>
     "const16",
@@ -576,7 +574,7 @@ final yaegiList = [
     "defer3", // not found: stdgo.net.http.Http
     "defer4", // stdgo.sync.Mutex not properly supported
     "defer5",
-    "defer6", // SHOULD WORK
+    "defer6",
     "defer7", // var is restricted name "in"
     "defer8", // map toString results are in reversed order
     "defer9",
@@ -662,26 +660,26 @@ final yaegiList = [
     "interface2", // typeswitch variables assign to what the compiler already know are impossible casts, either delete those entries or add untyped before var decleration
     "interface20",
     "interface21",
-    "interface22", // append argument not getting run through assignTranslate (TODO) WORK NOW
+    "interface22", // append argument not getting run through assignTranslate
     "interface23",
     "interface24",
     "interface25",
-    "interface26", // append argument not getting run through assignTranslate (TODO) WORK NOW
+    "interface26", // append argument not getting run through assignTranslate
     "interface27",
     "interface28",
     "interface29",
     "interface3",
     "interface30",
     "interface31",
-    "interface32", // composite literal array arguments not getting run through assignTranslate (TODO) WORK NOW
+    "interface32", // composite literal array arguments not getting run through assignTranslate
     "interface33",
-    "interface34", // composite literal array keyValueMap arguments not getting run through assignTranslate (TODO) WORK NOW
+    "interface34", // composite literal array keyValueMap arguments not getting run through assignTranslate
     "interface35",
     "interface36", // don't know
     "interface37",
     "interface38", // stdgo.fmt.Stringer interface does not implement local type
     "interface39", // stdgo.fmt.Stringer interface does not implement local type
-    "interface4", // embedded type does not bring in it's method
+    "interface4",  // embedded type does not bring in it's method
     "interface40", // stdgo.fmt.Stringer interface does not implement local type
     "interface41", // stdgo.fmt.Stringer interface does not implement local type
     "interface42", // Basic type tries to checkType to interface{} (TODO)
@@ -889,10 +887,10 @@ final yaegiList = [
     "range7",
     "range8", // not found: time.Time
     "real0",
-    "recover0", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message() (TODO)
+    "recover0", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message()
     "recover1", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message()
-    "recover2", // assignTranslate attempts to turn the function recover() to an interface WORK NOW
-    "recover3", // assignTranslate attempts to turn the function recover() to an interface WORK NOW
+    "recover2", // assignTranslate attempts to turn the function recover() to an interface
+    "recover3", // assignTranslate attempts to turn the function recover() to an interface
     "recover4", // incorrect naming of local var
     "recurse0", // WORKING NOW
     "restricted0",

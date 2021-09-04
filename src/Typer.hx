@@ -309,7 +309,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 					if (getRecvName(recv.decl.recv.list[0].type, info) == def.name)
 						local.push(recv.decl);
 				}
-				var restrictedNames = [for (func in local) nameIdent(func.name.name, info)];
+				var restrictedNames = [for (func in local) nameIdent(func.name.name, false, false, info)];
 				var isNamed = false;
 				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
@@ -909,7 +909,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var tuples = getReturnTuple(type);
 						for (i in 0...spec.names.length) {
 							var fieldName = tuples[i];
-							var name = nameIdent(spec.names[i].name, info);
+							var name = nameIdent(spec.names[i].name, false, false, info);
 							vars.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
@@ -920,7 +920,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							// concat because this is in a for loop
 							for (i in 0...spec.names.length) {
 								var expr = typeExpr(spec.values[i], info);
-								var name = nameIdent(spec.names[i].name, info);
+								var name = nameIdent(spec.names[i].name, false, true, info);
 								var t = typeof(spec.type);
 								var exprType = type;
 								if (exprType == null) {
@@ -1097,7 +1097,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			switch lhs.id {
 				case "Ident":
 					var lhs:Ast.Ident = lhs;
-					setVar = nameIdent(lhs.name, info);
+					setVar = nameIdent(lhs.name, false, false, info);
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
 			}
@@ -1670,7 +1670,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
-					var name = nameIdent(stmt.lhs[i].name, info);
+					var name = nameIdent(stmt.lhs[i].name, false, true, info);
 
 					var t = typeof(stmt.lhs[i]);
 
@@ -1712,7 +1712,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id != "Ident")
 						throw "define left side not an ident";
-					var varName = nameIdent(stmt.lhs[i].name, info);
+					var varName = nameIdent(stmt.lhs[i].name, false, true, info);
 					var fieldName = names[i];
 					defines.push({name: varName, expr: macro __tmp__.$fieldName});
 				}
@@ -1919,11 +1919,11 @@ private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
 	function func(x:Ast.Expr, isSelector:Bool):Array<String> {
 		switch x.id {
 			case "Ident":
-				var name = nameIdent(x.name, info);
+				var name = nameIdent(x.name, true, false, info);
 				return [name];
 			case "SelectorExpr":
 				var x:Ast.SelectorExpr = x;
-				var name = nameIdent(x.sel.name, info);
+				var name = nameIdent(x.sel.name, true, false, info);
 				return [name].concat(func(x.x, true));
 			default:
 				trace("unknown x id: " + x.id);
@@ -2004,7 +2004,7 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 	if (expr.name == "iota" && !isSelect) {
 		return iotaExpr(info).expr;
 	}
-	var name = nameIdent(expr.name, info);
+	var name = nameIdent(expr.name, true, false, info);
 	return EConst(CIdent(name));
 }
 
@@ -2804,7 +2804,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			}
 			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
 		case IDENT:
-			EConst(CIdent(nameIdent(value, info)));
+			EConst(CIdent(nameIdent(value, false, false, info)));
 		case IMAG:
 			(macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))})).expr;
 		default:
@@ -2929,7 +2929,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 							// var fieldType = toComplexType(field.type,info);
 							value = assignTranslate(typeof(elt.value), field.type, value, info);
 							objectFields.push({
-								field: nameIdent(key, info),
+								field: nameIdent(key, false, true, info),
 								expr: value, // macro ($value : $fieldType),
 							});
 							fields.remove(field);
@@ -2942,7 +2942,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				}
 				for (field in fields) {
 					objectFields.push({
-						field: nameIdent(field.name, info),
+						field: nameIdent(field.name, false, false, info),
 						expr: defaultValue(field.type, info, false),
 					});
 				}
@@ -2951,7 +2951,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 					if (fields[i].name == "_")
 						continue;
 					objectFields.push({
-						field: nameIdent(fields[i].name, info),
+						field: nameIdent(fields[i].name, false, false, info),
 						expr: expr.elts.length > i ? {
 							var e = typeExpr(expr.elts[i], info);
 							e = assignTranslate(typeof(expr.elts[i]), fields[i].type, e, info);
@@ -3239,7 +3239,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var typeX = typeof(expr.x);
 	var isThis = false;
 
-	var sel = nameIdent(expr.sel.name, info);
+	var sel = nameIdent(expr.sel.name, false, false, info);
 
 	if (isPointer(typeX) && !isThis)
 		x = macro $x.value;
@@ -3248,7 +3248,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 		var chains:Array<String> = [];
 		function recursion(path:String, fields:Array<FieldType>) {
 			for (field in fields) {
-				var setPath = path + nameIdent(field.name, info);
+				var setPath = path + nameIdent(field.name, false, false, info);
 				chains.push(setPath);
 				setPath += ".";
 				var structFields = getStructFields(field.type);
@@ -3384,7 +3384,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
-	var name = nameIdent(decl.name.name, info);
+	var name = nameIdent(decl.name.name, true, false, info);
 	if (decl.name.name == "init") {
 		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):
@@ -3416,7 +3416,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		if (varName != "") {
-			varName = nameIdent(varName, info);
+			varName = nameIdent(varName, false, true, info);
 			info.thisName = varName;
 			switch block.expr {
 				case EBlock(exprs):
@@ -3772,7 +3772,7 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 		}
 		for (name in field.names) {
 			args.push({
-				name: nameIdent(name.name, info),
+				name: nameIdent(name.name, false, false, info),
 				type: type,
 			});
 		}
@@ -3807,7 +3807,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		for (n in field.names) {
 			var name = n.name;
 			fields.push({
-				name: nameIdent(name, info),
+				name: nameIdent(name, true, false, info),
 				pos: null,
 				access: typeAccess(n.name, true),
 				kind: FFun({
@@ -3837,7 +3837,7 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		fields.push({
-			name: nameIdent(name, info),
+			name: nameIdent(name, false, false, info),
 			pos: null,
 			meta: meta,
 			access: access == null ? typeAccess(name, true) : access,
@@ -3897,7 +3897,7 @@ private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDef
 		var type = typeExprType(field.type, info);
 		for (name in field.names) {
 			defs.push({
-				name: nameIdent(name.name, info),
+				name: nameIdent(name.name, false, false, info),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -4047,7 +4047,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				switch type {
 					case structType(fs):
 						for (field in fs) {
-							final name = nameIdent(field.name, info);
+							final name = nameIdent(field.name, true, false, info);
 							params.push(macro $i{name});
 							args.push({opt: true, name: name});
 						}
@@ -4297,7 +4297,11 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	}
 	var name = path[path.length - 1];
 	path.push(title(name)); // shorten path here
-	info.renameIdents[name] = path.join(".");
+	if (alias != null && alias != "") {
+		info.renameIdents[alias] = path.join(".");
+	} else {
+		info.renameIdents[name] = path.join(".");
+	}
 	return {
 		path: path,
 		alias: alias,
@@ -4339,7 +4343,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			if (value.constants[i])
 				access.push(AFinal);
 			values.push({
-				name: nameIdent(value.names[i].name, info),
+				name: nameIdent(value.names[i].name, false, true, info),
 				pos: null,
 				pack: [],
 				fields: [],
@@ -4372,7 +4376,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				continue;
 			if (type == null)
 				type = toComplexType(typeof(value.values[i]), info);
-			var name = nameIdent(value.names[i].name, info);
+			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
 			if (value.constants[i])
@@ -4437,7 +4441,7 @@ private function getRestrictedName(name:String, info:Info):String {
 	return name;
 }
 
-private function nameIdent(name:String, info:Info):String {
+private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
 	if (name == "nil")
 		return "null";
 	if (name == "null")
@@ -4448,7 +4452,8 @@ private function nameIdent(name:String, info:Info):String {
 		return "_" + name;
 	if (name == "String")
 		return "toString";
-	if (info.renameIdents.exists(name)) {
+	var oldName = name;
+	if (info.renameIdents.exists(name) && rename) {
 		name = info.renameIdents[name];
 	} else {
 		if (name.charAt(0) == "_") {
@@ -4471,6 +4476,9 @@ private function nameIdent(name:String, info:Info):String {
 		name = getRestrictedName(name, info);
 	if (reserved.indexOf(name) != -1)
 		name = name + "_";
+	if (overwrite) {
+		info.renameIdents[oldName] = name;
+	}
 	return name;
 }
 

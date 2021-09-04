@@ -1078,7 +1078,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			var stmt:Ast.ExprStmt = stmt.assign;
 			switch stmt.x.id {
 				case "TypeAssertExpr":
-					var stmt:Ast.TypeAssertExpr = stmt.x;
+					final stmt:Ast.TypeAssertExpr = stmt.x;
 					assign = typeExpr(stmt.x, info);
 				default:
 					trace("unknown assign expr: " + stmt.x.id);
@@ -1088,15 +1088,15 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			var rhs = stmt.rhs[0];
 			switch rhs.id {
 				case "TypeAssertExpr":
-					var rhs:Ast.TypeAssertExpr = rhs;
+					final rhs:Ast.TypeAssertExpr = rhs;
 					assign = typeExpr(rhs.x, info);
 				default:
 					trace("unknown assign rhs type switch expr: " + rhs.id);
 			}
-			var lhs = stmt.lhs[0];
+			final lhs = stmt.lhs[0];
 			switch lhs.id {
 				case "Ident":
-					var lhs:Ast.Ident = lhs;
+					final lhs:Ast.Ident = lhs;
 					setVar = nameIdent(lhs.name, false, false, info);
 				default:
 					trace("unknown assign lhs type switch expr: " + rhs.id);
@@ -1104,29 +1104,24 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		default:
 			trace("unknown assign: " + stmt.assign.id);
 	}
-	var types:Array<ComplexType> = [];
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
 			return null;
-		var type = typeExprType(obj.list[i], info);
-		types.push(type);
-		var value = macro Go.assignable(($assign : $type));
+		final type = typeExprType(obj.list[i], info);
+		final value = macro Go.assignable(($assign : $type));
 		if (i + 1 >= obj.list.length)
 			return value;
-		var next = condition(obj, i + 1);
+		final next = condition(obj, i + 1);
 		return toExpr(EBinop(OpBoolOr, value, next));
 	}
 	function ifs(i:Int = 0) {
-		var obj:Ast.CaseClause = stmt.body.list[i];
-		types = [];
-		var cond = condition(obj);
-		var block = toExpr(typeStmtList(obj.body, info, false));
+		final obj:Ast.CaseClause = stmt.body.list[i];
+		final cond = condition(obj);
+		final block = toExpr(typeStmtList(obj.body, info, false));
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):
-					var type:ComplexType = anyInterfaceType();
-					if (types.length == 1)
-						type = types[0];
+					final type:ComplexType = TPath({name: "Dynamic", pack: []}); // type = types[0];
 					exprs.unshift(macro var $setVar:$type = $assign);
 					block.expr = EBlock(exprs);
 				default:
@@ -1136,7 +1131,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		if (i + 1 >= stmt.body.list.length)
 			return cond == null ? macro $block : macro if ($cond)
 				$block;
-		var next = ifs(i + 1);
+		final next = ifs(i + 1);
 		return macro if ($cond)
 			$block
 		else
@@ -1147,7 +1142,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	return ifs().expr;
 }
 
-private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op, info:Info):Expr {
+private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {
 	switch typeX {
 		case named(path, _, _, _):
 			if (path == "reflect.Type") {
@@ -1215,6 +1210,14 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op,
 			default:
 				return macro $value != null && !$value.isNil();
 		}
+	}
+	if (isInterface(typeX) || isInterface(typeY)) {
+		if (isPointer(typeX))
+			x = macro $x.value;
+		if (isPointer(typeY))
+			y = macro $y.value;
+		x = macro Go.toInterface($x);
+		y = macro Go.toInterface($y);
 	}
 	var t = getUnderlying(typeX);
 	switch t {
@@ -2564,6 +2567,9 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
+		var last = pack.pop();
+		pack.push(last);
+		pack.push(title(last));
 	}
 	return {name: cl, pack: pack};
 }
@@ -3006,7 +3012,8 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				var params:Array<Expr> = [];
 				for (i in 0...exprs.length) {
 					var e = exprs[i].expr;
-					e = assignTranslate(typeof(expr.elts[i]), elem, e, info);
+					final t = typeof(expr.elts[i]);
+					e = assignTranslate(t, elem, e, info);
 					params.push(e);
 				}
 				return (macro new $p($a{params})).expr;
@@ -3039,9 +3046,10 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				var length = toExpr(EConst(CInt('$len')));
 				var value = defaultValue(elem, info, false);
 				var sets:Array<Expr> = [];
-				for (expr in exprs) {
-					var index = toExpr(EConst(CInt('${expr.index}')));
-					var value = expr.expr;
+				for (i in 0...exprs.length) {
+					var index = toExpr(EConst(CInt('${exprs[i].index}')));
+					var value = exprs[i].expr;
+					value = assignTranslate(typeof(expr.elts[i]), elem, value, info);
 					sets.push(macro s[$index] = $value);
 				}
 				sets.push(macro s);
@@ -3057,7 +3065,9 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 							continue;
 						}
 					}
-					exprs.push(typeExpr(elt, info));
+					var e = typeExpr(elt, info);
+					e = assignTranslate(typeof(elt), elem, e, info);
+					exprs.push(e);
 				}
 				if (len == exprs.length)
 					return (macro new $p($a{exprs})).expr;
@@ -4085,7 +4095,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	if (spec.type.type != null) {
 		final hash:String = spec.type.type.hash;
 		if (!locals.exists(hash)) {
-			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path, []) : typeof(spec.type);
+			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path) : typeof(spec.type);
 			switch nameType {
 				case structType(_):
 					nameType = named(spec.name.type.path, [], [], nameType);
@@ -4249,7 +4259,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 			}
 			var fields = typeFieldListMethods(struct.methods, info);
-			//embedded interfaces
+			// embedded interfaces
 			final implicits:Array<TypePath> = [];
 			if (struct.methods != null && struct.methods.list != null)
 				for (method in struct.methods.list) {

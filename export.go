@@ -127,6 +127,7 @@ func compile(params []string, excludesData excludesType) []byte {
 
 	typeHasher = typeutil.MakeHasher()
 
+	excludes = make(map[string]bool)
 	//parse interfaces 1st past
 	for _, pkg := range initial {
 		parseInterface(pkg)

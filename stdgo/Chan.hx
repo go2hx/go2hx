@@ -56,6 +56,12 @@ class Chan<T> {
 		return _cap == -1 ? length : _cap;
 	}
 
+	public function toString() {
+		if (this.setNil)
+			return "null";
+		return "0x0";
+	}
+
 	public inline function close() {
 		closed = true;
 	}

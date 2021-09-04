@@ -17,16 +17,16 @@ inline function unquote(s:GoString):{_i:GoString, ?_err:Error} { // TODO check i
 	return {_i: s};
 }
 
-inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_i:GoInt, ?_err:Error} {
+inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?v1:Error} {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
-			return {_i: 0, _err: stdgo.errors.Errors.new_('parsing "$s": invalid syntax')};
-		return {_i: value};
+			return {v0: 0, v1: stdgo.errors.Errors.new_('parsing "$s": invalid syntax')};
+		return {v0: value};
 	} catch (e) {
 		if (s.substr(0, 2) == "0x")
 			return parseInt(s.substr(2), 0, 0);
-		return {_i: 0, _err: stdgo.errors.Errors.new_(e.message)};
+		return {v0: 0, v1: stdgo.errors.Errors.new_(e.message)};
 	}
 }
 
@@ -69,7 +69,7 @@ private function rangeError(fn:GoString, str:GoString):NumError {
 
 inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?v1:Error} {
 	final o = parseInt(s, base, bitSize);
-	return {v0: o._i, v1: o._err};
+	return {v0: o.v0, v1: o.v1};
 }
 
 // `Atoi` is a convenience function for basic base-10

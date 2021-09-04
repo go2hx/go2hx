@@ -2010,9 +2010,41 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
+	var tupleArg:Expr = null;
+	function returnExpr(e:Expr):ExprDef {
+		if (tupleArg != null) {
+			switch tupleArg.expr {
+				case EBlock(exprs):
+					exprs.unshift(macro var __tmp__ = $tupleArg);
+				default:
+					e = macro {
+						var __tmp__ = $tupleArg;
+						$e;
+					};
+			}
+		}
+		return e.expr;
+	}
 	function genArgs(translateType:Bool, pos:Int = 0) {
 		final exprArgs = expr.args.slice(pos);
 		args = [for (arg in exprArgs) typeExpr(arg, info)];
+		if (args.length == 1) {
+			final t = typeof(exprArgs[0]);
+			if (t != null) {
+				switch t {
+					case tuple(len, _):
+						if (len > 1) {
+							tupleArg = args[0];
+							final names = getReturnTuple(t);
+							for (i in 0...names.length) {
+								final fieldName = names[i];
+								args[i] = macro __tmp__.$fieldName;
+							}
+						}
+					default:
+				}
+			}
+		}
 		// ellipsis
 		if (expr.ellipsis != 0) {
 			var last = args.pop();
@@ -2063,7 +2095,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
 		final fromType = typeof(expr.args[0]);
-		return checkType(e, ct, fromType, typeof(expr.fun), info).expr;
+		return returnExpr(checkType(e, ct, fromType, typeof(expr.fun), info));
 	}
 
 	switch expr.fun.id {
@@ -2074,10 +2106,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		case "FuncLit":
 			var expr = typeExpr(expr.fun, info);
 			genArgs(true);
-			return (macro {
+			return returnExpr(macro {
 				var a = $expr;
 				a($a{args});
-			}).expr;
+			});
 		case "Ident":
 			expr.fun.name = expr.fun.name;
 			switch expr.fun.name {
@@ -2085,23 +2117,23 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					expr.fun.name = "toString";
 				case "panic":
 					genArgs(false);
-					return (macro throw ${args[0]}).expr;
+					return returnExpr(macro throw ${args[0]});
 				case "recover":
-					return (macro Go.recover()).expr;
+					return returnExpr(macro Go.recover());
 				case "append":
 					genArgs(false);
 					var e = args.shift();
 					if (args.length == 0)
-						return e.expr;
+						return returnExpr(e);
 					var eType = getElem(typeof(expr.args[0]));
 					for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
 						final aType = typeof(expr.args[i + 1]);
 						args[i] = assignTranslate(aType, eType, args[i], info);
 					}
-					return (macro $e.append($a{args})).expr;
+					return returnExpr(macro $e.append($a{args}));
 				case "copy":
 					genArgs(false);
-					return (macro Go.copy($a{args})).expr;
+					return returnExpr(macro Go.copy($a{args}));
 				case "delete":
 					var e = typeExpr(expr.args[0], info);
 					var key = typeExpr(expr.args[1], info);
@@ -2114,52 +2146,52 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						default:
 							throw "first arg of delete builtin function not of type map: " + t;
 					}
-					return (macro $e.remove($key)).expr;
+					return returnExpr(macro $e.remove($key));
 				case "print":
 					genArgs(false);
-					return (macro stdgo.fmt.Fmt.print($a{args})).expr;
+					return returnExpr(macro stdgo.fmt.Fmt.print($a{args}));
 				case "println":
 					genArgs(false);
-					return (macro stdgo.fmt.Fmt.println($a{args})).expr;
+					return returnExpr(macro stdgo.fmt.Fmt.println($a{args}));
 				case "complex":
 					genArgs(false);
-					return (macro new GoComplex128($a{args})).expr;
+					return returnExpr(macro new GoComplex128($a{args}));
 				case "real":
 					var e = typeExpr(expr.args[0], info);
 					var t = typeof(expr.args[0]);
 					if (isNamed(t))
 						e = macro $e.__t__;
-					return (macro $e.real).expr;
+					return returnExpr(macro $e.real);
 				case "imag":
 					var e = typeExpr(expr.args[0], info);
 					var t = typeof(expr.args[0]);
 					if (isNamed(t))
 						e = macro $e.__t__;
-					return (macro $e.imag).expr;
+					return returnExpr(macro $e.imag);
 				case "close":
 					var e = typeExpr(expr.args[0], info);
 					var t = typeof(expr.args[0]);
 					if (isNamed(t))
 						e = macro $e.__t__;
-					return (macro $e.close()).expr;
+					return returnExpr(macro $e.close());
 				case "cap":
 					var e = typeExpr(expr.args[0], info);
 					var t = typeof(expr.args[0]);
 					if (isNamed(t))
 						e = macro $e.__t__;
-					return (macro $e.cap()).expr;
+					return returnExpr(macro $e.cap());
 				case "len":
 					var e = typeExpr(expr.args[0], info);
 					var t = typeof(expr.args[0]);
 					if (isNamed(t))
 						e = macro $e.__t__;
 					t = getUnderlying(t);
-					return switch t {
+					return returnExpr(switch t {
 						case mapType(_, _):
-							(macro($e == null ? 0 : $e.length)).expr;
+							(macro($e == null ? 0 : $e.length));
 						default:
-							(macro $e.length).expr;
-					}
+							(macro $e.length);
+					});
 				case "new": // create default value put into pointer
 					var t = typeExprType(expr.args[0], info);
 					switch t {
@@ -2167,9 +2199,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							var t = typeof(expr.args[0]);
 							var value = defaultValue(t, info, true);
 							if (isInterface(t)) {
-								return (macro Go.pointer($value, true)).expr;
+								return returnExpr(macro Go.pointer($value, true));
 							} else {
-								return (macro Go.pointer($value)).expr;
+								return returnExpr(macro Go.pointer($value));
 							}
 
 						default:
@@ -2197,7 +2229,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							var param = toComplexType(elem, info);
 							var value = defaultValue(elem, info);
 							if (size == null)
-								return (macro new Slice<$param>()).expr;
+								return returnExpr(macro new Slice<$param>());
 							macro new Slice<$param>(...[for (i in 0...$size) $value]);
 						case mapType(key, value):
 							var t = toReflectType(type);
@@ -2224,7 +2256,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							default:
 						}
 					}
-					return e.expr;
+					return returnExpr(e);
 			}
 	}
 	var e = typeExpr(expr.fun, info);
@@ -2241,7 +2273,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 
 	if (args.length == 0)
 		genArgs(!isFmtPrint);
-	return (macro $e($a{args})).expr;
+	return returnExpr(macro $e($a{args}));
 }
 
 private function toReflectType(t:GoType):Expr {

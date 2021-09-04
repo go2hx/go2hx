@@ -287,17 +287,16 @@ function getReturnTuple(type:GoType):Array<String> {
 	switch type {
 		case tuple(_, vars):
 			var index = 0;
-		/*return [
+			return [
 				for (i in 0...vars.length) {
 					switch vars[i] {
-						case fieldType(name, _):
+						case _var(name, _):
 							name;
 						default:
 							"v" + (index++);
 					}
 				}
-			]; */
-		// TODO
+			];
 		default:
 			throw "type is not a tuple: " + type;
 	}

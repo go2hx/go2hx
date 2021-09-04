@@ -4249,6 +4249,14 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 			}
 			var fields = typeFieldListMethods(struct.methods, info);
+			//embedded interfaces
+			final implicits:Array<TypePath> = [];
+			if (struct.methods != null && struct.methods.list != null)
+				for (method in struct.methods.list) {
+					if (method.names.length == 0) {
+						implicits.push(getTypePath(typeof(method.type), info));
+					}
+				}
 			fields.push({
 				name: "__underlying__",
 				pos: null,
@@ -4266,7 +4274,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				fields: fields,
 				isExtern: externBool,
 				meta: meta,
-				kind: TDClass(null, [], true) // INTERFACE
+				kind: TDClass(null, implicits, true) // INTERFACE
 			};
 		default:
 			return null;

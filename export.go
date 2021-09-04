@@ -237,6 +237,10 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 				switch spec := spec.(type) {
 				case *ast.TypeSpec:
 					t := checker.TypeOf(spec.Type)
+					switch t.(type) {
+					case *types.Named:
+						t = t.Underlying()
+					}
 					switch t := t.(type) {
 					case *types.Interface:
 						if t.NumMethods() > 0 {

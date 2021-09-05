@@ -61,6 +61,10 @@ private class RuntimeErrorData implements Error implements StructType {
 		return message;
 	}
 
+	public function toString():String {
+		return message;
+	}
+
 	public function runtimeError():Void {}
 }
 

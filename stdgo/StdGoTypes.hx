@@ -1994,6 +1994,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		return !equals(a, b);
 	}
 
+	public function __underlying__():AnyInterface
+		return this;
+
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";

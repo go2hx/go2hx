@@ -156,7 +156,7 @@ class Go {
 		return panicWrap(expr);
 	}
 
-	public static macro function assignable(expr:Expr) {
+	public static macro function assertable(expr:Expr) {
 		function parens(expr) {
 			return switch expr.expr {
 				case EParenthesis(e): parens(e);
@@ -177,7 +177,12 @@ class Go {
 						if (cl.isInterface) e = macro $e.__underlying__();
 					default:
 				}
-				return macro $e.type.assignableTo(new stdgo.reflect.Reflect._Type($value));
+				return macro {
+					final v = new stdgo.reflect.Reflect._Type($value);
+					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v,
+						$e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type, false)
+					;
+				};
 			default:
 				Context.error("unknown assignable expr: " + expr.expr, Context.currentPos());
 				return macro null;
@@ -271,7 +276,7 @@ class Go {
 
 	public static macro function recover() {
 		return untyped macro {
-			var r = stdgo.runtime.Runtime.newRuntime(recover_exception.toString());
+			var r = recover_exception != null ? stdgo.runtime.Runtime.newRuntime(recover_exception.toString()) : null;
 			recover_exception = null;
 			r;
 		}

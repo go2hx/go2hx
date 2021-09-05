@@ -1350,7 +1350,7 @@ class _Type implements StructType implements Type {
 	public function assignableTo(ot:Type):Bool {
 		if (ot == null)
 			throw "reflect: nil type passed to Type.AssignableTo";
-		return directlyAssignable(ot, this) || implementsMethod(ot, this);
+		return directlyAssignable(ot, this) || implementsMethod(ot, this, true);
 	}
 
 	public function implements_(ot:Type):Bool {
@@ -1358,7 +1358,7 @@ class _Type implements StructType implements Type {
 			throw "reflect: nil type passed to Type.Implements";
 		if (ot.kind() != interface_)
 			throw "reflect: non-interface type passed to Type.Implements: " + ot.kind();
-		return implementsMethod(ot, this);
+		return implementsMethod(ot, this, true);
 	}
 
 	public function comparable():Bool {
@@ -1538,14 +1538,15 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 	var vgt:GoType = @:privateAccess v.common().value;
 
 	switch tgt {
-		case named(path, _, _, _):
+		case named(path, _, _, _), interfaceType(_, path, _):
 			switch vgt {
-				case named(path2, _, _, _):
-					if (path == path2) return true;
+				case named(path2, _, _, _), interfaceType(_, path2, _):
+					return path == path2;
 				default:
 			}
 		default:
 	}
+
 	tgt = getUnderlying(tgt);
 	vgt = getUnderlying(vgt);
 	return switch tgt {
@@ -1643,24 +1644,18 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 
 private function sortMethods(methods:Array<MethodType>) {
 	methods.sort((a, b) -> {
-		switch a {
-			/*case GT_field(name, _, _, _):
-				switch b {
-					case GT_field(name2, _, _, _):
-						return name > name2 ? 1 : -1;
-					default:
-			}*/
-			default:
-				throw "unknown method type: " + a;
-		}
-		return 0;
+		return a.name > b.name ? 1 : -1;
 	});
 }
 
-private function implementsMethod(t:Type, v:Type):Bool {
+private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
+
+	if (!canBeNamed && t.kind() != interface_)
+		return false;
+
 	return switch gt {
 		case interfaceType(_, _, methods), named(_, methods, _, _):
 			if (methods == null || methods.length == 0)

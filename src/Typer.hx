@@ -639,7 +639,9 @@ private function typeGoto(label:Expr):Expr {
 private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	return switch stmt.tok {
 		case CONTINUE: EContinue;
-		case BREAK: EBreak;
+		case BREAK:
+			info.global.hasBreak = true;
+			EBreak;
 		case GOTO:
 			final name = makeString(stmt.label.name);
 			return typeGoto(name).expr;
@@ -1104,34 +1106,52 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		default:
 			trace("unknown assign: " + stmt.assign.id);
 	}
+	var types:Array<ComplexType> = [];
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
 			return null;
 		final type = typeExprType(obj.list[i], info);
-		final value = macro Go.assignable(($assign : $type));
+		types.push(type);
+		final value = macro Go.assertable(($assign : $type));
 		if (i + 1 >= obj.list.length)
 			return value;
 		final next = condition(obj, i + 1);
 		return toExpr(EBinop(OpBoolOr, value, next));
 	}
+	var defaultBlock:Expr = null;
 	function ifs(i:Int = 0) {
 		final obj:Ast.CaseClause = stmt.body.list[i];
+		types = [];
 		final cond = condition(obj);
 		final block = toExpr(typeStmtList(obj.body, info, false));
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):
-					final type:ComplexType = TPath({name: "Dynamic", pack: []}); // type = types[0];
-					exprs.unshift(macro var $setVar:$type = $assign);
+					var type:ComplexType = anyInterfaceType();
+					var set = macro $assign.__underlying__();
+					if (types.length == 1) {
+						type = types[0];
+						set = macro $set.value;
+					}
+					exprs.unshift(macro var $setVar:$type = $set);
 					block.expr = EBlock(exprs);
 				default:
 			}
 		}
-
-		if (i + 1 >= stmt.body.list.length)
-			return cond == null ? macro $block : macro if ($cond)
-				$block;
+		if (cond == null)
+			defaultBlock = block;
+		if (i + 1 >= stmt.body.list.length) {
+			if (cond == null)
+				return block;
+			return defaultBlock == null ? macro if ($cond)
+				$block : macro if ($cond)
+					$block
+				else
+					$defaultBlock;
+		}
 		final next = ifs(i + 1);
+		if (cond == null)
+			return next;
 		return macro if ($cond)
 			$block
 		else
@@ -1319,21 +1339,48 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		var cond = condition(obj);
 		info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
 		var block = toExpr(typeStmtList(obj.body, info, false));
-
+		if (cond == null)
+			defaultBlock = block;
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
-				defaultBlock = block;
-			return cond == null ? macro $block : macro if ($cond)
-				$block;
+				return block;
+			return defaultBlock == null ? macro if ($cond)
+				$block : macro if ($cond)
+					$block
+				else
+					$defaultBlock;
 		}
 		var next = ifs(i + 1);
+		if (cond == null)
+			return next;
 		return macro if ($cond)
 			$block
 		else
 			$next;
 	}
+	info.global.hasBreak = false;
 	var expr = ifs();
-	if (hasFallThrough) {
+	if (hasFallThrough || info.global.hasBreak) {
+		if (info.global.hasBreak) {
+			switch expr.expr {
+				case EIf(_, eif, eelse):
+					switch eif.expr {
+						case EBlock(exprs):
+							exprs.push(macro break);
+							eif.expr = EBlock(exprs);
+						default:
+					}
+					if (eelse != null) {
+						switch eelse.expr {
+							case EBlock(exprs):
+								exprs.push(macro break);
+								eelse.expr = EBlock(exprs);
+							default:
+						}
+					}
+				default:
+			}
+		}
 		var needsReturn = exprWillReturn(expr);
 		if (defaultBlock != null) {
 			expr = macro if (__default__)
@@ -4519,6 +4566,7 @@ private function formatHaxeFieldName(name:String) {
 class Global {
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
+	public var hasBreak:Bool = false;
 	public var module:Module = null;
 
 	public inline function new() {}

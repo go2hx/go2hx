@@ -137,10 +137,10 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 private class SliceKeyValueIterator<T> {
 	var pos:Int = 0;
-	var slice:SliceData<T>;
+	var slice:Slice<T>;
 
-	public inline function new(slice) {
-		this.slice = slice;
+	public inline function new(slice:Slice<T>) {
+		this.slice = slice.copy();
 	}
 
 	public inline function hasNext() {
@@ -154,7 +154,7 @@ private class SliceKeyValueIterator<T> {
 
 private class SliceIterator<T> {
 	var pos:Int = 0;
-	var slice:SliceData<T>;
+	var slice:Slice<T>;
 
 	public inline function new(slice) {
 		this.slice = slice;

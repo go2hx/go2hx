@@ -107,7 +107,7 @@ class Go {
 		switch t {
 			case TType(t, params):
 				final t = t.get();
-				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name != "GoByte" && t.name == "GoRune" && t.name == "GoFloat")) {
+				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat")) {
 					follow = false;
 				}
 			default:

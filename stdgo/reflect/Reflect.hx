@@ -1146,6 +1146,8 @@ class _Type implements StructType implements Type {
 	public function toString():GoString {
 		return switch (gt) {
 			case basic(kind):
+				if (kind == untyped_int_kind)
+					kind = int_kind;
 				var name = kind.getName();
 				name = name.substr(0, name.length - 5);
 				name;
@@ -1785,28 +1787,15 @@ final unsafePointer:Kind = new Kind(_unsafePointer);
 final __string = toString;
 
 @:structInit @:allow(github_com.go2hx.go4hx.rnd) final private class Visit {
-	// public var _a1:stdgo.unsafe.Unsafe.Pointer = null;
-	// public var _a2:stdgo.unsafe.Unsafe.Pointer = null;
 	public var _typ:Type = null;
 
-	public function new(/*?_a1, ?_a2,*/ ?_typ) {}
+	public function new(?_typ) {}
 }
 
 function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
 		return v1.isValid() == v2.isValid();
 	};
-	/*var hard = function(v1:Value, v2:Value):Bool {
-			if (v1.kind() == ptr) {
-				if ((v1.interface_().value : Pointer<Dynamic>) == (v2.interface_().value : Pointer<Dynamic>))
-					return false;
-			}
-			if (v1.kind() == map || v1.kind() == slice || v1.kind() == interface_) {
-				return !v1.isNil() && !v2.isNil();
-			};
-			return false;
-		};
-		if (hard(v1, v2)) {}; */
 	if (v1.kind() == array) {
 		{
 			var i:GoInt = 0;
@@ -1841,7 +1830,6 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 			return v1.isNil() == v2.isNil();
 		};
 		return true;
-		// return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
 	} else if (v1.kind() == ptr) {
 		if (v1.pointer() == v2.pointer()) {
 			return true;
@@ -1881,7 +1869,6 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 		};
 		return false;
 	} else {
-		// TODO
 		return v1.interface_() == v2.interface_();
 	};
 }
@@ -1895,8 +1882,5 @@ function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
 	};
 	var v1 = valueOf(x);
 	var v2 = valueOf(y);
-	/*if (!v1.type().implements_(v2.type())) {
-		return false;
-	};*/
 	return deepValueEqual(v1, v2, null, 0);
 }

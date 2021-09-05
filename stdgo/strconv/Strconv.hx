@@ -6,7 +6,7 @@ function parseFloat(s:GoString, bitSize:GoInt64):{_i:GoFloat, ?_err:Error} {
 	try {
 		return {_i: Std.parseFloat(s.toString())};
 	} catch (e) {
-		return {_i: 0, _err: stdgo.errors.Errors.new_(e.message)};
+		return {_i: 0, _err: syntaxError("parseFloat", s)};
 	}
 }
 
@@ -21,12 +21,15 @@ inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
-			return {v0: 0, v1: stdgo.errors.Errors.new_('parsing "$s": invalid syntax')};
+			return {v0: 0, v1: syntaxError("parseInt", s)};
 		return {v0: value};
 	} catch (e) {
 		if (s.substr(0, 2) == "0x")
 			return parseInt(s.substr(2), 0, 0);
-		return {v0: 0, v1: stdgo.errors.Errors.new_(e.message)};
+		return {
+			v0: 0,
+			v1: syntaxError("parseInt", s)
+		};
 	}
 }
 

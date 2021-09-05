@@ -850,7 +850,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		}
 	}
 	x = toGoType(x);
-	var e = macro for (_obj in $x.keyValueIterator()) $body;
+	var e = macro for (_obj in $x.copy().keyValueIterator()) $body;
 	if (hasDefer) {
 		var inits:Array<Expr> = [];
 		if (keyString != "_")

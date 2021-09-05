@@ -1289,7 +1289,7 @@ abstract GoInt8(Int8) from Int8 from Int {
 		return clamp(Std.int(a.toBasic() - b.toBasic()));
 
 	@:op(A * B) private static function mul(a:GoInt8, b:GoInt8):GoInt8
-		return clamp(Std.int(a.toBasic() - b.toBasic()));
+		return clamp(Std.int(a.toBasic() * b.toBasic()));
 
 	@:op(A & B) private static function and(a:GoInt8, b:GoInt8):GoInt8
 		return clamp(Std.int(a.toBasic() & b.toBasic()));

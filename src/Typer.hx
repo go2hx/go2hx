@@ -643,7 +643,15 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case CONTINUE: EContinue;
 		case BREAK:
 			info.global.hasBreak = true;
-			EBreak;
+			if (stmt.label != null) {
+				(macro {
+					____exit____ = true;
+					____break____ = true;
+					break;
+				}).expr;
+			} else {
+				EBreak;
+			}
 		case GOTO:
 			final name = makeString(stmt.label.name);
 			return typeGoto(name).expr;

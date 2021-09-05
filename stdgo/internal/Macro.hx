@@ -26,8 +26,9 @@ class Macro {
 	}
 
 	public static macro function controlFlow(body:Expr) {
-		var selectionName = "____select____";
-		var exitName = "____exit____";
+		final selectionName = "____select____";
+		final exitName = "____exit____";
+		final breakName = "____break____";
 		var func = null;
 		var cases:Array<Case> = [];
 		var vars:Array<Var> = [];
@@ -48,7 +49,10 @@ class Macro {
 			return macro {
 				$e;
 				if ($i{exitName})
-					${inLoop?macro break:macro continue};
+					${
+						inLoop?macro break:macro if (!$i{breakName})
+							continue
+					};
 			}
 		}
 		func = function(expr:haxe.macro.Expr, inLoop:Bool, scopeIndex:Int):Expr {
@@ -61,7 +65,10 @@ class Macro {
 								${inLoop ? macro {$i{exitName} = true; break;} : macro continue};
 							};
 						default:
-							expr;
+							{
+								expr: EMeta(s, func(e, inLoop, scopeIndex)),
+								pos: Context.currentPos(),
+							};
 					}
 				case EWhile(econd, e, normalWhile):
 					expr.expr = EWhile(econd, func(e, true, scopeIndex), normalWhile);
@@ -72,8 +79,9 @@ class Macro {
 					expr = loop(expr, inLoop);
 					expr;
 				case EBlock(exprs):
+					scopeIndex++;
 					for (i in 0...exprs.length)
-						exprs[i] = func(exprs[i], inLoop, ++scopeIndex);
+						exprs[i] = func(exprs[i], inLoop, scopeIndex);
 					expr.expr = EBlock(exprs);
 					expr;
 				case EIf(econd, eif, eelse):
@@ -155,6 +163,7 @@ class Macro {
 		final e = macro {
 			var $selectionName = "";
 			var $exitName = false;
+			var $breakName = false;
 			$v;
 			do {
 				$i{exitName} = false;

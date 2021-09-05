@@ -60,6 +60,8 @@
     "net/url",
     "net",
     "net/http",
+    "net/http/httptest",
+    "testing",
     "encoding/xml",
     "time",
     "text/scanner",

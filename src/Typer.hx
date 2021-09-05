@@ -134,7 +134,8 @@ function main(data:DataType, printGoCode:Bool = false) {
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
-			file.path = className(normalizePath(Path.withoutExtension(file.path)), info);
+			file.path = className(normalizePath(Path.withoutExtension(file.path)), info); // file naming
+			info.global.filePath = file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
@@ -629,6 +630,7 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
+	throw unsupportedMessage("select statement", info);
 	return typeBlockStmt(stmt.body, info, false);
 }
 
@@ -664,7 +666,15 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	}
 }
 
+private function unsupportedMessage(message:String, info:Info):String {
+	final name = info.global.filePath;
+	final path = info.global.path;
+	trace(info.funcName);
+	return '$message is unsupported: $path/$name';
+}
+
 private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
+	throw unsupportedMessage("go statement", info);
 	var call = typeExpr(stmt.call, info);
 	return (macro Go.routine($call)).expr;
 }
@@ -4566,6 +4576,7 @@ private function formatHaxeFieldName(name:String) {
 class Global {
 	public var initBlock:Array<Expr> = [];
 	public var path:String = "";
+	public var filePath:String = "";
 	public var hasBreak:Bool = false;
 	public var module:Module = null;
 
@@ -4576,6 +4587,8 @@ class Global {
 		g.initBlock = initBlock.copy();
 		g.path = path;
 		g.module = module;
+		g.filePath = filePath;
+		g.hasBreak = hasBreak;
 		return g;
 	}
 }

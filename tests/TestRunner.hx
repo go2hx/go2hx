@@ -17,10 +17,36 @@ function main() {
 	Main.onComplete = complete;
 
 	test("go", "./tests/go/test/", goList, [
-		"atomiccload", // go routine
+		"atomicload", // go routine
 		"bigalg", // go routine
 		"closure", // go routine
 		"func5", // go routine
+
+		// select statement or go statement
+		"235",
+		"closedchan",
+		"closure7",
+		"convT2X",
+		"deferfin",
+		"escape",
+		"gcgort",
+		"goprint",
+		"init1",
+		"inline",
+		"locklinear",
+		"nil",
+		"range",
+		"sieve",
+		"stack",
+		"struct0",
+		"doubleselect",
+		"fifo",
+		"goroutines",
+		"nonblock",
+		"powser1",
+		"powser2",
+		"reorder2",
+		"tinyfin",
 	], 6 + 8 - 2);
 
 	test("yaegi", "./tests/yaegi/_test/", yaegiList, [
@@ -123,6 +149,27 @@ function main() {
 		"sieve", // uses go routines and includes 2 infinite for loops inside of go functions
 		"defer8", // unimportant map toString ordering
 
+		// select statement or go statement
+		"chan4",
+		"cli1",
+		"cli2",
+		"server",
+		"select0",
+		"select1",
+		"select2",
+		"select3",
+		"select4",
+		"select5",
+		"select6",
+		"select7",
+		"select8",
+		"select9",
+		"select10",
+		"select11",
+		"select12",
+		"select13",
+		"select14",
+		"select15",
 	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
@@ -982,7 +1029,7 @@ final yaegiList = [
     "struct28",
     "struct29",
     "struct3",
-    "struct30", // WORKING NOW
+    "struct30",
     "struct31",
     "struct32",
     "struct33",
@@ -1002,7 +1049,7 @@ final yaegiList = [
     "struct46",
     "struct47",
     "struct48",
-    "struct49", // WORKING NOW
+    "struct49",
     "struct5",
     "struct50",
     "struct51", // not found: stdgo.encoding.json.Json
@@ -1012,7 +1059,7 @@ final yaegiList = [
     "struct56", // invalid json result
     "struct57", // invalid json result
     "struct58", // refelct.fieldByName not supported yet
-    "struct59", // WORKING NOW
+    "struct59",
     "struct6",
     "struct7",
     "struct8",
@@ -1048,7 +1095,7 @@ final yaegiList = [
     "switch35",
     "switch36",
     "switch37",
-    "switch38", // WORKING NOW
+    "switch38",
     "switch4", // fallthrough
     "switch5", // fallthrough
     "switch6", // fallthrough

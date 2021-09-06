@@ -230,19 +230,6 @@ function getSignature(type:GoType):GoType {
 	}
 }
 
-function getStructFields(type:GoType):Array<FieldType> {
-	if (type == null)
-		return [];
-	return switch type {
-		case named(_, _, _, elem), pointer(elem):
-			getStructFields(elem);
-		case structType(fields):
-			fields;
-		default:
-			[];
-	}
-}
-
 function isUnsafePointer(type:GoType):Bool {
 	if (type == null)
 		return false;

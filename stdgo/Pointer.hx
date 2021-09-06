@@ -8,8 +8,16 @@ import stdgo.StdGoTypes.GoInt;
 
 @:forward.new
 @:forward
-abstract Pointer<T>(PointerData<T>) {
+abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	public var value(get, set):T;
+
+	public function nil():Pointer<T> {
+		this.nilBool = true;
+		return this;
+	}
+
+	inline public function isNil():Bool
+		return this.nilBool;
 
 	private function get_value():T {
 		if (this.assign != null) {
@@ -43,9 +51,6 @@ abstract Pointer<T>(PointerData<T>) {
 	private static function notEquals<T>(a:Pointer<T>, b:Pointer<T>):Bool {
 		return !equals(a, b);
 	}
-
-	public inline function isNil()
-		return false;
 
 	private inline function set_value(value:T):T {
 		if (this.previous == null) {
@@ -93,8 +98,13 @@ class PointerData<T> {
 	public var assign:Void->T;
 	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map
 	public var underlyingIndex:AnyInterface = null; // used for equality of pointers with the index of slice/array/map
+	public var nilBool:Bool = false;
 
-	public function new(get, set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
+	public function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
+		if (get == null)
+			get = () -> null;
+		if (set == null)
+			set = value -> value;
 		this.get = get;
 		this.set = set;
 		this.hasSet = hasSet;
@@ -105,6 +115,6 @@ class PointerData<T> {
 	}
 
 	public inline function toString() {
-		return "&" + Go.string(get());
+		return nilBool ? "null" : "&" + Go.string(get());
 	}
 }

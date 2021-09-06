@@ -303,19 +303,35 @@ function main(data:DataType, printGoCode:Bool = false) {
 		// process recv functions check against all TypeSpecs
 		for (file in module.files) {
 			for (def in file.defs) {
-				var local:Array<Ast.FuncDecl> = [];
+				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
+				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
+				for (field in def.fields) {
+					if (field.meta != null)
+						for (meta in field.meta) {
+							if (meta.name == ":embedded") {
+								switch field.kind {
+									case FVar(t, _):
+										names.push({name: getRecvComplexTypeName(t, info), sel: field.name});
+									default:
+								}
+								break;
+							}
+						}
+				}
 				for (recv in recvFunctions) {
 					if (file.isMain && file.name != recv.path)
 						continue;
-					if (getRecvName(recv.decl.recv.list[0].type, info) == def.name)
-						local.push(recv.decl);
+					for (name in names)
+						if (getRecvName(recv.decl.recv.list[0].type, info) == name.name)
+							local.push({func: recv.decl, sel: name.sel});
 				}
-				var restrictedNames = [for (func in local) nameIdent(func.name.name, false, false, info)];
+				var restrictedNames = [for (func in local) nameIdent(func.func.name.name, false, false, info)];
 				var isNamed = false;
 				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
+
 				for (decl in local) {
-					var func = typeFunction(decl, info, restrictedNames, isNamed);
+					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					if (func == null)
 						continue;
 					switch func.kind {
@@ -341,7 +357,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 											expr: fun.expr,
 										})
 									});
-									if (implementsError(decl.name.name, fun.ret)) {
+									if (implementsError(decl.func.name.name, fun.ret)) {
 										switch def.kind {
 											case TDClass(_, interfaces, isInterfaceBool, isFinalBool):
 												interfaces.push(errorTypePath());
@@ -1688,7 +1704,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						case EBinop(op, e1, e2):
 							var tmpName = "__tmp__" + tmpIndex;
 							tmpIndex++;
-							inits.push(macro var $tmpName = ${e2});
+							inits.push(macro final $tmpName = ${e2});
 							expr.expr = EBinop(op, e1, macro $i{tmpName});
 						default:
 							throw "expr must be a binop";
@@ -3309,6 +3325,19 @@ private function typeOp(token:Ast.Token):Binop {
 	}
 }
 
+function getStructFields(type:GoType):Array<FieldType> {
+	if (type == null)
+		return [];
+	return switch type {
+		case named(_, _, _, elem), pointer(elem):
+			getStructFields(elem);
+		case structType(fields):
+			fields;
+		default:
+			[];
+	}
+}
+
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
 	var x = typeExpr(expr.x, info);
 	var typeX = typeof(expr.x);
@@ -3335,7 +3364,6 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			}
 		}
 		recursion("", fields);
-
 		for (chain in chains) {
 			var field = chain.substr(chain.lastIndexOf(".") + 1);
 			if (field == sel) {
@@ -3450,7 +3478,7 @@ private function implementsError(name:String, type:ComplexType):Bool {
 	return false;
 }
 
-private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false):TypeDefinition {
+private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = ""):TypeDefinition {
 	final info = new Info();
 	info.data = data.data;
 	info.renameClasses = data.renameClasses;
@@ -3491,6 +3519,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		if (varName != "") {
+			final thisValue = sel == "" ? macro this : macro this.$sel;
 			varName = nameIdent(varName, false, true, info);
 			info.thisName = varName;
 			switch block.expr {
@@ -3502,13 +3531,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						if (isNamed) {
 							exprs.unshift(macro var $varName = new Pointer(() -> new $p(__t__), __tmp__ -> new $p(__t__ = __tmp__.__t__)));
 						} else {
-							exprs.unshift(macro var $varName = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__)));
+							exprs.unshift(macro var $varName = new Pointer(() -> $thisValue, __tmp__ -> $thisValue.__set__(__tmp__)));
 						}
 					} else {
 						if (isNamed) {
-							exprs.unshift(macro var $varName = this); // TODO this needs to support ref types as well (map/slice/array)
+							exprs.unshift(macro var $varName = $thisValue); // TODO this needs to support ref types as well (map/slice/array)
 						} else {
-							exprs.unshift(macro var $varName = this.__copy__());
+							exprs.unshift(macro var $varName = $thisValue.__copy__());
 						}
 					}
 					block.expr = EBlock(exprs);
@@ -3637,20 +3666,21 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final typ = toReflectType(type);
 			macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($typ)).nil();
 		case sliceType(elem):
-			var t = toComplexType(elem, info);
+			final t = toComplexType(elem, info);
 			macro new Slice<$t>().nil();
 		case arrayType(elem, len):
-			var t = toComplexType(elem, info);
+			final t = toComplexType(elem, info);
 			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem, info)}]);
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);
 		case chanType(_, elem):
-			var t = toComplexType(elem, info);
+			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
 			macro new Chan<$t>(0, () -> $value, true);
-		case pointer(_):
-			macro null;
+		case pointer(elem):
+			final t = toComplexType(elem, info);
+			macro new Pointer<$t>().nil();
 		case signature(_, _, _, _):
 			macro null;
 		case named(path, _, _, underlying):
@@ -3735,6 +3765,25 @@ private function getRecvName(recv:Ast.Expr, info:Info):String {
 	if (recv.id == "StarExpr")
 		return className(recv.x.name, info);
 	return className(recv.name, info);
+}
+
+private function getRecvComplexTypeName(t:ComplexType, info:Info):String {
+	return switch t {
+		case TPath(p):
+			if (p.name == "Pointer" && p.params != null && p.params.length == 1) {
+				switch p.params[0] {
+					case TPType(t):
+						getRecvComplexTypeName(t, info);
+					default:
+						throw "no tp expr type allowed";
+				}
+			} else {
+				p.name;
+			}
+		default:
+			throw "cannot convert recv complex type: " + t;
+	}
+	return "";
 }
 
 private function getRecvInfo(recvType:ComplexType, type:GoType):{name:String, isPointer:Bool, type:ComplexType} {

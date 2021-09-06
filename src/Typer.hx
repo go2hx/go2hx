@@ -985,7 +985,6 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 }
 
 private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:Info):Expr {
-	// trace("\nfrom: " + from + "\nto: " + to + "\nexpr: " + printer.printExpr(e) + "\nct: " + printer.printComplexType(ct));
 	if (e != null)
 		switch e.expr {
 			case EBinop(_, _, _):
@@ -1023,7 +1022,6 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	var ret = namedCheckCast(from, to);
 	if (ret != null)
 		return ret;
-
 	if (isAnyInterface(from)) {
 		return macro($e.value : $ct);
 	}
@@ -1100,6 +1098,8 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				throw "pointer not tpath: " + ct;
 		}
 	}
+	if (isAnyInterface(to))
+		return e;
 	return macro($e : $ct);
 }
 
@@ -1108,6 +1108,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	if (stmt.init != null)
 		init = toExpr(typeSwitchStmt(stmt.init, info));
 	var assign:Expr = null;
+	var assignType:GoType = null;
 	var setVar:String = "";
 	switch stmt.assign.id {
 		case "ExprStmt":
@@ -1115,6 +1116,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			switch stmt.x.id {
 				case "TypeAssertExpr":
 					final stmt:Ast.TypeAssertExpr = stmt.x;
+					assignType = typeof(stmt.x);
 					assign = typeExpr(stmt.x, info);
 				default:
 					trace("unknown assign expr: " + stmt.x.id);
@@ -1126,6 +1128,7 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 				case "TypeAssertExpr":
 					final rhs:Ast.TypeAssertExpr = rhs;
 					assign = typeExpr(rhs.x, info);
+					assignType = typeof(rhs.x);
 				default:
 					trace("unknown assign rhs type switch expr: " + rhs.id);
 			}
@@ -1140,12 +1143,12 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		default:
 			trace("unknown assign: " + stmt.assign.id);
 	}
-	var types:Array<ComplexType> = [];
+	var types:Array<GoType> = [];
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
 			return null;
 		final type = typeExprType(obj.list[i], info);
-		types.push(type);
+		types.push(typeof(obj.list[i]));
 		final value = macro Go.assertable(($assign : $type));
 		if (i + 1 >= obj.list.length)
 			return value;
@@ -1161,12 +1164,17 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 		if (setVar != "") {
 			switch block.expr {
 				case EBlock(exprs):
-					var type:ComplexType = anyInterfaceType();
+					var type:ComplexType = toComplexType(assignType, info);
 					var set = macro $assign.__underlying__();
 					if (types.length == 1) {
-						type = types[0];
-						set = macro $set.value;
+						type = toComplexType(types[0], info);
+						if (!isAnyInterface(types[0]))
+							set = macro $set.value;
+					} else {
+						if (!isAnyInterface(assignType))
+							set = macro $set.value;
 					}
+
 					exprs.unshift(macro var $setVar:$type = $set);
 					block.expr = EBlock(exprs);
 				default:
@@ -2850,16 +2858,15 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			value = value.substring(2);
 			value = '\\u{$value}';
 		}
-
-		// value = StringTools.replace(value,bs + "" ,"\x27");
 		return value;
 	}
-	return switch kind {
+	var ct:ComplexType = null;
+	var e:Expr = switch kind {
 		case STRING:
 			value = StringTools.replace(value, "\\n", "\n");
 			value = StringTools.replace(value, '\\"', '"');
 			var e = makeString(value);
-			return e.expr;
+			e;
 		case INT:
 			var e = toExpr(EConst(CInt(value)));
 			if (value.length > 10) {
@@ -2874,12 +2881,12 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			}
 			if (isNamed(type))
 				type = getUnderlying(type);
-			final ct = toComplexType(type, info);
-			ECheckType(e, ct);
+			ct = toComplexType(type, info);
+			e;
 		case FLOAT:
 			final e = toExpr(EConst(CFloat(value)));
-			final ct = toComplexType(type, info);
-			ECheckType(e, ct);
+			ct = toComplexType(type, info);
+			e;
 		case CHAR:
 			var value = formatEscapeCodes(value);
 			if (value == "\\'") {
@@ -2889,15 +2896,20 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			if (value == "\\") {
 				return (macro $const.charCodeAt(0)).expr;
 			}
-			ECheckType(toExpr(EField(const, "code")), TPath({name: "GoRune", pack: []}));
+			ct = TPath({name: "GoRune", pack: []});
+			macro $const.code;
 		case IDENT:
-			EConst(CIdent(nameIdent(value, false, false, info)));
+			var name = nameIdent(value, false, false, info);
+			macro $i{name};
 		case IMAG:
-			(macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))})).expr;
+			macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))});
 		default:
 			throw "basic lit kind unknown: " + kind;
 			null;
 	}
+	if (ct != null)
+		e = macro($e : $ct);
+	return e.expr;
 }
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {

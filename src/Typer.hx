@@ -329,7 +329,23 @@ function main(data:DataType, printGoCode:Bool = false) {
 				var isNamed = false;
 				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
-
+				// remove duplicated names
+				for (i in 0...local.length) {
+					if (local[i] == null)
+						continue;
+					for (j in 0...local.length) {
+						if (i == j)
+							continue;
+						if (local[j] == null)
+							continue;
+						final name = local[i].func.name.name;
+						final name2 = local[j].func.name.name;
+						if (name == name2) {
+							local.remove(local[i]);
+							break;
+						}
+					}
+				}
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					if (func == null)
@@ -736,7 +752,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.push(typeDeferReturn(info, true));
 			// recover
 			exprs.unshift(macro var recover_exception:Dynamic = null);
-			var pos = 2;
+			var pos = 2 + info.returnNames.length;
 			var ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 				{
@@ -865,10 +881,13 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		switch body.expr {
 			case EBlock(exprs):
 				if (stmt.tok == ASSIGN) {
-					if (key != null)
+					if (key != null) {
+						trace(keyString);
 						exprs.unshift(macro $key = _obj.key); // no diffrence with assign
-					if (value != null)
+					}
+					if (value != null) {
 						exprs.unshift(macro $value = _obj.value); // no diffrence with assign
+					}
 				}
 			default:
 		}
@@ -1100,6 +1119,8 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	}
 	if (isAnyInterface(to))
 		return e;
+	if (isPointer(from) && isInterface(to))
+		e = macro $e.value;
 	return macro($e : $ct);
 }
 
@@ -1590,6 +1611,8 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 			case named(_, _, _, type):
 				switch getUnderlying(type) {
 					case basic(_):
+						return y;
+					case invalidType:
 						return y;
 					default:
 				}
@@ -4518,6 +4541,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			}
 			if (expr == null)
 				continue;
+			var type = type; // set local type
 			if (type == null)
 				type = toComplexType(typeof(value.values[i]), info);
 			var name = nameIdent(value.names[i].name, false, true, info);
@@ -4586,6 +4610,8 @@ private function getRestrictedName(name:String, info:Info):String {
 }
 
 private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
+	if (name == "_")
+		return "_";
 	if (name == "nil")
 		return "null";
 	if (name == "null")

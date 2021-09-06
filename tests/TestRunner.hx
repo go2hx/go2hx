@@ -170,6 +170,26 @@ function main() {
 		"select13",
 		"select14",
 		"select15",
+		// http
+		"addr0",
+		"assign0",
+		"defer3",
+		"struct11",
+		"struct13",
+		"struct14",
+		"struct15",
+		"struct18",
+		"struct36",
+		"struct37",
+		"type23",
+		"type24",
+		"cli1", // not found: stdgo.net
+		"cli2", // not found: stdgo.net
+		"cli3", // not found: stdgo.net
+		"cli4", // not found: stdgo.net
+		"cli5", // not found: stdgo.net
+		"cli6", // not found: stdgo.net
+
 	], 137 + 8 - 2, yaegiOutput);
 	while (true) {
 		Main.update();
@@ -223,6 +243,7 @@ private function close() {
 		// run TestData script
 		TestData.main();
 	}
+	Sys.command("compiler_notify_bot");
 	Main.close();
 }
 
@@ -323,7 +344,7 @@ final goList = [
     "convert", // binary operations between number and named number type
     "convert4",
     "convT2X",
-    "copy",
+    "copy", // timeouts because to slow but works
     "crlf",
     "ddd",
     "decl",
@@ -722,17 +743,17 @@ final yaegiList = [
     "interface33",
     "interface34", // composite literal array keyValueMap arguments not getting run through assignTranslate
     "interface35",
-    "interface36", // don't know
+    "interface36", // nil pointer
     "interface37",
     "interface38", // stdgo.fmt.Stringer interface does not implement local type
     "interface39", // stdgo.fmt.Stringer interface does not implement local type
     "interface4",  // embedded type does not bring in it's method
     "interface40", // stdgo.fmt.Stringer interface does not implement local type
     "interface41", // stdgo.fmt.Stringer interface does not implement local type
-    "interface42", // Basic type tries to checkType to interface{} (TODO)
+    "interface42", // Basic type tries to checkType to interface{}
     "interface43",
     "interface44",
-    "interface45", // assign _ = x underline should be as a var or remove left side (TODO) 
+    "interface45", // assign _ = x underline should be as a var or remove left side
     "interface46",
     "interface47", // function type does not use the default unnamed names (v0,v1,v2...)
     "interface48",
@@ -747,17 +768,17 @@ final yaegiList = [
     "interface9", // stdgo.fmt.Stringer interface does not implement local type
     "io1",
     "iota",
-    "iota0",
+    "iota0", // iota can be used locally need to unify TypeDefinition system and EVars
     "ioutil",
     "ioutil0",
     "ipp_as_key",
     "issue-1007",
-    "issue-1010",
+    "issue-1010", // Module stdgo.encoding.json.Json does not define type Marshaler
     "issue-1022",
     "issue-1052",
     "issue-1065",
     "issue-1068",
-    "issue-1088",
+    "issue-1088", // unicode formatting printf
     "issue-1089",
     "issue-1094",
     "issue-1101",
@@ -804,11 +825,11 @@ final yaegiList = [
     "map10",
     "map11",
     "map12",
-    "map13",
+    "map13", // not found: stdgo.net.http.Http
     "map14",
     "map15",
     "map16",
-    "map17",
+    "map17", // not found: stdgo.net.http.Http
     "map18",
     "map19",
     "map2",
@@ -816,12 +837,12 @@ final yaegiList = [
     "map21",
     "map22",
     "map23",
-    "map24",
-    "map25",
+    "map24", // json unmarshal
+    "map25", // json unmarshal
     "map26",
-    "map27",
-    "map28",
-    "map29",
+    "map27", // not found: text.template
+    "map28", // not found: stdgo.net.url.Url
+    "map29", // not found: time
     "map3",
     "map30",
     "map4",
@@ -831,9 +852,9 @@ final yaegiList = [
     "map8",
     "map9",
     "math0",
-    "math1",
+    "math1", // math.MaxFloat32 not added
     "math2",
-    "math3",
+    "math3",  // md5 hashing
     "method",
     "method0",
     "method1",
@@ -852,17 +873,17 @@ final yaegiList = [
     "method21",
     "method22",
     "method23",
-    "method24",
-    "method25",
-    "method26",
-    "method27",
+    "method24", // Module stdgo.sync.Sync does not define type Pool
+    "method25", // Module stdgo.sync.Sync does not define type Pool
+    "method26", // this pointer equality
+    "method27", // not found: stdgo.net.http.Http
     "method28",
-    "method29",
+    "method29", // not found: stdgo.context.Context
     "method3",
     "method30",
     "method31",
     "method32",
-    "method33",
+    "method33", // embedded field method with same function name NOW WORKING
     "method34",
     "method35",
     "method36",
@@ -931,7 +952,7 @@ final yaegiList = [
     "range4",
     "range5",
     "range6",
-    "range7",
+    "range7", // working now
     "range8", // not found: time.Time
     "real0",
     "recover0", // print stdgo.runtime._Runtime.RuntimeErrorData properly with a toString() -> this.message()
@@ -939,7 +960,7 @@ final yaegiList = [
     "recover2", // assignTranslate attempts to turn the function recover() to an interface
     "recover3", // assignTranslate attempts to turn the function recover() to an interface
     "recover4", // incorrect naming of local var
-    "recurse0", // WORKING NOW
+    "recurse0",
     "restricted0",
     "restricted1",
     "restricted2",
@@ -952,8 +973,8 @@ final yaegiList = [
     "ret6",
     "ret7",
     "ret8", // named type incorrect casting when should stay same for interface
-    "run0", // tuple can fill function arguments (TODO)
-    "run1", // tuple can fill function arguments (TODO)
+    "run0", // tuple can fill function arguments
+    "run1", // tuple can fill function arguments
     "run10",
     "run11", // print tuple properly
     "run12",
@@ -992,7 +1013,7 @@ final yaegiList = [
     "select9", // go routine
     "selector-scope0", // time as field name incorrectly pulling import path
     "shift0",
-    "shift1", // int64 -> int display type (TODO)
+    "shift1", // int64 -> int display type
     "shift2",
     "shift3",
     "sieve",
@@ -1067,18 +1088,18 @@ final yaegiList = [
     "switch", // class name changed to Switch_ and default not at bottom
     "switch0",
     "switch1",
-    "switch10", // slight tweak to printing (TODO)
+    "switch10", // slight tweak to printing
     "switch11", // typeswitch init stmt inside a switchtype (TODO)
     "switch12", // switch type nil not supported (TODO)
-    "switch14", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
-    "switch15", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
-    "switch16", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
+    "switch14", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type
+    "switch15", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type
+    "switch16", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type
     "switch17", // type switch casting and checking types that can never be be assignable to
     "switch18", // type switch casting and checking types that can never be be assignable to
     "switch2",
     "switch20",
     "switch21", // not found: stdgo.fmt.Fmt.Formatter
-    "switch22", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type (TODO)
+    "switch22", // Go.assignable = true -> local value set use x.value to turn the AnyInterface into the assigned type
     "switch23",
     "switch24",
     "switch25",
@@ -1520,7 +1541,7 @@ final yaegiOutput = [
     {name: "issue-1115", output: ["0","1","2","3","4","Yay! I finished!"]},
     {name: "issue-1126", output: ["True!"]},
     {name: "issue-1128", output: ["1"]},
-    {name: "issue-1134", output: ["Hello"]},
+    {name: "issue-1134", output: ["Hello "]},
     {name: "issue-1136", output: ["0 EOF"]},
     {name: "issue-1145", output: ["true"]},
     {name: "issue-1156", output: ["hello"]},
@@ -1562,7 +1583,7 @@ final yaegiOutput = [
     {name: "map12", output: ["[hellobar worldmachin]"]},
     {name: "map13", output: ["&{ map[Accept-Encoding:[gzip]]}"]},
     {name: "map14", output: ["true false"]},
-    {name: "map15", output: ["v:"]},
+    {name: "map15", output: ["v: "]},
     {name: "map16", output: [" false","not exists"]},
     {name: "map17", output: ["ok"]},
     {name: "map18", output: ["0"]},

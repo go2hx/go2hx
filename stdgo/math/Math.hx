@@ -5,6 +5,7 @@ import stdgo.StdGoTypes.GoFloat64 as Float;
 import stdgo.StdGoTypes.GoInt;
 
 final pi = M.PI;
+final maxFloat32:Float = M.POSITIVE_INFINITY;
 
 inline function max(a:Float, b:Float):Float {
 	return M.max(a.toBasic(), b.toBasic());

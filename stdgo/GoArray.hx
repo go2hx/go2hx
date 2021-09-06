@@ -143,8 +143,8 @@ private class VectorIterator<T> {
 	var pos:Int = 0;
 	var vector:Vector<T>;
 
-	public inline function new(vector) {
-		this.vector = vector;
+	public inline function new(vector:Vector<T>) {
+		this.vector = vector.copy();
 	}
 
 	public inline function hasNext() {

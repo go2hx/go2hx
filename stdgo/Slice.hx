@@ -156,8 +156,8 @@ private class SliceIterator<T> {
 	var pos:Int = 0;
 	var slice:Slice<T>;
 
-	public inline function new(slice) {
-		this.slice = slice;
+	public inline function new(slice:Slice<T>) {
+		this.slice = slice.copy();
 	}
 
 	public inline function hasNext() {

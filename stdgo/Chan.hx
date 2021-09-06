@@ -48,6 +48,9 @@ class Chan<T> {
 	public inline function keyValueIterator()
 		return new ChanKeyValueIterator(this);
 
+	public inline function iterator()
+		return new ChanIterator(this);
+
 	public inline function send(value:T) {
 		data[setIndex++] = value;
 	}
@@ -67,7 +70,7 @@ class Chan<T> {
 	}
 }
 
-class ChanKeyValueIterator<T> {
+private class ChanKeyValueIterator<T> {
 	var offset:Int = 0;
 	var chan:Chan<T>;
 
@@ -80,4 +83,22 @@ class ChanKeyValueIterator<T> {
 
 	public inline function next():{key:T, value:Bool}
 		return {key: chan.get(), value: false};
+}
+
+private class ChanIterator<T> {
+	var pos:Int = 0;
+	var chan:Chan<T>;
+
+	public inline function new(chan:Chan<T>) {
+		this.chan = chan;
+	}
+
+	public inline function hasNext() {
+		return pos < chan.length;
+	}
+
+	public inline function next() {
+		pos++;
+		return chan.get();
+	}
 }

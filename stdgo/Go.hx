@@ -402,14 +402,15 @@ class Go {
 						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}
 			case TInst(ref, params):
+				final refString = ref.toString();
 				var ref = ref.get();
-				if (!marked.exists(ref.module + "." + ref.name)) {
+				if (!marked.exists(refString)) {
 					var init = false;
 					if (markedEmpty) {
 						markedEmpty = false;
 						init = true;
 					}
-					marked[ref.module + "." + ref.name] = true;
+					marked[refString] = true;
 					if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
 						var param = gtParams(params)[0];
 						ret = macro stdgo.reflect.Reflect.GoType.chanType(0, $param);

@@ -9,6 +9,7 @@ import (
 	"go/token"
 	"go/types"
 	"net"
+	"path/filepath"
 	"runtime"
 	"runtime/debug"
 	"time"
@@ -17,7 +18,6 @@ import (
 
 	_ "embed"
 	"os"
-	"path/filepath"
 	"reflect"
 	"strconv"
 	"strings"
@@ -406,15 +406,21 @@ func parsePkgList(list []*packages.Package) dataType {
 }
 
 func parsePkg(pkg *packages.Package) packageType {
+	files := make(map[string]*ast.File, len(pkg.GoFiles))
+	for i := 0; i < len(pkg.GoFiles); i++ {
+		files[filepath.Base(pkg.GoFiles[i])] = pkg.Syntax[i]
+	}
+	file := ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)
 	fset = pkg.Fset
 	data := packageType{}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
-	data.Files = make([]fileType, len(pkg.Syntax))
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-	for i, file := range pkg.Syntax {
-		data.Files = append(data.Files, parseFile(file, pkg.GoFiles[i]))
+	name := pkg.Name
+	if name == "main" {
+		name = filepath.Base(pkg.GoFiles[0])
 	}
+	data.Files = []fileType{parseFile(file, name)}
 	checker = nil
 	fset = nil
 	return data
@@ -424,7 +430,6 @@ func parseFile(file *ast.File, path string) fileType {
 	data := fileType{}
 	data.Location = path
 	data.Doc = parseData(file.Doc)
-	path = filepath.Base(path)
 	data.Path = path
 	for _, decl := range file.Decls {
 		obj := parseData(decl)

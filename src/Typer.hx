@@ -388,145 +388,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 				}
 			}
 		}
-		// main system import.hx
-		if (!module.isMain || StringTools.endsWith(module.files[module.files.length - 1].name, "_test")) {
-			var pkgExport = {
-				name: endPath,
-				imports: defaultImports, // default imports
-				defs: [],
-				location: "", // does not have a linked go file
-				isMain: false,
-			};
-			// add to main module list
-			list.push({
-				path: pkg.path,
-				files: [pkgExport],
-				isMain: false,
-				name: pkg.name,
-			});
-
-			var imports:Array<ImportType> = [];
-
-			for (file in module.files) {
-				for (def in file.defs) {
-					if (def == null || def.name == "__init__")
-						continue;
-					if (def.meta != null) {
-						var skip = false;
-						for (meta in def.meta) {
-							if (meta.name == ":local") {
-								skip = true;
-								break;
-							}
-						}
-						if (skip)
-							continue;
-					}
-					// exported and non added to module imports.hx
-					var imp:ImportType = {
-						path: module.path.split(".").concat([file.name, def.name]),
-						alias: "",
-						doc: "",
-					};
-					imports.push(imp);
-					if (def.isExtern == null || !def.isExtern)
-						continue; // not an exported def
-					switch def.kind { // export out fields, export fields
-						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
-							if (StringTools.endsWith(def.name, "__extension"))
-								continue;
-							var t:ComplexType = TPath({name: def.name, pack: module.path.split(".").concat([file.name])});
-							pkgExport.defs.push({
-								name: def.name,
-								pack: [],
-								pos: null,
-								kind: TDAlias(t),
-								fields: [],
-							});
-						case TDAlias(t):
-							var t:ComplexType = TPath({name: def.name, pack: []});
-							pkgExport.defs.push({
-								name: def.name,
-								pack: [],
-								pos: null,
-								kind: TDAlias(t),
-								fields: [],
-							});
-						case TDField(kind, access):
-							switch kind {
-								case FVar(t, e):
-									if (t == null)
-										t = TPath({name: "Dynamic", pack: []});
-									var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
-									pkgExport.defs.unshift({
-										name: "get_" + def.name,
-										pack: [],
-										pos: null,
-										fields: [],
-										kind: TDField(FFun({
-											ret: t,
-											args: [],
-											expr: macro return $ident,
-										}), [AInline]),
-									});
-									pkgExport.defs.unshift({
-										name: "set_" + def.name,
-										pack: [],
-										pos: null,
-										fields: [],
-										kind: TDField(FFun({
-											ret: t,
-											args: [{name: "value", type: t}],
-											expr: macro return $ident = value,
-										}), [AInline]),
-									});
-									pkgExport.defs.unshift({
-										name: def.name,
-										pack: [],
-										pos: null,
-										fields: [],
-										kind: TDField(FProp("get", "set", t)),
-									});
-								case FFun(f):
-									final args = [
-										for (arg in f.args)
-											macro $i{arg.name}
-									];
-									final name = def.name;
-									var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
-									var expr = macro $ident($a{args});
-									if (f.ret != null && !f.ret.match(TPath({name: "Void", pack: []})))
-										expr = macro return $expr;
-									pkgExport.defs.push({
-										name: name,
-										pack: [],
-										pos: null,
-										fields: [],
-										kind: TDField(FFun({args: f.args, expr: expr})),
-									});
-								default:
-							}
-						case TDAbstract(tthis, from, to): // export out alias type
-							var t:ComplexType = TPath({name: file.name, sub: def.name, pack: module.path.split(".")});
-							pkgExport.defs.unshift({
-								name: def.name,
-								pack: [],
-								pos: null,
-								kind: TDAlias(t),
-								fields: [],
-							});
-						default:
-					}
-				}
-			}
-			module.files.push({
-				name: "import",
-				imports: imports,
-				defs: [],
-				location: "",
-				isMain: module.isMain,
-			});
-		}
 		list.push(module);
 	}
 	return list;
@@ -923,8 +784,9 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 private function importClassName(name:String):String {
 	final bool = isTitle(name);
 	name = title(name);
-	if (bool)
-		name = "_" + name;
+	if (bool || isInvalidTitle(name)) {
+		name = "T_" + name;
+	}
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
 	return name;

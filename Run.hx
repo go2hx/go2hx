@@ -27,6 +27,8 @@ function main() {
 			Sys.println("updating version rebuilding binaries");
 			rebuild = true;
 		}
+	} else {
+		rebuild = true; // rebuild if no version present for good measure
 	}
 	File.saveContent("version.txt", version);
 	if (args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1) { // used to rebuild the compiler each run

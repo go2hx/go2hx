@@ -37,11 +37,15 @@ function infoMsg(msg:String):Void {
 	Sys.println(colorSupported ? '\x1b[36m' + msg + '\x1b[0m' : msg);
 }
 
-function modulePath(module:Typer.Module):String {
-	var path = module.path;
-	var last = path.lastIndexOf(".") + 1;
-	var name = module.files[0].name;
-	path += "." + name;
+function modulePath(modules:Array<Typer.Module>):String {
+	var path = "";
+	for (module in modules) {
+		if (!module.isMain || !module.files[0].isMain)
+			continue;
+		path = module.path;
+		var name = module.files[0].name;
+		path += "." + name;
+	}
 	return path;
 }
 

@@ -53,7 +53,6 @@ private function parse(args:Array<Dynamic>):Array<String> {
 }
 
 inline function sprintf(fmt:GoString, args:Rest<AnyInterface>):GoString { // format
-
 	return format(fmt, args);
 }
 

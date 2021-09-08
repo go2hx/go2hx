@@ -38,6 +38,10 @@ function gomaxprocs(num:GoInt):GoInt {
 	return num;
 }
 
+function goexit() {
+	
+}
+
 function callersFrames(callers:Slice<GoUIntptr>):Pointer<Frames> {
 	var f = new Frames();
 	return Go.pointer(f);

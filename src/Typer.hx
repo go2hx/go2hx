@@ -127,14 +127,14 @@ function main(data:DataType, printGoCode:Bool = false) {
 		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
-		endPath = className(endPath, info);
+		endPath = importClassName(endPath);
 
 		var namedDecls:Array<Ast.Decl> = [];
 
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
-			file.path = className(normalizePath(Path.withoutExtension(file.path)), info); // file naming
+			file.path = importClassName(normalizePath(Path.withoutExtension(file.path))); // file naming
 			info.global.filePath = file.path;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -389,7 +389,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 		}
 		// main system import.hx
-		if (!module.isMain) {
+		if (!module.isMain || StringTools.endsWith(module.files[module.files.length - 1].name, "_test")) {
 			var pkgExport = {
 				name: endPath,
 				imports: defaultImports, // default imports
@@ -431,7 +431,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 					imports.push(imp);
 					if (def.isExtern == null || !def.isExtern)
 						continue; // not an exported def
-
 					switch def.kind { // export out fields, export fields
 						case TDClass(superClass, interfaces, isInterface, isFinal, isAbstract):
 							if (StringTools.endsWith(def.name, "__extension"))
@@ -489,6 +488,22 @@ function main(data:DataType, printGoCode:Bool = false) {
 										kind: TDField(FProp("get", "set", t)),
 									});
 								case FFun(f):
+									final args = [
+										for (arg in f.args)
+											macro $i{arg.name}
+									];
+									final name = def.name;
+									var ident = toExpr(EConst(CIdent(module.path + "." + file.name + "." + def.name)));
+									var expr = macro $ident($a{args});
+									if (f.ret != null && !f.ret.match(TPath({name: "Void", pack: []})))
+										expr = macro return $expr;
+									pkgExport.defs.push({
+										name: name,
+										pack: [],
+										pos: null,
+										fields: [],
+										kind: TDField(FFun({args: f.args, expr: expr})),
+									});
 								default:
 							}
 						case TDAbstract(tthis, from, to): // export out alias type
@@ -748,12 +763,13 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
 		if (info.deferBool && isFunc) { // defer system
+			final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
+			// exprs.push(ret);
 			// recover
 			exprs.unshift(macro var recover_exception:Dynamic = null);
 			var pos = 2 + info.returnNames.length;
-			var ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 				{
 					name: "e",
@@ -882,7 +898,6 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 			case EBlock(exprs):
 				if (stmt.tok == ASSIGN) {
 					if (key != null) {
-						trace(keyString);
 						exprs.unshift(macro $key = _obj.key); // no diffrence with assign
 					}
 					if (value != null) {
@@ -903,6 +918,16 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 		e = toExpr(EBlock(inits.concat([e])));
 	}
 	return e.expr;
+}
+
+private function importClassName(name:String):String {
+	final bool = isTitle(name);
+	name = title(name);
+	if (bool)
+		name = "_" + name;
+	if (reservedClassNames.indexOf(name) != -1)
+		name += "_";
+	return name;
 }
 
 private function className(name:String, info:Info):String {
@@ -935,6 +960,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	var decls:Array<Ast.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
 	for (decl in decls) {
+		info.iota = 0;
+		info.lastValue = null;
+		info.lastType = null;
 		for (spec in decl.specs) {
 			switch spec.id {
 				case "TypeSpec":
@@ -948,6 +976,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 					var type = spec.type.id != null ? typeExprType(spec.type, info) : null;
 					var value = macro null;
 					var args:Array<Expr> = [];
+
 					if (spec.names.length > spec.values.length && spec.values.length > 0) {
 						// destructure
 						var tmp = "__tmp__";
@@ -974,7 +1003,21 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						vars = vars.concat([
 							// concat because this is in a for loop
 							for (i in 0...spec.names.length) {
-								var expr = typeExpr(spec.values[i], info);
+								var expr:Expr = null;
+								if (spec.values[i] == null) {
+									if (type != null) {
+										expr = defaultValue(typeof(spec.type), info);
+									} else {
+										expr = typeExpr(info.lastValue, info);
+										type = toComplexType(info.lastType, info);
+										expr = assignTranslate(typeof(info.lastValue), info.lastType, expr, info);
+									}
+								} else {
+									info.lastValue = spec.values[i];
+									info.lastType = typeof(spec.type);
+									expr = typeExpr(spec.values[i], info);
+									expr = assignTranslate(typeof(info.lastValue), info.lastType, expr, info);
+								}
 								var name = nameIdent(spec.names[i].name, false, true, info);
 								var t = typeof(spec.type);
 								var exprType = type;
@@ -983,12 +1026,12 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 									if (specType != null)
 										exprType = toComplexType(specType, info);
 								}
-								expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
+								// expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
 								{
 									name: name,
 									type: exprType,
 									isFinal: spec.constants[i],
-									expr: i < spec.values.length ? expr : type != null ? defaultValue(t, info) : null,
+									expr: expr,
 								};
 							}
 						]);
@@ -996,6 +1039,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 				default:
 					throw "unknown id: " + spec.id;
 			}
+			info.iota++;
 		}
 	}
 	if (vars.length > 0)

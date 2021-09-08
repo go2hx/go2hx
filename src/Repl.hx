@@ -24,7 +24,7 @@ function init() {
 			Util.infoMsg(exprString);
 			// execute since there is an output
 			File.saveContent("repl/error", "1");
-			final path = Util.modulePath(modules[0]);
+			final path = Util.modulePath(modules);
 			File.saveContent("Repl.hx", 'function main() {$path.main(); sys.io.File.saveContent("repl/error","0");}');
 			var command = "haxe -cp golibs -main Repl --interp";
 			Sys.command(command);

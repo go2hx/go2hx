@@ -108,8 +108,8 @@ func compile(params []string, excludesData excludesType) []byte {
 	args = args[0 : len(args)-1] //remove chdir
 
 	cfg := &packages.Config{Mode: packages.NeedName |
-		packages.NeedSyntax | packages.NeedDeps |
-		packages.NeedImports |
+		packages.NeedSyntax |
+		packages.NeedImports | packages.NeedDeps |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
 	cfg.Tests = testBool
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
@@ -386,16 +386,18 @@ func parsePkgList(list []*packages.Package) dataType {
 	data := dataType{}
 	data.Pkgs = make([]packageType, len(list))
 	for _, pkg := range list {
+		excludes[pkg.PkgPath] = true
 		syntax := parsePkg(pkg)
-		if len(syntax.Files) > 1 {
+		if len(syntax.Files) > 0 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
-		for _, val := range pkg.Imports {
+		for _, val := range pkg.Imports { //imports
 			if excludes[val.PkgPath] {
 				continue
 			}
+			excludes[val.PkgPath] = true
 			syntax := parsePkg(val)
-			if len(syntax.Files) > 1 {
+			if len(syntax.Files) > 0 {
 				data.Pkgs = append(data.Pkgs, syntax)
 			}
 		}

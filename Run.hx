@@ -1,5 +1,6 @@
 import haxe.io.Path;
 import sys.FileSystem;
+import sys.io.File;
 import sys.io.Process;
 
 function main() {
@@ -14,6 +15,20 @@ function main() {
 		if (args.length > 0) {}
 	}
 	var rebuild = false;
+	var process = new Process('git', ['rev-parse', 'HEAD']);
+	if (process.exitCode() != 0) {
+		var message = process.stderr.readAll().toString();
+		trace("Cannot execute `git rev-arse HEAD`. " + message);
+		return;
+	}
+	final version = process.stdout.readLine();
+	if (FileSystem.exists("version.txt")) {
+		if (version != File.getContent("version.txt")) {
+			Sys.println("updating version rebuilding binaries");
+			rebuild = true;
+		}
+	}
+	File.saveContent("version.txt", version);
 	if (args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1) { // used to rebuild the compiler each run
 		args.remove("-rebuild");
 		args.remove("--rebuild");
@@ -25,7 +40,7 @@ function main() {
 		forceEval = true;
 	}
 	// run go compiler
-	if (!FileSystem.exists("go4hx"))
+	if (!FileSystem.exists("go4hx") || rebuild)
 		Sys.command("go build .");
 
 	process = new Process("hl", ["--version"]);

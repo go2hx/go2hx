@@ -126,7 +126,7 @@ class Go {
 					expr = macro new GoString($expr);
 			default:
 		}
-		var ty = gtDecode(t, expr);
+		var ty = gtDecode(t, expr, []);
 		return macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
 	}
 
@@ -170,7 +170,7 @@ class Go {
 				if (t == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
 				var et = Context.follow(Context.typeof(e));
-				var value = gtDecode(t);
+				var value = gtDecode(t, null, []);
 				switch et {
 					case TInst(cl, params):
 						var cl = cl.get();
@@ -308,19 +308,16 @@ class Go {
 
 	#if macro
 	// reflect decode
-	private static function gtParams(params:Array<haxe.macro.Type>):Array<Expr> {
+	private static function gtParams(params:Array<haxe.macro.Type>, marked:Map<String, Bool>):Array<Expr> {
 		var pTypes = [];
 		for (i in 0...params.length) {
 			final param = Context.follow(params[i]);
-			pTypes.push(gtDecode(param));
+			pTypes.push(gtDecode(param, null, marked));
 		}
 		return pTypes;
 	}
 
-	static var marked = new Map<String, Bool>();
-	static var markedEmpty = true;
-
-	public static function gtDecode(t:haxe.macro.Type, expr:Expr = null):Expr {
+	public static function gtDecode(t:haxe.macro.Type, expr:Expr = null, marked:Map<String, Bool>):Expr {
 		var ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 		switch (t) {
 			case TType(t, params):
@@ -341,21 +338,22 @@ class Go {
 				var sref:String = ref.toString();
 				switch (sref) {
 					case "stdgo.Slice":
-						ret = macro stdgo.reflect.Reflect.GoType.sliceType($a{gtParams(params)});
+						ret = macro stdgo.reflect.Reflect.GoType.sliceType($a{gtParams(params, marked)});
 					case "stdgo.GoArray":
 						var len = macro - 1;
 						if (expr != null)
 							len = macro($expr : GoArray<Dynamic>).length.toBasic();
-						ret = macro stdgo.reflect.Reflect.GoType.arrayType(${gtParams(params)[0]}, $len); // TODO go2hx does not store the length in the type
+						ret = macro stdgo.reflect.Reflect.GoType.arrayType(${gtParams(params, marked)[0]},
+							$len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
-						ret = macro stdgo.reflect.Reflect.GoType.pointer($a{gtParams(params)});
+						ret = macro stdgo.reflect.Reflect.GoType.pointer($a{gtParams(params, marked)});
 					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
 						return macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":
-						var ps = gtParams(params);
+						var ps = gtParams(params, marked);
 						ret = macro stdgo.reflect.Reflect.GoType.mapType($a{ps});
 					case "haxe.Rest":
-						ret = macro stdgo.reflect.Reflect.GoType.slice($a{gtParams(params)});
+						ret = macro stdgo.reflect.Reflect.GoType.slice($a{gtParams(params, marked)});
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int8_kind);
 					case "stdgo.GoInt16":
@@ -405,18 +403,13 @@ class Go {
 				final refString = ref.toString();
 				var ref = ref.get();
 				if (!marked.exists(refString)) {
-					var init = false;
-					if (markedEmpty) {
-						markedEmpty = false;
-						init = true;
-					}
 					marked[refString] = true;
 					if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
-						var param = gtParams(params)[0];
+						var param = gtParams(params, marked)[0];
 						ret = macro stdgo.reflect.Reflect.GoType.chanType(0, $param);
 					} else {
 						if (ref.isInterface) {
-							ret = gtDecodeInterfaceType(ref);
+							ret = gtDecodeInterfaceType(ref, marked);
 						} else {
 							if (ref.meta.has(":named")) {
 								var type:haxe.macro.Type = null;
@@ -430,15 +423,11 @@ class Go {
 									Context.error("unable to find __t__ type", Context.currentPos());
 								var interfaces:Array<Expr> = [];
 								var path = ref.module;
-								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [], $a{interfaces}, ${gtDecode(type)});
+								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [], $a{interfaces}, ${gtDecode(type, null, marked)});
 							} else {
-								ret = gtDecodeClassType(ref);
+								ret = gtDecodeClassType(ref, marked);
 							}
 						}
-					}
-					if (init) {
-						markedEmpty = true;
-						marked.clear();
 					}
 				} else {
 					var name = parseModule(ref.module) + "." + ref.name;
@@ -451,7 +440,7 @@ class Go {
 				});
 				var fields = [];
 				for (field in a.fields) {
-					var t = gtDecode(field.type);
+					var t = gtDecode(field.type, null, marked);
 					var name:Expr = macro $v{field.name};
 					final embedded = field.meta.has(":embedded") ? macro true : macro false;
 					fields.push(macro {
@@ -466,7 +455,7 @@ class Go {
 			case TFun(a, result):
 				var args = [];
 				for (arg in a) {
-					args.push(gtDecode(arg.t));
+					args.push(gtDecode(arg.t, null, marked));
 				}
 				var results = []; // TODO handle multi return
 				var isVoid = false;
@@ -476,7 +465,7 @@ class Go {
 					default:
 				}
 				if (!isVoid)
-					results.push(gtDecode(result));
+					results.push(gtDecode(result, null, marked));
 				var variadic = macro false;
 				var recv = macro stdgo.reflect.Reflect.GoType.invalidType;
 				// TODO
@@ -484,7 +473,7 @@ class Go {
 			case TDynamic(t):
 				ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
 			case TLazy(f):
-				ret = gtDecode(f());
+				ret = gtDecode(f(), null, []);
 			case TEnum(_, _):
 				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 			default:
@@ -497,18 +486,23 @@ class Go {
 		return pack.join(".") + "." + name;
 	}
 
-	static function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType):Expr {
+	static function gtDecodeInterfaceType(ref:haxe.macro.Type.ClassType, marked:Map<String, Bool>):Expr {
 		var methods:Array<Expr> = [];
 		var fields = ref.fields.get();
 		for (method in fields) {
-			methods.push(macro {name: $v{method.name}, type: ${gtDecode(method.type)}});
+			switch method.name {
+				case "__underlying__":
+					continue;
+				default:
+			}
+			methods.push(macro {name: $v{method.name}, type: ${gtDecode(method.type, null, marked)}});
 		}
 		var path = createPath(ref.pack, ref.name);
 		var empty = methods.length == 0 ? macro true : macro false;
 		return macro stdgo.reflect.Reflect.GoType.interfaceType($empty, $v{path}, $a{methods});
 	}
 
-	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType):Expr {
+	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType, marked:Map<String, Bool>):Expr {
 		var methods:Array<Expr> = [];
 		var fields:Array<Expr> = [];
 		var interfaces = [];
@@ -516,7 +510,7 @@ class Go {
 			return macro stdgo.reflect.Reflect.GoType.basic(string_kind);
 		for (inter in ref.interfaces) {
 			var inter = inter.t.get();
-			interfaces.push(gtDecodeInterfaceType(inter));
+			interfaces.push(gtDecodeInterfaceType(inter, marked));
 		}
 		var fs = ref.fields.get();
 		var underlyingType:haxe.macro.Type = null;
@@ -530,7 +524,7 @@ class Go {
 					}
 					switch field.type {
 						case TLazy(f):
-							field.type = f();
+							continue;
 						default:
 					}
 					switch field.type {
@@ -538,7 +532,7 @@ class Go {
 							var params = [];
 							var rets = [];
 							for (arg in args) {
-								params.push(gtDecode(arg.t));
+								params.push(gtDecode(arg.t, null, marked));
 							}
 							switch ret {
 								case TAnonymous(a):
@@ -556,14 +550,11 @@ class Go {
 											default:
 										}
 									}
-									rets.push(gtDecode(ret));
+									rets.push(gtDecode(ret, null, marked));
 							}
 							final embedded = field.meta.has(":embedded") ? macro true : macro false;
 							params.unshift(macro stdgo.reflect.Reflect.GoType.field("this",
 								stdgo.reflect.Reflect.GoType.previouslyNamed($v{module} + "." + $v{ref.name}), "", false)); // recv
-						/*methods.push(macro stdgo.reflect.Reflect.GoType.field($v{field.name},
-							stdgo.reflect.Reflect.GoType.signature($a{params}, $a{rets}), "", $embedded)); */
-						// TODO
 						default:
 							Context.error("method needs to be a function: " + field.type, Context.currentPos());
 					}
@@ -572,7 +563,7 @@ class Go {
 						underlyingType = field.type;
 						continue;
 					}
-					var t = gtDecode(field.type);
+					var t = gtDecode(field.type, null, marked);
 					final embedded = field.meta.has(":embedded") ? macro true : macro false;
 					final tag = field.meta.has(":tag") ? field.meta.extract(":tag")[0].params[0] : macro "";
 					fields.push(macro new stdgo.reflect.Reflect.FieldType($v{field.name}, $t, $tag, $embedded));
@@ -581,7 +572,7 @@ class Go {
 		var fields = macro $a{fields};
 		var t = macro stdgo.reflect.Reflect.GoType.structType($fields);
 		if (ref.meta.has(":named") && underlyingType != null) {
-			t = gtDecode(underlyingType);
+			t = gtDecode(underlyingType, null, marked);
 		}
 		var path = createPath(ref.pack, ref.name);
 		return macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $a{interfaces}, $t);

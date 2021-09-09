@@ -77,6 +77,8 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 				continue;
 			}
 			switch c {
+				case ".".code:
+					next();
 				case "#".code: // alternative format
 					next();
 				case "+".code: // always print a sign for numeric values ASCII only output for %+q
@@ -88,6 +90,8 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 				case "0".code: // pad with leading zeros for numbers, padding after the sign
 					next();
 			}
+			if ([for (i in 0...10) '$i'.charCodeAt(0)].indexOf(c) != -1)
+				next();
 			if (args[argIndex] == null) {
 				buf.add("null");
 				argIndex++;

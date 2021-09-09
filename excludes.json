@@ -62,6 +62,7 @@
     "net/http",
     "net/http/httptest",
     "testing",
+    "testing/internal/testdeps",
     "encoding/xml",
     "time",
     "text/scanner",

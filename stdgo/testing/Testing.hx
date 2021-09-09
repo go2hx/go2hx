@@ -18,9 +18,16 @@ class T_ implements StructType {
 
 	public function cleanup(f:Void->Void) {}
 
-	public function error(args:Rest<AnyInterface>) {}
+	public function error(args:Rest<AnyInterface>) {
+		stdgo.fmt.Fmt.println(args);
+		fail();
+	}
 
-	public function errorf(format:GoString, args:Rest<AnyInterface>) {}
+	public function errorf(format:GoString, args:Rest<AnyInterface>) {
+		stdgo.fmt.Fmt.printf(format, ...args);
+		stdgo.fmt.Fmt.println();
+		fail();
+	}
 
 	public function fail() // marks the function as failed byt continues the execution
 		failBool = true;

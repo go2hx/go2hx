@@ -97,7 +97,7 @@ private class MapData<K, V> {
 				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
-				throw "unknown type: " + @:privateAccess type.common().value;
+				throw "unknown type map equals: " + @:privateAccess type.common().value;
 		}
 	}
 
@@ -129,7 +129,7 @@ private class MapData<K, V> {
 	public inline function defaultValue():V {
 		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
 			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
-			default: @:privateAccess throw "unknown type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
+			default: @:privateAccess throw "unknown default map type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
 		}
 	}
 

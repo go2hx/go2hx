@@ -318,6 +318,7 @@ class Go {
 	}
 
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr = null, marked:Map<String, Bool>):Expr {
+		final marked = marked.copy();
 		var ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 		switch (t) {
 			case TType(t, params):

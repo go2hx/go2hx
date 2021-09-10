@@ -2016,7 +2016,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		var bValue = b.value;
 		switch gt {
 			case named(_, _, _, type):
-				gt = type;
 				if (isNamed(type))
 					aValue = (aValue : Dynamic).__t__;
 			default:
@@ -2027,7 +2026,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					bValue = (bValue : Dynamic).__t__;
 			default:
 		}
-		return switch gt {
+		return switch stdgo.reflect.Reflect.getUnderlying(gt) {
 			case basic(kind):
 				switch kind {
 					case string_kind:
@@ -2067,6 +2066,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					if (fieldValue == null || fieldValue2 == null)
 						throw "struct issue with field name: " + name;
 
+					final type = @:privateAccess stdgo.reflect.Reflect.unroll(gt, type);
 					final a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect._Type(type));
 					final b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect._Type(type));
 
@@ -2104,7 +2104,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case pointer(_):
 				aValue == bValue;
 			default:
-				throw "unknown type: " + @:privateAccess a.type.common().value;
+				throw "unknown type equals: " + @:privateAccess a.type.common().value;
 		}
 	}
 }

@@ -114,6 +114,13 @@ func compile(params []string, excludesData excludesType) []byte {
 	cfg.Tests = testBool
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	initial, err := packages.Load(cfg, args...)
+	for _, pkg := range initial {
+		files := make(map[string]*ast.File, len(pkg.GoFiles))
+		for i := 0; i < len(pkg.GoFiles); i++ {
+			files[filepath.Base(pkg.GoFiles[i])] = pkg.Syntax[i]
+		}
+		pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
+	}
 	cfg = nil
 	if err != nil {
 		throw("load error: " + err.Error())
@@ -406,11 +413,6 @@ func parsePkgList(list []*packages.Package) dataType {
 }
 
 func parsePkg(pkg *packages.Package) packageType {
-	files := make(map[string]*ast.File, len(pkg.GoFiles))
-	for i := 0; i < len(pkg.GoFiles); i++ {
-		files[filepath.Base(pkg.GoFiles[i])] = pkg.Syntax[i]
-	}
-	file := ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)
 	fset = pkg.Fset
 	data := packageType{}
 	data.Name = pkg.Name
@@ -420,7 +422,7 @@ func parsePkg(pkg *packages.Package) packageType {
 	if name == "main" {
 		name = filepath.Base(pkg.GoFiles[0])
 	}
-	data.Files = []fileType{parseFile(file, name)}
+	data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
 	checker = nil
 	fset = nil
 	return data

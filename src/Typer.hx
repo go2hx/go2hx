@@ -538,7 +538,7 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	throw unsupportedMessage("select statement", info);
+	unsupportedMessage("select statement", info);
 	return typeBlockStmt(stmt.body, info, false);
 }
 
@@ -586,11 +586,11 @@ private function unsupportedMessage(message:String, info:Info):String {
 	final name = info.global.filePath;
 	final path = info.global.path;
 	trace(info.funcName);
-	return '$message is unsupported: $path/$name';
+	throw '$message is unsupported: $path/$name';
 }
 
 private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
-	throw unsupportedMessage("go statement", info);
+	unsupportedMessage("go statement", info);
 	var call = typeExpr(stmt.call, info);
 	return (macro Go.routine($call)).expr;
 }
@@ -2029,6 +2029,16 @@ private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
 	return EConst(CIdent(name));
 }
 
+private function isFunction(expr:Ast.Expr):Bool {
+	final ft = typeof(expr);
+	final sig = isSignature(ft);
+	var kind:Ast.ObjKind = expr.id == "SelectorExpr" ? expr.sel.kind : expr.kind;
+	var notFunction = kind == Ast.ObjKind.typ || (!sig && !isInvalid(ft) && expr.id != "CallExpr");
+	if (!notFunction && sig)
+		notFunction = expr.id == "ParenExpr" && expr.x.id == "FuncType" || expr.id == "FuncType";
+	return !notFunction;
+}
+
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
@@ -2106,13 +2116,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 		}
 	}
-	var ft = typeof(expr.fun);
-	final sig = isSignature(ft);
-	var kind:Ast.ObjKind = expr.fun.id == "SelectorExpr" ? expr.fun.sel.kind : expr.fun.kind;
-	var notFunction = kind == Ast.ObjKind.typ || (!sig && !isInvalid(ft) && expr.fun.id != "CallExpr");
-	if (!notFunction && sig)
-		notFunction = expr.fun.id == "ParenExpr" && expr.fun.x.id == "FuncType" || expr.fun.id == "FuncType";
-	if (notFunction) {
+	final isFunction = isFunction(expr.fun);
+	if (!isFunction) {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
 		final fromType = typeof(expr.args[0]);
@@ -2281,7 +2286,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 	}
 	var e = typeExpr(expr.fun, info);
-	if (isNamed(ft))
+	final type = typeof(expr.fun);
+	if (isNamed(type))
 		e = macro $e.__t__;
 	var isFmtPrint = false;
 	switch e.expr {
@@ -3285,31 +3291,34 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	var isThis = false;
 
 	var sel = nameIdent(expr.sel.name, false, false, info);
+	var selFunctionBool = isFunction(expr.sel);
 
 	if (isPointer(typeX) && !isThis)
 		x = macro $x.value;
-	var fields = getStructFields(typeX);
-	if (fields.length > 0) {
-		var chains:Array<String> = [];
-		function recursion(path:String, fields:Array<FieldType>) {
-			for (field in fields) {
-				var setPath = path + nameIdent(field.name, false, false, info);
-				chains.push(setPath);
-				setPath += ".";
-				var structFields = getStructFields(field.type);
-				if (isPointer(field.type)) {
-					setPath += "value.";
+	if (!selFunctionBool) {
+		final fields = getStructFields(typeX);
+		if (fields.length > 0) {
+			var chains:Array<String> = [];
+			function recursion(path:String, fields:Array<FieldType>) {
+				for (field in fields) {
+					var setPath = path + nameIdent(field.name, false, false, info);
+					chains.push(setPath);
+					setPath += ".";
+					var structFields = getStructFields(field.type);
+					if (isPointer(field.type)) {
+						setPath += "value.";
+					}
+					if (structFields.length > 0)
+						recursion(setPath, structFields);
 				}
-				if (structFields.length > 0)
-					recursion(setPath, structFields);
 			}
-		}
-		recursion("", fields);
-		for (chain in chains) {
-			var field = chain.substr(chain.lastIndexOf(".") + 1);
-			if (field == sel) {
-				sel = chain;
-				break;
+			recursion("", fields);
+			for (chain in chains) {
+				var field = chain.substr(chain.lastIndexOf(".") + 1);
+				if (field == sel) {
+					sel = chain;
+					break;
+				}
 			}
 		}
 	}

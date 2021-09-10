@@ -35,7 +35,7 @@ class T_ implements StructType {
 	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
 		failBool = true;
 		// end current process
-		throw "fail now";
+		throw "fail";
 	}
 
 	public function failed():Bool
@@ -107,7 +107,11 @@ class M implements StructType {
 			final stamp = haxe.Timer.stamp();
 			try {
 				test.f(Go.pointer(t));
-			} catch (_) {
+			} catch (e) {
+				if (e.native != "fail") {
+					stdgo.fmt.Fmt.println(e.details());
+				}
+				Sys.exit(0);
 				error = true;
 			}
 			final dstr = haxe.Timer.stamp() - stamp; // duration

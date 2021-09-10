@@ -5,7 +5,7 @@ import stdgo.StdGoTypes.GoFloat64 as Float;
 import stdgo.StdGoTypes.GoInt;
 
 final pi = M.PI;
-final maxFloat32:Float = M.POSITIVE_INFINITY;
+final maxFloat32:Float = 340282346638528859811704183484516925440.000000;
 
 inline function max(a:Float, b:Float):Float {
 	return M.max(a.toBasic(), b.toBasic());
@@ -13,6 +13,10 @@ inline function max(a:Float, b:Float):Float {
 
 inline function min(a:Float, b:Float):Float {
 	return M.min(a.toBasic(), b.toBasic());
+}
+
+inline function sqrt(a:Float):Float {
+	return M.sqrt(a.toBasic());
 }
 
 inline function inf(sign:GoInt):Float {
@@ -23,6 +27,10 @@ inline function inf(sign:GoInt):Float {
 
 inline function signbit(x:Float):Bool {
 	return x <= 0;
+}
+
+inline function isInf(x:Float, sign:Float):Bool {
+	return sign >= 0 && x == Math.POSITIVE_INFINITY || sign <= 0 && x == Math.NEGATIVE_INFINITY;
 }
 
 inline function isNaN(x:Float)
@@ -80,8 +88,22 @@ inline function frexp(x:Float):{_frac:Float, _exp:GoInt} {
 	return {_frac: 0, _exp: 0}; // TODO
 }
 
-inline function hypot(x:Float, y:Float):Float {
-	return 0; // TODO
+inline function hypot(p:Float, q:Float):Float {
+	if (isInf(p, 0) || isInf(q, 0))
+		return inf(1);
+	if (isNaN(p) || isNaN(q))
+		return naN();
+	p = abs(p);
+	q = abs(q);
+	if (p < q) {
+		final temp = p;
+		p = q;
+		q = temp;
+	}
+	if (p == 0)
+		return 0;
+	q = q / p;
+	return p * sqrt(1 + q * q);
 }
 
 inline function mod(x:Float, y:Float):Float {

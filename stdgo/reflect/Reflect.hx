@@ -524,6 +524,8 @@ class Value implements StructType {
 			case _map: value == null || (value : GoMap<Dynamic, Dynamic>).isNil();
 			case _interface:
 				value == null;
+			case _array:
+				false;
 			default:
 				throw "nil check not supported kind: " + kind();
 		}
@@ -1624,6 +1626,13 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 				default:
 					false;
 			}
+		case previouslyNamed(path):
+			switch vgt {
+				case previouslyNamed(path2):
+					path == path2;
+				default:
+					false;
+			}
 		default:
 			throw "unable to check for assignability: " + tgt;
 	}
@@ -1777,40 +1786,34 @@ final __string = toString;
 function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:GoInt):Bool {
 	if (!v1.isValid() || !v2.isValid()) {
 		return v1.isValid() == v2.isValid();
-	};
+	}
 	if (v1.kind() == array) {
-		{
-			var i:GoInt = 0;
-			Go.cfor(i < v1.len(), i++, {
-				if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
-					return false;
-				};
-			});
-		};
+		for (i in 0...v1.len().toBasic()) {
+			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
 		return true;
 	} else if (v1.kind() == slice) {
 		if (v1.isNil() != v2.isNil()) {
 			return false;
-		};
+		}
 		if (v1.len() != v2.len()) {
 			return false;
-		};
+		}
 		if (v1.pointer() != v2.pointer()) {
 			return true;
-		};
-		{
-			var i:GoInt = 0;
-			Go.cfor(i < v1.len(), i++, {
-				if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
-					return false;
-				};
-			});
-		};
+		}
+		for (i in 0...v1.len().toBasic()) {
+			if (!deepValueEqual(v1.index(i), v2.index(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
 		return true;
 	} else if (v1.kind() == interface_) {
 		if (v1.isNil() || v2.isNil()) {
 			return v1.isNil() == v2.isNil();
-		};
+		}
 		return true;
 	} else if (v1.kind() == ptr) {
 		if (v1.pointer() == v2.pointer()) {
@@ -1818,41 +1821,38 @@ function deepValueEqual(v1:Value, v2:Value, visited:GoMap<Visit, Bool>, depth:Go
 		};
 		return deepValueEqual(v1.elem(), v2.elem(), visited, depth + (1 : GoInt64));
 	} else if (v1.kind() == struct) {
-		{
-			var i:GoInt = (0 : GoInt64), n:GoInt = v1.numField();
-			Go.cfor(i < n, i++, {
-				if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
-					return false;
-				};
-			});
-		};
+		for (i in 0...v1.numField().toBasic()) {
+			if (!deepValueEqual(v1.field(i), v2.field(i), visited, depth + (1 : GoInt64))) {
+				return false;
+			}
+		}
 		return true;
 	} else if (v1.kind() == map) {
 		if (v1.isNil() != v2.isNil()) {
 			return false;
-		};
+		}
 		if (v1.len() != v2.len()) {
 			return false;
-		};
+		}
 		if (v1.pointer() == v2.pointer()) {
 			return true;
-		};
+		}
 		for (k in v1.mapKeys()) {
 			var val1 = v1.mapIndex(k);
 			var val2 = v2.mapIndex(k);
 			if (!val1.isValid() || !val2.isValid() || !deepValueEqual(val1, val2, visited, depth + (1 : GoInt64))) {
 				return false;
-			};
-		};
+			}
+		}
 		return true;
 	} else if (v1.kind() == func) {
 		if (v1.isNil() && v2.isNil()) {
 			return true;
-		};
+		}
 		return false;
 	} else {
 		return v1.interface_() == v2.interface_();
-	};
+	}
 }
 
 function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
@@ -1861,7 +1861,7 @@ function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
 
 	if (new Value(x).isNil() || new Value(y).isNil()) {
 		return x == y;
-	};
+	}
 	var v1 = valueOf(x);
 	var v2 = valueOf(y);
 	return deepValueEqual(v1, v2, null, 0);

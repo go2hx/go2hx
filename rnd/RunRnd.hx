@@ -8,8 +8,8 @@ function main() {
 		Main.onComplete = (modules, data) -> {
 			if (modules.length == 0)
 				throw "no exported path";
-			final path = Util.modulePath(modules);
-			final command = 'haxe -cp golibs extraParams.hxml -main $path --interp';
+			final mainPath = Util.mainPath(modules);
+			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
 			Sys.println(command);
 			Sys.command(command);
 			Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");

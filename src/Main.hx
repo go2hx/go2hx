@@ -1,7 +1,6 @@
 // ! -lib hxnodejs
 package;
 
-import Gen.create;
 import Typer.DataType;
 import haxe.Json;
 import haxe.Resource;
@@ -16,9 +15,6 @@ import sys.io.File;
 import sys.io.Process;
 
 final cwd = Sys.getCwd();
-var exportBool:Bool = false;
-var target:String = "";
-var targetFolder:Bool = false;
 final loop = hl.uv.Loop.getDefault();
 final server = new Tcp(loop);
 var clients:Array<Client> = [];
@@ -43,11 +39,89 @@ function main() {
 	run(Sys.args());
 }
 
+var printGoCode = false;
+var localPath = "";
+var target = "";
+var targetOutput = "";
+var libwrap = false;
+var outputPath:String = "";
+var hxmlPath:String = "";
+
 function run(args:Array<String>) {
-	// var stamp = haxe.Timer.stamp();
+	outputPath = "golibs";
+	var help = false;
+	final argHandler = Args.generate([
+		["-help", "--help", "-h", "--h"] => () -> help = true,
+		@doc("set output path or file location")
+		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> {
+			outputPath = out;
+		},
+		@doc("generate hxml from target command")
+		["-hxml", "--hxml"] => out -> {
+			hxmlPath = out;
+		},
+		@doc("add go code as a comment to the generated Haxe code")
+		["-printgocode", "--printgocode"] => () -> printGoCode = true,
+		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")
+		["-libwrap", "--libwrap"] => () -> libwrap = true,
+		@doc('generate C++ code into target directory')
+		["-cpp", "--cpp"] => out -> {
+			target = "cpp";
+			targetOutput = out;
+		},
+		@doc('generate JavaScript code into target file')
+		["-js", "--js", ] => out -> {
+			target = "js";
+			targetOutput = out;
+		},
+		@doc('generate JVM bytecode into target file')
+		["-jvm", "--jvm", "-java", "--java"] => out -> {
+			target = "jvm";
+			targetOutput = out;
+		},
+		@doc('generate Python code into target file')
+		["-python", "--python"] => out -> {
+			target = "python";
+			targetOutput = out;
+		},
+		@doc('generate Lua code into target file')
+		["-lua", "--lua"] => out -> {
+			target = "lua";
+			targetOutput = out;
+		},
+		@doc('generate C# code into target directory')
+		["-cs", "--cs"] => out -> {
+			target = "cs";
+			targetOutput = out;
+		},
+		@doc('generate HashLink .hl bytecode or .c code into target file')
+		["-hl", "--hl", "-hashlink", "--hashlink"] => out -> {
+			target = "hl";
+			targetOutput = out;
+		},
+		@doc('interpret the program using internal macro system')
+		["-eval", "--eval", "-interp", "--interp"] => () -> {
+			target = "interp";
+		}
+	]);
+	argHandler.parse(args);
+	for (option in argHandler.options) {
+		for (i in 0...args.length) {
+			if (option.flags.indexOf(args[i]) != -1) {
+				args.remove(args[i]);
+				for (j in 0...option.args.length)
+					args.remove(args[i]);
+			}
+		}
+	}
+	var maxLength = 0;
+	if (help) {
+		printDoc(argHandler);
+		close();
+		return;
+	}
 	setup(0, 1, () -> {
 		onComplete = (modules, data) -> {
-			// Sys.println("time: " + (haxe.Timer.stamp() - stamp));
 			close();
 		};
 		if (args.length <= 1) {
@@ -55,9 +129,20 @@ function run(args:Array<String>) {
 		} else {
 			compile(args);
 		}
-	});
+	}, outputPath);
 	while (true)
 		update();
+}
+
+private function printDoc(handler:Args.ArgHandler) {
+	Util.successMsg("go2hx");
+	Sys.print("\n");
+	final max = 20;
+	for (option in handler.options) {
+		if (option.doc == null)
+			continue;
+		Sys.println(StringTools.rpad(option.flags[0], " ", max) + option.doc);
+	}
 }
 
 function update() {
@@ -126,11 +211,11 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				var libs:Array<String> = [];
 				reset();
 				for (module in modules) {
-					if (global && !module.isMain) {
+					if (libwrap && !module.isMain) {
 						Sys.setCwd(cwd);
 						var name = module.name;
 						var libPath = "libs/" + name + "/";
-						create(libPath, module);
+						Gen.create(libPath, module);
 						Sys.command('haxelib dev $name $libPath');
 						if (libs.indexOf(name) == -1)
 							libs.push(name);
@@ -138,6 +223,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Gen.create(outputPath, module);
 					}
 				}
+				runTarget(modules);
 				onComplete(modules, client.data);
 			}
 		});
@@ -146,12 +232,40 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	});
 }
 
-var global = false;
-var printGoCode = false;
-var localPath = "";
-var addConnect = false;
-var addOutput = false;
-var helpBool:Bool = false;
+function targetLibs():String {
+	final libs = switch target {
+		case "jvm":
+			["hxjava"];
+		case "cs":
+			["hxcs"];
+		case "cpp":
+			["hxcpp"];
+		case "js":
+			["hxnodejs"];
+		default:
+			[];
+	}
+	return [for (lib in libs) '-lib $lib'].join(' ');
+}
+
+private function runTarget(modules:Array<Typer.Module>) {
+	if (target == "")
+		return;
+	final mainPath = Util.mainPath(modules);
+	final libs = targetLibs();
+	final commands = [
+		'-cp $outputPath',
+		'-main $mainPath',
+		libs,
+		'-lib go2hx',
+		'--$target $targetOutput',
+	];
+	final command = "haxe " + commands.join(" ");
+	if (hxmlPath != "")
+		File.saveContent(hxmlPath, commands.join("\n"));
+	Sys.println(command);
+	Sys.command(command);
+}
 
 function compile(args:Array<String>, data:Dynamic = null):Bool {
 	if (localPath == "")

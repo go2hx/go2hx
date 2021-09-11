@@ -253,8 +253,8 @@ private function complete(modules, data) {
 		trace("make sure to have go and yaegi cloned inside the tests dir for test suite access");
 		throw test;
 	}
-	final path = Util.modulePath(modules);
-	final command = 'haxe -cp golibs --interp -D test extraParams.hxml -main $path';
+	final mainPath = Util.mainPath(modules);
+	final command = 'haxe -cp golibs --interp -D test extraParams.hxml -main $mainPath';
 	var proc = new sys.io.Process(command);
 	var code:Null<Int> = null;
 	var timer = new haxe.Timer(30);

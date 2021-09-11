@@ -19,7 +19,7 @@ function makeExpr(o:Dynamic):Expr {
 
 final systemName = Sys.systemName();
 final isTestAction = Sys.getEnv("GITHUB_WORKSPACE") != null;
-var colorSupported = (systemName == "Linux" || systemName == "Mac") ? true : isTestAction;
+var colorSupported = (systemName == "Linux" || systemName == "Mac" || systemName == "Windows") ? true : isTestAction;
 
 function toExpr(def:ExprDef):Expr {
 	return {expr: def, pos: null};
@@ -37,7 +37,7 @@ function infoMsg(msg:String):Void {
 	Sys.println(colorSupported ? '\x1b[36m' + msg + '\x1b[0m' : msg);
 }
 
-function modulePath(modules:Array<Typer.Module>):String {
+function mainPath(modules:Array<Typer.Module>):String {
 	var path = "";
 	for (module in modules) {
 		if (!module.isMain || !module.files[0].isMain)

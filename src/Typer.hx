@@ -585,7 +585,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 private function unsupportedMessage(message:String, info:Info):String {
 	final name = info.global.filePath;
 	final path = info.global.path;
-	trace(info.funcName);
+	Sys.println("function: " + info.funcName);
 	throw '$message is unsupported: $path/$name';
 }
 

@@ -195,6 +195,20 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			buff = null;
 		}
 		client.stream.readStart(bytes -> {
+			if (bytes == null) {
+				// health check
+				for (proc in processes) {
+					final code = proc.exitCode();
+					if (code == null)
+						continue;
+					if (code != 0) {
+						Sys.print(proc.stderr.readAll());
+					}
+				}
+				// close as stream has broken
+				close();
+				return;
+			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
 				buff = Bytes.alloc(len);

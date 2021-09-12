@@ -117,7 +117,8 @@ func compile(params []string, excludesData excludesType) []byte {
 	for _, pkg := range initial {
 		files := make(map[string]*ast.File, len(pkg.GoFiles))
 		for i := 0; i < len(pkg.GoFiles); i++ {
-			files[filepath.Base(pkg.GoFiles[i])] = pkg.Syntax[i]
+			path := filepath.Base(pkg.GoFiles[i])
+			files[path] = pkg.Syntax[i]
 		}
 		pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
 	}
@@ -422,7 +423,9 @@ func parsePkg(pkg *packages.Package) packageType {
 	if name == "main" {
 		name = filepath.Base(pkg.GoFiles[0])
 	}
-	data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
+	if len(pkg.Syntax) > 0 {
+		data.Files = []fileType{parseFile(pkg.Syntax[0], name)}
+	}
 	checker = nil
 	fset = nil
 	return data

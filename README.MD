@@ -23,7 +23,7 @@ haxelib run go2hx ./main.go
 
 *Shows percentage of tests passing out of total*
 
-<img src="graph.png" align="center"/></p>
+<a href="https://go2hx.github.io/test883"><img src="graph.png" align="center"/></p></a>
 
 # Language features
 

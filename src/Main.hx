@@ -268,8 +268,8 @@ function targetLibs():String {
 }
 
 private function runTarget(modules:Array<Typer.Module>) {
-	if (test)
-		target = "interp";
+	if (test && target == "")
+		target = "interp"; // default test target
 	if (target == "")
 		return;
 	final mainPath = Util.mainPath(modules);

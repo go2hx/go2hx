@@ -1,33 +1,66 @@
 package stdgo.time;
 
 import haxe.Int64;
-import haxe.zip.Compress;
-import stdgo.StdGoTypes.StructType;
-import stdgo.StdGoTypes;
+import stdgo.StdGoTypes.GoInt32;
+import stdgo.StdGoTypes.GoInt64;
 
-inline function sleep(d:Duration) {
-	Sys.sleep(durationToSecond(d));
+// variable refrences
+final _localLoc = {};
+
+function sleep(_d) {
+	final seconds = _d.__t__.toFloat() / 1000000000;
+	Sys.sleep(seconds);
 }
 
-private inline function durationToSecond(d:Duration):Int {
-	trace("d: " + d);
-	var x = (d.toBasic() / (1000 * 1000 * 1000)).low;
-	return x;
+inline function after(d) {
+	return null;
 }
 
-inline function after(d:Duration):Chan<Time> {
-	var chan = stdgo.Go.make((_ : Chan<Time>));
-	// haxe.Timer.delay(() -> {
-	//	chan.send(Time.now());
-	// }, durationToSecond(d) * 1000);
-	return chan;
+function _now() {
+	return Time._now();
 }
 
-inline function parseDuration(s:GoString):{d:Duration, err:Error} {
+function _runtimeNano()
+	return Time._runtimeNano();
+
+function initLocal() {
+	Time._initLocal(_localLoc);
+}
+
+inline function newTimer(_d) {
+	return null;
+}
+
+inline function _parseDuration(_s) {
 	return {d: null, err: null};
 }
 
-// (TODO) implement proper bindings to the go transpilation of time
-typedef Time = time.Time.Time;
-typedef Duration = Dynamic; // time.Time.Duration;
-final second = time.Time.second;
+class Time {
+	public static function _runtimeNano():GoInt64 {
+		return (Date.now().getTime() : GoInt64) * (1000000 : GoInt64);
+	}
+
+	public static function _now():{_sec:GoInt64, _nsec:GoInt32, _mono:GoInt64} {
+		final n = _runtimeNano();
+		return {_sec: n / 1000000000, _nsec: n % 1000000000, _mono: n};
+	}
+
+	public static function _initLocal(_localLoc:Dynamic):Void {
+		_localLoc._name = "Local";
+		final d = Date.now();
+		var offset = d.getTimezoneOffset() * -1;
+		var name = "UTC";
+		if (offset < 0) {
+			name += "-";
+			offset *= -1;
+		} else {
+			name += "+";
+		}
+		name += Std.string(offset / 60);
+		final min = offset % 60;
+		if (min != 0) {
+			name += ":" + Std.string(min);
+		}
+		_localLoc._zone = [{_name: name, _offset: offset, _isDST: false}];
+	}
+}

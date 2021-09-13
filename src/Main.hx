@@ -46,12 +46,15 @@ var targetOutput = "";
 var libwrap = false;
 var outputPath:String = "";
 var hxmlPath:String = "";
+var test:Bool = false;
+final passthroughArgs = ["-test"];
 
 function run(args:Array<String>) {
 	outputPath = "golibs";
 	var help = false;
 	final argHandler = Args.generate([
-		["-help", "--help", "-h", "--h"] => () -> help = true,
+		["-help", "--help", "-h", "--h"] => () -> help = true, @doc("go test")
+		["-test", "--test"] => () -> test = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> {
 			outputPath = out;
@@ -106,6 +109,8 @@ function run(args:Array<String>) {
 	]);
 	argHandler.parse(args);
 	for (option in argHandler.options) {
+		if (passthroughArgs.indexOf(option.flags[0]) != -1)
+			continue;
 		for (i in 0...args.length) {
 			if (option.flags.indexOf(args[i]) != -1) {
 				args.remove(args[i]);
@@ -174,7 +179,6 @@ function close() {
 function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs") {
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
-	Typer.excludes = Json.parse(File.getContent("./excludes.json")).excludes;
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
 
 	for (i in 0...processCount) {
@@ -198,7 +202,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			if (bytes == null) {
 				// health check
 				for (proc in processes) {
-					final code = proc.exitCode();
+					final code = proc.exitCode(false);
 					if (code == null)
 						continue;
 					if (code != 0) {
@@ -206,6 +210,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 					}
 				}
 				// close as stream has broken
+				trace("stream has broken");
 				close();
 				return;
 			}
@@ -263,6 +268,8 @@ function targetLibs():String {
 }
 
 private function runTarget(modules:Array<Typer.Module>) {
+	if (test)
+		target = "interp";
 	if (target == "")
 		return;
 	final mainPath = Util.mainPath(modules);

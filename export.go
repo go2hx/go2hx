@@ -114,40 +114,13 @@ func compile(params []string, excludesData excludesType) []byte {
 	cfg.Tests = testBool
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	initial, err := packages.Load(cfg, args...)
-	for _, pkg := range initial {
-		files := make(map[string]*ast.File, len(pkg.GoFiles))
-		for i := 0; i < len(pkg.GoFiles); i++ {
-			path := filepath.Base(pkg.GoFiles[i])
-			files[path] = pkg.Syntax[i]
-		}
-		pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
-	}
 	cfg = nil
 	if err != nil {
 		throw("load error: " + err.Error())
 		return []byte{}
 	}
-	excludes = make(map[string]bool, len(excludesData.Excludes))
 
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
-	}
-
-	typeHasher = typeutil.MakeHasher()
-
-	excludes = make(map[string]bool)
-	//parse interfaces 1st past
-	for _, pkg := range initial {
-		parseInterface(pkg)
-	}
-
-	//2nd pass
-
-	excludes = make(map[string]bool, len(excludesData.Excludes))
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
-	}
-	data := parsePkgList(initial)
+	data := parsePkgList(initial, excludesData)
 	typeHasher = typeutil.Hasher{}
 	interfaces = nil
 	data.Args = args
@@ -390,7 +363,40 @@ func throw(str string) {
 	//throw(str)
 }
 
-func parsePkgList(list []*packages.Package) dataType {
+func mergePackage(pkg *packages.Package) {
+	files := make(map[string]*ast.File, len(pkg.Syntax))
+	for i := 0; i < len(pkg.Syntax); i++ {
+		path := filepath.Base(pkg.GoFiles[i])
+		files[path] = pkg.Syntax[i]
+	}
+	pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
+}
+
+func parsePkgList(list []*packages.Package, excludesData excludesType) dataType {
+	for _, pkg := range list {
+		mergePackage(pkg)
+	}
+
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
+
+	typeHasher = typeutil.MakeHasher()
+
+	excludes = make(map[string]bool)
+	//parse interfaces 1st past
+	for _, pkg := range list {
+		parseInterface(pkg)
+	}
+
+	//2nd pass
+
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
 	data := dataType{}
 	data.Pkgs = make([]packageType, len(list))
 	for _, pkg := range list {
@@ -404,9 +410,10 @@ func parsePkgList(list []*packages.Package) dataType {
 				continue
 			}
 			excludes[val.PkgPath] = true
-			syntax := parsePkg(val)
-			if len(syntax.Files) > 0 {
-				data.Pkgs = append(data.Pkgs, syntax)
+
+			dataImport := parsePkgList([]*packages.Package{val}, excludesData)
+			if len(dataImport.Pkgs) > 0 {
+				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)
 			}
 		}
 	}

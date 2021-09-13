@@ -15,6 +15,7 @@ import java.vm.Gc;
 var memProfileRate:Int = 0;
 var compiler:GoString = "gccgo";
 final goarch:GoString = "wasm";
+var goos:GoString = "";
 
 function gc() {
 	// run garbage collector
@@ -38,9 +39,7 @@ function gomaxprocs(num:GoInt):GoInt {
 	return num;
 }
 
-function goexit() {
-	
-}
+function goexit() {}
 
 function callersFrames(callers:Slice<GoUIntptr>):Pointer<Frames> {
 	var f = new Frames();

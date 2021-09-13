@@ -742,6 +742,12 @@ abstract GoInt(Int32) from Int32 from Int32 {
 	public inline function toBasic()
 		return this;
 
+	@:from static function fromFloat(x:Float):GoInt
+		return Std.int(x);
+
+	@:from static function fromRune(x:GoRune):GoInt
+		return x.toBasic();
+
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 
@@ -857,6 +863,9 @@ abstract GoInt(Int32) from Int32 from Int32 {
 abstract GoInt32(Int) from Int32 from Int {
 	public inline function new(x:Int32 = 0)
 		this = x;
+
+	@:from static function fromFloat(x:Float):GoInt32
+		return Std.int(x);
 
 	public inline function toBasic()
 		return this;
@@ -977,6 +986,9 @@ abstract GoUInt(Int) from Int {
 
 	public inline function toBasic()
 		return this;
+
+	@:from static function fromRune(x:GoRune):GoUInt
+		return clamp(x.toBasic());
 
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
@@ -1491,6 +1503,10 @@ abstract GoInt64(Int64) from Int64 {
 	@:from static function fromFloat(x:Float):GoInt64
 		return Int64.fromFloat(x);
 
+	public function toFloat():Float {
+		return this.high * 4294967296. + (this.low >>> 0);
+	}
+
 	@:to inline function toInt():GoInt
 		return this.low;
 
@@ -1560,9 +1576,8 @@ abstract GoInt64(Int64) from Int64 {
 	}
 
 	@:op(A--) inline function postDec():GoInt64
-		return this
+		return this - 1;
 
-	--;
 	@:op(A * B) public static function mul(a:GoInt64, b:GoInt64):GoInt64
 		return a.toBasic() * b.toBasic();
 

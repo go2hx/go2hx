@@ -33,7 +33,8 @@
     "syscall",
     "test",
     "testing",
-    "time",
+    "testing/internal/testdeps",
+    "syscall/js",
     "unicode",
     "unsafe"
 ]}

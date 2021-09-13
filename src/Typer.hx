@@ -16,7 +16,6 @@ import sys.FileSystem;
 import sys.io.File;
 
 var stdgoList:Array<String>;
-var excludes:Array<String>;
 var externs:Bool = false;
 
 final reserved = [
@@ -241,17 +240,37 @@ function main(data:DataType, printGoCode:Bool = false) {
 					}
 				}
 			}
-
+			final valueDeps = new Map<String, {value:TypeDefinition, deps:Array<String>}>();
 			values.sort((a, b) -> {
-				final a2 = extractTypeDefIdents(a);
-				final b2 = extractTypeDefIdents(b);
-				if (a2.indexOf(b.name) != -1)
+				if (a.name == "_")
 					return 1;
-				if (b2.indexOf(a.name) != -1)
+				if (b.name == "_")
 					return -1;
-				return a2.length - b2.length;
+				return 0;
 			});
-
+			for (value in values) {
+				if (value.name == "_")
+					value.name += info.count++;
+				valueDeps[value.name] = {value: value, deps: extractTypeDefIdents(value)};
+			}
+			values = [];
+			function hasDeps(depName:String, deps:Array<String>) {
+				for (name in deps) {
+					if (!valueDeps.exists(name) || name == depName)
+						continue;
+					final data = valueDeps[name];
+					hasDeps(name, data.deps);
+					if (valueDeps.remove(name))
+						values.push(data.value);
+				}
+			}
+			for (name => data in valueDeps) {
+				if (data == null)
+					continue;
+				hasDeps(name, data.deps);
+				if (valueDeps.remove(name))
+					values.push(data.value);
+			}
 			data.defs = data.defs.concat(values);
 
 			for (decl in declFuncs) { // parse function bodies last
@@ -582,11 +601,11 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	}
 }
 
-private function unsupportedMessage(message:String, info:Info):String {
+private function unsupportedMessage(message:String, info:Info) {
 	final name = info.global.filePath;
 	final path = info.global.path;
-	Sys.println("function: " + info.funcName);
-	throw '$message is unsupported: $path/$name';
+	// Sys.println("function: " + info.funcName);
+	// throw '$message is unsupported: $path/$name';
 }
 
 private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
@@ -930,7 +949,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 	function namedCheckCast(from:GoType, to:GoType) {
 		var fromNamed = isNamed(from);
 		var toNamed = isNamed(to);
-		if (fromNamed && !toNamed && !isInterface(to)) {
+		if (fromNamed && !toNamed && !isInterface(to) && !isInvalid(to)) {
 			return macro $e.__t__;
 		}
 		// trace("from Named: " + fromNamed + " to: " + toNamed);
@@ -1331,24 +1350,31 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	var expr = ifs();
 	if (hasFallThrough || info.global.hasBreak) {
 		if (info.global.hasBreak) {
-			switch expr.expr {
-				case EIf(_, eif, eelse):
-					switch eif.expr {
-						case EBlock(exprs):
-							exprs.push(macro break);
-							eif.expr = EBlock(exprs);
-						default:
-					}
-					if (eelse != null) {
-						switch eelse.expr {
+			function func(expr:Expr):Expr {
+				return switch expr.expr {
+					case EIf(econd, eif, eelse):
+						switch eif.expr {
 							case EBlock(exprs):
 								exprs.push(macro break);
-								eelse.expr = EBlock(exprs);
+								eif.expr = EBlock(exprs);
 							default:
 						}
-					}
-				default:
+						if (eelse != null) {
+							switch eelse.expr {
+								case EBlock(exprs):
+									exprs.push(macro break);
+									eelse.expr = EBlock(exprs);
+								default:
+									func(eelse);
+							}
+						}
+						expr.expr = EIf(econd, eif, eelse);
+						expr;
+					default:
+						expr;
+				}
 			}
+			expr = func(expr);
 		}
 		var needsReturn = exprWillReturn(expr);
 		if (defaultBlock != null) {
@@ -1359,8 +1385,10 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		}
 		expr = macro {
 			var __default__ = false;
-			while (true)
+			while (true) {
 				$expr;
+				break;
+			}
 		}
 		if (needsReturn) {
 			switch expr.expr {
@@ -1550,7 +1578,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	if (passCopy)
 		y = passByCopy(fromType, y, toType);
 
-	if (isNamed(fromType) && !isNamed(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
+	if (isNamed(fromType) && !isNamed(toType) && !isInterface(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
 	}
 	if (isAnyInterface(toType)) {
@@ -1562,9 +1590,9 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			y = macro($y.value : $ct);
 		}
 	}
-	var namedX = isNamed(fromType);
-	var namedY = isNamed(toType);
-	if (!namedX && namedY) {
+	final namedX = isNamed(fromType);
+	final namedY = isNamed(toType);
+	if (!namedX && namedY && !isTuple(fromType)) {
 		var ct = toComplexType(toType, info);
 		switch ct {
 			case TPath(p):
@@ -2037,6 +2065,15 @@ private function isFunction(expr:Ast.Expr):Bool {
 	if (!notFunction && sig)
 		notFunction = expr.id == "ParenExpr" && expr.x.id == "FuncType" || expr.id == "FuncType";
 	return !notFunction;
+}
+
+private function isTuple(type:GoType):Bool {
+	return switch type {
+		case tuple(_, _):
+			true;
+		default:
+			false;
+	}
 }
 
 private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
@@ -2588,7 +2625,7 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath {
 	var pack = [];
 	if (globalPath != path) {
 		pack = path.split("/");
-		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
 		var last = pack.pop();
@@ -2620,11 +2657,11 @@ private function namedTypePath(path:String, info:Info):TypePath {
 	globalPath = toGoPath(globalPath);
 	var pack = [];
 	if (globalPath != path) {
-		path += "/" + title(pkg);
 		pack = path.split("/");
-		if (stdgoList.indexOf(pack[0].toLowerCase()) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
+		pack.push(title(pkg));
 	}
 	return {pack: pack, name: cl};
 }
@@ -2687,10 +2724,6 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			final ctKey = toComplexType(key, info);
 			final ctValue = toComplexType(value, info);
 			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
-		/*case tuple(len, vars):
-			if (len == 1)
-				return toComplexType(vars[0], info);
-			null; */
 		case invalidType:
 			null;
 		case pointer(elem):
@@ -2723,7 +2756,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				for (i in 0...results.length) {
 					switch results[i] {
 						case _var(name, type):
-							fields.push({name: name, pos: null, kind: FVar(toComplexType(type, info))});
+							fields.push({name: nameIdent(name, false, true, info), pos: null, kind: FVar(toComplexType(type, info))});
 						default:
 							fields.push({name: "v" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
 					}
@@ -2800,6 +2833,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 		case STRING:
 			value = StringTools.replace(value, "\\n", "\n");
 			value = StringTools.replace(value, '\\"', '"');
+			value = StringTools.replace(value, "\\x", "\\\\x");
 			var e = makeString(value);
 			e;
 		case INT:
@@ -2820,6 +2854,8 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			e;
 		case FLOAT:
 			final e = toExpr(EConst(CFloat(value)));
+			if (isNamed(type))
+				type = getUnderlying(type);
 			ct = toComplexType(type, info);
 			e;
 		case CHAR:
@@ -2849,13 +2885,14 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 
 private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	var t = typeof(expr.x);
-	if (isNamed(t) && expr.op != AND) // exception of not using underlying type is for creating a pointer
+	final t = typeof(expr.x);
+	final isNamed = isNamed(t);
+	if (isNamed && expr.op != AND) // exception of not using underlying type is for creating a pointer
 		x = macro $x.__t__;
 	if (expr.op == AND) {
 		return (macro Go.pointer($x)).expr;
 	} else {
-		var op = typeUnOp(expr.op);
+		final op = typeUnOp(expr.op);
 		if (op == null)
 			return switch expr.op {
 				case XOR: EBinop(OpXor, macro - 1, x);
@@ -2880,7 +2917,10 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 				}
 			default:
 		}
-		return EUnop(op, false, x);
+		var e = toExpr(EUnop(op, false, x));
+		if (isNamed)
+			e = assignTranslate(getUnderlying(t), t, e, info);
+		return e.expr;
 	}
 }
 
@@ -3379,8 +3419,10 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		x = macro $x.__t__;
 	t = getUnderlying(t);
 	switch t {
-		case mapType(keyType, _):
-			index = assignTranslate(typeof(expr.index), keyType, index, info);
+		case arrayType(_, _), sliceType(_):
+			index = assignTranslate(typeof(expr.index), basic(int_kind), index, info);
+		case mapType(indexType, _):
+			index = assignTranslate(typeof(expr.index), indexType, index, info);
 		default:
 	}
 	var e = macro $x[$index];
@@ -3860,7 +3902,8 @@ private function typeFieldListComplexTypes(list:Ast.FieldList, info:Info):Array<
 		var type = typeExprType(field.type, info);
 		if (field.names.length > 0) {
 			for (name in field.names) {
-				args.push(TNamed(name.name, type));
+				final name = nameIdent(name.name, false, true, info);
+				args.push(TNamed(name, type));
 			}
 		} else {
 			args.push(type);
@@ -4370,22 +4413,23 @@ private function getAllow(info:Info) {
 
 private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	var doc = getDoc(imp);
-	var path = normalizePath(imp.path.value).split("/");
+	final path = normalizePath(imp.path.value);
+	final pack = path.split("/");
 	var alias = imp.name == null ? null : imp.name.name;
 	if (alias == "_")
 		alias = "";
-	if (stdgoList.indexOf(path[0]) != -1) { // haxe only type, otherwise the go code refrences Haxe
-		path.unshift("stdgo");
+	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		pack.unshift("stdgo");
 	}
-	var name = path[path.length - 1];
-	path.push(title(name)); // shorten path here
+	var name = pack[pack.length - 1];
+	pack.push(title(name)); // shorten path here
 	if (alias != null && alias != "") {
-		info.renameIdents[alias] = path.join(".");
+		info.renameIdents[alias] = pack.join(".");
 	} else {
-		info.renameIdents[name] = path.join(".");
+		info.renameIdents[name] = pack.join(".");
 	}
 	return {
-		path: path,
+		path: pack,
 		alias: alias,
 		doc: doc,
 	}
@@ -4435,9 +4479,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		}
 	} else {
 		for (i in 0...value.names.length) {
-			if (value.names[i].name == "_") {
-				value.names[i].name += (info.count++);
-			}
 			var expr:Expr = null;
 			if (value.values[i] == null) {
 				if (type != null) {
@@ -4557,8 +4598,9 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 			}
 		}
 	}
-	if (info.restricted != null && info.restricted.indexOf(name) != -1)
+	if (info.restricted != null && info.restricted.indexOf(name) != -1 && rename) {
 		name = getRestrictedName(name, info);
+	}
 	if (reserved.indexOf(name) != -1)
 		name = name + "_";
 	if (overwrite) {

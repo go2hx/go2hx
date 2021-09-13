@@ -14,18 +14,23 @@ interface Stringer {
 	function toString():GoString;
 }
 
+interface GoStringer {
+	public function __underlying__():AnyInterface;
+	function goString():GoString;
+}
+
 inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
 	return stdgo.errors.Errors.new_(format(fmt, args));
 }
 
-function println(args:Rest<Dynamic>):{n:Int, err:Error} {
+function println(args:Rest<Dynamic>):{_n:Int, _err:Error} {
 	log(parse(args).join(" ") + "\n");
-	return {n: 0, err: null};
+	return {_n: 0, _err: null};
 }
 
-function print(args:Rest<Dynamic>):{n:Int, err:Error} {
+function print(args:Rest<Dynamic>):{_n:Int, _err:Error} {
 	log(parse(args).join(""));
-	return {n: 0, err: null};
+	return {_n: 0, _err: null};
 }
 
 inline function printf(fmt:GoString, args:Rest<AnyInterface>) { // format

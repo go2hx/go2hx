@@ -3,3 +3,4 @@
 -D source-map
 -D shallow-expose
 -D keep-inline-positions
+--macro stdgo.internal.Injector.run()

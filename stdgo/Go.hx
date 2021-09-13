@@ -252,13 +252,13 @@ class Go {
 									final index = (${e2} : GoInt).toBasic() + _offset_;
 									final underlying = ${e1}.getUnderlying();
 									var underlyingIndex = Go.toInterface((index : GoInt));
-									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, null, underlying, underlyingIndex);
+									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, false, underlying, underlyingIndex);
 								};
 							case "GoArray":
 								return macro {
 									final underlying = ${e1}.toVector();
 									final underlyingIndex = Go.toInterface((${e2} : GoInt));
-									new $p(() -> $expr, (v) -> $expr = v, null, underlying, underlyingIndex);
+									new $p(() -> $expr, (v) -> $expr = v, false, underlying, underlyingIndex);
 								}
 						}
 					default:

@@ -36,7 +36,9 @@ class Client {
 }
 
 function main() {
-	run(Sys.args());
+	var args = Sys.args();
+	// args = ["-test", "time", Sys.getCwd()];
+	run(args);
 }
 
 var printGoCode = false;
@@ -222,7 +224,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			buff.blit(pos, bytes, 0, bytes.length);
 			pos += bytes.length;
 			if (pos == buff.length) {
-				var exportData:DataType = Json.parse(buff.toString());
+				var exportData:DataType = bson.Bson.decode(buff);
 				var modules = [];
 				modules = Typer.main(exportData);
 				Sys.setCwd(localPath);

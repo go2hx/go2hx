@@ -1,5 +1,7 @@
 -cp tests
 -cp src
 -main TestRunner
+-lib bson
 -lib test-adapter
+-D no-deprecation-warnings
 --hl test.hl

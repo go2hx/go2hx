@@ -13,6 +13,11 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 * [Download Go 1.16+](https://golang.org/dl/)
 * [Download Haxe 4.2.3+](https://haxe.org/download/)
 * [Download Hashlink](https://hashlink.haxe.org/)
+
+```
+haxelib git bson https://github.com/kevinresol/bson
+```
+
 ```
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```

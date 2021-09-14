@@ -3,5 +3,7 @@
 -main RunRnd
 --hl rnd.hl
 -D debug
+-lib bson
 -D watch.run=hl rnd.hl
+-D no-deprecation-warnings
 -D watch.excludes=golibs

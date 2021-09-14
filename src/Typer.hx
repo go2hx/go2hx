@@ -2834,6 +2834,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			value = StringTools.replace(value, "\\n", "\n");
 			value = StringTools.replace(value, '\\"', '"');
 			value = StringTools.replace(value, "\\x", "\\\\x");
+			value = StringTools.replace(value, "\\b", "\\x08");
 			var e = makeString(value);
 			e;
 		case INT:

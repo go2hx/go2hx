@@ -14,6 +14,8 @@ import (
 	"runtime/debug"
 	"time"
 
+	"go.mongodb.org/mongo-driver/bson"
+
 	//"go/types"
 
 	_ "embed"
@@ -82,11 +84,8 @@ var typeHasher typeutil.Hasher
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
 	testBool := false
-	identBool := false
 	for _, param := range params {
 		switch param {
-		case "-ident", "--ident":
-			identBool = true
 		case "-test", "--test":
 			testBool = true
 		default:
@@ -124,12 +123,7 @@ func compile(params []string, excludesData excludesType) []byte {
 	typeHasher = typeutil.Hasher{}
 	interfaces = nil
 	data.Args = args
-
-	if identBool {
-		bytes, err = json.MarshalIndent(data, "", "    ")
-	} else {
-		bytes, err = json.Marshal(data)
-	}
+	bytes, err = bson.Marshal(data)
 	if err != nil {
 		throw("encoding err: " + err.Error())
 		return bytes

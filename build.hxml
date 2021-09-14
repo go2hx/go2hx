@@ -2,6 +2,7 @@
 -main Main
 -D no-deprecation-warnings
 -D std-encoding-utf8
+-lib bson
 --dce full
 -D analyzer-optimize
 -hl build.hl

@@ -13,12 +13,14 @@ function main() {
 			Sys.println(command);
 			Sys.command(command);
 			Sys.println("\n~~~~~~~~~~~~expected~~~~~~~~~~~~");
-			final command = testBool ? "test" : "build";
+			var command = testBool ? "test" : "run";
 			final wasm = false;
 			if (wasm) {
 				Sys.putEnv("GOOS", "js");
 				Sys.putEnv("GOARCH", "wasm");
 				final run = Util.systemName == "Windows" ? "bash" : "sh";
+				if (command == "run")
+					command = "build";
 				Sys.command('go $command -o rnd.wasm ./rnd && $run go_js_wasm_exec rnd.wasm');
 			} else {
 				Sys.command('go $command ./rnd');

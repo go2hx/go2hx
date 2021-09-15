@@ -2,11 +2,13 @@ package stdgo.strconv;
 
 import stdgo.StdGoTypes;
 
-function parseFloat(s:GoString, bitSize:GoInt64):{_i:GoFloat, ?_err:Error} {
+final intSize:GoInt = 32;
+
+function parseFloat(s:GoString, bitSize:GoInt64):{v0:GoFloat, ?v1:Error} {
 	try {
-		return {_i: Std.parseFloat(s.toString())};
+		return {v0: Std.parseFloat(s.toString())};
 	} catch (e) {
-		return {_i: 0, _err: syntaxError("parseFloat", s)};
+		return {v0: 0, v1: syntaxError("parseFloat", s)};
 	}
 }
 
@@ -17,30 +19,30 @@ inline function unquote(s:GoString):{_i:GoString, ?_err:Error} { // TODO check i
 	return {_i: s};
 }
 
-inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?v1:Error} {
+inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_i:GoInt, ?_err:Error} {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
-			return {v0: 0, v1: syntaxError("parseInt", s)};
-		return {v0: value};
+			return {_i: 0, _err: syntaxError("parseInt", s)};
+		return {_i: value};
 	} catch (e) {
 		if (s.substr(0, 2) == "0x")
 			return parseInt(s.substr(2), 0, 0);
 		return {
-			v0: 0,
-			v1: syntaxError("parseInt", s)
+			_i: 0,
+			_err: syntaxError("parseInt", s)
 		};
 	}
 }
 
-inline function parseBool(s:GoString):{_i:Bool, ?_err:Error} {
+inline function parseBool(s:GoString):{v0:Bool, ?v1:Error} {
 	return switch s.toString() {
 		case "1", "t", "T", "true", "TRUE", "True":
-			{_i: true};
+			{v0: true};
 		case "0", "f", "F", "false", "FALSE", "False":
-			{_i: false};
+			{v0: false};
 		default:
-			{_i: false, _err: syntaxError("parseBool", s)};
+			{v0: false, v1: syntaxError("parseBool", s)};
 	}
 }
 
@@ -72,13 +74,14 @@ private function rangeError(fn:GoString, str:GoString):NumError {
 
 inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?v1:Error} {
 	final o = parseInt(s, base, bitSize);
-	return {v0: o.v0, v1: o.v1};
+	return {v0: o._i, v1: o._err};
 }
 
 // `Atoi` is a convenience function for basic base-10
 
 inline function atoi(s:GoString) {
-	return parseInt(s, 0, 0);
+	final data = parseInt(s, 0, 0);
+	return {v0: data._i, v1: data._err};
 }
 
 inline function itoa(i:GoInt):GoString

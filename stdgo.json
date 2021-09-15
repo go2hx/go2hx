@@ -35,6 +35,5 @@
     "testing",
     "testing/internal/testdeps",
     "syscall/js",
-    "unicode",
     "unsafe"
 ]}

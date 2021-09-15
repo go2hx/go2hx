@@ -86,7 +86,6 @@ var config = {printGoCode: false}; // typer config
 function main(data:DataType, printGoCode:Bool = false) {
 	config.printGoCode = printGoCode;
 	var list:Array<Module> = [];
-	// default imports
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "", doc: ""},
 		{path: ["stdgo", "Error"], alias: "", doc: ""},
@@ -117,6 +116,19 @@ function main(data:DataType, printGoCode:Bool = false) {
 			final index = module.path.lastIndexOf(".");
 			if (index != -1)
 				module.path = module.path.substr(0, index);
+		}
+
+		if (StringTools.endsWith(module.path, "_test")) {
+			var path = module.path;
+			path = path.substring(0, path.length - "_test".length);
+			final pack = path.split(".");
+			final name = importClassName(pack[pack.length - 1]);
+			pack.push(name);
+			defaultImports.push({
+				path: pack,
+				alias: "",
+				doc: "",
+			});
 		}
 
 		var info = new Info();
@@ -1558,6 +1570,15 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 	return y;
 }
 
+private function isRestExpr(expr:Expr):Bool {
+	return switch expr.expr {
+		case EUnop(op, _, _):
+			op == OpSpread;
+		default:
+			false;
+	}
+}
+
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
@@ -1581,7 +1602,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	if (isNamed(fromType) && !isNamed(toType) && !isInterface(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
 	}
-	if (isAnyInterface(toType)) {
+
+	if (isAnyInterface(toType) && !isRestExpr(expr)) {
 		y = macro Go.toInterface($y);
 	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
@@ -2330,8 +2352,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	switch e.expr {
 		case EField(e, field):
 			var str = printer.printExpr(e);
-			if (str == "stdgo.fmt.Fmt" && field.charAt(field.length - 1) != "f")
+			if (str == "stdgo.fmt.Fmt" && field.charAt(field.length - 1) != "f") {
 				isFmtPrint = true;
+			}
 		default:
 	}
 
@@ -2492,7 +2515,7 @@ private function typeof(e:Ast.Expr):GoType {
 		case "Slice":
 			sliceType(typeof(e.elem));
 		case "Array":
-			arrayType(typeof(e.elem), e.len);
+			arrayType(typeof(e.elem), e.len.low);
 		case "Pointer":
 			pointer(typeof(e.elem));
 		case "Map":
@@ -3512,7 +3535,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		if (varName != "") {
-			final thisValue = sel == "" ? macro this : macro this.$sel;
+			final thisValue = sel == "" ? macro this : macro this.$sel; // embedded method field name
 			varName = nameIdent(varName, false, true, info);
 			info.thisName = varName;
 			switch block.expr {
@@ -3522,13 +3545,14 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 						final t = getElem(recvType);
 						final p = getTypePath(t, info);
 						if (isNamed) {
-							exprs.unshift(macro var $varName = new Pointer(() -> new $p(__t__), __tmp__ -> new $p(__t__ = __tmp__.__t__)));
+							var e = macro $thisValue.__t__;
+							exprs.unshift(macro var $varName = new Pointer(() -> new $p($e), __tmp__ -> new $p($e = __tmp__.__t__)));
 						} else {
 							exprs.unshift(macro var $varName = new Pointer(() -> $thisValue, __tmp__ -> $thisValue.__set__(__tmp__)));
 						}
 					} else {
 						if (isNamed) {
-							exprs.unshift(macro var $varName = $thisValue); // TODO this needs to support ref types as well (map/slice/array)
+							exprs.unshift(macro var $varName = $thisValue.__copy__());
 						} else {
 							exprs.unshift(macro var $varName = $thisValue.__copy__());
 						}
@@ -4422,8 +4446,8 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
-	var name = pack[pack.length - 1];
-	pack.push(title(name)); // shorten path here
+	final name = pack[pack.length - 1];
+	pack.push(importClassName(name)); // shorten path here
 	if (alias != null && alias != "") {
 		info.renameIdents[alias] = pack.join(".");
 	} else {
@@ -4539,7 +4563,7 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 	try {
 		source = File.getContent(info.data.location);
 	} catch (e) {
-		trace("error: " + e + " data: " + info.data);
+		trace("error: " + e + " data: " + info.data.location);
 		return "";
 	}
 	source = source.substring(value.pos, value.end);

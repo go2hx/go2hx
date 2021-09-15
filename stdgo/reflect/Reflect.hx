@@ -196,7 +196,7 @@ function getElem(type:GoType):GoType {
 		return type;
 	return switch type {
 		case named(_, _, _, type):
-			getElem(type);
+			type;
 		case _var(_, type):
 			getElem(type);
 		case arrayType(elem, _), sliceType(elem), pointer(elem):

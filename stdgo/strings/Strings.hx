@@ -1,7 +1,40 @@
 package stdgo.strings;
 
-import stdgo.StdGoTypes.GoByte;
-import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes;
+
+@:structInit
+class Builder implements StructType implements stdgo.io.Io.Writer {
+	var buf:StringBuf;
+
+	public function new() {
+		buf = new StringBuf();
+		stdgo.internal.Macro.initLocals();
+	}
+
+	public function write(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+		buf.add((p : GoString).toString());
+		return {_n: p.length, _err: null};
+	}
+
+	public function read(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+		return {_n: 0, _err: null};
+	}
+
+	public function writeString(s:GoString):{v0:GoInt, v1:Error} {
+		buf.add(s.toString());
+		return {v0: s.length, v1: null};
+	}
+
+	public function toString():GoString
+		return buf.toString();
+
+	public function len():GoInt {
+		return buf.toString().length;
+	}
+
+	public function __underlying__():AnyInterface
+		return null;
+}
 
 inline function contains(s:GoString, value:GoString):Bool {
 	return StringTools.contains(s, value);

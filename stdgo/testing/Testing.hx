@@ -150,7 +150,14 @@ class InternalBenchmark implements StructType {
 
 @:structInit
 class InternalExample implements StructType {
-	public function new() {}
+	public var name:GoString = "";
+	public var f:Void->Void = null;
+	public var output:GoString = "";
+	public var unordered:Bool = false;
+
+	public function new(?name, ?f, ?output, ?unordered) {
+		stdgo.internal.Macro.initLocals();
+	}
 
 	public function __underlying__():AnyInterface
 		return null;

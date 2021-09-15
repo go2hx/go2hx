@@ -120,6 +120,10 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		array.setVector(this.vector.copy());
 		return array;
 	}
+
+	public function __copy__() {
+		return copy();
+	}
 }
 
 private class VectorKeyValueIterator<T> {

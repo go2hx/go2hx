@@ -17,6 +17,10 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		}
 	}
 
+	public function __copy__():GoMap<K, V> {
+		return this.copy();
+	}
+
 	public function setCap(cap:GoInt):GoMap<K, V> {
 		this.cap = cap.toBasic();
 		return this;
@@ -70,6 +74,7 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 
 private class MapData<K, V> {
 	var array:Array<{key:K, value:V}> = [];
+
 	var nullcount:GoInt = 0;
 
 	public var nilBool:Bool = false;
@@ -78,6 +83,12 @@ private class MapData<K, V> {
 
 	public function new(type:Type) {
 		this.type = type;
+	}
+
+	public function copy():MapData<K, V> {
+		final map = new MapData<K, V>(this.type);
+		@:privateAccess map.array = this.array.copy();
+		return map;
 	}
 
 	public inline function length()

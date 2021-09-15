@@ -8,6 +8,7 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
+	"io/ioutil"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -71,7 +72,6 @@ var stdgoListBytes []byte
 var excludesBytes []byte
 
 var fset *token.FileSet
-var excludes map[string]bool
 var stdgoList map[string]bool
 
 var interfaces []interfaceData
@@ -80,14 +80,20 @@ var conf = types.Config{Importer: importer.Default()}
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 var typeHasher typeutil.Hasher
+var logBool = false
+var logBuffer = ""
 
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
 	testBool := false
+	logBool = false
+	logBuffer = ""
 	for _, param := range params {
 		switch param {
 		case "-test", "--test":
 			testBool = true
+		case "-log", "--log":
+			logBool = true
 		default:
 			args = append(args, param)
 		}
@@ -118,8 +124,11 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("load error: " + err.Error())
 		return []byte{}
 	}
-
-	data := parsePkgList(initial, excludesData)
+	excludes := make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
+	data := parsePkgList(initial, excludes)
 	typeHasher = typeutil.Hasher{}
 	interfaces = nil
 	data.Args = args
@@ -128,7 +137,18 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("encoding err: " + err.Error())
 		return bytes
 	}
+	if logBool {
+		os.Remove("log.txt")
+		ioutil.WriteFile("log.txt", []byte(logBuffer), 0177)
+	}
 	return bytes
+}
+
+func log(a ...interface{}) {
+	if !logBool {
+		return
+	}
+	logBuffer += fmt.Sprintln(a...)
 }
 
 func main() {
@@ -337,13 +357,12 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 	return interfaces
 }
 
-func parseInterface(pkg *packages.Package) {
+func parseInterface(pkg *packages.Package, excludes map[string]bool) {
 	for _, val := range pkg.Imports {
 		if excludes[val.PkgPath] {
 			continue
 		}
-		excludes[val.PkgPath] = true
-		parseInterface(val)
+		parseInterface(val, excludes)
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	for _, file := range pkg.Syntax {
@@ -354,7 +373,7 @@ func parseInterface(pkg *packages.Package) {
 }
 
 func throw(str string) {
-	//throw(str)
+	//panic(str)
 }
 
 func mergePackage(pkg *packages.Package) {
@@ -366,33 +385,19 @@ func mergePackage(pkg *packages.Package) {
 	pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
 }
 
-func parsePkgList(list []*packages.Package, excludesData excludesType) dataType {
+func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
 		mergePackage(pkg)
 	}
-
-	excludes = make(map[string]bool, len(excludesData.Excludes))
-
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
-	}
-
 	typeHasher = typeutil.MakeHasher()
-
-	excludes = make(map[string]bool)
+	excludes2 := make(map[string]bool)
 	//parse interfaces 1st past
 	for _, pkg := range list {
-		parseInterface(pkg)
+		parseInterface(pkg, excludes2)
 	}
-
 	//2nd pass
-
-	excludes = make(map[string]bool, len(excludesData.Excludes))
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
-	}
 	data := dataType{}
-	data.Pkgs = make([]packageType, len(list))
+	data.Pkgs = []packageType{}
 	for _, pkg := range list {
 		excludes[pkg.PkgPath] = true
 		syntax := parsePkg(pkg)
@@ -404,8 +409,8 @@ func parsePkgList(list []*packages.Package, excludesData excludesType) dataType 
 				continue
 			}
 			excludes[val.PkgPath] = true
-
-			dataImport := parsePkgList([]*packages.Package{val}, excludesData)
+			log("import name " + val.Name)
+			dataImport := parsePkgList([]*packages.Package{val}, excludes)
 			if len(dataImport.Pkgs) > 0 {
 				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)
 			}

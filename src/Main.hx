@@ -226,7 +226,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			if (pos == buff.length) {
 				var exportData:DataType = bson.Bson.decode(buff);
 				var modules = [];
-				modules = Typer.main(exportData);
+				modules = Typer.main(exportData, printGoCode);
 				Sys.setCwd(localPath);
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];

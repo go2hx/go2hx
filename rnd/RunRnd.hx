@@ -27,7 +27,7 @@ function main() {
 			}
 			Main.close();
 		};
-		final args = ["./rnd", Sys.getCwd()];
+		final args = ["-log", "./rnd", Sys.getCwd()];
 		if (testBool)
 			args.unshift("-test");
 		Sys.println("compile: " + Main.compile(args));

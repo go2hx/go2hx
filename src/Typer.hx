@@ -1,18 +1,8 @@
-import Ast.ExprType;
 import Util;
 import haxe.DynamicAccess;
-import haxe.EnumTools;
-import haxe.ds.StringMap;
 import haxe.io.Path;
 import haxe.macro.Expr;
-import haxe.macro.Type.ClassField;
-import haxe.macro.Type.ClassKind;
-import haxe.macro.Type.ClassType;
-import haxe.macro.Type.ModuleType;
-import stdgo.Go;
-import stdgo.GoString;
 import stdgo.reflect.Reflect;
-import sys.FileSystem;
 import sys.io.File;
 
 var stdgoList:Array<String>;
@@ -132,10 +122,10 @@ function main(data:DataType, printGoCode:Bool = false) {
 		}
 
 		var info = new Info();
-		info.global.path = pkg.path;
+		info.global.path = module.path;
 
 		// holds the last path to refrence against to see if a file has the main package name
-		var endPath = pkg.path;
+		var endPath = module.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = importClassName(endPath);
@@ -655,10 +645,18 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
 		if (info.deferBool && isFunc) { // defer system
-			final ret = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+			final ret = switch typeReturnStmt({returnPos: 0, results: []}, info) {
+				case EBlock(exprs):
+					final last = exprs.pop();
+					exprs.push(macro if (recover_exception != null)
+						throw recover_exception);
+					exprs.push(last);
+					toExpr(EBlock(exprs));
+				default:
+					throw "return stmt not a block";
+			}
 			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
-			// exprs.push(ret);
 			// recover
 			exprs.unshift(macro var recover_exception:Dynamic = null);
 			var pos = 2 + info.returnNames.length;
@@ -668,8 +666,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 					expr: macro {
 						recover_exception = e;
 						$ret;
-						if (recover_exception != null)
-							throw recover_exception;
 					}
 				}
 			]); // don't include recover and defer stack
@@ -1679,7 +1675,18 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						y = assignTranslate(fromType, toType, y, info);
 						if (x == null || y == null)
 							return null;
-						x.expr.match(EConst(CIdent("_"))) ? y : toExpr(EBinop(op, x, y)); // blank means no assign/define just the rhs expr
+						var expr = toExpr(EBinop(op, x, y));
+						if (x.expr.match(EConst(CIdent("_")))) // blank means no assign/define just the rhs expr
+							expr = y;
+						if (op == null) {
+							switch stmt.tok {
+								case AND_NOT_ASSIGN:
+									expr = toExpr(EBinop(OpAssignOp(OpAnd), x, macro - 1 ^ ($y)));
+								default:
+									throw "op is null";
+							}
+						}
+						expr;
 					}
 				];
 				if (exprs.length == 1)
@@ -3326,9 +3333,8 @@ private function typeOp(token:Ast.Token):Binop {
 		case OR_ASSIGN: OpAssignOp(OpOr);
 
 		case AND_ASSIGN: OpAssignOp(OpAnd);
-		case AND_NOT_ASSIGN: OpInterval; // TODO properly create AND_NOT operator
-
-		case RANGE: OpInterval; // TODO turn into iterator
+		case AND_NOT_ASSIGN: null;
+		case RANGE: OpInterval;
 		case ELLIPSIS: OpInterval;
 		default:
 			throw "unknown op token: " + token;

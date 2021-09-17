@@ -75,7 +75,7 @@ var fset *token.FileSet
 var stdgoList map[string]bool
 
 var interfaces []interfaceData
-
+var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default()}
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
@@ -124,10 +124,6 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("load error: " + err.Error())
 		return []byte{}
 	}
-	excludes := make(map[string]bool, len(excludesData.Excludes))
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
-	}
 	data := parsePkgList(initial, excludes)
 	typeHasher = typeutil.Hasher{}
 	interfaces = nil
@@ -161,6 +157,10 @@ func main() {
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		throw(err.Error())
+	}
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
 	}
 	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
 	if err != nil {
@@ -359,7 +359,7 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 
 func parseInterface(pkg *packages.Package, excludes map[string]bool) {
 	for _, val := range pkg.Imports {
-		if excludes[val.PkgPath] {
+		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
 		}
 		parseInterface(val, excludes)

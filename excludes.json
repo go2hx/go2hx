@@ -1,5 +1,4 @@
 {"excludes": [
-    "math",
     "fmt",
     "reflect",
     "os",

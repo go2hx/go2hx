@@ -1,199 +1,161 @@
 package stdgo.math;
 
 import Math as M;
-import stdgo.StdGoTypes.GoFloat64 as Float;
+import stdgo.StdGoTypes.GoFloat;
 import stdgo.StdGoTypes.GoInt;
 
 final pi = M.PI;
-final maxFloat32:Float = 340282346638528859811704183484516925440.000000;
+final maxFloat32 = 340282346638528859811704183484516925440.000000;
 
-inline function max(a:Float, b:Float):Float {
-	return M.max(a.toBasic(), b.toBasic());
+inline function max(_x, _y) {
+	return HaxeMath.max(_x, _y);
 }
 
-inline function min(a:Float, b:Float):Float {
-	return M.min(a.toBasic(), b.toBasic());
+inline function min(_x, _y) {
+	return HaxeMath.min(_x, _y);
 }
 
-inline function sqrt(a:Float):Float {
-	return M.sqrt(a.toBasic());
+inline function sqrt(_f) {
+	return HaxeMath.sqrt(_f);
 }
 
-inline function inf(sign:GoInt):Float {
-	if (sign >= 0)
-		return M.POSITIVE_INFINITY;
-	return M.NEGATIVE_INFINITY;
+inline function inf(_sign) {
+	return HaxeMath.inf(_sign);
 }
 
-inline function signbit(x:Float):Bool {
-	return x <= 0;
+inline function isnaN(_f)
+	return HaxeMath.isNaN(_f);
+
+inline function abs(_f) {
+	return HaxeMath.abs(_f);
 }
 
-inline function isInf(x:Float, sign:Float):Bool {
-	return sign >= 0 && x == Math.POSITIVE_INFINITY || sign <= 0 && x == Math.NEGATIVE_INFINITY;
+inline function exp(_f) {
+	return M.exp(_f);
 }
 
-inline function isNaN(x:Float)
-	return M.isNaN(x.toBasic());
-
-inline function abs(x:Float):Float {
-	return M.abs(x.toBasic());
+inline function acos(_f) {
+	return HaxeMath.acos(_f);
 }
 
-inline function exp(x:Float):Float {
-	return M.exp(x.toBasic());
+inline function cos(_f) {
+	return HaxeMath.cos(_f);
 }
 
-inline function acos(x:Float):Float {
-	return M.acos(x.toBasic());
+inline function floor(_f) {
+	return HaxeMath.floor(_f);
 }
 
-inline function cos(x:Float):Float {
-	return M.cos(x.toBasic());
+inline function pow(_x, _y) {
+	return M.pow(_x, _y);
 }
 
-inline function acosh(x:Float):Float {
-	return 0; // TODO
+inline function asin(_f) {
+	return HaxeMath.asin(_f);
 }
 
-inline function atanh(x:Float):Float {
-	return 0; // TODO
+inline function tan(_f) {
+	return HaxeMath.tan(_f);
 }
 
-inline function cosh(x:Float):Float {
-	return 0; // TODO
+inline function atan(_f) {
+	return HaxeMath.atan(_f);
 }
 
-inline function cbrt(x:Float):Float {
-	return 0; // TODO
+inline function atan2(y, x) {
+	return HaxeMath.atan2(x, y);
 }
 
-inline function erf(x:Float):Float {
-	return 0; // TODO
+inline function ceil(_f) {
+	return HaxeMath.ceil(_f);
 }
 
-inline function erfc(x:Float):Float {
-	return 0; // TODO
+inline function naN() {
+	return HaxeMath.naN();
 }
 
-inline function exp2(x:Float):Float {
-	return 0; // TODO
+inline function round(_f) {
+	return HaxeMath.round(_f);
 }
 
-inline function expm1(x:Float):Float {
-	return 0; // TODO
+inline function sin(_f) {
+	return HaxeMath.sin(_f);
 }
 
-inline function frexp(x:Float):{_frac:Float, _exp:GoInt} {
-	return {_frac: 0, _exp: 0}; // TODO
-}
+class HaxeMath {
+	public static function naN()
+		return M.NaN;
 
-inline function hypot(p:Float, q:Float):Float {
-	if (isInf(p, 0) || isInf(q, 0))
-		return inf(1);
-	if (isNaN(p) || isNaN(q))
-		return naN();
-	p = abs(p);
-	q = abs(q);
-	if (p < q) {
-		final temp = p;
-		p = q;
-		q = temp;
+	public static function inf(sign:GoInt) {
+		if (sign >= 0)
+			return M.POSITIVE_INFINITY;
+		return M.NEGATIVE_INFINITY;
 	}
-	if (p == 0)
-		return 0;
-	q = q / p;
-	return p * sqrt(1 + q * q);
-}
 
-inline function mod(x:Float, y:Float):Float {
-	return 0; // TODO
-}
+	public static function isNaN(_f:GoFloat):Bool
+		return M.isNaN(_f.toBasic());
 
-inline function floor(x:Float):Float {
-	return M.ffloor(x.toBasic());
-}
+	public static function abs(_f:GoFloat):GoFloat
+		return M.abs(_f.toBasic());
 
-inline function pow(x:Float, y:Float):Float {
-	return M.pow(x.toBasic(), y.toBasic());
-}
+	public static function floor(_f:GoFloat):GoFloat
+		return M.ffloor(_f.toBasic());
 
-inline function trunc(x:Float):Float {
-	return 0; // TODO
-}
+	public static function ceil(_f:GoFloat):GoFloat
+		return M.ceil(_f.toBasic());
 
-inline function remainder(x:Float, y:Float):Float {
-	return 0; // TODO
-}
+	public static function sqrt(_f:GoFloat):GoFloat
+		return M.sqrt(_f.toBasic());
 
-inline function modf(x:Float):{_int:Float, _frac:Float} {
-	return {_int: 0, _frac: 0}; // TODO
-}
+	public static function min(_x:GoFloat, _y:GoFloat):GoFloat
+		return M.min(_x.toBasic(), _y.toBasic());
 
-inline function ldexp(x:Float, y:Float):Float {
-	return 0; // TODO
-}
+	public static function max(_x:GoFloat, _y:GoFloat):GoFloat
+		return M.max(_x.toBasic(), _y.toBasic());
 
-inline function log(x:Float):Float {
-	return M.log(x.toBasic());
-}
+	public static function sin(_f:GoFloat):GoFloat
+		return M.sin(_f.toBasic());
 
-inline function logp(x:Float):Float {
-	return 0; // TODO
-}
+	public static function cos(_f:GoFloat):GoFloat
+		return M.cos(_f.toBasic());
 
-inline function log1p(x:Float):Float {
-	return 0; // TODO
-}
+	public static function tan(_f:GoFloat):GoFloat
+		return M.tan(_f.toBasic());
 
-inline function log10(x:Float):Float {
-	return 0; // TODO
-}
+	public static function asin(_f:GoFloat):GoFloat
+		return M.asin(_f.toBasic());
 
-inline function log2(x:Float):Float {
-	return 0; // TODO
-}
+	public static function acos(_f:GoFloat):GoFloat
+		return M.acos(_f.toBasic());
 
-inline function asin(x:Float):Float {
-	return M.asin(x.toBasic());
-}
+	public static function atan(_f:GoFloat):GoFloat
+		return M.atan(_f.toBasic());
 
-inline function asinh(x:Float):Float {
-	return 0; // TODO
-}
+	public static function atan2(_x:GoFloat, _y:GoFloat):GoFloat
+		return M.atan2(_x.toBasic(), _y.toBasic());
 
-inline function sinh(x:Float):Float {
-	return 0; // TODO
-}
+	public static function round(_f)
+		return M.round(_f.toBasic());
 
-inline function tanh(x:Float):Float {
-	return 0; // TODO
-}
+	public static function isInf(_f:GoFloat, _sign:GoInt) {
+		return _sign >= 0 && _f == M.POSITIVE_INFINITY || _sign <= 0 && _f == M.NEGATIVE_INFINITY;
+	}
 
-inline function tan(x:Float):Float {
-	return M.tan(x.toBasic());
-}
-
-inline function atan(x:Float):Float {
-	return M.atan(x.toBasic());
-}
-
-inline function atan2(y:Float, x:Float):Float {
-	return M.atan2(y.toBasic(), x.toBasic());
-}
-
-inline function ceil(x:Float):Float {
-	return M.ceil(x.toBasic());
-}
-
-inline function naN():Float {
-	return M.NaN;
-}
-
-inline function round(x:Float):Float {
-	return M.round(x.toBasic());
-}
-
-inline function sin(x:Float):Float {
-	return M.sin(x.toBasic());
+	public static function hypnot(_p:GoFloat, _q:GoFloat):GoFloat {
+		if (isInf(_p, 0) || isInf(_q, 0))
+			return inf(1);
+		if (_p == M.NaN || _q == M.NaN)
+			return naN();
+		_p = abs(_p);
+		_q = abs(_q);
+		if (_p < _q) {
+			final temp = _p;
+			_p = _q;
+			_q = temp;
+		}
+		if (_p == 0)
+			return 0;
+		_q = _q / _p;
+		return _p * sqrt(1 + _q * _q);
+	}
 }

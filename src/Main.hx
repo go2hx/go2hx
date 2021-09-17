@@ -293,7 +293,6 @@ private function runTarget(modules:Array<Typer.Module>) {
 function compile(args:Array<String>, data:Dynamic = null):Bool {
 	if (localPath == "")
 		localPath = args[args.length - 1];
-
 	var httpsString = "https://";
 	for (i in 0...args.length - 1) {
 		var path = args[i];

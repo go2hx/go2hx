@@ -10,7 +10,7 @@ import haxe.macro.TypedExprTools;
 import haxe.macro.Compiler;
 
 function run() {
-	final paths = ["time.Time"];
+	final paths = ["time.Time", "math.Math"];
 	for (path in paths)
 		Compiler.addGlobalMetadata(path, "@:build(stdgo.internal.Injector.build())", true, true, false);
 }

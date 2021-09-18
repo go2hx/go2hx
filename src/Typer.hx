@@ -122,10 +122,10 @@ function main(data:DataType, printGoCode:Bool = false) {
 		}
 
 		var info = new Info();
-		info.global.path = module.path;
+		info.global.path = pkg.path;
 
 		// holds the last path to refrence against to see if a file has the main package name
-		var endPath = module.path;
+		var endPath = pkg.path;
 		var index = endPath.lastIndexOf(".");
 		endPath = endPath.substr(index + 1);
 		endPath = importClassName(endPath);
@@ -626,6 +626,8 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 }
 
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
+	final info = info;
+	info.renameIdents = info.renameIdents.copy();
 	var exprs:Array<Expr> = [];
 	// add named return values
 	if (isFunc) {
@@ -1583,6 +1585,34 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	if (fromType == null)
 		return expr;
 
+	if (isTuple(fromType) && isTuple(toType)) {
+		final tuples = getReturnTuple(fromType);
+		final tuples2 = getReturnTuple(toType);
+		final fields:Array<ObjectField> = [];
+		switch fromType {
+			case tuple(_, vars):
+				switch toType {
+					case tuple(_, vars2):
+						for (i in 0...tuples.length) {
+							final field = tuples[i];
+							var expr = macro tmp.$field;
+							expr = assignTranslate(vars[i], vars2[i], expr, info);
+							fields.push({
+								field: tuples2[i],
+								expr: expr,
+							});
+						}
+					default:
+				}
+			default:
+		}
+		final ret = toExpr(EObjectDecl(fields));
+		return macro {
+			final tmp = $expr;
+			$ret;
+		};
+	}
+
 	switch fromType {
 		case basic(kind):
 			switch kind {
@@ -1842,7 +1872,13 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 	}
 	if (stmt.results.length == 1) {
 		var e = typeExpr(stmt.results[0], info);
-		final retType = info.returnTypes[0];
+		var retType = info.returnTypes[0];
+		if (info.returnTypes.length > 1) {
+			retType = tuple(info.returnTypes.length, info.returnNamed ? [
+				for (i in 0...info.returnTypes.length)
+					_var(info.returnNames[i], info.returnTypes[i])
+			] : info.returnTypes);
+		}
 		if (retType != null)
 			e = assignTranslate(typeof(stmt.results[0]), retType, e, info);
 		return ret(EReturn(e));
@@ -3205,7 +3241,7 @@ private function funcReset(info:Info) {
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
-	final info = info.clone();
+	final info = info.copy();
 	funcReset(info);
 
 	var args = typeFieldListArgs(expr.type.params, info);
@@ -3504,7 +3540,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	final info = new Info();
 	info.data = data.data;
 	info.renameClasses = data.renameClasses;
-	info.renameIdents = data.renameIdents;
+	info.renameIdents = data.renameIdents.copy();
 	info.thisName = "";
 	info.count = 0;
 	info.gotoSystem = false;
@@ -4709,7 +4745,7 @@ class Info {
 			this.global = global;
 	}
 
-	public inline function clone() {
+	public inline function copy() {
 		var info = new Info();
 		info.thisName = thisName;
 		info.returnTypes = returnTypes.copy();

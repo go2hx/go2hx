@@ -23,7 +23,7 @@ function main() {
 	}
 	final version = process.stdout.readLine();
 	if (FileSystem.exists("version.txt")) {
-		if (version != File.getContent("version.txt")) {
+		if (!rebuild && version != File.getContent("version.txt")) {
 			Sys.println("updating version rebuilding binaries");
 			rebuild = true;
 		}

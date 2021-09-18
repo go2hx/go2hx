@@ -49,6 +49,10 @@ function main() {
 		});
 	}
 	File.saveContent("./diff.json", Json.stringify(saveDiff));
+	final time = Math.ffloor(Date.now().getTime());
+	if (!FileSystem.exists("./tests/diff"))
+		FileSystem.createDirectory("./tests/diff");
+	File.saveContent('./tests/diff/diff$time.json', Json.stringify(saveDiff));
 	File.saveContent("./results.json", Json.stringify(results));
 }
 

@@ -15,8 +15,8 @@ inline function min(_x, _y) {
 	return HaxeMath.min(_x, _y);
 }
 
-inline function sqrt(_f) {
-	return HaxeMath.sqrt(_f);
+inline function sqrt(_x) {
+	return HaxeMath.sqrt(_x);
 }
 
 inline function inf(_sign) {
@@ -26,60 +26,60 @@ inline function inf(_sign) {
 inline function isnaN(_f)
 	return HaxeMath.isNaN(_f);
 
-inline function abs(_f) {
-	return HaxeMath.abs(_f);
+inline function abs(_x) {
+	return HaxeMath.abs(_x);
 }
 
-inline function exp(_f) {
-	return M.exp(_f);
+inline function exp(_x) {
+	return M.exp(_x);
 }
 
-inline function acos(_f) {
-	return HaxeMath.acos(_f);
+inline function acos(_x) {
+	return HaxeMath.acos(_x);
 }
 
-inline function cos(_f) {
-	return HaxeMath.cos(_f);
+inline function cos(_x) {
+	return HaxeMath.cos(_x);
 }
 
-inline function floor(_f) {
-	return HaxeMath.floor(_f);
+inline function floor(_x) {
+	return HaxeMath.floor(_x);
 }
 
 inline function pow(_x, _y) {
 	return M.pow(_x, _y);
 }
 
-inline function asin(_f) {
-	return HaxeMath.asin(_f);
+inline function asin(_x) {
+	return HaxeMath.asin(_x);
 }
 
-inline function tan(_f) {
-	return HaxeMath.tan(_f);
+inline function tan(_x) {
+	return HaxeMath.tan(_x);
 }
 
-inline function atan(_f) {
-	return HaxeMath.atan(_f);
+inline function atan(_x) {
+	return HaxeMath.atan(_x);
 }
 
-inline function atan2(y, x) {
-	return HaxeMath.atan2(x, y);
+inline function atan2(_x, _y) {
+	return HaxeMath.atan2(_x, _y);
 }
 
-inline function ceil(_f) {
-	return HaxeMath.ceil(_f);
+inline function ceil(_x) {
+	return HaxeMath.ceil(_x);
 }
 
 inline function naN() {
 	return HaxeMath.naN();
 }
 
-inline function round(_f) {
-	return HaxeMath.round(_f);
+inline function round(_x) {
+	return HaxeMath.round(_x);
 }
 
-inline function sin(_f) {
-	return HaxeMath.sin(_f);
+inline function sin(_x) {
+	return HaxeMath.sin(_x);
 }
 
 class HaxeMath {

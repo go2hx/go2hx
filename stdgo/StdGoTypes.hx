@@ -26,6 +26,9 @@ import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
 import stdgo.reflect.Reflect.GoType;
+import stdgo.reflect.Reflect.uint64;
+
+using stdgo.StdGoTypes.UInt64;
 
 // native_num define flag
 typedef GoByte = GoUInt8;
@@ -40,7 +43,6 @@ private typedef UInt = Int;
 private typedef UInt8 = Int; // #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
 private typedef UInt16 = #if !native_num Int #elseif hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
 private typedef UInt32 = #if !native_num Int #elseif cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
-private typedef UInt64 = #if !native_num Int64 #elseif cpp cpp.UInt64 #elseif eval eval.integers.UInt64 #else Int64 #end // __UInt64 #end;
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
 private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64; #else Float; #end
@@ -48,9 +50,439 @@ typedef GoUnTypedInt = GoInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
 
+@:transitive
+abstract UInt64(__UInt64) from __UInt64 to __UInt64 {
+	private inline function new(x:__UInt64)
+		this = x;
+
+	/**
+		Makes a copy of `this` Int64.
+	**/
+	public inline function copy():UInt64
+		return make(high, low);
+
+	/**
+		Construct an Int64 from two 32-bit words `high` and `low`.
+	**/
+	public static inline function make(high:Int32, low:Int32):UInt64
+		return new UInt64(new __UInt64(high, low));
+
+	/**
+		Returns an Int64 with the value of the Int `x`.
+		`x` is sign-extended to fill 64 bits.
+	**/
+	@:from public static inline function ofInt(x:UInt):UInt64 #if lua return make((x : Int32) >> 31, (x : Int32)); #else return make(x >> 31, x); #end
+
+	/**
+		Returns an Int with the value of the Int64 `x`.
+		Throws an exception  if `x` cannot be represented in 32 bits.
+	**/
+	public static inline function toInt(x:UInt64):Int {
+		if (x.high != x.low >> 31)
+			throw "Overflow";
+
+		return x.low;
+	}
+
+	public static inline function toInt64(x:UInt64):Int64
+		return Int64.make(x.high, x.low);
+
+	@:deprecated('haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead')
+	inline public static function is(val:Dynamic):Bool {
+		return isUInt64(val);
+	}
+
+	/**
+		Returns whether the value `val` is of type `haxe.Int64`
+	**/
+	inline public static function isUInt64(val:Dynamic):Bool
+		return Std.isOfType(val, __UInt64);
+
+	/**
+		Returns the high 32-bit word of `x`.
+	**/
+	@:deprecated("Use high instead")
+	public static inline function getHigh(x:UInt64):Int32
+		return x.high;
+
+	/**
+		Returns the low 32-bit word of `x`.
+	**/
+	@:deprecated("Use low instead")
+	public static inline function getLow(x:UInt64):Int32
+		return x.low;
+
+	/**
+		Returns `true` if `x` is less than zero.
+	**/
+	public static inline function isNeg(x:UInt64):Bool
+		return x.high < 0;
+
+	/**
+		Returns `true` if `x` is exactly zero.
+	**/
+	public static inline function isZero(x:UInt64):Bool
+		return x == 0;
+
+	/**
+		Compares `a` and `b` in signed mode.
+		Returns a negative value if `a < b`, positive if `a > b`,
+		or 0 if `a == b`.
+	**/
+	public static inline function compare(a:UInt64, b:UInt64):Int {
+		var v = a.high - b.high;
+		v = if (v != 0) v else Int32.ucompare(a.low, b.low);
+		return a.high < 0 ? (b.high < 0 ? v : -1) : (b.high >= 0 ? v : 1);
+	}
+
+	/**
+		Compares `a` and `b` in unsigned mode.
+		Returns a negative value if `a < b`, positive if `a > b`,
+		or 0 if `a == b`.
+	**/
+	public static inline function ucompare(a:UInt64, b:UInt64):Int {
+		var v = Int32.ucompare(a.high, b.high);
+		return if (v != 0) v else Int32.ucompare(a.low, b.low);
+	}
+
+	/**
+		Returns a signed decimal `String` representation of `x`.
+	**/
+	public static inline function toStr(x:UInt64):String
+		return x.toString();
+
+	function toString():String {
+		var i:UInt64 = cast this;
+		if (i == 0)
+			return "0";
+		var str = "";
+		var neg = false;
+		if (i.isNeg()) {
+			neg = true;
+			// i = -i; cannot negate here as --9223372036854775808 = -9223372036854775808
+		}
+		var ten:UInt64 = 10;
+		while (i != 0) {
+			var r = i.divMod(ten);
+			if (r.modulus.isNeg()) {
+				str = UInt64.neg(r.modulus).low + str;
+				i = UInt64.neg(r.quotient);
+			} else {
+				str = r.modulus.low + str;
+				i = r.quotient;
+			}
+		}
+		if (neg)
+			str = "-" + str;
+		return str;
+	}
+
+	public static inline function parseString(sParam:String):UInt64 {
+		return 0;
+	}
+
+	public static inline function fromFloat(f:Float):UInt64 {
+		return 0;
+	}
+
+	/**
+		Performs signed integer divison of `dividend` by `divisor`.
+		Returns `{ quotient : Int64, modulus : Int64 }`.
+	**/
+	public static function divMod(dividend:UInt64, divisor:UInt64):{quotient:UInt64, modulus:UInt64} {
+		// Handle special cases of 0 and 1
+		if (divisor.high == 0) {
+			switch (divisor.low) {
+				case 0:
+					throw "divide by zero";
+				case 1:
+					return {quotient: dividend.copy(), modulus: 0};
+			}
+		}
+
+		var divSign = dividend.isNeg() != divisor.isNeg();
+
+		var modulus = dividend.isNeg() ? -dividend : dividend.copy();
+		divisor = divisor.isNeg() ? -divisor : divisor;
+
+		var quotient:UInt64 = 0;
+		var mask:UInt64 = 1;
+
+		while (!divisor.isNeg()) {
+			var cmp = ucompare(divisor, modulus);
+			divisor <<= 1;
+			mask <<= 1;
+			if (cmp >= 0)
+				break;
+		}
+
+		while (mask != 0) {
+			if (ucompare(modulus, divisor) >= 0) {
+				quotient |= mask;
+				modulus -= divisor;
+			}
+			mask >>>= 1;
+			divisor >>>= 1;
+		}
+
+		if (divSign)
+			quotient = -quotient;
+		if (dividend.isNeg())
+			modulus = -modulus;
+
+		return {
+			quotient: quotient,
+			modulus: modulus
+		};
+	}
+
+	/**
+		Returns the negative of `x`.
+	**/
+	@:op(-A) public static inline function neg(x:UInt64):UInt64 {
+		var high = ~x.high;
+		var low = -x.low;
+		if (low == 0)
+			high++;
+		return make(high, low);
+	}
+
+	@:op(++A) private inline function preIncrement():UInt64 {
+		this = copy();
+		this.low++;
+		if (this.low == 0)
+			this.high++;
+		return cast this;
+	}
+
+	@:op(A++) private inline function postIncrement():UInt64 {
+		var ret = this;
+		preIncrement();
+		return ret;
+	}
+
+	@:op(--A) private inline function preDecrement():UInt64 {
+		this = copy();
+		if (this.low == 0)
+			this.high--;
+		this.low--;
+		return cast this;
+	}
+
+	@:op(A--) private inline function postDecrement():UInt64 {
+		var ret = this;
+		preDecrement();
+		return ret;
+	}
+
+	/**
+		Returns the sum of `a` and `b`.
+	**/
+	@:op(A + B) public static inline function add(a:UInt64, b:UInt64):UInt64 {
+		var high = a.high + b.high;
+		var low = a.low + b.low;
+		if (Int32.ucompare(low, a.low) < 0)
+			high++;
+		return make(high, low);
+	}
+
+	@:op(A + B) @:commutative private static inline function addInt(a:UInt64, b:Int):UInt64
+		return add(a, b);
+
+	/**
+		Returns `a` minus `b`.
+	**/
+	@:op(A - B) public static inline function sub(a:UInt64, b:UInt64):UInt64 {
+		var high = a.high - b.high;
+		var low = a.low - b.low;
+		if (Int32.ucompare(a.low, b.low) < 0)
+			high--;
+		return make(high, low);
+	}
+
+	@:op(A - B) private static inline function subInt(a:UInt64, b:Int):UInt64
+		return sub(a, b);
+
+	@:op(A - B) private static inline function intSub(a:Int, b:UInt64):UInt64
+		return sub(a, b);
+
+	/**
+		Returns the product of `a` and `b`.
+	**/
+	@:op(A * B)
+	public static #if !lua inline #end function mul(a:UInt64, b:UInt64):UInt64 {
+		var mask = 0xFFFF;
+		var al = a.low & mask, ah = a.low >>> 16;
+		var bl = b.low & mask, bh = b.low >>> 16;
+		var p00 = al * bl;
+		var p10 = ah * bl;
+		var p01 = al * bh;
+		var p11 = ah * bh;
+		var low = p00;
+		var high = p11 + (p01 >>> 16) + (p10 >>> 16);
+		p01 <<= 16;
+		low += p01;
+		if (Int32.ucompare(low, p01) < 0)
+			high++;
+		p10 <<= 16;
+		low += p10;
+		if (Int32.ucompare(low, p10) < 0)
+			high++;
+		high += a.low * b.high + a.high * b.low;
+		return make(high, low);
+	}
+
+	@:op(A * B) @:commutative private static inline function mulInt(a:UInt64, b:Int):UInt64
+		return mul(a, b);
+
+	/**
+		Returns the quotient of `a` divided by `b`.
+	**/
+	@:op(A / B) public static inline function div(a:UInt64, b:UInt64):UInt64
+		return divMod(a, b).quotient;
+
+	@:op(A / B) private static inline function divInt(a:UInt64, b:Int):UInt64
+		return div(a, b);
+
+	@:op(A / B) private static inline function intDiv(a:Int, b:UInt64):UInt64
+		return div(a, b).toInt();
+
+	/**
+		Returns the modulus of `a` divided by `b`.
+	**/
+	@:op(A % B) public static inline function mod(a:UInt64, b:UInt64):UInt64
+		return divMod(a, b).modulus;
+
+	@:op(A % B) private static inline function modInt(a:UInt64, b:Int):UInt64
+		return mod(a, b).toInt();
+
+	@:op(A % B) private static inline function intMod(a:Int, b:UInt64):UInt64
+		return mod(a, b).toInt();
+
+	/**
+		Returns `true` if `a` is equal to `b`.
+	**/
+	@:op(A == B) public static inline function eq(a:UInt64, b:UInt64):Bool
+		return a.high == b.high && a.low == b.low;
+
+	@:op(A == B) @:commutative private static inline function eqInt(a:UInt64, b:Int):Bool
+		return eq(a, b);
+
+	/**
+		Returns `true` if `a` is not equal to `b`.
+	**/
+	@:op(A != B) public static inline function neq(a:UInt64, b:UInt64):Bool
+		return a.high != b.high || a.low != b.low;
+
+	@:op(A != B) @:commutative private static inline function neqInt(a:UInt64, b:Int):Bool
+		return neq(a, b);
+
+	@:op(A < B) private static inline function lt(a:UInt64, b:UInt64):Bool
+		return compare(a, b) < 0;
+
+	@:op(A < B) private static inline function ltInt(a:UInt64, b:Int):Bool
+		return lt(a, b);
+
+	@:op(A < B) private static inline function intLt(a:Int, b:UInt64):Bool
+		return lt(a, b);
+
+	@:op(A <= B) private static inline function lte(a:UInt64, b:UInt64):Bool
+		return compare(a, b) <= 0;
+
+	@:op(A <= B) private static inline function lteInt(a:UInt64, b:Int):Bool
+		return lte(a, b);
+
+	@:op(A <= B) private static inline function intLte(a:Int, b:UInt64):Bool
+		return lte(a, b);
+
+	@:op(A > B) private static inline function gt(a:UInt64, b:UInt64):Bool
+		return compare(a, b) > 0;
+
+	@:op(A > B) private static inline function gtInt(a:UInt64, b:Int):Bool
+		return gt(a, b);
+
+	@:op(A > B) private static inline function intGt(a:Int, b:UInt64):Bool
+		return gt(a, b);
+
+	@:op(A >= B) private static inline function gte(a:UInt64, b:UInt64):Bool
+		return compare(a, b) >= 0;
+
+	@:op(A >= B) private static inline function gteInt(a:UInt64, b:Int):Bool
+		return gte(a, b);
+
+	@:op(A >= B) private static inline function intGte(a:Int, b:UInt64):Bool
+		return gte(a, b);
+
+	/**
+		Returns the bitwise NOT of `a`.
+	**/
+	@:op(~A) private static inline function complement(a:UInt64):UInt64
+		return make(~a.high, ~a.low);
+
+	/**
+		Returns the bitwise AND of `a` and `b`.
+	**/
+	@:op(A & B) public static inline function and(a:UInt64, b:UInt64):UInt64
+		return make(a.high & b.high, a.low & b.low);
+
+	/**
+		Returns the bitwise OR of `a` and `b`.
+	**/
+	@:op(A | B) public static inline function or(a:UInt64, b:UInt64):UInt64
+		return make(a.high | b.high, a.low | b.low);
+
+	/**
+		Returns the bitwise XOR of `a` and `b`.
+	**/
+	@:op(A ^ B) public static inline function xor(a:UInt64, b:UInt64):UInt64
+		return make(a.high ^ b.high, a.low ^ b.low);
+
+	/**
+		Returns `a` left-shifted by `b` bits.
+	**/
+	@:op(A << B) public static inline function shl(a:UInt64, b:Int):UInt64 {
+		b &= 63;
+		return if (b == 0) a.copy() else if (b < 32) make((a.high << b) | (a.low >>> (32 - b)), a.low << b) else make(a.low << (b - 32), 0);
+	}
+
+	/**
+		Returns `a` right-shifted by `b` bits in signed mode.
+		`a` is sign-extended.
+	**/
+	@:op(A >> B) public static inline function shr(a:UInt64, b:Int):UInt64 {
+		b &= 63;
+		return if (b == 0) a.copy() else if (b < 32) make(a.high >> b, (a.high << (32 - b)) | (a.low >>> b)); else make(a.high >> 31, a.high >> (b - 32));
+	}
+
+	/**
+		Returns `a` right-shifted by `b` bits in unsigned mode.
+		`a` is padded with zeroes.
+	**/
+	@:op(A >>> B) public static inline function ushr(a:UInt64, b:Int):UInt64 {
+		b &= 63;
+		return if (b == 0) a.copy() else if (b < 32) make(a.high >>> b, (a.high << (32 - b)) | (a.low >>> b)); else make(0, a.high >>> (b - 32));
+	}
+
+	public var high(get, never):Int32;
+
+	private inline function get_high()
+		return this.high;
+
+	private inline function set_high(x)
+		return this.high = x;
+
+	public var low(get, never):Int32;
+
+	private inline function get_low()
+		return this.low;
+
+	private inline function set_low(x)
+		return this.low = x;
+}
+
 private class __UInt64 {
-	public var high:Int64;
-	public var low:Int64;
+	public var high:Int;
+	public var low:Int;
 
 	public inline function new(high, low) {
 		this.high = high;
@@ -61,6 +493,21 @@ private class __UInt64 {
 		if (x < 0)
 			return new __UInt64(0, 0);
 		return new __UInt64(x >> 31, x);
+	}
+
+	public function toInt64():Int64
+		return Int64.make(high, low);
+
+	public function toString():String {
+		var i:UInt64 = this;
+		if (i == 0)
+			return "0";
+		var str = "";
+		if (i.isNeg()) {
+			return "NULL";
+		} else {
+			return @:privateAccess i.toInt64().toString();
+		}
 	}
 }
 
@@ -1485,8 +1932,9 @@ abstract GoInt16(Int16) from Int16 from Int {
 }
 
 abstract GoInt64(Int64) from Int64 {
-	public inline function new(x)
+	public inline function new(x) {
 		this = x;
+	}
 
 	public inline function toBasic()
 		return this;
@@ -1494,14 +1942,14 @@ abstract GoInt64(Int64) from Int64 {
 	public inline function copy():GoInt64
 		return this.copy();
 
+	@:from static function fromFloat(x:Float):GoInt64
+		return Int64.fromFloat(x);
+
 	@:from static function fromString(x:String):GoInt64
 		return Int64.parseString(x);
 
 	@:from static function fromInt(x:Int):GoInt64
 		return Int64.ofInt(x);
-
-	@:from static function fromFloat(x:Float):GoInt64
-		return Int64.fromFloat(x);
 
 	public function toFloat():Float {
 		return this.high * 4294967296. + (this.low >>> 0);
@@ -1538,7 +1986,7 @@ abstract GoInt64(Int64) from Int64 {
 		return clampUInt16(this.low);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this > 0 ? UInt64.make(this.high, this.low) : 0;
 
 	@:to inline function toFloat32():GoFloat32
 		return this.low;
@@ -1550,7 +1998,7 @@ abstract GoInt64(Int64) from Int64 {
 		return this.low;
 
 	function toString()
-		return haxe.Int64.toStr(this);
+		return Int64.toStr(this);
 
 	public static inline function ofInt(x:Int):GoInt64
 		return (Int64.make(x >> 31, x) : GoInt64);
@@ -1848,14 +2296,34 @@ abstract GoUInt64(UInt64) from UInt64 {
 	public inline function toBasic()
 		return this;
 
-	@:to inline function toInt64():GoInt64
-		return this;
+	@:from public static function ofString(x:String):GoUInt64 {
+		final base = Int64.ofInt(10);
+		var current = Int64.ofInt(0);
+		var multiplier = Int64.ofInt(1);
+
+		var s = StringTools.trim(x);
+		final len = s.length;
+		for (i in 0...len) {
+			final digitInt = s.charCodeAt(len - 1 - i) - '0'.code;
+			if (digitInt < 0 || digitInt > 9)
+				throw "NumberFormatError";
+			if (digitInt != 0) {
+				final digit:Int64 = Int64.ofInt(digitInt);
+				current = Int64.add(current, Int64.mul(multiplier, digit));
+			}
+			multiplier = Int64.mul(multiplier, base);
+		}
+		return UInt64.make(current.high, current.low);
+	}
 
 	@:to inline function toInt():GoInt
 		return this.low;
 
 	@:to inline function toInt32():GoInt32
 		return this.low;
+
+	@:to inline function toInt64():GoInt64
+		return Int64.make(this.high, this.low);
 
 	@:to inline function toInt8():GoInt8
 		return clampInt8(this.low);
@@ -1887,14 +2355,6 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return UInt64.ofInt(x);
 
-	@:from public static inline function ofString(x:String):GoUInt64 {
-		try {
-			return UInt64.parseString(x);
-		} catch (e) { // TODO: implement own uint64 parser in order to support full range of uint64 past positive int64
-			return 0;
-		}
-	}
-
 	@:from public static inline function ofFloat(x:Float):GoUInt64
 		return (Std.int(x) : GoUInt64);
 
@@ -1910,16 +2370,16 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A <= B) private static function lte(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() <= b.toBasic();
 
-	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (shiftGuard(b.toBasic().low))
-			return 0;
-		return a.toBasic() << b.toBasic().low;
-	}
-
 	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64 {
 		if (shiftGuard(b.toBasic().low))
-			return 0;
+			return a < 0 ? -1 : 0;
 		return a.toBasic() >> b.toBasic().low;
+	}
+
+	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
+		if (shiftGuard(b.toBasic().low))
+			return a < 0 ? -1 : 0;
+		return a.toBasic() << b.toBasic().low;
 	}
 
 	@:op(A != B) private static function neq(a:GoUInt64, b:GoUInt64):Bool
@@ -1950,7 +2410,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return a.toBasic() % b.toBasic();
 
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64
-		return Int64.div(a.toBasic(), b.toBasic());
+		return a.toBasic() / b.toBasic();
 
 	@:op(A++) inline function postInc():GoUInt64 {
 		return this

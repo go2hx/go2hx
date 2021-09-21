@@ -11,7 +11,7 @@ private function main() {
 }
 
 private function yaegi() {
-	final dir = "yaegi/_test/";
+	final dir = "tests/yaegi/_test/";
 	var sub = new StringBuf();
 	var output = new StringBuf();
 	sub.add("[\n");
@@ -46,6 +46,7 @@ private function yaegi() {
 				var line = input.readLine();
 				line = line.substr(3);
 				line = line.replace("<nil>", "null");
+				line = line.replace("NaN", "nan");
 				line = line.replace('"', '\\"');
 				lines.push('"$line"');
 			} catch (e) {
@@ -64,7 +65,7 @@ private function yaegi() {
 }
 
 private function go() {
-	final dir = "go/test/";
+	final dir = "tests/go/test/";
 	var sub = new StringBuf();
 	sub.add("[\n");
 	for (path in dir.readDirectory()) {

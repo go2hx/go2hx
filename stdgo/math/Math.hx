@@ -134,7 +134,7 @@ class HaxeMath {
 	public static function atan2(_x:GoFloat, _y:GoFloat):GoFloat
 		return M.atan2(_x.toBasic(), _y.toBasic());
 
-	public static function round(_f)
+	public static function round(_f:GoFloat)
 		return M.round(_f.toBasic());
 
 	public static function isInf(_f:GoFloat, _sign:GoInt) {

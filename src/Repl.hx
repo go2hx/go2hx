@@ -15,7 +15,7 @@ function init() {
 		final length = modules.length;
 		if (length > 0) {
 			// show the haxe equivlant
-			var haxeOutput = File.getContent("golibs/command_line_arguments/T_eval.hx");
+			var haxeOutput = File.getContent("golibs/command_line_arguments/Eval.hx");
 			haxeOutput = haxeOutput.substring(haxeOutput.indexOf("{\n") + 2, haxeOutput.lastIndexOf("}"));
 			var exprs = haxeOutput.split('"-$-";\n');
 			var exprString = exprs.length > 0 ? exprs.pop() : "";

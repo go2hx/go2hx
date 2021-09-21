@@ -89,6 +89,8 @@ class Macro {
 					expr;
 				case EVars(v):
 					if (scopeIndex == 0) {
+						for (obj in v)
+							obj.isFinal = false; // all vars need to be able to be reassigned
 						vars = vars.concat(v);
 						if (v.length == 1) {
 							macro $i{v[0].name} = ${v[0].expr};

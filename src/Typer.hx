@@ -1582,6 +1582,8 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	toType = cleanType(toType);
 	var y = expr;
 
+	//trace("from: " + fromType + " to: " + toType);
+
 	if (fromType == null)
 		return expr;
 
@@ -2911,8 +2913,8 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 					if (i > 2147483647 || i < -2147483647) {
 						e.expr = ECheckType(makeString(value), TPath({name: "GoInt64", pack: []}));
 					}
-				} catch (e) {
-					trace("basic lit int error: " + e + " value: " + value);
+				} catch (_) {
+					e.expr = ECheckType(makeString(value), TPath({name: "GoUInt64", pack: []}));
 				}
 			}
 			if (isNamed(type))
@@ -3506,9 +3508,6 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-	/*var t = typeof(expr);
-		if (isPointer(t))
-			return x.expr; */
 	return (macro $x.value).expr; // pointer code
 }
 

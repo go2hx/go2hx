@@ -1338,6 +1338,9 @@ abstract GoInt32(Int) from Int32 from Int {
 	@:to inline function toUInt8():GoUInt8
 		return clampUInt8(this);
 
+	@:to inline function toUInt():GoUInt
+		return clampUInt(this);
+
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(this);
 
@@ -1448,6 +1451,9 @@ abstract GoUInt(Int) from Int {
 
 	@:to inline function toInt16():GoInt16
 		return clampInt16(this);
+
+	@:to inline function toInt32():GoInt32
+		return this;
 
 	@:to inline function toUInt():GoUInt
 		return clampUInt(this);

@@ -373,7 +373,7 @@ func parseInterface(pkg *packages.Package, excludes map[string]bool) {
 }
 
 func throw(str string) {
-	//panic(str)
+	panic(str)
 }
 
 func mergePackage(pkg *packages.Package) {
@@ -837,7 +837,12 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		if err != nil {
 			j, err2 := strconv.ParseUint(value.Value, 0, 64)
 			if err2 != nil {
-				throw("parse int 64 error: " + err2.Error())
+				k, err3 := strconv.ParseFloat(value.Value, 64)
+				if err3 != nil {
+					throw("parse uint/int 64 and float64 error: " + err3.Error())
+				} else {
+					output = fmt.Sprintf("%f", k) //decimal format
+				}
 			} else {
 				output = fmt.Sprint(j)
 			}

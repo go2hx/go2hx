@@ -178,7 +178,23 @@ abstract UInt64(__UInt64) from __UInt64 to __UInt64 {
 	}
 
 	public static inline function parseString(sParam:String):UInt64 {
-		return 0;
+		final base = UInt64.ofInt(10);
+		var current = UInt64.ofInt(0);
+		var multiplier = UInt64.ofInt(1);
+
+		var s = StringTools.trim(sParam);
+		final len = s.length;
+		for (i in 0...len) {
+			final digitInt:UInt = s.charCodeAt(len - 1 - i) - '0'.code;
+			if (digitInt < 0 || digitInt > 9)
+				throw "NumberFormatError";
+			if (digitInt != 0) {
+				final digit = UInt64.ofInt(digitInt);
+				current = UInt64.add(current, UInt64.mul(multiplier, digit));
+			}
+			multiplier = UInt64.mul(multiplier, base);
+		}
+		return UInt64.make(current.high, current.low);
 	}
 
 	public static inline function fromFloat(f:Float):UInt64 {
@@ -2303,23 +2319,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return this;
 
 	@:from public static function ofString(x:String):GoUInt64 {
-		final base = Int64.ofInt(10);
-		var current = Int64.ofInt(0);
-		var multiplier = Int64.ofInt(1);
-
-		var s = StringTools.trim(x);
-		final len = s.length;
-		for (i in 0...len) {
-			final digitInt = s.charCodeAt(len - 1 - i) - '0'.code;
-			if (digitInt < 0 || digitInt > 9)
-				throw "NumberFormatError";
-			if (digitInt != 0) {
-				final digit:Int64 = Int64.ofInt(digitInt);
-				current = Int64.add(current, Int64.mul(multiplier, digit));
-			}
-			multiplier = Int64.mul(multiplier, base);
-		}
-		return UInt64.make(current.high, current.low);
+		return UInt64.parseString(x);
 	}
 
 	@:to inline function toInt():GoInt

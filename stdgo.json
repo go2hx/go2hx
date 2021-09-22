@@ -34,5 +34,6 @@
     "testing",
     "testing/internal/testdeps",
     "syscall/js",
+    "json",
     "unsafe"
 ]}

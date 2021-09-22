@@ -135,7 +135,7 @@ func compile(params []string, excludesData excludesType) []byte {
 	}
 	if logBool {
 		os.Remove("log.txt")
-		ioutil.WriteFile("log.txt", []byte(logBuffer), 0177)
+		ioutil.WriteFile("log.txt", []byte(logBuffer), 0764)
 	}
 	return bytes
 }
@@ -427,7 +427,12 @@ func parsePkg(pkg *packages.Package) packageType {
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	name := pkg.Name
 	if name == "main" {
-		name = filepath.Base(pkg.GoFiles[0])
+		if pkg.PkgPath == "command-line-arguments" {
+			name = filepath.Base(pkg.GoFiles[0])
+			data.Path = ""
+		} else {
+			name = filepath.Base(pkg.PkgPath)
+		}
 	}
 	if len(pkg.Syntax) > 0 {
 		data.Files = []fileType{parseFile(pkg.Syntax[0], name)}

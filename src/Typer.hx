@@ -94,20 +94,12 @@ function main(data:DataType, printGoCode:Bool = false) {
 			continue;
 		pkg.path = normalizePath(pkg.path);
 		pkg.path = toHaxePath(pkg.path);
-		if (pkg.path == "")
-			pkg.path = "std";
 		var module:Module = {
 			path: pkg.path,
 			files: [],
 			isMain: pkg.name == "main",
 			name: pkg.name
 		};
-		if (module.isMain) {
-			final index = module.path.lastIndexOf(".");
-			if (index != -1)
-				module.path = module.path.substr(0, index);
-		}
-
 		if (StringTools.endsWith(module.path, "_test")) {
 			var path = module.path;
 			path = path.substring(0, path.length - "_test".length);
@@ -1582,7 +1574,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	toType = cleanType(toType);
 	var y = expr;
 
-	//trace("from: " + fromType + " to: " + toType);
+	// trace("from: " + fromType + " to: " + toType);
 
 	if (fromType == null)
 		return expr;
@@ -2685,7 +2677,9 @@ private function getGlobalPath(info:Info):String {
 	return globalPath;
 }
 
-private function parseTypePath(path:String, name:String, info:Info):TypePath {
+private function parseTypePath(path:String, name:String, info:Info):TypePath { // other namedTypePath
+	if (path == "command-line-arguments")
+		path = "";
 	path = normalizePath(path);
 	var cl = className(name, info);
 	var globalPath = getGlobalPath(info);
@@ -2711,7 +2705,9 @@ private function toHaxePath(path:String):String {
 	return StringTools.replace(path, "/", ".");
 }
 
-private function namedTypePath(path:String, info:Info):TypePath {
+private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
+	if (path == "command-line-arguments")
+		path = "";
 	if (path == "error")
 		return errorTypePath();
 	var last = path.lastIndexOf("/") + 1;
@@ -2720,6 +2716,8 @@ private function namedTypePath(path:String, info:Info):TypePath {
 	var pkg = part.substr(0, split);
 	var cl = className(part.substr(split + 1), info);
 	path = path.substr(0, last) + pkg;
+	if (path == "command-line-arguments")
+		path = "";
 	path = normalizePath(path);
 	var globalPath = getGlobalPath(info);
 	globalPath = toGoPath(globalPath);

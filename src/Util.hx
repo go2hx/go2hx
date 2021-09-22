@@ -44,7 +44,9 @@ function mainPath(modules:Array<Typer.Module>):String {
 			continue;
 		path = module.path;
 		var name = module.files[0].name;
-		path += "." + name;
+		if (path != "")
+			path += ".";
+		path += name;
 	}
 	return path;
 }

@@ -1151,7 +1151,15 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	}
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
-	return ifs().expr;
+	info.global.hasBreak = false;
+	var expr = ifs();
+	if (info.global.hasBreak) {
+		expr = macro while (true) {
+			$expr;
+			break;
+		};
+	}
+	return expr.expr;
 }
 
 private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:Binop, info:Info):Expr {

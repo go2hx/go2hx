@@ -2563,6 +2563,10 @@ private function typeof(e:Ast.Expr):GoType {
 				return getLocalType(e.hash, null);
 			}
 			var path = e.path;
+			if (path == null) {
+				trace("null named path: " + e);
+				throw path;
+			}
 			var methods:Array<MethodType> = [];
 			var interfaces:Array<GoType> = [];
 			named(path, methods, interfaces, underlying);
@@ -2775,10 +2779,14 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceType(empty, path):
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
-			if (path != null)
-				return TPath(namedTypePath(path, info));
-			throw "interface path null: " + e;
+			if (path == null)
+				throw "interface path null: " + e;
+			return TPath(namedTypePath(path, info));
 		case named(path, _, _, underlying):
+			if (path == null) {
+				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
+				throw path;
+			}
 			TPath(namedTypePath(path, info));
 		case sliceType(elem):
 			final ct = toComplexType(elem, info);
@@ -4266,10 +4274,11 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	if (spec.type.type != null) {
 		final hash:String = spec.type.type.hash;
 		if (!locals.exists(hash)) {
-			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, spec.name.type.path) : typeof(spec.type);
+			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
+			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, path) : typeof(spec.type);
 			switch nameType {
 				case structType(_):
-					nameType = named(spec.name.type.path, [], [], nameType);
+					nameType = named(path, [], [], nameType);
 				default:
 			}
 			locals[hash] = nameType;

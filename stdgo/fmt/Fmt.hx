@@ -6,8 +6,38 @@ import haxe.io.BufferInput;
 import haxe.macro.Expr;
 import stdgo.Error;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoRune;
 import stdgo.io.Io.Writer;
+
+interface Formatter {
+	public function format(_f:State, _verb:GoRune):Void;
+	public function __underlying__():AnyInterface;
+}
+
+interface Scanner {
+	public function scan(_state:ScanState, _verb:GoRune):Error;
+	public function __underlying__():AnyInterface;
+}
+
+interface ScanState {
+	public function readRune():{var _r:GoRune; var _size:GoInt; var _err:Error;};
+	public function unreadRune():Error;
+	public function skipSpace():Void;
+	public function token(_skipSpace:Bool, _f:GoRune->Bool):{var _token:Slice<GoByte>; var _err:Error;};
+	public function width():{var _wid:GoInt; var _ok:Bool;};
+	public function read(_buf:Slice<GoByte>):{var _n:GoInt; var _err:Error;};
+	public function __underlying__():AnyInterface;
+}
+
+interface State {
+	public function write(_b:Slice<GoByte>):{var _n:GoInt; var _err:Error;};
+	public function width():{var _wid:GoInt; var _ok:Bool;};
+	public function precision():{var _prec:GoInt; var _ok:Bool;};
+	public function flag(_c:GoInt):Bool;
+	public function __underlying__():AnyInterface;
+}
 
 interface Stringer {
 	public function __underlying__():AnyInterface;

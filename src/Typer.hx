@@ -156,8 +156,10 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 
 			for (decl in declFuncs) {
-				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0)
+				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0) {
+					nameIdent(decl.name.name, false, true, info); // overwrite name
 					namedDecls.push(decl);
+				}
 			}
 			for (gen in declGens) {
 				for (spec in gen.specs) {
@@ -184,7 +186,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 				location: file.location,
 				isMain: module.isMain,
 			};
-			info = new Info(info.global);
+			// info = new Info(info.global);
 			locals.clear();
 			info.data = data;
 
@@ -2234,151 +2236,153 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			});
 		case "Ident":
 			expr.fun.name = expr.fun.name;
-			switch expr.fun.name {
-				case "String":
-					expr.fun.name = "toString";
-				case "panic":
-					genArgs(false);
-					return returnExpr(macro throw ${args[0]});
-				case "recover":
-					return returnExpr(macro Go.recover());
-				case "append":
-					genArgs(false);
-					var e = args.shift();
-					if (args.length == 0)
-						return returnExpr(e);
-					var eType = getElem(typeof(expr.args[0]));
-					for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
-						final aType = typeof(expr.args[i + 1]);
-						args[i] = assignTranslate(aType, eType, args[i], info);
-					}
-					return returnExpr(macro $e.append($a{args}));
-				case "copy":
-					genArgs(false);
-					return returnExpr(macro Go.copy($a{args}));
-				case "delete":
-					var e = typeExpr(expr.args[0], info);
-					var key = typeExpr(expr.args[1], info);
-					var t = typeof(expr.args[0]);
-					t = getUnderlying(t);
-					switch t {
-						case mapType(keyType, _):
-							key = assignTranslate(typeof(expr.args[1]), keyType, key, info);
-						case invalidType:
-						default:
-							throw "first arg of delete builtin function not of type map: " + t;
-					}
-					return returnExpr(macro $e.remove($key));
-				case "print":
-					genArgs(false);
-					return returnExpr(macro stdgo.fmt.Fmt.print($a{args}));
-				case "println":
-					genArgs(false);
-					return returnExpr(macro stdgo.fmt.Fmt.println($a{args}));
-				case "complex":
-					genArgs(false);
-					return returnExpr(macro new GoComplex128($a{args}));
-				case "real":
-					var e = typeExpr(expr.args[0], info);
-					var t = typeof(expr.args[0]);
-					if (isNamed(t))
-						e = macro $e.__t__;
-					return returnExpr(macro $e.real);
-				case "imag":
-					var e = typeExpr(expr.args[0], info);
-					var t = typeof(expr.args[0]);
-					if (isNamed(t))
-						e = macro $e.__t__;
-					return returnExpr(macro $e.imag);
-				case "close":
-					var e = typeExpr(expr.args[0], info);
-					var t = typeof(expr.args[0]);
-					if (isNamed(t))
-						e = macro $e.__t__;
-					return returnExpr(macro $e.close());
-				case "cap":
-					var e = typeExpr(expr.args[0], info);
-					var t = typeof(expr.args[0]);
-					if (isNamed(t))
-						e = macro $e.__t__;
-					return returnExpr(macro $e.cap());
-				case "len":
-					var e = typeExpr(expr.args[0], info);
-					var t = typeof(expr.args[0]);
-					if (isNamed(t))
-						e = macro $e.__t__;
-					t = getUnderlying(t);
-					return returnExpr(switch t {
-						case mapType(_, _):
-							(macro($e == null ? 0 : $e.length));
-						default:
-							(macro $e.length);
-					});
-				case "new": // create default value put into pointer
-					var t = typeExprType(expr.args[0], info);
-					switch t {
-						case TPath(_), TFunction(_, _), TAnonymous(_):
-							var t = typeof(expr.args[0]);
-							var value = defaultValue(t, info, true);
-							if (isInterface(t)) {
-								return returnExpr(macro Go.pointer($value, true));
-							} else {
-								return returnExpr(macro Go.pointer($value));
-							}
+			if (!info.renameIdents.exists(expr.fun.name)) {
+				switch expr.fun.name {
+					case "String":
+						expr.fun.name = "toString";
+					case "panic":
+						genArgs(false);
+						return returnExpr(macro throw ${args[0]});
+					case "recover":
+						return returnExpr(macro Go.recover());
+					case "append":
+						genArgs(false);
+						var e = args.shift();
+						if (args.length == 0)
+							return returnExpr(e);
+						var eType = getElem(typeof(expr.args[0]));
+						for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
+							final aType = typeof(expr.args[i + 1]);
+							args[i] = assignTranslate(aType, eType, args[i], info);
+						}
+						return returnExpr(macro $e.append($a{args}));
+					case "copy":
+						genArgs(false);
+						return returnExpr(macro Go.copy($a{args}));
+					case "delete":
+						var e = typeExpr(expr.args[0], info);
+						var key = typeExpr(expr.args[1], info);
+						var t = typeof(expr.args[0]);
+						t = getUnderlying(t);
+						switch t {
+							case mapType(keyType, _):
+								key = assignTranslate(typeof(expr.args[1]), keyType, key, info);
+							case invalidType:
+							default:
+								throw "first arg of delete builtin function not of type map: " + t;
+						}
+						return returnExpr(macro $e.remove($key));
+					case "print":
+						genArgs(false);
+						return returnExpr(macro stdgo.fmt.Fmt.print($a{args}));
+					case "println":
+						genArgs(false);
+						return returnExpr(macro stdgo.fmt.Fmt.println($a{args}));
+					case "complex":
+						genArgs(false);
+						return returnExpr(macro new GoComplex128($a{args}));
+					case "real":
+						var e = typeExpr(expr.args[0], info);
+						var t = typeof(expr.args[0]);
+						if (isNamed(t))
+							e = macro $e.__t__;
+						return returnExpr(macro $e.real);
+					case "imag":
+						var e = typeExpr(expr.args[0], info);
+						var t = typeof(expr.args[0]);
+						if (isNamed(t))
+							e = macro $e.__t__;
+						return returnExpr(macro $e.imag);
+					case "close":
+						var e = typeExpr(expr.args[0], info);
+						var t = typeof(expr.args[0]);
+						if (isNamed(t))
+							e = macro $e.__t__;
+						return returnExpr(macro $e.close());
+					case "cap":
+						var e = typeExpr(expr.args[0], info);
+						var t = typeof(expr.args[0]);
+						if (isNamed(t))
+							e = macro $e.__t__;
+						return returnExpr(macro $e.cap());
+					case "len":
+						var e = typeExpr(expr.args[0], info);
+						var t = typeof(expr.args[0]);
+						if (isNamed(t))
+							e = macro $e.__t__;
+						t = getUnderlying(t);
+						return returnExpr(switch t {
+							case mapType(_, _):
+								(macro($e == null ? 0 : $e.length));
+							default:
+								(macro $e.length);
+						});
+					case "new": // create default value put into pointer
+						var t = typeExprType(expr.args[0], info);
+						switch t {
+							case TPath(_), TFunction(_, _), TAnonymous(_):
+								var t = typeof(expr.args[0]);
+								var value = defaultValue(t, info, true);
+								if (isInterface(t)) {
+									return returnExpr(macro Go.pointer($value, true));
+								} else {
+									return returnExpr(macro Go.pointer($value));
+								}
 
-						default:
-					}
-				case "make":
-					var type = typeof(expr.args[0]);
-					var isNamed = isNamed(type);
-					type = getUnderlying(type);
-					genArgs(false, 1);
-					var size = args[0];
-					var cap = args[1];
-
-					var setCap:Bool = cap != null;
-					if (size != null) {
-						size = assignTranslate(typeof(expr.args[1]), basic(int_kind), size, info);
-						size = macro($size : GoInt).toBasic();
-					}
-					if (cap != null) {
-						cap = assignTranslate(typeof(expr.args[2]), basic(int_kind), cap, info);
-						cap = macro($cap : GoInt).toBasic();
-						setCap = true;
-					}
-					var e = switch type {
-						case sliceType(elem):
-							var param = toComplexType(elem, info);
-							var value = defaultValue(elem, info);
-							if (size == null)
-								return returnExpr(macro new Slice<$param>());
-							macro new Slice<$param>(...[for (i in 0...$size) $value]);
-						case mapType(key, value):
-							var t = toReflectType(type);
-							var key = toComplexType(key, info);
-							var value = toComplexType(value, info);
-							macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($t));
-						case chanType(dir, elem):
-							var value = defaultValue(elem, info);
-							var param = toComplexType(elem, info);
-							if (size == null)
-								size = macro 0;
-
-							macro new Chan<$param>($size, () -> $value);
-						default:
-							throw "unknown make type: " + type;
-					}
-					if (setCap)
-						e = macro $e.setCap($cap);
-					if (isNamed) {
-						var ct = typeExprType(expr.args[0], info);
-						switch ct {
-							case TPath(p):
-								e = macro new $p($e);
 							default:
 						}
-					}
-					return returnExpr(e);
+					case "make":
+						var type = typeof(expr.args[0]);
+						var isNamed = isNamed(type);
+						type = getUnderlying(type);
+						genArgs(false, 1);
+						var size = args[0];
+						var cap = args[1];
+
+						var setCap:Bool = cap != null;
+						if (size != null) {
+							size = assignTranslate(typeof(expr.args[1]), basic(int_kind), size, info);
+							size = macro($size : GoInt).toBasic();
+						}
+						if (cap != null) {
+							cap = assignTranslate(typeof(expr.args[2]), basic(int_kind), cap, info);
+							cap = macro($cap : GoInt).toBasic();
+							setCap = true;
+						}
+						var e = switch type {
+							case sliceType(elem):
+								var param = toComplexType(elem, info);
+								var value = defaultValue(elem, info);
+								if (size == null)
+									return returnExpr(macro new Slice<$param>());
+								macro new Slice<$param>(...[for (i in 0...$size) $value]);
+							case mapType(key, value):
+								var t = toReflectType(type);
+								var key = toComplexType(key, info);
+								var value = toComplexType(value, info);
+								macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($t));
+							case chanType(dir, elem):
+								var value = defaultValue(elem, info);
+								var param = toComplexType(elem, info);
+								if (size == null)
+									size = macro 0;
+
+								macro new Chan<$param>($size, () -> $value);
+							default:
+								throw "unknown make type: " + type;
+						}
+						if (setCap)
+							e = macro $e.setCap($cap);
+						if (isNamed) {
+							var ct = typeExprType(expr.args[0], info);
+							switch ct {
+								case TPath(p):
+									e = macro new $p($e);
+								default:
+							}
+						}
+						return returnExpr(e);
+				}
 			}
 	}
 	var e = typeExpr(expr.fun, info);
@@ -2394,7 +2398,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-
 	if (args.length == 0)
 		genArgs(!isFmtPrint);
 	return returnExpr(macro $e($a{args}));
@@ -3550,7 +3553,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
-	var name = nameIdent(decl.name.name, true, false, info);
+	var name = nameIdent(decl.name.name, false, false, info);
 	if (decl.name.name == "init") {
 		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):

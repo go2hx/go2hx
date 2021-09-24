@@ -580,20 +580,13 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 			return typeGoto(name).expr;
 		case FALLTHROUGH:
 			final e = info.switchTag;
-			if (info.switchNextTag == null) {
-				(macro {
-					__default__ = true;
-					continue;
-				}).expr;
-			} else {
-				var next = typeExpr(info.switchNextTag, info);
-				next = assignTranslate(typeof(info.switchNextTag), info.switchTagType, next, info, false);
-				(macro {
-					$e = $next;
-					continue;
-				}).expr;
-			}
-		default: (macro @:unknown_branch_stmt break).expr;
+			final index = makeExpr(info.switchIndex + 1);
+			(macro {
+				__switchIndex__ = $index;
+				continue;
+			}).expr;
+		default:
+			(macro @:unknown_branch_stmt break).expr;
 	}
 }
 
@@ -805,6 +798,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 }
 
 private function importClassName(name:String):String {
+	name = nameAscii(name);
 	final bool = isTitle(name);
 	name = title(name);
 	if (bool || isInvalidTitle(name)) {
@@ -816,6 +810,7 @@ private function importClassName(name:String):String {
 }
 
 private function className(name:String, info:Info):String {
+	name = nameAscii(name);
 	if (info.renameClasses.exists(name))
 		return info.renameClasses[name];
 
@@ -1270,7 +1265,6 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		return (macro {}).expr;
 	// this is an if else chain
 	var tag:Expr = null;
-	var defaultBlock:Expr = null;
 	var tagType:GoType = null;
 	if (stmt.tag != null) {
 		tagType = typeof(stmt.tag);
@@ -1337,18 +1331,20 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 	function ifs(i:Int = 0) {
 		var obj:Ast.CaseClause = stmt.body.list[i];
 		var cond = condition(obj);
-		info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
+		info.switchIndex = i;
+		// info.switchNextTag = stmt.body.list.length <= i + 1 ? null : stmt.body.list[i + 1].list[0];
 		var block = toExpr(typeStmtList(obj.body, info, false));
-		if (cond == null)
-			defaultBlock = block;
+		if (hasFallThrough) {
+			final index:Expr = makeExpr(i);
+			if (cond == null)
+				cond = macro true;
+			cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && $cond);
+		}
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
 				return block;
-			return defaultBlock == null ? macro if ($cond)
-				$block : macro if ($cond)
-					$block
-				else
-					$defaultBlock;
+			return macro if ($cond)
+				$block;
 		}
 		var next = ifs(i + 1);
 		if (cond == null)
@@ -1374,8 +1370,8 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 						if (eelse != null) {
 							switch eelse.expr {
 								case EBlock(exprs):
-									exprs.push(macro break);
-									eelse.expr = EBlock(exprs);
+								// exprs.push(macro break);
+								// eelse.expr = EBlock(exprs);
 								default:
 									func(eelse);
 							}
@@ -1389,19 +1385,13 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			expr = func(expr);
 		}
 		var needsReturn = exprWillReturn(expr);
-		if (defaultBlock != null) {
-			expr = macro if (__default__)
-				$defaultBlock
-			else
-				$expr;
-		}
 		expr = macro {
-			var __default__ = false;
+			var __switchIndex__ = -1;
 			while (true) {
 				$expr;
 				break;
 			}
-		}
+		};
 		if (needsReturn) {
 			switch expr.expr {
 				case EBlock(exprs):
@@ -4649,7 +4639,21 @@ private function getRestrictedName(name:String, info:Info):String {
 	return name;
 }
 
+private function nameAscii(name:String):String {
+	for (i in 0...name.length) {
+		final char = name.charCodeAt(i);
+		final isAscii = char > -1 && char < 128;
+		if (!isAscii) {
+			name = name.substr(0, i) + '$char' + name.substr(i + 1);
+			if (i == 0)
+				name = "_" + name;
+		}
+	}
+	return name;
+}
+
 private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
+	name = nameAscii(name);
 	if (name == "_")
 		return "_";
 	if (name == "nil")
@@ -4749,8 +4753,8 @@ class Info {
 	public var lastType:GoType = null;
 	public var data:FileType;
 	public var switchTag:Expr = null;
+	public var switchIndex:Int = 0;
 	public var switchTagType:GoType = null;
-	public var switchNextTag:Ast.Expr = null;
 
 	public var renameIdents:Map<String, String> = []; // identifiers
 	public var renameClasses:Map<String, String> = ["bool" => "Bool"]; // class names i.e TPath

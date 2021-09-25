@@ -1,6 +1,7 @@
 package;
 
 import haxe.Timer;
+import shared.Util;
 
 function main() {
 	final testBool = false;
@@ -8,7 +9,7 @@ function main() {
 		Main.onComplete = (modules, data) -> {
 			if (modules.length == 0)
 				throw "no exported path";
-			final mainPath = Util.mainPath(modules);
+			final mainPath = mainPath(modules);
 			final command = 'haxe -cp golibs extraParams.hxml -main $mainPath --interp';
 			Sys.println(command);
 			Sys.command(command);
@@ -18,7 +19,7 @@ function main() {
 			if (wasm) {
 				Sys.putEnv("GOOS", "js");
 				Sys.putEnv("GOARCH", "wasm");
-				final run = Util.systemName == "Windows" ? "bash" : "sh";
+				final run = systemName == "Windows" ? "bash" : "sh";
 				if (command == "run")
 					command = "build";
 				Sys.command('go $command -o rnd.wasm ./rnd && $run go_js_wasm_exec rnd.wasm');

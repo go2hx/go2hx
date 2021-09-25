@@ -1,3 +1,4 @@
+import shared.Util;
 import sys.FileSystem;
 import sys.io.File;
 
@@ -15,16 +16,16 @@ function init() {
 		final length = modules.length;
 		if (length > 0) {
 			// show the haxe equivlant
-			var haxeOutput = File.getContent("golibs/command_line_arguments/Eval.hx");
+			var haxeOutput = File.getContent("golibs/Eval.hx");
 			haxeOutput = haxeOutput.substring(haxeOutput.indexOf("{\n") + 2, haxeOutput.lastIndexOf("}"));
 			var exprs = haxeOutput.split('"-$-";\n');
 			var exprString = exprs.length > 0 ? exprs.pop() : "";
 			exprString = StringTools.trim(exprString);
 			// Sys.println(exprString);
-			Util.infoMsg(exprString);
+			infoMsg(exprString);
 			// execute since there is an output
 			File.saveContent("repl/error", "1");
-			final mainPath = Util.mainPath(modules);
+			final mainPath = mainPath(modules);
 			File.saveContent("Repl.hx", 'function main() {$mainPath.main(); sys.io.File.saveContent("repl/error","0");}');
 			var command = "haxe -cp golibs -main Repl --interp";
 			Sys.command(command);
@@ -33,7 +34,7 @@ function init() {
 			if (success)
 				File.saveContent("repl/code.go", pastCode + code + '_ = "-$-"\n'); // add code to code cache
 		} else {
-			Util.failMsg("compiler error");
+			failMsg("compiler error");
 		}
 		code = "";
 		waiting = false;

@@ -2,6 +2,7 @@ import TestAdapterMacro.assert;
 import _testadapter.data.TestResults;
 import sys.io.File;
 import sys.thread.Mutex;
+import shared.Util;
 
 final path = Sys.getCwd();
 var results = null;
@@ -253,7 +254,7 @@ private function complete(modules, data) {
 		trace("make sure to have go and yaegi cloned inside the tests dir for test suite access");
 		throw test;
 	}
-	final mainPath = Util.mainPath(modules);
+	final mainPath = mainPath(modules);
 	final command = 'haxe -cp golibs --interp -D test extraParams.hxml -main $mainPath';
 	var proc = new sys.io.Process(command);
 	var code:Null<Int> = null;

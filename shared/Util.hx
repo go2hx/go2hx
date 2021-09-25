@@ -1,3 +1,5 @@
+package shared;
+
 import haxe.Timer;
 import haxe.macro.Expr;
 
@@ -37,7 +39,8 @@ function infoMsg(msg:String):Void {
 	Sys.println(colorSupported ? '\x1b[36m' + msg + '\x1b[0m' : msg);
 }
 
-function mainPath(modules:Array<Typer.Module>):String {
+// Typer.Module
+function mainPath(modules:Array<Dynamic>):String {
 	var path = "";
 	for (module in modules) {
 		if (!module.isMain || !module.files[0].isMain)

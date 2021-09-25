@@ -1,4 +1,5 @@
 import haxe.io.Path;
+import shared.Util;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
@@ -9,19 +10,22 @@ function main() {
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
 	if (code != 0) {
-		Sys.println("hl command not found, setup golang to run compiler");
+		Sys.println("go command not found");
+		return;
 	}
-	if (Sys.getEnv("HAXELIB_RUN") == "1") {
-		if (args.length > 0) {}
-	}
+	process.close();
+
+	haxelibInstallGit("kevinresol", "bson");
+
 	var rebuild = false;
-	var process = new Process('git', ['rev-parse', 'HEAD']);
+	process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
 		var message = process.stderr.readAll().toString();
 		trace("Cannot execute `git rev-arse HEAD`. " + message);
 		return;
 	}
 	final version = process.stdout.readLine();
+	process.close();
 	if (FileSystem.exists("version.txt")) {
 		if (!rebuild && version != File.getContent("version.txt")) {
 			Sys.println("updating version rebuilding binaries");
@@ -37,10 +41,6 @@ function main() {
 		Sys.println("rebuilding...");
 		rebuild = true;
 	}
-	var forceEval = false;
-	if (args.indexOf("-eval") != -1 || args.indexOf("--eval") != -1) {
-		forceEval = true;
-	}
 	// run go compiler
 	if (!FileSystem.exists("go4hx") || rebuild)
 		Sys.command("go build .");
@@ -48,7 +48,8 @@ function main() {
 	process = new Process("hl", ["--version"]);
 	code = process.exitCode();
 	process.close();
-	if (code == 0 && !forceEval) {
+
+	if (code == 0) {
 		// run hashlink
 		if (!FileSystem.exists("build.hl") || rebuild)
 			Sys.command("haxe build.hxml");

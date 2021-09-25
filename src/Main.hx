@@ -9,6 +9,7 @@ import haxe.io.Path;
 import hl.uv.Loop;
 import hl.uv.Stream;
 import hl.uv.Tcp;
+import shared.Util;
 import stdgo.StdGoTypes;
 import sys.FileSystem;
 import sys.io.File;
@@ -142,7 +143,7 @@ function run(args:Array<String>) {
 }
 
 private function printDoc(handler:Args.ArgHandler) {
-	Util.successMsg("go2hx");
+	successMsg("go2hx");
 	Sys.print("\n");
 	final max = 20;
 	for (option in handler.options) {
@@ -274,7 +275,7 @@ private function runTarget(modules:Array<Typer.Module>) {
 		target = "interp"; // default test target
 	if (target == "")
 		return;
-	final mainPath = Util.mainPath(modules);
+	final mainPath = mainPath(modules);
 	final libs = targetLibs();
 	final commands = [
 		'-cp $outputPath',

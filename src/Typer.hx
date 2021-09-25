@@ -1,7 +1,7 @@
-import Util;
 import haxe.DynamicAccess;
 import haxe.io.Path;
 import haxe.macro.Expr;
+import shared.Util;
 import stdgo.reflect.Reflect;
 import sys.io.File;
 

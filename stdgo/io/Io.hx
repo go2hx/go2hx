@@ -1,9 +1,41 @@
 package stdgo.io;
 
-import stdgo.Error;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoByte;
-import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes;
+
+interface ByteReader {
+	public function readByte():{var v0:GoByte; var v1:Error;};
+	public function __underlying__():AnyInterface;
+}
+
+interface ByteScanner extends ByteReader {
+	public function unreadByte():Error;
+	public function __underlying__():AnyInterface;
+}
+
+interface ByteWriter {
+	public function writeByte(_c:GoByte):Error;
+	public function __underlying__():AnyInterface;
+}
+
+interface RuneReader {
+	public function readRune():{var _r:GoRune; var _size:GoInt; var _err:Error;};
+	public function __underlying__():AnyInterface;
+}
+
+interface RuneScanner extends RuneReader {
+	public function unreadRune():Error;
+	public function __underlying__():AnyInterface;
+}
+
+interface ReaderFrom {
+	public function readFrom(_r:Reader):{var _n:GoInt64; var _err:Error;};
+	public function __underlying__():AnyInterface;
+}
+
+interface ReaderAt {
+	public function readAt(_p:Slice<GoByte>, _off:GoInt64):{var _n:GoInt; var _err:Error;};
+	public function __underlying__():AnyInterface;
+}
 
 interface Writer {
 	public function __underlying__():AnyInterface;

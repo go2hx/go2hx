@@ -567,7 +567,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case BREAK:
 			info.global.hasBreak = true;
 			if (stmt.label != null) {
-				(macro {
+				(macro @:break {
 					____exit____ = true;
 					____break____ = true;
 					break;
@@ -581,7 +581,7 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 		case FALLTHROUGH:
 			final e = info.switchTag;
 			final index = makeExpr(info.switchIndex + 1);
-			(macro {
+			(macro @:fallthrough {
 				__switchIndex__ = $index;
 				continue;
 			}).expr;
@@ -1149,9 +1149,11 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	info.global.hasBreak = false;
 	var expr = ifs();
 	if (info.global.hasBreak) {
-		expr = macro while (true) {
-			$expr;
-			break;
+		expr = macro {
+			while (true) {
+				$expr;
+				break;
+			}
 		};
 	}
 	return expr.expr;
@@ -1336,9 +1338,8 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 		var block = toExpr(typeStmtList(obj.body, info, false));
 		if (hasFallThrough) {
 			final index:Expr = makeExpr(i);
-			if (cond == null)
-				cond = macro true;
-			cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && $cond);
+			if (cond != null)
+				cond = macro __switchIndex__ == $index || (__switchIndex__ == -1 && $cond);
 		}
 		if (i + 1 >= stmt.body.list.length) {
 			if (cond == null)
@@ -1385,6 +1386,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			expr = func(expr);
 		}
 		var needsReturn = exprWillReturn(expr);
+
 		expr = macro {
 			var __switchIndex__ = -1;
 			while (true) {
@@ -3270,6 +3272,12 @@ private function exprWillReturn(expr:Expr):Bool {
 	return switch expr.expr {
 		case EIf(_, eif, eelse): exprWillReturn(eif) && exprWillReturn(eelse);
 		case EReturn(_): true;
+		case EMeta(s, e):
+			if (s.name == ":fallthrough") {
+				true;
+			} else {
+				exprWillReturn(e);
+			}
 		case EBlock(exprs):
 			for (expr in exprs) {
 				if (exprWillReturn(expr))

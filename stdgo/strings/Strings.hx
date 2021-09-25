@@ -1,5 +1,6 @@
 package stdgo.strings;
 
+import haxe.Rest;
 import stdgo.StdGoTypes;
 
 @:structInit
@@ -121,4 +122,29 @@ inline function toUpper(s:GoString):GoString {
 
 inline function toLower(s:GoString):GoString {
 	return s.toString().toLowerCase();
+}
+
+@:structInit
+class Replacer {
+	var strings:Array<String> = [];
+
+	public function new(?strings) {
+		if (strings != null)
+			this.strings = strings;
+	}
+
+	public function replace(s:GoString):GoString {
+		return s;
+	}
+
+	public function writeString(w:stdgo.io.Io.Writer):{_n:GoInt, _err:Error} {
+		return {_n: 0, _err: null};
+	}
+}
+
+function newReplacer(oldnew:Rest<GoString>):Pointer<Replacer> {
+	if (oldnew.length % 2 == 1) {
+		throw "strings.NewReplacer: odd argument count";
+	}
+	return Go.pointer(new Replacer([for (str in oldnew) str.toString()]));
 }

@@ -261,8 +261,6 @@ func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData {
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)
-	countStruct := 0
-	countInterface := 0
 	interfaces := []interfaceData{}
 
 	apply := func(cursor *astutil.Cursor) bool {
@@ -385,11 +383,16 @@ func mergePackage(pkg *packages.Package) {
 	pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
 }
 
+var countStruct = 0
+var countInterface = 0
+
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
 		mergePackage(pkg)
 	}
 	typeHasher = typeutil.MakeHasher()
+	countInterface = 0
+	countStruct = 0
 	excludes2 := make(map[string]bool)
 	//parse interfaces 1st past
 	for _, pkg := range list {

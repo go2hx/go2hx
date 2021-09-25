@@ -1580,6 +1580,10 @@ abstract GoUInt32(Int) from Int {
 	public inline function toBasic()
 		return this;
 
+	@:from static inline function fromFloat(x:Float):GoUInt32 {
+		return new GoUInt32(Std.int(x));
+	}
+
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 

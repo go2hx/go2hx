@@ -45,7 +45,7 @@ class Go {
 
 	public static macro function copy<T>(dst:Expr, src:Expr) {
 		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
-		var srcType = Context.toComplexType(Context.followWithAbstracts(Context.typeof(src)));
+		var srcType = Context.toComplexType(Context.follow(Context.typeof(src)));
 		var isString = switch srcType {
 			case TPath(p): p.name == "String" && p.pack.length == 0;
 			default:
@@ -56,7 +56,7 @@ class Go {
 				switch p.name {
 					case "String", "GoString":
 						src = macro($src : GoString);
-					case "SliceData": // src
+					case "Slice", "SliceData": // src
 					default: // named
 						src = macro $src.__t__;
 				}

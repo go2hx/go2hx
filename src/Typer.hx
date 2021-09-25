@@ -174,6 +174,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 		}
 		var recvFunctions:Array<{decl:Ast.FuncDecl, path:String}> = [];
+		info.global.interfaces = [];
 		// 2nd pass main typing
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -320,25 +321,68 @@ function main(data:DataType, printGoCode:Bool = false) {
 			for (def in file.defs) {
 				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
 				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
+				final methods:Array<Field> = [];
 				for (field in def.fields) {
 					if (field.meta != null)
 						for (meta in field.meta) {
-							if (meta.name == ":embedded") {
-								switch field.kind {
-									case FVar(t, _):
-										names.push({name: getRecvComplexTypeName(t, info), sel: field.name});
-									default:
-								}
-								break;
+							switch meta.name {
+								case ":embedded":
+									switch field.kind {
+										case FVar(t, _):
+											names.push({name: getRecvComplexTypeName(t, info), sel: field.name});
+										default:
+									}
+									break;
+								case ":embedded_interface":
+									switch meta.params[0].expr {
+										case EConst(CString(s)):
+											if (!info.global.interfaces.exists(s)) {
+												trace("no interface found matching: " + s + " " + info.data.name);
+												continue;
+											}
+											for (fieldFunc in info.global.interfaces[s]) {
+												switch fieldFunc.kind {
+													case FFun(f):
+														final params:Array<Expr> = [
+															for (arg in f.args)
+																macro $i{arg.name}
+														];
+														final fieldName = fieldFunc.name;
+														var expr = macro $i{field.name}.$fieldName($a{params});
+														if (!isVoid(f.ret))
+															expr = macro return $expr;
+														methods.push({
+															name: fieldFunc.name,
+															pos: fieldFunc.pos,
+															meta: fieldFunc.meta,
+															doc: fieldFunc.doc,
+															access: fieldFunc.access,
+															kind: FFun({
+																ret: f.ret,
+																args: f.args,
+																params: f.params,
+																expr: expr
+															}),
+														});
+													default:
+														throw "non function in interface";
+												}
+											}
+										// def.fields = def.fields.concat(fields);
+										default:
+											throw "no param for embedded_interface";
+									}
+									break;
 							}
 						}
 				}
 				for (recv in recvFunctions) {
 					if (file.isMain && file.name != recv.path)
 						continue;
-					for (name in names)
+					for (name in names) {
 						if (getRecvName(recv.decl.recv.list[0].type, info) == name.name)
 							local.push({func: recv.decl, sel: name.sel});
+					}
 				}
 				var restrictedNames = [for (func in local) nameIdent(func.func.name.name, false, false, info)];
 				var isNamed = false;
@@ -400,6 +444,18 @@ function main(data:DataType, printGoCode:Bool = false) {
 							}
 						default:
 					}
+				}
+				for (method in methods) {
+					var hasName = false;
+					for (field in def.fields) {
+						if (field.name == method.name) {
+							hasName = true;
+							break;
+						}
+					}
+					if (hasName)
+						continue;
+					def.fields.push(method);
 				}
 			}
 		}
@@ -3953,6 +4009,16 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	return type;
 }
 
+private function isVoid(ct:ComplexType):Bool {
+	if (ct == null)
+		return true;
+	return switch ct {
+		case TPath(p): p.name == "Void" && p.pack.length == 0;
+		default:
+			false;
+	}
+}
+
 private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<FunctionArg> { // Array of FunctionArgs
 	var args:Array<FunctionArg> = [];
 	var counter:Int = 0;
@@ -4030,8 +4096,20 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 			name = "__blank__" + (blankCounter++);
 		}
 		var meta:Metadata = [];
-		if (field.embedded)
+		if (field.embedded) {
 			meta.push({name: ":embedded", pos: null});
+			if (!isAnyInterface(field.type) && isInterface(field.type)) {
+				switch getUnderlying(field.type) {
+					case interfaceType(_, path, _):
+						if (path != null) {
+							meta[0].name += "_interface";
+							meta[0].params = [makeString(path)];
+						}
+					default:
+						throw "field not interface";
+				}
+			}
+		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
 		fields.push({
@@ -4389,7 +4467,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 			}
 			sets.push(macro return this);
-			var meta:Metadata = [{name: ":structInit", pos: null}, getAllow(info)];
+			var meta:Metadata = [{name: ":structInit", pos: null}];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
 			var implicits:Array<TypePath> = [];
@@ -4447,7 +4525,19 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					kind: TDAlias(anyInterfaceType()),
 				}
 			}
-			var fields = typeFieldListMethods(struct.methods, info);
+			final fields = typeFieldListMethods(struct.methods, info);
+			switch typeof(struct.type) {
+				case interfaceType(_, path, _):
+					final fields = fields.copy();
+					for (field in fields) {
+						if (field.name == "__underlying__") {
+							fields.remove(field);
+							break; // only the one
+						}
+					}
+					info.global.interfaces[path] = fields;
+				default:
+			}
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];
 			if (struct.methods != null && struct.methods.list != null)
@@ -4462,7 +4552,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				kind: FFun({args: [], ret: anyInterfaceType()}),
 				access: [APublic],
 			});
-			var meta = [getAllow(info)];
+			var meta = [];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
 			return {
@@ -4488,10 +4578,6 @@ private function errorTypePath():TypePath
 
 private function errorType()
 	return TPath(errorTypePath());
-
-private function getAllow(info:Info) {
-	return {name: ":allow", params: [toExpr(EConst(CIdent(info.global.path)))], pos: null};
-}
 
 private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	var doc = getDoc(imp);
@@ -4727,6 +4813,7 @@ class Global {
 	public var filePath:String = "";
 	public var hasBreak:Bool = false;
 	public var module:Module = null;
+	public var interfaces:Map<String, Array<Field>> = [];
 
 	public inline function new() {}
 

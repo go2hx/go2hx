@@ -406,6 +406,12 @@ typedef TypeSpec = {
 	type:Expr,
 	comment:CommentGroup,
 	implicits:Array<ImplicitType>,
+	methods:Array<{
+		name:String,
+		type:ExprType,
+		recv:ExprType,
+		index:Array<Int>
+	}>,
 	pos:Int,
 	end:Int,
 };

@@ -124,8 +124,11 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("load error: " + err.Error())
 		return []byte{}
 	}
+	methodCache = typeutil.MethodSetCache{}
 	data := parsePkgList(initial, excludes)
+	//reset
 	typeHasher = typeutil.Hasher{}
+	methodCache = typeutil.MethodSetCache{}
 	interfaces = nil
 	data.Args = args
 	bytes, err = bson.Marshal(data)
@@ -322,7 +325,7 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 				countInterface++
 				interfaceTypes[hash] = name
 				//add to interfaces
-				interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkg.PkgPath, false})
+				interfaces = addInterface(interfaces, []interfaceData{{t.(*types.Interface), name.Name, pkg.PkgPath, false}})
 				//add to file
 				gen := ast.GenDecl{}
 				gen.Tok = token.FUNC //set local
@@ -355,6 +358,23 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 	return interfaces
 }
 
+func addInterface(interfaces []interfaceData, add []interfaceData) []interfaceData {
+	for _, obj := range add {
+		exists := false
+		for _, inter := range interfaces {
+			if inter.name == obj.name && inter.path == obj.path {
+				exists = true
+				break
+			}
+		}
+		if exists {
+			continue
+		}
+		interfaces = append(interfaces, obj)
+	}
+	return interfaces
+}
+
 func parseInterface(pkg *packages.Package, excludes map[string]bool) {
 	for _, val := range pkg.Imports {
 		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
@@ -364,8 +384,8 @@ func parseInterface(pkg *packages.Package, excludes map[string]bool) {
 	}
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
 	for _, file := range pkg.Syntax {
-		interfaces = append(interfaces, parseFileInterface(file, pkg)...)
-		interfaces = append(interfaces, parseLocalInterface(file, pkg)...)
+		interfaces = addInterface(interfaces, parseFileInterface(file, pkg))
+		interfaces = addInterface(interfaces, parseLocalInterface(file, pkg))
 	}
 	checker = nil
 }
@@ -470,6 +490,9 @@ func parseExprList(list []ast.Expr) []map[string]interface{} {
 	}
 	return data
 }
+
+var methodCache typeutil.MethodSetCache
+
 func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	data := make([]map[string]interface{}, len(list))
 	for i, obj := range list {
@@ -498,6 +521,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				continue
 			}
 			interfaces := interfaces
+			object := checker.ObjectOf(obj.Name)
 			for _, inter := range interfaces {
 				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
 					continue
@@ -505,7 +529,6 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				if !inter.isExport && named.Pkg().Path() != inter.path {
 					continue
 				}
-				object := checker.ObjectOf(obj.Name)
 				if object != nil {
 					b := types.Implements(types.NewPointer(object.Type()), inter.t)
 					if b {
@@ -513,6 +536,22 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 					}
 				}
 			}
+
+			//set := typeutil.IntuitiveMethodSet(object.Type(), &methodCache)
+			set := typeutil.IntuitiveMethodSet(object.Type(), &methodCache)
+			methods := []map[string]interface{}{}
+			for _, sel := range set {
+				if len(sel.Index()) > 1 {
+
+					methods = append(methods, map[string]interface{}{
+						"name":  sel.Obj().Name(),
+						"type":  parseType(sel.Type()),
+						"recv":  parseType(sel.Recv()),
+						"index": sel.Index(),
+					})
+				}
+			}
+
 			data[i] = map[string]interface{}{
 				"id":        "TypeSpec",
 				"assign":    fset.Position(obj.Assign).Offset,
@@ -521,6 +560,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"doc":       parseData(obj.Comment),
 				"comment":   parseData(obj.Comment),
 				"implicits": implements,
+				"methods":   methods,
 			}
 		default:
 			data[i] = parseData(obj)
@@ -549,7 +589,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Named":
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
-		if isAlias {
+		if isAlias { //alias is type X = Y, equivlant to a typedef
 			data = parseType(named.Underlying())
 			isVar = true
 		} else {

@@ -4,6 +4,13 @@ import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;
 import sys.thread.Lock;
 
+typedef Pool = Dynamic;
+
+interface Locker {
+	public function lock():Void;
+	public function unlock():Void;
+}
+
 class RWMutex implements StructType {
 	var mutux:sys.thread.Mutex;
 
@@ -23,7 +30,7 @@ class RWMutex implements StructType {
 	public function runlock() {}
 }
 
-class Mutex implements StructType {
+class Mutex implements StructType implements Locker {
 	public function __underlying__():AnyInterface
 		return null;
 

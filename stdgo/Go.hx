@@ -330,8 +330,12 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(untyped_float_kind);
 					case "GoUnTypedComplex":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(untyped_complex_kind);
+					case "GoRune":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(int32_kind);
+					case "GoByte":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(uint8_kind);
 					default:
-						Context.error("unknown typedef: " + t.toString(), Context.currentPos());
+						Context.error("unknown typedef: " + t.toString() + " " + name, Context.currentPos());
 				}
 			case TMono(ref):
 				return macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);

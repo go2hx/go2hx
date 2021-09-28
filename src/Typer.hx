@@ -322,60 +322,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
 				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
 				final methods:Array<Field> = [];
-				for (field in def.fields) {
-					if (field.meta != null)
-						for (meta in field.meta) {
-							switch meta.name {
-								case ":embedded":
-									switch field.kind {
-										case FVar(t, _):
-											names.push({name: getRecvComplexTypeName(t, info), sel: field.name});
-										default:
-									}
-									break;
-								case ":embedded_interface":
-									switch meta.params[0].expr {
-										case EConst(CString(s)):
-											if (!info.global.interfaces.exists(s)) {
-												trace("no interface found matching: " + s + " " + info.data.name);
-												continue;
-											}
-											for (fieldFunc in info.global.interfaces[s]) {
-												switch fieldFunc.kind {
-													case FFun(f):
-														final params:Array<Expr> = [
-															for (arg in f.args)
-																macro $i{arg.name}
-														];
-														final fieldName = fieldFunc.name;
-														var expr = macro $i{field.name}.$fieldName($a{params});
-														if (!isVoid(f.ret))
-															expr = macro return $expr;
-														methods.push({
-															name: fieldFunc.name,
-															pos: fieldFunc.pos,
-															meta: fieldFunc.meta,
-															doc: fieldFunc.doc,
-															access: fieldFunc.access,
-															kind: FFun({
-																ret: f.ret,
-																args: f.args,
-																params: f.params,
-																expr: expr
-															}),
-														});
-													default:
-														throw "non function in interface";
-												}
-											}
-										// def.fields = def.fields.concat(fields);
-										default:
-											throw "no param for embedded_interface";
-									}
-									break;
-							}
-						}
-				}
 				for (recv in recvFunctions) {
 					if (file.isMain && file.name != recv.path)
 						continue;
@@ -2621,13 +2567,13 @@ private function typeof(e:Ast.Expr):GoType {
 			if (locals.exists(e.hash)) {
 				return getLocalType(e.hash, null);
 			}
-			var path = e.path;
+			final path = e.path;
 			if (path == null) {
 				trace("null named path: " + e);
 				throw path;
 			}
-			var methods:Array<MethodType> = [];
-			var interfaces:Array<GoType> = [];
+			final methods:Array<MethodType> = [];
+			final interfaces:Array<GoType> = [];
 			named(path, methods, interfaces, underlying);
 		case "Struct":
 			var t:GoType = structType([
@@ -3606,6 +3552,26 @@ private function implementsError(name:String, type:ComplexType):Bool {
 	return false;
 }
 
+private function getRecvThis(recvType:GoType, sel:String, varName:String, isNamed:Bool, info:Info):Expr {
+	final thisValue = sel == "" ? macro this : macro this.$sel; // embedded method field name
+	return if (isPointer(recvType)) {
+		final t = getElem(recvType);
+		final p = getTypePath(t, info);
+		if (isNamed) {
+			final e = macro $thisValue.__t__;
+			macro var $varName = new Pointer(() -> new $p($e), __tmp__ -> new $p($e = __tmp__.__t__));
+		} else {
+			macro var $varName = new Pointer(() -> $thisValue, __tmp__ -> $thisValue.__set__(__tmp__));
+		}
+	} else {
+		if (isNamed) {
+			macro var $varName = $thisValue.__copy__();
+		} else {
+			macro var $varName = $thisValue.__copy__();
+		}
+	}
+}
+
 private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<String> = null, isNamed:Bool = false, sel:String = ""):TypeDefinition {
 	final info = new Info();
 	info.data = data.data;
@@ -3647,28 +3613,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	if (decl.recv != null) {
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		if (varName != "") {
-			final thisValue = sel == "" ? macro this : macro this.$sel; // embedded method field name
 			varName = nameIdent(varName, false, true, info);
 			info.thisName = varName;
 			switch block.expr {
 				case EBlock(exprs):
 					final recvType = typeof(decl.recv.list[0].type);
-					if (isPointer(recvType)) {
-						final t = getElem(recvType);
-						final p = getTypePath(t, info);
-						if (isNamed) {
-							var e = macro $thisValue.__t__;
-							exprs.unshift(macro var $varName = new Pointer(() -> new $p($e), __tmp__ -> new $p($e = __tmp__.__t__)));
-						} else {
-							exprs.unshift(macro var $varName = new Pointer(() -> $thisValue, __tmp__ -> $thisValue.__set__(__tmp__)));
-						}
-					} else {
-						if (isNamed) {
-							exprs.unshift(macro var $varName = $thisValue.__copy__());
-						} else {
-							exprs.unshift(macro var $varName = $thisValue.__copy__());
-						}
-					}
+					exprs.unshift(getRecvThis(recvType, sel, varName, isNamed, info));
 					block.expr = EBlock(exprs);
 				default:
 			}
@@ -4035,7 +3985,7 @@ private function typeFieldListArgs(list:Ast.FieldList, info:Info):Array<Function
 		}
 		for (name in field.names) {
 			args.push({
-				name: nameIdent(name.name, false, false, info),
+				name: nameIdent(name.name, false, true, info),
 				type: type,
 			});
 		}
@@ -4098,17 +4048,6 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 		var meta:Metadata = [];
 		if (field.embedded) {
 			meta.push({name: ":embedded", pos: null});
-			if (!isAnyInterface(field.type) && isInterface(field.type)) {
-				switch getUnderlying(field.type) {
-					case interfaceType(_, path, _):
-						if (path != null) {
-							meta[0].name += "_interface";
-							meta[0].params = [makeString(path)];
-						}
-					default:
-						throw "field not interface";
-				}
-			}
 		}
 		if (field.tag != "")
 			meta.push({name: ":tag", pos: null, params: [makeString(field.tag)]});
@@ -4473,6 +4412,88 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			var implicits:Array<TypePath> = [];
 			for (imp in spec.implicits) {
 				implicits.push(parseTypePath(imp.path, imp.name, info));
+			}
+			for (method in spec.methods) { // covers both embedded interfaces and structures
+				// final recv = typeof(method.recv);
+				final name = fields[method.index[0]].name;
+				final type = typeof(method.type);
+				switch type {
+					case signature(variadic, params, results, recv):
+						var i = -1;
+						final args:Array<Expr> = [
+							for (param in params) {
+								i++;
+								switch param {
+									case _var(name, _):
+										macro $i{nameIdent(name, false, false, info)};
+									default:
+										macro $i{"v" + i};
+								}
+							}
+						];
+						i = -1;
+						final params:Array<FunctionArg> = [
+							for (param in params) {
+								i++;
+								switch param {
+									case _var(name, type):
+										{
+											name: nameIdent(name, false, false, info),
+											type: toComplexType(type, info),
+										}
+									default:
+										{
+											name: "v" + i,
+											type: toComplexType(type, info),
+										}
+								}
+							}
+						];
+						final fieldName = nameIdent(method.name, false, false, info);
+						var expr = macro $i{name}.$fieldName($a{args});
+						var ret:ComplexType = null;
+						if (results.length > 0) {
+							if (results.length == 1) {
+								ret = toComplexType(results[0], info);
+							} else {
+								i = -1;
+								ret = TAnonymous([
+									for (res in results) {
+										i++;
+										switch res {
+											case _var(name, type):
+												{
+													name: nameIdent(name, false, false, info),
+													pos: null,
+													kind: FVar(toComplexType(type, info)),
+												}
+											default:
+												{
+													name: "v" + i,
+													pos: null,
+													kind: FVar(toComplexType(type, info)),
+												}
+										}
+									}
+								]);
+							}
+						}
+						if (!isVoid(ret))
+							expr = macro return $expr;
+
+						fields.push({
+							name: nameIdent(method.name, false, false, info),
+							pos: null,
+							access: [APublic],
+							kind: FFun({
+								args: params,
+								ret: ret,
+								expr: expr,
+							}),
+						});
+					default:
+						throw "method not a signature";
+				}
 			}
 			var cl:TypeDefinition = {
 				name: name,

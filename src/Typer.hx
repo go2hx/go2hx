@@ -122,8 +122,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 		endPath = endPath.substr(index + 1);
 		endPath = importClassName(endPath);
 
-		var namedDecls:Array<Ast.Decl> = [];
-
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -158,18 +156,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 			for (decl in declFuncs) {
 				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0) {
 					nameIdent(decl.name.name, false, true, info); // overwrite name
-					namedDecls.push(decl);
-				}
-			}
-			for (gen in declGens) {
-				for (spec in gen.specs) {
-					if (spec == null)
-						continue;
-					switch spec.id {
-						case "ValueSpec", "TypeSpec":
-							namedDecls.push(spec);
-						default:
-					}
 				}
 			}
 		}
@@ -1652,9 +1638,36 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	return y;
 }
 
+private function nonAssignToken(tok:Ast.Token):Ast.Token {
+	return switch tok {
+		case ADD_ASSIGN: ADD;
+		case SUB_ASSIGN: SUB;
+		case MUL_ASSIGN: MUL;
+		case QUO_ASSIGN: QUO;
+		case REM_ASSIGN: REM;
+		case SHL_ASSIGN: SHL;
+		case SHR_ASSIGN: SHR;
+		case XOR_ASSIGN: XOR;
+		case AND_ASSIGN: AND;
+		case AND_NOT_ASSIGN: AND_NOT;
+		case OR_ASSIGN: OR;
+		default: throw "non assign token: " + tok;
+	}
+}
+
 private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 	switch stmt.tok {
-		case ASSIGN, ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
+		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
+			final expr = toExpr(typeBinaryExpr({
+				x: stmt.lhs[0],
+				y: stmt.rhs[0],
+				op: nonAssignToken(stmt.tok),
+				opPos: 0,
+				type: stmt.lhs[0],
+			}, info));
+			final assign = typeExpr(stmt.lhs[0], info);
+			return (macro $assign = $expr).expr;
+		case ASSIGN:
 			var blankBool:Bool = true;
 			for (lhs in stmt.lhs) {
 				if (lhs.id != "Ident" || lhs.name != "_") {
@@ -1770,24 +1783,21 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			} else {
 				throw "unknown type assign type: " + stmt;
 			}
-		case DEFINE: // var expr = x; var x = y;
+		case DEFINE: // var expr = x; var x = y; x:= y
 			if (stmt.lhs.length == stmt.rhs.length) {
 				// normal vars
-				var vars:Array<Var> = [];
+				final vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
 					var name = nameIdent(stmt.lhs[i].name, false, true, info);
-
-					var t = typeof(stmt.lhs[i]);
 
 					var toType = typeof(stmt.lhs[i]);
 					var fromType = typeof(stmt.rhs[i]);
 
 					expr = assignTranslate(fromType, toType, expr, info);
-
 					vars.push({
 						name: name,
-						type: toComplexType(t, info),
+						type: toComplexType(toType, info),
 						expr: expr,
 					});
 				}
@@ -3504,7 +3514,7 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		x = macro $x.__t__;
 	t = getUnderlying(t);
 	switch t {
-		case arrayType(_, _), sliceType(_):
+		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index), basic(int_kind), index, info);
 		case mapType(indexType, _):
 			index = assignTranslate(typeof(expr.index), indexType, index, info);
@@ -3582,7 +3592,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.gotoSystem = false;
 	info.global = data.global;
 	var name = nameIdent(decl.name.name, false, false, info);
-	if (decl.name.name == "init") {
+	if (decl.name.name == "init" && (decl.recv == null || decl.recv.list == null)) {
 		switch typeBlockStmt(decl.body, info, true) {
 			case EBlock(exprs):
 				info.global.initBlock = info.global.initBlock.concat(exprs);
@@ -4015,6 +4025,11 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		var expr:Ast.FuncType = field.type;
 
 		var ret = typeFieldListReturn(expr.results, info, false);
+		switch ret {
+			case TAnonymous(_):
+				ret = TPath({name: "Dynamic", pack: []}); // unify with any other tuple
+			default:
+		}
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;
@@ -4495,6 +4510,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						throw "method not a signature";
 				}
 			}
+
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,

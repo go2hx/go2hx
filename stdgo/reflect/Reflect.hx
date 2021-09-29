@@ -1102,6 +1102,8 @@ class _Type implements StructType implements Type {
 	}
 
 	public function size():GoUIntptr {
+		if (kind() == null)
+			return 0;
 		return switch kind().__t__.toBasic() {
 			case _bool, _int8, _uint8: 1;
 			case _int16, _uint16: 2;

@@ -40,7 +40,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	}
 
 	@:op([])
-	public function get(index:GoInt):GoUInt8 {
+	public function get(index:GoInt):GoByte {
 		return this.get(index.toBasic());
 		// return Bytes.fastGet(this.getData(),index.toBasic());
 	}

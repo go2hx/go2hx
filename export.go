@@ -124,9 +124,16 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("load error: " + err.Error())
 		return []byte{}
 	}
+	//init
 	methodCache = typeutil.MethodSetCache{}
+	excludes = make(map[string]bool, len(excludesData.Excludes))
+	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
+	//run
 	data := parsePkgList(initial, excludes)
 	//reset
+	excludes = nil
 	typeHasher = typeutil.Hasher{}
 	methodCache = typeutil.MethodSetCache{}
 	interfaces = nil
@@ -160,10 +167,6 @@ func main() {
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
 		throw(err.Error())
-	}
-	excludes = make(map[string]bool, len(excludesData.Excludes))
-	for _, exclude := range excludesData.Excludes {
-		excludes[exclude] = true
 	}
 	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
 	if err != nil {
@@ -265,14 +268,43 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)
 	interfaces := []interfaceData{}
+	continueBool := false
+	count := 0
+	funcName := ""
 
 	apply := func(cursor *astutil.Cursor) bool {
-		node := cursor.Node()
 		switch cursor.Parent().(type) {
 		case *ast.TypeSpec:
 			return true
 		}
+		node := cursor.Node()
 		switch node := node.(type) {
+		case *ast.FuncDecl:
+			funcName = node.Name.Name
+			count = 0
+		case *ast.GenDecl:
+			switch cursor.Parent().(type) {
+			case *ast.DeclStmt:
+				continueBool = true
+			}
+		case *ast.TypeSpec:
+			if continueBool {
+				switch obj := node.Type.(type) {
+				case *ast.InterfaceType:
+					if obj.Methods == nil || obj.Methods.NumFields() == 0 {
+						return false
+					}
+					t := checker.TypeOf(obj)
+					if t == nil {
+						return false
+					}
+					name := node.Name.Name + "_" + funcName + "_" + strconv.Itoa(count)
+					count++
+					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name, pkg.PkgPath, false})
+					cursor.Replace(node)
+				}
+				continueBool = false
+			}
 		case *ast.StructType:
 			t := checker.TypeOf(node)
 			if t == nil {
@@ -325,12 +357,11 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 				countInterface++
 				interfaceTypes[hash] = name
 				//add to interfaces
-				interfaces = addInterface(interfaces, []interfaceData{{t.(*types.Interface), name.Name, pkg.PkgPath, false}})
+				interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkg.PkgPath, false})
 				//add to file
 				gen := ast.GenDecl{}
 				gen.Tok = token.FUNC //set local
 				spec := ast.TypeSpec{}
-
 				spec.Name = name
 				spec.Type = node
 				gen.Specs = []ast.Spec{&spec}
@@ -542,7 +573,9 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			methods := []map[string]interface{}{}
 			for _, sel := range set {
 				if len(sel.Index()) > 1 {
-
+					if !sel.Obj().Exported() && sel.Obj().Pkg().Path() != object.Pkg().Path() {
+						continue //unexported method not from same package
+					}
 					methods = append(methods, map[string]interface{}{
 						"name":  sel.Obj().Name(),
 						"type":  parseType(sel.Type()),

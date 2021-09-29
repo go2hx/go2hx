@@ -84,6 +84,16 @@ inline function hasSuffix(s:GoString, value:GoString):Bool {
 	return s.substr(s.toString().length - value.toString().length) == value;
 }
 
+function containsRune(s:GoString, r:GoRune):Bool {
+	final s = s.toString();
+	final r = r.toBasic();
+	for (i in 0...s.length) {
+		if (s.charCodeAt(i) == r)
+			return true;
+	}
+	return false;
+}
+
 inline function index(s:GoString, substr:GoString):Int
 	return s.toString().indexOf(substr);
 

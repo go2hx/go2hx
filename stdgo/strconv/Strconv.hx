@@ -19,6 +19,10 @@ inline function unquote(s:GoString):{_i:GoString, ?_err:Error} { // TODO check i
 	return {_i: s};
 }
 
+inline function appendInt(dst:Slice<GoByte>, i:GoInt64, base:GoInt):Slice<GoByte> {
+	return dst.append(...(haxe.Int64.toStr(i.toBasic()) : GoString).toSliceByte().toArray());
+}
+
 inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_i:GoInt, ?_err:Error} {
 	try {
 		var value = Std.parseInt(s);

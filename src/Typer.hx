@@ -1418,16 +1418,6 @@ private function typeForStmt(stmt:Ast.ForStmt, info:Info):ExprDef {
 				trace("for stmt eror init: " + stmt.init);
 				return null;
 			}
-			switch init.expr {
-				case EVars(vars):
-					for (v in vars) {
-						v.type = TPath({
-							name: "GoInt",
-							pack: [],
-						});
-					}
-				default:
-			}
 			return EBlock([init, toExpr(def)]);
 		}
 		return def;
@@ -1660,7 +1650,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 		case ADD_ASSIGN, SUB_ASSIGN, MUL_ASSIGN, QUO_ASSIGN, REM_ASSIGN, SHL_ASSIGN, SHR_ASSIGN, XOR_ASSIGN, AND_ASSIGN, AND_NOT_ASSIGN, OR_ASSIGN:
 			final expr = toExpr(typeBinaryExpr({
 				x: stmt.lhs[0],
-				y: stmt.rhs[0],
+				y: {id: "ParenExpr", x: stmt.rhs[0]},
 				op: nonAssignToken(stmt.tok),
 				opPos: 0,
 				type: stmt.lhs[0],
@@ -1789,11 +1779,10 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				final vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
 					var expr = typeExpr(stmt.rhs[i], info);
-					var name = nameIdent(stmt.lhs[i].name, false, true, info);
+					final name = nameIdent(stmt.lhs[i].name, false, true, info);
 
-					var toType = typeof(stmt.lhs[i]);
-					var fromType = typeof(stmt.rhs[i]);
-
+					final toType = typeof(stmt.lhs[i]);
+					final fromType = typeof(stmt.rhs[i]);
 					expr = assignTranslate(fromType, toType, expr, info);
 					vars.push({
 						name: name,
@@ -3315,8 +3304,30 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	var typeY = typeof(expr.y);
 
 	switch expr.op { // operators that don't exist in haxe need to be handled here
-		case AND_NOT: // refrenced from Tardisgo
-			return (macro $x & ($y ^ (-1 : GoInt64))).expr;
+		case AND_NOT: // &^ refrenced from Tardisgo
+			// macro($x) & (($y) ^ (-1 : GoUnTypedInt)))
+			return typeBinaryExpr({
+				x: {
+					id: "ParenExpr",
+					x: {
+						id: "BinaryExpr",
+						x: expr.x,
+						y: expr.y,
+						op: Ast.Token.AND,
+						type: expr.type,
+						opPos: 0,
+					}
+				},
+				y: {
+					id: "BasicLit",
+					value: "-1",
+					kind: Ast.Token.INT,
+					type: {id: "Basic", kind: BasicKind.untyped_int_kind.getIndex()}
+				},
+				op: Ast.Token.XOR,
+				type: expr.type,
+				opPos: 0,
+			}, info);
 		default:
 	}
 	var op = typeOp(expr.op);
@@ -3329,8 +3340,6 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 	}
 	var paren = false;
 	switch op {
-		case OpXor:
-			return EBinop(op, x, y);
 		case OpShl, OpShr:
 			paren = true;
 
@@ -3513,12 +3522,18 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	if (isNamed(t))
 		x = macro $x.__t__;
 	t = getUnderlying(t);
+	if (isPointer(t)) {
+		t = getElem(t);
+		if (isNamed(t))
+			t = getUnderlying(t);
+	}
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index), basic(int_kind), index, info);
 		case mapType(indexType, _):
 			index = assignTranslate(typeof(expr.index), indexType, index, info);
 		default:
+			throw "unknown type for index: " + t;
 	}
 	var e = macro $x[$index];
 	return e.expr;

@@ -15,10 +15,6 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 * [Download Hashlink](https://hashlink.haxe.org/)
 
 ```
-haxelib git bson https://github.com/kevinresol/bson
-```
-
-```
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 

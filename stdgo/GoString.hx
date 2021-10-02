@@ -35,10 +35,6 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	public function substr(pos:Int, ?len:Int):GoString
 		return toString().substr(pos, len);
 
-	@:from static function ofInt64(x:GoInt64):GoString {
-		return String.fromCharCode(x.toBasic().low);
-	}
-
 	@:op([])
 	public function get(index:GoInt):GoByte {
 		return this.get(index.toBasic());

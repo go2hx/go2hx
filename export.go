@@ -271,7 +271,6 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 	continueBool := false
 	count := 0
 	funcName := ""
-
 	apply := func(cursor *astutil.Cursor) bool {
 		switch cursor.Parent().(type) {
 		case *ast.TypeSpec:
@@ -283,12 +282,15 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 			funcName = node.Name.Name
 			count = 0
 		case *ast.GenDecl:
-			switch cursor.Parent().(type) {
-			case *ast.DeclStmt:
-				continueBool = true
+			if node.Tok == token.TYPE {
+				switch cursor.Parent().(type) {
+				case *ast.DeclStmt:
+					continueBool = true
+				}
 			}
 		case *ast.TypeSpec:
 			if continueBool {
+				continueBool = false
 				switch obj := node.Type.(type) {
 				case *ast.InterfaceType:
 					if obj.Methods == nil || obj.Methods.NumFields() == 0 {
@@ -303,7 +305,6 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name, pkg.PkgPath, false})
 					cursor.Replace(node)
 				}
-				continueBool = false
 			}
 		case *ast.StructType:
 			t := checker.TypeOf(node)

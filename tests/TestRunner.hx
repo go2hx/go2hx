@@ -1,8 +1,9 @@
 import TestAdapterMacro.assert;
 import _testadapter.data.TestResults;
+import shared.Util;
+import sys.FileSystem;
 import sys.io.File;
 import sys.thread.Mutex;
-import shared.Util;
 
 final path = Sys.getCwd();
 var results = null;
@@ -17,7 +18,7 @@ function main() {
 	Main.setup(0, 4);
 	Main.onComplete = complete;
 
-	test("go", "./tests/go/test/", goList, [
+	test("golang", "go", "./tests/go/test/", goList, [
 		"atomicload", // go routine
 		"bigalg", // go routine
 		"closure", // go routine
@@ -50,7 +51,7 @@ function main() {
 		"tinyfin",
 	], 6 + 8 - 2);
 
-	test("yaegi", "./tests/yaegi/_test/", yaegiList, [
+	test("traefik", "yaegi", "./tests/yaegi/_test/", yaegiList, [
 		"chan0", // go routine
 		"chan1", // go routine
 		"chan10", // go routine
@@ -192,18 +193,24 @@ function main() {
 		"cli6", // not found: stdgo.net
 
 	], 137 + 8 - 2, yaegiOutput);
-	while (true) {
-		Main.update();
-		for (test in tests) {
-			var bool = Main.compile(test.args, test.data);
-			if (!bool)
-				break;
-			tests.remove(test);
-		}
+	while (true)
+		update();
+}
+
+private function update() {
+	Main.update();
+	for (test in tests) {
+		var bool = Main.compile(test.args, test.data);
+		if (!bool)
+			break;
+		tests.remove(test);
 	}
 }
 
-function test(suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int, compare:Array<{name:String, output:Array<String>}> = null) {
+function test(user:String, suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int,
+		compare:Array<{name:String, output:Array<String>}> = null) {
+	if (!FileSystem.exists(dir))
+		Sys.command('git clone https://github.com/$user/$suiteName ./tests/$suiteName');
 	var count = 0;
 	for (i in 0...list.length) {
 		final testName = list[i];
@@ -267,6 +274,8 @@ private function complete(modules, data) {
 			if (code == null) {
 				Sys.println("timeout... " + count);
 			}
+			timer.run = () -> {};
+			timer.stop();
 			--testsLeft;
 			var result = code == 0 ? "true" : "false" + " " + code;
 			if (code == 0 && data.compare != null) {
@@ -294,6 +303,7 @@ private function complete(modules, data) {
 					}
 				}
 			}
+			proc.close();
 			final current = testsTotal - testsLeft;
 			var name = data.testName;
 			name = StringTools.rpad(name, " ", 20);
@@ -304,8 +314,6 @@ private function complete(modules, data) {
 				message += "\n" + data.compare.join("\n");
 			}
 			assert(data.suiteName, data.testName, code == 0, data.offset, message);
-			proc.close();
-			timer.stop();
 			if (testsLeft == 0) {
 				close();
 			}
@@ -326,7 +334,7 @@ final goList = [
     "bigmap",
     "blank",
     "bom",
-    "chancap", //need to include more of chans built in functions for use by named types (get,set) (TODO)
+    "chancap", // unsafe size of pointer
     "char_lit",
     "clearfat", // not found: stdgo.Buffer.writeString
     "closedchan", // need to include more of chans built in functions for use by named types (get,set)

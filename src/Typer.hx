@@ -2155,7 +2155,19 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		}
 		return e.expr;
 	}
-	function genArgs(translateType:Bool, pos:Int = 0) {
+	function argSetString(fromType:GoType, arg:Expr) {
+		switch fromType {
+			case basic(kind):
+				switch kind {
+					case uint32_kind, uint_kind, uint64_kind:
+						return macro Std.string($arg.toBasic());
+					default:
+				}
+			default:
+		}
+		return arg;
+	}
+	function genArgs(translateType:Bool, pos:Int = 0, forceString:Bool = false) {
 		final exprArgs = expr.args.slice(pos);
 		args = [for (arg in exprArgs) typeExpr(arg, info)];
 		if (args.length == 1) {
@@ -2196,6 +2208,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 					}
 				}
+				if (forceString) {
+					for (i in 0...args.length) {
+						final fromType = getVar(typeof(exprArgs[i]));
+						args[i] = argSetString(fromType, args[i]);
+					}
+				}
 				return;
 			}
 			var sig = getSignature(type);
@@ -2208,7 +2226,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							if (variadic && params.length <= i + 1) {
 								toType = getElem(params[params.length - 1]);
 							}
-							args[i] = assignTranslate(fromType, toType, args[i], info);
+							if (forceString) {
+								args[i] = argSetString(fromType, args[i]);
+							} else {
+								args[i] = assignTranslate(fromType, toType, args[i], info);
+							}
 						}
 					default:
 				}
@@ -2274,10 +2296,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 						return returnExpr(macro $e.remove($key));
 					case "print":
-						genArgs(false);
+						genArgs(true, 0, true);
 						return returnExpr(macro stdgo.fmt.Fmt.print($a{args}));
 					case "println":
-						genArgs(false);
+						genArgs(true, 0, true);
 						return returnExpr(macro stdgo.fmt.Fmt.println($a{args}));
 					case "complex":
 						genArgs(false);
@@ -2390,17 +2412,22 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	final type = typeof(expr.fun);
 	if (isNamed(type))
 		e = macro $e.__t__;
-	var isFmtPrint = false;
+	var isFmtPrintFormat = false;
+	var forceString = false;
 	switch e.expr {
 		case EField(e, field):
 			var str = printer.printExpr(e);
-			if (str == "stdgo.fmt.Fmt" && field.charAt(field.length - 1) != "f") {
-				isFmtPrint = true;
+			if (str == "stdgo.fmt.Fmt") {
+				if (field.charAt(field.length - 1) == "f") {
+					isFmtPrintFormat = true;
+				} else {
+					forceString = true;
+				}
 			}
 		default:
 	}
 	if (args.length == 0)
-		genArgs(!isFmtPrint);
+		genArgs(!isFmtPrintFormat || !forceString, 0, forceString);
 	return returnExpr(macro $e($a{args}));
 }
 
@@ -2917,14 +2944,14 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 			e;
 		case INT:
 			var e = toExpr(EConst(CInt(value)));
-			if (value.length > 10) {
+			if (value.length >= 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(value);
 					if (i > 2147483647 || i < -2147483647) {
-						e.expr = ECheckType(makeString(value), TPath({name: "GoInt64", pack: []}));
+						e = makeString(value);
 					}
 				} catch (_) {
-					e.expr = ECheckType(makeString(value), TPath({name: "GoUInt64", pack: []}));
+					e = makeString(value);
 				}
 			}
 			if (isNamed(type))

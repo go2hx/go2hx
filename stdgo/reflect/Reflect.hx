@@ -344,7 +344,7 @@ class Value implements StructType {
 			value = (value : Dynamic).__t__;
 		if (value == null)
 			return 0;
-		switch kind().__t__ {
+		switch kind().__t__.toBasic() {
 			case _array:
 				return (value : GoArray<Any>).cap();
 			case _slice:
@@ -360,7 +360,8 @@ class Value implements StructType {
 		var value = x.value.value;
 		if (isNamed(@:privateAccess x.type().common().value))
 			value = (x.value : Dynamic).__t__;
-		switch x.kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		switch k {
 			case _int8:
 				setInt((value : GoInt8));
 			case _int16:
@@ -405,7 +406,8 @@ class Value implements StructType {
 	}
 
 	public function setInt(x:GoInt64) {
-		value.value = switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		value.value = switch k {
 			case _int8: (x : GoInt8);
 			case _int16: (x : GoInt16);
 			case _int32: (x : GoInt32);
@@ -429,7 +431,8 @@ class Value implements StructType {
 	}
 
 	public function setUint(x:GoUInt64) {
-		value.value = switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		value.value = switch k {
 			case _int8: (x : GoInt8);
 			case _int16: (x : GoInt16);
 			case _int32: (x : GoInt32);
@@ -506,7 +509,8 @@ class Value implements StructType {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
-		return switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		return switch k {
 			case _chan:
 				(value : Chan<Dynamic>).isNil();
 			case _slice:
@@ -556,7 +560,8 @@ class Value implements StructType {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
-		return switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		return switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
 			case _int32: (value : GoInt32);
@@ -578,7 +583,8 @@ class Value implements StructType {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
-		var value:GoUInt64 = switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		var value:GoUInt64 = switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
 			case _int32: (value : GoInt32);
@@ -601,7 +607,8 @@ class Value implements StructType {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
-		return switch kind().__t__ {
+		final k:Int = kind().__t__.toBasic();
+		return switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
 			case _int32: (value : GoInt32);
@@ -779,7 +786,7 @@ class Value implements StructType {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
-		final k = kind().__t__;
+		final k:Int = kind().__t__.toBasic();
 		return switch k {
 			case _array:
 				(value : GoArray<Dynamic>).length;
@@ -1037,7 +1044,8 @@ class _Type implements StructType implements Type {
 		return null;
 
 	public function bits():GoInt {
-		return switch kind().__t__.toBasic() {
+		final k:Int = kind().__t__.toBasic();
+		return switch k {
 			case _int8: 8;
 			case _int16: 16;
 			case _int32: 32;
@@ -1104,7 +1112,8 @@ class _Type implements StructType implements Type {
 	public function size():GoUIntptr {
 		if (kind() == null)
 			return 0;
-		return switch kind().__t__.toBasic() {
+		final k:Int = kind().__t__.toBasic();
+		return switch k {
 			case _bool, _int8, _uint8: 1;
 			case _int16, _uint16: 2;
 			case _int32, _uint32, _int, _uint: 4;
@@ -1689,7 +1698,7 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 		this.__t__ = i;
 
 	public function toString():GoString {
-		var idx:UInt = this.__t__.toBasic();
+		var idx:Int = this.__t__.toBasic();
 		return switch idx {
 			case _invalid: "invalid";
 			case _bool: "bool";

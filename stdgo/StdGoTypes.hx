@@ -26,516 +26,62 @@ import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
 import stdgo.reflect.Reflect.GoType;
+import stdgo.reflect.Reflect.uint32;
+import stdgo.reflect.Reflect.uint32;
 import stdgo.reflect.Reflect.uint64;
 
 using stdgo.StdGoTypes.UInt64;
 
-// native_num define flag
+// simulate_num define flag
 typedef GoByte = GoUInt8;
 typedef GoRune = GoInt32;
 typedef GoFloat = GoFloat64;
 private typedef Int = StdTypes.Int;
-private typedef Int8 = #if !native_num Int #elseif cpp cpp.Int8 #elseif cs cs.Int8 #elseif java java.Int8 #else Int #end;
-private typedef Int16 = #if !native_num Int #elseif cpp cpp.Int16 #elseif cs cs.Int16 #elseif java java.Int16 #else Int #end;
+private typedef Int8 = #if simulate_num Int; #elseif cpp cpp.Int8; #elseif cs cs.Int8; #elseif java java.Int8; #else Int #end
+private typedef Int16 = #if simulate_num Int; #elseif cpp cpp.Int16; #elseif cs cs.Int16; #elseif java java.Int16; #else Int; #end
 private typedef Int32 = haxe.Int32; // #if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
-private typedef Int64 = #if eval eval.integers.Int64; #else haxe.Int64; #end // #if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
-private typedef UInt = Int;
+private typedef Int64 = #if simulate_num haxe.Int64; #elseif eval eval.integers.Int64; #else haxe.Int64; #end // #if cpp cpp.Int64 #elseif cs cs.system.Int64 #elseif java java.Int64 #elseif eval eval.integers.Int64 #else haxe.Int64 #end;
 private typedef UInt8 = Int; // #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs cs.UInt8 #else Int #end;
-private typedef UInt16 = #if !native_num Int #elseif hl hl.UI16 #elseif cpp cpp.UInt16 #elseif cs cs.UInt16 #else Int #end;
-private typedef UInt32 = #if !native_num Int #elseif cpp cpp.UInt32 #elseif cs cs.system.UInt32 #else Int #end;
+private typedef UInt16 = #if simulate_num Int; #elseif hl hl.UI16; #elseif cpp cpp.UInt16; #elseif cs cs.UInt16; #else Int; #end
+private typedef UInt32 = #if simulate_num UInt; #elseif cpp cpp.UInt32; #elseif cs cs.system.UInt32; #elseif eval eval.integers.UInt64; #else UInt; #end
+private typedef UInt64 = haxe.UInt64;
 private typedef Float = StdTypes.Float;
-private typedef Float32 = #if !native_num Float #elseif (java || cs || hl || cpp) StdTypes.Single #else Float #end;
-private typedef Float64 = #if !native_num Float #elseif cpp cpp.Float64; #else Float; #end
+private typedef Float32 = #if simulate_num Float #elseif (java || cs || hl || cpp) StdTypes.Single; #else Float; #end
+private typedef Float64 = #if simulate_num Float; #elseif cpp cpp.Float64; #else Float; #end
 typedef GoUnTypedInt = GoInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
-#if eval
-private typedef UInt64 = #if eval eval.integers.UInt64 #else #end;
-#else
-@:transitive
-abstract UInt64(__UInt64) from __UInt64 to __UInt64 {
-	private inline function new(x:__UInt64)
-		this = x;
 
-	/**
-		Makes a copy of `this` Int64.
-	**/
-	public inline function copy():UInt64
-		return make(high, low);
+private function parseStringUInt(sParam:String):UInt32 {
+	final base:UInt32 = ofIntUInt(10);
+	var current:UInt32 = zeroUInt32();
+	var multiplier:UInt32 = oneUInt32();
 
-	/**
-		Construct an Int64 from two 32-bit words `high` and `low`.
-	**/
-	public static inline function make(high:Int32, low:Int32):UInt64
-		return new UInt64(new __UInt64(high, low));
-
-	/**
-		Returns an Int64 with the value of the Int `x`.
-		`x` is sign-extended to fill 64 bits.
-	**/
-	@:from public static inline function ofInt(x:UInt):UInt64 #if lua return make((x : Int32) >> 31, (x : Int32)); #else return make(x >> 31, x); #end
-
-	/**
-		Returns an Int with the value of the Int64 `x`.
-		Throws an exception  if `x` cannot be represented in 32 bits.
-	**/
-	public static inline function toInt(x:UInt64):Int {
-		if (x.high != x.low >> 31)
-			throw "Overflow";
-
-		return x.low;
-	}
-
-	public static inline function toInt64(x:UInt64):Int64
-		return Int64.make(x.high, x.low);
-
-	@:deprecated('haxe.Int64.is() is deprecated. Use haxe.Int64.isInt64() instead')
-	inline public static function is(val:Dynamic):Bool {
-		return isUInt64(val);
-	}
-
-	/**
-		Returns whether the value `val` is of type `haxe.Int64`
-	**/
-	inline public static function isUInt64(val:Dynamic):Bool
-		return Std.isOfType(val, __UInt64);
-
-	/**
-		Returns the high 32-bit word of `x`.
-	**/
-	@:deprecated("Use high instead")
-	public static inline function getHigh(x:UInt64):Int32
-		return x.high;
-
-	/**
-		Returns the low 32-bit word of `x`.
-	**/
-	@:deprecated("Use low instead")
-	public static inline function getLow(x:UInt64):Int32
-		return x.low;
-
-	/**
-		Returns `true` if `x` is less than zero.
-	**/
-	public static inline function isNeg(x:UInt64):Bool
-		return x.high < 0;
-
-	/**
-		Returns `true` if `x` is exactly zero.
-	**/
-	public static inline function isZero(x:UInt64):Bool
-		return x == 0;
-
-	/**
-		Compares `a` and `b` in signed mode.
-		Returns a negative value if `a < b`, positive if `a > b`,
-		or 0 if `a == b`.
-	**/
-	public static inline function compare(a:UInt64, b:UInt64):Int {
-		var v = a.high - b.high;
-		v = if (v != 0) v else Int32.ucompare(a.low, b.low);
-		return a.high < 0 ? (b.high < 0 ? v : -1) : (b.high >= 0 ? v : 1);
-	}
-
-	/**
-		Compares `a` and `b` in unsigned mode.
-		Returns a negative value if `a < b`, positive if `a > b`,
-		or 0 if `a == b`.
-	**/
-	public static inline function ucompare(a:UInt64, b:UInt64):Int {
-		var v = Int32.ucompare(a.high, b.high);
-		return if (v != 0) v else Int32.ucompare(a.low, b.low);
-	}
-
-	/**
-		Returns a signed decimal `String` representation of `x`.
-	**/
-	public static inline function toStr(x:UInt64):String
-		return x.toString();
-
-	function toString():String {
-		var i:UInt64 = cast this;
-		if (i == 0)
-			return "0";
-		var str = "";
-		var neg = false;
-		if (i.isNeg()) {
-			neg = true;
-			// i = -i; cannot negate here as --9223372036854775808 = -9223372036854775808
+	var s = StringTools.trim(sParam);
+	final len = s.length;
+	for (i in 0...len) {
+		final digitInt = s.charCodeAt(len - 1 - i) - '0'.code;
+		if (digitInt < 0 || digitInt > 9)
+			throw "NumberFormatError";
+		if (digitInt != 0) {
+			final digit = ofIntUInt(digitInt);
+			current = current + multiplier * digit;
 		}
-		var ten:UInt64 = 10;
-		while (i != 0) {
-			var r = i.divMod(ten);
-			if (r.modulus.isNeg()) {
-				str = UInt64.neg(r.modulus).low + str;
-				i = UInt64.neg(r.quotient);
-			} else {
-				str = r.modulus.low + str;
-				i = r.quotient;
-			}
-		}
-		if (neg)
-			str = "-" + str;
-		return str;
+		multiplier = multiplier * base;
 	}
-
-	public static inline function parseString(sParam:String):UInt64 {
-		final base = UInt64.ofInt(10);
-		var current = UInt64.ofInt(0);
-		var multiplier = UInt64.ofInt(1);
-
-		var s = StringTools.trim(sParam);
-		final len = s.length;
-		for (i in 0...len) {
-			final digitInt:UInt = s.charCodeAt(len - 1 - i) - '0'.code;
-			if (digitInt < 0 || digitInt > 9)
-				throw "NumberFormatError";
-			if (digitInt != 0) {
-				final digit = UInt64.ofInt(digitInt);
-				current = UInt64.add(current, UInt64.mul(multiplier, digit));
-			}
-			multiplier = UInt64.mul(multiplier, base);
-		}
-		return UInt64.make(current.high, current.low);
-	}
-
-	public static inline function fromFloat(f:Float):UInt64 {
-		return 0;
-	}
-
-	/**
-		Performs signed integer divison of `dividend` by `divisor`.
-		Returns `{ quotient : Int64, modulus : Int64 }`.
-	**/
-	public static function divMod(dividend:UInt64, divisor:UInt64):{quotient:UInt64, modulus:UInt64} {
-		// Handle special cases of 0 and 1
-		if (divisor.high == 0) {
-			switch (divisor.low) {
-				case 0:
-					throw "divide by zero";
-				case 1:
-					return {quotient: dividend.copy(), modulus: 0};
-			}
-		}
-
-		var divSign = dividend.isNeg() != divisor.isNeg();
-
-		var modulus = dividend.isNeg() ? -dividend : dividend.copy();
-		divisor = divisor.isNeg() ? -divisor : divisor;
-
-		var quotient:UInt64 = 0;
-		var mask:UInt64 = 1;
-
-		while (!divisor.isNeg()) {
-			var cmp = ucompare(divisor, modulus);
-			divisor <<= 1;
-			mask <<= 1;
-			if (cmp >= 0)
-				break;
-		}
-
-		while (mask != 0) {
-			if (ucompare(modulus, divisor) >= 0) {
-				quotient |= mask;
-				modulus -= divisor;
-			}
-			mask >>>= 1;
-			divisor >>>= 1;
-		}
-
-		if (divSign)
-			quotient = -quotient;
-		if (dividend.isNeg())
-			modulus = -modulus;
-
-		return {
-			quotient: quotient,
-			modulus: modulus
-		};
-	}
-
-	/**
-		Returns the negative of `x`.
-	**/
-	@:op(-A) public static inline function neg(x:UInt64):UInt64 {
-		var high = ~x.high;
-		var low = -x.low;
-		if (low == 0)
-			high++;
-		return make(high, low);
-	}
-
-	@:op(++A) private inline function preIncrement():UInt64 {
-		this = copy();
-		this.low++;
-		if (this.low == 0)
-			this.high++;
-		return cast this;
-	}
-
-	@:op(A++) private inline function postIncrement():UInt64 {
-		var ret = this;
-		preIncrement();
-		return ret;
-	}
-
-	@:op(--A) private inline function preDecrement():UInt64 {
-		this = copy();
-		if (this.low == 0)
-			this.high--;
-		this.low--;
-		return cast this;
-	}
-
-	@:op(A--) private inline function postDecrement():UInt64 {
-		var ret = this;
-		preDecrement();
-		return ret;
-	}
-
-	/**
-		Returns the sum of `a` and `b`.
-	**/
-	@:op(A + B) public static inline function add(a:UInt64, b:UInt64):UInt64 {
-		var high = a.high + b.high;
-		var low = a.low + b.low;
-		if (Int32.ucompare(low, a.low) < 0)
-			high++;
-		return make(high, low);
-	}
-
-	@:op(A + B) @:commutative private static inline function addInt(a:UInt64, b:Int):UInt64
-		return add(a, b);
-
-	/**
-		Returns `a` minus `b`.
-	**/
-	@:op(A - B) public static inline function sub(a:UInt64, b:UInt64):UInt64 {
-		var high = a.high - b.high;
-		var low = a.low - b.low;
-		if (Int32.ucompare(a.low, b.low) < 0)
-			high--;
-		return make(high, low);
-	}
-
-	@:op(A - B) private static inline function subInt(a:UInt64, b:Int):UInt64
-		return sub(a, b);
-
-	@:op(A - B) private static inline function intSub(a:Int, b:UInt64):UInt64
-		return sub(a, b);
-
-	/**
-		Returns the product of `a` and `b`.
-	**/
-	@:op(A * B)
-	public static #if !lua inline #end function mul(a:UInt64, b:UInt64):UInt64 {
-		var mask = 0xFFFF;
-		var al = a.low & mask, ah = a.low >>> 16;
-		var bl = b.low & mask, bh = b.low >>> 16;
-		var p00 = al * bl;
-		var p10 = ah * bl;
-		var p01 = al * bh;
-		var p11 = ah * bh;
-		var low = p00;
-		var high = p11 + (p01 >>> 16) + (p10 >>> 16);
-		p01 <<= 16;
-		low += p01;
-		if (Int32.ucompare(low, p01) < 0)
-			high++;
-		p10 <<= 16;
-		low += p10;
-		if (Int32.ucompare(low, p10) < 0)
-			high++;
-		high += a.low * b.high + a.high * b.low;
-		return make(high, low);
-	}
-
-	@:op(A * B) @:commutative private static inline function mulInt(a:UInt64, b:Int):UInt64
-		return mul(a, b);
-
-	/**
-		Returns the quotient of `a` divided by `b`.
-	**/
-	@:op(A / B) public static inline function div(a:UInt64, b:UInt64):UInt64
-		return divMod(a, b).quotient;
-
-	@:op(A / B) private static inline function divInt(a:UInt64, b:Int):UInt64
-		return div(a, b);
-
-	@:op(A / B) private static inline function intDiv(a:Int, b:UInt64):UInt64
-		return div(a, b).toInt();
-
-	/**
-		Returns the modulus of `a` divided by `b`.
-	**/
-	@:op(A % B) public static inline function mod(a:UInt64, b:UInt64):UInt64
-		return divMod(a, b).modulus;
-
-	@:op(A % B) private static inline function modInt(a:UInt64, b:Int):UInt64
-		return mod(a, b).toInt();
-
-	@:op(A % B) private static inline function intMod(a:Int, b:UInt64):UInt64
-		return mod(a, b).toInt();
-
-	/**
-		Returns `true` if `a` is equal to `b`.
-	**/
-	@:op(A == B) public static inline function eq(a:UInt64, b:UInt64):Bool
-		return a.high == b.high && a.low == b.low;
-
-	@:op(A == B) @:commutative private static inline function eqInt(a:UInt64, b:Int):Bool
-		return eq(a, b);
-
-	/**
-		Returns `true` if `a` is not equal to `b`.
-	**/
-	@:op(A != B) public static inline function neq(a:UInt64, b:UInt64):Bool
-		return a.high != b.high || a.low != b.low;
-
-	@:op(A != B) @:commutative private static inline function neqInt(a:UInt64, b:Int):Bool
-		return neq(a, b);
-
-	@:op(A < B) private static inline function lt(a:UInt64, b:UInt64):Bool
-		return compare(a, b) < 0;
-
-	@:op(A < B) private static inline function ltInt(a:UInt64, b:Int):Bool
-		return lt(a, b);
-
-	@:op(A < B) private static inline function intLt(a:Int, b:UInt64):Bool
-		return lt(a, b);
-
-	@:op(A <= B) private static inline function lte(a:UInt64, b:UInt64):Bool
-		return compare(a, b) <= 0;
-
-	@:op(A <= B) private static inline function lteInt(a:UInt64, b:Int):Bool
-		return lte(a, b);
-
-	@:op(A <= B) private static inline function intLte(a:Int, b:UInt64):Bool
-		return lte(a, b);
-
-	@:op(A > B) private static inline function gt(a:UInt64, b:UInt64):Bool
-		return compare(a, b) > 0;
-
-	@:op(A > B) private static inline function gtInt(a:UInt64, b:Int):Bool
-		return gt(a, b);
-
-	@:op(A > B) private static inline function intGt(a:Int, b:UInt64):Bool
-		return gt(a, b);
-
-	@:op(A >= B) private static inline function gte(a:UInt64, b:UInt64):Bool
-		return compare(a, b) >= 0;
-
-	@:op(A >= B) private static inline function gteInt(a:UInt64, b:Int):Bool
-		return gte(a, b);
-
-	@:op(A >= B) private static inline function intGte(a:Int, b:UInt64):Bool
-		return gte(a, b);
-
-	/**
-		Returns the bitwise NOT of `a`.
-	**/
-	@:op(~A) private static inline function complement(a:UInt64):UInt64
-		return make(~a.high, ~a.low);
-
-	/**
-		Returns the bitwise AND of `a` and `b`.
-	**/
-	@:op(A & B) public static inline function and(a:UInt64, b:UInt64):UInt64
-		return make(a.high & b.high, a.low & b.low);
-
-	/**
-		Returns the bitwise OR of `a` and `b`.
-	**/
-	@:op(A | B) public static inline function or(a:UInt64, b:UInt64):UInt64
-		return make(a.high | b.high, a.low | b.low);
-
-	/**
-		Returns the bitwise XOR of `a` and `b`.
-	**/
-	@:op(A ^ B) public static inline function xor(a:UInt64, b:UInt64):UInt64
-		return make(a.high ^ b.high, a.low ^ b.low);
-
-	/**
-		Returns `a` left-shifted by `b` bits.
-	**/
-	@:op(A << B) public static inline function shl(a:UInt64, b:Int):UInt64 {
-		b &= 63;
-		return if (b == 0) a.copy() else if (b < 32) make((a.high << b) | (a.low >>> (32 - b)), a.low << b) else make(a.low << (b - 32), 0);
-	}
-
-	/**
-		Returns `a` right-shifted by `b` bits in signed mode.
-		`a` is sign-extended.
-	**/
-	@:op(A >> B) public static inline function shr(a:UInt64, b:Int):UInt64 {
-		b &= 63;
-		return if (b == 0) a.copy() else if (b < 32) make(a.high >> b, (a.high << (32 - b)) | (a.low >>> b)); else make(a.high >> 31, a.high >> (b - 32));
-	}
-
-	/**
-		Returns `a` right-shifted by `b` bits in unsigned mode.
-		`a` is padded with zeroes.
-	**/
-	@:op(A >>> B) public static inline function ushr(a:UInt64, b:Int):UInt64 {
-		b &= 63;
-		return if (b == 0) a.copy() else if (b < 32) make(a.high >>> b, (a.high << (32 - b)) | (a.low >>> b)); else make(0, a.high >>> (b - 32));
-	}
-
-	public var high(get, never):Int32;
-
-	private inline function get_high()
-		return this.high;
-
-	private inline function set_high(x)
-		return this.high = x;
-
-	public var low(get, never):Int32;
-
-	private inline function get_low()
-		return this.low;
-
-	private inline function set_low(x)
-		return this.low = x;
+	return current;
 }
 
-private class __UInt64 {
-	public var high:Int;
-	public var low:Int;
-
-	public inline function new(high, low) {
-		this.high = high;
-		this.low = low;
-	}
-
-	public static inline function ofInt(x:Int) {
-		if (x < 0)
-			return new __UInt64(0, 0);
-		return new __UInt64(x >> 31, x);
-	}
-
-	public function toInt64():Int64
-		return Int64.make(high, low);
-
-	public function toString():String {
-		var i:UInt64 = this;
-		if (i == 0)
-			return "0";
-		var str = "";
-		if (i.isNeg()) {
-			return "NULL";
-		} else {
-			return @:privateAccess i.toInt64().toString();
-		}
-	}
+function ofStringUInt(s:String):UInt32 {
+	return #if simulate_num parseStringUInt(s); #elseif eval eval.integers.UInt64.ofString(s); #else parseStringUInt(s); #end
 }
-#end
 
 function ofStringInt64(s:String):Int64 {
-	return #if eval Int64.ofString(s); #else Int64.parseString(s); #end
+	return #if simulate_num Int64.parseString(s); #elseif eval Int64.ofString(s); #else Int64.parseString(s); #end
 }
 
 function ofStringUInt64(s:String):UInt64 {
-	return #if eval UInt64.ofString(s); #else UInt64.parseString(s); #end
+	return #if simulate_num UInt64.parseString(s); #elseif eval UInt64.ofString(s); #else UInt64.parseString(s); #end
 }
 
 function ofIntInt64(x:Int):Int64 {
@@ -543,44 +89,67 @@ function ofIntInt64(x:Int):Int64 {
 }
 
 function copyInt64(x:Int64):Int64
-	return #if eval x; #else x.copy(); #end
+	return #if simulate_num x.copy(); #elseif eval x; #else x.copy(); #end
 
 function copyUInt64(x:UInt64):UInt64
-	return #if eval x; #else x.copy(); #end
+	return #if simulate_num x.copy(); #elseif eval x; #else x.copy(); #end
 
 function ofIntUInt64(x:Int):UInt64 {
 	return UInt64.ofInt(x);
 }
 
+function zeroUInt32():UInt32
+	return #if simulate_num 0; #elseif eval 0; #else 0; #end
+
+function oneUInt32():UInt32
+	return #if simulate_num 1; #elseif eval 1; #else 1; #end
+
+function zeroInt64():Int64
+	return #if simulate_num 0; #elseif eval Int64.ZERO; #else 0; #end
+
+function oneInt64():Int64
+	return #if simulate_num 1; #elseif eval Int64.ONE; #else 1; #end
+
+function zeroUInt64():UInt64
+	return #if simulate_num 0; #elseif eval UInt64.ZERO; #else 0; #end
+
+function oneUInt64():UInt64
+	return #if simulate_num 1; #elseif eval UInt64.ONE; #else 1; #end
+
+function ofIntUInt(x:Int):UInt32 {
+	return #if simulate_num x; #elseif eval eval.integers.UInt64.ofInt(x); #else x; #end
+}
+
 function ofFloatInt64(x:Float):Int64 {
-	return #if eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)); #else haxe.Int64Helper.fromFloat(x); #end
+	return
+		#if simulate_num haxe.Int64Helper.fromFloat(x); #elseif eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)); #else haxe.Int64Helper.fromFloat(x); #end
 }
 
 function ofFloatUInt64(x:Float):UInt64 {
-	return #if eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)).toUInt64(); #else UInt64.fromFloat(x); #end
+	return #if simulate_num Int64.fromFloat(x); #elseif eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)).toUInt64(); #else UInt64.fromFloat(x); #end
 }
 
 function toFloatInt64(x:Int64):Float {
-	final i = #if eval x.toHxInt64(); #else x; #end
-	return i.high * 4294967296. + (i.low >>> 0);
+	final i = #if simulate_num x; #elseif eval x.toHxInt64(); #else x; #end
+	return i.high * 4294967296.0 + (i.low >>> 0);
 }
 
 function toStringInt64(x:Int64):String
-	return #if eval x.toString(); #else Int64.toStr(x); #end
+	return #if simulate_num Int64.toStr(x); #elseif eval x.toString(); #else Int64.toStr(x); #end
 
 function toStringUInt64(x:UInt64):String
-	return #if eval x.toString(); #else UInt64.toStr(x); #end
+	return #if simulate_num x.toString(); #elseif eval x.toString(); #else UInt64.toStr(x); #end
 
 function toIntInt64(x:Int64):Int {
-	return #if eval x.toInt(); #else Int64.toInt(x); #end
+	return #if simulate_num Int64.toInt(x); #elseif eval x.toInt(); #else Int64.toInt(x); #end
 }
 
 function toInt64UInt64(x:UInt64):Int64 {
-	return #if eval x.toInt64(); #else Int64.make(x.high, x.low); #end
+	return #if simulate_num Int64.make(x.high, x.low); #elseif eval x.toInt64(); #else Int64.make(x.high, x.low); #end
 }
 
 function toUInt64Int64(x:Int64):UInt64 {
-	return #if eval x.toUInt64(); #else UInt64.make(x.high, x.low); #end
+	return #if simulate_num UInt64.make(x.high, x.low); #elseif eval x.toUInt64(); #else UInt64.make(x.high, x.low); #end
 }
 
 // Eliott's very nice code
@@ -630,8 +199,8 @@ function clampFloat32(x:Float):Float
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):Int // TODO: clamp uint
-	return x < 0 ? 0 : x;
+function clampUInt(x:Int):UInt32 // TODO: clamp uint
+	return x < zeroUInt32() ? zeroUInt32() : x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
@@ -1267,6 +836,12 @@ abstract GoInt(Int32) from Int32 from Int32 {
 	@:from static function fromRune(x:GoRune):GoInt
 		return x.toBasic();
 
+	@:from static function fromString(x:String):GoInt
+		return Std.parseInt(x);
+
+	@:from static function fromGoString(x:GoString):GoInt
+		return fromString(x);
+
 	@:to inline function toInt64():GoInt64
 		return Int64.ofInt(this);
 
@@ -1502,12 +1077,20 @@ abstract GoInt32(Int) from Int32 from Int {
 }
 
 // GoUInt32 is an exact copy of GoUInt, any changes here should be updated there as well
-abstract GoUInt(Int) from Int {
+abstract GoUInt(UInt32) from UInt32 {
 	public inline function new(x = 0)
-		this = x;
+		this = ofIntUInt(x);
 
 	public inline function toBasic()
 		return this;
+
+	@:from static inline function fromInt(x:Int):GoUInt {
+		return ofIntUInt(x);
+	}
+
+	@:from static inline function fromString(s:String):GoUInt {
+		return ofStringUInt(s);
+	}
 
 	@:from static function fromRune(x:GoRune):GoUInt
 		return clamp(x.toBasic());
@@ -1629,7 +1212,7 @@ abstract GoUInt(Int) from Int {
 	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt):Bool;
 }
 
-abstract GoUInt32(Int) from Int {
+abstract GoUInt32(UInt) from UInt {
 	public inline function new(x = 0)
 		this = x;
 
@@ -1638,6 +1221,10 @@ abstract GoUInt32(Int) from Int {
 
 	@:from static inline function fromFloat(x:Float):GoUInt32 {
 		return new GoUInt32(Std.int(x));
+	}
+
+	@:from static inline function fromString(s:String):GoUInt32 {
+		return ofStringUInt(s);
 	}
 
 	@:to inline function toInt64():GoInt64
@@ -1729,7 +1316,7 @@ abstract GoUInt32(Int) from Int {
 		return this = clamp(this - 1);
 	}
 
-	static function clamp(x:Int):Int
+	static function clamp(x:UInt32):UInt32
 		return clampUInt(x);
 
 	@:op(A > B) private static function gt(a:GoUInt32, b:GoUInt32):Bool;
@@ -2067,8 +1654,9 @@ abstract GoInt64(Int64) from Int64 {
 	@:to inline function toUInt16():GoUInt16
 		return clampUInt16(toIntInt64(this));
 
-	@:to inline function toUInt64():GoUInt64
-		return this > ofIntInt64(0) ? #if eval this.toUInt64() #else UInt64.make(this.high, toIntInt64(this)) #end : #if eval UInt64.ZERO #else 0 #end;
+	@:to inline function toUInt64():GoUInt64 {
+		return toUInt64Int64(this);
+	}
 
 	@:to inline function toFloat32():GoFloat32
 		return toIntInt64(this);
@@ -2409,7 +1997,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return clampUInt16(this.toInt());
 
 	@:to inline function toUInt64():GoUInt64
-		return this > #if eval UInt64.ZERO #else 0 #end ? this : #if eval UInt64.ZERO #else 0 #end;
+		return this > zeroUInt64() ? this : zeroUInt64();
 
 	@:to inline function toFloat32():GoFloat32
 		return this.toInt();

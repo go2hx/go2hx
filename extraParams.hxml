@@ -3,4 +3,5 @@
 -D source-map
 -D shallow-expose
 -D keep-inline-positions
+-D simulate_num
 --macro stdgo.internal.Injector.run()

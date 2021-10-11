@@ -1,7 +1,8 @@
+-main TestRunner
 -cp tests
 -cp src
--main TestRunner
 -lib bson
 -lib test-adapter
 -D no-deprecation-warnings
+-D simulate_num
 --hl test.hl

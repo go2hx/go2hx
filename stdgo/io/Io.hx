@@ -2,6 +2,8 @@ package stdgo.io;
 
 import stdgo.StdGoTypes;
 
+var eof = stdgo.errors.Errors.new_("EOF");
+
 interface ByteReader {
 	public function readByte():{var v0:GoByte; var v1:Error;};
 	public function __underlying__():AnyInterface;

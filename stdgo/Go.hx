@@ -92,7 +92,7 @@ class Go {
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
 		} else {
-			Std.string(s);
+			'$s';
 		}
 	}
 

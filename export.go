@@ -924,6 +924,9 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 					throw("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
 					output = fmt.Sprintf("%f", k) //decimal format
+					//try hexadecimal format
+					//uint64,int64,float64 as constant
+					//untyped binary operations at compile time
 				}
 			} else {
 				output = fmt.Sprint(j)

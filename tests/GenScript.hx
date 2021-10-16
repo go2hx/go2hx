@@ -6,8 +6,8 @@ using sys.FileSystem;
 using sys.io.File;
 
 private function main() {
-	yaegi();
-	// go();
+	// yaegi();
+	go();
 }
 
 private function yaegi() {
@@ -75,7 +75,7 @@ private function go() {
 			continue;
 		final input = File.read(path, false);
 		final line = input.readLine().substr(3);
-		if (!["run", "runoutput"].contains(line))
+		if (!["run"].contains(line))
 			continue;
 		sub.add('    "$name",\n');
 	}

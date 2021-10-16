@@ -25,10 +25,7 @@ package stdgo;
 import haxe.Int32;
 import haxe.Int64;
 import stdgo.Pointer.PointerData;
-import stdgo.reflect.Reflect.GoType;
-import stdgo.reflect.Reflect.uint32;
-import stdgo.reflect.Reflect.uint32;
-import stdgo.reflect.Reflect.uint64;
+import stdgo.reflect.Reflect;
 
 using stdgo.StdGoTypes.UInt64;
 

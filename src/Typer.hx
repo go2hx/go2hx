@@ -811,7 +811,6 @@ private function className(name:String, info:Info):String {
 
 	if (reservedClassNames.indexOf(name) != -1)
 		name += "_";
-
 	return name;
 }
 
@@ -2757,7 +2756,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var globalPath = getGlobalPath(info);
 	globalPath = toGoPath(globalPath);
 	var pack = [];
-	if (globalPath != path) {
+	if (last != 0 && globalPath != path) {
 		pack = path.split("/");
 		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
@@ -4367,7 +4366,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			locals[hash] = nameType;
 		}
 	}
-	if (spec.assign != 0) {
+	if (spec.assign != 0 && spec.type != null && spec.type.id == "Ident") {
 		var name = className(spec.name.name, info);
 		var type = typeExprType(spec.type, info);
 		if (type == null)

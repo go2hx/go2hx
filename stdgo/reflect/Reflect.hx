@@ -16,7 +16,7 @@ enum GoType {
 	tuple(len:Int, vars:Array<GoType>);
 	interfaceType(empty:Bool, ?path:String, ?methods:Array<MethodType>);
 	sliceType(elem:GoType);
-	named(path:String, methods:Array<MethodType>, interfaces:Array<GoType>, type:GoType);
+	named(path:String, methods:Array<MethodType>, interfaces:Array<GoType>, type:GoType, ?alias:Bool);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
 	pointer(elem:GoType);

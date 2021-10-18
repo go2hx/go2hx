@@ -2599,7 +2599,7 @@ private function typeof(e:Ast.Expr):GoType {
 			}
 			final methods:Array<MethodType> = [];
 			final interfaces:Array<GoType> = [];
-			named(path, methods, interfaces, underlying);
+			named(path, methods, interfaces, underlying, e.alias);
 		case "Struct":
 			var t:GoType = structType([
 				for (field in (e.fields : Array<Dynamic>))
@@ -2745,6 +2745,9 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (path == "error")
 		return errorTypePath();
 	var last = path.lastIndexOf("/") + 1;
+	if (last == 0) {
+		return {pack: [], name: className(path, info)};
+	}
 	var part = path.substr(last);
 	var split = part.lastIndexOf(".");
 	var pkg = part.substr(0, split);
@@ -2756,7 +2759,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var globalPath = getGlobalPath(info);
 	globalPath = toGoPath(globalPath);
 	var pack = [];
-	if (last != 0 && globalPath != path) {
+	if (globalPath != path) {
 		pack = path.split("/");
 		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");

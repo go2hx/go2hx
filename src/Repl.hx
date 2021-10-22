@@ -27,7 +27,7 @@ function init() {
 			File.saveContent("repl/error", "1");
 			final mainPath = mainPath(modules);
 			File.saveContent("Repl.hx", 'function main() {$mainPath.main(); sys.io.File.saveContent("repl/error","0");}');
-			var command = "haxe -cp golibs -main Repl --interp";
+			var command = "haxe -cp golibs extraParams.hxml -main Repl --interp";
 			Sys.command(command);
 			FileSystem.deleteFile("Repl.hx");
 			final success = File.getContent("repl/error") == "0";

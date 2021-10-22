@@ -1504,7 +1504,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
 	return block;
 }
 
-private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr {
+private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = null):Expr {
 	if (y == null)
 		return y;
 	switch y.expr {
@@ -1521,8 +1521,21 @@ private function passByCopy(fromType:GoType, y:Expr, toType:GoType = null):Expr 
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
 			case arrayType(_, _): // pass by copy
 				y = macro $y.copy();
-			case structType(_):
-				y = macro $y.__copy__();
+			case structType(fields):
+				final decl = toExpr(EObjectDecl([
+					for (field in fields) {
+						final name = nameIdent(field.name, false, false, info);
+						{
+							field: name,
+							expr: passByCopy(field.type, macro x.$name, info),
+						}
+					}
+				]));
+
+				y = macro {
+					final x = $y;
+					$decl;
+				};
 			case named(_, _, _, type):
 				switch getUnderlying(type) {
 					case basic(_):
@@ -1596,7 +1609,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		default:
 	}
 	if (passCopy)
-		y = passByCopy(fromType, y, toType);
+		y = passByCopy(fromType, y, info, toType);
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInterface(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
@@ -1955,7 +1968,7 @@ private function interfaceTypeExpr(expr:Ast.InterfaceType, info:Info):ComplexTyp
 }
 
 private function structTypeExpr(expr:Ast.StructType, info:Info):ComplexType {
-	if (expr.fields == null || expr.fields.list == null || expr.fields.list.length == 0)
+	if (expr.fields == null || expr.fields.list == null) // || expr.fields.list.length == 0)
 		return TPath({name: "Dynamic", pack: []});
 	var fields = typeFieldListFields(expr.fields, info, [], false);
 	return TAnonymous(fields);
@@ -2841,7 +2854,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath({pack: [], name: "Chan", params: [TPType(ct)]});
 		case structType(fields):
 			var fields = typeFields(fields, info, null, false);
-			fields.length == 0 ? TPath({pack: [], name: "Dynamic"}) : TAnonymous([
+			/*fields.length == 0 ? TPath({pack: [], name: "Dynamic"}) : */ TAnonymous([
 				for (field in fields)
 					{
 						name: field.name,
@@ -4225,7 +4238,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var p:TypePath = {name: name, pack: []};
 	var copyT = macro __t__;
 	copyT = assignTranslate(t, underlyingType, copyT, info, false);
-	copyT = passByCopy(t, copyT);
+	copyT = passByCopy(t, copyT, info);
 	var fields:Array<Field> = [
 		{
 			name: "__t__",

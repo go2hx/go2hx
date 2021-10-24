@@ -624,7 +624,8 @@ func parseType(node interface{}) map[string]interface{} {
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
 		if isAlias { //alias is type X = Y, equivlant to a typedef
-			data = parseType(named.Underlying())
+			data["underlying"] = parseType(named.Underlying())
+			data["alias"] = true
 			isVar = true
 		} else {
 			path := named.String()
@@ -642,6 +643,7 @@ func parseType(node interface{}) map[string]interface{} {
 				}
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying())
+				data["alias"] = false
 				if init {
 					marked = nil
 				}

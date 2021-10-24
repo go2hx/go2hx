@@ -2727,6 +2727,7 @@ private function getGlobalPath(info:Info):String {
 private function parseTypePath(path:String, name:String, info:Info):TypePath { // other namedTypePath
 	if (path == "command-line-arguments")
 		path = "";
+	trace("path1: " + path);
 	path = normalizePath(path);
 	var cl = className(name, info);
 	var globalPath = getGlobalPath(info);
@@ -2758,9 +2759,6 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	if (path == "error")
 		return errorTypePath();
 	var last = path.lastIndexOf("/") + 1;
-	if (last == 0) {
-		return {pack: [], name: className(path, info)};
-	}
 	var part = path.substr(last);
 	var split = part.lastIndexOf(".");
 	var pkg = part.substr(0, split);
@@ -2772,6 +2770,10 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var globalPath = getGlobalPath(info);
 	globalPath = toGoPath(globalPath);
 	var pack = [];
+	// if (last == 0)
+	//	return {pack: pack, name: className(path, info)};
+	//if (last == 0 && path == "testing")
+	//	throw "issue";
 	if (globalPath != path) {
 		pack = path.split("/");
 		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe

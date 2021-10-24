@@ -2727,7 +2727,6 @@ private function getGlobalPath(info:Info):String {
 private function parseTypePath(path:String, name:String, info:Info):TypePath { // other namedTypePath
 	if (path == "command-line-arguments")
 		path = "";
-	trace("path1: " + path);
 	path = normalizePath(path);
 	var cl = className(name, info);
 	var globalPath = getGlobalPath(info);
@@ -2772,7 +2771,7 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pack = [];
 	// if (last == 0)
 	//	return {pack: pack, name: className(path, info)};
-	//if (last == 0 && path == "testing")
+	// if (last == 0 && path == "testing")
 	//	throw "issue";
 	if (globalPath != path) {
 		pack = path.split("/");

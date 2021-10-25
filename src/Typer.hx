@@ -284,17 +284,22 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 			// init system
 			if (info.global.initBlock.length > 0) {
+				var block = toExpr(EBlock(info.global.initBlock));
+				block = mapReturnToThrow(block);
 				data.defs.push({
-					name: "__init__",
+					name: "_",
 					pos: null,
 					pack: [],
 					fields: [],
-					kind: TDField(FFun({
-						ret: null,
-						params: null,
-						expr: toExpr(EBlock(info.global.initBlock)),
-						args: []
-					}), null)
+					meta: [{name: ":keep", pos: null}],
+					kind: TDField(FVar(null, macro {
+						try
+							$block
+						catch (e)
+							if (e.message != "__return__")
+								throw e;
+						true;
+					})),
 				});
 			}
 			data.imports = data.imports.concat(defaultImports);
@@ -394,6 +399,17 @@ function main(data:DataType, printGoCode:Bool = false) {
 		list.push(module);
 	}
 	return list;
+}
+
+private function mapReturnToThrow(e:Expr):Expr {
+	var func = null;
+	func = e -> return switch e.expr {
+		case EReturn(_):
+			macro throw "__return__";
+		default:
+			haxe.macro.ExprTools.map(e, func);
+	}
+	return func(e);
 }
 
 private function implementsFields(interfaceFields:Array<Field>, classFields:Array<Field>):Bool {
@@ -804,8 +820,8 @@ private function className(name:String, info:Info):String {
 
 	if (name == "error")
 		return "Error";
-	if (name == "Error")
-		return "T_error";
+	// if (name == "Error")
+	//	return "T_error";
 	if (!isTitle(name) || isInvalidTitle(name))
 		name = "T_" + name;
 
@@ -938,7 +954,6 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 		if (fromNamed && !toNamed && !isInterface(to) && !isInvalid(to)) {
 			return macro $e.__t__;
 		}
-		// trace("from Named: " + fromNamed + " to: " + toNamed);
 		if (toNamed && !fromNamed) {
 			switch ct {
 				case TPath(p):
@@ -2769,15 +2784,13 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var globalPath = getGlobalPath(info);
 	globalPath = toGoPath(globalPath);
 	var pack = [];
-	// if (last == 0)
-	//	return {pack: pack, name: className(path, info)};
-	// if (last == 0 && path == "testing")
-	//	throw "issue";
 	if (globalPath != path) {
 		pack = path.split("/");
 		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
+		if (last == 0 && split == -1)
+			return {pack: [], name: cl};
 		pack.push(title(pkg));
 	}
 	return {pack: pack, name: cl};
@@ -3545,7 +3558,6 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-
 	return checkType(e, type, typeof(expr.x), typeof(expr.type), info).expr;
 }
 
@@ -3998,14 +4010,15 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 
 	var type = if (returnComplexTypes.length > 1) {
 		// anonymous
-		TAnonymous([
-			for (i in 0...returnComplexTypes.length)
-				{
-					name: returnNames[i],
-					pos: null,
-					kind: FVar(returnComplexTypes[i])
-				}
-		]);
+		/*TAnonymous([
+				for (i in 0...returnComplexTypes.length)
+					{
+						name: returnNames[i],
+						pos: null,
+						kind: FVar(returnComplexTypes[i])
+					}
+			]); */
+		TPath({pack: [], name: "Dynamic"});
 	} else {
 		if (returnComplexTypes.length == 0) {
 			TPath({

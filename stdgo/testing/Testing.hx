@@ -85,7 +85,7 @@ class B implements StructType {
 	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
 		failBool = true;
 		// end current process
-		throw "fail";
+		throw "__fail__";
 	}
 
 	public function failed():Bool
@@ -169,7 +169,7 @@ class T_ implements StructType {
 	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
 		failBool = true;
 		// end current process
-		throw "fail";
+		throw "__fail__";
 	}
 
 	public function failed():Bool
@@ -242,7 +242,7 @@ class M implements StructType {
 			try {
 				test.f(Go.pointer(t));
 			} catch (e) {
-				if (e.native != "fail") {
+				if (e.message != "__fail__") {
 					stdgo.fmt.Fmt.println(e.details());
 				}
 				Sys.exit(0);

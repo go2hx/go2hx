@@ -1808,19 +1808,35 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				// assign, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
 				var t = typeof(stmt.rhs[0]);
+				var names:Array<String> = [];
+				var types:Array<GoType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
 				var tuples = getReturnTupleData(t);
-				var names:Array<String> = [for (i in 0...tuples.length) tuples[i].name];
 				if (data.ok)
 					names = ["value", "ok"];
+				switch t {
+					case tuple(_, vars):
+						for (i in 0...vars.length) {
+							final v = vars[i];
+							switch v {
+								case _var(name, type):
+									names.push(name);
+									types.push(type);
+								default:
+									names.push('v$i');
+									types.push(v);
+							}
+						}
+					default:
+				}
 				var assigns:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
 						continue;
-					var e = typeExpr(stmt.lhs[i], info);
+					final e = typeExpr(stmt.lhs[i], info);
 					final fieldName = names[i];
-					final type = toComplexType(tuples[i].type, info);
+					final type = toComplexType(types[i], info);
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(t, typeof(stmt.lhs[i]), e2, info);
 					assigns.push(macro $e = (${e2} : $type));

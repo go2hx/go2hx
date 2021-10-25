@@ -44,7 +44,6 @@
     "regexp",
     "regexp/syntax",
     "golang.org/x/sys/cpu",
-    "bufio",
     "golang.org/x/tools/go/internal/gcimporter",
     "go/build",
     "go/doc",

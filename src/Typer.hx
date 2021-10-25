@@ -1812,7 +1812,6 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var types:Array<GoType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
-				var tuples = getReturnTupleData(t);
 				if (data.ok)
 					names = ["value", "ok"];
 				switch t {

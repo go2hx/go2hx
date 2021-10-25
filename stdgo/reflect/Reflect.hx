@@ -270,26 +270,6 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
-function getReturnTuple(type:GoType):Array<String> {
-	switch type {
-		case tuple(_, vars):
-			var index = 0;
-			return [
-				for (i in 0...vars.length) {
-					switch vars[i] {
-						case _var(name, _):
-							name;
-						default:
-							"v" + (index++);
-					}
-				}
-			];
-		default:
-			throw "type is not a tuple: " + type;
-	}
-	return [];
-}
-
 class Value implements StructType {
 	var value:AnyInterface;
 	var underlyingValue:Dynamic;

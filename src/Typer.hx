@@ -873,13 +873,15 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							expr: func
 						});
 						var type = typeof(spec.values[0]);
-						var tuples = getReturnTuple(type);
+						var tuples = getReturnTupleData(type);
 						for (i in 0...spec.names.length) {
-							var fieldName = tuples[i];
-							var name = nameIdent(spec.names[i].name, false, false, info);
+							final fieldName = tuples[i].name;
+							final type = toComplexType(tuples[i].type, info);
+							final name = nameIdent(spec.names[i].name, false, false, info);
 							vars.push({
 								name: name,
 								expr: macro __tmp__.$fieldName,
+								type: type,
 							});
 						}
 					} else {
@@ -1576,6 +1578,44 @@ private function isRestExpr(expr:Expr):Bool {
 	}
 }
 
+function getReturnTupleData(type:GoType):Array<{name:String, type:GoType}> {
+	return switch type {
+		case tuple(_, vars):
+			var index = 0;
+			[
+				for (i in 0...vars.length) {
+					switch vars[i] {
+						case _var(name, type):
+							{name: name, type: type};
+						default:
+							{name: "v" + (index++), type: vars[i]};
+					}
+				}
+			];
+		default:
+			throw "type is not a tuple: " + type;
+	}
+}
+
+function getReturnTuple(type:GoType):Array<String> {
+	return switch type {
+		case tuple(_, vars):
+			var index = 0;
+			[
+				for (i in 0...vars.length) {
+					switch vars[i] {
+						case _var(name, _):
+							name;
+						default:
+							"v" + (index++);
+					}
+				}
+			];
+		default:
+			throw "type is not a tuple: " + type;
+	}
+}
+
 private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info:Info, passCopy:Bool = true):Expr {
 	fromType = cleanType(fromType);
 	toType = cleanType(toType);
@@ -1768,33 +1808,22 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				// assign, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
 				var t = typeof(stmt.rhs[0]);
-				var names:Array<String> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
+				var tuples = getReturnTupleData(t);
+				var names:Array<String> = [for (i in 0...tuples.length) tuples[i].name];
 				if (data.ok)
 					names = ["value", "ok"];
-				switch t {
-					case tuple(_, vars):
-						for (i in 0...vars.length) {
-							var v = vars[i];
-							switch v {
-								case _var(name, _):
-									names.push(name);
-								default:
-									names.push('v$i');
-							}
-						}
-					default:
-				}
 				var assigns:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
 					if (stmt.lhs[i].id == "Ident" && stmt.lhs[i].name == "_")
 						continue;
 					var e = typeExpr(stmt.lhs[i], info);
-					var fieldName = names[i];
+					final fieldName = names[i];
+					final type = toComplexType(tuples[i].type, info);
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(t, typeof(stmt.lhs[i]), e2, info);
-					assigns.push(macro $e = ${e2});
+					assigns.push(macro $e = (${e2} : $type));
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {
@@ -1823,6 +1852,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var func = typeExpr(stmt.rhs[0], info);
 				var t = typeof(stmt.rhs[0]);
 				var names:Array<String> = [];
+				var types:Array<ComplexType> = [];
 				var data = castTranslate(stmt.rhs[0], func, info);
 				func = data.expr;
 				if (data.ok)
@@ -1832,10 +1862,12 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						for (i in 0...vars.length) {
 							var v = vars[i];
 							switch v {
-								case _var(name, _):
+								case _var(name, type):
 									names.push(name);
+									types.push(toComplexType(type, info));
 								default:
 									names.push('v$i');
+									types.push(toComplexType(v, info));
 							}
 						}
 					default:
@@ -1846,7 +1878,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						throw "define left side not an ident";
 					var varName = nameIdent(stmt.lhs[i].name, false, true, info);
 					var fieldName = names[i];
-					defines.push({name: varName, expr: macro __tmp__.$fieldName});
+					defines.push({name: varName, expr: macro __tmp__.$fieldName, type: types[i]});
 				}
 				return EVars([{name: "__tmp__", expr: func}].concat(defines));
 			} else {
@@ -2204,10 +2236,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case tuple(len, _):
 						if (len > 1) {
 							tupleArg = args[0];
-							final names = getReturnTuple(t);
-							for (i in 0...names.length) {
-								final fieldName = names[i];
-								args[i] = macro __tmp__.$fieldName;
+							final tuples = getReturnTupleData(t);
+							for (i in 0...tuples.length) {
+								final fieldName = tuples[i].name;
+								final type = toComplexType(tuples[i].type, info);
+								args[i] = macro(__tmp__.$fieldName:$type);
 							}
 						}
 					default:

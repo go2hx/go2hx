@@ -5,14 +5,6 @@ import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.GoType;
 import stdgo.testing.internal.testdeps.Testdeps.TestDeps;
 
-@:structInit
-class InternalFuzzTarget implements StructType {
-	public function new() {}
-
-	public function __underlying__():AnyInterface
-		return null;
-}
-
 class BenchmarkResult {
 	public var n:GoInt = 0;
 	public var t:Dynamic = null;
@@ -138,6 +130,78 @@ class B implements StructType {
 
 	public function __underlying__():AnyInterface
 		return null;
+}
+
+@:structInit
+class F implements StructType {
+	var skipBool:Bool = false;
+	var failBool:Bool = false;
+	var output:StringBuf = null;
+
+	public function new(output:StringBuf) {
+		this.output = output;
+	}
+
+	public function cleanup(f:Void->Void) {}
+
+	public function error(args:Rest<AnyInterface>) {
+		stdgo.fmt.Fmt.println(args);
+		fail();
+	}
+
+	public function errorf(format:GoString, args:Rest<AnyInterface>) {
+		stdgo.fmt.Fmt.printf(format, ...args);
+		stdgo.fmt.Fmt.println();
+		fail();
+	}
+
+	public function fail() // marks the function as failed byt continues the execution
+		failBool = true;
+
+	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
+		failBool = true;
+		// end current process
+		throw "__fail__";
+	}
+
+	public function failed():Bool
+		return failBool;
+
+	public function fatal(args:Rest<AnyInterface>) {}
+
+	public function fatalf(format:GoString, args:Rest<AnyInterface>) {}
+
+	public function helper() {} // Helper marks the calling function as a test helper function. When printing file and line information, that function will be skipped.
+
+	public function log(args:Rest<AnyInterface>) {} // Log formats its arguments using default formatting, analogous to Println, and records the text in the error log. For tests, the text will be printed only if the test fails or the -test.v flag is set. For benchmarks, the text is always printed
+
+	public function logf(format:GoString, args:Rest<AnyInterface>) {}
+
+	public function parallel() {}
+
+	public function run(name:GoString, f:Pointer<T_>->Void):Bool {
+		return true;
+	}
+
+	public function setenv(key:GoString, value:GoString) {}
+
+	public function skip(args:Rest<AnyInterface>) {}
+
+	public function skipNow() {}
+
+	public function skipf(format:GoString, args:Rest<AnyInterface>) {}
+
+	public function skipped():Bool
+		return skipBool;
+
+	public function tempDir():GoString
+		return "";
+
+	public function __underlying__():AnyInterface
+		return null;
+
+	public function __copy__()
+		return new F(output);
 }
 
 @:structInit
@@ -288,6 +352,22 @@ class InternalBenchmark implements StructType {
 }
 
 @:structInit
+class InternalFuzzTarget implements StructType {
+	public var name:GoString = "";
+	public var f:Void->Void = null;
+
+	public function new(?name, ?f) {
+		stdgo.internal.Macro.initLocals();
+	}
+
+	public function __underlying__():AnyInterface
+		return null;
+
+	public function __copy__()
+		return new InternalExample();
+}
+
+@:structInit
 class InternalExample implements StructType {
 	public var name:GoString = "";
 	public var f:Void->Void = null;
@@ -322,7 +402,9 @@ class InternalTest implements StructType {
 		return new InternalTest(name, f);
 }
 
-function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, examples:Slice<InternalExample>):Pointer<M> {
+function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, arg0:Any, ?arg1:Any):Pointer<M> {
+	final examples:Slice<InternalExample> = arg1 == null ? arg0 : arg1; // fix issue of newer go version supporting fuzz target and older not
+	final fuzzTargets:Slice<InternalFuzzTarget> = arg1 == null ? null : arg0;
 	var m = new M(deps, tests, benchmarks, examples);
 	return Go.pointer(m);
 }

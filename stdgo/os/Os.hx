@@ -31,7 +31,7 @@ class OutputWriter implements stdgo.io.Io.Writer {
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
-		return {_n: 0, _err: null};
+		return {_0: 0, _1: null};
 	}
 
 	public function name():GoString {

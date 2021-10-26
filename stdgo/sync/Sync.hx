@@ -31,6 +31,30 @@ class RWMutex implements StructType {
 }
 
 @:structInit
+class Map_ implements StructType {
+	public function new() {}
+
+	public function __underlying__():AnyInterface
+		return null;
+
+	public function delete(key:AnyInterface) {}
+
+	public function load(key:AnyInterface)
+		return {_0: null, _1: false};
+
+	public function loadAndDelete(key:AnyInterface)
+		return {_0: null, _1: false};
+
+	public function loadOrStore(key:AnyInterface, value:AnyInterface)
+		return {_0: null, _1: false};
+
+	public function range(f:(key:AnyInterface, value:AnyInterface) -> Bool)
+		return null;
+
+	public function store(key:AnyInterface, value:AnyInterface) {}
+}
+
+@:structInit
 class Mutex implements StructType implements Locker {
 	public function new() {}
 

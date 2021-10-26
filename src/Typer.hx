@@ -4369,10 +4369,20 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 							}),
 						}
 					];
-				default: // must be an InterfaceType
+				case interfaceType(empty, _, _): // must be an InterfaceType
+					if (empty)
+						return {
+							name: name,
+							pos: null,
+							pack: [],
+							fields: [],
+							meta: [{name: ":follow", pos: null}],
+							kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+						};
 					isInterface = true;
 					fields = [];
 					implicits = [];
+				default:
 			}
 		default:
 	}

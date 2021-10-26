@@ -873,10 +873,10 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 							expr: func
 						});
 						var type = typeof(spec.values[0]);
-						var tuples = getReturnTupleData(type);
+						var tuples = getReturnTupleType(type);
 						for (i in 0...spec.names.length) {
-							final fieldName = tuples[i].name;
-							final type = toComplexType(tuples[i].type, info);
+							final fieldName = "_" + i;
+							final type = toComplexType(tuples[i], info);
 							final name = nameIdent(spec.names[i].name, false, false, info);
 							vars.push({
 								name: name,
@@ -1578,7 +1578,7 @@ private function isRestExpr(expr:Expr):Bool {
 	}
 }
 
-function getReturnTupleData(type:GoType):Array<{name:String, type:GoType}> {
+function getReturnTupleType(type:GoType):Array<GoType> {
 	return switch type {
 		case tuple(_, vars):
 			var index = 0;
@@ -1586,9 +1586,9 @@ function getReturnTupleData(type:GoType):Array<{name:String, type:GoType}> {
 				for (i in 0...vars.length) {
 					switch vars[i] {
 						case _var(name, type):
-							{name: name, type: type};
+							type;
 						default:
-							{name: "v" + (index++), type: vars[i]};
+							vars[i];
 					}
 				}
 			];
@@ -1597,19 +1597,12 @@ function getReturnTupleData(type:GoType):Array<{name:String, type:GoType}> {
 	}
 }
 
-function getReturnTuple(type:GoType):Array<String> {
+function getReturnTupleNames(type:GoType):Array<String> {
 	return switch type {
 		case tuple(_, vars):
-			var index = 0;
 			[
-				for (i in 0...vars.length) {
-					switch vars[i] {
-						case _var(name, _):
-							name;
-						default:
-							"v" + (index++);
-					}
-				}
+				for (i in 0...vars.length)
+					"_" + i
 			];
 		default:
 			throw "type is not a tuple: " + type;
@@ -1625,34 +1618,6 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 
 	if (fromType == null)
 		return expr;
-
-	if (isTuple(fromType) && isTuple(toType)) {
-		final tuples = getReturnTuple(fromType);
-		final tuples2 = getReturnTuple(toType);
-		final fields:Array<ObjectField> = [];
-		switch fromType {
-			case tuple(_, vars):
-				switch toType {
-					case tuple(_, vars2):
-						for (i in 0...tuples.length) {
-							final field = tuples[i];
-							var expr = macro tmp.$field;
-							expr = assignTranslate(vars[i], vars2[i], expr, info);
-							fields.push({
-								field: tuples2[i],
-								expr: expr,
-							});
-						}
-					default:
-				}
-			default:
-		}
-		final ret = toExpr(EObjectDecl(fields));
-		return macro {
-			final tmp = $expr;
-			$ret;
-		};
-	}
 
 	switch fromType {
 		case basic(kind):
@@ -1937,7 +1902,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		}
 		var fields:Array<ObjectField> = [
 			for (i in 0...info.returnTypes.length)
-				{field: info.returnNames[i], expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i], info)}
+				{field: "_" + i, expr: info.returnNamed ? macro $i{info.returnNames[i]} : defaultValue(info.returnTypes[i], info)}
 		];
 		return ret(EReturn(toExpr(EObjectDecl(fields))));
 	}
@@ -1964,7 +1929,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 				e = assignTranslate(t, retType, e, info);
 			}
 			{
-				field: info.returnNames[i],
+				field: "_" + i,
 				expr: e,
 			};
 		}
@@ -2251,10 +2216,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case tuple(len, _):
 						if (len > 1) {
 							tupleArg = args[0];
-							final tuples = getReturnTupleData(t);
+							final tuples = getReturnTupleType(t);
 							for (i in 0...tuples.length) {
-								final fieldName = tuples[i].name;
-								final type = toComplexType(tuples[i].type, info);
+								final fieldName = "_" + i;
+								final type = toComplexType(tuples[i], info);
 								args[i] = macro(__tmp__.$fieldName:$type);
 							}
 						}
@@ -2937,10 +2902,10 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				var fields:Array<Field> = [];
 				for (i in 0...results.length) {
 					switch results[i] {
-						case _var(name, type):
-							fields.push({name: nameIdent(name, false, true, info), pos: null, kind: FVar(toComplexType(type, info))});
+						case _var(_, type):
+							fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
 						default:
-							fields.push({name: "v" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
+							fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
 					}
 				}
 				ret = TAnonymous(fields);
@@ -4039,7 +4004,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		var t = typeof(group.type);
 		if (group.names.length == 0) {
 			returnTypes.push(t);
-			returnNames.push("v" + returnNames.length);
+			returnNames.push("_" + returnNames.length);
 			returnComplexTypes.push(ct);
 			continue;
 		} else {
@@ -4047,7 +4012,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 		}
 		for (name in group.names) {
 			if (name.name == "_") {
-				returnNames.push("v" + returnNames.length);
+				returnNames.push("_" + returnNames.length);
 			} else {
 				returnNames.push(formatHaxeFieldName(name.name));
 			}
@@ -4057,16 +4022,14 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 	}
 
 	var type = if (returnComplexTypes.length > 1) {
-		// anonymous
-		/*TAnonymous([
-				for (i in 0...returnComplexTypes.length)
-					{
-						name: returnNames[i],
-						pos: null,
-						kind: FVar(returnComplexTypes[i])
-					}
-			]); */
-		TPath({pack: [], name: "Dynamic"});
+		TAnonymous([
+			for (i in 0...returnComplexTypes.length)
+				{
+					name: "_" + i,
+					pos: null,
+					kind: FVar(returnComplexTypes[i])
+				}
+		]);
 	} else {
 		if (returnComplexTypes.length == 0) {
 			TPath({
@@ -4557,12 +4520,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						final args:Array<Expr> = [
 							for (param in params) {
 								i++;
-								switch param {
-									case _var(name, _):
-										macro $i{nameIdent(name, false, false, info)};
-									default:
-										macro $i{"v" + i};
-								}
+								macro $i{"_" + i};
 							}
 						];
 						i = -1;
@@ -4577,7 +4535,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 										}
 									default:
 										{
-											name: "v" + i,
+											name: "_" + i,
 											type: toComplexType(type, info),
 										}
 								}
@@ -4595,15 +4553,15 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 									for (res in results) {
 										i++;
 										switch res {
-											case _var(name, type):
+											case _var(_, type):
 												{
-													name: nameIdent(name, false, false, info),
+													name: "_" + i,
 													pos: null,
 													kind: FVar(toComplexType(type, info)),
 												}
 											default:
 												{
-													name: "v" + i,
+													name: "_" + i,
 													pos: null,
 													kind: FVar(toComplexType(type, info)),
 												}
@@ -4769,7 +4727,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	var values:Array<TypeDefinition> = [];
 	if (value.names.length > value.values.length && value.values.length > 0) {
 		var t = typeof(value.values[0]);
-		var tuples = getReturnTuple(t);
 
 		// destructure
 		var tmp = "__tmp__" + (info.blankCounter++);
@@ -4786,9 +4743,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			fields: [],
 			kind: TDField(FVar(null, func))
 		});
-		var tuples = getReturnTuple(t);
 		for (i in 0...value.names.length) {
-			var fieldName = tuples[i];
+			var fieldName = "_" + i;
 			var access = []; // typeAccess(value.names[i]);
 			if (value.constants[i])
 				access.push(AFinal);

@@ -4353,7 +4353,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var meta = [{name: ":named", pos: null}];
 	var superClass:TypePath = null;
 	var isInterface = false;
-
 	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 		case sliceType(elem):
 			fields.push({
@@ -4386,37 +4385,36 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					expr: macro return this.__t__.slice(low, high),
 				})
 			});
-		case named(_, _, _, type):
-			if (!isNamed(t)) { // is Struct or Interface
-				final path = getTypePath(t, info);
-				superClass = path;
-				fields = [];
-				final params:Array<Expr> = [];
-				final args:Array<FunctionArg> = [];
-				switch type {
-					case structType(fs):
-						for (field in fs) {
-							final name = nameIdent(field.name, true, false, info);
-							params.push(macro $i{name});
-							args.push({opt: true, name: name});
+		case named(_, _, _, _):
+			final type = getUnderlying(t); // get underlying of named named
+			final path = getTypePath(t, info);
+			superClass = path;
+			fields = [];
+			final params:Array<Expr> = [];
+			final args:Array<FunctionArg> = [];
+			switch type {
+				case structType(fs):
+					for (field in fs) {
+						final name = nameIdent(field.name, true, false, info);
+						params.push(macro $i{name});
+						args.push({opt: true, name: name});
+					}
+					meta.push({name: ":structInit", pos: null});
+					fields = [
+						{
+							name: "new",
+							pos: null,
+							access: [APublic],
+							kind: FFun({
+								args: args,
+								expr: macro super($a{params}),
+							}),
 						}
-						meta.push({name: ":structInit", pos: null});
-						fields = [
-							{
-								name: "new",
-								pos: null,
-								access: [APublic],
-								kind: FFun({
-									args: args,
-									expr: macro super($a{params}),
-								}),
-							}
-						];
-					default: // must be an InterfaceType
-						isInterface = true;
-						fields = [];
-						implicits = [];
-				}
+					];
+				default: // must be an InterfaceType
+					isInterface = true;
+					fields = [];
+					implicits = [];
 			}
 		default:
 	}
@@ -4444,19 +4442,21 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			locals[hash] = nameType;
 		}
 	}
-	if (spec.assign != 0 && spec.type != null && spec.type.id == "Ident") {
-		var name = className(spec.name.name, info);
-		var type = typeExprType(spec.type, info);
-		if (type == null)
-			return null;
-		return {
-			name: name,
-			pos: null,
-			pack: [],
-			isExtern: true,
-			meta: [{name: ":follow", pos: null}],
-			fields: [],
-			kind: TDAlias(type),
+	if (spec.type != null && spec.type.id == "Ident") {
+		if (spec.assign != 0) {
+			var name = className(spec.name.name, info);
+			var type = typeExprType(spec.type, info);
+			if (type == null)
+				return null;
+			return {
+				name: name,
+				pos: null,
+				pack: [],
+				isExtern: true,
+				meta: [{name: ":follow", pos: null}],
+				fields: [],
+				kind: TDAlias(type),
+			}
 		}
 	}
 	return switch spec.type.id {

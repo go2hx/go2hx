@@ -40,9 +40,9 @@ class Time {
 		return (Date.now().getTime() : GoInt64) * (1000000 : GoInt64);
 	}
 
-	public static function _now():{_sec:GoInt64, _nsec:GoInt32, _mono:GoInt64} {
+	public static function _now():{_0:GoInt64, _1:GoInt32, _2:GoInt64} {
 		final n = _runtimeNano();
-		return {_sec: n / 1000000000, _nsec: n % 1000000000, _mono: n};
+		return {_0: n / 1000000000, _1: n % 1000000000, _2: n};
 	}
 
 	public static function _initLocal(_localLoc:Dynamic):Void {

@@ -4,49 +4,49 @@ import stdgo.StdGoTypes;
 
 final intSize:GoInt = 32;
 
-function parseFloat(s:GoString, bitSize:GoInt64):{v0:GoFloat, ?v1:Error} {
+function parseFloat(s:GoString, bitSize:GoInt64):{_0:GoFloat, ?_1:Error} {
 	try {
-		return {v0: Std.parseFloat(s.toString())};
+		return {_0: Std.parseFloat(s.toString())};
 	} catch (e) {
-		return {v0: 0, v1: syntaxError("parseFloat", s)};
+		return {_0: 0, _1: syntaxError("parseFloat", s)};
 	}
 }
 
-inline function unquote(s:GoString):{_i:GoString, ?_err:Error} { // TODO check if unquote has the same result if the input string has no quotes
+inline function unquote(s:GoString):{_0:GoString, ?_1:Error} { // TODO check if unquote has the same result if the input string has no quotes
 	if (s.length < 2)
-		return {_i: "", _err: errSyntax};
+		return {_0: "", _1: errSyntax};
 	s = s.substr(1, s.length.toBasic() - 2);
-	return {_i: s};
+	return {_0: s};
 }
 
 inline function appendInt(dst:Slice<GoByte>, i:GoInt64, base:GoInt):Slice<GoByte> {
 	return dst.append(...(haxe.Int64.toStr(i.toBasic()) : GoString).toSliceByte().toArray());
 }
 
-inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_i:GoInt, ?_err:Error} {
+inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_0:GoInt, ?_1:Error} {
 	try {
 		var value = Std.parseInt(s);
 		if (value == null)
-			return {_i: 0, _err: syntaxError("parseInt", s)};
-		return {_i: value};
+			return {_0: 0, _1: syntaxError("parseInt", s)};
+		return {_0: value};
 	} catch (e) {
 		if (s.substr(0, 2) == "0x")
 			return parseInt(s.substr(2), 0, 0);
 		return {
-			_i: 0,
-			_err: syntaxError("parseInt", s)
+			_0: 0,
+			_1: syntaxError("parseInt", s)
 		};
 	}
 }
 
-inline function parseBool(s:GoString):{v0:Bool, ?v1:Error} {
+inline function parseBool(s:GoString):{_0:Bool, ?_1:Error} {
 	return switch s.toString() {
 		case "1", "t", "T", "true", "TRUE", "True":
-			{v0: true};
+			{_0: true};
 		case "0", "f", "F", "false", "FALSE", "False":
-			{v0: false};
+			{_0: false};
 		default:
-			{v0: false, v1: syntaxError("parseBool", s)};
+			{_0: false, _1: syntaxError("parseBool", s)};
 	}
 }
 
@@ -76,16 +76,14 @@ private function rangeError(fn:GoString, str:GoString):NumError {
 	return new NumError(fn, str, errRange);
 }
 
-inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):{v0:GoInt, ?v1:Error} {
-	final o = parseInt(s, base, bitSize);
-	return {v0: o._i, v1: o._err};
+inline function parseUint(s:GoString, base:GoInt64, bitSize:GoInt64):{_0:GoInt, ?_1:Error} {
+	return parseInt(s, base, bitSize);
 }
 
 // `Atoi` is a convenience function for basic base-10
 
 inline function atoi(s:GoString) {
-	final data = parseInt(s, 0, 0);
-	return {v0: data._i, v1: data._err};
+	return parseInt(s, 0, 0);
 }
 
 inline function itoa(i:GoInt):GoString

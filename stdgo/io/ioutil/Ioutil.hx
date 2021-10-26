@@ -22,14 +22,14 @@ function writeFile(filename:GoString, data:Bytes, ?perm:GoInt):Error {
 	}
 }
 
-function readDir(dirname:GoString):{v0:Slice<FileInfo>, ?v1:Error} {
+function readDir(dirname:GoString):{_0:Slice<FileInfo>, ?_1:Error} {
 	dirname = Path.addTrailingSlash(dirname);
 	try {
 		var array:Array<FileInfo> = [];
 		for (path in FileSystem.readDirectory(dirname)) {}
-		return {v0: new Slice(...array)};
+		return {_0: new Slice(...array)};
 	} catch (e) {
-		return {v0: new Slice().nil(), v1: stdgo.errors.Errors.new_(e.message)};
+		return {_0: new Slice().nil(), _1: stdgo.errors.Errors.new_(e.message)};
 	}
 }
 

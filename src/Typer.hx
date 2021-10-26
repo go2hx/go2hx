@@ -1784,11 +1784,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						for (i in 0...vars.length) {
 							final v = vars[i];
 							switch v {
-								case _var(name, type):
-									names.push(name);
+								case _var(_, type):
+									names.push('_$i');
 									types.push(type);
 								default:
-									names.push('v$i');
+									names.push('_$i');
 									types.push(v);
 							}
 						}
@@ -1842,11 +1842,11 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						for (i in 0...vars.length) {
 							var v = vars[i];
 							switch v {
-								case _var(name, type):
-									names.push(name);
+								case _var(_, type):
+									names.push('_$i');
 									types.push(toComplexType(type, info));
 								default:
-									names.push('v$i');
+									names.push('_$i');
 									types.push(toComplexType(v, info));
 							}
 						}
@@ -4107,11 +4107,6 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 		var expr:Ast.FuncType = field.type;
 
 		var ret = typeFieldListReturn(expr.results, info, false);
-		switch ret {
-			case TAnonymous(_):
-				ret = TPath({name: "Dynamic", pack: []}); // unify with any other tuple
-			default:
-		}
 		var params = typeFieldListArgs(expr.params, info);
 		if (ret == null || params == null)
 			continue;

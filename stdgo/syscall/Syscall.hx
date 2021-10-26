@@ -44,8 +44,8 @@ function getegid():GoInt
 function getpid():GoInt
 	return 0;
 
-function read(fd:GoInt, buf:Slice<GoByte>):{v0:GoInt, v1:Error} {
-	return {v0: 0, v1: null};
+function read(fd:GoInt, buf:Slice<GoByte>):{_0:GoInt, _1:Error} {
+	return {_0: 0, _1: null};
 }
 
 function getppid():GoInt
@@ -54,23 +54,23 @@ function getppid():GoInt
 function kill(pid:GoInt, signum:Signal):Error
 	return null;
 
-function getenv(s:String):{_value:GoString, _found:Bool} {
+function getenv(s:String):{_0:GoString, _1:Bool} {
 	var result = Sys.getEnv(s);
 	if (result == null)
-		return {_value: "", _found: false};
-	return {_value: result, _found: true};
+		return {_0: "", _1: false};
+	return {_0: result, _1: true};
 }
 
-function open(name:String, mode:GoInt, perm:GoUInt32):{v0:GoInt, v1:Error} {
-	return {v0: 0, v1: null};
+function open(name:String, mode:GoInt, perm:GoUInt32):{_0:GoInt, _1:Error} {
+	return {_0: 0, _1: null};
 }
 
 function close(fd:GoInt):Error {
 	return null;
 }
 
-function seek(fd:GoInt, offset:GoInt64, whence:GoInt):{v0:GoInt64, v1:Error} {
-	return {v0: 0, v1: null};
+function seek(fd:GoInt, offset:GoInt64, whence:GoInt):{_0:GoInt64, _1:Error} {
+	return {_0: 0, _1: null};
 }
 
 @:named class Errno implements StructType implements stdgo.Error {

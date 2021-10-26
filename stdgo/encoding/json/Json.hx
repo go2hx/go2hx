@@ -6,7 +6,7 @@ import stdgo.StdGoTypes;
 
 interface Unmarshaler {}
 
-function marshal(v:AnyInterface):{v0:Slice<GoByte>, v1:Error} {
+function marshal(v:AnyInterface):{_0:Slice<GoByte>, _1:Error} {
 	final str:GoString = haxe.Json.stringify(v.value);
-	return {v0: str, v1: null};
+	return {_0: str, _1: null};
 }

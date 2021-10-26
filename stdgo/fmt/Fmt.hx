@@ -22,19 +22,19 @@ interface Scanner {
 }
 
 interface ScanState {
-	public function readRune():{var _r:GoRune; var _size:GoInt; var _err:Error;};
+	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;};
 	public function unreadRune():Error;
 	public function skipSpace():Void;
-	public function token(_skipSpace:Bool, _f:GoRune->Bool):{var _token:Slice<GoByte>; var _err:Error;};
-	public function width():{var _wid:GoInt; var _ok:Bool;};
-	public function read(_buf:Slice<GoByte>):{var _n:GoInt; var _err:Error;};
+	public function token(_skipSpace:Bool, _f:GoRune->Bool):{var _0:Slice<GoByte>; var _1:Error;};
+	public function width():{var _0:GoInt; var _1:Bool;};
+	public function read(_buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 	public function __underlying__():AnyInterface;
 }
 
 interface State {
-	public function write(_b:Slice<GoByte>):{var _n:GoInt; var _err:Error;};
-	public function width():{var _wid:GoInt; var _ok:Bool;};
-	public function precision():{var _prec:GoInt; var _ok:Bool;};
+	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
+	public function width():{var _0:GoInt; var _1:Bool;};
+	public function precision():{var _0:GoInt; var _1:Bool;};
 	public function flag(_c:GoInt):Bool;
 	public function __underlying__():AnyInterface;
 }
@@ -53,14 +53,14 @@ inline function errorf(fmt:GoString, args:Rest<AnyInterface>) {
 	return stdgo.errors.Errors.new_(format(fmt, args));
 }
 
-function println(args:Rest<Dynamic>):{_n:Int, _err:Error} {
+function println(args:Rest<Dynamic>):{_0:Int, _1:Error} {
 	log(parse(args).join(" ") + "\n");
-	return {_n: 0, _err: null};
+	return {_0: 0, _1: null};
 }
 
-function print(args:Rest<Dynamic>):{_n:Int, _err:Error} {
+function print(args:Rest<Dynamic>):{_0:Int, _1:Error} {
 	log(parse(args).join(""));
-	return {_n: 0, _err: null};
+	return {_0: 0, _1: null};
 }
 
 inline function printf(fmt:GoString, args:Rest<AnyInterface>) { // format

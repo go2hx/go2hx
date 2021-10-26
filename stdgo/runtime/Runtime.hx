@@ -21,8 +21,8 @@ function gc() {
 	// run garbage collector
 }
 
-function memProfile(p:Slice<MemProfileRecord>, inUseZero:Bool):{n:GoInt, ok:Bool} {
-	return {n: 0, ok: false};
+function memProfile(p:Slice<MemProfileRecord>, inUseZero:Bool):{_0:GoInt, _1:Bool} {
+	return {_0: 0, _1: false};
 }
 
 function setFinalizer(obj:AnyInterface, finalizer:AnyInterface) {}
@@ -85,8 +85,8 @@ class Frames implements StructType {
 
 	public function new() {}
 
-	public function next():{frame:Frame, more:Bool} {
-		return {frame: new Frame(), more: false};
+	public function next():{_0:Frame, _1:Bool} {
+		return {_0: new Frame(), _1: false};
 	}
 }
 

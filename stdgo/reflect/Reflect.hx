@@ -922,7 +922,7 @@ interface Type {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
 	public function method(arg0:GoInt):Method;
-	public function methodByName(arg0:GoString):{var v0:Method; var v1:Bool;};
+	public function methodByName(arg0:GoString):{var _0:Method; var _1:Bool;};
 	public function numMethod():GoInt;
 	public function name():GoString;
 	public function pkgPath():GoString;
@@ -939,8 +939,8 @@ interface Type {
 	public function elem():Type;
 	public function field(i:GoInt):StructField;
 	public function fieldByIndex(index:Slice<GoInt>):StructField;
-	public function fieldByName(name:GoString):{var v0:StructField; var v1:Bool;};
-	public function fieldByNameFunc(match:GoString->Bool):{var v0:StructField; var v1:Bool;};
+	public function fieldByName(name:GoString):{_0:StructField, _1:Bool};
+	public function fieldByNameFunc(match:GoString->Bool):{_0:StructField, _1:Bool};
 	public function in_(i:GoInt):Type;
 	public function key():Type;
 	public function len():GoInt;
@@ -994,15 +994,15 @@ class _Type implements StructType implements Type {
 	public function fieldByIndex(index:Slice<GoInt>):StructField
 		return null; // TODO
 
-	public function fieldByName(name:GoString):{v0:StructField, v1:Bool} {
+	public function fieldByName(name:GoString):{_0:StructField, _1:Bool} {
 		throw "not implemeneted"; // TODO
 	}
 
-	public function fieldByNameFunc(match:GoString->Bool):{var v0:StructField; var v1:Bool;} {
+	public function fieldByNameFunc(match:GoString->Bool):{_0:StructField, _1:Bool} {
 		throw "not implemented"; // TODO
 	}
 
-	public function methodByName(name:GoString):{v0:Method, v1:Bool} {
+	public function methodByName(name:GoString):{_0:Method, _1:Bool} {
 		throw "not implemented"; // TODO
 	}
 
@@ -1401,11 +1401,11 @@ class _Type implements StructType implements Type {
 
 	public function get(key:GoString):GoString {
 		var obj = lookup(key);
-		var v = obj.value;
+		var v = obj._0;
 		return v;
 	}
 
-	public function lookup(key:GoString):{value:GoString, ok:Bool} {
+	public function lookup(key:GoString):{_0:GoString, _1:Bool} {
 		var tag = __t__;
 		var value:GoString = (("" : GoString)), ok:Bool = false;
 		while (tag != (("" : GoString))) {
@@ -1444,15 +1444,15 @@ class _Type implements StructType implements Type {
 			tag = tag.slice(i + ((1 : GoInt64)));
 			if (key == name) {
 				var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue),
-					value = __tmp__._i,
-					err = __tmp__._err;
+					value = __tmp__._0,
+					err = __tmp__._1;
 				if (err != null) {
 					break;
 				};
-				return {value: value, ok: true};
+				return {_0: value, _1: true};
 			};
 		};
-		return {value: "", ok: false};
+		return {_0: "", _1: false};
 	}
 }
 

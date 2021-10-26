@@ -28,7 +28,7 @@ class OutputWriter implements stdgo.io.Io.Writer {
 		this.output = output;
 	}
 
-	public function write(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
 		return {_n: 0, _err: null};
@@ -59,28 +59,28 @@ function isNotExist(err:Error):Bool {
 	return false;
 }
 
-inline function open(name:GoString):{v0:Pointer<File>, v1:Error} {
-	return {v0: null, v1: stdgo.errors.Errors.new_("unable to open")};
+inline function open(name:GoString):{_0:Pointer<File>, _1:Error} {
+	return {_0: null, _1: stdgo.errors.Errors.new_("unable to open")};
 }
 
-inline function lookupEnv(path:GoString):{_value:GoString, _ok:Bool} {
+inline function lookupEnv(path:GoString):{_0:GoString, _1:Bool} {
 	var e = Sys.getEnv(path);
 	if (e == null)
-		return {_value: "", _ok: false};
-	return {_value: e, _ok: true};
+		return {_0: "", _1: false};
+	return {_0: e, _1: true};
 }
 
 inline function mkdirAll(path:GoString, ?perm:GoInt):Error {
 	return mkdir(path, perm);
 }
 
-inline function create(path:GoString):{v0:Pointer<File>, v1:Error} {
+inline function create(path:GoString):{_0:Pointer<File>, _1:Error} {
 	var dir = haxe.io.Path.directory(path);
 	if (!sys.FileSystem.exists(dir))
 		sys.FileSystem.createDirectory(dir);
 	sys.io.File.saveContent(path, "");
 	var file = new stdgo.os.Os.File(sys.io.File.read(path), sys.io.File.write(path));
-	return {v0: Go.pointer(file), v1: null};
+	return {_0: Go.pointer(file), _1: null};
 }
 
 inline function exit(code:GoInt) {
@@ -142,17 +142,17 @@ class File implements stdgo.io.Io.Writer implements stdgo.io.Io.Reader {
 		this.output = output;
 	}
 
-	public function write(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		for (c in p)
 			output.writeByte(c.toBasic());
-		return {_n: p.length, _err: null};
+		return {_0: p.length, _1: null};
 	}
 
-	public function read(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+	public function read(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		for (i in 0...p.length.toBasic()) {
 			p[i] = (input.readByte() : GoByte);
 		}
-		return {_n: p.length, _err: null};
+		return {_0: p.length, _1: null};
 	}
 
 	public function close():Error {

@@ -12,18 +12,18 @@ class Builder implements StructType implements stdgo.io.Io.Writer {
 		stdgo.internal.Macro.initLocals();
 	}
 
-	public function write(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
+	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		buf.add((p : GoString).toString());
-		return {_n: p.length, _err: null};
+		return {_0: p.length, _1: null};
 	}
 
-	public function read(p:Slice<GoByte>):{_n:GoInt, _err:Error} {
-		return {_n: 0, _err: null};
+	public function read(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
+		return {_0: 0, _1: null};
 	}
 
-	public function writeString(s:GoString):{v0:GoInt, v1:Error} {
+	public function writeString(s:GoString):{_0:GoInt, _1:Error} {
 		buf.add(s.toString());
-		return {v0: s.length, v1: null};
+		return {_0: s.length, _1: null};
 	}
 
 	public function toString():GoString
@@ -147,8 +147,8 @@ class Replacer {
 		return s;
 	}
 
-	public function writeString(w:stdgo.io.Io.Writer):{_n:GoInt, _err:Error} {
-		return {_n: 0, _err: null};
+	public function writeString(w:stdgo.io.Io.Writer):{_0:GoInt, _1:Error} {
+		return {_0: 0, _1: null};
 	}
 }
 

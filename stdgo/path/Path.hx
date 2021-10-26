@@ -36,10 +36,10 @@ function join(elem:Rest<String>):GoString {
 	return haxe.io.Path.join(elem.toArray());
 }
 
-function math(pattern:String, name:String):{value:Bool, ?error:stdgo.Error} {
-	return {value: true};
+function math(pattern:String, name:String):{_0:Bool, ?_1:stdgo.Error} {
+	return {_0: true};
 }
 
-function split(path:String):{dir:GoString, file:GoString} {
-	return {dir: dir(path), file: path.withoutDirectory()};
+function split(path:String):{_0:GoString, _1:GoString} {
+	return {_0: dir(path), _1: path.withoutDirectory()};
 }

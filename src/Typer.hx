@@ -2151,7 +2151,7 @@ private function iotaExpr(info:Info):Expr {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
-	if (expr.name == "iota" && !isSelect) {
+	if (!info.renameIdents.exists("iota") && expr.name == "iota" && !isSelect) {
 		return iotaExpr(info).expr;
 	}
 	var name = nameIdent(expr.name, true, false, info);
@@ -4867,17 +4867,27 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 	name = nameAscii(name);
 	if (name == "_")
 		return "_";
-	if (name == "nil")
-		return "null";
 	if (name == "null")
 		return "nil";
-	if (name == "false" || name == "true" || name == "main")
+	if (name == "main")
 		return name;
 	if (name == "False" || name == "True" || name == "Main")
 		return "_" + name;
 	if (name == "String")
 		return "toString";
 	var oldName = name;
+	if (overwrite) { // either an overwrite or a rename has been set
+		if (name == "nil") {
+			name = "_null";
+			info.renameIdents[oldName] = name;
+			return name;
+		}
+		if (name == "false" || name == "true") {
+			name = "_" + name;
+			info.renameIdents[oldName] = name;
+			return name;
+		}
+	}
 	if (info.renameIdents.exists(name) && rename) {
 		name = info.renameIdents[name];
 	} else {

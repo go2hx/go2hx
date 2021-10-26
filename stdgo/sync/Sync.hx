@@ -30,7 +30,10 @@ class RWMutex implements StructType {
 	public function runlock() {}
 }
 
+@:structInit
 class Mutex implements StructType implements Locker {
+	public function new() {}
+
 	public function __underlying__():AnyInterface
 		return null;
 

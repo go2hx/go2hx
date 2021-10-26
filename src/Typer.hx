@@ -1828,6 +1828,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							}
 						}
 					default:
+						types.push(t);
 				}
 				var assigns:Array<Expr> = [];
 				for (i in 0...stmt.lhs.length) {
@@ -1835,10 +1836,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						continue;
 					final e = typeExpr(stmt.lhs[i], info);
 					final fieldName = names[i];
-					final type = toComplexType(types[i], info);
 					var e2 = macro __tmp__.$fieldName;
-					e2 = assignTranslate(t, typeof(stmt.lhs[i]), e2, info);
-					assigns.push(macro $e = (${e2} : $type));
+					e2 = assignTranslate(types[i], typeof(stmt.lhs[i]), e2, info);
+					assigns.push(macro $e = ${e2});
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
 			} else {

@@ -21,6 +21,10 @@ function gc() {
 	// run garbage collector
 }
 
+function breakpoint() {
+	throw "break";
+}
+
 function memProfile(p:Slice<MemProfileRecord>, inUseZero:Bool):{_0:GoInt, _1:Bool} {
 	return {_0: 0, _1: false};
 }

@@ -4887,6 +4887,11 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 			info.renameIdents[oldName] = name;
 			return name;
 		}
+	} else {
+		if (name == "nil")
+			return "null";
+		if (name == "false" || name == "true")
+			return name;
 	}
 	if (info.renameIdents.exists(name) && rename) {
 		name = info.renameIdents[name];

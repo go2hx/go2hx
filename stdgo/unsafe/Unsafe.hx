@@ -22,6 +22,9 @@ abstract UnsafePointer(Pointer<Dynamic>) from Pointer<Dynamic> to Pointer<Dynami
 	@:to inline function toDynamic():Dynamic {
 		return this.value;
 	}
+
+	public function isNil()
+		return false;
 }
 
 function sizeof(x:AnyInterface):GoUIntptr {

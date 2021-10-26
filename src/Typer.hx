@@ -4252,12 +4252,10 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var underlyingType = getUnderlying(t);
 	var underlyingComplexType = toComplexType(underlyingType, info);
 	var e = macro t;
-	e = assignTranslate(underlyingType, t, e, info, false);
-	var ct = typeExprType(spec.type, info);
-	var value = defaultValue(t, info, false);
+	var ct = underlyingComplexType; // typeExprType(spec.type, info);
+	var value = defaultValue(underlyingType, info, false);
 	var p:TypePath = {name: name, pack: []};
 	var copyT = macro __t__;
-	copyT = assignTranslate(t, underlyingType, copyT, info, false);
 	copyT = passByCopy(t, copyT, info);
 	var fields:Array<Field> = [
 		{
@@ -4311,81 +4309,99 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var meta = [{name: ":named", pos: null}];
 	var superClass:TypePath = null;
 	var isInterface = false;
-	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
-		case sliceType(elem):
-			fields.push({
-				name: "append",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [
-						{name: "args", type: TPath({name: "Rest", pack: ["haxe"], params: [TPType(toComplexType(elem, info))]})}
-					],
-					expr: macro return new $p(this.__t__.append(...args)),
-				})
-			});
-			fields.push({
-				name: "slice",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-					expr: macro return new $p(this.__t__.slice(low, high)),
-				})
-			});
-		case arrayType(elem, _):
-			fields.push({
-				name: "slice",
-				pos: null,
-				access: [APublic],
-				kind: FFun({
-					args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-					expr: macro return this.__t__.slice(low, high),
-				})
-			});
-		case named(_, _, _, _):
-			final type = getUnderlying(t); // get underlying of named named
-			final path = getTypePath(t, info);
-			superClass = path;
-			fields = [];
-			final params:Array<Expr> = [];
-			final args:Array<FunctionArg> = [];
-			switch type {
-				case structType(fs):
-					for (field in fs) {
-						final name = nameIdent(field.name, true, false, info);
-						params.push(macro $i{name});
-						args.push({opt: true, name: name});
-					}
-					meta.push({name: ":structInit", pos: null});
-					fields = [
-						{
-							name: "new",
-							pos: null,
-							access: [APublic],
-							kind: FFun({
-								args: args,
-								expr: macro super($a{params}),
-							}),
-						}
-					];
-				case interfaceType(empty, _, _): // must be an InterfaceType
-					if (empty)
-						return {
-							name: name,
-							pos: null,
-							pack: [],
-							fields: [],
-							meta: [{name: ":follow", pos: null}],
-							kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
-						};
-					isInterface = true;
+	var func = null;
+	func = function() {
+		switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
+			case sliceType(elem):
+				fields.push({
+					name: "append",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [
+							{name: "args", type: TPath({name: "Rest", pack: ["haxe"], params: [TPType(toComplexType(elem, info))]})}
+						],
+						expr: macro return new $p(this.__t__.append(...args)),
+					})
+				});
+				fields.push({
+					name: "slice",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
+						expr: macro return new $p(this.__t__.slice(low, high)),
+					})
+				});
+			case arrayType(elem, _):
+				fields.push({
+					name: "slice",
+					pos: null,
+					access: [APublic],
+					kind: FFun({
+						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
+						expr: macro return this.__t__.slice(low, high),
+					})
+				});
+			case named(_, _, _, _):
+				if (!isNamed(t)) { // is Struct or Interface
+					final path = getTypePath(t, info);
+					final type = getUnderlying(t);
+					superClass = path;
 					fields = [];
-					implicits = [];
-				default:
-			}
-		default:
+					final params:Array<Expr> = [];
+					final args:Array<FunctionArg> = [];
+					switch type {
+						case structType(fs):
+							for (field in fs) {
+								final name = nameIdent(field.name, true, false, info);
+								params.push(macro $i{name});
+								args.push({opt: true, name: name});
+							}
+							meta.push({name: ":structInit", pos: null});
+							fields = [
+								{
+									name: "new",
+									pos: null,
+									access: [APublic],
+									kind: FFun({
+										args: args,
+										expr: macro super($a{params}),
+									}),
+								},
+								{
+									name: "__copy__",
+									pos: null,
+									access: [APublic, AOverride],
+									kind: FFun({
+										args: [],
+										expr: macro return new $p($a{params}),
+									}),
+								}
+							];
+						case interfaceType(empty, _, _):
+							if (empty)
+								return true;
+							isInterface = true;
+							fields = [];
+							implicits = [];
+						default: // must be an InterfaceType
+							throw "not an interface";
+					}
+				}
+			default:
+		}
+		return false;
 	}
+	if (func())
+		return {
+			name: name,
+			pos: null,
+			pack: [],
+			fields: [],
+			meta: [{name: ":follow", pos: null}],
+			kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+		};
 	return {
 		name: name,
 		pos: null,

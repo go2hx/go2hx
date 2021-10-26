@@ -135,8 +135,7 @@ function isNamed(type:GoType):Bool {
 			switch underlying {
 				case structType(_): false;
 				case interfaceType(_, _, _): false;
-				case named(_, _, _, type):
-					isNamed(type);
+				case named(_, _, _, type): isNamed(type);
 				default: true;
 			}
 		default: false;
@@ -1856,4 +1855,10 @@ function deepEqual(x:AnyInterface, y:AnyInterface):Bool {
 	var v1 = valueOf(x);
 	var v2 = valueOf(y);
 	return deepValueEqual(v1, v2, null, 0);
+}
+
+function indirect(v:Value):Value {
+	if (v.kind() != ptr)
+		return v;
+	return v.elem();
 }

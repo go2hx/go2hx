@@ -74,16 +74,6 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 		return p.get();
 	}
 
-	@:op([])
-	private function get<T>(index:GoInt):T {
-		return ((this.get() : Dynamic) : GoArray<T>)[index];
-	}
-
-	@:op([])
-	private function set<T>(index:GoInt, value:T):T {
-		return ((this.get() : Dynamic) : GoArray<T>)[index] = value;
-	}
-
 	public function hasSet()
 		return this.hasSet;
 }

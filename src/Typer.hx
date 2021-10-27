@@ -3597,9 +3597,12 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		x = macro $x.__t__;
 	t = getUnderlying(t);
 	if (isPointer(t)) {
+		x = macro $x.value;
 		t = getElem(t);
-		if (isNamed(t))
+		if (isNamed(t)) {
+			x = macro $x.__t__;
 			t = getUnderlying(t);
+		}
 	}
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):

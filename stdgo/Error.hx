@@ -2,8 +2,8 @@ package stdgo;
 
 import stdgo.GoString;
 import stdgo.StdGoTypes.AnyInterface;
+import stdgo.StdGoTypes.StructType;
 
-interface Error {
-	public function __underlying__():AnyInterface;
+interface Error extends StructType {
 	public function error():GoString;
 }

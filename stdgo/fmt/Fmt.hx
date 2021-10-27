@@ -9,43 +9,38 @@ import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes.GoRune;
+import stdgo.StdGoTypes.StructType;
 import stdgo.io.Io.Writer;
 
-interface Formatter {
+interface Formatter extends StructType {
 	public function format(_f:State, _verb:GoRune):Void;
-	public function __underlying__():AnyInterface;
 }
 
-interface Scanner {
+interface Scanner extends StructType {
 	public function scan(_state:ScanState, _verb:GoRune):Error;
-	public function __underlying__():AnyInterface;
 }
 
-interface ScanState {
+interface ScanState extends StructType {
 	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;};
 	public function unreadRune():Error;
 	public function skipSpace():Void;
 	public function token(_skipSpace:Bool, _f:GoRune->Bool):{var _0:Slice<GoByte>; var _1:Error;};
 	public function width():{var _0:GoInt; var _1:Bool;};
 	public function read(_buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
-	public function __underlying__():AnyInterface;
 }
 
-interface State {
+interface State extends StructType {
 	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 	public function width():{var _0:GoInt; var _1:Bool;};
 	public function precision():{var _0:GoInt; var _1:Bool;};
 	public function flag(_c:GoInt):Bool;
-	public function __underlying__():AnyInterface;
 }
 
-interface Stringer {
-	public function __underlying__():AnyInterface;
+interface Stringer extends StructType {
 	function toString():GoString;
 }
 
-interface GoStringer {
-	public function __underlying__():AnyInterface;
+interface GoStringer extends StructType {
 	function goString():GoString;
 }
 

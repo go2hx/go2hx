@@ -917,7 +917,7 @@ function valueOf(iface:AnyInterface):Value {
 		return __t__;
 }
 
-interface Type {
+interface Type extends StructType {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
 	public function method(arg0:GoInt):Method;
@@ -947,7 +947,6 @@ interface Type {
 	public function numIn():GoInt;
 	public function numOut():GoInt;
 	public function out(i:GoInt):Type;
-	public function __underlying__():AnyInterface;
 
 	private function common():Pointer<Dynamic>;
 	private function uncommon():Pointer<Dynamic>;

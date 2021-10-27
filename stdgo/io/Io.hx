@@ -16,55 +16,45 @@ interface StringWriter {
 	public function writeString(s:GoString):{_0:GoInt, _1:Error};
 }
 
-interface ByteReader {
+interface ByteReader extends StructType {
 	public function readByte():{_0:GoByte, _1:Error};
-	public function __underlying__():AnyInterface;
 }
 
-interface ByteScanner extends ByteReader {
+interface ByteScanner extends ByteReader extends StructType {
 	public function unreadByte():Error;
-	public function __underlying__():AnyInterface;
 }
 
-interface ByteWriter {
+interface ByteWriter extends StructType {
 	public function writeByte(_c:GoByte):Error;
-	public function __underlying__():AnyInterface;
 }
 
-interface RuneReader {
+interface RuneReader extends StructType {
 	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;};
-	public function __underlying__():AnyInterface;
 }
 
-interface RuneScanner extends RuneReader {
+interface RuneScanner extends RuneReader extends StructType {
 	public function unreadRune():Error;
-	public function __underlying__():AnyInterface;
 }
 
-interface ReaderFrom {
+interface ReaderFrom extends StructType {
 	public function readFrom(_r:Reader):{var _0:GoInt64; var _1:Error;};
-	public function __underlying__():AnyInterface;
 }
 
-interface ReaderAt {
+interface ReaderAt extends StructType {
 	public function readAt(_p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;};
-	public function __underlying__():AnyInterface;
 }
 
-interface Writer {
-	public function __underlying__():AnyInterface;
+interface Writer extends StructType {
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error};
 }
 
-interface Closer {
-	public function __underlying__():AnyInterface;
+interface Closer extends StructType {
 	public function close():Error;
 }
 
 interface ReadCloser extends Reader extends Closer {}
 
-interface Reader {
-	public function __underlying__():AnyInterface;
+interface Reader extends StructType {
 	public function read(p:Slice<GoByte>):{_0:GoInt, _1:Error};
 }
 

@@ -953,7 +953,6 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				}
 			default:
 		}
-
 	function namedCheckCast(from:GoType, to:GoType) {
 		var fromNamed = isNamed(from);
 		var toNamed = isNamed(to);
@@ -994,10 +993,10 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 		args.unshift(macro cast($e, $ct)); // add to start, allows correct interface casting
 		return macro Go.smartcast($a{args}); // add all args to smart cast macro function
 	}
-
 	if (isStruct(from) && isStruct(to)) {
 		switch to {
-			case named(path, _, _, underlying):
+			case named(path, _, _, _):
+				final underlying = getUnderlying(to);
 				var p = namedTypePath(path, info);
 				var exprs:Array<Expr> = [];
 				switch underlying {
@@ -1007,6 +1006,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 							exprs.push(macro $e.$field);
 						}
 					default:
+						throw "not a struct";
 				}
 				return macro new $p($a{exprs});
 			default:
@@ -4888,6 +4888,25 @@ private function nameAscii(name:String):String {
 	return name;
 }
 
+private function formatHaxeFieldName(name:String) {
+	return nameIdent(name, false, false, null);
+}
+
+private function untitle(name:String):String {
+	if (isTitle(name)) { // nicer styling turns "GC" -> "gc" instead of "gC"
+		var index = 0;
+		while (index < name.length) {
+			if (!isTitle(name.charAt(index)))
+				break;
+			index++;
+		}
+		name = name.substr(0, index).toLowerCase() + name.substring(index);
+	} else {
+		name = "_" + name;
+	}
+	return name;
+}
+
 private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
 	name = nameAscii(name);
 	if (name == "_")
@@ -4918,26 +4937,16 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 		if (name == "false" || name == "true")
 			return name;
 	}
-	if (info.renameIdents.exists(name) && rename) {
+	if (rename && info.renameIdents.exists(name)) {
 		name = info.renameIdents[name];
 	} else {
 		if (name.charAt(0) == "_") {
 			name = name = "_" + name;
 		} else {
-			if (isTitle(name)) { // nicer styling turns "GC" -> "gc" instead of "gC"
-				var index = 0;
-				while (index < name.length) {
-					if (!isTitle(name.charAt(index)))
-						break;
-					index++;
-				}
-				name = name.substr(0, index).toLowerCase() + name.substring(index);
-			} else {
-				name = "_" + name;
-			}
+			name = untitle(name);
 		}
 	}
-	if (info.restricted != null && info.restricted.indexOf(name) != -1 && rename) {
+	if (rename && info.restricted != null && info.restricted.indexOf(name) != -1) {
 		name = getRestrictedName(name, info);
 	}
 	if (reserved.indexOf(name) != -1)
@@ -4958,10 +4967,6 @@ private function normalizePath(path:String):String {
 			path[i] += "_";
 	}
 	return path.join("/");
-}
-
-private function formatHaxeFieldName(name:String) {
-	return (!isTitle(name) ? "_" : "") + name;
 }
 
 class Global {

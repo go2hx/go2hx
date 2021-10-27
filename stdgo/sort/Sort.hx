@@ -151,3 +151,9 @@ private function swap<T>(a:Slice<T>, i, j) {
 private inline function compare<T>(a:Slice<T>, cmp:Int->Int->Int, i:Int, j:Int) {
 	return cmp(i, j);
 }
+
+interface Interface extends StructType {
+	public function len():GoInt;
+	public function less(i:GoInt, j:GoInt):Bool;
+	public function swap(i:GoInt, j:GoInt):Void;
+}

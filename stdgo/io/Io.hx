@@ -53,9 +53,14 @@ interface Closer extends StructType {
 }
 
 interface ReadCloser extends Reader extends Closer {}
+interface ReadWriter extends Reader extends Writer {}
 
 interface Reader extends StructType {
 	public function read(p:Slice<GoByte>):{_0:GoInt, _1:Error};
+}
+
+interface WriterTo extends StructType {
+	public function writeTo(w:Writer):{_0:GoInt64, _1:Error};
 }
 
 function readAll(r:Reader):{_0:Slice<GoByte>, _1:Error} {

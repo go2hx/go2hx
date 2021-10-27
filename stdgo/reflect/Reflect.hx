@@ -151,12 +151,9 @@ function isStruct(type:GoType):Bool {
 		return false;
 	return switch type {
 		case named(_, _, _, underlying):
-			switch underlying {
-				case structType(_): true;
-				case named(_, _, _, type):
-					isStruct(type);
-				default: false;
-			}
+			isStruct(underlying);
+		case structType(_):
+			true;
 		default: false;
 	}
 }

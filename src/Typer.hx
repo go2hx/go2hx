@@ -717,14 +717,18 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
-	var key = typeExpr(stmt.key, info); // iterator int
+	var key = stmt.tok == DEFINE ? macro $i{
+		nameIdent(stmt.key.name, false, true, info)
+	} : typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x);
 	if (isNamed(xType))
 		x = macro $x.__t__;
 	var hasDefer = false;
+	var value = stmt.value != null ? (stmt.tok == DEFINE ? macro $i{
+		nameIdent(stmt.value.name, false, true, info)
+	} : typeExpr(stmt.value, info)) : null; // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
-	var value = stmt.value != null ? typeExpr(stmt.value, info) : null; // value of x[key]
 	if (key != null && key.expr.match(EConst(CIdent("_")))) {
 		if (stmt.tok == DEFINE) {
 			return (macro for ($value in $x) $body).expr; // iterate through values using "in" for loop

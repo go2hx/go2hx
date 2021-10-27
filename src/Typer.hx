@@ -1219,6 +1219,8 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 	if (value != null) {
 		if (isInterface(typeX) || isInterface(typeY))
 			return toExpr(EBinop(op, x, y));
+		if (isNamed(nilType))
+			nilType = getUnderlying(nilType);
 		switch nilType {
 			case signature(_, _, _, _), interfaceType(_, _, _):
 				switch op {

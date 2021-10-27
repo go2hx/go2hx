@@ -2,7 +2,19 @@ package stdgo.io;
 
 import stdgo.StdGoTypes;
 
-var eof = stdgo.errors.Errors.new_("EOF");
+final seekEnd:GoInt64 = ((2 : GoUnTypedInt));
+final seekCurrent:GoInt64 = ((1 : GoUnTypedInt));
+final seekStart:GoInt64 = ((0 : GoUnTypedInt));
+var errNoProgress:stdgo.Error = stdgo.errors.Errors.new_("multiple Read calls return no data or error");
+var errShortBuffer:stdgo.Error = stdgo.errors.Errors.new_("short buffer");
+var errUnexpectedEOF:stdgo.Error = stdgo.errors.Errors.new_("unexpected EOF");
+var eof:stdgo.Error = stdgo.errors.Errors.new_("EOF");
+var _errInvalidWrite:stdgo.Error = stdgo.errors.Errors.new_("invalid write result");
+var errShortWrite:stdgo.Error = stdgo.errors.Errors.new_("short write");
+
+interface StringWriter {
+	public function writeString(s:GoString):{_0:GoInt, _1:Error};
+}
 
 interface ByteReader {
 	public function readByte():{_0:GoByte, _1:Error};
@@ -43,6 +55,13 @@ interface Writer {
 	public function __underlying__():AnyInterface;
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error};
 }
+
+interface Closer {
+	public function __underlying__():AnyInterface;
+	public function close():Error;
+}
+
+interface ReadCloser extends Reader extends Closer {}
 
 interface Reader {
 	public function __underlying__():AnyInterface;

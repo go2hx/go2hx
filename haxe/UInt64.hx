@@ -92,13 +92,13 @@ abstract UInt64(Int64) from Int64 to Int64 {
 	@:commutative @:op(A & B) private static function andI(lhs:UInt64, rhs:Int):UInt64;
 
 	@:op(A << B) private static function shl(lhs:UInt64, rhs:Int):UInt64
-		return Int64.shl(lhs, rhs);
+		return (lhs : Int64) << rhs;
 
 	@:op(A >> B) private static function shr(lhs:UInt64, rhs:Int):UInt64
-		return Int64.shr(lhs, rhs);
+		return (lhs : Int64) >>> rhs;
 
 	@:op(A >>> B) private static function ushr(lhs:UInt64, rhs:Int):UInt64
-		return Int64.ushr(lhs, rhs);
+		return (lhs : Int64) >>> rhs;
 
 	@:op(A > B) private static function gt(lhs:UInt64, rhs:UInt64):Bool {
 		final aNeg = (lhs : Int64) < 0;

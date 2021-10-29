@@ -961,7 +961,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 		if (fromNamed && !toNamed && !isInterface(to) && !isInvalid(to)) {
 			return macro $e.__t__;
 		}
-		if (toNamed && !fromNamed) {
+		if (toNamed) {
 			switch ct {
 				case TPath(p):
 					e = assignTranslate(from, getUnderlying(to), e, info);

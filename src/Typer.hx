@@ -4729,7 +4729,7 @@ private function errorTypePath():TypePath
 private function errorType()
 	return TPath(errorTypePath());
 
-private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
+private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	var doc = getDoc(imp);
 	final path = normalizePath(imp.path.value);
 	final pack = path.split("/");
@@ -4742,14 +4742,17 @@ private function typeImport(imp:Ast.ImportSpec, info:Info):ImportType {
 	final name = pack[pack.length - 1];
 	pack.push(importClassName(name)); // shorten path here
 	if (alias != null && alias != "") {
-		info.renameIdents[alias] = pack.join(".");
+		if (alias == ".") {
+			info.data.imports.push({
+				path: pack,
+				alias: "",
+				doc: doc,
+			});
+		} else {
+			info.renameIdents[alias] = pack.join(".");
+		}
 	} else {
 		info.renameIdents[name] = pack.join(".");
-	}
-	return {
-		path: pack,
-		alias: alias,
-		doc: doc,
 	}
 }
 

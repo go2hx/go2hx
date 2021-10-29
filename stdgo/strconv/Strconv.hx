@@ -87,7 +87,7 @@ inline function atoi(s:GoString) {
 }
 
 inline function itoa(i:GoInt):GoString
-	return '$i';
+	return Std.string(i.toBasic());
 
 class NumError implements Error {
 	public function __underlying__():AnyInterface

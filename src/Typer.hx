@@ -649,16 +649,16 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 				default:
 					macro recover_exception != null ?throw recover_exception:$e;
 			}
-			exprs.unshift(macro var defertack:Array<Void->Void> = []);
+			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
 			// recover
-			exprs.unshift(macro var recover_exception:AnyInterface = null);
+			exprs.unshift(macro var recover_exception:Error = null);
 			var pos = 2 + info.returnNames.length;
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 				{
 					name: "e",
 					expr: macro {
-						recover_exception = e;
+						recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
 						$ret;
 					}
 				}
@@ -666,7 +666,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
 		} else if (info.recoverBool && isFunc) {
-			exprs.unshift(macro var recover_exception:AnyInterface = null);
+			exprs.unshift(macro var recover_exception:Error = null);
 		}
 	return EBlock(exprs);
 }

@@ -279,7 +279,7 @@ class Go {
 
 	public static macro function recover() {
 		return untyped macro {
-			var r = recover_exception != null ? stdgo.runtime.Runtime.newRuntime(recover_exception.toString()) : null;
+			final r = recover_exception != null ? Go.toInterface(recover_exception) : null;
 			recover_exception = null;
 			r;
 		}

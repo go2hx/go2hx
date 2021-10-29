@@ -45,7 +45,7 @@ private typedef UInt64 = haxe.UInt64;
 private typedef Float = StdTypes.Float;
 private typedef Float32 = #if simulate_num Float #elseif (java || cs || hl || cpp) StdTypes.Single; #else Float; #end
 private typedef Float64 = #if simulate_num Float; #elseif cpp cpp.Float64; #else Float; #end
-typedef GoUnTypedInt = GoInt64;
+typedef GoUnTypedInt = GoUInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
 

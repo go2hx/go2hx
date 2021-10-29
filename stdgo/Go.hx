@@ -127,7 +127,10 @@ class Go {
 			default:
 		}
 		var ty = gtDecode(t, expr, []);
-		return macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
+		var e = macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
+		if (!gtIsBasic(t))
+			e = macro $expr == null ? null : $e;
+		return e;
 	}
 
 	public static macro function smartcast(expr:Expr, toPointer:Bool = false) {
@@ -317,6 +320,73 @@ class Go {
 		return pTypes;
 	}
 
+	public static function gtIsBasic(t:haxe.macro.Type):Bool {
+		return switch (t) {
+			case TType(t, params):
+				final name = t.get().name;
+				switch name {
+					case "GoUnTypedInt":
+						true;
+					case "GoUnTypedFloat":
+						true;
+					case "GoUnTypedComplex":
+						true;
+					case "GoRune":
+						true;
+					case "GoByte":
+						true;
+					default:
+						false;
+				}
+			case TAbstract(ref, _):
+				var sref:String = ref.toString();
+				return switch (sref) {
+					case "stdgo.GoInt8":
+						true;
+					case "stdgo.GoInt16":
+						true;
+					case "stdgo.GoInt32":
+						true;
+					case "stdgo.GoInt", "Int":
+						true;
+					case "stdgo.GoInt64":
+						true;
+					case "stdgo.GoUInt8":
+						true;
+					case "stdgo.GoUInt16":
+						true;
+					case "stdgo.GoUInt":
+						true;
+					case "stdgo.GoUInt32":
+						true;
+					case "stdgo.GoUInt64":
+						true;
+					case "stdgo.GoString", "String":
+						true;
+					case "stdgo.GoComplex64":
+						true;
+					case "stdgo.GoComplex128":
+						true;
+					case "stdgo.ComplexType":
+						true;
+					case "stdgo.GoFloat32":
+						true;
+					case "stdgo.GoFloat64", "Float":
+						true;
+					case "stdgo.FloatType":
+						true;
+					case "Bool":
+						true;
+					case "stdgo.GoUIntptr":
+						true;
+					default:
+						false;
+				}
+			default:
+				false;
+		}
+	}
+
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr = null, marked:Map<String, Bool>):Expr {
 		final marked = marked.copy();
 		var ret = macro stdgo.reflect.Reflect.GoType.invalidType;
@@ -395,10 +465,10 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(float64_kind);
 					case "Bool":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(bool_kind);
-					case "stdgo.AnyInterface":
-						ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
 					case "stdgo.GoUIntptr":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uintptr_kind);
+					case "stdgo.AnyInterface":
+						ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
 					case "haxe.Function":
 						ret = macro stdgo.reflect.Reflect.GoType.signature(false, [], [], stdgo.reflect.Reflect.GoType.invalidType);
 					case "Void":

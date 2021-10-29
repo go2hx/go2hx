@@ -637,7 +637,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null)
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
-		if (info.deferBool && isFunc) { // defer system
+		if (isFunc) { // defer system
 			final ret = switch typeReturnStmt({returnPos: 0, results: []}, info) {
 				case EBlock(exprs):
 					final last = exprs.pop();
@@ -646,7 +646,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 					exprs.push(last);
 					toExpr(EBlock(exprs));
 				default:
-					throw "return stmt not a block";
+					macro if (recover_exception != null)
+						throw recover_exception;
 			}
 			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));

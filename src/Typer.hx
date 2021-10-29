@@ -637,8 +637,9 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null)
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
-		if (isFunc) { // defer system
-			final ret = switch typeReturnStmt({returnPos: 0, results: []}, info) {
+		if (info.deferBool && isFunc) { // defer system
+			final e = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+			final ret = switch e.expr {
 				case EBlock(exprs):
 					final last = exprs.pop();
 					exprs.push(macro if (recover_exception != null)
@@ -646,13 +647,12 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 					exprs.push(last);
 					toExpr(EBlock(exprs));
 				default:
-					macro if (recover_exception != null)
-						throw recover_exception;
+					macro recover_exception != null ?throw recover_exception:$e;
 			}
-			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
+			exprs.unshift(macro var defertack:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
 			// recover
-			exprs.unshift(macro var recover_exception:Dynamic = null);
+			exprs.unshift(macro var recover_exception:AnyInterface = null);
 			var pos = 2 + info.returnNames.length;
 			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
 				{
@@ -665,6 +665,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			]); // don't include recover and defer stack
 			exprs = exprs.slice(0, pos);
 			exprs.push(toExpr(trydef));
+		} else if (info.recoverBool && isFunc) {
+			exprs.unshift(macro var recover_exception:AnyInterface = null);
 		}
 	return EBlock(exprs);
 }
@@ -2313,6 +2315,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						genArgs(false);
 						return returnExpr(macro throw ${args[0]});
 					case "recover":
+						info.recoverBool = true;
 						return returnExpr(macro Go.recover());
 					case "append":
 						genArgs(false);
@@ -3325,6 +3328,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 
 private function funcReset(info:Info) {
 	info.deferBool = false;
+	info.recoverBool = false;
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
@@ -5009,6 +5013,7 @@ class Info {
 	public var restricted:Array<String> = null;
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
+	public var recoverBool:Bool = false;
 	public var funcName:String = "";
 	public var gotoSystem:Bool = false;
 	public var returnNames:Array<String> = [];
@@ -5045,6 +5050,7 @@ class Info {
 		info.returnType = returnType;
 		info.returnNamed = returnNamed;
 		info.deferBool = deferBool;
+		info.recoverBool = recoverBool;
 		info.count = count;
 		info.funcName = funcName;
 		info.className = className;

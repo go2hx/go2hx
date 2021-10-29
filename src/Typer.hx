@@ -1120,14 +1120,14 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			switch block.expr {
 				case EBlock(exprs):
 					var type:ComplexType = toComplexType(assignType, info);
-					var set = macro $assign.__underlying__();
+					var set = macro $assign == null ? null : $assign.__underlying__();
 					if (types.length == 1) {
 						type = toComplexType(types[0], info);
 						if (!isAnyInterface(types[0]))
-							set = macro $set.value;
+							set = macro $set == null ? null : $set.value;
 					} else {
 						if (!isAnyInterface(assignType))
-							set = macro $set.value;
+							set = macro $set == null ? null : $set.value;
 					}
 
 					exprs.unshift(macro var $setVar:$type = $set);

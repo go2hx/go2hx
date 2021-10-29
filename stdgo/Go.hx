@@ -177,10 +177,12 @@ class Go {
 				switch et {
 					case TInst(cl, params):
 						var cl = cl.get();
-						if (cl.isInterface) e = macro $e.__underlying__();
+						if (cl.isInterface) e = macro $e == null ? null : $e.__underlying__();
 					default:
 				}
-				return macro {
+				return macro if ($e == null) {
+					false;
+				} else {
 					final v = new stdgo.reflect.Reflect._Type($value);
 					@:privateAccess stdgo.reflect.Reflect.directlyAssignable(v,
 						$e.type) || @:privateAccess stdgo.reflect.Reflect.implementsMethod(v, $e.type, false)

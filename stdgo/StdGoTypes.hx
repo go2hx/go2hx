@@ -2128,6 +2128,8 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		return this;
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
+		if (a == null || b == null) // null check
+			return a == null && b == null;
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}

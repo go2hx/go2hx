@@ -429,7 +429,7 @@ class Go {
 								if (type == null)
 									Context.error("unable to find __t__ type", Context.currentPos());
 								var interfaces:Array<Expr> = [];
-								var path = ref.module;
+								final path = createPath(ref.pack, ref.name);
 								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [], $a{interfaces}, ${gtDecode(type, null, marked)});
 							} else {
 								ret = gtDecodeClassType(ref, marked);

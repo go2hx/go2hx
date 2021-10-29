@@ -3516,7 +3516,7 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 	if (!selFunctionBool) {
 		final fields = getStructFields(typeX);
 		if (fields.length > 0) {
-			var chains:Array<String> = [];
+			var chains:Array<String> = []; // chains together a field selectors
 			function recursion(path:String, fields:Array<FieldType>) {
 				for (field in fields) {
 					var setPath = path + nameIdent(field.name, false, false, info);
@@ -3531,6 +3531,9 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 				}
 			}
 			recursion("", fields);
+			chains.sort((a, b) -> {
+				return a.length - b.length;
+			});
 			for (chain in chains) {
 				var field = chain.substr(chain.lastIndexOf(".") + 1);
 				if (field == sel) {

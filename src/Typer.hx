@@ -722,8 +722,7 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	} : typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x);
-	if (isNamed(xType))
-		x = macro $x.__t__;
+	x = destructureExpr(x, xType).x;
 	var hasDefer = false;
 	var value = stmt.value != null ? (stmt.tok == DEFINE ? macro $i{
 		nameIdent(stmt.value.name, false, true, info)
@@ -3580,6 +3579,21 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 	return checkType(e, type, typeof(expr.x), typeof(expr.type), info).expr;
 }
 
+private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
+	if (isNamed(t))
+		x = macro $x.__t__;
+	t = getUnderlying(t);
+	if (isPointer(t)) {
+		x = macro $x.value;
+		t = getElem(t);
+		if (isNamed(t)) {
+			x = macro $x.__t__;
+			t = getUnderlying(t);
+		}
+	}
+	return {x: x, t: t};
+}
+
 private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	switch x.expr {
@@ -3593,17 +3607,9 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 	}
 	var index = typeExpr(expr.index, info);
 	var t = typeof(expr.x);
-	if (isNamed(t))
-		x = macro $x.__t__;
-	t = getUnderlying(t);
-	if (isPointer(t)) {
-		x = macro $x.value;
-		t = getElem(t);
-		if (isNamed(t)) {
-			x = macro $x.__t__;
-			t = getUnderlying(t);
-		}
-	}
+	final obj = destructureExpr(x, t);
+	x = obj.x;
+	t = obj.t;
 	switch t {
 		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
 			index = assignTranslate(typeof(expr.index), basic(int_kind), index, info);

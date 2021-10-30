@@ -1894,7 +1894,7 @@ final yaegiOutput = [
     {name: "time3", output: ["23 4 5"]},
     {name: "time4", output: ["September"]},
     {name: "time5", output: ["46"]},
-    {name: "time6", output: ["1985-04-12 23:20:50.52 +0000 UTC"]},
+    {name: "time6", output: ["&1985-04-12 23:20:50.52 +0000 UTC"]}, //add pointer addr to match go2hx style
     {name: "time7", output: ["2s"]},
     {name: "time8", output: ["0s"]},
     {name: "time9", output: ["300"]},

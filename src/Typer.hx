@@ -1102,9 +1102,14 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 	function condition(obj:Ast.CaseClause, i:Int = 0) {
 		if (obj.list.length == 0)
 			return null;
-		final type = typeExprType(obj.list[i], info);
-		types.push(typeof(obj.list[i]));
-		final value = macro Go.assertable(($assign : $type));
+		final value = if (obj.list[i].name == "nil") {
+			types.push(interfaceType(true));
+			macro $assign == null;
+		} else {
+			final type = typeExprType(obj.list[i], info);
+			types.push(typeof(obj.list[i]));
+			macro Go.assertable(($assign : $type));
+		}
 		if (i + 1 >= obj.list.length)
 			return value;
 		final next = condition(obj, i + 1);

@@ -146,7 +146,7 @@ class B implements StructType implements TB {
 	public function stopTimer() {}
 
 	public function tempDir():GoString {
-		return "";
+		return "temp";
 	}
 
 	public function __underlying__():AnyInterface
@@ -231,7 +231,7 @@ class T_ implements StructType implements TB {
 	var failBool:Bool = false;
 	var output:StringBuf = null;
 
-	public function new(output:StringBuf) {
+	public function new(?output:StringBuf) {
 		this.output = output;
 	}
 
@@ -291,7 +291,7 @@ class T_ implements StructType implements TB {
 		return skipBool;
 
 	public function tempDir():GoString
-		return "";
+		return "temp";
 
 	public function __underlying__():AnyInterface
 		return null;

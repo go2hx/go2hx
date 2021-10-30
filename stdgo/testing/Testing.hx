@@ -5,6 +5,28 @@ import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.GoType;
 import stdgo.testing.internal.testdeps.Testdeps.TestDeps;
 
+interface TB extends StructType {
+	public function cleanup(arg0:() -> Void):Void;
+	public function error(_args:haxe.Rest<AnyInterface>):Void;
+	public function errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
+	public function fail():Void;
+	public function failNow():Void;
+	public function failed():Bool;
+	public function fatal(_args:haxe.Rest<AnyInterface>):Void;
+	public function fatalf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
+	public function helper():Void;
+	public function log(_args:haxe.Rest<AnyInterface>):Void;
+	public function logf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
+	public function name():GoString;
+	public function setenv(_key:GoString, _value:GoString):Void;
+	public function skip(_args:haxe.Rest<AnyInterface>):Void;
+	public function skipNow():Void;
+	public function skipf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
+	public function skipped():Bool;
+	public function tempDir():GoString;
+	// private function _private():Void;
+}
+
 class BenchmarkResult {
 	public var n:GoInt = 0;
 	public var t:Dynamic = null;
@@ -46,7 +68,7 @@ class PB implements StructType {
 }
 
 @:structInit
-class B implements StructType {
+class B implements StructType implements TB {
 	public var n:GoInt = 0;
 
 	var skipBool:Bool = false;
@@ -57,6 +79,11 @@ class B implements StructType {
 		if (n != null)
 			this.n = n;
 	}
+
+	public function setenv(key:GoString, value:GoString) {}
+
+	public function name():GoString
+		return "";
 
 	public function cleanup(f:Void->Void) {}
 
@@ -93,10 +120,6 @@ class B implements StructType {
 
 	public function logf(format:GoString, args:Rest<AnyInterface>) {}
 
-	public function name():GoString {
-		return "";
-	}
-
 	public function reportAllocs() {}
 
 	public function reportMetric(n:GoFloat64, uint:GoString) {}
@@ -108,8 +131,6 @@ class B implements StructType {
 	public function setBytes(n:GoInt64) {}
 
 	public function setParallelism(p:GoInt) {}
-
-	public function setEnv(key:GoString, value:GoString) {}
 
 	public function skip(args:Rest<AnyInterface>) {}
 
@@ -205,7 +226,7 @@ class F implements StructType {
 }
 
 @:structInit
-class T_ implements StructType {
+class T_ implements StructType implements TB {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	var output:StringBuf = null;
@@ -213,6 +234,9 @@ class T_ implements StructType {
 	public function new(output:StringBuf) {
 		this.output = output;
 	}
+
+	public function name():GoString
+		return "";
 
 	public function cleanup(f:Void->Void) {}
 

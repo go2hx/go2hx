@@ -2,6 +2,7 @@ package stdgo;
 
 import haxe.Rest;
 import haxe.ds.Vector;
+import haxe.io.Bytes;
 import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes.GoInt;
@@ -14,6 +15,22 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	@:from
 	public static function fromString(str:String):Slice<GoByte> {
 		return new GoString(str);
+	}
+
+	@:from
+	public static function fromBytes(bytes:Bytes):Slice<GoByte> {
+		return new Slice<GoByte>(...[
+			for (i in 0...bytes.length)
+				bytes.get(i)
+		]);
+	}
+
+	@:to
+	public static function toBytes(slice:Slice<GoByte>):Bytes {
+		final bytes = Bytes.alloc(slice.length.toBasic());
+		for (i in 0...bytes.length)
+			bytes.set(i, slice[i].toBasic());
+		return bytes;
 	}
 
 	@:from

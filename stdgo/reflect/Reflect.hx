@@ -1148,13 +1148,15 @@ class _Type implements StructType implements Type {
 			case signature(variadic, args, rets, _):
 				var r:GoString = "func(";
 				var preface = "";
-				for (arg in args) {
+				for (i in 0...args.length) {
 					r += preface;
 					preface = ", ";
-					r += new _Type(arg).toString();
+					final isVariadic = variadic && i == args.length - 1;
+					var str = new _Type(args[i]).toString();
+					if (isVariadic)
+						str = "..." + str.slice(2);
+					r += str;
 				}
-				if (variadic)
-					r += "...";
 				r += ")";
 				if (rets != null) {
 					if (rets.length > 0) {

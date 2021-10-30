@@ -430,7 +430,7 @@ class Go {
 						var ps = gtParams(params, marked);
 						ret = macro stdgo.reflect.Reflect.GoType.mapType($a{ps});
 					case "haxe.Rest":
-						ret = macro stdgo.reflect.Reflect.GoType.slice($a{gtParams(params, marked)});
+						ret = macro stdgo.reflect.Reflect.GoType.sliceType($a{gtParams(params, marked)});
 					case "stdgo.GoInt8":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int8_kind);
 					case "stdgo.GoInt16":
@@ -546,8 +546,19 @@ class Go {
 				if (!isVoid)
 					results.push(gtDecode(result, null, marked));
 				var variadic = macro false;
+				if (a.length > 0) {
+					final lastType = a[a.length - 1].t;
+					switch lastType {
+						case TAbstract(ref, _):
+							var sref:String = ref.toString();
+							switch (sref) {
+								case "haxe.Rest":
+									variadic = macro true;
+							}
+						default:
+					}
+				}
 				var recv = macro stdgo.reflect.Reflect.GoType.invalidType;
-				// TODO
 				ret = macro stdgo.reflect.Reflect.GoType.signature($variadic, $a{args}, $a{results}, $recv);
 			case TDynamic(t):
 				ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);

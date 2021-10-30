@@ -4147,7 +4147,7 @@ private function typeFieldListMethods(list:Ast.FieldList, info:Info):Array<Field
 			fields.push({
 				name: nameIdent(name, true, false, info),
 				pos: null,
-				access: typeAccess(n.name, true),
+				access: [APublic], // typeAccess(n.name, true),
 				kind: FFun({
 					args: params,
 					ret: ret,

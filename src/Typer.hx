@@ -1061,7 +1061,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 	var init:Expr = null;
 	if (stmt.init != null)
-		init = toExpr(typeSwitchStmt(stmt.init, info));
+		init = typeStmt(stmt.init, info);
 	var assign:Expr = null;
 	var assignType:GoType = null;
 	var setVar:String = "";
@@ -1171,6 +1171,17 @@ private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef 
 			}
 		};
 	}
+	if (init != null)
+		expr = switch expr.expr {
+			case EBlock(exprs):
+				exprs.unshift(init);
+				macro $b{exprs};
+			default:
+				macro {
+					$init;
+					$expr;
+				}
+		}
 	return expr.expr;
 }
 

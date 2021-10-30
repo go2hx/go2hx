@@ -162,6 +162,10 @@ private class MapData<K, V> {
 
 	public function toString():GoString {
 		var params:String = "";
+		final array = array.copy();
+		array.sort((a, b) -> {
+			return (a.key : Dynamic) > (b.key : Dynamic) ? -1 : 1;
+		});
 		for (obj in array) {
 			params = Go.string(obj.key) + ":" + Go.string(obj.value) + " " + params;
 		}

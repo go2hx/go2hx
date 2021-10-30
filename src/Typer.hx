@@ -609,7 +609,7 @@ private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {
 	if (stmt.list == null) {
-		if (info.returnTypes.length > 0)
+		if (isFunc && info.returnTypes.length > 0)
 			return (macro throw "not implemeneted").expr;
 		return (macro {}).expr;
 	}

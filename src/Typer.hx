@@ -3199,7 +3199,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 			} else {
 				final args = [
 					for (i in 0...expr.elts.length)
-						typeExpr(expr.elts[i], info)
+						assignTranslate(typeof(expr.elts[i]), fields[i].type, typeExpr(expr.elts[i], info), info)
 				];
 				final p = getTypePath(type, info);
 				return (macro new $p($a{args})).expr;

@@ -52,6 +52,8 @@ inline function getenv(path:GoString):GoString {
 	var e = Sys.getEnv(path);
 	if (path == "GOSSAINTERP")
 		return "1";
+	if (path == "GOARCH")
+		return stdgo.runtime.Runtime.goarch;
 	return e == null ? "" : e;
 }
 

@@ -3193,24 +3193,17 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 						expr: defaultValue(field.type, info, false),
 					});
 				}
+				var e = toExpr(EObjectDecl(objectFields));
+				final ct = toComplexType(type, info);
+				return (macro($e : $ct)).expr;
 			} else {
-				for (i in 0...fields.length) {
-					if (fields[i].name == "_")
-						continue;
-					objectFields.push({
-						field: nameIdent(fields[i].name, false, false, info),
-						expr: expr.elts.length > i ? {
-							var e = typeExpr(expr.elts[i], info);
-							e = assignTranslate(typeof(expr.elts[i]), fields[i].type, e, info);
-							e;
-						} : defaultValue(fields[i].type, info, false),
-					});
-				}
+				final args = [
+					for (i in 0...expr.elts.length)
+						typeExpr(expr.elts[i], info)
+				];
+				final p = getTypePath(type, info);
+				return (macro new $p($a{args})).expr;
 			}
-			var e = toExpr(EObjectDecl(objectFields));
-			final ct = toComplexType(type, info);
-			// return e.expr;
-			return (macro($e : $ct)).expr;
 		case sliceType(elem):
 			final p = getTypePath(type, info);
 			var exprs:Array<{index:Int, expr:Expr}> = [];

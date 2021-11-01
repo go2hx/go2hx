@@ -19,11 +19,11 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return String.fromCharCode(x.toBasic());
 	}
 
-	@:from static function ofSlice(x:Slice<GoByte>):GoString {
+	@:from static function ofSliceByte(x:Slice<GoByte>):GoString {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, x[i].toBasic());
-		return bytes.toString();
+		return bytes;
 	}
 
 	public function lastIndexOf(str:String, ?startIndex:Int):Int
@@ -89,6 +89,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 			end = length;
 		final pos = start.toBasic();
 		final len = end.toBasic() - start.toBasic();
+		trace(pos, len);
 		final bytes = this.sub(pos, len);
 		if (!UnicodeString.validate(bytes, UTF8))
 			return "";

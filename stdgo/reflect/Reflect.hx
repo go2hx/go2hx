@@ -914,6 +914,58 @@ function valueOf(iface:AnyInterface):Value {
 		return __t__;
 }
 
+@:structInit class StringHeader implements StructType {
+	public var data:GoUIntptr = ((0 : GoUIntptr));
+	public var len:GoInt = ((0 : GoInt));
+
+	public function new(?data:GoUIntptr, ?len:GoInt)
+		stdgo.internal.Macro.initLocals();
+
+	public function toString():GoString {
+		return '{' + Go.string(data) + " " + Go.string(len) + "}";
+	}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new StringHeader(data, len);
+	}
+
+	public function __set__(__tmp__) {
+		this.data = __tmp__.data;
+		this.len = __tmp__.len;
+		return this;
+	}
+}
+
+@:structInit class SliceHeader implements StructType {
+	public var data:GoUIntptr = ((0 : GoUIntptr));
+	public var len:GoInt = ((0 : GoInt));
+	public var cap:GoInt = ((0 : GoInt));
+
+	public function new(?data:GoUIntptr, ?len:GoInt, ?cap:GoInt)
+		stdgo.internal.Macro.initLocals();
+
+	public function toString():GoString {
+		return '{' + Go.string(data) + " " + Go.string(len) + " " + Go.string(cap) + "}";
+	}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new SliceHeader(data, len, cap);
+	}
+
+	public function __set__(__tmp__) {
+		this.data = __tmp__.data;
+		this.len = __tmp__.len;
+		this.cap = __tmp__.cap;
+		return this;
+	}
+}
+
 interface Type extends StructType {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
@@ -1145,9 +1197,15 @@ class _Type implements StructType implements Type {
 				"map[" + new _Type(key).toString() + "]" + new _Type(value).toString();
 			case chanType(_, typ):
 				"chan " + new _Type(typ).toString();
-			case signature(variadic, args, rets, _):
+			case signature(variadic, args, rets, recv):
 				var r:GoString = "func(";
 				var preface = "";
+				switch recv {
+					case invalidType:
+					default:
+						r += new _Type(recv).toString();
+						r += ", ";
+				}
 				for (i in 0...args.length) {
 					r += preface;
 					preface = ", ";
@@ -1262,25 +1320,18 @@ class _Type implements StructType implements Type {
 		switch gt {
 			case named(path, methods, _, _):
 				var method = methods[index.toBasic()];
-				trace("method: " + method);
-				/*switch method {
-					case GT_field(name2, type, _, _):
-						var path = pack + "." + name;
-						var cl = std.Type.resolveClass(path);
-						var f = Reflect.field(cl, name2);
-						var t = new _Type(type);
-						return {
-							name: name2,
-							pkgPath: pack,
-							type: t,
-							func: new Value(f, t),
-							index: index,
-						};
-					default:
-						throw "method is not a field: " + method;
-				}*/
-				// TODO
-				throw "not implemented";
+				path += "_extension_fields";
+				final cl = std.Type.resolveClass(path);
+				final instance = std.Type.createEmptyInstance(cl);
+				final t = new _Type(method.type);
+				final f = Reflect.field(instance, method.name);
+				return {
+					name: method.name,
+					pkgPath: path,
+					type: t,
+					func: new Value(new AnyInterface(f, t)),
+					index: index,
+				};
 			default:
 				throw "invalid type for method access: " + gt;
 		}

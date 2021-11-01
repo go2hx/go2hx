@@ -309,7 +309,8 @@ function main(data:DataType, printGoCode:Bool = false) {
 		info.global.module = module;
 		// process recv functions check against all TypeSpecs
 		for (file in module.files) {
-			for (def in file.defs) {
+			final defs = file.defs.copy();
+			for (def in defs) {
 				var local:Array<{func:Ast.FuncDecl, sel:String}> = [];
 				final names:Array<{name:String, sel:String}> = [{name: def.name, sel: ""}];
 				final methods:Array<Field> = [];
@@ -342,6 +343,16 @@ function main(data:DataType, printGoCode:Bool = false) {
 						}
 					}
 				}
+				if (local.length == 0)
+					continue;
+				final extensionFields:TypeDefinition = {
+					name: def.name + "_extension_fields",
+					pos: null,
+					pack: [],
+					kind: TDClass(),
+					fields: [],
+				};
+				file.defs.push(extensionFields);
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					if (func == null)
@@ -369,6 +380,25 @@ function main(data:DataType, printGoCode:Bool = false) {
 											expr: fun.expr,
 										})
 									});
+									final args = [
+										for (arg in fun.args)
+											macro $i{arg.name}
+									];
+									final funcName = func.name;
+									var e = macro __tmp__.$funcName($a{args});
+									if (!isVoid(fun.ret))
+										e = macro return $e;
+									extensionFields.fields.push({
+										name: funcName,
+										pos: null,
+										meta: null,
+										access: [APublic],
+										kind: FFun({
+											args: [{name: "__tmp__"}].concat(fun.args),
+											ret: fun.ret,
+											expr: e,
+										})
+									});
 									if (implementsError(decl.func.name.name, fun.ret)) {
 										switch def.kind {
 											case TDClass(_, interfaces, isInterfaceBool, isFinalBool):
@@ -382,22 +412,12 @@ function main(data:DataType, printGoCode:Bool = false) {
 						default:
 					}
 				}
-				for (method in methods) {
-					var hasName = false;
-					for (field in def.fields) {
-						if (field.name == method.name) {
-							hasName = true;
-							break;
-						}
-					}
-					if (hasName)
-						continue;
-					def.fields.push(method);
-				}
 			}
 		}
+
 		list.push(module);
 	}
+
 	return list;
 }
 
@@ -4669,7 +4689,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					},
 				}),
 			});
-			for (arg in args) {}
 			cl.fields.push({
 				name: "__set__", // used for pointer setting of public method
 				pos: null,
@@ -4713,12 +4732,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						implicits.push(getTypePath(typeof(method.type), info));
 					}
 				}
-			fields.push({
-				name: "__underlying__",
-				pos: null,
-				kind: FFun({args: [], ret: anyInterfaceType()}),
-				access: [APublic],
-			});
+			implicits.push({name: "StructType", pack: []});
 			var meta = [];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});

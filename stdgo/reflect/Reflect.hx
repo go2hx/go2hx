@@ -852,7 +852,8 @@ function typeOf(iface:AnyInterface):Type {
 }
 
 function appendSlice(dst:Value, src:Value):Value {
-	return @:privateAccess new Value(new AnyInterface((dst.value.value : Slice<Dynamic>).append(...(src.value.value : Slice<Dynamic>).toArray()), dst.type()));
+	return @:privateAccess new Value(new AnyInterface((dst.value.value : Slice<Dynamic>).__append__(...(src.value.value : Slice<Dynamic>).toArray()),
+		dst.type()));
 }
 
 function ptrTo(t:Type):Type {
@@ -1212,7 +1213,7 @@ class _Type implements StructType implements Type {
 					final isVariadic = variadic && i == args.length - 1;
 					var str = new _Type(args[i]).toString();
 					if (isVariadic)
-						str = "..." + str.slice(2);
+						str = "..." + str.__slice__(2);
 					r += str;
 				}
 				r += ")";
@@ -1461,7 +1462,7 @@ class _Type implements StructType implements Type {
 			while (i < tag.length && tag[i] == (" ".code : GoRune)) {
 				i++;
 			};
-			tag = tag.slice(i);
+			tag = tag.__slice__(i);
 			if (tag == (("" : GoString))) {
 				break;
 			};
@@ -1476,8 +1477,8 @@ class _Type implements StructType implements Type {
 					|| tag[i + ((1 : GoInt64))] != ("\"".code : GoRune)) {
 				break;
 			};
-			var name:GoString = tag.slice(0, i);
-			tag = tag.slice(i + ((1 : GoInt64)));
+			var name:GoString = tag.__slice__(0, i);
+			tag = tag.__slice__(i + ((1 : GoInt64)));
 			i = 1;
 			while (i < tag.length && tag[i] != ("\"".code : GoRune)) {
 				if (tag[i] == ("\\".code : GoRune)) {
@@ -1488,8 +1489,8 @@ class _Type implements StructType implements Type {
 			if (i >= tag.length) {
 				break;
 			};
-			var qvalue:GoString = tag.slice(0, i + ((1 : GoInt64)));
-			tag = tag.slice(i + ((1 : GoInt64)));
+			var qvalue:GoString = tag.__slice__(0, i + ((1 : GoInt64)));
+			tag = tag.__slice__(i + ((1 : GoInt64)));
 			if (key == name) {
 				var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue),
 					value = __tmp__._0,

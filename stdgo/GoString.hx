@@ -84,12 +84,11 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return new StringKeyValueIterator(toString());
 	}
 
-	public function slice(start:GoInt, end:GoInt = -1):GoString {
+	public function __slice__(start:GoInt, end:GoInt = -1):GoString {
 		if (end == -1)
 			end = length;
 		final pos = start.toBasic();
 		final len = end.toBasic() - start.toBasic();
-		trace(pos, len);
 		final bytes = this.sub(pos, len);
 		if (!UnicodeString.validate(bytes, UTF8))
 			return "";

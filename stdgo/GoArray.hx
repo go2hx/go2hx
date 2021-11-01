@@ -84,7 +84,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.get(index.toBasic());
 	}
 
-	inline public function slice(low:GoInt, high:GoInt = -1):Slice<T> {
+	inline public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();

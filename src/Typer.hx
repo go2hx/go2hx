@@ -2363,7 +2363,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final aType = typeof(expr.args[i + 1]);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						return returnExpr(macro $e.append($a{args}));
+						return returnExpr(macro $e.__append__($a{args}));
 					case "copy":
 						genArgs(false);
 						return returnExpr(macro Go.copy($a{args}));
@@ -3587,7 +3587,7 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 		x = macro $x.value;
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
-	x = high != null ? macro $x.slice($low, $high) : macro $x.slice($low);
+	x = high != null ? macro $x.__slice__($low, $high) : macro $x.__slice__($low);
 	if (expr.slice3) {
 		var max = typeExpr(expr.max, info);
 		max = assignTranslate(typeof(expr.max), basic(int_kind), max, info);
@@ -4366,33 +4366,33 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 			case sliceType(elem):
 				fields.push({
-					name: "append",
+					name: "__append__",
 					pos: null,
 					access: [APublic],
 					kind: FFun({
 						args: [
 							{name: "args", type: TPath({name: "Rest", pack: ["haxe"], params: [TPType(toComplexType(elem, info))]})}
 						],
-						expr: macro return new $p(this.__t__.append(...args)),
+						expr: macro return new $p(this.__t__.__append__(...args)),
 					})
 				});
 				fields.push({
-					name: "slice",
+					name: "__slice__",
 					pos: null,
 					access: [APublic],
 					kind: FFun({
 						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-						expr: macro return new $p(this.__t__.slice(low, high)),
+						expr: macro return new $p(this.__t__.__slice__(low, high)),
 					})
 				});
 			case arrayType(elem, _):
 				fields.push({
-					name: "slice",
+					name: "__slice__",
 					pos: null,
 					access: [APublic],
 					kind: FFun({
 						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-						expr: macro return this.__t__.slice(low, high),
+						expr: macro return this.__t__.__slice__(low, high),
 					})
 				});
 			case named(_, _, _, _):

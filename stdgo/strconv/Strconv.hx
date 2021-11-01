@@ -20,7 +20,7 @@ inline function unquote(s:GoString):{_0:GoString, ?_1:Error} { // TODO check if 
 }
 
 inline function appendInt(dst:Slice<GoByte>, i:GoInt64, base:GoInt):Slice<GoByte> {
-	return dst.append(...(haxe.Int64.toStr(i.toBasic()) : GoString).toSliceByte().toArray());
+	return dst.__append__(...(haxe.Int64.toStr(i.toBasic()) : GoString).toSliceByte().toArray());
 }
 
 inline function parseInt(s:GoString, base:GoInt64, bitSize:GoInt64):{_0:GoInt, ?_1:Error} {

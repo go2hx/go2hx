@@ -477,6 +477,7 @@ class Go {
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
+						throw "unknown abstract";
 						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}
 			case TInst(ref, params):
@@ -490,6 +491,8 @@ class Go {
 					} else {
 						if (ref.isInterface) {
 							ret = gtDecodeInterfaceType(ref, marked);
+						} else if (ref.module == "String") {
+							ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
 						} else {
 							final methods:Array<Expr> = [];
 							final fs = ref.fields.get();
@@ -500,7 +503,7 @@ class Go {
 								switch field.kind {
 									case FMethod(k):
 										switch field.name {
-											case "new", "__copy__", "__underlying__", "__t__":
+											case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__":
 												continue;
 										}
 										switch field.type {
@@ -618,8 +621,6 @@ class Go {
 	static function gtDecodeClassType(ref:haxe.macro.Type.ClassType, methods:Array<Expr>, marked:Map<String, Bool>):Expr {
 		var fields:Array<Expr> = [];
 		var interfaces = [];
-		if (ref.module == "String")
-			return macro stdgo.reflect.Reflect.GoType.basic(string_kind);
 		for (inter in ref.interfaces) {
 			var inter = inter.t.get();
 			interfaces.push(gtDecodeInterfaceType(inter, marked));

@@ -91,7 +91,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.pos;
 	}
 
-	inline public function slice(low:GoInt, high:GoInt = -1):Slice<T> {
+	inline public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
@@ -113,7 +113,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function __copy__()
 		return copy();
 
-	public function append(args:Rest<T>):Slice<T> {
+	public function __append__(args:Rest<T>):Slice<T> {
 		var slice = copy();
 		var pos = slice.length.toBasic();
 		slice.grow(args.length);

@@ -2838,7 +2838,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				default:
 					throw "unknown kind to complexType: " + kind;
 			}
-		case interfaceType(empty, path):
+		case interfaceType(empty, _):
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
 			throw "interface type is not empty";
@@ -4411,7 +4411,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		final hash:String = spec.type.type.hash;
 		if (!locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
-			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty) : typeof(spec.type);
+			var nameType:GoType = spec.type.id == "InterfaceType" ? named(path,[],interfaceType(spec.type.type.empty)) : typeof(spec.type);
 			switch nameType {
 				case structType(_):
 					nameType = named(path, [], nameType);

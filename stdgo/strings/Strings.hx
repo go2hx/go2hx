@@ -4,7 +4,7 @@ import haxe.Rest;
 import stdgo.StdGoTypes;
 
 @:structInit
-class Builder implements StructType implements stdgo.io.Io.Writer {
+class Builder {
 	var buf:StringBuf;
 
 	public function new() {

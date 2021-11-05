@@ -54,7 +54,7 @@ function newRuntime(message:GoString):Error {
 	return new RuntimeErrorData(message);
 }
 
-private class RuntimeErrorData implements Error implements StructType {
+private class RuntimeErrorData {
 	public function __underlying__():AnyInterface
 		return null;
 
@@ -77,11 +77,11 @@ private class RuntimeErrorData implements Error implements StructType {
 
 function keepAlive(x:AnyInterface) {}
 
-interface Error extends StructType extends stdgo.Error {
+typedef Error = StructType & stdgo.Error & {
 	public function runtimeError():Void;
 }
 
-class Frames implements StructType {
+class Frames {
 	public function __underlying__():AnyInterface
 		return null;
 
@@ -92,7 +92,7 @@ class Frames implements StructType {
 	}
 }
 
-class Frame implements StructType {
+class Frame  {
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
 
@@ -102,7 +102,7 @@ class Frame implements StructType {
 	public function new() {}
 }
 
-class MemStats implements StructType {
+class MemStats  {
 	public var alloc(get, null):GoUInt64;
 
 	public function __underlying__():AnyInterface

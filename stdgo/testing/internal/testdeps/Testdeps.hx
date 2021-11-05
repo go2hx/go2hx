@@ -6,7 +6,7 @@ import stdgo.StdGoTypes.StructType;
 var importPath:GoString = "";
 
 @:structInit
-class TestDeps implements StructType {
+class TestDeps {
 	public function new() {}
 
 	public function __underlying__():AnyInterface

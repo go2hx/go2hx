@@ -103,12 +103,12 @@ private class MapData<K, V> {
 				return false;
 			return x == y;
 		}
-		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
+		return switch (type.common().value : stdgo.reflect.Reflect.GoType) {
 			case mapType(keyType, _):
 				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
-				throw "unknown type map equals: " + @:privateAccess type.common().value;
+				throw "unknown type map equals: " + type.common().value;
 		}
 	}
 

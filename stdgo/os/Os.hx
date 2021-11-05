@@ -18,7 +18,7 @@ var stdin:Dynamic = {
 
 var stdout = Go.pointer(new OutputWriter(Sys.stdout()));
 
-class OutputWriter implements stdgo.io.Io.Writer {
+class OutputWriter {
 	public function __underlying__():AnyInterface
 		return null;
 
@@ -132,7 +132,7 @@ inline function removeAll(path:GoString):Error {
 	return null;
 }
 
-class File implements stdgo.io.Io.Writer implements stdgo.io.Io.Reader {
+class File {
 	public function __underlying__():AnyInterface
 		return null;
 

@@ -89,19 +89,19 @@ inline function atoi(s:GoString) {
 inline function itoa(i:GoInt):GoString
 	return Std.string(i.toBasic());
 
-class NumError implements Error {
+class NumError {
+	public function new(func, num, err) {
+		this.func = func;
+		this.num = num;
+		this.err = err;
+	}
+
 	public function __underlying__():AnyInterface
 		return null;
 
 	public var func:GoString;
 	public var num:GoString;
 	public var err:Error;
-
-	public function new(func, num, err) {
-		this.func = func;
-		this.num = num;
-		this.err = err;
-	}
 
 	public function error():GoString
 		return this.err.error();

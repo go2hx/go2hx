@@ -405,7 +405,6 @@ typedef TypeSpec = {
 	assign:Pos,
 	type:Expr,
 	comment:CommentGroup,
-	implicits:Array<ImplicitType>,
 	methods:Array<{
 		name:String,
 		type:ExprType,

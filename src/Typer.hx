@@ -160,7 +160,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 			}
 		}
 		var recvFunctions:Array<{decl:Ast.FuncDecl, path:String}> = [];
-		info.global.interfaces = [];
 		// 2nd pass main typing
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -369,7 +368,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 											}
 										}
 									}
-									def.fields.push({
+									def.fields.unshift({
 										name: func.name,
 										pos: null,
 										meta: null,
@@ -399,14 +398,6 @@ function main(data:DataType, printGoCode:Bool = false) {
 											expr: e,
 										})
 									});
-									if (implementsError(decl.func.name.name, fun.ret)) {
-										switch def.kind {
-											case TDClass(_, interfaces, isInterfaceBool, isFinalBool):
-												interfaces.push(errorTypePath());
-												def.kind = TDClass(null, interfaces, isInterfaceBool, isFinalBool);
-											default:
-										}
-									}
 								default:
 							}
 						default:
@@ -430,50 +421,6 @@ private function mapReturnToThrow(e:Expr):Expr {
 			haxe.macro.ExprTools.map(e, func);
 	}
 	return func(e);
-}
-
-private function implementsFields(interfaceFields:Array<Field>, classFields:Array<Field>):Bool {
-	var passed = true;
-	for (interfaceField in interfaceFields) {
-		var passField:Bool = false;
-		for (classField in classFields) {
-			if (interfaceField.name != classField.name)
-				continue;
-			var interfaceFunc:Function = null;
-			var classFunc:Function = null;
-			switch interfaceField.kind {
-				case FFun(f):
-					interfaceFunc = f;
-				default:
-			}
-			switch classField.kind {
-				case FFun(f):
-					classFunc = f;
-				default:
-			}
-			if (interfaceFunc == null || classFunc == null) // if either fields are not functions
-				continue;
-			if (!compareComplexType(interfaceFunc.ret, classFunc.ret)) // returns values are not equal
-				continue;
-			if (interfaceFunc.args.length != classFunc.args.length) // the functions don't have the same amount of args
-				continue;
-			var argTypesPass:Bool = true;
-			for (i in 0...interfaceFunc.args.length) {
-				if (!compareComplexType(interfaceFunc.args[i].type, classFunc.args[i].type)) { // compare the arg types
-					argTypesPass = false;
-					break;
-				}
-			}
-			if (argTypesPass) {
-				// the field has passed
-				passField = true;
-				break;
-			}
-		}
-		if (!passField)
-			return false;
-	}
-	return true;
 }
 
 private function compareComplexType(a:ComplexType, b:ComplexType):Bool {
@@ -1260,7 +1207,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
 		switch nilType {
-			case signature(_, _, _, _), interfaceType(_, _, _):
+			case signature(_, _, _, _), interfaceType(_, _):
 				switch op {
 					case OpEq:
 						return macro $value == null;
@@ -1578,7 +1525,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = 
 		switch fromType {
 			case basic(_):
 			case signature(_, _, _, _):
-			case interfaceType(_, _, _):
+			case interfaceType(_, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
 			case arrayType(_, _): // pass by copy
 				y = macro $y.copy();
@@ -1597,7 +1544,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = 
 					final x = $y;
 					$decl;
 				};
-			case named(_, _, _, type):
+			case named(_, _, type):
 				switch getUnderlying(type) {
 					case basic(_):
 						return y;
@@ -2541,19 +2488,17 @@ private function toReflectType(t:GoType):Expr {
 			final dir = toExpr(EConst(CInt('$dir')));
 			final elem = toReflectType(elem);
 			macro stdgo.reflect.Reflect.GoType.chanType($dir, $elem);
-		case interfaceType(empty, path, methods):
+		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
-			final path = makeString(path == null ? "" : path);
 			final methods = macro [];
-			macro stdgo.reflect.Reflect.GoType.interfaceType($empty, $path, $methods);
+			macro stdgo.reflect.Reflect.GoType.interfaceType($empty, $methods);
 		case invalidType:
 			macro stdgo.reflect.Reflect.GoType.invalidType;
-		case named(path, methods, interfaces, type):
+		case named(path, methods, type):
 			final path = makeString(path);
 			final methods = macro [];
-			final interfaces = macro [];
 			final t = toReflectType(type);
-			macro stdgo.reflect.Reflect.GoType.named($path, $methods, $interfaces, $t);
+			macro stdgo.reflect.Reflect.GoType.named($path, $methods, $t);
 		case previouslyNamed(path):
 			final path = makeString(path);
 			macro stdgo.reflect.Reflect.GoType.previousNamed($path);
@@ -2683,9 +2628,8 @@ private function typeof(e:Ast.Expr):GoType {
 				trace("null named path: " + e);
 				throw path;
 			}
-			final methods:Array<MethodType> = [];
-			final interfaces:Array<GoType> = [];
-			named(path, methods, interfaces, underlying, e.alias);
+			final methods:Array<MethodType> = []; // TODO get method data
+			named(path, methods, underlying, e.alias);
 		case "Struct":
 			var t:GoType = structType([
 				for (field in (e.fields : Array<Dynamic>))
@@ -2897,10 +2841,8 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceType(empty, path):
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
-			if (path == null)
-				throw "interface path null: " + e;
-			return TPath(namedTypePath(path, info));
-		case named(path, _, _, underlying):
+			throw "interface type is not empty";
+		case named(path, _, underlying):
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
 				throw path;
@@ -2926,7 +2868,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath({pack: [], name: "Chan", params: [TPType(ct)]});
 		case structType(fields):
 			var fields = typeFields(fields, info, null, false);
-			/*fields.length == 0 ? TPath({pack: [], name: "Dynamic"}) : */ TAnonymous([
+			TAnonymous([
 				for (field in fields)
 					{
 						name: field.name,
@@ -3528,7 +3470,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, _, elem), pointer(elem):
+		case named(_, _, elem), pointer(elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;
@@ -3683,18 +3625,6 @@ private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	return macro for (defer in deferstack) {
 		defer();
 	};
-}
-
-private function implementsError(name:String, type:ComplexType):Bool {
-	if (name != "Error")
-		return false;
-	switch type {
-		case TPath(p):
-			if (p.pack.length == 0 && p.name == "GoString")
-				return true;
-		default:
-	}
-	return false;
 }
 
 private function getRecvThis(recvType:GoType, sel:String, varName:String, isNamed:Bool, info:Info):Expr {
@@ -3907,7 +3837,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro new Pointer<$t>().nil();
 		case signature(_, _, _, _):
 			macro null;
-		case named(path, _, _, underlying):
+		case named(path, _, underlying):
 			switch underlying {
 				case pointer(_), interfaceType(_), mapType(_, _):
 					final ct = ct();
@@ -4295,10 +4225,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
-	var implicits:Array<TypePath> = [{pack: [], name: "StructType"}];
-	for (imp in spec.implicits) {
-		implicits.push(parseTypePath(imp.path, imp.name, info));
-	}
 
 	var t = typeof(spec.type);
 	var underlyingType = getUnderlying(t);
@@ -4333,7 +4259,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			access: [APublic],
 			kind: FFun({
 				args: [],
-				expr: macro return Go.toInterface(__t__),
+				expr: macro return Go.toInterface(this),
 				ret: anyInterfaceType()
 			})
 		},
@@ -4341,6 +4267,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			name: "toString",
 			pos: null,
 			access: [APublic],
+			meta: [{name: ":implicit", pos: null}],
 			kind: FFun({
 				args: [],
 				expr: macro return Go.string(__t__),
@@ -4431,12 +4358,14 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 									}),
 								}
 							];
-						case interfaceType(empty, _, _):
+						case interfaceType(empty, methods):
 							if (empty)
 								return true;
 							isInterface = true;
 							fields = [];
-							implicits = [];
+							for (method in methods) {
+								trace(method);
+							}
 						default: // must be an InterfaceType
 							throw "not an interface";
 					}
@@ -4454,13 +4383,26 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			meta: [{name: ":follow", pos: null}],
 			kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
 		};
+	if (isInterface) {
+		return {
+			name: name,
+			pos: null,
+			pack: [],
+			fields: [],
+			meta: meta,
+			kind: TDAlias(TIntersection([
+				TPath({name: "StructType", pack: []}),
+				TExtend([{name: "StructType", pack: []}], fields)
+			]))
+		};
+	}
 	return {
 		name: name,
 		pos: null,
 		pack: [],
 		fields: fields,
 		meta: meta,
-		kind: TDClass(superClass, implicits, isInterface),
+		kind: TDClass(superClass),
 	}
 }
 
@@ -4469,10 +4411,10 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		final hash:String = spec.type.type.hash;
 		if (!locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
-			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty, path) : typeof(spec.type);
+			var nameType:GoType = spec.type.id == "InterfaceType" ? interfaceType(spec.type.type.empty) : typeof(spec.type);
 			switch nameType {
 				case structType(_):
-					nameType = named(path, [], [], nameType);
+					nameType = named(path, [], nameType);
 				default:
 			}
 			locals[hash] = nameType;
@@ -4579,10 +4521,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			var meta:Metadata = [{name: ":structInit", pos: null}];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
-			var implicits:Array<TypePath> = [];
-			for (imp in spec.implicits) {
-				implicits.push(parseTypePath(imp.path, imp.name, info));
-			}
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// final recv = typeof(method.recv);
 				final name = fields[method.index[0]].name;
@@ -4669,7 +4607,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				doc: doc,
 				isExtern: externBool,
 				meta: meta,
-				kind: TDClass(null, [{name: "StructType", pack: []}].concat(implicits), false, false, false),
+				kind: TDClass(),
 			};
 
 			cl.fields.push({
@@ -4712,18 +4650,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 			}
 			final fields = typeFieldListMethods(struct.methods, info);
-			switch typeof(struct.type) {
-				case interfaceType(_, path, _):
-					final fields = fields.copy();
-					for (field in fields) {
-						if (field.name == "__underlying__") {
-							fields.remove(field);
-							break; // only the one
-						}
-					}
-					info.global.interfaces[path] = fields;
-				default:
-			}
 			// embedded interfaces
 			final implicits:Array<TypePath> = [];
 			if (struct.methods != null && struct.methods.list != null)
@@ -4732,7 +4658,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						implicits.push(getTypePath(typeof(method.type), info));
 					}
 				}
-			implicits.push({name: "StructType", pack: []});
 			var meta = [];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
@@ -4741,10 +4666,10 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				pack: [],
 				pos: null,
 				doc: doc,
-				fields: fields,
+				fields: [],
 				isExtern: externBool,
 				meta: meta,
-				kind: TDClass(null, implicits, true) // INTERFACE
+				kind: TDAlias(TIntersection([TPath({name: "StructType", pack: []}), TExtend(implicits, fields)]))
 			};
 		default:
 			return null;
@@ -5015,7 +4940,6 @@ class Global {
 	public var filePath:String = "";
 	public var hasBreak:Bool = false;
 	public var module:Module = null;
-	public var interfaces:Map<String, Array<Field>> = [];
 
 	public inline function new() {}
 

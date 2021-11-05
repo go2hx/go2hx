@@ -12,15 +12,15 @@ import stdgo.StdGoTypes.GoRune;
 import stdgo.StdGoTypes.StructType;
 import stdgo.io.Io.Writer;
 
-interface Formatter extends StructType {
+typedef Formatter = StructType & {
 	public function format(_f:State, _verb:GoRune):Void;
 }
 
-interface Scanner extends StructType {
+typedef Scanner = StructType & {
 	public function scan(_state:ScanState, _verb:GoRune):Error;
 }
 
-interface ScanState extends StructType {
+typedef ScanState = StructType & {
 	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;};
 	public function unreadRune():Error;
 	public function skipSpace():Void;
@@ -29,18 +29,18 @@ interface ScanState extends StructType {
 	public function read(_buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 }
 
-interface State extends StructType {
+typedef State = StructType & {
 	public function write(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 	public function width():{var _0:GoInt; var _1:Bool;};
 	public function precision():{var _0:GoInt; var _1:Bool;};
 	public function flag(_c:GoInt):Bool;
 }
 
-interface Stringer extends StructType {
+typedef Stringer = StructType & {
 	function toString():GoString;
 }
 
-interface GoStringer extends StructType {
+typedef GoStringer = StructType & {
 	function goString():GoString;
 }
 

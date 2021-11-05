@@ -14,9 +14,9 @@ enum GoType {
 	basic(kind:BasicKind);
 	_var(name:String, type:GoType);
 	tuple(len:Int, vars:Array<GoType>);
-	interfaceType(empty:Bool, ?path:String, ?methods:Array<MethodType>);
+	interfaceType(empty:Bool, ?methods:Array<MethodType>);
 	sliceType(elem:GoType);
-	named(path:String, methods:Array<MethodType>, interfaces:Array<GoType>, type:GoType, ?alias:Bool);
+	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
 	pointer(elem:GoType);
@@ -91,7 +91,7 @@ function isAnyInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, elem):
+		case named(_, _, elem):
 			isAnyInterface(elem);
 		case interfaceType(empty):
 			empty;
@@ -104,7 +104,7 @@ function isInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, elem):
+		case named(_, _, elem):
 			isInterface(elem);
 		case interfaceType(_):
 			true;
@@ -119,7 +119,7 @@ function isSignature(type:GoType):Bool {
 	return switch type {
 		case signature(_, _, _):
 			true;
-		case named(_, _, _, underlying):
+		case named(_, _, underlying):
 			isSignature(underlying);
 		default:
 			false;
@@ -131,11 +131,11 @@ function isNamed(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, underlying):
+		case named(_, _, underlying):
 			switch underlying {
 				case structType(_): false;
-				case interfaceType(_, _, _): false;
-				case named(_, _, _, type): isNamed(type);
+				case interfaceType(_, _): false;
+				case named(_, _, type): isNamed(type);
 				default: true;
 			}
 		default: false;
@@ -150,7 +150,7 @@ function isStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, underlying):
+		case named(_, _, underlying):
 			isStruct(underlying);
 		case structType(_):
 			true;
@@ -180,7 +180,7 @@ function isInvalid(type:GoType):Bool {
 				default:
 					false;
 			}
-		case named(_, _, _, underlying):
+		case named(_, _, underlying):
 			isInvalid(underlying);
 		default:
 			false;
@@ -191,7 +191,7 @@ function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case named(_, _, _, type):
+		case named(_, _, type):
 			type;
 		case _var(_, type):
 			getElem(type);
@@ -219,7 +219,7 @@ function getSignature(type:GoType):GoType {
 	return switch type {
 		case signature(_, _, _):
 			type;
-		case named(_, _, _, underlying):
+		case named(_, _, underlying):
 			getSignature(underlying);
 		default:
 			null;
@@ -230,7 +230,7 @@ function isUnsafePointer(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, elem):
+		case named(_, _, elem):
 			isUnsafePointer(elem);
 		case basic(kind):
 			switch kind {
@@ -246,7 +246,7 @@ function isPointer(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, _, elem):
+		case named(_, _, elem):
 			isPointer(elem);
 		case pointer(_):
 			true;
@@ -266,7 +266,7 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
-class Value implements StructType {
+class Value {
 	var value:AnyInterface;
 	var underlyingValue:Dynamic;
 	var underlyingIndex:GoInt = -1;
@@ -465,7 +465,7 @@ class Value implements StructType {
 
 	static function findUnderlying(t:Type):Type {
 		switch (@:privateAccess t.common().value) {
-			case named(_, _, _, elem), pointer(elem):
+			case named(_, _, elem), pointer(elem):
 				return findUnderlying(new _Type(elem));
 			default:
 				return t;
@@ -780,7 +780,7 @@ class Value implements StructType {
 	}
 }
 
-class ValueError implements StructType implements Error {
+class ValueError {
 	var method:GoString;
 	var kind:Kind;
 
@@ -811,7 +811,7 @@ private function unroll(parent:GoType, child:GoType):GoType {
 	var parentName = "";
 	var parentType:GoType = null;
 	switch parent {
-		case named(path, _, _, _):
+		case named(path, _, _):
 			parentName = path;
 		default:
 			return child;
@@ -826,8 +826,8 @@ private function unroll(parent:GoType, child:GoType):GoType {
 		case basic(_):
 			child;
 		case interfaceType(_): child;
-		case named(path, methods, interfaces, type):
-			named(path, methods, interfaces, unroll(parent, type));
+		case named(path, methods, type):
+			named(path, methods, unroll(parent, type));
 		case structType(fields):
 			structType([
 				for (field in fields)
@@ -882,7 +882,7 @@ function defaultValue(typ:Type):Any {
 				case bool_kind: false;
 				default: 0;
 			}
-		case named(path, methods, interfaces, type):
+		case named(path, methods, type):
 			var cl = std.Type.resolveClass(path);
 			std.Type.createInstance(cl, []);
 		case sliceType(elem): new Slice().nil();
@@ -898,7 +898,7 @@ function valueOf(iface:AnyInterface):Value {
 	return new Value(iface);
 }
 
-@:named class ChanDir implements StructType {
+@:named class ChanDir {
 	public var __t__:GoInt;
 
 	public function new(?t:GoInt) {
@@ -915,7 +915,7 @@ function valueOf(iface:AnyInterface):Value {
 		return __t__;
 }
 
-@:structInit class StringHeader implements StructType {
+@:structInit class StringHeader {
 	public var data:GoUIntptr = ((0 : GoUIntptr));
 	public var len:GoInt = ((0 : GoInt));
 
@@ -940,7 +940,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 }
 
-@:structInit class SliceHeader implements StructType {
+@:structInit class SliceHeader {
 	public var data:GoUIntptr = ((0 : GoUIntptr));
 	public var len:GoInt = ((0 : GoInt));
 	public var cap:GoInt = ((0 : GoInt));
@@ -967,7 +967,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 }
 
-interface Type extends StructType {
+typedef Type = {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
 	public function method(arg0:GoInt):Method;
@@ -998,11 +998,12 @@ interface Type extends StructType {
 	public function numOut():GoInt;
 	public function out(i:GoInt):Type;
 
-	private function common():Pointer<Dynamic>;
-	private function uncommon():Pointer<Dynamic>;
-}
+	public function common():Pointer<Dynamic>;
+	public function uncommon():Pointer<Dynamic>;
+} &
+	StructType;
 
-class _Type implements StructType implements Type {
+class _Type {
 	public var gt:GoType;
 	public var stringValue:GoString = "";
 
@@ -1054,10 +1055,10 @@ class _Type implements StructType implements Type {
 		throw "not implemented"; // TODO
 	}
 
-	private function uncommon():Pointer<Dynamic>
+	public function uncommon():Pointer<Dynamic>
 		return null;
 
-	private function common():Pointer<Dynamic>
+	public function common():Pointer<Dynamic>
 		return new Pointer(() -> gt, v -> gt = v);
 
 	public inline function new(t:GoType = invalidType) {
@@ -1123,11 +1124,11 @@ class _Type implements StructType implements Type {
 					case untyped_string_kind: __string;
 				}
 			case chanType(_, _): chan;
-			case interfaceType(_, _, _): interface_;
+			case interfaceType(_, _): interface_;
 			case arrayType(_, _): array;
 			case invalidType: invalid;
 			case mapType(_, _): map;
-			case named(_, _, _, type), _var(_, type): new _Type(type).kind();
+			case named(_, _, type), _var(_, type): new _Type(type).kind();
 			case pointer(_): ptr;
 			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
 			case sliceType(_): slice;
@@ -1181,8 +1182,12 @@ class _Type implements StructType implements Type {
 				name;
 			case previouslyNamed(name):
 				name;
-			case named(path, _, _, _):
-				path;
+			case named(path, _, type, alias):
+				if (alias) {
+					new _Type(type).toString();
+				} else {
+					path;
+				}
 			case pointer(elem):
 				"*" + new _Type(elem).toString();
 			case structType(fields):
@@ -1234,18 +1239,18 @@ class _Type implements StructType implements Type {
 				}
 				r;
 			case invalidType:
-				return "invalid";
-			case interfaceType(empty, _, methods):
+				return "<null>";
+			case interfaceType(empty, methods):
 				var r = "";
 				if (empty)
 					return "interface {}";
 				for (method in methods) {
-					r += " " + new _Type(method.type).toString().toString();
+					r += "; " + formatGoFieldName(method.name) + new _Type(method.type).toString().substr(4);
 				}
 				r = r.substr(1);
-				"interface {" + r + "}";
+				"interface {" + r + " }";
 			default:
-				throw "not found enum toString " + gt; // should never get here!!!
+				throw "not found enum toString " + gt; // should never get here
 		}
 	}
 
@@ -1270,7 +1275,7 @@ class _Type implements StructType implements Type {
 
 	public function numMethod():GoInt {
 		switch (gt) {
-			case named(_, methods, _, _), interfaceType(_, _, methods):
+			case named(_, methods, _), interfaceType(_, methods):
 				return methods.length;
 			default:
 				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + toString());
@@ -1289,7 +1294,7 @@ class _Type implements StructType implements Type {
 
 	public function name():GoString {
 		switch gt {
-			case named(name, _, _, _), previouslyNamed(name):
+			case named(name, _, _), previouslyNamed(name):
 				return name;
 			default:
 				trace("gt: " + gt);
@@ -1319,8 +1324,11 @@ class _Type implements StructType implements Type {
 
 	public function method(index:GoInt):Method {
 		switch gt {
-			case named(path, methods, _, _):
-				var method = methods[index.toBasic()];
+			case named(path, methods, _):
+				final index = index.toBasic();
+				if (index >= methods.length)
+					throw "Method index out of range";
+				var method = methods[index];
 				path += "_extension_fields";
 				final cl = std.Type.resolveClass(path);
 				final instance = std.Type.createEmptyInstance(cl);
@@ -1366,7 +1374,7 @@ class _Type implements StructType implements Type {
 
 	public function numField():GoInt {
 		switch (gt) {
-			case named(_, _, _, type):
+			case named(_, _, type):
 				return new _Type(type).numField();
 			case structType(fields):
 				return fields.length;
@@ -1402,7 +1410,7 @@ class _Type implements StructType implements Type {
 						return false;
 				}
 				return true;
-			case named(_, _, _, type):
+			case named(_, _, type):
 				return new _Type(type).comparable();
 			default:
 				return true;
@@ -1410,7 +1418,7 @@ class _Type implements StructType implements Type {
 	}
 }
 
-@:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class Method implements StructType {
+@:structInit class Method {
 	public var name:GoString = "";
 	public var pkgPath:GoString = "";
 	public var type:Type = new _Type(invalidType);
@@ -1429,11 +1437,11 @@ class _Type implements StructType implements Type {
 	}
 
 	public function __copy__() {
-		return new Method(name, pkgPath, type, func, index);
+		return null; // new Method(name, pkgPath, type, func, index);
 	}
 }
 
-@:named class StructTag implements StructType {
+@:named class StructTag {
 	public var __t__:GoString = "";
 
 	public function __underlying__():AnyInterface
@@ -1505,7 +1513,7 @@ class _Type implements StructType implements Type {
 	}
 }
 
-@:structInit @:allow(github_com.go2hx.go4hx.rnd.pkg) final class StructField implements StructType {
+@:structInit final class StructField {
 	public var name:GoString = "";
 	public var pkgPath:GoString = "";
 	public var type:Type = new _Type(invalidType);
@@ -1546,7 +1554,7 @@ class _Type implements StructType implements Type {
 
 private function namedUnderlying(obj:AnyInterface) {
 	return switch @:privateAccess obj.type.common().value {
-		case named(_, _, _, type):
+		case named(_, _, type):
 			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
 		default:
 			obj;
@@ -1555,7 +1563,7 @@ private function namedUnderlying(obj:AnyInterface) {
 
 function getUnderlying(gt:GoType) {
 	return switch gt {
-		case named(_, _, _, type):
+		case named(_, _, type):
 			getUnderlying(type);
 		default:
 			gt;
@@ -1567,9 +1575,9 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 	var vgt:GoType = @:privateAccess v.common().value;
 
 	switch tgt {
-		case named(path, _, _, _), interfaceType(_, path, _):
+		case named(path, _, _):
 			switch vgt {
-				case named(path2, _, _, _), interfaceType(_, path2, _):
+				case named(path2, _, _):
 					return path == path2;
 				default:
 			}
@@ -1693,11 +1701,11 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 		return false;
 
 	return switch gt {
-		case interfaceType(_, _, methods), named(_, methods, _, _):
+		case interfaceType(_, methods), named(_, methods, _):
 			if (methods == null || methods.length == 0)
 				return true;
 			switch vgt {
-				case interfaceType(_, _, methods2), named(_, methods2, _, _):
+				case interfaceType(_, methods2), named(_, methods2, _):
 					if (methods2 == null || methods2.length == 0)
 						return true;
 					if (methods.length != methods2.length)
@@ -1717,7 +1725,7 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 	}
 }
 
-@:named class Kind implements StructType {
+@:named class Kind {
 	public function __underlying__():AnyInterface
 		return null;
 
@@ -1817,7 +1825,7 @@ final struct:Kind = new Kind(_struct);
 final unsafePointer:Kind = new Kind(_unsafePointer);
 final __string = toString;
 
-@:structInit @:allow(github_com.go2hx.go4hx.rnd) final private class Visit {
+@:structInit final private class Visit {
 	public var _typ:Type = null;
 
 	public function new(?_typ) {}

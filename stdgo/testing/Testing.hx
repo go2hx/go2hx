@@ -5,7 +5,7 @@ import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.GoType;
 import stdgo.testing.internal.testdeps.Testdeps.TestDeps;
 
-interface TB extends StructType {
+typedef TB = StructType & {
 	public function cleanup(arg0:() -> Void):Void;
 	public function error(_args:haxe.Rest<AnyInterface>):Void;
 	public function errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
@@ -57,7 +57,7 @@ class BenchmarkResult {
 }
 
 @:structInit
-class PB implements StructType {
+class PB {
 	public function new() {}
 
 	public function next():Bool
@@ -68,7 +68,7 @@ class PB implements StructType {
 }
 
 @:structInit
-class B implements StructType implements TB {
+class B {
 	public var n:GoInt = 0;
 
 	var skipBool:Bool = false;
@@ -154,7 +154,7 @@ class B implements StructType implements TB {
 }
 
 @:structInit
-class F implements StructType {
+class F 
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	var output:StringBuf = null;
@@ -226,7 +226,7 @@ class F implements StructType {
 }
 
 @:structInit
-class T_ implements StructType implements TB {
+class T_ {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	var output:StringBuf = null;
@@ -301,7 +301,7 @@ class T_ implements StructType implements TB {
 }
 
 @:structInit
-class M implements StructType {
+class M {
 	var deps:TestDeps = null;
 	var tests:Slice<InternalTest> = null;
 	var benchmarks:Slice<InternalBenchmark> = null;
@@ -360,7 +360,7 @@ class M implements StructType {
 }
 
 @:structInit
-class InternalBenchmark implements StructType {
+class InternalBenchmark {
 	public var name:GoString = "";
 	public var f:Pointer<B>->Void = null;
 
@@ -376,7 +376,7 @@ class InternalBenchmark implements StructType {
 }
 
 @:structInit
-class InternalFuzzTarget implements StructType {
+class InternalFuzzTarget {
 	public var name:GoString = "";
 	public var f:Void->Void = null;
 
@@ -392,7 +392,7 @@ class InternalFuzzTarget implements StructType {
 }
 
 @:structInit
-class InternalExample implements StructType {
+class InternalExample {
 	public var name:GoString = "";
 	public var f:Void->Void = null;
 	public var output:GoString = "";
@@ -410,7 +410,7 @@ class InternalExample implements StructType {
 }
 
 @:structInit
-class InternalTest implements StructType {
+class InternalTest {
 	public var name:GoString = "";
 	public var f:Pointer<T_>->Void = null;
 

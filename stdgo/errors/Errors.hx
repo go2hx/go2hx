@@ -8,7 +8,7 @@ inline function new_(message:GoString):Error {
 	return new ErrorData(message);
 }
 
-private class ErrorData implements Error {
+private class ErrorData {
 	var message:GoString;
 
 	public function __underlying__():AnyInterface

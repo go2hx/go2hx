@@ -6,12 +6,12 @@ import sys.thread.Lock;
 
 typedef Pool = Dynamic;
 
-interface Locker {
+typedef Locker = StructType & {
 	public function lock():Void;
 	public function unlock():Void;
 }
 
-class RWMutex implements StructType {
+class RWMutex {
 	var mutux:sys.thread.Mutex;
 
 	public function __underlying__():AnyInterface
@@ -31,7 +31,7 @@ class RWMutex implements StructType {
 }
 
 @:structInit
-class Map_ implements StructType {
+class Map_ {
 	public function new() {}
 
 	public function __underlying__():AnyInterface
@@ -55,7 +55,7 @@ class Map_ implements StructType {
 }
 
 @:structInit
-class Mutex implements StructType implements Locker {
+class Mutex {
 	public function new() {}
 
 	public function __underlying__():AnyInterface
@@ -72,7 +72,7 @@ class Mutex implements StructType implements Locker {
 	public function runlock() {}
 }
 
-class WaitGroup implements StructType {
+class WaitGroup {
 	var lock:Lock;
 
 	var counter:GoUInt = 0;
@@ -108,7 +108,7 @@ class WaitGroup implements StructType {
 	}
 }
 
-class Once implements StructType {
+class Once {
 	public var done:Bool = false;
 
 	public function __underlying__():AnyInterface

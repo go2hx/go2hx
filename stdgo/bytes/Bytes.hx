@@ -2,7 +2,7 @@ package stdgo.bytes;
 
 import stdgo.StdGoTypes;
 
-class Buffer implements StructType {
+class Buffer {
 	public function new() {}
 
 	public function __underlying__():AnyInterface

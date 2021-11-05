@@ -5,7 +5,7 @@ import stdgo.StdGoTypes;
 
 final o_RDONLY:GoInt = 0;
 
-@:named class Signal implements StructType {
+@:named class Signal {
 	public var __t__:GoInt;
 
 	public function new(?t:GoInt) {
@@ -73,7 +73,7 @@ function seek(fd:GoInt, offset:GoInt64, whence:GoInt):{_0:GoInt64, _1:Error} {
 	return {_0: 0, _1: null};
 }
 
-@:named class Errno implements StructType implements stdgo.Error {
+@:named class Errno {
 	public var __t__:GoUIntptr;
 
 	public function new(?t:GoUIntptr) {

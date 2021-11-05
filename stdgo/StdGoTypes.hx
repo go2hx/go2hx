@@ -2081,7 +2081,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 	}
 }
 
-interface StructType {
+typedef StructType = {
 	public function __underlying__():AnyInterface;
 }
 
@@ -2120,12 +2120,12 @@ class AnyInterfaceData {
 @:forward
 @:forward.new
 abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
+	public function __underlying__():AnyInterface
+		return this;
+
 	@:op(A != b) public static function notEquals(a:AnyInterface, b:AnyInterface):Bool {
 		return !equals(a, b);
 	}
-
-	public function __underlying__():AnyInterface
-		return this;
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (a == null || b == null) // null check
@@ -2147,13 +2147,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		var aValue = a.value;
 		var bValue = b.value;
 		switch gt {
-			case named(_, _, _, type):
+			case named(_, _, type):
 				if (isNamed(type))
 					aValue = (aValue : Dynamic).__t__;
 			default:
 		}
 		switch gt2 {
-			case named(_, _, _, type):
+			case named(_, _, type):
 				if (isNamed(type))
 					bValue = (bValue : Dynamic).__t__;
 			default:
@@ -2198,15 +2198,15 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 					if (fieldValue == null || fieldValue2 == null)
 						throw "struct issue with field name: " + name;
 
-					final type = @:privateAccess stdgo.reflect.Reflect.unroll(gt, type);
-					final a = new AnyInterface(fieldValue, new stdgo.reflect.Reflect._Type(type));
-					final b = new AnyInterface(fieldValue2, new stdgo.reflect.Reflect._Type(type));
+					final type:Dynamic = @:privateAccess new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.unroll(gt, type));
+					final a = new AnyInterface(fieldValue, type);
+					final b = new AnyInterface(fieldValue2, type);
 
-					final bool = equals(a, b);
-					if (!bool)
+					if (AnyInterface.notEquals(a, b))
 						return false;
 				}
 				true;
+
 			case invalidType:
 				switch @:privateAccess b.type.common().value {
 					case invalidType: true;
@@ -2215,11 +2215,11 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case sliceType(elem):
 				var a:Slice<Any> = aValue;
 				var b:Slice<Any> = bValue;
-				var t = new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
 				if (a.length != b.length)
 					return false;
 				for (i in 0...a.length.toBasic()) {
-					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
+					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;
@@ -2227,14 +2227,15 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;
-				var t = new stdgo.reflect.Reflect._Type(elem);
+				var t:Dynamic = new stdgo.reflect.Reflect._Type(elem);
 				for (i in 0...a.length.toBasic()) {
-					if (!AnyInterface.equals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
+					if (AnyInterface.notEquals(new AnyInterface(a[i], t), new AnyInterface(b[i], t)))
 						return false;
 				}
 				true;
 			case pointer(_):
 				aValue == bValue;
+
 			default:
 				throw "unknown type equals: " + @:privateAccess a.type.common().value;
 		}
@@ -2243,11 +2244,6 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 
 function isTitle(string:String):Bool {
 	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
-}
-
-interface ArrayAccess<T> {
-	function get(i:Int):T;
-	function set(i:Int, value:T):T;
 }
 
 class GoIntIterator {
@@ -2268,7 +2264,7 @@ class GoIntIterator {
 	}
 }
 
-interface MapAccess<K, V> {
+typedef MapAccess<K, V> = {
 	function get(k:K):Null<V>;
 	function set(k:K, v:V):Void;
 }

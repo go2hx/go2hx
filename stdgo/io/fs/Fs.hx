@@ -5,7 +5,7 @@ import stdgo.StdGoTypes.GoInt64;
 import stdgo.StdGoTypes.GoUInt32;
 import stdgo.StdGoTypes.StructType;
 
-interface FileInfo extends StructType {
+typedef FileInfo = StructType & {
 	public function name():GoString;
 	public function size():GoInt64;
 	public function mode():FileMode;

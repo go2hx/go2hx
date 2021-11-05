@@ -1,6 +1,5 @@
 package stdgo.encoding;
 
-interface BinaryMarshaler {}
-interface BinaryUnmarshaler {}
-interface TextMarshaler {}
-interface TextUnmarshaler {}
+typedef BinaryMarshaler = {}
+typedef BinaryUnmarshaler = {}
+typedef TextUnmarshaler = {}

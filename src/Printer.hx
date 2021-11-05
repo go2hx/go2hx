@@ -38,6 +38,7 @@ class Printer extends haxe.macro.Printer {
 		if (e == null)
 			return "#NULL_EXPR";
 		return switch (e.expr) {
+			case EBlock([]): '{}';
 			case EVars(vl) if (vl[0].isFinal): "final " + vl.map(printVar).join(", ");
 			case EArrayDecl(el) if (el.length > 10): '[\n${printExprs(el, ",\n")}]';
 			case ENew(tp, el) if (el.length > 10): 'new ${printTypePath(tp)}(\n${printExprs(el, ",\n")})';
@@ -126,9 +127,28 @@ class Printer extends haxe.macro.Printer {
 		return str;
 	}
 
+	override function printStructure(fields:Array<Field>):String {
+		if (fields.length == 0)
+			return "{}";
+		return super.printStructure(fields);
+	}
+
 	override function printComplexType(ct:ComplexType):String {
 		if (ct == null)
 			return "#NULL_TYPE";
+		switch ct {
+			case TIntersection(tl):
+				if (tl.length == 2) {
+					switch tl[1] {
+						case TExtend(tpl, fields):
+							var types = [for (t in tpl) tabs + "> " + printTypePath(t) + ",\n"].join("");
+							var fields = [for (f in fields) tabs + printField(f) + ";\n"].join("");
+							return printComplexType(tl[0]) + ' & {\n${types}${fields}}';
+						default:
+					}
+				}
+			default:
+		}
 		return super.printComplexType(ct);
 	}
 

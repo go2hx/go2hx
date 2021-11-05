@@ -2841,7 +2841,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceType(empty, _):
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
-			throw "interface type is not empty";
+			null;
 		case named(path, _, underlying):
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
@@ -4228,9 +4228,9 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 
 	var t = typeof(spec.type);
 	var underlyingType = getUnderlying(t);
-	var underlyingComplexType = toComplexType(underlyingType, info);
 	var e = macro t;
-	var ct = underlyingComplexType; // typeExprType(spec.type, info);
+	var underlyingComplexType = toComplexType(underlyingType, info);
+	var ct = underlyingComplexType;
 	var value = defaultValue(underlyingType, info, false);
 	var p:TypePath = {name: name, pack: []};
 	var copyT = macro __t__;
@@ -4288,9 +4288,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var meta = [{name: ":named", pos: null}];
 	var superClass:TypePath = null;
 	var isInterface = false;
-	var func = null;
-	func = function() {
-		switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
+		switch t {// only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 			case sliceType(elem):
 				fields.push({
 					name: "__append__",
@@ -4360,7 +4358,14 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 							];
 						case interfaceType(empty, methods):
 							if (empty)
-								return true;
+								return {
+									name: name,
+									pos: null,
+									pack: [],
+									fields: [],
+									meta: [{name: ":follow", pos: null}],
+									kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+								};
 							isInterface = true;
 							fields = [];
 							for (method in methods) {
@@ -4372,17 +4377,6 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				}
 			default:
 		}
-		return false;
-	}
-	if (func())
-		return {
-			name: name,
-			pos: null,
-			pack: [],
-			fields: [],
-			meta: [{name: ":follow", pos: null}],
-			kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
-		};
 	if (isInterface) {
 		return {
 			name: name,

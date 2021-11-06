@@ -48,6 +48,7 @@ var target = "";
 var targetOutput = "";
 var libwrap = false;
 var outputPath:String = "";
+var root:String = "";
 var hxmlPath:String = "";
 var test:Bool = false;
 final passthroughArgs = ["-test"];
@@ -62,6 +63,8 @@ function run(args:Array<String>) {
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> {
 			outputPath = out;
 		},
+		@doc("set the root package for all generated files")
+		["-root", "--root", "-r", "--r"] => out -> root,
 		@doc("generate hxml from target command")
 		["-hxml", "--hxml"] => out -> {
 			hxmlPath = out;
@@ -111,7 +114,7 @@ function run(args:Array<String>) {
 		}
 	]);
 	argHandler.parse(args);
-	for (option in (argHandler.options : Array<Dynamic>)) {
+	for (option in argHandler.options) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
 		for (i in 0...args.length) {
@@ -137,7 +140,7 @@ function run(args:Array<String>) {
 		} else {
 			compile(args);
 		}
-	}, outputPath);
+	}, outputPath, root);
 	while (true)
 		update();
 }
@@ -179,7 +182,7 @@ function close() {
 	Sys.exit(0);
 }
 
-function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs") {
+function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs", root:String = "") {
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
@@ -237,12 +240,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Sys.setCwd(cwd);
 						var name = module.name;
 						var libPath = "libs/" + name + "/";
-						Gen.create(libPath, module);
+						Gen.create(libPath, module, root);
 						Sys.command('haxelib dev $name $libPath');
 						if (libs.indexOf(name) == -1)
 							libs.push(name);
 					} else {
-						Gen.create(outputPath, module);
+						Gen.create(outputPath, module, root);
 					}
 				}
 				runTarget(modules);

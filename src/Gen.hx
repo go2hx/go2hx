@@ -6,9 +6,11 @@ import haxe.macro.Type.ClassKind;
 import sys.FileSystem;
 import sys.io.File;
 
-function create(outputPath:String, module:Module) {
+function create(outputPath:String, module:Module, root:String) {
 	var actualPath = StringTools.replace(module.path, ".", "/");
-	var pkgPath = 'package ${module.path};\n';
+	if (root.length > 0)
+		root += ".";
+	var pkgPath = 'package $root${module.path};\n';
 	var content = "";
 	var count = module.files.length;
 
@@ -33,4 +35,6 @@ private function save(dir:String, name:String, content:String) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	File.saveContent(dir + name + ".hx", content);
+	final kb = content.length / 1000;
+	Sys.println("Generated: " + dir + name + ".hx - " + kb + " kb");
 }

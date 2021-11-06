@@ -74,7 +74,6 @@ var excludesBytes []byte
 var fset *token.FileSet
 var stdgoList map[string]bool
 
-var interfaces []interfaceData
 var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default()}
 var marked map[string]bool //prevent infinite recursion of types
@@ -136,7 +135,6 @@ func compile(params []string, excludesData excludesType) []byte {
 	excludes = nil
 	typeHasher = typeutil.Hasher{}
 	methodCache = typeutil.MethodSetCache{}
-	interfaces = nil
 	data.Args = args
 	bytes, err = bson.Marshal(data)
 	if err != nil {
@@ -225,49 +223,23 @@ func main() {
 	}
 }
 
-func parseFileInterface(file *ast.File, pkg *packages.Package) []interfaceData {
-	interfaces := []interfaceData{}
-	isMain := pkg.PkgPath == "main"
-	if isMain {
-		pkg.PkgPath = "main__" + file.Name.Name
-	}
-
-	for _, decl := range file.Decls { //typespec named interfaces
-		switch decl := decl.(type) {
-		case *ast.GenDecl:
-			for _, spec := range decl.Specs {
-				switch spec := spec.(type) {
-				case *ast.TypeSpec:
-					t := checker.TypeOf(spec.Type)
-					switch t.(type) {
-					case *types.Named:
-						t = t.Underlying()
-					}
-					switch t := t.(type) {
-					case *types.Interface:
-						if t.NumMethods() > 0 {
-							exported := spec.Name.IsExported()
-							if isMain {
-								exported = false
-							}
-							interfaces = append(interfaces, interfaceData{t, spec.Name.Name, pkg.PkgPath, exported})
-						}
-
-					default:
-					}
-				default:
-				}
-			}
-		default:
+func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
+	for _, val := range pkg.Imports {
+		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
+			continue
 		}
+		parseLocalPackage(val, excludes)
 	}
-	return interfaces
+	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
+	for _, file := range pkg.Syntax {
+		parseLocalFile(file, pkg)
+	}
+	checker = nil
 }
 
-func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData {
+func parseLocalFile(file *ast.File, pkg *packages.Package) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)
-	interfaces := []interfaceData{}
 	continueBool := false
 	count := 0
 	funcName := ""
@@ -301,8 +273,8 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 						return false
 					}
 					name := node.Name.Name + "_" + funcName + "_" + strconv.Itoa(count)
+					_ = name
 					count++
-					interfaces = append(interfaces, interfaceData{t.(*types.Interface), name, pkg.PkgPath, false})
 					cursor.Replace(node)
 				}
 			}
@@ -357,8 +329,6 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
 				countInterface++
 				interfaceTypes[hash] = name
-				//add to interfaces
-				interfaces = append(interfaces, interfaceData{t.(*types.Interface), name.Name, pkg.PkgPath, false})
 				//add to file
 				gen := ast.GenDecl{}
 				gen.Tok = token.FUNC //set local
@@ -387,39 +357,6 @@ func parseLocalInterface(file *ast.File, pkg *packages.Package) []interfaceData 
 		return true
 	}
 	file = astutil.Apply(file, apply, nil).(*ast.File)
-	return interfaces
-}
-
-func addInterface(interfaces []interfaceData, add []interfaceData) []interfaceData {
-	for _, obj := range add {
-		exists := false
-		for _, inter := range interfaces {
-			if inter.name == obj.name && inter.path == obj.path {
-				exists = true
-				break
-			}
-		}
-		if exists {
-			continue
-		}
-		interfaces = append(interfaces, obj)
-	}
-	return interfaces
-}
-
-func parseInterface(pkg *packages.Package, excludes map[string]bool) {
-	for _, val := range pkg.Imports {
-		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
-			continue
-		}
-		parseInterface(val, excludes)
-	}
-	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)
-	for _, file := range pkg.Syntax {
-		interfaces = addInterface(interfaces, parseFileInterface(file, pkg))
-		interfaces = addInterface(interfaces, parseLocalInterface(file, pkg))
-	}
-	checker = nil
 }
 
 func throw(str string) {
@@ -445,10 +382,10 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	typeHasher = typeutil.MakeHasher()
 	countInterface = 0
 	countStruct = 0
+
 	excludes2 := make(map[string]bool)
-	//parse interfaces 1st past
 	for _, pkg := range list {
-		parseInterface(pkg, excludes2)
+		parseLocalPackage(pkg, excludes2)
 	}
 	//2nd pass
 	data := dataType{}
@@ -547,54 +484,22 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"doc":       parseData(obj.Comment),
 			}
 		case *ast.TypeSpec:
-			implements := []interfaceType{}
 			named := checker.ObjectOf(obj.Name)
 			if named == nil {
 				continue
 			}
-			interfaces := interfaces
 			object := checker.ObjectOf(obj.Name)
-			for _, inter := range interfaces {
-				if obj.Name.Name == inter.name && named.Pkg().Path() == inter.path {
-					continue
-				}
-				if !inter.isExport && named.Pkg().Path() != inter.path {
-					continue
-				}
-				if object != nil {
-					b := types.Implements(types.NewPointer(object.Type()), inter.t)
-					if b {
-						implements = append(implements, interfaceType{inter.name, inter.path})
-					}
-				}
-			}
 
-			//set := typeutil.IntuitiveMethodSet(object.Type(), &methodCache)
-			set := typeutil.IntuitiveMethodSet(object.Type(), &methodCache)
-			methods := []map[string]interface{}{}
-			for _, sel := range set {
-				if len(sel.Index()) > 1 {
-					if !sel.Obj().Exported() && sel.Obj().Pkg().Path() != object.Pkg().Path() {
-						continue //unexported method not from same package
-					}
-					methods = append(methods, map[string]interface{}{
-						"name":  sel.Obj().Name(),
-						"type":  parseType(sel.Type()),
-						"recv":  parseType(sel.Recv()),
-						"index": sel.Index(),
-					})
-				}
-			}
+			methods := parseMethods(object.Type(), &methodCache)
 
 			data[i] = map[string]interface{}{
-				"id":        "TypeSpec",
-				"assign":    fset.Position(obj.Assign).Offset,
-				"name":      parseData(obj.Name),
-				"type":      parseData(obj.Type),
-				"doc":       parseData(obj.Comment),
-				"comment":   parseData(obj.Comment),
-				"implicits": implements,
-				"methods":   methods,
+				"id":      "TypeSpec",
+				"assign":  fset.Position(obj.Assign).Offset,
+				"name":    parseData(obj.Name),
+				"type":    parseData(obj.Type),
+				"doc":     parseData(obj.Comment),
+				"comment": parseData(obj.Comment),
+				"methods": methods,
 			}
 		default:
 			data[i] = parseData(obj)
@@ -603,6 +508,25 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 		data[i]["end"] = fset.Position(obj.End()).Offset
 	}
 	return data
+}
+
+func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache) []map[string]interface{} {
+	set := typeutil.IntuitiveMethodSet(object, methodCache)
+	methods := []map[string]interface{}{}
+	for _, sel := range set {
+		if len(sel.Index()) > 1 {
+			/*if !sel.Obj().Exported() && sel.Obj().Pkg().Path() != object.Pkg().Path() {
+				continue //unexported method not from same package
+			}*/
+			methods = append(methods, map[string]interface{}{
+				"name":  sel.Obj().Name(),
+				"type":  parseType(sel.Type()),
+				"recv":  parseType(sel.Recv()),
+				"index": sel.Index(),
+			})
+		}
+	}
+	return methods
 }
 
 func parseType(node interface{}) map[string]interface{} {
@@ -668,6 +592,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
+		data["methods"] = parseMethods(s, &methodCache)
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem())

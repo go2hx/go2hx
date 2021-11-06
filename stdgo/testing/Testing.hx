@@ -154,7 +154,7 @@ class B {
 }
 
 @:structInit
-class F 
+class F {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	var output:StringBuf = null;

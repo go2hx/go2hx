@@ -2130,11 +2130,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
 		if (a == null || b == null) // null check
 			return a == null && b == null;
+		var gt:GoType = @:privateAccess a.type.common().value;
+		var gt2:GoType = @:privateAccess b.type.common().value;
+		if (gt.match(invalidType) || gt2.match(invalidType))
+			return gt.match(invalidType) && gt2.match(invalidType);
 		if (!a.type.assignableTo(b.type)) {
 			throw "invalid operation: (mismatched types " + a.type + " and " + b.type + ")";
 		}
-		var gt:GoType = @:privateAccess a.type.common().value;
-		var gt2:GoType = @:privateAccess b.type.common().value;
 
 		function isNamed(gt:GoType) {
 			return switch gt {

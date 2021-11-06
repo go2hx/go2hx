@@ -532,7 +532,6 @@ class Go {
 										continue;
 									switch field.type {
 										case TLazy(f):
-											trace("HIT THIS: " + field.name);
 											continue;
 										default:
 									}

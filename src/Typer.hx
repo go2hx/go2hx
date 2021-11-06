@@ -189,18 +189,30 @@ function main(data:DataType, printGoCode:Bool = false) {
 					default:
 				}
 			}
+			final specs:Array<Ast.TypeSpec> = [];
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					if (spec == null)
 						continue;
 					switch spec.id {
 						case "ImportSpec":
-							// info.data.imports.push(typeImport(spec, info));
 							typeImport(spec, info);
 						case "TypeSpec":
-							var spec:Ast.TypeSpec = spec;
-							if (spec.name.name != "_")
-								info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+							final spec:Ast.TypeSpec = spec;
+							if (spec.type.id == "InterfaceType") { // priority
+								if (spec.name.name != "_")
+									info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+							}
+					}
+				}
+			}
+			for (gen in declGens) {
+				for (spec in gen.specs) { // 2nd pass
+					if (spec == null)
+						continue;
+					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType") { // all other specs
+						if (spec.name.name != "_")
+							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
 					}
 				}
 			}
@@ -1478,10 +1490,6 @@ private function cleanType(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		/*case signature(_, _, results, _):
-			if (results.length == 0)
-				return invalidType;
-			cleanType(results[0]); */
 		case _var(_, type):
 			cleanType(type);
 		default:
@@ -2841,7 +2849,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		case interfaceType(empty, _):
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
-			null;
+			throw "non empty interface";
 		case named(path, _, underlying):
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
@@ -3839,6 +3847,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro null;
 		case named(path, _, underlying):
 			switch underlying {
+				case named(_, _, type):
+					underlying = type;
+				default:
+			}
+			switch underlying {
 				case pointer(_), interfaceType(_), mapType(_, _):
 					final ct = ct();
 					macro(null : $ct);
@@ -4288,95 +4301,98 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var meta = [{name: ":named", pos: null}];
 	var superClass:TypePath = null;
 	var isInterface = false;
-		switch t {// only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
-			case sliceType(elem):
-				fields.push({
-					name: "__append__",
-					pos: null,
-					access: [APublic],
-					kind: FFun({
-						args: [
-							{name: "args", type: TPath({name: "Rest", pack: ["haxe"], params: [TPType(toComplexType(elem, info))]})}
-						],
-						expr: macro return new $p(this.__t__.__append__(...args)),
-					})
-				});
-				fields.push({
-					name: "__slice__",
-					pos: null,
-					access: [APublic],
-					kind: FFun({
-						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-						expr: macro return new $p(this.__t__.__slice__(low, high)),
-					})
-				});
-			case arrayType(elem, _):
-				fields.push({
-					name: "__slice__",
-					pos: null,
-					access: [APublic],
-					kind: FFun({
-						args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
-						expr: macro return this.__t__.__slice__(low, high),
-					})
-				});
-			case named(_, _, _, _):
-				if (!isNamed(t)) { // is Struct or Interface
-					final path = getTypePath(t, info);
-					final type = getUnderlying(t);
-					superClass = path;
-					fields = [];
-					final params:Array<Expr> = [];
-					final args:Array<FunctionArg> = [];
-					switch type {
-						case structType(fs):
-							for (field in fs) {
-								final name = nameIdent(field.name, true, false, info);
-								params.push(macro $i{name});
-								args.push({opt: true, name: name});
+	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
+		case sliceType(elem):
+			fields.push({
+				name: "__append__",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [
+						{name: "args", type: TPath({name: "Rest", pack: ["haxe"], params: [TPType(toComplexType(elem, info))]})}
+					],
+					expr: macro return new $p(this.__t__.__append__(...args)),
+				})
+			});
+			fields.push({
+				name: "__slice__",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
+					expr: macro return new $p(this.__t__.__slice__(low, high)),
+				})
+			});
+		case arrayType(elem, _):
+			fields.push({
+				name: "__slice__",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [{name: "low", type: intType}, {name: "high", type: intType, value: macro - 1}],
+					expr: macro return this.__t__.__slice__(low, high),
+				})
+			});
+		case named(_, _, _, _):
+			if (!isNamed(t)) { // is Struct or Interface
+				final path = getTypePath(t, info);
+				final type = getUnderlying(t);
+				superClass = path;
+				fields = [];
+				final params:Array<Expr> = [];
+				final args:Array<FunctionArg> = [];
+				switch type {
+					case structType(fs):
+						for (field in fs) {
+							final name = nameIdent(field.name, true, false, info);
+							params.push(macro $i{name});
+							args.push({opt: true, name: name});
+						}
+						meta.push({name: ":structInit", pos: null});
+						fields = [
+							{
+								name: "new",
+								pos: null,
+								access: [APublic],
+								kind: FFun({
+									args: args,
+									expr: macro super($a{params}),
+								}),
+							},
+							{
+								name: "__copy__",
+								pos: null,
+								access: [APublic, AOverride],
+								kind: FFun({
+									args: [],
+									expr: macro return new $p($a{params}),
+								}),
 							}
-							meta.push({name: ":structInit", pos: null});
-							fields = [
-								{
-									name: "new",
-									pos: null,
-									access: [APublic],
-									kind: FFun({
-										args: args,
-										expr: macro super($a{params}),
-									}),
-								},
-								{
-									name: "__copy__",
-									pos: null,
-									access: [APublic, AOverride],
-									kind: FFun({
-										args: [],
-										expr: macro return new $p($a{params}),
-									}),
-								}
-							];
-						case interfaceType(empty, methods):
-							if (empty)
-								return {
-									name: name,
-									pos: null,
-									pack: [],
-									fields: [],
-									meta: [{name: ":follow", pos: null}],
-									kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
-								};
-							isInterface = true;
-							fields = [];
-							for (method in methods) {
-								trace(method);
-							}
-						default: // must be an InterfaceType
-							throw "not an interface";
-					}
+						];
+					case interfaceType(empty, methods):
+						if (empty)
+							return {
+								name: name,
+								pos: null,
+								pack: [],
+								fields: [],
+								meta: [{name: ":follow", pos: null}],
+								kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+							};
+						isInterface = true;
+						fields = [];
+						trace("methods: ");
+						for (method in methods) {
+							trace(method);
+						}
+						trace(info.global.path,info.global.filePath,info.global.module.path);
+						throw "not an interface";
+					default: // must be an InterfaceType
+						throw "not an interface";
 				}
-			default:
-		}
+			}
+		default:
+	}
 	if (isInterface) {
 		return {
 			name: name,
@@ -4405,7 +4421,11 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		final hash:String = spec.type.type.hash;
 		if (!locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
-			var nameType:GoType = spec.type.id == "InterfaceType" ? named(path,[],interfaceType(spec.type.type.empty)) : typeof(spec.type);
+			var nameType:GoType = if (spec.type.id == "InterfaceType") {
+				named(path, [], interfaceType(spec.type.type.empty));
+			} else {
+				typeof(spec.type);
+			}
 			switch nameType {
 				case structType(_):
 					nameType = named(path, [], nameType);

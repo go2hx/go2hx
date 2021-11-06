@@ -967,7 +967,7 @@ function valueOf(iface:AnyInterface):Value {
 	}
 }
 
-typedef Type = {
+typedef Type = StructType & {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
 	public function method(arg0:GoInt):Method;
@@ -1000,8 +1000,7 @@ typedef Type = {
 
 	public function common():Pointer<Dynamic>;
 	public function uncommon():Pointer<Dynamic>;
-} &
-	StructType;
+};
 
 class _Type {
 	public var gt:GoType;
@@ -1276,7 +1275,12 @@ class _Type {
 	public function numMethod():GoInt {
 		switch (gt) {
 			case named(_, methods, _), interfaceType(_, methods):
-				return methods.length;
+				var count = 0;
+				for (method in methods) {
+					if (isExported(method.name))
+						count++;
+				}
+				return count;
 			default:
 				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + toString());
 		}
@@ -1312,6 +1316,10 @@ class _Type {
 			case previouslyNamed(name): name.substr(0, name.lastIndexOf("."));
 			default: "";
 		}
+	}
+
+	public function isExported(name:String):Bool {
+		return name.charCodeAt(0) != "_".code;
 	}
 
 	public function isVariadic():Bool {

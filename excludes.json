@@ -1,4 +1,9 @@
 {"excludes": [
+    "testing",
+    "testing/fstest",
+    "testing/iotest",
+    "testing/quick",
+    "testing/internal/testdeps",
     "fmt",
     "reflect",
     "os",
@@ -73,6 +78,5 @@
     "hash/crc32",
     "hash/adler32",
     "crypto/md5",
-    "compress/flate",
     "database/sql/driver"
 ]}

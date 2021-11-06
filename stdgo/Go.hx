@@ -87,8 +87,11 @@ class Go {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
-		// if ((s is stdgo.Error))
-		//	s = s.error();
+		if (!(s is String) && Reflect.isObject(s) && Reflect.hasField(s, "error")) {
+			final str = s.error();
+			if ((str is haxe.io.Bytes)) // GoString is haxe.io.Bytes
+				s = str;
+		}
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
 		} else {

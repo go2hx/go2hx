@@ -136,32 +136,6 @@ class Go {
 		return e;
 	}
 
-	public static macro function smartcast(expr:Expr, toPointer:Bool = false) {
-		function panicWrap(e:Expr) {
-			final set = toPointer ? macro Go.pointer($e) : macro $e;
-			return macro {var e = $e; e == null ?throw "panic: conversion":$set;};
-		}
-		switch expr.expr {
-			case ECast(e, ct):
-				var et = Context.typeof(e);
-				switch et {
-					case TInst(cl, params):
-						var cl = cl.get();
-						if (cl.isInterface) {
-							var t = ComplexTypeTools.toType(ct);
-							switch t {
-								case TAbstract(_, _):
-									return panicWrap(macro($e.__underlying__() : $ct));
-								default:
-							}
-						}
-					default:
-				}
-			default:
-		}
-		return panicWrap(expr);
-	}
-
 	public static macro function assertable(expr:Expr) {
 		function parens(expr) {
 			return switch expr.expr {
@@ -178,9 +152,8 @@ class Go {
 				var et = Context.follow(Context.typeof(e));
 				var value = gtDecode(t, null, []);
 				switch et {
-					case TInst(cl, params):
-						var cl = cl.get();
-						if (cl.isInterface) e = macro $e == null ? null : $e.__underlying__();
+					case TAnonymous(_):
+						e = macro $e == null ? null : $e.__underlying__();
 					default:
 				}
 				return macro if ($e == null) {
@@ -565,14 +538,19 @@ class Go {
 				for (arg in a) {
 					args.push(gtDecode(arg.t, null, marked));
 				}
-				var results = []; // TODO handle multi return
+				var results = [];
 				var isVoid = false;
 				switch result {
+					case TAnonymous(a):
+						final fields = a.get().fields;
+						for (field in fields) {
+							results.push(gtDecode(field.type, null, marked));
+						}
 					case TAbstract(t, params):
 						if (t.toString() == "Void") isVoid = true;
 					default:
 				}
-				if (!isVoid)
+				if (!isVoid && results.length == 0)
 					results.push(gtDecode(result, null, marked));
 				var variadic = macro false;
 				if (a.length > 0) {

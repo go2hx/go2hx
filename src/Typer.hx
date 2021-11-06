@@ -971,8 +971,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				default:
 			}
 		}
-		args.unshift(macro cast($e, $ct)); // add to start, allows correct interface casting
-		return macro Go.smartcast($a{args}); // add all args to smart cast macro function
+		return macro ($e.__underlying__().value : $ct); // add all args to smart cast macro function
 	}
 	if (isStruct(from) && isStruct(to)) {
 		switch to {
@@ -4241,6 +4240,28 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 
 	var t = typeof(spec.type);
 	var underlyingType = getUnderlying(t);
+	var meta = [{name: ":named", pos: null}];
+	switch underlyingType {
+		case interfaceType(empty, _):
+			if (empty)
+				return {
+					name: name,
+					pos: null,
+					pack: [],
+					fields: [],
+					meta: [{name: ":follow", pos: null}],
+					kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
+				};
+			return {
+				name: name,
+				pos: null,
+				pack: [],
+				fields: [],
+				meta: meta,
+				kind: TDAlias(TPath(getTypePath(t, info)))
+			};
+		default:
+	}
 	var e = macro t;
 	var underlyingComplexType = toComplexType(underlyingType, info);
 	var ct = underlyingComplexType;
@@ -4298,9 +4319,8 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		}
 	];
 	final intType = TPath({name: "GoInt", pack: []});
-	var meta = [{name: ":named", pos: null}];
 	var superClass:TypePath = null;
-	var isInterface = false;
+
 	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
 		case sliceType(elem):
 			fields.push({
@@ -4369,42 +4389,11 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 								}),
 							}
 						];
-					case interfaceType(empty, methods):
-						if (empty)
-							return {
-								name: name,
-								pos: null,
-								pack: [],
-								fields: [],
-								meta: [{name: ":follow", pos: null}],
-								kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
-							};
-						isInterface = true;
-						fields = [];
-						trace("methods: ");
-						for (method in methods) {
-							trace(method);
-						}
-						trace(info.global.path,info.global.filePath,info.global.module.path);
-						throw "not an interface";
-					default: // must be an InterfaceType
-						throw "not an interface";
+					default:
+						throw "type not valid";
 				}
 			}
 		default:
-	}
-	if (isInterface) {
-		return {
-			name: name,
-			pos: null,
-			pack: [],
-			fields: [],
-			meta: meta,
-			kind: TDAlias(TIntersection([
-				TPath({name: "StructType", pack: []}),
-				TExtend([{name: "StructType", pack: []}], fields)
-			]))
-		};
 	}
 	return {
 		name: name,

@@ -132,7 +132,10 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 					case "v".code: // default format, plus flag adds field names
 						buf.add(Go.string(args[argIndex++].value));
 					case "d".code: // int(x)/uint(x) etc
-						buf.add(Go.string(args[argIndex++].value));
+						var value:Dynamic = args[argIndex++].value;
+						if (!(value is Int) && !Int64.isInt64(value))
+							value = value.__t__;
+						buf.add(Go.string(value));
 					case "g".code: // float32/complex64 etc
 						buf.add(Go.string(args[argIndex++].value));
 					case "s".code: // string

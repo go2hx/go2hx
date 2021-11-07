@@ -105,11 +105,11 @@ func compile(params []string, excludesData excludesType) []byte {
 		return bytes
 	}
 	err = os.Chdir(localPath)
+	args = args[0 : len(args)-1] //remove chdir
 	if err != nil {
-		throw(err.Error())
+		throw(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
 		return bytes
 	}
-	args = args[0 : len(args)-1] //remove chdir
 
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax |
@@ -127,6 +127,9 @@ func compile(params []string, excludesData excludesType) []byte {
 	methodCache = typeutil.MethodSetCache{}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
 	for _, exclude := range excludesData.Excludes {
+		excludes[exclude] = true
+	}
+	for exclude := range stdgoList {
 		excludes[exclude] = true
 	}
 	//run
@@ -182,7 +185,7 @@ func main() {
 	}
 	tick := 0
 	for {
-		input := make([]byte, 1024)
+		input := make([]byte, 2056)
 		c, err := conn.Read(input)
 		tick++
 		if c == 0 {

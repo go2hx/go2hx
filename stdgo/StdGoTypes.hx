@@ -307,6 +307,9 @@ abstract GoFloat64(Float) from Float {
 	public inline function new(x = 0)
 		this = x;
 
+	@:from static function fromString(x:String):GoFloat64
+		return Std.parseFloat(x);
+
 	@:to inline function toFloat32():GoFloat32
 		return clampFloat32(this);
 

@@ -372,7 +372,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 						case TDField(kind, access):
 							switch kind {
 								case FFun(fun):
-									if (func.name == "toString") {
+									if (func.name == "toString") { // toString duplicate
 										for (field in def.fields) {
 											if (field.name == "toString") {
 												def.fields.remove(field);
@@ -699,91 +699,32 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
-	var key = stmt.tok == DEFINE ? macro $i{
-		nameIdent(stmt.key.name, false, true, info)
-	} : typeExpr(stmt.key, info); // iterator int
+	var key = typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x);
 	x = destructureExpr(x, xType).x;
 	var hasDefer = false;
-	var value = stmt.value != null ? (stmt.tok == DEFINE ? macro $i{
-		nameIdent(stmt.value.name, false, true, info)
-	} : typeExpr(stmt.value, info)) : null; // value of x[key]
+	var value = stmt.value == null ? macro _ : typeExpr(stmt.value, info); // value of x[key]
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
-	if (key != null && key.expr.match(EConst(CIdent("_")))) {
-		if (stmt.tok == DEFINE) {
-			return (macro for ($value in $x) $body).expr; // iterate through values using "in" for loop
-		} else {
-			switch body.expr {
-				case EBlock(exprs):
-					if (value != null)
-						exprs.unshift(macro $value = _obj.value);
-				default:
-			}
-			return (macro for (_obj in $x) $body).expr; // iterator through values using "in" for loop, and assign value to not defined value
-		}
-	}
-	var keyString:String = "_";
-	var valueString:String = "_";
-
-	if (value != null) {
-		switch value.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s): valueString = s;
-					default:
-				}
-			default:
-		}
-	}
-	if (key != null) {
-		switch key.expr {
-			case EConst(c):
-				switch c {
-					case CIdent(s): keyString = s;
-					default:
-				}
-			default:
-		}
-	}
+	var assign = false;
 	// both key and value
-	if (stmt.tok == DEFINE) {
-		hasDefer = true;
+	if (stmt.tok == ASSIGN) {
 		switch body.expr {
 			case EBlock(exprs):
-				if (value != null) {
-					exprs.unshift(macro $i{valueString} = _obj.value); // not a local variable but declared outside for block
-				}
-				if (key != null) {
-					exprs.unshift(macro $i{keyString} = _obj.key); // not a local variable but declared outside for block
-				}
-			default:
-		}
-	} else { // ASSIGN
-		switch body.expr {
-			case EBlock(exprs):
-				if (stmt.tok == ASSIGN) {
-					if (key != null) {
-						exprs.unshift(macro $key = _obj.key); // no diffrence with assign
-					}
-					if (value != null) {
-						exprs.unshift(macro $value = _obj.value); // no diffrence with assign
-					}
-				}
+				if (key != null && !key.expr.match(EConst(CIdent("_"))))
+					exprs.unshift(macro $key = __key__);
+				if (value != null && !value.expr.match(EConst(CIdent("_"))))
+					exprs.unshift(macro $value = __value__);
+				assign = true;
 			default:
 		}
 	}
 	x = toGoType(x);
-	var e = macro for (_obj in $x.keyValueIterator()) $body;
-	if (hasDefer) {
-		var inits:Array<Expr> = [];
-		if (keyString != "_")
-			inits.push(macro var $keyString);
-		if (valueString != "_")
-			inits.push(macro var $valueString);
-		e = toExpr(EBlock(inits.concat([e])));
+	if (assign) {
+		key = macro __key__;
+		value = macro __value__;
 	}
-	return e.expr;
+	return (macro for ($key => $value in $x) $body).expr;
 }
 
 private function importClassName(name:String):String {
@@ -805,8 +746,8 @@ private function className(name:String, info:Info):String {
 
 	if (name == "error")
 		return "Error";
-	// if (name == "Error")
-	//	return "T_error";
+	if (name == "Error")
+		return "T_error";
 	if (!isTitle(name) || isInvalidTitle(name))
 		name = "T_" + name;
 
@@ -959,7 +900,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 
 	if (isInterface(pointerUnwrap(from))) {
 		final args:Array<Expr> = [];
-		if (!isPointer(from) && isPointer(to)) {
+		if (isPointer(from) && !isPointer(to)) {
 			args.push(macro true);
 			switch ct {
 				case TPath(p):
@@ -971,7 +912,7 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 				default:
 			}
 		}
-		return macro ($e.__underlying__().value : $ct); // add all args to smart cast macro function
+		return macro($e.__underlying__().value : $ct); // add all args to smart cast macro function
 	}
 	if (isStruct(from) && isStruct(to)) {
 		switch to {
@@ -1225,13 +1166,20 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 					default:
 						return macro $value != null;
 				}
+			/*case pointer(_):
+				switch op {
+					case OpEq:
+						return macro $value.isNil();
+					default:
+						return macro !$value.isNil();
+			}*/
 			default:
 		}
 		switch op {
 			case OpEq:
-				return macro $value == null || $value.isNil();
+				return macro($value == null || $value.isNil());
 			default:
-				return macro $value != null && !$value.isNil();
+				return macro($value != null && !$value.isNil());
 		}
 	}
 	if (isInterface(typeX) || isInterface(typeY)) {
@@ -1459,7 +1407,8 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 	return switch obj.id {
 		case "TypeAssertExpr":
 			var obj:Ast.TypeAssertExpr = obj;
-			var value = defaultValue(typeof(obj.type), info);
+			final t = typeof(obj.type);
+			var value = defaultValue(t, info);
 			{
 				ok: true,
 				expr: macro try {
@@ -2419,7 +2368,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									return returnExpr(macro new Slice<$param>());
 								macro new Slice<$param>(...[for (i in 0...$size) $value]);
 							case mapType(key, value):
-								var t = toReflectType(type);
+								var t = toReflectType(type,info);
 								var key = toComplexType(key, info);
 								var value = toComplexType(value, info);
 								macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($t));
@@ -2470,30 +2419,30 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	return returnExpr(macro $e($a{args}));
 }
 
-private function toReflectType(t:GoType):Expr {
+private function toReflectType(t:GoType,info:Info):Expr {
 	return switch t {
 		case mapType(key, value):
-			final key = toReflectType(key);
-			final value = toReflectType(value);
+			final key = toReflectType(key,info);
+			final value = toReflectType(value,info);
 			macro stdgo.reflect.Reflect.GoType.mapType($key, $value);
 		case pointer(elem):
-			final elem = toReflectType(elem);
+			final elem = toReflectType(elem,info);
 			macro stdgo.reflect.Reflect.GoType.pointer($elem);
 		case arrayType(elem, len):
-			final elem = toReflectType(elem);
+			final elem = toReflectType(elem,info);
 			final len = toExpr(EConst(CInt('$len')));
 			macro stdgo.reflect.Reflect.GoType.arrayType($elem, $len);
 		case sliceType(elem):
-			final elem = toReflectType(elem);
+			final elem = toReflectType(elem,info);
 			macro stdgo.reflect.Reflect.GoType.sliceType($elem);
 		case basic(kind):
 			final name = macro $i{kind.getName()};
 			macro stdgo.reflect.Reflect.GoType.basic($name);
 		case _var(name, type):
-			toReflectType(type);
+			toReflectType(type,info);
 		case chanType(dir, elem):
 			final dir = toExpr(EConst(CInt('$dir')));
-			final elem = toReflectType(elem);
+			final elem = toReflectType(elem,info);
 			macro stdgo.reflect.Reflect.GoType.chanType($dir, $elem);
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
@@ -2502,9 +2451,11 @@ private function toReflectType(t:GoType):Expr {
 		case invalidType:
 			macro stdgo.reflect.Reflect.GoType.invalidType;
 		case named(path, methods, type):
-			final path = makeString(path);
 			final methods = macro [];
-			final t = toReflectType(type);
+			final t = toReflectType(type,info);
+			final namedPath = namedTypePath(path, info);
+			namedPath.pack.push(namedPath.name);
+			final path = makeString(namedPath.pack.join("."));
 			macro stdgo.reflect.Reflect.GoType.named($path, $methods, $t);
 		case previouslyNamed(path):
 			final path = makeString(path);
@@ -2513,7 +2464,7 @@ private function toReflectType(t:GoType):Expr {
 			final variadic = variadic ? macro true : macro false;
 			final params = macro [];
 			final results = macro [];
-			final recv = toReflectType(recv);
+			final recv = toReflectType(recv,info);
 			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
 		case structType(fields):
 			var exprs:Array<Expr> = [];
@@ -2521,7 +2472,7 @@ private function toReflectType(t:GoType):Expr {
 				final name = makeString(formatHaxeFieldName(field.name));
 				final embedded = field.embedded ? macro true : macro false;
 				final tag = makeString(field.tag);
-				final t = toReflectType(field.type);
+				final t = toReflectType(field.type,info);
 				exprs.push(macro {
 					name: $name,
 					embedded: $embedded,
@@ -2533,7 +2484,7 @@ private function toReflectType(t:GoType):Expr {
 			macro stdgo.reflect.Reflect.GoType.structType($expr);
 		case tuple(len, vars):
 			final len = toExpr(EConst(CInt('$len')));
-			final vars = [for (v in vars) toReflectType(v)];
+			final vars = [for (v in vars) toReflectType(v,info)];
 			macro stdgo.reflect.Reflect.GoType.tuple($len, $a{vars});
 	}
 }
@@ -2758,6 +2709,7 @@ private function parseTypePath(path:String, name:String, info:Info):TypePath { /
 	var pack = [];
 	if (globalPath != path) {
 		pack = path.split("/");
+		trace(stdgoList);
 		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
@@ -3281,7 +3233,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				return (macro new $p(...($a{exprs}.concat($values)))).expr;
 			}
 		case mapType(keyType, valueType):
-			var t = toReflectType(type);
+			var t = toReflectType(type,info);
 			var params:Array<Expr> = [];
 			for (elt in expr.elts) {
 				if (elt.id != "KeyValueExpr")
@@ -3824,7 +3776,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case mapType(key, value):
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
-			final typ = toReflectType(type);
+			final typ = toReflectType(type,info);
 			macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($typ)).nil();
 		case sliceType(elem):
 			final t = toComplexType(elem, info);
@@ -4586,9 +4538,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						}
 						if (!isVoid(ret))
 							expr = macro return $expr;
-
+						final methodName = nameIdent(method.name, false, false, info);
+						if (methodName == "toString") { // toString duplicate
+							for (field in fields) {
+								if (field.name == "toString") {
+									fields.remove(field);
+									break;
+								}
+							}
+						}
 						fields.push({
-							name: nameIdent(method.name, false, false, info),
+							name: methodName,
 							pos: null,
 							access: [APublic],
 							kind: FFun({
@@ -4806,7 +4766,9 @@ private function getComment(value:{comment:Ast.CommentGroup}):String {
 private function getDoc(value:{doc:Ast.CommentGroup}):String {
 	if (value.doc == null || value.doc.list == null)
 		return "";
-	return value.doc.list.join("\n");
+	var source = value.doc.list.join("\n");
+	source = sanatizeComment(source);
+	return source;
 }
 
 private function getSource(value:{pos:Int, end:Int}, info:Info):String {
@@ -4820,12 +4782,17 @@ private function getSource(value:{pos:Int, end:Int}, info:Info):String {
 		return "";
 	}
 	source = source.substring(value.pos, value.end);
+	source = "\n" + source;
+	source = sanatizeComment(source);
+	return source;
+}
+
+private function sanatizeComment(source:String):String {
 	// sanatize comments
-	if (source != "") {
-		source = "\n" + source;
-		source = StringTools.replace(source, "/*", "/|*");
-		source = StringTools.replace(source, "*/", "*|/");
-	}
+	if (source == "")
+		return source;
+	source = StringTools.replace(source, "/*", "/|*");
+	source = StringTools.replace(source, "*/", "*|/");
 	return source;
 }
 

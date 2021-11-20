@@ -16,6 +16,7 @@ function main() {
 					"./tests/go/test/";
 				case "yaegi":
 					"./tests/yaegi/_test/";
+					continue; // skip
 				default:
 					throw "unknown name";
 			}
@@ -26,7 +27,9 @@ function main() {
 	res.sort((a, b) -> {
 		return a.size - b.size;
 	});
-	res = res.slice(0, 10);
+	final pos = 0;
+	final len = 10;
+	res = res.slice(pos, pos + len);
 	for (obj in res) {
 		Sys.println(obj.name);
 	}

@@ -55,20 +55,17 @@ final passthroughArgs = ["-test"];
 
 function run(args:Array<String>) {
 	outputPath = "golibs";
+	root = "";
 	var help = false;
 	final argHandler = Args.generate([
 		["-help", "--help", "-h", "--h"] => () -> help = true, @doc("go test")
 		["-test", "--test"] => () -> test = true,
 		@doc("set output path or file location")
-		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> {
-			outputPath = out;
-		},
+		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> outputPath = out,
 		@doc("set the root package for all generated files")
-		["-root", "--root", "-r", "--r"] => out -> root,
+		["-root", "--root", "-r", "--r"] => out -> root = out,
 		@doc("generate hxml from target command")
-		["-hxml", "--hxml"] => out -> {
-			hxmlPath = out;
-		},
+		["-hxml", "--hxml"] => out -> hxmlPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
 		["-printgocode", "--printgocode"] => () -> printGoCode = true,
 		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")

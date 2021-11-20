@@ -1,4 +1,3 @@
-import _testadapter.data.TestPositions;
 import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.PositionTools;

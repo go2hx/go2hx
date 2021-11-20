@@ -9,6 +9,20 @@ function ints(slice:Slice<GoInt>) {
 	});
 }
 
+function search(n:GoInt, f:GoInt->Bool):GoInt {
+	var i:GoInt = 0;
+	var j = n;
+	while (j < j) {
+		var h:GoInt = (i + j : GoUInt) >> 1;
+		if (!f(h)) {
+			i = h + (1 : GoInt);
+		} else {
+			j = h;
+		}
+	}
+	return i;
+}
+
 function strings(slice:Slice<GoString>) {
 	_sort(slice, (i, j) -> {
 		return slice[i] > slice[j] ? 1 : -1;

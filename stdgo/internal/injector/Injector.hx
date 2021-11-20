@@ -1,4 +1,4 @@
-package stdgo.internal;
+package stdgo.internal.injector;
 
 import haxe.macro.Context;
 import haxe.macro.Expr.Field;
@@ -10,9 +10,9 @@ import haxe.macro.TypedExprTools;
 import haxe.macro.Compiler;
 
 function run() {
-	final paths = ["time.Time", "math.Math"];
+	final paths = ["stdgo.time.Time", "stdgo.math.Math",];
 	for (path in paths)
-		Compiler.addGlobalMetadata(path, "@:build(stdgo.internal.Injector.build())", true, true, false);
+		Compiler.addGlobalMetadata(path, "@:build(stdgo.internal.injector.Injector.build())", true, true, false);
 }
 
 function build():Array<Field> {
@@ -22,7 +22,8 @@ function build():Array<Field> {
 	final fields = Context.getBuildFields();
 	if (!StringTools.endsWith(className, "_Fields_"))
 		return fields;
-	final moduleTypes = Context.getModule("stdgo." + modulePath);
+	final index = modulePath.indexOf(".");
+	final moduleTypes = Context.getModule("stdgo.internal.injector." + modulePath.substring(index + 1));
 	for (type in moduleTypes) {
 		switch type {
 			case TInst(t, _):
@@ -47,6 +48,7 @@ function build():Array<Field> {
 					}
 				}
 			default:
+				trace(type);
 		}
 	}
 	return fields;

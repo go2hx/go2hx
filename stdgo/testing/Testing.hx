@@ -80,6 +80,9 @@ class B {
 			this.n = n;
 	}
 
+	public function run(name:GoString, f:Pointer<B>->Void):Bool
+		return true;
+
 	public function setenv(key:GoString, value:GoString) {}
 
 	public function name():GoString

@@ -81,10 +81,11 @@ var checker *types.Checker
 var typeHasher typeutil.Hasher
 var logBool = false
 var logBuffer = ""
+var testBool = false
 
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
-	testBool := false
+	testBool = false
 	logBool = false
 	logBuffer = ""
 	for _, param := range params {
@@ -227,6 +228,9 @@ func main() {
 }
 
 func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
+	if testBool && excludes[pkg.PkgPath] {
+		return
+	}
 	for _, val := range pkg.Imports {
 		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
@@ -385,15 +389,16 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	typeHasher = typeutil.MakeHasher()
 	countInterface = 0
 	countStruct = 0
-
-	excludes2 := make(map[string]bool)
 	for _, pkg := range list {
-		parseLocalPackage(pkg, excludes2)
+		parseLocalPackage(pkg, excludes)
 	}
 	//2nd pass
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
+		if testBool && excludes[pkg.PkgPath] {
+			continue
+		}
 		excludes[pkg.PkgPath] = true
 		syntax := parsePkg(pkg)
 		if len(syntax.Files) > 0 {
@@ -404,7 +409,6 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 				continue
 			}
 			excludes[val.PkgPath] = true
-			log("import name " + val.Name)
 			dataImport := parsePkgList([]*packages.Package{val}, excludes)
 			if len(dataImport.Pkgs) > 0 {
 				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)

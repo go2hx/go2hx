@@ -89,25 +89,42 @@ inline function atoi(s:GoString) {
 inline function itoa(i:GoInt):GoString
 	return Std.string(i.toBasic());
 
-class NumError {
-	public function new(func, num, err) {
-		this.func = func;
-		this.num = num;
-		this.err = err;
+@:structInit class NumError {
+	public function unwrap():Error {
+		var _e = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+		return _e.value.err;
+	}
+
+	public function error():GoString {
+		var _e = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+		return (("strconv." : GoString)) + _e.value.func + ((": " : GoString)) + (("parsing " : GoString)) + '"' + _e.value.num + '"' + ((": " : GoString))
+			+ _e.value.err.error();
+	}
+
+	public var func:GoString = (("" : GoString));
+	public var num:GoString = (("" : GoString));
+	public var err:stdgo.Error = ((null : stdgo.Error));
+
+	public function new(?func:GoString, ?num:GoString, ?err:stdgo.Error)
+		stdgo.internal.Macro.initLocals();
+
+	public function toString() {
+		return '{' + Go.string(func) + " " + Go.string(num) + " " + Go.string(err) + "}";
 	}
 
 	public function __underlying__():AnyInterface
-		return null;
+		return Go.toInterface(this);
 
-	public var func:GoString;
-	public var num:GoString;
-	public var err:Error;
+	public function __copy__() {
+		return new NumError(func, num, err);
+	}
 
-	public function error():GoString
-		return this.err.error();
-
-	public function unwrap():Error
-		return this.err;
+	public function __set__(__tmp__) {
+		this.func = __tmp__.func;
+		this.num = __tmp__.num;
+		this.err = __tmp__.err;
+		return this;
+	}
 }
 
 // final intSize:GoInt64 = "9223372036854775807";

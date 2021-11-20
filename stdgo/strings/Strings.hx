@@ -158,3 +158,48 @@ function newReplacer(oldnew:Rest<GoString>):Pointer<Replacer> {
 	}
 	return Go.pointer(new Replacer([for (str in oldnew) str.toString()]));
 }
+
+function toLowerSpecial(c:stdgo.unicode.Unicode.SpecialCase, s:GoString):GoString {
+	return map(c.toLower, s);
+}
+
+function map(mapping:GoRune->GoRune, s:GoString):GoString {
+	final b:GoString = "";
+	for (i in 0...s.length.toBasic()) {
+		var c = s[i];
+		final r = mapping(c);
+		if (r == c && c != stdgo.unicode.utf8.Utf8.runeError) {
+			continue;
+		}
+		var width:GoInt = 0;
+		if (c == stdgo.unicode.utf8.Utf8.runeError) {
+			final __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(s.__slice__(i));
+			c = __tmp__._0;
+			width = __tmp__._1;
+		} else {
+			width = stdgo.unicode.utf8.Utf8.runeLen(c);
+		}
+		b += s.__slice__(0, i);
+		if (r >= 0) {
+			b += r;
+		}
+
+		s = s.__slice__(i + width);
+		break;
+	}
+	if (b == "")
+		return s;
+
+	for (i in 0...s.length.toBasic()) {
+		final c = s[i];
+		final r = mapping(c);
+		if (r >= 0) {
+			if (r < stdgo.unicode.utf8.Utf8.runeSelf) {
+				b += r;
+			} else {
+				b += r;
+			}
+		}
+	}
+	return b;
+}

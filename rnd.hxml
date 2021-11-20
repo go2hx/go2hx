@@ -4,7 +4,7 @@
 --hl rnd.hl
 -D debug
 -lib bson
--D simulate_num
+extraParams.hxml
 -D watch.run=hl rnd.hl
 -D no-deprecation-warnings
 -D watch.excludes=golibs

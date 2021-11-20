@@ -3,17 +3,24 @@ package stdgo;
 import haxe.Rest;
 import haxe.ds.Vector;
 import haxe.io.Bytes;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoByte;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.StructType;
+import stdgo.StdGoTypes;
 
-@:generic
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
+	public inline function iterator()
+		return this.iterator();
+
+	public inline function keyValueIterator()
+		return this.keyValueIterator();
+
 	@:from
-	public static function fromString(str:String):Slice<GoByte> {
+	public static function fromStringRunes(str:String):Slice<GoRune> {
+		return new GoString(str);
+	}
+
+	@:from
+	public static function fromStringBytes(str:String):Slice<GoByte> {
 		return new GoString(str);
 	}
 
@@ -127,14 +134,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		this.grow(size);
 	}
 
-	inline public function iterator():Iterator<T> {
-		return this.iterator();
-	}
-
-	inline public function keyValueIterator() {
-		return this.keyValueIterator();
-	}
-
 	inline public function cap():GoInt {
 		return @:privateAccess this._cap == -1 ? length : @:privateAccess this._cap;
 	}
@@ -220,13 +219,11 @@ private class SliceData<T> {
 		return vector.set(i, value);
 	}
 
-	inline public function iterator():Iterator<T> {
+	inline public function iterator()
 		return new SliceIterator(this);
-	}
 
-	inline public function keyValueIterator():KeyValueIterator<GoInt, T> {
+	inline public function keyValueIterator()
 		return new SliceKeyValueIterator(this);
-	}
 
 	inline public function cap():Int {
 		return _cap;

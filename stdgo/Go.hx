@@ -149,7 +149,7 @@ class Go {
 		expr = parens(expr);
 		switch expr.expr {
 			case ECheckType(e, t):
-				var t = Context.follow(ComplexTypeTools.toType(t));
+				var t = ComplexTypeTools.toType(t);
 				if (t == null)
 					Context.error("complexType converted to type is null", Context.currentPos());
 				var et = Context.follow(Context.typeof(e));
@@ -306,15 +306,15 @@ class Go {
 			case TType(t, params):
 				final name = t.get().name;
 				switch name {
-					case "GoUnTypedInt":
+					case "stdgo.GoUnTypedInt":
 						true;
-					case "GoUnTypedFloat":
+					case "stdgo.GoUnTypedFloat":
 						true;
-					case "GoUnTypedComplex":
+					case "stdgo.GoUnTypedComplex":
 						true;
-					case "GoRune":
+					case "stdgo.GoRune":
 						true;
-					case "GoByte":
+					case "stdgo.GoByte":
 						true;
 					default:
 						false;
@@ -373,17 +373,19 @@ class Go {
 		var ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 		switch (t) {
 			case TType(t, params):
-				final name = t.get().name;
+				final name = t.toString();
 				switch name {
-					case "GoUnTypedInt":
+					case "stdgo.unsafe.Pointer_":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);
+					case "stdgo GoUnTypedInt":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(untyped_int_kind);
-					case "GoUnTypedFloat":
+					case "stdgo.GoUnTypedFloat":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(untyped_float_kind);
-					case "GoUnTypedComplex":
+					case "stdgo.GoUnTypedComplex":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(untyped_complex_kind);
-					case "GoRune":
+					case "stdgo.GoRune":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int32_kind);
-					case "GoByte":
+					case "stdgo.GoByte":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint8_kind);
 					default:
 						final ref = t.get();
@@ -409,7 +411,7 @@ class Go {
 								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
 									stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
 							default:
-								Context.error("unknown typedef: " + t.toString() + " " + name, Context.currentPos());
+								Context.error("unknown typedef: " + name, Context.currentPos());
 						}
 				}
 			case TMono(ref):
@@ -479,62 +481,62 @@ class Go {
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind
-						throw "unknown abstract";
 						Context.error('unknown abstract type: $sref', Context.currentPos());
 				}
 			case TInst(ref, params):
 				final refString = ref.toString();
 				var ref = ref.get();
-				if (!marked.exists(refString)) {
-					marked[refString] = true;
-					if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && ref.name == "Chan") {
-						var param = gtParams(params, marked)[0];
-						ret = macro stdgo.reflect.Reflect.GoType.chanType(0, $param);
-					} else {}
-					if (ref.module == "String") {
-						ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
-					} else {
-						final methods:Array<Expr> = [];
-						final fs = ref.fields.get();
-						final path = createPath(ref.pack, ref.name);
-						for (field in fs) {
-							switch field.kind {
-								case FMethod(k):
-									switch field.name {
-										case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
+				if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && (ref.name == "Chan" || ref.name == "_Chan")) {
+					var param = gtParams(params, marked)[0];
+					ret = macro stdgo.reflect.Reflect.GoType.chanType(0, $param);
+				} else {
+					if (!marked.exists(refString)) {
+						marked[refString] = true;
+						if (ref.module == "String") {
+							ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
+						} else {
+							final methods:Array<Expr> = [];
+							final fs = ref.fields.get();
+							final path = createPath(ref.pack, ref.name);
+							for (field in fs) {
+								switch field.kind {
+									case FMethod(k):
+										switch field.name {
+											case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
+												continue;
+										}
+										if (field.name == "toString" && field.meta.has(":implicit"))
 											continue;
-									}
-									if (field.name == "toString" && field.meta.has(":implicit"))
-										continue;
-									switch field.type {
-										case TLazy(f):
-											continue;
-										default:
-									}
-									methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)}));
-								default:
-							}
-						}
-						ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, null);
-						if (ref.meta.has(":named")) {
-							var type:haxe.macro.Type = null;
-							for (field in ref.fields.get()) {
-								if (field.name == "__t__") {
-									type = field.type;
-									break;
+										switch field.type {
+											case TLazy(f):
+												continue;
+											default:
+										}
+										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)}));
+									default:
 								}
 							}
-							if (type == null)
-								Context.error("unable to find __t__ type", Context.currentPos());
-							final underlyingType = gtDecode(type, null, marked);
-							ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
-						} else {
-							ret = gtDecodeClassType(ref, methods, marked);
+							ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, null);
+							if (ref.meta.has(":named")) {
+								var type:haxe.macro.Type = null;
+								for (field in ref.fields.get()) {
+									if (field.name == "__t__") {
+										type = field.type;
+										break;
+									}
+								}
+								if (type == null)
+									Context.error("unable to find __t__ type", Context.currentPos());
+								final underlyingType = gtDecode(type, null, marked);
+								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
+							} else {
+								ret = gtDecodeClassType(ref, methods, marked);
+							}
 						}
+					} else {
+						var name = parseModule(ref.module) + "." + ref.name;
+						ret = macro stdgo.reflect.Reflect.GoType.previouslyNamed($v{name});
 					}
-				} else {
-					var name = parseModule(ref.module) + "." + ref.name;
-					ret = macro stdgo.reflect.Reflect.GoType.previouslyNamed($v{name});
 				}
 			case TFun(a, result):
 				var args = [];
@@ -578,6 +580,8 @@ class Go {
 				ret = gtDecode(f(), null, []);
 			case TEnum(_, _):
 				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
+			case TAnonymous(a):
+				Context.error('reflect.cast_AnyInterface - unhandled anon type $t', Context.currentPos());
 			default:
 				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());
 		}

@@ -26,9 +26,10 @@ function main() {
 		if (!exist)
 			libs.push(path);
 	}
-	for (path in [])
+	for (path in ["runtime/race"])
 		libs.remove(path); // remove
 	trace(libs);
-	trace("std count: " + libs.length);
-	Sys.command('haxelib run go2hx --rebuild ' + libs.join(" ") + " --out stdgo");
+	trace("libs count: " + libs.length);
+	for (lib in libs)
+		Sys.command('haxelib run go2hx --rebuild ' + lib + " --out stdgo --root stdgo");
 }

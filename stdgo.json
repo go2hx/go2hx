@@ -151,5 +151,7 @@
     "unicode/utf16",
     "unicode/utf8",
     "unsafe",
-    "internal"
+    "internal",
+    "internal/bytealg",
+    "internal/itoa"
 ]}

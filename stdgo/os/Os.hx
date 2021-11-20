@@ -163,5 +163,3 @@ class File {
 		return null;
 	}
 }
-
-typedef FileInfo = stdgo.io.fs.Fs.FileInfo;

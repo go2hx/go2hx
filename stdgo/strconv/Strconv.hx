@@ -54,15 +54,15 @@ inline function formatBool(b:Bool):GoString
 	return b ? "true" : "false";
 
 inline function formatInt(i:GoInt64, base:GoInt):GoString {
-	return '$i';
+	return Std.string(i.toBasic());
 }
 
 inline function formatUint(i:GoUInt64, base:GoInt):GoString {
-	return '$i';
+	return Std.string(i.toBasic());
 }
 
 inline function formatFloat(i:GoFloat64, fmt:GoByte, prec:GoInt, bitSize:GoInt):GoString {
-	return '$i';
+	return Std.string(i.toBasic());
 }
 
 final errRange = stdgo.errors.Errors.new_("value out of range");

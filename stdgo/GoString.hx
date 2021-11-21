@@ -19,6 +19,10 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return String.fromCharCode(x.toBasic());
 	}
 
+	@:from static function ofUInt64(x:GoUInt64):GoString {
+		return String.fromCharCode(x.toBasic().toInt());
+	}
+
 	@:from static function ofSliceByte(x:Slice<GoByte>):GoString {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
@@ -68,9 +72,6 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:from static function fromByte(value:GoByte):GoString {
 		return new GoString(String.fromCharCode(value.toBasic()));
 	}
-
-	@:from static function fromDynamic(obj:Dynamic):GoString
-		return Go.string(obj);
 
 	public function toArray():Array<StdGoTypes.GoByte> {
 		return [for (code in new StringIterator(toString())) code];

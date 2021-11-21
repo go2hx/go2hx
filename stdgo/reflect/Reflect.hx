@@ -1556,7 +1556,7 @@ class _Type {
 	}
 
 	public function __copy__() {
-		return new StructField(name, pkgPath, type, tag, 0, index, anonymous); // TODO set offset, stdgo.GoUIntptr should be Null<Int>
+		return new StructField(name, pkgPath, type, tag.__t__, 0, index, anonymous); // TODO set offset, stdgo.GoUIntptr should be Null<Int>
 	}
 }
 

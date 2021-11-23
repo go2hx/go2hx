@@ -699,7 +699,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 }
 
 private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
-	var key = typeExpr(stmt.key, info); // iterator int
+	var key = stmt.key == null ? macro _ : typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x);
 	x = destructureExpr(x, xType).x;
@@ -2368,7 +2368,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									return returnExpr(macro new Slice<$param>());
 								macro new Slice<$param>(...[for (i in 0...$size) $value]);
 							case mapType(key, value):
-								var t = toReflectType(type,info);
+								var t = toReflectType(type, info);
 								var key = toComplexType(key, info);
 								var value = toComplexType(value, info);
 								macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($t));
@@ -2419,30 +2419,30 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	return returnExpr(macro $e($a{args}));
 }
 
-private function toReflectType(t:GoType,info:Info):Expr {
+private function toReflectType(t:GoType, info:Info):Expr {
 	return switch t {
 		case mapType(key, value):
-			final key = toReflectType(key,info);
-			final value = toReflectType(value,info);
+			final key = toReflectType(key, info);
+			final value = toReflectType(value, info);
 			macro stdgo.reflect.Reflect.GoType.mapType($key, $value);
 		case pointer(elem):
-			final elem = toReflectType(elem,info);
+			final elem = toReflectType(elem, info);
 			macro stdgo.reflect.Reflect.GoType.pointer($elem);
 		case arrayType(elem, len):
-			final elem = toReflectType(elem,info);
+			final elem = toReflectType(elem, info);
 			final len = toExpr(EConst(CInt('$len')));
 			macro stdgo.reflect.Reflect.GoType.arrayType($elem, $len);
 		case sliceType(elem):
-			final elem = toReflectType(elem,info);
+			final elem = toReflectType(elem, info);
 			macro stdgo.reflect.Reflect.GoType.sliceType($elem);
 		case basic(kind):
 			final name = macro $i{kind.getName()};
 			macro stdgo.reflect.Reflect.GoType.basic($name);
 		case _var(name, type):
-			toReflectType(type,info);
+			toReflectType(type, info);
 		case chanType(dir, elem):
 			final dir = toExpr(EConst(CInt('$dir')));
-			final elem = toReflectType(elem,info);
+			final elem = toReflectType(elem, info);
 			macro stdgo.reflect.Reflect.GoType.chanType($dir, $elem);
 		case interfaceType(empty, methods):
 			final empty = empty ? macro true : macro false;
@@ -2452,7 +2452,7 @@ private function toReflectType(t:GoType,info:Info):Expr {
 			macro stdgo.reflect.Reflect.GoType.invalidType;
 		case named(path, methods, type):
 			final methods = macro [];
-			final t = toReflectType(type,info);
+			final t = toReflectType(type, info);
 			final namedPath = namedTypePath(path, info);
 			namedPath.pack.push(namedPath.name);
 			final path = makeString(namedPath.pack.join("."));
@@ -2464,7 +2464,7 @@ private function toReflectType(t:GoType,info:Info):Expr {
 			final variadic = variadic ? macro true : macro false;
 			final params = macro [];
 			final results = macro [];
-			final recv = toReflectType(recv,info);
+			final recv = toReflectType(recv, info);
 			macro stdgo.reflect.Reflect.GoType.signature($variadic, $params, $results, $recv);
 		case structType(fields):
 			var exprs:Array<Expr> = [];
@@ -2472,7 +2472,7 @@ private function toReflectType(t:GoType,info:Info):Expr {
 				final name = makeString(formatHaxeFieldName(field.name));
 				final embedded = field.embedded ? macro true : macro false;
 				final tag = makeString(field.tag);
-				final t = toReflectType(field.type,info);
+				final t = toReflectType(field.type, info);
 				exprs.push(macro {
 					name: $name,
 					embedded: $embedded,
@@ -2484,7 +2484,7 @@ private function toReflectType(t:GoType,info:Info):Expr {
 			macro stdgo.reflect.Reflect.GoType.structType($expr);
 		case tuple(len, vars):
 			final len = toExpr(EConst(CInt('$len')));
-			final vars = [for (v in vars) toReflectType(v,info)];
+			final vars = [for (v in vars) toReflectType(v, info)];
 			macro stdgo.reflect.Reflect.GoType.tuple($len, $a{vars});
 	}
 }
@@ -3233,7 +3233,7 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				return (macro new $p(...($a{exprs}.concat($values)))).expr;
 			}
 		case mapType(keyType, valueType):
-			var t = toReflectType(type,info);
+			var t = toReflectType(type, info);
 			var params:Array<Expr> = [];
 			for (elt in expr.elts) {
 				if (elt.id != "KeyValueExpr")
@@ -3776,7 +3776,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case mapType(key, value):
 			final key = toComplexType(key, info);
 			final value = toComplexType(value, info);
-			final typ = toReflectType(type,info);
+			final typ = toReflectType(type, info);
 			macro new GoMap<$key, $value>(new stdgo.reflect.Reflect._Type($typ)).nil();
 		case sliceType(elem):
 			final t = toComplexType(elem, info);

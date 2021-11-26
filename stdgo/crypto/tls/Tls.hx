@@ -142,7 +142,7 @@ typedef T_ecdheParameters = StructType & {
     }
     public function _extract(_newSecret:Slice<GoByte>, _currentSecret:Slice<GoByte>):Slice<GoByte> {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_newSecret == null || _newSecret.isNil()) {
+        if ((_newSecret == null || _newSecret.isNil())) {
             _newSecret = new Slice<GoUInt8>(...[for (i in 0 ... ((_c.value._hash.size() : GoInt)).toBasic()) ((0 : GoUInt8))]);
         };
         return golang_org.x.crypto.hkdf.Hkdf.extract(_c.value._hash.new_, _newSecret, _currentSecret);
@@ -234,47 +234,23 @@ typedef T_ecdheParameters = StructType & {
 @:structInit class T_xorNonceAEAD {
     public function open(_out:Slice<GoByte>, _nonce:Slice<GoByte>, _ciphertext:Slice<GoByte>, _additionalData:Slice<GoByte>):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         var _f = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        {
-            var _i;
-            var _b;
-            for (_obj in _nonce.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
-            };
+        for (_i => _b in _nonce) {
+            _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
         };
         var __tmp__ = _f.value._aead.open(_out, _f.value._nonceMask.__slice__(0), _ciphertext, _additionalData), _result:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        {
-            var _i;
-            var _b;
-            for (_obj in _nonce.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
-            };
+        for (_i => _b in _nonce) {
+            _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
         };
         return { _0 : _result, _1 : _err };
     }
     public function seal(_out:Slice<GoByte>, _nonce:Slice<GoByte>, _plaintext:Slice<GoByte>, _additionalData:Slice<GoByte>):Slice<GoByte> {
         var _f = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        {
-            var _i;
-            var _b;
-            for (_obj in _nonce.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
-            };
+        for (_i => _b in _nonce) {
+            _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
         };
         var _result:Slice<GoUInt8> = _f.value._aead.seal(_out, _f.value._nonceMask.__slice__(0), _plaintext, _additionalData);
-        {
-            var _i;
-            var _b;
-            for (_obj in _nonce.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
-            };
+        for (_i => _b in _nonce) {
+            _f.value._nonceMask[((4 : GoInt)) + _i] = _f.value._nonceMask[((4 : GoInt)) + _i] ^ (_b);
         };
         return _result;
     }
@@ -561,7 +537,7 @@ _ageAdd);
     public function supportsCertificate(_c:Pointer<Certificate>):Error {
         var _chi = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _config:Pointer<Config> = _chi.value._config;
-        if (_config == null || _config.isNil()) {
+        if ((_config == null || _config.isNil())) {
             _config = Go.pointer(new Config());
         };
         var __tmp__ = _config.value._mutualVersion(_chi.value.supportedVersions), _vers:GoUInt16 = __tmp__._0, _ok:Bool = __tmp__._1;
@@ -614,7 +590,7 @@ _ageAdd);
                 };
                 return true;
             });
-            if (_rsaCipherSuite == null || _rsaCipherSuite.isNil()) {
+            if ((_rsaCipherSuite == null || _rsaCipherSuite.isNil())) {
                 return _unsupported;
             };
             return ((null : stdgo.Error));
@@ -656,7 +632,7 @@ _ageAdd);
                                 return _supportsRSAFallback(_unsupportedCertificateError(_c));
                             };
                             var _curveOk:Bool = false;
-                            for (_c in _chi.value.supportedCurves) {
+                            for (_ => _c in _chi.value.supportedCurves) {
                                 if (_c.__t__ == _curve.__t__ && _config.value._supportsCurve(_c)) {
                                     _curveOk = true;
                                     break;
@@ -703,7 +679,7 @@ _ageAdd);
             };
             return true;
         });
-        if (_cipherSuite == null || _cipherSuite.isNil()) {
+        if ((_cipherSuite == null || _cipherSuite.isNil())) {
             return _supportsRSAFallback(stdgo.errors.Errors.new_("client doesn\'t support any cipher suites compatible with the certificate"));
         };
         return ((null : stdgo.Error));
@@ -756,30 +732,24 @@ _ageAdd);
         if (_cri.value.acceptableCAs.length == ((0 : GoInt))) {
             return ((null : stdgo.Error));
         };
-        {
-            var _j;
-            var _cert;
-            for (_obj in _c.value.certificate.keyValueIterator()) {
-                _j = _obj.key;
-                _cert = _obj.value;
-                var _x509Cert:Pointer<stdgo.crypto.x509.X509.Certificate> = _c.value.leaf;
-                if (_j != ((0 : GoInt)) || _x509Cert == null || _x509Cert.isNil()) {
-                    var _err:Error = ((null : stdgo.Error));
+        for (_j => _cert in _c.value.certificate) {
+            var _x509Cert:Pointer<stdgo.crypto.x509.X509.Certificate> = _c.value.leaf;
+            if (_j != ((0 : GoInt)) || (_x509Cert == null || _x509Cert.isNil())) {
+                var _err:Error = ((null : stdgo.Error));
+                {
                     {
-                        {
-                            var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_cert);
-                            _x509Cert = __tmp__._0;
-                            _err = __tmp__._1;
-                        };
-                        if (_err != null) {
-                            return stdgo.fmt.Fmt.errorf("failed to parse certificate #%d in the chain: %w", Go.toInterface(_j), Go.toInterface(_err));
-                        };
+                        var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_cert);
+                        _x509Cert = __tmp__._0;
+                        _err = __tmp__._1;
+                    };
+                    if (_err != null) {
+                        return stdgo.fmt.Fmt.errorf("failed to parse certificate #%d in the chain: %w", Go.toInterface(_j), Go.toInterface(_err));
                     };
                 };
-                for (_ca in _cri.value.acceptableCAs) {
-                    if (stdgo.bytes.Bytes.equal(_x509Cert.value.rawIssuer, _ca)) {
-                        return ((null : stdgo.Error));
-                    };
+            };
+            for (_ => _ca in _cri.value.acceptableCAs) {
+                if (stdgo.bytes.Bytes.equal(_x509Cert.value.rawIssuer, _ca)) {
+                    return ((null : stdgo.Error));
                 };
             };
         };
@@ -833,19 +803,19 @@ _ageAdd);
     }
     public function buildNameToCertificate():Void {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _c.value.nameToCertificate = new GoMap<GoString, Pointer<Certificate>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("crypto/tls.Certificate", [], stdgo.reflect.Reflect.GoType.named("crypto/tls.Certificate", [], stdgo.reflect.Reflect.GoType.structType([{ name : "certificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "privateKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto.PrivateKey", [], stdgo.reflect.Reflect.GoType.interfaceType(true, [])) }, { name : "supportedSignatureAlgorithms", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/tls.SignatureScheme", [], stdgo.reflect.Reflect.GoType.basic(uint16_kind))) }, { name : "ocspstaple", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "signedCertificateTimestamps", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "leaf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("crypto/x509.Certificate", [], stdgo.reflect.Reflect.GoType.structType([
+        _c.value.nameToCertificate = new GoMap<GoString, Pointer<Certificate>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("Certificate", [], stdgo.reflect.Reflect.GoType.named("Certificate", [], stdgo.reflect.Reflect.GoType.structType([{ name : "certificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "privateKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.Crypto.PrivateKey", [], stdgo.reflect.Reflect.GoType.interfaceType(true, [])) }, { name : "supportedSignatureAlgorithms", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("SignatureScheme", [], stdgo.reflect.Reflect.GoType.basic(uint16_kind))) }, { name : "ocspstaple", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "signedCertificateTimestamps", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "leaf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.Certificate", [], stdgo.reflect.Reflect.GoType.structType([
 { name : "raw", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawTBSCertificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawSubjectPublicKeyInfo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawSubject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawIssuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "signature", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
-{ name : "signatureAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.SignatureAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
-{ name : "publicKeyAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.PublicKeyAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "signatureAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.SignatureAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "publicKeyAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.PublicKeyAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
 { name : "publicKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) },
 { name : "version", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) },
-{ name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("math/big.Int", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_neg", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_abs", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("math/big.nat", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("math/big.Word", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)))) }]))) },
-{ name : "issuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Name", [], stdgo.reflect.Reflect.GoType.structType([
+{ name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.Int_", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_neg", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_abs", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.T_nat", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.Word", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)))) }]))) },
+{ name : "issuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Name", [], stdgo.reflect.Reflect.GoType.structType([
 { name : "country", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "organization", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "organizationalUnit", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
@@ -855,17 +825,17 @@ _ageAdd);
 { name : "postalCode", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) },
 { name : "commonName", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) },
-{ name : "names", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.structType([{ name : "type", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(int_kind))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }]))) },
-{ name : "extraNames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.invalidType)) }])) },
-{ name : "subject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Name", [], stdgo.reflect.Reflect.GoType.invalidType) },
-{ name : "notBefore", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("time.Time", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint64_kind) }, { name : "_ext", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_loc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("time.Location", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_zone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("time.zone", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_offset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }, { name : "_isDST", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_tx", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("time.zoneTrans", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_index", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint8_kind) }, { name : "_isstd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_isutc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_extend", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_cacheStart", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheEnd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheZone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("time.zone", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])) },
-{ name : "notAfter", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("time.Time", [], stdgo.reflect.Reflect.GoType.invalidType) },
-{ name : "keyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.KeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
-{ name : "extensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Extension", [], stdgo.reflect.Reflect.GoType.structType([{ name : "id", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "critical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }]))) },
-{ name : "extraExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Extension", [], stdgo.reflect.Reflect.GoType.invalidType)) },
-{ name : "unhandledCriticalExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
-{ name : "extKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509.ExtKeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind))) },
-{ name : "unknownExtKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "names", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.structType([{ name : "type", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(int_kind))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }]))) },
+{ name : "extraNames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.invalidType)) }])) },
+{ name : "subject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Name", [], stdgo.reflect.Reflect.GoType.invalidType) },
+{ name : "notBefore", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint64_kind) }, { name : "_ext", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_loc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Location", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_zone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_offset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }, { name : "_isDST", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_tx", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zoneTrans", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_index", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint8_kind) }, { name : "_isstd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_isutc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_extend", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_cacheStart", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheEnd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheZone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])) },
+{ name : "notAfter", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.reflect.Reflect.GoType.invalidType) },
+{ name : "keyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.KeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "extensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Extension", [], stdgo.reflect.Reflect.GoType.structType([{ name : "id", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "critical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }]))) },
+{ name : "extraExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Extension", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "unhandledCriticalExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "extKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.ExtKeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind))) },
+{ name : "unknownExtKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
 { name : "basicConstraintsValid", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "isCA", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "maxPathLen", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) },
@@ -876,34 +846,30 @@ _ageAdd);
 { name : "issuingCertificateURL", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "dnsnames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "emailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "ipaddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("net.IP", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))) },
-{ name : "uris", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net/url.URL", [], stdgo.reflect.Reflect.GoType.structType([{ name : "scheme", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "opaque", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "user", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net/url.Userinfo", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_username", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_password", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_passwordSet", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "host", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "path", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawPath", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "forceQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "rawQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "fragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawFragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))) },
+{ name : "ipaddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IP", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))) },
+{ name : "uris", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.url.Url.URL", [], stdgo.reflect.Reflect.GoType.structType([{ name : "scheme", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "opaque", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "user", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.url.Url.Userinfo", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_username", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_password", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_passwordSet", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "host", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "path", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawPath", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "forceQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "rawQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "fragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawFragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))) },
 { name : "permittedDNSDomainsCritical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "permittedDNSDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedDNSDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "permittedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net.IPNet", [], stdgo.reflect.Reflect.GoType.structType([{ name : "ip", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net.IP", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "mask", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net.IPMask", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }])))) },
-{ name : "excludedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net.IPNet", [], stdgo.reflect.Reflect.GoType.invalidType))) },
+{ name : "permittedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPNet", [], stdgo.reflect.Reflect.GoType.structType([{ name : "ip", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IP", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "mask", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPMask", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }])))) },
+{ name : "excludedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPNet", [], stdgo.reflect.Reflect.GoType.invalidType))) },
 { name : "permittedEmailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedEmailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "permittedURIDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedURIDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "crldistributionPoints", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "policyIdentifiers", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])))))));
-        {
-            var _i;
-            for (_obj in _c.value.certificates.keyValueIterator()) {
-                _i = _obj.key;
-                var _cert:Pointer<Certificate> = Go.pointer(_c.value.certificates[_i]);
-                var __tmp__ = _cert.value._leaf(), _x509Cert:Pointer<stdgo.crypto.x509.X509.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
-                    continue;
-                };
-                if (_x509Cert.value.subject.commonName != (("" : GoString)) && _x509Cert.value.dnsnames.length == ((0 : GoInt))) {
-                    _c.value.nameToCertificate[_x509Cert.value.subject.commonName] = _cert;
-                };
-                for (_san in _x509Cert.value.dnsnames) {
-                    _c.value.nameToCertificate[_san] = _cert;
-                };
+{ name : "policyIdentifiers", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])))))));
+        for (_i => _ in _c.value.certificates) {
+            var _cert:Pointer<Certificate> = Go.pointer(_c.value.certificates[_i]);
+            var __tmp__ = _cert.value._leaf(), _x509Cert:Pointer<stdgo.crypto.x509.X509.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            if (_err != null) {
+                continue;
+            };
+            if (_x509Cert.value.subject.commonName != (("" : GoString)) && _x509Cert.value.dnsnames.length == ((0 : GoInt))) {
+                _c.value.nameToCertificate[_x509Cert.value.subject.commonName] = _cert;
+            };
+            for (_ => _san in _x509Cert.value.dnsnames) {
+                _c.value.nameToCertificate[_san] = _cert;
             };
         };
     }
@@ -911,7 +877,7 @@ _ageAdd);
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_c.value.getCertificate != null && (_c.value.certificates.length == ((0 : GoInt)) || _clientHello.value.serverName.length > ((0 : GoInt)))) {
             var __tmp__ = _c.value.getCertificate(_clientHello), _cert:Pointer<Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (_cert != null && !_cert.isNil() || _err != null) {
+            if ((_cert != null && !_cert.isNil()) || _err != null) {
                 return { _0 : _cert, _1 : _err };
             };
         };
@@ -921,7 +887,7 @@ _ageAdd);
         if (_c.value.certificates.length == ((1 : GoInt))) {
             return { _0 : Go.pointer(_c.value.certificates[((0 : GoInt))]), _1 : ((null : stdgo.Error)) };
         };
-        if (_c.value.nameToCertificate != null && !_c.value.nameToCertificate.isNil()) {
+        if ((_c.value.nameToCertificate != null && !_c.value.nameToCertificate.isNil())) {
             var _name:GoString = stdgo.strings.Strings.toLower(_clientHello.value.serverName);
             {
                 var __tmp__ = _c.value.nameToCertificate.exists(_name) ? { value : _c.value.nameToCertificate[_name], ok : true } : { value : _c.value.nameToCertificate.defaultValue(), ok : false }, _cert:Pointer<Certificate> = __tmp__.value, _ok:Bool = __tmp__.ok;
@@ -941,7 +907,7 @@ _ageAdd);
                 };
             };
         };
-        for (_cert in _c.value.certificates) {
+        for (_ => _cert in _c.value.certificates) {
             {
                 var _err:stdgo.Error = _clientHello.value.supportsCertificate(Go.pointer(_cert));
                 if (_err == null) {
@@ -954,8 +920,8 @@ _ageAdd);
     public function _mutualVersion(_peerVersions:Slice<GoUInt16>):{ var _0 : GoUInt16; var _1 : Bool; } {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _supportedVersions:Slice<GoUInt16> = _c.value._supportedVersions();
-        for (_peerVersion in _peerVersions) {
-            for (_v in Tls._supportedVersions) {
+        for (_ => _peerVersion in _peerVersions) {
+            for (_ => _v in Tls._supportedVersions) {
                 if (_v == _peerVersion) {
                     return { _0 : _v, _1 : true };
                 };
@@ -965,7 +931,7 @@ _ageAdd);
     }
     public function _supportsCurve(_curve:CurveID):Bool {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        for (_cc in _c.value._curvePreferences()) {
+        for (_ => _cc in _c.value._curvePreferences()) {
             if (_cc.__t__ == _curve.__t__) {
                 return true;
             };
@@ -974,7 +940,7 @@ _ageAdd);
     }
     public function _curvePreferences():Slice<CurveID> {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_c == null || _c.isNil() || _c.value.curvePreferences.length == ((0 : GoInt))) {
+        if ((_c == null || _c.isNil()) || _c.value.curvePreferences.length == ((0 : GoInt))) {
             return _defaultCurvePreferences;
         };
         return _c.value.curvePreferences;
@@ -990,11 +956,11 @@ _ageAdd);
     public function _supportedVersions():Slice<GoUInt16> {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _versions:Slice<GoUInt16> = new Slice<GoUInt16>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt16))]).setCap(((Tls._supportedVersions.length : GoInt)).toBasic());
-        for (_v in Tls._supportedVersions) {
-            if (_c != null && !_c.isNil() && _c.value.minVersion != ((0 : GoUInt16)) && _v < _c.value.minVersion) {
+        for (_ => _v in Tls._supportedVersions) {
+            if ((_c != null && !_c.isNil()) && _c.value.minVersion != ((0 : GoUInt16)) && _v < _c.value.minVersion) {
                 continue;
             };
-            if (_c != null && !_c.isNil() && _c.value.maxVersion != ((0 : GoUInt16)) && _v > _c.value.maxVersion) {
+            if ((_c != null && !_c.isNil()) && _c.value.maxVersion != ((0 : GoUInt16)) && _v > _c.value.maxVersion) {
                 continue;
             };
             _versions = _versions.__append__(_v);
@@ -1003,7 +969,7 @@ _ageAdd);
     }
     public function _cipherSuites():Slice<GoUInt16> {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_c.value.cipherSuites != null && !_c.value.cipherSuites.isNil()) {
+        if ((_c.value.cipherSuites != null && !_c.value.cipherSuites.isNil())) {
             return _c.value.cipherSuites;
         };
         return _defaultCipherSuites;
@@ -1030,14 +996,8 @@ _ageAdd);
             throw "tls: keys must have at least one key";
         };
         var _newKeys:Slice<T_ticketKey> = new Slice<T_ticketKey>(...[for (i in 0 ... ((_keys.length : GoInt)).toBasic()) new T_ticketKey()]);
-        {
-            var _i;
-            var _bytes;
-            for (_obj in _keys.keyValueIterator()) {
-                _i = _obj.key;
-                _bytes = _obj.value;
-                _newKeys[_i] = _c.value._ticketKeyFromBytes(_bytes.copy()).__copy__();
-            };
+        for (_i => stdgo.bytes.Bytes in _keys) {
+            _newKeys[_i] = _c.value._ticketKeyFromBytes(stdgo.bytes.Bytes.copy()).__copy__();
         };
         _c.value._mutex.lock();
         _c.value._sessionTicketKeys = _newKeys;
@@ -1047,7 +1007,7 @@ _ageAdd);
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var recover_exception:Error = null;
         var deferstack:Array<Void -> Void> = [];
-        if (_configForClient != null && !_configForClient.isNil()) {
+        if ((_configForClient != null && !_configForClient.isNil())) {
             _configForClient.value._mutex.rlock();
             if (_configForClient.value.sessionTicketsDisabled) {
                 return new Slice<T_ticketKey>().nil();
@@ -1102,7 +1062,7 @@ _ageAdd);
                 };
                 var _valid:Slice<T_ticketKey> = new Slice<T_ticketKey>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new T_ticketKey()]).setCap(((_c.value._autoSessionTicketKeys.length + ((1 : GoInt)) : GoInt)).toBasic());
                 _valid = _valid.__append__(_c.value._ticketKeyFromBytes(_newKey.copy()).__copy__());
-                for (_k in _c.value._autoSessionTicketKeys) {
+                for (_ => _k in _c.value._autoSessionTicketKeys) {
                     if (_c.value._time().sub(_k._created.__copy__()).__t__ < _ticketKeyLifetime.__t__) {
                         _valid = _valid.__append__(_k.__copy__());
                     };
@@ -1188,7 +1148,7 @@ _ageAdd);
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var recover_exception:Error = null;
         var deferstack:Array<Void -> Void> = [];
-        if (_c == null || _c.isNil()) {
+        if ((_c == null || _c.isNil())) {
             return new Pointer<Config>().nil();
         };
         try {
@@ -1227,19 +1187,19 @@ _ageAdd);
     public var rand : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
     public var time : () -> stdgo.time.Time.Time = null;
     public var certificates : Slice<Certificate> = new Slice<Certificate>().nil();
-    public var nameToCertificate : GoMap<GoString, Pointer<Certificate>> = new GoMap<GoString, Pointer<Certificate>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("crypto/tls.Certificate", [], stdgo.reflect.Reflect.GoType.structType([{ name : "certificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "privateKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto.PrivateKey", [], stdgo.reflect.Reflect.GoType.interfaceType(true, [])) }, { name : "supportedSignatureAlgorithms", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/tls.SignatureScheme", [], stdgo.reflect.Reflect.GoType.basic(uint16_kind))) }, { name : "ocspstaple", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "signedCertificateTimestamps", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "leaf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("crypto/x509.Certificate", [], stdgo.reflect.Reflect.GoType.structType([
+    public var nameToCertificate : GoMap<GoString, Pointer<Certificate>> = new GoMap<GoString, Pointer<Certificate>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("Certificate", [], stdgo.reflect.Reflect.GoType.structType([{ name : "certificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "privateKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.Crypto.PrivateKey", [], stdgo.reflect.Reflect.GoType.interfaceType(true, [])) }, { name : "supportedSignatureAlgorithms", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("SignatureScheme", [], stdgo.reflect.Reflect.GoType.basic(uint16_kind))) }, { name : "ocspstaple", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "signedCertificateTimestamps", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }, { name : "leaf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.Certificate", [], stdgo.reflect.Reflect.GoType.structType([
 { name : "raw", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawTBSCertificate", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawSubjectPublicKeyInfo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawSubject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "rawIssuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
 { name : "signature", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) },
-{ name : "signatureAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.SignatureAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
-{ name : "publicKeyAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.PublicKeyAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "signatureAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.SignatureAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "publicKeyAlgorithm", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.PublicKeyAlgorithm", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
 { name : "publicKey", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) },
 { name : "version", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) },
-{ name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("math/big.Int", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_neg", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_abs", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("math/big.nat", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("math/big.Word", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)))) }]))) },
-{ name : "issuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Name", [], stdgo.reflect.Reflect.GoType.structType([
+{ name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.Int_", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_neg", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_abs", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.T_nat", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.math.big.Big.Word", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)))) }]))) },
+{ name : "issuer", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Name", [], stdgo.reflect.Reflect.GoType.structType([
 { name : "country", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "organization", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "organizationalUnit", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
@@ -1249,17 +1209,17 @@ _ageAdd);
 { name : "postalCode", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "serialNumber", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) },
 { name : "commonName", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) },
-{ name : "names", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.structType([{ name : "type", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(int_kind))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }]))) },
-{ name : "extraNames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.invalidType)) }])) },
-{ name : "subject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Name", [], stdgo.reflect.Reflect.GoType.invalidType) },
-{ name : "notBefore", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("time.Time", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint64_kind) }, { name : "_ext", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_loc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("time.Location", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_zone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("time.zone", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_offset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }, { name : "_isDST", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_tx", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("time.zoneTrans", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_index", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint8_kind) }, { name : "_isstd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_isutc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_extend", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_cacheStart", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheEnd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheZone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("time.zone", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])) },
-{ name : "notAfter", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("time.Time", [], stdgo.reflect.Reflect.GoType.invalidType) },
-{ name : "keyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("crypto/x509.KeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
-{ name : "extensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Extension", [], stdgo.reflect.Reflect.GoType.structType([{ name : "id", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "critical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }]))) },
-{ name : "extraExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509/pkix.Extension", [], stdgo.reflect.Reflect.GoType.invalidType)) },
-{ name : "unhandledCriticalExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
-{ name : "extKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("crypto/x509.ExtKeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind))) },
-{ name : "unknownExtKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "names", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.structType([{ name : "type", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(int_kind))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }]))) },
+{ name : "extraNames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.AttributeTypeAndValue", [], stdgo.reflect.Reflect.GoType.invalidType)) }])) },
+{ name : "subject", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Name", [], stdgo.reflect.Reflect.GoType.invalidType) },
+{ name : "notBefore", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_wall", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint64_kind) }, { name : "_ext", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_loc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Location", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_zone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_offset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }, { name : "_isDST", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_tx", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zoneTrans", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_when", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_index", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint8_kind) }, { name : "_isstd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "_isutc", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "_extend", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_cacheStart", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheEnd", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_cacheZone", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.T_zone", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])) },
+{ name : "notAfter", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.time.Time.Time", [], stdgo.reflect.Reflect.GoType.invalidType) },
+{ name : "keyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.KeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind)) },
+{ name : "extensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Extension", [], stdgo.reflect.Reflect.GoType.structType([{ name : "id", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "critical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }]))) },
+{ name : "extraExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.pkix.Pkix.Extension", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "unhandledCriticalExtensions", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
+{ name : "extKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.x509.X509.ExtKeyUsage", [], stdgo.reflect.Reflect.GoType.basic(int_kind))) },
+{ name : "unknownExtKeyUsage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) },
 { name : "basicConstraintsValid", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "isCA", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "maxPathLen", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) },
@@ -1270,19 +1230,19 @@ _ageAdd);
 { name : "issuingCertificateURL", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "dnsnames", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "emailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "ipaddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("net.IP", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))) },
-{ name : "uris", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net/url.URL", [], stdgo.reflect.Reflect.GoType.structType([{ name : "scheme", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "opaque", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "user", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net/url.Userinfo", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_username", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_password", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_passwordSet", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "host", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "path", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawPath", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "forceQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "rawQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "fragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawFragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))) },
+{ name : "ipaddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IP", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))) },
+{ name : "uris", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.url.Url.URL", [], stdgo.reflect.Reflect.GoType.structType([{ name : "scheme", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "opaque", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "user", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.url.Url.Userinfo", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_username", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_password", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "_passwordSet", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }]))) }, { name : "host", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "path", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawPath", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "forceQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) }, { name : "rawQuery", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "fragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "rawFragment", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))) },
 { name : "permittedDNSDomainsCritical", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(bool_kind) },
 { name : "permittedDNSDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedDNSDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "permittedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net.IPNet", [], stdgo.reflect.Reflect.GoType.structType([{ name : "ip", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net.IP", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "mask", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net.IPMask", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }])))) },
-{ name : "excludedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("net.IPNet", [], stdgo.reflect.Reflect.GoType.invalidType))) },
+{ name : "permittedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPNet", [], stdgo.reflect.Reflect.GoType.structType([{ name : "ip", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IP", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "mask", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPMask", [], stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind))) }])))) },
+{ name : "excludedIPRanges", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.net.Net.IPNet", [], stdgo.reflect.Reflect.GoType.invalidType))) },
 { name : "permittedEmailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedEmailAddresses", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "permittedURIDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "excludedURIDomains", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
 { name : "crldistributionPoints", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)) },
-{ name : "policyIdentifiers", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("encoding/asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])))))).nil();
+{ name : "policyIdentifiers", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("stdgo.encoding.asn1.Asn1.ObjectIdentifier", [], stdgo.reflect.Reflect.GoType.invalidType)) }]))) }])))))).nil();
     public var getCertificate : Pointer<ClientHelloInfo> -> { var _0 : Pointer<Certificate>; var _1 : stdgo.Error; } = null;
     public var getClientCertificate : Pointer<CertificateRequestInfo> -> { var _0 : Pointer<Certificate>; var _1 : stdgo.Error; } = null;
     public var getConfigForClient : Pointer<ClientHelloInfo> -> { var _0 : Pointer<Config>; var _1 : stdgo.Error; } = null;
@@ -1402,7 +1362,7 @@ _autoSessionTicketKeys);
 @:structInit class Certificate {
     public function _leaf():{ var _0 : Pointer<stdgo.crypto.x509.X509.Certificate>; var _1 : Error; } {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_c.value.leaf != null && !_c.value.leaf.isNil()) {
+        if ((_c.value.leaf != null && !_c.value.leaf.isNil())) {
             return { _0 : _c.value.leaf, _1 : ((null : stdgo.Error)) };
         };
         return stdgo.crypto.x509.X509.parseCertificate(_c.value.certificate[((0 : GoInt))]);
@@ -1481,7 +1441,7 @@ _autoSessionTicketKeys);
             {
                 var __tmp__ = _c.value._m.exists(_sessionKey) ? { value : _c.value._m[_sessionKey], ok : true } : { value : _c.value._m.defaultValue(), ok : false }, _elem:Pointer<stdgo.container.list.List.Element> = __tmp__.value, _ok:Bool = __tmp__.ok;
                 if (_ok) {
-                    if (_cs == null || _cs.isNil()) {
+                    if ((_cs == null || _cs.isNil())) {
                         _c.value._q.value.remove(_elem);
                         _c.value._m.remove(_sessionKey);
                     } else {
@@ -1530,10 +1490,10 @@ _autoSessionTicketKeys);
     }
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-    public var _m : GoMap<GoString, Pointer<stdgo.container.list.List.Element>> = new GoMap<GoString, Pointer<stdgo.container.list.List.Element>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_next", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_prev", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_list", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.List", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_root", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "_len", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }]))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }])))))).nil();
-    public var _q : Pointer<stdgo.container.list.List.List_> = new Pointer<stdgo.container.list.List.List_>().nil();
+    public var _m : GoMap<GoString, Pointer<stdgo.container.list.List.Element>> = new GoMap<GoString, Pointer<stdgo.container.list.List.Element>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_next", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_prev", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_list", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.List", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_root", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "_len", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }]))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }])))))).nil();
+    public var _q : Pointer<stdgo.container.list.List.List> = new Pointer<stdgo.container.list.List.List>().nil();
     public var _capacity : GoInt = ((0 : GoInt));
-    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_m:GoMap<GoString, Pointer<stdgo.container.list.List.Element>>, ?_q:Pointer<stdgo.container.list.List.List_>, ?_capacity:GoInt) stdgo.internal.Macro.initLocals();
+    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_m:GoMap<GoString, Pointer<stdgo.container.list.List.Element>>, ?_q:Pointer<stdgo.container.list.List.List>, ?_capacity:GoInt) stdgo.internal.Macro.initLocals();
     public function toString() {
         return '{' + Go.string(mutex) + " " + Go.string(_m) + " " + Go.string(_q) + " " + Go.string(_capacity) + "}";
     }
@@ -1582,16 +1542,10 @@ _autoSessionTicketKeys);
         var _macBytes:Slice<GoUInt8> = _encrypted.__slice__(_encrypted.length - stdgo.crypto.sha256.Sha256.size);
         var _ciphertext:Slice<GoUInt8> = _encrypted.__slice__(_ticketKeyNameLen + stdgo.crypto.aes.Aes.blockSize, _encrypted.length - stdgo.crypto.sha256.Sha256.size);
         var _keyIndex:GoInt = -((1 : GoUnTypedInt));
-        {
-            var _i;
-            var _candidateKey;
-            for (_obj in _c.value._ticketKeys.keyValueIterator()) {
-                _i = _obj.key;
-                _candidateKey = _obj.value;
-                if (stdgo.bytes.Bytes.equal(_keyName, _candidateKey._keyName.__slice__(0))) {
-                    _keyIndex = _i;
-                    break;
-                };
+        for (_i => _candidateKey in _c.value._ticketKeys) {
+            if (stdgo.bytes.Bytes.equal(_keyName, _candidateKey._keyName.__slice__(0))) {
+                _keyIndex = _i;
+                break;
             };
         };
         if (_keyIndex == -((1 : GoUnTypedInt))) {
@@ -1644,22 +1598,16 @@ _autoSessionTicketKeys);
         var _certificates:Slice<Slice<GoUInt8>> = _certificate.certificate;
         var _certs:Slice<Pointer<stdgo.crypto.x509.X509.Certificate>> = new Slice<Pointer<stdgo.crypto.x509.X509.Certificate>>(...[for (i in 0 ... ((_certificates.length : GoInt)).toBasic()) new Pointer<stdgo.crypto.x509.X509.Certificate>().nil()]);
         var _err:Error = ((null : stdgo.Error));
-        {
-            var _i;
-            var _asn1Data;
-            for (_obj in _certificates.keyValueIterator()) {
-                _i = _obj.key;
-                _asn1Data = _obj.value;
+        for (_i => _asn1Data in _certificates) {
+            {
                 {
-                    {
-                        var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_asn1Data);
-                        _certs[_i] = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    if (_err != null) {
-                        _c.value._sendAlert(_alertBadCertificate);
-                        return stdgo.errors.Errors.new_((("tls: failed to parse client certificate: " : GoString)) + _err.error());
-                    };
+                    var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_asn1Data);
+                    _certs[_i] = __tmp__._0;
+                    _err = __tmp__._1;
+                };
+                if (_err != null) {
+                    _c.value._sendAlert(_alertBadCertificate);
+                    return stdgo.errors.Errors.new_((("tls: failed to parse client certificate: " : GoString)) + _err.error());
                 };
             };
         };
@@ -1669,7 +1617,7 @@ _autoSessionTicketKeys);
         };
         if (_c.value._config.value.clientAuth.__t__ >= verifyClientCertIfGiven.__t__ && _certs.length > ((0 : GoInt))) {
             var _opts:stdgo.crypto.x509.X509.VerifyOptions = (({ roots : _c.value._config.value.clientCAs, currentTime : new stdgo.time.Time.Time(_c.value._config.value._time().__copy__().__copy__()), intermediates : stdgo.crypto.x509.X509.newCertPool(), keyUsages : new Slice<stdgo.crypto.x509.X509.ExtKeyUsage>(stdgo.crypto.x509.X509.extKeyUsageClientAuth), dnsname : "", maxConstraintComparisions : 0 } : stdgo.crypto.x509.X509.VerifyOptions)).__copy__();
-            for (_cert in _certs.__slice__(((1 : GoInt)))) {
+            for (_ => _cert in _certs.__slice__(((1 : GoInt)))) {
                 _opts.intermediates.value.addCert(_cert);
             };
             var __tmp__ = _certs[((0 : GoInt))].value.verify(_opts.__copy__()), _chains:Slice<Slice<Pointer<stdgo.crypto.x509.X509.Certificate>>> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1727,7 +1675,7 @@ _autoSessionTicketKeys);
                 if (_err != null) {
                     _c.value._sendAlert(_alertInternalError);
                     return { _0 : new Pointer<T_clientHelloMsg>().nil(), _1 : _err };
-                } else if (_configForClient != null && !_configForClient.isNil()) {
+                } else if ((_configForClient != null && !_configForClient.isNil())) {
                     _c.value._config = _configForClient;
                 };
             };
@@ -1782,7 +1730,7 @@ _autoSessionTicketKeys);
             return stdgo.errors.Errors.new_("tls: received a session ticket with invalid lifetime");
         };
         var _cipherSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_c.value._cipherSuite);
-        if (_cipherSuite == null || _cipherSuite.isNil() || _c.value._resumptionSecret == null || _c.value._resumptionSecret.isNil()) {
+        if ((_cipherSuite == null || _cipherSuite.isNil()) || (_c.value._resumptionSecret == null || _c.value._resumptionSecret.isNil())) {
             return _c.value._sendAlert(_alertInternalError);
         };
         var _session:Pointer<ClientSessionState> = Go.pointer((({ _sessionTicket : _msg.value._label, _vers : _c.value._vers, _cipherSuite : _c.value._cipherSuite, _masterSecret : _c.value._resumptionSecret, _serverCertificates : _c.value._peerCertificates, _verifiedChains : _c.value._verifiedChains, _receivedAt : _c.value._config.value._time().__copy__(), _nonce : _msg.value._nonce, _useBy : _c.value._config.value._time().add(_lifetime).__copy__(), _ageAdd : _msg.value._ageAdd, _ocspResponse : _c.value._ocspResponse, _scts : _c.value._scts } : ClientSessionState)));
@@ -1795,7 +1743,7 @@ _autoSessionTicketKeys);
         if (_c.value._config.value.getClientCertificate != null) {
             return _c.value._config.value.getClientCertificate(_cri);
         };
-        for (_chain in _c.value._config.value.certificates) {
+        for (_ => _chain in _c.value._config.value.certificates) {
             {
                 var _err:stdgo.Error = _cri.value.supportsCertificate(Go.pointer(_chain));
                 if (_err != null) {
@@ -1809,23 +1757,17 @@ _autoSessionTicketKeys);
     public function _verifyServerCertificate(_certificates:Slice<Slice<GoByte>>):Error {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _certs:Slice<Pointer<stdgo.crypto.x509.X509.Certificate>> = new Slice<Pointer<stdgo.crypto.x509.X509.Certificate>>(...[for (i in 0 ... ((_certificates.length : GoInt)).toBasic()) new Pointer<stdgo.crypto.x509.X509.Certificate>().nil()]);
-        {
-            var _i;
-            var _asn1Data;
-            for (_obj in _certificates.keyValueIterator()) {
-                _i = _obj.key;
-                _asn1Data = _obj.value;
-                var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_asn1Data), _cert:Pointer<stdgo.crypto.x509.X509.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                if (_err != null) {
-                    _c.value._sendAlert(_alertBadCertificate);
-                    return stdgo.errors.Errors.new_((("tls: failed to parse certificate from server: " : GoString)) + _err.error());
-                };
-                _certs[_i] = _cert;
+        for (_i => _asn1Data in _certificates) {
+            var __tmp__ = stdgo.crypto.x509.X509.parseCertificate(_asn1Data), _cert:Pointer<stdgo.crypto.x509.X509.Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            if (_err != null) {
+                _c.value._sendAlert(_alertBadCertificate);
+                return stdgo.errors.Errors.new_((("tls: failed to parse certificate from server: " : GoString)) + _err.error());
             };
+            _certs[_i] = _cert;
         };
         if (!_c.value._config.value.insecureSkipVerify) {
             var _opts:stdgo.crypto.x509.X509.VerifyOptions = (({ roots : _c.value._config.value.rootCAs, currentTime : new stdgo.time.Time.Time(_c.value._config.value._time().__copy__().__copy__()), dnsname : _c.value._config.value.serverName, intermediates : stdgo.crypto.x509.X509.newCertPool(), keyUsages : new Slice<stdgo.crypto.x509.X509.ExtKeyUsage>().nil(), maxConstraintComparisions : 0 } : stdgo.crypto.x509.X509.VerifyOptions)).__copy__();
-            for (_cert in _certs.__slice__(((1 : GoInt)))) {
+            for (_ => _cert in _certs.__slice__(((1 : GoInt)))) {
                 _opts.intermediates.value.addCert(_cert);
             };
             var _err:Error = ((null : stdgo.Error));
@@ -1903,11 +1845,11 @@ _autoSessionTicketKeys);
         };
         _cacheKey = _clientSessionCacheKey(_c.value._conn.remoteAddr(), _c.value._config);
         var __tmp__ = _c.value._config.value.clientSessionCache.get(_cacheKey), _session:Pointer<ClientSessionState> = __tmp__._0, _ok:Bool = __tmp__._1;
-        if (!_ok || _session == null || _session.isNil()) {
+        if (!_ok || (_session == null || _session.isNil())) {
             return { _0 : _cacheKey, _1 : new Pointer<ClientSessionState>().nil(), _2 : new Slice<GoUInt8>().nil(), _3 : new Slice<GoUInt8>().nil() };
         };
         var _versOk:Bool = false;
-        for (_v in _hello.value._supportedVersions) {
+        for (_ => _v in _hello.value._supportedVersions) {
             if (_v == _session.value._vers) {
                 _versOk = true;
                 break;
@@ -1933,7 +1875,7 @@ _autoSessionTicketKeys);
             };
         };
         if (_session.value._vers != versionTLS13) {
-            if (_mutualCipherSuite(_hello.value._cipherSuites, _session.value._cipherSuite) == null || _mutualCipherSuite(_hello.value._cipherSuites, _session.value._cipherSuite).isNil()) {
+            if ((_mutualCipherSuite(_hello.value._cipherSuites, _session.value._cipherSuite) == null || _mutualCipherSuite(_hello.value._cipherSuites, _session.value._cipherSuite).isNil())) {
                 return { _0 : _cacheKey, _1 : new Pointer<ClientSessionState>().nil(), _2 : new Slice<GoUInt8>().nil(), _3 : new Slice<GoUInt8>().nil() };
             };
             _hello.value._sessionTicket = _session.value._sessionTicket;
@@ -1944,13 +1886,13 @@ _autoSessionTicketKeys);
             return { _0 : _cacheKey, _1 : new Pointer<ClientSessionState>().nil(), _2 : new Slice<GoUInt8>().nil(), _3 : new Slice<GoUInt8>().nil() };
         };
         var _cipherSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_session.value._cipherSuite);
-        if (_cipherSuite == null || _cipherSuite.isNil()) {
+        if ((_cipherSuite == null || _cipherSuite.isNil())) {
             return { _0 : _cacheKey, _1 : new Pointer<ClientSessionState>().nil(), _2 : new Slice<GoUInt8>().nil(), _3 : new Slice<GoUInt8>().nil() };
         };
         var _cipherSuiteOk:Bool = false;
-        for (_offeredID in _hello.value._cipherSuites) {
+        for (_ => _offeredID in _hello.value._cipherSuites) {
             var _offeredSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_offeredID);
-            if (_offeredSuite != null && !_offeredSuite.isNil() && _offeredSuite.value._hash.__t__ == _cipherSuite.value._hash.__t__) {
+            if ((_offeredSuite != null && !_offeredSuite.isNil()) && _offeredSuite.value._hash.__t__ == _cipherSuite.value._hash.__t__) {
                 _cipherSuiteOk = true;
                 break;
             };
@@ -1977,7 +1919,7 @@ _autoSessionTicketKeys);
         var deferstack:Array<Void -> Void> = [];
         var _err:Error = ((null : stdgo.Error));
         try {
-            if (_c.value._config == null || _c.value._config.isNil()) {
+            if ((_c.value._config == null || _c.value._config.isNil())) {
                 _c.value._config = _defaultConfig();
             };
             _c.value._didResume = false;
@@ -1987,7 +1929,7 @@ _autoSessionTicketKeys);
             };
             _c.value._serverName = _hello.value._serverName;
             var __tmp__ = _c.value._loadSession(_hello), _cacheKey:GoString = __tmp__._0, _session:Pointer<ClientSessionState> = __tmp__._1, _earlySecret:Slice<GoUInt8> = __tmp__._2, _binderKey:Slice<GoUInt8> = __tmp__._3;
-            if (_cacheKey != (("" : GoString)) && _session != null && !_session.isNil()) {
+            if (_cacheKey != (("" : GoString)) && (_session != null && !_session.isNil())) {
                 {
                     deferstack.unshift(() -> {
                         var a = function():Void {
@@ -2077,7 +2019,7 @@ _autoSessionTicketKeys);
                     };
                 };
             };
-            if (_cacheKey != (("" : GoString)) && _hs.value._session != null && !_hs.value._session.isNil() && _session != _hs.value._session) {
+            if (_cacheKey != (("" : GoString)) && (_hs.value._session != null && !_hs.value._session.isNil()) && _session != _hs.value._session) {
                 _c.value._config.value.clientSessionCache.put(_cacheKey, _hs.value._session);
             };
             {
@@ -2107,7 +2049,7 @@ _autoSessionTicketKeys);
             return { _0 : new Pointer<T_clientHelloMsg>().nil(), _1 : ((null : T_ecdheParameters)), _2 : stdgo.errors.Errors.new_("tls: either ServerName or InsecureSkipVerify must be specified in the tls.Config") };
         };
         var _nextProtosLength:GoInt = ((0 : GoInt));
-        for (_proto in _config.value.nextProtos) {
+        for (_ => _proto in _config.value.nextProtos) {
             {
                 var _l:GoInt = _proto.length;
                 if (_l == ((0 : GoInt)) || _l > ((255 : GoInt))) {
@@ -2138,9 +2080,9 @@ _autoSessionTicketKeys);
         };
         var _configCipherSuites:Slice<GoUInt16> = _config.value._cipherSuites();
         _hello.value._cipherSuites = new Slice<GoUInt16>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt16))]).setCap(((_configCipherSuites.length : GoInt)).toBasic());
-        for (_suiteId in _preferenceOrder) {
+        for (_ => _suiteId in _preferenceOrder) {
             var _suite:Pointer<T_cipherSuite> = _mutualCipherSuite(_configCipherSuites, _suiteId);
-            if (_suite == null || _suite.isNil()) {
+            if ((_suite == null || _suite.isNil())) {
                 continue;
             };
             if (_hello.value._vers < versionTLS12 && _suite.value._flags & _suiteTLS12 != ((0 : GoInt))) {
@@ -2332,7 +2274,7 @@ _autoSessionTicketKeys);
         try {
             var __tmp__ = stdgo.context.Context.withCancel(_ctx), _handshakeCtx:stdgo.context.Context.Context = __tmp__._0, _cancel:stdgo.context.Context.CancelFunc = __tmp__._1;
             deferstack.unshift(() -> _cancel.__t__());
-            if (_ctx.done() != null && !_ctx.done().isNil()) {
+            if ((_ctx.done() != null && !_ctx.done().isNil())) {
                 var _done:Chan<T_endOfEarlyDataMsg> = new Chan<T_endOfEarlyDataMsg>(0, () -> new T_endOfEarlyDataMsg());
                 var _interruptRes:Chan<stdgo.Error> = new Chan<stdgo.Error>(((((1 : GoInt)) : GoInt)).toBasic(), () -> ((null : stdgo.Error)));
                 {
@@ -2580,7 +2522,7 @@ _autoSessionTicketKeys);
         var deferstack:Array<Void -> Void> = [];
         var _cipherSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_c.value._cipherSuite);
         try {
-            if (_cipherSuite == null || _cipherSuite.isNil()) {
+            if ((_cipherSuite == null || _cipherSuite.isNil())) {
                 return _c.value._in._setErrorLocked(_c.value._sendAlert(_alertInternalError));
             };
             var _newSecret:Slice<GoUInt8> = _cipherSuite.value._nextTrafficSecret(_c.value._in._trafficSecret);
@@ -3162,9 +3104,9 @@ _autoSessionTicketKeys);
                 };
                 {
                     var __tmp__ = try {
-                        { value : ((_err.__underlying__().value : stdgo.net.Net.Error)), ok : true };
+                        { value : ((_err.__underlying__().value : stdgo.net.Net.T_error)), ok : true };
                     } catch(_) {
-                        { value : ((null : stdgo.net.Net.Error)), ok : false };
+                        { value : ((null : stdgo.net.Net.T_error)), ok : false };
                     }, _e = __tmp__.value, _ok = __tmp__.ok;
                     if (!_ok || !_e.temporary()) {
                         _c.value._in._setErrorLocked(_err);
@@ -3201,9 +3143,9 @@ _autoSessionTicketKeys);
             if (_err != null) {
                 {
                     var __tmp__ = try {
-                        { value : ((_err.__underlying__().value : stdgo.net.Net.Error)), ok : true };
+                        { value : ((_err.__underlying__().value : stdgo.net.Net.T_error)), ok : true };
                     } catch(_) {
-                        { value : ((null : stdgo.net.Net.Error)), ok : false };
+                        { value : ((null : stdgo.net.Net.T_error)), ok : false };
                     }, _e = __tmp__.value, _ok = __tmp__.ok;
                     if (!_ok || !_e.temporary()) {
                         _c.value._in._setErrorLocked(_err);
@@ -3691,12 +3633,8 @@ _tmp);
         _hc.value._trafficSecret = _secret;
         var __tmp__ = _suite.value._trafficKey(_secret), _key:Slice<GoUInt8> = __tmp__._0, _iv:Slice<GoUInt8> = __tmp__._1;
         _hc.value._cipher = Go.toInterface(_suite.value._aead(_key, _iv));
-        {
-            var _i;
-            for (_obj in _hc.value._seq.keyValueIterator()) {
-                _i = _obj.key;
-                _hc.value._seq[_i] = ((0 : GoUInt8));
-            };
+        for (_i => _ in _hc.value._seq) {
+            _hc.value._seq[_i] = ((0 : GoUInt8));
         };
     }
     public function _changeCipherSpec():Error {
@@ -3708,12 +3646,8 @@ _tmp);
         _hc.value._mac = _hc.value._nextMac;
         _hc.value._nextCipher = ((null : AnyInterface));
         _hc.value._nextMac = ((null : stdgo.hash.Hash.Hash));
-        {
-            var _i;
-            for (_obj in _hc.value._seq.keyValueIterator()) {
-                _i = _obj.key;
-                _hc.value._seq[_i] = ((0 : GoUInt8));
-            };
+        for (_i => _ in _hc.value._seq) {
+            _hc.value._seq[_i] = ((0 : GoUInt8));
         };
         return ((null : stdgo.Error));
     }
@@ -3727,9 +3661,9 @@ _tmp);
         var _hc = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         {
             var __tmp__ = try {
-                { value : ((_err.__underlying__().value : stdgo.net.Net.Error)), ok : true };
+                { value : ((_err.__underlying__().value : stdgo.net.Net.T_error)), ok : true };
             } catch(_) {
-                { value : ((null : stdgo.net.Net.Error)), ok : false };
+                { value : ((null : stdgo.net.Net.T_error)), ok : false };
             }, _e = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 _hc.value._err = Go.pointer((({ _err : _e } : T_permanentError))).value;
@@ -3793,8 +3727,8 @@ _tmp);
         var _e = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return _e.value._err.error();
     }
-    public var _err : stdgo.net.Net.Error = ((null : stdgo.net.Net.Error));
-    public function new(?_err:stdgo.net.Net.Error) stdgo.internal.Macro.initLocals();
+    public var _err : stdgo.net.Net.T_error = ((null : stdgo.net.Net.T_error));
+    public function new(?_err:stdgo.net.Net.T_error) stdgo.internal.Macro.initLocals();
     public function toString() {
         return '{' + Go.string(_err) + "}";
     }
@@ -3998,7 +3932,7 @@ _tmp);
     }
     public function _serverResumedSession():Bool {
         var _hs = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _hs.value._session != null && !_hs.value._session.isNil() && _hs.value._hello.value._sessionId != null && !_hs.value._hello.value._sessionId.isNil() && stdgo.bytes.Bytes.equal(_hs.value._serverHello.value._sessionId, _hs.value._hello.value._sessionId);
+        return (_hs.value._session != null && !_hs.value._session.isNil()) && (_hs.value._hello.value._sessionId != null && !_hs.value._hello.value._sessionId.isNil()) && stdgo.bytes.Bytes.equal(_hs.value._serverHello.value._sessionId, _hs.value._hello.value._sessionId);
     }
     public function _establishKeys():Error {
         var _hs = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
@@ -4157,7 +4091,7 @@ _tmp);
             _c.value._sendAlert(_alertInternalError);
             return _err;
         };
-        if (_ckx != null && !_ckx.isNil()) {
+        if ((_ckx != null && !_ckx.isNil())) {
             _hs.value._finishedHash.write(_ckx.value._marshal());
             {
                 var __tmp__ = _c.value._writeRecord(_recordTypeHandshake, _ckx.value._marshal()), _:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -4166,7 +4100,7 @@ _tmp);
                 };
             };
         };
-        if (_chainToSend != null && !_chainToSend.isNil() && _chainToSend.value.certificate.length > ((0 : GoInt))) {
+        if ((_chainToSend != null && !_chainToSend.isNil()) && _chainToSend.value.certificate.length > ((0 : GoInt))) {
             var _certVerify:Pointer<T_certificateVerifyMsg> = Go.pointer(new T_certificateVerifyMsg());
             var __tmp__ = try {
                 { value : ((_chainToSend.value.privateKey.value : stdgo.crypto.Crypto.Signer)), ok : true };
@@ -4245,7 +4179,7 @@ _tmp);
         var _hs = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         {
             _hs.value._suite = _mutualCipherSuite(_hs.value._hello.value._cipherSuites, _hs.value._serverHello.value._cipherSuite);
-            if (_hs.value._suite == null || _hs.value._suite.isNil()) {
+            if ((_hs.value._suite == null || _hs.value._suite.isNil())) {
                 _hs.value._c.value._sendAlert(_alertHandshakeFailure);
                 return stdgo.errors.Errors.new_("tls: server chose an unconfigured cipher suite");
             };
@@ -4401,7 +4335,7 @@ _tmp);
     public function _sendClientCertificate():Error {
         var _hs = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _c:Pointer<Conn> = _hs.value._c;
-        if (_hs.value._certReq == null || _hs.value._certReq.isNil()) {
+        if ((_hs.value._certReq == null || _hs.value._certReq.isNil())) {
             return ((null : stdgo.Error));
         };
         var __tmp__ = _c.value._getClientCertificate(Go.pointer((({ acceptableCAs : _hs.value._certReq.value._certificateAuthorities, signatureSchemes : _hs.value._certReq.value._supportedSignatureAlgorithms, version : _c.value._vers, _ctx : _hs.value._ctx } : CertificateRequestInfo)))), _cert:Pointer<Certificate> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -4624,7 +4558,7 @@ _tmp);
         var _hs = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _c:Pointer<Conn> = _hs.value._c;
         var _sharedKey:Slice<GoUInt8> = _hs.value._ecdheParams.sharedKey(_hs.value._serverHello.value._serverShare._data);
-        if (_sharedKey == null || _sharedKey.isNil()) {
+        if ((_sharedKey == null || _sharedKey.isNil())) {
             _c.value._sendAlert(_alertIllegalParameter);
             return stdgo.errors.Errors.new_("tls: invalid server key share");
         };
@@ -4680,11 +4614,11 @@ _tmp);
             _c.value._sendAlert(_alertIllegalParameter);
             return stdgo.errors.Errors.new_("tls: server selected an invalid PSK");
         };
-        if (_hs.value._hello.value._pskIdentities.length != ((1 : GoInt)) || _hs.value._session == null || _hs.value._session.isNil()) {
+        if (_hs.value._hello.value._pskIdentities.length != ((1 : GoInt)) || (_hs.value._session == null || _hs.value._session.isNil())) {
             return _c.value._sendAlert(_alertInternalError);
         };
         var _pskSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_hs.value._session.value._cipherSuite);
-        if (_pskSuite == null || _pskSuite.isNil()) {
+        if ((_pskSuite == null || _pskSuite.isNil())) {
             return _c.value._sendAlert(_alertInternalError);
         };
         if (_pskSuite.value._hash.__t__ != _hs.value._suite.value._hash.__t__) {
@@ -4707,11 +4641,11 @@ _tmp);
         _hs.value._transcript.write(new Slice<GoUInt8>(_typeMessageHash, ((0 : GoUInt8)), ((0 : GoUInt8)), ((_chHash.length : GoUInt8))));
         _hs.value._transcript.write(_chHash);
         _hs.value._transcript.write(_hs.value._serverHello.value._marshal());
-        if (_hs.value._serverHello.value._selectedGroup.__t__ == ((0 : GoUInt16)) && _hs.value._serverHello.value._cookie == null || _hs.value._serverHello.value._cookie.isNil()) {
+        if (_hs.value._serverHello.value._selectedGroup.__t__ == ((0 : GoUInt16)) && (_hs.value._serverHello.value._cookie == null || _hs.value._serverHello.value._cookie.isNil())) {
             _c.value._sendAlert(_alertIllegalParameter);
             return stdgo.errors.Errors.new_("tls: server sent an unnecessary HelloRetryRequest message");
         };
-        if (_hs.value._serverHello.value._cookie != null && !_hs.value._serverHello.value._cookie.isNil()) {
+        if ((_hs.value._serverHello.value._cookie != null && !_hs.value._serverHello.value._cookie.isNil())) {
             _hs.value._hello.value._cookie = _hs.value._serverHello.value._cookie;
         };
         if (_hs.value._serverHello.value._serverShare._group.__t__ != ((0 : GoUInt16))) {
@@ -4722,7 +4656,7 @@ _tmp);
             var _curveID:CurveID = _hs.value._serverHello.value._selectedGroup;
             if (_curveID.__t__ != ((0 : GoUInt16))) {
                 var _curveOK:Bool = false;
-                for (_id in _hs.value._hello.value._supportedCurves) {
+                for (_ => _id in _hs.value._hello.value._supportedCurves) {
                     if (_id.__t__ == _curveID.__t__) {
                         _curveOK = true;
                         break;
@@ -4755,7 +4689,7 @@ _tmp);
         _hs.value._hello.value._raw = new Slice<GoUInt8>().nil();
         if (_hs.value._hello.value._pskIdentities.length > ((0 : GoInt))) {
             var _pskSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_hs.value._session.value._cipherSuite);
-            if (_pskSuite == null || _pskSuite.isNil()) {
+            if ((_pskSuite == null || _pskSuite.isNil())) {
                 return _c.value._sendAlert(_alertInternalError);
             };
             if (_pskSuite.value._hash.__t__ == _hs.value._suite.value._hash.__t__) {
@@ -4839,11 +4773,11 @@ _tmp);
             return stdgo.errors.Errors.new_("tls: server selected unsupported compression format");
         };
         var _selectedSuite:Pointer<T_cipherSuiteTLS13> = _mutualCipherSuiteTLS13(_hs.value._hello.value._cipherSuites, _hs.value._serverHello.value._cipherSuite);
-        if (_hs.value._suite != null && !_hs.value._suite.isNil() && _selectedSuite != _hs.value._suite) {
+        if ((_hs.value._suite != null && !_hs.value._suite.isNil()) && _selectedSuite != _hs.value._suite) {
             _c.value._sendAlert(_alertIllegalParameter);
             return stdgo.errors.Errors.new_("tls: server changed cipher suite after a HelloRetryRequest");
         };
-        if (_selectedSuite == null || _selectedSuite.isNil()) {
+        if ((_selectedSuite == null || _selectedSuite.isNil())) {
             _c.value._sendAlert(_alertIllegalParameter);
             return stdgo.errors.Errors.new_("tls: server chose an unconfigured cipher suite");
         };
@@ -5218,21 +5152,17 @@ _trafficSecret);
         if (_pskBinders.length != _m.value._pskBinders.length) {
             throw "tls: internal error: pskBinders length mismatch";
         };
-        {
-            var _i;
-            for (_obj in _m.value._pskBinders.keyValueIterator()) {
-                _i = _obj.key;
-                if (_pskBinders[_i].length != _m.value._pskBinders[_i].length) {
-                    throw "tls: internal error: pskBinders length mismatch";
-                };
+        for (_i => _ in _m.value._pskBinders) {
+            if (_pskBinders[_i].length != _m.value._pskBinders[_i].length) {
+                throw "tls: internal error: pskBinders length mismatch";
             };
         };
         _m.value._pskBinders = _pskBinders;
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             var _lenWithoutBinders:GoInt = _m.value._marshalWithoutBinders().length;
             var _b:Pointer<vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder> = golang_org.x.crypto.cryptobyte.Cryptobyte.newBuilder(_m.value._raw.__slice__(0, _lenWithoutBinders));
             _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                for (_binder in _m.value._pskBinders) {
+                for (_ => _binder in _m.value._pskBinders) {
                     _b.value.addUint8LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addBytes(_binder);
                     }));
@@ -5246,7 +5176,7 @@ _trafficSecret);
     public function _marshalWithoutBinders():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _bindersLen:GoInt = ((2 : GoInt));
-        for (_binder in _m.value._pskBinders) {
+        for (_ => _binder in _m.value._pskBinders) {
             _bindersLen = _bindersLen + (((1 : GoInt)));
             _bindersLen = _bindersLen + (_binder.length);
         };
@@ -5255,7 +5185,7 @@ _trafficSecret);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -5267,7 +5197,7 @@ _trafficSecret);
                 _b.value.addBytes(_m.value._sessionId);
             }));
             _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                for (_suite in _m.value._cipherSuites) {
+                for (_ => _suite in _m.value._cipherSuites) {
                     _b.value.addUint16(_suite);
                 };
             }));
@@ -5300,7 +5230,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionSupportedCurves);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_curve in _m.value._supportedCurves) {
+                            for (_ => _curve in _m.value._supportedCurves) {
                                 _b.value.addUint16(_curve.__t__);
                             };
                         }));
@@ -5324,7 +5254,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionSignatureAlgorithms);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_sigAlgo in _m.value._supportedSignatureAlgorithms) {
+                            for (_ => _sigAlgo in _m.value._supportedSignatureAlgorithms) {
                                 _b.value.addUint16(_sigAlgo.__t__);
                             };
                         }));
@@ -5334,7 +5264,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionSignatureAlgorithmsCert);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_sigAlgo in _m.value._supportedSignatureAlgorithmsCert) {
+                            for (_ => _sigAlgo in _m.value._supportedSignatureAlgorithmsCert) {
                                 _b.value.addUint16(_sigAlgo.__t__);
                             };
                         }));
@@ -5352,7 +5282,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionALPN);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_proto in _m.value._alpnProtocols) {
+                            for (_ => _proto in _m.value._alpnProtocols) {
                                 _b.value.addUint8LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(((_proto : Slice<GoByte>)));
                                 }));
@@ -5368,7 +5298,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionSupportedVersions);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint8LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_vers in _m.value._supportedVersions) {
+                            for (_ => _vers in _m.value._supportedVersions) {
                                 _b.value.addUint16(_vers);
                             };
                         }));
@@ -5386,7 +5316,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionKeyShare);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_ks in _m.value._keyShares) {
+                            for (_ => _ks in _m.value._keyShares) {
                                 _b.value.addUint16(_ks._group.__t__);
                                 _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(_ks._data);
@@ -5411,7 +5341,7 @@ _trafficSecret);
                     _b.value.addUint16(_extensionPreSharedKey);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_psk in _m.value._pskIdentities) {
+                            for (_ => _psk in _m.value._pskIdentities) {
                                 _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(_psk._label);
                                 }));
@@ -5419,7 +5349,7 @@ _trafficSecret);
                             };
                         }));
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_binder in _m.value._pskBinders) {
+                            for (_ => _binder in _m.value._pskBinders) {
                                 _b.value.addUint8LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(_binder);
                                 }));
@@ -5613,7 +5543,7 @@ _pskBinders);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -5659,7 +5589,7 @@ _pskBinders);
                     _b.value.addUint16(_extensionSCT);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_sct in _m.value._scts) {
+                            for (_ => _sct in _m.value._scts) {
                                 _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(_sct);
                                 }));
@@ -5824,7 +5754,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -5905,7 +5835,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -5966,7 +5896,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6082,7 +6012,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6102,7 +6032,7 @@ _selectedGroup);
                     _b.value.addUint16(_extensionSignatureAlgorithms);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_sigAlgo in _m.value._supportedSignatureAlgorithms) {
+                            for (_ => _sigAlgo in _m.value._supportedSignatureAlgorithms) {
                                 _b.value.addUint16(_sigAlgo.__t__);
                             };
                         }));
@@ -6112,7 +6042,7 @@ _selectedGroup);
                     _b.value.addUint16(_extensionSignatureAlgorithmsCert);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_sigAlgo in _m.value._supportedSignatureAlgorithmsCert) {
+                            for (_ => _sigAlgo in _m.value._supportedSignatureAlgorithmsCert) {
                                 _b.value.addUint16(_sigAlgo.__t__);
                             };
                         }));
@@ -6122,7 +6052,7 @@ _selectedGroup);
                     _b.value.addUint16(_extensionCertificateAuthorities);
                     _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                         _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                            for (_ca in _m.value._certificateAuthorities) {
+                            for (_ => _ca in _m.value._certificateAuthorities) {
                                 _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                                     _b.value.addBytes(_ca);
                                 }));
@@ -6199,11 +6129,11 @@ _selectedGroup);
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _x:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _i:GoInt = ((0 : GoInt));
-        for (_slice in _m.value._certificates) {
+        for (_ => _slice in _m.value._certificates) {
             _i = _i + (_slice.length);
         };
         var _length:GoInt = ((3 : GoInt)) + ((3 : GoInt)) * _m.value._certificates.length + _i;
@@ -6217,7 +6147,7 @@ _selectedGroup);
         _x[((5 : GoInt))] = (((_certificateOctets >> ((8 : GoUnTypedInt))) : GoUInt8));
         _x[((6 : GoInt))] = ((_certificateOctets : GoUInt8));
         var _y:Slice<GoUInt8> = _x.__slice__(((7 : GoInt)));
-        for (_slice in _m.value._certificates) {
+        for (_ => _slice in _m.value._certificates) {
             _y[((0 : GoInt))] = (((_slice.length >> ((16 : GoUnTypedInt))) : GoUInt8));
             _y[((1 : GoInt))] = (((_slice.length >> ((8 : GoUnTypedInt))) : GoUInt8));
             _y[((2 : GoInt))] = ((_slice.length : GoUInt8));
@@ -6252,13 +6182,13 @@ _selectedGroup);
         if (!_s.skip(((4 : GoInt))) || !_s.readUint8LengthPrefixed(Go.pointer(_context)) || !_context.empty() || !_unmarshalCertificate(Go.pointer(_s), Go.pointer(_m.value._certificate)) || !_s.empty()) {
             return false;
         };
-        _m.value._scts = _m.value._certificate.signedCertificateTimestamps != null && !_m.value._certificate.signedCertificateTimestamps.isNil();
-        _m.value._ocspStapling = _m.value._certificate.ocspstaple != null && !_m.value._certificate.ocspstaple.isNil();
+        _m.value._scts = (_m.value._certificate.signedCertificateTimestamps != null && !_m.value._certificate.signedCertificateTimestamps.isNil());
+        _m.value._ocspStapling = (_m.value._certificate.ocspstaple != null && !_m.value._certificate.ocspstaple.isNil());
         return true;
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6309,7 +6239,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _length:GoInt = _m.value._key.length;
@@ -6351,7 +6281,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6420,7 +6350,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _length:GoInt = _m.value._ciphertext.length;
@@ -6458,7 +6388,7 @@ _selectedGroup);
     }
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6520,13 +6450,9 @@ _selectedGroup);
             };
             var _numSigAlgos:GoUInt16 = _sigAndHashLen / ((2 : GoUInt16));
             _m.value._supportedSignatureAlgorithms = new Slice<SignatureScheme>(...[for (i in 0 ... ((_numSigAlgos : GoInt)).toBasic()) new SignatureScheme()]);
-            {
-                var _i;
-                for (_obj in _m.value._supportedSignatureAlgorithms.keyValueIterator()) {
-                    _i = _obj.key;
-                    _m.value._supportedSignatureAlgorithms[_i] = new SignatureScheme((new SignatureScheme(new SignatureScheme(_data[((0 : GoInt))]).__t__ << ((8 : GoUnTypedInt)))).__t__ | new SignatureScheme(_data[((1 : GoInt))]).__t__);
-                    _data = _data.__slice__(((2 : GoInt)));
-                };
+            for (_i => _ in _m.value._supportedSignatureAlgorithms) {
+                _m.value._supportedSignatureAlgorithms[_i] = new SignatureScheme((new SignatureScheme(new SignatureScheme(_data[((0 : GoInt))]).__t__ << ((8 : GoUnTypedInt)))).__t__ | new SignatureScheme(_data[((1 : GoInt))]).__t__);
+                _data = _data.__slice__(((2 : GoInt)));
             };
         };
         if (_data.length < ((2 : GoInt))) {
@@ -6558,12 +6484,12 @@ _selectedGroup);
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _x:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _length:GoInt = ((1 : GoInt)) + _m.value._certificateTypes.length + ((2 : GoInt));
         var _casLength:GoInt = ((0 : GoInt));
-        for (_ca in _m.value._certificateAuthorities) {
+        for (_ => _ca in _m.value._certificateAuthorities) {
             _casLength = _casLength + (((2 : GoInt)) + _ca.length);
         };
         _length = _length + (_casLength);
@@ -6583,7 +6509,7 @@ _selectedGroup);
             _y[((0 : GoInt))] = (((_n >> ((8 : GoUnTypedInt))) : GoUInt8));
             _y[((1 : GoInt))] = ((_n : GoUInt8));
             _y = _y.__slice__(((2 : GoInt)));
-            for (_sigAlgo in _m.value._supportedSignatureAlgorithms) {
+            for (_ => _sigAlgo in _m.value._supportedSignatureAlgorithms) {
                 _y[((0 : GoInt))] = (new SignatureScheme(_sigAlgo.__t__ >> ((8 : GoUnTypedInt)))).__t__;
                 _y[((1 : GoInt))] = _sigAlgo.__t__;
                 _y = _y.__slice__(((2 : GoInt)));
@@ -6592,7 +6518,7 @@ _selectedGroup);
         _y[((0 : GoInt))] = (((_casLength >> ((8 : GoUnTypedInt))) : GoUInt8));
         _y[((1 : GoInt))] = ((_casLength : GoUInt8));
         _y = _y.__slice__(((2 : GoInt)));
-        for (_ca in _m.value._certificateAuthorities) {
+        for (_ => _ca in _m.value._certificateAuthorities) {
             _y[((0 : GoInt))] = (((_ca.length >> ((8 : GoUnTypedInt))) : GoUInt8));
             _y[((1 : GoInt))] = ((_ca.length : GoUInt8));
             _y = _y.__slice__(((2 : GoInt)));
@@ -6642,7 +6568,7 @@ _selectedGroup);
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _x:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _b:golang_org.x.crypto.cryptobyte.Cryptobyte.Builder = new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.Builder();
@@ -6699,7 +6625,7 @@ _selectedGroup);
     public function _marshal():Slice<GoByte> {
         var _m = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _x:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_m.value._raw != null && !_m.value._raw.isNil()) {
+        if ((_m.value._raw != null && !_m.value._raw.isNil())) {
             return _m.value._raw;
         };
         var _ticketLen:GoInt = _m.value._ticket.length;
@@ -6780,11 +6706,11 @@ _selectedGroup);
         var _c:Pointer<Conn> = _hs.value._c;
         var _m:Pointer<T_newSessionTicketMsg> = Go.pointer(new T_newSessionTicketMsg());
         var _createdAt:GoUInt64 = ((_c.value._config.value._time().unix() : GoUInt64));
-        if (_hs.value._sessionState != null && !_hs.value._sessionState.isNil()) {
+        if ((_hs.value._sessionState != null && !_hs.value._sessionState.isNil())) {
             _createdAt = _hs.value._sessionState.value._createdAt;
         };
         var _certsFromClient:Slice<Slice<GoByte>> = new Slice<Slice<GoUInt8>>().nil();
-        for (_cert in _c.value._peerCertificates) {
+        for (_ => _cert in _c.value._peerCertificates) {
             _certsFromClient = _certsFromClient.__append__(_cert.value.raw);
         };
         var _state:T_sessionState = (({ _vers : _c.value._vers, _cipherSuite : _hs.value._suite.value._id, _createdAt : _createdAt, _masterSecret : _hs.value._masterSecret, _certificates : _certsFromClient, _usedOldKey : false } : T_sessionState)).__copy__();
@@ -6902,7 +6828,7 @@ _selectedGroup);
             _c.value._sendAlert(_alertHandshakeFailure);
             return _err;
         };
-        if (_skx != null && !_skx.isNil()) {
+        if ((_skx != null && !_skx.isNil())) {
             _hs.value._finishedHash.write(_skx.value._marshal());
             {
                 var __tmp__ = _c.value._writeRecord(_recordTypeHandshake, _skx.value._marshal()), _:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -6919,7 +6845,7 @@ _selectedGroup);
                 _certReq.value._hasSignatureAlgorithm = true;
                 _certReq.value._supportedSignatureAlgorithms = _supportedSignatureAlgorithms;
             };
-            if (_c.value._config.value.clientCAs != null && !_c.value._config.value.clientCAs.isNil()) {
+            if ((_c.value._config.value.clientCAs != null && !_c.value._config.value.clientCAs.isNil())) {
                 _certReq.value._certificateAuthorities = _c.value._config.value.clientCAs.value.subjects();
             };
             _hs.value._finishedHash.write(_certReq.value._marshal());
@@ -7111,7 +7037,7 @@ _selectedGroup);
             return false;
         };
         var __tmp__ = _c.value._decryptTicket(_hs.value._clientHello.value._sessionTicket), _plaintext:Slice<GoUInt8> = __tmp__._0, _usedOldKey:Bool = __tmp__._1;
-        if (_plaintext == null || _plaintext.isNil()) {
+        if ((_plaintext == null || _plaintext.isNil())) {
             return false;
         };
         _hs.value._sessionState = Go.pointer((({ _usedOldKey : _usedOldKey, _vers : 0, _cipherSuite : 0, _createdAt : 0, _masterSecret : new Slice<GoUInt8>().nil(), _certificates : new Slice<Slice<GoUInt8>>().nil() } : T_sessionState)));
@@ -7127,7 +7053,7 @@ _selectedGroup);
             return false;
         };
         var _cipherSuiteOk:Bool = false;
-        for (_id in _hs.value._clientHello.value._cipherSuites) {
+        for (_ => _id in _hs.value._clientHello.value._cipherSuites) {
             if (_id == _hs.value._sessionState.value._cipherSuite) {
                 _cipherSuiteOk = true;
                 break;
@@ -7137,7 +7063,7 @@ _selectedGroup);
             return false;
         };
         _hs.value._suite = _selectCipherSuite(new Slice<GoUInt16>(_hs.value._sessionState.value._cipherSuite), _c.value._config.value._cipherSuites(), _hs.value._cipherSuiteOk);
-        if (_hs.value._suite == null || _hs.value._suite.isNil()) {
+        if ((_hs.value._suite == null || _hs.value._suite.isNil())) {
             return false;
         };
         var _sessionHasClientCerts:Bool = _hs.value._sessionState.value._certificates.length != ((0 : GoInt));
@@ -7180,8 +7106,8 @@ _selectedGroup);
         };
         var _configCipherSuites:Slice<GoUInt16> = _c.value._config.value._cipherSuites();
         var _preferenceList:Slice<GoUInt16> = new Slice<GoUInt16>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt16))]).setCap(((_configCipherSuites.length : GoInt)).toBasic());
-        for (_suiteID in _preferenceOrder) {
-            for (_id in _configCipherSuites) {
+        for (_ => _suiteID in _preferenceOrder) {
+            for (_ => _id in _configCipherSuites) {
                 if (_id == _suiteID) {
                     _preferenceList = _preferenceList.__append__(_id);
                     break;
@@ -7189,12 +7115,12 @@ _selectedGroup);
             };
         };
         _hs.value._suite = _selectCipherSuite(_preferenceList, _hs.value._clientHello.value._cipherSuites, _hs.value._cipherSuiteOk);
-        if (_hs.value._suite == null || _hs.value._suite.isNil()) {
+        if ((_hs.value._suite == null || _hs.value._suite.isNil())) {
             _c.value._sendAlert(_alertHandshakeFailure);
             return stdgo.errors.Errors.new_("tls: no cipher suite supported by both client and server");
         };
         _c.value._cipherSuite = _hs.value._suite.value._id;
-        for (_id in _hs.value._clientHello.value._cipherSuites) {
+        for (_ => _id in _hs.value._clientHello.value._cipherSuites) {
             if (_id == tls_FALLBACK_SCSV) {
                 if (_hs.value._clientHello.value._vers < _c.value._config.value._maxSupportedVersion()) {
                     _c.value._sendAlert(_alertInappropriateFallback);
@@ -7211,7 +7137,7 @@ _selectedGroup);
         _hs.value._hello = Go.pointer(new T_serverHelloMsg());
         _hs.value._hello.value._vers = _c.value._vers;
         var _foundCompression:Bool = false;
-        for (_compression in _hs.value._clientHello.value._compressionMethods) {
+        for (_ => _compression in _hs.value._clientHello.value._compressionMethods) {
             if (_compression == _compressionNone) {
                 _foundCompression = true;
                 break;
@@ -7587,7 +7513,7 @@ _cert);
         var _resumptionSecret:Slice<GoUInt8> = _hs.value._suite.value._deriveSecret(_hs.value._masterSecret, _resumptionLabel, _hs.value._transcript);
         var _m:Pointer<T_newSessionTicketMsgTLS13> = Go.pointer(new T_newSessionTicketMsgTLS13());
         var _certsFromClient:Slice<Slice<GoByte>> = new Slice<Slice<GoUInt8>>().nil();
-        for (_cert in _c.value._peerCertificates) {
+        for (_ => _cert in _c.value._peerCertificates) {
             _certsFromClient = _certsFromClient.__append__(_cert.value.raw);
         };
         var _state:T_sessionStateTLS13 = (({ _cipherSuite : _hs.value._suite.value._id, _createdAt : ((_c.value._config.value._time().unix() : GoUInt64)), _resumptionSecret : _resumptionSecret, _certificate : (({ certificate : _certsFromClient, ocspstaple : _c.value._ocspResponse, signedCertificateTimestamps : _c.value._scts, privateKey : ((null : stdgo.crypto.Crypto.PrivateKey)), supportedSignatureAlgorithms : new Slice<SignatureScheme>().nil(), leaf : new Pointer<stdgo.crypto.x509.X509.Certificate>().nil() } : Certificate)).__copy__() } : T_sessionStateTLS13)).__copy__();
@@ -7614,7 +7540,7 @@ _cert);
         if (_hs.value._c.value._config.value.sessionTicketsDisabled) {
             return false;
         };
-        for (_pskMode in _hs.value._clientHello.value._pskModes) {
+        for (_ => _pskMode in _hs.value._clientHello.value._pskModes) {
             if (_pskMode == _pskModeDHE) {
                 return true;
             };
@@ -7668,7 +7594,7 @@ _cert);
             _certReq.value._ocspStapling = true;
             _certReq.value._scts = true;
             _certReq.value._supportedSignatureAlgorithms = _supportedSignatureAlgorithms;
-            if (_c.value._config.value.clientCAs != null && !_c.value._config.value.clientCAs.isNil()) {
+            if ((_c.value._config.value.clientCAs != null && !_c.value._config.value.clientCAs.isNil())) {
                 _certReq.value._certificateAuthorities = _c.value._config.value.clientCAs.value.subjects();
             };
             _hs.value._transcript.write(_certReq.value._marshal());
@@ -7751,7 +7677,7 @@ _cert);
             };
         };
         var _earlySecret:Slice<GoUInt8> = _hs.value._earlySecret;
-        if (_earlySecret == null || _earlySecret.isNil()) {
+        if ((_earlySecret == null || _earlySecret.isNil())) {
             _earlySecret = _hs.value._suite.value._extract(new Slice<GoUInt8>().nil(), new Slice<GoUInt8>().nil());
         };
         _hs.value._handshakeSecret = _hs.value._suite.value._extract(_hs.value._sharedKey, _hs.value._suite.value._deriveSecret(_earlySecret, "derived", ((null : stdgo.hash.Hash.Hash))));
@@ -7882,7 +7808,7 @@ _cert);
             return ((null : stdgo.Error));
         };
         var _modeOK:Bool = false;
-        for (_mode in _hs.value._clientHello.value._pskModes) {
+        for (_ => _mode in _hs.value._clientHello.value._pskModes) {
             if (_mode == _pskModeDHE) {
                 _modeOK = true;
                 break;
@@ -7898,68 +7824,62 @@ _cert);
         if (_hs.value._clientHello.value._pskIdentities.length == ((0 : GoInt))) {
             return ((null : stdgo.Error));
         };
-        {
-            var _i;
-            var _identity;
-            for (_obj in _hs.value._clientHello.value._pskIdentities.keyValueIterator()) {
-                _i = _obj.key;
-                _identity = _obj.value;
-                if (_i >= _maxClientPSKIdentities) {
-                    break;
-                };
-                var __tmp__ = _c.value._decryptTicket(_identity._label), _plaintext:Slice<GoUInt8> = __tmp__._0, _:Bool = __tmp__._1;
-                if (_plaintext == null || _plaintext.isNil()) {
-                    continue;
-                };
-                var _sessionState:Pointer<T_sessionStateTLS13> = Go.pointer(new T_sessionStateTLS13());
-                {
-                    var _ok:Bool = _sessionState.value._unmarshal(_plaintext);
-                    if (!_ok) {
-                        continue;
-                    };
-                };
-                var _createdAt:stdgo.time.Time.Time = stdgo.time.Time.unix(((_sessionState.value._createdAt : GoInt64)), ((0 : GoInt64))).__copy__();
-                if (_c.value._config.value._time().sub(_createdAt.__copy__()).__t__ > _maxSessionTicketLifetime.__t__) {
-                    continue;
-                };
-                var _pskSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_sessionState.value._cipherSuite);
-                if (_pskSuite == null || _pskSuite.isNil() || _pskSuite.value._hash.__t__ != _hs.value._suite.value._hash.__t__) {
-                    continue;
-                };
-                var _sessionHasClientCerts:Bool = _sessionState.value._certificate.certificate.length != ((0 : GoInt));
-                var _needClientCerts:Bool = _requiresClientCert(_c.value._config.value.clientAuth);
-                if (_needClientCerts && !_sessionHasClientCerts) {
-                    continue;
-                };
-                if (_sessionHasClientCerts && _c.value._config.value.clientAuth.__t__ == noClientCert.__t__) {
-                    continue;
-                };
-                var _psk:Slice<GoUInt8> = _hs.value._suite.value._expandLabel(_sessionState.value._resumptionSecret, "resumption", new Slice<GoUInt8>().nil(), _hs.value._suite.value._hash.size());
-                _hs.value._earlySecret = _hs.value._suite.value._extract(_psk, new Slice<GoUInt8>().nil());
-                var _binderKey:Slice<GoUInt8> = _hs.value._suite.value._deriveSecret(_hs.value._earlySecret, _resumptionBinderLabel, ((null : stdgo.hash.Hash.Hash)));
-                var _transcript:stdgo.hash.Hash.Hash = _cloneHash(_hs.value._transcript, _hs.value._suite.value._hash);
-                if (_transcript == null) {
-                    _c.value._sendAlert(_alertInternalError);
-                    return stdgo.errors.Errors.new_("tls: internal error: failed to clone hash");
-                };
-                _transcript.write(_hs.value._clientHello.value._marshalWithoutBinders());
-                var _pskBinder:Slice<GoUInt8> = _hs.value._suite.value._finishedHash(_binderKey, _transcript);
-                if (!stdgo.crypto.hmac.Hmac.equal(_hs.value._clientHello.value._pskBinders[_i], _pskBinder)) {
-                    _c.value._sendAlert(_alertDecryptError);
-                    return stdgo.errors.Errors.new_("tls: invalid PSK binder");
-                };
-                _c.value._didResume = true;
-                {
-                    var _err:stdgo.Error = _c.value._processCertsFromClient(_sessionState.value._certificate.__copy__());
-                    if (_err != null) {
-                        return _err;
-                    };
-                };
-                _hs.value._hello.value._selectedIdentityPresent = true;
-                _hs.value._hello.value._selectedIdentity = ((_i : GoUInt16));
-                _hs.value._usingPSK = true;
-                return ((null : stdgo.Error));
+        for (_i => _identity in _hs.value._clientHello.value._pskIdentities) {
+            if (_i >= _maxClientPSKIdentities) {
+                break;
             };
+            var __tmp__ = _c.value._decryptTicket(_identity._label), _plaintext:Slice<GoUInt8> = __tmp__._0, _:Bool = __tmp__._1;
+            if ((_plaintext == null || _plaintext.isNil())) {
+                continue;
+            };
+            var _sessionState:Pointer<T_sessionStateTLS13> = Go.pointer(new T_sessionStateTLS13());
+            {
+                var _ok:Bool = _sessionState.value._unmarshal(_plaintext);
+                if (!_ok) {
+                    continue;
+                };
+            };
+            var _createdAt:stdgo.time.Time.Time = stdgo.time.Time.unix(((_sessionState.value._createdAt : GoInt64)), ((0 : GoInt64))).__copy__();
+            if (_c.value._config.value._time().sub(_createdAt.__copy__()).__t__ > _maxSessionTicketLifetime.__t__) {
+                continue;
+            };
+            var _pskSuite:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_sessionState.value._cipherSuite);
+            if ((_pskSuite == null || _pskSuite.isNil()) || _pskSuite.value._hash.__t__ != _hs.value._suite.value._hash.__t__) {
+                continue;
+            };
+            var _sessionHasClientCerts:Bool = _sessionState.value._certificate.certificate.length != ((0 : GoInt));
+            var _needClientCerts:Bool = _requiresClientCert(_c.value._config.value.clientAuth);
+            if (_needClientCerts && !_sessionHasClientCerts) {
+                continue;
+            };
+            if (_sessionHasClientCerts && _c.value._config.value.clientAuth.__t__ == noClientCert.__t__) {
+                continue;
+            };
+            var _psk:Slice<GoUInt8> = _hs.value._suite.value._expandLabel(_sessionState.value._resumptionSecret, "resumption", new Slice<GoUInt8>().nil(), _hs.value._suite.value._hash.size());
+            _hs.value._earlySecret = _hs.value._suite.value._extract(_psk, new Slice<GoUInt8>().nil());
+            var _binderKey:Slice<GoUInt8> = _hs.value._suite.value._deriveSecret(_hs.value._earlySecret, _resumptionBinderLabel, ((null : stdgo.hash.Hash.Hash)));
+            var _transcript:stdgo.hash.Hash.Hash = _cloneHash(_hs.value._transcript, _hs.value._suite.value._hash);
+            if (_transcript == null) {
+                _c.value._sendAlert(_alertInternalError);
+                return stdgo.errors.Errors.new_("tls: internal error: failed to clone hash");
+            };
+            _transcript.write(_hs.value._clientHello.value._marshalWithoutBinders());
+            var _pskBinder:Slice<GoUInt8> = _hs.value._suite.value._finishedHash(_binderKey, _transcript);
+            if (!stdgo.crypto.hmac.Hmac.equal(_hs.value._clientHello.value._pskBinders[_i], _pskBinder)) {
+                _c.value._sendAlert(_alertDecryptError);
+                return stdgo.errors.Errors.new_("tls: invalid PSK binder");
+            };
+            _c.value._didResume = true;
+            {
+                var _err:stdgo.Error = _c.value._processCertsFromClient(_sessionState.value._certificate.__copy__());
+                if (_err != null) {
+                    return _err;
+                };
+            };
+            _hs.value._hello.value._selectedIdentityPresent = true;
+            _hs.value._hello.value._selectedIdentity = ((_i : GoUInt16));
+            _hs.value._usingPSK = true;
+            return ((null : stdgo.Error));
         };
         return ((null : stdgo.Error));
     }
@@ -7974,7 +7894,7 @@ _cert);
                 _c.value._sendAlert(_alertIllegalParameter);
                 return stdgo.errors.Errors.new_("tls: client used the legacy version field to negotiate TLS 1.3");
             };
-            for (_id in _hs.value._clientHello.value._cipherSuites) {
+            for (_ => _id in _hs.value._clientHello.value._cipherSuites) {
                 if (_id == tls_FALLBACK_SCSV) {
                     if (_c.value._vers < _c.value._config.value._maxSupportedVersion()) {
                         _c.value._sendAlert(_alertInappropriateFallback);
@@ -8009,13 +7929,13 @@ _cert);
             if (!_hasAESGCMHardwareSupport || !_aesgcmPreferred(_hs.value._clientHello.value._cipherSuites)) {
                 _preferenceList = _defaultCipherSuitesTLS13NoAES;
             };
-            for (_suiteID in _preferenceList) {
+            for (_ => _suiteID in _preferenceList) {
                 _hs.value._suite = _mutualCipherSuiteTLS13(_hs.value._clientHello.value._cipherSuites, _suiteID);
-                if (_hs.value._suite != null && !_hs.value._suite.isNil()) {
+                if ((_hs.value._suite != null && !_hs.value._suite.isNil())) {
                     break;
                 };
             };
-            if (_hs.value._suite == null || _hs.value._suite.isNil()) {
+            if ((_hs.value._suite == null || _hs.value._suite.isNil())) {
                 _c.value._sendAlert(_alertHandshakeFailure);
                 return stdgo.errors.Errors.new_("tls: no cipher suite supported by both client and server");
             };
@@ -8024,8 +7944,8 @@ _cert);
             _hs.value._transcript = _hs.value._suite.value._hash.new_();
             var _selectedGroup:CurveID = new CurveID();
             var _clientKeyShare:Pointer<T_keyShare> = new Pointer<T_keyShare>().nil();
-            @:label("GroupSelection") for (_preferredGroup in _c.value._config.value._curvePreferences()) {
-                for (_ks in _hs.value._clientHello.value._keyShares) {
+            @:label("GroupSelection") for (_ => _preferredGroup in _c.value._config.value._curvePreferences()) {
+                for (_ => _ks in _hs.value._clientHello.value._keyShares) {
                     if (_ks._group.__t__ == _preferredGroup.__t__) {
                         _selectedGroup = _ks._group;
                         _clientKeyShare = Go.pointer(_ks);
@@ -8039,7 +7959,7 @@ _cert);
                 if (_selectedGroup.__t__ != ((0 : GoUInt16))) {
                     continue;
                 };
-                for (_group in _hs.value._clientHello.value._supportedCurves) {
+                for (_ => _group in _hs.value._clientHello.value._supportedCurves) {
                     if (_group.__t__ == _preferredGroup.__t__) {
                         _selectedGroup = _group;
                         break;
@@ -8050,7 +7970,7 @@ _cert);
                 _c.value._sendAlert(_alertHandshakeFailure);
                 return stdgo.errors.Errors.new_("tls: no ECDHE curve supported by both client and server");
             };
-            if (_clientKeyShare == null || _clientKeyShare.isNil()) {
+            if ((_clientKeyShare == null || _clientKeyShare.isNil())) {
                 {
                     var _err:stdgo.Error = _hs.value._doHelloRetryRequest(_selectedGroup);
                     if (_err != null) {
@@ -8073,7 +7993,7 @@ _cert);
             };
             _hs.value._hello.value._serverShare = (({ _group : _selectedGroup, _data : _params.publicKey() } : T_keyShare)).__copy__();
             _hs.value._sharedKey = _params.sharedKey(_clientKeyShare.value._data);
-            if (_hs.value._sharedKey == null || _hs.value._sharedKey.isNil()) {
+            if ((_hs.value._sharedKey == null || _hs.value._sharedKey.isNil())) {
                 _c.value._sendAlert(_alertIllegalParameter);
                 return stdgo.errors.Errors.new_("tls: invalid client key share");
             };
@@ -8278,7 +8198,7 @@ _clientFinished);
 @:structInit class T_ecdheKeyAgreement {
     public function _generateClientKeyExchange(_config:Pointer<Config>, _clientHello:Pointer<T_clientHelloMsg>, _cert:Pointer<stdgo.crypto.x509.X509.Certificate>):{ var _0 : Slice<GoByte>; var _1 : Pointer<T_clientKeyExchangeMsg>; var _2 : Error; } {
         var _ka = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_ka.value._ckx == null || _ka.value._ckx.isNil()) {
+        if ((_ka.value._ckx == null || _ka.value._ckx.isNil())) {
             return { _0 : new Slice<GoUInt8>().nil(), _1 : new Pointer<T_clientKeyExchangeMsg>().nil(), _2 : stdgo.errors.Errors.new_("tls: missing ServerKeyExchange message") };
         };
         return { _0 : _ka.value._preMasterSecret, _1 : _ka.value._ckx, _2 : ((null : stdgo.Error)) };
@@ -8314,7 +8234,7 @@ _clientFinished);
         };
         _ka.value._params = _params;
         _ka.value._preMasterSecret = _params.sharedKey(_publicKey);
-        if (_ka.value._preMasterSecret == null || _ka.value._preMasterSecret.isNil()) {
+        if ((_ka.value._preMasterSecret == null || _ka.value._preMasterSecret.isNil())) {
             return _errServerKeyExchange;
         };
         var _ourPublicKey:Slice<GoUInt8> = _params.publicKey();
@@ -8376,7 +8296,7 @@ _clientFinished);
             return { _0 : new Slice<GoUInt8>().nil(), _1 : _errClientKeyExchange };
         };
         var _preMasterSecret:Slice<GoUInt8> = _ka.value._params.sharedKey(_ckx.value._ciphertext.__slice__(((1 : GoInt))));
-        if (_preMasterSecret == null || _preMasterSecret.isNil()) {
+        if ((_preMasterSecret == null || _preMasterSecret.isNil())) {
             return { _0 : new Slice<GoUInt8>().nil(), _1 : _errClientKeyExchange };
         };
         return { _0 : _preMasterSecret, _1 : ((null : stdgo.Error)) };
@@ -8384,7 +8304,7 @@ _clientFinished);
     public function _generateServerKeyExchange(_config:Pointer<Config>, _cert:Pointer<Certificate>, _clientHello:Pointer<T_clientHelloMsg>, _hello:Pointer<T_serverHelloMsg>):{ var _0 : Pointer<T_serverKeyExchangeMsg>; var _1 : Error; } {
         var _ka = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _curveID:CurveID = new CurveID();
-        for (_c in _clientHello.value._supportedCurves) {
+        for (_ => _c in _clientHello.value._supportedCurves) {
             if (_config.value._supportsCurve(_c)) {
                 _curveID = _c;
                 break;
@@ -8508,7 +8428,7 @@ _clientFinished);
         var _p = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var __tmp__ = _curveForCurveID(_p.value._curveID), _curve:stdgo.crypto.elliptic.Elliptic.Curve = __tmp__._0, _:Bool = __tmp__._1;
         var __tmp__ = stdgo.crypto.elliptic.Elliptic.unmarshal(_curve, _peerPublicKey), _x:Pointer<stdgo.math.big.Big.Int_> = __tmp__._0, _y:Pointer<stdgo.math.big.Big.Int_> = __tmp__._1;
-        if (_x == null || _x.isNil()) {
+        if ((_x == null || _x.isNil())) {
             return new Slice<GoUInt8>().nil();
         };
         var __tmp__ = _curve.scalarMult(_x, _y, _p.value._privateKey), _xShared:Pointer<stdgo.math.big.Big.Int_> = __tmp__._0, _:Pointer<stdgo.math.big.Big.Int_> = __tmp__._1;
@@ -8584,7 +8504,7 @@ _clientFinished);
     }
     public function _hashForClientCertificate(_sigType:GoUInt8, _hashAlg:stdgo.crypto.Crypto.Hash, _masterSecret:Slice<GoByte>):Slice<GoByte> {
         var _h = this.__copy__();
-        if ((_h._version >= versionTLS12 || _sigType == _signatureEd25519) && _h._buffer == null || _h._buffer.isNil()) {
+        if ((_h._version >= versionTLS12 || _sigType == _signatureEd25519) && (_h._buffer == null || _h._buffer.isNil())) {
             throw "tls: handshake hash for a client certificate requested after discarding the handshake buffer";
         };
         if (_sigType == _signatureEd25519) {
@@ -8630,7 +8550,7 @@ _clientFinished);
             _h.value._clientMD5.write(_msg);
             _h.value._serverMD5.write(_msg);
         };
-        if (_h.value._buffer != null && !_h.value._buffer.isNil()) {
+        if ((_h.value._buffer != null && !_h.value._buffer.isNil())) {
             _h.value._buffer = _h.value._buffer.__append__(..._msg.toArray());
         };
         return { _0 : _msg.length, _1 : ((null : stdgo.Error)) };
@@ -8695,7 +8615,7 @@ _clientFinished);
             _b.value.addBytes(_m.value._masterSecret);
         }));
         _b.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-            for (_cert in _m.value._certificates) {
+            for (_ => _cert in _m.value._certificates) {
                 _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                     _b.value.addBytes(_cert);
                 }));
@@ -8830,7 +8750,7 @@ _clientFinished);
     }
     public function _netDialer():Pointer<stdgo.net.Net.Dialer> {
         var _d = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_d.value.netDialer != null && !_d.value.netDialer.isNil()) {
+        if ((_d.value.netDialer != null && !_d.value.netDialer.isNil())) {
             return _d.value.netDialer;
         };
         return Go.pointer(new stdgo.net.Net.Dialer());
@@ -8855,7 +8775,7 @@ _clientFinished);
         return this;
     }
 }
-@:structInit @:local class T__struct_59 {
+@:structInit @:local class T__struct_0 {
     public var _scheme : SignatureScheme = new SignatureScheme();
     public var _minModulusBytes : GoInt = ((0 : GoInt));
     public var _maxVersion : GoUInt16 = ((0 : GoUInt16));
@@ -8865,7 +8785,7 @@ _clientFinished);
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_59(_scheme, _minModulusBytes, _maxVersion);
+        return new T__struct_0(_scheme, _minModulusBytes, _maxVersion);
     }
     public function __set__(__tmp__) {
         this._scheme = __tmp__._scheme;
@@ -8874,14 +8794,14 @@ _clientFinished);
         return this;
     }
 }
-@:structInit @:local class T__struct_60 {
+@:structInit @:local class T__struct_1 {
     public function new() stdgo.internal.Macro.initLocals();
     public function toString() {
         return "{}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_60();
+        return new T__struct_1();
     }
     public function __set__(__tmp__) {
         return this;
@@ -9036,7 +8956,7 @@ final _alertBadCertificateHashValue : T_alert = new T_alert(((114 : GoUInt8)));
 final _alertUnknownPSKIdentity : T_alert = new T_alert(((115 : GoUInt8)));
 final _alertNoApplicationProtocol : T_alert = new T_alert(((120 : GoUInt8)));
 var _alertText : GoMap<T_alert, GoString> = new GoMap<T_alert, GoString>(
-new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.named("crypto/tls.alert", [], stdgo.reflect.Reflect.GoType.basic(uint8_kind)), stdgo.reflect.Reflect.GoType.basic(string_kind))),
+new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.named("T_alert", [], stdgo.reflect.Reflect.GoType.basic(uint8_kind)), stdgo.reflect.Reflect.GoType.basic(string_kind))),
 { key : _alertCloseNotify, value : "close notify" },
 { key : _alertUnexpectedMessage, value : "unexpected message" },
 { key : _alertBadRecordMAC, value : "bad record MAC" },
@@ -9261,7 +9181,7 @@ var _keyExpansionLabel : Slice<GoUInt8> = (("key expansion" : Slice<GoByte>));
 final __ClientAuthType_name : GoString = "NoClientCertRequestClientCertRequireAnyClientCertVerifyClientCertIfGivenRequireAndVerifyClientCert";
 final _typeEndOfEarlyData : GoUInt8 = ((5 : GoUInt8));
 final _extensionSupportedPoints : GoUInt16 = ((11 : GoUInt16));
-var _rsaSignatureSchemes : Slice<T__struct_59> = new Slice<T__struct_59>(new T__struct_59(psswithSHA256, stdgo.crypto.Crypto.sha256.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_59(psswithSHA384, stdgo.crypto.Crypto.sha384.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_59(psswithSHA512, stdgo.crypto.Crypto.sha512.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_59(pkcs1withSHA256, ((19 : GoInt)) + stdgo.crypto.Crypto.sha256.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_59(pkcs1withSHA384, ((19 : GoInt)) + stdgo.crypto.Crypto.sha384.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_59(pkcs1withSHA512, ((19 : GoInt)) + stdgo.crypto.Crypto.sha512.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_59(pkcs1withSHA1, ((15 : GoInt)) + stdgo.crypto.Crypto.sha1.size() + ((11 : GoInt)), versionTLS12).__copy__());
+var _rsaSignatureSchemes : Slice<T__struct_0> = new Slice<T__struct_0>(new T__struct_0(psswithSHA256, stdgo.crypto.Crypto.sha256.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_0(psswithSHA384, stdgo.crypto.Crypto.sha384.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_0(psswithSHA512, stdgo.crypto.Crypto.sha512.size() * ((2 : GoInt)) + ((2 : GoInt)), versionTLS13).__copy__(), new T__struct_0(pkcs1withSHA256, ((19 : GoInt)) + stdgo.crypto.Crypto.sha256.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_0(pkcs1withSHA384, ((19 : GoInt)) + stdgo.crypto.Crypto.sha384.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_0(pkcs1withSHA512, ((19 : GoInt)) + stdgo.crypto.Crypto.sha512.size() + ((11 : GoInt)), versionTLS12).__copy__(), new T__struct_0(pkcs1withSHA1, ((15 : GoInt)) + stdgo.crypto.Crypto.sha1.size() + ((11 : GoInt)), versionTLS12).__copy__());
 var _defaultCipherSuites : Slice<GoUInt16> = _cipherSuitesPreferenceOrder.__slice__(0, _defaultCipherSuitesLen);
 final _extensionSCT : GoUInt16 = ((18 : GoUInt16));
 final _typeCertificateRequest : GoUInt8 = ((13 : GoUInt8));
@@ -9500,7 +9420,7 @@ function _signatureSchemesForCertificate(_version:GoUInt16, _cert:Pointer<Certif
             var _pub:Pointer<stdgo.crypto.rsa.Rsa.PublicKey> = _priv.public_() == null ? null : _priv.public_().__underlying__() == null ? null : _priv.public_() == null ? null : _priv.public_().__underlying__().value;
             var _size:GoInt = _pub.value.size();
             _sigAlgs = new Slice<SignatureScheme>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new SignatureScheme()]).setCap(((_rsaSignatureSchemes.length : GoInt)).toBasic());
-            for (_candidate in _rsaSignatureSchemes) {
+            for (_ => _candidate in _rsaSignatureSchemes) {
                 if (_size >= _candidate._minModulusBytes && _version <= _candidate._maxVersion) {
                     _sigAlgs = _sigAlgs.__append__(_candidate._scheme);
                 };
@@ -9512,9 +9432,9 @@ function _signatureSchemesForCertificate(_version:GoUInt16, _cert:Pointer<Certif
             var _pub:stdgo.crypto.Crypto.PublicKey = _priv.public_() == null ? null : _priv.public_().__underlying__();
             return new Slice<SignatureScheme>().nil();
         };
-        if (_cert.value.supportedSignatureAlgorithms != null && !_cert.value.supportedSignatureAlgorithms.isNil()) {
+        if ((_cert.value.supportedSignatureAlgorithms != null && !_cert.value.supportedSignatureAlgorithms.isNil())) {
             var _filteredSigAlgs:Slice<SignatureScheme> = new Slice<SignatureScheme>().nil();
-            for (_sigAlg in _sigAlgs) {
+            for (_ => _sigAlg in _sigAlgs) {
                 if (_isSupportedSignatureAlgorithm(_sigAlg, _cert.value.supportedSignatureAlgorithms)) {
                     _filteredSigAlgs = _filteredSigAlgs.__append__(_sigAlg);
                 };
@@ -9536,7 +9456,7 @@ function _selectSignatureScheme(_vers:GoUInt16, _c:Pointer<Certificate>, _peerAl
         if (_peerAlgs.length == ((0 : GoInt)) && _vers == versionTLS12) {
             _peerAlgs = new Slice<SignatureScheme>(pkcs1withSHA1, ecdsawithSHA1);
         };
-        for (_preferredAlg in _peerAlgs) {
+        for (_ => _preferredAlg in _peerAlgs) {
             if (_isSupportedSignatureAlgorithm(_preferredAlg, _supportedAlgs)) {
                 return { _0 : _preferredAlg, _1 : ((null : stdgo.Error)) };
             };
@@ -9575,7 +9495,7 @@ function _unsupportedCertificateError(_cert:Pointer<Certificate>):Error {
             var _pub:stdgo.crypto.Crypto.PublicKey = _signer.public_() == null ? null : _signer.public_().__underlying__();
             return stdgo.fmt.Fmt.errorf("tls: unsupported certificate key (%T)", Go.toInterface(_pub));
         };
-        if (_cert.value.supportedSignatureAlgorithms != null && !_cert.value.supportedSignatureAlgorithms.isNil()) {
+        if ((_cert.value.supportedSignatureAlgorithms != null && !_cert.value.supportedSignatureAlgorithms.isNil())) {
             return stdgo.fmt.Fmt.errorf("tls: peer doesn\'t support the certificate custom signature algorithms");
         };
         return stdgo.fmt.Fmt.errorf("tls: internal error: unsupported key (%T)", Go.toInterface(_cert.value.privateKey));
@@ -9625,12 +9545,12 @@ function insecureCipherSuites():Slice<Pointer<CipherSuite>> {
     // of the ID value if the cipher suite is not implemented by this package.
 **/
 function cipherSuiteName(_id:GoUInt16):GoString {
-        for (_c in cipherSuites()) {
+        for (_ => _c in cipherSuites()) {
             if (_c.value.id == _id) {
                 return _c.value.name;
             };
         };
-        for (_c in insecureCipherSuites()) {
+        for (_ => _c in insecureCipherSuites()) {
             if (_c.value.id == _id) {
                 return _c.value.name;
             };
@@ -9642,12 +9562,12 @@ function cipherSuiteName(_id:GoUInt16):GoString {
     // is also in supportedIDs and passes the ok filter.
 **/
 function _selectCipherSuite(_ids:Slice<GoUInt16>, _supportedIDs:Slice<GoUInt16>, _ok:Pointer<T_cipherSuite> -> Bool):Pointer<T_cipherSuite> {
-        for (_id in _ids) {
+        for (_ => _id in _ids) {
             var _candidate:Pointer<T_cipherSuite> = _cipherSuiteByID(_id);
-            if (_candidate == null || _candidate.isNil() || !_ok(_candidate)) {
+            if ((_candidate == null || _candidate.isNil()) || !_ok(_candidate)) {
                 continue;
             };
-            for (_suppID in _supportedIDs) {
+            for (_ => _suppID in _supportedIDs) {
                 if (_id == _suppID) {
                     return _candidate;
                 };
@@ -9660,16 +9580,16 @@ function _selectCipherSuite(_ids:Slice<GoUInt16>, _supportedIDs:Slice<GoUInt16>,
     // is an AES-GCM cipher, implying the peer has hardware support for it.
 **/
 function _aesgcmPreferred(_ciphers:Slice<GoUInt16>):Bool {
-        for (_cID in _ciphers) {
+        for (_ => _cID in _ciphers) {
             {
                 var _c:Pointer<T_cipherSuite> = _cipherSuiteByID(_cID);
-                if (_c != null && !_c.isNil()) {
+                if ((_c != null && !_c.isNil())) {
                     return _aesgcmCiphers[_cID];
                 };
             };
             {
                 var _c:Pointer<T_cipherSuiteTLS13> = _cipherSuiteTLS13ByID(_cID);
-                if (_c != null && !_c.isNil()) {
+                if ((_c != null && !_c.isNil())) {
                     return _aesgcmCiphers[_cID];
                 };
             };
@@ -9765,13 +9685,13 @@ function _tls10MAC(_h:stdgo.hash.Hash.Hash, _out:Slice<GoByte>, _seq:Slice<GoByt
         _h.write(_header);
         _h.write(_data);
         var _res:Slice<GoUInt8> = _h.sum(_out);
-        if (_extra != null && !_extra.isNil()) {
+        if ((_extra != null && !_extra.isNil())) {
             _h.write(_extra);
         };
         return _res;
     }
 function _rsaKA(_version:GoUInt16):T_keyAgreement {
-        return new T_rsaKeyAgreement().__copy__();
+        return {};
     }
 function _ecdheECDSAKA(_version:GoUInt16):T_keyAgreement {
         return Go.pointer((({ _isRSA : false, _version : _version, _params : ((null : T_ecdheParameters)), _ckx : new Pointer<T_clientKeyExchangeMsg>().nil(), _preMasterSecret : new Slice<GoUInt8>().nil() } : T_ecdheKeyAgreement))).value;
@@ -9784,7 +9704,7 @@ function _ecdheRSAKA(_version:GoUInt16):T_keyAgreement {
     // ciphersuites and the id requested by the peer.
 **/
 function _mutualCipherSuite(_have:Slice<GoUInt16>, _want:GoUInt16):Pointer<T_cipherSuite> {
-        for (_id in _have) {
+        for (_ => _id in _have) {
             if (_id == _want) {
                 return _cipherSuiteByID(_id);
             };
@@ -9792,7 +9712,7 @@ function _mutualCipherSuite(_have:Slice<GoUInt16>, _want:GoUInt16):Pointer<T_cip
         return new Pointer<T_cipherSuite>().nil();
     }
 function _cipherSuiteByID(_id:GoUInt16):Pointer<T_cipherSuite> {
-        for (_cipherSuite in _cipherSuites) {
+        for (_ => _cipherSuite in _cipherSuites) {
             if (_cipherSuite.value._id == _id) {
                 return _cipherSuite;
             };
@@ -9800,7 +9720,7 @@ function _cipherSuiteByID(_id:GoUInt16):Pointer<T_cipherSuite> {
         return new Pointer<T_cipherSuite>().nil();
     }
 function _mutualCipherSuiteTLS13(_have:Slice<GoUInt16>, _want:GoUInt16):Pointer<T_cipherSuiteTLS13> {
-        for (_id in _have) {
+        for (_ => _id in _have) {
             if (_id == _want) {
                 return _cipherSuiteTLS13ByID(_id);
             };
@@ -9808,7 +9728,7 @@ function _mutualCipherSuiteTLS13(_have:Slice<GoUInt16>, _want:GoUInt16):Pointer<
         return new Pointer<T_cipherSuiteTLS13>().nil();
     }
 function _cipherSuiteTLS13ByID(_id:GoUInt16):Pointer<T_cipherSuiteTLS13> {
-        for (_cipherSuite in _cipherSuitesTLS13) {
+        for (_ => _cipherSuite in _cipherSuitesTLS13) {
             if (_cipherSuite.value._id == _id) {
                 return _cipherSuite;
             };
@@ -9833,7 +9753,7 @@ function _requiresClientCert(_c:ClientAuthType):Bool {
 **/
 function _supportedVersionsFromMax(_maxVersion:GoUInt16):Slice<GoUInt16> {
         var _versions:Slice<GoUInt16> = new Slice<GoUInt16>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt16))]).setCap(((_supportedVersions.length : GoInt)).toBasic());
-        for (_v in _supportedVersions) {
+        for (_ => _v in _supportedVersions) {
             if (_v > _maxVersion) {
                 continue;
             };
@@ -9851,7 +9771,7 @@ function newLRUClientSessionCache(_capacity:GoInt):ClientSessionCache {
         if (_capacity < ((1 : GoInt))) {
             _capacity = _defaultSessionCacheCapacity;
         };
-        return Go.pointer((({ _m : new GoMap<GoString, Pointer<stdgo.container.list.List.Element>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_next", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_prev", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_list", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("container/list.List", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_root", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("container/list.Element", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "_len", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }]))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }])))))), _q : stdgo.container.list.List_.new_(), _capacity : _capacity, mutex : new stdgo.sync.Sync.Mutex() } : T_lruSessionCache))).value;
+        return Go.pointer((({ _m : new GoMap<GoString, Pointer<stdgo.container.list.List.Element>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_next", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_prev", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_list", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.List", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_root", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.container.list.List.Element", [], stdgo.reflect.Reflect.GoType.invalidType) }, { name : "_len", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }]))) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.interfaceType(true, []) }])))))), _q : stdgo.container.list.List.new_(), _capacity : _capacity, mutex : new stdgo.sync.Sync.Mutex() } : T_lruSessionCache))).value;
     }
 function _defaultConfig():Pointer<Config> {
         return Go.pointer(_emptyConfig);
@@ -9860,7 +9780,7 @@ function _unexpectedMessageError(_wanted:AnyInterface, _got:AnyInterface):Error 
         return stdgo.fmt.Fmt.errorf("tls: received unexpected handshake message of type %T when waiting for %T", Go.toInterface(_got), Go.toInterface(_wanted));
     }
 function _isSupportedSignatureAlgorithm(_sigAlg:SignatureScheme, _supportedSignatureAlgorithms:Slice<SignatureScheme>):Bool {
-        for (_s in _supportedSignatureAlgorithms) {
+        for (_ => _s in _supportedSignatureAlgorithms) {
             if (_s.__t__ == _sigAlg.__t__) {
                 return true;
             };
@@ -9934,7 +9854,7 @@ function _checkALPN(_clientProtos:Slice<GoString>, _serverProto:GoString):Error 
         if (_clientProtos.length == ((0 : GoInt))) {
             return stdgo.errors.Errors.new_("tls: server advertised unrequested ALPN extension");
         };
-        for (_proto in _clientProtos) {
+        for (_ => _proto in _clientProtos) {
             if (_proto == _serverProto) {
                 return ((null : stdgo.Error));
             };
@@ -9948,7 +9868,7 @@ function _checkALPN(_clientProtos:Slice<GoString>, _serverProto:GoString):Error 
 function _certificateRequestInfoFromMsg(_ctx:stdgo.context.Context.Context, _vers:GoUInt16, _certReq:Pointer<T_certificateRequestMsg>):Pointer<CertificateRequestInfo> {
         var _cri:Pointer<CertificateRequestInfo> = Go.pointer((({ acceptableCAs : _certReq.value._certificateAuthorities, version : _vers, _ctx : _ctx, signatureSchemes : new Slice<SignatureScheme>().nil() } : CertificateRequestInfo)));
         var _rsaAvail:Bool = false, _ecAvail:Bool = false;
-        for (_certType in _certReq.value._certificateTypes) {
+        for (_ => _certType in _certReq.value._certificateTypes) {
             if (_certType == _certTypeRSASign) {
                 _rsaAvail = true;
             } else if (_certType == _certTypeECDSASign) {
@@ -9966,7 +9886,7 @@ function _certificateRequestInfoFromMsg(_ctx:stdgo.context.Context.Context, _ver
             return _cri;
         };
         _cri.value.signatureSchemes = new Slice<SignatureScheme>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new SignatureScheme()]).setCap(((_certReq.value._supportedSignatureAlgorithms.length : GoInt)).toBasic());
-        for (_sigScheme in _certReq.value._supportedSignatureAlgorithms) {
+        for (_ => _sigScheme in _certReq.value._supportedSignatureAlgorithms) {
             var __tmp__ = _typeAndHashFromSignatureScheme(_sigScheme), _sigType:GoUInt8 = __tmp__._0, _:stdgo.crypto.Crypto.Hash = __tmp__._1, _err:stdgo.Error = __tmp__._2;
             if (_err != null) {
                 continue;
@@ -10009,7 +9929,7 @@ function _hostnameInSNI(_name:GoString):GoString {
                 _host = _host.__slice__(0, _i);
             };
         };
-        if (stdgo.net.Net.parseIP(_host).__t__ != null && !stdgo.net.Net.parseIP(_host).__t__.isNil()) {
+        if ((stdgo.net.Net.parseIP(_host).__t__ != null && !stdgo.net.Net.parseIP(_host).__t__.isNil())) {
             return "";
         };
         while (_name.length > ((0 : GoInt)) && _name[_name.length - ((1 : GoInt))] == ((".".code : GoRune))) {
@@ -10072,42 +9992,36 @@ function _readUint24LengthPrefixed(_s:Pointer<golang_org.x.crypto.cryptobyte.Cry
     }
 function _marshalCertificate(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>, _certificate:Certificate):Void {
         _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-            {
-                var _i;
-                var _cert;
-                for (_obj in _certificate.certificate.keyValueIterator()) {
-                    _i = _obj.key;
-                    _cert = _obj.value;
-                    _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                        _b.value.addBytes(_cert);
-                    }));
-                    _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                        if (_i > ((0 : GoInt))) {
-                            return;
-                        };
-                        if (_certificate.ocspstaple != null && !_certificate.ocspstaple.isNil()) {
-                            _b.value.addUint16(_extensionStatusRequest);
-                            _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                                _b.value.addUint8(_statusTypeOCSP);
-                                _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                                    _b.value.addBytes(_certificate.ocspstaple);
-                                }));
+            for (_i => _cert in _certificate.certificate) {
+                _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
+                    _b.value.addBytes(_cert);
+                }));
+                _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
+                    if (_i > ((0 : GoInt))) {
+                        return;
+                    };
+                    if ((_certificate.ocspstaple != null && !_certificate.ocspstaple.isNil())) {
+                        _b.value.addUint16(_extensionStatusRequest);
+                        _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
+                            _b.value.addUint8(_statusTypeOCSP);
+                            _b.value.addUint24LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
+                                _b.value.addBytes(_certificate.ocspstaple);
                             }));
-                        };
-                        if (_certificate.signedCertificateTimestamps != null && !_certificate.signedCertificateTimestamps.isNil()) {
-                            _b.value.addUint16(_extensionSCT);
+                        }));
+                    };
+                    if ((_certificate.signedCertificateTimestamps != null && !_certificate.signedCertificateTimestamps.isNil())) {
+                        _b.value.addUint16(_extensionSCT);
+                        _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
                             _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                                _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                                    for (_sct in _certificate.signedCertificateTimestamps) {
-                                        _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
-                                            _b.value.addBytes(_sct);
-                                        }));
-                                    };
-                                }));
+                                for (_ => _sct in _certificate.signedCertificateTimestamps) {
+                                    _b.value.addUint16LengthPrefixed(new vendor.golang_org.x.crypto.cryptobyte.Cryptobyte.BuilderContinuation(function(_b:Pointer<golang_org.x.crypto.cryptobyte.Cryptobyte.Builder>):Void {
+                                        _b.value.addBytes(_sct);
+                                    }));
+                                };
                             }));
-                        };
-                    }));
-                };
+                        }));
+                    };
+                }));
             };
         }));
     }
@@ -10169,8 +10083,8 @@ function _negotiateALPN(_serverProtos:Slice<GoString>, _clientProtos:Slice<GoStr
             return { _0 : "", _1 : ((null : stdgo.Error)) };
         };
         var _http11fallback:Bool = false;
-        for (_s in _serverProtos) {
-            for (_c in _clientProtos) {
+        for (_ => _s in _serverProtos) {
+            for (_ => _c in _clientProtos) {
                 if (_s == _c) {
                     return { _0 : _s, _1 : ((null : stdgo.Error)) };
                 };
@@ -10190,14 +10104,14 @@ function _negotiateALPN(_serverProtos:Slice<GoString>, _clientProtos:Slice<GoStr
 **/
 function _supportsECDHE(_c:Pointer<Config>, _supportedCurves:Slice<CurveID>, _supportedPoints:Slice<GoUInt8>):Bool {
         var _supportsCurve:Bool = false;
-        for (_curve in _supportedCurves) {
+        for (_ => _curve in _supportedCurves) {
             if (_c.value._supportsCurve(_curve)) {
                 _supportsCurve = true;
                 break;
             };
         };
         var _supportsPointFormat:Bool = false;
-        for (_pointFormat in _supportedPoints) {
+        for (_ => _pointFormat in _supportedPoints) {
             if (_pointFormat == _pointFormatUncompressed) {
                 _supportsPointFormat = true;
                 break;
@@ -10261,58 +10175,34 @@ function _illegalClientHelloChange(_ch:Pointer<T_clientHelloMsg>, _ch1:Pointer<T
         if (_ch.value._supportedVersions.length != _ch1.value._supportedVersions.length || _ch.value._cipherSuites.length != _ch1.value._cipherSuites.length || _ch.value._supportedCurves.length != _ch1.value._supportedCurves.length || _ch.value._supportedSignatureAlgorithms.length != _ch1.value._supportedSignatureAlgorithms.length || _ch.value._supportedSignatureAlgorithmsCert.length != _ch1.value._supportedSignatureAlgorithmsCert.length || _ch.value._alpnProtocols.length != _ch1.value._alpnProtocols.length) {
             return true;
         };
-        {
-            var _i;
-            for (_obj in _ch.value._supportedVersions.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._supportedVersions[_i] != _ch1.value._supportedVersions[_i]) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._supportedVersions) {
+            if (_ch.value._supportedVersions[_i] != _ch1.value._supportedVersions[_i]) {
+                return true;
             };
         };
-        {
-            var _i;
-            for (_obj in _ch.value._cipherSuites.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._cipherSuites[_i] != _ch1.value._cipherSuites[_i]) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._cipherSuites) {
+            if (_ch.value._cipherSuites[_i] != _ch1.value._cipherSuites[_i]) {
+                return true;
             };
         };
-        {
-            var _i;
-            for (_obj in _ch.value._supportedCurves.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._supportedCurves[_i].__t__ != _ch1.value._supportedCurves[_i].__t__) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._supportedCurves) {
+            if (_ch.value._supportedCurves[_i].__t__ != _ch1.value._supportedCurves[_i].__t__) {
+                return true;
             };
         };
-        {
-            var _i;
-            for (_obj in _ch.value._supportedSignatureAlgorithms.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._supportedSignatureAlgorithms[_i].__t__ != _ch1.value._supportedSignatureAlgorithms[_i].__t__) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._supportedSignatureAlgorithms) {
+            if (_ch.value._supportedSignatureAlgorithms[_i].__t__ != _ch1.value._supportedSignatureAlgorithms[_i].__t__) {
+                return true;
             };
         };
-        {
-            var _i;
-            for (_obj in _ch.value._supportedSignatureAlgorithmsCert.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._supportedSignatureAlgorithmsCert[_i].__t__ != _ch1.value._supportedSignatureAlgorithmsCert[_i].__t__) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._supportedSignatureAlgorithmsCert) {
+            if (_ch.value._supportedSignatureAlgorithmsCert[_i].__t__ != _ch1.value._supportedSignatureAlgorithmsCert[_i].__t__) {
+                return true;
             };
         };
-        {
-            var _i;
-            for (_obj in _ch.value._alpnProtocols.keyValueIterator()) {
-                _i = _obj.key;
-                if (_ch.value._alpnProtocols[_i] != _ch1.value._alpnProtocols[_i]) {
-                    return true;
-                };
+        for (_i => _ in _ch.value._alpnProtocols) {
+            if (_ch.value._alpnProtocols[_i] != _ch1.value._alpnProtocols[_i]) {
+                return true;
             };
         };
         return _ch.value._vers != _ch1.value._vers || !stdgo.bytes.Bytes.equal(_ch.value._random, _ch1.value._random) || !stdgo.bytes.Bytes.equal(_ch.value._sessionId, _ch1.value._sessionId) || !stdgo.bytes.Bytes.equal(_ch.value._compressionMethods, _ch1.value._compressionMethods) || _ch.value._serverName != _ch1.value._serverName || _ch.value._ocspStapling != _ch1.value._ocspStapling || !stdgo.bytes.Bytes.equal(_ch.value._supportedPoints, _ch1.value._supportedPoints) || _ch.value._ticketSupported != _ch1.value._ticketSupported || !stdgo.bytes.Bytes.equal(_ch.value._sessionTicket, _ch1.value._sessionTicket) || _ch.value._secureRenegotiationSupported != _ch1.value._secureRenegotiationSupported || !stdgo.bytes.Bytes.equal(_ch.value._secureRenegotiation, _ch1.value._secureRenegotiation) || _ch.value._scts != _ch1.value._scts || !stdgo.bytes.Bytes.equal(_ch.value._cookie, _ch1.value._cookie) || !stdgo.bytes.Bytes.equal(_ch.value._pskModes, _ch1.value._pskModes);
@@ -10322,7 +10212,7 @@ function _illegalClientHelloChange(_ch:Pointer<T_clientHelloMsg>, _ch1:Pointer<T
 **/
 function _sha1Hash(_slices:Slice<Slice<GoByte>>):Slice<GoByte> {
         var _hsha1:stdgo.hash.Hash.Hash = stdgo.crypto.sha1.Sha1.new_();
-        for (_slice in _slices) {
+        for (_ => _slice in _slices) {
             _hsha1.write(_slice);
         };
         return _hsha1.sum(new Slice<GoUInt8>().nil());
@@ -10334,7 +10224,7 @@ function _sha1Hash(_slices:Slice<Slice<GoByte>>):Slice<GoByte> {
 function _md5SHA1Hash(_slices:Slice<Slice<GoByte>>):Slice<GoByte> {
         var _md5sha1:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((stdgo.crypto.md5.Md5.size + stdgo.crypto.sha1.Sha1.size : GoInt)).toBasic()) ((0 : GoUInt8))]);
         var _hmd5:stdgo.hash.Hash.Hash = stdgo.crypto.md5.Md5.new_();
-        for (_slice in _slices) {
+        for (_ => _slice in _slices) {
             _hmd5.write(_slice);
         };
         Go.copy(_md5sha1, _hmd5.sum(new Slice<GoUInt8>().nil()));
@@ -10351,14 +10241,14 @@ function _hashForServerKeyExchange(_sigType:GoUInt8, _hashFunc:stdgo.crypto.Cryp
         var _slices = new Slice<Slice<GoByte>>(..._slices);
         if (_sigType == _signatureEd25519) {
             var _signed:Slice<GoByte> = new Slice<GoUInt8>().nil();
-            for (_slice in _slices) {
+            for (_ => _slice in _slices) {
                 _signed = _signed.__append__(..._slice.toArray());
             };
             return _signed;
         };
         if (_version >= versionTLS12) {
             var _h:stdgo.hash.Hash.Hash = _hashFunc.new_();
-            for (_slice in _slices) {
+            for (_ => _slice in _slices) {
                 _h.write(_slice);
             };
             var _digest:Slice<GoUInt8> = _h.sum(new Slice<GoUInt8>().nil());
@@ -10455,14 +10345,8 @@ function _prf10(_result:Slice<GoByte>, _secret:Slice<GoByte>, _label:Slice<GoByt
         _pHash(_result, _s1, _labelAndSeed, _hashMD5);
         var _result2:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_result.length : GoInt)).toBasic()) ((0 : GoUInt8))]);
         _pHash(_result2, _s2, _labelAndSeed, _hashSHA1);
-        {
-            var _i;
-            var _b;
-            for (_obj in _result2.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                _result[_i] = _result[_i] ^ (_b);
-            };
+        for (_i => _b in _result2) {
+            _result[_i] = _result[_i] ^ (_b);
         };
     }
 /**
@@ -10558,13 +10442,13 @@ function _ekmFromMasterSecret(_version:GoUInt16, _suite:Pointer<T_cipherSuite>, 
                 return { _0 : new Slice<GoUInt8>().nil(), _1 : stdgo.fmt.Fmt.errorf("crypto/tls: reserved ExportKeyingMaterial label: %s", Go.toInterface(_label)) };
             };
             var _seedLen:GoInt = _serverRandom.length + _clientRandom.length;
-            if (_context != null && !_context.isNil()) {
+            if ((_context != null && !_context.isNil())) {
                 _seedLen = _seedLen + (((2 : GoInt)) + _context.length);
             };
             var _seed:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((_seedLen : GoInt)).toBasic());
             _seed = _seed.__append__(..._clientRandom.toArray());
             _seed = _seed.__append__(..._serverRandom.toArray());
-            if (_context != null && !_context.isNil()) {
+            if ((_context != null && !_context.isNil())) {
                 if (_context.length >= (((1 : GoUnTypedInt)) << ((16 : GoUnTypedInt)))) {
                     return { _0 : new Slice<GoUInt8>().nil(), _1 : stdgo.fmt.Fmt.errorf("crypto/tls: ExportKeyingMaterial context too long") };
                 };
@@ -10617,7 +10501,7 @@ function newListener(_inner:stdgo.net.Net.Listener, _config:Pointer<Config>):std
     // at least one certificate or else set GetCertificate.
 **/
 function listen(_network:GoString, _laddr:GoString, _config:Pointer<Config>):{ var _0 : stdgo.net.Net.Listener; var _1 : Error; } {
-        if (_config == null || _config.isNil() || _config.value.certificates.length == ((0 : GoInt)) && _config.value.getCertificate == null && _config.value.getConfigForClient == null) {
+        if ((_config == null || _config.isNil()) || _config.value.certificates.length == ((0 : GoInt)) && _config.value.getCertificate == null && _config.value.getConfigForClient == null) {
             return { _0 : ((null : stdgo.net.Net.Listener)), _1 : stdgo.errors.Errors.new_("tls: neither Certificates, GetCertificate, nor GetConfigForClient set in Config") };
         };
         var __tmp__ = stdgo.net.Net.listen(_network, _laddr), _l:stdgo.net.Net.Listener = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -10677,7 +10561,7 @@ function _dial(_ctx:stdgo.context.Context.Context, _netDialer:Pointer<stdgo.net.
                 _colonPos = _addr.length;
             };
             var _hostname:GoString = _addr.__slice__(0, _colonPos);
-            if (_config == null || _config.isNil()) {
+            if ((_config == null || _config.isNil())) {
                 _config = _defaultConfig();
             };
             if (_config.value.serverName == (("" : GoString))) {
@@ -10765,7 +10649,7 @@ function x509keyPair(_certPEMBlock:Slice<GoByte>, _keyPEMBlock:Slice<GoByte>):{ 
                 _certDERBlock = __tmp__._0;
                 _certPEMBlock = __tmp__._1;
             };
-            if (_certDERBlock == null || _certDERBlock.isNil()) {
+            if ((_certDERBlock == null || _certDERBlock.isNil())) {
                 break;
             };
             if (_certDERBlock.value.type == (("CERTIFICATE" : GoString))) {
@@ -10791,7 +10675,7 @@ function x509keyPair(_certPEMBlock:Slice<GoByte>, _keyPEMBlock:Slice<GoByte>):{ 
                 _keyDERBlock = __tmp__._0;
                 _keyPEMBlock = __tmp__._1;
             };
-            if (_keyDERBlock == null || _keyDERBlock.isNil()) {
+            if ((_keyDERBlock == null || _keyDERBlock.isNil())) {
                 if (_skippedBlockTypes.length == ((0 : GoInt))) {
                     return _fail(stdgo.errors.Errors.new_("tls: failed to find any PEM data in key input"));
                 };

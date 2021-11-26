@@ -35,12 +35,8 @@ import stdgo.Chan;
             throw "chacha20poly1305: invalid buffer overlap";
         };
         if (!_p.value.verify(_tag)) {
-            {
-                var _i;
-                for (_obj in _out.keyValueIterator()) {
-                    _i = _obj.key;
-                    _out[_i] = ((0 : GoUInt8));
-                };
+            for (_i => _ in _out) {
+                _out[_i] = ((0 : GoUInt8));
             };
             return { _0 : new Slice<GoUInt8>().nil(), _1 : _errOpen };
         };

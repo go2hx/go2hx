@@ -153,14 +153,8 @@ import stdgo.Chan;
                 _keyStream = _keyStream.__slice__(0, _src.length);
             };
             _src[_keyStream.length - ((1 : GoInt))];
-            {
-                var _i;
-                var _b;
-                for (_obj in _keyStream.keyValueIterator()) {
-                    _i = _obj.key;
-                    _b = _obj.value;
-                    _dst[_i] = _src[_i] ^ _b;
-                };
+            for (_i => _b in _keyStream) {
+                _dst[_i] = _src[_i] ^ _b;
             };
             _s.value._len = _s.value._len - (_keyStream.length);
             {

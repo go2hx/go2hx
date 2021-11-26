@@ -31,5 +31,5 @@ function main() {
 	trace(libs);
 	trace("libs count: " + libs.length);
 	for (lib in libs)
-		Sys.command('haxelib run go2hx --rebuild ' + lib + " --out stdgo --root stdgo");
+		Sys.command('haxelib run go2hx $lib --out stdgo --root stdgo');
 }

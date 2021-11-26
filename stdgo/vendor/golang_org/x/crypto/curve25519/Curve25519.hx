@@ -156,12 +156,8 @@ function _x25519(_dst:Pointer<GoArray<GoByte>>, _scalar:Slice<GoByte>, _point:Sl
         return { _0 : _dst.value.__slice__(0), _1 : ((null : stdgo.Error)) };
     }
 function _feZero(_fe:Pointer<T_fieldElement>):Void {
-        {
-            var _i;
-            for (_obj in _fe.value.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                _fe.value.__t__[_i] = ((0 : GoInt32));
-            };
+        for (_i => _ in _fe.value.__t__) {
+            _fe.value.__t__[_i] = ((0 : GoInt32));
         };
     }
 function _feOne(_fe:Pointer<T_fieldElement>):Void {
@@ -169,30 +165,18 @@ function _feOne(_fe:Pointer<T_fieldElement>):Void {
         _fe.value.__t__[((0 : GoInt))] = ((1 : GoInt32));
     }
 function _feAdd(_dst:Pointer<T_fieldElement>, _a:Pointer<T_fieldElement>, _b:Pointer<T_fieldElement>):Void {
-        {
-            var _i;
-            for (_obj in _dst.value.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                _dst.value.__t__[_i] = _a.value.__t__[_i] + _b.value.__t__[_i];
-            };
+        for (_i => _ in _dst.value.__t__) {
+            _dst.value.__t__[_i] = _a.value.__t__[_i] + _b.value.__t__[_i];
         };
     }
 function _feSub(_dst:Pointer<T_fieldElement>, _a:Pointer<T_fieldElement>, _b:Pointer<T_fieldElement>):Void {
-        {
-            var _i;
-            for (_obj in _dst.value.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                _dst.value.__t__[_i] = _a.value.__t__[_i] - _b.value.__t__[_i];
-            };
+        for (_i => _ in _dst.value.__t__) {
+            _dst.value.__t__[_i] = _a.value.__t__[_i] - _b.value.__t__[_i];
         };
     }
 function _feCopy(_dst:Pointer<T_fieldElement>, _src:Pointer<T_fieldElement>):Void {
-        {
-            var _i;
-            for (_obj in _dst.value.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                _dst.value.__t__[_i] = _src.value.__t__[_i];
-            };
+        for (_i => _ in _dst.value.__t__) {
+            _dst.value.__t__[_i] = _src.value.__t__[_i];
         };
     }
 /**
@@ -202,14 +186,10 @@ function _feCopy(_dst:Pointer<T_fieldElement>, _src:Pointer<T_fieldElement>):Voi
 **/
 function _feCSwap(_f:Pointer<T_fieldElement>, _g:Pointer<T_fieldElement>, _b:GoInt32):Void {
         _b = -_b;
-        {
-            var _i;
-            for (_obj in _f.value.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                var _t:GoInt32 = _b & (_f.value.__t__[_i] ^ _g.value.__t__[_i]);
-                _f.value.__t__[_i] = _f.value.__t__[_i] ^ (_t);
-                _g.value.__t__[_i] = _g.value.__t__[_i] ^ (_t);
-            };
+        for (_i => _ in _f.value.__t__) {
+            var _t:GoInt32 = _b & (_f.value.__t__[_i] ^ _g.value.__t__[_i]);
+            _f.value.__t__[_i] = _f.value.__t__[_i] ^ (_t);
+            _g.value.__t__[_i] = _g.value.__t__[_i] ^ (_t);
         };
     }
 /**

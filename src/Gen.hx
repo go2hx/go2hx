@@ -35,6 +35,5 @@ private function save(dir:String, name:String, content:String) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
 	File.saveContent(dir + name + ".hx", content);
-	final kb = content.length / 1000;
-	Sys.println("Generated: " + dir + name + ".hx - " + kb + " kb");
+	Sys.println("Generated: " + dir + name + ".hx - " + shared.Util.kbCount(content) + "kb");
 }

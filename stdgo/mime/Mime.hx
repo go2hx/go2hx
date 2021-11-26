@@ -1,4 +1,4 @@
-package mime;
+package stdgo.mime;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -44,7 +44,7 @@ import stdgo.Chan;
                     };
                 } else {
                     {
-                        var __tmp__ = unicode.utf8.Utf8.decodeRuneInString(_s.__slice__(_i));
+                        var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s.__slice__(_i));
                         _runeLen = __tmp__._1;
                     };
                     _encLen = ((3 : GoInt)) * _runeLen;
@@ -60,8 +60,8 @@ import stdgo.Chan;
     }
     public function _bEncode(_buf:Pointer<stdgo.strings.Strings.Builder>, _charset:GoString, _s:GoString):Void {
         var _e = this.__copy__();
-        var _w:stdgo.io.Io.WriteCloser = encoding.base64.Base64.newEncoder(encoding.base64.Base64.stdEncoding, _buf.value);
-        if (!_isUTF8(_charset) || encoding.base64.Base64.stdEncoding.value.encodedLen(_s.length) <= _maxContentLen) {
+        var _w:stdgo.io.Io.WriteCloser = stdgo.encoding.base64.Base64.newEncoder(stdgo.encoding.base64.Base64.stdEncoding, _buf.value);
+        if (!_isUTF8(_charset) || stdgo.encoding.base64.Base64.stdEncoding.value.encodedLen(_s.length) <= _maxContentLen) {
             stdgo.io.Io.writeString(_w, _s);
             _w.close();
             return;
@@ -71,7 +71,7 @@ import stdgo.Chan;
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _s.length, _i = _i + (_runeLen), {
                 {
-                    var __tmp__ = unicode.utf8.Utf8.decodeRuneInString(_s.__slice__(_i));
+                    var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s.__slice__(_i));
                     _runeLen = __tmp__._1;
                 };
                 if (_currentLen + _runeLen <= _maxBase64Len) {
@@ -123,13 +123,13 @@ import stdgo.Chan;
         if (stdgo.strings.Strings.equalFold("utf-8", _charset)) {
             _buf.value.write(_content);
         } else if (stdgo.strings.Strings.equalFold("iso-8859-1", _charset)) {
-            for (_c in _content) {
+            for (_ => _c in _content) {
                 _buf.value.writeRune(((_c : GoRune)));
             };
         } else if (stdgo.strings.Strings.equalFold("us-ascii", _charset)) {
-            for (_c in _content) {
-                if (_c >= unicode.utf8.Utf8.runeSelf) {
-                    _buf.value.writeRune(unicode.Unicode.replacementChar);
+            for (_ => _c in _content) {
+                if (_c >= stdgo.unicode.utf8.Utf8.runeSelf) {
+                    _buf.value.writeRune(stdgo.unicode.Unicode.replacementChar);
                 } else {
                     _buf.value.writeByte(_c);
                 };
@@ -263,7 +263,7 @@ import stdgo.Chan;
 }
 final _maxEncodedWordLen : GoInt64 = ((75 : GoUnTypedInt));
 final _maxContentLen : GoInt = _maxEncodedWordLen - "=?UTF-8?q?".length - "?=".length;
-var _maxBase64Len : GoInt = encoding.base64.Base64.stdEncoding.value.decodedLen(_maxContentLen);
+var _maxBase64Len : GoInt = stdgo.encoding.base64.Base64.stdEncoding.value.decodedLen(_maxContentLen);
 var _typeFiles : Slice<GoString> = new Slice<GoString>("/etc/mime.types", "/etc/apache2/mime.types", "/etc/apache/mime.types", "/etc/httpd/conf/mime.types");
 var _extensions : stdgo.sync.Sync.Map_ = new stdgo.sync.Sync.Map_();
 var _mimeTypes : stdgo.sync.Sync.Map_ = new stdgo.sync.Sync.Map_();
@@ -297,7 +297,7 @@ var _mimeTypesLower : stdgo.sync.Sync.Map_ = new stdgo.sync.Sync.Map_();
 var _errInvalidWord : stdgo.Error = stdgo.errors.Errors.new_("mime: invalid RFC 2047 encoded-word");
 final qencoding : WordEncoder = new WordEncoder((("q".code : GoRune)));
 function _needsEncoding(_s:GoString):Bool {
-        for (_b in _s) {
+        for (_ => _b in _s) {
             if ((_b < ((" ".code : GoRune)) || _b > (("~".code : GoRune))) && _b != (("\t".code : GoRune))) {
                 return true;
             };
@@ -337,7 +337,7 @@ function _isUTF8(_charset:GoString):Bool {
     }
 function _decode(_encoding:GoByte, _text:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         if (_encoding == (("B".code : GoRune)) || _encoding == (("b".code : GoRune))) {
-            return encoding.base64.Base64.stdEncoding.value.decodeString(_text);
+            return stdgo.encoding.base64.Base64.stdEncoding.value.decodeString(_text);
         } else if (_encoding == (("Q".code : GoRune)) || _encoding == (("q".code : GoRune))) {
             return _qDecode(_text);
         } else {
@@ -349,7 +349,7 @@ function _decode(_encoding:GoByte, _text:GoString):{ var _0 : Slice<GoByte>; var
     // one byte of non-whitespace.
 **/
 function _hasNonWhitespace(_s:GoString):Bool {
-        for (_b in _s) {
+        for (_ => _b in _s) {
             if (_b == ((" ".code : GoRune)) || _b == (("\t".code : GoRune)) || _b == (("\n".code : GoRune)) || _b == (("\r".code : GoRune))) {} else {
                 return true;
             };
@@ -479,15 +479,11 @@ function formatMediaType(_t:GoString, _param:GoMap<GoString, GoString>):GoString
             };
         };
         var _attrs:Slice<GoString> = new Slice<GoString>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) (("" : GoString))]).setCap((((_param == null ? 0 : _param.length) : GoInt)).toBasic());
-        {
-            var _a;
-            for (_obj in _param.keyValueIterator()) {
-                _a = _obj.key;
-                _attrs = _attrs.__append__(_a);
-            };
+        for (_a => _ in _param) {
+            _attrs = _attrs.__append__(_a);
         };
         stdgo.sort.Sort.strings(_attrs);
-        for (_attribute in _attrs) {
+        for (_ => _attribute in _attrs) {
             var _value:GoString = _param[_attribute];
             _b.writeByte(((";".code : GoRune)));
             _b.writeByte(((" ".code : GoRune)));
@@ -588,7 +584,7 @@ function parseMediaType(_v:GoString):{ var _0 : GoString; var _1 : GoMap<GoStrin
         var _continuation:GoMap<GoString, GoMap<GoString, GoString>> = new GoMap<GoString, GoMap<GoString, GoString>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(string_kind))))).nil();
         _v = _v.__slice__(_i);
         while (_v.length > ((0 : GoInt))) {
-            _v = stdgo.strings.Strings.trimLeftFunc(_v, unicode.Unicode.isSpace);
+            _v = stdgo.strings.Strings.trimLeftFunc(_v, stdgo.unicode.Unicode.isSpace);
             if (_v.length == ((0 : GoInt))) {
                 break;
             };
@@ -604,7 +600,7 @@ function parseMediaType(_v:GoString):{ var _0 : GoString; var _1 : GoMap<GoStrin
                 var _idx:GoInt = stdgo.strings.Strings.index(_key, "*");
                 if (_idx != -((1 : GoUnTypedInt))) {
                     var _baseName:GoString = _key.__slice__(0, _idx);
-                    if (_continuation == null || _continuation.isNil()) {
+                    if ((_continuation == null || _continuation.isNil())) {
                         _continuation = new GoMap<GoString, GoMap<GoString, GoString>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(string_kind)))));
                     };
                     var _ok:Bool = false;
@@ -631,61 +627,55 @@ function parseMediaType(_v:GoString):{ var _0 : GoString; var _1 : GoMap<GoStrin
             _v = _rest;
         };
         var _buf:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
-        {
-            var _key;
-            var _pieceMap;
-            for (_obj in _continuation.keyValueIterator()) {
-                _key = _obj.key;
-                _pieceMap = _obj.value;
-                var _singlePartKey:GoString = _key + (("*" : GoString));
-                {
-                    var __tmp__ = _pieceMap.exists(_singlePartKey) ? { value : _pieceMap[_singlePartKey], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
-                    if (_ok) {
+        for (_key => _pieceMap in _continuation) {
+            var _singlePartKey:GoString = _key + (("*" : GoString));
+            {
+                var __tmp__ = _pieceMap.exists(_singlePartKey) ? { value : _pieceMap[_singlePartKey], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+                if (_ok) {
+                    {
+                        var __tmp__ = _decode2231Enc(_v), _decv:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
+                        if (_ok) {
+                            _params[_key] = _decv;
+                        };
+                    };
+                    continue;
+                };
+            };
+            _buf.reset();
+            var _valid:Bool = false;
+            {
+                var _n:GoInt = ((0 : GoInt));
+                Go.cfor(true, _n++, {
+                    var _simplePart:GoString = stdgo.fmt.Fmt.sprintf("%s*%d", Go.toInterface(_key), Go.toInterface(_n));
+                    {
+                        var __tmp__ = _pieceMap.exists(_simplePart) ? { value : _pieceMap[_simplePart], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+                        if (_ok) {
+                            _valid = true;
+                            _buf.writeString(_v);
+                            continue;
+                        };
+                    };
+                    var _encodedPart:GoString = _simplePart + (("*" : GoString));
+                    var __tmp__ = _pieceMap.exists(_encodedPart) ? { value : _pieceMap[_encodedPart], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+                    if (!_ok) {
+                        break;
+                    };
+                    _valid = true;
+                    if (_n == ((0 : GoInt))) {
                         {
                             var __tmp__ = _decode2231Enc(_v), _decv:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
                             if (_ok) {
-                                _params[_key] = _decv;
+                                _buf.writeString(_decv);
                             };
                         };
-                        continue;
+                    } else {
+                        var __tmp__ = _percentHexUnescape(_v), _decv:GoString = __tmp__._0, _:stdgo.Error = __tmp__._1;
+                        _buf.writeString(_decv);
                     };
-                };
-                _buf.reset();
-                var _valid:Bool = false;
-                {
-                    var _n:GoInt = ((0 : GoInt));
-                    Go.cfor(true, _n++, {
-                        var _simplePart:GoString = stdgo.fmt.Fmt.sprintf("%s*%d", Go.toInterface(_key), Go.toInterface(_n));
-                        {
-                            var __tmp__ = _pieceMap.exists(_simplePart) ? { value : _pieceMap[_simplePart], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
-                            if (_ok) {
-                                _valid = true;
-                                _buf.writeString(_v);
-                                continue;
-                            };
-                        };
-                        var _encodedPart:GoString = _simplePart + (("*" : GoString));
-                        var __tmp__ = _pieceMap.exists(_encodedPart) ? { value : _pieceMap[_encodedPart], ok : true } : { value : _pieceMap.defaultValue(), ok : false }, _v:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
-                        if (!_ok) {
-                            break;
-                        };
-                        _valid = true;
-                        if (_n == ((0 : GoInt))) {
-                            {
-                                var __tmp__ = _decode2231Enc(_v), _decv:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
-                                if (_ok) {
-                                    _buf.writeString(_decv);
-                                };
-                            };
-                        } else {
-                            var __tmp__ = _percentHexUnescape(_v), _decv:GoString = __tmp__._0, _:stdgo.Error = __tmp__._1;
-                            _buf.writeString(_decv);
-                        };
-                    });
-                };
-                if (_valid) {
-                    _params[_key] = _buf.toString();
-                };
+                });
+            };
+            if (_valid) {
+                _params[_key] = _buf.toString();
             };
         };
         return { _0 : _mediatype, _1 : _params, _2 : _err };
@@ -766,12 +756,12 @@ function _consumeValue(_v:GoString):{ var _0 : GoString; var _1 : GoString; } {
     }
 function _consumeMediaParam(_v:GoString):{ var _0 : GoString; var _1 : GoString; var _2 : GoString; } {
         var _param:GoString = (("" : GoString)), _value:GoString = (("" : GoString)), _rest:GoString = (("" : GoString));
-        _rest = stdgo.strings.Strings.trimLeftFunc(_v, unicode.Unicode.isSpace);
+        _rest = stdgo.strings.Strings.trimLeftFunc(_v, stdgo.unicode.Unicode.isSpace);
         if (!stdgo.strings.Strings.hasPrefix(_rest, ";")) {
             return { _0 : "", _1 : "", _2 : _v };
         };
         _rest = _rest.__slice__(((1 : GoInt)));
-        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, unicode.Unicode.isSpace);
+        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, stdgo.unicode.Unicode.isSpace);
         {
             var __tmp__ = _consumeToken(_rest);
             _param = __tmp__._0;
@@ -781,12 +771,12 @@ function _consumeMediaParam(_v:GoString):{ var _0 : GoString; var _1 : GoString;
         if (_param == (("" : GoString))) {
             return { _0 : "", _1 : "", _2 : _v };
         };
-        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, unicode.Unicode.isSpace);
+        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, stdgo.unicode.Unicode.isSpace);
         if (!stdgo.strings.Strings.hasPrefix(_rest, "=")) {
             return { _0 : "", _1 : "", _2 : _v };
         };
         _rest = _rest.__slice__(((1 : GoInt)));
-        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, unicode.Unicode.isSpace);
+        _rest = stdgo.strings.Strings.trimLeftFunc(_rest, stdgo.unicode.Unicode.isSpace);
         var __tmp__ = _consumeValue(_rest), _value:GoString = __tmp__._0, _rest2:GoString = __tmp__._1;
         if (_value == (("" : GoString)) && _rest2 == _rest) {
             return { _0 : "", _1 : "", _2 : _v };
@@ -871,45 +861,27 @@ function _setMimeTypes(_lowerExt:GoMap<GoString, GoString>, _mixExt:GoMap<GoStri
             _clearSyncMap(Go.pointer(_mimeTypes));
             _clearSyncMap(Go.pointer(_mimeTypesLower));
             _clearSyncMap(Go.pointer(_extensions));
-            {
-                var _k;
-                var _v;
-                for (_obj in _lowerExt.keyValueIterator()) {
-                    _k = _obj.key;
-                    _v = _obj.value;
-                    _mimeTypesLower.store(Go.toInterface(_k), Go.toInterface(_v));
-                };
+            for (_k => _v in _lowerExt) {
+                _mimeTypesLower.store(Go.toInterface(_k), Go.toInterface(_v));
             };
-            {
-                var _k;
-                var _v;
-                for (_obj in _mixExt.keyValueIterator()) {
-                    _k = _obj.key;
-                    _v = _obj.value;
-                    _mimeTypes.store(Go.toInterface(_k), Go.toInterface(_v));
-                };
+            for (_k => _v in _mixExt) {
+                _mimeTypes.store(Go.toInterface(_k), Go.toInterface(_v));
             };
             _extensionsMu.lock();
             deferstack.unshift(() -> _extensionsMu.unlock());
-            {
-                var _k;
-                var _v;
-                for (_obj in _lowerExt.keyValueIterator()) {
-                    _k = _obj.key;
-                    _v = _obj.value;
-                    var __tmp__ = parseMediaType(_v), _justType:GoString = __tmp__._0, _:GoMap<GoString, GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-                    if (_err != null) {
-                        throw _err;
-                    };
-                    var _exts:Slice<GoString> = new Slice<GoString>().nil();
-                    {
-                        var __tmp__ = _extensions.load(Go.toInterface(_justType)), _ei:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
-                        if (_ok) {
-                            _exts = ((_ei.value : Slice<GoString>));
-                        };
-                    };
-                    _extensions.store(Go.toInterface(_justType), Go.toInterface(_exts.__append__(_k)));
+            for (_k => _v in _lowerExt) {
+                var __tmp__ = parseMediaType(_v), _justType:GoString = __tmp__._0, _:GoMap<GoString, GoString> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                if (_err != null) {
+                    throw _err;
                 };
+                var _exts:Slice<GoString> = new Slice<GoString>().nil();
+                {
+                    var __tmp__ = _extensions.load(Go.toInterface(_justType)), _ei:AnyInterface = __tmp__._0, _ok:Bool = __tmp__._1;
+                    if (_ok) {
+                        _exts = ((_ei.value : Slice<GoString>));
+                    };
+                };
+                _extensions.store(Go.toInterface(_justType), Go.toInterface(_exts.__append__(_k)));
             };
             for (defer in deferstack) {
                 defer();
@@ -1052,7 +1024,7 @@ function _setExtensionType(_extension:GoString, _mimeType:GoString):Error {
                     _exts = ((_ei.value : Slice<GoString>));
                 };
             };
-            for (_v in _exts) {
+            for (_ => _v in _exts) {
                 if (_v == _extLower) {
                     {
                         for (defer in deferstack) {
@@ -1151,7 +1123,7 @@ function _loadMimeFile(_filename:GoString):Void {
                     continue;
                 };
                 var _mimeType:GoString = _fields[((0 : GoInt))];
-                for (_ext in _fields.__slice__(((1 : GoInt)))) {
+                for (_ => _ext in _fields.__slice__(((1 : GoInt)))) {
                     if (_ext[((0 : GoInt))] == (("#".code : GoRune))) {
                         break;
                     };
@@ -1179,7 +1151,7 @@ function _loadMimeFile(_filename:GoString):Void {
         };
     }
 function _initMimeUnix():Void {
-        for (_filename in _mimeGlobs) {
+        for (_ => _filename in _mimeGlobs) {
             {
                 var _err:stdgo.Error = _loadMimeGlobsFile(_filename);
                 if (_err == null) {
@@ -1187,7 +1159,7 @@ function _initMimeUnix():Void {
                 };
             };
         };
-        for (_filename in _typeFiles) {
+        for (_ => _filename in _typeFiles) {
             _loadMimeFile(_filename);
         };
     }

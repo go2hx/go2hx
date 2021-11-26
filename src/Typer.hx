@@ -42,12 +42,12 @@ final reservedClassNames = [
 	"KeyValueIterable",
 	"KeyValueIterator",
 	"Lambda",
-	"List",
+	//"List",
 	"Map",
 	// "Math",
 	"Std",
 	"Sys",
-	"StringBuf",
+	//"StringBuf",
 	"StringTools",
 	"SysError",
 	// "Type",
@@ -101,16 +101,7 @@ function main(data:DataType, printGoCode:Bool = false) {
 			name: pkg.name
 		};
 		if (StringTools.endsWith(module.path, "_test")) {
-			var path = module.path;
-			path = path.substring(0, path.length - "_test".length);
-			final pack = path.split(".");
-			final name = importClassName(pack[pack.length - 1]);
-			pack.push(name);
-			defaultImports.push({
-				path: pack,
-				alias: "",
-				doc: "",
-			});
+			// test file configure here
 		}
 
 		var info = new Info();
@@ -3054,7 +3045,7 @@ function getTypePath(type:GoType, info:Info):TypePath {
 		case TPath(p):
 			return p;
 		default:
-			throw "ComplexType not a TPath: " + ct;
+			throw "ComplexType not a TPath: " + ct + ", " + type;
 	}
 }
 
@@ -3118,6 +3109,8 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 				final ct = toComplexType(type, info);
 				return (macro($e : $ct)).expr;
 			} else {
+				if (fields.length == 0)
+					return (macro {}).expr; // no field struct
 				final args = [
 					for (i in 0...expr.elts.length)
 						assignTranslate(typeof(expr.elts[i]), fields[i].type, typeExpr(expr.elts[i], info), info)
@@ -4893,6 +4886,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 }
 
 private function normalizePath(path:String):String {
+	path = path.toLowerCase();
 	path = StringTools.replace(path, ".", "_");
 	path = StringTools.replace(path, ":", "_");
 	path = StringTools.replace(path, "-", "_");

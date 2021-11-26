@@ -1,4 +1,4 @@
-package crypto.x509.pkix;
+package stdgo.crypto.x509.pkix;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -37,50 +37,38 @@ import stdgo.Chan;
                 if (_i > ((0 : GoInt))) {
                     _s = _s + (",");
                 };
-                {
-                    var _j;
-                    var _tv;
-                    for (_obj in _rdn.__t__.keyValueIterator()) {
-                        _j = _obj.key;
-                        _tv = _obj.value;
-                        if (_j > ((0 : GoInt))) {
-                            _s = _s + ("+");
-                        };
-                        var _oidString:GoString = _tv.type.toString();
-                        var __tmp__ = _attributeTypeNames.exists(_oidString) ? { value : _attributeTypeNames[_oidString], ok : true } : { value : _attributeTypeNames.defaultValue(), ok : false }, _typeName:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
-                        if (!_ok) {
-                            var __tmp__ = stdgo.encoding.asn1.Asn1.marshal(Go.toInterface(_tv.value)), _derBytes:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                            if (_err == null) {
-                                _s = _s + (_oidString + (("=#" : GoString)) + stdgo.encoding.hex.Hex.encodeToString(_derBytes));
-                                continue;
-                            };
-                            _typeName = _oidString;
-                        };
-                        var _valueString:GoString = stdgo.fmt.Fmt.sprint(_tv.value);
-                        var _escaped:Slice<GoInt32> = new Slice<GoInt32>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoInt32))]).setCap(((_valueString.length : GoInt)).toBasic());
-                        {
-                            var _k;
-                            var _c;
-                            for (_obj in _valueString.keyValueIterator()) {
-                                _k = _obj.key;
-                                _c = _obj.value;
-                                var _escape:Bool = false;
-                                if (_c == ((",".code : GoRune)) || _c == (("+".code : GoRune)) || _c == (("\"".code : GoRune)) || _c == (("\\".code : GoRune)) || _c == (("<".code : GoRune)) || _c == ((">".code : GoRune)) || _c == ((";".code : GoRune))) {
-                                    _escape = true;
-                                } else if (_c == ((" ".code : GoRune))) {
-                                    _escape = _k == ((0 : GoInt)) || _k == _valueString.length - ((1 : GoInt));
-                                } else if (_c == (("#".code : GoRune))) {
-                                    _escape = _k == ((0 : GoInt));
-                                };
-                                if (_escape) {
-                                    _escaped = _escaped.__append__((("\\".code : GoRune)), _c);
-                                } else {
-                                    _escaped = _escaped.__append__(_c);
-                                };
-                            };
-                        };
-                        _s = _s + (_typeName + (("=" : GoString)) + ((_escaped : GoString)));
+                for (_j => _tv in _rdn.__t__) {
+                    if (_j > ((0 : GoInt))) {
+                        _s = _s + ("+");
                     };
+                    var _oidString:GoString = _tv.type.toString();
+                    var __tmp__ = _attributeTypeNames.exists(_oidString) ? { value : _attributeTypeNames[_oidString], ok : true } : { value : _attributeTypeNames.defaultValue(), ok : false }, _typeName:GoString = __tmp__.value, _ok:Bool = __tmp__.ok;
+                    if (!_ok) {
+                        var __tmp__ = stdgo.encoding.asn1.Asn1.marshal(Go.toInterface(_tv.value)), _derBytes:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                        if (_err == null) {
+                            _s = _s + (_oidString + (("=#" : GoString)) + stdgo.encoding.hex.Hex.encodeToString(_derBytes));
+                            continue;
+                        };
+                        _typeName = _oidString;
+                    };
+                    var _valueString:GoString = stdgo.fmt.Fmt.sprint(_tv.value);
+                    var _escaped:Slice<GoInt32> = new Slice<GoInt32>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoInt32))]).setCap(((_valueString.length : GoInt)).toBasic());
+                    for (_k => _c in _valueString) {
+                        var _escape:Bool = false;
+                        if (_c == ((",".code : GoRune)) || _c == (("+".code : GoRune)) || _c == (("\"".code : GoRune)) || _c == (("\\".code : GoRune)) || _c == (("<".code : GoRune)) || _c == ((">".code : GoRune)) || _c == ((";".code : GoRune))) {
+                            _escape = true;
+                        } else if (_c == ((" ".code : GoRune))) {
+                            _escape = _k == ((0 : GoInt)) || _k == _valueString.length - ((1 : GoInt));
+                        } else if (_c == (("#".code : GoRune))) {
+                            _escape = _k == ((0 : GoInt));
+                        };
+                        if (_escape) {
+                            _escaped = _escaped.__append__((("\\".code : GoRune)), _c);
+                        } else {
+                            _escaped = _escaped.__append__(_c);
+                        };
+                    };
+                    _s = _s + (_typeName + (("=" : GoString)) + ((_escaped : GoString)));
                 };
             });
         };
@@ -166,8 +154,8 @@ import stdgo.Chan;
     public function toString():GoString {
         var _n = this.__copy__();
         var _rdns:RDNSequence = new RDNSequence();
-        if (_n.extraNames == null || _n.extraNames.isNil()) {
-            for (_atv in _n.names) {
+        if ((_n.extraNames == null || _n.extraNames.isNil())) {
+            for (_ => _atv in _n.names) {
                 var _t:stdgo.encoding.asn1.Asn1.ObjectIdentifier = _atv.type.__copy__();
                 if (_t.__t__.length == ((4 : GoInt)) && _t.__t__[((0 : GoInt))] == ((2 : GoInt)) && _t.__t__[((1 : GoInt))] == ((5 : GoInt)) && _t.__t__[((2 : GoInt))] == ((4 : GoInt))) {
                     if (_t.__t__[((3 : GoInt))] == ((3 : GoInt)) || _t.__t__[((3 : GoInt))] == ((5 : GoInt)) || _t.__t__[((3 : GoInt))] == ((6 : GoInt)) || _t.__t__[((3 : GoInt))] == ((7 : GoInt)) || _t.__t__[((3 : GoInt))] == ((8 : GoInt)) || _t.__t__[((3 : GoInt))] == ((9 : GoInt)) || _t.__t__[((3 : GoInt))] == ((10 : GoInt)) || _t.__t__[((3 : GoInt))] == ((11 : GoInt)) || _t.__t__[((3 : GoInt))] == ((17 : GoInt))) {
@@ -196,7 +184,7 @@ import stdgo.Chan;
         if (_n.serialNumber.length > ((0 : GoInt))) {
             _ret = _n._appendRDNs(_ret.__copy__(), new Slice<GoString>(_n.serialNumber), new stdgo.encoding.asn1.Asn1.ObjectIdentifier(_oidSerialNumber)).__copy__();
         };
-        for (_atv in _n.extraNames) {
+        for (_ => _atv in _n.extraNames) {
             _ret = _ret.__append__(new Slice<AttributeTypeAndValue>(_atv.__copy__())).__copy__();
         };
         return _ret.__copy__();
@@ -207,25 +195,19 @@ import stdgo.Chan;
             return _in.__copy__();
         };
         var _s:Slice<AttributeTypeAndValue> = new Slice<AttributeTypeAndValue>(...[for (i in 0 ... ((_values.length : GoInt)).toBasic()) new AttributeTypeAndValue()]);
-        {
-            var _i;
-            var _value;
-            for (_obj in _values.keyValueIterator()) {
-                _i = _obj.key;
-                _value = _obj.value;
-                _s[_i].type = _oid.__copy__();
-                _s[_i].value = Go.toInterface(_value);
-            };
+        for (_i => _value in _values) {
+            _s[_i].type = _oid.__copy__();
+            _s[_i].value = Go.toInterface(_value);
         };
         return _in.__append__(_s).__copy__();
     }
     public function fillFromRDNSequence(_rdns:Pointer<RDNSequence>):Void {
         var _n = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        for (_rdn in _rdns.value.__t__) {
+        for (_ => _rdn in _rdns.value.__t__) {
             if (_rdn.__t__.length == ((0 : GoInt))) {
                 continue;
             };
-            for (_atv in _rdn.__t__) {
+            for (_ => _atv in _rdn.__t__) {
                 _n.value.names = _n.value.names.__append__(_atv.__copy__());
                 var __tmp__ = try {
                     { value : ((_atv.value.value : GoString)), ok : true };
@@ -393,7 +375,7 @@ var _oidCountry : Slice<GoInt> = new Slice<GoInt>(((2 : GoInt)), ((5 : GoInt)), 
     // in atv.
 **/
 function _oidInAttributeTypeAndValue(_oid:stdgo.encoding.asn1.Asn1.ObjectIdentifier, _atv:Slice<AttributeTypeAndValue>):Bool {
-        for (_a in _atv) {
+        for (_ => _a in _atv) {
             if (_a.type.equal(_oid.__copy__())) {
                 return true;
             };

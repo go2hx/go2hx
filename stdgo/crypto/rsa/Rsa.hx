@@ -26,7 +26,7 @@ import stdgo.Chan;
 @:structInit class PSSOptions {
     public function _saltLength():GoInt {
         var _opts = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_opts == null || _opts.isNil()) {
+        if ((_opts == null || _opts.isNil())) {
             return psssaltLengthAuto;
         };
         return _opts.value.saltLength;
@@ -104,7 +104,7 @@ import stdgo.Chan;
 @:structInit class PrivateKey {
     public function precompute():Void {
         var _priv = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_priv.value.precomputed.dp != null && !_priv.value.precomputed.dp.isNil()) {
+        if ((_priv.value.precomputed.dp != null && !_priv.value.precomputed.dp.isNil())) {
             return;
         };
         _priv.value.precomputed.dp = Go.pointer(new stdgo.math.big.Big.Int_()).value.sub(_priv.value.primes[((0 : GoInt))], _bigOne);
@@ -136,7 +136,7 @@ import stdgo.Chan;
             };
         };
         var _modulus:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.set(_bigOne);
-        for (_prime in _priv.value.primes) {
+        for (_ => _prime in _priv.value.primes) {
             if (_prime.value.cmp(_bigOne) <= ((0 : GoInt))) {
                 return stdgo.errors.Errors.new_("crypto/rsa: invalid prime value");
             };
@@ -148,7 +148,7 @@ import stdgo.Chan;
         var _congruence:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_());
         var _de:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.setInt64(((_priv.value.publicKey.e : GoInt64)));
         _de.value.mul(_de, _priv.value.d);
-        for (_prime in _priv.value.primes) {
+        for (_ => _prime in _priv.value.primes) {
             var _pminus1:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.sub(_prime, _bigOne);
             _congruence.value.mod(_de, _pminus1);
             if (_congruence.value.cmp(_bigOne) != ((0 : GoInt))) {
@@ -198,7 +198,7 @@ import stdgo.Chan;
         var _priv = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         {
             var __tmp__ = try {
-                { value : ((_opts.__underlying__().value : PSSOptions)), ok : true };
+                { value : ((_opts.__underlying__().value : Pointer<PSSOptions>)), ok : true };
             } catch(_) {
                 { value : new Pointer<PSSOptions>().nil(), ok : false };
             }, _pssOpts = __tmp__.value, _ok = __tmp__.ok;
@@ -224,13 +224,9 @@ import stdgo.Chan;
         if (_priv.value.primes.length != _xx.value.primes.length) {
             return false;
         };
-        {
-            var _i;
-            for (_obj in _priv.value.primes.keyValueIterator()) {
-                _i = _obj.key;
-                if (_priv.value.primes[_i].value.cmp(_xx.value.primes[_i]) != ((0 : GoInt))) {
-                    return false;
-                };
+        for (_i => _ in _priv.value.primes) {
+            if (_priv.value.primes[_i].value.cmp(_xx.value.primes[_i]) != ((0 : GoInt))) {
+                return false;
             };
         };
         return true;
@@ -308,7 +304,7 @@ var errVerification : stdgo.Error = stdgo.errors.Errors.new_("crypto/rsa: verifi
 var _errPublicExponentLarge : stdgo.Error = stdgo.errors.Errors.new_("crypto/rsa: public exponent too large");
 var _errPublicModulus : stdgo.Error = stdgo.errors.Errors.new_("crypto/rsa: missing public modulus");
 final psssaltLengthEqualsHash : GoInt64 = -((1 : GoUnTypedInt));
-var _hashPrefixes : GoMap<stdgo.crypto.Crypto.Hash, Slice<GoUInt8>> = new GoMap<stdgo.crypto.Crypto.Hash, Slice<GoUInt8>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.named("crypto.Hash", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))), { key : stdgo.crypto.Crypto.md5, value : new Slice<GoUInt8>(
+var _hashPrefixes : GoMap<stdgo.crypto.Crypto.Hash, Slice<GoUInt8>> = new GoMap<stdgo.crypto.Crypto.Hash, Slice<GoUInt8>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.named("stdgo.crypto.Crypto.Hash", [], stdgo.reflect.Reflect.GoType.basic(uint_kind)), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)))), { key : stdgo.crypto.Crypto.md5, value : new Slice<GoUInt8>(
 ((48 : GoUInt8)),
 ((32 : GoUInt8)),
 ((48 : GoUInt8)),
@@ -764,7 +760,7 @@ function _emsaPSSVerify(_mHash:Slice<GoByte>, _em:Slice<GoByte>, _emBits:GoInt, 
             _sLen = _db.length - _psLen - ((1 : GoInt));
         };
         var _psLen:GoInt = _emLen - _hLen - _sLen - ((2 : GoInt));
-        for (_e in _db.__slice__(0, _psLen)) {
+        for (_ => _e in _db.__slice__(0, _psLen)) {
             if (_e != ((0 : GoUInt8))) {
                 return errVerification;
             };
@@ -811,7 +807,7 @@ function _signPSSWithSalt(_rand:stdgo.io.Io.Reader, _priv:Pointer<PrivateKey>, _
     // used. If opts.Hash is set, it overrides hash.
 **/
 function signPSS(_rand:stdgo.io.Io.Reader, _priv:Pointer<PrivateKey>, _hash:stdgo.crypto.Crypto.Hash, _digest:Slice<GoByte>, _opts:Pointer<PSSOptions>):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        if (_opts != null && !_opts.isNil() && _opts.value.hash.__t__ != ((0 : GoUInt))) {
+        if ((_opts != null && !_opts.isNil()) && _opts.value.hash.__t__ != ((0 : GoUInt))) {
             _hash = _opts.value.hash;
         };
         var _saltLength:GoInt = _opts.value._saltLength();
@@ -859,7 +855,7 @@ function verifyPSS(_pub:Pointer<PublicKey>, _hash:stdgo.crypto.Crypto.Hash, _dig
     // https://www.imperialviolet.org/2012/03/16/rsae.html.
 **/
 function _checkPub(_pub:Pointer<PublicKey>):Error {
-        if (_pub.value.n == null || _pub.value.n.isNil()) {
+        if ((_pub.value.n == null || _pub.value.n.isNil())) {
             return _errPublicModulus;
         };
         if (_pub.value.e < ((2 : GoInt))) {
@@ -928,26 +924,20 @@ function generateMultiPrimeKey(_random:stdgo.io.Io.Reader, _nprimes:GoInt, _bits
                         _todo = _todo - (_primes[_i].value.bitLen());
                     });
                 };
-                {
-                    var _i;
-                    var _prime;
-                    for (_obj in _primes.keyValueIterator()) {
-                        _i = _obj.key;
-                        _prime = _obj.value;
-                        {
-                            var _j:GoInt = ((0 : GoInt));
-                            Go.cfor(_j < _i, _j++, {
-                                if (_prime.value.cmp(_primes[_j]) == ((0 : GoInt))) {
-                                    continue;
-                                };
-                            });
-                        };
+                for (_i => _prime in _primes) {
+                    {
+                        var _j:GoInt = ((0 : GoInt));
+                        Go.cfor(_j < _i, _j++, {
+                            if (_prime.value.cmp(_primes[_j]) == ((0 : GoInt))) {
+                                continue;
+                            };
+                        });
                     };
                 };
                 var _n:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.set(_bigOne);
                 var _totient:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.set(_bigOne);
                 var _pminus1:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_());
-                for (_prime in _primes) {
+                for (_ => _prime in _primes) {
                     _n.value.mul(_n, _prime);
                     _pminus1.value.sub(_prime, _bigOne);
                     _totient.value.mul(_totient, _pminus1);
@@ -958,7 +948,7 @@ function generateMultiPrimeKey(_random:stdgo.io.Io.Reader, _nprimes:GoInt, _bits
                 _priv.value.d = Go.pointer(new stdgo.math.big.Big.Int_());
                 var _e:Pointer<stdgo.math.big.Big.Int_> = stdgo.math.big.Big.newInt(((_priv.value.publicKey.e : GoInt64)));
                 var _ok:Pointer<stdgo.math.big.Big.Int_> = _priv.value.d.value.modInverse(_e, _totient);
-                if (_ok != null && !_ok.isNil()) {
+                if ((_ok != null && !_ok.isNil())) {
                     _priv.value.primes = _primes;
                     _priv.value.publicKey.n = _n;
                     break;
@@ -1103,7 +1093,7 @@ function _decrypt(_random:stdgo.io.Io.Reader, _priv:Pointer<PrivateKey>, _c:Poin
                     _r = _bigOne;
                 };
                 var _ok:Pointer<stdgo.math.big.Big.Int_> = _ir.value.modInverse(_r, _priv.value.publicKey.n);
-                if (_ok != null && !_ok.isNil()) {
+                if ((_ok != null && !_ok.isNil())) {
                     break;
                 };
             };
@@ -1114,7 +1104,7 @@ function _decrypt(_random:stdgo.io.Io.Reader, _priv:Pointer<PrivateKey>, _c:Poin
             _cCopy.value.mod(_cCopy, _priv.value.publicKey.n);
             _c = _cCopy;
         };
-        if (_priv.value.precomputed.dp == null || _priv.value.precomputed.dp.isNil()) {
+        if ((_priv.value.precomputed.dp == null || _priv.value.precomputed.dp.isNil())) {
             _m = Go.pointer(new stdgo.math.big.Big.Int_()).value.exp(_c, _priv.value.d, _priv.value.publicKey.n);
         } else {
             _m = Go.pointer(new stdgo.math.big.Big.Int_()).value.exp(_c, _priv.value.precomputed.dp, _priv.value.primes[((0 : GoInt))]);
@@ -1127,26 +1117,20 @@ function _decrypt(_random:stdgo.io.Io.Reader, _priv:Pointer<PrivateKey>, _c:Poin
             _m.value.mod(_m, _priv.value.primes[((0 : GoInt))]);
             _m.value.mul(_m, _priv.value.primes[((1 : GoInt))]);
             _m.value.add(_m, _m2);
-            {
-                var _i;
-                var _values;
-                for (_obj in _priv.value.precomputed.crtvalues.keyValueIterator()) {
-                    _i = _obj.key;
-                    _values = _obj.value;
-                    var _prime:Pointer<stdgo.math.big.Big.Int_> = _priv.value.primes[((2 : GoInt)) + _i];
-                    _m2.value.exp(_c, _values.exp, _prime);
-                    _m2.value.sub(_m2, _m);
-                    _m2.value.mul(_m2, _values.coeff);
-                    _m2.value.mod(_m2, _prime);
-                    if (_m2.value.sign() < ((0 : GoInt))) {
-                        _m2.value.add(_m2, _prime);
-                    };
-                    _m2.value.mul(_m2, _values.r);
-                    _m.value.add(_m, _m2);
+            for (_i => _values in _priv.value.precomputed.crtvalues) {
+                var _prime:Pointer<stdgo.math.big.Big.Int_> = _priv.value.primes[((2 : GoInt)) + _i];
+                _m2.value.exp(_c, _values.exp, _prime);
+                _m2.value.sub(_m2, _m);
+                _m2.value.mul(_m2, _values.coeff);
+                _m2.value.mod(_m2, _prime);
+                if (_m2.value.sign() < ((0 : GoInt))) {
+                    _m2.value.add(_m2, _prime);
                 };
+                _m2.value.mul(_m2, _values.r);
+                _m.value.add(_m, _m2);
             };
         };
-        if (_ir != null && !_ir.isNil()) {
+        if ((_ir != null && !_ir.isNil())) {
             _m.value.mul(_m, _ir);
             _m.value.mod(_m, _priv.value.publicKey.n);
         };

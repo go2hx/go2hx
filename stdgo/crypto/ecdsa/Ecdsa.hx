@@ -109,12 +109,8 @@ typedef T_combinedMult = StructType & {
     public function read(_dst:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        {
-            var _i;
-            for (_obj in _dst.keyValueIterator()) {
-                _i = _obj.key;
-                _dst[_i] = ((0 : GoUInt8));
-            };
+        for (_i => _ in _dst) {
+            _dst[_i] = ((0 : GoUInt8));
         };
         return { _0 : _dst.length, _1 : ((null : stdgo.Error)) };
     }

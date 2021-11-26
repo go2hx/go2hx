@@ -209,7 +209,7 @@ function _update(_crc:GoUInt64, _tab:Pointer<Table>, _p:Slice<GoByte>):GoUInt64 
                 _p = _p.__slice__(((8 : GoInt)));
             };
         };
-        for (_v in _p) {
+        for (_ => _v in _p) {
             _crc = _tab.value.__t__[((_crc : GoByte)) ^ _v] ^ ((_crc >> ((8 : GoUnTypedInt))));
         };
         return -1 ^ _crc;
@@ -233,8 +233,8 @@ function checksum(_data:Slice<GoByte>, _tab:Pointer<Table>):GoUInt64 {
 function _tableSum(_t:Pointer<Table>):GoUInt64 {
         var _a:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 2048) ((0 : GoUInt8))]);
         var _b:Slice<GoUInt8> = _a.__slice__(0, ((0 : GoInt)));
-        if (_t != null && !_t.isNil()) {
-            for (_x in _t.value.__t__) {
+        if ((_t != null && !_t.isNil())) {
+            for (_ => _x in _t.value.__t__) {
                 _b = _appendUint64(_b, _x);
             };
         };

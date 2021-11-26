@@ -387,6 +387,8 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int32_kind);
 					case "stdgo.GoByte":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint8_kind);
+					case "stdgo.GoUnTypedInt":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(uint64_kind);
 					default:
 						final ref = t.get();
 						switch ref.type {
@@ -478,6 +480,8 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.interfaceType(true);
 					case "haxe.Function":
 						ret = macro stdgo.reflect.Reflect.GoType.signature(false, [], [], stdgo.reflect.Reflect.GoType.invalidType);
+					case "Null":
+						ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 					case "Void":
 						ret = macro stdgo.reflect.Reflect.GoType.invalidType; // Currently no value is supported for Void however in the future, there will be a runtime value to match to it. HaxeFoundation/haxe-evolution#76
 					default: // used internally such as reflect.Kind

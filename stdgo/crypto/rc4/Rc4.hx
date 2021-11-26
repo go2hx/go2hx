@@ -20,24 +20,18 @@ import stdgo.Chan;
         var _i:GoUInt8 = _c.value._i, _j:GoUInt8 = _c.value._j;
         _dst[_src.length - ((1 : GoInt))];
         _dst = _dst.__slice__(0, _src.length);
-        {
-            var _k;
-            var _v;
-            for (_obj in _src.keyValueIterator()) {
-                _k = _obj.key;
-                _v = _obj.value;
-                _i = _i + (((1 : GoUInt8)));
-                var _x:GoUInt32 = _c.value._s[_i];
-                _j = _j + (((_x : GoUInt8)));
-                var _y:GoUInt32 = _c.value._s[_j];
-                {
-                    final __tmp__0 = _y;
-                    final __tmp__1 = _x;
-                    _c.value._s[_i] = __tmp__0;
-                    _c.value._s[_j] = __tmp__1;
-                };
-                _dst[_k] = _v ^ ((_c.value._s[(((_x + _y) : GoUInt8))] : GoUInt8));
+        for (_k => _v in _src) {
+            _i = _i + (((1 : GoUInt8)));
+            var _x:GoUInt32 = _c.value._s[_i];
+            _j = _j + (((_x : GoUInt8)));
+            var _y:GoUInt32 = _c.value._s[_j];
+            {
+                final __tmp__0 = _y;
+                final __tmp__1 = _x;
+                _c.value._s[_i] = __tmp__0;
+                _c.value._s[_j] = __tmp__1;
             };
+            _dst[_k] = _v ^ ((_c.value._s[(((_x + _y) : GoUInt8))] : GoUInt8));
         };
         {
             final __tmp__0 = _i;
@@ -48,12 +42,8 @@ import stdgo.Chan;
     }
     public function reset():Void {
         var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        {
-            var _i;
-            for (_obj in _c.value._s.keyValueIterator()) {
-                _i = _obj.key;
-                _c.value._s[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _c.value._s) {
+            _c.value._s[_i] = ((0 : GoUInt32));
         };
         {
             final __tmp__0 = ((0 : GoUInt8));

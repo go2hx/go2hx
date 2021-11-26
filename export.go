@@ -115,7 +115,7 @@ func compile(params []string, excludesData excludesType) []byte {
 	cfg := &packages.Config{Mode: packages.NeedName |
 		packages.NeedSyntax |
 		packages.NeedImports | packages.NeedDeps |
-		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo}
+		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule}
 	cfg.Tests = testBool
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	initial, err := packages.Load(cfg, args...)
@@ -130,10 +130,19 @@ func compile(params []string, excludesData excludesType) []byte {
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
-	for exclude := range stdgoList {
-		excludes[exclude] = true
+	if len(initial) > 0 {
+		for exclude := range stdgoList {
+			excludes[exclude] = true
+		}
+		for _, pkg := range initial { //remove initial packages from exclude list
+			delete(excludes, pkg.PkgPath)
+		}
 	}
-	//run
+	/*log("== excludes:")
+	for key := range excludes {
+		log(key)
+	}
+	log("======")*/
 	data := parsePkgList(initial, excludes)
 	//reset
 	excludes = nil
@@ -227,12 +236,16 @@ func main() {
 	}
 }
 
+func addExclude(pkg *packages.Package) {
+	excludes[pkg.ID] = true
+}
+
 func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
-	if testBool && excludes[pkg.PkgPath] {
+	if excludes[pkg.ID] {
 		return
 	}
 	for _, val := range pkg.Imports {
-		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
+		if excludes[val.ID] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
 		}
 		parseLocalPackage(val, excludes)
@@ -396,19 +409,19 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
-		if testBool && excludes[pkg.PkgPath] {
+		if excludes[pkg.ID] {
 			continue
 		}
-		excludes[pkg.PkgPath] = true
+		addExclude(pkg)
 		syntax := parsePkg(pkg)
 		if len(syntax.Files) > 0 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
 		for _, val := range pkg.Imports { //imports
-			if excludes[val.PkgPath] {
+			if excludes[val.ID] {
 				continue
 			}
-			excludes[val.PkgPath] = true
+			addExclude(pkg)
 			dataImport := parsePkgList([]*packages.Package{val}, excludes)
 			if len(dataImport.Pkgs) > 0 {
 				data.Pkgs = append(data.Pkgs, dataImport.Pkgs...)

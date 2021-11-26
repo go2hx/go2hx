@@ -173,7 +173,7 @@ function generateParameters(_params:Pointer<Parameters>, _rand:stdgo.io.Io.Reade
     // PrivateKey must already be valid (see GenerateParameters).
 **/
 function generateKey(_priv:Pointer<PrivateKey>, _rand:stdgo.io.Io.Reader):Error {
-        if (_priv.value.publicKey.parameters.p == null || _priv.value.publicKey.parameters.p.isNil() || _priv.value.publicKey.parameters.q == null || _priv.value.publicKey.parameters.q.isNil() || _priv.value.publicKey.parameters.g == null || _priv.value.publicKey.parameters.g.isNil()) {
+        if ((_priv.value.publicKey.parameters.p == null || _priv.value.publicKey.parameters.p.isNil()) || (_priv.value.publicKey.parameters.q == null || _priv.value.publicKey.parameters.q.isNil()) || (_priv.value.publicKey.parameters.g == null || _priv.value.publicKey.parameters.g.isNil())) {
             return stdgo.errors.Errors.new_("crypto/dsa: parameters not set up before generating key");
         };
         var _x:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_());
@@ -286,7 +286,7 @@ function verify(_pub:Pointer<PublicKey>, _hash:Slice<GoByte>, _r:Pointer<stdgo.m
             return false;
         };
         var _w:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.modInverse(_s, _pub.value.parameters.q);
-        if (_w == null || _w.isNil()) {
+        if ((_w == null || _w.isNil())) {
             return false;
         };
         var _n:GoInt = _pub.value.parameters.q.value.bitLen();

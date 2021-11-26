@@ -43,7 +43,7 @@ import stdgo.Chan;
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum32(this.__t__), __tmp__ -> new T_sum32(this.__t__ = __tmp__.__t__));
         var _hash:T_sum32 = _s.value;
-        for (_c in _data) {
+        for (_ => _c in _data) {
             _hash = new T_sum32(_hash.__t__ * (_prime32));
             _hash = new T_sum32(_hash.__t__ ^ (new T_sum32(_c)).__t__);
         };
@@ -102,7 +102,7 @@ import stdgo.Chan;
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum32a(this.__t__), __tmp__ -> new T_sum32a(this.__t__ = __tmp__.__t__));
         var _hash:T_sum32a = _s.value;
-        for (_c in _data) {
+        for (_ => _c in _data) {
             _hash = new T_sum32a(_hash.__t__ ^ (new T_sum32a(_c)).__t__);
             _hash = new T_sum32a(_hash.__t__ * (_prime32));
         };
@@ -161,7 +161,7 @@ import stdgo.Chan;
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum64(this.__t__), __tmp__ -> new T_sum64(this.__t__ = __tmp__.__t__));
         var _hash:T_sum64 = _s.value;
-        for (_c in _data) {
+        for (_ => _c in _data) {
             _hash = new T_sum64(_hash.__t__ * (_prime64));
             _hash = new T_sum64(_hash.__t__ ^ (new T_sum64(_c)).__t__);
         };
@@ -220,7 +220,7 @@ import stdgo.Chan;
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum64a(this.__t__), __tmp__ -> new T_sum64a(this.__t__ = __tmp__.__t__));
         var _hash:T_sum64a = _s.value;
-        for (_c in _data) {
+        for (_ => _c in _data) {
             _hash = new T_sum64a(_hash.__t__ ^ (new T_sum64a(_c)).__t__);
             _hash = new T_sum64a(_hash.__t__ * (_prime64));
         };
@@ -294,7 +294,7 @@ import stdgo.Chan;
     }
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum128(this.__t__), __tmp__ -> new T_sum128(this.__t__ = __tmp__.__t__));
-        for (_c in _data) {
+        for (_ => _c in _data) {
             var __tmp__ = stdgo.math.bits.Bits.mul64(_prime128Lower, _s.value.__t__[((1 : GoInt))]), _s0:GoUInt64 = __tmp__._0, _s1:GoUInt64 = __tmp__._1;
             _s0 = _s0 + ((_s.value.__t__[((1 : GoInt))] << _prime128Shift) + _prime128Lower * _s.value.__t__[((0 : GoInt))]);
             _s.value.__t__[((1 : GoInt))] = _s1;
@@ -368,7 +368,7 @@ import stdgo.Chan;
     }
     public function write(_data:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _s = new Pointer(() -> new T_sum128a(this.__t__), __tmp__ -> new T_sum128a(this.__t__ = __tmp__.__t__));
-        for (_c in _data) {
+        for (_ => _c in _data) {
             _s.value.__t__[((1 : GoInt))] = _s.value.__t__[((1 : GoInt))] ^ (((_c : GoUInt64)));
             var __tmp__ = stdgo.math.bits.Bits.mul64(_prime128Lower, _s.value.__t__[((1 : GoInt))]), _s0:GoUInt64 = __tmp__._0, _s1:GoUInt64 = __tmp__._1;
             _s0 = _s0 + ((_s.value.__t__[((1 : GoInt))] << _prime128Shift) + _prime128Lower * _s.value.__t__[((0 : GoInt))]);

@@ -1126,40 +1126,30 @@ function _feistel(_l:GoUInt32, _r:GoUInt32, _k0:GoUInt64, _k1:GoUInt64):{ var _0
 **/
 function _permuteBlock(_src:GoUInt64, _permutation:Slice<GoUInt8>):GoUInt64 {
         var _block:GoUInt64 = ((0 : GoUInt64));
-        {
-            var _position;
-            var _n;
-            for (_obj in _permutation.keyValueIterator()) {
-                _position = _obj.key;
-                _n = _obj.value;
-                var _bit:GoUInt64 = ((_src >> _n)) & ((1 : GoUInt64));
-                _block = _block | ((_bit << ((((_permutation.length - ((1 : GoInt))) - _position) : GoUInt))));
-            };
+        for (_position => _n in _permutation) {
+            var _bit:GoUInt64 = ((_src >> _n)) & ((1 : GoUInt64));
+            _block = _block | ((_bit << ((((_permutation.length - ((1 : GoInt))) - _position) : GoUInt))));
         };
         return _block;
     }
 function _initFeistelBox():Void {
-        {
-            var _s;
-            for (_obj in _sBoxes.keyValueIterator()) {
-                _s = _obj.key;
-                {
-                    var _i:GoInt = ((0 : GoInt));
-                    Go.cfor(_i < ((4 : GoInt)), _i++, {
-                        {
-                            var _j:GoInt = ((0 : GoInt));
-                            Go.cfor(_j < ((16 : GoInt)), _j++, {
-                                var _f:GoUInt64 = (((_sBoxes[_s][_i][_j] : GoUInt64)) << (((4 : GoUInt)) * (((7 : GoUInt)) - ((_s : GoUInt)))));
-                                _f = _permuteBlock(_f, _permutationFunction.__slice__(0));
-                                var _row:GoUInt8 = ((((((_i & ((2 : GoInt))) << ((4 : GoUnTypedInt)))) | _i & ((1 : GoInt))) : GoUInt8));
-                                var _col:GoUInt8 = (((_j << ((1 : GoUnTypedInt))) : GoUInt8));
-                                var _t:GoUInt8 = _row | _col;
-                                _f = ((_f << ((1 : GoUnTypedInt)))) | ((_f >> ((31 : GoUnTypedInt))));
-                                _feistelBox[_s][_t] = ((_f : GoUInt32));
-                            });
-                        };
-                    });
-                };
+        for (_s => _ in _sBoxes) {
+            {
+                var _i:GoInt = ((0 : GoInt));
+                Go.cfor(_i < ((4 : GoInt)), _i++, {
+                    {
+                        var _j:GoInt = ((0 : GoInt));
+                        Go.cfor(_j < ((16 : GoInt)), _j++, {
+                            var _f:GoUInt64 = (((_sBoxes[_s][_i][_j] : GoUInt64)) << (((4 : GoUInt)) * (((7 : GoUInt)) - ((_s : GoUInt)))));
+                            _f = _permuteBlock(_f, _permutationFunction.__slice__(0));
+                            var _row:GoUInt8 = ((((((_i & ((2 : GoInt))) << ((4 : GoUnTypedInt)))) | _i & ((1 : GoInt))) : GoUInt8));
+                            var _col:GoUInt8 = (((_j << ((1 : GoUnTypedInt))) : GoUInt8));
+                            var _t:GoUInt8 = _row | _col;
+                            _f = ((_f << ((1 : GoUnTypedInt)))) | ((_f >> ((31 : GoUnTypedInt))));
+                            _feistelBox[_s][_t] = ((_f : GoUInt32));
+                        });
+                    };
+                });
             };
         };
     }

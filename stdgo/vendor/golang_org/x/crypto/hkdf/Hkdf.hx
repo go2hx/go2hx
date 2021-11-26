@@ -65,7 +65,7 @@ import stdgo.Chan;
     // including the generation of multiple keys, should use New instead.
 **/
 function extract(_hash:() -> stdgo.hash.Hash.Hash, _secret:Slice<GoByte>, _salt:Slice<GoByte>):Slice<GoByte> {
-        if (_salt == null || _salt.isNil()) {
+        if ((_salt == null || _salt.isNil())) {
             _salt = new Slice<GoUInt8>(...[for (i in 0 ... ((_hash().size() : GoInt)).toBasic()) ((0 : GoUInt8))]);
         };
         var _extractor:stdgo.hash.Hash.Hash = stdgo.crypto.hmac.Hmac.new_(_hash, _salt);

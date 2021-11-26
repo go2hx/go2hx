@@ -80,6 +80,8 @@ class B {
 			this.n = n;
 	}
 
+	public function resetTimer() {}
+
 	public function run(name:GoString, f:Pointer<B>->Void):Bool
 		return true;
 

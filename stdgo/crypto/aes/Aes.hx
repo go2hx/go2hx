@@ -2804,7 +2804,7 @@ function _expandKeyGo(_key:Slice<GoByte>, _enc:Slice<GoUInt32>, _dec:Slice<GoUIn
             };
             _enc[_i] = _enc[_i - _nk] ^ _t;
         });
-        if (_dec == null || _dec.isNil()) {
+        if ((_dec == null || _dec.isNil())) {
             return;
         };
         var _n:GoInt = _enc.length;

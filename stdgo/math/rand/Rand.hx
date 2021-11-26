@@ -13,3 +13,6 @@ function intn(n:GoInt):GoInt
 
 function int():GoInt
 	return int31n(2147483647);
+
+function float64():GoFloat64
+	return Math.random();

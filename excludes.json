@@ -38,7 +38,6 @@
     "context",
     "internal/syscall/execenv",
     "internal/syscall/windows",
-    "container/heap",
     "log",
     "golang.org/x/tools/internal/gocommand",
     "regexp",
@@ -68,15 +67,5 @@
     "internal/poll",
     "internal/singleflight",
     "internal/testlog",
-    "hash",
-    "crypto/internal/randutil",
-    "crypto",
-    "crypto/hmac",
-    "crypto/sha1",
-    "crypto/rand",
-    "crypto/sha256",
-    "hash/crc32",
-    "hash/adler32",
-    "crypto/md5",
     "database/sql/driver"
 ]}

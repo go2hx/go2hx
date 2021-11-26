@@ -24,7 +24,7 @@ typedef MarshalingValue = StructType & {
         if (_b.value._err != null) {
             return;
         };
-        if (_b.value._child != null && !_b.value._child.isNil()) {
+        if ((_b.value._child != null && !_b.value._child.isNil())) {
             throw "cryptobyte: attempted unwrite while child is pending";
         };
         var _length:GoInt = _b.value._result.length - _b.value._pendingLenLen - _b.value._offset;
@@ -42,7 +42,7 @@ typedef MarshalingValue = StructType & {
         if (_b.value._err != null) {
             return;
         };
-        if (_b.value._child != null && !_b.value._child.isNil()) {
+        if ((_b.value._child != null && !_b.value._child.isNil())) {
             throw "cryptobyte: attempted write while child is pending";
         };
         if (_b.value._result.length + _bytes.length < _bytes.length) {
@@ -56,7 +56,7 @@ typedef MarshalingValue = StructType & {
     }
     public function _flushChild():Void {
         var _b = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_b.value._child == null || _b.value._child.isNil()) {
+        if ((_b.value._child == null || _b.value._child.isNil())) {
             return;
         };
         _b.value._child.value._flushChild();
@@ -129,13 +129,13 @@ typedef MarshalingValue = StructType & {
         };
         var _offset:GoInt = _b.value._result.length;
         _b.value._add(...new Slice<GoUInt8>(...[for (i in 0 ... ((_lenLen : GoInt)).toBasic()) ((0 : GoUInt8))]).toArray());
-        if (_b.value._inContinuation == null || _b.value._inContinuation.isNil()) {
+        if ((_b.value._inContinuation == null || _b.value._inContinuation.isNil())) {
             _b.value._inContinuation = Go.pointer(false);
         };
         _b.value._child = Go.pointer((({ _result : _b.value._result, _fixedSize : _b.value._fixedSize, _offset : _offset, _pendingLenLen : _lenLen, _pendingIsASN1 : _isASN1, _inContinuation : _b.value._inContinuation, _err : ((null : stdgo.Error)), _child : new Pointer<Builder>().nil() } : Builder)));
         _b.value._callContinuation(_f.__copy__(), _b.value._child);
         _b.value._flushChild();
-        if (_b.value._child != null && !_b.value._child.isNil()) {
+        if ((_b.value._child != null && !_b.value._child.isNil())) {
             throw "cryptobyte: internal error";
         };
     }
@@ -287,7 +287,7 @@ typedef MarshalingValue = StructType & {
                 return;
             };
             _b.value._addBase128Int(((_oid.__t__[((0 : GoInt))] : GoInt64)) * ((40 : GoInt64)) + ((_oid.__t__[((1 : GoInt))] : GoInt64)));
-            for (_v in _oid.__slice__(((2 : GoInt))).__t__) {
+            for (_ => _v in _oid.__slice__(((2 : GoInt))).__t__) {
                 _b.value._addBase128Int(((_v : GoInt64)));
             };
         }));
@@ -360,12 +360,8 @@ typedef MarshalingValue = StructType & {
                 var _nMinus1:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.neg(_n);
                 _nMinus1.value.sub(_nMinus1, _bigOne);
                 var _bytes:Slice<GoUInt8> = _nMinus1.value.bytes();
-                {
-                    var _i;
-                    for (_obj in _bytes.keyValueIterator()) {
-                        _i = _obj.key;
-                        _bytes[_i] = _bytes[_i] ^ (((255 : GoUInt8)));
-                    };
+                for (_i => _ in _bytes) {
+                    _bytes[_i] = _bytes[_i] ^ (((255 : GoUInt8)));
                 };
                 if (_bytes.length == ((0 : GoInt)) || _bytes[((0 : GoInt))] & ((128 : GoUInt8)) == ((0 : GoUInt8))) {
                     _c.value._add(((255 : GoUInt8)));
@@ -488,7 +484,7 @@ typedef MarshalingValue = StructType & {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _n:GoInt = _out.length;
         var _v:Slice<GoUInt8> = _s.value._read(_n);
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         return Go.copy(_out, _v) == _n;
@@ -496,7 +492,7 @@ typedef MarshalingValue = StructType & {
     public function readBytes(_out:Pointer<Slice<GoByte>>, _n:GoInt):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(_n);
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _out.value = _v;
@@ -517,16 +513,16 @@ typedef MarshalingValue = StructType & {
     public function _readLengthPrefixed(_lenLen:GoInt, _outChild:Pointer<String_>):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _lenBytes:Slice<GoUInt8> = _s.value._read(_lenLen);
-        if (_lenBytes == null || _lenBytes.isNil()) {
+        if ((_lenBytes == null || _lenBytes.isNil())) {
             return false;
         };
         var _length:GoUInt32 = ((0 : GoUInt32));
-        for (_b in _lenBytes) {
+        for (_ => _b in _lenBytes) {
             _length = (_length << ((8 : GoUnTypedInt)));
             _length = _length | ((_b : GoUInt32));
         };
         var _v:Slice<GoUInt8> = _s.value._read(((_length : GoInt)));
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _outChild.value = new String_(_v);
@@ -535,7 +531,7 @@ typedef MarshalingValue = StructType & {
     public function _readUnsigned(_out:Pointer<GoUInt32>, _length:GoInt):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(_length);
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         var _result:GoUInt32 = ((0 : GoUInt32));
@@ -552,7 +548,7 @@ typedef MarshalingValue = StructType & {
     public function readUint32(_out:Pointer<GoUInt32>):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(((4 : GoInt)));
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _out.value = (((_v[((0 : GoInt))] : GoUInt32)) << ((24 : GoUnTypedInt))) | (((_v[((1 : GoInt))] : GoUInt32)) << ((16 : GoUnTypedInt))) | (((_v[((2 : GoInt))] : GoUInt32)) << ((8 : GoUnTypedInt))) | ((_v[((3 : GoInt))] : GoUInt32));
@@ -561,7 +557,7 @@ typedef MarshalingValue = StructType & {
     public function readUint24(_out:Pointer<GoUInt32>):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(((3 : GoInt)));
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _out.value = (((_v[((0 : GoInt))] : GoUInt32)) << ((16 : GoUnTypedInt))) | (((_v[((1 : GoInt))] : GoUInt32)) << ((8 : GoUnTypedInt))) | ((_v[((2 : GoInt))] : GoUInt32));
@@ -570,7 +566,7 @@ typedef MarshalingValue = StructType & {
     public function readUint16(_out:Pointer<GoUInt16>):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(((2 : GoInt)));
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _out.value = (((_v[((0 : GoInt))] : GoUInt16)) << ((8 : GoUnTypedInt))) | ((_v[((1 : GoInt))] : GoUInt16));
@@ -579,7 +575,7 @@ typedef MarshalingValue = StructType & {
     public function readUint8(_out:Pointer<GoUInt8>):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _v:Slice<GoUInt8> = _s.value._read(((1 : GoInt)));
-        if (_v == null || _v.isNil()) {
+        if ((_v == null || _v.isNil())) {
             return false;
         };
         _out.value = ((_v[((0 : GoInt))] : GoUInt8));
@@ -587,7 +583,7 @@ typedef MarshalingValue = StructType & {
     }
     public function skip(_n:GoInt):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
-        return _s.value._read(_n) != null && !_s.value._read(_n).isNil();
+        return (_s.value._read(_n) != null && !_s.value._read(_n).isNil());
     }
     public function _read(_n:GoInt):Slice<GoByte> {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
@@ -607,7 +603,7 @@ typedef MarshalingValue = StructType & {
         if (_tag & ((31 : GoUInt8)) == ((31 : GoUInt8))) {
             return false;
         };
-        if (_outTag != null && !_outTag.isNil()) {
+        if ((_outTag != null && !_outTag.isNil())) {
             _outTag.value = new golang_org.x.crypto.cryptobyte.asn1.Asn1.Tag(_tag);
         };
         var _length:GoUInt32 = ((0 : GoUInt32)), _headerLen:GoUInt32 = ((0 : GoUInt32));
@@ -664,7 +660,7 @@ typedef MarshalingValue = StructType & {
         if (!_s.value.readOptionalASN1(Go.pointer(_child), Go.pointer(_present), _tag)) {
             return false;
         };
-        if (_outPresent != null && !_outPresent.isNil()) {
+        if ((_outPresent != null && !_outPresent.isNil())) {
             _outPresent.value = _present;
         };
         if (_present) {
@@ -720,7 +716,7 @@ typedef MarshalingValue = StructType & {
     public function readOptionalASN1(_out:Pointer<String_>, _outPresent:Pointer<Bool>, _tag:golang_org.x.crypto.cryptobyte.asn1.Asn1.Tag):Bool {
         var _s = new Pointer(() -> new String_(this.__t__), __tmp__ -> new String_(this.__t__ = __tmp__.__t__));
         var _present:Bool = _s.value.peekASN1Tag(_tag);
-        if (_outPresent != null && !_outPresent.isNil()) {
+        if ((_outPresent != null && !_outPresent.isNil())) {
             _outPresent.value = _present;
         };
         if (_present && !_s.value.readASN1(_out, _tag)) {
@@ -939,14 +935,8 @@ typedef MarshalingValue = StructType & {
         };
         if (_bytes.__t__[((0 : GoInt))] & ((128 : GoUInt8)) == ((128 : GoUInt8))) {
             var _neg:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_bytes.__t__.length : GoInt)).toBasic()) ((0 : GoUInt8))]);
-            {
-                var _i;
-                var _b;
-                for (_obj in _bytes.__t__.keyValueIterator()) {
-                    _i = _obj.key;
-                    _b = _obj.value;
-                    _neg[_i] = -1 ^ _b;
-                };
+            for (_i => _b in _bytes.__t__) {
+                _neg[_i] = -1 ^ _b;
             };
             _out.value.setBytes(_neg);
             _out.value.add(_out, _bigOne);
@@ -1019,7 +1009,7 @@ function _isValidOID(_oid:stdgo.encoding.asn1.Asn1.ObjectIdentifier):Bool {
         if (_oid.__t__[((0 : GoInt))] > ((2 : GoInt)) || (_oid.__t__[((0 : GoInt))] <= ((1 : GoInt)) && _oid.__t__[((1 : GoInt))] >= ((40 : GoInt)))) {
             return false;
         };
-        for (_v in _oid.__t__) {
+        for (_ => _v in _oid.__t__) {
             if (_v < ((0 : GoInt))) {
                 return false;
             };

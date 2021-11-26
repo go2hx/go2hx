@@ -648,7 +648,7 @@ import stdgo.Chan;
         return this;
     }
 }
-@:structInit @:local class T__struct_45 {
+@:structInit @:local class T__struct_0 {
     public var _table : GoArray<T_affineLookupTable> = new GoArray<T_affineLookupTable>(...[for (i in 0 ... 32) new T_affineLookupTable()]);
     public var _initOnce : stdgo.sync.Sync.Once = new stdgo.sync.Sync.Once();
     public function new(?_table:GoArray<T_affineLookupTable>, ?_initOnce:stdgo.sync.Sync.Once) stdgo.internal.Macro.initLocals();
@@ -657,7 +657,7 @@ import stdgo.Chan;
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_45(_table, _initOnce);
+        return new T__struct_0(_table, _initOnce);
     }
     public function __set__(__tmp__) {
         this._table = __tmp__._table;
@@ -665,7 +665,7 @@ import stdgo.Chan;
         return this;
     }
 }
-@:structInit @:local class T__struct_46 {
+@:structInit @:local class T__struct_1 {
     public var _table : T_nafLookupTable8 = new T_nafLookupTable8();
     public var _initOnce : stdgo.sync.Sync.Once = new stdgo.sync.Sync.Once();
     public function new(?_table:T_nafLookupTable8, ?_initOnce:stdgo.sync.Sync.Once) stdgo.internal.Macro.initLocals();
@@ -674,7 +674,7 @@ import stdgo.Chan;
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_46(_table, _initOnce);
+        return new T__struct_1(_table, _initOnce);
     }
     public function __set__(__tmp__) {
         this._table = __tmp__._table;
@@ -899,7 +899,7 @@ var __tmp__0 = Go.pointer(new Point()).value.setBytes(new Slice<GoUInt8>(
 var _identity = __tmp__0._0;
 var _feOne : Pointer<crypto.ed25519.internal.edwards25519.field.Field.Element> = Go.pointer(new crypto.ed25519.internal.edwards25519.field.Field.Element()).value.one();
 var _0 = __tmp__0._1;
-var _basepointNafTablePrecomp : T__struct_46 = new T__struct_46();
+var _basepointNafTablePrecomp : T__struct_1 = new T__struct_1();
 var __tmp__1 = Go.pointer(new Point()).value.setBytes(new Slice<GoUInt8>(
 ((88 : GoUInt8)),
 ((102 : GoUInt8)),
@@ -1001,7 +1001,7 @@ var _scMinusOne : Scalar = new Scalar(new GoArray<GoUInt8>(
 ((0 : GoUInt8)),
 ((0 : GoUInt8)),
 ((16 : GoUInt8))).copy()).__copy__();
-var _basepointTablePrecomp : T__struct_45 = new T__struct_45();
+var _basepointTablePrecomp : T__struct_0 = new T__struct_0();
 var _scZero : Scalar = new Scalar(new GoArray<GoUInt8>(
 ((0 : GoUInt8)),
 ((0 : GoUInt8)),
@@ -1038,7 +1038,7 @@ var _scZero : Scalar = new Scalar(new GoArray<GoUInt8>(
 var _generator = __tmp__1._0;
 function _checkInitialized(_points:haxe.Rest<Pointer<Point>>):Void {
         var _points = new Slice<Pointer<Point>>(..._points);
-        for (_p in _points) {
+        for (_ => _p in _points) {
             if (Go.toInterface(_p.value._x) == Go.toInterface((new crypto.ed25519.internal.edwards25519.field.Field.Element())) && Go.toInterface(_p.value._y) == Go.toInterface((new crypto.ed25519.internal.edwards25519.field.Field.Element()))) {
                 throw "edwards25519: use of uninitialized Point";
             };

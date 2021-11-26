@@ -18,8 +18,8 @@ typedef File = StructType & {
     public function removeAll():Error {
         var _f = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _err:Error = ((null : stdgo.Error));
-        for (_fhs in _f.value.file) {
-            for (_fh in _fhs) {
+        for (_ => _fhs in _f.value.file) {
+            for (_ => _fh in _fhs) {
                 if (_fh.value._tmpfile != (("" : GoString))) {
                     var _e:stdgo.Error = stdgo.os.Os.remove(_fh.value._tmpfile);
                     if (_e != null && _err == null) {
@@ -31,7 +31,7 @@ typedef File = StructType & {
         return _err;
     }
     public var value : GoMap<GoString, Slice<GoString>> = new GoMap<GoString, Slice<GoString>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind))))).nil();
-    public var file : GoMap<GoString, Slice<Pointer<FileHeader>>> = new GoMap<GoString, Slice<Pointer<FileHeader>>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("mime/multipart.FileHeader", [], stdgo.reflect.Reflect.GoType.structType([{ name : "filename", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "header", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net/textproto.MIMEHeader", [], stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)))) }, { name : "size", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_content", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "_tmpfile", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }]))))))).nil();
+    public var file : GoMap<GoString, Slice<Pointer<FileHeader>>> = new GoMap<GoString, Slice<Pointer<FileHeader>>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("FileHeader", [], stdgo.reflect.Reflect.GoType.structType([{ name : "filename", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "header", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.textproto.Textproto.MIMEHeader", [], stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)))) }, { name : "size", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_content", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "_tmpfile", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }]))))))).nil();
     public function new(?value:GoMap<GoString, Slice<GoString>>, ?file:GoMap<GoString, Slice<Pointer<FileHeader>>>) stdgo.internal.Macro.initLocals();
     public function toString() {
         return '{' + Go.string(value) + " " + Go.string(file) + "}";
@@ -51,7 +51,7 @@ typedef File = StructType & {
         var _fh = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         {
             var _b:Slice<GoUInt8> = _fh.value._content;
-            if (_b != null && !_b.isNil()) {
+            if ((_b != null && !_b.isNil())) {
                 var _r:Pointer<stdgo.io.Io.SectionReader> = stdgo.io.Io.newSectionReader(stdgo.bytes.Bytes.newReader(_b).value, ((0 : GoInt64)), ((_b.length : GoInt64)));
                 return { _0 : new T_sectionReadCloser(_r).__copy__(), _1 : ((null : stdgo.Error)) };
             };
@@ -140,7 +140,7 @@ typedef File = StructType & {
     }
     public function fileName():GoString {
         var _p = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_p.value._dispositionParams == null || _p.value._dispositionParams.isNil()) {
+        if ((_p.value._dispositionParams == null || _p.value._dispositionParams.isNil())) {
             _p.value._parseContentDisposition();
         };
         var _filename:GoString = _p.value._dispositionParams["filename"];
@@ -151,7 +151,7 @@ typedef File = StructType & {
     }
     public function formName():GoString {
         var _p = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_p.value._dispositionParams == null || _p.value._dispositionParams.isNil()) {
+        if ((_p.value._dispositionParams == null || _p.value._dispositionParams.isNil())) {
             _p.value._parseContentDisposition();
         };
         if (_p.value._disposition != (("form-data" : GoString))) {
@@ -299,7 +299,7 @@ typedef File = StructType & {
     }
     public function _nextPart(_rawPart:Bool):{ var _0 : Pointer<Part>; var _1 : Error; } {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_r.value._currentPart != null && !_r.value._currentPart.isNil()) {
+        if ((_r.value._currentPart != null && !_r.value._currentPart.isNil())) {
             _r.value._currentPart.value.close();
         };
         if (((_r.value._dashBoundary : GoString)) == (("--" : GoString))) {
@@ -352,7 +352,7 @@ typedef File = StructType & {
         var recover_exception:Error = null;
         var deferstack:Array<Void -> Void> = [];
         var _0:Pointer<Form> = new Pointer<Form>().nil(), _err:Error = ((null : stdgo.Error));
-        var _form:Pointer<Form> = Go.pointer(new Form(new GoMap<GoString, Slice<GoString>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind))))), new GoMap<GoString, Slice<Pointer<FileHeader>>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("mime/multipart.FileHeader", [], stdgo.reflect.Reflect.GoType.named("mime/multipart.FileHeader", [], stdgo.reflect.Reflect.GoType.structType([{ name : "filename", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "header", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("net/textproto.MIMEHeader", [], stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)))) }, { name : "size", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_content", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "_tmpfile", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }]))))))))));
+        var _form:Pointer<Form> = Go.pointer(new Form(new GoMap<GoString, Slice<GoString>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind))))), new GoMap<GoString, Slice<Pointer<FileHeader>>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("FileHeader", [], stdgo.reflect.Reflect.GoType.named("FileHeader", [], stdgo.reflect.Reflect.GoType.structType([{ name : "filename", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "header", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("stdgo.net.textproto.Textproto.MIMEHeader", [], stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(string_kind)))) }, { name : "size", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int64_kind) }, { name : "_content", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }, { name : "_tmpfile", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }]))))))))));
         try {
             {
                 deferstack.unshift(() -> {
@@ -512,7 +512,7 @@ typedef File = StructType & {
 @:structInit class Writer {
     public function close():Error {
         var _w = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_w.value._lastpart != null && !_w.value._lastpart.isNil()) {
+        if ((_w.value._lastpart != null && !_w.value._lastpart.isNil())) {
             {
                 var _err:stdgo.Error = _w.value._lastpart.value._close();
                 if (_err != null) {
@@ -551,7 +551,7 @@ typedef File = StructType & {
     }
     public function createPart(_header:stdgo.net.textproto.Textproto.MIMEHeader):{ var _0 : stdgo.io.Io.Writer; var _1 : Error; } {
         var _w = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_w.value._lastpart != null && !_w.value._lastpart.isNil()) {
+        if ((_w.value._lastpart != null && !_w.value._lastpart.isNil())) {
             {
                 var _err:stdgo.Error = _w.value._lastpart.value._close();
                 if (_err != null) {
@@ -560,22 +560,18 @@ typedef File = StructType & {
             };
         };
         var _b:stdgo.bytes.Bytes.Buffer = new stdgo.bytes.Bytes.Buffer();
-        if (_w.value._lastpart != null && !_w.value._lastpart.isNil()) {
+        if ((_w.value._lastpart != null && !_w.value._lastpart.isNil())) {
             stdgo.fmt.Fmt.fprintf(Go.pointer(_b).value, "\r\n--%s\r\n", Go.toInterface(_w.value._boundary));
         } else {
             stdgo.fmt.Fmt.fprintf(Go.pointer(_b).value, "--%s\r\n", Go.toInterface(_w.value._boundary));
         };
         var _keys:Slice<GoString> = new Slice<GoString>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) (("" : GoString))]).setCap((((_header.__t__ == null ? 0 : _header.__t__.length) : GoInt)).toBasic());
-        {
-            var _k;
-            for (_obj in _header.__t__.keyValueIterator()) {
-                _k = _obj.key;
-                _keys = _keys.__append__(_k);
-            };
+        for (_k => _ in _header.__t__) {
+            _keys = _keys.__append__(_k);
         };
         stdgo.sort.Sort.strings(_keys);
-        for (_k in _keys) {
-            for (_v in _header.__t__[_k]) {
+        for (_ => _k in _keys) {
+            for (_ => _v in _header.__t__[_k]) {
                 stdgo.fmt.Fmt.fprintf(Go.pointer(_b).value, "%s: %s\r\n", Go.toInterface(_k), Go.toInterface(_v));
             };
         };
@@ -598,31 +594,25 @@ typedef File = StructType & {
     }
     public function setBoundary(_boundary:GoString):Error {
         var _w = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_w.value._lastpart != null && !_w.value._lastpart.isNil()) {
+        if ((_w.value._lastpart != null && !_w.value._lastpart.isNil())) {
             return stdgo.errors.Errors.new_("mime: SetBoundary called after write");
         };
         if (_boundary.length < ((1 : GoInt)) || _boundary.length > ((70 : GoInt))) {
             return stdgo.errors.Errors.new_("mime: invalid boundary length");
         };
         var _end:GoInt = _boundary.length - ((1 : GoInt));
-        {
-            var _i;
-            var _b;
-            for (_obj in _boundary.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                if ((("A".code : GoRune)) <= _b && _b <= (("Z".code : GoRune)) || (("a".code : GoRune)) <= _b && _b <= (("z".code : GoRune)) || (("0".code : GoRune)) <= _b && _b <= (("9".code : GoRune))) {
-                    continue;
-                };
-                if (_b == (("\'".code : GoRune)) || _b == (("(".code : GoRune)) || _b == ((")".code : GoRune)) || _b == (("+".code : GoRune)) || _b == (("_".code : GoRune)) || _b == ((",".code : GoRune)) || _b == (("-".code : GoRune)) || _b == ((".".code : GoRune)) || _b == (("/".code : GoRune)) || _b == ((":".code : GoRune)) || _b == (("=".code : GoRune)) || _b == (("?".code : GoRune))) {
-                    continue;
-                } else if (_b == ((" ".code : GoRune))) {
-                    if (_i != _end) {
-                        continue;
-                    };
-                };
-                return stdgo.errors.Errors.new_("mime: invalid boundary character");
+        for (_i => _b in _boundary) {
+            if ((("A".code : GoRune)) <= _b && _b <= (("Z".code : GoRune)) || (("a".code : GoRune)) <= _b && _b <= (("z".code : GoRune)) || (("0".code : GoRune)) <= _b && _b <= (("9".code : GoRune))) {
+                continue;
             };
+            if (_b == (("\'".code : GoRune)) || _b == (("(".code : GoRune)) || _b == ((")".code : GoRune)) || _b == (("+".code : GoRune)) || _b == (("_".code : GoRune)) || _b == ((",".code : GoRune)) || _b == (("-".code : GoRune)) || _b == ((".".code : GoRune)) || _b == (("/".code : GoRune)) || _b == ((":".code : GoRune)) || _b == (("=".code : GoRune)) || _b == (("?".code : GoRune))) {
+                continue;
+            } else if (_b == ((" ".code : GoRune))) {
+                if (_i != _end) {
+                    continue;
+                };
+            };
+            return stdgo.errors.Errors.new_("mime: invalid boundary character");
         };
         _w.value._boundary = _boundary;
         return ((null : stdgo.Error));

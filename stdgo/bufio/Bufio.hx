@@ -74,7 +74,7 @@ import stdgo.Chan;
         var __tmp__ = _b.value._collectFragments(_delim), _full:Slice<Slice<GoUInt8>> = __tmp__._0, _frag:Slice<GoUInt8> = __tmp__._1, _n:GoInt = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _buf:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
         _buf.grow(_n);
-        for (_fb in _full) {
+        for (_ => _fb in _full) {
             _buf.write(_fb);
         };
         _buf.write(_frag);
@@ -85,12 +85,8 @@ import stdgo.Chan;
         var __tmp__ = _b.value._collectFragments(_delim), _full:Slice<Slice<GoUInt8>> = __tmp__._0, _frag:Slice<GoUInt8> = __tmp__._1, _n:GoInt = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoUInt8))]);
         _n = ((0 : GoInt));
-        {
-            var _i;
-            for (_obj in _full.keyValueIterator()) {
-                _i = _obj.key;
-                _n = _n + (Go.copy(_buf.__slice__(_n), _full[_i]));
-            };
+        for (_i => _ in _full) {
+            _n = _n + (Go.copy(_buf.__slice__(_n), _full[_i]));
         };
         Go.copy(_buf.__slice__(_n), _frag);
         return { _0 : _buf, _1 : _err };
@@ -755,7 +751,7 @@ import stdgo.Chan;
                     return false;
                 };
                 _s.value._token = _token;
-                if (_token != null && !_token.isNil()) {
+                if ((_token != null && !_token.isNil())) {
                     if (_s.value._err == null || _advance > ((0 : GoInt))) {
                         _s.value._empties = ((0 : GoInt));
                     } else {
@@ -916,7 +912,7 @@ final _maxConsecutiveEmptyReads : GoInt64 = ((100 : GoUnTypedInt));
 **/
 function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Pointer<Reader> {
         var __tmp__ = try {
-            { value : ((_rd.__underlying__().value : Reader)), ok : true };
+            { value : ((_rd.__underlying__().value : Pointer<Reader>)), ok : true };
         } catch(_) {
             { value : new Pointer<Reader>().nil(), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
@@ -943,7 +939,7 @@ function newReader(_rd:stdgo.io.Io.Reader):Pointer<Reader> {
 **/
 function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Pointer<Writer> {
         var __tmp__ = try {
-            { value : ((_w.__underlying__().value : Writer)), ok : true };
+            { value : ((_w.__underlying__().value : Pointer<Writer>)), ok : true };
         } catch(_) {
             { value : new Pointer<Writer>().nil(), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;

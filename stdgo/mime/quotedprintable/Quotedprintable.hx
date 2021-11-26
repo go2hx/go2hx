@@ -158,7 +158,7 @@ import stdgo.Chan;
     }
     public function _write(_p:Slice<GoByte>):Error {
         var _w = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        for (_b in _p) {
+        for (_ => _b in _p) {
             if (_b == (("\n".code : GoRune)) || _b == (("\r".code : GoRune))) {
                 if (_w.value._cr && _b == (("\n".code : GoRune))) {
                     _w.value._cr = false;
@@ -208,34 +208,28 @@ import stdgo.Chan;
     public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _w = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        {
-            var _i;
-            var _b;
-            for (_obj in _p.keyValueIterator()) {
-                _i = _obj.key;
-                _b = _obj.value;
-                if (_b >= (("!".code : GoRune)) && _b <= (("~".code : GoRune)) && _b != (("=".code : GoRune))) {
-                    continue;
-                } else if (_isWhitespace(_b) || !_w.value.binary && (_b == (("\n".code : GoRune)) || _b == (("\r".code : GoRune)))) {
-                    continue;
-                };
-                if (_i > _n) {
-                    {
-                        var _err:stdgo.Error = _w.value._write(_p.__slice__(_n, _i));
-                        if (_err != null) {
-                            return { _0 : _n, _1 : _err };
-                        };
-                    };
-                    _n = _i;
-                };
+        for (_i => _b in _p) {
+            if (_b >= (("!".code : GoRune)) && _b <= (("~".code : GoRune)) && _b != (("=".code : GoRune))) {
+                continue;
+            } else if (_isWhitespace(_b) || !_w.value.binary && (_b == (("\n".code : GoRune)) || _b == (("\r".code : GoRune)))) {
+                continue;
+            };
+            if (_i > _n) {
                 {
-                    var _err:stdgo.Error = _w.value._encode(_b);
+                    var _err:stdgo.Error = _w.value._write(_p.__slice__(_n, _i));
                     if (_err != null) {
                         return { _0 : _n, _1 : _err };
                     };
                 };
-                _n++;
+                _n = _i;
             };
+            {
+                var _err:stdgo.Error = _w.value._encode(_b);
+                if (_err != null) {
+                    return { _0 : _n, _1 : _err };
+                };
+            };
+            _n++;
         };
         if (_n == _p.length) {
             return { _0 : _n, _1 : ((null : stdgo.Error)) };

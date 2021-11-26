@@ -186,27 +186,15 @@ import stdgo.Chan;
         var _t:Element = _v.value.__copy__();
         _t._reduce();
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 8) ((0 : GoUInt8))]);
-        {
-            var _i;
-            var _l;
-            for (_obj in new GoArray<GoUInt64>(_t._l0, _t._l1, _t._l2, _t._l3, _t._l4).keyValueIterator()) {
-                _i = _obj.key;
-                _l = _obj.value;
-                var _bitsOffset:GoInt = _i * ((51 : GoInt));
-                stdgo.encoding.binary.Binary.littleEndian.putUint64(_buf.__slice__(0), (_l << (((_bitsOffset % ((8 : GoInt))) : GoUInt))));
-                {
-                    var _i;
-                    var _bb;
-                    for (_obj in _buf.keyValueIterator()) {
-                        _i = _obj.key;
-                        _bb = _obj.value;
-                        var _off:GoInt = _bitsOffset / ((8 : GoInt)) + _i;
-                        if (_off >= _out.length) {
-                            break;
-                        };
-                        _out.value[_off] = _out.value[_off] | (_bb);
-                    };
+        for (_i => _l in new GoArray<GoUInt64>(_t._l0, _t._l1, _t._l2, _t._l3, _t._l4)) {
+            var _bitsOffset:GoInt = _i * ((51 : GoInt));
+            stdgo.encoding.binary.Binary.littleEndian.putUint64(_buf.__slice__(0), (_l << (((_bitsOffset % ((8 : GoInt))) : GoUInt))));
+            for (_i => _bb in _buf) {
+                var _off:GoInt = _bitsOffset / ((8 : GoInt)) + _i;
+                if (_off >= _out.length) {
+                    break;
                 };
+                _out.value[_off] = _out.value[_off] | (_bb);
             };
         };
         return _out.value.__slice__(0);

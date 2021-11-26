@@ -11,7 +11,7 @@ import stdgo.Chan;
 @:structInit class Ring {
     public function do_(_f:AnyInterface -> Void):Void {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_r != null && !_r.isNil()) {
+        if ((_r != null && !_r.isNil())) {
             _f(Go.toInterface(_r.value.value));
             {
                 var _p:Pointer<Ring> = _r.value.next();
@@ -24,7 +24,7 @@ import stdgo.Chan;
     public function len():GoInt {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt = ((0 : GoInt));
-        if (_r != null && !_r.isNil()) {
+        if ((_r != null && !_r.isNil())) {
             _n = ((1 : GoInt));
             {
                 var _p:Pointer<Ring> = _r.value.next();
@@ -45,7 +45,7 @@ import stdgo.Chan;
     public function link(_s:Pointer<Ring>):Pointer<Ring> {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:Pointer<Ring> = _r.value.next();
-        if (_s != null && !_s.isNil()) {
+        if ((_s != null && !_s.isNil())) {
             var _p:Pointer<Ring> = _s.value.prev();
             _r.value._next = _s;
             _s.value._prev = _r;
@@ -56,7 +56,7 @@ import stdgo.Chan;
     }
     public function move(_n:GoInt):Pointer<Ring> {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_r.value._next == null || _r.value._next.isNil()) {
+        if ((_r.value._next == null || _r.value._next.isNil())) {
             return _r.value._init();
         };
         if (_n < ((0 : GoInt))) {
@@ -72,14 +72,14 @@ import stdgo.Chan;
     }
     public function prev():Pointer<Ring> {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_r.value._next == null || _r.value._next.isNil()) {
+        if ((_r.value._next == null || _r.value._next.isNil())) {
             return _r.value._init();
         };
         return _r.value._prev;
     }
     public function next():Pointer<Ring> {
         var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_r.value._next == null || _r.value._next.isNil()) {
+        if ((_r.value._next == null || _r.value._next.isNil())) {
             return _r.value._init();
         };
         return _r.value._next;

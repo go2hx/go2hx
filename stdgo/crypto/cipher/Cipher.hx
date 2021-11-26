@@ -387,12 +387,8 @@ typedef T_gcmAble = StructType & {
             throw "crypto/cipher: invalid buffer overlap";
         };
         if (crypto.internal.subtle.Subtle.constantTimeCompare(_expectedTag.__slice__(0, _g.value._tagSize), _tag) != ((1 : GoInt))) {
-            {
-                var _i;
-                for (_obj in _out.keyValueIterator()) {
-                    _i = _obj.key;
-                    _out[_i] = ((0 : GoUInt8));
-                };
+            for (_i => _ in _out) {
+                _out[_i] = ((0 : GoUInt8));
             };
             return { _0 : new Slice<GoUInt8>().nil(), _1 : _errOpen };
         };

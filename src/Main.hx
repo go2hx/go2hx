@@ -9,7 +9,6 @@ import haxe.io.Path;
 import hl.uv.Loop;
 import hl.uv.Stream;
 import hl.uv.Tcp;
-import shared.Util;
 import stdgo.StdGoTypes;
 import sys.FileSystem;
 import sys.io.File;
@@ -49,7 +48,7 @@ var targetOutput = "";
 var libwrap = false;
 var outputPath:String = "";
 var root:String = "";
-var hxmlPath:String = "";
+var buildPath:String = "";
 var test:Bool = false;
 final passthroughArgs = ["-test"];
 
@@ -65,7 +64,7 @@ function run(args:Array<String>) {
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> root = out,
 		@doc("generate hxml from target command")
-		["-hxml", "--hxml"] => out -> hxmlPath = out,
+		["-build", "--build"] => out -> buildPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
 		["-printgocode", "--printgocode"] => () -> printGoCode = true,
 		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")
@@ -143,7 +142,7 @@ function run(args:Array<String>) {
 }
 
 private function printDoc(handler:Args.ArgHandler) {
-	successMsg("go2hx");
+	shared.Util.successMsg("go2hx");
 	Sys.print("\n");
 	final max = 20;
 	for (option in handler.options) {
@@ -270,25 +269,53 @@ function targetLibs():String {
 	return [for (lib in libs) '-lib $lib'].join(' ');
 }
 
+function mainPaths(modules:Array<Dynamic>):Array<String> {
+	final paths:Array<String> = [];
+	for (module in modules) {
+		if (!module.isMain || !module.files[0].isMain)
+			continue;
+		var path = module.path;
+		var name = module.files[0].name;
+		if (path != "")
+			path += ".";
+		path += name;
+		paths.push(path);
+	}
+	return paths;
+}
+
 private function runTarget(modules:Array<Typer.Module>) {
-	if (test && target == "")
-		target = "interp"; // default test target
 	if (target == "")
-		return;
-	final mainPath = mainPath(modules);
+		target = "interp"; // default test target
+
+	final paths = mainPaths(modules);
 	final libs = targetLibs();
-	final commands = [
-		'-cp $outputPath',
-		'-main $mainPath',
-		libs,
-		'-lib go2hx',
-		'--$target $targetOutput',
-	];
-	final command = "haxe " + commands.join(" ");
-	if (hxmlPath != "")
-		File.saveContent(hxmlPath, commands.join("\n"));
-	Sys.println(command);
-	Sys.command(command);
+	final commands = ['-cp', outputPath, '-lib', 'go2hx'];
+	if (libs != "")
+		commands.push(libs);
+	if (target != "") {
+		var targetCommand = '--$target';
+		if (targetOutput != "")
+			targetCommand += ' $targetOutput';
+		commands.push(targetCommand);
+	}
+	for (main in paths)
+		Sys.command('haxe', commands.concat(['-m', main])); // build without build file
+	if (buildPath != "") { // create build file
+		final mains = [for (path in paths) shared.Util.makeExpr(path)];
+		final base = [for (command in commands) shared.Util.makeExpr(command)];
+		final expr = macro function main() {
+			final base = $a{base};
+			final mains = $a{mains};
+			for (main in mains)
+				Sys.command('haxe', base.concat(['-m', main]));
+		}
+		if (!StringTools.endsWith(buildPath, ".hx"))
+			buildPath += ".hx";
+		final content = new haxe.macro.Printer("    ").printExpr(expr);
+		File.saveContent(buildPath, content);
+		Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
+	}
 }
 
 function compile(args:Array<String>, data:Dynamic = null):Bool {

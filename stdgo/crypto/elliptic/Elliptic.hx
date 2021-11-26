@@ -37,7 +37,7 @@ typedef Curve = StructType & {
         };
         var bz:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()).value.setInt64(((1 : GoInt64)));
         var _x:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()), _y:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_()), _z:Pointer<stdgo.math.big.Big.Int_> = Go.pointer(new stdgo.math.big.Big.Int_());
-        for (_byte in _k) {
+        for (_ => _byte in _k) {
             {
                 var _bitNum:GoInt = ((0 : GoInt));
                 Go.cfor(_bitNum < ((8 : GoInt)), _bitNum++, {
@@ -456,7 +456,7 @@ typedef Curve = StructType & {
         var _curve = this.__copy__();
         var b:Pointer<T_p521Point> = _curve._jacobianFromAffine(bx, by);
         var _p:Pointer<T_p521Point> = Go.pointer((({ _x : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()), _y : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()), _z : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()) } : T_p521Point))), _t:Pointer<T_p521Point> = Go.pointer((({ _x : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()), _y : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()), _z : Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()) } : T_p521Point)));
-        for (_byte in _scalar) {
+        for (_ => _byte in _scalar) {
             {
                 var _bitNum:GoInt = ((0 : GoInt));
                 Go.cfor(_bitNum < ((8 : GoInt)), _bitNum++, {
@@ -1214,7 +1214,7 @@ var _p256Precomputed : GoArray<GoUInt32> = new GoArray<GoUInt32>(
 ((29661816 : GoUInt32))).copy();
 function _matchesSpecificCurve(_params:Pointer<CurveParams>, _available:haxe.Rest<Curve>):{ var _0 : Curve; var _1 : Bool; } {
         var _available = new Slice<Curve>(..._available);
-        for (_c in _available) {
+        for (_ => _c in _available) {
             if (_params == _c.params()) {
                 return { _0 : _c, _1 : true };
             };
@@ -1243,7 +1243,7 @@ function generateKey(_curve:Curve, _rand:stdgo.io.Io.Reader):{ var _0 : Slice<Go
         var _bitSize:GoInt = n.value.bitLen();
         var _byteLen:GoInt = (_bitSize + ((7 : GoInt))) / ((8 : GoInt));
         _priv = new Slice<GoUInt8>(...[for (i in 0 ... ((_byteLen : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        while (_x == null || _x.isNil()) {
+        while ((_x == null || _x.isNil())) {
             {
                 var __tmp__ = stdgo.io.Io.readFull(_rand, _priv);
                 _err = __tmp__._1;
@@ -1333,7 +1333,7 @@ function unmarshalCompressed(_curve:Curve, _data:Slice<GoByte>):{ var _0 : Point
         };
         _y = _curve.params().value._polynomial(_x);
         _y = _y.value.modSqrt(_y, _p);
-        if (_y == null || _y.isNil()) {
+        if ((_y == null || _y.isNil())) {
             return { _0 : new Pointer<stdgo.math.big.Big.Int_>().nil(), _1 : new Pointer<stdgo.math.big.Big.Int_>().nil() };
         };
         if (((_y.value.bit(((0 : GoInt))) : GoByte)) != _data[((0 : GoInt))] & ((1 : GoUInt8))) {
@@ -1459,15 +1459,9 @@ function _p224IsZero(_a:Pointer<T_p224FieldElement>):GoUInt32 {
         var _minimal:T_p224FieldElement = new T_p224FieldElement();
         _p224Contract(Go.pointer(_minimal), _a);
         var _isZero:GoUInt32 = ((0 : GoUInt32)), _isP:GoUInt32 = ((0 : GoUInt32));
-        {
-            var _i;
-            var _v;
-            for (_obj in _minimal.__t__.keyValueIterator()) {
-                _i = _obj.key;
-                _v = _obj.value;
-                _isZero = _isZero | (_v);
-                _isP = _isP | (_v - _p224P[_i]);
-            };
+        for (_i => _v in _minimal.__t__) {
+            _isZero = _isZero | (_v);
+            _isP = _isP | (_v - _p224P[_i]);
         };
         _isZero = _isZero | ((_isZero >> ((16 : GoUnTypedInt))));
         _isZero = _isZero | ((_isZero >> ((8 : GoUnTypedInt))));
@@ -1955,7 +1949,7 @@ function _p224ScalarMult(_outX:Pointer<T_p224FieldElement>, _outY:Pointer<T_p224
                 _outZ.value.__t__[_i] = ((0 : GoUInt32));
             });
         };
-        for (_byte in _scalar) {
+        for (_ => _byte in _scalar) {
             {
                 var _bitNum:GoUInt = ((((0 : GoUInt)) : GoUInt));
                 Go.cfor(_bitNum < ((8 : GoUInt)), _bitNum++, {
@@ -2139,14 +2133,8 @@ function _p256GetScalar(_out:Pointer<GoArray<GoByte>>, _in:Slice<GoByte>):Void {
         } else {
             _scalarBytes = _in;
         };
-        {
-            var _i;
-            var _v;
-            for (_obj in _scalarBytes.keyValueIterator()) {
-                _i = _obj.key;
-                _v = _obj.value;
-                _out.value[_scalarBytes.length - (((1 : GoInt)) + _i)] = _v;
-            };
+        for (_i => _v in _scalarBytes) {
+            _out.value[_scalarBytes.length - (((1 : GoInt)) + _i)] = _v;
         };
     }
 /**
@@ -2694,19 +2682,11 @@ function _p256CopyConditional(_out:Pointer<GoArray<GoUInt32>>, _in:Pointer<GoArr
     // On entry: index < 16, table[0] must be zero.
 **/
 function _p256SelectAffinePoint(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<GoArray<GoUInt32>>, _table:Slice<GoUInt32>, _index:GoUInt32):Void {
-        {
-            var _i;
-            for (_obj in _xOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _xOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _xOut.value) {
+            _xOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _yOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _yOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _yOut.value) {
+            _yOut.value[_i] = ((0 : GoUInt32));
         };
         {
             var _i:GoUInt32 = ((((1 : GoUInt32)) : GoUInt32));
@@ -2716,21 +2696,13 @@ function _p256SelectAffinePoint(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<
                 _mask = _mask | ((_mask >> ((1 : GoUnTypedInt))));
                 _mask = _mask & (((1 : GoUInt32)));
                 _mask--;
-                {
-                    var _j;
-                    for (_obj in _xOut.value.keyValueIterator()) {
-                        _j = _obj.key;
-                        _xOut.value[_j] = _xOut.value[_j] | (_table[((0 : GoInt))] & _mask);
-                        _table = _table.__slice__(((1 : GoInt)));
-                    };
+                for (_j => _ in _xOut.value) {
+                    _xOut.value[_j] = _xOut.value[_j] | (_table[((0 : GoInt))] & _mask);
+                    _table = _table.__slice__(((1 : GoInt)));
                 };
-                {
-                    var _j;
-                    for (_obj in _yOut.value.keyValueIterator()) {
-                        _j = _obj.key;
-                        _yOut.value[_j] = _yOut.value[_j] | (_table[((0 : GoInt))] & _mask);
-                        _table = _table.__slice__(((1 : GoInt)));
-                    };
+                for (_j => _ in _yOut.value) {
+                    _yOut.value[_j] = _yOut.value[_j] | (_table[((0 : GoInt))] & _mask);
+                    _table = _table.__slice__(((1 : GoInt)));
                 };
             });
         };
@@ -2741,26 +2713,14 @@ function _p256SelectAffinePoint(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<
     // On entry: index < 16, table[0] must be zero.
 **/
 function _p256SelectJacobianPoint(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<GoArray<GoUInt32>>, _zOut:Pointer<GoArray<GoUInt32>>, _table:Pointer<GoArray<GoArray<GoArray<GoUInt32>>>>, _index:GoUInt32):Void {
-        {
-            var _i;
-            for (_obj in _xOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _xOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _xOut.value) {
+            _xOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _yOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _yOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _yOut.value) {
+            _yOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _zOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _zOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _zOut.value) {
+            _zOut.value[_i] = ((0 : GoUInt32));
         };
         {
             var _i:GoUInt32 = ((((1 : GoUInt32)) : GoUInt32));
@@ -2770,26 +2730,14 @@ function _p256SelectJacobianPoint(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointe
                 _mask = _mask | ((_mask >> ((1 : GoUnTypedInt))));
                 _mask = _mask & (((1 : GoUInt32)));
                 _mask--;
-                {
-                    var _j;
-                    for (_obj in _xOut.value.keyValueIterator()) {
-                        _j = _obj.key;
-                        _xOut.value[_j] = _xOut.value[_j] | (_table.value[_i][((0 : GoInt))][_j] & _mask);
-                    };
+                for (_j => _ in _xOut.value) {
+                    _xOut.value[_j] = _xOut.value[_j] | (_table.value[_i][((0 : GoInt))][_j] & _mask);
                 };
-                {
-                    var _j;
-                    for (_obj in _yOut.value.keyValueIterator()) {
-                        _j = _obj.key;
-                        _yOut.value[_j] = _yOut.value[_j] | (_table.value[_i][((1 : GoInt))][_j] & _mask);
-                    };
+                for (_j => _ in _yOut.value) {
+                    _yOut.value[_j] = _yOut.value[_j] | (_table.value[_i][((1 : GoInt))][_j] & _mask);
                 };
-                {
-                    var _j;
-                    for (_obj in _zOut.value.keyValueIterator()) {
-                        _j = _obj.key;
-                        _zOut.value[_j] = _zOut.value[_j] | (_table.value[_i][((2 : GoInt))][_j] & _mask);
-                    };
+                for (_j => _ in _zOut.value) {
+                    _zOut.value[_j] = _zOut.value[_j] | (_table.value[_i][((2 : GoInt))][_j] & _mask);
                 };
             });
         };
@@ -2809,26 +2757,14 @@ function _p256ScalarBaseMult(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<GoA
         var _nIsInfinityMask:GoUInt32 = -1 ^ ((((0 : GoUInt32)) : GoUInt32));
         var _pIsNoninfiniteMask:GoUInt32 = ((0 : GoUInt32)), _mask:GoUInt32 = ((0 : GoUInt32)), _tableOffset:GoUInt32 = ((0 : GoUInt32));
         var _px:GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 9) ((0 : GoUInt32))]), _py:GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 9) ((0 : GoUInt32))]), _tx:GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 9) ((0 : GoUInt32))]), _ty:GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 9) ((0 : GoUInt32))]), _tz:GoArray<GoUInt32> = new GoArray<GoUInt32>(...[for (i in 0 ... 9) ((0 : GoUInt32))]);
-        {
-            var _i;
-            for (_obj in _xOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _xOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _xOut.value) {
+            _xOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _yOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _yOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _yOut.value) {
+            _yOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _zOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _zOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _zOut.value) {
+            _zOut.value[_i] = ((0 : GoUInt32));
         };
         {
             var _i:GoUInt = ((((0 : GoUInt)) : GoUInt));
@@ -2901,26 +2837,14 @@ function _p256ScalarMult(_xOut:Pointer<GoArray<GoUInt32>>, _yOut:Pointer<GoArray
                 _p256PointAddMixed(Go.pointer(_precomp[_i + ((1 : GoInt))][((0 : GoInt))]), Go.pointer(_precomp[_i + ((1 : GoInt))][((1 : GoInt))]), Go.pointer(_precomp[_i + ((1 : GoInt))][((2 : GoInt))]), Go.pointer(_precomp[_i][((0 : GoInt))]), Go.pointer(_precomp[_i][((1 : GoInt))]), Go.pointer(_precomp[_i][((2 : GoInt))]), _x, _y);
             });
         };
-        {
-            var _i;
-            for (_obj in _xOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _xOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _xOut.value) {
+            _xOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _yOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _yOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _yOut.value) {
+            _yOut.value[_i] = ((0 : GoUInt32));
         };
-        {
-            var _i;
-            for (_obj in _zOut.value.keyValueIterator()) {
-                _i = _obj.key;
-                _zOut.value[_i] = ((0 : GoUInt32));
-            };
+        for (_i => _ in _zOut.value) {
+            _zOut.value[_i] = ((0 : GoUInt32));
         };
         _nIsInfinityMask = -1 ^ ((((0 : GoUInt32)) : GoUInt32));
         {
@@ -3037,32 +2961,24 @@ function _initP521():Void {
     }
 function _fiatP521ToBigInt(_x:Pointer<crypto.elliptic.internal.fiat.Fiat.P521Element>):Pointer<stdgo.math.big.Big.Int_> {
         var _xBytes:Slice<GoUInt8> = _x.value.bytes();
-        {
-            var _i;
-            for (_obj in _xBytes.__slice__(0, _xBytes.length / ((2 : GoInt))).keyValueIterator()) {
-                _i = _obj.key;
-                {
-                    final __tmp__0 = _xBytes[_xBytes.length - _i - ((1 : GoInt))];
-                    final __tmp__1 = _xBytes[_i];
-                    _xBytes[_i] = __tmp__0;
-                    _xBytes[_xBytes.length - _i - ((1 : GoInt))] = __tmp__1;
-                };
+        for (_i => _ in _xBytes.__slice__(0, _xBytes.length / ((2 : GoInt)))) {
+            {
+                final __tmp__0 = _xBytes[_xBytes.length - _i - ((1 : GoInt))];
+                final __tmp__1 = _xBytes[_i];
+                _xBytes[_i] = __tmp__0;
+                _xBytes[_xBytes.length - _i - ((1 : GoInt))] = __tmp__1;
             };
         };
         return Go.pointer(new stdgo.math.big.Big.Int_()).value.setBytes(_xBytes);
     }
 function _bigIntToFiatP521(_x:Pointer<stdgo.math.big.Big.Int_>):Pointer<crypto.elliptic.internal.fiat.Fiat.P521Element> {
         var _xBytes:Slice<GoUInt8> = Go.pointer(new stdgo.math.big.Big.Int_()).value.mod(_x, _p521.curveParams.value.p).value.fillBytes(new Slice<GoUInt8>(...[for (i in 0 ... ((((66 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]));
-        {
-            var _i;
-            for (_obj in _xBytes.__slice__(0, _xBytes.length / ((2 : GoInt))).keyValueIterator()) {
-                _i = _obj.key;
-                {
-                    final __tmp__0 = _xBytes[_xBytes.length - _i - ((1 : GoInt))];
-                    final __tmp__1 = _xBytes[_i];
-                    _xBytes[_i] = __tmp__0;
-                    _xBytes[_xBytes.length - _i - ((1 : GoInt))] = __tmp__1;
-                };
+        for (_i => _ in _xBytes.__slice__(0, _xBytes.length / ((2 : GoInt)))) {
+            {
+                final __tmp__0 = _xBytes[_xBytes.length - _i - ((1 : GoInt))];
+                final __tmp__1 = _xBytes[_i];
+                _xBytes[_i] = __tmp__0;
+                _xBytes[_xBytes.length - _i - ((1 : GoInt))] = __tmp__1;
             };
         };
         var __tmp__ = Go.pointer(new crypto.elliptic.internal.fiat.Fiat.P521Element()).value.setBytes(_xBytes), _x1:Pointer<crypto.elliptic.internal.fiat.Fiat.P521Element> = __tmp__._0, _err:stdgo.Error = __tmp__._1;

@@ -67,6 +67,7 @@ typedef BasicLit = {
 	kind:Token,
 	type:ExprType,
 	value:String,
+	raw:Bool,
 };
 
 typedef FuncLit = {

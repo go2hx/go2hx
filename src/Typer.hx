@@ -42,12 +42,12 @@ final reservedClassNames = [
 	"KeyValueIterable",
 	"KeyValueIterator",
 	"Lambda",
-	//"List",
+	// "List",
 	"Map",
 	// "Math",
 	"Std",
 	"Sys",
-	//"StringBuf",
+	// "StringBuf",
 	"StringTools",
 	"SysError",
 	// "Type",
@@ -2891,36 +2891,103 @@ private function typeRest(expr:Expr):Expr {
 
 private function typeBasicLit(expr:Ast.BasicLit, info:Info):ExprDef {
 	final type = typeof(expr.type);
-	return setBasicLit(expr.kind, expr.value, type, info);
+	return setBasicLit(expr.kind, expr.value, type, expr.raw, info);
 }
 
-private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Info) {
-	function formatEscapeCodes(value:String):String {
-		value = StringTools.replace(value, "\\a", "\x07");
-		value = StringTools.replace(value, "\\b", "\x08");
-		value = StringTools.replace(value, "\\e", "\x1B");
-		value = StringTools.replace(value, "\\f", "\x0C");
-		value = StringTools.replace(value, "\\n", "\x0A");
-		value = StringTools.replace(value, "\\r", "\x0D");
-		value = StringTools.replace(value, "\\t", "\x09");
-		value = StringTools.replace(value, "\\v", "\x0B");
-		value = StringTools.replace(value, "\\x", "\\u00");
-		value = StringTools.replace(value, "\\U", "\\u");
-		if (value.charAt(0) == "\\" && value.charAt(1) == "u") {
-			value = value.substring(2);
-			value = '\\u{$value}';
+private function rawEscapeSequences(value:String):String {
+	var backslash = false;
+	var i = 0;
+	while (i < value.length) {
+		if (backslash) {
+			if (value.charCodeAt(i) != "\\".code) {
+				value = value.substr(0, i) + "\\" + value.substr(i);
+				i++;
+			} else {
+				value = value.substr(0, i) + "\\" + value.substr(i);
+			}
+			backslash = false;
+			i++;
+			continue;
 		}
-		return value;
+		if (value.charCodeAt(i) == "\\".code)
+			backslash = true;
+		i++;
 	}
+	if (backslash)
+		value += "\\";
+	return value;
+}
+
+private function decodeEscapeSequences(value:String):String {
+	var backslash = false;
+	var i = 0;
+	while (i < value.length) {
+		if (backslash) {
+			switch value.charCodeAt(i) {
+				case '"'.code:
+					value = value.substr(0, i - 1) + value.substr(i);
+				case 'a'.code:
+					value = value.substr(0, i) + 'x07' + value.substring(i + 1);
+					i++;
+				case 'b'.code:
+					value = value.substr(0, i) + 'x08' + value.substring(i + 1);
+					i++;
+				case 'e'.code:
+					value = value.substr(0, i) + 'x1B' + value.substring(i + 1);
+					i++;
+				case 'f'.code:
+					value = value.substr(0, i) + 'x0C' + value.substring(i + 1);
+					i++;
+				case 'v'.code:
+					value = value.substr(0, i) + 'x0B' + value.substring(i + 1);
+					i++;
+				case 'U'.code:
+					value = value.substr(0, i - 1) + "\\u{" + value.substr(i + 1, 8) + "}" + value.substr(i + 1 + 8);
+					i += 8;
+				case 'u'.code:
+				case 'x'.code:
+					value = value.substr(0, i) + "u00" + value.substr(i + 1);
+					i++;
+				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
+					var num = 0;
+					for (j in 0...3) {
+						final numCode = Std.parseInt(value.charAt(i + j));
+						final expo = Std.int(Math.pow(8, 2 - j));
+						num += numCode * expo;
+					}
+					final hex = StringTools.hex(num, 2);
+					value = value.substr(0, i) + "u00" + hex + value.substr(i + 3);
+					i += 3;
+			}
+			backslash = false;
+			i++;
+			continue;
+		}
+		if (value.charCodeAt(i) == "\\".code)
+			backslash = true;
+		i++;
+	}
+
+	if (backslash)
+		value += "\\";
+	return value;
+}
+
+private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool, info:Info) {
 	var ct:ComplexType = null;
 	var e:Expr = switch kind {
 		case STRING:
-			value = StringTools.replace(value, "\\n", "\n");
-			value = StringTools.replace(value, '\\"', '"');
-			value = StringTools.replace(value, "\\x", "\\\\x");
-			value = StringTools.replace(value, "\\b", "\\x08");
-			var e = makeString(value);
-			e;
+			if (!raw) {
+				value = decodeEscapeSequences(value);
+			} else {
+				value = rawEscapeSequences(value);
+			}
+			makeString(value);
+		case CHAR:
+			value = decodeEscapeSequences(value);
+			final const = makeString(value);
+			ct = TPath({name: "GoRune", pack: []});
+			macro $const.code;
 		case INT:
 			var e = toExpr(EConst(CInt(value)));
 			if (value.length >= 10) {
@@ -2943,17 +3010,6 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, info:Inf
 				type = getUnderlying(type);
 			ct = toComplexType(type, info);
 			e;
-		case CHAR:
-			var value = formatEscapeCodes(value);
-			if (value == "\\'") {
-				value = "'";
-			}
-			var const = makeString(value);
-			if (value == "\\") {
-				return (macro $const.charCodeAt(0)).expr;
-			}
-			ct = TPath({name: "GoRune", pack: []});
-			macro $const.code;
 		case IDENT:
 			var name = nameIdent(value, false, false, info);
 			macro $i{name};
@@ -4391,8 +4447,8 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	}
 }
 
-private function makeString(str:String, ?kind):Expr {
-	return toExpr(EConst(CString(str, kind)));
+private function makeString(str:String):Expr {
+	return toExpr(EConst(CString(str)));
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
@@ -4425,7 +4481,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			});
 			var toStringExpr:Expr = null;
 			if (fields.length > 1) { // 1 because new is already defined
-				toStringExpr = makeString("{", SingleQuotes);
+				toStringExpr = makeString("{");
 				for (field in fields) {
 					switch field.kind {
 						case FVar(t, e):

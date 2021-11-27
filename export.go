@@ -535,9 +535,6 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache) []map
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
 		if len(sel.Index()) > 1 {
-			/*if !sel.Obj().Exported() && sel.Obj().Pkg().Path() != object.Pkg().Path() {
-				continue //unexported method not from same package
-			}*/
 			methods = append(methods, map[string]interface{}{
 				"name":  sel.Obj().Name(),
 				"type":  parseType(sel.Type()),
@@ -860,6 +857,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 }
 func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 	output := ""
+	raw := false
 	switch value.Kind {
 	case token.INT:
 		i, err := strconv.ParseInt(value.Value, 0, 64)
@@ -891,12 +889,13 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		if len(value.Value) >= 2 && value.Value[0:1] == `'` {
 			value.Value = value.Value[1 : len(value.Value)-1]
 		}
-		output = fmt.Sprint(value.Value)
+		output = value.Value
 	case token.STRING:
-		if len(value.Value) >= 2 && (value.Value[0:1] == `"` || (value.Value[0:1] == "`")) {
+		raw = value.Value[0:1] == "`"
+		if len(value.Value) >= 2 && (value.Value[0:1] == `"` || raw) {
 			value.Value = string(value.Value[1 : len(value.Value)-1])
 		}
-		output = fmt.Sprint(value.Value)
+		output = value.Value
 	case token.IMAG: //TODO: implement imaginary numbers (complex)
 		output = value.Value[0 : len(value.Value)-1]
 	}
@@ -904,6 +903,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		"id":    "BasicLit",
 		"kind":  value.Kind.String(),
 		"value": output,
+		"raw":   raw,
 		"type":  parseType(checker.TypeOf(value)),
 	}
 }

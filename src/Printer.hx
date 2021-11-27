@@ -8,15 +8,6 @@ class Printer extends haxe.macro.Printer {
 		super("    ");
 	}
 
-	override function escapeString(s:String, delim:String):String {
-		return delim
-			+ s.replace("\n", "\\n")
-				.replace("\t", "\\t")
-				.replace("\r", "\\r")
-				.replace("'", "\\'")
-				.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
-	}
-
 	override function printTypePath(tp:TypePath):String {
 		removeExprParams(tp.params);
 		return super.printTypePath(tp);

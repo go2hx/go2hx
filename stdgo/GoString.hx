@@ -10,7 +10,7 @@ abstract GoString(String) from String to String {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
-		return this.length;
+		return toSliceByte().length;
 
 	@:from static function ofRune(x:GoRune):GoString {
 		return String.fromCharCode(x.toBasic());
@@ -31,21 +31,24 @@ abstract GoString(String) from String to String {
 
 	@:from static function ofSliceRune(x:Slice<GoRune>):GoString {
 		var str = "";
-		for (c in x) {
+		for (c in x)
 			str += String.fromCharCode(c.toBasic());
-		}
 		return str;
 	}
 
 	@:op([])
 	public function get(index:GoInt):GoByte
-		return this.charCodeAt(index.toBasic());
+		return toSliceByte()[index];
 
 	@:to public function toSliceByte():Slice<StdGoTypes.GoByte> {
 		var slice = new Slice<StdGoTypes.GoByte>();
-		slice.grow(this.length);
-		for (i in 0...this.length) {
-			slice[i] = get(i);
+		final bytes = Bytes.ofString(this, UTF8);
+		slice.grow(bytes.length);
+		for (i in 0...bytes.length) {
+			var value = bytes.get(i);
+			if (value == 0)
+				value = 0xFF;
+			slice[i] = value;
 		}
 		return slice;
 	}
@@ -53,7 +56,17 @@ abstract GoString(String) from String to String {
 	@:to public function toSliceRune():Slice<StdGoTypes.GoRune> {
 		return new Slice<StdGoTypes.GoRune>(...[
 			for (i in 0...this.length)
-				StringTools.fastCodeAt(this, i)
+				try {
+					final code = StringTools.fastCodeAt(this, i);
+					switch code {
+						case 0:
+							0xFFFD;
+						default:
+							code;
+					}
+				} catch (_) {
+					0xFFFD;
+				}
 		]);
 	}
 

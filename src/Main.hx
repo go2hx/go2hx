@@ -49,6 +49,7 @@ var libwrap = false;
 var outputPath:String = "";
 var root:String = "";
 var buildPath:String = "";
+var hxmlPath:String = "";
 var noRun:Bool = false;
 var test:Bool = false;
 final passthroughArgs = ["-test"];
@@ -66,8 +67,10 @@ function run(args:Array<String>) {
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> outputPath = out,
 		@doc("set the root package for all generated files")
 		["-root", "--root", "-r", "--r"] => out -> root = out,
-		@doc("generate hxml from target command")
+		@doc("generate Haxe build file from compiler command")
 		["-build", "--build"] => out -> buildPath = out,
+		@doc("generate build hxml from compiler commands")
+		["-hxml", "--hxml"] => out -> hxmlPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
 		["-printgocode", "--printgocode"] => () -> printGoCode = true,
 		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")
@@ -288,8 +291,13 @@ function mainPaths(modules:Array<Dynamic>):Array<String> {
 }
 
 private function runTarget(modules:Array<Typer.Module>) {
-	if (target == "")
-		target = "interp"; // default test target
+	if (target == "") {
+		if (test) {
+			target = "hl"; // default test target
+		} else {
+			noRun = true;
+		}
+	}
 
 	final paths = mainPaths(modules);
 	final libs = targetLibs();
@@ -301,7 +309,7 @@ private function runTarget(modules:Array<Typer.Module>) {
 		if (targetOutput != "")
 			commands.push(targetOutput);
 	}
-	if (!noRun) {
+	if (!noRun && target != "") {
 		for (main in paths) {
 			final commands = commands.concat(['-m', main]);
 			Sys.println('haxe ' + commands.join(" "));
@@ -310,6 +318,7 @@ private function runTarget(modules:Array<Typer.Module>) {
 				case "hl":
 					Sys.println(target + " " + targetOutput);
 					Sys.command(target, [targetOutput]);
+				case "interp": // already runs
 				default:
 					trace("unknown target runner");
 			}
@@ -329,6 +338,17 @@ private function runTarget(modules:Array<Typer.Module>) {
 		final content = new haxe.macro.Printer("    ").printExpr(expr);
 		File.saveContent(buildPath, content);
 		Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
+	}
+	if (hxmlPath != "") {
+		final main = paths[0];
+		if (!StringTools.endsWith(hxmlPath, ".hxml"))
+			hxmlPath += ".hxml";
+		var content = "";
+		for (i in 0...Std.int(commands.length / 2)) {
+			content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
+		}
+		File.saveContent(hxmlPath, content);
+		Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 }
 

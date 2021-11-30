@@ -343,10 +343,11 @@ private function runTarget(modules:Array<Typer.Module>) {
 		final main = paths[0];
 		if (!StringTools.endsWith(hxmlPath, ".hxml"))
 			hxmlPath += ".hxml";
-		var content = "";
+		var content = "-m " + main + "\n";
 		for (i in 0...Std.int(commands.length / 2)) {
 			content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
 		}
+		content = content.substr(0, content.length - 1);
 		File.saveContent(hxmlPath, content);
 		Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
 	}

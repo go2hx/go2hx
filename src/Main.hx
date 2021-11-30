@@ -49,6 +49,7 @@ var libwrap = false;
 var outputPath:String = "";
 var root:String = "";
 var buildPath:String = "";
+var noRun:Bool = false;
 var test:Bool = false;
 final passthroughArgs = ["-test"];
 
@@ -57,7 +58,9 @@ function run(args:Array<String>) {
 	root = "";
 	var help = false;
 	final argHandler = Args.generate([
-		["-help", "--help", "-h", "--h"] => () -> help = true, @doc("go test")
+		["-help", "--help", "-h", "--h"] => () -> help = true,
+		@doc("don't run the build commands")
+		["-norun", "--norun"] => () -> noRun = true, @doc("go test")
 		["-test", "--test"] => () -> test = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> outputPath = out,
@@ -294,13 +297,24 @@ private function runTarget(modules:Array<Typer.Module>) {
 	if (libs != "")
 		commands.push(libs);
 	if (target != "") {
-		var targetCommand = '--$target';
+		commands.push('--$target');
 		if (targetOutput != "")
-			targetCommand += ' $targetOutput';
-		commands.push(targetCommand);
+			commands.push(targetOutput);
 	}
-	for (main in paths)
-		Sys.command('haxe', commands.concat(['-m', main])); // build without build file
+	if (!noRun) {
+		for (main in paths) {
+			final commands = commands.concat(['-m', main]);
+			Sys.println('haxe ' + commands.join(" "));
+			Sys.command('haxe', commands); // build without build file
+			switch target {
+				case "hl":
+					Sys.println(target + " " + targetOutput);
+					Sys.command(target, [targetOutput]);
+				default:
+					trace("unknown target runner");
+			}
+		}
+	}
 	if (buildPath != "") { // create build file
 		final mains = [for (path in paths) shared.Util.makeExpr(path)];
 		final base = [for (command in commands) shared.Util.makeExpr(command)];

@@ -30,16 +30,16 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.defaultValue();
 
 	@:arrayAccess
-	public inline function get(key:K):V {
+	public function get(key:K):V {
 		return this.get(key);
 	}
 
-	public inline function exists(key:K):Bool {
+	public function exists(key:K):Bool {
 		return this.exists(key);
 	}
 
 	@:arrayAccess
-	public inline function set(k:K, v:V):V {
+	public function set(k:K, v:V):V {
 		this.set(k, v);
 		return v;
 	}

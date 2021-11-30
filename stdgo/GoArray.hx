@@ -21,13 +21,13 @@ private class VectorData<T> {
 		vector = new Vector<T>(length);
 	}
 
-	public inline function toString():GoString
+	public function toString():GoString
 		return "[" + [for (obj in vector) Go.string(obj)].join(" ") + "]";
 
-	public inline function get(i:Int):T
+	public function get(i:Int):T
 		return vector.get(i);
 
-	public inline function set(i:Int, value:T):T
+	public function set(i:Int, value:T):T
 		return vector.set(i, value);
 }
 
@@ -57,7 +57,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return new VectorIterator(this.vector);
 	}
 
-	inline public function keyValueIterator():KeyValueIterator<GoInt, T> {
+	public function keyValueIterator():KeyValueIterator<GoInt, T> {
 		return new VectorKeyValueIterator(this.vector);
 	}
 
@@ -84,7 +84,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.get(index.toBasic());
 	}
 
-	inline public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();

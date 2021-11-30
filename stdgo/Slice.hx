@@ -59,7 +59,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.length;
 	}
 
-	inline public function getUnderlying():Vector<T> {
+	public function getUnderlying():Vector<T> {
 		return this.underlying();
 	}
 
@@ -68,7 +68,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this;
 	}
 
-	inline public function isNil():Bool
+	public function isNil():Bool
 		return this.nilBool;
 
 	public function new(args:Rest<T>) {
@@ -86,19 +86,19 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this;
 	}
 
-	@:op([]) public inline function get(index:GoInt):T {
+	@:op([]) public function get(index:GoInt):T {
 		return this.get(index.toBasic());
 	}
 
-	@:op([]) public inline function set(index:GoInt, value:T):T {
+	@:op([]) public function set(index:GoInt, value:T):T {
 		return this.set(index.toBasic(), value);
 	}
 
-	public inline function getOffset():Int {
+	public function getOffset():Int {
 		return this.pos;
 	}
 
-	inline public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
@@ -130,23 +130,23 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return slice;
 	}
 
-	inline public function grow(size:Int) {
+	public function grow(size:Int) {
 		this.grow(size);
 	}
 
-	inline public function cap():GoInt {
+	public function cap():GoInt {
 		return @:privateAccess this._cap == -1 ? length : @:privateAccess this._cap;
 	}
 
-	inline public function toArray() {
+	public function toArray() {
 		return this.toArray();
 	}
 
-	inline public function toVector() {
+	public function toVector() {
 		return this.toVector();
 	}
 
-	inline public function setUnderlying(vector:Vector<T>, pos:Int, length:Int) {
+	public function setUnderlying(vector:Vector<T>, pos:Int, length:Int) {
 		this.setUnderlying(vector, pos, length);
 	}
 }
@@ -202,7 +202,8 @@ private class SliceData<T> {
 	private function boundsCheck(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
 		if (i < 0 || i >= length) {
-			throw "array out of bounds, index: " + i + " length: " + length;
+			trace(this.length, this);
+			throw 'array out of bounds, index: $i length: $length';
 		}
 		#end
 	}
@@ -219,35 +220,35 @@ private class SliceData<T> {
 		return vector.set(i, value);
 	}
 
-	inline public function iterator()
+	public function iterator()
 		return new SliceIterator(this);
 
-	inline public function keyValueIterator()
+	public function keyValueIterator()
 		return new SliceKeyValueIterator(this);
 
-	inline public function cap():Int {
+	public function cap():Int {
 		return _cap;
 	}
 
-	inline public function toArray():Array<T> { // unrolling derefrences
+	public function toArray():Array<T> { // unrolling derefrences
 		return [
 			for (i in 0...length)
 				get(i)
 		];
 	}
 
-	inline public function toVector():Vector<T> { // derefrence
+	public function toVector():Vector<T> { // derefrence
 		return vector;
 	}
 
-	inline public function toString():String
+	public function toString():String
 		return "[" + [for (i in pos...pos + length) Go.string(vector[i])].join(" ") + "]";
 
-	inline public function underlying():Vector<T> {
+	public function underlying():Vector<T> {
 		return vector;
 	}
 
-	inline public function grow(size:Int) {
+	public function grow(size:Int) {
 		if (vector.length >= size + length)
 			return;
 		length += size;
@@ -256,7 +257,7 @@ private class SliceData<T> {
 		vector = dest;
 	}
 
-	inline public function setUnderlying(value:Vector<T>, pos:Int, length:Int) {
+	public function setUnderlying(value:Vector<T>, pos:Int, length:Int) {
 		vector = value;
 		this.pos = pos;
 		this.length = length;

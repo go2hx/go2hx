@@ -16,7 +16,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 		return this;
 	}
 
-	inline public function isNil():Bool
+	public function isNil():Bool
 		return this.nilBool || value == null;
 
 	private function get_value():T {

@@ -33,13 +33,13 @@ class Chan<T> {
 		return this;
 	}
 
-	public inline function get():T {
+	public function get():T {
 		if (data.length <= getIndex)
 			return defaultValue();
 		return data[getIndex++];
 	}
 
-	public inline function smartGet():{value:T, ok:Bool} {
+	public function smartGet():{value:T, ok:Bool} {
 		if (data.length <= getIndex)
 			return {value: defaultValue(), ok: false};
 		return {value: data[getIndex++], ok: false};

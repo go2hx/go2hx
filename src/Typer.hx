@@ -2921,9 +2921,30 @@ private function rawEscapeSequences(value:String):String {
 private function decodeEscapeSequences(value:String):String {
 	var backslash = false;
 	var i = 0;
+	function escapeHex(hex:String):String {
+		hex = StringTools.replace(hex, " ", "");
+		return "${Go.stringHex(0x" + hex + ")}";
+	}
 	while (i < value.length) {
 		if (backslash) {
-			switch value.charCodeAt(i) {
+			final code = value.charCodeAt(i);
+			switch code {
+				case 'x'.code:
+					var hex = value.substr(i + 1, 2);
+					final s = escapeHex(hex);
+					value = value.substr(0, i - 1) + s + value.substr(i + 3);
+					i += s.length - 2;
+				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
+					var num = 0;
+					for (j in 0...3) {
+						final numCode = Std.parseInt(value.charAt(i + j));
+						final expo = Std.int(Math.pow(8, 2 - j));
+						num += numCode * expo;
+					}
+					final hex = StringTools.hex(num, 2);
+					final s = escapeHex(hex);
+					value = value.substr(0, i - 1) + s + value.substr(i + 3);
+					i += s.length - 2;
 				case '"'.code:
 					value = value.substr(0, i - 1) + value.substr(i);
 				case 'a'.code:
@@ -2941,35 +2962,28 @@ private function decodeEscapeSequences(value:String):String {
 				case 'v'.code:
 					value = value.substr(0, i) + 'x0B' + value.substring(i + 1);
 					i++;
+				case 'u'.code:
 				case 'U'.code:
 					value = value.substr(0, i - 1) + "\\u{" + value.substr(i + 1, 8) + "}" + value.substr(i + 1 + 8);
 					i += 8;
-				case 'u'.code:
-				case 'x'.code:
-					value = value.substr(0, i) + "u00" + value.substr(i + 1);
-					i++;
-				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
-					var num = 0;
-					for (j in 0...3) {
-						final numCode = Std.parseInt(value.charAt(i + j));
-						final expo = Std.int(Math.pow(8, 2 - j));
-						num += numCode * expo;
-					}
-					final hex = StringTools.hex(num, 2);
-					value = value.substr(0, i) + "u00" + hex + value.substr(i + 3);
-					i += 3;
+				default:
 			}
 			backslash = false;
 			i++;
 			continue;
 		}
-		if (value.charCodeAt(i) == "\\".code)
-			backslash = true;
+		switch value.charCodeAt(i) {
+			case "\\".code:
+				backslash = true;
+			case "$".code:
+				value = value.substr(0, i + 1) + "$" + value.substr(i + 1);
+			default:
+		}
 		i++;
 	}
-
-	if (backslash)
+	if (backslash) {
 		value += "\\";
+	}
 	return value;
 }
 
@@ -2982,10 +2996,10 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 			} else {
 				value = rawEscapeSequences(value);
 			}
-			makeString(value);
+			makeString(value, raw ? null : SingleQuotes);
 		case CHAR:
 			value = decodeEscapeSequences(value);
-			final const = makeString(value);
+			final const = makeString(value, SingleQuotes);
 			ct = TPath({name: "GoRune", pack: []});
 			macro $const.code;
 		case INT:
@@ -4447,8 +4461,8 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	}
 }
 
-private function makeString(str:String):Expr {
-	return toExpr(EConst(CString(str)));
+private function makeString(str:String, ?kind):Expr {
+	return toExpr(EConst(CString(str, kind)));
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {

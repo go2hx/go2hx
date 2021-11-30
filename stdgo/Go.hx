@@ -83,6 +83,28 @@ class Go {
 		}
 	}
 
+	public static macro function stringHex(s:Expr) {
+		return switch s.expr {
+			case EConst(CInt(s)):
+				s = s.substr(2);
+				macro {
+					var s = haxe.io.Bytes.ofHex($v{s}).toString();
+					s;
+				};
+			default:
+				throw "not a CIdent " + new haxe.macro.Printer().printExpr(s);
+		}
+	}
+
+	public static macro function quote(s:Expr) {
+		return switch s.expr {
+			case EConst(CIdent(s)):
+				macro $v{s};
+			default:
+				throw "not a CIdent";
+		}
+	}
+
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;

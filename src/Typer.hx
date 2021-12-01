@@ -2918,12 +2918,18 @@ private function rawEscapeSequences(value:String):String {
 	return value;
 }
 
-private function decodeEscapeSequences(value:String):String {
+private function decodeEscapeSequences(value:String):Array<String> {
 	var backslash = false;
 	var i = 0;
-	function escapeHex(hex:String):String {
-		hex = StringTools.replace(hex, " ", "");
-		return "${Go.stringHex(0x" + hex + ")}";
+	final values:Array<String> = [];
+	var buff = new StringBuf();
+	buff.add("0");
+	function escapeHex(value:String) {
+		if (buff.length > 1)
+			values.push(buff.toString());
+		values.push("10x" + value); // 1 at starts denotes an int
+		buff = new StringBuf();
+		buff.add("0");
 	}
 	while (i < value.length) {
 		if (backslash) {
@@ -2931,9 +2937,8 @@ private function decodeEscapeSequences(value:String):String {
 			switch code {
 				case 'x'.code:
 					var hex = value.substr(i + 1, 2);
-					final s = escapeHex(hex);
-					value = value.substr(0, i - 1) + s + value.substr(i + 3);
-					i += s.length - 2;
+					escapeHex(hex);
+					i += 2;
 				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
 					var num = 0;
 					for (j in 0...3) {
@@ -2942,49 +2947,52 @@ private function decodeEscapeSequences(value:String):String {
 						num += numCode * expo;
 					}
 					final hex = StringTools.hex(num, 2);
-					final s = escapeHex(hex);
-					value = value.substr(0, i - 1) + s + value.substr(i + 3);
-					i += s.length - 2;
+					escapeHex(hex);
+					i += 3;
 				case '"'.code:
-					value = value.substr(0, i - 1) + value.substr(i);
+					buff.add('"');
 				case 'a'.code:
-					value = value.substr(0, i) + 'x07' + value.substring(i + 1);
-					i++;
+					buff.add("\\x07");
+					i += 2;
 				case 'b'.code:
-					value = value.substr(0, i) + 'x08' + value.substring(i + 1);
-					i++;
+					buff.add("\\x08");
+					i += 2;
 				case 'e'.code:
-					value = value.substr(0, i) + 'x1B' + value.substring(i + 1);
-					i++;
+					buff.add("\\x1B");
+					i += 2;
 				case 'f'.code:
-					value = value.substr(0, i) + 'x0C' + value.substring(i + 1);
-					i++;
+					buff.add("\\x0C");
+					i += 2;
 				case 'v'.code:
-					value = value.substr(0, i) + 'x0B' + value.substring(i + 1);
-					i++;
+					buff.add("\\x0B");
+					i += 2;
 				case 'u'.code:
 				case 'U'.code:
-					value = value.substr(0, i - 1) + "\\u{" + value.substr(i + 1, 8) + "}" + value.substr(i + 1 + 8);
+					buff.add("\\u{" + value.substr(i + 1, 8) + "}");
 					i += 8;
 				default:
+					buff.add("\\" + String.fromCharCode(code));
 			}
 			backslash = false;
 			i++;
 			continue;
 		}
-		switch value.charCodeAt(i) {
+		final code = value.charCodeAt(i);
+		switch code {
 			case "\\".code:
 				backslash = true;
 			case "$".code:
-				value = value.substr(0, i + 1) + "$" + value.substr(i + 1);
+				buff.add("$$");
 			default:
+				buff.addChar(code);
 		}
 		i++;
 	}
-	if (backslash) {
-		value += "\\";
-	}
-	return value;
+	if (backslash)
+		buff.add("\\");
+	if (buff.length > 1)
+		values.push(buff.toString());
+	return values;
 }
 
 private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool, info:Info) {
@@ -2992,14 +3000,12 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 	var e:Expr = switch kind {
 		case STRING:
 			if (!raw) {
-				value = decodeEscapeSequences(value);
+				makeArrayString(decodeEscapeSequences(value));
 			} else {
-				value = rawEscapeSequences(value);
+				makeString(rawEscapeSequences(value));
 			}
-			makeString(value, raw ? null : SingleQuotes);
 		case CHAR:
-			value = decodeEscapeSequences(value);
-			final const = makeString(value, SingleQuotes);
+			final const = makeArrayString(decodeEscapeSequences(value));
 			ct = TPath({name: "GoRune", pack: []});
 			macro $const.code;
 		case INT:
@@ -4463,6 +4469,21 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 
 private function makeString(str:String, ?kind):Expr {
 	return toExpr(EConst(CString(str, kind)));
+}
+
+private function makeArrayString(values:Array<String>):Expr {
+	final e = toExpr(EArrayDecl([
+		for (value in values) {
+			final code = value.charCodeAt(0);
+			value = value.substr(1);
+			if (code == "0".code) {
+				makeString(value);
+			} else {
+				toExpr(EConst(CInt(value)));
+			}
+		}
+	]));
+	return macro Go.str(cast $e);
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {

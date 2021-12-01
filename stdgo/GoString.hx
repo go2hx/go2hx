@@ -1,16 +1,41 @@
 package stdgo;
 
 import haxe.io.Bytes;
+import haxe.io.Bytes;
 import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes;
 
-@:forward
-@:forward.new
-abstract GoString(String) from String to String {
+abstract GoString(Bytes) from Bytes to Bytes {
 	public var length(get, never):GoInt;
 
 	function get_length():GoInt
-		return toSliceByte().length;
+		return this.length;
+
+	public var code(get, never):Int;
+
+	function get_code():Int
+		return this.length;
+
+	public inline function new(str:String = "") {
+		this = Bytes.ofString(str, UTF8);
+	}
+
+	@:to public function toString():String {
+		var s = this.toString();
+		return s;
+	}
+
+	public function lastIndexOf(str:String, ?startIndex:Int):Int
+		return toString().lastIndexOf(str, startIndex);
+
+	public function indexOf(str:String, ?startIndex:Int):Int
+		return toString().lastIndexOf(str, startIndex);
+
+	public function substr(pos:Int, ?len:Int):GoString
+		return toString().substr(pos, len);
+
+	@:from static function ofString(x:String):GoString
+		return new GoString(x);
 
 	@:from static function ofRune(x:GoRune):GoString {
 		return String.fromCharCode(x.toBasic());
@@ -38,29 +63,25 @@ abstract GoString(String) from String to String {
 
 	@:op([])
 	public function get(index:GoInt):GoByte
-		return toSliceByte()[index];
+		return this.get(index.toBasic());
 
 	@:to public function toSliceByte():Slice<StdGoTypes.GoByte> {
 		var slice = new Slice<StdGoTypes.GoByte>();
-		final bytes = Bytes.ofString(this, UTF8);
-		slice.grow(bytes.length);
-		for (i in 0...bytes.length) {
-			var value = bytes.get(i);
-			if (value == 0)
-				value = 0xFF;
+		slice.grow(length.toBasic());
+		for (i in 0...length.toBasic()) {
+			var value = this.get(i);
 			slice[i] = value;
 		}
 		return slice;
 	}
 
 	@:to public function toSliceRune():Slice<StdGoTypes.GoRune> {
+		final s = toString();
 		return new Slice<StdGoTypes.GoRune>(...[
 			for (i in 0...this.length)
 				try {
-					final code = StringTools.fastCodeAt(this, i);
+					final code = StringTools.fastCodeAt(s, i);
 					switch code {
-						case 0:
-							0xFFFD;
 						default:
 							code;
 					}
@@ -74,20 +95,20 @@ abstract GoString(String) from String to String {
 		return new GoString(String.fromCharCode(value.toBasic()));
 
 	public function toArray():Array<StdGoTypes.GoByte>
-		return [for (code in new StringIterator(this)) code];
+		return [for (code in new StringIterator(toString())) code];
 
 	public function iterator():StringIterator
-		return new StringIterator(this);
+		return new StringIterator(toString());
 
 	public function keyValueIterator()
-		return new StringKeyValueIterator(this);
+		return new StringKeyValueIterator(toString());
 
 	public function __slice__(start:GoInt, end:GoInt = -1):GoString {
 		if (end == -1)
 			end = this.length;
 		final pos = start.toBasic();
 		final len = end.toBasic() - start.toBasic();
-		final str = this.substr(pos, len);
+		final str = substr(pos, len);
 		return str;
 	}
 
@@ -109,7 +130,21 @@ abstract GoString(String) from String to String {
 	@:op(A != B) static function neq(a:GoString, b:GoString):Bool
 		return !eq(a, b);
 
-	@:op(A + B) static function add(a:GoString, b:GoString):GoString;
+	@:op(A + B) static function add(a:GoString, b:GoString):GoString {
+		var bytes = Bytes.alloc(a.length.toBasic() + b.length.toBasic());
+		final len = a.length.toBasic();
+		bytes.blit(0, a, 0, len);
+		bytes.blit(len, b, 0, b.length.toBasic());
+		return bytes;
+	}
+
+	@:op(A + B) static function addString(a:GoString, b:String):GoString {
+		return a + new GoString(b);
+	}
+
+	@:op(A + B) static function addString2(a:String, b:GoString):GoString {
+		return new GoString(a) + b;
+	}
 }
 
 private class StringIterator {

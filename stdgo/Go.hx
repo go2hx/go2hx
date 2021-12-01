@@ -83,26 +83,44 @@ class Go {
 		}
 	}
 
-	public static macro function stringHex(s:Expr) {
-		return switch s.expr {
-			case EConst(CInt(s)):
-				s = s.substr(2);
-				macro {
-					var s = haxe.io.Bytes.ofHex($v{s}).toString();
-					s;
-				};
+	public static macro function str(s:Expr) {
+		switch s.expr {
+			case ECast(e, _):
+				s = e;
 			default:
-				throw "not a CIdent " + new haxe.macro.Printer().printExpr(s);
 		}
-	}
-
-	public static macro function quote(s:Expr) {
-		return switch s.expr {
-			case EConst(CIdent(s)):
-				macro $v{s};
+		switch s.expr {
+			case EArrayDecl(values):
+				final exprs = [
+					for (value in values) {
+						switch value.expr {
+							case EConst(c):
+								switch c {
+									case CInt(v):
+										v = v.substr(2);
+										macro(haxe.io.Bytes.ofHex($v{v}) : GoString);
+									case CString(s, _):
+										macro new GoString($v{s});
+									case CIdent(s):
+										macro $i{s};
+									default:
+										throw "unknown constant inside string lit: " + c;
+								}
+							default:
+								throw "not a constant for string lit: " + value;
+						}
+					}
+				];
+				if (exprs.length == 0)
+					exprs.push(macro "");
+				var e = exprs.shift();
+				for (expr in exprs)
+					e = macro $e + $expr;
+				return e;
 			default:
-				throw "not a CIdent";
+				throw "expr not an array decl: " + s.expr;
 		}
+		return s;
 	}
 
 	public static function string(s:Dynamic):String {
@@ -111,9 +129,9 @@ class Go {
 		}
 		if (!(s is String) && Reflect.isObject(s) && Reflect.hasField(s, "error")) {
 			final str = s.error();
-			if ((str is haxe.io.Bytes)) // GoString is haxe.io.Bytes
-				s = str;
 		}
+		if ((s is haxe.io.Bytes)) // GoString is haxe.io.Bytes
+			s = s.toString();
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
 		} else {

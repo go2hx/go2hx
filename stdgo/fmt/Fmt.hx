@@ -120,7 +120,8 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 				case "0".code: // pad with leading zeros for numbers, padding after the sign
 					next();
 			}
-			if ([for (i in 0...10) '$i'.charCodeAt(0)].indexOf(c) != -1)
+			final nums = [for (i in 0...10) '$i'.charCodeAt(0)];
+			while (nums.indexOf(c) != -1)
 				next();
 			if (args[argIndex] == null) {
 				buf.add("null");

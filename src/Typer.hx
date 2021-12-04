@@ -2918,18 +2918,16 @@ private function rawEscapeSequences(value:String):String {
 	return value;
 }
 
-private function decodeEscapeSequences(value:String):Array<String> {
+private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:String}> {
 	var backslash = false;
 	var i = 0;
-	final values:Array<String> = [];
+	final values:Array<{?s:String, ?code:String}> = [];
 	var buff = new StringBuf();
-	buff.add("0");
 	function escapeHex(value:String) {
-		if (buff.length > 1)
-			values.push(buff.toString());
-		values.push("10x" + value); // 1 at starts denotes an int
+		if (buff.length > 0)
+			values.push({s: buff.toString()});
+		values.push({code: value});
 		buff = new StringBuf();
-		buff.add("0");
 	}
 	while (i < value.length) {
 		if (backslash) {
@@ -2967,6 +2965,8 @@ private function decodeEscapeSequences(value:String):Array<String> {
 					buff.add("\\x0B");
 					i += 2;
 				case 'u'.code:
+					buff.add("\\u" + value.substr(i + 1, 4));
+					i += 4;
 				case 'U'.code:
 					buff.add("\\u{" + value.substr(i + 1, 8) + "}");
 					i += 8;
@@ -2990,8 +2990,8 @@ private function decodeEscapeSequences(value:String):Array<String> {
 	}
 	if (backslash)
 		buff.add("\\");
-	if (buff.length > 1)
-		values.push(buff.toString());
+	if (buff.length > 0)
+		values.push({s: buff.toString()});
 	return values;
 }
 
@@ -3000,12 +3000,12 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 	var e:Expr = switch kind {
 		case STRING:
 			if (!raw) {
-				makeArrayString(decodeEscapeSequences(value));
+				makeStringLit(decodeEscapeSequences(value));
 			} else {
 				makeString(rawEscapeSequences(value));
 			}
 		case CHAR:
-			final const = makeArrayString(decodeEscapeSequences(value));
+			final const = makeStringLit(decodeEscapeSequences(value));
 			ct = TPath({name: "GoRune", pack: []});
 			macro $const.code;
 		case INT:
@@ -3374,9 +3374,34 @@ private function exprWillReturn(expr:Expr):Bool {
 	}
 }
 
-private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
-	var x = typeExpr(expr.x, info);
-	var y = typeExpr(expr.y, info);
+function opPrecedence(op:Binop):Int {
+	return switch op {
+		case OpMult, OpDiv, OpMod, OpShr, OpShl, OpAnd:
+			5;
+		case OpAdd, OpSub, OpOr, OpXor:
+			4;
+		case OpEq, OpNotEq, OpGt, OpGte, OpLt, OpLte:
+			3;
+		case OpBoolAnd:
+			2;
+		case OpBoolOr:
+			1;
+		default:
+			throw "unknown operator";
+	}
+}
+
+private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true):ExprDef {
+	var x = if (expr.x.id == "BinaryExpr") {
+		toExpr(typeBinaryExpr(expr.x, info, false));
+	} else {
+		typeExpr(expr.x, info);
+	}
+	var y = if (expr.y.id == "BinaryExpr") {
+		toExpr(typeBinaryExpr(expr.y, info, false));
+	} else {
+		typeExpr(expr.y, info);
+	}
 
 	var typeX = typeof(expr.x);
 	var typeY = typeof(expr.y);
@@ -3385,58 +3410,73 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info):ExprDef {
 		case AND_NOT: // &^ refrenced from Tardisgo
 			// macro($x) & (($y) ^ (-1 : GoUnTypedInt)))
 			return typeBinaryExpr({
-				x: {
+				x: expr.x,
+				y: {
 					id: "ParenExpr",
 					x: {
 						id: "BinaryExpr",
-						x: expr.x,
-						y: expr.y,
-						op: Ast.Token.AND,
+						x: expr.y,
+						y: {
+							id: "BasicLit",
+							value: "-1",
+							kind: Ast.Token.INT,
+							type: {
+								id: "Basic",
+								kind: BasicKind.untyped_int_kind.getIndex()
+							}
+						},
+						op: Ast.Token.XOR,
 						type: expr.type,
 						opPos: 0,
-					}
+					},
 				},
-				y: {
-					id: "BasicLit",
-					value: "-1",
-					kind: Ast.Token.INT,
-					type: {id: "Basic", kind: BasicKind.untyped_int_kind.getIndex()}
-				},
-				op: Ast.Token.XOR,
+				op: Ast.Token.AND,
 				type: expr.type,
 				opPos: 0,
-			}, info);
+			}, info, false);
 		default:
 	}
 	var op = typeOp(expr.op);
 	y = toGoType(y);
 	x = toGoType(x);
-	switch op {
-		case OpEq, OpNotEq:
-			return translateEquals(x, y, typeX, typeY, op, info).expr;
-		default:
-	}
-	var paren = false;
-	switch op {
-		case OpShl, OpShr:
-			paren = true;
-
-		default:
-	}
 	if (isInvalid(typeX) || isInterface(typeX)) {
 		x = macro Go.toInterface($x);
 		y = macro Go.toInterface($y);
 	}
-
 	if (isNamed(typeX))
 		x = macro $x.__t__;
 	if (isNamed(typeY))
 		y = macro $y.__t__;
 	var e = toExpr(EBinop(op, x, y));
 	e = assignTranslate(getUnderlying(typeX), typeof(expr.type), e, info);
-	if (paren)
-		e = toExpr(EParenthesis(e)); // proper math ordering
+	if (walk)
+		e = walkBinary(e);
 	return e.expr;
+}
+
+// (A op2 B) op C
+function walkBinary(e:Expr):Expr {
+	switch e.expr {
+		case EBinop(op, e1, c): // (A op2 B) op C
+			final p = opPrecedence(op);
+			e1 = walkBinary(e1);
+			c = walkBinary(c);
+			switch e1.expr {
+				case EBinop(op2, a, b):
+					final p2 = opPrecedence(op2);
+					if (p2 >= p) e1 = macro(${e1});
+				default:
+			}
+			switch c.expr {
+				case EBinop(op2, a, b):
+					final p2 = opPrecedence(op2);
+					if (p2 >= p) c = macro(${c});
+				default:
+			}
+			e = toExpr(EBinop(op, e1, c));
+		default:
+	}
+	return e;
 }
 
 private function typeUnOp(token:Ast.Token):Unop {
@@ -4471,19 +4511,25 @@ private function makeString(str:String, ?kind):Expr {
 	return toExpr(EConst(CString(str, kind)));
 }
 
-private function makeArrayString(values:Array<String>):Expr {
-	final e = toExpr(EArrayDecl([
-		for (value in values) {
-			final code = value.charCodeAt(0);
-			value = value.substr(1);
-			if (code == "0".code) {
-				makeString(value);
-			} else {
-				toExpr(EConst(CInt(value)));
-			}
+private function makeStringLit(values:Array<{?s:String, ?code:String}>):Expr {
+	var e:Expr = macro "";
+	var init:Bool = true;
+	for (value in values) {
+		var expr = if (value.s != null) {
+			makeString(value.s);
+		} else {
+			final code = makeString(value.code);
+			macro haxe.io.Bytes.ofHex($code);
 		}
-	]));
-	return macro Go.str(cast $e);
+		expr = macro($expr : GoString);
+		if (init) {
+			e = expr;
+			init = false;
+		} else {
+			e = macro $e + $expr;
+		}
+	}
+	return e;
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
@@ -4495,6 +4541,12 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
+			final names = [for (field in fields) field.name];
+			final exprs:Array<Expr> = [
+				for (name in names)
+					macro if ($i{name} != null)
+						this.$name = $i{name}
+			];
 			fields.push({
 				name: "new",
 				pos: null,
@@ -4511,7 +4563,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 								}
 							}
 					],
-					expr: macro stdgo.internal.Macro.initLocals(),
+					expr: macro $b{exprs},
 				}),
 			});
 			var toStringExpr:Expr = null;

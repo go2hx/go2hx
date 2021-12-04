@@ -83,46 +83,6 @@ class Go {
 		}
 	}
 
-	public static macro function str(s:Expr) {
-		switch s.expr {
-			case ECast(e, _):
-				s = e;
-			default:
-		}
-		switch s.expr {
-			case EArrayDecl(values):
-				final exprs = [
-					for (value in values) {
-						switch value.expr {
-							case EConst(c):
-								switch c {
-									case CInt(v):
-										v = v.substr(2);
-										macro(haxe.io.Bytes.ofHex($v{v}) : GoString);
-									case CString(s, _):
-										macro new GoString($v{s});
-									case CIdent(s):
-										macro $i{s};
-									default:
-										throw "unknown constant inside string lit: " + c;
-								}
-							default:
-								throw "not a constant for string lit: " + value;
-						}
-					}
-				];
-				if (exprs.length == 0)
-					exprs.push(macro "");
-				var e = exprs.shift();
-				for (expr in exprs)
-					e = macro $e + $expr;
-				return e;
-			default:
-				throw "expr not an array decl: " + s.expr;
-		}
-		return s;
-	}
-
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;

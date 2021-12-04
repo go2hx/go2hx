@@ -8,10 +8,10 @@ import stdgo.StdGoTypes;
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
 
-	public inline function iterator()
+	public function iterator()
 		return this.iterator();
 
-	public inline function keyValueIterator()
+	public function keyValueIterator()
 		return this.keyValueIterator();
 
 	@:from
@@ -104,7 +104,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			high = length.toBasic();
 		var length = high - low;
 		var obj = new Slice<T>();
-		obj.setUnderlying(this.underlying(), pos.toBasic(), length.toBasic());
+		obj.setUnderlying(this.underlying(), this.pos + pos.toBasic(), length.toBasic());
 		return obj;
 	}
 
@@ -159,11 +159,11 @@ private class SliceKeyValueIterator<T> {
 		this.slice = slice.copy();
 	}
 
-	public inline function hasNext() {
+	public function hasNext() {
 		return pos < slice.length;
 	}
 
-	public inline function next() {
+	public function next() {
 		return {key: (pos : GoInt), value: slice.get(pos++)};
 	}
 }
@@ -176,11 +176,11 @@ private class SliceIterator<T> {
 		this.slice = slice.copy();
 	}
 
-	public inline function hasNext() {
+	public function hasNext() {
 		return pos < slice.length;
 	}
 
-	public inline function next() {
+	public function next() {
 		return slice.get(pos++);
 	}
 }
@@ -202,8 +202,7 @@ private class SliceData<T> {
 	private function boundsCheck(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
 		if (i < 0 || i >= length) {
-			trace(this.length, this);
-			throw 'array out of bounds, index: $i length: $length';
+			throw 'slice out of bounds, index: $i length: $length';
 		}
 		#end
 	}

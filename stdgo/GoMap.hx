@@ -60,11 +60,11 @@ abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
 		return this.cap == -1 ? length : this.cap;
 	}
 
-	public inline function iterator() {
+	public function iterator() {
 		return this.iterator();
 	}
 
-	public inline function keyValueIterator() {
+	public function keyValueIterator() {
 		return this.keyValueIterator();
 	}
 
@@ -137,17 +137,17 @@ private class MapData<K, V> {
 		return defaultValue();
 	}
 
-	public inline function defaultValue():V {
+	public function defaultValue():V {
 		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
 			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
 			default: @:privateAccess throw "unknown default map type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
 		}
 	}
 
-	public inline function iterator()
+	public function iterator()
 		return new MapIterator(array);
 
-	public inline function keyValueIterator()
+	public function keyValueIterator()
 		return new MapKeyValueIterator(array);
 
 	public function set(key:K, value:V) {

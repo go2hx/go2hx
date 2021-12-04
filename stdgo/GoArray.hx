@@ -7,7 +7,7 @@ import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.StdGoTypes;
 
-private class VectorData<T> {
+class VectorData<T> {
 	public var vector:Vector<T>;
 	public var cap:Int = -1;
 
@@ -21,7 +21,7 @@ private class VectorData<T> {
 		vector = new Vector<T>(length);
 	}
 
-	public function toString():GoString
+	public function toString():String
 		return "[" + [for (obj in vector) Go.string(obj)].join(" ") + "]";
 
 	public function get(i:Int):T
@@ -31,7 +31,7 @@ private class VectorData<T> {
 		return vector.set(i, value);
 }
 
-@:generic
+// @:generic
 abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
 
@@ -53,7 +53,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return this.length;
 	}
 
-	public inline function iterator() {
+	public function iterator() {
 		return new VectorIterator(this.vector);
 	}
 
@@ -61,7 +61,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return new VectorKeyValueIterator(this.vector);
 	}
 
-	public inline function new(args:Rest<T>) {
+	public function new(args:Rest<T>) {
 		this = new VectorData<T>(args.length);
 		for (i in 0...args.length) {
 			this.set(i, args[i]);
@@ -76,10 +76,10 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		#end
 	}
 
-	@:op([]) public inline function set(index:GoInt, value:T):T
+	@:op([]) public function set(index:GoInt, value:T):T
 		return this.set(index.toBasic(), value);
 
-	@:op([]) public inline function get(index:GoInt):T {
+	@:op([]) public function get(index:GoInt):T {
 		boundsCheck(index.toBasic());
 		return this.get(index.toBasic());
 	}
@@ -115,7 +115,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	public function copy() {
-		var array = new GoArray<T>();
+		final array = new GoArray<T>();
 		array.setSize(array.length.toBasic());
 		array.setVector(this.vector.copy());
 		return array;

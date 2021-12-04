@@ -201,7 +201,7 @@ function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
 function clampUInt(x:Int):UInt32 // TODO: clamp uint
-	return x < zeroUInt32() ? zeroUInt32() : x;
+	return x < zeroUInt32() ? 2147483647 * 2 + 1 : x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
@@ -1323,29 +1323,26 @@ abstract GoUInt32(UInt) from UInt {
 	static function clamp(x:UInt32):UInt32
 		return clampUInt(x);
 
-	@:op(A > B) private static function gt(a:GoUInt32, b:GoUInt32):Bool;
+	@:op(A > B) private static function gt(a:GoUInt32, b:GoUInt32):Bool
+		return a.toBasic() > b.toBasic();
 
-	@:op(A >= B) private static function gte(a:GoUInt32, b:GoUInt32):Bool;
+	@:op(A >= B) private static function gte(a:GoUInt32, b:GoUInt32):Bool
+		return a.toBasic() >= b.toBasic();
 
-	@:op(A < B) private static function lt(a:GoUInt32, b:GoUInt32):Bool;
+	@:op(A < B) private static function lt(a:GoUInt32, b:GoUInt32):Bool
+		return a.toBasic() < b.toBasic();
 
-	@:op(A <= B) private static function lte(a:GoUInt32, b:GoUInt32):Bool;
+	@:op(A <= B) private static function lte(a:GoUInt32, b:GoUInt32):Bool
+		return a.toBasic() <= b.toBasic();
 
-	@:op(A > B) private static function gtf(a:GoUInt32, b:Float):Bool;
-
-	@:op(A > B) private static function gtf2(a:Float, b:GoUInt32):Bool;
-
-	@:op(A >= B) private static function gtef(a:GoUInt32, b:Float):Bool;
-
-	@:op(A >= B) private static function gtef2(a:Float, b:GoUInt32):Bool;
-
-	@:op(A < B) private static function ltf(a:GoUInt32, b:Float):Bool;
-
-	@:op(A < B) private static function ltf2(a:Float, b:GoUInt32):Bool;
-
-	@:op(A <= B) private static function ltef(a:GoUInt32, b:Float):Bool;
-
-	@:op(A <= B) private static function ltef2(a:Float, b:GoUInt32):Bool;
+	// @:op(A > B) private static function gtf(a:GoUInt32, b:Float):Bool;
+	// @:op(A > B) private static function gtf2(a:Float, b:GoUInt32):Bool;
+	// @:op(A >= B) private static function gtef(a:GoUInt32, b:Float):Bool;
+	// @:op(A >= B) private static function gtef2(a:Float, b:GoUInt32):Bool;
+	// @:op(A < B) private static function ltf(a:GoUInt32, b:Float):Bool;
+	// @:op(A < B) private static function ltf2(a:Float, b:GoUInt32):Bool;
+	// @:op(A <= B) private static function ltef(a:GoUInt32, b:Float):Bool;
+	// @:op(A <= B) private static function ltef2(a:Float, b:GoUInt32):Bool;
 }
 
 abstract GoInt8(Int8) from Int8 from Int {
@@ -2228,7 +2225,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 						return false;
 				}
 				true;
-			case interfaceType(_): a == null && b == null;
+			case interfaceType(_): (a == null && b == null) || a.value == b.value;
 			case arrayType(elem, _):
 				var a:GoArray<Any> = aValue;
 				var b:GoArray<Any> = bValue;

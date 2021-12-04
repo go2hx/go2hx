@@ -1,8 +1,6 @@
 package stdgo;
 
 import haxe.io.Bytes;
-import haxe.io.Bytes;
-import stdgo.StdGoTypes.GoByte;
 import stdgo.StdGoTypes;
 
 abstract GoString(Bytes) from Bytes to Bytes {
@@ -11,18 +9,49 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	function get_length():GoInt
 		return this.length;
 
-	public var code(get, never):Int;
+	public var code(get, never):GoRune;
 
-	function get_code():Int
-		return this.length;
+	function get_code():GoRune {
+		final slice = toSliceRune();
+		if (slice.length == 0)
+			return 0xFFFD;
+		return slice[0];
+	}
 
 	public inline function new(str:String = "") {
 		this = Bytes.ofString(str, UTF8);
 	}
 
+	private function setCode(code:Int):Int {
+		return switch code {
+			case 0xDBFF:
+				0x10FFFF;
+			default:
+				code;
+		}
+	}
+
 	@:to public function toString():String {
-		var s = this.toString();
-		return s;
+		return #if hl removeZeros().toString(); #else this.toString(); #end
+	}
+
+	private function removeZeros():Bytes {
+		final list:Array<Int> = [];
+		for (i in 0...this.length) {
+			final byte = this.get(i);
+			if (byte != 0)
+				list.push(byte);
+		}
+		final bytes = Bytes.alloc(list.length);
+		for (i in 0...list.length)
+			bytes.set(i, list[i]);
+		return bytes;
+	}
+
+	private function copyBytes():Bytes {
+		final bytes = Bytes.alloc(this.length);
+		bytes.blit(0, this, 0, this.length);
+		return bytes;
 	}
 
 	public function lastIndexOf(str:String, ?startIndex:Int):Int
@@ -47,11 +76,14 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:from static function ofInt64(x:GoInt64):GoString
 		return String.fromCharCode(x.toBasic().high);
 
+	@:from static function fromByte(value:GoByte):GoString
+		return String.fromCharCode(value.toBasic());
+
 	@:from static function ofSliceByte(x:Slice<GoByte>):GoString {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
 			bytes.set(i, x[i].toBasic());
-		return bytes.toString();
+		return bytes;
 	}
 
 	@:from static function ofSliceRune(x:Slice<GoRune>):GoString {
@@ -65,8 +97,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	public function get(index:GoInt):GoByte
 		return this.get(index.toBasic());
 
-	@:to public function toSliceByte():Slice<StdGoTypes.GoByte> {
-		var slice = new Slice<StdGoTypes.GoByte>();
+	@:to public function toSliceByte():Slice<GoByte> {
+		var slice = new Slice<GoByte>();
 		slice.grow(length.toBasic());
 		for (i in 0...length.toBasic()) {
 			var value = this.get(i);
@@ -75,41 +107,42 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return slice;
 	}
 
-	@:to public function toSliceRune():Slice<StdGoTypes.GoRune> {
-		final s = toString();
-		return new Slice<StdGoTypes.GoRune>(...[
-			for (i in 0...this.length)
-				try {
-					final code = StringTools.fastCodeAt(s, i);
-					switch code {
-						default:
-							code;
-					}
-				} catch (_) {
-					0xFFFD;
-				}
-		]);
+	@:to public function toSliceRune():Slice<GoRune> {
+		var bytes = toSliceByte();
+		var runes = new Slice<GoRune>();
+		while (bytes.length > 0) {
+			final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+			final rune = tmp._0;
+			final size = tmp._1;
+			bytes = bytes.__slice__(size);
+			runes = runes.__append__(rune);
+		}
+		return runes;
 	}
 
-	@:from static function fromByte(value:GoByte):GoString
-		return new GoString(String.fromCharCode(value.toBasic()));
+	public function toArray():Array<GoByte>
+		return [for (code in toSliceByte()) code];
 
-	public function toArray():Array<StdGoTypes.GoByte>
-		return [for (code in new StringIterator(toString())) code];
-
-	public function iterator():StringIterator
-		return new StringIterator(toString());
+	public function iterator()
+		return new GoStringIterator(this);
 
 	public function keyValueIterator()
-		return new StringKeyValueIterator(toString());
+		return new GoStringKeyValueIterator(this);
 
 	public function __slice__(start:GoInt, end:GoInt = -1):GoString {
 		if (end == -1)
 			end = this.length;
 		final pos = start.toBasic();
 		final len = end.toBasic() - start.toBasic();
-		final str = substr(pos, len);
-		return str;
+		final bytes = Bytes.alloc(len);
+		try {
+			bytes.blit(0, this, pos, len);
+		} catch (e) {
+			trace(bytes.length, this.length, pos);
+			trace(start, end);
+			throw e;
+		}
+		return bytes;
 	}
 
 	@:op(A < B) static function lt(a:GoString, b:GoString):Bool
@@ -124,8 +157,15 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:op(A >= B) static function gte(a:GoString, b:GoString):Bool
 		return a.toString() >= b.toString();
 
-	@:op(A == B) static function eq(a:GoString, b:GoString):Bool
-		return a.toString() == b.toString();
+	@:op(A == B) static function eq(a:GoString, b:GoString):Bool {
+		if (a.length != b.length)
+			return false;
+		for (i in 0...a.length.toBasic()) {
+			if (a[i] != b[i])
+				return false;
+		}
+		return true;
+	}
 
 	@:op(A != B) static function neq(a:GoString, b:GoString):Bool
 		return !eq(a, b);
@@ -147,36 +187,45 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	}
 }
 
-private class StringIterator {
+private class GoStringIterator {
 	var offset:Int = 0;
-	var s:String;
+	var bytes:Slice<GoByte> = null;
 
-	public inline function new(s:String) {
-		this.s = s;
+	public inline function new(s:GoString) {
+		bytes = s;
 	}
 
-	public inline function hasNext() {
-		return offset < s.length;
-	}
+	public function hasNext()
+		return bytes.length > 0;
 
-	public inline function next():GoByte {
-		return StringTools.unsafeCodeAt(s, offset++);
+	public function next():GoInt {
+		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+		final rune = tmp._0;
+		final size = tmp._1;
+		bytes = bytes.__slice__(size);
+		return offset += size.toBasic();
 	}
 }
 
-private class StringKeyValueIterator {
+private class GoStringKeyValueIterator {
 	var offset:Int = 0;
-	var s:String;
+	var bytes:Slice<GoByte> = null;
 
-	public inline function new(s:String) {
-		this.s = s;
+	public inline function new(s:GoString) {
+		bytes = s;
 	}
 
-	public inline function hasNext() {
-		return offset < s.length;
-	}
+	public function hasNext()
+		return bytes.length > 0;
 
-	public inline function next() {
-		return {key: (offset : GoInt), value: StringTools.fastCodeAt(s, offset++)};
+	public function next() {
+		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+		final rune = tmp._0;
+		final size = tmp._1;
+		bytes = bytes.__slice__(size);
+		final key = offset;
+		final value = rune;
+		offset += size.toBasic();
+		return {key: key, value: value};
 	}
 }

@@ -1,20 +1,24 @@
 package stdgo.unicode;
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 @:structInit class RangeTable {
     public var r16 : Slice<Range16> = new Slice<Range16>().nil();
     public var r32 : Slice<Range32> = new Slice<Range32>().nil();
     public var latinOffset : GoInt = ((0 : GoInt));
-    public function new(?r16:Slice<Range16>, ?r32:Slice<Range32>, ?latinOffset:GoInt) stdgo.internal.Macro.initLocals();
+    public function new(?r16:Slice<Range16>, ?r32:Slice<Range32>, ?latinOffset:GoInt) {
+        if (r16 != null) this.r16 = r16;
+        if (r32 != null) this.r32 = r32;
+        if (latinOffset != null) this.latinOffset = latinOffset;
+    }
     public function toString() {
-        return '{' + Go.string(r16) + " " + Go.string(r32) + " " + Go.string(latinOffset) + "}";
+        return "{" + Go.string(r16) + " " + Go.string(r32) + " " + Go.string(latinOffset) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -31,9 +35,13 @@ import stdgo.Chan;
     public var lo : GoUInt16 = ((0 : GoUInt16));
     public var hi : GoUInt16 = ((0 : GoUInt16));
     public var stride : GoUInt16 = ((0 : GoUInt16));
-    public function new(?lo:GoUInt16, ?hi:GoUInt16, ?stride:GoUInt16) stdgo.internal.Macro.initLocals();
+    public function new(?lo:GoUInt16, ?hi:GoUInt16, ?stride:GoUInt16) {
+        if (lo != null) this.lo = lo;
+        if (hi != null) this.hi = hi;
+        if (stride != null) this.stride = stride;
+    }
     public function toString() {
-        return '{' + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(stride) + "}";
+        return "{" + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(stride) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -50,9 +58,13 @@ import stdgo.Chan;
     public var lo : GoUInt32 = ((0 : GoUInt32));
     public var hi : GoUInt32 = ((0 : GoUInt32));
     public var stride : GoUInt32 = ((0 : GoUInt32));
-    public function new(?lo:GoUInt32, ?hi:GoUInt32, ?stride:GoUInt32) stdgo.internal.Macro.initLocals();
+    public function new(?lo:GoUInt32, ?hi:GoUInt32, ?stride:GoUInt32) {
+        if (lo != null) this.lo = lo;
+        if (hi != null) this.hi = hi;
+        if (stride != null) this.stride = stride;
+    }
     public function toString() {
-        return '{' + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(stride) + "}";
+        return "{" + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(stride) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -69,9 +81,13 @@ import stdgo.Chan;
     public var lo : GoUInt32 = ((0 : GoUInt32));
     public var hi : GoUInt32 = ((0 : GoUInt32));
     public var delta : T_d = new T_d();
-    public function new(?lo:GoUInt32, ?hi:GoUInt32, ?delta:T_d) stdgo.internal.Macro.initLocals();
+    public function new(?lo:GoUInt32, ?hi:GoUInt32, ?delta:T_d) {
+        if (lo != null) this.lo = lo;
+        if (hi != null) this.hi = hi;
+        if (delta != null) this.delta = delta;
+    }
     public function toString() {
-        return '{' + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(delta) + "}";
+        return "{" + Go.string(lo) + " " + Go.string(hi) + " " + Go.string(delta) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -88,7 +104,7 @@ import stdgo.Chan;
     public function toLower(_r:GoRune):GoRune {
         var _special = this.__copy__();
         var __tmp__ = _to(lowerCase, _r, _special.__t__), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if (_r1 == _r && !_hadMapping) {
+        if ((_r1 == _r) && !_hadMapping) {
             _r1 = Unicode.toLower(_r);
         };
         return _r1;
@@ -96,7 +112,7 @@ import stdgo.Chan;
     public function toTitle(_r:GoRune):GoRune {
         var _special = this.__copy__();
         var __tmp__ = _to(titleCase, _r, _special.__t__), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if (_r1 == _r && !_hadMapping) {
+        if ((_r1 == _r) && !_hadMapping) {
             _r1 = Unicode.toTitle(_r);
         };
         return _r1;
@@ -104,7 +120,7 @@ import stdgo.Chan;
     public function toUpper(_r:GoRune):GoRune {
         var _special = this.__copy__();
         var __tmp__ = _to(upperCase, _r, _special.__t__), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if (_r1 == _r && !_hadMapping) {
+        if ((_r1 == _r) && !_hadMapping) {
             _r1 = Unicode.toUpper(_r);
         };
         return _r1;
@@ -134,9 +150,12 @@ import stdgo.Chan;
 @:structInit class T_foldPair {
     public var from : GoUInt16 = ((0 : GoUInt16));
     public var to : GoUInt16 = ((0 : GoUInt16));
-    public function new(?from:GoUInt16, ?to:GoUInt16) stdgo.internal.Macro.initLocals();
+    public function new(?from:GoUInt16, ?to:GoUInt16) {
+        if (from != null) this.from = from;
+        if (to != null) this.to = to;
+    }
     public function toString() {
-        return '{' + Go.string(from) + " " + Go.string(to) + "}";
+        return "{" + Go.string(from) + " " + Go.string(to) + "}";
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -2213,7 +2232,7 @@ new Range16(((3294 : GoUInt16)), ((3296 : GoUInt16)), ((2 : GoUInt16))).__copy__
 new Range16(((3297 : GoUInt16)), ((3299 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
 new Range16(((3302 : GoUInt16)), ((3311 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
 new Range16(((3313 : GoUInt16)), ((3314 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
-final version : GoString = "13.0.0";
+final version : GoString = (("13.0.0" : GoString));
 var __Bidi_Control : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((1564 : GoUInt16)), ((8206 : GoUInt16)), ((6642 : GoUInt16))).__copy__(), new Range16(((8207 : GoUInt16)), ((8234 : GoUInt16)), ((27 : GoUInt16))).__copy__(), new Range16(((8235 : GoUInt16)), ((8238 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((8294 : GoUInt16)), ((8297 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
 var __Wancho : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((123584 : GoUInt32)), ((123641 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((123647 : GoUInt32)), ((123647 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var wancho : Pointer<RangeTable> = __Wancho;
@@ -3700,43 +3719,43 @@ var zp : Pointer<RangeTable> = __Zp;
 var __Zs : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((32 : GoUInt16)), ((160 : GoUInt16)), ((128 : GoUInt16))).__copy__(), new Range16(((5760 : GoUInt16)), ((8192 : GoUInt16)), ((2432 : GoUInt16))).__copy__(), new Range16(((8193 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))).__copy__(), new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))).__copy__()), latinOffset : ((1 : GoInt)), r32 : new Slice<Range32>().nil() } : RangeTable)));
 var zs : Pointer<RangeTable> = __Zs;
 var categories : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(
-new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
-{ key : "C", value : c },
-{ key : "Cc", value : cc },
-{ key : "Cf", value : cf },
-{ key : "Co", value : co },
-{ key : "Cs", value : cs },
-{ key : "L", value : l },
-{ key : "Ll", value : ll },
-{ key : "Lm", value : lm },
-{ key : "Lo", value : lo },
-{ key : "Lt", value : lt },
-{ key : "Lu", value : lu },
-{ key : "M", value : m },
-{ key : "Mc", value : mc },
-{ key : "Me", value : me },
-{ key : "Mn", value : mn },
-{ key : "N", value : n },
-{ key : "Nd", value : nd },
-{ key : "Nl", value : nl },
-{ key : "No", value : no },
-{ key : "P", value : p },
-{ key : "Pc", value : pc },
-{ key : "Pd", value : pd },
-{ key : "Pe", value : pe },
-{ key : "Pf", value : pf },
-{ key : "Pi", value : pi },
-{ key : "Po", value : po },
-{ key : "Ps", value : ps },
-{ key : "S", value : s },
-{ key : "Sc", value : sc },
-{ key : "Sk", value : sk },
-{ key : "Sm", value : sm },
-{ key : "So", value : so },
-{ key : "Z", value : z },
-{ key : "Zl", value : zl },
-{ key : "Zp", value : zp },
-{ key : "Zs", value : zs });
+new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
+{ key : (("C" : GoString)), value : c },
+{ key : (("Cc" : GoString)), value : cc },
+{ key : (("Cf" : GoString)), value : cf },
+{ key : (("Co" : GoString)), value : co },
+{ key : (("Cs" : GoString)), value : cs },
+{ key : (("L" : GoString)), value : l },
+{ key : (("Ll" : GoString)), value : ll },
+{ key : (("Lm" : GoString)), value : lm },
+{ key : (("Lo" : GoString)), value : lo },
+{ key : (("Lt" : GoString)), value : lt },
+{ key : (("Lu" : GoString)), value : lu },
+{ key : (("M" : GoString)), value : m },
+{ key : (("Mc" : GoString)), value : mc },
+{ key : (("Me" : GoString)), value : me },
+{ key : (("Mn" : GoString)), value : mn },
+{ key : (("N" : GoString)), value : n },
+{ key : (("Nd" : GoString)), value : nd },
+{ key : (("Nl" : GoString)), value : nl },
+{ key : (("No" : GoString)), value : no },
+{ key : (("P" : GoString)), value : p },
+{ key : (("Pc" : GoString)), value : pc },
+{ key : (("Pd" : GoString)), value : pd },
+{ key : (("Pe" : GoString)), value : pe },
+{ key : (("Pf" : GoString)), value : pf },
+{ key : (("Pi" : GoString)), value : pi },
+{ key : (("Po" : GoString)), value : po },
+{ key : (("Ps" : GoString)), value : ps },
+{ key : (("S" : GoString)), value : s },
+{ key : (("Sc" : GoString)), value : sc },
+{ key : (("Sk" : GoString)), value : sk },
+{ key : (("Sm" : GoString)), value : sm },
+{ key : (("So" : GoString)), value : so },
+{ key : (("Z" : GoString)), value : z },
+{ key : (("Zl" : GoString)), value : zl },
+{ key : (("Zp" : GoString)), value : zp },
+{ key : (("Zs" : GoString)), value : zs });
 var __Soyombo : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((72272 : GoUInt32)), ((72354 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var soyombo : Pointer<RangeTable> = __Soyombo;
 var __Tibetan : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((3840 : GoUInt16)), ((3911 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((3913 : GoUInt16)), ((3948 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((3953 : GoUInt16)), ((3991 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((3993 : GoUInt16)), ((4028 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((4030 : GoUInt16)), ((4044 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((4046 : GoUInt16)), ((4052 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((4057 : GoUInt16)), ((4058 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
@@ -3753,7 +3772,7 @@ var elymaic : Pointer<RangeTable> = __Elymaic;
 var __ASCII_Hex_Digit : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))).__copy__()), latinOffset : ((3 : GoInt)), r32 : new Slice<Range32>().nil() } : RangeTable)));
 var ascii_Hex_Digit : Pointer<RangeTable> = __ASCII_Hex_Digit;
 var meroitic_Hieroglyphs : Pointer<RangeTable> = __Meroitic_Hieroglyphs;
-final maxASCII : GoInt32 = (("\u{007F}".code : GoRune));
+final maxASCII : GoInt32 = (((("\u007F" : GoString)).code : GoRune));
 var _foldInherited : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))).__copy__(), new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
 var __Glagolitic : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((11264 : GoUInt16)), ((11310 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((11312 : GoUInt16)), ((11358 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>(new Range32(((122880 : GoUInt32)), ((122886 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((122888 : GoUInt32)), ((122904 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((122907 : GoUInt32)), ((122913 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((122915 : GoUInt32)), ((122916 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((122918 : GoUInt32)), ((122922 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var glagolitic : Pointer<RangeTable> = __Glagolitic;
@@ -3763,7 +3782,7 @@ var __IDS_Trinary_Operator : Pointer<RangeTable> = Go.pointer((({ r16 : new Slic
 var __Manichaean : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((68288 : GoUInt32)), ((68326 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((68331 : GoUInt32)), ((68342 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var manichaean : Pointer<RangeTable> = __Manichaean;
 var __Nyiakeng_Puachue_Hmong : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((123136 : GoUInt32)), ((123180 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((123184 : GoUInt32)), ((123197 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((123200 : GoUInt32)), ((123209 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((123214 : GoUInt32)), ((123215 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
-final maxRune : GoInt32 = (("\u{0010FFFF}".code : GoRune));
+final maxRune : GoInt32 = (((("\u{0010FFFF}" : GoString)).code : GoRune));
 var __Pahawh_Hmong : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((92928 : GoUInt32)), ((92997 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((93008 : GoUInt32)), ((93017 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((93019 : GoUInt32)), ((93025 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((93027 : GoUInt32)), ((93047 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((93053 : GoUInt32)), ((93071 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var pahawh_Hmong : Pointer<RangeTable> = __Pahawh_Hmong;
 var bassa_Vah : Pointer<RangeTable> = __Bassa_Vah;
@@ -4181,7 +4200,7 @@ new Range16(((42954 : GoUInt16)), ((42998 : GoUInt16)), ((44 : GoUInt16))).__cop
 new Range16(((43859 : GoUInt16)), ((43888 : GoUInt16)), ((29 : GoUInt16))).__copy__(),
 new Range16(((43889 : GoUInt16)), ((43967 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
 new Range16(((65345 : GoUInt16)), ((65370 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>(new Range32(((66600 : GoUInt32)), ((66639 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((66776 : GoUInt32)), ((66811 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((68800 : GoUInt32)), ((68850 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((71872 : GoUInt32)), ((71903 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((93792 : GoUInt32)), ((93823 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((125218 : GoUInt32)), ((125251 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : ((4 : GoInt)) } : RangeTable)));
-var foldCategory : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))), { key : "L", value : _foldL }, { key : "Ll", value : _foldLl }, { key : "Lt", value : _foldLt }, { key : "Lu", value : _foldLu }, { key : "M", value : _foldM }, { key : "Mn", value : _foldMn });
+var foldCategory : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))), { key : (("L" : GoString)), value : _foldL }, { key : (("Ll" : GoString)), value : _foldLl }, { key : (("Lt" : GoString)), value : _foldLt }, { key : (("Lu" : GoString)), value : _foldLu }, { key : (("M" : GoString)), value : _foldM }, { key : (("Mn" : GoString)), value : _foldMn });
 var __Telugu : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(
 new Range16(((3072 : GoUInt16)), ((3084 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
 new Range16(((3086 : GoUInt16)), ((3088 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
@@ -4200,7 +4219,7 @@ var __Old_Sogdian : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16
 var old_Sogdian : Pointer<RangeTable> = __Old_Sogdian;
 var __Linear_A : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((67072 : GoUInt32)), ((67382 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((67392 : GoUInt32)), ((67413 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((67424 : GoUInt32)), ((67431 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var linear_A : Pointer<RangeTable> = __Linear_A;
-final _pC : GoUnTypedInt = (((1 : GoUnTypedInt)) << (0 : GoUnTypedInt));
+final _pC : GoUnTypedInt = ((1 : GoUnTypedInt)) << (0 : GoUnTypedInt);
 var __Linear_B : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((65536 : GoUInt32)), ((65547 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65549 : GoUInt32)), ((65574 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65576 : GoUInt32)), ((65594 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65596 : GoUInt32)), ((65597 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65599 : GoUInt32)), ((65613 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65616 : GoUInt32)), ((65629 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((65664 : GoUInt32)), ((65786 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var linear_B : Pointer<RangeTable> = __Linear_B;
 var __Buhid : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((5952 : GoUInt16)), ((5971 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
@@ -4308,10 +4327,10 @@ var batak : Pointer<RangeTable> = __Batak;
 var __Tirhuta : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((70784 : GoUInt32)), ((70855 : GoUInt32)), ((1 : GoUInt32))).__copy__(), new Range32(((70864 : GoUInt32)), ((70873 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var __Lycian : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((66176 : GoUInt32)), ((66204 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var lycian : Pointer<RangeTable> = __Lycian;
-final _pN = (((1 : GoUnTypedInt)) << (2 : GoUnTypedInt));
-final _pP = (((1 : GoUnTypedInt)) << (1 : GoUnTypedInt));
+final _pN = ((1 : GoUnTypedInt)) << (2 : GoUnTypedInt);
+final _pP = ((1 : GoUnTypedInt)) << (1 : GoUnTypedInt);
 var __Old_Turkic : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(), r32 : new Slice<Range32>(new Range32(((68608 : GoUInt32)), ((68680 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
-final _pS = (((1 : GoUnTypedInt)) << (3 : GoUnTypedInt));
+final _pS = ((1 : GoUnTypedInt)) << (3 : GoUnTypedInt);
 var __Oriya : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(
 new Range16(((2817 : GoUInt16)), ((2819 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
 new Range16(((2821 : GoUInt16)), ((2828 : GoUInt16)), ((1 : GoUInt16))).__copy__(),
@@ -4843,167 +4862,167 @@ var tirhuta : Pointer<RangeTable> = __Tirhuta;
 var vai : Pointer<RangeTable> = __Vai;
 var yi : Pointer<RangeTable> = __Yi;
 var scripts : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(
-new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
-{ key : "Adlam", value : adlam },
-{ key : "Ahom", value : ahom },
-{ key : "Anatolian_Hieroglyphs", value : anatolian_Hieroglyphs },
-{ key : "Arabic", value : arabic },
-{ key : "Armenian", value : armenian },
-{ key : "Avestan", value : avestan },
-{ key : "Balinese", value : balinese },
-{ key : "Bamum", value : bamum },
-{ key : "Bassa_Vah", value : bassa_Vah },
-{ key : "Batak", value : batak },
-{ key : "Bengali", value : bengali },
-{ key : "Bhaiksuki", value : bhaiksuki },
-{ key : "Bopomofo", value : bopomofo },
-{ key : "Brahmi", value : brahmi },
-{ key : "Braille", value : braille },
-{ key : "Buginese", value : buginese },
-{ key : "Buhid", value : buhid },
-{ key : "Canadian_Aboriginal", value : canadian_Aboriginal },
-{ key : "Carian", value : carian },
-{ key : "Caucasian_Albanian", value : caucasian_Albanian },
-{ key : "Chakma", value : chakma },
-{ key : "Cham", value : cham },
-{ key : "Cherokee", value : cherokee },
-{ key : "Chorasmian", value : chorasmian },
-{ key : "Common", value : common },
-{ key : "Coptic", value : coptic },
-{ key : "Cuneiform", value : cuneiform },
-{ key : "Cypriot", value : cypriot },
-{ key : "Cyrillic", value : cyrillic },
-{ key : "Deseret", value : deseret },
-{ key : "Devanagari", value : devanagari },
-{ key : "Dives_Akuru", value : dives_Akuru },
-{ key : "Dogra", value : dogra },
-{ key : "Duployan", value : duployan },
-{ key : "Egyptian_Hieroglyphs", value : egyptian_Hieroglyphs },
-{ key : "Elbasan", value : elbasan },
-{ key : "Elymaic", value : elymaic },
-{ key : "Ethiopic", value : ethiopic },
-{ key : "Georgian", value : georgian },
-{ key : "Glagolitic", value : glagolitic },
-{ key : "Gothic", value : gothic },
-{ key : "Grantha", value : grantha },
-{ key : "Greek", value : greek },
-{ key : "Gujarati", value : gujarati },
-{ key : "Gunjala_Gondi", value : gunjala_Gondi },
-{ key : "Gurmukhi", value : gurmukhi },
-{ key : "Han", value : han },
-{ key : "Hangul", value : hangul },
-{ key : "Hanifi_Rohingya", value : hanifi_Rohingya },
-{ key : "Hanunoo", value : hanunoo },
-{ key : "Hatran", value : hatran },
-{ key : "Hebrew", value : hebrew },
-{ key : "Hiragana", value : hiragana },
-{ key : "Imperial_Aramaic", value : imperial_Aramaic },
-{ key : "Inherited", value : inherited },
-{ key : "Inscriptional_Pahlavi", value : inscriptional_Pahlavi },
-{ key : "Inscriptional_Parthian", value : inscriptional_Parthian },
-{ key : "Javanese", value : javanese },
-{ key : "Kaithi", value : kaithi },
-{ key : "Kannada", value : kannada },
-{ key : "Katakana", value : katakana },
-{ key : "Kayah_Li", value : kayah_Li },
-{ key : "Kharoshthi", value : kharoshthi },
-{ key : "Khitan_Small_Script", value : khitan_Small_Script },
-{ key : "Khmer", value : khmer },
-{ key : "Khojki", value : khojki },
-{ key : "Khudawadi", value : khudawadi },
-{ key : "Lao", value : lao },
-{ key : "Latin", value : latin },
-{ key : "Lepcha", value : lepcha },
-{ key : "Limbu", value : limbu },
-{ key : "Linear_A", value : linear_A },
-{ key : "Linear_B", value : linear_B },
-{ key : "Lisu", value : lisu },
-{ key : "Lycian", value : lycian },
-{ key : "Lydian", value : lydian },
-{ key : "Mahajani", value : mahajani },
-{ key : "Makasar", value : makasar },
-{ key : "Malayalam", value : malayalam },
-{ key : "Mandaic", value : mandaic },
-{ key : "Manichaean", value : manichaean },
-{ key : "Marchen", value : marchen },
-{ key : "Masaram_Gondi", value : masaram_Gondi },
-{ key : "Medefaidrin", value : medefaidrin },
-{ key : "Meetei_Mayek", value : meetei_Mayek },
-{ key : "Mende_Kikakui", value : mende_Kikakui },
-{ key : "Meroitic_Cursive", value : meroitic_Cursive },
-{ key : "Meroitic_Hieroglyphs", value : meroitic_Hieroglyphs },
-{ key : "Miao", value : miao },
-{ key : "Modi", value : modi },
-{ key : "Mongolian", value : mongolian },
-{ key : "Mro", value : mro },
-{ key : "Multani", value : multani },
-{ key : "Myanmar", value : myanmar },
-{ key : "Nabataean", value : nabataean },
-{ key : "Nandinagari", value : nandinagari },
-{ key : "New_Tai_Lue", value : new_Tai_Lue },
-{ key : "Newa", value : newa },
-{ key : "Nko", value : nko },
-{ key : "Nushu", value : nushu },
-{ key : "Nyiakeng_Puachue_Hmong", value : nyiakeng_Puachue_Hmong },
-{ key : "Ogham", value : ogham },
-{ key : "Ol_Chiki", value : ol_Chiki },
-{ key : "Old_Hungarian", value : old_Hungarian },
-{ key : "Old_Italic", value : old_Italic },
-{ key : "Old_North_Arabian", value : old_North_Arabian },
-{ key : "Old_Permic", value : old_Permic },
-{ key : "Old_Persian", value : old_Persian },
-{ key : "Old_Sogdian", value : old_Sogdian },
-{ key : "Old_South_Arabian", value : old_South_Arabian },
-{ key : "Old_Turkic", value : old_Turkic },
-{ key : "Oriya", value : oriya },
-{ key : "Osage", value : osage },
-{ key : "Osmanya", value : osmanya },
-{ key : "Pahawh_Hmong", value : pahawh_Hmong },
-{ key : "Palmyrene", value : palmyrene },
-{ key : "Pau_Cin_Hau", value : pau_Cin_Hau },
-{ key : "Phags_Pa", value : phags_Pa },
-{ key : "Phoenician", value : phoenician },
-{ key : "Psalter_Pahlavi", value : psalter_Pahlavi },
-{ key : "Rejang", value : rejang },
-{ key : "Runic", value : runic },
-{ key : "Samaritan", value : samaritan },
-{ key : "Saurashtra", value : saurashtra },
-{ key : "Sharada", value : sharada },
-{ key : "Shavian", value : shavian },
-{ key : "Siddham", value : siddham },
-{ key : "SignWriting", value : signWriting },
-{ key : "Sinhala", value : sinhala },
-{ key : "Sogdian", value : sogdian },
-{ key : "Sora_Sompeng", value : sora_Sompeng },
-{ key : "Soyombo", value : soyombo },
-{ key : "Sundanese", value : sundanese },
-{ key : "Syloti_Nagri", value : syloti_Nagri },
-{ key : "Syriac", value : syriac },
-{ key : "Tagalog", value : tagalog },
-{ key : "Tagbanwa", value : tagbanwa },
-{ key : "Tai_Le", value : tai_Le },
-{ key : "Tai_Tham", value : tai_Tham },
-{ key : "Tai_Viet", value : tai_Viet },
-{ key : "Takri", value : takri },
-{ key : "Tamil", value : tamil },
-{ key : "Tangut", value : tangut },
-{ key : "Telugu", value : telugu },
-{ key : "Thaana", value : thaana },
-{ key : "Thai", value : thai },
-{ key : "Tibetan", value : tibetan },
-{ key : "Tifinagh", value : tifinagh },
-{ key : "Tirhuta", value : tirhuta },
-{ key : "Ugaritic", value : ugaritic },
-{ key : "Vai", value : vai },
-{ key : "Wancho", value : wancho },
-{ key : "Warang_Citi", value : warang_Citi },
-{ key : "Yezidi", value : yezidi },
-{ key : "Yi", value : yi },
-{ key : "Zanabazar_Square", value : zanabazar_Square });
+new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
+{ key : (("Adlam" : GoString)), value : adlam },
+{ key : (("Ahom" : GoString)), value : ahom },
+{ key : (("Anatolian_Hieroglyphs" : GoString)), value : anatolian_Hieroglyphs },
+{ key : (("Arabic" : GoString)), value : arabic },
+{ key : (("Armenian" : GoString)), value : armenian },
+{ key : (("Avestan" : GoString)), value : avestan },
+{ key : (("Balinese" : GoString)), value : balinese },
+{ key : (("Bamum" : GoString)), value : bamum },
+{ key : (("Bassa_Vah" : GoString)), value : bassa_Vah },
+{ key : (("Batak" : GoString)), value : batak },
+{ key : (("Bengali" : GoString)), value : bengali },
+{ key : (("Bhaiksuki" : GoString)), value : bhaiksuki },
+{ key : (("Bopomofo" : GoString)), value : bopomofo },
+{ key : (("Brahmi" : GoString)), value : brahmi },
+{ key : (("Braille" : GoString)), value : braille },
+{ key : (("Buginese" : GoString)), value : buginese },
+{ key : (("Buhid" : GoString)), value : buhid },
+{ key : (("Canadian_Aboriginal" : GoString)), value : canadian_Aboriginal },
+{ key : (("Carian" : GoString)), value : carian },
+{ key : (("Caucasian_Albanian" : GoString)), value : caucasian_Albanian },
+{ key : (("Chakma" : GoString)), value : chakma },
+{ key : (("Cham" : GoString)), value : cham },
+{ key : (("Cherokee" : GoString)), value : cherokee },
+{ key : (("Chorasmian" : GoString)), value : chorasmian },
+{ key : (("Common" : GoString)), value : common },
+{ key : (("Coptic" : GoString)), value : coptic },
+{ key : (("Cuneiform" : GoString)), value : cuneiform },
+{ key : (("Cypriot" : GoString)), value : cypriot },
+{ key : (("Cyrillic" : GoString)), value : cyrillic },
+{ key : (("Deseret" : GoString)), value : deseret },
+{ key : (("Devanagari" : GoString)), value : devanagari },
+{ key : (("Dives_Akuru" : GoString)), value : dives_Akuru },
+{ key : (("Dogra" : GoString)), value : dogra },
+{ key : (("Duployan" : GoString)), value : duployan },
+{ key : (("Egyptian_Hieroglyphs" : GoString)), value : egyptian_Hieroglyphs },
+{ key : (("Elbasan" : GoString)), value : elbasan },
+{ key : (("Elymaic" : GoString)), value : elymaic },
+{ key : (("Ethiopic" : GoString)), value : ethiopic },
+{ key : (("Georgian" : GoString)), value : georgian },
+{ key : (("Glagolitic" : GoString)), value : glagolitic },
+{ key : (("Gothic" : GoString)), value : gothic },
+{ key : (("Grantha" : GoString)), value : grantha },
+{ key : (("Greek" : GoString)), value : greek },
+{ key : (("Gujarati" : GoString)), value : gujarati },
+{ key : (("Gunjala_Gondi" : GoString)), value : gunjala_Gondi },
+{ key : (("Gurmukhi" : GoString)), value : gurmukhi },
+{ key : (("Han" : GoString)), value : han },
+{ key : (("Hangul" : GoString)), value : hangul },
+{ key : (("Hanifi_Rohingya" : GoString)), value : hanifi_Rohingya },
+{ key : (("Hanunoo" : GoString)), value : hanunoo },
+{ key : (("Hatran" : GoString)), value : hatran },
+{ key : (("Hebrew" : GoString)), value : hebrew },
+{ key : (("Hiragana" : GoString)), value : hiragana },
+{ key : (("Imperial_Aramaic" : GoString)), value : imperial_Aramaic },
+{ key : (("Inherited" : GoString)), value : inherited },
+{ key : (("Inscriptional_Pahlavi" : GoString)), value : inscriptional_Pahlavi },
+{ key : (("Inscriptional_Parthian" : GoString)), value : inscriptional_Parthian },
+{ key : (("Javanese" : GoString)), value : javanese },
+{ key : (("Kaithi" : GoString)), value : kaithi },
+{ key : (("Kannada" : GoString)), value : kannada },
+{ key : (("Katakana" : GoString)), value : katakana },
+{ key : (("Kayah_Li" : GoString)), value : kayah_Li },
+{ key : (("Kharoshthi" : GoString)), value : kharoshthi },
+{ key : (("Khitan_Small_Script" : GoString)), value : khitan_Small_Script },
+{ key : (("Khmer" : GoString)), value : khmer },
+{ key : (("Khojki" : GoString)), value : khojki },
+{ key : (("Khudawadi" : GoString)), value : khudawadi },
+{ key : (("Lao" : GoString)), value : lao },
+{ key : (("Latin" : GoString)), value : latin },
+{ key : (("Lepcha" : GoString)), value : lepcha },
+{ key : (("Limbu" : GoString)), value : limbu },
+{ key : (("Linear_A" : GoString)), value : linear_A },
+{ key : (("Linear_B" : GoString)), value : linear_B },
+{ key : (("Lisu" : GoString)), value : lisu },
+{ key : (("Lycian" : GoString)), value : lycian },
+{ key : (("Lydian" : GoString)), value : lydian },
+{ key : (("Mahajani" : GoString)), value : mahajani },
+{ key : (("Makasar" : GoString)), value : makasar },
+{ key : (("Malayalam" : GoString)), value : malayalam },
+{ key : (("Mandaic" : GoString)), value : mandaic },
+{ key : (("Manichaean" : GoString)), value : manichaean },
+{ key : (("Marchen" : GoString)), value : marchen },
+{ key : (("Masaram_Gondi" : GoString)), value : masaram_Gondi },
+{ key : (("Medefaidrin" : GoString)), value : medefaidrin },
+{ key : (("Meetei_Mayek" : GoString)), value : meetei_Mayek },
+{ key : (("Mende_Kikakui" : GoString)), value : mende_Kikakui },
+{ key : (("Meroitic_Cursive" : GoString)), value : meroitic_Cursive },
+{ key : (("Meroitic_Hieroglyphs" : GoString)), value : meroitic_Hieroglyphs },
+{ key : (("Miao" : GoString)), value : miao },
+{ key : (("Modi" : GoString)), value : modi },
+{ key : (("Mongolian" : GoString)), value : mongolian },
+{ key : (("Mro" : GoString)), value : mro },
+{ key : (("Multani" : GoString)), value : multani },
+{ key : (("Myanmar" : GoString)), value : myanmar },
+{ key : (("Nabataean" : GoString)), value : nabataean },
+{ key : (("Nandinagari" : GoString)), value : nandinagari },
+{ key : (("New_Tai_Lue" : GoString)), value : new_Tai_Lue },
+{ key : (("Newa" : GoString)), value : newa },
+{ key : (("Nko" : GoString)), value : nko },
+{ key : (("Nushu" : GoString)), value : nushu },
+{ key : (("Nyiakeng_Puachue_Hmong" : GoString)), value : nyiakeng_Puachue_Hmong },
+{ key : (("Ogham" : GoString)), value : ogham },
+{ key : (("Ol_Chiki" : GoString)), value : ol_Chiki },
+{ key : (("Old_Hungarian" : GoString)), value : old_Hungarian },
+{ key : (("Old_Italic" : GoString)), value : old_Italic },
+{ key : (("Old_North_Arabian" : GoString)), value : old_North_Arabian },
+{ key : (("Old_Permic" : GoString)), value : old_Permic },
+{ key : (("Old_Persian" : GoString)), value : old_Persian },
+{ key : (("Old_Sogdian" : GoString)), value : old_Sogdian },
+{ key : (("Old_South_Arabian" : GoString)), value : old_South_Arabian },
+{ key : (("Old_Turkic" : GoString)), value : old_Turkic },
+{ key : (("Oriya" : GoString)), value : oriya },
+{ key : (("Osage" : GoString)), value : osage },
+{ key : (("Osmanya" : GoString)), value : osmanya },
+{ key : (("Pahawh_Hmong" : GoString)), value : pahawh_Hmong },
+{ key : (("Palmyrene" : GoString)), value : palmyrene },
+{ key : (("Pau_Cin_Hau" : GoString)), value : pau_Cin_Hau },
+{ key : (("Phags_Pa" : GoString)), value : phags_Pa },
+{ key : (("Phoenician" : GoString)), value : phoenician },
+{ key : (("Psalter_Pahlavi" : GoString)), value : psalter_Pahlavi },
+{ key : (("Rejang" : GoString)), value : rejang },
+{ key : (("Runic" : GoString)), value : runic },
+{ key : (("Samaritan" : GoString)), value : samaritan },
+{ key : (("Saurashtra" : GoString)), value : saurashtra },
+{ key : (("Sharada" : GoString)), value : sharada },
+{ key : (("Shavian" : GoString)), value : shavian },
+{ key : (("Siddham" : GoString)), value : siddham },
+{ key : (("SignWriting" : GoString)), value : signWriting },
+{ key : (("Sinhala" : GoString)), value : sinhala },
+{ key : (("Sogdian" : GoString)), value : sogdian },
+{ key : (("Sora_Sompeng" : GoString)), value : sora_Sompeng },
+{ key : (("Soyombo" : GoString)), value : soyombo },
+{ key : (("Sundanese" : GoString)), value : sundanese },
+{ key : (("Syloti_Nagri" : GoString)), value : syloti_Nagri },
+{ key : (("Syriac" : GoString)), value : syriac },
+{ key : (("Tagalog" : GoString)), value : tagalog },
+{ key : (("Tagbanwa" : GoString)), value : tagbanwa },
+{ key : (("Tai_Le" : GoString)), value : tai_Le },
+{ key : (("Tai_Tham" : GoString)), value : tai_Tham },
+{ key : (("Tai_Viet" : GoString)), value : tai_Viet },
+{ key : (("Takri" : GoString)), value : takri },
+{ key : (("Tamil" : GoString)), value : tamil },
+{ key : (("Tangut" : GoString)), value : tangut },
+{ key : (("Telugu" : GoString)), value : telugu },
+{ key : (("Thaana" : GoString)), value : thaana },
+{ key : (("Thai" : GoString)), value : thai },
+{ key : (("Tibetan" : GoString)), value : tibetan },
+{ key : (("Tifinagh" : GoString)), value : tifinagh },
+{ key : (("Tirhuta" : GoString)), value : tirhuta },
+{ key : (("Ugaritic" : GoString)), value : ugaritic },
+{ key : (("Vai" : GoString)), value : vai },
+{ key : (("Wancho" : GoString)), value : wancho },
+{ key : (("Warang_Citi" : GoString)), value : warang_Citi },
+{ key : (("Yezidi" : GoString)), value : yezidi },
+{ key : (("Yi" : GoString)), value : yi },
+{ key : (("Zanabazar_Square" : GoString)), value : zanabazar_Square });
 var prepended_Concatenation_Mark : Pointer<RangeTable> = __Prepended_Concatenation_Mark;
-final _pLl = (((1 : GoUnTypedInt)) << (6 : GoUnTypedInt));
-final _pZ = (((1 : GoUnTypedInt)) << (4 : GoUnTypedInt));
-final _pLu = (((1 : GoUnTypedInt)) << (5 : GoUnTypedInt));
+final _pLl = ((1 : GoUnTypedInt)) << (6 : GoUnTypedInt);
+final _pZ = ((1 : GoUnTypedInt)) << (4 : GoUnTypedInt);
+final _pLu = ((1 : GoUnTypedInt)) << (5 : GoUnTypedInt);
 final _pLo : GoUnTypedInt = _pLl | _pLu;
 var __Radical : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((11904 : GoUInt16)), ((11929 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((11931 : GoUInt16)), ((12019 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((12032 : GoUInt16)), ((12245 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>().nil(), latinOffset : 0 } : RangeTable)));
 var bidi_Control : Pointer<RangeTable> = __Bidi_Control;
@@ -5473,43 +5492,43 @@ var unified_Ideograph : Pointer<RangeTable> = __Unified_Ideograph;
 var __Variation_Selector : Pointer<RangeTable> = Go.pointer((({ r16 : new Slice<Range16>(new Range16(((6155 : GoUInt16)), ((6157 : GoUInt16)), ((1 : GoUInt16))).__copy__(), new Range16(((65024 : GoUInt16)), ((65039 : GoUInt16)), ((1 : GoUInt16))).__copy__()), r32 : new Slice<Range32>(new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))).__copy__()), latinOffset : 0 } : RangeTable)));
 var variation_Selector : Pointer<RangeTable> = __Variation_Selector;
 var properties : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(
-new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
-{ key : "ASCII_Hex_Digit", value : ascii_Hex_Digit },
-{ key : "Bidi_Control", value : bidi_Control },
-{ key : "Dash", value : dash },
-{ key : "Deprecated", value : deprecated },
-{ key : "Diacritic", value : diacritic },
-{ key : "Extender", value : extender },
-{ key : "Hex_Digit", value : hex_Digit },
-{ key : "Hyphen", value : hyphen },
-{ key : "IDS_Binary_Operator", value : ids_Binary_Operator },
-{ key : "IDS_Trinary_Operator", value : ids_Trinary_Operator },
-{ key : "Ideographic", value : ideographic },
-{ key : "Join_Control", value : join_Control },
-{ key : "Logical_Order_Exception", value : logical_Order_Exception },
-{ key : "Noncharacter_Code_Point", value : noncharacter_Code_Point },
-{ key : "Other_Alphabetic", value : other_Alphabetic },
-{ key : "Other_Default_Ignorable_Code_Point", value : other_Default_Ignorable_Code_Point },
-{ key : "Other_Grapheme_Extend", value : other_Grapheme_Extend },
-{ key : "Other_ID_Continue", value : other_ID_Continue },
-{ key : "Other_ID_Start", value : other_ID_Start },
-{ key : "Other_Lowercase", value : other_Lowercase },
-{ key : "Other_Math", value : other_Math },
-{ key : "Other_Uppercase", value : other_Uppercase },
-{ key : "Pattern_Syntax", value : pattern_Syntax },
-{ key : "Pattern_White_Space", value : pattern_White_Space },
-{ key : "Prepended_Concatenation_Mark", value : prepended_Concatenation_Mark },
-{ key : "Quotation_Mark", value : quotation_Mark },
-{ key : "Radical", value : radical },
-{ key : "Regional_Indicator", value : regional_Indicator },
-{ key : "Sentence_Terminal", value : sentence_Terminal },
-{ key : "STerm", value : sentence_Terminal },
-{ key : "Soft_Dotted", value : soft_Dotted },
-{ key : "Terminal_Punctuation", value : terminal_Punctuation },
-{ key : "Unified_Ideograph", value : unified_Ideograph },
-{ key : "Variation_Selector", value : variation_Selector },
-{ key : "White_Space", value : white_Space });
-final _pp = (((1 : GoUnTypedInt)) << (7 : GoUnTypedInt));
+new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))),
+{ key : (("ASCII_Hex_Digit" : GoString)), value : ascii_Hex_Digit },
+{ key : (("Bidi_Control" : GoString)), value : bidi_Control },
+{ key : (("Dash" : GoString)), value : dash },
+{ key : (("Deprecated" : GoString)), value : deprecated },
+{ key : (("Diacritic" : GoString)), value : diacritic },
+{ key : (("Extender" : GoString)), value : extender },
+{ key : (("Hex_Digit" : GoString)), value : hex_Digit },
+{ key : (("Hyphen" : GoString)), value : hyphen },
+{ key : (("IDS_Binary_Operator" : GoString)), value : ids_Binary_Operator },
+{ key : (("IDS_Trinary_Operator" : GoString)), value : ids_Trinary_Operator },
+{ key : (("Ideographic" : GoString)), value : ideographic },
+{ key : (("Join_Control" : GoString)), value : join_Control },
+{ key : (("Logical_Order_Exception" : GoString)), value : logical_Order_Exception },
+{ key : (("Noncharacter_Code_Point" : GoString)), value : noncharacter_Code_Point },
+{ key : (("Other_Alphabetic" : GoString)), value : other_Alphabetic },
+{ key : (("Other_Default_Ignorable_Code_Point" : GoString)), value : other_Default_Ignorable_Code_Point },
+{ key : (("Other_Grapheme_Extend" : GoString)), value : other_Grapheme_Extend },
+{ key : (("Other_ID_Continue" : GoString)), value : other_ID_Continue },
+{ key : (("Other_ID_Start" : GoString)), value : other_ID_Start },
+{ key : (("Other_Lowercase" : GoString)), value : other_Lowercase },
+{ key : (("Other_Math" : GoString)), value : other_Math },
+{ key : (("Other_Uppercase" : GoString)), value : other_Uppercase },
+{ key : (("Pattern_Syntax" : GoString)), value : pattern_Syntax },
+{ key : (("Pattern_White_Space" : GoString)), value : pattern_White_Space },
+{ key : (("Prepended_Concatenation_Mark" : GoString)), value : prepended_Concatenation_Mark },
+{ key : (("Quotation_Mark" : GoString)), value : quotation_Mark },
+{ key : (("Radical" : GoString)), value : radical },
+{ key : (("Regional_Indicator" : GoString)), value : regional_Indicator },
+{ key : (("Sentence_Terminal" : GoString)), value : sentence_Terminal },
+{ key : (("STerm" : GoString)), value : sentence_Terminal },
+{ key : (("Soft_Dotted" : GoString)), value : soft_Dotted },
+{ key : (("Terminal_Punctuation" : GoString)), value : terminal_Punctuation },
+{ key : (("Unified_Ideograph" : GoString)), value : unified_Ideograph },
+{ key : (("Variation_Selector" : GoString)), value : variation_Selector },
+{ key : (("White_Space" : GoString)), value : white_Space });
+final _pp = ((1 : GoUnTypedInt)) << (7 : GoUnTypedInt);
 final _pg : GoUnTypedInt = _pp | _pZ;
 var mark : Pointer<RangeTable> = __M;
 final upperCase : GoUnTypedInt = (0 : GoUnTypedInt);
@@ -5517,7 +5536,7 @@ final titleCase = (2 : GoUnTypedInt);
 var printRanges : Slice<Pointer<RangeTable>> = new Slice<Pointer<RangeTable>>(l, m, n, p, s);
 var turkishCase : SpecialCase = __TurkishCase.__copy__();
 final maxCase = (3 : GoUnTypedInt);
-final replacementChar : GoInt32 = (("\u{FFFD}".code : GoRune));
+final replacementChar : GoInt32 = (((("\uFFFD" : GoString)).code : GoRune));
 var punct : Pointer<RangeTable> = __P;
 final upperLower : GoInt32 = maxRune + ((1 : GoInt32));
 var upper : Pointer<RangeTable> = __Lu;
@@ -6198,7 +6217,7 @@ new T_foldPair(((42570 : GoUInt16)), ((42571 : GoUInt16))).__copy__(),
 new T_foldPair(((42571 : GoUInt16)), ((7304 : GoUInt16))).__copy__());
 var letter : Pointer<RangeTable> = __L;
 final lowerCase = (1 : GoUnTypedInt);
-final maxLatin1 : GoInt32 = (("\u{00FF}".code : GoRune));
+final maxLatin1 : GoInt32 = (((("\u00FF" : GoString)).code : GoRune));
 var lower : Pointer<RangeTable> = __Ll;
 var _asciiFold : GoArray<GoUInt16> = new GoArray<GoUInt16>(
 ((0 : GoUInt16)),
@@ -6329,14 +6348,14 @@ var _asciiFold : GoArray<GoUInt16> = new GoArray<GoUInt16>(
 ((125 : GoUInt16)),
 ((126 : GoUInt16)),
 ((127 : GoUInt16))).copy();
-var foldScript : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.named("unicode.RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("unicode.Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))), { key : "Common", value : _foldCommon }, { key : "Greek", value : _foldGreek }, { key : "Inherited", value : _foldInherited });
+var foldScript : GoMap<GoString, Pointer<RangeTable>> = new GoMap<GoString, Pointer<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }])))))), { key : (("Common" : GoString)), value : _foldCommon }, { key : (("Greek" : GoString)), value : _foldGreek }, { key : (("Inherited" : GoString)), value : _foldInherited });
 var sterm : Pointer<RangeTable> = __Sentence_Terminal;
 /**
     // IsDigit reports whether the rune is a decimal digit.
 **/
 function isDigit(_r:GoRune):Bool {
         if (_r <= maxLatin1) {
-            return (("0".code : GoRune)) <= _r && _r <= (("9".code : GoRune));
+            return ((((("0" : GoString)).code : GoRune)) <= _r) && (_r <= (((("9" : GoString)).code : GoRune)));
         };
         return _isExcludingLatin(digit, _r);
     }
@@ -6347,7 +6366,7 @@ function isDigit(_r:GoRune):Bool {
 **/
 function isGraphic(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pg != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pg) != ((0 : GoUInt8));
         };
         return in_(_r, ...graphicRanges.toArray());
     }
@@ -6360,7 +6379,7 @@ function isGraphic(_r:GoRune):Bool {
 **/
 function isPrint(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pp != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pp) != ((0 : GoUInt8));
         };
         return in_(_r, ...printRanges.toArray());
     }
@@ -6369,7 +6388,7 @@ function isPrint(_r:GoRune):Bool {
     // The function "In" provides a nicer signature and should be used in preference to IsOneOf.
 **/
 function isOneOf(_ranges:Slice<Pointer<RangeTable>>, _r:GoRune):Bool {
-        for (_inside in _ranges) {
+        for (_ => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;
             };
@@ -6381,7 +6400,7 @@ function isOneOf(_ranges:Slice<Pointer<RangeTable>>, _r:GoRune):Bool {
 **/
 function in_(_r:GoRune, _ranges:haxe.Rest<Pointer<RangeTable>>):Bool {
         var _ranges = new Slice<Pointer<RangeTable>>(..._ranges);
-        for (_inside in _ranges) {
+        for (_ => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;
             };
@@ -6395,7 +6414,7 @@ function in_(_r:GoRune, _ranges:haxe.Rest<Pointer<RangeTable>>):Bool {
 **/
 function isControl(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pC != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pC) != ((0 : GoUInt8));
         };
         return false;
     }
@@ -6404,7 +6423,7 @@ function isControl(_r:GoRune):Bool {
 **/
 function isLetter(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & (_pLmask) != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & (_pLmask)) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(letter, _r);
     }
@@ -6419,7 +6438,7 @@ function isMark(_r:GoRune):Bool {
 **/
 function isNumber(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pN != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pN) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(number, _r);
     }
@@ -6429,7 +6448,7 @@ function isNumber(_r:GoRune):Bool {
 **/
 function isPunct(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pP != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pP) != ((0 : GoUInt8));
         };
         return is_(punct, _r);
     }
@@ -6443,7 +6462,7 @@ function isPunct(_r:GoRune):Bool {
 **/
 function isSpace(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            if (_r == (("\t".code : GoRune)) || _r == (("\n".code : GoRune)) || _r == (("".code : GoRune)) || _r == (("".code : GoRune)) || _r == (("\r".code : GoRune)) || _r == ((" ".code : GoRune)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
+            if (_r == (((("\t" : GoString)).code : GoRune)) || _r == (((("\n" : GoString)).code : GoRune)) || _r == (((("\x0B" : GoString)).code : GoRune)) || _r == (((("\x0C" : GoString)).code : GoRune)) || _r == (((("\r" : GoString)).code : GoRune)) || _r == ((((" " : GoString)).code : GoRune)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
                 return true;
             };
             return false;
@@ -6455,7 +6474,7 @@ function isSpace(_r:GoRune):Bool {
 **/
 function isSymbol(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pS != ((0 : GoUInt8));
+            return (_properties[((_r : GoUInt8))] & _pS) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(symbol, _r);
     }
@@ -6463,18 +6482,14 @@ function isSymbol(_r:GoRune):Bool {
     // is16 reports whether r is in the sorted slice of 16-bit ranges.
 **/
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
-        if (_ranges.length <= _linearMax || _r <= maxLatin1) {
-            {
-                var _i;
-                for (_obj in _ranges.keyValueIterator()) {
-                    _i = _obj.key;
-                    var _range_:Pointer<Range16> = Go.pointer(_ranges[_i]);
-                    if (_r < _range_.value.lo) {
-                        return false;
-                    };
-                    if (_r <= _range_.value.hi) {
-                        return _range_.value.stride == ((1 : GoUInt16)) || (_r - _range_.value.lo) % _range_.value.stride == ((0 : GoUInt16));
-                    };
+        if ((_ranges.length <= _linearMax) || (_r <= maxLatin1)) {
+            for (_i => _ in _ranges) {
+                var _range_:Pointer<Range16> = Go.pointer(_ranges[_i]);
+                if (_r < _range_.value.lo) {
+                    return false;
+                };
+                if (_r <= _range_.value.hi) {
+                    return (_range_.value.stride == ((1 : GoUInt16))) || (((_r - _range_.value.lo) % _range_.value.stride) == ((0 : GoUInt16)));
                 };
             };
             return false;
@@ -6482,10 +6497,10 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _lo:GoInt = ((0 : GoInt));
         var _hi:GoInt = _ranges.length;
         while (_lo < _hi) {
-            var _m:GoInt = _lo + (_hi - _lo) / ((2 : GoInt));
+            var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
             var _range_:Pointer<Range16> = Go.pointer(_ranges[_m]);
-            if (_range_.value.lo <= _r && _r <= _range_.value.hi) {
-                return _range_.value.stride == ((1 : GoUInt16)) || (_r - _range_.value.lo) % _range_.value.stride == ((0 : GoUInt16));
+            if ((_range_.value.lo <= _r) && (_r <= _range_.value.hi)) {
+                return (_range_.value.stride == ((1 : GoUInt16))) || (((_r - _range_.value.lo) % _range_.value.stride) == ((0 : GoUInt16)));
             };
             if (_r < _range_.value.lo) {
                 _hi = _m;
@@ -6500,17 +6515,13 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 **/
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         if (_ranges.length <= _linearMax) {
-            {
-                var _i;
-                for (_obj in _ranges.keyValueIterator()) {
-                    _i = _obj.key;
-                    var _range_:Pointer<Range32> = Go.pointer(_ranges[_i]);
-                    if (_r < _range_.value.lo) {
-                        return false;
-                    };
-                    if (_r <= _range_.value.hi) {
-                        return _range_.value.stride == ((1 : GoUInt32)) || (_r - _range_.value.lo) % _range_.value.stride == ((0 : GoUInt32));
-                    };
+            for (_i => _ in _ranges) {
+                var _range_:Pointer<Range32> = Go.pointer(_ranges[_i]);
+                if (_r < _range_.value.lo) {
+                    return false;
+                };
+                if (_r <= _range_.value.hi) {
+                    return (_range_.value.stride == ((1 : GoUInt32))) || (((_r - _range_.value.lo) % _range_.value.stride) == ((0 : GoUInt32)));
                 };
             };
             return false;
@@ -6518,10 +6529,10 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         var _lo:GoInt = ((0 : GoInt));
         var _hi:GoInt = _ranges.length;
         while (_lo < _hi) {
-            var _m:GoInt = _lo + (_hi - _lo) / ((2 : GoInt));
+            var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
             var _range_:Range32 = _ranges[_m].__copy__();
-            if (_range_.lo <= _r && _r <= _range_.hi) {
-                return _range_.stride == ((1 : GoUInt32)) || (_r - _range_.lo) % _range_.stride == ((0 : GoUInt32));
+            if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
+                return (_range_.stride == ((1 : GoUInt32))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt32)));
             };
             if (_r < _range_.lo) {
                 _hi = _m;
@@ -6536,11 +6547,11 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 **/
 function is_(_rangeTab:Pointer<RangeTable>, _r:GoRune):Bool {
         var _r16:Slice<Range16> = _rangeTab.value.r16;
-        if (_r16.length > ((0 : GoInt)) && ((_r : GoUInt32)) <= ((_r16[_r16.length - ((1 : GoInt))].hi : GoUInt32))) {
+        if ((_r16.length > ((0 : GoInt))) && (((_r : GoUInt32)) <= ((_r16[_r16.length - ((1 : GoInt))].hi : GoUInt32)))) {
             return _is16(_r16, ((_r : GoUInt16)));
         };
         var _r32:Slice<Range32> = _rangeTab.value.r32;
-        if (_r32.length > ((0 : GoInt)) && _r >= ((_r32[((0 : GoInt))].lo : GoRune))) {
+        if ((_r32.length > ((0 : GoInt))) && (_r >= ((_r32[((0 : GoInt))].lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
@@ -6549,12 +6560,12 @@ function _isExcludingLatin(_rangeTab:Pointer<RangeTable>, _r:GoRune):Bool {
         var _r16:Slice<Range16> = _rangeTab.value.r16;
         {
             var _off:GoInt = _rangeTab.value.latinOffset;
-            if (_r16.length > _off && ((_r : GoUInt32)) <= ((_r16[_r16.length - ((1 : GoInt))].hi : GoUInt32))) {
+            if ((_r16.length > _off) && (((_r : GoUInt32)) <= ((_r16[_r16.length - ((1 : GoInt))].hi : GoUInt32)))) {
                 return _is16(_r16.__slice__(_off), ((_r : GoUInt16)));
             };
         };
         var _r32:Slice<Range32> = _rangeTab.value.r32;
-        if (_r32.length > ((0 : GoInt)) && _r >= ((_r32[((0 : GoInt))].lo : GoRune))) {
+        if ((_r32.length > ((0 : GoInt))) && (_r >= ((_r32[((0 : GoInt))].lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
@@ -6564,7 +6575,7 @@ function _isExcludingLatin(_rangeTab:Pointer<RangeTable>, _r:GoRune):Bool {
 **/
 function isUpper(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pLmask == _pLu;
+            return (_properties[((_r : GoUInt8))] & _pLmask) == _pLu;
         };
         return _isExcludingLatin(upper, _r);
     }
@@ -6573,7 +6584,7 @@ function isUpper(_r:GoRune):Bool {
 **/
 function isLower(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= maxLatin1) {
-            return _properties[((_r : GoUInt8))] & _pLmask == _pLl;
+            return (_properties[((_r : GoUInt8))] & _pLmask) == _pLl;
         };
         return _isExcludingLatin(lower, _r);
     }
@@ -6592,18 +6603,18 @@ function isTitle(_r:GoRune):Bool {
 **/
 function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : GoRune; var _1 : Bool; } {
         var _mappedRune:GoRune = ((0 : GoInt32)), _foundMapping:Bool = false;
-        if (__case < ((0 : GoInt)) || maxCase <= __case) {
+        if ((__case < ((0 : GoInt))) || (maxCase <= __case)) {
             return { _0 : replacementChar, _1 : false };
         };
         var _lo:GoInt = ((0 : GoInt));
         var _hi:GoInt = _caseRange.length;
         while (_lo < _hi) {
-            var _m:GoInt = _lo + (_hi - _lo) / ((2 : GoInt));
+            var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
             var _cr:CaseRange = _caseRange[_m].__copy__();
-            if (((_cr.lo : GoRune)) <= _r && _r <= ((_cr.hi : GoRune))) {
+            if ((((_cr.lo : GoRune)) <= _r) && (_r <= ((_cr.hi : GoRune)))) {
                 var _delta:GoInt32 = _cr.delta.__t__[__case];
                 if (_delta > maxRune) {
-                    return { _0 : ((_cr.lo : GoRune)) + (((_r - ((_cr.lo : GoRune))) & ((1 : GoInt32))) ^ ((-1 : GoUnTypedInt)) | (((__case & ((1 : GoInt))) : GoRune))), _1 : true };
+                    return { _0 : ((_cr.lo : GoRune)) + (((_r - ((_cr.lo : GoRune))) & (((1 : GoInt32)) ^ ((-1 : GoUnTypedInt)))) | (((__case & ((1 : GoInt))) : GoRune))), _1 : true };
                 };
                 return { _0 : _r + _delta, _1 : true };
             };
@@ -6630,8 +6641,8 @@ function to(__case:GoInt, _r:GoRune):GoRune {
 **/
 function toUpper(_r:GoRune):GoRune {
         if (_r <= maxASCII) {
-            if ((("a".code : GoRune)) <= _r && _r <= (("z".code : GoRune))) {
-                _r = _r - ((("a".code : GoRune)) - (("A".code : GoRune)));
+            if (((((("a" : GoString)).code : GoRune)) <= _r) && (_r <= (((("z" : GoString)).code : GoRune)))) {
+                _r = _r - ((((("a" : GoString)).code : GoRune)) - (((("A" : GoString)).code : GoRune)));
             };
             return _r;
         };
@@ -6642,8 +6653,8 @@ function toUpper(_r:GoRune):GoRune {
 **/
 function toLower(_r:GoRune):GoRune {
         if (_r <= maxASCII) {
-            if ((("A".code : GoRune)) <= _r && _r <= (("Z".code : GoRune))) {
-                _r = _r + ((("a".code : GoRune)) - (("A".code : GoRune)));
+            if (((((("A" : GoString)).code : GoRune)) <= _r) && (_r <= (((("Z" : GoString)).code : GoRune)))) {
+                _r = _r + ((((("a" : GoString)).code : GoRune)) - (((("A" : GoString)).code : GoRune)));
             };
             return _r;
         };
@@ -6654,8 +6665,8 @@ function toLower(_r:GoRune):GoRune {
 **/
 function toTitle(_r:GoRune):GoRune {
         if (_r <= maxASCII) {
-            if ((("a".code : GoRune)) <= _r && _r <= (("z".code : GoRune))) {
-                _r = _r - ((("a".code : GoRune)) - (("A".code : GoRune)));
+            if (((((("a" : GoString)).code : GoRune)) <= _r) && (_r <= (((("z" : GoString)).code : GoRune)))) {
+                _r = _r - ((((("a" : GoString)).code : GoRune)) - (((("A" : GoString)).code : GoRune)));
             };
             return _r;
         };
@@ -6682,7 +6693,7 @@ function toTitle(_r:GoRune):GoRune {
     //
 **/
 function simpleFold(_r:GoRune):GoRune {
-        if (_r < ((0 : GoInt32)) || _r > maxRune) {
+        if ((_r < ((0 : GoInt32))) || (_r > maxRune)) {
             return _r;
         };
         if (((_r : GoInt)) < _asciiFold.length) {
@@ -6691,14 +6702,14 @@ function simpleFold(_r:GoRune):GoRune {
         var _lo:GoInt = ((0 : GoInt));
         var _hi:GoInt = _caseOrbit.length;
         while (_lo < _hi) {
-            var _m:GoInt = _lo + (_hi - _lo) / ((2 : GoInt));
+            var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
             if (((_caseOrbit[_m].from : GoRune)) < _r) {
                 _lo = _m + ((1 : GoInt));
             } else {
                 _hi = _m;
             };
         };
-        if (_lo < _caseOrbit.length && ((_caseOrbit[_lo].from : GoRune)) == _r) {
+        if ((_lo < _caseOrbit.length) && (((_caseOrbit[_lo].from : GoRune)) == _r)) {
             return ((_caseOrbit[_lo].to : GoRune));
         };
         {

@@ -116,6 +116,7 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 				case "-".code: // pad with spaces on the right rather than the left
 					next();
 				case " ".code: // leave a space for elided sign in numbers, or put spaces between bytes or slices in hex
+					buf.add(" ");
 					next();
 				case "0".code: // pad with leading zeros for numbers, padding after the sign
 					next();

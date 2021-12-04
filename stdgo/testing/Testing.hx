@@ -36,7 +36,18 @@ class BenchmarkResult {
 	public var extra = new GoMap<GoString, GoFloat64>(new stdgo.reflect.Reflect._Type(mapType(basic(string_kind), basic(float64_kind)))).nil();
 
 	public function new(?n, ?t, ?bytes, ?memAllocs, ?memBytes, ?extra) {
-		stdgo.internal.Macro.initLocals();
+		if (n != null)
+			this.n = n;
+		if (t != null)
+			this.t = t;
+		if (bytes != null)
+			this.bytes = bytes;
+		if (memAllocs != null)
+			this.memAllocs = memAllocs;
+		if (memBytes != null)
+			this.memBytes = memBytes;
+		if (extra != null)
+			this.extra = extra;
 	}
 
 	public function benchmark(f:Pointer<B>->Void):BenchmarkResult {
@@ -370,7 +381,10 @@ class InternalBenchmark {
 	public var f:Pointer<B>->Void = null;
 
 	public function new(?name, ?f) {
-		stdgo.internal.Macro.initLocals();
+		if (name != null)
+			this.name = name;
+		if (f != null)
+			this.f = f;
 	}
 
 	public function __underlying__():AnyInterface
@@ -386,7 +400,10 @@ class InternalFuzzTarget {
 	public var f:Void->Void = null;
 
 	public function new(?name, ?f) {
-		stdgo.internal.Macro.initLocals();
+		if (name != null)
+			this.name = name;
+		if (f != null)
+			this.f = f;
 	}
 
 	public function __underlying__():AnyInterface
@@ -404,7 +421,14 @@ class InternalExample {
 	public var unordered:Bool = false;
 
 	public function new(?name, ?f, ?output, ?unordered) {
-		stdgo.internal.Macro.initLocals();
+		if (name != null)
+			this.name = name;
+		if (f != null)
+			this.f = f;
+		if (output != null)
+			this.output = output;
+		if (unordered != null)
+			this.unordered = unordered;
 	}
 
 	public function __underlying__():AnyInterface

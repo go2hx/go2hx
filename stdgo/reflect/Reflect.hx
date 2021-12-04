@@ -919,8 +919,12 @@ function valueOf(iface:AnyInterface):Value {
 	public var data:GoUIntptr = ((0 : GoUIntptr));
 	public var len:GoInt = ((0 : GoInt));
 
-	public function new(?data:GoUIntptr, ?len:GoInt)
-		stdgo.internal.Macro.initLocals();
+	public function new(?data:GoUIntptr, ?len:GoInt) {
+		if (data != null)
+			this.data = data;
+		if (len != null)
+			this.len = len;
+	}
 
 	public function toString():GoString {
 		return '{' + Go.string(data) + " " + Go.string(len) + "}";
@@ -945,8 +949,14 @@ function valueOf(iface:AnyInterface):Value {
 	public var len:GoInt = ((0 : GoInt));
 	public var cap:GoInt = ((0 : GoInt));
 
-	public function new(?data:GoUIntptr, ?len:GoInt, ?cap:GoInt)
-		stdgo.internal.Macro.initLocals();
+	public function new(?data:GoUIntptr, ?len:GoInt, ?cap:GoInt) {
+		if (data != null)
+			this.data = data;
+		if (len != null)
+			this.len = len;
+		if (cap != null)
+			this.cap = cap;
+	}
 
 	public function toString():GoString {
 		return '{' + Go.string(data) + " " + Go.string(len) + " " + Go.string(cap) + "}";
@@ -1437,7 +1447,16 @@ class _Type {
 		return null;
 
 	public function new(?name:GoString, ?pkgPath:GoString, ?type, ?func, ?index) {
-		stdgo.internal.Macro.initLocals();
+		if (name != null)
+			this.name = name;
+		if (pkgPath != null)
+			this.pkgPath = pkgPath;
+		if (type != null)
+			this.type = type;
+		if (func != null)
+			this.func = func;
+		if (index != null)
+			this.index = index;
 	}
 
 	public function toString() {

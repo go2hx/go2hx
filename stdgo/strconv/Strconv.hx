@@ -105,8 +105,14 @@ inline function itoa(i:GoInt):GoString
 	public var num:GoString = (("" : GoString));
 	public var err:stdgo.Error = ((null : stdgo.Error));
 
-	public function new(?func:GoString, ?num:GoString, ?err:stdgo.Error)
-		stdgo.internal.Macro.initLocals();
+	public function new(?func:GoString, ?num:GoString, ?err:stdgo.Error) {
+		if (func != null)
+			this.func = func;
+		if (num != null)
+			this.num = num;
+		if (err != null)
+			this.err = err;
+	}
 
 	public function toString() {
 		return '{' + Go.string(func) + " " + Go.string(num) + " " + Go.string(err) + "}";

@@ -303,7 +303,14 @@ import stdgo.StdGoTypes;
     public var _buf : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
     public var _off : GoInt = ((0 : GoInt));
     public var _lastRead : T_readOp = new T_readOp();
-    public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:T_readOp) stdgo.internal.Macro.initLocals();
+    public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:T_readOp) {
+        if (_buf != null)
+            this._buf = _buf;
+        if (_off != null)
+            this._off = _off;
+        if (_lastRead != null)
+            this._lastRead = _lastRead;
+    }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new Buffer(_buf, _off, _lastRead);
@@ -477,7 +484,14 @@ import stdgo.StdGoTypes;
     public var _s : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
     public var _i : GoInt64 = ((0 : GoInt64));
     public var _prevRune : GoInt = ((0 : GoInt));
-    public function new(?_s:Slice<GoUInt8>, ?_i:GoInt64, ?_prevRune:GoInt) stdgo.internal.Macro.initLocals();
+    public function new(?_s:Slice<GoUInt8>, ?_i:GoInt64, ?_prevRune:GoInt) {
+        if (_s != null)
+            this._s = _s;
+        if (_i != null)
+            this._i = _i;
+        if (_prevRune != null)
+            this._prevRune = _prevRune;
+    }
     public function toString() {
         return '{' + Go.string(_s) + " " + Go.string(_i) + " " + Go.string(_prevRune) + "}";
     }
@@ -960,7 +974,12 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 @:structInit class T_span_fieldsFunc_0 {
     public var _start : GoInt = ((0 : GoInt));
     public var _end : GoInt = ((0 : GoInt));
-    public function new(?_start:GoInt, ?_end:GoInt) stdgo.internal.Macro.initLocals();
+    public function new(?_start:GoInt, ?_end:GoInt) {
+        if (_start != null)
+            this._start = _start;
+        if (_end != null)
+            this._end = _end;
+    }
     public function toString() {
         return '{' + Go.string(_start) + " " + Go.string(_end) + "}";
     }

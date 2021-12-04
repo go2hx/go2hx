@@ -4,7 +4,6 @@
 -D shallow-expose
 -D keep-inline-positions
 -D std-encoding-utf8
--D keep-inline-positions
 -D simulate_num
 -D no-deprecation-warnings
 --macro stdgo.internal.injector.Injector.run()

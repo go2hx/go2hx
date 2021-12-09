@@ -50,9 +50,11 @@ class BenchmarkResult {
 			this.extra = extra;
 	}
 
-	public function benchmark(f:Pointer<B>->Void):BenchmarkResult {
-		return null;
-	}
+	public function __copy__()
+		return new BenchmarkResult(n, t, bytes, memAllocs, memBytes, extra);
+
+	public function nsPerOp():GoInt64
+		return 0;
 
 	public function allocedBytesPerOp():GoInt64
 		return 0;
@@ -460,4 +462,8 @@ function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<In
 	final fuzzTargets:Slice<InternalFuzzTarget> = arg1 == null ? null : arg0;
 	var m = new M(deps, tests, benchmarks, examples);
 	return Go.pointer(m);
+}
+
+function benchmark(f:Pointer<B>->Void):BenchmarkResult {
+	return new BenchmarkResult();
 }

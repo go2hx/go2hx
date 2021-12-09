@@ -7,7 +7,7 @@ import stdgo.StdGoTypes;
 import sys.FileStat;
 import sys.FileSystem;
 
-var args = new Slice<GoString>(...[for (arg in Sys.args()) (arg : GoString)]);
+var args = new Slice<GoString>(...([(Sys.programPath() : GoString)].concat([for (arg in Sys.args()) (arg : GoString)])));
 var stderr = Go.pointer(new OutputWriter(Sys.stderr()));
 
 var stdin:Dynamic = {

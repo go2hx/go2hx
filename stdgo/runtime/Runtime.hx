@@ -77,7 +77,8 @@ private class RuntimeErrorData {
 
 function keepAlive(x:AnyInterface) {}
 
-typedef Error = StructType & stdgo.Error & {
+typedef Error = StructType &
+	stdgo.Error & {
 	public function runtimeError():Void;
 }
 
@@ -92,7 +93,7 @@ class Frames {
 	}
 }
 
-class Frame  {
+class Frame {
 	public var function_:GoString = "frame";
 	public var line:GoInt = 0;
 
@@ -102,7 +103,7 @@ class Frame  {
 	public function new() {}
 }
 
-class MemStats  {
+class MemStats {
 	public var alloc(get, null):GoUInt64;
 
 	public function __underlying__():AnyInterface

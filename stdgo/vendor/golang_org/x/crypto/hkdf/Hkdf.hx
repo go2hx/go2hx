@@ -1,4 +1,5 @@
 package stdgo.vendor.golang_org.x.crypto.hkdf;
+
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -8,90 +9,105 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+
 @:structInit class T_hkdf {
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _f = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _need:GoInt = _p.length;
-        var _remains:GoInt = _f.value._buf.length + (((((255 : GoUInt8)) - _f.value._counter + ((1 : GoUInt8))) : GoInt)) * _f.value._size;
-        if (_remains < _need) {
-            return { _0 : ((0 : GoInt)), _1 : stdgo.errors.Errors.new_("hkdf: entropy limit reached") };
-        };
-        var _n:GoInt = Go.copy(_p, _f.value._buf);
-        _p = _p.__slice__(_n);
-        while (_p.length > ((0 : GoInt))) {
-            _f.value._expander.reset();
-            _f.value._expander.write(_f.value._prev);
-            _f.value._expander.write(_f.value._info);
-            _f.value._expander.write(new Slice<GoUInt8>(_f.value._counter));
-            _f.value._prev = _f.value._expander.sum(_f.value._prev.__slice__(0, ((0 : GoInt))));
-            _f.value._counter++;
-            _f.value._buf = _f.value._prev;
-            _n = Go.copy(_p, _f.value._buf);
-            _p = _p.__slice__(_n);
-        };
-        _f.value._buf = _f.value._buf.__slice__(_n);
-        return { _0 : _need, _1 : ((null : stdgo.Error)) };
-    }
-    public var _expander : stdgo.hash.Hash.Hash = ((null : stdgo.hash.Hash.Hash));
-    public var _size : GoInt = ((0 : GoInt));
-    public var _info : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
-    public var _counter : GoUInt8 = ((0 : GoUInt8));
-    public var _prev : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
-    public var _buf : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
-    public function new(?_expander:stdgo.hash.Hash.Hash, ?_size:GoInt, ?_info:Slice<GoUInt8>, ?_counter:GoUInt8, ?_prev:Slice<GoUInt8>, ?_buf:Slice<GoUInt8>) stdgo.internal.Macro.initLocals();
-    public function toString() {
-        return '{' + Go.string(_expander) + " " + Go.string(_size) + " " + Go.string(_info) + " " + Go.string(_counter) + " " + Go.string(_prev) + " " + Go.string(_buf) + "}";
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T_hkdf(_expander, _size, _info, _counter, _prev, _buf);
-    }
-    public function __set__(__tmp__) {
-        this._expander = __tmp__._expander;
-        this._size = __tmp__._size;
-        this._info = __tmp__._info;
-        this._counter = __tmp__._counter;
-        this._prev = __tmp__._prev;
-        this._buf = __tmp__._buf;
-        return this;
-    }
+	public function read(_p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		var _f = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+		var _need:GoInt = _p.length;
+		var _remains:GoInt = _f.value._buf.length + (((((255 : GoUInt8)) - _f.value._counter + ((1 : GoUInt8))) : GoInt)) * _f.value._size;
+		if (_remains < _need) {
+			return {_0: ((0 : GoInt)), _1: stdgo.errors.Errors.new_("hkdf: entropy limit reached")};
+		};
+		var _n:GoInt = Go.copy(_p, _f.value._buf);
+		_p = _p.__slice__(_n);
+		while (_p.length > ((0 : GoInt))) {
+			_f.value._expander.reset();
+			_f.value._expander.write(_f.value._prev);
+			_f.value._expander.write(_f.value._info);
+			_f.value._expander.write(new Slice<GoUInt8>(_f.value._counter));
+			_f.value._prev = _f.value._expander.sum(_f.value._prev.__slice__(0, ((0 : GoInt))));
+			_f.value._counter++;
+			_f.value._buf = _f.value._prev;
+			_n = Go.copy(_p, _f.value._buf);
+			_p = _p.__slice__(_n);
+		};
+		_f.value._buf = _f.value._buf.__slice__(_n);
+		return {_0: _need, _1: ((null : stdgo.Error))};
+	}
+
+	public var _expander:stdgo.hash.Hash.Hash = ((null : stdgo.hash.Hash.Hash));
+	public var _size:GoInt = ((0 : GoInt));
+	public var _info:Slice<GoUInt8> = new Slice<GoUInt8>().nil();
+	public var _counter:GoUInt8 = ((0 : GoUInt8));
+	public var _prev:Slice<GoUInt8> = new Slice<GoUInt8>().nil();
+	public var _buf:Slice<GoUInt8> = new Slice<GoUInt8>().nil();
+
+	public function new(?_expander:stdgo.hash.Hash.Hash, ?_size:GoInt, ?_info:Slice<GoUInt8>, ?_counter:GoUInt8, ?_prev:Slice<GoUInt8>, ?_buf:Slice<GoUInt8>)
+		stdgo.internal.Macro.initLocals();
+
+	public function toString() {
+		return '{' + Go.string(_expander) + " " + Go.string(_size) + " " + Go.string(_info) + " " + Go.string(_counter) + " " + Go.string(_prev) + " "
+			+ Go.string(_buf) + "}";
+	}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new T_hkdf(_expander, _size, _info, _counter, _prev, _buf);
+	}
+
+	public function __set__(__tmp__) {
+		this._expander = __tmp__._expander;
+		this._size = __tmp__._size;
+		this._info = __tmp__._info;
+		this._counter = __tmp__._counter;
+		this._prev = __tmp__._prev;
+		this._buf = __tmp__._buf;
+		return this;
+	}
 }
+
 /**
-    // Extract generates a pseudorandom key for use with Expand from an input secret
-    // and an optional independent salt.
-    //
-    // Only use this function if you need to reuse the extracted key with multiple
-    // Expand invocations and different context values. Most common scenarios,
-    // including the generation of multiple keys, should use New instead.
+	// Extract generates a pseudorandom key for use with Expand from an input secret
+	// and an optional independent salt.
+	//
+	// Only use this function if you need to reuse the extracted key with multiple
+	// Expand invocations and different context values. Most common scenarios,
+	// including the generation of multiple keys, should use New instead.
 **/
 function extract(_hash:() -> stdgo.hash.Hash.Hash, _secret:Slice<GoByte>, _salt:Slice<GoByte>):Slice<GoByte> {
-        if ((_salt == null || _salt.isNil())) {
-            _salt = new Slice<GoUInt8>(...[for (i in 0 ... ((_hash().size() : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        };
-        var _extractor:stdgo.hash.Hash.Hash = stdgo.crypto.hmac.Hmac.new_(_hash, _salt);
-        _extractor.write(_secret);
-        return _extractor.sum(new Slice<GoUInt8>().nil());
-    }
+	if ((_salt == null || _salt.isNil())) {
+		_salt = new Slice<GoUInt8>(...[for (i in 0...((_hash().size() : GoInt)).toBasic()) ((0 : GoUInt8))]);
+	};
+	var _extractor:stdgo.hash.Hash.Hash = stdgo.crypto.hmac.Hmac.new_(_hash, _salt);
+	_extractor.write(_secret);
+	return _extractor.sum(new Slice<GoUInt8>().nil());
+}
+
 /**
-    // Expand returns a Reader, from which keys can be read, using the given
-    // pseudorandom key and optional context info, skipping the extraction step.
-    //
-    // The pseudorandomKey should have been generated by Extract, or be a uniformly
-    // random or pseudorandom cryptographically strong key. See RFC 5869, Section
-    // 3.3. Most common scenarios will want to use New instead.
+	// Expand returns a Reader, from which keys can be read, using the given
+	// pseudorandom key and optional context info, skipping the extraction step.
+	//
+	// The pseudorandomKey should have been generated by Extract, or be a uniformly
+	// random or pseudorandom cryptographically strong key. See RFC 5869, Section
+	// 3.3. Most common scenarios will want to use New instead.
 **/
 function expand(_hash:() -> stdgo.hash.Hash.Hash, _pseudorandomKey:Slice<GoByte>, _info:Slice<GoByte>):stdgo.io.Io.Reader {
-        var _expander:stdgo.hash.Hash.Hash = stdgo.crypto.hmac.Hmac.new_(_hash, _pseudorandomKey);
-        return Go.pointer(new T_hkdf(_expander, _expander.size(), _info, ((1 : GoUInt8)), new Slice<GoUInt8>().nil(), new Slice<GoUInt8>().nil())).value;
-    }
+	var _expander:stdgo.hash.Hash.Hash = stdgo.crypto.hmac.Hmac.new_(_hash, _pseudorandomKey);
+	return Go.pointer(new T_hkdf(_expander, _expander.size(), _info, ((1 : GoUInt8)), new Slice<GoUInt8>().nil(), new Slice<GoUInt8>().nil())).value;
+}
+
 /**
-    // New returns a Reader, from which keys can be read, using the given hash,
-    // secret, salt and context info. Salt and info can be nil.
+	// New returns a Reader, from which keys can be read, using the given hash,
+	// secret, salt and context info. Salt and info can be nil.
 **/
 function new_(_hash:() -> stdgo.hash.Hash.Hash, _secret:Slice<GoByte>, _salt:Slice<GoByte>, _info:Slice<GoByte>):stdgo.io.Io.Reader {
-        var _prk:Slice<GoUInt8> = extract(_hash, _secret, _salt);
-        return expand(_hash, _prk, _info);
-    }
+	var _prk:Slice<GoUInt8> = extract(_hash, _secret, _salt);
+	return expand(_hash, _prk, _info);
+}
+
 class T_hkdf_extension_fields {
-    public function read(__tmp__, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __tmp__.read(_p);
+	public function read(__tmp__, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __tmp__.read(_p);
 }

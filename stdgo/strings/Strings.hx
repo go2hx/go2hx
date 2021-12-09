@@ -9,7 +9,6 @@ class Builder {
 
 	public function new() {
 		buf = new StringBuf();
-		stdgo.internal.Macro.initLocals();
 	}
 
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {

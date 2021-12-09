@@ -5,7 +5,6 @@ import System.*;
 import sys.FileSystem;
 
 class Cs {
-
 	static public function getCsDependencies() {
 		switch (systemName) {
 			case "Linux":

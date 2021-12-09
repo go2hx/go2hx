@@ -5,6 +5,8 @@ import stdgo.StdGoTypes.GoInt32;
 import stdgo.StdGoTypes.GoInt64;
 
 // variable refrences
+
+@:local
 final _localLoc = {};
 
 function sleep(_d) {
@@ -35,6 +37,7 @@ inline function _parseDuration(_s) {
 	return {d: null, err: null};
 }
 
+@:local
 class Time {
 	public static function _runtimeNano():GoInt64 {
 		return (Date.now().getTime() : GoInt64) * (1000000 : GoInt64);

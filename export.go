@@ -82,11 +82,13 @@ var typeHasher typeutil.Hasher
 var logBool = false
 var logBuffer = ""
 var testBool = false
+var externBool = false
 
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
 	testBool = false
 	logBool = false
+	externBool = false
 	logBuffer = ""
 	for _, param := range params {
 		switch param {
@@ -94,6 +96,8 @@ func compile(params []string, excludesData excludesType) []byte {
 			testBool = true
 		case "-log", "--log":
 			logBool = true
+		case "-extern", "--extern", "-externs", "--externs":
+			externBool = true
 		default:
 			args = append(args, param)
 		}
@@ -398,6 +402,11 @@ var countInterface = 0
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
 		mergePackage(pkg)
+		if externBool {
+			for _, file := range pkg.Syntax {
+				ast.FileExports(file) // trim unexported fields
+			}
+		}
 	}
 	typeHasher = typeutil.MakeHasher()
 	countInterface = 0

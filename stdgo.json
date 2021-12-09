@@ -153,5 +153,6 @@
     "unsafe",
     "internal",
     "internal/bytealg",
-    "internal/itoa"
+    "internal/itoa",
+    "internal/oserror"
 ]}

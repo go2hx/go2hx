@@ -30,10 +30,9 @@
     "bytes",
     "path/filepath",
     "internal/syscall/windows/sysdll",
+    "internal/itoa",
     "syscall",
     "syscall/js",
-    "internal/itoa",
-    "internal/oserror",
     "os/exec",
     "context",
     "internal/syscall/execenv",
@@ -67,5 +66,6 @@
     "internal/poll",
     "internal/singleflight",
     "internal/testlog",
-    "database/sql/driver"
+    "database/sql/driver",
+    "time/tzdata"
 ]}

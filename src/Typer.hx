@@ -72,8 +72,10 @@ final basicTypes = [
 
 var printer = new Printer();
 var config = {printGoCode: false}; // typer config
+var externBool:Bool = false;
 
-function main(data:DataType, printGoCode:Bool = false) {
+function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
+	externBool = eb;
 	config.printGoCode = printGoCode;
 	var list:Array<Module> = [];
 	var defaultImports:Array<ImportType> = [
@@ -1577,9 +1579,13 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		y = macro Go.toInterface($y);
 	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
-		final ct = toComplexType(fromType, info);
-		if (ct != null) {
-			y = macro($y.value : $ct);
+		switch expr.expr {
+			case EBinop(_, _, _):
+			default:
+				final ct = toComplexType(toType, info);
+				if (ct != null) {
+					y = macro($y.value : $ct);
+				}
 		}
 	}
 	final namedX = isNamed(fromType);
@@ -2984,7 +2990,11 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Str
 			case "$".code:
 				buff.add("$$");
 			default:
-				buff.addChar(code);
+				try {
+					buff.addChar(code);
+				} catch (_) {
+					buff.addChar(97);
+				}
 		}
 		i++;
 	}
@@ -3442,11 +3452,12 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	if (isInvalid(typeX) || isInterface(typeX)) {
 		x = macro Go.toInterface($x);
 		y = macro Go.toInterface($y);
+	} else {
+		if (isNamed(typeX))
+			x = macro $x.__t__;
+		if (isNamed(typeY))
+			y = macro $y.__t__;
 	}
-	if (isNamed(typeX))
-		x = macro $x.__t__;
-	if (isNamed(typeY))
-		y = macro $y.__t__;
 	var e = toExpr(EBinop(op, x, y));
 	e = assignTranslate(getUnderlying(typeX), typeof(expr.type), e, info);
 	if (walk)
@@ -3738,7 +3749,12 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var args = typeFieldListArgs(decl.type.params, info);
 	info.thisName = "";
 	info.restricted = restricted;
-	var block:Expr = toExpr(typeBlockStmt(decl.body, info, true));
+	var block:Expr = if (externBool) {
+		info.returnNamed = false;
+		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+	} else {
+		toExpr(typeBlockStmt(decl.body, info, true));
+	}
 
 	block = argsTranslate(args, block);
 
@@ -4617,12 +4633,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				final name = fields[method.index[0]].name;
 				final type = typeof(method.type);
 				switch type {
-					case signature(variadic, params, results, recv):
+					case signature(variadic, params, results, _):
 						var i = -1;
 						final args:Array<Expr> = [
 							for (param in params) {
 								i++;
-								macro $i{"_" + i};
+								switch param {
+									case _var(name, _):
+										macro $i{nameIdent(name, false, false, info)};
+									default:
+										macro $i{"_" + i};
+								}
 							}
 						];
 						i = -1;
@@ -4643,6 +4664,19 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 								}
 							}
 						];
+						if (variadic) {
+							var last = params.pop();
+							switch last.type {
+								case TPath(p):
+									p.name = "Rest";
+									p.pack = ["haxe"];
+									p.sub = null;
+									last.type = TPath(p);
+								default:
+							}
+							args.push(macro...${args.pop()});
+							params.push(last);
+						}
 						final fieldName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
 						var ret:ComplexType = null;
@@ -4655,17 +4689,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 									for (res in results) {
 										i++;
 										switch res {
-											case _var(_, type):
+											case _var(_, res):
 												{
 													name: "_" + i,
 													pos: null,
-													kind: FVar(toComplexType(type, info)),
+													kind: FVar(toComplexType(res, info)),
 												}
 											default:
 												{
 													name: "_" + i,
 													pos: null,
-													kind: FVar(toComplexType(type, info)),
+													kind: FVar(toComplexType(res, info)),
 												}
 										}
 									}

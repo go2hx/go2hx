@@ -91,7 +91,7 @@ class Go {
 			final str = s.error();
 		}
 		if ((s is haxe.io.Bytes)) // GoString is haxe.io.Bytes
-			s = s.toString();
+			s = (s : GoString).toString();
 		return if (haxe.Int64.isInt64(s)) {
 			haxe.Int64.toStr(s);
 		} else {
@@ -105,6 +105,29 @@ class Go {
 	}
 
 	public static macro function toInterface(expr) {
+		final expectedType = Context.getExpectedType();
+		if (expectedType != null) {
+			switch expectedType {
+				case TAbstract(t, params):
+					var error = false;
+					switch t.toString() {
+						case "stdgo.AnyInterface":
+
+						case "Null":
+							error = params.length == 0;
+						default:
+							error = true;
+					}
+					if (error)
+						Context.error("Invalid expected type Abstract: " + t.toString(), Context.currentPos());
+				case TMono(_):
+				case TDynamic(t):
+					if (t != null)
+						Context.error("Invalid expected type TDynamic: " + t, Context.currentPos());
+				default:
+					Context.error("Invalid expected type: " + expectedType, Context.currentPos());
+			}
+		}
 		var t = Context.typeof(expr);
 		var follow = true;
 		switch t {

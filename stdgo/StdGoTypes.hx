@@ -70,11 +70,11 @@ private function parseStringUInt(sParam:String):UInt32 {
 }
 
 function ofStringUInt(s:String):UInt32 {
-	return #if simulate_num parseStringUInt(s); #elseif eval eval.integers.UInt64.ofString(s); #else parseStringUInt(s); #end
+	return parseStringUInt(s);
 }
 
 function ofStringInt64(s:String):Int64 {
-	return #if simulate_num Int64.parseString(s); #elseif eval Int64.ofString(s); #else Int64.parseString(s); #end
+	return Int64.parseString(s);
 }
 
 function ofStringUnTypedInt(sParam:String):Int64 {
@@ -82,7 +82,7 @@ function ofStringUnTypedInt(sParam:String):Int64 {
 }
 
 function ofStringUInt64(s:String):UInt64 {
-	return #if simulate_num UInt64.parseString(s); #elseif eval UInt64.ofString(s); #else UInt64.parseString(s); #end
+	return UInt64.parseString(s);
 }
 
 function ofIntInt64(x:Int):Int64 {
@@ -90,67 +90,77 @@ function ofIntInt64(x:Int):Int64 {
 }
 
 function copyInt64(x:Int64):Int64
-	return #if simulate_num x.copy(); #elseif eval x; #else x.copy(); #end
+	return x.copy();
 
 function copyUInt64(x:UInt64):UInt64
-	return #if simulate_num x.copy(); #elseif eval x; #else x.copy(); #end
+	return x.copy();
 
 function ofIntUInt64(x:Int):UInt64 {
 	return UInt64.ofInt(x);
 }
 
 function zeroUInt32():UInt32
-	return #if simulate_num 0; #elseif eval 0; #else 0; #end
+	return 0;
 
 function oneUInt32():UInt32
-	return #if simulate_num 1; #elseif eval 1; #else 1; #end
+	return 1;
 
 function zeroInt64():Int64
-	return #if simulate_num 0; #elseif eval Int64.ZERO; #else 0; #end
+	return 0;
 
 function oneInt64():Int64
-	return #if simulate_num 1; #elseif eval Int64.ONE; #else 1; #end
+	return 1;
 
 function zeroUInt64():UInt64
-	return #if simulate_num 0; #elseif eval UInt64.ZERO; #else 0; #end
+	return 0;
 
 function oneUInt64():UInt64
-	return #if simulate_num 1; #elseif eval UInt64.ONE; #else 1; #end
+	return 1;
 
 function ofIntUInt(x:Int):UInt32 {
-	return #if simulate_num x; #elseif eval eval.integers.UInt64.ofInt(x); #else x; #end
+	return x;
 }
 
 function ofFloatInt64(x:Float):Int64 {
-	return
-		#if simulate_num haxe.Int64Helper.fromFloat(x); #elseif eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)); #else haxe.Int64Helper.fromFloat(x); #end
+	return haxe.Int64Helper.fromFloat(x);
 }
 
 function ofFloatUInt64(x:Float):UInt64 {
-	return #if simulate_num Int64.fromFloat(x); #elseif eval Int64.ofHxInt64(haxe.Int64Helper.fromFloat(x)).toUInt64(); #else UInt64.fromFloat(x); #end
+	return Int64.fromFloat(x);
 }
 
 function toFloatInt64(x:Int64):Float {
-	final i = #if simulate_num x; #elseif eval x.toHxInt64(); #else x; #end
+	final i = x;
 	return i.high * 4294967296.0 + (i.low >>> 0);
 }
 
 function toStringInt64(x:Int64):String
-	return #if simulate_num Int64.toStr(x); #elseif eval x.toString(); #else Int64.toStr(x); #end
+	return Int64.toStr(x);
 
 function toStringUInt64(x:UInt64):String
-	return #if simulate_num x.toString(); #elseif eval x.toString(); #else UInt64.toStr(x); #end
+	return x.toString();
+
+function toIntUInt64(x:UInt64):Int {
+	if (x.high != x.low >> 31)
+		return -2147483648;
+	return x.low;
+}
 
 function toIntInt64(x:Int64):Int {
-	return #if simulate_num Int64.toInt(x); #elseif eval x.toInt(); #else Int64.toInt(x); #end
+	if (x.high != 0) {
+		if (x.high < 0)
+			return -toIntInt64(Int64.neg(x));
+		// throw "Overflow"; // NOTE go panic not used here as it is in the Haxe libary code
+	}
+	return x.low;
 }
 
 function toInt64UInt64(x:UInt64):Int64 {
-	return #if simulate_num Int64.make(x.high, x.low); #elseif eval x.toInt64(); #else Int64.make(x.high, x.low); #end
+	return Int64.make(x.high, x.low);
 }
 
 function toUInt64Int64(x:Int64):UInt64 {
-	return #if simulate_num UInt64.make(x.high, x.low); #elseif eval x.toUInt64(); #else UInt64.make(x.high, x.low); #end
+	return UInt64.make(x.high, x.low);
 }
 
 // Eliott's very nice code
@@ -1974,31 +1984,31 @@ abstract GoUInt64(UInt64) from UInt64 {
 	}
 
 	@:to inline function toInt():GoInt
-		return this.toInt();
+		return toIntInt64(this);
 
 	@:to inline function toInt32():GoInt32
-		return toInt();
+		return toIntInt64(this);
 
 	@:to inline function toInt64():GoInt64
 		return toInt64UInt64(this);
 
 	@:to inline function toInt8():GoInt8
-		return clampInt8(this.toInt());
+		return clampInt8(toIntInt64(this));
 
 	@:to inline function toInt16():GoInt16
-		return clampInt16(this.toInt());
+		return clampInt16(toIntInt64(this));
 
 	@:to inline function toUInt():GoUInt
-		return clampUInt(this.toInt());
+		return clampUInt(toIntInt64(this));
 
 	@:to inline function toUInt32():GoUInt32
-		return clampUInt(this.toInt());
+		return clampUInt(toIntInt64(this));
 
 	@:to inline function toUInt8():GoUInt8
-		return clampUInt8(this.toInt());
+		return clampUInt8(toIntInt64(this));
 
 	@:to inline function toUInt16():GoUInt16
-		return clampUInt16(this.toInt());
+		return clampUInt16(toIntInt64(this));
 
 	@:to inline function toUInt64():GoUInt64
 		return this > zeroUInt64() ? this : zeroUInt64();
@@ -2244,7 +2254,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 }
 
-function isTitle(string:String):Bool {
+private function isTitle(string:String):Bool {
 	return string.charAt(0) == "_" ? false : string.charAt(0) == string.charAt(0).toUpperCase();
 }
 

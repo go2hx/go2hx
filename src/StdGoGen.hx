@@ -28,8 +28,10 @@ function main() {
 	}
 	for (path in ["runtime/race"])
 		libs.remove(path); // remove
+	//libs = libs.concat(["syscall", "syscall/js"]);
 	trace(libs);
+	final externBool = !false;
 	trace("libs count: " + libs.length);
 	for (lib in libs)
-		Sys.command('haxelib run go2hx $lib --out stdgo --root stdgo');
+		Sys.command('haxelib run go2hx $lib --out stdgo --root stdgo' + (externBool ? " --extern" : ""));
 }

@@ -49,10 +49,21 @@ var libwrap = false;
 var outputPath:String = "";
 var root:String = "";
 var buildPath:String = "";
+var externBool:Bool = false;
 var hxmlPath:String = "";
 var noRun:Bool = false;
 var test:Bool = false;
-final passthroughArgs = ["-test"];
+
+final passthroughArgs = [
+	"-log",
+	"--log",
+	"-test",
+	"--test",
+	"-extern",
+	"--extern",
+	"-externs",
+	"--externs"
+];
 
 function run(args:Array<String>) {
 	outputPath = "golibs";
@@ -63,6 +74,8 @@ function run(args:Array<String>) {
 		@doc("don't run the build commands")
 		["-norun", "--norun"] => () -> noRun = true, @doc("go test")
 		["-test", "--test"] => () -> test = true,
+		@doc("generate externs exported module fields only with no func exprs")
+		["-extern", "--extern", "-externs", "--externs"] => () -> externBool = true,
 		@doc("set output path or file location")
 		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> outputPath = out,
 		@doc("set the root package for all generated files")
@@ -134,9 +147,10 @@ function run(args:Array<String>) {
 		return;
 	}
 	setup(0, 1, () -> {
-		onComplete = (modules, data) -> {
-			close();
-		};
+		if (onComplete == null)
+			onComplete = (modules, data) -> {
+				close();
+			};
 		if (args.length <= 1) {
 			Repl.init();
 		} else {
@@ -232,7 +246,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			if (pos == buff.length) {
 				var exportData:DataType = bson.Bson.decode(buff);
 				var modules = [];
-				modules = Typer.main(exportData, printGoCode);
+				modules = Typer.main(exportData, printGoCode, externBool);
 				Sys.setCwd(localPath);
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];

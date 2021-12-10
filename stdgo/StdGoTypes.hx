@@ -210,8 +210,8 @@ function clampFloat32(x:Float):Float
 function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):UInt32 // TODO: clamp uint
-	return x < zeroUInt32() ? 2147483647 * 2 + 1 : x;
+function clampUInt(x:Int):UInt32
+	return x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
@@ -362,7 +362,7 @@ abstract GoFloat64(Float) from Float {
 	@:to inline function toUInt64():GoUInt64 {
 		if (std.Math.isNaN(this))
 			return GoUInt64.ofString("9223372036854775808");
-		return this > 0 ? this : 0;
+		return this;
 	}
 
 	@:to inline function toComplex64():GoComplex64
@@ -468,7 +468,7 @@ abstract GoFloat32(Float32) from Float32 {
 	@:to inline function toUInt64():GoUInt64 {
 		if (std.Math.isNaN(this))
 			return GoUInt64.ofString("9223372036854775808");
-		return this > 0 ? this : 0;
+		return this;
 	}
 
 	@:to inline function toComplex64():GoComplex64
@@ -884,7 +884,7 @@ abstract GoInt(Int32) from Int32 from Int32 {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1006,7 +1006,7 @@ abstract GoInt32(Int) from Int32 from Int {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1137,7 +1137,7 @@ abstract GoUInt(UInt32) from UInt32 {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1269,7 +1269,7 @@ abstract GoUInt32(UInt) from UInt {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1390,7 +1390,7 @@ abstract GoInt8(Int8) from Int8 from Int {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1513,7 +1513,7 @@ abstract GoInt16(Int16) from Int16 from Int {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1789,7 +1789,7 @@ abstract GoUInt8(UInt8) from UInt8 from Int {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	@:to inline function toFloat32():GoFloat32
 		return this;
@@ -1893,7 +1893,7 @@ abstract GoUInt16(UInt16) from UInt16 from Int {
 		return clampUInt16(this);
 
 	@:to inline function toUInt64():GoUInt64
-		return this > 0 ? this : 0;
+		return this;
 
 	public static function ofInt(x:Int):GoUInt16
 		return x;

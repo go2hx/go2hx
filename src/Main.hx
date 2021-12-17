@@ -308,6 +308,7 @@ private function runTarget(modules:Array<Typer.Module>) {
 	if (target == "") {
 		if (test) {
 			target = "hl"; // default test target
+			targetOutput = "test.hl";
 		} else {
 			noRun = true;
 		}

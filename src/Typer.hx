@@ -897,10 +897,12 @@ private function checkType(e:Expr, ct:ComplexType, from:GoType, to:GoType, info:
 			args.push(macro true);
 			switch ct {
 				case TPath(p):
-					switch p.params[0] {
-						case TPType(t):
-							ct = t;
-						default:
+					if (p.params != null) { // not an unsafe pointer
+						switch p.params[0] {
+							case TPType(t):
+								ct = t;
+							default:
+						}
 					}
 				default:
 			}
@@ -3457,6 +3459,16 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 			x = macro $x.__t__;
 		if (isNamed(typeY))
 			y = macro $y.__t__;
+		switch typeX {
+			case basic(untyped_float_kind):
+				y = macro($y : GoUnTypedFloat);
+			default:
+		}
+		switch typeY {
+			case basic(untyped_float_kind):
+				x = macro($x : GoUnTypedFloat);
+			default:
+		}
 	}
 	var e = toExpr(EBinop(op, x, y));
 	e = assignTranslate(getUnderlying(typeX), typeof(expr.type), e, info);

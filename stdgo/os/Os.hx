@@ -7,7 +7,8 @@ import stdgo.StdGoTypes;
 import sys.FileStat;
 import sys.FileSystem;
 
-var args = new Slice<GoString>(...([(Sys.programPath() : GoString)].concat([for (arg in Sys.args()) (arg : GoString)])));
+// TODO: interp error [0] Instance prototype not found: haxe.macro.Error
+var args = new Slice<GoString>(...([(#if interp "" #else Sys.programPath() #end : GoString)].concat([for (arg in Sys.args()) (arg : GoString)])));
 var stderr = Go.pointer(new OutputWriter(Sys.stderr()));
 
 var stdin:Dynamic = {

@@ -344,7 +344,8 @@ class M {
 			var error = false;
 			final output = new StringBuf();
 			var t = new T_(output);
-			final stamp = haxe.Timer.stamp();
+			final stamp = Sys.time();
+			stdgo.fmt.Fmt.println("=== RUN  ", test.name);
 			try {
 				test.f(Go.pointer(t));
 			} catch (e) {
@@ -354,7 +355,7 @@ class M {
 				Sys.exit(0);
 				error = true;
 			}
-			final dstr = haxe.Timer.stamp() - stamp; // duration
+			final dstr = Sys.time() - stamp; // duration
 			final format = "--- %s: %s (%s)\n";
 			if (t.failed() || error) {
 				stdgo.fmt.Fmt.printf(format, Go.toInterface("FAIL"), Go.toInterface(test.name), Go.toInterface(dstr));

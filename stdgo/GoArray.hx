@@ -71,7 +71,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	private function boundsCheck(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
 		if (i < 0 || i >= this.length) {
-			throw "array out of bounds, index: " + i + " length: " + length;
+			throw "array out of bounds, index: " + i + " length: " + length.toBasic();
 		}
 		#end
 	}

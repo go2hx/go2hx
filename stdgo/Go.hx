@@ -329,15 +329,15 @@ class Go {
 			case TType(t, params):
 				final name = t.get().name;
 				switch name {
-					case "stdgo.GoUnTypedInt":
+					case "GoUnTypedInt", "stdgo.GoUnTypedInt":
 						true;
-					case "stdgo.GoUnTypedFloat":
+					case "GoUnTypedFloat", "stdgo.GoUnTypedFloat":
 						true;
-					case "stdgo.GoUnTypedComplex":
+					case "GoUnTypedComplex", "stdgo.GoUnTypedComplex":
 						true;
-					case "stdgo.GoRune":
+					case "GoRune", "stdgo.GoRune":
 						true;
-					case "stdgo.GoByte":
+					case "GoByte", "stdgo.GoByte":
 						true;
 					default:
 						false;

@@ -1,10 +1,19 @@
 package stdgo.internal.injector.math;
 
 import Math as M;
+import haxe.Int64;
+import haxe.io.Bytes;
+import stdgo.StdGoTypes.GoFloat32;
+import stdgo.StdGoTypes.GoFloat64;
 import stdgo.StdGoTypes.GoFloat;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.StdGoTypes.GoUInt32;
+import stdgo.StdGoTypes.GoUInt64;
 
+@:local
 final pi = M.PI;
+
+@:local
 final maxFloat32 = 340282346638528859811704183484516925440.000000;
 
 inline function max(_x, _y) {
@@ -15,7 +24,19 @@ inline function min(_x, _y) {
 	return HaxeMath.min(_x, _y);
 }
 
+inline function mod(_x, _y) {
+	return HaxeMath.mod(_x, _y);
+}
+
+inline function log(_x)
+	return HaxeMath.log(_x);
+
 inline function sqrt(_x) {
+	return HaxeMath.sqrt(_x);
+}
+
+// private version for testing ref
+inline function _sqrt(_x) {
 	return HaxeMath.sqrt(_x);
 }
 
@@ -23,7 +44,7 @@ inline function inf(_sign) {
 	return HaxeMath.inf(_sign);
 }
 
-inline function isnaN(_f)
+inline function isNaN(_f)
 	return HaxeMath.isNaN(_f);
 
 inline function abs(_x) {
@@ -31,7 +52,7 @@ inline function abs(_x) {
 }
 
 inline function exp(_x) {
-	return M.exp(_x);
+	return HaxeMath.exp(_x);
 }
 
 inline function acos(_x) {
@@ -42,12 +63,24 @@ inline function cos(_x) {
 	return HaxeMath.cos(_x);
 }
 
+function _archFloor(_x)
+	return HaxeMath.floor(_x);
+
+function _archCeil(_x)
+	return HaxeMath.ceil(_x);
+
+function _archTrunc(_x)
+	return HaxeMath.trunc(_x);
+
+inline function trunc(_x)
+	return HaxeMath.trunc(_x);
+
 inline function floor(_x) {
 	return HaxeMath.floor(_x);
 }
 
 inline function pow(_x, _y) {
-	return M.pow(_x, _y);
+	return HaxeMath.pow(_x, _y);
 }
 
 inline function asin(_x) {
@@ -62,8 +95,8 @@ inline function atan(_x) {
 	return HaxeMath.atan(_x);
 }
 
-inline function atan2(_x, _y) {
-	return HaxeMath.atan2(_x, _y);
+inline function atan2(_y, _x) {
+	return HaxeMath.atan2(_y, _x);
 }
 
 inline function ceil(_x) {
@@ -82,7 +115,71 @@ inline function sin(_x) {
 	return HaxeMath.sin(_x);
 }
 
+inline function float32frombits(_b)
+	return HaxeMath.float32frombits(_b);
+
+inline function float32bits(_f)
+	return HaxeMath.float32bits(_f);
+
+inline function float64frombits(_b) {
+	return HaxeMath.float64frombits(_b);
+}
+
+function float64bits(_f) {
+	return HaxeMath.float64bits(_f);
+}
+
 class HaxeMath {
+	public static function trunc(_x:GoFloat64):GoFloat64
+		return _x > 0 ? M.floor(_x.toBasic()) : M.ceil(_x.toBasic());
+
+	public static function log(_x:GoFloat64):GoFloat64
+		return M.log(_x.toBasic());
+
+	public static function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64
+		return M.pow(_x.toBasic(), _y.toBasic());
+
+	public static function mod(_x:GoFloat64, _y:GoFloat64):GoFloat64
+		return _x.toBasic() % _y.toBasic();
+
+	public static function float64bits(_f:GoFloat64):GoUInt64 {
+		final bits = Bytes.alloc(8);
+		bits.setDouble(0, _f.toBasic());
+		return haxe.UInt64.make(bits.get(4) | (bits.get(5) << 8) | (bits.get(6) << 16) | (bits.get(7) << 24),
+			bits.get(0) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24));
+	}
+
+	public static function float32bits(_b:GoFloat32):GoUInt32 {
+		final bits = Bytes.alloc(4);
+		bits.setFloat(0, _b.toBasic());
+		return bits.get(0) | bits.get(1) << 8 | bits.get(2) << 16 | bits.get(3) << 24;
+	}
+
+	public static function float32frombits(_b:GoUInt32):GoFloat32 {
+		final bits = Bytes.alloc(4);
+		final v = _b.toBasic();
+		bits.set(0, v & 0xff);
+		bits.set(1, (v >> 8) & 0xff);
+		bits.set(2, (v >> 16) & 0xff);
+		bits.set(3, (v >> 24) & 0xff);
+		return bits.getFloat(0);
+	}
+
+	public static function float64frombits(_b:GoUInt64):GoFloat64 {
+		final bits = Bytes.alloc(8);
+		final low = _b.toBasic().low;
+		final high = _b.toBasic().high;
+		bits.set(0, low & 0xff);
+		bits.set(1, (low >> 8) & 0xff);
+		bits.set(2, (low >> 16) & 0xff);
+		bits.set(3, (low >> 24) & 0xff); // little-endian
+		bits.set(4, high & 0xff);
+		bits.set(5, (high >> 8) & 0xff);
+		bits.set(6, (high >> 16) & 0xff);
+		bits.set(7, (high >> 24) & 0xff); // little-endian
+		return bits.getDouble(0);
+	}
+
 	public static function naN()
 		return M.NaN;
 
@@ -91,6 +188,9 @@ class HaxeMath {
 			return M.POSITIVE_INFINITY;
 		return M.NEGATIVE_INFINITY;
 	}
+
+	public static function exp(_x:GoFloat):GoFloat
+		return M.exp(_x.toBasic());
 
 	public static function isNaN(_f:GoFloat):Bool
 		return M.isNaN(_f.toBasic());
@@ -104,8 +204,8 @@ class HaxeMath {
 	public static function ceil(_f:GoFloat):GoFloat
 		return M.ceil(_f.toBasic());
 
-	public static function sqrt(_f:GoFloat):GoFloat
-		return M.sqrt(_f.toBasic());
+	public static function sqrt(_x:GoFloat):GoFloat
+		return M.sqrt(_x.toBasic());
 
 	public static function min(_x:GoFloat, _y:GoFloat):GoFloat
 		return M.min(_x.toBasic(), _y.toBasic());
@@ -131,8 +231,8 @@ class HaxeMath {
 	public static function atan(_f:GoFloat):GoFloat
 		return M.atan(_f.toBasic());
 
-	public static function atan2(_x:GoFloat, _y:GoFloat):GoFloat
-		return M.atan2(_x.toBasic(), _y.toBasic());
+	public static function atan2(_y:GoFloat, _x:GoFloat):GoFloat
+		return M.atan2(_y.toBasic(), _x.toBasic());
 
 	public static function round(_f:GoFloat)
 		return M.round(_f.toBasic());

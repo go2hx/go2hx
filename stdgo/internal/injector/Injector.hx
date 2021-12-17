@@ -23,7 +23,8 @@ function build():Array<Field> {
 	if (!StringTools.endsWith(className, "_Fields_"))
 		return fields;
 	final index = modulePath.indexOf(".");
-	final moduleTypes = Context.getModule("stdgo.internal.injector." + modulePath.substring(index + 1));
+	final realPath = modulePath.substring(index + 1);
+	final moduleTypes = Context.getModule("stdgo.internal.injector." + realPath);
 	for (type in moduleTypes) {
 		switch type {
 			case TInst(t, _):
@@ -40,13 +41,16 @@ function build():Array<Field> {
 							continue;
 						switch field.kind {
 							case FFun(f):
-								switch stat.expr().expr {
-									case TFunction(tfunc):
-										var expr = Context.getTypedExpr(tfunc.expr);
-										f.expr = expr;
-										resolved = true;
-										break;
-									default:
+								final expr = stat.expr();
+								if (expr != null) {
+									switch expr.expr {
+										case TFunction(tfunc):
+											var expr = Context.getTypedExpr(tfunc.expr);
+											f.expr = expr;
+											resolved = true;
+											break;
+										default:
+									}
 								}
 								break;
 							default:

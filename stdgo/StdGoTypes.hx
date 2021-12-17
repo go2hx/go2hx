@@ -69,97 +69,147 @@ private function parseStringUInt(sParam:String):UInt32 {
 	return current;
 }
 
-function ofStringUInt(s:String):UInt32 {
+private function ofStringUInt(s:String):UInt32 {
 	return parseStringUInt(s);
 }
 
-function ofStringInt64(s:String):Int64 {
+private function ofStringInt64(s:String):Int64 {
 	return Int64.parseString(s);
 }
 
-function ofStringUnTypedInt(sParam:String):Int64 {
+private function ofStringUnTypedInt(sParam:String):Int64 {
 	return Int64.parseString(sParam);
 }
 
-function ofStringUInt64(s:String):UInt64 {
+private function ofStringUInt64(s:String):UInt64 {
 	return UInt64.parseString(s);
 }
 
-function ofIntInt64(x:Int):Int64 {
+private function ofIntInt64(x:Int):Int64 {
 	return Int64.ofInt(x); // (Int64.make(x >> 31, x) : GoInt64);
 }
 
-function copyInt64(x:Int64):Int64
+private function copyInt64(x:Int64):Int64
 	return x.copy();
 
-function copyUInt64(x:UInt64):UInt64
+private function copyUInt64(x:UInt64):UInt64
 	return x.copy();
 
-function ofIntUInt64(x:Int):UInt64 {
+private function ofIntUInt64(x:Int):UInt64 {
 	return UInt64.ofInt(x);
 }
 
-function zeroUInt32():UInt32
+private function zeroUInt32():UInt32
 	return 0;
 
-function oneUInt32():UInt32
+private function oneUInt32():UInt32
 	return 1;
 
-function zeroInt64():Int64
+private function zeroInt64():Int64
 	return 0;
 
-function oneInt64():Int64
+private function oneInt64():Int64
 	return 1;
 
-function zeroUInt64():UInt64
+private function zeroUInt64():UInt64
 	return 0;
 
-function oneUInt64():UInt64
+private function oneUInt64():UInt64
 	return 1;
 
-function ofIntUInt(x:Int):UInt32 {
+private function ofIntUInt(x:Int):UInt32 {
 	return x;
 }
 
-function ofFloatInt64(x:Float):Int64 {
-	return haxe.Int64Helper.fromFloat(x);
+// https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2014-L2034
+private function ofFloatInt64(x:Float):Int64 {
+	if (x == 0)
+		return Int64.make(0, 0);
+	final isNeg = x < 0;
+	if (isNeg)
+		x *= -1;
+	if (Math.isNaN(x))
+		return (isNeg ? -1 : 1) * Math.floor(x);
+	if (x > 9223372036854775807.0)
+		return isNeg ? Int64.make(0x80000000, 0) : Int64.make(0x7fffffff, 0xffffffff);
+	var res = ofFloatUInt64(x);
+	return isNeg ? Int64.neg(res) : res;
 }
 
-function ofFloatUInt64(x:Float):UInt64 {
-	return Int64.fromFloat(x);
+private function ofFloatUInt64(x:Float):UInt64 {
+	if (x < 0.0)
+		throw "negative float passed to uint64";
+	if (Math.isNaN(x))
+		return Int64.make(0x80000000, 0);
+	if (x < 2147483647.0)
+		return Math.floor(x);
+	if (x > 18446744073709551615.0)
+		return Int64.make(0xffffffff, 0xffffffff);
+	// https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2048-L2058
+	var f32:Float = 4294967296.0; // the number of combinations in 32-bits
+	var f16:Float = 65536.0; // the number of combinations in 16-bits
+	x = Math.ffloor(x); // remove any fractional part
+	var high:Float = Math.ffloor(x / f32);
+	var highTop16:Float = Math.ffloor(high / f16);
+	var highBot16:Float = high - (highTop16 * f16);
+	var highBits:Int = Math.floor(highTop16) << 16 | Math.floor(highBot16);
+	var low:Float = x - (high * f32);
+	var lowTop16:Float = Math.ffloor(low / f16);
+	var lowBot16:Float = low - (lowTop16 * f16);
+	var lowBits:Int = Math.floor(lowTop16) << 16 | Math.floor(lowBot16);
+	return Int64.make(highBits, lowBits);
 }
 
-function toFloatInt64(x:Int64):Float {
+private function toFloatInt64(x:Int64):Float {
 	final i = x;
 	return i.high * 4294967296.0 + (i.low >>> 0);
 }
 
-function toStringInt64(x:Int64):String
+private function toFloatUInt64(x:UInt64):Float {
+	final i = x;
+	return i.high * 4294967296.0 + (i.low >>> 0);
+}
+
+/**
+	Converts an `Int64` to `Float`;
+	Implementation by Elliott Stoneham.
+ */
+/*private function toFloatInt64(i:Int64):Float {
+	var isNegative = false;
+	if (i < 0) {
+		if (i < min)
+			return -9223372036854775808.0; // most -ve value can't be made +ve
+		isNegative = true;
+		i = -i;
+	}
+	var multiplier = 1.0, ret = 0.0;
+	for (_ in 0...64) {
+		if (i.and(one) != zero)
+			ret += multiplier;
+		multiplier *= 2.0;
+		i = i.shr(1);
+	}
+	return (isNegative ? -1 : 1) * ret;
+}*/
+private function toStringInt64(x:Int64):String
 	return Int64.toStr(x);
 
-function toStringUInt64(x:UInt64):String
+private function toStringUInt64(x:UInt64):String
 	return x.toString();
 
-function toIntUInt64(x:UInt64):Int {
-	if (x.high != x.low >> 31)
-		return -2147483648;
+private function toIntUInt64(x:UInt64):Int {
 	return x.low;
 }
 
-function toIntInt64(x:Int64):Int {
-	if (x.high != 0) {
-		if (x.high < 0)
-			return -toIntInt64(Int64.neg(x));
-		// throw "Overflow"; // NOTE go panic not used here as it is in the Haxe libary code
-	}
+private function toIntInt64(x:Int64):Int {
 	return x.low;
 }
 
-function toInt64UInt64(x:UInt64):Int64 {
-	return Int64.make(x.high, x.low);
+private function toInt64UInt64(x:UInt64):Int64 {
+	return x;
 }
 
-function toUInt64Int64(x:Int64):UInt64 {
+private function toUInt64Int64(x:Int64):UInt64 {
 	return UInt64.make(x.high, x.low);
 }
 
@@ -184,33 +234,33 @@ class Complex<T:GoFloat64> {
 	}
 }
 
-function shiftGuard(x:Int):Bool
+private function shiftGuard(x:Int):Bool
 	return x > 0xFF || x < 0;
 
-function clampInt8(x:Int):Int {
+private function clampInt8(x:Int):Int {
 	x = x & 0xFF;
 	if (x & 0x80 != 0)
 		return -1 - 0xFF + x;
 	return x;
 }
 
-function clampInt16(x:Int):Int {
+private function clampInt16(x:Int):Int {
 	x = x & 0xFFFF;
 	if (x & 0x8000 != 0)
 		return -1 - 0xFFFF + x;
 	return x;
 }
 
-function clampUInt8(x:Int):Int
+private function clampUInt8(x:Int):Int
 	return x & 0xFF;
 
-function clampFloat32(x:Float):Float
+private function clampFloat32(x:Float):Float
 	return x;
 
-function clampUInt16(x:Int):Int
+private function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
-function clampUInt(x:Int):UInt32
+private function clampUInt(x:Int):UInt32
 	return x;
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
@@ -576,7 +626,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 	}
 
 	@:to inline function toUInt64():GoUInt64 {
-		return Std.int(this.real);
+		return ofFloatUInt64(this.real);
 	}
 
 	@:to inline function toFloat32():GoFloat32 {
@@ -630,7 +680,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
 	@:op(A + B) @:commutative private static function addUInt64(a:GoComplex64, b:GoUInt64):GoComplex64
-		return new GoComplex64(a.real + b.toBasic().toInt(), a.imag);
+		return new GoComplex64(a.real + toIntInt64(b.toBasic()), a.imag);
 
 	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex64, b:GoFloat32):GoComplex64
 		return new GoComplex64(a.real + b.toBasic(), a.imag);
@@ -704,7 +754,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 	}
 
 	@:to inline function toInt64():GoInt64 {
-		return Std.int(this.real);
+		return ofFloatInt64(this.real);
 	}
 
 	@:to inline function toUInt8():GoUInt8 {
@@ -720,7 +770,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 	}
 
 	@:to inline function toUInt64():GoUInt64 {
-		return Std.int(this.real);
+		return ofFloatUInt64(this.real);
 	}
 
 	@:to inline function toFloat32():GoFloat32 {
@@ -784,7 +834,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return new GoComplex128(a.real + b.toBasic(), a.imag);
 
 	@:op(A + B) @:commutative private static function addUInt128(a:GoComplex128, b:GoUInt64):GoComplex128
-		return new GoComplex128(a.real + b.toBasic().toInt(), a.imag);
+		return new GoComplex128(a.real + toIntInt64(b.toBasic()), a.imag);
 
 	@:op(A + B) @:commutative private static function addFloat32(a:GoComplex128, b:GoFloat32):GoComplex128
 		return new GoComplex128(a.real + b.toBasic(), a.imag);
@@ -2014,16 +2064,17 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return this > zeroUInt64() ? this : zeroUInt64();
 
 	@:to inline function toFloat32():GoFloat32
-		return this.toInt();
+		return toFloatUInt64(this);
 
-	@:to inline function toFloat64():GoFloat64
-		return this.toInt();
+	@:to inline function toFloat64():GoFloat64 {
+		return toFloatUInt64(this);
+	}
 
 	@:from public static inline function ofInt(x:Int):GoUInt64
 		return UInt64.ofInt(x);
 
 	@:from public static inline function ofFloat(x:Float):GoUInt64
-		return (Std.int(x) : GoUInt64);
+		return ofFloatUInt64(x);
 
 	@:op(A > B) private static function gt(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() > b.toBasic();
@@ -2038,15 +2089,15 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return a.toBasic() <= b.toBasic();
 
 	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (shiftGuard(b.toBasic().toInt()))
+		if (shiftGuard(toIntInt64(b.toBasic())))
 			return a < 0 ? -1 : 0;
-		return a.toBasic() >> b.toBasic().toInt();
+		return a.toBasic() >> toIntInt64(b.toBasic());
 	}
 
 	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (shiftGuard(b.toBasic().toInt()))
+		if (shiftGuard(toIntInt64(b.toBasic())))
 			return a < 0 ? -1 : 0;
-		return a.toBasic() << b.toBasic().toInt();
+		return a.toBasic() << toIntInt64(b.toBasic());
 	}
 
 	@:op(A != B) private static function neq(a:GoUInt64, b:GoUInt64):Bool
@@ -2083,8 +2134,8 @@ abstract GoUInt64(UInt64) from UInt64 {
 		return this + ofIntUInt64(1);
 	}
 
-	@:op(-A) private static function neg(a:GoUInt64):GoInt64
-		return a * -1;
+	@:op(-A) inline function neg():GoInt64
+		return this * -1;
 
 	@:op(A--) inline function postDec():GoUInt64 {
 		return this + ofIntUInt64(1);

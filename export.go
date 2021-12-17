@@ -142,11 +142,6 @@ func compile(params []string, excludesData excludesType) []byte {
 			delete(excludes, pkg.PkgPath)
 		}
 	}
-	/*log("== excludes:")
-	for key := range excludes {
-		log(key)
-	}
-	log("======")*/
 	data := parsePkgList(initial, excludes)
 	//reset
 	excludes = nil
@@ -241,15 +236,15 @@ func main() {
 }
 
 func addExclude(pkg *packages.Package) {
-	excludes[pkg.ID] = true
+	excludes[pkg.PkgPath] = true
 }
 
 func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
-	if excludes[pkg.ID] {
+	if excludes[pkg.PkgPath] {
 		return
 	}
 	for _, val := range pkg.Imports {
-		if excludes[val.ID] || strings.HasPrefix(val.PkgPath, "internal") {
+		if excludes[val.PkgPath] || strings.HasPrefix(val.PkgPath, "internal") {
 			continue
 		}
 		parseLocalPackage(val, excludes)
@@ -387,13 +382,20 @@ func throw(str string) {
 	panic(str)
 }
 
-func mergePackage(pkg *packages.Package) {
-	files := make(map[string]*ast.File, len(pkg.Syntax))
-	for i := 0; i < len(pkg.Syntax); i++ {
-		path := filepath.Base(pkg.GoFiles[i])
-		files[path] = pkg.Syntax[i]
+func mergePackage(input *packages.Package, output *packages.Package) {
+	files := make(map[string]*ast.File, len(input.Syntax))
+	for i := 0; i < len(input.Syntax); i++ {
+		path := filepath.Base(input.GoFiles[i])
+		files[path] = input.Syntax[i]
 	}
-	pkg.Syntax = []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates)}
+	if input != output {
+		for i := 0; i < len(output.Syntax); i++ {
+			path := filepath.Base(output.GoFiles[i])
+			files[path] = output.Syntax[i]
+		}
+	}
+	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: output.Name, Files: files}, ast.FilterImportDuplicates)}
+	output.Syntax = newFiles
 }
 
 var countStruct = 0
@@ -401,11 +403,23 @@ var countInterface = 0
 
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
-		mergePackage(pkg)
+		mergePackage(pkg, pkg)
 		if externBool {
 			for _, file := range pkg.Syntax {
 				ast.FileExports(file) // trim unexported fields
 			}
+		}
+		i := 0
+		for i < len(list) {
+			if pkg == list[i] {
+				i++
+				continue
+			}
+			if pkg.PkgPath == list[i].PkgPath {
+				mergePackage(list[i], pkg)
+				list = append(list[:i], list[i+1:]...) // delete
+			}
+			i++
 		}
 	}
 	typeHasher = typeutil.MakeHasher()
@@ -418,7 +432,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
-		if excludes[pkg.ID] {
+		if excludes[pkg.PkgPath] {
 			continue
 		}
 		addExclude(pkg)
@@ -427,7 +441,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
 		for _, val := range pkg.Imports { //imports
-			if excludes[val.ID] {
+			if excludes[val.PkgPath] {
 				continue
 			}
 			addExclude(pkg)
@@ -808,28 +822,15 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 
 	switch node := node.(type) {
-	case *ast.CompositeLit:
-		data["type"] = parseType(checker.TypeOf(node))
-	case *ast.SelectorExpr:
-		data["type"] = parseType(checker.TypeOf(node))
-	case *ast.IndexExpr:
-		data["type"] = parseType(checker.TypeOf(node))
-	case *ast.Ellipsis:
-		data["type"] = parseType(checker.TypeOf(node))
-	case *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node))
+	case *ast.CompositeLit, *ast.SelectorExpr, *ast.IndexExpr, *ast.Ellipsis:
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
-	case *ast.SliceExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.TypeAssertExpr:
-	case *ast.StarExpr:
-		data["type"] = parseType(checker.TypeOf(node))
-	case *ast.CallExpr:
-		data["type"] = parseType(checker.TypeOf(node))
 	case *ast.UnaryExpr:
-	case *ast.BinaryExpr:
-		data["type"] = parseType(checker.TypeOf(node))
+
+	case *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset

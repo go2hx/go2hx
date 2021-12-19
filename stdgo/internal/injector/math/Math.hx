@@ -198,11 +198,20 @@ class HaxeMath {
 	public static function abs(_f:GoFloat):GoFloat
 		return M.abs(_f.toBasic());
 
-	public static function floor(_f:GoFloat):GoFloat
+	public static function floor(_f:GoFloat):GoFloat {
+		if (!M.isFinite(_f.toBasic()) || M.isNaN(_f.toBasic()))
+			return _f;
 		return M.ffloor(_f.toBasic());
+	}
 
-	public static function ceil(_f:GoFloat):GoFloat
+	public static function ceil(_f:GoFloat):GoFloat {
+		if (!M.isFinite(_f.toBasic()) || M.isNaN(_f.toBasic())) // special cases
+			return _f;
+		if (_f > -1.0 && _f < 0.0) {
+			return stdgo.internal.Math.copysign(0, -1);
+		}
 		return M.ceil(_f.toBasic());
+	}
 
 	public static function sqrt(_x:GoFloat):GoFloat
 		return M.sqrt(_x.toBasic());

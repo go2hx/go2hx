@@ -1,4 +1,5 @@
 package stdgo.math;
+
 import haxe.Int64;
 import haxe.io.Bytes;
 import stdgo.Chan;
@@ -1447,21 +1448,6 @@ function _floor(_x:GoFloat64):GoFloat64 {
 		_d:GoFloat64 = __tmp__._0,
 		_:GoFloat64 = __tmp__._1;
 	return _d;
-}
-
-/**
-	// Ceil returns the least integer value greater than or equal to x.
-	//
-	// Special cases are:
-	//	Ceil(±0) = ±0
-	//	Ceil(±Inf) = ±Inf
-	//	Ceil(NaN) = NaN
-**/
-function ceil(_x:GoFloat64):GoFloat64 {
-	if (_haveArchCeil) {
-		return _archCeil(_x);
-	};
-	return _ceil(_x);
 }
 
 function _ceil(_x:GoFloat64):GoFloat64 {
@@ -4050,7 +4036,7 @@ function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
 	_ix = _ix | (((1 : GoUnTypedInt)) << _shift);
 	var _digit:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) / ((64 : GoUInt)),
 		_bitshift:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) % ((64 : GoUInt));
-	trace(_digit, _bitshift, _mPi4[_digit]); //helper
+	trace(_digit, _bitshift, _mPi4[_digit]); // helper
 	var _z0:GoUInt64 = (_mPi4[_digit] << _bitshift) | (_mPi4[_digit + ((1 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
 	var _z1:GoUInt64 = (_mPi4[_digit + ((1 : GoUInt))] << _bitshift) | (_mPi4[_digit + ((2 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
 	var _z2:GoUInt64 = (_mPi4[_digit + ((2 : GoUInt))] << _bitshift) | (_mPi4[_digit + ((3 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
@@ -4119,4 +4105,19 @@ function float64bits(_f:GoFloat64):GoUInt64 {
 **/
 function float64frombits(_b:GoUInt64):GoFloat64 {
 	return ((((Go.pointer(_b) : stdgo.unsafe.Unsafe.Pointer_)) : Pointer<GoFloat64>)).value;
+}
+
+/**
+	// Ceil returns the least integer value greater than or equal to x.
+	//
+	// Special cases are:
+	//	Ceil(±0) = ±0
+	//	Ceil(±Inf) = ±Inf
+	//	Ceil(NaN) = NaN
+**/
+function ceil(_x:GoFloat64):GoFloat64 {
+	if (_haveArchCeil) {
+		return _archCeil(_x);
+	};
+	return _ceil(_x);
 }

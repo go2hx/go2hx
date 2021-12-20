@@ -4252,8 +4252,8 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 	for (field in list.list) {
 		var type = typeof(field.type);
 		var tag = "";
-		if (field.tag != null) {
-			tag = field.tag.value;
+		if (field.tag != "") {
+			tag = field.tag;
 		}
 		if (field.names.length == 0) {
 			// embedded
@@ -4832,9 +4832,10 @@ private function errorType()
 
 private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	var doc = getDoc(imp);
-	final path = normalizePath(imp.path.value);
+	imp.path = imp.path.substr(1,imp.path.length - 2); // remove quotes
+	final path = normalizePath(imp.path);
 	final pack = path.split("/");
-	var alias = imp.name == null ? null : imp.name.name;
+	var alias = imp.name;
 	if (alias == "_")
 		alias = "";
 	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
@@ -4842,7 +4843,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	}
 	final name = pack[pack.length - 1];
 	pack.push(importClassName(name)); // shorten path here
-	if (alias != null && alias != "") {
+	if (alias != "") {
 		if (alias == ".") {
 			info.data.imports.push({
 				path: pack,

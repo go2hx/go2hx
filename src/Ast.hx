@@ -33,7 +33,7 @@ typedef Field = {
 	doc:CommentGroup,
 	names:Array<Ident>,
 	type:Expr,
-	tag:BasicLit,
+	tag:String,
 	comment:CommentGroup,
 };
 
@@ -377,9 +377,9 @@ typedef Spec = Dynamic; // A go interface
 
 typedef ImportSpec = {
 	doc:CommentGroup,
-	name:Ident,
+	name:String,
 	// Ident
-	path:BasicLit,
+	path:String,
 	comment:CommentGroup,
 	endPos:Pos,
 };

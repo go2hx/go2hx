@@ -544,6 +544,18 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				"comment": parseData(obj.Comment),
 				"methods": methods,
 			}
+		case *ast.ImportSpec:
+			name := ""
+			if obj.Name != nil {
+				name = obj.Name.Name
+			}
+			data[i] = map[string]interface{}{
+				"id":      "ImportSpec",
+				"doc":     parseData(obj.Doc),
+				"comment": parseData(obj.Comment),
+				"path":    obj.Path.Value,
+				"name":    name,
+			}
 		default:
 			data[i] = parseData(obj)
 		}
@@ -680,34 +692,7 @@ func parseType(node interface{}) map[string]interface{} {
 	}
 	return data
 }
-func parseKind(val reflect.Value) interface{} {
-	switch val.Kind() {
-	case reflect.String:
-		return val.String()
-	case reflect.Ptr:
-		return parseKind(reflect.New(val.Type().Elem()).Elem())
-	case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
-		return val.Int()
-	case reflect.Uint, reflect.Uint8, reflect.Uint16, reflect.Uint32, reflect.Uint64:
-		return val.Uint()
-	case reflect.Slice:
-		return reflect.New(val.Type().Elem()).Elem().Interface()
-	case reflect.Bool:
-		return val.Bool()
-	case reflect.Struct:
-		i := val.Interface()
-		return parseType(&i)
-	case reflect.Interface:
-		if val.CanSet() {
-			i := val.Interface()
-			return parseType(&i)
-		}
-		return nil
-	default:
-		throw("unknown type kind: " + val.Kind().String())
-		return nil
-	}
-}
+
 func parseData(node interface{}) map[string]interface{} {
 	data := make(map[string]interface{})
 	switch node := node.(type) {
@@ -917,6 +902,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		"type":  parseType(checker.TypeOf(value)),
 	}
 }
+
 func getId(obj interface{}) string {
 	if obj == nil {
 		return ""
@@ -942,9 +928,9 @@ func parseField(field *ast.Field) map[string]interface{} {
 			"name": name.Name,
 		}
 	}
-	var tag map[string]interface{} = nil
+	tag := ""
 	if field.Tag != nil {
-		tag = parseBasicLit(field.Tag)
+		tag = field.Tag.Value
 	}
 	return map[string]interface{}{
 		//"doc": parseData(field.Doc)

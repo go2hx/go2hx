@@ -53,6 +53,7 @@ var externBool:Bool = false;
 var hxmlPath:String = "";
 var noRun:Bool = false;
 var test:Bool = false;
+final defines:Array<String> = [];
 
 final passthroughArgs = [
 	"-log",
@@ -62,7 +63,7 @@ final passthroughArgs = [
 	"-extern",
 	"--extern",
 	"-externs",
-	"--externs"
+	"--externs",
 ];
 
 function run(args:Array<String>) {
@@ -126,7 +127,17 @@ function run(args:Array<String>) {
 		@doc('interpret the program using internal macro system')
 		["-eval", "--eval", "-interp", "--interp"] => () -> {
 			target = "interp";
-		}
+		}, @doc('json data of tests')
+		// https://pkg.go.dev/cmd/go/internal/test#pkg-variables
+		["-json", "--json"] => () -> defines.push("jsonTest"),
+		@doc('Do not start new tests after the first test failure.')
+		["-failfast", "--failfast"] => () -> defines.push("failfastTest"),
+		@doc('Tell long-running tests to shorten their run time.')
+		["-short", "--short"] => () -> defines.push("shortTest"),
+		@doc(" If a test binary runs longer than duration d, panic. If d is 0, the timeout is disabled. The default is 10 minutes (10m).")
+		["-timeout", "--timeout"] => d -> defines.push('timeoutTest $d'),
+		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
+		["-v", "--v"] => () -> defines.push("verboseTest"),
 	]);
 	argHandler.parse(args);
 	for (option in argHandler.options) {
@@ -245,6 +256,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			pos += bytes.length;
 			if (pos == buff.length) {
 				var exportData:DataType = bson.Bson.decode(buff);
+				// File.saveContent("export.json", Json.stringify(exportData)); // export out data to json
 				var modules = [];
 				modules = Typer.main(exportData, printGoCode, externBool);
 				Sys.setCwd(localPath);
@@ -317,6 +329,9 @@ private function runTarget(modules:Array<Typer.Module>) {
 	final paths = mainPaths(modules);
 	final libs = targetLibs();
 	final commands = ['-cp', outputPath, '-lib', 'go2hx'];
+	for (define in defines) {
+		commands.push('-D $define');
+	}
 	if (libs != "")
 		commands.push(libs);
 	if (target != "") {

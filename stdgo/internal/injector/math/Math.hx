@@ -3,12 +3,7 @@ package stdgo.internal.injector.math;
 import Math as M;
 import haxe.Int64;
 import haxe.io.Bytes;
-import stdgo.StdGoTypes.GoFloat32;
-import stdgo.StdGoTypes.GoFloat64;
-import stdgo.StdGoTypes.GoFloat;
-import stdgo.StdGoTypes.GoInt;
-import stdgo.StdGoTypes.GoUInt32;
-import stdgo.StdGoTypes.GoUInt64;
+import stdgo.StdGoTypes;
 
 @:local
 final pi = M.PI;
@@ -145,7 +140,7 @@ class HaxeMath {
 	public static function float64bits(_f:GoFloat64):GoUInt64 {
 		final bits = Bytes.alloc(8);
 		bits.setDouble(0, _f.toBasic());
-		return haxe.UInt64.make(bits.get(4) | (bits.get(5) << 8) | (bits.get(6) << 16) | (bits.get(7) << 24),
+		return Int64.make(bits.get(4) | (bits.get(5) << 8) | (bits.get(6) << 16) | (bits.get(7) << 24),
 			bits.get(0) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24));
 	}
 
@@ -207,20 +202,50 @@ class HaxeMath {
 	public static function ceil(_f:GoFloat):GoFloat {
 		if (!M.isFinite(_f.toBasic()) || M.isNaN(_f.toBasic())) // special cases
 			return _f;
+		if (_f == 0.0 && _signbit(_f))
+			return negZero();
 		if (_f > -1.0 && _f < 0.0) {
-			return stdgo.internal.Math.copysign(0, -1);
+			//-0.0
+			return negZero();
 		}
 		return M.ceil(_f.toBasic());
+	}
+
+	private static function _signbit(_x:GoFloat64):Bool {
+		return (float64bits(_x) & (((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt)))) != ((0 : GoUInt64));
+	}
+
+	public static function negZero():GoFloat {
+		final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
+		final _x:GoFloat = 0;
+		final _y:GoFloat = -1;
+		return float64frombits((float64bits(_x) & (_sign ^ ((-1 : GoUnTypedInt)))) | (float64bits(_y) & _sign));
 	}
 
 	public static function sqrt(_x:GoFloat):GoFloat
 		return M.sqrt(_x.toBasic());
 
-	public static function min(_x:GoFloat, _y:GoFloat):GoFloat
+	public static function min(_x:GoFloat, _y:GoFloat):GoFloat {
+		// special cases
+		if (_x < 0 && !M.isFinite(_x.toBasic()) || _y < 0 && !M.isFinite(_y.toBasic()))
+			return inf(-1);
+		if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x))
+			return negZero();
+		if (isNaN(_x) || isNaN(_y))
+			return naN();
 		return M.min(_x.toBasic(), _y.toBasic());
+	}
 
-	public static function max(_x:GoFloat, _y:GoFloat):GoFloat
+	public static function max(_x:GoFloat, _y:GoFloat):GoFloat {
+		// special cases
+		if (_x > 0 && !M.isFinite(_x.toBasic()) || _y > 0 && !M.isFinite(_y.toBasic()))
+			return inf(1);
+		if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x))
+			return 0.0;
+		if (isNaN(_x) || isNaN(_y))
+			return naN();
 		return M.max(_x.toBasic(), _y.toBasic());
+	}
 
 	public static function sin(_f:GoFloat):GoFloat
 		return M.sin(_f.toBasic());

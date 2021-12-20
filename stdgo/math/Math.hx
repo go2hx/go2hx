@@ -4036,7 +4036,6 @@ function _trigReduce(_x:GoFloat64):{var _0:GoUInt64; var _1:GoFloat64;} {
 	_ix = _ix | (((1 : GoUnTypedInt)) << _shift);
 	var _digit:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) / ((64 : GoUInt)),
 		_bitshift:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) % ((64 : GoUInt));
-	trace(_digit, _bitshift, _mPi4[_digit]); // helper
 	var _z0:GoUInt64 = (_mPi4[_digit] << _bitshift) | (_mPi4[_digit + ((1 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
 	var _z1:GoUInt64 = (_mPi4[_digit + ((1 : GoUInt))] << _bitshift) | (_mPi4[_digit + ((2 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
 	var _z2:GoUInt64 = (_mPi4[_digit + ((2 : GoUInt))] << _bitshift) | (_mPi4[_digit + ((3 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));

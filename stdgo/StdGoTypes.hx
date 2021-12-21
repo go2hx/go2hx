@@ -1750,7 +1750,7 @@ abstract GoInt64(Int64) from Int64 {
 		return a.toBasic() + b.toBasic();
 
 	@:op(A++) inline function postInc():GoInt64 {
-		return this + ofIntInt64(1);
+		return this = this + ofIntInt64(1);
 	}
 
 	@:op(A--) inline function postDec():GoInt64
@@ -2130,9 +2130,8 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A / B) private static function div(a:GoUInt64, b:GoUInt64):GoUInt64
 		return a.toBasic() / b.toBasic();
 
-	@:op(A++) inline function postInc():GoUInt64 {
-		return this + ofIntUInt64(1);
-	}
+	@:op(A++) inline function postInc():GoUInt64
+		return this = this + ofIntUInt64(1);
 
 	@:op(-A) inline function neg():GoInt64
 		return this * -1;

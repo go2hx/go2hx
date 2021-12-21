@@ -34,6 +34,15 @@ function main() {
 	} else {
 		rebuild = true; // rebuild if no version present for good measure
 	}
+	if (!FileSystem.exists("tools")) {
+		Sys.command("git clone https://github.com/go2hx/tools --depth=1");
+	} else {
+		if (rebuild) {
+			Sys.setCwd("tools");
+			Sys.command("git pull");
+			Sys.setCwd("..");
+		}
+	}
 	File.saveContent("version.txt", version);
 	if (args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1) { // used to rebuild the compiler each run
 		args.remove("-rebuild");

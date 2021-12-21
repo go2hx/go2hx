@@ -20,13 +20,13 @@ import (
 	"go.mongodb.org/mongo-driver/bson"
 
 	//"go/types"
-
 	_ "embed"
 	"os"
 	"reflect"
 	"strconv"
 	"strings"
 
+	//"github.com/go2hx/tools/go/packages"
 	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
@@ -77,7 +77,7 @@ var fset *token.FileSet
 var stdgoList map[string]bool
 
 var excludes map[string]bool
-var conf = types.Config{Importer: importer.Default()}
+var conf = types.Config{Importer: importer.Default(), FakeImportC: false}
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 var typeHasher typeutil.Hasher
@@ -117,15 +117,8 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
 		return bytes
 	}
-
-	cfg := &packages.Config{Mode: packages.NeedName |
-		packages.NeedSyntax |
-		packages.NeedImports | packages.NeedDeps |
-		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule}
 	cfg.Tests = testBool
-	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
-	initial, err := packages.Load(cfg, args...)
-	cfg = nil
+	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
 		throw("load error: " + err.Error())
 		return []byte{}
@@ -169,7 +162,13 @@ func log(a ...interface{}) {
 	logBuffer += fmt.Sprintln(a...)
 }
 
+var cfg = &packages.Config{Mode: packages.NeedName |
+	packages.NeedSyntax |
+	packages.NeedImports | packages.NeedDeps |
+	packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes}
+
 func main() {
+	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
 	_ = make([]byte, 20<<20) //allocate 20 mb virtually
 	args := os.Args
 	port := args[len(args)-1]
@@ -273,9 +272,9 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 				return false
 			default:
 			}
-		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr:
+		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr, *ast.ParenExpr, *ast.TypeAssertExpr:
 			// constant folding
-			typeAndValue := pkg.TypesInfo.Types[node.(ast.Expr)]
+			typeAndValue := checker.Types[node.(ast.Expr)]
 			if value := typeAndValue.Value; value != nil {
 				basic := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
 				var e ast.Expr
@@ -430,12 +429,12 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				tv := types.TypeAndValue{}
 				tv.Type = t
 				//add
-				pkg.TypesInfo.Defs[name] = namedType.Obj()
-				pkg.TypesInfo.Types[name] = tv
+				checker.Defs[name] = namedType.Obj()
+				checker.Types[name] = tv
 				//replace
-				for key, value := range pkg.TypesInfo.Defs {
+				for key, value := range checker.Defs {
 					if value != nil && value.Type() == t {
-						pkg.TypesInfo.Defs[key] = namedType.Obj()
+						checker.Defs[key] = namedType.Obj()
 					}
 				}
 			}
@@ -469,12 +468,12 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				tv := types.TypeAndValue{}
 				tv.Type = t
 				//add
-				pkg.TypesInfo.Defs[name] = namedType.Obj()
-				pkg.TypesInfo.Types[name] = tv
+				checker.Defs[name] = namedType.Obj()
+				checker.Types[name] = tv
 				//replace
-				for key, value := range pkg.TypesInfo.Defs {
+				for key, value := range checker.Defs {
 					if value != nil && value.Type() == t {
-						pkg.TypesInfo.Defs[key] = namedType.Obj()
+						checker.Defs[key] = namedType.Obj()
 					}
 				}
 			}

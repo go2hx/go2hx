@@ -390,7 +390,6 @@ typedef ValueSpec = {
 	type:Expr,
 	values:Array<Expr>,
 	comment:CommentGroup,
-	constants:Array<Bool>,
 	pos:Int,
 	end:Int,
 };

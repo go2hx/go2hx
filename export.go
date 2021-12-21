@@ -1,10 +1,12 @@
 package main
 
 import (
+	"bytes"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
 	"go/ast"
+	"go/constant"
 	"go/importer"
 	"go/token"
 	"go/types"
@@ -257,6 +259,111 @@ func parseLocalPackage(pkg *packages.Package, excludes map[string]bool) {
 }
 
 func parseLocalFile(file *ast.File, pkg *packages.Package) {
+	parseLocalTypes(file, pkg)
+	parseLocalConstants(file, pkg)
+}
+
+func parseLocalConstants(file *ast.File, pkg *packages.Package) {
+	apply := func(cursor *astutil.Cursor) bool {
+		switch node := cursor.Node().(type) {
+		case *ast.GenDecl:
+			switch node.Tok {
+			case token.CONST:
+				// skip as constants are inlined
+				return false
+			default:
+			}
+		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr:
+			// constant folding
+			typeAndValue := pkg.TypesInfo.Types[node.(ast.Expr)]
+			if value := typeAndValue.Value; value != nil {
+				basic := checker.TypeOf(node.(ast.Expr)).Underlying().(*types.Basic)
+				var e ast.Expr
+				_ = basic
+				switch {
+				case basic.Info()&types.IsInteger != 0:
+					if basic.Kind() == types.Int64 || basic.Kind() == types.Uint64 || basic.Kind() == types.Uint || basic.Kind() == types.Int {
+						if basic.Kind() == types.Int64 || basic.Kind() == types.Int {
+							d, ok := constant.Int64Val(constant.ToInt(value))
+							if !ok {
+								panic("could not get exact int64: " + value.String())
+							}
+							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+						} else {
+							d, ok := constant.Uint64Val(constant.ToInt(value))
+							if !ok {
+								panic("could not get exact uint64: " + value.String())
+							}
+							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+						}
+					} else {
+						d, ok := constant.Int64Val(constant.ToInt(value))
+						if !ok {
+							panic("could not get exact int: " + value.String())
+						}
+						e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
+					}
+				case basic.Info()&types.IsFloat != 0:
+					f, _ := constant.Float64Val(value)
+					e = &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(f)}
+				case basic.Info()&types.IsBoolean != 0:
+					e = ast.NewIdent(strconv.FormatBool(constant.BoolVal(value)))
+				case basic.Info()&types.IsComplex != 0:
+					r, _ := constant.Float64Val(constant.Real(value))
+					i, _ := constant.Float64Val(constant.Imag(value))
+					x := &ast.BasicLit{Kind: token.FLOAT, Value: fmt.Sprint(r)}
+					y := &ast.BasicLit{Kind: token.IMAG, Value: fmt.Sprint(i)}
+					m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
+					e = &ast.ParenExpr{X: m}
+				case basic.Info()&types.IsString != 0:
+					s := encodeString(constant.StringVal(value))
+					e = &ast.BasicLit{Kind: token.STRING, Value: fmt.Sprintf("%s", s)}
+				}
+				if e != nil {
+					checker.Types[e] = typeAndValue
+					cursor.Replace(e)
+				}
+				return false
+			}
+		default:
+		}
+		return true
+	}
+	file = astutil.Apply(file, apply, nil).(*ast.File)
+}
+
+func encodeString(s string) string {
+	buffer := bytes.NewBuffer(nil)
+	for _, r := range []byte(s) {
+		switch r {
+		case '\b':
+			buffer.WriteString(`\b`)
+		case '\f':
+			buffer.WriteString(`\f`)
+		case '\n':
+			buffer.WriteString(`\n`)
+		case '\r':
+			buffer.WriteString(`\r`)
+		case '\t':
+			buffer.WriteString(`\t`)
+		case '\v':
+			buffer.WriteString(`\v`)
+		case '"':
+			buffer.WriteString(`\"`)
+		case '\\':
+			buffer.WriteString(`\\`)
+		default:
+			if r < 0x20 || r > 0x7E {
+				fmt.Fprintf(buffer, `\x%02X`, r)
+				continue
+			}
+			buffer.WriteByte(r)
+		}
+	}
+	return `"` + buffer.String() + `"`
+}
+
+func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 	interfaceTypes := make(map[uint32]*ast.Ident)
 	structTypes := make(map[uint32]*ast.Ident)
 	continueBool := false
@@ -483,8 +590,19 @@ func parseFile(file *ast.File, path string) fileType {
 	data.Doc = parseData(file.Doc)
 	data.Path = path
 	for _, decl := range file.Decls {
-		obj := parseData(decl)
-		data.Decls = append(data.Decls, obj)
+		switch d := decl.(type) {
+		case *ast.GenDecl:
+			switch d.Tok {
+			case token.CONST:
+				// skip as constants are inlined
+			default:
+				obj := parseData(decl)
+				data.Decls = append(data.Decls, obj)
+			}
+		default:
+			obj := parseData(decl)
+			data.Decls = append(data.Decls, obj)
+		}
 	}
 	return data
 }
@@ -510,21 +628,16 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	for i, obj := range list {
 		switch obj := obj.(type) {
 		case *ast.ValueSpec:
-			constants := make([]bool, len(obj.Names))
-			for i := range constants {
-				constants[i] = obj.Names[i].Obj.Kind.String() == "const"
-			}
 			values := make([]map[string]interface{}, len(obj.Values))
 			for i := range obj.Values {
 				values[i] = parseData(obj.Values[i])
 			}
 			data[i] = map[string]interface{}{
-				"id":        "ValueSpec",
-				"names":     parseIdents(obj.Names),
-				"type":      parseData(obj.Type),
-				"values":    values,
-				"constants": constants,
-				"doc":       parseData(obj.Comment),
+				"id":     "ValueSpec",
+				"names":  parseIdents(obj.Names),
+				"type":   parseData(obj.Type),
+				"values": values,
+				"doc":    parseData(obj.Comment),
 			}
 		case *ast.TypeSpec:
 			named := checker.ObjectOf(obj.Name)
@@ -864,9 +977,6 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 					throw("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
 					output = fmt.Sprintf("%f", k) //decimal format
-					//try hexadecimal format
-					//uint64,int64,float64 as constant
-					//untyped binary operations at compile time
 				}
 			} else {
 				output = fmt.Sprint(j)

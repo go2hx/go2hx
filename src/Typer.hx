@@ -759,6 +759,8 @@ private function isInvalidTitle(name:String):Bool {
 }
 
 private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
+	if (stmt.decl.decls == null)
+		return (macro {}).expr; // blank
 	var decls:Array<Ast.GenDecl> = stmt.decl.decls;
 	var vars:Array<Var> = [];
 	for (decl in decls) {
@@ -830,11 +832,9 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 									if (specType != null)
 										exprType = toComplexType(specType, info);
 								}
-								// expr = assignTranslate(typeof(spec.values[i]), t, expr, info);
 								{
 									name: name,
 									type: exprType,
-									isFinal: spec.constants[i],
 									expr: expr,
 								};
 							}
@@ -3025,7 +3025,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 			if (value.length >= 10) {
 				try {
 					var i = haxe.Int64Helper.parseString(value);
-					if (i > 2147483647 || i < -2147483647) {
+					if (i > 2147483647 || i < -2147483648) {
 						e = makeString(value);
 					}
 				} catch (_) {
@@ -4832,7 +4832,7 @@ private function errorType()
 
 private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	var doc = getDoc(imp);
-	imp.path = imp.path.substr(1,imp.path.length - 2); // remove quotes
+	imp.path = imp.path.substr(1, imp.path.length - 2); // remove quotes
 	final path = normalizePath(imp.path);
 	final pack = path.split("/");
 	var alias = imp.name;
@@ -4886,16 +4886,13 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		});
 		for (i in 0...value.names.length) {
 			var fieldName = "_" + i;
-			var access = []; // typeAccess(value.names[i]);
-			if (value.constants[i])
-				access.push(AFinal);
 			values.push({
 				name: nameIdent(value.names[i].name, false, true, info),
 				pos: null,
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i].name),
-				kind: TDField(FVar(type, macro $tmpExpr.$fieldName), access)
+				kind: TDField(FVar(type, macro $tmpExpr.$fieldName), [])
 			});
 		}
 	} else {
@@ -4924,8 +4921,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
-			if (value.constants[i])
-				access.push(AFinal);
 			values.push({
 				name: name,
 				pos: null,

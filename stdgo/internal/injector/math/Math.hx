@@ -110,6 +110,12 @@ inline function sin(_x) {
 	return HaxeMath.sin(_x);
 }
 
+inline function _sin(_x)
+	return HaxeMath.sin(_x);
+
+inline function _cos(_x)
+	return HaxeMath.cos(_x);
+
 inline function float32frombits(_b)
 	return HaxeMath.float32frombits(_b);
 

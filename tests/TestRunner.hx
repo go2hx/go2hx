@@ -210,7 +210,7 @@ private function update() {
 function test(user:String, suiteName:String, dir:String, list:Array<String>, skip:Array<String>, offset:Int,
 		compare:Array<{name:String, output:Array<String>}> = null) {
 	if (!FileSystem.exists(dir))
-		Sys.command('git clone https://github.com/$user/$suiteName ./tests/$suiteName');
+		Sys.command('git clone https://github.com/$user/$suiteName ./tests/$suiteName --depth=1');
 	var count = 0;
 	for (i in 0...list.length) {
 		final testName = list[i];

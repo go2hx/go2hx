@@ -42,9 +42,9 @@ private typedef UInt8 = Int; // #if hl hl.UI8 #elseif cpp cpp.UInt8 #elseif cs c
 private typedef UInt16 = #if simulate_num Int; #elseif hl hl.UI16; #elseif cpp cpp.UInt16; #elseif cs cs.UInt16; #else Int; #end
 private typedef UInt32 = #if simulate_num UInt; #elseif cpp cpp.UInt32; #elseif cs cs.system.UInt32; #elseif eval eval.integers.UInt64; #else UInt; #end
 private typedef UInt64 = haxe.UInt64;
-private typedef Float = StdTypes.Float;
-private typedef Float32 = #if simulate_num Float #elseif (java || cs || hl || cpp) StdTypes.Single; #else Float; #end
-private typedef Float64 = #if simulate_num Float; #elseif cpp cpp.Float64; #else Float; #end
+private typedef Float = Float64;
+private typedef Float64 = StdTypes.Float;
+private typedef Float32 = #if hl hl.F32; #else Float64; #end
 typedef GoUnTypedInt = GoUInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
@@ -254,9 +254,6 @@ private function clampInt16(x:Int):Int {
 private function clampUInt8(x:Int):Int
 	return x & 0xFF;
 
-private function clampFloat32(x:Float):Float
-	return x;
-
 private function clampUInt16(x:Int):Int
 	return x & 0xFFFF;
 
@@ -371,7 +368,7 @@ abstract GoFloat64(Float) from Float {
 		return Std.parseFloat(x);
 
 	@:to inline function toFloat32():GoFloat32
-		return clampFloat32(this);
+		return this;
 
 	@:to inline function toInt64():GoInt64 {
 		if (std.Math.isNaN(this))
@@ -465,7 +462,8 @@ abstract GoFloat64(Float) from Float {
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
 
-	@:op(-A) private static function neg(t:GoFloat):GoFloat;
+	@:op(-A) private static function neg(t:GoFloat):GoFloat
+		return t.toBasic() * -1;
 
 	@:op(A--) private static function postDec(t:GoFloat):GoFloat;
 
@@ -530,17 +528,13 @@ abstract GoFloat32(Float32) from Float32 {
 	public inline function toBasic()
 		return this;
 
-	@:op(A + B) private static function add(a:GoFloat32, b:GoFloat32):GoFloat32
-		return clamp(a.toBasic() + b.toBasic());
+	@:op(A + B) private static function add(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A - B) private static function sub(a:GoFloat32, b:GoFloat32):GoFloat32
-		return clamp(a.toBasic() - b.toBasic());
+	@:op(A - B) private static function sub(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A * B) private static function mul(a:GoFloat32, b:GoFloat32):GoFloat32
-		return clamp(a.toBasic() * b.toBasic());
+	@:op(A * B) private static function mul(a:GoFloat32, b:GoFloat32):GoFloat32;
 
-	@:op(A % B) private static function mod(a:GoFloat32, b:GoFloat32):GoFloat32
-		return clamp(a.toBasic() % b.toBasic());
+	@:op(A % B) private static function mod(a:GoFloat32, b:GoFloat32):GoFloat32;
 
 	@:op(A / B) private static function div(a:GoFloat32, b:GoFloat32):GoFloat32 {
 		if (b == 0)
@@ -550,7 +544,8 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:op(~A) private static function bneg(t:GoFloat32):GoFloat32;
 
-	@:op(-A) private static function neg(t:GoFloat32):GoFloat32;
+	@:op(-A) private static function neg(t:GoFloat32):GoFloat32
+		return t.toBasic() * -1;
 
 	@:op(A++) private inline function postInc():GoFloat32 {
 		return this = this + 1;
@@ -580,10 +575,11 @@ abstract GoFloat32(Float32) from Float32 {
 
 	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat32):Bool;
 
-	static function clamp(x:Float):Float
-		return x;
+	@:op(A == B) private static function eq(a:GoFloat32, b:GoFloat32):Bool
+		return a.toBasic() == b.toBasic();
 
-	// TODO: Clamp Float32
+	@:op(A != B) private static function notEq(a:GoFloat32, b:GoFloat32):Bool
+		return !eq(a, b);
 }
 
 abstract GoComplex64(Complex64) from Complex64 {
@@ -686,7 +682,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 		return new GoComplex64(a.real + b.toBasic(), a.imag);
 
 	@:op(A + B) @:commutative private static function addFloat64(a:GoComplex64, b:GoFloat64):GoComplex64
-		return new GoComplex64(a.real + b.toBasic(), a.imag);
+		return new GoComplex64(a.real + b, a.imag);
 
 	@:op(A + B) private static function add(a:GoComplex64, b:GoComplex64):GoComplex64
 		return new GoComplex64(a.real + b.real, a.imag.toBasic() + b.imag.toBasic());
@@ -734,7 +730,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		this = new Complex128(r.toBasic(), i.toBasic());
 
 	@:to inline function toComplex64():GoComplex64 {
-		return new GoComplex64(clampFloat32(real), clampFloat32(imag));
+		return new GoComplex64(real, imag);
 	}
 
 	@:to inline function toInt():GoInt {
@@ -2088,16 +2084,33 @@ abstract GoUInt64(UInt64) from UInt64 {
 	@:op(A <= B) private static function lte(a:GoUInt64, b:GoUInt64):Bool
 		return a.toBasic() <= b.toBasic();
 
+	/*@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64 {
+			if (shiftGuard(toIntInt64(b.toBasic())))
+				return a < 0 ? -1 : 0;
+			return a.toBasic() >> toIntInt64(b.toBasic());
+		}
+
+		@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
+			if (shiftGuard(toIntInt64(b.toBasic())))
+				return a < 0 ? -1 : 0;
+			return a.toBasic() << toIntInt64(b.toBasic());
+	}*/
 	@:op(A >> B) private static function shr(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (shiftGuard(toIntInt64(b.toBasic())))
+		if (b < 0 || b >= 64)
 			return a < 0 ? -1 : 0;
 		return a.toBasic() >> toIntInt64(b.toBasic());
 	}
 
 	@:op(A << B) private static function shl(a:GoUInt64, b:GoUInt64):GoUInt64 {
-		if (shiftGuard(toIntInt64(b.toBasic())))
-			return a < 0 ? -1 : 0;
+		if (b < 0 || b >= 64)
+			return 0;
 		return a.toBasic() << toIntInt64(b.toBasic());
+	}
+
+	@:op(A >>> B) private static function ushr(a:GoUInt64, b:GoUInt64):GoUInt64 {
+		if (b < 0 || b >= 64)
+			return a < 0 ? -1 : 0;
+		return a.toBasic() >>> toIntInt64(b.toBasic());
 	}
 
 	@:op(A != B) private static function neq(a:GoUInt64, b:GoUInt64):Bool

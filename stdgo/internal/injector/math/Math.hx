@@ -102,10 +102,8 @@ inline function naN() {
 	return HaxeMath.naN();
 }
 
-inline function round(_x) {
-	return HaxeMath.round(_x);
-}
-
+inline function signbit(_x)
+	return HaxeMath.signbit(_x);
 inline function sin(_x) {
 	return HaxeMath.sin(_x);
 }
@@ -131,8 +129,9 @@ function float64bits(_f) {
 }
 
 class HaxeMath {
-	public static function trunc(_x:GoFloat64):GoFloat64
-		return _x > 0 ? M.floor(_x.toBasic()) : M.ceil(_x.toBasic());
+	public static function trunc(_x:GoFloat64):GoFloat64 {
+		return _x > 0 ? floor(_x) : ceil(_x);
+	}
 
 	public static function log(_x:GoFloat64):GoFloat64
 		return M.log(_x.toBasic());
@@ -153,7 +152,7 @@ class HaxeMath {
 	public static function float32bits(_b:GoFloat32):GoUInt32 {
 		final bits = Bytes.alloc(4);
 		bits.setFloat(0, _b.toBasic());
-		return bits.get(0) | bits.get(1) << 8 | bits.get(2) << 16 | bits.get(3) << 24;
+		return (bits.get(0)) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24);
 	}
 
 	public static function float32frombits(_b:GoUInt32):GoFloat32 {
@@ -162,7 +161,7 @@ class HaxeMath {
 		bits.set(0, v & 0xff);
 		bits.set(1, (v >> 8) & 0xff);
 		bits.set(2, (v >> 16) & 0xff);
-		bits.set(3, (v >> 24) & 0xff);
+		bits.set(3, (v >> 24) & 0xff); // little-endian
 		return bits.getFloat(0);
 	}
 
@@ -183,6 +182,12 @@ class HaxeMath {
 
 	public static function naN()
 		return M.NaN;
+
+	public static function signbit(_x:GoFloat) {
+		if (M.isNaN(_x.toBasic()))
+			return false;
+		return _signbit(_x);
+	}
 
 	public static function inf(sign:GoInt) {
 		if (sign >= 0)
@@ -273,10 +278,6 @@ class HaxeMath {
 
 	public static function atan2(_y:GoFloat, _x:GoFloat):GoFloat
 		return M.atan2(_y.toBasic(), _x.toBasic());
-
-	public static function round(_f:GoFloat)
-		return M.round(_f.toBasic());
-
 	public static function isInf(_f:GoFloat, _sign:GoInt) {
 		return _sign >= 0 && _f == M.POSITIVE_INFINITY || _sign <= 0 && _f == M.NEGATIVE_INFINITY;
 	}

@@ -163,7 +163,7 @@ function toLowerSpecial(c:stdgo.unicode.Unicode.SpecialCase, s:GoString):GoStrin
 }
 
 function map(mapping:GoRune->GoRune, s:GoString):GoString {
-	final b:GoString = "";
+	var b:GoString = "";
 	for (i in 0...s.length.toBasic()) {
 		var c = s[i];
 		final r = mapping(c);

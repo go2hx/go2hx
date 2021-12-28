@@ -59,6 +59,15 @@ class Printer extends haxe.macro.Printer {
 		return printExpr(e) + ";";
 	}
 
+	override function escapeString(s:String, delim:String) { // remove protection of backslashes
+		return delim
+			+ s.replace("\n", "\\n")
+				.replace("\t", "\\t")
+				.replace("\r", "\\r")
+				.replace("'", "\\'")
+				.replace('"', "\\\"") #if sys .replace("\x00", "\\x00") #end + delim;
+	}
+
 	override function printTypeDefinition(t:TypeDefinition, printPackage:Bool = true):String {
 		var externBool:Bool = false;
 		if (t == null)

@@ -1689,7 +1689,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 							expr = y;
 						if (op == null) {
 							switch stmt.tok {
-								case AND_NOT_ASSIGN:
+								case AND_NOT_ASSIGN: // &^=
 									expr = toExpr(EBinop(OpAssignOp(OpAnd), x, macro - 1 ^ ($y)));
 								default:
 									throw "op is null";
@@ -2959,19 +2959,14 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Str
 					buff.add('"');
 				case 'a'.code:
 					buff.add("\\x07");
-					i += 2;
 				case 'b'.code:
-					buff.add("\\x08");
-					i += 2;
+					escapeHex("08");
 				case 'e'.code:
 					buff.add("\\x1B");
-					i += 2;
 				case 'f'.code:
 					buff.add("\\x0C");
-					i += 2;
 				case 'v'.code:
 					buff.add("\\x0B");
-					i += 2;
 				case 'u'.code:
 					buff.add("\\u" + value.substr(i + 1, 4));
 					i += 4;
@@ -3068,7 +3063,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 		final op = typeUnOp(expr.op);
 		if (op == null)
 			return switch expr.op {
-				case XOR: EBinop(OpXor, macro - 1, x);
+				case XOR: (macro(-1 ^ $x)).expr;
 				case ARROW: (macro $x.get()).expr; // $chan.get
 				default: x.expr;
 			}
@@ -4557,7 +4552,7 @@ private function makeStringLit(values:Array<{?s:String, ?code:String}>):Expr {
 			e = macro $e + $expr;
 		}
 	}
-	return e;
+	return macro($e);
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {

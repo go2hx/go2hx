@@ -87,9 +87,8 @@ class Go {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;
 		}
-		if (!(s is String) && Reflect.isObject(s) && Reflect.hasField(s, "error")) {
-			final str = s.error();
-		}
+		if (!(s is String) && Reflect.isObject(s) && s.error != null)
+			s = s.error();
 		if ((s is haxe.io.Bytes)) // GoString is haxe.io.Bytes
 			s = (s : GoString).toString();
 		return if (haxe.Int64.isInt64(s)) {
@@ -133,7 +132,9 @@ class Go {
 		switch t {
 			case TType(t, params):
 				final t = t.get();
-				if (t.pack.length == 1 && t.pack[0] == "stdgo" && (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat")) {
+				if (t.pack.length == 1
+					&& t.pack[0] == "stdgo"
+					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
 					follow = false;
 				}
 			default:
@@ -281,14 +282,6 @@ class Go {
 		return macro new $p(() -> $expr, (__tmp__) -> $expr = __tmp__, $v{hasSet});
 	}
 
-	public static macro function recover() {
-		return untyped macro {
-			final r = recover_exception != null ? Go.toInterface(recover_exception) : null;
-			recover_exception = null;
-			r;
-		}
-	}
-
 	public static macro function cfor(cond, post, expr) {
 		#if !display
 		var func = null;
@@ -398,6 +391,10 @@ class Go {
 			case TType(t, params):
 				final name = t.toString();
 				switch name {
+					case "stdgo.GoInt":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(int_kind);
+					case "stdgo.GoUInt":
+						ret = macro stdgo.reflect.Reflect.GoType.basic(uint_kind);
 					case "stdgo.unsafe.Pointer_":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo GoUnTypedInt":
@@ -467,7 +464,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int16_kind);
 					case "stdgo.GoInt32":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int32_kind);
-					case "stdgo.GoInt", "Int":
+					case "Int":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int_kind);
 					case "stdgo.GoInt64":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(int64_kind);
@@ -475,8 +472,6 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint8_kind);
 					case "stdgo.GoUInt16":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint16_kind);
-					case "stdgo.GoUInt":
-						ret = macro stdgo.reflect.Reflect.GoType.basic(uint_kind);
 					case "stdgo.GoUInt32":
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint32_kind);
 					case "stdgo.GoUInt64":

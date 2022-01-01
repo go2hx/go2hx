@@ -299,9 +299,9 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					kind: TDField(FVar(null, macro {
 						try
 							$block
-						catch (e)
-							if (e.message != "__return__")
-								throw e;
+						catch (__exception__)
+							if (__exception__.message != "__return__")
+								throw __exception__;
 						true;
 					})),
 				});
@@ -614,31 +614,30 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			final ret = switch e.expr {
 				case EBlock(exprs):
 					final last = exprs.pop();
-					exprs.push(macro if (recover_exception != null)
-						throw recover_exception);
+					exprs.push(macro if (__recover_exception__ != null)
+						throw __recover_exception__);
 					exprs.push(last);
 					toExpr(EBlock(exprs));
 				default:
-					macro recover_exception != null ?throw recover_exception:$e;
+					macro __recover_exception__ != null ?throw __recover_exception__:$e;
 			}
-			exprs.unshift(macro var deferstack:Array<Void->Void> = []);
+			exprs.unshift(macro var __deferstack__:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
 			// recover
-			exprs.unshift(macro var recover_exception:Error = null);
+			exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 			var pos = 2 + info.returnNames.length;
-			var trydef = ETry(toExpr(EBlock(exprs.slice(pos))), [
-				{
-					name: "e",
-					expr: macro {
-						recover_exception = stdgo.runtime.Runtime.newRuntime(e.message);
-						$ret;
-					}
-				}
-			]); // don't include recover and defer stack
+			var trydef = macro try
+				$b{exprs.slice(pos)} catch (__exception__) {
+				if (!(__exception__.native is AnyInterfaceData))
+					throw __exception__;
+				__recover_exception__ = __exception__.native;
+				$ret;
+			}
+			// don't include recover and defer stack
 			exprs = exprs.slice(0, pos);
-			exprs.push(toExpr(trydef));
+			exprs.push(trydef);
 		} else if (info.recoverBool && isFunc) {
-			exprs.unshift(macro var recover_exception:Error = null);
+			exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 		}
 	return EBlock(exprs);
 }
@@ -674,18 +673,13 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	var exprs:Array<Expr> = [];
 	for (i in 0...stmt.call.args.length) {
 		var arg = typeExpr(stmt.call.args[i], info);
-		var name = "a" + i;
+		var name = "_" + i;
 		exprs.push(macro var $name = $arg);
-		stmt.call.args[i] = {id: "Ident", name: "A" + i}; // switch out call arguments
-	}
-	if (stmt.call.fun.id == "FuncLit") {
-		var call = toExpr(typeCallExpr(stmt.call, info));
-		exprs.push(macro deferstack.unshift(() -> $call));
-		return EBlock(exprs);
+		stmt.call.args[i] = {id: "Ident", name: "_" + i}; // switch out call arguments
 	}
 	// otherwise its Ident, Selector etc
 	var call = toExpr(typeCallExpr(stmt.call, info));
-	var e = macro deferstack.unshift(() -> $call);
+	var e = macro __deferstack__.unshift(() -> $call);
 	if (exprs.length > 0)
 		return EBlock(exprs.concat([e]));
 	return e.expr;
@@ -2237,7 +2231,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				case "String": expr.fun.sel.name = "ToString"; // titled in order to export
 			}
 		case "FuncLit":
-			var expr = typeExpr(expr.fun, info);
+			var expr = toExpr(typeFuncLit(expr.fun, info, false));
 			genArgs(true);
 			return returnExpr(macro {
 				var a = $expr;
@@ -2251,10 +2245,14 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						expr.fun.name = "toString";
 					case "panic":
 						genArgs(false);
-						return returnExpr(macro throw ${args[0]});
+						return returnExpr(macro throw Go.toInterface(${args[0]}));
 					case "recover":
 						info.recoverBool = true;
-						return returnExpr(macro Go.recover());
+						return returnExpr(macro {
+							final r = __recover_exception__;
+							__recover_exception__ = null;
+							r;
+						});
 					case "append":
 						genArgs(false);
 						var e = args.shift();
@@ -3337,13 +3335,14 @@ private function funcReset(info:Info) {
 	info.recoverBool = false;
 }
 
-private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
-	final info = info.copy();
-	funcReset(info);
+private function typeFuncLit(expr:Ast.FuncLit, info:Info, isFunc:Bool = true):ExprDef {
+	final info = isFunc ? info.copy() : info;
+	if (isFunc)
+		funcReset(info);
 
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);
-	var block = typeBlockStmt(expr.body, info, true);
+	var block = typeBlockStmt(expr.body, info, isFunc);
 	// allows multiple nested values
 	return EFunction(FAnonymous, {
 		ret: ret,
@@ -3708,7 +3707,7 @@ private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 
 // SPECS
 private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
-	return macro for (defer in deferstack) {
+	return macro for (defer in __deferstack__) {
 		defer();
 	};
 }
@@ -3772,6 +3771,22 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		block = macro {
 			$e;
 		};
+	}
+
+	if (name == "main" && info.data.isMain) {
+		switch block.expr {
+			case EBlock(exprs):
+				block = macro {
+					try
+						$block
+					catch (__exception__) {
+						if (!(__exception__.native is AnyInterfaceData))
+							throw __exception__;
+						throw Go.string(__exception__.native);
+					}
+				};
+			default:
+		}
 	}
 
 	info.restricted = null;

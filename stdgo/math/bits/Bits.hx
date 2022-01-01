@@ -1,15 +1,15 @@
 package stdgo.math.bits;
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
-var _overflowError : Error = ((null : stdgo.Error));
-var _divideError : Error = ((null : stdgo.Error));
+import stdgo.StdGoTypes;
+var _overflowError:Error = new stdgo.runtime.Runtime.T_errorString("integer overflow");
+var _divideError:Error = new stdgo.runtime.Runtime.T_errorString("integer divide by zero");
 var _deBruijn32tab : GoArray<GoUInt8> = new GoArray<GoUInt8>(
 ((0 : GoUInt8)),
 ((1 : GoUInt8)),
@@ -583,7 +583,7 @@ function div(_hi:GoUInt, _lo:GoUInt, _y:GoUInt):{ var _0 : GoUInt; var _1 : GoUI
 function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{ var _0 : GoUInt32; var _1 : GoUInt32; } {
     var _quo:GoUInt32 = ((0 : GoUInt32)), _rem:GoUInt32 = ((0 : GoUInt32));
     if ((_y != ((0 : GoUInt32))) && (_y <= _hi)) {
-        throw _overflowError;
+        throw Go.toInterface(_overflowError);
     };
     var _z:GoUInt64 = (((_hi : GoUInt64)) << ((32 : GoUnTypedInt))) | ((_lo : GoUInt64));
     {
@@ -604,10 +604,10 @@ function div64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):{ var _0 : GoUInt64; var
     var _quo:GoUInt64 = ((0 : GoUInt64)), _rem:GoUInt64 = ((0 : GoUInt64));
     {};
     if (_y == ((0 : GoUInt64))) {
-        throw _divideError;
+        throw Go.toInterface(_divideError);
     };
     if (_y <= _hi) {
-        throw _overflowError;
+        throw Go.toInterface(_overflowError);
     };
     var _s:GoUInt = ((leadingZeros64(_y) : GoUInt));
     _y = _y << (_s);

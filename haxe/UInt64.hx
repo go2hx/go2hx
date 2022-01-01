@@ -65,8 +65,35 @@ abstract UInt64(Int64) from Int64 to Int64 {
 
 	@:op(A - B) private static function subF(lhs:UInt64, rhs:Float):UInt64;
 
-	@:op(A / B) private static function div(lhs:UInt64, rhs:UInt64):UInt64
-		return Int64.div(lhs, rhs);
+	@:op(A / B) private static function div(lhs:UInt64, rhs:UInt64):UInt64 {
+		if (!Int64.isNeg(lhs) && !Int64.isNeg(rhs))
+			return Int64.div(lhs, rhs);
+		if (Int64.isNeg(lhs)) {
+			if (Int64.isNeg(rhs)) { // both are neg
+				if (Int64.compare(lhs, rhs) < 0) {
+					return 0;
+				} else {
+					return 1;
+				}
+			} else { // only lhs is neg
+				var pt1 = Int64.make(0x7FFFFFFF, 0xFFFFFFFF);
+				var pt2 = Int64.and(lhs, pt1);
+				var rem = Int64.make(0, 1);
+				rem = Int64.add(rem, Int64.mod(pt1, rhs));
+				rem = Int64.add(rem, Int64.mod(pt2, rhs));
+				if (Int64.ucompare(rem, rhs) >= 0) {
+					rem = Int64.ofInt(1);
+				} else {
+					rem = Int64.ofInt(0);
+				}
+				pt1 = Int64.div(pt1, rhs);
+				pt2 = Int64.div(pt2, rhs);
+				return Int64.add(pt1, Int64.add(pt2, rem));
+			}
+		} else {
+			return Int64.ofInt(0);
+		}
+	}
 
 	@:op(A / B) private static function divInt(lhs:UInt64, rhs:Int):UInt64;
 

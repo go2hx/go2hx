@@ -2226,6 +2226,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	}
 
 	switch expr.fun.id {
+		case "ArrayType":
+			return typeAssertExpr({
+				type: expr.fun,
+				x: expr.args[0],
+				lparen: 0,
+				rparen: 0,
+			}, info);
 		case "SelectorExpr":
 			switch expr.fun.sel.name {
 				case "String": expr.fun.sel.name = "ToString"; // titled in order to export
@@ -2376,6 +2383,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									size = macro 0;
 
 								macro new Chan<$param>($size, () -> $value);
+							case invalidType:
+								macro @:invalid_make null;
 							default:
 								throw "unknown make type: " + type;
 						}
@@ -3680,7 +3689,7 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 		case mapType(indexType, _):
 			index = assignTranslate(typeof(expr.index), indexType, index, info);
 		default:
-			throw "unknown type for index: " + t;
+			index = macro @:invalid_index 0;
 	}
 	var e = macro $x[$index];
 	return e.expr;
@@ -4861,6 +4870,9 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 				doc: doc,
 			});
 		} else {
+			if (alias == "_test" && StringTools.endsWith(info.global.path, "_test")) {
+				pack.shift();
+			}
 			info.renameIdents[alias] = pack.join(".");
 		}
 	} else {

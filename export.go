@@ -317,11 +317,11 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 				case basic.Info()&types.IsString != 0:
 					s := encodeString(constant.StringVal(value))
 					e = &ast.BasicLit{Kind: token.STRING, Value: fmt.Sprintf("%s", s)}
+				default:
+					panic("unknown constant type: " + value.ExactString())
 				}
-				if e != nil {
-					checker.Types[e] = typeAndValue
-					cursor.Replace(e)
-				}
+				checker.Types[e] = typeAndValue
+				cursor.Replace(e)
 				return false
 			}
 		default:
@@ -995,9 +995,11 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = value.Value
 	case token.STRING:
-		raw = value.Value[0:1] == "`"
-		if len(value.Value) >= 2 && (value.Value[0:1] == `"` || raw) {
-			value.Value = string(value.Value[1 : len(value.Value)-1])
+		if len(value.Value) > 0 {
+			raw = value.Value[0:1] == "`"
+			if len(value.Value) >= 2 && (value.Value[0:1] == `"` || raw) {
+				value.Value = string(value.Value[1 : len(value.Value)-1])
+			}
 		}
 		output = value.Value
 	case token.IMAG: //TODO: implement imaginary numbers (complex)

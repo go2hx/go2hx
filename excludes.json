@@ -28,7 +28,6 @@
     "strings",
     "io/ioutil",
     "bytes",
-    "path/filepath",
     "internal/syscall/windows/sysdll",
     "internal/itoa",
     "syscall",

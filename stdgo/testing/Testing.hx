@@ -266,7 +266,7 @@ class T_ {
 	public function errorf(format:GoString, args:Rest<AnyInterface>) {
 		stdgo.fmt.Fmt.printf(format, ...args);
 		stdgo.fmt.Fmt.println();
-		fail();
+		failNow(); // replace fail to failnow
 	}
 
 	public function fail() // marks the function as failed byt continues the execution
@@ -274,8 +274,7 @@ class T_ {
 
 	public function failNow() { // FailNow marks the function as having failed and stops its execution by calling runtime.Goexit
 		failBool = true;
-		// end current process
-		throw "__fail__";
+		throw "__fail__"; // end current process
 	}
 
 	public function failed():Bool

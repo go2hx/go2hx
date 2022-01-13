@@ -458,9 +458,24 @@ class InternalTest {
 }
 
 function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, arg0:Any, ?arg1:Any):Pointer<M> {
+	final args = Sys.args();
+	var testlist = new Slice<InternalTest>();
+	var runArgBool = false;
+	for (i in 0...args.length) {
+		if (args[i] == "-run" || args[i] == "--run" && i < args.length - 2) {
+			final match = args[i + 1];
+			runArgBool = true;
+			for (_ => test in tests) {
+				if (test.name.indexOf(match) != -1) {
+					testlist = testlist.__append__(test);
+				}
+			}
+			break;
+		}
+	}
 	final examples:Slice<InternalExample> = arg1 == null ? arg0 : arg1; // fix issue of newer go version supporting fuzz target and older not
 	final fuzzTargets:Slice<InternalFuzzTarget> = arg1 == null ? null : arg0;
-	var m = new M(deps, tests, benchmarks, examples);
+	var m = new M(deps, runArgBool ? testlist : tests, benchmarks, examples);
 	return Go.pointer(m);
 }
 

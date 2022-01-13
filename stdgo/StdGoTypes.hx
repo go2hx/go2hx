@@ -35,7 +35,6 @@ typedef GoRune = GoInt32;
 typedef GoFloat = GoFloat64;
 typedef GoInt = GoInt32;
 typedef GoUInt = GoUInt32;
-private typedef Int = StdTypes.Int;
 private typedef Int8 = #if simulate_num Int; #elseif cpp cpp.Int8; #elseif cs cs.Int8; #elseif java java.Int8; #else Int #end
 private typedef Int16 = #if simulate_num Int; #elseif cpp cpp.Int16; #elseif cs cs.Int16; #elseif java java.Int16; #else Int; #end
 private typedef Int32 = haxe.Int32; // #if cpp cpp.Int32 #elseif cs cs.system.Int32 #else haxe.Int32 #end;
@@ -899,12 +898,15 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return a.real != b.real || a.imag != b.imag;
 }
 
-abstract GoInt32(Int) from Int32 from Int {
+abstract GoInt32(Int) from Int32 {
 	public inline function new(x:Int32 = 0)
 		this = x;
 
 	public inline function toBasic()
 		return this;
+
+	@:from static function fromFloat(x:Float):GoInt32
+		return Std.int(x);
 
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);

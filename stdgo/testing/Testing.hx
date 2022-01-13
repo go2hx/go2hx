@@ -459,23 +459,35 @@ class InternalTest {
 
 function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, arg0:Any, ?arg1:Any):Pointer<M> {
 	final args = Sys.args();
-	var testlist = new Slice<InternalTest>();
+	var testlist:Array<InternalTest> = [];
 	var runArgBool = false;
+	var excludes:Array<String> = [];
 	for (i in 0...args.length) {
-		if (args[i] == "-run" || args[i] == "--run" && i < args.length - 2) {
+		if ((args[i] == "-run" || args[i] == "--run") && i < args.length - 1) {
 			final match = args[i + 1];
 			runArgBool = true;
 			for (_ => test in tests) {
 				if (test.name.indexOf(match) != -1) {
-					testlist = testlist.__append__(test);
+					testlist.push(test);
 				}
 			}
 			break;
 		}
 	}
+	if (!runArgBool)
+		testlist = tests.toArray();
+	for (i in 0...args.length) {
+		if ((args[i] == "-exclude" || args[i] == "--exclude") && i < args.length - 1) {
+			final excludes = args[i + 1].split(",");
+			for (test in testlist) {
+				if (excludes.indexOf(test.name) != -1)
+					testlist.remove(test);
+			}
+		}
+	}
 	final examples:Slice<InternalExample> = arg1 == null ? arg0 : arg1; // fix issue of newer go version supporting fuzz target and older not
 	final fuzzTargets:Slice<InternalFuzzTarget> = arg1 == null ? null : arg0;
-	var m = new M(deps, runArgBool ? testlist : tests, benchmarks, examples);
+	var m = new M(deps, testlist, benchmarks, examples);
 	return Go.pointer(m);
 }
 

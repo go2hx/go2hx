@@ -133,19 +133,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					default:
 				}
 			}
-
-			// check for overriding functions
-			var removal = [];
-			for (i in 0...declFuncs.length) {
-				for (j in 0...declFuncs.length) {
-					if (i == j)
-						continue;
-					if (declFuncs[i].name == declFuncs[j].name) {
-						removal.push(declFuncs[i]);
-					}
-				}
-			}
-
 			for (decl in declFuncs) {
 				if (decl.recv == null || decl.recv.list == null || decl.recv.list.length == 0) {
 					nameIdent(decl.name.name, false, true, info); // overwrite name
@@ -182,7 +169,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					default:
 				}
 			}
-			final specs:Array<Ast.TypeSpec> = [];
 			for (gen in declGens) {
 				for (spec in gen.specs) {
 					if (spec == null)
@@ -199,13 +185,16 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					}
 				}
 			}
+			var typeSpecNames:Array<String> = [];
 			for (gen in declGens) {
 				for (spec in gen.specs) { // 2nd pass
 					if (spec == null)
 						continue;
 					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType") { // all other specs
-						if (spec.name.name != "_")
+						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
+							typeSpecNames.push(spec.name.name);
 							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+						}
 					}
 				}
 			}
@@ -647,7 +636,7 @@ private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 	var stmt = typeStmt(stmt.stmt, info);
 	switch stmt.expr {
 		case EVars(_):
-			stmt = macro {${stmt}};
+			stmt = macro ${stmt};
 		default:
 	}
 	info.gotoSystem = true;
@@ -3125,6 +3114,8 @@ private function hasKeyValueExpr(elts:Array<Ast.Expr>) {
 }
 
 private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
+	if (expr.type == null)
+		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type);
 	return compositeLit(type, expr, info);
 }
@@ -3156,8 +3147,9 @@ function compositeLit(type:GoType, expr:Ast.CompositeLit, info:Info):ExprDef {
 		}
 	}
 	final underlying = getUnderlying(type);
-	if (isInvalid(underlying))
+	if (isInvalid(underlying)) {
 		return (macro @:invalid_compositelit null).expr;
+	}
 	switch underlying {
 		case pointer(elem):
 			final e = toExpr(compositeLit(elem, expr, info));
@@ -4870,8 +4862,8 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 				doc: doc,
 			});
 		} else {
-			if (alias == "_test" && StringTools.endsWith(info.global.path, "_test")) {
-				pack.shift();
+			if (alias == "_test" && StringTools.endsWith(info.global.path, "_test") && pack.length > 1 && pack[0] == "stdgo") {
+				pack.shift(); // remove stdgo and use newly created test pkg
 			}
 			info.renameIdents[alias] = pack.join(".");
 		}

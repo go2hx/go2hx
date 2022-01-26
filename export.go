@@ -17,16 +17,14 @@ import (
 	"runtime/debug"
 	"time"
 
-	"go.mongodb.org/mongo-driver/bson"
-
-	//"go/types"
 	_ "embed"
 	"os"
 	"reflect"
 	"strconv"
 	"strings"
 
-	//"github.com/go2hx/tools/go/packages"
+	"go.mongodb.org/mongo-driver/bson"
+
 	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
@@ -77,7 +75,7 @@ var fset *token.FileSet
 var stdgoList map[string]bool
 
 var excludes map[string]bool
-var conf = types.Config{Importer: importer.Default(), FakeImportC: false}
+var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 var typeHasher typeutil.Hasher
@@ -162,14 +160,17 @@ func log(a ...interface{}) {
 	logBuffer += fmt.Sprintln(a...)
 }
 
-var cfg = &packages.Config{Mode: packages.NeedName |
-	packages.NeedSyntax |
-	packages.NeedImports | packages.NeedDeps |
-	packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes}
+var cfg = &packages.Config{
+	Mode: packages.NeedName |
+		packages.NeedSyntax |
+		packages.NeedImports | packages.NeedDeps |
+		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
+	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go"}, // build tags
+}
 
 func main() {
+	_ = make([]byte, 20<<20) // allocate 20 mb virtually
 	cfg.Env = append(os.Environ(), "GOOS=js", "GOARCH=wasm", "CGO_ENABLED=0")
-	_ = make([]byte, 20<<20) //allocate 20 mb virtually
 	args := os.Args
 	port := args[len(args)-1]
 	var excludesData excludesType
@@ -414,9 +415,9 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
 				countStruct++
 				structTypes[hash] = name
-				//add to file
+				// add to file
 				gen := ast.GenDecl{}
-				gen.Tok = token.FUNC //set local
+				gen.Tok = token.FUNC // set local
 				spec := ast.TypeSpec{}
 
 				spec.Name = name
@@ -428,10 +429,10 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
 				tv := types.TypeAndValue{}
 				tv.Type = t
-				//add
+				// add
 				checker.Defs[name] = namedType.Obj()
 				checker.Types[name] = tv
-				//replace
+				// replace
 				for key, value := range checker.Defs {
 					if value != nil && value.Type() == t {
 						checker.Defs[key] = namedType.Obj()
@@ -454,9 +455,9 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
 				countInterface++
 				interfaceTypes[hash] = name
-				//add to file
+				// add to file
 				gen := ast.GenDecl{}
-				gen.Tok = token.FUNC //set local
+				gen.Tok = token.FUNC // set local
 				spec := ast.TypeSpec{}
 				spec.Name = name
 				spec.Type = node
@@ -467,10 +468,10 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
 				tv := types.TypeAndValue{}
 				tv.Type = t
-				//add
+				// add
 				checker.Defs[name] = namedType.Obj()
 				checker.Types[name] = tv
-				//replace
+				// replace
 				for key, value := range checker.Defs {
 					if value != nil && value.Type() == t {
 						checker.Defs[key] = namedType.Obj()
@@ -485,10 +486,11 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 }
 
 func throw(str string) {
+	log(str)
 	panic(str)
 }
 
-func mergePackage(input *packages.Package, output *packages.Package) {
+func mergePackage(input *packages.Package, output *packages.Package, typeBool bool) {
 	files := make(map[string]*ast.File, len(input.Syntax))
 	for i := 0; i < len(input.Syntax); i++ {
 		path := filepath.Base(input.GoFiles[i])
@@ -502,14 +504,35 @@ func mergePackage(input *packages.Package, output *packages.Package) {
 	}
 	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: output.Name, Files: files}, ast.FilterImportDuplicates)}
 	output.Syntax = newFiles
+	if typeBool {
+		for key, value := range input.TypesInfo.Defs {
+			output.TypesInfo.Defs[key] = value
+		}
+		for key, value := range input.TypesInfo.Types {
+			output.TypesInfo.Types[key] = value
+		}
+		for key, value := range input.TypesInfo.Selections {
+			output.TypesInfo.Selections[key] = value
+		}
+		for key, value := range input.TypesInfo.Implicits {
+			output.TypesInfo.Implicits[key] = value
+		}
+		for key, value := range input.TypesInfo.Scopes {
+			output.TypesInfo.Scopes[key] = value
+		}
+		for key, value := range input.TypesInfo.Uses {
+			output.TypesInfo.Uses[key] = value
+		}
+	}
 }
 
 var countStruct = 0
 var countInterface = 0
 
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
+	// merge packages
 	for _, pkg := range list {
-		mergePackage(pkg, pkg)
+		mergePackage(pkg, pkg, false)
 		if externBool {
 			for _, file := range pkg.Syntax {
 				ast.FileExports(file) // trim unexported fields
@@ -522,7 +545,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 				continue
 			}
 			if pkg.PkgPath == list[i].PkgPath {
-				mergePackage(list[i], pkg)
+				mergePackage(list[i], pkg, true)
 				list = append(list[:i], list[i+1:]...) // delete
 			}
 			i++
@@ -534,7 +557,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	for _, pkg := range list {
 		parseLocalPackage(pkg, excludes)
 	}
-	//2nd pass
+	// 2nd pass
 	data := dataType{}
 	data.Pkgs = []packageType{}
 	for _, pkg := range list {
@@ -546,7 +569,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 		if len(syntax.Files) > 0 {
 			data.Pkgs = append(data.Pkgs, syntax)
 		}
-		for _, val := range pkg.Imports { //imports
+		for _, val := range pkg.Imports { // imports
 			if excludes[val.PkgPath] {
 				continue
 			}
@@ -711,7 +734,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Named":
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
-		if isAlias { //alias is type X = Y, equivlant to a typedef
+		if isAlias { // alias is type X = Y, equivlant to a typedef
 			data["underlying"] = parseType(named.Underlying())
 			data["alias"] = true
 			isVar = true
@@ -762,7 +785,7 @@ func parseType(node interface{}) map[string]interface{} {
 		data["elem"] = parseType(s.Elem())
 	case "Basic":
 		s := node.(*types.Basic)
-		data["kind"] = s.Kind() //is int
+		data["kind"] = s.Kind() // is int
 	case "Array":
 		s := node.(*types.Array)
 		data["elem"] = parseType(s.Elem())
@@ -856,7 +879,7 @@ func parseData(node interface{}) map[string]interface{} {
 		case *ast.BinaryExpr:
 			obj := parseData(value)
 			data[field.Name] = obj
-		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: //in scopes
+		case *ast.BlockStmt, *ast.IfStmt, *ast.CaseClause, *ast.SwitchStmt, *ast.ForStmt, *ast.RangeStmt, *ast.TypeSwitchStmt, *ast.CommClause, *ast.FuncType: // in scopes
 			data[field.Name] = parseData(value)
 		case *ast.AssignStmt:
 			data[field.Name] = parseData(value)
@@ -866,7 +889,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseFile(&file, "")
 		case *ast.Ident:
 			data[field.Name] = parseIdent(value)
-		case ast.ChanDir, bool, string, int: //is an int
+		case ast.ChanDir, bool, string, int: // is an int
 			data[field.Name] = value
 		case ast.FieldList:
 			data[field.Name] = parseFieldList(value.List)
@@ -884,7 +907,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseExprList(value)
 		case []ast.Spec:
 			data[field.Name] = parseSpecList(value)
-		case *ast.Object: //skip
+		case *ast.Object: // skip
 		case []*ast.Ident:
 			data[field.Name] = parseIdents(value)
 		case []ast.Ident:
@@ -975,7 +998,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 				if err3 != nil {
 					throw("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
-					output = fmt.Sprintf("%f", k) //decimal format
+					output = fmt.Sprintf("%f", k) // decimal format
 				}
 			} else {
 				output = fmt.Sprint(j)
@@ -1002,7 +1025,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 			}
 		}
 		output = value.Value
-	case token.IMAG: //TODO: implement imaginary numbers (complex)
+	case token.IMAG: // TODO: implement imaginary numbers (complex)
 		output = value.Value[0 : len(value.Value)-1]
 	}
 	return map[string]interface{}{

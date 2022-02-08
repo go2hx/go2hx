@@ -502,7 +502,7 @@ func mergePackage(input *packages.Package, output *packages.Package, typeBool bo
 			files[path] = output.Syntax[i]
 		}
 	}
-	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: output.Name, Files: files}, ast.FilterImportDuplicates)}
+	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: output.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
 	output.Syntax = newFiles
 	if typeBool {
 		for key, value := range input.TypesInfo.Defs {
@@ -949,7 +949,7 @@ func parseData(node interface{}) map[string]interface{} {
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 
-	case *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
+	case *ast.StarExpr, *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:

@@ -4,7 +4,15 @@ import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;
 import sys.thread.Lock;
 
-typedef Pool = Dynamic;
+class Pool {
+	public function new() {}
+
+	public function get()
+		return null;
+
+	public function put()
+		return null;
+}
 
 typedef Locker = StructType & {
 	public function lock():Void;

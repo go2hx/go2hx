@@ -18,13 +18,13 @@ typedef Source64 = StructType & {
 };
 @:structInit class Rand {
     public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         {
             var __tmp__ = try {
                 { value : ((_r.value._src.__underlying__().value : Pointer<T_lockedSource>)), ok : true };
             } catch(_) {
-                { value : null, ok : false };
+                { value : new Pointer<T_lockedSource>().nil(), ok : false };
             }, _lk = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _lk.value._read(_p, Go.pointer(_r.value._readVal), Go.pointer(_r.value._readPos));
@@ -33,7 +33,7 @@ typedef Source64 = StructType & {
         return _read(_p, _r.value._src, Go.pointer(_r.value._readVal), Go.pointer(_r.value._readPos));
     }
     public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_n < ((0 : GoInt))) {
             throw Go.toInterface(((("invalid argument to Shuffle" : GoString))));
         };
@@ -48,7 +48,7 @@ typedef Source64 = StructType & {
         });
     }
     public function perm(_n:GoInt):Slice<GoInt> {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _m:Slice<GoInt> = new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]);
         {
             var _i:GoInt = ((0 : GoInt));
@@ -61,11 +61,9 @@ typedef Source64 = StructType & {
         return _m;
     }
     public function float32():GoFloat32 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return stdgo.internal.Macro.controlFlow({
-            @:label("again") {
-                var _f:GoFloat32 = ((_r.value.float64() : GoFloat32));
-            };
+            @:label("again") var _f:GoFloat32 = ((_r.value.float64() : GoFloat32));
             if (_f == ((1 : GoFloat32))) {
                 @:goto "again";
             };
@@ -73,11 +71,9 @@ typedef Source64 = StructType & {
         });
     }
     public function float64():GoFloat64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return stdgo.internal.Macro.controlFlow({
-            @:label("again") {
-                var _f:GoFloat64 = ((_r.value.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
-            };
+            @:label("again") var _f:GoFloat64 = ((_r.value.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
             if (_f == ((1 : GoFloat64))) {
                 @:goto "again";
             };
@@ -85,7 +81,7 @@ typedef Source64 = StructType & {
         });
     }
     public function intn(_n:GoInt):GoInt {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_n <= ((0 : GoInt))) {
             throw Go.toInterface(((("invalid argument to Intn" : GoString))));
         };
@@ -95,7 +91,7 @@ typedef Source64 = StructType & {
         return ((_r.value.int63n(((_n : GoInt64))) : GoInt));
     }
     public function _int31n(_n:GoInt32):GoInt32 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _v:GoUInt32 = _r.value.uint32();
         var _prod:GoUInt64 = ((_v : GoUInt64)) * ((_n : GoUInt64));
         var _low:GoUInt32 = ((_prod : GoUInt32));
@@ -110,7 +106,7 @@ typedef Source64 = StructType & {
         return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
     }
     public function int31n(_n:GoInt32):GoInt32 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_n <= ((0 : GoInt32))) {
             throw Go.toInterface(((("invalid argument to Int31n" : GoString))));
         };
@@ -125,7 +121,7 @@ typedef Source64 = StructType & {
         return _v % _n;
     }
     public function int63n(_n:GoInt64):GoInt64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_n <= ((0 : GoInt64))) {
             throw Go.toInterface(((("invalid argument to Int63n" : GoString))));
         };
@@ -140,36 +136,36 @@ typedef Source64 = StructType & {
         return _v % _n;
     }
     public function int():GoInt {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _u:GoUInt = ((_r.value.int63() : GoUInt));
         return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
     }
     public function int31():GoInt32 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return (((_r.value.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
     }
     public function uint64():GoUInt64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (Go.toInterface(_r.value._s64) != Go.toInterface(null)) {
             return _r.value._s64.uint64();
         };
         return (((_r.value.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.value.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
     }
     public function uint32():GoUInt32 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return (((_r.value.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
     }
     public function int63():GoInt64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return _r.value._src.int63();
     }
     public function seed(_seed:GoInt64):Void {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         {
             var __tmp__ = try {
                 { value : ((_r.value._src.__underlying__().value : Pointer<T_lockedSource>)), ok : true };
             } catch(_) {
-                { value : null, ok : false };
+                { value : new Pointer<T_lockedSource>().nil(), ok : false };
             }, _lk = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 _lk.value._seedPos(_seed, Go.pointer(_r.value._readPos));
@@ -180,7 +176,7 @@ typedef Source64 = StructType & {
         _r.value._readPos = ((0 : GoInt8));
     }
     public function normFloat64():GoFloat64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         while (true) {
             var _j:GoInt32 = ((_r.value.uint32() : GoInt32));
             var _i:GoInt32 = _j & ((127 : GoInt32));
@@ -207,7 +203,7 @@ typedef Source64 = StructType & {
         };
     }
     public function expFloat64():GoFloat64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         while (true) {
             var _j:GoUInt32 = _r.value.uint32();
             var _i:GoUInt32 = _j & ((255 : GoUInt32));
@@ -250,7 +246,7 @@ typedef Source64 = StructType & {
 }
 @:structInit class T_lockedSource {
     public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         _r.value._lk.lock();
         {
@@ -262,20 +258,20 @@ typedef Source64 = StructType & {
         return { _0 : _n, _1 : _err };
     }
     public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         _r.value._lk.lock();
         _r.value._src.value.seed(_seed);
         _readPos.value = ((0 : GoInt8));
         _r.value._lk.unlock();
     }
     public function seed(_seed:GoInt64):Void {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         _r.value._lk.lock();
         _r.value._src.value.seed(_seed);
         _r.value._lk.unlock();
     }
     public function uint64():GoUInt64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoUInt64 = ((0 : GoUInt64));
         _r.value._lk.lock();
         _n = _r.value._src.value.uint64();
@@ -283,7 +279,7 @@ typedef Source64 = StructType & {
         return _n;
     }
     public function int63():GoInt64 {
-        var _r = this.__copy__();
+        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         var _n:GoInt64 = ((0 : GoInt64));
         _r.value._lk.lock();
         _n = _r.value._src.value.int63();
@@ -291,8 +287,8 @@ typedef Source64 = StructType & {
         return _n;
     }
     public var _lk : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-    public var _src = null;
-    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src) {
+    public var _src : Pointer<T_rngSource> = new Pointer<T_rngSource>().nil();
+    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:Pointer<T_rngSource>) {
         if (_lk != null) this._lk = _lk;
         if (_src != null) this._src = _src;
     }
@@ -311,7 +307,7 @@ typedef Source64 = StructType & {
 }
 @:structInit class T_rngSource {
     public function uint64():GoUInt64 {
-        var _rng = this.__copy__();
+        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         _rng.value._tap--;
         if (_rng.value._tap < ((0 : GoInt))) {
             _rng.value._tap = _rng.value._tap + (((607 : GoInt)));
@@ -325,11 +321,11 @@ typedef Source64 = StructType & {
         return ((_x : GoUInt64));
     }
     public function int63():GoInt64 {
-        var _rng = this.__copy__();
+        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return (((_rng.value.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
     }
     public function seed(_seed:GoInt64):Void {
-        var _rng = this.__copy__();
+        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         _rng.value._tap = ((0 : GoInt));
         _rng.value._feed = ((334 : GoInt));
         _seed = _seed % ((2147483647 : GoInt64));
@@ -381,7 +377,7 @@ typedef Source64 = StructType & {
 }
 @:structInit class Zipf {
     public function uint64():GoUInt64 {
-        var _z = this.__copy__();
+        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         if (_z == null) {
             throw Go.toInterface(((("rand: nil Zipf" : GoString))));
         };
@@ -401,14 +397,14 @@ typedef Source64 = StructType & {
         return ((_k : GoUInt64));
     }
     public function _hinv(_x:GoFloat64):GoFloat64 {
-        var _z = this.__copy__();
+        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return stdgo.math.Math.exp(_z.value._oneminusQinv * stdgo.math.Math.log(_z.value._oneminusQ * _x)) - _z.value._v;
     }
     public function _h(_x:GoFloat64):GoFloat64 {
-        var _z = this.__copy__();
+        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return stdgo.math.Math.exp(_z.value._oneminusQ * stdgo.math.Math.log(_z.value._v + _x)) * _z.value._oneminusQinv;
     }
-    public var _r = null;
+    public var _r : Pointer<Rand> = new Pointer<Rand>().nil();
     public var _imax : GoFloat64 = ((0 : GoFloat64));
     public var _v : GoFloat64 = ((0 : GoFloat64));
     public var _q : GoFloat64 = ((0 : GoFloat64));
@@ -417,7 +413,7 @@ typedef Source64 = StructType & {
     public var _oneminusQinv : GoFloat64 = ((0 : GoFloat64));
     public var _hxm : GoFloat64 = ((0 : GoFloat64));
     public var _hx0minusHxm : GoFloat64 = ((0 : GoFloat64));
-    public function new(?_r, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
+    public function new(?_r:Pointer<Rand>, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
         if (_r != null) this._r = _r;
         if (_imax != null) this._imax = _imax;
         if (_v != null) this._v = _v;
@@ -835,7 +831,7 @@ var _we : GoArray<GoFloat32> = new GoArray<GoFloat32>(
 ((1.6160854e-09 : GoFloat32)),
 ((1.7921248e-09 : GoFloat32))).copy();
 var _globalRand : Pointer<Rand> = new_(Go.pointer((({ _src : ((newSource(((1 : GoInt64))).__underlying__().value : Pointer<T_rngSource>)), _lk : new stdgo.sync.Sync.Mutex() } : T_lockedSource))).value);
-var _0 : Pointer<T_rngSource> = ((_globalRand.value._src.__underlying__().value : Pointer<T_lockedSource>))._src;
+var _0 : Pointer<T_rngSource> = ((_globalRand.value._src.__underlying__().value : Pointer<T_lockedSource>)).value._src;
 var _wn : GoArray<GoFloat32> = new GoArray<GoFloat32>(
 ((1.7290405e-09 : GoFloat32)),
 ((1.2680929e-10 : GoFloat32)),
@@ -2251,7 +2247,7 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
         var __tmp__ = try {
             { value : ((_src.__underlying__().value : Pointer<T_rngSource>)), ok : true };
         } catch(_) {
-            { value : null, ok : false };
+            { value : new Pointer<T_rngSource>().nil(), ok : false };
         }, _rng = __tmp__.value, _ = __tmp__.ok;
         {
             _n = ((0 : GoInt));
@@ -2428,7 +2424,7 @@ function _seedrand(_x:GoInt32):GoInt32 {
 function newZipf(_r:Pointer<Rand>, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Pointer<Zipf> {
         var _z:Pointer<Zipf> = Go.pointer(new Zipf());
         if ((_s <= ((1 : GoFloat64))) || (_v < ((1 : GoFloat64)))) {
-            return null;
+            return new Pointer<Zipf>().nil();
         };
         _z.value._r = _r;
         _z.value._imax = ((_imax : GoFloat64));

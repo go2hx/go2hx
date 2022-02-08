@@ -20,7 +20,7 @@ typedef ByteReader = StructType & {
 	public function readByte():{_0:GoByte, _1:Error};
 }
 
-typedef ByteScanner = StructType & {
+typedef ByteScanner = ByteReader & StructType & {
 	public function unreadByte():Error;
 }
 

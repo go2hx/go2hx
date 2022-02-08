@@ -2244,11 +2244,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						return returnExpr(macro throw Go.toInterface(${args[0]}));
 					case "recover":
 						info.recoverBool = true;
-						return returnExpr(macro {
+						return returnExpr(macro({
 							final r = __recover_exception__;
 							__recover_exception__ = null;
 							r;
-						});
+						}));
 					case "append":
 						genArgs(false);
 						var e = args.shift();
@@ -3446,7 +3446,7 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	var op = typeOp(expr.op);
 	y = toGoType(y);
 	x = toGoType(x);
-	if (isInvalid(typeX) || isInterface(typeX)) {
+	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd) {
 		x = macro Go.toInterface($x);
 		y = macro Go.toInterface($y);
 	} else {
@@ -3719,7 +3719,7 @@ private function getRecvThis(recvType:GoType, sel:String, varName:String, isName
 		final t = getElem(recvType);
 		final p = getTypePath(t, info);
 		if (isNamed) {
-			final e = macro $thisValue.__t__;
+			final e = macro $thisValue.__t__; // named not always have a __t__?
 			macro var $varName = new Pointer(() -> new $p($e), __tmp__ -> new $p($e = __tmp__.__t__));
 		} else {
 			macro var $varName = new Pointer(() -> $thisValue, __tmp__ -> $thisValue.__set__(__tmp__));
@@ -4457,6 +4457,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			if (!isNamed(t)) { // is Struct or Interface
 				final path = getTypePath(t, info);
 				final type = getUnderlying(t);
+				meta = [];
 				superClass = path;
 				fields = [];
 				final params:Array<Expr> = [];

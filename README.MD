@@ -18,8 +18,13 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
+Compile and run code with interp target
 ```
-haxelib run go2hx ./main.go
+haxelib run go2hx --interp ./main.go
+```
+Compile and generate build file with hashlink target
+```
+haxelib run go2hx --hxml build.hxml --norun --hl run.hl ./main.go
 ```
 
 *Shows percentage of tests passing out of total*

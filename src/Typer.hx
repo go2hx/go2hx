@@ -488,24 +488,11 @@ private function typeStmt(stmt:Dynamic, info:Info):Expr {
 		case "BranchStmt": typeBranchStmt(stmt, info);
 		case "SelectStmt": typeSelectStmt(stmt, info);
 		case "SendStmt": typeSendStmt(stmt, info);
-		case "CommClause": typeCommClause(stmt, info);
 		default: throw "unknown stmt id: " + stmt.id;
 	}
 	if (def == null)
 		throw "stmt null: " + stmt.id;
 	return toExpr(def);
-}
-
-// STMT
-private function typeCommClause(stmt:Ast.CommClause, info:Info):ExprDef { // selector case system
-	var list:Array<Ast.Stmt> = stmt.body;
-	if (stmt.comm != null) {
-		if (list == null)
-			return typeStmt(stmt.comm, info).expr;
-		list.unshift(stmt.comm);
-		return typeStmtList(list, info, false);
-	}
-	return (macro null).expr;
 }
 
 private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
@@ -518,8 +505,63 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	unsupportedMessage("select statement", info);
-	return typeBlockStmt(stmt.body, info, false);
+	function condition(obj:Dynamic) {
+		if (obj.id == "AssignStmt") {
+			obj = obj.rhs[0];
+		}
+		if (obj.id == "UnaryExpr") { // recv
+			var obj:Ast.UnaryExpr = obj;
+			final e = typeExpr(obj.x, info);
+			return macro $e.length > 0;
+		} else { // send
+			return macro true;
+			trace(obj.id);
+		}
+		return null;
+	}
+	var defaultBlock:Expr = null;
+	function ifs(i:Int = 0) {
+		final obj:Ast.CommClause = stmt.body.list[i];
+		final block = toExpr(typeStmtList(obj.body, info, false));
+		var cond = condition(obj.comm);
+		if (obj.comm == null) {
+			defaultBlock = block;
+			switch defaultBlock.expr {
+				case EBlock(exprs):
+					exprs.push(macro break);
+				default:
+			}
+		} else {
+			switch block.expr {
+				case EBlock(exprs):
+					exprs.unshift(typeStmt(obj.comm, info));
+					exprs.push(macro break);
+				default:
+			}
+		}
+
+		if (i + 1 >= stmt.body.list.length) {
+			if (cond == null)
+				return block;
+			return defaultBlock == null ? macro if ($cond)
+				$block : macro if ($cond)
+					$block
+				else
+					$defaultBlock;
+		}
+		final next = ifs(i + 1);
+		if (cond == null)
+			return next;
+		return macro if ($cond)
+			$block
+		else
+			$next;
+	}
+	final e = ifs();
+	// return e.expr;
+	return (macro while (true) {
+		$e;
+	}).expr;
 }
 
 private function typeGoto(label:Expr):Expr {
@@ -555,17 +597,9 @@ private function typeBranchStmt(stmt:Ast.BranchStmt, info:Info):ExprDef {
 	}
 }
 
-private function unsupportedMessage(message:String, info:Info) {
-	final name = info.global.filePath;
-	final path = info.global.path;
-	// Sys.println("function: " + info.funcName);
-	// throw '$message is unsupported: $path/$name';
-}
-
 private function typeGoStmt(stmt:Ast.GoStmt, info:Info):ExprDef {
-	unsupportedMessage("go statement", info);
 	var call = typeExpr(stmt.call, info);
-	return (macro Go.routine($call)).expr;
+	return (macro Go.routine(() -> $call)).expr;
 }
 
 private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprDef {
@@ -1454,7 +1488,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = 
 			return y;
 		default:
 	}
-	if (!isPointer(fromType) && (toType == null || !isPointer(toType))) {
+	if ((!isRef(fromType) && !isPointer(fromType)) && (toType == null || (!isPointer(toType) && !isRef(toType)))) {
 		var isNamed = isNamed(fromType) || isStruct(fromType);
 		switch fromType {
 			case basic(_):
@@ -1473,7 +1507,6 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = 
 						}
 					}
 				]));
-
 				y = macro {
 					final x = $y;
 					$decl;
@@ -1969,6 +2002,9 @@ private function arrayTypeExpr(expr:Ast.ArrayType, info:Info):ComplexType {
 
 private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer type
 	var type = typeExprType(expr.x, info);
+	var t = typeof(expr.x);
+	if (!isPointer(t))
+		return type;
 	return TPath({
 		pack: [],
 		name: "Pointer",
@@ -2540,7 +2576,7 @@ private function extractIdents(e:Expr):Array<String> {
 private function typeof(e:Ast.Expr):GoType {
 	if (e == null)
 		return invalidType;
-	return switch e.id {
+	var t = switch e.id {
 		case "Signature":
 			var params = getTuple(e.params);
 			var results = getTuple(e.results);
@@ -2684,6 +2720,12 @@ private function typeof(e:Ast.Expr):GoType {
 			typeof(e.type);
 		default:
 			throw "unknown typeof expr: " + e.id;
+	}
+	return switch t {
+		case pointer(elem):
+			isPointer(elem) ? t : elem;
+		default:
+			t;
 	}
 }
 
@@ -3054,7 +3096,9 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	if (isNamed && expr.op != AND) // exception of not using underlying type is for creating a pointer
 		x = macro $x.__t__;
 	if (expr.op == AND) {
-		return (macro Go.pointer($x)).expr;
+		if (isPointer(t))
+			return (macro Go.pointer($x)).expr;
+		return x.expr;
 	} else {
 		final op = typeUnOp(expr.op);
 		if (op == null)
@@ -3628,20 +3672,33 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 	var e = typeExpr(expr.x, info);
 	if (expr.type == null)
 		return e.expr;
-	var type = typeExprType(expr.type, info);
+	var t = typeof(expr.type);
+	if (typeof(expr.x) == t) // same type
+		return e.expr;
 	switch e.expr {
 		case EConst(c):
 			switch c {
 				case CIdent(s):
 					if (s == "null") {
-						var e = defaultValue(typeof(expr.type), info);
+						var e = defaultValue(t, info);
 						return e.expr;
 					}
 				default:
 			}
 		default:
 	}
-	return checkType(e, type, typeof(expr.x), typeof(expr.type), info).expr;
+	var pointerBool = false;
+	var type = if (isPointer(t)) {
+		pointerBool = true;
+		t = getUnderlying(t);
+		typeExprType(expr.type.x, info);
+	} else {
+		typeExprType(expr.type, info);
+	}
+	final e = checkType(e, type, typeof(expr.x), t, info);
+	if (pointerBool)
+		return (macro Go.pointer($e)).expr;
+	return e.expr;
 }
 
 private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {

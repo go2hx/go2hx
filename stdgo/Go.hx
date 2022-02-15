@@ -99,8 +99,14 @@ class Go {
 	}
 
 	// GOROUTINE
-	public static macro function routine(expr) {
-		return expr;
+	public static function routine(func:Void->Void) {
+		#if js
+		js.Syntax.code("var __a__ = async function() {
+			{0}();
+		}; __a__();", func);
+		#elseif (target.threaded)
+		sys.thread.Thread.create(func);
+		#end
 	}
 
 	public static macro function toInterface(expr) {
@@ -621,6 +627,8 @@ class Go {
 		var underlyingType:haxe.macro.Type = null;
 		var module = parseModule(ref.module);
 		for (field in fs) {
+			if (field.meta.has(":local"))
+				continue;
 			switch field.kind {
 				case FMethod(k):
 				default:

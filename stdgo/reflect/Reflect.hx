@@ -248,7 +248,22 @@ function isPointer(type:GoType):Bool {
 	return switch type {
 		case named(_, _, elem):
 			isPointer(elem);
-		case pointer(_):
+		case pointer(t):
+			!isRef(t);
+		default:
+			false;
+	}
+}
+
+function isRef(type:GoType):Bool {
+	return switch type {
+		case named(_, _, elem):
+			isRef(elem);
+		case pointer(t):
+			isRef(t);
+		case basic(_):
+			false;
+		case structType(_):
 			true;
 		default:
 			false;

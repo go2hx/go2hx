@@ -11,7 +11,9 @@ final _localLoc = {};
 
 function sleep(_d) {
 	final seconds = _d.__t__.toFloat() / 1000000000;
+	#if sys
 	Sys.sleep(seconds);
+	#end
 }
 
 inline function after(d) {

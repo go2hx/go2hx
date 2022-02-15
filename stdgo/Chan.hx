@@ -4,11 +4,12 @@ import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
 
 class Chan<T> {
-	var data:Vector<T>;
-	var getIndex:Int = 0;
-	var setIndex:Int = 0;
+	var list:Array<T> = [];
 	var defaultValue:Void->T;
 	var closed:Bool = false;
+	#if (target.threaded)
+	var mutex = new sys.thread.Mutex();
+	#end
 
 	public var length(get, null):GoInt;
 	public var _cap:Int = -1;
@@ -16,14 +17,13 @@ class Chan<T> {
 	var setNil:Bool = false;
 
 	function get_length():GoInt {
-		return setIndex - getIndex;
+		return list.length;
 	}
 
 	public function isNil():Bool
 		return setNil;
 
 	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
-		data = new Vector<T>(length.toBasic());
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;
 	}
@@ -34,15 +34,29 @@ class Chan<T> {
 	}
 
 	public function get():T {
-		if (data.length <= getIndex)
+		if (list.length == 0)
 			return defaultValue();
-		return data[getIndex++];
+		#if (target.threaded)
+		mutex.acquire();
+		#end
+		final value = list.shift();
+		#if (target.threaded)
+		mutex.release();
+		#end
+		return value;
 	}
 
 	public function smartGet():{value:T, ok:Bool} {
-		if (data.length <= getIndex)
+		if (list.length == 0)
 			return {value: defaultValue(), ok: false};
-		return {value: data[getIndex++], ok: false};
+		#if (target.threaded)
+		mutex.acquire();
+		#end
+		final value = list.shift();
+		#if (target.threaded)
+		mutex.release();
+		#end
+		return {value: value, ok: true};
 	}
 
 	public inline function keyValueIterator()
@@ -52,7 +66,13 @@ class Chan<T> {
 		return new ChanIterator(this);
 
 	public inline function send(value:T) {
-		data[setIndex++] = value;
+		#if (target.threaded)
+		mutex.acquire();
+		#end
+		list.push(value);
+		#if (target.threaded)
+		mutex.release();
+		#end
 	}
 
 	public inline function cap():GoInt {

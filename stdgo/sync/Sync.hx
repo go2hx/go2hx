@@ -2,7 +2,6 @@ package stdgo.sync;
 
 import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;
-import sys.thread.Lock;
 
 class Pool {
 	public function new() {}
@@ -20,13 +19,17 @@ typedef Locker = StructType & {
 }
 
 class RWMutex {
-	var mutux:sys.thread.Mutex;
+	#if (target.threaded)
+	var mutex:sys.thread.Mutex;
+	#end
 
 	public function __underlying__():AnyInterface
 		return null;
 
 	public function new() {
-		mutux = new sys.thread.Mutex();
+		#if (target.threaded)
+		mutex = new sys.thread.Mutex();
+		#end
 	}
 
 	public function lock() {}
@@ -69,7 +72,10 @@ class Mutex {
 	public function __underlying__():AnyInterface
 		return null;
 
-	var mutux:Mutex;
+	#if (target.threaded)
+	@:local
+	var mutex:sys.thread.Mutex;
+	#end
 
 	public function lock() {}
 
@@ -81,7 +87,9 @@ class Mutex {
 }
 
 class WaitGroup {
-	var lock:Lock;
+	#if (target.threaded)
+	var lock:sys.thread.Lock;
+	#end
 
 	var counter:GoUInt = 0;
 
@@ -89,7 +97,9 @@ class WaitGroup {
 		return null;
 
 	public function new() {
-		lock = new Lock();
+		#if (target.threaded)
+		lock = new sys.thread.Lock();
+		#end
 	}
 
 	public function add(delta:GoInt) {
@@ -107,12 +117,17 @@ class WaitGroup {
 	}
 
 	public function wait() {
+		#if (target.threaded)
 		lock.wait();
+		#end
 	}
 
 	function checkFinish() {
-		if (counter <= 0)
+		if (counter <= 0) {
+			#if (target.threaded)
 			lock.release();
+			#end
+		}
 	}
 }
 

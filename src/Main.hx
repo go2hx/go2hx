@@ -20,7 +20,9 @@ final server = new Tcp(loop);
 var clients:Array<Client> = [];
 var processes:Array<Process> = [];
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+#if (target.threaded)
 var mainThread = sys.thread.Thread.current();
+#end
 
 @:structInit
 class Client {
@@ -185,7 +187,9 @@ private function printDoc(handler:Args.ArgHandler) {
 
 function update() {
 	loop.run(NoWait);
+	#if (target.threaded)
 	mainThread.events.progress();
+	#end
 	Sys.sleep(0.06); // wait
 }
 

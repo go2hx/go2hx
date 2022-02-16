@@ -1480,7 +1480,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
 	return block;
 }
 
-private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = null):Expr {
+private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 	if (y == null)
 		return y;
 	switch y.expr {
@@ -1488,7 +1488,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info, toType:GoType = 
 			return y;
 		default:
 	}
-	if ((!isRef(fromType) && !isPointer(fromType)) && (toType == null || (!isPointer(toType) && !isRef(toType)))) {
+	if (!isPointer(fromType)) {
 		var isNamed = isNamed(fromType) || isStruct(fromType);
 		switch fromType {
 			case basic(_):
@@ -1587,7 +1587,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		default:
 	}
 	if (passCopy)
-		y = passByCopy(fromType, y, info, toType);
+		y = passByCopy(toType, y, info);
 
 	if (isNamed(fromType) && !isNamed(toType) && !isInterface(toType) && !isInvalid(toType) && !isAnyInterface(toType)) {
 		y = macro $y.__t__;
@@ -2003,7 +2003,7 @@ private function arrayTypeExpr(expr:Ast.ArrayType, info:Info):ComplexType {
 private function starType(expr:Ast.StarExpr, info:Info):ComplexType { // pointer type
 	var type = typeExprType(expr.x, info);
 	var t = typeof(expr.x);
-	if (!isPointer(t))
+	if (isRef(t))
 		return type;
 	return TPath({
 		pack: [],
@@ -2363,12 +2363,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0]);
 								var value = defaultValue(t, info, true);
-								if (isInterface(t)) {
-									return returnExpr(macro Go.pointer($value, true));
-								} else {
-									return returnExpr(macro Go.pointer($value));
-								}
-
+								return returnExpr(value);
 							default:
 						}
 					case "make":
@@ -2723,7 +2718,7 @@ private function typeof(e:Ast.Expr):GoType {
 	}
 	return switch t {
 		case pointer(elem):
-			isPointer(elem) ? t : elem;
+			isRef(elem) ? elem : t;
 		default:
 			t;
 	}
@@ -3096,7 +3091,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	if (isNamed && expr.op != AND) // exception of not using underlying type is for creating a pointer
 		x = macro $x.__t__;
 	if (expr.op == AND) {
-		if (isPointer(t))
+		if (!isRef(t))
 			return (macro Go.pointer($x)).expr;
 		return x.expr;
 	} else {

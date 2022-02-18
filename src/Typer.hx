@@ -140,6 +140,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 			}
 		}
 		var recvFunctions:Array<{decl:Ast.FuncDecl, path:String}> = [];
+
 		// 2nd pass main typing
 		for (file in pkg.files) {
 			if (file.decls == null)
@@ -210,44 +211,26 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					switch spec.id {
 						case "ValueSpec":
 							var spec:Ast.ValueSpec = spec;
-							values = values.concat(typeValue(spec, info));
+							var inserted = false;
+							for (value in typeValue(spec, info)) {
+								inserted = false;
+								for (i in 0...pkg.order.length) {
+									if (value.name == nameIdent(pkg.order[i], false, true, info)) {
+										values.insert(i, value);
+										inserted = true;
+										break;
+									}
+								}
+								if (!inserted)
+									values.push(value); // fall back
+							}
 							info.iota++;
 						default:
 					}
 				}
 			}
-			final valueDeps = new Map<String, {value:TypeDefinition, deps:Array<String>}>();
-			values.sort((a, b) -> {
-				if (a.name == "_")
-					return 1;
-				if (b.name == "_")
-					return -1;
-				return 0;
-			});
-			for (value in values) {
-				if (value.name == "_")
-					value.name += info.count++;
-				valueDeps[value.name] = {value: value, deps: extractTypeDefIdents(value)};
-			}
-			values = [];
-			function hasDeps(depName:String, deps:Array<String>) {
-				for (name in deps) {
-					if (!valueDeps.exists(name) || name == depName)
-						continue;
-					final data = valueDeps[name];
-					hasDeps(name, data.deps);
-					if (valueDeps.remove(name))
-						values.push(data.value);
-				}
-			}
-			for (name => data in valueDeps) {
-				if (data == null)
-					continue;
-				hasDeps(name, data.deps);
-				if (valueDeps.remove(name))
-					values.push(data.value);
-			}
-			data.defs = data.defs.concat(values);
+
+			data.defs = values.concat(data.defs);
 
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
@@ -259,22 +242,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					data.defs.push(func);
 			}
 
-			// make blank identifiers not name conflicting for global
-			var blankCounter:Int = 0;
-			for (def in info.data.defs) {
-				switch def.kind {
-					case TDClass(superClass, interfaces, isInterface, isFinal, _):
-						var blankCounter:Int = 0;
-						for (field in def.fields) {
-							if (field.name == "_")
-								field.name += blankCounter++;
-						}
-					case TDField(kind, access):
-						if (def.name == "_")
-							def.name += blankCounter++;
-					default:
-				}
-			}
 			// init system
 			if (info.global.initBlock.length > 0) {
 				var block = toExpr(EBlock(info.global.initBlock));
@@ -561,6 +528,7 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	// return e.expr;
 	return (macro while (true) {
 		$e;
+		Sys.sleep(0.1);
 	}).expr;
 }
 
@@ -2537,37 +2505,6 @@ private function getTuple(e:Dynamic):Array<GoType> {
 	return tuples;
 }
 
-private function extractTypeDefIdents(e:TypeDefinition):Array<String> {
-	if (e == null)
-		return [];
-	switch e.kind {
-		case TDField(kind, _):
-			switch kind {
-				case FVar(_, expr):
-					final list = extractIdents(expr);
-					return list;
-				default:
-			}
-		default:
-	}
-	return [];
-}
-
-private function extractIdents(e:Expr):Array<String> {
-	final list = [];
-	var func = null;
-	func = e -> {
-		switch e.expr {
-			case EConst(CIdent(s)):
-				list.push(s);
-			default:
-				haxe.macro.ExprTools.iter(e, func);
-		}
-	};
-	func(e);
-	return list;
-}
-
 private function typeof(e:Ast.Expr):GoType {
 	if (e == null)
 		return invalidType;
@@ -4457,7 +4394,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			kind: FFun({
 				args: [],
 				expr: macro return Go.string(__t__),
-				ret: TPath({name: "GoString", pack: []}),
+				ret: TPath({name: "String", pack: []}),
 			})
 		},
 		{
@@ -5231,6 +5168,7 @@ typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
 typedef PackageType = {
 	path:String,
 	name:String,
+	order:Array<String>,
 	files:Array<{path:String, location:String, decls:Array<Dynamic>}>
 }; // filepath of export.json also stored here
 

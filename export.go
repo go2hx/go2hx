@@ -24,7 +24,6 @@ import (
 	"strings"
 
 	"go.mongodb.org/mongo-driver/bson"
-
 	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
@@ -41,6 +40,7 @@ type dataType struct {
 type packageType struct {
 	Path  string     `json:"path"`
 	Name  string     `json:"name"`
+	Order []string   `json:"order"`
 	Files []fileType `json:"files"`
 }
 type fileType struct {
@@ -141,6 +141,8 @@ func compile(params []string, excludesData excludesType) []byte {
 	typeHasher = typeutil.Hasher{}
 	methodCache = typeutil.MethodSetCache{}
 	data.Args = args
+	//bytes, _ = json.Marshal(data)
+	//ioutil.WriteFile("check.json", bytes, 0766)
 	bytes, err = bson.Marshal(data)
 	if err != nil {
 		throw("encoding err: " + err.Error())
@@ -586,6 +588,9 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 func parsePkg(pkg *packages.Package) packageType {
 	fset = pkg.Fset
 	data := packageType{}
+	for _, obj := range pkg.TypesInfo.InitOrder {
+		data.Order = append(data.Order, obj.Lhs[0].Name())
+	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
 	checker = types.NewChecker(&conf, pkg.Fset, pkg.Types, pkg.TypesInfo)

@@ -106,28 +106,21 @@ class WaitGroup {
 		counter += delta;
 		if (counter < 0)
 			throw "sync: negative WaitGroup counter";
-		// TODO: check for overflow
-		if (delta < 0)
-			checkFinish();
 	}
 
 	public function done() {
 		counter--;
-		checkFinish();
+		if (counter <= 0) {
+			#if (target.threaded)
+			lock.release();
+			#end
+		}
 	}
 
 	public function wait() {
 		#if (target.threaded)
 		lock.wait();
 		#end
-	}
-
-	function checkFinish() {
-		if (counter <= 0) {
-			#if (target.threaded)
-			lock.release();
-			#end
-		}
 	}
 }
 

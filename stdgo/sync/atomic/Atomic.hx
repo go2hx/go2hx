@@ -4,20 +4,36 @@ import haxe.Int32;
 import haxe.Int64;
 import stdgo.StdGoTypes;
 
+#if (target.threaded)
+var mutex = new sys.thread.Mutex();
+#end
+
 function addInt32(addr:Pointer<GoInt32>, delta:GoInt32):GoInt32 {
-	return addr.value + delta;
+	mutex.acquire();
+	final value = addr.value += delta;
+	mutex.release();
+	return value;
 }
 
 function addInt64(addr:Pointer<GoInt64>, delta:GoInt64):GoInt64 {
-	return addr.value + delta;
+	mutex.acquire();
+	final value = addr.value += delta;
+	mutex.release();
+	return value;
 }
 
 function addUint32(addr:Pointer<GoUInt32>, delta:GoUInt32):GoUInt32 {
-	return addr.value + delta;
+	mutex.acquire();
+	final value = addr.value += delta;
+	mutex.release();
+	return value;
 }
 
 function addUint64(addr:Pointer<GoUInt64>, delta:GoUInt64):GoUInt64 {
-	return addr.value + delta;
+	mutex.acquire();
+	final value = addr.value += delta;
+	mutex.release();
+	return value;
 }
 
 function loadUint32(addr:Pointer<GoUInt32>):GoUInt32
@@ -35,7 +51,9 @@ function compareAndSwapUint32(addr:Pointer<GoUInt32>, old:GoUInt32, new_:GoUInt3
 }
 
 function swapUInt32(addr:Pointer<GoUInt32>, new_:GoUInt32):GoUInt32 {
+	mutex.acquire();
 	var old = addr.value;
 	addr.value = new_;
+	mutex.release();
 	return old;
 }

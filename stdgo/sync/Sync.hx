@@ -74,12 +74,20 @@ class Mutex {
 
 	#if (target.threaded)
 	@:local
-	var mutex:sys.thread.Mutex;
+	var mutex = new sys.thread.Mutex();
 	#end
 
-	public function lock() {}
+	public function lock() {
+		#if (target.threaded)
+		mutex.acquire();
+		#end
+	}
 
-	public function unlock() {}
+	public function unlock() {
+		#if (target.threaded)
+		mutex.release();
+		#end
+	}
 
 	public function rlock() {}
 

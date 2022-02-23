@@ -238,7 +238,7 @@ class Complex<T:GoFloat64> {
 		imag = i;
 	}
 
-	inline function toString():GoString {
+	inline function toString():String {
 		var imagString = Go.string(imag);
 		var realString = Go.string(real);
 		final sign2 = realString.charAt(0) == "-" ? "" : "+";
@@ -274,10 +274,18 @@ private function clampUInt(x:Int):UInt32
 
 // no clamp for UInt32 or UInt64 as they overflow into negative range
 
-abstract GoUIntptr(Dynamic) from Dynamic from Dynamic {
+abstract GoUIntptr(Dynamic) from Dynamic {
 	public inline function new(?x) {
 		this = x;
 	}
+
+	@:to
+	private function toError():Error
+		return {error: () -> 'uintptr: $this', __underlying__: () -> null};
+
+	@:to
+	public function toDynamic():Dynamic
+		return this;
 
 	private inline function address():GoInt {
 		if (haxe.Int64.isInt64(this))
@@ -1925,7 +1933,7 @@ class AnyInterfaceData {
 		return new AnyInterfaceData(value, type); // TODO copy type
 	}
 
-	public function toString():GoString
+	public function toString():String
 		return '$value';
 }
 

@@ -104,7 +104,7 @@ private class MapData<K, V> {
 			return x == y;
 		}
 		return switch (type.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(keyType, _):
+			case mapType(var keyType, _):
 				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
@@ -160,7 +160,7 @@ private class MapData<K, V> {
 		array.unshift({key: key, value: value});
 	}
 
-	public function toString():GoString {
+	public function toString():String {
 		var params:String = "";
 		final array = array.copy();
 		array.sort((a, b) -> {

@@ -67,15 +67,19 @@ class Map_ {
 
 @:structInit
 class Mutex {
-	public function new() {}
+	#if (target.threaded)
+	@:local
+	var mutex:sys.thread.Mutex;
+	#end
+
+	public function new() {
+		#if (target.threaded)
+		mutex = new sys.thread.Mutex();
+		#end
+	}
 
 	public function __underlying__():AnyInterface
 		return null;
-
-	#if (target.threaded)
-	@:local
-	var mutex = new sys.thread.Mutex();
-	#end
 
 	public function lock() {
 		#if (target.threaded)

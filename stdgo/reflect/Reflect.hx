@@ -23,6 +23,7 @@ enum GoType {
 	arrayType(elem:GoType, len:Int);
 	mapType(key:GoType, value:GoType);
 	chanType(dir:Int, elem:GoType);
+	refType(elem:GoType);
 }
 
 @:structInit
@@ -257,9 +258,16 @@ function isPointer(type:GoType):Bool {
 
 function isRef(type:GoType):Bool {
 	return switch type {
-		case basic(_):
+		case refType(_):
+			true;
+		default:
 			false;
-		case pointer(_):
+	}
+}
+
+function isRefValue(type:GoType):Bool {
+	return switch type {
+		case basic(_), pointer(_):
 			false;
 		default:
 			true;
@@ -1149,7 +1157,7 @@ class _Type {
 			case invalidType: invalid;
 			case mapType(_, _): map;
 			case named(_, _, type), _var(_, type): new _Type(type).kind();
-			case pointer(_): ptr;
+			case pointer(_), refType(_): ptr;
 			case previouslyNamed(_): throw "previouslyNamed type to kind not supported should be unrolled before access";
 			case sliceType(_): slice;
 			case tuple(_, _): throw "tuple type to kind not supported";

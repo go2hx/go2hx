@@ -303,6 +303,8 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						}
 					}
 				}
+				final wrapper:TypeDefinition = info.wrappers[def.name];
+				file.defs.push(wrapper);
 				if (local.length == 0)
 					continue;
 				final staticExtensionName = def.name + "_static_extension";
@@ -313,40 +315,8 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					kind: TDClass(),
 					fields: [],
 				};
-				final wrapperName = def.name + "_wrapper";
-				final wrapper:TypeDefinition = {
-					name: wrapperName,
-					pos: null,
-					pack: [],
-					kind: TDClass(),
-					fields: [
-						{
-							name: "__t__",
-							access: [APublic],
-							pos: null,
-							kind: FVar(TPath({name: def.name, pack: []})),
-						},
-						{
-							name: "new",
-							access: [APublic, AInline],
-							pos: null,
-							kind: FFun({args: [{name: "__t__"}], expr: macro this.__t__ = __t__})
-						},
-						{
-							name: "__underlying__",
-							pos: null,
-							access: [APublic],
-							kind: FFun({
-								args: [],
-								expr: macro return Go.toInterface(this),
-								ret: anyInterfaceType()
-							})
-						}
-					],
-				};
 				def.meta.push({name: ":using", params: [macro $i{info.global.filePath + "." + staticExtensionName}], pos: null});
 				file.defs.push(staticExtension);
-				file.defs.push(wrapper);
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					if (func == null)
@@ -4710,6 +4680,37 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			var meta:Metadata = [{name: ":structInit", pos: null}];
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
+			final wrapper:TypeDefinition = {
+				name: name + "_wrapper",
+				pos: null,
+				pack: [],
+				kind: TDClass(),
+				fields: [
+					{
+						name: "__t__",
+						access: [APublic],
+						pos: null,
+						kind: FVar(TPath({name: name, pack: []})),
+					},
+					{
+						name: "new",
+						access: [APublic, AInline],
+						pos: null,
+						kind: FFun({args: [{name: "__t__"}], expr: macro this.__t__ = __t__})
+					},
+					{
+						name: "__underlying__",
+						pos: null,
+						access: [APublic],
+						kind: FFun({
+							args: [],
+							expr: macro return Go.toInterface(this),
+							ret: anyInterfaceType()
+						})
+					}
+				],
+			};
+			info.wrappers[name] = wrapper;
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// final recv = typeof(method.recv);
 				final name = fields[method.index[0]].name;
@@ -4760,7 +4761,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 							params.push(last);
 						}
 						final fieldName = nameIdent(method.name, false, false, info);
-						var expr = macro $i{name}.$fieldName($a{args});
 						var ret:ComplexType = null;
 						if (results.length > 0) {
 							if (results.length == 1) {
@@ -4788,8 +4788,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 								]);
 							}
 						}
-						if (!isVoid(ret))
-							expr = macro return $expr;
 						final methodName = nameIdent(method.name, false, false, info);
 						if (methodName == "toString") { // toString duplicate
 							for (field in fields) {
@@ -4800,6 +4798,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 								}
 							}
 						}
+						var expr = macro $i{name}.$fieldName($a{args});
 						fields.push({
 							name: methodName,
 							pos: null,
@@ -4807,14 +4806,24 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 							kind: FFun({
 								args: params,
 								ret: ret,
-								expr: expr,
+								expr: isVoid(ret) ? expr : macro return $expr,
+							}),
+						});
+						expr = macro __t__.$name.$fieldName($a{args});
+						wrapper.fields.push({
+							name: methodName,
+							pos: null,
+							access: [APublic],
+							kind: FFun({
+								args: params,
+								ret: ret,
+								expr: isVoid(ret) ? expr : macro return $expr,
 							}),
 						});
 					default:
 						throw "method not a signature";
 				}
 			}
-
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,
@@ -5178,6 +5187,7 @@ class Global {
 }
 
 class Info {
+	public var wrappers:Map<String, TypeDefinition> = [];
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
 	public var restricted:Array<String> = null;
@@ -5213,6 +5223,7 @@ class Info {
 
 	public inline function copy() {
 		var info = new Info();
+		info.wrappers = wrappers;
 		info.returnTypes = returnTypes.copy();
 		info.returnComplexTypes = returnComplexTypes.copy();
 		info.returnNames = returnNames.copy();

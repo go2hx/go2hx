@@ -403,6 +403,24 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						default:
 					}
 				}
+				// add toString if not present
+				function hasToString(fields:Array<Field>):Bool {
+					for (field in fields) {
+						if (field.name == "toString")
+							return true;
+					}
+					return false;
+				}
+				if (!hasToString(wrapper.fields))
+					wrapper.fields.push({
+						name: "toString",
+						pos: null,
+						kind: FFun({
+							ret: TPath({name: "String", pack: []}),
+							args: [],
+							expr: macro return __t__ == null ? __t__ : __t__.toString(),
+						})
+					});
 			}
 		}
 
@@ -3763,7 +3781,6 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	if (!isPointer(typeof(expr.x)))
 		return x.expr;
-	
 	return (macro $x.value).expr; // pointer code
 }
 

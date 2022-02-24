@@ -3763,15 +3763,7 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	if (!isPointer(typeof(expr.x)))
 		return x.expr;
-	switch x.expr {
-		case EConst(c):
-			switch c {
-				case CIdent(s):
-					if ((info.thisName == "" && s == info.thisName) || s == "this") return x.expr;
-				default:
-			}
-		default:
-	}
+	
 	return (macro $x.value).expr; // pointer code
 }
 
@@ -3792,7 +3784,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.data = data.data;
 	info.renameClasses = data.renameClasses;
 	info.renameIdents = data.renameIdents.copy();
-	info.thisName = "";
 	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
@@ -3808,7 +3799,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.funcName = name;
 	var ret = typeFieldListReturn(decl.type.results, info, true);
 	var args = typeFieldListArgs(decl.type.params, info);
-	info.thisName = "";
 	info.restricted = restricted;
 	var block:Expr = if (externBool) {
 		info.returnNamed = false;
@@ -5206,7 +5196,6 @@ class Info {
 
 	public inline function copy() {
 		var info = new Info();
-		info.thisName = thisName;
 		info.returnTypes = returnTypes.copy();
 		info.returnComplexTypes = returnComplexTypes.copy();
 		info.returnNames = returnNames.copy();

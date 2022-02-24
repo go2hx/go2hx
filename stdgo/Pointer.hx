@@ -86,8 +86,8 @@ class PointerData<T> {
 	public var previous:Pointer<Any> = null;
 	public var convert:T->Any;
 	public var assign:Void->T;
-	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map
-	public var underlyingIndex:AnyInterface = null; // used for equality of pointers with the index of slice/array/map
+	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map/field
+	public var underlyingIndex:Any = null;
 	public var nilBool:Bool = false;
 
 	public function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {

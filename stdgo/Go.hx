@@ -242,10 +242,35 @@ class Go {
 								Context.error('setting "this" to pointer is not allowed', Context.currentPos());
 							case "false", "true":
 								declare = true;
+							default:
+								final isLocal = Context.getLocalTVars().exists(s);
+								final v = if (isLocal) {
+									Context.getLocalMethod();
+								} else {
+									Context.getLocalModule();
+								}
+								return macro {
+									final underlying = $v{v};
+									final underlyingIndex = $v{s};
+									new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
+								};
 						}
 					default:
 						declare = true;
 				}
+			case EField(e, field):
+				e = try {
+					Context.typeof(e);
+					e;
+				} catch (_) {
+					final path = new haxe.macro.Printer().printExpr(e);
+					macro $v{path};
+				}
+				return macro {
+					final underlying = $e;
+					final underlyingIndex = $v{field};
+					new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
+				};
 			case EArray(e1, e2):
 				var t = Context.follow(Context.typeof(e1));
 				switch t {
@@ -265,14 +290,14 @@ class Go {
 									final _offset_ = ${e1}.getOffset();
 									final index = (${e2} : GoInt).toBasic() + _offset_;
 									final underlying = ${e1}.getUnderlying();
-									var underlyingIndex = Go.toInterface((index : GoInt));
-									new $p(() -> ${e1}.getUnderlying()[index], (v) -> ${e1}.getUnderlying()[index] = v, false, underlying, underlyingIndex);
+									var underlyingIndex = index;
+									new $p(() -> ${e1}.getUnderlying()[index], v -> ${e1}.getUnderlying()[index] = v, false, underlying, underlyingIndex);
 								};
 							case "GoArray":
 								return macro {
 									final underlying = ${e1}.toVector();
-									final underlyingIndex = Go.toInterface((${e2} : GoInt));
-									new $p(() -> $expr, (v) -> $expr = v, false, underlying, underlyingIndex);
+									final underlyingIndex = (${e2} : GoInt).toBasic();
+									new $p(() -> $expr, v -> $expr = v, false, underlying, underlyingIndex);
 								}
 						}
 					default:
@@ -283,7 +308,7 @@ class Go {
 		if (declare)
 			return macro {
 				var e = $expr;
-				new $p(() -> e, (v) -> e = v, $v{hasSet});
+				new $p(() -> e, v -> e = v, $v{hasSet});
 			};
 		return macro new $p(() -> $expr, (__tmp__) -> $expr = __tmp__, $v{hasSet});
 	}

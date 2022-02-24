@@ -1366,7 +1366,7 @@ class _Type {
 				if (index >= methods.length)
 					throw "Method index out of range";
 				var method = methods[index];
-				path += "_extension_fields";
+				path += "_static_extension";
 				final cl = std.Type.resolveClass(path);
 				final instance = std.Type.createEmptyInstance(cl);
 				final t = new _Type(method.type);

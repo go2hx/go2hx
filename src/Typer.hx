@@ -418,7 +418,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						kind: FFun({
 							ret: TPath({name: "String", pack: []}),
 							args: [],
-							expr: macro return __t__ == null ? __t__ : __t__.toString(),
+							expr: macro return __t__ == null ? "null" : __t__.toString(),
 						})
 					});
 			}

@@ -944,7 +944,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				default:
 			}
 		}
-		return macro($e.__underlying__().value : $ct); // add all args to smart cast macro function
+		return macro(($e.__underlying__().value : Dynamic).__t__ : $ct); // add all args to smart cast macro function
 	}
 	if (isStruct(fromType) && isStruct(toType)) {
 		switch toType {
@@ -3108,7 +3108,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 		if (op == null)
 			return switch expr.op {
 				case XOR: (macro(-1 ^ $x)).expr;
-				case ARROW: (macro $x.get()).expr; // $chan.get
+				case ARROW: (macro $x.get().value).expr; // $chan.get
 				default: x.expr;
 			}
 		switch expr.op {

@@ -105,7 +105,7 @@ class Go {
 			{0}();
 		}; __a__();", func);
 		#elseif (target.threaded)
-		sys.thread.Thread.create(func);
+		sys.thread.Thread.createWithEventLoop(func);
 		#end
 	}
 

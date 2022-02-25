@@ -9,14 +9,14 @@ inline function new_(message:GoString):Error {
 }
 
 private class ErrorData {
-	var message:GoString;
-
 	public function error():GoString {
 		return message;
 	}
 
 	public function __underlying__():AnyInterface
-		return null;
+		return Go.toInterface(this);
+
+	var message:GoString;
 
 	public function new(message:GoString) {
 		this.message = message;

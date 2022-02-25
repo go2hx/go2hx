@@ -178,6 +178,7 @@ private inline function log(v:Dynamic) {
 	#else
 	// unicode support for hashlink thanks to Zeta
 	Sys.stdout().writeString(Std.string(v));
+	Sys.stdout().flush();
 	#end
 	#elseif js
 	js.html.Console.log(v);

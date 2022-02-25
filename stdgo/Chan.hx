@@ -48,8 +48,11 @@ class Chan<T> {
 
 	public function get(blocking:Bool = true):{value:T, ok:Bool} {
 		if (buffer != null) {
-			if (buffer.length == 0)
+			sendWg.release();
+			if (!getWg.wait(blocking ? null : 0.1)) {
+				sendWg.wait(0);
 				return {value: defaultValue(), ok: false};
+			}
 			mutex.acquire();
 			final value = buffer.shift();
 			mutex.release();
@@ -69,6 +72,7 @@ class Chan<T> {
 			mutex.acquire();
 			buffer.push(value);
 			mutex.release();
+			getWg.release();
 			return true;
 		} else {
 			if (!sendWg.wait(blocking ? null : 0.1))

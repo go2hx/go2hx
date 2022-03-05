@@ -54,7 +54,7 @@ var _utcLoc:Location = (({
 	_extend: "",
 	_cacheStart: 0,
 	_cacheEnd: 0,
-	_cacheZone: new T_zone()
+	_cacheZone: ((null : T_zone))
 } : Location));
 
 var utc:Location = _utcLoc;
@@ -80,19 +80,7 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	var _1:Error;
 } = null;
 
-@:structInit class ParseError {
-	public function error():GoString {
-		var _e = this;
-		if (_e.message == ("")) {
-			return ((((((((("parsing time " : GoString))) + _quote(_e.value)) + (((" as " : GoString)))) + _quote(_e.layout))
-				+ (((": cannot parse " : GoString))))
-				+ _quote(_e.valueElem))
-				+ (((" as " : GoString))))
-				+ _quote(_e.layoutElem);
-		};
-		return (((("parsing time " : GoString))) + _quote(_e.value)) + _e.message;
-	}
-
+@:structInit @:using(Time.ParseError_static_extension) class ParseError {
 	public var layout:GoString = (("" : GoString));
 	public var value:GoString = (("" : GoString));
 	public var layoutElem:GoString = (("" : GoString));
@@ -198,24 +186,7 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	}
 }
 
-@:structInit class Timer {
-	public function reset(_d:Duration):Bool {
-		var _t = this;
-		if (_t._r._f == null) {
-			throw Go.toInterface(((("time: Reset called on uninitialized Timer" : GoString))));
-		};
-		var _w:GoInt64 = _when(_d);
-		return _resetTimer(_t._r, _w);
-	}
-
-	public function stop():Bool {
-		var _t = this;
-		if (_t._r._f == null) {
-			throw Go.toInterface(((("time: Stop called on uninitialized Timer" : GoString))));
-		};
-		return _stopTimer(_t._r);
-	}
-
+@:structInit @:using(Time.Timer_static_extension) class Timer {
 	public var c:Chan<Time> = new Chan<Time>(0, () -> new Time(), true);
 	public var _r:T_runtimeTimer = new T_runtimeTimer();
 
@@ -244,20 +215,7 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	}
 }
 
-@:structInit class Ticker {
-	public function reset(_d:Duration):Void {
-		var _t = this;
-		if (_t._r._f == null) {
-			throw Go.toInterface(((("time: Reset called on uninitialized Ticker" : GoString))));
-		};
-		_modTimer(_t._r, _when(_d), _d.__t__, _t._r._f, Go.toInterface(_t._r._arg), _t._r._seq);
-	}
-
-	public function stop():Void {
-		var _t = this;
-		_stopTimer(_t._r);
-	}
-
+@:structInit @:using(Time.Ticker_static_extension) class Ticker {
 	public var c:Chan<Time> = new Chan<Time>(0, () -> new Time(), true);
 	public var _r:T_runtimeTimer = new T_runtimeTimer();
 
@@ -286,878 +244,10 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	}
 }
 
-@:structInit class Time {
-	public function round(_d:Duration):Time {
-		var _t = (this == null ? null : this.__copy__());
-		_t._stripMono();
-		if (_d.__t__ <= ((0 : GoInt64))) {
-			return (_t == null ? null : _t.__copy__());
-		};
-		var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d),
-			_:GoInt = __tmp__._0,
-			_r:Duration = __tmp__._1;
-		if (_lessThanHalf(_r, _d)) {
-			return (_t.add(new Duration(-_r.__t__)) == null ? null : _t.add(new Duration(-_r.__t__)).__copy__());
-		};
-		return (_t.add(new Duration(_d.__t__ - _r.__t__)) == null ? null : _t.add(new Duration(_d.__t__ - _r.__t__)).__copy__());
-	}
-
-	public function truncate(_d:Duration):Time {
-		var _t = (this == null ? null : this.__copy__());
-		_t._stripMono();
-		if (_d.__t__ <= ((0 : GoInt64))) {
-			return (_t == null ? null : _t.__copy__());
-		};
-		var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d),
-			_:GoInt = __tmp__._0,
-			_r:Duration = __tmp__._1;
-		return (_t.add(new Duration(-_r.__t__)) == null ? null : _t.add(new Duration(-_r.__t__)).__copy__());
-	}
-
-	public function isDST():Bool {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._loc._lookup(_t.unix()),
-			_:GoString = __tmp__._0,
-			_:GoInt = __tmp__._1,
-			_:GoInt64 = __tmp__._2,
-			_:GoInt64 = __tmp__._3,
-			_isDST:Bool = __tmp__._4;
-		return _isDST;
-	}
-
-	public function unmarshalText(_data:Slice<GoByte>):Error {
-		var _t = this;
-		var _err:Error = ((null : stdgo.Error));
-		{
-			var __tmp__ = parse(((("2006-01-02T15:04:05Z07:00" : GoString))), ((_data : GoString)));
-			_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
-			_err = __tmp__._1;
-		};
-		return _err;
-	}
-
-	public function marshalText():{var _0:Slice<GoByte>; var _1:Error;} {
-		var _t = (this == null ? null : this.__copy__());
-		{
-			var _y:GoInt = _t.year();
-			if ((_y < ((0 : GoInt))) || (_y >= ((10000 : GoInt)))) {
-				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalText: year outside of range [0,9999]" : GoString))))};
-			};
-		};
-		var _b:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))])
-			.setCap(((((("2006-01-02T15:04:05.999999999Z07:00" : GoString))).length : GoInt)).toBasic());
-		return {_0: _t.appendFormat(_b, ((("2006-01-02T15:04:05.999999999Z07:00" : GoString)))), _1: ((null : stdgo.Error))};
-	}
-
-	public function unmarshalJSON(_data:Slice<GoByte>):Error {
-		var _t = this;
-		if (((_data : GoString)) == ((("null" : GoString)))) {
-			return ((null : stdgo.Error));
-		};
-		var _err:Error = ((null : stdgo.Error));
-		{
-			var __tmp__ = parse(((("\"2006-01-02T15:04:05Z07:00\"" : GoString))), ((_data : GoString)));
-			_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
-			_err = __tmp__._1;
-		};
-		return _err;
-	}
-
-	public function marshalJSON():{var _0:Slice<GoByte>; var _1:Error;} {
-		var _t = (this == null ? null : this.__copy__());
-		{
-			var _y:GoInt = _t.year();
-			if ((_y < ((0 : GoInt))) || (_y >= ((10000 : GoInt)))) {
-				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalJSON: year outside of range [0,9999]" : GoString))))};
-			};
-		};
-		var _b:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((((37 : GoInt)) : GoInt))
-			.toBasic());
-		_b = _b.__append__(((((("\"" : GoString))).code : GoRune)));
-		_b = _t.appendFormat(_b, ((("2006-01-02T15:04:05.999999999Z07:00" : GoString))));
-		_b = _b.__append__(((((("\"" : GoString))).code : GoRune)));
-		return {_0: _b, _1: ((null : stdgo.Error))};
-	}
-
-	public function gobDecode(_data:Slice<GoByte>):Error {
-		var _t = this;
-		return _t.unmarshalBinary(_data);
-	}
-
-	public function gobEncode():{var _0:Slice<GoByte>; var _1:Error;} {
-		var _t = (this == null ? null : this.__copy__());
-		return _t.marshalBinary();
-	}
-
-	public function unmarshalBinary(_data:Slice<GoByte>):Error {
-		var _t = this;
-		var _buf:Slice<GoUInt8> = _data;
-		if (_buf.length == ((0 : GoInt))) {
-			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: no data" : GoString))));
-		};
-		if (_buf[((0 : GoInt))] != ((1 : GoUInt8))) {
-			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: unsupported version" : GoString))));
-		};
-		if (_buf.length != ((15 : GoInt))) {
-			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: invalid length" : GoString))));
-		};
-		_buf = _buf.__slice__(((1 : GoInt)));
-		var _sec:GoInt64 = ((((((((_buf[((7 : GoInt))] : GoInt64)) | (((_buf[((6 : GoInt))] : GoInt64)) << ((8 : GoUnTypedInt)))) | (((_buf[((5 : GoInt))] : GoInt64)) << ((16 : GoUnTypedInt)))) | (((_buf[((4 : GoInt))] : GoInt64)) << ((24 : GoUnTypedInt)))) | (((_buf[((3 : GoInt))] : GoInt64)) << ((32 : GoUnTypedInt)))) | (((_buf[((2 : GoInt))] : GoInt64)) << ((40 : GoUnTypedInt)))) | (((_buf[((1 : GoInt))] : GoInt64)) << ((48 : GoUnTypedInt)))) | (((_buf[((0 : GoInt))] : GoInt64)) << ((56 : GoUnTypedInt)));
-		_buf = _buf.__slice__(((8 : GoInt)));
-		var _nsec:GoInt32 = ((((_buf[((3 : GoInt))] : GoInt32)) | (((_buf[((2 : GoInt))] : GoInt32)) << ((8 : GoUnTypedInt)))) | (((_buf[((1 : GoInt))] : GoInt32)) << ((16 : GoUnTypedInt)))) | (((_buf[((0 : GoInt))] : GoInt32)) << ((24 : GoUnTypedInt)));
-		_buf = _buf.__slice__(((4 : GoInt)));
-		var _offset:GoInt = (((((_buf[((1 : GoInt))] : GoInt16)) | (((_buf[((0 : GoInt))] : GoInt16)) << ((8 : GoUnTypedInt)))) : GoInt)) * ((60 : GoInt));
-		_t = (new Time() == null ? null : new Time().__copy__());
-		_t._wall = ((_nsec : GoUInt64));
-		_t._ext = _sec;
-		if (_offset == ((-60 : GoInt))) {
-			_t._setLoc(_utcLoc);
-		} else {
-			var __tmp__ = Time.local._lookup(_t._unixSec()),
-				_:GoString = __tmp__._0,
-				_localoff:GoInt = __tmp__._1,
-				_:GoInt64 = __tmp__._2,
-				_:GoInt64 = __tmp__._3,
-				_:Bool = __tmp__._4;
-			if (_offset == _localoff) {
-				_t._setLoc(Time.local);
-			} else {
-				_t._setLoc(fixedZone((""), _offset));
-			};
-		};
-		return ((null : stdgo.Error));
-	}
-
-	public function marshalBinary():{var _0:Slice<GoByte>; var _1:Error;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _offsetMin:GoInt16 = ((0 : GoInt16));
-		if (_t.location() == Time.utc) {
-			_offsetMin = ((-1 : GoInt16));
-		} else {
-			var __tmp__ = _t.zone(),
-				_:GoString = __tmp__._0,
-				_offset:GoInt = __tmp__._1;
-			if ((_offset % ((60 : GoInt))) != ((0 : GoInt))) {
-				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalBinary: zone offset has fractional minute" : GoString))))};
-			};
-			_offset = _offset / (((60 : GoInt)));
-			if (((_offset < ((-32768 : GoInt))) || (_offset == ((-1 : GoInt)))) || (_offset > ((32767 : GoInt)))) {
-				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalBinary: unexpected zone offset" : GoString))))};
-			};
-			_offsetMin = ((_offset : GoInt16));
-		};
-		var _sec:GoInt64 = _t._sec();
-		var _nsec:GoInt32 = _t._nsec();
-		var _enc:Slice<GoUInt8> = new Slice<GoUInt8>(((1 : GoUInt8)), (((_sec >> ((56 : GoUnTypedInt))) : GoByte)),
-			(((_sec >> ((48 : GoUnTypedInt))) : GoByte)), (((_sec >> ((40 : GoUnTypedInt))) : GoByte)), (((_sec >> ((32 : GoUnTypedInt))) : GoByte)),
-			(((_sec >> ((24 : GoUnTypedInt))) : GoByte)), (((_sec >> ((16 : GoUnTypedInt))) : GoByte)), (((_sec >> ((8 : GoUnTypedInt))) : GoByte)),
-			((_sec : GoByte)), (((_nsec >> ((24 : GoUnTypedInt))) : GoByte)), (((_nsec >> ((16 : GoUnTypedInt))) : GoByte)),
-			(((_nsec >> ((8 : GoUnTypedInt))) : GoByte)), ((_nsec : GoByte)), (((_offsetMin >> ((8 : GoUnTypedInt))) : GoByte)), ((_offsetMin : GoByte)));
-		return {_0: _enc, _1: ((null : stdgo.Error))};
-	}
-
-	public function unixNano():GoInt64 {
-		var _t = (this == null ? null : this.__copy__());
-		return ((_t._unixSec()) * ((1e+09 : GoInt64))) + ((_t._nsec() : GoInt64));
-	}
-
-	public function unixMicro():GoInt64 {
-		var _t = (this == null ? null : this.__copy__());
-		return (_t._unixSec() * ((1e+06 : GoInt64))) + (((_t._nsec() : GoInt64)) / ((1000 : GoInt64)));
-	}
-
-	public function unixMilli():GoInt64 {
-		var _t = (this == null ? null : this.__copy__());
-		return (_t._unixSec() * ((1000 : GoInt64))) + (((_t._nsec() : GoInt64)) / ((1e+06 : GoInt64)));
-	}
-
-	public function unix():GoInt64 {
-		var _t = (this == null ? null : this.__copy__());
-		return _t._unixSec();
-	}
-
-	public function zone():{var _0:GoString; var _1:GoInt;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _name:GoString = (("" : GoString)), _offset:GoInt = ((0 : GoInt));
-		{
-			var __tmp__ = _t._loc._lookup(_t._unixSec());
-			_name = __tmp__._0;
-			_offset = __tmp__._1;
-		};
-		return {_0: _name, _1: _offset};
-	}
-
-	public function location():Location {
-		var _t = (this == null ? null : this.__copy__());
-		var _l:Location = _t._loc;
-		if (_l == null) {
-			_l = Time.utc;
-		};
-		return _l;
-	}
-
-	public function in_(_loc:Location):Time {
-		var _t = (this == null ? null : this.__copy__());
-		if (_loc == null) {
-			throw Go.toInterface(((("time: missing Location in call to Time.In" : GoString))));
-		};
-		_t._setLoc(_loc);
-		return (_t == null ? null : _t.__copy__());
-	}
-
-	public function local():Time {
-		var _t = (this == null ? null : this.__copy__());
-		_t._setLoc(Time.local);
-		return (_t == null ? null : _t.__copy__());
-	}
-
-	public function utc():Time {
-		var _t = (this == null ? null : this.__copy__());
-		_t._setLoc(_utcLoc);
-		return (_t == null ? null : _t.__copy__());
-	}
-
-	public function _date(_full:Bool):{
-		var _0:GoInt;
-		var _1:Month;
-		var _2:GoInt;
-		var _3:GoInt;
-	} {
-		var _t = (this == null ? null : this.__copy__());
-		var _year:GoInt = ((0 : GoInt)),
-			_month:Month = new Month(),
-			_day:GoInt = ((0 : GoInt)),
-			_yday:GoInt = ((0 : GoInt));
-		return _absDate(_t._abs(), _full);
-	}
-
-	public function addDate(_years:GoInt, _months:GoInt, _days:GoInt):Time {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t.date(),
-			_year:GoInt = __tmp__._0,
-			_month:Month = __tmp__._1,
-			_day:GoInt = __tmp__._2;
-		var __tmp__ = _t.clock(),
-			_hour:GoInt = __tmp__._0,
-			_min:GoInt = __tmp__._1,
-			_sec:GoInt = __tmp__._2;
-		return (Time.date(_year + _years, new Month(_month.__t__ + new Month(_months).__t__), _day + _days, _hour, _min, _sec, ((_t._nsec() : GoInt)),
-			_t.location()) == null ? null : Time.date(_year + _years, new Month(_month.__t__ + new Month(_months).__t__), _day + _days, _hour, _min, _sec,
-				((_t._nsec() : GoInt)), _t.location())
-			.__copy__());
-	}
-
-	public function sub(_u:Time):Duration {
-		var _t = (this == null ? null : this.__copy__());
-		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			var _te:GoInt64 = _t._ext;
-			var _ue:GoInt64 = _u._ext;
-			var _d:Duration = new Duration((_te - _ue));
-			if ((_d.__t__ < ((0 : GoInt64))) && (_te > _ue)) {
-				return new Duration((("9223372036854775807" : GoInt64)));
-			};
-			if ((_d.__t__ > ((0 : GoInt64))) && (_te < _ue)) {
-				return new Duration((("-9223372036854775808" : GoInt64)));
-			};
-			return _d;
-		};
-		var _d:Duration = new Duration(new Duration(new Duration((_t._sec() - _u._sec())).__t__ * ((1000000000 : GoInt64))).__t__
-			+ new Duration((_t._nsec() - _u._nsec())).__t__);
-		if (_u.add(_d).equal((_t == null ? null : _t.__copy__()))) {
-			return _d;
-		} else if (_t.before((_u == null ? null : _u.__copy__()))) {
-			return new Duration((("-9223372036854775808" : GoInt64)));
-		} else {
-			return new Duration((("9223372036854775807" : GoInt64)));
-		};
-	}
-
-	public function add(_d:Duration):Time {
-		var _t = (this == null ? null : this.__copy__());
-		var _dsec:GoInt64 = new Duration(_d.__t__ / ((1e+09 : GoInt64))).__t__;
-		var _nsec:GoInt32 = _t._nsec() + new Duration(_d.__t__ % ((1e+09 : GoInt64))).__t__;
-		if (_nsec >= ((1e+09 : GoInt32))) {
-			_dsec++;
-			_nsec = _nsec - (((1e+09 : GoInt32)));
-		} else if (_nsec < ((0 : GoInt32))) {
-			_dsec--;
-			_nsec = _nsec + (((1e+09 : GoInt32)));
-		};
-		_t._wall = (_t._wall & (((1073741823 : GoUInt64)) ^ ((-1 : GoUnTypedInt)))) | ((_nsec : GoUInt64));
-		_t._addSec(_dsec);
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			var _te:GoInt64 = _t._ext + _d.__t__;
-			if (((_d.__t__ < ((0 : GoInt64))) && (_te > _t._ext)) || ((_d.__t__ > ((0 : GoInt64))) && (_te < _t._ext))) {
-				_t._stripMono();
-			} else {
-				_t._ext = _te;
-			};
-		};
-		return (_t == null ? null : _t.__copy__());
-	}
-
-	public function yearDay():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._date(false),
-			_:GoInt = __tmp__._0,
-			_:Month = __tmp__._1,
-			_:GoInt = __tmp__._2,
-			_yday:GoInt = __tmp__._3;
-		return _yday + ((1 : GoInt));
-	}
-
-	public function nanosecond():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		return ((_t._nsec() : GoInt));
-	}
-
-	public function second():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		return (((_t._abs() % ((60 : GoUInt64))) : GoInt));
-	}
-
-	public function minute():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		return (((_t._abs() % ((3600 : GoUInt64))) : GoInt)) / ((60 : GoInt));
-	}
-
-	public function hour():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		return (((_t._abs() % ((86400 : GoUInt64))) : GoInt)) / ((3600 : GoInt));
-	}
-
-	public function clock():{var _0:GoInt; var _1:GoInt; var _2:GoInt;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _hour:GoInt = ((0 : GoInt)),
-			_min:GoInt = ((0 : GoInt)),
-			_sec:GoInt = ((0 : GoInt));
-		return _absClock(_t._abs());
-	}
-
-	public function isoweek():{var _0:GoInt; var _1:GoInt;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _year:GoInt = ((0 : GoInt)), _week:GoInt = ((0 : GoInt));
-		var _abs:GoUInt64 = _t._abs();
-		var _d:Weekday = new Weekday(((4 : GoInt)) - _absWeekday(_abs).__t__);
-		if (_d.__t__ == ((4 : GoInt))) {
-			_d = new Weekday(((-3 : GoInt)));
-		};
-		_abs = _abs + (_d.__t__ * ((86400 : GoUInt64)));
-		var __tmp__ = _absDate(_abs, false),
-			_year:GoInt = __tmp__._0,
-			_:Month = __tmp__._1,
-			_:GoInt = __tmp__._2,
-			_yday:GoInt = __tmp__._3;
-		return {_0: _year, _1: (_yday / ((7 : GoInt))) + ((1 : GoInt))};
-	}
-
-	public function weekday():Weekday {
-		var _t = (this == null ? null : this.__copy__());
-		return _absWeekday(_t._abs());
-	}
-
-	public function day():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._date(true),
-			_:GoInt = __tmp__._0,
-			_:Month = __tmp__._1,
-			_day:GoInt = __tmp__._2,
-			_:GoInt = __tmp__._3;
-		return _day;
-	}
-
-	public function month():Month {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._date(true),
-			_:GoInt = __tmp__._0,
-			_month:Month = __tmp__._1,
-			_:GoInt = __tmp__._2,
-			_:GoInt = __tmp__._3;
-		return _month;
-	}
-
-	public function year():GoInt {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._date(false),
-			_year:GoInt = __tmp__._0,
-			_:Month = __tmp__._1,
-			_:GoInt = __tmp__._2,
-			_:GoInt = __tmp__._3;
-		return _year;
-	}
-
-	public function date():{var _0:GoInt; var _1:Month; var _2:GoInt;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _year:GoInt = ((0 : GoInt)),
-			_month:Month = new Month(),
-			_day:GoInt = ((0 : GoInt));
-		{
-			var __tmp__ = _t._date(true);
-			_year = __tmp__._0;
-			_month = __tmp__._1;
-			_day = __tmp__._2;
-		};
-		return {_0: _year, _1: _month, _2: _day};
-	}
-
-	public function _locabs():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;} {
-		var _t = (this == null ? null : this.__copy__());
-		var _name:GoString = (("" : GoString)),
-			_offset:GoInt = ((0 : GoInt)),
-			_abs:GoUInt64 = ((0 : GoUInt64));
-		var _l:Location = _t._loc;
-		if ((_l == null) || (_l == _localLoc)) {
-			_l = _l._get();
-		};
-		var _sec:GoInt64 = _t._unixSec();
-		if (_l != _utcLoc) {
-			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
-				_name = _l._cacheZone._name;
-				_offset = _l._cacheZone._offset;
-			} else {
-				{
-					var __tmp__ = _l._lookup(_sec);
-					_name = __tmp__._0;
-					_offset = __tmp__._1;
-				};
-			};
-			_sec = _sec + (((_offset : GoInt64)));
-		} else {
-			_name = ((("UTC" : GoString)));
-		};
-		_abs = (((_sec + (("9223372028715321600" : GoInt64))) : GoUInt64));
-		return {_0: _name, _1: _offset, _2: _abs};
-	}
-
-	public function _abs():GoUInt64 {
-		var _t = (this == null ? null : this.__copy__());
-		var _l:Location = _t._loc;
-		if ((_l == null) || (_l == _localLoc)) {
-			_l = _l._get();
-		};
-		var _sec:GoInt64 = _t._unixSec();
-		if (_l != _utcLoc) {
-			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
-				_sec = _sec + (((_l._cacheZone._offset : GoInt64)));
-			} else {
-				var __tmp__ = _l._lookup(_sec),
-					_:GoString = __tmp__._0,
-					_offset:GoInt = __tmp__._1,
-					_:GoInt64 = __tmp__._2,
-					_:GoInt64 = __tmp__._3,
-					_:Bool = __tmp__._4;
-				_sec = _sec + (((_offset : GoInt64)));
-			};
-		};
-		return (((_sec + (("9223372028715321600" : GoInt64))) : GoUInt64));
-	}
-
-	public function isZero():Bool {
-		var _t = (this == null ? null : this.__copy__());
-		return (_t._sec() == ((0 : GoInt64))) && (_t._nsec() == ((0 : GoInt32)));
-	}
-
-	public function equal(_u:Time):Bool {
-		var _t = (this == null ? null : this.__copy__());
-		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			return _t._ext == _u._ext;
-		};
-		return (_t._sec() == _u._sec()) && (_t._nsec() == _u._nsec());
-	}
-
-	public function before(_u:Time):Bool {
-		var _t = (this == null ? null : this.__copy__());
-		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			return _t._ext < _u._ext;
-		};
-		var _ts:GoInt64 = _t._sec();
-		var _us:GoInt64 = _u._sec();
-		return (_ts < _us) || ((_ts == _us) && (_t._nsec() < _u._nsec()));
-	}
-
-	public function after(_u:Time):Bool {
-		var _t = (this == null ? null : this.__copy__());
-		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			return _t._ext > _u._ext;
-		};
-		var _ts:GoInt64 = _t._sec();
-		var _us:GoInt64 = _u._sec();
-		return (_ts > _us) || ((_ts == _us) && (_t._nsec() > _u._nsec()));
-	}
-
-	public function _mono():GoInt64 {
-		var _t = this;
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) == ((0 : GoUInt64))) {
-			return ((0 : GoInt64));
-		};
-		return _t._ext;
-	}
-
-	public function _setMono(_m:GoInt64):Void {
-		var _t = this;
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) == ((0 : GoUInt64))) {
-			var _sec:GoInt64 = _t._ext;
-			if ((_sec < (("59453308800" : GoInt64))) || ((("68043243391" : GoInt64)) < _sec)) {
-				return;
-			};
-			_t._wall = _t._wall | ((("9223372036854775808" : GoUInt64)) | ((((_sec - (("59453308800" : GoInt64))) : GoUInt64)) << ((30 : GoUnTypedInt))));
-		};
-		_t._ext = _m;
-	}
-
-	public function _stripMono():Void {
-		var _t = this;
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			_t._ext = _t._sec();
-			_t._wall = _t._wall & (((1073741823 : GoUInt64)));
-		};
-	}
-
-	public function _setLoc(_loc:Location):Void {
-		var _t = this;
-		if (_loc == _utcLoc) {
-			_loc = new Location();
-		};
-		_t._stripMono();
-		_t._loc = _loc;
-	}
-
-	public function _addSec(_d:GoInt64):Void {
-		var _t = this;
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			var _sec:GoInt64 = ((((_t._wall << ((1 : GoUnTypedInt))) >> ((31 : GoUnTypedInt))) : GoInt64));
-			var _dsec:GoInt64 = _sec + _d;
-			if ((((0 : GoInt64)) <= _dsec) && (_dsec <= (("8589934591" : GoInt64)))) {
-				_t._wall = ((_t._wall & ((1073741823 : GoUInt64))) | (((_dsec : GoUInt64)) << ((30 : GoUnTypedInt)))) | (("9223372036854775808" : GoUInt64));
-				return;
-			};
-			_t._stripMono();
-		};
-		var _sum:GoInt64 = _t._ext + _d;
-		if ((_sum > _t._ext) == (_d > ((0 : GoInt64)))) {
-			_t._ext = _sum;
-		} else if (_d > ((0 : GoInt64))) {
-			_t._ext = (("9223372036854775807" : GoInt64));
-		} else {
-			_t._ext = (("-9223372036854775807" : GoInt64));
-		};
-	}
-
-	public function _unixSec():GoInt64 {
-		var _t = this;
-		return _t._sec() + (("-62135596800" : GoInt64));
-	}
-
-	public function _sec():GoInt64 {
-		var _t = this;
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			return (("59453308800" : GoInt64)) + ((((_t._wall << ((1 : GoUnTypedInt))) >> ((31 : GoUnTypedInt))) : GoInt64));
-		};
-		return _t._ext;
-	}
-
-	public function _nsec():GoInt32 {
-		var _t = this;
-		return (((_t._wall & ((1073741823 : GoUInt64))) : GoInt32));
-	}
-
-	public function appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte> {
-		var _t = (this == null ? null : this.__copy__());
-		var __tmp__ = _t._locabs(),
-			_name:GoString = __tmp__._0,
-			_offset:GoInt = __tmp__._1,
-			_abs:GoUInt64 = __tmp__._2,
-			_year:GoInt = ((-1 : GoInt)),
-			_month:Month = new Month(),
-			_day:GoInt = ((0 : GoInt)),
-			_yday:GoInt = ((0 : GoInt)),
-			_hour:GoInt = ((-1 : GoInt)),
-			_min:GoInt = ((0 : GoInt)),
-			_sec:GoInt = ((0 : GoInt));
-		while (_layout != ("")) {
-			var __tmp__ = _nextStdChunk(_layout),
-				_prefix:GoString = __tmp__._0,
-				_std:GoInt = __tmp__._1,
-				_suffix:GoString = __tmp__._2;
-			if (_prefix != ("")) {
-				_b = _b.__append__(..._prefix.toArray());
-			};
-			if (_std == ((0 : GoInt))) {
-				break;
-			};
-			_layout = _suffix;
-			if ((_year < ((0 : GoInt))) && ((_std & ((256 : GoInt))) != ((0 : GoInt)))) {
-				{
-					var __tmp__ = _absDate(_abs, true);
-					_year = __tmp__._0;
-					_month = __tmp__._1;
-					_day = __tmp__._2;
-					_yday = __tmp__._3;
-				};
-				_yday++;
-			};
-			if ((_hour < ((0 : GoInt))) && ((_std & ((512 : GoInt))) != ((0 : GoInt)))) {
-				{
-					var __tmp__ = _absClock(_abs);
-					_hour = __tmp__._0;
-					_min = __tmp__._1;
-					_sec = __tmp__._2;
-				};
-			};
-			{
-				var __switchIndex__ = -1;
-				while (true) {
-					if (_std & ((65535 : GoInt)) == ((276 : GoInt))) {
-						var _y:GoInt = _year;
-						if (_y < ((0 : GoInt))) {
-							_y = -_y;
-						};
-						_b = _appendInt(_b, _y % ((100 : GoInt)), ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((275 : GoInt))) {
-						_b = _appendInt(_b, _year, ((4 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((258 : GoInt))) {
-						_b = _b.__append__(...((_month.toString() : GoString)).__slice__(0, ((3 : GoInt))).toArray());
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((257 : GoInt))) {
-						var _m:GoString = ((_month.toString() : GoString));
-						_b = _b.__append__(..._m.toArray());
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((259 : GoInt))) {
-						_b = _appendInt(_b, _month.__t__, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((260 : GoInt))) {
-						_b = _appendInt(_b, _month.__t__, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((262 : GoInt))) {
-						_b = _b.__append__(...((_absWeekday(_abs).toString() : GoString)).__slice__(0, ((3 : GoInt))).toArray());
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((261 : GoInt))) {
-						var _s:GoString = ((_absWeekday(_abs).toString() : GoString));
-						_b = _b.__append__(..._s.toArray());
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((263 : GoInt))) {
-						_b = _appendInt(_b, _day, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((264 : GoInt))) {
-						if (_day < ((10 : GoInt))) {
-							_b = _b.__append__((((((" " : GoString))).code : GoRune)));
-						};
-						_b = _appendInt(_b, _day, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((265 : GoInt))) {
-						_b = _appendInt(_b, _day, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((266 : GoInt))) {
-						if (_yday < ((100 : GoInt))) {
-							_b = _b.__append__((((((" " : GoString))).code : GoRune)));
-							if (_yday < ((10 : GoInt))) {
-								_b = _b.__append__((((((" " : GoString))).code : GoRune)));
-							};
-						};
-						_b = _appendInt(_b, _yday, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((267 : GoInt))) {
-						_b = _appendInt(_b, _yday, ((3 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((524 : GoInt))) {
-						_b = _appendInt(_b, _hour, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((525 : GoInt))) {
-						var _hr:GoInt = _hour % ((12 : GoInt));
-						if (_hr == ((0 : GoInt))) {
-							_hr = ((12 : GoInt));
-						};
-						_b = _appendInt(_b, _hr, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((526 : GoInt))) {
-						var _hr:GoInt = _hour % ((12 : GoInt));
-						if (_hr == ((0 : GoInt))) {
-							_hr = ((12 : GoInt));
-						};
-						_b = _appendInt(_b, _hr, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((527 : GoInt))) {
-						_b = _appendInt(_b, _min, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((528 : GoInt))) {
-						_b = _appendInt(_b, _min, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((529 : GoInt))) {
-						_b = _appendInt(_b, _sec, ((0 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((530 : GoInt))) {
-						_b = _appendInt(_b, _sec, ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((533 : GoInt))) {
-						if (_hour >= ((12 : GoInt))) {
-							_b = _b.__append__(...((("PM" : GoString))).toArray());
-						} else {
-							_b = _b.__append__(...((("AM" : GoString))).toArray());
-						};
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((534 : GoInt))) {
-						if (_hour >= ((12 : GoInt))) {
-							_b = _b.__append__(...((("pm" : GoString))).toArray());
-						} else {
-							_b = _b.__append__(...((("am" : GoString))).toArray());
-						};
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((24 : GoInt))
-						|| _std & ((65535 : GoInt)) == ((27 : GoInt))
-							|| _std & ((65535 : GoInt)) == ((25 : GoInt))
-								|| _std & ((65535 : GoInt)) == ((26 : GoInt))
-									|| _std & ((65535 : GoInt)) == ((28 : GoInt))
-										|| _std & ((65535 : GoInt)) == ((29 : GoInt))
-											|| _std & ((65535 : GoInt)) == ((32 : GoInt))
-												|| _std & ((65535 : GoInt)) == ((30 : GoInt))
-													|| _std & ((65535 : GoInt)) == ((31 : GoInt))
-														|| _std & ((65535 : GoInt)) == ((33 : GoInt))) {
-						if ((_offset == ((0 : GoInt)))
-							&& (((((_std == ((24 : GoInt))) || (_std == ((27 : GoInt)))) || (_std == ((25 : GoInt))))
-								|| (_std == ((26 : GoInt))))
-								|| (_std == ((28 : GoInt))))) {
-							_b = _b.__append__(((((("Z" : GoString))).code : GoRune)));
-							break;
-						};
-						var _zone:GoInt = _offset / ((60 : GoInt));
-						var _absoffset:GoInt = _offset;
-						if (_zone < ((0 : GoInt))) {
-							_b = _b.__append__(((((("-" : GoString))).code : GoRune)));
-							_zone = -_zone;
-							_absoffset = -_absoffset;
-						} else {
-							_b = _b.__append__(((((("+" : GoString))).code : GoRune)));
-						};
-						_b = _appendInt(_b, _zone / ((60 : GoInt)), ((2 : GoInt)));
-						if ((((_std == ((27 : GoInt))) || (_std == ((32 : GoInt)))) || (_std == ((28 : GoInt))))
-							|| (_std == ((33 : GoInt)))) {
-							_b = _b.__append__((((((":" : GoString))).code : GoRune)));
-						};
-						if ((_std != ((31 : GoInt))) && (_std != ((26 : GoInt)))) {
-							_b = _appendInt(_b, _zone % ((60 : GoInt)), ((2 : GoInt)));
-						};
-						if ((((_std == ((25 : GoInt))) || (_std == ((30 : GoInt)))) || (_std == ((33 : GoInt))))
-							|| (_std == ((28 : GoInt)))) {
-							if ((_std == ((33 : GoInt))) || (_std == ((28 : GoInt)))) {
-								_b = _b.__append__((((((":" : GoString))).code : GoRune)));
-							};
-							_b = _appendInt(_b, _absoffset % ((60 : GoInt)), ((2 : GoInt)));
-						};
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((23 : GoInt))) {
-						if (_name != ("")) {
-							_b = _b.__append__(..._name.toArray());
-							break;
-						};
-						var _zone:GoInt = _offset / ((60 : GoInt));
-						if (_zone < ((0 : GoInt))) {
-							_b = _b.__append__(((((("-" : GoString))).code : GoRune)));
-							_zone = -_zone;
-						} else {
-							_b = _b.__append__(((((("+" : GoString))).code : GoRune)));
-						};
-						_b = _appendInt(_b, _zone / ((60 : GoInt)), ((2 : GoInt)));
-						_b = _appendInt(_b, _zone % ((60 : GoInt)), ((2 : GoInt)));
-						break;
-					} else if (_std & ((65535 : GoInt)) == ((34 : GoInt)) || _std & ((65535 : GoInt)) == ((35 : GoInt))) {
-						_b = _formatNano(_b, ((_t.nanosecond() : GoUInt)), _std);
-						break;
-					};
-					break;
-				};
-			};
-		};
-		return _b;
-	}
-
-	public function format(_layout:GoString):GoString {
-		var _t = (this == null ? null : this.__copy__());
-		{};
-		var _b:Slice<GoByte> = new Slice<GoUInt8>().nil();
-		var _max:GoInt = _layout.length + ((10 : GoInt));
-		if (_max < ((64 : GoInt))) {
-			var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) ((0 : GoUInt8))]);
-			_b = _buf.__slice__(0, ((0 : GoInt)));
-		} else {
-			_b = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((_max : GoInt)).toBasic());
-		};
-		_b = _t.appendFormat(_b, _layout);
-		return ((_b : GoString));
-	}
-
-	public function goString():GoString {
-		var _t = (this == null ? null : this.__copy__());
-		var _buf:Slice<GoUInt8> = ((((("time.Date(" : GoString))) : Slice<GoByte>));
-		_buf = _appendInt(_buf, _t.year(), ((0 : GoInt)));
-		var _month:Month = _t.month();
-		if ((((1 : GoInt)) <= _month.__t__) && (_month.__t__ <= ((12 : GoInt)))) {
-			_buf = _buf.__append__(...(((", time." : GoString))).toArray());
-			_buf = _buf.__append__(...((_t.month().toString() : GoString)).toArray());
-		} else {
-			_buf = _appendInt(_buf, _month.__t__, ((0 : GoInt)));
-		};
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		_buf = _appendInt(_buf, _t.day(), ((0 : GoInt)));
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		_buf = _appendInt(_buf, _t.hour(), ((0 : GoInt)));
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		_buf = _appendInt(_buf, _t.minute(), ((0 : GoInt)));
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		_buf = _appendInt(_buf, _t.second(), ((0 : GoInt)));
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		_buf = _appendInt(_buf, _t.nanosecond(), ((0 : GoInt)));
-		_buf = _buf.__append__(...(((", " : GoString))).toArray());
-		{
-			var _loc:Location = _t.location();
-			if (_loc == Time.utc || _loc == null) {
-				_buf = _buf.__append__(...((("time.UTC" : GoString))).toArray());
-			} else if (_loc == Time.local) {
-				_buf = _buf.__append__(...((("time.Local" : GoString))).toArray());
-			} else {
-				_buf = _buf.__append__(...(("time.Location(" : GoString)).toArray());
-				_buf = _buf.__append__(...((_quote(_loc._name) : Slice<GoByte>)).toArray());
-				_buf = _buf.__append__(...((")" : GoString)).toArray());
-			};
-		};
-		_buf = _buf.__append__((((((")" : GoString))).code : GoRune)));
-		return ((_buf : GoString));
-	}
-
-	public function toString():String {
-		var _t = (this == null ? null : this.__copy__());
-		var _s:GoString = _t.format(((("2006-01-02 15:04:05.999999999 -0700 MST" : GoString))));
-		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
-			var _m2:GoUInt64 = ((_t._ext : GoUInt64));
-			var _sign:GoUInt8 = ((((((("+" : GoString))).code : GoRune)) : GoByte));
-			if (_t._ext < ((0 : GoInt64))) {
-				_sign = ((((("-" : GoString))).code : GoRune));
-				_m2 = -_m2;
-			};
-			var _m1:GoUInt64 = _m2 / ((1e+09 : GoUInt64)),
-				_m2:GoUInt64 = _m2 % ((1e+09 : GoUInt64));
-			var _m0:GoUInt64 = _m1 / ((1e+09 : GoUInt64)),
-				_m1:GoUInt64 = _m1 % ((1e+09 : GoUInt64));
-			var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-			_buf = _buf.__append__(...(((" m=" : GoString))).toArray());
-			_buf = _buf.__append__(_sign);
-			var _wid:GoInt = ((0 : GoInt));
-			if (_m0 != ((0 : GoUInt64))) {
-				_buf = _appendInt(_buf, ((_m0 : GoInt)), ((0 : GoInt)));
-				_wid = ((9 : GoInt));
-			};
-			_buf = _appendInt(_buf, ((_m1 : GoInt)), _wid);
-			_buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
-			_buf = _appendInt(_buf, ((_m2 : GoInt)), ((9 : GoInt)));
-			_s = _s + (((_buf : GoString)));
-		};
-		return _s;
-	}
-
+@:structInit @:using(Time.Time_static_extension) class Time {
 	public var _wall:GoUInt64 = ((0 : GoUInt64));
 	public var _ext:GoInt64 = ((0 : GoInt64));
-	public var _loc:Location = new Location();
+	public var _loc:Location = ((null : Location));
 
 	public function new(?_wall:GoUInt64, ?_ext:GoInt64, ?_loc:Location) {
 		if (_wall != null)
@@ -1167,6 +257,9 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_loc != null)
 			this._loc = _loc;
 	}
+
+	public function toString():String
+		return Time_static_extension.toString(this);
 
 	public function __underlying__():AnyInterface
 		return Go.toInterface(this);
@@ -1183,401 +276,59 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	}
 }
 
-@:named class Month {
-	public function toString():String {
-		var _m = this;
-		if ((((1 : GoInt)) <= _m.__t__) && (_m.__t__ <= ((12 : GoInt)))) {
-			return _longMonthNames[new Month(_m.__t__ - ((1 : GoInt))).__t__];
-		};
-		var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((20 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-		var _n:GoInt = _fmtInt(_buf, _m.__t__);
-		return (((("%!Month(" : GoString))) + ((_buf.__slice__(_n) : GoString))) + (((")" : GoString)));
-	}
-
+@:named @:using(Time.Month_static_extension) class Month {
 	public var __t__:GoInt;
 
 	public function new(?t:GoInt) {
 		__t__ = t == null ? 0 : t;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	@:implicit
+	public function toString():String
+		return Month_static_extension.toString(this);
 
 	public function __copy__()
 		return new Month(__t__);
 }
 
-@:named class Weekday {
-	public function toString():String {
-		var _d = this;
-		if ((((0 : GoInt)) <= _d.__t__) && (_d.__t__ <= ((6 : GoInt)))) {
-			return _longDayNames[_d.__t__];
-		};
-		var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((20 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-		var _n:GoInt = _fmtInt(_buf, _d.__t__);
-		return (((("%!Weekday(" : GoString))) + ((_buf.__slice__(_n) : GoString))) + (((")" : GoString)));
-	}
-
+@:named @:using(Time.Weekday_static_extension) class Weekday {
 	public var __t__:GoInt;
 
 	public function new(?t:GoInt) {
 		__t__ = t == null ? 0 : t;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	@:implicit
+	public function toString():String
+		return Weekday_static_extension.toString(this);
 
 	public function __copy__()
 		return new Weekday(__t__);
 }
 
-@:named class Duration {
-	public function round(_m:Duration):Duration {
-		var _d = this;
-		if (_m.__t__ <= ((0 : GoInt64))) {
-			return _d;
-		};
-		var _r:Duration = new Duration(_d.__t__ % _m.__t__);
-		if (_d.__t__ < ((0 : GoInt64))) {
-			_r = new Duration(-_r.__t__);
-			if (_lessThanHalf(_r, _m)) {
-				return new Duration(_d.__t__ + _r.__t__);
-			};
-			{
-				var _d1:Duration = new Duration(new Duration(_d.__t__ - _m.__t__).__t__ + _r.__t__);
-				if (_d1.__t__ < _d.__t__) {
-					return _d1;
-				};
-			};
-			return new Duration((("-9223372036854775808" : GoInt64)));
-		};
-		if (_lessThanHalf(_r, _m)) {
-			return new Duration(_d.__t__ - _r.__t__);
-		};
-		{
-			var _d1:Duration = new Duration(new Duration(_d.__t__ + _m.__t__).__t__ - _r.__t__);
-			if (_d1.__t__ > _d.__t__) {
-				return _d1;
-			};
-		};
-		return new Duration((("9223372036854775807" : GoInt64)));
-	}
-
-	public function truncate(_m:Duration):Duration {
-		var _d = this;
-		if (_m.__t__ <= ((0 : GoInt64))) {
-			return _d;
-		};
-		return new Duration(_d.__t__ - new Duration(_d.__t__ % _m.__t__).__t__);
-	}
-
-	public function hours():GoFloat64 {
-		var _d = this;
-		var _hour:Duration = new Duration(_d.__t__ / (("3600000000000" : GoInt64)));
-		var _nsec:Duration = new Duration(_d.__t__ % (("3600000000000" : GoInt64)));
-		return _hour.__t__ + (_nsec.__t__ / ((3.6e+12 : GoFloat64)));
-	}
-
-	public function minutes():GoFloat64 {
-		var _d = this;
-		var _min:Duration = new Duration(_d.__t__ / (("60000000000" : GoInt64)));
-		var _nsec:Duration = new Duration(_d.__t__ % (("60000000000" : GoInt64)));
-		return _min.__t__ + (_nsec.__t__ / ((6e+10 : GoFloat64)));
-	}
-
-	public function seconds():GoFloat64 {
-		var _d = this;
-		var _sec:Duration = new Duration(_d.__t__ / ((1000000000 : GoInt64)));
-		var _nsec:Duration = new Duration(_d.__t__ % ((1000000000 : GoInt64)));
-		return _sec.__t__ + (_nsec.__t__ / ((1e+09 : GoFloat64)));
-	}
-
-	public function milliseconds():GoInt64 {
-		var _d = this;
-		return _d.__t__ / ((1e+06 : GoInt64));
-	}
-
-	public function microseconds():GoInt64 {
-		var _d = this;
-		return _d.__t__ / ((1000 : GoInt64));
-	}
-
-	public function nanoseconds():GoInt64 {
-		var _d = this;
-		return _d.__t__;
-	}
-
-	public function toString():String {
-		var _d = this;
-		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...32) ((0 : GoUInt8))]);
-		var _w:GoInt = _buf.length;
-		var _u:GoUInt64 = _d.__t__;
-		var _neg:Bool = _d.__t__ < ((0 : GoInt64));
-		if (_neg) {
-			_u = -_u;
-		};
-		if (_u < ((((1000000000 : GoInt64)) : GoUInt64))) {
-			var _prec:GoInt = ((0 : GoInt));
-			_w--;
-			_buf[_w] = ((((("s" : GoString))).code : GoRune));
-			_w--;
-			if (_u == ((0 : GoUInt64))) {
-				return ((("0s" : GoString)));
-			} else if (_u < ((((1000 : GoInt64)) : GoUInt64))) {
-				_prec = ((0 : GoInt));
-				_buf[_w] = ((((("n" : GoString))).code : GoRune));
-			} else if (_u < ((((1000000 : GoInt64)) : GoUInt64))) {
-				_prec = ((3 : GoInt));
-				_w--;
-				Go.copy(_buf.__slice__(_w), ((("µ" : GoString))));
-			} else {
-				_prec = ((6 : GoInt));
-				_buf[_w] = ((((("m" : GoString))).code : GoRune));
-			};
-			{
-				var __tmp__ = _fmtFrac(_buf.__slice__(0, _w), _u, _prec);
-				_w = __tmp__._0;
-				_u = __tmp__._1;
-			};
-			_w = _fmtInt(_buf.__slice__(0, _w), _u);
-		} else {
-			_w--;
-			_buf[_w] = ((((("s" : GoString))).code : GoRune));
-			{
-				var __tmp__ = _fmtFrac(_buf.__slice__(0, _w), _u, ((9 : GoInt)));
-				_w = __tmp__._0;
-				_u = __tmp__._1;
-			};
-			_w = _fmtInt(_buf.__slice__(0, _w), _u % ((60 : GoUInt64)));
-			_u = _u / (((60 : GoUInt64)));
-			if (_u > ((0 : GoUInt64))) {
-				_w--;
-				_buf[_w] = ((((("m" : GoString))).code : GoRune));
-				_w = _fmtInt(_buf.__slice__(0, _w), _u % ((60 : GoUInt64)));
-				_u = _u / (((60 : GoUInt64)));
-				if (_u > ((0 : GoUInt64))) {
-					_w--;
-					_buf[_w] = ((((("h" : GoString))).code : GoRune));
-					_w = _fmtInt(_buf.__slice__(0, _w), _u);
-				};
-			};
-		};
-		if (_neg) {
-			_w--;
-			_buf[_w] = ((((("-" : GoString))).code : GoRune));
-		};
-		return ((_buf.__slice__(_w) : GoString));
-	}
-
+@:named @:using(Time.Duration_static_extension) class Duration {
 	public var __t__:GoInt64;
 
 	public function new(?t:GoInt64) {
 		__t__ = t == null ? 0 : t;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
+	@:implicit
+	public function toString():String
+		return Duration_static_extension.toString(this);
 
 	public function __copy__()
 		return new Duration(__t__);
 }
 
-@:structInit class Location {
-	public function _lookupName(_name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;} {
-		var _l = this;
-		var _offset:GoInt = ((0 : GoInt)), _ok:Bool = false;
-		_l = _l._get();
-		for (_i => _ in _l._zone) {
-			var _zone:T_zone = _l._zone[_i];
-			if (_zone._name == _name) {
-				var __tmp__ = _l._lookup(_unix - ((_zone._offset : GoInt64))),
-					_nam:GoString = __tmp__._0,
-					_offset:GoInt = __tmp__._1,
-					_:GoInt64 = __tmp__._2,
-					_:GoInt64 = __tmp__._3,
-					_:Bool = __tmp__._4;
-				if (_nam == _zone._name) {
-					return {_0: _offset, _1: true};
-				};
-			};
-		};
-		for (_i => _ in _l._zone) {
-			var _zone:T_zone = _l._zone[_i];
-			if (_zone._name == _name) {
-				return {_0: _zone._offset, _1: true};
-			};
-		};
-		return {_0: _offset, _1: _ok};
-	}
-
-	public function _firstZoneUsed():Bool {
-		var _l = this;
-		for (_ => _tx in _l._tx) {
-			if (_tx._index == ((0 : GoUInt8))) {
-				return true;
-			};
-		};
-		return false;
-	}
-
-	public function _lookupFirstZone():GoInt {
-		var _l = this;
-		if (!_l._firstZoneUsed()) {
-			return ((0 : GoInt));
-		};
-		if ((_l._tx.length > ((0 : GoInt))) && _l._zone[_l._tx[((0 : GoInt))]._index]._isDST) {
-			{
-				var _zi:GoInt = ((_l._tx[((0 : GoInt))]._index : GoInt)) - ((1 : GoInt));
-				Go.cfor(_zi >= ((0 : GoInt)), _zi--, {
-					if (!_l._zone[_zi]._isDST) {
-						return _zi;
-					};
-				});
-			};
-		};
-		for (_zi => _ in _l._zone) {
-			if (!_l._zone[_zi]._isDST) {
-				return _zi;
-			};
-		};
-		return ((0 : GoInt));
-	}
-
-	public function _lookup(_sec:GoInt64):{
-		var _0:GoString;
-		var _1:GoInt;
-		var _2:GoInt64;
-		var _3:GoInt64;
-		var _4:Bool;
-	} {
-		var _l = this;
-		var _name:GoString = (("" : GoString)),
-			_offset:GoInt = ((0 : GoInt)),
-			_start:GoInt64 = ((0 : GoInt64)),
-			_end:GoInt64 = ((0 : GoInt64)),
-			_isDST:Bool = false;
-		_l = _l._get();
-		if (_l._zone.length == ((0 : GoInt))) {
-			_name = ((("UTC" : GoString)));
-			_offset = ((0 : GoInt));
-			_start = (("-9223372036854775808" : GoInt64));
-			_end = (("9223372036854775807" : GoInt64));
-			_isDST = false;
-			return {
-				_0: _name,
-				_1: _offset,
-				_2: _start,
-				_3: _end,
-				_4: _isDST
-			};
-		};
-		{
-			var _zone:T_zone = _l._cacheZone;
-			if (((_zone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
-				_name = _zone._name;
-				_offset = _zone._offset;
-				_start = _l._cacheStart;
-				_end = _l._cacheEnd;
-				_isDST = _zone._isDST;
-				return {
-					_0: _name,
-					_1: _offset,
-					_2: _start,
-					_3: _end,
-					_4: _isDST
-				};
-			};
-		};
-		if ((_l._tx.length == ((0 : GoInt))) || (_sec < _l._tx[((0 : GoInt))]._when)) {
-			var _zone:T_zone = _l._zone[_l._lookupFirstZone()];
-			_name = _zone._name;
-			_offset = _zone._offset;
-			_start = (("-9223372036854775808" : GoInt64));
-			if (_l._tx.length > ((0 : GoInt))) {
-				_end = _l._tx[((0 : GoInt))]._when;
-			} else {
-				_end = (("9223372036854775807" : GoInt64));
-			};
-			_isDST = _zone._isDST;
-			return {
-				_0: _name,
-				_1: _offset,
-				_2: _start,
-				_3: _end,
-				_4: _isDST
-			};
-		};
-		var _tx:Slice<T_zoneTrans> = _l._tx;
-		_end = (("9223372036854775807" : GoInt64));
-		var _lo:GoInt = ((0 : GoInt));
-		var _hi:GoInt = _tx.length;
-		while ((_hi - _lo) > ((1 : GoInt))) {
-			var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-			var _lim:GoInt64 = _tx[_m]._when;
-			if (_sec < _lim) {
-				_end = _lim;
-				_hi = _m;
-			} else {
-				_lo = _m;
-			};
-		};
-		var _zone:T_zone = _l._zone[_tx[_lo]._index];
-		_name = _zone._name;
-		_offset = _zone._offset;
-		_start = _tx[_lo]._when;
-		_isDST = _zone._isDST;
-		if ((_lo == (_tx.length - ((1 : GoInt)))) && (_l._extend != (""))) {
-			{
-				var __tmp__ = _tzset(_l._extend, _end, _sec),
-					_ename:GoString = __tmp__._0,
-					_eoffset:GoInt = __tmp__._1,
-					_estart:GoInt64 = __tmp__._2,
-					_eend:GoInt64 = __tmp__._3,
-					_eisDST:Bool = __tmp__._4,
-					_ok:Bool = __tmp__._5;
-				if (_ok) {
-					return {
-						_0: _ename,
-						_1: _eoffset,
-						_2: _estart,
-						_3: _eend,
-						_4: _eisDST
-					};
-				};
-			};
-		};
-		return {
-			_0: _name,
-			_1: _offset,
-			_2: _start,
-			_3: _end,
-			_4: _isDST
-		};
-	}
-
-	public function toString():String {
-		var _l = this;
-		return _l._get()._name;
-	}
-
-	public function _get():Location {
-		var _l = this;
-		if (_l == null) {
-			return _utcLoc;
-		};
-		if (_l == _localLoc) {
-			_localOnce.do_(_initLocal);
-		};
-		return _l;
-	}
-
+@:structInit @:using(Time.Location_static_extension) class Location {
 	public var _name:GoString = (("" : GoString));
 	public var _zone:Slice<T_zone> = new Slice<T_zone>().nil();
 	public var _tx:Slice<T_zoneTrans> = new Slice<T_zoneTrans>().nil();
 	public var _extend:GoString = (("" : GoString));
 	public var _cacheStart:GoInt64 = ((0 : GoInt64));
 	public var _cacheEnd:GoInt64 = ((0 : GoInt64));
-	public var _cacheZone:T_zone = new T_zone();
+	public var _cacheZone:T_zone = ((null : T_zone));
 
 	public function new(?_name:GoString, ?_zone:Slice<T_zone>, ?_tx:Slice<T_zoneTrans>, ?_extend:GoString, ?_cacheStart:GoInt64, ?_cacheEnd:GoInt64,
 			?_cacheZone:T_zone) {
@@ -1596,6 +347,9 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		if (_cacheZone != null)
 			this._cacheZone = _cacheZone;
 	}
+
+	public function toString():String
+		return Location_static_extension.toString(this);
 
 	public function __underlying__():AnyInterface
 		return Go.toInterface(this);
@@ -1693,9 +447,6 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		__t__ = t == null ? 0 : t;
 	}
 
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
 	@:implicit
 	public function toString():String
 		return Go.string(__t__);
@@ -1755,20 +506,12 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	}
 }
 
-@:named class T_fileSizeError {
-	public function error():GoString {
-		var _f = this;
-		return (((("time: file " : GoString))) + _f.__t__) + (((" is too large" : GoString)));
-	}
-
+@:named @:using(Time.T_fileSizeError_static_extension) class T_fileSizeError {
 	public var __t__:GoString;
 
 	public function new(?t:GoString) {
 		__t__ = t == null ? "" : t;
 	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
 
 	@:implicit
 	public function toString():String
@@ -1778,66 +521,7 @@ var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 		return new T_fileSizeError(__t__);
 }
 
-@:structInit class T_dataIO {
-	public function _rest():Slice<GoByte> {
-		var _d = this;
-		var _r:Slice<GoUInt8> = _d._p;
-		_d._p = new Slice<GoUInt8>().nil();
-		return _r;
-	}
-
-	public function _byte():{var _0:GoByte; var _1:Bool;} {
-		var _d = this;
-		var _n:GoByte = ((0 : GoUInt8)), _ok:Bool = false;
-		var _p:Slice<GoUInt8> = _d._read(((1 : GoInt)));
-		if (_p.length < ((1 : GoInt))) {
-			_d._error = true;
-			return {_0: ((0 : GoUInt8)), _1: false};
-		};
-		return {_0: _p[((0 : GoInt))], _1: true};
-	}
-
-	public function _big8():{var _0:GoUInt64; var _1:Bool;} {
-		var _d = this;
-		var _n:GoUInt64 = ((0 : GoUInt64)), _ok:Bool = false;
-		var __tmp__ = _d._big4(),
-			_n1:GoUInt32 = __tmp__._0,
-			_ok1:Bool = __tmp__._1;
-		var __tmp__ = _d._big4(),
-			_n2:GoUInt32 = __tmp__._0,
-			_ok2:Bool = __tmp__._1;
-		if (!_ok1 || !_ok2) {
-			_d._error = true;
-			return {_0: ((0 : GoUInt64)), _1: false};
-		};
-		return {_0: (((_n1 : GoUInt64)) << ((32 : GoUnTypedInt))) | ((_n2 : GoUInt64)), _1: true};
-	}
-
-	public function _big4():{var _0:GoUInt32; var _1:Bool;} {
-		var _d = this;
-		var _n:GoUInt32 = ((0 : GoUInt32)), _ok:Bool = false;
-		var _p:Slice<GoUInt8> = _d._read(((4 : GoInt)));
-		if (_p.length < ((4 : GoInt))) {
-			_d._error = true;
-			return {_0: ((0 : GoUInt32)), _1: false};
-		};
-		return
-			{_0: ((((_p[((3 : GoInt))] : GoUInt32)) | (((_p[((2 : GoInt))] : GoUInt32)) << ((8 : GoUnTypedInt)))) | (((_p[((1 : GoInt))] : GoUInt32)) << ((16 : GoUnTypedInt)))) | (((_p[((0 : GoInt))] : GoUInt32)) << ((24 : GoUnTypedInt))),
-				_1: true};
-	}
-
-	public function _read(_n:GoInt):Slice<GoByte> {
-		var _d = this;
-		if (_d._p.length < _n) {
-			_d._p = new Slice<GoUInt8>().nil();
-			_d._error = true;
-			return new Slice<GoUInt8>().nil();
-		};
-		var _p:Slice<GoUInt8> = _d._p.__slice__(((0 : GoInt)), _n);
-		_d._p = _d._p.__slice__(_n);
-		return _p;
-	}
-
+@:structInit @:using(Time.T_dataIO_static_extension) class T_dataIO {
 	public var _p:Slice<GoUInt8> = new Slice<GoUInt8>().nil();
 	public var _error:Bool = false;
 
@@ -1921,8 +605,11 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 					if (((_layout.length >= (_i + ((2 : GoInt))))
 						&& (((((("1" : GoString))).code : GoRune)) <= _layout[_i + ((1 : GoInt))]))
 						&& (_layout[_i + ((1 : GoInt))] <= ((((("6" : GoString))).code : GoRune)))) {
-						return {_0: _layout.__slice__(((0 : GoInt)),
-							_i), _1: _std0x[_layout[_i + ((1 : GoInt))] - ((((("1" : GoString))).code : GoRune))], _2: _layout.__slice__(_i + ((2 : GoInt)))};
+						return {
+							_0: _layout.__slice__(((0 : GoInt)), _i),
+							_1: _std0x[_layout[_i + ((1 : GoInt))] - ((((("1" : GoString))).code : GoRune))],
+							_2: _layout.__slice__(_i + ((2 : GoInt)))
+						};
 					};
 					if (((_layout.length >= (_i + ((3 : GoInt))))
 						&& (_layout[_i + ((1 : GoInt))] == ((((("0" : GoString))).code : GoRune))))
@@ -2241,8 +928,12 @@ function _getnum(_s:GoString, _fixed:Bool):{var _0:GoInt; var _1:GoString; var _
 		};
 		return {_0: (((_s[((0 : GoInt))] - ((((("0" : GoString))).code : GoRune))) : GoInt)), _1: _s.__slice__(((1 : GoInt))), _2: ((null : stdgo.Error))};
 	};
-	return {_0: ((((_s[((0 : GoInt))] - ((((("0" : GoString))).code : GoRune))) : GoInt)) * ((10 : GoInt)))
-		+ (((_s[((1 : GoInt))] - ((((("0" : GoString))).code : GoRune))) : GoInt)), _1: _s.__slice__(((2 : GoInt))), _2: ((null : stdgo.Error))};
+	return {
+		_0: ((((_s[((0 : GoInt))] - ((((("0" : GoString))).code : GoRune))) : GoInt)) * ((10 : GoInt)))
+			+ (((_s[((1 : GoInt))] - ((((("0" : GoString))).code : GoRune))) : GoInt)),
+		_1: _s.__slice__(((2 : GoInt))),
+		_2: ((null : stdgo.Error))
+	};
 }
 
 /**
@@ -2365,7 +1056,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		_min:GoInt = ((0 : GoInt)),
 		_sec:GoInt = ((0 : GoInt)),
 		_nsec:GoInt = ((0 : GoInt)),
-		_z:Location = new Location(),
+		_z:Location = ((null : Location)),
 		_zoneOffset:GoInt = ((-1 : GoInt)),
 		_zoneName:GoString = (("" : GoString));
 	while (true) {
@@ -2381,12 +1072,17 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			_err = __tmp__._1;
 		};
 		if (Go.toInterface(_err) != Go.toInterface(null)) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, _prefix, _value, (""))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, _prefix, _value, ("")))
+			};
 		};
 		if (_std == ((0 : GoInt))) {
 			if (_value.length != ((0 : GoInt))) {
-				return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, (""), _value,
-					(((": extra text: " : GoString))) + _quote(_value))};
+				return {
+					_0: (new Time() == null ? null : new Time().__copy__()),
+					_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, (""), _value, (((": extra text: " : GoString))) + _quote(_value)))
+				};
 			};
 			break;
 		};
@@ -2817,11 +1513,17 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			};
 		};
 		if (_rangeErrString != ("")) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, _stdstr, _value,
-				((((": " : GoString))) + _rangeErrString) + (((" out of range" : GoString))))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, _stdstr, _value,
+					((((": " : GoString))) + _rangeErrString) + (((" out of range" : GoString)))))
+			};
 		};
 		if (Go.toInterface(_err) != Go.toInterface(null)) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, _stdstr, _value, (""))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, _stdstr, _value, ("")))
+			};
 		};
 	};
 	if (_pmSet && (_hour < ((12 : GoInt)))) {
@@ -2841,8 +1543,10 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			};
 		};
 		if ((_yday < ((1 : GoInt))) || (_yday > ((365 : GoInt)))) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, (""), _value,
-				(((": day-of-year out of range" : GoString))))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, (""), _value, (((": day-of-year out of range" : GoString)))))
+			};
 		};
 		if (_m == ((0 : GoInt))) {
 			_m = ((_yday - ((1 : GoInt))) / ((31 : GoInt))) + ((1 : GoInt));
@@ -2852,13 +1556,17 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			_d = _yday - ((_daysBefore[_m - ((1 : GoInt))] : GoInt));
 		};
 		if ((_month >= ((0 : GoInt))) && (_month != _m)) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, (""), _value,
-				(((": day-of-year does not match month" : GoString))))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, (""), _value, (((": day-of-year does not match month" : GoString)))))
+			};
 		};
 		_month = _m;
 		if ((_day >= ((0 : GoInt))) && (_day != _d)) {
-			return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, (""), _value,
-				(((": day-of-year does not match day" : GoString))))};
+			return {
+				_0: (new Time() == null ? null : new Time().__copy__()),
+				_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, (""), _value, (((": day-of-year does not match day" : GoString)))))
+			};
 		};
 		_day = _d;
 	} else {
@@ -2870,12 +1578,17 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		};
 	};
 	if ((_day < ((1 : GoInt))) || (_day > _daysIn(new Month(_month), _year))) {
-		return {_0: (new Time() == null ? null : new Time().__copy__()), _1: new ParseError(_alayout, _avalue, (""), _value,
-			(((": day out of range" : GoString))))};
+		return {
+			_0: (new Time() == null ? null : new Time().__copy__()),
+			_1: new ParseError_wrapper(new ParseError(_alayout, _avalue, (""), _value, (((": day out of range" : GoString)))))
+		};
 	};
 	if (_z != null) {
-		return {_0: (date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
-			_z) == null ? null : date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec, _z).__copy__()), _1: ((null : stdgo.Error))};
+		return {
+			_0: (date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
+				_z) == null ? null : date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec, _z).__copy__()),
+			_1: ((null : stdgo.Error))
+		};
 	};
 	if (_zoneOffset != ((-1 : GoInt))) {
 		var _t:Time = (date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
@@ -2915,9 +1628,11 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		_t._setLoc(fixedZone(_zoneName, _offset));
 		return {_0: (_t == null ? null : _t.__copy__()), _1: ((null : stdgo.Error))};
 	};
-	return {_0: (date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
-		_defaultLocation) == null ? null : date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
-			_defaultLocation).__copy__()), _1: ((null : stdgo.Error))};
+	return {
+		_0: (date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec,
+			_defaultLocation) == null ? null : date(_year, new Month(_month), _day, _hour, _min, _sec, _nsec, _defaultLocation).__copy__()),
+		_1: ((null : stdgo.Error))
+	};
 }
 
 /**
@@ -3195,9 +1910,10 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 			_unit:GoInt64 = __tmp__.value,
 			_ok:Bool = __tmp__.ok;
 		if (!_ok) {
-			return {_0: new Duration(((0 : GoInt64))), _1: stdgo.errors.Errors.new_(((((("time: unknown unit " : GoString))) + _quote(_u))
-				+ (((" in duration " : GoString))))
-				+ _quote(_orig))};
+			return {
+				_0: new Duration(((0 : GoInt64))),
+				_1: stdgo.errors.Errors.new_(((((("time: unknown unit " : GoString))) + _quote(_u)) + (((" in duration " : GoString)))) + _quote(_orig))
+			};
 		};
 		if (_v > ((("9223372036854775807" : GoInt64)) / _unit)) {
 			return {_0: new Duration(((0 : GoInt64))), _1: stdgo.errors.Errors.new_(((("time: invalid duration " : GoString))) + _quote(_orig))};
@@ -3259,40 +1975,34 @@ function _modTimer(_t:T_runtimeTimer, _when:GoInt64, _period:GoInt64, _f:(AnyInt
 **/
 function newTimer(_d:Duration):Timer {
 	var _c:Chan<Time> = new Chan<Time>(((((1 : GoInt)) : GoInt)).toBasic(), () -> new Time());
-	var _t:Timer = (({c: _c, _r: ((({
-		_when: _when(_d),
-		_f: _sendTime,
-		_arg: Go.toInterface(_c),
-		_pp: 0,
-		_period: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-	} : T_runtimeTimer)) == null ? null : (({
-		_when: _when(_d),
-		_f: _sendTime,
-		_arg: Go.toInterface(_c),
-		_pp: 0,
-		_period: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-		} : T_runtimeTimer)).__copy__())} : Timer));
+	var _t:Timer = (({
+		c: _c,
+		_r: ((({
+			_when: _when(_d),
+			_f: _sendTime,
+			_arg: Go.toInterface(_c),
+			_pp: 0,
+			_period: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+		} : T_runtimeTimer)) == null ? null : (({
+			_when: _when(_d),
+			_f: _sendTime,
+			_arg: Go.toInterface(_c),
+			_pp: 0,
+			_period: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+			} : T_runtimeTimer)).__copy__())
+	} : Timer));
 	_startTimer(_t._r);
 	return _t;
 }
 
 function _sendTime(_c:AnyInterface, _seq:GoUIntptr):Void {
-	{
-		while (true) {
-			if (((_c.value : Chan<Time>)).send(now(), false)) {
-				break;
-			} else {
-				break;
-			};
-			Sys.sleep(0.01);
-		};
-	};
+	Go.select([((_c.value : Chan<Time>)).__send__(now()) => {}, {}]);
 }
 
 /**
@@ -3313,25 +2023,28 @@ function after(_d:Duration):Chan<Time> {
 	// be used to cancel the call using its Stop method.
 **/
 function afterFunc(_d:Duration, _f:() -> Void):Timer {
-	var _t:Timer = (({_r: ((({
-		_when: _when(_d),
-		_f: _goFunc,
-		_arg: Go.toInterface(_f),
-		_pp: 0,
-		_period: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-	} : T_runtimeTimer)) == null ? null : (({
-		_when: _when(_d),
-		_f: _goFunc,
-		_arg: Go.toInterface(_f),
-		_pp: 0,
-		_period: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-		} : T_runtimeTimer)).__copy__()), c: new Chan<Time>(0, () -> new Time(), true)} : Timer));
+	var _t:Timer = (({
+		_r: ((({
+			_when: _when(_d),
+			_f: _goFunc,
+			_arg: Go.toInterface(_f),
+			_pp: 0,
+			_period: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+		} : T_runtimeTimer)) == null ? null : (({
+			_when: _when(_d),
+			_f: _goFunc,
+			_arg: Go.toInterface(_f),
+			_pp: 0,
+			_period: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+			} : T_runtimeTimer)).__copy__()),
+		c: new Chan<Time>(0, () -> new Time(), true)
+	} : Timer));
 	_startTimer(_t._r);
 	return _t;
 }
@@ -3406,25 +2119,28 @@ function newTicker(_d:Duration):Ticker {
 		throw Go.toInterface(stdgo.errors.Errors.new_(((("non-positive interval for NewTicker" : GoString)))));
 	};
 	var _c:Chan<Time> = new Chan<Time>(((((1 : GoInt)) : GoInt)).toBasic(), () -> new Time());
-	var _t:Ticker = (({c: _c, _r: ((({
-		_when: _when(_d),
-		_period: _d.__t__,
-		_f: _sendTime,
-		_arg: Go.toInterface(_c),
-		_pp: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-	} : T_runtimeTimer)) == null ? null : (({
-		_when: _when(_d),
-		_period: _d.__t__,
-		_f: _sendTime,
-		_arg: Go.toInterface(_c),
-		_pp: 0,
-		_seq: 0,
-		_nextwhen: 0,
-		_status: 0
-		} : T_runtimeTimer)).__copy__())} : Ticker));
+	var _t:Ticker = (({
+		c: _c,
+		_r: ((({
+			_when: _when(_d),
+			_period: _d.__t__,
+			_f: _sendTime,
+			_arg: Go.toInterface(_c),
+			_pp: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+		} : T_runtimeTimer)) == null ? null : (({
+			_when: _when(_d),
+			_period: _d.__t__,
+			_f: _sendTime,
+			_arg: Go.toInterface(_c),
+			_pp: 0,
+			_seq: 0,
+			_nextwhen: 0,
+			_status: 0
+			} : T_runtimeTimer)).__copy__())
+	} : Ticker));
 	_startTimer(_t._r);
 	return _t;
 }
@@ -3530,7 +2246,7 @@ function since(_t:Time):Duration {
 	var _now:Time = new Time();
 	if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
 		_now = (new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano,
-			new Location()) == null ? null : new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano, new Location()).__copy__());
+			((null : Location))) == null ? null : new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano, ((null : Location))).__copy__());
 	} else {
 		_now = (now() == null ? null : now().__copy__());
 	};
@@ -3545,7 +2261,7 @@ function until(_t:Time):Duration {
 	var _now:Time = new Time();
 	if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
 		_now = (new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano,
-			new Location()) == null ? null : new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano, new Location()).__copy__());
+			((null : Location))) == null ? null : new Time((("9223372036854775808" : GoUInt64)), _runtimeNano() - _startNano, ((null : Location))).__copy__());
 	} else {
 		_now = (now() == null ? null : now().__copy__());
 	};
@@ -3936,7 +2652,7 @@ function fixedZone(_name:GoString, _offset:GoInt):Location {
 		_cacheStart: (("-9223372036854775808" : GoInt64)),
 		_cacheEnd: (("9223372036854775807" : GoInt64)),
 		_extend: "",
-		_cacheZone: new T_zone()
+		_cacheZone: ((null : T_zone))
 	} : Location));
 	_l._cacheZone = _l._zone[((0 : GoInt))];
 	return _l;
@@ -4464,7 +3180,7 @@ function loadLocation(_name:GoString):{var _0:Location; var _1:Error;} {
 	};
 	if ((_containsDotDot(_name) || (_name[((0 : GoInt))] == ((((("/" : GoString))).code : GoRune))))
 		|| (_name[((0 : GoInt))] == ((((("\\" : GoString))).code : GoRune)))) {
-		return {_0: new Location(), _1: _errLocation};
+		return {_0: ((null : Location)), _1: _errLocation};
 	};
 	_zoneinfoOnce.do_(function():Void {
 		var __tmp__ = stdgo.syscall.Syscall.getenv(((("ZONEINFO" : GoString)))),
@@ -4503,7 +3219,7 @@ function loadLocation(_name:GoString):{var _0:Location; var _1:Error;} {
 			_firstErr = _err;
 		};
 	};
-	return {_0: new Location(), _1: _firstErr};
+	return {_0: ((null : Location)), _1: _firstErr};
 }
 
 /**
@@ -4596,7 +3312,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	{
 		var _magic:Slice<GoUInt8> = _d._read(((4 : GoInt)));
 		if (((_magic : GoString)) != ((("TZif" : GoString)))) {
-			return {_0: new Location(), _1: _badData};
+			return {_0: ((null : Location)), _1: _badData};
 		};
 	};
 	var _version:GoInt = ((0 : GoInt));
@@ -4604,7 +3320,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	{
 		_p = _d._read(((16 : GoInt)));
 		if (_p.length != ((16 : GoInt))) {
-			return {_0: new Location(), _1: _badData};
+			return {_0: ((null : Location)), _1: _badData};
 		} else {
 			if (_p[((0 : GoInt))] == ((0 : GoUInt8))) {
 				_version = ((1 : GoInt));
@@ -4613,7 +3329,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 			} else if (_p[((0 : GoInt))] == ((((("3" : GoString))).code : GoRune))) {
 				_version = ((3 : GoInt));
 			} else {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 		};
 	};
@@ -4626,10 +3342,10 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 				_nn:GoUInt32 = __tmp__._0,
 				_ok:Bool = __tmp__._1;
 			if (!_ok) {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 			if (((((_nn : GoInt)) : GoUInt32)) != _nn) {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 			_n[_i] = ((_nn : GoInt));
 		});
@@ -4650,10 +3366,10 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 					_nn:GoUInt32 = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (!_ok) {
-					return {_0: new Location(), _1: _badData};
+					return {_0: ((null : Location)), _1: _badData};
 				};
 				if (((((_nn : GoInt)) : GoUInt32)) != _nn) {
-					return {_0: new Location(), _1: _badData};
+					return {_0: ((null : Location)), _1: _badData};
 				};
 				_n[_i] = ((_nn : GoInt));
 			});
@@ -4673,7 +3389,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	var _isstd:Slice<GoUInt8> = _d._read(_n[((1 : GoInt))]);
 	var _isutc:Slice<GoUInt8> = _d._read(_n[((0 : GoInt))]);
 	if (_d._error) {
-		return {_0: new Location(), _1: _badData};
+		return {_0: ((null : Location)), _1: _badData};
 	};
 	var _extend:GoString = (("" : GoString));
 	var _rest:Slice<GoUInt8> = _d._rest();
@@ -4683,7 +3399,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	};
 	var _nzone:GoInt = _n[((4 : GoInt))];
 	if (_nzone == ((0 : GoInt))) {
-		return {_0: new Location(), _1: _badData};
+		return {_0: ((null : Location)), _1: _badData};
 	};
 	var _zones:Slice<T_zone> = new Slice<T_zone>(...[for (i in 0...((_nzone : GoInt)).toBasic()) new T_zone()]);
 	for (_i => _ in _zones) {
@@ -4696,11 +3412,11 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 				_ok = __tmp__._1;
 			};
 			if (!_ok) {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 		};
 		if (((((_n : GoInt)) : GoUInt32)) != _n) {
-			return {_0: new Location(), _1: _badData};
+			return {_0: ((null : Location)), _1: _badData};
 		};
 		_zones[_i]._offset = ((((_n : GoInt32)) : GoInt));
 		var _b:GoByte = ((0 : GoUInt8));
@@ -4711,7 +3427,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 				_ok = __tmp__._1;
 			};
 			if (!_ok) {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 		};
 		_zones[_i]._isDST = _b != ((0 : GoUInt8));
@@ -4722,7 +3438,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 				_ok = __tmp__._1;
 			};
 			if (!_ok || (((_b : GoInt)) >= _abbrev.length)) {
-				return {_0: new Location(), _1: _badData};
+				return {_0: ((null : Location)), _1: _badData};
 			};
 		};
 		_zones[_i]._name = _byteString(_abbrev.__slice__(_b));
@@ -4743,7 +3459,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 					_n4:GoUInt32 = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (!_ok) {
-					return {_0: new Location(), _1: _badData};
+					return {_0: ((null : Location)), _1: _badData};
 				} else {
 					_n = ((((_n4 : GoInt32)) : GoInt64));
 				};
@@ -4754,7 +3470,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 					_n8:GoUInt64 = __tmp__._0,
 					_ok:Bool = __tmp__._1;
 				if (!_ok) {
-					return {_0: new Location(), _1: _badData};
+					return {_0: ((null : Location)), _1: _badData};
 				} else {
 					_n = ((_n8 : GoInt64));
 				};
@@ -4762,7 +3478,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 		};
 		_tx[_i]._when = _n;
 		if (((_txzones[_i] : GoInt)) >= _zones.length) {
-			return {_0: new Location(), _1: _badData};
+			return {_0: ((null : Location)), _1: _badData};
 		};
 		_tx[_i]._index = _txzones[_i];
 		if (_i < _isstd.length) {
@@ -4792,7 +3508,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 		_extend: _extend,
 		_cacheStart: 0,
 		_cacheEnd: 0,
-		_cacheZone: new T_zone()
+		_cacheZone: ((null : T_zone))
 	} : Location));
 	var __tmp__ = _now(),
 		_sec:GoInt64 = __tmp__._0,
@@ -4946,9 +3662,10 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 						for (defer in __deferstack__) {
 							defer();
 						};
-						return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((((("unsupported compression for " : GoString))) + _name)
-							+ (((" in " : GoString))))
-							+ _zipfile)};
+						return {
+							_0: new Slice<GoUInt8>().nil(),
+							_1: stdgo.errors.Errors.new_(((((("unsupported compression for " : GoString))) + _name) + (((" in " : GoString)))) + _zipfile)
+						};
 					};
 				};
 				_buf = new Slice<GoUInt8>(...[for (i in 0...((((30 : GoInt)) + _namelen : GoInt)).toBasic()) ((0 : GoUInt8))]);
@@ -5031,7 +3748,8 @@ function _loadTzinfo(_name:GoString, _source:GoString):{var _0:Slice<GoByte>; va
 	// and parsed is returned as a Location.
 **/
 function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Location; var _1:Error;} {
-	var _z:Location = new Location(), _firstErr:Error = ((null : stdgo.Error));
+	var _z:Location = ((null : Location)),
+		_firstErr:Error = ((null : stdgo.Error));
 	for (_ => _source in _sources) {
 		var __tmp__ = _loadTzinfo(_name, _source),
 			_zoneData:Slice<GoUInt8> = __tmp__._0,
@@ -5073,9 +3791,9 @@ function _loadLocation(_name:GoString, _sources:Slice<GoString>):{var _0:Locatio
 		};
 	};
 	if (Go.toInterface(_firstErr) != Go.toInterface(null)) {
-		return {_0: new Location(), _1: _firstErr};
+		return {_0: ((null : Location)), _1: _firstErr};
 	};
-	return {_0: new Location(), _1: stdgo.errors.Errors.new_(((("unknown time zone " : GoString))) + _name)};
+	return {_0: ((null : Location)), _1: stdgo.errors.Errors.new_(((("unknown time zone " : GoString))) + _name)};
 }
 
 /**
@@ -5118,7 +3836,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 					for (defer in __deferstack__) {
 						defer();
 					};
-					return {_0: new Slice<GoUInt8>().nil(), _1: new T_fileSizeError(_name)};
+					return {_0: new Slice<GoUInt8>().nil(), _1: new T_fileSizeError_wrapper(new T_fileSizeError(_name))};
 				};
 			};
 		};
@@ -5146,279 +3864,1736 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	};
 }
 
-class ParseError_extension_fields {
-	public function error(__tmp__):GoString
-		return __tmp__.error();
+class ParseError_wrapper {
+	public function error():GoString
+		return ParseError_static_extension.error(__t__);
+
+	public var __t__:ParseError;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	function toString():String
+		return __t__ == null ? "null" : __t__.toString();
 }
 
-class Timer_extension_fields {
-	public function stop(__tmp__):Bool
-		return __tmp__.stop();
-
-	public function reset(__tmp__, _d:Duration):Bool
-		return __tmp__.reset(_d);
+class ParseError_static_extension {
+	public static function error(_e:ParseError):GoString {
+		if (_e.message == ("")) {
+			return ((((((((("parsing time " : GoString))) + _quote(_e.value)) + (((" as " : GoString)))) + _quote(_e.layout))
+				+ (((": cannot parse " : GoString))))
+				+ _quote(_e.valueElem))
+				+ (((" as " : GoString))))
+				+ _quote(_e.layoutElem);
+		};
+		return (((("parsing time " : GoString))) + _quote(_e.value)) + _e.message;
+	}
 }
 
-class Ticker_extension_fields {
-	public function stop(__tmp__):Void
-		__tmp__.stop();
+class T_runtimeTimer_wrapper {
+	public var __t__:T_runtimeTimer;
 
-	public function reset(__tmp__, _d:Duration):Void
-		__tmp__.reset(_d);
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 }
 
-class Time_extension_fields {
-	public function toString(__tmp__):String
-		return __tmp__.toString();
+class Timer_wrapper {
+	public function reset(_d:Duration):Bool
+		return Timer_static_extension.reset(__t__, _d);
 
-	public function goString(__tmp__):GoString
-		return __tmp__.goString();
+	public function stop():Bool
+		return Timer_static_extension.stop(__t__);
 
-	public function format(__tmp__, _layout:GoString):GoString
-		return __tmp__.format(_layout);
+	public var __t__:Timer;
 
-	public function appendFormat(__tmp__, _b:Slice<GoByte>, _layout:GoString):Slice<GoByte>
-		return __tmp__.appendFormat(_b, _layout);
+	public inline function new(__t__)
+		this.__t__ = __t__;
 
-	public function _nsec(__tmp__):GoInt32
-		return __tmp__._nsec();
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 
-	public function _sec(__tmp__):GoInt64
-		return __tmp__._sec();
+	function toString():String
+		return __t__ == null ? "null" : __t__.toString();
+}
 
-	public function _unixSec(__tmp__):GoInt64
-		return __tmp__._unixSec();
+class Timer_static_extension {
+	public static function reset(_t:Timer, _d:Duration):Bool {
+		if (_t._r._f == null) {
+			throw Go.toInterface(((("time: Reset called on uninitialized Timer" : GoString))));
+		};
+		var _w:GoInt64 = _when(_d);
+		return _resetTimer(_t._r, _w);
+	}
 
-	public function _addSec(__tmp__, _d:GoInt64):Void
-		__tmp__._addSec(_d);
+	public static function stop(_t:Timer):Bool {
+		if (_t._r._f == null) {
+			throw Go.toInterface(((("time: Stop called on uninitialized Timer" : GoString))));
+		};
+		return _stopTimer(_t._r);
+	}
+}
 
-	public function _setLoc(__tmp__, _loc:Location):Void
-		__tmp__._setLoc(_loc);
+class Ticker_wrapper {
+	public function reset(_d:Duration):Void
+		Ticker_static_extension.reset(__t__, _d);
 
-	public function _stripMono(__tmp__):Void
-		__tmp__._stripMono();
+	public function stop():Void
+		Ticker_static_extension.stop(__t__);
 
-	public function _setMono(__tmp__, _m:GoInt64):Void
-		__tmp__._setMono(_m);
+	public var __t__:Ticker;
 
-	public function _mono(__tmp__):GoInt64
-		return __tmp__._mono();
+	public inline function new(__t__)
+		this.__t__ = __t__;
 
-	public function after(__tmp__, _u:Time):Bool
-		return __tmp__.after(_u);
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 
-	public function before(__tmp__, _u:Time):Bool
-		return __tmp__.before(_u);
+	function toString():String
+		return __t__ == null ? "null" : __t__.toString();
+}
 
-	public function equal(__tmp__, _u:Time):Bool
-		return __tmp__.equal(_u);
+class Ticker_static_extension {
+	public static function reset(_t:Ticker, _d:Duration):Void {
+		if (_t._r._f == null) {
+			throw Go.toInterface(((("time: Reset called on uninitialized Ticker" : GoString))));
+		};
+		_modTimer(_t._r, _when(_d), _d.__t__, _t._r._f, Go.toInterface(_t._r._arg), _t._r._seq);
+	}
 
-	public function isZero(__tmp__):Bool
-		return __tmp__.isZero();
+	public static function stop(_t:Ticker):Void {
+		_stopTimer(_t._r);
+	}
+}
 
-	public function _abs(__tmp__):GoUInt64
-		return __tmp__._abs();
+class Time_wrapper {
+	public function round(_d:Duration):Time
+		return Time_static_extension.round(__t__, _d);
 
-	public function _locabs(__tmp__):{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
-		return __tmp__._locabs();
+	public function truncate(_d:Duration):Time
+		return Time_static_extension.truncate(__t__, _d);
 
-	public function date(__tmp__):{var _0:GoInt; var _1:Month; var _2:GoInt;}
-		return __tmp__.date();
+	public function isDST():Bool
+		return Time_static_extension.isDST(__t__);
 
-	public function year(__tmp__):GoInt
-		return __tmp__.year();
+	public function unmarshalText(_data:Slice<GoByte>):Error
+		return Time_static_extension.unmarshalText(__t__, _data);
 
-	public function month(__tmp__):Month
-		return __tmp__.month();
+	public function marshalText():{var _0:Slice<GoByte>; var _1:Error;}
+		return Time_static_extension.marshalText(__t__);
 
-	public function day(__tmp__):GoInt
-		return __tmp__.day();
+	public function unmarshalJSON(_data:Slice<GoByte>):Error
+		return Time_static_extension.unmarshalJSON(__t__, _data);
 
-	public function weekday(__tmp__):Weekday
-		return __tmp__.weekday();
+	public function marshalJSON():{var _0:Slice<GoByte>; var _1:Error;}
+		return Time_static_extension.marshalJSON(__t__);
 
-	public function isoweek(__tmp__):{var _0:GoInt; var _1:GoInt;}
-		return __tmp__.isoweek();
+	public function gobDecode(_data:Slice<GoByte>):Error
+		return Time_static_extension.gobDecode(__t__, _data);
 
-	public function clock(__tmp__):{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
-		return __tmp__.clock();
+	public function gobEncode():{var _0:Slice<GoByte>; var _1:Error;}
+		return Time_static_extension.gobEncode(__t__);
 
-	public function hour(__tmp__):GoInt
-		return __tmp__.hour();
+	public function unmarshalBinary(_data:Slice<GoByte>):Error
+		return Time_static_extension.unmarshalBinary(__t__, _data);
 
-	public function minute(__tmp__):GoInt
-		return __tmp__.minute();
+	public function marshalBinary():{var _0:Slice<GoByte>; var _1:Error;}
+		return Time_static_extension.marshalBinary(__t__);
 
-	public function second(__tmp__):GoInt
-		return __tmp__.second();
+	public function unixNano():GoInt64
+		return Time_static_extension.unixNano(__t__);
 
-	public function nanosecond(__tmp__):GoInt
-		return __tmp__.nanosecond();
+	public function unixMicro():GoInt64
+		return Time_static_extension.unixMicro(__t__);
 
-	public function yearDay(__tmp__):GoInt
-		return __tmp__.yearDay();
+	public function unixMilli():GoInt64
+		return Time_static_extension.unixMilli(__t__);
 
-	public function add(__tmp__, _d:Duration):Time
-		return __tmp__.add(_d);
+	public function unix():GoInt64
+		return Time_static_extension.unix(__t__);
 
-	public function sub(__tmp__, _u:Time):Duration
-		return __tmp__.sub(_u);
+	public function zone():{var _0:GoString; var _1:GoInt;}
+		return Time_static_extension.zone(__t__);
 
-	public function addDate(__tmp__, _years:GoInt, _months:GoInt, _days:GoInt):Time
-		return __tmp__.addDate(_years, _months, _days);
+	public function location():Location
+		return Time_static_extension.location(__t__);
 
-	public function _date(__tmp__, _full:Bool):{
+	public function in_(_loc:Location):Time
+		return Time_static_extension.in_(__t__, _loc);
+
+	public function local():Time
+		return Time_static_extension.local(__t__);
+
+	public function utc():Time
+		return Time_static_extension.utc(__t__);
+
+	public function _date(_full:Bool):{
 		var _0:GoInt;
 		var _1:Month;
 		var _2:GoInt;
 		var _3:GoInt;
 	}
-		return __tmp__._date(_full);
+		return Time_static_extension._date(__t__, _full);
 
-	public function utc(__tmp__):Time
-		return __tmp__.utc();
+	public function addDate(_years:GoInt, _months:GoInt, _days:GoInt):Time
+		return Time_static_extension.addDate(__t__, _years, _months, _days);
 
-	public function local(__tmp__):Time
-		return __tmp__.local();
+	public function sub(_u:Time):Duration
+		return Time_static_extension.sub(__t__, _u);
 
-	public function in_(__tmp__, _loc:Location):Time
-		return __tmp__.in_(_loc);
+	public function add(_d:Duration):Time
+		return Time_static_extension.add(__t__, _d);
 
-	public function location(__tmp__):Location
-		return __tmp__.location();
+	public function yearDay():GoInt
+		return Time_static_extension.yearDay(__t__);
 
-	public function zone(__tmp__):{var _0:GoString; var _1:GoInt;}
-		return __tmp__.zone();
+	public function nanosecond():GoInt
+		return Time_static_extension.nanosecond(__t__);
 
-	public function unix(__tmp__):GoInt64
-		return __tmp__.unix();
+	public function second():GoInt
+		return Time_static_extension.second(__t__);
 
-	public function unixMilli(__tmp__):GoInt64
-		return __tmp__.unixMilli();
+	public function minute():GoInt
+		return Time_static_extension.minute(__t__);
 
-	public function unixMicro(__tmp__):GoInt64
-		return __tmp__.unixMicro();
+	public function hour():GoInt
+		return Time_static_extension.hour(__t__);
 
-	public function unixNano(__tmp__):GoInt64
-		return __tmp__.unixNano();
+	public function clock():{var _0:GoInt; var _1:GoInt; var _2:GoInt;}
+		return Time_static_extension.clock(__t__);
 
-	public function marshalBinary(__tmp__):{var _0:Slice<GoByte>; var _1:Error;}
-		return __tmp__.marshalBinary();
+	public function isoweek():{var _0:GoInt; var _1:GoInt;}
+		return Time_static_extension.isoweek(__t__);
 
-	public function unmarshalBinary(__tmp__, _data:Slice<GoByte>):Error
-		return __tmp__.unmarshalBinary(_data);
+	public function weekday():Weekday
+		return Time_static_extension.weekday(__t__);
 
-	public function gobEncode(__tmp__):{var _0:Slice<GoByte>; var _1:Error;}
-		return __tmp__.gobEncode();
+	public function day():GoInt
+		return Time_static_extension.day(__t__);
 
-	public function gobDecode(__tmp__, _data:Slice<GoByte>):Error
-		return __tmp__.gobDecode(_data);
+	public function month():Month
+		return Time_static_extension.month(__t__);
 
-	public function marshalJSON(__tmp__):{var _0:Slice<GoByte>; var _1:Error;}
-		return __tmp__.marshalJSON();
+	public function year():GoInt
+		return Time_static_extension.year(__t__);
 
-	public function unmarshalJSON(__tmp__, _data:Slice<GoByte>):Error
-		return __tmp__.unmarshalJSON(_data);
+	public function date():{var _0:GoInt; var _1:Month; var _2:GoInt;}
+		return Time_static_extension.date(__t__);
 
-	public function marshalText(__tmp__):{var _0:Slice<GoByte>; var _1:Error;}
-		return __tmp__.marshalText();
+	public function _locabs():{var _0:GoString; var _1:GoInt; var _2:GoUInt64;}
+		return Time_static_extension._locabs(__t__);
 
-	public function unmarshalText(__tmp__, _data:Slice<GoByte>):Error
-		return __tmp__.unmarshalText(_data);
+	public function _abs():GoUInt64
+		return Time_static_extension._abs(__t__);
 
-	public function isDST(__tmp__):Bool
-		return __tmp__.isDST();
+	public function isZero():Bool
+		return Time_static_extension.isZero(__t__);
 
-	public function truncate(__tmp__, _d:Duration):Time
-		return __tmp__.truncate(_d);
+	public function equal(_u:Time):Bool
+		return Time_static_extension.equal(__t__, _u);
 
-	public function round(__tmp__, _d:Duration):Time
-		return __tmp__.round(_d);
+	public function before(_u:Time):Bool
+		return Time_static_extension.before(__t__, _u);
+
+	public function after(_u:Time):Bool
+		return Time_static_extension.after(__t__, _u);
+
+	public function _mono():GoInt64
+		return Time_static_extension._mono(__t__);
+
+	public function _setMono(_m:GoInt64):Void
+		Time_static_extension._setMono(__t__, _m);
+
+	public function _stripMono():Void
+		Time_static_extension._stripMono(__t__);
+
+	public function _setLoc(_loc:Location):Void
+		Time_static_extension._setLoc(__t__, _loc);
+
+	public function _addSec(_d:GoInt64):Void
+		Time_static_extension._addSec(__t__, _d);
+
+	public function _unixSec():GoInt64
+		return Time_static_extension._unixSec(__t__);
+
+	public function _sec():GoInt64
+		return Time_static_extension._sec(__t__);
+
+	public function _nsec():GoInt32
+		return Time_static_extension._nsec(__t__);
+
+	public function appendFormat(_b:Slice<GoByte>, _layout:GoString):Slice<GoByte>
+		return Time_static_extension.appendFormat(__t__, _b, _layout);
+
+	public function format(_layout:GoString):GoString
+		return Time_static_extension.format(__t__, _layout);
+
+	public function goString():GoString
+		return Time_static_extension.goString(__t__);
+
+	public function toString():GoString
+		return Time_static_extension.toString(__t__);
+
+	public var __t__:Time;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 }
 
-class Month_extension_fields {
-	public function toString(__tmp__):String
-		return __tmp__.toString();
+class Time_static_extension {
+	public static function round(_t:Time, _d:Duration):Time {
+		_t == _t.__copy__();
+		_t._stripMono();
+		if (_d.__t__ <= ((0 : GoInt64))) {
+			return (_t == null ? null : _t.__copy__());
+		};
+		var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d),
+			_:GoInt = __tmp__._0,
+			_r:Duration = __tmp__._1;
+		if (_lessThanHalf(_r, _d)) {
+			return (_t.add(new Duration(-_r.__t__)) == null ? null : _t.add(new Duration(-_r.__t__)).__copy__());
+		};
+		return (_t.add(new Duration(_d.__t__ - _r.__t__)) == null ? null : _t.add(new Duration(_d.__t__ - _r.__t__)).__copy__());
+	}
+
+	public static function truncate(_t:Time, _d:Duration):Time {
+		_t == _t.__copy__();
+		_t._stripMono();
+		if (_d.__t__ <= ((0 : GoInt64))) {
+			return (_t == null ? null : _t.__copy__());
+		};
+		var __tmp__ = _div((_t == null ? null : _t.__copy__()), _d),
+			_:GoInt = __tmp__._0,
+			_r:Duration = __tmp__._1;
+		return (_t.add(new Duration(-_r.__t__)) == null ? null : _t.add(new Duration(-_r.__t__)).__copy__());
+	}
+
+	public static function isDST(_t:Time):Bool {
+		_t == _t.__copy__();
+		var __tmp__ = _t._loc._lookup(_t.unix()),
+			_:GoString = __tmp__._0,
+			_:GoInt = __tmp__._1,
+			_:GoInt64 = __tmp__._2,
+			_:GoInt64 = __tmp__._3,
+			_isDST:Bool = __tmp__._4;
+		return _isDST;
+	}
+
+	public static function unmarshalText(_t:Time, _data:Slice<GoByte>):Error {
+		var _err:Error = ((null : stdgo.Error));
+		{
+			var __tmp__ = parse(((("2006-01-02T15:04:05Z07:00" : GoString))), ((_data : GoString)));
+			_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+			_err = __tmp__._1;
+		};
+		return _err;
+	}
+
+	public static function marshalText(_t:Time):{var _0:Slice<GoByte>; var _1:Error;} {
+		_t == _t.__copy__();
+		{
+			var _y:GoInt = _t.year();
+			if ((_y < ((0 : GoInt))) || (_y >= ((10000 : GoInt)))) {
+				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalText: year outside of range [0,9999]" : GoString))))};
+			};
+		};
+		var _b:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))])
+			.setCap(((((("2006-01-02T15:04:05.999999999Z07:00" : GoString))).length : GoInt)).toBasic());
+		return {_0: _t.appendFormat(_b, ((("2006-01-02T15:04:05.999999999Z07:00" : GoString)))), _1: ((null : stdgo.Error))};
+	}
+
+	public static function unmarshalJSON(_t:Time, _data:Slice<GoByte>):Error {
+		if (((_data : GoString)) == ((("null" : GoString)))) {
+			return ((null : stdgo.Error));
+		};
+		var _err:Error = ((null : stdgo.Error));
+		{
+			var __tmp__ = parse(((("\"2006-01-02T15:04:05Z07:00\"" : GoString))), ((_data : GoString)));
+			_t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+			_err = __tmp__._1;
+		};
+		return _err;
+	}
+
+	public static function marshalJSON(_t:Time):{var _0:Slice<GoByte>; var _1:Error;} {
+		_t == _t.__copy__();
+		{
+			var _y:GoInt = _t.year();
+			if ((_y < ((0 : GoInt))) || (_y >= ((10000 : GoInt)))) {
+				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalJSON: year outside of range [0,9999]" : GoString))))};
+			};
+		};
+		var _b:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((((37 : GoInt)) : GoInt))
+			.toBasic());
+		_b = _b.__append__(((((("\"" : GoString))).code : GoRune)));
+		_b = _t.appendFormat(_b, ((("2006-01-02T15:04:05.999999999Z07:00" : GoString))));
+		_b = _b.__append__(((((("\"" : GoString))).code : GoRune)));
+		return {_0: _b, _1: ((null : stdgo.Error))};
+	}
+
+	public static function gobDecode(_t:Time, _data:Slice<GoByte>):Error {
+		return _t.unmarshalBinary(_data);
+	}
+
+	public static function gobEncode(_t:Time):{var _0:Slice<GoByte>; var _1:Error;} {
+		_t == _t.__copy__();
+		return _t.marshalBinary();
+	}
+
+	public static function unmarshalBinary(_t:Time, _data:Slice<GoByte>):Error {
+		var _buf:Slice<GoUInt8> = _data;
+		if (_buf.length == ((0 : GoInt))) {
+			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: no data" : GoString))));
+		};
+		if (_buf[((0 : GoInt))] != ((1 : GoUInt8))) {
+			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: unsupported version" : GoString))));
+		};
+		if (_buf.length != ((15 : GoInt))) {
+			return stdgo.errors.Errors.new_(((("Time.UnmarshalBinary: invalid length" : GoString))));
+		};
+		_buf = _buf.__slice__(((1 : GoInt)));
+		var _sec:GoInt64 = ((((((((_buf[((7 : GoInt))] : GoInt64)) | (((_buf[((6 : GoInt))] : GoInt64)) << ((8 : GoUnTypedInt)))) | (((_buf[((5 : GoInt))] : GoInt64)) << ((16 : GoUnTypedInt)))) | (((_buf[((4 : GoInt))] : GoInt64)) << ((24 : GoUnTypedInt)))) | (((_buf[((3 : GoInt))] : GoInt64)) << ((32 : GoUnTypedInt)))) | (((_buf[((2 : GoInt))] : GoInt64)) << ((40 : GoUnTypedInt)))) | (((_buf[((1 : GoInt))] : GoInt64)) << ((48 : GoUnTypedInt)))) | (((_buf[((0 : GoInt))] : GoInt64)) << ((56 : GoUnTypedInt)));
+		_buf = _buf.__slice__(((8 : GoInt)));
+		var _nsec:GoInt32 = ((((_buf[((3 : GoInt))] : GoInt32)) | (((_buf[((2 : GoInt))] : GoInt32)) << ((8 : GoUnTypedInt)))) | (((_buf[((1 : GoInt))] : GoInt32)) << ((16 : GoUnTypedInt)))) | (((_buf[((0 : GoInt))] : GoInt32)) << ((24 : GoUnTypedInt)));
+		_buf = _buf.__slice__(((4 : GoInt)));
+		var _offset:GoInt = (((((_buf[((1 : GoInt))] : GoInt16)) | (((_buf[((0 : GoInt))] : GoInt16)) << ((8 : GoUnTypedInt)))) : GoInt)) * ((60 : GoInt));
+		_t = (new Time() == null ? null : new Time().__copy__());
+		_t._wall = ((_nsec : GoUInt64));
+		_t._ext = _sec;
+		if (_offset == ((-60 : GoInt))) {
+			_t._setLoc(_utcLoc);
+		} else {
+			var __tmp__ = Time.local._lookup(_t._unixSec()),
+				_:GoString = __tmp__._0,
+				_localoff:GoInt = __tmp__._1,
+				_:GoInt64 = __tmp__._2,
+				_:GoInt64 = __tmp__._3,
+				_:Bool = __tmp__._4;
+			if (_offset == _localoff) {
+				_t._setLoc(Time.local);
+			} else {
+				_t._setLoc(fixedZone((""), _offset));
+			};
+		};
+		return ((null : stdgo.Error));
+	}
+
+	public static function marshalBinary(_t:Time):{var _0:Slice<GoByte>; var _1:Error;} {
+		_t == _t.__copy__();
+		var _offsetMin:GoInt16 = ((0 : GoInt16));
+		if (_t.location() == Time.utc) {
+			_offsetMin = ((-1 : GoInt16));
+		} else {
+			var __tmp__ = _t.zone(),
+				_:GoString = __tmp__._0,
+				_offset:GoInt = __tmp__._1;
+			if ((_offset % ((60 : GoInt))) != ((0 : GoInt))) {
+				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalBinary: zone offset has fractional minute" : GoString))))};
+			};
+			_offset = _offset / (((60 : GoInt)));
+			if (((_offset < ((-32768 : GoInt))) || (_offset == ((-1 : GoInt)))) || (_offset > ((32767 : GoInt)))) {
+				return {_0: new Slice<GoUInt8>().nil(), _1: stdgo.errors.Errors.new_(((("Time.MarshalBinary: unexpected zone offset" : GoString))))};
+			};
+			_offsetMin = ((_offset : GoInt16));
+		};
+		var _sec:GoInt64 = _t._sec();
+		var _nsec:GoInt32 = _t._nsec();
+		var _enc:Slice<GoUInt8> = new Slice<GoUInt8>(((1 : GoUInt8)), (((_sec >> ((56 : GoUnTypedInt))) : GoByte)),
+			(((_sec >> ((48 : GoUnTypedInt))) : GoByte)), (((_sec >> ((40 : GoUnTypedInt))) : GoByte)), (((_sec >> ((32 : GoUnTypedInt))) : GoByte)),
+			(((_sec >> ((24 : GoUnTypedInt))) : GoByte)), (((_sec >> ((16 : GoUnTypedInt))) : GoByte)), (((_sec >> ((8 : GoUnTypedInt))) : GoByte)),
+			((_sec : GoByte)), (((_nsec >> ((24 : GoUnTypedInt))) : GoByte)), (((_nsec >> ((16 : GoUnTypedInt))) : GoByte)),
+			(((_nsec >> ((8 : GoUnTypedInt))) : GoByte)), ((_nsec : GoByte)), (((_offsetMin >> ((8 : GoUnTypedInt))) : GoByte)), ((_offsetMin : GoByte)));
+		return {_0: _enc, _1: ((null : stdgo.Error))};
+	}
+
+	public static function unixNano(_t:Time):GoInt64 {
+		_t == _t.__copy__();
+		return ((_t._unixSec()) * ((1e+09 : GoInt64))) + ((_t._nsec() : GoInt64));
+	}
+
+	public static function unixMicro(_t:Time):GoInt64 {
+		_t == _t.__copy__();
+		return (_t._unixSec() * ((1e+06 : GoInt64))) + (((_t._nsec() : GoInt64)) / ((1000 : GoInt64)));
+	}
+
+	public static function unixMilli(_t:Time):GoInt64 {
+		_t == _t.__copy__();
+		return (_t._unixSec() * ((1000 : GoInt64))) + (((_t._nsec() : GoInt64)) / ((1e+06 : GoInt64)));
+	}
+
+	public static function unix(_t:Time):GoInt64 {
+		_t == _t.__copy__();
+		return _t._unixSec();
+	}
+
+	public static function zone(_t:Time):{var _0:GoString; var _1:GoInt;} {
+		_t == _t.__copy__();
+		var _name:GoString = (("" : GoString)), _offset:GoInt = ((0 : GoInt));
+		{
+			var __tmp__ = _t._loc._lookup(_t._unixSec());
+			_name = __tmp__._0;
+			_offset = __tmp__._1;
+		};
+		return {_0: _name, _1: _offset};
+	}
+
+	public static function location(_t:Time):Location {
+		_t == _t.__copy__();
+		var _l:Location = _t._loc;
+		if (_l == null) {
+			_l = Time.utc;
+		};
+		return _l;
+	}
+
+	public static function in_(_t:Time, _loc:Location):Time {
+		_t == _t.__copy__();
+		if (_loc == null) {
+			throw Go.toInterface(((("time: missing Location in call to Time.In" : GoString))));
+		};
+		_t._setLoc(_loc);
+		return (_t == null ? null : _t.__copy__());
+	}
+
+	public static function local(_t:Time):Time {
+		_t == _t.__copy__();
+		_t._setLoc(Time.local);
+		return (_t == null ? null : _t.__copy__());
+	}
+
+	public static function utc(_t:Time):Time {
+		_t == _t.__copy__();
+		_t._setLoc(_utcLoc);
+		return (_t == null ? null : _t.__copy__());
+	}
+
+	public static function _date(_t:Time, _full:Bool):{
+		var _0:GoInt;
+		var _1:Month;
+		var _2:GoInt;
+		var _3:GoInt;
+	} {
+		_t == _t.__copy__();
+		var _year:GoInt = ((0 : GoInt)),
+			_month:Month = new Month(),
+			_day:GoInt = ((0 : GoInt)),
+			_yday:GoInt = ((0 : GoInt));
+		return _absDate(_t._abs(), _full);
+	}
+
+	public static function addDate(_t:Time, _years:GoInt, _months:GoInt, _days:GoInt):Time {
+		_t == _t.__copy__();
+		var __tmp__ = _t.date(),
+			_year:GoInt = __tmp__._0,
+			_month:Month = __tmp__._1,
+			_day:GoInt = __tmp__._2;
+		var __tmp__ = _t.clock(),
+			_hour:GoInt = __tmp__._0,
+			_min:GoInt = __tmp__._1,
+			_sec:GoInt = __tmp__._2;
+		return (Time.date(_year + _years, new Month(_month.__t__ + new Month(_months).__t__), _day + _days, _hour, _min, _sec, ((_t._nsec() : GoInt)),
+			_t.location()) == null ? null : Time.date(_year + _years, new Month(_month.__t__ + new Month(_months).__t__), _day + _days, _hour, _min, _sec,
+				((_t._nsec() : GoInt)), _t.location())
+			.__copy__());
+	}
+
+	public static function sub(_t:Time, _u:Time):Duration {
+		_t == _t.__copy__();
+		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			var _te:GoInt64 = _t._ext;
+			var _ue:GoInt64 = _u._ext;
+			var _d:Duration = new Duration((_te - _ue));
+			if ((_d.__t__ < ((0 : GoInt64))) && (_te > _ue)) {
+				return new Duration((("9223372036854775807" : GoInt64)));
+			};
+			if ((_d.__t__ > ((0 : GoInt64))) && (_te < _ue)) {
+				return new Duration((("-9223372036854775808" : GoInt64)));
+			};
+			return _d;
+		};
+		var _d:Duration = new Duration(new Duration(new Duration((_t._sec() - _u._sec())).__t__ * ((1000000000 : GoInt64))).__t__
+			+ new Duration((_t._nsec() - _u._nsec())).__t__);
+		if (_u.add(_d).equal((_t == null ? null : _t.__copy__()))) {
+			return _d;
+		} else if (_t.before((_u == null ? null : _u.__copy__()))) {
+			return new Duration((("-9223372036854775808" : GoInt64)));
+		} else {
+			return new Duration((("9223372036854775807" : GoInt64)));
+		};
+	}
+
+	public static function add(_t:Time, _d:Duration):Time {
+		_t == _t.__copy__();
+		var _dsec:GoInt64 = new Duration(_d.__t__ / ((1e+09 : GoInt64))).__t__;
+		var _nsec:GoInt32 = _t._nsec() + new Duration(_d.__t__ % ((1e+09 : GoInt64))).__t__;
+		if (_nsec >= ((1e+09 : GoInt32))) {
+			_dsec++;
+			_nsec = _nsec - (((1e+09 : GoInt32)));
+		} else if (_nsec < ((0 : GoInt32))) {
+			_dsec--;
+			_nsec = _nsec + (((1e+09 : GoInt32)));
+		};
+		_t._wall = (_t._wall & (((1073741823 : GoUInt64)) ^ ((-1 : GoUnTypedInt)))) | ((_nsec : GoUInt64));
+		_t._addSec(_dsec);
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			var _te:GoInt64 = _t._ext + _d.__t__;
+			if (((_d.__t__ < ((0 : GoInt64))) && (_te > _t._ext)) || ((_d.__t__ > ((0 : GoInt64))) && (_te < _t._ext))) {
+				_t._stripMono();
+			} else {
+				_t._ext = _te;
+			};
+		};
+		return (_t == null ? null : _t.__copy__());
+	}
+
+	public static function yearDay(_t:Time):GoInt {
+		_t == _t.__copy__();
+		var __tmp__ = _t._date(false),
+			_:GoInt = __tmp__._0,
+			_:Month = __tmp__._1,
+			_:GoInt = __tmp__._2,
+			_yday:GoInt = __tmp__._3;
+		return _yday + ((1 : GoInt));
+	}
+
+	public static function nanosecond(_t:Time):GoInt {
+		_t == _t.__copy__();
+		return ((_t._nsec() : GoInt));
+	}
+
+	public static function second(_t:Time):GoInt {
+		_t == _t.__copy__();
+		return (((_t._abs() % ((60 : GoUInt64))) : GoInt));
+	}
+
+	public static function minute(_t:Time):GoInt {
+		_t == _t.__copy__();
+		return (((_t._abs() % ((3600 : GoUInt64))) : GoInt)) / ((60 : GoInt));
+	}
+
+	public static function hour(_t:Time):GoInt {
+		_t == _t.__copy__();
+		return (((_t._abs() % ((86400 : GoUInt64))) : GoInt)) / ((3600 : GoInt));
+	}
+
+	public static function clock(_t:Time):{var _0:GoInt; var _1:GoInt; var _2:GoInt;} {
+		_t == _t.__copy__();
+		var _hour:GoInt = ((0 : GoInt)),
+			_min:GoInt = ((0 : GoInt)),
+			_sec:GoInt = ((0 : GoInt));
+		return _absClock(_t._abs());
+	}
+
+	public static function isoweek(_t:Time):{var _0:GoInt; var _1:GoInt;} {
+		_t == _t.__copy__();
+		var _year:GoInt = ((0 : GoInt)), _week:GoInt = ((0 : GoInt));
+		var _abs:GoUInt64 = _t._abs();
+		var _d:Weekday = new Weekday(((4 : GoInt)) - _absWeekday(_abs).__t__);
+		if (_d.__t__ == ((4 : GoInt))) {
+			_d = new Weekday(((-3 : GoInt)));
+		};
+		_abs = _abs + (_d.__t__ * ((86400 : GoUInt64)));
+		var __tmp__ = _absDate(_abs, false),
+			_year:GoInt = __tmp__._0,
+			_:Month = __tmp__._1,
+			_:GoInt = __tmp__._2,
+			_yday:GoInt = __tmp__._3;
+		return {_0: _year, _1: (_yday / ((7 : GoInt))) + ((1 : GoInt))};
+	}
+
+	public static function weekday(_t:Time):Weekday {
+		_t == _t.__copy__();
+		return _absWeekday(_t._abs());
+	}
+
+	public static function day(_t:Time):GoInt {
+		_t == _t.__copy__();
+		var __tmp__ = _t._date(true),
+			_:GoInt = __tmp__._0,
+			_:Month = __tmp__._1,
+			_day:GoInt = __tmp__._2,
+			_:GoInt = __tmp__._3;
+		return _day;
+	}
+
+	public static function month(_t:Time):Month {
+		_t == _t.__copy__();
+		var __tmp__ = _t._date(true),
+			_:GoInt = __tmp__._0,
+			_month:Month = __tmp__._1,
+			_:GoInt = __tmp__._2,
+			_:GoInt = __tmp__._3;
+		return _month;
+	}
+
+	public static function year(_t:Time):GoInt {
+		_t == _t.__copy__();
+		var __tmp__ = _t._date(false),
+			_year:GoInt = __tmp__._0,
+			_:Month = __tmp__._1,
+			_:GoInt = __tmp__._2,
+			_:GoInt = __tmp__._3;
+		return _year;
+	}
+
+	public static function date(_t:Time):{var _0:GoInt; var _1:Month; var _2:GoInt;} {
+		_t == _t.__copy__();
+		var _year:GoInt = ((0 : GoInt)),
+			_month:Month = new Month(),
+			_day:GoInt = ((0 : GoInt));
+		{
+			var __tmp__ = _t._date(true);
+			_year = __tmp__._0;
+			_month = __tmp__._1;
+			_day = __tmp__._2;
+		};
+		return {_0: _year, _1: _month, _2: _day};
+	}
+
+	public static function _locabs(_t:Time):{var _0:GoString; var _1:GoInt; var _2:GoUInt64;} {
+		_t == _t.__copy__();
+		var _name:GoString = (("" : GoString)),
+			_offset:GoInt = ((0 : GoInt)),
+			_abs:GoUInt64 = ((0 : GoUInt64));
+		var _l:Location = _t._loc;
+		if ((_l == null) || (_l == _localLoc)) {
+			_l = _l._get();
+		};
+		var _sec:GoInt64 = _t._unixSec();
+		if (_l != _utcLoc) {
+			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+				_name = _l._cacheZone._name;
+				_offset = _l._cacheZone._offset;
+			} else {
+				{
+					var __tmp__ = _l._lookup(_sec);
+					_name = __tmp__._0;
+					_offset = __tmp__._1;
+				};
+			};
+			_sec = _sec + (((_offset : GoInt64)));
+		} else {
+			_name = ((("UTC" : GoString)));
+		};
+		_abs = (((_sec + (("9223372028715321600" : GoInt64))) : GoUInt64));
+		return {_0: _name, _1: _offset, _2: _abs};
+	}
+
+	public static function _abs(_t:Time):GoUInt64 {
+		_t == _t.__copy__();
+		var _l:Location = _t._loc;
+		if ((_l == null) || (_l == _localLoc)) {
+			_l = _l._get();
+		};
+		var _sec:GoInt64 = _t._unixSec();
+		if (_l != _utcLoc) {
+			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+				_sec = _sec + (((_l._cacheZone._offset : GoInt64)));
+			} else {
+				var __tmp__ = _l._lookup(_sec),
+					_:GoString = __tmp__._0,
+					_offset:GoInt = __tmp__._1,
+					_:GoInt64 = __tmp__._2,
+					_:GoInt64 = __tmp__._3,
+					_:Bool = __tmp__._4;
+				_sec = _sec + (((_offset : GoInt64)));
+			};
+		};
+		return (((_sec + (("9223372028715321600" : GoInt64))) : GoUInt64));
+	}
+
+	public static function isZero(_t:Time):Bool {
+		_t == _t.__copy__();
+		return (_t._sec() == ((0 : GoInt64))) && (_t._nsec() == ((0 : GoInt32)));
+	}
+
+	public static function equal(_t:Time, _u:Time):Bool {
+		_t == _t.__copy__();
+		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			return _t._ext == _u._ext;
+		};
+		return (_t._sec() == _u._sec()) && (_t._nsec() == _u._nsec());
+	}
+
+	public static function before(_t:Time, _u:Time):Bool {
+		_t == _t.__copy__();
+		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			return _t._ext < _u._ext;
+		};
+		var _ts:GoInt64 = _t._sec();
+		var _us:GoInt64 = _u._sec();
+		return (_ts < _us) || ((_ts == _us) && (_t._nsec() < _u._nsec()));
+	}
+
+	public static function after(_t:Time, _u:Time):Bool {
+		_t == _t.__copy__();
+		if (((_t._wall & _u._wall) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			return _t._ext > _u._ext;
+		};
+		var _ts:GoInt64 = _t._sec();
+		var _us:GoInt64 = _u._sec();
+		return (_ts > _us) || ((_ts == _us) && (_t._nsec() > _u._nsec()));
+	}
+
+	public static function _mono(_t:Time):GoInt64 {
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) == ((0 : GoUInt64))) {
+			return ((0 : GoInt64));
+		};
+		return _t._ext;
+	}
+
+	public static function _setMono(_t:Time, _m:GoInt64):Void {
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) == ((0 : GoUInt64))) {
+			var _sec:GoInt64 = _t._ext;
+			if ((_sec < (("59453308800" : GoInt64))) || ((("68043243391" : GoInt64)) < _sec)) {
+				return;
+			};
+			_t._wall = _t._wall | ((("9223372036854775808" : GoUInt64)) | ((((_sec - (("59453308800" : GoInt64))) : GoUInt64)) << ((30 : GoUnTypedInt))));
+		};
+		_t._ext = _m;
+	}
+
+	public static function _stripMono(_t:Time):Void {
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			_t._ext = _t._sec();
+			_t._wall = _t._wall & (((1073741823 : GoUInt64)));
+		};
+	}
+
+	public static function _setLoc(_t:Time, _loc:Location):Void {
+		if (_loc == _utcLoc) {
+			_loc = ((null : Location));
+		};
+		_t._stripMono();
+		_t._loc = _loc;
+	}
+
+	public static function _addSec(_t:Time, _d:GoInt64):Void {
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			var _sec:GoInt64 = ((((_t._wall << ((1 : GoUnTypedInt))) >> ((31 : GoUnTypedInt))) : GoInt64));
+			var _dsec:GoInt64 = _sec + _d;
+			if ((((0 : GoInt64)) <= _dsec) && (_dsec <= (("8589934591" : GoInt64)))) {
+				_t._wall = ((_t._wall & ((1073741823 : GoUInt64))) | (((_dsec : GoUInt64)) << ((30 : GoUnTypedInt)))) | (("9223372036854775808" : GoUInt64));
+				return;
+			};
+			_t._stripMono();
+		};
+		var _sum:GoInt64 = _t._ext + _d;
+		if ((_sum > _t._ext) == (_d > ((0 : GoInt64)))) {
+			_t._ext = _sum;
+		} else if (_d > ((0 : GoInt64))) {
+			_t._ext = (("9223372036854775807" : GoInt64));
+		} else {
+			_t._ext = (("-9223372036854775807" : GoInt64));
+		};
+	}
+
+	public static function _unixSec(_t:Time):GoInt64 {
+		return _t._sec() + (("-62135596800" : GoInt64));
+	}
+
+	public static function _sec(_t:Time):GoInt64 {
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			return (("59453308800" : GoInt64)) + ((((_t._wall << ((1 : GoUnTypedInt))) >> ((31 : GoUnTypedInt))) : GoInt64));
+		};
+		return _t._ext;
+	}
+
+	public static function _nsec(_t:Time):GoInt32 {
+		return (((_t._wall & ((1073741823 : GoUInt64))) : GoInt32));
+	}
+
+	public static function appendFormat(_t:Time, _b:Slice<GoByte>, _layout:GoString):Slice<GoByte> {
+		_t == _t.__copy__();
+		var __tmp__ = _t._locabs(),
+			_name:GoString = __tmp__._0,
+			_offset:GoInt = __tmp__._1,
+			_abs:GoUInt64 = __tmp__._2,
+			_year:GoInt = ((-1 : GoInt)),
+			_month:Month = new Month(),
+			_day:GoInt = ((0 : GoInt)),
+			_yday:GoInt = ((0 : GoInt)),
+			_hour:GoInt = ((-1 : GoInt)),
+			_min:GoInt = ((0 : GoInt)),
+			_sec:GoInt = ((0 : GoInt));
+		while (_layout != ("")) {
+			var __tmp__ = _nextStdChunk(_layout),
+				_prefix:GoString = __tmp__._0,
+				_std:GoInt = __tmp__._1,
+				_suffix:GoString = __tmp__._2;
+			if (_prefix != ("")) {
+				_b = _b.__append__(..._prefix.toArray());
+			};
+			if (_std == ((0 : GoInt))) {
+				break;
+			};
+			_layout = _suffix;
+			if ((_year < ((0 : GoInt))) && ((_std & ((256 : GoInt))) != ((0 : GoInt)))) {
+				{
+					var __tmp__ = _absDate(_abs, true);
+					_year = __tmp__._0;
+					_month = __tmp__._1;
+					_day = __tmp__._2;
+					_yday = __tmp__._3;
+				};
+				_yday++;
+			};
+			if ((_hour < ((0 : GoInt))) && ((_std & ((512 : GoInt))) != ((0 : GoInt)))) {
+				{
+					var __tmp__ = _absClock(_abs);
+					_hour = __tmp__._0;
+					_min = __tmp__._1;
+					_sec = __tmp__._2;
+				};
+			};
+			{
+				var __switchIndex__ = -1;
+				while (true) {
+					if (_std & ((65535 : GoInt)) == ((276 : GoInt))) {
+						var _y:GoInt = _year;
+						if (_y < ((0 : GoInt))) {
+							_y = -_y;
+						};
+						_b = _appendInt(_b, _y % ((100 : GoInt)), ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((275 : GoInt))) {
+						_b = _appendInt(_b, _year, ((4 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((258 : GoInt))) {
+						_b = _b.__append__(...((_month.toString() : GoString)).__slice__(0, ((3 : GoInt))).toArray());
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((257 : GoInt))) {
+						var _m:GoString = ((_month.toString() : GoString));
+						_b = _b.__append__(..._m.toArray());
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((259 : GoInt))) {
+						_b = _appendInt(_b, _month.__t__, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((260 : GoInt))) {
+						_b = _appendInt(_b, _month.__t__, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((262 : GoInt))) {
+						_b = _b.__append__(...((_absWeekday(_abs).toString() : GoString)).__slice__(0, ((3 : GoInt))).toArray());
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((261 : GoInt))) {
+						var _s:GoString = ((_absWeekday(_abs).toString() : GoString));
+						_b = _b.__append__(..._s.toArray());
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((263 : GoInt))) {
+						_b = _appendInt(_b, _day, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((264 : GoInt))) {
+						if (_day < ((10 : GoInt))) {
+							_b = _b.__append__((((((" " : GoString))).code : GoRune)));
+						};
+						_b = _appendInt(_b, _day, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((265 : GoInt))) {
+						_b = _appendInt(_b, _day, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((266 : GoInt))) {
+						if (_yday < ((100 : GoInt))) {
+							_b = _b.__append__((((((" " : GoString))).code : GoRune)));
+							if (_yday < ((10 : GoInt))) {
+								_b = _b.__append__((((((" " : GoString))).code : GoRune)));
+							};
+						};
+						_b = _appendInt(_b, _yday, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((267 : GoInt))) {
+						_b = _appendInt(_b, _yday, ((3 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((524 : GoInt))) {
+						_b = _appendInt(_b, _hour, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((525 : GoInt))) {
+						var _hr:GoInt = _hour % ((12 : GoInt));
+						if (_hr == ((0 : GoInt))) {
+							_hr = ((12 : GoInt));
+						};
+						_b = _appendInt(_b, _hr, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((526 : GoInt))) {
+						var _hr:GoInt = _hour % ((12 : GoInt));
+						if (_hr == ((0 : GoInt))) {
+							_hr = ((12 : GoInt));
+						};
+						_b = _appendInt(_b, _hr, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((527 : GoInt))) {
+						_b = _appendInt(_b, _min, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((528 : GoInt))) {
+						_b = _appendInt(_b, _min, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((529 : GoInt))) {
+						_b = _appendInt(_b, _sec, ((0 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((530 : GoInt))) {
+						_b = _appendInt(_b, _sec, ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((533 : GoInt))) {
+						if (_hour >= ((12 : GoInt))) {
+							_b = _b.__append__(...((("PM" : GoString))).toArray());
+						} else {
+							_b = _b.__append__(...((("AM" : GoString))).toArray());
+						};
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((534 : GoInt))) {
+						if (_hour >= ((12 : GoInt))) {
+							_b = _b.__append__(...((("pm" : GoString))).toArray());
+						} else {
+							_b = _b.__append__(...((("am" : GoString))).toArray());
+						};
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((24 : GoInt))
+						|| _std & ((65535 : GoInt)) == ((27 : GoInt))
+							|| _std & ((65535 : GoInt)) == ((25 : GoInt))
+								|| _std & ((65535 : GoInt)) == ((26 : GoInt))
+									|| _std & ((65535 : GoInt)) == ((28 : GoInt))
+										|| _std & ((65535 : GoInt)) == ((29 : GoInt))
+											|| _std & ((65535 : GoInt)) == ((32 : GoInt))
+												|| _std & ((65535 : GoInt)) == ((30 : GoInt))
+													|| _std & ((65535 : GoInt)) == ((31 : GoInt))
+														|| _std & ((65535 : GoInt)) == ((33 : GoInt))) {
+						if ((_offset == ((0 : GoInt)))
+							&& (((((_std == ((24 : GoInt))) || (_std == ((27 : GoInt)))) || (_std == ((25 : GoInt))))
+								|| (_std == ((26 : GoInt))))
+								|| (_std == ((28 : GoInt))))) {
+							_b = _b.__append__(((((("Z" : GoString))).code : GoRune)));
+							break;
+						};
+						var _zone:GoInt = _offset / ((60 : GoInt));
+						var _absoffset:GoInt = _offset;
+						if (_zone < ((0 : GoInt))) {
+							_b = _b.__append__(((((("-" : GoString))).code : GoRune)));
+							_zone = -_zone;
+							_absoffset = -_absoffset;
+						} else {
+							_b = _b.__append__(((((("+" : GoString))).code : GoRune)));
+						};
+						_b = _appendInt(_b, _zone / ((60 : GoInt)), ((2 : GoInt)));
+						if ((((_std == ((27 : GoInt))) || (_std == ((32 : GoInt)))) || (_std == ((28 : GoInt))))
+							|| (_std == ((33 : GoInt)))) {
+							_b = _b.__append__((((((":" : GoString))).code : GoRune)));
+						};
+						if ((_std != ((31 : GoInt))) && (_std != ((26 : GoInt)))) {
+							_b = _appendInt(_b, _zone % ((60 : GoInt)), ((2 : GoInt)));
+						};
+						if ((((_std == ((25 : GoInt))) || (_std == ((30 : GoInt)))) || (_std == ((33 : GoInt))))
+							|| (_std == ((28 : GoInt)))) {
+							if ((_std == ((33 : GoInt))) || (_std == ((28 : GoInt)))) {
+								_b = _b.__append__((((((":" : GoString))).code : GoRune)));
+							};
+							_b = _appendInt(_b, _absoffset % ((60 : GoInt)), ((2 : GoInt)));
+						};
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((23 : GoInt))) {
+						if (_name != ("")) {
+							_b = _b.__append__(..._name.toArray());
+							break;
+						};
+						var _zone:GoInt = _offset / ((60 : GoInt));
+						if (_zone < ((0 : GoInt))) {
+							_b = _b.__append__(((((("-" : GoString))).code : GoRune)));
+							_zone = -_zone;
+						} else {
+							_b = _b.__append__(((((("+" : GoString))).code : GoRune)));
+						};
+						_b = _appendInt(_b, _zone / ((60 : GoInt)), ((2 : GoInt)));
+						_b = _appendInt(_b, _zone % ((60 : GoInt)), ((2 : GoInt)));
+						break;
+					} else if (_std & ((65535 : GoInt)) == ((34 : GoInt)) || _std & ((65535 : GoInt)) == ((35 : GoInt))) {
+						_b = _formatNano(_b, ((_t.nanosecond() : GoUInt)), _std);
+						break;
+					};
+					break;
+				};
+			};
+		};
+		return _b;
+	}
+
+	public static function format(_t:Time, _layout:GoString):GoString {
+		_t == _t.__copy__();
+		{};
+		var _b:Slice<GoByte> = new Slice<GoUInt8>().nil();
+		var _max:GoInt = _layout.length + ((10 : GoInt));
+		if (_max < ((64 : GoInt))) {
+			var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...64) ((0 : GoUInt8))]);
+			_b = _buf.__slice__(0, ((0 : GoInt)));
+		} else {
+			_b = new Slice<GoUInt8>(...[for (i in 0...((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((_max : GoInt)).toBasic());
+		};
+		_b = _t.appendFormat(_b, _layout);
+		return ((_b : GoString));
+	}
+
+	public static function goString(_t:Time):GoString {
+		_t == _t.__copy__();
+		var _buf:Slice<GoUInt8> = ((((("time.Date(" : GoString))) : Slice<GoByte>));
+		_buf = _appendInt(_buf, _t.year(), ((0 : GoInt)));
+		var _month:Month = _t.month();
+		if ((((1 : GoInt)) <= _month.__t__) && (_month.__t__ <= ((12 : GoInt)))) {
+			_buf = _buf.__append__(...(((", time." : GoString))).toArray());
+			_buf = _buf.__append__(...((_t.month().toString() : GoString)).toArray());
+		} else {
+			_buf = _appendInt(_buf, _month.__t__, ((0 : GoInt)));
+		};
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		_buf = _appendInt(_buf, _t.day(), ((0 : GoInt)));
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		_buf = _appendInt(_buf, _t.hour(), ((0 : GoInt)));
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		_buf = _appendInt(_buf, _t.minute(), ((0 : GoInt)));
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		_buf = _appendInt(_buf, _t.second(), ((0 : GoInt)));
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		_buf = _appendInt(_buf, _t.nanosecond(), ((0 : GoInt)));
+		_buf = _buf.__append__(...(((", " : GoString))).toArray());
+		{
+			var _loc:Location = _t.location();
+			if (_loc == Time.utc || _loc == null) {
+				_buf = _buf.__append__(...((("time.UTC" : GoString))).toArray());
+			} else if (_loc == Time.local) {
+				_buf = _buf.__append__(...((("time.Local" : GoString))).toArray());
+			} else {
+				_buf = _buf.__append__(...(("time.Location(" : GoString)).toArray());
+				_buf = _buf.__append__(...((_quote(_loc._name) : Slice<GoByte>)).toArray());
+				_buf = _buf.__append__(...((")" : GoString)).toArray());
+			};
+		};
+		_buf = _buf.__append__((((((")" : GoString))).code : GoRune)));
+		return ((_buf : GoString));
+	}
+
+	public static function toString(_t:Time):GoString {
+		_t == _t.__copy__();
+		var _s:GoString = _t.format(((("2006-01-02 15:04:05.999999999 -0700 MST" : GoString))));
+		if ((_t._wall & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64))) {
+			var _m2:GoUInt64 = ((_t._ext : GoUInt64));
+			var _sign:GoUInt8 = ((((((("+" : GoString))).code : GoRune)) : GoByte));
+			if (_t._ext < ((0 : GoInt64))) {
+				_sign = ((((("-" : GoString))).code : GoRune));
+				_m2 = -_m2;
+			};
+			var _m1:GoUInt64 = _m2 / ((1e+09 : GoUInt64)),
+				_m2:GoUInt64 = _m2 % ((1e+09 : GoUInt64));
+			var _m0:GoUInt64 = _m1 / ((1e+09 : GoUInt64)),
+				_m1:GoUInt64 = _m1 % ((1e+09 : GoUInt64));
+			var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
+			_buf = _buf.__append__(...(((" m=" : GoString))).toArray());
+			_buf = _buf.__append__(_sign);
+			var _wid:GoInt = ((0 : GoInt));
+			if (_m0 != ((0 : GoUInt64))) {
+				_buf = _appendInt(_buf, ((_m0 : GoInt)), ((0 : GoInt)));
+				_wid = ((9 : GoInt));
+			};
+			_buf = _appendInt(_buf, ((_m1 : GoInt)), _wid);
+			_buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+			_buf = _appendInt(_buf, ((_m2 : GoInt)), ((9 : GoInt)));
+			_s = _s + (((_buf : GoString)));
+		};
+		return _s;
+	}
 }
 
-class Weekday_extension_fields {
-	public function toString(__tmp__):String
-		return __tmp__.toString();
+class Month_wrapper {
+	public function toString():GoString
+		return Month_static_extension.toString(__t__);
+
+	public var __t__:Month;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 }
 
-class Duration_extension_fields {
-	public function toString(__tmp__):String
-		return __tmp__.toString();
-
-	public function nanoseconds(__tmp__):GoInt64
-		return __tmp__.nanoseconds();
-
-	public function microseconds(__tmp__):GoInt64
-		return __tmp__.microseconds();
-
-	public function milliseconds(__tmp__):GoInt64
-		return __tmp__.milliseconds();
-
-	public function seconds(__tmp__):GoFloat64
-		return __tmp__.seconds();
-
-	public function minutes(__tmp__):GoFloat64
-		return __tmp__.minutes();
-
-	public function hours(__tmp__):GoFloat64
-		return __tmp__.hours();
-
-	public function truncate(__tmp__, _m:Duration):Duration
-		return __tmp__.truncate(_m);
-
-	public function round(__tmp__, _m:Duration):Duration
-		return __tmp__.round(_m);
+class Month_static_extension {
+	public static function toString(_m:Month):GoString {
+		_m == _m.__copy__();
+		if ((((1 : GoInt)) <= _m.__t__) && (_m.__t__ <= ((12 : GoInt)))) {
+			return _longMonthNames[new Month(_m.__t__ - ((1 : GoInt))).__t__];
+		};
+		var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((20 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+		var _n:GoInt = _fmtInt(_buf, _m.__t__);
+		return (((("%!Month(" : GoString))) + ((_buf.__slice__(_n) : GoString))) + (((")" : GoString)));
+	}
 }
 
-class Location_extension_fields {
-	public function _get(__tmp__):Location
-		return __tmp__._get();
+class Weekday_wrapper {
+	public function toString():GoString
+		return Weekday_static_extension.toString(__t__);
 
-	public function toString(__tmp__):String
-		return __tmp__.toString();
+	public var __t__:Weekday;
 
-	public function _lookup(__tmp__, _sec:GoInt64):{
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+class Weekday_static_extension {
+	public static function toString(_d:Weekday):GoString {
+		_d == _d.__copy__();
+		if ((((0 : GoInt)) <= _d.__t__) && (_d.__t__ <= ((6 : GoInt)))) {
+			return _longDayNames[_d.__t__];
+		};
+		var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0...((((20 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+		var _n:GoInt = _fmtInt(_buf, _d.__t__);
+		return (((("%!Weekday(" : GoString))) + ((_buf.__slice__(_n) : GoString))) + (((")" : GoString)));
+	}
+}
+
+class Duration_wrapper {
+	public function round(_m:Duration):Duration
+		return Duration_static_extension.round(__t__, _m);
+
+	public function truncate(_m:Duration):Duration
+		return Duration_static_extension.truncate(__t__, _m);
+
+	public function hours():GoFloat64
+		return Duration_static_extension.hours(__t__);
+
+	public function minutes():GoFloat64
+		return Duration_static_extension.minutes(__t__);
+
+	public function seconds():GoFloat64
+		return Duration_static_extension.seconds(__t__);
+
+	public function milliseconds():GoInt64
+		return Duration_static_extension.milliseconds(__t__);
+
+	public function microseconds():GoInt64
+		return Duration_static_extension.microseconds(__t__);
+
+	public function nanoseconds():GoInt64
+		return Duration_static_extension.nanoseconds(__t__);
+
+	public function toString():GoString
+		return Duration_static_extension.toString(__t__);
+
+	public var __t__:Duration;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+class Duration_static_extension {
+	public static function round(_d:Duration, _m:Duration):Duration {
+		_d == _d.__copy__();
+		if (_m.__t__ <= ((0 : GoInt64))) {
+			return _d;
+		};
+		var _r:Duration = new Duration(_d.__t__ % _m.__t__);
+		if (_d.__t__ < ((0 : GoInt64))) {
+			_r = new Duration(-_r.__t__);
+			if (_lessThanHalf(_r, _m)) {
+				return new Duration(_d.__t__ + _r.__t__);
+			};
+			{
+				var _d1:Duration = new Duration(new Duration(_d.__t__ - _m.__t__).__t__ + _r.__t__);
+				if (_d1.__t__ < _d.__t__) {
+					return _d1;
+				};
+			};
+			return new Duration((("-9223372036854775808" : GoInt64)));
+		};
+		if (_lessThanHalf(_r, _m)) {
+			return new Duration(_d.__t__ - _r.__t__);
+		};
+		{
+			var _d1:Duration = new Duration(new Duration(_d.__t__ + _m.__t__).__t__ - _r.__t__);
+			if (_d1.__t__ > _d.__t__) {
+				return _d1;
+			};
+		};
+		return new Duration((("9223372036854775807" : GoInt64)));
+	}
+
+	public static function truncate(_d:Duration, _m:Duration):Duration {
+		_d == _d.__copy__();
+		if (_m.__t__ <= ((0 : GoInt64))) {
+			return _d;
+		};
+		return new Duration(_d.__t__ - new Duration(_d.__t__ % _m.__t__).__t__);
+	}
+
+	public static function hours(_d:Duration):GoFloat64 {
+		_d == _d.__copy__();
+		var _hour:Duration = new Duration(_d.__t__ / (("3600000000000" : GoInt64)));
+		var _nsec:Duration = new Duration(_d.__t__ % (("3600000000000" : GoInt64)));
+		return _hour.__t__ + (_nsec.__t__ / ((3.6e+12 : GoFloat64)));
+	}
+
+	public static function minutes(_d:Duration):GoFloat64 {
+		_d == _d.__copy__();
+		var _min:Duration = new Duration(_d.__t__ / (("60000000000" : GoInt64)));
+		var _nsec:Duration = new Duration(_d.__t__ % (("60000000000" : GoInt64)));
+		return _min.__t__ + (_nsec.__t__ / ((6e+10 : GoFloat64)));
+	}
+
+	public static function seconds(_d:Duration):GoFloat64 {
+		_d == _d.__copy__();
+		var _sec:Duration = new Duration(_d.__t__ / ((1000000000 : GoInt64)));
+		var _nsec:Duration = new Duration(_d.__t__ % ((1000000000 : GoInt64)));
+		return _sec.__t__ + (_nsec.__t__ / ((1e+09 : GoFloat64)));
+	}
+
+	public static function milliseconds(_d:Duration):GoInt64 {
+		_d == _d.__copy__();
+		return _d.__t__ / ((1e+06 : GoInt64));
+	}
+
+	public static function microseconds(_d:Duration):GoInt64 {
+		_d == _d.__copy__();
+		return _d.__t__ / ((1000 : GoInt64));
+	}
+
+	public static function nanoseconds(_d:Duration):GoInt64 {
+		_d == _d.__copy__();
+		return _d.__t__;
+	}
+
+	public static function toString(_d:Duration):GoString {
+		_d == _d.__copy__();
+		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...32) ((0 : GoUInt8))]);
+		var _w:GoInt = _buf.length;
+		var _u:GoUInt64 = _d.__t__;
+		var _neg:Bool = _d.__t__ < ((0 : GoInt64));
+		if (_neg) {
+			_u = -_u;
+		};
+		if (_u < ((((1000000000 : GoInt64)) : GoUInt64))) {
+			var _prec:GoInt = ((0 : GoInt));
+			_w--;
+			_buf[_w] = ((((("s" : GoString))).code : GoRune));
+			_w--;
+			if (_u == ((0 : GoUInt64))) {
+				return ((("0s" : GoString)));
+			} else if (_u < ((((1000 : GoInt64)) : GoUInt64))) {
+				_prec = ((0 : GoInt));
+				_buf[_w] = ((((("n" : GoString))).code : GoRune));
+			} else if (_u < ((((1000000 : GoInt64)) : GoUInt64))) {
+				_prec = ((3 : GoInt));
+				_w--;
+				Go.copy(_buf.__slice__(_w), ((("µ" : GoString))));
+			} else {
+				_prec = ((6 : GoInt));
+				_buf[_w] = ((((("m" : GoString))).code : GoRune));
+			};
+			{
+				var __tmp__ = _fmtFrac(_buf.__slice__(0, _w), _u, _prec);
+				_w = __tmp__._0;
+				_u = __tmp__._1;
+			};
+			_w = _fmtInt(_buf.__slice__(0, _w), _u);
+		} else {
+			_w--;
+			_buf[_w] = ((((("s" : GoString))).code : GoRune));
+			{
+				var __tmp__ = _fmtFrac(_buf.__slice__(0, _w), _u, ((9 : GoInt)));
+				_w = __tmp__._0;
+				_u = __tmp__._1;
+			};
+			_w = _fmtInt(_buf.__slice__(0, _w), _u % ((60 : GoUInt64)));
+			_u = _u / (((60 : GoUInt64)));
+			if (_u > ((0 : GoUInt64))) {
+				_w--;
+				_buf[_w] = ((((("m" : GoString))).code : GoRune));
+				_w = _fmtInt(_buf.__slice__(0, _w), _u % ((60 : GoUInt64)));
+				_u = _u / (((60 : GoUInt64)));
+				if (_u > ((0 : GoUInt64))) {
+					_w--;
+					_buf[_w] = ((((("h" : GoString))).code : GoRune));
+					_w = _fmtInt(_buf.__slice__(0, _w), _u);
+				};
+			};
+		};
+		if (_neg) {
+			_w--;
+			_buf[_w] = ((((("-" : GoString))).code : GoRune));
+		};
+		return ((_buf.__slice__(_w) : GoString));
+	}
+}
+
+class Location_wrapper {
+	public function _lookupName(_name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;}
+		return Location_static_extension._lookupName(__t__, _name, _unix);
+
+	public function _firstZoneUsed():Bool
+		return Location_static_extension._firstZoneUsed(__t__);
+
+	public function _lookupFirstZone():GoInt
+		return Location_static_extension._lookupFirstZone(__t__);
+
+	public function _lookup(_sec:GoInt64):{
 		var _0:GoString;
 		var _1:GoInt;
 		var _2:GoInt64;
 		var _3:GoInt64;
 		var _4:Bool;
 	}
-		return __tmp__._lookup(_sec);
+		return Location_static_extension._lookup(__t__, _sec);
 
-	public function _lookupFirstZone(__tmp__):GoInt
-		return __tmp__._lookupFirstZone();
+	public function toString():GoString
+		return Location_static_extension.toString(__t__);
 
-	public function _firstZoneUsed(__tmp__):Bool
-		return __tmp__._firstZoneUsed();
+	public function _get():Location
+		return Location_static_extension._get(__t__);
 
-	public function _lookupName(__tmp__, _name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;}
-		return __tmp__._lookupName(_name, _unix);
+	public var __t__:Location;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
 }
 
-class T_fileSizeError_extension_fields {
-	public function error(__tmp__):GoString
-		return __tmp__.error();
+class Location_static_extension {
+	public static function _lookupName(_l:Location, _name:GoString, _unix:GoInt64):{var _0:GoInt; var _1:Bool;} {
+		var _offset:GoInt = ((0 : GoInt)), _ok:Bool = false;
+		_l = _l._get();
+		for (_i => _ in _l._zone) {
+			var _zone:T_zone = _l._zone[_i];
+			if (_zone._name == _name) {
+				var __tmp__ = _l._lookup(_unix - ((_zone._offset : GoInt64))),
+					_nam:GoString = __tmp__._0,
+					_offset:GoInt = __tmp__._1,
+					_:GoInt64 = __tmp__._2,
+					_:GoInt64 = __tmp__._3,
+					_:Bool = __tmp__._4;
+				if (_nam == _zone._name) {
+					return {_0: _offset, _1: true};
+				};
+			};
+		};
+		for (_i => _ in _l._zone) {
+			var _zone:T_zone = _l._zone[_i];
+			if (_zone._name == _name) {
+				return {_0: _zone._offset, _1: true};
+			};
+		};
+		return {_0: _offset, _1: _ok};
+	}
+
+	public static function _firstZoneUsed(_l:Location):Bool {
+		for (_ => _tx in _l._tx) {
+			if (_tx._index == ((0 : GoUInt8))) {
+				return true;
+			};
+		};
+		return false;
+	}
+
+	public static function _lookupFirstZone(_l:Location):GoInt {
+		if (!_l._firstZoneUsed()) {
+			return ((0 : GoInt));
+		};
+		if ((_l._tx.length > ((0 : GoInt))) && _l._zone[_l._tx[((0 : GoInt))]._index]._isDST) {
+			{
+				var _zi:GoInt = ((_l._tx[((0 : GoInt))]._index : GoInt)) - ((1 : GoInt));
+				Go.cfor(_zi >= ((0 : GoInt)), _zi--, {
+					if (!_l._zone[_zi]._isDST) {
+						return _zi;
+					};
+				});
+			};
+		};
+		for (_zi => _ in _l._zone) {
+			if (!_l._zone[_zi]._isDST) {
+				return _zi;
+			};
+		};
+		return ((0 : GoInt));
+	}
+
+	public static function _lookup(_l:Location, _sec:GoInt64):{
+		var _0:GoString;
+		var _1:GoInt;
+		var _2:GoInt64;
+		var _3:GoInt64;
+		var _4:Bool;
+	} {
+		var _name:GoString = (("" : GoString)),
+			_offset:GoInt = ((0 : GoInt)),
+			_start:GoInt64 = ((0 : GoInt64)),
+			_end:GoInt64 = ((0 : GoInt64)),
+			_isDST:Bool = false;
+		_l = _l._get();
+		if (_l._zone.length == ((0 : GoInt))) {
+			_name = ((("UTC" : GoString)));
+			_offset = ((0 : GoInt));
+			_start = (("-9223372036854775808" : GoInt64));
+			_end = (("9223372036854775807" : GoInt64));
+			_isDST = false;
+			return {
+				_0: _name,
+				_1: _offset,
+				_2: _start,
+				_3: _end,
+				_4: _isDST
+			};
+		};
+		{
+			var _zone:T_zone = _l._cacheZone;
+			if (((_zone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
+				_name = _zone._name;
+				_offset = _zone._offset;
+				_start = _l._cacheStart;
+				_end = _l._cacheEnd;
+				_isDST = _zone._isDST;
+				return {
+					_0: _name,
+					_1: _offset,
+					_2: _start,
+					_3: _end,
+					_4: _isDST
+				};
+			};
+		};
+		if ((_l._tx.length == ((0 : GoInt))) || (_sec < _l._tx[((0 : GoInt))]._when)) {
+			var _zone:T_zone = _l._zone[_l._lookupFirstZone()];
+			_name = _zone._name;
+			_offset = _zone._offset;
+			_start = (("-9223372036854775808" : GoInt64));
+			if (_l._tx.length > ((0 : GoInt))) {
+				_end = _l._tx[((0 : GoInt))]._when;
+			} else {
+				_end = (("9223372036854775807" : GoInt64));
+			};
+			_isDST = _zone._isDST;
+			return {
+				_0: _name,
+				_1: _offset,
+				_2: _start,
+				_3: _end,
+				_4: _isDST
+			};
+		};
+		var _tx:Slice<T_zoneTrans> = _l._tx;
+		_end = (("9223372036854775807" : GoInt64));
+		var _lo:GoInt = ((0 : GoInt));
+		var _hi:GoInt = _tx.length;
+		while ((_hi - _lo) > ((1 : GoInt))) {
+			var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
+			var _lim:GoInt64 = _tx[_m]._when;
+			if (_sec < _lim) {
+				_end = _lim;
+				_hi = _m;
+			} else {
+				_lo = _m;
+			};
+		};
+		var _zone:T_zone = _l._zone[_tx[_lo]._index];
+		_name = _zone._name;
+		_offset = _zone._offset;
+		_start = _tx[_lo]._when;
+		_isDST = _zone._isDST;
+		if ((_lo == (_tx.length - ((1 : GoInt)))) && (_l._extend != (""))) {
+			{
+				var __tmp__ = _tzset(_l._extend, _end, _sec),
+					_ename:GoString = __tmp__._0,
+					_eoffset:GoInt = __tmp__._1,
+					_estart:GoInt64 = __tmp__._2,
+					_eend:GoInt64 = __tmp__._3,
+					_eisDST:Bool = __tmp__._4,
+					_ok:Bool = __tmp__._5;
+				if (_ok) {
+					return {
+						_0: _ename,
+						_1: _eoffset,
+						_2: _estart,
+						_3: _eend,
+						_4: _eisDST
+					};
+				};
+			};
+		};
+		return {
+			_0: _name,
+			_1: _offset,
+			_2: _start,
+			_3: _end,
+			_4: _isDST
+		};
+	}
+
+	public static function toString(_l:Location):GoString {
+		return _l._get()._name;
+	}
+
+	public static function _get(_l:Location):Location {
+		if (_l == null) {
+			return _utcLoc;
+		};
+		if (_l == _localLoc) {
+			_localOnce.do_(_initLocal);
+		};
+		return _l;
+	}
 }
 
-class T_dataIO_extension_fields {
-	public function _read(__tmp__, _n:GoInt):Slice<GoByte>
-		return __tmp__._read(_n);
+class T_zone_wrapper {
+	public var __t__:T_zone;
 
-	public function _big4(__tmp__):{var _0:GoUInt32; var _1:Bool;}
-		return __tmp__._big4();
+	public inline function new(__t__)
+		this.__t__ = __t__;
 
-	public function _big8(__tmp__):{var _0:GoUInt64; var _1:Bool;}
-		return __tmp__._big8();
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
 
-	public function _byte(__tmp__):{var _0:GoByte; var _1:Bool;}
-		return __tmp__._byte();
+class T_zoneTrans_wrapper {
+	public var __t__:T_zoneTrans;
 
-	public function _rest(__tmp__):Slice<GoByte>
-		return __tmp__._rest();
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+class T_ruleKind_wrapper {
+	public var __t__:T_ruleKind;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+class T_rule_wrapper {
+	public var __t__:T_rule;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+class T_fileSizeError_wrapper {
+	public function error():GoString
+		return T_fileSizeError_static_extension.error(__t__);
+
+	public var __t__:T_fileSizeError;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	function toString():String
+		return __t__ == null ? "null" : __t__.toString();
+}
+
+class T_fileSizeError_static_extension {
+	public static function error(_f:T_fileSizeError):GoString {
+		_f == _f.__copy__();
+		return (((("time: file " : GoString))) + _f.__t__) + (((" is too large" : GoString)));
+	}
+}
+
+class T_dataIO_wrapper {
+	public function _rest():Slice<GoByte>
+		return T_dataIO_static_extension._rest(__t__);
+
+	public function _byte():{var _0:GoByte; var _1:Bool;}
+		return T_dataIO_static_extension._byte(__t__);
+
+	public function _big8():{var _0:GoUInt64; var _1:Bool;}
+		return T_dataIO_static_extension._big8(__t__);
+
+	public function _big4():{var _0:GoUInt32; var _1:Bool;}
+		return T_dataIO_static_extension._big4(__t__);
+
+	public function _read(_n:GoInt):Slice<GoByte>
+		return T_dataIO_static_extension._read(__t__, _n);
+
+	public var __t__:T_dataIO;
+
+	public inline function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	function toString():String
+		return __t__ == null ? "null" : __t__.toString();
+}
+
+class T_dataIO_static_extension {
+	public static function _rest(_d:T_dataIO):Slice<GoByte> {
+		var _r:Slice<GoUInt8> = _d._p;
+		_d._p = new Slice<GoUInt8>().nil();
+		return _r;
+	}
+
+	public static function _byte(_d:T_dataIO):{var _0:GoByte; var _1:Bool;} {
+		var _n:GoByte = ((0 : GoUInt8)), _ok:Bool = false;
+		var _p:Slice<GoUInt8> = _d._read(((1 : GoInt)));
+		if (_p.length < ((1 : GoInt))) {
+			_d._error = true;
+			return {_0: ((0 : GoUInt8)), _1: false};
+		};
+		return {_0: _p[((0 : GoInt))], _1: true};
+	}
+
+	public static function _big8(_d:T_dataIO):{var _0:GoUInt64; var _1:Bool;} {
+		var _n:GoUInt64 = ((0 : GoUInt64)), _ok:Bool = false;
+		var __tmp__ = _d._big4(),
+			_n1:GoUInt32 = __tmp__._0,
+			_ok1:Bool = __tmp__._1;
+		var __tmp__ = _d._big4(),
+			_n2:GoUInt32 = __tmp__._0,
+			_ok2:Bool = __tmp__._1;
+		if (!_ok1 || !_ok2) {
+			_d._error = true;
+			return {_0: ((0 : GoUInt64)), _1: false};
+		};
+		return {_0: (((_n1 : GoUInt64)) << ((32 : GoUnTypedInt))) | ((_n2 : GoUInt64)), _1: true};
+	}
+
+	public static function _big4(_d:T_dataIO):{var _0:GoUInt32; var _1:Bool;} {
+		var _n:GoUInt32 = ((0 : GoUInt32)), _ok:Bool = false;
+		var _p:Slice<GoUInt8> = _d._read(((4 : GoInt)));
+		if (_p.length < ((4 : GoInt))) {
+			_d._error = true;
+			return {_0: ((0 : GoUInt32)), _1: false};
+		};
+		return {
+			_0: ((((_p[((3 : GoInt))] : GoUInt32)) | (((_p[((2 : GoInt))] : GoUInt32)) << ((8 : GoUnTypedInt)))) | (((_p[((1 : GoInt))] : GoUInt32)) << ((16 : GoUnTypedInt)))) | (((_p[((0 : GoInt))] : GoUInt32)) << ((24 : GoUnTypedInt))),
+			_1: true
+		};
+	}
+
+	public static function _read(_d:T_dataIO, _n:GoInt):Slice<GoByte> {
+		if (_d._p.length < _n) {
+			_d._p = new Slice<GoUInt8>().nil();
+			_d._error = true;
+			return new Slice<GoUInt8>().nil();
+		};
+		var _p:Slice<GoUInt8> = _d._p.__slice__(((0 : GoInt)), _n);
+		_d._p = _d._p.__slice__(_n);
+		return _p;
+	}
 }

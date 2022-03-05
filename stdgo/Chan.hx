@@ -2,19 +2,24 @@ package stdgo;
 
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
+import sys.thread.Deque;
 
 class Chan<T> {
 	var buffer:Array<T> = null;
-	var passValue:T = null;
+
+	public var passValue:T = null;
+
+	public var onSend:Array<{value:T, f:Void->Void}> = [];
+	public var onGet:Array<Void->Void> = [];
+
 	var defaultValue:Void->T = null;
+
 	var closed:Bool = false;
 
-	#if (target.threaded)
-	var mutex = new sys.thread.Mutex();
-	var sendMutex = new sys.thread.Mutex();
-	var sendWg = new sys.thread.Lock();
-	var getWg = new sys.thread.Lock();
-	#end
+	public var mutex = new sys.thread.Mutex();
+
+	public var sendWg = new sys.thread.Lock();
+	public var getWg = new sys.thread.Lock();
 
 	public var length(get, null):GoInt;
 
@@ -46,40 +51,93 @@ class Chan<T> {
 		return this;
 	}
 
-	public function get(blocking:Bool = true):{value:T, ok:Bool} {
+	public function __smartGet__():{value:T, ok:Bool} {
 		if (buffer != null) {
-			sendWg.release();
-			if (!getWg.wait(blocking ? null : 0.1)) {
-				sendWg.wait(0);
+			mutex.acquire();
+			if (buffer.length == 0) {
+				mutex.release();
 				return {value: defaultValue(), ok: false};
 			}
-			mutex.acquire();
 			final value = buffer.shift();
 			mutex.release();
 			return {value: value, ok: true};
 		} else {
-			sendWg.release();
-			if (!getWg.wait(blocking ? null : 0.1)) {
-				sendWg.wait(0);
+			if (!getWg.wait(0))
 				return {value: defaultValue(), ok: false};
-			}
-			return {value: passValue, ok: true};
+			final value = passValue;
+			passValue = null;
+			return {value: value, ok: true};
 		}
 	}
 
-	public function send(value:T, blocking:Bool = true):Bool {
+	public function __get__():T {
 		if (buffer != null) {
 			mutex.acquire();
-			buffer.push(value);
+			if (buffer.length > 0) {
+				final value = buffer.shift();
+				mutex.release();
+				return value;
+			}
+			mutex.release();
+			sendWg.release();
+			getWg.wait();
+			mutex.acquire();
+			final event = onSend.pop();
+			if (event != null) {
+				buffer.push(event.value);
+				event.f();
+			}
+			mutex.release();
+			return buffer.shift();
+		}
+		sendWg.release();
+		getWg.wait();
+		mutex.acquire();
+		final value = passValue;
+		final event = onSend.pop();
+		if (event != null) {
+			event.f();
+			mutex.release();
+			return event.value;
+		}
+		mutex.release();
+		return value;
+	}
+
+	public function __buffer_send__(value:T):Bool {
+		if (buffer != null) {
+			mutex.acquire();
+			buffer.push(passValue);
+			passValue = value;
+			final event = onGet.pop();
+			if (event != null)
+				event();
 			mutex.release();
 			getWg.release();
 			return true;
+		}
+		return false;
+	}
+
+	public function __send__(value:T) {
+		if (buffer != null) {
+			mutex.acquire();
+			buffer.push(passValue);
+			passValue = value;
+			final event = onGet.pop();
+			if (event != null)
+				event();
+			mutex.release();
+			getWg.release();
 		} else {
-			if (!sendWg.wait(blocking ? null : 0.1))
-				return false;
+			sendWg.wait();
 			passValue = value;
 			getWg.release();
-			return true;
+			mutex.acquire();
+			final event = onGet.pop();
+			if (event != null)
+				event();
+			mutex.release();
 		}
 	}
 
@@ -95,7 +153,7 @@ class Chan<T> {
 		return "0x0";
 	}
 
-	public inline function close() {
+	public inline function __close__() {
 		closed = true;
 	}
 }
@@ -111,8 +169,10 @@ private class ChanKeyValueIterator<T> {
 	public inline function hasNext()
 		return offset < chan.length;
 
-	public inline function next():{key:T, value:Bool}
-		return {key: chan.get().value, value: false};
+	public inline function next():{key:T, value:Bool} {
+		final tmp = chan.__smartGet__();
+		return {key: tmp.value, value: tmp.ok};
+	}
 }
 
 private class ChanIterator<T> {
@@ -129,6 +189,6 @@ private class ChanIterator<T> {
 
 	public inline function next() {
 		pos++;
-		return chan.get();
+		return chan.__get__();
 	}
 }

@@ -66,7 +66,6 @@ class Time {
 		if (diff < 0)
 			diff = 0;
 		final d = (diff : GoInt).toBasic() + 1;
-		// trace("d: " + d);
 		final timer = new haxe.Timer(d);
 		timer.run = () -> {
 			timer.stop();
@@ -75,9 +74,7 @@ class Time {
 				t._when += t._period;
 				_startTimer(t);
 			}
-			stdgo.Go.routine(() -> {
-				t._f(t._arg, 0);
-			});
+			Go.routine(() -> t._f(t._arg, 0));
 		};
 		t._pp = (timer : GoUIntptr);
 	}
@@ -101,7 +98,7 @@ class Time {
 	}
 
 	public static function _runtimeNano():GoInt64 {
-		final x = ((Sys.time() * 1000000 * 1000) : GoInt64);
+		final x = ((Sys.time() * 1000000 * 1000) - Date.now().getTimezoneOffset() * 60000000000 : GoInt64);
 		return x;
 	}
 

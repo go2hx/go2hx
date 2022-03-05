@@ -304,6 +304,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 					}
 				}
 				final wrapper:TypeDefinition = info.wrappers[def.name];
+
 				file.defs.push(wrapper);
 				if (local.length == 0)
 					continue;
@@ -495,93 +496,58 @@ private function typeSendStmt(stmt:Ast.SendStmt, info:Info):ExprDef {
 	if (isNamed(t))
 		chan = macro $chan.__t__;
 	var value = typeExpr(stmt.value, info);
-	return (macro $chan.send($value)).expr;
+	return (macro $chan.__send__($value)).expr;
 }
 
 private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
-	var vars:Array<Expr> = [];
-	function condition(obj:Dynamic) {
-		var varName = "";
-		if (obj.id == "AssignStmt") {
-			varName = nameIdent(obj.lhs[0].name, false, true, info);
-			final value = defaultValue(typeof(obj.lhs[0].type), info);
-			vars.push(macro var $varName = $value);
-			obj = obj.rhs[0];
-		} else if (obj.id == "ExprStmt") {
-			obj = obj.x;
-		}
-		if (obj.id == "UnaryExpr") { // get
-			var obj:Ast.UnaryExpr = obj;
-			var e = typeExpr(obj.x, info);
-			e = macro $e.get(false);
-			if (varName != "") {
-				return macro {
-					final __tmp__ = $e;
-					$i{varName} = __tmp__.value;
-					__tmp__.ok;
-				};
-			}
-			return macro $e.ok;
-		} else { // send
-			var obj:Ast.SendStmt = obj;
-			final value = typeExpr(obj.value, info);
-			final e = typeExpr(obj.chan, info);
-			return macro $e.send($value, false);
-		}
-		return null;
-	}
 	var defaultBlock:Expr = null;
-	function ifs(i:Int = 0) {
+	var list:Array<Expr> = [];
+	for (i in 0...stmt.body.list.length) {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		final block = toExpr(typeStmtList(obj.body, info, false));
-		var cond = null;
-		if (obj.comm == null) {
+		var varName = "";
+		if (obj.comm == null) { // default true
 			defaultBlock = block;
-			switch defaultBlock.expr {
-				case EBlock(exprs):
-					exprs.push(macro break);
-				default:
-			}
 		} else {
-			cond = condition(obj.comm);
-			switch block.expr {
-				case EBlock(exprs):
-					// exprs.unshift(typeStmt(obj.comm, info));
-					exprs.push(macro break);
-				default:
+			var comm:Dynamic = obj.comm;
+			if (comm.id == "AssignStmt") {
+				if (comm.lhs.length > 1) { // smart get
+					var ok = typeExpr(comm.lhs[1], info);
+					list.push(macro {
+						${typeStmt(comm, info)};
+						if ($ok) {
+							$block;
+							return;
+						}
+					});
+					continue;
+				}
+				varName = nameIdent(comm.lhs[0].name, false, true, info);
+				comm = comm.rhs[0];
+			} else if (comm.id == "ExprStmt") {
+				comm = comm.x;
+			}
+			if (comm.id == "UnaryExpr") { // get
+				var expr:Ast.UnaryExpr = comm;
+				var e = typeExpr(expr.x, info);
+				e = macro $e.__get__();
+				if (varName != "")
+					e = macro var $varName = $e;
+
+				list.push(macro $e => $block);
+			} else { // send
+				var stmt:Ast.SendStmt = comm;
+				final value = typeExpr(stmt.value, info);
+				final e = typeExpr(stmt.chan, info);
+				list.push(macro $e.__send__($value) => $block);
 			}
 		}
-
-		if (i + 1 >= stmt.body.list.length) {
-			if (cond == null)
-				return block;
-			return defaultBlock == null ? macro if ($cond)
-				$block : macro if ($cond)
-					$block
-				else
-					$defaultBlock;
-		}
-		final next = ifs(i + 1);
-		if (cond == null)
-			return next;
-		return macro if ($cond)
-			$block
-		else
-			$next;
 	}
-	var e = ifs();
-	e = macro {
-		while (true) {
-			$e;
-		}
-	};
-	switch e.expr {
-		case EBlock(exprs):
-			for (v in vars)
-				exprs.unshift(v);
-		default:
-	}
-	return e.expr;
+	stdgo.internal.Random.shuffle(list); // psuedo random
+	if (defaultBlock != null)
+		list.push(defaultBlock);
+	final e = macro $a{list};
+	return (macro Go.select($e)).expr;
 }
 
 private function typeGoto(label:Expr):Expr {
@@ -1452,7 +1418,7 @@ private function castTranslate(obj:Ast.Expr, e:Expr, info:Info):{expr:Expr, ok:B
 		case "UnaryExpr":
 			var obj:Ast.UnaryExpr = obj;
 			var x = typeExpr(obj.x, info);
-			{expr: macro $x.get(false), ok: true};
+			{expr: macro $x.__smartGet__(), ok: true};
 		case "IndexExpr":
 			var obj:Ast.IndexExpr = obj;
 			var index = typeExpr(obj.index, info);
@@ -3108,7 +3074,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 		if (op == null)
 			return switch expr.op {
 				case XOR: (macro(-1 ^ $x)).expr;
-				case ARROW: (macro $x.get().value).expr; // $chan.get
+				case ARROW: (macro $x.__get__()).expr; // $chan.get
 				default: x.expr;
 			}
 		switch expr.op {
@@ -4372,6 +4338,37 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
+	final wrapper:TypeDefinition = {
+		name: name + "_wrapper",
+		pos: null,
+		pack: [],
+		kind: TDClass(),
+		fields: [
+			{
+				name: "__t__",
+				access: [APublic],
+				pos: null,
+				kind: FVar(TPath({name: name, pack: []})),
+			},
+			{
+				name: "new",
+				access: [APublic, AInline],
+				pos: null,
+				kind: FFun({args: [{name: "__t__"}], expr: macro this.__t__ = __t__})
+			},
+			{
+				name: "__underlying__",
+				pos: null,
+				access: [APublic],
+				kind: FFun({
+					args: [],
+					expr: macro return Go.toInterface(this),
+					ret: anyInterfaceType()
+				})
+			}
+		],
+	};
+	info.wrappers[name] = wrapper;
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
@@ -5064,6 +5061,8 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 private function getRestrictedName(name:String, info:Info):String {
 	for (file in info.global.module.files) {
 		for (def in file.defs) {
+			if (def == null)
+				continue;
 			if (def.name == name)
 				return file.name + "." + def.name;
 		}

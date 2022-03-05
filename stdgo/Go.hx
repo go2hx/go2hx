@@ -682,6 +682,134 @@ class Go {
 		return macro($expr : $t);
 	}
 
+	public static macro function select(expr:Expr) {
+		switch expr.expr {
+			case EArrayDecl(values):
+				var exprs:Array<Expr> = [];
+				var defaultBlock:Expr = null;
+				final resources:Array<{expr:Expr, get:Bool, f:Expr}> = [];
+				var count = 0;
+				function cleanup():Expr {
+					var exprs:Array<Expr> = [];
+					for (res in resources) {
+						final expr = res.expr;
+						final f = res.f;
+						exprs.push(macro $expr.mutex.acquire());
+						if (res.get) {
+							exprs.push(macro $expr.sendWg.release());
+							exprs.push(macro $expr.onGet.remove($f));
+						} else {
+							exprs.push(macro $expr.getWg.release());
+							exprs.push(macro $expr.onSend.remove($f));
+						}
+						exprs.push(macro $expr.mutex.release());
+					}
+					return macro $b{exprs};
+				}
+
+				for (value in values) {
+					final varName = switch value.expr {
+						case EVars(vars):
+							value = vars[0].expr;
+							vars[0].name;
+						default:
+							"";
+					}
+					switch value.expr {
+						case EBlock(exprs):
+							exprs.push(macro __wait__.release());
+							defaultBlock = macro $b{exprs};
+						case EBinop(OpArrow, e1, e2):
+							switch e1.expr {
+								case ECall({expr: EField(e, field), pos: _}, params):
+									final v = "_" + count++;
+									exprs.push(macro var $v = $e);
+									e = macro $i{v};
+									switch field {
+										case "__get__":
+											final v = "_" + count++;
+											// resources.push({expr: e, get: false, f: macro $i{v}});
+											if (varName != "") {
+												switch e2.expr {
+													case EBlock(exprs):
+														exprs.unshift(macro var $varName = $e.passValue);
+													default:
+												}
+											}
+											exprs = exprs.concat(switch (macro {
+												var $v = () -> {
+													__f__ = () -> ${e2};
+													__wait__.release();
+												};
+												$e.mutex.acquire();
+												$e.onGet.push($i{v});
+												$e.mutex.release();
+												$e.sendWg.release();
+												if (__wait__.wait(0)) {
+													${cleanup()};
+													return;
+												}
+											}).expr {
+												case EBlock(exprs): exprs;
+												default:
+													[];
+											});
+										case "__send__":
+											final v = "_" + count++;
+											resources.push({expr: e, get: false, f: macro $i{v}});
+											exprs = exprs.concat(switch (macro {
+												var $v = {
+													value: ${params[0]},
+													f: () -> {
+														__f__ = () -> ${e2};
+														__wait__.release();
+													}
+												};
+												$e.mutex.acquire();
+												if ($e.__buffer_send__(${params[0]})) {
+													$e.onSend.push($i{v});
+													return;
+												} else {
+													$e.mutex.release();
+													$e.getWg.release();
+													if (__wait__.wait(0)) {
+														${cleanup()};
+														return;
+													}
+												}
+											}).expr {
+												case EBlock(exprs): exprs;
+												default:
+													[];
+											});
+										default:
+											Context.error("invalid field name: " + field, Context.currentPos());
+									}
+								default:
+									Context.error("invalid value call expr: " + value.expr, Context.currentPos());
+							}
+						default:
+							Context.error("invalid value expr: " + value.expr, Context.currentPos());
+					}
+				}
+				exprs.unshift(macro var __f__:Void->Void = null);
+				exprs.unshift(macro var __wait__ = new sys.thread.Lock());
+				if (defaultBlock != null)
+					exprs.push(defaultBlock);
+				exprs.push(macro while (!__wait__.wait(0.01)) {
+					stdgo.internal.Async.tick();
+				});
+				exprs.push(macro if (__f__ != null)
+					__f__());
+				exprs.push(cleanup());
+				Sys.println(new haxe.macro.Printer().printExpr(macro $b{exprs}));
+				return macro $b{exprs};
+			default:
+				Context.error("select must be array decl expr: " + expr.expr, Context.currentPos());
+		}
+		return macro null;
+	}
+
 	public static macro function multireturn(expr:Expr):Expr {
 		function getFields(t:ComplexType) {
 			switch t {

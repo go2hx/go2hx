@@ -767,7 +767,8 @@ class Go {
 												};
 												$e.mutex.acquire();
 												if ($e.__buffer_send__(${params[0]})) {
-													$e.onSend.push($i{v});
+													$e.mutex.release();
+													${e2};
 													return;
 												} else {
 													$e.mutex.release();
@@ -802,7 +803,6 @@ class Go {
 				exprs.push(macro if (__f__ != null)
 					__f__());
 				exprs.push(cleanup());
-				Sys.println(new haxe.macro.Printer().printExpr(macro $b{exprs}));
 				return macro $b{exprs};
 			default:
 				Context.error("select must be array decl expr: " + expr.expr, Context.currentPos());

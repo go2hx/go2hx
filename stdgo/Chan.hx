@@ -2,7 +2,7 @@ package stdgo;
 
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
-import sys.thread.Deque;
+import sys.thread.Mutex;
 
 class Chan<T> {
 	var buffer:Array<T> = null;
@@ -16,7 +16,7 @@ class Chan<T> {
 
 	var closed:Bool = false;
 
-	public var mutex = new sys.thread.Mutex();
+	public var mutex = new Mutex();
 
 	public var sendWg = new sys.thread.Lock();
 	public var getWg = new sys.thread.Lock();
@@ -71,6 +71,8 @@ class Chan<T> {
 	}
 
 	public function __get__():T {
+		if (closed)
+			return defaultValue();
 		if (buffer != null) {
 			mutex.acquire();
 			if (buffer.length > 0) {
@@ -80,7 +82,8 @@ class Chan<T> {
 			}
 			mutex.release();
 			sendWg.release();
-			getWg.wait();
+			while (!getWg.wait(0.01))
+				stdgo.internal.Async.tick();
 			mutex.acquire();
 			final event = onSend.pop();
 			if (event != null) {
@@ -91,16 +94,16 @@ class Chan<T> {
 			return buffer.shift();
 		}
 		sendWg.release();
-		getWg.wait();
+		while (!getWg.wait(0.01))
+			stdgo.internal.Async.tick();
 		mutex.acquire();
 		final value = passValue;
 		final event = onSend.pop();
+		mutex.release();
 		if (event != null) {
 			event.f();
-			mutex.release();
 			return event.value;
 		}
-		mutex.release();
 		return value;
 	}
 
@@ -109,10 +112,11 @@ class Chan<T> {
 			mutex.acquire();
 			buffer.push(passValue);
 			passValue = value;
-			final event = onGet.pop();
-			if (event != null)
-				event();
+			final event = onSend.pop();
 			mutex.release();
+			if (event != null) {
+				event.f();
+			}
 			getWg.release();
 			return true;
 		}
@@ -122,22 +126,23 @@ class Chan<T> {
 	public function __send__(value:T) {
 		if (buffer != null) {
 			mutex.acquire();
-			buffer.push(passValue);
 			passValue = value;
+			buffer.push(passValue);
 			final event = onGet.pop();
+			mutex.release();
 			if (event != null)
 				event();
-			mutex.release();
 			getWg.release();
 		} else {
-			sendWg.wait();
+			while (!sendWg.wait(0.01))
+				stdgo.internal.Async.tick();
 			passValue = value;
 			getWg.release();
 			mutex.acquire();
 			final event = onGet.pop();
+			mutex.release();
 			if (event != null)
 				event();
-			mutex.release();
 		}
 	}
 

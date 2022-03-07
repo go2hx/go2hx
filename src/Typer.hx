@@ -2339,7 +2339,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var t = typeof(expr.args[0]);
 						if (isNamed(t))
 							e = macro $e.__t__;
-						return returnExpr(macro $e.close());
+						return returnExpr(macro $e.__close__());
 					case "cap":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0]);

@@ -2,31 +2,38 @@ package stdgo;
 
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
+import stdgo.internal.Async;
+import sys.thread.Deque;
+import sys.thread.Lock;
 import sys.thread.Mutex;
+import sys.thread.Thread;
+
+private enum ChanState {
+	GET;
+	SEND;
+}
 
 class Chan<T> {
-	var buffer:Array<T> = null;
+	public var buffer:ChanBuffer<T> = null;
 
-	public var passValue:T = null;
-
-	public var onSend:Array<{value:T, f:Void->Void}> = [];
-	public var onGet:Array<Void->Void> = [];
+	public var __wg__:Lock = null;
+	public var __state__:ChanState = null;
+	public var __find__:ChanState = null;
 
 	var defaultValue:Void->T = null;
 
 	var closed:Bool = false;
 
-	public var mutex = new Mutex();
+	public var __mutex__ = new Mutex();
 
-	public var sendWg = new sys.thread.Lock();
-	public var getWg = new sys.thread.Lock();
+	public var sendWg = new Lock();
 
 	public var length(get, null):GoInt;
 
 	var setNil:Bool = false;
 
 	function get_length():GoInt {
-		return buffer == null ? 0 : buffer.length;
+		return buffer.length;
 	}
 
 	public var _cap:Int = -1;
@@ -35,8 +42,7 @@ class Chan<T> {
 		return setNil;
 
 	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
-		if (length.toBasic() != 0)
-			buffer = [];
+		buffer = new ChanBuffer(length.toBasic());
 		this.setCap(length);
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;
@@ -52,98 +58,47 @@ class Chan<T> {
 	}
 
 	public function __smartGet__():{value:T, ok:Bool} {
-		if (buffer != null) {
-			mutex.acquire();
-			if (buffer.length == 0) {
-				mutex.release();
-				return {value: defaultValue(), ok: false};
-			}
-			final value = buffer.shift();
-			mutex.release();
-			return {value: value, ok: true};
-		} else {
-			if (!getWg.wait(0))
-				return {value: defaultValue(), ok: false};
-			final value = passValue;
-			passValue = null;
-			return {value: value, ok: true};
-		}
+		sendWg.release();
+		if (buffer.length == 0)
+			return {value: defaultValue(), ok: false};
+		return {value: buffer.pop(), ok: true};
 	}
 
 	public function __get__():T {
+		trace("__get__");
 		if (closed)
 			return defaultValue();
-		if (buffer != null) {
-			mutex.acquire();
-			if (buffer.length > 0) {
-				final value = buffer.shift();
-				mutex.release();
-				return value;
-			}
-			mutex.release();
-			sendWg.release();
-			while (!getWg.wait(0.01))
-				stdgo.internal.Async.tick();
-			mutex.acquire();
-			final event = onSend.pop();
-			if (event != null) {
-				buffer.push(event.value);
-				event.f();
-			}
-			mutex.release();
-			return buffer.shift();
-		}
-		sendWg.release();
-		while (!getWg.wait(0.01))
-			stdgo.internal.Async.tick();
-		mutex.acquire();
-		final value = passValue;
-		final event = onSend.pop();
-		mutex.release();
-		if (event != null) {
-			event.f();
-			return event.value;
-		}
-		return value;
-	}
-
-	public function __buffer_send__(value:T):Bool {
-		if (buffer != null) {
-			mutex.acquire();
-			buffer.push(passValue);
-			passValue = value;
-			final event = onSend.pop();
-			mutex.release();
-			if (event != null) {
-				event.f();
-			}
-			getWg.release();
-			return true;
-		}
-		return false;
+		sendWg.release(); // send value
+		__state__ = GET;
+		if (__wg__ != null)
+			__wg__.release();
+		final value = buffer.pop(); // blocking
+		__state__ = null;
+		return value; // get value
 	}
 
 	public function __send__(value:T) {
-		if (buffer != null) {
-			mutex.acquire();
-			passValue = value;
-			buffer.push(passValue);
-			final event = onGet.pop();
-			mutex.release();
-			if (event != null)
-				event();
-			getWg.release();
-		} else {
-			while (!sendWg.wait(0.01))
-				stdgo.internal.Async.tick();
-			passValue = value;
-			getWg.release();
-			mutex.acquire();
-			final event = onGet.pop();
-			mutex.release();
-			if (event != null)
-				event();
+		if (buffer.buffered) {
+			sendWg.wait(0);
+			__mutex__.acquire();
+			buffer.push(value); // non blocking
+			__state__ = SEND;
+			if (__wg__ != null)
+				__wg__.release();
+			__mutex__.release();
+			return;
 		}
+		__mutex__.acquire();
+		__state__ = SEND;
+		if (__wg__ != null)
+			__wg__.release();
+		__mutex__.release();
+		while (true) { // blocking
+			if (sendWg.wait(0.01))
+				break;
+			Async.tick();
+		}
+		buffer.push(value); // send value
 	}
 
 	public inline function keyValueIterator()
@@ -163,8 +118,59 @@ class Chan<T> {
 	}
 }
 
+private class ChanBuffer<T> {
+	var buffer:Deque<T> = null;
+
+	@:isVar public var length(get, set):Int;
+	public var mutex:Mutex = null;
+
+	function get_length():Int {
+		mutex.acquire();
+		final i = length;
+		mutex.release();
+		return i;
+	}
+
+	function set_length(value:Int):Int {
+		mutex.acquire();
+		length = value;
+		mutex.release();
+		return length;
+	}
+
+	public var buffered:Bool = false;
+
+	public function new(bufferLength) {
+		this.buffered = bufferLength > 0;
+		this.buffer = new Deque();
+		this.mutex = new Mutex();
+	}
+
+	public function push(value:T) {
+		buffer.push(value);
+		length++;
+	}
+
+	public function pop():T {
+		var value:T = null;
+		while (true) {
+			value = buffer.pop(false);
+			if (value != null)
+				break;
+			Async.tick();
+			Sys.sleep(0.01);
+		}
+		length--;
+		return value;
+	}
+
+	public function add(value:T) {
+		buffer.add(value);
+		length++;
+	}
+}
+
 private class ChanKeyValueIterator<T> {
-	var offset:Int = 0;
 	var chan:Chan<T>;
 
 	public inline function new(chan:Chan<T>) {
@@ -172,7 +178,7 @@ private class ChanKeyValueIterator<T> {
 	}
 
 	public inline function hasNext()
-		return offset < chan.length;
+		return chan.length > 0;
 
 	public inline function next():{key:T, value:Bool} {
 		final tmp = chan.__smartGet__();
@@ -181,7 +187,6 @@ private class ChanKeyValueIterator<T> {
 }
 
 private class ChanIterator<T> {
-	var pos:Int = 0;
 	var chan:Chan<T>;
 
 	public inline function new(chan:Chan<T>) {
@@ -189,11 +194,10 @@ private class ChanIterator<T> {
 	}
 
 	public inline function hasNext() {
-		return pos < chan.length;
+		return chan.length > 0;
 	}
 
 	public inline function next() {
-		pos++;
 		return chan.__get__();
 	}
 }

@@ -1506,7 +1506,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					default:
 				}
 				if (!isInterface(type) && !isAnyInterface(type))
-					y = macro($y == null ? null : $y.__copy__());
+					y = macro Go.copyValue($y);
 			default:
 		}
 	}
@@ -2264,7 +2264,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 			}
 		case "FuncLit":
-			var expr = toExpr(typeFuncLit(expr.fun, info, false));
+			var expr = toExpr(typeFuncLit(expr.fun, info, true));
 			genArgs(true);
 			return returnExpr(macro {
 				var a = $expr;

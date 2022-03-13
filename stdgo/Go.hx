@@ -11,6 +11,7 @@ import haxe.macro.TypeTools;
 import stdgo.reflect.Reflect.GoType;
 import stdgo.reflect.Reflect.MethodType;
 import stdgo.reflect.Reflect.Type;
+import sys.thread.Thread;
 
 class Go {
 	static function getMetaLength(meta:Metadata):ExprDef {
@@ -43,6 +44,9 @@ class Go {
 		}
 		return type;
 	}
+
+	public static function copyValue<T>(value:T):T
+		return value == null ? null : (value : Dynamic).__copy__();
 
 	public static macro function copy<T>(dst:Expr, src:Expr) {
 		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
@@ -105,16 +109,18 @@ class Go {
 			{0}();
 		}; __a__();", func);
 		#elseif (target.threaded)
-		sys.thread.Thread.createWithEventLoop(func);
+		sys.thread.Thread.createWithEventLoop(() -> {
+			func();
+		});
 		#end
 	}
 
 	public static macro function toInterface(expr) {
 		final expectedType = Context.getExpectedType();
 		if (expectedType != null) {
+			var error = false;
 			switch expectedType {
 				case TAbstract(t, params):
-					var error = false;
 					switch t.toString() {
 						case "stdgo.AnyInterface":
 
@@ -687,122 +693,107 @@ class Go {
 			case EArrayDecl(values):
 				var exprs:Array<Expr> = [];
 				var defaultBlock:Expr = null;
-				final resources:Array<{expr:Expr, get:Bool, f:Expr}> = [];
 				var count = 0;
-				function cleanup():Expr {
-					var exprs:Array<Expr> = [];
-					for (res in resources) {
-						final expr = res.expr;
-						final f = res.f;
-						exprs.push(macro $expr.mutex.acquire());
-						if (res.get) {
-							exprs.push(macro $expr.sendWg.release());
-							exprs.push(macro $expr.onGet.remove($f));
-						} else {
-							exprs.push(macro $expr.getWg.release());
-							exprs.push(macro $expr.onSend.remove($f));
-						}
-						exprs.push(macro $expr.mutex.release());
-					}
-					return macro $b{exprs};
-				}
 
-				for (value in values) {
+				function ifs(i:Int) {
+					var value = values[i];
+					var cond:Expr = null;
+					var block:Expr = null;
 					final varName = switch value.expr {
 						case EVars(vars):
 							value = vars[0].expr;
 							vars[0].name;
 						default:
-							"";
+							"_";
 					}
 					switch value.expr {
 						case EBlock(exprs):
-							exprs.push(macro __wait__.release());
 							defaultBlock = macro $b{exprs};
 						case EBinop(OpArrow, e1, e2):
+							block = e2;
 							switch e1.expr {
 								case ECall({expr: EField(e, field), pos: _}, params):
 									final v = "_" + count++;
 									exprs.push(macro var $v = $e);
 									e = macro $i{v};
+									exprs.push(macro $e.__mutex__.acquire());
+									exprs.push(macro $e.__wg__ = __wait__);
 									switch field {
 										case "__get__":
-											final v = "_" + count++;
-											// resources.push({expr: e, get: false, f: macro $i{v}});
-											if (varName != "") {
-												switch e2.expr {
-													case EBlock(exprs):
-														exprs.unshift(macro var $varName = $e.passValue);
-													default:
-												}
+											cond = macro $e.__state__ == SEND || $e.__find__ == SEND;
+											exprs.push(macro if ($cond) {
+												$e.__state__ = SEND;
+												__wait__.release();
+											});
+											exprs.push(macro $e.__find__ = GET);
+											switch block.expr {
+												case EBlock(exprs):
+													exprs.unshift(macro $e.__mutex__.release());
+													exprs.unshift(macro $e.__wg__ = null);
+													exprs.unshift(macro var $varName = $e.__get__());
+													exprs.unshift(macro $e.__find__ = null);
+													exprs.unshift(macro $e.__mutex__.acquire());
+												default:
 											}
-											exprs = exprs.concat(switch (macro {
-												var $v = () -> {
-													__f__ = () -> ${e2};
-													__wait__.release();
-												};
-												$e.mutex.acquire();
-												$e.onGet.push($i{v});
-												$e.mutex.release();
-												$e.sendWg.release();
-												if (__wait__.wait(0)) {
-													${cleanup()};
-													return;
-												}
-											}).expr {
-												case EBlock(exprs): exprs;
-												default:
-													[];
-											});
 										case "__send__":
-											final v = "_" + count++;
-											resources.push({expr: e, get: false, f: macro $i{v}});
-											exprs = exprs.concat(switch (macro {
-												var $v = {
-													value: ${params[0]},
-													f: () -> {
-														__f__ = () -> ${e2};
-														__wait__.release();
-													}
-												};
-												$e.mutex.acquire();
-												if ($e.__buffer_send__(${params[0]})) {
-													$e.mutex.release();
-													${e2};
-													return;
-												} else {
-													$e.mutex.release();
-													$e.getWg.release();
-													if (__wait__.wait(0)) {
-														${cleanup()};
-														return;
-													}
-												}
-											}).expr {
-												case EBlock(exprs): exprs;
-												default:
-													[];
+											cond = macro $e.__state__ == GET || $e.__find__ == GET;
+											exprs.push(macro if ($cond) {
+												$e.__state__ = GET;
+												__wait__.release();
+												trace("release wait!");
 											});
+											exprs.push(macro $e.__find__ = SEND);
+											switch block.expr {
+												case EBlock(exprs):
+													exprs.unshift(macro $e.__mutex__.release());
+													exprs.unshift(macro $e.__wg__ = null);
+													exprs.unshift(macro $e.__send__($a{params}));
+													exprs.unshift(macro $e.__find__ = null);
+													exprs.unshift(macro $e.__mutex__.acquire());
+												default:
+											}
 										default:
 											Context.error("invalid field name: " + field, Context.currentPos());
 									}
+									exprs.push(macro $e.__mutex__.release());
 								default:
 									Context.error("invalid value call expr: " + value.expr, Context.currentPos());
 							}
 						default:
 							Context.error("invalid value expr: " + value.expr, Context.currentPos());
 					}
+					if (cond == null)
+						return null;
+					if (i + 1 >= values.length) {
+						return macro if ($cond)
+							$block;
+					}
+					final next = ifs(i + 1);
+					if (cond == null)
+						return next;
+					return macro if ($cond)
+						$block
+					else
+						$next;
 				}
-				exprs.unshift(macro var __f__:Void->Void = null);
-				exprs.unshift(macro var __wait__ = new sys.thread.Lock());
-				if (defaultBlock != null)
-					exprs.push(defaultBlock);
-				exprs.push(macro while (!__wait__.wait(0.01)) {
-					stdgo.internal.Async.tick();
-				});
-				exprs.push(macro if (__f__ != null)
-					__f__());
-				exprs.push(cleanup());
+
+				final select = ifs(0);
+				exprs.unshift(macro final __wait__ = new sys.thread.Lock());
+				if (defaultBlock == null) {
+					exprs.push(macro while (true) {
+						if (__wait__.wait(0.01))
+							break;
+						stdgo.internal.Async.tick();
+					});
+					exprs.push(select);
+				} else {
+					exprs.push(macro if (__wait__.wait(0)) {
+						$select;
+					} else {
+						$defaultBlock;
+					});
+				}
+				Sys.println(new haxe.macro.Printer().printExprs(exprs, ";\n"));
 				return macro $b{exprs};
 			default:
 				Context.error("select must be array decl expr: " + expr.expr, Context.currentPos());

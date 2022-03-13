@@ -8,32 +8,25 @@ import sys.thread.Lock;
 import sys.thread.Mutex;
 import sys.thread.Thread;
 
-private enum ChanState {
-	GET;
-	SEND;
-}
-
 class Chan<T> {
-	public var buffer:ChanBuffer<T> = null;
-
-	public var __wg__:Lock = null;
-	public var __state__:ChanState = null;
-	public var __find__:ChanState = null;
+	private var __buffer__:ChanBuffer<T> = null;
 
 	var defaultValue:Void->T = null;
 
 	var closed:Bool = false;
 
-	public var __mutex__ = new Mutex();
+	public var __sendBool__:Bool = false;
+	public var __getBool__:Bool = false;
+	public var __sendWg__ = new Lock();
 
-	public var sendWg = new Lock();
+	public var __mutex__ = new Mutex();
 
 	public var length(get, null):GoInt;
 
 	var setNil:Bool = false;
 
 	function get_length():GoInt {
-		return buffer.length;
+		return __buffer__.length;
 	}
 
 	public var _cap:Int = -1;
@@ -42,10 +35,28 @@ class Chan<T> {
 		return setNil;
 
 	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
-		buffer = new ChanBuffer(length.toBasic());
+		__buffer__ = new ChanBuffer(length.toBasic());
 		this.setCap(length);
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;
+	}
+
+	public function __isSend__(reset:Bool = true):Bool {
+		__mutex__.acquire();
+		final value = __sendBool__;
+		if (reset && value)
+			__sendBool__ = false;
+		__mutex__.release();
+		return value;
+	}
+
+	public function __isGet__(reset:Bool = true):Bool {
+		__mutex__.acquire();
+		final value = __getBool__;
+		if (reset && value)
+			__getBool__ = false;
+		__mutex__.release();
+		return value;
 	}
 
 	public inline function cap():GoInt {
@@ -58,47 +69,53 @@ class Chan<T> {
 	}
 
 	public function __smartGet__():{value:T, ok:Bool} {
-		sendWg.release();
-		if (buffer.length == 0)
-			return {value: defaultValue(), ok: false};
-		return {value: buffer.pop(), ok: true};
+		if (__buffer__.length == 0)
+			return {value: defaultValue(), ok: false}
+		__mutex__.acquire();
+		__getBool__ = false;
+		__mutex__.release();
+		__sendWg__.release();
+		return {value: __buffer__.pop(), ok: true};
 	}
 
 	public function __get__():T {
-		trace("__get__");
 		if (closed)
 			return defaultValue();
-		sendWg.release(); // send value
-		__state__ = GET;
-		if (__wg__ != null)
-			__wg__.release();
-		final value = buffer.pop(); // blocking
-		__state__ = null;
-		return value; // get value
+		__mutex__.acquire();
+		__sendBool__ = true;
+		__mutex__.release();
+		__sendWg__.release();
+		final value = __buffer__.pop();
+		__mutex__.acquire();
+		__getBool__ = false;
+		__mutex__.release();
+		return value;
 	}
 
 	public function __send__(value:T) {
-		if (buffer.buffered) {
-			sendWg.wait(0);
+		if (closed)
+			return;
+		if (__buffer__.buffered) {
+			__sendWg__.wait(0);
 			__mutex__.acquire();
-			buffer.push(value); // non blocking
-			__state__ = SEND;
-			if (__wg__ != null)
-				__wg__.release();
+			__getBool__ = true;
+			__buffer__.push(value);
+			__sendBool__ = false;
 			__mutex__.release();
 			return;
 		}
 		__mutex__.acquire();
-		__state__ = SEND;
-		if (__wg__ != null)
-			__wg__.release();
+		__getBool__ = true;
 		__mutex__.release();
 		while (true) { // blocking
-			if (sendWg.wait(0.01))
+			if (__sendWg__.wait(0.01))
 				break;
 			Async.tick();
 		}
-		buffer.push(value); // send value
+		__buffer__.push(value);
+		__mutex__.acquire();
+		__sendBool__ = false;
+		__mutex__.release();
 	}
 
 	public inline function keyValueIterator()

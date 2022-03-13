@@ -692,6 +692,8 @@ class Go {
 		switch expr.expr {
 			case EArrayDecl(values):
 				var exprs:Array<Expr> = [];
+				var conds:Array<Expr> = [];
+				var selectCond:Expr = null;
 				var defaultBlock:Expr = null;
 				var count = 0;
 
@@ -717,39 +719,21 @@ class Go {
 									exprs.push(macro var $v = $e);
 									e = macro $i{v};
 									exprs.push(macro $e.__mutex__.acquire());
-									exprs.push(macro $e.__wg__ = __wait__);
 									switch field {
 										case "__get__":
-											cond = macro $e.__state__ == SEND || $e.__find__ == SEND;
-											exprs.push(macro if ($cond) {
-												$e.__state__ = SEND;
-												__wait__.release();
-											});
-											exprs.push(macro $e.__find__ = GET);
+											exprs.push(macro $e.__sendBool__ = true);
+											cond = macro $e.__isGet__();
 											switch block.expr {
 												case EBlock(exprs):
-													exprs.unshift(macro $e.__mutex__.release());
-													exprs.unshift(macro $e.__wg__ = null);
 													exprs.unshift(macro var $varName = $e.__get__());
-													exprs.unshift(macro $e.__find__ = null);
-													exprs.unshift(macro $e.__mutex__.acquire());
 												default:
 											}
 										case "__send__":
-											cond = macro $e.__state__ == GET || $e.__find__ == GET;
-											exprs.push(macro if ($cond) {
-												$e.__state__ = GET;
-												__wait__.release();
-												trace("release wait!");
-											});
-											exprs.push(macro $e.__find__ = SEND);
+											exprs.push(macro $e.__getBool__ = true);
+											cond = macro $e.__isSend__();
 											switch block.expr {
 												case EBlock(exprs):
-													exprs.unshift(macro $e.__mutex__.release());
-													exprs.unshift(macro $e.__wg__ = null);
 													exprs.unshift(macro $e.__send__($a{params}));
-													exprs.unshift(macro $e.__find__ = null);
-													exprs.unshift(macro $e.__mutex__.acquire());
 												default:
 											}
 										default:
@@ -762,15 +746,25 @@ class Go {
 						default:
 							Context.error("invalid value expr: " + value.expr, Context.currentPos());
 					}
-					if (cond == null)
+					if (cond == null) {
 						return null;
+					} else {
+						switch cond.expr {
+							case ECall(e, params):
+								if (selectCond == null) {
+									selectCond = macro $e(false);
+								} else {
+									selectCond = macro $selectCond || $e(false);
+								}
+								conds.push(macro $e(false));
+							default:
+						}
+					}
 					if (i + 1 >= values.length) {
 						return macro if ($cond)
 							$block;
 					}
 					final next = ifs(i + 1);
-					if (cond == null)
-						return next;
 					return macro if ($cond)
 						$block
 					else
@@ -778,22 +772,23 @@ class Go {
 				}
 
 				final select = ifs(0);
-				exprs.unshift(macro final __wait__ = new sys.thread.Lock());
 				if (defaultBlock == null) {
 					exprs.push(macro while (true) {
-						if (__wait__.wait(0.01))
+						// trace($a{conds});
+						if ($selectCond)
 							break;
+						Sys.sleep(0.01);
 						stdgo.internal.Async.tick();
 					});
 					exprs.push(select);
 				} else {
-					exprs.push(macro if (__wait__.wait(0)) {
+					exprs.push(macro if ($selectCond) {
 						$select;
 					} else {
 						$defaultBlock;
 					});
 				}
-				Sys.println(new haxe.macro.Printer().printExprs(exprs, ";\n"));
+				// Sys.println(new haxe.macro.Printer().printExprs(exprs, ";\n"));
 				return macro $b{exprs};
 			default:
 				Context.error("select must be array decl expr: " + expr.expr, Context.currentPos());

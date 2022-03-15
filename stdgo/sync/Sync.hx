@@ -19,17 +19,13 @@ typedef Locker = StructType & {
 }
 
 class RWMutex {
-	#if (target.threaded)
 	var mutex:sys.thread.Mutex;
-	#end
 
 	public function __underlying__():AnyInterface
 		return null;
 
 	public function new() {
-		#if (target.threaded)
 		mutex = new sys.thread.Mutex();
-		#end
 	}
 
 	public function lock() {}
@@ -67,31 +63,21 @@ class Map_ {
 
 @:structInit
 class Mutex {
-	#if (target.threaded)
 	@:local
 	var mutex:sys.thread.Mutex;
-	#end
 
 	public function new() {
-		#if (target.threaded)
 		mutex = new sys.thread.Mutex();
-		#end
 	}
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function lock() {
-		#if (target.threaded)
+	public function lock()
 		mutex.acquire();
-		#end
-	}
 
-	public function unlock() {
-		#if (target.threaded)
+	public function unlock()
 		mutex.release();
-		#end
-	}
 
 	public function rlock() {}
 
@@ -99,20 +85,15 @@ class Mutex {
 }
 
 class WaitGroup {
-	#if (target.threaded)
 	var lock:sys.thread.Lock;
-	#end
 
 	var counter:GoUInt = 0;
 
 	public function __underlying__():AnyInterface
 		return null;
 
-	public function new() {
-		#if (target.threaded)
+	public function new()
 		lock = new sys.thread.Lock();
-		#end
-	}
 
 	public function add(delta:GoInt) {
 		counter += delta;
@@ -123,17 +104,12 @@ class WaitGroup {
 	public function done() {
 		counter--;
 		if (counter <= 0) {
-			#if (target.threaded)
 			lock.release();
-			#end
 		}
 	}
 
-	public function wait() {
-		#if (target.threaded)
+	public function wait()
 		lock.wait();
-		#end
-	}
 }
 
 class Once {

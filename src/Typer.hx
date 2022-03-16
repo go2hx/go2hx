@@ -214,11 +214,13 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 							var inserted = false;
 							for (value in typeValue(spec, info)) {
 								inserted = false;
-								for (i in 0...pkg.order.length) {
-									if (value.name == nameIdent(pkg.order[i], false, true, info)) {
-										values.insert(i, value);
-										inserted = true;
-										break;
+								if (pkg.order != null) {
+									for (i in 0...pkg.order.length) {
+										if (value.name == nameIdent(pkg.order[i], false, true, info)) {
+											values.insert(i, value);
+											inserted = true;
+											break;
+										}
 									}
 								}
 								if (!inserted)
@@ -1472,6 +1474,8 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 	switch y.expr {
 		case EBlock(_):
 			return y;
+		case ENew(_):
+			return y;
 		default:
 	}
 	if (!isPointer(fromType) && !isRef(fromType)) {
@@ -1505,8 +1509,9 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 						return y;
 					default:
 				}
-				if (!isInterface(type) && !isAnyInterface(type))
+				if (!isInterface(type) && !isAnyInterface(type)) {
 					y = macro Go.copyValue($y);
+				}
 			default:
 		}
 	}
@@ -1574,6 +1579,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 			}
 		default:
 	}
+
 	if (passCopy)
 		y = passByCopy(toType, y, info);
 
@@ -1599,7 +1605,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	if (!namedX && namedY && !isTuple(fromType)) {
 		var ct = toComplexType(toType, info);
 		switch ct {
-			case TPath(p):
+			case TPath(p): // named type creation
 				y = assignTranslate(fromType, getUnderlying(toType), y, info);
 				y = macro new $p($y);
 			default:
@@ -1664,7 +1670,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				return (macro $b{exprs}).expr;
 			}
 
-			if (stmt.lhs.length == stmt.rhs.length) {
+			if (stmt.lhs.length == stmt.rhs.length) { // w,x = y,z
 				var op = typeOp(stmt.tok);
 				var exprs = [
 					for (i in 0...stmt.lhs.length) {
@@ -1693,6 +1699,27 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						var toType = typeof(stmt.lhs[i]);
 						var fromType = typeof(stmt.rhs[i]);
 						y = assignTranslate(fromType, toType, y, info);
+						if (stmt.lhs[i].id == "StarExpr" && !isPointer(toType)) {
+							// set underlying
+							if (isStruct(toType)) {
+								toType = getUnderlying(toType);
+								switch toType {
+									case structType(fields):
+										final exprs:Array<Expr> = [
+											for (field in fields) {
+												final field = formatHaxeFieldName(field.name);
+												macro $x.$field = __tmp__.$field;
+											}
+										];
+										exprs.unshift(macro var __tmp__ = $y);
+										return (macro $b{exprs}).expr;
+									default:
+								}
+							} else {
+								x = macro $x.__t__;
+								y = macro $y.__t__;
+							}
+						}
 						if (x == null || y == null)
 							return null;
 						var expr = toExpr(EBinop(op, x, y));
@@ -1726,7 +1753,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				}
 				exprs = inits.concat(exprs);
 				return EBlock(exprs);
-			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { // x = y
+			} else if (stmt.lhs.length > stmt.rhs.length && stmt.rhs.length == 1) { // x,y = z
 				// assign, destructure system
 				var func = typeExpr(stmt.rhs[0], info);
 				var t = typeof(stmt.rhs[0]);
@@ -3136,6 +3163,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 
 function getTypePath(type:GoType, info:Info):TypePath {
 	final ct = toComplexType(type, info);
+	if (ct == null)
+		return {name: "Dynamic", pack: []}; // fall back
 	switch ct {
 		case TPath(p):
 			return p;
@@ -4447,7 +4476,12 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var superClass:TypePath = null;
 
 	switch t { // only functions that need to give back the named type should be here, the rest should use x.__t__.y format x is the identifier, and y is the function
-		case sliceType(elem):
+		case sliceType(_), basic(string_kind):
+			final elem = switch t {
+				case sliceType(elem): elem;
+				case basic(string_kind): basic(int32_kind);
+				default: null;
+			}
 			fields.push({
 				name: "__append__",
 				pos: null,

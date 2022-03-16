@@ -84,3 +84,29 @@ function compare(a:Slice<GoByte>, b:Slice<GoByte>):GoInt {
 	}
 	return samebytes();
 }
+
+function cutover(_n:GoInt):GoInt {
+	return 4 + _n >> 4;
+}
+
+function indexRabinKarp(_s:GoString, _substr:GoString):GoInt
+	return _s.indexOf(_substr);
+
+function indexRabinKarpBytes(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
+	var index = -1;
+	for (i in 0..._s.length.toBasic()) {
+		index = i;
+		for (j in 0..._sep.length.toBasic()) {
+			if (_s[i + j] != _sep[j]) {
+				index = -1;
+				break;
+			}
+		}
+		if (index != -1)
+			break;
+	}
+	return index;
+}
+
+function indexString(_a:GoString, _b:GoString):GoInt
+	return _a.indexOf(_b);

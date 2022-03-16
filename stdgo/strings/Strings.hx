@@ -25,6 +25,8 @@ class Builder {
 		return {_0: s.length, _1: null};
 	}
 
+	public function grow(_n:GoInt) {}
+
 	public function toString():GoString
 		return buf.toString();
 

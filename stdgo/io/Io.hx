@@ -20,7 +20,8 @@ typedef ByteReader = StructType & {
 	public function readByte():{_0:GoByte, _1:Error};
 }
 
-typedef ByteScanner = ByteReader & StructType & {
+typedef ByteScanner = ByteReader &
+	StructType & {
 	public function unreadByte():Error;
 }
 
@@ -67,4 +68,31 @@ typedef WriterTo = StructType & {
 function readAll(r:Reader):{_0:Slice<GoByte>, _1:Error} {
 	final s = new Slice<GoByte>(...[for (_ in 0...512) 0]);
 	return {_0: s, _1: null};
+}
+
+function readAtLeast(_r:Reader, _buf:Slice<GoByte>, _min:GoInt):{var _0:GoInt; var _1:Error;} {
+	var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+	if (_buf.length < _min) {
+		return {_0: ((0 : GoInt)), _1: errShortBuffer};
+	};
+	while ((_n < _min) && (Go.toInterface(_err) == Go.toInterface(null))) {
+		var _nn:GoInt = ((0 : GoInt));
+		{
+			var __tmp__ = _r.read(_buf.__slice__(_n));
+			_nn = __tmp__._0;
+			_err = __tmp__._1;
+		};
+		_n = _n + (_nn);
+	};
+	if (_n >= _min) {
+		_err = ((null : stdgo.Error));
+	} else if ((_n > ((0 : GoInt))) && (Go.toInterface(_err) == Go.toInterface(eof))) {
+		_err = errUnexpectedEOF;
+	};
+	return {_0: _n, _1: _err};
+}
+
+function readFull(_r:Reader, _buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+	return readAtLeast(Go.copyValue(_r), _buf, _buf.length);
 }

@@ -105,6 +105,8 @@ function isInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case refType(elem):
+			isInterface(elem);
 		case named(_, _, elem):
 			isInterface(elem);
 		case interfaceType(_):
@@ -132,12 +134,15 @@ function isNamed(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case refType(underlying):
+			isNamed(underlying);
 		case named(_, _, underlying):
 			switch underlying {
 				case structType(_): false;
 				case interfaceType(_, _): false;
-				case named(_, _, type): isNamed(type);
-				default: true;
+				case named(_, _, underlying): isNamed(underlying);
+				default:
+					true;
 			}
 		default: false;
 	}
@@ -1493,7 +1498,7 @@ class _Type {
 	public function __underlying__():AnyInterface
 		return Go.toInterface(__t__);
 
-	public function toString():GoString
+	public function toString():String
 		return Go.string(__t__);
 
 	public function __copy__():GoString
@@ -1609,6 +1614,8 @@ private function namedUnderlying(obj:AnyInterface) {
 
 function getUnderlying(gt:GoType) {
 	return switch gt {
+		case refType(type):
+			getUnderlying(type);
 		case named(_, _, type):
 			getUnderlying(type);
 		default:

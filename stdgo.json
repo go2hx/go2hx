@@ -34,6 +34,7 @@
     "database/sql",
     "database/sql/driver",
     "debug/dwarf",
+    "bufio",
     "debug/elf",
     "debug/gosym",
     "debug/macho",

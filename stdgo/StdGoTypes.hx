@@ -44,8 +44,8 @@ private typedef UInt16 = #if simulate_num Int; #elseif hl hl.UI16; #elseif cpp c
 private typedef UInt32 = #if simulate_num UInt; #elseif cpp cpp.UInt32; #elseif cs cs.system.UInt32; #elseif eval eval.integers.UInt64; #else UInt; #end
 private typedef UInt64 = haxe.UInt64;
 private typedef Float = Float64;
-private typedef Float64 = StdTypes.Float;
-private typedef Float32 = Float64; // hl.F32 Don't know how to cast hl.types.ArrayBytes_hl_F32 to hl.types.ArrayDyn
+private typedef Float64 = #if hl hl.F64; #else StdTypes.Float; #end
+private typedef Float32 = #if hl hl.F32; #else Float64; #end
 typedef GoUnTypedInt = GoUInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
@@ -460,27 +460,33 @@ abstract GoFloat64(Float) from Float {
 	@:op(A % B) private static function mod(a:GoFloat64, b:GoFloat64):GoFloat64
 		return a.toBasic() % b.toBasic();
 
-	@:op(A >= B) private static function gte(a:GoFloat, b:GoFloat):Bool;
+	@:op(A > B) private static function gt(a:GoFloat64, b:GoFloat64):Bool
+		return a.toBasic() > b.toBasic();
 
-	@:op(A < B) private static function lt(a:GoFloat, b:GoFloat):Bool;
+	@:op(A >= B) private static function gte(a:GoFloat64, b:GoFloat64):Bool
+		return a.toBasic() >= b.toBasic();
 
-	@:op(A <= B) private static function lte(a:GoFloat, b:GoFloat):Bool;
+	@:op(A < B) private static function lt(a:GoFloat64, b:GoFloat64):Bool
+		return a.toBasic() < b.toBasic();
 
-	@:op(A > B) private static function gtf(a:GoFloat, b:Float):Bool;
+	@:op(A <= B) private static function lte(a:GoFloat64, b:GoFloat64):Bool
+		return a.toBasic() <= b.toBasic();
 
-	@:op(A > B) private static function gtf2(a:Float, b:GoFloat):Bool;
+	@:op(A > B) private static function gtf(a:GoFloat64, b:Float):Bool;
 
-	@:op(A >= B) private static function gtef(a:GoFloat, b:Float):Bool;
+	@:op(A > B) private static function gtf2(a:Float, b:GoFloat64):Bool;
 
-	@:op(A >= B) private static function gtef2(a:Float, b:GoFloat):Bool;
+	@:op(A >= B) private static function gtef(a:GoFloat64, b:Float):Bool;
 
-	@:op(A < B) private static function ltf(a:GoFloat, b:Float):Bool;
+	@:op(A >= B) private static function gtef2(a:Float, b:GoFloat64):Bool;
 
-	@:op(A < B) private static function ltf2(a:Float, b:GoFloat):Bool;
+	@:op(A < B) private static function ltf(a:GoFloat64, b:Float):Bool;
 
-	@:op(A <= B) private static function ltef(a:GoFloat, b:Float):Bool;
+	@:op(A < B) private static function ltf2(a:Float, b:GoFloat64):Bool;
 
-	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat):Bool;
+	@:op(A <= B) private static function ltef(a:GoFloat64, b:Float):Bool;
+
+	@:op(A <= B) private static function ltef2(a:Float, b:GoFloat64):Bool;
 
 	@:op(~A) private static function bneg(t:GoFloat):GoFloat;
 

@@ -156,5 +156,6 @@
     "internal",
     "internal/bytealg",
     "internal/itoa",
-    "internal/oserror"
+    "internal/oserror",
+    "internal/reflectlite"
 ]}

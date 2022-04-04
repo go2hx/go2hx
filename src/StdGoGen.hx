@@ -28,10 +28,13 @@ function main() {
 	}
 	for (path in ["runtime/race"])
 		libs.remove(path); // remove
-	// libs = libs.concat(["syscall", "syscall/js"]);
-	trace(libs);
-	final externBool = false;
-	trace("libs count: " + libs.length);
-	for (lib in libs)
+	// libs = libs.concat(["unicode"]);
+	var externBool = false;
+	trace(libs + " libs count: " + libs.length);
+	for (lib in libs) {
+		externBool = externs.indexOf(lib) != -1;
 		Sys.command('haxelib run go2hx $lib --out stdgo --root stdgo' + (externBool ? " --extern" : ""));
+	}
 }
+
+final externs = ["syscall.js", "syscall"];

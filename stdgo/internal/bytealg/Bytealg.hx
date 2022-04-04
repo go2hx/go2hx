@@ -2,6 +2,8 @@ package stdgo.internal.bytealg;
 
 import stdgo.StdGoTypes;
 
+using stdgo.GoString.GoStringTools;
+
 final maxLen:GoInt = 32;
 final primeRK:GoInt = 16777619;
 final maxBruteForce:GoInt = 64;

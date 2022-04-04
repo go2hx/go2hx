@@ -9,7 +9,7 @@ import stdgo.StdGoTypes;
 final _localLoc = {};
 
 function sleep(_d) {
-	final seconds = _d.__t__.toFloat() / 1000000000;
+	final seconds = _d.toFloat() / 1000000000;
 	#if sys
 	var ticks = Math.floor(seconds * 100);
 	while (--ticks > 0) {
@@ -27,15 +27,15 @@ function _modTimer(_t, _when, _period, _f, _arg, _seq) {
 	Time._modTimer(_t, _when, _period, _f, _arg, _seq);
 }
 
-function _startTimer(arg0) {
-	Time._startTimer(arg0);
+function _startTimer(_0) {
+	Time._startTimer(_0);
 }
 
-function _stopTimer(arg0)
-	return Time._stopTimer(arg0);
+function _stopTimer(_0)
+	return Time._stopTimer(_0);
 
-function _resetTimer(arg0, arg1)
-	return Time._resetTimer(arg0, arg1);
+function _resetTimer(_0, _1)
+	return Time._resetTimer(_0, _1);
 
 function _runtimeNano()
 	return Time._runtimeNano();
@@ -46,8 +46,8 @@ function _initLocal(_localLoc) {
 
 @:local
 class Time {
-	public static function _stopTimer(arg0:Dynamic):Bool {
-		final t:Dynamic = arg0;
+	public static function _stopTimer(_0:Dynamic):Bool {
+		final t:Dynamic = _0;
 		if ((t._pp : GoUIntptr) != (0 : GoUIntptr)) {
 			final timer:haxe.Timer = t._pp;
 			timer.stop();
@@ -57,8 +57,8 @@ class Time {
 		return wasActive;
 	}
 
-	public static function _startTimer(arg0:stdgo.time.Time.T_runtimeTimer) {
-		final t = arg0;
+	public static function _startTimer(_0:stdgo.time.Time.T_runtimeTimer) {
+		final t = _0;
 		t._status = 1;
 		var diff = (t._when - Time._runtimeNano()) / (1000 * 1000);
 		if (diff > 1 << 31 - 1)
@@ -79,9 +79,9 @@ class Time {
 		t._pp = (timer : GoUIntptr);
 	}
 
-	public static function _resetTimer(arg0:stdgo.time.Time.T_runtimeTimer, arg1:GoInt64):Bool {
-		final t = arg0;
-		final when = arg1;
+	public static function _resetTimer(_0:stdgo.time.Time.T_runtimeTimer, _1:GoInt64):Bool {
+		final t = _0;
+		final when = _1;
 		final wasActive = t._status == 1;
 		return wasActive;
 	}

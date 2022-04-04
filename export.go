@@ -589,7 +589,9 @@ func parsePkg(pkg *packages.Package) packageType {
 	fset = pkg.Fset
 	data := packageType{}
 	for _, obj := range pkg.TypesInfo.InitOrder {
-		data.Order = append(data.Order, obj.Lhs[0].Name())
+		for _, v := range obj.Lhs {
+			data.Order = append(data.Order, v.Name())
+		}
 	}
 	data.Name = pkg.Name
 	data.Path = pkg.PkgPath
@@ -785,6 +787,12 @@ func parseType(node interface{}) map[string]interface{} {
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
 		data["methods"] = parseMethods(s, &methodCache)
+		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
+		for i := 0; i < s.NumEmbeddeds(); i++ {
+			v := s.EmbeddedType(i)
+			embeds[i] = parseType(v)
+		}
+		data["embeds"] = embeds
 	case "Pointer":
 		s := node.(*types.Pointer)
 		data["elem"] = parseType(s.Elem())
@@ -823,6 +831,23 @@ func parseType(node interface{}) map[string]interface{} {
 		s := node.(*types.Chan)
 		data["elem"] = parseType(s.Elem())
 		data["dir"] = s.Dir()
+	case "TypeParam":
+		s := node.(*types.TypeParam)
+		data["constraint"] = parseType(s.Constraint())
+		//data["underlying"] = parseType(s.Underlying())
+		data["name"] = s.Obj().Name()
+	case "Union":
+		s := node.(*types.Union)
+		terms := make([]map[string]interface{}, s.Len())
+		for i := 0; i < s.Len(); i++ {
+			t := s.Term(i)
+			terms[i] = map[string]interface{}{
+				"tidle": t.Tilde(),
+				"type":  parseType(t.Type()),
+			}
+		}
+		//data["underlying"] = parseType(s.Underlying())
+		data["terms"] = terms
 	default:
 		throw("unknown parse type id: " + data["id"].(string))
 	}
@@ -1031,7 +1056,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = value.Value
 	case token.IMAG: // TODO: implement imaginary numbers (complex)
-		output = value.Value[0 : len(value.Value)-1]
+		output = value.Value[0:len(value.Value)]
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

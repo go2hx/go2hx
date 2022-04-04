@@ -3,6 +3,11 @@ package stdgo.strings;
 import haxe.Rest;
 import stdgo.StdGoTypes;
 
+using stdgo.GoString.GoStringTools;
+
+final runeError:GoInt = 65533;
+final runeSelf:GoInt = 65533;
+
 @:structInit
 class Builder {
 	var buf:StringBuf;
@@ -56,7 +61,7 @@ inline function count(s:GoString, value:GoString):GoInt {
 }
 
 function join(elems:Slice<GoString>, sep:GoString):GoString {
-	return elems.toVector().join(sep);
+	return elems.__toVector__().join(sep);
 }
 
 function repeat(s:GoString, count:GoInt):GoString {
@@ -69,7 +74,7 @@ function split(s:GoString, sep:GoString):Slice<GoString> {
 
 function splitN(s:GoString, sep:GoString, n:GoInt):Slice<GoString> {
 	if (n == 0)
-		return new Slice().nil();
+		return null;
 	// very inefficent (TODO) more optimized version
 	final s:String = s.toString();
 	if (n == -1)
@@ -169,11 +174,11 @@ function map(mapping:GoRune->GoRune, s:GoString):GoString {
 	for (i in 0...s.length.toBasic()) {
 		var c = s[i];
 		final r = mapping(c);
-		if (r == c && c != stdgo.unicode.utf8.Utf8.runeError) {
+		if (r == c && c != runeError) {
 			continue;
 		}
 		var width:GoInt = 0;
-		if (c == stdgo.unicode.utf8.Utf8.runeError) {
+		if (c == runeError) {
 			final __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(s.__slice__(i));
 			c = __tmp__._0;
 			width = __tmp__._1;
@@ -195,7 +200,7 @@ function map(mapping:GoRune->GoRune, s:GoString):GoString {
 		final c = s[i];
 		final r = mapping(c);
 		if (r >= 0) {
-			if (r < stdgo.unicode.utf8.Utf8.runeSelf) {
+			if (r < runeSelf) {
 				b += r;
 			} else {
 				b += r;

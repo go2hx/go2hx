@@ -75,7 +75,7 @@ function readAtLeast(_r:Reader, _buf:Slice<GoByte>, _min:GoInt):{var _0:GoInt; v
 	if (_buf.length < _min) {
 		return {_0: ((0 : GoInt)), _1: errShortBuffer};
 	};
-	while ((_n < _min) && (Go.toInterface(_err) == Go.toInterface(null))) {
+	while ((_n < _min) && (_err == null)) {
 		var _nn:GoInt = ((0 : GoInt));
 		{
 			var __tmp__ = _r.read(_buf.__slice__(_n));
@@ -94,5 +94,5 @@ function readAtLeast(_r:Reader, _buf:Slice<GoByte>, _min:GoInt):{var _0:GoInt; v
 
 function readFull(_r:Reader, _buf:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 	var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-	return readAtLeast(Go.copyValue(_r), _buf, _buf.length);
+	return readAtLeast(_r, _buf, _buf.length);
 }

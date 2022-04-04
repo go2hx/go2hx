@@ -1,18 +1,18 @@
 package stdgo.image.png;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef EncoderBufferPool = StructType & {
 	public function get():Pointer<EncoderBuffer>;
-	public function put(arg0:Pointer<EncoderBuffer>):Void;
+	public function put(_0:Pointer<EncoderBuffer>):Void;
 };
 
 typedef T_opaquer = StructType & {

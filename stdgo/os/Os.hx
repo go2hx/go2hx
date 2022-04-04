@@ -8,7 +8,7 @@ import sys.FileStat;
 import sys.FileSystem; // TODO: interp error [0] Instance prototype not found: haxe.macro.Error
 
 var args = new Slice<GoString>(...([(#if interp "" #else Sys.programPath() #end : GoString)].concat([for (arg in Sys.args()) (arg : GoString)])));
-var stderr = Go.pointer(new OutputWriter(Sys.stderr()));
+var stderr = new OutputWriter(Sys.stderr());
 
 var stdin:Dynamic = {
 	value: {
@@ -16,7 +16,7 @@ var stdin:Dynamic = {
 	}
 };
 
-var stdout = Go.pointer(new OutputWriter(Sys.stdout()));
+var stdout = new OutputWriter(Sys.stdout());
 
 class OutputWriter {
 	public function __underlying__():AnyInterface

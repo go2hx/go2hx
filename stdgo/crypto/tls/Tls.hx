@@ -1,14 +1,14 @@
 package stdgo.crypto.tls;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_aead = StructType & {
 	> stdgo.crypto.cipher.Cipher.AEAD,
@@ -27,25 +27,25 @@ typedef ClientSessionCache = StructType & {
 
 typedef T_handshakeMessage = StructType & {
 	public function _marshal():Slice<GoByte>;
-	public function _unmarshal(arg0:Slice<GoByte>):Bool;
+	public function _unmarshal(_0:Slice<GoByte>):Bool;
 };
 
 typedef T_cbcMode = StructType & {
 	> stdgo.crypto.cipher.Cipher.BlockMode,
-	public function setIV(arg0:Slice<GoByte>):Void;
+	public function setIV(_0:Slice<GoByte>):Void;
 };
 
 typedef T_keyAgreement = StructType & {
-	public function _generateServerKeyExchange(arg0:Pointer<Config>, arg1:Pointer<Certificate>, arg2:Pointer<T_clientHelloMsg>,
+	public function _generateServerKeyExchange(_0:Pointer<Config>, _1:Pointer<Certificate>, arg2:Pointer<T_clientHelloMsg>,
 		arg3:Pointer<T_serverHelloMsg>):{
 		var _0:Pointer<T_serverKeyExchangeMsg>;
 		var _1:Error;
 	};
-	public function _processClientKeyExchange(arg0:Pointer<Config>, arg1:Pointer<Certificate>, arg2:Pointer<T_clientKeyExchangeMsg>,
+	public function _processClientKeyExchange(_0:Pointer<Config>, _1:Pointer<Certificate>, arg2:Pointer<T_clientKeyExchangeMsg>,
 		arg3:GoUInt16):{var _0:Slice<GoByte>; var _1:Error;};
-	public function _processServerKeyExchange(arg0:Pointer<Config>, arg1:Pointer<T_clientHelloMsg>, arg2:Pointer<T_serverHelloMsg>,
+	public function _processServerKeyExchange(_0:Pointer<Config>, _1:Pointer<T_clientHelloMsg>, arg2:Pointer<T_serverHelloMsg>,
 		arg3:Pointer<stdgo.crypto.x509.X509.Certificate>, arg4:Pointer<T_serverKeyExchangeMsg>):Error;
-	public function _generateClientKeyExchange(arg0:Pointer<Config>, arg1:Pointer<T_clientHelloMsg>,
+	public function _generateClientKeyExchange(_0:Pointer<Config>, _1:Pointer<T_clientHelloMsg>,
 		arg2:Pointer<stdgo.crypto.x509.X509.Certificate>):{var _0:Slice<GoByte>; var _1:Pointer<T_clientKeyExchangeMsg>; var _2:Error;};
 };
 

@@ -16,7 +16,7 @@ typedef FS = StructType & {
 
 typedef File = StructType & {
 	public function stat():{var _0:FileInfo; var _1:Error;};
-	public function read(arg0:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
+	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;};
 	public function close():Error;
 };
 

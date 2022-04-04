@@ -266,7 +266,7 @@ function pow(_x:GoComplex128, _y:GoComplex128):GoComplex128 {
         } else if (_r > ((0 : GoFloat64))) {
             return ((0 : GoComplex128));
         };
-        throw ((("not reached" : GoString)));
+        throw Go.toInterface(((("not reached" : GoString))));
     };
     var _modulus:GoFloat64 = abs(_x);
     if (_modulus == ((0 : GoFloat64))) {
@@ -511,7 +511,7 @@ function _reducePi(_x:GoFloat64):GoFloat64 {
     var _exp:GoInt = (((((_ix >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt)) - ((1023 : GoInt))) - ((52 : GoInt));
     _ix = _ix & ((("4503599627370495" : GoUInt64)));
     _ix = _ix | ((("4503599627370496" : GoUInt64)));
-    var _mPi:GoArray<GoUInt64> = new GoArray<GoUInt64>(
+    var _mPi:GoArray<GoUInt64> = ((new GoArray<GoUInt64>(
 ((0 : GoUInt64)),
 (("5871781006564002452" : GoUInt64)),
 (("18308165927316385504" : GoUInt64)),
@@ -531,11 +531,11 @@ function _reducePi(_x:GoFloat64):GoFloat64 {
 (("13444332734028904637" : GoUInt64)),
 (("11422145685100251509" : GoUInt64)),
 (("3890458997777936004" : GoUInt64)),
-(("3098925296816862677" : GoUInt64))).copy();
+(("3098925296816862677" : GoUInt64))) : GoArray<GoUInt64>));
     var _digit:GoUInt = (((_exp + ((64 : GoInt))) : GoUInt)) / ((64 : GoUInt)), _bitshift:GoUInt = (((_exp + ((64 : GoInt))) : GoUInt)) % ((64 : GoUInt));
-    var _z0:GoUInt64 = (_mPi[_digit] << _bitshift) | (_mPi[_digit + ((1 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
-    var _z1:GoUInt64 = (_mPi[_digit + ((1 : GoUInt))] << _bitshift) | (_mPi[_digit + ((2 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
-    var _z2:GoUInt64 = (_mPi[_digit + ((2 : GoUInt))] << _bitshift) | (_mPi[_digit + ((3 : GoUInt))] >> (((64 : GoUInt)) - _bitshift));
+    var _z0:GoUInt64 = ((_mPi != null ? _mPi[_digit] : ((0 : GoUInt64))) << _bitshift) | ((_mPi != null ? _mPi[_digit + ((1 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
+    var _z1:GoUInt64 = ((_mPi != null ? _mPi[_digit + ((1 : GoUInt))] : ((0 : GoUInt64))) << _bitshift) | ((_mPi != null ? _mPi[_digit + ((2 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
+    var _z2:GoUInt64 = ((_mPi != null ? _mPi[_digit + ((2 : GoUInt))] : ((0 : GoUInt64))) << _bitshift) | ((_mPi != null ? _mPi[_digit + ((3 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
     var __tmp__ = stdgo.math.bits.Bits.mul64(_z2, _ix), _z2hi:GoUInt64 = __tmp__._0, _:GoUInt64 = __tmp__._1;
     var __tmp__ = stdgo.math.bits.Bits.mul64(_z1, _ix), _z1hi:GoUInt64 = __tmp__._0, _z1lo:GoUInt64 = __tmp__._1;
     var _z0lo:GoUInt64 = _z0 * _ix;

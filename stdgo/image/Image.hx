@@ -1,18 +1,18 @@
 package stdgo.image;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_reader = StructType & {
 	> stdgo.io.Io.Reader,
-	public function peek(arg0:GoInt):{var _0:Slice<GoByte>; var _1:Error;};
+	public function peek(_0:GoInt):{var _0:Slice<GoByte>; var _1:Error;};
 };
 
 typedef Image = StructType & {
@@ -1768,7 +1768,7 @@ typedef PalettedImage = StructType & {
 			new Point(((1e+09 : GoInt)), ((1e+09 : GoInt))).__copy__()).__copy__();
 	}
 
-	public function convert(arg0:stdgo.image.color.Color.Color):stdgo.image.color.Color.Color {
+	public function convert(_0:stdgo.image.color.Color.Color):stdgo.image.color.Color.Color {
 		var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
 		return _c.value.c;
 	}
@@ -2969,8 +2969,8 @@ class Uniform_extension_fields {
 	public function colorModel(__tmp__):stdgo.image.color.Color.Model
 		return __tmp__.colorModel();
 
-	public function convert(__tmp__, arg0:stdgo.image.color.Color.Color):stdgo.image.color.Color.Color
-		return __tmp__.convert(arg0);
+	public function convert(__tmp__, _0:stdgo.image.color.Color.Color):stdgo.image.color.Color.Color
+		return __tmp__.convert(_0);
 
 	public function bounds(__tmp__):Rectangle
 		return __tmp__.bounds();

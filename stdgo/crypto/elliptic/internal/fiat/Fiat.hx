@@ -1,14 +1,14 @@
 package stdgo.crypto.elliptic.internal.fiat;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 @:structInit class P521Element {
 	public function invert(_t:Pointer<P521Element>):Pointer<P521Element> {
@@ -244,19 +244,19 @@ function _p521SubborrowxU64(_x:GoUInt64, _y:GoUInt64, _carry:T_p521Uint1):{var _
 	// p521AddcarryxU58 is an addition with carry.
 	//
 	// Postconditions:
-	//   out1 = (arg1 + arg2 + arg3) mod 2^58
-	//   out2 = ⌊(arg1 + arg2 + arg3) / 2^58⌋
+	//   out1 = (_1 + arg2 + arg3) mod 2^58
+	//   out2 = ⌊(_1 + arg2 + arg3) / 2^58⌋
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [0x0 ~> 0x3ffffffffffffff]
 	//   arg3: [0x0 ~> 0x3ffffffffffffff]
 	// Output Bounds:
 	//   out1: [0x0 ~> 0x3ffffffffffffff]
 	//   out2: [0x0 ~> 0x1]
 **/
-function _p521AddcarryxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, _arg1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
-	var _x1:GoUInt64 = ((_arg1.__t__ + _arg2) + _arg3);
+function _p521AddcarryxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, __1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
+	var _x1:GoUInt64 = ((__1.__t__ + _arg2) + _arg3);
 	var _x2:GoUInt64 = (_x1 & (("288230376151711743" : GoUInt64)));
 	var _x3:T_p521Uint1 = new T_p521Uint1(((_x1 >> ((58 : GoUnTypedInt)))));
 	_out1.value = _x2;
@@ -267,19 +267,19 @@ function _p521AddcarryxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, 
 	// p521SubborrowxU58 is a subtraction with borrow.
 	//
 	// Postconditions:
-	//   out1 = (-arg1 + arg2 + -arg3) mod 2^58
-	//   out2 = -⌊(-arg1 + arg2 + -arg3) / 2^58⌋
+	//   out1 = (-_1 + arg2 + -arg3) mod 2^58
+	//   out2 = -⌊(-_1 + arg2 + -arg3) / 2^58⌋
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [0x0 ~> 0x3ffffffffffffff]
 	//   arg3: [0x0 ~> 0x3ffffffffffffff]
 	// Output Bounds:
 	//   out1: [0x0 ~> 0x3ffffffffffffff]
 	//   out2: [0x0 ~> 0x1]
 **/
-function _p521SubborrowxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, _arg1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
-	var _x1:GoInt64 = ((((_arg2 : GoInt64)) - _arg1.__t__) - ((_arg3 : GoInt64)));
+function _p521SubborrowxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, __1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
+	var _x1:GoInt64 = ((((_arg2 : GoInt64)) - __1.__t__) - ((_arg3 : GoInt64)));
 	var _x2:T_p521Int1 = new T_p521Int1(((_x1 >> ((58 : GoUnTypedInt)))));
 	var _x3:GoUInt64 = (((_x1 : GoUInt64)) & (("288230376151711743" : GoUInt64)));
 	_out1.value = _x3;
@@ -290,19 +290,19 @@ function _p521SubborrowxU58(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>,
 	// p521AddcarryxU57 is an addition with carry.
 	//
 	// Postconditions:
-	//   out1 = (arg1 + arg2 + arg3) mod 2^57
-	//   out2 = ⌊(arg1 + arg2 + arg3) / 2^57⌋
+	//   out1 = (_1 + arg2 + arg3) mod 2^57
+	//   out2 = ⌊(_1 + arg2 + arg3) / 2^57⌋
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [0x0 ~> 0x1ffffffffffffff]
 	//   arg3: [0x0 ~> 0x1ffffffffffffff]
 	// Output Bounds:
 	//   out1: [0x0 ~> 0x1ffffffffffffff]
 	//   out2: [0x0 ~> 0x1]
 **/
-function _p521AddcarryxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, _arg1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
-	var _x1:GoUInt64 = ((_arg1.__t__ + _arg2) + _arg3);
+function _p521AddcarryxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, __1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
+	var _x1:GoUInt64 = ((__1.__t__ + _arg2) + _arg3);
 	var _x2:GoUInt64 = (_x1 & (("144115188075855871" : GoUInt64)));
 	var _x3:T_p521Uint1 = new T_p521Uint1(((_x1 >> ((57 : GoUnTypedInt)))));
 	_out1.value = _x2;
@@ -313,19 +313,19 @@ function _p521AddcarryxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, 
 	// p521SubborrowxU57 is a subtraction with borrow.
 	//
 	// Postconditions:
-	//   out1 = (-arg1 + arg2 + -arg3) mod 2^57
-	//   out2 = -⌊(-arg1 + arg2 + -arg3) / 2^57⌋
+	//   out1 = (-_1 + arg2 + -arg3) mod 2^57
+	//   out2 = -⌊(-_1 + arg2 + -arg3) / 2^57⌋
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [0x0 ~> 0x1ffffffffffffff]
 	//   arg3: [0x0 ~> 0x1ffffffffffffff]
 	// Output Bounds:
 	//   out1: [0x0 ~> 0x1ffffffffffffff]
 	//   out2: [0x0 ~> 0x1]
 **/
-function _p521SubborrowxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, _arg1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
-	var _x1:GoInt64 = ((((_arg2 : GoInt64)) - _arg1.__t__) - ((_arg3 : GoInt64)));
+function _p521SubborrowxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>, __1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
+	var _x1:GoInt64 = ((((_arg2 : GoInt64)) - __1.__t__) - ((_arg3 : GoInt64)));
 	var _x2:T_p521Int1 = new T_p521Int1(((_x1 >> ((57 : GoUnTypedInt)))));
 	var _x3:GoUInt64 = (((_x1 : GoUInt64)) & (("144115188075855871" : GoUInt64)));
 	_out1.value = _x3;
@@ -336,17 +336,17 @@ function _p521SubborrowxU57(_out1:Pointer<GoUInt64>, _out2:Pointer<T_p521Uint1>,
 	// p521CmovznzU64 is a single-word conditional move.
 	//
 	// Postconditions:
-	//   out1 = (if arg1 = 0 then arg2 else arg3)
+	//   out1 = (if _1 = 0 then arg2 else arg3)
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [0x0 ~> 0xffffffffffffffff]
 	//   arg3: [0x0 ~> 0xffffffffffffffff]
 	// Output Bounds:
 	//   out1: [0x0 ~> 0xffffffffffffffff]
 **/
-function _p521CmovznzU64(_out1:Pointer<GoUInt64>, _arg1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
-	var _x1:GoUInt64 = (_arg1.__t__ * (("18446744073709551615" : GoUInt64)));
+function _p521CmovznzU64(_out1:Pointer<GoUInt64>, __1:T_p521Uint1, _arg2:GoUInt64, _arg3:GoUInt64):Void {
+	var _x1:GoUInt64 = (__1.__t__ * (("18446744073709551615" : GoUInt64)));
 	var _x2:GoUInt64 = ((_x1 & _arg3) | ((-1 ^ _x1) & _arg2));
 	_out1.value = _x2;
 }
@@ -355,579 +355,579 @@ function _p521CmovznzU64(_out1:Pointer<GoUInt64>, _arg1:T_p521Uint1, _arg2:GoUIn
 	// p521CarryMul multiplies two field elements and reduces the result.
 	//
 	// Postconditions:
-	//   eval out1 mod m = (eval arg1 * eval arg2) mod m
+	//   eval out1 mod m = (eval _1 * eval arg2) mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
+	//   _1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 	//   arg2: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 **/
-function _p521CarryMul(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
+function _p521CarryMul(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
 	var _x1:GoUInt64 = ((0 : GoUInt64));
 	var _x2:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x2 = __tmp__._0;
 		_x1 = __tmp__._1;
 	};
 	var _x3:GoUInt64 = ((0 : GoUInt64));
 	var _x4:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x4 = __tmp__._0;
 		_x3 = __tmp__._1;
 	};
 	var _x5:GoUInt64 = ((0 : GoUInt64));
 	var _x6:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x6 = __tmp__._0;
 		_x5 = __tmp__._1;
 	};
 	var _x7:GoUInt64 = ((0 : GoUInt64));
 	var _x8:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
 		_x8 = __tmp__._0;
 		_x7 = __tmp__._1;
 	};
 	var _x9:GoUInt64 = ((0 : GoUInt64));
 	var _x10:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
 		_x10 = __tmp__._0;
 		_x9 = __tmp__._1;
 	};
 	var _x11:GoUInt64 = ((0 : GoUInt64));
 	var _x12:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
 		_x12 = __tmp__._0;
 		_x11 = __tmp__._1;
 	};
 	var _x13:GoUInt64 = ((0 : GoUInt64));
 	var _x14:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((2 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((2 : GoInt))] * ((2 : GoUInt64))));
 		_x14 = __tmp__._0;
 		_x13 = __tmp__._1;
 	};
 	var _x15:GoUInt64 = ((0 : GoUInt64));
 	var _x16:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_arg2.value[((1 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_arg2.value[((1 : GoInt))] * ((2 : GoUInt64))));
 		_x16 = __tmp__._0;
 		_x15 = __tmp__._1;
 	};
 	var _x17:GoUInt64 = ((0 : GoUInt64));
 	var _x18:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x18 = __tmp__._0;
 		_x17 = __tmp__._1;
 	};
 	var _x19:GoUInt64 = ((0 : GoUInt64));
 	var _x20:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x20 = __tmp__._0;
 		_x19 = __tmp__._1;
 	};
 	var _x21:GoUInt64 = ((0 : GoUInt64));
 	var _x22:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x22 = __tmp__._0;
 		_x21 = __tmp__._1;
 	};
 	var _x23:GoUInt64 = ((0 : GoUInt64));
 	var _x24:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
 		_x24 = __tmp__._0;
 		_x23 = __tmp__._1;
 	};
 	var _x25:GoUInt64 = ((0 : GoUInt64));
 	var _x26:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
 		_x26 = __tmp__._0;
 		_x25 = __tmp__._1;
 	};
 	var _x27:GoUInt64 = ((0 : GoUInt64));
 	var _x28:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
 		_x28 = __tmp__._0;
 		_x27 = __tmp__._1;
 	};
 	var _x29:GoUInt64 = ((0 : GoUInt64));
 	var _x30:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_arg2.value[((2 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_arg2.value[((2 : GoInt))] * ((2 : GoUInt64))));
 		_x30 = __tmp__._0;
 		_x29 = __tmp__._1;
 	};
 	var _x31:GoUInt64 = ((0 : GoUInt64));
 	var _x32:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x32 = __tmp__._0;
 		_x31 = __tmp__._1;
 	};
 	var _x33:GoUInt64 = ((0 : GoUInt64));
 	var _x34:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x34 = __tmp__._0;
 		_x33 = __tmp__._1;
 	};
 	var _x35:GoUInt64 = ((0 : GoUInt64));
 	var _x36:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x36 = __tmp__._0;
 		_x35 = __tmp__._1;
 	};
 	var _x37:GoUInt64 = ((0 : GoUInt64));
 	var _x38:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
 		_x38 = __tmp__._0;
 		_x37 = __tmp__._1;
 	};
 	var _x39:GoUInt64 = ((0 : GoUInt64));
 	var _x40:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
 		_x40 = __tmp__._0;
 		_x39 = __tmp__._1;
 	};
 	var _x41:GoUInt64 = ((0 : GoUInt64));
 	var _x42:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_arg2.value[((3 : GoInt))] * ((2 : GoUInt64))));
 		_x42 = __tmp__._0;
 		_x41 = __tmp__._1;
 	};
 	var _x43:GoUInt64 = ((0 : GoUInt64));
 	var _x44:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x44 = __tmp__._0;
 		_x43 = __tmp__._1;
 	};
 	var _x45:GoUInt64 = ((0 : GoUInt64));
 	var _x46:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x46 = __tmp__._0;
 		_x45 = __tmp__._1;
 	};
 	var _x47:GoUInt64 = ((0 : GoUInt64));
 	var _x48:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x48 = __tmp__._0;
 		_x47 = __tmp__._1;
 	};
 	var _x49:GoUInt64 = ((0 : GoUInt64));
 	var _x50:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
 		_x50 = __tmp__._0;
 		_x49 = __tmp__._1;
 	};
 	var _x51:GoUInt64 = ((0 : GoUInt64));
 	var _x52:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_arg2.value[((4 : GoInt))] * ((2 : GoUInt64))));
 		_x52 = __tmp__._0;
 		_x51 = __tmp__._1;
 	};
 	var _x53:GoUInt64 = ((0 : GoUInt64));
 	var _x54:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x54 = __tmp__._0;
 		_x53 = __tmp__._1;
 	};
 	var _x55:GoUInt64 = ((0 : GoUInt64));
 	var _x56:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x56 = __tmp__._0;
 		_x55 = __tmp__._1;
 	};
 	var _x57:GoUInt64 = ((0 : GoUInt64));
 	var _x58:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x58 = __tmp__._0;
 		_x57 = __tmp__._1;
 	};
 	var _x59:GoUInt64 = ((0 : GoUInt64));
 	var _x60:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_arg2.value[((5 : GoInt))] * ((2 : GoUInt64))));
 		_x60 = __tmp__._0;
 		_x59 = __tmp__._1;
 	};
 	var _x61:GoUInt64 = ((0 : GoUInt64));
 	var _x62:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x62 = __tmp__._0;
 		_x61 = __tmp__._1;
 	};
 	var _x63:GoUInt64 = ((0 : GoUInt64));
 	var _x64:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x64 = __tmp__._0;
 		_x63 = __tmp__._1;
 	};
 	var _x65:GoUInt64 = ((0 : GoUInt64));
 	var _x66:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_arg2.value[((6 : GoInt))] * ((2 : GoUInt64))));
 		_x66 = __tmp__._0;
 		_x65 = __tmp__._1;
 	};
 	var _x67:GoUInt64 = ((0 : GoUInt64));
 	var _x68:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x68 = __tmp__._0;
 		_x67 = __tmp__._1;
 	};
 	var _x69:GoUInt64 = ((0 : GoUInt64));
 	var _x70:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], (_arg2.value[((7 : GoInt))] * ((2 : GoUInt64))));
 		_x70 = __tmp__._0;
 		_x69 = __tmp__._1;
 	};
 	var _x71:GoUInt64 = ((0 : GoUInt64));
 	var _x72:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], (_arg2.value[((8 : GoInt))] * ((2 : GoUInt64))));
 		_x72 = __tmp__._0;
 		_x71 = __tmp__._1;
 	};
 	var _x73:GoUInt64 = ((0 : GoUInt64));
 	var _x74:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x74 = __tmp__._0;
 		_x73 = __tmp__._1;
 	};
 	var _x75:GoUInt64 = ((0 : GoUInt64));
 	var _x76:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x76 = __tmp__._0;
 		_x75 = __tmp__._1;
 	};
 	var _x77:GoUInt64 = ((0 : GoUInt64));
 	var _x78:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x78 = __tmp__._0;
 		_x77 = __tmp__._1;
 	};
 	var _x79:GoUInt64 = ((0 : GoUInt64));
 	var _x80:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x80 = __tmp__._0;
 		_x79 = __tmp__._1;
 	};
 	var _x81:GoUInt64 = ((0 : GoUInt64));
 	var _x82:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x82 = __tmp__._0;
 		_x81 = __tmp__._1;
 	};
 	var _x83:GoUInt64 = ((0 : GoUInt64));
 	var _x84:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x84 = __tmp__._0;
 		_x83 = __tmp__._1;
 	};
 	var _x85:GoUInt64 = ((0 : GoUInt64));
 	var _x86:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x86 = __tmp__._0;
 		_x85 = __tmp__._1;
 	};
 	var _x87:GoUInt64 = ((0 : GoUInt64));
 	var _x88:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x88 = __tmp__._0;
 		_x87 = __tmp__._1;
 	};
 	var _x89:GoUInt64 = ((0 : GoUInt64));
 	var _x90:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x90 = __tmp__._0;
 		_x89 = __tmp__._1;
 	};
 	var _x91:GoUInt64 = ((0 : GoUInt64));
 	var _x92:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x92 = __tmp__._0;
 		_x91 = __tmp__._1;
 	};
 	var _x93:GoUInt64 = ((0 : GoUInt64));
 	var _x94:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg2.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], _arg2.value[((4 : GoInt))]);
 		_x94 = __tmp__._0;
 		_x93 = __tmp__._1;
 	};
 	var _x95:GoUInt64 = ((0 : GoUInt64));
 	var _x96:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x96 = __tmp__._0;
 		_x95 = __tmp__._1;
 	};
 	var _x97:GoUInt64 = ((0 : GoUInt64));
 	var _x98:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x98 = __tmp__._0;
 		_x97 = __tmp__._1;
 	};
 	var _x99:GoUInt64 = ((0 : GoUInt64));
 	var _x100:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x100 = __tmp__._0;
 		_x99 = __tmp__._1;
 	};
 	var _x101:GoUInt64 = ((0 : GoUInt64));
 	var _x102:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x102 = __tmp__._0;
 		_x101 = __tmp__._1;
 	};
 	var _x103:GoUInt64 = ((0 : GoUInt64));
 	var _x104:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((5 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((5 : GoInt))]);
 		_x104 = __tmp__._0;
 		_x103 = __tmp__._1;
 	};
 	var _x105:GoUInt64 = ((0 : GoUInt64));
 	var _x106:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((4 : GoInt))]);
 		_x106 = __tmp__._0;
 		_x105 = __tmp__._1;
 	};
 	var _x107:GoUInt64 = ((0 : GoUInt64));
 	var _x108:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x108 = __tmp__._0;
 		_x107 = __tmp__._1;
 	};
 	var _x109:GoUInt64 = ((0 : GoUInt64));
 	var _x110:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x110 = __tmp__._0;
 		_x109 = __tmp__._1;
 	};
 	var _x111:GoUInt64 = ((0 : GoUInt64));
 	var _x112:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x112 = __tmp__._0;
 		_x111 = __tmp__._1;
 	};
 	var _x113:GoUInt64 = ((0 : GoUInt64));
 	var _x114:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x114 = __tmp__._0;
 		_x113 = __tmp__._1;
 	};
 	var _x115:GoUInt64 = ((0 : GoUInt64));
 	var _x116:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((6 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((6 : GoInt))]);
 		_x116 = __tmp__._0;
 		_x115 = __tmp__._1;
 	};
 	var _x117:GoUInt64 = ((0 : GoUInt64));
 	var _x118:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((5 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((5 : GoInt))]);
 		_x118 = __tmp__._0;
 		_x117 = __tmp__._1;
 	};
 	var _x119:GoUInt64 = ((0 : GoUInt64));
 	var _x120:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((4 : GoInt))]);
 		_x120 = __tmp__._0;
 		_x119 = __tmp__._1;
 	};
 	var _x121:GoUInt64 = ((0 : GoUInt64));
 	var _x122:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x122 = __tmp__._0;
 		_x121 = __tmp__._1;
 	};
 	var _x123:GoUInt64 = ((0 : GoUInt64));
 	var _x124:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x124 = __tmp__._0;
 		_x123 = __tmp__._1;
 	};
 	var _x125:GoUInt64 = ((0 : GoUInt64));
 	var _x126:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x126 = __tmp__._0;
 		_x125 = __tmp__._1;
 	};
 	var _x127:GoUInt64 = ((0 : GoUInt64));
 	var _x128:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x128 = __tmp__._0;
 		_x127 = __tmp__._1;
 	};
 	var _x129:GoUInt64 = ((0 : GoUInt64));
 	var _x130:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((7 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((7 : GoInt))]);
 		_x130 = __tmp__._0;
 		_x129 = __tmp__._1;
 	};
 	var _x131:GoUInt64 = ((0 : GoUInt64));
 	var _x132:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((6 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((6 : GoInt))]);
 		_x132 = __tmp__._0;
 		_x131 = __tmp__._1;
 	};
 	var _x133:GoUInt64 = ((0 : GoUInt64));
 	var _x134:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((5 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((5 : GoInt))]);
 		_x134 = __tmp__._0;
 		_x133 = __tmp__._1;
 	};
 	var _x135:GoUInt64 = ((0 : GoUInt64));
 	var _x136:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((4 : GoInt))]);
 		_x136 = __tmp__._0;
 		_x135 = __tmp__._1;
 	};
 	var _x137:GoUInt64 = ((0 : GoUInt64));
 	var _x138:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x138 = __tmp__._0;
 		_x137 = __tmp__._1;
 	};
 	var _x139:GoUInt64 = ((0 : GoUInt64));
 	var _x140:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x140 = __tmp__._0;
 		_x139 = __tmp__._1;
 	};
 	var _x141:GoUInt64 = ((0 : GoUInt64));
 	var _x142:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x142 = __tmp__._0;
 		_x141 = __tmp__._1;
 	};
 	var _x143:GoUInt64 = ((0 : GoUInt64));
 	var _x144:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x144 = __tmp__._0;
 		_x143 = __tmp__._1;
 	};
 	var _x145:GoUInt64 = ((0 : GoUInt64));
 	var _x146:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((8 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((8 : GoInt))]);
 		_x146 = __tmp__._0;
 		_x145 = __tmp__._1;
 	};
 	var _x147:GoUInt64 = ((0 : GoUInt64));
 	var _x148:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((7 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((7 : GoInt))]);
 		_x148 = __tmp__._0;
 		_x147 = __tmp__._1;
 	};
 	var _x149:GoUInt64 = ((0 : GoUInt64));
 	var _x150:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((6 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((6 : GoInt))]);
 		_x150 = __tmp__._0;
 		_x149 = __tmp__._1;
 	};
 	var _x151:GoUInt64 = ((0 : GoUInt64));
 	var _x152:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((5 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((5 : GoInt))]);
 		_x152 = __tmp__._0;
 		_x151 = __tmp__._1;
 	};
 	var _x153:GoUInt64 = ((0 : GoUInt64));
 	var _x154:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((4 : GoInt))]);
 		_x154 = __tmp__._0;
 		_x153 = __tmp__._1;
 	};
 	var _x155:GoUInt64 = ((0 : GoUInt64));
 	var _x156:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((3 : GoInt))]);
 		_x156 = __tmp__._0;
 		_x155 = __tmp__._1;
 	};
 	var _x157:GoUInt64 = ((0 : GoUInt64));
 	var _x158:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((2 : GoInt))]);
 		_x158 = __tmp__._0;
 		_x157 = __tmp__._1;
 	};
 	var _x159:GoUInt64 = ((0 : GoUInt64));
 	var _x160:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((1 : GoInt))]);
 		_x160 = __tmp__._0;
 		_x159 = __tmp__._1;
 	};
 	var _x161:GoUInt64 = ((0 : GoUInt64));
 	var _x162:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg2.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _arg2.value[((0 : GoInt))]);
 		_x162 = __tmp__._0;
 		_x161 = __tmp__._1;
 	};
@@ -1947,342 +1947,342 @@ function _p521CarryMul(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<G
 	// p521CarrySquare squares a field element and reduces the result.
 	//
 	// Postconditions:
-	//   eval out1 mod m = (eval arg1 * eval arg1) mod m
+	//   eval out1 mod m = (eval _1 * eval _1) mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
+	//   _1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 **/
-function _p521CarrySquare(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt64>>):Void {
-	var _x1:GoUInt64 = _arg1.value[((8 : GoInt))];
+function _p521CarrySquare(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt64>>):Void {
+	var _x1:GoUInt64 = __1.value[((8 : GoInt))];
 	var _x2:GoUInt64 = (_x1 * ((2 : GoUInt64)));
-	var _x3:GoUInt64 = (_arg1.value[((8 : GoInt))] * ((2 : GoUInt64)));
-	var _x4:GoUInt64 = _arg1.value[((7 : GoInt))];
+	var _x3:GoUInt64 = (__1.value[((8 : GoInt))] * ((2 : GoUInt64)));
+	var _x4:GoUInt64 = __1.value[((7 : GoInt))];
 	var _x5:GoUInt64 = (_x4 * ((2 : GoUInt64)));
-	var _x6:GoUInt64 = (_arg1.value[((7 : GoInt))] * ((2 : GoUInt64)));
-	var _x7:GoUInt64 = _arg1.value[((6 : GoInt))];
+	var _x6:GoUInt64 = (__1.value[((7 : GoInt))] * ((2 : GoUInt64)));
+	var _x7:GoUInt64 = __1.value[((6 : GoInt))];
 	var _x8:GoUInt64 = (_x7 * ((2 : GoUInt64)));
-	var _x9:GoUInt64 = (_arg1.value[((6 : GoInt))] * ((2 : GoUInt64)));
-	var _x10:GoUInt64 = _arg1.value[((5 : GoInt))];
+	var _x9:GoUInt64 = (__1.value[((6 : GoInt))] * ((2 : GoUInt64)));
+	var _x10:GoUInt64 = __1.value[((5 : GoInt))];
 	var _x11:GoUInt64 = (_x10 * ((2 : GoUInt64)));
-	var _x12:GoUInt64 = (_arg1.value[((5 : GoInt))] * ((2 : GoUInt64)));
-	var _x13:GoUInt64 = (_arg1.value[((4 : GoInt))] * ((2 : GoUInt64)));
-	var _x14:GoUInt64 = (_arg1.value[((3 : GoInt))] * ((2 : GoUInt64)));
-	var _x15:GoUInt64 = (_arg1.value[((2 : GoInt))] * ((2 : GoUInt64)));
-	var _x16:GoUInt64 = (_arg1.value[((1 : GoInt))] * ((2 : GoUInt64)));
+	var _x12:GoUInt64 = (__1.value[((5 : GoInt))] * ((2 : GoUInt64)));
+	var _x13:GoUInt64 = (__1.value[((4 : GoInt))] * ((2 : GoUInt64)));
+	var _x14:GoUInt64 = (__1.value[((3 : GoInt))] * ((2 : GoUInt64)));
+	var _x15:GoUInt64 = (__1.value[((2 : GoInt))] * ((2 : GoUInt64)));
+	var _x16:GoUInt64 = (__1.value[((1 : GoInt))] * ((2 : GoUInt64)));
 	var _x17:GoUInt64 = ((0 : GoUInt64));
 	var _x18:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((8 : GoInt))], (_x1 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((8 : GoInt))], (_x1 * ((2 : GoUInt64))));
 		_x18 = __tmp__._0;
 		_x17 = __tmp__._1;
 	};
 	var _x19:GoUInt64 = ((0 : GoUInt64));
 	var _x20:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x20 = __tmp__._0;
 		_x19 = __tmp__._1;
 	};
 	var _x21:GoUInt64 = ((0 : GoUInt64));
 	var _x22:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((7 : GoInt))], (_x4 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((7 : GoInt))], (_x4 * ((2 : GoUInt64))));
 		_x22 = __tmp__._0;
 		_x21 = __tmp__._1;
 	};
 	var _x23:GoUInt64 = ((0 : GoUInt64));
 	var _x24:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x24 = __tmp__._0;
 		_x23 = __tmp__._1;
 	};
 	var _x25:GoUInt64 = ((0 : GoUInt64));
 	var _x26:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_x5 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_x5 * ((2 : GoUInt64))));
 		_x26 = __tmp__._0;
 		_x25 = __tmp__._1;
 	};
 	var _x27:GoUInt64 = ((0 : GoUInt64));
 	var _x28:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((6 : GoInt))], (_x7 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((6 : GoInt))], (_x7 * ((2 : GoUInt64))));
 		_x28 = __tmp__._0;
 		_x27 = __tmp__._1;
 	};
 	var _x29:GoUInt64 = ((0 : GoUInt64));
 	var _x30:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x30 = __tmp__._0;
 		_x29 = __tmp__._1;
 	};
 	var _x31:GoUInt64 = ((0 : GoUInt64));
 	var _x32:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_x5 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_x5 * ((2 : GoUInt64))));
 		_x32 = __tmp__._0;
 		_x31 = __tmp__._1;
 	};
 	var _x33:GoUInt64 = ((0 : GoUInt64));
 	var _x34:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_x8 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_x8 * ((2 : GoUInt64))));
 		_x34 = __tmp__._0;
 		_x33 = __tmp__._1;
 	};
 	var _x35:GoUInt64 = ((0 : GoUInt64));
 	var _x36:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((5 : GoInt))], (_x10 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((5 : GoInt))], (_x10 * ((2 : GoUInt64))));
 		_x36 = __tmp__._0;
 		_x35 = __tmp__._1;
 	};
 	var _x37:GoUInt64 = ((0 : GoUInt64));
 	var _x38:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x38 = __tmp__._0;
 		_x37 = __tmp__._1;
 	};
 	var _x39:GoUInt64 = ((0 : GoUInt64));
 	var _x40:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_x5 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_x5 * ((2 : GoUInt64))));
 		_x40 = __tmp__._0;
 		_x39 = __tmp__._1;
 	};
 	var _x41:GoUInt64 = ((0 : GoUInt64));
 	var _x42:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_x8 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_x8 * ((2 : GoUInt64))));
 		_x42 = __tmp__._0;
 		_x41 = __tmp__._1;
 	};
 	var _x43:GoUInt64 = ((0 : GoUInt64));
 	var _x44:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], (_x11 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], (_x11 * ((2 : GoUInt64))));
 		_x44 = __tmp__._0;
 		_x43 = __tmp__._1;
 	};
 	var _x45:GoUInt64 = ((0 : GoUInt64));
 	var _x46:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((4 : GoInt))], _arg1.value[((4 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((4 : GoInt))], __1.value[((4 : GoInt))]);
 		_x46 = __tmp__._0;
 		_x45 = __tmp__._1;
 	};
 	var _x47:GoUInt64 = ((0 : GoUInt64));
 	var _x48:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x48 = __tmp__._0;
 		_x47 = __tmp__._1;
 	};
 	var _x49:GoUInt64 = ((0 : GoUInt64));
 	var _x50:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_x5 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_x5 * ((2 : GoUInt64))));
 		_x50 = __tmp__._0;
 		_x49 = __tmp__._1;
 	};
 	var _x51:GoUInt64 = ((0 : GoUInt64));
 	var _x52:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], (_x8 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], (_x8 * ((2 : GoUInt64))));
 		_x52 = __tmp__._0;
 		_x51 = __tmp__._1;
 	};
 	var _x53:GoUInt64 = ((0 : GoUInt64));
 	var _x54:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _x12);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _x12);
 		_x54 = __tmp__._0;
 		_x53 = __tmp__._1;
 	};
 	var _x55:GoUInt64 = ((0 : GoUInt64));
 	var _x56:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _x13);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], _x13);
 		_x56 = __tmp__._0;
 		_x55 = __tmp__._1;
 	};
 	var _x57:GoUInt64 = ((0 : GoUInt64));
 	var _x58:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((3 : GoInt))], _arg1.value[((3 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((3 : GoInt))], __1.value[((3 : GoInt))]);
 		_x58 = __tmp__._0;
 		_x57 = __tmp__._1;
 	};
 	var _x59:GoUInt64 = ((0 : GoUInt64));
 	var _x60:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x60 = __tmp__._0;
 		_x59 = __tmp__._1;
 	};
 	var _x61:GoUInt64 = ((0 : GoUInt64));
 	var _x62:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], (_x5 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], (_x5 * ((2 : GoUInt64))));
 		_x62 = __tmp__._0;
 		_x61 = __tmp__._1;
 	};
 	var _x63:GoUInt64 = ((0 : GoUInt64));
 	var _x64:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _x9);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _x9);
 		_x64 = __tmp__._0;
 		_x63 = __tmp__._1;
 	};
 	var _x65:GoUInt64 = ((0 : GoUInt64));
 	var _x66:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _x12);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _x12);
 		_x66 = __tmp__._0;
 		_x65 = __tmp__._1;
 	};
 	var _x67:GoUInt64 = ((0 : GoUInt64));
 	var _x68:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _x13);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _x13);
 		_x68 = __tmp__._0;
 		_x67 = __tmp__._1;
 	};
 	var _x69:GoUInt64 = ((0 : GoUInt64));
 	var _x70:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _x14);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], _x14);
 		_x70 = __tmp__._0;
 		_x69 = __tmp__._1;
 	};
 	var _x71:GoUInt64 = ((0 : GoUInt64));
 	var _x72:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((2 : GoInt))], _arg1.value[((2 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((2 : GoInt))], __1.value[((2 : GoInt))]);
 		_x72 = __tmp__._0;
 		_x71 = __tmp__._1;
 	};
 	var _x73:GoUInt64 = ((0 : GoUInt64));
 	var _x74:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], (_x2 * ((2 : GoUInt64))));
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], (_x2 * ((2 : GoUInt64))));
 		_x74 = __tmp__._0;
 		_x73 = __tmp__._1;
 	};
 	var _x75:GoUInt64 = ((0 : GoUInt64));
 	var _x76:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x6);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x6);
 		_x76 = __tmp__._0;
 		_x75 = __tmp__._1;
 	};
 	var _x77:GoUInt64 = ((0 : GoUInt64));
 	var _x78:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x9);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x9);
 		_x78 = __tmp__._0;
 		_x77 = __tmp__._1;
 	};
 	var _x79:GoUInt64 = ((0 : GoUInt64));
 	var _x80:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x12);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x12);
 		_x80 = __tmp__._0;
 		_x79 = __tmp__._1;
 	};
 	var _x81:GoUInt64 = ((0 : GoUInt64));
 	var _x82:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x13);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x13);
 		_x82 = __tmp__._0;
 		_x81 = __tmp__._1;
 	};
 	var _x83:GoUInt64 = ((0 : GoUInt64));
 	var _x84:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x14);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x14);
 		_x84 = __tmp__._0;
 		_x83 = __tmp__._1;
 	};
 	var _x85:GoUInt64 = ((0 : GoUInt64));
 	var _x86:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _x15);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], _x15);
 		_x86 = __tmp__._0;
 		_x85 = __tmp__._1;
 	};
 	var _x87:GoUInt64 = ((0 : GoUInt64));
 	var _x88:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((1 : GoInt))], _arg1.value[((1 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((1 : GoInt))], __1.value[((1 : GoInt))]);
 		_x88 = __tmp__._0;
 		_x87 = __tmp__._1;
 	};
 	var _x89:GoUInt64 = ((0 : GoUInt64));
 	var _x90:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x3);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x3);
 		_x90 = __tmp__._0;
 		_x89 = __tmp__._1;
 	};
 	var _x91:GoUInt64 = ((0 : GoUInt64));
 	var _x92:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x6);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x6);
 		_x92 = __tmp__._0;
 		_x91 = __tmp__._1;
 	};
 	var _x93:GoUInt64 = ((0 : GoUInt64));
 	var _x94:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x9);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x9);
 		_x94 = __tmp__._0;
 		_x93 = __tmp__._1;
 	};
 	var _x95:GoUInt64 = ((0 : GoUInt64));
 	var _x96:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x12);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x12);
 		_x96 = __tmp__._0;
 		_x95 = __tmp__._1;
 	};
 	var _x97:GoUInt64 = ((0 : GoUInt64));
 	var _x98:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x13);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x13);
 		_x98 = __tmp__._0;
 		_x97 = __tmp__._1;
 	};
 	var _x99:GoUInt64 = ((0 : GoUInt64));
 	var _x100:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x14);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x14);
 		_x100 = __tmp__._0;
 		_x99 = __tmp__._1;
 	};
 	var _x101:GoUInt64 = ((0 : GoUInt64));
 	var _x102:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x15);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x15);
 		_x102 = __tmp__._0;
 		_x101 = __tmp__._1;
 	};
 	var _x103:GoUInt64 = ((0 : GoUInt64));
 	var _x104:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _x16);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], _x16);
 		_x104 = __tmp__._0;
 		_x103 = __tmp__._1;
 	};
 	var _x105:GoUInt64 = ((0 : GoUInt64));
 	var _x106:GoUInt64 = ((0 : GoUInt64));
 	{
-		var __tmp__ = stdgo.math.bits.Bits.mul64(_arg1.value[((0 : GoInt))], _arg1.value[((0 : GoInt))]);
+		var __tmp__ = stdgo.math.bits.Bits.mul64(__1.value[((0 : GoInt))], __1.value[((0 : GoInt))]);
 		_x106 = __tmp__._0;
 		_x105 = __tmp__._1;
 	};
@@ -2870,23 +2870,23 @@ function _p521CarrySquare(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArra
 	// p521Carry reduces a field element.
 	//
 	// Postconditions:
-	//   eval out1 mod m = eval arg1 mod m
+	//   eval out1 mod m = eval _1 mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
+	//   _1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 **/
-function _p521Carry(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt64>>):Void {
-	var _x1:GoUInt64 = _arg1.value[((0 : GoInt))];
-	var _x2:GoUInt64 = (((_x1 >> ((58 : GoUnTypedInt)))) + _arg1.value[((1 : GoInt))]);
-	var _x3:GoUInt64 = (((_x2 >> ((58 : GoUnTypedInt)))) + _arg1.value[((2 : GoInt))]);
-	var _x4:GoUInt64 = (((_x3 >> ((58 : GoUnTypedInt)))) + _arg1.value[((3 : GoInt))]);
-	var _x5:GoUInt64 = (((_x4 >> ((58 : GoUnTypedInt)))) + _arg1.value[((4 : GoInt))]);
-	var _x6:GoUInt64 = (((_x5 >> ((58 : GoUnTypedInt)))) + _arg1.value[((5 : GoInt))]);
-	var _x7:GoUInt64 = (((_x6 >> ((58 : GoUnTypedInt)))) + _arg1.value[((6 : GoInt))]);
-	var _x8:GoUInt64 = (((_x7 >> ((58 : GoUnTypedInt)))) + _arg1.value[((7 : GoInt))]);
-	var _x9:GoUInt64 = (((_x8 >> ((58 : GoUnTypedInt)))) + _arg1.value[((8 : GoInt))]);
+function _p521Carry(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt64>>):Void {
+	var _x1:GoUInt64 = __1.value[((0 : GoInt))];
+	var _x2:GoUInt64 = (((_x1 >> ((58 : GoUnTypedInt)))) + __1.value[((1 : GoInt))]);
+	var _x3:GoUInt64 = (((_x2 >> ((58 : GoUnTypedInt)))) + __1.value[((2 : GoInt))]);
+	var _x4:GoUInt64 = (((_x3 >> ((58 : GoUnTypedInt)))) + __1.value[((3 : GoInt))]);
+	var _x5:GoUInt64 = (((_x4 >> ((58 : GoUnTypedInt)))) + __1.value[((4 : GoInt))]);
+	var _x6:GoUInt64 = (((_x5 >> ((58 : GoUnTypedInt)))) + __1.value[((5 : GoInt))]);
+	var _x7:GoUInt64 = (((_x6 >> ((58 : GoUnTypedInt)))) + __1.value[((6 : GoInt))]);
+	var _x8:GoUInt64 = (((_x7 >> ((58 : GoUnTypedInt)))) + __1.value[((7 : GoInt))]);
+	var _x9:GoUInt64 = (((_x8 >> ((58 : GoUnTypedInt)))) + __1.value[((8 : GoInt))]);
 	var _x10:GoUInt64 = ((_x1 & (("288230376151711743" : GoUInt64))) + ((_x9 >> ((57 : GoUnTypedInt)))));
 	var _x11:GoUInt64 = (new T_p521Uint1(((_x10 >> ((58 : GoUnTypedInt))))).__t__ + (_x2 & (("288230376151711743" : GoUInt64))));
 	var _x12:GoUInt64 = (_x10 & (("288230376151711743" : GoUInt64)));
@@ -2913,24 +2913,24 @@ function _p521Carry(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUI
 	// p521Add adds two field elements.
 	//
 	// Postconditions:
-	//   eval out1 mod m = (eval arg1 + eval arg2) mod m
+	//   eval out1 mod m = (eval _1 + eval arg2) mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
+	//   _1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 	//   arg2: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 **/
-function _p521Add(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
-	var _x1:GoUInt64 = (_arg1.value[((0 : GoInt))] + _arg2.value[((0 : GoInt))]);
-	var _x2:GoUInt64 = (_arg1.value[((1 : GoInt))] + _arg2.value[((1 : GoInt))]);
-	var _x3:GoUInt64 = (_arg1.value[((2 : GoInt))] + _arg2.value[((2 : GoInt))]);
-	var _x4:GoUInt64 = (_arg1.value[((3 : GoInt))] + _arg2.value[((3 : GoInt))]);
-	var _x5:GoUInt64 = (_arg1.value[((4 : GoInt))] + _arg2.value[((4 : GoInt))]);
-	var _x6:GoUInt64 = (_arg1.value[((5 : GoInt))] + _arg2.value[((5 : GoInt))]);
-	var _x7:GoUInt64 = (_arg1.value[((6 : GoInt))] + _arg2.value[((6 : GoInt))]);
-	var _x8:GoUInt64 = (_arg1.value[((7 : GoInt))] + _arg2.value[((7 : GoInt))]);
-	var _x9:GoUInt64 = (_arg1.value[((8 : GoInt))] + _arg2.value[((8 : GoInt))]);
+function _p521Add(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
+	var _x1:GoUInt64 = (__1.value[((0 : GoInt))] + _arg2.value[((0 : GoInt))]);
+	var _x2:GoUInt64 = (__1.value[((1 : GoInt))] + _arg2.value[((1 : GoInt))]);
+	var _x3:GoUInt64 = (__1.value[((2 : GoInt))] + _arg2.value[((2 : GoInt))]);
+	var _x4:GoUInt64 = (__1.value[((3 : GoInt))] + _arg2.value[((3 : GoInt))]);
+	var _x5:GoUInt64 = (__1.value[((4 : GoInt))] + _arg2.value[((4 : GoInt))]);
+	var _x6:GoUInt64 = (__1.value[((5 : GoInt))] + _arg2.value[((5 : GoInt))]);
+	var _x7:GoUInt64 = (__1.value[((6 : GoInt))] + _arg2.value[((6 : GoInt))]);
+	var _x8:GoUInt64 = (__1.value[((7 : GoInt))] + _arg2.value[((7 : GoInt))]);
+	var _x9:GoUInt64 = (__1.value[((8 : GoInt))] + _arg2.value[((8 : GoInt))]);
 	_out1.value[((0 : GoInt))] = _x1;
 	_out1.value[((1 : GoInt))] = _x2;
 	_out1.value[((2 : GoInt))] = _x3;
@@ -2946,24 +2946,24 @@ function _p521Add(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt
 	// p521Sub subtracts two field elements.
 	//
 	// Postconditions:
-	//   eval out1 mod m = (eval arg1 - eval arg2) mod m
+	//   eval out1 mod m = (eval _1 - eval arg2) mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
+	//   _1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 	//   arg2: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0xc00000000000000], [0x0 ~> 0x600000000000000]]
 **/
-function _p521Sub(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
-	var _x1:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((0 : GoInt))]) - _arg2.value[((0 : GoInt))]);
-	var _x2:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((1 : GoInt))]) - _arg2.value[((1 : GoInt))]);
-	var _x3:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((2 : GoInt))]) - _arg2.value[((2 : GoInt))]);
-	var _x4:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((3 : GoInt))]) - _arg2.value[((3 : GoInt))]);
-	var _x5:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((4 : GoInt))]) - _arg2.value[((4 : GoInt))]);
-	var _x6:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((5 : GoInt))]) - _arg2.value[((5 : GoInt))]);
-	var _x7:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((6 : GoInt))]) - _arg2.value[((6 : GoInt))]);
-	var _x8:GoUInt64 = (((("576460752303423486" : GoUInt64)) + _arg1.value[((7 : GoInt))]) - _arg2.value[((7 : GoInt))]);
-	var _x9:GoUInt64 = (((("288230376151711742" : GoUInt64)) + _arg1.value[((8 : GoInt))]) - _arg2.value[((8 : GoInt))]);
+function _p521Sub(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt64>>, _arg2:Pointer<GoArray<GoUInt64>>):Void {
+	var _x1:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((0 : GoInt))]) - _arg2.value[((0 : GoInt))]);
+	var _x2:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((1 : GoInt))]) - _arg2.value[((1 : GoInt))]);
+	var _x3:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((2 : GoInt))]) - _arg2.value[((2 : GoInt))]);
+	var _x4:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((3 : GoInt))]) - _arg2.value[((3 : GoInt))]);
+	var _x5:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((4 : GoInt))]) - _arg2.value[((4 : GoInt))]);
+	var _x6:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((5 : GoInt))]) - _arg2.value[((5 : GoInt))]);
+	var _x7:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((6 : GoInt))]) - _arg2.value[((6 : GoInt))]);
+	var _x8:GoUInt64 = (((("576460752303423486" : GoUInt64)) + __1.value[((7 : GoInt))]) - _arg2.value[((7 : GoInt))]);
+	var _x9:GoUInt64 = (((("288230376151711742" : GoUInt64)) + __1.value[((8 : GoInt))]) - _arg2.value[((8 : GoInt))]);
 	_out1.value[((0 : GoInt))] = _x1;
 	_out1.value[((1 : GoInt))] = _x2;
 	_out1.value[((2 : GoInt))] = _x3;
@@ -2979,41 +2979,41 @@ function _p521Sub(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt
 	// p521ToBytes serializes a field element to bytes in little-endian order.
 	//
 	// Postconditions:
-	//   out1 = map (λ x, ⌊((eval arg1 mod m) mod 2^(8 * (x + 1))) / 2^(8 * x)⌋) [0..65]
+	//   out1 = map (λ x, ⌊((eval _1 mod m) mod 2^(8 * (x + 1))) / 2^(8 * x)⌋) [0..65]
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
+	//   _1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0x1]]
 **/
-function _p521ToBytes(_out1:Pointer<GoArray<GoUInt8>>, _arg1:Pointer<GoArray<GoUInt64>>):Void {
+function _p521ToBytes(_out1:Pointer<GoArray<GoUInt8>>, __1:Pointer<GoArray<GoUInt64>>):Void {
 	var _x1:GoUInt64 = ((0 : GoUInt64));
 	var _x2:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x1), Go.pointer(_x2), new T_p521Uint1(((0 : GoUInt8))), _arg1.value[((0 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x1), Go.pointer(_x2), new T_p521Uint1(((0 : GoUInt8))), __1.value[((0 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x3:GoUInt64 = ((0 : GoUInt64));
 	var _x4:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x3), Go.pointer(_x4), _x2, _arg1.value[((1 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x3), Go.pointer(_x4), _x2, __1.value[((1 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x5:GoUInt64 = ((0 : GoUInt64));
 	var _x6:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x5), Go.pointer(_x6), _x4, _arg1.value[((2 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x5), Go.pointer(_x6), _x4, __1.value[((2 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x7:GoUInt64 = ((0 : GoUInt64));
 	var _x8:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x7), Go.pointer(_x8), _x6, _arg1.value[((3 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x7), Go.pointer(_x8), _x6, __1.value[((3 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x9:GoUInt64 = ((0 : GoUInt64));
 	var _x10:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x9), Go.pointer(_x10), _x8, _arg1.value[((4 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x9), Go.pointer(_x10), _x8, __1.value[((4 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x11:GoUInt64 = ((0 : GoUInt64));
 	var _x12:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x11), Go.pointer(_x12), _x10, _arg1.value[((5 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x11), Go.pointer(_x12), _x10, __1.value[((5 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x13:GoUInt64 = ((0 : GoUInt64));
 	var _x14:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x13), Go.pointer(_x14), _x12, _arg1.value[((6 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x13), Go.pointer(_x14), _x12, __1.value[((6 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x15:GoUInt64 = ((0 : GoUInt64));
 	var _x16:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU58(Go.pointer(_x15), Go.pointer(_x16), _x14, _arg1.value[((7 : GoInt))], (("288230376151711743" : GoUInt64)));
+	_p521SubborrowxU58(Go.pointer(_x15), Go.pointer(_x16), _x14, __1.value[((7 : GoInt))], (("288230376151711743" : GoUInt64)));
 	var _x17:GoUInt64 = ((0 : GoUInt64));
 	var _x18:T_p521Uint1 = new T_p521Uint1();
-	_p521SubborrowxU57(Go.pointer(_x17), Go.pointer(_x18), _x16, _arg1.value[((8 : GoInt))], (("144115188075855871" : GoUInt64)));
+	_p521SubborrowxU57(Go.pointer(_x17), Go.pointer(_x18), _x16, __1.value[((8 : GoInt))], (("144115188075855871" : GoUInt64)));
 	var _x19:GoUInt64 = ((0 : GoUInt64));
 	_p521CmovznzU64(Go.pointer(_x19), _x18, ((((0 : GoUInt64)) : GoUInt64)), (("18446744073709551615" : GoUInt64)));
 	var _x20:GoUInt64 = ((0 : GoUInt64));
@@ -3253,80 +3253,80 @@ function _p521ToBytes(_out1:Pointer<GoArray<GoUInt8>>, _arg1:Pointer<GoArray<GoU
 	// p521FromBytes deserializes a field element from bytes in little-endian order.
 	//
 	// Postconditions:
-	//   eval out1 mod m = bytes_eval arg1 mod m
+	//   eval out1 mod m = bytes_eval _1 mod m
 	//
 	// Input Bounds:
-	//   arg1: [[0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0x1]]
+	//   _1: [[0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0xff], [0x0 ~> 0x1]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x400000000000000], [0x0 ~> 0x200000000000000]]
 **/
-function _p521FromBytes(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<GoUInt8>>):Void {
-	var _x1:GoUInt64 = ((new T_p521Uint1(_arg1.value[((65 : GoInt))]).__t__ << ((56 : GoUnTypedInt))));
-	var _x2:GoUInt64 = ((((_arg1.value[((64 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
-	var _x3:GoUInt64 = ((((_arg1.value[((63 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
-	var _x4:GoUInt64 = ((((_arg1.value[((62 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
-	var _x5:GoUInt64 = ((((_arg1.value[((61 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
-	var _x6:GoUInt64 = ((((_arg1.value[((60 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
-	var _x7:GoUInt64 = ((((_arg1.value[((59 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
-	var _x8:GoUInt8 = _arg1.value[((58 : GoInt))];
-	var _x9:GoUInt64 = ((((_arg1.value[((57 : GoInt))] : GoUInt64)) << ((50 : GoUnTypedInt))));
-	var _x10:GoUInt64 = ((((_arg1.value[((56 : GoInt))] : GoUInt64)) << ((42 : GoUnTypedInt))));
-	var _x11:GoUInt64 = ((((_arg1.value[((55 : GoInt))] : GoUInt64)) << ((34 : GoUnTypedInt))));
-	var _x12:GoUInt64 = ((((_arg1.value[((54 : GoInt))] : GoUInt64)) << ((26 : GoUnTypedInt))));
-	var _x13:GoUInt64 = ((((_arg1.value[((53 : GoInt))] : GoUInt64)) << ((18 : GoUnTypedInt))));
-	var _x14:GoUInt64 = ((((_arg1.value[((52 : GoInt))] : GoUInt64)) << ((10 : GoUnTypedInt))));
-	var _x15:GoUInt64 = ((((_arg1.value[((51 : GoInt))] : GoUInt64)) << ((2 : GoUnTypedInt))));
-	var _x16:GoUInt64 = ((((_arg1.value[((50 : GoInt))] : GoUInt64)) << ((52 : GoUnTypedInt))));
-	var _x17:GoUInt64 = ((((_arg1.value[((49 : GoInt))] : GoUInt64)) << ((44 : GoUnTypedInt))));
-	var _x18:GoUInt64 = ((((_arg1.value[((48 : GoInt))] : GoUInt64)) << ((36 : GoUnTypedInt))));
-	var _x19:GoUInt64 = ((((_arg1.value[((47 : GoInt))] : GoUInt64)) << ((28 : GoUnTypedInt))));
-	var _x20:GoUInt64 = ((((_arg1.value[((46 : GoInt))] : GoUInt64)) << ((20 : GoUnTypedInt))));
-	var _x21:GoUInt64 = ((((_arg1.value[((45 : GoInt))] : GoUInt64)) << ((12 : GoUnTypedInt))));
-	var _x22:GoUInt64 = ((((_arg1.value[((44 : GoInt))] : GoUInt64)) << ((4 : GoUnTypedInt))));
-	var _x23:GoUInt64 = ((((_arg1.value[((43 : GoInt))] : GoUInt64)) << ((54 : GoUnTypedInt))));
-	var _x24:GoUInt64 = ((((_arg1.value[((42 : GoInt))] : GoUInt64)) << ((46 : GoUnTypedInt))));
-	var _x25:GoUInt64 = ((((_arg1.value[((41 : GoInt))] : GoUInt64)) << ((38 : GoUnTypedInt))));
-	var _x26:GoUInt64 = ((((_arg1.value[((40 : GoInt))] : GoUInt64)) << ((30 : GoUnTypedInt))));
-	var _x27:GoUInt64 = ((((_arg1.value[((39 : GoInt))] : GoUInt64)) << ((22 : GoUnTypedInt))));
-	var _x28:GoUInt64 = ((((_arg1.value[((38 : GoInt))] : GoUInt64)) << ((14 : GoUnTypedInt))));
-	var _x29:GoUInt64 = ((((_arg1.value[((37 : GoInt))] : GoUInt64)) << ((6 : GoUnTypedInt))));
-	var _x30:GoUInt64 = ((((_arg1.value[((36 : GoInt))] : GoUInt64)) << ((56 : GoUnTypedInt))));
-	var _x31:GoUInt64 = ((((_arg1.value[((35 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
-	var _x32:GoUInt64 = ((((_arg1.value[((34 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
-	var _x33:GoUInt64 = ((((_arg1.value[((33 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
-	var _x34:GoUInt64 = ((((_arg1.value[((32 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
-	var _x35:GoUInt64 = ((((_arg1.value[((31 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
-	var _x36:GoUInt64 = ((((_arg1.value[((30 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
-	var _x37:GoUInt8 = _arg1.value[((29 : GoInt))];
-	var _x38:GoUInt64 = ((((_arg1.value[((28 : GoInt))] : GoUInt64)) << ((50 : GoUnTypedInt))));
-	var _x39:GoUInt64 = ((((_arg1.value[((27 : GoInt))] : GoUInt64)) << ((42 : GoUnTypedInt))));
-	var _x40:GoUInt64 = ((((_arg1.value[((26 : GoInt))] : GoUInt64)) << ((34 : GoUnTypedInt))));
-	var _x41:GoUInt64 = ((((_arg1.value[((25 : GoInt))] : GoUInt64)) << ((26 : GoUnTypedInt))));
-	var _x42:GoUInt64 = ((((_arg1.value[((24 : GoInt))] : GoUInt64)) << ((18 : GoUnTypedInt))));
-	var _x43:GoUInt64 = ((((_arg1.value[((23 : GoInt))] : GoUInt64)) << ((10 : GoUnTypedInt))));
-	var _x44:GoUInt64 = ((((_arg1.value[((22 : GoInt))] : GoUInt64)) << ((2 : GoUnTypedInt))));
-	var _x45:GoUInt64 = ((((_arg1.value[((21 : GoInt))] : GoUInt64)) << ((52 : GoUnTypedInt))));
-	var _x46:GoUInt64 = ((((_arg1.value[((20 : GoInt))] : GoUInt64)) << ((44 : GoUnTypedInt))));
-	var _x47:GoUInt64 = ((((_arg1.value[((19 : GoInt))] : GoUInt64)) << ((36 : GoUnTypedInt))));
-	var _x48:GoUInt64 = ((((_arg1.value[((18 : GoInt))] : GoUInt64)) << ((28 : GoUnTypedInt))));
-	var _x49:GoUInt64 = ((((_arg1.value[((17 : GoInt))] : GoUInt64)) << ((20 : GoUnTypedInt))));
-	var _x50:GoUInt64 = ((((_arg1.value[((16 : GoInt))] : GoUInt64)) << ((12 : GoUnTypedInt))));
-	var _x51:GoUInt64 = ((((_arg1.value[((15 : GoInt))] : GoUInt64)) << ((4 : GoUnTypedInt))));
-	var _x52:GoUInt64 = ((((_arg1.value[((14 : GoInt))] : GoUInt64)) << ((54 : GoUnTypedInt))));
-	var _x53:GoUInt64 = ((((_arg1.value[((13 : GoInt))] : GoUInt64)) << ((46 : GoUnTypedInt))));
-	var _x54:GoUInt64 = ((((_arg1.value[((12 : GoInt))] : GoUInt64)) << ((38 : GoUnTypedInt))));
-	var _x55:GoUInt64 = ((((_arg1.value[((11 : GoInt))] : GoUInt64)) << ((30 : GoUnTypedInt))));
-	var _x56:GoUInt64 = ((((_arg1.value[((10 : GoInt))] : GoUInt64)) << ((22 : GoUnTypedInt))));
-	var _x57:GoUInt64 = ((((_arg1.value[((9 : GoInt))] : GoUInt64)) << ((14 : GoUnTypedInt))));
-	var _x58:GoUInt64 = ((((_arg1.value[((8 : GoInt))] : GoUInt64)) << ((6 : GoUnTypedInt))));
-	var _x59:GoUInt64 = ((((_arg1.value[((7 : GoInt))] : GoUInt64)) << ((56 : GoUnTypedInt))));
-	var _x60:GoUInt64 = ((((_arg1.value[((6 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
-	var _x61:GoUInt64 = ((((_arg1.value[((5 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
-	var _x62:GoUInt64 = ((((_arg1.value[((4 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
-	var _x63:GoUInt64 = ((((_arg1.value[((3 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
-	var _x64:GoUInt64 = ((((_arg1.value[((2 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
-	var _x65:GoUInt64 = ((((_arg1.value[((1 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
-	var _x66:GoUInt8 = _arg1.value[((0 : GoInt))];
+function _p521FromBytes(_out1:Pointer<GoArray<GoUInt64>>, __1:Pointer<GoArray<GoUInt8>>):Void {
+	var _x1:GoUInt64 = ((new T_p521Uint1(__1.value[((65 : GoInt))]).__t__ << ((56 : GoUnTypedInt))));
+	var _x2:GoUInt64 = ((((__1.value[((64 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
+	var _x3:GoUInt64 = ((((__1.value[((63 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
+	var _x4:GoUInt64 = ((((__1.value[((62 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
+	var _x5:GoUInt64 = ((((__1.value[((61 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
+	var _x6:GoUInt64 = ((((__1.value[((60 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
+	var _x7:GoUInt64 = ((((__1.value[((59 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
+	var _x8:GoUInt8 = __1.value[((58 : GoInt))];
+	var _x9:GoUInt64 = ((((__1.value[((57 : GoInt))] : GoUInt64)) << ((50 : GoUnTypedInt))));
+	var _x10:GoUInt64 = ((((__1.value[((56 : GoInt))] : GoUInt64)) << ((42 : GoUnTypedInt))));
+	var _x11:GoUInt64 = ((((__1.value[((55 : GoInt))] : GoUInt64)) << ((34 : GoUnTypedInt))));
+	var _x12:GoUInt64 = ((((__1.value[((54 : GoInt))] : GoUInt64)) << ((26 : GoUnTypedInt))));
+	var _x13:GoUInt64 = ((((__1.value[((53 : GoInt))] : GoUInt64)) << ((18 : GoUnTypedInt))));
+	var _x14:GoUInt64 = ((((__1.value[((52 : GoInt))] : GoUInt64)) << ((10 : GoUnTypedInt))));
+	var _x15:GoUInt64 = ((((__1.value[((51 : GoInt))] : GoUInt64)) << ((2 : GoUnTypedInt))));
+	var _x16:GoUInt64 = ((((__1.value[((50 : GoInt))] : GoUInt64)) << ((52 : GoUnTypedInt))));
+	var _x17:GoUInt64 = ((((__1.value[((49 : GoInt))] : GoUInt64)) << ((44 : GoUnTypedInt))));
+	var _x18:GoUInt64 = ((((__1.value[((48 : GoInt))] : GoUInt64)) << ((36 : GoUnTypedInt))));
+	var _x19:GoUInt64 = ((((__1.value[((47 : GoInt))] : GoUInt64)) << ((28 : GoUnTypedInt))));
+	var _x20:GoUInt64 = ((((__1.value[((46 : GoInt))] : GoUInt64)) << ((20 : GoUnTypedInt))));
+	var _x21:GoUInt64 = ((((__1.value[((45 : GoInt))] : GoUInt64)) << ((12 : GoUnTypedInt))));
+	var _x22:GoUInt64 = ((((__1.value[((44 : GoInt))] : GoUInt64)) << ((4 : GoUnTypedInt))));
+	var _x23:GoUInt64 = ((((__1.value[((43 : GoInt))] : GoUInt64)) << ((54 : GoUnTypedInt))));
+	var _x24:GoUInt64 = ((((__1.value[((42 : GoInt))] : GoUInt64)) << ((46 : GoUnTypedInt))));
+	var _x25:GoUInt64 = ((((__1.value[((41 : GoInt))] : GoUInt64)) << ((38 : GoUnTypedInt))));
+	var _x26:GoUInt64 = ((((__1.value[((40 : GoInt))] : GoUInt64)) << ((30 : GoUnTypedInt))));
+	var _x27:GoUInt64 = ((((__1.value[((39 : GoInt))] : GoUInt64)) << ((22 : GoUnTypedInt))));
+	var _x28:GoUInt64 = ((((__1.value[((38 : GoInt))] : GoUInt64)) << ((14 : GoUnTypedInt))));
+	var _x29:GoUInt64 = ((((__1.value[((37 : GoInt))] : GoUInt64)) << ((6 : GoUnTypedInt))));
+	var _x30:GoUInt64 = ((((__1.value[((36 : GoInt))] : GoUInt64)) << ((56 : GoUnTypedInt))));
+	var _x31:GoUInt64 = ((((__1.value[((35 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
+	var _x32:GoUInt64 = ((((__1.value[((34 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
+	var _x33:GoUInt64 = ((((__1.value[((33 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
+	var _x34:GoUInt64 = ((((__1.value[((32 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
+	var _x35:GoUInt64 = ((((__1.value[((31 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
+	var _x36:GoUInt64 = ((((__1.value[((30 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
+	var _x37:GoUInt8 = __1.value[((29 : GoInt))];
+	var _x38:GoUInt64 = ((((__1.value[((28 : GoInt))] : GoUInt64)) << ((50 : GoUnTypedInt))));
+	var _x39:GoUInt64 = ((((__1.value[((27 : GoInt))] : GoUInt64)) << ((42 : GoUnTypedInt))));
+	var _x40:GoUInt64 = ((((__1.value[((26 : GoInt))] : GoUInt64)) << ((34 : GoUnTypedInt))));
+	var _x41:GoUInt64 = ((((__1.value[((25 : GoInt))] : GoUInt64)) << ((26 : GoUnTypedInt))));
+	var _x42:GoUInt64 = ((((__1.value[((24 : GoInt))] : GoUInt64)) << ((18 : GoUnTypedInt))));
+	var _x43:GoUInt64 = ((((__1.value[((23 : GoInt))] : GoUInt64)) << ((10 : GoUnTypedInt))));
+	var _x44:GoUInt64 = ((((__1.value[((22 : GoInt))] : GoUInt64)) << ((2 : GoUnTypedInt))));
+	var _x45:GoUInt64 = ((((__1.value[((21 : GoInt))] : GoUInt64)) << ((52 : GoUnTypedInt))));
+	var _x46:GoUInt64 = ((((__1.value[((20 : GoInt))] : GoUInt64)) << ((44 : GoUnTypedInt))));
+	var _x47:GoUInt64 = ((((__1.value[((19 : GoInt))] : GoUInt64)) << ((36 : GoUnTypedInt))));
+	var _x48:GoUInt64 = ((((__1.value[((18 : GoInt))] : GoUInt64)) << ((28 : GoUnTypedInt))));
+	var _x49:GoUInt64 = ((((__1.value[((17 : GoInt))] : GoUInt64)) << ((20 : GoUnTypedInt))));
+	var _x50:GoUInt64 = ((((__1.value[((16 : GoInt))] : GoUInt64)) << ((12 : GoUnTypedInt))));
+	var _x51:GoUInt64 = ((((__1.value[((15 : GoInt))] : GoUInt64)) << ((4 : GoUnTypedInt))));
+	var _x52:GoUInt64 = ((((__1.value[((14 : GoInt))] : GoUInt64)) << ((54 : GoUnTypedInt))));
+	var _x53:GoUInt64 = ((((__1.value[((13 : GoInt))] : GoUInt64)) << ((46 : GoUnTypedInt))));
+	var _x54:GoUInt64 = ((((__1.value[((12 : GoInt))] : GoUInt64)) << ((38 : GoUnTypedInt))));
+	var _x55:GoUInt64 = ((((__1.value[((11 : GoInt))] : GoUInt64)) << ((30 : GoUnTypedInt))));
+	var _x56:GoUInt64 = ((((__1.value[((10 : GoInt))] : GoUInt64)) << ((22 : GoUnTypedInt))));
+	var _x57:GoUInt64 = ((((__1.value[((9 : GoInt))] : GoUInt64)) << ((14 : GoUnTypedInt))));
+	var _x58:GoUInt64 = ((((__1.value[((8 : GoInt))] : GoUInt64)) << ((6 : GoUnTypedInt))));
+	var _x59:GoUInt64 = ((((__1.value[((7 : GoInt))] : GoUInt64)) << ((56 : GoUnTypedInt))));
+	var _x60:GoUInt64 = ((((__1.value[((6 : GoInt))] : GoUInt64)) << ((48 : GoUnTypedInt))));
+	var _x61:GoUInt64 = ((((__1.value[((5 : GoInt))] : GoUInt64)) << ((40 : GoUnTypedInt))));
+	var _x62:GoUInt64 = ((((__1.value[((4 : GoInt))] : GoUInt64)) << ((32 : GoUnTypedInt))));
+	var _x63:GoUInt64 = ((((__1.value[((3 : GoInt))] : GoUInt64)) << ((24 : GoUnTypedInt))));
+	var _x64:GoUInt64 = ((((__1.value[((2 : GoInt))] : GoUInt64)) << ((16 : GoUnTypedInt))));
+	var _x65:GoUInt64 = ((((__1.value[((1 : GoInt))] : GoUInt64)) << ((8 : GoUnTypedInt))));
+	var _x66:GoUInt8 = __1.value[((0 : GoInt))];
 	var _x67:GoUInt64 = (_x65 + ((_x66 : GoUInt64)));
 	var _x68:GoUInt64 = (_x64 + _x67);
 	var _x69:GoUInt64 = (_x63 + _x68);
@@ -3417,34 +3417,34 @@ function _p521FromBytes(_out1:Pointer<GoArray<GoUInt64>>, _arg1:Pointer<GoArray<
 	// p521Selectznz is a multi-limb conditional select.
 	//
 	// Postconditions:
-	//   eval out1 = (if arg1 = 0 then eval arg2 else eval arg3)
+	//   eval out1 = (if _1 = 0 then eval arg2 else eval arg3)
 	//
 	// Input Bounds:
-	//   arg1: [0x0 ~> 0x1]
+	//   _1: [0x0 ~> 0x1]
 	//   arg2: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
 	//   arg3: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
 	// Output Bounds:
 	//   out1: [[0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff], [0x0 ~> 0xffffffffffffffff]]
 **/
-function _p521Selectznz(_out1:Pointer<GoArray<GoUInt64>>, _arg1:T_p521Uint1, _arg2:Pointer<GoArray<GoUInt64>>, _arg3:Pointer<GoArray<GoUInt64>>):Void {
+function _p521Selectznz(_out1:Pointer<GoArray<GoUInt64>>, __1:T_p521Uint1, _arg2:Pointer<GoArray<GoUInt64>>, _arg3:Pointer<GoArray<GoUInt64>>):Void {
 	var _x1:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x1), _arg1, _arg2.value[((0 : GoInt))], _arg3.value[((0 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x1), __1, _arg2.value[((0 : GoInt))], _arg3.value[((0 : GoInt))]);
 	var _x2:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x2), _arg1, _arg2.value[((1 : GoInt))], _arg3.value[((1 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x2), __1, _arg2.value[((1 : GoInt))], _arg3.value[((1 : GoInt))]);
 	var _x3:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x3), _arg1, _arg2.value[((2 : GoInt))], _arg3.value[((2 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x3), __1, _arg2.value[((2 : GoInt))], _arg3.value[((2 : GoInt))]);
 	var _x4:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x4), _arg1, _arg2.value[((3 : GoInt))], _arg3.value[((3 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x4), __1, _arg2.value[((3 : GoInt))], _arg3.value[((3 : GoInt))]);
 	var _x5:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x5), _arg1, _arg2.value[((4 : GoInt))], _arg3.value[((4 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x5), __1, _arg2.value[((4 : GoInt))], _arg3.value[((4 : GoInt))]);
 	var _x6:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x6), _arg1, _arg2.value[((5 : GoInt))], _arg3.value[((5 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x6), __1, _arg2.value[((5 : GoInt))], _arg3.value[((5 : GoInt))]);
 	var _x7:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x7), _arg1, _arg2.value[((6 : GoInt))], _arg3.value[((6 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x7), __1, _arg2.value[((6 : GoInt))], _arg3.value[((6 : GoInt))]);
 	var _x8:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x8), _arg1, _arg2.value[((7 : GoInt))], _arg3.value[((7 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x8), __1, _arg2.value[((7 : GoInt))], _arg3.value[((7 : GoInt))]);
 	var _x9:GoUInt64 = ((0 : GoUInt64));
-	_p521CmovznzU64(Go.pointer(_x9), _arg1, _arg2.value[((8 : GoInt))], _arg3.value[((8 : GoInt))]);
+	_p521CmovznzU64(Go.pointer(_x9), __1, _arg2.value[((8 : GoInt))], _arg3.value[((8 : GoInt))]);
 	_out1.value[((0 : GoInt))] = _x1;
 	_out1.value[((1 : GoInt))] = _x2;
 	_out1.value[((2 : GoInt))] = _x3;

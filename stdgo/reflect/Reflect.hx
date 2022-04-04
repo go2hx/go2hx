@@ -156,6 +156,8 @@ function isStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case refType(type):
+			isStruct(type);
 		case named(_, _, underlying):
 			isStruct(underlying);
 		case structType(_):
@@ -201,7 +203,7 @@ function getElem(type:GoType):GoType {
 			type;
 		case _var(_, type):
 			getElem(type);
-		case arrayType(elem, _), sliceType(elem), pointer(elem):
+		case arrayType(elem, _), sliceType(elem), pointer(elem), refType(elem):
 			elem;
 		default:
 			type;
@@ -272,7 +274,9 @@ function isRef(type:GoType):Bool {
 
 function isRefValue(type:GoType):Bool {
 	return switch type {
-		case basic(_), pointer(_):
+		case named(_, _, t, _):
+			isRefValue(t);
+		case basic(_): // , pointer(_):
 			false;
 		default:
 			true;
@@ -297,12 +301,6 @@ class Value {
 	var underlyingKey:Dynamic = null;
 	var canAddrBool:Bool = false;
 	var notSetBool:Bool = false;
-
-	public var __t__(get, never):Value;
-
-	function get___t__():Value {
-		return this;
-	}
 
 	public function __underlying__():AnyInterface
 		return null;
@@ -341,10 +339,10 @@ class Value {
 	public function cap():GoInt {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
+			value = (value : Dynamic);
 		if (value == null)
 			return 0;
-		switch kind().__t__.toBasic() {
+		switch kind().toBasic() {
 			case _array:
 				return (value : GoArray<Any>).cap();
 			case _slice:
@@ -359,8 +357,8 @@ class Value {
 	public function set(x:Value) {
 		var value = x.value.value;
 		if (isNamed(@:privateAccess x.type().common().value))
-			value = (x.value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (x.value : Dynamic);
+		final k:Int = kind().toBasic();
 		switch k {
 			case _int8:
 				setInt((value : GoInt8));
@@ -406,7 +404,7 @@ class Value {
 	}
 
 	public function setInt(x:GoInt64) {
-		final k:Int = kind().__t__.toBasic();
+		final k:Int = kind().toBasic();
 		value.value = switch k {
 			case _int8: (x : GoInt8);
 			case _int16: (x : GoInt16);
@@ -431,7 +429,7 @@ class Value {
 	}
 
 	public function setUint(x:GoUInt64) {
-		final k:Int = kind().__t__.toBasic();
+		final k:Int = kind().toBasic();
 		value.value = switch k {
 			case _int8: (x : GoInt8);
 			case _int16: (x : GoInt16);
@@ -451,7 +449,7 @@ class Value {
 	}
 
 	public function setComplex(x:GoComplex128) {
-		switch kind().__t__ {
+		switch kind() {
 			case _complex64, _complex128:
 				value.value = x;
 			default:
@@ -508,13 +506,9 @@ class Value {
 	public inline function isNil():Bool {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (value : Dynamic);
+		final k:Int = kind().toBasic();
 		return switch k {
-			case _chan:
-				(value : Chan<Dynamic>).isNil();
-			case _slice:
-				(value : Slice<Dynamic>).isNil();
 			case _ptr:
 				if (value == null)
 					return true;
@@ -525,7 +519,8 @@ class Value {
 				false;
 			case _func:
 				value == null;
-			case _map: value == null || (value : GoMap<Dynamic, Dynamic>).isNil();
+			case _map, _slice, _chan:
+				value == null;
 			case _interface:
 				value == null;
 			case _array:
@@ -559,8 +554,8 @@ class Value {
 	public function int():GoInt64 {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (value : Dynamic);
+		final k:Int = kind().toBasic();
 		return switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
@@ -582,8 +577,8 @@ class Value {
 	public function uint():GoUInt64 {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (value : Dynamic);
+		final k:Int = kind().toBasic();
 		var value:GoUInt64 = switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
@@ -606,8 +601,8 @@ class Value {
 	public function float():GoFloat64 {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (value : Dynamic);
+		final k:Int = kind().toBasic();
 		return switch k {
 			case _int8: (value : GoInt8);
 			case _int16: (value : GoInt16);
@@ -669,9 +664,8 @@ class Value {
 			value = (value : Dynamic).__t__;
 		final gt = getUnderlying(@:privateAccess type().common().value);
 		return switch gt {
-			case arrayType(elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>).get(i), new _Type(unroll(gt, elem))));
-			case sliceType(elem): @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>).get(i), new _Type(unroll(gt, elem))), value,
-					i).setAddr();
+			case arrayType(elem, _): @:privateAccess new Value(new AnyInterface((value : GoArray<Dynamic>)[i], new _Type(unroll(gt, elem))));
+			case sliceType(elem): @:privateAccess new Value(new AnyInterface((value : Slice<Dynamic>)[i], new _Type(unroll(gt, elem))), value, i).setAddr();
 			/*case string:
 				var value = value;
 				if ((value is String))
@@ -683,7 +677,7 @@ class Value {
 						var value = value;
 						if ((value is String))
 							value = new GoString(value);
-						new Value(new AnyInterface((value : GoString).get(i), new _Type(basic(uint8_kind))));
+						new Value(new AnyInterface((value : GoString)[i], new _Type(basic(uint8_kind))));
 					default:
 						throw "unsupported basic kind";
 				}
@@ -721,13 +715,7 @@ class Value {
 	public function pointer():GoUIntptr {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		switch kind().__t__ {
-			case _slice:
-				final nil = (value : Slice<Dynamic>).isNil();
-				return nil ? 0 : 1;
-			default:
-		}
+			value = (value : Dynamic);
 		return value != null ? 1 : 0;
 	}
 
@@ -737,7 +725,7 @@ class Value {
 			value = (value : Dynamic).__t__;
 		return switch @:privateAccess type().common().value {
 			case mapType(_, mapValue):
-				new Value(new AnyInterface((value : GoMap<Dynamic, Dynamic>).get(key.value), new _Type(mapValue)));
+				new Value(new AnyInterface((value : GoMap<Dynamic, Dynamic>)[key.value], new _Type(mapValue)));
 			default:
 				throw "not a map";
 		}
@@ -748,12 +736,13 @@ class Value {
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
 		var val:GoMap<Dynamic, Dynamic> = value;
-		var gt = @:privateAccess type().common().value;
+		var gt:GoType = @:privateAccess type().common().value;
 		switch gt {
 			case mapType(key, valueType):
 				var slice = new Slice<Value>(...[
-					for (obj in val.toSlice())
-						new Value(new AnyInterface(obj.key, new _Type(valueType)))
+					for (obj in val) {
+						new Value(new AnyInterface(obj.key, new _Type(valueType)));
+					}
 				]);
 				return slice;
 			default:
@@ -785,8 +774,8 @@ class Value {
 	public function len():GoInt {
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
-			value = (value : Dynamic).__t__;
-		final k:Int = kind().__t__.toBasic();
+			value = (value : Dynamic);
+		final k:Int = kind().toBasic();
 		return switch k {
 			case _array:
 				(value : GoArray<Dynamic>).length;
@@ -824,7 +813,7 @@ class ValueError {
 	}
 
 	public function error():GoString {
-		if (this.kind.__t__ == invalid.__t__) {
+		if (this.kind == invalid) {
 			return "reflect: call of " + this.method + " on zero Value";
 		}
 		return "reflect: call of " + this.method + " on " + this.kind.toString() + " Value";
@@ -876,7 +865,7 @@ function typeOf(iface:AnyInterface):Type {
 }
 
 function appendSlice(dst:Value, src:Value):Value {
-	return @:privateAccess new Value(new AnyInterface((dst.value.value : Slice<Dynamic>).__append__(...(src.value.value : Slice<Dynamic>).toArray()),
+	return @:privateAccess new Value(new AnyInterface((dst.value.value : Slice<Dynamic>).__append__(...(src.value.value : Slice<Dynamic>).__toArray__()),
 		dst.type()));
 }
 
@@ -909,8 +898,6 @@ function defaultValue(typ:Type):Any {
 		case named(path, methods, type):
 			var cl = std.Type.resolveClass(path);
 			std.Type.createInstance(cl, []);
-		case sliceType(elem): new Slice().nil();
-		case mapType(key, value): new GoMap(typ).nil();
 		case arrayType(elem, len): new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
 		default: null;
 	}
@@ -932,7 +919,7 @@ function valueOf(iface:AnyInterface):Value {
 	public function __underlying__():AnyInterface
 		return Go.toInterface(__t__);
 
-	public function toString():GoString
+	public function toString():String
 		return Go.string(__t__);
 
 	public function __copy__():GoInt
@@ -950,7 +937,7 @@ function valueOf(iface:AnyInterface):Value {
 			this.len = len;
 	}
 
-	public function toString():GoString {
+	public function toString():String {
 		return '{' + Go.string(data) + " " + Go.string(len) + "}";
 	}
 
@@ -982,7 +969,7 @@ function valueOf(iface:AnyInterface):Value {
 			this.cap = cap;
 	}
 
-	public function toString():GoString {
+	public function toString():String {
 		return '{' + Go.string(data) + " " + Go.string(len) + " " + Go.string(cap) + "}";
 	}
 
@@ -1004,13 +991,13 @@ function valueOf(iface:AnyInterface):Value {
 typedef Type = StructType & {
 	public function align():GoInt;
 	public function fieldAlign():GoInt;
-	public function method(arg0:GoInt):Method;
-	public function methodByName(arg0:GoString):{var _0:Method; var _1:Bool;};
+	public function method(_0:GoInt):Method;
+	public function methodByName(_0:GoString):{var _0:Method; var _1:Bool;};
 	public function numMethod():GoInt;
 	public function name():GoString;
 	public function pkgPath():GoString;
 	public function size():GoUIntptr;
-	public function toString():GoString;
+	public function toString():String;
 	public function kind():Kind;
 	public function implements_(u:Type):Bool;
 	public function assignableTo(u:Type):Bool;
@@ -1106,7 +1093,7 @@ class _Type {
 		return null;
 
 	public function bits():GoInt {
-		final k:Int = kind().__t__.toBasic();
+		final k:Int = kind().toBasic();
 		return switch k {
 			case _int8: 8;
 			case _int16: 16;
@@ -1172,9 +1159,9 @@ class _Type {
 	}
 
 	public function size():GoUIntptr {
-		if (kind() == null)
+		if (kind() == 0)
 			return 0;
-		final k:Int = kind().__t__.toBasic();
+		final k:Int = kind().toBasic();
 		return switch k {
 			case _bool, _int8, _uint8: 1;
 			case _int16, _uint16: 2;
@@ -1205,7 +1192,7 @@ class _Type {
 		}
 	}
 
-	public function toString():GoString {
+	public function toString():String {
 		return switch (gt) {
 			case basic(kind):
 				if (kind == untyped_int_kind)
@@ -1249,7 +1236,7 @@ class _Type {
 					r += preface;
 					preface = ", ";
 					final isVariadic = variadic && i == args.length - 1;
-					var str = new _Type(args[i]).toString();
+					var str:GoString = new _Type(args[i]).toString();
 					if (isVariadic)
 						str = "..." + str.__slice__(2);
 					r += str;
@@ -1282,6 +1269,8 @@ class _Type {
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
+			case refType(elem):
+				new _Type(elem).toString();
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}
@@ -1612,12 +1601,16 @@ private function namedUnderlying(obj:AnyInterface) {
 	}
 }
 
-function getUnderlying(gt:GoType) {
+function getUnderlying(gt:GoType, once:Bool = false) {
 	return switch gt {
 		case refType(type):
-			getUnderlying(type);
+			getUnderlying(type, once);
 		case named(_, _, type):
-			getUnderlying(type);
+			if (once) {
+				type;
+			} else {
+				getUnderlying(type);
+			}
 		default:
 			gt;
 	}
@@ -1778,17 +1771,12 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 	}
 }
 
-@:named class Kind {
-	public function __underlying__():AnyInterface
-		return null;
+@:using(Reflect.Kind_extension)
+typedef Kind = GoUInt;
 
-	public var __t__:GoUInt = 0;
-
-	public function new(i:GoUInt = 0)
-		this.__t__ = i;
-
-	public function toString():GoString {
-		var idx:Int = this.__t__.toBasic();
+class Kind_extension {
+	public static function toString(kind:Kind):String {
+		var idx:Int = kind.toBasic();
 		return switch idx {
 			case _invalid: "invalid";
 			case _bool: "bool";

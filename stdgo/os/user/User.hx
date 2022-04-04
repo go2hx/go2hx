@@ -1,14 +1,14 @@
 package stdgo.os.user;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 @:named class T_lineFunc {
 	public var __t__:Slice<GoUInt8> -> {
@@ -350,7 +350,7 @@ function _current():{var _0:Pointer<User>; var _1:Error;} {
 	return {_0: _u, _1: stdgo.fmt.Fmt.errorf("user: Current requires cgo or %s set in environment", Go.toInterface(_missing))};
 }
 
-function _listGroups(arg0:Pointer<User>):{var _0:Slice<GoString>; var _1:Error;} {
+function _listGroups(_0:Pointer<User>):{var _0:Slice<GoString>; var _1:Error;} {
 	if (stdgo.runtime.Runtime.goos == (("android" : GoString)) || stdgo.runtime.Runtime.goos == (("aix" : GoString))) {
 		return {_0: new Slice<GoString>().nil(), _1: stdgo.fmt.Fmt.errorf("user: GroupIds not implemented on %s", Go.toInterface(stdgo.runtime.Runtime.goos))};
 	};

@@ -1,18 +1,18 @@
 package stdgo.net.http.httputil;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef BufferPool = StructType & {
 	public function get():Slice<GoByte>;
-	public function put(arg0:Slice<GoByte>):Void;
+	public function put(_0:Slice<GoByte>):Void;
 };
 
 typedef T_writeFlusher = StructType & {
@@ -164,7 +164,7 @@ typedef T_writeFlusher = StructType & {
 		return ((null : stdgo.Error));
 	}
 
-	public function read(arg0:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+	public function read(_0:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		return {_0: ((0 : GoInt)), _1: _errNoBody};
 	}
 
@@ -7721,8 +7721,8 @@ class T_delegateReader_extension_fields {
 }
 
 class T_failureToReadBody_extension_fields {
-	public function read(__tmp__, arg0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
-		return __tmp__.read(arg0);
+	public function read(__tmp__, _0:Slice<GoByte>):{var _0:GoInt; var _1:Error;}
+		return __tmp__.read(_0);
 
 	public function close(__tmp__):Error
 		return __tmp__.close();

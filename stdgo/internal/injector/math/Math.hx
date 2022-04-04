@@ -5,6 +5,14 @@ import haxe.Int64;
 import haxe.io.Bytes;
 import stdgo.StdGoTypes;
 
+/* add test vars into std math
+var expGo = exp;
+var exp2Go = exp2;
+var hypotGo = hypot;
+var sqrtGo = sqrt;
+var trigReduce = _trigReduce;
+*/
+
 @:local
 final pi = M.PI;
 
@@ -104,6 +112,7 @@ inline function naN() {
 
 inline function signbit(_x)
 	return HaxeMath.signbit(_x);
+
 inline function sin(_x) {
 	return HaxeMath.sin(_x);
 }
@@ -128,6 +137,7 @@ function float64bits(_f) {
 	return HaxeMath.float64bits(_f);
 }
 
+@:local
 class HaxeMath {
 	public static function trunc(_x:GoFloat64):GoFloat64 {
 		return _x > 0 ? floor(_x) : ceil(_x);
@@ -278,8 +288,9 @@ class HaxeMath {
 
 	public static function atan2(_y:GoFloat, _x:GoFloat):GoFloat
 		return M.atan2(_y.toBasic(), _x.toBasic());
+
 	public static function isInf(_f:GoFloat, _sign:GoInt) {
-		return _sign >= 0 && _f == M.POSITIVE_INFINITY || _sign <= 0 && _f == M.NEGATIVE_INFINITY;
+		return return _sign.toBasic() >= 0 && _f == M.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == M.NEGATIVE_INFINITY;
 	}
 
 	public static function hypnot(_p:GoFloat, _q:GoFloat):GoFloat {

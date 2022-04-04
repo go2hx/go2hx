@@ -8,81 +8,129 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-@:named class Word {
-    public var __t__ : GoUInt;
-    public function new(?t:GoUInt) {
-        __t__ = t == null ? 0 : t;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    @:implicit
-    public function toString():GoString return Go.string(__t__);
-    public function __copy__() return new Word(__t__);
-}
-@:structInit class T_decimal {
+var __Accuracy_index : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(((0 : GoUInt8)), ((5 : GoUInt8)), ((10 : GoUInt8)), ((15 : GoUInt8))) : GoArray<GoUInt8>));
+var _pow5tab : GoArray<GoUInt64> = ((new GoArray<GoUInt64>(
+((1 : GoUInt64)),
+((5 : GoUInt64)),
+((25 : GoUInt64)),
+((125 : GoUInt64)),
+((625 : GoUInt64)),
+((3125 : GoUInt64)),
+((15625 : GoUInt64)),
+((78125 : GoUInt64)),
+((390625 : GoUInt64)),
+((1953125 : GoUInt64)),
+((9765625 : GoUInt64)),
+((48828125 : GoUInt64)),
+((244140625 : GoUInt64)),
+((1220703125 : GoUInt64)),
+(("6103515625" : GoUInt64)),
+(("30517578125" : GoUInt64)),
+(("152587890625" : GoUInt64)),
+(("762939453125" : GoUInt64)),
+(("3814697265625" : GoUInt64)),
+(("19073486328125" : GoUInt64)),
+(("95367431640625" : GoUInt64)),
+(("476837158203125" : GoUInt64)),
+(("2384185791015625" : GoUInt64)),
+(("11920928955078125" : GoUInt64)),
+(("59604644775390625" : GoUInt64)),
+(("298023223876953125" : GoUInt64)),
+(("1490116119384765625" : GoUInt64)),
+(("7450580596923828125" : GoUInt64))) : GoArray<GoUInt64>));
+var _ : stdgo.fmt.Fmt.Scanner = ((((null : Float_)) : Float_));
+var _ : stdgo.fmt.Fmt.Formatter = _floatZero;
+var _natOne : T_nat = ((new Slice<Word>(((1 : GoUInt))) : T_nat));
+var _intOne : Int_ = ((new Int_(false, (_natOne == null ? null : _natOne.__copy__())) : Int_));
+var _ : stdgo.fmt.Fmt.Formatter = _intOne;
+var _ : stdgo.fmt.Fmt.Scanner = _intOne;
+var _natTwo : T_nat = ((new Slice<Word>(((2 : GoUInt))) : T_nat));
+var _natFive : T_nat = ((new Slice<Word>(((5 : GoUInt))) : T_nat));
+var _natTen : T_nat = ((new Slice<Word>(((10 : GoUInt))) : T_nat));
+var _karatsubaThreshold : GoInt64 = ((40 : GoInt));
+var _basicSqrThreshold : GoInt64 = ((20 : GoInt));
+var _karatsubaSqrThreshold : GoInt64 = ((260 : GoInt));
+var _errNoDigits : stdgo.Error = stdgo.errors.Errors.new_(((("number has no digits" : GoString))));
+var _errInvalSep : stdgo.Error = stdgo.errors.Errors.new_(((("\'_\' must separate successive digits" : GoString))));
+var _leafSize : GoInt = ((8 : GoInt));
+var _ : stdgo.fmt.Fmt.Scanner = _ratZero;
+var __RoundingMode_index : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(((0 : GoUInt8)), ((13 : GoUInt8)), ((26 : GoUInt8)), ((32 : GoUInt8)), ((44 : GoUInt8)), ((57 : GoUInt8)), ((70 : GoUInt8))) : GoArray<GoUInt8>));
+var _floatZero : Float_ = new Float_();
+var _natPool : stdgo.sync.Sync.Pool = new stdgo.sync.Sync.Pool();
+var _cacheBase10 : T__struct_0 = new T__struct_0();
+var _ratZero : Rat = new Rat();
+var _threeOnce : T__struct_1 = new T__struct_1();
+@:named typedef Word = GoUInt;
+@:structInit @:using(Big.T_decimal_static_extension) class T_decimal {
     public function _roundDown(_n:GoInt):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if ((_n < ((0 : GoInt))) || (_n >= _x.value._mant.length)) {
+        var _x = this;
+        _x;
+        if ((_n < ((0 : GoInt))) || (_n >= (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
             return;
         };
-        _x.value._mant = _x.value._mant.__slice__(0, _n);
+        _x._mant = _x._mant.__slice__(0, _n);
         _trim(_x);
     }
     public function _roundUp(_n:GoInt):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if ((_n < ((0 : GoInt))) || (_n >= _x.value._mant.length)) {
+        var _x = this;
+        _x;
+        if ((_n < ((0 : GoInt))) || (_n >= (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
             return;
         };
-        while ((_n > ((0 : GoInt))) && (_x.value._mant[_n - ((1 : GoInt))] >= ((((("9" : GoString))).code : GoRune)))) {
+        while ((_n > ((0 : GoInt))) && ((_x._mant != null ? _x._mant[_n - ((1 : GoInt))] : ((0 : GoUInt8))) >= ((((("9" : GoString))).code : GoRune)))) {
             _n--;
         };
         if (_n == ((0 : GoInt))) {
-            _x.value._mant[((0 : GoInt))] = ((((("1" : GoString))).code : GoRune));
-            _x.value._mant = _x.value._mant.__slice__(0, ((1 : GoInt)));
-            _x.value._exp++;
+            if (_x._mant != null) _x._mant[((0 : GoInt))] = ((((("1" : GoString))).code : GoRune));
+            _x._mant = _x._mant.__slice__(0, ((1 : GoInt)));
+            _x._exp++;
             return;
         };
-        _x.value._mant[_n - ((1 : GoInt))]++;
-        _x.value._mant = _x.value._mant.__slice__(0, _n);
+        (_x._mant != null ? _x._mant[_n - ((1 : GoInt))] : ((0 : GoUInt8)))++;
+        _x._mant = _x._mant.__slice__(0, _n);
     }
     public function _round(_n:GoInt):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if ((_n < ((0 : GoInt))) || (_n >= _x.value._mant.length)) {
+        var _x = this;
+        _x;
+        if ((_n < ((0 : GoInt))) || (_n >= (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
             return;
         };
         if (_shouldRoundUp(_x, _n)) {
-            _x.value._roundUp(_n);
+            _x._roundUp(_n);
         } else {
-            _x.value._roundDown(_n);
+            _x._roundDown(_n);
         };
     }
     public function toString():GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._mant.length == ((0 : GoInt))) {
+        var _x = this;
+        _x;
+        if ((_x._mant != null ? _x._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return ((("0" : GoString)));
         };
-        var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_x.value._exp <= ((0 : GoInt))) {
-            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap((((((2 : GoInt)) + (-_x.value._exp)) + _x.value._mant.length : GoInt)).toBasic());
-            _buf = _buf.__append__(...((("0." : GoString))).toArray());
-            _buf = _appendZeros(_buf, -_x.value._exp);
-            _buf = _buf.__append__(..._x.value._mant.toArray());
-        } else if (_x.value._exp < _x.value._mant.length) {
-            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((((1 : GoInt)) + _x.value._mant.length : GoInt)).toBasic());
-            _buf = _buf.__append__(..._x.value._mant.__slice__(0, _x.value._exp).toArray());
-            _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
-            _buf = _buf.__append__(..._x.value._mant.__slice__(_x.value._exp).toArray());
+        var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
+        if (_x._exp <= ((0 : GoInt))) {
+            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).__setCap__((((((2 : GoInt)) + (-_x._exp)) + (_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoInt)).toBasic());
+            _buf = (_buf != null ? _buf.__append__(...((("0." : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("0." : GoString))).__toArray__()));
+            _buf = _appendZeros(_buf, -_x._exp);
+            _buf = (_buf != null ? _buf.__append__(..._x._mant.__toArray__()) : new Slice<GoUInt8>(..._x._mant.__toArray__()));
+        } else if (_x._exp < (_x._mant != null ? _x._mant.length : ((0 : GoInt)))) {
+            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).__setCap__(((((1 : GoInt)) + (_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoInt)).toBasic());
+            _buf = (_buf != null ? _buf.__append__(..._x._mant.__slice__(0, _x._exp).__toArray__()) : new Slice<GoUInt8>(..._x._mant.__slice__(0, _x._exp).__toArray__()));
+            _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
+            _buf = (_buf != null ? _buf.__append__(..._x._mant.__slice__(_x._exp).__toArray__()) : new Slice<GoUInt8>(..._x._mant.__slice__(_x._exp).__toArray__()));
         } else {
-            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((_x.value._exp : GoInt)).toBasic());
-            _buf = _buf.__append__(..._x.value._mant.toArray());
-            _buf = _appendZeros(_buf, _x.value._exp - _x.value._mant.length);
+            _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).__setCap__(((_x._exp : GoInt)).toBasic());
+            _buf = (_buf != null ? _buf.__append__(..._x._mant.__toArray__()) : new Slice<GoUInt8>(..._x._mant.__toArray__()));
+            _buf = _appendZeros(_buf, _x._exp - (_x._mant != null ? _x._mant.length : ((0 : GoInt))));
         };
         return ((_buf : GoString));
     }
     public function _init(_m:T_nat, _shift:GoInt):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_m.__t__.length == ((0 : GoInt))) {
-            _x.value._mant = _x.value._mant.__slice__(0, ((0 : GoInt)));
-            _x.value._exp = ((0 : GoInt));
+        var _x = this;
+        _x;
+        if ((_m != null ? _m.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _x._mant = _x._mant.__slice__(0, ((0 : GoInt)));
+            _x._exp = ((0 : GoInt));
             return;
         };
         if (_shift < ((0 : GoInt))) {
@@ -91,20 +139,20 @@ import stdgo.Chan;
             if (_s >= _ntz) {
                 _s = _ntz;
             };
-            _m = ((new T_nat() : T_nat))._shr(_m.__copy__(), _s).__copy__();
+            _m = (((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), _s) == null ? null : ((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), _s).__copy__());
             _shift = _shift + (((_s : GoInt)));
         };
         if (_shift > ((0 : GoInt))) {
-            _m = ((new T_nat() : T_nat))._shl(_m.__copy__(), ((_shift : GoUInt))).__copy__();
+            _m = (((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), ((_shift : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), ((_shift : GoUInt))).__copy__());
             _shift = ((0 : GoInt));
         };
         var _s:Slice<GoUInt8> = _m._utoa(((10 : GoInt)));
-        var _n:GoInt = _s.length;
-        _x.value._exp = _n;
-        while ((_n > ((0 : GoInt))) && (_s[_n - ((1 : GoInt))] == ((((("0" : GoString))).code : GoRune)))) {
+        var _n:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
+        _x._exp = _n;
+        while ((_n > ((0 : GoInt))) && ((_s != null ? _s[_n - ((1 : GoInt))] : ((0 : GoUInt8))) == ((((("0" : GoString))).code : GoRune)))) {
             _n--;
         };
-        _x.value._mant = _x.value._mant.__slice__(0, ((0 : GoInt))).__append__(..._s.__slice__(0, _n).toArray());
+        _x._mant = (_x._mant.__slice__(0, ((0 : GoInt))) != null ? _x._mant.__slice__(0, ((0 : GoInt))).__append__(..._s.__slice__(0, _n).__toArray__()) : new Slice<GoUInt8>(..._s.__slice__(0, _n).__toArray__()));
         if (_shift < ((0 : GoInt))) {
             while (_shift < ((-28 : GoInt))) {
                 _shr(_x, ((28 : GoUInt)));
@@ -114,13 +162,14 @@ import stdgo.Chan;
         };
     }
     public function _at(_i:GoInt):GoByte {
-        var _d = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if ((((0 : GoInt)) <= _i) && (_i < _d.value._mant.length)) {
-            return _d.value._mant[_i];
+        var _d = this;
+        _d;
+        if ((((0 : GoInt)) <= _i) && (_i < (_d._mant != null ? _d._mant.length : ((0 : GoInt))))) {
+            return (_d._mant != null ? _d._mant[_i] : ((0 : GoUInt8)));
         };
         return ((((("0" : GoString))).code : GoRune));
     }
-    public var _mant : Slice<GoUInt8> = new Slice<GoUInt8>().nil();
+    public var _mant : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public var _exp : GoInt = ((0 : GoInt));
     public function new(?_mant:Slice<GoUInt8>, ?_exp:GoInt) {
         if (_mant != null) this._mant = _mant;
@@ -130,70 +179,68 @@ import stdgo.Chan;
     public function __copy__() {
         return new T_decimal(_mant, _exp);
     }
-    public function __set__(__tmp__) {
-        this._mant = __tmp__._mant;
-        this._exp = __tmp__._exp;
-        return this;
-    }
 }
-@:structInit class Float_ {
-    public function _sqrtInverse(_x:Pointer<Float_>):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _u:Pointer<Float_> = _newFloat(_z.value._prec);
-        var _v:Pointer<Float_> = _newFloat(_z.value._prec);
-        var _three:Pointer<Float_> = _three();
-        var _ng:Pointer<Float_> -> Pointer<Float_> = function(_t:Pointer<Float_>):Pointer<Float_> {
-            _u.value._prec = _t.value._prec;
-            _v.value._prec = _t.value._prec;
-            _u.value.mul(_t, _t);
-            _u.value.mul(_x, _u);
-            _v.value.sub(_three, _u);
-            _u.value.mul(_t, _v);
-            _u.value._exp--;
-            return _t.value.set(_u);
+@:structInit @:using(Big.Float__static_extension) class Float_ {
+    public function _sqrtInverse(_x:Float_):Void {
+        var _z = this;
+        _z;
+        var _u:Float_ = _newFloat(_z._prec);
+        var _v:Float_ = _newFloat(_z._prec);
+        var _three:Float_ = _three();
+        var _ng:Float_ -> Float_ = function(_t:Float_):Float_ {
+            _u._prec = _t._prec;
+            _v._prec = _t._prec;
+            _u.mul(_t, _t);
+            _u.mul(_x, _u);
+            _v.sub(_three, _u);
+            _u.mul(_t, _v);
+            _u._exp--;
+            return _t.set(_u);
         };
-        var __tmp__ = _x.value.float64(), _xf:GoFloat64 = __tmp__._0, _:Accuracy = __tmp__._1;
-        var _sqi:Pointer<Float_> = _newFloat(_z.value._prec);
-        _sqi.value.setFloat64(((1 : GoFloat64)) / stdgo.math.Math.sqrt(_xf));
+        var __tmp__ = _x.float64(), _xf:GoFloat64 = __tmp__._0, _:Accuracy = __tmp__._1;
+        var _sqi:Float_ = _newFloat(_z._prec);
+        _sqi.setFloat64(((1 : GoFloat64)) / stdgo.math.Math.sqrt(_xf));
         {
-            var _prec:GoUInt32 = _z.value._prec + ((32 : GoUInt32));
-            while (_sqi.value._prec < _prec) {
-                _sqi.value._prec = _sqi.value._prec * (((2 : GoUInt32)));
+            var _prec:GoUInt32 = _z._prec + ((32 : GoUInt32));
+            while (_sqi._prec < _prec) {
+                _sqi._prec = _sqi._prec * (((2 : GoUInt32)));
                 _sqi = _ng(_sqi);
             };
         };
-        _z.value.mul(_x, _sqi);
+        _z.mul(_x, _sqi);
     }
-    public function sqrt(_x:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function sqrt(_x:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _x.value._prec;
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _x._prec;
         };
-        if (_x.value.sign() == ((-1 : GoInt))) {
-            throw Go.toInterface(new ErrNaN(((("square root of negative operand" : GoString)))));
+        if (_x.sign() == ((-1 : GoInt))) {
+            throw Go.toInterface(((new ErrNaN(((("square root of negative operand" : GoString)))) : ErrNaN)));
         };
-        if (_x.value._form.__t__ != ((1 : GoUInt8))) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = _x.value._form;
-            _z.value._neg = _x.value._neg;
+        if (_x._form != ((1 : GoUInt8))) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = _x._form;
+            _z._neg = _x._neg;
             return _z;
         };
-        var _prec:GoUInt32 = _z.value._prec;
-        var _b:GoInt = _x.value.mantExp(_z);
-        _z.value._prec = _prec;
+        var _prec:GoUInt32 = _z._prec;
+        var _b:GoInt = _x.mantExp(_z);
+        _z._prec = _prec;
         if (_b % ((2 : GoInt)) == ((0 : GoInt))) {} else if (_b % ((2 : GoInt)) == ((1 : GoInt))) {
-            _z.value._exp++;
+            _z._exp++;
         } else if (_b % ((2 : GoInt)) == ((-1 : GoInt))) {
-            _z.value._exp--;
+            _z._exp--;
         };
-        _z.value._sqrtInverse(_z);
-        return _z.value.setMantExp(_z, _b / ((2 : GoInt)));
+        _z._sqrtInverse(_z);
+        return _z.setMantExp(_z, _b / ((2 : GoInt)));
     }
     public function format(_s:stdgo.fmt.Fmt.State, _format:GoRune):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var __tmp__ = _s.precision(), _prec:GoInt = __tmp__._0, _hasPrec:Bool = __tmp__._1;
         if (!_hasPrec) {
             _prec = ((6 : GoInt));
@@ -221,23 +268,23 @@ import stdgo.Chan;
                     break;
                     break;
                 } else {
-                    stdgo.fmt.Fmt.fprintf(_s, ((("%%!%c(*big.Float=%s)" : GoString))), Go.toInterface(_format), Go.toInterface(_x.value.toString()));
+                    stdgo.fmt.Fmt.fprintf(_s, ((("%%!%c(*big.Float=%s)" : GoString))), Go.toInterface(_format), Go.toInterface(((_x.toString() : GoString))));
                     return;
                     break;
                 };
                 break;
             };
         };
-        var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        _buf = _x.value.append(_buf, ((_format : GoByte)), _prec);
-        if (_buf.length == ((0 : GoInt))) {
+        var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
+        _buf = _x.append(_buf, ((_format : GoByte)), _prec);
+        if ((_buf != null ? _buf.length : ((0 : GoInt))) == ((0 : GoInt))) {
             _buf = ((((("?" : GoString))) : Slice<GoByte>));
         };
         var _sign:GoString = (("" : GoString));
-        if (_buf[((0 : GoInt))] == ((((("-" : GoString))).code : GoRune))) {
+        if ((_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("-" : GoString))).code : GoRune))) {
             _sign = ((("-" : GoString)));
             _buf = _buf.__slice__(((1 : GoInt)));
-        } else if (_buf[((0 : GoInt))] == ((((("+" : GoString))).code : GoRune))) {
+        } else if ((_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("+" : GoString))).code : GoRune))) {
             _sign = ((("+" : GoString)));
             if (_s.flag((((((" " : GoString))).code : GoRune)))) {
                 _sign = (((" " : GoString)));
@@ -251,11 +298,11 @@ import stdgo.Chan;
         var _padding:GoInt = ((0 : GoInt));
         {
             var __tmp__ = _s.width(), _width:GoInt = __tmp__._0, _hasWidth:Bool = __tmp__._1;
-            if (_hasWidth && (_width > (_sign.length + _buf.length))) {
-                _padding = (_width - _sign.length) - _buf.length;
+            if (_hasWidth && (_width > ((_sign != null ? _sign.length : ((0 : GoInt))) + (_buf != null ? _buf.length : ((0 : GoInt)))))) {
+                _padding = (_width - (_sign != null ? _sign.length : ((0 : GoInt)))) - (_buf != null ? _buf.length : ((0 : GoInt)));
             };
         };
-        if (_s.flag(((((("0" : GoString))).code : GoRune))) && !_x.value.isInf()) {
+        if (_s.flag(((((("0" : GoString))).code : GoRune))) && !_x.isInf()) {
             _writeMultiple(_s, _sign, ((1 : GoInt)));
             _writeMultiple(_s, ((("0" : GoString))), _padding);
             _s.write(_buf);
@@ -270,141 +317,145 @@ import stdgo.Chan;
         };
     }
     public function _fmtP(_buf:Slice<GoByte>):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return _buf.__append__(((((("0" : GoString))).code : GoRune)));
+        var _x = this;
+        _x;
+        if (_x._form == ((0 : GoUInt8))) {
+            return (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         };
-        if (false && (_x.value._form.__t__ != ((1 : GoUInt8)))) {
+        if (false && (_x._form != ((1 : GoUInt8)))) {
             throw Go.toInterface(((("non-finite float" : GoString))));
         };
-        var _m:T_nat = _x.value._mant.__copy__();
+        var _m:T_nat = (_x._mant == null ? null : _x._mant.__copy__());
         var _i:GoInt = ((0 : GoInt));
-        while ((_i < _m.__t__.length) && (_m.__t__[_i].__t__ == ((0 : GoUInt)))) {
+        while ((_i < (_m != null ? _m.length : ((0 : GoInt)))) && ((_m != null ? _m[_i] : new Word()) == ((0 : GoUInt)))) {
             _i++;
         };
-        _m = _m.__slice__(_i).__copy__();
-        _buf = _buf.__append__(...((("0x." : GoString))).toArray());
-        _buf = _buf.__append__(...stdgo.bytes.Bytes.trimRight(_m._utoa(((16 : GoInt))), ((("0" : GoString)))).toArray());
-        _buf = _buf.__append__(((((("p" : GoString))).code : GoRune)));
-        if (_x.value._exp >= ((0 : GoInt32))) {
-            _buf = _buf.__append__(((((("+" : GoString))).code : GoRune)));
+        _m = (_m.__slice__(_i) == null ? null : _m.__slice__(_i).__copy__());
+        _buf = (_buf != null ? _buf.__append__(...((("0x." : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("0x." : GoString))).__toArray__()));
+        _buf = (_buf != null ? _buf.__append__(...stdgo.bytes.Bytes.trimRight(_m._utoa(((16 : GoInt))), ((("0" : GoString)))).__toArray__()) : new Slice<GoUInt8>(...stdgo.bytes.Bytes.trimRight(_m._utoa(((16 : GoInt))), ((("0" : GoString)))).__toArray__()));
+        _buf = (_buf != null ? _buf.__append__(((((("p" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("p" : GoString))).code : GoRune))));
+        if (_x._exp >= ((0 : GoInt32))) {
+            _buf = (_buf != null ? _buf.__append__(((((("+" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("+" : GoString))).code : GoRune))));
         };
-        return stdgo.strconv.Strconv.appendInt(_buf, ((_x.value._exp : GoInt64)), ((10 : GoInt)));
+        return stdgo.strconv.Strconv.appendInt(_buf, ((_x._exp : GoInt64)), ((10 : GoInt)));
     }
     public function _fmtX(_buf:Slice<GoByte>, _prec:GoInt):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            _buf = _buf.__append__(...((("0x0" : GoString))).toArray());
+        var _x = this;
+        _x;
+        if (_x._form == ((0 : GoUInt8))) {
+            _buf = (_buf != null ? _buf.__append__(...((("0x0" : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("0x0" : GoString))).__toArray__()));
             if (_prec > ((0 : GoInt))) {
-                _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+                _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
                 {
                     var _i:GoInt = ((0 : GoInt));
                     Go.cfor(_i < _prec, _i++, {
-                        _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+                        _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
                     });
                 };
             };
-            _buf = _buf.__append__(...((("p+00" : GoString))).toArray());
+            _buf = (_buf != null ? _buf.__append__(...((("p+00" : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("p+00" : GoString))).__toArray__()));
             return _buf;
         };
-        if (false && (_x.value._form.__t__ != ((1 : GoUInt8)))) {
+        if (false && (_x._form != ((1 : GoUInt8)))) {
             throw Go.toInterface(((("non-finite float" : GoString))));
         };
         var _n:GoUInt = ((0 : GoUInt));
         if (_prec < ((0 : GoInt))) {
-            _n = ((1 : GoUInt)) + ((((_x.value.minPrec() - ((1 : GoUInt))) + ((3 : GoUInt))) / ((4 : GoUInt))) * ((4 : GoUInt)));
+            _n = ((1 : GoUInt)) + ((((_x.minPrec() - ((1 : GoUInt))) + ((3 : GoUInt))) / ((4 : GoUInt))) * ((4 : GoUInt)));
         } else {
             _n = ((1 : GoUInt)) + (((4 : GoUInt)) * ((_prec : GoUInt)));
         };
-        _x = Go.pointer(new Float_()).value.setPrec(_n).value.setMode(_x.value._mode).value.set(_x);
-        var _m:T_nat = _x.value._mant.__copy__();
+        _x = Go.pointer(new Float_()).setPrec(_n).setMode(_x._mode).set(_x);
+        var _m:T_nat = (_x._mant == null ? null : _x._mant.__copy__());
         {
-            var _w:GoUInt = ((_x.value._mant.__t__.length : GoUInt)) * ((32 : GoUInt));
+            var _w:GoUInt = (((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt)) * ((32 : GoUInt));
             if (_w < _n) {
-                _m = ((new T_nat() : T_nat))._shl(_m.__copy__(), _n - _w).__copy__();
+                _m = (((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), _n - _w) == null ? null : ((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), _n - _w).__copy__());
             } else if (_w > _n) {
-                _m = ((new T_nat() : T_nat))._shr(_m.__copy__(), _w - _n).__copy__();
+                _m = (((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), _w - _n) == null ? null : ((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), _w - _n).__copy__());
             };
         };
-        var _exp64:GoInt64 = ((_x.value._exp : GoInt64)) - ((1 : GoInt64));
+        var _exp64:GoInt64 = ((_x._exp : GoInt64)) - ((1 : GoInt64));
         var _hm:Slice<GoUInt8> = _m._utoa(((16 : GoInt)));
-        if (false && (_hm[((0 : GoInt))] != ((((("1" : GoString))).code : GoRune)))) {
+        if (false && ((_hm != null ? _hm[((0 : GoInt))] : ((0 : GoUInt8))) != ((((("1" : GoString))).code : GoRune)))) {
             throw Go.toInterface(((("incorrect mantissa: " : GoString))) + ((_hm : GoString)));
         };
-        _buf = _buf.__append__(...((("0x1" : GoString))).toArray());
-        if (_hm.length > ((1 : GoInt))) {
-            _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
-            _buf = _buf.__append__(..._hm.__slice__(((1 : GoInt))).toArray());
+        _buf = (_buf != null ? _buf.__append__(...((("0x1" : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("0x1" : GoString))).__toArray__()));
+        if ((_hm != null ? _hm.length : ((0 : GoInt))) > ((1 : GoInt))) {
+            _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
+            _buf = (_buf != null ? _buf.__append__(..._hm.__slice__(((1 : GoInt))).__toArray__()) : new Slice<GoUInt8>(..._hm.__slice__(((1 : GoInt))).__toArray__()));
         };
-        _buf = _buf.__append__(((((("p" : GoString))).code : GoRune)));
+        _buf = (_buf != null ? _buf.__append__(((((("p" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("p" : GoString))).code : GoRune))));
         if (_exp64 >= ((0 : GoInt64))) {
-            _buf = _buf.__append__(((((("+" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("+" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("+" : GoString))).code : GoRune))));
         } else {
             _exp64 = -_exp64;
-            _buf = _buf.__append__(((((("-" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("-" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("-" : GoString))).code : GoRune))));
         };
         if (_exp64 < ((10 : GoInt64))) {
-            _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         };
         return stdgo.strconv.Strconv.appendInt(_buf, _exp64, ((10 : GoInt)));
     }
     public function _fmtB(_buf:Slice<GoByte>):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return _buf.__append__(((((("0" : GoString))).code : GoRune)));
+        var _x = this;
+        _x;
+        if (_x._form == ((0 : GoUInt8))) {
+            return (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         };
-        if (false && (_x.value._form.__t__ != ((1 : GoUInt8)))) {
+        if (false && (_x._form != ((1 : GoUInt8)))) {
             throw Go.toInterface(((("non-finite float" : GoString))));
         };
-        var _m:T_nat = _x.value._mant.__copy__();
+        var _m:T_nat = (_x._mant == null ? null : _x._mant.__copy__());
         {
-            var _w:GoUInt32 = ((_x.value._mant.__t__.length : GoUInt32)) * ((32 : GoUInt32));
-            if (_w < _x.value._prec) {
-                _m = ((new T_nat() : T_nat))._shl(_m.__copy__(), (((_x.value._prec - _w) : GoUInt))).__copy__();
-            } else if (_w > _x.value._prec) {
-                _m = ((new T_nat() : T_nat))._shr(_m.__copy__(), (((_w - _x.value._prec) : GoUInt))).__copy__();
+            var _w:GoUInt32 = (((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt32)) * ((32 : GoUInt32));
+            if (_w < _x._prec) {
+                _m = (((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), (((_x._prec - _w) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_m == null ? null : _m.__copy__()), (((_x._prec - _w) : GoUInt))).__copy__());
+            } else if (_w > _x._prec) {
+                _m = (((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), (((_w - _x._prec) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shr((_m == null ? null : _m.__copy__()), (((_w - _x._prec) : GoUInt))).__copy__());
             };
         };
-        _buf = _buf.__append__(..._m._utoa(((10 : GoInt))).toArray());
-        _buf = _buf.__append__(((((("p" : GoString))).code : GoRune)));
-        var _e:GoInt64 = ((_x.value._exp : GoInt64)) - ((_x.value._prec : GoInt64));
+        _buf = (_buf != null ? _buf.__append__(..._m._utoa(((10 : GoInt))).__toArray__()) : new Slice<GoUInt8>(..._m._utoa(((10 : GoInt))).__toArray__()));
+        _buf = (_buf != null ? _buf.__append__(((((("p" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("p" : GoString))).code : GoRune))));
+        var _e:GoInt64 = ((_x._exp : GoInt64)) - ((_x._prec : GoInt64));
         if (_e >= ((0 : GoInt64))) {
-            _buf = _buf.__append__(((((("+" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("+" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("+" : GoString))).code : GoRune))));
         };
         return stdgo.strconv.Strconv.appendInt(_buf, _e, ((10 : GoInt)));
     }
     public function append(_buf:Slice<GoByte>, _fmt:GoByte, _prec:GoInt):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg) {
-            _buf = _buf.__append__(((((("-" : GoString))).code : GoRune)));
+        var _x = this;
+        _x;
+        if (_x._neg) {
+            _buf = (_buf != null ? _buf.__append__(((((("-" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("-" : GoString))).code : GoRune))));
         };
-        if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            if (!_x.value._neg) {
-                _buf = _buf.__append__(((((("+" : GoString))).code : GoRune)));
+        if (_x._form == ((2 : GoUInt8))) {
+            if (!_x._neg) {
+                _buf = (_buf != null ? _buf.__append__(((((("+" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("+" : GoString))).code : GoRune))));
             };
-            return _buf.__append__(...((("Inf" : GoString))).toArray());
+            return (_buf != null ? _buf.__append__(...((("Inf" : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("Inf" : GoString))).__toArray__()));
         };
         if (_fmt == ((((("b" : GoString))).code : GoRune))) {
-            return _x.value._fmtB(_buf);
+            return _x._fmtB(_buf);
         } else if (_fmt == ((((("p" : GoString))).code : GoRune))) {
-            return _x.value._fmtP(_buf);
+            return _x._fmtP(_buf);
         } else if (_fmt == ((((("x" : GoString))).code : GoRune))) {
-            return _x.value._fmtX(_buf, _prec);
+            return _x._fmtX(_buf, _prec);
         };
         var _d:T_decimal = new T_decimal();
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            _d._init(_x.value._mant.__copy__(), ((_x.value._exp : GoInt)) - _x.value._mant._bitLen());
+        if (_x._form == ((1 : GoUInt8))) {
+            _d._init((_x._mant == null ? null : _x._mant.__copy__()), ((_x._exp : GoInt)) - _x._mant._bitLen());
         };
         var _shortest:Bool = false;
         if (_prec < ((0 : GoInt))) {
             _shortest = true;
-            _roundShortest(Go.pointer(_d), _x);
+            _roundShortest(_d, _x);
             if (_fmt == ((((("e" : GoString))).code : GoRune)) || _fmt == ((((("E" : GoString))).code : GoRune))) {
-                _prec = _d._mant.length - ((1 : GoInt));
+                _prec = (_d._mant != null ? _d._mant.length : ((0 : GoInt))) - ((1 : GoInt));
             } else if (_fmt == ((((("f" : GoString))).code : GoRune))) {
-                _prec = _max(_d._mant.length - _d._exp, ((0 : GoInt)));
+                _prec = _max((_d._mant != null ? _d._mant.length : ((0 : GoInt))) - _d._exp, ((0 : GoInt)));
             } else if (_fmt == ((((("g" : GoString))).code : GoRune)) || _fmt == ((((("G" : GoString))).code : GoRune))) {
-                _prec = _d._mant.length;
+                _prec = (_d._mant != null ? _d._mant.length : ((0 : GoInt)));
             };
         } else {
             if (_fmt == ((((("e" : GoString))).code : GoRune)) || _fmt == ((((("E" : GoString))).code : GoRune))) {
@@ -419,200 +470,219 @@ import stdgo.Chan;
             };
         };
         if (_fmt == ((((("e" : GoString))).code : GoRune)) || _fmt == ((((("E" : GoString))).code : GoRune))) {
-            return _fmtE(_buf, _fmt, _prec, _d.__copy__());
+            return _fmtE(_buf, _fmt, _prec, (_d == null ? null : _d.__copy__()));
         } else if (_fmt == ((((("f" : GoString))).code : GoRune))) {
-            return _fmtF(_buf, _prec, _d.__copy__());
+            return _fmtF(_buf, _prec, (_d == null ? null : _d.__copy__()));
         } else if (_fmt == ((((("g" : GoString))).code : GoRune)) || _fmt == ((((("G" : GoString))).code : GoRune))) {
             var _eprec:GoInt = _prec;
-            if ((_eprec > _d._mant.length) && (_d._mant.length >= _d._exp)) {
-                _eprec = _d._mant.length;
+            if ((_eprec > (_d._mant != null ? _d._mant.length : ((0 : GoInt)))) && ((_d._mant != null ? _d._mant.length : ((0 : GoInt))) >= _d._exp)) {
+                _eprec = (_d._mant != null ? _d._mant.length : ((0 : GoInt)));
             };
             if (_shortest) {
                 _eprec = ((6 : GoInt));
             };
             var _exp:GoInt = _d._exp - ((1 : GoInt));
             if ((_exp < ((-4 : GoInt))) || (_exp >= _eprec)) {
-                if (_prec > _d._mant.length) {
-                    _prec = _d._mant.length;
+                if (_prec > (_d._mant != null ? _d._mant.length : ((0 : GoInt)))) {
+                    _prec = (_d._mant != null ? _d._mant.length : ((0 : GoInt)));
                 };
-                return _fmtE(_buf, (_fmt + ((((("e" : GoString))).code : GoRune))) - ((((("g" : GoString))).code : GoRune)), _prec - ((1 : GoInt)), _d.__copy__());
+                return _fmtE(_buf, (_fmt + ((((("e" : GoString))).code : GoRune))) - ((((("g" : GoString))).code : GoRune)), _prec - ((1 : GoInt)), (_d == null ? null : _d.__copy__()));
             };
             if (_prec > _d._exp) {
-                _prec = _d._mant.length;
+                _prec = (_d._mant != null ? _d._mant.length : ((0 : GoInt)));
             };
-            return _fmtF(_buf, _max(_prec - _d._exp, ((0 : GoInt))), _d.__copy__());
+            return _fmtF(_buf, _max(_prec - _d._exp, ((0 : GoInt))), (_d == null ? null : _d.__copy__()));
         };
-        if (_x.value._neg) {
-            _buf = _buf.__slice__(0, _buf.length - ((1 : GoInt)));
+        if (_x._neg) {
+            _buf = _buf.__slice__(0, (_buf != null ? _buf.length : ((0 : GoInt))) - ((1 : GoInt)));
         };
-        return _buf.__append__(((((("%" : GoString))).code : GoRune)), _fmt);
+        return (_buf != null ? _buf.__append__(((((("%" : GoString))).code : GoRune)), _fmt) : new Slice<GoUInt8>(((((("%" : GoString))).code : GoRune)), _fmt));
     }
     public function toString():GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value.text(((((("g" : GoString))).code : GoRune)), ((10 : GoInt)));
+        var _x = this;
+        _x;
+        return _x.text(((((("g" : GoString))).code : GoRune)), ((10 : GoInt)));
     }
     public function text(_format:GoByte, _prec:GoInt):GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var _cap:GoInt = ((10 : GoInt));
         if (_prec > ((0 : GoInt))) {
             _cap = _cap + (_prec);
         };
-        return ((_x.value.append(new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).setCap(((_cap : GoInt)).toBasic()), _format, _prec) : GoString));
+        return ((_x.append(new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).__setCap__(((_cap : GoInt)).toBasic()), _format, _prec) : GoString));
     }
     public function unmarshalText(_text:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var __tmp__ = _z.value.parse(((_text : GoString)), ((0 : GoInt))), _:Pointer<Float_> = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
+        var _z = this;
+        _z;
+        var __tmp__ = _z.parse(((_text : GoString)), ((0 : GoInt))), _:Float_ = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        if (_err != null) {
             _err = stdgo.fmt.Fmt.errorf(((("math/big: cannot unmarshal %q into a *big.Float (%v)" : GoString))), Go.toInterface(_text), Go.toInterface(_err));
         };
         return _err;
     }
     public function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _text:Slice<GoByte> = new Slice<GoUInt8>().nil(), _err:Error = ((null : stdgo.Error));
+        var _x = this;
+        _x;
+        var _text:Slice<GoByte> = ((null : Slice<GoUInt8>)), _err:Error = ((null : stdgo.Error));
         if (_x == null) {
             return { _0 : ((((("<nil>" : GoString))) : Slice<GoByte>)), _1 : ((null : stdgo.Error)) };
         };
-        var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        return { _0 : _x.value.append(_buf, ((((("g" : GoString))).code : GoRune)), ((-1 : GoInt))), _1 : ((null : stdgo.Error)) };
+        var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
+        return { _0 : _x.append(_buf, ((((("g" : GoString))).code : GoRune)), ((-1 : GoInt))), _1 : ((null : stdgo.Error)) };
     }
     public function gobDecode(_buf:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_buf.length == ((0 : GoInt))) {
-            _z.value = new Float_().__copy__();
+        var _z = this;
+        _z;
+        if ((_buf != null ? _buf.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            {
+                var __tmp__ = ((new Float_() : Float_));
+                _z._prec = __tmp__._prec;
+                _z._mode = __tmp__._mode;
+                _z._acc = __tmp__._acc;
+                _z._form = __tmp__._form;
+                _z._neg = __tmp__._neg;
+                _z._mant = __tmp__._mant;
+                _z._exp = __tmp__._exp;
+            };
             return ((null : stdgo.Error));
         };
-        if (_buf[((0 : GoInt))] != ((1 : GoUInt8))) {
-            return stdgo.fmt.Fmt.errorf(((("Float.GobDecode: encoding version %d not supported" : GoString))), Go.toInterface(_buf[((0 : GoInt))]));
+        if ((_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8))) != ((1 : GoUInt8))) {
+            return stdgo.fmt.Fmt.errorf(((("Float.GobDecode: encoding version %d not supported" : GoString))), Go.toInterface((_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8)))));
         };
-        var _oldPrec:GoUInt32 = _z.value._prec;
-        var _oldMode:RoundingMode = _z.value._mode;
-        var _b:GoUInt8 = _buf[((1 : GoInt))];
-        _z.value._mode = new RoundingMode(((_b >> ((5 : GoUnTypedInt))) & ((7 : GoUInt8))));
-        _z.value._acc = new Accuracy(new Accuracy(((_b >> ((3 : GoUnTypedInt))) & ((3 : GoUInt8)))).__t__ - ((1 : GoInt8)));
-        _z.value._form = new T_form(((_b >> ((1 : GoUnTypedInt))) & ((3 : GoUInt8))));
-        _z.value._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
-        _z.value._prec = stdgo.encoding.binary.Binary.bigEndian.uint32(_buf.__slice__(((2 : GoInt))));
-        if (_z.value._form.__t__ == ((1 : GoUInt8))) {
-            _z.value._exp = ((stdgo.encoding.binary.Binary.bigEndian.uint32(_buf.__slice__(((6 : GoInt)))) : GoInt32));
-            _z.value._mant = _z.value._mant._setBytes(_buf.__slice__(((10 : GoInt)))).__copy__();
+        var _oldPrec:GoUInt32 = _z._prec;
+        var _oldMode:RoundingMode = _z._mode;
+        var _b:GoUInt8 = (_buf != null ? _buf[((1 : GoInt))] : ((0 : GoUInt8)));
+        _z._mode = ((((_b >> ((5 : GoUnTypedInt))) & ((7 : GoUInt8))) : RoundingMode));
+        _z._acc = ((((_b >> ((3 : GoUnTypedInt))) & ((3 : GoUInt8))) : Accuracy)) - ((1 : GoInt8));
+        _z._form = ((((_b >> ((1 : GoUnTypedInt))) & ((3 : GoUInt8))) : T_form));
+        _z._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
+        _z._prec = stdgo.encoding.binary.Binary.bigEndian.uint32(_buf.__slice__(((2 : GoInt))));
+        if (_z._form == ((1 : GoUInt8))) {
+            _z._exp = ((stdgo.encoding.binary.Binary.bigEndian.uint32(_buf.__slice__(((6 : GoInt)))) : GoInt32));
+            _z._mant = (_z._mant._setBytes(_buf.__slice__(((10 : GoInt)))) == null ? null : _z._mant._setBytes(_buf.__slice__(((10 : GoInt)))).__copy__());
         };
         if (_oldPrec != ((0 : GoUInt32))) {
-            _z.value._mode = _oldMode;
-            _z.value.setPrec(((_oldPrec : GoUInt)));
+            _z._mode = _oldMode;
+            _z.setPrec(((_oldPrec : GoUInt)));
         };
         return ((null : stdgo.Error));
     }
     public function gobEncode():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_x == null) {
-            return { _0 : new Slice<GoUInt8>().nil(), _1 : ((null : stdgo.Error)) };
+            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
         };
         var _sz:GoInt = ((6 : GoInt));
         var _n:GoInt = ((0 : GoInt));
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            _n = ((((_x.value._prec + ((31 : GoUInt32))) / ((32 : GoUInt32))) : GoInt));
-            if (_x.value._mant.__t__.length < _n) {
-                _n = _x.value._mant.__t__.length;
+        if (_x._form == ((1 : GoUInt8))) {
+            _n = ((((_x._prec + ((31 : GoUInt32))) / ((32 : GoUInt32))) : GoInt));
+            if ((_x._mant != null ? _x._mant.length : ((0 : GoInt))) < _n) {
+                _n = (_x._mant != null ? _x._mant.length : ((0 : GoInt)));
             };
             _sz = _sz + (((4 : GoInt)) + (_n * ((4 : GoInt))));
         };
         var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_sz : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        _buf[((0 : GoInt))] = ((1 : GoUInt8));
-        var _b:GoUInt8 = ((new RoundingMode(_x.value._mode.__t__ & ((7 : GoUInt8))).__t__ << ((5 : GoUnTypedInt))) | (new Accuracy((new Accuracy(_x.value._acc.__t__ + ((1 : GoInt8)))).__t__ & ((3 : GoInt8))).__t__ << ((3 : GoUnTypedInt)))) | (new T_form(_x.value._form.__t__ & ((3 : GoUInt8))).__t__ << ((1 : GoUnTypedInt)));
-        if (_x.value._neg) {
+        if (_buf != null) _buf[((0 : GoInt))] = ((1 : GoUInt8));
+        var _b:GoUInt8 = (((((_x._mode & ((7 : GoUInt8))) : GoByte)) << ((5 : GoUnTypedInt))) | (((((_x._acc + ((1 : GoInt8))) & ((3 : GoInt8))) : GoByte)) << ((3 : GoUnTypedInt)))) | ((((_x._form & ((3 : GoUInt8))) : GoByte)) << ((1 : GoUnTypedInt)));
+        if (_x._neg) {
             _b = _b | (((1 : GoUInt8)));
         };
-        _buf[((1 : GoInt))] = _b;
-        stdgo.encoding.binary.Binary.bigEndian.putUint32(_buf.__slice__(((2 : GoInt))), _x.value._prec);
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            stdgo.encoding.binary.Binary.bigEndian.putUint32(_buf.__slice__(((6 : GoInt))), ((_x.value._exp : GoUInt32)));
-            _x.value._mant.__slice__(_x.value._mant.__t__.length - _n)._bytes(_buf.__slice__(((10 : GoInt))));
+        if (_buf != null) _buf[((1 : GoInt))] = _b;
+        stdgo.encoding.binary.Binary.bigEndian.putUint32(_buf.__slice__(((2 : GoInt))), _x._prec);
+        if (_x._form == ((1 : GoUInt8))) {
+            stdgo.encoding.binary.Binary.bigEndian.putUint32(_buf.__slice__(((6 : GoInt))), ((_x._exp : GoUInt32)));
+            _x._mant.__slice__((_x._mant != null ? _x._mant.length : ((0 : GoInt))) - _n)._bytes(_buf.__slice__(((10 : GoInt))));
         };
         return { _0 : _buf, _1 : ((null : stdgo.Error)) };
     }
     public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         _s.skipSpace();
-        var __tmp__ = _z.value._scan(new T_byteReader(_s).__copy__(), ((0 : GoInt))), _:Pointer<Float_> = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(((new T_byteReader(_s) : T_byteReader)), ((0 : GoInt))), _:Float_ = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
-    public function parse(_s:GoString, _base:GoInt):{ var _0 : Pointer<Float_>; var _1 : GoInt; var _2 : Error; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _f:Pointer<Float_> = new Pointer<Float_>().nil(), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        if ((_s.length == ((3 : GoInt))) && ((_s == ((("Inf" : GoString)))) || (_s == ((("inf" : GoString)))))) {
-            _f = _z.value.setInf(false);
+    public function parse(_s:GoString, _base:GoInt):{ var _0 : Float_; var _1 : GoInt; var _2 : Error; } {
+        var _z = this;
+        _z;
+        var _f:Float_ = ((null : Float_)), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        if (((_s != null ? _s.length : ((0 : GoInt))) == ((3 : GoInt))) && ((_s == ((("Inf" : GoString)))) || (_s == ((("inf" : GoString)))))) {
+            _f = _z.setInf(false);
             return { _0 : _f, _1 : _b, _2 : _err };
         };
-        if (((_s.length == ((4 : GoInt))) && ((_s[((0 : GoInt))] == ((((("+" : GoString))).code : GoRune))) || (_s[((0 : GoInt))] == ((((("-" : GoString))).code : GoRune))))) && ((_s.__slice__(((1 : GoInt))) == ((("Inf" : GoString)))) || (_s.__slice__(((1 : GoInt))) == ((("inf" : GoString)))))) {
-            _f = _z.value.setInf(_s[((0 : GoInt))] == ((((("-" : GoString))).code : GoRune)));
+        if ((((_s != null ? _s.length : ((0 : GoInt))) == ((4 : GoInt))) && (((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("+" : GoString))).code : GoRune))) || ((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("-" : GoString))).code : GoRune))))) && ((_s.__slice__(((1 : GoInt))) == ((("Inf" : GoString)))) || (_s.__slice__(((1 : GoInt))) == ((("inf" : GoString)))))) {
+            _f = _z.setInf((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("-" : GoString))).code : GoRune)));
             return { _0 : _f, _1 : _b, _2 : _err };
         };
-        var _r:Pointer<stdgo.strings.Strings.Reader> = stdgo.strings.Strings.newReader(_s);
+        var _r:stdgo.strings.Strings.Reader = stdgo.strings.Strings.newReader(_s);
         {
             {
-                var __tmp__ = _z.value._scan(_r.value, _base);
+                var __tmp__ = _z._scan(_r, _base);
                 _f = __tmp__._0;
                 _b = __tmp__._1;
                 _err = __tmp__._2;
             };
-            if (Go.toInterface(_err) != Go.toInterface(null)) {
+            if (_err != null) {
                 return { _0 : _f, _1 : _b, _2 : _err };
             };
         };
         {
-            var __tmp__ = _r.value.readByte(), _ch:GoUInt8 = __tmp__._0, _err2:stdgo.Error = __tmp__._1;
-            if (Go.toInterface(_err2) == Go.toInterface(null)) {
+            var __tmp__ = _r.readByte(), _ch:GoUInt8 = __tmp__._0, _err2:stdgo.Error = __tmp__._1;
+            if (_err2 == null) {
                 _err = stdgo.fmt.Fmt.errorf(((("expected end of string, found %q" : GoString))), Go.toInterface(_ch));
-            } else if (Go.toInterface(_err2) != Go.toInterface(stdgo.io.Io.eof)) {
+            } else if (_err2 != stdgo.io.Io.eof) {
                 _err = _err2;
             };
         };
         return { _0 : _f, _1 : _b, _2 : _err };
     }
-    public function _pow5(_n:GoUInt64):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _pow5(_n:GoUInt64):Float_ {
+        var _z = this;
+        _z;
         {};
         if (_n <= ((27 : GoUInt64))) {
-            return _z.value.setUint64(_pow5tab[_n]);
+            return _z.setUint64((_pow5tab != null ? _pow5tab[_n] : ((0 : GoUInt64))));
         };
-        _z.value.setUint64(_pow5tab[((27 : GoUInt64))]);
+        _z.setUint64((_pow5tab != null ? _pow5tab[((27 : GoUInt64))] : ((0 : GoUInt64))));
         _n = _n - (((27 : GoUInt64)));
-        var _f:Pointer<Float_> = Go.pointer(new Float_()).value.setPrec(_z.value.prec() + ((64 : GoUInt))).value.setUint64(((5 : GoUInt64)));
+        var _f:Float_ = Go.pointer(new Float_()).setPrec(_z.prec() + ((64 : GoUInt))).setUint64(((5 : GoUInt64)));
         while (_n > ((0 : GoUInt64))) {
             if ((_n & ((1 : GoUInt64))) != ((0 : GoUInt64))) {
-                _z.value.mul(_z, _f);
+                _z.mul(_z, _f);
             };
-            _f.value.mul(_f, _f);
+            _f.mul(_f, _f);
             _n = _n >> (((1 : GoUnTypedInt)));
         };
         return _z;
     }
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Float_>; var _1 : GoInt; var _2 : Error; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _f:Pointer<Float_> = new Pointer<Float_>().nil(), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        var _prec:GoUInt32 = _z.value._prec;
+    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Float_; var _1 : GoInt; var _2 : Error; } {
+        var _z = this;
+        _z;
+        var _f:Float_ = ((null : Float_)), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        var _prec:GoUInt32 = _z._prec;
         if (_prec == ((0 : GoUInt32))) {
             _prec = ((64 : GoUInt32));
         };
-        _z.value._form = new T_form(((0 : GoUInt8)));
+        _z._form = ((0 : GoUInt8));
         {
             var __tmp__ = _scanSign(_r);
-            _z.value._neg = __tmp__._0;
+            _z._neg = __tmp__._0;
             _err = __tmp__._1;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
+        if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
         };
         var _fcount:GoInt = ((0 : GoInt));
         {
-            var __tmp__ = _z.value._mant._scan(_r, _base, true);
-            _z.value._mant = __tmp__._0.__copy__();
+            var __tmp__ = _z._mant._scan(_r, _base, true);
+            _z._mant = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
             _b = __tmp__._1;
             _fcount = __tmp__._2;
             _err = __tmp__._3;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
+        if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
         };
         var _exp:GoInt64 = ((0 : GoInt64));
@@ -623,17 +693,17 @@ import stdgo.Chan;
             _ebase = __tmp__._1;
             _err = __tmp__._2;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
+        if (_err != null) {
             return { _0 : _f, _1 : _b, _2 : _err };
         };
-        if (_z.value._mant.__t__.length == ((0 : GoInt))) {
-            _z.value._prec = _prec;
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
+        if ((_z._mant != null ? _z._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z._prec = _prec;
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
             _f = _z;
             return { _0 : _f, _1 : _b, _2 : _err };
         };
-        var _exp2:GoInt64 = (((_z.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64))) - _fnorm(_z.value._mant.__copy__());
+        var _exp2:GoInt64 = ((((_z._mant != null ? _z._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64))) - _fnorm((_z._mant == null ? null : _z._mant.__copy__()));
         var _exp5:GoInt64 = ((((0 : GoInt64)) : GoInt64));
         if (_fcount < ((0 : GoInt))) {
             var _d:GoInt64 = ((_fcount : GoInt64));
@@ -689,948 +759,992 @@ import stdgo.Chan;
             };
         };
         if ((((-2147483648 : GoInt64)) <= _exp2) && (_exp2 <= ((2147483647 : GoInt64)))) {
-            _z.value._prec = _prec;
-            _z.value._form = new T_form(((1 : GoUInt8)));
-            _z.value._exp = ((_exp2 : GoInt32));
+            _z._prec = _prec;
+            _z._form = ((1 : GoUInt8));
+            _z._exp = ((_exp2 : GoInt32));
             _f = _z;
         } else {
             _err = stdgo.fmt.Fmt.errorf(((("exponent overflow" : GoString))));
             return { _0 : _f, _1 : _b, _2 : _err };
         };
         if (_exp5 == ((0 : GoInt64))) {
-            _z.value._round(((0 : GoUInt)));
+            _z._round(((0 : GoUInt)));
             return { _0 : _f, _1 : _b, _2 : _err };
         };
-        var _p:Pointer<Float_> = Go.pointer(new Float_()).value.setPrec(_z.value.prec() + ((64 : GoUInt)));
+        var _p:Float_ = Go.pointer(new Float_()).setPrec(_z.prec() + ((64 : GoUInt)));
         if (_exp5 < ((0 : GoInt64))) {
-            _z.value.quo(_z, _p.value._pow5(((-_exp5 : GoUInt64))));
+            _z.quo(_z, _p._pow5(((-_exp5 : GoUInt64))));
         } else {
-            _z.value.mul(_z, _p.value._pow5(((_exp5 : GoUInt64))));
+            _z.mul(_z, _p._pow5(((_exp5 : GoUInt64))));
         };
         return { _0 : _f, _1 : _b, _2 : _err };
     }
-    public function setString(_s:GoString):{ var _0 : Pointer<Float_>; var _1 : Bool; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setString(_s:GoString):{ var _0 : Float_; var _1 : Bool; } {
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value.parse(_s, ((0 : GoInt))), _f:Pointer<Float_> = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-            if (Go.toInterface(_err) == Go.toInterface(null)) {
+            var __tmp__ = _z.parse(_s, ((0 : GoInt))), _f:Float_ = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            if (_err == null) {
                 return { _0 : _f, _1 : true };
             };
         };
-        return { _0 : new Pointer<Float_>().nil(), _1 : false };
+        return { _0 : null, _1 : false };
     }
     public function _ord():GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var _m:GoInt = ((0 : GoInt));
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
+        if (_x._form == ((1 : GoUInt8))) {
             _m = ((1 : GoInt));
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
+        } else if (_x._form == ((0 : GoUInt8))) {
             return ((0 : GoInt));
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
+        } else if (_x._form == ((2 : GoUInt8))) {
             _m = ((2 : GoInt));
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             _m = -_m;
         };
         return _m;
     }
-    public function cmp(_y:Pointer<Float_>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function cmp(_y:Float_):GoInt {
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
-            _y.value._validate();
+            _x._validate();
+            _y._validate();
         };
-        var _mx:GoInt = _x.value._ord();
-        var _my:GoInt = _y.value._ord();
+        var _mx:GoInt = _x._ord();
+        var _my:GoInt = _y._ord();
         if (_mx < _my) {
             return ((-1 : GoInt));
         } else if (_mx > _my) {
             return ((1 : GoInt));
         };
         if (_mx == ((-1 : GoInt))) {
-            return _y.value._ucmp(_x);
+            return _y._ucmp(_x);
         } else if (_mx == ((1 : GoInt))) {
-            return _x.value._ucmp(_y);
+            return _x._ucmp(_y);
         };
         return ((0 : GoInt));
     }
-    public function quo(_x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function quo(_x:Float_, _y:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
-            _y.value._validate();
+            _x._validate();
+            _y._validate();
         };
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_x.value._prec, _y.value._prec);
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_x._prec, _y._prec);
         };
-        _z.value._neg = _x.value._neg != _y.value._neg;
-        if ((_x.value._form.__t__ == ((1 : GoUInt8))) && (_y.value._form.__t__ == ((1 : GoUInt8)))) {
-            _z.value._uquo(_x, _y);
+        _z._neg = _x._neg != _y._neg;
+        if ((_x._form == ((1 : GoUInt8))) && (_y._form == ((1 : GoUInt8)))) {
+            _z._uquo(_x, _y);
             return _z;
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        if (((_x.value._form.__t__ == ((0 : GoUInt8))) && (_y.value._form.__t__ == ((0 : GoUInt8)))) || ((_x.value._form.__t__ == ((2 : GoUInt8))) && (_y.value._form.__t__ == ((2 : GoUInt8))))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = false;
-            throw Go.toInterface(new ErrNaN(((("division of zero by zero or infinity by infinity" : GoString)))));
+        _z._acc = ((0 : GoInt8));
+        if (((_x._form == ((0 : GoUInt8))) && (_y._form == ((0 : GoUInt8)))) || ((_x._form == ((2 : GoUInt8))) && (_y._form == ((2 : GoUInt8))))) {
+            _z._form = ((0 : GoUInt8));
+            _z._neg = false;
+            throw Go.toInterface(((new ErrNaN(((("division of zero by zero or infinity by infinity" : GoString)))) : ErrNaN)));
         };
-        if ((_x.value._form.__t__ == ((0 : GoUInt8))) || (_y.value._form.__t__ == ((2 : GoUInt8)))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
+        if ((_x._form == ((0 : GoUInt8))) || (_y._form == ((2 : GoUInt8)))) {
+            _z._form = ((0 : GoUInt8));
             return _z;
         };
-        _z.value._form = new T_form(((2 : GoUInt8)));
+        _z._form = ((2 : GoUInt8));
         return _z;
     }
-    public function mul(_x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function mul(_x:Float_, _y:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
-            _y.value._validate();
+            _x._validate();
+            _y._validate();
         };
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_x.value._prec, _y.value._prec);
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_x._prec, _y._prec);
         };
-        _z.value._neg = _x.value._neg != _y.value._neg;
-        if ((_x.value._form.__t__ == ((1 : GoUInt8))) && (_y.value._form.__t__ == ((1 : GoUInt8)))) {
-            _z.value._umul(_x, _y);
+        _z._neg = _x._neg != _y._neg;
+        if ((_x._form == ((1 : GoUInt8))) && (_y._form == ((1 : GoUInt8)))) {
+            _z._umul(_x, _y);
             return _z;
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        if (((_x.value._form.__t__ == ((0 : GoUInt8))) && (_y.value._form.__t__ == ((2 : GoUInt8)))) || ((_x.value._form.__t__ == ((2 : GoUInt8))) && (_y.value._form.__t__ == ((0 : GoUInt8))))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = false;
-            throw Go.toInterface(new ErrNaN(((("multiplication of zero with infinity" : GoString)))));
+        _z._acc = ((0 : GoInt8));
+        if (((_x._form == ((0 : GoUInt8))) && (_y._form == ((2 : GoUInt8)))) || ((_x._form == ((2 : GoUInt8))) && (_y._form == ((0 : GoUInt8))))) {
+            _z._form = ((0 : GoUInt8));
+            _z._neg = false;
+            throw Go.toInterface(((new ErrNaN(((("multiplication of zero with infinity" : GoString)))) : ErrNaN)));
         };
-        if ((_x.value._form.__t__ == ((2 : GoUInt8))) || (_y.value._form.__t__ == ((2 : GoUInt8)))) {
-            _z.value._form = new T_form(((2 : GoUInt8)));
+        if ((_x._form == ((2 : GoUInt8))) || (_y._form == ((2 : GoUInt8)))) {
+            _z._form = ((2 : GoUInt8));
             return _z;
         };
-        _z.value._form = new T_form(((0 : GoUInt8)));
+        _z._form = ((0 : GoUInt8));
         return _z;
     }
-    public function sub(_x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function sub(_x:Float_, _y:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
-            _y.value._validate();
+            _x._validate();
+            _y._validate();
         };
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_x.value._prec, _y.value._prec);
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_x._prec, _y._prec);
         };
-        if ((_x.value._form.__t__ == ((1 : GoUInt8))) && (_y.value._form.__t__ == ((1 : GoUInt8)))) {
-            var _yneg:Bool = _y.value._neg;
-            _z.value._neg = _x.value._neg;
-            if (_x.value._neg != _yneg) {
-                _z.value._uadd(_x, _y);
+        if ((_x._form == ((1 : GoUInt8))) && (_y._form == ((1 : GoUInt8)))) {
+            var _yneg:Bool = _y._neg;
+            _z._neg = _x._neg;
+            if (_x._neg != _yneg) {
+                _z._uadd(_x, _y);
             } else {
-                if (_x.value._ucmp(_y) > ((0 : GoInt))) {
-                    _z.value._usub(_x, _y);
+                if (_x._ucmp(_y) > ((0 : GoInt))) {
+                    _z._usub(_x, _y);
                 } else {
-                    _z.value._neg = !_z.value._neg;
-                    _z.value._usub(_y, _x);
+                    _z._neg = !_z._neg;
+                    _z._usub(_y, _x);
                 };
             };
-            if (((_z.value._form.__t__ == ((0 : GoUInt8))) && (_z.value._mode.__t__ == ((4 : GoUInt8)))) && (_z.value._acc.__t__ == ((0 : GoInt8)))) {
-                _z.value._neg = true;
+            if (((_z._form == ((0 : GoUInt8))) && (_z._mode == ((4 : GoUInt8)))) && (_z._acc == ((0 : GoInt8)))) {
+                _z._neg = true;
             };
             return _z;
         };
-        if (((_x.value._form.__t__ == ((2 : GoUInt8))) && (_y.value._form.__t__ == ((2 : GoUInt8)))) && (_x.value._neg == _y.value._neg)) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = false;
-            throw Go.toInterface(new ErrNaN(((("subtraction of infinities with equal signs" : GoString)))));
+        if (((_x._form == ((2 : GoUInt8))) && (_y._form == ((2 : GoUInt8)))) && (_x._neg == _y._neg)) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
+            _z._neg = false;
+            throw Go.toInterface(((new ErrNaN(((("subtraction of infinities with equal signs" : GoString)))) : ErrNaN)));
         };
-        if ((_x.value._form.__t__ == ((0 : GoUInt8))) && (_y.value._form.__t__ == ((0 : GoUInt8)))) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = _x.value._neg && !_y.value._neg;
+        if ((_x._form == ((0 : GoUInt8))) && (_y._form == ((0 : GoUInt8)))) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
+            _z._neg = _x._neg && !_y._neg;
             return _z;
         };
-        if ((_x.value._form.__t__ == ((2 : GoUInt8))) || (_y.value._form.__t__ == ((0 : GoUInt8)))) {
-            return _z.value.set(_x);
+        if ((_x._form == ((2 : GoUInt8))) || (_y._form == ((0 : GoUInt8)))) {
+            return _z.set(_x);
         };
-        return _z.value.neg(_y);
+        return _z.neg(_y);
     }
-    public function add(_x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function add(_x:Float_, _y:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
-            _y.value._validate();
+            _x._validate();
+            _y._validate();
         };
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_x.value._prec, _y.value._prec);
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_x._prec, _y._prec);
         };
-        if ((_x.value._form.__t__ == ((1 : GoUInt8))) && (_y.value._form.__t__ == ((1 : GoUInt8)))) {
-            var _yneg:Bool = _y.value._neg;
-            _z.value._neg = _x.value._neg;
-            if (_x.value._neg == _yneg) {
-                _z.value._uadd(_x, _y);
+        if ((_x._form == ((1 : GoUInt8))) && (_y._form == ((1 : GoUInt8)))) {
+            var _yneg:Bool = _y._neg;
+            _z._neg = _x._neg;
+            if (_x._neg == _yneg) {
+                _z._uadd(_x, _y);
             } else {
-                if (_x.value._ucmp(_y) > ((0 : GoInt))) {
-                    _z.value._usub(_x, _y);
+                if (_x._ucmp(_y) > ((0 : GoInt))) {
+                    _z._usub(_x, _y);
                 } else {
-                    _z.value._neg = !_z.value._neg;
-                    _z.value._usub(_y, _x);
+                    _z._neg = !_z._neg;
+                    _z._usub(_y, _x);
                 };
             };
-            if (((_z.value._form.__t__ == ((0 : GoUInt8))) && (_z.value._mode.__t__ == ((4 : GoUInt8)))) && (_z.value._acc.__t__ == ((0 : GoInt8)))) {
-                _z.value._neg = true;
+            if (((_z._form == ((0 : GoUInt8))) && (_z._mode == ((4 : GoUInt8)))) && (_z._acc == ((0 : GoInt8)))) {
+                _z._neg = true;
             };
             return _z;
         };
-        if (((_x.value._form.__t__ == ((2 : GoUInt8))) && (_y.value._form.__t__ == ((2 : GoUInt8)))) && (_x.value._neg != _y.value._neg)) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = false;
-            throw Go.toInterface(new ErrNaN(((("addition of infinities with opposite signs" : GoString)))));
+        if (((_x._form == ((2 : GoUInt8))) && (_y._form == ((2 : GoUInt8)))) && (_x._neg != _y._neg)) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
+            _z._neg = false;
+            throw Go.toInterface(((new ErrNaN(((("addition of infinities with opposite signs" : GoString)))) : ErrNaN)));
         };
-        if ((_x.value._form.__t__ == ((0 : GoUInt8))) && (_y.value._form.__t__ == ((0 : GoUInt8)))) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = _x.value._neg && _y.value._neg;
+        if ((_x._form == ((0 : GoUInt8))) && (_y._form == ((0 : GoUInt8)))) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
+            _z._neg = _x._neg && _y._neg;
             return _z;
         };
-        if ((_x.value._form.__t__ == ((2 : GoUInt8))) || (_y.value._form.__t__ == ((0 : GoUInt8)))) {
-            return _z.value.set(_x);
+        if ((_x._form == ((2 : GoUInt8))) || (_y._form == ((0 : GoUInt8)))) {
+            return _z.set(_x);
         };
-        return _z.value.set(_y);
+        return _z.set(_y);
     }
-    public function _ucmp(_y:Pointer<Float_>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _ucmp(_y:Float_):GoInt {
+        var _x = this;
+        _x;
         if (false) {
             _validateBinaryOperands(_x, _y);
         };
-        if (_x.value._exp < _y.value._exp) {
+        if (_x._exp < _y._exp) {
             return ((-1 : GoInt));
-        } else if (_x.value._exp > _y.value._exp) {
+        } else if (_x._exp > _y._exp) {
             return ((1 : GoInt));
         };
-        var _i:GoInt = _x.value._mant.__t__.length;
-        var _j:GoInt = _y.value._mant.__t__.length;
+        var _i:GoInt = (_x._mant != null ? _x._mant.length : ((0 : GoInt)));
+        var _j:GoInt = (_y._mant != null ? _y._mant.length : ((0 : GoInt)));
         while ((_i > ((0 : GoInt))) || (_j > ((0 : GoInt)))) {
             var _xm:Word = new Word(), _ym:Word = new Word();
             if (_i > ((0 : GoInt))) {
                 _i--;
-                _xm = _x.value._mant.__t__[_i];
+                _xm = (_x._mant != null ? _x._mant[_i] : new Word());
             };
             if (_j > ((0 : GoInt))) {
                 _j--;
-                _ym = _y.value._mant.__t__[_j];
+                _ym = (_y._mant != null ? _y._mant[_j] : new Word());
             };
-            if (_xm.__t__ < _ym.__t__) {
+            if (_xm < _ym) {
                 return ((-1 : GoInt));
-            } else if (_xm.__t__ > _ym.__t__) {
+            } else if (_xm > _ym) {
                 return ((1 : GoInt));
             };
         };
         return ((0 : GoInt));
     }
-    public function _uquo(_x:Pointer<Float_>, _y:Pointer<Float_>):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _uquo(_x:Float_, _y:Float_):Void {
+        var _z = this;
+        _z;
         if (false) {
             _validateBinaryOperands(_x, _y);
         };
-        var _n:GoInt = (((_z.value._prec / ((32 : GoUInt32))) : GoInt)) + ((1 : GoInt));
-        var _xadj:T_nat = _x.value._mant.__copy__();
+        var _n:GoInt = (((_z._prec / ((32 : GoUInt32))) : GoInt)) + ((1 : GoInt));
+        var _xadj:T_nat = (_x._mant == null ? null : _x._mant.__copy__());
         {
-            var _d:GoInt = (_n - _x.value._mant.__t__.length) + _y.value._mant.__t__.length;
+            var _d:GoInt = (_n - (_x._mant != null ? _x._mant.length : ((0 : GoInt)))) + (_y._mant != null ? _y._mant.length : ((0 : GoInt)));
             if (_d > ((0 : GoInt))) {
-                _xadj = new T_nat(new Slice<Word>(...[for (i in 0 ... ((_x.value._mant.__t__.length + _d : GoInt)).toBasic()) new Word()])).__copy__();
-                Go.copy(_xadj.__slice__(_d), _x.value._mant);
+                _xadj = new Slice<Word>(...[for (i in 0 ... (((_x._mant != null ? _x._mant.length : ((0 : GoInt))) + _d : GoInt)).toBasic()) new Word()]);
+                Go.copy(_xadj.__slice__(_d), _x._mant);
             };
         };
-        var _d:GoInt = _xadj.__t__.length - _y.value._mant.__t__.length;
+        var _d:GoInt = (_xadj != null ? _xadj.length : ((0 : GoInt))) - (_y._mant != null ? _y._mant.length : ((0 : GoInt)));
         var _r:T_nat = new T_nat();
         {
-            var __tmp__ = _z.value._mant._div(new T_nat(), _xadj.__copy__(), _y.value._mant.__copy__());
-            _z.value._mant = __tmp__._0.__copy__();
-            _r = __tmp__._1.__copy__();
+            var __tmp__ = _z._mant._div(null, (_xadj == null ? null : _xadj.__copy__()), (_y._mant == null ? null : _y._mant.__copy__()));
+            _z._mant = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
         };
-        var _e:GoInt64 = (((_x.value._exp : GoInt64)) - ((_y.value._exp : GoInt64))) - ((((_d - _z.value._mant.__t__.length) : GoInt64)) * ((32 : GoInt64)));
+        var _e:GoInt64 = (((_x._exp : GoInt64)) - ((_y._exp : GoInt64))) - ((((_d - (_z._mant != null ? _z._mant.length : ((0 : GoInt)))) : GoInt64)) * ((32 : GoInt64)));
         var _sbit:GoUInt = ((0 : GoUInt));
-        if (_r.__t__.length > ((0 : GoInt))) {
+        if ((_r != null ? _r.length : ((0 : GoInt))) > ((0 : GoInt))) {
             _sbit = ((1 : GoUInt));
         };
-        _z.value._setExpAndRound(_e - _fnorm(_z.value._mant.__copy__()), _sbit);
+        _z._setExpAndRound(_e - _fnorm((_z._mant == null ? null : _z._mant.__copy__())), _sbit);
     }
-    public function _umul(_x:Pointer<Float_>, _y:Pointer<Float_>):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _umul(_x:Float_, _y:Float_):Void {
+        var _z = this;
+        _z;
         if (false) {
             _validateBinaryOperands(_x, _y);
         };
-        var _e:GoInt64 = ((_x.value._exp : GoInt64)) + ((_y.value._exp : GoInt64));
+        var _e:GoInt64 = ((_x._exp : GoInt64)) + ((_y._exp : GoInt64));
         if (_x == _y) {
-            _z.value._mant = _z.value._mant._sqr(_x.value._mant.__copy__()).__copy__();
+            _z._mant = (_z._mant._sqr((_x._mant == null ? null : _x._mant.__copy__())) == null ? null : _z._mant._sqr((_x._mant == null ? null : _x._mant.__copy__())).__copy__());
         } else {
-            _z.value._mant = _z.value._mant._mul(_x.value._mant.__copy__(), _y.value._mant.__copy__()).__copy__();
+            _z._mant = (_z._mant._mul((_x._mant == null ? null : _x._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())) == null ? null : _z._mant._mul((_x._mant == null ? null : _x._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())).__copy__());
         };
-        _z.value._setExpAndRound(_e - _fnorm(_z.value._mant.__copy__()), ((0 : GoUInt)));
+        _z._setExpAndRound(_e - _fnorm((_z._mant == null ? null : _z._mant.__copy__())), ((0 : GoUInt)));
     }
-    public function _usub(_x:Pointer<Float_>, _y:Pointer<Float_>):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _usub(_x:Float_, _y:Float_):Void {
+        var _z = this;
+        _z;
         if (false) {
             _validateBinaryOperands(_x, _y);
         };
-        var _ex:GoInt64 = ((_x.value._exp : GoInt64)) - (((_x.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)));
-        var _ey:GoInt64 = ((_y.value._exp : GoInt64)) - (((_y.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)));
-        var _al:Bool = _alias(_z.value._mant.__copy__(), _x.value._mant.__copy__()) || _alias(_z.value._mant.__copy__(), _y.value._mant.__copy__());
+        var _ex:GoInt64 = ((_x._exp : GoInt64)) - ((((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)));
+        var _ey:GoInt64 = ((_y._exp : GoInt64)) - ((((_y._mant != null ? _y._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)));
+        var _al:Bool = _alias((_z._mant == null ? null : _z._mant.__copy__()), (_x._mant == null ? null : _x._mant.__copy__())) || _alias((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__()));
         if (_ex < _ey) {
             if (_al) {
-                var _t:T_nat = ((new T_nat() : T_nat))._shl(_y.value._mant.__copy__(), (((_ey - _ex) : GoUInt))).__copy__();
-                _z.value._mant = _t._sub(_x.value._mant.__copy__(), _t.__copy__()).__copy__();
+                var _t:T_nat = (((new T_nat() : T_nat))._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))).__copy__());
+                _z._mant = (_t._sub((_x._mant == null ? null : _x._mant.__copy__()), (_t == null ? null : _t.__copy__())) == null ? null : _t._sub((_x._mant == null ? null : _x._mant.__copy__()), (_t == null ? null : _t.__copy__())).__copy__());
             } else {
-                _z.value._mant = _z.value._mant._shl(_y.value._mant.__copy__(), (((_ey - _ex) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._sub(_x.value._mant.__copy__(), _z.value._mant.__copy__()).__copy__();
+                _z._mant = (_z._mant._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))) == null ? null : _z._mant._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._sub((_x._mant == null ? null : _x._mant.__copy__()), (_z._mant == null ? null : _z._mant.__copy__())) == null ? null : _z._mant._sub((_x._mant == null ? null : _x._mant.__copy__()), (_z._mant == null ? null : _z._mant.__copy__())).__copy__());
             };
         } else if (_ex > _ey) {
             if (_al) {
-                var _t:T_nat = ((new T_nat() : T_nat))._shl(_x.value._mant.__copy__(), (((_ex - _ey) : GoUInt))).__copy__();
-                _z.value._mant = _t._sub(_t.__copy__(), _y.value._mant.__copy__()).__copy__();
+                var _t:T_nat = (((new T_nat() : T_nat))._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))).__copy__());
+                _z._mant = (_t._sub((_t == null ? null : _t.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())) == null ? null : _t._sub((_t == null ? null : _t.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())).__copy__());
             } else {
-                _z.value._mant = _z.value._mant._shl(_x.value._mant.__copy__(), (((_ex - _ey) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._sub(_z.value._mant.__copy__(), _y.value._mant.__copy__()).__copy__();
+                _z._mant = (_z._mant._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))) == null ? null : _z._mant._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._sub((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())) == null ? null : _z._mant._sub((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())).__copy__());
             };
             _ex = _ey;
         };
-        if (_z.value._mant.__t__.length == ((0 : GoInt))) {
-            _z.value._acc = new Accuracy(((0 : GoInt8)));
-            _z.value._form = new T_form(((0 : GoUInt8)));
-            _z.value._neg = false;
+        if ((_z._mant != null ? _z._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z._acc = ((0 : GoInt8));
+            _z._form = ((0 : GoUInt8));
+            _z._neg = false;
             return;
         };
-        _z.value._setExpAndRound((_ex + (((_z.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)))) - _fnorm(_z.value._mant.__copy__()), ((0 : GoUInt)));
+        _z._setExpAndRound((_ex + ((((_z._mant != null ? _z._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)))) - _fnorm((_z._mant == null ? null : _z._mant.__copy__())), ((0 : GoUInt)));
     }
-    public function _uadd(_x:Pointer<Float_>, _y:Pointer<Float_>):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _uadd(_x:Float_, _y:Float_):Void {
+        var _z = this;
+        _z;
         if (false) {
             _validateBinaryOperands(_x, _y);
         };
-        var _ex:GoInt64 = ((_x.value._exp : GoInt64)) - (((_x.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)));
-        var _ey:GoInt64 = ((_y.value._exp : GoInt64)) - (((_y.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)));
-        var _al:Bool = _alias(_z.value._mant.__copy__(), _x.value._mant.__copy__()) || _alias(_z.value._mant.__copy__(), _y.value._mant.__copy__());
+        var _ex:GoInt64 = ((_x._exp : GoInt64)) - ((((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)));
+        var _ey:GoInt64 = ((_y._exp : GoInt64)) - ((((_y._mant != null ? _y._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)));
+        var _al:Bool = _alias((_z._mant == null ? null : _z._mant.__copy__()), (_x._mant == null ? null : _x._mant.__copy__())) || _alias((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__()));
         if (_ex < _ey) {
             if (_al) {
-                var _t:T_nat = ((new T_nat() : T_nat))._shl(_y.value._mant.__copy__(), (((_ey - _ex) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._add(_x.value._mant.__copy__(), _t.__copy__()).__copy__();
+                var _t:T_nat = (((new T_nat() : T_nat))._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._add((_x._mant == null ? null : _x._mant.__copy__()), (_t == null ? null : _t.__copy__())) == null ? null : _z._mant._add((_x._mant == null ? null : _x._mant.__copy__()), (_t == null ? null : _t.__copy__())).__copy__());
             } else {
-                _z.value._mant = _z.value._mant._shl(_y.value._mant.__copy__(), (((_ey - _ex) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._add(_x.value._mant.__copy__(), _z.value._mant.__copy__()).__copy__();
+                _z._mant = (_z._mant._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))) == null ? null : _z._mant._shl((_y._mant == null ? null : _y._mant.__copy__()), (((_ey - _ex) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._add((_x._mant == null ? null : _x._mant.__copy__()), (_z._mant == null ? null : _z._mant.__copy__())) == null ? null : _z._mant._add((_x._mant == null ? null : _x._mant.__copy__()), (_z._mant == null ? null : _z._mant.__copy__())).__copy__());
             };
         } else if (_ex > _ey) {
             if (_al) {
-                var _t:T_nat = ((new T_nat() : T_nat))._shl(_x.value._mant.__copy__(), (((_ex - _ey) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._add(_t.__copy__(), _y.value._mant.__copy__()).__copy__();
+                var _t:T_nat = (((new T_nat() : T_nat))._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._add((_t == null ? null : _t.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())) == null ? null : _z._mant._add((_t == null ? null : _t.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())).__copy__());
             } else {
-                _z.value._mant = _z.value._mant._shl(_x.value._mant.__copy__(), (((_ex - _ey) : GoUInt))).__copy__();
-                _z.value._mant = _z.value._mant._add(_z.value._mant.__copy__(), _y.value._mant.__copy__()).__copy__();
+                _z._mant = (_z._mant._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))) == null ? null : _z._mant._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_ex - _ey) : GoUInt))).__copy__());
+                _z._mant = (_z._mant._add((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())) == null ? null : _z._mant._add((_z._mant == null ? null : _z._mant.__copy__()), (_y._mant == null ? null : _y._mant.__copy__())).__copy__());
             };
             _ex = _ey;
         };
-        _z.value._setExpAndRound((_ex + (((_z.value._mant.__t__.length : GoInt64)) * ((32 : GoInt64)))) - _fnorm(_z.value._mant.__copy__()), ((0 : GoUInt)));
+        _z._setExpAndRound((_ex + ((((_z._mant != null ? _z._mant.length : ((0 : GoInt))) : GoInt64)) * ((32 : GoInt64)))) - _fnorm((_z._mant == null ? null : _z._mant.__copy__())), ((0 : GoUInt)));
     }
-    public function neg(_x:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._neg = !_z.value._neg;
+    public function neg(_x:Float_):Float_ {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._neg = !_z._neg;
         return _z;
     }
-    public function abs(_x:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._neg = false;
+    public function abs(_x:Float_):Float_ {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._neg = false;
         return _z;
     }
-    public function rat(_z:Pointer<Rat>):{ var _0 : Pointer<Rat>; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function rat(_z:Rat):{ var _0 : Rat; var _1 : Accuracy; } {
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if ((_z == null) && (_x.value._form.__t__ <= ((1 : GoUInt8)))) {
+        if ((_z == null) && (_x._form <= ((1 : GoUInt8)))) {
             _z = Go.pointer(new Rat());
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            var _allBits:GoInt32 = ((_x.value._mant.__t__.length : GoInt32)) * ((32 : GoInt32));
-            _z.value._a._neg = _x.value._neg;
-            if (_x.value._exp > _allBits) {
-                _z.value._a._abs = _z.value._a._abs._shl(_x.value._mant.__copy__(), (((_x.value._exp - _allBits) : GoUInt))).__copy__();
-                _z.value._b._abs = _z.value._b._abs.__slice__(0, ((0 : GoInt))).__copy__();
-            } else if (_x.value._exp < _allBits) {
-                _z.value._a._abs = _z.value._a._abs._set(_x.value._mant.__copy__()).__copy__();
-                var _t:T_nat = _z.value._b._abs._setUint64(((1 : GoUInt64))).__copy__();
-                _z.value._b._abs = _t._shl(_t.__copy__(), (((_allBits - _x.value._exp) : GoUInt))).__copy__();
-                _z.value._norm();
+        if (_x._form == ((1 : GoUInt8))) {
+            var _allBits:GoInt32 = (((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoInt32)) * ((32 : GoInt32));
+            _z._a._neg = _x._neg;
+            if (_x._exp > _allBits) {
+                _z._a._abs = (_z._a._abs._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_x._exp - _allBits) : GoUInt))) == null ? null : _z._a._abs._shl((_x._mant == null ? null : _x._mant.__copy__()), (((_x._exp - _allBits) : GoUInt))).__copy__());
+                _z._b._abs = (_z._b._abs.__slice__(0, ((0 : GoInt))) == null ? null : _z._b._abs.__slice__(0, ((0 : GoInt))).__copy__());
+            } else if (_x._exp < _allBits) {
+                _z._a._abs = (_z._a._abs._set((_x._mant == null ? null : _x._mant.__copy__())) == null ? null : _z._a._abs._set((_x._mant == null ? null : _x._mant.__copy__())).__copy__());
+                var _t:T_nat = (_z._b._abs._setUint64(((1 : GoUInt64))) == null ? null : _z._b._abs._setUint64(((1 : GoUInt64))).__copy__());
+                _z._b._abs = (_t._shl((_t == null ? null : _t.__copy__()), (((_allBits - _x._exp) : GoUInt))) == null ? null : _t._shl((_t == null ? null : _t.__copy__()), (((_allBits - _x._exp) : GoUInt))).__copy__());
+                _z._norm();
             };
-            return { _0 : _z, _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return { _0 : _z.value.setInt64(((0 : GoInt64))), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : _makeAcc(_x.value._neg) };
+            return { _0 : _z, _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((0 : GoUInt8))) {
+            return { _0 : _z.setInt64(((0 : GoInt64))), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            return { _0 : null, _1 : _makeAcc(_x._neg) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
-    public function int(_z:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function int(_z:Int_):{ var _0 : Int_; var _1 : Accuracy; } {
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if ((_z == null) && (_x.value._form.__t__ <= ((1 : GoUInt8)))) {
+        if ((_z == null) && (_x._form <= ((1 : GoUInt8)))) {
             _z = Go.pointer(new Int_());
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            var _acc:Accuracy = _makeAcc(_x.value._neg);
-            if (_x.value._exp <= ((0 : GoInt32))) {
-                return { _0 : _z.value.setInt64(((0 : GoInt64))), _1 : _acc };
+        if (_x._form == ((1 : GoUInt8))) {
+            var _acc:Accuracy = _makeAcc(_x._neg);
+            if (_x._exp <= ((0 : GoInt32))) {
+                return { _0 : _z.setInt64(((0 : GoInt64))), _1 : _acc };
             };
-            var _allBits:GoUInt = ((_x.value._mant.__t__.length : GoUInt)) * ((32 : GoUInt));
-            var _exp:GoUInt = ((_x.value._exp : GoUInt));
-            if (_x.value.minPrec() <= _exp) {
-                _acc = new Accuracy(((0 : GoInt8)));
+            var _allBits:GoUInt = (((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt)) * ((32 : GoUInt));
+            var _exp:GoUInt = ((_x._exp : GoUInt));
+            if (_x.minPrec() <= _exp) {
+                _acc = ((0 : GoInt8));
             };
             if (_z == null) {
                 _z = Go.pointer(new Int_());
             };
-            _z.value._neg = _x.value._neg;
+            _z._neg = _x._neg;
             if (_exp > _allBits) {
-                _z.value._abs = _z.value._abs._shl(_x.value._mant.__copy__(), _exp - _allBits).__copy__();
+                _z._abs = (_z._abs._shl((_x._mant == null ? null : _x._mant.__copy__()), _exp - _allBits) == null ? null : _z._abs._shl((_x._mant == null ? null : _x._mant.__copy__()), _exp - _allBits).__copy__());
             } else if (_exp < _allBits) {
-                _z.value._abs = _z.value._abs._shr(_x.value._mant.__copy__(), _allBits - _exp).__copy__();
+                _z._abs = (_z._abs._shr((_x._mant == null ? null : _x._mant.__copy__()), _allBits - _exp) == null ? null : _z._abs._shr((_x._mant == null ? null : _x._mant.__copy__()), _allBits - _exp).__copy__());
             };
             return { _0 : _z, _1 : _acc };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return { _0 : _z.value.setInt64(((0 : GoInt64))), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            return { _0 : new Pointer<Int_>().nil(), _1 : _makeAcc(_x.value._neg) };
+        } else if (_x._form == ((0 : GoUInt8))) {
+            return { _0 : _z.setInt64(((0 : GoInt64))), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            return { _0 : null, _1 : _makeAcc(_x._neg) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
     public function float64():{ var _0 : GoFloat64; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
+        if (_x._form == ((1 : GoUInt8))) {
             {};
-            var _e:GoInt32 = _x.value._exp - ((1 : GoInt32));
+            var _e:GoInt32 = _x._exp - ((1 : GoInt32));
             var _p:GoInt = ((53 : GoInt));
             if (_e < ((-1022 : GoInt32))) {
                 _p = ((1075 : GoInt)) + ((_e : GoInt));
-                if ((_p < ((0 : GoInt))) || ((_p == ((0 : GoInt))) && (_x.value._mant._sticky((((_x.value._mant.__t__.length : GoUInt)) * ((32 : GoUInt))) - ((1 : GoUInt))) == ((0 : GoUInt))))) {
-                    if (_x.value._neg) {
+                if ((_p < ((0 : GoInt))) || ((_p == ((0 : GoInt))) && (_x._mant._sticky(((((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt)) * ((32 : GoUInt))) - ((1 : GoUInt))) == ((0 : GoUInt))))) {
+                    if (_x._neg) {
                         var _z:GoFloat64 = ((0 : GoFloat64));
-                        return { _0 : -_z, _1 : new Accuracy(((1 : GoInt8))) };
+                        return { _0 : -_z, _1 : ((1 : GoInt8)) };
                     };
-                    return { _0 : ((0 : GoFloat64)), _1 : new Accuracy(((-1 : GoInt8))) };
+                    return { _0 : ((0 : GoFloat64)), _1 : ((-1 : GoInt8)) };
                 };
                 if (_p == ((0 : GoInt))) {
-                    if (_x.value._neg) {
-                        return { _0 : ((-5e-324 : GoFloat64)), _1 : new Accuracy(((-1 : GoInt8))) };
+                    if (_x._neg) {
+                        return { _0 : ((-5e-324 : GoFloat64)), _1 : ((-1 : GoInt8)) };
                     };
-                    return { _0 : ((5e-324 : GoFloat64)), _1 : new Accuracy(((1 : GoInt8))) };
+                    return { _0 : ((5e-324 : GoFloat64)), _1 : ((1 : GoInt8)) };
                 };
             };
             var _r:Float_ = new Float_();
             _r._prec = ((_p : GoUInt32));
             _r.set(_x);
             _e = _r._exp - ((1 : GoInt32));
-            if ((_r._form.__t__ == ((2 : GoUInt8))) || (_e > ((1023 : GoInt32)))) {
-                if (_x.value._neg) {
-                    return { _0 : stdgo.math.Math.inf(((-1 : GoInt))), _1 : new Accuracy(((-1 : GoInt8))) };
+            if ((_r._form == ((2 : GoUInt8))) || (_e > ((1023 : GoInt32)))) {
+                if (_x._neg) {
+                    return { _0 : stdgo.math.Math.inf(((-1 : GoInt))), _1 : ((-1 : GoInt8)) };
                 };
-                return { _0 : stdgo.math.Math.inf(((1 : GoInt))), _1 : new Accuracy(((1 : GoInt8))) };
+                return { _0 : stdgo.math.Math.inf(((1 : GoInt))), _1 : ((1 : GoInt8)) };
             };
             var _sign:GoUInt64 = ((0 : GoUInt64)), _bexp:GoUInt64 = ((0 : GoUInt64)), _mant:GoUInt64 = ((0 : GoUInt64));
-            if (_x.value._neg) {
+            if (_x._neg) {
                 _sign = (("9223372036854775808" : GoUInt64));
             };
             if (_e < ((-1022 : GoInt32))) {
                 _p = ((1075 : GoInt)) + ((_e : GoInt));
-                _mant = _msb64(_r._mant.__copy__()) >> (((((64 : GoInt)) - _p) : GoUInt));
+                _mant = _msb64((_r._mant == null ? null : _r._mant.__copy__())) >> (((((64 : GoInt)) - _p) : GoUInt));
             } else {
                 _bexp = (((_e + ((1023 : GoInt32))) : GoUInt64)) << ((52 : GoUnTypedInt));
-                _mant = (_msb64(_r._mant.__copy__()) >> ((11 : GoUnTypedInt))) & (("4503599627370495" : GoUInt64));
+                _mant = (_msb64((_r._mant == null ? null : _r._mant.__copy__())) >> ((11 : GoUnTypedInt))) & (("4503599627370495" : GoUInt64));
             };
             return { _0 : stdgo.math.Math.float64frombits((_sign | _bexp) | _mant), _1 : _r._acc };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            if (_x.value._neg) {
+        } else if (_x._form == ((0 : GoUInt8))) {
+            if (_x._neg) {
                 var _z:GoFloat64 = ((0 : GoFloat64));
-                return { _0 : -_z, _1 : new Accuracy(((0 : GoInt8))) };
+                return { _0 : -_z, _1 : ((0 : GoInt8)) };
             };
-            return { _0 : ((0 : GoFloat64)), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            if (_x.value._neg) {
-                return { _0 : stdgo.math.Math.inf(((-1 : GoInt))), _1 : new Accuracy(((0 : GoInt8))) };
+            return { _0 : ((0 : GoFloat64)), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            if (_x._neg) {
+                return { _0 : stdgo.math.Math.inf(((-1 : GoInt))), _1 : ((0 : GoInt8)) };
             };
-            return { _0 : stdgo.math.Math.inf(((1 : GoInt))), _1 : new Accuracy(((0 : GoInt8))) };
+            return { _0 : stdgo.math.Math.inf(((1 : GoInt))), _1 : ((0 : GoInt8)) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
     public function float32():{ var _0 : GoFloat32; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
+        if (_x._form == ((1 : GoUInt8))) {
             {};
-            var _e:GoInt32 = _x.value._exp - ((1 : GoInt32));
+            var _e:GoInt32 = _x._exp - ((1 : GoInt32));
             var _p:GoInt = ((24 : GoInt));
             if (_e < ((-126 : GoInt32))) {
                 _p = ((150 : GoInt)) + ((_e : GoInt));
-                if ((_p < ((0 : GoInt))) || ((_p == ((0 : GoInt))) && (_x.value._mant._sticky((((_x.value._mant.__t__.length : GoUInt)) * ((32 : GoUInt))) - ((1 : GoUInt))) == ((0 : GoUInt))))) {
-                    if (_x.value._neg) {
+                if ((_p < ((0 : GoInt))) || ((_p == ((0 : GoInt))) && (_x._mant._sticky(((((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt)) * ((32 : GoUInt))) - ((1 : GoUInt))) == ((0 : GoUInt))))) {
+                    if (_x._neg) {
                         var _z:GoFloat32 = ((0 : GoFloat32));
-                        return { _0 : -_z, _1 : new Accuracy(((1 : GoInt8))) };
+                        return { _0 : -_z, _1 : ((1 : GoInt8)) };
                     };
-                    return { _0 : ((0 : GoFloat32)), _1 : new Accuracy(((-1 : GoInt8))) };
+                    return { _0 : ((0 : GoFloat32)), _1 : ((-1 : GoInt8)) };
                 };
                 if (_p == ((0 : GoInt))) {
-                    if (_x.value._neg) {
-                        return { _0 : ((-1.401298464324817e-45 : GoFloat32)), _1 : new Accuracy(((-1 : GoInt8))) };
+                    if (_x._neg) {
+                        return { _0 : ((-1.401298464324817e-45 : GoFloat32)), _1 : ((-1 : GoInt8)) };
                     };
-                    return { _0 : ((1.401298464324817e-45 : GoFloat32)), _1 : new Accuracy(((1 : GoInt8))) };
+                    return { _0 : ((1.401298464324817e-45 : GoFloat32)), _1 : ((1 : GoInt8)) };
                 };
             };
             var _r:Float_ = new Float_();
             _r._prec = ((_p : GoUInt32));
             _r.set(_x);
             _e = _r._exp - ((1 : GoInt32));
-            if ((_r._form.__t__ == ((2 : GoUInt8))) || (_e > ((127 : GoInt32)))) {
-                if (_x.value._neg) {
-                    return { _0 : ((stdgo.math.Math.inf(((-1 : GoInt))) : GoFloat32)), _1 : new Accuracy(((-1 : GoInt8))) };
+            if ((_r._form == ((2 : GoUInt8))) || (_e > ((127 : GoInt32)))) {
+                if (_x._neg) {
+                    return { _0 : ((stdgo.math.Math.inf(((-1 : GoInt))) : GoFloat32)), _1 : ((-1 : GoInt8)) };
                 };
-                return { _0 : ((stdgo.math.Math.inf(((1 : GoInt))) : GoFloat32)), _1 : new Accuracy(((1 : GoInt8))) };
+                return { _0 : ((stdgo.math.Math.inf(((1 : GoInt))) : GoFloat32)), _1 : ((1 : GoInt8)) };
             };
             var _sign:GoUInt32 = ((0 : GoUInt32)), _bexp:GoUInt32 = ((0 : GoUInt32)), _mant:GoUInt32 = ((0 : GoUInt32));
-            if (_x.value._neg) {
+            if (_x._neg) {
                 _sign = (("2147483648" : GoUInt32));
             };
             if (_e < ((-126 : GoInt32))) {
                 _p = ((150 : GoInt)) + ((_e : GoInt));
-                _mant = _msb32(_r._mant.__copy__()) >> (((((32 : GoInt)) - _p) : GoUInt));
+                _mant = _msb32((_r._mant == null ? null : _r._mant.__copy__())) >> (((((32 : GoInt)) - _p) : GoUInt));
             } else {
                 _bexp = (((_e + ((127 : GoInt32))) : GoUInt32)) << ((23 : GoUnTypedInt));
-                _mant = (_msb32(_r._mant.__copy__()) >> ((8 : GoUnTypedInt))) & ((8388607 : GoUInt32));
+                _mant = (_msb32((_r._mant == null ? null : _r._mant.__copy__())) >> ((8 : GoUnTypedInt))) & ((8388607 : GoUInt32));
             };
             return { _0 : stdgo.math.Math.float32frombits((_sign | _bexp) | _mant), _1 : _r._acc };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            if (_x.value._neg) {
+        } else if (_x._form == ((0 : GoUInt8))) {
+            if (_x._neg) {
                 var _z:GoFloat32 = ((0 : GoFloat32));
-                return { _0 : -_z, _1 : new Accuracy(((0 : GoInt8))) };
+                return { _0 : -_z, _1 : ((0 : GoInt8)) };
             };
-            return { _0 : ((0 : GoFloat32)), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            if (_x.value._neg) {
-                return { _0 : ((stdgo.math.Math.inf(((-1 : GoInt))) : GoFloat32)), _1 : new Accuracy(((0 : GoInt8))) };
+            return { _0 : ((0 : GoFloat32)), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            if (_x._neg) {
+                return { _0 : ((stdgo.math.Math.inf(((-1 : GoInt))) : GoFloat32)), _1 : ((0 : GoInt8)) };
             };
-            return { _0 : ((stdgo.math.Math.inf(((1 : GoInt))) : GoFloat32)), _1 : new Accuracy(((0 : GoInt8))) };
+            return { _0 : ((stdgo.math.Math.inf(((1 : GoInt))) : GoFloat32)), _1 : ((0 : GoInt8)) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
     public function int64():{ var _0 : GoInt64; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            var _acc:Accuracy = _makeAcc(_x.value._neg);
-            if (_x.value._exp <= ((0 : GoInt32))) {
+        if (_x._form == ((1 : GoUInt8))) {
+            var _acc:Accuracy = _makeAcc(_x._neg);
+            if (_x._exp <= ((0 : GoInt32))) {
                 return { _0 : ((0 : GoInt64)), _1 : _acc };
             };
-            if (_x.value._exp <= ((63 : GoInt32))) {
-                var _i:GoInt64 = (((_msb64(_x.value._mant.__copy__()) >> (((64 : GoUInt32)) - ((_x.value._exp : GoUInt32)))) : GoInt64));
-                if (_x.value._neg) {
+            if (_x._exp <= ((63 : GoInt32))) {
+                var _i:GoInt64 = (((_msb64((_x._mant == null ? null : _x._mant.__copy__())) >> (((64 : GoUInt32)) - ((_x._exp : GoUInt32)))) : GoInt64));
+                if (_x._neg) {
                     _i = -_i;
                 };
-                if (_x.value.minPrec() <= ((_x.value._exp : GoUInt))) {
-                    return { _0 : _i, _1 : new Accuracy(((0 : GoInt8))) };
+                if (_x.minPrec() <= ((_x._exp : GoUInt))) {
+                    return { _0 : _i, _1 : ((0 : GoInt8)) };
                 };
                 return { _0 : _i, _1 : _acc };
             };
-            if (_x.value._neg) {
-                if ((_x.value._exp == ((64 : GoInt32))) && (_x.value.minPrec() == ((1 : GoUInt)))) {
-                    _acc = new Accuracy(((0 : GoInt8)));
+            if (_x._neg) {
+                if ((_x._exp == ((64 : GoInt32))) && (_x.minPrec() == ((1 : GoUInt)))) {
+                    _acc = ((0 : GoInt8));
                 };
                 return { _0 : (("-9223372036854775808" : GoInt64)), _1 : _acc };
             };
-            return { _0 : (("9223372036854775807" : GoInt64)), _1 : new Accuracy(((-1 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return { _0 : ((0 : GoInt64)), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            if (_x.value._neg) {
-                return { _0 : (("-9223372036854775808" : GoInt64)), _1 : new Accuracy(((1 : GoInt8))) };
+            return { _0 : (("9223372036854775807" : GoInt64)), _1 : ((-1 : GoInt8)) };
+        } else if (_x._form == ((0 : GoUInt8))) {
+            return { _0 : ((0 : GoInt64)), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            if (_x._neg) {
+                return { _0 : (("-9223372036854775808" : GoInt64)), _1 : ((1 : GoInt8)) };
             };
-            return { _0 : (("9223372036854775807" : GoInt64)), _1 : new Accuracy(((-1 : GoInt8))) };
+            return { _0 : (("9223372036854775807" : GoInt64)), _1 : ((-1 : GoInt8)) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
     public function uint64():{ var _0 : GoUInt64; var _1 : Accuracy; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            if (_x.value._neg) {
-                return { _0 : ((0 : GoUInt64)), _1 : new Accuracy(((1 : GoInt8))) };
+        if (_x._form == ((1 : GoUInt8))) {
+            if (_x._neg) {
+                return { _0 : ((0 : GoUInt64)), _1 : ((1 : GoInt8)) };
             };
-            if (_x.value._exp <= ((0 : GoInt32))) {
-                return { _0 : ((0 : GoUInt64)), _1 : new Accuracy(((-1 : GoInt8))) };
+            if (_x._exp <= ((0 : GoInt32))) {
+                return { _0 : ((0 : GoUInt64)), _1 : ((-1 : GoInt8)) };
             };
-            if (_x.value._exp <= ((64 : GoInt32))) {
-                var _u:GoUInt64 = _msb64(_x.value._mant.__copy__()) >> (((64 : GoUInt32)) - ((_x.value._exp : GoUInt32)));
-                if (_x.value.minPrec() <= ((64 : GoUInt))) {
-                    return { _0 : _u, _1 : new Accuracy(((0 : GoInt8))) };
+            if (_x._exp <= ((64 : GoInt32))) {
+                var _u:GoUInt64 = _msb64((_x._mant == null ? null : _x._mant.__copy__())) >> (((64 : GoUInt32)) - ((_x._exp : GoUInt32)));
+                if (_x.minPrec() <= ((64 : GoUInt))) {
+                    return { _0 : _u, _1 : ((0 : GoInt8)) };
                 };
-                return { _0 : _u, _1 : new Accuracy(((-1 : GoInt8))) };
+                return { _0 : _u, _1 : ((-1 : GoInt8)) };
             };
-            return { _0 : (("18446744073709551615" : GoUInt64)), _1 : new Accuracy(((-1 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((0 : GoUInt8))) {
-            return { _0 : ((0 : GoUInt64)), _1 : new Accuracy(((0 : GoInt8))) };
-        } else if (_x.value._form.__t__ == ((2 : GoUInt8))) {
-            if (_x.value._neg) {
-                return { _0 : ((0 : GoUInt64)), _1 : new Accuracy(((1 : GoInt8))) };
+            return { _0 : (("18446744073709551615" : GoUInt64)), _1 : ((-1 : GoInt8)) };
+        } else if (_x._form == ((0 : GoUInt8))) {
+            return { _0 : ((0 : GoUInt64)), _1 : ((0 : GoInt8)) };
+        } else if (_x._form == ((2 : GoUInt8))) {
+            if (_x._neg) {
+                return { _0 : ((0 : GoUInt64)), _1 : ((1 : GoInt8)) };
             };
-            return { _0 : (("18446744073709551615" : GoUInt64)), _1 : new Accuracy(((-1 : GoInt8))) };
+            return { _0 : (("18446744073709551615" : GoUInt64)), _1 : ((-1 : GoInt8)) };
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
-    public function copy(_x:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function copy(_x:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
         if (_z != _x) {
-            _z.value._prec = _x.value._prec;
-            _z.value._mode = _x.value._mode;
-            _z.value._acc = _x.value._acc;
-            _z.value._form = _x.value._form;
-            _z.value._neg = _x.value._neg;
-            if (_z.value._form.__t__ == ((1 : GoUInt8))) {
-                _z.value._mant = _z.value._mant._set(_x.value._mant.__copy__()).__copy__();
-                _z.value._exp = _x.value._exp;
+            _z._prec = _x._prec;
+            _z._mode = _x._mode;
+            _z._acc = _x._acc;
+            _z._form = _x._form;
+            _z._neg = _x._neg;
+            if (_z._form == ((1 : GoUInt8))) {
+                _z._mant = (_z._mant._set((_x._mant == null ? null : _x._mant.__copy__())) == null ? null : _z._mant._set((_x._mant == null ? null : _x._mant.__copy__())).__copy__());
+                _z._exp = _x._exp;
             };
         };
         return _z;
     }
-    public function set(_x:Pointer<Float_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function set(_x:Float_):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
+        _z._acc = ((0 : GoInt8));
         if (_z != _x) {
-            _z.value._form = _x.value._form;
-            _z.value._neg = _x.value._neg;
-            if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-                _z.value._exp = _x.value._exp;
-                _z.value._mant = _z.value._mant._set(_x.value._mant.__copy__()).__copy__();
+            _z._form = _x._form;
+            _z._neg = _x._neg;
+            if (_x._form == ((1 : GoUInt8))) {
+                _z._exp = _x._exp;
+                _z._mant = (_z._mant._set((_x._mant == null ? null : _x._mant.__copy__())) == null ? null : _z._mant._set((_x._mant == null ? null : _x._mant.__copy__())).__copy__());
             };
-            if (_z.value._prec == ((0 : GoUInt32))) {
-                _z.value._prec = _x.value._prec;
-            } else if (_z.value._prec < _x.value._prec) {
-                _z.value._round(((0 : GoUInt)));
+            if (_z._prec == ((0 : GoUInt32))) {
+                _z._prec = _x._prec;
+            } else if (_z._prec < _x._prec) {
+                _z._round(((0 : GoUInt)));
             };
         };
         return _z;
     }
-    public function setInf(_signbit:Bool):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        _z.value._form = new T_form(((2 : GoUInt8)));
-        _z.value._neg = _signbit;
+    public function setInf(_signbit:Bool):Float_ {
+        var _z = this;
+        _z;
+        _z._acc = ((0 : GoInt8));
+        _z._form = ((2 : GoUInt8));
+        _z._neg = _signbit;
         return _z;
     }
-    public function setRat(_x:Pointer<Rat>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value.isInt()) {
-            return _z.value.setInt(_x.value.num());
+    public function setRat(_x:Rat):Float_ {
+        var _z = this;
+        _z;
+        if (_x.isInt()) {
+            return _z.setInt(_x.num());
         };
         var _a:Float_ = new Float_(), _b:Float_ = new Float_();
-        _a.setInt(_x.value.num());
-        _b.setInt(_x.value.denom());
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_a._prec, _b._prec);
+        _a.setInt(_x.num());
+        _b.setInt(_x.denom());
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_a._prec, _b._prec);
         };
-        return _z.value.quo(Go.pointer(_a), Go.pointer(_b));
+        return _z.quo(_a, _b);
     }
-    public function setInt(_x:Pointer<Int_>):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _bits:GoUInt32 = ((_x.value.bitLen() : GoUInt32));
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = _umax32(_bits, ((64 : GoUInt32)));
+    public function setInt(_x:Int_):Float_ {
+        var _z = this;
+        _z;
+        var _bits:GoUInt32 = ((_x.bitLen() : GoUInt32));
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = _umax32(_bits, ((64 : GoUInt32)));
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        _z.value._neg = _x.value._neg;
-        if (_x.value._abs.__t__.length == ((0 : GoInt))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
+        _z._acc = ((0 : GoInt8));
+        _z._neg = _x._neg;
+        if ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z._form = ((0 : GoUInt8));
             return _z;
         };
-        _z.value._mant = _z.value._mant._set(_x.value._abs.__copy__()).__copy__();
-        _fnorm(_z.value._mant.__copy__());
-        _z.value._setExpAndRound(((_bits : GoInt64)), ((0 : GoUInt)));
+        _z._mant = (_z._mant._set((_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._mant._set((_x._abs == null ? null : _x._abs.__copy__())).__copy__());
+        _fnorm((_z._mant == null ? null : _z._mant.__copy__()));
+        _z._setExpAndRound(((_bits : GoInt64)), ((0 : GoUInt)));
         return _z;
     }
-    public function setFloat64(_x:GoFloat64):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = ((53 : GoUInt32));
+    public function setFloat64(_x:GoFloat64):Float_ {
+        var _z = this;
+        _z;
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = ((53 : GoUInt32));
         };
         if (stdgo.math.Math.isNaN(_x)) {
-            throw Go.toInterface(new ErrNaN(((("Float.SetFloat64(NaN)" : GoString)))));
+            throw Go.toInterface(((new ErrNaN(((("Float.SetFloat64(NaN)" : GoString)))) : ErrNaN)));
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        _z.value._neg = stdgo.math.Math.signbit(_x);
+        _z._acc = ((0 : GoInt8));
+        _z._neg = stdgo.math.Math.signbit(_x);
         if (_x == ((0 : GoFloat64))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
+            _z._form = ((0 : GoUInt8));
             return _z;
         };
         if (stdgo.math.Math.isInf(_x, ((0 : GoInt)))) {
-            _z.value._form = new T_form(((2 : GoUInt8)));
+            _z._form = ((2 : GoUInt8));
             return _z;
         };
-        _z.value._form = new T_form(((1 : GoUInt8)));
+        _z._form = ((1 : GoUInt8));
         var __tmp__ = stdgo.math.Math.frexp(_x), _fmant:GoFloat64 = __tmp__._0, _exp:GoInt = __tmp__._1;
-        _z.value._mant = _z.value._mant._setUint64((("9223372036854775808" : GoUInt64)) | (stdgo.math.Math.float64bits(_fmant) << ((11 : GoUnTypedInt)))).__copy__();
-        _z.value._exp = ((_exp : GoInt32));
-        if (_z.value._prec < ((53 : GoUInt32))) {
-            _z.value._round(((0 : GoUInt)));
+        _z._mant = (_z._mant._setUint64((("9223372036854775808" : GoUInt64)) | (stdgo.math.Math.float64bits(_fmant) << ((11 : GoUnTypedInt)))) == null ? null : _z._mant._setUint64((("9223372036854775808" : GoUInt64)) | (stdgo.math.Math.float64bits(_fmant) << ((11 : GoUnTypedInt)))).__copy__());
+        _z._exp = ((_exp : GoInt32));
+        if (_z._prec < ((53 : GoUInt32))) {
+            _z._round(((0 : GoUInt)));
         };
         return _z;
     }
-    public function setInt64(_x:GoInt64):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setInt64(_x:GoInt64):Float_ {
+        var _z = this;
+        _z;
         var _u:GoInt64 = _x;
         if (_u < ((0 : GoInt64))) {
             _u = -_u;
         };
-        return _z.value._setBits64(_x < ((0 : GoInt64)), ((_u : GoUInt64)));
+        return _z._setBits64(_x < ((0 : GoInt64)), ((_u : GoUInt64)));
     }
-    public function setUint64(_x:GoUInt64):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _z.value._setBits64(false, _x);
+    public function setUint64(_x:GoUInt64):Float_ {
+        var _z = this;
+        _z;
+        return _z._setBits64(false, _x);
     }
-    public function _setBits64(_neg:Bool, _x:GoUInt64):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_z.value._prec == ((0 : GoUInt32))) {
-            _z.value._prec = ((64 : GoUInt32));
+    public function _setBits64(_neg:Bool, _x:GoUInt64):Float_ {
+        var _z = this;
+        _z;
+        if (_z._prec == ((0 : GoUInt32))) {
+            _z._prec = ((64 : GoUInt32));
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        _z.value._neg = _neg;
+        _z._acc = ((0 : GoInt8));
+        _z._neg = _neg;
         if (_x == ((0 : GoUInt64))) {
-            _z.value._form = new T_form(((0 : GoUInt8)));
+            _z._form = ((0 : GoUInt8));
             return _z;
         };
-        _z.value._form = new T_form(((1 : GoUInt8)));
+        _z._form = ((1 : GoUInt8));
         var _s:GoInt = stdgo.math.bits.Bits.leadingZeros64(_x);
-        _z.value._mant = _z.value._mant._setUint64(_x << ((_s : GoUInt))).__copy__();
-        _z.value._exp = (((((64 : GoInt)) - _s) : GoInt32));
-        if (_z.value._prec < ((64 : GoUInt32))) {
-            _z.value._round(((0 : GoUInt)));
+        _z._mant = (_z._mant._setUint64(_x << ((_s : GoUInt))) == null ? null : _z._mant._setUint64(_x << ((_s : GoUInt))).__copy__());
+        _z._exp = (((((64 : GoInt)) - _s) : GoInt32));
+        if (_z._prec < ((64 : GoUInt32))) {
+            _z._round(((0 : GoUInt)));
         };
         return _z;
     }
     public function _round(_sbit:GoUInt):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         if (false) {
-            _z.value._validate();
+            _z._validate();
         };
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
-        if (_z.value._form.__t__ != ((1 : GoUInt8))) {
+        _z._acc = ((0 : GoInt8));
+        if (_z._form != ((1 : GoUInt8))) {
             return;
         };
-        var _m:GoUInt32 = ((_z.value._mant.__t__.length : GoUInt32));
+        var _m:GoUInt32 = (((_z._mant != null ? _z._mant.length : ((0 : GoInt))) : GoUInt32));
         var _bits:GoUInt32 = _m * ((32 : GoUInt32));
-        if (_bits <= _z.value._prec) {
+        if (_bits <= _z._prec) {
             return;
         };
-        var _r:GoUInt = ((((_bits - _z.value._prec) - ((1 : GoUInt32))) : GoUInt));
-        var _rbit:GoUInt = _z.value._mant._bit(_r) & ((1 : GoUInt));
-        if ((_sbit == ((0 : GoUInt))) && ((_rbit == ((0 : GoUInt))) || (_z.value._mode.__t__ == ((0 : GoUInt8))))) {
-            _sbit = _z.value._mant._sticky(_r);
+        var _r:GoUInt = ((((_bits - _z._prec) - ((1 : GoUInt32))) : GoUInt));
+        var _rbit:GoUInt = _z._mant._bit(_r) & ((1 : GoUInt));
+        if ((_sbit == ((0 : GoUInt))) && ((_rbit == ((0 : GoUInt))) || (_z._mode == ((0 : GoUInt8))))) {
+            _sbit = _z._mant._sticky(_r);
         };
         _sbit = _sbit & (((1 : GoUInt)));
-        var _n:GoUInt32 = (_z.value._prec + ((31 : GoUInt32))) / ((32 : GoUInt32));
+        var _n:GoUInt32 = (_z._prec + ((31 : GoUInt32))) / ((32 : GoUInt32));
         if (_m > _n) {
-            Go.copy(_z.value._mant, _z.value._mant.__slice__(_m - _n));
-            _z.value._mant = _z.value._mant.__slice__(0, _n).__copy__();
+            Go.copy(_z._mant, _z._mant.__slice__(_m - _n));
+            _z._mant = (_z._mant.__slice__(0, _n) == null ? null : _z._mant.__slice__(0, _n).__copy__());
         };
-        var _ntz:GoUInt32 = (_n * ((32 : GoUInt32))) - _z.value._prec;
-        var _lsb:Word = new Word(new Word(((1 : GoUInt))).__t__ << _ntz);
+        var _ntz:GoUInt32 = (_n * ((32 : GoUInt32))) - _z._prec;
+        var _lsb:Word = ((((1 : GoUInt)) : Word)) << _ntz;
         if ((_rbit | _sbit) != ((0 : GoUInt))) {
             var _inc:Bool = false;
-            if (_z.value._mode.__t__ == ((4 : GoUInt8))) {
-                _inc = _z.value._neg;
-            } else if (_z.value._mode.__t__ == ((2 : GoUInt8))) {} else if (_z.value._mode.__t__ == ((0 : GoUInt8))) {
-                _inc = (_rbit != ((0 : GoUInt))) && ((_sbit != ((0 : GoUInt))) || (new Word(_z.value._mant.__t__[((0 : GoInt))].__t__ & _lsb.__t__).__t__ != ((0 : GoUInt))));
-            } else if (_z.value._mode.__t__ == ((1 : GoUInt8))) {
+            if (_z._mode == ((4 : GoUInt8))) {
+                _inc = _z._neg;
+            } else if (_z._mode == ((2 : GoUInt8))) {} else if (_z._mode == ((0 : GoUInt8))) {
+                _inc = (_rbit != ((0 : GoUInt))) && ((_sbit != ((0 : GoUInt))) || (((_z._mant != null ? _z._mant[((0 : GoInt))] : new Word()) & _lsb) != ((0 : GoUInt))));
+            } else if (_z._mode == ((1 : GoUInt8))) {
                 _inc = _rbit != ((0 : GoUInt));
-            } else if (_z.value._mode.__t__ == ((3 : GoUInt8))) {
+            } else if (_z._mode == ((3 : GoUInt8))) {
                 _inc = true;
-            } else if (_z.value._mode.__t__ == ((5 : GoUInt8))) {
-                _inc = !_z.value._neg;
+            } else if (_z._mode == ((5 : GoUInt8))) {
+                _inc = !_z._neg;
             } else {
                 throw Go.toInterface(((("unreachable" : GoString))));
             };
-            _z.value._acc = _makeAcc(_inc != _z.value._neg);
+            _z._acc = _makeAcc(_inc != _z._neg);
             if (_inc) {
-                if (_addVW(_z.value._mant.__copy__().__t__, _z.value._mant.__copy__().__t__, _lsb).__t__ != ((0 : GoUInt))) {
-                    if (_z.value._exp >= ((2147483647 : GoInt32))) {
-                        _z.value._form = new T_form(((2 : GoUInt8)));
+                if (_addVW(_z._mant, _z._mant, _lsb) != ((0 : GoUInt))) {
+                    if (_z._exp >= ((2147483647 : GoInt32))) {
+                        _z._form = ((2 : GoUInt8));
                         return;
                     };
-                    _z.value._exp++;
-                    _shrVU(_z.value._mant.__copy__().__t__, _z.value._mant.__copy__().__t__, ((1 : GoUInt)));
+                    _z._exp++;
+                    _shrVU(_z._mant, _z._mant, ((1 : GoUInt)));
                     {};
-                    _z.value._mant.__t__[_n - ((1 : GoUInt32))] = new Word(_z.value._mant.__t__[_n - ((1 : GoUInt32))].__t__ | ((("2147483648" : GoUInt))));
+                    if (_z._mant != null) (_z._mant != null ? _z._mant[_n - ((1 : GoUInt32))] : new Word()) | ((("2147483648" : GoUInt)));
                 };
             };
         };
-        _z.value._mant.__t__[((0 : GoInt))] = new Word(_z.value._mant.__t__[((0 : GoInt))].__t__ & (new Word((new Word(_lsb.__t__ - ((1 : GoUInt)))).__t__ ^ ((-1 : GoUnTypedInt)))).__t__);
+        if (_z._mant != null) (_z._mant != null ? _z._mant[((0 : GoInt))] : new Word()) & ((_lsb - ((1 : GoUInt))) ^ ((-1 : GoUnTypedInt)));
         if (false) {
-            _z.value._validate();
+            _z._validate();
         };
     }
     public function _validate():Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (true) {
             throw Go.toInterface(((("validate called but debugFloat is not set" : GoString))));
         };
-        if (_x.value._form.__t__ != ((1 : GoUInt8))) {
+        if (_x._form != ((1 : GoUInt8))) {
             return;
         };
-        var _m:GoInt = _x.value._mant.__t__.length;
+        var _m:GoInt = (_x._mant != null ? _x._mant.length : ((0 : GoInt)));
         if (_m == ((0 : GoInt))) {
             throw Go.toInterface(((("nonzero finite number with empty mantissa" : GoString))));
         };
         {};
-        if (new Word(_x.value._mant.__t__[_m - ((1 : GoInt))].__t__ & (("2147483648" : GoUInt))).__t__ == ((0 : GoUInt))) {
-            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((("msb not set in last word %#x of %s" : GoString))), Go.toInterface(_x.value._mant.__t__[_m - ((1 : GoInt))]), Go.toInterface(_x.value.text(((((("p" : GoString))).code : GoRune)), ((0 : GoInt))))));
+        if (((_x._mant != null ? _x._mant[_m - ((1 : GoInt))] : new Word()) & (("2147483648" : GoUInt))) == ((0 : GoUInt))) {
+            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((("msb not set in last word %#x of %s" : GoString))), Go.toInterface((_x._mant != null ? _x._mant[_m - ((1 : GoInt))] : new Word())), Go.toInterface(_x.text(((((("p" : GoString))).code : GoRune)), ((0 : GoInt))))));
         };
-        if (_x.value._prec == ((0 : GoUInt32))) {
+        if (_x._prec == ((0 : GoUInt32))) {
             throw Go.toInterface(((("zero precision finite number" : GoString))));
         };
     }
     public function isInt():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ != ((1 : GoUInt8))) {
-            return _x.value._form.__t__ == ((0 : GoUInt8));
+        if (_x._form != ((1 : GoUInt8))) {
+            return _x._form == ((0 : GoUInt8));
         };
-        if (_x.value._exp <= ((0 : GoInt32))) {
+        if (_x._exp <= ((0 : GoInt32))) {
             return false;
         };
-        return (_x.value._prec <= ((_x.value._exp : GoUInt32))) || (_x.value.minPrec() <= ((_x.value._exp : GoUInt)));
+        return (_x._prec <= ((_x._exp : GoUInt32))) || (_x.minPrec() <= ((_x._exp : GoUInt)));
     }
     public function isInf():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._form.__t__ == ((2 : GoUInt8));
+        var _x = this;
+        _x;
+        return _x._form == ((2 : GoUInt8));
     }
     public function signbit():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._neg;
+        var _x = this;
+        _x;
+        return _x._neg;
     }
-    public function setMantExp(_mant:Pointer<Float_>, _exp:GoInt):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setMantExp(_mant:Float_, _exp:GoInt):Float_ {
+        var _z = this;
+        _z;
         if (false) {
-            _z.value._validate();
-            _mant.value._validate();
+            _z._validate();
+            _mant._validate();
         };
-        _z.value.copy(_mant);
-        if (_z.value._form.__t__ == ((1 : GoUInt8))) {
-            _z.value._setExpAndRound(((_z.value._exp : GoInt64)) + ((_exp : GoInt64)), ((0 : GoUInt)));
+        _z.copy(_mant);
+        if (_z._form == ((1 : GoUInt8))) {
+            _z._setExpAndRound(((_z._exp : GoInt64)) + ((_exp : GoInt64)), ((0 : GoUInt)));
         };
         return _z;
     }
     public function _setExpAndRound(_exp:GoInt64, _sbit:GoUInt):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         if (_exp < ((-2147483648 : GoInt64))) {
-            _z.value._acc = _makeAcc(_z.value._neg);
-            _z.value._form = new T_form(((0 : GoUInt8)));
+            _z._acc = _makeAcc(_z._neg);
+            _z._form = ((0 : GoUInt8));
             return;
         };
         if (_exp > ((2147483647 : GoInt64))) {
-            _z.value._acc = _makeAcc(!_z.value._neg);
-            _z.value._form = new T_form(((2 : GoUInt8)));
+            _z._acc = _makeAcc(!_z._neg);
+            _z._form = ((2 : GoUInt8));
             return;
         };
-        _z.value._form = new T_form(((1 : GoUInt8)));
-        _z.value._exp = ((_exp : GoInt32));
-        _z.value._round(_sbit);
+        _z._form = ((1 : GoUInt8));
+        _z._exp = ((_exp : GoInt32));
+        _z._round(_sbit);
     }
-    public function mantExp(_mant:Pointer<Float_>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function mantExp(_mant:Float_):GoInt {
+        var _x = this;
+        _x;
         var _exp:GoInt = ((0 : GoInt));
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((1 : GoUInt8))) {
-            _exp = ((_x.value._exp : GoInt));
+        if (_x._form == ((1 : GoUInt8))) {
+            _exp = ((_x._exp : GoInt));
         };
         if (_mant != null) {
-            _mant.value.copy(_x);
-            if (_mant.value._form.__t__ == ((1 : GoUInt8))) {
-                _mant.value._exp = ((0 : GoInt32));
+            _mant.copy(_x);
+            if (_mant._form == ((1 : GoUInt8))) {
+                _mant._exp = ((0 : GoInt32));
             };
         };
         return _exp;
     }
     public function sign():GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (false) {
-            _x.value._validate();
+            _x._validate();
         };
-        if (_x.value._form.__t__ == ((0 : GoUInt8))) {
+        if (_x._form == ((0 : GoUInt8))) {
             return ((0 : GoInt));
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             return ((-1 : GoInt));
         };
         return ((1 : GoInt));
     }
     public function acc():Accuracy {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._acc;
+        var _x = this;
+        _x;
+        return _x._acc;
     }
     public function mode():RoundingMode {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._mode;
+        var _x = this;
+        _x;
+        return _x._mode;
     }
     public function minPrec():GoUInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._form.__t__ != ((1 : GoUInt8))) {
+        var _x = this;
+        _x;
+        if (_x._form != ((1 : GoUInt8))) {
             return ((0 : GoUInt));
         };
-        return (((_x.value._mant.__t__.length : GoUInt)) * ((32 : GoUInt))) - _x.value._mant._trailingZeroBits();
+        return ((((_x._mant != null ? _x._mant.length : ((0 : GoInt))) : GoUInt)) * ((32 : GoUInt))) - _x._mant._trailingZeroBits();
     }
     public function prec():GoUInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return ((_x.value._prec : GoUInt));
+        var _x = this;
+        _x;
+        return ((_x._prec : GoUInt));
     }
-    public function setMode(_mode:RoundingMode):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._mode = _mode;
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
+    public function setMode(_mode:RoundingMode):Float_ {
+        var _z = this;
+        _z;
+        _z._mode = _mode;
+        _z._acc = ((0 : GoInt8));
         return _z;
     }
-    public function setPrec(_prec:GoUInt):Pointer<Float_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._acc = new Accuracy(((0 : GoInt8)));
+    public function setPrec(_prec:GoUInt):Float_ {
+        var _z = this;
+        _z;
+        _z._acc = ((0 : GoInt8));
         if (_prec == ((0 : GoUInt))) {
-            _z.value._prec = ((0 : GoUInt32));
-            if (_z.value._form.__t__ == ((1 : GoUInt8))) {
-                _z.value._acc = _makeAcc(_z.value._neg);
-                _z.value._form = new T_form(((0 : GoUInt8)));
+            _z._prec = ((0 : GoUInt32));
+            if (_z._form == ((1 : GoUInt8))) {
+                _z._acc = _makeAcc(_z._neg);
+                _z._form = ((0 : GoUInt8));
             };
             return _z;
         };
         if (_prec > (("4294967295" : GoUInt))) {
             _prec = (("4294967295" : GoUInt));
         };
-        var _old:GoUInt32 = _z.value._prec;
-        _z.value._prec = ((_prec : GoUInt32));
-        if (_z.value._prec < _old) {
-            _z.value._round(((0 : GoUInt)));
+        var _old:GoUInt32 = _z._prec;
+        _z._prec = ((_prec : GoUInt32));
+        if (_z._prec < _old) {
+            _z._round(((0 : GoUInt)));
         };
         return _z;
     }
@@ -1654,138 +1768,89 @@ import stdgo.Chan;
     public function __copy__() {
         return new Float_(_prec, _mode, _acc, _form, _neg, _mant, _exp);
     }
-    public function __set__(__tmp__) {
-        this._prec = __tmp__._prec;
-        this._mode = __tmp__._mode;
-        this._acc = __tmp__._acc;
-        this._form = __tmp__._form;
-        this._neg = __tmp__._neg;
-        this._mant = __tmp__._mant;
-        this._exp = __tmp__._exp;
-        return this;
-    }
 }
-@:structInit class ErrNaN {
+@:structInit @:using(Big.ErrNaN_static_extension) class ErrNaN {
     public function error():GoString {
-        var _err = this.__copy__();
+        var _err = this;
+        (_err == null ? null : _err.__copy__());
         return _err._msg;
     }
     public var _msg : GoString = (("" : GoString));
     public function new(?_msg:GoString) {
         if (_msg != null) this._msg = _msg;
     }
-    public function toString() {
-        return "{" + Go.string(_msg) + "}";
-    }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new ErrNaN(_msg);
     }
-    public function __set__(__tmp__) {
-        this._msg = __tmp__._msg;
-        return this;
-    }
 }
-@:named class T_form {
-    public var __t__ : GoUInt8;
-    public function new(?t:GoUInt8) {
-        __t__ = t == null ? 0 : t;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    @:implicit
-    public function toString():GoString return Go.string(__t__);
-    public function __copy__() return new T_form(__t__);
-}
-@:named class RoundingMode {
-    public function toString():GoString {
-        var _i = this.__copy__();
-        if (_i.__t__ >= new RoundingMode(((6 : GoInt))).__t__) {
-            return (((("RoundingMode(" : GoString))) + stdgo.strconv.Strconv.formatInt(_i.__t__, ((10 : GoInt)))) + (((")" : GoString)));
-        };
-        return ((("ToNearestEvenToNearestAwayToZeroAwayFromZeroToNegativeInfToPositiveInf" : GoString))).__slice__(__RoundingMode_index[_i.__t__], __RoundingMode_index[new RoundingMode(_i.__t__ + ((1 : GoUInt8))).__t__]);
-    }
-    public var __t__ : GoUInt8;
-    public function new(?t:GoUInt8) {
-        __t__ = t == null ? 0 : t;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() return new RoundingMode(__t__);
-}
-@:named class Accuracy {
-    public function toString():GoString {
-        var _i = this.__copy__();
-        _i = new Accuracy(_i.__t__ - (((-1 : GoInt8))));
-        if ((_i.__t__ < ((0 : GoInt8))) || (_i.__t__ >= new Accuracy(((3 : GoInt))).__t__)) {
-            return (((("Accuracy(" : GoString))) + stdgo.strconv.Strconv.formatInt(new Accuracy(_i.__t__ + ((-1 : GoInt8))).__t__, ((10 : GoInt)))) + (((")" : GoString)));
-        };
-        return ((("BelowExactAbove" : GoString))).__slice__(__Accuracy_index[_i.__t__], __Accuracy_index[new Accuracy(_i.__t__ + ((1 : GoInt8))).__t__]);
-    }
-    public var __t__ : GoInt8;
-    public function new(?t:GoInt8) {
-        __t__ = t == null ? 0 : t;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() return new Accuracy(__t__);
-}
-@:structInit class Int_ {
-    public function _scaleDenom(_x:Pointer<Int_>, _f:T_nat):Void {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_f.__t__.length == ((0 : GoInt))) {
-            _z.value.set(_x);
+@:named typedef T_form = GoUInt8;
+@:named @:using(Big.RoundingMode_static_extension) typedef RoundingMode = GoUInt8;
+@:named @:using(Big.Accuracy_static_extension) typedef Accuracy = GoInt8;
+@:structInit @:using(Big.Int__static_extension) class Int_ {
+    public function _scaleDenom(_x:Int_, _f:T_nat):Void {
+        var _z = this;
+        _z;
+        if ((_f != null ? _f.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z.set(_x);
             return;
         };
-        _z.value._abs = _z.value._abs._mul(_x.value._abs.__copy__(), _f.__copy__()).__copy__();
-        _z.value._neg = _x.value._neg;
+        _z._abs = (_z._abs._mul((_x._abs == null ? null : _x._abs.__copy__()), (_f == null ? null : _f.__copy__())) == null ? null : _z._abs._mul((_x._abs == null ? null : _x._abs.__copy__()), (_f == null ? null : _f.__copy__())).__copy__());
+        _z._neg = _x._neg;
     }
     public function probablyPrime(_n:GoInt):Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_n < ((0 : GoInt))) {
             throw Go.toInterface(((("negative n for ProbablyPrime" : GoString))));
         };
-        if (_x.value._neg || (_x.value._abs.__t__.length == ((0 : GoInt)))) {
+        if (_x._neg || ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
             return false;
         };
         {};
-        var _w:Word = _x.value._abs.__t__[((0 : GoInt))];
-        if ((_x.value._abs.__t__.length == ((1 : GoInt))) && (_w.__t__ < ((64 : GoUInt)))) {
-            return ((("2891462833508853932" : GoUInt64)) & (((1 : GoUInt64)) << _w.__t__)) != ((0 : GoUInt64));
+        var _w:Word = (_x._abs != null ? _x._abs[((0 : GoInt))] : new Word());
+        if (((_x._abs != null ? _x._abs.length : ((0 : GoInt))) == ((1 : GoInt))) && (_w < ((64 : GoUInt)))) {
+            return ((("2891462833508853932" : GoUInt64)) & (((1 : GoUInt64)) << _w)) != ((0 : GoUInt64));
         };
-        if (new Word(_w.__t__ & ((1 : GoUInt))).__t__ == ((0 : GoUInt))) {
+        if ((_w & ((1 : GoUInt))) == ((0 : GoUInt))) {
             return false;
         };
         {};
         {};
         var _rA:GoUInt32 = ((0 : GoUInt32)), _rB:GoUInt32 = ((0 : GoUInt32));
         if (((32 : GoInt)) == ((32 : GoInt))) {
-            _rA = _x.value._abs._modW(new Word((("4127218095" : GoUInt)))).__t__;
-            _rB = _x.value._abs._modW(new Word((("3948078067" : GoUInt)))).__t__;
+            _rA = ((_x._abs._modW((("4127218095" : GoUInt))) : GoUInt32));
+            _rB = ((_x._abs._modW((("3948078067" : GoUInt))) : GoUInt32));
         } else if (((32 : GoInt)) == ((64 : GoInt))) {
-            var _r:Word = _x.value._abs._modW(new Word(((820596253 : GoUInt))));
-            _rA = new Word(_r.__t__ % (("4127218095" : GoUInt))).__t__;
-            _rB = new Word(_r.__t__ % (("3948078067" : GoUInt))).__t__;
+            var _r:Word = _x._abs._modW(((820596253 : GoUInt)));
+            _rA = (((_r % (("4127218095" : GoUInt))) : GoUInt32));
+            _rB = (((_r % (("3948078067" : GoUInt))) : GoUInt32));
         } else {
             throw Go.toInterface(((("math/big: invalid word size" : GoString))));
         };
         if ((((((((((((((((_rA % ((3 : GoUInt32))) == ((0 : GoUInt32))) || ((_rA % ((5 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((7 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((11 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((13 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((17 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((19 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((23 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rA % ((37 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((29 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((31 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((41 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((43 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((47 : GoUInt32))) == ((0 : GoUInt32)))) || ((_rB % ((53 : GoUInt32))) == ((0 : GoUInt32)))) {
             return false;
         };
-        return _x.value._abs._probablyPrimeMillerRabin(_n + ((1 : GoInt)), true) && _x.value._abs._probablyPrimeLucas();
+        return _x._abs._probablyPrimeMillerRabin(_n + ((1 : GoInt)), true) && _x._abs._probablyPrimeLucas();
     }
     public function unmarshalJSON(_text:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         if (((_text : GoString)) == ((("null" : GoString)))) {
             return ((null : stdgo.Error));
         };
-        return _z.value.unmarshalText(_text);
+        return _z.unmarshalText(_text);
     }
     public function marshalJSON():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value.marshalText();
+        var _x = this;
+        _x;
+        return _x.marshalText();
     }
     public function unmarshalText(_text:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value._setFromScanner(stdgo.bytes.Bytes.newReader(_text).value, ((0 : GoInt))), _:Pointer<Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z._setFromScanner(stdgo.bytes.Bytes.newReader(_text), ((0 : GoInt))), _:Int_ = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo.fmt.Fmt.errorf(((("math/big: cannot unmarshal %q into a *big.Int" : GoString))), Go.toInterface(_text));
             };
@@ -1793,43 +1858,51 @@ import stdgo.Chan;
         return ((null : stdgo.Error));
     }
     public function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _text:Slice<GoByte> = new Slice<GoUInt8>().nil(), _err:Error = ((null : stdgo.Error));
+        var _x = this;
+        _x;
+        var _text:Slice<GoByte> = ((null : Slice<GoUInt8>)), _err:Error = ((null : stdgo.Error));
         if (_x == null) {
             return { _0 : ((((("<nil>" : GoString))) : Slice<GoByte>)), _1 : ((null : stdgo.Error)) };
         };
-        return { _0 : _x.value._abs._itoa(_x.value._neg, ((10 : GoInt))), _1 : ((null : stdgo.Error)) };
+        return { _0 : _x._abs._itoa(_x._neg, ((10 : GoInt))), _1 : ((null : stdgo.Error)) };
     }
     public function gobDecode(_buf:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_buf.length == ((0 : GoInt))) {
-            _z.value = new Int_().__copy__();
+        var _z = this;
+        _z;
+        if ((_buf != null ? _buf.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            {
+                var __tmp__ = ((new Int_() : Int_));
+                _z._neg = __tmp__._neg;
+                _z._abs = __tmp__._abs;
+            };
             return ((null : stdgo.Error));
         };
-        var _b:GoUInt8 = _buf[((0 : GoInt))];
+        var _b:GoUInt8 = (_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8)));
         if ((_b >> ((1 : GoUnTypedInt))) != ((1 : GoUInt8))) {
             return stdgo.fmt.Fmt.errorf(((("Int.GobDecode: encoding version %d not supported" : GoString))), Go.toInterface(_b >> ((1 : GoUnTypedInt))));
         };
-        _z.value._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
-        _z.value._abs = _z.value._abs._setBytes(_buf.__slice__(((1 : GoInt)))).__copy__();
+        _z._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
+        _z._abs = (_z._abs._setBytes(_buf.__slice__(((1 : GoInt)))) == null ? null : _z._abs._setBytes(_buf.__slice__(((1 : GoInt)))).__copy__());
         return ((null : stdgo.Error));
     }
     public function gobEncode():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_x == null) {
-            return { _0 : new Slice<GoUInt8>().nil(), _1 : ((null : stdgo.Error)) };
+            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
         };
-        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((((1 : GoInt)) + (_x.value._abs.__t__.length * ((4 : GoInt))) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        var _i:GoInt = _x.value._abs._bytes(_buf) - ((1 : GoInt));
+        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((((1 : GoInt)) + ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) * ((4 : GoInt))) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        var _i:GoInt = _x._abs._bytes(_buf) - ((1 : GoInt));
         var _b:GoUInt8 = ((2 : GoUInt8));
-        if (_x.value._neg) {
+        if (_x._neg) {
             _b = _b | (((1 : GoUInt8)));
         };
-        _buf[_i] = _b;
+        if (_buf != null) _buf[_i] = _b;
         return { _0 : _buf.__slice__(_i), _1 : ((null : stdgo.Error)) };
     }
     public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         _s.skipSpace();
         var _base:GoInt = ((0 : GoInt));
         if (_ch == ((((("b" : GoString))).code : GoRune))) {
@@ -1843,29 +1916,31 @@ import stdgo.Chan;
         } else if (_ch == ((((("s" : GoString))).code : GoRune)) || _ch == ((((("v" : GoString))).code : GoRune))) {} else {
             return stdgo.errors.Errors.new_(((("Int.Scan: invalid verb" : GoString))));
         };
-        var __tmp__ = _z.value._scan(new T_byteReader(_s).__copy__(), _base), _:Pointer<Int_> = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+        var __tmp__ = _z._scan(((new T_byteReader(_s) : T_byteReader)), _base), _:Int_ = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
         return _err;
     }
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : GoInt; var _2 : Error; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Int_; var _1 : GoInt; var _2 : Error; } {
+        var _z = this;
+        _z;
         var __tmp__ = _scanSign(_r), _neg:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            return { _0 : new Pointer<Int_>().nil(), _1 : ((0 : GoInt)), _2 : _err };
+        if (_err != null) {
+            return { _0 : null, _1 : ((0 : GoInt)), _2 : _err };
         };
         {
-            var __tmp__ = _z.value._abs._scan(_r, _base, false);
-            _z.value._abs = __tmp__._0.__copy__();
+            var __tmp__ = _z._abs._scan(_r, _base, false);
+            _z._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
             _base = __tmp__._1;
             _err = __tmp__._3;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            return { _0 : new Pointer<Int_>().nil(), _1 : _base, _2 : _err };
+        if (_err != null) {
+            return { _0 : null, _1 : _base, _2 : _err };
         };
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && _neg;
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _neg;
         return { _0 : _z, _1 : _base, _2 : ((null : stdgo.Error)) };
     }
     public function format(_s:stdgo.fmt.Fmt.State, _ch:GoRune):Void {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var _base:GoInt = ((0 : GoInt));
         if (_ch == ((((("b" : GoString))).code : GoRune))) {
             _base = ((2 : GoInt));
@@ -1876,7 +1951,7 @@ import stdgo.Chan;
         } else if (_ch == ((((("x" : GoString))).code : GoRune)) || _ch == ((((("X" : GoString))).code : GoRune))) {
             _base = ((16 : GoInt));
         } else {
-            stdgo.fmt.Fmt.fprintf(_s, ((("%%!%c(big.Int=%s)" : GoString))), Go.toInterface(_ch), Go.toInterface(_x.value.toString()));
+            stdgo.fmt.Fmt.fprintf(_s, ((("%%!%c(big.Int=%s)" : GoString))), Go.toInterface(_ch), Go.toInterface(((_x.toString() : GoString))));
             return;
         };
         if (_x == null) {
@@ -1884,7 +1959,7 @@ import stdgo.Chan;
             return;
         };
         var _sign:GoString = ("");
-        if (_x.value._neg) {
+        if (_x._neg) {
             _sign = ((("-" : GoString)));
         } else if (_s.flag(((((("+" : GoString))).code : GoRune)))) {
             _sign = ((("+" : GoString)));
@@ -1906,11 +1981,11 @@ import stdgo.Chan;
         if (_ch == ((((("O" : GoString))).code : GoRune))) {
             _prefix = ((("0o" : GoString)));
         };
-        var _digits:Slice<GoUInt8> = _x.value._abs._utoa(_base);
+        var _digits:Slice<GoUInt8> = _x._abs._utoa(_base);
         if (_ch == ((((("X" : GoString))).code : GoRune))) {
             for (_i => _d in _digits) {
                 if ((((((("a" : GoString))).code : GoRune)) <= _d) && (_d <= ((((("z" : GoString))).code : GoRune)))) {
-                    _digits[_i] = ((((("A" : GoString))).code : GoRune)) + (_d - ((((("a" : GoString))).code : GoRune)));
+                    if (_digits != null) _digits[_i] = ((((("A" : GoString))).code : GoRune)) + (_d - ((((("a" : GoString))).code : GoRune)));
                 };
             };
         };
@@ -1919,13 +1994,13 @@ import stdgo.Chan;
         var _right:GoInt = ((0 : GoInt));
         var __tmp__ = _s.precision(), _precision:GoInt = __tmp__._0, _precisionSet:Bool = __tmp__._1;
         if (_precisionSet) {
-            if (_digits.length < _precision) {
-                _zeros = _precision - _digits.length;
-            } else if (((_digits.length == ((1 : GoInt))) && (_digits[((0 : GoInt))] == ((((("0" : GoString))).code : GoRune)))) && (_precision == ((0 : GoInt)))) {
+            if ((_digits != null ? _digits.length : ((0 : GoInt))) < _precision) {
+                _zeros = _precision - (_digits != null ? _digits.length : ((0 : GoInt)));
+            } else if ((((_digits != null ? _digits.length : ((0 : GoInt))) == ((1 : GoInt))) && ((_digits != null ? _digits[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("0" : GoString))).code : GoRune)))) && (_precision == ((0 : GoInt)))) {
                 return;
             };
         };
-        var _length:GoInt = ((_sign.length + _prefix.length) + _zeros) + _digits.length;
+        var _length:GoInt = (((_sign != null ? _sign.length : ((0 : GoInt))) + (_prefix != null ? _prefix.length : ((0 : GoInt)))) + _zeros) + (_digits != null ? _digits.length : ((0 : GoInt)));
         {
             var __tmp__ = _s.width(), _width:GoInt = __tmp__._0, _widthSet:Bool = __tmp__._1;
             if (_widthSet && (_length < _width)) {
@@ -1949,58 +2024,64 @@ import stdgo.Chan;
         _writeMultiple(_s, (((" " : GoString))), _right);
     }
     public function toString():GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value.text(((10 : GoInt)));
+        var _x = this;
+        _x;
+        return _x.text(((10 : GoInt)));
     }
     public function append(_buf:Slice<GoByte>, _base:GoInt):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_x == null) {
-            return _buf.__append__(...((("<nil>" : GoString))).toArray());
+            return (_buf != null ? _buf.__append__(...((("<nil>" : GoString))).__toArray__()) : new Slice<GoUInt8>(...((("<nil>" : GoString))).__toArray__()));
         };
-        return _buf.__append__(..._x.value._abs._itoa(_x.value._neg, _base).toArray());
+        return (_buf != null ? _buf.__append__(..._x._abs._itoa(_x._neg, _base).__toArray__()) : new Slice<GoUInt8>(..._x._abs._itoa(_x._neg, _base).__toArray__()));
     }
     public function text(_base:GoInt):GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_x == null) {
             return ((("<nil>" : GoString)));
         };
-        return ((_x.value._abs._itoa(_x.value._neg, _base) : GoString));
+        return ((_x._abs._itoa(_x._neg, _base) : GoString));
     }
-    public function sqrt(_x:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg) {
+    public function sqrt(_x:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg) {
             throw Go.toInterface(((("square root of negative number" : GoString))));
         };
-        _z.value._neg = false;
-        _z.value._abs = _z.value._abs._sqrt(_x.value._abs.__copy__()).__copy__();
+        _z._neg = false;
+        _z._abs = (_z._abs._sqrt((_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._sqrt((_x._abs == null ? null : _x._abs.__copy__())).__copy__());
         return _z;
     }
-    public function not(_x:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg) {
-            _z.value._abs = _z.value._abs._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-            _z.value._neg = false;
+    public function not(_x:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg) {
+            _z._abs = (_z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        _z.value._abs = _z.value._abs._add(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._neg = true;
+        _z._abs = (_z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._neg = true;
         return _z;
     }
-    public function xor(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg == _y.value._neg) {
-            if (_x.value._neg) {
-                var _x1:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._abs = _z.value._abs._xor(_x1.__copy__(), _y1.__copy__()).__copy__();
-                _z.value._neg = false;
+    public function xor(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg == _y._neg) {
+            if (_x._neg) {
+                var _x1:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._abs = (_z._abs._xor((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._xor((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__());
+                _z._neg = false;
                 return _z;
             };
-            _z.value._abs = _z.value._abs._xor(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+            _z._abs = (_z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
@@ -2008,26 +2089,27 @@ import stdgo.Chan;
                 _y = __tmp__1;
             };
         };
-        var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._abs = _z.value._abs._add(_z.value._abs._xor(_x.value._abs.__copy__(), _y1.__copy__()).__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._neg = true;
+        var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._abs = (_z._abs._add((_z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._xor((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._neg = true;
         return _z;
     }
-    public function or(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg == _y.value._neg) {
-            if (_x.value._neg) {
-                var _x1:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._abs = _z.value._abs._add(_z.value._abs._and(_x1.__copy__(), _y1.__copy__()).__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._neg = true;
+    public function or(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg == _y._neg) {
+            if (_x._neg) {
+                var _x1:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._abs = (_z._abs._add((_z._abs._and((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._and((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_z._abs._and((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._and((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._neg = true;
                 return _z;
             };
-            _z.value._abs = _z.value._abs._or(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+            _z._abs = (_z._abs._or((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._or((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
@@ -2035,51 +2117,53 @@ import stdgo.Chan;
                 _y = __tmp__1;
             };
         };
-        var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._abs = _z.value._abs._add(_z.value._abs._andNot(_y1.__copy__(), _x.value._abs.__copy__()).__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._neg = true;
+        var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._abs = (_z._abs._add((_z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._neg = true;
         return _z;
     }
-    public function andNot(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg == _y.value._neg) {
-            if (_x.value._neg) {
-                var _x1:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._abs = _z.value._abs._andNot(_y1.__copy__(), _x1.__copy__()).__copy__();
-                _z.value._neg = false;
+    public function andNot(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg == _y._neg) {
+            if (_x._neg) {
+                var _x1:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._abs = (_z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x1 == null ? null : _x1.__copy__())) == null ? null : _z._abs._andNot((_y1 == null ? null : _y1.__copy__()), (_x1 == null ? null : _x1.__copy__())).__copy__());
+                _z._neg = false;
                 return _z;
             };
-            _z.value._abs = _z.value._abs._andNot(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+            _z._abs = (_z._abs._andNot((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._andNot((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        if (_x.value._neg) {
-            var _x1:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-            _z.value._abs = _z.value._abs._add(_z.value._abs._or(_x1.__copy__(), _y.value._abs.__copy__()).__copy__(), _natOne.__copy__()).__copy__();
-            _z.value._neg = true;
+        if (_x._neg) {
+            var _x1:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _z._abs = (_z._abs._add((_z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _z._neg = true;
             return _z;
         };
-        var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._abs = _z.value._abs._and(_x.value._abs.__copy__(), _y1.__copy__()).__copy__();
-        _z.value._neg = false;
+        var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._abs = (_z._abs._and((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._and((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__());
+        _z._neg = false;
         return _z;
     }
-    public function and(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg == _y.value._neg) {
-            if (_x.value._neg) {
-                var _x1:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._abs = _z.value._abs._add(_z.value._abs._or(_x1.__copy__(), _y1.__copy__()).__copy__(), _natOne.__copy__()).__copy__();
-                _z.value._neg = true;
+    public function and(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg == _y._neg) {
+            if (_x._neg) {
+                var _x1:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._abs = (_z._abs._add((_z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._add((_z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._or((_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _z._neg = true;
                 return _z;
             };
-            _z.value._abs = _z.value._abs._and(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+            _z._abs = (_z._abs._and((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._and((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             {
                 final __tmp__0 = _y;
                 final __tmp__1 = _x;
@@ -2087,73 +2171,78 @@ import stdgo.Chan;
                 _y = __tmp__1;
             };
         };
-        var _y1:T_nat = ((new T_nat() : T_nat))._sub(_y.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-        _z.value._abs = _z.value._abs._andNot(_x.value._abs.__copy__(), _y1.__copy__()).__copy__();
-        _z.value._neg = false;
+        var _y1:T_nat = (((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_y._abs == null ? null : _y._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        _z._abs = (_z._abs._andNot((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _z._abs._andNot((_x._abs == null ? null : _x._abs.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__());
+        _z._neg = false;
         return _z;
     }
-    public function setBit(_x:Pointer<Int_>, _i:GoInt, _b:GoUInt):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setBit(_x:Int_, _i:GoInt, _b:GoUInt):Int_ {
+        var _z = this;
+        _z;
         if (_i < ((0 : GoInt))) {
             throw Go.toInterface(((("negative bit index" : GoString))));
         };
-        if (_x.value._neg) {
-            var _t:T_nat = _z.value._abs._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-            _t = _t._setBit(_t.__copy__(), ((_i : GoUInt)), _b ^ ((1 : GoUInt))).__copy__();
-            _z.value._abs = _t._add(_t.__copy__(), _natOne.__copy__()).__copy__();
-            _z.value._neg = _z.value._abs.__t__.length > ((0 : GoInt));
+        if (_x._neg) {
+            var _t:T_nat = (_z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _t = (_t._setBit((_t == null ? null : _t.__copy__()), ((_i : GoUInt)), _b ^ ((1 : GoUInt))) == null ? null : _t._setBit((_t == null ? null : _t.__copy__()), ((_i : GoUInt)), _b ^ ((1 : GoUInt))).__copy__());
+            _z._abs = (_t._add((_t == null ? null : _t.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _t._add((_t == null ? null : _t.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _z._neg = (_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt));
             return _z;
         };
-        _z.value._abs = _z.value._abs._setBit(_x.value._abs.__copy__(), ((_i : GoUInt)), _b).__copy__();
-        _z.value._neg = false;
+        _z._abs = (_z._abs._setBit((_x._abs == null ? null : _x._abs.__copy__()), ((_i : GoUInt)), _b) == null ? null : _z._abs._setBit((_x._abs == null ? null : _x._abs.__copy__()), ((_i : GoUInt)), _b).__copy__());
+        _z._neg = false;
         return _z;
     }
     public function bit(_i:GoInt):GoUInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_i == ((0 : GoInt))) {
-            if (_x.value._abs.__t__.length > ((0 : GoInt))) {
-                return new Word(_x.value._abs.__t__[((0 : GoInt))].__t__ & ((1 : GoUInt))).__t__;
+            if ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                return ((((_x._abs != null ? _x._abs[((0 : GoInt))] : new Word()) & ((1 : GoUInt))) : GoUInt));
             };
             return ((0 : GoUInt));
         };
         if (_i < ((0 : GoInt))) {
             throw Go.toInterface(((("negative bit index" : GoString))));
         };
-        if (_x.value._neg) {
-            var _t:T_nat = ((new T_nat() : T_nat))._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
+        if (_x._neg) {
+            var _t:T_nat = (((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
             return _t._bit(((_i : GoUInt))) ^ ((1 : GoUInt));
         };
-        return _x.value._abs._bit(((_i : GoUInt)));
+        return _x._abs._bit(((_i : GoUInt)));
     }
-    public function rsh(_x:Pointer<Int_>, _n:GoUInt):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._neg) {
-            var _t:T_nat = _z.value._abs._sub(_x.value._abs.__copy__(), _natOne.__copy__()).__copy__();
-            _t = _t._shr(_t.__copy__(), _n).__copy__();
-            _z.value._abs = _t._add(_t.__copy__(), _natOne.__copy__()).__copy__();
-            _z.value._neg = true;
+    public function rsh(_x:Int_, _n:GoUInt):Int_ {
+        var _z = this;
+        _z;
+        if (_x._neg) {
+            var _t:T_nat = (_z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _t = (_t._shr((_t == null ? null : _t.__copy__()), _n) == null ? null : _t._shr((_t == null ? null : _t.__copy__()), _n).__copy__());
+            _z._abs = (_t._add((_t == null ? null : _t.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _t._add((_t == null ? null : _t.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            _z._neg = true;
             return _z;
         };
-        _z.value._abs = _z.value._abs._shr(_x.value._abs.__copy__(), _n).__copy__();
-        _z.value._neg = false;
+        _z._abs = (_z._abs._shr((_x._abs == null ? null : _x._abs.__copy__()), _n) == null ? null : _z._abs._shr((_x._abs == null ? null : _x._abs.__copy__()), _n).__copy__());
+        _z._neg = false;
         return _z;
     }
-    public function lsh(_x:Pointer<Int_>, _n:GoUInt):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._abs = _z.value._abs._shl(_x.value._abs.__copy__(), _n).__copy__();
-        _z.value._neg = _x.value._neg;
+    public function lsh(_x:Int_, _n:GoUInt):Int_ {
+        var _z = this;
+        _z;
+        _z._abs = (_z._abs._shl((_x._abs == null ? null : _x._abs.__copy__()), _n) == null ? null : _z._abs._shl((_x._abs == null ? null : _x._abs.__copy__()), _n).__copy__());
+        _z._neg = _x._neg;
         return _z;
     }
-    public function modSqrt(_x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function modSqrt(_x:Int_, _p:Int_):Int_ {
+        var _z = this;
+        _z;
         {
             var __switchIndex__ = -1;
             while (true) {
                 if (jacobi(_x, _p) == ((-1 : GoInt))) {
-                    return new Pointer<Int_>().nil();
+                    return null;
                     break;
                 } else if (jacobi(_x, _p) == ((0 : GoInt))) {
-                    return _z.value.setInt64(((0 : GoInt64)));
+                    return _z.setInt64(((0 : GoInt64)));
                     break;
                 } else if (jacobi(_x, _p) == ((1 : GoInt))) {
                     break;
@@ -2162,122 +2251,128 @@ import stdgo.Chan;
                 break;
             };
         };
-        if (_x.value._neg || (_x.value.cmp(_p) >= ((0 : GoInt)))) {
-            _x = Go.pointer(new Int_()).value.mod(_x, _p);
+        if (_x._neg || (_x.cmp(_p) >= ((0 : GoInt)))) {
+            _x = Go.pointer(new Int_()).mod(_x, _p);
         };
-        if (new Word(_p.value._abs.__t__[((0 : GoInt))].__t__ % ((4 : GoUInt))).__t__ == ((3 : GoUInt))) {
-            return _z.value._modSqrt3Mod4Prime(_x, _p);
-        } else if (new Word(_p.value._abs.__t__[((0 : GoInt))].__t__ % ((8 : GoUInt))).__t__ == ((5 : GoUInt))) {
-            return _z.value._modSqrt5Mod8Prime(_x, _p);
+        if (((_p._abs != null ? _p._abs[((0 : GoInt))] : new Word()) % ((4 : GoUInt))) == ((3 : GoUInt))) {
+            return _z._modSqrt3Mod4Prime(_x, _p);
+        } else if (((_p._abs != null ? _p._abs[((0 : GoInt))] : new Word()) % ((8 : GoUInt))) == ((5 : GoUInt))) {
+            return _z._modSqrt5Mod8Prime(_x, _p);
         } else {
-            return _z.value._modSqrtTonelliShanks(_x, _p);
+            return _z._modSqrtTonelliShanks(_x, _p);
         };
     }
-    public function _modSqrtTonelliShanks(_x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _modSqrtTonelliShanks(_x:Int_, _p:Int_):Int_ {
+        var _z = this;
+        _z;
         var _s:Int_ = new Int_();
         _s.sub(_p, _intOne);
         var _e:GoUInt = _s._abs._trailingZeroBits();
-        _s.rsh(Go.pointer(_s), _e);
+        _s.rsh(_s, _e);
         var _n:Int_ = new Int_();
         _n.setInt64(((2 : GoInt64)));
-        while (jacobi(Go.pointer(_n), _p) != ((-1 : GoInt))) {
-            _n.add(Go.pointer(_n), _intOne);
+        while (jacobi(_n, _p) != ((-1 : GoInt))) {
+            _n.add(_n, _intOne);
         };
         var _y:Int_ = new Int_(), _b:Int_ = new Int_(), _g:Int_ = new Int_(), _t:Int_ = new Int_();
-        _y.add(Go.pointer(_s), _intOne);
-        _y.rsh(Go.pointer(_y), ((1 : GoUInt)));
-        _y.exp(_x, Go.pointer(_y), _p);
-        _b.exp(_x, Go.pointer(_s), _p);
-        _g.exp(Go.pointer(_n), Go.pointer(_s), _p);
+        _y.add(_s, _intOne);
+        _y.rsh(_y, ((1 : GoUInt)));
+        _y.exp(_x, _y, _p);
+        _b.exp(_x, _s, _p);
+        _g.exp(_n, _s, _p);
         var _r:GoUInt = _e;
         while (true) {
             var _m:GoUInt = ((0 : GoUInt));
-            _t.set(Go.pointer(_b));
+            _t.set(_b);
             while (_t.cmp(_intOne) != ((0 : GoInt))) {
-                _t.mul(Go.pointer(_t), Go.pointer(_t)).value.mod(Go.pointer(_t), _p);
+                _t.mul(_t, _t).mod(_t, _p);
                 _m++;
             };
             if (_m == ((0 : GoUInt))) {
-                return _z.value.set(Go.pointer(_y));
+                return _z.set(_y);
             };
-            _t.setInt64(((0 : GoInt64))).value.setBit(Go.pointer(_t), ((((_r - _m) - ((1 : GoUInt))) : GoInt)), ((1 : GoUInt))).value.exp(Go.pointer(_g), Go.pointer(_t), _p);
-            _g.mul(Go.pointer(_t), Go.pointer(_t)).value.mod(Go.pointer(_g), _p);
-            _y.mul(Go.pointer(_y), Go.pointer(_t)).value.mod(Go.pointer(_y), _p);
-            _b.mul(Go.pointer(_b), Go.pointer(_g)).value.mod(Go.pointer(_b), _p);
+            _t.setInt64(((0 : GoInt64))).setBit(_t, ((((_r - _m) - ((1 : GoUInt))) : GoInt)), ((1 : GoUInt))).exp(_g, _t, _p);
+            _g.mul(_t, _t).mod(_g, _p);
+            _y.mul(_y, _t).mod(_y, _p);
+            _b.mul(_b, _g).mod(_b, _p);
             _r = _m;
         };
     }
-    public function _modSqrt5Mod8Prime(_x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _e:Pointer<Int_> = Go.pointer(new Int_()).value.rsh(_p, ((3 : GoUInt)));
-        var _tx:Pointer<Int_> = Go.pointer(new Int_()).value.lsh(_x, ((1 : GoUInt)));
-        var _alpha:Pointer<Int_> = Go.pointer(new Int_()).value.exp(_tx, _e, _p);
-        var _beta:Pointer<Int_> = Go.pointer(new Int_()).value.mul(_alpha, _alpha);
-        _beta.value.mod(_beta, _p);
-        _beta.value.mul(_beta, _tx);
-        _beta.value.mod(_beta, _p);
-        _beta.value.sub(_beta, _intOne);
-        _beta.value.mul(_beta, _x);
-        _beta.value.mod(_beta, _p);
-        _beta.value.mul(_beta, _alpha);
-        _z.value.mod(_beta, _p);
+    public function _modSqrt5Mod8Prime(_x:Int_, _p:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _e:Int_ = Go.pointer(new Int_()).rsh(_p, ((3 : GoUInt)));
+        var _tx:Int_ = Go.pointer(new Int_()).lsh(_x, ((1 : GoUInt)));
+        var _alpha:Int_ = Go.pointer(new Int_()).exp(_tx, _e, _p);
+        var _beta:Int_ = Go.pointer(new Int_()).mul(_alpha, _alpha);
+        _beta.mod(_beta, _p);
+        _beta.mul(_beta, _tx);
+        _beta.mod(_beta, _p);
+        _beta.sub(_beta, _intOne);
+        _beta.mul(_beta, _x);
+        _beta.mod(_beta, _p);
+        _beta.mul(_beta, _alpha);
+        _z.mod(_beta, _p);
         return _z;
     }
-    public function _modSqrt3Mod4Prime(_x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _e:Pointer<Int_> = Go.pointer(new Int_()).value.add(_p, _intOne);
-        _e.value.rsh(_e, ((2 : GoUInt)));
-        _z.value.exp(_x, _e, _p);
+    public function _modSqrt3Mod4Prime(_x:Int_, _p:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _e:Int_ = Go.pointer(new Int_()).add(_p, _intOne);
+        _e.rsh(_e, ((2 : GoUInt)));
+        _z.exp(_x, _e, _p);
         return _z;
     }
-    public function modInverse(_g:Pointer<Int_>, _n:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_n.value._neg) {
+    public function modInverse(_g:Int_, _n:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (_n._neg) {
             var _n2:Int_ = new Int_();
             _n = _n2.neg(_n);
         };
-        if (_g.value._neg) {
+        if (_g._neg) {
             var _g2:Int_ = new Int_();
             _g = _g2.mod(_g, _n);
         };
         var _d:Int_ = new Int_(), _x:Int_ = new Int_();
-        _d.gcd(Go.pointer(_x), new Pointer<Int_>().nil(), _g, _n);
+        _d.gcd(_x, null, _g, _n);
         if (_d.cmp(_intOne) != ((0 : GoInt))) {
-            return new Pointer<Int_>().nil();
+            return null;
         };
         if (_x._neg) {
-            _z.value.add(Go.pointer(_x), _n);
+            _z.add(_x, _n);
         } else {
-            _z.value.set(Go.pointer(_x));
+            _z.set(_x);
         };
         return _z;
     }
-    public function rand(_rnd:Pointer<stdgo.math.rand.Rand.Rand>, _n:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._neg = false;
-        if (_n.value._neg || (_n.value._abs.__t__.length == ((0 : GoInt)))) {
-            _z.value._abs = new T_nat();
+    public function rand(_rnd:rand.Rand.Rand, _n:Int_):Int_ {
+        var _z = this;
+        _z;
+        _z._neg = false;
+        if (_n._neg || ((_n._abs != null ? _n._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+            _z._abs = null;
             return _z;
         };
-        _z.value._abs = _z.value._abs._random(_rnd, _n.value._abs.__copy__(), _n.value._abs._bitLen()).__copy__();
+        _z._abs = (_z._abs._random(_rnd, (_n._abs == null ? null : _n._abs.__copy__()), _n._abs._bitLen()) == null ? null : _z._abs._random(_rnd, (_n._abs == null ? null : _n._abs.__copy__()), _n._abs._bitLen()).__copy__());
         return _z;
     }
-    public function _lehmerGCD(_x:Pointer<Int_>, _y:Pointer<Int_>, _a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var a:Pointer<Int_> = new Pointer<Int_>().nil(), b:Pointer<Int_> = new Pointer<Int_>().nil(), ua:Pointer<Int_> = new Pointer<Int_>().nil(), ub:Pointer<Int_> = new Pointer<Int_>().nil();
-        a = Go.pointer(new Int_()).value.abs(_a);
-        b = Go.pointer(new Int_()).value.abs(_b);
+    public function _lehmerGCD(_x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
+        var _z = this;
+        _z;
+        var a:Int_ = ((null : Int_)), b:Int_ = ((null : Int_)), ua:Int_ = ((null : Int_)), ub:Int_ = ((null : Int_));
+        a = Go.pointer(new Int_()).abs(_a);
+        b = Go.pointer(new Int_()).abs(_b);
         var _extended:Bool = (_x != null) || (_y != null);
         if (_extended) {
-            ua = Go.pointer(new Int_()).value.setInt64(((1 : GoInt64)));
+            ua = Go.pointer(new Int_()).setInt64(((1 : GoInt64)));
             ub = Go.pointer(new Int_());
         };
-        var _q:Pointer<Int_> = Go.pointer(new Int_());
-        var _r:Pointer<Int_> = Go.pointer(new Int_());
-        var _s:Pointer<Int_> = Go.pointer(new Int_());
-        var _t:Pointer<Int_> = Go.pointer(new Int_());
-        if (a.value._abs._cmp(b.value._abs.__copy__()) < ((0 : GoInt))) {
+        var _q:Int_ = Go.pointer(new Int_());
+        var _r:Int_ = Go.pointer(new Int_());
+        var _s:Int_ = Go.pointer(new Int_());
+        var _t:Int_ = Go.pointer(new Int_());
+        if (a._abs._cmp((b._abs == null ? null : b._abs.__copy__())) < ((0 : GoInt))) {
             {
                 final __tmp__0 = b;
                 final __tmp__1 = a;
@@ -2291,9 +2386,9 @@ import stdgo.Chan;
                 ua = __tmp__1;
             };
         };
-        while (b.value._abs.__t__.length > ((1 : GoInt))) {
+        while ((b._abs != null ? b._abs.length : ((0 : GoInt))) > ((1 : GoInt))) {
             var __tmp__ = _lehmerSimulate(a, b), _u0:Word = __tmp__._0, _u1:Word = __tmp__._1, _v0:Word = __tmp__._2, _v1:Word = __tmp__._3, _even:Bool = __tmp__._4;
-            if (_v0.__t__ != ((0 : GoUInt))) {
+            if (_v0 != ((0 : GoUInt))) {
                 _lehmerUpdate(a,
 b,
 _q,
@@ -2322,29 +2417,29 @@ _even);
                 _euclidUpdate(a, b, ua, ub, _q, _r, _s, _t, _extended);
             };
         };
-        if (b.value._abs.__t__.length > ((0 : GoInt))) {
-            if (a.value._abs.__t__.length > ((1 : GoInt))) {
+        if ((b._abs != null ? b._abs.length : ((0 : GoInt))) > ((0 : GoInt))) {
+            if ((a._abs != null ? a._abs.length : ((0 : GoInt))) > ((1 : GoInt))) {
                 _euclidUpdate(a, b, ua, ub, _q, _r, _s, _t, _extended);
             };
-            if (b.value._abs.__t__.length > ((0 : GoInt))) {
-                var _aWord:Word = a.value._abs.__t__[((0 : GoInt))], _bWord:Word = b.value._abs.__t__[((0 : GoInt))];
+            if ((b._abs != null ? b._abs.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                var _aWord:Word = (a._abs != null ? a._abs[((0 : GoInt))] : new Word()), _bWord:Word = (b._abs != null ? b._abs[((0 : GoInt))] : new Word());
                 if (_extended) {
                     var _ua:Word = new Word(), _ub:Word = new Word(), _va:Word = new Word(), _vb:Word = new Word();
                     {
-                        final __tmp__0 = new Word(((1 : GoUInt)));
-                        final __tmp__1 = new Word(((0 : GoUInt)));
+                        final __tmp__0 = ((1 : GoUInt));
+                        final __tmp__1 = ((0 : GoUInt));
                         _ua = __tmp__0;
                         _ub = __tmp__1;
                     };
                     {
-                        final __tmp__0 = new Word(((0 : GoUInt)));
-                        final __tmp__1 = new Word(((1 : GoUInt)));
+                        final __tmp__0 = ((0 : GoUInt));
+                        final __tmp__1 = ((1 : GoUInt));
                         _va = __tmp__0;
                         _vb = __tmp__1;
                     };
                     var _even:Bool = true;
-                    while (_bWord.__t__ != ((0 : GoUInt))) {
-                        var _q:Word = new Word(_aWord.__t__ / _bWord.__t__), _r:Word = new Word(_aWord.__t__ % _bWord.__t__);
+                    while (_bWord != ((0 : GoUInt))) {
+                        var _q:Word = _aWord / _bWord, _r:Word = _aWord % _bWord;
                         {
                             final __tmp__0 = _bWord;
                             final __tmp__1 = _r;
@@ -2353,305 +2448,336 @@ _even);
                         };
                         {
                             final __tmp__0 = _ub;
-                            final __tmp__1 = new Word(_ua.__t__ + new Word(_q.__t__ * _ub.__t__).__t__);
+                            final __tmp__1 = _ua + (_q * _ub);
                             _ua = __tmp__0;
                             _ub = __tmp__1;
                         };
                         {
                             final __tmp__0 = _vb;
-                            final __tmp__1 = new Word(_va.__t__ + new Word(_q.__t__ * _vb.__t__).__t__);
+                            final __tmp__1 = _va + (_q * _vb);
                             _va = __tmp__0;
                             _vb = __tmp__1;
                         };
                         _even = !_even;
                     };
-                    _t.value._abs = _t.value._abs._setWord(_ua).__copy__();
-                    _s.value._abs = _s.value._abs._setWord(_va).__copy__();
-                    _t.value._neg = !_even;
-                    _s.value._neg = _even;
-                    _t.value.mul(ua, _t);
-                    _s.value.mul(ub, _s);
-                    ua.value.add(_t, _s);
+                    _t._abs = (_t._abs._setWord(_ua) == null ? null : _t._abs._setWord(_ua).__copy__());
+                    _s._abs = (_s._abs._setWord(_va) == null ? null : _s._abs._setWord(_va).__copy__());
+                    _t._neg = !_even;
+                    _s._neg = _even;
+                    _t.mul(ua, _t);
+                    _s.mul(ub, _s);
+                    ua.add(_t, _s);
                 } else {
-                    while (_bWord.__t__ != ((0 : GoUInt))) {
+                    while (_bWord != ((0 : GoUInt))) {
                         {
                             final __tmp__0 = _bWord;
-                            final __tmp__1 = new Word(_aWord.__t__ % _bWord.__t__);
+                            final __tmp__1 = _aWord % _bWord;
                             _aWord = __tmp__0;
                             _bWord = __tmp__1;
                         };
                     };
                 };
-                a.value._abs.__t__[((0 : GoInt))] = _aWord;
+                if (a._abs != null) a._abs[((0 : GoInt))] = _aWord;
             };
         };
-        var _negA:Bool = _a.value._neg;
+        var _negA:Bool = _a._neg;
         if (_y != null) {
             if (_y == _b) {
-                b.value.set(_b);
+                b.set(_b);
             } else {
                 b = _b;
             };
-            _y.value.mul(_a, ua);
+            _y.mul(_a, ua);
             if (_negA) {
-                _y.value._neg = !_y.value._neg;
+                _y._neg = !_y._neg;
             };
-            _y.value.sub(a, _y);
-            _y.value.div(_y, b);
+            _y.sub(a, _y);
+            _y.div(_y, b);
         };
         if (_x != null) {
-            _x.value = ua.value.__copy__();
+            {
+                var __tmp__ = (ua == null ? null : ua.__copy__());
+                _x._neg = __tmp__._neg;
+                _x._abs = __tmp__._abs;
+            };
             if (_negA) {
-                _x.value._neg = !_x.value._neg;
+                _x._neg = !_x._neg;
             };
         };
-        _z.value = a.value.__copy__();
+        {
+            var __tmp__ = (a == null ? null : a.__copy__());
+            _z._neg = __tmp__._neg;
+            _z._abs = __tmp__._abs;
+        };
         return _z;
     }
-    public function gcd(_x:Pointer<Int_>, _y:Pointer<Int_>, _a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if ((_a.value._abs.__t__.length == ((0 : GoInt))) || (_b.value._abs.__t__.length == ((0 : GoInt)))) {
-            var _lenA:GoInt = _a.value._abs.__t__.length, _lenB:GoInt = _b.value._abs.__t__.length, _negA:Bool = _a.value._neg, _negB:Bool = _b.value._neg;
+    public function gcd(_x:Int_, _y:Int_, _a:Int_, _b:Int_):Int_ {
+        var _z = this;
+        _z;
+        if (((_a._abs != null ? _a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_b._abs != null ? _b._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+            var _lenA:GoInt = (_a._abs != null ? _a._abs.length : ((0 : GoInt))), _lenB:GoInt = (_b._abs != null ? _b._abs.length : ((0 : GoInt))), _negA:Bool = _a._neg, _negB:Bool = _b._neg;
             if (_lenA == ((0 : GoInt))) {
-                _z.value.set(_b);
+                _z.set(_b);
             } else {
-                _z.value.set(_a);
+                _z.set(_a);
             };
-            _z.value._neg = false;
+            _z._neg = false;
             if (_x != null) {
                 if (_lenA == ((0 : GoInt))) {
-                    _x.value.setUint64(((0 : GoUInt64)));
+                    _x.setUint64(((0 : GoUInt64)));
                 } else {
-                    _x.value.setUint64(((1 : GoUInt64)));
-                    _x.value._neg = _negA;
+                    _x.setUint64(((1 : GoUInt64)));
+                    _x._neg = _negA;
                 };
             };
             if (_y != null) {
                 if (_lenB == ((0 : GoInt))) {
-                    _y.value.setUint64(((0 : GoUInt64)));
+                    _y.setUint64(((0 : GoUInt64)));
                 } else {
-                    _y.value.setUint64(((1 : GoUInt64)));
-                    _y.value._neg = _negB;
+                    _y.setUint64(((1 : GoUInt64)));
+                    _y._neg = _negB;
                 };
             };
             return _z;
         };
-        return _z.value._lehmerGCD(_x, _y, _a, _b);
+        return _z._lehmerGCD(_x, _y, _a, _b);
     }
-    public function exp(_x:Pointer<Int_>, _y:Pointer<Int_>, _m:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _xWords:T_nat = _x.value._abs.__copy__();
-        if (_y.value._neg) {
-            if ((_m == null) || (_m.value._abs.__t__.length == ((0 : GoInt)))) {
-                return _z.value.setInt64(((1 : GoInt64)));
+    public function exp(_x:Int_, _y:Int_, _m:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _xWords:T_nat = (_x._abs == null ? null : _x._abs.__copy__());
+        if (_y._neg) {
+            if ((_m == null) || ((_m._abs != null ? _m._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+                return _z.setInt64(((1 : GoInt64)));
             };
-            var _inverse:Pointer<Int_> = Go.pointer(new Int_()).value.modInverse(_x, _m);
+            var _inverse:Int_ = Go.pointer(new Int_()).modInverse(_x, _m);
             if (_inverse == null) {
-                return new Pointer<Int_>().nil();
+                return null;
             };
-            _xWords = _inverse.value._abs.__copy__();
+            _xWords = (_inverse._abs == null ? null : _inverse._abs.__copy__());
         };
-        var _yWords:T_nat = _y.value._abs.__copy__();
+        var _yWords:T_nat = (_y._abs == null ? null : _y._abs.__copy__());
         var _mWords:T_nat = new T_nat();
         if (_m != null) {
-            _mWords = _m.value._abs.__copy__();
+            _mWords = (_m._abs == null ? null : _m._abs.__copy__());
         };
-        _z.value._abs = _z.value._abs._expNN(_xWords.__copy__(), _yWords.__copy__(), _mWords.__copy__()).__copy__();
-        _z.value._neg = (((_z.value._abs.__t__.length > ((0 : GoInt))) && _x.value._neg) && (_yWords.__t__.length > ((0 : GoInt)))) && (new Word(_yWords.__t__[((0 : GoInt))].__t__ & ((1 : GoUInt))).__t__ == ((1 : GoUInt)));
-        if (_z.value._neg && (_mWords.__t__.length > ((0 : GoInt)))) {
-            _z.value._abs = _z.value._abs._sub(_mWords.__copy__(), _z.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+        _z._abs = (_z._abs._expNN((_xWords == null ? null : _xWords.__copy__()), (_yWords == null ? null : _yWords.__copy__()), (_mWords == null ? null : _mWords.__copy__())) == null ? null : _z._abs._expNN((_xWords == null ? null : _xWords.__copy__()), (_yWords == null ? null : _yWords.__copy__()), (_mWords == null ? null : _mWords.__copy__())).__copy__());
+        _z._neg = ((((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _x._neg) && ((_yWords != null ? _yWords.length : ((0 : GoInt))) > ((0 : GoInt)))) && (((_yWords != null ? _yWords[((0 : GoInt))] : new Word()) & ((1 : GoUInt))) == ((1 : GoUInt)));
+        if (_z._neg && ((_mWords != null ? _mWords.length : ((0 : GoInt))) > ((0 : GoInt)))) {
+            _z._abs = (_z._abs._sub((_mWords == null ? null : _mWords.__copy__()), (_z._abs == null ? null : _z._abs.__copy__())) == null ? null : _z._abs._sub((_mWords == null ? null : _mWords.__copy__()), (_z._abs == null ? null : _z._abs.__copy__())).__copy__());
+            _z._neg = false;
         };
         return _z;
     }
     public function trailingZeroBits():GoUInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._abs._trailingZeroBits();
+        var _x = this;
+        _x;
+        return _x._abs._trailingZeroBits();
     }
     public function bitLen():GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._abs._bitLen();
+        var _x = this;
+        _x;
+        return _x._abs._bitLen();
     }
     public function fillBytes(_buf:Slice<GoByte>):Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         for (_i => _ in _buf) {
-            _buf[_i] = ((0 : GoUInt8));
+            if (_buf != null) _buf[_i] = ((0 : GoUInt8));
         };
-        _x.value._abs._bytes(_buf);
+        _x._abs._bytes(_buf);
         return _buf;
     }
     public function bytes():Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_x.value._abs.__t__.length * ((4 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        return _buf.__slice__(_x.value._abs._bytes(_buf));
+        var _x = this;
+        _x;
+        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... (((_x._abs != null ? _x._abs.length : ((0 : GoInt))) * ((4 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        return _buf.__slice__(_x._abs._bytes(_buf));
     }
-    public function setBytes(_buf:Slice<GoByte>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._abs = _z.value._abs._setBytes(_buf).__copy__();
-        _z.value._neg = false;
+    public function setBytes(_buf:Slice<GoByte>):Int_ {
+        var _z = this;
+        _z;
+        _z._abs = (_z._abs._setBytes(_buf) == null ? null : _z._abs._setBytes(_buf).__copy__());
+        _z._neg = false;
         return _z;
     }
-    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : Bool; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _setFromScanner(_r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Int_; var _1 : Bool; } {
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value._scan(_r, _base), _:Pointer<Int_> = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-            if (Go.toInterface(_err) != Go.toInterface(null)) {
-                return { _0 : new Pointer<Int_>().nil(), _1 : false };
+            var __tmp__ = _z._scan(_r, _base), _:Int_ = __tmp__._0, _:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+            if (_err != null) {
+                return { _0 : null, _1 : false };
             };
         };
         {
             var __tmp__ = _r.readByte(), _:GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-            if (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof)) {
-                return { _0 : new Pointer<Int_>().nil(), _1 : false };
+            if (_err != stdgo.io.Io.eof) {
+                return { _0 : null, _1 : false };
             };
         };
         return { _0 : _z, _1 : true };
     }
-    public function setString(_s:GoString, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : Bool; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _z.value._setFromScanner(stdgo.strings.Strings.newReader(_s).value, _base);
+    public function setString(_s:GoString, _base:GoInt):{ var _0 : Int_; var _1 : Bool; } {
+        var _z = this;
+        _z;
+        return _z._setFromScanner(stdgo.strings.Strings.newReader(_s), _base);
     }
     public function isUint64():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return !_x.value._neg && (_x.value._abs.__t__.length <= ((2 : GoInt)));
+        var _x = this;
+        _x;
+        return !_x._neg && ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) <= ((2 : GoInt)));
     }
     public function isInt64():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._abs.__t__.length <= ((2 : GoInt))) {
-            var _w:GoInt64 = ((_low64(_x.value._abs.__copy__()) : GoInt64));
-            return (_w >= ((0 : GoInt64))) || (_x.value._neg && (_w == -_w));
+        var _x = this;
+        _x;
+        if ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) <= ((2 : GoInt))) {
+            var _w:GoInt64 = ((_low64((_x._abs == null ? null : _x._abs.__copy__())) : GoInt64));
+            return (_w >= ((0 : GoInt64))) || (_x._neg && (_w == -_w));
         };
         return false;
     }
     public function uint64():GoUInt64 {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _low64(_x.value._abs.__copy__());
+        var _x = this;
+        _x;
+        return _low64((_x._abs == null ? null : _x._abs.__copy__()));
     }
     public function int64():GoInt64 {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _v:GoInt64 = ((_low64(_x.value._abs.__copy__()) : GoInt64));
-        if (_x.value._neg) {
+        var _x = this;
+        _x;
+        var _v:GoInt64 = ((_low64((_x._abs == null ? null : _x._abs.__copy__())) : GoInt64));
+        if (_x._neg) {
             _v = -_v;
         };
         return _v;
     }
-    public function cmpAbs(_y:Pointer<Int_>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._abs._cmp(_y.value._abs.__copy__());
+    public function cmpAbs(_y:Int_):GoInt {
+        var _x = this;
+        _x;
+        return _x._abs._cmp((_y._abs == null ? null : _y._abs.__copy__()));
     }
-    public function cmp(_y:Pointer<Int_>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function cmp(_y:Int_):GoInt {
+        var _x = this;
+        _x;
         var _r:GoInt = ((0 : GoInt));
-        if (_x == _y) {} else if (_x.value._neg == _y.value._neg) {
-            _r = _x.value._abs._cmp(_y.value._abs.__copy__());
-            if (_x.value._neg) {
+        if (_x == _y) {} else if (_x._neg == _y._neg) {
+            _r = _x._abs._cmp((_y._abs == null ? null : _y._abs.__copy__()));
+            if (_x._neg) {
                 _r = -_r;
             };
-        } else if (_x.value._neg) {
+        } else if (_x._neg) {
             _r = ((-1 : GoInt));
         } else {
             _r = ((1 : GoInt));
         };
         return _r;
     }
-    public function divMod(_x:Pointer<Int_>, _y:Pointer<Int_>, _m:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Pointer<Int_>; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _y0:Pointer<Int_> = _y;
-        if ((_z == _y) || _alias(_z.value._abs.__copy__(), _y.value._abs.__copy__())) {
-            _y0 = Go.pointer(new Int_()).value.set(_y);
+    public function divMod(_x:Int_, _y:Int_, _m:Int_):{ var _0 : Int_; var _1 : Int_; } {
+        var _z = this;
+        _z;
+        var _y0:Int_ = _y;
+        if ((_z == _y) || _alias((_z._abs == null ? null : _z._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__()))) {
+            _y0 = Go.pointer(new Int_()).set(_y);
         };
-        _z.value.quoRem(_x, _y, _m);
-        if (_m.value._neg) {
-            if (_y0.value._neg) {
-                _z.value.add(_z, _intOne);
-                _m.value.sub(_m, _y0);
+        _z.quoRem(_x, _y, _m);
+        if (_m._neg) {
+            if (_y0._neg) {
+                _z.add(_z, _intOne);
+                _m.sub(_m, _y0);
             } else {
-                _z.value.sub(_z, _intOne);
-                _m.value.add(_m, _y0);
+                _z.sub(_z, _intOne);
+                _m.add(_m, _y0);
             };
         };
         return { _0 : _z, _1 : _m };
     }
-    public function mod(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _y0:Pointer<Int_> = _y;
-        if ((_z == _y) || _alias(_z.value._abs.__copy__(), _y.value._abs.__copy__())) {
-            _y0 = Go.pointer(new Int_()).value.set(_y);
+    public function mod(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _y0:Int_ = _y;
+        if ((_z == _y) || _alias((_z._abs == null ? null : _z._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__()))) {
+            _y0 = Go.pointer(new Int_()).set(_y);
         };
         var _q:Int_ = new Int_();
         _q.quoRem(_x, _y, _z);
-        if (_z.value._neg) {
-            if (_y0.value._neg) {
-                _z.value.sub(_z, _y0);
+        if (_z._neg) {
+            if (_y0._neg) {
+                _z.sub(_z, _y0);
             } else {
-                _z.value.add(_z, _y0);
+                _z.add(_z, _y0);
             };
         };
         return _z;
     }
-    public function div(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _y_neg:Bool = _y.value._neg;
+    public function div(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _y_neg:Bool = _y._neg;
         var _r:Int_ = new Int_();
-        _z.value.quoRem(_x, _y, Go.pointer(_r));
+        _z.quoRem(_x, _y, _r);
         if (_r._neg) {
             if (_y_neg) {
-                _z.value.add(_z, _intOne);
+                _z.add(_z, _intOne);
             } else {
-                _z.value.sub(_z, _intOne);
+                _z.sub(_z, _intOne);
             };
         };
         return _z;
     }
-    public function quoRem(_x:Pointer<Int_>, _y:Pointer<Int_>, _r:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Pointer<Int_>; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function quoRem(_x:Int_, _y:Int_, _r:Int_):{ var _0 : Int_; var _1 : Int_; } {
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value._abs._div(_r.value._abs.__copy__(), _x.value._abs.__copy__(), _y.value._abs.__copy__());
-            _z.value._abs = __tmp__._0.__copy__();
-            _r.value._abs = __tmp__._1.__copy__();
+            var __tmp__ = _z._abs._div((_r._abs == null ? null : _r._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__()));
+            _z._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _r._abs = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
         };
         {
-            final __tmp__0 = (_z.value._abs.__t__.length > ((0 : GoInt))) && (_x.value._neg != _y.value._neg);
-            final __tmp__1 = (_r.value._abs.__t__.length > ((0 : GoInt))) && _x.value._neg;
-            _z.value._neg = __tmp__0;
-            _r.value._neg = __tmp__1;
+            final __tmp__0 = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && (_x._neg != _y._neg);
+            final __tmp__1 = ((_r._abs != null ? _r._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _x._neg;
+            _z._neg = __tmp__0;
+            _r._neg = __tmp__1;
         };
         return { _0 : _z, _1 : _r };
     }
-    public function rem(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function rem(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
         {
-            var __tmp__ = ((new T_nat() : T_nat))._div(_z.value._abs.__copy__(), _x.value._abs.__copy__(), _y.value._abs.__copy__());
-            _z.value._abs = __tmp__._1.__copy__();
+            var __tmp__ = ((new T_nat() : T_nat))._div((_z._abs == null ? null : _z._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__()));
+            _z._abs = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
         };
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && _x.value._neg;
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _x._neg;
         return _z;
     }
-    public function quo(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function quo(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value._abs._div(new T_nat(), _x.value._abs.__copy__(), _y.value._abs.__copy__());
-            _z.value._abs = __tmp__._0.__copy__();
+            var __tmp__ = _z._abs._div(null, (_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__()));
+            _z._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
         };
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && (_x.value._neg != _y.value._neg);
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && (_x._neg != _y._neg);
         return _z;
     }
-    public function binomial(_n:GoInt64, _k:GoInt64):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function binomial(_n:GoInt64, _k:GoInt64):Int_ {
+        var _z = this;
+        _z;
         if (((_n / ((2 : GoInt64))) < _k) && (_k <= _n)) {
             _k = _n - _k;
         };
         var _a:Int_ = new Int_(), _b:Int_ = new Int_();
         _a.mulRange((_n - _k) + ((1 : GoInt64)), _n);
         _b.mulRange(((1 : GoInt64)), _k);
-        return _z.value.quo(Go.pointer(_a), Go.pointer(_b));
+        return _z.quo(_a, _b);
     }
-    public function mulRange(_a:GoInt64, _b:GoInt64):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function mulRange(_a:GoInt64, _b:GoInt64):Int_ {
+        var _z = this;
+        _z;
         if (_a > _b) {
-            return _z.value.setInt64(((1 : GoInt64)));
+            return _z.setInt64(((1 : GoInt64)));
         } else if ((_a <= ((0 : GoInt64))) && (_b >= ((0 : GoInt64)))) {
-            return _z.value.setInt64(((0 : GoInt64)));
+            return _z.setInt64(((0 : GoInt64)));
         };
         var _neg:Bool = false;
         if (_a < ((0 : GoInt64))) {
@@ -2663,106 +2789,117 @@ _even);
                 _b = __tmp__1;
             };
         };
-        _z.value._abs = _z.value._abs._mulRange(((_a : GoUInt64)), ((_b : GoUInt64))).__copy__();
-        _z.value._neg = _neg;
+        _z._abs = (_z._abs._mulRange(((_a : GoUInt64)), ((_b : GoUInt64))) == null ? null : _z._abs._mulRange(((_a : GoUInt64)), ((_b : GoUInt64))).__copy__());
+        _z._neg = _neg;
         return _z;
     }
-    public function mul(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function mul(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
         if (_x == _y) {
-            _z.value._abs = _z.value._abs._sqr(_x.value._abs.__copy__()).__copy__();
-            _z.value._neg = false;
+            _z._abs = (_z._abs._sqr((_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._sqr((_x._abs == null ? null : _x._abs.__copy__())).__copy__());
+            _z._neg = false;
             return _z;
         };
-        _z.value._abs = _z.value._abs._mul(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && (_x.value._neg != _y.value._neg);
+        _z._abs = (_z._abs._mul((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._mul((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && (_x._neg != _y._neg);
         return _z;
     }
-    public function sub(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _neg:Bool = _x.value._neg;
-        if (_x.value._neg != _y.value._neg) {
-            _z.value._abs = _z.value._abs._add(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
+    public function sub(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _neg:Bool = _x._neg;
+        if (_x._neg != _y._neg) {
+            _z._abs = (_z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
         } else {
-            if (_x.value._abs._cmp(_y.value._abs.__copy__()) >= ((0 : GoInt))) {
-                _z.value._abs = _z.value._abs._sub(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
+            if (_x._abs._cmp((_y._abs == null ? null : _y._abs.__copy__())) >= ((0 : GoInt))) {
+                _z._abs = (_z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
             } else {
                 _neg = !_neg;
-                _z.value._abs = _z.value._abs._sub(_y.value._abs.__copy__(), _x.value._abs.__copy__()).__copy__();
+                _z._abs = (_z._abs._sub((_y._abs == null ? null : _y._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._sub((_y._abs == null ? null : _y._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())).__copy__());
             };
         };
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && _neg;
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _neg;
         return _z;
     }
-    public function add(_x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _neg:Bool = _x.value._neg;
-        if (_x.value._neg == _y.value._neg) {
-            _z.value._abs = _z.value._abs._add(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
+    public function add(_x:Int_, _y:Int_):Int_ {
+        var _z = this;
+        _z;
+        var _neg:Bool = _x._neg;
+        if (_x._neg == _y._neg) {
+            _z._abs = (_z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._add((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
         } else {
-            if (_x.value._abs._cmp(_y.value._abs.__copy__()) >= ((0 : GoInt))) {
-                _z.value._abs = _z.value._abs._sub(_x.value._abs.__copy__(), _y.value._abs.__copy__()).__copy__();
+            if (_x._abs._cmp((_y._abs == null ? null : _y._abs.__copy__())) >= ((0 : GoInt))) {
+                _z._abs = (_z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())) == null ? null : _z._abs._sub((_x._abs == null ? null : _x._abs.__copy__()), (_y._abs == null ? null : _y._abs.__copy__())).__copy__());
             } else {
                 _neg = !_neg;
-                _z.value._abs = _z.value._abs._sub(_y.value._abs.__copy__(), _x.value._abs.__copy__()).__copy__();
+                _z._abs = (_z._abs._sub((_y._abs == null ? null : _y._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._sub((_y._abs == null ? null : _y._abs.__copy__()), (_x._abs == null ? null : _x._abs.__copy__())).__copy__());
             };
         };
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && _neg;
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && _neg;
         return _z;
     }
-    public function neg(_x:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._neg = (_z.value._abs.__t__.length > ((0 : GoInt))) && !_z.value._neg;
+    public function neg(_x:Int_):Int_ {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._neg = ((_z._abs != null ? _z._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && !_z._neg;
         return _z;
     }
-    public function abs(_x:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._neg = false;
+    public function abs(_x:Int_):Int_ {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._neg = false;
         return _z;
     }
-    public function setBits(_abs:Slice<Word>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._abs = new T_nat(_abs)._norm().__copy__();
-        _z.value._neg = false;
+    public function setBits(_abs:Slice<Word>):Int_ {
+        var _z = this;
+        _z;
+        _z._abs = (((_abs : T_nat))._norm() == null ? null : ((_abs : T_nat))._norm().__copy__());
+        _z._neg = false;
         return _z;
     }
     public function bits():Slice<Word> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._abs.__copy__().__t__;
+        var _x = this;
+        _x;
+        return _x._abs;
     }
-    public function set(_x:Pointer<Int_>):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function set(_x:Int_):Int_ {
+        var _z = this;
+        _z;
         if (_z != _x) {
-            _z.value._abs = _z.value._abs._set(_x.value._abs.__copy__()).__copy__();
-            _z.value._neg = _x.value._neg;
+            _z._abs = (_z._abs._set((_x._abs == null ? null : _x._abs.__copy__())) == null ? null : _z._abs._set((_x._abs == null ? null : _x._abs.__copy__())).__copy__());
+            _z._neg = _x._neg;
         };
         return _z;
     }
-    public function setUint64(_x:GoUInt64):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._abs = _z.value._abs._setUint64(_x).__copy__();
-        _z.value._neg = false;
+    public function setUint64(_x:GoUInt64):Int_ {
+        var _z = this;
+        _z;
+        _z._abs = (_z._abs._setUint64(_x) == null ? null : _z._abs._setUint64(_x).__copy__());
+        _z._neg = false;
         return _z;
     }
-    public function setInt64(_x:GoInt64):Pointer<Int_> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setInt64(_x:GoInt64):Int_ {
+        var _z = this;
+        _z;
         var _neg:Bool = false;
         if (_x < ((0 : GoInt64))) {
             _neg = true;
             _x = -_x;
         };
-        _z.value._abs = _z.value._abs._setUint64(((_x : GoUInt64))).__copy__();
-        _z.value._neg = _neg;
+        _z._abs = (_z._abs._setUint64(((_x : GoUInt64))) == null ? null : _z._abs._setUint64(((_x : GoUInt64))).__copy__());
+        _z._neg = _neg;
         return _z;
     }
     public function sign():GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._abs.__t__.length == ((0 : GoInt))) {
+        var _x = this;
+        _x;
+        if ((_x._abs != null ? _x._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return ((0 : GoInt));
         };
-        if (_x.value._neg) {
+        if (_x._neg) {
             return ((-1 : GoInt));
         };
         return ((1 : GoInt));
@@ -2777,21 +2914,18 @@ _even);
     public function __copy__() {
         return new Int_(_neg, _abs);
     }
-    public function __set__(__tmp__) {
-        this._neg = __tmp__._neg;
-        this._abs = __tmp__._abs;
-        return this;
-    }
 }
-@:structInit class T_byteReader {
+@:structInit @:using(Big.T_byteReader_static_extension) class T_byteReader {
     public function unreadByte():Error {
-        var _r = this.__copy__();
+        var _r = this;
+        (_r == null ? null : _r.__copy__());
         return _r.unreadRune();
     }
     public function readByte():{ var _0 : GoByte; var _1 : Error; } {
-        var _r = this.__copy__();
+        var _r = this;
+        (_r == null ? null : _r.__copy__());
         var __tmp__ = _r.readRune(), _ch:GoInt32 = __tmp__._0, _size:GoInt = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-        if ((_size != ((1 : GoInt))) && (Go.toInterface(_err) == Go.toInterface(null))) {
+        if ((_size != ((1 : GoInt))) && (_err == null)) {
             _err = stdgo.fmt.Fmt.errorf(((("invalid rune %#U" : GoString))), Go.toInterface(_ch));
         };
         return { _0 : ((_ch : GoByte)), _1 : _err };
@@ -2800,9 +2934,6 @@ _even);
     public var scanState : stdgo.fmt.Fmt.ScanState = ((null : stdgo.fmt.Fmt.ScanState));
     public function new(?scanState:stdgo.fmt.Fmt.ScanState) {
         if (scanState != null) this.scanState = scanState;
-    }
-    public function toString() {
-        return "{" + Go.string(scanState) + "}";
     }
     public function read(_buf:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return scanState.read(_buf);
     public function readRune():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return scanState.readRune();
@@ -2814,1656 +2945,8 @@ _even);
     public function __copy__() {
         return new T_byteReader(scanState);
     }
-    public function __set__(__tmp__) {
-        this.scanState = __tmp__.scanState;
-        return this;
-    }
 }
-@:named class T_nat {
-    public function _probablyPrimeLucas():Bool {
-        var _n = this.__copy__();
-        if ((_n.__t__.length == ((0 : GoInt))) || (_n._cmp(_natOne.__copy__()) == ((0 : GoInt)))) {
-            return false;
-        };
-        if (new Word(_n.__t__[((0 : GoInt))].__t__ & ((1 : GoUInt))).__t__ == ((0 : GoUInt))) {
-            return _n._cmp(_natTwo.__copy__()) == ((0 : GoInt));
-        };
-        var _p:Word = new Word(((3 : GoUInt)));
-        var _d:T_nat = new T_nat(new Slice<Word>(new Word(((1 : GoUInt))))).__copy__();
-        var _t1:T_nat = ((new T_nat() : T_nat)).__copy__();
-        var _intD:Pointer<Int_> = Go.pointer((({ _abs : _d.__copy__(), _neg : false } : Int_)));
-        var _intN:Pointer<Int_> = Go.pointer((({ _abs : _n.__copy__(), _neg : false } : Int_)));
-        Go.cfor(true, _p.__t__++, {
-            if (_p.__t__ > ((10000 : GoUInt))) {
-                throw Go.toInterface(((("math/big: internal error: cannot find (D/n) = -1 for " : GoString))) + _intN.value.toString());
-            };
-            _d.__t__[((0 : GoInt))] = new Word(new Word(_p.__t__ * _p.__t__).__t__ - ((4 : GoUInt)));
-            var _j:GoInt = jacobi(_intD, _intN);
-            if (_j == ((-1 : GoInt))) {
-                break;
-            };
-            if (_j == ((0 : GoInt))) {
-                return (_n.__t__.length == ((1 : GoInt))) && (_n.__t__[((0 : GoInt))].__t__ == new Word(_p.__t__ + ((2 : GoUInt))).__t__);
-            };
-            if (_p.__t__ == ((40 : GoUInt))) {
-                _t1 = _t1._sqrt(_n.__copy__()).__copy__();
-                _t1 = _t1._sqr(_t1.__copy__()).__copy__();
-                if (_t1._cmp(_n.__copy__()) == ((0 : GoInt))) {
-                    return false;
-                };
-            };
-        });
-        var _s:T_nat = ((new T_nat() : T_nat))._add(_n.__copy__(), _natOne.__copy__()).__copy__();
-        var _r:GoInt = ((_s._trailingZeroBits() : GoInt));
-        _s = _s._shr(_s.__copy__(), ((_r : GoUInt))).__copy__();
-        var _nm2:T_nat = ((new T_nat() : T_nat))._sub(_n.__copy__(), _natTwo.__copy__()).__copy__();
-        var _natP:T_nat = ((new T_nat() : T_nat))._setWord(_p).__copy__();
-        var _vk:T_nat = ((new T_nat() : T_nat))._setWord(new Word(((2 : GoUInt)))).__copy__();
-        var _vk1:T_nat = ((new T_nat() : T_nat))._setWord(_p).__copy__();
-        var _t2:T_nat = ((new T_nat() : T_nat)).__copy__();
-        {
-            var _i:GoInt = ((_s._bitLen() : GoInt));
-            Go.cfor(_i >= ((0 : GoInt)), _i--, {
-                if (_s._bit(((_i : GoUInt))) != ((0 : GoUInt))) {
-                    _t1 = _t1._mul(_vk.__copy__(), _vk1.__copy__()).__copy__();
-                    _t1 = _t1._add(_t1.__copy__(), _n.__copy__()).__copy__();
-                    _t1 = _t1._sub(_t1.__copy__(), _natP.__copy__()).__copy__();
-                    {
-                        var __tmp__ = _t2._div(_vk.__copy__(), _t1.__copy__(), _n.__copy__());
-                        _t2 = __tmp__._0.__copy__();
-                        _vk = __tmp__._1.__copy__();
-                    };
-                    _t1 = _t1._sqr(_vk1.__copy__()).__copy__();
-                    _t1 = _t1._add(_t1.__copy__(), _nm2.__copy__()).__copy__();
-                    {
-                        var __tmp__ = _t2._div(_vk1.__copy__(), _t1.__copy__(), _n.__copy__());
-                        _t2 = __tmp__._0.__copy__();
-                        _vk1 = __tmp__._1.__copy__();
-                    };
-                } else {
-                    _t1 = _t1._mul(_vk.__copy__(), _vk1.__copy__()).__copy__();
-                    _t1 = _t1._add(_t1.__copy__(), _n.__copy__()).__copy__();
-                    _t1 = _t1._sub(_t1.__copy__(), _natP.__copy__()).__copy__();
-                    {
-                        var __tmp__ = _t2._div(_vk1.__copy__(), _t1.__copy__(), _n.__copy__());
-                        _t2 = __tmp__._0.__copy__();
-                        _vk1 = __tmp__._1.__copy__();
-                    };
-                    _t1 = _t1._sqr(_vk.__copy__()).__copy__();
-                    _t1 = _t1._add(_t1.__copy__(), _nm2.__copy__()).__copy__();
-                    {
-                        var __tmp__ = _t2._div(_vk.__copy__(), _t1.__copy__(), _n.__copy__());
-                        _t2 = __tmp__._0.__copy__();
-                        _vk = __tmp__._1.__copy__();
-                    };
-                };
-            });
-        };
-        if ((_vk._cmp(_natTwo.__copy__()) == ((0 : GoInt))) || (_vk._cmp(_nm2.__copy__()) == ((0 : GoInt)))) {
-            var _t1:T_nat = _t1._mul(_vk.__copy__(), _natP.__copy__()).__copy__();
-            var _t2:T_nat = _t2._shl(_vk1.__copy__(), ((1 : GoUInt))).__copy__();
-            if (_t1._cmp(_t2.__copy__()) < ((0 : GoInt))) {
-                {
-                    final __tmp__0 = _t2.__copy__();
-                    final __tmp__1 = _t1.__copy__();
-                    _t1 = __tmp__0;
-                    _t2 = __tmp__1;
-                };
-            };
-            _t1 = _t1._sub(_t1.__copy__(), _t2.__copy__()).__copy__();
-            var _t3:T_nat = _vk1.__copy__();
-            _vk1 = new T_nat();
-            _vk1;
-            {
-                var __tmp__ = _t2._div(_t3.__copy__(), _t1.__copy__(), _n.__copy__());
-                _t2 = __tmp__._0.__copy__();
-                _t3 = __tmp__._1.__copy__();
-            };
-            if (_t3.__t__.length == ((0 : GoInt))) {
-                return true;
-            };
-        };
-        {
-            var _t:GoInt = ((0 : GoInt));
-            Go.cfor(_t < (_r - ((1 : GoInt))), _t++, {
-                if (_vk.__t__.length == ((0 : GoInt))) {
-                    return true;
-                };
-                if ((_vk.__t__.length == ((1 : GoInt))) && (_vk.__t__[((0 : GoInt))].__t__ == ((2 : GoUInt)))) {
-                    return false;
-                };
-                _t1 = _t1._sqr(_vk.__copy__()).__copy__();
-                _t1 = _t1._sub(_t1.__copy__(), _natTwo.__copy__()).__copy__();
-                {
-                    var __tmp__ = _t2._div(_vk.__copy__(), _t1.__copy__(), _n.__copy__());
-                    _t2 = __tmp__._0.__copy__();
-                    _vk = __tmp__._1.__copy__();
-                };
-            });
-        };
-        return false;
-    }
-    public function _probablyPrimeMillerRabin(_reps:GoInt, _force2:Bool):Bool {
-        var _n = this.__copy__();
-        return stdgo.internal.Macro.controlFlow({
-            var _nm1:T_nat = ((new T_nat() : T_nat))._sub(_n.__copy__(), _natOne.__copy__()).__copy__();
-            var _k:GoUInt = _nm1._trailingZeroBits();
-            var _q:T_nat = ((new T_nat() : T_nat))._shr(_nm1.__copy__(), _k).__copy__();
-            var _nm3:T_nat = ((new T_nat() : T_nat))._sub(_nm1.__copy__(), _natTwo.__copy__()).__copy__();
-            var _rand:Pointer<stdgo.math.rand.Rand.Rand> = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(_n.__t__[((0 : GoInt))].__t__));
-            var _x:T_nat = new T_nat(), _y:T_nat = new T_nat(), _quotient:T_nat = new T_nat();
-            var _nm3Len:GoInt = _nm3._bitLen();
-            @:label("NextRandom") {
-                var _i:GoInt = ((0 : GoInt));
-                Go.cfor(_i < _reps, _i++, {
-                    if ((_i == (_reps - ((1 : GoInt)))) && _force2) {
-                        _x = _x._set(_natTwo.__copy__()).__copy__();
-                    } else {
-                        _x = _x._random(_rand, _nm3.__copy__(), _nm3Len).__copy__();
-                        _x = _x._add(_x.__copy__(), _natTwo.__copy__()).__copy__();
-                    };
-                    _y = _y._expNN(_x.__copy__(), _q.__copy__(), _n.__copy__()).__copy__();
-                    if ((_y._cmp(_natOne.__copy__()) == ((0 : GoInt))) || (_y._cmp(_nm1.__copy__()) == ((0 : GoInt)))) {
-                        continue;
-                    };
-                    {
-                        var _j:GoUInt = ((((1 : GoUInt)) : GoUInt));
-                        Go.cfor(_j < _k, _j++, {
-                            _y = _y._sqr(_y.__copy__()).__copy__();
-                            {
-                                var __tmp__ = _quotient._div(_y.__copy__(), _y.__copy__(), _n.__copy__());
-                                _quotient = __tmp__._0.__copy__();
-                                _y = __tmp__._1.__copy__();
-                            };
-                            if (_y._cmp(_nm1.__copy__()) == ((0 : GoInt))) {
-                                continue;
-                            };
-                            if (_y._cmp(_natOne.__copy__()) == ((0 : GoInt))) {
-                                return false;
-                            };
-                        });
-                    };
-                    return false;
-                });
-            };
-            return true;
-        });
-    }
-    public function _divRecursiveStep(_u:T_nat, _v:T_nat, _depth:GoInt, _tmp:Pointer<T_nat>, _temps:Slice<Pointer<T_nat>>):Void {
-        var _z = this.__copy__();
-        _u = _u._norm().__copy__();
-        _v = _v._norm().__copy__();
-        if (_u.__t__.length == ((0 : GoInt))) {
-            _z._clear();
-            return;
-        };
-        var _n:GoInt = _v.__t__.length;
-        if (_n < ((100 : GoInt))) {
-            _z._divBasic(_u.__copy__(), _v.__copy__());
-            return;
-        };
-        var _m:GoInt = _u.__t__.length - _n;
-        if (_m < ((0 : GoInt))) {
-            return;
-        };
-        var b:GoInt = _n / ((2 : GoInt));
-        if (_temps[_depth] == null) {
-            _temps[_depth] = _getNat(_n);
-        } else {
-            _temps[_depth].value = _temps[_depth].value._make(b + ((1 : GoInt))).__copy__();
-        };
-        var _j:GoInt = _m;
-        while (_j > b) {
-            var _s:GoInt = (b - ((1 : GoInt)));
-            var _uu:T_nat = _u.__slice__(_j - b).__copy__();
-            var _qhat:T_nat = _temps[_depth].value.__copy__();
-            _qhat._clear();
-            _qhat._divRecursiveStep(_uu.__slice__(_s, b + _n).__copy__(), _v.__slice__(_s).__copy__(), _depth + ((1 : GoInt)), _tmp, _temps);
-            _qhat = _qhat._norm().__copy__();
-            var _qhatv:T_nat = _tmp.value._make(((3 : GoInt)) * _n).__copy__();
-            _qhatv._clear();
-            _qhatv = _qhatv._mul(_qhat.__copy__(), _v.__slice__(0, _s).__copy__()).__copy__();
-            {
-                var _i:GoInt = ((0 : GoInt));
-                Go.cfor(_i < ((2 : GoInt)), _i++, {
-                    var _e:GoInt = _qhatv._cmp(_uu._norm().__copy__());
-                    if (_e <= ((0 : GoInt))) {
-                        break;
-                    };
-                    _subVW(_qhat.__copy__().__t__, _qhat.__copy__().__t__, new Word(((1 : GoUInt))));
-                    var _c:Word = _subVV(_qhatv.__slice__(0, _s).__copy__().__t__, _qhatv.__slice__(0, _s).__copy__().__t__, _v.__slice__(0, _s).__copy__().__t__);
-                    if (_qhatv.__t__.length > _s) {
-                        _subVW(_qhatv.__slice__(_s).__copy__().__t__, _qhatv.__slice__(_s).__copy__().__t__, _c);
-                    };
-                    _addAt(_uu.__slice__(_s).__copy__(), _v.__slice__(_s).__copy__(), ((0 : GoInt)));
-                });
-            };
-            if (_qhatv._cmp(_uu._norm().__copy__()) > ((0 : GoInt))) {
-                throw Go.toInterface(((("impossible" : GoString))));
-            };
-            var _c:Word = _subVV(_uu.__slice__(0, _qhatv.__t__.length).__copy__().__t__, _uu.__slice__(0, _qhatv.__t__.length).__copy__().__t__, _qhatv.__copy__().__t__);
-            if (_c.__t__ > ((0 : GoUInt))) {
-                _subVW(_uu.__slice__(_qhatv.__t__.length).__copy__().__t__, _uu.__slice__(_qhatv.__t__.length).__copy__().__t__, _c);
-            };
-            _addAt(_z.__copy__(), _qhat.__copy__(), _j - b);
-            _j = _j - (b);
-        };
-        var _s:GoInt = b - ((1 : GoInt));
-        var _qhat:T_nat = _temps[_depth].value.__copy__();
-        _qhat._clear();
-        _qhat._divRecursiveStep(_u.__slice__(_s)._norm().__copy__(), _v.__slice__(_s).__copy__(), _depth + ((1 : GoInt)), _tmp, _temps);
-        _qhat = _qhat._norm().__copy__();
-        var _qhatv:T_nat = _tmp.value._make(((3 : GoInt)) * _n).__copy__();
-        _qhatv._clear();
-        _qhatv = _qhatv._mul(_qhat.__copy__(), _v.__slice__(0, _s).__copy__()).__copy__();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < ((2 : GoInt)), _i++, {
-                {
-                    var _e:GoInt = _qhatv._cmp(_u._norm().__copy__());
-                    if (_e > ((0 : GoInt))) {
-                        _subVW(_qhat.__copy__().__t__, _qhat.__copy__().__t__, new Word(((1 : GoUInt))));
-                        var _c:Word = _subVV(_qhatv.__slice__(0, _s).__copy__().__t__, _qhatv.__slice__(0, _s).__copy__().__t__, _v.__slice__(0, _s).__copy__().__t__);
-                        if (_qhatv.__t__.length > _s) {
-                            _subVW(_qhatv.__slice__(_s).__copy__().__t__, _qhatv.__slice__(_s).__copy__().__t__, _c);
-                        };
-                        _addAt(_u.__slice__(_s).__copy__(), _v.__slice__(_s).__copy__(), ((0 : GoInt)));
-                    };
-                };
-            });
-        };
-        if (_qhatv._cmp(_u._norm().__copy__()) > ((0 : GoInt))) {
-            throw Go.toInterface(((("impossible" : GoString))));
-        };
-        var _c:Word = _subVV(_u.__slice__(((0 : GoInt)), _qhatv.__t__.length).__copy__().__t__, _u.__slice__(((0 : GoInt)), _qhatv.__t__.length).__copy__().__t__, _qhatv.__copy__().__t__);
-        if (_c.__t__ > ((0 : GoUInt))) {
-            _c = _subVW(_u.__slice__(_qhatv.__t__.length).__copy__().__t__, _u.__slice__(_qhatv.__t__.length).__copy__().__t__, _c);
-        };
-        if (_c.__t__ > ((0 : GoUInt))) {
-            throw Go.toInterface(((("impossible" : GoString))));
-        };
-        _addAt(_z.__copy__(), _qhat._norm().__copy__(), ((0 : GoInt)));
-    }
-    public function _divRecursive(_u:T_nat, _v:T_nat):Void {
-        var _z = this.__copy__();
-        var _recDepth:GoInt = ((2 : GoInt)) * stdgo.math.bits.Bits.len(((_v.__t__.length : GoUInt)));
-        var _tmp:Pointer<T_nat> = _getNat(((3 : GoInt)) * _v.__t__.length);
-        var _temps:Slice<Pointer<T_nat>> = new Slice<Pointer<T_nat>>(...[for (i in 0 ... ((_recDepth : GoInt)).toBasic()) new Pointer<T_nat>().nil()]);
-        _z._clear();
-        _z._divRecursiveStep(_u.__copy__(), _v.__copy__(), ((0 : GoInt)), _tmp, _temps);
-        for (_ => _n in _temps) {
-            if (_n != null) {
-                _putNat(_n);
-            };
-        };
-        _putNat(_tmp);
-    }
-    public function _divBasic(_u:T_nat, _v:T_nat):Void {
-        var _q = this.__copy__();
-        var _n:GoInt = _v.__t__.length;
-        var _m:GoInt = _u.__t__.length - _n;
-        var _qhatvp:Pointer<T_nat> = _getNat(_n + ((1 : GoInt)));
-        var _qhatv:T_nat = _qhatvp.value.__copy__();
-        var _vn1:Word = _v.__t__[_n - ((1 : GoInt))];
-        var _rec:Word = _reciprocalWord(_vn1);
-        {
-            var _j:GoInt = _m;
-            Go.cfor(_j >= ((0 : GoInt)), _j--, {
-                var _qhat:Word = new Word((("4294967295" : GoUInt)));
-                var _ujn:Word = new Word();
-                if ((_j + _n) < _u.__t__.length) {
-                    _ujn = _u.__t__[_j + _n];
-                };
-                if (_ujn.__t__ != _vn1.__t__) {
-                    var _rhat:Word = new Word();
-                    {
-                        var __tmp__ = _divWW(_ujn, _u.__t__[(_j + _n) - ((1 : GoInt))], _vn1, _rec);
-                        _qhat = __tmp__._0;
-                        _rhat = __tmp__._1;
-                    };
-                    var _vn2:Word = _v.__t__[_n - ((2 : GoInt))];
-                    var __tmp__ = _mulWW(_qhat, _vn2), _x1:Word = __tmp__._0, _x2:Word = __tmp__._1;
-                    var _ujn2:Word = _u.__t__[(_j + _n) - ((2 : GoInt))];
-                    while (_greaterThan(_x1, _x2, _rhat, _ujn2)) {
-                        _qhat.__t__--;
-                        var _prevRhat:Word = _rhat;
-                        _rhat = new Word(_rhat.__t__ + (_vn1).__t__);
-                        if (_rhat.__t__ < _prevRhat.__t__) {
-                            break;
-                        };
-                        {
-                            var __tmp__ = _mulWW(_qhat, _vn2);
-                            _x1 = __tmp__._0;
-                            _x2 = __tmp__._1;
-                        };
-                    };
-                };
-                _qhatv.__t__[_n] = _mulAddVWW(_qhatv.__slice__(((0 : GoInt)), _n).__copy__().__t__, _v.__copy__().__t__, _qhat, new Word(((0 : GoUInt))));
-                var _qhl:GoInt = _qhatv.__t__.length;
-                if (((_j + _qhl) > _u.__t__.length) && (_qhatv.__t__[_n].__t__ == ((0 : GoUInt)))) {
-                    _qhl--;
-                };
-                var _c:Word = _subVV(_u.__slice__(_j, _j + _qhl).__copy__().__t__, _u.__slice__(_j).__copy__().__t__, _qhatv.__copy__().__t__);
-                if (_c.__t__ != ((0 : GoUInt))) {
-                    var _c:Word = _addVV(_u.__slice__(_j, _j + _n).__copy__().__t__, _u.__slice__(_j).__copy__().__t__, _v.__copy__().__t__);
-                    if (_n < _qhl) {
-                        _u.__t__[_j + _n] = new Word(_u.__t__[_j + _n].__t__ + (_c).__t__);
-                    };
-                    _qhat.__t__--;
-                };
-                if (((_j == _m) && (_m == _q.__t__.length)) && (_qhat.__t__ == ((0 : GoUInt)))) {
-                    continue;
-                };
-                _q.__t__[_j] = _qhat;
-            });
-        };
-        _putNat(_qhatvp);
-    }
-    public function _divLarge(_u:T_nat, _uIn:T_nat, _vIn:T_nat):{ var _0 : T_nat; var _1 : T_nat; } {
-        var _z = this.__copy__();
-        var _q:T_nat = new T_nat(), _r:T_nat = new T_nat();
-        var _n:GoInt = _vIn.__t__.length;
-        var _m:GoInt = _uIn.__t__.length - _n;
-        var _shift:GoUInt = _nlz(_vIn.__t__[_n - ((1 : GoInt))]);
-        var _vp:Pointer<T_nat> = _getNat(_n);
-        var _v:T_nat = _vp.value.__copy__();
-        _shlVU(_v.__copy__().__t__, _vIn.__copy__().__t__, _shift);
-        _u = _u._make(_uIn.__t__.length + ((1 : GoInt))).__copy__();
-        _u.__t__[_uIn.__t__.length] = _shlVU(_u.__slice__(((0 : GoInt)), _uIn.__t__.length).__copy__().__t__, _uIn.__copy__().__t__, _shift);
-        if (_alias(_z.__copy__(), _u.__copy__())) {
-            _z = new T_nat();
-        };
-        _q = _z._make(_m + ((1 : GoInt))).__copy__();
-        if (_n < ((100 : GoInt))) {
-            _q._divBasic(_u.__copy__(), _v.__copy__());
-        } else {
-            _q._divRecursive(_u.__copy__(), _v.__copy__());
-        };
-        _putNat(_vp);
-        _q = _q._norm().__copy__();
-        _shrVU(_u.__copy__().__t__, _u.__copy__().__t__, _shift);
-        _r = _u._norm().__copy__();
-        return { _0 : _q.__copy__(), _1 : _r.__copy__() };
-    }
-    public function _modW(_d:Word):Word {
-        var _x = this.__copy__();
-        var _r:Word = new Word();
-        var _q:T_nat = new T_nat();
-        _q = _q._make(_x.__t__.length).__copy__();
-        return _divWVW(_q.__copy__().__t__, new Word(((0 : GoUInt))), _x.__copy__().__t__, _d);
-    }
-    public function _divW(_x:T_nat, _y:Word):{ var _0 : T_nat; var _1 : Word; } {
-        var _z = this.__copy__();
-        var _q:T_nat = new T_nat(), _r:Word = new Word();
-        var _m:GoInt = _x.__t__.length;
-        if (_y.__t__ == ((0 : GoUInt))) {
-            throw Go.toInterface(((("division by zero" : GoString))));
-        } else if (_y.__t__ == ((1 : GoUInt))) {
-            _q = _z._set(_x.__copy__()).__copy__();
-            return { _0 : _q, _1 : _r };
-        } else if (_m == ((0 : GoInt))) {
-            _q = _z.__slice__(0, ((0 : GoInt))).__copy__();
-            return { _0 : _q, _1 : _r };
-        };
-        _z = _z._make(_m).__copy__();
-        _r = _divWVW(_z.__copy__().__t__, new Word(((0 : GoUInt))), _x.__copy__().__t__, _y);
-        _q = _z._norm().__copy__();
-        return { _0 : _q, _1 : _r };
-    }
-    public function _div(_z2:T_nat, _u:T_nat, _v:T_nat):{ var _0 : T_nat; var _1 : T_nat; } {
-        var _z = this.__copy__();
-        var _q:T_nat = new T_nat(), _r:T_nat = new T_nat();
-        if (_v.__t__.length == ((0 : GoInt))) {
-            throw Go.toInterface(((("division by zero" : GoString))));
-        };
-        if (_u._cmp(_v.__copy__()) < ((0 : GoInt))) {
-            _q = _z.__slice__(0, ((0 : GoInt))).__copy__();
-            _r = _z2._set(_u.__copy__()).__copy__();
-            return { _0 : _q, _1 : _r };
-        };
-        if (_v.__t__.length == ((1 : GoInt))) {
-            var _r2:Word = new Word();
-            {
-                var __tmp__ = _z._divW(_u.__copy__(), _v.__t__[((0 : GoInt))]);
-                _q = __tmp__._0.__copy__();
-                _r2 = __tmp__._1;
-            };
-            _r = _z2._setWord(_r2).__copy__();
-            return { _0 : _q, _1 : _r };
-        };
-        {
-            var __tmp__ = _z._divLarge(_z2.__copy__(), _u.__copy__(), _v.__copy__());
-            _q = __tmp__._0.__copy__();
-            _r = __tmp__._1.__copy__();
-        };
-        return { _0 : _q, _1 : _r };
-    }
-    public function _expWW(_x:Word, _y:Word):T_nat {
-        var _z = this.__copy__();
-        return _z._expNN(((new T_nat() : T_nat))._setWord(_x).__copy__(), ((new T_nat() : T_nat))._setWord(_y).__copy__(), new T_nat()).__copy__();
-    }
-    public function _convertWords(_s:Slice<GoByte>, _b:Word, _ndigits:GoInt, _bb:Word, _table:Slice<T_divisor>):Void {
-        var _q = this.__copy__();
-        if (_table != null) {
-            var _r:T_nat = new T_nat();
-            var _index:GoInt = _table.length - ((1 : GoInt));
-            while (_q.__t__.length > _leafSize) {
-                var _maxLength:GoInt = _q._bitLen();
-                var _minLength:GoInt = _maxLength >> ((1 : GoUnTypedInt));
-                while ((_index > ((0 : GoInt))) && (_table[_index - ((1 : GoInt))]._nbits > _minLength)) {
-                    _index--;
-                };
-                if ((_table[_index]._nbits >= _maxLength) && (_table[_index]._bbb._cmp(_q.__copy__()) >= ((0 : GoInt)))) {
-                    _index--;
-                    if (_index < ((0 : GoInt))) {
-                        throw Go.toInterface(((("internal inconsistency" : GoString))));
-                    };
-                };
-                {
-                    var __tmp__ = _q._div(_r.__copy__(), _q.__copy__(), _table[_index]._bbb.__copy__());
-                    _q = __tmp__._0.__copy__();
-                    _r = __tmp__._1.__copy__();
-                };
-                var _h:GoInt = _s.length - _table[_index]._ndigits;
-                _r._convertWords(_s.__slice__(_h), _b, _ndigits, _bb, _table.__slice__(((0 : GoInt)), _index));
-                _s = _s.__slice__(0, _h);
-            };
-        };
-        var _i:GoInt = _s.length;
-        var _r:Word = new Word();
-        if (_b.__t__ == ((10 : GoUInt))) {
-            while (_q.__t__.length > ((0 : GoInt))) {
-                {
-                    var __tmp__ = _q._divW(_q.__copy__(), _bb);
-                    _q = __tmp__._0.__copy__();
-                    _r = __tmp__._1;
-                };
-                {
-                    var _j:GoInt = ((0 : GoInt));
-                    Go.cfor((_j < _ndigits) && (_i > ((0 : GoInt))), _j++, {
-                        _i--;
-                        var _t:Word = new Word(_r.__t__ / ((10 : GoUInt)));
-                        _s[_i] = ((((("0" : GoString))).code : GoRune)) + new Word(_r.__t__ - new Word(_t.__t__ * ((10 : GoUInt))).__t__).__t__;
-                        _r = _t;
-                    });
-                };
-            };
-        } else {
-            while (_q.__t__.length > ((0 : GoInt))) {
-                {
-                    var __tmp__ = _q._divW(_q.__copy__(), _bb);
-                    _q = __tmp__._0.__copy__();
-                    _r = __tmp__._1;
-                };
-                {
-                    var _j:GoInt = ((0 : GoInt));
-                    Go.cfor((_j < _ndigits) && (_i > ((0 : GoInt))), _j++, {
-                        _i--;
-                        _s[_i] = ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[new Word(_r.__t__ % _b.__t__).__t__];
-                        _r = new Word(_r.__t__ / (_b).__t__);
-                    });
-                };
-            };
-        };
-        while (_i > ((0 : GoInt))) {
-            _i--;
-            _s[_i] = ((((("0" : GoString))).code : GoRune));
-        };
-    }
-    public function _itoa(_neg:Bool, _base:GoInt):Slice<GoByte> {
-        var _x = this.__copy__();
-        if ((_base < ((2 : GoInt))) || (_base > ((62 : GoInt)))) {
-            throw Go.toInterface(((("invalid base" : GoString))));
-        };
-        if (_x.__t__.length == ((0 : GoInt))) {
-            return ((((("0" : GoString))) : Slice<GoByte>));
-        };
-        var _i:GoInt = (((((_x._bitLen() : GoFloat64)) / stdgo.math.Math.log2(((_base : GoFloat64)))) : GoInt)) + ((1 : GoInt));
-        if (_neg) {
-            _i++;
-        };
-        var _s:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_i : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        {
-            var _b:Word = new Word(_base);
-            if (_b.__t__ == new Word(_b.__t__ & new Word(-_b.__t__).__t__).__t__) {
-                var _shift:GoUInt = ((stdgo.math.bits.Bits.trailingZeros(_b.__t__) : GoUInt));
-                var _mask:Word = new Word(new Word(new Word(((1 : GoUInt)) << _shift).__t__ - ((1 : GoUInt))).__t__);
-                var _w:Word = _x.__t__[((0 : GoInt))];
-                var _nbits:GoUInt = ((((32 : GoUInt)) : GoUInt));
-                {
-                    var _k:GoInt = ((1 : GoInt));
-                    Go.cfor(_k < _x.__t__.length, _k++, {
-                        while (_nbits >= _shift) {
-                            _i--;
-                            _s[_i] = ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[new Word(_w.__t__ & _mask.__t__).__t__];
-                            _w = new Word(_w.__t__ >> (_shift));
-                            _nbits = _nbits - (_shift);
-                        };
-                        if (_nbits == ((0 : GoUInt))) {
-                            _w = _x.__t__[_k];
-                            _nbits = ((32 : GoUInt));
-                        } else {
-                            _w = new Word(_w.__t__ | (new Word(_x.__t__[_k].__t__ << _nbits)).__t__);
-                            _i--;
-                            _s[_i] = ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[new Word(_w.__t__ & _mask.__t__).__t__];
-                            _w = new Word(_x.__t__[_k].__t__ >> (_shift - _nbits));
-                            _nbits = ((32 : GoUInt)) - (_shift - _nbits);
-                        };
-                    });
-                };
-                while (_w.__t__ != ((0 : GoUInt))) {
-                    _i--;
-                    _s[_i] = ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[new Word(_w.__t__ & _mask.__t__).__t__];
-                    _w = new Word(_w.__t__ >> (_shift));
-                };
-            } else {
-                var __tmp__ = _maxPow(_b), _bb:Word = __tmp__._0, _ndigits:GoInt = __tmp__._1;
-                var _table:Slice<T_divisor> = _divisors(_x.__t__.length, _b, _ndigits, _bb);
-                var _q:T_nat = ((new T_nat() : T_nat))._set(_x.__copy__()).__copy__();
-                _q._convertWords(_s, _b, _ndigits, _bb, _table);
-                _i = ((0 : GoInt));
-                while (_s[_i] == ((((("0" : GoString))).code : GoRune))) {
-                    _i++;
-                };
-            };
-        };
-        if (_neg) {
-            _i--;
-            _s[_i] = ((((("-" : GoString))).code : GoRune));
-        };
-        return _s.__slice__(_i);
-    }
-    public function _utoa(_base:GoInt):Slice<GoByte> {
-        var _x = this.__copy__();
-        return _x._itoa(false, _base);
-    }
-    public function _scan(_r:stdgo.io.Io.ByteScanner, _base:GoInt, _fracOk:Bool):{ var _0 : T_nat; var _1 : GoInt; var _2 : GoInt; var _3 : Error; } {
-        var _z = this.__copy__();
-        var _res:T_nat = new T_nat(), _b:GoInt = ((0 : GoInt)), _count:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        var _baseOk:Bool = ((_base == ((0 : GoInt))) || ((!_fracOk && (((2 : GoInt)) <= _base)) && (_base <= ((62 : GoInt))))) || (_fracOk && ((((_base == ((2 : GoInt))) || (_base == ((8 : GoInt)))) || (_base == ((10 : GoInt)))) || (_base == ((16 : GoInt)))));
-        if (!_baseOk) {
-            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((("invalid number base %d" : GoString))), Go.toInterface(_base)));
-        };
-        var _prev:GoInt32 = ((((("." : GoString))).code : GoRune));
-        var _invalSep:Bool = false;
-        var __tmp__ = _r.readByte(), _ch:GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        var _b:GoInt = _base, _prefix:GoInt = ((0 : GoInt));
-        if (_base == ((0 : GoInt))) {
-            _b = ((10 : GoInt));
-            if ((Go.toInterface(_err) == Go.toInterface(null)) && (_ch == ((((("0" : GoString))).code : GoRune)))) {
-                _prev = ((((("0" : GoString))).code : GoRune));
-                _count = ((1 : GoInt));
-                {
-                    var __tmp__ = _r.readByte();
-                    _ch = __tmp__._0;
-                    _err = __tmp__._1;
-                };
-                if (Go.toInterface(_err) == Go.toInterface(null)) {
-                    if (_ch == ((((("b" : GoString))).code : GoRune)) || _ch == ((((("B" : GoString))).code : GoRune))) {
-                        {
-                            final __tmp__0 = ((2 : GoInt));
-                            final __tmp__1 = ((((("b" : GoString))).code : GoRune));
-                            _b = __tmp__0;
-                            _prefix = __tmp__1;
-                        };
-                    } else if (_ch == ((((("o" : GoString))).code : GoRune)) || _ch == ((((("O" : GoString))).code : GoRune))) {
-                        {
-                            final __tmp__0 = ((8 : GoInt));
-                            final __tmp__1 = ((((("o" : GoString))).code : GoRune));
-                            _b = __tmp__0;
-                            _prefix = __tmp__1;
-                        };
-                    } else if (_ch == ((((("x" : GoString))).code : GoRune)) || _ch == ((((("X" : GoString))).code : GoRune))) {
-                        {
-                            final __tmp__0 = ((16 : GoInt));
-                            final __tmp__1 = ((((("x" : GoString))).code : GoRune));
-                            _b = __tmp__0;
-                            _prefix = __tmp__1;
-                        };
-                    } else {
-                        if (!_fracOk) {
-                            {
-                                final __tmp__0 = ((8 : GoInt));
-                                final __tmp__1 = ((((("0" : GoString))).code : GoRune));
-                                _b = __tmp__0;
-                                _prefix = __tmp__1;
-                            };
-                        };
-                    };
-                    if (_prefix != ((0 : GoInt))) {
-                        _count = ((0 : GoInt));
-                        if (_prefix != ((((("0" : GoString))).code : GoRune))) {
-                            {
-                                var __tmp__ = _r.readByte();
-                                _ch = __tmp__._0;
-                                _err = __tmp__._1;
-                            };
-                        };
-                    };
-                };
-            };
-        };
-        _z = _z.__slice__(0, ((0 : GoInt))).__copy__();
-        var _b1:Word = new Word(_b);
-        var __tmp__ = _maxPow(_b1), _bn:Word = __tmp__._0, _n:GoInt = __tmp__._1;
-        var _di:Word = new Word(((0 : GoUInt)));
-        var _i:GoInt = ((0 : GoInt));
-        var _dp:GoInt = ((-1 : GoInt));
-        while (Go.toInterface(_err) == Go.toInterface(null)) {
-            if ((_ch == ((((("." : GoString))).code : GoRune))) && _fracOk) {
-                _fracOk = false;
-                if (_prev == ((((("_" : GoString))).code : GoRune))) {
-                    _invalSep = true;
-                };
-                _prev = ((((("." : GoString))).code : GoRune));
-                _dp = _count;
-            } else if ((_ch == ((((("_" : GoString))).code : GoRune))) && (_base == ((0 : GoInt)))) {
-                if (_prev != ((((("0" : GoString))).code : GoRune))) {
-                    _invalSep = true;
-                };
-                _prev = ((((("_" : GoString))).code : GoRune));
-            } else {
-                var _d1:Word = new Word();
-                if ((((((("0" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("9" : GoString))).code : GoRune)))) {
-                    _d1 = new Word((_ch - ((((("0" : GoString))).code : GoRune))));
-                } else if ((((((("a" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("z" : GoString))).code : GoRune)))) {
-                    _d1 = new Word(((_ch - ((((("a" : GoString))).code : GoRune))) + ((10 : GoUInt8))));
-                } else if ((((((("A" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("Z" : GoString))).code : GoRune)))) {
-                    if (_b <= ((36 : GoInt))) {
-                        _d1 = new Word(((_ch - ((((("A" : GoString))).code : GoRune))) + ((10 : GoUInt8))));
-                    } else {
-                        _d1 = new Word(((_ch - ((((("A" : GoString))).code : GoRune))) + ((36 : GoUInt8))));
-                    };
-                } else {
-                    _d1 = new Word(((63 : GoUInt)));
-                };
-                if (_d1.__t__ >= _b1.__t__) {
-                    _r.unreadByte();
-                    break;
-                };
-                _prev = ((((("0" : GoString))).code : GoRune));
-                _count++;
-                _di = new Word(new Word(_di.__t__ * _b1.__t__).__t__ + _d1.__t__);
-                _i++;
-                if (_i == _n) {
-                    _z = _z._mulAddWW(_z.__copy__(), _bn, _di).__copy__();
-                    _di = new Word(((0 : GoUInt)));
-                    _i = ((0 : GoInt));
-                };
-            };
-            {
-                var __tmp__ = _r.readByte();
-                _ch = __tmp__._0;
-                _err = __tmp__._1;
-            };
-        };
-        if (Go.toInterface(_err) == Go.toInterface(stdgo.io.Io.eof)) {
-            _err = ((null : stdgo.Error));
-        };
-        if ((Go.toInterface(_err) == Go.toInterface(null)) && (_invalSep || (_prev == ((((("_" : GoString))).code : GoRune))))) {
-            _err = _errInvalSep;
-        };
-        if (_count == ((0 : GoInt))) {
-            if (_prefix == ((((("0" : GoString))).code : GoRune))) {
-                return { _0 : _z.__slice__(0, ((0 : GoInt))).__copy__(), _1 : ((10 : GoInt)), _2 : ((1 : GoInt)), _3 : _err };
-            };
-            _err = _errNoDigits;
-        };
-        if (_i > ((0 : GoInt))) {
-            _z = _z._mulAddWW(_z.__copy__(), _pow(_b1, _i), _di).__copy__();
-        };
-        _res = _z._norm().__copy__();
-        if (_dp >= ((0 : GoInt))) {
-            _count = _dp - _count;
-        };
-        return { _0 : _res, _1 : _b, _2 : _count, _3 : _err };
-    }
-    public function _sqrt(_x:T_nat):T_nat {
-        var _z = this.__copy__();
-        if (_x._cmp(_natOne.__copy__()) <= ((0 : GoInt))) {
-            return _z._set(_x.__copy__()).__copy__();
-        };
-        if (_alias(_z.__copy__(), _x.__copy__())) {
-            _z = new T_nat();
-        };
-        var _z1:T_nat = new T_nat(), _z2:T_nat = new T_nat();
-        _z1 = _z.__copy__();
-        _z1 = _z1._setUint64(((1 : GoUInt64))).__copy__();
-        _z1 = _z1._shl(_z1.__copy__(), (((_x._bitLen() + ((1 : GoInt))) : GoUInt)) / ((2 : GoUInt))).__copy__();
-        {
-            var _n:GoInt = ((0 : GoInt));
-            Go.cfor(true, _n++, {
-                {
-                    var __tmp__ = _z2._div(new T_nat(), _x.__copy__(), _z1.__copy__());
-                    _z2 = __tmp__._0.__copy__();
-                };
-                _z2 = _z2._add(_z2.__copy__(), _z1.__copy__()).__copy__();
-                _z2 = _z2._shr(_z2.__copy__(), ((1 : GoUInt))).__copy__();
-                if (_z2._cmp(_z1.__copy__()) >= ((0 : GoInt))) {
-                    if ((_n & ((1 : GoInt))) == ((0 : GoInt))) {
-                        return _z1.__copy__();
-                    };
-                    return _z._set(_z1.__copy__()).__copy__();
-                };
-                {
-                    final __tmp__0 = _z2.__copy__();
-                    final __tmp__1 = _z1.__copy__();
-                    _z1 = __tmp__0;
-                    _z2 = __tmp__1;
-                };
-            });
-        };
-    }
-    public function _setBytes(_buf:Slice<GoByte>):T_nat {
-        var _z = this.__copy__();
-        _z = _z._make(((_buf.length + ((4 : GoInt))) - ((1 : GoInt))) / ((4 : GoInt))).__copy__();
-        var _i:GoInt = _buf.length;
-        {
-            var _k:GoInt = ((0 : GoInt));
-            Go.cfor(_i >= ((4 : GoInt)), _k++, {
-                _z.__t__[_k] = _bigEndianWord(_buf.__slice__(_i - ((4 : GoInt)), _i));
-                _i = _i - (((4 : GoInt)));
-            });
-        };
-        if (_i > ((0 : GoInt))) {
-            var _d:Word = new Word();
-            {
-                var _s:GoUInt = ((((0 : GoUInt)) : GoUInt));
-                Go.cfor(_i > ((0 : GoInt)), _s = _s + (((8 : GoUInt))), {
-                    _d = new Word(_d.__t__ | (new Word(new Word(_buf[_i - ((1 : GoInt))]).__t__ << _s)).__t__);
-                    _i--;
-                });
-            };
-            _z.__t__[_z.__t__.length - ((1 : GoInt))] = _d;
-        };
-        return _z._norm().__copy__();
-    }
-    public function _bytes(_buf:Slice<GoByte>):GoInt {
-        var _z = this.__copy__();
-        var _i:GoInt = ((0 : GoInt));
-        _i = _buf.length;
-        for (_ => _d in _z.__t__) {
-            {
-                var _j:GoInt = ((0 : GoInt));
-                Go.cfor(_j < ((4 : GoInt)), _j++, {
-                    _i--;
-                    if (_i >= ((0 : GoInt))) {
-                        _buf[_i] = _d.__t__;
-                    } else if (_d.__t__ != ((0 : GoUInt8))) {
-                        throw Go.toInterface(((("math/big: buffer too small to fit value" : GoString))));
-                    };
-                    _d = new Word(_d.__t__ >> (((8 : GoUnTypedInt))));
-                });
-            };
-        };
-        if (_i < ((0 : GoInt))) {
-            _i = ((0 : GoInt));
-        };
-        while ((_i < _buf.length) && (_buf[_i] == ((0 : GoUInt8)))) {
-            _i++;
-        };
-        return _i;
-    }
-    public function _expNNMontgomery(_x:T_nat, _y:T_nat, _m:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _numWords:GoInt = _m.__t__.length;
-        if (_x.__t__.length > _numWords) {
-            {
-                var __tmp__ = ((new T_nat() : T_nat))._div(new T_nat(), _x.__copy__(), _m.__copy__());
-                _x = __tmp__._1.__copy__();
-            };
-        };
-        if (_x.__t__.length < _numWords) {
-            var _rr:T_nat = new T_nat(new Slice<Word>(...[for (i in 0 ... ((_numWords : GoInt)).toBasic()) new Word()])).__copy__();
-            Go.copy(_rr, _x);
-            _x = _rr.__copy__();
-        };
-        var _k0:Word = new Word(((2 : GoUInt)) - _m.__t__[((0 : GoInt))].__t__);
-        var _t:Word = new Word(_m.__t__[((0 : GoInt))].__t__ - ((1 : GoUInt)));
-        {
-            var _i:GoInt = ((1 : GoInt));
-            Go.cfor(_i < ((32 : GoInt)), _i = _i << (((1 : GoUnTypedInt))), {
-                _t = new Word(_t.__t__ * (_t).__t__);
-                _k0 = new Word(_k0.__t__ * ((new Word(_t.__t__ + ((1 : GoUInt))))).__t__);
-            });
-        };
-        _k0 = new Word(-_k0.__t__);
-        var rr:T_nat = ((new T_nat() : T_nat))._setWord(new Word(((1 : GoUInt)))).__copy__();
-        var _zz:T_nat = ((new T_nat() : T_nat))._shl(rr.__copy__(), ((((((2 : GoInt)) * _numWords) * ((32 : GoInt))) : GoUInt))).__copy__();
-        {
-            var __tmp__ = ((new T_nat() : T_nat))._div(rr.__copy__(), _zz.__copy__(), _m.__copy__());
-            rr = __tmp__._1.__copy__();
-        };
-        if (rr.__t__.length < _numWords) {
-            _zz = _zz._make(_numWords).__copy__();
-            Go.copy(_zz, rr);
-            rr = _zz.__copy__();
-        };
-        var _one:T_nat = new T_nat(new Slice<Word>(...[for (i in 0 ... ((_numWords : GoInt)).toBasic()) new Word()])).__copy__();
-        _one.__t__[((0 : GoInt))] = new Word(((1 : GoUInt)));
-        {};
-        var _powers:GoArray<T_nat> = new GoArray<T_nat>(...[for (i in 0 ... 16) new T_nat()]);
-        _powers[((0 : GoInt))] = _powers[((0 : GoInt))]._montgomery(_one.__copy__(), rr.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-        _powers[((1 : GoInt))] = _powers[((1 : GoInt))]._montgomery(_x.__copy__(), rr.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-        {
-            var _i:GoInt = ((2 : GoInt));
-            Go.cfor(_i < ((16 : GoInt)), _i++, {
-                _powers[_i] = _powers[_i]._montgomery(_powers[_i - ((1 : GoInt))].__copy__(), _powers[((1 : GoInt))].__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-            });
-        };
-        _z = _z._make(_numWords).__copy__();
-        Go.copy(_z, _powers[((0 : GoInt))]);
-        _zz = _zz._make(_numWords).__copy__();
-        {
-            var _i:GoInt = _y.__t__.length - ((1 : GoInt));
-            Go.cfor(_i >= ((0 : GoInt)), _i--, {
-                var _yi:Word = _y.__t__[_i];
-                {
-                    var _j:GoInt = ((0 : GoInt));
-                    Go.cfor(_j < ((32 : GoInt)), _j = _j + (((4 : GoInt))), {
-                        if ((_i != (_y.__t__.length - ((1 : GoInt)))) || (_j != ((0 : GoInt)))) {
-                            _zz = _zz._montgomery(_z.__copy__(), _z.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-                            _z = _z._montgomery(_zz.__copy__(), _zz.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-                            _zz = _zz._montgomery(_z.__copy__(), _z.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-                            _z = _z._montgomery(_zz.__copy__(), _zz.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-                        };
-                        _zz = _zz._montgomery(_z.__copy__(), _powers[new Word(_yi.__t__ >> ((28 : GoUnTypedInt))).__t__].__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-                        {
-                            final __tmp__0 = _zz.__copy__();
-                            final __tmp__1 = _z.__copy__();
-                            _z = __tmp__0;
-                            _zz = __tmp__1;
-                        };
-                        _yi = new Word(_yi.__t__ << (((4 : GoUnTypedInt))));
-                    });
-                };
-            });
-        };
-        _zz = _zz._montgomery(_z.__copy__(), _one.__copy__(), _m.__copy__(), _k0, _numWords).__copy__();
-        if (_zz._cmp(_m.__copy__()) >= ((0 : GoInt))) {
-            _zz = _zz._sub(_zz.__copy__(), _m.__copy__()).__copy__();
-            if (_zz._cmp(_m.__copy__()) >= ((0 : GoInt))) {
-                {
-                    var __tmp__ = ((new T_nat() : T_nat))._div(new T_nat(), _zz.__copy__(), _m.__copy__());
-                    _zz = __tmp__._1.__copy__();
-                };
-            };
-        };
-        return _zz._norm().__copy__();
-    }
-    public function _expNNWindowed(_x:T_nat, _y:T_nat, _m:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _zz:T_nat = new T_nat(), _r:T_nat = new T_nat();
-        {};
-        var _powers:GoArray<T_nat> = new GoArray<T_nat>(...[for (i in 0 ... 16) new T_nat()]);
-        _powers[((0 : GoInt))] = _natOne.__copy__();
-        _powers[((1 : GoInt))] = _x.__copy__();
-        {
-            var _i:GoInt = ((2 : GoInt));
-            Go.cfor(_i < ((16 : GoInt)), _i = _i + (((2 : GoInt))), {
-                var _p2:Pointer<T_nat> = Go.pointer(_powers[_i / ((2 : GoInt))]), _p:Pointer<T_nat> = Go.pointer(_powers[_i]), _p1:Pointer<T_nat> = Go.pointer(_powers[_i + ((1 : GoInt))]);
-                _p.value = _p.value._sqr(_p2.value.__copy__()).__copy__();
-                {
-                    var __tmp__ = _zz._div(_r.__copy__(), _p.value.__copy__(), _m.__copy__());
-                    _zz = __tmp__._0.__copy__();
-                    _r = __tmp__._1.__copy__();
-                };
-                {
-                    final __tmp__0 = _r.__copy__();
-                    final __tmp__1 = _p.value.__copy__();
-                    _p.value = __tmp__0;
-                    _r = __tmp__1;
-                };
-                _p1.value = _p1.value._mul(_p.value.__copy__(), _x.__copy__()).__copy__();
-                {
-                    var __tmp__ = _zz._div(_r.__copy__(), _p1.value.__copy__(), _m.__copy__());
-                    _zz = __tmp__._0.__copy__();
-                    _r = __tmp__._1.__copy__();
-                };
-                {
-                    final __tmp__0 = _r.__copy__();
-                    final __tmp__1 = _p1.value.__copy__();
-                    _p1.value = __tmp__0;
-                    _r = __tmp__1;
-                };
-            });
-        };
-        _z = _z._setWord(new Word(((1 : GoUInt)))).__copy__();
-        {
-            var _i:GoInt = _y.__t__.length - ((1 : GoInt));
-            Go.cfor(_i >= ((0 : GoInt)), _i--, {
-                var _yi:Word = _y.__t__[_i];
-                {
-                    var _j:GoInt = ((0 : GoInt));
-                    Go.cfor(_j < ((32 : GoInt)), _j = _j + (((4 : GoInt))), {
-                        if ((_i != (_y.__t__.length - ((1 : GoInt)))) || (_j != ((0 : GoInt)))) {
-                            _zz = _zz._sqr(_z.__copy__()).__copy__();
-                            {
-                                final __tmp__0 = _z.__copy__();
-                                final __tmp__1 = _zz.__copy__();
-                                _zz = __tmp__0;
-                                _z = __tmp__1;
-                            };
-                            {
-                                var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                                _zz = __tmp__._0.__copy__();
-                                _r = __tmp__._1.__copy__();
-                            };
-                            {
-                                final __tmp__0 = _r.__copy__();
-                                final __tmp__1 = _z.__copy__();
-                                _z = __tmp__0;
-                                _r = __tmp__1;
-                            };
-                            _zz = _zz._sqr(_z.__copy__()).__copy__();
-                            {
-                                final __tmp__0 = _z.__copy__();
-                                final __tmp__1 = _zz.__copy__();
-                                _zz = __tmp__0;
-                                _z = __tmp__1;
-                            };
-                            {
-                                var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                                _zz = __tmp__._0.__copy__();
-                                _r = __tmp__._1.__copy__();
-                            };
-                            {
-                                final __tmp__0 = _r.__copy__();
-                                final __tmp__1 = _z.__copy__();
-                                _z = __tmp__0;
-                                _r = __tmp__1;
-                            };
-                            _zz = _zz._sqr(_z.__copy__()).__copy__();
-                            {
-                                final __tmp__0 = _z.__copy__();
-                                final __tmp__1 = _zz.__copy__();
-                                _zz = __tmp__0;
-                                _z = __tmp__1;
-                            };
-                            {
-                                var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                                _zz = __tmp__._0.__copy__();
-                                _r = __tmp__._1.__copy__();
-                            };
-                            {
-                                final __tmp__0 = _r.__copy__();
-                                final __tmp__1 = _z.__copy__();
-                                _z = __tmp__0;
-                                _r = __tmp__1;
-                            };
-                            _zz = _zz._sqr(_z.__copy__()).__copy__();
-                            {
-                                final __tmp__0 = _z.__copy__();
-                                final __tmp__1 = _zz.__copy__();
-                                _zz = __tmp__0;
-                                _z = __tmp__1;
-                            };
-                            {
-                                var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                                _zz = __tmp__._0.__copy__();
-                                _r = __tmp__._1.__copy__();
-                            };
-                            {
-                                final __tmp__0 = _r.__copy__();
-                                final __tmp__1 = _z.__copy__();
-                                _z = __tmp__0;
-                                _r = __tmp__1;
-                            };
-                        };
-                        _zz = _zz._mul(_z.__copy__(), _powers[new Word(_yi.__t__ >> ((28 : GoUnTypedInt))).__t__].__copy__()).__copy__();
-                        {
-                            final __tmp__0 = _z.__copy__();
-                            final __tmp__1 = _zz.__copy__();
-                            _zz = __tmp__0;
-                            _z = __tmp__1;
-                        };
-                        {
-                            var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                            _zz = __tmp__._0.__copy__();
-                            _r = __tmp__._1.__copy__();
-                        };
-                        {
-                            final __tmp__0 = _r.__copy__();
-                            final __tmp__1 = _z.__copy__();
-                            _z = __tmp__0;
-                            _r = __tmp__1;
-                        };
-                        _yi = new Word(_yi.__t__ << (((4 : GoUnTypedInt))));
-                    });
-                };
-            });
-        };
-        return _z._norm().__copy__();
-    }
-    public function _expNN(_x:T_nat, _y:T_nat, _m:T_nat):T_nat {
-        var _z = this.__copy__();
-        if (_alias(_z.__copy__(), _x.__copy__()) || _alias(_z.__copy__(), _y.__copy__())) {
-            _z = new T_nat();
-        };
-        if ((_m.__t__.length == ((1 : GoInt))) && (_m.__t__[((0 : GoInt))].__t__ == ((1 : GoUInt)))) {
-            return _z._setWord(new Word(((0 : GoUInt)))).__copy__();
-        };
-        if (_y.__t__.length == ((0 : GoInt))) {
-            return _z._setWord(new Word(((1 : GoUInt)))).__copy__();
-        };
-        if (((_y.__t__.length == ((1 : GoInt))) && (_y.__t__[((0 : GoInt))].__t__ == ((1 : GoUInt)))) && (_m.__t__.length != ((0 : GoInt)))) {
-            {
-                var __tmp__ = ((new T_nat() : T_nat))._div(_z.__copy__(), _x.__copy__(), _m.__copy__());
-                _z = __tmp__._1.__copy__();
-            };
-            return _z.__copy__();
-        };
-        if (_m.__t__.length != ((0 : GoInt))) {
-            _z = _z._make(_m.__t__.length).__copy__();
-        };
-        _z = _z._set(_x.__copy__()).__copy__();
-        if (((_x._cmp(_natOne.__copy__()) > ((0 : GoInt))) && (_y.__t__.length > ((1 : GoInt)))) && (_m.__t__.length > ((0 : GoInt)))) {
-            if (new Word(_m.__t__[((0 : GoInt))].__t__ & ((1 : GoUInt))).__t__ == ((1 : GoUInt))) {
-                return _z._expNNMontgomery(_x.__copy__(), _y.__copy__(), _m.__copy__()).__copy__();
-            };
-            return _z._expNNWindowed(_x.__copy__(), _y.__copy__(), _m.__copy__()).__copy__();
-        };
-        var _v:Word = _y.__t__[_y.__t__.length - ((1 : GoInt))];
-        var _shift:GoUInt = _nlz(_v) + ((1 : GoUInt));
-        _v = new Word(_v.__t__ << (_shift));
-        var _q:T_nat = new T_nat();
-        {};
-        var _w:GoInt = ((32 : GoInt)) - ((_shift : GoInt));
-        var _zz:T_nat = new T_nat(), _r:T_nat = new T_nat();
-        {
-            var _j:GoInt = ((0 : GoInt));
-            Go.cfor(_j < _w, _j++, {
-                _zz = _zz._sqr(_z.__copy__()).__copy__();
-                {
-                    final __tmp__0 = _z.__copy__();
-                    final __tmp__1 = _zz.__copy__();
-                    _zz = __tmp__0;
-                    _z = __tmp__1;
-                };
-                if (new Word(_v.__t__ & (("2147483648" : GoUInt))).__t__ != ((0 : GoUInt))) {
-                    _zz = _zz._mul(_z.__copy__(), _x.__copy__()).__copy__();
-                    {
-                        final __tmp__0 = _z.__copy__();
-                        final __tmp__1 = _zz.__copy__();
-                        _zz = __tmp__0;
-                        _z = __tmp__1;
-                    };
-                };
-                if (_m.__t__.length != ((0 : GoInt))) {
-                    {
-                        var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                        _zz = __tmp__._0.__copy__();
-                        _r = __tmp__._1.__copy__();
-                    };
-                    {
-                        final __tmp__0 = _q.__copy__();
-                        final __tmp__1 = _z.__copy__();
-                        final __tmp__2 = _zz.__copy__();
-                        final __tmp__3 = _r.__copy__();
-                        _zz = __tmp__0;
-                        _r = __tmp__1;
-                        _q = __tmp__2;
-                        _z = __tmp__3;
-                    };
-                };
-                _v = new Word(_v.__t__ << (((1 : GoUnTypedInt))));
-            });
-        };
-        {
-            var _i:GoInt = _y.__t__.length - ((2 : GoInt));
-            Go.cfor(_i >= ((0 : GoInt)), _i--, {
-                _v = _y.__t__[_i];
-                {
-                    var _j:GoInt = ((0 : GoInt));
-                    Go.cfor(_j < ((32 : GoInt)), _j++, {
-                        _zz = _zz._sqr(_z.__copy__()).__copy__();
-                        {
-                            final __tmp__0 = _z.__copy__();
-                            final __tmp__1 = _zz.__copy__();
-                            _zz = __tmp__0;
-                            _z = __tmp__1;
-                        };
-                        if (new Word(_v.__t__ & (("2147483648" : GoUInt))).__t__ != ((0 : GoUInt))) {
-                            _zz = _zz._mul(_z.__copy__(), _x.__copy__()).__copy__();
-                            {
-                                final __tmp__0 = _z.__copy__();
-                                final __tmp__1 = _zz.__copy__();
-                                _zz = __tmp__0;
-                                _z = __tmp__1;
-                            };
-                        };
-                        if (_m.__t__.length != ((0 : GoInt))) {
-                            {
-                                var __tmp__ = _zz._div(_r.__copy__(), _z.__copy__(), _m.__copy__());
-                                _zz = __tmp__._0.__copy__();
-                                _r = __tmp__._1.__copy__();
-                            };
-                            {
-                                final __tmp__0 = _q.__copy__();
-                                final __tmp__1 = _z.__copy__();
-                                final __tmp__2 = _zz.__copy__();
-                                final __tmp__3 = _r.__copy__();
-                                _zz = __tmp__0;
-                                _r = __tmp__1;
-                                _q = __tmp__2;
-                                _z = __tmp__3;
-                            };
-                        };
-                        _v = new Word(_v.__t__ << (((1 : GoUnTypedInt))));
-                    });
-                };
-            });
-        };
-        return _z._norm().__copy__();
-    }
-    public function _random(_rand:Pointer<stdgo.math.rand.Rand.Rand>, _limit:T_nat, _n:GoInt):T_nat {
-        var _z = this.__copy__();
-        if (_alias(_z.__copy__(), _limit.__copy__())) {
-            _z = new T_nat();
-        };
-        _z = _z._make(_limit.__t__.length).__copy__();
-        var _bitLengthOfMSW:GoUInt = (((_n % ((32 : GoInt))) : GoUInt));
-        if (_bitLengthOfMSW == ((0 : GoUInt))) {
-            _bitLengthOfMSW = ((32 : GoUInt));
-        };
-        var _mask:Word = new Word(new Word((new Word(((1 : GoUInt)) << _bitLengthOfMSW)).__t__ - ((1 : GoUInt))).__t__);
-        while (true) {
-            if (((32 : GoInt)) == ((32 : GoInt))) {
-                for (_i => _ in _z.__t__) {
-                    _z.__t__[_i] = new Word(_rand.value.uint32());
-                };
-            } else if (((32 : GoInt)) == ((64 : GoInt))) {
-                for (_i => _ in _z.__t__) {
-                    _z.__t__[_i] = new Word(new Word(_rand.value.uint32()).__t__ | new Word(new Word(_rand.value.uint32()).__t__ << ((32 : GoUnTypedInt))).__t__);
-                };
-            } else {
-                throw Go.toInterface(((("unknown word size" : GoString))));
-            };
-            _z.__t__[_limit.__t__.length - ((1 : GoInt))] = new Word(_z.__t__[_limit.__t__.length - ((1 : GoInt))].__t__ & (_mask).__t__);
-            if (_z._cmp(_limit.__copy__()) < ((0 : GoInt))) {
-                break;
-            };
-        };
-        return _z._norm().__copy__();
-    }
-    public function _xor(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        var _s:T_nat = _x.__copy__();
-        if (_m < _n) {
-            {
-                final __tmp__0 = _m;
-                final __tmp__1 = _n;
-                _n = __tmp__0;
-                _m = __tmp__1;
-            };
-            _s = _y.__copy__();
-        };
-        _z = _z._make(_m).__copy__();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _n, _i++, {
-                _z.__t__[_i] = new Word(_x.__t__[_i].__t__ ^ _y.__t__[_i].__t__);
-            });
-        };
-        Go.copy(_z.__slice__(_n, _m), _s.__slice__(_n, _m));
-        return _z._norm().__copy__();
-    }
-    public function _or(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        var _s:T_nat = _x.__copy__();
-        if (_m < _n) {
-            {
-                final __tmp__0 = _m;
-                final __tmp__1 = _n;
-                _n = __tmp__0;
-                _m = __tmp__1;
-            };
-            _s = _y.__copy__();
-        };
-        _z = _z._make(_m).__copy__();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _n, _i++, {
-                _z.__t__[_i] = new Word(_x.__t__[_i].__t__ | _y.__t__[_i].__t__);
-            });
-        };
-        Go.copy(_z.__slice__(_n, _m), _s.__slice__(_n, _m));
-        return _z._norm().__copy__();
-    }
-    public function _andNot(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if (_n > _m) {
-            _n = _m;
-        };
-        _z = _z._make(_m).__copy__();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _n, _i++, {
-                _z.__t__[_i] = new Word(_x.__t__[_i].__t__ & (new Word(_y.__t__[_i].__t__ ^ ((-1 : GoUnTypedInt)))).__t__);
-            });
-        };
-        Go.copy(_z.__slice__(_n, _m), _x.__slice__(_n, _m));
-        return _z._norm().__copy__();
-    }
-    public function _and(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if (_m > _n) {
-            _m = _n;
-        };
-        _z = _z._make(_m).__copy__();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _m, _i++, {
-                _z.__t__[_i] = new Word(_x.__t__[_i].__t__ & _y.__t__[_i].__t__);
-            });
-        };
-        return _z._norm().__copy__();
-    }
-    public function _sticky(_i:GoUInt):GoUInt {
-        var _x = this.__copy__();
-        var _j:GoUInt = _i / ((32 : GoUInt));
-        if (_j >= ((_x.__t__.length : GoUInt))) {
-            if (_x.__t__.length == ((0 : GoInt))) {
-                return ((0 : GoUInt));
-            };
-            return ((1 : GoUInt));
-        };
-        for (_ => _x in _x.__slice__(0, _j).__t__) {
-            if (_x.__t__ != ((0 : GoUInt))) {
-                return ((1 : GoUInt));
-            };
-        };
-        if (new Word(_x.__t__[_j].__t__ << (((32 : GoUInt)) - (_i % ((32 : GoUInt))))).__t__ != ((0 : GoUInt))) {
-            return ((1 : GoUInt));
-        };
-        return ((0 : GoUInt));
-    }
-    public function _bit(_i:GoUInt):GoUInt {
-        var _x = this.__copy__();
-        var _j:GoUInt = _i / ((32 : GoUInt));
-        if (_j >= ((_x.__t__.length : GoUInt))) {
-            return ((0 : GoUInt));
-        };
-        return new Word(new Word(_x.__t__[_j].__t__ >> (_i % ((32 : GoUInt)))).__t__ & ((1 : GoUInt))).__t__;
-    }
-    public function _setBit(_x:T_nat, _i:GoUInt, _b:GoUInt):T_nat {
-        var _z = this.__copy__();
-        var _j:GoInt = (((_i / ((32 : GoUInt))) : GoInt));
-        var _m:Word = new Word(new Word(((1 : GoUInt))).__t__ << (_i % ((32 : GoUInt))));
-        var _n:GoInt = _x.__t__.length;
-        if (_b == ((0 : GoUInt))) {
-            _z = _z._make(_n).__copy__();
-            Go.copy(_z, _x);
-            if (_j >= _n) {
-                return _z.__copy__();
-            };
-            _z.__t__[_j] = new Word(_z.__t__[_j].__t__ & (new Word((_m).__t__ ^ ((-1 : GoUnTypedInt)))).__t__);
-            return _z._norm().__copy__();
-        } else if (_b == ((1 : GoUInt))) {
-            if (_j >= _n) {
-                _z = _z._make(_j + ((1 : GoInt))).__copy__();
-                _z.__slice__(_n)._clear();
-            } else {
-                _z = _z._make(_n).__copy__();
-            };
-            Go.copy(_z, _x);
-            _z.__t__[_j] = new Word(_z.__t__[_j].__t__ | (_m).__t__);
-            return _z.__copy__();
-        };
-        throw Go.toInterface(((("set bit is not 0 or 1" : GoString))));
-    }
-    public function _shr(_x:T_nat, _s:GoUInt):T_nat {
-        var _z = this.__copy__();
-        if (_s == ((0 : GoUInt))) {
-            if (_same(_z.__copy__(), _x.__copy__())) {
-                return _z.__copy__();
-            };
-            if (!_alias(_z.__copy__(), _x.__copy__())) {
-                return _z._set(_x.__copy__()).__copy__();
-            };
-        };
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _m - (((_s / ((32 : GoUInt))) : GoInt));
-        if (_n <= ((0 : GoInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        };
-        _z = _z._make(_n).__copy__();
-        _shrVU(_z.__copy__().__t__, _x.__slice__(_m - _n).__copy__().__t__, _s % ((32 : GoUInt)));
-        return _z._norm().__copy__();
-    }
-    public function _shl(_x:T_nat, _s:GoUInt):T_nat {
-        var _z = this.__copy__();
-        if (_s == ((0 : GoUInt))) {
-            if (_same(_z.__copy__(), _x.__copy__())) {
-                return _z.__copy__();
-            };
-            if (!_alias(_z.__copy__(), _x.__copy__())) {
-                return _z._set(_x.__copy__()).__copy__();
-            };
-        };
-        var _m:GoInt = _x.__t__.length;
-        if (_m == ((0 : GoInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        };
-        var _n:GoInt = _m + (((_s / ((32 : GoUInt))) : GoInt));
-        _z = _z._make(_n + ((1 : GoInt))).__copy__();
-        _z.__t__[_n] = _shlVU(_z.__slice__(_n - _m, _n).__copy__().__t__, _x.__copy__().__t__, _s % ((32 : GoUInt)));
-        _z.__slice__(((0 : GoInt)), _n - _m)._clear();
-        return _z._norm().__copy__();
-    }
-    public function _trailingZeroBits():GoUInt {
-        var _x = this.__copy__();
-        if (_x.__t__.length == ((0 : GoInt))) {
-            return ((0 : GoUInt));
-        };
-        var _i:GoUInt = ((0 : GoUInt));
-        while (_x.__t__[_i].__t__ == ((0 : GoUInt))) {
-            _i++;
-        };
-        return (_i * ((32 : GoUInt))) + ((stdgo.math.bits.Bits.trailingZeros(_x.__t__[_i].__t__) : GoUInt));
-    }
-    public function _bitLen():GoInt {
-        var _x = this.__copy__();
-        {
-            var _i:GoInt = _x.__t__.length - ((1 : GoInt));
-            if (_i >= ((0 : GoInt))) {
-                return (_i * ((32 : GoInt))) + stdgo.math.bits.Bits.len(_x.__t__[_i].__t__);
-            };
-        };
-        return ((0 : GoInt));
-    }
-    public function _mulRange(_a:GoUInt64, _b:GoUInt64):T_nat {
-        var _z = this.__copy__();
-        if (_a == ((0 : GoUInt64))) {
-            return _z._setUint64(((0 : GoUInt64))).__copy__();
-        } else if (_a > _b) {
-            return _z._setUint64(((1 : GoUInt64))).__copy__();
-        } else if (_a == _b) {
-            return _z._setUint64(_a).__copy__();
-        } else if ((_a + ((1 : GoUInt64))) == _b) {
-            return _z._mul(((new T_nat() : T_nat))._setUint64(_a).__copy__(), ((new T_nat() : T_nat))._setUint64(_b).__copy__()).__copy__();
-        };
-        var _m:GoUInt64 = (_a + _b) / ((2 : GoUInt64));
-        return _z._mul(((new T_nat() : T_nat))._mulRange(_a, _m).__copy__(), ((new T_nat() : T_nat))._mulRange(_m + ((1 : GoUInt64)), _b).__copy__()).__copy__();
-    }
-    public function _sqr(_x:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _n:GoInt = _x.__t__.length;
-        if (_n == ((0 : GoInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        } else if (_n == ((1 : GoInt))) {
-            var _d:Word = _x.__t__[((0 : GoInt))];
-            _z = _z._make(((2 : GoInt))).__copy__();
-            {
-                var __tmp__ = _mulWW(_d, _d);
-                _z.__t__[((1 : GoInt))] = __tmp__._0;
-                _z.__t__[((0 : GoInt))] = __tmp__._1;
-            };
-            return _z._norm().__copy__();
-        };
-        if (_alias(_z.__copy__(), _x.__copy__())) {
-            _z = new T_nat();
-        };
-        if (_n < _basicSqrThreshold) {
-            _z = _z._make(((2 : GoInt)) * _n).__copy__();
-            _basicMul(_z.__copy__(), _x.__copy__(), _x.__copy__());
-            return _z._norm().__copy__();
-        };
-        if (_n < _karatsubaSqrThreshold) {
-            _z = _z._make(((2 : GoInt)) * _n).__copy__();
-            _basicSqr(_z.__copy__(), _x.__copy__());
-            return _z._norm().__copy__();
-        };
-        var _k:GoInt = _karatsubaLen(_n, _karatsubaSqrThreshold);
-        var _x0:T_nat = _x.__slice__(((0 : GoInt)), _k).__copy__();
-        _z = _z._make(_max(((6 : GoInt)) * _k, ((2 : GoInt)) * _n)).__copy__();
-        _karatsubaSqr(_z.__copy__(), _x0.__copy__());
-        _z = _z.__slice__(((0 : GoInt)), ((2 : GoInt)) * _n).__copy__();
-        _z.__slice__(((2 : GoInt)) * _k)._clear();
-        if (_k < _n) {
-            var _tp:Pointer<T_nat> = _getNat(((2 : GoInt)) * _k);
-            var _t:T_nat = _tp.value.__copy__();
-            var _x0:T_nat = _x0._norm().__copy__();
-            var _x1:T_nat = _x.__slice__(_k).__copy__();
-            _t = _t._mul(_x0.__copy__(), _x1.__copy__()).__copy__();
-            _addAt(_z.__copy__(), _t.__copy__(), _k);
-            _addAt(_z.__copy__(), _t.__copy__(), _k);
-            _t = _t._sqr(_x1.__copy__()).__copy__();
-            _addAt(_z.__copy__(), _t.__copy__(), ((2 : GoInt)) * _k);
-            _putNat(_tp);
-        };
-        return _z._norm().__copy__();
-    }
-    public function _mul(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if (_m < _n) {
-            return _z._mul(_y.__copy__(), _x.__copy__()).__copy__();
-        } else if ((_m == ((0 : GoInt))) || (_n == ((0 : GoInt)))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        } else if (_n == ((1 : GoInt))) {
-            return _z._mulAddWW(_x.__copy__(), _y.__t__[((0 : GoInt))], new Word(((0 : GoUInt)))).__copy__();
-        };
-        if (_alias(_z.__copy__(), _x.__copy__()) || _alias(_z.__copy__(), _y.__copy__())) {
-            _z = new T_nat();
-        };
-        if (_n < _karatsubaThreshold) {
-            _z = _z._make(_m + _n).__copy__();
-            _basicMul(_z.__copy__(), _x.__copy__(), _y.__copy__());
-            return _z._norm().__copy__();
-        };
-        var _k:GoInt = _karatsubaLen(_n, _karatsubaThreshold);
-        var _x0:T_nat = _x.__slice__(((0 : GoInt)), _k).__copy__();
-        var _y0:T_nat = _y.__slice__(((0 : GoInt)), _k).__copy__();
-        _z = _z._make(_max(((6 : GoInt)) * _k, _m + _n)).__copy__();
-        _karatsuba(_z.__copy__(), _x0.__copy__(), _y0.__copy__());
-        _z = _z.__slice__(((0 : GoInt)), _m + _n).__copy__();
-        _z.__slice__(((2 : GoInt)) * _k)._clear();
-        if ((_k < _n) || (_m != _n)) {
-            var _tp:Pointer<T_nat> = _getNat(((3 : GoInt)) * _k);
-            var _t:T_nat = _tp.value.__copy__();
-            var _x0:T_nat = _x0._norm().__copy__();
-            var _y1:T_nat = _y.__slice__(_k).__copy__();
-            _t = _t._mul(_x0.__copy__(), _y1.__copy__()).__copy__();
-            _addAt(_z.__copy__(), _t.__copy__(), _k);
-            var _y0:T_nat = _y0._norm().__copy__();
-            {
-                var _i:GoInt = _k;
-                Go.cfor(_i < _x.__t__.length, _i = _i + (_k), {
-                    var _xi:T_nat = _x.__slice__(_i).__copy__();
-                    if (_xi.__t__.length > _k) {
-                        _xi = _xi.__slice__(0, _k).__copy__();
-                    };
-                    _xi = _xi._norm().__copy__();
-                    _t = _t._mul(_xi.__copy__(), _y0.__copy__()).__copy__();
-                    _addAt(_z.__copy__(), _t.__copy__(), _i);
-                    _t = _t._mul(_xi.__copy__(), _y1.__copy__()).__copy__();
-                    _addAt(_z.__copy__(), _t.__copy__(), _i + _k);
-                });
-            };
-            _putNat(_tp);
-        };
-        return _z._norm().__copy__();
-    }
-    public function _montgomery(_x:T_nat, _y:T_nat, _m:T_nat, _k:Word, _n:GoInt):T_nat {
-        var _z = this.__copy__();
-        if (((_x.__t__.length != _n) || (_y.__t__.length != _n)) || (_m.__t__.length != _n)) {
-            throw Go.toInterface(((("math/big: mismatched montgomery number lengths" : GoString))));
-        };
-        _z = _z._make(_n * ((2 : GoInt))).__copy__();
-        _z._clear();
-        var _c:Word = new Word();
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _n, _i++, {
-                var _d:Word = _y.__t__[_i];
-                var _c2:Word = _addMulVVW(_z.__slice__(_i, _n + _i).__copy__().__t__, _x.__copy__().__t__, _d);
-                var _t:Word = new Word(_z.__t__[_i].__t__ * _k.__t__);
-                var _c3:Word = _addMulVVW(_z.__slice__(_i, _n + _i).__copy__().__t__, _m.__copy__().__t__, _t);
-                var _cx:Word = new Word(_c.__t__ + _c2.__t__);
-                var _cy:Word = new Word(_cx.__t__ + _c3.__t__);
-                _z.__t__[_n + _i] = _cy;
-                if ((_cx.__t__ < _c2.__t__) || (_cy.__t__ < _c3.__t__)) {
-                    _c = new Word(((1 : GoUInt)));
-                } else {
-                    _c = new Word(((0 : GoUInt)));
-                };
-            });
-        };
-        if (_c.__t__ != ((0 : GoUInt))) {
-            _subVV(_z.__slice__(0, _n).__copy__().__t__, _z.__slice__(_n).__copy__().__t__, _m.__copy__().__t__);
-        } else {
-            Go.copy(_z.__slice__(0, _n), _z.__slice__(_n));
-        };
-        return _z.__slice__(0, _n).__copy__();
-    }
-    public function _mulAddWW(_x:T_nat, _y:Word, _r:Word):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        if ((_m == ((0 : GoInt))) || (_y.__t__ == ((0 : GoUInt)))) {
-            return _z._setWord(_r).__copy__();
-        };
-        _z = _z._make(_m + ((1 : GoInt))).__copy__();
-        _z.__t__[_m] = _mulAddVWW(_z.__slice__(((0 : GoInt)), _m).__copy__().__t__, _x.__copy__().__t__, _y, _r);
-        return _z._norm().__copy__();
-    }
-    public function _cmp(_y:T_nat):GoInt {
-        var _x = this.__copy__();
-        var _r:GoInt = ((0 : GoInt));
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if ((_m != _n) || (_m == ((0 : GoInt)))) {
-            if (_m < _n) {
-                _r = ((-1 : GoInt));
-            } else if (_m > _n) {
-                _r = ((1 : GoInt));
-            };
-            return _r;
-        };
-        var _i:GoInt = _m - ((1 : GoInt));
-        while ((_i > ((0 : GoInt))) && (_x.__t__[_i].__t__ == _y.__t__[_i].__t__)) {
-            _i--;
-        };
-        if (_x.__t__[_i].__t__ < _y.__t__[_i].__t__) {
-            _r = ((-1 : GoInt));
-        } else if (_x.__t__[_i].__t__ > _y.__t__[_i].__t__) {
-            _r = ((1 : GoInt));
-        };
-        return _r;
-    }
-    public function _sub(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if (_m < _n) {
-            throw Go.toInterface(((("underflow" : GoString))));
-        } else if (_m == ((0 : GoInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        } else if (_n == ((0 : GoInt))) {
-            return _z._set(_x.__copy__()).__copy__();
-        };
-        _z = _z._make(_m).__copy__();
-        var _c:Word = _subVV(_z.__slice__(((0 : GoInt)), _n).__copy__().__t__, _x.__copy__().__t__, _y.__copy__().__t__);
-        if (_m > _n) {
-            _c = _subVW(_z.__slice__(_n).__copy__().__t__, _x.__slice__(_n).__copy__().__t__, _c);
-        };
-        if (_c.__t__ != ((0 : GoUInt))) {
-            throw Go.toInterface(((("underflow" : GoString))));
-        };
-        return _z._norm().__copy__();
-    }
-    public function _add(_x:T_nat, _y:T_nat):T_nat {
-        var _z = this.__copy__();
-        var _m:GoInt = _x.__t__.length;
-        var _n:GoInt = _y.__t__.length;
-        if (_m < _n) {
-            return _z._add(_y.__copy__(), _x.__copy__()).__copy__();
-        } else if (_m == ((0 : GoInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        } else if (_n == ((0 : GoInt))) {
-            return _z._set(_x.__copy__()).__copy__();
-        };
-        _z = _z._make(_m + ((1 : GoInt))).__copy__();
-        var _c:Word = _addVV(_z.__slice__(((0 : GoInt)), _n).__copy__().__t__, _x.__copy__().__t__, _y.__copy__().__t__);
-        if (_m > _n) {
-            _c = _addVW(_z.__slice__(_n, _m).__copy__().__t__, _x.__slice__(_n).__copy__().__t__, _c);
-        };
-        _z.__t__[_m] = _c;
-        return _z._norm().__copy__();
-    }
-    public function _set(_x:T_nat):T_nat {
-        var _z = this.__copy__();
-        _z = _z._make(_x.__t__.length).__copy__();
-        Go.copy(_z, _x);
-        return _z.__copy__();
-    }
-    public function _setUint64(_x:GoUInt64):T_nat {
-        var _z = this.__copy__();
-        {
-            var _w:Word = new Word(_x);
-            if (_w.__t__ == _x) {
-                return _z._setWord(_w).__copy__();
-            };
-        };
-        _z = _z._make(((2 : GoInt))).__copy__();
-        _z.__t__[((1 : GoInt))] = new Word((_x >> ((32 : GoUnTypedInt))));
-        _z.__t__[((0 : GoInt))] = new Word(_x);
-        return _z.__copy__();
-    }
-    public function _setWord(_x:Word):T_nat {
-        var _z = this.__copy__();
-        if (_x.__t__ == ((0 : GoUInt))) {
-            return _z.__slice__(0, ((0 : GoInt))).__copy__();
-        };
-        _z = _z._make(((1 : GoInt))).__copy__();
-        _z.__t__[((0 : GoInt))] = _x;
-        return _z.__copy__();
-    }
-    public function _make(_n:GoInt):T_nat {
-        var _z = this.__copy__();
-        if (_n <= _z.__t__.cap()) {
-            return _z.__slice__(0, _n).__copy__();
-        };
-        if (_n == ((1 : GoInt))) {
-            return new T_nat(new Slice<Word>(...[for (i in 0 ... ((((1 : GoInt)) : GoInt)).toBasic()) new Word()])).__copy__();
-        };
-        {};
-        return new T_nat(new Slice<Word>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) new Word()]).setCap(((_n + ((4 : GoInt)) : GoInt)).toBasic())).__copy__();
-    }
-    public function _norm():T_nat {
-        var _z = this.__copy__();
-        var _i:GoInt = _z.__t__.length;
-        while ((_i > ((0 : GoInt))) && (_z.__t__[_i - ((1 : GoInt))].__t__ == ((0 : GoUInt)))) {
-            _i--;
-        };
-        return _z.__slice__(((0 : GoInt)), _i).__copy__();
-    }
-    public function _clear():Void {
-        var _z = this.__copy__();
-        for (_i => _ in _z.__t__) {
-            _z.__t__[_i] = new Word(((0 : GoUInt)));
-        };
-    }
-    public var __t__ : Slice<Word>;
-    public function new(?t:Slice<Word>) {
-        __t__ = t == null ? new Slice<Word>().nil() : t;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    @:implicit
-    public function toString():GoString return Go.string(__t__);
-    public function __copy__() return new T_nat(__t__);
-    public function __append__(args:haxe.Rest<Word>) return new T_nat(this.__t__.__append__(...args));
-    public function __slice__(low:GoInt, high:GoInt = -1) return new T_nat(this.__t__.__slice__(low, high));
-}
+@:named @:using(Big.T_nat_static_extension) typedef T_nat = Slice<Word>;
 @:structInit class T_divisor {
     public var _bbb : T_nat = new T_nat();
     public var _nbits : GoInt = ((0 : GoInt));
@@ -4473,25 +2956,17 @@ _even);
         if (_nbits != null) this._nbits = _nbits;
         if (_ndigits != null) this._ndigits = _ndigits;
     }
-    public function toString() {
-        return "{" + Go.string(_bbb) + " " + Go.string(_nbits) + " " + Go.string(_ndigits) + "}";
-    }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_divisor(_bbb, _nbits, _ndigits);
     }
-    public function __set__(__tmp__) {
-        this._bbb = __tmp__._bbb;
-        this._nbits = __tmp__._nbits;
-        this._ndigits = __tmp__._ndigits;
-        return this;
-    }
 }
-@:structInit class Rat {
+@:structInit @:using(Big.Rat_static_extension) class Rat {
     public function unmarshalText(_text:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         {
-            var __tmp__ = _z.value.setString(((_text : GoString))), _:Pointer<Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z.setString(((_text : GoString))), _:Rat = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo.fmt.Fmt.errorf(((("math/big: cannot unmarshal %q into a *big.Rat" : GoString))), Go.toInterface(_text));
             };
@@ -4499,201 +2974,213 @@ _even);
         return ((null : stdgo.Error));
     }
     public function marshalText():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _text:Slice<GoByte> = new Slice<GoUInt8>().nil(), _err:Error = ((null : stdgo.Error));
-        if (_x.value.isInt()) {
-            return _x.value._a.marshalText();
+        var _x = this;
+        _x;
+        var _text:Slice<GoByte> = ((null : Slice<GoUInt8>)), _err:Error = ((null : stdgo.Error));
+        if (_x.isInt()) {
+            return _x._a.marshalText();
         };
-        return { _0 : _x.value._marshal(), _1 : ((null : stdgo.Error)) };
+        return { _0 : _x._marshal(), _1 : ((null : stdgo.Error)) };
     }
     public function gobDecode(_buf:Slice<GoByte>):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_buf.length == ((0 : GoInt))) {
-            _z.value = new Rat().__copy__();
+        var _z = this;
+        _z;
+        if ((_buf != null ? _buf.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            {
+                var __tmp__ = ((new Rat() : Rat));
+                _z._a = __tmp__._a;
+                _z._b = __tmp__._b;
+            };
             return ((null : stdgo.Error));
         };
-        var _b:GoUInt8 = _buf[((0 : GoInt))];
+        var _b:GoUInt8 = (_buf != null ? _buf[((0 : GoInt))] : ((0 : GoUInt8)));
         if ((_b >> ((1 : GoUnTypedInt))) != ((1 : GoUInt8))) {
             return stdgo.fmt.Fmt.errorf(((("Rat.GobDecode: encoding version %d not supported" : GoString))), Go.toInterface(_b >> ((1 : GoUnTypedInt))));
         };
         {};
         var _i:GoUInt32 = ((5 : GoUInt32)) + stdgo.encoding.binary.Binary.bigEndian.uint32(_buf.__slice__(((1 : GoInt)), ((5 : GoInt))));
-        _z.value._a._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
-        _z.value._a._abs = _z.value._a._abs._setBytes(_buf.__slice__(((5 : GoInt)), _i)).__copy__();
-        _z.value._b._abs = _z.value._b._abs._setBytes(_buf.__slice__(_i)).__copy__();
+        _z._a._neg = (_b & ((1 : GoUInt8))) != ((0 : GoUInt8));
+        _z._a._abs = (_z._a._abs._setBytes(_buf.__slice__(((5 : GoInt)), _i)) == null ? null : _z._a._abs._setBytes(_buf.__slice__(((5 : GoInt)), _i)).__copy__());
+        _z._b._abs = (_z._b._abs._setBytes(_buf.__slice__(_i)) == null ? null : _z._b._abs._setBytes(_buf.__slice__(_i)).__copy__());
         return ((null : stdgo.Error));
     }
     public function gobEncode():{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         if (_x == null) {
-            return { _0 : new Slice<GoUInt8>().nil(), _1 : ((null : stdgo.Error)) };
+            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
         };
-        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((((5 : GoInt)) + ((_x.value._a._abs.__t__.length + _x.value._b._abs.__t__.length) * ((4 : GoInt))) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        var _i:GoInt = _x.value._b._abs._bytes(_buf);
-        var _j:GoInt = _x.value._a._abs._bytes(_buf.__slice__(0, _i));
+        var _buf:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((((5 : GoInt)) + (((_x._a._abs != null ? _x._a._abs.length : ((0 : GoInt))) + (_x._b._abs != null ? _x._b._abs.length : ((0 : GoInt)))) * ((4 : GoInt))) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        var _i:GoInt = _x._b._abs._bytes(_buf);
+        var _j:GoInt = _x._a._abs._bytes(_buf.__slice__(0, _i));
         var _n:GoInt = _i - _j;
         if (((((_n : GoUInt32)) : GoInt)) != _n) {
-            return { _0 : new Slice<GoUInt8>().nil(), _1 : stdgo.errors.Errors.new_(((("Rat.GobEncode: numerator too large" : GoString)))) };
+            return { _0 : ((null : Slice<GoUInt8>)), _1 : stdgo.errors.Errors.new_(((("Rat.GobEncode: numerator too large" : GoString)))) };
         };
         stdgo.encoding.binary.Binary.bigEndian.putUint32(_buf.__slice__(_j - ((4 : GoInt)), _j), ((_n : GoUInt32)));
         _j = _j - (((5 : GoInt)));
         var _b:GoUInt8 = ((2 : GoUInt8));
-        if (_x.value._a._neg) {
+        if (_x._a._neg) {
             _b = _b | (((1 : GoUInt8)));
         };
-        _buf[_j] = _b;
+        if (_buf != null) _buf[_j] = _b;
         return { _0 : _buf.__slice__(_j), _1 : ((null : stdgo.Error)) };
     }
     public function floatString(_prec:GoInt):GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        if (_x.value.isInt()) {
-            _buf = _x.value._a.append(_buf, ((10 : GoInt)));
+        var _x = this;
+        _x;
+        var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
+        if (_x.isInt()) {
+            _buf = _x._a.append(_buf, ((10 : GoInt)));
             if (_prec > ((0 : GoInt))) {
-                _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+                _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
                 {
                     var _i:GoInt = _prec;
                     Go.cfor(_i > ((0 : GoInt)), _i--, {
-                        _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+                        _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
                     });
                 };
             };
             return ((_buf : GoString));
         };
-        var __tmp__ = ((new T_nat() : T_nat))._div(((new T_nat() : T_nat)).__copy__(), _x.value._a._abs.__copy__(), _x.value._b._abs.__copy__()), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
-        var _p:T_nat = _natOne.__copy__();
+        var __tmp__ = ((new T_nat() : T_nat))._div(((new T_nat() : T_nat)), (_x._a._abs == null ? null : _x._a._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__())), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
+        var _p:T_nat = (_natOne == null ? null : _natOne.__copy__());
         if (_prec > ((0 : GoInt))) {
-            _p = ((new T_nat() : T_nat))._expNN(_natTen.__copy__(), ((new T_nat() : T_nat))._setUint64(((_prec : GoUInt64))).__copy__(), new T_nat()).__copy__();
+            _p = (((new T_nat() : T_nat))._expNN((_natTen == null ? null : _natTen.__copy__()), (((new T_nat() : T_nat))._setUint64(((_prec : GoUInt64))) == null ? null : ((new T_nat() : T_nat))._setUint64(((_prec : GoUInt64))).__copy__()), null) == null ? null : ((new T_nat() : T_nat))._expNN((_natTen == null ? null : _natTen.__copy__()), (((new T_nat() : T_nat))._setUint64(((_prec : GoUInt64))) == null ? null : ((new T_nat() : T_nat))._setUint64(((_prec : GoUInt64))).__copy__()), null).__copy__());
         };
-        _r = _r._mul(_r.__copy__(), _p.__copy__()).__copy__();
-        var __tmp__ = _r._div(((new T_nat() : T_nat)).__copy__(), _r.__copy__(), _x.value._b._abs.__copy__()), _r:T_nat = __tmp__._0, _r2:T_nat = __tmp__._1;
-        _r2 = _r2._add(_r2.__copy__(), _r2.__copy__()).__copy__();
-        if (_x.value._b._abs._cmp(_r2.__copy__()) <= ((0 : GoInt))) {
-            _r = _r._add(_r.__copy__(), _natOne.__copy__()).__copy__();
-            if (_r._cmp(_p.__copy__()) >= ((0 : GoInt))) {
-                _q = ((new T_nat() : T_nat))._add(_q.__copy__(), _natOne.__copy__()).__copy__();
-                _r = ((new T_nat() : T_nat))._sub(_r.__copy__(), _p.__copy__()).__copy__();
+        _r = (_r._mul((_r == null ? null : _r.__copy__()), (_p == null ? null : _p.__copy__())) == null ? null : _r._mul((_r == null ? null : _r.__copy__()), (_p == null ? null : _p.__copy__())).__copy__());
+        var __tmp__ = _r._div(((new T_nat() : T_nat)), (_r == null ? null : _r.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__())), _r:T_nat = __tmp__._0, _r2:T_nat = __tmp__._1;
+        _r2 = (_r2._add((_r2 == null ? null : _r2.__copy__()), (_r2 == null ? null : _r2.__copy__())) == null ? null : _r2._add((_r2 == null ? null : _r2.__copy__()), (_r2 == null ? null : _r2.__copy__())).__copy__());
+        if (_x._b._abs._cmp((_r2 == null ? null : _r2.__copy__())) <= ((0 : GoInt))) {
+            _r = (_r._add((_r == null ? null : _r.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _r._add((_r == null ? null : _r.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            if (_r._cmp((_p == null ? null : _p.__copy__())) >= ((0 : GoInt))) {
+                _q = (((new T_nat() : T_nat))._add((_q == null ? null : _q.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._add((_q == null ? null : _q.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+                _r = (((new T_nat() : T_nat))._sub((_r == null ? null : _r.__copy__()), (_p == null ? null : _p.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_r == null ? null : _r.__copy__()), (_p == null ? null : _p.__copy__())).__copy__());
             };
         };
-        if (_x.value._a._neg) {
-            _buf = _buf.__append__(((((("-" : GoString))).code : GoRune)));
+        if (_x._a._neg) {
+            _buf = (_buf != null ? _buf.__append__(((((("-" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("-" : GoString))).code : GoRune))));
         };
-        _buf = _buf.__append__(..._q._utoa(((10 : GoInt))).toArray());
+        _buf = (_buf != null ? _buf.__append__(..._q._utoa(((10 : GoInt))).__toArray__()) : new Slice<GoUInt8>(..._q._utoa(((10 : GoInt))).__toArray__()));
         if (_prec > ((0 : GoInt))) {
-            _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
             var _rs:Slice<GoUInt8> = _r._utoa(((10 : GoInt)));
             {
-                var _i:GoInt = _prec - _rs.length;
+                var _i:GoInt = _prec - (_rs != null ? _rs.length : ((0 : GoInt)));
                 Go.cfor(_i > ((0 : GoInt)), _i--, {
-                    _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+                    _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
                 });
             };
-            _buf = _buf.__append__(..._rs.toArray());
+            _buf = (_buf != null ? _buf.__append__(..._rs.__toArray__()) : new Slice<GoUInt8>(..._rs.__toArray__()));
         };
         return ((_buf : GoString));
     }
     public function ratString():GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value.isInt()) {
-            return _x.value._a.toString();
+        var _x = this;
+        _x;
+        if (_x.isInt()) {
+            return ((_x._a.toString() : GoString));
         };
-        return _x.value.toString();
+        return ((_x.toString() : GoString));
     }
     public function _marshal():Slice<GoByte> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _buf:Slice<GoByte> = new Slice<GoUInt8>().nil();
-        _buf = _x.value._a.append(_buf, ((10 : GoInt)));
-        _buf = _buf.__append__(((((("/" : GoString))).code : GoRune)));
-        if (_x.value._b._abs.__t__.length != ((0 : GoInt))) {
-            _buf = _x.value._b.append(_buf, ((10 : GoInt)));
+        var _x = this;
+        _x;
+        var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
+        _buf = _x._a.append(_buf, ((10 : GoInt)));
+        _buf = (_buf != null ? _buf.__append__(((((("/" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("/" : GoString))).code : GoRune))));
+        if ((_x._b._abs != null ? _x._b._abs.length : ((0 : GoInt))) != ((0 : GoInt))) {
+            _buf = _x._b.append(_buf, ((10 : GoInt)));
         } else {
-            _buf = _buf.__append__(((((("1" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("1" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("1" : GoString))).code : GoRune))));
         };
         return _buf;
     }
     public function toString():GoString {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return ((_x.value._marshal() : GoString));
+        var _x = this;
+        _x;
+        return ((_x._marshal() : GoString));
     }
-    public function setString(_s:GoString):{ var _0 : Pointer<Rat>; var _1 : Bool; } {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_s.length == ((0 : GoInt))) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : false };
+    public function setString(_s:GoString):{ var _0 : Rat; var _1 : Bool; } {
+        var _z = this;
+        _z;
+        if ((_s != null ? _s.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return { _0 : null, _1 : false };
         };
         {
             var _sep:GoInt = stdgo.strings.Strings.index(_s, ((("/" : GoString))));
             if (_sep >= ((0 : GoInt))) {
                 {
-                    var __tmp__ = _z.value._a.setString(_s.__slice__(0, _sep), ((0 : GoInt))), _:Pointer<Int_> = __tmp__._0, _ok:Bool = __tmp__._1;
+                    var __tmp__ = _z._a.setString(_s.__slice__(0, _sep), ((0 : GoInt))), _:Int_ = __tmp__._0, _ok:Bool = __tmp__._1;
                     if (!_ok) {
-                        return { _0 : new Pointer<Rat>().nil(), _1 : false };
+                        return { _0 : null, _1 : false };
                     };
                 };
-                var _r:Pointer<stdgo.strings.Strings.Reader> = stdgo.strings.Strings.newReader(_s.__slice__(_sep + ((1 : GoInt))));
+                var _r:stdgo.strings.Strings.Reader = stdgo.strings.Strings.newReader(_s.__slice__(_sep + ((1 : GoInt))));
                 var _err:Error = ((null : stdgo.Error));
                 {
                     {
-                        var __tmp__ = _z.value._b._abs._scan(_r.value, ((0 : GoInt)), false);
-                        _z.value._b._abs = __tmp__._0.__copy__();
+                        var __tmp__ = _z._b._abs._scan(_r, ((0 : GoInt)), false);
+                        _z._b._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
                         _err = __tmp__._3;
                     };
-                    if (Go.toInterface(_err) != Go.toInterface(null)) {
-                        return { _0 : new Pointer<Rat>().nil(), _1 : false };
+                    if (_err != null) {
+                        return { _0 : null, _1 : false };
                     };
                 };
                 {
                     {
-                        var __tmp__ = _r.value.readByte();
+                        var __tmp__ = _r.readByte();
                         _err = __tmp__._1;
                     };
-                    if (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof)) {
-                        return { _0 : new Pointer<Rat>().nil(), _1 : false };
+                    if (_err != stdgo.io.Io.eof) {
+                        return { _0 : null, _1 : false };
                     };
                 };
-                if (_z.value._b._abs.__t__.length == ((0 : GoInt))) {
-                    return { _0 : new Pointer<Rat>().nil(), _1 : false };
+                if ((_z._b._abs != null ? _z._b._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
+                    return { _0 : null, _1 : false };
                 };
-                return { _0 : _z.value._norm(), _1 : true };
+                return { _0 : _z._norm(), _1 : true };
             };
         };
-        var _r:Pointer<stdgo.strings.Strings.Reader> = stdgo.strings.Strings.newReader(_s);
-        var __tmp__ = _scanSign(_r.value), _neg:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : false };
+        var _r:stdgo.strings.Strings.Reader = stdgo.strings.Strings.newReader(_s);
+        var __tmp__ = _scanSign(_r), _neg:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if (_err != null) {
+            return { _0 : null, _1 : false };
         };
         var _base:GoInt = ((0 : GoInt));
         var _fcount:GoInt = ((0 : GoInt));
         {
-            var __tmp__ = _z.value._a._abs._scan(_r.value, ((0 : GoInt)), true);
-            _z.value._a._abs = __tmp__._0.__copy__();
+            var __tmp__ = _z._a._abs._scan(_r, ((0 : GoInt)), true);
+            _z._a._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
             _base = __tmp__._1;
             _fcount = __tmp__._2;
             _err = __tmp__._3;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : false };
+        if (_err != null) {
+            return { _0 : null, _1 : false };
         };
         var _exp:GoInt64 = ((0 : GoInt64));
         var _ebase:GoInt = ((0 : GoInt));
         {
-            var __tmp__ = _scanExponent(_r.value, true, true);
+            var __tmp__ = _scanExponent(_r, true, true);
             _exp = __tmp__._0;
             _ebase = __tmp__._1;
             _err = __tmp__._2;
         };
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : false };
+        if (_err != null) {
+            return { _0 : null, _1 : false };
         };
         {
             {
-                var __tmp__ = _r.value.readByte();
+                var __tmp__ = _r.readByte();
                 _err = __tmp__._1;
             };
-            if (Go.toInterface(_err) != Go.toInterface(stdgo.io.Io.eof)) {
-                return { _0 : new Pointer<Rat>().nil(), _1 : false };
+            if (_err != stdgo.io.Io.eof) {
+                return { _0 : null, _1 : false };
             };
         };
-        if (_z.value._a._abs.__t__.length == ((0 : GoInt))) {
+        if ((_z._a._abs != null ? _z._a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return { _0 : _z, _1 : true };
         };
         var _exp2:GoInt64 = ((0 : GoInt64)), _exp5:GoInt64 = ((0 : GoInt64));
@@ -4754,136 +3241,146 @@ _even);
             var _n:GoInt64 = _exp5;
             if (_n < ((0 : GoInt64))) {
                 _n = -_n;
+                if (_n < ((0 : GoInt64))) {
+                    return { _0 : null, _1 : false };
+                };
             };
             if (_n > ((1e+06 : GoInt64))) {
-                return { _0 : new Pointer<Rat>().nil(), _1 : false };
+                return { _0 : null, _1 : false };
             };
-            var _pow5:T_nat = _z.value._b._abs._expNN(_natFive.__copy__(), ((new T_nat() : T_nat))._setWord(new Word(_n)).__copy__(), new T_nat()).__copy__();
+            var _pow5:T_nat = (_z._b._abs._expNN((_natFive == null ? null : _natFive.__copy__()), (((new T_nat() : T_nat))._setWord(((_n : Word))) == null ? null : ((new T_nat() : T_nat))._setWord(((_n : Word))).__copy__()), null) == null ? null : _z._b._abs._expNN((_natFive == null ? null : _natFive.__copy__()), (((new T_nat() : T_nat))._setWord(((_n : Word))) == null ? null : ((new T_nat() : T_nat))._setWord(((_n : Word))).__copy__()), null).__copy__());
             if (_exp5 > ((0 : GoInt64))) {
-                _z.value._a._abs = _z.value._a._abs._mul(_z.value._a._abs.__copy__(), _pow5.__copy__()).__copy__();
-                _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+                _z._a._abs = (_z._a._abs._mul((_z._a._abs == null ? null : _z._a._abs.__copy__()), (_pow5 == null ? null : _pow5.__copy__())) == null ? null : _z._a._abs._mul((_z._a._abs == null ? null : _z._a._abs.__copy__()), (_pow5 == null ? null : _pow5.__copy__())).__copy__());
+                _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
             } else {
-                _z.value._b._abs = _pow5.__copy__();
+                _z._b._abs = (_pow5 == null ? null : _pow5.__copy__());
             };
         } else {
-            _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+            _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
         };
         if ((_exp2 < ((-10000000 : GoInt64))) || (_exp2 > ((1e+07 : GoInt64)))) {
-            return { _0 : new Pointer<Rat>().nil(), _1 : false };
+            return { _0 : null, _1 : false };
         };
         if (_exp2 > ((0 : GoInt64))) {
-            _z.value._a._abs = _z.value._a._abs._shl(_z.value._a._abs.__copy__(), ((_exp2 : GoUInt))).__copy__();
+            _z._a._abs = (_z._a._abs._shl((_z._a._abs == null ? null : _z._a._abs.__copy__()), ((_exp2 : GoUInt))) == null ? null : _z._a._abs._shl((_z._a._abs == null ? null : _z._a._abs.__copy__()), ((_exp2 : GoUInt))).__copy__());
         } else if (_exp2 < ((0 : GoInt64))) {
-            _z.value._b._abs = _z.value._b._abs._shl(_z.value._b._abs.__copy__(), ((-_exp2 : GoUInt))).__copy__();
+            _z._b._abs = (_z._b._abs._shl((_z._b._abs == null ? null : _z._b._abs.__copy__()), ((-_exp2 : GoUInt))) == null ? null : _z._b._abs._shl((_z._b._abs == null ? null : _z._b._abs.__copy__()), ((-_exp2 : GoUInt))).__copy__());
         };
-        _z.value._a._neg = _neg && (_z.value._a._abs.__t__.length > ((0 : GoInt)));
-        return { _0 : _z.value._norm(), _1 : true };
+        _z._a._neg = _neg && ((_z._a._abs != null ? _z._a._abs.length : ((0 : GoInt))) > ((0 : GoInt)));
+        return { _0 : _z._norm(), _1 : true };
     }
     public function scan(_s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _z = this;
+        _z;
         var __tmp__ = _s.token(true, _ratTok), _tok:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
+        if (_err != null) {
             return _err;
         };
         if (!stdgo.strings.Strings.containsRune(((("efgEFGv" : GoString))), _ch)) {
             return stdgo.errors.Errors.new_(((("Rat.Scan: invalid verb" : GoString))));
         };
         {
-            var __tmp__ = _z.value.setString(((_tok : GoString))), _:Pointer<Rat> = __tmp__._0, _ok:Bool = __tmp__._1;
+            var __tmp__ = _z.setString(((_tok : GoString))), _:Rat = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
                 return stdgo.errors.Errors.new_(((("Rat.Scan: invalid syntax" : GoString))));
             };
         };
         return ((null : stdgo.Error));
     }
-    public function quo(_x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_y.value._a._abs.__t__.length == ((0 : GoInt))) {
+    public function quo(_x:Rat, _y:Rat):Rat {
+        var _z = this;
+        _z;
+        if ((_y._a._abs != null ? _y._a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             throw Go.toInterface(((("division by zero" : GoString))));
         };
         var _a:Int_ = new Int_(), _b:Int_ = new Int_();
-        _a._scaleDenom(Go.pointer(_x.value._a), _y.value._b._abs.__copy__());
-        _b._scaleDenom(Go.pointer(_y.value._a), _x.value._b._abs.__copy__());
-        _z.value._a._abs = _a._abs.__copy__();
-        _z.value._b._abs = _b._abs.__copy__();
-        _z.value._a._neg = _a._neg != _b._neg;
-        return _z.value._norm();
+        _a._scaleDenom(_x._a, (_y._b._abs == null ? null : _y._b._abs.__copy__()));
+        _b._scaleDenom(_y._a, (_x._b._abs == null ? null : _x._b._abs.__copy__()));
+        _z._a._abs = (_a._abs == null ? null : _a._abs.__copy__());
+        _z._b._abs = (_b._abs == null ? null : _b._abs.__copy__());
+        _z._a._neg = _a._neg != _b._neg;
+        return _z._norm();
     }
-    public function mul(_x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function mul(_x:Rat, _y:Rat):Rat {
+        var _z = this;
+        _z;
         if (_x == _y) {
-            _z.value._a._neg = false;
-            _z.value._a._abs = _z.value._a._abs._sqr(_x.value._a._abs.__copy__()).__copy__();
-            if (_x.value._b._abs.__t__.length == ((0 : GoInt))) {
-                _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+            _z._a._neg = false;
+            _z._a._abs = (_z._a._abs._sqr((_x._a._abs == null ? null : _x._a._abs.__copy__())) == null ? null : _z._a._abs._sqr((_x._a._abs == null ? null : _x._a._abs.__copy__())).__copy__());
+            if ((_x._b._abs != null ? _x._b._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
+                _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
             } else {
-                _z.value._b._abs = _z.value._b._abs._sqr(_x.value._b._abs.__copy__()).__copy__();
+                _z._b._abs = (_z._b._abs._sqr((_x._b._abs == null ? null : _x._b._abs.__copy__())) == null ? null : _z._b._abs._sqr((_x._b._abs == null ? null : _x._b._abs.__copy__())).__copy__());
             };
             return _z;
         };
-        _z.value._a.mul(Go.pointer(_x.value._a), Go.pointer(_y.value._a));
-        _z.value._b._abs = _mulDenom(_z.value._b._abs.__copy__(), _x.value._b._abs.__copy__(), _y.value._b._abs.__copy__()).__copy__();
-        return _z.value._norm();
+        _z._a.mul(_x._a, _y._a);
+        _z._b._abs = (_mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())) == null ? null : _mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())).__copy__());
+        return _z._norm();
     }
-    public function sub(_x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function sub(_x:Rat, _y:Rat):Rat {
+        var _z = this;
+        _z;
         var _a1:Int_ = new Int_(), _a2:Int_ = new Int_();
-        _a1._scaleDenom(Go.pointer(_x.value._a), _y.value._b._abs.__copy__());
-        _a2._scaleDenom(Go.pointer(_y.value._a), _x.value._b._abs.__copy__());
-        _z.value._a.sub(Go.pointer(_a1), Go.pointer(_a2));
-        _z.value._b._abs = _mulDenom(_z.value._b._abs.__copy__(), _x.value._b._abs.__copy__(), _y.value._b._abs.__copy__()).__copy__();
-        return _z.value._norm();
+        _a1._scaleDenom(_x._a, (_y._b._abs == null ? null : _y._b._abs.__copy__()));
+        _a2._scaleDenom(_y._a, (_x._b._abs == null ? null : _x._b._abs.__copy__()));
+        _z._a.sub(_a1, _a2);
+        _z._b._abs = (_mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())) == null ? null : _mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())).__copy__());
+        return _z._norm();
     }
-    public function add(_x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function add(_x:Rat, _y:Rat):Rat {
+        var _z = this;
+        _z;
         var _a1:Int_ = new Int_(), _a2:Int_ = new Int_();
-        _a1._scaleDenom(Go.pointer(_x.value._a), _y.value._b._abs.__copy__());
-        _a2._scaleDenom(Go.pointer(_y.value._a), _x.value._b._abs.__copy__());
-        _z.value._a.add(Go.pointer(_a1), Go.pointer(_a2));
-        _z.value._b._abs = _mulDenom(_z.value._b._abs.__copy__(), _x.value._b._abs.__copy__(), _y.value._b._abs.__copy__()).__copy__();
-        return _z.value._norm();
+        _a1._scaleDenom(_x._a, (_y._b._abs == null ? null : _y._b._abs.__copy__()));
+        _a2._scaleDenom(_y._a, (_x._b._abs == null ? null : _x._b._abs.__copy__()));
+        _z._a.add(_a1, _a2);
+        _z._b._abs = (_mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())) == null ? null : _mulDenom((_z._b._abs == null ? null : _z._b._abs.__copy__()), (_x._b._abs == null ? null : _x._b._abs.__copy__()), (_y._b._abs == null ? null : _y._b._abs.__copy__())).__copy__());
+        return _z._norm();
     }
-    public function cmp(_y:Pointer<Rat>):GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function cmp(_y:Rat):GoInt {
+        var _x = this;
+        _x;
         var _a:Int_ = new Int_(), _b:Int_ = new Int_();
-        _a._scaleDenom(Go.pointer(_x.value._a), _y.value._b._abs.__copy__());
-        _b._scaleDenom(Go.pointer(_y.value._a), _x.value._b._abs.__copy__());
-        return _a.cmp(Go.pointer(_b));
+        _a._scaleDenom(_x._a, (_y._b._abs == null ? null : _y._b._abs.__copy__()));
+        _b._scaleDenom(_y._a, (_x._b._abs == null ? null : _x._b._abs.__copy__()));
+        return _a.cmp(_b);
     }
-    public function _norm():Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function _norm():Rat {
+        var _z = this;
+        _z;
         {
             var __switchIndex__ = -1;
             while (true) {
-                if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _z.value._a._abs.__t__.length == ((0 : GoInt)))) {
-                    _z.value._a._neg = false;
+                if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_z._a._abs != null ? _z._a._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+                    _z._a._neg = false;
                     @:fallthrough {
                         __switchIndex__ = 1;
                         continue;
                     };
                     break;
-                } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _z.value._b._abs.__t__.length == ((0 : GoInt)))) {
-                    _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+                } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_z._b._abs != null ? _z._b._abs.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+                    _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
                     break;
                     break;
                 } else {
-                    var _neg:Bool = _z.value._a._neg;
-                    _z.value._a._neg = false;
-                    _z.value._b._neg = false;
+                    var _neg:Bool = _z._a._neg;
+                    _z._a._neg = false;
+                    _z._b._neg = false;
                     {
-                        var _f:Pointer<Int_> = newInt(((0 : GoInt64))).value._lehmerGCD(new Pointer<Int_>().nil(), new Pointer<Int_>().nil(), Go.pointer(_z.value._a), Go.pointer(_z.value._b));
-                        if (_f.value.cmp(_intOne) != ((0 : GoInt))) {
+                        var _f:Int_ = newInt(((0 : GoInt64)))._lehmerGCD(null, null, _z._a, _z._b);
+                        if (_f.cmp(_intOne) != ((0 : GoInt))) {
                             {
-                                var __tmp__ = _z.value._a._abs._div(new T_nat(), _z.value._a._abs.__copy__(), _f.value._abs.__copy__());
-                                _z.value._a._abs = __tmp__._0.__copy__();
+                                var __tmp__ = _z._a._abs._div(null, (_z._a._abs == null ? null : _z._a._abs.__copy__()), (_f._abs == null ? null : _f._abs.__copy__()));
+                                _z._a._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
                             };
                             {
-                                var __tmp__ = _z.value._b._abs._div(new T_nat(), _z.value._b._abs.__copy__(), _f.value._abs.__copy__());
-                                _z.value._b._abs = __tmp__._0.__copy__();
+                                var __tmp__ = _z._b._abs._div(null, (_z._b._abs == null ? null : _z._b._abs.__copy__()), (_f._abs == null ? null : _f._abs.__copy__()));
+                                _z._b._abs = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
                             };
                         };
                     };
-                    _z.value._a._neg = _neg;
+                    _z._a._neg = _neg;
                     break;
                 };
                 break;
@@ -4891,150 +3388,165 @@ _even);
         };
         return _z;
     }
-    public function denom():Pointer<Int_> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _x.value._b._neg = false;
-        if (_x.value._b._abs.__t__.length == ((0 : GoInt))) {
-            return Go.pointer((({ _abs : new T_nat(new Slice<Word>(new Word(((1 : GoUInt))))).__copy__(), _neg : false } : Int_)));
+    public function denom():Int_ {
+        var _x = this;
+        _x;
+        if ((_x._b._abs != null ? _x._b._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return (({ _abs : ((new Slice<Word>(((1 : GoUInt))) : T_nat)), _neg : false } : Int_));
         };
-        return Go.pointer(_x.value._b);
+        return _x._b;
     }
-    public function num():Pointer<Int_> {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return Go.pointer(_x.value._a);
+    public function num():Int_ {
+        var _x = this;
+        _x;
+        return _x._a;
     }
     public function isInt():Bool {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return (_x.value._b._abs.__t__.length == ((0 : GoInt))) || (_x.value._b._abs._cmp(_natOne.__copy__()) == ((0 : GoInt)));
+        var _x = this;
+        _x;
+        return ((_x._b._abs != null ? _x._b._abs.length : ((0 : GoInt))) == ((0 : GoInt))) || (_x._b._abs._cmp((_natOne == null ? null : _natOne.__copy__())) == ((0 : GoInt)));
     }
     public function sign():GoInt {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _x.value._a.sign();
+        var _x = this;
+        _x;
+        return _x._a.sign();
     }
-    public function inv(_x:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_x.value._a._abs.__t__.length == ((0 : GoInt))) {
+    public function inv(_x:Rat):Rat {
+        var _z = this;
+        _z;
+        if ((_x._a._abs != null ? _x._a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             throw Go.toInterface(((("division by zero" : GoString))));
         };
-        _z.value.set(_x);
+        _z.set(_x);
         {
-            final __tmp__0 = _z.value._b._abs.__copy__();
-            final __tmp__1 = _z.value._a._abs.__copy__();
-            _z.value._a._abs = __tmp__0;
-            _z.value._b._abs = __tmp__1;
+            final __tmp__0 = (_z._b._abs == null ? null : _z._b._abs.__copy__());
+            final __tmp__1 = (_z._a._abs == null ? null : _z._a._abs.__copy__());
+            _z._a._abs = __tmp__0;
+            _z._b._abs = __tmp__1;
         };
         return _z;
     }
-    public function neg(_x:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._a._neg = (_z.value._a._abs.__t__.length > ((0 : GoInt))) && !_z.value._a._neg;
+    public function neg(_x:Rat):Rat {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._a._neg = ((_z._a._abs != null ? _z._a._abs.length : ((0 : GoInt))) > ((0 : GoInt))) && !_z._a._neg;
         return _z;
     }
-    public function abs(_x:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value.set(_x);
-        _z.value._a._neg = false;
+    public function abs(_x:Rat):Rat {
+        var _z = this;
+        _z;
+        _z.set(_x);
+        _z._a._neg = false;
         return _z;
     }
-    public function set(_x:Pointer<Rat>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function set(_x:Rat):Rat {
+        var _z = this;
+        _z;
         if (_z != _x) {
-            _z.value._a.set(Go.pointer(_x.value._a));
-            _z.value._b.set(Go.pointer(_x.value._b));
+            _z._a.set(_x._a);
+            _z._b.set(_x._b);
         };
-        if (_z.value._b._abs.__t__.length == ((0 : GoInt))) {
-            _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+        if ((_z._b._abs != null ? _z._b._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
         };
         return _z;
     }
-    public function setUint64(_x:GoUInt64):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._a.setUint64(_x);
-        _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+    public function setUint64(_x:GoUInt64):Rat {
+        var _z = this;
+        _z;
+        _z._a.setUint64(_x);
+        _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
         return _z;
     }
-    public function setInt64(_x:GoInt64):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._a.setInt64(_x);
-        _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+    public function setInt64(_x:GoInt64):Rat {
+        var _z = this;
+        _z;
+        _z._a.setInt64(_x);
+        _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
         return _z;
     }
-    public function setInt(_x:Pointer<Int_>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._a.set(_x);
-        _z.value._b._abs = _z.value._b._abs._setWord(new Word(((1 : GoUInt)))).__copy__();
+    public function setInt(_x:Int_):Rat {
+        var _z = this;
+        _z;
+        _z._a.set(_x);
+        _z._b._abs = (_z._b._abs._setWord(((1 : GoUInt))) == null ? null : _z._b._abs._setWord(((1 : GoUInt))).__copy__());
         return _z;
     }
-    public function setFrac64(_a:GoInt64, _b:GoInt64):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setFrac64(_a:GoInt64, _b:GoInt64):Rat {
+        var _z = this;
+        _z;
         if (_b == ((0 : GoInt64))) {
             throw Go.toInterface(((("division by zero" : GoString))));
         };
-        _z.value._a.setInt64(_a);
+        _z._a.setInt64(_a);
         if (_b < ((0 : GoInt64))) {
             _b = -_b;
-            _z.value._a._neg = !_z.value._a._neg;
+            _z._a._neg = !_z._a._neg;
         };
-        _z.value._b._abs = _z.value._b._abs._setUint64(((_b : GoUInt64))).__copy__();
-        return _z.value._norm();
+        _z._b._abs = (_z._b._abs._setUint64(((_b : GoUInt64))) == null ? null : _z._b._abs._setUint64(((_b : GoUInt64))).__copy__());
+        return _z._norm();
     }
-    public function setFrac(_a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _z.value._a._neg = _a.value._neg != _b.value._neg;
-        var _babs:T_nat = _b.value._abs.__copy__();
-        if (_babs.__t__.length == ((0 : GoInt))) {
+    public function setFrac(_a:Int_, _b:Int_):Rat {
+        var _z = this;
+        _z;
+        _z._a._neg = _a._neg != _b._neg;
+        var _babs:T_nat = (_b._abs == null ? null : _b._abs.__copy__());
+        if ((_babs != null ? _babs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             throw Go.toInterface(((("division by zero" : GoString))));
         };
-        if ((Go.pointer(_z.value._a) == _b) || _alias(_z.value._a._abs.__copy__(), _babs.__copy__())) {
-            _babs = ((new T_nat() : T_nat))._set(_babs.__copy__()).__copy__();
+        if ((_z._a == _b) || _alias((_z._a._abs == null ? null : _z._a._abs.__copy__()), (_babs == null ? null : _babs.__copy__()))) {
+            _babs = (((new T_nat() : T_nat))._set((_babs == null ? null : _babs.__copy__())) == null ? null : ((new T_nat() : T_nat))._set((_babs == null ? null : _babs.__copy__())).__copy__());
         };
-        _z.value._a._abs = _z.value._a._abs._set(_a.value._abs.__copy__()).__copy__();
-        _z.value._b._abs = _z.value._b._abs._set(_babs.__copy__()).__copy__();
-        return _z.value._norm();
+        _z._a._abs = (_z._a._abs._set((_a._abs == null ? null : _a._abs.__copy__())) == null ? null : _z._a._abs._set((_a._abs == null ? null : _a._abs.__copy__())).__copy__());
+        _z._b._abs = (_z._b._abs._set((_babs == null ? null : _babs.__copy__())) == null ? null : _z._b._abs._set((_babs == null ? null : _babs.__copy__())).__copy__());
+        return _z._norm();
     }
     public function float64():{ var _0 : GoFloat64; var _1 : Bool; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var _f:GoFloat64 = ((0 : GoFloat64)), _exact:Bool = false;
-        var _b:T_nat = _x.value._b._abs.__copy__();
-        if (_b.__t__.length == ((0 : GoInt))) {
-            _b = _natOne.__copy__();
+        var _b:T_nat = (_x._b._abs == null ? null : _x._b._abs.__copy__());
+        if ((_b != null ? _b.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _b = (_natOne == null ? null : _natOne.__copy__());
         };
         {
-            var __tmp__ = _quotToFloat64(_x.value._a._abs.__copy__(), _b.__copy__());
+            var __tmp__ = _quotToFloat64((_x._a._abs == null ? null : _x._a._abs.__copy__()), (_b == null ? null : _b.__copy__()));
             _f = __tmp__._0;
             _exact = __tmp__._1;
         };
-        if (_x.value._a._neg) {
+        if (_x._a._neg) {
             _f = -_f;
         };
         return { _0 : _f, _1 : _exact };
     }
     public function float32():{ var _0 : GoFloat32; var _1 : Bool; } {
-        var _x = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+        var _x = this;
+        _x;
         var _f:GoFloat32 = ((0 : GoFloat32)), _exact:Bool = false;
-        var _b:T_nat = _x.value._b._abs.__copy__();
-        if (_b.__t__.length == ((0 : GoInt))) {
-            _b = _natOne.__copy__();
+        var _b:T_nat = (_x._b._abs == null ? null : _x._b._abs.__copy__());
+        if ((_b != null ? _b.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _b = (_natOne == null ? null : _natOne.__copy__());
         };
         {
-            var __tmp__ = _quotToFloat32(_x.value._a._abs.__copy__(), _b.__copy__());
+            var __tmp__ = _quotToFloat32((_x._a._abs == null ? null : _x._a._abs.__copy__()), (_b == null ? null : _b.__copy__()));
             _f = __tmp__._0;
             _exact = __tmp__._1;
         };
-        if (_x.value._a._neg) {
+        if (_x._a._neg) {
             _f = -_f;
         };
         return { _0 : _f, _1 : _exact };
     }
-    public function setFloat64(_f:GoFloat64):Pointer<Rat> {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
+    public function setFloat64(_f:GoFloat64):Rat {
+        var _z = this;
+        _z;
         {};
         var _bits:GoUInt64 = stdgo.math.Math.float64bits(_f);
         var _mantissa:GoUInt64 = _bits & (("4503599627370495" : GoUInt64));
         var _exp:GoInt = ((((_bits >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt));
         if (_exp == ((2047 : GoInt))) {
-            return new Pointer<Rat>().nil();
+            return null;
         } else if (_exp == ((0 : GoInt))) {
             _exp = _exp - (((1022 : GoInt)));
         } else {
@@ -5046,15 +3558,15 @@ _even);
             _mantissa = _mantissa >> (((1 : GoUnTypedInt)));
             _shift--;
         };
-        _z.value._a.setUint64(_mantissa);
-        _z.value._a._neg = _f < ((0 : GoFloat64));
-        _z.value._b.set(_intOne);
+        _z._a.setUint64(_mantissa);
+        _z._a._neg = _f < ((0 : GoFloat64));
+        _z._b.set(_intOne);
         if (_shift > ((0 : GoInt))) {
-            _z.value._b.lsh(Go.pointer(_z.value._b), ((_shift : GoUInt)));
+            _z._b.lsh(_z._b, ((_shift : GoUInt)));
         } else {
-            _z.value._a.lsh(Go.pointer(_z.value._a), ((-_shift : GoUInt)));
+            _z._a.lsh(_z._a, ((-_shift : GoUInt)));
         };
-        return _z.value._norm();
+        return _z._norm();
     }
     public var _a : Int_ = new Int_();
     public var _b : Int_ = new Int_();
@@ -5066,11 +3578,6 @@ _even);
     public function __copy__() {
         return new Rat(_a, _b);
     }
-    public function __set__(__tmp__) {
-        this._a = __tmp__._a;
-        this._b = __tmp__._b;
-        return this;
-    }
 }
 @:structInit @:local class T__struct_0 {
     @:embedded
@@ -5080,10 +3587,8 @@ _even);
         if (mutex != null) this.mutex = mutex;
         if (_table != null) this._table = _table;
     }
-    public function toString() {
-        return "{" + Go.string(mutex) + " " + Go.string(_table) + "}";
-    }
     public function lock() mutex.lock();
+    public function tryLock():Bool return mutex.tryLock();
     public function unlock() mutex.unlock();
     public function _lockSlow() mutex._lockSlow();
     public function _unlockSlow(_new:GoInt32) mutex._unlockSlow(_new);
@@ -5091,22 +3596,14 @@ _even);
     public function __copy__() {
         return new T__struct_0(mutex, _table);
     }
-    public function __set__(__tmp__) {
-        this.mutex = __tmp__.mutex;
-        this._table = __tmp__._table;
-        return this;
-    }
 }
 @:structInit @:local class T__struct_1 {
     @:embedded
     public var once : stdgo.sync.Sync.Once = new stdgo.sync.Sync.Once();
-    public var _v : Pointer<Float_> = new Pointer<Float_>().nil();
-    public function new(?once:stdgo.sync.Sync.Once, ?_v:Pointer<Float_>) {
+    public var _v : Float_ = ((null : Float_));
+    public function new(?once:stdgo.sync.Sync.Once, ?_v:Float_) {
         if (once != null) this.once = once;
         if (_v != null) this._v = _v;
-    }
-    public function toString() {
-        return "{" + Go.string(once) + " " + Go.string(_v) + "}";
     }
     public function do_(_f:() -> Void) once.do_(_f);
     public function _doSlow(_f:() -> Void) once._doSlow(_f);
@@ -5114,92 +3611,35 @@ _even);
     public function __copy__() {
         return new T__struct_1(once, _v);
     }
-    public function __set__(__tmp__) {
-        this.once = __tmp__.once;
-        this._v = __tmp__._v;
-        return this;
-    }
 }
-var _karatsubaThreshold : GoInt64 = ((40 : GoInt));
-var _floatZero : Float_ = new Float_();
-var _0 : stdgo.fmt.Fmt.Scanner = ((new Pointer<Float_>().nil() : Pointer<Float_>)).value;
-var __RoundingMode_index : GoArray<GoUInt8> = new GoArray<GoUInt8>(((0 : GoUInt8)), ((13 : GoUInt8)), ((26 : GoUInt8)), ((32 : GoUInt8)), ((44 : GoUInt8)), ((57 : GoUInt8)), ((70 : GoUInt8))).copy();
-var _1 : stdgo.fmt.Fmt.Formatter = Go.pointer(_floatZero).value;
-var _errNoDigits : stdgo.Error = stdgo.errors.Errors.new_(((("number has no digits" : GoString))));
-var _karatsubaSqrThreshold : GoInt64 = ((260 : GoInt));
-var _natTwo : T_nat = new T_nat(new Slice<Word>(new Word(((2 : GoUInt))))).__copy__();
-var __Accuracy_index : GoArray<GoUInt8> = new GoArray<GoUInt8>(((0 : GoUInt8)), ((5 : GoUInt8)), ((10 : GoUInt8)), ((15 : GoUInt8))).copy();
-var _natOne : T_nat = new T_nat(new Slice<Word>(new Word(((1 : GoUInt))))).__copy__();
-var _intOne : Pointer<Int_> = Go.pointer(new Int_(false, _natOne.__copy__()));
-var _2 : stdgo.fmt.Fmt.Formatter = _intOne.value;
-var _leafSize : GoInt = ((8 : GoInt));
-var _3 : stdgo.fmt.Fmt.Scanner = _intOne.value;
-var _threeOnce : T__struct_1 = new T__struct_1();
-var _ratZero : Rat = new Rat();
-var _natPool : stdgo.sync.Sync.Pool = new stdgo.sync.Sync.Pool();
-var _basicSqrThreshold : GoInt64 = ((20 : GoInt));
-var _4 : stdgo.fmt.Fmt.Scanner = Go.pointer(_ratZero).value;
-var _cacheBase10 : T__struct_0 = new T__struct_0();
-var _errInvalSep : stdgo.Error = stdgo.errors.Errors.new_(((("\'_\' must separate successive digits" : GoString))));
-var _natTen : T_nat = new T_nat(new Slice<Word>(new Word(((10 : GoUInt))))).__copy__();
-var _natFive : T_nat = new T_nat(new Slice<Word>(new Word(((5 : GoUInt))))).__copy__();
-var _pow5tab : GoArray<GoUInt64> = new GoArray<GoUInt64>(
-((1 : GoUInt64)),
-((5 : GoUInt64)),
-((25 : GoUInt64)),
-((125 : GoUInt64)),
-((625 : GoUInt64)),
-((3125 : GoUInt64)),
-((15625 : GoUInt64)),
-((78125 : GoUInt64)),
-((390625 : GoUInt64)),
-((1953125 : GoUInt64)),
-((9765625 : GoUInt64)),
-((48828125 : GoUInt64)),
-((244140625 : GoUInt64)),
-((1220703125 : GoUInt64)),
-(("6103515625" : GoUInt64)),
-(("30517578125" : GoUInt64)),
-(("152587890625" : GoUInt64)),
-(("762939453125" : GoUInt64)),
-(("3814697265625" : GoUInt64)),
-(("19073486328125" : GoUInt64)),
-(("95367431640625" : GoUInt64)),
-(("476837158203125" : GoUInt64)),
-(("2384185791015625" : GoUInt64)),
-(("11920928955078125" : GoUInt64)),
-(("59604644775390625" : GoUInt64)),
-(("298023223876953125" : GoUInt64)),
-(("1490116119384765625" : GoUInt64)),
-(("7450580596923828125" : GoUInt64))).copy();
 /**
     // z1<<_W + z0 = x*y
 **/
 function _mulWW_g(_x:Word, _y:Word):{ var _0 : Word; var _1 : Word; } {
         var _z1:Word = new Word(), _z0:Word = new Word();
-        var __tmp__ = stdgo.math.bits.Bits.mul(_x.__t__, _y.__t__), _hi:GoUInt = __tmp__._0, _lo:GoUInt = __tmp__._1;
-        return { _0 : new Word(_hi), _1 : new Word(_lo) };
+        var __tmp__ = stdgo.math.bits.Bits.mul(((_x : GoUInt)), ((_y : GoUInt))), _hi:GoUInt = __tmp__._0, _lo:GoUInt = __tmp__._1;
+        return { _0 : ((_hi : Word)), _1 : ((_lo : Word)) };
     }
 /**
     // z1<<_W + z0 = x*y + c
 **/
 function _mulAddWWW_g(_x:Word, _y:Word, _c:Word):{ var _0 : Word; var _1 : Word; } {
         var _z1:Word = new Word(), _z0:Word = new Word();
-        var __tmp__ = stdgo.math.bits.Bits.mul(_x.__t__, _y.__t__), _hi:GoUInt = __tmp__._0, _lo:GoUInt = __tmp__._1;
+        var __tmp__ = stdgo.math.bits.Bits.mul(((_x : GoUInt)), ((_y : GoUInt))), _hi:GoUInt = __tmp__._0, _lo:GoUInt = __tmp__._1;
         var _cc:GoUInt = ((0 : GoUInt));
         {
-            var __tmp__ = stdgo.math.bits.Bits.add(_lo, _c.__t__, ((0 : GoUInt)));
+            var __tmp__ = stdgo.math.bits.Bits.add(_lo, ((_c : GoUInt)), ((0 : GoUInt)));
             _lo = __tmp__._0;
             _cc = __tmp__._1;
         };
-        return { _0 : new Word((_hi + _cc)), _1 : new Word(_lo) };
+        return { _0 : (((_hi + _cc) : Word)), _1 : ((_lo : Word)) };
     }
 /**
     // nlz returns the number of leading zeros in x.
     // Wraps bits.LeadingZeros call for convenience.
 **/
 function _nlz(_x:Word):GoUInt {
-        return ((stdgo.math.bits.Bits.leadingZeros(_x.__t__) : GoUInt));
+        return ((stdgo.math.bits.Bits.leadingZeros(((_x : GoUInt))) : GoUInt));
     }
 /**
     // The resulting carry c is either 0 or 1.
@@ -5208,10 +3648,10 @@ function _addVV_g(_z:Slice<Word>, _x:Slice<Word>, _y:Slice<Word>):Word {
         var _c:Word = new Word();
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor(((_i < _z.length) && (_i < _x.length)) && (_i < _y.length), _i++, {
-                var __tmp__ = stdgo.math.bits.Bits.add(_x[_i].__t__, _y[_i].__t__, _c.__t__), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+            Go.cfor(((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt))))) && (_i < (_y != null ? _y.length : ((0 : GoInt)))), _i++, {
+                var __tmp__ = stdgo.math.bits.Bits.add((((_x != null ? _x[_i] : new Word()) : GoUInt)), (((_y != null ? _y[_i] : new Word()) : GoUInt)), ((_c : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5223,10 +3663,10 @@ function _subVV_g(_z:Slice<Word>, _x:Slice<Word>, _y:Slice<Word>):Word {
         var _c:Word = new Word();
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor(((_i < _z.length) && (_i < _x.length)) && (_i < _y.length), _i++, {
-                var __tmp__ = stdgo.math.bits.Bits.sub(_x[_i].__t__, _y[_i].__t__, _c.__t__), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+            Go.cfor(((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt))))) && (_i < (_y != null ? _y.length : ((0 : GoInt)))), _i++, {
+                var __tmp__ = stdgo.math.bits.Bits.sub((((_x != null ? _x[_i] : new Word()) : GoUInt)), (((_y != null ? _y[_i] : new Word()) : GoUInt)), ((_c : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5239,10 +3679,10 @@ function _addVW_g(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         _c = _y;
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
-                var __tmp__ = stdgo.math.bits.Bits.add(_x[_i].__t__, _c.__t__, ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
+                var __tmp__ = stdgo.math.bits.Bits.add((((_x != null ? _x[_i] : new Word()) : GoUInt)), ((_c : GoUInt)), ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5261,14 +3701,14 @@ function _addVWlarge(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         _c = _y;
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
-                if (_c.__t__ == ((0 : GoUInt))) {
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
+                if (_c == ((0 : GoUInt))) {
                     Go.copy(_z.__slice__(_i), _x.__slice__(_i));
                     return _c;
                 };
-                var __tmp__ = stdgo.math.bits.Bits.add(_x[_i].__t__, _c.__t__, ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+                var __tmp__ = stdgo.math.bits.Bits.add((((_x != null ? _x[_i] : new Word()) : GoUInt)), ((_c : GoUInt)), ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5278,10 +3718,10 @@ function _subVW_g(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         _c = _y;
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
-                var __tmp__ = stdgo.math.bits.Bits.sub(_x[_i].__t__, _c.__t__, ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
+                var __tmp__ = stdgo.math.bits.Bits.sub((((_x != null ? _x[_i] : new Word()) : GoUInt)), ((_c : GoUInt)), ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5294,14 +3734,14 @@ function _subVWlarge(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         _c = _y;
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
-                if (_c.__t__ == ((0 : GoUInt))) {
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
+                if (_c == ((0 : GoUInt))) {
                     Go.copy(_z.__slice__(_i), _x.__slice__(_i));
                     return _c;
                 };
-                var __tmp__ = stdgo.math.bits.Bits.sub(_x[_i].__t__, _c.__t__, ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
-                _z[_i] = new Word(_zi);
-                _c = new Word(_cc);
+                var __tmp__ = stdgo.math.bits.Bits.sub((((_x != null ? _x[_i] : new Word()) : GoUInt)), ((_c : GoUInt)), ((0 : GoUInt))), _zi:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+                if (_z != null) _z[_i] = ((_zi : Word));
+                _c = ((_cc : Word));
             });
         };
         return _c;
@@ -5312,20 +3752,20 @@ function _shlVU_g(_z:Slice<Word>, _x:Slice<Word>, _s:GoUInt):Word {
             Go.copy(_z, _x);
             return _c;
         };
-        if (_z.length == ((0 : GoInt))) {
+        if ((_z != null ? _z.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return _c;
         };
         _s = _s & (((31 : GoUInt)));
         var __349:GoUInt = ((32 : GoUInt)) - _s;
         __349 = __349 & (((31 : GoUInt)));
-        _c = new Word(_x[_z.length - ((1 : GoInt))].__t__ >> __349);
+        _c = (_x != null ? _x[(_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word()) >> __349;
         {
-            var _i:GoInt = _z.length - ((1 : GoInt));
+            var _i:GoInt = (_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt));
             Go.cfor(_i > ((0 : GoInt)), _i--, {
-                _z[_i] = new Word(new Word(_x[_i].__t__ << _s).__t__ | new Word(_x[_i - ((1 : GoInt))].__t__ >> __349).__t__);
+                if (_z != null) _z[_i] = ((_x != null ? _x[_i] : new Word()) << _s) | ((_x != null ? _x[_i - ((1 : GoInt))] : new Word()) >> __349);
             });
         };
-        _z[((0 : GoInt))] = new Word(_x[((0 : GoInt))].__t__ << _s);
+        if (_z != null) _z[((0 : GoInt))] = (_x != null ? _x[((0 : GoInt))] : new Word()) << _s;
         return _c;
     }
 function _shrVU_g(_z:Slice<Word>, _x:Slice<Word>, _s:GoUInt):Word {
@@ -5334,23 +3774,23 @@ function _shrVU_g(_z:Slice<Word>, _x:Slice<Word>, _s:GoUInt):Word {
             Go.copy(_z, _x);
             return _c;
         };
-        if (_z.length == ((0 : GoInt))) {
+        if ((_z != null ? _z.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return _c;
         };
-        if (_x.length != _z.length) {
+        if ((_x != null ? _x.length : ((0 : GoInt))) != (_z != null ? _z.length : ((0 : GoInt)))) {
             throw Go.toInterface(((("len(x) != len(z)" : GoString))));
         };
         _s = _s & (((31 : GoUInt)));
         var __349:GoUInt = ((32 : GoUInt)) - _s;
         __349 = __349 & (((31 : GoUInt)));
-        _c = new Word(_x[((0 : GoInt))].__t__ << __349);
+        _c = (_x != null ? _x[((0 : GoInt))] : new Word()) << __349;
         {
             var _i:GoInt = ((1 : GoInt));
-            Go.cfor(_i < _z.length, _i++, {
-                _z[_i - ((1 : GoInt))] = new Word(new Word(_x[_i - ((1 : GoInt))].__t__ >> _s).__t__ | new Word(_x[_i].__t__ << __349).__t__);
+            Go.cfor(_i < (_z != null ? _z.length : ((0 : GoInt))), _i++, {
+                if (_z != null) _z[_i - ((1 : GoInt))] = ((_x != null ? _x[_i - ((1 : GoInt))] : new Word()) >> _s) | ((_x != null ? _x[_i] : new Word()) << __349);
             });
         };
-        _z[_z.length - ((1 : GoInt))] = new Word(_x[_z.length - ((1 : GoInt))].__t__ >> _s);
+        if (_z != null) _z[(_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt))] = (_x != null ? _x[(_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word()) >> _s;
         return _c;
     }
 function _mulAddVWW_g(_z:Slice<Word>, _x:Slice<Word>, _y:Word, _r:Word):Word {
@@ -5358,11 +3798,11 @@ function _mulAddVWW_g(_z:Slice<Word>, _x:Slice<Word>, _y:Word, _r:Word):Word {
         _c = _r;
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
                 {
-                    var __tmp__ = _mulAddWWW_g(_x[_i], _y, _c);
+                    var __tmp__ = _mulAddWWW_g((_x != null ? _x[_i] : new Word()), _y, _c);
                     _c = __tmp__._0;
-                    _z[_i] = __tmp__._1;
+                    (_z != null ? _z[_i] : new Word()) = __tmp__._1;
                 };
             });
         };
@@ -5372,16 +3812,15 @@ function _addMulVVW_g(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         var _c:Word = new Word();
         {
             var _i:GoInt = ((0 : GoInt));
-            Go.cfor((_i < _z.length) && (_i < _x.length), _i++, {
-                var __tmp__ = _mulAddWWW_g(_x[_i], _y, _z[_i]), _z1:Word = __tmp__._0, _z0:Word = __tmp__._1;
-                var __tmp__ = stdgo.math.bits.Bits.add(_z0.__t__, _c.__t__, ((0 : GoUInt))), _lo:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
+            Go.cfor((_i < (_z != null ? _z.length : ((0 : GoInt)))) && (_i < (_x != null ? _x.length : ((0 : GoInt)))), _i++, {
+                var __tmp__ = _mulAddWWW_g((_x != null ? _x[_i] : new Word()), _y, (_z != null ? _z[_i] : new Word())), _z1:Word = __tmp__._0, _z0:Word = __tmp__._1;
+                var __tmp__ = stdgo.math.bits.Bits.add(((_z0 : GoUInt)), ((_c : GoUInt)), ((0 : GoUInt))), _lo:GoUInt = __tmp__._0, _cc:GoUInt = __tmp__._1;
                 {
-                    final __tmp__0 = new Word(_cc);
-                    final __tmp__1 = new Word(_lo);
+                    final __tmp__0 = ((_cc : Word));
                     _c = __tmp__0;
-                    _z[_i] = __tmp__1;
+                    if (_z != null) _z[_i] = ((_lo : Word));
                 };
-                _c = new Word(_c.__t__ + (_z1).__t__);
+                _c = _c + (_z1);
             });
         };
         return _c;
@@ -5395,21 +3834,21 @@ function _divWW(_x1:Word, _x0:Word, _y:Word, _m:Word):{ var _0 : Word; var _1 : 
         var _q:Word = new Word(), _r:Word = new Word();
         var _s:GoUInt = _nlz(_y);
         if (_s != ((0 : GoUInt))) {
-            _x1 = new Word(new Word(_x1.__t__ << _s).__t__ | new Word(_x0.__t__ >> (((32 : GoUInt)) - _s)).__t__);
-            _x0 = new Word(_x0.__t__ << (_s));
-            _y = new Word(_y.__t__ << (_s));
+            _x1 = (_x1 << _s) | (_x0 >> (((32 : GoUInt)) - _s));
+            _x0 = _x0 << (_s);
+            _y = _y << (_s);
         };
-        var _d:GoUInt = _y.__t__;
-        var __tmp__ = stdgo.math.bits.Bits.mul(_m.__t__, _x1.__t__), _t1:GoUInt = __tmp__._0, _t0:GoUInt = __tmp__._1;
-        var __tmp__ = stdgo.math.bits.Bits.add(_t0, _x0.__t__, ((0 : GoUInt))), _:GoUInt = __tmp__._0, _c:GoUInt = __tmp__._1;
+        var _d:GoUInt = ((_y : GoUInt));
+        var __tmp__ = stdgo.math.bits.Bits.mul(((_m : GoUInt)), ((_x1 : GoUInt))), _t1:GoUInt = __tmp__._0, _t0:GoUInt = __tmp__._1;
+        var __tmp__ = stdgo.math.bits.Bits.add(_t0, ((_x0 : GoUInt)), ((0 : GoUInt))), _:GoUInt = __tmp__._0, _c:GoUInt = __tmp__._1;
         {
-            var __tmp__ = stdgo.math.bits.Bits.add(_t1, _x1.__t__, _c);
+            var __tmp__ = stdgo.math.bits.Bits.add(_t1, ((_x1 : GoUInt)), _c);
             _t1 = __tmp__._0;
         };
         var _qq:GoUInt = _t1;
         var __tmp__ = stdgo.math.bits.Bits.mul(_d, _qq), _dq1:GoUInt = __tmp__._0, _dq0:GoUInt = __tmp__._1;
-        var __tmp__ = stdgo.math.bits.Bits.sub(_x0.__t__, _dq0, ((0 : GoUInt))), _r0:GoUInt = __tmp__._0, _b:GoUInt = __tmp__._1;
-        var __tmp__ = stdgo.math.bits.Bits.sub(_x1.__t__, _dq1, _b), _r1:GoUInt = __tmp__._0, _:GoUInt = __tmp__._1;
+        var __tmp__ = stdgo.math.bits.Bits.sub(((_x0 : GoUInt)), _dq0, ((0 : GoUInt))), _r0:GoUInt = __tmp__._0, _b:GoUInt = __tmp__._1;
+        var __tmp__ = stdgo.math.bits.Bits.sub(((_x1 : GoUInt)), _dq1, _b), _r1:GoUInt = __tmp__._0, _:GoUInt = __tmp__._1;
         if (_r1 != ((0 : GoUInt))) {
             _qq++;
             _r0 = _r0 - (_d);
@@ -5418,17 +3857,17 @@ function _divWW(_x1:Word, _x0:Word, _y:Word, _m:Word):{ var _0 : Word; var _1 : 
             _qq++;
             _r0 = _r0 - (_d);
         };
-        return { _0 : new Word(_qq), _1 : new Word((_r0 >> _s)) };
+        return { _0 : ((_qq : Word)), _1 : (((_r0 >> _s) : Word)) };
     }
 /**
     // reciprocalWord return the reciprocal of the divisor. rec = floor(( _B^2 - 1 ) / u - _B). u = d1 << nlz(d1).
 **/
 function _reciprocalWord(_d1:Word):Word {
-        var _u:GoUInt = new Word(_d1.__t__ << _nlz(_d1)).__t__;
+        var _u:GoUInt = (((_d1 << _nlz(_d1)) : GoUInt));
         var _x1:GoUInt = (-1 ^ _u);
         var _x0:GoUInt = (((("4294967295" : GoUInt)) : GoUInt));
         var __tmp__ = stdgo.math.bits.Bits.div(_x1, _x0, _u), _rec:GoUInt = __tmp__._0, _:GoUInt = __tmp__._1;
-        return new Word(_rec);
+        return ((_rec : Word));
     }
 function _mulWW(_x:Word, _y:Word):{ var _0 : Word; var _1 : Word; } {
         var _z1:Word = new Word(), _z0:Word = new Word();
@@ -5445,7 +3884,7 @@ function _subVV(_z:Slice<Word>, _x:Slice<Word>, _y:Slice<Word>):Word {
 function _addVW(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         var _c:Word = new Word();
         var _fn:(Slice<Word>, Slice<Word>, Word) -> Word = _addVW_g;
-        if (_z.length > ((32 : GoInt))) {
+        if ((_z != null ? _z.length : ((0 : GoInt))) > ((32 : GoInt))) {
             _fn = _addVWlarge;
         };
         return _fn(_z, _x, _y);
@@ -5453,7 +3892,7 @@ function _addVW(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
 function _subVW(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
         var _c:Word = new Word();
         var _fn:(Slice<Word>, Slice<Word>, Word) -> Word = _subVW_g;
-        if (_z.length > ((32 : GoInt))) {
+        if ((_z != null ? _z.length : ((0 : GoInt))) > ((32 : GoInt))) {
             _fn = _subVWlarge;
         };
         return _fn(_z, _x, _y);
@@ -5477,47 +3916,47 @@ function _addMulVVW(_z:Slice<Word>, _x:Slice<Word>, _y:Word):Word {
 /**
     // shr implements x >> s, for s <= maxShift.
 **/
-function _shr(_x:Pointer<T_decimal>, _s:GoUInt):Void {
+function _shr(_x:T_decimal, _s:GoUInt):Void {
         var _r:GoInt = ((0 : GoInt));
         var _n:Word = new Word();
-        while ((new Word(_n.__t__ >> _s).__t__ == ((0 : GoUInt))) && (_r < _x.value._mant.length)) {
-            var _ch:Word = new Word(_x.value._mant[_r]);
+        while (((_n >> _s) == ((0 : GoUInt))) && (_r < (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
+            var _ch:Word = (((_x._mant != null ? _x._mant[_r] : ((0 : GoUInt8))) : Word));
             _r++;
-            _n = new Word(new Word(new Word(_n.__t__ * ((10 : GoUInt))).__t__ + _ch.__t__).__t__ - ((((("0" : GoString))).code : GoRune)));
+            _n = ((_n * ((10 : GoUInt))) + _ch) - ((((("0" : GoString))).code : GoRune));
         };
-        if (_n.__t__ == ((0 : GoUInt))) {
-            _x.value._mant = _x.value._mant.__slice__(0, ((0 : GoInt)));
+        if (_n == ((0 : GoUInt))) {
+            _x._mant = _x._mant.__slice__(0, ((0 : GoInt)));
             return;
         };
-        while (new Word(_n.__t__ >> _s).__t__ == ((0 : GoUInt))) {
+        while ((_n >> _s) == ((0 : GoUInt))) {
             _r++;
-            _n = new Word(_n.__t__ * (((10 : GoUInt))));
+            _n = _n * (((10 : GoUInt)));
         };
-        _x.value._exp = _x.value._exp + (((1 : GoInt)) - _r);
+        _x._exp = _x._exp + (((1 : GoInt)) - _r);
         var _w:GoInt = ((0 : GoInt));
-        var _mask:Word = new Word(new Word(new Word(((1 : GoUInt))).__t__ << _s).__t__ - ((1 : GoUInt)));
-        while (_r < _x.value._mant.length) {
-            var _ch:Word = new Word(_x.value._mant[_r]);
+        var _mask:Word = (((((1 : GoUInt)) : Word)) << _s) - ((1 : GoUInt));
+        while (_r < (_x._mant != null ? _x._mant.length : ((0 : GoInt)))) {
+            var _ch:Word = (((_x._mant != null ? _x._mant[_r] : ((0 : GoUInt8))) : Word));
             _r++;
-            var _d:Word = new Word(_n.__t__ >> _s);
-            _n = new Word(_n.__t__ & (_mask).__t__);
-            _x.value._mant[_w] = new Word(_d.__t__ + ((((("0" : GoString))).code : GoRune))).__t__;
+            var _d:Word = _n >> _s;
+            _n = _n & (_mask);
+            if (_x._mant != null) _x._mant[_w] = (((_d + ((((("0" : GoString))).code : GoRune))) : GoByte));
             _w++;
-            _n = new Word(new Word(new Word(_n.__t__ * ((10 : GoUInt))).__t__ + _ch.__t__).__t__ - ((((("0" : GoString))).code : GoRune)));
+            _n = ((_n * ((10 : GoUInt))) + _ch) - ((((("0" : GoString))).code : GoRune));
         };
-        while ((_n.__t__ > ((0 : GoUInt))) && (_w < _x.value._mant.length)) {
-            var _d:Word = new Word(_n.__t__ >> _s);
-            _n = new Word(_n.__t__ & (_mask).__t__);
-            _x.value._mant[_w] = new Word(_d.__t__ + ((((("0" : GoString))).code : GoRune))).__t__;
+        while ((_n > ((0 : GoUInt))) && (_w < (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
+            var _d:Word = _n >> _s;
+            _n = _n & (_mask);
+            if (_x._mant != null) _x._mant[_w] = (((_d + ((((("0" : GoString))).code : GoRune))) : GoByte));
             _w++;
-            _n = new Word(_n.__t__ * ((10 : GoUInt)));
+            _n = _n * ((10 : GoUInt));
         };
-        _x.value._mant = _x.value._mant.__slice__(0, _w);
-        while (_n.__t__ > ((0 : GoUInt))) {
-            var _d:Word = new Word(_n.__t__ >> _s);
-            _n = new Word(_n.__t__ & (_mask).__t__);
-            _x.value._mant = _x.value._mant.__append__(new Word(_d.__t__ + ((((("0" : GoString))).code : GoRune))).__t__);
-            _n = new Word(_n.__t__ * ((10 : GoUInt)));
+        _x._mant = _x._mant.__slice__(0, _w);
+        while (_n > ((0 : GoUInt))) {
+            var _d:Word = _n >> _s;
+            _n = _n & (_mask);
+            _x._mant = (_x._mant != null ? _x._mant.__append__((((_d + ((((("0" : GoString))).code : GoRune))) : GoByte))) : new Slice<GoUInt8>((((_d + ((((("0" : GoString))).code : GoRune))) : GoByte))));
+            _n = _n * ((10 : GoUInt));
         };
         _trim(_x);
     }
@@ -5526,7 +3965,7 @@ function _shr(_x:Pointer<T_decimal>, _s:GoUInt):Void {
 **/
 function _appendZeros(_buf:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
         Go.cfor(_n > ((0 : GoInt)), _n--, {
-            _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         });
         return _buf;
     }
@@ -5535,24 +3974,24 @@ function _appendZeros(_buf:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
     // if shortened to n digits. n must be a valid index
     // for x.mant.
 **/
-function _shouldRoundUp(_x:Pointer<T_decimal>, _n:GoInt):Bool {
-        if ((_x.value._mant[_n] == ((((("5" : GoString))).code : GoRune))) && ((_n + ((1 : GoInt))) == _x.value._mant.length)) {
-            return (_n > ((0 : GoInt))) && (((_x.value._mant[_n - ((1 : GoInt))] - ((((("0" : GoString))).code : GoRune))) & ((1 : GoUInt8))) != ((0 : GoUInt8)));
+function _shouldRoundUp(_x:T_decimal, _n:GoInt):Bool {
+        if (((_x._mant != null ? _x._mant[_n] : ((0 : GoUInt8))) == ((((("5" : GoString))).code : GoRune))) && ((_n + ((1 : GoInt))) == (_x._mant != null ? _x._mant.length : ((0 : GoInt))))) {
+            return (_n > ((0 : GoInt))) && ((((_x._mant != null ? _x._mant[_n - ((1 : GoInt))] : ((0 : GoUInt8))) - ((((("0" : GoString))).code : GoRune))) & ((1 : GoUInt8))) != ((0 : GoUInt8)));
         };
-        return _x.value._mant[_n] >= ((((("5" : GoString))).code : GoRune));
+        return (_x._mant != null ? _x._mant[_n] : ((0 : GoUInt8))) >= ((((("5" : GoString))).code : GoRune));
     }
 /**
     // trim cuts off any trailing zeros from x's mantissa;
     // they are meaningless for the value of x.
 **/
-function _trim(_x:Pointer<T_decimal>):Void {
-        var _i:GoInt = _x.value._mant.length;
-        while ((_i > ((0 : GoInt))) && (_x.value._mant[_i - ((1 : GoInt))] == ((((("0" : GoString))).code : GoRune)))) {
+function _trim(_x:T_decimal):Void {
+        var _i:GoInt = (_x._mant != null ? _x._mant.length : ((0 : GoInt)));
+        while ((_i > ((0 : GoInt))) && ((_x._mant != null ? _x._mant[_i - ((1 : GoInt))] : ((0 : GoUInt8))) == ((((("0" : GoString))).code : GoRune)))) {
             _i--;
         };
-        _x.value._mant = _x.value._mant.__slice__(0, _i);
+        _x._mant = _x._mant.__slice__(0, _i);
         if (_i == ((0 : GoInt))) {
-            _x.value._exp = ((0 : GoInt));
+            _x._exp = ((0 : GoInt));
         };
     }
 /**
@@ -5560,17 +3999,17 @@ function _trim(_x:Pointer<T_decimal>):Void {
     // with precision 53 and rounding mode ToNearestEven.
     // NewFloat panics with ErrNaN if x is a NaN.
 **/
-function newFloat(_x:GoFloat64):Pointer<Float_> {
+function newFloat(_x:GoFloat64):Float_ {
         if (stdgo.math.Math.isNaN(_x)) {
-            throw Go.toInterface(new ErrNaN(((("NewFloat(NaN)" : GoString)))));
+            throw Go.toInterface(((new ErrNaN(((("NewFloat(NaN)" : GoString)))) : ErrNaN)));
         };
-        return Go.pointer(new Float_()).value.setFloat64(_x);
+        return Go.pointer(new Float_()).setFloat64(_x);
     }
 function _makeAcc(_above:Bool):Accuracy {
         if (_above) {
-            return new Accuracy(((1 : GoInt8)));
+            return ((1 : GoInt8));
         };
-        return new Accuracy(((-1 : GoInt8)));
+        return ((-1 : GoInt8));
     }
 /**
     // fnorm normalizes mantissa m by shifting it to the left
@@ -5578,13 +4017,13 @@ function _makeAcc(_above:Bool):Accuracy {
     // It returns the shift amount. It assumes that len(m) != 0.
 **/
 function _fnorm(_m:T_nat):GoInt64 {
-        if (false && ((_m.__t__.length == ((0 : GoInt))) || (_m.__t__[_m.__t__.length - ((1 : GoInt))].__t__ == ((0 : GoUInt))))) {
+        if (false && (((_m != null ? _m.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_m != null ? _m[(_m != null ? _m.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word()) == ((0 : GoUInt))))) {
             throw Go.toInterface(((("msw of mantissa is 0" : GoString))));
         };
-        var _s:GoUInt = _nlz(_m.__t__[_m.__t__.length - ((1 : GoInt))]);
+        var _s:GoUInt = _nlz((_m != null ? _m[(_m != null ? _m.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word()));
         if (_s > ((0 : GoUInt))) {
-            var _c:Word = _shlVU(_m.__copy__().__t__, _m.__copy__().__t__, _s);
-            if (false && (_c.__t__ != ((0 : GoUInt)))) {
+            var _c:Word = _shlVU(_m, _m, _s);
+            if (false && (_c != ((0 : GoUInt)))) {
                 throw Go.toInterface(((("nlz or shlVU incorrect" : GoString))));
             };
         };
@@ -5594,17 +4033,17 @@ function _fnorm(_m:T_nat):GoInt64 {
     // msb32 returns the 32 most significant bits of x.
 **/
 function _msb32(_x:T_nat):GoUInt32 {
-        var _i:GoInt = _x.__t__.length - ((1 : GoInt));
+        var _i:GoInt = (_x != null ? _x.length : ((0 : GoInt))) - ((1 : GoInt));
         if (_i < ((0 : GoInt))) {
             return ((0 : GoUInt32));
         };
-        if (false && (new Word(_x.__t__[_i].__t__ & (("2147483648" : GoUInt))).__t__ == ((0 : GoUInt)))) {
+        if (false && (((_x != null ? _x[_i] : new Word()) & (("2147483648" : GoUInt))) == ((0 : GoUInt)))) {
             throw Go.toInterface(((("x not normalized" : GoString))));
         };
         if (((32 : GoInt)) == ((32 : GoInt))) {
-            return _x.__t__[_i].__t__;
+            return (((_x != null ? _x[_i] : new Word()) : GoUInt32));
         } else if (((32 : GoInt)) == ((64 : GoInt))) {
-            return new Word(_x.__t__[_i].__t__ >> ((32 : GoUnTypedInt))).__t__;
+            return ((((_x != null ? _x[_i] : new Word()) >> ((32 : GoUnTypedInt))) : GoUInt32));
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
@@ -5612,32 +4051,32 @@ function _msb32(_x:T_nat):GoUInt32 {
     // msb64 returns the 64 most significant bits of x.
 **/
 function _msb64(_x:T_nat):GoUInt64 {
-        var _i:GoInt = _x.__t__.length - ((1 : GoInt));
+        var _i:GoInt = (_x != null ? _x.length : ((0 : GoInt))) - ((1 : GoInt));
         if (_i < ((0 : GoInt))) {
             return ((0 : GoUInt64));
         };
-        if (false && (new Word(_x.__t__[_i].__t__ & (("2147483648" : GoUInt))).__t__ == ((0 : GoUInt)))) {
+        if (false && (((_x != null ? _x[_i] : new Word()) & (("2147483648" : GoUInt))) == ((0 : GoUInt)))) {
             throw Go.toInterface(((("x not normalized" : GoString))));
         };
         if (((32 : GoInt)) == ((32 : GoInt))) {
-            var _v:GoUInt64 = _x.__t__[_i].__t__ << ((32 : GoUnTypedInt));
+            var _v:GoUInt64 = (((_x != null ? _x[_i] : new Word()) : GoUInt64)) << ((32 : GoUnTypedInt));
             if (_i > ((0 : GoInt))) {
-                _v = _v | (_x.__t__[_i - ((1 : GoInt))].__t__);
+                _v = _v | ((((_x != null ? _x[_i - ((1 : GoInt))] : new Word()) : GoUInt64)));
             };
             return _v;
         } else if (((32 : GoInt)) == ((64 : GoInt))) {
-            return _x.__t__[_i].__t__;
+            return (((_x != null ? _x[_i] : new Word()) : GoUInt64));
         };
         throw Go.toInterface(((("unreachable" : GoString))));
     }
-function _validateBinaryOperands(_x:Pointer<Float_>, _y:Pointer<Float_>):Void {
+function _validateBinaryOperands(_x:Float_, _y:Float_):Void {
         if (true) {
             throw Go.toInterface(((("validateBinaryOperands called but debugFloat is not set" : GoString))));
         };
-        if (_x.value._mant.__t__.length == ((0 : GoInt))) {
+        if ((_x._mant != null ? _x._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
             throw Go.toInterface(((("empty mantissa for x" : GoString))));
         };
-        if (_y.value._mant.__t__.length == ((0 : GoInt))) {
+        if ((_y._mant != null ? _y._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
             throw Go.toInterface(((("empty mantissa for y" : GoString))));
         };
     }
@@ -5651,42 +4090,42 @@ function _umax32(_x:GoUInt32, _y:GoUInt32):GoUInt32 {
     // ParseFloat is like f.Parse(s, base) with f set to the given precision
     // and rounding mode.
 **/
-function parseFloat(_s:GoString, _base:GoInt, _prec:GoUInt, _mode:RoundingMode):{ var _0 : Pointer<Float_>; var _1 : GoInt; var _2 : Error; } {
-        var _f:Pointer<Float_> = new Pointer<Float_>().nil(), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        return Go.pointer(new Float_()).value.setPrec(_prec).value.setMode(_mode).value.parse(_s, _base);
+function parseFloat(_s:GoString, _base:GoInt, _prec:GoUInt, _mode:RoundingMode):{ var _0 : Float_; var _1 : GoInt; var _2 : Error; } {
+        var _f:Float_ = ((null : Float_)), _b:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        return Go.pointer(new Float_()).setPrec(_prec).setMode(_mode).parse(_s, _base);
     }
-function _roundShortest(_d:Pointer<T_decimal>, _x:Pointer<Float_>):Void {
-        if (_d.value._mant.length == ((0 : GoInt))) {
+function _roundShortest(_d:T_decimal, _x:Float_):Void {
+        if ((_d._mant != null ? _d._mant.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return;
         };
-        var _mant:T_nat = ((new T_nat() : T_nat))._set(_x.value._mant.__copy__()).__copy__();
-        var _exp:GoInt = ((_x.value._exp : GoInt)) - _mant._bitLen();
-        var _s:GoInt = _mant._bitLen() - (((_x.value._prec + ((1 : GoUInt32))) : GoInt));
+        var _mant:T_nat = (((new T_nat() : T_nat))._set((_x._mant == null ? null : _x._mant.__copy__())) == null ? null : ((new T_nat() : T_nat))._set((_x._mant == null ? null : _x._mant.__copy__())).__copy__());
+        var _exp:GoInt = ((_x._exp : GoInt)) - _mant._bitLen();
+        var _s:GoInt = _mant._bitLen() - (((_x._prec + ((1 : GoUInt32))) : GoInt));
         if (_s < ((0 : GoInt))) {
-            _mant = _mant._shl(_mant.__copy__(), ((-_s : GoUInt))).__copy__();
+            _mant = (_mant._shl((_mant == null ? null : _mant.__copy__()), ((-_s : GoUInt))) == null ? null : _mant._shl((_mant == null ? null : _mant.__copy__()), ((-_s : GoUInt))).__copy__());
         } else if (_s > ((0 : GoInt))) {
-            _mant = _mant._shr(_mant.__copy__(), ((_s : GoUInt))).__copy__();
+            _mant = (_mant._shr((_mant == null ? null : _mant.__copy__()), ((_s : GoUInt))) == null ? null : _mant._shr((_mant == null ? null : _mant.__copy__()), ((_s : GoUInt))).__copy__());
         };
         _exp = _exp + (_s);
         var _lower:T_decimal = new T_decimal();
         var _tmp:T_nat = new T_nat();
-        _lower._init(_tmp._sub(_mant.__copy__(), _natOne.__copy__()).__copy__(), _exp);
+        _lower._init((_tmp._sub((_mant == null ? null : _mant.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _tmp._sub((_mant == null ? null : _mant.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__()), _exp);
         var _upper:T_decimal = new T_decimal();
-        _upper._init(_tmp._add(_mant.__copy__(), _natOne.__copy__()).__copy__(), _exp);
-        var _inclusive:Bool = new Word(_mant.__t__[((0 : GoInt))].__t__ & ((2 : GoUInt))).__t__ == ((0 : GoUInt));
-        for (_i => _m in _d.value._mant) {
+        _upper._init((_tmp._add((_mant == null ? null : _mant.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : _tmp._add((_mant == null ? null : _mant.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__()), _exp);
+        var _inclusive:Bool = ((_mant != null ? _mant[((0 : GoInt))] : new Word()) & ((2 : GoUInt))) == ((0 : GoUInt));
+        for (_i => _m in _d._mant) {
             var _l:GoUInt8 = _lower._at(_i);
             var _u:GoUInt8 = _upper._at(_i);
-            var _okdown:Bool = (_l != _m) || (_inclusive && ((_i + ((1 : GoInt))) == _lower._mant.length));
-            var _okup:Bool = (_m != _u) && ((_inclusive || ((_m + ((1 : GoUInt8))) < _u)) || ((_i + ((1 : GoInt))) < _upper._mant.length));
+            var _okdown:Bool = (_l != _m) || (_inclusive && ((_i + ((1 : GoInt))) == (_lower._mant != null ? _lower._mant.length : ((0 : GoInt)))));
+            var _okup:Bool = (_m != _u) && ((_inclusive || ((_m + ((1 : GoUInt8))) < _u)) || ((_i + ((1 : GoInt))) < (_upper._mant != null ? _upper._mant.length : ((0 : GoInt)))));
             if (_okdown && _okup) {
-                _d.value._round(_i + ((1 : GoInt)));
+                _d._round(_i + ((1 : GoInt)));
                 return;
             } else if (_okdown) {
-                _d.value._roundDown(_i + ((1 : GoInt)));
+                _d._roundDown(_i + ((1 : GoInt)));
                 return;
             } else if (_okup) {
-                _d.value._roundUp(_i + ((1 : GoInt)));
+                _d._roundUp(_i + ((1 : GoInt)));
                 return;
             };
         };
@@ -5696,25 +4135,25 @@ function _roundShortest(_d:Pointer<T_decimal>, _x:Pointer<Float_>):Void {
 **/
 function _fmtE(_buf:Slice<GoByte>, _fmt:GoByte, _prec:GoInt, _d:T_decimal):Slice<GoByte> {
         var _ch:GoUInt8 = ((((((("0" : GoString))).code : GoRune)) : GoByte));
-        if (_d._mant.length > ((0 : GoInt))) {
-            _ch = _d._mant[((0 : GoInt))];
+        if ((_d._mant != null ? _d._mant.length : ((0 : GoInt))) > ((0 : GoInt))) {
+            _ch = (_d._mant != null ? _d._mant[((0 : GoInt))] : ((0 : GoUInt8)));
         };
-        _buf = _buf.__append__(_ch);
+        _buf = (_buf != null ? _buf.__append__(_ch) : new Slice<GoUInt8>(_ch));
         if (_prec > ((0 : GoInt))) {
-            _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
             var _i:GoInt = ((1 : GoInt));
-            var _m:GoInt = _min(_d._mant.length, _prec + ((1 : GoInt)));
+            var _m:GoInt = _min((_d._mant != null ? _d._mant.length : ((0 : GoInt))), _prec + ((1 : GoInt)));
             if (_i < _m) {
-                _buf = _buf.__append__(..._d._mant.__slice__(_i, _m).toArray());
+                _buf = (_buf != null ? _buf.__append__(..._d._mant.__slice__(_i, _m).__toArray__()) : new Slice<GoUInt8>(..._d._mant.__slice__(_i, _m).__toArray__()));
                 _i = _m;
             };
             Go.cfor(_i <= _prec, _i++, {
-                _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+                _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
             });
         };
-        _buf = _buf.__append__(_fmt);
+        _buf = (_buf != null ? _buf.__append__(_fmt) : new Slice<GoUInt8>(_fmt));
         var _exp:GoInt64 = ((0 : GoInt64));
-        if (_d._mant.length > ((0 : GoInt))) {
+        if ((_d._mant != null ? _d._mant.length : ((0 : GoInt))) > ((0 : GoInt))) {
             _exp = ((_d._exp : GoInt64)) - ((1 : GoInt64));
         };
         if (_exp < ((0 : GoInt64))) {
@@ -5723,9 +4162,9 @@ function _fmtE(_buf:Slice<GoByte>, _fmt:GoByte, _prec:GoInt, _d:T_decimal):Slice
         } else {
             _ch = ((((("+" : GoString))).code : GoRune));
         };
-        _buf = _buf.__append__(_ch);
+        _buf = (_buf != null ? _buf.__append__(_ch) : new Slice<GoUInt8>(_ch));
         if (_exp < ((10 : GoInt64))) {
-            _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         };
         return stdgo.strconv.Strconv.appendInt(_buf, _exp, ((10 : GoInt)));
     }
@@ -5734,20 +4173,20 @@ function _fmtE(_buf:Slice<GoByte>, _fmt:GoByte, _prec:GoInt, _d:T_decimal):Slice
 **/
 function _fmtF(_buf:Slice<GoByte>, _prec:GoInt, _d:T_decimal):Slice<GoByte> {
         if (_d._exp > ((0 : GoInt))) {
-            var _m:GoInt = _min(_d._mant.length, _d._exp);
-            _buf = _buf.__append__(..._d._mant.__slice__(0, _m).toArray());
+            var _m:GoInt = _min((_d._mant != null ? _d._mant.length : ((0 : GoInt))), _d._exp);
+            _buf = (_buf != null ? _buf.__append__(..._d._mant.__slice__(0, _m).__toArray__()) : new Slice<GoUInt8>(..._d._mant.__slice__(0, _m).__toArray__()));
             Go.cfor(_m < _d._exp, _m++, {
-                _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+                _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
             });
         } else {
-            _buf = _buf.__append__(((((("0" : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("0" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("0" : GoString))).code : GoRune))));
         };
         if (_prec > ((0 : GoInt))) {
-            _buf = _buf.__append__(((((("." : GoString))).code : GoRune)));
+            _buf = (_buf != null ? _buf.__append__(((((("." : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("." : GoString))).code : GoRune))));
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < _prec, _i++, {
-                    _buf = _buf.__append__(_d._at(_d._exp + _i));
+                    _buf = (_buf != null ? _buf.__append__(_d._at(_d._exp + _i)) : new Slice<GoUInt8>(_d._at(_d._exp + _i)));
                 });
             };
         };
@@ -5762,28 +4201,28 @@ function _min(_x:GoInt, _y:GoInt):GoInt {
 /**
     // NewInt allocates and returns a new Int set to x.
 **/
-function newInt(_x:GoInt64):Pointer<Int_> {
-        return Go.pointer(new Int_()).value.setInt64(_x);
+function newInt(_x:GoInt64):Int_ {
+        return Go.pointer(new Int_()).setInt64(_x);
     }
 /**
     // low32 returns the least significant 32 bits of x.
 **/
 function _low32(_x:T_nat):GoUInt32 {
-        if (_x.__t__.length == ((0 : GoInt))) {
+        if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return ((0 : GoUInt32));
         };
-        return _x.__t__[((0 : GoInt))].__t__;
+        return (((_x != null ? _x[((0 : GoInt))] : new Word()) : GoUInt32));
     }
 /**
     // low64 returns the least significant 64 bits of x.
 **/
 function _low64(_x:T_nat):GoUInt64 {
-        if (_x.__t__.length == ((0 : GoInt))) {
+        if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return ((0 : GoUInt64));
         };
-        var _v:GoUInt64 = _x.__t__[((0 : GoInt))].__t__;
-        if (true && (_x.__t__.length > ((1 : GoInt)))) {
-            return (_x.__t__[((1 : GoInt))].__t__ << ((32 : GoUnTypedInt))) | _v;
+        var _v:GoUInt64 = (((_x != null ? _x[((0 : GoInt))] : new Word()) : GoUInt64));
+        if (true && ((_x != null ? _x.length : ((0 : GoInt))) > ((1 : GoInt)))) {
+            return ((((_x != null ? _x[((1 : GoInt))] : new Word()) : GoUInt64)) << ((32 : GoUnTypedInt))) | _v;
         };
         return _v;
     }
@@ -5799,39 +4238,39 @@ function _low64(_x:T_nat):GoUInt64 {
     // For even iterations: u0, v1 >= 0 && u1, v0 <= 0
     // For odd  iterations: u0, v1 <= 0 && u1, v0 >= 0
 **/
-function _lehmerSimulate(a:Pointer<Int_>, b:Pointer<Int_>):{ var _0 : Word; var _1 : Word; var _2 : Word; var _3 : Word; var _4 : Bool; } {
+function _lehmerSimulate(a:Int_, b:Int_):{ var _0 : Word; var _1 : Word; var _2 : Word; var _3 : Word; var _4 : Bool; } {
         var _u0:Word = new Word(), _u1:Word = new Word(), _v0:Word = new Word(), _v1:Word = new Word(), _even:Bool = false;
         var _a1:Word = new Word(), _a2:Word = new Word(), _u2:Word = new Word(), _v2:Word = new Word();
-        var _m:GoInt = b.value._abs.__t__.length;
-        var _n:GoInt = a.value._abs.__t__.length;
-        var _h:GoUInt = _nlz(a.value._abs.__t__[_n - ((1 : GoInt))]);
-        _a1 = new Word(new Word(a.value._abs.__t__[_n - ((1 : GoInt))].__t__ << _h).__t__ | new Word(a.value._abs.__t__[_n - ((2 : GoInt))].__t__ >> (((32 : GoUInt)) - _h)).__t__);
+        var _m:GoInt = (b._abs != null ? b._abs.length : ((0 : GoInt)));
+        var _n:GoInt = (a._abs != null ? a._abs.length : ((0 : GoInt)));
+        var _h:GoUInt = _nlz((a._abs != null ? a._abs[_n - ((1 : GoInt))] : new Word()));
+        _a1 = ((a._abs != null ? a._abs[_n - ((1 : GoInt))] : new Word()) << _h) | ((a._abs != null ? a._abs[_n - ((2 : GoInt))] : new Word()) >> (((32 : GoUInt)) - _h));
         if (_n == _m) {
-            _a2 = new Word(new Word(b.value._abs.__t__[_n - ((1 : GoInt))].__t__ << _h).__t__ | new Word(b.value._abs.__t__[_n - ((2 : GoInt))].__t__ >> (((32 : GoUInt)) - _h)).__t__);
+            _a2 = ((b._abs != null ? b._abs[_n - ((1 : GoInt))] : new Word()) << _h) | ((b._abs != null ? b._abs[_n - ((2 : GoInt))] : new Word()) >> (((32 : GoUInt)) - _h));
         } else if (_n == (_m + ((1 : GoInt)))) {
-            _a2 = new Word(b.value._abs.__t__[_n - ((2 : GoInt))].__t__ >> (((32 : GoUInt)) - _h));
+            _a2 = (b._abs != null ? b._abs[_n - ((2 : GoInt))] : new Word()) >> (((32 : GoUInt)) - _h);
         } else {
-            _a2 = new Word(((0 : GoUInt)));
+            _a2 = ((0 : GoUInt));
         };
         _even = false;
         {
-            final __tmp__0 = new Word(((0 : GoUInt)));
-            final __tmp__1 = new Word(((1 : GoUInt)));
-            final __tmp__2 = new Word(((0 : GoUInt)));
+            final __tmp__0 = ((0 : GoUInt));
+            final __tmp__1 = ((1 : GoUInt));
+            final __tmp__2 = ((0 : GoUInt));
             _u0 = __tmp__0;
             _u1 = __tmp__1;
             _u2 = __tmp__2;
         };
         {
-            final __tmp__0 = new Word(((0 : GoUInt)));
-            final __tmp__1 = new Word(((0 : GoUInt)));
-            final __tmp__2 = new Word(((1 : GoUInt)));
+            final __tmp__0 = ((0 : GoUInt));
+            final __tmp__1 = ((0 : GoUInt));
+            final __tmp__2 = ((1 : GoUInt));
             _v0 = __tmp__0;
             _v1 = __tmp__1;
             _v2 = __tmp__2;
         };
-        while ((_a2.__t__ >= _v2.__t__) && (new Word(_a1.__t__ - _a2.__t__).__t__ >= new Word(_v1.__t__ + _v2.__t__).__t__)) {
-            var _q:Word = new Word(_a1.__t__ / _a2.__t__), _r:Word = new Word(_a1.__t__ % _a2.__t__);
+        while ((_a2 >= _v2) && ((_a1 - _a2) >= (_v1 + _v2))) {
+            var _q:Word = _a1 / _a2, _r:Word = _a1 % _a2;
             {
                 final __tmp__0 = _a2;
                 final __tmp__1 = _r;
@@ -5841,7 +4280,7 @@ function _lehmerSimulate(a:Pointer<Int_>, b:Pointer<Int_>):{ var _0 : Word; var 
             {
                 final __tmp__0 = _u1;
                 final __tmp__1 = _u2;
-                final __tmp__2 = new Word(_u1.__t__ + new Word(_q.__t__ * _u2.__t__).__t__);
+                final __tmp__2 = _u1 + (_q * _u2);
                 _u0 = __tmp__0;
                 _u1 = __tmp__1;
                 _u2 = __tmp__2;
@@ -5849,7 +4288,7 @@ function _lehmerSimulate(a:Pointer<Int_>, b:Pointer<Int_>):{ var _0 : Word; var 
             {
                 final __tmp__0 = _v1;
                 final __tmp__1 = _v2;
-                final __tmp__2 = new Word(_v1.__t__ + new Word(_q.__t__ * _v2.__t__).__t__);
+                final __tmp__2 = _v1 + (_q * _v2);
                 _v0 = __tmp__0;
                 _v1 = __tmp__1;
                 _v2 = __tmp__2;
@@ -5867,53 +4306,50 @@ function _lehmerSimulate(a:Pointer<Int_>, b:Pointer<Int_>):{ var _0 : Word; var 
     // For even == false: u0, v1 <= 0 && u1, v0 >= 0
     // q, r, s, t are temporary variables to avoid allocations in the multiplication
 **/
-function _lehmerUpdate(a:Pointer<Int_>, b:Pointer<Int_>, _q:Pointer<Int_>, _r:Pointer<Int_>, _s:Pointer<Int_>, _t:Pointer<Int_>, _u0:Word, _u1:Word, _v0:Word, _v1:Word, _even:Bool):Void {
-        _t.value._abs = _t.value._abs._setWord(_u0).__copy__();
-        _s.value._abs = _s.value._abs._setWord(_v0).__copy__();
-        _t.value._neg = !_even;
-        _s.value._neg = _even;
-        _t.value.mul(a, _t);
-        _s.value.mul(b, _s);
-        _r.value._abs = _r.value._abs._setWord(_u1).__copy__();
-        _q.value._abs = _q.value._abs._setWord(_v1).__copy__();
-        _r.value._neg = _even;
-        _q.value._neg = !_even;
-        _r.value.mul(a, _r);
-        _q.value.mul(b, _q);
-        a.value.add(_t, _s);
-        b.value.add(_r, _q);
+function _lehmerUpdate(a:Int_, b:Int_, _q:Int_, _r:Int_, _s:Int_, _t:Int_, _u0:Word, _u1:Word, _v0:Word, _v1:Word, _even:Bool):Void {
+        _t._abs = (_t._abs._setWord(_u0) == null ? null : _t._abs._setWord(_u0).__copy__());
+        _s._abs = (_s._abs._setWord(_v0) == null ? null : _s._abs._setWord(_v0).__copy__());
+        _t._neg = !_even;
+        _s._neg = _even;
+        _t.mul(a, _t);
+        _s.mul(b, _s);
+        _r._abs = (_r._abs._setWord(_u1) == null ? null : _r._abs._setWord(_u1).__copy__());
+        _q._abs = (_q._abs._setWord(_v1) == null ? null : _q._abs._setWord(_v1).__copy__());
+        _r._neg = _even;
+        _q._neg = !_even;
+        _r.mul(a, _r);
+        _q.mul(b, _q);
+        a.add(_t, _s);
+        b.add(_r, _q);
     }
 /**
     // euclidUpdate performs a single step of the Euclidean GCD algorithm
     // if extended is true, it also updates the cosequence Ua, Ub
 **/
-function _euclidUpdate(a:Pointer<Int_>, b:Pointer<Int_>, ua:Pointer<Int_>, ub:Pointer<Int_>, _q:Pointer<Int_>, _r:Pointer<Int_>, _s:Pointer<Int_>, _t:Pointer<Int_>, _extended:Bool):Void {
+function _euclidUpdate(a:Int_, b:Int_, ua:Int_, ub:Int_, _q:Int_, _r:Int_, _s:Int_, _t:Int_, _extended:Bool):Void {
         {
-            var __tmp__ = _q.value.quoRem(a, b, _r);
+            var __tmp__ = _q.quoRem(a, b, _r);
             _q = __tmp__._0;
             _r = __tmp__._1;
         };
         {
-            final __tmp__0 = b.value.__copy__();
-            final __tmp__1 = _r.value.__copy__();
-            final __tmp__2 = a.value.__copy__();
-            a.value = __tmp__0;
-            b.value = __tmp__1;
-            _r.value = __tmp__2;
+            var __tmp__ = (b == null ? null : b.__copy__());
+            a._neg = __tmp__._neg;
+            a._abs = __tmp__._abs;
         };
         if (_extended) {
-            _t.value.set(ub);
-            _s.value.mul(ub, _q);
-            ub.value.sub(ua, _s);
-            ua.value.set(_t);
+            _t.set(ub);
+            _s.mul(ub, _q);
+            ub.sub(ua, _s);
+            ua.set(_t);
         };
     }
 /**
     // Jacobi returns the Jacobi symbol (x/y), either +1, -1, or 0.
     // The y argument must be an odd integer.
 **/
-function jacobi(_x:Pointer<Int_>, _y:Pointer<Int_>):GoInt {
-        if ((_y.value._abs.__t__.length == ((0 : GoInt))) || (new Word(_y.value._abs.__t__[((0 : GoInt))].__t__ & ((1 : GoUInt))).__t__ == ((0 : GoUInt)))) {
+function jacobi(_x:Int_, _y:Int_):GoInt {
+        if (((_y._abs != null ? _y._abs.length : ((0 : GoInt))) == ((0 : GoInt))) || (((_y._abs != null ? _y._abs[((0 : GoInt))] : new Word()) & ((1 : GoUInt))) == ((0 : GoUInt)))) {
             throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((("big: invalid 2nd argument to Int.Jacobi: need odd integer but got %s" : GoString))), Go.toInterface(_y)));
         };
         var _a:Int_ = new Int_(), _b:Int_ = new Int_(), _c:Int_ = new Int_();
@@ -5930,33 +4366,33 @@ function jacobi(_x:Pointer<Int_>, _y:Pointer<Int_>):GoInt {
             if (_b.cmp(_intOne) == ((0 : GoInt))) {
                 return _j;
             };
-            if (_a._abs.__t__.length == ((0 : GoInt))) {
+            if ((_a._abs != null ? _a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
                 return ((0 : GoInt));
             };
-            _a.mod(Go.pointer(_a), Go.pointer(_b));
-            if (_a._abs.__t__.length == ((0 : GoInt))) {
+            _a.mod(_a, _b);
+            if ((_a._abs != null ? _a._abs.length : ((0 : GoInt))) == ((0 : GoInt))) {
                 return ((0 : GoInt));
             };
             var _s:GoUInt = _a._abs._trailingZeroBits();
             if ((_s & ((1 : GoUInt))) != ((0 : GoUInt))) {
-                var _bmod8:Word = new Word(_b._abs.__t__[((0 : GoInt))].__t__ & ((7 : GoUInt)));
-                if ((_bmod8.__t__ == ((3 : GoUInt))) || (_bmod8.__t__ == ((5 : GoUInt)))) {
+                var _bmod8:Word = (_b._abs != null ? _b._abs[((0 : GoInt))] : new Word()) & ((7 : GoUInt));
+                if ((_bmod8 == ((3 : GoUInt))) || (_bmod8 == ((5 : GoUInt)))) {
                     _j = -_j;
                 };
             };
-            _c.rsh(Go.pointer(_a), _s);
-            if ((new Word(_b._abs.__t__[((0 : GoInt))].__t__ & ((3 : GoUInt))).__t__ == ((3 : GoUInt))) && (new Word(_c._abs.__t__[((0 : GoInt))].__t__ & ((3 : GoUInt))).__t__ == ((3 : GoUInt)))) {
+            _c.rsh(_a, _s);
+            if ((((_b._abs != null ? _b._abs[((0 : GoInt))] : new Word()) & ((3 : GoUInt))) == ((3 : GoUInt))) && (((_c._abs != null ? _c._abs[((0 : GoInt))] : new Word()) & ((3 : GoUInt))) == ((3 : GoUInt)))) {
                 _j = -_j;
             };
-            _a.set(Go.pointer(_b));
-            _b.set(Go.pointer(_c));
+            _a.set(_b);
+            _b.set(_c);
         };
     }
 /**
     // write count copies of text to s
 **/
 function _writeMultiple(_s:stdgo.fmt.Fmt.State, _text:GoString, _count:GoInt):Void {
-        if (_text.length > ((0 : GoInt))) {
+        if ((_text != null ? _text.length : ((0 : GoInt))) > ((0 : GoInt))) {
             var _b:Slice<GoUInt8> = ((_text : Slice<GoByte>));
             Go.cfor(_count > ((0 : GoInt)), _count--, {
                 _s.write(_b);
@@ -5972,7 +4408,7 @@ function _scanSign(_r:stdgo.io.Io.ByteScanner):{ var _0 : Bool; var _1 : Error; 
                 _ch = __tmp__._0;
                 _err = __tmp__._1;
             };
-            if (Go.toInterface(_err) != Go.toInterface(null)) {
+            if (_err != null) {
                 return { _0 : false, _1 : _err };
             };
         };
@@ -5988,10 +4424,10 @@ function _scanSign(_r:stdgo.io.Io.ByteScanner):{ var _0 : Bool; var _1 : Error; 
     // The (non-normalized) result is placed in z[0 : len(x) + len(y)].
 **/
 function _basicMul(_z:T_nat, _x:T_nat, _y:T_nat):Void {
-        _z.__slice__(((0 : GoInt)), _x.__t__.length + _y.__t__.length)._clear();
-        for (_i => _d in _y.__t__) {
-            if (_d.__t__ != ((0 : GoUInt))) {
-                _z.__t__[_x.__t__.length + _i] = _addMulVVW(_z.__slice__(_i, _i + _x.__t__.length).__copy__().__t__, _x.__copy__().__t__, _d);
+        _z.__slice__(((0 : GoInt)), (_x != null ? _x.length : ((0 : GoInt))) + (_y != null ? _y.length : ((0 : GoInt))))._clear();
+        for (_i => _d in _y) {
+            if (_d != ((0 : GoUInt))) {
+                if (_z != null) _z[(_x != null ? _x.length : ((0 : GoInt))) + _i] = _addMulVVW(_z.__slice__(_i, _i + (_x != null ? _x.length : ((0 : GoInt)))), _x, _d);
             };
         };
     }
@@ -6001,9 +4437,9 @@ function _basicMul(_z:T_nat, _x:T_nat, _y:T_nat):Void {
 **/
 function _karatsubaAdd(_z:T_nat, _x:T_nat, _n:GoInt):Void {
         {
-            var _c:Word = _addVV(_z.__slice__(((0 : GoInt)), _n).__copy__().__t__, _z.__copy__().__t__, _x.__copy__().__t__);
-            if (_c.__t__ != ((0 : GoUInt))) {
-                _addVW(_z.__slice__(_n, _n + (_n >> ((1 : GoUnTypedInt)))).__copy__().__t__, _z.__slice__(_n).__copy__().__t__, _c);
+            var _c:Word = _addVV(_z.__slice__(((0 : GoInt)), _n), _z, _x);
+            if (_c != ((0 : GoUInt))) {
+                _addVW(_z.__slice__(_n, _n + (_n >> ((1 : GoUnTypedInt)))), _z.__slice__(_n), _c);
             };
         };
     }
@@ -6012,9 +4448,9 @@ function _karatsubaAdd(_z:T_nat, _x:T_nat, _n:GoInt):Void {
 **/
 function _karatsubaSub(_z:T_nat, _x:T_nat, _n:GoInt):Void {
         {
-            var _c:Word = _subVV(_z.__slice__(((0 : GoInt)), _n).__copy__().__t__, _z.__copy__().__t__, _x.__copy__().__t__);
-            if (_c.__t__ != ((0 : GoUInt))) {
-                _subVW(_z.__slice__(_n, _n + (_n >> ((1 : GoUnTypedInt)))).__copy__().__t__, _z.__slice__(_n).__copy__().__t__, _c);
+            var _c:Word = _subVV(_z.__slice__(((0 : GoInt)), _n), _z, _x);
+            if (_c != ((0 : GoUInt))) {
+                _subVW(_z.__slice__(_n, _n + (_n >> ((1 : GoUnTypedInt)))), _z.__slice__(_n), _c);
             };
         };
     }
@@ -6025,37 +4461,37 @@ function _karatsubaSub(_z:T_nat, _x:T_nat, _n:GoInt):Void {
     // The (non-normalized) result is placed in z[0 : 2*n].
 **/
 function _karatsuba(_z:T_nat, _x:T_nat, _y:T_nat):Void {
-        var _n:GoInt = _y.__t__.length;
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
         if ((((_n & ((1 : GoInt))) != ((0 : GoInt))) || (_n < _karatsubaThreshold)) || (_n < ((2 : GoInt)))) {
-            _basicMul(_z.__copy__(), _x.__copy__(), _y.__copy__());
+            _basicMul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()));
             return;
         };
         var _n2:GoInt = _n >> ((1 : GoUnTypedInt));
-        var _x1:T_nat = _x.__slice__(_n2).__copy__(), _x0:T_nat = _x.__slice__(((0 : GoInt)), _n2).__copy__();
-        var _y1:T_nat = _y.__slice__(_n2).__copy__(), _y0:T_nat = _y.__slice__(((0 : GoInt)), _n2).__copy__();
-        _karatsuba(_z.__copy__(), _x0.__copy__(), _y0.__copy__());
-        _karatsuba(_z.__slice__(_n).__copy__(), _x1.__copy__(), _y1.__copy__());
+        var _x1:T_nat = (_x.__slice__(_n2) == null ? null : _x.__slice__(_n2).__copy__()), _x0:T_nat = (_x.__slice__(((0 : GoInt)), _n2) == null ? null : _x.__slice__(((0 : GoInt)), _n2).__copy__());
+        var _y1:T_nat = (_y.__slice__(_n2) == null ? null : _y.__slice__(_n2).__copy__()), _y0:T_nat = (_y.__slice__(((0 : GoInt)), _n2) == null ? null : _y.__slice__(((0 : GoInt)), _n2).__copy__());
+        _karatsuba((_z == null ? null : _z.__copy__()), (_x0 == null ? null : _x0.__copy__()), (_y0 == null ? null : _y0.__copy__()));
+        _karatsuba((_z.__slice__(_n) == null ? null : _z.__slice__(_n).__copy__()), (_x1 == null ? null : _x1.__copy__()), (_y1 == null ? null : _y1.__copy__()));
         var _s:GoInt = ((1 : GoInt));
-        var _xd:T_nat = _z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2).__copy__();
-        if (_subVV(_xd.__copy__().__t__, _x1.__copy__().__t__, _x0.__copy__().__t__).__t__ != ((0 : GoUInt))) {
+        var _xd:T_nat = (_z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2) == null ? null : _z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2).__copy__());
+        if (_subVV(_xd, _x1, _x0) != ((0 : GoUInt))) {
             _s = -_s;
-            _subVV(_xd.__copy__().__t__, _x0.__copy__().__t__, _x1.__copy__().__t__);
+            _subVV(_xd, _x0, _x1);
         };
-        var _yd:T_nat = _z.__slice__((((2 : GoInt)) * _n) + _n2, ((3 : GoInt)) * _n).__copy__();
-        if (_subVV(_yd.__copy__().__t__, _y0.__copy__().__t__, _y1.__copy__().__t__).__t__ != ((0 : GoUInt))) {
+        var _yd:T_nat = (_z.__slice__((((2 : GoInt)) * _n) + _n2, ((3 : GoInt)) * _n) == null ? null : _z.__slice__((((2 : GoInt)) * _n) + _n2, ((3 : GoInt)) * _n).__copy__());
+        if (_subVV(_yd, _y0, _y1) != ((0 : GoUInt))) {
             _s = -_s;
-            _subVV(_yd.__copy__().__t__, _y1.__copy__().__t__, _y0.__copy__().__t__);
+            _subVV(_yd, _y1, _y0);
         };
-        var _p:T_nat = _z.__slice__(_n * ((3 : GoInt))).__copy__();
-        _karatsuba(_p.__copy__(), _xd.__copy__(), _yd.__copy__());
-        var _r:T_nat = _z.__slice__(_n * ((4 : GoInt))).__copy__();
+        var _p:T_nat = (_z.__slice__(_n * ((3 : GoInt))) == null ? null : _z.__slice__(_n * ((3 : GoInt))).__copy__());
+        _karatsuba((_p == null ? null : _p.__copy__()), (_xd == null ? null : _xd.__copy__()), (_yd == null ? null : _yd.__copy__()));
+        var _r:T_nat = (_z.__slice__(_n * ((4 : GoInt))) == null ? null : _z.__slice__(_n * ((4 : GoInt))).__copy__());
         Go.copy(_r, _z.__slice__(0, _n * ((2 : GoInt))));
-        _karatsubaAdd(_z.__slice__(_n2).__copy__(), _r.__copy__(), _n);
-        _karatsubaAdd(_z.__slice__(_n2).__copy__(), _r.__slice__(_n).__copy__(), _n);
+        _karatsubaAdd((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_r == null ? null : _r.__copy__()), _n);
+        _karatsubaAdd((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_r.__slice__(_n) == null ? null : _r.__slice__(_n).__copy__()), _n);
         if (_s > ((0 : GoInt))) {
-            _karatsubaAdd(_z.__slice__(_n2).__copy__(), _p.__copy__(), _n);
+            _karatsubaAdd((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_p == null ? null : _p.__copy__()), _n);
         } else {
-            _karatsubaSub(_z.__slice__(_n2).__copy__(), _p.__copy__(), _n);
+            _karatsubaSub((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_p == null ? null : _p.__copy__()), _n);
         };
     }
 /**
@@ -6066,7 +4502,7 @@ function _karatsuba(_z:T_nat, _x:T_nat, _y:T_nat):Void {
     //       reflect-based operations to the same effect).
 **/
 function _alias(_x:T_nat, _y:T_nat):Bool {
-        return ((_x.__t__.cap() > ((0 : GoInt))) && (_y.__t__.cap() > ((0 : GoInt)))) && (Go.pointer(_x.__slice__(((0 : GoInt)), _x.__t__.cap()).__t__[_x.__t__.cap() - ((1 : GoInt))]) == Go.pointer(_y.__slice__(((0 : GoInt)), _y.__t__.cap()).__t__[_y.__t__.cap() - ((1 : GoInt))]));
+        return (((_x != null ? _x.cap() : ((0 : GoInt))) > ((0 : GoInt))) && ((_y != null ? _y.cap() : ((0 : GoInt))) > ((0 : GoInt)))) && (Go.pointer((_x.__slice__(((0 : GoInt)), (_x != null ? _x.cap() : ((0 : GoInt)))) != null ? _x.__slice__(((0 : GoInt)), (_x != null ? _x.cap() : ((0 : GoInt))))[(_x != null ? _x.cap() : ((0 : GoInt))) - ((1 : GoInt))] : new Word())) == Go.pointer((_y.__slice__(((0 : GoInt)), (_y != null ? _y.cap() : ((0 : GoInt)))) != null ? _y.__slice__(((0 : GoInt)), (_y != null ? _y.cap() : ((0 : GoInt))))[(_y != null ? _y.cap() : ((0 : GoInt))) - ((1 : GoInt))] : new Word())));
     }
 /**
     // addAt implements z += x<<(_W*i); z must be long enough.
@@ -6075,14 +4511,14 @@ function _alias(_x:T_nat, _y:T_nat):Bool {
 **/
 function _addAt(_z:T_nat, _x:T_nat, _i:GoInt):Void {
         {
-            var _n:GoInt = _x.__t__.length;
+            var _n:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
             if (_n > ((0 : GoInt))) {
                 {
-                    var _c:Word = _addVV(_z.__slice__(_i, _i + _n).__copy__().__t__, _z.__slice__(_i).__copy__().__t__, _x.__copy__().__t__);
-                    if (_c.__t__ != ((0 : GoUInt))) {
+                    var _c:Word = _addVV(_z.__slice__(_i, _i + _n), _z.__slice__(_i), _x);
+                    if (_c != ((0 : GoUInt))) {
                         var _j:GoInt = _i + _n;
-                        if (_j < _z.__t__.length) {
-                            _addVW(_z.__slice__(_j).__copy__().__t__, _z.__slice__(_j).__copy__().__t__, _c);
+                        if (_j < (_z != null ? _z.length : ((0 : GoInt)))) {
+                            _addVW(_z.__slice__(_j), _z.__slice__(_j), _c);
                         };
                     };
                 };
@@ -6116,29 +4552,29 @@ function _karatsubaLen(_n:GoInt, _threshold:GoInt):GoInt {
     // The (non-normalized) result is placed in z.
 **/
 function _basicSqr(_z:T_nat, _x:T_nat):Void {
-        var _n:GoInt = _x.__t__.length;
-        var _tp:Pointer<T_nat> = _getNat(((2 : GoInt)) * _n);
-        var _t:T_nat = _tp.value.__copy__();
+        var _n:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _tp:T_nat = _getNat(((2 : GoInt)) * _n);
+        var _t:T_nat = (_tp == null ? null : _tp.__copy__());
         _t._clear();
         {
-            var __tmp__ = _mulWW(_x.__t__[((0 : GoInt))], _x.__t__[((0 : GoInt))]);
-            _z.__t__[((1 : GoInt))] = __tmp__._0;
-            _z.__t__[((0 : GoInt))] = __tmp__._1;
+            var __tmp__ = _mulWW((_x != null ? _x[((0 : GoInt))] : new Word()), (_x != null ? _x[((0 : GoInt))] : new Word()));
+            (_z != null ? _z[((1 : GoInt))] : new Word()) = __tmp__._0;
+            (_z != null ? _z[((0 : GoInt))] : new Word()) = __tmp__._1;
         };
         {
             var _i:GoInt = ((1 : GoInt));
             Go.cfor(_i < _n, _i++, {
-                var _d:Word = _x.__t__[_i];
+                var _d:Word = (_x != null ? _x[_i] : new Word());
                 {
                     var __tmp__ = _mulWW(_d, _d);
-                    _z.__t__[(((2 : GoInt)) * _i) + ((1 : GoInt))] = __tmp__._0;
-                    _z.__t__[((2 : GoInt)) * _i] = __tmp__._1;
+                    (_z != null ? _z[(((2 : GoInt)) * _i) + ((1 : GoInt))] : new Word()) = __tmp__._0;
+                    (_z != null ? _z[((2 : GoInt)) * _i] : new Word()) = __tmp__._1;
                 };
-                _t.__t__[((2 : GoInt)) * _i] = _addMulVVW(_t.__slice__(_i, ((2 : GoInt)) * _i).__copy__().__t__, _x.__slice__(((0 : GoInt)), _i).__copy__().__t__, _d);
+                if (_t != null) _t[((2 : GoInt)) * _i] = _addMulVVW(_t.__slice__(_i, ((2 : GoInt)) * _i), _x.__slice__(((0 : GoInt)), _i), _d);
             });
         };
-        _t.__t__[(((2 : GoInt)) * _n) - ((1 : GoInt))] = _shlVU(_t.__slice__(((1 : GoInt)), (((2 : GoInt)) * _n) - ((1 : GoInt))).__copy__().__t__, _t.__slice__(((1 : GoInt)), (((2 : GoInt)) * _n) - ((1 : GoInt))).__copy__().__t__, ((1 : GoUInt)));
-        _addVV(_z.__copy__().__t__, _z.__copy__().__t__, _t.__copy__().__t__);
+        if (_t != null) _t[(((2 : GoInt)) * _n) - ((1 : GoInt))] = _shlVU(_t.__slice__(((1 : GoInt)), (((2 : GoInt)) * _n) - ((1 : GoInt))), _t.__slice__(((1 : GoInt)), (((2 : GoInt)) * _n) - ((1 : GoInt))), ((1 : GoUInt)));
+        _addVV(_z, _z, _t);
         _putNat(_tp);
     }
 /**
@@ -6149,59 +4585,59 @@ function _basicSqr(_z:T_nat, _x:T_nat):Void {
     // The algorithm and the layout of z are the same as for karatsuba.
 **/
 function _karatsubaSqr(_z:T_nat, _x:T_nat):Void {
-        var _n:GoInt = _x.__t__.length;
+        var _n:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
         if ((((_n & ((1 : GoInt))) != ((0 : GoInt))) || (_n < _karatsubaSqrThreshold)) || (_n < ((2 : GoInt)))) {
-            _basicSqr(_z.__slice__(0, ((2 : GoInt)) * _n).__copy__(), _x.__copy__());
+            _basicSqr((_z.__slice__(0, ((2 : GoInt)) * _n) == null ? null : _z.__slice__(0, ((2 : GoInt)) * _n).__copy__()), (_x == null ? null : _x.__copy__()));
             return;
         };
         var _n2:GoInt = _n >> ((1 : GoUnTypedInt));
-        var _x1:T_nat = _x.__slice__(_n2).__copy__(), _x0:T_nat = _x.__slice__(((0 : GoInt)), _n2).__copy__();
-        _karatsubaSqr(_z.__copy__(), _x0.__copy__());
-        _karatsubaSqr(_z.__slice__(_n).__copy__(), _x1.__copy__());
-        var _xd:T_nat = _z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2).__copy__();
-        if (_subVV(_xd.__copy__().__t__, _x1.__copy__().__t__, _x0.__copy__().__t__).__t__ != ((0 : GoUInt))) {
-            _subVV(_xd.__copy__().__t__, _x0.__copy__().__t__, _x1.__copy__().__t__);
+        var _x1:T_nat = (_x.__slice__(_n2) == null ? null : _x.__slice__(_n2).__copy__()), _x0:T_nat = (_x.__slice__(((0 : GoInt)), _n2) == null ? null : _x.__slice__(((0 : GoInt)), _n2).__copy__());
+        _karatsubaSqr((_z == null ? null : _z.__copy__()), (_x0 == null ? null : _x0.__copy__()));
+        _karatsubaSqr((_z.__slice__(_n) == null ? null : _z.__slice__(_n).__copy__()), (_x1 == null ? null : _x1.__copy__()));
+        var _xd:T_nat = (_z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2) == null ? null : _z.__slice__(((2 : GoInt)) * _n, (((2 : GoInt)) * _n) + _n2).__copy__());
+        if (_subVV(_xd, _x1, _x0) != ((0 : GoUInt))) {
+            _subVV(_xd, _x0, _x1);
         };
-        var _p:T_nat = _z.__slice__(_n * ((3 : GoInt))).__copy__();
-        _karatsubaSqr(_p.__copy__(), _xd.__copy__());
-        var _r:T_nat = _z.__slice__(_n * ((4 : GoInt))).__copy__();
+        var _p:T_nat = (_z.__slice__(_n * ((3 : GoInt))) == null ? null : _z.__slice__(_n * ((3 : GoInt))).__copy__());
+        _karatsubaSqr((_p == null ? null : _p.__copy__()), (_xd == null ? null : _xd.__copy__()));
+        var _r:T_nat = (_z.__slice__(_n * ((4 : GoInt))) == null ? null : _z.__slice__(_n * ((4 : GoInt))).__copy__());
         Go.copy(_r, _z.__slice__(0, _n * ((2 : GoInt))));
-        _karatsubaAdd(_z.__slice__(_n2).__copy__(), _r.__copy__(), _n);
-        _karatsubaAdd(_z.__slice__(_n2).__copy__(), _r.__slice__(_n).__copy__(), _n);
-        _karatsubaSub(_z.__slice__(_n2).__copy__(), _p.__copy__(), _n);
+        _karatsubaAdd((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_r == null ? null : _r.__copy__()), _n);
+        _karatsubaAdd((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_r.__slice__(_n) == null ? null : _r.__slice__(_n).__copy__()), _n);
+        _karatsubaSub((_z.__slice__(_n2) == null ? null : _z.__slice__(_n2).__copy__()), (_p == null ? null : _p.__copy__()), _n);
     }
 /**
     // getNat returns a *nat of len n. The contents may not be zero.
     // The pool holds *nat to avoid allocation when converting to interface{}.
 **/
-function _getNat(_n:GoInt):Pointer<T_nat> {
-        var _z:Pointer<T_nat> = new Pointer<T_nat>().nil();
+function _getNat(_n:GoInt):T_nat {
+        var _z:T_nat = ((null : T_nat));
         {
             var _v:AnyInterface = Go.toInterface(_natPool.get());
-            if (Go.toInterface(_v) != Go.toInterface(null)) {
-                _z = ((_v.value : Pointer<T_nat>));
+            if (_v != null) {
+                _z = ((_v.value : T_nat));
             };
         };
         if (_z == null) {
             _z = Go.pointer(new T_nat());
         };
-        _z.value = _z.value._make(_n).__copy__();
+        _z = (_z._make(_n) == null ? null : _z._make(_n).__copy__());
         return _z;
     }
-function _putNat(_x:Pointer<T_nat>):Void {
+function _putNat(_x:T_nat):Void {
         _natPool.put(Go.toInterface(_x));
     }
 function _same(_x:T_nat, _y:T_nat):Bool {
-        return ((_x.__t__.length == _y.__t__.length) && (_x.__t__.length > ((0 : GoInt)))) && (Go.pointer(_x.__t__[((0 : GoInt))]) == Go.pointer(_y.__t__[((0 : GoInt))]));
+        return (((_x != null ? _x.length : ((0 : GoInt))) == (_y != null ? _y.length : ((0 : GoInt)))) && ((_x != null ? _x.length : ((0 : GoInt))) > ((0 : GoInt)))) && (Go.pointer((_x != null ? _x[((0 : GoInt))] : new Word())) == Go.pointer((_y != null ? _y[((0 : GoInt))] : new Word())));
     }
 /**
     // bigEndianWord returns the contents of buf interpreted as a big-endian encoded Word value.
 **/
 function _bigEndianWord(_buf:Slice<GoByte>):Word {
         if (false) {
-            return new Word(stdgo.encoding.binary.Binary.bigEndian.uint64(_buf));
+            return ((stdgo.encoding.binary.Binary.bigEndian.uint64(_buf) : Word));
         };
-        return new Word(stdgo.encoding.binary.Binary.bigEndian.uint32(_buf));
+        return ((stdgo.encoding.binary.Binary.bigEndian.uint32(_buf) : Word));
     }
 /**
     // maxPow returns (b**n, n) such that b**n is the largest power b**n <= _M.
@@ -6218,9 +4654,9 @@ function _maxPow(_b:Word):{ var _0 : Word; var _1 : GoInt; } {
             _n = __tmp__1;
         };
         {
-            var _max:Word = new Word((("4294967295" : GoUInt)) / _b.__t__);
-            while (_p.__t__ <= _max.__t__) {
-                _p = new Word(_p.__t__ * (_b).__t__);
+            var _max:Word = (("4294967295" : GoUInt)) / _b;
+            while (_p <= _max) {
+                _p = _p * (_b);
                 _n++;
             };
         };
@@ -6231,12 +4667,12 @@ function _maxPow(_b:Word):{ var _0 : Word; var _1 : GoInt; } {
 **/
 function _pow(_x:Word, _n:GoInt):Word {
         var _p:Word = new Word();
-        _p = new Word(((1 : GoUInt)));
+        _p = ((1 : GoUInt));
         while (_n > ((0 : GoInt))) {
             if ((_n & ((1 : GoInt))) != ((0 : GoInt))) {
-                _p = new Word(_p.__t__ * (_x).__t__);
+                _p = _p * (_x);
             };
-            _x = new Word(_x.__t__ * (_x).__t__);
+            _x = _x * (_x);
             _n = _n >> (((1 : GoUnTypedInt)));
         };
         return _p;
@@ -6246,46 +4682,46 @@ function _pow(_x:Word, _n:GoInt):Word {
 **/
 function _divisors(_m:GoInt, _b:Word, _ndigits:GoInt, _bb:Word):Slice<T_divisor> {
         if ((_leafSize == ((0 : GoInt))) || (_m <= _leafSize)) {
-            return new Slice<T_divisor>().nil();
+            return ((null : Slice<T_divisor>));
         };
         var _k:GoInt = ((1 : GoInt));
         {
             var _words:GoInt = _leafSize;
-            Go.cfor((_words < (_m >> ((1 : GoUnTypedInt)))) && (_k < _cacheBase10._table.length), _words = _words << (((1 : GoUnTypedInt))), {
+            Go.cfor((_words < (_m >> ((1 : GoUnTypedInt)))) && (_k < (_cacheBase10._table != null ? _cacheBase10._table.length : ((0 : GoInt)))), _words = _words << (((1 : GoUnTypedInt))), {
                 _k++;
             });
         };
-        var _table:Slice<T_divisor> = new Slice<T_divisor>().nil();
-        if (_b.__t__ == ((10 : GoUInt))) {
+        var _table:Slice<T_divisor> = ((null : Slice<T_divisor>));
+        if (_b == ((10 : GoUInt))) {
             _cacheBase10.lock();
             _table = _cacheBase10._table.__slice__(((0 : GoInt)), _k);
         } else {
             _table = new Slice<T_divisor>(...[for (i in 0 ... ((_k : GoInt)).toBasic()) new T_divisor()]);
         };
-        if (_table[_k - ((1 : GoInt))]._ndigits == ((0 : GoInt))) {
+        if ((_table != null ? _table[_k - ((1 : GoInt))] : new T_divisor())._ndigits == ((0 : GoInt))) {
             var _larger:T_nat = new T_nat();
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < _k, _i++, {
-                    if (_table[_i]._ndigits == ((0 : GoInt))) {
+                    if ((_table != null ? _table[_i] : new T_divisor())._ndigits == ((0 : GoInt))) {
                         if (_i == ((0 : GoInt))) {
-                            _table[((0 : GoInt))]._bbb = ((new T_nat() : T_nat))._expWW(_bb, new Word(_leafSize)).__copy__();
-                            _table[((0 : GoInt))]._ndigits = _ndigits * _leafSize;
+                            (_table != null ? _table[((0 : GoInt))] : new T_divisor())._bbb = (((new T_nat() : T_nat))._expWW(_bb, ((_leafSize : Word))) == null ? null : ((new T_nat() : T_nat))._expWW(_bb, ((_leafSize : Word))).__copy__());
+                            (_table != null ? _table[((0 : GoInt))] : new T_divisor())._ndigits = _ndigits * _leafSize;
                         } else {
-                            _table[_i]._bbb = ((new T_nat() : T_nat))._sqr(_table[_i - ((1 : GoInt))]._bbb.__copy__()).__copy__();
-                            _table[_i]._ndigits = ((2 : GoInt)) * _table[_i - ((1 : GoInt))]._ndigits;
+                            (_table != null ? _table[_i] : new T_divisor())._bbb = (((new T_nat() : T_nat))._sqr(((_table != null ? _table[_i - ((1 : GoInt))] : new T_divisor())._bbb == null ? null : (_table != null ? _table[_i - ((1 : GoInt))] : new T_divisor())._bbb.__copy__())) == null ? null : ((new T_nat() : T_nat))._sqr(((_table != null ? _table[_i - ((1 : GoInt))] : new T_divisor())._bbb == null ? null : (_table != null ? _table[_i - ((1 : GoInt))] : new T_divisor())._bbb.__copy__())).__copy__());
+                            (_table != null ? _table[_i] : new T_divisor())._ndigits = ((2 : GoInt)) * (_table != null ? _table[_i - ((1 : GoInt))] : new T_divisor())._ndigits;
                         };
-                        _larger = ((new T_nat() : T_nat))._set(_table[_i]._bbb.__copy__()).__copy__();
-                        while (_mulAddVWW(_larger.__copy__().__t__, _larger.__copy__().__t__, _b, new Word(((0 : GoUInt)))).__t__ == ((0 : GoUInt))) {
-                            _table[_i]._bbb = _table[_i]._bbb._set(_larger.__copy__()).__copy__();
-                            _table[_i]._ndigits++;
+                        _larger = (((new T_nat() : T_nat))._set(((_table != null ? _table[_i] : new T_divisor())._bbb == null ? null : (_table != null ? _table[_i] : new T_divisor())._bbb.__copy__())) == null ? null : ((new T_nat() : T_nat))._set(((_table != null ? _table[_i] : new T_divisor())._bbb == null ? null : (_table != null ? _table[_i] : new T_divisor())._bbb.__copy__())).__copy__());
+                        while (_mulAddVWW(_larger, _larger, _b, ((0 : GoUInt))) == ((0 : GoUInt))) {
+                            (_table != null ? _table[_i] : new T_divisor())._bbb = ((_table != null ? _table[_i] : new T_divisor())._bbb._set((_larger == null ? null : _larger.__copy__())) == null ? null : (_table != null ? _table[_i] : new T_divisor())._bbb._set((_larger == null ? null : _larger.__copy__())).__copy__());
+                            (_table != null ? _table[_i] : new T_divisor())._ndigits++;
                         };
-                        _table[_i]._nbits = _table[_i]._bbb._bitLen();
+                        (_table != null ? _table[_i] : new T_divisor())._nbits = (_table != null ? _table[_i] : new T_divisor())._bbb._bitLen();
                     };
                 });
             };
         };
-        if (_b.__t__ == ((10 : GoUInt))) {
+        if (_b == ((10 : GoUInt))) {
             _cacheBase10.unlock();
         };
         return _table;
@@ -6297,18 +4733,18 @@ function _divisors(_m:GoInt, _b:Word, _ndigits:GoInt, _bb:Word):Slice<T_divisor>
 function _divWVW(_z:Slice<Word>, _xn:Word, _x:Slice<Word>, _y:Word):Word {
         var _r:Word = new Word();
         _r = _xn;
-        if (_x.length == ((1 : GoInt))) {
-            var __tmp__ = stdgo.math.bits.Bits.div(_r.__t__, _x[((0 : GoInt))].__t__, _y.__t__), _qq:GoUInt = __tmp__._0, _rr:GoUInt = __tmp__._1;
-            _z[((0 : GoInt))] = new Word(_qq);
-            return new Word(_rr);
+        if ((_x != null ? _x.length : ((0 : GoInt))) == ((1 : GoInt))) {
+            var __tmp__ = stdgo.math.bits.Bits.div(((_r : GoUInt)), (((_x != null ? _x[((0 : GoInt))] : new Word()) : GoUInt)), ((_y : GoUInt))), _qq:GoUInt = __tmp__._0, _rr:GoUInt = __tmp__._1;
+            if (_z != null) _z[((0 : GoInt))] = ((_qq : Word));
+            return ((_rr : Word));
         };
         var _rec:Word = _reciprocalWord(_y);
         {
-            var _i:GoInt = _z.length - ((1 : GoInt));
+            var _i:GoInt = (_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt));
             Go.cfor(_i >= ((0 : GoInt)), _i--, {
                 {
-                    var __tmp__ = _divWW(_r, _x[_i], _y, _rec);
-                    _z[_i] = __tmp__._0;
+                    var __tmp__ = _divWW(_r, (_x != null ? _x[_i] : new Word()), _y, _rec);
+                    (_z != null ? _z[_i] : new Word()) = __tmp__._0;
                     _r = __tmp__._1;
                 };
             });
@@ -6321,13 +4757,13 @@ function _divWVW(_z:Slice<Word>, _xn:Word, _x:Slice<Word>, _y:Word):Word {
     // digit and x2 is the low digit. This should be fixed.
 **/
 function _greaterThan(_x1:Word, _x2:Word, _y1:Word, _y2:Word):Bool {
-        return (_x1.__t__ > _y1.__t__) || ((_x1.__t__ == _y1.__t__) && (_x2.__t__ > _y2.__t__));
+        return (_x1 > _y1) || ((_x1 == _y1) && (_x2 > _y2));
     }
 /**
     // NewRat creates a new Rat with numerator a and denominator b.
 **/
-function newRat(_a:GoInt64, _b:GoInt64):Pointer<Rat> {
-        return Go.pointer(new Rat()).value.setFrac64(_a, _b);
+function newRat(_a:GoInt64, _b:GoInt64):Rat {
+        return Go.pointer(new Rat()).setFrac64(_a, _b);
     }
 /**
     // quotToFloat32 returns the non-negative float32 value
@@ -6348,20 +4784,20 @@ function _quotToFloat32(_a:T_nat, _b:T_nat):{ var _0 : GoFloat32; var _1 : Bool;
         };
         var _exp:GoInt = _alen - _blen;
         var _a2:T_nat = new T_nat(), _b2:T_nat = new T_nat();
-        _a2 = _a2._set(_a.__copy__()).__copy__();
-        _b2 = _b2._set(_b.__copy__()).__copy__();
+        _a2 = (_a2._set((_a == null ? null : _a.__copy__())) == null ? null : _a2._set((_a == null ? null : _a.__copy__())).__copy__());
+        _b2 = (_b2._set((_b == null ? null : _b.__copy__())) == null ? null : _b2._set((_b == null ? null : _b.__copy__())).__copy__());
         {
             var _shift:GoInt = ((25 : GoInt)) - _exp;
             if (_shift > ((0 : GoInt))) {
-                _a2 = _a2._shl(_a2.__copy__(), ((_shift : GoUInt))).__copy__();
+                _a2 = (_a2._shl((_a2 == null ? null : _a2.__copy__()), ((_shift : GoUInt))) == null ? null : _a2._shl((_a2 == null ? null : _a2.__copy__()), ((_shift : GoUInt))).__copy__());
             } else if (_shift < ((0 : GoInt))) {
-                _b2 = _b2._shl(_b2.__copy__(), ((-_shift : GoUInt))).__copy__();
+                _b2 = (_b2._shl((_b2 == null ? null : _b2.__copy__()), ((-_shift : GoUInt))) == null ? null : _b2._shl((_b2 == null ? null : _b2.__copy__()), ((-_shift : GoUInt))).__copy__());
             };
         };
         var _q:T_nat = new T_nat();
-        var __tmp__ = _q._div(_a2.__copy__(), _a2.__copy__(), _b2.__copy__()), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
-        var _mantissa:GoUInt32 = _low32(_q.__copy__());
-        var _haveRem:Bool = _r.__t__.length > ((0 : GoInt));
+        var __tmp__ = _q._div((_a2 == null ? null : _a2.__copy__()), (_a2 == null ? null : _a2.__copy__()), (_b2 == null ? null : _b2.__copy__())), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
+        var _mantissa:GoUInt32 = _low32((_q == null ? null : _q.__copy__()));
+        var _haveRem:Bool = (_r != null ? _r.length : ((0 : GoInt))) > ((0 : GoInt));
         if ((_mantissa >> ((25 : GoUnTypedInt))) == ((1 : GoUInt32))) {
             if ((_mantissa & ((1 : GoUInt32))) == ((1 : GoUInt32))) {
                 _haveRem = true;
@@ -6418,20 +4854,20 @@ function _quotToFloat64(_a:T_nat, _b:T_nat):{ var _0 : GoFloat64; var _1 : Bool;
         };
         var _exp:GoInt = _alen - _blen;
         var _a2:T_nat = new T_nat(), _b2:T_nat = new T_nat();
-        _a2 = _a2._set(_a.__copy__()).__copy__();
-        _b2 = _b2._set(_b.__copy__()).__copy__();
+        _a2 = (_a2._set((_a == null ? null : _a.__copy__())) == null ? null : _a2._set((_a == null ? null : _a.__copy__())).__copy__());
+        _b2 = (_b2._set((_b == null ? null : _b.__copy__())) == null ? null : _b2._set((_b == null ? null : _b.__copy__())).__copy__());
         {
             var _shift:GoInt = ((54 : GoInt)) - _exp;
             if (_shift > ((0 : GoInt))) {
-                _a2 = _a2._shl(_a2.__copy__(), ((_shift : GoUInt))).__copy__();
+                _a2 = (_a2._shl((_a2 == null ? null : _a2.__copy__()), ((_shift : GoUInt))) == null ? null : _a2._shl((_a2 == null ? null : _a2.__copy__()), ((_shift : GoUInt))).__copy__());
             } else if (_shift < ((0 : GoInt))) {
-                _b2 = _b2._shl(_b2.__copy__(), ((-_shift : GoUInt))).__copy__();
+                _b2 = (_b2._shl((_b2 == null ? null : _b2.__copy__()), ((-_shift : GoUInt))) == null ? null : _b2._shl((_b2 == null ? null : _b2.__copy__()), ((-_shift : GoUInt))).__copy__());
             };
         };
         var _q:T_nat = new T_nat();
-        var __tmp__ = _q._div(_a2.__copy__(), _a2.__copy__(), _b2.__copy__()), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
-        var _mantissa:GoUInt64 = _low64(_q.__copy__());
-        var _haveRem:Bool = _r.__t__.length > ((0 : GoInt));
+        var __tmp__ = _q._div((_a2 == null ? null : _a2.__copy__()), (_a2 == null ? null : _a2.__copy__()), (_b2 == null ? null : _b2.__copy__())), _q:T_nat = __tmp__._0, _r:T_nat = __tmp__._1;
+        var _mantissa:GoUInt64 = _low64((_q == null ? null : _q.__copy__()));
+        var _haveRem:Bool = (_r != null ? _r.length : ((0 : GoInt))) > ((0 : GoInt));
         if ((_mantissa >> ((54 : GoUnTypedInt))) == ((1 : GoUInt64))) {
             if ((_mantissa & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
                 _haveRem = true;
@@ -6475,14 +4911,14 @@ function _quotToFloat64(_a:T_nat, _b:T_nat):{ var _0 : GoFloat64; var _1 : Bool;
     // returns z.
 **/
 function _mulDenom(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
-        if ((_x.__t__.length == ((0 : GoInt))) && (_y.__t__.length == ((0 : GoInt)))) {
-            return _z._setWord(new Word(((1 : GoUInt)))).__copy__();
-        } else if (_x.__t__.length == ((0 : GoInt))) {
-            return _z._set(_y.__copy__()).__copy__();
-        } else if (_y.__t__.length == ((0 : GoInt))) {
-            return _z._set(_x.__copy__()).__copy__();
+        if (((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) && ((_y != null ? _y.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+            return (_z._setWord(((1 : GoUInt))) == null ? null : _z._setWord(((1 : GoUInt))).__copy__());
+        } else if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return (_z._set((_y == null ? null : _y.__copy__())) == null ? null : _z._set((_y == null ? null : _y.__copy__())).__copy__());
+        } else if ((_y != null ? _y.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
         };
-        return _z._mul(_x.__copy__(), _y.__copy__()).__copy__();
+        return (_z._mul((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__())) == null ? null : _z._mul((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__())).__copy__());
     }
 function _ratTok(_ch:GoRune):Bool {
         return stdgo.strings.Strings.containsRune(((("+-/0123456789.eE" : GoString))), _ch);
@@ -6508,8 +4944,8 @@ function _ratTok(_ch:GoRune):Bool {
 function _scanExponent(_r:stdgo.io.Io.ByteScanner, _base2ok:Bool, _sepOk:Bool):{ var _0 : GoInt64; var _1 : GoInt; var _2 : Error; } {
         var _exp:GoInt64 = ((0 : GoInt64)), _base:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         var __tmp__ = _r.readByte(), _ch:GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-        if (Go.toInterface(_err) != Go.toInterface(null)) {
-            if (Go.toInterface(_err) == Go.toInterface(stdgo.io.Io.eof)) {
+        if (_err != null) {
+            if (_err == stdgo.io.Io.eof) {
                 _err = ((null : stdgo.Error));
             };
             return { _0 : ((0 : GoInt64)), _1 : ((10 : GoInt)), _2 : _err };
@@ -6539,15 +4975,15 @@ function _scanExponent(_r:stdgo.io.Io.ByteScanner, _base2ok:Bool, _sepOk:Bool):{
                 break;
             };
         };
-        var _digits:Slice<GoByte> = new Slice<GoUInt8>().nil();
+        var _digits:Slice<GoByte> = ((null : Slice<GoUInt8>));
         {
             var __tmp__ = _r.readByte();
             _ch = __tmp__._0;
             _err = __tmp__._1;
         };
-        if ((Go.toInterface(_err) == Go.toInterface(null)) && ((_ch == ((((("+" : GoString))).code : GoRune))) || (_ch == ((((("-" : GoString))).code : GoRune))))) {
+        if ((_err == null) && ((_ch == ((((("+" : GoString))).code : GoRune))) || (_ch == ((((("-" : GoString))).code : GoRune))))) {
             if (_ch == ((((("-" : GoString))).code : GoRune))) {
-                _digits = _digits.__append__(((((("-" : GoString))).code : GoRune)));
+                _digits = (_digits != null ? _digits.__append__(((((("-" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("-" : GoString))).code : GoRune))));
             };
             {
                 var __tmp__ = _r.readByte();
@@ -6558,9 +4994,9 @@ function _scanExponent(_r:stdgo.io.Io.ByteScanner, _base2ok:Bool, _sepOk:Bool):{
         var _prev:GoInt32 = ((((("." : GoString))).code : GoRune));
         var _invalSep:Bool = false;
         var _hasDigits:Bool = false;
-        while (Go.toInterface(_err) == Go.toInterface(null)) {
+        while (_err == null) {
             if ((((((("0" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("9" : GoString))).code : GoRune)))) {
-                _digits = _digits.__append__(_ch);
+                _digits = (_digits != null ? _digits.__append__(_ch) : new Slice<GoUInt8>(_ch));
                 _prev = ((((("0" : GoString))).code : GoRune));
                 _hasDigits = true;
             } else if ((_ch == ((((("_" : GoString))).code : GoRune))) && _sepOk) {
@@ -6578,25 +5014,25 @@ function _scanExponent(_r:stdgo.io.Io.ByteScanner, _base2ok:Bool, _sepOk:Bool):{
                 _err = __tmp__._1;
             };
         };
-        if (Go.toInterface(_err) == Go.toInterface(stdgo.io.Io.eof)) {
+        if (_err == stdgo.io.Io.eof) {
             _err = ((null : stdgo.Error));
         };
-        if ((Go.toInterface(_err) == Go.toInterface(null)) && !_hasDigits) {
+        if ((_err == null) && !_hasDigits) {
             _err = _errNoDigits;
         };
-        if (Go.toInterface(_err) == Go.toInterface(null)) {
+        if (_err == null) {
             {
                 var __tmp__ = stdgo.strconv.Strconv.parseInt(((_digits : GoString)), ((10 : GoInt)), ((64 : GoInt)));
                 _exp = __tmp__._0;
                 _err = __tmp__._1;
             };
         };
-        if ((Go.toInterface(_err) == Go.toInterface(null)) && (_invalSep || (_prev == ((((("_" : GoString))).code : GoRune))))) {
+        if ((_err == null) && (_invalSep || (_prev == ((((("_" : GoString))).code : GoRune))))) {
             _err = _errInvalSep;
         };
         return { _0 : _exp, _1 : _base, _2 : _err };
     }
-function _three():Pointer<Float_> {
+function _three():Float_ {
         _threeOnce.do_(function():Void {
             _threeOnce._v = newFloat(((3 : GoFloat64)));
         });
@@ -6606,241 +5042,1680 @@ function _three():Pointer<Float_> {
     // newFloat returns a new *Float with space for twice the given
     // precision.
 **/
-function _newFloat(_prec2:GoUInt32):Pointer<Float_> {
-        var _z:Pointer<Float_> = Go.pointer(new Float_());
-        _z.value._mant = _z.value._mant._make((((_prec2 / ((32 : GoUInt32))) : GoInt)) * ((2 : GoInt))).__copy__();
+function _newFloat(_prec2:GoUInt32):Float_ {
+        var _z:Float_ = Go.pointer(new Float_());
+        _z._mant = (_z._mant._make((((_prec2 / ((32 : GoUInt32))) : GoInt)) * ((2 : GoInt))) == null ? null : _z._mant._make((((_prec2 / ((32 : GoUInt32))) : GoInt)) * ((2 : GoInt))).__copy__());
         return _z;
     }
-class T_decimal_extension_fields {
-    public function _at(__tmp__, _i:GoInt):GoByte return __tmp__._at(_i);
-    public function _init(__tmp__, _m:T_nat, _shift:GoInt):Void __tmp__._init(_m, _shift);
-    public function toString(__tmp__):GoString return __tmp__.toString();
-    public function _round(__tmp__, _n:GoInt):Void __tmp__._round(_n);
-    public function _roundUp(__tmp__, _n:GoInt):Void __tmp__._roundUp(_n);
-    public function _roundDown(__tmp__, _n:GoInt):Void __tmp__._roundDown(_n);
+@:build(stdgo.internal.Macro.wrapper(T_decimal)) class T_decimal_static_extension {
+
 }
-class Float__extension_fields {
-    public function setPrec(__tmp__, _prec:GoUInt):Pointer<Float_> return __tmp__.setPrec(_prec);
-    public function setMode(__tmp__, _mode:RoundingMode):Pointer<Float_> return __tmp__.setMode(_mode);
-    public function prec(__tmp__):GoUInt return __tmp__.prec();
-    public function minPrec(__tmp__):GoUInt return __tmp__.minPrec();
-    public function mode(__tmp__):RoundingMode return __tmp__.mode();
-    public function acc(__tmp__):Accuracy return __tmp__.acc();
-    public function sign(__tmp__):GoInt return __tmp__.sign();
-    public function mantExp(__tmp__, _mant:Pointer<Float_>):GoInt return __tmp__.mantExp(_mant);
-    public function _setExpAndRound(__tmp__, _exp:GoInt64, _sbit:GoUInt):Void __tmp__._setExpAndRound(_exp, _sbit);
-    public function setMantExp(__tmp__, _mant:Pointer<Float_>, _exp:GoInt):Pointer<Float_> return __tmp__.setMantExp(_mant, _exp);
-    public function signbit(__tmp__):Bool return __tmp__.signbit();
-    public function isInf(__tmp__):Bool return __tmp__.isInf();
-    public function isInt(__tmp__):Bool return __tmp__.isInt();
-    public function _validate(__tmp__):Void __tmp__._validate();
-    public function _round(__tmp__, _sbit:GoUInt):Void __tmp__._round(_sbit);
-    public function _setBits64(__tmp__, _neg:Bool, _x:GoUInt64):Pointer<Float_> return __tmp__._setBits64(_neg, _x);
-    public function setUint64(__tmp__, _x:GoUInt64):Pointer<Float_> return __tmp__.setUint64(_x);
-    public function setInt64(__tmp__, _x:GoInt64):Pointer<Float_> return __tmp__.setInt64(_x);
-    public function setFloat64(__tmp__, _x:GoFloat64):Pointer<Float_> return __tmp__.setFloat64(_x);
-    public function setInt(__tmp__, _x:Pointer<Int_>):Pointer<Float_> return __tmp__.setInt(_x);
-    public function setRat(__tmp__, _x:Pointer<Rat>):Pointer<Float_> return __tmp__.setRat(_x);
-    public function setInf(__tmp__, _signbit:Bool):Pointer<Float_> return __tmp__.setInf(_signbit);
-    public function set(__tmp__, _x:Pointer<Float_>):Pointer<Float_> return __tmp__.set(_x);
-    public function copy(__tmp__, _x:Pointer<Float_>):Pointer<Float_> return __tmp__.copy(_x);
-    public function uint64(__tmp__):{ var _0 : GoUInt64; var _1 : Accuracy; } return __tmp__.uint64();
-    public function int64(__tmp__):{ var _0 : GoInt64; var _1 : Accuracy; } return __tmp__.int64();
-    public function float32(__tmp__):{ var _0 : GoFloat32; var _1 : Accuracy; } return __tmp__.float32();
-    public function float64(__tmp__):{ var _0 : GoFloat64; var _1 : Accuracy; } return __tmp__.float64();
-    public function int(__tmp__, _z:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Accuracy; } return __tmp__.int(_z);
-    public function rat(__tmp__, _z:Pointer<Rat>):{ var _0 : Pointer<Rat>; var _1 : Accuracy; } return __tmp__.rat(_z);
-    public function abs(__tmp__, _x:Pointer<Float_>):Pointer<Float_> return __tmp__.abs(_x);
-    public function neg(__tmp__, _x:Pointer<Float_>):Pointer<Float_> return __tmp__.neg(_x);
-    public function _uadd(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Void __tmp__._uadd(_x, _y);
-    public function _usub(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Void __tmp__._usub(_x, _y);
-    public function _umul(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Void __tmp__._umul(_x, _y);
-    public function _uquo(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Void __tmp__._uquo(_x, _y);
-    public function _ucmp(__tmp__, _y:Pointer<Float_>):GoInt return __tmp__._ucmp(_y);
-    public function add(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> return __tmp__.add(_x, _y);
-    public function sub(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> return __tmp__.sub(_x, _y);
-    public function mul(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> return __tmp__.mul(_x, _y);
-    public function quo(__tmp__, _x:Pointer<Float_>, _y:Pointer<Float_>):Pointer<Float_> return __tmp__.quo(_x, _y);
-    public function cmp(__tmp__, _y:Pointer<Float_>):GoInt return __tmp__.cmp(_y);
-    public function _ord(__tmp__):GoInt return __tmp__._ord();
-    public function setString(__tmp__, _s:GoString):{ var _0 : Pointer<Float_>; var _1 : Bool; } return __tmp__.setString(_s);
-    public function _scan(__tmp__, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Float_>; var _1 : GoInt; var _2 : Error; } return __tmp__._scan(_r, _base);
-    public function _pow5(__tmp__, _n:GoUInt64):Pointer<Float_> return __tmp__._pow5(_n);
-    public function parse(__tmp__, _s:GoString, _base:GoInt):{ var _0 : Pointer<Float_>; var _1 : GoInt; var _2 : Error; } return __tmp__.parse(_s, _base);
-    public function scan(__tmp__, _s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error return __tmp__.scan(_s, _ch);
-    public function gobEncode(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.gobEncode();
-    public function gobDecode(__tmp__, _buf:Slice<GoByte>):Error return __tmp__.gobDecode(_buf);
-    public function marshalText(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.marshalText();
-    public function unmarshalText(__tmp__, _text:Slice<GoByte>):Error return __tmp__.unmarshalText(_text);
-    public function text(__tmp__, _format:GoByte, _prec:GoInt):GoString return __tmp__.text(_format, _prec);
-    public function toString(__tmp__):GoString return __tmp__.toString();
-    public function append(__tmp__, _buf:Slice<GoByte>, _fmt:GoByte, _prec:GoInt):Slice<GoByte> return __tmp__.append(_buf, _fmt, _prec);
-    public function _fmtB(__tmp__, _buf:Slice<GoByte>):Slice<GoByte> return __tmp__._fmtB(_buf);
-    public function _fmtX(__tmp__, _buf:Slice<GoByte>, _prec:GoInt):Slice<GoByte> return __tmp__._fmtX(_buf, _prec);
-    public function _fmtP(__tmp__, _buf:Slice<GoByte>):Slice<GoByte> return __tmp__._fmtP(_buf);
-    public function format(__tmp__, _s:stdgo.fmt.Fmt.State, _format:GoRune):Void __tmp__.format(_s, _format);
-    public function sqrt(__tmp__, _x:Pointer<Float_>):Pointer<Float_> return __tmp__.sqrt(_x);
-    public function _sqrtInverse(__tmp__, _x:Pointer<Float_>):Void __tmp__._sqrtInverse(_x);
+@:build(stdgo.internal.Macro.wrapper(Float_)) class Float__static_extension {
+
 }
-class ErrNaN_extension_fields {
-    public function error(__tmp__):GoString return __tmp__.error();
+@:build(stdgo.internal.Macro.wrapper(ErrNaN)) class ErrNaN_static_extension {
+
 }
-class RoundingMode_extension_fields {
-    public function toString(__tmp__):GoString return __tmp__.toString();
+@:build(stdgo.internal.Macro.wrapper(RoundingMode)) class RoundingMode_static_extension {
+    public static function toString(_i:RoundingMode):GoString {
+        _i;
+        if (_i >= ((((6 : GoInt)) : RoundingMode))) {
+            return (((("RoundingMode(" : GoString))) + stdgo.strconv.Strconv.formatInt(((_i : GoInt64)), ((10 : GoInt)))) + (((")" : GoString)));
+        };
+        return ((("ToNearestEvenToNearestAwayToZeroAwayFromZeroToNegativeInfToPositiveInf" : GoString))).__slice__((__RoundingMode_index != null ? __RoundingMode_index[_i] : ((0 : GoUInt8))), (__RoundingMode_index != null ? __RoundingMode_index[_i + ((1 : GoUInt8))] : ((0 : GoUInt8))));
+    }
 }
-class Accuracy_extension_fields {
-    public function toString(__tmp__):GoString return __tmp__.toString();
+@:build(stdgo.internal.Macro.wrapper(Accuracy)) class Accuracy_static_extension {
+    public static function toString(_i:Accuracy):GoString {
+        _i;
+        _i = _i - (((-1 : GoInt8)));
+        if ((_i < ((0 : GoInt8))) || (_i >= ((((3 : GoInt)) : Accuracy)))) {
+            return (((("Accuracy(" : GoString))) + stdgo.strconv.Strconv.formatInt((((_i + ((-1 : GoInt8))) : GoInt64)), ((10 : GoInt)))) + (((")" : GoString)));
+        };
+        return ((("BelowExactAbove" : GoString))).__slice__((__Accuracy_index != null ? __Accuracy_index[_i] : ((0 : GoUInt8))), (__Accuracy_index != null ? __Accuracy_index[_i + ((1 : GoInt8))] : ((0 : GoUInt8))));
+    }
 }
-class Int__extension_fields {
-    public function sign(__tmp__):GoInt return __tmp__.sign();
-    public function setInt64(__tmp__, _x:GoInt64):Pointer<Int_> return __tmp__.setInt64(_x);
-    public function setUint64(__tmp__, _x:GoUInt64):Pointer<Int_> return __tmp__.setUint64(_x);
-    public function set(__tmp__, _x:Pointer<Int_>):Pointer<Int_> return __tmp__.set(_x);
-    public function bits(__tmp__):Slice<Word> return __tmp__.bits();
-    public function setBits(__tmp__, _abs:Slice<Word>):Pointer<Int_> return __tmp__.setBits(_abs);
-    public function abs(__tmp__, _x:Pointer<Int_>):Pointer<Int_> return __tmp__.abs(_x);
-    public function neg(__tmp__, _x:Pointer<Int_>):Pointer<Int_> return __tmp__.neg(_x);
-    public function add(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.add(_x, _y);
-    public function sub(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.sub(_x, _y);
-    public function mul(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.mul(_x, _y);
-    public function mulRange(__tmp__, _a:GoInt64, _b:GoInt64):Pointer<Int_> return __tmp__.mulRange(_a, _b);
-    public function binomial(__tmp__, _n:GoInt64, _k:GoInt64):Pointer<Int_> return __tmp__.binomial(_n, _k);
-    public function quo(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.quo(_x, _y);
-    public function rem(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.rem(_x, _y);
-    public function quoRem(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>, _r:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Pointer<Int_>; } return __tmp__.quoRem(_x, _y, _r);
-    public function div(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.div(_x, _y);
-    public function mod(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.mod(_x, _y);
-    public function divMod(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>, _m:Pointer<Int_>):{ var _0 : Pointer<Int_>; var _1 : Pointer<Int_>; } return __tmp__.divMod(_x, _y, _m);
-    public function cmp(__tmp__, _y:Pointer<Int_>):GoInt return __tmp__.cmp(_y);
-    public function cmpAbs(__tmp__, _y:Pointer<Int_>):GoInt return __tmp__.cmpAbs(_y);
-    public function int64(__tmp__):GoInt64 return __tmp__.int64();
-    public function uint64(__tmp__):GoUInt64 return __tmp__.uint64();
-    public function isInt64(__tmp__):Bool return __tmp__.isInt64();
-    public function isUint64(__tmp__):Bool return __tmp__.isUint64();
-    public function setString(__tmp__, _s:GoString, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : Bool; } return __tmp__.setString(_s, _base);
-    public function _setFromScanner(__tmp__, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : Bool; } return __tmp__._setFromScanner(_r, _base);
-    public function setBytes(__tmp__, _buf:Slice<GoByte>):Pointer<Int_> return __tmp__.setBytes(_buf);
-    public function bytes(__tmp__):Slice<GoByte> return __tmp__.bytes();
-    public function fillBytes(__tmp__, _buf:Slice<GoByte>):Slice<GoByte> return __tmp__.fillBytes(_buf);
-    public function bitLen(__tmp__):GoInt return __tmp__.bitLen();
-    public function trailingZeroBits(__tmp__):GoUInt return __tmp__.trailingZeroBits();
-    public function exp(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>, _m:Pointer<Int_>):Pointer<Int_> return __tmp__.exp(_x, _y, _m);
-    public function gcd(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>, _a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Int_> return __tmp__.gcd(_x, _y, _a, _b);
-    public function _lehmerGCD(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>, _a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Int_> return __tmp__._lehmerGCD(_x, _y, _a, _b);
-    public function rand(__tmp__, _rnd:Pointer<stdgo.math.rand.Rand.Rand>, _n:Pointer<Int_>):Pointer<Int_> return __tmp__.rand(_rnd, _n);
-    public function modInverse(__tmp__, _g:Pointer<Int_>, _n:Pointer<Int_>):Pointer<Int_> return __tmp__.modInverse(_g, _n);
-    public function _modSqrt3Mod4Prime(__tmp__, _x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> return __tmp__._modSqrt3Mod4Prime(_x, _p);
-    public function _modSqrt5Mod8Prime(__tmp__, _x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> return __tmp__._modSqrt5Mod8Prime(_x, _p);
-    public function _modSqrtTonelliShanks(__tmp__, _x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> return __tmp__._modSqrtTonelliShanks(_x, _p);
-    public function modSqrt(__tmp__, _x:Pointer<Int_>, _p:Pointer<Int_>):Pointer<Int_> return __tmp__.modSqrt(_x, _p);
-    public function lsh(__tmp__, _x:Pointer<Int_>, _n:GoUInt):Pointer<Int_> return __tmp__.lsh(_x, _n);
-    public function rsh(__tmp__, _x:Pointer<Int_>, _n:GoUInt):Pointer<Int_> return __tmp__.rsh(_x, _n);
-    public function bit(__tmp__, _i:GoInt):GoUInt return __tmp__.bit(_i);
-    public function setBit(__tmp__, _x:Pointer<Int_>, _i:GoInt, _b:GoUInt):Pointer<Int_> return __tmp__.setBit(_x, _i, _b);
-    public function and(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.and(_x, _y);
-    public function andNot(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.andNot(_x, _y);
-    public function or(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.or(_x, _y);
-    public function xor(__tmp__, _x:Pointer<Int_>, _y:Pointer<Int_>):Pointer<Int_> return __tmp__.xor(_x, _y);
-    public function not(__tmp__, _x:Pointer<Int_>):Pointer<Int_> return __tmp__.not(_x);
-    public function sqrt(__tmp__, _x:Pointer<Int_>):Pointer<Int_> return __tmp__.sqrt(_x);
-    public function text(__tmp__, _base:GoInt):GoString return __tmp__.text(_base);
-    public function append(__tmp__, _buf:Slice<GoByte>, _base:GoInt):Slice<GoByte> return __tmp__.append(_buf, _base);
-    public function toString(__tmp__):GoString return __tmp__.toString();
-    public function format(__tmp__, _s:stdgo.fmt.Fmt.State, _ch:GoRune):Void __tmp__.format(_s, _ch);
-    public function _scan(__tmp__, _r:stdgo.io.Io.ByteScanner, _base:GoInt):{ var _0 : Pointer<Int_>; var _1 : GoInt; var _2 : Error; } return __tmp__._scan(_r, _base);
-    public function scan(__tmp__, _s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error return __tmp__.scan(_s, _ch);
-    public function gobEncode(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.gobEncode();
-    public function gobDecode(__tmp__, _buf:Slice<GoByte>):Error return __tmp__.gobDecode(_buf);
-    public function marshalText(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.marshalText();
-    public function unmarshalText(__tmp__, _text:Slice<GoByte>):Error return __tmp__.unmarshalText(_text);
-    public function marshalJSON(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.marshalJSON();
-    public function unmarshalJSON(__tmp__, _text:Slice<GoByte>):Error return __tmp__.unmarshalJSON(_text);
-    public function probablyPrime(__tmp__, _n:GoInt):Bool return __tmp__.probablyPrime(_n);
-    public function _scaleDenom(__tmp__, _x:Pointer<Int_>, _f:T_nat):Void __tmp__._scaleDenom(_x, _f);
+@:build(stdgo.internal.Macro.wrapper(Int_)) class Int__static_extension {
+
 }
-class T_byteReader_extension_fields {
-    public function readByte(__tmp__):{ var _0 : GoByte; var _1 : Error; } return __tmp__.readByte();
-    public function unreadByte(__tmp__):Error return __tmp__.unreadByte();
+@:build(stdgo.internal.Macro.wrapper(T_byteReader)) class T_byteReader_static_extension {
+
 }
-class T_nat_extension_fields {
-    public function _clear(__tmp__):Void __tmp__._clear();
-    public function _norm(__tmp__):T_nat return __tmp__._norm();
-    public function _make(__tmp__, _n:GoInt):T_nat return __tmp__._make(_n);
-    public function _setWord(__tmp__, _x:Word):T_nat return __tmp__._setWord(_x);
-    public function _setUint64(__tmp__, _x:GoUInt64):T_nat return __tmp__._setUint64(_x);
-    public function _set(__tmp__, _x:T_nat):T_nat return __tmp__._set(_x);
-    public function _add(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._add(_x, _y);
-    public function _sub(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._sub(_x, _y);
-    public function _cmp(__tmp__, _y:T_nat):GoInt return __tmp__._cmp(_y);
-    public function _mulAddWW(__tmp__, _x:T_nat, _y:Word, _r:Word):T_nat return __tmp__._mulAddWW(_x, _y, _r);
-    public function _montgomery(__tmp__, _x:T_nat, _y:T_nat, _m:T_nat, _k:Word, _n:GoInt):T_nat return __tmp__._montgomery(_x, _y, _m, _k, _n);
-    public function _mul(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._mul(_x, _y);
-    public function _sqr(__tmp__, _x:T_nat):T_nat return __tmp__._sqr(_x);
-    public function _mulRange(__tmp__, _a:GoUInt64, _b:GoUInt64):T_nat return __tmp__._mulRange(_a, _b);
-    public function _bitLen(__tmp__):GoInt return __tmp__._bitLen();
-    public function _trailingZeroBits(__tmp__):GoUInt return __tmp__._trailingZeroBits();
-    public function _shl(__tmp__, _x:T_nat, _s:GoUInt):T_nat return __tmp__._shl(_x, _s);
-    public function _shr(__tmp__, _x:T_nat, _s:GoUInt):T_nat return __tmp__._shr(_x, _s);
-    public function _setBit(__tmp__, _x:T_nat, _i:GoUInt, _b:GoUInt):T_nat return __tmp__._setBit(_x, _i, _b);
-    public function _bit(__tmp__, _i:GoUInt):GoUInt return __tmp__._bit(_i);
-    public function _sticky(__tmp__, _i:GoUInt):GoUInt return __tmp__._sticky(_i);
-    public function _and(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._and(_x, _y);
-    public function _andNot(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._andNot(_x, _y);
-    public function _or(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._or(_x, _y);
-    public function _xor(__tmp__, _x:T_nat, _y:T_nat):T_nat return __tmp__._xor(_x, _y);
-    public function _random(__tmp__, _rand:Pointer<stdgo.math.rand.Rand.Rand>, _limit:T_nat, _n:GoInt):T_nat return __tmp__._random(_rand, _limit, _n);
-    public function _expNN(__tmp__, _x:T_nat, _y:T_nat, _m:T_nat):T_nat return __tmp__._expNN(_x, _y, _m);
-    public function _expNNWindowed(__tmp__, _x:T_nat, _y:T_nat, _m:T_nat):T_nat return __tmp__._expNNWindowed(_x, _y, _m);
-    public function _expNNMontgomery(__tmp__, _x:T_nat, _y:T_nat, _m:T_nat):T_nat return __tmp__._expNNMontgomery(_x, _y, _m);
-    public function _bytes(__tmp__, _buf:Slice<GoByte>):GoInt return __tmp__._bytes(_buf);
-    public function _setBytes(__tmp__, _buf:Slice<GoByte>):T_nat return __tmp__._setBytes(_buf);
-    public function _sqrt(__tmp__, _x:T_nat):T_nat return __tmp__._sqrt(_x);
-    public function _scan(__tmp__, _r:stdgo.io.Io.ByteScanner, _base:GoInt, _fracOk:Bool):{ var _0 : T_nat; var _1 : GoInt; var _2 : GoInt; var _3 : Error; } return __tmp__._scan(_r, _base, _fracOk);
-    public function _utoa(__tmp__, _base:GoInt):Slice<GoByte> return __tmp__._utoa(_base);
-    public function _itoa(__tmp__, _neg:Bool, _base:GoInt):Slice<GoByte> return __tmp__._itoa(_neg, _base);
-    public function _convertWords(__tmp__, _s:Slice<GoByte>, _b:Word, _ndigits:GoInt, _bb:Word, _table:Slice<T_divisor>):Void __tmp__._convertWords(_s, _b, _ndigits, _bb, _table);
-    public function _expWW(__tmp__, _x:Word, _y:Word):T_nat return __tmp__._expWW(_x, _y);
-    public function _div(__tmp__, _z2:T_nat, _u:T_nat, _v:T_nat):{ var _0 : T_nat; var _1 : T_nat; } return __tmp__._div(_z2, _u, _v);
-    public function _divW(__tmp__, _x:T_nat, _y:Word):{ var _0 : T_nat; var _1 : Word; } return __tmp__._divW(_x, _y);
-    public function _modW(__tmp__, _d:Word):Word return __tmp__._modW(_d);
-    public function _divLarge(__tmp__, _u:T_nat, _uIn:T_nat, _vIn:T_nat):{ var _0 : T_nat; var _1 : T_nat; } return __tmp__._divLarge(_u, _uIn, _vIn);
-    public function _divBasic(__tmp__, _u:T_nat, _v:T_nat):Void __tmp__._divBasic(_u, _v);
-    public function _divRecursive(__tmp__, _u:T_nat, _v:T_nat):Void __tmp__._divRecursive(_u, _v);
-    public function _divRecursiveStep(__tmp__, _u:T_nat, _v:T_nat, _depth:GoInt, _tmp:Pointer<T_nat>, _temps:Slice<Pointer<T_nat>>):Void __tmp__._divRecursiveStep(_u, _v, _depth, _tmp, _temps);
-    public function _probablyPrimeMillerRabin(__tmp__, _reps:GoInt, _force2:Bool):Bool return __tmp__._probablyPrimeMillerRabin(_reps, _force2);
-    public function _probablyPrimeLucas(__tmp__):Bool return __tmp__._probablyPrimeLucas();
+@:build(stdgo.internal.Macro.wrapper(T_nat)) class T_nat_static_extension {
+    public static function _probablyPrimeLucas(_n:T_nat):Bool {
+        (_n == null ? null : _n.__copy__());
+        if (((_n != null ? _n.length : ((0 : GoInt))) == ((0 : GoInt))) || (_n._cmp((_natOne == null ? null : _natOne.__copy__())) == ((0 : GoInt)))) {
+            return false;
+        };
+        if (((_n != null ? _n[((0 : GoInt))] : new Word()) & ((1 : GoUInt))) == ((0 : GoUInt))) {
+            return _n._cmp((_natTwo == null ? null : _natTwo.__copy__())) == ((0 : GoInt));
+        };
+        var _p:Word = ((((3 : GoUInt)) : Word));
+        var _d:T_nat = ((new Slice<Word>(((1 : GoUInt))) : T_nat));
+        var _t1:T_nat = ((new T_nat() : T_nat));
+        var _intD:Int_ = (({ _abs : (_d == null ? null : _d.__copy__()), _neg : false } : Int_));
+        var _intN:Int_ = (({ _abs : (_n == null ? null : _n.__copy__()), _neg : false } : Int_));
+        Go.cfor(true, _p++, {
+            if (_p > ((10000 : GoUInt))) {
+                throw Go.toInterface(((("math/big: internal error: cannot find (D/n) = -1 for " : GoString))) + ((_intN.toString() : GoString)));
+            };
+            if (_d != null) _d[((0 : GoInt))] = (_p * _p) - ((4 : GoUInt));
+            var _j:GoInt = jacobi(_intD, _intN);
+            if (_j == ((-1 : GoInt))) {
+                break;
+            };
+            if (_j == ((0 : GoInt))) {
+                return ((_n != null ? _n.length : ((0 : GoInt))) == ((1 : GoInt))) && ((_n != null ? _n[((0 : GoInt))] : new Word()) == (_p + ((2 : GoUInt))));
+            };
+            if (_p == ((40 : GoUInt))) {
+                _t1 = (_t1._sqrt((_n == null ? null : _n.__copy__())) == null ? null : _t1._sqrt((_n == null ? null : _n.__copy__())).__copy__());
+                _t1 = (_t1._sqr((_t1 == null ? null : _t1.__copy__())) == null ? null : _t1._sqr((_t1 == null ? null : _t1.__copy__())).__copy__());
+                if (_t1._cmp((_n == null ? null : _n.__copy__())) == ((0 : GoInt))) {
+                    return false;
+                };
+            };
+        });
+        var _s:T_nat = (((new T_nat() : T_nat))._add((_n == null ? null : _n.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._add((_n == null ? null : _n.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+        var _r:GoInt = ((_s._trailingZeroBits() : GoInt));
+        _s = (_s._shr((_s == null ? null : _s.__copy__()), ((_r : GoUInt))) == null ? null : _s._shr((_s == null ? null : _s.__copy__()), ((_r : GoUInt))).__copy__());
+        var _nm2:T_nat = (((new T_nat() : T_nat))._sub((_n == null ? null : _n.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_n == null ? null : _n.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())).__copy__());
+        var _natP:T_nat = (((new T_nat() : T_nat))._setWord(_p) == null ? null : ((new T_nat() : T_nat))._setWord(_p).__copy__());
+        var _vk:T_nat = (((new T_nat() : T_nat))._setWord(((2 : GoUInt))) == null ? null : ((new T_nat() : T_nat))._setWord(((2 : GoUInt))).__copy__());
+        var _vk1:T_nat = (((new T_nat() : T_nat))._setWord(_p) == null ? null : ((new T_nat() : T_nat))._setWord(_p).__copy__());
+        var _t2:T_nat = ((new T_nat() : T_nat));
+        {
+            var _i:GoInt = ((_s._bitLen() : GoInt));
+            Go.cfor(_i >= ((0 : GoInt)), _i--, {
+                if (_s._bit(((_i : GoUInt))) != ((0 : GoUInt))) {
+                    _t1 = (_t1._mul((_vk == null ? null : _vk.__copy__()), (_vk1 == null ? null : _vk1.__copy__())) == null ? null : _t1._mul((_vk == null ? null : _vk.__copy__()), (_vk1 == null ? null : _vk1.__copy__())).__copy__());
+                    _t1 = (_t1._add((_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__())) == null ? null : _t1._add((_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__())).__copy__());
+                    _t1 = (_t1._sub((_t1 == null ? null : _t1.__copy__()), (_natP == null ? null : _natP.__copy__())) == null ? null : _t1._sub((_t1 == null ? null : _t1.__copy__()), (_natP == null ? null : _natP.__copy__())).__copy__());
+                    {
+                        var __tmp__ = _t2._div((_vk == null ? null : _vk.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                        _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                        _vk = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                    };
+                    _t1 = (_t1._sqr((_vk1 == null ? null : _vk1.__copy__())) == null ? null : _t1._sqr((_vk1 == null ? null : _vk1.__copy__())).__copy__());
+                    _t1 = (_t1._add((_t1 == null ? null : _t1.__copy__()), (_nm2 == null ? null : _nm2.__copy__())) == null ? null : _t1._add((_t1 == null ? null : _t1.__copy__()), (_nm2 == null ? null : _nm2.__copy__())).__copy__());
+                    {
+                        var __tmp__ = _t2._div((_vk1 == null ? null : _vk1.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                        _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                        _vk1 = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                    };
+                } else {
+                    _t1 = (_t1._mul((_vk == null ? null : _vk.__copy__()), (_vk1 == null ? null : _vk1.__copy__())) == null ? null : _t1._mul((_vk == null ? null : _vk.__copy__()), (_vk1 == null ? null : _vk1.__copy__())).__copy__());
+                    _t1 = (_t1._add((_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__())) == null ? null : _t1._add((_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__())).__copy__());
+                    _t1 = (_t1._sub((_t1 == null ? null : _t1.__copy__()), (_natP == null ? null : _natP.__copy__())) == null ? null : _t1._sub((_t1 == null ? null : _t1.__copy__()), (_natP == null ? null : _natP.__copy__())).__copy__());
+                    {
+                        var __tmp__ = _t2._div((_vk1 == null ? null : _vk1.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                        _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                        _vk1 = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                    };
+                    _t1 = (_t1._sqr((_vk == null ? null : _vk.__copy__())) == null ? null : _t1._sqr((_vk == null ? null : _vk.__copy__())).__copy__());
+                    _t1 = (_t1._add((_t1 == null ? null : _t1.__copy__()), (_nm2 == null ? null : _nm2.__copy__())) == null ? null : _t1._add((_t1 == null ? null : _t1.__copy__()), (_nm2 == null ? null : _nm2.__copy__())).__copy__());
+                    {
+                        var __tmp__ = _t2._div((_vk == null ? null : _vk.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                        _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                        _vk = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                    };
+                };
+            });
+        };
+        if ((_vk._cmp((_natTwo == null ? null : _natTwo.__copy__())) == ((0 : GoInt))) || (_vk._cmp((_nm2 == null ? null : _nm2.__copy__())) == ((0 : GoInt)))) {
+            var _t1:T_nat = (_t1._mul((_vk == null ? null : _vk.__copy__()), (_natP == null ? null : _natP.__copy__())) == null ? null : _t1._mul((_vk == null ? null : _vk.__copy__()), (_natP == null ? null : _natP.__copy__())).__copy__());
+            var _t2:T_nat = (_t2._shl((_vk1 == null ? null : _vk1.__copy__()), ((1 : GoUInt))) == null ? null : _t2._shl((_vk1 == null ? null : _vk1.__copy__()), ((1 : GoUInt))).__copy__());
+            if (_t1._cmp((_t2 == null ? null : _t2.__copy__())) < ((0 : GoInt))) {
+                {
+                    final __tmp__0 = (_t2 == null ? null : _t2.__copy__());
+                    final __tmp__1 = (_t1 == null ? null : _t1.__copy__());
+                    _t1 = __tmp__0;
+                    _t2 = __tmp__1;
+                };
+            };
+            _t1 = (_t1._sub((_t1 == null ? null : _t1.__copy__()), (_t2 == null ? null : _t2.__copy__())) == null ? null : _t1._sub((_t1 == null ? null : _t1.__copy__()), (_t2 == null ? null : _t2.__copy__())).__copy__());
+            var _t3:T_nat = (_vk1 == null ? null : _vk1.__copy__());
+            _vk1 = null;
+            _vk1;
+            {
+                var __tmp__ = _t2._div((_t3 == null ? null : _t3.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                _t3 = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+            };
+            if ((_t3 != null ? _t3.length : ((0 : GoInt))) == ((0 : GoInt))) {
+                return true;
+            };
+        };
+        {
+            var _t:GoInt = ((0 : GoInt));
+            Go.cfor(_t < (_r - ((1 : GoInt))), _t++, {
+                if ((_vk != null ? _vk.length : ((0 : GoInt))) == ((0 : GoInt))) {
+                    return true;
+                };
+                if (((_vk != null ? _vk.length : ((0 : GoInt))) == ((1 : GoInt))) && ((_vk != null ? _vk[((0 : GoInt))] : new Word()) == ((2 : GoUInt)))) {
+                    return false;
+                };
+                _t1 = (_t1._sqr((_vk == null ? null : _vk.__copy__())) == null ? null : _t1._sqr((_vk == null ? null : _vk.__copy__())).__copy__());
+                _t1 = (_t1._sub((_t1 == null ? null : _t1.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())) == null ? null : _t1._sub((_t1 == null ? null : _t1.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())).__copy__());
+                {
+                    var __tmp__ = _t2._div((_vk == null ? null : _vk.__copy__()), (_t1 == null ? null : _t1.__copy__()), (_n == null ? null : _n.__copy__()));
+                    _t2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _vk = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                };
+            });
+        };
+        return false;
+    }
+    public static function _probablyPrimeMillerRabin(_n:T_nat, _reps:GoInt, _force2:Bool):Bool {
+        (_n == null ? null : _n.__copy__());
+        return stdgo.internal.Macro.controlFlow({
+            var _nm1:T_nat = (((new T_nat() : T_nat))._sub((_n == null ? null : _n.__copy__()), (_natOne == null ? null : _natOne.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_n == null ? null : _n.__copy__()), (_natOne == null ? null : _natOne.__copy__())).__copy__());
+            var _k:GoUInt = _nm1._trailingZeroBits();
+            var _q:T_nat = (((new T_nat() : T_nat))._shr((_nm1 == null ? null : _nm1.__copy__()), _k) == null ? null : ((new T_nat() : T_nat))._shr((_nm1 == null ? null : _nm1.__copy__()), _k).__copy__());
+            var _nm3:T_nat = (((new T_nat() : T_nat))._sub((_nm1 == null ? null : _nm1.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())) == null ? null : ((new T_nat() : T_nat))._sub((_nm1 == null ? null : _nm1.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())).__copy__());
+            var _rand:stdgo.math.rand.Rand.Rand = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((((_n != null ? _n[((0 : GoInt))] : new Word()) : GoInt64))));
+            var _x:T_nat = new T_nat(), _y:T_nat = new T_nat(), _quotient:T_nat = new T_nat();
+            var _nm3Len:GoInt = _nm3._bitLen();
+            @:label("NextRandom") {
+                var _i:GoInt = ((0 : GoInt));
+                Go.cfor(_i < _reps, _i++, {
+                    if ((_i == (_reps - ((1 : GoInt)))) && _force2) {
+                        _x = (_x._set((_natTwo == null ? null : _natTwo.__copy__())) == null ? null : _x._set((_natTwo == null ? null : _natTwo.__copy__())).__copy__());
+                    } else {
+                        _x = (_x._random(_rand, (_nm3 == null ? null : _nm3.__copy__()), _nm3Len) == null ? null : _x._random(_rand, (_nm3 == null ? null : _nm3.__copy__()), _nm3Len).__copy__());
+                        _x = (_x._add((_x == null ? null : _x.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())) == null ? null : _x._add((_x == null ? null : _x.__copy__()), (_natTwo == null ? null : _natTwo.__copy__())).__copy__());
+                    };
+                    _y = (_y._expNN((_x == null ? null : _x.__copy__()), (_q == null ? null : _q.__copy__()), (_n == null ? null : _n.__copy__())) == null ? null : _y._expNN((_x == null ? null : _x.__copy__()), (_q == null ? null : _q.__copy__()), (_n == null ? null : _n.__copy__())).__copy__());
+                    if ((_y._cmp((_natOne == null ? null : _natOne.__copy__())) == ((0 : GoInt))) || (_y._cmp((_nm1 == null ? null : _nm1.__copy__())) == ((0 : GoInt)))) {
+                        continue;
+                    };
+                    {
+                        var _j:GoUInt = ((((1 : GoUInt)) : GoUInt));
+                        Go.cfor(_j < _k, _j++, {
+                            _y = (_y._sqr((_y == null ? null : _y.__copy__())) == null ? null : _y._sqr((_y == null ? null : _y.__copy__())).__copy__());
+                            {
+                                var __tmp__ = _quotient._div((_y == null ? null : _y.__copy__()), (_y == null ? null : _y.__copy__()), (_n == null ? null : _n.__copy__()));
+                                _quotient = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _y = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            if (_y._cmp((_nm1 == null ? null : _nm1.__copy__())) == ((0 : GoInt))) {
+                                continue;
+                            };
+                            if (_y._cmp((_natOne == null ? null : _natOne.__copy__())) == ((0 : GoInt))) {
+                                return false;
+                            };
+                        });
+                    };
+                    return false;
+                });
+            };
+            return true;
+        });
+    }
+    public static function _divRecursiveStep(_z:T_nat, _u:T_nat, _v:T_nat, _depth:GoInt, _tmp:T_nat, _temps:Slice<T_nat>):Void {
+        (_z == null ? null : _z.__copy__());
+        _u = (_u._norm() == null ? null : _u._norm().__copy__());
+        _v = (_v._norm() == null ? null : _v._norm().__copy__());
+        if ((_u != null ? _u.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            _z._clear();
+            return;
+        };
+        var _n:GoInt = (_v != null ? _v.length : ((0 : GoInt)));
+        if (_n < ((100 : GoInt))) {
+            _z._divBasic((_u == null ? null : _u.__copy__()), (_v == null ? null : _v.__copy__()));
+            return;
+        };
+        var _m:GoInt = (_u != null ? _u.length : ((0 : GoInt))) - _n;
+        if (_m < ((0 : GoInt))) {
+            return;
+        };
+        var b:GoInt = _n / ((2 : GoInt));
+        if ((_temps != null ? _temps[_depth] : ((null : T_nat))) == null) {
+            if (_temps != null) _temps[_depth] = _getNat(_n);
+        } else {
+            (_temps != null ? _temps[_depth] : ((null : T_nat))) = ((_temps != null ? _temps[_depth] : ((null : T_nat)))._make(b + ((1 : GoInt))) == null ? null : (_temps != null ? _temps[_depth] : ((null : T_nat)))._make(b + ((1 : GoInt))).__copy__());
+        };
+        var _j:GoInt = _m;
+        while (_j > b) {
+            var _s:GoInt = (b - ((1 : GoInt)));
+            var _uu:T_nat = (_u.__slice__(_j - b) == null ? null : _u.__slice__(_j - b).__copy__());
+            var _qhat:T_nat = ((_temps != null ? _temps[_depth] : ((null : T_nat))) == null ? null : (_temps != null ? _temps[_depth] : ((null : T_nat))).__copy__());
+            _qhat._clear();
+            _qhat._divRecursiveStep((_uu.__slice__(_s, b + _n) == null ? null : _uu.__slice__(_s, b + _n).__copy__()), (_v.__slice__(_s) == null ? null : _v.__slice__(_s).__copy__()), _depth + ((1 : GoInt)), _tmp, _temps);
+            _qhat = (_qhat._norm() == null ? null : _qhat._norm().__copy__());
+            var _qhatv:T_nat = (_tmp._make(((3 : GoInt)) * _n) == null ? null : _tmp._make(((3 : GoInt)) * _n).__copy__());
+            _qhatv._clear();
+            _qhatv = (_qhatv._mul((_qhat == null ? null : _qhat.__copy__()), (_v.__slice__(0, _s) == null ? null : _v.__slice__(0, _s).__copy__())) == null ? null : _qhatv._mul((_qhat == null ? null : _qhat.__copy__()), (_v.__slice__(0, _s) == null ? null : _v.__slice__(0, _s).__copy__())).__copy__());
+            {
+                var _i:GoInt = ((0 : GoInt));
+                Go.cfor(_i < ((2 : GoInt)), _i++, {
+                    var _e:GoInt = _qhatv._cmp((_uu._norm() == null ? null : _uu._norm().__copy__()));
+                    if (_e <= ((0 : GoInt))) {
+                        break;
+                    };
+                    _subVW(_qhat, _qhat, ((1 : GoUInt)));
+                    var _c:Word = _subVV(_qhatv.__slice__(0, _s), _qhatv.__slice__(0, _s), _v.__slice__(0, _s));
+                    if ((_qhatv != null ? _qhatv.length : ((0 : GoInt))) > _s) {
+                        _subVW(_qhatv.__slice__(_s), _qhatv.__slice__(_s), _c);
+                    };
+                    _addAt((_uu.__slice__(_s) == null ? null : _uu.__slice__(_s).__copy__()), (_v.__slice__(_s) == null ? null : _v.__slice__(_s).__copy__()), ((0 : GoInt)));
+                });
+            };
+            if (_qhatv._cmp((_uu._norm() == null ? null : _uu._norm().__copy__())) > ((0 : GoInt))) {
+                throw Go.toInterface(((("impossible" : GoString))));
+            };
+            var _c:Word = _subVV(_uu.__slice__(0, (_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _uu.__slice__(0, (_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _qhatv);
+            if (_c > ((0 : GoUInt))) {
+                _subVW(_uu.__slice__((_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _uu.__slice__((_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _c);
+            };
+            _addAt((_z == null ? null : _z.__copy__()), (_qhat == null ? null : _qhat.__copy__()), _j - b);
+            _j = _j - (b);
+        };
+        var _s:GoInt = b - ((1 : GoInt));
+        var _qhat:T_nat = ((_temps != null ? _temps[_depth] : ((null : T_nat))) == null ? null : (_temps != null ? _temps[_depth] : ((null : T_nat))).__copy__());
+        _qhat._clear();
+        _qhat._divRecursiveStep((_u.__slice__(_s)._norm() == null ? null : _u.__slice__(_s)._norm().__copy__()), (_v.__slice__(_s) == null ? null : _v.__slice__(_s).__copy__()), _depth + ((1 : GoInt)), _tmp, _temps);
+        _qhat = (_qhat._norm() == null ? null : _qhat._norm().__copy__());
+        var _qhatv:T_nat = (_tmp._make(((3 : GoInt)) * _n) == null ? null : _tmp._make(((3 : GoInt)) * _n).__copy__());
+        _qhatv._clear();
+        _qhatv = (_qhatv._mul((_qhat == null ? null : _qhat.__copy__()), (_v.__slice__(0, _s) == null ? null : _v.__slice__(0, _s).__copy__())) == null ? null : _qhatv._mul((_qhat == null ? null : _qhat.__copy__()), (_v.__slice__(0, _s) == null ? null : _v.__slice__(0, _s).__copy__())).__copy__());
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < ((2 : GoInt)), _i++, {
+                {
+                    var _e:GoInt = _qhatv._cmp((_u._norm() == null ? null : _u._norm().__copy__()));
+                    if (_e > ((0 : GoInt))) {
+                        _subVW(_qhat, _qhat, ((1 : GoUInt)));
+                        var _c:Word = _subVV(_qhatv.__slice__(0, _s), _qhatv.__slice__(0, _s), _v.__slice__(0, _s));
+                        if ((_qhatv != null ? _qhatv.length : ((0 : GoInt))) > _s) {
+                            _subVW(_qhatv.__slice__(_s), _qhatv.__slice__(_s), _c);
+                        };
+                        _addAt((_u.__slice__(_s) == null ? null : _u.__slice__(_s).__copy__()), (_v.__slice__(_s) == null ? null : _v.__slice__(_s).__copy__()), ((0 : GoInt)));
+                    };
+                };
+            });
+        };
+        if (_qhatv._cmp((_u._norm() == null ? null : _u._norm().__copy__())) > ((0 : GoInt))) {
+            throw Go.toInterface(((("impossible" : GoString))));
+        };
+        var _c:Word = _subVV(_u.__slice__(((0 : GoInt)), (_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _u.__slice__(((0 : GoInt)), (_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _qhatv);
+        if (_c > ((0 : GoUInt))) {
+            _c = _subVW(_u.__slice__((_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _u.__slice__((_qhatv != null ? _qhatv.length : ((0 : GoInt)))), _c);
+        };
+        if (_c > ((0 : GoUInt))) {
+            throw Go.toInterface(((("impossible" : GoString))));
+        };
+        _addAt((_z == null ? null : _z.__copy__()), (_qhat._norm() == null ? null : _qhat._norm().__copy__()), ((0 : GoInt)));
+    }
+    public static function _divRecursive(_z:T_nat, _u:T_nat, _v:T_nat):Void {
+        (_z == null ? null : _z.__copy__());
+        var _recDepth:GoInt = ((2 : GoInt)) * stdgo.math.bits.Bits.len((((_v != null ? _v.length : ((0 : GoInt))) : GoUInt)));
+        var _tmp:T_nat = _getNat(((3 : GoInt)) * (_v != null ? _v.length : ((0 : GoInt))));
+        var _temps:Slice<T_nat> = new Slice<T_nat>(...[for (i in 0 ... ((_recDepth : GoInt)).toBasic()) ((null : T_nat))]);
+        _z._clear();
+        _z._divRecursiveStep((_u == null ? null : _u.__copy__()), (_v == null ? null : _v.__copy__()), ((0 : GoInt)), _tmp, _temps);
+        for (_ => _n in _temps) {
+            if (_n != null) {
+                _putNat(_n);
+            };
+        };
+        _putNat(_tmp);
+    }
+    public static function _divBasic(_q:T_nat, _u:T_nat, _v:T_nat):Void {
+        (_q == null ? null : _q.__copy__());
+        var _n:GoInt = (_v != null ? _v.length : ((0 : GoInt)));
+        var _m:GoInt = (_u != null ? _u.length : ((0 : GoInt))) - _n;
+        var _qhatvp:T_nat = _getNat(_n + ((1 : GoInt)));
+        var _qhatv:T_nat = (_qhatvp == null ? null : _qhatvp.__copy__());
+        var _vn1:Word = (_v != null ? _v[_n - ((1 : GoInt))] : new Word());
+        var _rec:Word = _reciprocalWord(_vn1);
+        {
+            var _j:GoInt = _m;
+            Go.cfor(_j >= ((0 : GoInt)), _j--, {
+                var _qhat:Word = (((("4294967295" : GoUInt)) : Word));
+                var _ujn:Word = new Word();
+                if ((_j + _n) < (_u != null ? _u.length : ((0 : GoInt)))) {
+                    _ujn = (_u != null ? _u[_j + _n] : new Word());
+                };
+                if (_ujn != _vn1) {
+                    var _rhat:Word = new Word();
+                    {
+                        var __tmp__ = _divWW(_ujn, (_u != null ? _u[(_j + _n) - ((1 : GoInt))] : new Word()), _vn1, _rec);
+                        _qhat = __tmp__._0;
+                        _rhat = __tmp__._1;
+                    };
+                    var _vn2:Word = (_v != null ? _v[_n - ((2 : GoInt))] : new Word());
+                    var __tmp__ = _mulWW(_qhat, _vn2), _x1:Word = __tmp__._0, _x2:Word = __tmp__._1;
+                    var _ujn2:Word = (_u != null ? _u[(_j + _n) - ((2 : GoInt))] : new Word());
+                    while (_greaterThan(_x1, _x2, _rhat, _ujn2)) {
+                        _qhat--;
+                        var _prevRhat:Word = _rhat;
+                        _rhat = _rhat + (_vn1);
+                        if (_rhat < _prevRhat) {
+                            break;
+                        };
+                        {
+                            var __tmp__ = _mulWW(_qhat, _vn2);
+                            _x1 = __tmp__._0;
+                            _x2 = __tmp__._1;
+                        };
+                    };
+                };
+                if (_qhatv != null) _qhatv[_n] = _mulAddVWW(_qhatv.__slice__(((0 : GoInt)), _n), _v, _qhat, ((0 : GoUInt)));
+                var _qhl:GoInt = (_qhatv != null ? _qhatv.length : ((0 : GoInt)));
+                if (((_j + _qhl) > (_u != null ? _u.length : ((0 : GoInt)))) && ((_qhatv != null ? _qhatv[_n] : new Word()) == ((0 : GoUInt)))) {
+                    _qhl--;
+                };
+                var _c:Word = _subVV(_u.__slice__(_j, _j + _qhl), _u.__slice__(_j), _qhatv);
+                if (_c != ((0 : GoUInt))) {
+                    var _c:Word = _addVV(_u.__slice__(_j, _j + _n), _u.__slice__(_j), _v);
+                    if (_n < _qhl) {
+                        if (_u != null) (_u != null ? _u[_j + _n] : new Word()) + (_c);
+                    };
+                    _qhat--;
+                };
+                if (((_j == _m) && (_m == (_q != null ? _q.length : ((0 : GoInt))))) && (_qhat == ((0 : GoUInt)))) {
+                    continue;
+                };
+                if (_q != null) _q[_j] = _qhat;
+            });
+        };
+        _putNat(_qhatvp);
+    }
+    public static function _divLarge(_z:T_nat, _u:T_nat, _uIn:T_nat, _vIn:T_nat):{ var _0 : T_nat; var _1 : T_nat; } {
+        (_z == null ? null : _z.__copy__());
+        var _q:T_nat = new T_nat(), _r:T_nat = new T_nat();
+        var _n:GoInt = (_vIn != null ? _vIn.length : ((0 : GoInt)));
+        var _m:GoInt = (_uIn != null ? _uIn.length : ((0 : GoInt))) - _n;
+        var _shift:GoUInt = _nlz((_vIn != null ? _vIn[_n - ((1 : GoInt))] : new Word()));
+        var _vp:T_nat = _getNat(_n);
+        var _v:T_nat = (_vp == null ? null : _vp.__copy__());
+        _shlVU(_v, _vIn, _shift);
+        _u = (_u._make((_uIn != null ? _uIn.length : ((0 : GoInt))) + ((1 : GoInt))) == null ? null : _u._make((_uIn != null ? _uIn.length : ((0 : GoInt))) + ((1 : GoInt))).__copy__());
+        if (_u != null) _u[(_uIn != null ? _uIn.length : ((0 : GoInt)))] = _shlVU(_u.__slice__(((0 : GoInt)), (_uIn != null ? _uIn.length : ((0 : GoInt)))), _uIn, _shift);
+        if (_alias((_z == null ? null : _z.__copy__()), (_u == null ? null : _u.__copy__()))) {
+            _z = null;
+        };
+        _q = (_z._make(_m + ((1 : GoInt))) == null ? null : _z._make(_m + ((1 : GoInt))).__copy__());
+        if (_n < ((100 : GoInt))) {
+            _q._divBasic((_u == null ? null : _u.__copy__()), (_v == null ? null : _v.__copy__()));
+        } else {
+            _q._divRecursive((_u == null ? null : _u.__copy__()), (_v == null ? null : _v.__copy__()));
+        };
+        _putNat(_vp);
+        _q = (_q._norm() == null ? null : _q._norm().__copy__());
+        _shrVU(_u, _u, _shift);
+        _r = (_u._norm() == null ? null : _u._norm().__copy__());
+        return { _0 : (_q == null ? null : _q.__copy__()), _1 : (_r == null ? null : _r.__copy__()) };
+    }
+    public static function _modW(_x:T_nat, _d:Word):Word {
+        (_x == null ? null : _x.__copy__());
+        var _r:Word = new Word();
+        var _q:T_nat = new T_nat();
+        _q = (_q._make((_x != null ? _x.length : ((0 : GoInt)))) == null ? null : _q._make((_x != null ? _x.length : ((0 : GoInt)))).__copy__());
+        return _divWVW(_q, ((0 : GoUInt)), _x, _d);
+    }
+    public static function _divW(_z:T_nat, _x:T_nat, _y:Word):{ var _0 : T_nat; var _1 : Word; } {
+        (_z == null ? null : _z.__copy__());
+        var _q:T_nat = new T_nat(), _r:Word = new Word();
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        if (_y == ((0 : GoUInt))) {
+            throw Go.toInterface(((("division by zero" : GoString))));
+        } else if (_y == ((1 : GoUInt))) {
+            _q = (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+            return { _0 : _q, _1 : _r };
+        } else if (_m == ((0 : GoInt))) {
+            _q = (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+            return { _0 : _q, _1 : _r };
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        _r = _divWVW(_z, ((0 : GoUInt)), _x, _y);
+        _q = (_z._norm() == null ? null : _z._norm().__copy__());
+        return { _0 : _q, _1 : _r };
+    }
+    public static function _div(_z:T_nat, _z2:T_nat, _u:T_nat, _v:T_nat):{ var _0 : T_nat; var _1 : T_nat; } {
+        (_z == null ? null : _z.__copy__());
+        var _q:T_nat = new T_nat(), _r:T_nat = new T_nat();
+        if ((_v != null ? _v.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            throw Go.toInterface(((("division by zero" : GoString))));
+        };
+        if (_u._cmp((_v == null ? null : _v.__copy__())) < ((0 : GoInt))) {
+            _q = (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+            _r = (_z2._set((_u == null ? null : _u.__copy__())) == null ? null : _z2._set((_u == null ? null : _u.__copy__())).__copy__());
+            return { _0 : _q, _1 : _r };
+        };
+        if ((_v != null ? _v.length : ((0 : GoInt))) == ((1 : GoInt))) {
+            var _r2:Word = new Word();
+            {
+                var __tmp__ = _z._divW((_u == null ? null : _u.__copy__()), (_v != null ? _v[((0 : GoInt))] : new Word()));
+                _q = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                _r2 = __tmp__._1;
+            };
+            _r = (_z2._setWord(_r2) == null ? null : _z2._setWord(_r2).__copy__());
+            return { _0 : _q, _1 : _r };
+        };
+        {
+            var __tmp__ = _z._divLarge((_z2 == null ? null : _z2.__copy__()), (_u == null ? null : _u.__copy__()), (_v == null ? null : _v.__copy__()));
+            _q = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+            _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+        };
+        return { _0 : _q, _1 : _r };
+    }
+    public static function _expWW(_z:T_nat, _x:Word, _y:Word):T_nat {
+        (_z == null ? null : _z.__copy__());
+        return (_z._expNN((((new T_nat() : T_nat))._setWord(_x) == null ? null : ((new T_nat() : T_nat))._setWord(_x).__copy__()), (((new T_nat() : T_nat))._setWord(_y) == null ? null : ((new T_nat() : T_nat))._setWord(_y).__copy__()), null) == null ? null : _z._expNN((((new T_nat() : T_nat))._setWord(_x) == null ? null : ((new T_nat() : T_nat))._setWord(_x).__copy__()), (((new T_nat() : T_nat))._setWord(_y) == null ? null : ((new T_nat() : T_nat))._setWord(_y).__copy__()), null).__copy__());
+    }
+    public static function _convertWords(_q:T_nat, _s:Slice<GoByte>, _b:Word, _ndigits:GoInt, _bb:Word, _table:Slice<T_divisor>):Void {
+        (_q == null ? null : _q.__copy__());
+        if (_table != null) {
+            var _r:T_nat = new T_nat();
+            var _index:GoInt = (_table != null ? _table.length : ((0 : GoInt))) - ((1 : GoInt));
+            while ((_q != null ? _q.length : ((0 : GoInt))) > _leafSize) {
+                var _maxLength:GoInt = _q._bitLen();
+                var _minLength:GoInt = _maxLength >> ((1 : GoUnTypedInt));
+                while ((_index > ((0 : GoInt))) && ((_table != null ? _table[_index - ((1 : GoInt))] : new T_divisor())._nbits > _minLength)) {
+                    _index--;
+                };
+                if (((_table != null ? _table[_index] : new T_divisor())._nbits >= _maxLength) && ((_table != null ? _table[_index] : new T_divisor())._bbb._cmp((_q == null ? null : _q.__copy__())) >= ((0 : GoInt)))) {
+                    _index--;
+                    if (_index < ((0 : GoInt))) {
+                        throw Go.toInterface(((("internal inconsistency" : GoString))));
+                    };
+                };
+                {
+                    var __tmp__ = _q._div((_r == null ? null : _r.__copy__()), (_q == null ? null : _q.__copy__()), ((_table != null ? _table[_index] : new T_divisor())._bbb == null ? null : (_table != null ? _table[_index] : new T_divisor())._bbb.__copy__()));
+                    _q = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                };
+                var _h:GoInt = (_s != null ? _s.length : ((0 : GoInt))) - (_table != null ? _table[_index] : new T_divisor())._ndigits;
+                _r._convertWords(_s.__slice__(_h), _b, _ndigits, _bb, _table.__slice__(((0 : GoInt)), _index));
+                _s = _s.__slice__(0, _h);
+            };
+        };
+        var _i:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
+        var _r:Word = new Word();
+        if (_b == ((10 : GoUInt))) {
+            while ((_q != null ? _q.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                {
+                    var __tmp__ = _q._divW((_q == null ? null : _q.__copy__()), _bb);
+                    _q = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _r = __tmp__._1;
+                };
+                {
+                    var _j:GoInt = ((0 : GoInt));
+                    Go.cfor((_j < _ndigits) && (_i > ((0 : GoInt))), _j++, {
+                        _i--;
+                        var _t:Word = _r / ((10 : GoUInt));
+                        if (_s != null) _s[_i] = ((((("0" : GoString))).code : GoRune)) + (((_r - (_t * ((10 : GoUInt)))) : GoByte));
+                        _r = _t;
+                    });
+                };
+            };
+        } else {
+            while ((_q != null ? _q.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                {
+                    var __tmp__ = _q._divW((_q == null ? null : _q.__copy__()), _bb);
+                    _q = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _r = __tmp__._1;
+                };
+                {
+                    var _j:GoInt = ((0 : GoInt));
+                    Go.cfor((_j < _ndigits) && (_i > ((0 : GoInt))), _j++, {
+                        _i--;
+                        if (_s != null) _s[_i] = (((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString))) != null ? ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[_r % _b] : ((0 : GoUInt8)));
+                        _r = _r / (_b);
+                    });
+                };
+            };
+        };
+        while (_i > ((0 : GoInt))) {
+            _i--;
+            if (_s != null) _s[_i] = ((((("0" : GoString))).code : GoRune));
+        };
+    }
+    public static function _itoa(_x:T_nat, _neg:Bool, _base:GoInt):Slice<GoByte> {
+        (_x == null ? null : _x.__copy__());
+        if ((_base < ((2 : GoInt))) || (_base > ((62 : GoInt)))) {
+            throw Go.toInterface(((("invalid base" : GoString))));
+        };
+        if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return ((((("0" : GoString))) : Slice<GoByte>));
+        };
+        var _i:GoInt = (((((_x._bitLen() : GoFloat64)) / stdgo.math.Math.log2(((_base : GoFloat64)))) : GoInt)) + ((1 : GoInt));
+        if (_neg) {
+            _i++;
+        };
+        var _s:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_i : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        {
+            var _b:Word = ((_base : Word));
+            if (_b == (_b & -_b)) {
+                var _shift:GoUInt = ((stdgo.math.bits.Bits.trailingZeros(((_b : GoUInt))) : GoUInt));
+                var _mask:Word = ((((((1 : GoUInt)) << _shift) - ((1 : GoUInt))) : Word));
+                var _w:Word = (_x != null ? _x[((0 : GoInt))] : new Word());
+                var _nbits:GoUInt = ((((32 : GoUInt)) : GoUInt));
+                {
+                    var _k:GoInt = ((1 : GoInt));
+                    Go.cfor(_k < (_x != null ? _x.length : ((0 : GoInt))), _k++, {
+                        while (_nbits >= _shift) {
+                            _i--;
+                            if (_s != null) _s[_i] = (((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString))) != null ? ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[_w & _mask] : ((0 : GoUInt8)));
+                            _w = _w >> (_shift);
+                            _nbits = _nbits - (_shift);
+                        };
+                        if (_nbits == ((0 : GoUInt))) {
+                            _w = (_x != null ? _x[_k] : new Word());
+                            _nbits = ((32 : GoUInt));
+                        } else {
+                            _w = _w | ((_x != null ? _x[_k] : new Word()) << _nbits);
+                            _i--;
+                            if (_s != null) _s[_i] = (((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString))) != null ? ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[_w & _mask] : ((0 : GoUInt8)));
+                            _w = (_x != null ? _x[_k] : new Word()) >> (_shift - _nbits);
+                            _nbits = ((32 : GoUInt)) - (_shift - _nbits);
+                        };
+                    });
+                };
+                while (_w != ((0 : GoUInt))) {
+                    _i--;
+                    if (_s != null) _s[_i] = (((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString))) != null ? ((("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" : GoString)))[_w & _mask] : ((0 : GoUInt8)));
+                    _w = _w >> (_shift);
+                };
+            } else {
+                var __tmp__ = _maxPow(_b), _bb:Word = __tmp__._0, _ndigits:GoInt = __tmp__._1;
+                var _table:Slice<T_divisor> = _divisors((_x != null ? _x.length : ((0 : GoInt))), _b, _ndigits, _bb);
+                var _q:T_nat = (((new T_nat() : T_nat))._set((_x == null ? null : _x.__copy__())) == null ? null : ((new T_nat() : T_nat))._set((_x == null ? null : _x.__copy__())).__copy__());
+                _q._convertWords(_s, _b, _ndigits, _bb, _table);
+                _i = ((0 : GoInt));
+                while ((_s != null ? _s[_i] : ((0 : GoUInt8))) == ((((("0" : GoString))).code : GoRune))) {
+                    _i++;
+                };
+            };
+        };
+        if (_neg) {
+            _i--;
+            if (_s != null) _s[_i] = ((((("-" : GoString))).code : GoRune));
+        };
+        return _s.__slice__(_i);
+    }
+    public static function _utoa(_x:T_nat, _base:GoInt):Slice<GoByte> {
+        (_x == null ? null : _x.__copy__());
+        return _x._itoa(false, _base);
+    }
+    public static function _scan(_z:T_nat, _r:stdgo.io.Io.ByteScanner, _base:GoInt, _fracOk:Bool):{ var _0 : T_nat; var _1 : GoInt; var _2 : GoInt; var _3 : Error; } {
+        (_z == null ? null : _z.__copy__());
+        var _res:T_nat = new T_nat(), _b:GoInt = ((0 : GoInt)), _count:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        var _baseOk:Bool = ((_base == ((0 : GoInt))) || ((!_fracOk && (((2 : GoInt)) <= _base)) && (_base <= ((62 : GoInt))))) || (_fracOk && ((((_base == ((2 : GoInt))) || (_base == ((8 : GoInt)))) || (_base == ((10 : GoInt)))) || (_base == ((16 : GoInt)))));
+        if (!_baseOk) {
+            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((("invalid number base %d" : GoString))), Go.toInterface(_base)));
+        };
+        var _prev:GoInt32 = ((((("." : GoString))).code : GoRune));
+        var _invalSep:Bool = false;
+        var __tmp__ = _r.readByte(), _ch:GoUInt8 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var _b:GoInt = _base, _prefix:GoInt = ((0 : GoInt));
+        if (_base == ((0 : GoInt))) {
+            _b = ((10 : GoInt));
+            if ((_err == null) && (_ch == ((((("0" : GoString))).code : GoRune)))) {
+                _prev = ((((("0" : GoString))).code : GoRune));
+                _count = ((1 : GoInt));
+                {
+                    var __tmp__ = _r.readByte();
+                    _ch = __tmp__._0;
+                    _err = __tmp__._1;
+                };
+                if (_err == null) {
+                    if (_ch == ((((("b" : GoString))).code : GoRune)) || _ch == ((((("B" : GoString))).code : GoRune))) {
+                        {
+                            final __tmp__0 = ((2 : GoInt));
+                            final __tmp__1 = ((((("b" : GoString))).code : GoRune));
+                            _b = __tmp__0;
+                            _prefix = __tmp__1;
+                        };
+                    } else if (_ch == ((((("o" : GoString))).code : GoRune)) || _ch == ((((("O" : GoString))).code : GoRune))) {
+                        {
+                            final __tmp__0 = ((8 : GoInt));
+                            final __tmp__1 = ((((("o" : GoString))).code : GoRune));
+                            _b = __tmp__0;
+                            _prefix = __tmp__1;
+                        };
+                    } else if (_ch == ((((("x" : GoString))).code : GoRune)) || _ch == ((((("X" : GoString))).code : GoRune))) {
+                        {
+                            final __tmp__0 = ((16 : GoInt));
+                            final __tmp__1 = ((((("x" : GoString))).code : GoRune));
+                            _b = __tmp__0;
+                            _prefix = __tmp__1;
+                        };
+                    } else {
+                        if (!_fracOk) {
+                            {
+                                final __tmp__0 = ((8 : GoInt));
+                                final __tmp__1 = ((((("0" : GoString))).code : GoRune));
+                                _b = __tmp__0;
+                                _prefix = __tmp__1;
+                            };
+                        };
+                    };
+                    if (_prefix != ((0 : GoInt))) {
+                        _count = ((0 : GoInt));
+                        if (_prefix != ((((("0" : GoString))).code : GoRune))) {
+                            {
+                                var __tmp__ = _r.readByte();
+                                _ch = __tmp__._0;
+                                _err = __tmp__._1;
+                            };
+                        };
+                    };
+                };
+            };
+        };
+        _z = (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        var _b1:Word = ((_b : Word));
+        var __tmp__ = _maxPow(_b1), _bn:Word = __tmp__._0, _n:GoInt = __tmp__._1;
+        var _di:Word = ((((0 : GoUInt)) : Word));
+        var _i:GoInt = ((0 : GoInt));
+        var _dp:GoInt = ((-1 : GoInt));
+        while (_err == null) {
+            if ((_ch == ((((("." : GoString))).code : GoRune))) && _fracOk) {
+                _fracOk = false;
+                if (_prev == ((((("_" : GoString))).code : GoRune))) {
+                    _invalSep = true;
+                };
+                _prev = ((((("." : GoString))).code : GoRune));
+                _dp = _count;
+            } else if ((_ch == ((((("_" : GoString))).code : GoRune))) && (_base == ((0 : GoInt)))) {
+                if (_prev != ((((("0" : GoString))).code : GoRune))) {
+                    _invalSep = true;
+                };
+                _prev = ((((("_" : GoString))).code : GoRune));
+            } else {
+                var _d1:Word = new Word();
+                if ((((((("0" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("9" : GoString))).code : GoRune)))) {
+                    _d1 = (((_ch - ((((("0" : GoString))).code : GoRune))) : Word));
+                } else if ((((((("a" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("z" : GoString))).code : GoRune)))) {
+                    _d1 = ((((_ch - ((((("a" : GoString))).code : GoRune))) + ((10 : GoUInt8))) : Word));
+                } else if ((((((("A" : GoString))).code : GoRune)) <= _ch) && (_ch <= ((((("Z" : GoString))).code : GoRune)))) {
+                    if (_b <= ((36 : GoInt))) {
+                        _d1 = ((((_ch - ((((("A" : GoString))).code : GoRune))) + ((10 : GoUInt8))) : Word));
+                    } else {
+                        _d1 = ((((_ch - ((((("A" : GoString))).code : GoRune))) + ((36 : GoUInt8))) : Word));
+                    };
+                } else {
+                    _d1 = ((63 : GoUInt));
+                };
+                if (_d1 >= _b1) {
+                    _r.unreadByte();
+                    break;
+                };
+                _prev = ((((("0" : GoString))).code : GoRune));
+                _count++;
+                _di = (_di * _b1) + _d1;
+                _i++;
+                if (_i == _n) {
+                    _z = (_z._mulAddWW((_z == null ? null : _z.__copy__()), _bn, _di) == null ? null : _z._mulAddWW((_z == null ? null : _z.__copy__()), _bn, _di).__copy__());
+                    _di = ((0 : GoUInt));
+                    _i = ((0 : GoInt));
+                };
+            };
+            {
+                var __tmp__ = _r.readByte();
+                _ch = __tmp__._0;
+                _err = __tmp__._1;
+            };
+        };
+        if (_err == stdgo.io.Io.eof) {
+            _err = ((null : stdgo.Error));
+        };
+        if ((_err == null) && (_invalSep || (_prev == ((((("_" : GoString))).code : GoRune))))) {
+            _err = _errInvalSep;
+        };
+        if (_count == ((0 : GoInt))) {
+            if (_prefix == ((((("0" : GoString))).code : GoRune))) {
+                return { _0 : (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__()), _1 : ((10 : GoInt)), _2 : ((1 : GoInt)), _3 : _err };
+            };
+            _err = _errNoDigits;
+        };
+        if (_i > ((0 : GoInt))) {
+            _z = (_z._mulAddWW((_z == null ? null : _z.__copy__()), _pow(_b1, _i), _di) == null ? null : _z._mulAddWW((_z == null ? null : _z.__copy__()), _pow(_b1, _i), _di).__copy__());
+        };
+        _res = (_z._norm() == null ? null : _z._norm().__copy__());
+        if (_dp >= ((0 : GoInt))) {
+            _count = _dp - _count;
+        };
+        return { _0 : _res, _1 : _b, _2 : _count, _3 : _err };
+    }
+    public static function _sqrt(_z:T_nat, _x:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_x._cmp((_natOne == null ? null : _natOne.__copy__())) <= ((0 : GoInt))) {
+            return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+        };
+        if (_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+            _z = null;
+        };
+        var _z1:T_nat = new T_nat(), _z2:T_nat = new T_nat();
+        _z1 = (_z == null ? null : _z.__copy__());
+        _z1 = (_z1._setUint64(((1 : GoUInt64))) == null ? null : _z1._setUint64(((1 : GoUInt64))).__copy__());
+        _z1 = (_z1._shl((_z1 == null ? null : _z1.__copy__()), (((_x._bitLen() + ((1 : GoInt))) : GoUInt)) / ((2 : GoUInt))) == null ? null : _z1._shl((_z1 == null ? null : _z1.__copy__()), (((_x._bitLen() + ((1 : GoInt))) : GoUInt)) / ((2 : GoUInt))).__copy__());
+        {
+            var _n:GoInt = ((0 : GoInt));
+            Go.cfor(true, _n++, {
+                {
+                    var __tmp__ = _z2._div(null, (_x == null ? null : _x.__copy__()), (_z1 == null ? null : _z1.__copy__()));
+                    _z2 = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                };
+                _z2 = (_z2._add((_z2 == null ? null : _z2.__copy__()), (_z1 == null ? null : _z1.__copy__())) == null ? null : _z2._add((_z2 == null ? null : _z2.__copy__()), (_z1 == null ? null : _z1.__copy__())).__copy__());
+                _z2 = (_z2._shr((_z2 == null ? null : _z2.__copy__()), ((1 : GoUInt))) == null ? null : _z2._shr((_z2 == null ? null : _z2.__copy__()), ((1 : GoUInt))).__copy__());
+                if (_z2._cmp((_z1 == null ? null : _z1.__copy__())) >= ((0 : GoInt))) {
+                    if ((_n & ((1 : GoInt))) == ((0 : GoInt))) {
+                        return (_z1 == null ? null : _z1.__copy__());
+                    };
+                    return (_z._set((_z1 == null ? null : _z1.__copy__())) == null ? null : _z._set((_z1 == null ? null : _z1.__copy__())).__copy__());
+                };
+                {
+                    final __tmp__0 = (_z2 == null ? null : _z2.__copy__());
+                    final __tmp__1 = (_z1 == null ? null : _z1.__copy__());
+                    _z1 = __tmp__0;
+                    _z2 = __tmp__1;
+                };
+            });
+        };
+    }
+    public static function _setBytes(_z:T_nat, _buf:Slice<GoByte>):T_nat {
+        (_z == null ? null : _z.__copy__());
+        _z = (_z._make((((_buf != null ? _buf.length : ((0 : GoInt))) + ((4 : GoInt))) - ((1 : GoInt))) / ((4 : GoInt))) == null ? null : _z._make((((_buf != null ? _buf.length : ((0 : GoInt))) + ((4 : GoInt))) - ((1 : GoInt))) / ((4 : GoInt))).__copy__());
+        var _i:GoInt = (_buf != null ? _buf.length : ((0 : GoInt)));
+        {
+            var _k:GoInt = ((0 : GoInt));
+            Go.cfor(_i >= ((4 : GoInt)), _k++, {
+                if (_z != null) _z[_k] = _bigEndianWord(_buf.__slice__(_i - ((4 : GoInt)), _i));
+                _i = _i - (((4 : GoInt)));
+            });
+        };
+        if (_i > ((0 : GoInt))) {
+            var _d:Word = new Word();
+            {
+                var _s:GoUInt = ((((0 : GoUInt)) : GoUInt));
+                Go.cfor(_i > ((0 : GoInt)), _s = _s + (((8 : GoUInt))), {
+                    _d = _d | ((((_buf != null ? _buf[_i - ((1 : GoInt))] : ((0 : GoUInt8))) : Word)) << _s);
+                    _i--;
+                });
+            };
+            if (_z != null) _z[(_z != null ? _z.length : ((0 : GoInt))) - ((1 : GoInt))] = _d;
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _bytes(_z:T_nat, _buf:Slice<GoByte>):GoInt {
+        (_z == null ? null : _z.__copy__());
+        var _i:GoInt = ((0 : GoInt));
+        _i = (_buf != null ? _buf.length : ((0 : GoInt)));
+        for (_ => _d in _z) {
+            {
+                var _j:GoInt = ((0 : GoInt));
+                Go.cfor(_j < ((4 : GoInt)), _j++, {
+                    _i--;
+                    if (_i >= ((0 : GoInt))) {
+                        if (_buf != null) _buf[_i] = ((_d : GoByte));
+                    } else if (((_d : GoByte)) != ((0 : GoUInt8))) {
+                        throw Go.toInterface(((("math/big: buffer too small to fit value" : GoString))));
+                    };
+                    _d = _d >> (((8 : GoUnTypedInt)));
+                });
+            };
+        };
+        if (_i < ((0 : GoInt))) {
+            _i = ((0 : GoInt));
+        };
+        while ((_i < (_buf != null ? _buf.length : ((0 : GoInt)))) && ((_buf != null ? _buf[_i] : ((0 : GoUInt8))) == ((0 : GoUInt8)))) {
+            _i++;
+        };
+        return _i;
+    }
+    public static function _expNNMontgomery(_z:T_nat, _x:T_nat, _y:T_nat, _m:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _numWords:GoInt = (_m != null ? _m.length : ((0 : GoInt)));
+        if ((_x != null ? _x.length : ((0 : GoInt))) > _numWords) {
+            {
+                var __tmp__ = ((new T_nat() : T_nat))._div(null, (_x == null ? null : _x.__copy__()), (_m == null ? null : _m.__copy__()));
+                _x = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+            };
+        };
+        if ((_x != null ? _x.length : ((0 : GoInt))) < _numWords) {
+            var _rr:T_nat = new Slice<Word>(...[for (i in 0 ... ((_numWords : GoInt)).toBasic()) new Word()]);
+            Go.copy(_rr, _x);
+            _x = (_rr == null ? null : _rr.__copy__());
+        };
+        var _k0:Word = ((2 : GoUInt)) - (_m != null ? _m[((0 : GoInt))] : new Word());
+        var _t:Word = (_m != null ? _m[((0 : GoInt))] : new Word()) - ((1 : GoUInt));
+        {
+            var _i:GoInt = ((1 : GoInt));
+            Go.cfor(_i < ((32 : GoInt)), _i = _i << (((1 : GoUnTypedInt))), {
+                _t = _t * (_t);
+                _k0 = _k0 * ((_t + ((1 : GoUInt))));
+            });
+        };
+        _k0 = -_k0;
+        var rr:T_nat = (((new T_nat() : T_nat))._setWord(((1 : GoUInt))) == null ? null : ((new T_nat() : T_nat))._setWord(((1 : GoUInt))).__copy__());
+        var _zz:T_nat = (((new T_nat() : T_nat))._shl((rr == null ? null : rr.__copy__()), ((((((2 : GoInt)) * _numWords) * ((32 : GoInt))) : GoUInt))) == null ? null : ((new T_nat() : T_nat))._shl((rr == null ? null : rr.__copy__()), ((((((2 : GoInt)) * _numWords) * ((32 : GoInt))) : GoUInt))).__copy__());
+        {
+            var __tmp__ = ((new T_nat() : T_nat))._div((rr == null ? null : rr.__copy__()), (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()));
+            rr = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+        };
+        if ((rr != null ? rr.length : ((0 : GoInt))) < _numWords) {
+            _zz = (_zz._make(_numWords) == null ? null : _zz._make(_numWords).__copy__());
+            Go.copy(_zz, rr);
+            rr = (_zz == null ? null : _zz.__copy__());
+        };
+        var _one:T_nat = new Slice<Word>(...[for (i in 0 ... ((_numWords : GoInt)).toBasic()) new Word()]);
+        if (_one != null) _one[((0 : GoInt))] = ((1 : GoUInt));
+        {};
+        var _powers:GoArray<T_nat> = new GoArray<T_nat>(...[for (i in 0 ... 16) new T_nat()]);
+        if (_powers != null) _powers[((0 : GoInt))] = ((_powers != null ? _powers[((0 : GoInt))] : new T_nat())._montgomery((_one == null ? null : _one.__copy__()), (rr == null ? null : rr.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : (_powers != null ? _powers[((0 : GoInt))] : new T_nat())._montgomery((_one == null ? null : _one.__copy__()), (rr == null ? null : rr.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+        if (_powers != null) _powers[((1 : GoInt))] = ((_powers != null ? _powers[((1 : GoInt))] : new T_nat())._montgomery((_x == null ? null : _x.__copy__()), (rr == null ? null : rr.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : (_powers != null ? _powers[((1 : GoInt))] : new T_nat())._montgomery((_x == null ? null : _x.__copy__()), (rr == null ? null : rr.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+        {
+            var _i:GoInt = ((2 : GoInt));
+            Go.cfor(_i < ((16 : GoInt)), _i++, {
+                if (_powers != null) _powers[_i] = ((_powers != null ? _powers[_i] : new T_nat())._montgomery(((_powers != null ? _powers[_i - ((1 : GoInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_i - ((1 : GoInt))] : new T_nat()).__copy__()), ((_powers != null ? _powers[((1 : GoInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[((1 : GoInt))] : new T_nat()).__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : (_powers != null ? _powers[_i] : new T_nat())._montgomery(((_powers != null ? _powers[_i - ((1 : GoInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_i - ((1 : GoInt))] : new T_nat()).__copy__()), ((_powers != null ? _powers[((1 : GoInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[((1 : GoInt))] : new T_nat()).__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+            });
+        };
+        _z = (_z._make(_numWords) == null ? null : _z._make(_numWords).__copy__());
+        Go.copy(_z, (_powers != null ? _powers[((0 : GoInt))] : new T_nat()));
+        _zz = (_zz._make(_numWords) == null ? null : _zz._make(_numWords).__copy__());
+        {
+            var _i:GoInt = (_y != null ? _y.length : ((0 : GoInt))) - ((1 : GoInt));
+            Go.cfor(_i >= ((0 : GoInt)), _i--, {
+                var _yi:Word = (_y != null ? _y[_i] : new Word());
+                {
+                    var _j:GoInt = ((0 : GoInt));
+                    Go.cfor(_j < ((32 : GoInt)), _j = _j + (((4 : GoInt))), {
+                        if ((_i != ((_y != null ? _y.length : ((0 : GoInt))) - ((1 : GoInt)))) || (_j != ((0 : GoInt)))) {
+                            _zz = (_zz._montgomery((_z == null ? null : _z.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _zz._montgomery((_z == null ? null : _z.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+                            _z = (_z._montgomery((_zz == null ? null : _zz.__copy__()), (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _z._montgomery((_zz == null ? null : _zz.__copy__()), (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+                            _zz = (_zz._montgomery((_z == null ? null : _z.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _zz._montgomery((_z == null ? null : _z.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+                            _z = (_z._montgomery((_zz == null ? null : _zz.__copy__()), (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _z._montgomery((_zz == null ? null : _zz.__copy__()), (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+                        };
+                        _zz = (_zz._montgomery((_z == null ? null : _z.__copy__()), ((_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()).__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _zz._montgomery((_z == null ? null : _z.__copy__()), ((_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()).__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+                        {
+                            final __tmp__0 = (_zz == null ? null : _zz.__copy__());
+                            final __tmp__1 = (_z == null ? null : _z.__copy__());
+                            _z = __tmp__0;
+                            _zz = __tmp__1;
+                        };
+                        _yi = _yi << (((4 : GoUnTypedInt)));
+                    });
+                };
+            });
+        };
+        _zz = (_zz._montgomery((_z == null ? null : _z.__copy__()), (_one == null ? null : _one.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords) == null ? null : _zz._montgomery((_z == null ? null : _z.__copy__()), (_one == null ? null : _one.__copy__()), (_m == null ? null : _m.__copy__()), _k0, _numWords).__copy__());
+        if (_zz._cmp((_m == null ? null : _m.__copy__())) >= ((0 : GoInt))) {
+            _zz = (_zz._sub((_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__())) == null ? null : _zz._sub((_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__())).__copy__());
+            if (_zz._cmp((_m == null ? null : _m.__copy__())) >= ((0 : GoInt))) {
+                {
+                    var __tmp__ = ((new T_nat() : T_nat))._div(null, (_zz == null ? null : _zz.__copy__()), (_m == null ? null : _m.__copy__()));
+                    _zz = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                };
+            };
+        };
+        return (_zz._norm() == null ? null : _zz._norm().__copy__());
+    }
+    public static function _expNNWindowed(_z:T_nat, _x:T_nat, _y:T_nat, _m:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _zz:T_nat = new T_nat(), _r:T_nat = new T_nat();
+        {};
+        var _powers:GoArray<T_nat> = new GoArray<T_nat>(...[for (i in 0 ... 16) new T_nat()]);
+        if (_powers != null) _powers[((0 : GoInt))] = (_natOne == null ? null : _natOne.__copy__());
+        if (_powers != null) _powers[((1 : GoInt))] = (_x == null ? null : _x.__copy__());
+        {
+            var _i:GoInt = ((2 : GoInt));
+            Go.cfor(_i < ((16 : GoInt)), _i = _i + (((2 : GoInt))), {
+                var _p2:T_nat = (_powers != null ? _powers[_i / ((2 : GoInt))] : new T_nat()), _p:T_nat = (_powers != null ? _powers[_i] : new T_nat()), _p1:T_nat = (_powers != null ? _powers[_i + ((1 : GoInt))] : new T_nat());
+                _p = (_p._sqr((_p2 == null ? null : _p2.__copy__())) == null ? null : _p._sqr((_p2 == null ? null : _p2.__copy__())).__copy__());
+                {
+                    var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_p == null ? null : _p.__copy__()), (_m == null ? null : _m.__copy__()));
+                    _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                };
+                {
+                    final __tmp__0 = (_r == null ? null : _r.__copy__());
+                    final __tmp__1 = (_p == null ? null : _p.__copy__());
+                    _p = __tmp__0;
+                    _r = __tmp__1;
+                };
+                _p1 = (_p1._mul((_p == null ? null : _p.__copy__()), (_x == null ? null : _x.__copy__())) == null ? null : _p1._mul((_p == null ? null : _p.__copy__()), (_x == null ? null : _x.__copy__())).__copy__());
+                {
+                    var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_p1 == null ? null : _p1.__copy__()), (_m == null ? null : _m.__copy__()));
+                    _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                    _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                };
+                {
+                    final __tmp__0 = (_r == null ? null : _r.__copy__());
+                    final __tmp__1 = (_p1 == null ? null : _p1.__copy__());
+                    _p1 = __tmp__0;
+                    _r = __tmp__1;
+                };
+            });
+        };
+        _z = (_z._setWord(((1 : GoUInt))) == null ? null : _z._setWord(((1 : GoUInt))).__copy__());
+        {
+            var _i:GoInt = (_y != null ? _y.length : ((0 : GoInt))) - ((1 : GoInt));
+            Go.cfor(_i >= ((0 : GoInt)), _i--, {
+                var _yi:Word = (_y != null ? _y[_i] : new Word());
+                {
+                    var _j:GoInt = ((0 : GoInt));
+                    Go.cfor(_j < ((32 : GoInt)), _j = _j + (((4 : GoInt))), {
+                        if ((_i != ((_y != null ? _y.length : ((0 : GoInt))) - ((1 : GoInt)))) || (_j != ((0 : GoInt)))) {
+                            _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                            {
+                                final __tmp__0 = (_z == null ? null : _z.__copy__());
+                                final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                                _zz = __tmp__0;
+                                _z = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                                _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            {
+                                final __tmp__0 = (_r == null ? null : _r.__copy__());
+                                final __tmp__1 = (_z == null ? null : _z.__copy__());
+                                _z = __tmp__0;
+                                _r = __tmp__1;
+                            };
+                            _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                            {
+                                final __tmp__0 = (_z == null ? null : _z.__copy__());
+                                final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                                _zz = __tmp__0;
+                                _z = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                                _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            {
+                                final __tmp__0 = (_r == null ? null : _r.__copy__());
+                                final __tmp__1 = (_z == null ? null : _z.__copy__());
+                                _z = __tmp__0;
+                                _r = __tmp__1;
+                            };
+                            _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                            {
+                                final __tmp__0 = (_z == null ? null : _z.__copy__());
+                                final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                                _zz = __tmp__0;
+                                _z = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                                _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            {
+                                final __tmp__0 = (_r == null ? null : _r.__copy__());
+                                final __tmp__1 = (_z == null ? null : _z.__copy__());
+                                _z = __tmp__0;
+                                _r = __tmp__1;
+                            };
+                            _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                            {
+                                final __tmp__0 = (_z == null ? null : _z.__copy__());
+                                final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                                _zz = __tmp__0;
+                                _z = __tmp__1;
+                            };
+                            {
+                                var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                                _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            {
+                                final __tmp__0 = (_r == null ? null : _r.__copy__());
+                                final __tmp__1 = (_z == null ? null : _z.__copy__());
+                                _z = __tmp__0;
+                                _r = __tmp__1;
+                            };
+                        };
+                        _zz = (_zz._mul((_z == null ? null : _z.__copy__()), ((_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()).__copy__())) == null ? null : _zz._mul((_z == null ? null : _z.__copy__()), ((_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()) == null ? null : (_powers != null ? _powers[_yi >> ((28 : GoUnTypedInt))] : new T_nat()).__copy__())).__copy__());
+                        {
+                            final __tmp__0 = (_z == null ? null : _z.__copy__());
+                            final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                            _zz = __tmp__0;
+                            _z = __tmp__1;
+                        };
+                        {
+                            var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                            _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                            _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                        };
+                        {
+                            final __tmp__0 = (_r == null ? null : _r.__copy__());
+                            final __tmp__1 = (_z == null ? null : _z.__copy__());
+                            _z = __tmp__0;
+                            _r = __tmp__1;
+                        };
+                        _yi = _yi << (((4 : GoUnTypedInt)));
+                    });
+                };
+            });
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _expNN(_z:T_nat, _x:T_nat, _y:T_nat, _m:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())) || _alias((_z == null ? null : _z.__copy__()), (_y == null ? null : _y.__copy__()))) {
+            _z = null;
+        };
+        if (((_m != null ? _m.length : ((0 : GoInt))) == ((1 : GoInt))) && ((_m != null ? _m[((0 : GoInt))] : new Word()) == ((1 : GoUInt)))) {
+            return (_z._setWord(((0 : GoUInt))) == null ? null : _z._setWord(((0 : GoUInt))).__copy__());
+        };
+        if ((_y != null ? _y.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return (_z._setWord(((1 : GoUInt))) == null ? null : _z._setWord(((1 : GoUInt))).__copy__());
+        };
+        if ((((_y != null ? _y.length : ((0 : GoInt))) == ((1 : GoInt))) && ((_y != null ? _y[((0 : GoInt))] : new Word()) == ((1 : GoUInt)))) && ((_m != null ? _m.length : ((0 : GoInt))) != ((0 : GoInt)))) {
+            {
+                var __tmp__ = ((new T_nat() : T_nat))._div((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()), (_m == null ? null : _m.__copy__()));
+                _z = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+            };
+            return (_z == null ? null : _z.__copy__());
+        };
+        if ((_m != null ? _m.length : ((0 : GoInt))) != ((0 : GoInt))) {
+            _z = (_z._make((_m != null ? _m.length : ((0 : GoInt)))) == null ? null : _z._make((_m != null ? _m.length : ((0 : GoInt)))).__copy__());
+        };
+        _z = (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+        if (((_x._cmp((_natOne == null ? null : _natOne.__copy__())) > ((0 : GoInt))) && ((_y != null ? _y.length : ((0 : GoInt))) > ((1 : GoInt)))) && ((_m != null ? _m.length : ((0 : GoInt))) > ((0 : GoInt)))) {
+            if (((_m != null ? _m[((0 : GoInt))] : new Word()) & ((1 : GoUInt))) == ((1 : GoUInt))) {
+                return (_z._expNNMontgomery((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()), (_m == null ? null : _m.__copy__())) == null ? null : _z._expNNMontgomery((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()), (_m == null ? null : _m.__copy__())).__copy__());
+            };
+            return (_z._expNNWindowed((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()), (_m == null ? null : _m.__copy__())) == null ? null : _z._expNNWindowed((_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()), (_m == null ? null : _m.__copy__())).__copy__());
+        };
+        var _v:Word = (_y != null ? _y[(_y != null ? _y.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word());
+        var _shift:GoUInt = _nlz(_v) + ((1 : GoUInt));
+        _v = _v << (_shift);
+        var _q:T_nat = new T_nat();
+        {};
+        var _w:GoInt = ((32 : GoInt)) - ((_shift : GoInt));
+        var _zz:T_nat = new T_nat(), _r:T_nat = new T_nat();
+        {
+            var _j:GoInt = ((0 : GoInt));
+            Go.cfor(_j < _w, _j++, {
+                _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                {
+                    final __tmp__0 = (_z == null ? null : _z.__copy__());
+                    final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                    _zz = __tmp__0;
+                    _z = __tmp__1;
+                };
+                if ((_v & (("2147483648" : GoUInt))) != ((0 : GoUInt))) {
+                    _zz = (_zz._mul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())) == null ? null : _zz._mul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())).__copy__());
+                    {
+                        final __tmp__0 = (_z == null ? null : _z.__copy__());
+                        final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                        _zz = __tmp__0;
+                        _z = __tmp__1;
+                    };
+                };
+                if ((_m != null ? _m.length : ((0 : GoInt))) != ((0 : GoInt))) {
+                    {
+                        var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                        _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                        _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                    };
+                    {
+                        final __tmp__0 = (_q == null ? null : _q.__copy__());
+                        final __tmp__1 = (_z == null ? null : _z.__copy__());
+                        final __tmp__2 = (_zz == null ? null : _zz.__copy__());
+                        final __tmp__3 = (_r == null ? null : _r.__copy__());
+                        _zz = __tmp__0;
+                        _r = __tmp__1;
+                        _q = __tmp__2;
+                        _z = __tmp__3;
+                    };
+                };
+                _v = _v << (((1 : GoUnTypedInt)));
+            });
+        };
+        {
+            var _i:GoInt = (_y != null ? _y.length : ((0 : GoInt))) - ((2 : GoInt));
+            Go.cfor(_i >= ((0 : GoInt)), _i--, {
+                _v = (_y != null ? _y[_i] : new Word());
+                {
+                    var _j:GoInt = ((0 : GoInt));
+                    Go.cfor(_j < ((32 : GoInt)), _j++, {
+                        _zz = (_zz._sqr((_z == null ? null : _z.__copy__())) == null ? null : _zz._sqr((_z == null ? null : _z.__copy__())).__copy__());
+                        {
+                            final __tmp__0 = (_z == null ? null : _z.__copy__());
+                            final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                            _zz = __tmp__0;
+                            _z = __tmp__1;
+                        };
+                        if ((_v & (("2147483648" : GoUInt))) != ((0 : GoUInt))) {
+                            _zz = (_zz._mul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())) == null ? null : _zz._mul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())).__copy__());
+                            {
+                                final __tmp__0 = (_z == null ? null : _z.__copy__());
+                                final __tmp__1 = (_zz == null ? null : _zz.__copy__());
+                                _zz = __tmp__0;
+                                _z = __tmp__1;
+                            };
+                        };
+                        if ((_m != null ? _m.length : ((0 : GoInt))) != ((0 : GoInt))) {
+                            {
+                                var __tmp__ = _zz._div((_r == null ? null : _r.__copy__()), (_z == null ? null : _z.__copy__()), (_m == null ? null : _m.__copy__()));
+                                _zz = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
+                                _r = (__tmp__._1 == null ? null : __tmp__._1.__copy__());
+                            };
+                            {
+                                final __tmp__0 = (_q == null ? null : _q.__copy__());
+                                final __tmp__1 = (_z == null ? null : _z.__copy__());
+                                final __tmp__2 = (_zz == null ? null : _zz.__copy__());
+                                final __tmp__3 = (_r == null ? null : _r.__copy__());
+                                _zz = __tmp__0;
+                                _r = __tmp__1;
+                                _q = __tmp__2;
+                                _z = __tmp__3;
+                            };
+                        };
+                        _v = _v << (((1 : GoUnTypedInt)));
+                    });
+                };
+            });
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _random(_z:T_nat, _rand:rand.Rand.Rand, _limit:T_nat, _n:GoInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_alias((_z == null ? null : _z.__copy__()), (_limit == null ? null : _limit.__copy__()))) {
+            _z = null;
+        };
+        _z = (_z._make((_limit != null ? _limit.length : ((0 : GoInt)))) == null ? null : _z._make((_limit != null ? _limit.length : ((0 : GoInt)))).__copy__());
+        var _bitLengthOfMSW:GoUInt = (((_n % ((32 : GoInt))) : GoUInt));
+        if (_bitLengthOfMSW == ((0 : GoUInt))) {
+            _bitLengthOfMSW = ((32 : GoUInt));
+        };
+        var _mask:Word = ((((((1 : GoUInt)) << _bitLengthOfMSW) - ((1 : GoUInt))) : Word));
+        while (true) {
+            if (((32 : GoInt)) == ((32 : GoInt))) {
+                for (_i => _ in _z) {
+                    if (_z != null) _z[_i] = ((_rand.uint32() : Word));
+                };
+            } else if (((32 : GoInt)) == ((64 : GoInt))) {
+                for (_i => _ in _z) {
+                    if (_z != null) _z[_i] = ((_rand.uint32() : Word)) | (((_rand.uint32() : Word)) << ((32 : GoUnTypedInt)));
+                };
+            } else {
+                throw Go.toInterface(((("unknown word size" : GoString))));
+            };
+            if (_z != null) (_z != null ? _z[(_limit != null ? _limit.length : ((0 : GoInt))) - ((1 : GoInt))] : new Word()) & (_mask);
+            if (_z._cmp((_limit == null ? null : _limit.__copy__())) < ((0 : GoInt))) {
+                break;
+            };
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _xor(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        var _s:T_nat = (_x == null ? null : _x.__copy__());
+        if (_m < _n) {
+            {
+                final __tmp__0 = _m;
+                final __tmp__1 = _n;
+                _n = __tmp__0;
+                _m = __tmp__1;
+            };
+            _s = (_y == null ? null : _y.__copy__());
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                if (_z != null) _z[_i] = (_x != null ? _x[_i] : new Word()) ^ (_y != null ? _y[_i] : new Word());
+            });
+        };
+        Go.copy(_z.__slice__(_n, _m), _s.__slice__(_n, _m));
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _or(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        var _s:T_nat = (_x == null ? null : _x.__copy__());
+        if (_m < _n) {
+            {
+                final __tmp__0 = _m;
+                final __tmp__1 = _n;
+                _n = __tmp__0;
+                _m = __tmp__1;
+            };
+            _s = (_y == null ? null : _y.__copy__());
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                if (_z != null) _z[_i] = (_x != null ? _x[_i] : new Word()) | (_y != null ? _y[_i] : new Word());
+            });
+        };
+        Go.copy(_z.__slice__(_n, _m), _s.__slice__(_n, _m));
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _andNot(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if (_n > _m) {
+            _n = _m;
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                if (_z != null) _z[_i] = (_x != null ? _x[_i] : new Word()) & ((_y != null ? _y[_i] : new Word()) ^ ((-1 : GoUnTypedInt)));
+            });
+        };
+        Go.copy(_z.__slice__(_n, _m), _x.__slice__(_n, _m));
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _and(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if (_m > _n) {
+            _m = _n;
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _m, _i++, {
+                if (_z != null) _z[_i] = (_x != null ? _x[_i] : new Word()) & (_y != null ? _y[_i] : new Word());
+            });
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _sticky(_x:T_nat, _i:GoUInt):GoUInt {
+        (_x == null ? null : _x.__copy__());
+        var _j:GoUInt = _i / ((32 : GoUInt));
+        if (_j >= (((_x != null ? _x.length : ((0 : GoInt))) : GoUInt))) {
+            if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
+                return ((0 : GoUInt));
+            };
+            return ((1 : GoUInt));
+        };
+        for (_ => _x in _x.__slice__(0, _j)) {
+            if (_x != ((0 : GoUInt))) {
+                return ((1 : GoUInt));
+            };
+        };
+        if (((_x != null ? _x[_j] : new Word()) << (((32 : GoUInt)) - (_i % ((32 : GoUInt))))) != ((0 : GoUInt))) {
+            return ((1 : GoUInt));
+        };
+        return ((0 : GoUInt));
+    }
+    public static function _bit(_x:T_nat, _i:GoUInt):GoUInt {
+        (_x == null ? null : _x.__copy__());
+        var _j:GoUInt = _i / ((32 : GoUInt));
+        if (_j >= (((_x != null ? _x.length : ((0 : GoInt))) : GoUInt))) {
+            return ((0 : GoUInt));
+        };
+        return (((((_x != null ? _x[_j] : new Word()) >> (_i % ((32 : GoUInt)))) & ((1 : GoUInt))) : GoUInt));
+    }
+    public static function _setBit(_z:T_nat, _x:T_nat, _i:GoUInt, _b:GoUInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _j:GoInt = (((_i / ((32 : GoUInt))) : GoInt));
+        var _m:Word = ((((1 : GoUInt)) : Word)) << (_i % ((32 : GoUInt)));
+        var _n:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        if (_b == ((0 : GoUInt))) {
+            _z = (_z._make(_n) == null ? null : _z._make(_n).__copy__());
+            Go.copy(_z, _x);
+            if (_j >= _n) {
+                return (_z == null ? null : _z.__copy__());
+            };
+            if (_z != null) (_z != null ? _z[_j] : new Word()) & ((_m) ^ ((-1 : GoUnTypedInt)));
+            return (_z._norm() == null ? null : _z._norm().__copy__());
+        } else if (_b == ((1 : GoUInt))) {
+            if (_j >= _n) {
+                _z = (_z._make(_j + ((1 : GoInt))) == null ? null : _z._make(_j + ((1 : GoInt))).__copy__());
+                _z.__slice__(_n)._clear();
+            } else {
+                _z = (_z._make(_n) == null ? null : _z._make(_n).__copy__());
+            };
+            Go.copy(_z, _x);
+            if (_z != null) (_z != null ? _z[_j] : new Word()) | (_m);
+            return (_z == null ? null : _z.__copy__());
+        };
+        throw Go.toInterface(((("set bit is not 0 or 1" : GoString))));
+    }
+    public static function _shr(_z:T_nat, _x:T_nat, _s:GoUInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_s == ((0 : GoUInt))) {
+            if (_same((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+                return (_z == null ? null : _z.__copy__());
+            };
+            if (!_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+                return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+            };
+        };
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = _m - (((_s / ((32 : GoUInt))) : GoInt));
+        if (_n <= ((0 : GoInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        };
+        _z = (_z._make(_n) == null ? null : _z._make(_n).__copy__());
+        _shrVU(_z, _x.__slice__(_m - _n), _s % ((32 : GoUInt)));
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _shl(_z:T_nat, _x:T_nat, _s:GoUInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_s == ((0 : GoUInt))) {
+            if (_same((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+                return (_z == null ? null : _z.__copy__());
+            };
+            if (!_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+                return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+            };
+        };
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        if (_m == ((0 : GoInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        };
+        var _n:GoInt = _m + (((_s / ((32 : GoUInt))) : GoInt));
+        _z = (_z._make(_n + ((1 : GoInt))) == null ? null : _z._make(_n + ((1 : GoInt))).__copy__());
+        if (_z != null) _z[_n] = _shlVU(_z.__slice__(_n - _m, _n), _x, _s % ((32 : GoUInt)));
+        _z.__slice__(((0 : GoInt)), _n - _m)._clear();
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _trailingZeroBits(_x:T_nat):GoUInt {
+        (_x == null ? null : _x.__copy__());
+        if ((_x != null ? _x.length : ((0 : GoInt))) == ((0 : GoInt))) {
+            return ((0 : GoUInt));
+        };
+        var _i:GoUInt = ((0 : GoUInt));
+        while ((_x != null ? _x[_i] : new Word()) == ((0 : GoUInt))) {
+            _i++;
+        };
+        return (_i * ((32 : GoUInt))) + ((stdgo.math.bits.Bits.trailingZeros((((_x != null ? _x[_i] : new Word()) : GoUInt))) : GoUInt));
+    }
+    public static function _bitLen(_x:T_nat):GoInt {
+        (_x == null ? null : _x.__copy__());
+        {
+            var _i:GoInt = (_x != null ? _x.length : ((0 : GoInt))) - ((1 : GoInt));
+            if (_i >= ((0 : GoInt))) {
+                return (_i * ((32 : GoInt))) + stdgo.math.bits.Bits.len((((_x != null ? _x[_i] : new Word()) : GoUInt)));
+            };
+        };
+        return ((0 : GoInt));
+    }
+    public static function _mulRange(_z:T_nat, _a:GoUInt64, _b:GoUInt64):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_a == ((0 : GoUInt64))) {
+            return (_z._setUint64(((0 : GoUInt64))) == null ? null : _z._setUint64(((0 : GoUInt64))).__copy__());
+        } else if (_a > _b) {
+            return (_z._setUint64(((1 : GoUInt64))) == null ? null : _z._setUint64(((1 : GoUInt64))).__copy__());
+        } else if (_a == _b) {
+            return (_z._setUint64(_a) == null ? null : _z._setUint64(_a).__copy__());
+        } else if ((_a + ((1 : GoUInt64))) == _b) {
+            return (_z._mul((((new T_nat() : T_nat))._setUint64(_a) == null ? null : ((new T_nat() : T_nat))._setUint64(_a).__copy__()), (((new T_nat() : T_nat))._setUint64(_b) == null ? null : ((new T_nat() : T_nat))._setUint64(_b).__copy__())) == null ? null : _z._mul((((new T_nat() : T_nat))._setUint64(_a) == null ? null : ((new T_nat() : T_nat))._setUint64(_a).__copy__()), (((new T_nat() : T_nat))._setUint64(_b) == null ? null : ((new T_nat() : T_nat))._setUint64(_b).__copy__())).__copy__());
+        };
+        var _m:GoUInt64 = (_a + _b) / ((2 : GoUInt64));
+        return (_z._mul((((new T_nat() : T_nat))._mulRange(_a, _m) == null ? null : ((new T_nat() : T_nat))._mulRange(_a, _m).__copy__()), (((new T_nat() : T_nat))._mulRange(_m + ((1 : GoUInt64)), _b) == null ? null : ((new T_nat() : T_nat))._mulRange(_m + ((1 : GoUInt64)), _b).__copy__())) == null ? null : _z._mul((((new T_nat() : T_nat))._mulRange(_a, _m) == null ? null : ((new T_nat() : T_nat))._mulRange(_a, _m).__copy__()), (((new T_nat() : T_nat))._mulRange(_m + ((1 : GoUInt64)), _b) == null ? null : ((new T_nat() : T_nat))._mulRange(_m + ((1 : GoUInt64)), _b).__copy__())).__copy__());
+    }
+    public static function _sqr(_z:T_nat, _x:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _n:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        if (_n == ((0 : GoInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        } else if (_n == ((1 : GoInt))) {
+            var _d:Word = (_x != null ? _x[((0 : GoInt))] : new Word());
+            _z = (_z._make(((2 : GoInt))) == null ? null : _z._make(((2 : GoInt))).__copy__());
+            {
+                var __tmp__ = _mulWW(_d, _d);
+                (_z != null ? _z[((1 : GoInt))] : new Word()) = __tmp__._0;
+                (_z != null ? _z[((0 : GoInt))] : new Word()) = __tmp__._1;
+            };
+            return (_z._norm() == null ? null : _z._norm().__copy__());
+        };
+        if (_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()))) {
+            _z = null;
+        };
+        if (_n < _basicSqrThreshold) {
+            _z = (_z._make(((2 : GoInt)) * _n) == null ? null : _z._make(((2 : GoInt)) * _n).__copy__());
+            _basicMul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()), (_x == null ? null : _x.__copy__()));
+            return (_z._norm() == null ? null : _z._norm().__copy__());
+        };
+        if (_n < _karatsubaSqrThreshold) {
+            _z = (_z._make(((2 : GoInt)) * _n) == null ? null : _z._make(((2 : GoInt)) * _n).__copy__());
+            _basicSqr((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()));
+            return (_z._norm() == null ? null : _z._norm().__copy__());
+        };
+        var _k:GoInt = _karatsubaLen(_n, _karatsubaSqrThreshold);
+        var _x0:T_nat = (_x.__slice__(((0 : GoInt)), _k) == null ? null : _x.__slice__(((0 : GoInt)), _k).__copy__());
+        _z = (_z._make(_max(((6 : GoInt)) * _k, ((2 : GoInt)) * _n)) == null ? null : _z._make(_max(((6 : GoInt)) * _k, ((2 : GoInt)) * _n)).__copy__());
+        _karatsubaSqr((_z == null ? null : _z.__copy__()), (_x0 == null ? null : _x0.__copy__()));
+        _z = (_z.__slice__(((0 : GoInt)), ((2 : GoInt)) * _n) == null ? null : _z.__slice__(((0 : GoInt)), ((2 : GoInt)) * _n).__copy__());
+        _z.__slice__(((2 : GoInt)) * _k)._clear();
+        if (_k < _n) {
+            var _tp:T_nat = _getNat(((2 : GoInt)) * _k);
+            var _t:T_nat = (_tp == null ? null : _tp.__copy__());
+            var _x0:T_nat = (_x0._norm() == null ? null : _x0._norm().__copy__());
+            var _x1:T_nat = (_x.__slice__(_k) == null ? null : _x.__slice__(_k).__copy__());
+            _t = (_t._mul((_x0 == null ? null : _x0.__copy__()), (_x1 == null ? null : _x1.__copy__())) == null ? null : _t._mul((_x0 == null ? null : _x0.__copy__()), (_x1 == null ? null : _x1.__copy__())).__copy__());
+            _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), _k);
+            _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), _k);
+            _t = (_t._sqr((_x1 == null ? null : _x1.__copy__())) == null ? null : _t._sqr((_x1 == null ? null : _x1.__copy__())).__copy__());
+            _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), ((2 : GoInt)) * _k);
+            _putNat(_tp);
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _mul(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if (_m < _n) {
+            return (_z._mul((_y == null ? null : _y.__copy__()), (_x == null ? null : _x.__copy__())) == null ? null : _z._mul((_y == null ? null : _y.__copy__()), (_x == null ? null : _x.__copy__())).__copy__());
+        } else if ((_m == ((0 : GoInt))) || (_n == ((0 : GoInt)))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        } else if (_n == ((1 : GoInt))) {
+            return (_z._mulAddWW((_x == null ? null : _x.__copy__()), (_y != null ? _y[((0 : GoInt))] : new Word()), ((0 : GoUInt))) == null ? null : _z._mulAddWW((_x == null ? null : _x.__copy__()), (_y != null ? _y[((0 : GoInt))] : new Word()), ((0 : GoUInt))).__copy__());
+        };
+        if (_alias((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__())) || _alias((_z == null ? null : _z.__copy__()), (_y == null ? null : _y.__copy__()))) {
+            _z = null;
+        };
+        if (_n < _karatsubaThreshold) {
+            _z = (_z._make(_m + _n) == null ? null : _z._make(_m + _n).__copy__());
+            _basicMul((_z == null ? null : _z.__copy__()), (_x == null ? null : _x.__copy__()), (_y == null ? null : _y.__copy__()));
+            return (_z._norm() == null ? null : _z._norm().__copy__());
+        };
+        var _k:GoInt = _karatsubaLen(_n, _karatsubaThreshold);
+        var _x0:T_nat = (_x.__slice__(((0 : GoInt)), _k) == null ? null : _x.__slice__(((0 : GoInt)), _k).__copy__());
+        var _y0:T_nat = (_y.__slice__(((0 : GoInt)), _k) == null ? null : _y.__slice__(((0 : GoInt)), _k).__copy__());
+        _z = (_z._make(_max(((6 : GoInt)) * _k, _m + _n)) == null ? null : _z._make(_max(((6 : GoInt)) * _k, _m + _n)).__copy__());
+        _karatsuba((_z == null ? null : _z.__copy__()), (_x0 == null ? null : _x0.__copy__()), (_y0 == null ? null : _y0.__copy__()));
+        _z = (_z.__slice__(((0 : GoInt)), _m + _n) == null ? null : _z.__slice__(((0 : GoInt)), _m + _n).__copy__());
+        _z.__slice__(((2 : GoInt)) * _k)._clear();
+        if ((_k < _n) || (_m != _n)) {
+            var _tp:T_nat = _getNat(((3 : GoInt)) * _k);
+            var _t:T_nat = (_tp == null ? null : _tp.__copy__());
+            var _x0:T_nat = (_x0._norm() == null ? null : _x0._norm().__copy__());
+            var _y1:T_nat = (_y.__slice__(_k) == null ? null : _y.__slice__(_k).__copy__());
+            _t = (_t._mul((_x0 == null ? null : _x0.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _t._mul((_x0 == null ? null : _x0.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__());
+            _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), _k);
+            var _y0:T_nat = (_y0._norm() == null ? null : _y0._norm().__copy__());
+            {
+                var _i:GoInt = _k;
+                Go.cfor(_i < (_x != null ? _x.length : ((0 : GoInt))), _i = _i + (_k), {
+                    var _xi:T_nat = (_x.__slice__(_i) == null ? null : _x.__slice__(_i).__copy__());
+                    if ((_xi != null ? _xi.length : ((0 : GoInt))) > _k) {
+                        _xi = (_xi.__slice__(0, _k) == null ? null : _xi.__slice__(0, _k).__copy__());
+                    };
+                    _xi = (_xi._norm() == null ? null : _xi._norm().__copy__());
+                    _t = (_t._mul((_xi == null ? null : _xi.__copy__()), (_y0 == null ? null : _y0.__copy__())) == null ? null : _t._mul((_xi == null ? null : _xi.__copy__()), (_y0 == null ? null : _y0.__copy__())).__copy__());
+                    _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), _i);
+                    _t = (_t._mul((_xi == null ? null : _xi.__copy__()), (_y1 == null ? null : _y1.__copy__())) == null ? null : _t._mul((_xi == null ? null : _xi.__copy__()), (_y1 == null ? null : _y1.__copy__())).__copy__());
+                    _addAt((_z == null ? null : _z.__copy__()), (_t == null ? null : _t.__copy__()), _i + _k);
+                });
+            };
+            _putNat(_tp);
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _montgomery(_z:T_nat, _x:T_nat, _y:T_nat, _m:T_nat, _k:Word, _n:GoInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if ((((_x != null ? _x.length : ((0 : GoInt))) != _n) || ((_y != null ? _y.length : ((0 : GoInt))) != _n)) || ((_m != null ? _m.length : ((0 : GoInt))) != _n)) {
+            throw Go.toInterface(((("math/big: mismatched montgomery number lengths" : GoString))));
+        };
+        _z = (_z._make(_n * ((2 : GoInt))) == null ? null : _z._make(_n * ((2 : GoInt))).__copy__());
+        _z._clear();
+        var _c:Word = new Word();
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                var _d:Word = (_y != null ? _y[_i] : new Word());
+                var _c2:Word = _addMulVVW(_z.__slice__(_i, _n + _i), _x, _d);
+                var _t:Word = (_z != null ? _z[_i] : new Word()) * _k;
+                var _c3:Word = _addMulVVW(_z.__slice__(_i, _n + _i), _m, _t);
+                var _cx:Word = _c + _c2;
+                var _cy:Word = _cx + _c3;
+                if (_z != null) _z[_n + _i] = _cy;
+                if ((_cx < _c2) || (_cy < _c3)) {
+                    _c = ((1 : GoUInt));
+                } else {
+                    _c = ((0 : GoUInt));
+                };
+            });
+        };
+        if (_c != ((0 : GoUInt))) {
+            _subVV(_z.__slice__(0, _n), _z.__slice__(_n), _m);
+        } else {
+            Go.copy(_z.__slice__(0, _n), _z.__slice__(_n));
+        };
+        return (_z.__slice__(0, _n) == null ? null : _z.__slice__(0, _n).__copy__());
+    }
+    public static function _mulAddWW(_z:T_nat, _x:T_nat, _y:Word, _r:Word):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        if ((_m == ((0 : GoInt))) || (_y == ((0 : GoUInt)))) {
+            return (_z._setWord(_r) == null ? null : _z._setWord(_r).__copy__());
+        };
+        _z = (_z._make(_m + ((1 : GoInt))) == null ? null : _z._make(_m + ((1 : GoInt))).__copy__());
+        if (_z != null) _z[_m] = _mulAddVWW(_z.__slice__(((0 : GoInt)), _m), _x, _y, _r);
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _cmp(_x:T_nat, _y:T_nat):GoInt {
+        (_x == null ? null : _x.__copy__());
+        var _r:GoInt = ((0 : GoInt));
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if ((_m != _n) || (_m == ((0 : GoInt)))) {
+            if (_m < _n) {
+                _r = ((-1 : GoInt));
+            } else if (_m > _n) {
+                _r = ((1 : GoInt));
+            };
+            return _r;
+        };
+        var _i:GoInt = _m - ((1 : GoInt));
+        while ((_i > ((0 : GoInt))) && ((_x != null ? _x[_i] : new Word()) == (_y != null ? _y[_i] : new Word()))) {
+            _i--;
+        };
+        if ((_x != null ? _x[_i] : new Word()) < (_y != null ? _y[_i] : new Word())) {
+            _r = ((-1 : GoInt));
+        } else if ((_x != null ? _x[_i] : new Word()) > (_y != null ? _y[_i] : new Word())) {
+            _r = ((1 : GoInt));
+        };
+        return _r;
+    }
+    public static function _sub(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if (_m < _n) {
+            throw Go.toInterface(((("underflow" : GoString))));
+        } else if (_m == ((0 : GoInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        } else if (_n == ((0 : GoInt))) {
+            return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+        };
+        _z = (_z._make(_m) == null ? null : _z._make(_m).__copy__());
+        var _c:Word = _subVV(_z.__slice__(((0 : GoInt)), _n), _x, _y);
+        if (_m > _n) {
+            _c = _subVW(_z.__slice__(_n), _x.__slice__(_n), _c);
+        };
+        if (_c != ((0 : GoUInt))) {
+            throw Go.toInterface(((("underflow" : GoString))));
+        };
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _add(_z:T_nat, _x:T_nat, _y:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _m:GoInt = (_x != null ? _x.length : ((0 : GoInt)));
+        var _n:GoInt = (_y != null ? _y.length : ((0 : GoInt)));
+        if (_m < _n) {
+            return (_z._add((_y == null ? null : _y.__copy__()), (_x == null ? null : _x.__copy__())) == null ? null : _z._add((_y == null ? null : _y.__copy__()), (_x == null ? null : _x.__copy__())).__copy__());
+        } else if (_m == ((0 : GoInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        } else if (_n == ((0 : GoInt))) {
+            return (_z._set((_x == null ? null : _x.__copy__())) == null ? null : _z._set((_x == null ? null : _x.__copy__())).__copy__());
+        };
+        _z = (_z._make(_m + ((1 : GoInt))) == null ? null : _z._make(_m + ((1 : GoInt))).__copy__());
+        var _c:Word = _addVV(_z.__slice__(((0 : GoInt)), _n), _x, _y);
+        if (_m > _n) {
+            _c = _addVW(_z.__slice__(_n, _m), _x.__slice__(_n), _c);
+        };
+        if (_z != null) _z[_m] = _c;
+        return (_z._norm() == null ? null : _z._norm().__copy__());
+    }
+    public static function _set(_z:T_nat, _x:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        _z = (_z._make((_x != null ? _x.length : ((0 : GoInt)))) == null ? null : _z._make((_x != null ? _x.length : ((0 : GoInt)))).__copy__());
+        Go.copy(_z, _x);
+        return (_z == null ? null : _z.__copy__());
+    }
+    public static function _setUint64(_z:T_nat, _x:GoUInt64):T_nat {
+        (_z == null ? null : _z.__copy__());
+        {
+            var _w:Word = ((_x : Word));
+            if (((_w : GoUInt64)) == _x) {
+                return (_z._setWord(_w) == null ? null : _z._setWord(_w).__copy__());
+            };
+        };
+        _z = (_z._make(((2 : GoInt))) == null ? null : _z._make(((2 : GoInt))).__copy__());
+        if (_z != null) _z[((1 : GoInt))] = (((_x >> ((32 : GoUnTypedInt))) : Word));
+        if (_z != null) _z[((0 : GoInt))] = ((_x : Word));
+        return (_z == null ? null : _z.__copy__());
+    }
+    public static function _setWord(_z:T_nat, _x:Word):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_x == ((0 : GoUInt))) {
+            return (_z.__slice__(0, ((0 : GoInt))) == null ? null : _z.__slice__(0, ((0 : GoInt))).__copy__());
+        };
+        _z = (_z._make(((1 : GoInt))) == null ? null : _z._make(((1 : GoInt))).__copy__());
+        if (_z != null) _z[((0 : GoInt))] = _x;
+        return (_z == null ? null : _z.__copy__());
+    }
+    public static function _make(_z:T_nat, _n:GoInt):T_nat {
+        (_z == null ? null : _z.__copy__());
+        if (_n <= (_z != null ? _z.cap() : ((0 : GoInt)))) {
+            return (_z.__slice__(0, _n) == null ? null : _z.__slice__(0, _n).__copy__());
+        };
+        if (_n == ((1 : GoInt))) {
+            return new Slice<Word>(...[for (i in 0 ... ((((1 : GoInt)) : GoInt)).toBasic()) new Word()]);
+        };
+        {};
+        return (new Slice<Word>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) new Word()]).__setCap__(((_n + ((4 : GoInt)) : GoInt)).toBasic()) == null ? null : new Slice<Word>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) new Word()]).__setCap__(((_n + ((4 : GoInt)) : GoInt)).toBasic()).__copy__());
+    }
+    public static function _norm(_z:T_nat):T_nat {
+        (_z == null ? null : _z.__copy__());
+        var _i:GoInt = (_z != null ? _z.length : ((0 : GoInt)));
+        while ((_i > ((0 : GoInt))) && ((_z != null ? _z[_i - ((1 : GoInt))] : new Word()) == ((0 : GoUInt)))) {
+            _i--;
+        };
+        return (_z.__slice__(((0 : GoInt)), _i) == null ? null : _z.__slice__(((0 : GoInt)), _i).__copy__());
+    }
+    public static function _clear(_z:T_nat):Void {
+        (_z == null ? null : _z.__copy__());
+        for (_i => _ in _z) {
+            if (_z != null) _z[_i] = ((0 : GoUInt));
+        };
+    }
 }
-class Rat_extension_fields {
-    public function setFloat64(__tmp__, _f:GoFloat64):Pointer<Rat> return __tmp__.setFloat64(_f);
-    public function float32(__tmp__):{ var _0 : GoFloat32; var _1 : Bool; } return __tmp__.float32();
-    public function float64(__tmp__):{ var _0 : GoFloat64; var _1 : Bool; } return __tmp__.float64();
-    public function setFrac(__tmp__, _a:Pointer<Int_>, _b:Pointer<Int_>):Pointer<Rat> return __tmp__.setFrac(_a, _b);
-    public function setFrac64(__tmp__, _a:GoInt64, _b:GoInt64):Pointer<Rat> return __tmp__.setFrac64(_a, _b);
-    public function setInt(__tmp__, _x:Pointer<Int_>):Pointer<Rat> return __tmp__.setInt(_x);
-    public function setInt64(__tmp__, _x:GoInt64):Pointer<Rat> return __tmp__.setInt64(_x);
-    public function setUint64(__tmp__, _x:GoUInt64):Pointer<Rat> return __tmp__.setUint64(_x);
-    public function set(__tmp__, _x:Pointer<Rat>):Pointer<Rat> return __tmp__.set(_x);
-    public function abs(__tmp__, _x:Pointer<Rat>):Pointer<Rat> return __tmp__.abs(_x);
-    public function neg(__tmp__, _x:Pointer<Rat>):Pointer<Rat> return __tmp__.neg(_x);
-    public function inv(__tmp__, _x:Pointer<Rat>):Pointer<Rat> return __tmp__.inv(_x);
-    public function sign(__tmp__):GoInt return __tmp__.sign();
-    public function isInt(__tmp__):Bool return __tmp__.isInt();
-    public function num(__tmp__):Pointer<Int_> return __tmp__.num();
-    public function denom(__tmp__):Pointer<Int_> return __tmp__.denom();
-    public function _norm(__tmp__):Pointer<Rat> return __tmp__._norm();
-    public function cmp(__tmp__, _y:Pointer<Rat>):GoInt return __tmp__.cmp(_y);
-    public function add(__tmp__, _x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> return __tmp__.add(_x, _y);
-    public function sub(__tmp__, _x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> return __tmp__.sub(_x, _y);
-    public function mul(__tmp__, _x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> return __tmp__.mul(_x, _y);
-    public function quo(__tmp__, _x:Pointer<Rat>, _y:Pointer<Rat>):Pointer<Rat> return __tmp__.quo(_x, _y);
-    public function scan(__tmp__, _s:stdgo.fmt.Fmt.ScanState, _ch:GoRune):Error return __tmp__.scan(_s, _ch);
-    public function setString(__tmp__, _s:GoString):{ var _0 : Pointer<Rat>; var _1 : Bool; } return __tmp__.setString(_s);
-    public function toString(__tmp__):GoString return __tmp__.toString();
-    public function _marshal(__tmp__):Slice<GoByte> return __tmp__._marshal();
-    public function ratString(__tmp__):GoString return __tmp__.ratString();
-    public function floatString(__tmp__, _prec:GoInt):GoString return __tmp__.floatString(_prec);
-    public function gobEncode(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.gobEncode();
-    public function gobDecode(__tmp__, _buf:Slice<GoByte>):Error return __tmp__.gobDecode(_buf);
-    public function marshalText(__tmp__):{ var _0 : Slice<GoByte>; var _1 : Error; } return __tmp__.marshalText();
-    public function unmarshalText(__tmp__, _text:Slice<GoByte>):Error return __tmp__.unmarshalText(_text);
+@:build(stdgo.internal.Macro.wrapper(Rat)) class Rat_static_extension {
+
 }

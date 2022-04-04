@@ -1,98 +1,85 @@
 package stdgo;
 
 import haxe.Constraints.Constructible;
+import haxe.Constraints;
 import haxe.Rest;
+import haxe.ds.*;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.Type;
 
-@:forward
-@:generic
-abstract GoMap<K, V>(MapData<K, V>) from MapData<K, V> {
+@:transitive
+@:multiType(@:followWithAbstracts K)
+abstract GoMap<K, V>(IMap<K, V>) {
 	public var length(get, never):GoInt;
 
-	public inline function new(type:Type, args:Rest<{key:K, value:V}>) {
-		this = new MapData<K, V>(type);
-		for (arg in args) {
-			this.set(arg.key, arg.value);
-		}
-	}
+	function get_length():GoInt
+		return Lambda.count(this);
 
-	public function __copy__():GoMap<K, V> {
-		return this.copy();
-	}
+	public function new();
 
-	public function setCap(cap:GoInt):GoMap<K, V> {
-		this.cap = cap.toBasic();
-		return this;
-	}
+	@:arrayAccess public inline function __set__(key:K, value:V)
+		this.set(key, value);
 
-	public function defaultValue():V
-		return this.defaultValue();
-
-	@:arrayAccess
-	public function get(key:K):V {
+	@:arrayAccess public inline function __get__(key:K)
 		return this.get(key);
-	}
 
-	public function exists(key:K):Bool {
+	public inline function __exists__(key:K)
 		return this.exists(key);
-	}
 
-	@:arrayAccess
-	public function set(k:K, v:V):V {
-		this.set(k, v);
-		return v;
-	}
+	public inline function __remove__(key:K)
+		return this.remove(key);
 
-	private function get_length():GoInt {
-		return this.length();
-	}
+	public inline function __keys__():Iterator<K>
+		return this.keys();
 
-	public function nil():GoMap<K, V> {
-		this.nilBool = true;
-		return this;
-	}
-
-	public function isNil()
-		return this.nilBool;
-
-	public function cap():GoInt {
-		return this.cap == -1 ? length : this.cap;
-	}
-
-	public function iterator() {
+	public inline function iterator():Iterator<V>
 		return this.iterator();
-	}
 
-	public function keyValueIterator() {
+	public inline function keyValueIterator():KeyValueIterator<K, V>
 		return this.keyValueIterator();
+
+	public inline function __copy__():GoMap<K, V>
+		return cast this.copy();
+
+	public inline function __toString__():String
+		return this.toString();
+
+	public inline function __clear__():Void {
+		this.clear();
 	}
 
-	public inline function toSlice()
-		return this.toSlice();
+	@:from static function fromIntMap<V>(x:Map<Int, V>):GoMap<Int, V>
+		return cast x;
+
+	@:from static function fromGoObjectMap<K, V>(x:GoObjectMap<K, V>):GoMap<K, V>
+		return cast x;
+
+	private function __defaultValue__():V {
+		if ((this is GoObjectMap)) {
+			return cast(this, GoObjectMap<Dynamic, Dynamic>).defaultValue();
+		}
+		return cast 0;
+	}
 }
 
-private class MapData<K, V> {
-	var array:Array<{key:K, value:V}> = [];
+class GoObjectMap<K, V> implements haxe.Constraints.IMap<K, V> {
+	var _keys:Array<K> = [];
+	var _values:Array<V> = [];
 
-	var nullcount:GoInt = 0;
+	public var t:Type = null;
 
-	public var nilBool:Bool = false;
-	public var type:Type = null;
-	public var cap:Int = -1;
-
-	public function new(type:Type) {
-		this.type = type;
+	public function new(t:Type) {
+		this.t = t;
 	}
 
-	public function copy():MapData<K, V> {
-		final map = new MapData<K, V>(this.type);
-		@:privateAccess map.array = this.array.copy();
-		return map;
+	public function set(key:K, value:V):Void {
+		for (i in 0..._keys.length) {
+			if (equals(key, _keys[i])) {
+				_values[i] = value;
+				break;
+			}
+		}
 	}
-
-	public inline function length()
-		return array.length;
 
 	function equals(key:K, objKey:K):Bool {
 		final bool = (key is AnyInterfaceData);
@@ -103,123 +90,75 @@ private class MapData<K, V> {
 				return false;
 			return x == y;
 		}
-		return switch (type.common().value : stdgo.reflect.Reflect.GoType) {
+		return switch (t.common().value : stdgo.reflect.Reflect.GoType) {
 			case mapType(var keyType, _):
 				final t:Type = new stdgo.reflect.Reflect._Type(keyType);
 				new AnyInterface(key, t) == new AnyInterface(objKey, t);
 			default:
-				throw "unknown type map equals: " + type.common().value;
+				throw "unknown type map equals: " + t.common().value;
 		}
 	}
 
+	public function defaultValue():V {
+		return switch @:privateAccess (t.common().value : stdgo.reflect.Reflect.GoType) {
+			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
+			default: @:privateAccess throw "unknown default map type: " + (t.common().value : stdgo.reflect.Reflect.GoType);
+		}
+	}
+
+	public function get(key:K):Null<V> {
+		for (i in 0..._keys.length) {
+			if (equals(key, _keys[i]))
+				return _values[i];
+		}
+		return defaultValue();
+	}
+
 	public function exists(key:K):Bool {
-		for (obj in array) {
-			if (equals(key, obj.key))
+		for (i in 0..._keys.length) {
+			if (equals(key, _keys[i]))
 				return true;
 		}
 		return false;
 	}
 
-	public function remove(key:K) {
-		for (obj in array) {
-			if (equals(key, obj.key)) {
-				array.remove(obj);
-				return;
+	public function remove(key:K):Bool {
+		for (i in 0..._keys.length) {
+			if (equals(key, _keys[i])) {
+				_keys.remove(_keys[i]);
+				_values.remove(_values[i]);
+				return true;
 			}
 		}
+		return false;
 	}
 
-	public function get(key:K):V {
-		for (obj in array) {
-			if (equals(key, obj.key))
-				return obj.value;
-		}
-		return defaultValue();
+	public function keys():Iterator<K>
+		return _keys.iterator();
+
+	public function iterator():Iterator<V>
+		return _values.iterator();
+
+	inline public function keyValueIterator():KeyValueIterator<K, V> {
+		return new haxe.iterators.MapKeyValueIterator(this);
 	}
 
-	public function defaultValue():V {
-		return switch @:privateAccess (type.common().value : stdgo.reflect.Reflect.GoType) {
-			case mapType(key, value): stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type(value));
-			default: @:privateAccess throw "unknown default map type: " + (type.common().value : stdgo.reflect.Reflect.GoType);
-		}
-	}
-
-	public function iterator()
-		return new MapIterator(array);
-
-	public function keyValueIterator()
-		return new MapKeyValueIterator(array);
-
-	public function set(key:K, value:V) {
-		for (obj in array) {
-			if (equals(key, obj.key)) {
-				obj.value = value;
-				return;
-			}
-		}
-		array.unshift({key: key, value: value});
+	public function copy():GoObjectMap<K, V> {
+		final o = new GoObjectMap<K, V>(t);
+		o._keys = _keys.copy();
+		o._values = _values.copy();
+		return o;
 	}
 
 	public function toString():String {
-		var params:String = "";
-		final array = array.copy();
-		array.sort((a, b) -> {
-			return (a.key : Dynamic) > (b.key : Dynamic) ? -1 : 1;
-		});
-		for (obj in array) {
-			params = Go.string(obj.key) + ":" + Go.string(obj.value) + " " + params;
-		}
-		params = params.substr(0, params.length - 1);
-		return 'map[$params]';
+		return [
+			for (i in 0..._keys.length)
+				'${_keys[i]} : ${_values[i]}'
+		].join(", ");
 	}
 
-	public inline function toSlice():Slice<Dynamic> {
-		return null;
-	}
-}
-
-private class MapIterator<K, V> {
-	var offset:Int = 0;
-	var slice:Array<{key:K, value:V}>;
-
-	public inline function new(slice:Array<{key:K, value:V}>) {
-		this.slice = slice;
-	}
-
-	public inline function hasNext() {
-		return offset < slice.length;
-	}
-
-	public inline function next():V {
-		var o:{key:K, value:V} = null;
-		while (offset < slice.length) {
-			o = slice[offset++];
-			if (o != null)
-				break;
-		}
-		return o.value;
-	}
-}
-
-private class MapKeyValueIterator<K, V> {
-	var offset:Int = 0;
-	var slice:Array<{key:K, value:V}>;
-
-	public inline function new(slice:Array<{key:K, value:V}>) {
-		this.slice = slice;
-	}
-
-	public inline function hasNext() {
-		return offset < slice.length;
-	}
-
-	public inline function next():{key:K, value:V} {
-		var o:{key:K, value:V} = null;
-		while (offset < slice.length) {
-			o = slice[offset++];
-			if (o != null)
-				break;
-		}
-		return o;
+	public function clear():Void {
+		_keys = [];
+		_values = [];
 	}
 }

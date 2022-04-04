@@ -21,9 +21,6 @@ class VectorData<T> {
 		vector = new Vector<T>(length);
 	}
 
-	public function toString():String
-		return "[" + [for (obj in vector) Go.string(obj)].join(" ") + "]";
-
 	public function get(i:Int):T
 		return vector.get(i);
 
@@ -35,7 +32,7 @@ class VectorData<T> {
 abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
 
-	public function setCap(cap:GoInt):GoArray<T> {
+	public function __setCap__(cap:GoInt):GoArray<T> {
 		this.cap = cap.toBasic();
 		return this;
 	}
@@ -68,7 +65,7 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		}
 	}
 
-	private function boundsCheck(i:Int) {
+	private function __boundsCheck__(i:Int) {
 		#if (!no_check_bounds && !(java || jvm || python || cs)) // checked all targets except php for native bounds checking.
 		if (i < 0 || i >= this.length) {
 			throw "array out of bounds, index: " + i + " length: " + length.toBasic();
@@ -76,11 +73,11 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		#end
 	}
 
-	@:op([]) public function set(index:GoInt, value:T):T
+	@:op([]) public function __set__(index:GoInt, value:T):T
 		return this.set(index.toBasic(), value);
 
-	@:op([]) public function get(index:GoInt):T {
-		boundsCheck(index.toBasic());
+	@:op([]) public function __get__(index:GoInt):T {
+		__boundsCheck__(index.toBasic());
 		return this.get(index.toBasic());
 	}
 
@@ -90,39 +87,35 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 			high = length.toBasic();
 		var length = high - low;
 		var obj = new Slice<T>();
-		obj.setUnderlying(this.vector, pos.toBasic(), length.toBasic());
+		obj.__setUnderlying__(this.vector, pos.toBasic(), length.toBasic());
 		return obj;
 	}
 
-	public inline function setVector(vector:Vector<T>) {
+	public inline function __setVector__(vector:Vector<T>) {
 		this.vector = vector;
 	}
 
-	public inline function toArray():Array<T> {
+	public inline function __toArray__():Array<T> {
 		return [for (i in 0...length.toBasic()) this.get(i)];
 	}
 
-	public inline function toVector():Vector<T> {
+	public inline function __toVector__():Vector<T> {
 		return this.vector;
 	}
 
-	public inline function replace(value:Vector<T>) {
+	public inline function __replace__(value:Vector<T>) {
 		this.vector = value;
 	}
 
-	public inline function setSize(length:Int) {
+	public inline function __setSize__(length:Int) {
 		this = new VectorData<T>(length);
 	}
 
-	public function copy() {
-		final array = new GoArray<T>();
-		array.setSize(array.length.toBasic());
-		array.setVector(this.vector.copy());
-		return array;
-	}
-
 	public function __copy__() {
-		return copy();
+		final array = new GoArray<T>();
+		array.__setSize__(array.length.toBasic());
+		array.__setVector__(this.vector.copy());
+		return array;
 	}
 }
 

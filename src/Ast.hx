@@ -193,6 +193,7 @@ typedef FuncType = {
 	func:Pos,
 	params:FieldList,
 	results:FieldList,
+	typeParams:FieldList,
 	type:ExprType,
 };
 
@@ -538,6 +539,7 @@ enum abstract Token(String) {
 	public final TYPE = "type";
 	public final VAR = "var";
 	public final keyword_end = "";
+	public final TIDLE = "|";
 
 	@:from private static function fromInt(index:Int):Token {
 		return switch index {
@@ -628,6 +630,7 @@ enum abstract Token(String) {
 			case 84: Token.TYPE;
 			case 85: Token.VAR;
 			case 86: Token.keyword_end;
+			case 87: Token.TIDLE;
 			default: null;
 		}
 	}

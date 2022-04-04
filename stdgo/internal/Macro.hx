@@ -1,9 +1,12 @@
 package stdgo.internal;
 
 import haxe.macro.Compiler;
+import haxe.macro.ComplexTypeTools;
 import haxe.macro.Context;
 import haxe.macro.Expr.Field;
 import haxe.macro.Expr;
+import haxe.macro.ExprTools;
+import haxe.macro.TypeTools;
 
 using Lambda;
 
@@ -165,6 +168,115 @@ class Macro {
 		}
 		return e;
 	}
+
+	#if macro
+	public static function wrapper(e:Expr = null):Array<Field> {
+		final fields = Context.getBuildFields();
+		final localType = Context.getLocalType();
+		final t = switch e.expr {
+			case EConst(CIdent(s)):
+				Context.getType(s);
+			default:
+				throw "invalid wrapper expr arg: " + e.expr;
+		}
+		var ct = TypeTools.toComplexType(t);
+		final wrapperName = switch ct {
+			case TPath(p):
+				(p.sub != null ? p.sub : p.name) + "_wrapper";
+			default:
+				throw "invalid complex type: " + ct;
+		}
+		var isPointerSet = false;
+		switch TypeTools.toComplexType(Context.follow(t)) {
+			case TPath(p):
+				final std = p.name == "StdTypes" && p.params.length == 0 && p.pack.length == 0;
+				final stdgo = p.name == "StdGoTypes" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
+				final string = p.name == "GoString" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
+
+				if (std || stdgo || string) {
+					ct = TPath({name: "Pointer", pack: [], params: [TPType(ct)]});
+					isPointerSet = true;
+				} else {
+					// trace(p);
+				}
+			default:
+		}
+		switch localType {
+			case TInst(_.get() => cl, _):
+				final wrapper = macro class $wrapperName {
+					var __t__:$ct;
+
+					public function new(__t__)
+						this.__t__ = __t__;
+
+					public function __underlying__():AnyInterface
+						return Go.toInterface(__t__);
+				};
+				wrapper.pos = Context.currentPos();
+				for (field in fields) {
+					if (!field.access.has(AStatic))
+						continue;
+					var isOp = false;
+					for (meta in field.meta) {
+						if (meta.name == ":op") {
+							isOp = true;
+						}
+					}
+					if (isOp)
+						continue;
+
+					switch field.kind {
+						case FFun(f):
+							var isPointer = false;
+							for (meta in field.meta) {
+								if (meta.name == ":pointer") {
+									isPointer = true;
+									break;
+								}
+							}
+							final args = f.args.slice(isPointer ? 2 : 1);
+							final selects = [field.name];
+							if (isPointerSet)
+								selects.unshift("value");
+							selects.unshift("__t__");
+							// trace(selects);
+							final fieldName = macro $p{selects};
+							final fieldArgs = args.map(arg -> macro $i{arg.name});
+							if (isPointer)
+								fieldArgs.unshift(macro __t__);
+							var e = macro $fieldName($a{fieldArgs});
+							// var printer = new haxe.macro.Printer();
+							// trace(new haxe.macro.Printer().printExpr(e));
+							switch f.ret {
+								case TPath(p):
+									if (p.name != "Void" || p.pack.length != 0) {
+										e = macro return $e;
+									}
+								default:
+							}
+							wrapper.fields.push({
+								name: field.name,
+								pos: field.pos,
+								access: [APublic],
+								kind: FFun({
+									args: args.map(arg -> {
+										// arg.type = null;
+										arg;
+									}),
+									expr: e,
+								}),
+							});
+						default:
+					}
+				}
+				// trace(new haxe.macro.Printer().printTypeDefinition(wrapper));
+				Context.defineModule(Context.getLocalModule(), [wrapper], Context.getLocalImports());
+			default:
+				Context.error("unknown t type: " + t, Context.currentPos());
+		}
+		return fields;
+	}
+	#end
 
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {

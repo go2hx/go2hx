@@ -1,14 +1,14 @@
 package stdgo.encoding.gob;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_gobType = StructType & {
 	public function _id():T_typeId;
@@ -23,7 +23,7 @@ typedef GobEncoder = StructType & {
 };
 
 typedef GobDecoder = StructType & {
-	public function gobDecode(arg0:Slice<GoByte>):Error;
+	public function gobDecode(_0:Slice<GoByte>):Error;
 };
 
 @:named class T_decHelper {

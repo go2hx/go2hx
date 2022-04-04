@@ -1,22 +1,22 @@
 package stdgo.encoding.binary;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef ByteOrder = StructType & {
-	public function uint16(arg0:Slice<GoByte>):GoUInt16;
-	public function uint32(arg0:Slice<GoByte>):GoUInt32;
-	public function uint64(arg0:Slice<GoByte>):GoUInt64;
-	public function putUint16(arg0:Slice<GoByte>, arg1:GoUInt16):Void;
-	public function putUint32(arg0:Slice<GoByte>, arg1:GoUInt32):Void;
-	public function putUint64(arg0:Slice<GoByte>, arg1:GoUInt64):Void;
+	public function uint16(_0:Slice<GoByte>):GoUInt16;
+	public function uint32(_0:Slice<GoByte>):GoUInt32;
+	public function uint64(_0:Slice<GoByte>):GoUInt64;
+	public function putUint16(_0:Slice<GoByte>, _1:GoUInt16):Void;
+	public function putUint32(_0:Slice<GoByte>, _1:GoUInt32):Void;
+	public function putUint64(_0:Slice<GoByte>, _1:GoUInt64):Void;
 	public function toString():GoString;
 };
 

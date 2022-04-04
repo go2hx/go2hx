@@ -1,13 +1,13 @@
 package stdgo.bufio;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
-import stdgo.GoArray;
-import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.StdGoTypes;
+import stdgo.GoArray;
+import stdgo.GoMap;
+import stdgo.Chan;
 var errInvalidUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(((("bufio: invalid use of UnreadByte" : GoString))));
 var errInvalidUnreadRune : stdgo.Error = stdgo.errors.Errors.new_(((("bufio: invalid use of UnreadRune" : GoString))));
 var errBufferFull : stdgo.Error = stdgo.errors.Errors.new_(((("bufio: buffer full" : GoString))));
@@ -94,6 +94,7 @@ var _errorRune : Slice<GoUInt8> = ((((((65533 : GoInt32)) : GoString)) : Slice<G
         return "{" + Go.string(reader) + " " + Go.string(writer) + "}";
     }
     public function available():GoInt return writer.available();
+    public function availableBuffer():Slice<GoUInt8> return writer.availableBuffer();
     public function discard(_n:GoInt):{ var _0 : GoInt; var _1 : stdgo.Error; } return reader.discard(_n);
     public function flush():stdgo.Error return writer.flush();
     public function peek(_n:GoInt):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return reader.peek(_n);
@@ -185,14 +186,11 @@ _done);
         return this;
     }
 }
-@:named class SplitFunc {
-    public var __t__ : (Slice<GoUInt8>, Bool) -> { var _0 : GoInt; var _1 : Slice<GoUInt8>; var _2 : stdgo.Error; };
+@:named @:forward.variance @:forward abstract SplitFunc((Slice<GoUInt8>, Bool) -> { var _0 : GoInt; var _1 : Slice<GoUInt8>; var _2 : stdgo.Error; }) from (Slice<GoUInt8>, Bool) -> { var _0 : GoInt; var _1 : Slice<GoUInt8>; var _2 : stdgo.Error; } to (Slice<GoUInt8>, Bool) -> { var _0 : GoInt; var _1 : Slice<GoUInt8>; var _2 : stdgo.Error; } {
     public function new(?t:(Slice<GoUInt8>, Bool) -> { var _0 : GoInt; var _1 : Slice<GoUInt8>; var _2 : stdgo.Error; }) {
-        __t__ = t == null ? null : t;
+        this = t == null ? null : t;
     }
-    @:implicit
-    public function toString():String return Go.string(__t__);
-    public function __copy__() return new SplitFunc(__t__);
+    public function __copy__() return new SplitFunc(this);
 }
 /**
     // NewReaderSize returns a new Reader whose buffer has at least the specified
@@ -201,7 +199,7 @@ _done);
 **/
 function newReaderSize(_rd:stdgo.io.Io.Reader, _size:GoInt):Reader {
         var __tmp__ = try {
-            { value : ((((_rd.__underlying__().value : Dynamic)).__t__ : Reader)), ok : true };
+            { value : ((((_rd.__underlying__().value : Dynamic)) : Reader)), ok : true };
         } catch(_) {
             { value : ((null : Reader)), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
@@ -228,7 +226,7 @@ function newReader(_rd:stdgo.io.Io.Reader):Reader {
 **/
 function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Writer {
         var __tmp__ = try {
-            { value : ((((_w.__underlying__().value : Dynamic)).__t__ : Writer)), ok : true };
+            { value : ((((_w.__underlying__().value : Dynamic)) : Writer)), ok : true };
         } catch(_) {
             { value : ((null : Writer)), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
@@ -242,6 +240,8 @@ function newWriterSize(_w:stdgo.io.Io.Writer, _size:GoInt):Writer {
     }
 /**
     // NewWriter returns a new Writer whose buffer has the default size.
+    // If the argument io.Writer is already a Writer with large enough buffer size,
+    // it returns the underlying Writer.
 **/
 function newWriter(_w:stdgo.io.Io.Writer):Writer {
         return newWriterSize(_w, ((4096 : GoInt)));
@@ -257,7 +257,7 @@ function newReadWriter(_r:Reader, _w:Writer):ReadWriter {
     // The split function defaults to ScanLines.
 **/
 function newScanner(_r:stdgo.io.Io.Reader):Scanner {
-        return (({ _r : _r, _split : new SplitFunc(Go.copyValue(scanLines)), _maxTokenSize : ((65536 : GoInt)), _token : new Slice<GoUInt8>().nil(), _buf : new Slice<GoUInt8>().nil(), _start : 0, _end : 0, _err : ((null : stdgo.Error)), _empties : 0, _scanCalled : false, _done : false } : Scanner));
+        return (({ _r : _r, _split : Go.copyValue(scanLines), _maxTokenSize : ((65536 : GoInt)), _token : new Slice<GoUInt8>().nil(), _buf : new Slice<GoUInt8>().nil(), _start : 0, _end : 0, _err : ((null : stdgo.Error)), _empties : 0, _scanCalled : false, _done : false } : Scanner));
     }
 /**
     // ScanBytes is a split function for a Scanner that returns each byte as a token.
@@ -427,9 +427,9 @@ class Reader_wrapper {
     public var __t__ : Reader;
     public inline function new(__t__) this.__t__ = __t__;
     public function __underlying__():AnyInterface return Go.toInterface(this);
-    function toString():String return __t__ == null ? "null" : __t__.toString();
+    function toString():String return __t__ == null ? "null" : Go.string(__t__);
 }
-class Reader_static_extension {
+@:access(Reader) class Reader_static_extension {
     public static function _writeBuf(_b:Reader, _w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var __tmp__ = _w.write(_b._buf.__slice__(_b._r, _b._w)), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_n < ((0 : GoInt))) {
@@ -440,6 +440,8 @@ class Reader_static_extension {
     }
     public static function writeTo(_b:Reader, _w:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+        _b._lastByte = ((-1 : GoInt));
+        _b._lastRuneSize = ((-1 : GoInt));
         {
             var __tmp__ = _b._writeBuf(_w);
             _n = __tmp__._0;
@@ -450,7 +452,7 @@ class Reader_static_extension {
         };
         {
             var __tmp__ = try {
-                { value : ((((_b._rd.__underlying__().value : Dynamic)).__t__ : stdgo.io.Io.WriterTo)), ok : true };
+                { value : ((((_b._rd.__underlying__().value : Dynamic)) : stdgo.io.Io.WriterTo)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.WriterTo)), ok : false };
             }, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -462,7 +464,7 @@ class Reader_static_extension {
         };
         {
             var __tmp__ = try {
-                { value : ((((_w.__underlying__().value : Dynamic)).__t__ : stdgo.io.Io.ReaderFrom)), ok : true };
+                { value : ((((_w.__underlying__().value : Dynamic)) : stdgo.io.Io.ReaderFrom)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.ReaderFrom)), ok : false };
             }, _w = __tmp__.value, _ok = __tmp__.ok;
@@ -491,7 +493,7 @@ class Reader_static_extension {
     public static function readString(_b:Reader, _delim:GoByte):{ var _0 : GoString; var _1 : Error; } {
         var __tmp__ = _b._collectFragments(_delim), _full:Slice<Slice<GoUInt8>> = __tmp__._0, _frag:Slice<GoUInt8> = __tmp__._1, _n:GoInt = __tmp__._2, _err:stdgo.Error = __tmp__._3;
         var _buf:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
-        _buf.grow(_n);
+        _buf.__grow__(_n);
         for (_ => _fb in _full) {
             _buf.write(_fb);
         };
@@ -726,6 +728,8 @@ class Reader_static_extension {
         if (_n == ((0 : GoInt))) {
             return { _0 : _discarded, _1 : _err };
         };
+        _b._lastByte = ((-1 : GoInt));
+        _b._lastRuneSize = ((-1 : GoInt));
         var _remain:GoInt = _n;
         while (true) {
             var _skip:GoInt = _b.buffered();
@@ -817,6 +821,9 @@ class Reader_static_extension {
         };
     }
     public static function reset(_b:Reader, _r:stdgo.io.Io.Reader):Void {
+        if (_b._buf == null) {
+            _b._buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((4096 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        };
         _b._reset(_b._buf, _r);
     }
     public static function size(_b:Reader):GoInt {
@@ -830,6 +837,7 @@ class Writer_wrapper {
     public function writeByte(_c:GoByte):Error return Writer_static_extension.writeByte(__t__, _c);
     public function write(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return Writer_static_extension.write(__t__, _p);
     public function buffered():GoInt return Writer_static_extension.buffered(__t__);
+    public function availableBuffer():Slice<GoByte> return Writer_static_extension.availableBuffer(__t__);
     public function available():GoInt return Writer_static_extension.available(__t__);
     public function flush():Error return Writer_static_extension.flush(__t__);
     public function reset(_w:stdgo.io.Io.Writer):Void Writer_static_extension.reset(__t__, _w);
@@ -837,32 +845,19 @@ class Writer_wrapper {
     public var __t__ : Writer;
     public inline function new(__t__) this.__t__ = __t__;
     public function __underlying__():AnyInterface return Go.toInterface(this);
-    function toString():String return __t__ == null ? "null" : __t__.toString();
+    function toString():String return __t__ == null ? "null" : Go.string(__t__);
 }
-class Writer_static_extension {
+@:access(Writer) class Writer_static_extension {
     public static function readFrom(_b:Writer, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
         if (Go.toInterface(_b._err) != Go.toInterface(null)) {
             return { _0 : ((0 : GoInt64)), _1 : _b._err };
         };
-        if (_b.buffered() == ((0 : GoInt))) {
-            {
-                var __tmp__ = try {
-                    { value : ((((_b._wr.__underlying__().value : Dynamic)).__t__ : stdgo.io.Io.ReaderFrom)), ok : true };
-                } catch(_) {
-                    { value : ((null : stdgo.io.Io.ReaderFrom)), ok : false };
-                }, _w = __tmp__.value, _ok = __tmp__.ok;
-                if (_ok) {
-                    {
-                        var __tmp__ = _w.readFrom(_r);
-                        _n = __tmp__._0;
-                        _err = __tmp__._1;
-                    };
-                    _b._err = _err;
-                    return { _0 : _n, _1 : _err };
-                };
-            };
-        };
+        var __tmp__ = try {
+            { value : ((((_b._wr.__underlying__().value : Dynamic)) : stdgo.io.Io.ReaderFrom)), ok : true };
+        } catch(_) {
+            { value : ((null : stdgo.io.Io.ReaderFrom)), ok : false };
+        }, _readerFrom = __tmp__.value, _readerFromOK = __tmp__.ok;
         var _m:GoInt = ((0 : GoInt));
         while (true) {
             if (_b.available() == ((0 : GoInt))) {
@@ -872,6 +867,12 @@ class Writer_static_extension {
                         return { _0 : _n, _1 : _err1 };
                     };
                 };
+            };
+            if (_readerFromOK && (_b.buffered() == ((0 : GoInt)))) {
+                var __tmp__ = _readerFrom.readFrom(_r), _nn:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                _b._err = _err;
+                _n = _n + (_nn);
+                return { _0 : _n, _1 : _err };
             };
             var _nr:GoInt = ((0 : GoInt));
             while (_nr < ((100 : GoInt))) {
@@ -989,6 +990,9 @@ class Writer_static_extension {
     public static function buffered(_b:Writer):GoInt {
         return _b._n;
     }
+    public static function availableBuffer(_b:Writer):Slice<GoByte> {
+        return _b._buf.__slice__(_b._n).__slice__(0, ((0 : GoInt)));
+    }
     public static function available(_b:Writer):GoInt {
         return _b._buf.length - _b._n;
     }
@@ -1015,6 +1019,9 @@ class Writer_static_extension {
         return ((null : stdgo.Error));
     }
     public static function reset(_b:Writer, _w:stdgo.io.Io.Writer):Void {
+        if (_b._buf == null) {
+            _b._buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((4096 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        };
         _b._err = ((null : stdgo.Error));
         _b._n = ((0 : GoInt));
         _b._wr = _w;
@@ -1028,6 +1035,7 @@ class ReadWriter_wrapper {
     public inline function new(__t__) this.__t__ = __t__;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function available():GoInt return __t__.writer.available();
+    public function availableBuffer():Slice<GoUInt8> return __t__.writer.availableBuffer();
     public function discard(_n:GoInt):{ var _0 : GoInt; var _1 : stdgo.Error; } return __t__.reader.discard(_n);
     public function flush():stdgo.Error return __t__.writer.flush();
     public function peek(_n:GoInt):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return __t__.reader.peek(_n);
@@ -1064,9 +1072,9 @@ class Scanner_wrapper {
     public var __t__ : Scanner;
     public inline function new(__t__) this.__t__ = __t__;
     public function __underlying__():AnyInterface return Go.toInterface(this);
-    function toString():String return __t__ == null ? "null" : __t__.toString();
+    function toString():String return __t__ == null ? "null" : Go.string(__t__);
 }
-class Scanner_static_extension {
+@:access(Scanner) class Scanner_static_extension {
     public static function split(_s:Scanner, _split:SplitFunc):Void {
         if (_s._scanCalled) {
             throw Go.toInterface(((("Split called after Scan" : GoString))));
@@ -1104,7 +1112,7 @@ class Scanner_static_extension {
         _s._scanCalled = true;
         while (true) {
             if ((_s._end > _s._start) || (Go.toInterface(_s._err) != Go.toInterface(null))) {
-                var __tmp__ = _s._split.__t__(_s._buf.__slice__(_s._start, _s._end), Go.toInterface(_s._err) != Go.toInterface(null)), _advance:GoInt = __tmp__._0, _token:Slice<GoUInt8> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                var __tmp__ = _s._split(_s._buf.__slice__(_s._start, _s._end), Go.toInterface(_s._err) != Go.toInterface(null)), _advance:GoInt = __tmp__._0, _token:Slice<GoUInt8> = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                 if (Go.toInterface(_err) != Go.toInterface(null)) {
                     if (Go.toInterface(_err) == Go.toInterface(errFinalToken)) {
                         _s._token = _token;

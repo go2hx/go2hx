@@ -1,14 +1,14 @@
 package stdgo.os.signal;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_stringer = StructType & {
 	public function toString():GoString;
@@ -545,12 +545,12 @@ function notifyContext(_parent:stdgo.context.Context.Context,
 /**
 	// Defined by the runtime package.
 **/
-function _signal_disable(arg0:GoUInt32):Void {}
+function _signal_disable(_0:GoUInt32):Void {}
 
-function _signal_enable(arg0:GoUInt32):Void {}
-function _signal_ignore(arg0:GoUInt32):Void {}
+function _signal_enable(_0:GoUInt32):Void {}
+function _signal_ignore(_0:GoUInt32):Void {}
 
-function _signal_ignored(arg0:GoUInt32):Bool
+function _signal_ignored(_0:GoUInt32):Bool
 	throw "not implemeneted";
 
 function _signal_recv():GoUInt32

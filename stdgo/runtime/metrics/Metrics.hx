@@ -1,14 +1,14 @@
 package stdgo.runtime.metrics;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 @:structInit class Description {
 	public var name:GoString = (("" : GoString));
@@ -343,7 +343,7 @@ function all():Slice<Description> {
 /**
 	// Implemented in the runtime.
 **/
-function _runtime_readMetrics(arg0:stdgo.unsafe.Unsafe.Pointer_, arg1:GoInt, arg2:GoInt):Void {}
+function _runtime_readMetrics(_0:stdgo.unsafe.Unsafe.Pointer_, _1:GoInt, arg2:GoInt):Void {}
 
 /**
 	// Read populates each Value field in the given slice of metric samples.

@@ -1,14 +1,14 @@
 package stdgo.database.sql;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_decimal = StructType & {
 	> T_decimalDecompose,
@@ -37,7 +37,7 @@ typedef T_finalCloser = StructType & {
 };
 
 typedef T_stmtConnGrabber = StructType & {
-	public function _grabConn(arg0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;};
+	public function _grabConn(_0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;};
 	public function _txCtx():stdgo.context.Context.Context;
 };
 
@@ -6013,7 +6013,7 @@ typedef Result = StructType & {
 		return _c.value._db.value._pingDC(_ctx, _dc, _release.__copy__().__t__);
 	}
 
-	public function _grabConn(arg0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;} {
+	public function _grabConn(_0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;} {
 		var _c = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
 		if (stdgo.sync.atomic.Atomic.loadInt32(Go.pointer(_c.value._done)) != ((0 : GoInt32))) {
 			return {_0: new Pointer<T_driverConn>().nil(), _1: new T_releaseConn(), _2: errConnDone};
@@ -6388,7 +6388,7 @@ typedef Result = StructType & {
 		};
 	}
 
-	public function _closemuRUnlockRelease(arg0:Error):Void {
+	public function _closemuRUnlockRelease(_0:Error):Void {
 		var _tx = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
 		_tx.value._closemu.runlock();
 	}
@@ -8133,7 +8133,7 @@ function _convertAssignRows(_dest:AnyInterface, _src:AnyInterface, _rows:Pointer
 			_rows.value._closemu.lock();
 			_d.value = (({
 				_dc: _rows.value._dc,
-				_releaseConn: function(arg0:Error):Void {},
+				_releaseConn: function(_0:Error):Void {},
 				_rowsi: _s,
 				_cancel: null,
 				_closeStmt: new Pointer<T_driverStmt>().nil(),
@@ -12744,8 +12744,8 @@ class T_dsnConnector_extension_fields {
 }
 
 class Conn_extension_fields {
-	public function _grabConn(__tmp__, arg0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;}
-		return __tmp__._grabConn(arg0);
+	public function _grabConn(__tmp__, _0:stdgo.context.Context.Context):{var _0:Pointer<T_driverConn>; var _1:T_releaseConn; var _2:Error;}
+		return __tmp__._grabConn(_0);
 
 	public function pingContext(__tmp__, _ctx:stdgo.context.Context.Context):Error
 		return __tmp__.pingContext(_ctx);
@@ -12798,8 +12798,8 @@ class Tx_extension_fields {
 	public function _txCtx(__tmp__):stdgo.context.Context.Context
 		return __tmp__._txCtx();
 
-	public function _closemuRUnlockRelease(__tmp__, arg0:Error):Void
-		__tmp__._closemuRUnlockRelease(arg0);
+	public function _closemuRUnlockRelease(__tmp__, _0:Error):Void
+		__tmp__._closemuRUnlockRelease(_0);
 
 	public function _closePrepared(__tmp__):Void
 		__tmp__._closePrepared();

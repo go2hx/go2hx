@@ -1,18 +1,18 @@
 package stdgo.crypto.hmac;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_marshalable = StructType & {
 	public function marshalBinary():{var _0:Slice<GoByte>; var _1:Error;};
-	public function unmarshalBinary(arg0:Slice<GoByte>):Error;
+	public function unmarshalBinary(_0:Slice<GoByte>):Error;
 };
 
 @:structInit class T_hmac {

@@ -36,7 +36,7 @@ class Chan<T> {
 
 	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
 		__buffer__ = new ChanBuffer(length.toBasic());
-		this.setCap(length);
+		this.__setCap__(length);
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;
 	}
@@ -63,7 +63,7 @@ class Chan<T> {
 		return _cap == -1 ? length : _cap;
 	}
 
-	public function setCap(cap:GoInt):Chan<T> {
+	public function __setCap__(cap:GoInt):Chan<T> {
 		this._cap = cap.toBasic();
 		return this;
 	}

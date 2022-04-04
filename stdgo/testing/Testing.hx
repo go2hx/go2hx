@@ -5,8 +5,10 @@ import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.GoType;
 import stdgo.testing.internal.testdeps.Testdeps.TestDeps;
 
+using stdgo.GoString.GoStringTools;
+
 typedef TB = StructType & {
-	public function cleanup(arg0:() -> Void):Void;
+	public function cleanup(_0:() -> Void):Void;
 	public function error(_args:haxe.Rest<AnyInterface>):Void;
 	public function errorf(_format:GoString, _args:haxe.Rest<AnyInterface>):Void;
 	public function fail():Void;
@@ -33,7 +35,7 @@ class BenchmarkResult {
 	public var bytes:GoInt64 = 0;
 	public var memAllocs:GoUInt64 = 0;
 	public var memBytes:GoUInt64 = 0;
-	public var extra = new GoMap<GoString, GoFloat64>(new stdgo.reflect.Reflect._Type(mapType(basic(string_kind), basic(float64_kind)))).nil();
+	public var extra:GoMap<GoString, GoFloat64> = null;
 
 	public function new(?n, ?t, ?bytes, ?memAllocs, ?memBytes, ?extra) {
 		if (n != null)
@@ -95,7 +97,7 @@ class B {
 
 	public function resetTimer() {}
 
-	public function run(name:GoString, f:Pointer<B>->Void):Bool
+	public function run(name:GoString, f:B->Void):Bool
 		return true;
 
 	public function setenv(key:GoString, value:GoString) {}
@@ -142,7 +144,7 @@ class B {
 
 	public function reportMetric(n:GoFloat64, uint:GoString) {}
 
-	public function runParrallel(body:Pointer<PB>->Void) {
+	public function runParrallel(body:PB->Void) {
 		return null;
 	}
 
@@ -218,7 +220,7 @@ class F {
 
 	public function parallel() {}
 
-	public function run(name:GoString, f:Pointer<T_>->Void):Bool {
+	public function run(name:GoString, f:T_->Void):Bool {
 		return true;
 	}
 
@@ -292,7 +294,7 @@ class T_ {
 
 	public function parallel() {}
 
-	public function run(name:GoString, f:Pointer<T_>->Void):Bool {
+	public function run(name:GoString, f:T_->Void):Bool {
 		return true;
 	}
 
@@ -316,6 +318,26 @@ class T_ {
 	public function __copy__()
 		return new T_(output);
 }
+
+typedef T_testDeps = StructType & {
+	public function importPath():GoString;
+	public function matchString(_pat:GoString, _str:GoString):{var _0:Bool; var _1:Error;};
+	public function setPanicOnExit0(_0:Bool):Void;
+	public function startCPUProfile(_0:stdgo.io.Io.Writer):Error;
+	public function stopCPUProfile():Void;
+	public function startTestLog(_0:stdgo.io.Io.Writer):Void;
+	public function stopTestLog():Error;
+	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
+	public function coordinateFuzzing(_0:stdgo.time.Time.Duration, _1:GoInt64, _2:stdgo.time.Time.Duration, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
+		_6:Slice<stdgo.reflect.Reflect.Type>, _7:GoString, _8:GoString):Error;
+	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
+	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
+	public function checkCorpus(_0:Slice<Any>, _1:Slice<stdgo.reflect.Reflect.Type>):Error;
+	public function resetCoverage():Void;
+	public function snapshotCoverage():Void;
+};
+
+typedef T_corpusEntry = Dynamic;
 
 @:structInit
 class M {
@@ -346,7 +368,7 @@ class M {
 			final stamp = Sys.time();
 			stdgo.fmt.Fmt.println("=== RUN  ", test.name);
 			try {
-				test.f(Go.pointer(t));
+				test.f(t);
 			} catch (e) {
 				if (e.message != "__fail__") {
 					stdgo.fmt.Fmt.println(e.details());
@@ -380,7 +402,7 @@ class M {
 @:structInit
 class InternalBenchmark {
 	public var name:GoString = "";
-	public var f:Pointer<B>->Void = null;
+	public var f:B->Void = null;
 
 	public function new(?name, ?f) {
 		if (name != null)
@@ -443,9 +465,9 @@ class InternalExample {
 @:structInit
 class InternalTest {
 	public var name:GoString = "";
-	public var f:Pointer<T_>->Void = null;
+	public var f:T_->Void = null;
 
-	public function new(name:GoString, f:Pointer<T_>->Void) {
+	public function new(name:GoString, f:T_->Void) {
 		this.name = name;
 		this.f = f;
 	}
@@ -457,7 +479,7 @@ class InternalTest {
 		return new InternalTest(name, f);
 }
 
-function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, arg0:Any, ?arg1:Any):Pointer<M> {
+function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, _0:Any, ?_1:Any):M {
 	final args = Sys.args();
 	var testlist:Array<InternalTest> = [];
 	var runArgBool = false;
@@ -475,7 +497,7 @@ function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<In
 		}
 	}
 	if (!runArgBool)
-		testlist = tests.toArray();
+		testlist = tests.__toArray__();
 	for (i in 0...args.length) {
 		if ((args[i] == "-exclude" || args[i] == "--exclude") && i < args.length - 1) {
 			final excludes = args[i + 1].split(",");
@@ -485,12 +507,12 @@ function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<In
 			}
 		}
 	}
-	final examples:Slice<InternalExample> = arg1 == null ? arg0 : arg1; // fix issue of newer go version supporting fuzz target and older not
-	final fuzzTargets:Slice<InternalFuzzTarget> = arg1 == null ? null : arg0;
+	final examples:Slice<InternalExample> = _1 == null ? _0 : _1; // fix issue of newer go version supporting fuzz target and older not
+	final fuzzTargets:Slice<InternalFuzzTarget> = _1 == null ? null : _0;
 	var m = new M(deps, testlist, benchmarks, examples);
-	return Go.pointer(m);
+	return m;
 }
 
-function benchmark(f:Pointer<B>->Void):BenchmarkResult {
+function benchmark(f:B->Void):BenchmarkResult {
 	return new BenchmarkResult();
 }

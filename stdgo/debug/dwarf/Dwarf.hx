@@ -19,7 +19,7 @@ typedef Type = StructType & {
     public function size():GoInt64;
 };
 typedef T_typeReader = StructType & {
-    public function seek(arg0:Offset):Void;
+    public function seek(_0:Offset):Void;
     public function next():{ var _0 : Pointer<Entry>; var _1 : Error; };
     public function _clone():T_typeReader;
     public function _offset():Offset;

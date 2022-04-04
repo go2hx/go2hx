@@ -30,7 +30,8 @@ function main() {
 		}
 		Main.close();
 	};
-	final args = ["-log", "./rnd", Sys.getCwd()];
+	final args = ["-norun", "-log", "./rnd", Sys.getCwd()];
+	// args.unshift("--extern");
 	if (testBool)
 		args.unshift("-test");
 	Main.run(args);

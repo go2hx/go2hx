@@ -10,7 +10,7 @@ import stdgo.GoMap;
 import stdgo.Chan;
 typedef T_message = StructType & {
     public function _decoder():Slice<T_decoder>;
-    public function _encode(arg0:Pointer<T_buffer>):Void;
+    public function _encode(_0:Pointer<T_buffer>):Void;
 };
 @:named class TagMatch {
     public var __t__ : (GoString, GoString, GoInt64) -> Bool;

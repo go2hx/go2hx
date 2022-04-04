@@ -11,14 +11,6 @@ import stdgo.StdGoTypes.GoInt;
 abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 	public var value(get, set):T;
 
-	public function nil():Pointer<T> {
-		this.nilBool = true;
-		return this;
-	}
-
-	public function isNil():Bool
-		return this.nilBool || value == null;
-
 	private function get_value():T {
 		if (this.assign != null) {
 			value = this.assign();
@@ -65,7 +57,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 
 	@:from
 	private static function fromSlice<T>(slice:Slice<T>):Pointer<GoArray<T>> {
-		var x:GoArray<T> = slice.getUnderlying();
+		var x:GoArray<T> = slice.__getUnderlying__();
 		return Go.pointer(x);
 	}
 
@@ -88,7 +80,6 @@ class PointerData<T> {
 	public var assign:Void->T;
 	public var underlying:Any = null; // used for equality of pointers with the same slice/array/map/field
 	public var underlyingIndex:Any = null;
-	public var nilBool:Bool = false;
 
 	public function new(?get, ?set, hasSet:Bool = false, previous:Pointer<Any> = null, underlying:Any = null, underlyingIndex:Any = null) {
 		if (get == null)
@@ -104,7 +95,6 @@ class PointerData<T> {
 		this.underlyingIndex = underlyingIndex;
 	}
 
-	public inline function toString() {
-		return nilBool ? "null" : "&" + Go.string(get());
-	}
+	public function toString():String
+		return "0x1";
 }

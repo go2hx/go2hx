@@ -3,6 +3,8 @@ package stdgo;
 import haxe.io.Bytes;
 import stdgo.StdGoTypes;
 
+using GoString.GoStringTools;
+
 abstract GoString(Bytes) from Bytes to Bytes {
 	public var length(get, never):GoInt;
 
@@ -12,7 +14,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	public var code(get, never):GoRune;
 
 	function get_code():GoRune {
-		final slice = toSliceRune();
+		final slice = __toSliceRune__();
 		if (slice.length == 0)
 			return 0xFFFD;
 		return slice[0];
@@ -31,7 +33,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		}
 	}
 
-	@:to public function toString():String {
+	@:to public function __toString__():String {
 		return #if hl removeZeros().toString(); #else this.toString(); #end
 	}
 
@@ -47,21 +49,6 @@ abstract GoString(Bytes) from Bytes to Bytes {
 			bytes.set(i, list[i]);
 		return bytes;
 	}
-
-	private function copyBytes():Bytes {
-		final bytes = Bytes.alloc(this.length);
-		bytes.blit(0, this, 0, this.length);
-		return bytes;
-	}
-
-	public function lastIndexOf(str:String, ?startIndex:Int):Int
-		return toString().lastIndexOf(str, startIndex);
-
-	public function indexOf(str:String, ?startIndex:Int):Int
-		return toString().lastIndexOf(str, startIndex);
-
-	public function substr(pos:Int, ?len:Int):GoString
-		return toString().substr(pos, len);
 
 	@:from static function ofString(x:String):GoString
 		return new GoString(x);
@@ -94,12 +81,12 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	}
 
 	@:op([])
-	public function get(index:GoInt):GoByte
+	public function __get__(index:GoInt):GoByte
 		return this.get(index.toBasic());
 
-	@:to public function toSliceByte():Slice<GoByte> {
+	@:to public function __toSliceByte__():Slice<GoByte> {
 		var slice = new Slice<GoByte>();
-		slice.grow(length.toBasic());
+		slice.__grow__(length.toBasic());
 		for (i in 0...length.toBasic()) {
 			var value = this.get(i);
 			slice[i] = value;
@@ -107,11 +94,11 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return slice;
 	}
 
-	@:to public function toSliceRune():Slice<GoRune> {
-		var bytes = toSliceByte();
+	@:to public function __toSliceRune__():Slice<GoRune> {
+		var bytes = __toSliceByte__();
 		var runes = new Slice<GoRune>();
 		while (bytes.length > 0) {
-			final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+			final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
 			final rune = tmp._0;
 			final size = tmp._1;
 			bytes = bytes.__slice__(size);
@@ -120,8 +107,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return runes;
 	}
 
-	public function toArray():Array<GoByte>
-		return [for (code in toSliceByte()) code];
+	public function __toArray__():Array<GoByte>
+		return [for (code in __toSliceByte__()) code];
 
 	public function iterator()
 		return new GoStringIterator(this);
@@ -199,7 +186,7 @@ private class GoStringIterator {
 		return bytes.length > 0;
 
 	public function next():GoInt {
-		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+		final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);
@@ -219,7 +206,7 @@ private class GoStringKeyValueIterator {
 		return bytes.length > 0;
 
 	public function next() {
-		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
+		final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);
@@ -228,4 +215,18 @@ private class GoStringKeyValueIterator {
 		offset += size.toBasic();
 		return {key: key, value: value};
 	}
+}
+
+class GoStringTools {
+	public static function lastIndexOf(str:GoString, str:GoString, ?startIndex:Int):Int
+		return str.__toString__().lastIndexOf(str, startIndex);
+
+	public static function indexOf(str:GoString, str:GoString, ?startIndex:Int):Int
+		return str.__toString__().lastIndexOf(str, startIndex);
+
+	public static function substr(str:GoString, pos:Int, ?len:Int):GoString
+		return str.__toString__().substr(pos, len);
+
+	public static function toString(str:GoString)
+		return str.__toString__();
 }

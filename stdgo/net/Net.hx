@@ -1,14 +1,14 @@
 package stdgo.net;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef Addr = StructType & {
 	public function network():GoString;
@@ -57,7 +57,7 @@ typedef T_temporary = StructType & {
 };
 
 typedef T_buffersWriter = StructType & {
-	public function _writeBuffers(arg0:Pointer<Buffers>):{var _0:GoInt64; var _1:Error;};
+	public function _writeBuffers(_0:Pointer<Buffers>):{var _0:GoInt64; var _1:Error;};
 };
 
 typedef T_sockaddr = StructType & {
@@ -5106,12 +5106,12 @@ typedef T_sockaddr = StructType & {
 }
 
 @:structInit class T_rawListener {
-	public function write(arg0:GoUIntptr->Bool):Error {
+	public function write(_0:GoUIntptr->Bool):Error {
 		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
 		return stdgo.syscall.Syscall.einval;
 	}
 
-	public function read(arg0:GoUIntptr->Bool):Error {
+	public function read(_0:GoUIntptr->Bool):Error {
 		var _l = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
 		return stdgo.syscall.Syscall.einval;
 	}
@@ -7983,7 +7983,7 @@ var _v4InV6Prefix:Slice<GoUInt8> = new Slice<GoUInt8>(((0 : GoUInt8)), ((0 : GoU
 	((0 : GoUInt8)), ((0 : GoUInt8)), ((0 : GoUInt8)), ((0 : GoUInt8)), ((255 : GoUInt8)), ((255 : GoUInt8)));
 
 var _noCancel:Chan<T_timeoutError> = ((new Chan<T_timeoutError>(0, () -> new T_timeoutError(), true) : Chan<T__struct_44>));
-var _testHookSetKeepAlive:stdgo.time.Time.Duration->Void = function(arg0:stdgo.time.Time.Duration):Void {};
+var _testHookSetKeepAlive:stdgo.time.Time.Duration->Void = function(_0:stdgo.time.Time.Duration):Void {};
 var _dnsWaitGroup:stdgo.sync.Sync.WaitGroup = new stdgo.sync.Sync.WaitGroup();
 
 var ipv6linklocalallrouters:IP = new IP(new Slice<GoUInt8>(((255 : GoUInt8)), ((2 : GoUInt8)), ((0 : GoUInt8)), ((0 : GoUInt8)), ((0 : GoUInt8)),
@@ -12429,11 +12429,11 @@ class T_rawConn_extension_fields {
 }
 
 class T_rawListener_extension_fields {
-	public function read(__tmp__, arg0:GoUIntptr->Bool):Error
-		return __tmp__.read(arg0);
+	public function read(__tmp__, _0:GoUIntptr->Bool):Error
+		return __tmp__.read(_0);
 
-	public function write(__tmp__, arg0:GoUIntptr->Bool):Error
-		return __tmp__.write(arg0);
+	public function write(__tmp__, _0:GoUIntptr->Bool):Error
+		return __tmp__.write(_0);
 }
 
 class TCPAddr_extension_fields {

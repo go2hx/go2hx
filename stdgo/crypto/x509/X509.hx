@@ -1,14 +1,14 @@
 package stdgo.crypto.x509;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 @:named class T_sum224 {
 	public var __t__:GoArray<GoUInt8>;
@@ -9257,7 +9257,7 @@ function _signingParamsForPublicKey(_pub:AnyInterface,
 }
 
 typedef T_privateKey_createCertificate_0 = StructType & {
-	public function equal(arg0:stdgo.crypto.Crypto.PublicKey):Bool;
+	public function equal(_0:stdgo.crypto.Crypto.PublicKey):Bool;
 };
 
 /**

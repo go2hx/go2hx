@@ -1,14 +1,14 @@
 package stdgo.archive.tar;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef T_fileState = StructType & {
 	public function logicalRemaining():GoInt64;
@@ -18,13 +18,13 @@ typedef T_fileState = StructType & {
 typedef T_fileReader = StructType & {
 	> stdgo.io.Io.Reader,
 	> T_fileState,
-	public function writeTo(arg0:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;};
+	public function writeTo(_0:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;};
 };
 
 typedef T_fileWriter = StructType & {
 	> stdgo.io.Io.Writer,
 	> T_fileState,
-	public function readFrom(arg0:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;};
+	public function readFrom(_0:stdgo.io.Io.Reader):{var _0:GoInt64; var _1:Error;};
 };
 
 @:named class T_headerError {

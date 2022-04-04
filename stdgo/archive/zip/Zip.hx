@@ -513,7 +513,7 @@ typedef T_fileInfoDirEntry = StructType & {
         _d.value._offset = _d.value._offset + (_n);
         return { _0 : _list, _1 : ((null : stdgo.Error)) };
     }
-    public function read(arg0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    public function read(_0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _d = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
         return { _0 : ((0 : GoInt)), _1 : Go.pointer((({ op : "read", path : _d.value._e.value._name, err : stdgo.errors.Errors.new_("is a directory") } : stdgo.io.fs.Fs.PathError))).value };
     }
@@ -2260,7 +2260,7 @@ class T_fileListEntry_extension_fields {
 class T_openDir_extension_fields {
     public function close(__tmp__):Error return __tmp__.close();
     public function stat(__tmp__):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return __tmp__.stat();
-    public function read(__tmp__, arg0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __tmp__.read(arg0);
+    public function read(__tmp__, _0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __tmp__.read(_0);
     public function readDir(__tmp__, _count:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } return __tmp__.readDir(_count);
 }
 class T_pooledFlateWriter_extension_fields {

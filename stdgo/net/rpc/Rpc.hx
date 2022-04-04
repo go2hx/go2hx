@@ -1,26 +1,26 @@
 package stdgo.net.rpc;
 
-import stdgo.StdGoTypes;
+import stdgo.Chan;
 import stdgo.Error;
 import stdgo.Go;
+import stdgo.GoArray;
+import stdgo.GoMap;
 import stdgo.GoString;
 import stdgo.Pointer;
 import stdgo.Slice;
-import stdgo.GoArray;
-import stdgo.GoMap;
-import stdgo.Chan;
+import stdgo.StdGoTypes;
 
 typedef ClientCodec = StructType & {
-	public function writeRequest(arg0:Pointer<Request>, arg1:AnyInterface):Error;
-	public function readResponseHeader(arg0:Pointer<Response>):Error;
-	public function readResponseBody(arg0:AnyInterface):Error;
+	public function writeRequest(_0:Pointer<Request>, _1:AnyInterface):Error;
+	public function readResponseHeader(_0:Pointer<Response>):Error;
+	public function readResponseBody(_0:AnyInterface):Error;
 	public function close():Error;
 };
 
 typedef ServerCodec = StructType & {
-	public function readRequestHeader(arg0:Pointer<Request>):Error;
-	public function readRequestBody(arg0:AnyInterface):Error;
-	public function writeResponse(arg0:Pointer<Response>, arg1:AnyInterface):Error;
+	public function readRequestHeader(_0:Pointer<Request>):Error;
+	public function readRequestBody(_0:AnyInterface):Error;
+	public function writeResponse(_0:Pointer<Response>, _1:AnyInterface):Error;
 	public function close():Error;
 };
 

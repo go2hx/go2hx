@@ -8,1346 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-typedef Source = StructType & {
-    public function int63():GoInt64;
-    public function seed(_seed:GoInt64):Void;
-};
-typedef Source64 = StructType & {
-    > Source,
-    public function uint64():GoUInt64;
-};
-@:structInit class Rand {
-    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        {
-            var __tmp__ = try {
-                { value : ((_r.value._src.__underlying__().value : Pointer<T_lockedSource>)), ok : true };
-            } catch(_) {
-                { value : new Pointer<T_lockedSource>().nil(), ok : false };
-            }, _lk = __tmp__.value, _ok = __tmp__.ok;
-            if (_ok) {
-                return _lk.value._read(_p, Go.pointer(_r.value._readVal), Go.pointer(_r.value._readPos));
-            };
-        };
-        return _read(_p, _r.value._src, Go.pointer(_r.value._readVal), Go.pointer(_r.value._readPos));
-    }
-    public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_n < ((0 : GoInt))) {
-            throw Go.toInterface(((("invalid argument to Shuffle" : GoString))));
-        };
-        var _i:GoInt = _n - ((1 : GoInt));
-        Go.cfor(_i > ((2147483646 : GoInt)), _i--, {
-            var _j:GoInt = ((_r.value.int63n((((_i + ((1 : GoInt))) : GoInt64))) : GoInt));
-            _swap(_i, _j);
-        });
-        Go.cfor(_i > ((0 : GoInt)), _i--, {
-            var _j:GoInt = ((_r.value._int31n((((_i + ((1 : GoInt))) : GoInt32))) : GoInt));
-            _swap(_i, _j);
-        });
-    }
-    public function perm(_n:GoInt):Slice<GoInt> {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _m:Slice<GoInt> = new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]);
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < _n, _i++, {
-                var _j:GoInt = _r.value.intn(_i + ((1 : GoInt)));
-                _m[_i] = _m[_j];
-                _m[_j] = _i;
-            });
-        };
-        return _m;
-    }
-    public function float32():GoFloat32 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return stdgo.internal.Macro.controlFlow({
-            @:label("again") var _f:GoFloat32 = ((_r.value.float64() : GoFloat32));
-            if (_f == ((1 : GoFloat32))) {
-                @:goto "again";
-            };
-            return _f;
-        });
-    }
-    public function float64():GoFloat64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return stdgo.internal.Macro.controlFlow({
-            @:label("again") var _f:GoFloat64 = ((_r.value.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
-            if (_f == ((1 : GoFloat64))) {
-                @:goto "again";
-            };
-            return _f;
-        });
-    }
-    public function intn(_n:GoInt):GoInt {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_n <= ((0 : GoInt))) {
-            throw Go.toInterface(((("invalid argument to Intn" : GoString))));
-        };
-        if (_n <= ((2147483647 : GoInt))) {
-            return ((_r.value.int31n(((_n : GoInt32))) : GoInt));
-        };
-        return ((_r.value.int63n(((_n : GoInt64))) : GoInt));
-    }
-    public function _int31n(_n:GoInt32):GoInt32 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _v:GoUInt32 = _r.value.uint32();
-        var _prod:GoUInt64 = ((_v : GoUInt64)) * ((_n : GoUInt64));
-        var _low:GoUInt32 = ((_prod : GoUInt32));
-        if (_low < ((_n : GoUInt32))) {
-            var _thresh:GoUInt32 = ((-_n : GoUInt32)) % ((_n : GoUInt32));
-            while (_low < _thresh) {
-                _v = _r.value.uint32();
-                _prod = ((_v : GoUInt64)) * ((_n : GoUInt64));
-                _low = ((_prod : GoUInt32));
-            };
-        };
-        return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
-    }
-    public function int31n(_n:GoInt32):GoInt32 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_n <= ((0 : GoInt32))) {
-            throw Go.toInterface(((("invalid argument to Int31n" : GoString))));
-        };
-        if ((_n & (_n - ((1 : GoInt32)))) == ((0 : GoInt32))) {
-            return _r.value.int31() & (_n - ((1 : GoInt32)));
-        };
-        var _max:GoInt32 = (((((2147483647 : GoUInt32)) - ((("2147483648" : GoUInt32)) % ((_n : GoUInt32)))) : GoInt32));
-        var _v:GoInt32 = _r.value.int31();
-        while (_v > _max) {
-            _v = _r.value.int31();
-        };
-        return _v % _n;
-    }
-    public function int63n(_n:GoInt64):GoInt64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_n <= ((0 : GoInt64))) {
-            throw Go.toInterface(((("invalid argument to Int63n" : GoString))));
-        };
-        if ((_n & (_n - ((1 : GoInt64)))) == ((0 : GoInt64))) {
-            return _r.value.int63() & (_n - ((1 : GoInt64)));
-        };
-        var _max:GoInt64 = ((((("9223372036854775807" : GoUInt64)) - ((("9223372036854775808" : GoUInt64)) % ((_n : GoUInt64)))) : GoInt64));
-        var _v:GoInt64 = _r.value.int63();
-        while (_v > _max) {
-            _v = _r.value.int63();
-        };
-        return _v % _n;
-    }
-    public function int():GoInt {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _u:GoUInt = ((_r.value.int63() : GoUInt));
-        return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
-    }
-    public function int31():GoInt32 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return (((_r.value.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
-    }
-    public function uint64():GoUInt64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (Go.toInterface(_r.value._s64) != Go.toInterface(null)) {
-            return _r.value._s64.uint64();
-        };
-        return (((_r.value.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.value.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
-    }
-    public function uint32():GoUInt32 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return (((_r.value.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
-    }
-    public function int63():GoInt64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return _r.value._src.int63();
-    }
-    public function seed(_seed:GoInt64):Void {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        {
-            var __tmp__ = try {
-                { value : ((_r.value._src.__underlying__().value : Pointer<T_lockedSource>)), ok : true };
-            } catch(_) {
-                { value : new Pointer<T_lockedSource>().nil(), ok : false };
-            }, _lk = __tmp__.value, _ok = __tmp__.ok;
-            if (_ok) {
-                _lk.value._seedPos(_seed, Go.pointer(_r.value._readPos));
-                return;
-            };
-        };
-        _r.value._src.seed(_seed);
-        _r.value._readPos = ((0 : GoInt8));
-    }
-    public function normFloat64():GoFloat64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        while (true) {
-            var _j:GoInt32 = ((_r.value.uint32() : GoInt32));
-            var _i:GoInt32 = _j & ((127 : GoInt32));
-            var _x:GoFloat64 = ((_j : GoFloat64)) * ((_wn[_i] : GoFloat64));
-            if (_absInt32(_j) < _kn[_i]) {
-                return _x;
-            };
-            if (_i == ((0 : GoInt32))) {
-                while (true) {
-                    _x = -stdgo.math.Math.log(_r.value.float64()) * ((0.29047645161474317 : GoFloat64));
-                    var _y:GoFloat64 = -stdgo.math.Math.log(_r.value.float64());
-                    if ((_y + _y) >= (_x * _x)) {
-                        break;
-                    };
-                };
-                if (_j > ((0 : GoInt32))) {
-                    return ((3.442619855899 : GoFloat64)) + _x;
-                };
-                return ((-3.442619855899 : GoFloat64)) - _x;
-            };
-            if ((_fn[_i] + (((_r.value.float64() : GoFloat32)) * (_fn[_i - ((1 : GoInt32))] - _fn[_i]))) < ((stdgo.math.Math.exp((((-0.5 : GoFloat64)) * _x) * _x) : GoFloat32))) {
-                return _x;
-            };
-        };
-    }
-    public function expFloat64():GoFloat64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        while (true) {
-            var _j:GoUInt32 = _r.value.uint32();
-            var _i:GoUInt32 = _j & ((255 : GoUInt32));
-            var _x:GoFloat64 = ((_j : GoFloat64)) * ((_we[_i] : GoFloat64));
-            if (_j < _ke[_i]) {
-                return _x;
-            };
-            if (_i == ((0 : GoUInt32))) {
-                return ((7.69711747013105 : GoFloat64)) - stdgo.math.Math.log(_r.value.float64());
-            };
-            if ((_fe[_i] + (((_r.value.float64() : GoFloat32)) * (_fe[_i - ((1 : GoUInt32))] - _fe[_i]))) < ((stdgo.math.Math.exp(-_x) : GoFloat32))) {
-                return _x;
-            };
-        };
-    }
-    public var _src : Source = ((null : Source));
-    public var _s64 : Source64 = ((null : Source64));
-    public var _readVal : GoInt64 = ((0 : GoInt64));
-    public var _readPos : GoInt8 = ((0 : GoInt8));
-    public function new(?_src:Source, ?_s64:Source64, ?_readVal:GoInt64, ?_readPos:GoInt8) {
-        if (_src != null) this._src = _src;
-        if (_s64 != null) this._s64 = _s64;
-        if (_readVal != null) this._readVal = _readVal;
-        if (_readPos != null) this._readPos = _readPos;
-    }
-    public function toString() {
-        return "{" + Go.string(_src) + " " + Go.string(_s64) + " " + Go.string(_readVal) + " " + Go.string(_readPos) + "}";
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new Rand(_src, _s64, _readVal, _readPos);
-    }
-    public function __set__(__tmp__) {
-        this._src = __tmp__._src;
-        this._s64 = __tmp__._s64;
-        this._readVal = __tmp__._readVal;
-        this._readPos = __tmp__._readPos;
-        return this;
-    }
-}
-@:structInit class T_lockedSource {
-    public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        _r.value._lk.lock();
-        {
-            var __tmp__ = Rand._read(_p, _r.value._src.value, _readVal, _readPos);
-            _n = __tmp__._0;
-            _err = __tmp__._1;
-        };
-        _r.value._lk.unlock();
-        return { _0 : _n, _1 : _err };
-    }
-    public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _r.value._lk.lock();
-        _r.value._src.value.seed(_seed);
-        _readPos.value = ((0 : GoInt8));
-        _r.value._lk.unlock();
-    }
-    public function seed(_seed:GoInt64):Void {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _r.value._lk.lock();
-        _r.value._src.value.seed(_seed);
-        _r.value._lk.unlock();
-    }
-    public function uint64():GoUInt64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _n:GoUInt64 = ((0 : GoUInt64));
-        _r.value._lk.lock();
-        _n = _r.value._src.value.uint64();
-        _r.value._lk.unlock();
-        return _n;
-    }
-    public function int63():GoInt64 {
-        var _r = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        var _n:GoInt64 = ((0 : GoInt64));
-        _r.value._lk.lock();
-        _n = _r.value._src.value.int63();
-        _r.value._lk.unlock();
-        return _n;
-    }
-    public var _lk : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-    public var _src : Pointer<T_rngSource> = new Pointer<T_rngSource>().nil();
-    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:Pointer<T_rngSource>) {
-        if (_lk != null) this._lk = _lk;
-        if (_src != null) this._src = _src;
-    }
-    public function toString() {
-        return "{" + Go.string(_lk) + " " + Go.string(_src) + "}";
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T_lockedSource(_lk, _src);
-    }
-    public function __set__(__tmp__) {
-        this._lk = __tmp__._lk;
-        this._src = __tmp__._src;
-        return this;
-    }
-}
-@:structInit class T_rngSource {
-    public function uint64():GoUInt64 {
-        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _rng.value._tap--;
-        if (_rng.value._tap < ((0 : GoInt))) {
-            _rng.value._tap = _rng.value._tap + (((607 : GoInt)));
-        };
-        _rng.value._feed--;
-        if (_rng.value._feed < ((0 : GoInt))) {
-            _rng.value._feed = _rng.value._feed + (((607 : GoInt)));
-        };
-        var _x:GoInt64 = _rng.value._vec[_rng.value._feed] + _rng.value._vec[_rng.value._tap];
-        _rng.value._vec[_rng.value._feed] = _x;
-        return ((_x : GoUInt64));
-    }
-    public function int63():GoInt64 {
-        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return (((_rng.value.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
-    }
-    public function seed(_seed:GoInt64):Void {
-        var _rng = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        _rng.value._tap = ((0 : GoInt));
-        _rng.value._feed = ((334 : GoInt));
-        _seed = _seed % ((2147483647 : GoInt64));
-        if (_seed < ((0 : GoInt64))) {
-            _seed = _seed + (((2147483647 : GoInt64)));
-        };
-        if (_seed == ((0 : GoInt64))) {
-            _seed = ((89482311 : GoInt64));
-        };
-        var _x:GoInt32 = ((_seed : GoInt32));
-        {
-            var _i:GoInt = ((-20 : GoInt));
-            Go.cfor(_i < ((607 : GoInt)), _i++, {
-                _x = _seedrand(_x);
-                if (_i >= ((0 : GoInt))) {
-                    var _u:GoInt64 = ((0 : GoInt64));
-                    _u = ((_x : GoInt64)) << ((40 : GoUnTypedInt));
-                    _x = _seedrand(_x);
-                    _u = _u ^ (((_x : GoInt64)) << ((20 : GoUnTypedInt)));
-                    _x = _seedrand(_x);
-                    _u = _u ^ (((_x : GoInt64)));
-                    _u = _u ^ (_rngCooked[_i]);
-                    _rng.value._vec[_i] = _u;
-                };
-            });
-        };
-    }
-    public var _tap : GoInt = ((0 : GoInt));
-    public var _feed : GoInt = ((0 : GoInt));
-    public var _vec : GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0 ... 607) ((0 : GoInt64))]);
-    public function new(?_tap:GoInt, ?_feed:GoInt, ?_vec:GoArray<GoInt64>) {
-        if (_tap != null) this._tap = _tap;
-        if (_feed != null) this._feed = _feed;
-        if (_vec != null) this._vec = _vec;
-    }
-    public function toString() {
-        return "{" + Go.string(_tap) + " " + Go.string(_feed) + " " + Go.string(_vec) + "}";
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T_rngSource(_tap, _feed, _vec);
-    }
-    public function __set__(__tmp__) {
-        this._tap = __tmp__._tap;
-        this._feed = __tmp__._feed;
-        this._vec = __tmp__._vec;
-        return this;
-    }
-}
-@:structInit class Zipf {
-    public function uint64():GoUInt64 {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        if (_z == null) {
-            throw Go.toInterface(((("rand: nil Zipf" : GoString))));
-        };
-        var _k:GoFloat64 = ((0 : GoFloat64));
-        while (true) {
-            var _r:GoFloat64 = _z.value._r.value.float64();
-            var _ur:GoFloat64 = _z.value._hxm + (_r * _z.value._hx0minusHxm);
-            var _x:GoFloat64 = _z.value._hinv(_ur);
-            _k = stdgo.math.Math.floor(_x + ((0.5 : GoFloat64)));
-            if ((_k - _x) <= _z.value._s) {
-                break;
-            };
-            if (_ur >= (_z.value._h(_k + ((0.5 : GoFloat64))) - stdgo.math.Math.exp(-stdgo.math.Math.log(_k + _z.value._v) * _z.value._q))) {
-                break;
-            };
-        };
-        return ((_k : GoUInt64));
-    }
-    public function _hinv(_x:GoFloat64):GoFloat64 {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return stdgo.math.Math.exp(_z.value._oneminusQinv * stdgo.math.Math.log(_z.value._oneminusQ * _x)) - _z.value._v;
-    }
-    public function _h(_x:GoFloat64):GoFloat64 {
-        var _z = new Pointer(() -> this, __tmp__ -> this.__set__(__tmp__));
-        return stdgo.math.Math.exp(_z.value._oneminusQ * stdgo.math.Math.log(_z.value._v + _x)) * _z.value._oneminusQinv;
-    }
-    public var _r : Pointer<Rand> = new Pointer<Rand>().nil();
-    public var _imax : GoFloat64 = ((0 : GoFloat64));
-    public var _v : GoFloat64 = ((0 : GoFloat64));
-    public var _q : GoFloat64 = ((0 : GoFloat64));
-    public var _s : GoFloat64 = ((0 : GoFloat64));
-    public var _oneminusQ : GoFloat64 = ((0 : GoFloat64));
-    public var _oneminusQinv : GoFloat64 = ((0 : GoFloat64));
-    public var _hxm : GoFloat64 = ((0 : GoFloat64));
-    public var _hx0minusHxm : GoFloat64 = ((0 : GoFloat64));
-    public function new(?_r:Pointer<Rand>, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
-        if (_r != null) this._r = _r;
-        if (_imax != null) this._imax = _imax;
-        if (_v != null) this._v = _v;
-        if (_q != null) this._q = _q;
-        if (_s != null) this._s = _s;
-        if (_oneminusQ != null) this._oneminusQ = _oneminusQ;
-        if (_oneminusQinv != null) this._oneminusQinv = _oneminusQinv;
-        if (_hxm != null) this._hxm = _hxm;
-        if (_hx0minusHxm != null) this._hx0minusHxm = _hx0minusHxm;
-    }
-    public function toString() {
-        return "{" + Go.string(_r) + " " + Go.string(_imax) + " " + Go.string(_v) + " " + Go.string(_q) + " " + Go.string(_s) + " " + Go.string(_oneminusQ) + " " + Go.string(_oneminusQinv) + " " + Go.string(_hxm) + " " + Go.string(_hx0minusHxm) + "}";
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
-    }
-    public function __set__(__tmp__) {
-        this._r = __tmp__._r;
-        this._imax = __tmp__._imax;
-        this._v = __tmp__._v;
-        this._q = __tmp__._q;
-        this._s = __tmp__._s;
-        this._oneminusQ = __tmp__._oneminusQ;
-        this._oneminusQinv = __tmp__._oneminusQinv;
-        this._hxm = __tmp__._hxm;
-        this._hx0minusHxm = __tmp__._hx0minusHxm;
-        return this;
-    }
-}
-var _kn : GoArray<GoUInt32> = new GoArray<GoUInt32>(
-((1991057938 : GoUInt32)),
-((0 : GoUInt32)),
-((1611602771 : GoUInt32)),
-((1826899878 : GoUInt32)),
-((1918584482 : GoUInt32)),
-((1969227037 : GoUInt32)),
-((2001281515 : GoUInt32)),
-((2023368125 : GoUInt32)),
-((2039498179 : GoUInt32)),
-((2051788381 : GoUInt32)),
-((2061460127 : GoUInt32)),
-((2069267110 : GoUInt32)),
-((2075699398 : GoUInt32)),
-((2081089314 : GoUInt32)),
-((2085670119 : GoUInt32)),
-((2089610331 : GoUInt32)),
-((2093034710 : GoUInt32)),
-((2096037586 : GoUInt32)),
-((2098691595 : GoUInt32)),
-((2101053571 : GoUInt32)),
-((2103168620 : GoUInt32)),
-((2105072996 : GoUInt32)),
-((2106796166 : GoUInt32)),
-((2108362327 : GoUInt32)),
-((2109791536 : GoUInt32)),
-((2111100552 : GoUInt32)),
-((2112303493 : GoUInt32)),
-((2113412330 : GoUInt32)),
-((2114437283 : GoUInt32)),
-((2115387130 : GoUInt32)),
-((2116269447 : GoUInt32)),
-((2117090813 : GoUInt32)),
-((2117856962 : GoUInt32)),
-((2118572919 : GoUInt32)),
-((2119243101 : GoUInt32)),
-((2119871411 : GoUInt32)),
-((2120461303 : GoUInt32)),
-((2121015852 : GoUInt32)),
-((2121537798 : GoUInt32)),
-((2122029592 : GoUInt32)),
-((2122493434 : GoUInt32)),
-((2122931299 : GoUInt32)),
-((2123344971 : GoUInt32)),
-((2123736059 : GoUInt32)),
-((2124106020 : GoUInt32)),
-((2124456175 : GoUInt32)),
-((2124787725 : GoUInt32)),
-((2125101763 : GoUInt32)),
-((2125399283 : GoUInt32)),
-((2125681194 : GoUInt32)),
-((2125948325 : GoUInt32)),
-((2126201433 : GoUInt32)),
-((2126441213 : GoUInt32)),
-((2126668298 : GoUInt32)),
-((2126883268 : GoUInt32)),
-((2127086657 : GoUInt32)),
-((2127278949 : GoUInt32)),
-((2127460589 : GoUInt32)),
-((2127631985 : GoUInt32)),
-((2127793506 : GoUInt32)),
-((2127945490 : GoUInt32)),
-((2128088244 : GoUInt32)),
-((2128222044 : GoUInt32)),
-((2128347141 : GoUInt32)),
-((2128463758 : GoUInt32)),
-((2128572095 : GoUInt32)),
-((2128672327 : GoUInt32)),
-((2128764606 : GoUInt32)),
-((2128849065 : GoUInt32)),
-((2128925811 : GoUInt32)),
-((2128994934 : GoUInt32)),
-((2129056501 : GoUInt32)),
-((2129110560 : GoUInt32)),
-((2129157136 : GoUInt32)),
-((2129196237 : GoUInt32)),
-((2129227847 : GoUInt32)),
-((2129251929 : GoUInt32)),
-((2129268426 : GoUInt32)),
-((2129277255 : GoUInt32)),
-((2129278312 : GoUInt32)),
-((2129271467 : GoUInt32)),
-((2129256561 : GoUInt32)),
-((2129233410 : GoUInt32)),
-((2129201800 : GoUInt32)),
-((2129161480 : GoUInt32)),
-((2129112170 : GoUInt32)),
-((2129053545 : GoUInt32)),
-((2128985244 : GoUInt32)),
-((2128906855 : GoUInt32)),
-((2128817916 : GoUInt32)),
-((2128717911 : GoUInt32)),
-((2128606255 : GoUInt32)),
-((2128482298 : GoUInt32)),
-((2128345305 : GoUInt32)),
-((2128194452 : GoUInt32)),
-((2128028813 : GoUInt32)),
-((2127847342 : GoUInt32)),
-((2127648860 : GoUInt32)),
-((2127432031 : GoUInt32)),
-((2127195339 : GoUInt32)),
-((2126937058 : GoUInt32)),
-((2126655214 : GoUInt32)),
-((2126347546 : GoUInt32)),
-((2126011445 : GoUInt32)),
-((2125643893 : GoUInt32)),
-((2125241376 : GoUInt32)),
-((2124799783 : GoUInt32)),
-((2124314271 : GoUInt32)),
-((2123779094 : GoUInt32)),
-((2123187386 : GoUInt32)),
-((2122530867 : GoUInt32)),
-((2121799464 : GoUInt32)),
-((2120980787 : GoUInt32)),
-((2120059418 : GoUInt32)),
-((2119015917 : GoUInt32)),
-((2117825402 : GoUInt32)),
-((2116455471 : GoUInt32)),
-((2114863093 : GoUInt32)),
-((2112989789 : GoUInt32)),
-((2110753906 : GoUInt32)),
-((2108037662 : GoUInt32)),
-((2104664315 : GoUInt32)),
-((2100355223 : GoUInt32)),
-((2094642347 : GoUInt32)),
-((2086670106 : GoUInt32)),
-((2074676188 : GoUInt32)),
-((2054300022 : GoUInt32)),
-((2010539237 : GoUInt32))).copy();
-var _we : GoArray<GoFloat32> = new GoArray<GoFloat32>(
-((2.0249555e-09 : GoFloat32)),
-((1.486674e-11 : GoFloat32)),
-((2.4409617e-11 : GoFloat32)),
-((3.1968806e-11 : GoFloat32)),
-((3.844677e-11 : GoFloat32)),
-((4.4228204e-11 : GoFloat32)),
-((4.9516443e-11 : GoFloat32)),
-((5.443359e-11 : GoFloat32)),
-((5.905944e-11 : GoFloat32)),
-((6.344942e-11 : GoFloat32)),
-((6.7643814e-11 : GoFloat32)),
-((7.1672945e-11 : GoFloat32)),
-((7.556032e-11 : GoFloat32)),
-((7.932458e-11 : GoFloat32)),
-((8.298079e-11 : GoFloat32)),
-((8.654132e-11 : GoFloat32)),
-((9.0016515e-11 : GoFloat32)),
-((9.3415074e-11 : GoFloat32)),
-((9.674443e-11 : GoFloat32)),
-((1.0001099e-10 : GoFloat32)),
-((1.03220314e-10 : GoFloat32)),
-((1.06377254e-10 : GoFloat32)),
-((1.09486115e-10 : GoFloat32)),
-((1.1255068e-10 : GoFloat32)),
-((1.1557435e-10 : GoFloat32)),
-((1.1856015e-10 : GoFloat32)),
-((1.2151083e-10 : GoFloat32)),
-((1.2442886e-10 : GoFloat32)),
-((1.2731648e-10 : GoFloat32)),
-((1.3017575e-10 : GoFloat32)),
-((1.3300853e-10 : GoFloat32)),
-((1.3581657e-10 : GoFloat32)),
-((1.3860142e-10 : GoFloat32)),
-((1.4136457e-10 : GoFloat32)),
-((1.4410738e-10 : GoFloat32)),
-((1.4683108e-10 : GoFloat32)),
-((1.4953687e-10 : GoFloat32)),
-((1.5222583e-10 : GoFloat32)),
-((1.54899e-10 : GoFloat32)),
-((1.5755733e-10 : GoFloat32)),
-((1.6020171e-10 : GoFloat32)),
-((1.6283301e-10 : GoFloat32)),
-((1.6545203e-10 : GoFloat32)),
-((1.6805951e-10 : GoFloat32)),
-((1.7065617e-10 : GoFloat32)),
-((1.732427e-10 : GoFloat32)),
-((1.7581973e-10 : GoFloat32)),
-((1.7838787e-10 : GoFloat32)),
-((1.8094774e-10 : GoFloat32)),
-((1.8349985e-10 : GoFloat32)),
-((1.8604476e-10 : GoFloat32)),
-((1.8858298e-10 : GoFloat32)),
-((1.9111498e-10 : GoFloat32)),
-((1.9364126e-10 : GoFloat32)),
-((1.9616223e-10 : GoFloat32)),
-((1.9867835e-10 : GoFloat32)),
-((2.0119004e-10 : GoFloat32)),
-((2.0369768e-10 : GoFloat32)),
-((2.0620168e-10 : GoFloat32)),
-((2.087024e-10 : GoFloat32)),
-((2.1120022e-10 : GoFloat32)),
-((2.136955e-10 : GoFloat32)),
-((2.1618855e-10 : GoFloat32)),
-((2.1867974e-10 : GoFloat32)),
-((2.2116936e-10 : GoFloat32)),
-((2.2365775e-10 : GoFloat32)),
-((2.261452e-10 : GoFloat32)),
-((2.2863202e-10 : GoFloat32)),
-((2.311185e-10 : GoFloat32)),
-((2.3360494e-10 : GoFloat32)),
-((2.360916e-10 : GoFloat32)),
-((2.3857874e-10 : GoFloat32)),
-((2.4106667e-10 : GoFloat32)),
-((2.4355562e-10 : GoFloat32)),
-((2.4604588e-10 : GoFloat32)),
-((2.485377e-10 : GoFloat32)),
-((2.5103128e-10 : GoFloat32)),
-((2.5352695e-10 : GoFloat32)),
-((2.560249e-10 : GoFloat32)),
-((2.585254e-10 : GoFloat32)),
-((2.6102867e-10 : GoFloat32)),
-((2.6353494e-10 : GoFloat32)),
-((2.6604446e-10 : GoFloat32)),
-((2.6855745e-10 : GoFloat32)),
-((2.7107416e-10 : GoFloat32)),
-((2.7359479e-10 : GoFloat32)),
-((2.761196e-10 : GoFloat32)),
-((2.7864877e-10 : GoFloat32)),
-((2.8118255e-10 : GoFloat32)),
-((2.8372119e-10 : GoFloat32)),
-((2.8626485e-10 : GoFloat32)),
-((2.888138e-10 : GoFloat32)),
-((2.9136826e-10 : GoFloat32)),
-((2.939284e-10 : GoFloat32)),
-((2.9649452e-10 : GoFloat32)),
-((2.9906677e-10 : GoFloat32)),
-((3.016454e-10 : GoFloat32)),
-((3.0423064e-10 : GoFloat32)),
-((3.0682268e-10 : GoFloat32)),
-((3.0942177e-10 : GoFloat32)),
-((3.1202813e-10 : GoFloat32)),
-((3.1464195e-10 : GoFloat32)),
-((3.1726352e-10 : GoFloat32)),
-((3.19893e-10 : GoFloat32)),
-((3.2253064e-10 : GoFloat32)),
-((3.251767e-10 : GoFloat32)),
-((3.2783135e-10 : GoFloat32)),
-((3.3049485e-10 : GoFloat32)),
-((3.3316744e-10 : GoFloat32)),
-((3.3584938e-10 : GoFloat32)),
-((3.3854083e-10 : GoFloat32)),
-((3.4124212e-10 : GoFloat32)),
-((3.4395342e-10 : GoFloat32)),
-((3.46675e-10 : GoFloat32)),
-((3.4940711e-10 : GoFloat32)),
-((3.5215003e-10 : GoFloat32)),
-((3.5490397e-10 : GoFloat32)),
-((3.5766917e-10 : GoFloat32)),
-((3.6044595e-10 : GoFloat32)),
-((3.6323455e-10 : GoFloat32)),
-((3.660352e-10 : GoFloat32)),
-((3.6884823e-10 : GoFloat32)),
-((3.7167386e-10 : GoFloat32)),
-((3.745124e-10 : GoFloat32)),
-((3.773641e-10 : GoFloat32)),
-((3.802293e-10 : GoFloat32)),
-((3.8310827e-10 : GoFloat32)),
-((3.860013e-10 : GoFloat32)),
-((3.8890866e-10 : GoFloat32)),
-((3.918307e-10 : GoFloat32)),
-((3.9476775e-10 : GoFloat32)),
-((3.9772008e-10 : GoFloat32)),
-((4.0068804e-10 : GoFloat32)),
-((4.0367196e-10 : GoFloat32)),
-((4.0667217e-10 : GoFloat32)),
-((4.09689e-10 : GoFloat32)),
-((4.1272286e-10 : GoFloat32)),
-((4.1577405e-10 : GoFloat32)),
-((4.1884296e-10 : GoFloat32)),
-((4.2192994e-10 : GoFloat32)),
-((4.250354e-10 : GoFloat32)),
-((4.281597e-10 : GoFloat32)),
-((4.313033e-10 : GoFloat32)),
-((4.3446652e-10 : GoFloat32)),
-((4.3764986e-10 : GoFloat32)),
-((4.408537e-10 : GoFloat32)),
-((4.4407847e-10 : GoFloat32)),
-((4.4732465e-10 : GoFloat32)),
-((4.5059267e-10 : GoFloat32)),
-((4.5388301e-10 : GoFloat32)),
-((4.571962e-10 : GoFloat32)),
-((4.6053267e-10 : GoFloat32)),
-((4.6389292e-10 : GoFloat32)),
-((4.6727755e-10 : GoFloat32)),
-((4.70687e-10 : GoFloat32)),
-((4.741219e-10 : GoFloat32)),
-((4.7758275e-10 : GoFloat32)),
-((4.810702e-10 : GoFloat32)),
-((4.845848e-10 : GoFloat32)),
-((4.8812715e-10 : GoFloat32)),
-((4.9169796e-10 : GoFloat32)),
-((4.9529775e-10 : GoFloat32)),
-((4.989273e-10 : GoFloat32)),
-((5.0258725e-10 : GoFloat32)),
-((5.0627835e-10 : GoFloat32)),
-((5.100013e-10 : GoFloat32)),
-((5.1375687e-10 : GoFloat32)),
-((5.1754584e-10 : GoFloat32)),
-((5.21369e-10 : GoFloat32)),
-((5.2522725e-10 : GoFloat32)),
-((5.2912136e-10 : GoFloat32)),
-((5.330522e-10 : GoFloat32)),
-((5.370208e-10 : GoFloat32)),
-((5.4102806e-10 : GoFloat32)),
-((5.45075e-10 : GoFloat32)),
-((5.491625e-10 : GoFloat32)),
-((5.532918e-10 : GoFloat32)),
-((5.5746385e-10 : GoFloat32)),
-((5.616799e-10 : GoFloat32)),
-((5.6594107e-10 : GoFloat32)),
-((5.7024857e-10 : GoFloat32)),
-((5.746037e-10 : GoFloat32)),
-((5.7900773e-10 : GoFloat32)),
-((5.834621e-10 : GoFloat32)),
-((5.8796823e-10 : GoFloat32)),
-((5.925276e-10 : GoFloat32)),
-((5.971417e-10 : GoFloat32)),
-((6.018122e-10 : GoFloat32)),
-((6.065408e-10 : GoFloat32)),
-((6.113292e-10 : GoFloat32)),
-((6.1617933e-10 : GoFloat32)),
-((6.2109295e-10 : GoFloat32)),
-((6.260722e-10 : GoFloat32)),
-((6.3111916e-10 : GoFloat32)),
-((6.3623595e-10 : GoFloat32)),
-((6.4142497e-10 : GoFloat32)),
-((6.4668854e-10 : GoFloat32)),
-((6.5202926e-10 : GoFloat32)),
-((6.5744976e-10 : GoFloat32)),
-((6.6295286e-10 : GoFloat32)),
-((6.6854156e-10 : GoFloat32)),
-((6.742188e-10 : GoFloat32)),
-((6.79988e-10 : GoFloat32)),
-((6.858526e-10 : GoFloat32)),
-((6.9181616e-10 : GoFloat32)),
-((6.978826e-10 : GoFloat32)),
-((7.04056e-10 : GoFloat32)),
-((7.103407e-10 : GoFloat32)),
-((7.167412e-10 : GoFloat32)),
-((7.2326256e-10 : GoFloat32)),
-((7.2990985e-10 : GoFloat32)),
-((7.366886e-10 : GoFloat32)),
-((7.4360473e-10 : GoFloat32)),
-((7.5066453e-10 : GoFloat32)),
-((7.5787476e-10 : GoFloat32)),
-((7.6524265e-10 : GoFloat32)),
-((7.7277595e-10 : GoFloat32)),
-((7.80483e-10 : GoFloat32)),
-((7.883728e-10 : GoFloat32)),
-((7.9645507e-10 : GoFloat32)),
-((8.047402e-10 : GoFloat32)),
-((8.1323964e-10 : GoFloat32)),
-((8.219657e-10 : GoFloat32)),
-((8.309319e-10 : GoFloat32)),
-((8.401528e-10 : GoFloat32)),
-((8.496445e-10 : GoFloat32)),
-((8.594247e-10 : GoFloat32)),
-((8.6951274e-10 : GoFloat32)),
-((8.799301e-10 : GoFloat32)),
-((8.9070046e-10 : GoFloat32)),
-((9.018503e-10 : GoFloat32)),
-((9.134092e-10 : GoFloat32)),
-((9.254101e-10 : GoFloat32)),
-((9.378904e-10 : GoFloat32)),
-((9.508923e-10 : GoFloat32)),
-((9.644638e-10 : GoFloat32)),
-((9.786603e-10 : GoFloat32)),
-((9.935448e-10 : GoFloat32)),
-((1.0091913e-09 : GoFloat32)),
-((1.025686e-09 : GoFloat32)),
-((1.0431306e-09 : GoFloat32)),
-((1.0616465e-09 : GoFloat32)),
-((1.08138e-09 : GoFloat32)),
-((1.1025096e-09 : GoFloat32)),
-((1.1252564e-09 : GoFloat32)),
-((1.1498986e-09 : GoFloat32)),
-((1.1767932e-09 : GoFloat32)),
-((1.206409e-09 : GoFloat32)),
-((1.2393786e-09 : GoFloat32)),
-((1.276585e-09 : GoFloat32)),
-((1.3193139e-09 : GoFloat32)),
-((1.3695435e-09 : GoFloat32)),
-((1.4305498e-09 : GoFloat32)),
-((1.508365e-09 : GoFloat32)),
-((1.6160854e-09 : GoFloat32)),
-((1.7921248e-09 : GoFloat32))).copy();
-var _globalRand : Pointer<Rand> = new_(Go.pointer((({ _src : ((newSource(((1 : GoInt64))).__underlying__().value : Pointer<T_rngSource>)), _lk : new stdgo.sync.Sync.Mutex() } : T_lockedSource))).value);
-var _0 : Pointer<T_rngSource> = ((_globalRand.value._src.__underlying__().value : Pointer<T_lockedSource>)).value._src;
-var _wn : GoArray<GoFloat32> = new GoArray<GoFloat32>(
-((1.7290405e-09 : GoFloat32)),
-((1.2680929e-10 : GoFloat32)),
-((1.6897518e-10 : GoFloat32)),
-((1.9862688e-10 : GoFloat32)),
-((2.2232431e-10 : GoFloat32)),
-((2.4244937e-10 : GoFloat32)),
-((2.601613e-10 : GoFloat32)),
-((2.7611988e-10 : GoFloat32)),
-((2.9073963e-10 : GoFloat32)),
-((3.042997e-10 : GoFloat32)),
-((3.1699796e-10 : GoFloat32)),
-((3.289802e-10 : GoFloat32)),
-((3.4035738e-10 : GoFloat32)),
-((3.5121603e-10 : GoFloat32)),
-((3.616251e-10 : GoFloat32)),
-((3.7164058e-10 : GoFloat32)),
-((3.8130857e-10 : GoFloat32)),
-((3.9066758e-10 : GoFloat32)),
-((3.9975012e-10 : GoFloat32)),
-((4.08584e-10 : GoFloat32)),
-((4.1719309e-10 : GoFloat32)),
-((4.2559822e-10 : GoFloat32)),
-((4.338176e-10 : GoFloat32)),
-((4.418672e-10 : GoFloat32)),
-((4.497613e-10 : GoFloat32)),
-((4.5751258e-10 : GoFloat32)),
-((4.651324e-10 : GoFloat32)),
-((4.7263105e-10 : GoFloat32)),
-((4.8001775e-10 : GoFloat32)),
-((4.87301e-10 : GoFloat32)),
-((4.944885e-10 : GoFloat32)),
-((5.015873e-10 : GoFloat32)),
-((5.0860405e-10 : GoFloat32)),
-((5.155446e-10 : GoFloat32)),
-((5.2241467e-10 : GoFloat32)),
-((5.2921934e-10 : GoFloat32)),
-((5.359635e-10 : GoFloat32)),
-((5.426517e-10 : GoFloat32)),
-((5.4928817e-10 : GoFloat32)),
-((5.5587696e-10 : GoFloat32)),
-((5.624219e-10 : GoFloat32)),
-((5.6892646e-10 : GoFloat32)),
-((5.753941e-10 : GoFloat32)),
-((5.818282e-10 : GoFloat32)),
-((5.882317e-10 : GoFloat32)),
-((5.946077e-10 : GoFloat32)),
-((6.00959e-10 : GoFloat32)),
-((6.072884e-10 : GoFloat32)),
-((6.135985e-10 : GoFloat32)),
-((6.19892e-10 : GoFloat32)),
-((6.2617134e-10 : GoFloat32)),
-((6.3243905e-10 : GoFloat32)),
-((6.386974e-10 : GoFloat32)),
-((6.449488e-10 : GoFloat32)),
-((6.511956e-10 : GoFloat32)),
-((6.5744005e-10 : GoFloat32)),
-((6.6368433e-10 : GoFloat32)),
-((6.699307e-10 : GoFloat32)),
-((6.7618144e-10 : GoFloat32)),
-((6.824387e-10 : GoFloat32)),
-((6.8870465e-10 : GoFloat32)),
-((6.949815e-10 : GoFloat32)),
-((7.012715e-10 : GoFloat32)),
-((7.075768e-10 : GoFloat32)),
-((7.1389966e-10 : GoFloat32)),
-((7.202424e-10 : GoFloat32)),
-((7.266073e-10 : GoFloat32)),
-((7.329966e-10 : GoFloat32)),
-((7.394128e-10 : GoFloat32)),
-((7.4585826e-10 : GoFloat32)),
-((7.5233547e-10 : GoFloat32)),
-((7.58847e-10 : GoFloat32)),
-((7.653954e-10 : GoFloat32)),
-((7.719835e-10 : GoFloat32)),
-((7.7861395e-10 : GoFloat32)),
-((7.852897e-10 : GoFloat32)),
-((7.920138e-10 : GoFloat32)),
-((7.987892e-10 : GoFloat32)),
-((8.0561924e-10 : GoFloat32)),
-((8.125073e-10 : GoFloat32)),
-((8.194569e-10 : GoFloat32)),
-((8.2647167e-10 : GoFloat32)),
-((8.3355556e-10 : GoFloat32)),
-((8.407127e-10 : GoFloat32)),
-((8.479473e-10 : GoFloat32)),
-((8.55264e-10 : GoFloat32)),
-((8.6266755e-10 : GoFloat32)),
-((8.7016316e-10 : GoFloat32)),
-((8.777562e-10 : GoFloat32)),
-((8.8545243e-10 : GoFloat32)),
-((8.932582e-10 : GoFloat32)),
-((9.0117996e-10 : GoFloat32)),
-((9.09225e-10 : GoFloat32)),
-((9.174008e-10 : GoFloat32)),
-((9.2571584e-10 : GoFloat32)),
-((9.341788e-10 : GoFloat32)),
-((9.427997e-10 : GoFloat32)),
-((9.515889e-10 : GoFloat32)),
-((9.605579e-10 : GoFloat32)),
-((9.697193e-10 : GoFloat32)),
-((9.790869e-10 : GoFloat32)),
-((9.88676e-10 : GoFloat32)),
-((9.985036e-10 : GoFloat32)),
-((1.0085882e-09 : GoFloat32)),
-((1.0189509e-09 : GoFloat32)),
-((1.0296151e-09 : GoFloat32)),
-((1.0406069e-09 : GoFloat32)),
-((1.0519566e-09 : GoFloat32)),
-((1.063698e-09 : GoFloat32)),
-((1.0758702e-09 : GoFloat32)),
-((1.0885183e-09 : GoFloat32)),
-((1.1016947e-09 : GoFloat32)),
-((1.1154611e-09 : GoFloat32)),
-((1.1298902e-09 : GoFloat32)),
-((1.1450696e-09 : GoFloat32)),
-((1.1611052e-09 : GoFloat32)),
-((1.1781276e-09 : GoFloat32)),
-((1.1962995e-09 : GoFloat32)),
-((1.2158287e-09 : GoFloat32)),
-((1.2369856e-09 : GoFloat32)),
-((1.2601323e-09 : GoFloat32)),
-((1.2857697e-09 : GoFloat32)),
-((1.3146202e-09 : GoFloat32)),
-((1.347784e-09 : GoFloat32)),
-((1.3870636e-09 : GoFloat32)),
-((1.4357403e-09 : GoFloat32)),
-((1.5008659e-09 : GoFloat32)),
-((1.6030948e-09 : GoFloat32))).copy();
-var _fe : GoArray<GoFloat32> = new GoArray<GoFloat32>(
-((1 : GoFloat32)),
-((0.9381437 : GoFloat32)),
-((0.90046996 : GoFloat32)),
-((0.87170434 : GoFloat32)),
-((0.8477855 : GoFloat32)),
-((0.8269933 : GoFloat32)),
-((0.8084217 : GoFloat32)),
-((0.7915276 : GoFloat32)),
-((0.77595687 : GoFloat32)),
-((0.7614634 : GoFloat32)),
-((0.7478686 : GoFloat32)),
-((0.7350381 : GoFloat32)),
-((0.72286767 : GoFloat32)),
-((0.71127474 : GoFloat32)),
-((0.70019263 : GoFloat32)),
-((0.6895665 : GoFloat32)),
-((0.67935055 : GoFloat32)),
-((0.6695063 : GoFloat32)),
-((0.66000086 : GoFloat32)),
-((0.65080583 : GoFloat32)),
-((0.6418967 : GoFloat32)),
-((0.63325197 : GoFloat32)),
-((0.6248527 : GoFloat32)),
-((0.6166822 : GoFloat32)),
-((0.60872537 : GoFloat32)),
-((0.60096896 : GoFloat32)),
-((0.5934009 : GoFloat32)),
-((0.58601034 : GoFloat32)),
-((0.5787874 : GoFloat32)),
-((0.57172304 : GoFloat32)),
-((0.5648092 : GoFloat32)),
-((0.5580383 : GoFloat32)),
-((0.5514034 : GoFloat32)),
-((0.5448982 : GoFloat32)),
-((0.5385169 : GoFloat32)),
-((0.53225386 : GoFloat32)),
-((0.5261042 : GoFloat32)),
-((0.52006316 : GoFloat32)),
-((0.5141264 : GoFloat32)),
-((0.50828975 : GoFloat32)),
-((0.5025495 : GoFloat32)),
-((0.496902 : GoFloat32)),
-((0.49134386 : GoFloat32)),
-((0.485872 : GoFloat32)),
-((0.48048335 : GoFloat32)),
-((0.4751752 : GoFloat32)),
-((0.46994483 : GoFloat32)),
-((0.46478975 : GoFloat32)),
-((0.45970762 : GoFloat32)),
-((0.45469615 : GoFloat32)),
-((0.44975325 : GoFloat32)),
-((0.44487688 : GoFloat32)),
-((0.44006512 : GoFloat32)),
-((0.43531612 : GoFloat32)),
-((0.43062815 : GoFloat32)),
-((0.42599955 : GoFloat32)),
-((0.42142874 : GoFloat32)),
-((0.4169142 : GoFloat32)),
-((0.41245446 : GoFloat32)),
-((0.40804818 : GoFloat32)),
-((0.403694 : GoFloat32)),
-((0.3993907 : GoFloat32)),
-((0.39513698 : GoFloat32)),
-((0.39093173 : GoFloat32)),
-((0.38677382 : GoFloat32)),
-((0.38266218 : GoFloat32)),
-((0.37859577 : GoFloat32)),
-((0.37457356 : GoFloat32)),
-((0.37059465 : GoFloat32)),
-((0.3666581 : GoFloat32)),
-((0.362763 : GoFloat32)),
-((0.35890847 : GoFloat32)),
-((0.35509375 : GoFloat32)),
-((0.351318 : GoFloat32)),
-((0.3475805 : GoFloat32)),
-((0.34388044 : GoFloat32)),
-((0.34021714 : GoFloat32)),
-((0.3365899 : GoFloat32)),
-((0.33299807 : GoFloat32)),
-((0.32944095 : GoFloat32)),
-((0.32591796 : GoFloat32)),
-((0.3224285 : GoFloat32)),
-((0.3189719 : GoFloat32)),
-((0.31554767 : GoFloat32)),
-((0.31215525 : GoFloat32)),
-((0.30879408 : GoFloat32)),
-((0.3054636 : GoFloat32)),
-((0.3021634 : GoFloat32)),
-((0.29889292 : GoFloat32)),
-((0.2956517 : GoFloat32)),
-((0.29243928 : GoFloat32)),
-((0.28925523 : GoFloat32)),
-((0.28609908 : GoFloat32)),
-((0.28297043 : GoFloat32)),
-((0.27986884 : GoFloat32)),
-((0.27679393 : GoFloat32)),
-((0.2737453 : GoFloat32)),
-((0.2707226 : GoFloat32)),
-((0.2677254 : GoFloat32)),
-((0.26475343 : GoFloat32)),
-((0.26180625 : GoFloat32)),
-((0.25888354 : GoFloat32)),
-((0.25598502 : GoFloat32)),
-((0.2531103 : GoFloat32)),
-((0.25025907 : GoFloat32)),
-((0.24743107 : GoFloat32)),
-((0.24462597 : GoFloat32)),
-((0.24184346 : GoFloat32)),
-((0.23908329 : GoFloat32)),
-((0.23634516 : GoFloat32)),
-((0.23362878 : GoFloat32)),
-((0.23093392 : GoFloat32)),
-((0.2282603 : GoFloat32)),
-((0.22560766 : GoFloat32)),
-((0.22297576 : GoFloat32)),
-((0.22036438 : GoFloat32)),
-((0.21777324 : GoFloat32)),
-((0.21520215 : GoFloat32)),
-((0.21265087 : GoFloat32)),
-((0.21011916 : GoFloat32)),
-((0.20760682 : GoFloat32)),
-((0.20511365 : GoFloat32)),
-((0.20263945 : GoFloat32)),
-((0.20018397 : GoFloat32)),
-((0.19774707 : GoFloat32)),
-((0.19532852 : GoFloat32)),
-((0.19292815 : GoFloat32)),
-((0.19054577 : GoFloat32)),
-((0.1881812 : GoFloat32)),
-((0.18583426 : GoFloat32)),
-((0.18350479 : GoFloat32)),
-((0.1811926 : GoFloat32)),
-((0.17889754 : GoFloat32)),
-((0.17661946 : GoFloat32)),
-((0.17435817 : GoFloat32)),
-((0.17211354 : GoFloat32)),
-((0.1698854 : GoFloat32)),
-((0.16767362 : GoFloat32)),
-((0.16547804 : GoFloat32)),
-((0.16329853 : GoFloat32)),
-((0.16113494 : GoFloat32)),
-((0.15898713 : GoFloat32)),
-((0.15685499 : GoFloat32)),
-((0.15473837 : GoFloat32)),
-((0.15263714 : GoFloat32)),
-((0.15055119 : GoFloat32)),
-((0.14848037 : GoFloat32)),
-((0.14642459 : GoFloat32)),
-((0.14438373 : GoFloat32)),
-((0.14235765 : GoFloat32)),
-((0.14034624 : GoFloat32)),
-((0.13834943 : GoFloat32)),
-((0.13636707 : GoFloat32)),
-((0.13439907 : GoFloat32)),
-((0.13244532 : GoFloat32)),
-((0.13050574 : GoFloat32)),
-((0.1285802 : GoFloat32)),
-((0.12666863 : GoFloat32)),
-((0.12477092 : GoFloat32)),
-((0.12288698 : GoFloat32)),
-((0.12101672 : GoFloat32)),
-((0.119160056 : GoFloat32)),
-((0.1173169 : GoFloat32)),
-((0.115487166 : GoFloat32)),
-((0.11367077 : GoFloat32)),
-((0.11186763 : GoFloat32)),
-((0.11007768 : GoFloat32)),
-((0.10830083 : GoFloat32)),
-((0.10653701 : GoFloat32)),
-((0.10478614 : GoFloat32)),
-((0.10304816 : GoFloat32)),
-((0.101323 : GoFloat32)),
-((0.09961058 : GoFloat32)),
-((0.09791085 : GoFloat32)),
-((0.09622374 : GoFloat32)),
-((0.09454919 : GoFloat32)),
-((0.09288713 : GoFloat32)),
-((0.091237515 : GoFloat32)),
-((0.08960028 : GoFloat32)),
-((0.087975375 : GoFloat32)),
-((0.08636274 : GoFloat32)),
-((0.08476233 : GoFloat32)),
-((0.083174095 : GoFloat32)),
-((0.081597984 : GoFloat32)),
-((0.08003395 : GoFloat32)),
-((0.07848195 : GoFloat32)),
-((0.076941945 : GoFloat32)),
-((0.07541389 : GoFloat32)),
-((0.07389775 : GoFloat32)),
-((0.072393484 : GoFloat32)),
-((0.07090106 : GoFloat32)),
-((0.069420435 : GoFloat32)),
-((0.06795159 : GoFloat32)),
-((0.066494495 : GoFloat32)),
-((0.06504912 : GoFloat32)),
-((0.063615434 : GoFloat32)),
-((0.062193416 : GoFloat32)),
-((0.060783047 : GoFloat32)),
-((0.059384305 : GoFloat32)),
-((0.057997175 : GoFloat32)),
-((0.05662164 : GoFloat32)),
-((0.05525769 : GoFloat32)),
-((0.053905312 : GoFloat32)),
-((0.052564494 : GoFloat32)),
-((0.051235236 : GoFloat32)),
-((0.049917534 : GoFloat32)),
-((0.048611384 : GoFloat32)),
-((0.047316793 : GoFloat32)),
-((0.046033762 : GoFloat32)),
-((0.0447623 : GoFloat32)),
-((0.043502413 : GoFloat32)),
-((0.042254124 : GoFloat32)),
-((0.041017443 : GoFloat32)),
-((0.039792392 : GoFloat32)),
-((0.038578995 : GoFloat32)),
-((0.037377283 : GoFloat32)),
-((0.036187284 : GoFloat32)),
-((0.035009038 : GoFloat32)),
-((0.033842582 : GoFloat32)),
-((0.032687962 : GoFloat32)),
-((0.031545233 : GoFloat32)),
-((0.030414443 : GoFloat32)),
-((0.02929566 : GoFloat32)),
-((0.02818895 : GoFloat32)),
-((0.027094385 : GoFloat32)),
-((0.026012046 : GoFloat32)),
-((0.024942026 : GoFloat32)),
-((0.023884421 : GoFloat32)),
-((0.022839336 : GoFloat32)),
-((0.021806888 : GoFloat32)),
-((0.020787204 : GoFloat32)),
-((0.019780423 : GoFloat32)),
-((0.0187867 : GoFloat32)),
-((0.0178062 : GoFloat32)),
-((0.016839107 : GoFloat32)),
-((0.015885621 : GoFloat32)),
-((0.014945968 : GoFloat32)),
-((0.014020392 : GoFloat32)),
-((0.013109165 : GoFloat32)),
-((0.012212592 : GoFloat32)),
-((0.011331013 : GoFloat32)),
-((0.01046481 : GoFloat32)),
-((0.009614414 : GoFloat32)),
-((0.008780315 : GoFloat32)),
-((0.007963077 : GoFloat32)),
-((0.0071633533 : GoFloat32)),
-((0.006381906 : GoFloat32)),
-((0.0056196423 : GoFloat32)),
-((0.0048776558 : GoFloat32)),
-((0.004157295 : GoFloat32)),
-((0.0034602648 : GoFloat32)),
-((0.0027887989 : GoFloat32)),
-((0.0021459677 : GoFloat32)),
-((0.0015362998 : GoFloat32)),
-((0.0009672693 : GoFloat32)),
-((0.00045413437 : GoFloat32))).copy();
-var _fn : GoArray<GoFloat32> = new GoArray<GoFloat32>(
-((1 : GoFloat32)),
-((0.9635997 : GoFloat32)),
-((0.9362827 : GoFloat32)),
-((0.9130436 : GoFloat32)),
-((0.89228165 : GoFloat32)),
-((0.87324303 : GoFloat32)),
-((0.8555006 : GoFloat32)),
-((0.8387836 : GoFloat32)),
-((0.8229072 : GoFloat32)),
-((0.8077383 : GoFloat32)),
-((0.793177 : GoFloat32)),
-((0.7791461 : GoFloat32)),
-((0.7655842 : GoFloat32)),
-((0.7524416 : GoFloat32)),
-((0.73967725 : GoFloat32)),
-((0.7272569 : GoFloat32)),
-((0.7151515 : GoFloat32)),
-((0.7033361 : GoFloat32)),
-((0.69178915 : GoFloat32)),
-((0.68049186 : GoFloat32)),
-((0.6694277 : GoFloat32)),
-((0.658582 : GoFloat32)),
-((0.6479418 : GoFloat32)),
-((0.63749546 : GoFloat32)),
-((0.6272325 : GoFloat32)),
-((0.6171434 : GoFloat32)),
-((0.6072195 : GoFloat32)),
-((0.5974532 : GoFloat32)),
-((0.58783704 : GoFloat32)),
-((0.5783647 : GoFloat32)),
-((0.56903 : GoFloat32)),
-((0.5598274 : GoFloat32)),
-((0.5507518 : GoFloat32)),
-((0.54179835 : GoFloat32)),
-((0.5329627 : GoFloat32)),
-((0.52424055 : GoFloat32)),
-((0.5156282 : GoFloat32)),
-((0.50712204 : GoFloat32)),
-((0.49871865 : GoFloat32)),
-((0.49041483 : GoFloat32)),
-((0.48220766 : GoFloat32)),
-((0.4740943 : GoFloat32)),
-((0.46607214 : GoFloat32)),
-((0.4581387 : GoFloat32)),
-((0.45029163 : GoFloat32)),
-((0.44252872 : GoFloat32)),
-((0.43484783 : GoFloat32)),
-((0.427247 : GoFloat32)),
-((0.41972435 : GoFloat32)),
-((0.41227803 : GoFloat32)),
-((0.40490642 : GoFloat32)),
-((0.39760786 : GoFloat32)),
-((0.3903808 : GoFloat32)),
-((0.3832238 : GoFloat32)),
-((0.37613547 : GoFloat32)),
-((0.36911446 : GoFloat32)),
-((0.3621595 : GoFloat32)),
-((0.35526937 : GoFloat32)),
-((0.34844297 : GoFloat32)),
-((0.34167916 : GoFloat32)),
-((0.33497685 : GoFloat32)),
-((0.3283351 : GoFloat32)),
-((0.3217529 : GoFloat32)),
-((0.3152294 : GoFloat32)),
-((0.30876362 : GoFloat32)),
-((0.30235484 : GoFloat32)),
-((0.29600215 : GoFloat32)),
-((0.28970486 : GoFloat32)),
-((0.2834622 : GoFloat32)),
-((0.2772735 : GoFloat32)),
-((0.27113807 : GoFloat32)),
-((0.2650553 : GoFloat32)),
-((0.25902456 : GoFloat32)),
-((0.2530453 : GoFloat32)),
-((0.24711695 : GoFloat32)),
-((0.241239 : GoFloat32)),
-((0.23541094 : GoFloat32)),
-((0.22963232 : GoFloat32)),
-((0.2239027 : GoFloat32)),
-((0.21822165 : GoFloat32)),
-((0.21258877 : GoFloat32)),
-((0.20700371 : GoFloat32)),
-((0.20146611 : GoFloat32)),
-((0.19597565 : GoFloat32)),
-((0.19053204 : GoFloat32)),
-((0.18513499 : GoFloat32)),
-((0.17978427 : GoFloat32)),
-((0.17447963 : GoFloat32)),
-((0.1692209 : GoFloat32)),
-((0.16400786 : GoFloat32)),
-((0.15884037 : GoFloat32)),
-((0.15371831 : GoFloat32)),
-((0.14864157 : GoFloat32)),
-((0.14361008 : GoFloat32)),
-((0.13862377 : GoFloat32)),
-((0.13368265 : GoFloat32)),
-((0.12878671 : GoFloat32)),
-((0.12393598 : GoFloat32)),
-((0.119130544 : GoFloat32)),
-((0.11437051 : GoFloat32)),
-((0.10965602 : GoFloat32)),
-((0.104987256 : GoFloat32)),
-((0.10036444 : GoFloat32)),
-((0.095787846 : GoFloat32)),
-((0.0912578 : GoFloat32)),
-((0.08677467 : GoFloat32)),
-((0.0823389 : GoFloat32)),
-((0.077950984 : GoFloat32)),
-((0.073611505 : GoFloat32)),
-((0.06932112 : GoFloat32)),
-((0.06508058 : GoFloat32)),
-((0.06089077 : GoFloat32)),
-((0.056752663 : GoFloat32)),
-((0.0526674 : GoFloat32)),
-((0.048636295 : GoFloat32)),
-((0.044660863 : GoFloat32)),
-((0.040742867 : GoFloat32)),
-((0.03688439 : GoFloat32)),
-((0.033087887 : GoFloat32)),
-((0.029356318 : GoFloat32)),
-((0.025693292 : GoFloat32)),
-((0.022103304 : GoFloat32)),
-((0.018592102 : GoFloat32)),
-((0.015167298 : GoFloat32)),
-((0.011839478 : GoFloat32)),
-((0.008624485 : GoFloat32)),
-((0.005548995 : GoFloat32)),
-((0.0026696292 : GoFloat32))).copy();
-var _ke : GoArray<GoUInt32> = new GoArray<GoUInt32>(
+var _ke : GoArray<GoUInt32> = ((new GoArray<GoUInt32>(
 (("3801129273" : GoUInt32)),
 ((0 : GoUInt32)),
 (("2615860924" : GoUInt32)),
@@ -1603,8 +264,909 @@ var _ke : GoArray<GoUInt32> = new GoArray<GoUInt32>(
 (("4111806704" : GoUInt32)),
 (("4073393724" : GoUInt32)),
 (("4008685917" : GoUInt32)),
-(("3873074895" : GoUInt32))).copy();
-var _rngCooked : GoArray<GoInt64> = new GoArray<GoInt64>(
+(("3873074895" : GoUInt32))) : GoArray<GoUInt32>));
+var _we : GoArray<GoFloat32> = ((new GoArray<GoFloat32>(
+((2.0249555e-09 : GoFloat32)),
+((1.486674e-11 : GoFloat32)),
+((2.4409617e-11 : GoFloat32)),
+((3.1968806e-11 : GoFloat32)),
+((3.844677e-11 : GoFloat32)),
+((4.4228204e-11 : GoFloat32)),
+((4.9516443e-11 : GoFloat32)),
+((5.443359e-11 : GoFloat32)),
+((5.905944e-11 : GoFloat32)),
+((6.344942e-11 : GoFloat32)),
+((6.7643814e-11 : GoFloat32)),
+((7.1672945e-11 : GoFloat32)),
+((7.556032e-11 : GoFloat32)),
+((7.932458e-11 : GoFloat32)),
+((8.298079e-11 : GoFloat32)),
+((8.654132e-11 : GoFloat32)),
+((9.0016515e-11 : GoFloat32)),
+((9.3415074e-11 : GoFloat32)),
+((9.674443e-11 : GoFloat32)),
+((1.0001099e-10 : GoFloat32)),
+((1.03220314e-10 : GoFloat32)),
+((1.06377254e-10 : GoFloat32)),
+((1.09486115e-10 : GoFloat32)),
+((1.1255068e-10 : GoFloat32)),
+((1.1557435e-10 : GoFloat32)),
+((1.1856015e-10 : GoFloat32)),
+((1.2151083e-10 : GoFloat32)),
+((1.2442886e-10 : GoFloat32)),
+((1.2731648e-10 : GoFloat32)),
+((1.3017575e-10 : GoFloat32)),
+((1.3300853e-10 : GoFloat32)),
+((1.3581657e-10 : GoFloat32)),
+((1.3860142e-10 : GoFloat32)),
+((1.4136457e-10 : GoFloat32)),
+((1.4410738e-10 : GoFloat32)),
+((1.4683108e-10 : GoFloat32)),
+((1.4953687e-10 : GoFloat32)),
+((1.5222583e-10 : GoFloat32)),
+((1.54899e-10 : GoFloat32)),
+((1.5755733e-10 : GoFloat32)),
+((1.6020171e-10 : GoFloat32)),
+((1.6283301e-10 : GoFloat32)),
+((1.6545203e-10 : GoFloat32)),
+((1.6805951e-10 : GoFloat32)),
+((1.7065617e-10 : GoFloat32)),
+((1.732427e-10 : GoFloat32)),
+((1.7581973e-10 : GoFloat32)),
+((1.7838787e-10 : GoFloat32)),
+((1.8094774e-10 : GoFloat32)),
+((1.8349985e-10 : GoFloat32)),
+((1.8604476e-10 : GoFloat32)),
+((1.8858298e-10 : GoFloat32)),
+((1.9111498e-10 : GoFloat32)),
+((1.9364126e-10 : GoFloat32)),
+((1.9616223e-10 : GoFloat32)),
+((1.9867835e-10 : GoFloat32)),
+((2.0119004e-10 : GoFloat32)),
+((2.0369768e-10 : GoFloat32)),
+((2.0620168e-10 : GoFloat32)),
+((2.087024e-10 : GoFloat32)),
+((2.1120022e-10 : GoFloat32)),
+((2.136955e-10 : GoFloat32)),
+((2.1618855e-10 : GoFloat32)),
+((2.1867974e-10 : GoFloat32)),
+((2.2116936e-10 : GoFloat32)),
+((2.2365775e-10 : GoFloat32)),
+((2.261452e-10 : GoFloat32)),
+((2.2863202e-10 : GoFloat32)),
+((2.311185e-10 : GoFloat32)),
+((2.3360494e-10 : GoFloat32)),
+((2.360916e-10 : GoFloat32)),
+((2.3857874e-10 : GoFloat32)),
+((2.4106667e-10 : GoFloat32)),
+((2.4355562e-10 : GoFloat32)),
+((2.4604588e-10 : GoFloat32)),
+((2.485377e-10 : GoFloat32)),
+((2.5103128e-10 : GoFloat32)),
+((2.5352695e-10 : GoFloat32)),
+((2.560249e-10 : GoFloat32)),
+((2.585254e-10 : GoFloat32)),
+((2.6102867e-10 : GoFloat32)),
+((2.6353494e-10 : GoFloat32)),
+((2.6604446e-10 : GoFloat32)),
+((2.6855745e-10 : GoFloat32)),
+((2.7107416e-10 : GoFloat32)),
+((2.7359479e-10 : GoFloat32)),
+((2.761196e-10 : GoFloat32)),
+((2.7864877e-10 : GoFloat32)),
+((2.8118255e-10 : GoFloat32)),
+((2.8372119e-10 : GoFloat32)),
+((2.8626485e-10 : GoFloat32)),
+((2.888138e-10 : GoFloat32)),
+((2.9136826e-10 : GoFloat32)),
+((2.939284e-10 : GoFloat32)),
+((2.9649452e-10 : GoFloat32)),
+((2.9906677e-10 : GoFloat32)),
+((3.016454e-10 : GoFloat32)),
+((3.0423064e-10 : GoFloat32)),
+((3.0682268e-10 : GoFloat32)),
+((3.0942177e-10 : GoFloat32)),
+((3.1202813e-10 : GoFloat32)),
+((3.1464195e-10 : GoFloat32)),
+((3.1726352e-10 : GoFloat32)),
+((3.19893e-10 : GoFloat32)),
+((3.2253064e-10 : GoFloat32)),
+((3.251767e-10 : GoFloat32)),
+((3.2783135e-10 : GoFloat32)),
+((3.3049485e-10 : GoFloat32)),
+((3.3316744e-10 : GoFloat32)),
+((3.3584938e-10 : GoFloat32)),
+((3.3854083e-10 : GoFloat32)),
+((3.4124212e-10 : GoFloat32)),
+((3.4395342e-10 : GoFloat32)),
+((3.46675e-10 : GoFloat32)),
+((3.4940711e-10 : GoFloat32)),
+((3.5215003e-10 : GoFloat32)),
+((3.5490397e-10 : GoFloat32)),
+((3.5766917e-10 : GoFloat32)),
+((3.6044595e-10 : GoFloat32)),
+((3.6323455e-10 : GoFloat32)),
+((3.660352e-10 : GoFloat32)),
+((3.6884823e-10 : GoFloat32)),
+((3.7167386e-10 : GoFloat32)),
+((3.745124e-10 : GoFloat32)),
+((3.773641e-10 : GoFloat32)),
+((3.802293e-10 : GoFloat32)),
+((3.8310827e-10 : GoFloat32)),
+((3.860013e-10 : GoFloat32)),
+((3.8890866e-10 : GoFloat32)),
+((3.918307e-10 : GoFloat32)),
+((3.9476775e-10 : GoFloat32)),
+((3.9772008e-10 : GoFloat32)),
+((4.0068804e-10 : GoFloat32)),
+((4.0367196e-10 : GoFloat32)),
+((4.0667217e-10 : GoFloat32)),
+((4.09689e-10 : GoFloat32)),
+((4.1272286e-10 : GoFloat32)),
+((4.1577405e-10 : GoFloat32)),
+((4.1884296e-10 : GoFloat32)),
+((4.2192994e-10 : GoFloat32)),
+((4.250354e-10 : GoFloat32)),
+((4.281597e-10 : GoFloat32)),
+((4.313033e-10 : GoFloat32)),
+((4.3446652e-10 : GoFloat32)),
+((4.3764986e-10 : GoFloat32)),
+((4.408537e-10 : GoFloat32)),
+((4.4407847e-10 : GoFloat32)),
+((4.4732465e-10 : GoFloat32)),
+((4.5059267e-10 : GoFloat32)),
+((4.5388301e-10 : GoFloat32)),
+((4.571962e-10 : GoFloat32)),
+((4.6053267e-10 : GoFloat32)),
+((4.6389292e-10 : GoFloat32)),
+((4.6727755e-10 : GoFloat32)),
+((4.70687e-10 : GoFloat32)),
+((4.741219e-10 : GoFloat32)),
+((4.7758275e-10 : GoFloat32)),
+((4.810702e-10 : GoFloat32)),
+((4.845848e-10 : GoFloat32)),
+((4.8812715e-10 : GoFloat32)),
+((4.9169796e-10 : GoFloat32)),
+((4.9529775e-10 : GoFloat32)),
+((4.989273e-10 : GoFloat32)),
+((5.0258725e-10 : GoFloat32)),
+((5.0627835e-10 : GoFloat32)),
+((5.100013e-10 : GoFloat32)),
+((5.1375687e-10 : GoFloat32)),
+((5.1754584e-10 : GoFloat32)),
+((5.21369e-10 : GoFloat32)),
+((5.2522725e-10 : GoFloat32)),
+((5.2912136e-10 : GoFloat32)),
+((5.330522e-10 : GoFloat32)),
+((5.370208e-10 : GoFloat32)),
+((5.4102806e-10 : GoFloat32)),
+((5.45075e-10 : GoFloat32)),
+((5.491625e-10 : GoFloat32)),
+((5.532918e-10 : GoFloat32)),
+((5.5746385e-10 : GoFloat32)),
+((5.616799e-10 : GoFloat32)),
+((5.6594107e-10 : GoFloat32)),
+((5.7024857e-10 : GoFloat32)),
+((5.746037e-10 : GoFloat32)),
+((5.7900773e-10 : GoFloat32)),
+((5.834621e-10 : GoFloat32)),
+((5.8796823e-10 : GoFloat32)),
+((5.925276e-10 : GoFloat32)),
+((5.971417e-10 : GoFloat32)),
+((6.018122e-10 : GoFloat32)),
+((6.065408e-10 : GoFloat32)),
+((6.113292e-10 : GoFloat32)),
+((6.1617933e-10 : GoFloat32)),
+((6.2109295e-10 : GoFloat32)),
+((6.260722e-10 : GoFloat32)),
+((6.3111916e-10 : GoFloat32)),
+((6.3623595e-10 : GoFloat32)),
+((6.4142497e-10 : GoFloat32)),
+((6.4668854e-10 : GoFloat32)),
+((6.5202926e-10 : GoFloat32)),
+((6.5744976e-10 : GoFloat32)),
+((6.6295286e-10 : GoFloat32)),
+((6.6854156e-10 : GoFloat32)),
+((6.742188e-10 : GoFloat32)),
+((6.79988e-10 : GoFloat32)),
+((6.858526e-10 : GoFloat32)),
+((6.9181616e-10 : GoFloat32)),
+((6.978826e-10 : GoFloat32)),
+((7.04056e-10 : GoFloat32)),
+((7.103407e-10 : GoFloat32)),
+((7.167412e-10 : GoFloat32)),
+((7.2326256e-10 : GoFloat32)),
+((7.2990985e-10 : GoFloat32)),
+((7.366886e-10 : GoFloat32)),
+((7.4360473e-10 : GoFloat32)),
+((7.5066453e-10 : GoFloat32)),
+((7.5787476e-10 : GoFloat32)),
+((7.6524265e-10 : GoFloat32)),
+((7.7277595e-10 : GoFloat32)),
+((7.80483e-10 : GoFloat32)),
+((7.883728e-10 : GoFloat32)),
+((7.9645507e-10 : GoFloat32)),
+((8.047402e-10 : GoFloat32)),
+((8.1323964e-10 : GoFloat32)),
+((8.219657e-10 : GoFloat32)),
+((8.309319e-10 : GoFloat32)),
+((8.401528e-10 : GoFloat32)),
+((8.496445e-10 : GoFloat32)),
+((8.594247e-10 : GoFloat32)),
+((8.6951274e-10 : GoFloat32)),
+((8.799301e-10 : GoFloat32)),
+((8.9070046e-10 : GoFloat32)),
+((9.018503e-10 : GoFloat32)),
+((9.134092e-10 : GoFloat32)),
+((9.254101e-10 : GoFloat32)),
+((9.378904e-10 : GoFloat32)),
+((9.508923e-10 : GoFloat32)),
+((9.644638e-10 : GoFloat32)),
+((9.786603e-10 : GoFloat32)),
+((9.935448e-10 : GoFloat32)),
+((1.0091913e-09 : GoFloat32)),
+((1.025686e-09 : GoFloat32)),
+((1.0431306e-09 : GoFloat32)),
+((1.0616465e-09 : GoFloat32)),
+((1.08138e-09 : GoFloat32)),
+((1.1025096e-09 : GoFloat32)),
+((1.1252564e-09 : GoFloat32)),
+((1.1498986e-09 : GoFloat32)),
+((1.1767932e-09 : GoFloat32)),
+((1.206409e-09 : GoFloat32)),
+((1.2393786e-09 : GoFloat32)),
+((1.276585e-09 : GoFloat32)),
+((1.3193139e-09 : GoFloat32)),
+((1.3695435e-09 : GoFloat32)),
+((1.4305498e-09 : GoFloat32)),
+((1.508365e-09 : GoFloat32)),
+((1.6160854e-09 : GoFloat32)),
+((1.7921248e-09 : GoFloat32))) : GoArray<GoFloat32>));
+var _fe : GoArray<GoFloat32> = ((new GoArray<GoFloat32>(
+((1 : GoFloat32)),
+((0.9381437 : GoFloat32)),
+((0.90046996 : GoFloat32)),
+((0.87170434 : GoFloat32)),
+((0.8477855 : GoFloat32)),
+((0.8269933 : GoFloat32)),
+((0.8084217 : GoFloat32)),
+((0.7915276 : GoFloat32)),
+((0.77595687 : GoFloat32)),
+((0.7614634 : GoFloat32)),
+((0.7478686 : GoFloat32)),
+((0.7350381 : GoFloat32)),
+((0.72286767 : GoFloat32)),
+((0.71127474 : GoFloat32)),
+((0.70019263 : GoFloat32)),
+((0.6895665 : GoFloat32)),
+((0.67935055 : GoFloat32)),
+((0.6695063 : GoFloat32)),
+((0.66000086 : GoFloat32)),
+((0.65080583 : GoFloat32)),
+((0.6418967 : GoFloat32)),
+((0.63325197 : GoFloat32)),
+((0.6248527 : GoFloat32)),
+((0.6166822 : GoFloat32)),
+((0.60872537 : GoFloat32)),
+((0.60096896 : GoFloat32)),
+((0.5934009 : GoFloat32)),
+((0.58601034 : GoFloat32)),
+((0.5787874 : GoFloat32)),
+((0.57172304 : GoFloat32)),
+((0.5648092 : GoFloat32)),
+((0.5580383 : GoFloat32)),
+((0.5514034 : GoFloat32)),
+((0.5448982 : GoFloat32)),
+((0.5385169 : GoFloat32)),
+((0.53225386 : GoFloat32)),
+((0.5261042 : GoFloat32)),
+((0.52006316 : GoFloat32)),
+((0.5141264 : GoFloat32)),
+((0.50828975 : GoFloat32)),
+((0.5025495 : GoFloat32)),
+((0.496902 : GoFloat32)),
+((0.49134386 : GoFloat32)),
+((0.485872 : GoFloat32)),
+((0.48048335 : GoFloat32)),
+((0.4751752 : GoFloat32)),
+((0.46994483 : GoFloat32)),
+((0.46478975 : GoFloat32)),
+((0.45970762 : GoFloat32)),
+((0.45469615 : GoFloat32)),
+((0.44975325 : GoFloat32)),
+((0.44487688 : GoFloat32)),
+((0.44006512 : GoFloat32)),
+((0.43531612 : GoFloat32)),
+((0.43062815 : GoFloat32)),
+((0.42599955 : GoFloat32)),
+((0.42142874 : GoFloat32)),
+((0.4169142 : GoFloat32)),
+((0.41245446 : GoFloat32)),
+((0.40804818 : GoFloat32)),
+((0.403694 : GoFloat32)),
+((0.3993907 : GoFloat32)),
+((0.39513698 : GoFloat32)),
+((0.39093173 : GoFloat32)),
+((0.38677382 : GoFloat32)),
+((0.38266218 : GoFloat32)),
+((0.37859577 : GoFloat32)),
+((0.37457356 : GoFloat32)),
+((0.37059465 : GoFloat32)),
+((0.3666581 : GoFloat32)),
+((0.362763 : GoFloat32)),
+((0.35890847 : GoFloat32)),
+((0.35509375 : GoFloat32)),
+((0.351318 : GoFloat32)),
+((0.3475805 : GoFloat32)),
+((0.34388044 : GoFloat32)),
+((0.34021714 : GoFloat32)),
+((0.3365899 : GoFloat32)),
+((0.33299807 : GoFloat32)),
+((0.32944095 : GoFloat32)),
+((0.32591796 : GoFloat32)),
+((0.3224285 : GoFloat32)),
+((0.3189719 : GoFloat32)),
+((0.31554767 : GoFloat32)),
+((0.31215525 : GoFloat32)),
+((0.30879408 : GoFloat32)),
+((0.3054636 : GoFloat32)),
+((0.3021634 : GoFloat32)),
+((0.29889292 : GoFloat32)),
+((0.2956517 : GoFloat32)),
+((0.29243928 : GoFloat32)),
+((0.28925523 : GoFloat32)),
+((0.28609908 : GoFloat32)),
+((0.28297043 : GoFloat32)),
+((0.27986884 : GoFloat32)),
+((0.27679393 : GoFloat32)),
+((0.2737453 : GoFloat32)),
+((0.2707226 : GoFloat32)),
+((0.2677254 : GoFloat32)),
+((0.26475343 : GoFloat32)),
+((0.26180625 : GoFloat32)),
+((0.25888354 : GoFloat32)),
+((0.25598502 : GoFloat32)),
+((0.2531103 : GoFloat32)),
+((0.25025907 : GoFloat32)),
+((0.24743107 : GoFloat32)),
+((0.24462597 : GoFloat32)),
+((0.24184346 : GoFloat32)),
+((0.23908329 : GoFloat32)),
+((0.23634516 : GoFloat32)),
+((0.23362878 : GoFloat32)),
+((0.23093392 : GoFloat32)),
+((0.2282603 : GoFloat32)),
+((0.22560766 : GoFloat32)),
+((0.22297576 : GoFloat32)),
+((0.22036438 : GoFloat32)),
+((0.21777324 : GoFloat32)),
+((0.21520215 : GoFloat32)),
+((0.21265087 : GoFloat32)),
+((0.21011916 : GoFloat32)),
+((0.20760682 : GoFloat32)),
+((0.20511365 : GoFloat32)),
+((0.20263945 : GoFloat32)),
+((0.20018397 : GoFloat32)),
+((0.19774707 : GoFloat32)),
+((0.19532852 : GoFloat32)),
+((0.19292815 : GoFloat32)),
+((0.19054577 : GoFloat32)),
+((0.1881812 : GoFloat32)),
+((0.18583426 : GoFloat32)),
+((0.18350479 : GoFloat32)),
+((0.1811926 : GoFloat32)),
+((0.17889754 : GoFloat32)),
+((0.17661946 : GoFloat32)),
+((0.17435817 : GoFloat32)),
+((0.17211354 : GoFloat32)),
+((0.1698854 : GoFloat32)),
+((0.16767362 : GoFloat32)),
+((0.16547804 : GoFloat32)),
+((0.16329853 : GoFloat32)),
+((0.16113494 : GoFloat32)),
+((0.15898713 : GoFloat32)),
+((0.15685499 : GoFloat32)),
+((0.15473837 : GoFloat32)),
+((0.15263714 : GoFloat32)),
+((0.15055119 : GoFloat32)),
+((0.14848037 : GoFloat32)),
+((0.14642459 : GoFloat32)),
+((0.14438373 : GoFloat32)),
+((0.14235765 : GoFloat32)),
+((0.14034624 : GoFloat32)),
+((0.13834943 : GoFloat32)),
+((0.13636707 : GoFloat32)),
+((0.13439907 : GoFloat32)),
+((0.13244532 : GoFloat32)),
+((0.13050574 : GoFloat32)),
+((0.1285802 : GoFloat32)),
+((0.12666863 : GoFloat32)),
+((0.12477092 : GoFloat32)),
+((0.12288698 : GoFloat32)),
+((0.12101672 : GoFloat32)),
+((0.119160056 : GoFloat32)),
+((0.1173169 : GoFloat32)),
+((0.115487166 : GoFloat32)),
+((0.11367077 : GoFloat32)),
+((0.11186763 : GoFloat32)),
+((0.11007768 : GoFloat32)),
+((0.10830083 : GoFloat32)),
+((0.10653701 : GoFloat32)),
+((0.10478614 : GoFloat32)),
+((0.10304816 : GoFloat32)),
+((0.101323 : GoFloat32)),
+((0.09961058 : GoFloat32)),
+((0.09791085 : GoFloat32)),
+((0.09622374 : GoFloat32)),
+((0.09454919 : GoFloat32)),
+((0.09288713 : GoFloat32)),
+((0.091237515 : GoFloat32)),
+((0.08960028 : GoFloat32)),
+((0.087975375 : GoFloat32)),
+((0.08636274 : GoFloat32)),
+((0.08476233 : GoFloat32)),
+((0.083174095 : GoFloat32)),
+((0.081597984 : GoFloat32)),
+((0.08003395 : GoFloat32)),
+((0.07848195 : GoFloat32)),
+((0.076941945 : GoFloat32)),
+((0.07541389 : GoFloat32)),
+((0.07389775 : GoFloat32)),
+((0.072393484 : GoFloat32)),
+((0.07090106 : GoFloat32)),
+((0.069420435 : GoFloat32)),
+((0.06795159 : GoFloat32)),
+((0.066494495 : GoFloat32)),
+((0.06504912 : GoFloat32)),
+((0.063615434 : GoFloat32)),
+((0.062193416 : GoFloat32)),
+((0.060783047 : GoFloat32)),
+((0.059384305 : GoFloat32)),
+((0.057997175 : GoFloat32)),
+((0.05662164 : GoFloat32)),
+((0.05525769 : GoFloat32)),
+((0.053905312 : GoFloat32)),
+((0.052564494 : GoFloat32)),
+((0.051235236 : GoFloat32)),
+((0.049917534 : GoFloat32)),
+((0.048611384 : GoFloat32)),
+((0.047316793 : GoFloat32)),
+((0.046033762 : GoFloat32)),
+((0.0447623 : GoFloat32)),
+((0.043502413 : GoFloat32)),
+((0.042254124 : GoFloat32)),
+((0.041017443 : GoFloat32)),
+((0.039792392 : GoFloat32)),
+((0.038578995 : GoFloat32)),
+((0.037377283 : GoFloat32)),
+((0.036187284 : GoFloat32)),
+((0.035009038 : GoFloat32)),
+((0.033842582 : GoFloat32)),
+((0.032687962 : GoFloat32)),
+((0.031545233 : GoFloat32)),
+((0.030414443 : GoFloat32)),
+((0.02929566 : GoFloat32)),
+((0.02818895 : GoFloat32)),
+((0.027094385 : GoFloat32)),
+((0.026012046 : GoFloat32)),
+((0.024942026 : GoFloat32)),
+((0.023884421 : GoFloat32)),
+((0.022839336 : GoFloat32)),
+((0.021806888 : GoFloat32)),
+((0.020787204 : GoFloat32)),
+((0.019780423 : GoFloat32)),
+((0.0187867 : GoFloat32)),
+((0.0178062 : GoFloat32)),
+((0.016839107 : GoFloat32)),
+((0.015885621 : GoFloat32)),
+((0.014945968 : GoFloat32)),
+((0.014020392 : GoFloat32)),
+((0.013109165 : GoFloat32)),
+((0.012212592 : GoFloat32)),
+((0.011331013 : GoFloat32)),
+((0.01046481 : GoFloat32)),
+((0.009614414 : GoFloat32)),
+((0.008780315 : GoFloat32)),
+((0.007963077 : GoFloat32)),
+((0.0071633533 : GoFloat32)),
+((0.006381906 : GoFloat32)),
+((0.0056196423 : GoFloat32)),
+((0.0048776558 : GoFloat32)),
+((0.004157295 : GoFloat32)),
+((0.0034602648 : GoFloat32)),
+((0.0027887989 : GoFloat32)),
+((0.0021459677 : GoFloat32)),
+((0.0015362998 : GoFloat32)),
+((0.0009672693 : GoFloat32)),
+((0.00045413437 : GoFloat32))) : GoArray<GoFloat32>));
+var _kn : GoArray<GoUInt32> = ((new GoArray<GoUInt32>(
+((1991057938 : GoUInt32)),
+((0 : GoUInt32)),
+((1611602771 : GoUInt32)),
+((1826899878 : GoUInt32)),
+((1918584482 : GoUInt32)),
+((1969227037 : GoUInt32)),
+((2001281515 : GoUInt32)),
+((2023368125 : GoUInt32)),
+((2039498179 : GoUInt32)),
+((2051788381 : GoUInt32)),
+((2061460127 : GoUInt32)),
+((2069267110 : GoUInt32)),
+((2075699398 : GoUInt32)),
+((2081089314 : GoUInt32)),
+((2085670119 : GoUInt32)),
+((2089610331 : GoUInt32)),
+((2093034710 : GoUInt32)),
+((2096037586 : GoUInt32)),
+((2098691595 : GoUInt32)),
+((2101053571 : GoUInt32)),
+((2103168620 : GoUInt32)),
+((2105072996 : GoUInt32)),
+((2106796166 : GoUInt32)),
+((2108362327 : GoUInt32)),
+((2109791536 : GoUInt32)),
+((2111100552 : GoUInt32)),
+((2112303493 : GoUInt32)),
+((2113412330 : GoUInt32)),
+((2114437283 : GoUInt32)),
+((2115387130 : GoUInt32)),
+((2116269447 : GoUInt32)),
+((2117090813 : GoUInt32)),
+((2117856962 : GoUInt32)),
+((2118572919 : GoUInt32)),
+((2119243101 : GoUInt32)),
+((2119871411 : GoUInt32)),
+((2120461303 : GoUInt32)),
+((2121015852 : GoUInt32)),
+((2121537798 : GoUInt32)),
+((2122029592 : GoUInt32)),
+((2122493434 : GoUInt32)),
+((2122931299 : GoUInt32)),
+((2123344971 : GoUInt32)),
+((2123736059 : GoUInt32)),
+((2124106020 : GoUInt32)),
+((2124456175 : GoUInt32)),
+((2124787725 : GoUInt32)),
+((2125101763 : GoUInt32)),
+((2125399283 : GoUInt32)),
+((2125681194 : GoUInt32)),
+((2125948325 : GoUInt32)),
+((2126201433 : GoUInt32)),
+((2126441213 : GoUInt32)),
+((2126668298 : GoUInt32)),
+((2126883268 : GoUInt32)),
+((2127086657 : GoUInt32)),
+((2127278949 : GoUInt32)),
+((2127460589 : GoUInt32)),
+((2127631985 : GoUInt32)),
+((2127793506 : GoUInt32)),
+((2127945490 : GoUInt32)),
+((2128088244 : GoUInt32)),
+((2128222044 : GoUInt32)),
+((2128347141 : GoUInt32)),
+((2128463758 : GoUInt32)),
+((2128572095 : GoUInt32)),
+((2128672327 : GoUInt32)),
+((2128764606 : GoUInt32)),
+((2128849065 : GoUInt32)),
+((2128925811 : GoUInt32)),
+((2128994934 : GoUInt32)),
+((2129056501 : GoUInt32)),
+((2129110560 : GoUInt32)),
+((2129157136 : GoUInt32)),
+((2129196237 : GoUInt32)),
+((2129227847 : GoUInt32)),
+((2129251929 : GoUInt32)),
+((2129268426 : GoUInt32)),
+((2129277255 : GoUInt32)),
+((2129278312 : GoUInt32)),
+((2129271467 : GoUInt32)),
+((2129256561 : GoUInt32)),
+((2129233410 : GoUInt32)),
+((2129201800 : GoUInt32)),
+((2129161480 : GoUInt32)),
+((2129112170 : GoUInt32)),
+((2129053545 : GoUInt32)),
+((2128985244 : GoUInt32)),
+((2128906855 : GoUInt32)),
+((2128817916 : GoUInt32)),
+((2128717911 : GoUInt32)),
+((2128606255 : GoUInt32)),
+((2128482298 : GoUInt32)),
+((2128345305 : GoUInt32)),
+((2128194452 : GoUInt32)),
+((2128028813 : GoUInt32)),
+((2127847342 : GoUInt32)),
+((2127648860 : GoUInt32)),
+((2127432031 : GoUInt32)),
+((2127195339 : GoUInt32)),
+((2126937058 : GoUInt32)),
+((2126655214 : GoUInt32)),
+((2126347546 : GoUInt32)),
+((2126011445 : GoUInt32)),
+((2125643893 : GoUInt32)),
+((2125241376 : GoUInt32)),
+((2124799783 : GoUInt32)),
+((2124314271 : GoUInt32)),
+((2123779094 : GoUInt32)),
+((2123187386 : GoUInt32)),
+((2122530867 : GoUInt32)),
+((2121799464 : GoUInt32)),
+((2120980787 : GoUInt32)),
+((2120059418 : GoUInt32)),
+((2119015917 : GoUInt32)),
+((2117825402 : GoUInt32)),
+((2116455471 : GoUInt32)),
+((2114863093 : GoUInt32)),
+((2112989789 : GoUInt32)),
+((2110753906 : GoUInt32)),
+((2108037662 : GoUInt32)),
+((2104664315 : GoUInt32)),
+((2100355223 : GoUInt32)),
+((2094642347 : GoUInt32)),
+((2086670106 : GoUInt32)),
+((2074676188 : GoUInt32)),
+((2054300022 : GoUInt32)),
+((2010539237 : GoUInt32))) : GoArray<GoUInt32>));
+var _wn : GoArray<GoFloat32> = ((new GoArray<GoFloat32>(
+((1.7290405e-09 : GoFloat32)),
+((1.2680929e-10 : GoFloat32)),
+((1.6897518e-10 : GoFloat32)),
+((1.9862688e-10 : GoFloat32)),
+((2.2232431e-10 : GoFloat32)),
+((2.4244937e-10 : GoFloat32)),
+((2.601613e-10 : GoFloat32)),
+((2.7611988e-10 : GoFloat32)),
+((2.9073963e-10 : GoFloat32)),
+((3.042997e-10 : GoFloat32)),
+((3.1699796e-10 : GoFloat32)),
+((3.289802e-10 : GoFloat32)),
+((3.4035738e-10 : GoFloat32)),
+((3.5121603e-10 : GoFloat32)),
+((3.616251e-10 : GoFloat32)),
+((3.7164058e-10 : GoFloat32)),
+((3.8130857e-10 : GoFloat32)),
+((3.9066758e-10 : GoFloat32)),
+((3.9975012e-10 : GoFloat32)),
+((4.08584e-10 : GoFloat32)),
+((4.1719309e-10 : GoFloat32)),
+((4.2559822e-10 : GoFloat32)),
+((4.338176e-10 : GoFloat32)),
+((4.418672e-10 : GoFloat32)),
+((4.497613e-10 : GoFloat32)),
+((4.5751258e-10 : GoFloat32)),
+((4.651324e-10 : GoFloat32)),
+((4.7263105e-10 : GoFloat32)),
+((4.8001775e-10 : GoFloat32)),
+((4.87301e-10 : GoFloat32)),
+((4.944885e-10 : GoFloat32)),
+((5.015873e-10 : GoFloat32)),
+((5.0860405e-10 : GoFloat32)),
+((5.155446e-10 : GoFloat32)),
+((5.2241467e-10 : GoFloat32)),
+((5.2921934e-10 : GoFloat32)),
+((5.359635e-10 : GoFloat32)),
+((5.426517e-10 : GoFloat32)),
+((5.4928817e-10 : GoFloat32)),
+((5.5587696e-10 : GoFloat32)),
+((5.624219e-10 : GoFloat32)),
+((5.6892646e-10 : GoFloat32)),
+((5.753941e-10 : GoFloat32)),
+((5.818282e-10 : GoFloat32)),
+((5.882317e-10 : GoFloat32)),
+((5.946077e-10 : GoFloat32)),
+((6.00959e-10 : GoFloat32)),
+((6.072884e-10 : GoFloat32)),
+((6.135985e-10 : GoFloat32)),
+((6.19892e-10 : GoFloat32)),
+((6.2617134e-10 : GoFloat32)),
+((6.3243905e-10 : GoFloat32)),
+((6.386974e-10 : GoFloat32)),
+((6.449488e-10 : GoFloat32)),
+((6.511956e-10 : GoFloat32)),
+((6.5744005e-10 : GoFloat32)),
+((6.6368433e-10 : GoFloat32)),
+((6.699307e-10 : GoFloat32)),
+((6.7618144e-10 : GoFloat32)),
+((6.824387e-10 : GoFloat32)),
+((6.8870465e-10 : GoFloat32)),
+((6.949815e-10 : GoFloat32)),
+((7.012715e-10 : GoFloat32)),
+((7.075768e-10 : GoFloat32)),
+((7.1389966e-10 : GoFloat32)),
+((7.202424e-10 : GoFloat32)),
+((7.266073e-10 : GoFloat32)),
+((7.329966e-10 : GoFloat32)),
+((7.394128e-10 : GoFloat32)),
+((7.4585826e-10 : GoFloat32)),
+((7.5233547e-10 : GoFloat32)),
+((7.58847e-10 : GoFloat32)),
+((7.653954e-10 : GoFloat32)),
+((7.719835e-10 : GoFloat32)),
+((7.7861395e-10 : GoFloat32)),
+((7.852897e-10 : GoFloat32)),
+((7.920138e-10 : GoFloat32)),
+((7.987892e-10 : GoFloat32)),
+((8.0561924e-10 : GoFloat32)),
+((8.125073e-10 : GoFloat32)),
+((8.194569e-10 : GoFloat32)),
+((8.2647167e-10 : GoFloat32)),
+((8.3355556e-10 : GoFloat32)),
+((8.407127e-10 : GoFloat32)),
+((8.479473e-10 : GoFloat32)),
+((8.55264e-10 : GoFloat32)),
+((8.6266755e-10 : GoFloat32)),
+((8.7016316e-10 : GoFloat32)),
+((8.777562e-10 : GoFloat32)),
+((8.8545243e-10 : GoFloat32)),
+((8.932582e-10 : GoFloat32)),
+((9.0117996e-10 : GoFloat32)),
+((9.09225e-10 : GoFloat32)),
+((9.174008e-10 : GoFloat32)),
+((9.2571584e-10 : GoFloat32)),
+((9.341788e-10 : GoFloat32)),
+((9.427997e-10 : GoFloat32)),
+((9.515889e-10 : GoFloat32)),
+((9.605579e-10 : GoFloat32)),
+((9.697193e-10 : GoFloat32)),
+((9.790869e-10 : GoFloat32)),
+((9.88676e-10 : GoFloat32)),
+((9.985036e-10 : GoFloat32)),
+((1.0085882e-09 : GoFloat32)),
+((1.0189509e-09 : GoFloat32)),
+((1.0296151e-09 : GoFloat32)),
+((1.0406069e-09 : GoFloat32)),
+((1.0519566e-09 : GoFloat32)),
+((1.063698e-09 : GoFloat32)),
+((1.0758702e-09 : GoFloat32)),
+((1.0885183e-09 : GoFloat32)),
+((1.1016947e-09 : GoFloat32)),
+((1.1154611e-09 : GoFloat32)),
+((1.1298902e-09 : GoFloat32)),
+((1.1450696e-09 : GoFloat32)),
+((1.1611052e-09 : GoFloat32)),
+((1.1781276e-09 : GoFloat32)),
+((1.1962995e-09 : GoFloat32)),
+((1.2158287e-09 : GoFloat32)),
+((1.2369856e-09 : GoFloat32)),
+((1.2601323e-09 : GoFloat32)),
+((1.2857697e-09 : GoFloat32)),
+((1.3146202e-09 : GoFloat32)),
+((1.347784e-09 : GoFloat32)),
+((1.3870636e-09 : GoFloat32)),
+((1.4357403e-09 : GoFloat32)),
+((1.5008659e-09 : GoFloat32)),
+((1.6030948e-09 : GoFloat32))) : GoArray<GoFloat32>));
+var _fn : GoArray<GoFloat32> = ((new GoArray<GoFloat32>(
+((1 : GoFloat32)),
+((0.9635997 : GoFloat32)),
+((0.9362827 : GoFloat32)),
+((0.9130436 : GoFloat32)),
+((0.89228165 : GoFloat32)),
+((0.87324303 : GoFloat32)),
+((0.8555006 : GoFloat32)),
+((0.8387836 : GoFloat32)),
+((0.8229072 : GoFloat32)),
+((0.8077383 : GoFloat32)),
+((0.793177 : GoFloat32)),
+((0.7791461 : GoFloat32)),
+((0.7655842 : GoFloat32)),
+((0.7524416 : GoFloat32)),
+((0.73967725 : GoFloat32)),
+((0.7272569 : GoFloat32)),
+((0.7151515 : GoFloat32)),
+((0.7033361 : GoFloat32)),
+((0.69178915 : GoFloat32)),
+((0.68049186 : GoFloat32)),
+((0.6694277 : GoFloat32)),
+((0.658582 : GoFloat32)),
+((0.6479418 : GoFloat32)),
+((0.63749546 : GoFloat32)),
+((0.6272325 : GoFloat32)),
+((0.6171434 : GoFloat32)),
+((0.6072195 : GoFloat32)),
+((0.5974532 : GoFloat32)),
+((0.58783704 : GoFloat32)),
+((0.5783647 : GoFloat32)),
+((0.56903 : GoFloat32)),
+((0.5598274 : GoFloat32)),
+((0.5507518 : GoFloat32)),
+((0.54179835 : GoFloat32)),
+((0.5329627 : GoFloat32)),
+((0.52424055 : GoFloat32)),
+((0.5156282 : GoFloat32)),
+((0.50712204 : GoFloat32)),
+((0.49871865 : GoFloat32)),
+((0.49041483 : GoFloat32)),
+((0.48220766 : GoFloat32)),
+((0.4740943 : GoFloat32)),
+((0.46607214 : GoFloat32)),
+((0.4581387 : GoFloat32)),
+((0.45029163 : GoFloat32)),
+((0.44252872 : GoFloat32)),
+((0.43484783 : GoFloat32)),
+((0.427247 : GoFloat32)),
+((0.41972435 : GoFloat32)),
+((0.41227803 : GoFloat32)),
+((0.40490642 : GoFloat32)),
+((0.39760786 : GoFloat32)),
+((0.3903808 : GoFloat32)),
+((0.3832238 : GoFloat32)),
+((0.37613547 : GoFloat32)),
+((0.36911446 : GoFloat32)),
+((0.3621595 : GoFloat32)),
+((0.35526937 : GoFloat32)),
+((0.34844297 : GoFloat32)),
+((0.34167916 : GoFloat32)),
+((0.33497685 : GoFloat32)),
+((0.3283351 : GoFloat32)),
+((0.3217529 : GoFloat32)),
+((0.3152294 : GoFloat32)),
+((0.30876362 : GoFloat32)),
+((0.30235484 : GoFloat32)),
+((0.29600215 : GoFloat32)),
+((0.28970486 : GoFloat32)),
+((0.2834622 : GoFloat32)),
+((0.2772735 : GoFloat32)),
+((0.27113807 : GoFloat32)),
+((0.2650553 : GoFloat32)),
+((0.25902456 : GoFloat32)),
+((0.2530453 : GoFloat32)),
+((0.24711695 : GoFloat32)),
+((0.241239 : GoFloat32)),
+((0.23541094 : GoFloat32)),
+((0.22963232 : GoFloat32)),
+((0.2239027 : GoFloat32)),
+((0.21822165 : GoFloat32)),
+((0.21258877 : GoFloat32)),
+((0.20700371 : GoFloat32)),
+((0.20146611 : GoFloat32)),
+((0.19597565 : GoFloat32)),
+((0.19053204 : GoFloat32)),
+((0.18513499 : GoFloat32)),
+((0.17978427 : GoFloat32)),
+((0.17447963 : GoFloat32)),
+((0.1692209 : GoFloat32)),
+((0.16400786 : GoFloat32)),
+((0.15884037 : GoFloat32)),
+((0.15371831 : GoFloat32)),
+((0.14864157 : GoFloat32)),
+((0.14361008 : GoFloat32)),
+((0.13862377 : GoFloat32)),
+((0.13368265 : GoFloat32)),
+((0.12878671 : GoFloat32)),
+((0.12393598 : GoFloat32)),
+((0.119130544 : GoFloat32)),
+((0.11437051 : GoFloat32)),
+((0.10965602 : GoFloat32)),
+((0.104987256 : GoFloat32)),
+((0.10036444 : GoFloat32)),
+((0.095787846 : GoFloat32)),
+((0.0912578 : GoFloat32)),
+((0.08677467 : GoFloat32)),
+((0.0823389 : GoFloat32)),
+((0.077950984 : GoFloat32)),
+((0.073611505 : GoFloat32)),
+((0.06932112 : GoFloat32)),
+((0.06508058 : GoFloat32)),
+((0.06089077 : GoFloat32)),
+((0.056752663 : GoFloat32)),
+((0.0526674 : GoFloat32)),
+((0.048636295 : GoFloat32)),
+((0.044660863 : GoFloat32)),
+((0.040742867 : GoFloat32)),
+((0.03688439 : GoFloat32)),
+((0.033087887 : GoFloat32)),
+((0.029356318 : GoFloat32)),
+((0.025693292 : GoFloat32)),
+((0.022103304 : GoFloat32)),
+((0.018592102 : GoFloat32)),
+((0.015167298 : GoFloat32)),
+((0.011839478 : GoFloat32)),
+((0.008624485 : GoFloat32)),
+((0.005548995 : GoFloat32)),
+((0.0026696292 : GoFloat32))) : GoArray<GoFloat32>));
+var _rngCooked : GoArray<GoInt64> = ((new GoArray<GoInt64>(
 (("-4181792142133755926" : GoInt64)),
 (("-4576982950128230565" : GoInt64)),
 (("1395769623340756751" : GoInt64)),
@@ -2211,7 +1773,431 @@ var _rngCooked : GoArray<GoInt64> = new GoArray<GoInt64>(
 (("-2171292963361310674" : GoInt64)),
 (("8382142935188824023" : GoInt64)),
 (("9103922860780351547" : GoInt64)),
-(("4152330101494654406" : GoInt64))).copy();
+(("4152330101494654406" : GoInt64))) : GoArray<GoInt64>));
+var _globalRand : Rand = new_((({ _src : ((((newSource(((1 : GoInt64))).__underlying__().value : Dynamic)) : T_rngSource)), _lk : new stdgo.sync.Sync.Mutex() } : T_lockedSource)));
+var _ : T_rngSource = ((((_globalRand._src.__underlying__().value : Dynamic)) : T_lockedSource))._src;
+typedef Source = StructType & {
+    public function int63():GoInt64;
+    public function seed(_seed:GoInt64):Void;
+};
+typedef Source64 = StructType & {
+    > Source,
+    public function uint64():GoUInt64;
+};
+@:structInit @:using(Rand.Rand_static_extension) class Rand {
+    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+        var _r = this;
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : T_lockedSource)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                return _lk._read(_p, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+            };
+        };
+        return _read(_p, _r._src, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+    }
+    public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
+        var _r = this;
+        _r;
+        if (_n < ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Shuffle" : GoString))));
+        };
+        var _i:GoInt = _n - ((1 : GoInt));
+        Go.cfor(_i > ((2147483646 : GoInt)), _i--, {
+            var _j:GoInt = ((_r.int63n((((_i + ((1 : GoInt))) : GoInt64))) : GoInt));
+            _swap(_i, _j);
+        });
+        Go.cfor(_i > ((0 : GoInt)), _i--, {
+            var _j:GoInt = ((_r._int31n((((_i + ((1 : GoInt))) : GoInt32))) : GoInt));
+            _swap(_i, _j);
+        });
+    }
+    public function perm(_n:GoInt):Slice<GoInt> {
+        var _r = this;
+        _r;
+        var _m:Slice<GoInt> = new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]);
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                var _j:GoInt = _r.intn(_i + ((1 : GoInt)));
+                if (_m != null) _m[_i] = (_m != null ? _m[_j] : ((0 : GoInt)));
+                if (_m != null) _m[_j] = _i;
+            });
+        };
+        return _m;
+    }
+    public function float32():GoFloat32 {
+        var _r = this;
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat32 = ((_r.float64() : GoFloat32));
+            if (_f == ((1 : GoFloat32))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    public function float64():GoFloat64 {
+        var _r = this;
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat64 = ((_r.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
+            if (_f == ((1 : GoFloat64))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    public function intn(_n:GoInt):GoInt {
+        var _r = this;
+        _r;
+        if (_n <= ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Intn" : GoString))));
+        };
+        if (_n <= ((2147483647 : GoInt))) {
+            return ((_r.int31n(((_n : GoInt32))) : GoInt));
+        };
+        return ((_r.int63n(((_n : GoInt64))) : GoInt));
+    }
+    public function _int31n(_n:GoInt32):GoInt32 {
+        var _r = this;
+        _r;
+        var _v:GoUInt32 = _r.uint32();
+        var _prod:GoUInt64 = ((_v : GoUInt64)) * ((_n : GoUInt64));
+        var _low:GoUInt32 = ((_prod : GoUInt32));
+        if (_low < ((_n : GoUInt32))) {
+            var _thresh:GoUInt32 = ((-_n : GoUInt32)) % ((_n : GoUInt32));
+            while (_low < _thresh) {
+                _v = _r.uint32();
+                _prod = ((_v : GoUInt64)) * ((_n : GoUInt64));
+                _low = ((_prod : GoUInt32));
+            };
+        };
+        return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    public function int31n(_n:GoInt32):GoInt32 {
+        var _r = this;
+        _r;
+        if (_n <= ((0 : GoInt32))) {
+            throw Go.toInterface(((("invalid argument to Int31n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt32)))) == ((0 : GoInt32))) {
+            return _r.int31() & (_n - ((1 : GoInt32)));
+        };
+        var _max:GoInt32 = (((((2147483647 : GoUInt32)) - ((("2147483648" : GoUInt32)) % ((_n : GoUInt32)))) : GoInt32));
+        var _v:GoInt32 = _r.int31();
+        while (_v > _max) {
+            _v = _r.int31();
+        };
+        return _v % _n;
+    }
+    public function int63n(_n:GoInt64):GoInt64 {
+        var _r = this;
+        _r;
+        if (_n <= ((0 : GoInt64))) {
+            throw Go.toInterface(((("invalid argument to Int63n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt64)))) == ((0 : GoInt64))) {
+            return _r.int63() & (_n - ((1 : GoInt64)));
+        };
+        var _max:GoInt64 = ((((("9223372036854775807" : GoUInt64)) - ((("9223372036854775808" : GoUInt64)) % ((_n : GoUInt64)))) : GoInt64));
+        var _v:GoInt64 = _r.int63();
+        while (_v > _max) {
+            _v = _r.int63();
+        };
+        return _v % _n;
+    }
+    public function int():GoInt {
+        var _r = this;
+        _r;
+        var _u:GoUInt = ((_r.int63() : GoUInt));
+        return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
+    }
+    public function int31():GoInt32 {
+        var _r = this;
+        _r;
+        return (((_r.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    public function uint64():GoUInt64 {
+        var _r = this;
+        _r;
+        if (_r._s64 != null) {
+            return _r._s64.uint64();
+        };
+        return (((_r.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
+    }
+    public function uint32():GoUInt32 {
+        var _r = this;
+        _r;
+        return (((_r.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
+    }
+    public function int63():GoInt64 {
+        var _r = this;
+        _r;
+        return _r._src.int63();
+    }
+    public function seed(_seed:GoInt64):Void {
+        var _r = this;
+        _r;
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : T_lockedSource)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                _lk._seedPos(_seed, Go.pointer(_r._readPos));
+                return;
+            };
+        };
+        _r._src.seed(_seed);
+        _r._readPos = ((0 : GoInt8));
+    }
+    public function normFloat64():GoFloat64 {
+        var _r = this;
+        _r;
+        while (true) {
+            var _j:GoInt32 = ((_r.uint32() : GoInt32));
+            var _i:GoInt32 = _j & ((127 : GoInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_wn != null ? _wn[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_absInt32(_j) < (_kn != null ? _kn[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoInt32))) {
+                while (true) {
+                    _x = -stdgo.math.Math.log(_r.float64()) * ((0.29047645161474317 : GoFloat64));
+                    var _y:GoFloat64 = -stdgo.math.Math.log(_r.float64());
+                    if ((_y + _y) >= (_x * _x)) {
+                        break;
+                    };
+                };
+                if (_j > ((0 : GoInt32))) {
+                    return ((3.442619855899 : GoFloat64)) + _x;
+                };
+                return ((-3.442619855899 : GoFloat64)) - _x;
+            };
+            if (((_fn != null ? _fn[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fn != null ? _fn[_i - ((1 : GoInt32))] : ((0 : GoFloat32))) - (_fn != null ? _fn[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp((((-0.5 : GoFloat64)) * _x) * _x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+    public function expFloat64():GoFloat64 {
+        var _r = this;
+        _r;
+        while (true) {
+            var _j:GoUInt32 = _r.uint32();
+            var _i:GoUInt32 = _j & ((255 : GoUInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_we != null ? _we[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_j < (_ke != null ? _ke[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoUInt32))) {
+                return ((7.69711747013105 : GoFloat64)) - stdgo.math.Math.log(_r.float64());
+            };
+            if (((_fe != null ? _fe[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fe != null ? _fe[_i - ((1 : GoUInt32))] : ((0 : GoFloat32))) - (_fe != null ? _fe[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp(-_x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+    public var _src : Source = ((null : Source));
+    public var _s64 : Source64 = ((null : Source64));
+    public var _readVal : GoInt64 = ((0 : GoInt64));
+    public var _readPos : GoInt8 = ((0 : GoInt8));
+    public function new(?_src:Source, ?_s64:Source64, ?_readVal:GoInt64, ?_readPos:GoInt8) {
+        if (_src != null) this._src = _src;
+        if (_s64 != null) this._s64 = _s64;
+        if (_readVal != null) this._readVal = _readVal;
+        if (_readPos != null) this._readPos = _readPos;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new Rand(_src, _s64, _readVal, _readPos);
+    }
+}
+@:structInit @:using(Rand.T_lockedSource_static_extension) class T_lockedSource {
+    public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
+        var _r = this;
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        _r._lk.lock();
+        {
+            var __tmp__ = math.rand.Rand._read(_p, _r._src, _readVal, _readPos);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        _r._lk.unlock();
+        return { _0 : _n, _1 : _err };
+    }
+    public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
+        var _r = this;
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _readPos.value = ((0 : GoInt8));
+        _r._lk.unlock();
+    }
+    public function seed(_seed:GoInt64):Void {
+        var _r = this;
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _r._lk.unlock();
+    }
+    public function uint64():GoUInt64 {
+        var _r = this;
+        _r;
+        var _n:GoUInt64 = ((0 : GoUInt64));
+        _r._lk.lock();
+        _n = _r._src.uint64();
+        _r._lk.unlock();
+        return _n;
+    }
+    public function int63():GoInt64 {
+        var _r = this;
+        _r;
+        var _n:GoInt64 = ((0 : GoInt64));
+        _r._lk.lock();
+        _n = _r._src.int63();
+        _r._lk.unlock();
+        return _n;
+    }
+    public var _lk : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
+    public var _src : T_rngSource = ((null : T_rngSource));
+    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:T_rngSource) {
+        if (_lk != null) this._lk = _lk;
+        if (_src != null) this._src = _src;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_lockedSource(_lk, _src);
+    }
+}
+@:structInit @:using(Rand.T_rngSource_static_extension) class T_rngSource {
+    public function uint64():GoUInt64 {
+        var _rng = this;
+        _rng;
+        _rng._tap--;
+        if (_rng._tap < ((0 : GoInt))) {
+            _rng._tap = _rng._tap + (((607 : GoInt)));
+        };
+        _rng._feed--;
+        if (_rng._feed < ((0 : GoInt))) {
+            _rng._feed = _rng._feed + (((607 : GoInt)));
+        };
+        var _x:GoInt64 = (_rng._vec != null ? _rng._vec[_rng._feed] : ((0 : GoInt64))) + (_rng._vec != null ? _rng._vec[_rng._tap] : ((0 : GoInt64)));
+        if (_rng._vec != null) _rng._vec[_rng._feed] = _x;
+        return ((_x : GoUInt64));
+    }
+    public function int63():GoInt64 {
+        var _rng = this;
+        _rng;
+        return (((_rng.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
+    }
+    public function seed(_seed:GoInt64):Void {
+        var _rng = this;
+        _rng;
+        _rng._tap = ((0 : GoInt));
+        _rng._feed = ((334 : GoInt));
+        _seed = _seed % ((2147483647 : GoInt64));
+        if (_seed < ((0 : GoInt64))) {
+            _seed = _seed + (((2147483647 : GoInt64)));
+        };
+        if (_seed == ((0 : GoInt64))) {
+            _seed = ((89482311 : GoInt64));
+        };
+        var _x:GoInt32 = ((_seed : GoInt32));
+        {
+            var _i:GoInt = ((-20 : GoInt));
+            Go.cfor(_i < ((607 : GoInt)), _i++, {
+                _x = _seedrand(_x);
+                if (_i >= ((0 : GoInt))) {
+                    var _u:GoInt64 = ((0 : GoInt64));
+                    _u = ((_x : GoInt64)) << ((40 : GoUnTypedInt));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)) << ((20 : GoUnTypedInt)));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)));
+                    _u = _u ^ ((_rngCooked != null ? _rngCooked[_i] : ((0 : GoInt64))));
+                    if (_rng._vec != null) _rng._vec[_i] = _u;
+                };
+            });
+        };
+    }
+    public var _tap : GoInt = ((0 : GoInt));
+    public var _feed : GoInt = ((0 : GoInt));
+    public var _vec : GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0 ... 607) ((0 : GoInt64))]);
+    public function new(?_tap:GoInt, ?_feed:GoInt, ?_vec:GoArray<GoInt64>) {
+        if (_tap != null) this._tap = _tap;
+        if (_feed != null) this._feed = _feed;
+        if (_vec != null) this._vec = _vec;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_rngSource(_tap, _feed, _vec);
+    }
+}
+@:structInit @:using(Rand.Zipf_static_extension) class Zipf {
+    public function uint64():GoUInt64 {
+        var _z = this;
+        _z;
+        if (_z == null) {
+            throw Go.toInterface(((("rand: nil Zipf" : GoString))));
+        };
+        var _k:GoFloat64 = ((0 : GoFloat64));
+        while (true) {
+            var _r:GoFloat64 = _z._r.float64();
+            var _ur:GoFloat64 = _z._hxm + (_r * _z._hx0minusHxm);
+            var _x:GoFloat64 = _z._hinv(_ur);
+            _k = stdgo.math.Math.floor(_x + ((0.5 : GoFloat64)));
+            if ((_k - _x) <= _z._s) {
+                break;
+            };
+            if (_ur >= (_z._h(_k + ((0.5 : GoFloat64))) - stdgo.math.Math.exp(-stdgo.math.Math.log(_k + _z._v) * _z._q))) {
+                break;
+            };
+        };
+        return ((_k : GoUInt64));
+    }
+    public function _hinv(_x:GoFloat64):GoFloat64 {
+        var _z = this;
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQinv * stdgo.math.Math.log(_z._oneminusQ * _x)) - _z._v;
+    }
+    public function _h(_x:GoFloat64):GoFloat64 {
+        var _z = this;
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
+    }
+    public var _r : Rand = ((null : Rand));
+    public var _imax : GoFloat64 = ((0 : GoFloat64));
+    public var _v : GoFloat64 = ((0 : GoFloat64));
+    public var _q : GoFloat64 = ((0 : GoFloat64));
+    public var _s : GoFloat64 = ((0 : GoFloat64));
+    public var _oneminusQ : GoFloat64 = ((0 : GoFloat64));
+    public var _oneminusQinv : GoFloat64 = ((0 : GoFloat64));
+    public var _hxm : GoFloat64 = ((0 : GoFloat64));
+    public var _hx0minusHxm : GoFloat64 = ((0 : GoFloat64));
+    public function new(?_r:Rand, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
+        if (_r != null) this._r = _r;
+        if (_imax != null) this._imax = _imax;
+        if (_v != null) this._v = _v;
+        if (_q != null) this._q = _q;
+        if (_s != null) this._s = _s;
+        if (_oneminusQ != null) this._oneminusQ = _oneminusQ;
+        if (_oneminusQinv != null) this._oneminusQinv = _oneminusQinv;
+        if (_hxm != null) this._hxm = _hxm;
+        if (_hx0minusHxm != null) this._hx0minusHxm = _hx0minusHxm;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
+    }
+}
 function _absInt32(_i:GoInt32):GoUInt32 {
         if (_i < ((0 : GoInt32))) {
             return ((-_i : GoUInt32));
@@ -2226,41 +2212,41 @@ function _absInt32(_i:GoInt32):GoUInt32 {
 function newSource(_seed:GoInt64):Source {
         var _rng:T_rngSource = new T_rngSource();
         _rng.seed(_seed);
-        return Go.pointer(_rng).value;
+        return _rng;
     }
 /**
     // New returns a new Rand that uses random values from src
     // to generate other random values.
 **/
-function new_(_src:Source):Pointer<Rand> {
+function new_(_src:Source):Rand {
         var __tmp__ = try {
-            { value : ((_src.__underlying__().value : Source64)), ok : true };
+            { value : ((((_src.__underlying__().value : Dynamic)) : Source64)), ok : true };
         } catch(_) {
             { value : ((null : Source64)), ok : false };
         }, _s64 = __tmp__.value, _ = __tmp__.ok;
-        return Go.pointer((({ _src : _src, _s64 : _s64, _readVal : 0, _readPos : 0 } : Rand)));
+        return (({ _src : _src, _s64 : _s64, _readVal : 0, _readPos : 0 } : Rand));
     }
 function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         var _pos:GoInt8 = _readPos.value;
         var _val:GoInt64 = _readVal.value;
         var __tmp__ = try {
-            { value : ((_src.__underlying__().value : Pointer<T_rngSource>)), ok : true };
+            { value : ((((_src.__underlying__().value : Dynamic)) : T_rngSource)), ok : true };
         } catch(_) {
-            { value : new Pointer<T_rngSource>().nil(), ok : false };
+            { value : ((null : T_rngSource)), ok : false };
         }, _rng = __tmp__.value, _ = __tmp__.ok;
         {
             _n = ((0 : GoInt));
-            Go.cfor(_n < _p.length, _n++, {
+            Go.cfor(_n < (_p != null ? _p.length : ((0 : GoInt))), _n++, {
                 if (_pos == ((0 : GoInt8))) {
                     if (_rng != null) {
-                        _val = _rng.value.int63();
+                        _val = _rng.int63();
                     } else {
                         _val = _src.int63();
                     };
                     _pos = ((7 : GoInt8));
                 };
-                _p[_n] = ((_val : GoByte));
+                if (_p != null) _p[_n] = ((_val : GoByte));
                 _val = _val >> (((8 : GoUnTypedInt)));
                 _pos--;
             });
@@ -2277,41 +2263,41 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
     // Seed, unlike the Rand.Seed method, is safe for concurrent use.
 **/
 function seed(_seed:GoInt64):Void {
-        _globalRand.value.seed(_seed);
+        _globalRand.seed(_seed);
     }
 /**
     // Int63 returns a non-negative pseudo-random 63-bit integer as an int64
     // from the default Source.
 **/
 function int63():GoInt64 {
-        return _globalRand.value.int63();
+        return _globalRand.int63();
     }
 /**
     // Uint32 returns a pseudo-random 32-bit value as a uint32
     // from the default Source.
 **/
 function uint32():GoUInt32 {
-        return _globalRand.value.uint32();
+        return _globalRand.uint32();
     }
 /**
     // Uint64 returns a pseudo-random 64-bit value as a uint64
     // from the default Source.
 **/
 function uint64():GoUInt64 {
-        return _globalRand.value.uint64();
+        return _globalRand.uint64();
     }
 /**
     // Int31 returns a non-negative pseudo-random 31-bit integer as an int32
     // from the default Source.
 **/
 function int31():GoInt32 {
-        return _globalRand.value.int31();
+        return _globalRand.int31();
     }
 /**
     // Int returns a non-negative pseudo-random int from the default Source.
 **/
 function int():GoInt {
-        return _globalRand.value.int();
+        return _globalRand.int();
     }
 /**
     // Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n)
@@ -2319,7 +2305,7 @@ function int():GoInt {
     // It panics if n <= 0.
 **/
 function int63n(_n:GoInt64):GoInt64 {
-        return _globalRand.value.int63n(_n);
+        return _globalRand.int63n(_n);
     }
 /**
     // Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n)
@@ -2327,7 +2313,7 @@ function int63n(_n:GoInt64):GoInt64 {
     // It panics if n <= 0.
 **/
 function int31n(_n:GoInt32):GoInt32 {
-        return _globalRand.value.int31n(_n);
+        return _globalRand.int31n(_n);
     }
 /**
     // Intn returns, as an int, a non-negative pseudo-random number in the half-open interval [0,n)
@@ -2335,28 +2321,28 @@ function int31n(_n:GoInt32):GoInt32 {
     // It panics if n <= 0.
 **/
 function intn(_n:GoInt):GoInt {
-        return _globalRand.value.intn(_n);
+        return _globalRand.intn(_n);
     }
 /**
     // Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0)
     // from the default Source.
 **/
 function float64():GoFloat64 {
-        return _globalRand.value.float64();
+        return _globalRand.float64();
     }
 /**
     // Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0)
     // from the default Source.
 **/
 function float32():GoFloat32 {
-        return _globalRand.value.float32();
+        return _globalRand.float32();
     }
 /**
     // Perm returns, as a slice of n ints, a pseudo-random permutation of the integers
     // in the half-open interval [0,n) from the default Source.
 **/
 function perm(_n:GoInt):Slice<GoInt> {
-        return _globalRand.value.perm(_n);
+        return _globalRand.perm(_n);
     }
 /**
     // Shuffle pseudo-randomizes the order of elements using the default Source.
@@ -2364,7 +2350,7 @@ function perm(_n:GoInt):Slice<GoInt> {
     // swap swaps the elements with indexes i and j.
 **/
 function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
-        _globalRand.value.shuffle(_n, _swap);
+        _globalRand.shuffle(_n, _swap);
     }
 /**
     // Read generates len(p) random bytes from the default Source and
@@ -2373,7 +2359,7 @@ function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
 **/
 function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
-        return _globalRand.value.read(_p);
+        return _globalRand.read(_p);
     }
 /**
     // NormFloat64 returns a normally distributed float64 in the range
@@ -2387,7 +2373,7 @@ function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
     //
 **/
 function normFloat64():GoFloat64 {
-        return _globalRand.value.normFloat64();
+        return _globalRand.normFloat64();
     }
 /**
     // ExpFloat64 returns an exponentially distributed float64 in the range
@@ -2400,7 +2386,7 @@ function normFloat64():GoFloat64 {
     //
 **/
 function expFloat64():GoFloat64 {
-        return _globalRand.value.expFloat64();
+        return _globalRand.expFloat64();
     }
 /**
     // seed rng x[n+1] = 48271 * x[n] mod (2**31 - 1)
@@ -2421,55 +2407,31 @@ function _seedrand(_x:GoInt32):GoInt32 {
     // such that P(k) is proportional to (v + k) ** (-s).
     // Requirements: s > 1 and v >= 1.
 **/
-function newZipf(_r:Pointer<Rand>, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Pointer<Zipf> {
-        var _z:Pointer<Zipf> = Go.pointer(new Zipf());
+function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
+        var _z:Zipf = Go.pointer(new Zipf());
         if ((_s <= ((1 : GoFloat64))) || (_v < ((1 : GoFloat64)))) {
-            return new Pointer<Zipf>().nil();
+            return null;
         };
-        _z.value._r = _r;
-        _z.value._imax = ((_imax : GoFloat64));
-        _z.value._v = _v;
-        _z.value._q = _s;
-        _z.value._oneminusQ = ((1 : GoFloat64)) - _z.value._q;
-        _z.value._oneminusQinv = ((1 : GoFloat64)) / _z.value._oneminusQ;
-        _z.value._hxm = _z.value._h(_z.value._imax + ((0.5 : GoFloat64)));
-        _z.value._hx0minusHxm = (_z.value._h(((0.5 : GoFloat64))) - stdgo.math.Math.exp(stdgo.math.Math.log(_z.value._v) * (-_z.value._q))) - _z.value._hxm;
-        _z.value._s = ((1 : GoFloat64)) - _z.value._hinv(_z.value._h(((1.5 : GoFloat64))) - stdgo.math.Math.exp(-_z.value._q * stdgo.math.Math.log(_z.value._v + ((1 : GoFloat64)))));
+        _z._r = _r;
+        _z._imax = ((_imax : GoFloat64));
+        _z._v = _v;
+        _z._q = _s;
+        _z._oneminusQ = ((1 : GoFloat64)) - _z._q;
+        _z._oneminusQinv = ((1 : GoFloat64)) / _z._oneminusQ;
+        _z._hxm = _z._h(_z._imax + ((0.5 : GoFloat64)));
+        _z._hx0minusHxm = (_z._h(((0.5 : GoFloat64))) - stdgo.math.Math.exp(stdgo.math.Math.log(_z._v) * (-_z._q))) - _z._hxm;
+        _z._s = ((1 : GoFloat64)) - _z._hinv(_z._h(((1.5 : GoFloat64))) - stdgo.math.Math.exp(-_z._q * stdgo.math.Math.log(_z._v + ((1 : GoFloat64)))));
         return _z;
     }
-class Rand_extension_fields {
-    public function expFloat64(__tmp__):GoFloat64 return __tmp__.expFloat64();
-    public function normFloat64(__tmp__):GoFloat64 return __tmp__.normFloat64();
-    public function seed(__tmp__, _seed:GoInt64):Void __tmp__.seed(_seed);
-    public function int63(__tmp__):GoInt64 return __tmp__.int63();
-    public function uint32(__tmp__):GoUInt32 return __tmp__.uint32();
-    public function uint64(__tmp__):GoUInt64 return __tmp__.uint64();
-    public function int31(__tmp__):GoInt32 return __tmp__.int31();
-    public function int(__tmp__):GoInt return __tmp__.int();
-    public function int63n(__tmp__, _n:GoInt64):GoInt64 return __tmp__.int63n(_n);
-    public function int31n(__tmp__, _n:GoInt32):GoInt32 return __tmp__.int31n(_n);
-    public function _int31n(__tmp__, _n:GoInt32):GoInt32 return __tmp__._int31n(_n);
-    public function intn(__tmp__, _n:GoInt):GoInt return __tmp__.intn(_n);
-    public function float64(__tmp__):GoFloat64 return __tmp__.float64();
-    public function float32(__tmp__):GoFloat32 return __tmp__.float32();
-    public function perm(__tmp__, _n:GoInt):Slice<GoInt> return __tmp__.perm(_n);
-    public function shuffle(__tmp__, _n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void __tmp__.shuffle(_n, _swap);
-    public function read(__tmp__, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return __tmp__.read(_p);
+@:build(stdgo.internal.Macro.wrapper(Rand)) class Rand_static_extension {
+
 }
-class T_lockedSource_extension_fields {
-    public function int63(__tmp__):GoInt64 return __tmp__.int63();
-    public function uint64(__tmp__):GoUInt64 return __tmp__.uint64();
-    public function seed(__tmp__, _seed:GoInt64):Void __tmp__.seed(_seed);
-    public function _seedPos(__tmp__, _seed:GoInt64, _readPos:Pointer<GoInt8>):Void __tmp__._seedPos(_seed, _readPos);
-    public function _read(__tmp__, _p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } return __tmp__._read(_p, _readVal, _readPos);
+@:build(stdgo.internal.Macro.wrapper(T_lockedSource)) class T_lockedSource_static_extension {
+
 }
-class T_rngSource_extension_fields {
-    public function seed(__tmp__, _seed:GoInt64):Void __tmp__.seed(_seed);
-    public function int63(__tmp__):GoInt64 return __tmp__.int63();
-    public function uint64(__tmp__):GoUInt64 return __tmp__.uint64();
+@:build(stdgo.internal.Macro.wrapper(T_rngSource)) class T_rngSource_static_extension {
+
 }
-class Zipf_extension_fields {
-    public function _h(__tmp__, _x:GoFloat64):GoFloat64 return __tmp__._h(_x);
-    public function _hinv(__tmp__, _x:GoFloat64):GoFloat64 return __tmp__._hinv(_x);
-    public function uint64(__tmp__):GoUInt64 return __tmp__.uint64();
+@:build(stdgo.internal.Macro.wrapper(Zipf)) class Zipf_static_extension {
+
 }

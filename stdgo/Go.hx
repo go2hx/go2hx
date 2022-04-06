@@ -188,11 +188,23 @@ class Go {
 		}
 		var t = Context.typeof(expr);
 		// trace(t);
+		var wrapped = false;
 		var follow = true;
 		switch t {
 			case TType(_.get() => t, params):
 				if (t.meta.has(":named")) {
 					follow = false;
+					final p:TypePath = {name: t.name + "_wrapper", pack: t.pack};
+					wrapped = true;
+					switch Context.toComplexType(Context.follow(t.type)) {
+						case TPath(p):
+							final std = p.name == "StdTypes" && p.params.length == 0 && p.pack.length == 0;
+							final stdgo = p.name == "StdGoTypes" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
+							final string = p.name == "GoString" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
+							if (std || stdgo || string) expr = macro Go.pointer($expr);
+						default:
+					}
+					expr = macro new $p($expr);
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
 					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
@@ -220,12 +232,9 @@ class Go {
 			default:
 		}
 		var ty = gtDecode(t, expr, []);
-		// trace(Context.currentPos(), new haxe.macro.Printer().printExprs([expr, ty], "\n"));
 		var e = macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
 		e.pos = Context.currentPos();
-		/*if (!gtIsBasic(t)) {
-			e = macro($expr == null ? null : $e);
-		}*/
+		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
 	}
 

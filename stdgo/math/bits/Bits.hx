@@ -106,8 +106,9 @@ var _deBruijn64tab : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((8 : GoUInt8)),
 ((7 : GoUInt8)),
 ((6 : GoUInt8))) : GoArray<GoUInt8>));
-var _overflowError : Error = ((null : stdgo.Error));
-var _divideError : Error = ((null : stdgo.Error));
+var _overflowError : stdgo.Error = new T_errorString_wrapper(Go.pointer(((((("integer overflow" : GoString))) : T_errorString))));
+var _divideError : stdgo.Error = new T_errorString_wrapper(Go.pointer(((((("integer divide by zero" : GoString))) : T_errorString))));
+@:named @:using(Bits.T_errorString_static_extension) typedef T_errorString = GoString;
 /**
     // LeadingZeros returns the number of leading zero bits in x; the result is UintSize for x == 0.
 **/
@@ -665,4 +666,15 @@ function rem32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):GoUInt32 {
 function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
     var __tmp__ = div64(_hi % _y, _lo, _y), _:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
     return _rem;
+}
+@:build(stdgo.internal.Macro.wrapper(T_errorString)) class T_errorString_static_extension {
+    @:keep
+    public static function error(_e:T_errorString):GoString {
+        _e;
+        return ((("runtime error: " : GoString))) + ((_e : GoString));
+    }
+    @:keep
+    public static function runtimeError(_e:T_errorString):Void {
+        _e;
+    }
 }

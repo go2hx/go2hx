@@ -219,26 +219,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						case "ValueSpec":
 							var spec:Ast.ValueSpec = spec;
 							values = values.concat(typeValue(spec, info));
-						// var inserted = false;
-						/*for (value in typeValue(spec, info)) {
-							inserted = false;
-							if (pkg.order != null) {
-								for (i in 0...pkg.order.length) {
-									if (value.name == nameIdent(pkg.order[i], false, true, info)) {
-										if (value.name == "zs" || value.name.toLowerCase().indexOf("graphic") != -1) {
-											trace(value.name, i);
-										}
-										values.insert(i, value);
-										inserted = true;
-										break;
-									}
-								}
-							}
-							if (!inserted) {
-								trace("fallback can't find: " + value.name);
-								values.unshift(value); // fall back
-							}
-						}*/
 						default:
 					}
 				}
@@ -857,6 +837,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 }
 
+// ($expr : $type);
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	if (e != null)
 		switch e.expr {
@@ -875,9 +856,16 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 			default:
 		}
 	if (isAnyInterface(fromType)) {
+		if (isNamed(toType)) {
+			if (isRefValue(getUnderlying(toType))) {
+				return macro(($e.value : Dynamic).__t__ : $ct);
+			} else {
+				return macro(($e.value : Dynamic).__t__.get() : $ct);
+			}
+		}
+
 		return macro($e.value : $ct);
 	}
-
 	if (isInterface(pointerUnwrap(fromType))) {
 		final args:Array<Expr> = [];
 		if (isPointer(fromType) && !isPointer(toType)) {
@@ -896,6 +884,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		}
 		return macro(($e.__underlying__().value : Dynamic) : $ct); // add all args to smart cast macro function
 	}
+	// trace(fromType, "|", toType);
 	if (isStruct(fromType) && isStruct(toType)) {
 		switch toType {
 			case named(path, _, _, _):
@@ -2277,7 +2266,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		final ct = typeExprType(expr.fun, info);
 		var e = typeExpr(expr.args[0], info);
 		final fromType = typeof(expr.args[0]);
-		return returnExpr(checkType(e, ct, fromType, typeof(expr.fun), info));
+		final toType = typeof(expr.fun);
+		if (isAnyInterface(toType) && !isRestExpr(e)) {
+			return (macro Go.toInterface($e)).expr;
+		}
+		return returnExpr(checkType(e, ct, fromType, toType, info));
 	}
 
 	switch expr.fun.id {
@@ -2319,7 +2312,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 			}
 		case "FuncLit":
-			var expr = toExpr(typeFuncLit(expr.fun, info, true));
+			var expr = toExpr(typeFuncLit(expr.fun, info, false));
 			genArgs(true);
 			return returnExpr(macro {
 				var a = $expr;
@@ -3801,6 +3794,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.restricted = null;
 	var meta:Metadata = [];
 	if (decl.recv != null) {
+		meta.push({name: ":keep", pos: null});
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
 		var varType = typeof(decl.recv.list[0].type);
 		if (varName != "") {

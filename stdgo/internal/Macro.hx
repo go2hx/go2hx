@@ -204,11 +204,13 @@ class Macro {
 		switch localType {
 			case TInst(_.get() => cl, _):
 				final wrapper = macro class $wrapperName {
-					var __t__:$ct;
+					@:keep
+					public var __t__:$ct;
 
 					public function new(__t__)
 						this.__t__ = __t__;
 
+					@:keep
 					public function __underlying__():AnyInterface
 						return Go.toInterface(__t__);
 				};
@@ -258,6 +260,7 @@ class Macro {
 								name: field.name,
 								pos: field.pos,
 								access: [APublic],
+								meta: [{name: ":keep", pos: Context.currentPos()}],
 								kind: FFun({
 									args: args.map(arg -> {
 										// arg.type = null;

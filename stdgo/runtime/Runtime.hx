@@ -12,45 +12,25 @@ import eval.vm.Gc;
 import java.vm.Gc;
 #end
 
-var divideError:Error = new T_errorString("integer divide by zero");
-var overflowError:Error = new T_errorString("integer overflow");
-var floatError:Error = new T_errorString("floating point error");
-var memoryError:Error = new T_errorString("invalid memory address or nil pointer dereference");
-var shiftError:Error = new T_errorString("negative shift amount");
+@:eagar
+typedef ErrorString = T_errorString;
 
-@:named class T_errorString {
-	public function error():GoString {
-		var _e = this.__copy__();
-		return ((("runtime error: " : GoString))) + _e.__t__;
+var divideError:ErrorString = "integer divide by zero";
+var overflowError:ErrorString = "integer overflow";
+var floatError:ErrorString = "floating point error";
+var memoryError:ErrorString = "invalid memory address or nil pointer dereference";
+var shiftError:ErrorString = "negative shift amount";
+@:named @:using(Runtime.T_errorString_static_extension) typedef T_errorString = GoString;
+
+@:build(stdgo.internal.Macro.wrapper(T_errorString)) class T_errorString_static_extension {
+	public static function error(_e:T_errorString):GoString {
+		_e;
+		return ((("runtime error: " : GoString))) + ((_e : GoString));
 	}
 
-	public function runtimeError():Void {
-		var _e = this.__copy__();
+	public static function runtimeError(_e:T_errorString):Void {
+		_e;
 	}
-
-	public var __t__:GoString;
-
-	public function new(?t:GoString) {
-		__t__ = t == null ? "" : t;
-	}
-
-	public function __underlying__():AnyInterface
-		return Go.toInterface(this);
-
-	@:implicit
-	public function toString():GoString
-		return Go.string(__t__);
-
-	public function __copy__()
-		return new T_errorString(__t__);
-}
-
-class T_errorString_extension_fields {
-	public function runtimeError(__tmp__):Void
-		__tmp__.runtimeError();
-
-	public function error(__tmp__):GoString
-		return __tmp__.error();
 }
 
 var memProfileRate:Int = 0;
@@ -117,7 +97,9 @@ private class RuntimeErrorData {
 }
 
 function keepAlive(x:AnyInterface) {}
-@:eager typedef T_error = Error;
+
+@:eager
+typedef T_error = Error;
 
 typedef Error = StructType &
 	stdgo.Error & {

@@ -3360,7 +3360,7 @@ private function funcReset(info:Info) {
 }
 
 private function typeFuncLit(expr:Ast.FuncLit, info:Info, isFunc:Bool = true):ExprDef {
-	final info = isFunc ? info.copy() : info;
+	final info = info.copy();
 	if (isFunc)
 		funcReset(info);
 
@@ -3764,7 +3764,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 
 	block = argsTranslate(args, block);
-
+	
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);
 		if (decl.type.results != null && decl.type.results.list.length > 0)

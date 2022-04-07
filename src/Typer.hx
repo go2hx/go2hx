@@ -238,7 +238,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 				valuesSorted = valuesSorted.concat(values);
 			}
 			data.defs = valuesSorted.concat(data.defs);
-
 			for (decl in declFuncs) { // parse function bodies last
 				if (decl.recv != null && decl.recv.list.length > 0) {
 					recvFunctions.push({decl: decl, path: file.path});
@@ -376,7 +375,9 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 				}
 			}
 		}
-
+		for (file in module.files) {
+			trace(file.defs.map(def -> def.name));
+		}
 		list.push(module);
 	}
 
@@ -4313,10 +4314,6 @@ private function typeFields(list:Array<FieldType>, info:Info, access:Array<Acces
 	for (field in list) {
 		final ct = toComplexType(field.type, info);
 		var name = field.name;
-		if (name == "_") {
-			// isBlank
-			name = "__blank__" + (blankCounter++);
-		}
 		var meta:Metadata = [];
 		if (field.embedded) {
 			meta.push({name: ":embedded", pos: null});
@@ -4835,7 +4832,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	var values:Array<TypeDefinition> = [];
 	if (value.names.length > value.values.length && value.values.length > 0) {
 		var t = typeof(value.values[0]);
-
 		// destructure
 		var tmp = "__tmp__" + (info.blankCounter++);
 		var tmpExpr = macro $i{tmp};
@@ -5002,7 +4998,7 @@ private function untitle(name:String):String {
 private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
 	name = nameAscii(name);
 	if (name == "_")
-		return "_";
+		return "_" + info.blankCounter++;
 	if (name == "null")
 		return "nil";
 	if (name == "main")

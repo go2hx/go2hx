@@ -1645,7 +1645,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 
 			final assign = typeExpr(stmt.lhs[0], info);
 
-			if (stmt.lhs[0].id == "IndexExpr") {
+			if (stmt.lhs[0].id == "IndexExpr") { // prevent invalid assign to null
 				switch assign.expr {
 					case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
 						return (macro if ($econd)
@@ -1701,7 +1701,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var toType = typeof(stmt.lhs[i]);
 					var fromType = typeof(stmt.rhs[i]);
 					y = assignTranslate(fromType, toType, y, info);
-					if (stmt.lhs[i].id == "IndexExpr") {
+					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
 						switch x.expr {
 							case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
 								exprs.push(macro if ($econd)
@@ -1795,6 +1795,15 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					final fieldName = names[i];
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i]), e2, info);
+					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
+						switch e.expr {
+							case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
+								assigns.push(macro if ($econd)
+									$eif = ${e2});
+								continue;
+							default:
+						}
+					}
 					assigns.push(macro $e = ${e2});
 				}
 				return EBlock([macro var __tmp__ = $func].concat(assigns));
@@ -3764,7 +3773,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 
 	block = argsTranslate(args, block);
-	
+
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);
 		if (decl.type.results != null && decl.type.results.list.length > 0)

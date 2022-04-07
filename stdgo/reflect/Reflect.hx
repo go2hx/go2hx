@@ -530,8 +530,9 @@ class Value {
 		}
 	}
 
-	public inline function isValid()
-		return @:privateAccess value.type.common().value != invalid;
+	public inline function isValid() {
+		return @:privateAccess value.type.common().value != invalidType;
+	}
 
 	public function bool():Bool {
 		var value = value.value;
@@ -1772,7 +1773,18 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 }
 
 @:using(Reflect.Kind_extension)
+@:named
 typedef Kind = GoUInt;
+
+class Kind_wrapper {
+	public var __t__:Pointer<Kind>;
+
+	public function new(__t__)
+		this.__t__ = __t__;
+
+	public function toString()
+		__t__.value.toString();
+}
 
 class Kind_extension {
 	public static function toString(kind:Kind):String {

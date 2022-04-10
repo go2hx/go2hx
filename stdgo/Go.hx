@@ -94,45 +94,6 @@ class Go {
 		return type;
 	}
 
-	public static macro function copy<T>(dst:Expr, src:Expr) {
-		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
-		var srcType = Context.toComplexType(Context.follow(Context.typeof(src)));
-		var isString = switch srcType {
-			case TPath(p): p.name == "String" && p.pack.length == 0;
-			default:
-				false;
-		}
-		switch srcType {
-			case TPath(p):
-				switch p.name {
-					case "String", "GoString":
-						src = macro($src : GoString);
-					case "Slice", "SliceData": // src
-					default: // named
-						src = macro $src.__t__;
-				}
-			default:
-		}
-		switch type {
-			case TPath(p):
-				switch p.name {
-					case "SliceData": // dst
-					default: // named
-						dst = macro $dst.__t__;
-				}
-			default:
-		}
-		return macro {
-			var src = $src;
-			var dst = $dst;
-			var length = dst.length >= src.length ? src.length : dst.length; // min length
-			for (i in 0...length.toBasic()) {
-				dst[i] = src[i];
-			}
-			length;
-		}
-	}
-
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;

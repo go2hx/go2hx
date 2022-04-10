@@ -54,6 +54,7 @@ var buildPath:String = "";
 var externBool:Bool = false;
 var hxmlPath:String = "";
 var noRun:Bool = false;
+var noComments:Bool = false;
 var test:Bool = false;
 final defines:Array<String> = [];
 
@@ -76,6 +77,7 @@ function run(args:Array<String>) {
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run the build commands")
 		["-norun", "--norun"] => () -> noRun = true, @doc("go test")
+		["-nocomments", "--nocomments"] => () -> noComments = true, @doc("no comments")
 		["-test", "--test"] => () -> test = true,
 		@doc("generate externs exported module fields only with no func exprs")
 		["-extern", "--extern", "-externs", "--externs"] => () -> externBool = true,
@@ -217,7 +219,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
-
 	for (i in 0...processCount) {
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
@@ -260,9 +261,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			pos += bytes.length;
 			if (pos == buff.length) {
 				var exportData:DataType = bson.Bson.decode(buff);
-				// File.saveContent("export.json", Json.stringify(exportData)); // export out data to json
+				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
 				var modules = [];
-				modules = Typer.main(exportData, printGoCode, externBool);
+				modules = Typer.main(exportData, printGoCode, externBool, noComments);
 				Sys.setCwd(localPath);
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];

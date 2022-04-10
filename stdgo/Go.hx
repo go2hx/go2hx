@@ -94,6 +94,24 @@ class Go {
 		return type;
 	}
 
+	public static macro function copySlice<T>(dst:Expr, src:Expr) {
+		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
+		var srcType = Context.toComplexType(Context.follow(Context.typeof(src)));
+		return macro {
+			var src = $src;
+			var dst = $dst;
+			var length = if (src == null || dst == null) {
+				(0 : GoInt);
+			} else {
+				dst.length >= src.length ? src.length : dst.length; // min length
+			}
+			for (i in 0...length.toBasic()) {
+				dst[i] = src[i];
+			}
+			length;
+		}
+	}
+
 	public static function string(s:Dynamic):String {
 		if ((s is stdgo.StdGoTypes.AnyInterfaceData)) {
 			s = s.value;

@@ -2349,9 +2349,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new Slice<$ct>($a{args})));
 					case "copy":
 						genArgs(false);
-						final t = typeof(expr.args[0]);
-						final e = passByCopy(t, args[0], info);
-						return returnExpr(e);
+						return returnExpr(macro Go.copySlice($a{args}));
 					case "delete":
 						var e = typeExpr(expr.args[0], info);
 						var key = typeExpr(expr.args[1], info);

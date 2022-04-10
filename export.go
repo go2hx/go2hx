@@ -167,7 +167,7 @@ var cfg = &packages.Config{
 		packages.NeedSyntax |
 		packages.NeedImports | packages.NeedDeps |
 		packages.NeedFiles | packages.NeedTypes | packages.NeedTypesInfo | packages.NeedModule | packages.NeedTypesSizes,
-	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go"}, // build tags
+	BuildFlags: []string{"-tags", "netgo,purego,math_big_pure_go,compiler_bootstrap"}, // build tags
 }
 
 func main() {
@@ -546,7 +546,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 				i++
 				continue
 			}
-			if pkg.PkgPath == list[i].PkgPath {
+			if pkg != list[i] && pkg.PkgPath == list[i].PkgPath {
 				mergePackage(list[i], pkg, true)
 				list = append(list[:i], list[i+1:]...) // delete
 			}

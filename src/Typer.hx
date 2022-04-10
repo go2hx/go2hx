@@ -75,8 +75,10 @@ final basicTypes = [
 var printer = new Printer();
 var config = {printGoCode: false}; // typer config
 var externBool:Bool = false;
+var noCommentsBool:Bool = false;
 
-function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
+function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool = false) {
+	noCommentsBool = nc;
 	externBool = eb;
 	config.printGoCode = printGoCode;
 	var list:Array<Module> = [];
@@ -92,6 +94,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 		{path: ["stdgo", "GoMap"], alias: "", doc: ""},
 		{path: ["stdgo", "Chan"], alias: "", doc: ""},
 	];
+	// trace(data.pkgs.map(pkg -> pkg.name));
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -208,6 +211,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 				}
 			}
 			var values = [];
+			// trace(declGens.length);
 			for (gen in declGens) {
 				// variables after so that all types can be refrenced by a value and have it exist.
 				info.lastValue = null;
@@ -217,7 +221,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						continue;
 					switch spec.id {
 						case "ValueSpec":
-							var spec:Ast.ValueSpec = spec;
+							final spec:Ast.ValueSpec = spec;
 							values = values.concat(typeValue(spec, info));
 						default:
 					}
@@ -227,13 +231,14 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 			for (name in pkg.order) {
 				for (value in values) {
 					if (value.name == name) {
-						valuesSorted.push(value);
 						values.remove(value);
+						valuesSorted.push(value);
 						break;
 					}
 				}
 			}
 			if (values.length > 0) {
+				trace("values sorted: " + valuesSorted.length);
 				trace("unsorted values left: " + values.length);
 				valuesSorted = valuesSorted.concat(values);
 			}
@@ -288,7 +293,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 							local.push({func: recv.decl, sel: name.sel});
 					}
 				}
-				var restrictedNames = [for (func in local) nameIdent(func.func.name.name, false, false, info)];
+				var restrictedNames = [for (func in local) nameIdent(func.func.name.name, false, false, info)]; // restrict function names
 				var isNamed = false;
 				if (def != null && def.meta != null && def.meta[0] != null && def.meta[0].name == ":named")
 					isNamed = true;
@@ -324,7 +329,14 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 						{name: ":build", params: [macro stdgo.internal.Macro.wrapper($i{def.name})], pos: null}
 					],
 				};
-				def.meta.push({name: ":using", params: [macro $p{[info.global.filePath, staticExtensionName]}], pos: null});
+				final fieldExtension = [info.global.filePath, staticExtensionName];
+				var globalPath = getGlobalPath(info);
+				fieldExtension.unshift(globalPath);
+				globalPath = toGoPath(globalPath);
+				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
+					fieldExtension.unshift("stdgo");
+				}
+				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
@@ -375,9 +387,8 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false) {
 				}
 			}
 		}
-		for (file in module.files) {
-			trace(file.defs.map(def -> def.name));
-		}
+		// for (file in module.files)
+		//	trace(file.defs.map(def -> def.name));
 		list.push(module);
 	}
 
@@ -2070,29 +2081,9 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 }
 
 private function selectorType(expr:Ast.SelectorExpr, info:Info):ComplexType {
-	function func(x:Ast.Expr, isSelector:Bool):Array<String> {
-		switch x.id {
-			case "Ident":
-				var name = x.name; // nameIdent(x.name, true, false, info);
-				return [name];
-			case "SelectorExpr":
-				var x:Ast.SelectorExpr = x;
-				var name = x.sel.name; // nameIdent(x.sel.name, true, false, info);
-				return [name].concat(func(x.x, true));
-			default:
-				trace("unknown x id: " + x.id);
-				return [];
-		}
-	}
-	var name = className(expr.sel.name, info);
-	final pack = func(expr.x, false);
-	if (pack.length == 1 && pack[0] == "stdgo.unsafe.Unsafe" && name == "Pointer")
-		name = "UnsafePointer";
-	return TPath(namedTypePath(pack.concat([name]).join("."), info));
-	/*return TPath({
-		name: name,
-		pack: pack,
-	});*/
+	final t = typeof(expr);
+	final ct = toComplexType(t, info);
+	return ct;
 }
 
 private function ellipsisType(expr:Ast.Ellipsis, info:Info):ComplexType {
@@ -2358,7 +2349,9 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new Slice<$ct>($a{args})));
 					case "copy":
 						genArgs(false);
-						return returnExpr(macro Go.copy($a{args}));
+						final t = typeof(expr.args[0]);
+						final e = passByCopy(t, args[0], info);
+						return returnExpr(e);
 					case "delete":
 						var e = typeExpr(expr.args[0], info);
 						var key = typeExpr(expr.args[1], info);
@@ -2410,7 +2403,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0]);
 								var value = defaultValue(t, info, true);
-								value = macro Go.pointer($value);
+								if (!isRefValue(t))
+									value = macro Go.pointer($value);
 								return returnExpr(value);
 							default:
 						}
@@ -2783,7 +2777,8 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pack = [];
 	if (globalPath != path) {
 		pack = path.split("/");
-		if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+		// trace(path);
+		if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}
 		if (last == 0 && split == -1)
@@ -3904,7 +3899,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		pos: null,
 		pack: [],
 		fields: [],
-		doc: finalDoc,
+		doc: noCommentsBool ? "" : finalDoc,
 		meta: meta,
 		isExtern: isTitle(decl.name.name),
 		kind: TDField(FFun({
@@ -4375,23 +4370,6 @@ private function typeFieldListFields(list:Ast.FieldList, info:Info, access:Array
 	return typeFields(fieldList, info, access, defaultBool);
 }
 
-private function typeFieldListTypes(list:Ast.FieldList, info:Info):Array<TypeDefinition> {
-	var defs:Array<TypeDefinition> = [];
-	for (field in list.list) {
-		var type = typeExprType(field.type, info);
-		for (name in field.names) {
-			defs.push({
-				name: nameIdent(name.name, false, false, info),
-				pos: null,
-				pack: [],
-				fields: [],
-				kind: null,
-			});
-		}
-	}
-	return defs;
-}
-
 private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field {
 	var name:String = "";
 	switch ct {
@@ -4705,7 +4683,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				pos: null,
 				fields: fields,
 				pack: [],
-				doc: doc,
+				doc: noCommentsBool ? "" : doc,
 				isExtern: externBool,
 				meta: meta,
 				kind: TDClass(),
@@ -4771,11 +4749,17 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				name: name,
 				pack: [],
 				pos: null,
-				doc: doc,
+				doc: noCommentsBool ? "" : doc,
 				fields: [],
 				isExtern: externBool,
 				meta: meta,
-				kind: TDAlias(TIntersection([TPath({name: "StructType", pack: []}), TExtend(implicits, fields)]))
+				kind: TDAlias(TIntersection([
+					TPath({
+						name: "StructType",
+						pack: []
+					}),
+					TExtend(implicits, fields)
+				]))
 			};
 		default:
 			return null;
@@ -4799,7 +4783,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	var alias = imp.name;
 	if (alias == "_")
 		alias = "";
-	if (stdgoList.indexOf(path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+	if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 		pack.unshift("stdgo");
 	}
 	final name = pack[pack.length - 1];
@@ -4809,7 +4793,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 			info.data.imports.push({
 				path: pack,
 				alias: "",
-				doc: doc,
+				doc: noCommentsBool ? "" : doc,
 			});
 		} else {
 			if (alias == "_test" && StringTools.endsWith(info.global.path, "_test") && pack.length > 1 && pack[0] == "stdgo") {
@@ -4892,7 +4876,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				pack: [],
 				fields: [],
 				isExtern: isTitle(value.names[i].name),
-				doc: doc,
+				doc: noCommentsBool ? "" : doc,
 				kind: TDField(FVar(type, expr), access)
 			});
 		}
@@ -4950,7 +4934,7 @@ private function getRestrictedName(name:String, info:Info):String { // all funct
 				continue;
 			if (def.name == name) {
 				final pack = info.global.module.path.split(".");
-				if (stdgoList.indexOf(info.global.module.path) != -1) { // haxe only type, otherwise the go code refrences Haxe
+				if (stdgoList.indexOf(toGoPath(info.global.module.path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					pack.unshift("stdgo");
 				}
 				final name = pack[pack.length - 1];
@@ -5045,7 +5029,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 	return name;
 }
 
-private function normalizePath(path:String):String {
+function normalizePath(path:String):String {
 	path = path.toLowerCase();
 	path = StringTools.replace(path, ".", "_");
 	path = StringTools.replace(path, ":", "_");

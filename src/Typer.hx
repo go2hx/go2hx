@@ -94,7 +94,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 		{path: ["stdgo", "GoMap"], alias: "", doc: ""},
 		{path: ["stdgo", "Chan"], alias: "", doc: ""},
 	];
-	// trace(data.pkgs.map(pkg -> pkg.name));
+	// trace(data.pkgs.map(pkg -> pkg.path + " " + pkg.name));
 	// module system
 	for (pkg in data.pkgs) {
 		if (pkg.files == null)
@@ -197,12 +197,26 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					}
 				}
 			}
+			for (gen in declGens) {
+				for (spec in gen.specs) {
+					if (spec == null)
+						continue;
+					switch spec.id {
+						case "TypeSpec":
+							final spec:Ast.TypeSpec = spec;
+							if (spec.type.id == "StructType") { // priority
+								if (spec.name.name != "_")
+									info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
+							}
+					}
+				}
+			}
 			var typeSpecNames:Array<String> = [];
 			for (gen in declGens) {
 				for (spec in gen.specs) { // 2nd pass
 					if (spec == null)
 						continue;
-					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType") { // all other specs
+					if (spec.id == "TypeSpec" && spec.type.id != "InterfaceType" && spec.type.id != "StructType") { // all other specs
 						if (spec.name.name != "_" && typeSpecNames.indexOf(spec.name.name) == -1) {
 							typeSpecNames.push(spec.name.name);
 							info.data.defs.push(typeSpec(spec, info, gen.tok == FUNC));
@@ -1494,7 +1508,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 			case interfaceType(_, _):
 			case sliceType(_), mapType(_, _), chanType(_, _): // pass by ref
 			case arrayType(_, _): // pass by copy
-				y = macro $y.copy();
+				y = macro($y == null ? null : $y.__copy__());
 			case structType(fields):
 				final decl = toExpr(EObjectDecl([
 					for (field in fields) {
@@ -4025,7 +4039,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 				default:
 			}
 			switch underlying {
-				case pointer(_), interfaceType(_), mapType(_, _):
+				case pointer(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
 					macro(null : $ct);
 				default:
@@ -4547,6 +4561,23 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					macro if ($i{name} != null)
 						this.$name = $i{name}
 			];
+			if (StringTools.startsWith(name, "T__struct_")) {
+				var str = "";
+				for (field in fields) {
+					str += " $" + field.name;
+				}
+				str = "{" + str.substr(1) + "}";
+				fields.push({
+					name: "toString",
+					access: [APublic],
+					pos: null,
+					kind: FFun({
+						ret: TPath({name: "String", pack: []}),
+						args: [],
+						expr: macro return ${makeString(str, SingleQuotes)},
+					})
+				});
+			}
 			fields.push({
 				name: "new",
 				pos: null,
@@ -4566,7 +4597,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					expr: macro $b{exprs},
 				}),
 			});
-
 			var type:TypePath = {name: name, pack: []};
 			var args:Array<Expr> = [];
 			var sets:Array<Expr> = [];

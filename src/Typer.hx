@@ -1774,13 +1774,17 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				var tmpIndex = 0;
 				var inits:Array<Expr> = [];
 				for (expr in exprs) {
+					switch expr.expr { // in case it's an array/slice/map get and has a null if check
+						case EIf(_, e, _):
+							expr = e;
+						default:
+					}
 					switch expr.expr {
 						case EBinop(op, e1, e2):
 							var tmpName = "__tmp__" + tmpIndex;
 							tmpIndex++;
 							inits.push(macro final $tmpName = ${e2});
 							expr.expr = EBinop(op, e1, macro $i{tmpName});
-						case EIf(_, _, _):
 						default:
 							throw "expr should normally be a binop: " + expr.expr;
 					}

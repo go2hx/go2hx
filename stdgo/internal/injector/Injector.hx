@@ -15,7 +15,6 @@ function run() {
 		"stdgo.math.Math",
 		"stdgo.syscall.Syscall",
 		"stdgo.syscall.js.Js",
-		"stdgo.sort.Sort",
 	];
 	for (path in paths)
 		Compiler.addGlobalMetadata(path, "@:build(stdgo.internal.injector.Injector.build())", true, true, false);

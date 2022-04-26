@@ -135,6 +135,7 @@ func compile(params []string, excludesData excludesType) []byte {
 			delete(excludes, pkg.PkgPath)
 		}
 	}
+	//log(excludes)
 	data := parsePkgList(initial, excludes)
 	//reset
 	excludes = nil
@@ -492,40 +493,15 @@ func throw(str string) {
 	panic(str)
 }
 
-func mergePackage(input *packages.Package, output *packages.Package, typeBool bool) {
-	files := make(map[string]*ast.File, len(input.Syntax))
-	for i := 0; i < len(input.Syntax); i++ {
-		path := filepath.Base(input.GoFiles[i])
-		files[path] = input.Syntax[i]
+// takes all of the Syntax from input and merges it and then puts a single *ast.File syntax into output
+func mergePackage(pkg *packages.Package) {
+	files := make(map[string]*ast.File, len(pkg.Syntax))
+	for i := 0; i < len(pkg.Syntax); i++ {
+		path := filepath.Base(pkg.GoFiles[i])
+		files[path] = pkg.Syntax[i]
 	}
-	if input != output {
-		for i := 0; i < len(output.Syntax); i++ {
-			path := filepath.Base(output.GoFiles[i])
-			files[path] = output.Syntax[i]
-		}
-	}
-	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: output.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
-	output.Syntax = newFiles
-	if typeBool {
-		for key, value := range input.TypesInfo.Defs {
-			output.TypesInfo.Defs[key] = value
-		}
-		for key, value := range input.TypesInfo.Types {
-			output.TypesInfo.Types[key] = value
-		}
-		for key, value := range input.TypesInfo.Selections {
-			output.TypesInfo.Selections[key] = value
-		}
-		for key, value := range input.TypesInfo.Implicits {
-			output.TypesInfo.Implicits[key] = value
-		}
-		for key, value := range input.TypesInfo.Scopes {
-			output.TypesInfo.Scopes[key] = value
-		}
-		for key, value := range input.TypesInfo.Uses {
-			output.TypesInfo.Uses[key] = value
-		}
-	}
+	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
+	pkg.Syntax = newFiles
 }
 
 var countStruct = 0
@@ -533,24 +509,18 @@ var countInterface = 0
 
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	// merge packages
-	for _, pkg := range list {
-		mergePackage(pkg, pkg, false)
-		if externBool {
-			for _, file := range pkg.Syntax {
-				ast.FileExports(file) // trim unexported fields
+	for i := 0; i < len(list); i++ {
+		if i+1 < len(list) {
+			if list[i].PkgPath == list[i+1].PkgPath {
+				list = append(list[:i], list[i+1:]...)
+				// fall through in order to use test version one
 			}
 		}
-		i := 0
-		for i < len(list) {
-			if pkg == list[i] {
-				i++
-				continue
+		mergePackage(list[i])
+		if externBool {
+			for _, file := range list[i].Syntax {
+				ast.FileExports(file) // trim unexported fields
 			}
-			if pkg != list[i] && pkg.PkgPath == list[i].PkgPath {
-				mergePackage(list[i], pkg, true)
-				list = append(list[:i], list[i+1:]...) // delete
-			}
-			i++
 		}
 	}
 	typeHasher = typeutil.MakeHasher()
@@ -1000,14 +970,9 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value == nil {
 		return nil
 	}
-	kind := 0
-	if value.Obj != nil {
-		kind = int(value.Obj.Kind)
-	}
 	data := map[string]interface{}{
 		"id":   "Ident",
 		"name": value.Name,
-		"kind": kind,
 	}
 	obj := checker.ObjectOf(value)
 	if obj != nil {

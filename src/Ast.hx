@@ -52,7 +52,6 @@ typedef BadExpr = {
 typedef Ident = {
 	name:String,
 	type:ExprType,
-	kind:ObjKind,
 }
 
 typedef Ellipsis = {

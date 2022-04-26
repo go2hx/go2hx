@@ -246,7 +246,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 				}
 			}
 			if (values.length > 0) {
-				trace("values sorted: " + valuesSorted.length);
 				trace("unsorted values left: " + values.length);
 				valuesSorted = valuesSorted.concat(values);
 			}
@@ -2181,15 +2180,7 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
-	if (expr.name == "Time") {
-		trace(info.renameIdents[expr.name]);
-	}
 	var name = nameIdent(expr.name, true, false, info);
-	if (info.renameIdents[expr.name] == name && info.classNames[expr.name] == name) {
-		final t = typeof(expr.type);
-		if (!isStruct(t))
-			name += "_static_extension";
-	}
 	return EConst(CIdent(name));
 }
 
@@ -3690,7 +3681,6 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 private function isClass(x:Ast.Expr, info:Info):Bool {
 	return switch x.id {
 		case "Ident":
-			trace(info.renameIdents[x.name], info.classNames[x.name]);
 			info.renameIdents[x.name] == info.classNames[x.name];
 		case "ParenExpr", "StarExpr":
 			isClass(x.x, info);
@@ -4458,8 +4448,8 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
-	info.renameIdents[spec.name.name] = name;
-	info.classNames[spec.name.name] = name;
+	info.renameIdents[spec.name.name] = name + "_static_extension";
+	info.classNames[spec.name.name] = name + "_static_extension";
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
@@ -4609,8 +4599,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
-			info.renameIdents[spec.name.name] = name;
-			info.classNames[spec.name.name] = name;
+			info.renameIdents[spec.name.name] = name + "_static_extension";
+			info.classNames[spec.name.name] = name + "_static_extension";
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
 			final names = [for (field in fields) field.name];

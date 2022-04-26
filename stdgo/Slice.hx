@@ -91,6 +91,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
+		if (this == null)
+			return null;
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();

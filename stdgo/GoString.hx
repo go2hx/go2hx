@@ -117,6 +117,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return new GoStringKeyValueIterator(this);
 
 	public function __slice__(start:GoInt, end:GoInt = -1):GoString {
+		if (this == null)
+			return null;
 		if (end == -1)
 			end = this.length;
 		final pos = start.toBasic();

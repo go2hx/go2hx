@@ -120,12 +120,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 			pkg.order = [];
 		}
 
-		// holds the last path to refrence against to see if a file has the main package name
-		var endPath = pkg.path;
-		var index = endPath.lastIndexOf(".");
-		endPath = endPath.substr(index + 1);
-		endPath = importClassName(endPath);
-
 		for (file in pkg.files) {
 			if (file.decls == null)
 				continue;
@@ -329,6 +323,18 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					}
 				}
 
+				final ct:ComplexType = TPath({name: def.name, pack: []});
+				final wrapperName = def.name + "_wrapper";
+				final wrapper:TypeDefinition = macro class $wrapperName {
+					public var __t__:$ct;
+
+					public function new(__t__)
+						this.__t__ = __t__;
+
+					public function __underlying__():AnyInterface
+						return Go.toInterface(this);
+				};
+
 				if (local.length == 0)
 					continue;
 
@@ -339,19 +345,18 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					pack: [],
 					kind: TDClass(),
 					fields: [],
-					meta: [
-						{name: ":build", params: [macro stdgo.internal.Macro.wrapper($i{def.name})], pos: null}
-					],
+					meta: [{name: ":keep", pos: null},],
 				};
 				final fieldExtension = [info.global.filePath, staticExtensionName];
 				var globalPath = getGlobalPath(info);
 				fieldExtension.unshift(globalPath);
-				globalPath = toGoPath(globalPath);
 				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					fieldExtension.unshift("stdgo");
 				}
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
+				file.defs.push(wrapper);
+
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					if (func == null)
@@ -367,32 +372,48 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 											break;
 										}
 									}
-									final access = [APublic, AStatic];
-									if (isStruct) {
-										access.remove(AStatic);
-										final master = fun.args.shift();
-										final name = master.name;
-										switch fun.expr.expr {
-											case EBlock(exprs):
-												exprs.unshift(macro var $name = this);
-											default:
-										}
-									}
 									final field:Field = {
 										name: func.name,
 										pos: func.pos,
-										meta: func.meta,
-										access: access,
+										meta: func.meta.copy(),
+										access: [APublic],
 										kind: FFun({
-											args: fun.args,
+											args: fun.args.copy(),
 											ret: fun.ret,
-											expr: fun.expr,
+											expr: {expr: fun.expr.expr, pos: null},
+										}),
+									}
+									switch field.kind {
+										case FFun(fun):
+											final master = fun.args.shift();
+											final name = master.name;
+											switch fun.expr.expr {
+												case EBlock(exprs): // that gets added to expr block
+													if (isStruct) {
+														fun.expr = {expr: EBlock([macro var $name = this].concat(exprs.copy())), pos: null};
+													} else {
+														fun.expr = {expr: EBlock([macro var $name = Go.pointer(__t__)].concat(exprs.copy())), pos: null};
+													}
+												default:
+											}
+										default:
+									}
+									final staticField:Field = {
+										name: func.name,
+										pos: func.pos,
+										meta: func.meta.copy(),
+										access: [APublic, AStatic],
+										kind: FFun({
+											args: fun.args.copy(),
+											ret: fun.ret,
+											expr: {expr: fun.expr.expr, pos: null},
 										})
 									};
 									if (isStruct) {
 										def.fields.unshift(field);
 									} else {
-										staticExtension.fields.unshift(field);
+										staticExtension.fields.unshift(staticField);
+										wrapper.fields.unshift(field);
 									}
 								default:
 							}
@@ -608,6 +629,7 @@ private function typeBlockStmt(stmt:Ast.BlockStmt, info:Info, isFunc:Bool):ExprD
 private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):ExprDef {
 	final info = info;
 	info.renameIdents = info.renameIdents.copy();
+	info.classNames = info.classNames.copy();
 	var exprs:Array<Expr> = [];
 	// add named return values
 	if (isFunc) {
@@ -801,7 +823,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 						var data = castTranslate(spec.values[0], func, info);
 						func = data.expr;
 						if (data.ok)
-							spec.names = [{name: "value", type: null, kind: typ}, {name: "ok", type: null, kind: typ}];
+							spec.names = [{name: "value", type: null}, {name: "ok", type: null}];
 						vars.push({
 							name: tmp,
 							expr: func
@@ -2159,7 +2181,15 @@ private function typeEllipsis(expr:Ast.Ellipsis, info:Info):ExprDef {
 }
 
 private function typeIdent(expr:Ast.Ident, info:Info, isSelect:Bool):ExprDef {
+	if (expr.name == "Time") {
+		trace(info.renameIdents[expr.name]);
+	}
 	var name = nameIdent(expr.name, true, false, info);
+	if (info.renameIdents[expr.name] == name && info.classNames[expr.name] == name) {
+		final t = typeof(expr.type);
+		if (!isStruct(t))
+			name += "_static_extension";
+	}
 	return EConst(CIdent(name));
 }
 
@@ -2304,18 +2334,18 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			switch typeof(expr.fun.sel) {
 				case signature(_, _, _, recv):
 					switch recv {
-						case _var(name, type):
-							if (isPointer(type)) {
-								var e = typeExpr(expr.fun, info);
-								var x = typeExpr(expr.fun.x, info);
-								var xType = typeof(expr.fun.x);
-								genArgs(true);
-								if (isPointer(xType)) {
-									args.insert(1, x);
-								} else {
-									args.insert(1, macro Go.pointer($x));
+						case _var(_, type):
+							final xType = typeof(expr.fun.x);
+							if (!isPointer(xType) && isPointer(type)) {
+								var sel = switch typeExpr(expr.fun.sel, info).expr {
+									case EConst(CIdent(s)):
+										s;
+									default:
+										throw "unknown expr: " + expr.fun.sel;
 								}
-								return returnExpr(macro $e($a{args}));
+								var x = typeExpr(expr.fun.x, info);
+								genArgs(true);
+								return returnExpr(macro Go.pointer($x).$sel($a{args}));
 							}
 						default:
 					}
@@ -2589,6 +2619,8 @@ private function getTuple(e:Dynamic):Array<GoType> {
 	var tuples:Array<GoType> = [];
 	for (v in vars) {
 		final t = typeof(v.type);
+		if (t == invalidType)
+			trace("v:", v.type.id, "\n", t);
 		if (v.name == "_" || v.name == "") {
 			tuples.push(t);
 			continue;
@@ -2767,6 +2799,8 @@ private function getGlobalPath(info:Info):String {
 }
 
 private function toGoPath(path:String):String {
+	if (StringTools.endsWith(path, "_test"))
+		path = path.substr(0, path.length - "_test".length);
 	return StringTools.replace(path, ".", "/");
 }
 
@@ -2886,8 +2920,10 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			]);
 		case signature(variadic, params, results, recv):
 			var args:Array<ComplexType> = [];
-			for (param in params)
+
+			for (param in params) {
 				args.push(toComplexType(param, info));
+			}
 			var ret:ComplexType = null;
 			if (results.length == 0) {
 				ret = TPath({name: "Void", pack: []});
@@ -3609,13 +3645,14 @@ function getStructFields(type:GoType):Array<FieldType> {
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
 	var x = typeExpr(expr.x, info);
 	var typeX = typeof(expr.x);
-	var isThis = false;
 
 	var sel = nameIdent(expr.sel.name, false, false, info);
 	var selFunctionBool = isFunction(expr.sel);
 
-	if (isPointer(typeX) && !isThis)
-		x = macro $x.value;
+	if (isPointer(typeX)) {
+		if (!isClass(expr.x, info))
+			x = macro $x.value;
+	}
 	if (!selFunctionBool) {
 		final fields = getStructFields(typeX);
 		if (fields.length > 0) {
@@ -3646,7 +3683,20 @@ private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { //
 			}
 		}
 	}
-	return (macro $x.$sel).expr; // EField
+	final e = macro $x.$sel;
+	return e.expr; // EField
+}
+
+private function isClass(x:Ast.Expr, info:Info):Bool {
+	return switch x.id {
+		case "Ident":
+			trace(info.renameIdents[x.name], info.classNames[x.name]);
+			info.renameIdents[x.name] == info.classNames[x.name];
+		case "ParenExpr", "StarExpr":
+			isClass(x.x, info);
+		default:
+			false;
+	}
 }
 
 private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
@@ -3737,7 +3787,8 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
-	if (!isPointer(typeof(expr.x)))
+	final t = typeof(expr.x);
+	if (!isPointer(t))
 		return x.expr;
 	return (macro $x.value).expr; // pointer code
 }
@@ -3760,6 +3811,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	final info = new Info();
 	info.data = data.data;
 	info.renameClasses = data.renameClasses;
+	info.classNames = data.classNames.copy();
 	info.renameIdents = data.renameIdents.copy();
 	info.count = 0;
 	info.gotoSystem = false;
@@ -3821,10 +3873,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (varName != "") {
 			varName = nameIdent(varName, false, true, info);
 			if (isPointer(varType)) {
-				args.unshift({name: varName, type: toComplexType(varType, info)});
-				varName = "_";
+				// final arg:FunctionArg = {name: varName, type: toComplexType(varType, info)};
 				meta.push({name: ":pointer", pos: null});
-				varType = getElem(varType);
 			} else {
 				switch block.expr {
 					case EBlock(exprs):
@@ -4408,6 +4458,8 @@ private function addAbstractToField(ct:ComplexType, wrapperType:TypePath):Field 
 
 private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	var name = className(spec.name.name, info);
+	info.renameIdents[spec.name.name] = name;
+	info.classNames[spec.name.name] = name;
 	var externBool = isTitle(spec.name.name);
 	info.className = name;
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
@@ -4557,6 +4609,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
+			info.renameIdents[spec.name.name] = name;
+			info.classNames[spec.name.name] = name;
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
 			final names = [for (field in fields) field.name];
@@ -4566,11 +4620,13 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						this.$name = $i{name}
 			];
 			if (StringTools.startsWith(name, "T__struct_")) {
-				var str = "";
-				for (field in fields) {
-					str += " $" + field.name;
+				var e = macro "{";
+				for (i in 0...fields.length) {
+					e = macro $e + Go.string($i{fields[i].name});
+					if (i < fields.length - 1)
+						e = macro $e + " ";
 				}
-				str = "{" + str.substr(1) + "}";
+				e = macro $e + "}";
 				fields.push({
 					name: "toString",
 					access: [APublic],
@@ -4578,7 +4634,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					kind: FFun({
 						ret: TPath({name: "String", pack: []}),
 						args: [],
-						expr: macro return ${makeString(str, SingleQuotes)},
+						expr: macro return $e,
 					})
 				});
 			}
@@ -4855,7 +4911,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 		var data = castTranslate(value.values[0], func, info);
 		func = data.expr;
 		if (data.ok)
-			value.names = [{name: "value", type: null, kind: typ}, {name: "ok", type: null, kind: typ}];
+			value.names = [{name: "value", type: null}, {name: "ok", type: null}];
 		values.push({
 			name: tmp,
 			pos: null,
@@ -5118,6 +5174,7 @@ class Info {
 	public var switchTagType:GoType = null;
 
 	public var renameIdents:Map<String, String> = []; // identifiers
+	public var classNames:Map<String, String> = []; // class names named types
 	public var renameClasses:Map<String, String> = ["bool" => "Bool"]; // class names i.e TPath
 
 	public var global = new Global();
@@ -5142,6 +5199,7 @@ class Info {
 		info.data = data;
 		info.global = global.copy(); // imports, types
 		info.renameIdents = renameIdents.copy();
+		info.classNames = classNames.copy();
 		info.renameClasses = renameClasses.copy();
 		return info;
 	}

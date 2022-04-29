@@ -2,6 +2,7 @@ package stdgo;
 
 import haxe.Exception;
 import haxe.io.Bytes;
+import haxe.macro.Compiler;
 import haxe.macro.ComplexTypeTools;
 import haxe.macro.Context;
 import haxe.macro.Expr;
@@ -20,7 +21,7 @@ class Go {
 			switch expr.expr {
 				case EBinop(op, key, value):
 					if (keyType == null) {
-						keyType = TypeTools.toComplexType(Context.followWithAbstracts(Context.typeof(key)));
+						keyType = TypeTools.toComplexType(Context.typeof(key));
 					}
 					if (valueType == null)
 						valueType = TypeTools.toComplexType(Context.typeof(value));
@@ -38,22 +39,9 @@ class Go {
 				}
 			default:
 		}
-
+		// TODO: look for GoInt to become Map<Int,Value> for better performance
 		final e = macro new stdgo.GoMap<$keyType, $valueType>();
-		final t = gtDecode(Context.follow(Context.typeof(e)), e, []);
-		switch keyType {
-			case TPath({
-				name: "StdTypes",
-				params: [],
-				sub: _,
-				pack: _.length => 0
-			}):
-				return macro {
-					var x:Map<Int, $valueType> = $a{exprs};
-					x;
-				};
-			default:
-		}
+		final t = gtDecode(Context.typeof(e), e, []);
 		final e = macro {
 			var x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t));
 			@:privateAccess x._keys = $a{keys};
@@ -184,6 +172,8 @@ class Go {
 						default:
 					}
 					expr = macro new $p($expr);
+					expr.pos = Context.currentPos();
+					// trace(new haxe.macro.Printer().printExpr(expr));
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
 					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
@@ -492,6 +482,11 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.basic(uint64_kind);
 					case "stdgo.DynamicInvalid":
 						ret = macro stdgo.reflect.Reflect.GoType.invalidType;
+					case "stdgo.Ref": // pointer with no overhead because the underlying type is a ref
+						final type:haxe.macro.Type = params[0];
+						final underlyingType = gtDecode(type, null, marked);
+						// trace("underlyingType: " + new haxe.macro.Printer().printExpr(underlyingType));
+						ret = macro stdgo.reflect.Reflect.GoType.pointer($underlyingType);
 					default:
 						final ref = t.get();
 						switch ref.type {

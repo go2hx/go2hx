@@ -322,6 +322,12 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					}
 				}
 
+				switch def.kind {
+					case TDField(_, _):
+						continue; // skip if var or function for wrapper
+					default:
+				}
+
 				final ct:ComplexType = TPath({name: def.name, pack: []});
 				final wrapperName = def.name + "_wrapper";
 				final wrapper:TypeDefinition = macro class $wrapperName {
@@ -333,6 +339,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					public function __underlying__():AnyInterface
 						return Go.toInterface(this);
 				};
+				file.defs.push(wrapper);
 
 				if (local.length == 0)
 					continue;
@@ -354,7 +361,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 				}
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
-				file.defs.push(wrapper);
 
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
@@ -410,10 +416,9 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 									};
 									if (isStruct) {
 										def.fields.unshift(field);
-									} else {
-										staticExtension.fields.unshift(staticField);
-										wrapper.fields.unshift(field);
 									}
+									staticExtension.fields.unshift(staticField);
+									wrapper.fields.unshift(field);
 								default:
 							}
 						default:
@@ -1014,9 +1019,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 
 private function typeTypeSwitchStmt(stmt:Ast.TypeSwitchStmt, info:Info):ExprDef { // a switch statement of a type
 
-	var init:Expr = null;
-	if (stmt.init != null)
-		init = typeStmt(stmt.init, info);
+	var init:Expr = stmt.init == null ? null : typeStmt(stmt.init, info);
 	var assign:Expr = null;
 	var assignType:GoType = null;
 	var setVar:String = "";
@@ -1212,13 +1215,13 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			x = macro $x.value;
 		if (isPointer(typeY))
 			y = macro $y.value;
-		x = macro Go.toInterface($x);
-		y = macro Go.toInterface($y);
+		x = toInterface(x, typeX);
+		y = toInterface(y, typeY);
 	}
 	var t = getUnderlying(typeX);
 	switch t {
 		case structType(_):
-			return toExpr(EBinop(op, macro Go.toInterface($x), macro Go.toInterface($y)));
+			return toExpr(EBinop(op, toInterface(x, typeX), toInterface(y, typeY)));
 		case arrayType(elem, len):
 			var e = macro {
 				var bool = true;
@@ -1242,7 +1245,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
-
+	final init = stmt.init == null ? null : typeStmt(stmt.init, info);
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
 	// this is an if else chain
@@ -1383,8 +1386,7 @@ private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // alw
 			}
 		}
 	}
-	if (stmt.init != null) {
-		var init = typeStmt(stmt.init, info);
+	if (init != null) {
 		return (macro {
 			$init;
 			$expr;
@@ -1627,7 +1629,7 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		y = passByCopy(toType, y, info);
 
 	if (isAnyInterface(toType) && !isRestExpr(expr)) {
-		y = macro Go.toInterface($y);
+		y = toInterface(y, fromType);
 	}
 	if (isAnyInterface(fromType) && !isInvalid(toType) && !isInterface(toType)) {
 		switch expr.expr {
@@ -1866,8 +1868,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 				// normal vars
 				final vars:Array<Var> = [];
 				for (i in 0...stmt.lhs.length) {
-					var expr = typeExpr(stmt.rhs[i], info);
 					final name = nameIdent(stmt.lhs[i].name, false, true, info);
+					var expr = typeExpr(stmt.rhs[i], info);
 
 					final toType = typeof(stmt.lhs[i]);
 					final fromType = typeof(stmt.rhs[i]);
@@ -1928,10 +1930,11 @@ private function typeExprStmt(stmt:Ast.ExprStmt, info:Info):ExprDef {
 
 private function typeIfStmt(stmt:Ast.IfStmt, info:Info):ExprDef {
 	var obj:haxe.DynamicAccess<Dynamic> = cast stmt; // new - set-up DynamicAccess
+	final init = stmt.init == null ? null : typeStmt(stmt.init, info);
 	stmt.elseStmt = obj.get("else"); // new - dynamically access the JSON element with the reserved name
 	var ifStmt:Expr = toExpr(EIf(typeExpr(stmt.cond, info), typeStmt(stmt.body, info), typeStmt(stmt.elseStmt, info)));
-	if (stmt.init != null)
-		return EBlock([typeStmt(stmt.init, info), ifStmt]);
+	if (init != null)
+		return EBlock([init, ifStmt]);
 	return ifStmt.expr;
 }
 
@@ -2308,7 +2311,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		final fromType = typeof(expr.args[0]);
 		final toType = typeof(expr.fun);
 		if (isAnyInterface(toType) && !isRestExpr(e)) {
-			return (macro Go.toInterface($e)).expr;
+			return toInterface(e, fromType).expr;
 		}
 		return returnExpr(checkType(e, ct, fromType, toType, info));
 	}
@@ -2522,6 +2525,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	if (args.length == 0)
 		genArgs(!isFmtPrintFormat || !forceString, 0, forceString);
 	return returnExpr(macro $e($a{args}));
+}
+
+private function toInterface(x:Expr, t:GoType):Expr {
+	return macro Go.toInterface($x);
 }
 
 private function toReflectType(t:GoType, info:Info):Expr {
@@ -2834,7 +2841,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 		return TPath({pack: [], name: "Any"});
 	return switch e {
 		case refType(elem):
-			toComplexType(elem, info);
+			TPath({name: "Ref", pack: [], params: [TPType(toComplexType(elem, info))]});
 		case basic(kind):
 			switch kind {
 				case int64_kind: TPath({pack: [], name: "GoInt64"});
@@ -3518,8 +3525,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	y = toGoType(y);
 	x = toGoType(x);
 	if ((isInvalid(typeX) || isInterface(typeX)) && op != OpBoolAnd && !isInvalid(typeY) && op == OpAssign) {
-		x = macro Go.toInterface($x);
-		y = macro Go.toInterface($y);
+		x = toInterface(x, typeX);
+		y = toInterface(y, typeY);
 	} else {
 		switch typeX {
 			case basic(untyped_float_kind):
@@ -4515,6 +4522,9 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 			};
 		default:
 	}
+	if (getUnderlying(t) == invalidType) {
+		t = refToPointerWrapper(t);
+	}
 	var uct = toComplexType(t, info);
 	return {
 		name: name,
@@ -4523,6 +4533,15 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		fields: [],
 		meta: [{name: ":named", pos: null},],
 		kind: TDAlias(uct),
+	}
+}
+
+private function refToPointerWrapper(t:GoType):GoType {
+	return switch t {
+		case refType(elem):
+			pointer(refToPointerWrapper(elem));
+		default:
+			t;
 	}
 }
 

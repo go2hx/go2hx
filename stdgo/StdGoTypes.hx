@@ -49,6 +49,7 @@ private typedef Float32 = #if hl hl.F32; #else Float64; #end
 typedef GoUnTypedInt = GoUInt64;
 typedef GoUnTypedFloat = GoFloat64;
 typedef GoUnTypedComplex = GoComplex128;
+typedef Ref<T> = T; // refrence type used only for macro reflection type info purposes, has no overhead
 
 @:eager
 typedef DynamicInvalid = Dynamic; // invalid type, attempt to use Dynamic
@@ -769,7 +770,7 @@ abstract GoComplex128(Complex128) from Complex128 {
 		return a.real != b.real || a.imag != b.imag;
 }
 
-abstract GoInt32(Int) from Int32 {
+abstract GoInt32(Int) from Int32 to Int32 to Int {
 	public inline function new(x:Int32 = 0)
 		this = x;
 

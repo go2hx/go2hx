@@ -1606,9 +1606,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				};
 			case named(_, _, type):
 				switch getUnderlying(type) {
-					case basic(_), signature(_, _, _, _):
-						return y;
-					case pointer(_):
+					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
 					case invalidType:
 						return y;

@@ -377,6 +377,16 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 											break;
 										}
 									}
+									var isPointerArg = false;
+									if (fun.args.length > 0) {
+										for (meta in fun.args[0].meta) {
+											if (meta.name == ":pointer") {
+												fun.args[0].meta.remove(meta);
+												isPointerArg = true;
+												break;
+											}
+										}
+									}
 									final field:Field = {
 										name: func.name,
 										pos: func.pos,
@@ -388,16 +398,37 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 											expr: {expr: fun.expr.expr, pos: null},
 										}),
 									}
+									final wrapperField:Field = {
+										name: func.name,
+										pos: func.pos,
+										meta: func.meta.copy(),
+										access: [APublic],
+										kind: FFun({
+											args: fun.args.copy(),
+											ret: fun.ret,
+											expr: {expr: fun.expr.expr, pos: null},
+										}),
+									};
 									switch field.kind {
 										case FFun(fun):
-											final master = fun.args.shift();
-											final name = master.name;
+											final name = fun.args.shift().name;
 											switch fun.expr.expr {
 												case EBlock(exprs): // that gets added to expr block
-													if (isStruct) {
-														fun.expr = {expr: EBlock([macro var $name = this].concat(exprs.copy())), pos: null};
-													} else {
+													fun.expr = {expr: EBlock([macro var $name = this].concat(exprs.copy())), pos: null};
+												default:
+											}
+										default:
+									}
+
+									switch wrapperField.kind {
+										case FFun(fun):
+											final name = fun.args.shift().name;
+											switch fun.expr.expr {
+												case EBlock(exprs): // that gets added to expr block
+													if (isPointerArg) {
 														fun.expr = {expr: EBlock([macro var $name = Go.pointer(__t__)].concat(exprs.copy())), pos: null};
+													} else {
+														fun.expr = {expr: EBlock([macro var $name = __t__].concat(exprs.copy())), pos: null};
 													}
 												default:
 											}
@@ -418,7 +449,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 										def.fields.unshift(field);
 									}
 									staticExtension.fields.unshift(staticField);
-									wrapper.fields.unshift(field);
+									wrapper.fields.unshift(wrapperField);
 								default:
 							}
 						default:
@@ -535,9 +566,12 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	var list:Array<Expr> = [];
 	if (stmt.body.list == null)
 		return (macro @:null_select {}).expr;
+	var needsReturn = true;
 	for (i in 0...stmt.body.list.length) {
 		final obj:Ast.CommClause = stmt.body.list[i];
 		final block = toExpr(typeStmtList(obj.body, info, false));
+		if (needsReturn && !exprWillReturn(block))
+			needsReturn = false;
 		var varName = "";
 		if (obj.comm == null) { // default true
 			defaultBlock = block;
@@ -579,8 +613,12 @@ private function typeSelectStmt(stmt:Ast.SelectStmt, info:Info):ExprDef {
 	stdgo.internal.Random.shuffle(list); // psuedo random
 	if (defaultBlock != null)
 		list.push(defaultBlock);
-	final e = macro $a{list};
-	return (macro Go.select($e)).expr;
+	var e = macro $a{list};
+	e = (macro Go.select($e));
+	if (needsReturn) {
+		e = macro $b{[e, toExpr(typeReturnStmt({results: [], returnPos: 0}, info))]};
+	}
+	return e.expr;
 }
 
 private function typeGoto(label:Expr):Expr {
@@ -700,12 +738,27 @@ private function typeLabeledStmt(stmt:Ast.LabeledStmt, info:Info):ExprDef {
 private function typeIncDecStmt(stmt:Ast.IncDecStmt, info:Info):ExprDef {
 	var x = typeExpr(stmt.x, info);
 	var t = typeof(stmt.x);
+	switch escapeParens(x).expr {
+		case ETernary(econd, eif, _):
+			x = macro if ($econd)
+				$eif;
+		default:
+	}
 	return switch stmt.tok {
 		case INC: return (macro $x++).expr;
 		case DEC: return (macro $x--).expr;
 		default:
 			throw "unknown IncDec token: " + stmt.tok;
 			null;
+	}
+}
+
+private function escapeParens(expr:Expr):Expr {
+	return switch expr.expr {
+		case EParenthesis(e):
+			escapeParens(e);
+		default:
+			expr;
 	}
 }
 
@@ -939,6 +992,11 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	// trace(fromType, "|", toType);
 	if (isStruct(fromType) && isStruct(toType)) {
 		switch toType {
+			case refType(elem):
+				toType = elem;
+			default:
+		}
+		switch toType {
 			case named(path, _, _, _):
 				final underlying = getUnderlying(toType);
 				var p = namedTypePath(path, info);
@@ -954,7 +1012,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				}
 				return macro new $p($a{exprs});
 			default:
-				throw "struct is unnamed";
+				throw "struct is unnamed: " + toType;
 		}
 	}
 
@@ -1550,6 +1608,8 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 				switch getUnderlying(type) {
 					case basic(_), signature(_, _, _, _):
 						return y;
+					case pointer(_):
+						return y;
 					case invalidType:
 						return y;
 					default:
@@ -1693,10 +1753,9 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 			}, info));
 
 			final assign = typeExpr(stmt.lhs[0], info);
-
-			if (stmt.lhs[0].id == "IndexExpr") { // prevent invalid assign to null
-				switch assign.expr {
-					case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
+			if (stmt.lhs[0].id == "IndexExpr" || stmt.lhs[0].id == "StarExpr" && stmt.lhs[0].x.id == "IndexExpr") { // prevent invalid assign to null
+				switch escapeParens(assign).expr {
+					case ETernary(econd, eif, _):
 						return (macro if ($econd)
 							$expr).expr;
 					default:
@@ -1751,8 +1810,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var fromType = typeof(stmt.rhs[i]);
 					y = assignTranslate(fromType, toType, y, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
-						switch x.expr {
-							case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
+						switch escapeParens(x).expr {
+							case ETernary(econd, eif, _):
 								exprs.push(macro if ($econd)
 									$eif = $y);
 								continue;
@@ -1849,8 +1908,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					var e2 = macro __tmp__.$fieldName;
 					e2 = assignTranslate(types[i], typeof(stmt.lhs[i]), e2, info);
 					if (stmt.lhs[i].id == "IndexExpr") { // prevent invalid assign to null
-						switch e.expr {
-							case EParenthesis({expr: ETernary(econd, eif, _), pos: _}):
+						switch escapeParens(e).expr {
+							case ETernary(econd, eif, _):
 								assigns.push(macro if ($econd)
 									$eif = ${e2});
 								continue;
@@ -2442,7 +2501,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						switch t {
 							case TPath(_), TFunction(_, _), TAnonymous(_):
 								var t = typeof(expr.args[0]);
-								var value = defaultValue(t, info, true);
+								var value = defaultValue(t, info);
 								if (!isRefValue(t))
 									value = macro Go.pointer($value);
 								return returnExpr(value);
@@ -2797,8 +2856,9 @@ private function getGlobalPath(info:Info):String {
 }
 
 private function toGoPath(path:String):String {
-	if (StringTools.endsWith(path, "_test"))
+	if (StringTools.endsWith(path, "_test")) {
 		path = path.substr(0, path.length - "_test".length);
+	}
 	return StringTools.replace(path, ".", "/");
 }
 
@@ -3703,7 +3763,8 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 		x = macro $x.value;
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
-	x = high != null ? macro $x.__slice__($low, $high) : macro $x.__slice__($low);
+	final ct = toComplexType(typeof(expr), info);
+	x = high != null ? macro($x.__slice__($low, $high) : $ct) : macro($x.__slice__($low) : $ct);
 	if (expr.slice3) {
 		var max = typeExpr(expr.max, info);
 		max = assignTranslate(typeof(expr.max), basic(int_kind), max, info);
@@ -3882,7 +3943,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		} else {
 			varName = "_";
 		}
-		args.unshift({name: varName, type: toComplexType(varType, info)});
+		args.unshift({name: varName, type: toComplexType(varType, info), meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []});
 	}
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";
@@ -4591,7 +4652,7 @@ private function makeString(str:String, ?kind):Expr {
 }
 
 private function makeStringLit(values:Array<{?s:String, ?code:String}>):Expr {
-	var e:Expr = macro "";
+	var e:Expr = macro("" : GoString);
 	var init:Bool = true;
 	for (value in values) {
 		var expr = if (value.s != null) {
@@ -4893,9 +4954,6 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 				doc: noCommentsBool ? "" : doc,
 			});
 		} else {
-			if (alias == "_test" && StringTools.endsWith(info.global.path, "_test") && pack.length > 1 && pack[0] == "stdgo") {
-				pack.shift(); // remove stdgo and use newly created test pkg
-			}
 			info.renameIdents[alias] = pack.join(".");
 		}
 	} else {
@@ -5106,6 +5164,7 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 		if (name == "false" || name == "true")
 			return name;
 	}
+
 	if (rename && info.renameIdents.exists(name)) {
 		name = info.renameIdents[name];
 	} else {

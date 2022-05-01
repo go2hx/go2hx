@@ -22,7 +22,7 @@ var memoryError:ErrorString = "invalid memory address or nil pointer dereference
 var shiftError:ErrorString = "negative shift amount";
 @:named @:using(Runtime.T_errorString_static_extension) typedef T_errorString = GoString;
 
-@:build(stdgo.internal.Macro.wrapper(T_errorString)) class T_errorString_static_extension {
+class T_errorString_static_extension {
 	public static function error(_e:T_errorString):GoString {
 		_e;
 		return ((("runtime error: " : GoString))) + ((_e : GoString));
@@ -31,6 +31,19 @@ var shiftError:ErrorString = "negative shift amount";
 	public static function runtimeError(_e:T_errorString):Void {
 		_e;
 	}
+}
+
+class T_errorString_wrapper {
+	public var __t__:T_errorString;
+
+	public function new(__t__)
+		this.__t__ = __t__;
+
+	public function error()
+		return __t__.error();
+
+	public function runtimeError()
+		__t__.runtimeError();
 }
 
 var memProfileRate:Int = 0;
@@ -174,8 +187,13 @@ class MemStats {
 	}
 }
 
-function goroot():GoString
-	return "";
+function goroot():GoString {
+	final s = Sys.getEnv("GOROOT");
+	if (s != null)
+		return s;
+
+	return "/usr/local/go";
+}
 
 function readMemStats(m:Pointer<MemStats>) {}
 

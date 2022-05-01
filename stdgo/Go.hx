@@ -161,7 +161,9 @@ class Go {
 			case TType(_.get() => t, params):
 				if (t.meta.has(":named")) {
 					follow = false;
-					final p:TypePath = {name: t.name + "_wrapper", pack: t.pack};
+
+					final p:TypePath = {sub: t.name + "_wrapper", name: t.module.substr(t.module.lastIndexOf(".") + 1), pack: t.pack};
+					// trace(new haxe.macro.Printer().printExpr(macro new $p()));
 					wrapped = true;
 					switch Context.toComplexType(Context.follow(t.type)) {
 						case TPath(p):
@@ -825,8 +827,10 @@ class Go {
 						}
 					}
 					if (i + 1 >= values.length) {
-						return macro if ($cond)
+						final e = macro if ($cond)
 							$block;
+						e.pos = Context.currentPos();
+						return e;
 					}
 					final next = ifs(i + 1);
 					return macro if ($cond)

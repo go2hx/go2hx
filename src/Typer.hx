@@ -962,11 +962,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		}
 	if (isAnyInterface(fromType)) {
 		if (isNamed(toType)) {
-			if (isRefValue(getUnderlying(toType))) {
-				return macro(($e.value : Dynamic).__t__ : $ct);
-			} else {
-				return macro(($e.value : Dynamic).__t__.get() : $ct);
-			}
+			return macro(($e.value : Dynamic).__t__ : $ct);
 		}
 
 		return macro($e.value : $ct);
@@ -3884,24 +3880,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.funcName = name;
 	var ret = typeFieldListReturn(decl.type.results, info, true);
 	var args = typeFieldListArgs(decl.type.params, info);
-	info.restricted = restricted;
-	var block:Expr = if (externBool) {
-		info.returnNamed = false;
-		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
-	} else {
-		toExpr(typeBlockStmt(decl.body, info, true));
-	}
-
-	block = argsTranslate(args, block);
-
-	if (info.gotoSystem) {
-		var e = macro stdgo.internal.Macro.controlFlow($block);
-		if (decl.type.results != null && decl.type.results.list.length > 0)
-			e = macro return $e;
-		block = macro {
-			$e;
-		};
-	}
 
 	/*if (name == "main" && info.data.isMain) {
 		switch block.expr {
@@ -3919,9 +3897,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			default:
 		}
 	}*/
-
-	info.restricted = null;
 	var meta:Metadata = [];
+	var init:Expr = null;
 	if (decl.recv != null) {
 		meta.push({name: ":keep", pos: null});
 		var varName = decl.recv.list[0].names.length > 0 ? decl.recv.list[0].names[0].name : "";
@@ -3929,19 +3906,39 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		if (varName != "") {
 			varName = nameIdent(varName, false, true, info);
 			if (isPointer(varType)) {
-				// final arg:FunctionArg = {name: varName, type: toComplexType(varType, info)};
 				meta.push({name: ":pointer", pos: null});
 			} else {
-				switch block.expr {
-					case EBlock(exprs):
-						exprs.unshift(passByCopy(varType, macro $i{varName}, info));
-					default:
-				}
+				init = passByCopy(varType, macro $i{varName}, info);
 			}
 		} else {
 			varName = "_";
 		}
 		args.unshift({name: varName, type: toComplexType(varType, info), meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []});
+	}
+	info.restricted = restricted;
+	var block:Expr = if (externBool) {
+		info.returnNamed = false;
+		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+	} else {
+		toExpr(typeBlockStmt(decl.body, info, true));
+	}
+
+	block = argsTranslate(args, block);
+	info.restricted = null;
+	if (info.gotoSystem) {
+		var e = macro stdgo.internal.Macro.controlFlow($block);
+		if (decl.type.results != null && decl.type.results.list.length > 0)
+			e = macro return $e;
+		block = macro {
+			$e;
+		};
+	}
+	if (init != null) {
+		switch block.expr {
+			case EBlock(exprs):
+				exprs.unshift(init);
+			default:
+		}
 	}
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";

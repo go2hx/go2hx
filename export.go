@@ -974,6 +974,9 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 		"id":   "Ident",
 		"name": value.Name,
 	}
+	if value.Obj != nil {
+		data["kind"] = int(value.Obj.Kind)
+	}
 	obj := checker.ObjectOf(value)
 	if obj != nil {
 		data["type"] = parseType(obj.Type())

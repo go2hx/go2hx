@@ -2,15 +2,47 @@ package stdgo.sync;
 
 import stdgo.StdGoTypes;
 import stdgo.StdGoTypes;
+import sys.thread.Deque;
 
+@:structInit
 class Pool {
-	public function new() {}
+	@:local
+	var pool:Deque<AnyInterface> = null;
 
-	public function get()
-		return null;
+	public var new_:() -> AnyInterface = null;
 
-	public function put()
-		return null;
+	public var _victimSize:GoInt = 0;
+	public var _victim:AnyInterface = null;
+	public var _noCopy:stdgo.sync.T_noCopy = null;
+	public var _localSize:GoInt = 0;
+	public var _local:AnyInterface = null;
+
+	public function new(new_ = null, _victimSize = null, _victim = null, _noCopy = null, _localSize = null, _local = null) {
+		if (new_ != null)
+			this.new_ = new_;
+		if (_victimSize != null)
+			this._victimSize = _victimSize;
+		if (_victim != null)
+			this._victim = _victim;
+		if (_noCopy != null)
+			this._noCopy = _noCopy;
+		if (_localSize != null)
+			this._localSize = _localSize;
+		if (_local != null)
+			this._local = _local;
+		pool = new Deque();
+	}
+
+	public function get():AnyInterface {
+		var obj = pool.pop(true);
+		if (obj == null && new_ != null)
+			obj = new_();
+		return obj;
+	}
+
+	public function put(_p:AnyInterface) {
+		pool.push(_p);
+	}
 }
 
 typedef Locker = StructType & {
@@ -76,6 +108,13 @@ class Mutex {
 	public function lock()
 		mutex.acquire();
 
+	public function tryLock():Bool
+		return mutex.tryAcquire();
+
+	public function _lockSlow() {}
+
+	public function _unlockSlow(i:GoInt32) {}
+
 	public function unlock()
 		mutex.release();
 
@@ -110,6 +149,21 @@ class WaitGroup {
 
 	public function wait()
 		lock.wait();
+}
+
+// noCopy may be embedded into structs which must not be copied
+// after the first use.
+//
+// See https://golang.org/issues/8005#issuecomment-190753527
+// for details.
+
+@:structInit
+class T_noCopy {
+	public function new() {}
+
+	public function lock() {}
+
+	public function unlock() {}
 }
 
 class Once {

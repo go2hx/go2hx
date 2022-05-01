@@ -249,6 +249,7 @@ class F {
 class T_ {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
+	@:local
 	var output:StringBuf = null;
 
 	public function new(?output:StringBuf) {
@@ -516,3 +517,12 @@ function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<In
 function benchmark(f:B->Void):BenchmarkResult {
 	return new BenchmarkResult();
 }
+
+function short():Bool
+	return true;
+
+function allocsPerRun(_runs:GoInt, f:Void->Void):GoFloat64
+	return 0;
+
+function verbose():Bool
+	return false;

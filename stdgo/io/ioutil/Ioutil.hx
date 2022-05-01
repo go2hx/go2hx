@@ -11,24 +11,8 @@ import sys.io.File;
 function readAll(r:Reader)
 	return stdgo.io.Io.readAll(r);
 
-function readFile(filename:GoString):{_0:Slice<GoByte>, _1:Error} {
-	if (!FileSystem.exists(filename))
-		return {_0: new Slice<GoByte>(), _1: stdgo.errors.Errors.new_('open $filename: no such file or directory')};
-	try {
-		return {_0: File.getBytes(filename), _1: null};
-	} catch (e) {
-		return {_0: new Slice<GoByte>(), _1: stdgo.errors.Errors.new_(e.message)};
-	}
-}
-
-function writeFile(filename:GoString, data:Bytes, ?perm:GoInt):Error {
-	try {
-		sys.io.File.saveBytes(filename, data);
-		return null;
-	} catch (e) {
-		return cast e;
-	}
-}
+function readFile(filename:GoString):{_0:Slice<GoByte>, _1:Error}
+	return stdgo.os.Os.readFile(filename);
 
 function readDir(dirname:GoString):{_0:Slice<FileInfo>, ?_1:Error} {
 	dirname = Path.addTrailingSlash(dirname);

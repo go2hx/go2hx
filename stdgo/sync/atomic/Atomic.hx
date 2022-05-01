@@ -66,3 +66,33 @@ function swapUInt32(addr:Pointer<GoUInt32>, new_:GoUInt32):GoUInt32 {
 	mutex.release();
 	return old;
 }
+
+function storeUint32(addr:Pointer<GoUInt32>, val:GoUInt32) {
+	mutex.acquire();
+	addr.value = val;
+	mutex.release();
+}
+
+function storeUint64(addr:Pointer<GoUInt64>, val:GoUInt64) {
+	mutex.acquire();
+	addr.value = val;
+	mutex.release();
+}
+
+function storeInt32(addr:Pointer<GoInt32>, val:GoInt32) {
+	mutex.acquire();
+	addr.value = val;
+	mutex.release();
+}
+
+function storeInt64(addr:Pointer<GoInt64>, val:GoInt64) {
+	mutex.acquire();
+	addr.value = val;
+	mutex.release();
+}
+
+function storeUintptr(addr:Pointer<GoUIntptr>, val:GoUIntptr) {
+	mutex.acquire();
+	addr.value = val;
+	mutex.release();
+}

@@ -100,6 +100,9 @@ function containsRune(s:GoString, r:GoRune):Bool {
 	return false;
 }
 
+inline function lastIndex(s:GoString, substr:GoString):Int
+	return s.toString().lastIndexOf(substr);
+
 inline function index(s:GoString, substr:GoString):Int
 	return s.toString().indexOf(substr);
 
@@ -208,4 +211,603 @@ function map(mapping:GoRune->GoRune, s:GoString):GoString {
 		}
 	}
 	return b;
+}
+
+@:structInit @:using(Strings.T_nat_static_extension) class T_nat {
+	@:keep
+	public function _make():T_nat {
+		var _n = this;
+		(_n == null ? null : _n.__copy__());
+		return (_n == null ? null : _n.__copy__());
+	}
+
+	public function new() {}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new T_nat();
+	}
+}
+
+@:structInit @:using(Strings.Reader_static_extension) class Reader {
+	@:keep
+	public function reset(_s:GoString):Void {
+		var _r = this;
+		_r;
+		{
+			var __tmp__ = ((new Reader(_s, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
+			_r._s = __tmp__._s;
+			_r._i = __tmp__._i;
+			_r._prevRune = __tmp__._prevRune;
+		};
+	}
+
+	@:keep
+	public function writeTo(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;} {
+		var _r = this;
+		_r;
+		var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: ((null : stdgo.Error))};
+		};
+		var _s:GoString = ((_r._s.__slice__(_r._i) : GoString));
+		var __tmp__ = stdgo.io.Io.writeString(_w, _s),
+			_m:GoInt = __tmp__._0,
+			_err:stdgo.Error = __tmp__._1;
+		if (_m > (_s != null ? _s.length : ((0 : GoInt)))) {
+			throw Go.toInterface(((("strings.Reader.WriteTo: invalid WriteString count" : GoString))));
+		};
+		_r._i = _r._i + (((_m : GoInt64)));
+		_n = ((_m : GoInt64));
+		if ((_m != (_s != null ? _s.length : ((0 : GoInt)))) && (_err == null)) {
+			_err = stdgo.io.Io.errShortWrite;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
+		var _r = this;
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		var _abs:GoInt64 = ((0 : GoInt64));
+		if (_whence == ((0 : GoInt))) {
+			_abs = _offset;
+		} else if (_whence == ((1 : GoInt))) {
+			_abs = _r._i + _offset;
+		} else if (_whence == ((2 : GoInt))) {
+			_abs = (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) + _offset;
+		} else {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: invalid whence" : GoString))))};
+		};
+		if (_abs < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: negative position" : GoString))))};
+		};
+		_r._i = _abs;
+		return {_0: _abs, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public function unreadRune():Error {
+		var _r = this;
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: at beginning of string" : GoString))));
+		};
+		if (_r._prevRune < ((0 : GoInt))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: previous operation was not ReadRune" : GoString))));
+		};
+		_r._i = ((_r._prevRune : GoInt64));
+		_r._prevRune = ((-1 : GoInt));
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;} {
+		var _r = this;
+		_r;
+		var _ch:GoRune = ((0 : GoInt32)),
+			_size:GoInt = ((0 : GoInt)),
+			_err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			_r._prevRune = ((-1 : GoInt));
+			return {_0: ((0 : GoInt32)), _1: ((0 : GoInt)), _2: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((_r._i : GoInt));
+		{
+			var _c:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+			if (_c < ((128 : GoUInt8))) {
+				_r._i++;
+				return {_0: ((_c : GoRune)), _1: ((1 : GoInt)), _2: ((null : stdgo.Error))};
+			};
+		};
+		{
+			var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(((_r._s.__slice__(_r._i) : GoString)));
+			_ch = __tmp__._0;
+			_size = __tmp__._1;
+		};
+		_r._i = _r._i + (((_size : GoInt64)));
+		return {_0: _ch, _1: _size, _2: _err};
+	}
+
+	@:keep
+	public function unreadByte():Error {
+		var _r = this;
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadByte: at beginning of string" : GoString))));
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_r._i--;
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public function readByte():{var _0:GoByte; var _1:Error;} {
+		var _r = this;
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoUInt8)), _1: stdgo.io.Io.eof};
+		};
+		var _b:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+		_r._i++;
+		return {_0: _b, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
+		var _r = this;
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_off < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.errors.Errors.new_(((("strings.Reader.ReadAt: negative offset" : GoString))))};
+		};
+		if (_off >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_off) : GoString)));
+		if (_n < (_b != null ? _b.length : ((0 : GoInt)))) {
+			_err = stdgo.io.Io.eof;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		var _r = this;
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_r._i) : GoString)));
+		_r._i = _r._i + (((_n : GoInt64)));
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function size():GoInt64 {
+		var _r = this;
+		_r;
+		return (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64));
+	}
+
+	@:keep
+	public function len():GoInt {
+		var _r = this;
+		_r;
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return ((0 : GoInt));
+		};
+		return ((((((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) - _r._i) : GoInt));
+	}
+
+	public var _s:GoString = (("" : GoString));
+	public var _i:GoInt64 = ((0 : GoInt64));
+	public var _prevRune:GoInt = ((0 : GoInt));
+
+	public function new(?_s:GoString, ?_i:GoInt64, ?_prevRune:GoInt) {
+		if (_s != null)
+			this._s = _s;
+		if (_i != null)
+			this._i = _i;
+		if (_prevRune != null)
+			this._prevRune = _prevRune;
+	}
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+
+	public function __copy__() {
+		return new Reader(_s, _i, _prevRune);
+	}
+}
+
+/**
+	// NewReader returns a new Reader reading from s.
+	// It is similar to bytes.NewBufferString but more efficient and read-only.
+**/
+function newReader(_s:GoString):Reader {
+	return ((new Reader(_s, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
+}
+
+class T_nat_wrapper {
+	@:keep
+	public function _make():T_nat {
+		var _n = __t__;
+		(_n == null ? null : _n.__copy__());
+		return (_n == null ? null : _n.__copy__());
+	}
+
+	public var __t__:T_nat;
+
+	public function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+@:keep class T_nat_static_extension {
+	@:keep
+	public static function _make(_n:T_nat):T_nat {
+		(_n == null ? null : _n.__copy__());
+		return (_n == null ? null : _n.__copy__());
+	}
+}
+
+class Reader_wrapper {
+	@:keep
+	public function reset(_s:GoString):Void {
+		var _r = __t__;
+		_r;
+		{
+			var __tmp__ = ((new Reader(_s, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
+			_r._s = __tmp__._s;
+			_r._i = __tmp__._i;
+			_r._prevRune = __tmp__._prevRune;
+		};
+	}
+
+	@:keep
+	public function writeTo(_w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;} {
+		var _r = __t__;
+		_r;
+		var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: ((null : stdgo.Error))};
+		};
+		var _s:GoString = ((_r._s.__slice__(_r._i) : GoString));
+		var __tmp__ = stdgo.io.Io.writeString(_w, _s),
+			_m:GoInt = __tmp__._0,
+			_err:stdgo.Error = __tmp__._1;
+		if (_m > (_s != null ? _s.length : ((0 : GoInt)))) {
+			throw Go.toInterface(((("strings.Reader.WriteTo: invalid WriteString count" : GoString))));
+		};
+		_r._i = _r._i + (((_m : GoInt64)));
+		_n = ((_m : GoInt64));
+		if ((_m != (_s != null ? _s.length : ((0 : GoInt)))) && (_err == null)) {
+			_err = stdgo.io.Io.errShortWrite;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function seek(_offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
+		var _r = __t__;
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		var _abs:GoInt64 = ((0 : GoInt64));
+		if (_whence == ((0 : GoInt))) {
+			_abs = _offset;
+		} else if (_whence == ((1 : GoInt))) {
+			_abs = _r._i + _offset;
+		} else if (_whence == ((2 : GoInt))) {
+			_abs = (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) + _offset;
+		} else {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: invalid whence" : GoString))))};
+		};
+		if (_abs < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: negative position" : GoString))))};
+		};
+		_r._i = _abs;
+		return {_0: _abs, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public function unreadRune():Error {
+		var _r = __t__;
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: at beginning of string" : GoString))));
+		};
+		if (_r._prevRune < ((0 : GoInt))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: previous operation was not ReadRune" : GoString))));
+		};
+		_r._i = ((_r._prevRune : GoInt64));
+		_r._prevRune = ((-1 : GoInt));
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public function readRune():{var _0:GoRune; var _1:GoInt; var _2:Error;} {
+		var _r = __t__;
+		_r;
+		var _ch:GoRune = ((0 : GoInt32)),
+			_size:GoInt = ((0 : GoInt)),
+			_err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			_r._prevRune = ((-1 : GoInt));
+			return {_0: ((0 : GoInt32)), _1: ((0 : GoInt)), _2: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((_r._i : GoInt));
+		{
+			var _c:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+			if (_c < ((128 : GoUInt8))) {
+				_r._i++;
+				return {_0: ((_c : GoRune)), _1: ((1 : GoInt)), _2: ((null : stdgo.Error))};
+			};
+		};
+		{
+			var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(((_r._s.__slice__(_r._i) : GoString)));
+			_ch = __tmp__._0;
+			_size = __tmp__._1;
+		};
+		_r._i = _r._i + (((_size : GoInt64)));
+		return {_0: _ch, _1: _size, _2: _err};
+	}
+
+	@:keep
+	public function unreadByte():Error {
+		var _r = __t__;
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadByte: at beginning of string" : GoString))));
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_r._i--;
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public function readByte():{var _0:GoByte; var _1:Error;} {
+		var _r = __t__;
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoUInt8)), _1: stdgo.io.Io.eof};
+		};
+		var _b:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+		_r._i++;
+		return {_0: _b, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public function readAt(_b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
+		var _r = __t__;
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_off < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.errors.Errors.new_(((("strings.Reader.ReadAt: negative offset" : GoString))))};
+		};
+		if (_off >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_off) : GoString)));
+		if (_n < (_b != null ? _b.length : ((0 : GoInt)))) {
+			_err = stdgo.io.Io.eof;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function read(_b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		var _r = __t__;
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_r._i) : GoString)));
+		_r._i = _r._i + (((_n : GoInt64)));
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public function size():GoInt64 {
+		var _r = __t__;
+		_r;
+		return (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64));
+	}
+
+	@:keep
+	public function len():GoInt {
+		var _r = __t__;
+		_r;
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return ((0 : GoInt));
+		};
+		return ((((((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) - _r._i) : GoInt));
+	}
+
+	public var __t__:Reader;
+
+	public function new(__t__)
+		this.__t__ = __t__;
+
+	public function __underlying__():AnyInterface
+		return Go.toInterface(this);
+}
+
+@:keep class Reader_static_extension {
+	@:keep
+	public static function reset(_r:Ref<Reader>, _s:GoString):Void {
+		_r;
+		{
+			var __tmp__ = ((new Reader(_s, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
+			_r._s = __tmp__._s;
+			_r._i = __tmp__._i;
+			_r._prevRune = __tmp__._prevRune;
+		};
+	}
+
+	@:keep
+	public static function writeTo(_r:Ref<Reader>, _w:stdgo.io.Io.Writer):{var _0:GoInt64; var _1:Error;} {
+		_r;
+		var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: ((null : stdgo.Error))};
+		};
+		var _s:GoString = ((_r._s.__slice__(_r._i) : GoString));
+		var __tmp__ = stdgo.io.Io.writeString(_w, _s),
+			_m:GoInt = __tmp__._0,
+			_err:stdgo.Error = __tmp__._1;
+		if (_m > (_s != null ? _s.length : ((0 : GoInt)))) {
+			throw Go.toInterface(((("strings.Reader.WriteTo: invalid WriteString count" : GoString))));
+		};
+		_r._i = _r._i + (((_m : GoInt64)));
+		_n = ((_m : GoInt64));
+		if ((_m != (_s != null ? _s.length : ((0 : GoInt)))) && (_err == null)) {
+			_err = stdgo.io.Io.errShortWrite;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public static function seek(_r:Ref<Reader>, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		var _abs:GoInt64 = ((0 : GoInt64));
+		if (_whence == ((0 : GoInt))) {
+			_abs = _offset;
+		} else if (_whence == ((1 : GoInt))) {
+			_abs = _r._i + _offset;
+		} else if (_whence == ((2 : GoInt))) {
+			_abs = (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) + _offset;
+		} else {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: invalid whence" : GoString))))};
+		};
+		if (_abs < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt64)), _1: stdgo.errors.Errors.new_(((("strings.Reader.Seek: negative position" : GoString))))};
+		};
+		_r._i = _abs;
+		return {_0: _abs, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public static function unreadRune(_r:Ref<Reader>):Error {
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: at beginning of string" : GoString))));
+		};
+		if (_r._prevRune < ((0 : GoInt))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadRune: previous operation was not ReadRune" : GoString))));
+		};
+		_r._i = ((_r._prevRune : GoInt64));
+		_r._prevRune = ((-1 : GoInt));
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public static function readRune(_r:Ref<Reader>):{var _0:GoRune; var _1:GoInt; var _2:Error;} {
+		_r;
+		var _ch:GoRune = ((0 : GoInt32)),
+			_size:GoInt = ((0 : GoInt)),
+			_err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			_r._prevRune = ((-1 : GoInt));
+			return {_0: ((0 : GoInt32)), _1: ((0 : GoInt)), _2: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((_r._i : GoInt));
+		{
+			var _c:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+			if (_c < ((128 : GoUInt8))) {
+				_r._i++;
+				return {_0: ((_c : GoRune)), _1: ((1 : GoInt)), _2: ((null : stdgo.Error))};
+			};
+		};
+		{
+			var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(((_r._s.__slice__(_r._i) : GoString)));
+			_ch = __tmp__._0;
+			_size = __tmp__._1;
+		};
+		_r._i = _r._i + (((_size : GoInt64)));
+		return {_0: _ch, _1: _size, _2: _err};
+	}
+
+	@:keep
+	public static function unreadByte(_r:Ref<Reader>):Error {
+		_r;
+		if (_r._i <= ((0 : GoInt64))) {
+			return stdgo.errors.Errors.new_(((("strings.Reader.UnreadByte: at beginning of string" : GoString))));
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_r._i--;
+		return ((null : stdgo.Error));
+	}
+
+	@:keep
+	public static function readByte(_r:Ref<Reader>):{var _0:GoByte; var _1:Error;} {
+		_r;
+		_r._prevRune = ((-1 : GoInt));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoUInt8)), _1: stdgo.io.Io.eof};
+		};
+		var _b:GoUInt8 = (_r._s != null ? _r._s[_r._i] : ((0 : GoUInt8)));
+		_r._i++;
+		return {_0: _b, _1: ((null : stdgo.Error))};
+	}
+
+	@:keep
+	public static function readAt(_r:Ref<Reader>, _b:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_off < ((0 : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.errors.Errors.new_(((("strings.Reader.ReadAt: negative offset" : GoString))))};
+		};
+		if (_off >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_off) : GoString)));
+		if (_n < (_b != null ? _b.length : ((0 : GoInt)))) {
+			_err = stdgo.io.Io.eof;
+		};
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public static function read(_r:Ref<Reader>, _b:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
+		_r;
+		var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return {_0: ((0 : GoInt)), _1: stdgo.io.Io.eof};
+		};
+		_r._prevRune = ((-1 : GoInt));
+		_n = Go.copySlice(_b, ((_r._s.__slice__(_r._i) : GoString)));
+		_r._i = _r._i + (((_n : GoInt64)));
+		return {_0: _n, _1: _err};
+	}
+
+	@:keep
+	public static function size(_r:Ref<Reader>):GoInt64 {
+		_r;
+		return (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64));
+	}
+
+	@:keep
+	public static function len(_r:Ref<Reader>):GoInt {
+		_r;
+		if (_r._i >= (((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64))) {
+			return ((0 : GoInt));
+		};
+		return ((((((_r._s != null ? _r._s.length : ((0 : GoInt))) : GoInt64)) - _r._i) : GoInt));
+	}
 }

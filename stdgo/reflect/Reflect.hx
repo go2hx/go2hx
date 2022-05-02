@@ -116,14 +116,18 @@ function isInterface(type:GoType):Bool {
 	}
 }
 
-function isSignature(type:GoType):Bool {
+function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 	if (type == null)
 		return false;
 	return switch type {
 		case signature(_, _, _):
 			true;
 		case named(_, _, underlying):
-			isSignature(underlying);
+			if (underlyingBool) {
+				isSignature(underlying, underlyingBool);
+			} else {
+				false;
+			}
 		default:
 			false;
 	}

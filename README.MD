@@ -2,7 +2,7 @@
 
 go2hx
 ==========
-## Compile: Go -> Haxe -> Js, Lua, C#, C++, Java, C, Python
+## Compile: Go -> Haxe -> C#, C++, Java, C/Hashlink
 
 **warning:** *heavily experimental still a ways to go before an alpha.*
 

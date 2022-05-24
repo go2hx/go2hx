@@ -128,6 +128,91 @@ class Go {
 		#end
 	}
 
+	public static macro function wrapper(e:Expr) { // define module to auto wrap named type
+		return e;
+	}
+
+	public static macro function typeFunction(e:Expr) {
+		final t = Context.typeof(e);
+		var selfType:ComplexType = null;
+		var selfExpr:Expr = null;
+		var field:String = "";
+		switch e.expr {
+			case EField(e, f, _):
+				selfType = Context.toComplexType(Context.typeof(e));
+				selfExpr = e;
+				field = f;
+			default:
+		}
+		final name = "T_" + Context.signature(t);
+		switch t {
+			case TFun(args, ret):
+				final modulePath = haxe.macro.Context.getLocalModule().split(".");
+				final args = args.map(arg -> ({name: arg.name, opt: arg.opt, type: Context.toComplexType(arg.t)} : FunctionArg));
+				var e:Expr = macro null;
+				var block:Expr = macro null;
+				if (selfType != null) {
+					final funArgs = args.map(arg -> macro $i{arg.name});
+					// args.unshift({name: "__self__", type: selfType});
+					final path = modulePath.copy();
+					final p:TypePath = {name: path.pop(), sub: name, pack: path};
+					e = macro new $p($selfExpr).f;
+					// $p{modulePath.concat([name])}.f;
+					block = macro __self__.$field($a{funArgs});
+					// e = macro null;
+					// block = macro null;
+				} else {}
+				// trace(ret, isVoid(ret));
+				if (!isVoid(ret)) {
+					block = macro return $block;
+				}
+				final td = {
+					name: name,
+					pos: Context.currentPos(),
+					pack: [],
+					fields: [
+						{
+							name: "f",
+							pos: Context.currentPos(),
+							access: [AStatic, APublic],
+							kind: FFun({
+								args: args,
+								ret: Context.toComplexType(ret),
+								expr: block,
+							})
+						}
+					],
+					kind: TDClass(),
+				};
+				if (selfType != null) {
+					td.fields[0].access.remove(AStatic);
+					td.fields.push({
+						name: "new",
+						pos: Context.currentPos(),
+						access: [AInline, APublic],
+						kind: FFun({
+							args: [{name: "__self__"}],
+							expr: macro this.__self__ = __self__,
+						})
+					});
+					td.fields.push({
+						name: "__self__",
+						pos: Context.currentPos(),
+						access: [],
+						kind: FVar(selfType),
+					});
+				}
+				try {
+					Context.defineModule(modulePath.join("."), [td], Context.getLocalImports());
+				} catch (_) {}
+				// trace(new haxe.macro.Printer().printTypeDefinition(td));
+				return e;
+			default:
+				Context.fatalError("not valid function type: " + t, Context.currentPos());
+		}
+		throw "issue";
+	}
+
 	public static macro function toInterface(expr) {
 		final expectedType = Context.getExpectedType();
 		if (expectedType != null) {
@@ -161,9 +246,6 @@ class Go {
 			case TType(_.get() => t, params):
 				if (t.meta.has(":named")) {
 					follow = false;
-
-					final p:TypePath = {sub: t.name + "_wrapper", name: t.module.substr(t.module.lastIndexOf(".") + 1), pack: t.pack};
-					// trace(new haxe.macro.Printer().printExpr(macro new $p()));
 					wrapped = true;
 					switch Context.toComplexType(Context.follow(t.type)) {
 						case TPath(p):
@@ -173,7 +255,7 @@ class Go {
 							if (std || stdgo || string) expr = macro Go.pointer($expr);
 						default:
 					}
-					expr = macro new $p($expr);
+					expr = macro Go.wrapper($expr);
 					expr.pos = Context.currentPos();
 					// trace(new haxe.macro.Printer().printExpr(expr));
 				} else if (t.pack.length == 1
@@ -513,7 +595,7 @@ class Go {
 								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
 									stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
 							default:
-								if (ref.meta.has(":named")) {
+								if (ref.meta.has(":named") || ref.meta.has(":param")) {
 									final path = ref.pack.concat([ref.name]).join(".");
 									var type:haxe.macro.Type = ref.type;
 									final underlyingType = gtDecode(type, null, marked);
@@ -669,18 +751,16 @@ class Go {
 					args.push(gtDecode(arg.t, null, marked));
 				}
 				var results = [];
-				var isVoid = false;
+				var voidBool = isVoid(result);
 				switch result {
 					case TAnonymous(a):
 						final fields = a.get().fields;
 						for (field in fields) {
 							results.push(gtDecode(field.type, null, marked));
 						}
-					case TAbstract(t, params):
-						if (t.toString() == "Void") isVoid = true;
 					default:
 				}
-				if (!isVoid && results.length == 0)
+				if (voidBool && results.length == 0)
 					results.push(gtDecode(result, null, marked));
 				var variadic = macro false;
 				if (a.length > 0) {
@@ -712,6 +792,15 @@ class Go {
 		}
 
 		return ret;
+	}
+
+	static function isVoid(e:haxe.macro.Type):Bool {
+		switch e {
+			case TAbstract(t, _):
+				return t.toString() == "Void";
+			default:
+		}
+		return false;
 	}
 
 	static function createPath(pack:Array<String>, name:String):String {

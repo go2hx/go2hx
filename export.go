@@ -646,12 +646,18 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			object := checker.ObjectOf(obj.Name)
 
 			methods := parseMethods(object.Type(), &methodCache)
+			var params map[string]interface{} = nil
+
+			if obj.TypeParams != nil {
+				params = parseFieldList(obj.TypeParams.List)
+			}
 
 			data[i] = map[string]interface{}{
 				"id":      "TypeSpec",
 				"assign":  fset.Position(obj.Assign).Offset,
 				"name":    parseData(obj.Name),
 				"type":    parseData(obj.Type),
+				"params":  params,
 				"doc":     parseData(obj.Comment),
 				"comment": parseData(obj.Comment),
 				"methods": methods,
@@ -736,6 +742,11 @@ func parseType(node interface{}) map[string]interface{} {
 					marked = nil
 				}
 			}
+			params := make([]map[string]interface{}, named.TypeParams().Len())
+			for i := 0; i < len(params); i++ {
+				params[i] = parseType(named.TypeParams().At(i))
+			}
+			data["params"] = params
 			data["path"] = named.String()
 		}
 	case "Slice":
@@ -803,9 +814,8 @@ func parseType(node interface{}) map[string]interface{} {
 		data["dir"] = s.Dir()
 	case "TypeParam":
 		s := node.(*types.TypeParam)
-		data["constraint"] = parseType(s.Constraint())
-		//data["underlying"] = parseType(s.Underlying())
 		data["name"] = s.Obj().Name()
+		data["constraint"] = parseType(s.Constraint())
 	case "Union":
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
@@ -863,7 +873,7 @@ func parseData(node interface{}) map[string]interface{} {
 			data[field.Name] = parseBasicLit(value)
 		case *ast.BadExpr, *ast.Ellipsis, *ast.FuncLit, *ast.CompositeLit, *ast.ParenExpr:
 			data[field.Name] = parseData(value)
-		case *ast.SelectorExpr, *ast.IndexExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
+		case *ast.SelectorExpr, *ast.IndexExpr, *ast.IndexListExpr, *ast.SliceExpr, *ast.TypeAssertExpr, *ast.CallExpr, *ast.StarExpr, *ast.UnaryExpr, *ast.KeyValueExpr:
 			data[field.Name] = parseData(value)
 		case *ast.ExprStmt:
 			data[field.Name] = map[string]interface{}{
@@ -940,15 +950,14 @@ func parseData(node interface{}) map[string]interface{} {
 			throw("unknown parse data value: " + reflect.TypeOf(value).String())
 		}
 	}
-
 	switch node := node.(type) {
-	case *ast.CompositeLit, *ast.SelectorExpr, *ast.IndexExpr, *ast.Ellipsis:
+	case *ast.CompositeLit:
+	case *ast.SelectorExpr, *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
-
 	case *ast.StarExpr, *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
 	case *ast.KeyValueExpr:
@@ -977,6 +986,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 	if value.Obj != nil {
 		data["kind"] = int(value.Obj.Kind)
 	}
+
 	obj := checker.ObjectOf(value)
 	if obj != nil {
 		data["type"] = parseType(obj.Type())

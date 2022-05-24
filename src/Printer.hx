@@ -29,6 +29,14 @@ class Printer extends haxe.macro.Printer {
 		if (e == null)
 			return "#NULL_EXPR";
 		return switch (e.expr) {
+			case EMeta({name: ":macro"}, e): "macro " + printExpr(e);
+			case EMeta({name: ":define", params: params}, e):
+				switch params[0].expr {
+					case EConst(CString(s)):
+						'#if $s ' + printExpr(e) + " #else null #end";
+					default:
+						throw "invalid param expr: " + params[0].expr;
+				}
 			case EBlock([]): '{}';
 			case EVars(vl) if (vl[0].isFinal): "final " + vl.map(printVar).join(", ");
 			case EArrayDecl(el) if (el.length > 10): '[\n${printExprs(el, ",\n")}]';

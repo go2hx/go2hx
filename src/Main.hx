@@ -219,6 +219,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
+	Typer.excludesList = Json.parse(File.getContent("./excludes.json")).excludes;
 	for (i in 0...processCount) {
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
@@ -346,6 +347,8 @@ private function runTarget(modules:Array<Typer.Module>) {
 	}
 	if (!noRun && target != "") {
 		for (main in paths) {
+			if (root != "")
+				main = root + "." + main;
 			final commands = commands.concat(['-m', main]);
 			Sys.println('haxe ' + commands.join(" "));
 			Sys.command('haxe', commands); // build without build file

@@ -1765,13 +1765,13 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 		var aValue = a.value;
 		var bValue = b.value;
 		switch gt {
-			case named(_, _, type):
+			case named(_, _, type, _):
 				if (isNamed(type))
 					aValue = (aValue : Dynamic).__t__;
 			default:
 		}
 		switch gt2 {
-			case named(_, _, type):
+			case named(_, _, type, _):
 				if (isNamed(type))
 					bValue = (bValue : Dynamic).__t__;
 			default:
@@ -1881,6 +1881,11 @@ class GoIntIterator {
 		return min++;
 	}
 }
+
+// thanks Gama11
+#if !macro
+@:genericBuild(stdgo.internal.Macro.buildUnknown()) class Unknown {}
+#end
 
 typedef MapAccess<K, V> = {
 	function get(k:K):Null<V>;

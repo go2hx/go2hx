@@ -500,7 +500,7 @@ func mergePackage(pkg *packages.Package) {
 		path := filepath.Base(pkg.GoFiles[i])
 		files[path] = pkg.Syntax[i]
 	}
-	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates|ast.FilterFuncDuplicates)}
+	newFiles := []*ast.File{ast.MergePackageFiles(&ast.Package{Name: pkg.Name, Files: files}, ast.FilterImportDuplicates)}
 	pkg.Syntax = newFiles
 }
 
@@ -783,7 +783,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Array":
 		s := node.(*types.Array)
 		data["elem"] = parseType(s.Elem())
-		data["len"] = s.Len()
+		data["len"] = int32(s.Len())
 	case "Map":
 		s := node.(*types.Map)
 		data["elem"] = parseType(s.Elem())

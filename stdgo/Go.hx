@@ -133,35 +133,61 @@ class Go {
 	}
 
 	public static macro function typeFunction(e:Expr) {
-		final t = Context.typeof(e);
+		var t:haxe.macro.Type = null;
+		try {
+			t = Context.typeof(e);
+		} catch (e) {
+			// trace(e);
+		}
 		var selfType:ComplexType = null;
 		var selfExpr:Expr = null;
 		var field:String = "";
-		switch e.expr {
-			case EField(e, f, _):
-				selfType = Context.toComplexType(Context.typeof(e));
-				selfExpr = e;
-				field = f;
-			default:
+		if (t != null) {
+			switch e.expr {
+				case EField(e, f, _):
+					try {
+						// could check the Context.typeof and see if the type has a @:using as well
+						selfType = Context.toComplexType(t);
+						selfExpr = e;
+						field = f;
+					} catch (_) {}
+				default:
+			}
+		} else {
+			switch e.expr {
+				case EConst(CIdent(s)):
+					field = s;
+				default:
+			}
+			t = Context.getExpectedType();
+			// trace(new haxe.macro.Printer().printComplexType(Context.toComplexType(t)));
 		}
 		final name = "T_" + Context.signature(t);
 		switch t {
 			case TFun(args, ret):
 				final modulePath = haxe.macro.Context.getLocalModule().split(".");
-				final args = args.map(arg -> ({name: arg.name, opt: arg.opt, type: Context.toComplexType(arg.t)} : FunctionArg));
+				var count = 0;
+				final args = args.map(arg -> ({
+					name: arg.name == "" ? "_" + (count++) : arg.name,
+					opt: arg.opt,
+					type: Context.toComplexType(arg.t)
+				} : FunctionArg));
 				var e:Expr = macro null;
 				var block:Expr = macro null;
+				final funArgs = args.map(arg -> macro $i{arg.name});
+				final path = modulePath.copy();
 				if (selfType != null) {
-					final funArgs = args.map(arg -> macro $i{arg.name});
-					// args.unshift({name: "__self__", type: selfType});
-					final path = modulePath.copy();
 					final p:TypePath = {name: path.pop(), sub: name, pack: path};
 					e = macro new $p($selfExpr).f;
-					// $p{modulePath.concat([name])}.f;
 					block = macro __self__.$field($a{funArgs});
-					// e = macro null;
-					// block = macro null;
-				} else {}
+				} else {
+					// path.pop();
+					// trace(path);
+					block = macro $p{path}.$field($a{funArgs});
+					path.push(name);
+					e = macro $p{path}.f;
+					//trace(new haxe.macro.Printer().printExpr(e));
+				}
 				// trace(ret, isVoid(ret));
 				if (!isVoid(ret)) {
 					block = macro return $block;
@@ -184,6 +210,7 @@ class Go {
 					],
 					kind: TDClass(),
 				};
+				//trace(new haxe.macro.Printer().printTypeDefinition(td));
 				if (selfType != null) {
 					td.fields[0].access.remove(AStatic);
 					td.fields.push({

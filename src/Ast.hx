@@ -108,6 +108,14 @@ typedef IndexExpr = {
 	type:ExprType,
 };
 
+typedef IndexListExpr = {
+	x:Expr,
+	indices:Array<Expr>,
+	lbrack:Pos,
+	rbrack:Pos,
+	type:ExprType,
+}
+
 typedef SliceExpr = {
 	// > Node,
 	x:Expr,
@@ -406,6 +414,7 @@ typedef TypeSpec = {
 	assign:Pos,
 	type:Expr,
 	comment:CommentGroup,
+	params:FieldList,
 	methods:Array<{
 		name:String,
 		type:ExprType,
@@ -433,6 +442,7 @@ typedef GenDecl = {
 typedef FuncDecl = {
 	doc:CommentGroup,
 	recv:FieldList,
+	typeParams:FieldList,
 	name:Ident,
 	type:FuncType,
 	body:BlockStmt,

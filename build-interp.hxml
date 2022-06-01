@@ -1,0 +1,10 @@
+-cp src
+-main Main
+-D no-deprecation-warnings
+-D std-encoding-utf8
+--dce full
+-lib bson
+-D analyzer-optimize
+#-D nolinkstd
+-D simulate_num
+--interp

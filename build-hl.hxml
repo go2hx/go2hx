@@ -5,5 +5,6 @@
 --dce full
 -lib bson
 -D analyzer-optimize
+#-D nolinkstd
 -D simulate_num
 -hl build.hl

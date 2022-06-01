@@ -12,13 +12,12 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 # Getting started
 * [Download Go 1.16+](https://golang.org/dl/)
 * [Download Haxe 4.3.0+](https://haxe.org/download/)
-* [Download Hashlink](https://hashlink.haxe.org/)
 
 ```
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
-Compile and run code with interp target
+Compile and run code with the interp target
 ```
 haxelib run go2hx --interp ./main.go
 ```

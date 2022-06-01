@@ -61,13 +61,11 @@ function main() {
 	if (code == 0) {
 		// run hashlink
 		if (!FileSystem.exists("build.hl") || rebuild)
-			Sys.command("haxe build.hxml");
+			Sys.command("haxe build-hl.hxml");
 		args.unshift("build.hl");
 	} else {
-		Sys.println("eval not supported (libuv bindings are to weak at the moment), setup hashlink instead");
+		Sys.command("haxe build-interp");
 		return;
 	}
-	if (rebuild)
-		trace("running...");
 	Sys.command("hl", args);
 }

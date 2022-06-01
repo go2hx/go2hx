@@ -1,21 +1,19 @@
 // ! -lib hxnodejs
 package;
 
+import Network;
 import Typer.DataType;
 import haxe.Json;
 import haxe.Resource;
 import haxe.io.Bytes;
 import haxe.io.Path;
-import hl.uv.Loop;
-import hl.uv.Stream;
-import hl.uv.Tcp;
 import stdgo.StdGoTypes;
 import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
 final cwd = Sys.getCwd();
-final loop = hl.uv.Loop.getDefault();
+final loop = Loop.getDefault();
 final server = new Tcp(loop);
 var clients:Array<Client> = [];
 var processes:Array<Process> = [];
@@ -255,6 +253,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+				#if !hl
+				client.stream.size = len;
+				#end
 				buff = Bytes.alloc(len);
 				bytes = bytes.sub(8, bytes.length - 8);
 			}

@@ -1,7 +1,7 @@
 -cp rnd
 -cp src
 -main RunRnd
---hl rnd.hl
+--interp
 -D debug
 -lib bson
 extraParams.hxml

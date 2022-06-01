@@ -9,6 +9,7 @@ import stdgo.Slice.Slice;
 import stdgo.StdGoTypes;
 
 enum GoType {
+	typeParam(name:String, params:Array<GoType>);
 	invalidType;
 	signature(variadic:Bool, params:Array<GoType>, results:Array<GoType>, recv:GoType);
 	basic(kind:BasicKind);
@@ -16,7 +17,7 @@ enum GoType {
 	tuple(len:Int, vars:Array<GoType>);
 	interfaceType(empty:Bool, ?methods:Array<MethodType>);
 	sliceType(elem:GoType);
-	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool);
+	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
 	pointer(elem:GoType);
@@ -813,7 +814,7 @@ class ValueError {
 	public function __copy__()
 		return new ValueError(method, kind);
 
-	public function toString() {
+	public function toString():String {
 		return this.error();
 	}
 
@@ -1119,6 +1120,8 @@ class _Type {
 	public function kind():Kind {
 		final gt = getUnderlying(gt);
 		return switch gt {
+			case typeParam(_, _):
+				_invalid;
 			case basic(kind):
 				switch kind {
 					case int_kind: int;
@@ -1786,8 +1789,8 @@ class Kind_wrapper {
 	public function new(__t__)
 		this.__t__ = __t__;
 
-	public function toString()
-		__t__.value.toString();
+	public function toString():String
+		return "";
 }
 
 class Kind_extension {

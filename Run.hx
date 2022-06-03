@@ -64,7 +64,7 @@ function main() {
 			Sys.command("haxe build-hl.hxml");
 		args.unshift("build.hl");
 	} else {
-		Sys.command("haxe build-interp");
+		Sys.command("haxe build-interp.hxml");
 		return;
 	}
 	Sys.command("hl", args);

@@ -7,4 +7,4 @@
 -D analyzer-optimize
 #-D nolinkstd
 -D simulate_num
---interp
+--run Main

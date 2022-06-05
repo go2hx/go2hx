@@ -33,7 +33,7 @@ function main() {
 	trace(libs + " libs count: " + libs.length);
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
-		Sys.command('haxelib run go2hx $lib --out stdgo --root stdgo' + (externBool ? " --extern" : ""));
+		Sys.command('haxelib run go2hx --log $lib --nocomments --out stdgo --root stdgo' + (externBool ? " --extern" : ""));
 	}
 }
 

@@ -14,8 +14,12 @@ var processPool = new ProcessPool(2);
 final path = Sys.getCwd();
 var failWriter:FileOutput = null;
 var successWriter:FileOutput = null;
+var ci = false;
 
 function main() {
+	final args = Sys.args();
+	if (args.length > 0 && args[0] == "ci")
+		ci = true;
 	processPool.complete = completeProcess;
 	Main.setup(0, 4); // 4 processes of go4hx
 	Main.onComplete = complete;
@@ -91,7 +95,7 @@ private function completeProcess(data:{code:Int, command:String}) {
 private function complete(modules, obj:TaskData) {
 	// spawn targets
 	for (target in targets) {
-		var command = "haxe " + obj.hxml + ".hxml";
+		var command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml";
 		final out = createTargetOutput(target, obj.data.type, obj.data.name);
 		final args = obj.data.exclude == "" ? [] : ["-excludes"].concat(obj.data.exclude.split(" "));
 		if (target != "interp") {
@@ -101,7 +105,8 @@ private function complete(modules, obj:TaskData) {
 			}
 			command += " && " + Main.runTarget(target, out, obj.data.name, args);
 		} else {
-			command = Main.runTarget(target, obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1), obj.data.name, args);
+			command = (ci ? "npx " : "")
+				+ Main.runTarget(target, obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1), obj.data.name, args);
 		}
 		processPool.run(command);
 	}

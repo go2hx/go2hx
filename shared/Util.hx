@@ -58,7 +58,7 @@ function kbCount(str:String):Float {
 	return str.length / 1000;
 }
 
-function haxelibInstallGit(account:String, repository:String, ?branch:String, ?srcPath:String, useRetry:Bool = false, ?altName:String):Void {
+function haxelibInstallGit(ci:Bool, account:String, repository:String, ?branch:String, ?srcPath:String, useRetry:Bool = false, ?altName:String):Void {
 	var name:String = (altName == null) ? repository : altName;
 	try {
 		getHaxelibPath(name);
@@ -71,7 +71,7 @@ function haxelibInstallGit(account:String, repository:String, ?branch:String, ?s
 			args.push(srcPath);
 		}
 
-		runCommand("haxelib", args, useRetry);
+		runCommand((ci ? "npx " : "") + "haxelib", args, useRetry);
 	}
 }
 

@@ -6,6 +6,12 @@ import sys.io.Process;
 
 function main() {
 	final args = Sys.args();
+	final ci = if (args.length > 0 && args[0] == "ci") {
+		args.shift();
+		true;
+	} else {
+		false;
+	}
 
 	var process = new Process("go", ["version"]);
 	var code = process.exitCode();
@@ -15,7 +21,7 @@ function main() {
 	}
 	process.close();
 
-	haxelibInstallGit("kevinresol", "bson");
+	haxelibInstallGit(ci, "kevinresol", "bson");
 
 	var rebuild = false;
 	process = new Process('git', ['rev-parse', 'HEAD']);

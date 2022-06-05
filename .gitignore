@@ -8,6 +8,7 @@ test.go
 tests.md
 main
 bin
+export
 repl
 examples/*/
 examples/.haxerc
@@ -54,3 +55,6 @@ main.hxml
 gen.txt
 .DS_Store
 tools
+tests/gobyexample
+tests/yaegi
+tests/*.hxml

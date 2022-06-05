@@ -1,0 +1,10 @@
+{ "tests": [
+    "unicode",
+    "unicode/utf8",
+    "unicode/utf16",
+    "math-TestFloatMinMax",
+    "math/bits-TestLeadingZeros,TestOnesCount,TestLen",
+    "math/big",
+    "sort",
+    "strings"
+]}

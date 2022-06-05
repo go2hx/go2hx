@@ -1,0 +1,9 @@
+-main Tests
+-cp tests
+-cp src
+-lib bson
+-D no-deprecation-warnings
+-D simulate_num
+-hl tests.hl
+--cmd haxe build-hl.hxml
+--cmd hl tests.hl

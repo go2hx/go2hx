@@ -24,6 +24,8 @@ jobs:
         run: npx lix download
       - name: build source
         run: npx haxelib dev go2hx .
+      - name: build hl go2hx version
+        run: npx haxe build-hl.hxml
       - name: test run
         run: npx haxelib run go2hx ./rnd
       - name: build tests

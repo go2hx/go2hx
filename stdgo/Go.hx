@@ -186,7 +186,7 @@ class Go {
 					block = macro $p{path}.$field($a{funArgs});
 					path.push(name);
 					e = macro $p{path}.f;
-					//trace(new haxe.macro.Printer().printExpr(e));
+					// trace(new haxe.macro.Printer().printExpr(e));
 				}
 				// trace(ret, isVoid(ret));
 				if (!isVoid(ret)) {
@@ -210,7 +210,7 @@ class Go {
 					],
 					kind: TDClass(),
 				};
-				//trace(new haxe.macro.Printer().printTypeDefinition(td));
+				// trace(new haxe.macro.Printer().printTypeDefinition(td));
 				if (selfType != null) {
 					td.fields[0].access.remove(AStatic);
 					td.fields.push({
@@ -238,6 +238,11 @@ class Go {
 				Context.fatalError("not valid function type: " + t, Context.currentPos());
 		}
 		throw "issue";
+	}
+
+	public static macro function expectedValue():Expr {
+		final t = gtDecode(Context.getExpectedType(), null, []);
+		return macro stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type($t));
 	}
 
 	public static macro function toInterface(expr) {

@@ -5,8 +5,8 @@ import shared.Util;
 import stdgo.reflect.Reflect;
 import sys.io.File;
 
-var stdgoList:Array<String>;
-var excludesList:Array<String>;
+var stdgoList:Array<String> = stdgoList = haxe.Json.parse(File.getContent("./stdgo.json")).stdgo;
+var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.json")).excludes;
 var externs:Bool = false;
 
 final reserved = [
@@ -70,7 +70,9 @@ final basicTypes = [
 ];
 
 var printer = new Printer();
-var config = {printGoCode: false}; // typer config
+var printGoCode = false;
+
+// var config = {printGoCode: false}; // typer config
 var externBool:Bool = false;
 var noCommentsBool:Bool = false;
 
@@ -90,7 +92,6 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 	}*/
 	noCommentsBool = nc;
 	externBool = eb;
-	config.printGoCode = printGoCode;
 	var list:Array<Module> = [];
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "", doc: ""},
@@ -121,6 +122,7 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 			// test file configure here
 		}
 		var info = new Info();
+		info.printGoCode = printGoCode;
 		info.global.path = pkg.path;
 
 		if (pkg.order != null) {
@@ -1672,17 +1674,30 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 private function isGeneric(t:GoType):Bool {
 	switch t {
 		case signature(_, params, _, recv):
+			switch recv {
+				case _var(_, t):
+					switch t {
+						case refType(s):
+							t = s;
+						default:
+					}
+					switch t {
+						case named(_, _, _, _, params):
+							return params != null && params.length > 0;
+						default:
+					}
+				default:
+			}
 			if (params.length > 0) {
-				switch params[0] {
+				var t = params[0];
+				switch t {
+					case refType(s):
+						t = s;
+					default:
+				}
+				switch t {
 					case _var(_, named(_, _, _, _, params)):
-						var genericBool = false;
-						for (param in params) {
-							switch param {
-								case typeParam(_, _):
-									return true;
-								default:
-							}
-						}
+						return params != null && params.length > 0;
 					default:
 				}
 			}
@@ -1901,6 +1916,8 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 					expr = assignTranslate(fromType, toType, expr, info);
 					var ct = toComplexType(toType, info);
 					function f(ct:ComplexType):Bool {
+						if (ct == null)
+							return true;
 						switch ct {
 							case TPath(p):
 								if (p.params != null && p.params.length > 0) // p.params = p.params.map(_ -> TPType(TPath({name: "Unknown", pack: []})));
@@ -2236,6 +2253,7 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 		case "MapType": typeMapType(expr, info);
 		case "BadExpr": throw "BAD EXPRESSION TYPED";
 		case "InterfaceType": typeInterfaceType(expr, info);
+		case "IndexListExpr": typeIndexListExpr(expr, info);
 		default:
 			trace("unknown expr id: " + expr.id);
 			null;
@@ -2243,6 +2261,12 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 	if (def == null)
 		throw "expr null: " + expr.id;
 	return toExpr(def);
+}
+
+private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {
+	final x = typeExpr(expr.x, info);
+	// could use indicies to set checktype expr
+	return (macro $x).expr;
 }
 
 private function typeInterfaceType(expr:Ast.InterfaceType, info:Info):ExprDef {
@@ -2553,6 +2577,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							case sliceType(elem):
 								var param = toComplexType(elem, info);
 								var value = defaultValue(elem, info);
+								if (value == null)
+									value = macro Go.expectedValue();
 								if (size == null)
 									return returnExpr(macro new Slice<$param>());
 								macro new Slice<$param>(...[for (i in 0...$size) $value]);
@@ -2569,7 +2595,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (isInt) {
 									macro new Map<Int, $value>();
 								} else {
-									macro new GoObjectMap<$keyType, $value>(new stdgo.reflect.Reflect._Type($t));
+									macro(new GoObjectMap<$keyType, $value>(new stdgo.reflect.Reflect._Type($t)) : GoMap<$keyType, $value>);
 								}
 							case chanType(dir, elem):
 								var value = defaultValue(elem, info);
@@ -2723,6 +2749,9 @@ private function typeof(e:Ast.Expr):GoType {
 		return invalidType;
 	var t = switch e.id {
 		case "TypeParam":
+			if (e.constraint.embeds == null) {
+				e.constraint = e.constraint.underlying;
+			}
 			if (e.constraint.embeds.length == 0) {
 				typeParam(e.name, [interfaceType(true)]);
 			} else {
@@ -4282,7 +4311,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro null;
 		case refType(elem):
 			final ct = ct();
-			macro(null : $ct); // pointer can be nil
+			if (hasTypeParam(ct)) {
+				macro null;
+			} else {
+				macro(null : $ct); // pointer can be nil
+			}
 		case named(path, _, underlying):
 			switch underlying {
 				case named(_, _, type):
@@ -4292,7 +4325,11 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			switch underlying {
 				case pointer(_), interfaceType(_), mapType(_, _), signature(_, _):
 					final ct = ct();
-					macro(null : $ct);
+					if (hasTypeParam(ct)) {
+						macro null;
+					} else {
+						macro(null : $ct);
+					}
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();
@@ -5236,7 +5273,7 @@ private function getDoc(value:{doc:Ast.CommentGroup}):String {
 }
 
 private function getSource(value:{pos:Int, end:Int}, info:Info):String {
-	if (!config.printGoCode || value.pos == value.end)
+	if (!info.printGoCode || value.pos == value.end)
 		return "";
 	var source:String = "";
 	try {
@@ -5412,6 +5449,7 @@ class Info {
 	public var returnNames:Array<String> = [];
 	public var returnType:ComplexType = null;
 	public var returnNamed:Bool;
+	public var printGoCode:Bool = false;
 	public var returnTypes:Array<GoType> = [];
 	public var returnComplexTypes:Array<ComplexType> = [];
 	public var returnInterfaceBool:Array<Bool> = [];

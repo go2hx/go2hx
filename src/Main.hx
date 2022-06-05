@@ -18,6 +18,7 @@ final server = new Tcp(loop);
 var clients:Array<Client> = [];
 var processes:Array<Process> = [];
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
+var programArgs = [];
 #if (target.threaded)
 var mainThread = sys.thread.Thread.current();
 #end
@@ -64,10 +65,27 @@ final passthroughArgs = [
 	"-extern",
 	"--extern",
 	"-externs",
-	"--externs",
+	"--externs"
 ];
 
 function run(args:Array<String>) {
+	args = compileArgs(args);
+	setup(0, 1, () -> {
+		if (onComplete == null)
+			onComplete = (modules, data) -> {
+				close();
+			};
+		if (args.length <= 1) {
+			Repl.init();
+		} else {
+			compile(args);
+		}
+	}, outputPath, root);
+	while (true)
+		update();
+}
+
+function compileArgs(args:Array<String>):Array<String> {
 	outputPath = "golibs";
 	root = "";
 	var help = false;
@@ -142,6 +160,13 @@ function run(args:Array<String>) {
 		["-v", "--v"] => () -> defines.push("verboseTest"),
 	]);
 	argHandler.parse(args);
+	for (i in 0...args.length) {
+		switch args[i] {
+			case "-a", "--a", "-arg", "--arg":
+				programArgs = args.slice(i + 1);
+				break;
+		}
+	}
 	for (option in argHandler.options) {
 		if (passthroughArgs.indexOf(option.flags[0]) != -1)
 			continue;
@@ -153,25 +178,12 @@ function run(args:Array<String>) {
 			}
 		}
 	}
-	var maxLength = 0;
 	if (help) {
 		printDoc(argHandler);
 		close();
-		return;
+		return args;
 	}
-	setup(0, 1, () -> {
-		if (onComplete == null)
-			onComplete = (modules, data) -> {
-				close();
-			};
-		if (args.length <= 1) {
-			Repl.init();
-		} else {
-			compile(args);
-		}
-	}, outputPath, root);
-	while (true)
-		update();
+	return args;
 }
 
 private function printDoc(handler:Args.ArgHandler) {
@@ -216,14 +228,12 @@ function close() {
 function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs", root:String = "") {
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
-	Typer.stdgoList = Json.parse(File.getContent("./stdgo.json")).stdgo;
-	Typer.excludesList = Json.parse(File.getContent("./excludes.json")).excludes;
-	for (i in 0...processCount) {
-		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
-	}
 	Sys.println('listening on local port: $port');
 	server.bind(new sys.net.Host("127.0.0.1"), port);
 	server.noDelay(true);
+	for (i in 0...processCount) {
+		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
+	}
 	var index = 0;
 	server.listen(0, () -> {
 		final client:Client = {stream: server.accept(), id: index++};
@@ -283,7 +293,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Gen.create(outputPath, module, root);
 					}
 				}
-				runTarget(modules);
+				runBuildTools(modules, programArgs);
 				onComplete(modules, client.data);
 			}
 		});
@@ -308,10 +318,10 @@ function targetLibs():String {
 	return [for (lib in libs) '-lib $lib'].join(' ');
 }
 
-function mainPaths(modules:Array<Dynamic>):Array<String> {
+function mainPaths(modules:Array<Typer.Module>):Array<String> {
 	final paths:Array<String> = [];
 	for (module in modules) {
-		if (!module.isMain || !module.files[0].isMain)
+		if (module == null || !module.isMain || module.files[0] == null || !module.files[0].isMain)
 			continue;
 		var path = module.path;
 		var name = module.files[0].name;
@@ -323,7 +333,7 @@ function mainPaths(modules:Array<Dynamic>):Array<String> {
 	return paths;
 }
 
-private function runTarget(modules:Array<Typer.Module>) {
+private function runBuildTools(modules:Array<Typer.Module>, args:Array<String>) {
 	if (target == "") {
 		if (test) {
 			target = "hl"; // default test target
@@ -335,32 +345,35 @@ private function runTarget(modules:Array<Typer.Module>) {
 
 	final paths = mainPaths(modules);
 	final libs = targetLibs();
-	final commands = ['-cp', outputPath, '-lib', 'go2hx'];
+	final commands = ['-lib', 'go2hx'];
+	var cp = outputPath;
+	// final hxmlPathIndex = hxmlPath.lastIndexOf("/") + 1;
+	// if (hxmlPathIndex != 0)
+	//	cp = cp.substr(hxmlPathIndex);
+	if (cp != "") {
+		commands.push("-cp");
+		commands.push(cp);
+	}
 	for (define in defines) {
 		commands.push('-D $define');
 	}
 	if (libs != "")
 		commands.push(libs);
 	if (target != "") {
-		commands.push('--$target');
-		if (targetOutput != "")
-			commands.push(targetOutput);
+		commands.push(buildTarget(target, targetOutput));
 	}
 	if (!noRun && target != "") {
 		for (main in paths) {
 			if (root != "")
-				main = root + "." + main;
-			final commands = commands.concat(['-m', main]);
+				main = root + (main == "" ? "" : "." + main);
+			var commands = commands.concat(['-m', main]);
+			if (target == "interp") {
+				targetOutput = commands.join(" ");
+				commands = commands.concat(args);
+			}
 			Sys.println('haxe ' + commands.join(" "));
 			Sys.command('haxe', commands); // build without build file
-			switch target {
-				case "hl":
-					Sys.println(target + " " + targetOutput);
-					Sys.command(target, [targetOutput]);
-				case "interp": // already runs
-				default:
-					trace("unknown target runner");
-			}
+			Sys.command(runTarget(target, targetOutput, main, args));
 		}
 	}
 	if (buildPath != "") { // create build file
@@ -390,6 +403,45 @@ private function runTarget(modules:Array<Typer.Module>) {
 		File.saveContent(hxmlPath, content);
 		Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
 	}
+}
+
+function libTarget(target:String):String {
+	return switch target {
+		case "cpp", "cs":
+			'-lib hx$target';
+		case "jvm", "java":
+			"-lib hxjava";
+		default:
+			"";
+	}
+}
+
+function buildTarget(target:String, out:String):String {
+	return switch target {
+		case "hl", "jvm", "cpp", "cs":
+			'--$target $out';
+		case "interp":
+			"";
+		default:
+			throw "unknown target: " + target;
+	}
+}
+
+function runTarget(target:String, out:String, main:String, args:Array<String>):String {
+	var s = switch target {
+		case "interp": "haxe " + out + args.join(" ");
+		case "hl":
+			'hl $out';
+		case "jvm":
+			'java -jar $out';
+		case "cpp":
+			"./" + out + "/" + main;
+		default:
+			throw "unknown target: " + target;
+	};
+	if (args.length > 0)
+		s += args.join(" ");
+	return s;
 }
 
 function compile(args:Array<String>, data:Dynamic = null):Bool {

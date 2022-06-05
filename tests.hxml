@@ -5,5 +5,3 @@
 -D no-deprecation-warnings
 -D simulate_num
 -hl tests.hl
---cmd haxe build-hl.hxml
---cmd hl tests.hl

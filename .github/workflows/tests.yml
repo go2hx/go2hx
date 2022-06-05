@@ -10,11 +10,13 @@ jobs:
       fail-fast: true
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1 #nodejs
-        with:
-          node-version: '14'
+      - uses: actions/checkout@v3
       - uses: pxshadow/setup-hashlink@v1.0.1 #hashlink
+      steps:
+      - uses: actions/setup-go@v3
+        with:
+          go-version: '1.18.3' # The Go version to download (if necessary) and use.
+      - run: go version
 
       - name: install lix
         run: npm i lix -g
@@ -22,9 +24,11 @@ jobs:
         run: npx lix download
       - name: build source
         run: npx haxelib dev go2hx .
-      - name: test repl
-        run: npx haxelib run go2hx
+      - name: test run
+        run: npx haxelib run go2hx ./rnd
       - name: build tests
         run: npx haxe tests.hxml
+      - name: run tests
+        run: hl tests.hl ci
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache

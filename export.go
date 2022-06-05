@@ -86,8 +86,8 @@ var externBool = false
 
 func compile(params []string, excludesData excludesType) []byte {
 	args := []string{}
-	testBool = false
 	logBool = false
+	testBool = false
 	externBool = false
 	logBuffer = ""
 	for _, param := range params {
@@ -149,11 +149,15 @@ func compile(params []string, excludesData excludesType) []byte {
 		throw("encoding err: " + err.Error())
 		return bytes
 	}
+	flushLog()
+	return bytes
+}
+
+func flushLog() {
 	if logBool {
 		os.Remove("log.txt")
 		ioutil.WriteFile("log.txt", []byte(logBuffer), 0764)
 	}
-	return bytes
 }
 
 func log(a ...interface{}) {
@@ -569,7 +573,9 @@ func parsePkg(pkg *packages.Package) packageType {
 	name := pkg.Name
 	if name == "main" {
 		if pkg.PkgPath == "command-line-arguments" {
-			name = filepath.Base(pkg.GoFiles[0])
+			if len(pkg.GoFiles) > 0 {
+				name = filepath.Base(pkg.GoFiles[0])
+			}
 			data.Path = ""
 		} else {
 			name = filepath.Base(pkg.PkgPath)

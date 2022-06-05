@@ -12,12 +12,9 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: pxshadow/setup-hashlink@v1.0.1 #hashlink
-      steps:
       - uses: actions/setup-go@v3
         with:
           go-version: '1.18.3' # The Go version to download (if necessary) and use.
-      - run: go version
-
       - name: install lix
         run: npm i lix -g
       - name: run lix

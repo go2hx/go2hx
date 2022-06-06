@@ -8,6 +8,37 @@ import sys.thread.Lock;
 using haxe.io.Path;
 using sys.FileSystem;
 
+// @formatter:off
+final gobyexampleExcludes = [
+	"atomic-counters.go",                 // TODO fix looping
+	"non-blocking-channel-operations.go", // TODO fix looping
+	"command-line-arguments.go",          // unsupported functionality
+	"command-line-flags.go",              // unsupported functionality
+	"command-line-subcommands.go",        // unsupported functionality
+	"context.go",                         // TODO net/http
+	"defer.go",                           // TODO os
+	"directories.go",                     // TODO os
+	"embed-directive.go",                 // TODO embed
+	"environment-variables.go",           // TODO os
+	"execing-processes.go",               // TODO os/exec
+	"exit.go",                            // TODO os
+	"http-clients.go",                    // TODO net/http
+	"http-servers.go",                    // TODO net/http
+	"line-filters.go",                    // TODO os
+	"panic.go",                           // TODO os
+	"reading-files.go",                   // TODO os
+	"signals.go",                         // TODO os/signal
+	"spawning-processes.go",              // TODO os/exec
+	"string-formatting.go",               // TODO os
+	"temporary-files-and-directories.go", // TODO os
+	"main_test.go",                       // TODO testing
+	"text-templates.go",                  // TODO os
+	"writing-files.go",                   // TODO os
+];
+final yaegiExcludes = [];
+final goExcludes = [];
+
+// @formatter:on
 var tasks:Array<TaskData> = [];
 var runsLeft:Int = 0;
 var processPool = new ProcessPool(2);
@@ -139,7 +170,7 @@ private function testGo():Array<TestData> { // go tests
 	for (path in dir.readDirectory()) {
 		var name = path.withoutExtension();
 		path = dir + path;
-		if (path.isDirectory() || path.extension() != "go")
+		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
 			continue;
 		final input = File.read(path, false);
 		final line = input.readLine().substr(3);
@@ -192,7 +223,7 @@ private function testYaegi():Array<TestData> {
 	for (path in dir.readDirectory()) {
 		final name = path.withoutExtension();
 		path = dir + path;
-		if (path.isDirectory() || path.extension() != "go")
+		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
 			continue;
 		final input = File.read(path, false);
 		var isError = false;
@@ -234,10 +265,11 @@ private function testGoByExample():Array<TestData> { // gobyexample
 		Sys.command("git pull");
 		Sys.setCwd("../..");
 	}
+
 	for (folder in dir.readDirectory()) {
 		folder = dir + folder.addTrailingSlash();
 		for (path in folder.readDirectory()) {
-			if (path.extension() != "go")
+			if (path.extension() != "go" || gobyexampleExcludes.indexOf(path) != -1)
 				continue;
 			final name = path.withoutExtension();
 			path = folder + path;

@@ -1,4 +1,4 @@
-<img src="logo.svg" width="320" align="right"/>
+<img src="logo.svg" width="270" align="right"/>
 
 go2hx
 ==========
@@ -12,18 +12,26 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 # Getting started
 * [Download Go 1.16+](https://golang.org/dl/)
 * [Download Haxe 477663e nightly or later](https://build.haxe.org/builds/haxe/)
+* *optional:* [Download Hashlink 1.12+](https://hashlink.haxe.org/#download) (better performance and used for testing)
 
-```
+
+Install:
+```sh
 haxelib git go2hx https://github.com/go2hx/go2hx
 ```
 
-Compile and run code with the interp target
+Compile Go code into Haxe and run it with the interp Haxe target:
+```sh
+haxelib run go2hx ./main.go --interp
 ```
-haxelib run go2hx --interp ./main.go
+Or with the Hashlink target:
+```sh
+haxelib run go2hx ./main.go --hl run.hl 
 ```
-Compile and generate build file with hashlink target
-```
-haxelib run go2hx --hxml build.hxml --norun --hl run.hl ./main.go
+
+Create a build.hxml (Haxe build file and use it to run the code later)
+```sh
+haxelib run go2hx ./main.go --norun --hxml build.hxml --hl run.hl
 ```
 
 *Shows percentage of tests passing out of total*

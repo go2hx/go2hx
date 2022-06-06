@@ -359,21 +359,26 @@ private function runBuildTools(modules:Array<Typer.Module>, args:Array<String>) 
 	}
 	if (libs != "")
 		commands.push(libs);
-	if (target != "") {
-		commands.push(buildTarget(target, targetOutput));
+	if (target != "" && target != "interp") {
+		for (command in buildTarget(target, targetOutput).split(" "))
+			commands.push(command);
 	}
 	if (!noRun && target != "") {
 		for (main in paths) {
 			if (root != "")
 				main = root + (main == "" ? "" : "." + main);
-			var commands = commands.concat(['-m', main]);
+			var commands = commands.concat(['-m', main]); // copy
 			if (target == "interp") {
-				targetOutput = commands.join(" ");
+				commands = commands.concat(buildTarget(target, "", main).split(" "));
 				commands = commands.concat(args);
 			}
 			Sys.println('haxe ' + commands.join(" "));
 			Sys.command('haxe', commands); // build without build file
-			Sys.command(runTarget(target, targetOutput, main, args));
+			final runCommand = runTarget(target, targetOutput, args);
+			if (runCommand != "") {
+				Sys.println(runCommand);
+				Sys.command(runCommand);
+			}
 		}
 	}
 	if (buildPath != "") { // create build file
@@ -416,20 +421,21 @@ function libTarget(target:String):String {
 	}
 }
 
-function buildTarget(target:String, out:String):String {
+function buildTarget(target:String, out:String, main:String = ""):String {
 	return switch target {
 		case "hl", "jvm", "cpp", "cs":
 			'--$target $out';
 		case "interp":
-			"";
+			"--run " + main;
 		default:
 			throw "unknown target: " + target;
 	}
 }
 
-function runTarget(target:String, out:String, main:String, args:Array<String>):String {
+function runTarget(target:String, out:String, args:Array<String>):String {
 	var s = switch target {
-		case "interp": "haxe " + out + args.join(" ");
+		case "interp":
+			"";
 		case "hl":
 			'hl $out';
 		case "jvm":

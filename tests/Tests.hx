@@ -55,7 +55,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	tasks = tasks.slice(0, 4);
+	tasks = tasks.slice(0, 1);
 	runsLeft = tasks.length * targets.length;
 	trace(runsLeft);
 	// update loop
@@ -103,10 +103,10 @@ private function complete(modules, obj:TaskData) {
 			if (target == "hxcpp") {
 				command += " -D HXCPP_NONINTERACTIVE";
 			}
-			command += " && " + Main.runTarget(target, out, obj.data.name, args);
+			command += " && " + Main.runTarget(target, out, args);
 		} else {
-			command = (ci ? "npx " : "")
-				+ Main.runTarget(target, obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1), obj.data.name, args);
+			command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1)
+				+ args.join(" ");
 		}
 		processPool.run(command);
 	}

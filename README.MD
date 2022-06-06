@@ -11,7 +11,7 @@ Come give feedback on what [Go libraries you want  supported!](https://github.co
 
 # Getting started
 * [Download Go 1.16+](https://golang.org/dl/)
-* [Download Haxe 4.3.0+](https://haxe.org/download/)
+* [Download Haxe 477663e nightly or later](https://build.haxe.org/builds/haxe/)
 
 ```
 haxelib git go2hx https://github.com/go2hx/go2hx

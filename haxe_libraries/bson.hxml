@@ -1,0 +1,3 @@
+# @install: lix --silent download "gh://github.com/kevinresol/bson#8ff5dbe31d961f5534d502b1e6dd9ea0527bc458" into bson/0.1.0/github/8ff5dbe31d961f5534d502b1e6dd9ea0527bc458
+-cp ${HAXE_LIBCACHE}/bson/0.1.0/github/8ff5dbe31d961f5534d502b1e6dd9ea0527bc458/src
+-D bson=0.1.0

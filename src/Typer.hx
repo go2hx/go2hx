@@ -355,8 +355,9 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 					meta: [{name: ":keep", pos: null},],
 				};
 				final fieldExtension = [info.global.filePath, staticExtensionName];
-				var globalPath = getGlobalPath(info);
-				fieldExtension.unshift(globalPath);
+				final globalPath = getGlobalPath(info);
+				if (globalPath != "")
+					fieldExtension.unshift(globalPath);
 				if (stdgoList.indexOf(toGoPath(globalPath)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 					fieldExtension.unshift("stdgo");
 				}

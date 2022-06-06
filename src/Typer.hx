@@ -70,9 +70,7 @@ final basicTypes = [
 ];
 
 var printer = new Printer();
-var printGoCode = false;
-
-// var config = {printGoCode: false}; // typer config
+var printGoCode = false; // var config = {printGoCode: false}; // typer config
 var externBool:Bool = false;
 var noCommentsBool:Bool = false;
 
@@ -903,9 +901,8 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	if (vars.length > 0)
 		return EVars(vars);
 	return (macro {}).expr; // blank expr def
-}
+} // ($expr : $type);
 
-// ($expr : $type);
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	if (e != null)
 		switch e.expr {
@@ -1254,6 +1251,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers
+
 	final init = stmt.init == null ? null : typeStmt(stmt.init, info);
 	if (stmt.body == null || stmt.body.list == null)
 		return (macro {}).expr;
@@ -2051,6 +2049,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 }
 
 private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the type of an expr
+
 	if (expr == null)
 		return null;
 	var type = switch expr.id {
@@ -2952,6 +2951,7 @@ private function toHaxePath(path:String):String {
 }
 
 private function namedTypePath(path:String, info:Info):TypePath { // other parseTypePath
+
 	if (path == "command-line-arguments")
 		path = "";
 	if (path == "error")
@@ -3343,8 +3343,7 @@ private function typeUnaryExpr(expr:Ast.UnaryExpr, info:Info):ExprDef {
 	An element list that contains keys does not need to have an element for each struct field. Omitted fields get the zero value for that field.
 	A literal may omit the element list; such a literal evaluates to the zero value for its type.
 	It is an error to specify an element for a non-exported field of a struct belonging to a different package.
- */
-/*
+ */ /*
 	For array and slice literals the following rules apply:
 
 	Each element has an associated integer index marking its position in the array.
@@ -3729,9 +3728,8 @@ private function typeBinaryExpr(expr:Ast.BinaryExpr, info:Info, walk:Bool = true
 	if (walk)
 		e = walkBinary(e);
 	return e.expr;
-}
+} // (A op2 B) op C
 
-// (A op2 B) op C
 function walkBinary(e:Expr):Expr {
 	switch e.expr {
 		case EBinop(op, e1, c): // (A op2 B) op C
@@ -3826,6 +3824,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 }
 
 private function typeSelectorExpr(expr:Ast.SelectorExpr, info:Info):ExprDef { // EField
+
 	var x = typeExpr(expr.x, info);
 	var typeX = typeof(expr.x);
 
@@ -3982,9 +3981,8 @@ private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 private function typeParenExpr(expr:Ast.ParenExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	return x != null ? EParenthesis(x) : null;
-}
+} // SPECS
 
-// SPECS
 private function typeDeferReturn(info:Info, nullcheck:Bool):Expr {
 	return macro for (defer in __deferstack__) {
 		defer();
@@ -4132,9 +4130,52 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			for (arg in args)
 				macro className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{arg.name}))) + "_"
 		];
+		final genericNames = params.map(param -> param.name);
+		final genericTypes = [];
+		function findGeneric(name:String, reverse:Array<Int>, t:ComplexType) {
+			switch t {
+				case TPath(p):
+					if (p.params != null) {
+						for (i in 0...p.params.length) {
+							switch p.params[i] {
+								case TPType(t):
+									findGeneric(name, reverse.concat([i]), t);
+								default:
+							}
+						}
+					}
+					if (p.pack == null || p.pack.length > 0)
+						return;
+					for (genericName in genericNames) {
+						if (genericName != p.name)
+							continue;
+						var e = macro haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{name}));
+						e = macro($e.getParameters()[0] : haxe.macro.Expr.TypePath).params;
+						reverse.unshift(0);
+						for (index in reverse) {
+							e = macro($e[$e{makeExpr(index)}].getParameters()[0] : haxe.macro.Expr.ComplexType);
+						}
+						genericTypes.push(macro final $genericName:haxe.macro.Expr.ComplexType = $e);
+						genericNames.remove(genericName);
+					}
+				default:
+			}
+		}
+		for (arg in args) {
+			switch arg.type {
+				case TPath(p):
+					switch p.params[0] {
+						case TPType(t):
+							findGeneric(arg.name, [], t);
+						default:
+					}
+				default:
+			}
+		}
 		final className = "T_" + info.className + "_" + info.funcName + "_";
 		final call = macro $p{["$i{className}", info.funcName]}($a{nameArgs});
 		block = macro {
+			$b{genericTypes};
 			final block = @:macro $block;
 			var className = ${makeString(className)};
 			$b{extension};
@@ -4296,7 +4337,10 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro(null : Slice<$t>);
 		case arrayType(elem, len):
 			final t = toComplexType(elem, info);
-			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) ${defaultValue(elem, info)}]);
+			var value = defaultValue(elem, info);
+			if (value == null)
+				value = macro Go.expectedValue();
+			macro new GoArray<$t>(...[for (i in 0...${toExpr(EConst(CInt('$len')))}) $value]);
 		case interfaceType(_):
 			final ct = ct();
 			macro(null : $ct);

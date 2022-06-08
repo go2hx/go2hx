@@ -4015,7 +4015,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	var args = typeFieldListArgs(decl.type.params, info);
 
 	var meta:Metadata = [];
-	var init:Expr = null;
 	var recvGeneric = false;
 	if (decl.recv != null) {
 		meta.push({name: ":keep", pos: null});
@@ -4031,8 +4030,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			varName = nameIdent(varName, false, true, info);
 			if (isPointer(varType)) {
 				meta.push({name: ":pointer", pos: null});
-			} else {
-				init = passByCopy(varType, macro $i{varName}, info);
 			}
 		} else {
 			varName = "_";
@@ -4057,13 +4054,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		block = macro {
 			$e;
 		};
-	}
-	if (init != null) {
-		switch block.expr {
-			case EBlock(exprs):
-				exprs.unshift(init);
-			default:
-		}
 	}
 	var doc = getDoc(decl);
 	var preamble = "//#go2hx ";

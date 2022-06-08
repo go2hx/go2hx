@@ -138,7 +138,7 @@ class Chan<T> {
 private class ChanBuffer<T> {
 	var buffer:Deque<T> = null;
 
-	@:isVar public var length(get, set):Int;
+	@:isVar public var length(get, set):Int = 0;
 	public var mutex:Mutex = null;
 
 	function get_length():Int {

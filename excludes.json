@@ -35,8 +35,6 @@
     "internal/syscall/windows",
     "log",
     "golang.org/x/tools/internal/gocommand",
-    "regexp",
-    "regexp/syntax",
     "golang.org/x/sys/cpu",
     "golang.org/x/tools/go/internal/gcimporter",
     "go/build",

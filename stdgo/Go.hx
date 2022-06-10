@@ -129,7 +129,67 @@ class Go {
 	}
 
 	public static macro function wrapper(e:Expr) { // define module to auto wrap named type
-		return e;
+		final printer = new haxe.macro.Printer();
+		final t = Context.typeof(e);
+		final ct = Context.toComplexType(t);
+		var pack = [];
+		final td:TypeDefinition = macro class T___ {
+			var __self__:$ct;
+
+			public function new(__self__)
+				this.__self__ = __self__;
+
+			public function __underlying__():stdgo.StdGoTypes.AnyInterface
+				return stdgo.Go.toInterface(__self__);
+		};
+		switch t {
+			case TType(_.get() => t, _):
+				if (t.meta.has(":using")) {
+					for (obj in t.meta.extract(":using")) {
+						if (obj.params == null)
+							continue;
+						for (param in obj.params) {
+							final s = printer.printExpr(param);
+							final t = Context.getType(s);
+							switch t {
+								case TInst(_.get() => t, _):
+									final statics = t.statics.get();
+									for (stat in statics) {
+										// convert state field to field
+										final field = @:privateAccess TypeTools.toField(stat);
+										field.access.remove(AStatic);
+										switch field.kind {
+											case FFun(f):
+												f.args.shift();
+												final fieldName = field.name;
+												final args = f.args.map(arg -> macro $i{arg.name});
+												f.expr = macro __self__.$fieldName($a{args});
+												if (!isVoid(Context.followWithAbstracts(ComplexTypeTools.toType(f.ret)))) f.expr = macro macro $e{f.expr};
+											default:
+										}
+										td.fields.push(field);
+									}
+								default:
+							}
+						}
+					}
+				}
+				td.name = t.name + "_wrapper";
+				pack = t.pack;
+			default:
+				// trace(t, Context.currentPos());
+				return e;
+		}
+		td.pos = Context.currentPos();
+		td.pack = pack;
+		// trace(new haxe.macro.Printer().printTypeDefinition(td));
+		try {
+			Context.defineType(td);
+		} catch (e) {
+			// trace(e);
+		}
+		final p:TypePath = {name: td.name, pack: pack};
+		return macro new $p($e);
 	}
 
 	public static macro function typeFunction(e:Expr) {
@@ -144,7 +204,7 @@ class Go {
 		var field:String = "";
 		if (t != null) {
 			switch e.expr {
-				case EField(e, f, _):
+				case EField(e, f):
 					try {
 						// could check the Context.typeof and see if the type has a @:using as well
 						selfType = Context.toComplexType(t);
@@ -189,7 +249,7 @@ class Go {
 					// trace(new haxe.macro.Printer().printExpr(e));
 				}
 				// trace(ret, isVoid(ret));
-				if (!isVoid(ret)) {
+				if (!isVoid(Context.followWithAbstracts(ret))) {
 					block = macro return $block;
 				}
 				final td = {
@@ -284,10 +344,10 @@ class Go {
 							final std = p.name == "StdTypes" && p.params.length == 0 && p.pack.length == 0;
 							final stdgo = p.name == "StdGoTypes" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
 							final string = p.name == "GoString" && p.params.length == 0 && p.pack.length == 1 && p.pack[0] == "stdgo";
-							if (std || stdgo || string) expr = macro Go.pointer($expr);
+							if (std || stdgo || string) expr = macro stdgo.Go.pointer($expr);
 						default:
 					}
-					expr = macro Go.wrapper($expr);
+					expr = macro stdgo.Go.wrapper($expr);
 					expr.pos = Context.currentPos();
 					// trace(new haxe.macro.Printer().printExpr(expr));
 				} else if (t.pack.length == 1
@@ -312,12 +372,12 @@ class Go {
 				if (t.name == "String" && t.pack.length == 0)
 					expr = macro new GoString($expr);
 			case TAnonymous(_):
-				return macro $expr == null ? new AnyInterface(null,
+				return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
 					new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.invalidType)) : $expr.__underlying__();
 			default:
 		}
 		var ty = gtDecode(t, expr, []);
-		var e = macro new AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
+		var e = macro new stdgo.StdGoTypes.AnyInterface($expr, new stdgo.reflect.Reflect._Type($ty));
 		e.pos = Context.currentPos();
 		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
@@ -783,7 +843,7 @@ class Go {
 					args.push(gtDecode(arg.t, null, marked));
 				}
 				var results = [];
-				var voidBool = isVoid(result);
+				var voidBool = isVoid(Context.followWithAbstracts(result));
 				switch result {
 					case TAnonymous(a):
 						final fields = a.get().fields;

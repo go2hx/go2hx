@@ -8,6 +8,8 @@ import haxe.macro.Context;
 import haxe.macro.Expr;
 import haxe.macro.ExprTools;
 import haxe.macro.PositionTools;
+import haxe.macro.Type.BaseType;
+import haxe.macro.Type.ClassField;
 import haxe.macro.TypeTools;
 import sys.thread.Thread;
 
@@ -129,67 +131,60 @@ class Go {
 	}
 
 	public static macro function wrapper(e:Expr) { // define module to auto wrap named type
-		final printer = new haxe.macro.Printer();
-		final t = Context.typeof(e);
-		final ct = Context.toComplexType(t);
-		var pack = [];
-		final td:TypeDefinition = macro class T___ {
-			var __self__:$ct;
-
-			public function new(__self__)
-				this.__self__ = __self__;
-
-			public function __underlying__():stdgo.StdGoTypes.AnyInterface
-				return stdgo.Go.toInterface(__self__);
-		};
-		switch t {
-			case TType(_.get() => t, _):
-				if (t.meta.has(":using")) {
-					for (obj in t.meta.extract(":using")) {
-						if (obj.params == null)
-							continue;
-						for (param in obj.params) {
-							final s = printer.printExpr(param);
-							final t = Context.getType(s);
-							switch t {
-								case TInst(_.get() => t, _):
-									final statics = t.statics.get();
-									for (stat in statics) {
-										// convert state field to field
-										final field = @:privateAccess TypeTools.toField(stat);
-										field.access.remove(AStatic);
-										switch field.kind {
-											case FFun(f):
-												f.args.shift();
-												final fieldName = field.name;
-												final args = f.args.map(arg -> macro $i{arg.name});
-												f.expr = macro __self__.$fieldName($a{args});
-												if (!isVoid(Context.followWithAbstracts(ComplexTypeTools.toType(f.ret)))) f.expr = macro macro $e{f.expr};
-											default:
-										}
-										td.fields.push(field);
-									}
-								default:
-							}
-						}
+		var t = Context.typeof(e);
+		var ct = Context.toComplexType(t);
+		var p:TypePath = null;
+		switch ct {
+			case TPath(p):
+				if (p.name == "Pointer" && p.pack.length == 1 && p.pack[0] == "stdgo" && p.params != null && p.params.length == 1) {
+					switch p.params[0] {
+						case TPType(t):
+							ct = t;
+						default:
 					}
 				}
-				td.name = t.name + "_wrapper";
-				pack = t.pack;
 			default:
-				// trace(t, Context.currentPos());
-				return e;
 		}
-		td.pos = Context.currentPos();
-		td.pack = pack;
-		// trace(new haxe.macro.Printer().printTypeDefinition(td));
-		try {
-			Context.defineType(td);
-		} catch (e) {
-			// trace(e);
+		t = Context.resolveType(ct, Context.currentPos());
+		switch ct {
+			case TPath(p2):
+				p = p2;
+				p.sub += "_wrapper";
+				try {
+					final ps:TypePath = {
+						name: p.name,
+						pack: p.pack,
+						sub: p.sub,
+						params: null,
+					};
+					t = Context.getType(new haxe.macro.Printer().printTypePath(ps));
+				} catch (ex) {
+					trace(ex);
+					throw ex;
+				}
+			default:
 		}
-		final p:TypePath = {name: td.name, pack: pack};
-		return macro new $p($e);
+		final typeFields:Array<ClassField> = switch t {
+			case TInst(_.get() => t, _):
+				t.fields.get();
+			default:
+				throw "invalid: " + t;
+		}
+		final fieldExprs = [];
+		for (field in typeFields) {
+			if (field.name == "__self__" || field.name == "__underlying__")
+				continue;
+			final fieldName = field.name;
+			fieldExprs.push(macro ___self___.$fieldName = stdgo.Go.typeFunction($e.$fieldName));
+		}
+		e = macro {
+			final ___self___ = new $p($e);
+			$b{fieldExprs};
+			___self___;
+		};
+		trace(new haxe.macro.Printer().printExpr(e));
+		e.pos = Context.currentPos();
+		return e;
 	}
 
 	public static macro function typeFunction(e:Expr) {
@@ -210,7 +205,9 @@ class Go {
 						selfType = Context.toComplexType(t);
 						selfExpr = e;
 						field = f;
-					} catch (_) {}
+					} catch (e) {
+						trace(e);
+					}
 				default:
 			}
 		} else {
@@ -242,7 +239,7 @@ class Go {
 					block = macro __self__.$field($a{funArgs});
 				} else {
 					// path.pop();
-					// trace(path);
+					trace(path, field);
 					block = macro $p{path}.$field($a{funArgs});
 					path.push(name);
 					e = macro $p{path}.f;
@@ -301,7 +298,14 @@ class Go {
 	}
 
 	public static macro function expectedValue():Expr {
-		final t = gtDecode(Context.getExpectedType(), null, []);
+		var t = Context.getExpectedType();
+		switch t {
+			case TType(_.get() => t2, _):
+				t = t2.type;
+			default:
+		}
+
+		final t = gtDecode(t, null, []);
 		return macro stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type($t));
 	}
 
@@ -331,7 +335,6 @@ class Go {
 			}
 		}
 		var t = Context.typeof(expr);
-		// trace(t);
 		var wrapped = false;
 		var follow = true;
 		switch t {
@@ -347,9 +350,6 @@ class Go {
 							if (std || stdgo || string) expr = macro stdgo.Go.pointer($expr);
 						default:
 					}
-					expr = macro stdgo.Go.wrapper($expr);
-					expr.pos = Context.currentPos();
-					// trace(new haxe.macro.Printer().printExpr(expr));
 				} else if (t.pack.length == 1
 					&& t.pack[0] == "stdgo"
 					&& (t.name != "GoByte" && t.name != "GoRune" && t.name != "GoFloat" && t.name != "GoUInt" && t.name != "GoInt")) {
@@ -561,74 +561,6 @@ class Go {
 			pTypes.push(gtDecode(param, null, marked));
 		}
 		return pTypes;
-	}
-
-	public static function gtIsBasic(t:haxe.macro.Type):Bool {
-		return switch (t) {
-			case TType(_.get() => t, params):
-				if (t.meta.has(":named"))
-					return true;
-				switch t.name {
-					case "GoUnTypedInt", "stdgo.GoUnTypedInt":
-						true;
-					case "GoUnTypedFloat", "stdgo.GoUnTypedFloat":
-						true;
-					case "GoUnTypedComplex", "stdgo.GoUnTypedComplex":
-						true;
-					case "GoRune", "stdgo.GoRune":
-						true;
-					case "GoByte", "stdgo.GoByte":
-						true;
-					default:
-						false;
-				}
-			case TAbstract(ref, _):
-				var sref:String = ref.toString();
-				return switch (sref) {
-					case "stdgo.GoInt8":
-						true;
-					case "stdgo.GoInt16":
-						true;
-					case "stdgo.GoInt32":
-						true;
-					case "stdgo.GoInt", "Int":
-						true;
-					case "stdgo.GoInt64":
-						true;
-					case "stdgo.GoUInt8":
-						true;
-					case "stdgo.GoUInt16":
-						true;
-					case "stdgo.GoUInt":
-						true;
-					case "stdgo.GoUInt32":
-						true;
-					case "stdgo.GoUInt64":
-						true;
-					case "stdgo.GoString", "String":
-						true;
-					case "stdgo.GoComplex64":
-						true;
-					case "stdgo.GoComplex128":
-						true;
-					case "stdgo.ComplexType":
-						true;
-					case "stdgo.GoFloat32":
-						true;
-					case "stdgo.GoFloat64", "Float":
-						true;
-					case "stdgo.FloatType":
-						true;
-					case "Bool":
-						true;
-					case "stdgo.GoUIntptr":
-						true;
-					default:
-						false;
-				}
-			default:
-				false;
-		}
 	}
 
 	public static function gtDecode(t:haxe.macro.Type, expr:Expr = null, marked:Map<String, Bool>, recv:Expr = null):Expr {

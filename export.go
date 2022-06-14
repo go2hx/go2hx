@@ -651,7 +651,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			object := checker.ObjectOf(obj.Name)
 
-			methods := parseMethods(object.Type(), &methodCache)
+			methods := parseMethods(object.Type(), &methodCache, 1)
 			var params map[string]interface{} = nil
 
 			if obj.TypeParams != nil {
@@ -689,17 +689,24 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	return data
 }
 
-func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache) []map[string]interface{} {
+func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int) []map[string]interface{} {
 	set := typeutil.IntuitiveMethodSet(object, methodCache)
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
-		if len(sel.Index()) > 1 {
-			methods = append(methods, map[string]interface{}{
-				"name":  sel.Obj().Name(),
-				"type":  parseType(sel.Type()),
-				"recv":  parseType(sel.Recv()),
-				"index": sel.Index(),
-			})
+		if len(sel.Index()) > index {
+			if index > 0 {
+				methods = append(methods, map[string]interface{}{
+					"name":  sel.Obj().Name(),
+					"type":  parseType(sel.Type()),
+					"recv":  parseType(sel.Recv()),
+					"index": sel.Index(),
+				})
+			} else {
+				methods = append(methods, map[string]interface{}{
+					"name":  sel.Obj().Name(),
+					"index": sel.Index(),
+				})
+			}
 		}
 	}
 	return methods
@@ -752,6 +759,8 @@ func parseType(node interface{}) map[string]interface{} {
 			for i := 0; i < len(params); i++ {
 				params[i] = parseType(named.TypeParams().At(i))
 			}
+			data["methods"] = parseMethods(named, &methodCache, 0)
+			//fmt.Println(data["methods"], named.NumMethods(), named.Origin().NumMethods())
 			data["params"] = params
 			data["path"] = named.String()
 		}
@@ -773,7 +782,7 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
-		data["methods"] = parseMethods(s, &methodCache)
+		data["methods"] = parseMethods(s, &methodCache, 1)
 		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		for i := 0; i < s.NumEmbeddeds(); i++ {
 			v := s.EmbeddedType(i)

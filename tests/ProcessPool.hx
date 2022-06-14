@@ -2,29 +2,29 @@ package;
 
 import sys.io.Process;
 
-typedef ProcessData = {proc:Process, command:String};
+typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool};
 
 class ProcessPool {
 	var pool:Array<ProcessData> = [];
-	var commands = [];
+	var queue:Array<{command:String, data:Dynamic, runtimeBool:Bool}> = [];
 	var count = 0;
 
-	public var complete:{code:Int, command:String} -> Void = null;
+	public var complete:(code:Int, proc:Process, data:Dynamic, runtimeBool:Bool) -> Void = null;
 
 	public function new(count) {
 		this.count = count;
 	}
 
-	public function run(command:String) {
-		commands.push(command);
+	public function run(command:String, data:Dynamic, runtimeBool:Bool) {
+		queue.push({command: command, data: data, runtimeBool: runtimeBool});
 		get();
 	}
 
 	private function get() {
-		if (count < pool.length || commands.length == 0)
+		if (count < pool.length || queue.length == 0)
 			return;
-		final command = commands.pop();
-		pool.push({proc: new Process(command), command: command});
+		final obj = queue.pop();
+		pool.push({proc: new Process(obj.command), data: obj.data, runtimeBool: obj.runtimeBool});
 	}
 
 	var removal = [];
@@ -37,7 +37,7 @@ class ProcessPool {
 			var code = pool[i].proc.exitCode(false);
 			if (code == null)
 				continue;
-			complete({code: code, command: pool[i].command});
+			complete(code, pool[i].proc, pool[i].data, pool[i].runtimeBool);
 			removal.push(pool[i]);
 		}
 		for (obj in removal) {

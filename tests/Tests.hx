@@ -37,15 +37,14 @@ final gobyexampleExcludes = [
 ];
 final yaegiExcludes = [];
 final goExcludes = [];
-
 // @formatter:on
 var tasks:Array<TaskData> = [];
 var runsLeft:Int = 0;
 var processPool = new ProcessPool(2);
 final path = Sys.getCwd();
-var failWriter:FileOutput = null;
-var successWriter:FileOutput = null;
 var ci = false;
+var logOutput:FileOutput = null;
+var suites:Map<String, TestSuite> = [];
 
 function main() {
 	final args = Sys.args();
@@ -55,10 +54,7 @@ function main() {
 	Main.setup(0, 4); // 4 processes of go4hx
 	Main.onComplete = complete;
 
-	File.saveContent("fail.txt", "");
-	File.saveContent("success.txt", "");
-	failWriter = File.append("fail.txt", false);
-	successWriter = File.append("success.txt", false);
+	logOutput = File.append("test.log", false);
 
 	// final tests = testGoByExample().concat(test883().concat(testStd())).slice(0, 2);
 	final tests = testGoByExample();
@@ -70,6 +66,7 @@ function main() {
 	}
 	for (type => count in counts) {
 		Sys.println(type + ": " + count);
+		suites[type] = new TestSuite(count);
 	}
 	// add tests to task list
 	for (test in tests) {
@@ -88,7 +85,7 @@ function main() {
 	}
 	tasks = tasks.slice(0, 1);
 	runsLeft = tasks.length * targets.length;
-	trace(runsLeft);
+	Sys.println("Test runs left: " + runsLeft);
 	// update loop
 	while (true)
 		update();
@@ -107,14 +104,9 @@ private function update() {
 	}
 }
 
-private function completeProcess(data:{code:Int, command:String}) {
-	final s = data.command + "\n";
-	if (data.code == 0) {
-		successWriter.writeString(s);
-		successWriter.flush();
-	} else {
-		failWriter.writeString(s);
-		failWriter.flush();
+private function completeProcess(code:Int, proc:Process, task:TaskData, runBool:Bool) {
+	if (code == 0) {} else {
+		if (runBool) {} else {}
 	}
 
 	if (--runsLeft <= 0)
@@ -134,12 +126,12 @@ private function complete(modules, obj:TaskData) {
 			if (target == "hxcpp") {
 				command += " -D HXCPP_NONINTERACTIVE";
 			}
-			command += " && " + Main.runTarget(target, out, args);
+			processPool.run(Main.runTarget(target, out, args), obj, true);
 		} else {
 			command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1)
 				+ args.join(" ");
 		}
-		processPool.run(command);
+		processPool.run(command, obj, false);
 	}
 }
 
@@ -203,15 +195,23 @@ private function testStd():Array<TestData> { // standard library package tests
 	return tests;
 }
 
+private function log(v) {
+	Sys.println(v);
+	logOutput.writeString('$v');
+	logOutput.flush();
+}
+
 private function close() {
-	Sys.println("CLOSE");
-	failWriter.close();
-	successWriter.close();
+	Sys.println("======= SUMMARY RESULTS ======");
+	for (type => suite in suites) {
+		log(type + " count: " + suite.count);
+	}
+	logOutput.close();
 	Main.close();
 }
 
 private function testYaegi():Array<TestData> {
-	final dir = "./tests/yaegi/_test/";
+	final dir = "./tests/yaegia/_test/";
 	final tests:Array<TestData> = [];
 	if (!FileSystem.exists(dir)) {
 		Sys.command("git clone https://github.com/traefik/yaegi tests/yaegi");
@@ -286,11 +286,17 @@ private function testGoByExample():Array<TestData> { // gobyexample
 }
 
 typedef TestData = {name:String, type:String, path:String, exclude:String, test:Bool};
-
-@:using(Tests.ToString)
 typedef TaskData = {target:String, args:Array<String>, data:TestData, hxml:String};
 
-class ToString {
-	public static function toString(d:TaskData):String
-		return d.data.type + ":" + d.data.name + "@" + d.target + " cmd: haxelib run go2hx " + d.args.join(" ");
+class TestSuite {
+	public var excludes:Array<String> = [];
+	public var buildError:Array<String> = [];
+	public var runtimeError:Map<String, Array<String>> = [];
+	public var success:Array<String> = [];
+	public var correct:Array<String> = [];
+	public var count:Int = 0;
+
+	public function new(count) {
+		this.count = count;
+	}
 }

@@ -34,8 +34,9 @@ type stdgoListType struct {
 }
 
 type dataType struct {
-	Args []string      `json:"args"`
-	Pkgs []packageType `json:"pkgs"`
+	Args  []string      `json:"args"`
+	Pkgs  []packageType `json:"pkgs"`
+	Index string        `json:"index"`
 }
 type packageType struct {
 	Path  string     `json:"path"`
@@ -84,7 +85,7 @@ var logBuffer = ""
 var testBool = false
 var externBool = false
 
-func compile(params []string, excludesData excludesType) []byte {
+func compile(params []string, excludesData excludesType, index string) []byte {
 	args := []string{}
 	logBool = false
 	testBool = false
@@ -137,6 +138,7 @@ func compile(params []string, excludesData excludesType) []byte {
 	}
 	//log(excludes)
 	data := parsePkgList(initial, excludes)
+	data.Index = index
 	//reset
 	excludes = nil
 	typeHasher = typeutil.Hasher{}
@@ -223,7 +225,8 @@ func main() {
 		}
 		tick = 0
 		args := strings.Split(string(input), " ")
-		data := compile(args, excludesData)
+		index := args[0]
+		data := compile(args[1:], excludesData, index)
 		length := len(data)
 		buff := make([]byte, 8)
 		binary.LittleEndian.PutUint64(buff, uint64(length))

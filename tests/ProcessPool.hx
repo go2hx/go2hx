@@ -2,14 +2,14 @@ package;
 
 import sys.io.Process;
 
-typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool};
+typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool, command:String};
 
 class ProcessPool {
 	var pool:Array<ProcessData> = [];
 	var queue:Array<{command:String, data:Dynamic, runtimeBool:Bool}> = [];
 	var count = 0;
 
-	public var complete:(code:Int, proc:Process, data:Dynamic, runtimeBool:Bool) -> Void = null;
+	public var complete:(code:Int, proc:Process, data:Dynamic, command:String, runtimeBool:Bool) -> Void = null;
 
 	public function new(count) {
 		this.count = count;
@@ -24,7 +24,12 @@ class ProcessPool {
 		if (count < pool.length || queue.length == 0)
 			return;
 		final obj = queue.pop();
-		pool.push({proc: new Process(obj.command), data: obj.data, runtimeBool: obj.runtimeBool});
+		pool.push({
+			proc: new Process(obj.command),
+			data: obj.data,
+			runtimeBool: obj.runtimeBool,
+			command: obj.command
+		});
 	}
 
 	var removal = [];
@@ -37,7 +42,7 @@ class ProcessPool {
 			var code = pool[i].proc.exitCode(false);
 			if (code == null)
 				continue;
-			complete(code, pool[i].proc, pool[i].data, pool[i].runtimeBool);
+			complete(code, pool[i].proc, pool[i].data, pool[i].command, pool[i].runtimeBool);
 			removal.push(pool[i]);
 		}
 		for (obj in removal) {

@@ -5,6 +5,7 @@ import Network;
 import Typer.DataType;
 import haxe.Json;
 import haxe.Resource;
+import haxe.ds.Vector;
 import haxe.io.Bytes;
 import haxe.io.Path;
 import stdgo.StdGoTypes;
@@ -27,7 +28,6 @@ var mainThread = sys.thread.Thread.current();
 class Client {
 	public var stream:Stream;
 	public var runnable:Bool = true; // start out as true
-	public var data:Dynamic = null;
 	public var id:Int = 0;
 
 	public function new(stream, id) {
@@ -42,21 +42,6 @@ function main() {
 	run(args);
 }
 
-var printGoCode = false;
-var localPath = "";
-var target = "";
-var targetOutput = "";
-var libwrap = false;
-var outputPath:String = "";
-var root:String = "";
-var buildPath:String = "";
-var externBool:Bool = false;
-var hxmlPath:String = "";
-var noRun:Bool = false;
-var noComments:Bool = false;
-var test:Bool = false;
-final defines:Array<String> = [];
-
 final passthroughArgs = [
 	"-log",
 	"--log",
@@ -69,7 +54,7 @@ final passthroughArgs = [
 ];
 
 function run(args:Array<String>) {
-	args = compileArgs(args);
+	final instance = compileArgs(args);
 	setup(0, 1, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
@@ -78,86 +63,87 @@ function run(args:Array<String>) {
 		if (args.length <= 1) {
 			Repl.init();
 		} else {
-			compile(args);
+			compile(instance);
 		}
-	}, outputPath, root);
+	}, instance.outputPath, instance.root);
 	while (true)
 		update();
 }
 
-function compileArgs(args:Array<String>):Array<String> {
-	outputPath = "golibs";
-	root = "";
+function compileArgs(args:Array<String>):InstanceData {
+	final instance = new InstanceData();
+	instance.outputPath = "golibs";
+	instance.root = "";
 	var help = false;
 	final argHandler = Args.generate([
 		["-help", "--help", "-h", "--h"] => () -> help = true,
 		@doc("don't run the build commands")
-		["-norun", "--norun"] => () -> noRun = true, @doc("go test")
-		["-nocomments", "--nocomments"] => () -> noComments = true, @doc("no comments")
-		["-test", "--test"] => () -> test = true,
+		["-norun", "--norun"] => () -> instance.noRun = true, @doc("go test")
+		["-nocomments", "--nocomments"] => () -> instance.noComments = true, @doc("no comments")
+		["-test", "--test"] => () -> instance.test = true,
 		@doc("generate externs exported module fields only with no func exprs")
-		["-extern", "--extern", "-externs", "--externs"] => () -> externBool = true,
+		["-extern", "--extern", "-externs", "--externs"] => () -> instance.externBool = true,
 		@doc("set output path or file location")
-		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> outputPath = out,
+		["-output", "--output", "-o", "--o", "-out", "--out"] => out -> instance.outputPath = out,
 		@doc("set the root package for all generated files")
-		["-root", "--root", "-r", "--r"] => out -> root = out,
+		["-root", "--root", "-r", "--r"] => out -> instance.root = out,
 		@doc("generate Haxe build file from compiler command")
-		["-build", "--build"] => out -> buildPath = out,
+		["-build", "--build"] => out -> instance.buildPath = out,
 		@doc("generate build hxml from compiler commands")
-		["-hxml", "--hxml"] => out -> hxmlPath = out,
+		["-hxml", "--hxml"] => out -> instance.hxmlPath = out,
 		@doc("add go code as a comment to the generated Haxe code")
-		["-printgocode", "--printgocode"] => () -> printGoCode = true,
+		["-printgocode", "--printgocode"] => () -> instance.printGoCode = true,
 		@doc("all non main packages wrapped as a haxelib library to be used\n\nTarget:")
-		["-libwrap", "--libwrap"] => () -> libwrap = true,
+		["-libwrap", "--libwrap"] => () -> instance.libwrap = true,
 		@doc('generate C++ code into target directory')
 		["-cpp", "--cpp"] => out -> {
-			target = "cpp";
-			targetOutput = out;
+			instance.target = "cpp";
+			instance.targetOutput = out;
 		},
 		@doc('generate JavaScript code into target file')
 		["-js", "--js", ] => out -> {
-			target = "js";
-			targetOutput = out;
+			instance.target = "js";
+			instance.targetOutput = out;
 		},
 		@doc('generate JVM bytecode into target file')
 		["-jvm", "--jvm", "-java", "--java"] => out -> {
-			target = "jvm";
-			targetOutput = out;
+			instance.target = "jvm";
+			instance.targetOutput = out;
 		},
 		@doc('generate Python code into target file')
 		["-python", "--python"] => out -> {
-			target = "python";
-			targetOutput = out;
+			instance.target = "python";
+			instance.targetOutput = out;
 		},
 		@doc('generate Lua code into target file')
 		["-lua", "--lua"] => out -> {
-			target = "lua";
-			targetOutput = out;
+			instance.target = "lua";
+			instance.targetOutput = out;
 		},
 		@doc('generate C# code into target directory')
 		["-cs", "--cs"] => out -> {
-			target = "cs";
-			targetOutput = out;
+			instance.target = "cs";
+			instance.targetOutput = out;
 		},
 		@doc('generate HashLink .hl bytecode or .c code into target file')
 		["-hl", "--hl", "-hashlink", "--hashlink"] => out -> {
-			target = "hl";
-			targetOutput = out;
+			instance.target = "hl";
+			instance.targetOutput = out;
 		},
 		@doc('interpret the program using internal macro system')
 		["-eval", "--eval", "-interp", "--interp"] => () -> {
-			target = "interp";
+			instance.target = "interp";
 		}, @doc('json data of tests')
 		// https://pkg.go.dev/cmd/go/internal/test#pkg-variables
-		["-json", "--json"] => () -> defines.push("jsonTest"),
+		["-json", "--json"] => () -> instance.defines.push("jsonTest"),
 		@doc('Do not start new tests after the first test failure.')
-		["-failfast", "--failfast"] => () -> defines.push("failfastTest"),
+		["-failfast", "--failfast"] => () -> instance.defines.push("failfastTest"),
 		@doc('Tell long-running tests to shorten their run time.')
-		["-short", "--short"] => () -> defines.push("shortTest"),
+		["-short", "--short"] => () -> instance.defines.push("shortTest"),
 		@doc(" If a test binary runs longer than duration d, panic. If d is 0, the timeout is disabled. The default is 10 minutes (10m).")
-		["-timeout", "--timeout"] => d -> defines.push('timeoutTest $d'),
+		["-timeout", "--timeout"] => d -> instance.defines.push('timeoutTest $d'),
 		@doc("Verbose output: log all tests as they are run. Also print all text from Log and Logf calls even if the test succeeds.")
-		["-v", "--v"] => () -> defines.push("verboseTest"),
+		["-v", "--v"] => () -> instance.defines.push("verboseTest"),
 	]);
 	argHandler.parse(args);
 	for (i in 0...args.length) {
@@ -178,12 +164,13 @@ function compileArgs(args:Array<String>):Array<String> {
 			}
 		}
 	}
+	instance.args = args;
 	if (help) {
 		printDoc(argHandler);
 		close();
-		return args;
+		return instance;
 	}
-	return args;
+	return instance;
 }
 
 private function printDoc(handler:Args.ArgHandler) {
@@ -235,7 +222,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
 	var index = 0;
-	server.listen(0, () -> {
+	server.listen(processCount, () -> {
 		final client:Client = {stream: server.accept(), id: index++};
 		clients.push(client);
 		var pos = 0;
@@ -273,15 +260,18 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			pos += bytes.length;
 			if (pos == buff.length) {
 				var exportData:DataType = bson.Bson.decode(buff);
+				final index = Std.parseInt(exportData.index);
+				final instance = instanceCache[index];
+				instanceCache[index] = null; // reset
 				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
 				var modules = [];
-				modules = Typer.main(exportData, printGoCode, externBool, noComments);
-				Sys.setCwd(localPath);
+				modules = Typer.main(exportData, instance);
+				Sys.setCwd(instance.localPath);
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];
 				reset();
 				for (module in modules) {
-					if (libwrap && !module.isMain) {
+					if (instance.libwrap && !module.isMain) {
 						Sys.setCwd(cwd);
 						var name = module.name;
 						var libPath = "libs/" + name + "/";
@@ -293,8 +283,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Gen.create(outputPath, module, root);
 					}
 				}
-				runBuildTools(modules, programArgs);
-				onComplete(modules, client.data);
+				runBuildTools(modules, instance, programArgs);
+				// trace(modules[0].files[0].name, data.hxml, data.name);
+				onComplete(modules, instance.data);
 			}
 		});
 		if (index >= processCount && allAccepted != null)
@@ -302,8 +293,8 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	});
 }
 
-function targetLibs():String {
-	final libs = switch target {
+function targetLibs(instance:InstanceData):String {
+	final libs = switch instance.target {
 		case "jvm":
 			["hxjava"];
 		case "cs":
@@ -333,20 +324,20 @@ function mainPaths(modules:Array<Typer.Module>):Array<String> {
 	return paths;
 }
 
-private function runBuildTools(modules:Array<Typer.Module>, args:Array<String>) {
-	if (target == "") {
-		if (test) {
-			target = "hl"; // default test target
-			targetOutput = "test.hl";
+private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceData, args:Array<String>) {
+	if (instance.target == "") {
+		if (instance.test) {
+			instance.target = "hl"; // default test target
+			instance.targetOutput = "test.hl";
 		} else {
-			noRun = true;
+			instance.noRun = true;
 		}
 	}
 
 	final paths = mainPaths(modules);
-	final libs = targetLibs();
+	final libs = targetLibs(instance);
 	final commands = ['-lib', 'go2hx'];
-	var cp = outputPath;
+	var cp = instance.outputPath;
 	// final hxmlPathIndex = hxmlPath.lastIndexOf("/") + 1;
 	// if (hxmlPathIndex != 0)
 	//	cp = cp.substr(hxmlPathIndex);
@@ -354,34 +345,34 @@ private function runBuildTools(modules:Array<Typer.Module>, args:Array<String>) 
 		commands.push("-cp");
 		commands.push(cp);
 	}
-	for (define in defines) {
+	for (define in instance.defines) {
 		commands.push('-D $define');
 	}
 	if (libs != "")
 		commands.push(libs);
-	if (target != "" && target != "interp") {
-		for (command in buildTarget(target, targetOutput).split(" "))
+	if (instance.target != "" && instance.target != "interp") {
+		for (command in buildTarget(instance.target, instance.targetOutput).split(" "))
 			commands.push(command);
 	}
-	if (!noRun && target != "") {
+	if (!instance.noRun && instance.target != "") {
 		for (main in paths) {
-			if (root != "")
-				main = root + (main == "" ? "" : "." + main);
+			if (instance.root != "")
+				main = instance.root + (main == "" ? "" : "." + main);
 			var commands = commands.concat(['-m', main]); // copy
-			if (target == "interp") {
-				commands = commands.concat(buildTarget(target, "", main).split(" "));
+			if (instance.target == "interp") {
+				commands = commands.concat(buildTarget(instance.target, "", main).split(" "));
 				commands = commands.concat(args);
 			}
 			Sys.println('haxe ' + commands.join(" "));
 			Sys.command('haxe', commands); // build without build file
-			final runCommand = runTarget(target, targetOutput, args);
+			final runCommand = runTarget(instance.target, instance.targetOutput, args);
 			if (runCommand != "") {
 				Sys.println(runCommand);
 				Sys.command(runCommand);
 			}
 		}
 	}
-	if (buildPath != "") { // create build file
+	if (instance.buildPath != "") { // create build file
 		final mains = [for (path in paths) shared.Util.makeExpr(path)];
 		final base = [for (command in commands) shared.Util.makeExpr(command)];
 		final expr = macro function main() {
@@ -390,23 +381,24 @@ private function runBuildTools(modules:Array<Typer.Module>, args:Array<String>) 
 			for (main in mains)
 				Sys.command('haxe', base.concat(['-m', main]));
 		}
-		if (!StringTools.endsWith(buildPath, ".hx"))
-			buildPath += ".hx";
+		if (!StringTools.endsWith(instance.buildPath, ".hx"))
+			instance.buildPath += ".hx";
 		final content = new haxe.macro.Printer("    ").printExpr(expr);
-		File.saveContent(buildPath, content);
-		Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
+		File.saveContent(instance.buildPath, content);
+		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
-	if (hxmlPath != "") {
+	if (instance.hxmlPath != "") {
 		final main = paths[0];
-		if (!StringTools.endsWith(hxmlPath, ".hxml"))
-			hxmlPath += ".hxml";
+		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
+			instance.hxmlPath += ".hxml";
+		trace("set main:", instance.hxmlPath, main);
 		var content = "-m " + main + "\n";
 		for (i in 0...Std.int(commands.length / 2)) {
 			content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";
 		}
 		content = content.substr(0, content.length - 1);
-		File.saveContent(hxmlPath, content);
-		Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
+		File.saveContent(instance.hxmlPath, content);
+		// Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 }
 
@@ -450,32 +442,65 @@ function runTarget(target:String, out:String, args:Array<String>):String {
 	return s;
 }
 
-function compile(args:Array<String>, data:Dynamic = null):Bool {
-	if (localPath == "")
-		localPath = args[args.length - 1];
+function compile(instance:InstanceData):Bool {
+	if (instance.localPath == "")
+		instance.localPath = instance.args[instance.args.length - 1];
 	var httpsString = "https://";
-	for (i in 0...args.length - 1) {
-		var path = args[i];
+	for (i in 0...instance.args.length - 1) {
+		var path = instance.args[i];
 		if (StringTools.startsWith(path, httpsString)) {
 			path = path.substr(httpsString.length);
-			args[i] = path;
+			instance.args[i] = path;
 		}
 		if (Path.extension(path) == "go" || path.charAt(0) == "." || path.indexOf("/") == -1)
 			continue;
 		var command = 'go get $path';
 		Sys.command(command);
 	}
-	return write(args, data);
+	return write(instance.args, instance);
 }
 
-function write(args:Array<String>, data:Dynamic):Bool {
+function write(args:Array<String>, instance:InstanceData):Bool {
 	for (client in clients) {
 		if (!client.runnable)
 			continue;
-		client.data = data;
+		for (i in 0...instanceCache.length) {
+			if (instanceCache[i] != null)
+				continue;
+			instanceCache[i] = instance;
+			args.unshift('$i');
+			break;
+		}
 		client.stream.write(Bytes.ofString(args.join(" ")));
 		client.runnable = false;
 		return true;
 	}
 	return false;
+}
+
+final instanceCache = new Vector<InstanceData>(20);
+
+class InstanceData {
+	public var args:Array<String> = [];
+	public var data:Dynamic = null;
+	public var printGoCode = false;
+	public var localPath = "";
+	public var target = "";
+	public var targetOutput = "";
+	public var libwrap = false;
+	public var outputPath:String = "";
+	public var root:String = "";
+	public var buildPath:String = "";
+	public var externBool:Bool = false;
+	public var hxmlPath:String = "";
+	public var noRun:Bool = false;
+	public var noComments:Bool = false;
+	public var test:Bool = false;
+
+	public final defines:Array<String> = [];
+
+	public function new(args:Array<String> = null) {
+		if (args != null)
+			this.args = args;
+	}
 }

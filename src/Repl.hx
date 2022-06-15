@@ -93,7 +93,7 @@ private function loop() {
 		var template = new haxe.Template(tempString);
 		pastCode = File.getContent("repl/code.go");
 		File.saveContent("repl/eval.go", template.execute({code: pastCode + code}));
-		Main.compile(["./repl/eval.go", Sys.getCwd()]);
+		Main.compile(new Main.InstanceData(["./repl/eval.go", Sys.getCwd()]));
 		waiting = true;
 	}
 }

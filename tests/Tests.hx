@@ -53,20 +53,14 @@ function main() {
 	processPool.complete = completeProcess;
 	Main.setup(0, 4); // 4 processes of go4hx
 	Main.onComplete = complete;
-
+	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 
 	// final tests = testGoByExample().concat(test883().concat(testStd())).slice(0, 2);
-	final tests = testGoByExample();
-	final counts:Map<String, Int> = [];
-	for (test in tests) { // compute test counts
-		if (counts[test.type] == null)
-			counts[test.type] = 0;
-		counts[test.type]++;
-	}
-	for (type => count in counts) {
-		Sys.println(type + ": " + count);
-		suites[type] = new TestSuite(count);
+	final tests = testUnit();
+	for (test in tests) { // create TestSuite data class
+		if (suites[test.type] == null)
+			suites[test.type] = new TestSuite();
 	}
 	// add tests to task list
 	for (test in tests) {
@@ -83,7 +77,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	tasks = tasks.slice(0, 1);
+	tasks = tasks.slice(8, 9 + 6);
 	runsLeft = tasks.length * targets.length;
 	Sys.println("Test runs left: " + runsLeft);
 	// update loop
@@ -97,25 +91,35 @@ private function update() {
 	processPool.update();
 	Main.update();
 	for (task in tasks) {
-		final compiled = Main.compile(Main.compileArgs(task.args), task);
+		final instance = Main.compileArgs(task.args);
+		instance.data = task;
+		final compiled = Main.compile(instance);
 		if (!compiled) // wait delay
 			break;
 		tasks.remove(task);
 	}
 }
 
-private function completeProcess(code:Int, proc:Process, task:TaskData, runBool:Bool) {
-	if (code == 0) {} else {
-		if (runBool) {} else {}
+private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runBool:Bool) {
+	if (code == 0) {
+		suites[task.data.type].sucess();
+	} else {
+		if (runBool) {
+			log(task.data.name + '.go `$command` runtime error: $code');
+			suites[task.data.type].runtimeError();
+		} else {
+			log(task.data.name + '.go `$command`   build error: $code');
+			suites[task.data.type].buildError();
+		}
 	}
 
 	if (--runsLeft <= 0)
 		close();
-	if (runsLeft % targets.length == 0)
-		Sys.println(runsLeft);
+	// if (runsLeft % targets.length == 0)
+	//	Sys.println(runsLeft);
 }
 
-private function complete(modules, obj:TaskData) {
+private function complete(modules:Array<Typer.Module>, obj:TaskData) {
 	// spawn targets
 	for (target in targets) {
 		var command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml";
@@ -197,14 +201,24 @@ private function testStd():Array<TestData> { // standard library package tests
 
 private function log(v) {
 	Sys.println(v);
-	logOutput.writeString('$v');
+	logOutput.writeString('$v\n');
 	logOutput.flush();
 }
 
 private function close() {
-	Sys.println("======= SUMMARY RESULTS ======");
+	log("======= SUMMARY RESULTS ======");
+	function calc(count:Int, total:Int):String {
+		if (count == 0)
+			return "0%";
+		return count + " " + (Std.int(count / total * 10000) / 100) + "%";
+	}
 	for (type => suite in suites) {
-		log(type + " count: " + suite.count);
+		log('--> $type');
+
+		log('      correct: ' + calc(suite.correctCount, suite.count));
+		log('      success: ' + calc(suite.successCount, suite.count));
+		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
+		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
 	}
 	logOutput.close();
 	Main.close();
@@ -255,6 +269,25 @@ private function testYaegi():Array<TestData> {
 	return tests;
 }
 
+private function testUnit():Array<TestData> {
+	final tests:Array<TestData> = [];
+	final dir = "./tests/unit/";
+	for (path in dir.readDirectory()) {
+		final name = path.withoutExtension();
+		path = dir + path;
+		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
+			continue;
+		tests.push({
+			name: name,
+			type: "unit",
+			path: path,
+			exclude: "",
+			test: false,
+		});
+	}
+	return tests;
+}
+
 private function testGoByExample():Array<TestData> { // gobyexample
 	final dir = "./tests/gobyexample/examples/";
 	final tests:Array<TestData> = [];
@@ -290,13 +323,31 @@ typedef TaskData = {target:String, args:Array<String>, data:TestData, hxml:Strin
 
 class TestSuite {
 	public var excludes:Array<String> = [];
-	public var buildError:Array<String> = [];
-	public var runtimeError:Map<String, Array<String>> = [];
-	public var success:Array<String> = [];
-	public var correct:Array<String> = [];
+	public var buildErrorCount:Int = 0;
+	public var runtimeErrorCount:Int = 0;
+	public var successCount:Int = 0;
+	public var correctCount:Int = 0;
 	public var count:Int = 0;
 
-	public function new(count) {
-		this.count = count;
+	public function new() {}
+
+	public function buildError() {
+		buildErrorCount++;
+		count++;
+	}
+
+	public function runtimeError() {
+		runtimeErrorCount++;
+		count++;
+	}
+
+	public function sucess() {
+		successCount++;
+		count++;
+	}
+
+	public function correct() {
+		correctCount++;
+		count++;
 	}
 }

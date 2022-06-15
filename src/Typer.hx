@@ -74,7 +74,7 @@ var printGoCode = false; // var config = {printGoCode: false}; // typer config
 var externBool:Bool = false;
 var noCommentsBool:Bool = false;
 
-function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool = false) {
+function main(data:DataType, instance:Main.InstanceData) {
 	final imports:Array<String> = [];
 	// final command = "go list -f '{{ join .Imports \"\\n\" }}' " + data.args.join(" ");
 	// Sys.println('$command:');
@@ -88,8 +88,8 @@ function main(data:DataType, printGoCode:Bool = false, eb:Bool = false, nc:Bool 
 		}
 		data.pkgs = testPkgs;
 	}*/
-	noCommentsBool = nc;
-	externBool = eb;
+	final noCommentsBool = instance.noComments;
+	final externBool = instance.externBool;
 	var list:Array<Module> = [];
 	var defaultImports:Array<ImportType> = [
 		{path: ["stdgo", "StdGoTypes"], alias: "", doc: ""},
@@ -1750,7 +1750,6 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 		t = getElem(t);
 		self = macro $y.value;
 	}
-	trace(t);
 	switch t {
 		case named(name, methods, _):
 			final p = namedTypePath(name, info);
@@ -4250,7 +4249,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			for (arg in args)
 				macro className += haxe.macro.Context.signature(haxe.macro.Context.toComplexType(haxe.macro.Context.typeof($i{arg.name}))) + "_"
 		];
-		final genericNames = params.map(param -> param.name);
+		final genericNames = params == null ? [] : params.map(param -> param.name);
 		final genericTypes = [];
 		function findGeneric(name:String, reverse:Array<Int>, t:ComplexType) {
 			switch t {
@@ -4290,7 +4289,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 							final t:haxe.macro.Expr.ComplexType = $e;
 							final pos = haxe.macro.Context.currentPos();
 							final td:haxe.macro.Expr.TypeDefinition = {
-								name: $v{genericName},
+								name: $e{makeExpr(genericName)},
 								pos: pos,
 								pack: [],
 								fields: [],
@@ -5672,7 +5671,7 @@ class Info {
 	}
 }
 
-typedef DataType = {args:Array<String>, pkgs:Array<PackageType>};
+typedef DataType = {args:Array<String>, pkgs:Array<PackageType>, index:String};
 
 typedef PackageType = {
 	path:String,

@@ -77,7 +77,6 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	tasks = tasks.slice(8, 9 + 6);
 	runsLeft = tasks.length * targets.length;
 	Sys.println("Test runs left: " + runsLeft);
 	// update loop
@@ -109,6 +108,13 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].runtimeError();
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
+			while (true) {
+				try {
+					log(proc.stderr.readLine());
+				} catch (_) {
+					break;
+				}
+			}
 			suites[task.data.type].buildError();
 		}
 	}

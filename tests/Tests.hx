@@ -99,6 +99,8 @@ private function update() {
 	}
 }
 
+final hadError:Map<String, Bool> = [];
+
 private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runBool:Bool) {
 	if (code == 0) {
 		suites[task.data.type].sucess();
@@ -110,7 +112,16 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			log(task.data.name + '.go `$command`   build error: $code');
 			while (true) {
 				try {
-					log(proc.stderr.readLine());
+					final line = proc.stderr.readLine();
+					if (StringTools.contains(line, "Uncaught exception")) {
+						break;
+					}
+					final parts = line.split(":");
+					final end = parts.pop();
+					if (hadError.exists(end))
+						continue;
+					hadError[end] = true;
+					log(line);
 				} catch (_) {
 					break;
 				}

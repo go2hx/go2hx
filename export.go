@@ -10,7 +10,6 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
-	"io/ioutil"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -77,26 +76,19 @@ var stdgoList map[string]bool
 
 var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
-var marked map[string]bool //prevent infinite recursion of types
 var checker *types.Checker
 var typeHasher typeutil.Hasher
-var logBool = false
-var logBuffer = ""
 var testBool = false
 var externBool = false
 
-func compile(params []string, excludesData excludesType, index string) []byte {
+func compile(params []string, excludesData excludesType, index string, debug bool) []byte {
 	args := []string{}
-	logBool = false
 	testBool = false
 	externBool = false
-	logBuffer = ""
 	for _, param := range params {
 		switch param {
 		case "-test", "--test":
 			testBool = true
-		case "-log", "--log":
-			logBool = true
 		case "-extern", "--extern", "-externs", "--externs":
 			externBool = true
 		default:
@@ -107,19 +99,19 @@ func compile(params []string, excludesData excludesType, index string) []byte {
 	localPath := args[len(args)-1]
 	var err error
 	if err != nil {
-		throw(err.Error())
+		panic(err.Error())
 		return bytes
 	}
 	err = os.Chdir(localPath)
 	args = args[0 : len(args)-1] //remove chdir
 	if err != nil {
-		throw(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
+		panic(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
 		return bytes
 	}
 	cfg.Tests = testBool
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
 	if err != nil {
-		throw("load error: " + err.Error())
+		panic("load error: " + err.Error())
 		return []byte{}
 	}
 	//init
@@ -136,7 +128,6 @@ func compile(params []string, excludesData excludesType, index string) []byte {
 			delete(excludes, pkg.PkgPath)
 		}
 	}
-	//log(excludes)
 	data := parsePkgList(initial, excludes)
 	data.Index = index
 	//reset
@@ -144,29 +135,16 @@ func compile(params []string, excludesData excludesType, index string) []byte {
 	typeHasher = typeutil.Hasher{}
 	methodCache = typeutil.MethodSetCache{}
 	data.Args = args
-	//bytes, _ = json.Marshal(data)
-	//ioutil.WriteFile("check.json", bytes, 0766)
+	if debug {
+		bytes, _ = json.Marshal(data)
+		os.WriteFile("check.json", bytes, 0766)
+	}
 	bytes, err = bson.Marshal(data)
 	if err != nil {
-		throw("encoding err: " + err.Error())
+		panic("encoding err: " + err.Error())
 		return bytes
 	}
-	flushLog()
 	return bytes
-}
-
-func flushLog() {
-	if logBool {
-		os.Remove("log.txt")
-		ioutil.WriteFile("log.txt", []byte(logBuffer), 0764)
-	}
-}
-
-func log(a ...interface{}) {
-	if !logBool {
-		return
-	}
-	logBuffer += fmt.Sprintln(a...)
 }
 
 var cfg = &packages.Config{
@@ -187,20 +165,24 @@ func main() {
 	var err error
 	err = json.Unmarshal(excludesBytes, &excludesData)
 	if err != nil {
-		throw(err.Error())
+		panic(err.Error())
 	}
 	err = json.Unmarshal(stdgoListBytes, &stdgoDataList)
 	if err != nil {
-		throw(err.Error())
+		panic(err.Error())
 	}
 	stdgoList = make(map[string]bool, len(stdgoDataList.Stdgo))
 	for _, stdgo := range stdgoDataList.Stdgo {
 		stdgoList[stdgo] = true
 	}
-
+	_, err = strconv.Atoi(port)
+	if err != nil { // not a port, test compile
+		compile(args[1:], excludesData, "0", true)
+		return
+	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
 	if err != nil {
-		throw("dial: " + err.Error())
+		panic("dial: " + err.Error())
 		return
 	}
 	tick := 0
@@ -216,7 +198,7 @@ func main() {
 			continue
 		}
 		if err != nil {
-			throw("read error: " + err.Error())
+			panic("read error: " + err.Error())
 			return
 		}
 		input = input[:c]
@@ -226,20 +208,20 @@ func main() {
 		tick = 0
 		args := strings.Split(string(input), " ")
 		index := args[0]
-		data := compile(args[1:], excludesData, index)
+		data := compile(args[1:], excludesData, index, false)
 		length := len(data)
 		buff := make([]byte, 8)
 		binary.LittleEndian.PutUint64(buff, uint64(length))
 		_, err = conn.Write(buff)
 		if err != nil {
-			throw("write length error: " + err.Error())
+			panic("write length error: " + err.Error())
 			return
 		}
 		_, err = conn.Write(data)
 		data = nil
 		input = nil
 		if err != nil {
-			throw("write error: " + err.Error())
+			panic("write error: " + err.Error())
 			return
 		}
 		debug.FreeOSMemory()
@@ -495,11 +477,6 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 	file = astutil.Apply(file, apply, nil).(*ast.File)
 }
 
-func throw(str string) {
-	log(str)
-	panic(str)
-}
-
 // takes all of the Syntax from input and merges it and then puts a single *ast.File syntax into output
 func mergePackage(pkg *packages.Package) {
 	files := make(map[string]*ast.File, len(pkg.Syntax))
@@ -654,7 +631,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			}
 			object := checker.ObjectOf(obj.Name)
 
-			methods := parseMethods(object.Type(), &methodCache, 1)
+			methods := parseMethods(object.Type(), &methodCache, 1, map[string]bool{})
 			var params map[string]interface{} = nil
 
 			if obj.TypeParams != nil {
@@ -692,7 +669,7 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 	return data
 }
 
-func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int) []map[string]interface{} {
+func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index int, marked map[string]bool) []map[string]interface{} {
 	set := typeutil.IntuitiveMethodSet(object, methodCache)
 	methods := []map[string]interface{}{}
 	for _, sel := range set {
@@ -700,14 +677,16 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 			if index > 0 {
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
-					"type":  parseType(sel.Type()),
-					"recv":  parseType(sel.Recv()),
+					"type":  parseType(sel.Type(), marked),
+					"recv":  parseType(sel.Recv(), marked),
 					"index": sel.Index(),
 				})
 			} else {
+				//FIXME: fix recv calling
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
 					"index": sel.Index(),
+					"type":  parseType(sel.Type(), marked),
 				})
 			}
 		}
@@ -715,7 +694,7 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 	return methods
 }
 
-func parseType(node interface{}) map[string]interface{} {
+func parseType(node interface{}, marked map[string]bool) map[string]interface{} {
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if node == nil {
@@ -726,7 +705,7 @@ func parseType(node interface{}) map[string]interface{} {
 	}
 	data["id"] = getId(node)
 	if data["id"] == "" {
-		throw("data does not have id")
+		panic("data does not have id")
 	}
 	isVar := false
 	switch data["id"] {
@@ -734,42 +713,28 @@ func parseType(node interface{}) map[string]interface{} {
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
 		if isAlias { // alias is type X = Y, equivlant to a typedef
-			data["underlying"] = parseType(named.Underlying())
+			data["underlying"] = parseType(named.Underlying(), marked)
 			data["alias"] = true
 			isVar = true
 		} else {
 			path := named.String()
 			if !strings.HasPrefix(path, "syscall/") &&
 				!strings.HasPrefix(path, "internal.") &&
-				//!strings.Contains(path, "error") &&
-				//!strings.HasPrefix(path, "reflect.") &&
-				//!strings.HasPrefix(path, "runtime.") &&
-				//!strings.HasPrefix(path, "sync.") &&
 				!marked[path] {
-				init := false
-				if marked == nil {
-					marked = make(map[string]bool)
-					init = true
-				}
 				marked[path] = true
-				data["underlying"] = parseType(named.Underlying())
-				data["alias"] = false
-				if init {
-					marked = nil
+				data["underlying"] = parseType(named.Underlying(), marked)
+				data["methods"] = parseMethods(named, &methodCache, 0, marked)
+				params := make([]map[string]interface{}, named.TypeParams().Len())
+				for i := 0; i < len(params); i++ {
+					params[i] = parseType(named.TypeParams().At(i), marked)
 				}
+				data["params"] = params
 			}
-			params := make([]map[string]interface{}, named.TypeParams().Len())
-			for i := 0; i < len(params); i++ {
-				params[i] = parseType(named.TypeParams().At(i))
-			}
-			data["methods"] = parseMethods(named, &methodCache, 0)
-			//fmt.Println(data["methods"], named.NumMethods(), named.Origin().NumMethods())
-			data["params"] = params
 			data["path"] = named.String()
 		}
 	case "Slice":
 		s := node.(*types.Slice)
-		data["elem"] = parseType(s.Elem())
+		data["elem"] = parseType(s.Elem(), marked)
 	case "Struct":
 		s := node.(*types.Struct)
 		fields := make([]map[string]interface{}, s.NumFields())
@@ -777,7 +742,7 @@ func parseType(node interface{}) map[string]interface{} {
 			v := s.Field(i)
 			fields[i] = map[string]interface{}{
 				"name":     v.Name(),
-				"type":     parseType(v.Type()),
+				"type":     parseType(v.Type(), marked),
 				"embedded": v.Embedded(),
 			}
 		}
@@ -785,55 +750,55 @@ func parseType(node interface{}) map[string]interface{} {
 	case "Interface":
 		s := node.(*types.Interface)
 		data["empty"] = s.Empty()
-		data["methods"] = parseMethods(s, &methodCache, 1)
+		data["methods"] = parseMethods(s, &methodCache, 1, marked)
 		embeds := make([]map[string]interface{}, s.NumEmbeddeds())
 		for i := 0; i < s.NumEmbeddeds(); i++ {
 			v := s.EmbeddedType(i)
-			embeds[i] = parseType(v)
+			embeds[i] = parseType(v, marked)
 		}
 		data["embeds"] = embeds
 	case "Pointer":
 		s := node.(*types.Pointer)
-		data["elem"] = parseType(s.Elem())
+		data["elem"] = parseType(s.Elem(), marked)
 	case "Basic":
 		s := node.(*types.Basic)
 		data["kind"] = s.Kind() // is int
 	case "Array":
 		s := node.(*types.Array)
-		data["elem"] = parseType(s.Elem())
+		data["elem"] = parseType(s.Elem(), marked)
 		data["len"] = int32(s.Len())
 	case "Map":
 		s := node.(*types.Map)
-		data["elem"] = parseType(s.Elem())
-		data["key"] = parseType(s.Key())
+		data["elem"] = parseType(s.Elem(), marked)
+		data["key"] = parseType(s.Key(), marked)
 	case "Signature":
 		s := node.(*types.Signature)
 		data["variadic"] = s.Variadic()
-		data["params"] = parseType(s.Params())
-		data["results"] = parseType(s.Results())
-		data["recv"] = parseType(s.Recv())
+		data["params"] = parseType(s.Params(), marked)
+		data["results"] = parseType(s.Results(), marked)
+		data["recv"] = parseType(s.Recv(), marked)
 	case "Tuple":
 		s := node.(*types.Tuple)
 		data["len"] = s.Len()
 		vars := make([]map[string]interface{}, s.Len())
 		for i := 0; i < s.Len(); i++ {
 			a := s.At(i)
-			vars[i] = parseType(a)
+			vars[i] = parseType(a, marked)
 		}
 		data["vars"] = vars
 	case "Var":
 		s := node.(*types.Var)
 		data["name"] = s.Name()
-		data["type"] = parseType(s.Type())
+		data["type"] = parseType(s.Type(), marked)
 		isVar = true
 	case "Chan":
 		s := node.(*types.Chan)
-		data["elem"] = parseType(s.Elem())
+		data["elem"] = parseType(s.Elem(), marked)
 		data["dir"] = s.Dir()
 	case "TypeParam":
 		s := node.(*types.TypeParam)
 		data["name"] = s.Obj().Name()
-		data["constraint"] = parseType(s.Constraint())
+		data["constraint"] = parseType(s.Constraint(), marked)
 	case "Union":
 		s := node.(*types.Union)
 		terms := make([]map[string]interface{}, s.Len())
@@ -841,13 +806,13 @@ func parseType(node interface{}) map[string]interface{} {
 			t := s.Term(i)
 			terms[i] = map[string]interface{}{
 				"tidle": t.Tilde(),
-				"type":  parseType(t.Type()),
+				"type":  parseType(t.Type(), marked),
 			}
 		}
 		//data["underlying"] = parseType(s.Underlying())
 		data["terms"] = terms
 	default:
-		throw("unknown parse type id: " + data["id"].(string))
+		panic("unknown parse type id: " + data["id"].(string))
 	}
 	if !isVar {
 		t := node.(types.Type)
@@ -965,19 +930,19 @@ func parseData(node interface{}) map[string]interface{} {
 				"list": list,
 			}
 		default:
-			throw("unknown parse data value: " + reflect.TypeOf(value).String())
+			panic("unknown parse data value: " + reflect.TypeOf(value).String())
 		}
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
 	case *ast.SelectorExpr, *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.TypeAssertExpr:
 	case *ast.UnaryExpr:
 	case *ast.StarExpr, *ast.BinaryExpr, *ast.CallExpr, *ast.SliceExpr, *ast.ParenExpr:
-		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)))
+		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.KeyValueExpr:
 	case *ast.FuncDecl:
 		data["pos"] = fset.Position(node.Pos()).Offset
@@ -1007,7 +972,7 @@ func parseIdent(value *ast.Ident) map[string]interface{} {
 
 	obj := checker.ObjectOf(value)
 	if obj != nil {
-		data["type"] = parseType(obj.Type())
+		data["type"] = parseType(obj.Type(), map[string]bool{})
 	}
 	return data
 }
@@ -1022,7 +987,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 			if err2 != nil {
 				k, err3 := strconv.ParseFloat(value.Value, 64)
 				if err3 != nil {
-					throw("parse uint/int 64 and float64 error: " + err3.Error())
+					panic("parse uint/int 64 and float64 error: " + err3.Error())
 				} else {
 					output = fmt.Sprintf("%f", k) // decimal format
 				}
@@ -1035,7 +1000,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 	case token.FLOAT:
 		i, err := strconv.ParseFloat(value.Value, 64)
 		if err != nil {
-			throw("parse float 64 error: " + err.Error())
+			panic("parse float 64 error: " + err.Error())
 		}
 		output = fmt.Sprint(i)
 	case token.CHAR:
@@ -1059,7 +1024,7 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		"kind":  value.Kind.String(),
 		"value": output,
 		"raw":   raw,
-		"type":  parseType(checker.TypeOf(value)),
+		"type":  parseType(checker.TypeOf(value), map[string]bool{}),
 	}
 }
 

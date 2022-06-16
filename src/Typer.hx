@@ -1757,7 +1757,22 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			var exprs = [macro final __self__ = new $p($y)];
 			for (method in methods) {
 				final methodName = nameIdent(method.name, true, false, info);
-				exprs.push(macro __self__.$methodName = @:define("!macro") cast stdgo.Go.typeFunction($self.$methodName));
+				switch method.type {
+					case signature(variadic, params, results, _):
+						final methodArgs = [];
+						final ret:ComplexType = getReturn(results, info);
+						final args = [];
+						var e = macro $self.$methodName($a{args});
+						if (!isVoid(ret))
+							e = macro return $e;
+						final f = toExpr(EFunction(FAnonymous, {
+							expr: e,
+							args: [],
+							ret: ret,
+						}));
+						exprs.push(macro __self__.$methodName = @:define("!macro") $f);
+					default:
+				}
 			}
 			exprs.push(macro __self__);
 			return macro $b{exprs};
@@ -2910,11 +2925,13 @@ private function typeof(e:Ast.Expr):GoType {
 				throw path;
 			}
 			final methods:Array<MethodType> = []; // TODO get method data
-			for (method in (e.methods : Array<Dynamic>)) {
-				methods.push({
-					name: method.name,
-					type: invalidType,
-				});
+			if (e.methods != null) {
+				for (method in (e.methods : Array<Dynamic>)) {
+					methods.push({
+						name: method.name,
+						type: typeof(method.type),
+					});
+				}
 			}
 			final params:Array<GoType> = [];
 			if (e.params != null && e.params.length > 0) {
@@ -3183,23 +3200,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			for (param in params) {
 				args.push(toComplexType(param, info));
 			}
-			var ret:ComplexType = null;
-			if (results.length == 0) {
-				ret = TPath({name: "Void", pack: []});
-			} else if (results.length == 1) {
-				ret = toComplexType(results[0], info);
-			} else {
-				var fields:Array<Field> = [];
-				for (i in 0...results.length) {
-					switch results[i] {
-						case _var(_, type):
-							fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
-						default:
-							fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
-					}
-				}
-				ret = TAnonymous(fields);
-			}
+			var ret:ComplexType = getReturn(results, info);
 			if (variadic) {
 				var last = args.pop();
 				switch last {
@@ -3219,6 +3220,25 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath({name: name, pack: []});
 		default:
 			throw "unknown goType to complexType: " + e;
+	}
+}
+
+private function getReturn(results:Array<GoType>, info:Info) {
+	if (results.length == 0) {
+		return TPath({name: "Void", pack: []});
+	} else if (results.length == 1) {
+		return toComplexType(results[0], info);
+	} else {
+		final fields:Array<Field> = [];
+		for (i in 0...results.length) {
+			switch results[i] {
+				case _var(_, type):
+					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
+				default:
+					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
+			}
+		}
+		return TAnonymous(fields);
 	}
 }
 
@@ -4325,7 +4345,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			// $b{extensionDebug};
 			try {
 				haxe.macro.Context.getType(className);
-			} catch (_) {
+			} catch (____exec____) {
 				final td:haxe.macro.Expr.TypeDefinition = {
 					name: className,
 					pos: haxe.macro.Context.currentPos(),

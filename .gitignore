@@ -58,3 +58,4 @@ tools
 tests/gobyexample
 tests/yaegi
 tests/*.hxml
+*.log

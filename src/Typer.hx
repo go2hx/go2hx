@@ -401,8 +401,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 												switch p.params[0] { // Pointer<T>
 													case TPType(t):
 														final f:FunctionArg = {
-															name: "______",
-															type: TPath({
+															name: "____",
+															type: access.indexOf(AMacro) == -1 ? t : TPath({
 																name: "Expr",
 																sub: "ExprOf",
 																pack: ["haxe", "macro"],
@@ -418,6 +418,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									final funcName = func.name;
 									var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
 									final staticFieldAccess = access.concat([APublic, AStatic]);
+									// trace(staticArgs.map(arg -> printer.printFunctionArg(arg)));
 									final staticField:Field = {
 										name: funcName,
 										pos: func.pos,
@@ -437,7 +438,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 									if (isPointerArg)
 										fieldArgs.shift();
 									for (i in 0...fieldArgs.length)
-										fieldArgs[i].type = exprOfType(fieldArgs[i].type);
+										fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
 
 									final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
 									var e = macro __self__;
@@ -1761,13 +1762,22 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 					case signature(variadic, params, results, _):
 						final methodArgs = [];
 						final ret:ComplexType = getReturn(results, info);
-						final args = [];
-						var e = macro $self.$methodName($a{args});
+						final args = params.map(param -> switch param {
+							case _var(name, type):
+								({
+									name: nameIdent(name, false, true, info),
+									type: toComplexType(type, info),
+								} : FunctionArg);
+							default:
+								throw "unknown param type: " + param;
+						});
+						final callArgs = args.map(arg -> macro $i{arg.name});
+						var e = macro $self.$methodName($a{callArgs});
 						if (!isVoid(ret))
 							e = macro return $e;
 						final f = toExpr(EFunction(FAnonymous, {
 							expr: e,
-							args: [],
+							args: args,
 							ret: ret,
 						}));
 						exprs.push(macro __self__.$methodName = @:define("!macro") $f);

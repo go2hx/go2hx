@@ -13,13 +13,8 @@ function main() {
 	final excludes:Array<String> = Json.parse(File.getContent("excludes.json")).excludes;
 	for (path in excludes)
 		list.remove(path);
-	if (args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1) {
-		// rebuild
-		// trace(list);
-		for (path in list) {
-			shared.Util.deleteDirectoryRecursively('stdgo/$path');
-		}
-	}
+	final rebuild = args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1;
+
 	for (path in list) {
 		var exist = false;
 		if (FileSystem.exists('stdgo/$path') && FileSystem.isDirectory('stdgo/$path')) {
@@ -33,7 +28,7 @@ function main() {
 				}
 			}
 		}
-		if (!exist)
+		if (!exist || rebuild)
 			libs.push(path);
 	}
 	for (path in ["runtime/race"])

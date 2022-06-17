@@ -54,7 +54,7 @@ class Stream {
 					call(s.input.read(size));
 				}
 			} catch (e) {
-				trace(e);
+				// trace(e);
 			}
 		});
 	}

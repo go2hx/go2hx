@@ -123,7 +123,7 @@ function deleteDirectoryRecursively(dir:String):Int {
 	return switch (Sys.systemName()) {
 		case "Windows":
 			Sys.command("rmdir /s /q " + dir);
-		case _:
+		default:
 			Sys.command("rm -rf " + dir);
 	}
 }

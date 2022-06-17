@@ -10,6 +10,6 @@ func test[t float64]() (s t) {
 	return
 }
 
-func test2[int string]() (s string) {
+func test2[int string]() (s int) {
 	return
 }

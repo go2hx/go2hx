@@ -255,7 +255,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 				}
 			}
 			if (values.length > 0) {
-				trace("unsorted values left: " + values.length);
+				// trace("unsorted values left: " + values.length);
 				valuesSorted = valuesSorted.concat(values);
 			}
 			data.defs = valuesSorted.concat(data.defs);
@@ -1930,7 +1930,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								case structType(fields):
 									final exprs:Array<Expr> = [
 										for (field in fields) {
-											final field = formatHaxeFieldName(field.name,info);
+											final field = formatHaxeFieldName(field.name, info);
 											macro $x.$field = __tmp__.$field;
 										}
 									];

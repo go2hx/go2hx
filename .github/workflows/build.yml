@@ -34,3 +34,5 @@ jobs:
       - name: Run StdGo autogenerator
         run: hl stdgo.hl --rebuild
       - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: StdGo automatic compile

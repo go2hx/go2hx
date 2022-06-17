@@ -245,8 +245,8 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 					}
 				}
 				// close as stream has broken
-				trace("stream has broken");
-				close();
+				// trace("stream has broken");
+				// close();
 				return;
 			}
 			if (buff == null) {

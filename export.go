@@ -686,6 +686,7 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
 					"index": sel.Index(),
+					"recv":  parseType(sel.Recv(), marked),
 					"type":  parseType(sel.Type(), marked),
 				})
 			}

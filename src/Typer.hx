@@ -1759,7 +1759,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			for (method in methods) {
 				final methodName = nameIdent(method.name, true, false, info);
 				switch method.type {
-					case signature(variadic, params, results, _):
+					case signature(variadic, params, results, recv):
 						final methodArgs = [];
 						final ret:ComplexType = getReturn(results, info);
 						final args = params.map(param -> switch param {
@@ -1772,6 +1772,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 								throw "unknown param type: " + param;
 						});
 						final callArgs = args.map(arg -> macro $i{arg.name});
+						if (isPointer(recv))
+							callArgs.unshift(macro Go.pointer($y));
 						var e = macro $self.$methodName($a{callArgs});
 						if (!isVoid(ret))
 							e = macro return $e;
@@ -2940,6 +2942,7 @@ private function typeof(e:Ast.Expr):GoType {
 					methods.push({
 						name: method.name,
 						type: typeof(method.type),
+						recv: typeof(method.recv),
 					});
 				}
 			}

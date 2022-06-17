@@ -217,7 +217,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
 	server.bind(new sys.net.Host("127.0.0.1"), port);
-	server.noDelay(true);
+	// server.noDelay(true);
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
@@ -244,8 +244,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Sys.print(proc.stderr.readAll());
 					}
 				}
+				client.stream.write(Bytes.ofString("exit"));
+				client.stream.close();
 				// close as stream has broken
-				// trace("stream has broken");
+				trace("stream has broken");
+				// new process
+				processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 				// close();
 				return;
 			}

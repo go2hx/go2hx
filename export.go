@@ -191,7 +191,7 @@ func main() {
 		c, err := conn.Read(input)
 		tick++
 		if c == 0 {
-			if tick > 40 {
+			if tick > 120 {
 				return
 			}
 			time.Sleep(60 * time.Millisecond)

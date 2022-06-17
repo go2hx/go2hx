@@ -65,7 +65,7 @@ function run(args:Array<String>) {
 		} else {
 			compile(instance);
 		}
-	}, instance.outputPath, instance.root);
+	});
 	while (true)
 		update();
 }
@@ -212,13 +212,14 @@ function close() {
 	Sys.exit(0);
 }
 
-function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null, outputPath:String = "golibs", root:String = "") {
+function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null) {
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
 	server.bind(new sys.net.Host("127.0.0.1"), port);
 	server.noDelay(true);
 	for (i in 0...processCount) {
+		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
 	var index = 0;
@@ -267,6 +268,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				var modules = [];
 				modules = Typer.main(exportData, instance);
 				Sys.setCwd(instance.localPath);
+				var outputPath = instance.outputPath;
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];
 				reset();
@@ -275,12 +277,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Sys.setCwd(cwd);
 						var name = module.name;
 						var libPath = "libs/" + name + "/";
-						Gen.create(libPath, module, root);
+						Gen.create(libPath, module, instance.root);
 						Sys.command('haxelib dev $name $libPath');
 						if (libs.indexOf(name) == -1)
 							libs.push(name);
 					} else {
-						Gen.create(outputPath, module, root);
+						Gen.create(outputPath, module, instance.root);
 					}
 				}
 				runBuildTools(modules, instance, programArgs);
@@ -391,7 +393,6 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		final main = paths[0];
 		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
 			instance.hxmlPath += ".hxml";
-		trace("set main:", instance.hxmlPath, main);
 		var content = "-m " + main + "\n";
 		for (i in 0...Std.int(commands.length / 2)) {
 			content += commands[i * 2] + " " + commands[i * 2 + 1] + "\n";

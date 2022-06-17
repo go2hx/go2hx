@@ -7,6 +7,7 @@
     "reflect",
     "os",
     "errors",
+    "internal",
     "internal/reflectlite",
     "internal/unsafeheader",
     "unsafe",

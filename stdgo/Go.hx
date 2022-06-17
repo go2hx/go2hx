@@ -611,7 +611,7 @@ class Go {
 										default:
 									}
 									// final embedded = field.meta.has(":embedded") ? macro true : macro false;
-									methods.push(macro {name: $v{field.name}, type: ${gtDecode(field.type, null, marked)}});
+									methods.push(macro {name: $v{field.name}, type: ${gtDecode(field.type, null, marked)}, recv: null});
 								}
 								final path = createPath(ref.pack, ref.name);
 								final empty = methods.length == 0;
@@ -758,7 +758,8 @@ class Go {
 												continue;
 											default:
 										}
-										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)}));
+										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)},
+											null));
 									default:
 								}
 							}
@@ -775,7 +776,7 @@ class Go {
 					args.push(gtDecode(arg.t, null, marked));
 				}
 				var results = [];
-				var voidBool = isVoid(Context.followWithAbstracts(result));
+				// var voidBool = isVoid(Context.followWithAbstracts(result));
 				switch result {
 					case TAnonymous(a):
 						final fields = a.get().fields;
@@ -784,7 +785,7 @@ class Go {
 						}
 					default:
 				}
-				if (voidBool && results.length == 0)
+				if (results.length == 0)
 					results.push(gtDecode(result, null, marked));
 				var variadic = macro false;
 				if (a.length > 0) {

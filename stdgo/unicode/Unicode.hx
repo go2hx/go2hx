@@ -9,9 +9,9 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 var __TurkishCase : SpecialCase = ((new Slice<CaseRange>(((new CaseRange(((73 : GoUInt32)), ((73 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((232 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((105 : GoUInt32)), ((105 : GoUInt32)), ((new GoArray<GoInt32>(((199 : GoInt32)), ((0 : GoInt32)), ((199 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((304 : GoUInt32)), ((304 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((-199 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((305 : GoUInt32)), ((305 : GoUInt32)), ((new GoArray<GoInt32>(((-232 : GoInt32)), ((0 : GoInt32)), ((-232 : GoInt32))) : T_d))) : CaseRange))) : SpecialCase));
-var turkishCase : SpecialCase = (__TurkishCase == null ? null : __TurkishCase.__copy__());
-var azeriCase : SpecialCase = (__TurkishCase == null ? null : __TurkishCase.__copy__());
-var __C : RangeTable = (({ r16 : ((new Slice<Range16>(
+var turkishCase : SpecialCase = __TurkishCase;
+var azeriCase : SpecialCase = __TurkishCase;
+var __C : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((0 : GoUInt16)), ((31 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((127 : GoUInt16)), ((159 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((173 : GoUInt16)), ((1536 : GoUInt16)), ((1363 : GoUInt16))) : Range16)),
@@ -26,8 +26,8 @@ var __C : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((55296 : GoUInt16)), ((63743 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65279 : GoUInt16)), ((65529 : GoUInt16)), ((250 : GoUInt16))) : Range16)),
 ((new Range16(((65530 : GoUInt16)), ((65531 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69821 : GoUInt32)), ((69837 : GoUInt32)), ((16 : GoUInt32))) : Range32)), ((new Range32(((78896 : GoUInt32)), ((78904 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113824 : GoUInt32)), ((113827 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((119155 : GoUInt32)), ((119162 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917505 : GoUInt32)), ((917536 : GoUInt32)), ((31 : GoUInt32))) : Range32)), ((new Range32(((917537 : GoUInt32)), ((917631 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((983040 : GoUInt32)), ((1048573 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((1048576 : GoUInt32)), ((1114109 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((2 : GoInt)) } : RangeTable));
-var __Cc : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((0 : GoUInt16)), ((31 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((127 : GoUInt16)), ((159 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Cf : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Cc : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((0 : GoUInt16)), ((31 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((127 : GoUInt16)), ((159 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Cf : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((173 : GoUInt16)), ((1536 : GoUInt16)), ((1363 : GoUInt16))) : Range16)),
 ((new Range16(((1537 : GoUInt16)), ((1541 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1564 : GoUInt16)), ((1757 : GoUInt16)), ((193 : GoUInt16))) : Range16)),
@@ -39,9 +39,9 @@ var __Cf : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((8294 : GoUInt16)), ((8303 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65279 : GoUInt16)), ((65529 : GoUInt16)), ((250 : GoUInt16))) : Range16)),
 ((new Range16(((65530 : GoUInt16)), ((65531 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69821 : GoUInt32)), ((69837 : GoUInt32)), ((16 : GoUInt32))) : Range32)), ((new Range32(((78896 : GoUInt32)), ((78904 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113824 : GoUInt32)), ((113827 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((119155 : GoUInt32)), ((119162 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917505 : GoUInt32)), ((917536 : GoUInt32)), ((31 : GoUInt32))) : Range32)), ((new Range32(((917537 : GoUInt32)), ((917631 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Co : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((57344 : GoUInt16)), ((63743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((983040 : GoUInt32)), ((1048573 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((1048576 : GoUInt32)), ((1114109 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cs : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((55296 : GoUInt16)), ((57343 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __L : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Co : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((57344 : GoUInt16)), ((63743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((983040 : GoUInt32)), ((1048573 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((1048576 : GoUInt32)), ((1114109 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((55296 : GoUInt16)), ((57343 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __L : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65 : GoUInt16)), ((90 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((97 : GoUInt16)), ((122 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((170 : GoUInt16)), ((181 : GoUInt16)), ((11 : GoUInt16))) : Range16)),
@@ -628,7 +628,7 @@ var __L : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((194560 : GoUInt32)), ((195101 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((6 : GoInt)) } : RangeTable));
-var __Ll : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Ll : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((97 : GoUInt16)), ((122 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((181 : GoUInt16)), ((223 : GoUInt16)), ((42 : GoUInt16))) : Range16)),
 ((new Range16(((224 : GoUInt16)), ((246 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -785,7 +785,7 @@ var __Ll : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((120772 : GoUInt32)), ((120777 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((120779 : GoUInt32)), ((125218 : GoUInt32)), ((4439 : GoUInt32))) : Range32)),
 ((new Range32(((125219 : GoUInt32)), ((125251 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((4 : GoInt)) } : RangeTable));
-var __Lm : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Lm : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((688 : GoUInt16)), ((705 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((710 : GoUInt16)), ((721 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((736 : GoUInt16)), ((740 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -826,7 +826,7 @@ var __Lm : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((43868 : GoUInt16)), ((43871 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((43881 : GoUInt16)), ((65392 : GoUInt16)), ((21511 : GoUInt16))) : Range16)),
 ((new Range16(((65438 : GoUInt16)), ((65439 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92992 : GoUInt32)), ((92995 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94099 : GoUInt32)), ((94111 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94176 : GoUInt32)), ((94177 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94179 : GoUInt32)), ((123191 : GoUInt32)), ((29012 : GoUInt32))) : Range32)), ((new Range32(((123192 : GoUInt32)), ((123197 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125259 : GoUInt32)), ((125259 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lo : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Lo : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((170 : GoUInt16)), ((186 : GoUInt16)), ((16 : GoUInt16))) : Range16)),
 ((new Range16(((443 : GoUInt16)), ((448 : GoUInt16)), ((5 : GoUInt16))) : Range16)),
 ((new Range16(((449 : GoUInt16)), ((451 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -1290,8 +1290,8 @@ var __Lo : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((194560 : GoUInt32)), ((195101 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((1 : GoInt)) } : RangeTable));
-var __Lt : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((453 : GoUInt16)), ((459 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((498 : GoUInt16)), ((8072 : GoUInt16)), ((7574 : GoUInt16))) : Range16)), ((new Range16(((8073 : GoUInt16)), ((8079 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8088 : GoUInt16)), ((8095 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8104 : GoUInt16)), ((8111 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8124 : GoUInt16)), ((8140 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8188 : GoUInt16)), ((8188 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lu : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Lt : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((453 : GoUInt16)), ((459 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((498 : GoUInt16)), ((8072 : GoUInt16)), ((7574 : GoUInt16))) : Range16)), ((new Range16(((8073 : GoUInt16)), ((8079 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8088 : GoUInt16)), ((8095 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8104 : GoUInt16)), ((8111 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8124 : GoUInt16)), ((8140 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8188 : GoUInt16)), ((8188 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Lu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65 : GoUInt16)), ((90 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((192 : GoUInt16)), ((214 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((216 : GoUInt16)), ((222 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -1436,7 +1436,7 @@ var __Lu : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((120720 : GoUInt32)), ((120744 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((120778 : GoUInt32)), ((125184 : GoUInt32)), ((4406 : GoUInt32))) : Range32)),
 ((new Range32(((125185 : GoUInt32)), ((125217 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var __M : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __M : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((768 : GoUInt16)), ((879 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1155 : GoUInt16)), ((1161 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1425 : GoUInt16)), ((1469 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -1718,7 +1718,7 @@ var __M : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((125136 : GoUInt32)), ((125142 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125252 : GoUInt32)), ((125258 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mc : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Mc : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2307 : GoUInt16)), ((2363 : GoUInt16)), ((56 : GoUInt16))) : Range16)),
 ((new Range16(((2366 : GoUInt16)), ((2368 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2377 : GoUInt16)), ((2380 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -1872,8 +1872,8 @@ var __Mc : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((94192 : GoUInt32)), ((94193 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((119141 : GoUInt32)), ((119142 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((119149 : GoUInt32)), ((119154 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Me : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1160 : GoUInt16)), ((1161 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6846 : GoUInt16)), ((8413 : GoUInt16)), ((1567 : GoUInt16))) : Range16)), ((new Range16(((8414 : GoUInt16)), ((8416 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8418 : GoUInt16)), ((8420 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42608 : GoUInt16)), ((42610 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mn : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Me : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1160 : GoUInt16)), ((1161 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6846 : GoUInt16)), ((8413 : GoUInt16)), ((1567 : GoUInt16))) : Range16)), ((new Range16(((8414 : GoUInt16)), ((8416 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8418 : GoUInt16)), ((8420 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42608 : GoUInt16)), ((42610 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mn : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((768 : GoUInt16)), ((879 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1155 : GoUInt16)), ((1159 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1425 : GoUInt16)), ((1469 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -2166,7 +2166,7 @@ var __Mn : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((125136 : GoUInt32)), ((125142 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125252 : GoUInt32)), ((125258 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __N : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __N : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((178 : GoUInt16)), ((179 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((185 : GoUInt16)), ((188 : GoUInt16)), ((3 : GoUInt16))) : Range16)),
@@ -2298,7 +2298,7 @@ var __N : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((126255 : GoUInt32)), ((126269 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((127232 : GoUInt32)), ((127244 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((130032 : GoUInt32)), ((130041 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((4 : GoInt)) } : RangeTable));
-var __Nd : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Nd : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1632 : GoUInt16)), ((1641 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1776 : GoUInt16)), ((1785 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -2360,8 +2360,8 @@ var __Nd : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((123632 : GoUInt32)), ((123641 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125264 : GoUInt32)), ((125273 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((130032 : GoUInt32)), ((130041 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((1 : GoInt)) } : RangeTable));
-var __Nl : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5870 : GoUInt16)), ((5872 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8544 : GoUInt16)), ((8578 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8581 : GoUInt16)), ((8584 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12295 : GoUInt16)), ((12321 : GoUInt16)), ((26 : GoUInt16))) : Range16)), ((new Range16(((12322 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42726 : GoUInt16)), ((42735 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((65856 : GoUInt32)), ((65908 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66369 : GoUInt32)), ((66378 : GoUInt32)), ((9 : GoUInt32))) : Range32)), ((new Range32(((66513 : GoUInt32)), ((66517 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74752 : GoUInt32)), ((74862 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __No : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Nl : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5870 : GoUInt16)), ((5872 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8544 : GoUInt16)), ((8578 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8581 : GoUInt16)), ((8584 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12295 : GoUInt16)), ((12321 : GoUInt16)), ((26 : GoUInt16))) : Range16)), ((new Range16(((12322 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42726 : GoUInt16)), ((42735 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((65856 : GoUInt32)), ((65908 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66369 : GoUInt32)), ((66378 : GoUInt32)), ((9 : GoUInt32))) : Range32)), ((new Range32(((66513 : GoUInt32)), ((66517 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74752 : GoUInt32)), ((74862 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __No : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((178 : GoUInt16)), ((179 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((185 : GoUInt16)), ((188 : GoUInt16)), ((3 : GoUInt16))) : Range16)),
 ((new Range16(((189 : GoUInt16)), ((190 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -2432,7 +2432,7 @@ var __No : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((126209 : GoUInt32)), ((126253 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((126255 : GoUInt32)), ((126269 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((127232 : GoUInt32)), ((127244 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var __P : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __P : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((33 : GoUInt16)), ((35 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((37 : GoUInt16)), ((42 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((44 : GoUInt16)), ((47 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -2594,8 +2594,8 @@ var __P : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((94178 : GoUInt32)), ((113823 : GoUInt32)), ((19645 : GoUInt32))) : Range32)),
 ((new Range32(((121479 : GoUInt32)), ((121483 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125278 : GoUInt32)), ((125279 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((11 : GoInt)) } : RangeTable));
-var __Pc : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((95 : GoUInt16)), ((8255 : GoUInt16)), ((8160 : GoUInt16))) : Range16)), ((new Range16(((8256 : GoUInt16)), ((8276 : GoUInt16)), ((20 : GoUInt16))) : Range16)), ((new Range16(((65075 : GoUInt16)), ((65076 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65101 : GoUInt16)), ((65103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65343 : GoUInt16)), ((65343 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pd : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Pc : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((95 : GoUInt16)), ((8255 : GoUInt16)), ((8160 : GoUInt16))) : Range16)), ((new Range16(((8256 : GoUInt16)), ((8276 : GoUInt16)), ((20 : GoUInt16))) : Range16)), ((new Range16(((65075 : GoUInt16)), ((65076 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65101 : GoUInt16)), ((65103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65343 : GoUInt16)), ((65343 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Pd : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((45 : GoUInt16)), ((1418 : GoUInt16)), ((1373 : GoUInt16))) : Range16)),
 ((new Range16(((1470 : GoUInt16)), ((5120 : GoUInt16)), ((3650 : GoUInt16))) : Range16)),
 ((new Range16(((6150 : GoUInt16)), ((8208 : GoUInt16)), ((2058 : GoUInt16))) : Range16)),
@@ -2607,7 +2607,7 @@ var __Pd : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65073 : GoUInt16)), ((65074 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65112 : GoUInt16)), ((65123 : GoUInt16)), ((11 : GoUInt16))) : Range16)),
 ((new Range16(((65293 : GoUInt16)), ((65293 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69293 : GoUInt32)), ((69293 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pe : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Pe : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((41 : GoUInt16)), ((93 : GoUInt16)), ((52 : GoUInt16))) : Range16)),
 ((new Range16(((125 : GoUInt16)), ((3899 : GoUInt16)), ((3774 : GoUInt16))) : Range16)),
 ((new Range16(((3901 : GoUInt16)), ((5788 : GoUInt16)), ((1887 : GoUInt16))) : Range16)),
@@ -2630,9 +2630,9 @@ var __Pe : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65116 : GoUInt16)), ((65118 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((65289 : GoUInt16)), ((65341 : GoUInt16)), ((52 : GoUInt16))) : Range16)),
 ((new Range16(((65373 : GoUInt16)), ((65379 : GoUInt16)), ((3 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Pf : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((187 : GoUInt16)), ((8217 : GoUInt16)), ((8030 : GoUInt16))) : Range16)), ((new Range16(((8221 : GoUInt16)), ((8250 : GoUInt16)), ((29 : GoUInt16))) : Range16)), ((new Range16(((11779 : GoUInt16)), ((11781 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((11786 : GoUInt16)), ((11789 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((11805 : GoUInt16)), ((11809 : GoUInt16)), ((4 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pi : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((171 : GoUInt16)), ((8216 : GoUInt16)), ((8045 : GoUInt16))) : Range16)), ((new Range16(((8219 : GoUInt16)), ((8220 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8223 : GoUInt16)), ((8249 : GoUInt16)), ((26 : GoUInt16))) : Range16)), ((new Range16(((11778 : GoUInt16)), ((11780 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((11785 : GoUInt16)), ((11788 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((11804 : GoUInt16)), ((11808 : GoUInt16)), ((4 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Po : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Pf : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((187 : GoUInt16)), ((8217 : GoUInt16)), ((8030 : GoUInt16))) : Range16)), ((new Range16(((8221 : GoUInt16)), ((8250 : GoUInt16)), ((29 : GoUInt16))) : Range16)), ((new Range16(((11779 : GoUInt16)), ((11781 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((11786 : GoUInt16)), ((11789 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((11805 : GoUInt16)), ((11809 : GoUInt16)), ((4 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Pi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((171 : GoUInt16)), ((8216 : GoUInt16)), ((8045 : GoUInt16))) : Range16)), ((new Range16(((8219 : GoUInt16)), ((8220 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8223 : GoUInt16)), ((8249 : GoUInt16)), ((26 : GoUInt16))) : Range16)), ((new Range16(((11778 : GoUInt16)), ((11780 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((11785 : GoUInt16)), ((11788 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((11804 : GoUInt16)), ((11808 : GoUInt16)), ((4 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Po : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((33 : GoUInt16)), ((35 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((37 : GoUInt16)), ((39 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((42 : GoUInt16)), ((46 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
@@ -2791,7 +2791,7 @@ var __Po : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((94178 : GoUInt32)), ((113823 : GoUInt32)), ((19645 : GoUInt32))) : Range32)),
 ((new Range32(((121479 : GoUInt32)), ((121483 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125278 : GoUInt32)), ((125279 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((8 : GoInt)) } : RangeTable));
-var __Ps : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Ps : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((40 : GoUInt16)), ((91 : GoUInt16)), ((51 : GoUInt16))) : Range16)),
 ((new Range16(((123 : GoUInt16)), ((3898 : GoUInt16)), ((3775 : GoUInt16))) : Range16)),
 ((new Range16(((3900 : GoUInt16)), ((5787 : GoUInt16)), ((1887 : GoUInt16))) : Range16)),
@@ -2817,7 +2817,7 @@ var __Ps : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65288 : GoUInt16)), ((65339 : GoUInt16)), ((51 : GoUInt16))) : Range16)),
 ((new Range16(((65371 : GoUInt16)), ((65375 : GoUInt16)), ((4 : GoUInt16))) : Range16)),
 ((new Range16(((65378 : GoUInt16)), ((65378 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __S : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __S : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((36 : GoUInt16)), ((43 : GoUInt16)), ((7 : GoUInt16))) : Range16)),
 ((new Range16(((60 : GoUInt16)), ((62 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((94 : GoUInt16)), ((96 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
@@ -3016,7 +3016,7 @@ var __S : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((129744 : GoUInt32)), ((129750 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((129792 : GoUInt32)), ((129938 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((129940 : GoUInt32)), ((129994 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((10 : GoInt)) } : RangeTable));
-var __Sc : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Sc : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((36 : GoUInt16)), ((162 : GoUInt16)), ((126 : GoUInt16))) : Range16)),
 ((new Range16(((163 : GoUInt16)), ((165 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1423 : GoUInt16)), ((1547 : GoUInt16)), ((124 : GoUInt16))) : Range16)),
@@ -3030,7 +3030,7 @@ var __Sc : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65129 : GoUInt16)), ((65284 : GoUInt16)), ((155 : GoUInt16))) : Range16)),
 ((new Range16(((65504 : GoUInt16)), ((65505 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65509 : GoUInt16)), ((65510 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73693 : GoUInt32)), ((73696 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123647 : GoUInt32)), ((126128 : GoUInt32)), ((2481 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((2 : GoInt)) } : RangeTable));
-var __Sk : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Sk : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((94 : GoUInt16)), ((96 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((168 : GoUInt16)), ((175 : GoUInt16)), ((7 : GoUInt16))) : Range16)),
 ((new Range16(((180 : GoUInt16)), ((184 : GoUInt16)), ((4 : GoUInt16))) : Range16)),
@@ -3055,7 +3055,7 @@ var __Sk : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((64435 : GoUInt16)), ((64449 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65342 : GoUInt16)), ((65344 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((65507 : GoUInt16)), ((65507 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((127995 : GoUInt32)), ((127999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var __Sm : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Sm : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((43 : GoUInt16)), ((60 : GoUInt16)), ((17 : GoUInt16))) : Range16)),
 ((new Range16(((61 : GoUInt16)), ((62 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((124 : GoUInt16)), ((126 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
@@ -3099,7 +3099,7 @@ var __Sm : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65372 : GoUInt16)), ((65374 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((65506 : GoUInt16)), ((65513 : GoUInt16)), ((7 : GoUInt16))) : Range16)),
 ((new Range16(((65514 : GoUInt16)), ((65516 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((120513 : GoUInt32)), ((120539 : GoUInt32)), ((26 : GoUInt32))) : Range32)), ((new Range32(((120571 : GoUInt32)), ((120597 : GoUInt32)), ((26 : GoUInt32))) : Range32)), ((new Range32(((120629 : GoUInt32)), ((120655 : GoUInt32)), ((26 : GoUInt32))) : Range32)), ((new Range32(((120687 : GoUInt32)), ((120713 : GoUInt32)), ((26 : GoUInt32))) : Range32)), ((new Range32(((120745 : GoUInt32)), ((120771 : GoUInt32)), ((26 : GoUInt32))) : Range32)), ((new Range32(((126704 : GoUInt32)), ((126705 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((5 : GoInt)) } : RangeTable));
-var __So : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __So : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((166 : GoUInt16)), ((169 : GoUInt16)), ((3 : GoUInt16))) : Range16)),
 ((new Range16(((174 : GoUInt16)), ((176 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((1154 : GoUInt16)), ((1421 : GoUInt16)), ((267 : GoUInt16))) : Range16)),
@@ -3264,60 +3264,60 @@ var __So : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((129744 : GoUInt32)), ((129750 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((129792 : GoUInt32)), ((129938 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((129940 : GoUInt32)), ((129994 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((2 : GoInt)) } : RangeTable));
-var __Z : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((32 : GoUInt16)), ((160 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((5760 : GoUInt16)), ((8192 : GoUInt16)), ((2432 : GoUInt16))) : Range16)), ((new Range16(((8193 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Zl : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((8232 : GoUInt16)), ((8232 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Zp : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((8233 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Zs : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((32 : GoUInt16)), ((160 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((5760 : GoUInt16)), ((8192 : GoUInt16)), ((2432 : GoUInt16))) : Range16)), ((new Range16(((8193 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var cc : RangeTable = __Cc;
-var cf : RangeTable = __Cf;
-var co : RangeTable = __Co;
-var cs : RangeTable = __Cs;
-var digit : RangeTable = __Nd;
-var nd : RangeTable = __Nd;
-var letter : RangeTable = __L;
-var l : RangeTable = __L;
-var lm : RangeTable = __Lm;
-var lo : RangeTable = __Lo;
-var lower : RangeTable = __Ll;
-var ll : RangeTable = __Ll;
-var mark : RangeTable = __M;
-var m : RangeTable = __M;
-var mc : RangeTable = __Mc;
-var me : RangeTable = __Me;
-var mn : RangeTable = __Mn;
-var nl : RangeTable = __Nl;
-var no : RangeTable = __No;
-var number : RangeTable = __N;
-var n : RangeTable = __N;
-var other : RangeTable = __C;
-var c : RangeTable = __C;
-var pc : RangeTable = __Pc;
-var pd : RangeTable = __Pd;
-var pe : RangeTable = __Pe;
-var pf : RangeTable = __Pf;
-var pi : RangeTable = __Pi;
-var po : RangeTable = __Po;
-var ps : RangeTable = __Ps;
-var punct : RangeTable = __P;
-var p : RangeTable = __P;
-var sc : RangeTable = __Sc;
-var sk : RangeTable = __Sk;
-var sm : RangeTable = __Sm;
-var so : RangeTable = __So;
-var space : RangeTable = __Z;
-var z : RangeTable = __Z;
-var symbol : RangeTable = __S;
-var s : RangeTable = __S;
-var printRanges : Slice<RangeTable> = ((new Slice<RangeTable>(l, m, n, p, s) : Slice<RangeTable>));
-var title : RangeTable = __Lt;
-var lt : RangeTable = __Lt;
-var upper : RangeTable = __Lu;
-var lu : RangeTable = __Lu;
-var zl : RangeTable = __Zl;
-var zp : RangeTable = __Zp;
-var zs : RangeTable = __Zs;
-var graphicRanges : Slice<RangeTable> = ((new Slice<RangeTable>(l, m, n, p, s, zs) : Slice<RangeTable>));
-var categories : GoMap<GoString, RangeTable> = Go.map(((("C" : GoString))) => c,
+var __Z : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((32 : GoUInt16)), ((160 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((5760 : GoUInt16)), ((8192 : GoUInt16)), ((2432 : GoUInt16))) : Range16)), ((new Range16(((8193 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Zl : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((8232 : GoUInt16)), ((8232 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Zp : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((8233 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Zs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((32 : GoUInt16)), ((160 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((5760 : GoUInt16)), ((8192 : GoUInt16)), ((2432 : GoUInt16))) : Range16)), ((new Range16(((8193 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var cc : Ref<RangeTable> = __Cc;
+var cf : Ref<RangeTable> = __Cf;
+var co : Ref<RangeTable> = __Co;
+var cs : Ref<RangeTable> = __Cs;
+var digit : Ref<RangeTable> = __Nd;
+var nd : Ref<RangeTable> = __Nd;
+var letter : Ref<RangeTable> = __L;
+var l : Ref<RangeTable> = __L;
+var lm : Ref<RangeTable> = __Lm;
+var lo : Ref<RangeTable> = __Lo;
+var lower : Ref<RangeTable> = __Ll;
+var ll : Ref<RangeTable> = __Ll;
+var mark : Ref<RangeTable> = __M;
+var m : Ref<RangeTable> = __M;
+var mc : Ref<RangeTable> = __Mc;
+var me : Ref<RangeTable> = __Me;
+var mn : Ref<RangeTable> = __Mn;
+var nl : Ref<RangeTable> = __Nl;
+var no : Ref<RangeTable> = __No;
+var number : Ref<RangeTable> = __N;
+var n : Ref<RangeTable> = __N;
+var other : Ref<RangeTable> = __C;
+var c : Ref<RangeTable> = __C;
+var pc : Ref<RangeTable> = __Pc;
+var pd : Ref<RangeTable> = __Pd;
+var pe : Ref<RangeTable> = __Pe;
+var pf : Ref<RangeTable> = __Pf;
+var pi : Ref<RangeTable> = __Pi;
+var po : Ref<RangeTable> = __Po;
+var ps : Ref<RangeTable> = __Ps;
+var punct : Ref<RangeTable> = __P;
+var p : Ref<RangeTable> = __P;
+var sc : Ref<RangeTable> = __Sc;
+var sk : Ref<RangeTable> = __Sk;
+var sm : Ref<RangeTable> = __Sm;
+var so : Ref<RangeTable> = __So;
+var space : Ref<RangeTable> = __Z;
+var z : Ref<RangeTable> = __Z;
+var symbol : Ref<RangeTable> = __S;
+var s : Ref<RangeTable> = __S;
+var printRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s) : Slice<Ref<RangeTable>>));
+var title : Ref<RangeTable> = __Lt;
+var lt : Ref<RangeTable> = __Lt;
+var upper : Ref<RangeTable> = __Lu;
+var lu : Ref<RangeTable> = __Lu;
+var zl : Ref<RangeTable> = __Zl;
+var zp : Ref<RangeTable> = __Zp;
+var zs : Ref<RangeTable> = __Zs;
+var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s, zs) : Slice<Ref<RangeTable>>));
+var categories : GoMap<GoString, Ref<RangeTable>> = Go.map(((("C" : GoString))) => c,
 ((("Cc" : GoString))) => cc,
 ((("Cf" : GoString))) => cf,
 ((("Co" : GoString))) => co,
@@ -3353,10 +3353,10 @@ var categories : GoMap<GoString, RangeTable> = Go.map(((("C" : GoString))) => c,
 ((("Zl" : GoString))) => zl,
 ((("Zp" : GoString))) => zp,
 ((("Zs" : GoString))) => zs);
-var __Adlam : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((125184 : GoUInt32)), ((125259 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125264 : GoUInt32)), ((125273 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125278 : GoUInt32)), ((125279 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ahom : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71424 : GoUInt32)), ((71450 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71453 : GoUInt32)), ((71467 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71472 : GoUInt32)), ((71487 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Anatolian_Hieroglyphs : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((82944 : GoUInt32)), ((83526 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Arabic : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Adlam : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((125184 : GoUInt32)), ((125259 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125264 : GoUInt32)), ((125273 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125278 : GoUInt32)), ((125279 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ahom : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71424 : GoUInt32)), ((71450 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71453 : GoUInt32)), ((71467 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71472 : GoUInt32)), ((71487 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Anatolian_Hieroglyphs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((82944 : GoUInt32)), ((83526 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Arabic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((1536 : GoUInt16)), ((1540 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1542 : GoUInt16)), ((1547 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1549 : GoUInt16)), ((1562 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3404,13 +3404,13 @@ var __Arabic : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((126629 : GoUInt32)), ((126633 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((126635 : GoUInt32)), ((126651 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((126704 : GoUInt32)), ((126705 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Armenian : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1329 : GoUInt16)), ((1366 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1369 : GoUInt16)), ((1418 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1421 : GoUInt16)), ((1423 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64275 : GoUInt16)), ((64279 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Avestan : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68352 : GoUInt32)), ((68405 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68409 : GoUInt32)), ((68415 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Balinese : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6912 : GoUInt16)), ((6987 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6992 : GoUInt16)), ((7036 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Bamum : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((42656 : GoUInt16)), ((42743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92160 : GoUInt32)), ((92728 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Bassa_Vah : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92880 : GoUInt32)), ((92909 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92912 : GoUInt32)), ((92917 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Batak : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((7104 : GoUInt16)), ((7155 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7164 : GoUInt16)), ((7167 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Bengali : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Armenian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1329 : GoUInt16)), ((1366 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1369 : GoUInt16)), ((1418 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1421 : GoUInt16)), ((1423 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64275 : GoUInt16)), ((64279 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Avestan : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68352 : GoUInt32)), ((68405 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68409 : GoUInt32)), ((68415 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Balinese : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6912 : GoUInt16)), ((6987 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6992 : GoUInt16)), ((7036 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Bamum : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((42656 : GoUInt16)), ((42743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92160 : GoUInt32)), ((92728 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Bassa_Vah : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92880 : GoUInt32)), ((92909 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92912 : GoUInt32)), ((92917 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Batak : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((7104 : GoUInt16)), ((7155 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7164 : GoUInt16)), ((7167 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Bengali : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2432 : GoUInt16)), ((2435 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2437 : GoUInt16)), ((2444 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2447 : GoUInt16)), ((2448 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3425,20 +3425,20 @@ var __Bengali : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2525 : GoUInt16)), ((2527 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((2528 : GoUInt16)), ((2531 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2534 : GoUInt16)), ((2558 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Bhaiksuki : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72704 : GoUInt32)), ((72712 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72714 : GoUInt32)), ((72758 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72760 : GoUInt32)), ((72773 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72784 : GoUInt32)), ((72812 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Bopomofo : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((746 : GoUInt16)), ((747 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12549 : GoUInt16)), ((12591 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12704 : GoUInt16)), ((12735 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Brahmi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69632 : GoUInt32)), ((69709 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69714 : GoUInt32)), ((69743 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69759 : GoUInt32)), ((69759 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Braille : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((10240 : GoUInt16)), ((10495 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Buginese : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6656 : GoUInt16)), ((6683 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6686 : GoUInt16)), ((6687 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Buhid : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5952 : GoUInt16)), ((5971 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Canadian_Aboriginal : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5120 : GoUInt16)), ((5759 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6320 : GoUInt16)), ((6389 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Carian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66208 : GoUInt32)), ((66256 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Caucasian_Albanian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66864 : GoUInt32)), ((66915 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66927 : GoUInt32)), ((66927 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Chakma : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69888 : GoUInt32)), ((69940 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69942 : GoUInt32)), ((69959 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cham : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43520 : GoUInt16)), ((43574 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43584 : GoUInt16)), ((43597 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43600 : GoUInt16)), ((43609 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43612 : GoUInt16)), ((43615 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cherokee : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5024 : GoUInt16)), ((5109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5112 : GoUInt16)), ((5117 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43888 : GoUInt16)), ((43967 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Chorasmian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69552 : GoUInt32)), ((69579 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Common : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Bhaiksuki : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72704 : GoUInt32)), ((72712 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72714 : GoUInt32)), ((72758 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72760 : GoUInt32)), ((72773 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72784 : GoUInt32)), ((72812 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Bopomofo : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((746 : GoUInt16)), ((747 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12549 : GoUInt16)), ((12591 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12704 : GoUInt16)), ((12735 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Brahmi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69632 : GoUInt32)), ((69709 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69714 : GoUInt32)), ((69743 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69759 : GoUInt32)), ((69759 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Braille : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((10240 : GoUInt16)), ((10495 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Buginese : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6656 : GoUInt16)), ((6683 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6686 : GoUInt16)), ((6687 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Buhid : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5952 : GoUInt16)), ((5971 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Canadian_Aboriginal : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5120 : GoUInt16)), ((5759 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6320 : GoUInt16)), ((6389 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Carian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66208 : GoUInt32)), ((66256 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Caucasian_Albanian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66864 : GoUInt32)), ((66915 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66927 : GoUInt32)), ((66927 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Chakma : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69888 : GoUInt32)), ((69940 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69942 : GoUInt32)), ((69959 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cham : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43520 : GoUInt16)), ((43574 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43584 : GoUInt16)), ((43597 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43600 : GoUInt16)), ((43609 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43612 : GoUInt16)), ((43615 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cherokee : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5024 : GoUInt16)), ((5109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5112 : GoUInt16)), ((5117 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43888 : GoUInt16)), ((43967 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Chorasmian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69552 : GoUInt32)), ((69579 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Common : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((0 : GoUInt16)), ((64 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((91 : GoUInt16)), ((96 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((123 : GoUInt16)), ((169 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3603,19 +3603,19 @@ var __Common : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((130032 : GoUInt32)), ((130041 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((917505 : GoUInt32)), ((917536 : GoUInt32)), ((31 : GoUInt32))) : Range32)),
 ((new Range32(((917537 : GoUInt32)), ((917631 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((6 : GoInt)) } : RangeTable));
-var __Coptic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((994 : GoUInt16)), ((1007 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11392 : GoUInt16)), ((11507 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11513 : GoUInt16)), ((11519 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cuneiform : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73728 : GoUInt32)), ((74649 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74752 : GoUInt32)), ((74862 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74864 : GoUInt32)), ((74868 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74880 : GoUInt32)), ((75075 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cypriot : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67584 : GoUInt32)), ((67589 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67592 : GoUInt32)), ((67594 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((67595 : GoUInt32)), ((67637 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67639 : GoUInt32)), ((67640 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67644 : GoUInt32)), ((67647 : GoUInt32)), ((3 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Cyrillic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1024 : GoUInt16)), ((1156 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1159 : GoUInt16)), ((1327 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7296 : GoUInt16)), ((7304 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7467 : GoUInt16)), ((7544 : GoUInt16)), ((77 : GoUInt16))) : Range16)), ((new Range16(((11744 : GoUInt16)), ((11775 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42560 : GoUInt16)), ((42655 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65070 : GoUInt16)), ((65071 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Deseret : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66560 : GoUInt32)), ((66639 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Devanagari : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((2304 : GoUInt16)), ((2384 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2389 : GoUInt16)), ((2403 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2406 : GoUInt16)), ((2431 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43232 : GoUInt16)), ((43263 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Dives_Akuru : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71936 : GoUInt32)), ((71942 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71945 : GoUInt32)), ((71948 : GoUInt32)), ((3 : GoUInt32))) : Range32)), ((new Range32(((71949 : GoUInt32)), ((71955 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71957 : GoUInt32)), ((71958 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71960 : GoUInt32)), ((71989 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71991 : GoUInt32)), ((71992 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71995 : GoUInt32)), ((72006 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72016 : GoUInt32)), ((72025 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Dogra : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71680 : GoUInt32)), ((71739 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Duployan : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((113664 : GoUInt32)), ((113770 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113776 : GoUInt32)), ((113788 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113792 : GoUInt32)), ((113800 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113808 : GoUInt32)), ((113817 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113820 : GoUInt32)), ((113823 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Egyptian_Hieroglyphs : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((77824 : GoUInt32)), ((78894 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((78896 : GoUInt32)), ((78904 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Elbasan : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66816 : GoUInt32)), ((66855 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Elymaic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69600 : GoUInt32)), ((69622 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ethiopic : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Coptic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((994 : GoUInt16)), ((1007 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11392 : GoUInt16)), ((11507 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11513 : GoUInt16)), ((11519 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cuneiform : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73728 : GoUInt32)), ((74649 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74752 : GoUInt32)), ((74862 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74864 : GoUInt32)), ((74868 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((74880 : GoUInt32)), ((75075 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cypriot : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67584 : GoUInt32)), ((67589 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67592 : GoUInt32)), ((67594 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((67595 : GoUInt32)), ((67637 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67639 : GoUInt32)), ((67640 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67644 : GoUInt32)), ((67647 : GoUInt32)), ((3 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Cyrillic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1024 : GoUInt16)), ((1156 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1159 : GoUInt16)), ((1327 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7296 : GoUInt16)), ((7304 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7467 : GoUInt16)), ((7544 : GoUInt16)), ((77 : GoUInt16))) : Range16)), ((new Range16(((11744 : GoUInt16)), ((11775 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42560 : GoUInt16)), ((42655 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65070 : GoUInt16)), ((65071 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Deseret : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66560 : GoUInt32)), ((66639 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Devanagari : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((2304 : GoUInt16)), ((2384 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2389 : GoUInt16)), ((2403 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2406 : GoUInt16)), ((2431 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43232 : GoUInt16)), ((43263 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Dives_Akuru : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71936 : GoUInt32)), ((71942 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71945 : GoUInt32)), ((71948 : GoUInt32)), ((3 : GoUInt32))) : Range32)), ((new Range32(((71949 : GoUInt32)), ((71955 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71957 : GoUInt32)), ((71958 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71960 : GoUInt32)), ((71989 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71991 : GoUInt32)), ((71992 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71995 : GoUInt32)), ((72006 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72016 : GoUInt32)), ((72025 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Dogra : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71680 : GoUInt32)), ((71739 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Duployan : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((113664 : GoUInt32)), ((113770 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113776 : GoUInt32)), ((113788 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113792 : GoUInt32)), ((113800 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113808 : GoUInt32)), ((113817 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((113820 : GoUInt32)), ((113823 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Egyptian_Hieroglyphs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((77824 : GoUInt32)), ((78894 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((78896 : GoUInt32)), ((78904 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Elbasan : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66816 : GoUInt32)), ((66855 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Elymaic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69600 : GoUInt32)), ((69622 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ethiopic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((4608 : GoUInt16)), ((4680 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((4682 : GoUInt16)), ((4685 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((4688 : GoUInt16)), ((4694 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3648,10 +3648,10 @@ var __Ethiopic : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((43793 : GoUInt16)), ((43798 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((43808 : GoUInt16)), ((43814 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((43816 : GoUInt16)), ((43822 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Georgian : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((4256 : GoUInt16)), ((4293 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4295 : GoUInt16)), ((4301 : GoUInt16)), ((6 : GoUInt16))) : Range16)), ((new Range16(((4304 : GoUInt16)), ((4346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4348 : GoUInt16)), ((4351 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7312 : GoUInt16)), ((7354 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7357 : GoUInt16)), ((7359 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11520 : GoUInt16)), ((11557 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11559 : GoUInt16)), ((11565 : GoUInt16)), ((6 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Glagolitic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((11264 : GoUInt16)), ((11310 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11312 : GoUInt16)), ((11358 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((122880 : GoUInt32)), ((122886 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122888 : GoUInt32)), ((122904 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122907 : GoUInt32)), ((122913 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122915 : GoUInt32)), ((122916 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122918 : GoUInt32)), ((122922 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Gothic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66352 : GoUInt32)), ((66378 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Grantha : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(
+var __Georgian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((4256 : GoUInt16)), ((4293 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4295 : GoUInt16)), ((4301 : GoUInt16)), ((6 : GoUInt16))) : Range16)), ((new Range16(((4304 : GoUInt16)), ((4346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4348 : GoUInt16)), ((4351 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7312 : GoUInt16)), ((7354 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7357 : GoUInt16)), ((7359 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11520 : GoUInt16)), ((11557 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11559 : GoUInt16)), ((11565 : GoUInt16)), ((6 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Glagolitic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((11264 : GoUInt16)), ((11310 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11312 : GoUInt16)), ((11358 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((122880 : GoUInt32)), ((122886 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122888 : GoUInt32)), ((122904 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122907 : GoUInt32)), ((122913 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122915 : GoUInt32)), ((122916 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((122918 : GoUInt32)), ((122922 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Gothic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66352 : GoUInt32)), ((66378 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Grantha : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(
 ((new Range32(((70400 : GoUInt32)), ((70403 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((70405 : GoUInt32)), ((70412 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((70415 : GoUInt32)), ((70416 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
@@ -3666,7 +3666,7 @@ var __Grantha : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>))
 ((new Range32(((70493 : GoUInt32)), ((70499 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((70502 : GoUInt32)), ((70508 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((70512 : GoUInt32)), ((70516 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Greek : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Greek : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((880 : GoUInt16)), ((883 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((885 : GoUInt16)), ((887 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((890 : GoUInt16)), ((893 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3696,7 +3696,7 @@ var __Greek : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((8178 : GoUInt16)), ((8180 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((8182 : GoUInt16)), ((8190 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((8486 : GoUInt16)), ((43877 : GoUInt16)), ((35391 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((65856 : GoUInt32)), ((65934 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65952 : GoUInt32)), ((119296 : GoUInt32)), ((53344 : GoUInt32))) : Range32)), ((new Range32(((119297 : GoUInt32)), ((119365 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Gujarati : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Gujarati : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2689 : GoUInt16)), ((2691 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2693 : GoUInt16)), ((2701 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2703 : GoUInt16)), ((2705 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3711,8 +3711,8 @@ var __Gujarati : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2785 : GoUInt16)), ((2787 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2790 : GoUInt16)), ((2801 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2809 : GoUInt16)), ((2815 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Gunjala_Gondi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73056 : GoUInt32)), ((73061 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73063 : GoUInt32)), ((73064 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73066 : GoUInt32)), ((73102 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73104 : GoUInt32)), ((73105 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73107 : GoUInt32)), ((73112 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73120 : GoUInt32)), ((73129 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Gurmukhi : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Gunjala_Gondi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73056 : GoUInt32)), ((73061 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73063 : GoUInt32)), ((73064 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73066 : GoUInt32)), ((73102 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73104 : GoUInt32)), ((73105 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73107 : GoUInt32)), ((73112 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73120 : GoUInt32)), ((73129 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Gurmukhi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2561 : GoUInt16)), ((2563 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2565 : GoUInt16)), ((2570 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2575 : GoUInt16)), ((2576 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3729,8 +3729,8 @@ var __Gurmukhi : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2650 : GoUInt16)), ((2652 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2654 : GoUInt16)), ((2662 : GoUInt16)), ((8 : GoUInt16))) : Range16)),
 ((new Range16(((2663 : GoUInt16)), ((2678 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Han : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((11904 : GoUInt16)), ((11929 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11931 : GoUInt16)), ((12019 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12032 : GoUInt16)), ((12245 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12293 : GoUInt16)), ((12295 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((12321 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12347 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((63744 : GoUInt16)), ((64109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64112 : GoUInt16)), ((64217 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94192 : GoUInt32)), ((94193 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((131072 : GoUInt32)), ((173789 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((173824 : GoUInt32)), ((177972 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((177984 : GoUInt32)), ((178205 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((178208 : GoUInt32)), ((183969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((194560 : GoUInt32)), ((195101 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hangul : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Han : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((11904 : GoUInt16)), ((11929 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11931 : GoUInt16)), ((12019 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12032 : GoUInt16)), ((12245 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12293 : GoUInt16)), ((12295 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((12321 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12347 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((63744 : GoUInt16)), ((64109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64112 : GoUInt16)), ((64217 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94192 : GoUInt32)), ((94193 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((131072 : GoUInt32)), ((173789 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((173824 : GoUInt32)), ((177972 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((177984 : GoUInt32)), ((178205 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((178208 : GoUInt32)), ((183969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((194560 : GoUInt32)), ((195101 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Hangul : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((4352 : GoUInt16)), ((4607 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((12334 : GoUInt16)), ((12335 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((12593 : GoUInt16)), ((12686 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3745,13 +3745,13 @@ var __Hangul : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65482 : GoUInt16)), ((65487 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65490 : GoUInt16)), ((65495 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65498 : GoUInt16)), ((65500 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hanifi_Rohingya : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68864 : GoUInt32)), ((68903 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68912 : GoUInt32)), ((68921 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hanunoo : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5920 : GoUInt16)), ((5940 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hatran : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67808 : GoUInt32)), ((67826 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67828 : GoUInt32)), ((67829 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67835 : GoUInt32)), ((67839 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hebrew : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1425 : GoUInt16)), ((1479 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1488 : GoUInt16)), ((1514 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1519 : GoUInt16)), ((1524 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64285 : GoUInt16)), ((64310 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64312 : GoUInt16)), ((64316 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64318 : GoUInt16)), ((64320 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64321 : GoUInt16)), ((64323 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64324 : GoUInt16)), ((64326 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64327 : GoUInt16)), ((64335 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hiragana : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((12353 : GoUInt16)), ((12438 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12445 : GoUInt16)), ((12447 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((110593 : GoUInt32)), ((110878 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((110928 : GoUInt32)), ((110930 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127488 : GoUInt32)), ((127488 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Imperial_Aramaic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67648 : GoUInt32)), ((67669 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67671 : GoUInt32)), ((67679 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Inherited : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Hanifi_Rohingya : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68864 : GoUInt32)), ((68903 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68912 : GoUInt32)), ((68921 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Hanunoo : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5920 : GoUInt16)), ((5940 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Hatran : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67808 : GoUInt32)), ((67826 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67828 : GoUInt32)), ((67829 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67835 : GoUInt32)), ((67839 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Hebrew : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1425 : GoUInt16)), ((1479 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1488 : GoUInt16)), ((1514 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1519 : GoUInt16)), ((1524 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64285 : GoUInt16)), ((64310 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64312 : GoUInt16)), ((64316 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64318 : GoUInt16)), ((64320 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64321 : GoUInt16)), ((64323 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64324 : GoUInt16)), ((64326 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64327 : GoUInt16)), ((64335 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Hiragana : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((12353 : GoUInt16)), ((12438 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12445 : GoUInt16)), ((12447 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((110593 : GoUInt32)), ((110878 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((110928 : GoUInt32)), ((110930 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127488 : GoUInt32)), ((127488 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Imperial_Aramaic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67648 : GoUInt32)), ((67669 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67671 : GoUInt32)), ((67679 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Inherited : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((768 : GoUInt16)), ((879 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1157 : GoUInt16)), ((1158 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1611 : GoUInt16)), ((1621 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3771,11 +3771,11 @@ var __Inherited : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((12441 : GoUInt16)), ((12442 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65024 : GoUInt16)), ((65039 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65056 : GoUInt16)), ((65069 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66045 : GoUInt32)), ((66272 : GoUInt32)), ((227 : GoUInt32))) : Range32)), ((new Range32(((70459 : GoUInt32)), ((119143 : GoUInt32)), ((48684 : GoUInt32))) : Range32)), ((new Range32(((119144 : GoUInt32)), ((119145 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((119163 : GoUInt32)), ((119170 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((119173 : GoUInt32)), ((119179 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((119210 : GoUInt32)), ((119213 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Inscriptional_Pahlavi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68448 : GoUInt32)), ((68466 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68472 : GoUInt32)), ((68479 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Inscriptional_Parthian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68416 : GoUInt32)), ((68437 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68440 : GoUInt32)), ((68447 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Javanese : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43392 : GoUInt16)), ((43469 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43472 : GoUInt16)), ((43481 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43486 : GoUInt16)), ((43487 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Kaithi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69760 : GoUInt32)), ((69825 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69837 : GoUInt32)), ((69837 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Kannada : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Inscriptional_Pahlavi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68448 : GoUInt32)), ((68466 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68472 : GoUInt32)), ((68479 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Inscriptional_Parthian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68416 : GoUInt32)), ((68437 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68440 : GoUInt32)), ((68447 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Javanese : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43392 : GoUInt16)), ((43469 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43472 : GoUInt16)), ((43481 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43486 : GoUInt16)), ((43487 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Kaithi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69760 : GoUInt32)), ((69825 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69837 : GoUInt32)), ((69837 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Kannada : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3200 : GoUInt16)), ((3212 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3214 : GoUInt16)), ((3216 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3218 : GoUInt16)), ((3240 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3789,14 +3789,14 @@ var __Kannada : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3297 : GoUInt16)), ((3299 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3302 : GoUInt16)), ((3311 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3313 : GoUInt16)), ((3314 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Katakana : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((12449 : GoUInt16)), ((12538 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12541 : GoUInt16)), ((12543 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12784 : GoUInt16)), ((12799 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13008 : GoUInt16)), ((13054 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13056 : GoUInt16)), ((13143 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65382 : GoUInt16)), ((65391 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65393 : GoUInt16)), ((65437 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((110592 : GoUInt32)), ((110948 : GoUInt32)), ((356 : GoUInt32))) : Range32)), ((new Range32(((110949 : GoUInt32)), ((110951 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Kayah_Li : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43264 : GoUInt16)), ((43309 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43311 : GoUInt16)), ((43311 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Kharoshthi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68096 : GoUInt32)), ((68099 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68101 : GoUInt32)), ((68102 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68108 : GoUInt32)), ((68115 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68117 : GoUInt32)), ((68119 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68121 : GoUInt32)), ((68149 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68152 : GoUInt32)), ((68154 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68159 : GoUInt32)), ((68168 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68176 : GoUInt32)), ((68184 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Khitan_Small_Script : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94180 : GoUInt32)), ((101120 : GoUInt32)), ((6940 : GoUInt32))) : Range32)), ((new Range32(((101121 : GoUInt32)), ((101589 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Khmer : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6016 : GoUInt16)), ((6109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6112 : GoUInt16)), ((6121 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6128 : GoUInt16)), ((6137 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6624 : GoUInt16)), ((6655 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Khojki : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70144 : GoUInt32)), ((70161 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70163 : GoUInt32)), ((70206 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Khudawadi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70320 : GoUInt32)), ((70378 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70384 : GoUInt32)), ((70393 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lao : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Katakana : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((12449 : GoUInt16)), ((12538 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12541 : GoUInt16)), ((12543 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12784 : GoUInt16)), ((12799 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13008 : GoUInt16)), ((13054 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13056 : GoUInt16)), ((13143 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65382 : GoUInt16)), ((65391 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65393 : GoUInt16)), ((65437 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((110592 : GoUInt32)), ((110948 : GoUInt32)), ((356 : GoUInt32))) : Range32)), ((new Range32(((110949 : GoUInt32)), ((110951 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Kayah_Li : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43264 : GoUInt16)), ((43309 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43311 : GoUInt16)), ((43311 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Kharoshthi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68096 : GoUInt32)), ((68099 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68101 : GoUInt32)), ((68102 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68108 : GoUInt32)), ((68115 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68117 : GoUInt32)), ((68119 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68121 : GoUInt32)), ((68149 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68152 : GoUInt32)), ((68154 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68159 : GoUInt32)), ((68168 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68176 : GoUInt32)), ((68184 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Khitan_Small_Script : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94180 : GoUInt32)), ((101120 : GoUInt32)), ((6940 : GoUInt32))) : Range32)), ((new Range32(((101121 : GoUInt32)), ((101589 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Khmer : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6016 : GoUInt16)), ((6109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6112 : GoUInt16)), ((6121 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6128 : GoUInt16)), ((6137 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6624 : GoUInt16)), ((6655 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Khojki : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70144 : GoUInt32)), ((70161 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70163 : GoUInt32)), ((70206 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Khudawadi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70320 : GoUInt32)), ((70378 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70384 : GoUInt32)), ((70393 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Lao : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3713 : GoUInt16)), ((3714 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3716 : GoUInt16)), ((3718 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((3719 : GoUInt16)), ((3722 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3808,7 +3808,7 @@ var __Lao : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3785 : GoUInt16)), ((3789 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3792 : GoUInt16)), ((3801 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3804 : GoUInt16)), ((3807 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Latin : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Latin : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65 : GoUInt16)), ((90 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((97 : GoUInt16)), ((122 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((170 : GoUInt16)), ((186 : GoUInt16)), ((16 : GoUInt16))) : Range16)),
@@ -3838,49 +3838,49 @@ var __Latin : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((64256 : GoUInt16)), ((64262 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65313 : GoUInt16)), ((65338 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65345 : GoUInt16)), ((65370 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((5 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Lepcha : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((7168 : GoUInt16)), ((7223 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7227 : GoUInt16)), ((7241 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7245 : GoUInt16)), ((7247 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Limbu : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6400 : GoUInt16)), ((6430 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6432 : GoUInt16)), ((6443 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6448 : GoUInt16)), ((6459 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6464 : GoUInt16)), ((6468 : GoUInt16)), ((4 : GoUInt16))) : Range16)), ((new Range16(((6469 : GoUInt16)), ((6479 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Linear_A : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67072 : GoUInt32)), ((67382 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67392 : GoUInt32)), ((67413 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67424 : GoUInt32)), ((67431 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Linear_B : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((65536 : GoUInt32)), ((65547 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65549 : GoUInt32)), ((65574 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65576 : GoUInt32)), ((65594 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65596 : GoUInt32)), ((65597 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65599 : GoUInt32)), ((65613 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65616 : GoUInt32)), ((65629 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65664 : GoUInt32)), ((65786 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lisu : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((42192 : GoUInt16)), ((42239 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73648 : GoUInt32)), ((73648 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lycian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66176 : GoUInt32)), ((66204 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Lydian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67872 : GoUInt32)), ((67897 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67903 : GoUInt32)), ((67903 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mahajani : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69968 : GoUInt32)), ((70006 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Makasar : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73440 : GoUInt32)), ((73464 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Malayalam : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((3328 : GoUInt16)), ((3340 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3342 : GoUInt16)), ((3344 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3346 : GoUInt16)), ((3396 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3398 : GoUInt16)), ((3400 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3402 : GoUInt16)), ((3407 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3412 : GoUInt16)), ((3427 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3430 : GoUInt16)), ((3455 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mandaic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((2112 : GoUInt16)), ((2139 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2142 : GoUInt16)), ((2142 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Manichaean : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68288 : GoUInt32)), ((68326 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68331 : GoUInt32)), ((68342 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Marchen : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72816 : GoUInt32)), ((72847 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72850 : GoUInt32)), ((72871 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72873 : GoUInt32)), ((72886 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Masaram_Gondi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72960 : GoUInt32)), ((72966 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72968 : GoUInt32)), ((72969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72971 : GoUInt32)), ((73014 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73018 : GoUInt32)), ((73020 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((73021 : GoUInt32)), ((73023 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((73024 : GoUInt32)), ((73031 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73040 : GoUInt32)), ((73049 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Medefaidrin : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((93760 : GoUInt32)), ((93850 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Meetei_Mayek : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43744 : GoUInt16)), ((43766 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43968 : GoUInt16)), ((44013 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((44016 : GoUInt16)), ((44025 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mende_Kikakui : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((124928 : GoUInt32)), ((125124 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125127 : GoUInt32)), ((125142 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Meroitic_Cursive : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68000 : GoUInt32)), ((68023 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68028 : GoUInt32)), ((68047 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68050 : GoUInt32)), ((68095 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Meroitic_Hieroglyphs : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67968 : GoUInt32)), ((67999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Miao : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((93952 : GoUInt32)), ((94026 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94031 : GoUInt32)), ((94087 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94095 : GoUInt32)), ((94111 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Modi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71168 : GoUInt32)), ((71236 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71248 : GoUInt32)), ((71257 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mongolian : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6144 : GoUInt16)), ((6145 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6148 : GoUInt16)), ((6150 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((6151 : GoUInt16)), ((6158 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6160 : GoUInt16)), ((6169 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6176 : GoUInt16)), ((6264 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6272 : GoUInt16)), ((6314 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71264 : GoUInt32)), ((71276 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Mro : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92736 : GoUInt32)), ((92766 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92768 : GoUInt32)), ((92777 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92782 : GoUInt32)), ((92783 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Multani : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70272 : GoUInt32)), ((70278 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70280 : GoUInt32)), ((70282 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((70283 : GoUInt32)), ((70285 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70287 : GoUInt32)), ((70301 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70303 : GoUInt32)), ((70313 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Myanmar : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((4096 : GoUInt16)), ((4255 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43488 : GoUInt16)), ((43518 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43616 : GoUInt16)), ((43647 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Nabataean : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67712 : GoUInt32)), ((67742 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67751 : GoUInt32)), ((67759 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Nandinagari : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72096 : GoUInt32)), ((72103 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72106 : GoUInt32)), ((72151 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72154 : GoUInt32)), ((72164 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __New_Tai_Lue : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6528 : GoUInt16)), ((6571 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6576 : GoUInt16)), ((6601 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6608 : GoUInt16)), ((6618 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6622 : GoUInt16)), ((6623 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Newa : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70656 : GoUInt32)), ((70747 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70749 : GoUInt32)), ((70753 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Nko : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1984 : GoUInt16)), ((2042 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2045 : GoUInt16)), ((2047 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Nushu : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94177 : GoUInt32)), ((110960 : GoUInt32)), ((16783 : GoUInt32))) : Range32)), ((new Range32(((110961 : GoUInt32)), ((111355 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Nyiakeng_Puachue_Hmong : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((123136 : GoUInt32)), ((123180 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123184 : GoUInt32)), ((123197 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123200 : GoUInt32)), ((123209 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123214 : GoUInt32)), ((123215 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ogham : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5760 : GoUInt16)), ((5788 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ol_Chiki : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((7248 : GoUInt16)), ((7295 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Hungarian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68736 : GoUInt32)), ((68786 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68800 : GoUInt32)), ((68850 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68858 : GoUInt32)), ((68863 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Italic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66304 : GoUInt32)), ((66339 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66349 : GoUInt32)), ((66351 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_North_Arabian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68224 : GoUInt32)), ((68255 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Permic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66384 : GoUInt32)), ((66426 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Persian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66464 : GoUInt32)), ((66499 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66504 : GoUInt32)), ((66517 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Sogdian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69376 : GoUInt32)), ((69415 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_South_Arabian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68192 : GoUInt32)), ((68223 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Old_Turkic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68608 : GoUInt32)), ((68680 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Oriya : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Lepcha : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((7168 : GoUInt16)), ((7223 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7227 : GoUInt16)), ((7241 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7245 : GoUInt16)), ((7247 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Limbu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6400 : GoUInt16)), ((6430 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6432 : GoUInt16)), ((6443 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6448 : GoUInt16)), ((6459 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6464 : GoUInt16)), ((6468 : GoUInt16)), ((4 : GoUInt16))) : Range16)), ((new Range16(((6469 : GoUInt16)), ((6479 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Linear_A : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67072 : GoUInt32)), ((67382 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67392 : GoUInt32)), ((67413 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67424 : GoUInt32)), ((67431 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Linear_B : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((65536 : GoUInt32)), ((65547 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65549 : GoUInt32)), ((65574 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65576 : GoUInt32)), ((65594 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65596 : GoUInt32)), ((65597 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65599 : GoUInt32)), ((65613 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65616 : GoUInt32)), ((65629 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((65664 : GoUInt32)), ((65786 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Lisu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((42192 : GoUInt16)), ((42239 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73648 : GoUInt32)), ((73648 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Lycian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66176 : GoUInt32)), ((66204 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Lydian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67872 : GoUInt32)), ((67897 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67903 : GoUInt32)), ((67903 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mahajani : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69968 : GoUInt32)), ((70006 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Makasar : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73440 : GoUInt32)), ((73464 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Malayalam : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((3328 : GoUInt16)), ((3340 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3342 : GoUInt16)), ((3344 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3346 : GoUInt16)), ((3396 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3398 : GoUInt16)), ((3400 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3402 : GoUInt16)), ((3407 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3412 : GoUInt16)), ((3427 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3430 : GoUInt16)), ((3455 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mandaic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((2112 : GoUInt16)), ((2139 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2142 : GoUInt16)), ((2142 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Manichaean : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68288 : GoUInt32)), ((68326 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68331 : GoUInt32)), ((68342 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Marchen : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72816 : GoUInt32)), ((72847 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72850 : GoUInt32)), ((72871 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72873 : GoUInt32)), ((72886 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Masaram_Gondi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72960 : GoUInt32)), ((72966 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72968 : GoUInt32)), ((72969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72971 : GoUInt32)), ((73014 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73018 : GoUInt32)), ((73020 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((73021 : GoUInt32)), ((73023 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((73024 : GoUInt32)), ((73031 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73040 : GoUInt32)), ((73049 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Medefaidrin : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((93760 : GoUInt32)), ((93850 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Meetei_Mayek : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43744 : GoUInt16)), ((43766 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43968 : GoUInt16)), ((44013 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((44016 : GoUInt16)), ((44025 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mende_Kikakui : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((124928 : GoUInt32)), ((125124 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125127 : GoUInt32)), ((125142 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Meroitic_Cursive : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68000 : GoUInt32)), ((68023 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68028 : GoUInt32)), ((68047 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68050 : GoUInt32)), ((68095 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Meroitic_Hieroglyphs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67968 : GoUInt32)), ((67999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Miao : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((93952 : GoUInt32)), ((94026 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94031 : GoUInt32)), ((94087 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((94095 : GoUInt32)), ((94111 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Modi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71168 : GoUInt32)), ((71236 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71248 : GoUInt32)), ((71257 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mongolian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6144 : GoUInt16)), ((6145 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6148 : GoUInt16)), ((6150 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((6151 : GoUInt16)), ((6158 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6160 : GoUInt16)), ((6169 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6176 : GoUInt16)), ((6264 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6272 : GoUInt16)), ((6314 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71264 : GoUInt32)), ((71276 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Mro : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92736 : GoUInt32)), ((92766 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92768 : GoUInt32)), ((92777 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((92782 : GoUInt32)), ((92783 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Multani : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70272 : GoUInt32)), ((70278 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70280 : GoUInt32)), ((70282 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((70283 : GoUInt32)), ((70285 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70287 : GoUInt32)), ((70301 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70303 : GoUInt32)), ((70313 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Myanmar : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((4096 : GoUInt16)), ((4255 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43488 : GoUInt16)), ((43518 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43616 : GoUInt16)), ((43647 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Nabataean : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67712 : GoUInt32)), ((67742 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67751 : GoUInt32)), ((67759 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Nandinagari : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72096 : GoUInt32)), ((72103 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72106 : GoUInt32)), ((72151 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72154 : GoUInt32)), ((72164 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __New_Tai_Lue : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6528 : GoUInt16)), ((6571 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6576 : GoUInt16)), ((6601 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6608 : GoUInt16)), ((6618 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6622 : GoUInt16)), ((6623 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Newa : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70656 : GoUInt32)), ((70747 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70749 : GoUInt32)), ((70753 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Nko : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1984 : GoUInt16)), ((2042 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2045 : GoUInt16)), ((2047 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Nushu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94177 : GoUInt32)), ((110960 : GoUInt32)), ((16783 : GoUInt32))) : Range32)), ((new Range32(((110961 : GoUInt32)), ((111355 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Nyiakeng_Puachue_Hmong : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((123136 : GoUInt32)), ((123180 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123184 : GoUInt32)), ((123197 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123200 : GoUInt32)), ((123209 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123214 : GoUInt32)), ((123215 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ogham : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5760 : GoUInt16)), ((5788 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ol_Chiki : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((7248 : GoUInt16)), ((7295 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Hungarian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68736 : GoUInt32)), ((68786 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68800 : GoUInt32)), ((68850 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68858 : GoUInt32)), ((68863 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Italic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66304 : GoUInt32)), ((66339 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66349 : GoUInt32)), ((66351 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_North_Arabian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68224 : GoUInt32)), ((68255 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Permic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66384 : GoUInt32)), ((66426 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Persian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66464 : GoUInt32)), ((66499 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66504 : GoUInt32)), ((66517 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Sogdian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69376 : GoUInt32)), ((69415 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_South_Arabian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68192 : GoUInt32)), ((68223 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Old_Turkic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68608 : GoUInt32)), ((68680 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Oriya : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2817 : GoUInt16)), ((2819 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2821 : GoUInt16)), ((2828 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2831 : GoUInt16)), ((2832 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3895,23 +3895,23 @@ var __Oriya : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2908 : GoUInt16)), ((2909 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2911 : GoUInt16)), ((2915 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2918 : GoUInt16)), ((2935 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Osage : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66736 : GoUInt32)), ((66771 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66776 : GoUInt32)), ((66811 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Osmanya : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66688 : GoUInt32)), ((66717 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66720 : GoUInt32)), ((66729 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pahawh_Hmong : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92928 : GoUInt32)), ((92997 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93008 : GoUInt32)), ((93017 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93019 : GoUInt32)), ((93025 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93027 : GoUInt32)), ((93047 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93053 : GoUInt32)), ((93071 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Palmyrene : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67680 : GoUInt32)), ((67711 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pau_Cin_Hau : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72384 : GoUInt32)), ((72440 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Phags_Pa : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43072 : GoUInt16)), ((43127 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Phoenician : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67840 : GoUInt32)), ((67867 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67871 : GoUInt32)), ((67871 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Psalter_Pahlavi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68480 : GoUInt32)), ((68497 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68505 : GoUInt32)), ((68508 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68521 : GoUInt32)), ((68527 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Rejang : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43312 : GoUInt16)), ((43347 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43359 : GoUInt16)), ((43359 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Runic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5792 : GoUInt16)), ((5866 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5870 : GoUInt16)), ((5880 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Samaritan : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((2048 : GoUInt16)), ((2093 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2096 : GoUInt16)), ((2110 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Saurashtra : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43136 : GoUInt16)), ((43205 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43214 : GoUInt16)), ((43225 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sharada : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70016 : GoUInt32)), ((70111 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Shavian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66640 : GoUInt32)), ((66687 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Siddham : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71040 : GoUInt32)), ((71093 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71096 : GoUInt32)), ((71133 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __SignWriting : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((120832 : GoUInt32)), ((121483 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((121499 : GoUInt32)), ((121503 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((121505 : GoUInt32)), ((121519 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sinhala : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Osage : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66736 : GoUInt32)), ((66771 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66776 : GoUInt32)), ((66811 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Osmanya : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66688 : GoUInt32)), ((66717 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66720 : GoUInt32)), ((66729 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Pahawh_Hmong : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((92928 : GoUInt32)), ((92997 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93008 : GoUInt32)), ((93017 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93019 : GoUInt32)), ((93025 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93027 : GoUInt32)), ((93047 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93053 : GoUInt32)), ((93071 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Palmyrene : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67680 : GoUInt32)), ((67711 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Pau_Cin_Hau : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72384 : GoUInt32)), ((72440 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Phags_Pa : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43072 : GoUInt16)), ((43127 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Phoenician : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((67840 : GoUInt32)), ((67867 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((67871 : GoUInt32)), ((67871 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Psalter_Pahlavi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((68480 : GoUInt32)), ((68497 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68505 : GoUInt32)), ((68508 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68521 : GoUInt32)), ((68527 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Rejang : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43312 : GoUInt16)), ((43347 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43359 : GoUInt16)), ((43359 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Runic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5792 : GoUInt16)), ((5866 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5870 : GoUInt16)), ((5880 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Samaritan : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((2048 : GoUInt16)), ((2093 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2096 : GoUInt16)), ((2110 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Saurashtra : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43136 : GoUInt16)), ((43205 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43214 : GoUInt16)), ((43225 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Sharada : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70016 : GoUInt32)), ((70111 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Shavian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66640 : GoUInt32)), ((66687 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Siddham : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71040 : GoUInt32)), ((71093 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71096 : GoUInt32)), ((71133 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __SignWriting : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((120832 : GoUInt32)), ((121483 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((121499 : GoUInt32)), ((121503 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((121505 : GoUInt32)), ((121519 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Sinhala : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3457 : GoUInt16)), ((3459 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3461 : GoUInt16)), ((3478 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3482 : GoUInt16)), ((3505 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3924,19 +3924,19 @@ var __Sinhala : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3545 : GoUInt16)), ((3551 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3558 : GoUInt16)), ((3567 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3570 : GoUInt16)), ((3572 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70113 : GoUInt32)), ((70132 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sogdian : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69424 : GoUInt32)), ((69465 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sora_Sompeng : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69840 : GoUInt32)), ((69864 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69872 : GoUInt32)), ((69881 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Soyombo : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72272 : GoUInt32)), ((72354 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sundanese : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((7040 : GoUInt16)), ((7103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7360 : GoUInt16)), ((7367 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Syloti_Nagri : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43008 : GoUInt16)), ((43052 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Syriac : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1792 : GoUInt16)), ((1805 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1807 : GoUInt16)), ((1866 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1869 : GoUInt16)), ((1871 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2144 : GoUInt16)), ((2154 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tagalog : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5888 : GoUInt16)), ((5900 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5902 : GoUInt16)), ((5908 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tagbanwa : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((5984 : GoUInt16)), ((5996 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5998 : GoUInt16)), ((6000 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6002 : GoUInt16)), ((6003 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tai_Le : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6480 : GoUInt16)), ((6509 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6512 : GoUInt16)), ((6516 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tai_Tham : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6688 : GoUInt16)), ((6750 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6752 : GoUInt16)), ((6780 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6783 : GoUInt16)), ((6793 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6800 : GoUInt16)), ((6809 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6816 : GoUInt16)), ((6829 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tai_Viet : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((43648 : GoUInt16)), ((43714 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43739 : GoUInt16)), ((43743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Takri : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71296 : GoUInt32)), ((71352 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71360 : GoUInt32)), ((71369 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tamil : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Sogdian : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69424 : GoUInt32)), ((69465 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Sora_Sompeng : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69840 : GoUInt32)), ((69864 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69872 : GoUInt32)), ((69881 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Soyombo : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72272 : GoUInt32)), ((72354 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Sundanese : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((7040 : GoUInt16)), ((7103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((7360 : GoUInt16)), ((7367 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Syloti_Nagri : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43008 : GoUInt16)), ((43052 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Syriac : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1792 : GoUInt16)), ((1805 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1807 : GoUInt16)), ((1866 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1869 : GoUInt16)), ((1871 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((2144 : GoUInt16)), ((2154 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tagalog : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5888 : GoUInt16)), ((5900 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5902 : GoUInt16)), ((5908 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tagbanwa : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((5984 : GoUInt16)), ((5996 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((5998 : GoUInt16)), ((6000 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6002 : GoUInt16)), ((6003 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tai_Le : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6480 : GoUInt16)), ((6509 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6512 : GoUInt16)), ((6516 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tai_Tham : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6688 : GoUInt16)), ((6750 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6752 : GoUInt16)), ((6780 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6783 : GoUInt16)), ((6793 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6800 : GoUInt16)), ((6809 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6816 : GoUInt16)), ((6829 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tai_Viet : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((43648 : GoUInt16)), ((43714 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((43739 : GoUInt16)), ((43743 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Takri : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71296 : GoUInt32)), ((71352 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71360 : GoUInt32)), ((71369 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tamil : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((2946 : GoUInt16)), ((2947 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2949 : GoUInt16)), ((2954 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((2958 : GoUInt16)), ((2960 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3952,8 +3952,8 @@ var __Tamil : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3018 : GoUInt16)), ((3021 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3024 : GoUInt16)), ((3031 : GoUInt16)), ((7 : GoUInt16))) : Range16)),
 ((new Range16(((3046 : GoUInt16)), ((3066 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((73664 : GoUInt32)), ((73713 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((73727 : GoUInt32)), ((73727 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tangut : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94176 : GoUInt32)), ((94208 : GoUInt32)), ((32 : GoUInt32))) : Range32)), ((new Range32(((94209 : GoUInt32)), ((100343 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((100352 : GoUInt32)), ((101119 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((101632 : GoUInt32)), ((101640 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Telugu : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Tangut : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((94176 : GoUInt32)), ((94208 : GoUInt32)), ((32 : GoUInt32))) : Range32)), ((new Range32(((94209 : GoUInt32)), ((100343 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((100352 : GoUInt32)), ((101119 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((101632 : GoUInt32)), ((101640 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Telugu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3072 : GoUInt16)), ((3084 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3086 : GoUInt16)), ((3088 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3090 : GoUInt16)), ((3112 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -3966,175 +3966,175 @@ var __Telugu : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((3168 : GoUInt16)), ((3171 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3174 : GoUInt16)), ((3183 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((3191 : GoUInt16)), ((3199 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Thaana : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1920 : GoUInt16)), ((1969 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Thai : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((3585 : GoUInt16)), ((3642 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3648 : GoUInt16)), ((3675 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tibetan : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((3840 : GoUInt16)), ((3911 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3913 : GoUInt16)), ((3948 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3953 : GoUInt16)), ((3991 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3993 : GoUInt16)), ((4028 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4030 : GoUInt16)), ((4044 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4046 : GoUInt16)), ((4052 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4057 : GoUInt16)), ((4058 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tifinagh : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((11568 : GoUInt16)), ((11623 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11631 : GoUInt16)), ((11632 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11647 : GoUInt16)), ((11647 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Tirhuta : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70784 : GoUInt32)), ((70855 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70864 : GoUInt32)), ((70873 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ugaritic : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66432 : GoUInt32)), ((66461 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66463 : GoUInt32)), ((66463 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Vai : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((42240 : GoUInt16)), ((42539 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Wancho : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((123584 : GoUInt32)), ((123641 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123647 : GoUInt32)), ((123647 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Warang_Citi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71840 : GoUInt32)), ((71922 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71935 : GoUInt32)), ((71935 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Yezidi : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69248 : GoUInt32)), ((69289 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69291 : GoUInt32)), ((69293 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69296 : GoUInt32)), ((69297 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Yi : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((40960 : GoUInt16)), ((42124 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42128 : GoUInt16)), ((42182 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Zanabazar_Square : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72192 : GoUInt32)), ((72263 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var adlam : RangeTable = __Adlam;
-var ahom : RangeTable = __Ahom;
-var anatolian_Hieroglyphs : RangeTable = __Anatolian_Hieroglyphs;
-var arabic : RangeTable = __Arabic;
-var armenian : RangeTable = __Armenian;
-var avestan : RangeTable = __Avestan;
-var balinese : RangeTable = __Balinese;
-var bamum : RangeTable = __Bamum;
-var bassa_Vah : RangeTable = __Bassa_Vah;
-var batak : RangeTable = __Batak;
-var bengali : RangeTable = __Bengali;
-var bhaiksuki : RangeTable = __Bhaiksuki;
-var bopomofo : RangeTable = __Bopomofo;
-var brahmi : RangeTable = __Brahmi;
-var braille : RangeTable = __Braille;
-var buginese : RangeTable = __Buginese;
-var buhid : RangeTable = __Buhid;
-var canadian_Aboriginal : RangeTable = __Canadian_Aboriginal;
-var carian : RangeTable = __Carian;
-var caucasian_Albanian : RangeTable = __Caucasian_Albanian;
-var chakma : RangeTable = __Chakma;
-var cham : RangeTable = __Cham;
-var cherokee : RangeTable = __Cherokee;
-var chorasmian : RangeTable = __Chorasmian;
-var common : RangeTable = __Common;
-var coptic : RangeTable = __Coptic;
-var cuneiform : RangeTable = __Cuneiform;
-var cypriot : RangeTable = __Cypriot;
-var cyrillic : RangeTable = __Cyrillic;
-var deseret : RangeTable = __Deseret;
-var devanagari : RangeTable = __Devanagari;
-var dives_Akuru : RangeTable = __Dives_Akuru;
-var dogra : RangeTable = __Dogra;
-var duployan : RangeTable = __Duployan;
-var egyptian_Hieroglyphs : RangeTable = __Egyptian_Hieroglyphs;
-var elbasan : RangeTable = __Elbasan;
-var elymaic : RangeTable = __Elymaic;
-var ethiopic : RangeTable = __Ethiopic;
-var georgian : RangeTable = __Georgian;
-var glagolitic : RangeTable = __Glagolitic;
-var gothic : RangeTable = __Gothic;
-var grantha : RangeTable = __Grantha;
-var greek : RangeTable = __Greek;
-var gujarati : RangeTable = __Gujarati;
-var gunjala_Gondi : RangeTable = __Gunjala_Gondi;
-var gurmukhi : RangeTable = __Gurmukhi;
-var han : RangeTable = __Han;
-var hangul : RangeTable = __Hangul;
-var hanifi_Rohingya : RangeTable = __Hanifi_Rohingya;
-var hanunoo : RangeTable = __Hanunoo;
-var hatran : RangeTable = __Hatran;
-var hebrew : RangeTable = __Hebrew;
-var hiragana : RangeTable = __Hiragana;
-var imperial_Aramaic : RangeTable = __Imperial_Aramaic;
-var inherited : RangeTable = __Inherited;
-var inscriptional_Pahlavi : RangeTable = __Inscriptional_Pahlavi;
-var inscriptional_Parthian : RangeTable = __Inscriptional_Parthian;
-var javanese : RangeTable = __Javanese;
-var kaithi : RangeTable = __Kaithi;
-var kannada : RangeTable = __Kannada;
-var katakana : RangeTable = __Katakana;
-var kayah_Li : RangeTable = __Kayah_Li;
-var kharoshthi : RangeTable = __Kharoshthi;
-var khitan_Small_Script : RangeTable = __Khitan_Small_Script;
-var khmer : RangeTable = __Khmer;
-var khojki : RangeTable = __Khojki;
-var khudawadi : RangeTable = __Khudawadi;
-var lao : RangeTable = __Lao;
-var latin : RangeTable = __Latin;
-var lepcha : RangeTable = __Lepcha;
-var limbu : RangeTable = __Limbu;
-var linear_A : RangeTable = __Linear_A;
-var linear_B : RangeTable = __Linear_B;
-var lisu : RangeTable = __Lisu;
-var lycian : RangeTable = __Lycian;
-var lydian : RangeTable = __Lydian;
-var mahajani : RangeTable = __Mahajani;
-var makasar : RangeTable = __Makasar;
-var malayalam : RangeTable = __Malayalam;
-var mandaic : RangeTable = __Mandaic;
-var manichaean : RangeTable = __Manichaean;
-var marchen : RangeTable = __Marchen;
-var masaram_Gondi : RangeTable = __Masaram_Gondi;
-var medefaidrin : RangeTable = __Medefaidrin;
-var meetei_Mayek : RangeTable = __Meetei_Mayek;
-var mende_Kikakui : RangeTable = __Mende_Kikakui;
-var meroitic_Cursive : RangeTable = __Meroitic_Cursive;
-var meroitic_Hieroglyphs : RangeTable = __Meroitic_Hieroglyphs;
-var miao : RangeTable = __Miao;
-var modi : RangeTable = __Modi;
-var mongolian : RangeTable = __Mongolian;
-var mro : RangeTable = __Mro;
-var multani : RangeTable = __Multani;
-var myanmar : RangeTable = __Myanmar;
-var nabataean : RangeTable = __Nabataean;
-var nandinagari : RangeTable = __Nandinagari;
-var new_Tai_Lue : RangeTable = __New_Tai_Lue;
-var newa : RangeTable = __Newa;
-var nko : RangeTable = __Nko;
-var nushu : RangeTable = __Nushu;
-var nyiakeng_Puachue_Hmong : RangeTable = __Nyiakeng_Puachue_Hmong;
-var ogham : RangeTable = __Ogham;
-var ol_Chiki : RangeTable = __Ol_Chiki;
-var old_Hungarian : RangeTable = __Old_Hungarian;
-var old_Italic : RangeTable = __Old_Italic;
-var old_North_Arabian : RangeTable = __Old_North_Arabian;
-var old_Permic : RangeTable = __Old_Permic;
-var old_Persian : RangeTable = __Old_Persian;
-var old_Sogdian : RangeTable = __Old_Sogdian;
-var old_South_Arabian : RangeTable = __Old_South_Arabian;
-var old_Turkic : RangeTable = __Old_Turkic;
-var oriya : RangeTable = __Oriya;
-var osage : RangeTable = __Osage;
-var osmanya : RangeTable = __Osmanya;
-var pahawh_Hmong : RangeTable = __Pahawh_Hmong;
-var palmyrene : RangeTable = __Palmyrene;
-var pau_Cin_Hau : RangeTable = __Pau_Cin_Hau;
-var phags_Pa : RangeTable = __Phags_Pa;
-var phoenician : RangeTable = __Phoenician;
-var psalter_Pahlavi : RangeTable = __Psalter_Pahlavi;
-var rejang : RangeTable = __Rejang;
-var runic : RangeTable = __Runic;
-var samaritan : RangeTable = __Samaritan;
-var saurashtra : RangeTable = __Saurashtra;
-var sharada : RangeTable = __Sharada;
-var shavian : RangeTable = __Shavian;
-var siddham : RangeTable = __Siddham;
-var signWriting : RangeTable = __SignWriting;
-var sinhala : RangeTable = __Sinhala;
-var sogdian : RangeTable = __Sogdian;
-var sora_Sompeng : RangeTable = __Sora_Sompeng;
-var soyombo : RangeTable = __Soyombo;
-var sundanese : RangeTable = __Sundanese;
-var syloti_Nagri : RangeTable = __Syloti_Nagri;
-var syriac : RangeTable = __Syriac;
-var tagalog : RangeTable = __Tagalog;
-var tagbanwa : RangeTable = __Tagbanwa;
-var tai_Le : RangeTable = __Tai_Le;
-var tai_Tham : RangeTable = __Tai_Tham;
-var tai_Viet : RangeTable = __Tai_Viet;
-var takri : RangeTable = __Takri;
-var tamil : RangeTable = __Tamil;
-var tangut : RangeTable = __Tangut;
-var telugu : RangeTable = __Telugu;
-var thaana : RangeTable = __Thaana;
-var thai : RangeTable = __Thai;
-var tibetan : RangeTable = __Tibetan;
-var tifinagh : RangeTable = __Tifinagh;
-var tirhuta : RangeTable = __Tirhuta;
-var ugaritic : RangeTable = __Ugaritic;
-var vai : RangeTable = __Vai;
-var wancho : RangeTable = __Wancho;
-var warang_Citi : RangeTable = __Warang_Citi;
-var yezidi : RangeTable = __Yezidi;
-var yi : RangeTable = __Yi;
-var zanabazar_Square : RangeTable = __Zanabazar_Square;
-var scripts : GoMap<GoString, RangeTable> = Go.map(((("Adlam" : GoString))) => adlam,
+var __Thaana : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1920 : GoUInt16)), ((1969 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Thai : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((3585 : GoUInt16)), ((3642 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3648 : GoUInt16)), ((3675 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tibetan : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((3840 : GoUInt16)), ((3911 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3913 : GoUInt16)), ((3948 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3953 : GoUInt16)), ((3991 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3993 : GoUInt16)), ((4028 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4030 : GoUInt16)), ((4044 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4046 : GoUInt16)), ((4052 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((4057 : GoUInt16)), ((4058 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tifinagh : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((11568 : GoUInt16)), ((11623 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11631 : GoUInt16)), ((11632 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11647 : GoUInt16)), ((11647 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Tirhuta : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70784 : GoUInt32)), ((70855 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((70864 : GoUInt32)), ((70873 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ugaritic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66432 : GoUInt32)), ((66461 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66463 : GoUInt32)), ((66463 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Vai : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((42240 : GoUInt16)), ((42539 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Wancho : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((123584 : GoUInt32)), ((123641 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((123647 : GoUInt32)), ((123647 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Warang_Citi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71840 : GoUInt32)), ((71922 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71935 : GoUInt32)), ((71935 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Yezidi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69248 : GoUInt32)), ((69289 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69291 : GoUInt32)), ((69293 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((69296 : GoUInt32)), ((69297 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Yi : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((40960 : GoUInt16)), ((42124 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((42128 : GoUInt16)), ((42182 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Zanabazar_Square : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((72192 : GoUInt32)), ((72263 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var adlam : Ref<RangeTable> = __Adlam;
+var ahom : Ref<RangeTable> = __Ahom;
+var anatolian_Hieroglyphs : Ref<RangeTable> = __Anatolian_Hieroglyphs;
+var arabic : Ref<RangeTable> = __Arabic;
+var armenian : Ref<RangeTable> = __Armenian;
+var avestan : Ref<RangeTable> = __Avestan;
+var balinese : Ref<RangeTable> = __Balinese;
+var bamum : Ref<RangeTable> = __Bamum;
+var bassa_Vah : Ref<RangeTable> = __Bassa_Vah;
+var batak : Ref<RangeTable> = __Batak;
+var bengali : Ref<RangeTable> = __Bengali;
+var bhaiksuki : Ref<RangeTable> = __Bhaiksuki;
+var bopomofo : Ref<RangeTable> = __Bopomofo;
+var brahmi : Ref<RangeTable> = __Brahmi;
+var braille : Ref<RangeTable> = __Braille;
+var buginese : Ref<RangeTable> = __Buginese;
+var buhid : Ref<RangeTable> = __Buhid;
+var canadian_Aboriginal : Ref<RangeTable> = __Canadian_Aboriginal;
+var carian : Ref<RangeTable> = __Carian;
+var caucasian_Albanian : Ref<RangeTable> = __Caucasian_Albanian;
+var chakma : Ref<RangeTable> = __Chakma;
+var cham : Ref<RangeTable> = __Cham;
+var cherokee : Ref<RangeTable> = __Cherokee;
+var chorasmian : Ref<RangeTable> = __Chorasmian;
+var common : Ref<RangeTable> = __Common;
+var coptic : Ref<RangeTable> = __Coptic;
+var cuneiform : Ref<RangeTable> = __Cuneiform;
+var cypriot : Ref<RangeTable> = __Cypriot;
+var cyrillic : Ref<RangeTable> = __Cyrillic;
+var deseret : Ref<RangeTable> = __Deseret;
+var devanagari : Ref<RangeTable> = __Devanagari;
+var dives_Akuru : Ref<RangeTable> = __Dives_Akuru;
+var dogra : Ref<RangeTable> = __Dogra;
+var duployan : Ref<RangeTable> = __Duployan;
+var egyptian_Hieroglyphs : Ref<RangeTable> = __Egyptian_Hieroglyphs;
+var elbasan : Ref<RangeTable> = __Elbasan;
+var elymaic : Ref<RangeTable> = __Elymaic;
+var ethiopic : Ref<RangeTable> = __Ethiopic;
+var georgian : Ref<RangeTable> = __Georgian;
+var glagolitic : Ref<RangeTable> = __Glagolitic;
+var gothic : Ref<RangeTable> = __Gothic;
+var grantha : Ref<RangeTable> = __Grantha;
+var greek : Ref<RangeTable> = __Greek;
+var gujarati : Ref<RangeTable> = __Gujarati;
+var gunjala_Gondi : Ref<RangeTable> = __Gunjala_Gondi;
+var gurmukhi : Ref<RangeTable> = __Gurmukhi;
+var han : Ref<RangeTable> = __Han;
+var hangul : Ref<RangeTable> = __Hangul;
+var hanifi_Rohingya : Ref<RangeTable> = __Hanifi_Rohingya;
+var hanunoo : Ref<RangeTable> = __Hanunoo;
+var hatran : Ref<RangeTable> = __Hatran;
+var hebrew : Ref<RangeTable> = __Hebrew;
+var hiragana : Ref<RangeTable> = __Hiragana;
+var imperial_Aramaic : Ref<RangeTable> = __Imperial_Aramaic;
+var inherited : Ref<RangeTable> = __Inherited;
+var inscriptional_Pahlavi : Ref<RangeTable> = __Inscriptional_Pahlavi;
+var inscriptional_Parthian : Ref<RangeTable> = __Inscriptional_Parthian;
+var javanese : Ref<RangeTable> = __Javanese;
+var kaithi : Ref<RangeTable> = __Kaithi;
+var kannada : Ref<RangeTable> = __Kannada;
+var katakana : Ref<RangeTable> = __Katakana;
+var kayah_Li : Ref<RangeTable> = __Kayah_Li;
+var kharoshthi : Ref<RangeTable> = __Kharoshthi;
+var khitan_Small_Script : Ref<RangeTable> = __Khitan_Small_Script;
+var khmer : Ref<RangeTable> = __Khmer;
+var khojki : Ref<RangeTable> = __Khojki;
+var khudawadi : Ref<RangeTable> = __Khudawadi;
+var lao : Ref<RangeTable> = __Lao;
+var latin : Ref<RangeTable> = __Latin;
+var lepcha : Ref<RangeTable> = __Lepcha;
+var limbu : Ref<RangeTable> = __Limbu;
+var linear_A : Ref<RangeTable> = __Linear_A;
+var linear_B : Ref<RangeTable> = __Linear_B;
+var lisu : Ref<RangeTable> = __Lisu;
+var lycian : Ref<RangeTable> = __Lycian;
+var lydian : Ref<RangeTable> = __Lydian;
+var mahajani : Ref<RangeTable> = __Mahajani;
+var makasar : Ref<RangeTable> = __Makasar;
+var malayalam : Ref<RangeTable> = __Malayalam;
+var mandaic : Ref<RangeTable> = __Mandaic;
+var manichaean : Ref<RangeTable> = __Manichaean;
+var marchen : Ref<RangeTable> = __Marchen;
+var masaram_Gondi : Ref<RangeTable> = __Masaram_Gondi;
+var medefaidrin : Ref<RangeTable> = __Medefaidrin;
+var meetei_Mayek : Ref<RangeTable> = __Meetei_Mayek;
+var mende_Kikakui : Ref<RangeTable> = __Mende_Kikakui;
+var meroitic_Cursive : Ref<RangeTable> = __Meroitic_Cursive;
+var meroitic_Hieroglyphs : Ref<RangeTable> = __Meroitic_Hieroglyphs;
+var miao : Ref<RangeTable> = __Miao;
+var modi : Ref<RangeTable> = __Modi;
+var mongolian : Ref<RangeTable> = __Mongolian;
+var mro : Ref<RangeTable> = __Mro;
+var multani : Ref<RangeTable> = __Multani;
+var myanmar : Ref<RangeTable> = __Myanmar;
+var nabataean : Ref<RangeTable> = __Nabataean;
+var nandinagari : Ref<RangeTable> = __Nandinagari;
+var new_Tai_Lue : Ref<RangeTable> = __New_Tai_Lue;
+var newa : Ref<RangeTable> = __Newa;
+var nko : Ref<RangeTable> = __Nko;
+var nushu : Ref<RangeTable> = __Nushu;
+var nyiakeng_Puachue_Hmong : Ref<RangeTable> = __Nyiakeng_Puachue_Hmong;
+var ogham : Ref<RangeTable> = __Ogham;
+var ol_Chiki : Ref<RangeTable> = __Ol_Chiki;
+var old_Hungarian : Ref<RangeTable> = __Old_Hungarian;
+var old_Italic : Ref<RangeTable> = __Old_Italic;
+var old_North_Arabian : Ref<RangeTable> = __Old_North_Arabian;
+var old_Permic : Ref<RangeTable> = __Old_Permic;
+var old_Persian : Ref<RangeTable> = __Old_Persian;
+var old_Sogdian : Ref<RangeTable> = __Old_Sogdian;
+var old_South_Arabian : Ref<RangeTable> = __Old_South_Arabian;
+var old_Turkic : Ref<RangeTable> = __Old_Turkic;
+var oriya : Ref<RangeTable> = __Oriya;
+var osage : Ref<RangeTable> = __Osage;
+var osmanya : Ref<RangeTable> = __Osmanya;
+var pahawh_Hmong : Ref<RangeTable> = __Pahawh_Hmong;
+var palmyrene : Ref<RangeTable> = __Palmyrene;
+var pau_Cin_Hau : Ref<RangeTable> = __Pau_Cin_Hau;
+var phags_Pa : Ref<RangeTable> = __Phags_Pa;
+var phoenician : Ref<RangeTable> = __Phoenician;
+var psalter_Pahlavi : Ref<RangeTable> = __Psalter_Pahlavi;
+var rejang : Ref<RangeTable> = __Rejang;
+var runic : Ref<RangeTable> = __Runic;
+var samaritan : Ref<RangeTable> = __Samaritan;
+var saurashtra : Ref<RangeTable> = __Saurashtra;
+var sharada : Ref<RangeTable> = __Sharada;
+var shavian : Ref<RangeTable> = __Shavian;
+var siddham : Ref<RangeTable> = __Siddham;
+var signWriting : Ref<RangeTable> = __SignWriting;
+var sinhala : Ref<RangeTable> = __Sinhala;
+var sogdian : Ref<RangeTable> = __Sogdian;
+var sora_Sompeng : Ref<RangeTable> = __Sora_Sompeng;
+var soyombo : Ref<RangeTable> = __Soyombo;
+var sundanese : Ref<RangeTable> = __Sundanese;
+var syloti_Nagri : Ref<RangeTable> = __Syloti_Nagri;
+var syriac : Ref<RangeTable> = __Syriac;
+var tagalog : Ref<RangeTable> = __Tagalog;
+var tagbanwa : Ref<RangeTable> = __Tagbanwa;
+var tai_Le : Ref<RangeTable> = __Tai_Le;
+var tai_Tham : Ref<RangeTable> = __Tai_Tham;
+var tai_Viet : Ref<RangeTable> = __Tai_Viet;
+var takri : Ref<RangeTable> = __Takri;
+var tamil : Ref<RangeTable> = __Tamil;
+var tangut : Ref<RangeTable> = __Tangut;
+var telugu : Ref<RangeTable> = __Telugu;
+var thaana : Ref<RangeTable> = __Thaana;
+var thai : Ref<RangeTable> = __Thai;
+var tibetan : Ref<RangeTable> = __Tibetan;
+var tifinagh : Ref<RangeTable> = __Tifinagh;
+var tirhuta : Ref<RangeTable> = __Tirhuta;
+var ugaritic : Ref<RangeTable> = __Ugaritic;
+var vai : Ref<RangeTable> = __Vai;
+var wancho : Ref<RangeTable> = __Wancho;
+var warang_Citi : Ref<RangeTable> = __Warang_Citi;
+var yezidi : Ref<RangeTable> = __Yezidi;
+var yi : Ref<RangeTable> = __Yi;
+var zanabazar_Square : Ref<RangeTable> = __Zanabazar_Square;
+var scripts : GoMap<GoString, Ref<RangeTable>> = Go.map(((("Adlam" : GoString))) => adlam,
 ((("Ahom" : GoString))) => ahom,
 ((("Anatolian_Hieroglyphs" : GoString))) => anatolian_Hieroglyphs,
 ((("Arabic" : GoString))) => arabic,
@@ -4290,9 +4290,9 @@ var scripts : GoMap<GoString, RangeTable> = Go.map(((("Adlam" : GoString))) => a
 ((("Yezidi" : GoString))) => yezidi,
 ((("Yi" : GoString))) => yi,
 ((("Zanabazar_Square" : GoString))) => zanabazar_Square);
-var __ASCII_Hex_Digit : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((3 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Bidi_Control : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1564 : GoUInt16)), ((8206 : GoUInt16)), ((6642 : GoUInt16))) : Range16)), ((new Range16(((8207 : GoUInt16)), ((8234 : GoUInt16)), ((27 : GoUInt16))) : Range16)), ((new Range16(((8235 : GoUInt16)), ((8238 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8294 : GoUInt16)), ((8297 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Dash : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __ASCII_Hex_Digit : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((3 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Bidi_Control : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1564 : GoUInt16)), ((8206 : GoUInt16)), ((6642 : GoUInt16))) : Range16)), ((new Range16(((8207 : GoUInt16)), ((8234 : GoUInt16)), ((27 : GoUInt16))) : Range16)), ((new Range16(((8235 : GoUInt16)), ((8238 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8294 : GoUInt16)), ((8297 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Dash : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((45 : GoUInt16)), ((1418 : GoUInt16)), ((1373 : GoUInt16))) : Range16)),
 ((new Range16(((1470 : GoUInt16)), ((5120 : GoUInt16)), ((3650 : GoUInt16))) : Range16)),
 ((new Range16(((6150 : GoUInt16)), ((8208 : GoUInt16)), ((2058 : GoUInt16))) : Range16)),
@@ -4306,8 +4306,8 @@ var __Dash : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65073 : GoUInt16)), ((65074 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65112 : GoUInt16)), ((65123 : GoUInt16)), ((11 : GoUInt16))) : Range16)),
 ((new Range16(((65293 : GoUInt16)), ((65293 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69293 : GoUInt32)), ((69293 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Deprecated : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((329 : GoUInt16)), ((1651 : GoUInt16)), ((1322 : GoUInt16))) : Range16)), ((new Range16(((3959 : GoUInt16)), ((3961 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((6051 : GoUInt16)), ((6052 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8298 : GoUInt16)), ((8303 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((9001 : GoUInt16)), ((9002 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917505 : GoUInt32)), ((917505 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Diacritic : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Deprecated : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((329 : GoUInt16)), ((1651 : GoUInt16)), ((1322 : GoUInt16))) : Range16)), ((new Range16(((3959 : GoUInt16)), ((3961 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((6051 : GoUInt16)), ((6052 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8298 : GoUInt16)), ((8303 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((9001 : GoUInt16)), ((9002 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917505 : GoUInt32)), ((917505 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Diacritic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((94 : GoUInt16)), ((96 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
 ((new Range16(((168 : GoUInt16)), ((175 : GoUInt16)), ((7 : GoUInt16))) : Range16)),
 ((new Range16(((180 : GoUInt16)), ((183 : GoUInt16)), ((3 : GoUInt16))) : Range16)),
@@ -4454,7 +4454,7 @@ var __Diacritic : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((125136 : GoUInt32)), ((125142 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125252 : GoUInt32)), ((125254 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((125256 : GoUInt32)), ((125258 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var __Extender : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Extender : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((183 : GoUInt16)), ((720 : GoUInt16)), ((537 : GoUInt16))) : Range16)),
 ((new Range16(((721 : GoUInt16)), ((1600 : GoUInt16)), ((879 : GoUInt16))) : Range16)),
 ((new Range16(((2042 : GoUInt16)), ((2901 : GoUInt16)), ((859 : GoUInt16))) : Range16)),
@@ -4470,11 +4470,11 @@ var __Extender : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((43632 : GoUInt16)), ((43741 : GoUInt16)), ((109 : GoUInt16))) : Range16)),
 ((new Range16(((43763 : GoUInt16)), ((43764 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65392 : GoUInt16)), ((65392 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70493 : GoUInt32)), ((71110 : GoUInt32)), ((617 : GoUInt32))) : Range32)), ((new Range32(((71111 : GoUInt32)), ((71112 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((72344 : GoUInt32)), ((92994 : GoUInt32)), ((20650 : GoUInt32))) : Range32)), ((new Range32(((92995 : GoUInt32)), ((94176 : GoUInt32)), ((1181 : GoUInt32))) : Range32)), ((new Range32(((94177 : GoUInt32)), ((94179 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((123196 : GoUInt32)), ((123197 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125252 : GoUInt32)), ((125254 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Hex_Digit : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65296 : GoUInt16)), ((65305 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65313 : GoUInt16)), ((65318 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65345 : GoUInt16)), ((65350 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((3 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Hyphen : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((45 : GoUInt16)), ((173 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((1418 : GoUInt16)), ((6150 : GoUInt16)), ((4732 : GoUInt16))) : Range16)), ((new Range16(((8208 : GoUInt16)), ((8209 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11799 : GoUInt16)), ((12539 : GoUInt16)), ((740 : GoUInt16))) : Range16)), ((new Range16(((65123 : GoUInt16)), ((65293 : GoUInt16)), ((170 : GoUInt16))) : Range16)), ((new Range16(((65381 : GoUInt16)), ((65381 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __IDS_Binary_Operator : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((12272 : GoUInt16)), ((12273 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12276 : GoUInt16)), ((12283 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __IDS_Trinary_Operator : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((12274 : GoUInt16)), ((12275 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Ideographic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((12294 : GoUInt16)), ((12295 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12321 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((63744 : GoUInt16)), ((64109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64112 : GoUInt16)), ((64217 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
+var __Hex_Digit : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65296 : GoUInt16)), ((65305 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65313 : GoUInt16)), ((65318 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65345 : GoUInt16)), ((65350 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((3 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Hyphen : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((45 : GoUInt16)), ((173 : GoUInt16)), ((128 : GoUInt16))) : Range16)), ((new Range16(((1418 : GoUInt16)), ((6150 : GoUInt16)), ((4732 : GoUInt16))) : Range16)), ((new Range16(((8208 : GoUInt16)), ((8209 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11799 : GoUInt16)), ((12539 : GoUInt16)), ((740 : GoUInt16))) : Range16)), ((new Range16(((65123 : GoUInt16)), ((65293 : GoUInt16)), ((170 : GoUInt16))) : Range16)), ((new Range16(((65381 : GoUInt16)), ((65381 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __IDS_Binary_Operator : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((12272 : GoUInt16)), ((12273 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12276 : GoUInt16)), ((12283 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __IDS_Trinary_Operator : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((12274 : GoUInt16)), ((12275 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Ideographic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((12294 : GoUInt16)), ((12295 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12321 : GoUInt16)), ((12329 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12344 : GoUInt16)), ((12346 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((63744 : GoUInt16)), ((64109 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64112 : GoUInt16)), ((64217 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
 ((new Range32(((94180 : GoUInt32)), ((94208 : GoUInt32)), ((28 : GoUInt32))) : Range32)),
 ((new Range32(((94209 : GoUInt32)), ((100343 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((100352 : GoUInt32)), ((101589 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
@@ -4487,9 +4487,9 @@ var __Ideographic : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((
 ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((194560 : GoUInt32)), ((195101 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Join_Control : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((8204 : GoUInt16)), ((8205 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Logical_Order_Exception : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((3648 : GoUInt16)), ((3652 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3776 : GoUInt16)), ((3780 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6581 : GoUInt16)), ((6583 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6586 : GoUInt16)), ((43701 : GoUInt16)), ((37115 : GoUInt16))) : Range16)), ((new Range16(((43702 : GoUInt16)), ((43705 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((43707 : GoUInt16)), ((43708 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Noncharacter_Code_Point : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((64976 : GoUInt16)), ((65007 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65534 : GoUInt16)), ((65535 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
+var __Join_Control : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((8204 : GoUInt16)), ((8205 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Logical_Order_Exception : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((3648 : GoUInt16)), ((3652 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((3776 : GoUInt16)), ((3780 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6581 : GoUInt16)), ((6583 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6586 : GoUInt16)), ((43701 : GoUInt16)), ((37115 : GoUInt16))) : Range16)), ((new Range16(((43702 : GoUInt16)), ((43705 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((43707 : GoUInt16)), ((43708 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Noncharacter_Code_Point : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((64976 : GoUInt16)), ((65007 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65534 : GoUInt16)), ((65535 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
 ((new Range32(((131070 : GoUInt32)), ((131071 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((196606 : GoUInt32)), ((196607 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((262142 : GoUInt32)), ((262143 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
@@ -4506,7 +4506,7 @@ var __Noncharacter_Code_Point : RangeTable = (({ r16 : ((new Slice<Range16>(((ne
 ((new Range32(((983038 : GoUInt32)), ((983039 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((1048574 : GoUInt32)), ((1048575 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((1114110 : GoUInt32)), ((1114111 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_Alphabetic : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Other_Alphabetic : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((837 : GoUInt16)), ((1456 : GoUInt16)), ((619 : GoUInt16))) : Range16)),
 ((new Range16(((1457 : GoUInt16)), ((1469 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((1471 : GoUInt16)), ((1473 : GoUInt16)), ((2 : GoUInt16))) : Range16)),
@@ -4728,11 +4728,11 @@ var __Other_Alphabetic : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((127281 : GoUInt32)), ((127305 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((127312 : GoUInt32)), ((127337 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((127344 : GoUInt32)), ((127369 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_Default_Ignorable_Code_Point : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((847 : GoUInt16)), ((4447 : GoUInt16)), ((3600 : GoUInt16))) : Range16)), ((new Range16(((4448 : GoUInt16)), ((6068 : GoUInt16)), ((1620 : GoUInt16))) : Range16)), ((new Range16(((6069 : GoUInt16)), ((8293 : GoUInt16)), ((2224 : GoUInt16))) : Range16)), ((new Range16(((12644 : GoUInt16)), ((65440 : GoUInt16)), ((52796 : GoUInt16))) : Range16)), ((new Range16(((65520 : GoUInt16)), ((65528 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917504 : GoUInt32)), ((917506 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((917507 : GoUInt32)), ((917535 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917632 : GoUInt32)), ((917759 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((918000 : GoUInt32)), ((921599 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_Grapheme_Extend : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((2494 : GoUInt16)), ((2519 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((2878 : GoUInt16)), ((2903 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((3006 : GoUInt16)), ((3031 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((3266 : GoUInt16)), ((3285 : GoUInt16)), ((19 : GoUInt16))) : Range16)), ((new Range16(((3286 : GoUInt16)), ((3390 : GoUInt16)), ((104 : GoUInt16))) : Range16)), ((new Range16(((3415 : GoUInt16)), ((3535 : GoUInt16)), ((120 : GoUInt16))) : Range16)), ((new Range16(((3551 : GoUInt16)), ((6965 : GoUInt16)), ((3414 : GoUInt16))) : Range16)), ((new Range16(((8204 : GoUInt16)), ((12334 : GoUInt16)), ((4130 : GoUInt16))) : Range16)), ((new Range16(((12335 : GoUInt16)), ((65438 : GoUInt16)), ((53103 : GoUInt16))) : Range16)), ((new Range16(((65439 : GoUInt16)), ((65439 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70462 : GoUInt32)), ((70487 : GoUInt32)), ((25 : GoUInt32))) : Range32)), ((new Range32(((70832 : GoUInt32)), ((70845 : GoUInt32)), ((13 : GoUInt32))) : Range32)), ((new Range32(((71087 : GoUInt32)), ((71984 : GoUInt32)), ((897 : GoUInt32))) : Range32)), ((new Range32(((119141 : GoUInt32)), ((119150 : GoUInt32)), ((9 : GoUInt32))) : Range32)), ((new Range32(((119151 : GoUInt32)), ((119154 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917536 : GoUInt32)), ((917631 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_ID_Continue : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((183 : GoUInt16)), ((903 : GoUInt16)), ((720 : GoUInt16))) : Range16)), ((new Range16(((4969 : GoUInt16)), ((4977 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6618 : GoUInt16)), ((6618 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_ID_Start : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6277 : GoUInt16)), ((6278 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8472 : GoUInt16)), ((8494 : GoUInt16)), ((22 : GoUInt16))) : Range16)), ((new Range16(((12443 : GoUInt16)), ((12444 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_Lowercase : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Other_Default_Ignorable_Code_Point : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((847 : GoUInt16)), ((4447 : GoUInt16)), ((3600 : GoUInt16))) : Range16)), ((new Range16(((4448 : GoUInt16)), ((6068 : GoUInt16)), ((1620 : GoUInt16))) : Range16)), ((new Range16(((6069 : GoUInt16)), ((8293 : GoUInt16)), ((2224 : GoUInt16))) : Range16)), ((new Range16(((12644 : GoUInt16)), ((65440 : GoUInt16)), ((52796 : GoUInt16))) : Range16)), ((new Range16(((65520 : GoUInt16)), ((65528 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917504 : GoUInt32)), ((917506 : GoUInt32)), ((2 : GoUInt32))) : Range32)), ((new Range32(((917507 : GoUInt32)), ((917535 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917632 : GoUInt32)), ((917759 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((918000 : GoUInt32)), ((921599 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Other_Grapheme_Extend : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((2494 : GoUInt16)), ((2519 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((2878 : GoUInt16)), ((2903 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((3006 : GoUInt16)), ((3031 : GoUInt16)), ((25 : GoUInt16))) : Range16)), ((new Range16(((3266 : GoUInt16)), ((3285 : GoUInt16)), ((19 : GoUInt16))) : Range16)), ((new Range16(((3286 : GoUInt16)), ((3390 : GoUInt16)), ((104 : GoUInt16))) : Range16)), ((new Range16(((3415 : GoUInt16)), ((3535 : GoUInt16)), ((120 : GoUInt16))) : Range16)), ((new Range16(((3551 : GoUInt16)), ((6965 : GoUInt16)), ((3414 : GoUInt16))) : Range16)), ((new Range16(((8204 : GoUInt16)), ((12334 : GoUInt16)), ((4130 : GoUInt16))) : Range16)), ((new Range16(((12335 : GoUInt16)), ((65438 : GoUInt16)), ((53103 : GoUInt16))) : Range16)), ((new Range16(((65439 : GoUInt16)), ((65439 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((70462 : GoUInt32)), ((70487 : GoUInt32)), ((25 : GoUInt32))) : Range32)), ((new Range32(((70832 : GoUInt32)), ((70845 : GoUInt32)), ((13 : GoUInt32))) : Range32)), ((new Range32(((71087 : GoUInt32)), ((71984 : GoUInt32)), ((897 : GoUInt32))) : Range32)), ((new Range32(((119141 : GoUInt32)), ((119150 : GoUInt32)), ((9 : GoUInt32))) : Range32)), ((new Range32(((119151 : GoUInt32)), ((119154 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((917536 : GoUInt32)), ((917631 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Other_ID_Continue : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((183 : GoUInt16)), ((903 : GoUInt16)), ((720 : GoUInt16))) : Range16)), ((new Range16(((4969 : GoUInt16)), ((4977 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((6618 : GoUInt16)), ((6618 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Other_ID_Start : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6277 : GoUInt16)), ((6278 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8472 : GoUInt16)), ((8494 : GoUInt16)), ((22 : GoUInt16))) : Range16)), ((new Range16(((12443 : GoUInt16)), ((12444 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Other_Lowercase : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((170 : GoUInt16)), ((186 : GoUInt16)), ((16 : GoUInt16))) : Range16)),
 ((new Range16(((688 : GoUInt16)), ((696 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((704 : GoUInt16)), ((705 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -4750,7 +4750,7 @@ var __Other_Lowercase : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((42864 : GoUInt16)), ((43000 : GoUInt16)), ((136 : GoUInt16))) : Range16)),
 ((new Range16(((43001 : GoUInt16)), ((43868 : GoUInt16)), ((867 : GoUInt16))) : Range16)),
 ((new Range16(((43869 : GoUInt16)), ((43871 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((1 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Other_Math : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Other_Math : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((94 : GoUInt16)), ((976 : GoUInt16)), ((882 : GoUInt16))) : Range16)),
 ((new Range16(((977 : GoUInt16)), ((978 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((981 : GoUInt16)), ((1008 : GoUInt16)), ((27 : GoUInt16))) : Range16)),
@@ -4869,8 +4869,8 @@ var __Other_Math : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((126625 : GoUInt32)), ((126627 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((126629 : GoUInt32)), ((126633 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((126635 : GoUInt32)), ((126651 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Other_Uppercase : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((8544 : GoUInt16)), ((8559 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((9398 : GoUInt16)), ((9423 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((127280 : GoUInt32)), ((127305 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127312 : GoUInt32)), ((127337 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127344 : GoUInt32)), ((127369 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Pattern_Syntax : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Other_Uppercase : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((8544 : GoUInt16)), ((8559 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((9398 : GoUInt16)), ((9423 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((127280 : GoUInt32)), ((127305 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127312 : GoUInt32)), ((127337 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((127344 : GoUInt32)), ((127369 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Pattern_Syntax : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((33 : GoUInt16)), ((47 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((58 : GoUInt16)), ((64 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((91 : GoUInt16)), ((94 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -4895,12 +4895,12 @@ var __Pattern_Syntax : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((12336 : GoUInt16)), ((64830 : GoUInt16)), ((52494 : GoUInt16))) : Range16)),
 ((new Range16(((64831 : GoUInt16)), ((65093 : GoUInt16)), ((262 : GoUInt16))) : Range16)),
 ((new Range16(((65094 : GoUInt16)), ((65094 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((10 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Pattern_White_Space : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((9 : GoUInt16)), ((13 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((32 : GoUInt16)), ((133 : GoUInt16)), ((101 : GoUInt16))) : Range16)), ((new Range16(((8206 : GoUInt16)), ((8207 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Prepended_Concatenation_Mark : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((1536 : GoUInt16)), ((1541 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1757 : GoUInt16)), ((1807 : GoUInt16)), ((50 : GoUInt16))) : Range16)), ((new Range16(((2274 : GoUInt16)), ((2274 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69821 : GoUInt32)), ((69837 : GoUInt32)), ((16 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Quotation_Mark : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((34 : GoUInt16)), ((39 : GoUInt16)), ((5 : GoUInt16))) : Range16)), ((new Range16(((171 : GoUInt16)), ((187 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8216 : GoUInt16)), ((8223 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8249 : GoUInt16)), ((8250 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11842 : GoUInt16)), ((12300 : GoUInt16)), ((458 : GoUInt16))) : Range16)), ((new Range16(((12301 : GoUInt16)), ((12303 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12317 : GoUInt16)), ((12319 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65089 : GoUInt16)), ((65092 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65282 : GoUInt16)), ((65287 : GoUInt16)), ((5 : GoUInt16))) : Range16)), ((new Range16(((65378 : GoUInt16)), ((65379 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var __Radical : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((11904 : GoUInt16)), ((11929 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11931 : GoUInt16)), ((12019 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12032 : GoUInt16)), ((12245 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Regional_Indicator : RangeTable = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((127462 : GoUInt32)), ((127487 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Sentence_Terminal : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Pattern_White_Space : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((9 : GoUInt16)), ((13 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((32 : GoUInt16)), ((133 : GoUInt16)), ((101 : GoUInt16))) : Range16)), ((new Range16(((8206 : GoUInt16)), ((8207 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Prepended_Concatenation_Mark : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1536 : GoUInt16)), ((1541 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((1757 : GoUInt16)), ((1807 : GoUInt16)), ((50 : GoUInt16))) : Range16)), ((new Range16(((2274 : GoUInt16)), ((2274 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((69821 : GoUInt32)), ((69837 : GoUInt32)), ((16 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Quotation_Mark : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((34 : GoUInt16)), ((39 : GoUInt16)), ((5 : GoUInt16))) : Range16)), ((new Range16(((171 : GoUInt16)), ((187 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8216 : GoUInt16)), ((8223 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8249 : GoUInt16)), ((8250 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11842 : GoUInt16)), ((12300 : GoUInt16)), ((458 : GoUInt16))) : Range16)), ((new Range16(((12301 : GoUInt16)), ((12303 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12317 : GoUInt16)), ((12319 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65089 : GoUInt16)), ((65092 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65282 : GoUInt16)), ((65287 : GoUInt16)), ((5 : GoUInt16))) : Range16)), ((new Range16(((65378 : GoUInt16)), ((65379 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var __Radical : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((11904 : GoUInt16)), ((11929 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((11931 : GoUInt16)), ((12019 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((12032 : GoUInt16)), ((12245 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Regional_Indicator : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((127462 : GoUInt32)), ((127487 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Sentence_Terminal : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((33 : GoUInt16)), ((46 : GoUInt16)), ((13 : GoUInt16))) : Range16)),
 ((new Range16(((63 : GoUInt16)), ((1417 : GoUInt16)), ((1354 : GoUInt16))) : Range16)),
 ((new Range16(((1566 : GoUInt16)), ((1567 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -4962,7 +4962,7 @@ var __Sentence_Terminal : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((92984 : GoUInt32)), ((92996 : GoUInt32)), ((12 : GoUInt32))) : Range32)),
 ((new Range32(((93848 : GoUInt32)), ((113823 : GoUInt32)), ((19975 : GoUInt32))) : Range32)),
 ((new Range32(((121480 : GoUInt32)), ((121480 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((1 : GoInt)) } : RangeTable));
-var __Soft_Dotted : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((105 : GoUInt16)), ((106 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((303 : GoUInt16)), ((585 : GoUInt16)), ((282 : GoUInt16))) : Range16)), ((new Range16(((616 : GoUInt16)), ((669 : GoUInt16)), ((53 : GoUInt16))) : Range16)), ((new Range16(((690 : GoUInt16)), ((1011 : GoUInt16)), ((321 : GoUInt16))) : Range16)), ((new Range16(((1110 : GoUInt16)), ((1112 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((7522 : GoUInt16)), ((7574 : GoUInt16)), ((52 : GoUInt16))) : Range16)), ((new Range16(((7588 : GoUInt16)), ((7592 : GoUInt16)), ((4 : GoUInt16))) : Range16)), ((new Range16(((7725 : GoUInt16)), ((7883 : GoUInt16)), ((158 : GoUInt16))) : Range16)), ((new Range16(((8305 : GoUInt16)), ((8520 : GoUInt16)), ((215 : GoUInt16))) : Range16)), ((new Range16(((8521 : GoUInt16)), ((11388 : GoUInt16)), ((2867 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
+var __Soft_Dotted : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((105 : GoUInt16)), ((106 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((303 : GoUInt16)), ((585 : GoUInt16)), ((282 : GoUInt16))) : Range16)), ((new Range16(((616 : GoUInt16)), ((669 : GoUInt16)), ((53 : GoUInt16))) : Range16)), ((new Range16(((690 : GoUInt16)), ((1011 : GoUInt16)), ((321 : GoUInt16))) : Range16)), ((new Range16(((1110 : GoUInt16)), ((1112 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((7522 : GoUInt16)), ((7574 : GoUInt16)), ((52 : GoUInt16))) : Range16)), ((new Range16(((7588 : GoUInt16)), ((7592 : GoUInt16)), ((4 : GoUInt16))) : Range16)), ((new Range16(((7725 : GoUInt16)), ((7883 : GoUInt16)), ((158 : GoUInt16))) : Range16)), ((new Range16(((8305 : GoUInt16)), ((8520 : GoUInt16)), ((215 : GoUInt16))) : Range16)), ((new Range16(((8521 : GoUInt16)), ((11388 : GoUInt16)), ((2867 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(
 ((new Range32(((119842 : GoUInt32)), ((119843 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((119894 : GoUInt32)), ((119895 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((119946 : GoUInt32)), ((119947 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
@@ -4976,7 +4976,7 @@ var __Soft_Dotted : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((
 ((new Range32(((120362 : GoUInt32)), ((120363 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((120414 : GoUInt32)), ((120415 : GoUInt32)), ((1 : GoUInt32))) : Range32)),
 ((new Range32(((120466 : GoUInt32)), ((120467 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((1 : GoInt)) } : RangeTable));
-var __Terminal_Punctuation : RangeTable = (({ r16 : ((new Slice<Range16>(
+var __Terminal_Punctuation : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((33 : GoUInt16)), ((44 : GoUInt16)), ((11 : GoUInt16))) : Range16)),
 ((new Range16(((46 : GoUInt16)), ((58 : GoUInt16)), ((12 : GoUInt16))) : Range16)),
 ((new Range16(((59 : GoUInt16)), ((63 : GoUInt16)), ((4 : GoUInt16))) : Range16)),
@@ -5065,45 +5065,45 @@ var __Terminal_Punctuation : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range32(((92996 : GoUInt32)), ((93847 : GoUInt32)), ((851 : GoUInt32))) : Range32)),
 ((new Range32(((93848 : GoUInt32)), ((113823 : GoUInt32)), ((19975 : GoUInt32))) : Range32)),
 ((new Range32(((121479 : GoUInt32)), ((121482 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var __Unified_Ideograph : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64014 : GoUInt16)), ((64015 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64017 : GoUInt16)), ((64019 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64020 : GoUInt16)), ((64031 : GoUInt16)), ((11 : GoUInt16))) : Range16)), ((new Range16(((64033 : GoUInt16)), ((64035 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64036 : GoUInt16)), ((64039 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((64040 : GoUInt16)), ((64041 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((131072 : GoUInt32)), ((173789 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((173824 : GoUInt32)), ((177972 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((177984 : GoUInt32)), ((178205 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((178208 : GoUInt32)), ((183969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __Variation_Selector : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((6155 : GoUInt16)), ((6157 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65024 : GoUInt16)), ((65039 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var __White_Space : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((9 : GoUInt16)), ((13 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((32 : GoUInt16)), ((133 : GoUInt16)), ((101 : GoUInt16))) : Range16)), ((new Range16(((160 : GoUInt16)), ((5760 : GoUInt16)), ((5600 : GoUInt16))) : Range16)), ((new Range16(((8192 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
-var ascii_Hex_Digit : RangeTable = __ASCII_Hex_Digit;
-var bidi_Control : RangeTable = __Bidi_Control;
-var dash : RangeTable = __Dash;
-var deprecated : RangeTable = __Deprecated;
-var diacritic : RangeTable = __Diacritic;
-var extender : RangeTable = __Extender;
-var hex_Digit : RangeTable = __Hex_Digit;
-var hyphen : RangeTable = __Hyphen;
-var ids_Binary_Operator : RangeTable = __IDS_Binary_Operator;
-var ids_Trinary_Operator : RangeTable = __IDS_Trinary_Operator;
-var ideographic : RangeTable = __Ideographic;
-var join_Control : RangeTable = __Join_Control;
-var logical_Order_Exception : RangeTable = __Logical_Order_Exception;
-var noncharacter_Code_Point : RangeTable = __Noncharacter_Code_Point;
-var other_Alphabetic : RangeTable = __Other_Alphabetic;
-var other_Default_Ignorable_Code_Point : RangeTable = __Other_Default_Ignorable_Code_Point;
-var other_Grapheme_Extend : RangeTable = __Other_Grapheme_Extend;
-var other_ID_Continue : RangeTable = __Other_ID_Continue;
-var other_ID_Start : RangeTable = __Other_ID_Start;
-var other_Lowercase : RangeTable = __Other_Lowercase;
-var other_Math : RangeTable = __Other_Math;
-var other_Uppercase : RangeTable = __Other_Uppercase;
-var pattern_Syntax : RangeTable = __Pattern_Syntax;
-var pattern_White_Space : RangeTable = __Pattern_White_Space;
-var prepended_Concatenation_Mark : RangeTable = __Prepended_Concatenation_Mark;
-var quotation_Mark : RangeTable = __Quotation_Mark;
-var radical : RangeTable = __Radical;
-var regional_Indicator : RangeTable = __Regional_Indicator;
-var sterm : RangeTable = __Sentence_Terminal;
-var sentence_Terminal : RangeTable = __Sentence_Terminal;
-var soft_Dotted : RangeTable = __Soft_Dotted;
-var terminal_Punctuation : RangeTable = __Terminal_Punctuation;
-var unified_Ideograph : RangeTable = __Unified_Ideograph;
-var variation_Selector : RangeTable = __Variation_Selector;
-var white_Space : RangeTable = __White_Space;
-var properties : GoMap<GoString, RangeTable> = Go.map(((("ASCII_Hex_Digit" : GoString))) => ascii_Hex_Digit,
+var __Unified_Ideograph : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((13312 : GoUInt16)), ((19903 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((19968 : GoUInt16)), ((40956 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64014 : GoUInt16)), ((64015 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((64017 : GoUInt16)), ((64019 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64020 : GoUInt16)), ((64031 : GoUInt16)), ((11 : GoUInt16))) : Range16)), ((new Range16(((64033 : GoUInt16)), ((64035 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((64036 : GoUInt16)), ((64039 : GoUInt16)), ((3 : GoUInt16))) : Range16)), ((new Range16(((64040 : GoUInt16)), ((64041 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((131072 : GoUInt32)), ((173789 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((173824 : GoUInt32)), ((177972 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((177984 : GoUInt32)), ((178205 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((178208 : GoUInt32)), ((183969 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((183984 : GoUInt32)), ((191456 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((196608 : GoUInt32)), ((201546 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __Variation_Selector : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((6155 : GoUInt16)), ((6157 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65024 : GoUInt16)), ((65039 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((917760 : GoUInt32)), ((917999 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var __White_Space : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((9 : GoUInt16)), ((13 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((32 : GoUInt16)), ((133 : GoUInt16)), ((101 : GoUInt16))) : Range16)), ((new Range16(((160 : GoUInt16)), ((5760 : GoUInt16)), ((5600 : GoUInt16))) : Range16)), ((new Range16(((8192 : GoUInt16)), ((8202 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8232 : GoUInt16)), ((8233 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8239 : GoUInt16)), ((8287 : GoUInt16)), ((48 : GoUInt16))) : Range16)), ((new Range16(((12288 : GoUInt16)), ((12288 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((2 : GoInt)), r32 : ((null : Slice<Range32>)) } : RangeTable));
+var ascii_Hex_Digit : Ref<RangeTable> = __ASCII_Hex_Digit;
+var bidi_Control : Ref<RangeTable> = __Bidi_Control;
+var dash : Ref<RangeTable> = __Dash;
+var deprecated : Ref<RangeTable> = __Deprecated;
+var diacritic : Ref<RangeTable> = __Diacritic;
+var extender : Ref<RangeTable> = __Extender;
+var hex_Digit : Ref<RangeTable> = __Hex_Digit;
+var hyphen : Ref<RangeTable> = __Hyphen;
+var ids_Binary_Operator : Ref<RangeTable> = __IDS_Binary_Operator;
+var ids_Trinary_Operator : Ref<RangeTable> = __IDS_Trinary_Operator;
+var ideographic : Ref<RangeTable> = __Ideographic;
+var join_Control : Ref<RangeTable> = __Join_Control;
+var logical_Order_Exception : Ref<RangeTable> = __Logical_Order_Exception;
+var noncharacter_Code_Point : Ref<RangeTable> = __Noncharacter_Code_Point;
+var other_Alphabetic : Ref<RangeTable> = __Other_Alphabetic;
+var other_Default_Ignorable_Code_Point : Ref<RangeTable> = __Other_Default_Ignorable_Code_Point;
+var other_Grapheme_Extend : Ref<RangeTable> = __Other_Grapheme_Extend;
+var other_ID_Continue : Ref<RangeTable> = __Other_ID_Continue;
+var other_ID_Start : Ref<RangeTable> = __Other_ID_Start;
+var other_Lowercase : Ref<RangeTable> = __Other_Lowercase;
+var other_Math : Ref<RangeTable> = __Other_Math;
+var other_Uppercase : Ref<RangeTable> = __Other_Uppercase;
+var pattern_Syntax : Ref<RangeTable> = __Pattern_Syntax;
+var pattern_White_Space : Ref<RangeTable> = __Pattern_White_Space;
+var prepended_Concatenation_Mark : Ref<RangeTable> = __Prepended_Concatenation_Mark;
+var quotation_Mark : Ref<RangeTable> = __Quotation_Mark;
+var radical : Ref<RangeTable> = __Radical;
+var regional_Indicator : Ref<RangeTable> = __Regional_Indicator;
+var sterm : Ref<RangeTable> = __Sentence_Terminal;
+var sentence_Terminal : Ref<RangeTable> = __Sentence_Terminal;
+var soft_Dotted : Ref<RangeTable> = __Soft_Dotted;
+var terminal_Punctuation : Ref<RangeTable> = __Terminal_Punctuation;
+var unified_Ideograph : Ref<RangeTable> = __Unified_Ideograph;
+var variation_Selector : Ref<RangeTable> = __Variation_Selector;
+var white_Space : Ref<RangeTable> = __White_Space;
+var properties : GoMap<GoString, Ref<RangeTable>> = Go.map(((("ASCII_Hex_Digit" : GoString))) => ascii_Hex_Digit,
 ((("Bidi_Control" : GoString))) => bidi_Control,
 ((("Dash" : GoString))) => dash,
 ((("Deprecated" : GoString))) => deprecated,
@@ -5937,8 +5937,8 @@ var _caseOrbit : Slice<T_foldPair> = ((new Slice<T_foldPair>(
 ((new T_foldPair(((8491 : GoUInt16)), ((197 : GoUInt16))) : T_foldPair)),
 ((new T_foldPair(((42570 : GoUInt16)), ((42571 : GoUInt16))) : T_foldPair)),
 ((new T_foldPair(((42571 : GoUInt16)), ((7304 : GoUInt16))) : T_foldPair))) : Slice<T_foldPair>));
-var _foldL : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((837 : GoUInt16)), ((837 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var _foldLl : RangeTable = (({ r16 : ((new Slice<Range16>(
+var _foldL : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((837 : GoUInt16)), ((837 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var _foldLl : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65 : GoUInt16)), ((90 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((192 : GoUInt16)), ((214 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((216 : GoUInt16)), ((222 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -6046,8 +6046,8 @@ var _foldLl : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((42949 : GoUInt16)), ((42951 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((42953 : GoUInt16)), ((42997 : GoUInt16)), ((44 : GoUInt16))) : Range16)),
 ((new Range16(((65313 : GoUInt16)), ((65338 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66560 : GoUInt32)), ((66599 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66736 : GoUInt32)), ((66771 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68736 : GoUInt32)), ((68786 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71840 : GoUInt32)), ((71871 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93760 : GoUInt32)), ((93791 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125184 : GoUInt32)), ((125217 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((3 : GoInt)) } : RangeTable));
-var _foldLt : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((452 : GoUInt16)), ((454 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((455 : GoUInt16)), ((457 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((458 : GoUInt16)), ((460 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((497 : GoUInt16)), ((499 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((8064 : GoUInt16)), ((8071 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8080 : GoUInt16)), ((8087 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8096 : GoUInt16)), ((8103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8115 : GoUInt16)), ((8131 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8179 : GoUInt16)), ((8179 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var _foldLu : RangeTable = (({ r16 : ((new Slice<Range16>(
+var _foldLt : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((452 : GoUInt16)), ((454 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((455 : GoUInt16)), ((457 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((458 : GoUInt16)), ((460 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((497 : GoUInt16)), ((499 : GoUInt16)), ((2 : GoUInt16))) : Range16)), ((new Range16(((8064 : GoUInt16)), ((8071 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8080 : GoUInt16)), ((8087 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8096 : GoUInt16)), ((8103 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8115 : GoUInt16)), ((8131 : GoUInt16)), ((16 : GoUInt16))) : Range16)), ((new Range16(((8179 : GoUInt16)), ((8179 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var _foldLu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((97 : GoUInt16)), ((122 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((181 : GoUInt16)), ((223 : GoUInt16)), ((42 : GoUInt16))) : Range16)),
 ((new Range16(((224 : GoUInt16)), ((246 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
@@ -6156,13 +6156,13 @@ var _foldLu : RangeTable = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((43859 : GoUInt16)), ((43888 : GoUInt16)), ((29 : GoUInt16))) : Range16)),
 ((new Range16(((43889 : GoUInt16)), ((43967 : GoUInt16)), ((1 : GoUInt16))) : Range16)),
 ((new Range16(((65345 : GoUInt16)), ((65370 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66600 : GoUInt32)), ((66639 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66776 : GoUInt32)), ((66811 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68800 : GoUInt32)), ((68850 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71872 : GoUInt32)), ((71903 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93792 : GoUInt32)), ((93823 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125218 : GoUInt32)), ((125251 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((4 : GoInt)) } : RangeTable));
-var _foldM : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var _foldMn : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var foldCategory : GoMap<GoString, RangeTable> = Go.map(((("L" : GoString))) => _foldL, ((("Ll" : GoString))) => _foldLl, ((("Lt" : GoString))) => _foldLt, ((("Lu" : GoString))) => _foldLu, ((("M" : GoString))) => _foldM, ((("Mn" : GoString))) => _foldMn);
-var _foldCommon : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((924 : GoUInt16)), ((956 : GoUInt16)), ((32 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var _foldGreek : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((181 : GoUInt16)), ((837 : GoUInt16)), ((656 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var _foldInherited : RangeTable = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
-var foldScript : GoMap<GoString, RangeTable> = Go.map(((("Common" : GoString))) => _foldCommon, ((("Greek" : GoString))) => _foldGreek, ((("Inherited" : GoString))) => _foldInherited);
+var _foldM : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var _foldMn : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var foldCategory : GoMap<GoString, Ref<RangeTable>> = Go.map(((("L" : GoString))) => _foldL, ((("Ll" : GoString))) => _foldLl, ((("Lt" : GoString))) => _foldLt, ((("Lu" : GoString))) => _foldLu, ((("M" : GoString))) => _foldM, ((("Mn" : GoString))) => _foldMn);
+var _foldCommon : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((924 : GoUInt16)), ((956 : GoUInt16)), ((32 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var _foldGreek : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((181 : GoUInt16)), ((837 : GoUInt16)), ((656 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var _foldInherited : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((null : Slice<Range32>)), latinOffset : 0 } : RangeTable));
+var foldScript : GoMap<GoString, Ref<RangeTable>> = Go.map(((("Common" : GoString))) => _foldCommon, ((("Greek" : GoString))) => _foldGreek, ((("Inherited" : GoString))) => _foldInherited);
 @:structInit class RangeTable {
     public var r16 : Slice<Range16> = ((null : Slice<Range16>));
     public var r32 : Slice<Range32> = ((null : Slice<Range32>));
@@ -6219,8 +6219,6 @@ var foldScript : GoMap<GoString, RangeTable> = Go.map(((("Common" : GoString))) 
         return new CaseRange(lo, hi, delta);
     }
 }
-@:named @:using(Unicode.SpecialCase_static_extension) typedef SpecialCase = Slice<CaseRange>;
-@:named typedef T_d = GoArray<GoInt32>;
 @:structInit class T_foldPair {
     public var from : GoUInt16 = ((0 : GoUInt16));
     public var to : GoUInt16 = ((0 : GoUInt16));
@@ -6233,116 +6231,70 @@ var foldScript : GoMap<GoString, RangeTable> = Go.map(((("Common" : GoString))) 
         return new T_foldPair(from, to);
     }
 }
-/**
-    // IsDigit reports whether the rune is a decimal digit.
-**/
+@:named @:using(stdgo.unicode.Unicode.SpecialCase_static_extension) typedef SpecialCase = Slice<CaseRange>;
+@:named typedef T_d = GoArray<GoInt32>;
 function isDigit(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return (((((("0" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("9" : GoString))).code : GoRune)));
         };
         return _isExcludingLatin(digit, _r);
     }
-/**
-    // IsGraphic reports whether the rune is defined as a Graphic by Unicode.
-    // Such characters include letters, marks, numbers, punctuation, symbols, and
-    // spaces, from categories L, M, N, P, S, Zs.
-**/
 function isGraphic(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((144 : GoUInt8))) != ((0 : GoUInt8));
         };
         return in_(_r, ...graphicRanges.__toArray__());
     }
-/**
-    // IsPrint reports whether the rune is defined as printable by Go. Such
-    // characters include letters, marks, numbers, punctuation, symbols, and the
-    // ASCII space character, from categories L, M, N, P, S and the ASCII space
-    // character. This categorization is the same as IsGraphic except that the
-    // only spacing character is ASCII space, U+0020.
-**/
 function isPrint(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((128 : GoUInt8))) != ((0 : GoUInt8));
         };
         return in_(_r, ...printRanges.__toArray__());
     }
-/**
-    // IsOneOf reports whether the rune is a member of one of the ranges.
-    // The function "In" provides a nicer signature and should be used in preference to IsOneOf.
-**/
 function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
-        for (_ => _inside in _ranges) {
+        for (_0 => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;
             };
         };
         return false;
     }
-/**
-    // In reports whether the rune is a member of one of the ranges.
-**/
 function in_(_r:GoRune, _ranges:haxe.Rest<RangeTable>):Bool {
         var _ranges = new Slice<RangeTable>(..._ranges);
-        for (_ => _inside in _ranges) {
+        for (_0 => _inside in _ranges) {
             if (is_(_inside, _r)) {
                 return true;
             };
         };
         return false;
     }
-/**
-    // IsControl reports whether the rune is a control character.
-    // The C (Other) Unicode category includes more code points
-    // such as surrogates; use Is(C, r) to test for them.
-**/
 function isControl(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((1 : GoUInt8))) != ((0 : GoUInt8));
         };
         return false;
     }
-/**
-    // IsLetter reports whether the rune is a letter (category L).
-**/
 function isLetter(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(letter, _r);
     }
-/**
-    // IsMark reports whether the rune is a mark character (category M).
-**/
 function isMark(_r:GoRune):Bool {
         return _isExcludingLatin(mark, _r);
     }
-/**
-    // IsNumber reports whether the rune is a number (category N).
-**/
 function isNumber(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((4 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(number, _r);
     }
-/**
-    // IsPunct reports whether the rune is a Unicode punctuation character
-    // (category P).
-**/
 function isPunct(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((2 : GoUInt8))) != ((0 : GoUInt8));
         };
         return is_(punct, _r);
     }
-/**
-    // IsSpace reports whether the rune is a space character as defined
-    // by Unicode's White Space property; in the Latin-1 space
-    // this is
-    //	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
-    // Other definitions of spacing characters are set by category
-    // Z and property Pattern_White_Space.
-**/
 function isSpace(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             if (_r == ((((("\t" : GoString))).code : GoRune)) || _r == ((((("\n" : GoString))).code : GoRune)) || _r == ((((("\x0B" : GoString))).code : GoRune)) || _r == ((((("\x0C" : GoString))).code : GoRune)) || _r == ((((("\r" : GoString))).code : GoRune)) || _r == (((((" " : GoString))).code : GoRune)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
@@ -6352,22 +6304,16 @@ function isSpace(_r:GoRune):Bool {
         };
         return _isExcludingLatin(white_Space, _r);
     }
-/**
-    // IsSymbol reports whether the rune is a symbolic character.
-**/
 function isSymbol(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((8 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(symbol, _r);
     }
-/**
-    // is16 reports whether r is in the sorted slice of 16-bit ranges.
-**/
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         if (((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) || (_r <= ((255 : GoUInt16)))) {
             for (_i => _ in _ranges) {
-                var _range_:Range16 = (_ranges != null ? _ranges[_i] : new Range16());
+                var _range_:Ref<Range16> = (_ranges != null ? _ranges[_i] : new Range16());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6381,7 +6327,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _hi:GoInt = (_ranges != null ? _ranges.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _range_:Range16 = (_ranges != null ? _ranges[_m] : new Range16());
+            var _range_:Ref<Range16> = (_ranges != null ? _ranges[_m] : new Range16());
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_range_.stride == ((1 : GoUInt16))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt16)));
             };
@@ -6393,13 +6339,10 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         };
         return false;
     }
-/**
-    // is32 reports whether r is in the sorted slice of 32-bit ranges.
-**/
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         if ((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) {
             for (_i => _ in _ranges) {
-                var _range_:Range32 = (_ranges != null ? _ranges[_i] : new Range32());
+                var _range_:Ref<Range32> = (_ranges != null ? _ranges[_i] : new Range32());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6425,9 +6368,6 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         };
         return false;
     }
-/**
-    // Is reports whether the rune is in the specified table of ranges.
-**/
 function is_(_rangeTab:RangeTable, _r:GoRune):Bool {
         var _r16:Slice<Range16> = _rangeTab.r16;
         if (((_r16 != null ? _r16.length : ((0 : GoInt))) > ((0 : GoInt))) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
@@ -6444,7 +6384,7 @@ function _isExcludingLatin(_rangeTab:RangeTable, _r:GoRune):Bool {
         {
             var _off:GoInt = _rangeTab.latinOffset;
             if (((_r16 != null ? _r16.length : ((0 : GoInt))) > _off) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
-                return _is16(_r16.__slice__(_off), ((_r : GoUInt16)));
+                return _is16(((_r16.__slice__(_off) : Slice<Range16>)), ((_r : GoUInt16)));
             };
         };
         var _r32:Slice<Range32> = _rangeTab.r32;
@@ -6453,37 +6393,24 @@ function _isExcludingLatin(_rangeTab:RangeTable, _r:GoRune):Bool {
         };
         return false;
     }
-/**
-    // IsUpper reports whether the rune is an upper case letter.
-**/
 function isUpper(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((32 : GoUInt8));
         };
         return _isExcludingLatin(upper, _r);
     }
-/**
-    // IsLower reports whether the rune is a lower case letter.
-**/
 function isLower(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((64 : GoUInt8));
         };
         return _isExcludingLatin(lower, _r);
     }
-/**
-    // IsTitle reports whether the rune is a title case letter.
-**/
 function isTitle(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return false;
         };
         return _isExcludingLatin(title, _r);
     }
-/**
-    // to maps the rune using the specified case mapping.
-    // It additionally reports whether caseRange contained a mapping for r.
-**/
 function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : GoRune; var _1 : Bool; } {
         var _mappedRune:GoRune = ((0 : GoInt32)), _foundMapping:Bool = false;
         if ((__case < ((0 : GoInt))) || (((3 : GoInt)) <= __case)) {
@@ -6509,9 +6436,6 @@ function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : Go
         };
         return { _0 : _r, _1 : false };
     }
-/**
-    // To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
-**/
 function to(__case:GoInt, _r:GoRune):GoRune {
         {
             var __tmp__ = _to(__case, _r, caseRanges);
@@ -6519,9 +6443,6 @@ function to(__case:GoInt, _r:GoRune):GoRune {
         };
         return _r;
     }
-/**
-    // ToUpper maps the rune to upper case.
-**/
 function toUpper(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("a" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("z" : GoString))).code : GoRune)))) {
@@ -6531,9 +6452,6 @@ function toUpper(_r:GoRune):GoRune {
         };
         return to(((0 : GoInt)), _r);
     }
-/**
-    // ToLower maps the rune to lower case.
-**/
 function toLower(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("A" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("Z" : GoString))).code : GoRune)))) {
@@ -6543,9 +6461,6 @@ function toLower(_r:GoRune):GoRune {
         };
         return to(((1 : GoInt)), _r);
     }
-/**
-    // ToTitle maps the rune to title case.
-**/
 function toTitle(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("a" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("z" : GoString))).code : GoRune)))) {
@@ -6555,26 +6470,6 @@ function toTitle(_r:GoRune):GoRune {
         };
         return to(((2 : GoInt)), _r);
     }
-/**
-    // SimpleFold iterates over Unicode code points equivalent under
-    // the Unicode-defined simple case folding. Among the code points
-    // equivalent to rune (including rune itself), SimpleFold returns the
-    // smallest rune > r if one exists, or else the smallest rune >= 0.
-    // If r is not a valid Unicode code point, SimpleFold(r) returns r.
-    //
-    // For example:
-    //	SimpleFold('A') = 'a'
-    //	SimpleFold('a') = 'A'
-    //
-    //	SimpleFold('K') = 'k'
-    //	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
-    //	SimpleFold('\u212A') = 'K'
-    //
-    //	SimpleFold('1') = '1'
-    //
-    //	SimpleFold(-2) = -2
-    //
-**/
 function simpleFold(_r:GoRune):GoRune {
         if ((_r < ((0 : GoInt32))) || (_r > ((1114111 : GoInt32)))) {
             return _r;
@@ -6603,29 +6498,97 @@ function simpleFold(_r:GoRune):GoRune {
         };
         return toUpper(_r);
     }
-@:build(stdgo.internal.Macro.wrapper(SpecialCase)) class SpecialCase_static_extension {
-    public static function toLower(_special:SpecialCase, _r:GoRune):GoRune {
-        (_special == null ? null : _special.__copy__());
+class RangeTable_wrapper {
+    public var __t__ : RangeTable;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+class Range16_wrapper {
+    public var __t__ : Range16;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+class Range32_wrapper {
+    public var __t__ : Range32;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+class CaseRange_wrapper {
+    public var __t__ : CaseRange;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+class T_foldPair_wrapper {
+    public var __t__ : T_foldPair;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+class SpecialCase_wrapper {
+    @:keep
+    public function toLower(_r:GoRune):GoRune {
+        var _special = __t__;
+        _special;
         var __tmp__ = _to(((1 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toLower(_r);
         };
         return _r1;
     }
-    public static function toTitle(_special:SpecialCase, _r:GoRune):GoRune {
-        (_special == null ? null : _special.__copy__());
+    @:keep
+    public function toTitle(_r:GoRune):GoRune {
+        var _special = __t__;
+        _special;
         var __tmp__ = _to(((2 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toTitle(_r);
         };
         return _r1;
     }
-    public static function toUpper(_special:SpecialCase, _r:GoRune):GoRune {
-        (_special == null ? null : _special.__copy__());
+    @:keep
+    public function toUpper(_r:GoRune):GoRune {
+        var _special = __t__;
+        _special;
         var __tmp__ = _to(((0 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toUpper(_r);
         };
         return _r1;
     }
+    public var __t__ : SpecialCase;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+@:keep class SpecialCase_static_extension {
+    @:keep
+    public static function toLower( _special:SpecialCase, _r:GoRune):GoRune {
+        _special;
+        var __tmp__ = _to(((1 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
+        if ((_r1 == _r) && !_hadMapping) {
+            _r1 = stdgo.unicode.Unicode.toLower(_r);
+        };
+        return _r1;
+    }
+    @:keep
+    public static function toTitle( _special:SpecialCase, _r:GoRune):GoRune {
+        _special;
+        var __tmp__ = _to(((2 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
+        if ((_r1 == _r) && !_hadMapping) {
+            _r1 = stdgo.unicode.Unicode.toTitle(_r);
+        };
+        return _r1;
+    }
+    @:keep
+    public static function toUpper( _special:SpecialCase, _r:GoRune):GoRune {
+        _special;
+        var __tmp__ = _to(((0 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
+        if ((_r1 == _r) && !_hadMapping) {
+            _r1 = stdgo.unicode.Unicode.toUpper(_r);
+        };
+        return _r1;
+    }
+}
+class T_d_wrapper {
+    public var __t__ : T_d;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
 }

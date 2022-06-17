@@ -1774,8 +1774,8 @@ var _rngCooked : GoArray<GoInt64> = ((new GoArray<GoInt64>(
 (("8382142935188824023" : GoInt64)),
 (("9103922860780351547" : GoInt64)),
 (("4152330101494654406" : GoInt64))) : GoArray<GoInt64>));
-var _globalRand : Rand = new_((({ _src : ((((newSource(((1 : GoInt64))).__underlying__().value : Dynamic)) : T_rngSource)), _lk : new stdgo.sync.Sync.Mutex() } : T_lockedSource)));
-var _ : T_rngSource = ((((_globalRand._src.__underlying__().value : Dynamic)) : T_lockedSource))._src;
+var _globalRand : Ref<Rand> = new_((({ _src : ((((newSource(((1 : GoInt64))).__underlying__().value : Dynamic)) : T_rngSource)), _lk : new stdgo.sync.Sync.Mutex() } : T_lockedSource)));
+var _1 : T_rngSource = ((((_globalRand._src.__underlying__().value : Dynamic)) : T_lockedSource))._src;
 typedef Source = StructType & {
     public function int63():GoInt64;
     public function seed(_seed:GoInt64):Void;
@@ -1784,7 +1784,8 @@ typedef Source64 = StructType & {
     > Source,
     public function uint64():GoUInt64;
 };
-@:structInit @:using(Rand.Rand_static_extension) class Rand {
+@:structInit @:using(stdgo.math.rand.Rand.Rand_static_extension) class Rand {
+    @:keep
     public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _r = this;
         _r;
@@ -1793,7 +1794,7 @@ typedef Source64 = StructType & {
             var __tmp__ = try {
                 { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
             } catch(_) {
-                { value : ((null : T_lockedSource)), ok : false };
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
             }, _lk = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _lk._read(_p, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
@@ -1801,6 +1802,7 @@ typedef Source64 = StructType & {
         };
         return _read(_p, _r._src, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
     }
+    @:keep
     public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
         var _r = this;
         _r;
@@ -1817,6 +1819,7 @@ typedef Source64 = StructType & {
             _swap(_i, _j);
         });
     }
+    @:keep
     public function perm(_n:GoInt):Slice<GoInt> {
         var _r = this;
         _r;
@@ -1831,6 +1834,7 @@ typedef Source64 = StructType & {
         };
         return _m;
     }
+    @:keep
     public function float32():GoFloat32 {
         var _r = this;
         _r;
@@ -1842,6 +1846,7 @@ typedef Source64 = StructType & {
             return _f;
         });
     }
+    @:keep
     public function float64():GoFloat64 {
         var _r = this;
         _r;
@@ -1853,6 +1858,7 @@ typedef Source64 = StructType & {
             return _f;
         });
     }
+    @:keep
     public function intn(_n:GoInt):GoInt {
         var _r = this;
         _r;
@@ -1864,6 +1870,7 @@ typedef Source64 = StructType & {
         };
         return ((_r.int63n(((_n : GoInt64))) : GoInt));
     }
+    @:keep
     public function _int31n(_n:GoInt32):GoInt32 {
         var _r = this;
         _r;
@@ -1880,6 +1887,7 @@ typedef Source64 = StructType & {
         };
         return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
     }
+    @:keep
     public function int31n(_n:GoInt32):GoInt32 {
         var _r = this;
         _r;
@@ -1896,6 +1904,7 @@ typedef Source64 = StructType & {
         };
         return _v % _n;
     }
+    @:keep
     public function int63n(_n:GoInt64):GoInt64 {
         var _r = this;
         _r;
@@ -1912,17 +1921,20 @@ typedef Source64 = StructType & {
         };
         return _v % _n;
     }
+    @:keep
     public function int():GoInt {
         var _r = this;
         _r;
         var _u:GoUInt = ((_r.int63() : GoUInt));
         return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
     }
+    @:keep
     public function int31():GoInt32 {
         var _r = this;
         _r;
         return (((_r.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
     }
+    @:keep
     public function uint64():GoUInt64 {
         var _r = this;
         _r;
@@ -1931,16 +1943,19 @@ typedef Source64 = StructType & {
         };
         return (((_r.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
     }
+    @:keep
     public function uint32():GoUInt32 {
         var _r = this;
         _r;
         return (((_r.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
     }
+    @:keep
     public function int63():GoInt64 {
         var _r = this;
         _r;
         return _r._src.int63();
     }
+    @:keep
     public function seed(_seed:GoInt64):Void {
         var _r = this;
         _r;
@@ -1948,7 +1963,7 @@ typedef Source64 = StructType & {
             var __tmp__ = try {
                 { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
             } catch(_) {
-                { value : ((null : T_lockedSource)), ok : false };
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
             }, _lk = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 _lk._seedPos(_seed, Go.pointer(_r._readPos));
@@ -1958,6 +1973,7 @@ typedef Source64 = StructType & {
         _r._src.seed(_seed);
         _r._readPos = ((0 : GoInt8));
     }
+    @:keep
     public function normFloat64():GoFloat64 {
         var _r = this;
         _r;
@@ -1986,6 +2002,7 @@ typedef Source64 = StructType & {
             };
         };
     }
+    @:keep
     public function expFloat64():GoFloat64 {
         var _r = this;
         _r;
@@ -2019,20 +2036,22 @@ typedef Source64 = StructType & {
         return new Rand(_src, _s64, _readVal, _readPos);
     }
 }
-@:structInit @:using(Rand.T_lockedSource_static_extension) class T_lockedSource {
+@:structInit @:using(stdgo.math.rand.Rand.T_lockedSource_static_extension) class T_lockedSource {
+    @:keep
     public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
         var _r = this;
         _r;
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         _r._lk.lock();
         {
-            var __tmp__ = math.rand.Rand._read(_p, _r._src, _readVal, _readPos);
+            var __tmp__ = stdgo.math.rand.Rand._read(_p, _r._src, _readVal, _readPos);
             _n = __tmp__._0;
             _err = __tmp__._1;
         };
         _r._lk.unlock();
         return { _0 : _n, _1 : _err };
     }
+    @:keep
     public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
         var _r = this;
         _r;
@@ -2041,6 +2060,7 @@ typedef Source64 = StructType & {
         _readPos.value = ((0 : GoInt8));
         _r._lk.unlock();
     }
+    @:keep
     public function seed(_seed:GoInt64):Void {
         var _r = this;
         _r;
@@ -2048,6 +2068,7 @@ typedef Source64 = StructType & {
         _r._src.seed(_seed);
         _r._lk.unlock();
     }
+    @:keep
     public function uint64():GoUInt64 {
         var _r = this;
         _r;
@@ -2057,6 +2078,7 @@ typedef Source64 = StructType & {
         _r._lk.unlock();
         return _n;
     }
+    @:keep
     public function int63():GoInt64 {
         var _r = this;
         _r;
@@ -2067,8 +2089,8 @@ typedef Source64 = StructType & {
         return _n;
     }
     public var _lk : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-    public var _src : T_rngSource = ((null : T_rngSource));
-    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:T_rngSource) {
+    public var _src : Ref<T_rngSource> = ((null : Ref<T_rngSource>));
+    public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:Ref<T_rngSource>) {
         if (_lk != null) this._lk = _lk;
         if (_src != null) this._src = _src;
     }
@@ -2077,7 +2099,8 @@ typedef Source64 = StructType & {
         return new T_lockedSource(_lk, _src);
     }
 }
-@:structInit @:using(Rand.T_rngSource_static_extension) class T_rngSource {
+@:structInit @:using(stdgo.math.rand.Rand.T_rngSource_static_extension) class T_rngSource {
+    @:keep
     public function uint64():GoUInt64 {
         var _rng = this;
         _rng;
@@ -2093,11 +2116,13 @@ typedef Source64 = StructType & {
         if (_rng._vec != null) _rng._vec[_rng._feed] = _x;
         return ((_x : GoUInt64));
     }
+    @:keep
     public function int63():GoInt64 {
         var _rng = this;
         _rng;
         return (((_rng.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
     }
+    @:keep
     public function seed(_seed:GoInt64):Void {
         var _rng = this;
         _rng;
@@ -2141,7 +2166,8 @@ typedef Source64 = StructType & {
         return new T_rngSource(_tap, _feed, _vec);
     }
 }
-@:structInit @:using(Rand.Zipf_static_extension) class Zipf {
+@:structInit @:using(stdgo.math.rand.Rand.Zipf_static_extension) class Zipf {
+    @:keep
     public function uint64():GoUInt64 {
         var _z = this;
         _z;
@@ -2163,17 +2189,19 @@ typedef Source64 = StructType & {
         };
         return ((_k : GoUInt64));
     }
+    @:keep
     public function _hinv(_x:GoFloat64):GoFloat64 {
         var _z = this;
         _z;
         return stdgo.math.Math.exp(_z._oneminusQinv * stdgo.math.Math.log(_z._oneminusQ * _x)) - _z._v;
     }
+    @:keep
     public function _h(_x:GoFloat64):GoFloat64 {
         var _z = this;
         _z;
         return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
     }
-    public var _r : Rand = ((null : Rand));
+    public var _r : Ref<Rand> = ((null : Ref<Rand>));
     public var _imax : GoFloat64 = ((0 : GoFloat64));
     public var _v : GoFloat64 = ((0 : GoFloat64));
     public var _q : GoFloat64 = ((0 : GoFloat64));
@@ -2182,7 +2210,7 @@ typedef Source64 = StructType & {
     public var _oneminusQinv : GoFloat64 = ((0 : GoFloat64));
     public var _hxm : GoFloat64 = ((0 : GoFloat64));
     public var _hx0minusHxm : GoFloat64 = ((0 : GoFloat64));
-    public function new(?_r:Rand, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
+    public function new(?_r:Ref<Rand>, ?_imax:GoFloat64, ?_v:GoFloat64, ?_q:GoFloat64, ?_s:GoFloat64, ?_oneminusQ:GoFloat64, ?_oneminusQinv:GoFloat64, ?_hxm:GoFloat64, ?_hx0minusHxm:GoFloat64) {
         if (_r != null) this._r = _r;
         if (_imax != null) this._imax = _imax;
         if (_v != null) this._v = _v;
@@ -2198,32 +2226,32 @@ typedef Source64 = StructType & {
         return new Zipf(_r, _imax, _v, _q, _s, _oneminusQ, _oneminusQinv, _hxm, _hx0minusHxm);
     }
 }
+function int31nForTest(_r:Rand, _n:GoInt32):GoInt32 {
+        return _r._int31n(_n);
+    }
+function getNormalDistributionParameters():{ var _0 : GoFloat64; var _1 : GoArray<GoUInt32>; var _2 : GoArray<GoFloat32>; var _3 : GoArray<GoFloat32>; } {
+        return { _0 : ((3.442619855899 : GoFloat64)), _1 : (_kn == null ? null : _kn.__copy__()), _2 : (_wn == null ? null : _wn.__copy__()), _3 : (_fn == null ? null : _fn.__copy__()) };
+    }
+function getExponentialDistributionParameters():{ var _0 : GoFloat64; var _1 : GoArray<GoUInt32>; var _2 : GoArray<GoFloat32>; var _3 : GoArray<GoFloat32>; } {
+        return { _0 : ((7.69711747013105 : GoFloat64)), _1 : (_ke == null ? null : _ke.__copy__()), _2 : (_we == null ? null : _we.__copy__()), _3 : (_fe == null ? null : _fe.__copy__()) };
+    }
 function _absInt32(_i:GoInt32):GoUInt32 {
         if (_i < ((0 : GoInt32))) {
             return ((-_i : GoUInt32));
         };
         return ((_i : GoUInt32));
     }
-/**
-    // NewSource returns a new pseudo-random Source seeded with the given value.
-    // Unlike the default Source used by top-level functions, this source is not
-    // safe for concurrent use by multiple goroutines.
-**/
 function newSource(_seed:GoInt64):Source {
         var _rng:T_rngSource = new T_rngSource();
         _rng.seed(_seed);
         return _rng;
     }
-/**
-    // New returns a new Rand that uses random values from src
-    // to generate other random values.
-**/
 function new_(_src:Source):Rand {
         var __tmp__ = try {
             { value : ((((_src.__underlying__().value : Dynamic)) : Source64)), ok : true };
         } catch(_) {
             { value : ((null : Source64)), ok : false };
-        }, _s64 = __tmp__.value, _ = __tmp__.ok;
+        }, _s64 = __tmp__.value, _0 = __tmp__.ok;
         return (({ _src : _src, _s64 : _s64, _readVal : 0, _readPos : 0 } : Rand));
     }
 function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
@@ -2233,8 +2261,8 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
         var __tmp__ = try {
             { value : ((((_src.__underlying__().value : Dynamic)) : T_rngSource)), ok : true };
         } catch(_) {
-            { value : ((null : T_rngSource)), ok : false };
-        }, _rng = __tmp__.value, _ = __tmp__.ok;
+            { value : ((null : Ref<T_rngSource>)), ok : false };
+        }, _rng = __tmp__.value, _0 = __tmp__.ok;
         {
             _n = ((0 : GoInt));
             Go.cfor(_n < (_p != null ? _p.length : ((0 : GoInt))), _n++, {
@@ -2255,142 +2283,55 @@ function _read(_p:Slice<GoByte>, _src:Source, _readVal:Pointer<GoInt64>, _readPo
         _readVal.value = _val;
         return { _0 : _n, _1 : _err };
     }
-/**
-    // Seed uses the provided seed value to initialize the default Source to a
-    // deterministic state. If Seed is not called, the generator behaves as
-    // if seeded by Seed(1). Seed values that have the same remainder when
-    // divided by 2³¹-1 generate the same pseudo-random sequence.
-    // Seed, unlike the Rand.Seed method, is safe for concurrent use.
-**/
 function seed(_seed:GoInt64):Void {
         _globalRand.seed(_seed);
     }
-/**
-    // Int63 returns a non-negative pseudo-random 63-bit integer as an int64
-    // from the default Source.
-**/
 function int63():GoInt64 {
         return _globalRand.int63();
     }
-/**
-    // Uint32 returns a pseudo-random 32-bit value as a uint32
-    // from the default Source.
-**/
 function uint32():GoUInt32 {
         return _globalRand.uint32();
     }
-/**
-    // Uint64 returns a pseudo-random 64-bit value as a uint64
-    // from the default Source.
-**/
 function uint64():GoUInt64 {
         return _globalRand.uint64();
     }
-/**
-    // Int31 returns a non-negative pseudo-random 31-bit integer as an int32
-    // from the default Source.
-**/
 function int31():GoInt32 {
         return _globalRand.int31();
     }
-/**
-    // Int returns a non-negative pseudo-random int from the default Source.
-**/
 function int():GoInt {
         return _globalRand.int();
     }
-/**
-    // Int63n returns, as an int64, a non-negative pseudo-random number in the half-open interval [0,n)
-    // from the default Source.
-    // It panics if n <= 0.
-**/
 function int63n(_n:GoInt64):GoInt64 {
         return _globalRand.int63n(_n);
     }
-/**
-    // Int31n returns, as an int32, a non-negative pseudo-random number in the half-open interval [0,n)
-    // from the default Source.
-    // It panics if n <= 0.
-**/
 function int31n(_n:GoInt32):GoInt32 {
         return _globalRand.int31n(_n);
     }
-/**
-    // Intn returns, as an int, a non-negative pseudo-random number in the half-open interval [0,n)
-    // from the default Source.
-    // It panics if n <= 0.
-**/
 function intn(_n:GoInt):GoInt {
         return _globalRand.intn(_n);
     }
-/**
-    // Float64 returns, as a float64, a pseudo-random number in the half-open interval [0.0,1.0)
-    // from the default Source.
-**/
 function float64():GoFloat64 {
         return _globalRand.float64();
     }
-/**
-    // Float32 returns, as a float32, a pseudo-random number in the half-open interval [0.0,1.0)
-    // from the default Source.
-**/
 function float32():GoFloat32 {
         return _globalRand.float32();
     }
-/**
-    // Perm returns, as a slice of n ints, a pseudo-random permutation of the integers
-    // in the half-open interval [0,n) from the default Source.
-**/
 function perm(_n:GoInt):Slice<GoInt> {
         return _globalRand.perm(_n);
     }
-/**
-    // Shuffle pseudo-randomizes the order of elements using the default Source.
-    // n is the number of elements. Shuffle panics if n < 0.
-    // swap swaps the elements with indexes i and j.
-**/
 function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
         _globalRand.shuffle(_n, _swap);
     }
-/**
-    // Read generates len(p) random bytes from the default Source and
-    // writes them into p. It always returns len(p) and a nil error.
-    // Read, unlike the Rand.Read method, is safe for concurrent use.
-**/
 function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         return _globalRand.read(_p);
     }
-/**
-    // NormFloat64 returns a normally distributed float64 in the range
-    // [-math.MaxFloat64, +math.MaxFloat64] with
-    // standard normal distribution (mean = 0, stddev = 1)
-    // from the default Source.
-    // To produce a different normal distribution, callers can
-    // adjust the output using:
-    //
-    //  sample = NormFloat64() * desiredStdDev + desiredMean
-    //
-**/
 function normFloat64():GoFloat64 {
         return _globalRand.normFloat64();
     }
-/**
-    // ExpFloat64 returns an exponentially distributed float64 in the range
-    // (0, +math.MaxFloat64] with an exponential distribution whose rate parameter
-    // (lambda) is 1 and whose mean is 1/lambda (1) from the default Source.
-    // To produce a distribution with a different rate parameter,
-    // callers can adjust the output using:
-    //
-    //  sample = ExpFloat64() / desiredRateParameter
-    //
-**/
 function expFloat64():GoFloat64 {
         return _globalRand.expFloat64();
     }
-/**
-    // seed rng x[n+1] = 48271 * x[n] mod (2**31 - 1)
-**/
 function _seedrand(_x:GoInt32):GoInt32 {
         {};
         var _hi:GoInt32 = _x / ((44488 : GoInt32));
@@ -2401,14 +2342,8 @@ function _seedrand(_x:GoInt32):GoInt32 {
         };
         return _x;
     }
-/**
-    // NewZipf returns a Zipf variate generator.
-    // The generator generates values k ∈ [0, imax]
-    // such that P(k) is proportional to (v + k) ** (-s).
-    // Requirements: s > 1 and v >= 1.
-**/
 function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
-        var _z:Zipf = Go.pointer(new Zipf());
+        var _z:Ref<Zipf> = new Zipf();
         if ((_s <= ((1 : GoFloat64))) || (_v < ((1 : GoFloat64)))) {
             return null;
         };
@@ -2423,15 +2358,761 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
         _z._s = ((1 : GoFloat64)) - _z._hinv(_z._h(((1.5 : GoFloat64))) - stdgo.math.Math.exp(-_z._q * stdgo.math.Math.log(_z._v + ((1 : GoFloat64)))));
         return _z;
     }
-@:build(stdgo.internal.Macro.wrapper(Rand)) class Rand_static_extension {
-
+class Source_wrapper {
+    public var __t__ : Source;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
 }
-@:build(stdgo.internal.Macro.wrapper(T_lockedSource)) class T_lockedSource_static_extension {
-
+class Source64_wrapper {
+    public var __t__ : Source64;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
 }
-@:build(stdgo.internal.Macro.wrapper(T_rngSource)) class T_rngSource_static_extension {
-
+class Rand_wrapper {
+    @:keep
+    public function read(_p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+        var _r = __t__;
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                return _lk._read(_p, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+            };
+        };
+        return _read(_p, _r._src, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+    }
+    @:keep
+    public function shuffle(_n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
+        var _r = __t__;
+        _r;
+        if (_n < ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Shuffle" : GoString))));
+        };
+        var _i:GoInt = _n - ((1 : GoInt));
+        Go.cfor(_i > ((2147483646 : GoInt)), _i--, {
+            var _j:GoInt = ((_r.int63n((((_i + ((1 : GoInt))) : GoInt64))) : GoInt));
+            _swap(_i, _j);
+        });
+        Go.cfor(_i > ((0 : GoInt)), _i--, {
+            var _j:GoInt = ((_r._int31n((((_i + ((1 : GoInt))) : GoInt32))) : GoInt));
+            _swap(_i, _j);
+        });
+    }
+    @:keep
+    public function perm(_n:GoInt):Slice<GoInt> {
+        var _r = __t__;
+        _r;
+        var _m:Slice<GoInt> = new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]);
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                var _j:GoInt = _r.intn(_i + ((1 : GoInt)));
+                if (_m != null) _m[_i] = (_m != null ? _m[_j] : ((0 : GoInt)));
+                if (_m != null) _m[_j] = _i;
+            });
+        };
+        return _m;
+    }
+    @:keep
+    public function float32():GoFloat32 {
+        var _r = __t__;
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat32 = ((_r.float64() : GoFloat32));
+            if (_f == ((1 : GoFloat32))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    @:keep
+    public function float64():GoFloat64 {
+        var _r = __t__;
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat64 = ((_r.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
+            if (_f == ((1 : GoFloat64))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    @:keep
+    public function intn(_n:GoInt):GoInt {
+        var _r = __t__;
+        _r;
+        if (_n <= ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Intn" : GoString))));
+        };
+        if (_n <= ((2147483647 : GoInt))) {
+            return ((_r.int31n(((_n : GoInt32))) : GoInt));
+        };
+        return ((_r.int63n(((_n : GoInt64))) : GoInt));
+    }
+    @:keep
+    public function _int31n(_n:GoInt32):GoInt32 {
+        var _r = __t__;
+        _r;
+        var _v:GoUInt32 = _r.uint32();
+        var _prod:GoUInt64 = ((_v : GoUInt64)) * ((_n : GoUInt64));
+        var _low:GoUInt32 = ((_prod : GoUInt32));
+        if (_low < ((_n : GoUInt32))) {
+            var _thresh:GoUInt32 = ((-_n : GoUInt32)) % ((_n : GoUInt32));
+            while (_low < _thresh) {
+                _v = _r.uint32();
+                _prod = ((_v : GoUInt64)) * ((_n : GoUInt64));
+                _low = ((_prod : GoUInt32));
+            };
+        };
+        return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    @:keep
+    public function int31n(_n:GoInt32):GoInt32 {
+        var _r = __t__;
+        _r;
+        if (_n <= ((0 : GoInt32))) {
+            throw Go.toInterface(((("invalid argument to Int31n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt32)))) == ((0 : GoInt32))) {
+            return _r.int31() & (_n - ((1 : GoInt32)));
+        };
+        var _max:GoInt32 = (((((2147483647 : GoUInt32)) - ((("2147483648" : GoUInt32)) % ((_n : GoUInt32)))) : GoInt32));
+        var _v:GoInt32 = _r.int31();
+        while (_v > _max) {
+            _v = _r.int31();
+        };
+        return _v % _n;
+    }
+    @:keep
+    public function int63n(_n:GoInt64):GoInt64 {
+        var _r = __t__;
+        _r;
+        if (_n <= ((0 : GoInt64))) {
+            throw Go.toInterface(((("invalid argument to Int63n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt64)))) == ((0 : GoInt64))) {
+            return _r.int63() & (_n - ((1 : GoInt64)));
+        };
+        var _max:GoInt64 = ((((("9223372036854775807" : GoUInt64)) - ((("9223372036854775808" : GoUInt64)) % ((_n : GoUInt64)))) : GoInt64));
+        var _v:GoInt64 = _r.int63();
+        while (_v > _max) {
+            _v = _r.int63();
+        };
+        return _v % _n;
+    }
+    @:keep
+    public function int():GoInt {
+        var _r = __t__;
+        _r;
+        var _u:GoUInt = ((_r.int63() : GoUInt));
+        return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
+    }
+    @:keep
+    public function int31():GoInt32 {
+        var _r = __t__;
+        _r;
+        return (((_r.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    @:keep
+    public function uint64():GoUInt64 {
+        var _r = __t__;
+        _r;
+        if (_r._s64 != null) {
+            return _r._s64.uint64();
+        };
+        return (((_r.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
+    }
+    @:keep
+    public function uint32():GoUInt32 {
+        var _r = __t__;
+        _r;
+        return (((_r.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
+    }
+    @:keep
+    public function int63():GoInt64 {
+        var _r = __t__;
+        _r;
+        return _r._src.int63();
+    }
+    @:keep
+    public function seed(_seed:GoInt64):Void {
+        var _r = __t__;
+        _r;
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                _lk._seedPos(_seed, Go.pointer(_r._readPos));
+                return;
+            };
+        };
+        _r._src.seed(_seed);
+        _r._readPos = ((0 : GoInt8));
+    }
+    @:keep
+    public function normFloat64():GoFloat64 {
+        var _r = __t__;
+        _r;
+        while (true) {
+            var _j:GoInt32 = ((_r.uint32() : GoInt32));
+            var _i:GoInt32 = _j & ((127 : GoInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_wn != null ? _wn[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_absInt32(_j) < (_kn != null ? _kn[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoInt32))) {
+                while (true) {
+                    _x = -stdgo.math.Math.log(_r.float64()) * ((0.29047645161474317 : GoFloat64));
+                    var _y:GoFloat64 = -stdgo.math.Math.log(_r.float64());
+                    if ((_y + _y) >= (_x * _x)) {
+                        break;
+                    };
+                };
+                if (_j > ((0 : GoInt32))) {
+                    return ((3.442619855899 : GoFloat64)) + _x;
+                };
+                return ((-3.442619855899 : GoFloat64)) - _x;
+            };
+            if (((_fn != null ? _fn[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fn != null ? _fn[_i - ((1 : GoInt32))] : ((0 : GoFloat32))) - (_fn != null ? _fn[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp((((-0.5 : GoFloat64)) * _x) * _x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+    @:keep
+    public function expFloat64():GoFloat64 {
+        var _r = __t__;
+        _r;
+        while (true) {
+            var _j:GoUInt32 = _r.uint32();
+            var _i:GoUInt32 = _j & ((255 : GoUInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_we != null ? _we[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_j < (_ke != null ? _ke[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoUInt32))) {
+                return ((7.69711747013105 : GoFloat64)) - stdgo.math.Math.log(_r.float64());
+            };
+            if (((_fe != null ? _fe[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fe != null ? _fe[_i - ((1 : GoUInt32))] : ((0 : GoFloat32))) - (_fe != null ? _fe[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp(-_x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+    public var __t__ : Rand;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
 }
-@:build(stdgo.internal.Macro.wrapper(Zipf)) class Zipf_static_extension {
-
+@:keep class Rand_static_extension {
+    @:keep
+    public static function read(_r:Ref<Rand>, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                return _lk._read(_p, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+            };
+        };
+        return _read(_p, _r._src, Go.pointer(_r._readVal), Go.pointer(_r._readPos));
+    }
+    @:keep
+    public static function shuffle(_r:Ref<Rand>, _n:GoInt, _swap:(_i:GoInt, _j:GoInt) -> Void):Void {
+        _r;
+        if (_n < ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Shuffle" : GoString))));
+        };
+        var _i:GoInt = _n - ((1 : GoInt));
+        Go.cfor(_i > ((2147483646 : GoInt)), _i--, {
+            var _j:GoInt = ((_r.int63n((((_i + ((1 : GoInt))) : GoInt64))) : GoInt));
+            _swap(_i, _j);
+        });
+        Go.cfor(_i > ((0 : GoInt)), _i--, {
+            var _j:GoInt = ((_r._int31n((((_i + ((1 : GoInt))) : GoInt32))) : GoInt));
+            _swap(_i, _j);
+        });
+    }
+    @:keep
+    public static function perm(_r:Ref<Rand>, _n:GoInt):Slice<GoInt> {
+        _r;
+        var _m:Slice<GoInt> = new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]);
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _n, _i++, {
+                var _j:GoInt = _r.intn(_i + ((1 : GoInt)));
+                if (_m != null) _m[_i] = (_m != null ? _m[_j] : ((0 : GoInt)));
+                if (_m != null) _m[_j] = _i;
+            });
+        };
+        return _m;
+    }
+    @:keep
+    public static function float32(_r:Ref<Rand>):GoFloat32 {
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat32 = ((_r.float64() : GoFloat32));
+            if (_f == ((1 : GoFloat32))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    @:keep
+    public static function float64(_r:Ref<Rand>):GoFloat64 {
+        _r;
+        return stdgo.internal.Macro.controlFlow({
+            @:label("again") var _f:GoFloat64 = ((_r.int63() : GoFloat64)) / ((9.223372036854776e+18 : GoFloat64));
+            if (_f == ((1 : GoFloat64))) {
+                @:goto "again";
+            };
+            return _f;
+        });
+    }
+    @:keep
+    public static function intn(_r:Ref<Rand>, _n:GoInt):GoInt {
+        _r;
+        if (_n <= ((0 : GoInt))) {
+            throw Go.toInterface(((("invalid argument to Intn" : GoString))));
+        };
+        if (_n <= ((2147483647 : GoInt))) {
+            return ((_r.int31n(((_n : GoInt32))) : GoInt));
+        };
+        return ((_r.int63n(((_n : GoInt64))) : GoInt));
+    }
+    @:keep
+    public static function _int31n(_r:Ref<Rand>, _n:GoInt32):GoInt32 {
+        _r;
+        var _v:GoUInt32 = _r.uint32();
+        var _prod:GoUInt64 = ((_v : GoUInt64)) * ((_n : GoUInt64));
+        var _low:GoUInt32 = ((_prod : GoUInt32));
+        if (_low < ((_n : GoUInt32))) {
+            var _thresh:GoUInt32 = ((-_n : GoUInt32)) % ((_n : GoUInt32));
+            while (_low < _thresh) {
+                _v = _r.uint32();
+                _prod = ((_v : GoUInt64)) * ((_n : GoUInt64));
+                _low = ((_prod : GoUInt32));
+            };
+        };
+        return (((_prod >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    @:keep
+    public static function int31n(_r:Ref<Rand>, _n:GoInt32):GoInt32 {
+        _r;
+        if (_n <= ((0 : GoInt32))) {
+            throw Go.toInterface(((("invalid argument to Int31n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt32)))) == ((0 : GoInt32))) {
+            return _r.int31() & (_n - ((1 : GoInt32)));
+        };
+        var _max:GoInt32 = (((((2147483647 : GoUInt32)) - ((("2147483648" : GoUInt32)) % ((_n : GoUInt32)))) : GoInt32));
+        var _v:GoInt32 = _r.int31();
+        while (_v > _max) {
+            _v = _r.int31();
+        };
+        return _v % _n;
+    }
+    @:keep
+    public static function int63n(_r:Ref<Rand>, _n:GoInt64):GoInt64 {
+        _r;
+        if (_n <= ((0 : GoInt64))) {
+            throw Go.toInterface(((("invalid argument to Int63n" : GoString))));
+        };
+        if ((_n & (_n - ((1 : GoInt64)))) == ((0 : GoInt64))) {
+            return _r.int63() & (_n - ((1 : GoInt64)));
+        };
+        var _max:GoInt64 = ((((("9223372036854775807" : GoUInt64)) - ((("9223372036854775808" : GoUInt64)) % ((_n : GoUInt64)))) : GoInt64));
+        var _v:GoInt64 = _r.int63();
+        while (_v > _max) {
+            _v = _r.int63();
+        };
+        return _v % _n;
+    }
+    @:keep
+    public static function int(_r:Ref<Rand>):GoInt {
+        _r;
+        var _u:GoUInt = ((_r.int63() : GoUInt));
+        return ((((_u << ((1 : GoUnTypedInt))) >> ((1 : GoUnTypedInt))) : GoInt));
+    }
+    @:keep
+    public static function int31(_r:Ref<Rand>):GoInt32 {
+        _r;
+        return (((_r.int63() >> ((32 : GoUnTypedInt))) : GoInt32));
+    }
+    @:keep
+    public static function uint64(_r:Ref<Rand>):GoUInt64 {
+        _r;
+        if (_r._s64 != null) {
+            return _r._s64.uint64();
+        };
+        return (((_r.int63() : GoUInt64)) >> ((31 : GoUnTypedInt))) | (((_r.int63() : GoUInt64)) << ((32 : GoUnTypedInt)));
+    }
+    @:keep
+    public static function uint32(_r:Ref<Rand>):GoUInt32 {
+        _r;
+        return (((_r.int63() >> ((31 : GoUnTypedInt))) : GoUInt32));
+    }
+    @:keep
+    public static function int63(_r:Ref<Rand>):GoInt64 {
+        _r;
+        return _r._src.int63();
+    }
+    @:keep
+    public static function seed(_r:Ref<Rand>, _seed:GoInt64):Void {
+        _r;
+        {
+            var __tmp__ = try {
+                { value : ((((_r._src.__underlying__().value : Dynamic)) : T_lockedSource)), ok : true };
+            } catch(_) {
+                { value : ((null : Ref<T_lockedSource>)), ok : false };
+            }, _lk = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                _lk._seedPos(_seed, Go.pointer(_r._readPos));
+                return;
+            };
+        };
+        _r._src.seed(_seed);
+        _r._readPos = ((0 : GoInt8));
+    }
+    @:keep
+    public static function normFloat64(_r:Ref<Rand>):GoFloat64 {
+        _r;
+        while (true) {
+            var _j:GoInt32 = ((_r.uint32() : GoInt32));
+            var _i:GoInt32 = _j & ((127 : GoInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_wn != null ? _wn[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_absInt32(_j) < (_kn != null ? _kn[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoInt32))) {
+                while (true) {
+                    _x = -stdgo.math.Math.log(_r.float64()) * ((0.29047645161474317 : GoFloat64));
+                    var _y:GoFloat64 = -stdgo.math.Math.log(_r.float64());
+                    if ((_y + _y) >= (_x * _x)) {
+                        break;
+                    };
+                };
+                if (_j > ((0 : GoInt32))) {
+                    return ((3.442619855899 : GoFloat64)) + _x;
+                };
+                return ((-3.442619855899 : GoFloat64)) - _x;
+            };
+            if (((_fn != null ? _fn[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fn != null ? _fn[_i - ((1 : GoInt32))] : ((0 : GoFloat32))) - (_fn != null ? _fn[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp((((-0.5 : GoFloat64)) * _x) * _x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+    @:keep
+    public static function expFloat64(_r:Ref<Rand>):GoFloat64 {
+        _r;
+        while (true) {
+            var _j:GoUInt32 = _r.uint32();
+            var _i:GoUInt32 = _j & ((255 : GoUInt32));
+            var _x:GoFloat64 = ((_j : GoFloat64)) * (((_we != null ? _we[_i] : ((0 : GoFloat32))) : GoFloat64));
+            if (_j < (_ke != null ? _ke[_i] : ((0 : GoUInt32)))) {
+                return _x;
+            };
+            if (_i == ((0 : GoUInt32))) {
+                return ((7.69711747013105 : GoFloat64)) - stdgo.math.Math.log(_r.float64());
+            };
+            if (((_fe != null ? _fe[_i] : ((0 : GoFloat32))) + (((_r.float64() : GoFloat32)) * ((_fe != null ? _fe[_i - ((1 : GoUInt32))] : ((0 : GoFloat32))) - (_fe != null ? _fe[_i] : ((0 : GoFloat32)))))) < ((stdgo.math.Math.exp(-_x) : GoFloat32))) {
+                return _x;
+            };
+        };
+    }
+}
+class T_lockedSource_wrapper {
+    @:keep
+    public function _read(_p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
+        var _r = __t__;
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        _r._lk.lock();
+        {
+            var __tmp__ = stdgo.math.rand.Rand._read(_p, _r._src, _readVal, _readPos);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        _r._lk.unlock();
+        return { _0 : _n, _1 : _err };
+    }
+    @:keep
+    public function _seedPos(_seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
+        var _r = __t__;
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _readPos.value = ((0 : GoInt8));
+        _r._lk.unlock();
+    }
+    @:keep
+    public function seed(_seed:GoInt64):Void {
+        var _r = __t__;
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _r._lk.unlock();
+    }
+    @:keep
+    public function uint64():GoUInt64 {
+        var _r = __t__;
+        _r;
+        var _n:GoUInt64 = ((0 : GoUInt64));
+        _r._lk.lock();
+        _n = _r._src.uint64();
+        _r._lk.unlock();
+        return _n;
+    }
+    @:keep
+    public function int63():GoInt64 {
+        var _r = __t__;
+        _r;
+        var _n:GoInt64 = ((0 : GoInt64));
+        _r._lk.lock();
+        _n = _r._src.int63();
+        _r._lk.unlock();
+        return _n;
+    }
+    public var __t__ : T_lockedSource;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+@:keep class T_lockedSource_static_extension {
+    @:keep
+    public static function _read(_r:Ref<T_lockedSource>, _p:Slice<GoByte>, _readVal:Pointer<GoInt64>, _readPos:Pointer<GoInt8>):{ var _0 : GoInt; var _1 : Error; } {
+        _r;
+        var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
+        _r._lk.lock();
+        {
+            var __tmp__ = stdgo.math.rand.Rand._read(_p, _r._src, _readVal, _readPos);
+            _n = __tmp__._0;
+            _err = __tmp__._1;
+        };
+        _r._lk.unlock();
+        return { _0 : _n, _1 : _err };
+    }
+    @:keep
+    public static function _seedPos(_r:Ref<T_lockedSource>, _seed:GoInt64, _readPos:Pointer<GoInt8>):Void {
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _readPos.value = ((0 : GoInt8));
+        _r._lk.unlock();
+    }
+    @:keep
+    public static function seed(_r:Ref<T_lockedSource>, _seed:GoInt64):Void {
+        _r;
+        _r._lk.lock();
+        _r._src.seed(_seed);
+        _r._lk.unlock();
+    }
+    @:keep
+    public static function uint64(_r:Ref<T_lockedSource>):GoUInt64 {
+        _r;
+        var _n:GoUInt64 = ((0 : GoUInt64));
+        _r._lk.lock();
+        _n = _r._src.uint64();
+        _r._lk.unlock();
+        return _n;
+    }
+    @:keep
+    public static function int63(_r:Ref<T_lockedSource>):GoInt64 {
+        _r;
+        var _n:GoInt64 = ((0 : GoInt64));
+        _r._lk.lock();
+        _n = _r._src.int63();
+        _r._lk.unlock();
+        return _n;
+    }
+}
+class T_rngSource_wrapper {
+    @:keep
+    public function uint64():GoUInt64 {
+        var _rng = __t__;
+        _rng;
+        _rng._tap--;
+        if (_rng._tap < ((0 : GoInt))) {
+            _rng._tap = _rng._tap + (((607 : GoInt)));
+        };
+        _rng._feed--;
+        if (_rng._feed < ((0 : GoInt))) {
+            _rng._feed = _rng._feed + (((607 : GoInt)));
+        };
+        var _x:GoInt64 = (_rng._vec != null ? _rng._vec[_rng._feed] : ((0 : GoInt64))) + (_rng._vec != null ? _rng._vec[_rng._tap] : ((0 : GoInt64)));
+        if (_rng._vec != null) _rng._vec[_rng._feed] = _x;
+        return ((_x : GoUInt64));
+    }
+    @:keep
+    public function int63():GoInt64 {
+        var _rng = __t__;
+        _rng;
+        return (((_rng.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
+    }
+    @:keep
+    public function seed(_seed:GoInt64):Void {
+        var _rng = __t__;
+        _rng;
+        _rng._tap = ((0 : GoInt));
+        _rng._feed = ((334 : GoInt));
+        _seed = _seed % ((2147483647 : GoInt64));
+        if (_seed < ((0 : GoInt64))) {
+            _seed = _seed + (((2147483647 : GoInt64)));
+        };
+        if (_seed == ((0 : GoInt64))) {
+            _seed = ((89482311 : GoInt64));
+        };
+        var _x:GoInt32 = ((_seed : GoInt32));
+        {
+            var _i:GoInt = ((-20 : GoInt));
+            Go.cfor(_i < ((607 : GoInt)), _i++, {
+                _x = _seedrand(_x);
+                if (_i >= ((0 : GoInt))) {
+                    var _u:GoInt64 = ((0 : GoInt64));
+                    _u = ((_x : GoInt64)) << ((40 : GoUnTypedInt));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)) << ((20 : GoUnTypedInt)));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)));
+                    _u = _u ^ ((_rngCooked != null ? _rngCooked[_i] : ((0 : GoInt64))));
+                    if (_rng._vec != null) _rng._vec[_i] = _u;
+                };
+            });
+        };
+    }
+    public var __t__ : T_rngSource;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+@:keep class T_rngSource_static_extension {
+    @:keep
+    public static function uint64(_rng:Ref<T_rngSource>):GoUInt64 {
+        _rng;
+        _rng._tap--;
+        if (_rng._tap < ((0 : GoInt))) {
+            _rng._tap = _rng._tap + (((607 : GoInt)));
+        };
+        _rng._feed--;
+        if (_rng._feed < ((0 : GoInt))) {
+            _rng._feed = _rng._feed + (((607 : GoInt)));
+        };
+        var _x:GoInt64 = (_rng._vec != null ? _rng._vec[_rng._feed] : ((0 : GoInt64))) + (_rng._vec != null ? _rng._vec[_rng._tap] : ((0 : GoInt64)));
+        if (_rng._vec != null) _rng._vec[_rng._feed] = _x;
+        return ((_x : GoUInt64));
+    }
+    @:keep
+    public static function int63(_rng:Ref<T_rngSource>):GoInt64 {
+        _rng;
+        return (((_rng.uint64() & (("9223372036854775807" : GoUInt64))) : GoInt64));
+    }
+    @:keep
+    public static function seed(_rng:Ref<T_rngSource>, _seed:GoInt64):Void {
+        _rng;
+        _rng._tap = ((0 : GoInt));
+        _rng._feed = ((334 : GoInt));
+        _seed = _seed % ((2147483647 : GoInt64));
+        if (_seed < ((0 : GoInt64))) {
+            _seed = _seed + (((2147483647 : GoInt64)));
+        };
+        if (_seed == ((0 : GoInt64))) {
+            _seed = ((89482311 : GoInt64));
+        };
+        var _x:GoInt32 = ((_seed : GoInt32));
+        {
+            var _i:GoInt = ((-20 : GoInt));
+            Go.cfor(_i < ((607 : GoInt)), _i++, {
+                _x = _seedrand(_x);
+                if (_i >= ((0 : GoInt))) {
+                    var _u:GoInt64 = ((0 : GoInt64));
+                    _u = ((_x : GoInt64)) << ((40 : GoUnTypedInt));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)) << ((20 : GoUnTypedInt)));
+                    _x = _seedrand(_x);
+                    _u = _u ^ (((_x : GoInt64)));
+                    _u = _u ^ ((_rngCooked != null ? _rngCooked[_i] : ((0 : GoInt64))));
+                    if (_rng._vec != null) _rng._vec[_i] = _u;
+                };
+            });
+        };
+    }
+}
+class Zipf_wrapper {
+    @:keep
+    public function uint64():GoUInt64 {
+        var _z = __t__;
+        _z;
+        if (_z == null) {
+            throw Go.toInterface(((("rand: nil Zipf" : GoString))));
+        };
+        var _k:GoFloat64 = ((0 : GoFloat64));
+        while (true) {
+            var _r:GoFloat64 = _z._r.float64();
+            var _ur:GoFloat64 = _z._hxm + (_r * _z._hx0minusHxm);
+            var _x:GoFloat64 = _z._hinv(_ur);
+            _k = stdgo.math.Math.floor(_x + ((0.5 : GoFloat64)));
+            if ((_k - _x) <= _z._s) {
+                break;
+            };
+            if (_ur >= (_z._h(_k + ((0.5 : GoFloat64))) - stdgo.math.Math.exp(-stdgo.math.Math.log(_k + _z._v) * _z._q))) {
+                break;
+            };
+        };
+        return ((_k : GoUInt64));
+    }
+    @:keep
+    public function _hinv(_x:GoFloat64):GoFloat64 {
+        var _z = __t__;
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQinv * stdgo.math.Math.log(_z._oneminusQ * _x)) - _z._v;
+    }
+    @:keep
+    public function _h(_x:GoFloat64):GoFloat64 {
+        var _z = __t__;
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
+    }
+    public var __t__ : Zipf;
+    public function new(__t__) this.__t__ = __t__;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+}
+@:keep class Zipf_static_extension {
+    @:keep
+    public static function uint64(_z:Ref<Zipf>):GoUInt64 {
+        _z;
+        if (_z == null) {
+            throw Go.toInterface(((("rand: nil Zipf" : GoString))));
+        };
+        var _k:GoFloat64 = ((0 : GoFloat64));
+        while (true) {
+            var _r:GoFloat64 = _z._r.float64();
+            var _ur:GoFloat64 = _z._hxm + (_r * _z._hx0minusHxm);
+            var _x:GoFloat64 = _z._hinv(_ur);
+            _k = stdgo.math.Math.floor(_x + ((0.5 : GoFloat64)));
+            if ((_k - _x) <= _z._s) {
+                break;
+            };
+            if (_ur >= (_z._h(_k + ((0.5 : GoFloat64))) - stdgo.math.Math.exp(-stdgo.math.Math.log(_k + _z._v) * _z._q))) {
+                break;
+            };
+        };
+        return ((_k : GoUInt64));
+    }
+    @:keep
+    public static function _hinv(_z:Ref<Zipf>, _x:GoFloat64):GoFloat64 {
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQinv * stdgo.math.Math.log(_z._oneminusQ * _x)) - _z._v;
+    }
+    @:keep
+    public static function _h(_z:Ref<Zipf>, _x:GoFloat64):GoFloat64 {
+        _z;
+        return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
+    }
 }

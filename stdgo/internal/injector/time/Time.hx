@@ -8,6 +8,8 @@ import stdgo.StdGoTypes;
 @:local
 final _localLoc = {};
 
+function forceUSPacificForTesting() {}
+
 function sleep(_d) {
 	final seconds = _d.toFloat() / 1000000000;
 	#if sys

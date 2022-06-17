@@ -31,10 +31,12 @@ enum GoType {
 class MethodType {
 	public var name:String;
 	public var type:GoType;
+	public var recv:GoType;
 
-	public function new(name, type) {
+	public function new(name, type, recv) {
 		this.name = name;
 		this.type = type;
+		this.recv = recv;
 	}
 
 	function toString():String

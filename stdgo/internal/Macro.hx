@@ -11,6 +11,7 @@ import haxe.macro.TypeTools;
 using Lambda;
 
 class Macro {
+
 	public static macro function controlFlow(body:Expr) {
 		final selectionName = "____select____";
 		final exitName = "____exit____";
@@ -168,6 +169,9 @@ class Macro {
 		}
 		return e;
 	}
+
+	public static function buildUnknown()
+		return null;
 
 	public static macro function intEnum():Array<Field> {
 		switch (Context.getLocalClass().get().kind) {

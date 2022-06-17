@@ -2,6 +2,7 @@ package stdgo.strings;
 
 import haxe.Rest;
 import stdgo.StdGoTypes;
+import stdgo.syscall.Syscall.Errno;
 
 using stdgo.GoString.GoStringTools;
 
@@ -10,14 +11,14 @@ final runeSelf:GoInt = 65533;
 
 @:structInit
 class Builder {
-	var buf:StringBuf;
+	var buf:GoString;
 
 	public function new() {
-		buf = new StringBuf();
+		buf = "";
 	}
 
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
-		buf.add((p : GoString).toString());
+		buf += (p : GoString);
 		return {_0: p.length, _1: null};
 	}
 
@@ -25,8 +26,12 @@ class Builder {
 		return {_0: 0, _1: null};
 	}
 
+	public function writeByte(c:GoByte):Error {
+		return null;
+	}
+
 	public function writeString(s:GoString):{_0:GoInt, _1:Error} {
-		buf.add(s.toString());
+		buf += s;
 		return {_0: s.length, _1: null};
 	}
 
@@ -41,6 +46,13 @@ class Builder {
 
 	public function __underlying__():AnyInterface
 		return null;
+}
+
+inline function cut(s:GoString, sep:GoString):{_0:GoString, _1:GoString, _2:Bool} {
+	final index = s.indexOf(sep);
+	if (index == -1)
+		return {_0: "", _1: "", _2: false};
+	return {_0: s.substr(0, index), _1: s.substr(index + sep.length), _2: true};
 }
 
 inline function contains(s:GoString, value:GoString):Bool {

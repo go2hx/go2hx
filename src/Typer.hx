@@ -1037,7 +1037,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				switch underlying {
 					case structType(fields):
 						for (field in fields) {
-							final field = formatHaxeFieldName(field.name);
+							final field = formatHaxeFieldName(field.name, info);
 							exprs.push(macro $e.$field);
 						}
 					default:
@@ -1930,7 +1930,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 								case structType(fields):
 									final exprs:Array<Expr> = [
 										for (field in fields) {
-											final field = formatHaxeFieldName(field.name);
+											final field = formatHaxeFieldName(field.name,info);
 											macro $x.$field = __tmp__.$field;
 										}
 									];
@@ -2825,7 +2825,7 @@ private function toReflectType(t:GoType, info:Info):Expr {
 		case structType(fields):
 			var exprs:Array<Expr> = [];
 			for (field in fields) {
-				final name = makeString(formatHaxeFieldName(field.name));
+				final name = makeString(formatHaxeFieldName(field.name, info));
 				final embedded = field.embedded ? macro true : macro false;
 				final tag = makeString(field.tag);
 				final t = toReflectType(field.type, info);
@@ -2908,7 +2908,7 @@ private function typeof(e:Ast.Expr):GoType {
 			final t = typeof(e.type);
 			if (e.name == "_" || e.name == "")
 				return t;
-			final name = formatHaxeFieldName(e.name);
+			final name = e.name;
 			_var(name, t);
 		case "Interface":
 			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
@@ -4714,7 +4714,7 @@ private function typeFieldListReturn(fieldList:Ast.FieldList, info:Info, retValu
 			if (name.name == "_") {
 				returnNames.push("_" + returnNames.length);
 			} else {
-				returnNames.push(formatHaxeFieldName(name.name));
+				returnNames.push(formatHaxeFieldName(name.name, info));
 			}
 			returnTypes.push(t);
 			returnComplexTypes.push(ct);
@@ -5545,8 +5545,8 @@ private function nameAscii(name:String):String {
 	return name;
 }
 
-private function formatHaxeFieldName(name:String) {
-	return nameIdent(name, false, false, null);
+private function formatHaxeFieldName(name:String, info) {
+	return nameIdent(name, false, false, info);
 }
 
 private function untitle(name:String):String {

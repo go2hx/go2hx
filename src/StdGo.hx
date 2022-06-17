@@ -39,7 +39,7 @@ function main() {
 	for (path in ["runtime/race"])
 		libs.remove(path); // remove
 	// libs = libs.concat(["sort"]);
-	libs = ["sort"];
+	// libs = ["sort"];
 	Main.setup(0, 4); // 4 processes of go4hx
 	Main.onComplete = complete;
 	trace(libs + " libs count: " + libs.length);

@@ -18,7 +18,6 @@ tests.txt
 !run.n
 dump
 *.js
-go
 yaegi
 *.bson
 libs

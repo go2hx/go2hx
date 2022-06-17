@@ -189,7 +189,10 @@ function update() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	Sys.sleep(0.06); // wait
+	for (client in clients) {
+		client.stream.write(Bytes.ofString("ping"));
+	}
+	Sys.sleep(2); // wait
 }
 
 function close() {
@@ -223,7 +226,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 	}
 	var index = 0;
-	server.listen(processCount, () -> {
+	server.listen(0, () -> {
 		final client:Client = {stream: server.accept(), id: index++};
 		clients.push(client);
 		var pos = 0;
@@ -244,13 +247,15 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Sys.print(proc.stderr.readAll());
 					}
 				}
-				client.stream.write(Bytes.ofString("exit"));
-				client.stream.close();
 				// close as stream has broken
 				trace("stream has broken");
-				// new process
-				processes.push(new sys.io.Process("./go4hx", ['$port'], false));
-				// close();
+				close();
+				return;
+			}
+			if (bytes.toString() == "pong")
+				return;
+			if (bytes.toString() == "ping") {
+				client.stream.write(Bytes.ofString("pong"));
 				return;
 			}
 			if (buff == null) {

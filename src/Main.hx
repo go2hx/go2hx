@@ -189,9 +189,6 @@ function update() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	for (client in clients) {
-		client.stream.write(Bytes.ofString("keep"));
-	}
 	Sys.sleep(2); // wait
 }
 
@@ -228,6 +225,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	var index = 0;
 	server.listen(0, () -> {
 		final client:Client = {stream: server.accept(), id: index++};
+		#if !hl
+		client.stream.size = 8;
+		#end
 		clients.push(client);
 		var pos = 0;
 		var buff:Bytes = null;
@@ -235,6 +235,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			client.runnable = true;
 			pos = 0;
 			buff = null;
+			#if !hl
+			client.stream.size = 8;
+			#end
 		}
 		client.stream.readStart(bytes -> {
 			if (bytes == null) {
@@ -254,6 +257,8 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+				if (len == 0)
+					return; // blank keep alive
 				#if !hl
 				client.stream.size = len;
 				#end

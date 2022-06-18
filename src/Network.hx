@@ -25,12 +25,12 @@ class Loop {
 class Stream {
 	var s:Socket = null;
 	var loop:Loop;
-	var start:Bool = true;
 
 	public var size:Int = 1;
 
 	public function new(s, loop) {
 		this.s = s;
+		this.s.setBlocking(false);
 		this.loop = loop;
 	}
 
@@ -46,15 +46,9 @@ class Stream {
 	public function readStart(call:Bytes->Void) {
 		loop.events.push(() -> {
 			try {
-				if (start) {
-					size = 1;
-					call(s.input.read(8));
-					start = false;
-				} else {
-					call(s.input.read(size));
-				}
+				call(s.input.read(size));
 			} catch (e) {
-				// trace(e);
+				trace(e);
 			}
 		});
 	}

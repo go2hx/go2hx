@@ -202,15 +202,7 @@ func main() {
 			return
 		}
 		input = input[:c]
-		if string(input) == "ping" {
-			_, err = conn.Write([]byte("pong"))
-			if err != nil {
-				panic("write length error: " + err.Error())
-				return
-			}
-			continue
-		}
-		if string(input) == "pong" {
+		if string(input) == "keep" {
 			continue
 		}
 		if string(input) == "exit" {

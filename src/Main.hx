@@ -190,7 +190,7 @@ function update() {
 	mainThread.events.progress();
 	#end
 	for (client in clients) {
-		client.stream.write(Bytes.ofString("ping"));
+		client.stream.write(Bytes.ofString("keep"));
 	}
 	Sys.sleep(2); // wait
 }
@@ -250,12 +250,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				// close as stream has broken
 				trace("stream has broken");
 				close();
-				return;
-			}
-			if (bytes.toString() == "pong")
-				return;
-			if (bytes.toString() == "ping") {
-				client.stream.write(Bytes.ofString("pong"));
 				return;
 			}
 			if (buff == null) {

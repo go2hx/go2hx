@@ -37,6 +37,7 @@ final gobyexampleExcludes = [
 ];
 final yaegiExcludes = [];
 final goExcludes = [];
+final unitExcludes = [];
 // @formatter:on
 var tasks:Array<TaskData> = [];
 var runsLeft:Int = 0;
@@ -183,7 +184,7 @@ private function testGo():Array<TestData> { // go tests
 	for (path in dir.readDirectory()) {
 		var name = path.withoutExtension();
 		path = dir + path;
-		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
+		if (path.isDirectory() || path.extension() != "go" || goExcludes.indexOf(path) != -1)
 			continue;
 		final input = File.read(path, false);
 		final line = input.readLine().substr(3);
@@ -292,7 +293,7 @@ private function testUnit():Array<TestData> {
 	for (path in dir.readDirectory()) {
 		final name = path.withoutExtension();
 		path = dir + path;
-		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
+		if (path.isDirectory() || path.extension() != "go" || unitExcludes.indexOf(path) != -1)
 			continue;
 		tests.push({
 			name: name,

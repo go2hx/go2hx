@@ -246,8 +246,11 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 					final code = proc.exitCode(false);
 					if (code == null)
 						continue;
+					trace("proc code:", code);
 					if (code != 0) {
 						Sys.print(proc.stderr.readAll());
+					} else {
+						Sys.print(proc.stdout.readAll());
 					}
 				}
 				// close as stream has broken
@@ -257,8 +260,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
-				if (len == 0)
-					return; // blank keep alive
 				#if !hl
 				client.stream.size = len;
 				#end

@@ -205,18 +205,7 @@ func main() {
 		tick = 0
 		args := strings.Split(string(input), " ")
 		index := args[0]
-		keepAlive := true
-		go func() {
-			time.Sleep(time.Second * 2)
-			for keepAlive {
-				buff := make([]byte, 8)
-				binary.LittleEndian.PutUint64(buff, uint64(0))
-				_, err = conn.Write(buff) // write blank
-				time.Sleep(time.Second * 2)
-			}
-		}()
 		data := compile(args[1:], excludesData, index, false)
-		keepAlive = false
 		length := len(data)
 		buff := make([]byte, 8)
 		binary.LittleEndian.PutUint64(buff, uint64(length))

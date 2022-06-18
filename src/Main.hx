@@ -248,6 +248,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						continue;
 					trace("proc code:", code);
 					if (code != 0) {
+						trace("line: " + proc.stderr.readLine());
 						Sys.print(proc.stderr.readAll());
 					} else {
 						Sys.print(proc.stdout.readAll());

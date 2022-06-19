@@ -34,9 +34,13 @@ class Stream {
 		this.loop = loop;
 	}
 
-	public function write(b:Bytes) {
+	public function write(b:Bytes, ?onWrite:Bool->Void) {
+		s.setBlocking(true);
 		s.output.writeBytes(b, 0, b.length);
 		s.output.flush();
+		s.setBlocking(false);
+		if (onWrite != null)
+			onWrite(true);
 	}
 
 	public function close() {

@@ -186,6 +186,9 @@ func main() {
 		return
 	}
 	tick := 0
+	compiling := false
+	until := byte(4)
+	buff := []byte{}
 	for {
 		input := make([]byte, 2056)
 		c, err := conn.Read(input)
@@ -194,35 +197,59 @@ func main() {
 			if tick > 120 {
 				return
 			}
-			time.Sleep(60 * time.Millisecond)
+			time.Sleep(time.Second)
 			continue
 		}
 		if err != nil {
 			panic("read error: " + err.Error())
 			return
 		}
-		input = input[:c]
+		e := input[:c]
+		buff = append(buff, e...)
+		message := []byte{}
+		for p, c := range buff {
+			if c == until {
+				message = buff[:p]
+				buff = buff[p+1:]
+				break
+			}
+		}
+		if len(message) == 0 {
+			continue
+		}
+		if string(message) == "keep" {
+			continue
+		}
 		tick = 0
-		args := strings.Split(string(input), " ")
+		args := strings.Split(string(message), " ")
+		if len(args) < 1 {
+			continue // not enough args
+		}
 		index := args[0]
-		data := compile(args[1:], excludesData, index, false)
-		length := len(data)
-		buff := make([]byte, 8)
-		binary.LittleEndian.PutUint64(buff, uint64(length))
-		_, err = conn.Write(buff)
-		if err != nil {
-			panic("write length error: " + err.Error())
-			return
+		if compiling {
+			continue
 		}
-		_, err = conn.Write(data)
-		data = nil
-		input = nil
-		if err != nil {
-			panic("write error: " + err.Error())
-			return
-		}
-		debug.FreeOSMemory()
-		runtime.GC()
+		compiling = true
+		go func() {
+			data := compile(args[1:], excludesData, index, false)
+			length := len(data)
+			buff := make([]byte, 8)
+			binary.LittleEndian.PutUint64(buff, uint64(length))
+			_, err = conn.Write(buff)
+			if err != nil {
+				panic("write length error: " + err.Error())
+				return
+			}
+			_, err = conn.Write(data)
+			data = nil
+			input = nil
+			if err != nil {
+				panic("write error: " + err.Error())
+				return
+			}
+			debug.FreeOSMemory()
+			runtime.GC()
+		}()
 	}
 }
 

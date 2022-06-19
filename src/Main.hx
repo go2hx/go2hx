@@ -189,7 +189,10 @@ function update() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	Sys.sleep(2); // wait
+	for (client in clients) {
+		client.stream.write(Bytes.ofString("keep\x04"));
+	}
+	Sys.sleep(1.5); // wait
 }
 
 function close() {
@@ -202,12 +205,10 @@ function close() {
 		} catch (_) {}
 	}
 	#end
+	for (client in clients)
+		client.stream.close();
 	for (process in processes)
 		process.close();
-	for (client in clients) {
-		client.stream.write(Bytes.ofString("exit"));
-		client.stream.close();
-	}
 	server.close();
 	Sys.exit(0);
 }
@@ -217,7 +218,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
 	server.bind(new sys.net.Host("127.0.0.1"), port);
-	// server.noDelay(true);
+	server.noDelay(true);
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
@@ -248,7 +249,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						continue;
 					trace("proc code:", code);
 					if (code != 0) {
-						trace("line: " + proc.stderr.readLine());
 						Sys.print(proc.stderr.readAll());
 					} else {
 						Sys.print(proc.stdout.readAll());
@@ -482,7 +482,7 @@ function write(args:Array<String>, instance:InstanceData):Bool {
 			args.unshift('$i');
 			break;
 		}
-		client.stream.write(Bytes.ofString(args.join(" ")));
+		client.stream.write(Bytes.ofString(args.join(" ") + "\x04"));
 		client.runnable = false;
 		return true;
 	}

@@ -56,7 +56,7 @@ function main() {
 	Main.onComplete = complete;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
-
+	// go by example, stdlib, yaegi, go internal tests, unit regression tests
 	// final tests = testGoByExample().concat(test883().concat(testStd())).slice(0, 2);
 	final tests = testUnit();
 	for (test in tests) { // create TestSuite data class
@@ -90,6 +90,7 @@ final targets = ["interp"];
 private function update() {
 	processPool.update();
 	Main.update();
+	trace("TASKS LEFT: " + tasks.map(task -> task.data.name));
 	for (task in tasks) {
 		final instance = Main.compileArgs(task.args);
 		instance.data = task;
@@ -192,7 +193,7 @@ private function testGo():Array<TestData> { // go tests
 			continue;
 		tests.push({
 			name: name,
-			type: "yaegi",
+			type: "go",
 			path: path,
 			exclude: "",
 			test: false,

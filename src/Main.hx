@@ -29,6 +29,7 @@ class Client {
 	public var stream:Stream;
 	public var runnable:Bool = true; // start out as true
 	public var id:Int = 0;
+	public var retries:Int = 0;
 
 	public function new(stream, id) {
 		this.stream = stream;
@@ -189,10 +190,7 @@ function update() {
 	#if (target.threaded)
 	mainThread.events.progress();
 	#end
-	for (client in clients) {
-		client.stream.write(Bytes.ofString("keep\x04"));
-	}
-	Sys.sleep(1.5); // wait
+	Sys.sleep(0.5); // wait
 }
 
 function close() {
@@ -225,21 +223,14 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	}
 	var index = 0;
 	server.listen(0, () -> {
-		final client:Client = {stream: server.accept(), id: index++};
+		index++;
+		final client:Client = {stream: server.accept(), id: -1};
 		#if !hl
 		client.stream.size = 8;
 		#end
 		clients.push(client);
 		var pos = 0;
 		var buff:Bytes = null;
-		function reset() {
-			client.runnable = true;
-			pos = 0;
-			buff = null;
-			#if !hl
-			client.stream.size = 8;
-			#end
-		}
 		client.stream.readStart(bytes -> {
 			if (bytes == null) {
 				// health check
@@ -281,7 +272,16 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				var outputPath = instance.outputPath;
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];
-				reset();
+				// reset
+				// trace("CLIENT RESET");
+				client.runnable = true;
+				client.retries = 0;
+				pos = 0;
+				buff = null;
+				#if !hl
+				client.stream.size = 8;
+				#end
+
 				for (module in modules) {
 					if (instance.libwrap && !module.isMain) {
 						Sys.setCwd(cwd);
@@ -471,22 +471,33 @@ function compile(instance:InstanceData):Bool {
 	return write(instance.args, instance);
 }
 
-function write(args:Array<String>, instance:InstanceData):Bool {
+function getClient() {
 	for (client in clients) {
-		if (!client.runnable)
-			continue;
-		for (i in 0...instanceCache.length) {
-			if (instanceCache[i] != null)
-				continue;
-			instanceCache[i] = instance;
-			args.unshift('$i');
-			break;
+		if (client.runnable)
+			return client;
+		if (++client.retries > 30) {
+			trace("Client has retried too many times, giving up");
+			trace(instanceCache[client.id].data);
 		}
-		client.stream.write(Bytes.ofString(args.join(" ") + "\x04"));
-		client.runnable = false;
-		return true;
 	}
-	return false;
+	return null;
+}
+
+function write(args:Array<String>, instance:InstanceData):Bool {
+	final client = getClient();
+	if (client == null)
+		return false;
+	for (i in 0...instanceCache.length) {
+		if (instanceCache[i] != null)
+			continue;
+		client.id = i;
+		instanceCache[i] = instance;
+		args.unshift('$i');
+		break;
+	}
+	client.stream.write(Bytes.ofString(args.join(" ")));
+	client.runnable = false;
+	return true;
 }
 
 final instanceCache = new Vector<InstanceData>(20);

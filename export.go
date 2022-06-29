@@ -14,7 +14,6 @@ import (
 	"path/filepath"
 	"runtime"
 	"runtime/debug"
-	"time"
 
 	_ "embed"
 	"os"
@@ -176,80 +175,44 @@ func main() {
 		stdgoList[stdgo] = true
 	}
 	_, err = strconv.Atoi(port)
-	if err != nil { // not a port, test compile
+	if err != nil { // not set to a port, test compile
 		compile(args[1:], excludesData, "0", true)
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
+	defer conn.Close()
 	if err != nil {
 		panic("dial: " + err.Error())
 		return
 	}
-	tick := 0
-	compiling := false
-	until := byte(4)
-	buff := []byte{}
 	for {
 		input := make([]byte, 2056)
 		c, err := conn.Read(input)
-		tick++
-		if c == 0 {
-			if tick > 120 {
-				return
-			}
-			time.Sleep(time.Second)
-			continue
-		}
 		if err != nil {
 			panic("read error: " + err.Error())
 			return
 		}
-		e := input[:c]
-		buff = append(buff, e...)
-		message := []byte{}
-		for p, c := range buff {
-			if c == until {
-				message = buff[:p]
-				buff = buff[p+1:]
-				break
-			}
-		}
-		if len(message) == 0 {
-			continue
-		}
-		if string(message) == "keep" {
-			continue
-		}
-		tick = 0
-		args := strings.Split(string(message), " ")
-		if len(args) < 1 {
-			continue // not enough args
-		}
+		input = input[:c]
+		args := strings.Split(string(input), " ")
 		index := args[0]
-		if compiling {
-			continue
+		data := compile(args[1:], excludesData, index, false)
+		length := len(data)
+		buff := make([]byte, 8)
+		binary.LittleEndian.PutUint64(buff, uint64(length))
+		_, err = conn.Write(buff)
+		if err != nil {
+			panic("write length error: " + err.Error())
+			return
 		}
-		compiling = true
-		go func() {
-			data := compile(args[1:], excludesData, index, false)
-			length := len(data)
-			buff := make([]byte, 8)
-			binary.LittleEndian.PutUint64(buff, uint64(length))
-			_, err = conn.Write(buff)
-			if err != nil {
-				panic("write length error: " + err.Error())
-				return
-			}
-			_, err = conn.Write(data)
-			data = nil
-			input = nil
-			if err != nil {
-				panic("write error: " + err.Error())
-				return
-			}
-			debug.FreeOSMemory()
-			runtime.GC()
-		}()
+		_, err = conn.Write(data)
+		data = nil
+		input = nil
+		if err != nil {
+			panic("write error: " + err.Error())
+			return
+		}
+		debug.FreeOSMemory()
+		runtime.GC()
 	}
 }
 

@@ -12,15 +12,15 @@ var errTooLarge : stdgo.Error = stdgo.errors.Errors.new_(((("bytes.Buffer: too l
 var _errNegativeRead : stdgo.Error = stdgo.errors.Errors.new_(((("bytes.Buffer: reader returned negative count from Read" : GoString))));
 var _errUnreadByte : stdgo.Error = stdgo.errors.Errors.new_(((("bytes.Buffer: UnreadByte: previous operation was not a successful read" : GoString))));
 var _asciiSpace : GoArray<GoUInt8> = {
-        var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) 0]);
-        s[0] = ((1 : GoUInt8));
-        s[1] = ((1 : GoUInt8));
-        s[2] = ((1 : GoUInt8));
-        s[3] = ((1 : GoUInt8));
-        s[4] = ((1 : GoUInt8));
-        s[5] = ((1 : GoUInt8));
-        s;
-    };
+    var s:GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) 0]);
+    s[0] = ((1 : GoUInt8));
+    s[1] = ((1 : GoUInt8));
+    s[2] = ((1 : GoUInt8));
+    s[3] = ((1 : GoUInt8));
+    s[4] = ((1 : GoUInt8));
+    s[5] = ((1 : GoUInt8));
+    s;
+};
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public var _off : GoInt = ((0 : GoInt));

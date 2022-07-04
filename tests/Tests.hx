@@ -63,6 +63,7 @@ function main() {
 		if (suites[test.type] == null)
 			suites[test.type] = new TestSuite();
 	}
+	tests.sort((a, b) -> a.name > b.name ? 1 : -1);
 	// add tests to task list
 	for (test in tests) {
 		final hxml = "tests/" + test.type + "_" + sanatize(test.name);
@@ -237,8 +238,7 @@ private function close() {
 		log('      success: ' + calc(suite.successCount, suite.count));
 		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
 		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
-		log('      failing: ' + suite.failing.join(" "));
-		log('      passing: ' + suite.passing.join(" "));
+		log(' test results:\n' + suite.testList.map(info -> "    " + (info.passing ? "[x]" : "[ ]") + " " + info.name).join("\n"));
 	}
 	logOutput.close();
 	Main.close();
@@ -348,31 +348,30 @@ class TestSuite {
 	public var successCount:Int = 0;
 	public var correctCount:Int = 0;
 	public var count:Int = 0;
-	public var passing:Array<String> = [];
-	public var failing:Array<String> = [];
+	public var testList:Array<{passing:Bool, name:String}> = [];
 
 	public function new() {}
 
 	public function buildError(name:String) {
-		failing.push(name);
+		testList.push({name: name, passing: false});
 		buildErrorCount++;
 		count++;
 	}
 
 	public function runtimeError(name:String) {
-		failing.push(name);
+		testList.push({name: name, passing: false});
 		runtimeErrorCount++;
 		count++;
 	}
 
 	public function success(name:String) { // passess running the test
-		passing.push(name);
+		testList.push({name: name, passing: true});
 		successCount++;
 		count++;
 	}
 
 	public function correct(name:String) { // correct matching output
-		passing.push(name);
+		testList.push({name: name, passing: true});
 		correctCount++;
 		count++;
 	}

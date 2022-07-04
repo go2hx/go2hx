@@ -76,6 +76,7 @@ function main() {
 			target: "",
 			hxml: hxml,
 			args: compilerArgs,
+			command: "",
 		};
 		tasks.push(data);
 	}
@@ -106,11 +107,11 @@ final hadError:Map<String, Bool> = [];
 
 private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runBool:Bool) {
 	if (code == 0) {
-		suites[task.data.type].success(task.data.name);
+		suites[task.data.type].success(task);
 	} else {
 		if (runBool) {
 			log(task.data.name + '.go `$command` runtime error: $code');
-			suites[task.data.type].runtimeError(task.data.name);
+			suites[task.data.type].runtimeError(task);
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
 			while (true) {
@@ -129,7 +130,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 					break;
 				}
 			}
-			suites[task.data.type].buildError(task.data.name);
+			suites[task.data.type].buildError(task);
 		}
 	}
 
@@ -142,7 +143,9 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 private function complete(modules:Array<Typer.Module>, obj:TaskData) {
 	// spawn targets
 	for (target in targets) {
+		final obj = obj.copy();
 		var command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml";
+		obj.target = target;
 		final out = createTargetOutput(target, obj.data.type, obj.data.name);
 		final args = obj.data.exclude == "" ? [] : ["-excludes"].concat(obj.data.exclude.split(" "));
 		if (target != "interp") {
@@ -155,6 +158,7 @@ private function complete(modules:Array<Typer.Module>, obj:TaskData) {
 			command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1)
 				+ args.join(" ");
 		}
+		obj.command = command;
 		processPool.run(command, obj, false);
 	}
 }
@@ -238,9 +242,11 @@ private function close() {
 		log('      success: ' + calc(suite.successCount, suite.count));
 		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
 		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
-
-		suite.testList.sort((a, b) -> a.name > b.name ? 1 : -1); // sort test list by name
-		log(' test results:\n' + suite.testList.map(info -> "    " + (info.passing ? "[x]" : "[ ]") + " " + info.name).join("\n"));
+		suite.dataList.sort((a, b) -> a.task.data.name > b.task.data.name ? 1 : -1); // sort test list by name
+		log(' test results:\n'
+			+ suite.dataList.map(data -> "    " + (data.passing ? "[x]" : "[ ]") + " " + data.task.data.name + " target: " + data.task.target + " command: "
+				+ StringTools.lpad(data.task.command, " ", 60))
+				.join("\n"));
 	}
 	logOutput.close();
 	Main.close();
@@ -341,7 +347,26 @@ private function testGoByExample():Array<TestData> { // gobyexample
 }
 
 typedef TestData = {name:String, type:String, path:String, exclude:String, test:Bool};
-typedef TaskData = {target:String, args:Array<String>, data:TestData, hxml:String};
+
+@:structInit
+class TaskData {
+	public var target:String = "";
+	public var args:Array<String> = [];
+	public var data:TestData = null;
+	public var hxml:String = "";
+	public var command:String = "";
+
+	public function new(target, args, data, hxml, command) {
+		this.target = target;
+		this.args = args;
+		this.data = data;
+		this.hxml = hxml;
+		this.command = command;
+	}
+
+	public function copy()
+		return new TaskData(target, args, data, hxml, command);
+}
 
 class TestSuite {
 	public var excludes:Array<String> = [];
@@ -350,30 +375,30 @@ class TestSuite {
 	public var successCount:Int = 0;
 	public var correctCount:Int = 0;
 	public var count:Int = 0;
-	public var testList:Array<{passing:Bool, name:String}> = [];
+	public var dataList:Array<{task:TaskData, passing:Bool}> = [];
 
 	public function new() {}
 
-	public function buildError(name:String) {
-		testList.push({name: name, passing: false});
+	public function buildError(task:TaskData) {
+		dataList.push({task: task, passing: false});
 		buildErrorCount++;
 		count++;
 	}
 
-	public function runtimeError(name:String) {
-		testList.push({name: name, passing: false});
+	public function runtimeError(task:TaskData) {
+		dataList.push({task: task, passing: false});
 		runtimeErrorCount++;
 		count++;
 	}
 
-	public function success(name:String) { // passess running the test
-		testList.push({name: name, passing: true});
+	public function success(task:TaskData) { // passess running the test
+		dataList.push({task: task, passing: true});
 		successCount++;
 		count++;
 	}
 
-	public function correct(name:String) { // correct matching output
-		testList.push({name: name, passing: true});
+	public function correct(task:TaskData) { // correct matching output
+		dataList.push({task: task, passing: true});
 		correctCount++;
 		count++;
 	}

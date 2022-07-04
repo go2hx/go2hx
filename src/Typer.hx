@@ -4245,7 +4245,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		});
 		if (!recvGeneric) {
 			// params = getParams(decl.typeParams, info);
-			// params = getParams(decl.type.typeParams, info);
+			params = getParams(decl.type.typeParams, info);
 		}
 		access.push(AMacro);
 		final funcArgs = [
@@ -4348,13 +4348,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			}
 		}
 		final className = "T_" + info.className + "_" + info.funcName + "_";
-		final call = macro $p{["$i{className}", info.funcName]}($a{nameArgs});
+		final call = macro $p{["$p{pack.concat([className])}", info.funcName]}($a{nameArgs});
 		block = macro {
 			final tds = [];
-			$b{genericTypes};
 			final block = @:macro $block;
 			var className = ${makeString(className)};
 			$b{extension};
+			final pack = ["stdgo", "generic", className.toLowerCase()];
 			// $b{extensionDebug};
 			try {
 				haxe.macro.Context.getType(className);
@@ -4377,11 +4377,9 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 					],
 					kind: TDClass(),
 				};
-				final modulePath = haxe.macro.Context.getLocalModule().split(".");
-				modulePath.pop();
-				modulePath.push(className);
+				$b{genericTypes};
 				tds.push(td);
-				haxe.macro.Context.defineModule(modulePath.join("."), tds, haxe.macro.Context.getLocalImports());
+				haxe.macro.Context.defineModule(pack.concat([className]).join("."), tds, haxe.macro.Context.getLocalImports());
 			}
 			return @:macro $call;
 		};

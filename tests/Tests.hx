@@ -63,7 +63,7 @@ function main() {
 		if (suites[test.type] == null)
 			suites[test.type] = new TestSuite();
 	}
-	tests.sort((a, b) -> a.name > b.name ? 1 : -1);
+	tests.sort((a, b) -> a.name > b.name ? 1 : -1); // consistent across os targets
 	// add tests to task list
 	for (test in tests) {
 		final hxml = "tests/" + test.type + "_" + sanatize(test.name);
@@ -238,6 +238,8 @@ private function close() {
 		log('      success: ' + calc(suite.successCount, suite.count));
 		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
 		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
+
+		suite.testList.sort((a, b) -> a.name > b.name ? 1 : -1); // sort test list by name
 		log(' test results:\n' + suite.testList.map(info -> "    " + (info.passing ? "[x]" : "[ ]") + " " + info.name).join("\n"));
 	}
 	logOutput.close();

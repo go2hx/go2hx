@@ -105,11 +105,11 @@ final hadError:Map<String, Bool> = [];
 
 private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runBool:Bool) {
 	if (code == 0) {
-		suites[task.data.type].sucess();
+		suites[task.data.type].success(task.data.name);
 	} else {
 		if (runBool) {
 			log(task.data.name + '.go `$command` runtime error: $code');
-			suites[task.data.type].runtimeError();
+			suites[task.data.type].runtimeError(task.data.name);
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
 			while (true) {
@@ -128,7 +128,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 					break;
 				}
 			}
-			suites[task.data.type].buildError();
+			suites[task.data.type].buildError(task.data.name);
 		}
 	}
 
@@ -233,11 +233,12 @@ private function close() {
 	}
 	for (type => suite in suites) {
 		log('--> $type');
-
 		log('      correct: ' + calc(suite.correctCount, suite.count));
 		log('      success: ' + calc(suite.successCount, suite.count));
 		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
 		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
+		log('      failing: ' + suite.failing.join(" "));
+		log('      passing: ' + suite.passing.join(" "));
 	}
 	logOutput.close();
 	Main.close();
@@ -347,25 +348,31 @@ class TestSuite {
 	public var successCount:Int = 0;
 	public var correctCount:Int = 0;
 	public var count:Int = 0;
+	public var passing:Array<String> = [];
+	public var failing:Array<String> = [];
 
 	public function new() {}
 
-	public function buildError() {
+	public function buildError(name:String) {
+		failing.push(name);
 		buildErrorCount++;
 		count++;
 	}
 
-	public function runtimeError() {
+	public function runtimeError(name:String) {
+		failing.push(name);
 		runtimeErrorCount++;
 		count++;
 	}
 
-	public function sucess() {
+	public function success(name:String) { // passess running the test
+		passing.push(name);
 		successCount++;
 		count++;
 	}
 
-	public function correct() {
+	public function correct(name:String) { // correct matching output
+		passing.push(name);
 		correctCount++;
 		count++;
 	}

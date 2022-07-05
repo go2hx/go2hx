@@ -35,7 +35,7 @@ function main() {
 		libs.remove(path); // remove
 	// libs = libs.concat(["sort"]);
 	// libs = ["sort"];
-	Main.setup(0, 4); // 4 processes of go4hx
+	Main.setup(0, 2); // amount of processes to spawn
 	Main.onComplete = complete;
 	trace(libs + " libs count: " + libs.length);
 	if (libs.length == 0)

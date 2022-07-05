@@ -49,11 +49,11 @@ class Stream {
 
 	public function readStart(call:Bytes->Void) {
 		loop.events.push(() -> {
-			try {
-				call(s.input.read(size));
-			} catch (e) {
-				trace(e);
-			}
+			// try {
+			call(s.input.read(size));
+			// } catch (e) {
+			// trace(e);
+			// }
 		});
 	}
 }

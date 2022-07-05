@@ -1097,7 +1097,7 @@ function _ensureEOF(_r:stdgo.io.Io.Reader):Error {
                 } };
             };
             _whyOnlyPAX = ((("only PAX supports TypeXGlobalHeader" : GoString)));
-            _format._mayOnlyBe(((4 : GoInt)));
+            _format._mayOnlyBe(Go.pointer(_format), ((4 : GoInt)));
         };
         if (!_isHeaderOnlyType(_h.typeflag) && (_h.size < ((0 : GoInt64)))) {
             return { _0 : ((0 : GoInt)), _1 : ((null : GoMap<GoString, GoString>)), _2 : {
@@ -1111,7 +1111,7 @@ function _ensureEOF(_r:stdgo.io.Io.Reader):Error {
                 if (_paxHdrs != null) _paxHdrs[((("SCHILY.xattr." : GoString))) + _k] = _v;
             };
             _whyOnlyPAX = ((("only PAX supports Xattrs" : GoString)));
-            _format._mayOnlyBe(((4 : GoInt)));
+            _format._mayOnlyBe(Go.pointer(_format), ((4 : GoInt)));
         };
         if ((_h.paxrecords != null ? _h.paxrecords.length : ((0 : GoInt))) > ((0 : GoInt))) {
             for (_k => _v in _h.paxrecords) {
@@ -1127,7 +1127,7 @@ function _ensureEOF(_r:stdgo.io.Io.Reader):Error {
                 };
             };
             _whyOnlyPAX = ((("only PAX supports PAXRecords" : GoString)));
-            _format._mayOnlyBe(((4 : GoInt)));
+            _format._mayOnlyBe(Go.pointer(_format), ((4 : GoInt)));
         };
         for (_k => _v in _paxHdrs) {
             if (!_validPAXRecord(_k, _v)) {
@@ -1142,9 +1142,9 @@ function _ensureEOF(_r:stdgo.io.Io.Reader):Error {
             var _wantFormat:Format = _h.format;
             if (_wantFormat != ((0 : GoInt))) {
                 if (_wantFormat._has(((4 : GoInt))) && !_preferPAX) {
-                    _wantFormat._mayBe(((2 : GoInt)));
+                    _wantFormat._mayBe(Go.pointer(_wantFormat), ((2 : GoInt)));
                 };
-                _format._mayOnlyBe(_wantFormat);
+                _format._mayOnlyBe(Go.pointer(_format), _wantFormat);
             };
         };
         if (_format == ((0 : GoInt))) {
@@ -1372,7 +1372,7 @@ class T_headerFileInfo_wrapper {
         if (_blk._getFormat() != ((8 : GoInt))) {
             return { _0 : null, _1 : errHeader };
         };
-        _hdr.format._mayOnlyBe(((8 : GoInt)));
+        _hdr.format._mayOnlyBe(Go.pointer(_hdr.format), ((8 : GoInt)));
         var _p:T_parser = new T_parser();
         _hdr.size = _p._parseNumeric(_blk._toGNU()._realSize());
         if (_p._err != null) {
@@ -1541,7 +1541,7 @@ class T_headerFileInfo_wrapper {
         } else {
             return { _0 : null, _1 : ((null : stdgo.Error)) };
         };
-        _hdr.format._mayOnlyBe(((4 : GoInt)));
+        _hdr.format._mayOnlyBe(Go.pointer(_hdr.format), ((4 : GoInt)));
         {
             var _name:GoString = (_hdr.paxrecords != null ? _hdr.paxrecords[((("GNU.sparse.name" : GoString)))] : (("" : GoString)));
             if (_name != ((("" : GoString)))) {
@@ -1641,9 +1641,9 @@ class T_headerFileInfo_wrapper {
                     return { _0 : null, _1 : _err };
                 };
             };
-            _format._mayOnlyBe(_hdr.format);
+            _format._mayOnlyBe(Go.pointer(_format), _hdr.format);
             if (_hdr.typeflag == ((120 : GoUInt8)) || _hdr.typeflag == ((103 : GoUInt8))) {
-                _format._mayOnlyBe(((4 : GoInt)));
+                _format._mayOnlyBe(Go.pointer(_format), ((4 : GoInt)));
                 {
                     var __tmp__ = _parsePAX(_tr);
                     _paxHdrs = __tmp__._0;
@@ -1658,7 +1658,7 @@ class T_headerFileInfo_wrapper {
                 };
                 continue;
             } else if (_hdr.typeflag == ((76 : GoUInt8)) || _hdr.typeflag == ((75 : GoUInt8))) {
-                _format._mayOnlyBe(((8 : GoInt)));
+                _format._mayOnlyBe(Go.pointer(_format), ((8 : GoInt)));
                 var __tmp__ = stdgo.io.Io.readAll(_tr), _realname:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
                     return { _0 : null, _1 : _err };
@@ -1703,7 +1703,7 @@ class T_headerFileInfo_wrapper {
                     };
                 };
                 if (_format._has(((2 : GoInt))) && _format._has(((4 : GoInt)))) {
-                    _format._mayOnlyBe(((2 : GoInt)));
+                    _format._mayOnlyBe(Go.pointer(_format), ((2 : GoInt)));
                 };
                 _hdr.format = _format;
                 return { _0 : _hdr, _1 : ((null : stdgo.Error)) };

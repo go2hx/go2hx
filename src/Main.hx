@@ -409,7 +409,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		}
 		content = content.substr(0, content.length - 1);
 		File.saveContent(instance.hxmlPath, content);
-		// Sys.println('Generated: $hxmlPath - ' + shared.Util.kbCount(content) + "kb");
+		Sys.println('Generated: ' + instance.hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
 	}
 }
 
@@ -475,9 +475,9 @@ function getClient() {
 	for (client in clients) {
 		if (client.runnable)
 			return client;
-		if (++client.retries > 30) {
+		if (++client.retries > 2 * 240) { // 240 seconds
 			trace("Client has retried too many times, giving up");
-			trace(instanceCache[client.id].data);
+			trace(instanceCache[client.id].data, client.id);
 		}
 	}
 	return null;
@@ -518,6 +518,8 @@ class InstanceData {
 	public var noRun:Bool = false;
 	public var noComments:Bool = false;
 	public var test:Bool = false;
+
+	public var noCommentsBool:Bool = false;
 
 	public final defines:Array<String> = [];
 

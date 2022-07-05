@@ -28,7 +28,7 @@ var _closedChan : Chan<T__struct_0> = ((null : Chan<T__struct_0>));
 **/
 function maybeReadByte(_r:stdgo.io.Io.Reader):Void {
         _closedChanOnce.do_(function():Void {
-            _closedChan = new Chan<T__struct_0>(0, () -> new T__struct_0());
+            _closedChan = new Chan<{ }>(0, () -> null);
             if (_closedChan != null) _closedChan.__close__();
         });
         Go.select([_closedChan.__get__() => {

@@ -9,35 +9,16 @@ final path = Sys.getCwd();
 
 function main() {
 	final args = Sys.args();
-	var list:Array<String> = Json.parse(File.getContent("stdgo.json")).stdgo;
+	var list:Array<String> = Json.parse(File.getContent("tests.json")).tests;
 	final excludes:Array<String> = Json.parse(File.getContent("excludes.json")).excludes;
 	for (path in excludes)
 		list.remove(path);
 	final rebuild = args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1;
-
-	for (path in list) {
-		var exist = false;
-		if (FileSystem.exists('stdgo/$path') && FileSystem.isDirectory('stdgo/$path')) {
-			exist = false;
-			for (file in FileSystem.readDirectory('stdgo/$path')) {
-				if (file.charCodeAt(0) == ".".code)
-					continue;
-				if (!FileSystem.isDirectory('stdgo/$path' + "/" + file)) {
-					exist = true;
-					break;
-				}
-			}
-		}
-		if (!exist || rebuild)
-			libs.push(path);
+	for (data in list) {
+		libs.push(data.split("-")[0]);
 	}
-	for (path in ["runtime/race"])
-		libs.remove(path); // remove
-	// libs = libs.concat(["sort"]);
-	// libs = ["sort"];
 	Main.setup(0, 2); // amount of processes to spawn
 	Main.onComplete = complete;
-	trace(libs + " libs count: " + libs.length);
 	if (libs.length == 0)
 		return;
 	while (true)

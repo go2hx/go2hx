@@ -6,5 +6,6 @@
     "math/bits-TestLeadingZeros,TestOnesCount,TestLen",
     "math/big",
     "sort",
-    "strings"
+    "strings",
+    "flag"
 ]}

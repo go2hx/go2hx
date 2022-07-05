@@ -266,14 +266,14 @@ var _first : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((241 : GoUInt8)),
 ((241 : GoUInt8))) : GoArray<GoUInt8>));
 var _acceptRanges : GoArray<T_acceptRange> = {
-    var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) new T_acceptRange()]);
-    s[0] = ((new T_acceptRange(((128 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[1] = ((new T_acceptRange(((160 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[2] = ((new T_acceptRange(((128 : GoUInt8)), ((159 : GoUInt8))) : T_acceptRange));
-    s[3] = ((new T_acceptRange(((144 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[4] = ((new T_acceptRange(((128 : GoUInt8)), ((143 : GoUInt8))) : T_acceptRange));
-    s;
-};
+        var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) new T_acceptRange()]);
+        s[0] = ((new T_acceptRange(((128 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[1] = ((new T_acceptRange(((160 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[2] = ((new T_acceptRange(((128 : GoUInt8)), ((159 : GoUInt8))) : T_acceptRange));
+        s[3] = ((new T_acceptRange(((144 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[4] = ((new T_acceptRange(((128 : GoUInt8)), ((143 : GoUInt8))) : T_acceptRange));
+        s;
+    };
 @:structInit class T_acceptRange {
     public var _lo : GoUInt8 = ((0 : GoUInt8));
     public var _hi : GoUInt8 = ((0 : GoUInt8));
@@ -286,6 +286,10 @@ var _acceptRanges : GoArray<T_acceptRange> = {
         return new T_acceptRange(_lo, _hi);
     }
 }
+/**
+    // FullRune reports whether the bytes in p begin with a full UTF-8 encoding of a rune.
+    // An invalid encoding is considered a full Rune since it will convert as a width-1 error rune.
+**/
 function fullRune(_p:Slice<GoByte>):Bool {
         var _n:GoInt = (_p != null ? _p.length : ((0 : GoInt)));
         if (_n == ((0 : GoInt))) {
@@ -303,6 +307,9 @@ function fullRune(_p:Slice<GoByte>):Bool {
         };
         return false;
     }
+/**
+    // FullRuneInString is like FullRune but its input is a string.
+**/
 function fullRuneInString(_s:GoString):Bool {
         var _n:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
         if (_n == ((0 : GoInt))) {
@@ -320,6 +327,16 @@ function fullRuneInString(_s:GoString):Bool {
         };
         return false;
     }
+/**
+    // DecodeRune unpacks the first UTF-8 encoding in p and returns the rune and
+    // its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+    // the encoding is invalid, it returns (RuneError, 1). Both are impossible
+    // results for correct, non-empty UTF-8.
+    //
+    // An encoding is invalid if it is incorrect UTF-8, encodes a rune that is
+    // out of range, or is not the shortest possible UTF-8 encoding for the
+    // value. No other validation is performed.
+**/
 function decodeRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
         var _r:GoRune = ((0 : GoInt32)), _size:GoInt = ((0 : GoInt));
         var _n:GoInt = (_p != null ? _p.length : ((0 : GoInt)));
@@ -357,6 +374,16 @@ function decodeRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
         };
         return { _0 : ((((((_p0 & ((7 : GoUInt8))) : GoRune)) << ((18 : GoUnTypedInt))) | ((((_b1 & ((63 : GoUInt8))) : GoRune)) << ((12 : GoUnTypedInt)))) | ((((_b2 & ((63 : GoUInt8))) : GoRune)) << ((6 : GoUnTypedInt)))) | (((_b3 & ((63 : GoUInt8))) : GoRune)), _1 : ((4 : GoInt)) };
     }
+/**
+    // DecodeRuneInString is like DecodeRune but its input is a string. If s is
+    // empty it returns (RuneError, 0). Otherwise, if the encoding is invalid, it
+    // returns (RuneError, 1). Both are impossible results for correct, non-empty
+    // UTF-8.
+    //
+    // An encoding is invalid if it is incorrect UTF-8, encodes a rune that is
+    // out of range, or is not the shortest possible UTF-8 encoding for the
+    // value. No other validation is performed.
+**/
 function decodeRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
         var _r:GoRune = ((0 : GoInt32)), _size:GoInt = ((0 : GoInt));
         var _n:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
@@ -394,6 +421,16 @@ function decodeRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
         };
         return { _0 : ((((((_s0 & ((7 : GoUInt8))) : GoRune)) << ((18 : GoUnTypedInt))) | ((((_s1 & ((63 : GoUInt8))) : GoRune)) << ((12 : GoUnTypedInt)))) | ((((_s2 & ((63 : GoUInt8))) : GoRune)) << ((6 : GoUnTypedInt)))) | (((_s3 & ((63 : GoUInt8))) : GoRune)), _1 : ((4 : GoInt)) };
     }
+/**
+    // DecodeLastRune unpacks the last UTF-8 encoding in p and returns the rune and
+    // its width in bytes. If p is empty it returns (RuneError, 0). Otherwise, if
+    // the encoding is invalid, it returns (RuneError, 1). Both are impossible
+    // results for correct, non-empty UTF-8.
+    //
+    // An encoding is invalid if it is incorrect UTF-8, encodes a rune that is
+    // out of range, or is not the shortest possible UTF-8 encoding for the
+    // value. No other validation is performed.
+**/
 function decodeLastRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
         var _r:GoRune = ((0 : GoInt32)), _size:GoInt = ((0 : GoInt));
         var _end:GoInt = (_p != null ? _p.length : ((0 : GoInt)));
@@ -430,6 +467,16 @@ function decodeLastRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
         };
         return { _0 : _r, _1 : _size };
     }
+/**
+    // DecodeLastRuneInString is like DecodeLastRune but its input is a string. If
+    // s is empty it returns (RuneError, 0). Otherwise, if the encoding is invalid,
+    // it returns (RuneError, 1). Both are impossible results for correct,
+    // non-empty UTF-8.
+    //
+    // An encoding is invalid if it is incorrect UTF-8, encodes a rune that is
+    // out of range, or is not the shortest possible UTF-8 encoding for the
+    // value. No other validation is performed.
+**/
 function decodeLastRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
         var _r:GoRune = ((0 : GoInt32)), _size:GoInt = ((0 : GoInt));
         var _end:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
@@ -466,6 +513,10 @@ function decodeLastRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; 
         };
         return { _0 : _r, _1 : _size };
     }
+/**
+    // RuneLen returns the number of bytes required to encode the rune.
+    // It returns -1 if the rune is not a valid value to encode in UTF-8.
+**/
 function runeLen(_r:GoRune):GoInt {
         if (_r < ((0 : GoInt32))) {
             return ((-1 : GoInt));
@@ -482,6 +533,11 @@ function runeLen(_r:GoRune):GoInt {
         };
         return ((-1 : GoInt));
     }
+/**
+    // EncodeRune writes into p (which must be large enough) the UTF-8 encoding of the rune.
+    // If the rune is out of range, it writes the encoding of RuneError.
+    // It returns the number of bytes written.
+**/
 function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
         {
             var _i:GoUInt32 = ((_r : GoUInt32));
@@ -530,6 +586,11 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
             };
         };
     }
+/**
+    // AppendRune appends the UTF-8 encoding of r to the end of p and
+    // returns the extended buffer. If the rune is out of range,
+    // it appends the encoding of RuneError.
+**/
 function appendRune(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
         if (((_r : GoUInt32)) <= ((127 : GoUInt32))) {
             return (_p != null ? _p.__append__(((_r : GoByte))) : new Slice<GoUInt8>(((_r : GoByte))));
@@ -567,6 +628,10 @@ function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
             };
         };
     }
+/**
+    // RuneCount returns the number of runes in p. Erroneous and short
+    // encodings are treated as single runes of width 1 byte.
+**/
 function runeCount(_p:Slice<GoByte>):GoInt {
         var _np:GoInt = (_p != null ? _p.length : ((0 : GoInt)));
         var _n:GoInt = ((0 : GoInt));
@@ -611,6 +676,9 @@ function runeCount(_p:Slice<GoByte>):GoInt {
         };
         return _n;
     }
+/**
+    // RuneCountInString is like RuneCount but its input is a string.
+**/
 function runeCountInString(_s:GoString):GoInt {
         var _n:GoInt = ((0 : GoInt));
         var _ns:GoInt = (_s != null ? _s.length : ((0 : GoInt)));
@@ -654,9 +722,17 @@ function runeCountInString(_s:GoString):GoInt {
         };
         return _n;
     }
+/**
+    // RuneStart reports whether the byte could be the first byte of an encoded,
+    // possibly invalid rune. Second and subsequent bytes always have the top two
+    // bits set to 10.
+**/
 function runeStart(_b:GoByte):Bool {
         return (_b & ((192 : GoUInt8))) != ((128 : GoUInt8));
     }
+/**
+    // Valid reports whether p consists entirely of valid UTF-8-encoded runes.
+**/
 function valid(_p:Slice<GoByte>):Bool {
         while ((_p != null ? _p.length : ((0 : GoInt))) >= ((8 : GoInt))) {
             var _first32:GoUInt32 = (((((_p != null ? _p[((0 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_p != null ? _p[((1 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_p != null ? _p[((2 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_p != null ? _p[((3 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));
@@ -705,6 +781,9 @@ function valid(_p:Slice<GoByte>):Bool {
         };
         return true;
     }
+/**
+    // ValidString reports whether s consists entirely of valid UTF-8-encoded runes.
+**/
 function validString(_s:GoString):Bool {
         while ((_s != null ? _s.length : ((0 : GoInt))) >= ((8 : GoInt))) {
             var _first32:GoUInt32 = (((((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_s != null ? _s[((1 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_s != null ? _s[((2 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_s != null ? _s[((3 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));
@@ -753,6 +832,10 @@ function validString(_s:GoString):Bool {
         };
         return true;
     }
+/**
+    // ValidRune reports whether r can be legally encoded as UTF-8.
+    // Code points that are out of range or a surrogate half are illegal.
+**/
 function validRune(_r:GoRune):Bool {
         if ((((0 : GoInt32)) <= _r) && (_r < ((55296 : GoInt32)))) {
             return true;
@@ -761,8 +844,3 @@ function validRune(_r:GoRune):Bool {
         };
         return false;
     }
-class T_acceptRange_wrapper {
-    public var __t__ : T_acceptRange;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}

@@ -8,7 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var __TurkishCase : SpecialCase = ((new Slice<CaseRange>(((new CaseRange(((73 : GoUInt32)), ((73 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((232 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((105 : GoUInt32)), ((105 : GoUInt32)), ((new GoArray<GoInt32>(((199 : GoInt32)), ((0 : GoInt32)), ((199 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((304 : GoUInt32)), ((304 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((-199 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((305 : GoUInt32)), ((305 : GoUInt32)), ((new GoArray<GoInt32>(((-232 : GoInt32)), ((0 : GoInt32)), ((-232 : GoInt32))) : T_d))) : CaseRange))) : SpecialCase));
+var __TurkishCase : SpecialCase = ((new SpecialCase(((new CaseRange(((73 : GoUInt32)), ((73 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((232 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((105 : GoUInt32)), ((105 : GoUInt32)), ((new GoArray<GoInt32>(((199 : GoInt32)), ((0 : GoInt32)), ((199 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((304 : GoUInt32)), ((304 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((-199 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)), ((new CaseRange(((305 : GoUInt32)), ((305 : GoUInt32)), ((new GoArray<GoInt32>(((-232 : GoInt32)), ((0 : GoInt32)), ((-232 : GoInt32))) : T_d))) : CaseRange))) : SpecialCase));
 var turkishCase : SpecialCase = __TurkishCase;
 var azeriCase : SpecialCase = __TurkishCase;
 var __C : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
@@ -3308,7 +3308,7 @@ var space : Ref<RangeTable> = __Z;
 var z : Ref<RangeTable> = __Z;
 var symbol : Ref<RangeTable> = __S;
 var s : Ref<RangeTable> = __S;
-var printRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s) : Slice<Ref<RangeTable>>));
+var printRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s) : Slice<RangeTable>));
 var title : Ref<RangeTable> = __Lt;
 var lt : Ref<RangeTable> = __Lt;
 var upper : Ref<RangeTable> = __Lu;
@@ -3316,7 +3316,7 @@ var lu : Ref<RangeTable> = __Lu;
 var zl : Ref<RangeTable> = __Zl;
 var zp : Ref<RangeTable> = __Zp;
 var zs : Ref<RangeTable> = __Zs;
-var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s, zs) : Slice<Ref<RangeTable>>));
+var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s, zs) : Slice<RangeTable>));
 var categories : GoMap<GoString, Ref<RangeTable>> = Go.map(((("C" : GoString))) => c,
 ((("Cc" : GoString))) => cc,
 ((("Cf" : GoString))) => cf,
@@ -6233,24 +6233,43 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = Go.map(((("Common" : GoStrin
 }
 @:named @:using(stdgo.unicode.Unicode.SpecialCase_static_extension) typedef SpecialCase = Slice<CaseRange>;
 @:named typedef T_d = GoArray<GoInt32>;
+/**
+    // IsDigit reports whether the rune is a decimal digit.
+**/
 function isDigit(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return (((((("0" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("9" : GoString))).code : GoRune)));
         };
         return _isExcludingLatin(digit, _r);
     }
+/**
+    // IsGraphic reports whether the rune is defined as a Graphic by Unicode.
+    // Such characters include letters, marks, numbers, punctuation, symbols, and
+    // spaces, from categories L, M, N, P, S, Zs.
+**/
 function isGraphic(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((144 : GoUInt8))) != ((0 : GoUInt8));
         };
         return in_(_r, ...graphicRanges.__toArray__());
     }
+/**
+    // IsPrint reports whether the rune is defined as printable by Go. Such
+    // characters include letters, marks, numbers, punctuation, symbols, and the
+    // ASCII space character, from categories L, M, N, P, S and the ASCII space
+    // character. This categorization is the same as IsGraphic except that the
+    // only spacing character is ASCII space, U+0020.
+**/
 function isPrint(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((128 : GoUInt8))) != ((0 : GoUInt8));
         };
         return in_(_r, ...printRanges.__toArray__());
     }
+/**
+    // IsOneOf reports whether the rune is a member of one of the ranges.
+    // The function "In" provides a nicer signature and should be used in preference to IsOneOf.
+**/
 function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
         for (_0 => _inside in _ranges) {
             if (is_(_inside, _r)) {
@@ -6259,6 +6278,9 @@ function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
         };
         return false;
     }
+/**
+    // In reports whether the rune is a member of one of the ranges.
+**/
 function in_(_r:GoRune, _ranges:haxe.Rest<RangeTable>):Bool {
         var _ranges = new Slice<RangeTable>(..._ranges);
         for (_0 => _inside in _ranges) {
@@ -6268,33 +6290,59 @@ function in_(_r:GoRune, _ranges:haxe.Rest<RangeTable>):Bool {
         };
         return false;
     }
+/**
+    // IsControl reports whether the rune is a control character.
+    // The C (Other) Unicode category includes more code points
+    // such as surrogates; use Is(C, r) to test for them.
+**/
 function isControl(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((1 : GoUInt8))) != ((0 : GoUInt8));
         };
         return false;
     }
+/**
+    // IsLetter reports whether the rune is a letter (category L).
+**/
 function isLetter(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(letter, _r);
     }
+/**
+    // IsMark reports whether the rune is a mark character (category M).
+**/
 function isMark(_r:GoRune):Bool {
         return _isExcludingLatin(mark, _r);
     }
+/**
+    // IsNumber reports whether the rune is a number (category N).
+**/
 function isNumber(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((4 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(number, _r);
     }
+/**
+    // IsPunct reports whether the rune is a Unicode punctuation character
+    // (category P).
+**/
 function isPunct(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((2 : GoUInt8))) != ((0 : GoUInt8));
         };
         return is_(punct, _r);
     }
+/**
+    // IsSpace reports whether the rune is a space character as defined
+    // by Unicode's White Space property; in the Latin-1 space
+    // this is
+    //	'\t', '\n', '\v', '\f', '\r', ' ', U+0085 (NEL), U+00A0 (NBSP).
+    // Other definitions of spacing characters are set by category
+    // Z and property Pattern_White_Space.
+**/
 function isSpace(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             if (_r == ((((("\t" : GoString))).code : GoRune)) || _r == ((((("\n" : GoString))).code : GoRune)) || _r == ((((("\x0B" : GoString))).code : GoRune)) || _r == ((((("\x0C" : GoString))).code : GoRune)) || _r == ((((("\r" : GoString))).code : GoRune)) || _r == (((((" " : GoString))).code : GoRune)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
@@ -6304,16 +6352,22 @@ function isSpace(_r:GoRune):Bool {
         };
         return _isExcludingLatin(white_Space, _r);
     }
+/**
+    // IsSymbol reports whether the rune is a symbolic character.
+**/
 function isSymbol(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((8 : GoUInt8))) != ((0 : GoUInt8));
         };
         return _isExcludingLatin(symbol, _r);
     }
+/**
+    // is16 reports whether r is in the sorted slice of 16-bit ranges.
+**/
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         if (((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) || (_r <= ((255 : GoUInt16)))) {
             for (_i => _ in _ranges) {
-                var _range_:Ref<Range16> = (_ranges != null ? _ranges[_i] : new Range16());
+                var _range_ = (_ranges != null ? _ranges[_i] : new Range16());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6327,7 +6381,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _hi:GoInt = (_ranges != null ? _ranges.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _range_:Ref<Range16> = (_ranges != null ? _ranges[_m] : new Range16());
+            var _range_ = (_ranges != null ? _ranges[_m] : new Range16());
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_range_.stride == ((1 : GoUInt16))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt16)));
             };
@@ -6339,10 +6393,13 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         };
         return false;
     }
+/**
+    // is32 reports whether r is in the sorted slice of 32-bit ranges.
+**/
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         if ((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) {
             for (_i => _ in _ranges) {
-                var _range_:Ref<Range32> = (_ranges != null ? _ranges[_i] : new Range32());
+                var _range_ = (_ranges != null ? _ranges[_i] : new Range32());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6368,49 +6425,65 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         };
         return false;
     }
+/**
+    // Is reports whether the rune is in the specified table of ranges.
+**/
 function is_(_rangeTab:RangeTable, _r:GoRune):Bool {
-        var _r16:Slice<Range16> = _rangeTab.r16;
+        var _r16 = _rangeTab.r16;
         if (((_r16 != null ? _r16.length : ((0 : GoInt))) > ((0 : GoInt))) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
             return _is16(_r16, ((_r : GoUInt16)));
         };
-        var _r32:Slice<Range32> = _rangeTab.r32;
+        var _r32 = _rangeTab.r32;
         if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : new Range32()).lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
     }
 function _isExcludingLatin(_rangeTab:RangeTable, _r:GoRune):Bool {
-        var _r16:Slice<Range16> = _rangeTab.r16;
+        var _r16 = _rangeTab.r16;
         {
             var _off:GoInt = _rangeTab.latinOffset;
             if (((_r16 != null ? _r16.length : ((0 : GoInt))) > _off) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
                 return _is16(((_r16.__slice__(_off) : Slice<Range16>)), ((_r : GoUInt16)));
             };
         };
-        var _r32:Slice<Range32> = _rangeTab.r32;
+        var _r32 = _rangeTab.r32;
         if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : new Range32()).lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
     }
+/**
+    // IsUpper reports whether the rune is an upper case letter.
+**/
 function isUpper(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((32 : GoUInt8));
         };
         return _isExcludingLatin(upper, _r);
     }
+/**
+    // IsLower reports whether the rune is a lower case letter.
+**/
 function isLower(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((64 : GoUInt8));
         };
         return _isExcludingLatin(lower, _r);
     }
+/**
+    // IsTitle reports whether the rune is a title case letter.
+**/
 function isTitle(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return false;
         };
         return _isExcludingLatin(title, _r);
     }
+/**
+    // to maps the rune using the specified case mapping.
+    // It additionally reports whether caseRange contained a mapping for r.
+**/
 function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : GoRune; var _1 : Bool; } {
         var _mappedRune:GoRune = ((0 : GoInt32)), _foundMapping:Bool = false;
         if ((__case < ((0 : GoInt))) || (((3 : GoInt)) <= __case)) {
@@ -6436,6 +6509,9 @@ function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : Go
         };
         return { _0 : _r, _1 : false };
     }
+/**
+    // To maps the rune to the specified case: UpperCase, LowerCase, or TitleCase.
+**/
 function to(__case:GoInt, _r:GoRune):GoRune {
         {
             var __tmp__ = _to(__case, _r, caseRanges);
@@ -6443,6 +6519,9 @@ function to(__case:GoInt, _r:GoRune):GoRune {
         };
         return _r;
     }
+/**
+    // ToUpper maps the rune to upper case.
+**/
 function toUpper(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("a" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("z" : GoString))).code : GoRune)))) {
@@ -6452,6 +6531,9 @@ function toUpper(_r:GoRune):GoRune {
         };
         return to(((0 : GoInt)), _r);
     }
+/**
+    // ToLower maps the rune to lower case.
+**/
 function toLower(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("A" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("Z" : GoString))).code : GoRune)))) {
@@ -6461,6 +6543,9 @@ function toLower(_r:GoRune):GoRune {
         };
         return to(((1 : GoInt)), _r);
     }
+/**
+    // ToTitle maps the rune to title case.
+**/
 function toTitle(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
             if ((((((("a" : GoString))).code : GoRune)) <= _r) && (_r <= ((((("z" : GoString))).code : GoRune)))) {
@@ -6470,6 +6555,26 @@ function toTitle(_r:GoRune):GoRune {
         };
         return to(((2 : GoInt)), _r);
     }
+/**
+    // SimpleFold iterates over Unicode code points equivalent under
+    // the Unicode-defined simple case folding. Among the code points
+    // equivalent to rune (including rune itself), SimpleFold returns the
+    // smallest rune > r if one exists, or else the smallest rune >= 0.
+    // If r is not a valid Unicode code point, SimpleFold(r) returns r.
+    //
+    // For example:
+    //	SimpleFold('A') = 'a'
+    //	SimpleFold('a') = 'A'
+    //
+    //	SimpleFold('K') = 'k'
+    //	SimpleFold('k') = '\u212A' (Kelvin symbol, K)
+    //	SimpleFold('\u212A') = 'K'
+    //
+    //	SimpleFold('1') = '1'
+    //
+    //	SimpleFold(-2) = -2
+    //
+**/
 function simpleFold(_r:GoRune):GoRune {
         if ((_r < ((0 : GoInt32))) || (_r > ((1114111 : GoInt32)))) {
             return _r;
@@ -6498,88 +6603,34 @@ function simpleFold(_r:GoRune):GoRune {
         };
         return toUpper(_r);
     }
-class RangeTable_wrapper {
-    public var __t__ : RangeTable;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
-class Range16_wrapper {
-    public var __t__ : Range16;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
-class Range32_wrapper {
-    public var __t__ : Range32;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
-class CaseRange_wrapper {
-    public var __t__ : CaseRange;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
-class T_foldPair_wrapper {
-    public var __t__ : T_foldPair;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
-class SpecialCase_wrapper {
-    @:keep
-    public function toLower(_r:GoRune):GoRune {
-        var _special = __t__;
-        _special;
-        var __tmp__ = _to(((1 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
-            _r1 = stdgo.unicode.Unicode.toLower(_r);
-        };
-        return _r1;
-    }
-    @:keep
-    public function toTitle(_r:GoRune):GoRune {
-        var _special = __t__;
-        _special;
-        var __tmp__ = _to(((2 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
-            _r1 = stdgo.unicode.Unicode.toTitle(_r);
-        };
-        return _r1;
-    }
-    @:keep
-    public function toUpper(_r:GoRune):GoRune {
-        var _special = __t__;
-        _special;
-        var __tmp__ = _to(((0 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
-        if ((_r1 == _r) && !_hadMapping) {
-            _r1 = stdgo.unicode.Unicode.toUpper(_r);
-        };
-        return _r1;
-    }
-    public var __t__ : SpecialCase;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-}
 @:keep class SpecialCase_static_extension {
+    /**
+        // ToLower maps the rune to lower case giving priority to the special mapping.
+    **/
     @:keep
     public static function toLower( _special:SpecialCase, _r:GoRune):GoRune {
-        _special;
         var __tmp__ = _to(((1 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toLower(_r);
         };
         return _r1;
     }
+    /**
+        // ToTitle maps the rune to title case giving priority to the special mapping.
+    **/
     @:keep
     public static function toTitle( _special:SpecialCase, _r:GoRune):GoRune {
-        _special;
         var __tmp__ = _to(((2 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toTitle(_r);
         };
         return _r1;
     }
+    /**
+        // ToUpper maps the rune to upper case giving priority to the special mapping.
+    **/
     @:keep
     public static function toUpper( _special:SpecialCase, _r:GoRune):GoRune {
-        _special;
         var __tmp__ = _to(((0 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toUpper(_r);
@@ -6587,8 +6638,23 @@ class SpecialCase_wrapper {
         return _r1;
     }
 }
-class T_d_wrapper {
-    public var __t__ : T_d;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+class SpecialCase_wrapper {
+    /**
+        // ToLower maps the rune to lower case giving priority to the special mapping.
+    **/
+    @:keep
+    public var toLower : GoRune -> GoRune = null;
+    /**
+        // ToTitle maps the rune to title case giving priority to the special mapping.
+    **/
+    @:keep
+    public var toTitle : GoRune -> GoRune = null;
+    /**
+        // ToUpper maps the rune to upper case giving priority to the special mapping.
+    **/
+    @:keep
+    public var toUpper : GoRune -> GoRune = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : SpecialCase;
 }

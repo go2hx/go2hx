@@ -59,3 +59,4 @@ tests/gobyexample
 tests/yaegi
 tests/*.hxml
 *.log
+check.json

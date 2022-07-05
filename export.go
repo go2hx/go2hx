@@ -137,6 +137,7 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	if debug {
 		bytes, _ = json.Marshal(data)
 		os.WriteFile("check.json", bytes, 0766)
+		fmt.Println("create check.json")
 	}
 	bytes, err = bson.Marshal(data)
 	if err != nil {
@@ -180,6 +181,7 @@ func main() {
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
+
 	defer conn.Close()
 	if err != nil {
 		panic("dial: " + err.Error())
@@ -807,6 +809,14 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 		data["hash"] = fmt.Sprint(typeHasher.Hash(t))
 	}
 	return data
+}
+
+func copyMap(m map[string]bool) map[string]bool {
+	m2 := make(map[string]bool, len(m))
+	for k, v := range m {
+		m2[k] = v
+	}
+	return m2
 }
 
 func parseData(node interface{}) map[string]interface{} {

@@ -261,6 +261,8 @@ function isPointer(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
+		case _var(_, elem):
+			isPointer(elem);
 		case named(_, _, elem):
 			isPointer(elem);
 		case pointer(_):

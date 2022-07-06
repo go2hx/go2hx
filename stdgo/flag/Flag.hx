@@ -965,7 +965,21 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     public static function printDefaults( _f:FlagSet):Void {
         _f.visitAll(function(_flag:Flag):Void {
             var _b:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
-            stdgo.fmt.Fmt.fprintf(_b, ((("  -%s" : GoString))), Go.toInterface(_flag.name));
+            stdgo.fmt.Fmt.fprintf({
+                final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
+                __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
+                __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
+                __self__.reset = #if !macro function():Void _b.reset() #else null #end;
+                __self__.toString = #if !macro function():GoString return _b.toString() #else null #end;
+                __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
+                __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
+                __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
+                __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
+                __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                __self__;
+            }, ((("  -%s" : GoString))), Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
             if ((_name != null ? _name.length : ((0 : GoInt))) > ((0 : GoInt))) {
                 _b.writeString((((" " : GoString))));
@@ -985,9 +999,37 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                         { value : ((null : Pointer<T_stringValue>)), ok : false };
                     }, _0 = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
-                        stdgo.fmt.Fmt.fprintf(_b, (((" (default %q)" : GoString))), Go.toInterface(_flag.defValue));
+                        stdgo.fmt.Fmt.fprintf({
+                            final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
+                            __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
+                            __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                            __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
+                            __self__.reset = #if !macro function():Void _b.reset() #else null #end;
+                            __self__.toString = #if !macro function():GoString return _b.toString() #else null #end;
+                            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
+                            __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
+                            __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
+                            __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                            __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
+                            __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                            __self__;
+                        }, (((" (default %q)" : GoString))), Go.toInterface(_flag.defValue));
                     } else {
-                        stdgo.fmt.Fmt.fprintf(_b, (((" (default %v)" : GoString))), Go.toInterface(_flag.defValue));
+                        stdgo.fmt.Fmt.fprintf({
+                            final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
+                            __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
+                            __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                            __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
+                            __self__.reset = #if !macro function():Void _b.reset() #else null #end;
+                            __self__.toString = #if !macro function():GoString return _b.toString() #else null #end;
+                            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
+                            __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
+                            __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
+                            __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                            __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
+                            __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                            __self__;
+                        }, (((" (default %v)" : GoString))), Go.toInterface(_flag.defValue));
                     };
                 };
             };
@@ -1069,7 +1111,47 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     @:keep
     public static function output( _f:FlagSet):stdgo.io.Io.Writer {
         if (_f._output == null) {
-            return stdgo.os.Os.stderr;
+            return {
+                final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stderr);
+                __self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.chdir() #else null #end;
+                __self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr.chmod(_mode) #else null #end;
+                __self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(_uid, _gid) #else null #end;
+                __self__.close = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.close() #else null #end;
+                __self__.fd = #if !macro function():GoUIntptr return stdgo.os.Os.stderr.fd() #else null #end;
+                __self__.name = #if !macro function():GoString return stdgo.os.Os.stderr.name() #else null #end;
+                __self__.read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.read(_b) #else null #end;
+                __self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readAt(_b, _off) #else null #end;
+                __self__.readDir = #if !macro function(_n:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readDir(_n) #else null #end;
+                __self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readFrom(_r) #else null #end;
+                __self__.readdir = #if !macro function(_n:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.FileInfo>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdir(_n) #else null #end;
+                __self__.readdirnames = #if !macro function(_n:GoInt):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdirnames(_n) #else null #end;
+                __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.seek(_offset, _whence) #else null #end;
+                __self__.setDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setDeadline(_t) #else null #end;
+                __self__.setReadDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setReadDeadline(_t) #else null #end;
+                __self__.setWriteDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setWriteDeadline(_t) #else null #end;
+                __self__.stat = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.stat() #else null #end;
+                __self__.sync = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.sync() #else null #end;
+                __self__.syscallConn = #if !macro function():{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.syscallConn() #else null #end;
+                __self__.truncate = #if !macro function(_size:GoInt64):stdgo.Error return stdgo.os.Os.stderr.truncate(_size) #else null #end;
+                __self__.write = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.write(_b) #else null #end;
+                __self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeAt(_b, _off) #else null #end;
+                __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeString(_s) #else null #end;
+                __self__._checkValid = #if !macro function(_op:GoString):stdgo.Error return stdgo.os.Os.stderr._checkValid(_op) #else null #end;
+                __self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr._chmod(_mode) #else null #end;
+                __self__._close = #if !macro function():stdgo.Error return stdgo.os.Os.stderr._close() #else null #end;
+                __self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pread(_b, _off) #else null #end;
+                __self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pwrite(_b, _off) #else null #end;
+                __self__._read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._read(_b) #else null #end;
+                __self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : stdgo.Error; } return stdgo.os.Os.stderr._readFrom(_r) #else null #end;
+                __self__._readdir = #if !macro function(_n:GoInt, _mode:stdgo.os.Os.T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<stdgo.io.fs.Fs.DirEntry>; var _2 : Slice<stdgo.io.fs.Fs.FileInfo>; var _3 : stdgo.Error; } return stdgo.os.Os.stderr._readdir(_n, _mode) #else null #end;
+                __self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._seek(_offset, _whence) #else null #end;
+                __self__._setDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setDeadline(_t) #else null #end;
+                __self__._setReadDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setReadDeadline(_t) #else null #end;
+                __self__._setWriteDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setWriteDeadline(_t) #else null #end;
+                __self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return stdgo.os.Os.stderr._wrapErr(_op, _err) #else null #end;
+                __self__._write = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._write(_b) #else null #end;
+                __self__;
+            };
         };
         return _f._output;
     }
@@ -1579,7 +1661,19 @@ class T_float64Value_wrapper {
     @:keep
     @:pointer
     public static function get(____:T_durationValue,  _d:Pointer<T_durationValue>):AnyInterface {
-        return Go.toInterface(((_d.value : stdgo.time.Time.Duration)));
+        return Go.toInterface({
+            final __self__ = new stdgo.time.Time.Duration_wrapper(((_d.value : stdgo.time.Time.Duration)));
+            __self__.hours = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).hours() #else null #end;
+            __self__.microseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).microseconds() #else null #end;
+            __self__.milliseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).milliseconds() #else null #end;
+            __self__.minutes = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).minutes() #else null #end;
+            __self__.nanoseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).nanoseconds() #else null #end;
+            __self__.round = #if !macro function(_m:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).round(_m) #else null #end;
+            __self__.seconds = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).seconds() #else null #end;
+            __self__.toString = #if !macro function():GoString return ((_d.value : stdgo.time.Time.Duration)).toString() #else null #end;
+            __self__.truncate = #if !macro function(_m:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).truncate(_m) #else null #end;
+            __self__;
+        });
     }
     @:keep
     @:pointer

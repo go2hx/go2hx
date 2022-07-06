@@ -136,7 +136,7 @@ function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 	}
 }
 
-// named doesn't count for structures or interfaces
+// named doesn't count for interfaces
 function isNamed(type:GoType):Bool {
 	if (type == null)
 		return false;
@@ -145,7 +145,7 @@ function isNamed(type:GoType):Bool {
 			isNamed(underlying);
 		case named(_, _, underlying):
 			switch underlying {
-				case structType(_): false;
+				case structType(_): true;
 				case interfaceType(_, _): false;
 				case named(_, _, underlying): isNamed(underlying);
 				default:

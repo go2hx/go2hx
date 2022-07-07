@@ -72,6 +72,7 @@ function run(args:Array<String>) {
 }
 
 function compileArgs(args:Array<String>):InstanceData {
+	final args = args.copy();
 	final instance = new InstanceData();
 	instance.outputPath = "golibs";
 	instance.root = "";

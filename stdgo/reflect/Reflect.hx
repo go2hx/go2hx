@@ -903,6 +903,12 @@ function defaultValue(typ:Type):Any {
 			switch kind {
 				case string_kind: ("" : GoString);
 				case bool_kind: false;
+				case int64_kind: (0 : GoInt64);
+				case uint64_kind: (0 : GoUInt64);
+				case uint_kind: (0 : GoUInt);
+				case uint32_kind: (0 : GoUInt32);
+				case complex64_kind: (0 : GoComplex64);
+				case complex128_kind: (0 : GoComplex128);
 				default: 0;
 			}
 		case named(path, methods, type):

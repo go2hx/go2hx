@@ -380,7 +380,13 @@ function _maxDepth(_n:GoInt):GoInt {
     // Reverse returns the reverse order for data.
 **/
 function reverse(_data:Interface):Interface {
-        return ((new T_reverse(_data) : T_reverse));
+        return {
+            final __self__ = new T_reverse_wrapper(((new T_reverse(_data) : T_reverse)));
+            __self__.len = #if !macro function():GoInt return ((new T_reverse(_data) : T_reverse)).len() #else null #end;
+            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new T_reverse(_data) : T_reverse)).less(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new T_reverse(_data) : T_reverse)).swap(_i, _j) #else null #end;
+            __self__;
+        };
     }
 /**
     // IsSorted reports whether data is sorted.

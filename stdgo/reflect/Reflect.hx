@@ -11,7 +11,7 @@ import stdgo.StdGoTypes;
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);
 	invalidType;
-	signature(variadic:Bool, params:Array<GoType>, results:Array<GoType>, recv:GoType);
+	signature(variadic:Bool, params:Array<GoType>, results:Array<GoType>, recv:GoType, ?typeParams:Array<GoType>);
 	basic(kind:BasicKind);
 	_var(name:String, type:GoType);
 	tuple(len:Int, vars:Array<GoType>);
@@ -1189,7 +1189,7 @@ class _Type {
 			case _float64: 8;
 			case _complex64: 8;
 			case _complex128: 16;
-			case _string: 16;
+			case _string: 16; // TODO: this may be wrong
 			// TODO
 			case _slice: 0;
 			case _interface: 0;

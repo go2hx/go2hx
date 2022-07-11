@@ -10,6 +10,7 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
+	"log"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -767,6 +768,12 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 		data["params"] = parseType(s.Params(), marked)
 		data["results"] = parseType(s.Results(), marked)
 		data["recv"] = parseType(s.Recv(), marked)
+		params := make([]map[string]interface{}, s.TypeParams().Len())
+		for i := 0; i < len(params); i++ {
+			params[i] = parseType(s.TypeParams().At(i), marked)
+		}
+		data["typeParams"] = params
+		log.Println(s.TypeParams())
 	case "Tuple":
 		s := node.(*types.Tuple)
 		data["len"] = s.Len()

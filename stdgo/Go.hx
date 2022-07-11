@@ -189,6 +189,13 @@ class Go {
 
 	public static macro function typeFunction(e:Expr) {
 		var t:haxe.macro.Type = null;
+		var funArgs = [];
+		switch e.expr {
+			case ECall(e2, params):
+				funArgs = params;
+				e = e2;
+			default:
+		}
 		try {
 			t = Context.typeof(e);
 		} catch (e) {
@@ -219,7 +226,11 @@ class Go {
 			t = Context.getExpectedType();
 			// trace(new haxe.macro.Printer().printComplexType(Context.toComplexType(t)));
 		}
+		if (t == null) {
+			return e; // not being set to a variable
+		}
 		final name = "T_" + Context.signature(t);
+		// trace(t);
 		switch t {
 			case TFun(args, ret):
 				final modulePath = haxe.macro.Context.getLocalModule().split(".");
@@ -231,7 +242,7 @@ class Go {
 				} : FunctionArg));
 				var e:Expr = macro null;
 				var block:Expr = macro null;
-				final funArgs = args.map(arg -> macro $i{arg.name});
+				funArgs = funArgs.concat(args.map(arg -> macro $i{arg.name}));
 				final path = modulePath.copy();
 				if (selfType != null) {
 					final p:TypePath = {name: path.pop(), sub: name, pack: path};
@@ -239,7 +250,6 @@ class Go {
 					block = macro __self__.$field($a{funArgs});
 				} else {
 					// path.pop();
-					trace(path, field);
 					block = macro $p{path}.$field($a{funArgs});
 					path.push(name);
 					e = macro $p{path}.f;
@@ -249,6 +259,7 @@ class Go {
 				if (!isVoid(Context.followWithAbstracts(ret))) {
 					block = macro return $block;
 				}
+
 				final td = {
 					name: name,
 					pos: Context.currentPos(),
@@ -267,6 +278,7 @@ class Go {
 					],
 					kind: TDClass(),
 				};
+
 				// trace(new haxe.macro.Printer().printTypeDefinition(td));
 				if (selfType != null) {
 					td.fields[0].access.remove(AStatic);
@@ -286,9 +298,12 @@ class Go {
 						kind: FVar(selfType),
 					});
 				}
+
 				try {
 					Context.defineModule(modulePath.join("."), [td], Context.getLocalImports());
-				} catch (_) {}
+				} catch (e) {
+					throw e;
+				}
 				// trace(new haxe.macro.Printer().printTypeDefinition(td));
 				return e;
 			default:

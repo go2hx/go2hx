@@ -2403,7 +2403,52 @@ private function typeExpr(expr:Dynamic, info:Info):Expr {
 
 private function typeIndexListExpr(expr:Ast.IndexListExpr, info:Info):ExprDef {
 	final x = typeExpr(expr.x, info);
+	final t = typeof(expr.x, info);
+	switch t {
+		case signature(_, params, _, _, typeParams):
+			final args = genericIndices(expr.indices, params, typeParams, info);
+			if (args.length > 0) {
+				return return (macro @:define("!macro") Go.typeFunction($x($a{args}))).expr;
+			}
+			return (macro @:define("!macro") Go.typeFunction($x)).expr;
+		default:
+	}
 	return (macro $x).expr;
+}
+
+private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
+	var x = typeExpr(expr.x, info);
+	switch x.expr {
+		case EConst(c):
+			switch c {
+				case CString(_):
+					x = macro($x : GoString);
+				default:
+			}
+		default:
+	}
+	var index = typeExpr(expr.index, info);
+	var t = typeof(expr.x, info);
+	final obj = destructureExpr(x, t);
+	x = obj.x;
+	t = obj.t;
+	switch t {
+		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
+			index = assignTranslate(typeof(expr.index, info), basic(int_kind), index, info);
+		case mapType(indexType, _):
+			index = assignTranslate(typeof(expr.index, info), indexType, index, info);
+		case signature(_, params, _, _, typeParams): // generic param
+			final args = genericIndices([expr.index], params, typeParams, info);
+			if (args.length > 0) {
+				return return (macro @:define("!macro") Go.typeFunction($x($a{args}))).expr;
+			}
+			return (macro @:define("!macro") Go.typeFunction($x)).expr;
+		default:
+			trace(t);
+			index = macro @:invalid_index 0;
+	}
+	var e = macro($x != null ? $x[$index] : ${defaultValue(typeof(expr, info), info)});
+	return e.expr;
 }
 
 private function typeInterfaceType(expr:Ast.InterfaceType, info:Info):ExprDef {
@@ -2449,6 +2494,27 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	var args:Array<Expr> = [];
 	var tupleArg:Expr = null;
 	function returnExpr(e:Expr):ExprDef {
+		switch e.expr {
+			case ECall({expr: expr, pos: _}, params):
+				switch expr {
+					case EMeta(s, e):
+						if (s.name == ":define") {
+							switch e.expr {
+								case ECall(_, params): // Go.typeFunction(...)
+									switch params[0].expr {
+										case ECall(e3, _): // Go.typeFunction(...())
+											expr = e3.expr;
+										default: // Go.typeFunction(...)
+											expr = params[0].expr;
+									}
+								default:
+							}
+						}
+					default:
+				}
+				e.expr = ECall({expr: expr, pos: null}, params);
+			default:
+		}
 		if (tupleArg != null) {
 			switch tupleArg.expr {
 				case EBlock(exprs):
@@ -2525,29 +2591,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			var sig = getSignature(type);
 			if (sig != null) {
 				switch sig {
-					case signature(variadic, params, _, _):
+					case signature(variadic, params, _, _, typeParams):
 						var skip = 0;
-						if (expr.fun.id == "IndexListExpr") { // could need to set generics
+						if (expr.fun.id == "IndexListExpr" || expr.fun.id == "IndexExpr") { // could need to set generics
 							// trace(expr.fun.indices[0].id);
-							final genericExprs:Array<Ast.Expr> = expr.fun.indices; // genericTypes but exprs
-							final argTypes = params.map(p -> toComplexType(p, info)); // params are args
-							for (argType in argTypes) {
-								for (genericExpr in genericExprs) {
-									if (compareComplexType(argType, typeExprType(genericExpr, info))) {
-										genericExprs.remove(genericExpr);
-										break;
-									}
-								}
-							}
-							if (genericExprs.length > 0) {
-								genericExprs.reverse();
-								skip = genericExprs.length;
-								for (genericExpr in genericExprs) {
-									final t = typeof(genericExpr, info);
-									final defaultType = defaultValue(t, info);
-									args.unshift(defaultType);
-								}
-							}
+							final defaultArgs = genericIndices(expr.fun.id == "IndexExpr" ? [expr.fun.index] : expr.fun.indices, params, typeParams, info);
+							skip = defaultArgs.length;
+							args = defaultArgs.concat(args);
 						}
 						for (i in skip...args.length) {
 							final fromType = getVar(typeof(exprArgs[i - skip], info));
@@ -2801,6 +2851,41 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 	return returnExpr(e);
 }
 
+private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {
+	var genericExprs:Array<Ast.Expr> = indices; // genericTypes but exprs
+	var removalGenericExprs:Array<Ast.Expr> = [];
+	for (i in 0...typeParams.length) {
+		switch typeParams[i] {
+			case typeParam(_, _):
+
+			default:
+				if (genericExprs.length > i)
+					removalGenericExprs.push(genericExprs[i]);
+		}
+	}
+	for (expr in removalGenericExprs) {
+		genericExprs.remove(expr);
+	}
+	final argTypes = params.map(p -> toComplexType(p, info)); // params are args
+	for (i in 0...argTypes.length) {
+		for (genericExpr in genericExprs) {
+			if (compareComplexType(argTypes[i], typeExprType(genericExpr, info))) { // checking if arg already has type matching for macro to use
+				genericExprs.remove(genericExpr);
+				break;
+			}
+		}
+	}
+	final args:Array<Expr> = [];
+	if (genericExprs.length > 0) {
+		for (genericExpr in genericExprs) {
+			final t = typeof(genericExpr, info);
+			final defaultType = defaultValue(t, info);
+			args.push(defaultType);
+		}
+	}
+	return args;
+}
+
 private function toInterface(x:Expr, t:GoType, info:Info):Expr {
 	switch t {
 		case named(_, _, _, _):
@@ -2938,7 +3023,12 @@ private function typeof(e:Ast.Expr, info:Info):GoType {
 			var results = getTuple(e.results, info);
 			var recv = typeof(e.recv, info);
 			final typeParams:Array<GoType> = [];
-			GoType.signature(e.variadic, params, results, recv);
+			if (e.typeParams != null && e.typeParams.length > 0) {
+				for (param in (e.typeParams : Array<Dynamic>)) {
+					typeParams.push(typeof(param, info));
+				}
+			}
+			GoType.signature(e.variadic, params, results, recv, typeParams);
 		case "Named":
 			final path = e.path;
 			if (path == null) {
@@ -4123,37 +4213,6 @@ private function destructureExpr(x:Expr, t:GoType):{x:Expr, t:GoType} {
 	return {x: x, t: t};
 }
 
-private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
-	var x = typeExpr(expr.x, info);
-	switch x.expr {
-		case EConst(c):
-			switch c {
-				case CString(_):
-					x = macro($x : GoString);
-				default:
-			}
-		default:
-	}
-	var index = typeExpr(expr.index, info);
-	var t = typeof(expr.x, info);
-	final obj = destructureExpr(x, t);
-	x = obj.x;
-	t = obj.t;
-	switch t {
-		case arrayType(_, _), sliceType(_), basic(untyped_string_kind), basic(string_kind):
-			index = assignTranslate(typeof(expr.index, info), basic(int_kind), index, info);
-		case mapType(indexType, _):
-			index = assignTranslate(typeof(expr.index, info), indexType, index, info);
-		case signature(_, _, _, _): // generic param
-			return (macro @:define("!macro") Go.typeFunction($x)).expr;
-		default:
-			trace(t);
-			index = macro @:invalid_index 0;
-	}
-	var e = macro($x != null ? $x[$index] : ${defaultValue(typeof(expr, info), info)});
-	return e.expr;
-}
-
 private function typeStarExpr(expr:Ast.StarExpr, info:Info):ExprDef {
 	var x = typeExpr(expr.x, info);
 	final t = typeof(expr.x, info);
@@ -4222,6 +4281,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				p = f(p);
 				recvGeneric = p.params != null && p.params.length > 0;
 				if (recvGeneric) {
+					trace("here");
 					params = p.params.map(param -> switch param {
 						case TPType(TPath(p)):
 							({name: p.name} : TypeParamDecl);
@@ -5051,7 +5111,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				args.push({opt: true, name: name});
 			}
 			final meta:Metadata = [{name: ":structInit", pos: null}, {name: ":named", pos: null}];
-			final params = getParams(spec.params, info,true); // named struct
+			final params = getParams(spec.params, info, true); // named struct
 			final td = macro class $name {
 				public function new() {}
 
@@ -5074,7 +5134,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		case interfaceType(empty, _):
 			if (empty) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = getParams(spec.params, info,true); // no meta :genericBuild
+				final params = getParams(spec.params, info, true); // no meta :genericBuild
 				return {
 					name: name,
 					pos: null,
@@ -5086,7 +5146,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				};
 			}
 			final meta:Metadata = [];
-			final params = getParams(spec.params, info,true);
+			final params = getParams(spec.params, info, true);
 			final ct = TPath(getTypePath(ct));
 			return {
 				name: name,
@@ -5104,7 +5164,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 	}
 	var uct = toComplexType(t, info);
 	final meta:Metadata = [{name: ":named", pos: null}];
-	final params = getParams(spec.params, info,true);
+	final params = getParams(spec.params, info, true);
 	return {
 		name: name,
 		pos: null,
@@ -5183,7 +5243,7 @@ function getParams(params:Ast.FieldList, info:Info, allowNonGeneric:Bool = false
 	if (params == null)
 		return list;
 	for (field in params.list) {
-		if (!allowNonGeneric && field.type.id == "Ident")
+		if (!allowNonGeneric && field.type.id == "Ident" || field.type.id == "SelectorExpr")
 			continue; // singular type as such not generic
 		for (name in field.names) {
 			// final ct = typeExprType(field.type, info);
@@ -5385,7 +5445,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						throw "method not a signature";
 				}
 			}
-			final params = getParams(spec.params, info,true);
+			final params = getParams(spec.params, info, true);
 			var cl:TypeDefinition = {
 				name: name,
 				pos: null,
@@ -5419,7 +5479,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			var struct:Ast.InterfaceType = spec.type;
 			if (struct.methods.list.length == 0) {
 				final meta:Metadata = [{name: ":follow", pos: null}];
-				final params = getParams(spec.params, info,true);
+				final params = getParams(spec.params, info, true);
 				return {
 					name: name,
 					pos: null,
@@ -5441,7 +5501,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					if (struct.methods.list[0].type.id == "BinaryExpr") {
 						// union contract interface type
 						final meta:Metadata = [{name: "union", pos: null}];
-						final params = getParams(spec.params, info,true);
+						final params = getParams(spec.params, info, true);
 						return {
 							name: name,
 							pack: [],
@@ -5459,7 +5519,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					implicits.push(getTypePath(typeExprType(method.type, info)));
 				}
 			}
-			final params = getParams(spec.params, info,true);
+			final params = getParams(spec.params, info, true);
 			return {
 				name: name,
 				pack: [],

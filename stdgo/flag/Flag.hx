@@ -30,7 +30,7 @@ typedef Getter = StructType & {
 };
 @:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) class FlagSet {
     public var usage : () -> Void = null;
-    public var _name : GoString = (("" : GoString));
+    public var _name : GoString = "";
     public var _parsed : Bool = false;
     public var _actual : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
     public var _formal : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
@@ -53,10 +53,10 @@ typedef Getter = StructType & {
     }
 }
 @:structInit class Flag {
-    public var name : GoString = (("" : GoString));
-    public var usage : GoString = (("" : GoString));
+    public var name : GoString = "";
+    public var usage : GoString = "";
     public var value : Value = ((null : Value));
-    public var defValue : GoString = (("" : GoString));
+    public var defValue : GoString = "";
     public function new(?name:GoString, ?usage:GoString, ?value:Value, ?defValue:GoString) {
         if (name != null) this.name = name;
         if (usage != null) this.usage = usage;

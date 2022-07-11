@@ -275,8 +275,8 @@ var _acceptRanges : GoArray<T_acceptRange> = {
         s;
     };
 @:structInit class T_acceptRange {
-    public var _lo : GoUInt8 = ((0 : GoUInt8));
-    public var _hi : GoUInt8 = ((0 : GoUInt8));
+    public var _lo : GoUInt8 = 0;
+    public var _hi : GoUInt8 = 0;
     public function new(?_lo:GoUInt8, ?_hi:GoUInt8) {
         if (_lo != null) this._lo = _lo;
         if (_hi != null) this._hi = _hi;

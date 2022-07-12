@@ -60,3 +60,4 @@ tests/yaegi
 tests/*.hxml
 *.log
 check.json
+__debug_bin

@@ -2,7 +2,9 @@ package main
 
 func main() {
 	x := durationValue(10)
-	println(x.String())
+	if x.String() != "yes" {
+		panic("wrong result")
+	}
 }
 
 type Duration int64

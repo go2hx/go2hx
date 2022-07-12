@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"sync"
 )
 
@@ -14,9 +13,8 @@ func main() {
 		defer wg.Done()
 		select {
 		case c <- true:
-			fmt.Println("sent")
+			_ = c
 		}
-		fmt.Println("select is done")
 	}()
 	<-c
 	wg.Wait()

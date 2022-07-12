@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"reflect"
 )
 
@@ -47,6 +46,10 @@ func main() {
 	}
 	var d t = 10
 	var yy y = d
-	fmt.Println(reflect.TypeOf(d).NumMethod())
-	fmt.Println(reflect.TypeOf(yy).NumMethod())
+	if reflect.TypeOf(d).NumMethod() != 1 {
+		panic("wrong number of methods")
+	}
+	if reflect.TypeOf(yy).NumMethod() != 1 {
+		panic("wrong number of methods")
+	}
 }

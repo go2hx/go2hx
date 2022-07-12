@@ -1,7 +1,5 @@
 package main
 
-import "fmt"
-
 type fileSize string
 
 func (fileSize) Error() string {
@@ -9,7 +7,10 @@ func (fileSize) Error() string {
 }
 
 func main() {
-	fmt.Println(t())
+	x, _ := t()
+	if x != 0 {
+		panic("wrong value")
+	}
 }
 
 func t() (int, error) {

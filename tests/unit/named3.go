@@ -20,5 +20,7 @@ func (e Errno) Temporary() bool {
 
 func main() {
 	var x Errno = 10
-	println(x.Timeout())
+	if x.Timeout() {
+		panic("wrong result")
+	}
 }

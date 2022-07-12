@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type Named bool
 
 type Inter interface {
@@ -18,5 +14,7 @@ func main() {
 	var y Named = false
 	x := &y
 	z := Inter(x)
-	fmt.Println(z == nil)
+	if z == nil {
+		panic("wrong value")
+	}
 }

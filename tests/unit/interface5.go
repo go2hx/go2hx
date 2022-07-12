@@ -1,11 +1,11 @@
 package main
 
-import "fmt"
-
 func main() {
 	y := x{20}
 	y.t()
-	fmt.Println(y.int)
+	if y.int != 10 {
+		panic("wrong value")
+	}
 }
 
 func ca(y x) error {

@@ -2644,7 +2644,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					switch recv {
 						case _var(_, type):
 							final xType = typeof(expr.fun.x, info);
-							if (!isPointer(xType) && isPointer(type)) {
+							final xTypePointer = isPointer(xType);
+							if (isPointer(type)) {
 								var selExpr = typeExpr(expr.fun.sel, info);
 								final sel = switch selExpr.expr {
 									case EConst(CIdent(s)):
@@ -2655,7 +2656,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								var x = typeExpr(expr.fun.x, info);
 								genArgs(true);
 								args.unshift(macro Go.pointer($x));
-								var e = macro $x.$sel($a{args});
+								var e = x;
+								if (xTypePointer)
+									e = macro $e.value;
+								e = macro $e.$sel($a{args});
 								if (genericBool)
 									e = macro @:define("!macro") $e;
 								return returnExpr(e);
@@ -4281,7 +4285,6 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				p = f(p);
 				recvGeneric = p.params != null && p.params.length > 0;
 				if (recvGeneric) {
-					trace("here");
 					params = p.params.map(param -> switch param {
 						case TPType(TPath(p)):
 							({name: p.name} : TypeParamDecl);

@@ -92,7 +92,7 @@ final targets = ["interp"];
 private function update() {
 	processPool.update();
 	Main.update();
-	trace("TASKS LEFT: " + tasks.map(task -> task.data.name));
+	// trace("TASKS LEFT: " + tasks.map(task -> task.data.name));
 	for (task in tasks) {
 		final instance = Main.compileArgs(task.args);
 		instance.data = task;
@@ -153,7 +153,8 @@ private function complete(modules:Array<Typer.Module>, obj:TaskData) {
 			if (target == "hxcpp") {
 				command += " -D HXCPP_NONINTERACTIVE";
 			}
-			processPool.run(Main.runTarget(target, out, args), obj, true);
+			final command = Main.runTarget(target, out, args);
+			processPool.run(command, obj, true);
 		} else {
 			command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1)
 				+ args.join(" ");

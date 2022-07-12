@@ -10,7 +10,6 @@ import (
 	"go/importer"
 	"go/token"
 	"go/types"
-	"log"
 	"net"
 	"path/filepath"
 	"runtime"
@@ -95,6 +94,7 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 			args = append(args, param)
 		}
 	}
+
 	bytes := []byte("null")
 	localPath := args[len(args)-1]
 	var err error
@@ -773,7 +773,6 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 			params[i] = parseType(s.TypeParams().At(i), marked)
 		}
 		data["typeParams"] = params
-		log.Println(s.TypeParams())
 	case "Tuple":
 		s := node.(*types.Tuple)
 		data["len"] = s.Len()

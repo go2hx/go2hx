@@ -636,40 +636,50 @@ class Go {
 							default:
 								if (ref.meta.has(":named") || ref.meta.has(":param")) {
 									final path = ref.pack.concat([ref.name]).join(".");
-									var type:haxe.macro.Type = ref.type;
-									final underlyingType = gtDecode(type, null, marked);
-									final methods:Array<Expr> = [];
-									try {
-										final extensionType = Context.getType(ref.name + "_extension");
-										final extension = switch extensionType {
-											case TInst(_.get() => t, _):
-												t;
-											default:
-												throw "invalid extension type";
-										}
-										final fs = extension.fields.get();
-										final path = createPath(ref.pack, ref.name);
-										for (field in fs) {
-											switch field.kind {
-												case FMethod(k):
-													switch field.name {
-														case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
-															continue;
-													}
-													if (field.name == "toString" && field.meta.has(":implicit"))
-														continue;
-													switch field.type {
-														case TLazy(f):
-															continue;
-														default:
-													}
-													methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name},
-														${gtDecode(field.type, null, marked, ret)}));
+									if (marked.exists(path)) {
+										ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [], stdgo.reflect.Reflect.GoType.invalidType);
+									} else {
+										marked[path] = true;
+										var type:haxe.macro.Type = ref.type;
+										final underlyingType = gtDecode(type, null, marked);
+										final methods:Array<Expr> = [];
+										try {
+											final extensionType = Context.getType(ref.name + "_wrapper");
+											final extension = switch extensionType {
+												case TInst(_.get() => t, _):
+													t;
 												default:
+													throw "invalid extension type";
 											}
+											var fs = extension.fields.get();
+											final path = createPath(ref.pack, ref.name);
+											for (field in fs) {
+												switch field.kind {
+													case FVar(AccNormal, AccNormal):
+														switch field.name {
+															case "new", "__underlying__", "__t__":
+																continue;
+														}
+														if (field.name == "toString" && field.meta.has(":implicit"))
+															continue;
+														switch field.type {
+															case TLazy(f):
+																continue;
+															default:
+														}
+														// trace(field.name, field.type);
+														final t = gtDecode(field.type, null, marked.copy(), ret);
+														// trace(new haxe.macro.Printer().printExpr(t));
+														final method = macro new stdgo.reflect.Reflect.MethodType($v{field.name}, $t, null);
+														methods.push(method);
+													default:
+												}
+											}
+										} catch (e) {
+											// trace(e);
 										}
-									} catch (_) {}
-									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
+										ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, $a{methods}, $underlyingType);
+									}
 								} else {
 									Context.error("go unknown typedef: " + name, Context.currentPos());
 								}
@@ -858,6 +868,9 @@ class Go {
 			switch field.kind {
 				case FMethod(k):
 				default:
+					if (field.name == "__self__") {
+						return gtDecode(field.type, null, marked);
+					}
 					if (field.name == "__t__") {
 						underlyingType = field.type;
 						continue;

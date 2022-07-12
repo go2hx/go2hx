@@ -729,7 +729,7 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null)
 		exprs = exprs.concat([for (stmt in list) typeStmt(stmt, info)]);
 	if (list != null)
-		if (info.deferBool && isFunc) { // defer system
+		if (info.deferBool) { // defer system
 			final e = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 			final ret = switch e.expr {
 				case EBlock(exprs):

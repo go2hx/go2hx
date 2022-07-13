@@ -245,8 +245,10 @@ class F {
 		return new F(output);
 }
 
+@:follow typedef T_ = T;
+
 @:structInit
-class T_ {
+class T {
 	var skipBool:Bool = false;
 	var failBool:Bool = false;
 	@:local

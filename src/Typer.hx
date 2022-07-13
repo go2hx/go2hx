@@ -2529,6 +2529,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 		return e.expr;
 	}
 	function argSetString(fromType:GoType, arg:Expr) {
+		if (fromType == null)
+			return arg;
 		switch fromType {
 			case basic(kind):
 				switch kind {

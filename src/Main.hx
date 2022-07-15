@@ -277,6 +277,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			if (pos == buff.length) {
 				Sys.println("got all bytes");
 				var exportData:DataType = null;
+
+				buff = haxe.zip.Uncompress.run(buff);
+
 				haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
 				Sys.println("retrieved exportData");
 				final index = Std.parseInt(exportData.index);

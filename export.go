@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"compress/zlib"
 	"encoding/binary"
 	"encoding/json"
 	"fmt"
@@ -94,18 +95,18 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 		}
 	}
 
-	bytes := []byte("null")
+	b := []byte("null")
 	localPath := args[len(args)-1]
 	var err error
 	if err != nil {
 		panic(err.Error())
-		return bytes
+		return b
 	}
 	err = os.Chdir(localPath)
 	args = args[0 : len(args)-1] //remove chdir
 	if err != nil {
 		panic(err.Error() + " = " + localPath + " args: " + strings.Join(args, ","))
-		return bytes
+		return b
 	}
 	cfg.Tests = testBool
 	initial, err := packages.Load(cfg, &types.StdSizes{WordSize: 4, MaxAlign: 8}, args...)
@@ -135,16 +136,23 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	methodCache = typeutil.MethodSetCache{}
 	data.Args = args
 	if debug {
-		bytes, _ = json.MarshalIndent(data, "", "  ")
-		os.WriteFile("check.json", bytes, 0766)
+		b, _ = json.MarshalIndent(data, "", "  ")
+		os.WriteFile("check.json", b, 0766)
 		fmt.Println("create check.json")
 	}
-	bytes, err = json.Marshal(data)
+	b, err = json.Marshal(data)
 	if err != nil {
 		panic("encoding err: " + err.Error())
-		return bytes
+		return b
 	}
-	return bytes
+	var buff bytes.Buffer
+	w := zlib.NewWriter(&buff)
+	_, err = w.Write(b)
+	if err != nil {
+		panic(err)
+	}
+	w.Close()
+	return buff.Bytes()
 }
 
 var cfg = &packages.Config{

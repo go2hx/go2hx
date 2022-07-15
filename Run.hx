@@ -21,8 +21,6 @@ function main() {
 	}
 	process.close();
 
-	haxelibInstallGit(ci, "kevinresol", "bson");
-
 	var rebuild = false;
 	process = new Process('git', ['rev-parse', 'HEAD']);
 	if (process.exitCode() != 0) {
@@ -60,6 +58,19 @@ function main() {
 	if (!FileSystem.exists("go4hx") || rebuild)
 		Sys.command("go build .");
 
+	process = new Process("node -v");
+	code = process.exitCode();
+	process.close();
+
+	if (code == 0) {
+		// run nodejs
+		if (!FileSystem.exists("build.js") || rebuild)
+			Sys.command("haxe build-js.hxml");
+		args.unshift("build.js");
+		Sys.command("node", args);
+		return;
+	}
+
 	process = new Process("hl", ["--version"]);
 	code = process.exitCode();
 	process.close();
@@ -69,9 +80,8 @@ function main() {
 		if (!FileSystem.exists("build.hl") || rebuild)
 			Sys.command("haxe build-hl.hxml");
 		args.unshift("build.hl");
+		Sys.command("hl", args);
 	} else {
 		Sys.command("haxe build-interp.hxml " + args.join(" "));
-		return;
 	}
-	Sys.command("hl", args);
 }

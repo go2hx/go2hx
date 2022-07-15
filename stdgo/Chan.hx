@@ -1,5 +1,7 @@
 package stdgo;
 
+import stdgo.StdGoTypes.GoInt;
+#if (target.threaded)
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.internal.Async;
@@ -218,3 +220,13 @@ private class ChanIterator<T> {
 		return chan.__get__();
 	}
 }
+#else
+class Chan<T> {
+	public function new() {}
+
+	public function cap():GoInt
+		return 0;
+
+	public var length:GoInt = 0;
+}
+#end

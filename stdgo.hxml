@@ -1,6 +1,5 @@
 -main StdGo
 -cp src
--lib bson
 -D no-deprecation-warnings
 -D simulate_num
 -hl stdgo.hl

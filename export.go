@@ -21,7 +21,6 @@ import (
 	"strconv"
 	"strings"
 
-	"go.mongodb.org/mongo-driver/bson"
 	"golang.org/x/tools/go/ast/astutil"
 	"golang.org/x/tools/go/packages"
 	"golang.org/x/tools/go/types/typeutil"
@@ -136,11 +135,11 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	methodCache = typeutil.MethodSetCache{}
 	data.Args = args
 	if debug {
-		bytes, _ = json.Marshal(data)
+		bytes, _ = json.MarshalIndent(data, "", "  ")
 		os.WriteFile("check.json", bytes, 0766)
 		fmt.Println("create check.json")
 	}
-	bytes, err = bson.Marshal(data)
+	bytes, err = json.Marshal(data)
 	if err != nil {
 		panic("encoding err: " + err.Error())
 		return bytes
@@ -182,7 +181,6 @@ func main() {
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
-
 	defer conn.Close()
 	if err != nil {
 		panic("dial: " + err.Error())
@@ -196,6 +194,7 @@ func main() {
 			return
 		}
 		input = input[:c]
+		//fmt.Println("input: " + string(input))
 		args := strings.Split(string(input), " ")
 		index := args[0]
 		data := compile(args[1:], excludesData, index, false)
@@ -207,6 +206,8 @@ func main() {
 			panic("write length error: " + err.Error())
 			return
 		}
+
+		//fmt.Println("write data:", len(data))
 		_, err = conn.Write(data)
 		data = nil
 		input = nil

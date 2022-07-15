@@ -1,9 +1,11 @@
 -cp rnd
 -cp src
 -main RunRnd
---interp
+-lib hxnodejs
+#--interp
+--js rnd.js
+--cmd node rnd.js
 -D debug
--lib bson
 extraParams.hxml
 -D watch.run=hl rnd.hl
 -D no-deprecation-warnings

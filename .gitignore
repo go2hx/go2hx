@@ -20,7 +20,6 @@ tests.txt
 dump
 *.js
 yaegi
-*.bson
 libs
 *.exe
 *.dll

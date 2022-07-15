@@ -1,0 +1,4 @@
+-cp golibs 
+extraParams.hxml 
+-main github_com.go2hx.go4hx.rnd.Rnd 
+-hl runrnd.hl

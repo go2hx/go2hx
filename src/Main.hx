@@ -56,6 +56,7 @@ final passthroughArgs = [
 
 function run(args:Array<String>) {
 	final instance = compileArgs(args);
+	Sys.println("create compiler instance");
 	setup(0, 1, () -> {
 		if (onComplete == null)
 			onComplete = (modules, data) -> {
@@ -67,8 +68,10 @@ function run(args:Array<String>) {
 			compile(instance);
 		}
 	});
+	#if !js
 	while (true)
 		update();
+	#end
 }
 
 function compileArgs(args:Array<String>):InstanceData {
@@ -216,14 +219,22 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	if (port == 0)
 		port = 6114 + Std.random(200); // random range in case port is still bound from before
 	Sys.println('listening on local port: $port');
+	#if !js
 	server.bind(new sys.net.Host("127.0.0.1"), port);
-	server.noDelay(true);
+	#end
+
+	// server.noDelay(true);
 	for (i in 0...processCount) {
 		// sys.thread.Thread.create(() -> Sys.command("./go4hx", ['$port']));
+		#if (target.threaded)
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
+		#else
+		js.node.Require.require("child_process").exec('./go4hx $port');
+		#end
 	}
 	var index = 0;
 	server.listen(0, () -> {
+		Sys.println("accepted connection");
 		index++;
 		final client:Client = {stream: server.accept(), id: -1};
 		#if !hl
@@ -253,6 +264,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
+				Sys.println("get length: " + len);
 				#if !hl
 				client.stream.size = len;
 				#end
@@ -261,8 +273,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			buff.blit(pos, bytes, 0, bytes.length);
 			pos += bytes.length;
+			// Sys.println("pos: " + pos + " buff: " + buff.length);
 			if (pos == buff.length) {
-				var exportData:DataType = bson.Bson.decode(buff);
+				Sys.println("got all bytes");
+				var exportData:DataType = null;
+				haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
+				Sys.println("retrieved exportData");
 				final index = Std.parseInt(exportData.index);
 				final instance = instanceCache[index];
 				instanceCache[index] = null; // reset
@@ -273,6 +289,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				var outputPath = instance.outputPath;
 				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];
+
 				// reset
 				// trace("CLIENT RESET");
 				client.runnable = true;
@@ -282,12 +299,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				#if !hl
 				client.stream.size = 8;
 				#end
-
 				for (module in modules) {
 					if (instance.libwrap && !module.isMain) {
 						Sys.setCwd(cwd);
 						var name = module.name;
 						var libPath = "libs/" + name + "/";
+
 						Gen.create(libPath, module, instance.root);
 						Sys.command('haxelib dev $name $libPath');
 						if (libs.indexOf(name) == -1)
@@ -304,6 +321,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		if (index >= processCount && allAccepted != null)
 			allAccepted();
 	});
+	#if js
+	@:privateAccess server.s.listen(port, () -> {
+		Sys.println("nodejs server started");
+	});
+	new sys.net.Host("127.0.0.1");
+	#end
 }
 
 function targetLibs(instance:InstanceData):String {

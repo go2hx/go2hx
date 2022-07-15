@@ -10,5 +10,6 @@
     "io",
     "io/fs",
     "testing/fstest",
-    "testing/iotest"
+    "testing/iotest",
+    "os"
 ]}

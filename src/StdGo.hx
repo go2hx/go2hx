@@ -47,4 +47,4 @@ function update() {
 	}
 }
 
-final externs = ["syscall/js", "syscall"];
+final externs = ["syscall/js", "syscall", "os"];

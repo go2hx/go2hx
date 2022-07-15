@@ -3,7 +3,6 @@
     "testing/quick",
     "testing/internal/testdeps",
     "reflect",
-    "os",
     "errors",
     "internal",
     "internal/reflectlite",

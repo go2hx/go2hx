@@ -17,22 +17,33 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
+	trace(libs);
 	Main.setup(0, 2); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
 		return;
+	#if !js
 	while (true)
 		update();
+	#else
+	final timer = new haxe.Timer(500);
+	timer.run = () -> update();
+	#end
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
+	#if js
+	update();
+	#end
 	if (libs.length == 0)
 		Main.close();
 }
 
 function update() {
 	var externBool = false;
+	#if !js
 	Main.update();
+	#end
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
 		final args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo'];
@@ -41,8 +52,14 @@ function update() {
 		args.push(path);
 		final instance = Main.compileArgs(args);
 		final compiled = Main.compile(instance);
-		if (!compiled)
+		if (!compiled) {
+			#if !js
 			break;
+			#else
+			update();
+			return;
+			#end
+		}
 		libs.remove(lib);
 	}
 }

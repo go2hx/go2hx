@@ -2,4 +2,5 @@
 -cp src
 -D no-deprecation-warnings
 -D simulate_num
--hl stdgo.hl
+-lib hxnodejs
+--js stdgo.js

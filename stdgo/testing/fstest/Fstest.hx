@@ -425,7 +425,7 @@ class T_mapFileInfo_wrapper {
 @:keep class T_openMapFile_static_extension {
     @:keep
     public static function readAt( _f:T_openMapFile, _b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
-        if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._f.data != null ? _f._f.data.length : ((0 : GoInt))) : GoInt64)))) {
+        if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt)), _1 : {
                 final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
                 __self__.error = #if !macro function():GoString return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
@@ -434,7 +434,7 @@ class T_mapFileInfo_wrapper {
                 __self__;
             } };
         };
-        var _n:GoInt = Go.copySlice(_b, ((_f._f.data.__slice__(_offset) : Slice<GoUInt8>)));
+        var _n:GoInt = Go.copySlice(_b, ((_f._mapFileInfo._f.data.__slice__(_offset) : Slice<GoUInt8>)));
         if (_n < (_b != null ? _b.length : ((0 : GoInt)))) {
             return { _0 : _n, _1 : stdgo.io.Io.eof };
         };
@@ -445,9 +445,9 @@ class T_mapFileInfo_wrapper {
         if (_whence == ((0 : GoInt))) {} else if (_whence == ((1 : GoInt))) {
             _offset = _offset + (_f._offset);
         } else if (_whence == ((2 : GoInt))) {
-            _offset = _offset + ((((_f._f.data != null ? _f._f.data.length : ((0 : GoInt))) : GoInt64)));
+            _offset = _offset + ((((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)));
         };
-        if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._f.data != null ? _f._f.data.length : ((0 : GoInt))) : GoInt64)))) {
+        if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt64)), _1 : {
                 final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
                 __self__.error = #if !macro function():GoString return (({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
@@ -461,7 +461,7 @@ class T_mapFileInfo_wrapper {
     }
     @:keep
     public static function read( _f:T_openMapFile, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
-        if (_f._offset >= (((_f._f.data != null ? _f._f.data.length : ((0 : GoInt))) : GoInt64))) {
+        if (_f._offset >= (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64))) {
             return { _0 : ((0 : GoInt)), _1 : stdgo.io.Io.eof };
         };
         if (_f._offset < ((0 : GoInt64))) {
@@ -473,7 +473,7 @@ class T_mapFileInfo_wrapper {
                 __self__;
             } };
         };
-        var _n:GoInt = Go.copySlice(_b, ((_f._f.data.__slice__(_f._offset) : Slice<GoUInt8>)));
+        var _n:GoInt = Go.copySlice(_b, ((_f._mapFileInfo._f.data.__slice__(_f._offset) : Slice<GoUInt8>)));
         _f._offset = _f._offset + (((_n : GoInt64)));
         return { _0 : _n, _1 : ((null : stdgo.Error)) };
     }

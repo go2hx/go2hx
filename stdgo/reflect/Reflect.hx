@@ -1040,9 +1040,11 @@ typedef Type = StructType & {
 };
 
 class _Type {
+	@:local
 	public var gt:GoType;
 	public var stringValue:GoString = "";
 
+	@:local
 	public var __t__(get, never):Type;
 
 	function get___t__():Type {

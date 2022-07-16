@@ -51,6 +51,7 @@ typedef Locker = StructType & {
 }
 
 class RWMutex {
+	@:local
 	var mutex:sys.thread.Mutex;
 
 	public function __underlying__():AnyInterface

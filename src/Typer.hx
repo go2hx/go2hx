@@ -1759,6 +1759,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 	}
 	switch t {
 		case named(name, methods, type):
+			if (type == invalidType)
+				return y;
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}
@@ -1766,7 +1768,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			p.name += "_wrapper";
 			var exprs = [macro final __self__ = new $p($y)];
 			for (method in methods) {
-				final methodName = nameIdent(method.name, true, false, info);
+				final methodName = nameIdent(method.name, false, false, info);
 				switch method.type {
 					case signature(variadic, params, results, recv):
 						final methodArgs = [];
@@ -2895,7 +2897,8 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 private function toInterface(x:Expr, t:GoType, info:Info):Expr {
 	switch t {
 		case named(_, _, _, _):
-			x = wrapper(t, x, info);
+			if (!isInterface(t) && !isAnyInterface(t))
+				x = wrapper(t, x, info);
 		default:
 	}
 	return macro Go.toInterface($x);

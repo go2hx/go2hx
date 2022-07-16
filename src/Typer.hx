@@ -3102,7 +3102,7 @@ private function typeof(e:Ast.Expr, info:Info):GoType {
 						name: field.name,
 						type: typeof(field.type, info),
 						embedded: field.embedded,
-						tag: field.tag == null ? "" : field.tag
+						tag: field.tag == null ? "" : field.tag,
 					}
 
 			]);
@@ -4094,7 +4094,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, elem), pointer(elem):
+		case named(_, _, elem), pointer(elem), refType(elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;

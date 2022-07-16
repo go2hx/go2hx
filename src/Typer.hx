@@ -1759,8 +1759,6 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 	}
 	switch t {
 		case named(name, methods, type):
-			if (info.global.externBool)
-				return macro null;
 			if (isInterface(type)) {
 				return selfPointer ? self : y;
 			}

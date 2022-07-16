@@ -4807,6 +4807,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			} else {
 				null;
 			}
+		case _var(_, type):
+			defaultValue(type, info, strict);
 		default:
 			throw "unsupported default value type: " + type;
 	}

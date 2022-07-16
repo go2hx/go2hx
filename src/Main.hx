@@ -271,7 +271,13 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				buff = Bytes.alloc(len);
 				bytes = bytes.sub(8, bytes.length - 8);
 			}
+			#if hl
+			@:privateAccess buff.b.blit(pos, bytes, 0, bytes.length);
+			#elseif js
+			@:privateAccess buff.b.set(bytes.b, pos);
+			#else
 			buff.blit(pos, bytes, 0, bytes.length);
+			#end
 			pos += bytes.length;
 			// Sys.println("pos: " + pos + " buff: " + buff.length);
 			if (pos == buff.length) {

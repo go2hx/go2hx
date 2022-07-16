@@ -199,10 +199,7 @@ function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : 
             {
                 {
                     var __tmp__ = stat(_fsys, _pattern);
-                    _err = {
-                        final __self__ = new stdgo.Error_wrapper(__tmp__._1);
-                        __self__;
-                    };
+                    _err = __tmp__._1;
                 };
                 if (_err != null) {
                     return { _0 : ((null : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
@@ -805,11 +802,11 @@ class T_dirInfo_wrapper {
         if (_dir == ((("." : GoString)))) {
             return { _0 : {
                 final __self__ = new T_subFS_wrapper(_f);
-                __self__.stdgo.io.fs.Fs.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _f.stdgo.io.fs.Fs.glob(_pattern) #else null #end;
+                __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _f.glob(_pattern) #else null #end;
                 __self__.open = #if !macro function(_name:GoString):{ var _0 : File; var _1 : stdgo.Error; } return _f.open(_name) #else null #end;
-                __self__.stdgo.io.fs.Fs.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return _f.stdgo.io.fs.Fs.readDir(_name) #else null #end;
-                __self__.stdgo.io.fs.Fs.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _f.stdgo.io.fs.Fs.readFile(_name) #else null #end;
-                __self__.stdgo.io.fs.Fs.sub = #if !macro function(_dir:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return _f.stdgo.io.fs.Fs.sub(_dir) #else null #end;
+                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return _f.readDir(_name) #else null #end;
+                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _f.readFile(_name) #else null #end;
+                __self__.sub = #if !macro function(_dir:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return _f.sub(_dir) #else null #end;
                 __self__._fixErr = #if !macro function(_err:stdgo.Error):stdgo.Error return _f._fixErr(_err) #else null #end;
                 __self__._fullName = #if !macro function(_op:GoString, _name:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return _f._fullName(_op, _name) #else null #end;
                 __self__._shorten = #if !macro function(_name:GoString):{ var _0 : GoString; var _1 : Bool; } return _f._shorten(_name) #else null #end;
@@ -822,11 +819,11 @@ class T_dirInfo_wrapper {
         };
         return { _0 : {
             final __self__ = new T_subFS_wrapper(((new T_subFS(_f._fsys, _full) : T_subFS)));
-            __self__.stdgo.io.fs.Fs.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).stdgo.io.fs.Fs.glob(_pattern) #else null #end;
+            __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).glob(_pattern) #else null #end;
             __self__.open = #if !macro function(_name:GoString):{ var _0 : File; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).open(_name) #else null #end;
-            __self__.stdgo.io.fs.Fs.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).stdgo.io.fs.Fs.readDir(_name) #else null #end;
-            __self__.stdgo.io.fs.Fs.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).stdgo.io.fs.Fs.readFile(_name) #else null #end;
-            __self__.stdgo.io.fs.Fs.sub = #if !macro function(_dir:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).stdgo.io.fs.Fs.sub(_dir) #else null #end;
+            __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).readDir(_name) #else null #end;
+            __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).readFile(_name) #else null #end;
+            __self__.sub = #if !macro function(_dir:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).sub(_dir) #else null #end;
             __self__._fixErr = #if !macro function(_err:stdgo.Error):stdgo.Error return ((new T_subFS(_f._fsys, _full) : T_subFS))._fixErr(_err) #else null #end;
             __self__._fullName = #if !macro function(_op:GoString, _name:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS))._fullName(_op, _name) #else null #end;
             __self__._shorten = #if !macro function(_name:GoString):{ var _0 : GoString; var _1 : Bool; } return ((new T_subFS(_f._fsys, _full) : T_subFS))._shorten(_name) #else null #end;

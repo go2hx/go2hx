@@ -702,10 +702,7 @@ class T_mapDir_wrapper {
             {
                 var __tmp__ = _t._fsys.open(_file);
                 _f = __tmp__._0;
-                _err = {
-                    final __self__ = new stdgo.Error_wrapper(__tmp__._1);
-                    __self__;
-                };
+                _err = __tmp__._1;
             };
             if (_err != null) {
                 _t._errorf(((("%s: second Open: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
@@ -1021,10 +1018,7 @@ class T_mapDir_wrapper {
             {
                 var __tmp__ = _d.readDir(((1 : GoInt)));
                 _list2 = __tmp__._0;
-                _err = {
-                    final __self__ = new stdgo.Error_wrapper(__tmp__._1);
-                    __self__;
-                };
+                _err = __tmp__._1;
             };
             if (((_list2 != null ? _list2.length : ((0 : GoInt))) > ((0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
                 _d.close();
@@ -1048,10 +1042,7 @@ class T_mapDir_wrapper {
             {
                 var __tmp__ = _d.readDir(((-1 : GoInt)));
                 _list2 = __tmp__._0;
-                _err = {
-                    final __self__ = new stdgo.Error_wrapper(__tmp__._1);
-                    __self__;
-                };
+                _err = __tmp__._1;
             };
             if (_err != null) {
                 var __recover_exception__:AnyInterface = null;
@@ -1350,10 +1341,7 @@ class T_mapDir_wrapper {
             {
                 var __tmp__ = stdgo.io.fs.Fs.readDir(_t._fsys, _dir);
                 _list2 = __tmp__._0;
-                _err = {
-                    final __self__ = new stdgo.Error_wrapper(__tmp__._1);
-                    __self__;
-                };
+                _err = __tmp__._1;
             };
             if (_err != null) {
                 var __recover_exception__:AnyInterface = null;

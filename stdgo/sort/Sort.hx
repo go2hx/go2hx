@@ -970,8 +970,8 @@ class T_reverse_wrapper {
             final __self__ = new IntSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
             __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.stdgo.sort.Sort.search = #if !macro function(_x:GoInt):GoInt return _x.stdgo.sort.Sort.search(_x) #else null #end;
-            __self__.stdgo.sort.Sort.sort = #if !macro function():Void _x.stdgo.sort.Sort.sort() #else null #end;
+            __self__.search = #if !macro function(_x:GoInt):GoInt return _x.search(_x) #else null #end;
+            __self__.sort = #if !macro function():Void _x.sort() #else null #end;
             __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
             __self__;
         });
@@ -1032,8 +1032,8 @@ class IntSlice_wrapper {
             final __self__ = new Float64Slice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
             __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.stdgo.sort.Sort.search = #if !macro function(_x:GoFloat64):GoInt return _x.stdgo.sort.Sort.search(_x) #else null #end;
-            __self__.stdgo.sort.Sort.sort = #if !macro function():Void _x.stdgo.sort.Sort.sort() #else null #end;
+            __self__.search = #if !macro function(_x:GoFloat64):GoInt return _x.search(_x) #else null #end;
+            __self__.sort = #if !macro function():Void _x.sort() #else null #end;
             __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
             __self__;
         });
@@ -1112,8 +1112,8 @@ class Float64Slice_wrapper {
             final __self__ = new StringSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
             __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.stdgo.sort.Sort.search = #if !macro function(_x:GoString):GoInt return _x.stdgo.sort.Sort.search(_x) #else null #end;
-            __self__.stdgo.sort.Sort.sort = #if !macro function():Void _x.stdgo.sort.Sort.sort() #else null #end;
+            __self__.search = #if !macro function(_x:GoString):GoInt return _x.search(_x) #else null #end;
+            __self__.sort = #if !macro function():Void _x.sort() #else null #end;
             __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
             __self__;
         });

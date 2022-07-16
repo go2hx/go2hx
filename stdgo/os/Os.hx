@@ -89,7 +89,7 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
     public function new() {}
-    public function _close():stdgo.Error return new._close();
+    public function _close():stdgo.Error return ((null : stdgo.Error));
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new File();

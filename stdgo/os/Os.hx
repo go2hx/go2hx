@@ -8,24 +8,50 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var errInvalid : stdgo.Error = _fs.errInvalid;
-var errPermission : stdgo.Error = _fs.errPermission;
-var errExist : stdgo.Error = _fs.errExist;
-var errNotExist : stdgo.Error = _fs.errNotExist;
-var errClosed : stdgo.Error = _fs.errClosed;
+var _dirBufPool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
+        var _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((8192 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        return Go.toInterface(_buf);
+    }, _noCopy : new stdgo.sync.Sync.T_noCopy(), _local : null, _localSize : 0, _victim : null, _victimSize : 0 } : stdgo.sync.Sync.Pool));
+var errInvalid : stdgo.Error = stdgo.io.fs.Fs.errInvalid;
+var errPermission : stdgo.Error = stdgo.io.fs.Fs.errPermission;
+var errExist : stdgo.Error = stdgo.io.fs.Fs.errExist;
+var errNotExist : stdgo.Error = stdgo.io.fs.Fs.errNotExist;
+var errClosed : stdgo.Error = stdgo.io.fs.Fs.errClosed;
 var errNoDeadline : stdgo.Error = _errNoDeadline();
 var errDeadlineExceeded : stdgo.Error = _errDeadlineExceeded();
-var errProcessDone : stdgo.Error = _errors.new_(((("os: process already finished" : GoString))));
+var errProcessDone : stdgo.Error = stdgo.errors.Errors.new_(((("os: process already finished" : GoString))));
 var interrupt : Signal = ((2 : GoInt));
 var kill : Signal = ((3 : GoInt));
+var _errWriteAtInAppendMode : stdgo.Error = stdgo.errors.Errors.new_(((("os: invalid use of WriteAt on file opened with O_APPEND" : GoString))));
 var stdin : Ref<File> = newFile(((((0 : GoUIntptr)) : GoUIntptr)), ((("/dev/stdin" : GoString))));
 var stdout : Ref<File> = newFile(((((1 : GoUIntptr)) : GoUIntptr)), ((("/dev/stdout" : GoString))));
 var stderr : Ref<File> = newFile(((((2 : GoUIntptr)) : GoUIntptr)), ((("/dev/stderr" : GoString))));
+var _errPatternHasSeparator : stdgo.Error = stdgo.errors.Errors.new_(((("pattern contains path separator" : GoString))));
+var _lstat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = lstat;
+var _testingForceReadDirLstat : Bool = false;
+var _getwdCache : T__struct_0 = new T__struct_0();
 var args : Slice<GoString> = ((null : Slice<GoString>));
+typedef T_timeout = StructType & {
+    public function timeout():Bool;
+};
 typedef Signal = StructType & {
     public function toString():GoString;
     public function signal():Void;
 };
+@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) class T_dirInfo {
+    public var _buf : Ref<Slice<GoUInt8>> = null;
+    public var _nbuf : GoInt = 0;
+    public var _bufp : GoInt = 0;
+    public function new(?_buf:Ref<Slice<GoUInt8>>, ?_nbuf:GoInt, ?_bufp:GoInt) {
+        if (_buf != null) this._buf = _buf;
+        if (_nbuf != null) this._nbuf = _nbuf;
+        if (_bufp != null) this._bufp = _bufp;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_dirInfo(_buf, _nbuf, _bufp);
+    }
+}
 @:structInit @:using(stdgo.os.Os.SyscallError_static_extension) class SyscallError {
     public var syscall : GoString = "";
     public var err : stdgo.Error = ((null : stdgo.Error));
@@ -40,12 +66,18 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.Process_static_extension) class Process {
     public var pid : GoInt = 0;
-    public function new(?pid:GoInt) {
+    public var _handle : GoUIntptr = 0;
+    public var _isdone : GoUInt32 = 0;
+    public var _sigMu : stdgo.sync.Sync.RWMutex = new stdgo.sync.Sync.RWMutex();
+    public function new(?pid:GoInt, ?_handle:GoUIntptr, ?_isdone:GoUInt32, ?_sigMu:stdgo.sync.Sync.RWMutex) {
         if (pid != null) this.pid = pid;
+        if (_handle != null) this._handle = _handle;
+        if (_isdone != null) this._isdone = _isdone;
+        if (_sigMu != null) this._sigMu = _sigMu;
     }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new Process(pid);
+        return new Process(pid, _handle, _isdone, _sigMu);
     }
 }
 @:structInit class ProcAttr {
@@ -65,10 +97,17 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
-    public function new() {}
+    public var _pid : GoInt = 0;
+    public var _status : stdgo.syscall.Syscall.WaitStatus = new stdgo.syscall.Syscall.WaitStatus();
+    public var _rusage : Ref<stdgo.syscall.Syscall.Rusage> = null;
+    public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
+        if (_pid != null) this._pid = _pid;
+        if (_status != null) this._status = _status;
+        if (_rusage != null) this._rusage = _rusage;
+    }
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new ProcessState();
+        return new ProcessState(_pid, _status, _rusage);
     }
 }
 @:structInit @:using(stdgo.os.Os.LinkError_static_extension) class LinkError {
@@ -87,16 +126,119 @@ typedef Signal = StructType & {
         return new LinkError(op, old, new_, err);
     }
 }
+@:structInit class T_onlyWriter {
+    @:embedded
+    public var writer : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
+    public function new(?writer:stdgo.io.Io.Writer) {
+        if (writer != null) this.writer = writer;
+    }
+    public function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return null;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_onlyWriter(writer);
+    }
+}
+@:structInit @:using(stdgo.os.Os.T_file_static_extension) class T_file {
+    public var _pfd : stdgo.internal.poll.Poll.FD = new stdgo.internal.poll.Poll.FD();
+    public var _name : GoString = "";
+    public var _dirinfo : Ref<T_dirInfo> = null;
+    public var _nonblock : Bool = false;
+    public var _stdoutOrErr : Bool = false;
+    public var _appendMode : Bool = false;
+    public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
+        if (_pfd != null) this._pfd = _pfd;
+        if (_name != null) this._name = _name;
+        if (_dirinfo != null) this._dirinfo = _dirinfo;
+        if (_nonblock != null) this._nonblock = _nonblock;
+        if (_stdoutOrErr != null) this._stdoutOrErr = _stdoutOrErr;
+        if (_appendMode != null) this._appendMode = _appendMode;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
+    }
+}
+@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) class T_unixDirent {
+    public var _parent : GoString = "";
+    public var _name : GoString = "";
+    public var _typ : stdgo.io.fs.Fs.FileMode = new stdgo.io.fs.Fs.FileMode();
+    public var _info : stdgo.io.fs.Fs.FileInfo = ((null : stdgo.io.fs.Fs.FileInfo));
+    public function new(?_parent:GoString, ?_name:GoString, ?_typ:stdgo.io.fs.Fs.FileMode, ?_info:stdgo.io.fs.Fs.FileInfo) {
+        if (_parent != null) this._parent = _parent;
+        if (_name != null) this._name = _name;
+        if (_typ != null) this._typ = _typ;
+        if (_info != null) this._info = _info;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_unixDirent(_parent, _name, _typ, _info);
+    }
+}
+@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) class T_rawConn {
+    public var _file : Ref<File> = null;
+    public function new(?_file:Ref<File>) {
+        if (_file != null) this._file = _file;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_rawConn(_file);
+    }
+}
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
-    public function new() {}
+    @:embedded
+    public var _file : Ref<T_file> = null;
+    public function new(?_file:Ref<T_file>) {
+        if (_file != null) this._file = _file;
+    }
     public function _close():stdgo.Error return ((null : stdgo.Error));
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new File();
+        return new File(_file);
     }
 }
+@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) class T_fileStat {
+    public var _name : GoString = "";
+    public var _size : GoInt64 = 0;
+    public var _mode : stdgo.io.fs.Fs.FileMode = new stdgo.io.fs.Fs.FileMode();
+    public var _modTime : stdgo.time.Time.Time = new stdgo.time.Time.Time();
+    public var _sys : stdgo.syscall.Syscall.Stat_t = new stdgo.syscall.Syscall.Stat_t();
+    public function new(?_name:GoString, ?_size:GoInt64, ?_mode:stdgo.io.fs.Fs.FileMode, ?_modTime:stdgo.time.Time.Time, ?_sys:stdgo.syscall.Syscall.Stat_t) {
+        if (_name != null) this._name = _name;
+        if (_size != null) this._size = _size;
+        if (_mode != null) this._mode = _mode;
+        if (_modTime != null) this._modTime = _modTime;
+        if (_sys != null) this._sys = _sys;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_fileStat(_name, _size, _mode, _modTime, _sys);
+    }
+}
+@:structInit @:local class T__struct_0 {
+    @:embedded
+    public var mutex : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
+    public var _dir : GoString = "";
+    public function toString():String return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
+    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?toString) {
+        if (mutex != null) this.mutex = mutex;
+        if (_dir != null) this._dir = _dir;
+    }
+    public function lock() null;
+    public function tryLock():Bool return false;
+    public function unlock() null;
+    public function _lockSlow() null;
+    public function _unlockSlow(_new:GoInt32) null;
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T__struct_0(mutex, _dir);
+    }
+}
+@:named typedef T_readdirMode = GoInt;
 @:named typedef DirEntry = stdgo.io.fs.Fs.DirEntry;
 @:named typedef PathError = stdgo.io.fs.Fs.PathError;
+@:named typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
+@:named @:using(stdgo.os.Os.T_dirFS_static_extension) typedef T_dirFS = GoString;
+@:named typedef T_newFileKind = GoInt;
 @:named typedef FileInfo = stdgo.io.fs.Fs.FileInfo;
 @:named typedef FileMode = stdgo.io.fs.Fs.FileMode;
 /**
@@ -108,6 +250,16 @@ typedef Signal = StructType & {
 **/
 function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _1 : ((null : stdgo.Error)) };
 /**
+    // readInt returns the size-bytes unsigned integer in native byte order at offset off.
+**/
+function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
+function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 return ((0 : GoUInt64));
+function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 return ((0 : GoUInt64));
+function _direntIno(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
+function _direntReclen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
+function _direntNamlen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
+function _direntType(_buf:Slice<GoByte>):FileMode return new stdgo.io.fs.Fs.FileMode();
+/**
     // Expand replaces ${var} or $var in the string based on the mapping function.
     // For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
 **/
@@ -118,6 +270,21 @@ function expand(_s:GoString, _mapping:GoString -> GoString):GoString return ((""
     // variables are replaced by the empty string.
 **/
 function expandEnv(_s:GoString):GoString return (("" : GoString));
+/**
+    // isShellSpecialVar reports whether the character identifies a special
+    // shell variable such as $*.
+**/
+function _isShellSpecialVar(_c:GoUInt8):Bool return false;
+/**
+    // isAlphaNum reports whether the byte is an ASCII letter, number, or underscore
+**/
+function _isAlphaNum(_c:GoUInt8):Bool return false;
+/**
+    // getShellName returns the name that begins the string and the number of bytes
+    // consumed to extract it. If the name is enclosed in {}, it's part of a ${}
+    // expansion and two more bytes are needed than the length of the name.
+**/
+function _getShellName(_s:GoString):{ var _0 : GoString; var _1 : GoInt; } return { _0 : (("" : GoString)), _1 : ((0 : GoInt)) };
 /**
     // Getenv retrieves the value of the environment variable named by the key.
     // It returns the value, which will be empty if the variable is not present.
@@ -150,6 +317,18 @@ function clearenv():Void return;
     // in the form "key=value".
 **/
 function environ():Slice<GoString> return ((null : Slice<GoString>));
+function _errClosed():Error return ((null : stdgo.Error));
+function _errNoDeadline():Error return ((null : stdgo.Error));
+/**
+    // errDeadlineExceeded returns the value for os.ErrDeadlineExceeded.
+    // This error comes from the internal/poll package, which is also
+    // used by package net. Doing this this way ensures that the net
+    // package will return os.ErrDeadlineExceeded for an exceeded deadline,
+    // as documented by net.Conn.SetDeadline, without requiring any extra
+    // work in the net package and without requiring the internal/poll
+    // package to import os (which it can't, because that would be circular).
+**/
+function _errDeadlineExceeded():Error return ((null : stdgo.Error));
 /**
     // NewSyscallError returns, as an error, a new SyscallError
     // with the given system call name and error details.
@@ -194,6 +373,17 @@ function isPermission(_err:Error):Bool return false;
     // returning the error, such as os.ErrDeadlineExceeded.
 **/
 function isTimeout(_err:Error):Bool return false;
+function _underlyingErrorIs(_err:Error, _target:Error):Bool return false;
+/**
+    // underlyingError returns the underlying error for known os error types.
+**/
+function _underlyingError(_err:Error):Error return ((null : stdgo.Error));
+/**
+    // wrapSyscallError takes an error and a syscall name. If the error is
+    // a syscall.Errno, it wraps it in a os.SyscallError using the syscall name.
+**/
+function _wrapSyscallError(_name:GoString, _err:Error):Error return ((null : stdgo.Error));
+function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process return null;
 /**
     // Getpid returns the process id of the caller.
 **/
@@ -228,6 +418,8 @@ function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { 
     // If there is an error, it will be of type *PathError.
 **/
 function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
 /**
     // Executable returns the path name for the executable that started
     // the current process. There is no guarantee that the path is still
@@ -242,12 +434,22 @@ function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ v
     // executable.
 **/
 function executable():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function _executable():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+/**
+    // stringsTrimSuffix is the same as strings.TrimSuffix.
+**/
+function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString return (("" : GoString));
+function _genericReadFrom(_f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
 /**
     // Mkdir creates a new directory with the specified name and permission
     // bits (before umask).
     // If there is an error, it will be of type *PathError.
 **/
 function mkdir(_name:GoString, _perm:FileMode):Error return ((null : stdgo.Error));
+/**
+    // setStickyBit adds ModeSticky to the permission bits of path, non atomic.
+**/
+function _setStickyBit(_name:GoString):Error return ((null : stdgo.Error));
 /**
     // Chdir changes the current working directory to the named directory.
     // If there is an error, it will be of type *PathError.
@@ -284,6 +486,11 @@ function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; 
     // If there is an error, it will be of type *LinkError.
 **/
 function rename(_oldpath:GoString, _newpath:GoString):Error return ((null : stdgo.Error));
+/**
+    // Many functions in package syscall return a count of -1 instead of 0.
+    // Using fixCount(call()) instead of call() corrects the count.
+**/
+function _fixCount(_n:GoInt, _err:Error):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
 /**
     // TempDir returns the default directory to use for temporary files.
     //
@@ -358,6 +565,11 @@ function userHomeDir():{ var _0 : GoString; var _1 : Error; } return { _0 : ((""
 **/
 function chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Error));
 /**
+    // isWindowsNulName reports whether name is os.DevNull ('NUL') on Windows.
+    // True is returned if name is 'NUL' whatever the case.
+**/
+function _isWindowsNulName(_name:GoString):Bool return false;
+/**
     // DirFS returns a file system (an fs.FS) for the tree of files rooted at the directory dir.
     //
     // Note that DirFS("/prefix") only guarantees that the Open calls it makes to the
@@ -368,6 +580,7 @@ function chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Error
     // mechanism when the directory tree contains arbitrary content.
 **/
 function dirFS(_dir:GoString):stdgo.io.fs.Fs.FS return ((null : stdgo.io.fs.Fs.FS));
+function _containsAny(_s:GoString, _chars:GoString):Bool return false;
 /**
     // ReadFile reads the named file and returns the contents.
     // A successful call returns err == nil, not err == EOF.
@@ -381,6 +594,15 @@ function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } re
     // otherwise WriteFile truncates it before writing, without changing permissions.
 **/
 function writeFile(_name:GoString, _data:Slice<GoByte>, _perm:FileMode):Error return ((null : stdgo.Error));
+function _sigpipe():Void return;
+/**
+    // syscallMode returns the syscall-specific mode bits from Go's portable mode bits.
+**/
+function _syscallMode(_i:FileMode):GoUInt32 return ((0 : GoUInt32));
+/**
+    // See docs in file.go:Chmod.
+**/
+function _chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Error));
 /**
     // Chown changes the numeric uid and gid of the named file.
     // If the file is a symbolic link, it changes the uid and gid of the link's target.
@@ -410,6 +632,21 @@ function lchown(_name:GoString, _uid:GoInt, _gid:GoInt):Error return ((null : st
 **/
 function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
 /**
+    // ignoringEINTR makes a function call and repeats it if it returns an
+    // EINTR error. This appears to be required even though we install all
+    // signal handlers with SA_RESTART: see #22838, #38033, #38836, #40846.
+    // Also #20400 and #36644 are issues in which a signal handler is
+    // installed without setting SA_RESTART. None of these are the common case,
+    // but there are enough of them that it seems that we can't avoid
+    // an EINTR loop.
+**/
+function _ignoringEINTR(_fn:() -> Error):Error return ((null : stdgo.Error));
+/**
+    // fixLongPath is a noop on non-Windows platforms.
+**/
+function _fixLongPath(_path:GoString):GoString return (("" : GoString));
+function _rename(_oldname:GoString, _newname:GoString):Error return ((null : stdgo.Error));
+/**
     // NewFile returns a new File with the given file descriptor and
     // name. The returned value will be nil if fd is not a valid file
     // descriptor. On Unix systems, if the file descriptor is in
@@ -422,6 +659,23 @@ function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.
 **/
 function newFile(_fd:GoUIntptr, _name:GoString):File return null;
 /**
+    // newFile is like NewFile, but if called from OpenFile or Pipe
+    // (as passed in the kind parameter) it tries to add the file to
+    // the runtime poller.
+**/
+function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File return null;
+/**
+    // epipecheck raises SIGPIPE if we get an EPIPE error on standard
+    // output or standard error. See the SIGPIPE docs in os/signal, and
+    // issue 11845.
+**/
+function _epipecheck(_file:File, _e:Error):Void return;
+/**
+    // openFileNolog is the Unix implementation of OpenFile.
+    // Changes here should be reflected in openFdAt, if relevant.
+**/
+function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+/**
     // Truncate changes the size of the named file.
     // If the file is a symbolic link, it changes the size of the link's target.
     // If there is an error, it will be of type *PathError.
@@ -432,6 +686,7 @@ function truncate(_name:GoString, _size:GoInt64):Error return ((null : stdgo.Err
     // If there is an error, it will be of type *PathError.
 **/
 function remove(_name:GoString):Error return ((null : stdgo.Error));
+function _tempDir():GoString return (("" : GoString));
 /**
     // Link creates newname as a hard link to the oldname file.
     // If there is an error, it will be of type *LinkError.
@@ -449,6 +704,7 @@ function symlink(_oldname:GoString, _newname:GoString):Error return ((null : std
     // If there is an error, it will be of type *PathError.
 **/
 function readlink(_name:GoString):{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function _newUnixDirent(_parent:GoString, _name:GoString, _typ:FileMode):{ var _0 : DirEntry; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.DirEntry)), _1 : ((null : stdgo.Error)) };
 /**
     // Getwd returns a rooted path name corresponding to the
     // current directory. If the current directory can be
@@ -475,14 +731,28 @@ function mkdirAll(_path:GoString, _perm:FileMode):Error return ((null : stdgo.Er
 **/
 function removeAll(_path:GoString):Error return ((null : stdgo.Error));
 /**
+    // endsWithDot reports whether the final component of path is ".".
+**/
+function _endsWithDot(_path:GoString):Bool return false;
+/**
     // IsPathSeparator reports whether c is a directory separator character.
 **/
 function isPathSeparator(_c:GoUInt8):Bool return false;
+/**
+    // basename removes trailing slashes and the leading directory name from path name.
+**/
+function _basename(_name:GoString):GoString return (("" : GoString));
+/**
+    // splitPath returns the base name and parent directory.
+**/
+function _splitPath(_path:GoString):{ var _0 : GoString; var _1 : GoString; } return { _0 : (("" : GoString)), _1 : (("" : GoString)) };
+function _fixRootDirectory(_p:GoString):GoString return (("" : GoString));
 /**
     // Pipe returns a connected pair of Files; reads from r return bytes written to w.
     // It returns the files and an error, if any.
 **/
 function pipe():{ var _0 : File; var _1 : File; var _2 : Error; } return { _0 : null, _1 : null, _2 : ((null : stdgo.Error)) };
+function _runtime_args():Slice<GoString> return ((null : Slice<GoString>));
 /**
     // Getuid returns the numeric user id of the caller.
     //
@@ -522,6 +792,9 @@ function getgroups():{ var _0 : Slice<GoInt>; var _1 : Error; } return { _0 : ((
     // For portability, the status code should be in the range [0, 125].
 **/
 function exit(_code:GoInt):Void return;
+function _runtime_beforeExit():Void return;
+function _newRawConn(_file:File):{ var _0 : T_rawConn; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _removeAll(_path:GoString):Error return ((null : stdgo.Error));
 /**
     // Stat returns a FileInfo describing the named file.
     // If there is an error, it will be of type *PathError.
@@ -534,10 +807,41 @@ function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0
     // If there is an error, it will be of type *PathError.
 **/
 function lstat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+function _fillFileStatFromSys(_fs:T_fileStat, _name:GoString):Void return;
+function _timespecToTime(_sec:GoInt64, _nsec:GoInt64):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+/**
+    // For testing.
+**/
+function _atime(_fi:FileInfo):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+/**
+    // statNolog stats a file with no test logging.
+**/
+function _statNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+/**
+    // lstatNolog lstats a file with no test logging.
+**/
+function _lstatNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+/**
+    // itox converts val (an int) to a hexdecimal string.
+**/
+function _itox(_val:GoInt):GoString return (("" : GoString));
+/**
+    // uitox converts val (a uint) to a hexdecimal string.
+**/
+function _uitox(_val:GoUInt):GoString return (("" : GoString));
 /**
     // Hostname returns the host name reported by the kernel.
 **/
 function hostname():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function _hostname():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+/**
+    // fastrand provided by runtime.
+    // We generate random temporary file names so that there's a good
+    // chance the file doesn't exist yet - keeps the number of tries in
+    // TempFile to a minimum.
+**/
+function _fastrand():GoUInt32 return ((0 : GoUInt32));
+function _nextRandom():GoString return (("" : GoString));
 /**
     // CreateTemp creates a new temporary file in the directory dir,
     // opens the file for reading and writing, and returns the resulting file.
@@ -550,6 +854,11 @@ function hostname():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : 
 **/
 function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
 /**
+    // prefixAndSuffix splits pattern by the last wildcard "*", if applicable,
+    // returning prefix as the part before "*" and suffix as the part after "*".
+**/
+function _prefixAndSuffix(_pattern:GoString):{ var _0 : GoString; var _1 : GoString; var _2 : Error; } return { _0 : (("" : GoString)), _1 : (("" : GoString)), _2 : ((null : stdgo.Error)) };
+/**
     // MkdirTemp creates a new temporary directory in the directory dir
     // and returns the pathname of the new directory.
     // The new directory's name is generated by adding a random string to the end of pattern.
@@ -559,6 +868,11 @@ function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : 
     // It is the caller's responsibility to remove the directory when it is no longer needed.
 **/
 function mkdirTemp(_dir:GoString, _pattern:GoString):{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function _joinPath(_dir:GoString, _name:GoString):GoString return (("" : GoString));
+/**
+    // LastIndexByte from the strings package.
+**/
+function _lastIndex(_s:GoString, _sep:GoByte):GoInt return ((0 : GoInt));
 /**
     // Getpagesize returns the underlying system's memory page size.
 **/
@@ -572,6 +886,18 @@ function getpagesize():GoInt return ((0 : GoInt));
     // It returns false in other cases.
 **/
 function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool return false;
+function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool return false;
+@:keep class T_dirInfo_static_extension {
+    @:keep
+    public static function _close( _d:T_dirInfo):Void return;
+}
+class T_dirInfo_wrapper {
+    @:keep
+    public var _close : () -> Void = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_dirInfo;
+}
 @:keep class SyscallError_static_extension {
     /**
         // Timeout reports whether this error represents a timeout.
@@ -598,6 +924,25 @@ class SyscallError_wrapper {
     var __self__ : SyscallError;
 }
 @:keep class Process_static_extension {
+    /**
+        // blockUntilWaitable attempts to block until a call to p.Wait will
+        // succeed immediately, and reports whether it has done so.
+        // It does not actually call p.Wait.
+        // This version is used on systems that do not implement waitid,
+        // or where we have not implemented it yet. Note that this is racy:
+        // a call to Process.Signal can in an extremely unlikely case send a
+        // signal to the wrong process, see issue #13987.
+    **/
+    @:keep
+    public static function _blockUntilWaitable( _p:Process):{ var _0 : Bool; var _1 : Error; } return { _0 : false, _1 : ((null : stdgo.Error)) };
+    @:keep
+    public static function _release( _p:Process):Error return ((null : stdgo.Error));
+    @:keep
+    public static function _signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
+    @:keep
+    public static function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    @:keep
+    public static function _kill( _p:Process):Error return ((null : stdgo.Error));
     /**
         // Signal sends a signal to the Process.
         // Sending Interrupt on Windows is not implemented.
@@ -627,8 +972,31 @@ class SyscallError_wrapper {
     **/
     @:keep
     public static function release( _p:Process):Error return ((null : stdgo.Error));
+    @:keep
+    public static function _done( _p:Process):Bool return false;
+    @:keep
+    public static function _setDone( _p:Process):Void return;
 }
 class Process_wrapper {
+    /**
+        // blockUntilWaitable attempts to block until a call to p.Wait will
+        // succeed immediately, and reports whether it has done so.
+        // It does not actually call p.Wait.
+        // This version is used on systems that do not implement waitid,
+        // or where we have not implemented it yet. Note that this is racy:
+        // a call to Process.Signal can in an extremely unlikely case send a
+        // signal to the wrong process, see issue #13987.
+    **/
+    @:keep
+    public var _blockUntilWaitable : () -> { var _0 : Bool; var _1 : Error; } = null;
+    @:keep
+    public var _release : () -> Error = null;
+    @:keep
+    public var _signal : Signal -> Error = null;
+    @:keep
+    public var _wait : () -> { var _0 : ProcessState; var _1 : Error; } = null;
+    @:keep
+    public var _kill : () -> Error = null;
     /**
         // Signal sends a signal to the Process.
         // Sending Interrupt on Windows is not implemented.
@@ -658,11 +1026,19 @@ class Process_wrapper {
     **/
     @:keep
     public var release : () -> Error = null;
+    @:keep
+    public var _done : () -> Bool = null;
+    @:keep
+    public var _setDone : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : Process;
 }
 @:keep class ProcessState_static_extension {
+    @:keep
+    public static function _systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    @:keep
+    public static function _userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
     /**
         // ExitCode returns the exit code of the exited process, or -1
         // if the process hasn't exited or was terminated by a signal.
@@ -671,6 +1047,14 @@ class Process_wrapper {
     public static function exitCode( _p:ProcessState):GoInt return ((0 : GoInt));
     @:keep
     public static function toString( _p:ProcessState):GoString return (("" : GoString));
+    @:keep
+    public static function _sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    @:keep
+    public static function _sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    @:keep
+    public static function _success( _p:ProcessState):Bool return false;
+    @:keep
+    public static function _exited( _p:ProcessState):Bool return false;
     /**
         // Pid returns the process id of the exited process.
     **/
@@ -717,6 +1101,10 @@ class Process_wrapper {
     public static function userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
 }
 class ProcessState_wrapper {
+    @:keep
+    public var _systemTime : () -> stdgo.time.Time.Duration = null;
+    @:keep
+    public var _userTime : () -> stdgo.time.Time.Duration = null;
     /**
         // ExitCode returns the exit code of the exited process, or -1
         // if the process hasn't exited or was terminated by a signal.
@@ -725,6 +1113,14 @@ class ProcessState_wrapper {
     public var exitCode : () -> GoInt = null;
     @:keep
     public var toString : () -> GoString = null;
+    @:keep
+    public var _sysUsage : () -> AnyInterface = null;
+    @:keep
+    public var _sys : () -> AnyInterface = null;
+    @:keep
+    public var _success : () -> Bool = null;
+    @:keep
+    public var _exited : () -> Bool = null;
     /**
         // Pid returns the process id of the exited process.
     **/
@@ -788,6 +1184,59 @@ class LinkError_wrapper {
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : LinkError;
 }
+@:keep class T_file_static_extension {
+    @:keep
+    public static function _close( _file:T_file):Error return ((null : stdgo.Error));
+}
+class T_file_wrapper {
+    @:keep
+    public var _close : () -> Error = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_file;
+}
+@:keep class T_unixDirent_static_extension {
+    @:keep
+    public static function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    @:keep
+    public static function type( _d:T_unixDirent):FileMode return new stdgo.io.fs.Fs.FileMode();
+    @:keep
+    public static function isDir( _d:T_unixDirent):Bool return false;
+    @:keep
+    public static function name( _d:T_unixDirent):GoString return (("" : GoString));
+}
+class T_unixDirent_wrapper {
+    @:keep
+    public var info : () -> { var _0 : FileInfo; var _1 : Error; } = null;
+    @:keep
+    public var type : () -> FileMode = null;
+    @:keep
+    public var isDir : () -> Bool = null;
+    @:keep
+    public var name : () -> GoString = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_unixDirent;
+}
+@:keep class T_rawConn_static_extension {
+    @:keep
+    public static function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    @:keep
+    public static function read( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    @:keep
+    public static function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error return ((null : stdgo.Error));
+}
+class T_rawConn_wrapper {
+    @:keep
+    public var write : (GoUIntptr -> Bool) -> Error = null;
+    @:keep
+    public var read : (GoUIntptr -> Bool) -> Error = null;
+    @:keep
+    public var control : (GoUIntptr -> Void) -> Error = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_rawConn;
+}
 @:keep class File_static_extension {
     /**
         // Stat returns the FileInfo structure describing file.
@@ -795,6 +1244,16 @@ class LinkError_wrapper {
     **/
     @:keep
     public static function stat( _f:File):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    @:keep
+    public static function _readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return { _0 : ((0 : GoInt64)), _1 : false, _2 : ((null : stdgo.Error)) };
+    /**
+        // seek sets the offset for the next Read or Write on file to offset, interpreted
+        // according to whence: 0 means relative to the origin of the file, 1 means
+        // relative to the current offset, and 2 means relative to the end.
+        // It returns the new offset and an error, if any.
+    **/
+    @:keep
+    public static function _seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
     /**
         // Fd returns the integer Unix file descriptor referencing the open file.
         // If f is closed, the file descriptor becomes invalid.
@@ -811,6 +1270,27 @@ class LinkError_wrapper {
     **/
     @:keep
     public static function fd( _f:File):GoUIntptr return ((0 : GoUIntptr));
+    /**
+        // checkValid checks whether f is valid for use.
+        // If not, it returns an appropriate error, perhaps incorporating the operation name op.
+    **/
+    @:keep
+    public static function _checkValid( _f:File, _op:GoString):Error return ((null : stdgo.Error));
+    /**
+        // setWriteDeadline sets the write deadline.
+    **/
+    @:keep
+    public static function _setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    /**
+        // setReadDeadline sets the read deadline.
+    **/
+    @:keep
+    public static function _setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    /**
+        // setDeadline sets the read and write deadline.
+    **/
+    @:keep
+    public static function _setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // Chdir changes the current working directory to the file,
         // which must be a directory.
@@ -841,6 +1321,36 @@ class LinkError_wrapper {
     **/
     @:keep
     public static function chown( _f:File, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
+    /**
+        // See docs in file.go:(*File).Chmod.
+    **/
+    @:keep
+    public static function _chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
+    /**
+        // pwrite writes len(b) bytes to the File starting at byte offset off.
+        // It returns the number of bytes written and an error, if any.
+    **/
+    @:keep
+    public static function _pwrite( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    /**
+        // write writes len(b) bytes to the File.
+        // It returns the number of bytes written and an error, if any.
+    **/
+    @:keep
+    public static function _write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    /**
+        // pread reads len(b) bytes from the File starting at byte offset off.
+        // It returns the number of bytes read and the error, if any.
+        // EOF is signaled by a zero count with err set to nil.
+    **/
+    @:keep
+    public static function _pread( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    /**
+        // read reads up to len(b) bytes from the File.
+        // It returns the number of bytes read and an error, if any.
+    **/
+    @:keep
+    public static function _read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Close closes the File, rendering it unusable for I/O.
         // On files that support SetDeadline, any pending I/O operations will
@@ -908,6 +1418,13 @@ class LinkError_wrapper {
     @:keep
     public static function chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
     /**
+        // wrapErr wraps an error that occurred during an operation on an open file.
+        // It passes io.EOF through unchanged, otherwise converts
+        // poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
+    **/
+    @:keep
+    public static function _wrapErr( _f:File, _op:GoString, _err:Error):Error return ((null : stdgo.Error));
+    /**
         // WriteString is like Write, but writes the contents of string s rather than
         // a slice of bytes.
     **/
@@ -967,6 +1484,8 @@ class LinkError_wrapper {
     **/
     @:keep
     public static function name( _f:File):GoString return (("" : GoString));
+    @:keep
+    public static function _readdir( _f:File, _n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _2 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _3 : ((null : stdgo.Error)) };
     /**
         // ReadDir reads the contents of the directory associated with the file f
         // and returns a slice of DirEntry values in directory order.
@@ -1029,6 +1548,16 @@ class File_wrapper {
     **/
     @:keep
     public var stat : () -> { var _0 : FileInfo; var _1 : Error; } = null;
+    @:keep
+    public var _readFrom : stdgo.io.Io.Reader -> { var _0 : GoInt64; var _1 : Bool; var _2 : Error; } = null;
+    /**
+        // seek sets the offset for the next Read or Write on file to offset, interpreted
+        // according to whence: 0 means relative to the origin of the file, 1 means
+        // relative to the current offset, and 2 means relative to the end.
+        // It returns the new offset and an error, if any.
+    **/
+    @:keep
+    public var _seek : (GoInt64, GoInt) -> { var _0 : GoInt64; var _1 : Error; } = null;
     /**
         // Fd returns the integer Unix file descriptor referencing the open file.
         // If f is closed, the file descriptor becomes invalid.
@@ -1045,6 +1574,27 @@ class File_wrapper {
     **/
     @:keep
     public var fd : () -> GoUIntptr = null;
+    /**
+        // checkValid checks whether f is valid for use.
+        // If not, it returns an appropriate error, perhaps incorporating the operation name op.
+    **/
+    @:keep
+    public var _checkValid : GoString -> Error = null;
+    /**
+        // setWriteDeadline sets the write deadline.
+    **/
+    @:keep
+    public var _setWriteDeadline : stdgo.time.Time.Time -> Error = null;
+    /**
+        // setReadDeadline sets the read deadline.
+    **/
+    @:keep
+    public var _setReadDeadline : stdgo.time.Time.Time -> Error = null;
+    /**
+        // setDeadline sets the read and write deadline.
+    **/
+    @:keep
+    public var _setDeadline : stdgo.time.Time.Time -> Error = null;
     /**
         // Chdir changes the current working directory to the file,
         // which must be a directory.
@@ -1075,6 +1625,36 @@ class File_wrapper {
     **/
     @:keep
     public var chown : (GoInt, GoInt) -> Error = null;
+    /**
+        // See docs in file.go:(*File).Chmod.
+    **/
+    @:keep
+    public var _chmod : FileMode -> Error = null;
+    /**
+        // pwrite writes len(b) bytes to the File starting at byte offset off.
+        // It returns the number of bytes written and an error, if any.
+    **/
+    @:keep
+    public var _pwrite : (Slice<GoByte>, GoInt64) -> { var _0 : GoInt; var _1 : Error; } = null;
+    /**
+        // write writes len(b) bytes to the File.
+        // It returns the number of bytes written and an error, if any.
+    **/
+    @:keep
+    public var _write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
+    /**
+        // pread reads len(b) bytes from the File starting at byte offset off.
+        // It returns the number of bytes read and the error, if any.
+        // EOF is signaled by a zero count with err set to nil.
+    **/
+    @:keep
+    public var _pread : (Slice<GoByte>, GoInt64) -> { var _0 : GoInt; var _1 : Error; } = null;
+    /**
+        // read reads up to len(b) bytes from the File.
+        // It returns the number of bytes read and an error, if any.
+    **/
+    @:keep
+    public var _read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     /**
         // Close closes the File, rendering it unusable for I/O.
         // On files that support SetDeadline, any pending I/O operations will
@@ -1142,6 +1722,13 @@ class File_wrapper {
     @:keep
     public var chmod : FileMode -> Error = null;
     /**
+        // wrapErr wraps an error that occurred during an operation on an open file.
+        // It passes io.EOF through unchanged, otherwise converts
+        // poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
+    **/
+    @:keep
+    public var _wrapErr : (GoString, Error) -> Error = null;
+    /**
         // WriteString is like Write, but writes the contents of string s rather than
         // a slice of bytes.
     **/
@@ -1201,6 +1788,8 @@ class File_wrapper {
     **/
     @:keep
     public var name : () -> GoString = null;
+    @:keep
+    public var _readdir : (GoInt, T_readdirMode) -> { var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } = null;
     /**
         // ReadDir reads the contents of the directory associated with the file f
         // and returns a slice of DirEntry values in directory order.
@@ -1258,4 +1847,50 @@ class File_wrapper {
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : File;
+}
+@:keep class T_fileStat_static_extension {
+    @:keep
+    public static function sys( _fs:T_fileStat):AnyInterface return ((null : AnyInterface));
+    @:keep
+    public static function modTime( _fs:T_fileStat):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+    @:keep
+    public static function mode( _fs:T_fileStat):FileMode return new stdgo.io.fs.Fs.FileMode();
+    @:keep
+    public static function size( _fs:T_fileStat):GoInt64 return ((0 : GoInt64));
+    @:keep
+    public static function isDir( _fs:T_fileStat):Bool return false;
+    @:keep
+    public static function name( _fs:T_fileStat):GoString return (("" : GoString));
+}
+class T_fileStat_wrapper {
+    @:keep
+    public var sys : () -> AnyInterface = null;
+    @:keep
+    public var modTime : () -> stdgo.time.Time.Time = null;
+    @:keep
+    public var mode : () -> FileMode = null;
+    @:keep
+    public var size : () -> GoInt64 = null;
+    @:keep
+    public var isDir : () -> Bool = null;
+    @:keep
+    public var name : () -> GoString = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_fileStat;
+}
+@:keep class T_dirFS_static_extension {
+    @:keep
+    public static function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    @:keep
+    public static function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : ((null : stdgo.Error)) };
+}
+class T_dirFS_wrapper {
+    @:keep
+    public var stat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } = null;
+    @:keep
+    public var open : GoString -> { var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_dirFS;
 }

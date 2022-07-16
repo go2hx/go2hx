@@ -500,9 +500,15 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 		mergePackage(list[i])
-		if externBool {
+		if externBool { // remove function bodies
 			for _, file := range list[i].Syntax {
-				ast.FileExports(file) // trim unexported fields
+				for _, d := range file.Decls {
+					switch f := d.(type) {
+					case *ast.FuncDecl:
+						f.Body = nil
+					default:
+					}
+				}
 			}
 		}
 	}

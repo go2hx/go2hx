@@ -5436,6 +5436,8 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						}
 						final methodName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
+						if (info.global.externBool)
+							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
 						fields.push({
 							name: methodName,
 							pos: null,

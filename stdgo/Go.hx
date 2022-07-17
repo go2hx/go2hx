@@ -11,7 +11,6 @@ import haxe.macro.PositionTools;
 import haxe.macro.Type.BaseType;
 import haxe.macro.Type.ClassField;
 import haxe.macro.TypeTools;
-import sys.thread.Thread;
 
 class Go {
 	public static macro function map(exprs:Array<Expr>) {

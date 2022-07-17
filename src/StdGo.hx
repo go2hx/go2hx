@@ -27,14 +27,12 @@ function main() {
 		update();
 	#else
 	final timer = new haxe.Timer(500);
-	timer.run = () -> update();
+	timer.run = update;
+	// update();
 	#end
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
-	#if js
-	update();
-	#end
 	if (libs.length == 0)
 		Main.close();
 }
@@ -53,12 +51,7 @@ function update() {
 		final instance = Main.compileArgs(args);
 		final compiled = Main.compile(instance);
 		if (!compiled) {
-			#if !js
 			break;
-			#else
-			update();
-			return;
-			#end
 		}
 		libs.remove(lib);
 	}

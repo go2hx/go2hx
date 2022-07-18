@@ -2,7 +2,7 @@ package;
 
 import sys.io.Process;
 
-typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool, command:String};
+typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool, command:String, stamp:Float};
 
 class ProcessPool {
 	var pool:Array<ProcessData> = [];
@@ -28,7 +28,8 @@ class ProcessPool {
 			proc: new Process(obj.command),
 			data: obj.data,
 			runtimeBool: obj.runtimeBool,
-			command: obj.command
+			command: obj.command,
+			stamp: haxe.Timer.stamp(),
 		});
 	}
 
@@ -40,8 +41,15 @@ class ProcessPool {
 		removal = [];
 		for (i in 0...pool.length) {
 			var code = pool[i].proc.exitCode(false);
-			if (code == null)
-				continue;
+			if (code == null) {
+				final stamp = haxe.Timer.stamp() - pool[i].stamp;
+				if (stamp > 60) {
+					code = -1;
+					pool[i].proc.kill();
+				} else {
+					continue;
+				}
+			}
 			complete(code, pool[i].proc, pool[i].data, pool[i].command, pool[i].runtimeBool);
 			removal.push(pool[i]);
 		}

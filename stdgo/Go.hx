@@ -571,7 +571,7 @@ class Go {
 	private static function gtParams(params:Array<haxe.macro.Type>, marked:Map<String, Bool>):Array<Expr> {
 		var pTypes = [];
 		for (i in 0...params.length) {
-			final param = Context.follow(params[i]);
+			final param = params[i];
 			pTypes.push(gtDecode(param, null, marked));
 		}
 		return pTypes;

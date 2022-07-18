@@ -16,7 +16,7 @@ func (a *A[T]) add() {
 func main() {
 	x := A[int]{}
 	x.add()
-	println(x.x)
+	_ = x.x
 
 	y := K[struct{}]{}
 	_ = y

@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type File struct {
 	*file
 }
@@ -15,6 +11,6 @@ type file struct {
 func main() {
 	x := File{&file{"test"}}
 	if x.name != "test" {
-		fmt.Println("wrong value")
+		panic("wrong value")
 	}
 }

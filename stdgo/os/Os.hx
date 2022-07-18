@@ -126,12 +126,13 @@ typedef Signal = StructType & {
         return new LinkError(op, old, new_, err);
     }
 }
-@:structInit class T_onlyWriter {
+@:structInit @:using(stdgo.os.Os.T_onlyWriter_static_extension) class T_onlyWriter {
     @:embedded
     public var writer : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
     public function new(?writer:stdgo.io.Io.Writer) {
         if (writer != null) this.writer = writer;
     }
+    @:embedded
     public function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return null;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -190,6 +191,7 @@ typedef Signal = StructType & {
     public function new(?_file:Ref<T_file>) {
         if (_file != null) this._file = _file;
     }
+    @:embedded
     public function _close():stdgo.Error return ((null : stdgo.Error));
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -214,7 +216,7 @@ typedef Signal = StructType & {
         return new T_fileStat(_name, _size, _mode, _modTime, _sys);
     }
 }
-@:structInit @:local class T__struct_0 {
+@:structInit @:local @:using(stdgo.os.Os.T__struct_0_static_extension) class T__struct_0 {
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     public var _dir : GoString = "";
@@ -223,10 +225,15 @@ typedef Signal = StructType & {
         if (mutex != null) this.mutex = mutex;
         if (_dir != null) this._dir = _dir;
     }
+    @:embedded
     public function lock() null;
+    @:embedded
     public function tryLock():Bool return false;
+    @:embedded
     public function unlock() null;
+    @:embedded
     public function _lockSlow() null;
+    @:embedded
     public function _unlockSlow(_new:GoInt32) null;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -889,7 +896,7 @@ function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool return false;
 function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool return false;
 @:keep class T_dirInfo_static_extension {
     @:keep
-    public static function _close( _d:T_dirInfo):Void return;
+    static public function _close( _d:T_dirInfo):Void return;
 }
 class T_dirInfo_wrapper {
     @:keep
@@ -903,11 +910,11 @@ class T_dirInfo_wrapper {
         // Timeout reports whether this error represents a timeout.
     **/
     @:keep
-    public static function timeout( _e:SyscallError):Bool return false;
+    static public function timeout( _e:SyscallError):Bool return false;
     @:keep
-    public static function unwrap( _e:SyscallError):Error return ((null : stdgo.Error));
+    static public function unwrap( _e:SyscallError):Error return ((null : stdgo.Error));
     @:keep
-    public static function error( _e:SyscallError):GoString return (("" : GoString));
+    static public function error( _e:SyscallError):GoString return (("" : GoString));
 }
 class SyscallError_wrapper {
     /**
@@ -934,21 +941,21 @@ class SyscallError_wrapper {
         // signal to the wrong process, see issue #13987.
     **/
     @:keep
-    public static function _blockUntilWaitable( _p:Process):{ var _0 : Bool; var _1 : Error; } return { _0 : false, _1 : ((null : stdgo.Error)) };
+    static public function _blockUntilWaitable( _p:Process):{ var _0 : Bool; var _1 : Error; } return { _0 : false, _1 : ((null : stdgo.Error)) };
     @:keep
-    public static function _release( _p:Process):Error return ((null : stdgo.Error));
+    static public function _release( _p:Process):Error return ((null : stdgo.Error));
     @:keep
-    public static function _signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
+    static public function _signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
     @:keep
-    public static function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    static public function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
     @:keep
-    public static function _kill( _p:Process):Error return ((null : stdgo.Error));
+    static public function _kill( _p:Process):Error return ((null : stdgo.Error));
     /**
         // Signal sends a signal to the Process.
         // Sending Interrupt on Windows is not implemented.
     **/
     @:keep
-    public static function signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
+    static public function signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
     /**
         // Wait waits for the Process to exit, and then returns a
         // ProcessState describing its status and an error, if any.
@@ -957,25 +964,25 @@ class SyscallError_wrapper {
         // of the current process or an error will be returned.
     **/
     @:keep
-    public static function wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    static public function wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,
         // not any other processes it may have started.
     **/
     @:keep
-    public static function kill( _p:Process):Error return ((null : stdgo.Error));
+    static public function kill( _p:Process):Error return ((null : stdgo.Error));
     /**
         // Release releases any resources associated with the Process p,
         // rendering it unusable in the future.
         // Release only needs to be called if Wait is not.
     **/
     @:keep
-    public static function release( _p:Process):Error return ((null : stdgo.Error));
+    static public function release( _p:Process):Error return ((null : stdgo.Error));
     @:keep
-    public static function _done( _p:Process):Bool return false;
+    static public function _done( _p:Process):Bool return false;
     @:keep
-    public static function _setDone( _p:Process):Void return;
+    static public function _setDone( _p:Process):Void return;
 }
 class Process_wrapper {
     /**
@@ -1036,30 +1043,30 @@ class Process_wrapper {
 }
 @:keep class ProcessState_static_extension {
     @:keep
-    public static function _systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function _systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
     @:keep
-    public static function _userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function _userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
     /**
         // ExitCode returns the exit code of the exited process, or -1
         // if the process hasn't exited or was terminated by a signal.
     **/
     @:keep
-    public static function exitCode( _p:ProcessState):GoInt return ((0 : GoInt));
+    static public function exitCode( _p:ProcessState):GoInt return ((0 : GoInt));
     @:keep
-    public static function toString( _p:ProcessState):GoString return (("" : GoString));
+    static public function toString( _p:ProcessState):GoString return (("" : GoString));
     @:keep
-    public static function _sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function _sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
     @:keep
-    public static function _sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function _sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
     @:keep
-    public static function _success( _p:ProcessState):Bool return false;
+    static public function _success( _p:ProcessState):Bool return false;
     @:keep
-    public static function _exited( _p:ProcessState):Bool return false;
+    static public function _exited( _p:ProcessState):Bool return false;
     /**
         // Pid returns the process id of the exited process.
     **/
     @:keep
-    public static function pid( _p:ProcessState):GoInt return ((0 : GoInt));
+    static public function pid( _p:ProcessState):GoInt return ((0 : GoInt));
     /**
         // SysUsage returns system-dependent resource usage information about
         // the exited process. Convert it to the appropriate underlying
@@ -1068,37 +1075,37 @@ class Process_wrapper {
         // getrusage(2) manual page.)
     **/
     @:keep
-    public static function sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
     /**
         // Sys returns system-dependent exit information about
         // the process. Convert it to the appropriate underlying
         // type, such as syscall.WaitStatus on Unix, to access its contents.
     **/
     @:keep
-    public static function sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
     /**
         // Success reports whether the program exited successfully,
         // such as with exit status 0 on Unix.
     **/
     @:keep
-    public static function success( _p:ProcessState):Bool return false;
+    static public function success( _p:ProcessState):Bool return false;
     /**
         // Exited reports whether the program has exited.
         // On Unix systems this reports true if the program exited due to calling exit,
         // but false if the program terminated due to a signal.
     **/
     @:keep
-    public static function exited( _p:ProcessState):Bool return false;
+    static public function exited( _p:ProcessState):Bool return false;
     /**
         // SystemTime returns the system CPU time of the exited process and its children.
     **/
     @:keep
-    public static function systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
     /**
         // UserTime returns the user CPU time of the exited process and its children.
     **/
     @:keep
-    public static function userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
 }
 class ProcessState_wrapper {
     @:keep
@@ -1171,9 +1178,9 @@ class ProcessState_wrapper {
 }
 @:keep class LinkError_static_extension {
     @:keep
-    public static function unwrap( _e:LinkError):Error return ((null : stdgo.Error));
+    static public function unwrap( _e:LinkError):Error return ((null : stdgo.Error));
     @:keep
-    public static function error( _e:LinkError):GoString return (("" : GoString));
+    static public function error( _e:LinkError):GoString return (("" : GoString));
 }
 class LinkError_wrapper {
     @:keep
@@ -1184,9 +1191,20 @@ class LinkError_wrapper {
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : LinkError;
 }
+@:keep class T_onlyWriter_static_extension {
+    @:embedded
+    public static function write( __self__:T_onlyWriter, _p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_p);
+}
+class T_onlyWriter_wrapper {
+    @:embedded
+    public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_onlyWriter;
+}
 @:keep class T_file_static_extension {
     @:keep
-    public static function _close( _file:T_file):Error return ((null : stdgo.Error));
+    static public function _close( _file:T_file):Error return ((null : stdgo.Error));
 }
 class T_file_wrapper {
     @:keep
@@ -1197,13 +1215,13 @@ class T_file_wrapper {
 }
 @:keep class T_unixDirent_static_extension {
     @:keep
-    public static function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
     @:keep
-    public static function type( _d:T_unixDirent):FileMode return new stdgo.io.fs.Fs.FileMode();
+    static public function type( _d:T_unixDirent):FileMode return new stdgo.io.fs.Fs.FileMode();
     @:keep
-    public static function isDir( _d:T_unixDirent):Bool return false;
+    static public function isDir( _d:T_unixDirent):Bool return false;
     @:keep
-    public static function name( _d:T_unixDirent):GoString return (("" : GoString));
+    static public function name( _d:T_unixDirent):GoString return (("" : GoString));
 }
 class T_unixDirent_wrapper {
     @:keep
@@ -1220,11 +1238,11 @@ class T_unixDirent_wrapper {
 }
 @:keep class T_rawConn_static_extension {
     @:keep
-    public static function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    static public function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
     @:keep
-    public static function read( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    static public function read( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
     @:keep
-    public static function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error return ((null : stdgo.Error));
+    static public function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error return ((null : stdgo.Error));
 }
 class T_rawConn_wrapper {
     @:keep
@@ -1243,9 +1261,9 @@ class T_rawConn_wrapper {
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public static function stat( _f:File):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function stat( _f:File):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
     @:keep
-    public static function _readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return { _0 : ((0 : GoInt64)), _1 : false, _2 : ((null : stdgo.Error)) };
+    static public function _readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return { _0 : ((0 : GoInt64)), _1 : false, _2 : ((null : stdgo.Error)) };
     /**
         // seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -1253,7 +1271,7 @@ class T_rawConn_wrapper {
         // It returns the new offset and an error, if any.
     **/
     @:keep
-    public static function _seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function _seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
     /**
         // Fd returns the integer Unix file descriptor referencing the open file.
         // If f is closed, the file descriptor becomes invalid.
@@ -1269,49 +1287,49 @@ class T_rawConn_wrapper {
         // As an alternative, see the f.SyscallConn method.
     **/
     @:keep
-    public static function fd( _f:File):GoUIntptr return ((0 : GoUIntptr));
+    static public function fd( _f:File):GoUIntptr return ((0 : GoUIntptr));
     /**
         // checkValid checks whether f is valid for use.
         // If not, it returns an appropriate error, perhaps incorporating the operation name op.
     **/
     @:keep
-    public static function _checkValid( _f:File, _op:GoString):Error return ((null : stdgo.Error));
+    static public function _checkValid( _f:File, _op:GoString):Error return ((null : stdgo.Error));
     /**
         // setWriteDeadline sets the write deadline.
     **/
     @:keep
-    public static function _setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // setReadDeadline sets the read deadline.
     **/
     @:keep
-    public static function _setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // setDeadline sets the read and write deadline.
     **/
     @:keep
-    public static function _setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // Chdir changes the current working directory to the file,
         // which must be a directory.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public static function chdir( _f:File):Error return ((null : stdgo.Error));
+    static public function chdir( _f:File):Error return ((null : stdgo.Error));
     /**
         // Sync commits the current contents of the file to stable storage.
         // Typically, this means flushing the file system's in-memory copy
         // of recently written data to disk.
     **/
     @:keep
-    public static function sync( _f:File):Error return ((null : stdgo.Error));
+    static public function sync( _f:File):Error return ((null : stdgo.Error));
     /**
         // Truncate changes the size of the file.
         // It does not change the I/O offset.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public static function truncate( _f:File, _size:GoInt64):Error return ((null : stdgo.Error));
+    static public function truncate( _f:File, _size:GoInt64):Error return ((null : stdgo.Error));
     /**
         // Chown changes the numeric uid and gid of the named file.
         // If there is an error, it will be of type *PathError.
@@ -1320,37 +1338,37 @@ class T_rawConn_wrapper {
         // in *PathError.
     **/
     @:keep
-    public static function chown( _f:File, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
+    static public function chown( _f:File, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
     /**
         // See docs in file.go:(*File).Chmod.
     **/
     @:keep
-    public static function _chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
+    static public function _chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
     /**
         // pwrite writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    public static function _pwrite( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _pwrite( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // write writes len(b) bytes to the File.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    public static function _write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // pread reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
         // EOF is signaled by a zero count with err set to nil.
     **/
     @:keep
-    public static function _pread( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _pread( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // read reads up to len(b) bytes from the File.
         // It returns the number of bytes read and an error, if any.
     **/
     @:keep
-    public static function _read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Close closes the File, rendering it unusable for I/O.
         // On files that support SetDeadline, any pending I/O operations will
@@ -1358,13 +1376,13 @@ class T_rawConn_wrapper {
         // Close will return an error if it has already been called.
     **/
     @:keep
-    public static function close( _f:File):Error return ((null : stdgo.Error));
+    static public function close( _f:File):Error return ((null : stdgo.Error));
     /**
         // SyscallConn returns a raw file.
         // This implements the syscall.Conn interface.
     **/
     @:keep
-    public static function syscallConn( _f:File):{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } return { _0 : ((null : stdgo.syscall.Syscall.RawConn)), _1 : ((null : stdgo.Error)) };
+    static public function syscallConn( _f:File):{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } return { _0 : ((null : stdgo.syscall.Syscall.RawConn)), _1 : ((null : stdgo.Error)) };
     /**
         // SetWriteDeadline sets the deadline for any future Write calls and any
         // currently-blocked Write call.
@@ -1374,7 +1392,7 @@ class T_rawConn_wrapper {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    public static function setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // SetReadDeadline sets the deadline for future Read calls and any
         // currently-blocked Read call.
@@ -1382,7 +1400,7 @@ class T_rawConn_wrapper {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    public static function setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // SetDeadline sets the read and write deadlines for a File.
         // It is equivalent to calling both SetReadDeadline and SetWriteDeadline.
@@ -1410,26 +1428,26 @@ class T_rawConn_wrapper {
         // A zero value for t means I/O operations will not time out.
     **/
     @:keep
-    public static function setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
     /**
         // Chmod changes the mode of the file to mode.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    public static function chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
+    static public function chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
     /**
         // wrapErr wraps an error that occurred during an operation on an open file.
         // It passes io.EOF through unchanged, otherwise converts
         // poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
     **/
     @:keep
-    public static function _wrapErr( _f:File, _op:GoString, _err:Error):Error return ((null : stdgo.Error));
+    static public function _wrapErr( _f:File, _op:GoString, _err:Error):Error return ((null : stdgo.Error));
     /**
         // WriteString is like Write, but writes the contents of string s rather than
         // a slice of bytes.
     **/
     @:keep
-    public static function writeString( _f:File, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function writeString( _f:File, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -1442,7 +1460,7 @@ class T_rawConn_wrapper {
         // operating systems, but not on Windows.
     **/
     @:keep
-    public static function seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
     /**
         // WriteAt writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
@@ -1451,19 +1469,19 @@ class T_rawConn_wrapper {
         // If file was opened with the O_APPEND flag, WriteAt returns an error.
     **/
     @:keep
-    public static function writeAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function writeAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Write writes len(b) bytes from b to the File.
         // It returns the number of bytes written and an error, if any.
         // Write returns a non-nil error when n != len(b).
     **/
     @:keep
-    public static function write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // ReadFrom implements io.ReaderFrom.
     **/
     @:keep
-    public static function readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
     /**
         // ReadAt reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
@@ -1471,21 +1489,21 @@ class T_rawConn_wrapper {
         // At end of file, that error is io.EOF.
     **/
     @:keep
-    public static function readAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function readAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Read reads up to len(b) bytes from the File and stores them in b.
         // It returns the number of bytes read and any error encountered.
         // At end of file, Read returns 0, io.EOF.
     **/
     @:keep
-    public static function read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
     /**
         // Name returns the name of the file as presented to Open.
     **/
     @:keep
-    public static function name( _f:File):GoString return (("" : GoString));
+    static public function name( _f:File):GoString return (("" : GoString));
     @:keep
-    public static function _readdir( _f:File, _n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _2 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _3 : ((null : stdgo.Error)) };
+    static public function _readdir( _f:File, _n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _2 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _3 : ((null : stdgo.Error)) };
     /**
         // ReadDir reads the contents of the directory associated with the file f
         // and returns a slice of DirEntry values in directory order.
@@ -1499,7 +1517,7 @@ class T_rawConn_wrapper {
         // When it succeeds, it returns a nil error (not io.EOF).
     **/
     @:keep
-    public static function readDir( _f:File, _n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _1 : ((null : stdgo.Error)) };
+    static public function readDir( _f:File, _n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _1 : ((null : stdgo.Error)) };
     /**
         // Readdirnames reads the contents of the directory associated with file
         // and returns a slice of up to n names of files in the directory,
@@ -1518,7 +1536,7 @@ class T_rawConn_wrapper {
         // a non-nil error.
     **/
     @:keep
-    public static function readdirnames( _f:File, _n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+    static public function readdirnames( _f:File, _n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
     /**
         // Readdir reads the contents of the directory associated with file and
         // returns a slice of up to n FileInfo values, as would be returned
@@ -1539,7 +1557,9 @@ class T_rawConn_wrapper {
         // Most clients are better served by the more efficient ReadDir method.
     **/
     @:keep
-    public static function readdir( _f:File, _n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _1 : ((null : stdgo.Error)) };
+    static public function readdir( _f:File, _n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _1 : ((null : stdgo.Error)) };
+    @:embedded
+    public static function _close( __self__:File):stdgo.Error return __self__._close();
 }
 class File_wrapper {
     /**
@@ -1844,23 +1864,25 @@ class File_wrapper {
     **/
     @:keep
     public var readdir : GoInt -> { var _0 : Slice<FileInfo>; var _1 : Error; } = null;
+    @:embedded
+    public var _close : () -> stdgo.Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : File;
 }
 @:keep class T_fileStat_static_extension {
     @:keep
-    public static function sys( _fs:T_fileStat):AnyInterface return ((null : AnyInterface));
+    static public function sys( _fs:T_fileStat):AnyInterface return ((null : AnyInterface));
     @:keep
-    public static function modTime( _fs:T_fileStat):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+    static public function modTime( _fs:T_fileStat):stdgo.time.Time.Time return new stdgo.time.Time.Time();
     @:keep
-    public static function mode( _fs:T_fileStat):FileMode return new stdgo.io.fs.Fs.FileMode();
+    static public function mode( _fs:T_fileStat):FileMode return new stdgo.io.fs.Fs.FileMode();
     @:keep
-    public static function size( _fs:T_fileStat):GoInt64 return ((0 : GoInt64));
+    static public function size( _fs:T_fileStat):GoInt64 return ((0 : GoInt64));
     @:keep
-    public static function isDir( _fs:T_fileStat):Bool return false;
+    static public function isDir( _fs:T_fileStat):Bool return false;
     @:keep
-    public static function name( _fs:T_fileStat):GoString return (("" : GoString));
+    static public function name( _fs:T_fileStat):GoString return (("" : GoString));
 }
 class T_fileStat_wrapper {
     @:keep
@@ -1879,11 +1901,38 @@ class T_fileStat_wrapper {
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : T_fileStat;
 }
+@:keep class T__struct_0_static_extension {
+    @:embedded
+    public static function _unlockSlow( __self__:T__struct_0, _new:GoInt32) __self__._unlockSlow(_new);
+    @:embedded
+    public static function _lockSlow( __self__:T__struct_0) __self__._lockSlow();
+    @:embedded
+    public static function unlock( __self__:T__struct_0) __self__.unlock();
+    @:embedded
+    public static function tryLock( __self__:T__struct_0):Bool return __self__.tryLock();
+    @:embedded
+    public static function lock( __self__:T__struct_0) __self__.lock();
+}
+class T__struct_0_wrapper {
+    @:embedded
+    public var _unlockSlow : GoInt32 -> Void = null;
+    @:embedded
+    public var _lockSlow : () -> Void = null;
+    @:embedded
+    public var unlock : () -> Void = null;
+    @:embedded
+    public var tryLock : () -> Bool = null;
+    @:embedded
+    public var lock : () -> Void = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T__struct_0;
+}
 @:keep class T_dirFS_static_extension {
     @:keep
-    public static function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
     @:keep
-    public static function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : ((null : stdgo.Error)) };
+    static public function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : ((null : stdgo.Error)) };
 }
 class T_dirFS_wrapper {
     @:keep

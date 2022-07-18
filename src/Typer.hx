@@ -3061,7 +3061,7 @@ private function getTuple(e:Dynamic, info:Info):Array<GoType> {
 	return tuples;
 }
 
-private function typeof(e:Ast.Expr, info:Info):GoType {
+private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 	if (e == null)
 		return invalidType;
 	var t = switch e.id {
@@ -3100,8 +3100,7 @@ private function typeof(e:Ast.Expr, info:Info):GoType {
 				trace("null named path: " + e);
 				throw path;
 			}
-			var underlying = typeof(e.underlying, info);
-			// trace(e.hash, underlying, locals.exists(e.hash));
+			var underlying = typeof(e.underlying, info, true);
 			if (info.global.locals.exists(e.hash)) {
 				return getLocalType(e.hash, null, info);
 			} else if (info.global.localUnderlyingNames.exists(path)) {
@@ -3165,7 +3164,8 @@ private function typeof(e:Ast.Expr, info:Info):GoType {
 					}
 
 			]);
-			t = getLocalType(e.hash, t, info);
+			if (!isNamed)
+				t = getLocalType(e.hash, t, info);
 			t;
 		case "Chan":
 			chanType(e.dir, typeof(e.elem, info));

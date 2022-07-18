@@ -3182,16 +3182,20 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 			}
 		case "BasicLit":
 			var e:Ast.BasicLit = e;
-			var kind = switch e.kind {
-				case STRING: string_kind;
-				case FLOAT: float64_kind;
-				case INT: int64_kind;
-				case IMAG: complex128_kind;
-				case CHAR: int32_kind;
-				default:
-					throw "unknown basiclit typeof: " + e.kind;
+			if (e.type == null) {
+				var kind = switch e.kind {
+					case STRING: string_kind;
+					case FLOAT: float64_kind;
+					case INT: int64_kind;
+					case IMAG: complex128_kind;
+					case CHAR: int32_kind;
+					default:
+						throw "unknown basiclit typeof: " + e.kind;
+				}
+				basic(kind);
+			} else {
+				typeof(e.type, info);
 			}
-			basic(kind);
 		case "Ident":
 			var e:Ast.Ident = e;
 			typeof(e.type, info);
@@ -3584,7 +3588,7 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Str
 }
 
 private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool, info:Info) {
-	var ct:ComplexType = null;
+	var ct:ComplexType = toComplexType(type, info);
 	var e:Expr = switch kind {
 		case STRING:
 			if (!raw) {
@@ -3594,7 +3598,8 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 			}
 		case CHAR:
 			final const = makeStringLit(decodeEscapeSequences(value));
-			ct = TPath({name: "GoRune", pack: []});
+			if (ct == null)
+				ct = TPath({name: "GoRune", pack: []});
 			macro $const.code;
 		case INT:
 			var e = toExpr(EConst(CInt(value)));
@@ -3608,15 +3613,9 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 					e = makeString(value);
 				}
 			}
-			if (isNamed(type))
-				type = getUnderlying(type);
-			ct = toComplexType(type, info);
 			e;
 		case FLOAT:
 			final e = toExpr(EConst(CFloat(value)));
-			if (isNamed(type))
-				type = getUnderlying(type);
-			ct = toComplexType(type, info);
 			e;
 		case IDENT:
 			var name = nameIdent(value, false, false, info);
@@ -5701,7 +5700,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info);
 				expr = typeExpr(value.values[i], info);
-				expr = assignTranslate(typeof(value.values[i], info), info.lastType, expr, info);
+				final t = typeof(value.values[i], info);
+				expr = assignTranslate(t, info.lastType, expr, info);
 			}
 			if (expr == null)
 				continue;

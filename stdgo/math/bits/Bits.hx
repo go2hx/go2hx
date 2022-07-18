@@ -679,11 +679,11 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
     }
 @:keep class T_errorString_static_extension {
     @:keep
-    public static function error( _e:T_errorString):GoString {
+    static public function error( _e:T_errorString):GoString {
         return ((("runtime error: " : GoString))) + ((_e : GoString));
     }
     @:keep
-    public static function runtimeError( _e:T_errorString):Void {}
+    static public function runtimeError( _e:T_errorString):Void {}
 }
 class T_errorString_wrapper {
     @:keep

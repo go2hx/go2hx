@@ -33,7 +33,9 @@ typedef Interface = StructType & {
     public function new(?interface_:Interface) {
         if (interface_ != null) this.interface_ = interface_;
     }
+    @:embedded
     public function len():GoInt return interface_.len();
+    @:embedded
     public function swap(_i:GoInt, _j:GoInt) interface_.swap(_i, _j);
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -946,9 +948,13 @@ function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
         // Less returns the opposite of the embedded implementation's Less method.
     **/
     @:keep
-    public static function less( _r:T_reverse, _i:GoInt, _j:GoInt):Bool {
+    static public function less( _r:T_reverse, _i:GoInt, _j:GoInt):Bool {
         return _r.interface_.less(_j, _i);
     }
+    @:embedded
+    public static function swap( __self__:T_reverse, _i:GoInt, _j:GoInt) __self__.swap(_i, _j);
+    @:embedded
+    public static function len( __self__:T_reverse):GoInt return __self__.len();
 }
 class T_reverse_wrapper {
     /**
@@ -956,6 +962,10 @@ class T_reverse_wrapper {
     **/
     @:keep
     public var less : (GoInt, GoInt) -> Bool = null;
+    @:embedded
+    public var swap : (GoInt, GoInt) -> Void = null;
+    @:embedded
+    public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : T_reverse;
@@ -965,7 +975,7 @@ class T_reverse_wrapper {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public static function sort( _x:IntSlice):Void {
+    static public function sort( _x:IntSlice):Void {
         stdgo.sort.Sort.sort({
             final __self__ = new IntSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
@@ -977,7 +987,7 @@ class T_reverse_wrapper {
         });
     }
     @:keep
-    public static function swap( _x:IntSlice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:IntSlice, _i:GoInt, _j:GoInt):Void {
         {
             final __tmp__0 = (_x != null ? _x[_j] : ((0 : GoInt)));
             final __tmp__1 = (_x != null ? _x[_i] : ((0 : GoInt)));
@@ -986,18 +996,18 @@ class T_reverse_wrapper {
         };
     }
     @:keep
-    public static function less( _x:IntSlice, _i:GoInt, _j:GoInt):Bool {
+    static public function less( _x:IntSlice, _i:GoInt, _j:GoInt):Bool {
         return (_x != null ? _x[_i] : ((0 : GoInt))) < (_x != null ? _x[_j] : ((0 : GoInt)));
     }
     @:keep
-    public static function len( _x:IntSlice):GoInt {
+    static public function len( _x:IntSlice):GoInt {
         return (_x != null ? _x.length : ((0 : GoInt)));
     }
     /**
         // Search returns the result of applying SearchInts to the receiver and x.
     **/
     @:keep
-    public static function search( _p:IntSlice, _x:GoInt):GoInt {
+    static public function search( _p:IntSlice, _x:GoInt):GoInt {
         return searchInts(_p, _x);
     }
 }
@@ -1027,7 +1037,7 @@ class IntSlice_wrapper {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public static function sort( _x:Float64Slice):Void {
+    static public function sort( _x:Float64Slice):Void {
         stdgo.sort.Sort.sort({
             final __self__ = new Float64Slice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
@@ -1039,7 +1049,7 @@ class IntSlice_wrapper {
         });
     }
     @:keep
-    public static function swap( _x:Float64Slice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:Float64Slice, _i:GoInt, _j:GoInt):Void {
         {
             final __tmp__0 = (_x != null ? _x[_j] : ((0 : GoFloat64)));
             final __tmp__1 = (_x != null ? _x[_i] : ((0 : GoFloat64)));
@@ -1057,18 +1067,18 @@ class IntSlice_wrapper {
         //
     **/
     @:keep
-    public static function less( _x:Float64Slice, _i:GoInt, _j:GoInt):Bool {
+    static public function less( _x:Float64Slice, _i:GoInt, _j:GoInt):Bool {
         return ((_x != null ? _x[_i] : ((0 : GoFloat64))) < (_x != null ? _x[_j] : ((0 : GoFloat64)))) || (_isNaN((_x != null ? _x[_i] : ((0 : GoFloat64)))) && !_isNaN((_x != null ? _x[_j] : ((0 : GoFloat64)))));
     }
     @:keep
-    public static function len( _x:Float64Slice):GoInt {
+    static public function len( _x:Float64Slice):GoInt {
         return (_x != null ? _x.length : ((0 : GoInt)));
     }
     /**
         // Search returns the result of applying SearchFloat64s to the receiver and x.
     **/
     @:keep
-    public static function search( _p:Float64Slice, _x:GoFloat64):GoInt {
+    static public function search( _p:Float64Slice, _x:GoFloat64):GoInt {
         return searchFloat64s(_p, _x);
     }
 }
@@ -1107,7 +1117,7 @@ class Float64Slice_wrapper {
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
     @:keep
-    public static function sort( _x:StringSlice):Void {
+    static public function sort( _x:StringSlice):Void {
         stdgo.sort.Sort.sort({
             final __self__ = new StringSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
@@ -1119,7 +1129,7 @@ class Float64Slice_wrapper {
         });
     }
     @:keep
-    public static function swap( _x:StringSlice, _i:GoInt, _j:GoInt):Void {
+    static public function swap( _x:StringSlice, _i:GoInt, _j:GoInt):Void {
         {
             final __tmp__0 = (_x != null ? _x[_j] : (("" : GoString)));
             final __tmp__1 = (_x != null ? _x[_i] : (("" : GoString)));
@@ -1128,18 +1138,18 @@ class Float64Slice_wrapper {
         };
     }
     @:keep
-    public static function less( _x:StringSlice, _i:GoInt, _j:GoInt):Bool {
+    static public function less( _x:StringSlice, _i:GoInt, _j:GoInt):Bool {
         return (_x != null ? _x[_i] : (("" : GoString))) < (_x != null ? _x[_j] : (("" : GoString)));
     }
     @:keep
-    public static function len( _x:StringSlice):GoInt {
+    static public function len( _x:StringSlice):GoInt {
         return (_x != null ? _x.length : ((0 : GoInt)));
     }
     /**
         // Search returns the result of applying SearchStrings to the receiver and x.
     **/
     @:keep
-    public static function search( _p:StringSlice, _x:GoString):GoInt {
+    static public function search( _p:StringSlice, _x:GoString):GoInt {
         return searchStrings(_p, _x);
     }
 }

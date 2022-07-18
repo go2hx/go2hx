@@ -401,7 +401,7 @@ function truncateWriter(_w:stdgo.io.Io.Writer, _n:GoInt64):stdgo.io.Io.Writer {
     }
 @:keep class T_writeLogger_static_extension {
     @:keep
-    public static function write( _l:T_writeLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function write( _l:T_writeLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         {
             var __tmp__ = _l._w.write(_p);
@@ -425,7 +425,7 @@ class T_writeLogger_wrapper {
 }
 @:keep class T_readLogger_static_extension {
     @:keep
-    public static function read( _l:T_readLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _l:T_readLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         {
             var __tmp__ = _l._r.read(_p);
@@ -449,7 +449,7 @@ class T_readLogger_wrapper {
 }
 @:keep class T_oneByteReader_static_extension {
     @:keep
-    public static function read( _r:T_oneByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_oneByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         if ((_p != null ? _p.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
         };
@@ -465,7 +465,7 @@ class T_oneByteReader_wrapper {
 }
 @:keep class T_halfReader_static_extension {
     @:keep
-    public static function read( _r:T_halfReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_halfReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return _r._r.read(((_p.__slice__(((0 : GoInt)), ((_p != null ? _p.length : ((0 : GoInt))) + ((1 : GoInt))) / ((2 : GoInt))) : Slice<GoUInt8>)));
     }
 }
@@ -478,7 +478,7 @@ class T_halfReader_wrapper {
 }
 @:keep class T_dataErrReader_static_extension {
     @:keep
-    public static function read( _r:T_dataErrReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_dataErrReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         while (true) {
             if ((_r._unread != null ? _r._unread.length : ((0 : GoInt))) == ((0 : GoInt))) {
@@ -504,7 +504,7 @@ class T_dataErrReader_wrapper {
 }
 @:keep class T_timeoutReader_static_extension {
     @:keep
-    public static function read( _r:T_timeoutReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_timeoutReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         _r._count++;
         if (_r._count == ((2 : GoInt))) {
             return { _0 : ((0 : GoInt)), _1 : errTimeout };
@@ -521,7 +521,7 @@ class T_timeoutReader_wrapper {
 }
 @:keep class T_errReader_static_extension {
     @:keep
-    public static function read( _r:T_errReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_errReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return { _0 : ((0 : GoInt)), _1 : _r._err };
     }
 }
@@ -534,7 +534,7 @@ class T_errReader_wrapper {
 }
 @:keep class T_smallByteReader_static_extension {
     @:keep
-    public static function read( _r:T_smallByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function read( _r:T_smallByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         if ((_p != null ? _p.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
         };
@@ -560,7 +560,7 @@ class T_smallByteReader_wrapper {
 }
 @:keep class T_truncateWriter_static_extension {
     @:keep
-    public static function write( _t:T_truncateWriter, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
+    static public function write( _t:T_truncateWriter, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         if (_t._n <= ((0 : GoInt64))) {
             return { _0 : (_p != null ? _p.length : ((0 : GoInt))), _1 : ((null : stdgo.Error)) };

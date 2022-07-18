@@ -734,7 +734,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         // Timeout reports whether this error represents a timeout.
     **/
     @:keep
-    public static function timeout( _e:PathError):Bool {
+    static public function timeout( _e:PathError):Bool {
         var __tmp__ = try {
             { value : ((((_e.err.__underlying__().value : Dynamic)) : T__interface_0)), ok : true };
         } catch(_) {
@@ -743,11 +743,11 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         return _ok && _t.timeout();
     }
     @:keep
-    public static function unwrap( _e:PathError):Error {
+    static public function unwrap( _e:PathError):Error {
         return _e.err;
     }
     @:keep
-    public static function error( _e:PathError):GoString {
+    static public function error( _e:PathError):GoString {
         return (((_e.op + (((" " : GoString)))) + _e.path) + (((": " : GoString)))) + _e.err.error();
     }
 }
@@ -767,19 +767,19 @@ class PathError_wrapper {
 }
 @:keep class T_dirInfo_static_extension {
     @:keep
-    public static function name( _di:T_dirInfo):GoString {
+    static public function name( _di:T_dirInfo):GoString {
         return _di._fileInfo.name();
     }
     @:keep
-    public static function info( _di:T_dirInfo):{ var _0 : FileInfo; var _1 : Error; } {
+    static public function info( _di:T_dirInfo):{ var _0 : FileInfo; var _1 : Error; } {
         return { _0 : _di._fileInfo, _1 : ((null : stdgo.Error)) };
     }
     @:keep
-    public static function type( _di:T_dirInfo):FileMode {
+    static public function type( _di:T_dirInfo):FileMode {
         return _di._fileInfo.mode().type();
     }
     @:keep
-    public static function isDir( _di:T_dirInfo):Bool {
+    static public function isDir( _di:T_dirInfo):Bool {
         return _di._fileInfo.isDir();
     }
 }
@@ -798,7 +798,7 @@ class T_dirInfo_wrapper {
 }
 @:keep class T_subFS_static_extension {
     @:keep
-    public static function sub( _f:T_subFS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
+    static public function sub( _f:T_subFS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (_dir == ((("." : GoString)))) {
             return { _0 : {
                 final __self__ = new T_subFS_wrapper(_f);
@@ -831,7 +831,7 @@ class T_dirInfo_wrapper {
         }, _1 : ((null : stdgo.Error)) };
     }
     @:keep
-    public static function glob( _f:T_subFS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
+    static public function glob( _f:T_subFS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
         {
             var __tmp__ = stdgo.path.Path.match(_pattern, ((("" : GoString)))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -853,7 +853,7 @@ class T_dirInfo_wrapper {
         return { _0 : _list, _1 : _f._fixErr(_err) };
     }
     @:keep
-    public static function readFile( _f:T_subFS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
+    static public function readFile( _f:T_subFS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         var __tmp__ = _f._fullName(((("read" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : Slice<GoUInt8>)), _1 : _err };
@@ -862,7 +862,7 @@ class T_dirInfo_wrapper {
         return { _0 : _data, _1 : _f._fixErr(_err) };
     }
     @:keep
-    public static function readDir( _f:T_subFS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } {
+    static public function readDir( _f:T_subFS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } {
         var __tmp__ = _f._fullName(((("read" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : Slice<DirEntry>)), _1 : _err };
@@ -871,7 +871,7 @@ class T_dirInfo_wrapper {
         return { _0 : _dir, _1 : _f._fixErr(_err) };
     }
     @:keep
-    public static function open( _f:T_subFS, _name:GoString):{ var _0 : File; var _1 : Error; } {
+    static public function open( _f:T_subFS, _name:GoString):{ var _0 : File; var _1 : Error; } {
         var __tmp__ = _f._fullName(((("open" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : File)), _1 : _err };
@@ -883,7 +883,7 @@ class T_dirInfo_wrapper {
         // fixErr shortens any reported names in PathErrors by stripping f.dir.
     **/
     @:keep
-    public static function _fixErr( _f:T_subFS, _err:Error):Error {
+    static public function _fixErr( _f:T_subFS, _err:Error):Error {
         {
             var __tmp__ = try {
                 { value : ((((_err.__underlying__().value : Dynamic)) : PathError)), ok : true };
@@ -905,7 +905,7 @@ class T_dirInfo_wrapper {
         // shorten maps name, which should start with f.dir, back to the suffix after f.dir.
     **/
     @:keep
-    public static function _shorten( _f:T_subFS, _name:GoString):{ var _0 : GoString; var _1 : Bool; } {
+    static public function _shorten( _f:T_subFS, _name:GoString):{ var _0 : GoString; var _1 : Bool; } {
         var _rel:GoString = (("" : GoString)), _ok:Bool = false;
         if (_name == _f._dir) {
             return { _0 : ((("." : GoString))), _1 : true };
@@ -919,7 +919,7 @@ class T_dirInfo_wrapper {
         // fullName maps name to the fully-qualified name dir/name.
     **/
     @:keep
-    public static function _fullName( _f:T_subFS, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
+    static public function _fullName( _f:T_subFS, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
         if (!validPath(_name)) {
             return { _0 : ((("" : GoString))), _1 : {
                 final __self__ = new PathError_wrapper((({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)));
@@ -964,19 +964,19 @@ class T_subFS_wrapper {
 }
 @:keep class T_statDirEntry_static_extension {
     @:keep
-    public static function info( _d:T_statDirEntry):{ var _0 : FileInfo; var _1 : Error; } {
+    static public function info( _d:T_statDirEntry):{ var _0 : FileInfo; var _1 : Error; } {
         return { _0 : _d._info, _1 : ((null : stdgo.Error)) };
     }
     @:keep
-    public static function type( _d:T_statDirEntry):FileMode {
+    static public function type( _d:T_statDirEntry):FileMode {
         return _d._info.mode().type();
     }
     @:keep
-    public static function isDir( _d:T_statDirEntry):Bool {
+    static public function isDir( _d:T_statDirEntry):Bool {
         return _d._info.isDir();
     }
     @:keep
-    public static function name( _d:T_statDirEntry):GoString {
+    static public function name( _d:T_statDirEntry):GoString {
         return _d._info.name();
     }
 }
@@ -998,14 +998,14 @@ class T_statDirEntry_wrapper {
         // Type returns type bits in m (m & ModeType).
     **/
     @:keep
-    public static function type( _m:FileMode):FileMode {
+    static public function type( _m:FileMode):FileMode {
         return _m & (("2401763328" : GoUInt32));
     }
     /**
         // Perm returns the Unix permission bits in m (m & ModePerm).
     **/
     @:keep
-    public static function perm( _m:FileMode):FileMode {
+    static public function perm( _m:FileMode):FileMode {
         return _m & ((511 : GoUInt32));
     }
     /**
@@ -1013,7 +1013,7 @@ class T_statDirEntry_wrapper {
         // That is, it tests that no mode type bits are set.
     **/
     @:keep
-    public static function isRegular( _m:FileMode):Bool {
+    static public function isRegular( _m:FileMode):Bool {
         return (_m & (("2401763328" : GoUInt32))) == ((0 : GoUInt32));
     }
     /**
@@ -1021,11 +1021,11 @@ class T_statDirEntry_wrapper {
         // That is, it tests for the ModeDir bit being set in m.
     **/
     @:keep
-    public static function isDir( _m:FileMode):Bool {
+    static public function isDir( _m:FileMode):Bool {
         return (_m & (("2147483648" : GoUInt32))) != ((0 : GoUInt32));
     }
     @:keep
-    public static function toString( _m:FileMode):GoString {
+    static public function toString( _m:FileMode):GoString {
         {};
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) ((0 : GoUInt8))]);
         var _w:GoInt = ((0 : GoInt));

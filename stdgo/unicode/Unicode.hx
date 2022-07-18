@@ -6608,7 +6608,7 @@ function simpleFold(_r:GoRune):GoRune {
         // ToLower maps the rune to lower case giving priority to the special mapping.
     **/
     @:keep
-    public static function toLower( _special:SpecialCase, _r:GoRune):GoRune {
+    static public function toLower( _special:SpecialCase, _r:GoRune):GoRune {
         var __tmp__ = _to(((1 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toLower(_r);
@@ -6619,7 +6619,7 @@ function simpleFold(_r:GoRune):GoRune {
         // ToTitle maps the rune to title case giving priority to the special mapping.
     **/
     @:keep
-    public static function toTitle( _special:SpecialCase, _r:GoRune):GoRune {
+    static public function toTitle( _special:SpecialCase, _r:GoRune):GoRune {
         var __tmp__ = _to(((2 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toTitle(_r);
@@ -6630,7 +6630,7 @@ function simpleFold(_r:GoRune):GoRune {
         // ToUpper maps the rune to upper case giving priority to the special mapping.
     **/
     @:keep
-    public static function toUpper( _special:SpecialCase, _r:GoRune):GoRune {
+    static public function toUpper( _special:SpecialCase, _r:GoRune):GoRune {
         var __tmp__ = _to(((0 : GoInt)), _r, ((_special : Slice<CaseRange>))), _r1:GoInt32 = __tmp__._0, _hadMapping:Bool = __tmp__._1;
         if ((_r1 == _r) && !_hadMapping) {
             _r1 = stdgo.unicode.Unicode.toUpper(_r);

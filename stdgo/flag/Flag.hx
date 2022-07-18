@@ -500,7 +500,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // ContinueOnError error handling policy.
     **/
     @:keep
-    public static function init( _f:FlagSet, _name:GoString, _errorHandling:ErrorHandling):Void {
+    static public function init( _f:FlagSet, _name:GoString, _errorHandling:ErrorHandling):Void {
         _f._name = _name;
         _f._errorHandling = _errorHandling;
     }
@@ -508,7 +508,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // Parsed reports whether f.Parse has been called.
     **/
     @:keep
-    public static function parsed( _f:FlagSet):Bool {
+    static public function parsed( _f:FlagSet):Bool {
         return _f._parsed;
     }
     /**
@@ -518,7 +518,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value will be ErrHelp if -help or -h were set but not defined.
     **/
     @:keep
-    public static function parse( _f:FlagSet, _arguments:Slice<GoString>):Error {
+    static public function parse( _f:FlagSet, _arguments:Slice<GoString>):Error {
         _f._parsed = true;
         _f._args = _arguments;
         while (true) {
@@ -546,7 +546,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // parseOne parses one flag. It reports whether a flag was seen.
     **/
     @:keep
-    public static function _parseOne( _f:FlagSet):{ var _0 : Bool; var _1 : Error; } {
+    static public function _parseOne( _f:FlagSet):{ var _0 : Bool; var _1 : Error; } {
         if ((_f._args != null ? _f._args.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return { _0 : false, _1 : ((null : stdgo.Error)) };
         };
@@ -643,7 +643,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // or the appropriate default usage function otherwise.
     **/
     @:keep
-    public static function _usage( _f:FlagSet):Void {
+    static public function _usage( _f:FlagSet):Void {
         if (_f.usage == null) {
             _f._defaultUsage();
         } else {
@@ -655,7 +655,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // returns the error.
     **/
     @:keep
-    public static function _failf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):Error {
+    static public function _failf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):Error {
         var _a = new Slice<AnyInterface>(..._a);
         var _msg:GoString = _f._sprintf(_format, ..._a.__toArray__());
         _f._usage();
@@ -665,7 +665,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // sprintf formats the message, prints it to output, and returns it.
     **/
     @:keep
-    public static function _sprintf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):GoString {
+    static public function _sprintf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):GoString {
         var _a = new Slice<AnyInterface>(..._a);
         var _msg:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._a.__toArray__());
         stdgo.fmt.Fmt.fprintln(_f.output(), _msg);
@@ -680,7 +680,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // decompose the comma-separated string into the slice.
     **/
     @:keep
-    public static function var_( _f:FlagSet, _value:Value, _name:GoString, _usage:GoString):Void {
+    static public function var_( _f:FlagSet, _value:Value, _name:GoString, _usage:GoString):Void {
         if (stdgo.strings.Strings.hasPrefix(_name, ((("-" : GoString))))) {
             throw Go.toInterface(_f._sprintf(((("flag %q begins with -" : GoString))), Go.toInterface(_name)));
         } else if (stdgo.strings.Strings.contains(_name, ((("=" : GoString))))) {
@@ -708,7 +708,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // If fn returns a non-nil error, it will be treated as a flag value parsing error.
     **/
     @:keep
-    public static function func( _f:FlagSet, _name:GoString, _usage:GoString, _fn:GoString -> Error):Void {
+    static public function func( _f:FlagSet, _name:GoString, _usage:GoString, _fn:GoString -> Error):Void {
         _f.var_({
             final __self__ = new T_funcValue_wrapper(((_fn : T_funcValue)));
             __self__.set = #if !macro function(_s:GoString):stdgo.Error return ((_fn : T_funcValue)).set(_s) #else null #end;
@@ -722,7 +722,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The flag accepts a value acceptable to time.ParseDuration.
     **/
     @:keep
-    public static function duration( _f:FlagSet, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Pointer<stdgo.time.Time.Duration> {
+    static public function duration( _f:FlagSet, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Pointer<stdgo.time.Time.Duration> {
         var _p = Go.pointer(new stdgo.time.Time.Duration());
         _f.durationVar(_p, _name, _value, _usage);
         return _p;
@@ -733,7 +733,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The flag accepts a value acceptable to time.ParseDuration.
     **/
     @:keep
-    public static function durationVar( _f:FlagSet, _p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
+    static public function durationVar( _f:FlagSet, _p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
@@ -747,7 +747,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of a float64 variable that stores the value of the flag.
     **/
     @:keep
-    public static function float64( _f:FlagSet, _name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFloat64> {
+    static public function float64( _f:FlagSet, _name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFloat64> {
         var _p = Go.pointer(((0 : GoFloat64)));
         _f.float64Var(_p, _name, _value, _usage);
         return _p;
@@ -757,7 +757,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to a float64 variable in which to store the value of the flag.
     **/
     @:keep
-    public static function float64Var( _f:FlagSet, _p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
+    static public function float64Var( _f:FlagSet, _p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
@@ -771,7 +771,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of a string variable that stores the value of the flag.
     **/
     @:keep
-    public static function toString( _f:FlagSet, _name:GoString, _value:GoString, _usage:GoString):Pointer<GoString> {
+    static public function toString( _f:FlagSet, _name:GoString, _value:GoString, _usage:GoString):Pointer<GoString> {
         var _p = Go.pointer((("" : GoString)));
         _f.stringVar(_p, _name, _value, _usage);
         return _p;
@@ -781,7 +781,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to a string variable in which to store the value of the flag.
     **/
     @:keep
-    public static function stringVar( _f:FlagSet, _p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
+    static public function stringVar( _f:FlagSet, _p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
@@ -795,7 +795,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of a uint64 variable that stores the value of the flag.
     **/
     @:keep
-    public static function uint64( _f:FlagSet, _name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt64> {
+    static public function uint64( _f:FlagSet, _name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt64> {
         var _p = Go.pointer(((0 : GoUInt64)));
         _f.uint64Var(_p, _name, _value, _usage);
         return _p;
@@ -805,7 +805,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to a uint64 variable in which to store the value of the flag.
     **/
     @:keep
-    public static function uint64Var( _f:FlagSet, _p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
+    static public function uint64Var( _f:FlagSet, _p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
@@ -819,7 +819,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of a uint variable that stores the value of the flag.
     **/
     @:keep
-    public static function uint( _f:FlagSet, _name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> {
+    static public function uint( _f:FlagSet, _name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> {
         var _p = Go.pointer(((0 : GoUInt)));
         _f.uintVar(_p, _name, _value, _usage);
         return _p;
@@ -829,7 +829,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to a uint variable in which to store the value of the flag.
     **/
     @:keep
-    public static function uintVar( _f:FlagSet, _p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
+    static public function uintVar( _f:FlagSet, _p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
@@ -843,7 +843,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of an int64 variable that stores the value of the flag.
     **/
     @:keep
-    public static function int64( _f:FlagSet, _name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64> {
+    static public function int64( _f:FlagSet, _name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64> {
         var _p = Go.pointer(((0 : GoInt64)));
         _f.int64Var(_p, _name, _value, _usage);
         return _p;
@@ -853,7 +853,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to an int64 variable in which to store the value of the flag.
     **/
     @:keep
-    public static function int64Var( _f:FlagSet, _p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
+    static public function int64Var( _f:FlagSet, _p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
@@ -867,7 +867,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of an int variable that stores the value of the flag.
     **/
     @:keep
-    public static function int( _f:FlagSet, _name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
+    static public function int( _f:FlagSet, _name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
         var _p = Go.pointer(((0 : GoInt)));
         _f.intVar(_p, _name, _value, _usage);
         return _p;
@@ -877,7 +877,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to an int variable in which to store the value of the flag.
     **/
     @:keep
-    public static function intVar( _f:FlagSet, _p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
+    static public function intVar( _f:FlagSet, _p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
@@ -891,7 +891,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The return value is the address of a bool variable that stores the value of the flag.
     **/
     @:keep
-    public static function bool( _f:FlagSet, _name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
+    static public function bool( _f:FlagSet, _name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
         var _p = Go.pointer(false);
         _f.boolVar(_p, _name, _value, _usage);
         return _p;
@@ -901,7 +901,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // The argument p points to a bool variable in which to store the value of the flag.
     **/
     @:keep
-    public static function boolVar( _f:FlagSet, _p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
+    static public function boolVar( _f:FlagSet, _p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
         _f.var_({
             final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
             __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
@@ -915,14 +915,14 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // Args returns the non-flag arguments.
     **/
     @:keep
-    public static function args( _f:FlagSet):Slice<GoString> {
+    static public function args( _f:FlagSet):Slice<GoString> {
         return _f._args;
     }
     /**
         // NArg is the number of arguments remaining after flags have been processed.
     **/
     @:keep
-    public static function narg( _f:FlagSet):GoInt {
+    static public function narg( _f:FlagSet):GoInt {
         return (_f._args != null ? _f._args.length : ((0 : GoInt)));
     }
     /**
@@ -931,7 +931,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // requested element does not exist.
     **/
     @:keep
-    public static function arg( _f:FlagSet, _i:GoInt):GoString {
+    static public function arg( _f:FlagSet, _i:GoInt):GoString {
         if ((_i < ((0 : GoInt))) || (_i >= (_f._args != null ? _f._args.length : ((0 : GoInt))))) {
             return ((("" : GoString)));
         };
@@ -941,14 +941,14 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // NFlag returns the number of flags that have been set.
     **/
     @:keep
-    public static function nflag( _f:FlagSet):GoInt {
+    static public function nflag( _f:FlagSet):GoInt {
         return (_f._actual != null ? _f._actual.length : ((0 : GoInt)));
     }
     /**
         // defaultUsage is the default function to print a usage message.
     **/
     @:keep
-    public static function _defaultUsage( _f:FlagSet):Void {
+    static public function _defaultUsage( _f:FlagSet):Void {
         if (_f._name == ((("" : GoString)))) {
             stdgo.fmt.Fmt.fprintf(_f.output(), ((("Usage:\n" : GoString))));
         } else {
@@ -962,7 +962,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // documentation for the global function PrintDefaults for more information.
     **/
     @:keep
-    public static function printDefaults( _f:FlagSet):Void {
+    static public function printDefaults( _f:FlagSet):Void {
         _f.visitAll(function(_flag:Flag):Void {
             var _b:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
             stdgo.fmt.Fmt.fprintf({
@@ -1040,7 +1040,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // Set sets the value of the named flag.
     **/
     @:keep
-    public static function set( _f:FlagSet, _name:GoString, _value:GoString):Error {
+    static public function set( _f:FlagSet, _name:GoString, _value:GoString):Error {
         var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : null, ok : false }), _flag:Ref<Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
             return stdgo.fmt.Fmt.errorf(((("no such flag -%v" : GoString))), Go.toInterface(_name));
@@ -1059,7 +1059,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // Lookup returns the Flag structure of the named flag, returning nil if none exists.
     **/
     @:keep
-    public static function lookup( _f:FlagSet, _name:GoString):Flag {
+    static public function lookup( _f:FlagSet, _name:GoString):Flag {
         return (_f._formal != null ? _f._formal[_name] : null);
     }
     /**
@@ -1067,7 +1067,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // It visits only those flags that have been set.
     **/
     @:keep
-    public static function visit( _f:FlagSet, _fn:Flag -> Void):Void {
+    static public function visit( _f:FlagSet, _fn:Flag -> Void):Void {
         for (_0 => _flag in _sortFlags(_f._actual)) {
             _fn(_flag);
         };
@@ -1077,7 +1077,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // It visits all flags, even those not set.
     **/
     @:keep
-    public static function visitAll( _f:FlagSet, _fn:Flag -> Void):Void {
+    static public function visitAll( _f:FlagSet, _fn:Flag -> Void):Void {
         for (_0 => _flag in _sortFlags(_f._formal)) {
             _fn(_flag);
         };
@@ -1087,21 +1087,21 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // If output is nil, os.Stderr is used.
     **/
     @:keep
-    public static function setOutput( _f:FlagSet, _output:stdgo.io.Io.Writer):Void {
+    static public function setOutput( _f:FlagSet, _output:stdgo.io.Io.Writer):Void {
         _f._output = _output;
     }
     /**
         // ErrorHandling returns the error handling behavior of the flag set.
     **/
     @:keep
-    public static function errorHandling( _f:FlagSet):ErrorHandling {
+    static public function errorHandling( _f:FlagSet):ErrorHandling {
         return _f._errorHandling;
     }
     /**
         // Name returns the name of the flag set.
     **/
     @:keep
-    public static function name( _f:FlagSet):GoString {
+    static public function name( _f:FlagSet):GoString {
         return _f._name;
     }
     /**
@@ -1109,7 +1109,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         // output was not set or was set to nil.
     **/
     @:keep
-    public static function output( _f:FlagSet):stdgo.io.Io.Writer {
+    static public function output( _f:FlagSet):stdgo.io.Io.Writer {
         if (_f._output == null) {
             return {
                 final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stderr);
@@ -1399,22 +1399,22 @@ class FlagSet_wrapper {
 @:keep class T_boolValue_static_extension {
     @:keep
     @:pointer
-    public static function isBoolFlag(____:T_boolValue,  _b:Pointer<T_boolValue>):Bool {
+    static public function isBoolFlag(____:T_boolValue,  _b:Pointer<T_boolValue>):Bool {
         return true;
     }
     @:keep
     @:pointer
-    public static function toString(____:T_boolValue,  _b:Pointer<T_boolValue>):GoString {
+    static public function toString(____:T_boolValue,  _b:Pointer<T_boolValue>):GoString {
         return stdgo.strconv.Strconv.formatBool(((_b.value : Bool)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_boolValue,  _b:Pointer<T_boolValue>):AnyInterface {
+    static public function get(____:T_boolValue,  _b:Pointer<T_boolValue>):AnyInterface {
         return Go.toInterface(((_b.value : Bool)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_boolValue,  _b:Pointer<T_boolValue>, _s:GoString):Error {
+    static public function set(____:T_boolValue,  _b:Pointer<T_boolValue>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseBool(_s), _v:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _errParse;
@@ -1438,22 +1438,22 @@ class T_boolValue_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_boolValue>;
+    var __self__ : T_boolValue;
 }
 @:keep class T_intValue_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_intValue,  _i:Pointer<T_intValue>):GoString {
+    static public function toString(____:T_intValue,  _i:Pointer<T_intValue>):GoString {
         return stdgo.strconv.Strconv.itoa(((_i.value : GoInt)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_intValue,  _i:Pointer<T_intValue>):AnyInterface {
+    static public function get(____:T_intValue,  _i:Pointer<T_intValue>):AnyInterface {
         return Go.toInterface(((_i.value : GoInt)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_intValue,  _i:Pointer<T_intValue>, _s:GoString):Error {
+    static public function set(____:T_intValue,  _i:Pointer<T_intValue>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, ((0 : GoInt)), ((32 : GoInt))), _v:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
@@ -1474,22 +1474,22 @@ class T_intValue_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_intValue>;
+    var __self__ : T_intValue;
 }
 @:keep class T_int64Value_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_int64Value,  _i:Pointer<T_int64Value>):GoString {
+    static public function toString(____:T_int64Value,  _i:Pointer<T_int64Value>):GoString {
         return stdgo.strconv.Strconv.formatInt(((_i.value : GoInt64)), ((10 : GoInt)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_int64Value,  _i:Pointer<T_int64Value>):AnyInterface {
+    static public function get(____:T_int64Value,  _i:Pointer<T_int64Value>):AnyInterface {
         return Go.toInterface(((_i.value : GoInt64)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_int64Value,  _i:Pointer<T_int64Value>, _s:GoString):Error {
+    static public function set(____:T_int64Value,  _i:Pointer<T_int64Value>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseInt(_s, ((0 : GoInt)), ((64 : GoInt))), _v:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
@@ -1510,22 +1510,22 @@ class T_int64Value_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_int64Value>;
+    var __self__ : T_int64Value;
 }
 @:keep class T_uintValue_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_uintValue,  _i:Pointer<T_uintValue>):GoString {
+    static public function toString(____:T_uintValue,  _i:Pointer<T_uintValue>):GoString {
         return stdgo.strconv.Strconv.formatUint(((_i.value : GoUInt64)), ((10 : GoInt)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_uintValue,  _i:Pointer<T_uintValue>):AnyInterface {
+    static public function get(____:T_uintValue,  _i:Pointer<T_uintValue>):AnyInterface {
         return Go.toInterface(((_i.value : GoUInt)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_uintValue,  _i:Pointer<T_uintValue>, _s:GoString):Error {
+    static public function set(____:T_uintValue,  _i:Pointer<T_uintValue>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, ((0 : GoInt)), ((32 : GoInt))), _v:GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
@@ -1546,22 +1546,22 @@ class T_uintValue_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_uintValue>;
+    var __self__ : T_uintValue;
 }
 @:keep class T_uint64Value_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_uint64Value,  _i:Pointer<T_uint64Value>):GoString {
+    static public function toString(____:T_uint64Value,  _i:Pointer<T_uint64Value>):GoString {
         return stdgo.strconv.Strconv.formatUint(((_i.value : GoUInt64)), ((10 : GoInt)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_uint64Value,  _i:Pointer<T_uint64Value>):AnyInterface {
+    static public function get(____:T_uint64Value,  _i:Pointer<T_uint64Value>):AnyInterface {
         return Go.toInterface(((_i.value : GoUInt64)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_uint64Value,  _i:Pointer<T_uint64Value>, _s:GoString):Error {
+    static public function set(____:T_uint64Value,  _i:Pointer<T_uint64Value>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseUint(_s, ((0 : GoInt)), ((64 : GoInt))), _v:GoUInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
@@ -1582,22 +1582,22 @@ class T_uint64Value_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_uint64Value>;
+    var __self__ : T_uint64Value;
 }
 @:keep class T_stringValue_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_stringValue,  _s:Pointer<T_stringValue>):GoString {
+    static public function toString(____:T_stringValue,  _s:Pointer<T_stringValue>):GoString {
         return ((_s.value : GoString));
     }
     @:keep
     @:pointer
-    public static function get(____:T_stringValue,  _s:Pointer<T_stringValue>):AnyInterface {
+    static public function get(____:T_stringValue,  _s:Pointer<T_stringValue>):AnyInterface {
         return Go.toInterface(((_s.value : GoString)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_stringValue,  _s:Pointer<T_stringValue>, _val:GoString):Error {
+    static public function set(____:T_stringValue,  _s:Pointer<T_stringValue>, _val:GoString):Error {
         _s.value = ((_val : T_stringValue));
         return ((null : stdgo.Error));
     }
@@ -1614,22 +1614,22 @@ class T_stringValue_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_stringValue>;
+    var __self__ : T_stringValue;
 }
 @:keep class T_float64Value_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_float64Value,  _f:Pointer<T_float64Value>):GoString {
+    static public function toString(____:T_float64Value,  _f:Pointer<T_float64Value>):GoString {
         return stdgo.strconv.Strconv.formatFloat(((_f.value : GoFloat64)), ((((("g" : GoString))).code : GoRune)), ((-1 : GoInt)), ((64 : GoInt)));
     }
     @:keep
     @:pointer
-    public static function get(____:T_float64Value,  _f:Pointer<T_float64Value>):AnyInterface {
+    static public function get(____:T_float64Value,  _f:Pointer<T_float64Value>):AnyInterface {
         return Go.toInterface(((_f.value : GoFloat64)));
     }
     @:keep
     @:pointer
-    public static function set(____:T_float64Value,  _f:Pointer<T_float64Value>, _s:GoString):Error {
+    static public function set(____:T_float64Value,  _f:Pointer<T_float64Value>, _s:GoString):Error {
         var __tmp__ = stdgo.strconv.Strconv.parseFloat(_s, ((64 : GoInt))), _v:GoFloat64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _numError(_err);
@@ -1650,17 +1650,17 @@ class T_float64Value_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_float64Value>;
+    var __self__ : T_float64Value;
 }
 @:keep class T_durationValue_static_extension {
     @:keep
     @:pointer
-    public static function toString(____:T_durationValue,  _d:Pointer<T_durationValue>):GoString {
+    static public function toString(____:T_durationValue,  _d:Pointer<T_durationValue>):GoString {
         return ((new Pointer<stdgo.time.Time.Duration>(() -> ((_d.value : stdgo.time.Time.Duration)), v -> (((_d.value = ((v : T_durationValue))) : stdgo.time.Time.Duration))).value.toString() : GoString));
     }
     @:keep
     @:pointer
-    public static function get(____:T_durationValue,  _d:Pointer<T_durationValue>):AnyInterface {
+    static public function get(____:T_durationValue,  _d:Pointer<T_durationValue>):AnyInterface {
         return Go.toInterface({
             final __self__ = new stdgo.time.Time.Duration_wrapper(((_d.value : stdgo.time.Time.Duration)));
             __self__.hours = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).hours() #else null #end;
@@ -1677,7 +1677,7 @@ class T_float64Value_wrapper {
     }
     @:keep
     @:pointer
-    public static function set(____:T_durationValue,  _d:Pointer<T_durationValue>, _s:GoString):Error {
+    static public function set(____:T_durationValue,  _d:Pointer<T_durationValue>, _s:GoString):Error {
         var __tmp__ = stdgo.time.Time.parseDuration(_s), _v:stdgo.time.Time.Duration = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _err = _errParse;
@@ -1698,15 +1698,15 @@ class T_durationValue_wrapper {
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : Pointer<T_durationValue>;
+    var __self__ : T_durationValue;
 }
 @:keep class T_funcValue_static_extension {
     @:keep
-    public static function toString( _f:T_funcValue):GoString {
+    static public function toString( _f:T_funcValue):GoString {
         return ((("" : GoString)));
     }
     @:keep
-    public static function set( _f:T_funcValue, _s:GoString):Error {
+    static public function set( _f:T_funcValue, _s:GoString):Error {
         return _f(_s);
     }
 }

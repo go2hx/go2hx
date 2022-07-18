@@ -46,6 +46,7 @@ final path = Sys.getCwd();
 var ci = false;
 var logOutput:FileOutput = null;
 var suites:Map<String, TestSuite> = [];
+var startStamp = 0.0;
 
 function main() {
 	final args = Sys.args();
@@ -82,6 +83,7 @@ function main() {
 	}
 	runsLeft = tasks.length * targets.length;
 	Sys.println("Test runs left: " + runsLeft);
+	startStamp = haxe.Timer.stamp();
 	// update loop
 	while (true)
 		update();
@@ -231,6 +233,9 @@ private function log(v) {
 }
 
 private function close() {
+	log("======= TIME =======");
+	log(Date.now().toString());
+	log("elapsed: " + (haxe.Timer.stamp() - startStamp));
 	log("======= SUMMARY RESULTS ======");
 	function calc(count:Int, total:Int):String {
 		if (count == 0)

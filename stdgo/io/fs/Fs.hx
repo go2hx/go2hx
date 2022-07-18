@@ -13,7 +13,7 @@ var errPermission : stdgo.Error = _errPermission();
 var errExist : stdgo.Error = _errExist();
 var errNotExist : stdgo.Error = _errNotExist();
 var errClosed : stdgo.Error = _errClosed();
-var skipDir : stdgo.Error = stdgo.errors.Errors.new_(((("skip this directory" : GoString))));
+var skipDir : stdgo.Error = stdgo.errors.Errors.new_(((((("skip this directory" : GoString))) : GoString)));
 typedef FS = StructType & {
     public function open(_name:GoString):{ var _0 : File; var _1 : Error; };
 };
@@ -130,16 +130,16 @@ function validPath(_name:GoString):Bool {
         if (!stdgo.unicode.utf8.Utf8.validString(_name)) {
             return false;
         };
-        if (_name == ((("." : GoString)))) {
+        if (_name == ((((("." : GoString))) : GoString))) {
             return true;
         };
         while (true) {
             var _i:GoInt = ((0 : GoInt));
-            while ((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != ((((("/" : GoString))).code : GoRune)))) {
+            while ((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != ((((("/" : GoString))).code : GoUInt8)))) {
                 _i++;
             };
             var _elem:GoString = ((_name.__slice__(0, _i) : GoString));
-            if (((_elem == ((("" : GoString)))) || (_elem == ((("." : GoString))))) || (_elem == (((".." : GoString))))) {
+            if (((_elem == ((((("" : GoString))) : GoString))) || (_elem == ((((("." : GoString))) : GoString)))) || (_elem == (((((".." : GoString))) : GoString)))) {
                 return false;
             };
             if (_i == (_name != null ? _name.length : ((0 : GoInt)))) {
@@ -190,7 +190,7 @@ function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : 
             };
         };
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, ((("" : GoString)))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, ((((("" : GoString))) : GoString))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : ((null : Slice<GoString>)), _1 : _err };
             };
@@ -240,8 +240,8 @@ function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : 
     // cleanGlobPath prepares path for glob matching.
 **/
 function _cleanGlobPath(_path:GoString):GoString {
-        if (_path == ((("" : GoString)))) {
-            return ((("." : GoString)));
+        if (_path == ((((("" : GoString))) : GoString))) {
+            return ((((("." : GoString))) : GoString));
         } else {
             return ((_path.__slice__(((0 : GoInt)), (_path != null ? _path.length : ((0 : GoInt))) - ((1 : GoInt))) : GoString));
         };
@@ -279,7 +279,7 @@ function _hasMeta(_path:GoString):Bool {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_path != null ? _path.length : ((0 : GoInt))), _i++, {
-                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("*" : GoString))).code : GoRune)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("?" : GoString))).code : GoRune)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("[" : GoString))).code : GoRune)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("\\" : GoString))).code : GoRune))) {
+                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("*" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("?" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("[" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("\\" : GoString))).code : GoUInt8))) {
                     return true;
                 };
             });
@@ -326,10 +326,10 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                         defer();
                     };
                     return { _0 : ((null : Slice<DirEntry>)), _1 : {
-                        final __self__ = new PathError_wrapper((({ op : ((("readdir" : GoString))), path : _name, err : stdgo.errors.Errors.new_(((("not implemented" : GoString)))) } : PathError)));
-                        __self__.error = #if !macro function():GoString return (({ op : ((("readdir" : GoString))), path : _name, err : stdgo.errors.Errors.new_(((("not implemented" : GoString)))) } : PathError)).error() #else null #end;
-                        __self__.timeout = #if !macro function():Bool return (({ op : ((("readdir" : GoString))), path : _name, err : stdgo.errors.Errors.new_(((("not implemented" : GoString)))) } : PathError)).timeout() #else null #end;
-                        __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("readdir" : GoString))), path : _name, err : stdgo.errors.Errors.new_(((("not implemented" : GoString)))) } : PathError)).unwrap() #else null #end;
+                        final __self__ = new PathError_wrapper((({ op : ((((("readdir" : GoString))) : GoString)), path : _name, err : stdgo.errors.Errors.new_(((((("not implemented" : GoString))) : GoString))) } : PathError)));
+                        __self__.error = #if !macro function():GoString return (({ op : ((((("readdir" : GoString))) : GoString)), path : _name, err : stdgo.errors.Errors.new_(((((("not implemented" : GoString))) : GoString))) } : PathError)).error() #else null #end;
+                        __self__.timeout = #if !macro function():Bool return (({ op : ((((("readdir" : GoString))) : GoString)), path : _name, err : stdgo.errors.Errors.new_(((((("not implemented" : GoString))) : GoString))) } : PathError)).timeout() #else null #end;
+                        __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("readdir" : GoString))) : GoString)), path : _name, err : stdgo.errors.Errors.new_(((((("not implemented" : GoString))) : GoString))) } : PathError)).unwrap() #else null #end;
                         __self__;
                     } };
                 };
@@ -629,14 +629,14 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
 function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (!validPath(_dir)) {
             return { _0 : ((null : FS)), _1 : {
-                final __self__ = new PathError_wrapper((({ op : ((("sub" : GoString))), path : _dir, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((("sub" : GoString))), path : _dir, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((("sub" : GoString))), path : _dir, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("sub" : GoString))), path : _dir, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).unwrap() #else null #end;
+                final __self__ = new PathError_wrapper((({ op : ((((("sub" : GoString))) : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("sub" : GoString))) : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("sub" : GoString))) : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("sub" : GoString))) : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
-        if (_dir == ((("." : GoString)))) {
+        if (_dir == ((((("." : GoString))) : GoString))) {
             return { _0 : _fsys, _1 : ((null : stdgo.Error)) };
         };
         {
@@ -748,7 +748,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
     }
     @:keep
     static public function error( _e:PathError):GoString {
-        return (((_e.op + (((" " : GoString)))) + _e.path) + (((": " : GoString)))) + _e.err.error();
+        return (((_e.op + (((((" " : GoString))) : GoString))) + _e.path) + (((((": " : GoString))) : GoString))) + _e.err.error();
     }
 }
 class PathError_wrapper {
@@ -799,7 +799,7 @@ class T_dirInfo_wrapper {
 @:keep class T_subFS_static_extension {
     @:keep
     static public function sub( _f:T_subFS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
-        if (_dir == ((("." : GoString)))) {
+        if (_dir == ((((("." : GoString))) : GoString))) {
             return { _0 : {
                 final __self__ = new T_subFS_wrapper(_f);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _f.glob(_pattern) #else null #end;
@@ -813,7 +813,7 @@ class T_dirInfo_wrapper {
                 __self__;
             }, _1 : ((null : stdgo.Error)) };
         };
-        var __tmp__ = _f._fullName(((("sub" : GoString))), _dir), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName(((((("sub" : GoString))) : GoString)), _dir), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : FS)), _1 : _err };
         };
@@ -833,20 +833,20 @@ class T_dirInfo_wrapper {
     @:keep
     static public function glob( _f:T_subFS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, ((("" : GoString)))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, ((((("" : GoString))) : GoString))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 return { _0 : ((null : Slice<GoString>)), _1 : _err };
             };
         };
-        if (_pattern == ((("." : GoString)))) {
-            return { _0 : ((new Slice<GoString>(((("." : GoString)))) : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+        if (_pattern == ((((("." : GoString))) : GoString))) {
+            return { _0 : ((new Slice<GoString>(((((("." : GoString))) : GoString))) : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
         };
-        var _full:GoString = (_f._dir + ((("/" : GoString)))) + _pattern;
+        var _full:GoString = (_f._dir + ((((("/" : GoString))) : GoString))) + _pattern;
         var __tmp__ = stdgo.io.fs.Fs.glob(_f._fsys, _full), _list:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         for (_i => _name in _list) {
             var __tmp__ = _f._shorten(_name), _name:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
-                return { _0 : ((null : Slice<GoString>)), _1 : stdgo.errors.Errors.new_(((((("invalid result from inner fsys Glob: " : GoString))) + _name) + (((" not in " : GoString)))) + _f._dir) };
+                return { _0 : ((null : Slice<GoString>)), _1 : stdgo.errors.Errors.new_(((((((("invalid result from inner fsys Glob: " : GoString))) : GoString)) + _name) + (((((" not in " : GoString))) : GoString))) + _f._dir) };
             };
             if (_list != null) _list[_i] = _name;
         };
@@ -854,7 +854,7 @@ class T_dirInfo_wrapper {
     }
     @:keep
     static public function readFile( _f:T_subFS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((("read" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName(((((("read" : GoString))) : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : Slice<GoUInt8>)), _1 : _err };
         };
@@ -863,7 +863,7 @@ class T_dirInfo_wrapper {
     }
     @:keep
     static public function readDir( _f:T_subFS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((("read" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName(((((("read" : GoString))) : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : Slice<DirEntry>)), _1 : _err };
         };
@@ -872,7 +872,7 @@ class T_dirInfo_wrapper {
     }
     @:keep
     static public function open( _f:T_subFS, _name:GoString):{ var _0 : File; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((("open" : GoString))), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName(((((("open" : GoString))) : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : ((null : File)), _1 : _err };
         };
@@ -908,12 +908,12 @@ class T_dirInfo_wrapper {
     static public function _shorten( _f:T_subFS, _name:GoString):{ var _0 : GoString; var _1 : Bool; } {
         var _rel:GoString = (("" : GoString)), _ok:Bool = false;
         if (_name == _f._dir) {
-            return { _0 : ((("." : GoString))), _1 : true };
+            return { _0 : ((((("." : GoString))) : GoString)), _1 : true };
         };
-        if ((((_name != null ? _name.length : ((0 : GoInt))) >= ((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((2 : GoInt)))) && ((_name != null ? _name[(_f._dir != null ? _f._dir.length : ((0 : GoInt)))] : ((0 : GoUInt8))) == ((((("/" : GoString))).code : GoRune)))) && (((_name.__slice__(0, (_f._dir != null ? _f._dir.length : ((0 : GoInt)))) : GoString)) == _f._dir)) {
+        if ((((_name != null ? _name.length : ((0 : GoInt))) >= ((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((2 : GoInt)))) && ((_name != null ? _name[(_f._dir != null ? _f._dir.length : ((0 : GoInt)))] : ((0 : GoUInt8))) == ((((("/" : GoString))).code : GoUInt8)))) && (((_name.__slice__(0, (_f._dir != null ? _f._dir.length : ((0 : GoInt)))) : GoString)) == _f._dir)) {
             return { _0 : ((_name.__slice__((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((1 : GoInt))) : GoString)), _1 : true };
         };
-        return { _0 : ((("" : GoString))), _1 : false };
+        return { _0 : ((((("" : GoString))) : GoString)), _1 : false };
     }
     /**
         // fullName maps name to the fully-qualified name dir/name.
@@ -921,11 +921,11 @@ class T_dirInfo_wrapper {
     @:keep
     static public function _fullName( _f:T_subFS, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
         if (!validPath(_name)) {
-            return { _0 : ((("" : GoString))), _1 : {
-                final __self__ = new PathError_wrapper((({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((("invalid name" : GoString)))) } : PathError)).unwrap() #else null #end;
+            return { _0 : ((((("" : GoString))) : GoString)), _1 : {
+                final __self__ = new PathError_wrapper((({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((((("invalid name" : GoString))) : GoString))) } : PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -999,14 +999,14 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function type( _m:FileMode):FileMode {
-        return _m & (("2401763328" : GoUInt32));
+        return _m & (("2401763328" : FileMode));
     }
     /**
         // Perm returns the Unix permission bits in m (m & ModePerm).
     **/
     @:keep
     static public function perm( _m:FileMode):FileMode {
-        return _m & ((511 : GoUInt32));
+        return _m & ((511 : FileMode));
     }
     /**
         // IsRegular reports whether m describes a regular file.
@@ -1014,7 +1014,7 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function isRegular( _m:FileMode):Bool {
-        return (_m & (("2401763328" : GoUInt32))) == ((0 : GoUInt32));
+        return (_m & (("2401763328" : FileMode))) == ((0 : FileMode));
     }
     /**
         // IsDir reports whether m describes a directory.
@@ -1022,29 +1022,29 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function isDir( _m:FileMode):Bool {
-        return (_m & (("2147483648" : GoUInt32))) != ((0 : GoUInt32));
+        return (_m & (("2147483648" : FileMode))) != ((0 : FileMode));
     }
     @:keep
     static public function toString( _m:FileMode):GoString {
         {};
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) ((0 : GoUInt8))]);
         var _w:GoInt = ((0 : GoInt));
-        for (_i => _c in ((("dalTLDpSugct?" : GoString)))) {
-            if ((_m & (((1 : GoUInt32)) << (((((31 : GoInt)) - _i) : GoUInt)))) != ((0 : GoUInt32))) {
+        for (_i => _c in ((((("dalTLDpSugct?" : GoString))) : GoString))) {
+            if ((_m & (((1 : FileMode)) << (((((31 : GoInt)) - _i) : GoUInt)))) != ((0 : FileMode))) {
                 if (_buf != null) _buf[_w] = ((_c : GoByte));
                 _w++;
             };
         };
         if (_w == ((0 : GoInt))) {
-            if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoRune));
+            if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoUInt8));
             _w++;
         };
         {};
-        for (_i => _c in ((("rwxrwxrwx" : GoString)))) {
-            if ((_m & (((1 : GoUInt32)) << (((((8 : GoInt)) - _i) : GoUInt)))) != ((0 : GoUInt32))) {
+        for (_i => _c in ((((("rwxrwxrwx" : GoString))) : GoString))) {
+            if ((_m & (((1 : FileMode)) << (((((8 : GoInt)) - _i) : GoUInt)))) != ((0 : FileMode))) {
                 if (_buf != null) _buf[_w] = ((_c : GoByte));
             } else {
-                if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoRune));
+                if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoUInt8));
             };
             _w++;
         };

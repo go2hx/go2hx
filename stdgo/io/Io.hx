@@ -8,14 +8,14 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var errShortWrite : stdgo.Error = stdgo.errors.Errors.new_(((("short write" : GoString))));
-var _errInvalidWrite : stdgo.Error = stdgo.errors.Errors.new_(((("invalid write result" : GoString))));
-var errShortBuffer : stdgo.Error = stdgo.errors.Errors.new_(((("short buffer" : GoString))));
-var eof : stdgo.Error = stdgo.errors.Errors.new_(((("EOF" : GoString))));
-var errUnexpectedEOF : stdgo.Error = stdgo.errors.Errors.new_(((("unexpected EOF" : GoString))));
-var errNoProgress : stdgo.Error = stdgo.errors.Errors.new_(((("multiple Read calls return no data or error" : GoString))));
-var _errWhence : stdgo.Error = stdgo.errors.Errors.new_(((("Seek: invalid whence" : GoString))));
-var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(((("Seek: invalid offset" : GoString))));
+var errShortWrite : stdgo.Error = stdgo.errors.Errors.new_(((((("short write" : GoString))) : GoString)));
+var _errInvalidWrite : stdgo.Error = stdgo.errors.Errors.new_(((((("invalid write result" : GoString))) : GoString)));
+var errShortBuffer : stdgo.Error = stdgo.errors.Errors.new_(((((("short buffer" : GoString))) : GoString)));
+var eof : stdgo.Error = stdgo.errors.Errors.new_(((((("EOF" : GoString))) : GoString)));
+var errUnexpectedEOF : stdgo.Error = stdgo.errors.Errors.new_(((((("unexpected EOF" : GoString))) : GoString)));
+var errNoProgress : stdgo.Error = stdgo.errors.Errors.new_(((((("multiple Read calls return no data or error" : GoString))) : GoString)));
+var _errWhence : stdgo.Error = stdgo.errors.Errors.new_(((((("Seek: invalid whence" : GoString))) : GoString)));
+var _errOffset : stdgo.Error = stdgo.errors.Errors.new_(((((("Seek: invalid offset" : GoString))) : GoString)));
 var discard : Writer = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
         __self__.readFrom = #if !macro function(_r:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).readFrom(_r) #else null #end;
@@ -27,7 +27,7 @@ var _blackHolePool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
         var _b = new Slice<GoUInt8>(...[for (i in 0 ... ((((8192 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
         return Go.toInterface(_b);
     }, _noCopy : new stdgo.sync.Sync.T_noCopy(), _local : null, _localSize : 0, _victim : null, _victimSize : 0 } : stdgo.sync.Sync.Pool));
-var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(((("io: read/write on closed pipe" : GoString))));
+var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(((((("io: read/write on closed pipe" : GoString))) : GoString)));
 var _2 : ReaderFrom = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
         __self__.readFrom = #if !macro function(_r:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).readFrom(_r) #else null #end;
@@ -397,7 +397,7 @@ function copy(_dst:Writer, _src:Reader):{ var _0 : GoInt64; var _1 : Error; } {
 function copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } {
         var _written:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
         if ((_buf != null) && ((_buf != null ? _buf.length : ((0 : GoInt))) == ((0 : GoInt)))) {
-            throw Go.toInterface(((("empty buffer in CopyBuffer" : GoString))));
+            throw Go.toInterface(((((("empty buffer in CopyBuffer" : GoString))) : GoString)));
         };
         return _copyBuffer(_dst, _src, _buf);
     }

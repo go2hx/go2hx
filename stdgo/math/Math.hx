@@ -608,10 +608,10 @@ function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         return _y;
     }
 function _archMax(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archMin(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // Erf returns the error function of x.
@@ -915,10 +915,10 @@ function _expmulti(_hi:GoFloat64, _lo:GoFloat64, _k:GoInt):GoFloat64 {
         return ldexp(_y, _k);
     }
 function _archExp2(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archExp(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // Expm1 returns e**x - 1, the base-e exponential of x minus 1.
@@ -1526,7 +1526,7 @@ function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
         return _p * sqrt(((1 : GoFloat64)) + (_q * _q));
     }
 function _archHypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // J0 returns the order-zero Bessel function of the first kind.
@@ -2471,7 +2471,7 @@ function _log1p(_x:GoFloat64):GoFloat64 {
         return (((_k : GoFloat64)) * ((0.6931471803691238 : GoFloat64))) - ((_hfsq - ((_s * (_hfsq + r)) + ((((_k : GoFloat64)) * ((1.9082149292705877e-10 : GoFloat64))) + _c))) - _f);
     }
 function _archLog(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // Logb returns the binary exponent of x.
@@ -2598,7 +2598,7 @@ function _modf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
     }
 function _archModf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
         var _int:GoFloat64 = ((0 : GoFloat64)), _frac:GoFloat64 = ((0 : GoFloat64));
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // Nextafter32 returns the next representable float32 value after x towards y.
@@ -3159,79 +3159,79 @@ function _sqrt(_x:GoFloat64):GoFloat64 {
     }
 function _archSqrt(_x:GoFloat64):GoFloat64 throw "not implemeneted";
 function _archAcos(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAcosh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAsin(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAsinh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAtan(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAtan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archAtanh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archCbrt(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archCos(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archCosh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archErf(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archErfc(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archExpm1(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archFrexp(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archLdexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archLog10(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archLog2(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archLog1p(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archMod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archPow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archRemainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archSin(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archSinh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archTan(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 function _archTanh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((("not implemented" : GoString))));
+        throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
     }
 /**
     // Tan returns the tangent of the radian argument x.

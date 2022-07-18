@@ -207,7 +207,7 @@ function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         };
         for (_0 => _name in _expected) {
             {
-                var _i:GoInt = stdgo.strings.Strings.index(_name, ((("/" : GoString))));
+                var _i:GoInt = stdgo.strings.Strings.index(_name, ((((("/" : GoString))) : GoString)));
                 if (_i >= ((0 : GoInt))) {
                     var _dir:GoString = ((_name.__slice__(0, _i) : GoString)), _dirSlash:GoString = ((_name.__slice__(0, _i + ((1 : GoInt))) : GoString));
                     var _subExpected:Slice<GoString> = ((null : Slice<GoString>));
@@ -223,7 +223,7 @@ function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
                     {
                         var _err:stdgo.Error = _testFS(_sub, ..._subExpected.__toArray__());
                         if (_err != null) {
-                            return stdgo.fmt.Fmt.errorf(((("testing fs.Sub(fsys, %s): %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                            return stdgo.fmt.Fmt.errorf(((((("testing fs.Sub(fsys, %s): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                         };
                     };
                     break;
@@ -235,8 +235,8 @@ function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
 function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         var _expected = new Slice<GoString>(..._expected);
         var _t:T_fsTester = (({ _fsys : _fsys, _errText : ((null : Slice<GoUInt8>)), _dirs : ((null : Slice<GoString>)), _files : ((null : Slice<GoString>)) } : T_fsTester));
-        _t._checkDir(((("." : GoString))));
-        _t._checkOpen(((("." : GoString))));
+        _t._checkDir(((((("." : GoString))) : GoString)));
+        _t._checkOpen(((((("." : GoString))) : GoString)));
         var _found = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
         for (_0 => _dir in _t._dirs) {
             if (_found != null) _found[_dir] = true;
@@ -244,35 +244,35 @@ function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         for (_1 => _file in _t._files) {
             if (_found != null) _found[_file] = true;
         };
-        if (_found != null) _found.__remove__(((("." : GoString))));
+        if (_found != null) _found.__remove__(((((("." : GoString))) : GoString)));
         if (((_expected != null ? _expected.length : ((0 : GoInt))) == ((0 : GoInt))) && ((_found != null ? _found.length : ((0 : GoInt))) > ((0 : GoInt)))) {
             var _list:Slice<GoString> = ((null : Slice<GoString>));
             for (_k => _ in _found) {
-                if (_k != ((("." : GoString)))) {
+                if (_k != ((((("." : GoString))) : GoString))) {
                     _list = (_list != null ? _list.__append__(_k) : new Slice<GoString>(_k));
                 };
             };
             stdgo.sort.Sort.strings(_list);
             if ((_list != null ? _list.length : ((0 : GoInt))) > ((15 : GoInt))) {
-                _list = (((_list.__slice__(0, ((10 : GoInt))) : Slice<GoString>)) != null ? ((_list.__slice__(0, ((10 : GoInt))) : Slice<GoString>)).__append__(((("..." : GoString)))) : new Slice<GoString>(((("..." : GoString)))));
+                _list = (((_list.__slice__(0, ((10 : GoInt))) : Slice<GoString>)) != null ? ((_list.__slice__(0, ((10 : GoInt))) : Slice<GoString>)).__append__(((((("..." : GoString))) : GoString))) : new Slice<GoString>(((((("..." : GoString))) : GoString))));
             };
-            _t._errorf(((("expected empty file system but found files:\n%s" : GoString))), Go.toInterface(stdgo.strings.Strings.join(_list, ((("\n" : GoString))))));
+            _t._errorf(((((("expected empty file system but found files:\n%s" : GoString))) : GoString)), Go.toInterface(stdgo.strings.Strings.join(_list, ((((("\n" : GoString))) : GoString)))));
         };
         for (_2 => _name in _expected) {
             if (!(_found != null ? _found[_name] : false)) {
-                _t._errorf(((("expected but not found: %s" : GoString))), Go.toInterface(_name));
+                _t._errorf(((((("expected but not found: %s" : GoString))) : GoString)), Go.toInterface(_name));
             };
         };
         if ((_t._errText != null ? _t._errText.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return ((null : stdgo.Error));
         };
-        return stdgo.errors.Errors.new_(((("TestFS found errors:\n" : GoString))) + ((_t._errText : GoString)));
+        return stdgo.errors.Errors.new_(((((("TestFS found errors:\n" : GoString))) : GoString)) + ((_t._errText : GoString)));
     }
 /**
     // formatEntry formats an fs.DirEntry into a string for error messages and comparison.
 **/
 function _formatEntry(_entry:stdgo.io.fs.Fs.DirEntry):GoString {
-        return stdgo.fmt.Fmt.sprintf(((("%s IsDir=%v Type=%v" : GoString))), Go.toInterface(_entry.name()), Go.toInterface(_entry.isDir()), Go.toInterface({
+        return stdgo.fmt.Fmt.sprintf(((((("%s IsDir=%v Type=%v" : GoString))) : GoString)), Go.toInterface(_entry.name()), Go.toInterface(_entry.isDir()), Go.toInterface({
             final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_entry.type());
             __self__.isDir = #if !macro function():Bool return _entry.type().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _entry.type().isRegular() #else null #end;
@@ -286,7 +286,7 @@ function _formatEntry(_entry:stdgo.io.fs.Fs.DirEntry):GoString {
     // formatInfoEntry formats an fs.FileInfo into a string like the result of formatEntry, for error messages and comparison.
 **/
 function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString {
-        return stdgo.fmt.Fmt.sprintf(((("%s IsDir=%v Type=%v" : GoString))), Go.toInterface(_info.name()), Go.toInterface(_info.isDir()), Go.toInterface({
+        return stdgo.fmt.Fmt.sprintf(((((("%s IsDir=%v Type=%v" : GoString))) : GoString)), Go.toInterface(_info.name()), Go.toInterface(_info.isDir()), Go.toInterface({
             final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_info.mode().type());
             __self__.isDir = #if !macro function():Bool return _info.mode().type().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _info.mode().type().isRegular() #else null #end;
@@ -300,7 +300,7 @@ function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString {
     // formatInfo formats an fs.FileInfo into a string for error messages and comparison.
 **/
 function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString {
-        return stdgo.fmt.Fmt.sprintf(((("%s IsDir=%v Mode=%v Size=%d ModTime=%v" : GoString))), Go.toInterface(_info.name()), Go.toInterface(_info.isDir()), Go.toInterface({
+        return stdgo.fmt.Fmt.sprintf(((((("%s IsDir=%v Mode=%v Size=%d ModTime=%v" : GoString))) : GoString)), Go.toInterface(_info.name()), Go.toInterface(_info.isDir()), Go.toInterface({
             final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_info.mode());
             __self__.isDir = #if !macro function():Bool return _info.mode().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _info.mode().isRegular() #else null #end;
@@ -431,7 +431,7 @@ class T_noSub_wrapper {
     }
     @:keep
     static public function isDir( _i:T_mapFileInfo):Bool {
-        return (_i._f.mode & (("2147483648" : GoUInt32))) != ((0 : GoUInt32));
+        return (_i._f.mode & (("2147483648" : stdgo.io.fs.Fs.FileMode))) != ((0 : stdgo.io.fs.Fs.FileMode));
     }
     @:keep
     static public function modTime( _i:T_mapFileInfo):stdgo.time.Time.Time {
@@ -480,10 +480,10 @@ class T_mapFileInfo_wrapper {
     static public function readAt( _f:T_openMapFile, _b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
         if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -502,10 +502,10 @@ class T_mapFileInfo_wrapper {
         };
         if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt64)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("seek" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -519,10 +519,10 @@ class T_mapFileInfo_wrapper {
         };
         if (_f._offset < ((0 : GoInt64))) {
             return { _0 : ((0 : GoInt)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("read" : GoString))), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -628,10 +628,10 @@ class T_openMapFile_wrapper {
     @:keep
     static public function read( _d:T_mapDir, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return { _0 : ((0 : GoInt)), _1 : {
-            final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("read" : GoString))), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-            __self__.error = #if !macro function():GoString return (({ op : ((("read" : GoString))), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-            __self__.timeout = #if !macro function():Bool return (({ op : ((("read" : GoString))), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-            __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("read" : GoString))), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+            final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+            __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+            __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+            __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
             __self__;
         } };
     }
@@ -706,27 +706,27 @@ class T_mapDir_wrapper {
     **/
     @:keep
     static public function _checkBadPath( _t:T_fsTester, _file:GoString, _desc:GoString, _open:GoString -> Error):Void {
-        var _bad = ((new Slice<GoString>(((("/" : GoString))) + _file, _file + ((("/." : GoString)))) : Slice<GoString>));
-        if (_file == ((("." : GoString)))) {
-            _bad = (_bad != null ? _bad.__append__(((("/" : GoString)))) : new Slice<GoString>(((("/" : GoString)))));
+        var _bad = ((new Slice<GoString>(((((("/" : GoString))) : GoString)) + _file, _file + ((((("/." : GoString))) : GoString))) : Slice<GoString>));
+        if (_file == ((((("." : GoString))) : GoString))) {
+            _bad = (_bad != null ? _bad.__append__(((((("/" : GoString))) : GoString))) : new Slice<GoString>(((((("/" : GoString))) : GoString))));
         };
         {
-            var _i:GoInt = stdgo.strings.Strings.index(_file, ((("/" : GoString))));
+            var _i:GoInt = stdgo.strings.Strings.index(_file, ((((("/" : GoString))) : GoString)));
             if (_i >= ((0 : GoInt))) {
-                _bad = (_bad != null ? _bad.__append__((((_file.__slice__(0, _i) : GoString)) + ((("//" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/./" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/../" : GoString)))) + _file) : new Slice<GoString>((((_file.__slice__(0, _i) : GoString)) + ((("//" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/./" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/../" : GoString)))) + _file));
+                _bad = (_bad != null ? _bad.__append__((((_file.__slice__(0, _i) : GoString)) + ((((("//" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/./" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/../" : GoString))) : GoString))) + _file) : new Slice<GoString>((((_file.__slice__(0, _i) : GoString)) + ((((("//" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/./" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/../" : GoString))) : GoString))) + _file));
             };
         };
         {
-            var _i:GoInt = stdgo.strings.Strings.lastIndex(_file, ((("/" : GoString))));
+            var _i:GoInt = stdgo.strings.Strings.lastIndex(_file, ((((("/" : GoString))) : GoString)));
             if (_i >= ((0 : GoInt))) {
-                _bad = (_bad != null ? _bad.__append__((((_file.__slice__(0, _i) : GoString)) + ((("//" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/./" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (_file + ((("/../" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString))) : new Slice<GoString>((((_file.__slice__(0, _i) : GoString)) + ((("//" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((("/./" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (_file + ((("/../" : GoString)))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString))));
+                _bad = (_bad != null ? _bad.__append__((((_file.__slice__(0, _i) : GoString)) + ((((("//" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/./" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (_file + ((((("/../" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString))) : new Slice<GoString>((((_file.__slice__(0, _i) : GoString)) + ((((("//" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + ((((("/./" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (((_file.__slice__(0, _i) : GoString)) + (("\\" : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString)), (_file + ((((("/../" : GoString))) : GoString))) + ((_file.__slice__(_i + ((1 : GoInt))) : GoString))));
             };
         };
         for (_0 => _b in _bad) {
             {
                 var _err:stdgo.Error = _open(_b);
                 if (_err == null) {
-                    _t._errorf(((("%s: %s(%s) succeeded, want error" : GoString))), Go.toInterface(_file), Go.toInterface(_desc), Go.toInterface(_b));
+                    _t._errorf(((((("%s: %s(%s) succeeded, want error" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_desc), Go.toInterface(_b));
                 };
             };
         };
@@ -736,7 +736,7 @@ class T_mapDir_wrapper {
     **/
     @:keep
     static public function _checkOpen( _t:T_fsTester, _file:GoString):Void {
-        _t._checkBadPath(_file, ((("Open" : GoString))), function(_file:GoString):Error {
+        _t._checkBadPath(_file, ((((("Open" : GoString))) : GoString)), function(_file:GoString):Error {
             var __tmp__ = _t._fsys.open(_file), _f:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
                 _f.close();
@@ -747,7 +747,7 @@ class T_mapDir_wrapper {
     @:keep
     static public function _checkFileRead( _t:T_fsTester, _file:GoString, _desc:GoString, _data1:Slice<GoByte>, _data2:Slice<GoByte>):Void {
         if (((_data1 : GoString)) != ((_data2 : GoString))) {
-            _t._errorf(((("%s: %s: different data returned\n\t%q\n\t%q" : GoString))), Go.toInterface(_file), Go.toInterface(_desc), Go.toInterface(_data1), Go.toInterface(_data2));
+            _t._errorf(((((("%s: %s: different data returned\n\t%q\n\t%q" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_desc), Go.toInterface(_data1), Go.toInterface(_data2));
             return;
         };
     }
@@ -762,19 +762,19 @@ class T_mapDir_wrapper {
             _t._files = (_t._files != null ? _t._files.__append__(_file) : new Slice<GoString>(_file));
             var __tmp__ = _t._fsys.open(_file), _f:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t._errorf(((("%s: Open: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                _t._errorf(((((("%s: Open: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 return;
             };
             var __tmp__ = stdgo.io.Io.readAll(_f), _data:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _f.close();
-                _t._errorf(((("%s: Open+ReadAll: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                _t._errorf(((((("%s: Open+ReadAll: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 return;
             };
             {
                 var _err:stdgo.Error = _f.close();
                 if (_err != null) {
-                    _t._errorf(((("%s: Close: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                    _t._errorf(((((("%s: Close: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 };
             };
             _f.close();
@@ -787,10 +787,10 @@ class T_mapDir_wrapper {
                 if (_ok) {
                     var __tmp__ = _fsys.readFile(_file), _data2:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
-                        _t._errorf(((("%s: fsys.ReadFile: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                        _t._errorf(((((("%s: fsys.ReadFile: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                         return;
                     };
-                    _t._checkFileRead(_file, ((("ReadAll vs fsys.ReadFile" : GoString))), _data, _data2);
+                    _t._checkFileRead(_file, ((((("ReadAll vs fsys.ReadFile" : GoString))) : GoString)), _data, _data2);
                     for (_i => _ in _data2) {
                         if (_data2 != null) _data2[_i]++;
                     };
@@ -800,11 +800,11 @@ class T_mapDir_wrapper {
                         _err = __tmp__._1;
                     };
                     if (_err != null) {
-                        _t._errorf(((("%s: second call to fsys.ReadFile: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                        _t._errorf(((((("%s: second call to fsys.ReadFile: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                         return;
                     };
-                    _t._checkFileRead(_file, ((("Readall vs second fsys.ReadFile" : GoString))), _data, _data2);
-                    _t._checkBadPath(_file, ((("ReadFile" : GoString))), function(_name:GoString):Error {
+                    _t._checkFileRead(_file, ((((("Readall vs second fsys.ReadFile" : GoString))) : GoString)), _data, _data2);
+                    _t._checkBadPath(_file, ((((("ReadFile" : GoString))) : GoString)), function(_name:GoString):Error {
                         var __tmp__ = _fsys.readFile(_name), _0:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         return _err;
                     });
@@ -812,17 +812,17 @@ class T_mapDir_wrapper {
             };
             var __tmp__ = stdgo.io.fs.Fs.readFile(_t._fsys, _file), _data2:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                _t._errorf(((("%s: fs.ReadFile: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                _t._errorf(((((("%s: fs.ReadFile: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 return;
             };
-            _t._checkFileRead(_file, ((("ReadAll vs fs.ReadFile" : GoString))), _data, _data2);
+            _t._checkFileRead(_file, ((((("ReadAll vs fs.ReadFile" : GoString))) : GoString)), _data, _data2);
             {
                 var __tmp__ = _t._fsys.open(_file);
                 _f = __tmp__._0;
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                _t._errorf(((("%s: second Open: %v" : GoString))), Go.toInterface(_file), Go.toInterface(_err));
+                _t._errorf(((((("%s: second Open: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 return;
             };
             __deferstack__.unshift(() -> _f.close());
@@ -832,7 +832,7 @@ class T_mapDir_wrapper {
                     var __recover_exception__:AnyInterface = null;
                     var __deferstack__:Array<Void -> Void> = [];
                     try {
-                        _t._errorf(((("%s: failed TestReader:\n\t%s" : GoString))), Go.toInterface(_file), Go.toInterface(stdgo.strings.Strings.replaceAll(_err.error(), ((("\n" : GoString))), ((("\n\t" : GoString))))));
+                        _t._errorf(((((("%s: failed TestReader:\n\t%s" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(stdgo.strings.Strings.replaceAll(_err.error(), ((((("\n" : GoString))) : GoString)), ((((("\n\t" : GoString))) : GoString)))));
                         for (defer in __deferstack__) {
                             defer();
                         };
@@ -872,11 +872,11 @@ class T_mapDir_wrapper {
     static public function _checkDirList( _t:T_fsTester, _dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void {
         var _old = ((new GoObjectMap<GoString, stdgo.io.fs.Fs.DirEntry>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.DirEntry", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))))) : GoMap<GoString, stdgo.io.fs.Fs.DirEntry>));
         var _checkMode:stdgo.io.fs.Fs.DirEntry -> Void = function(_entry:stdgo.io.fs.Fs.DirEntry):Void {
-            if (_entry.isDir() != ((_entry.type() & (("2147483648" : GoUInt32))) != ((0 : GoUInt32)))) {
+            if (_entry.isDir() != ((_entry.type() & (("2147483648" : stdgo.io.fs.Fs.FileMode))) != ((0 : stdgo.io.fs.Fs.FileMode)))) {
                 if (_entry.isDir()) {
-                    _t._errorf(((("%s: ReadDir returned %s with IsDir() = true, Type() & ModeDir = 0" : GoString))), Go.toInterface(_dir), Go.toInterface(_entry.name()));
+                    _t._errorf(((((("%s: ReadDir returned %s with IsDir() = true, Type() & ModeDir = 0" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_entry.name()));
                 } else {
-                    _t._errorf(((("%s: ReadDir returned %s with IsDir() = false, Type() & ModeDir = ModeDir" : GoString))), Go.toInterface(_dir), Go.toInterface(_entry.name()));
+                    _t._errorf(((((("%s: ReadDir returned %s with IsDir() = false, Type() & ModeDir = ModeDir" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_entry.name()));
                 };
             };
         };
@@ -889,16 +889,16 @@ class T_mapDir_wrapper {
             var _entry1:stdgo.io.fs.Fs.DirEntry = (_old != null ? _old[_entry2.name()] : ((null : stdgo.io.fs.Fs.DirEntry)));
             if (_entry1 == null) {
                 _checkMode(_entry2);
-                _diffs = (_diffs != null ? _diffs.__append__(((("+ " : GoString))) + _formatEntry(_entry2)) : new Slice<GoString>(((("+ " : GoString))) + _formatEntry(_entry2)));
+                _diffs = (_diffs != null ? _diffs.__append__(((((("+ " : GoString))) : GoString)) + _formatEntry(_entry2)) : new Slice<GoString>(((((("+ " : GoString))) : GoString)) + _formatEntry(_entry2)));
                 continue;
             };
             if (_formatEntry(_entry1) != _formatEntry(_entry2)) {
-                _diffs = (_diffs != null ? _diffs.__append__(((("- " : GoString))) + _formatEntry(_entry1), ((("+ " : GoString))) + _formatEntry(_entry2)) : new Slice<GoString>(((("- " : GoString))) + _formatEntry(_entry1), ((("+ " : GoString))) + _formatEntry(_entry2)));
+                _diffs = (_diffs != null ? _diffs.__append__(((((("- " : GoString))) : GoString)) + _formatEntry(_entry1), ((((("+ " : GoString))) : GoString)) + _formatEntry(_entry2)) : new Slice<GoString>(((((("- " : GoString))) : GoString)) + _formatEntry(_entry1), ((((("+ " : GoString))) : GoString)) + _formatEntry(_entry2)));
             };
             if (_old != null) _old.__remove__(_entry2.name());
         };
         for (_2 => _entry1 in _old) {
-            _diffs = (_diffs != null ? _diffs.__append__(((("- " : GoString))) + _formatEntry(_entry1)) : new Slice<GoString>(((("- " : GoString))) + _formatEntry(_entry1)));
+            _diffs = (_diffs != null ? _diffs.__append__(((((("- " : GoString))) : GoString)) + _formatEntry(_entry1)) : new Slice<GoString>(((((("- " : GoString))) : GoString)) + _formatEntry(_entry1)));
         };
         if ((_diffs != null ? _diffs.length : ((0 : GoInt))) == ((0 : GoInt))) {
             return;
@@ -906,9 +906,9 @@ class T_mapDir_wrapper {
         stdgo.sort.Sort.slice(Go.toInterface(_diffs), function(_i:GoInt, _j:GoInt):Bool {
             var _fi = stdgo.strings.Strings.fields((_diffs != null ? _diffs[_i] : (("" : GoString))));
             var _fj = stdgo.strings.Strings.fields((_diffs != null ? _diffs[_j] : (("" : GoString))));
-            return (((_fi != null ? _fi[((1 : GoInt))] : (("" : GoString))) + (((" " : GoString)))) + (_fj != null ? _fj[((0 : GoInt))] : (("" : GoString)))) < (((_fj != null ? _fj[((1 : GoInt))] : (("" : GoString))) + (((" " : GoString)))) + (_fi != null ? _fi[((0 : GoInt))] : (("" : GoString))));
+            return (((_fi != null ? _fi[((1 : GoInt))] : (("" : GoString))) + (((((" " : GoString))) : GoString))) + (_fj != null ? _fj[((0 : GoInt))] : (("" : GoString)))) < (((_fj != null ? _fj[((1 : GoInt))] : (("" : GoString))) + (((((" " : GoString))) : GoString))) + (_fi != null ? _fi[((0 : GoInt))] : (("" : GoString))));
         });
-        _t._errorf(((("%s: diff %s:\n\t%s" : GoString))), Go.toInterface(_dir), Go.toInterface(_desc), Go.toInterface(stdgo.strings.Strings.join(_diffs, ((("\n\t" : GoString))))));
+        _t._errorf(((((("%s: diff %s:\n\t%s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_desc), Go.toInterface(stdgo.strings.Strings.join(_diffs, ((((("\n\t" : GoString))) : GoString)))));
     }
     /**
         // checkStat checks that a direct stat of path matches entry,
@@ -918,45 +918,45 @@ class T_mapDir_wrapper {
     static public function _checkStat( _t:T_fsTester, _path:GoString, _entry:stdgo.io.fs.Fs.DirEntry):Void {
         var __tmp__ = _t._fsys.open(_path), _file:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t._errorf(((("%s: Open: %v" : GoString))), Go.toInterface(_path), Go.toInterface(_err));
+            _t._errorf(((((("%s: Open: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
             return;
         };
         var __tmp__ = _file.stat(), _info:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         _file.close();
         if (_err != null) {
-            _t._errorf(((("%s: Stat: %v" : GoString))), Go.toInterface(_path), Go.toInterface(_err));
+            _t._errorf(((((("%s: Stat: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
             return;
         };
         var _fentry:GoString = _formatEntry(_entry);
         var _fientry:GoString = _formatInfoEntry(_info);
-        if ((_fentry != _fientry) && ((_entry.type() & ((134217728 : GoUInt32))) == ((0 : GoUInt32)))) {
-            _t._errorf(((("%s: mismatch:\n\tentry = %s\n\tfile.Stat() = %s" : GoString))), Go.toInterface(_path), Go.toInterface(_fentry), Go.toInterface(_fientry));
+        if ((_fentry != _fientry) && ((_entry.type() & ((134217728 : stdgo.io.fs.Fs.FileMode))) == ((0 : stdgo.io.fs.Fs.FileMode)))) {
+            _t._errorf(((((("%s: mismatch:\n\tentry = %s\n\tfile.Stat() = %s" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_fentry), Go.toInterface(_fientry));
         };
         var __tmp__ = _entry.info(), _einfo:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t._errorf(((("%s: entry.Info: %v" : GoString))), Go.toInterface(_path), Go.toInterface(_err));
+            _t._errorf(((((("%s: entry.Info: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
             return;
         };
         var _finfo:GoString = _formatInfo(_info);
-        if ((_entry.type() & ((134217728 : GoUInt32))) != ((0 : GoUInt32))) {
+        if ((_entry.type() & ((134217728 : stdgo.io.fs.Fs.FileMode))) != ((0 : stdgo.io.fs.Fs.FileMode))) {
             var _feentry:GoString = _formatInfoEntry(_einfo);
             if (_fentry != _feentry) {
-                _t._errorf(((("%s: mismatch\n\tentry = %s\n\tentry.Info() = %s\n" : GoString))), Go.toInterface(_path), Go.toInterface(_fentry), Go.toInterface(_feentry));
+                _t._errorf(((((("%s: mismatch\n\tentry = %s\n\tentry.Info() = %s\n" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_fentry), Go.toInterface(_feentry));
             };
         } else {
             var _feinfo:GoString = _formatInfo(_einfo);
             if (_feinfo != _finfo) {
-                _t._errorf(((("%s: mismatch:\n\tentry.Info() = %s\n\tfile.Stat() = %s\n" : GoString))), Go.toInterface(_path), Go.toInterface(_feinfo), Go.toInterface(_finfo));
+                _t._errorf(((((("%s: mismatch:\n\tentry.Info() = %s\n\tfile.Stat() = %s\n" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_feinfo), Go.toInterface(_finfo));
             };
         };
         var __tmp__ = stdgo.io.fs.Fs.stat(_t._fsys, _path), _info2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t._errorf(((("%s: fs.Stat: %v" : GoString))), Go.toInterface(_path), Go.toInterface(_err));
+            _t._errorf(((((("%s: fs.Stat: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
             return;
         };
         var _finfo2:GoString = _formatInfo(_info2);
         if (_finfo2 != _finfo) {
-            _t._errorf(((("%s: fs.Stat(...) = %s\n\twant %s" : GoString))), Go.toInterface(_path), Go.toInterface(_finfo2), Go.toInterface(_finfo));
+            _t._errorf(((((("%s: fs.Stat(...) = %s\n\twant %s" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_finfo2), Go.toInterface(_finfo));
         };
         {
             var __tmp__ = try {
@@ -967,12 +967,12 @@ class T_mapDir_wrapper {
             if (_ok) {
                 var __tmp__ = _fsys.stat(_path), _info2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _t._errorf(((("%s: fsys.Stat: %v" : GoString))), Go.toInterface(_path), Go.toInterface(_err));
+                    _t._errorf(((((("%s: fsys.Stat: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
                     return;
                 };
                 var _finfo2:GoString = _formatInfo(_info2);
                 if (_finfo2 != _finfo) {
-                    _t._errorf(((("%s: fsys.Stat(...) = %s\n\twant %s" : GoString))), Go.toInterface(_path), Go.toInterface(_finfo2), Go.toInterface(_finfo));
+                    _t._errorf(((((("%s: fsys.Stat(...) = %s\n\twant %s" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_finfo2), Go.toInterface(_finfo));
                 };
             };
         };
@@ -993,39 +993,39 @@ class T_mapDir_wrapper {
             };
         };
         var _glob:GoString = (("" : GoString));
-        if (_dir != ((("." : GoString)))) {
-            var _elem = stdgo.strings.Strings.split(_dir, ((("/" : GoString))));
+        if (_dir != ((((("." : GoString))) : GoString))) {
+            var _elem = stdgo.strings.Strings.split(_dir, ((((("/" : GoString))) : GoString)));
             for (_i => _e in _elem) {
                 var _pattern:Slice<GoRune> = ((null : Slice<GoInt32>));
                 for (_j => _r in _e) {
-                    if (((((_r == ((((("*" : GoString))).code : GoRune))) || (_r == ((((("?" : GoString))).code : GoRune)))) || (_r == ((((("\\" : GoString))).code : GoRune)))) || (_r == ((((("[" : GoString))).code : GoRune)))) || (_r == ((((("-" : GoString))).code : GoRune)))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("\\" : GoString))).code : GoRune)), _r) : new Slice<GoInt32>(((((("\\" : GoString))).code : GoRune)), _r));
+                    if (((((_r == ((((("*" : GoString))).code : GoInt32))) || (_r == ((((("?" : GoString))).code : GoInt32)))) || (_r == ((((("\\" : GoString))).code : GoInt32)))) || (_r == ((((("[" : GoString))).code : GoInt32)))) || (_r == ((((("-" : GoString))).code : GoInt32)))) {
+                        _pattern = (_pattern != null ? _pattern.__append__(((((("\\" : GoString))).code : GoInt32)), _r) : new Slice<GoInt32>(((((("\\" : GoString))).code : GoInt32)), _r));
                         continue;
                     };
                     if ((_i + _j) % ((5 : GoInt)) == ((0 : GoInt))) {
                         _pattern = (_pattern != null ? _pattern.__append__(_r) : new Slice<GoInt32>(_r));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((1 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))));
+                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((2 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoRune)), _r, ((((("-" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoRune)), _r, ((((("-" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))));
+                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((3 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))));
+                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((4 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("-" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("-" : GoString))).code : GoRune)), ((((("\\" : GoString))).code : GoRune)), _r, ((((("]" : GoString))).code : GoRune))));
+                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
                     };
                 };
                 if (_elem != null) _elem[_i] = ((_pattern : GoString));
             };
-            _glob = stdgo.strings.Strings.join(_elem, ((("/" : GoString)))) + ((("/" : GoString)));
+            _glob = stdgo.strings.Strings.join(_elem, ((((("/" : GoString))) : GoString))) + ((((("/" : GoString))) : GoString));
         };
         {
-            var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((("nonexist/[]" : GoString)))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((((("nonexist/[]" : GoString))) : GoString))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
-                _t._errorf(((("%s: Glob(%#q): bad pattern not detected" : GoString))), Go.toInterface(_dir), Go.toInterface(_glob + ((("nonexist/[]" : GoString)))));
+                _t._errorf(((((("%s: Glob(%#q): bad pattern not detected" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob + ((((("nonexist/[]" : GoString))) : GoString))));
             };
         };
-        var _c:GoInt32 = ((((((("a" : GoString))).code : GoRune)) : GoRune));
-        Go.cfor(_c <= ((((("z" : GoString))).code : GoRune)), _c++, {
+        var _c:GoInt32 = ((((((("a" : GoString))).code : GoInt32)) : GoRune));
+        Go.cfor(_c <= ((((("z" : GoString))).code : GoInt32)), _c++, {
             var _have:Bool = false, _haveNot:Bool = false;
             for (_2 => _d in _list) {
                 if (stdgo.strings.Strings.containsRune(_d.name(), _c)) {
@@ -1038,10 +1038,10 @@ class T_mapDir_wrapper {
                 break;
             };
         });
-        if (_c > ((((("z" : GoString))).code : GoRune))) {
-            _c = ((((("a" : GoString))).code : GoRune));
+        if (_c > ((((("z" : GoString))).code : GoInt32))) {
+            _c = ((((("a" : GoString))).code : GoInt32));
         };
-        _glob = _glob + ((((("*" : GoString))) + ((_c : GoString))) + ((("*" : GoString))));
+        _glob = _glob + ((((((("*" : GoString))) : GoString)) + ((_c : GoString))) + ((((("*" : GoString))) : GoString)));
         var _want:Slice<GoString> = ((null : Slice<GoString>));
         for (_3 => _d in _list) {
             if (stdgo.strings.Strings.containsRune(_d.name(), _c)) {
@@ -1050,14 +1050,14 @@ class T_mapDir_wrapper {
         };
         var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob), _names:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t._errorf(((("%s: Glob(%#q): %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(_err));
+            _t._errorf(((((("%s: Glob(%#q): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(_err));
             return;
         };
         if (stdgo.reflect.Reflect.deepEqual(Go.toInterface(_want), Go.toInterface(_names))) {
             return;
         };
         if (!stdgo.sort.Sort.stringsAreSorted(_names)) {
-            _t._errorf(((("%s: Glob(%#q): unsorted output:\n%s" : GoString))), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(stdgo.strings.Strings.join(_names, ((("\n" : GoString))))));
+            _t._errorf(((((("%s: Glob(%#q): unsorted output:\n%s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(stdgo.strings.Strings.join(_names, ((((("\n" : GoString))) : GoString)))));
             stdgo.sort.Sort.strings(_names);
         };
         var _problems:Slice<GoString> = ((null : Slice<GoString>));
@@ -1070,14 +1070,14 @@ class T_mapDir_wrapper {
                     _names = __tmp__1;
                 };
             } else if (((_want != null ? _want.length : ((0 : GoInt))) > ((0 : GoInt))) && (((_names != null ? _names.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_want != null ? _want[((0 : GoInt))] : (("" : GoString))) < (_names != null ? _names[((0 : GoInt))] : (("" : GoString)))))) {
-                _problems = (_problems != null ? _problems.__append__(((("missing: " : GoString))) + (_want != null ? _want[((0 : GoInt))] : (("" : GoString)))) : new Slice<GoString>(((("missing: " : GoString))) + (_want != null ? _want[((0 : GoInt))] : (("" : GoString)))));
+                _problems = (_problems != null ? _problems.__append__(((((("missing: " : GoString))) : GoString)) + (_want != null ? _want[((0 : GoInt))] : (("" : GoString)))) : new Slice<GoString>(((((("missing: " : GoString))) : GoString)) + (_want != null ? _want[((0 : GoInt))] : (("" : GoString)))));
                 _want = ((_want.__slice__(((1 : GoInt))) : Slice<GoString>));
             } else {
-                _problems = (_problems != null ? _problems.__append__(((("extra: " : GoString))) + (_names != null ? _names[((0 : GoInt))] : (("" : GoString)))) : new Slice<GoString>(((("extra: " : GoString))) + (_names != null ? _names[((0 : GoInt))] : (("" : GoString)))));
+                _problems = (_problems != null ? _problems.__append__(((((("extra: " : GoString))) : GoString)) + (_names != null ? _names[((0 : GoInt))] : (("" : GoString)))) : new Slice<GoString>(((((("extra: " : GoString))) : GoString)) + (_names != null ? _names[((0 : GoInt))] : (("" : GoString)))));
                 _names = ((_names.__slice__(((1 : GoInt))) : Slice<GoString>));
             };
         };
-        _t._errorf(((("%s: Glob(%#q): wrong output:\n%s" : GoString))), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(stdgo.strings.Strings.join(_problems, ((("\n" : GoString))))));
+        _t._errorf(((((("%s: Glob(%#q): wrong output:\n%s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(stdgo.strings.Strings.join(_problems, ((((("\n" : GoString))) : GoString)))));
     }
     /**
         // checkDir checks the directory dir, which is expected to exist
@@ -1096,25 +1096,25 @@ class T_mapDir_wrapper {
             var __tmp__ = _d.readDir(((-1 : GoInt))), _list:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _d.close();
-                _t._errorf(((("%s: ReadDir(-1): %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                _t._errorf(((((("%s: ReadDir(-1): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                 return;
             };
             var _prefix:GoString = (("" : GoString));
-            if (_dir == ((("." : GoString)))) {
-                _prefix = ((("" : GoString)));
+            if (_dir == ((((("." : GoString))) : GoString))) {
+                _prefix = ((((("" : GoString))) : GoString));
             } else {
-                _prefix = _dir + ((("/" : GoString)));
+                _prefix = _dir + ((((("/" : GoString))) : GoString));
             };
             for (_0 => _info in _list) {
                 var _name:GoString = _info.name();
-                if (_name == ((("." : GoString))) || _name == (((".." : GoString))) || _name == ((("" : GoString)))) {
-                    _t._errorf(((("%s: ReadDir: child has invalid name: %#q" : GoString))), Go.toInterface(_dir), Go.toInterface(_name));
+                if (_name == ((((("." : GoString))) : GoString)) || _name == (((((".." : GoString))) : GoString)) || _name == ((((("" : GoString))) : GoString))) {
+                    _t._errorf(((((("%s: ReadDir: child has invalid name: %#q" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_name));
                     continue;
-                } else if (stdgo.strings.Strings.contains(_name, ((("/" : GoString))))) {
-                    _t._errorf(((("%s: ReadDir: child name contains slash: %#q" : GoString))), Go.toInterface(_dir), Go.toInterface(_name));
+                } else if (stdgo.strings.Strings.contains(_name, ((((("/" : GoString))) : GoString)))) {
+                    _t._errorf(((((("%s: ReadDir: child name contains slash: %#q" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_name));
                     continue;
-                } else if (stdgo.strings.Strings.contains(_name, "\\")) {
-                    _t._errorf(((("%s: ReadDir: child name contains backslash: %#q" : GoString))), Go.toInterface(_dir), Go.toInterface(_name));
+                } else if (stdgo.strings.Strings.contains(_name, (("\\" : GoString)))) {
+                    _t._errorf(((((("%s: ReadDir: child name contains backslash: %#q" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_name));
                     continue;
                 };
                 var _path:GoString = _prefix + _name;
@@ -1129,7 +1129,7 @@ class T_mapDir_wrapper {
             var __tmp__ = _d.readDir(((-1 : GoInt))), _list2:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (((_list2 != null ? _list2.length : ((0 : GoInt))) > ((0 : GoInt))) || (_err != null)) {
                 _d.close();
-                _t._errorf(((("%s: ReadDir(-1) at EOF = %d entries, %v, wanted 0 entries, nil" : GoString))), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
+                _t._errorf(((((("%s: ReadDir(-1) at EOF = %d entries, %v, wanted 0 entries, nil" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
                 return;
             };
             {
@@ -1139,13 +1139,13 @@ class T_mapDir_wrapper {
             };
             if (((_list2 != null ? _list2.length : ((0 : GoInt))) > ((0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
                 _d.close();
-                _t._errorf(((("%s: ReadDir(1) at EOF = %d entries, %v, wanted 0 entries, EOF" : GoString))), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
+                _t._errorf(((((("%s: ReadDir(1) at EOF = %d entries, %v, wanted 0 entries, EOF" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
                 return;
             };
             {
                 var _err:stdgo.Error = _d.close();
                 if (_err != null) {
-                    _t._errorf(((("%s: Close: %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                    _t._errorf(((((("%s: Close: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                 };
             };
             _d.close();
@@ -1165,7 +1165,7 @@ class T_mapDir_wrapper {
                 var __recover_exception__:AnyInterface = null;
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    _t._errorf(((("%s: second Open+ReadDir(-1): %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                    _t._errorf(((((("%s: second Open+ReadDir(-1): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -1187,7 +1187,7 @@ class T_mapDir_wrapper {
                     };
                 };
             };
-            _t._checkDirList(_dir, ((("first Open+ReadDir(-1) vs second Open+ReadDir(-1)" : GoString))), _list, _list2);
+            _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs second Open+ReadDir(-1)" : GoString))) : GoString)), _list, _list2);
             {
                 _d = _t._openDir(_dir);
                 if (_d == null) {
@@ -1248,7 +1248,7 @@ class T_mapDir_wrapper {
                         var __recover_exception__:AnyInterface = null;
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            _t._errorf(((("%s: third Open: ReadDir(%d) after %d: %d entries (too many)" : GoString))), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface((_frag != null ? _frag.length : ((0 : GoInt)))));
+                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %d entries (too many)" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface((_frag != null ? _frag.length : ((0 : GoInt)))));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -1295,7 +1295,7 @@ class T_mapDir_wrapper {
                         var __recover_exception__:AnyInterface = null;
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            _t._errorf(((("%s: third Open: ReadDir(%d) after %d: %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
+                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -1321,7 +1321,7 @@ class T_mapDir_wrapper {
                         var __recover_exception__:AnyInterface = null;
                         var __deferstack__:Array<Void -> Void> = [];
                         try {
-                            _t._errorf(((("%s: third Open: ReadDir(%d) after %d: 0 entries but nil error" : GoString))), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))));
+                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: 0 entries but nil error" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))));
                             {
                                 for (defer in __deferstack__) {
                                     defer();
@@ -1358,7 +1358,7 @@ class T_mapDir_wrapper {
                     };
                 };
             };
-            _t._checkDirList(_dir, ((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))), _list, _list2);
+            _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))) : GoString)), _list, _list2);
             {
                 var __tmp__ = try {
                     { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadDirFS)), ok : true };
@@ -1374,7 +1374,7 @@ class T_mapDir_wrapper {
                             var __recover_exception__:AnyInterface = null;
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
-                                _t._errorf(((("%s: fsys.ReadDir: %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                                _t._errorf(((((("%s: fsys.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                                 {
                                     for (defer in __deferstack__) {
                                         defer();
@@ -1396,7 +1396,7 @@ class T_mapDir_wrapper {
                                 };
                             };
                         };
-                        _t._checkDirList(_dir, ((("first Open+ReadDir(-1) vs fsys.ReadDir" : GoString))), _list, _list2);
+                        _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fsys.ReadDir" : GoString))) : GoString)), _list, _list2);
                         {
                             var _i:GoInt = ((0 : GoInt));
                             Go.cfor((_i + ((1 : GoInt))) < (_list2 != null ? _list2.length : ((0 : GoInt))), _i++, {
@@ -1407,7 +1407,7 @@ class T_mapDir_wrapper {
                                         var __recover_exception__:AnyInterface = null;
                                         var __deferstack__:Array<Void -> Void> = [];
                                         try {
-                                            _t._errorf(((("%s: fsys.ReadDir: list not sorted: %s before %s" : GoString))), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
+                                            _t._errorf(((((("%s: fsys.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
                                             for (defer in __deferstack__) {
                                                 defer();
                                             };
@@ -1464,7 +1464,7 @@ class T_mapDir_wrapper {
                 var __recover_exception__:AnyInterface = null;
                 var __deferstack__:Array<Void -> Void> = [];
                 try {
-                    _t._errorf(((("%s: fs.ReadDir: %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+                    _t._errorf(((((("%s: fs.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                     {
                         for (defer in __deferstack__) {
                             defer();
@@ -1486,7 +1486,7 @@ class T_mapDir_wrapper {
                     };
                 };
             };
-            _t._checkDirList(_dir, ((("first Open+ReadDir(-1) vs fs.ReadDir" : GoString))), _list, _list2);
+            _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fs.ReadDir" : GoString))) : GoString)), _list, _list2);
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor((_i + ((1 : GoInt))) < (_list2 != null ? _list2.length : ((0 : GoInt))), _i++, {
@@ -1497,7 +1497,7 @@ class T_mapDir_wrapper {
                             var __recover_exception__:AnyInterface = null;
                             var __deferstack__:Array<Void -> Void> = [];
                             try {
-                                _t._errorf(((("%s: fs.ReadDir: list not sorted: %s before %s" : GoString))), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
+                                _t._errorf(((((("%s: fs.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
                                 for (defer in __deferstack__) {
                                     defer();
                                 };
@@ -1549,7 +1549,7 @@ class T_mapDir_wrapper {
     static public function _openDir( _t:T_fsTester, _dir:GoString):stdgo.io.fs.Fs.ReadDirFile {
         var __tmp__ = _t._fsys.open(_dir), _f:stdgo.io.fs.Fs.File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _t._errorf(((("%s: Open: %v" : GoString))), Go.toInterface(_dir), Go.toInterface(_err));
+            _t._errorf(((((("%s: Open: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
             return ((null : stdgo.io.fs.Fs.ReadDirFile));
         };
         var __tmp__ = try {
@@ -1559,7 +1559,7 @@ class T_mapDir_wrapper {
         }, _d = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
             _f.close();
-            _t._errorf(((("%s: Open returned File type %T, not a fs.ReadDirFile" : GoString))), Go.toInterface(_dir), Go.toInterface(_f));
+            _t._errorf(((((("%s: Open returned File type %T, not a fs.ReadDirFile" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_f));
             return ((null : stdgo.io.fs.Fs.ReadDirFile));
         };
         return _d;
@@ -1571,7 +1571,7 @@ class T_mapDir_wrapper {
     static public function _errorf( _t:T_fsTester, _format:GoString, _args:haxe.Rest<AnyInterface>):Void {
         var _args = new Slice<AnyInterface>(..._args);
         if ((_t._errText != null ? _t._errText.length : ((0 : GoInt))) > ((0 : GoInt))) {
-            _t._errText = (_t._errText != null ? _t._errText.__append__(((((("\n" : GoString))).code : GoRune))) : new Slice<GoUInt8>(((((("\n" : GoString))).code : GoRune))));
+            _t._errText = (_t._errText != null ? _t._errText.__append__(((((("\n" : GoString))).code : GoUInt8))) : new Slice<GoUInt8>(((((("\n" : GoString))).code : GoUInt8))));
         };
         _t._errText = (_t._errText != null ? _t._errText.__append__(...stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()).__toArray__()) : new Slice<GoUInt8>(...stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()).__toArray__()));
     }
@@ -1753,15 +1753,15 @@ class T_fsTester_wrapper {
     static public function open( _fsys:MapFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } {
         if (!stdgo.io.fs.Fs.validPath(_name)) {
             return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
         var _file = (_fsys != null ? _fsys[_name] : null);
-        if ((_file != null) && ((_file.mode & (("2147483648" : GoUInt32))) == ((0 : GoUInt32)))) {
+        if ((_file != null) && ((_file.mode & (("2147483648" : stdgo.io.fs.Fs.FileMode))) == ((0 : stdgo.io.fs.Fs.FileMode)))) {
             return { _0 : {
                 final __self__ = new T_openMapFile_wrapper(((new T_openMapFile(_name, ((new T_mapFileInfo(stdgo.path.Path.base(_name), _file) : T_mapFileInfo)), ((0 : GoInt64))) : T_openMapFile)));
                 __self__.close = #if !macro function():stdgo.Error return ((new T_openMapFile(_name, ((new T_mapFileInfo(stdgo.path.Path.base(_name), _file) : T_mapFileInfo)), ((0 : GoInt64))) : T_openMapFile)).close() #else null #end;
@@ -1783,12 +1783,12 @@ class T_fsTester_wrapper {
         var _list:Slice<T_mapFileInfo> = ((null : Slice<T_mapFileInfo>));
         var _elem:GoString = (("" : GoString));
         var _need:GoMap<GoString, Bool> = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
-        if (_name == ((("." : GoString)))) {
-            _elem = ((("." : GoString)));
+        if (_name == ((((("." : GoString))) : GoString))) {
+            _elem = ((((("." : GoString))) : GoString));
             for (_fname => _f in _fsys) {
-                var _i:GoInt = stdgo.strings.Strings.index(_fname, ((("/" : GoString))));
+                var _i:GoInt = stdgo.strings.Strings.index(_fname, ((((("/" : GoString))) : GoString)));
                 if (_i < ((0 : GoInt))) {
-                    if (_fname != ((("." : GoString)))) {
+                    if (_fname != ((((("." : GoString))) : GoString))) {
                         _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_fname, _f) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_fname, _f) : T_mapFileInfo))));
                     };
                 } else {
@@ -1796,12 +1796,12 @@ class T_fsTester_wrapper {
                 };
             };
         } else {
-            _elem = ((_name.__slice__(stdgo.strings.Strings.lastIndex(_name, ((("/" : GoString)))) + ((1 : GoInt))) : GoString));
-            var _prefix:GoString = _name + ((("/" : GoString)));
+            _elem = ((_name.__slice__(stdgo.strings.Strings.lastIndex(_name, ((((("/" : GoString))) : GoString))) + ((1 : GoInt))) : GoString));
+            var _prefix:GoString = _name + ((((("/" : GoString))) : GoString));
             for (_fname => _f in _fsys) {
                 if (stdgo.strings.Strings.hasPrefix(_fname, _prefix)) {
                     var _felem:GoString = ((_fname.__slice__((_prefix != null ? _prefix.length : ((0 : GoInt)))) : GoString));
-                    var _i:GoInt = stdgo.strings.Strings.index(_felem, ((("/" : GoString))));
+                    var _i:GoInt = stdgo.strings.Strings.index(_felem, ((((("/" : GoString))) : GoString)));
                     if (_i < ((0 : GoInt))) {
                         _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_felem, _f) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_felem, _f) : T_mapFileInfo))));
                     } else {
@@ -1811,10 +1811,10 @@ class T_fsTester_wrapper {
             };
             if (((_file == null) && (_list == null)) && ((_need != null ? _need.length : ((0 : GoInt))) == ((0 : GoInt)))) {
                 return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : {
-                    final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
-                    __self__.error = #if !macro function():GoString return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                    __self__.timeout = #if !macro function():Bool return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                    __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((("open" : GoString))), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                    final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
+                    __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                    __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                    __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                     __self__;
                 } };
             };
@@ -1823,13 +1823,13 @@ class T_fsTester_wrapper {
             if (_need != null) _need.__remove__(_fi._name);
         };
         for (_name => _ in _need) {
-            _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : GoUInt32)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : GoUInt32)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))));
+            _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))));
         };
         stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
             return (_list != null ? _list[_i] : new T_mapFileInfo())._name < (_list != null ? _list[_j] : new T_mapFileInfo())._name;
         });
         if (_file == null) {
-            _file = (({ mode : (("2147483648" : GoUInt32)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile));
+            _file = (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile));
         };
         return { _0 : {
             final __self__ = new T_mapDir_wrapper(((new T_mapDir(_name, ((new T_mapFileInfo(_elem, _file) : T_mapFileInfo)), _list, ((0 : GoInt))) : T_mapDir)));

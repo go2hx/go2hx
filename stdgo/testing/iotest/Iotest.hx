@@ -8,7 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var errTimeout : stdgo.Error = stdgo.errors.Errors.new_(((("timeout" : GoString))));
+var errTimeout : stdgo.Error = stdgo.errors.Errors.new_(((((("timeout" : GoString))) : GoString)));
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) class T_writeLogger {
     public var _prefix : GoString = "";
     public var _w : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
@@ -209,7 +209,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
         if ((_content != null ? _content.length : ((0 : GoInt))) > ((0 : GoInt))) {
             var __tmp__ = _r.read(((null : Slice<GoUInt8>))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if ((_n != ((0 : GoInt))) || (_err != null)) {
-                return stdgo.fmt.Fmt.errorf(((("Read(0) = %d, %v, want 0, nil" : GoString))), Go.toInterface(_n), Go.toInterface(_err));
+                return stdgo.fmt.Fmt.errorf(((((("Read(0) = %d, %v, want 0, nil" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_err));
             };
         };
         var __tmp__ = stdgo.io.Io.readAll({
@@ -221,11 +221,11 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
             return _err;
         };
         if (!stdgo.bytes.Bytes.equal(_data, _content)) {
-            return stdgo.fmt.Fmt.errorf(((("ReadAll(small amounts) = %q\n\twant %q" : GoString))), Go.toInterface(_data), Go.toInterface(_content));
+            return stdgo.fmt.Fmt.errorf(((((("ReadAll(small amounts) = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface(_data), Go.toInterface(_content));
         };
         var __tmp__ = _r.read(new Slice<GoUInt8>(...[for (i in 0 ... ((((10 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))])), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_n != ((0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
-            return stdgo.fmt.Fmt.errorf(((("Read(10) at EOF = %v, %v, want 0, EOF" : GoString))), Go.toInterface(_n), Go.toInterface(_err));
+            return stdgo.fmt.Fmt.errorf(((((("Read(10) at EOF = %v, %v, want 0, EOF" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_err));
         };
         {
             var __tmp__ = try {
@@ -237,7 +237,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                 {
                     var __tmp__ = _r.seek(((0 : GoInt64)), ((1 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_off != (((_content != null ? _content.length : ((0 : GoInt))) : GoInt64))) || (_err != null)) {
-                        return stdgo.fmt.Fmt.errorf(((("Seek(0, 1) from EOF = %d, %v, want %d, nil" : GoString))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface((_content != null ? _content.length : ((0 : GoInt)))));
+                        return stdgo.fmt.Fmt.errorf(((((("Seek(0, 1) from EOF = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface((_content != null ? _content.length : ((0 : GoInt)))));
                     };
                 };
                 var _middle:GoInt = (_content != null ? _content.length : ((0 : GoInt))) - ((_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt)));
@@ -245,26 +245,26 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     {
                         var __tmp__ = _r.seek(((-1 : GoInt64)), ((1 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if ((_off != ((((_content != null ? _content.length : ((0 : GoInt))) - ((1 : GoInt))) : GoInt64))) || (_err != null)) {
-                            return stdgo.fmt.Fmt.errorf(((("Seek(-1, 1) from EOF = %d, %v, want %d, nil" : GoString))), Go.toInterface(-_off), Go.toInterface(_err), Go.toInterface((_content != null ? _content.length : ((0 : GoInt))) - ((1 : GoInt))));
+                            return stdgo.fmt.Fmt.errorf(((((("Seek(-1, 1) from EOF = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(-_off), Go.toInterface(_err), Go.toInterface((_content != null ? _content.length : ((0 : GoInt))) - ((1 : GoInt))));
                         };
                     };
                     {
                         var __tmp__ = _r.seek((((-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))) : GoInt64)), ((1 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if ((_off != (((_middle - ((1 : GoInt))) : GoInt64))) || (_err != null)) {
-                            return stdgo.fmt.Fmt.errorf(((("Seek(%d, 1) from %d = %d, %v, want %d, nil" : GoString))), Go.toInterface(-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))), Go.toInterface((_content != null ? _content.length : ((0 : GoInt))) - ((1 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle - ((1 : GoInt))));
+                            return stdgo.fmt.Fmt.errorf(((((("Seek(%d, 1) from %d = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))), Go.toInterface((_content != null ? _content.length : ((0 : GoInt))) - ((1 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle - ((1 : GoInt))));
                         };
                     };
                     {
                         var __tmp__ = _r.seek(((1 : GoInt64)), ((1 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                         if ((_off != ((_middle : GoInt64))) || (_err != null)) {
-                            return stdgo.fmt.Fmt.errorf(((("Seek(+1, 1) from %d = %d, %v, want %d, nil" : GoString))), Go.toInterface(_middle - ((1 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
+                            return stdgo.fmt.Fmt.errorf(((((("Seek(+1, 1) from %d = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(_middle - ((1 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
                         };
                     };
                 };
                 {
                     var __tmp__ = _r.seek(((0 : GoInt64)), ((1 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_off != ((_middle : GoInt64))) || (_err != null)) {
-                        return stdgo.fmt.Fmt.errorf(((("Seek(0, 1) from %d = %d, %v, want %d, nil" : GoString))), Go.toInterface(_middle), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
+                        return stdgo.fmt.Fmt.errorf(((((("Seek(0, 1) from %d = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(_middle), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
                     };
                 };
                 var __tmp__ = stdgo.io.Io.readAll({
@@ -273,21 +273,21 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     __self__;
                 }), _data:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d: %v" : GoString))), Go.toInterface(_middle), Go.toInterface(_err));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d: %v" : GoString))) : GoString)), Go.toInterface(_middle), Go.toInterface(_err));
                 };
                 if (!stdgo.bytes.Bytes.equal(_data, ((_content.__slice__(_middle) : Slice<GoUInt8>)))) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d = %q\n\twant %q" : GoString))), Go.toInterface(_middle), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle) : Slice<GoUInt8>))));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface(_middle), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle) : Slice<GoUInt8>))));
                 };
                 {
                     var __tmp__ = _r.seek((((_middle / ((2 : GoInt))) : GoInt64)), ((0 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_off != (((_middle / ((2 : GoInt))) : GoInt64))) || (_err != null)) {
-                        return stdgo.fmt.Fmt.errorf(((("Seek(%d, 0) from EOF = %d, %v, want %d, nil" : GoString))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle / ((2 : GoInt))));
+                        return stdgo.fmt.Fmt.errorf(((((("Seek(%d, 0) from EOF = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle / ((2 : GoInt))));
                     };
                 };
                 {
                     var __tmp__ = _r.seek((((-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))) : GoInt64)), ((2 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_off != ((_middle : GoInt64))) || (_err != null)) {
-                        return stdgo.fmt.Fmt.errorf(((("Seek(%d, 2) from %d = %d, %v, want %d, nil" : GoString))), Go.toInterface(-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
+                        return stdgo.fmt.Fmt.errorf(((((("Seek(%d, 2) from %d = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(-(_content != null ? _content.length : ((0 : GoInt))) / ((3 : GoInt))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle));
                     };
                 };
                 {
@@ -300,15 +300,15 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d: %v" : GoString))), Go.toInterface(_middle), Go.toInterface(_err));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d: %v" : GoString))) : GoString)), Go.toInterface(_middle), Go.toInterface(_err));
                 };
                 if (!stdgo.bytes.Bytes.equal(_data, ((_content.__slice__(_middle) : Slice<GoUInt8>)))) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d = %q\n\twant %q" : GoString))), Go.toInterface(_middle), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle) : Slice<GoUInt8>))));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface(_middle), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle) : Slice<GoUInt8>))));
                 };
                 {
                     var __tmp__ = _r.seek((((_middle / ((2 : GoInt))) : GoInt64)), ((0 : GoInt))), _off:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if ((_off != (((_middle / ((2 : GoInt))) : GoInt64))) || (_err != null)) {
-                        return stdgo.fmt.Fmt.errorf(((("Seek(%d, 0) from EOF = %d, %v, want %d, nil" : GoString))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle / ((2 : GoInt))));
+                        return stdgo.fmt.Fmt.errorf(((((("Seek(%d, 0) from EOF = %d, %v, want %d, nil" : GoString))) : GoString)), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_off), Go.toInterface(_err), Go.toInterface(_middle / ((2 : GoInt))));
                     };
                 };
                 {
@@ -317,10 +317,10 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d: %v" : GoString))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_err));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d: %v" : GoString))) : GoString)), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_err));
                 };
                 if (!stdgo.bytes.Bytes.equal(_data, ((_content.__slice__(_middle / ((2 : GoInt))) : Slice<GoUInt8>)))) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAll from offset %d = %q\n\twant %q" : GoString))), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle / ((2 : GoInt))) : Slice<GoUInt8>))));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAll from offset %d = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface(_middle / ((2 : GoInt))), Go.toInterface(_data), Go.toInterface(((_content.__slice__(_middle / ((2 : GoInt))) : Slice<GoUInt8>))));
                 };
             };
         };
@@ -337,10 +337,10 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                 };
                 var __tmp__ = _r.readAt(_data, ((0 : GoInt64))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if ((_n != (_data != null ? _data.length : ((0 : GoInt)))) || ((_err != null) && (_err != stdgo.io.Io.eof))) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAt(%d, 0) = %v, %v, want %d, nil or EOF" : GoString))), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAt(%d, 0) = %v, %v, want %d, nil or EOF" : GoString))) : GoString)), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))));
                 };
                 if (!stdgo.bytes.Bytes.equal(_data, _content)) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAt(%d, 0) = %q\n\twant %q" : GoString))), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_data), Go.toInterface(_content));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAt(%d, 0) = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_data), Go.toInterface(_content));
                 };
                 {
                     var __tmp__ = _r.readAt(((_data.__slice__(0, ((1 : GoInt))) : Slice<GoUInt8>)), (((_data != null ? _data.length : ((0 : GoInt))) : GoInt64)));
@@ -348,7 +348,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     _err = __tmp__._1;
                 };
                 if ((_n != ((0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAt(1, %d) = %v, %v, want 0, EOF" : GoString))), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAt(1, %d) = %v, %v, want 0, EOF" : GoString))) : GoString)), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err));
                 };
                 for (_i => _ in _data) {
                     if (_data != null) _data[_i] = ((254 : GoUInt8));
@@ -359,10 +359,10 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     _err = __tmp__._1;
                 };
                 if ((_n != (_data != null ? _data.length : ((0 : GoInt)))) || (_err != stdgo.io.Io.eof)) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAt(%d, 0) = %v, %v, want %d, EOF" : GoString))), Go.toInterface((_data != null ? _data.cap() : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAt(%d, 0) = %v, %v, want %d, EOF" : GoString))) : GoString)), Go.toInterface((_data != null ? _data.cap() : ((0 : GoInt)))), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))));
                 };
                 if (!stdgo.bytes.Bytes.equal(_data, _content)) {
-                    return stdgo.fmt.Fmt.errorf(((("ReadAt(%d, 0) = %q\n\twant %q" : GoString))), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_data), Go.toInterface(_content));
+                    return stdgo.fmt.Fmt.errorf(((((("ReadAt(%d, 0) = %q\n\twant %q" : GoString))) : GoString)), Go.toInterface((_data != null ? _data.length : ((0 : GoInt)))), Go.toInterface(_data), Go.toInterface(_content));
                 };
                 for (_i => _ in _data) {
                     if (_data != null) _data[_i] = ((254 : GoUInt8));
@@ -374,14 +374,14 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                         _err = __tmp__._1;
                     };
                     if ((_n != ((1 : GoInt))) || ((_err != null) && ((_i != ((_data != null ? _data.length : ((0 : GoInt))) - ((1 : GoInt)))) || (_err != stdgo.io.Io.eof)))) {
-                        var _want:GoString = ((("nil" : GoString)));
+                        var _want:GoString = ((((("nil" : GoString))) : GoString));
                         if (_i == ((_data != null ? _data.length : ((0 : GoInt))) - ((1 : GoInt)))) {
-                            _want = ((("nil or EOF" : GoString)));
+                            _want = ((((("nil or EOF" : GoString))) : GoString));
                         };
-                        return stdgo.fmt.Fmt.errorf(((("ReadAt(1, %d) = %v, %v, want 1, %s" : GoString))), Go.toInterface(_i), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_want));
+                        return stdgo.fmt.Fmt.errorf(((((("ReadAt(1, %d) = %v, %v, want 1, %s" : GoString))) : GoString)), Go.toInterface(_i), Go.toInterface(_n), Go.toInterface(_err), Go.toInterface(_want));
                     };
                     if ((_data != null ? _data[_i] : ((0 : GoUInt8))) != (_content != null ? _content[_i] : ((0 : GoUInt8)))) {
-                        return stdgo.fmt.Fmt.errorf(((("ReadAt(1, %d) = %q want %q" : GoString))), Go.toInterface(_i), Go.toInterface(((_data.__slice__(_i, _i + ((1 : GoInt))) : Slice<GoUInt8>))), Go.toInterface(((_content.__slice__(_i, _i + ((1 : GoInt))) : Slice<GoUInt8>))));
+                        return stdgo.fmt.Fmt.errorf(((((("ReadAt(1, %d) = %q want %q" : GoString))) : GoString)), Go.toInterface(_i), Go.toInterface(((_data.__slice__(_i, _i + ((1 : GoInt))) : Slice<GoUInt8>))), Go.toInterface(((_content.__slice__(_i, _i + ((1 : GoInt))) : Slice<GoUInt8>))));
                     };
                 };
             };
@@ -409,9 +409,9 @@ function truncateWriter(_w:stdgo.io.Io.Writer, _n:GoInt64):stdgo.io.Io.Writer {
             _err = __tmp__._1;
         };
         if (_err != null) {
-            stdgo.log.Log.printf(((("%s %x: %v" : GoString))), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))), Go.toInterface(_err));
+            stdgo.log.Log.printf(((((("%s %x: %v" : GoString))) : GoString)), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))), Go.toInterface(_err));
         } else {
-            stdgo.log.Log.printf(((("%s %x" : GoString))), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))));
+            stdgo.log.Log.printf(((((("%s %x" : GoString))) : GoString)), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))));
         };
         return { _0 : _n, _1 : _err };
     }
@@ -433,9 +433,9 @@ class T_writeLogger_wrapper {
             _err = __tmp__._1;
         };
         if (_err != null) {
-            stdgo.log.Log.printf(((("%s %x: %v" : GoString))), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))), Go.toInterface(_err));
+            stdgo.log.Log.printf(((((("%s %x: %v" : GoString))) : GoString)), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))), Go.toInterface(_err));
         } else {
-            stdgo.log.Log.printf(((("%s %x" : GoString))), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))));
+            stdgo.log.Log.printf(((((("%s %x" : GoString))) : GoString)), Go.toInterface(_l._prefix), Go.toInterface(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))));
         };
         return { _0 : _n, _1 : _err };
     }
@@ -545,7 +545,7 @@ class T_errReader_wrapper {
         };
         var __tmp__ = _r._r.read(((_p.__slice__(((0 : GoInt)), _n) : Slice<GoUInt8>))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if ((_err != null) && (_err != stdgo.io.Io.eof)) {
-            _err = stdgo.fmt.Fmt.errorf(((("Read(%d bytes at offset %d): %v" : GoString))), Go.toInterface(_n), Go.toInterface(_r._off), Go.toInterface(_err));
+            _err = stdgo.fmt.Fmt.errorf(((((("Read(%d bytes at offset %d): %v" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_r._off), Go.toInterface(_err));
         };
         _r._off = _r._off + (_n);
         return { _0 : _n, _1 : _err };

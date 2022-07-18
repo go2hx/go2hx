@@ -1813,6 +1813,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 	}
 	switch t {
 		case named(name, methods, type):
+			if (methods.length == 0)
+				return y;
 			if (type == invalidType)
 				return y;
 			if (isInterface(type)) {

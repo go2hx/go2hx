@@ -850,7 +850,11 @@ class T_eofReader_wrapper {
                 _err = __tmp__._1;
             };
             if (_err == eof) {
-                if (_mr._readers != null) _mr._readers[((0 : GoInt))] = ((new T_eofReader() : T_eofReader));
+                if (_mr._readers != null) _mr._readers[((0 : GoInt))] = {
+                    final __self__ = new T_eofReader_wrapper(((new T_eofReader() : T_eofReader)));
+                    __self__.read = #if !macro function(__0:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_eofReader() : T_eofReader)).read(__0) #else null #end;
+                    __self__;
+                };
                 _mr._readers = ((_mr._readers.__slice__(((1 : GoInt))) : Slice<Reader>));
             };
             if ((_n > ((0 : GoInt))) || (_err != eof)) {

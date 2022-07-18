@@ -801,7 +801,6 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 			var pos = 2 + info.returnNames.length;
 			var trydef = macro try
-				$b{exprs.slice(pos).concat([ret])} catch (__exception__) {
 				if (!(__exception__.native is AnyInterfaceData))
 					throw __exception__;
 				__recover_exception__ = __exception__.native;

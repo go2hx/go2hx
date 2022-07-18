@@ -341,7 +341,20 @@ function main(data:DataType, instance:Main.InstanceData) {
 				}
 				final ct:ComplexType = TPath({name: def.name, pack: [], params: def.params.map(p -> TPType(TPath({name: p.name, pack: []})))});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
-				if (local.length == 0)
+				var embedded = false;
+				for (field in def.fields) {
+					if (field.meta != null) {
+						for (meta in field.meta) {
+							if (meta.name == ":embedded") {
+								embedded = true;
+								break;
+							}
+						}
+						if (embedded)
+							break;
+					}
+				}
+				if (local.length == 0 && !embedded)
 					continue;
 
 				final staticExtensionName = def.name + "_static_extension";
@@ -376,94 +389,50 @@ function main(data:DataType, instance:Main.InstanceData) {
 				def.meta.push({name: ":using", params: [macro $p{fieldExtension}], pos: null});
 				file.defs.push(staticExtension);
 				file.defs.push(wrapper);
+				var embedded = false;
+				for (field in def.fields) {
+					if (field.meta != null) {
+						embedded = false;
+						for (meta in field.meta) {
+							if (meta.name == ":embedded") {
+								embedded = true;
+								break;
+							}
+						}
+						if (embedded) {
+							switch field.kind {
+								case FFun(fun):
+									final t = TPath({name: def.name, pack: []});
+									fun.args.unshift({
+										name: "__self__",
+										type: t,
+										meta: [],
+									});
+									final expr = {expr: fun.expr.expr, pos: null};
+									final fieldName = field.name;
+									final args = fun.args.slice(1).map(a -> macro $i{a.name});
+									fun.expr = macro __self__.$fieldName($a{args});
+									switch expr.expr {
+										case EReturn(_):
+											fun.expr = macro return ${fun.expr};
+										default:
+									}
+									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper, isWrapperPointer,
+										true);
+									fun.args = fun.args.slice(1);
+									fun.expr = expr;
+								default:
+							}
+						}
+					}
+				}
 				for (decl in local) {
 					var func = typeFunction(decl.func, info, restrictedNames, isNamed, decl.sel);
 					switch func.kind {
 						case TDField(kind, access):
 							switch kind {
 								case FFun(fun):
-									var isPointerArg = false;
-									if (fun.args.length > 0) {
-										for (meta in fun.args[0].meta) {
-											if (meta.name == ":pointer") {
-												fun.args[0].meta.remove(meta);
-												isPointerArg = true;
-												isWrapperPointer = true;
-												break;
-											}
-										}
-									}
-									final funcName = func.name;
-									final staticArgs = fun.args.copy();
-									if (isPointerArg) {
-										switch exprOfType(staticArgs[0].type) {
-											case TPath(p):
-												switch p.params[0] { // Pointer<T>
-													case TPType(t):
-														final f:FunctionArg = {
-															name: "____",
-															type: access.indexOf(AMacro) == -1 ? t : TPath({
-																name: "Expr",
-																sub: "ExprOf",
-																pack: ["haxe", "macro"],
-																params: [TPType(t)]
-															}),
-														};
-														staticArgs.unshift(f);
-													default:
-												}
-											default:
-										}
-									}
-									final funcName = func.name;
-									var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
-									final staticFieldAccess = access.concat([APublic, AStatic]);
-									// trace(staticArgs.map(arg -> printer.printFunctionArg(arg)));
-									final staticField:Field = {
-										name: funcName,
-										pos: func.pos,
-										meta: func.meta.copy(),
-										doc: func.doc,
-										access: staticFieldAccess,
-										kind: FFun({
-											args: staticArgs,
-											ret: fun.ret,
-											params: fun.params,
-											expr: staticFieldExpr,
-										})
-									};
-									// trace(printer.printField(staticField));
-									final fieldRet = exprOfType(fun.ret);
-									var fieldArgs = staticArgs.slice(1);
-									if (isPointerArg)
-										fieldArgs.shift();
-									for (i in 0...fieldArgs.length)
-										fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
-
-									final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
-									var e = macro __self__;
-									if (isPointerArg) {
-										fieldCallArgs.unshift(macro __self__);
-										e = macro $e.value;
-									}
-									final fieldFuncArgs = fieldArgs.map(arg -> arg.type);
-									// trace(func.params);
-									final field:Field = {
-										name: funcName,
-										access: [APublic],
-										meta: func.meta.copy(),
-										pos: func.pos,
-										doc: func.doc,
-										kind: FVar(TFunction(fieldFuncArgs, fieldRet), macro null),
-										/*kind: FFun({
-											args: fieldArgs,
-											ret: fieldRet,
-											params: func.params,
-											expr: macro $e.$funcName($a{fieldCallArgs}),
-										})*/
-									};
-									wrapper.fields.unshift(field);
-									staticExtension.fields.unshift(staticField);
+									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper, isWrapperPointer);
 								default:
 							}
 						default:
@@ -488,7 +457,92 @@ function main(data:DataType, instance:Main.InstanceData) {
 	return list;
 }
 
+private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
+		wrapper:TypeDefinition, isWrapperPointer:Bool, embedded:Bool = false) {
+	var isPointerArg = false;
+	if (fun.args.length > 0) {
+		for (meta in fun.args[0].meta) {
+			if (meta.name == ":pointer") {
+				fun.args[0].meta.remove(meta);
+				isPointerArg = true;
+				isWrapperPointer = true;
+				break;
+			}
+		}
+	}
+	final funcName = name;
+	final staticArgs = fun.args.copy();
+	if (isPointerArg) {
+		switch exprOfType(staticArgs[0].type) {
+			case TPath(p):
+				switch p.params[0] { // Pointer<T>
+					case TPType(t):
+						final f:FunctionArg = {
+							name: "____",
+							type: access.indexOf(AMacro) == -1 ? t : TPath({
+								name: "Expr",
+								sub: "ExprOf",
+								pack: ["haxe", "macro"],
+								params: [TPType(t)]
+							}),
+						};
+						staticArgs.unshift(f);
+					default:
+				}
+			default:
+		}
+	}
+	final funcName = name;
+	var staticFieldExpr:Expr = {expr: fun.expr.expr, pos: null};
+	final staticFieldAccess = access.copy();
+	staticFieldAccess.push(AStatic);
+	if (staticFieldAccess.indexOf(APublic) == -1)
+		staticFieldAccess.push(APublic);
+	// trace(staticArgs.map(arg -> printer.printFunctionArg(arg)));
+	final staticField:Field = {
+		name: funcName,
+		pos: pos,
+		meta: meta.copy(),
+		doc: doc,
+		access: staticFieldAccess,
+		kind: FFun({
+			args: staticArgs,
+			ret: fun.ret,
+			params: fun.params,
+			expr: staticFieldExpr,
+		})
+	};
+	// trace(printer.printField(staticField));
+	final fieldRet = exprOfType(fun.ret);
+	var fieldArgs = staticArgs.slice(1);
+	if (isPointerArg)
+		fieldArgs.shift();
+	for (i in 0...fieldArgs.length)
+		fieldArgs[i] = {name: fieldArgs[i].name, type: exprOfType(fieldArgs[i].type)};
+
+	final fieldCallArgs = fieldArgs.map(arg -> macro $i{arg.name});
+	var e = macro __self__;
+	if (isPointerArg) {
+		fieldCallArgs.unshift(macro __self__);
+		e = macro $e.value;
+	}
+	final fieldFuncArgs = fieldArgs.map(arg -> arg.type);
+	// trace(func.params);
+	final field:Field = {
+		name: funcName,
+		access: [APublic],
+		meta: meta.copy(),
+		pos: pos,
+		doc: doc,
+		kind: FVar(TFunction(fieldFuncArgs, fieldRet), macro null),
+	};
+	wrapper.fields.unshift(field);
+	staticExtension.fields.unshift(staticField);
+}
+
 private function exprOfType(t:ComplexType):ComplexType {
+	if (t == null)
+		return TPath({name: "Void", pack: []});
 	switch t {
 		case TPath(p):
 			if (p.name == "Expr" && p.sub == "ExprOf" && p.params != null && p.params.length == 1 && p.pack.length == 2 && p.pack[0] == "haxe"
@@ -5364,6 +5418,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				meta.push({name: ":local", pos: null, params: []});
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// final recv = typeof(method.recv);
+				// embedded methods
 				final name = fields[method.index[0]].name;
 				final type = typeof(method.type, info);
 				switch type {
@@ -5445,6 +5500,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
 						fields.push({
 							name: methodName,
+							meta: [{name: ":embedded", pos: null}],
 							pos: null,
 							access: [APublic],
 							kind: FFun({

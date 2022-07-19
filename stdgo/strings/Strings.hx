@@ -9,6 +9,97 @@ using stdgo.GoString.GoStringTools;
 final runeError:GoInt = 65533;
 final runeSelf:GoInt = 65533;
 
+class Builder_wrapper {
+	/**
+		// WriteString appends the contents of s to b's buffer.
+		// It returns the length of s and a nil error.
+	**/
+	@:keep
+	public var writeString:GoString -> {
+		var _0:GoInt;
+		var _1:Error;
+	} = null;
+
+	/**
+		// WriteRune appends the UTF-8 encoding of Unicode code point r to b's buffer.
+		// It returns the length of r and a nil error.
+	**/
+	@:keep
+	public var writeRune:GoRune -> {
+		var _0:GoInt;
+		var _1:Error;
+	} = null;
+
+	/**
+		// WriteByte appends the byte c to b's buffer.
+		// The returned error is always nil.
+	**/
+	@:keep
+	public var writeByte:GoByte->Error = null;
+
+	/**
+		// Write appends the contents of p to b's buffer.
+		// Write always returns len(p), nil.
+	**/
+	@:keep
+	public var write:Slice<GoByte> -> {
+		var _0:GoInt;
+		var _1:Error;
+	} = null;
+
+	/**
+		// Grow grows b's capacity, if necessary, to guarantee space for
+		// another n bytes. After Grow(n), at least n bytes can be written to b
+		// without another allocation. If n is negative, Grow panics.
+	**/
+	@:keep
+	public var grow:GoInt->Void = null;
+
+	/**
+		// grow copies the buffer to a new, larger buffer so that there are at least n
+		// bytes of capacity beyond len(b.buf).
+	**/
+	@:keep
+	public var _grow:GoInt->Void = null;
+
+	/**
+		// Reset resets the Builder to be empty.
+	**/
+	@:keep
+	public var reset:() -> Void = null;
+
+	/**
+		// Cap returns the capacity of the builder's underlying byte slice. It is the
+		// total space allocated for the string being built and includes any bytes
+		// already written.
+	**/
+	@:keep
+	public var cap_:() -> GoInt = null;
+
+	/**
+		// Len returns the number of accumulated bytes; b.Len() == len(b.String()).
+	**/
+	@:keep
+	public var len:() -> GoInt = null;
+
+	/**
+		// String returns the accumulated string.
+	**/
+	@:keep
+	public var toString:() -> GoString = null;
+
+	@:keep
+	public var _copyCheck:() -> Void = null;
+
+	public function new(__self__)
+		this.__self__ = __self__;
+
+	public function __underlying__()
+		return Go.toInterface(__self__);
+
+	var __self__:Builder;
+}
+
 @:structInit
 class Builder {
 	var buf:GoString;
@@ -16,6 +107,15 @@ class Builder {
 	public function new() {
 		buf = "";
 	}
+
+	public function reset() {}
+
+	public function writeRune(r:GoRune):{_0:GoInt, _1:Error} {
+		return null;
+	}
+
+	public function cap_():GoInt
+		return 0;
 
 	public function write(p:Slice<GoByte>):{_0:GoInt, _1:Error} {
 		buf += (p : GoString);
@@ -36,6 +136,11 @@ class Builder {
 	}
 
 	public function grow(_n:GoInt) {}
+
+	public function _grow(_n:GoInt)
+		grow(_n);
+
+	public function _copyCheck() {}
 
 	public function toString():GoString
 		return buf.toString();

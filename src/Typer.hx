@@ -5774,6 +5774,8 @@ private function typeAccess(name:String, isField:Bool = false):Array<Access> {
 }
 
 private function getRestrictedName(name:String, info:Info):String { // all function defs are restricted names
+	if (info.global.module == null)
+		return name;
 	for (file in info.global.module.files) {
 		for (def in file.defs) {
 			if (def == null)

@@ -36,7 +36,7 @@ typedef Interface = StructType & {
     @:embedded
     public function len():GoInt return interface_.len();
     @:embedded
-    public function swap(_i:GoInt, _j:GoInt) interface_.swap(_i, _j);
+    public function swap(_i_:GoInt, _j_:GoInt) interface_.swap(_i_, _j_);
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_reverse(interface_);
@@ -385,8 +385,8 @@ function reverse(_data:Interface):Interface {
         return {
             final __self__ = new T_reverse_wrapper(((new T_reverse(_data) : T_reverse)));
             __self__.len = #if !macro function():GoInt return ((new T_reverse(_data) : T_reverse)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new T_reverse(_data) : T_reverse)).less(_i, _j) #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new T_reverse(_data) : T_reverse)).swap(_i, _j) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((new T_reverse(_data) : T_reverse)).less(_i_, _j_) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((new T_reverse(_data) : T_reverse)).swap(_i__, _j__) #else null #end;
             __self__;
         };
     }
@@ -418,10 +418,10 @@ function ints(_x:Slice<GoInt>):Void {
         sort({
             final __self__ = new IntSlice_wrapper(((_x : IntSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : IntSlice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : IntSlice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoInt):GoInt return ((_x : IntSlice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : IntSlice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoInt):GoInt return ((_x : IntSlice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : IntSlice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : IntSlice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : IntSlice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -433,10 +433,10 @@ function float64s(_x:Slice<GoFloat64>):Void {
         sort({
             final __self__ = new Float64Slice_wrapper(((_x : Float64Slice)));
             __self__.len = #if !macro function():GoInt return ((_x : Float64Slice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : Float64Slice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoFloat64):GoInt return ((_x : Float64Slice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : Float64Slice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoFloat64):GoInt return ((_x : Float64Slice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : Float64Slice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : Float64Slice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : Float64Slice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -447,10 +447,10 @@ function strings(_x:Slice<GoString>):Void {
         sort({
             final __self__ = new StringSlice_wrapper(((_x : StringSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : StringSlice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : StringSlice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoString):GoInt return ((_x : StringSlice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : StringSlice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoString):GoInt return ((_x : StringSlice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : StringSlice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : StringSlice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : StringSlice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -461,10 +461,10 @@ function intsAreSorted(_x:Slice<GoInt>):Bool {
         return isSorted({
             final __self__ = new IntSlice_wrapper(((_x : IntSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : IntSlice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : IntSlice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoInt):GoInt return ((_x : IntSlice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : IntSlice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoInt):GoInt return ((_x : IntSlice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : IntSlice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : IntSlice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : IntSlice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -476,10 +476,10 @@ function float64sAreSorted(_x:Slice<GoFloat64>):Bool {
         return isSorted({
             final __self__ = new Float64Slice_wrapper(((_x : Float64Slice)));
             __self__.len = #if !macro function():GoInt return ((_x : Float64Slice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : Float64Slice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoFloat64):GoInt return ((_x : Float64Slice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : Float64Slice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoFloat64):GoInt return ((_x : Float64Slice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : Float64Slice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : Float64Slice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : Float64Slice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -490,10 +490,10 @@ function stringsAreSorted(_x:Slice<GoString>):Bool {
         return isSorted({
             final __self__ = new StringSlice_wrapper(((_x : StringSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : StringSlice)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((_x : StringSlice)).less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoString):GoInt return ((_x : StringSlice)).search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : StringSlice)).less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoString):GoInt return ((_x : StringSlice)).search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : StringSlice)).sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((_x : StringSlice)).swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : StringSlice)).swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -952,7 +952,7 @@ function _rotate_func(_data:T_lessSwap, _a:GoInt, _m:GoInt, _b:GoInt):Void {
         return _r.interface_.less(_j, _i);
     }
     @:embedded
-    public static function swap( __self__:T_reverse, _i:GoInt, _j:GoInt) __self__.swap(_i, _j);
+    public static function swap( __self__:T_reverse, _i_:GoInt, _j_:GoInt) __self__.swap(_i_, _j_);
     @:embedded
     public static function len( __self__:T_reverse):GoInt return __self__.len();
 }
@@ -979,10 +979,10 @@ class T_reverse_wrapper {
         stdgo.sort.Sort.sort({
             final __self__ = new IntSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoInt):GoInt return _x.search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoInt):GoInt return _x.search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void _x.sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -1041,10 +1041,10 @@ class IntSlice_wrapper {
         stdgo.sort.Sort.sort({
             final __self__ = new Float64Slice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoFloat64):GoInt return _x.search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoFloat64):GoInt return _x.search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void _x.sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
             __self__;
         });
     }
@@ -1121,10 +1121,10 @@ class Float64Slice_wrapper {
         stdgo.sort.Sort.sort({
             final __self__ = new StringSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _x.less(_i, _j) #else null #end;
-            __self__.search = #if !macro function(_x:GoString):GoInt return _x.search(_x) #else null #end;
+            __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
+            __self__.search = #if !macro function(_x_:GoString):GoInt return _x.search(_x_) #else null #end;
             __self__.sort = #if !macro function():Void _x.sort() #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _x.swap(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
             __self__;
         });
     }

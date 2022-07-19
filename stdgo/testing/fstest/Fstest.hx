@@ -216,7 +216,7 @@ function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
                             _subExpected = (_subExpected != null ? _subExpected.__append__(((_name.__slice__((_dirSlash != null ? _dirSlash.length : ((0 : GoInt)))) : GoString))) : new Slice<GoString>(((_name.__slice__((_dirSlash != null ? _dirSlash.length : ((0 : GoInt)))) : GoString))));
                         };
                     };
-                    var __tmp__ = stdgo.io.fs.Fs.sub(_fsys, _dir), _sub:stdgo.io.fs.Fs.FS = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    var __tmp__ = fs.sub(_fsys, _dir), _sub:stdgo.io.fs.Fs.FS = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                     if (_err != null) {
                         return _err;
                     };
@@ -480,10 +480,10 @@ class T_mapFileInfo_wrapper {
     static public function readAt( _f:T_openMapFile, _b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } {
         if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -502,10 +502,10 @@ class T_mapFileInfo_wrapper {
         };
         if ((_offset < ((0 : GoInt64))) || (_offset > (((_f._mapFileInfo._f.data != null ? _f._mapFileInfo._f.data.length : ((0 : GoInt))) : GoInt64)))) {
             return { _0 : ((0 : GoInt64)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("seek" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -519,10 +519,10 @@ class T_mapFileInfo_wrapper {
         };
         if (_f._offset < ((0 : GoInt64))) {
             return { _0 : ((0 : GoInt)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _f._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -628,10 +628,10 @@ class T_openMapFile_wrapper {
     @:keep
     static public function read( _d:T_mapDir, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return { _0 : ((0 : GoInt)), _1 : {
-            final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
-            __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-            __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-            __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : stdgo.io.fs.Fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+            final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)));
+            __self__.error = #if !macro function():GoString return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+            __self__.timeout = #if !macro function():Bool return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+            __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("read" : GoString))) : GoString)), path : _d._path, err : fs.errInvalid } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
             __self__;
         } };
     }
@@ -810,7 +810,7 @@ class T_mapDir_wrapper {
                     });
                 };
             };
-            var __tmp__ = stdgo.io.fs.Fs.readFile(_t._fsys, _file), _data2:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = fs.readFile(_t._fsys, _file), _data2:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t._errorf(((((("%s: fs.ReadFile: %v" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(_err));
                 return;
@@ -949,7 +949,7 @@ class T_mapDir_wrapper {
                 _t._errorf(((((("%s: mismatch:\n\tentry.Info() = %s\n\tfile.Stat() = %s\n" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_feinfo), Go.toInterface(_finfo));
             };
         };
-        var __tmp__ = stdgo.io.fs.Fs.stat(_t._fsys, _path), _info2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = fs.stat(_t._fsys, _path), _info2:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t._errorf(((((("%s: fs.Stat: %v" : GoString))) : GoString)), Go.toInterface(_path), Go.toInterface(_err));
             return;
@@ -1456,7 +1456,7 @@ class T_mapDir_wrapper {
                 };
             };
             {
-                var __tmp__ = stdgo.io.fs.Fs.readDir(_t._fsys, _dir);
+                var __tmp__ = fs.readDir(_t._fsys, _dir);
                 _list2 = __tmp__._0;
                 _err = __tmp__._1;
             };
@@ -1631,7 +1631,7 @@ class T_fsTester_wrapper {
 @:keep class MapFS_static_extension {
     @:keep
     static public function sub( _fsys:MapFS, _dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : Error; } {
-        return stdgo.io.fs.Fs.sub({
+        return fs.sub({
             final __self__ = new T_noSub_wrapper(((new T_noSub(_fsys) : T_noSub)));
             __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return ((new T_noSub(_fsys) : T_noSub)).glob(_pattern) #else null #end;
             __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_noSub(_fsys) : T_noSub)).open(_name) #else null #end;
@@ -1644,10 +1644,10 @@ class T_fsTester_wrapper {
     }
     @:keep
     static public function glob( _fsys:MapFS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        return stdgo.io.fs.Fs.glob({
+        return fs.glob({
             final __self__ = new T_fsOnly_wrapper(((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
-                __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
+                __self__.glob = #if !macro function(_pattern_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern_) #else null #end;
                 __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
                 __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
                 __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
@@ -1657,7 +1657,7 @@ class T_fsTester_wrapper {
             }) : T_fsOnly)));
             __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
-                __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
+                __self__.glob = #if !macro function(_pattern_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern_) #else null #end;
                 __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
                 __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
                 __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
@@ -1670,79 +1670,79 @@ class T_fsTester_wrapper {
     }
     @:keep
     static public function readDir( _fsys:MapFS, _name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } {
-        return stdgo.io.fs.Fs.readDir({
+        return fs.readDir({
             final __self__ = new T_fsOnly_wrapper(((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
             }) : T_fsOnly)));
-            __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
+            __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
-            }) : T_fsOnly)).open(_name) #else null #end;
+            }) : T_fsOnly)).open(_name_) #else null #end;
             __self__;
         }, _name);
     }
     @:keep
     static public function stat( _fsys:MapFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } {
-        return stdgo.io.fs.Fs.stat({
+        return fs.stat({
             final __self__ = new T_fsOnly_wrapper(((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
             }) : T_fsOnly)));
-            __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
+            __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
-            }) : T_fsOnly)).open(_name) #else null #end;
+            }) : T_fsOnly)).open(_name_) #else null #end;
             __self__;
         }, _name);
     }
     @:keep
     static public function readFile( _fsys:MapFS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        return stdgo.io.fs.Fs.readFile({
+        return fs.readFile({
             final __self__ = new T_fsOnly_wrapper(((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
             }) : T_fsOnly)));
-            __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
+            __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return ((new T_fsOnly({
                 final __self__ = new MapFS_wrapper(_fsys);
                 __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _fsys.glob(_pattern) #else null #end;
-                __self__.open = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name) #else null #end;
-                __self__.readDir = #if !macro function(_name:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name) #else null #end;
-                __self__.readFile = #if !macro function(_name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name) #else null #end;
-                __self__.stat = #if !macro function(_name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name) #else null #end;
+                __self__.open = #if !macro function(_name_:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return _fsys.open(_name_) #else null #end;
+                __self__.readDir = #if !macro function(_name__:GoString):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return _fsys.readDir(_name__) #else null #end;
+                __self__.readFile = #if !macro function(_name___:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _fsys.readFile(_name___) #else null #end;
+                __self__.stat = #if !macro function(_name____:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return _fsys.stat(_name____) #else null #end;
                 __self__.sub = #if !macro function(_dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : stdgo.Error; } return _fsys.sub(_dir) #else null #end;
                 __self__;
-            }) : T_fsOnly)).open(_name) #else null #end;
+            }) : T_fsOnly)).open(_name_) #else null #end;
             __self__;
         }, _name);
     }
@@ -1751,12 +1751,12 @@ class T_fsTester_wrapper {
     **/
     @:keep
     static public function open( _fsys:MapFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } {
-        if (!stdgo.io.fs.Fs.validPath(_name)) {
+        if (!fs.validPath(_name)) {
             return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : {
-                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
+                __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                 __self__;
             } };
         };
@@ -1811,10 +1811,10 @@ class T_fsTester_wrapper {
             };
             if (((_file == null) && (_list == null)) && ((_need != null ? _need.length : ((0 : GoInt))) == ((0 : GoInt)))) {
                 return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : {
-                    final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
-                    __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
-                    __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
-                    __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : stdgo.io.fs.Fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
+                    final __self__ = new stdgo.io.fs.Fs.PathError_wrapper((({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)));
+                    __self__.error = #if !macro function():GoString return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).error() #else null #end;
+                    __self__.timeout = #if !macro function():Bool return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).timeout() #else null #end;
+                    __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("open" : GoString))) : GoString)), path : _name, err : fs.errNotExist } : stdgo.io.fs.Fs.PathError)).unwrap() #else null #end;
                     __self__;
                 } };
             };

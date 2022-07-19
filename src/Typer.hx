@@ -3629,8 +3629,15 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 			throw "basic lit kind unknown: " + kind;
 			null;
 	}
-	if (ct != null)
+	if (ct != null) {
+		switch ct {
+			case TPath(p):
+				if (p.params != null && p.params.length > 0)
+					return e.expr; // ct not allowed to have params
+			default:
+		}
 		e = macro($e : $ct);
+	}
 	return e.expr;
 }
 

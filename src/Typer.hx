@@ -1823,6 +1823,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			final p = namedTypePath(name, info);
 			p.name += "_wrapper";
 			var exprs = [macro final __self__ = new $p($y)];
+			final info = info.copy();
+			info.restricted = [];
 			for (method in methods) {
 				final methodName = nameIdent(method.name, false, false, info);
 				switch method.type {
@@ -1832,7 +1834,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 						final args = params.map(param -> switch param {
 							case _var(name, type):
 								({
-									name: nameIdent(name, false, true, info),
+									name: nameIdent(name, true, false, info, true),
 									type: toComplexType(type, info),
 								} : FunctionArg);
 							default:
@@ -1858,6 +1860,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 					default:
 				}
 			}
+			info.restricted = [];
 			exprs.push(macro __self__);
 			return macro $b{exprs};
 		default:
@@ -4374,7 +4377,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 
 	block = argsTranslate(args, block);
 
-	info.restricted = null;
+	info.restricted = [];
 	if (info.gotoSystem) {
 		var e = macro stdgo.internal.Macro.controlFlow($block);
 		if (decl.type.results != null && decl.type.results.list.length > 0)
@@ -5421,39 +5424,31 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				// final recv = typeof(method.recv);
 				// embedded methods
 				final name = fields[method.index[0]].name;
+				info.renameIdents[name] = name;
+				info.restricted = [];
 				final type = typeof(method.type, info);
 				switch type {
-					case signature(variadic, params, results, _):
-						var i = -1;
-						final args:Array<Expr> = [
-							for (param in params) {
-								i++;
-								switch param {
-									case _var(name, _):
-										macro $i{nameIdent(name, false, false, info)};
-									default:
-										macro $i{"_" + i};
-								}
+					case signature(variadic, sigParams, results, _):
+						final args:Array<Expr> = [];
+						final params:Array<FunctionArg> = [];
+						for (i in 0...sigParams.length) {
+							switch sigParams[i] {
+								case _var(name, t):
+									final name = nameIdent(name, true, false, info, true);
+									args.push(macro $i{name});
+									params.push({
+										name: name,
+										type: toComplexType(t, info),
+									});
+								default:
+									final name = "_" + i;
+									args.push(macro $i{name});
+									params.push({
+										name: name,
+										type: toComplexType(sigParams[i], info),
+									});
 							}
-						];
-						i = -1;
-						final params:Array<FunctionArg> = [
-							for (param in params) {
-								i++;
-								switch param {
-									case _var(name, type):
-										{
-											name: nameIdent(name, false, false, info),
-											type: toComplexType(type, info),
-										}
-									default:
-										{
-											name: "_" + i,
-											type: toComplexType(type, info),
-										}
-								}
-							}
-						];
+						}
 						if (variadic) {
 							var last = params.pop();
 							switch last.type {
@@ -5473,7 +5468,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 							if (results.length == 1) {
 								ret = toComplexType(results[0], info);
 							} else {
-								i = -1;
+								var i = -1;
 								ret = TAnonymous([
 									for (res in results) {
 										i++;
@@ -5513,6 +5508,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					default:
 						throw "method not a signature";
 				}
+				info.restricted = [];
 			}
 			final params = getParams(spec.params, info, true);
 			var cl:TypeDefinition = {
@@ -5822,7 +5818,7 @@ private function untitle(name:String):String {
 	return name;
 }
 
-private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):String {
+private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, unique:Bool = false):String {
 	name = nameAscii(name);
 	if (name == "_")
 		return "_" + info.blankCounter++;
@@ -5852,9 +5848,13 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 		if (name == "false" || name == "true")
 			return name;
 	}
-
+	var setUnique = false;
 	if (rename && info.renameIdents.exists(name)) {
 		name = info.renameIdents[name];
+		if (unique) {
+			name = name + "_";
+			setUnique = true;
+		}
 	} else {
 		if (name.charAt(0) == "_") {
 			name = name = "_" + name;
@@ -5864,6 +5864,12 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info):
 	}
 	if (rename && info.restricted != null && info.restricted.indexOf(name) != -1) {
 		name = getRestrictedName(name, info);
+	}
+	if (unique && setUnique) {
+		while (info.restricted.indexOf(name) != -1) {
+			name = name + "_";
+		}
+		info.restricted.push(name);
 	}
 	if (reserved.indexOf(name) != -1)
 		name = name + "_";
@@ -5913,7 +5919,7 @@ class Global {
 class Info {
 	public var blankCounter:Int = 0;
 	public var count:Int = 0;
-	public var restricted:Array<String> = null;
+	public var restricted:Array<String> = [];
 	public var thisName:String = "";
 	public var deferBool:Bool = false;
 	public var recoverBool:Bool = false;

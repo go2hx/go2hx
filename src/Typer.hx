@@ -785,15 +785,20 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 	if (list != null)
 		if (info.deferBool) { // defer system
 			final e = toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
-			final ret = switch e.expr {
+			var catchBlock:Array<Expr> = [
+				macro if (!(__exception__.native is AnyInterfaceData))
+					throw __exception__,
+				macro __recover_exception__ = __exception__.native
+			];
+			switch e.expr {
 				case EBlock(exprs):
 					final last = exprs.pop();
 					exprs.push(macro if (__recover_exception__ != null)
 						throw __recover_exception__);
 					exprs.push(last);
-					toExpr(EBlock(exprs));
+					catchBlock = catchBlock.concat(exprs);
 				default:
-					macro __recover_exception__ != null ?throw __recover_exception__:$e;
+					catchBlock = catchBlock.concat([macro __recover_exception__ != null ?throw __recover_exception__:$e]);
 			}
 			exprs.unshift(macro var __deferstack__:Array<Void->Void> = []);
 			exprs.push(typeDeferReturn(info, true));
@@ -801,12 +806,8 @@ private function typeStmtList(list:Array<Ast.Stmt>, info:Info, isFunc:Bool):Expr
 			exprs.unshift(macro var __recover_exception__:AnyInterface = null);
 			var pos = 2 + info.returnNames.length;
 			var trydef = macro try
-				$b{exprs.slice(pos)} catch (__exception__) {
-				if (!(__exception__.native is AnyInterfaceData))
-					throw __exception__;
-				__recover_exception__ = __exception__.native;
-				$ret;
-			}
+				$b{exprs.slice(pos)} catch (__exception__)
+				$b{catchBlock};
 			// don't include recover and defer stack
 			exprs = exprs.slice(0, pos);
 			exprs.push(trydef);

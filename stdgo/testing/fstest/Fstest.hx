@@ -839,13 +839,11 @@ class T_mapDir_wrapper {
                     } catch(__exception__) {
                         if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                         __recover_exception__ = __exception__.native;
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        if (__recover_exception__ != null) throw __recover_exception__;
+                        return;
                     };
                 };
             };
@@ -855,13 +853,11 @@ class T_mapDir_wrapper {
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
             __recover_exception__ = __exception__.native;
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (__recover_exception__ != null) throw __recover_exception__;
-                return;
+            for (defer in __deferstack__) {
+                defer();
             };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return;
         };
     }
     /**
@@ -1178,13 +1174,11 @@ class T_mapDir_wrapper {
                 } catch(__exception__) {
                     if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                     __recover_exception__ = __exception__.native;
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    for (defer in __deferstack__) {
+                        defer();
                     };
+                    if (__recover_exception__ != null) throw __recover_exception__;
+                    return;
                 };
             };
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs second Open+ReadDir(-1)" : GoString))) : GoString)), _list, _list2);
@@ -1206,13 +1200,11 @@ class T_mapDir_wrapper {
                     } catch(__exception__) {
                         if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                         __recover_exception__ = __exception__.native;
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        if (__recover_exception__ != null) throw __recover_exception__;
+                        return;
                     };
                 };
             };
@@ -1234,13 +1226,11 @@ class T_mapDir_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return;
                         };
                     };
                     var __tmp__ = _d.readDir(_n), _frag:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -1261,13 +1251,11 @@ class T_mapDir_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return;
                         };
                     };
                     _list2 = (_list2 != null ? _list2.__append__(..._frag.__toArray__()) : new Slice<stdgo.io.fs.Fs.DirEntry>(..._frag.__toArray__()));
@@ -1282,13 +1270,11 @@ class T_mapDir_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return;
                         };
                     };
                     if (_err != null) {
@@ -1308,13 +1294,11 @@ class T_mapDir_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return;
                         };
                     };
                     if (_n == ((0 : GoInt))) {
@@ -1334,13 +1318,11 @@ class T_mapDir_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return;
                         };
                     };
                     for (defer in __deferstack__) {
@@ -1349,13 +1331,11 @@ class T_mapDir_wrapper {
                 } catch(__exception__) {
                     if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                     __recover_exception__ = __exception__.native;
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    for (defer in __deferstack__) {
+                        defer();
                     };
+                    if (__recover_exception__ != null) throw __recover_exception__;
+                    return;
                 };
             };
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))) : GoString)), _list, _list2);
@@ -1387,13 +1367,11 @@ class T_mapDir_wrapper {
                             } catch(__exception__) {
                                 if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                                 __recover_exception__ = __exception__.native;
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (__recover_exception__ != null) throw __recover_exception__;
-                                    return;
+                                for (defer in __deferstack__) {
+                                    defer();
                                 };
+                                if (__recover_exception__ != null) throw __recover_exception__;
+                                return;
                             };
                         };
                         _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fsys.ReadDir" : GoString))) : GoString)), _list, _list2);
@@ -1414,13 +1392,11 @@ class T_mapDir_wrapper {
                                         } catch(__exception__) {
                                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                                             __recover_exception__ = __exception__.native;
-                                            {
-                                                for (defer in __deferstack__) {
-                                                    defer();
-                                                };
-                                                if (__recover_exception__ != null) throw __recover_exception__;
-                                                return;
+                                            for (defer in __deferstack__) {
+                                                defer();
                                             };
+                                            if (__recover_exception__ != null) throw __recover_exception__;
+                                            return;
                                         };
                                     };
                                     for (defer in __deferstack__) {
@@ -1429,13 +1405,11 @@ class T_mapDir_wrapper {
                                 } catch(__exception__) {
                                     if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                                     __recover_exception__ = __exception__.native;
-                                    {
-                                        for (defer in __deferstack__) {
-                                            defer();
-                                        };
-                                        if (__recover_exception__ != null) throw __recover_exception__;
-                                        return;
+                                    for (defer in __deferstack__) {
+                                        defer();
                                     };
+                                    if (__recover_exception__ != null) throw __recover_exception__;
+                                    return;
                                 };
                             });
                         };
@@ -1445,13 +1419,11 @@ class T_mapDir_wrapper {
                     } catch(__exception__) {
                         if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                         __recover_exception__ = __exception__.native;
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        if (__recover_exception__ != null) throw __recover_exception__;
+                        return;
                     };
                 };
             };
@@ -1477,13 +1449,11 @@ class T_mapDir_wrapper {
                 } catch(__exception__) {
                     if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                     __recover_exception__ = __exception__.native;
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    for (defer in __deferstack__) {
+                        defer();
                     };
+                    if (__recover_exception__ != null) throw __recover_exception__;
+                    return;
                 };
             };
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fs.ReadDir" : GoString))) : GoString)), _list, _list2);
@@ -1504,13 +1474,11 @@ class T_mapDir_wrapper {
                             } catch(__exception__) {
                                 if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                                 __recover_exception__ = __exception__.native;
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (__recover_exception__ != null) throw __recover_exception__;
-                                    return;
+                                for (defer in __deferstack__) {
+                                    defer();
                                 };
+                                if (__recover_exception__ != null) throw __recover_exception__;
+                                return;
                             };
                         };
                         for (defer in __deferstack__) {
@@ -1519,13 +1487,11 @@ class T_mapDir_wrapper {
                     } catch(__exception__) {
                         if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                         __recover_exception__ = __exception__.native;
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        if (__recover_exception__ != null) throw __recover_exception__;
+                        return;
                     };
                 });
             };
@@ -1536,13 +1502,11 @@ class T_mapDir_wrapper {
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
             __recover_exception__ = __exception__.native;
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (__recover_exception__ != null) throw __recover_exception__;
-                return;
+            for (defer in __deferstack__) {
+                defer();
             };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return;
         };
     }
     @:keep

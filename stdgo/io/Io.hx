@@ -962,13 +962,11 @@ class T_multiWriter_wrapper {
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
             __recover_exception__ = __exception__.native;
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (__recover_exception__ != null) throw __recover_exception__;
-                return ((null : stdgo.Error));
+            for (defer in __deferstack__) {
+                defer();
             };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return ((null : stdgo.Error));
         };
     }
     @:keep
@@ -994,13 +992,11 @@ class T_multiWriter_wrapper {
                 } catch(__exception__) {
                     if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                     __recover_exception__ = __exception__.native;
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    for (defer in __deferstack__) {
+                        defer();
                     };
+                    if (__recover_exception__ != null) throw __recover_exception__;
+                    return;
                 };
             };
             _a._err = _err;
@@ -1010,13 +1006,11 @@ class T_multiWriter_wrapper {
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
             __recover_exception__ = __exception__.native;
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (__recover_exception__ != null) throw __recover_exception__;
-                return;
+            for (defer in __deferstack__) {
+                defer();
             };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return;
         };
     }
     @:embedded
@@ -1108,13 +1102,11 @@ class T_onceError_wrapper {
             } catch(__exception__) {
                 if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                 __recover_exception__ = __exception__.native;
-                {
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
-                    return { _0 : _n, _1 : _err };
+                for (defer in __deferstack__) {
+                    defer();
                 };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return { _0 : _n, _1 : _err };
             };
         }]);
         try {
@@ -1138,13 +1130,11 @@ class T_onceError_wrapper {
                         try {} catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return { _0 : _n, _1 : _err };
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return { _0 : _n, _1 : _err };
                         };
                     }, _p._wrCh.__send__(_b) => {
                         var __recover_exception__:AnyInterface = null;
@@ -1159,13 +1149,11 @@ class T_onceError_wrapper {
                         } catch(__exception__) {
                             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                             __recover_exception__ = __exception__.native;
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return { _0 : _n, _1 : _err };
+                            for (defer in __deferstack__) {
+                                defer();
                             };
+                            if (__recover_exception__ != null) throw __recover_exception__;
+                            return { _0 : _n, _1 : _err };
                         };
                     }]);
                     for (defer in __deferstack__) {
@@ -1174,13 +1162,11 @@ class T_onceError_wrapper {
                     try {} catch(__exception__) {
                         if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
                         __recover_exception__ = __exception__.native;
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return { _0 : _n, _1 : _err };
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        if (__recover_exception__ != null) throw __recover_exception__;
+                        return { _0 : _n, _1 : _err };
                     };
                 });
             };
@@ -1196,13 +1182,11 @@ class T_onceError_wrapper {
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
             __recover_exception__ = __exception__.native;
-            {
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                if (__recover_exception__ != null) throw __recover_exception__;
-                return { _0 : _n, _1 : _err };
+            for (defer in __deferstack__) {
+                defer();
             };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return { _0 : _n, _1 : _err };
         };
     }
     @:keep

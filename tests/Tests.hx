@@ -89,7 +89,7 @@ function main() {
 		update();
 }
 
-final targets = ["interp"];
+final targets = ["interp", "hl", "cpp", "jvm"];
 
 private function update() {
 	processPool.update();

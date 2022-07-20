@@ -65,7 +65,6 @@ function main() {
 	if (code == 0) {
 		// run nodejs
 		if (!FileSystem.exists("build.js") || rebuild) {
-			Sys.command("npm install deasync");
 			Sys.command("haxe build-js.hxml");
 		}
 		args.unshift("build.js");

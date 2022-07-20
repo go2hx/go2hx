@@ -3,4 +3,5 @@
 -cp src
 -D no-deprecation-warnings
 -D simulate_num
+-dce full
 -hl tests.hl

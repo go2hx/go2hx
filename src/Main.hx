@@ -9,7 +9,6 @@ import haxe.ds.Vector;
 import haxe.io.Bytes;
 import haxe.io.Path;
 import stdgo.StdGoTypes;
-import sys.FileSystem;
 import sys.io.File;
 import sys.io.Process;
 
@@ -335,7 +334,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	@:privateAccess server.s.listen(port, () -> {
 		Sys.println("nodejs server started");
 	});
-	new sys.net.Host("127.0.0.1");
 	#end
 }
 

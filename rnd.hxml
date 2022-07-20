@@ -1,12 +1,17 @@
 -cp rnd
 -cp src
 -main RunRnd
--lib hxnodejs
 #--interp
---js rnd.js
---cmd node rnd.js
 -D debug
 extraParams.hxml
 -D watch.run=hl rnd.hl
 -D no-deprecation-warnings
 -D watch.excludes=golibs
+
+-lib hxnodejs
+-dce full
+--js rnd.js
+--cmd node rnd.js
+
+#-hl rnd.hl
+#--cmd hl rnd.hl

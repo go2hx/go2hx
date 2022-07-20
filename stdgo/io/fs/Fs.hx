@@ -319,8 +319,6 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                 { value : ((null : ReadDirFile)), ok : false };
             }, _dir = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
-                var __recover_exception__:AnyInterface = null;
-                var __deferstack__:Array<Void -> Void> = [];
                 {
                     for (defer in __deferstack__) {
                         defer();
@@ -332,18 +330,6 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                         __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((((("readdir" : GoString))) : GoString)), path : _name, err : stdgo.errors.Errors.new_(((((("not implemented" : GoString))) : GoString))) } : PathError)).unwrap() #else null #end;
                         __self__;
                     } };
-                };
-                for (defer in __deferstack__) {
-                    defer();
-                };
-                try {} catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    __recover_exception__ = __exception__.native;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
-                    return { _0 : ((null : Slice<DirEntry>)), _1 : ((null : stdgo.Error)) };
                 };
             };
             var __tmp__ = _dir.readDir(((-1 : GoInt))), _list:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -358,6 +344,13 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
             };
             for (defer in __deferstack__) {
                 defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return { _0 : ((null : Slice<DirEntry>)), _1 : ((null : stdgo.Error)) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -419,122 +412,41 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
             {
                 var __tmp__ = _file.stat(), _info:FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
                     var _size64:GoInt64 = _info.size();
                     if (((((_size64 : GoInt)) : GoInt64)) == _size64) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
                         _size = ((_size64 : GoInt));
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        try {} catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
-                        };
-                    };
-                    try {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
                     };
                 };
             };
             var _data = new Slice<GoUInt8>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]).__setCap__(((_size + ((1 : GoInt)) : GoInt)).toBasic());
             while (true) {
-                var __recover_exception__:AnyInterface = null;
-                var __deferstack__:Array<Void -> Void> = [];
                 if ((_data != null ? _data.length : ((0 : GoInt))) >= (_data != null ? _data.cap() : ((0 : GoInt)))) {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
                     var _d = (((_data.__slice__(0, (_data != null ? _data.cap() : ((0 : GoInt)))) : Slice<GoUInt8>)) != null ? ((_data.__slice__(0, (_data != null ? _data.cap() : ((0 : GoInt)))) : Slice<GoUInt8>)).__append__(((0 : GoUInt8))) : new Slice<GoUInt8>(((0 : GoUInt8))));
                     _data = ((_d.__slice__(0, (_data != null ? _data.length : ((0 : GoInt)))) : Slice<GoUInt8>));
-                    try {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
-                    };
                 };
                 var __tmp__ = _file.read(((_data.__slice__((_data != null ? _data.length : ((0 : GoInt))), (_data != null ? _data.cap() : ((0 : GoInt)))) : Slice<GoUInt8>))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                try {
-                    _data = ((_data.__slice__(0, (_data != null ? _data.length : ((0 : GoInt))) + _n) : Slice<GoUInt8>));
-                    if (_err != null) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        if (_err == stdgo.io.Io.eof) {
-                            var __recover_exception__:AnyInterface = null;
-                            var __deferstack__:Array<Void -> Void> = [];
-                            _err = ((null : stdgo.Error));
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            try {} catch(__exception__) {
-                                if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                                __recover_exception__ = __exception__.native;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
-                            };
-                        };
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return { _0 : _data, _1 : _err };
-                        };
-                        try {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
-                        };
+                _data = ((_data.__slice__(0, (_data != null ? _data.length : ((0 : GoInt))) + _n) : Slice<GoUInt8>));
+                if (_err != null) {
+                    if (_err == stdgo.io.Io.eof) {
+                        _err = ((null : stdgo.Error));
                     };
-                    for (defer in __deferstack__) {
-                        defer();
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
+                        };
+                        return { _0 : _data, _1 : _err };
                     };
-                } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    __recover_exception__ = __exception__.native;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
-                    return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
                 };
             };
             for (defer in __deferstack__) {
                 defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -579,6 +491,13 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
             };
             for (defer in __deferstack__) {
                 defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return { _0 : ((null : FileInfo)), _1 : ((null : stdgo.Error)) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;

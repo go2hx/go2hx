@@ -117,7 +117,6 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			final out = createTargetOutput(task.target, task.data.type, task.data.name);
 			final main = task.data.name.charAt(0).toUpperCase() + task.data.name.substr(1);
 			final command = Main.runTarget(task.target, out, args, main);
-
 			task.command = command;
 			processPool.run(command, task, true);
 		} else {
@@ -129,30 +128,15 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].runtimeError(task);
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
-			while (true) {
-				try {
-					final line = proc.stderr.readLine();
-					if (StringTools.contains(line, "Uncaught exception")) {
-						break;
-					}
-					final parts = line.split(":");
-					final end = parts.pop();
-
-					if (hadError.exists(end))
-						continue;
-					hadError[end] = true;
-					log(line);
-				} catch (_) {
-					break;
-				}
-			}
+			proc.kill();
+			log(proc.stderr.readAll().toString());
+			if (task.target != "interp")
+				runsLeft--; // remove as no more runtime test
 			suites[task.data.type].buildError(task);
 		}
 	}
 	if (--runsLeft <= 0)
 		close();
-	// if (runsLeft % targets.length == 0)
-	//	Sys.println(runsLeft);
 }
 
 private function complete(modules:Array<Typer.Module>, task:TaskData) {

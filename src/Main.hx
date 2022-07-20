@@ -337,20 +337,19 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 	#end
 }
 
-function targetLibs(instance:InstanceData):String {
-	final libs = switch instance.target {
+function targetLibs(target:String):String {
+	return switch target {
 		case "jvm":
-			["hxjava"];
+			"-lib hxjava";
 		case "cs":
-			["hxcs"];
+			"-lib hxcs";
 		case "cpp":
-			["hxcpp"];
+			"-lib hxcpp";
 		case "js":
-			["hxnodejs"];
+			"-lib hxnodejs";
 		default:
-			[];
+			"";
 	}
-	return [for (lib in libs) '-lib $lib'].join(' ');
 }
 
 function mainPaths(modules:Array<Typer.Module>):Array<String> {
@@ -394,6 +393,8 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	if (instance.target != "" && instance.target != "interp") {
 		final main = paths.length > 0 ? paths[0] : "";
 		for (command in buildTarget(instance.target, instance.targetOutput, main).split(" "))
+			commands.push(command);
+		for (command in targetLibs(instance.target).split(" "))
 			commands.push(command);
 	}
 	if (!instance.noRun && instance.target != "") {

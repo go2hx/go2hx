@@ -89,7 +89,7 @@ function main() {
 		update();
 }
 
-final targets = ["interp", "hl", "cpp", "jvm"];
+final targets = ["interp", "hl", "jvm"];
 
 private function update() {
 	processPool.update();
@@ -119,7 +119,6 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			final command = Main.runTarget(task.target, out, args, main);
 
 			task.command = command;
-			trace(command);
 			processPool.run(command, task, true);
 		} else {
 			suites[task.data.type].success(task);
@@ -165,6 +164,7 @@ private function complete(modules:Array<Typer.Module>, task:TaskData) {
 		final out = createTargetOutput(target, task.data.type, task.data.name);
 		final main = task.data.name.charAt(0).toUpperCase() + task.data.name.substr(1);
 		command += " " + Main.buildTarget(target, out, main);
+		command += " " + Main.targetLibs(target);
 		task.command = command;
 		trace(command);
 		processPool.run(command, task, false);

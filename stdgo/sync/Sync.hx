@@ -1,7 +1,7 @@
 package stdgo.sync;
 
 import stdgo.StdGoTypes;
-import stdgo.StdGoTypes;
+#if (target.threaded)
 import sys.thread.Deque;
 
 @:structInit
@@ -44,6 +44,39 @@ class Pool {
 		pool.push(_p);
 	}
 }
+#else
+@:structInit
+class Pool {
+	public var new_:() -> AnyInterface = null;
+
+	public var _victimSize:GoInt = 0;
+	public var _victim:AnyInterface = null;
+	public var _noCopy:stdgo.sync.T_noCopy = null;
+	public var _localSize:GoInt = 0;
+	public var _local:AnyInterface = null;
+
+	public function new(new_ = null, _victimSize = null, _victim = null, _noCopy = null, _localSize = null, _local = null) {
+		if (new_ != null)
+			this.new_ = new_;
+		if (_victimSize != null)
+			this._victimSize = _victimSize;
+		if (_victim != null)
+			this._victim = _victim;
+		if (_noCopy != null)
+			this._noCopy = _noCopy;
+		if (_localSize != null)
+			this._localSize = _localSize;
+		if (_local != null)
+			this._local = _local;
+	}
+
+	public function get():AnyInterface {
+		return null;
+	}
+
+	public function put(_p:AnyInterface) {}
+}
+#end
 
 typedef Locker = StructType & {
 	public function lock():Void;
@@ -93,6 +126,12 @@ class Map_ {
 
 	public function store(key:AnyInterface, value:AnyInterface) {}
 }
+
+// noCopy may be embedded into structs which must not be copied
+// after the first use.
+//
+// See https://golang.org/issues/8005#issuecomment-190753527
+// for details.
 
 @:structInit
 class Mutex {
@@ -148,15 +187,9 @@ class WaitGroup {
 		}
 	}
 
-	public function wait()
+	public function wait_()
 		lock.wait();
 }
-
-// noCopy may be embedded into structs which must not be copied
-// after the first use.
-//
-// See https://golang.org/issues/8005#issuecomment-190753527
-// for details.
 
 @:structInit
 class T_noCopy {

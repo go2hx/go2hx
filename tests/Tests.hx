@@ -81,7 +81,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	runsLeft = tasks.length * targets.length * 2 - 1; // 2 runs per task per target
+	runsLeft = tasks.length * (targets.length * 2 - 1); // 2 runs per task per target
 	Sys.println("Test runs left: " + runsLeft);
 	startStamp = haxe.Timer.stamp();
 	// update loop
@@ -94,7 +94,6 @@ final targets = ["interp", "hl", "jvm"];
 private function update() {
 	processPool.update();
 	Main.update();
-	// trace("TASKS LEFT: " + tasks.map(task -> task.data.name));
 	for (task in tasks) {
 		final instance = Main.compileArgs(task.args);
 		instance.data = task;
@@ -128,15 +127,17 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].runtimeError(task);
 		} else {
 			log(task.data.name + '.go `$command`   build error: $code');
-			proc.kill();
 			log(proc.stderr.readAll().toString());
 			if (task.target != "interp")
 				runsLeft--; // remove as no more runtime test
 			suites[task.data.type].buildError(task);
 		}
 	}
-	if (--runsLeft <= 0)
+	trace("runsLeft: " + runsLeft);
+	if (--runsLeft <= 0) {
+		trace(processPool.pool.map(p -> p.command));
 		close();
+	}
 }
 
 private function complete(modules:Array<Typer.Module>, task:TaskData) {

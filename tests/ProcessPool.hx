@@ -5,7 +5,7 @@ import sys.io.Process;
 typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool, command:String, stamp:Float};
 
 class ProcessPool {
-	var pool:Array<ProcessData> = [];
+	public var pool:Array<ProcessData> = [];
 	var queue:Array<{command:String, data:Dynamic, runtimeBool:Bool}> = [];
 	var count = 0;
 

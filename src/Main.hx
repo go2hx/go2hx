@@ -286,8 +286,9 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 
 				buff = haxe.zip.Uncompress.run(buff);
 
-				haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
-				Sys.println("retrieved exportData");
+				exportData = haxe.Json.parse(buff.toString());
+				// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
+				// Sys.println("retrieved exportData");
 				final index = Std.parseInt(exportData.index);
 				final instance = instanceCache[index];
 				instanceCache[index] = null; // reset
@@ -380,7 +381,6 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	}
 
 	final paths = mainPaths(modules);
-	final libs = targetLibs(instance);
 	final commands = ['-lib', 'go2hx'];
 	var cp = instance.outputPath;
 	// final hxmlPathIndex = hxmlPath.lastIndexOf("/") + 1;
@@ -393,10 +393,9 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	for (define in instance.defines) {
 		commands.push('-D $define');
 	}
-	if (libs != "")
-		commands.push(libs);
 	if (instance.target != "" && instance.target != "interp") {
-		for (command in buildTarget(instance.target, instance.targetOutput).split(" "))
+		final main = paths.length > 0 ? paths[0] : "";
+		for (command in buildTarget(instance.target, instance.targetOutput, main).split(" "))
 			commands.push(command);
 	}
 	if (!instance.noRun && instance.target != "") {
@@ -410,7 +409,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			}
 			Sys.println('haxe ' + commands.join(" "));
 			Sys.command('haxe', commands); // build without build file
-			final runCommand = runTarget(instance.target, instance.targetOutput, args);
+			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);
 				Sys.command(runCommand);
@@ -457,7 +456,10 @@ function libTarget(target:String):String {
 	}
 }
 
-function buildTarget(target:String, out:String, main:String = ""):String {
+function buildTarget(target:String, out:String, main:String):String {
+	final index = main.lastIndexOf(".");
+	if (index != -1)
+		main = main.substr(index + 1);
 	return switch target {
 		case "hl", "jvm", "cpp", "cs":
 			'--$target $out';
@@ -468,7 +470,10 @@ function buildTarget(target:String, out:String, main:String = ""):String {
 	}
 }
 
-function runTarget(target:String, out:String, args:Array<String>):String {
+function runTarget(target:String, out:String, args:Array<String>, main:String):String {
+	final index = main.lastIndexOf(".");
+	if (index != -1)
+		main = main.substr(index + 1);
 	var s = switch target {
 		case "interp":
 			"";

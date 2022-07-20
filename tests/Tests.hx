@@ -81,7 +81,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	runsLeft = tasks.length * targets.length;
+	runsLeft = tasks.length * targets.length * 2 - 1; // 2 runs per task per target
 	Sys.println("Test runs left: " + runsLeft);
 	startStamp = haxe.Timer.stamp();
 	// update loop
@@ -107,11 +107,25 @@ private function update() {
 
 final hadError:Map<String, Bool> = [];
 
-private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runBool:Bool) {
+private function completeProcess(code:Int, proc:Process, task:TaskData, command:String, runtimeBool:Bool) {
 	if (code == 0) {
-		suites[task.data.type].success(task);
+		if (!runtimeBool && task.target != "interp") {
+			final args = task.data.exclude == "" ? [] : ["-excludes"].concat(task.data.exclude.split(" "));
+			if (task.target == "hxcpp") {
+				command += " -D HXCPP_NONINTERACTIVE";
+			}
+			final out = createTargetOutput(task.target, task.data.type, task.data.name);
+			final main = task.data.name.charAt(0).toUpperCase() + task.data.name.substr(1);
+			final command = Main.runTarget(task.target, out, args, main);
+
+			task.command = command;
+			trace(command);
+			processPool.run(command, task, true);
+		} else {
+			suites[task.data.type].success(task);
+		}
 	} else {
-		if (runBool) {
+		if (runtimeBool) {
 			log(task.data.name + '.go `$command` runtime error: $code');
 			suites[task.data.type].runtimeError(task);
 		} else {
@@ -124,6 +138,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 					}
 					final parts = line.split(":");
 					final end = parts.pop();
+
 					if (hadError.exists(end))
 						continue;
 					hadError[end] = true;
@@ -135,34 +150,24 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			suites[task.data.type].buildError(task);
 		}
 	}
-
 	if (--runsLeft <= 0)
 		close();
 	// if (runsLeft % targets.length == 0)
 	//	Sys.println(runsLeft);
 }
 
-private function complete(modules:Array<Typer.Module>, obj:TaskData) {
+private function complete(modules:Array<Typer.Module>, task:TaskData) {
 	// spawn targets
 	for (target in targets) {
-		final obj = obj.copy();
-		var command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml";
-		obj.target = target;
-		final out = createTargetOutput(target, obj.data.type, obj.data.name);
-		final args = obj.data.exclude == "" ? [] : ["-excludes"].concat(obj.data.exclude.split(" "));
-		if (target != "interp") {
-			command += " " + Main.buildTarget(target, out);
-			if (target == "hxcpp") {
-				command += " -D HXCPP_NONINTERACTIVE";
-			}
-			final command = Main.runTarget(target, out, args);
-			processPool.run(command, obj, true);
-		} else {
-			command = (ci ? "npx " : "") + "haxe " + obj.hxml + ".hxml --run " + obj.data.name.charAt(0).toUpperCase() + obj.data.name.substr(1)
-				+ args.join(" ");
-		}
-		obj.command = command;
-		processPool.run(command, obj, false);
+		final task = task.copy();
+		var command = (ci ? "npx " : "") + "haxe " + task.hxml + ".hxml";
+		task.target = target;
+		final out = createTargetOutput(target, task.data.type, task.data.name);
+		final main = task.data.name.charAt(0).toUpperCase() + task.data.name.substr(1);
+		command += " " + Main.buildTarget(target, out, main);
+		task.command = command;
+		trace(command);
+		processPool.run(command, task, false);
 	}
 }
 
@@ -171,7 +176,7 @@ private function createTargetOutput(target:String, type:String, name:String):Str
 		case "interp": type + "_" + sanatize(name) + ".hxml";
 		case "hl": type + "_" + sanatize(name) + ".hl";
 		case "jvm": type + "_" + sanatize(name) + ".jar";
-		case "cpp", "cs": "export/target/" + type + "_" + sanatize(name);
+		case "cpp", "cs": 'export/$target/' + type + "_" + sanatize(name);
 		default:
 			throw "unknown target: " + target;
 	}
@@ -189,7 +194,7 @@ private function testGo():Array<TestData> { // go tests
 	GOROOT = GOROOT.substr(0, GOROOT.length - 1);
 	proc.close();
 	final dir = GOROOT.addTrailingSlash() + "test/";
-	final tests = [];
+	final tests:Array<TestData> = [];
 	for (path in dir.readDirectory()) {
 		var name = path.withoutExtension();
 		path = dir + path;
@@ -212,7 +217,7 @@ private function testGo():Array<TestData> { // go tests
 
 private function testStd():Array<TestData> { // standard library package tests
 	final list:Array<String> = Json.parse(File.getContent("tests.json")).tests;
-	final tests = [];
+	final tests:Array<TestData> = [];
 	for (obj in list) {
 		final args = obj.split("-");
 		tests.push({
@@ -249,10 +254,27 @@ private function close() {
 		log('  build error: ' + calc(suite.buildErrorCount, suite.count));
 		log('runtime error: ' + calc(suite.runtimeErrorCount, suite.count));
 		suite.dataList.sort((a, b) -> a.task.data.name > b.task.data.name ? 1 : -1); // sort test list by name
-		log(' test results:\n'
-			+ suite.dataList.map(data -> "    " + (data.passing ? "[x]" : "[ ]") + " " + data.task.data.name + " target: " + data.task.target + " command: "
-				+ StringTools.lpad(data.task.command, " ", 60))
-				.join("\n"));
+		log(' test results:');
+		final testData:Map<String, String> = [];
+		final testFailingCount:Map<String, Int> = [];
+		for (data in suite.dataList) {
+			if (!testFailingCount.exists(data.task.data.name))
+				testFailingCount[data.task.data.name] = 0;
+			if (!testData.exists(data.task.data.name))
+				testData[data.task.data.name] = "";
+			if (!data.passing)
+				testFailingCount[data.task.data.name]++;
+			testData[data.task.data.name] += "\n    " + (data.passing ? "[x]" : "[ ]") + " " + data.task.target + " "
+				+ StringTools.lpad(data.task.command, " ", 60);
+		}
+		for (name => str in testData) {
+			final failCount = testFailingCount[name];
+			if (failCount == 0) {
+				log('[x] $name');
+			} else {
+				log('[ ] $name$str');
+			}
+		}
 	}
 	logOutput.close();
 	Main.close();
@@ -352,7 +374,25 @@ private function testGoByExample():Array<TestData> { // gobyexample
 	return tests;
 }
 
-typedef TestData = {name:String, type:String, path:String, exclude:String, test:Bool};
+@:structInit
+class TestData {
+	public var name:String = "";
+	public var type:String = "";
+	public var path:String = "";
+	public var exclude:String = "";
+	public var test:Bool = false;
+
+	public function new(name, type, path, exclude, test) {
+		this.name = name;
+		this.type = type;
+		this.path = path;
+		this.exclude = exclude;
+		this.test = test;
+	}
+
+	public function copy()
+		return new TestData(this.name, this.type, this.path, this.exclude, this.test);
+}
 
 @:structInit
 class TaskData {
@@ -371,7 +411,7 @@ class TaskData {
 	}
 
 	public function copy()
-		return new TaskData(target, args, data, hxml, command);
+		return new TaskData(target, args.copy(), data.copy(), hxml, command);
 }
 
 class TestSuite {

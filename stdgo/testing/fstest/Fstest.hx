@@ -829,26 +829,18 @@ class T_mapDir_wrapper {
             {
                 var _err:stdgo.Error = stdgo.testing.iotest.Iotest.testReader(_f, _data);
                 if (_err != null) {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        _t._errorf(((((("%s: failed TestReader:\n\t%s" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(stdgo.strings.Strings.replaceAll(_err.error(), ((((("\n" : GoString))) : GoString)), ((((("\n\t" : GoString))) : GoString)))));
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
-                    };
+                    _t._errorf(((((("%s: failed TestReader:\n\t%s" : GoString))) : GoString)), Go.toInterface(_file), Go.toInterface(stdgo.strings.Strings.replaceAll(_err.error(), ((((("\n" : GoString))) : GoString)), ((((("\n\t" : GoString))) : GoString)))));
                 };
             };
             for (defer in __deferstack__) {
                 defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return;
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -1158,26 +1150,11 @@ class T_mapDir_wrapper {
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                var __recover_exception__:AnyInterface = null;
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    _t._errorf(((((("%s: second Open+ReadDir(-1): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return;
-                    };
+                _t._errorf(((((("%s: second Open+ReadDir(-1): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
+                {
                     for (defer in __deferstack__) {
                         defer();
                     };
-                } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    __recover_exception__ = __exception__.native;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
                     return;
                 };
             };
@@ -1185,25 +1162,10 @@ class T_mapDir_wrapper {
             {
                 _d = _t._openDir(_dir);
                 if (_d == null) {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        {
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            return;
-                        };
+                    {
                         for (defer in __deferstack__) {
                             defer();
                         };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
                         return;
                     };
                 };
@@ -1211,131 +1173,41 @@ class T_mapDir_wrapper {
             __deferstack__.unshift(() -> _d.close());
             _list2 = ((null : Slice<stdgo.io.fs.Fs.DirEntry>));
             while (true) {
-                var __recover_exception__:AnyInterface = null;
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    var _n:GoInt = ((1 : GoInt));
-                    if ((_list2 != null ? _list2.length : ((0 : GoInt))) > ((0 : GoInt))) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            _n = ((2 : GoInt));
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                var _n:GoInt = ((1 : GoInt));
+                if ((_list2 != null ? _list2.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                    _n = ((2 : GoInt));
+                };
+                var __tmp__ = _d.readDir(_n), _frag:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                if ((_frag != null ? _frag.length : ((0 : GoInt))) > _n) {
+                    _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %d entries (too many)" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface((_frag != null ? _frag.length : ((0 : GoInt)))));
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        return;
                     };
-                    var __tmp__ = _d.readDir(_n), _frag:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                    if ((_frag != null ? _frag.length : ((0 : GoInt))) > _n) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %d entries (too many)" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface((_frag != null ? _frag.length : ((0 : GoInt)))));
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                };
+                _list2 = (_list2 != null ? _list2.__append__(..._frag.__toArray__()) : new Slice<stdgo.io.fs.Fs.DirEntry>(..._frag.__toArray__()));
+                if (_err == stdgo.io.Io.eof) {
+                    break;
+                };
+                if (_err != null) {
+                    _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        return;
                     };
-                    _list2 = (_list2 != null ? _list2.__append__(..._frag.__toArray__()) : new Slice<stdgo.io.fs.Fs.DirEntry>(..._frag.__toArray__()));
-                    if (_err == stdgo.io.Io.eof) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            break;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
+                };
+                if (_n == ((0 : GoInt))) {
+                    _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: 0 entries but nil error" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))));
+                    {
+                        for (defer in __deferstack__) {
+                            defer();
                         };
+                        return;
                     };
-                    if (_err != null) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))), Go.toInterface(_err));
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
-                        };
-                    };
-                    if (_n == ((0 : GoInt))) {
-                        var __recover_exception__:AnyInterface = null;
-                        var __deferstack__:Array<Void -> Void> = [];
-                        try {
-                            _t._errorf(((((("%s: third Open: ReadDir(%d) after %d: 0 entries but nil error" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_n), Go.toInterface((_list2 != null ? _list2.length : ((0 : GoInt)))));
-                            {
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                return;
-                            };
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                        } catch(__exception__) {
-                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                            __recover_exception__ = __exception__.native;
-                            for (defer in __deferstack__) {
-                                defer();
-                            };
-                            if (__recover_exception__ != null) throw __recover_exception__;
-                            return;
-                        };
-                    };
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    __recover_exception__ = __exception__.native;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
-                    return;
                 };
             };
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))) : GoString)), _list, _list2);
@@ -1346,84 +1218,24 @@ class T_mapDir_wrapper {
                     { value : ((null : stdgo.io.fs.Fs.ReadDirFS)), ok : false };
                 }, _fsys = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        var __tmp__ = _fsys.readDir(_dir), _list2:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                        if (_err != null) {
-                            var __recover_exception__:AnyInterface = null;
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                _t._errorf(((((("%s: fsys.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
-                                {
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    return;
-                                };
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                            } catch(__exception__) {
-                                if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                                __recover_exception__ = __exception__.native;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
-                            };
-                        };
-                        _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fsys.ReadDir" : GoString))) : GoString)), _list, _list2);
+                    var __tmp__ = _fsys.readDir(_dir), _list2:Slice<stdgo.io.fs.Fs.DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    if (_err != null) {
+                        _t._errorf(((((("%s: fsys.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
                         {
-                            var _i:GoInt = ((0 : GoInt));
-                            Go.cfor((_i + ((1 : GoInt))) < (_list2 != null ? _list2.length : ((0 : GoInt))), _i++, {
-                                var __recover_exception__:AnyInterface = null;
-                                var __deferstack__:Array<Void -> Void> = [];
-                                try {
-                                    if ((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name() >= (_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()) {
-                                        var __recover_exception__:AnyInterface = null;
-                                        var __deferstack__:Array<Void -> Void> = [];
-                                        try {
-                                            _t._errorf(((((("%s: fsys.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
-                                            for (defer in __deferstack__) {
-                                                defer();
-                                            };
-                                        } catch(__exception__) {
-                                            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                                            __recover_exception__ = __exception__.native;
-                                            for (defer in __deferstack__) {
-                                                defer();
-                                            };
-                                            if (__recover_exception__ != null) throw __recover_exception__;
-                                            return;
-                                        };
-                                    };
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                } catch(__exception__) {
-                                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                                    __recover_exception__ = __exception__.native;
-                                    for (defer in __deferstack__) {
-                                        defer();
-                                    };
-                                    if (__recover_exception__ != null) throw __recover_exception__;
-                                    return;
-                                };
-                            });
+                            for (defer in __deferstack__) {
+                                defer();
+                            };
+                            return;
                         };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    };
+                    _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs fsys.ReadDir" : GoString))) : GoString)), _list, _list2);
+                    {
+                        var _i:GoInt = ((0 : GoInt));
+                        Go.cfor((_i + ((1 : GoInt))) < (_list2 != null ? _list2.length : ((0 : GoInt))), _i++, {
+                            if ((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name() >= (_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()) {
+                                _t._errorf(((((("%s: fsys.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
+                            };
+                        });
                     };
                 };
             };
@@ -1433,26 +1245,11 @@ class T_mapDir_wrapper {
                 _err = __tmp__._1;
             };
             if (_err != null) {
-                var __recover_exception__:AnyInterface = null;
-                var __deferstack__:Array<Void -> Void> = [];
-                try {
-                    _t._errorf(((((("%s: fs.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
-                    {
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        return;
-                    };
+                _t._errorf(((((("%s: fs.ReadDir: %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_err));
+                {
                     for (defer in __deferstack__) {
                         defer();
                     };
-                } catch(__exception__) {
-                    if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                    __recover_exception__ = __exception__.native;
-                    for (defer in __deferstack__) {
-                        defer();
-                    };
-                    if (__recover_exception__ != null) throw __recover_exception__;
                     return;
                 };
             };
@@ -1460,44 +1257,21 @@ class T_mapDir_wrapper {
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor((_i + ((1 : GoInt))) < (_list2 != null ? _list2.length : ((0 : GoInt))), _i++, {
-                    var __recover_exception__:AnyInterface = null;
-                    var __deferstack__:Array<Void -> Void> = [];
-                    try {
-                        if ((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name() >= (_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()) {
-                            var __recover_exception__:AnyInterface = null;
-                            var __deferstack__:Array<Void -> Void> = [];
-                            try {
-                                _t._errorf(((((("%s: fs.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                            } catch(__exception__) {
-                                if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                                __recover_exception__ = __exception__.native;
-                                for (defer in __deferstack__) {
-                                    defer();
-                                };
-                                if (__recover_exception__ != null) throw __recover_exception__;
-                                return;
-                            };
-                        };
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                    } catch(__exception__) {
-                        if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
-                        __recover_exception__ = __exception__.native;
-                        for (defer in __deferstack__) {
-                            defer();
-                        };
-                        if (__recover_exception__ != null) throw __recover_exception__;
-                        return;
+                    if ((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name() >= (_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()) {
+                        _t._errorf(((((("%s: fs.ReadDir: list not sorted: %s before %s" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface((_list2 != null ? _list2[_i] : ((null : stdgo.io.fs.Fs.DirEntry))).name()), Go.toInterface((_list2 != null ? _list2[_i + ((1 : GoInt))] : ((null : stdgo.io.fs.Fs.DirEntry))).name()));
                     };
                 });
             };
             _t._checkGlob(_dir, _list);
             for (defer in __deferstack__) {
                 defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return;
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;

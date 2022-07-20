@@ -13,7 +13,7 @@ final reserved = [
 	"cap", "iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function",
 	"dynamic", "else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new",
 	"operator", "overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var",
-	"while", "construct", "null", "in",
+	"while", "construct", "null", "in", "wait",
 ];
 
 final reservedClassNames = [
@@ -2744,7 +2744,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					}
 			}
 		case "FuncLit":
-			var expr = toExpr(typeFuncLit(expr.fun, info, false));
+			var expr = toExpr(typeFuncLit(expr.fun, info));
 			genArgs(true);
 			return returnExpr(macro {
 				var a = $expr;
@@ -3949,14 +3949,14 @@ private function funcReset(info:Info) {
 	info.recoverBool = false;
 }
 
-private function typeFuncLit(expr:Ast.FuncLit, info:Info, isFunc:Bool = true):ExprDef {
+private function typeFuncLit(expr:Ast.FuncLit, info:Info):ExprDef {
 	final info = info.copy();
-	if (isFunc)
-		funcReset(info);
+	info.deferBool = false;
+	info.recoverBool = false;
 
 	var args = typeFieldListArgs(expr.type.params, info);
 	var ret = typeFieldListReturn(expr.type.results, info, true);
-	var block = typeBlockStmt(expr.body, info, isFunc);
+	var block = typeBlockStmt(expr.body, info, true);
 	// allows multiple nested values
 	return EFunction(FAnonymous, {
 		ret: ret,

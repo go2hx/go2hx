@@ -898,7 +898,7 @@ function new_(typ:Type):Value {
 }
 
 function defaultValue(typ:Type):Any {
-	return switch @:privateAccess typ.common().value {
+	return switch (@:privateAccess typ.common().value : GoType) {
 		case basic(kind):
 			switch kind {
 				case string_kind: ("" : GoString);
@@ -1612,8 +1612,8 @@ class _Type {
 	}
 }
 
-private function namedUnderlying(obj:AnyInterface) {
-	return switch @:privateAccess obj.type.common().value {
+private function namedUnderlying(obj:AnyInterface):AnyInterface {
+	return switch (@:privateAccess obj.type.common().value : GoType) {
 		case named(_, _, type):
 			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
 		default:

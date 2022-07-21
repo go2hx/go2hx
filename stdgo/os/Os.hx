@@ -19,14 +19,24 @@ var errNotExist : stdgo.Error = stdgo.io.fs.Fs.errNotExist;
 var errClosed : stdgo.Error = stdgo.io.fs.Fs.errClosed;
 var errNoDeadline : stdgo.Error = _errNoDeadline();
 var errDeadlineExceeded : stdgo.Error = _errDeadlineExceeded();
-var errProcessDone : stdgo.Error = stdgo.errors.Errors.new_(((("os: process already finished" : GoString))));
-var interrupt : Signal = ((2 : GoInt));
-var kill : Signal = ((3 : GoInt));
-var _errWriteAtInAppendMode : stdgo.Error = stdgo.errors.Errors.new_(((("os: invalid use of WriteAt on file opened with O_APPEND" : GoString))));
-var stdin : Ref<File> = newFile(((((0 : GoUIntptr)) : GoUIntptr)), ((("/dev/stdin" : GoString))));
-var stdout : Ref<File> = newFile(((((1 : GoUIntptr)) : GoUIntptr)), ((("/dev/stdout" : GoString))));
-var stderr : Ref<File> = newFile(((((2 : GoUIntptr)) : GoUIntptr)), ((("/dev/stderr" : GoString))));
-var _errPatternHasSeparator : stdgo.Error = stdgo.errors.Errors.new_(((("pattern contains path separator" : GoString))));
+var errProcessDone : stdgo.Error = stdgo.errors.Errors.new_(((((("os: process already finished" : GoString))) : GoString)));
+var interrupt : Signal = {
+        final __self__ = new stdgo.syscall.Syscall.Signal_wrapper(((2 : stdgo.syscall.Syscall.Signal)));
+        __self__.signal = #if !macro function():Void ((2 : stdgo.syscall.Syscall.Signal)).signal() #else null #end;
+        __self__.toString = #if !macro function():GoString return ((2 : stdgo.syscall.Syscall.Signal)).toString() #else null #end;
+        __self__;
+    };
+var kill : Signal = {
+        final __self__ = new stdgo.syscall.Syscall.Signal_wrapper(((3 : stdgo.syscall.Syscall.Signal)));
+        __self__.signal = #if !macro function():Void ((3 : stdgo.syscall.Syscall.Signal)).signal() #else null #end;
+        __self__.toString = #if !macro function():GoString return ((3 : stdgo.syscall.Syscall.Signal)).toString() #else null #end;
+        __self__;
+    };
+var _errWriteAtInAppendMode : stdgo.Error = stdgo.errors.Errors.new_(((((("os: invalid use of WriteAt on file opened with O_APPEND" : GoString))) : GoString)));
+var stdin : Ref<File> = newFile(((((0 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stdin" : GoString))) : GoString)));
+var stdout : Ref<File> = newFile(((((1 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stdout" : GoString))) : GoString)));
+var stderr : Ref<File> = newFile(((((2 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stderr" : GoString))) : GoString)));
+var _errPatternHasSeparator : stdgo.Error = stdgo.errors.Errors.new_(((((("pattern contains path separator" : GoString))) : GoString)));
 var _lstat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = lstat;
 var _testingForceReadDirLstat : Bool = false;
 var _getwdCache : T__struct_0 = new T__struct_0();
@@ -964,7 +974,7 @@ class SyscallError_wrapper {
         // of the current process or an error will be returned.
     **/
     @:keep
-    static public function wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    static public function wait_( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,
@@ -1018,7 +1028,7 @@ class Process_wrapper {
         // of the current process or an error will be returned.
     **/
     @:keep
-    public var wait : () -> { var _0 : ProcessState; var _1 : Error; } = null;
+    public var wait_ : () -> { var _0 : ProcessState; var _1 : Error; } = null;
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,

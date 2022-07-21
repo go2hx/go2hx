@@ -6,6 +6,7 @@ import sys.io.File;
 
 var libs:Array<String> = [];
 final path = Sys.getCwd();
+var libCount = 0;
 
 function main() {
 	final args = Sys.args();
@@ -18,6 +19,7 @@ function main() {
 		libs.push(data.split("-")[0]);
 	}
 	trace(libs);
+	libCount = libs.length;
 	Main.setup(0, 2); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
@@ -33,7 +35,7 @@ function main() {
 }
 
 private function complete(modules:Array<Typer.Module>, _) {
-	if (libs.length == 0)
+	if (--libCount <= 0)
 		Main.close();
 }
 

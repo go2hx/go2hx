@@ -11,5 +11,7 @@
     "io/fs",
     "testing/fstest",
     "testing/iotest",
-    "os"
+    "os",
+    "syscall",
+    "syscall/js"
 ]}

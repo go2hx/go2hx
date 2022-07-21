@@ -10,7 +10,7 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = new Map<Int, (Value, Slice<Value>) -> AnyInterface>();
 var _nextFuncID : GoUInt32 = ((1 : GoUInt32));
-var _valueUndefined : Value = @:invalid_compositelit null;
+var _valueUndefined : Value = (({ _ref : ((0 : T_ref)), _1 : new GoArray<() -> Void>(...[for (i in 0 ... 0) null]), _gcPtr : null } : Value));
 var _valueNaN : Value = _predefValue(((0 : GoUInt32)), ((0 : GoUInt8)));
 var _valueZero : Value = _predefValue(((1 : GoUInt32)), ((0 : GoUInt8)));
 var _valueNull : Value = _predefValue(((2 : GoUInt32)), ((0 : GoUInt8)));
@@ -18,353 +18,71 @@ var _valueTrue : Value = _predefValue(((3 : GoUInt32)), ((0 : GoUInt8)));
 var _valueFalse : Value = _predefValue(((4 : GoUInt32)), ((0 : GoUInt8)));
 var _valueGlobal : Value = _predefValue(((5 : GoUInt32)), ((1 : GoUInt8)));
 var _jsGo : Value = _predefValue(((6 : GoUInt32)), ((1 : GoUInt8)));
-var _objectConstructor : Value = _valueGlobal.get(((("Object" : GoString))));
-var _arrayConstructor : Value = _valueGlobal.get(((("Array" : GoString))));
-var jsgo : Value = _jsGo;
+var _objectConstructor : Value = _valueGlobal.get(((((("Object" : GoString))) : GoString)));
+var _arrayConstructor : Value = _valueGlobal.get(((((("Array" : GoString))) : GoString)));
 var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
-    @:keep
-    public function release():Void {
-        var _c = this;
-        _c;
-        _funcsMu.lock();
-        if (_funcs != null) _funcs.__remove__(_c._id);
-        _funcsMu.unlock();
-    }
     @:embedded
     public var value : Value = new Value();
-    public var _id : GoUInt32 = ((0 : GoUInt32));
+    public var _id : GoUInt32 = 0;
     public function new(?value:Value, ?_id:GoUInt32) {
         if (value != null) this.value = value;
         if (_id != null) this._id = _id;
     }
-    public function bool():Bool return value.bool();
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return value.call(_m, ..._args);
-    public function delete(_p:GoString) value.delete(_p);
-    public function equal(_w:Value):Bool return value.equal(_w);
-    public function float():GoFloat64 return value.float();
-    public function get(_p:GoString):Value return value.get(_p);
-    public function index(_i:GoInt):Value return value.index(_i);
-    public function instanceOf(_t:Value):Bool return value.instanceOf(_t);
-    public function int():GoInt return value.int();
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return value.invoke(..._args);
-    public function isNaN():Bool return value.isNaN();
-    public function isNull():Bool return value.isNull();
-    public function isUndefined():Bool return value.isUndefined();
-    public function length():GoInt return value.length();
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return value.new_(..._args);
-    public function set(_p:GoString, _x:AnyInterface) value.set(_p, _x);
-    public function setIndex(_i:GoInt, _x:AnyInterface) value.setIndex(_i, _x);
-    public function toString():GoString return value.toString();
-    public function truthy():Bool return value.truthy();
-    public function type():Type return value.type();
-    public function _float(_method:GoString):GoFloat64 return value._float(_method);
-    public function _isNumber():Bool return value._isNumber();
+    @:embedded
+    public function bool():Bool return false;
+    @:embedded
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function delete(_p:GoString) null;
+    @:embedded
+    public function equal(_w:Value):Bool return false;
+    @:embedded
+    public function float():GoFloat64 return ((0 : GoFloat64));
+    @:embedded
+    public function get(_p:GoString):Value return new Value();
+    @:embedded
+    public function index(_i:GoInt):Value return new Value();
+    @:embedded
+    public function instanceOf(_t:Value):Bool return false;
+    @:embedded
+    public function int():GoInt return ((0 : GoInt));
+    @:embedded
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function isNaN():Bool return false;
+    @:embedded
+    public function isNull():Bool return false;
+    @:embedded
+    public function isUndefined():Bool return false;
+    @:embedded
+    public function length():GoInt return ((0 : GoInt));
+    @:embedded
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function set(_p:GoString, _x:AnyInterface) null;
+    @:embedded
+    public function setIndex(_i:GoInt, _x:AnyInterface) null;
+    @:embedded
+    public function toString():GoString return (("" : GoString));
+    @:embedded
+    public function truthy():Bool return false;
+    @:embedded
+    public function type():Type return new Type();
+    @:embedded
+    public function _float(_method:GoString):GoFloat64 return ((0 : GoFloat64));
+    @:embedded
+    public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new Func(value, _id);
     }
 }
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
-    @:keep
-    public function instanceOf(_t:Value):Bool {
-        var _v = this;
-        _v;
-        var _r:Bool = _valueInstanceOf(_v._ref, _t._ref);
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_t));
-        return _r;
-    }
-    @:keep
-    public function toString():GoString {
-        var _v = this;
-        _v;
-        if (_v.type() == ((4 : GoInt64))) {
-            return _jsString(_v);
-        } else if (_v.type() == ((0 : GoInt64))) {
-            return ((("<undefined>" : GoString)));
-        } else if (_v.type() == ((1 : GoInt64))) {
-            return ((("<null>" : GoString)));
-        } else if (_v.type() == ((2 : GoInt64))) {
-            return (((("<boolean: " : GoString))) + _jsString(_v)) + (((">" : GoString)));
-        } else if (_v.type() == ((3 : GoInt64))) {
-            return (((("<number: " : GoString))) + _jsString(_v)) + (((">" : GoString)));
-        } else if (_v.type() == ((5 : GoInt64))) {
-            return ((("<symbol>" : GoString)));
-        } else if (_v.type() == ((6 : GoInt64))) {
-            return ((("<object>" : GoString)));
-        } else if (_v.type() == ((7 : GoInt64))) {
-            return ((("<function>" : GoString)));
-        } else {
-            throw Go.toInterface(((("bad type" : GoString))));
-        };
-    }
-    @:keep
-    public function truthy():Bool {
-        var _v = this;
-        _v;
-        if (_v.type() == ((0 : GoInt64)) || _v.type() == ((1 : GoInt64))) {
-            return false;
-        } else if (_v.type() == ((2 : GoInt64))) {
-            return _v.bool();
-        } else if (_v.type() == ((3 : GoInt64))) {
-            return (_v._ref != _valueNaN._ref) && (_v._ref != _valueZero._ref);
-        } else if (_v.type() == ((4 : GoInt64))) {
-            return ((_v.toString() : GoString)) != ("");
-        } else if (_v.type() == ((5 : GoInt64)) || _v.type() == ((7 : GoInt64)) || _v.type() == ((6 : GoInt64))) {
-            return true;
-        } else {
-            throw Go.toInterface(((("bad type" : GoString))));
-        };
-    }
-    @:keep
-    public function bool():Bool {
-        var _v = this;
-        _v;
-        if (_v._ref == _valueTrue._ref) {
-            return true;
-        } else if (_v._ref == _valueFalse._ref) {
-            return false;
-        } else {
-            throw Go.toInterface(@:invalid_compositelit null);
-        };
-    }
-    @:keep
-    public function int():GoInt {
-        var _v = this;
-        _v;
-        return ((_v._float(((("Value.Int" : GoString)))) : GoInt));
-    }
-    @:keep
-    public function float():GoFloat64 {
-        var _v = this;
-        _v;
-        return _v._float(((("Value.Float" : GoString))));
-    }
-    @:keep
-    public function _float(_method:GoString):GoFloat64 {
-        var _v = this;
-        _v;
-        if (!_v._isNumber()) {
-            throw Go.toInterface(@:invalid_compositelit null);
-        };
-        if (_v._ref == _valueZero._ref) {
-            return ((0 : GoFloat64));
-        };
-        return ((((_v._ref : stdgo.unsafe.Unsafe.UnsafePointer)) : Pointer<GoFloat64>)).value;
-    }
-    @:keep
-    public function _isNumber():Bool {
-        var _v = this;
-        _v;
-        return ((_v._ref == _valueZero._ref) || (_v._ref == _valueNaN._ref)) || ((_v._ref != _valueUndefined._ref) && (((_v._ref >> ((32 : GoUnTypedInt))) & ((2146959360 : GoInt))) != ((2146959360 : GoInt))));
-    }
-    @:keep
-    public function new_(_args:haxe.Rest<AnyInterface>):Value {
-        var _v = this;
-        _v;
-        var _args = new Slice<AnyInterface>(..._args);
-        var __tmp__ = _makeArgs(_args), _argVals:Slice<Value> = __tmp__._0, _argRefs:Slice<T_ref> = __tmp__._1;
-        var __tmp__ = _valueNew(_v._ref, _argRefs), _res:T_ref = __tmp__._0, _ok:Bool = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_argVals));
-        if (!_ok) {
-            {
-                var _vType:Type = _v.type();
-                if (_vType != ((7 : GoInt))) {
-                    throw Go.toInterface(@:invalid_compositelit null);
-                };
-            };
-            throw Go.toInterface(@:invalid_compositelit null);
-        };
-        return _makeValue(_res);
-    }
-    @:keep
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value {
-        var _v = this;
-        _v;
-        var _args = new Slice<AnyInterface>(..._args);
-        var __tmp__ = _makeArgs(_args), _argVals:Slice<Value> = __tmp__._0, _argRefs:Slice<T_ref> = __tmp__._1;
-        var __tmp__ = _valueInvoke(_v._ref, _argRefs), _res:T_ref = __tmp__._0, _ok:Bool = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_argVals));
-        if (!_ok) {
-            {
-                var _vType:Type = _v.type();
-                if (_vType != ((7 : GoInt))) {
-                    throw Go.toInterface(@:invalid_compositelit null);
-                };
-            };
-            throw Go.toInterface(@:invalid_compositelit null);
-        };
-        return _makeValue(_res);
-    }
-    @:keep
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value {
-        var _v = this;
-        _v;
-        var _args = new Slice<AnyInterface>(..._args);
-        var __tmp__ = _makeArgs(_args), _argVals:Slice<Value> = __tmp__._0, _argRefs:Slice<T_ref> = __tmp__._1;
-        var __tmp__ = _valueCall(_v._ref, _m, _argRefs), _res:T_ref = __tmp__._0, _ok:Bool = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_argVals));
-        if (!_ok) {
-            {
-                var _vType:Type = _v.type();
-                if (!_vType._isObject()) {
-                    throw Go.toInterface(@:invalid_compositelit null);
-                };
-            };
-            {
-                var _propType:Type = _v.get(_m).type();
-                if (_propType != ((7 : GoInt))) {
-                    throw Go.toInterface(((((("syscall/js: Value.Call: property " : GoString))) + _m) + (((" is not a function, got " : GoString)))) + ((_propType.toString() : GoString)));
-                };
-            };
-            throw Go.toInterface(@:invalid_compositelit null);
-        };
-        return _makeValue(_res);
-    }
-    @:keep
-    public function length():GoInt {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        var _r:GoInt = _valueLength(_v._ref);
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        return _r;
-    }
-    @:keep
-    public function setIndex(_i:GoInt, _x:AnyInterface):Void {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        var _xv:Value = valueOf(Go.toInterface(_x));
-        _valueSetIndex(_v._ref, _i, _xv._ref);
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_xv));
-    }
-    @:keep
-    public function index(_i:GoInt):Value {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        var _r:Value = _makeValue(_valueIndex(_v._ref, _i));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        return _r;
-    }
-    @:keep
-    public function delete(_p:GoString):Void {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        _valueDelete(_v._ref, _p);
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-    }
-    @:keep
-    public function set(_p:GoString, _x:AnyInterface):Void {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        var _xv:Value = valueOf(Go.toInterface(_x));
-        _valueSet(_v._ref, _p, _xv._ref);
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_xv));
-    }
-    @:keep
-    public function get(_p:GoString):Value {
-        var _v = this;
-        _v;
-        {
-            var _vType:Type = _v.type();
-            if (!_vType._isObject()) {
-                throw Go.toInterface(@:invalid_compositelit null);
-            };
-        };
-        var _r:Value = _makeValue(_valueGet(_v._ref, _p));
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        return _r;
-    }
-    @:keep
-    public function type():Type {
-        var _v = this;
-        _v;
-        if (_v._ref == _valueUndefined._ref) {
-            return 0;
-        } else if (_v._ref == _valueNull._ref) {
-            return 1;
-        } else if (_v._ref == _valueTrue._ref || _v._ref == _valueFalse._ref) {
-            return 2;
-        };
-        if (_v._isNumber()) {
-            return 3;
-        };
-        var _typeFlag:T_ref = (_v._ref >> ((32 : GoUnTypedInt))) & ((7 : GoInt));
-        if (_typeFlag == ((1 : GoInt64))) {
-            return 6;
-        } else if (_typeFlag == ((2 : GoInt64))) {
-            return 4;
-        } else if (_typeFlag == ((3 : GoInt64))) {
-            return 5;
-        } else if (_typeFlag == ((4 : GoInt64))) {
-            return 7;
-        } else {
-            throw Go.toInterface(((("bad type flag" : GoString))));
-        };
-    }
-    @:keep
-    public function isNaN():Bool {
-        var _v = this;
-        _v;
-        return _v._ref == _valueNaN._ref;
-    }
-    @:keep
-    public function isNull():Bool {
-        var _v = this;
-        _v;
-        return _v._ref == _valueNull._ref;
-    }
-    @:keep
-    public function isUndefined():Bool {
-        var _v = this;
-        _v;
-        return _v._ref == _valueUndefined._ref;
-    }
-    @:keep
-    public function equal(_w:Value):Bool {
-        var _v = this;
-        _v;
-        return (_v._ref == _w._ref) && (_v._ref != _valueNaN._ref);
-    }
     public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
     public var _ref : T_ref = new T_ref();
-    public var _gcPtr : T_ref = ((null : T_ref));
-    public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:T_ref) {
+    public var _gcPtr : Ref<T_ref> = null;
+    public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Ref<T_ref>) {
         if (_0 != null) this._0 = _0;
         if (_ref != null) this._ref = _ref;
         if (_gcPtr != null) this._gcPtr = _gcPtr;
@@ -375,52 +93,62 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     }
 }
 @:structInit @:using(stdgo.syscall.js.Js.T_error_static_extension) class T_error {
-    @:keep
-    public function error():GoString {
-        var _e = this;
-        _e;
-        return ((("JavaScript error: " : GoString))) + ((_e.get(((("message" : GoString)))).toString() : GoString));
-    }
     @:embedded
     public var value : Value = new Value();
     public function new(?value:Value) {
         if (value != null) this.value = value;
     }
-    public function bool():Bool return value.bool();
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return value.call(_m, ..._args);
-    public function delete(_p:GoString) value.delete(_p);
-    public function equal(_w:Value):Bool return value.equal(_w);
-    public function float():GoFloat64 return value.float();
-    public function get(_p:GoString):Value return value.get(_p);
-    public function index(_i:GoInt):Value return value.index(_i);
-    public function instanceOf(_t:Value):Bool return value.instanceOf(_t);
-    public function int():GoInt return value.int();
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return value.invoke(..._args);
-    public function isNaN():Bool return value.isNaN();
-    public function isNull():Bool return value.isNull();
-    public function isUndefined():Bool return value.isUndefined();
-    public function length():GoInt return value.length();
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return value.new_(..._args);
-    public function set(_p:GoString, _x:AnyInterface) value.set(_p, _x);
-    public function setIndex(_i:GoInt, _x:AnyInterface) value.setIndex(_i, _x);
-    public function toString():GoString return value.toString();
-    public function truthy():Bool return value.truthy();
-    public function type():Type return value.type();
-    public function _float(_method:GoString):GoFloat64 return value._float(_method);
-    public function _isNumber():Bool return value._isNumber();
+    @:embedded
+    public function bool():Bool return false;
+    @:embedded
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function delete(_p:GoString) null;
+    @:embedded
+    public function equal(_w:Value):Bool return false;
+    @:embedded
+    public function float():GoFloat64 return ((0 : GoFloat64));
+    @:embedded
+    public function get(_p:GoString):Value return new Value();
+    @:embedded
+    public function index(_i:GoInt):Value return new Value();
+    @:embedded
+    public function instanceOf(_t:Value):Bool return false;
+    @:embedded
+    public function int():GoInt return ((0 : GoInt));
+    @:embedded
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function isNaN():Bool return false;
+    @:embedded
+    public function isNull():Bool return false;
+    @:embedded
+    public function isUndefined():Bool return false;
+    @:embedded
+    public function length():GoInt return ((0 : GoInt));
+    @:embedded
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    @:embedded
+    public function set(_p:GoString, _x:AnyInterface) null;
+    @:embedded
+    public function setIndex(_i:GoInt, _x:AnyInterface) null;
+    @:embedded
+    public function toString():GoString return (("" : GoString));
+    @:embedded
+    public function truthy():Bool return false;
+    @:embedded
+    public function type():Type return new Type();
+    @:embedded
+    public function _float(_method:GoString):GoFloat64 return ((0 : GoFloat64));
+    @:embedded
+    public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_error(value);
     }
 }
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
-    @:keep
-    public function error():GoString {
-        var _e = this;
-        _e;
-        return ((((("syscall/js: call of " : GoString))) + _e.method) + (((" on " : GoString)))) + ((_e.type.toString() : GoString));
-    }
-    public var method : GoString = (("" : GoString));
+    public var method : GoString = "";
     public var type : Type = new Type();
     public function new(?method:GoString, ?type:Type) {
         if (method != null) this.method = method;
@@ -433,305 +161,588 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 }
 @:named typedef T_ref = GoUInt64;
 @:named @:using(stdgo.syscall.js.Js.Type_static_extension) typedef Type = GoInt;
-function funcOf(_fn:(_this:Value, _args:Slice<Value>) -> AnyInterface):Func {
-        _funcsMu.lock();
-        var _id:GoUInt32 = _nextFuncID;
-        _nextFuncID++;
-        if (_funcs != null) _funcs[_id] = _fn;
-        _funcsMu.unlock();
-        return @:invalid_compositelit null;
-    }
-function _setEventHandler(_fn:() -> Void):Void {}
-function _handleEvent():Void {
-        var _cb:Value = _jsGo.get(((("_pendingEvent" : GoString))));
-        if (_cb.isNull()) {
-            return;
-        };
-        _jsGo.set(((("_pendingEvent" : GoString))), Go.toInterface(null_()));
-        var _id:GoUInt32 = ((_cb.get(((("id" : GoString)))).int() : GoUInt32));
-        if (_id == ((0 : GoUInt32))) {
-            @:null_select {};
-        };
-        _funcsMu.lock();
-        var __tmp__ = (_funcs != null && _funcs.__exists__(_id) ? { value : _funcs[_id], ok : true } : { value : null, ok : false }), _f:(Value, Slice<Value>) -> AnyInterface = __tmp__.value, _ok:Bool = __tmp__.ok;
-        _funcsMu.unlock();
-        if (!_ok) {
-            global().get(((("console" : GoString)))).call(((("error" : GoString))), Go.toInterface(((("call to released function" : GoString)))));
-            return;
-        };
-        var _this:Value = _cb.get(((("this" : GoString))));
-        var _argsObj:Value = _cb.get(((("args" : GoString))));
-        var _args:Slice<Value> = new Slice<Value>(...[for (i in 0 ... ((_argsObj.length() : GoInt)).toBasic()) new Value()]);
-        for (_i => _ in _args) {
-            if (_args != null) _args[_i] = _argsObj.index(_i);
-        };
-        var _result:AnyInterface = Go.toInterface(_f(_this, _args));
-        _cb.set(((("result" : GoString))), Go.toInterface(_result));
-    }
-function _makeValue(_r:T_ref):Value {
-        var _gcPtr:T_ref = ((null : T_ref));
-        var _typeFlag:T_ref = (_r >> ((32 : GoUnTypedInt))) & ((7 : GoInt));
-        if ((((_r >> ((32 : GoUnTypedInt))) & ((2146959360 : GoInt))) == ((2146959360 : GoInt))) && (_typeFlag != ((0 : GoInt)))) {
-            _gcPtr = new T_ref();
-            _gcPtr = _r;
-            stdgo.runtime.Runtime.setFinalizer(Go.toInterface(_gcPtr), Go.toInterface(function(_p:T_ref):Void {
-                _finalizeRef(_p);
-            }));
-        };
-        return @:invalid_compositelit null;
-    }
-function _finalizeRef(_r:T_ref):Void {}
-function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value {
-        return @:invalid_compositelit null;
-    }
-function _floatValue(_f:GoFloat64):Value {
-        if (_f == ((0 : GoFloat64))) {
-            return _valueZero;
-        };
-        if (_f != _f) {
-            return _valueNaN;
-        };
-        return @:invalid_compositelit null;
-    }
-function undefined():Value {
-        return _valueUndefined;
-    }
-function null_():Value {
-        return _valueNull;
-    }
-function global():Value {
-        return _valueGlobal;
-    }
-function valueOf(_x:AnyInterface):Value {
-        if (Go.assertable(((_x : Value)))) {
-            var _x:Value = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _x;
-        } else if (Go.assertable(((_x : Func)))) {
-            var _x:Func = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _x.value;
-        } else if (_x == null) {
-            var _x:AnyInterface = _x == null ? null : _x.__underlying__();
-            return _valueNull;
-        } else if (Go.assertable(((_x : Bool)))) {
-            var _x:Bool = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            if (_x) {
-                return _valueTrue;
-            } else {
-                return _valueFalse;
-            };
-        } else if (Go.assertable(((_x : GoInt)))) {
-            var _x:GoInt = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoInt8)))) {
-            var _x:GoInt8 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoInt16)))) {
-            var _x:GoInt16 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoInt32)))) {
-            var _x:GoInt32 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoInt64)))) {
-            var _x:GoInt64 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUInt)))) {
-            var _x:GoUInt = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUInt8)))) {
-            var _x:GoUInt8 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUInt16)))) {
-            var _x:GoUInt16 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUInt32)))) {
-            var _x:GoUInt32 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUInt64)))) {
-            var _x:GoUInt64 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoUIntptr)))) {
-            var _x:GoUIntptr = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : stdgo.unsafe.Unsafe.UnsafePointer)))) {
-            var _x:stdgo.unsafe.Unsafe.UnsafePointer = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((((_x : GoUIntptr)) : GoFloat64)));
-        } else if (Go.assertable(((_x : GoFloat32)))) {
-            var _x:GoFloat32 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(((_x : GoFloat64)));
-        } else if (Go.assertable(((_x : GoFloat64)))) {
-            var _x:GoFloat64 = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _floatValue(_x);
-        } else if (Go.assertable(((_x : GoString)))) {
-            var _x:GoString = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            return _makeValue(_stringVal(_x));
-        } else if (Go.assertable(((_x : Slice<AnyInterface>)))) {
-            var _x:Slice<AnyInterface> = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            var _a:Value = _arrayConstructor.new_(Go.toInterface((_x != null ? _x.length : ((0 : GoInt)))));
-            for (_i => _s in _x) {
-                _a.setIndex(_i, Go.toInterface(_s));
-            };
-            return _a;
-        } else if (Go.assertable(((_x : GoMap<GoString, AnyInterface>)))) {
-            var _x:GoMap<GoString, AnyInterface> = _x == null ? null : _x.__underlying__() == null ? null : _x == null ? null : _x.__underlying__().value;
-            var _o:Value = _objectConstructor.new_();
-            for (_k => _v in _x) {
-                _o.set(_k, Go.toInterface(_v));
-            };
-            return _o;
-        } else {
-            var _x:AnyInterface = _x == null ? null : _x.__underlying__();
-            throw Go.toInterface(((("ValueOf: invalid value" : GoString))));
-        };
-    }
-function _stringVal(_x:GoString):T_ref throw "not implemeneted";
-function _valueGet(_v:T_ref, _p:GoString):T_ref throw "not implemeneted";
-function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void {}
-function _valueDelete(_v:T_ref, _p:GoString):Void {}
-function _valueIndex(_v:T_ref, _i:GoInt):T_ref throw "not implemeneted";
-function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void {}
-function _makeArgs(_args:Slice<AnyInterface>):{ var _0 : Slice<Value>; var _1 : Slice<T_ref>; } {
-        var _argVals:Slice<Value> = new Slice<Value>(...[for (i in 0 ... (((_args != null ? _args.length : ((0 : GoInt))) : GoInt)).toBasic()) new Value()]);
-        var _argRefs:Slice<T_ref> = new Slice<T_ref>(...[for (i in 0 ... (((_args != null ? _args.length : ((0 : GoInt))) : GoInt)).toBasic()) new T_ref()]);
-        for (_i => _arg in _args) {
-            var _v:Value = valueOf(Go.toInterface(_arg));
-            if (_argVals != null) _argVals[_i] = _v;
-            if (_argRefs != null) _argRefs[_i] = _v._ref;
-        };
-        return { _0 : _argVals, _1 : _argRefs };
-    }
-function _valueLength(_v:T_ref):GoInt throw "not implemeneted";
-function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "not implemeneted";
-function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "not implemeneted";
-function _valueNew(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "not implemeneted";
-function _jsString(_v:Value):GoString {
-        var __tmp__ = _valuePrepareString(_v._ref), _str:T_ref = __tmp__._0, _length:GoInt = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_v));
-        var _b:Slice<GoUInt8> = new Slice<GoUInt8>(...[for (i in 0 ... ((_length : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        _valueLoadString(_str, _b);
-        _finalizeRef(_str);
-        return ((_b : GoString));
-    }
-function _valuePrepareString(_v:T_ref):{ var _0 : T_ref; var _1 : GoInt; } throw "not implemeneted";
-function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void {}
-function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool throw "not implemeneted";
-function copyBytesToGo(_dst:Slice<GoByte>, _src:Value):GoInt {
-        var __tmp__ = _copyBytesToGo(_dst, _src._ref), _n:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_src));
-        if (!_ok) {
-            throw Go.toInterface(((("syscall/js: CopyBytesToGo: expected src to be an Uint8Array or Uint8ClampedArray" : GoString))));
-        };
-        return _n;
-    }
-function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{ var _0 : GoInt; var _1 : Bool; } throw "not implemeneted";
-function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt {
-        var __tmp__ = _copyBytesToJS(_dst._ref, _src), _n:GoInt = __tmp__._0, _ok:Bool = __tmp__._1;
-        stdgo.runtime.Runtime.keepAlive(Go.toInterface(_dst));
-        if (!_ok) {
-            throw Go.toInterface(((("syscall/js: CopyBytesToJS: expected dst to be an Uint8Array or Uint8ClampedArray" : GoString))));
-        };
-        return _n;
-    }
-function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Bool; } throw "not implemeneted";
-@:keep var _ = {
-        try {
-            _setEventHandler(_handleEvent);
-        } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
-        true;
-    };
+/**
+    // FuncOf returns a function to be used by JavaScript.
+    //
+    // The Go function fn is called with the value of JavaScript's "this" keyword and the
+    // arguments of the invocation. The return value of the invocation is
+    // the result of the Go function mapped back to JavaScript according to ValueOf.
+    //
+    // Invoking the wrapped Go function from JavaScript will
+    // pause the event loop and spawn a new goroutine.
+    // Other wrapped functions which are triggered during a call from Go to JavaScript
+    // get executed on the same goroutine.
+    //
+    // As a consequence, if one wrapped function blocks, JavaScript's event loop
+    // is blocked until that function returns. Hence, calling any async JavaScript
+    // API, which requires the event loop, like fetch (http.Client), will cause an
+    // immediate deadlock. Therefore a blocking function should explicitly start a
+    // new goroutine.
+    //
+    // Func.Release must be called to free up resources when the function will not be invoked any more.
+**/
+function funcOf(_fn:(_this:Value, _args:Slice<Value>) -> AnyInterface):Func return new Func();
+/**
+    // setEventHandler is defined in the runtime package.
+**/
+function _setEventHandler(_fn:() -> Void):Void return;
+function _handleEvent():Void return;
+function _makeValue(_r:T_ref):Value return new Value();
+function _finalizeRef(_r:T_ref):Void return;
+function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value return new Value();
+function _floatValue(_f:GoFloat64):Value return new Value();
+/**
+    // Undefined returns the JavaScript value "undefined".
+**/
+function undefined():Value return new Value();
+/**
+    // Null returns the JavaScript value "null".
+**/
+function null_():Value return new Value();
+/**
+    // Global returns the JavaScript global object, usually "window" or "global".
+**/
+function global():Value return new Value();
+/**
+    // ValueOf returns x as a JavaScript value:
+    //
+    //  | Go                     | JavaScript             |
+    //  | ---------------------- | ---------------------- |
+    //  | js.Value               | [its value]            |
+    //  | js.Func                | function               |
+    //  | nil                    | null                   |
+    //  | bool                   | boolean                |
+    //  | integers and floats    | number                 |
+    //  | string                 | string                 |
+    //  | []interface{}          | new array              |
+    //  | map[string]interface{} | new object             |
+    //
+    // Panics if x is not one of the expected types.
+**/
+function valueOf(_x:AnyInterface):Value return new Value();
+function _stringVal(_x:GoString):T_ref return new T_ref();
+function _valueGet(_v:T_ref, _p:GoString):T_ref return new T_ref();
+function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void return;
+function _valueDelete(_v:T_ref, _p:GoString):Void return;
+function _valueIndex(_v:T_ref, _i:GoInt):T_ref return new T_ref();
+function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void return;
+function _makeArgs(_args:Slice<AnyInterface>):{ var _0 : Slice<Value>; var _1 : Slice<T_ref>; } return { _0 : ((null : Slice<Value>)), _1 : ((null : Slice<T_ref>)) };
+function _valueLength(_v:T_ref):GoInt return ((0 : GoInt));
+function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
+function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
+function _valueNew(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
+function _jsString(_v:Value):GoString return (("" : GoString));
+function _valuePrepareString(_v:T_ref):{ var _0 : T_ref; var _1 : GoInt; } return { _0 : new T_ref(), _1 : ((0 : GoInt)) };
+function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void return;
+function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool return false;
+/**
+    // CopyBytesToGo copies bytes from src to dst.
+    // It panics if src is not an Uint8Array or Uint8ClampedArray.
+    // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+**/
+function copyBytesToGo(_dst:Slice<GoByte>, _src:Value):GoInt return ((0 : GoInt));
+function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{ var _0 : GoInt; var _1 : Bool; } return { _0 : ((0 : GoInt)), _1 : false };
+/**
+    // CopyBytesToJS copies bytes from src to dst.
+    // It panics if dst is not an Uint8Array or Uint8ClampedArray.
+    // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
+**/
+function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt return ((0 : GoInt));
+function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Bool; } return { _0 : ((0 : GoInt)), _1 : false };
 @:keep class Func_static_extension {
-
+    /**
+        // Release frees up resources allocated for the function.
+        // The function must not be invoked after calling Release.
+        // It is allowed to call Release while the function is still running.
+    **/
+    @:keep
+    static public function release( _c:Func):Void return;
+    @:embedded
+    public static function _isNumber( __self__:Func):Bool return __self__._isNumber();
+    @:embedded
+    public static function _float( __self__:Func, _method:GoString):GoFloat64 return __self__._float(_method);
+    @:embedded
+    public static function type( __self__:Func):Type return __self__.type();
+    @:embedded
+    public static function truthy( __self__:Func):Bool return __self__.truthy();
+    @:embedded
+    public static function toString( __self__:Func):GoString return __self__.toString();
+    @:embedded
+    public static function setIndex( __self__:Func, _i:GoInt, _x:AnyInterface) __self__.setIndex(_i, _x);
+    @:embedded
+    public static function set( __self__:Func, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
+    @:embedded
+    public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(_args);
+    @:embedded
+    public static function length( __self__:Func):GoInt return __self__.length();
+    @:embedded
+    public static function isUndefined( __self__:Func):Bool return __self__.isUndefined();
+    @:embedded
+    public static function isNull( __self__:Func):Bool return __self__.isNull();
+    @:embedded
+    public static function isNaN( __self__:Func):Bool return __self__.isNaN();
+    @:embedded
+    public static function invoke( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(_args);
+    @:embedded
+    public static function int( __self__:Func):GoInt return __self__.int();
+    @:embedded
+    public static function instanceOf( __self__:Func, _t:Value):Bool return __self__.instanceOf(_t);
+    @:embedded
+    public static function index( __self__:Func, _i:GoInt):Value return __self__.index(_i);
+    @:embedded
+    public static function get( __self__:Func, _p:GoString):Value return __self__.get(_p);
+    @:embedded
+    public static function float( __self__:Func):GoFloat64 return __self__.float();
+    @:embedded
+    public static function equal( __self__:Func, _w:Value):Bool return __self__.equal(_w);
+    @:embedded
+    public static function delete( __self__:Func, _p:GoString) __self__.delete(_p);
+    @:embedded
+    public static function call( __self__:Func, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, _args);
+    @:embedded
+    public static function bool( __self__:Func):Bool return __self__.bool();
 }
 class Func_wrapper {
-    public var __t__ : Func;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+    /**
+        // Release frees up resources allocated for the function.
+        // The function must not be invoked after calling Release.
+        // It is allowed to call Release while the function is still running.
+    **/
+    @:keep
+    public var release : () -> Void = null;
+    @:embedded
+    public var _isNumber : () -> Bool = null;
+    @:embedded
+    public var _float : GoString -> GoFloat64 = null;
+    @:embedded
+    public var type : () -> Type = null;
+    @:embedded
+    public var truthy : () -> Bool = null;
+    @:embedded
+    public var toString : () -> GoString = null;
+    @:embedded
+    public var setIndex : (GoInt, AnyInterface) -> Void = null;
+    @:embedded
+    public var set : (GoString, AnyInterface) -> Void = null;
+    @:embedded
+    public var new_ : haxe.Rest<AnyInterface> -> Value = null;
+    @:embedded
+    public var length : () -> GoInt = null;
+    @:embedded
+    public var isUndefined : () -> Bool = null;
+    @:embedded
+    public var isNull : () -> Bool = null;
+    @:embedded
+    public var isNaN : () -> Bool = null;
+    @:embedded
+    public var invoke : haxe.Rest<AnyInterface> -> Value = null;
+    @:embedded
+    public var int : () -> GoInt = null;
+    @:embedded
+    public var instanceOf : Value -> Bool = null;
+    @:embedded
+    public var index : GoInt -> Value = null;
+    @:embedded
+    public var get : GoString -> Value = null;
+    @:embedded
+    public var float : () -> GoFloat64 = null;
+    @:embedded
+    public var equal : Value -> Bool = null;
+    @:embedded
+    public var delete : GoString -> Void = null;
+    @:embedded
+    public var call : (GoString, haxe.Rest<AnyInterface>) -> Value = null;
+    @:embedded
+    public var bool : () -> Bool = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : Func;
 }
 @:keep class Value_static_extension {
-
+    /**
+        // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
+    **/
+    @:keep
+    static public function instanceOf( _v:Value, _t:Value):Bool return false;
+    /**
+        // String returns the value v as a string.
+        // String is a special case because of Go's String method convention. Unlike the other getters,
+        // it does not panic if v's Type is not TypeString. Instead, it returns a string of the form "<T>"
+        // or "<T: V>" where T is v's type and V is a string representation of v's value.
+    **/
+    @:keep
+    static public function toString( _v:Value):GoString return (("" : GoString));
+    /**
+        // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
+        // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
+        // "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
+    **/
+    @:keep
+    static public function truthy( _v:Value):Bool return false;
+    /**
+        // Bool returns the value v as a bool.
+        // It panics if v is not a JavaScript boolean.
+    **/
+    @:keep
+    static public function bool( _v:Value):Bool return false;
+    /**
+        // Int returns the value v truncated to an int.
+        // It panics if v is not a JavaScript number.
+    **/
+    @:keep
+    static public function int( _v:Value):GoInt return ((0 : GoInt));
+    /**
+        // Float returns the value v as a float64.
+        // It panics if v is not a JavaScript number.
+    **/
+    @:keep
+    static public function float( _v:Value):GoFloat64 return ((0 : GoFloat64));
+    @:keep
+    static public function _float( _v:Value, _method:GoString):GoFloat64 return ((0 : GoFloat64));
+    @:keep
+    static public function _isNumber( _v:Value):Bool return false;
+    /**
+        // New uses JavaScript's "new" operator with value v as constructor and the given arguments.
+        // It panics if v is not a JavaScript function.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    static public function new_( _v:Value, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    /**
+        // Invoke does a JavaScript call of the value v with the given arguments.
+        // It panics if v is not a JavaScript function.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    static public function invoke( _v:Value, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    /**
+        // Call does a JavaScript call to the method m of value v with the given arguments.
+        // It panics if v has no method m.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    static public function call( _v:Value, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    /**
+        // Length returns the JavaScript property "length" of v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function length( _v:Value):GoInt return ((0 : GoInt));
+    /**
+        // SetIndex sets the JavaScript index i of value v to ValueOf(x).
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function setIndex( _v:Value, _i:GoInt, _x:AnyInterface):Void return;
+    /**
+        // Index returns JavaScript index i of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function index( _v:Value, _i:GoInt):Value return new Value();
+    /**
+        // Delete deletes the JavaScript property p of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function delete( _v:Value, _p:GoString):Void return;
+    /**
+        // Set sets the JavaScript property p of value v to ValueOf(x).
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function set( _v:Value, _p:GoString, _x:AnyInterface):Void return;
+    /**
+        // Get returns the JavaScript property p of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    static public function get( _v:Value, _p:GoString):Value return new Value();
+    /**
+        // Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
+        // except that it returns TypeNull instead of TypeObject for null.
+    **/
+    @:keep
+    static public function type( _v:Value):Type return new Type();
+    /**
+        // IsNaN reports whether v is the JavaScript value "NaN".
+    **/
+    @:keep
+    static public function isNaN( _v:Value):Bool return false;
+    /**
+        // IsNull reports whether v is the JavaScript value "null".
+    **/
+    @:keep
+    static public function isNull( _v:Value):Bool return false;
+    /**
+        // IsUndefined reports whether v is the JavaScript value "undefined".
+    **/
+    @:keep
+    static public function isUndefined( _v:Value):Bool return false;
+    /**
+        // Equal reports whether v and w are equal according to JavaScript's === operator.
+    **/
+    @:keep
+    static public function equal( _v:Value, _w:Value):Bool return false;
 }
 class Value_wrapper {
-    public var __t__ : Value;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+    /**
+        // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
+    **/
+    @:keep
+    public var instanceOf : Value -> Bool = null;
+    /**
+        // String returns the value v as a string.
+        // String is a special case because of Go's String method convention. Unlike the other getters,
+        // it does not panic if v's Type is not TypeString. Instead, it returns a string of the form "<T>"
+        // or "<T: V>" where T is v's type and V is a string representation of v's value.
+    **/
+    @:keep
+    public var toString : () -> GoString = null;
+    /**
+        // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
+        // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
+        // "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
+    **/
+    @:keep
+    public var truthy : () -> Bool = null;
+    /**
+        // Bool returns the value v as a bool.
+        // It panics if v is not a JavaScript boolean.
+    **/
+    @:keep
+    public var bool : () -> Bool = null;
+    /**
+        // Int returns the value v truncated to an int.
+        // It panics if v is not a JavaScript number.
+    **/
+    @:keep
+    public var int : () -> GoInt = null;
+    /**
+        // Float returns the value v as a float64.
+        // It panics if v is not a JavaScript number.
+    **/
+    @:keep
+    public var float : () -> GoFloat64 = null;
+    @:keep
+    public var _float : GoString -> GoFloat64 = null;
+    @:keep
+    public var _isNumber : () -> Bool = null;
+    /**
+        // New uses JavaScript's "new" operator with value v as constructor and the given arguments.
+        // It panics if v is not a JavaScript function.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    public var new_ : haxe.Rest<AnyInterface> -> Value = null;
+    /**
+        // Invoke does a JavaScript call of the value v with the given arguments.
+        // It panics if v is not a JavaScript function.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    public var invoke : haxe.Rest<AnyInterface> -> Value = null;
+    /**
+        // Call does a JavaScript call to the method m of value v with the given arguments.
+        // It panics if v has no method m.
+        // The arguments get mapped to JavaScript values according to the ValueOf function.
+    **/
+    @:keep
+    public var call : (GoString, haxe.Rest<AnyInterface>) -> Value = null;
+    /**
+        // Length returns the JavaScript property "length" of v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var length : () -> GoInt = null;
+    /**
+        // SetIndex sets the JavaScript index i of value v to ValueOf(x).
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var setIndex : (GoInt, AnyInterface) -> Void = null;
+    /**
+        // Index returns JavaScript index i of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var index : GoInt -> Value = null;
+    /**
+        // Delete deletes the JavaScript property p of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var delete : GoString -> Void = null;
+    /**
+        // Set sets the JavaScript property p of value v to ValueOf(x).
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var set : (GoString, AnyInterface) -> Void = null;
+    /**
+        // Get returns the JavaScript property p of value v.
+        // It panics if v is not a JavaScript object.
+    **/
+    @:keep
+    public var get : GoString -> Value = null;
+    /**
+        // Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
+        // except that it returns TypeNull instead of TypeObject for null.
+    **/
+    @:keep
+    public var type : () -> Type = null;
+    /**
+        // IsNaN reports whether v is the JavaScript value "NaN".
+    **/
+    @:keep
+    public var isNaN : () -> Bool = null;
+    /**
+        // IsNull reports whether v is the JavaScript value "null".
+    **/
+    @:keep
+    public var isNull : () -> Bool = null;
+    /**
+        // IsUndefined reports whether v is the JavaScript value "undefined".
+    **/
+    @:keep
+    public var isUndefined : () -> Bool = null;
+    /**
+        // Equal reports whether v and w are equal according to JavaScript's === operator.
+    **/
+    @:keep
+    public var equal : Value -> Bool = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : Value;
 }
 @:keep class T_error_static_extension {
-
+    /**
+        // Error implements the error interface.
+    **/
+    @:keep
+    static public function error( _e:T_error):GoString return (("" : GoString));
+    @:embedded
+    public static function _isNumber( __self__:T_error):Bool return __self__._isNumber();
+    @:embedded
+    public static function _float( __self__:T_error, _method:GoString):GoFloat64 return __self__._float(_method);
+    @:embedded
+    public static function type( __self__:T_error):Type return __self__.type();
+    @:embedded
+    public static function truthy( __self__:T_error):Bool return __self__.truthy();
+    @:embedded
+    public static function toString( __self__:T_error):GoString return __self__.toString();
+    @:embedded
+    public static function setIndex( __self__:T_error, _i:GoInt, _x:AnyInterface) __self__.setIndex(_i, _x);
+    @:embedded
+    public static function set( __self__:T_error, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
+    @:embedded
+    public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(_args);
+    @:embedded
+    public static function length( __self__:T_error):GoInt return __self__.length();
+    @:embedded
+    public static function isUndefined( __self__:T_error):Bool return __self__.isUndefined();
+    @:embedded
+    public static function isNull( __self__:T_error):Bool return __self__.isNull();
+    @:embedded
+    public static function isNaN( __self__:T_error):Bool return __self__.isNaN();
+    @:embedded
+    public static function invoke( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(_args);
+    @:embedded
+    public static function int( __self__:T_error):GoInt return __self__.int();
+    @:embedded
+    public static function instanceOf( __self__:T_error, _t:Value):Bool return __self__.instanceOf(_t);
+    @:embedded
+    public static function index( __self__:T_error, _i:GoInt):Value return __self__.index(_i);
+    @:embedded
+    public static function get( __self__:T_error, _p:GoString):Value return __self__.get(_p);
+    @:embedded
+    public static function float( __self__:T_error):GoFloat64 return __self__.float();
+    @:embedded
+    public static function equal( __self__:T_error, _w:Value):Bool return __self__.equal(_w);
+    @:embedded
+    public static function delete( __self__:T_error, _p:GoString) __self__.delete(_p);
+    @:embedded
+    public static function call( __self__:T_error, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, _args);
+    @:embedded
+    public static function bool( __self__:T_error):Bool return __self__.bool();
 }
 class T_error_wrapper {
-    public var __t__ : T_error;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+    /**
+        // Error implements the error interface.
+    **/
+    @:keep
+    public var error : () -> GoString = null;
+    @:embedded
+    public var _isNumber : () -> Bool = null;
+    @:embedded
+    public var _float : GoString -> GoFloat64 = null;
+    @:embedded
+    public var type : () -> Type = null;
+    @:embedded
+    public var truthy : () -> Bool = null;
+    @:embedded
+    public var toString : () -> GoString = null;
+    @:embedded
+    public var setIndex : (GoInt, AnyInterface) -> Void = null;
+    @:embedded
+    public var set : (GoString, AnyInterface) -> Void = null;
+    @:embedded
+    public var new_ : haxe.Rest<AnyInterface> -> Value = null;
+    @:embedded
+    public var length : () -> GoInt = null;
+    @:embedded
+    public var isUndefined : () -> Bool = null;
+    @:embedded
+    public var isNull : () -> Bool = null;
+    @:embedded
+    public var isNaN : () -> Bool = null;
+    @:embedded
+    public var invoke : haxe.Rest<AnyInterface> -> Value = null;
+    @:embedded
+    public var int : () -> GoInt = null;
+    @:embedded
+    public var instanceOf : Value -> Bool = null;
+    @:embedded
+    public var index : GoInt -> Value = null;
+    @:embedded
+    public var get : GoString -> Value = null;
+    @:embedded
+    public var float : () -> GoFloat64 = null;
+    @:embedded
+    public var equal : Value -> Bool = null;
+    @:embedded
+    public var delete : GoString -> Void = null;
+    @:embedded
+    public var call : (GoString, haxe.Rest<AnyInterface>) -> Value = null;
+    @:embedded
+    public var bool : () -> Bool = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_error;
 }
 @:keep class ValueError_static_extension {
-
+    @:keep
+    static public function error( _e:ValueError):GoString return (("" : GoString));
 }
 class ValueError_wrapper {
-    public var __t__ : ValueError;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+    @:keep
+    public var error : () -> GoString = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : ValueError;
 }
 @:keep class Type_static_extension {
     @:keep
-    public static function _isObject(_t:Type):Bool {
-        _t;
-        return (_t == ((6 : GoInt))) || (_t == ((7 : GoInt)));
-    }
+    static public function _isObject( _t:Type):Bool return false;
     @:keep
-    public static function toString(_t:Type):GoString {
-        _t;
-        if (_t == ((0 : GoInt64))) {
-            return ((("undefined" : GoString)));
-        } else if (_t == ((1 : GoInt64))) {
-            return ((("null" : GoString)));
-        } else if (_t == ((2 : GoInt64))) {
-            return ((("boolean" : GoString)));
-        } else if (_t == ((3 : GoInt64))) {
-            return ((("number" : GoString)));
-        } else if (_t == ((4 : GoInt64))) {
-            return ((("string" : GoString)));
-        } else if (_t == ((5 : GoInt64))) {
-            return ((("symbol" : GoString)));
-        } else if (_t == ((6 : GoInt64))) {
-            return ((("object" : GoString)));
-        } else if (_t == ((7 : GoInt64))) {
-            return ((("function" : GoString)));
-        } else {
-            throw Go.toInterface(((("bad type" : GoString))));
-        };
-    }
+    static public function toString( _t:Type):GoString return (("" : GoString));
 }
 class Type_wrapper {
     @:keep
-    public function _isObject():Bool {
-        var _t = __t__;
-        _t;
-        return (_t == ((6 : GoInt))) || (_t == ((7 : GoInt)));
-    }
+    public var _isObject : () -> Bool = null;
     @:keep
-    public function toString():GoString {
-        var _t = __t__;
-        _t;
-        if (_t == ((0 : GoInt64))) {
-            return ((("undefined" : GoString)));
-        } else if (_t == ((1 : GoInt64))) {
-            return ((("null" : GoString)));
-        } else if (_t == ((2 : GoInt64))) {
-            return ((("boolean" : GoString)));
-        } else if (_t == ((3 : GoInt64))) {
-            return ((("number" : GoString)));
-        } else if (_t == ((4 : GoInt64))) {
-            return ((("string" : GoString)));
-        } else if (_t == ((5 : GoInt64))) {
-            return ((("symbol" : GoString)));
-        } else if (_t == ((6 : GoInt64))) {
-            return ((("object" : GoString)));
-        } else if (_t == ((7 : GoInt64))) {
-            return ((("function" : GoString)));
-        } else {
-            throw Go.toInterface(((("bad type" : GoString))));
-        };
-    }
-    public var __t__ : Type;
-    public function new(__t__) this.__t__ = __t__;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public var toString : () -> GoString = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : Type;
 }

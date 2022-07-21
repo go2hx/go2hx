@@ -413,9 +413,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
 									switch fun.args[fun.args.length - 1].type {
 										case TPath(p):
-											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe")
-												args[args.length - 1] = macro...$e{args[args.length
-												- 1]};
+											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe") args[args.length - 1] = macro...$e{
+												args[args.length - 1]
+											};
 										default:
 									}
 									fun.expr = macro __self__.$fieldName($a{args});
@@ -3781,12 +3781,6 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					}
 					if (!removed)
 						throw "cannot find field type of name: " + key + " in names: " + [for (field in fields) field.name];
-				}
-				for (field in fields) {
-					objectFields.push({
-						field: nameIdent(field.name, false, false, info),
-						expr: defaultValue(field.type, info, false),
-					});
 				}
 				var e = toExpr(EObjectDecl(objectFields));
 				return (macro($e : $ct)).expr;

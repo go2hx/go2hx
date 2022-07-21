@@ -6,6 +6,7 @@ typedef ProcessData = {proc:Process, data:Dynamic, runtimeBool:Bool, command:Str
 
 class ProcessPool {
 	public var pool:Array<ProcessData> = [];
+
 	var queue:Array<{command:String, data:Dynamic, runtimeBool:Bool}> = [];
 	var count = 0;
 
@@ -43,7 +44,7 @@ class ProcessPool {
 			var code = pool[i].proc.exitCode(false);
 			if (code == null) {
 				final stamp = haxe.Timer.stamp() - pool[i].stamp;
-				if (stamp > 60) {
+				if (stamp > 60 * 10) {
 					code = -1;
 					pool[i].proc.kill();
 				} else {

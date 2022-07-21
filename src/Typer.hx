@@ -411,6 +411,13 @@ function main(data:DataType, instance:Main.InstanceData) {
 									final expr = {expr: fun.expr.expr, pos: null};
 									final fieldName = field.name;
 									final args = fun.args.slice(1).map(a -> macro $i{a.name});
+									switch fun.args[fun.args.length - 1].type {
+										case TPath(p):
+											if (p.name == "Rest" && p.pack.length == 1 && p.pack[0] == "haxe")
+												args[args.length - 1] = macro...$e{args[args.length
+												- 1]};
+										default:
+									}
 									fun.expr = macro __self__.$fieldName($a{args});
 									switch expr.expr {
 										case EReturn(_):

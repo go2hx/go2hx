@@ -3916,8 +3916,13 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				var key = typeExpr(elt.key, info);
 				var value = typeExpr(elt.value, info);
 
+				var fromValueType = typeof(elt.value, info);
+				if (fromValueType == invalidType) {
+					fromValueType = valueType;
+					value = defaultValue(valueType, info, true);
+				}
 				key = assignTranslate(typeof(elt.key, info), keyType, key, info);
-				value = assignTranslate(typeof(elt.value, info), valueType, value, info);
+				value = assignTranslate(fromValueType, valueType, value, info);
 
 				params.push(macro $key => $value);
 			}
@@ -4778,7 +4783,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case signature(_, _, _, _):
 			macro null;
 		case refType(elem):
-			final ct = ct();
+			final ct = toComplexType(elem, info);
 			if (hasTypeParam(ct)) {
 				macro null;
 			} else {

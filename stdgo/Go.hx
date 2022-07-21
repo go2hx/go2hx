@@ -31,6 +31,27 @@ class Go {
 				default:
 			}
 		}
+		if (keyType == null || valueType == null) {
+			switch Context.toComplexType(Context.getExpectedType()) {
+				case TPath(p):
+					if (p.name == "GoMap" && p.params != null && p.params.length == 2) {
+						switch p.params[0] {
+							case TPType(t):
+								keyType = t;
+							default:
+						}
+						switch p.params[1] {
+							case TPType(t):
+								valueType = t;
+							default:
+						}
+					} else {
+						throw "invalid map type";
+					}
+				default:
+					throw "map expects a map type";
+			}
+		}
 		switch keyType {
 			case TPath(p): // change String -> GoString, Int64 -> GoInt64 etc
 				switch p {
@@ -318,9 +339,106 @@ class Go {
 				t = t2.type;
 			default:
 		}
-
 		final t = gtDecode(t, null, []);
 		return macro stdgo.reflect.Reflect.defaultValue(new stdgo.reflect.Reflect._Type($t));
+		// e
+		/*final e = switch (t) {
+				case TType(t, params):
+					final name = t.toString();
+					switch name {
+						case "stdgo.GoInt":
+							macro 0;
+						case "stdgo.GoUInt":
+							macro 0;
+						case "stdgo.unsafe.Pointer_":
+							macro null;
+						case "stdgo GoUnTypedInt":
+							macro 0;
+						case "stdgo.GoUnTypedFloat":
+							macro 0;
+						case "stdgo.GoUnTypedComplex":
+							macro new Complex128();
+						case "stdgo.GoRune":
+							macro 0;
+						case "stdgo.GoByte":
+							macro 0;
+						case "stdgo.GoUnTypedInt":
+							macro(0 : UInt64);
+						case "stdgo.DynamicInvalid":
+							macro null;
+						case "stdgo.Ref": // pointer with no overhead because the underlying type is a ref
+							macro null;
+						default:
+							Context.fatalError("not implemented: " + name, Context.currentPos());
+					}
+				case TMono(_):
+					macro null;
+				case TAbstract(ref, params):
+					var sref:String = ref.toString();
+					switch (sref) {
+						case "stdgo.Slice":
+							macro null;
+						case "stdgo.GoArray":
+							macro null; // TODO may need to create a new array
+						case "stdgo.Pointer":
+							macro null;
+						case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
+							macro null;
+						case "stdgo.GoMap":
+							macro null;
+						case "haxe.Rest":
+							macro null;
+						case "stdgo.GoInt8":
+							macro 0;
+						case "stdgo.GoInt16":
+							macro 0;
+						case "stdgo.GoInt32", "haxe.Int32":
+							macro 0;
+						case "Int":
+							macro 0;
+						case "stdgo.GoInt64":
+							macro(0 : GoInt64);
+						case "stdgo.GoUInt8":
+							macro 0;
+						case "stdgo.GoUInt16":
+							macro 0;
+						case "stdgo.GoUInt32":
+							macro 0;
+						case "stdgo.GoUInt64":
+							macro(0 : GoUInt64);
+						case "stdgo.GoString", "String":
+							macro("" : GoString);
+						case "stdgo.GoComplex64":
+							macro(0 : GoComplex64);
+						case "stdgo.GoComplex128":
+							macro(0 : GoComplex128);
+						case "stdgo.ComplexType":
+							macro(0 : Complex128);
+						case "stdgo.GoFloat32":
+							macro 0;
+						case "stdgo.GoFloat64", "Float":
+							macro 0;
+						case "stdgo.FloatType":
+							macro 0;
+						case "Bool":
+							macro false;
+						case "stdgo.GoUIntptr":
+							macro 0;
+						case "stdgo.AnyInterface":
+							macro null;
+						case "haxe.Function":
+							macro null;
+						case "Null":
+							macro null;
+						case "Void":
+							macro null;
+						default: // used internally such as reflect.Kind
+							Context.error('unknown abstract type: $sref', Context.currentPos());
+					}
+				default:
+					Context.fatalError("not valid default type: " + t, Context.currentPos());
+			}
+			return e; */
 	}
 
 	public static macro function toInterface(expr) {
@@ -633,6 +751,8 @@ class Go {
 								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
 									stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
 							default:
+								if (ref.meta.has(":follow"))
+									return gtDecode(Context.follow(ref.type, true), null, marked);
 								if (ref.meta.has(":named") || ref.meta.has(":param")) {
 									final path = ref.pack.concat([ref.name]).join(".");
 									if (marked.exists(path)) {

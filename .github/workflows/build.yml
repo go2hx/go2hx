@@ -26,7 +26,7 @@ jobs:
       - name: Build StdGo autogenerator
         run: npx haxe stdgo.hxml
       - name: Run StdGo autogenerator
-        run: node stdgo.js
+        run: node --max-old-space-size=4096 stdgo.js
       - name: Build tests
         run: npx haxe tests.hxml
       - name: Run tests

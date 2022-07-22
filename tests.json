@@ -13,5 +13,8 @@
     "testing/iotest",
     "os",
     "syscall",
-    "syscall/js"
+    "syscall/js",
+    "regexp",
+    "bytes",
+    "context"
 ]}

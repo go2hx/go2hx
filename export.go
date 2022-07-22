@@ -189,11 +189,11 @@ func main() {
 		return
 	}
 	conn, err := net.Dial("tcp", "127.0.0.1:"+port)
-	defer conn.Close()
 	if err != nil {
 		panic("dial: " + err.Error())
 		return
 	}
+	defer conn.Close()
 	for {
 		input := make([]byte, 2056)
 		c, err := conn.Read(input)

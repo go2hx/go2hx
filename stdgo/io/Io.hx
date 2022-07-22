@@ -26,7 +26,7 @@ var discard : Writer = {
 var _blackHolePool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
         var _b = new Slice<GoUInt8>(...[for (i in 0 ... ((((8192 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
         return Go.toInterface(_b);
-    }, _noCopy : new stdgo.sync.Sync.T_noCopy(), _local : null, _localSize : 0, _victim : null, _victimSize : 0 } : stdgo.sync.Sync.Pool));
+    } } : stdgo.sync.Sync.Pool));
 var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(((((("io: read/write on closed pipe" : GoString))) : GoString)));
 var _2 : ReaderFrom = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
@@ -36,9 +36,9 @@ var _2 : ReaderFrom = {
         __self__;
     };
 var _3 : StringWriter = {
-        final __self__ = new T_multiWriter_wrapper(((null : T_multiWriter)));
-        __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((null : T_multiWriter)).write(_p_) #else null #end;
-        __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((null : T_multiWriter)).writeString(_s_) #else null #end;
+        final __self__ = new T_multiWriter_wrapper(((((null : T_multiWriter)) : T_multiWriter)));
+        __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).write(_p_) #else null #end;
+        __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).writeString(_s_) #else null #end;
         __self__;
     };
 typedef Reader = StructType & {
@@ -253,7 +253,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) class PipeReader {
-    public var _p : Ref<T_pipe> = null;
+    public var _p : Ref<T_pipe> = ((null : T_pipe));
     public function new(?_p:Ref<T_pipe>) {
         if (_p != null) this._p = _p;
     }
@@ -263,7 +263,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) class PipeWriter {
-    public var _p : Ref<T_pipe> = null;
+    public var _p : Ref<T_pipe> = ((null : T_pipe));
     public function new(?_p:Ref<T_pipe>) {
         if (_p != null) this._p = _p;
     }
@@ -433,7 +433,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var _0 : Go
                 var __tmp__ = try {
                     { value : ((((_src.__underlying__().value : Dynamic)) : LimitedReader)), ok : true };
                 } catch(_) {
-                    { value : null, ok : false };
+                    { value : ((null : LimitedReader)), ok : false };
                 }, _l = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok && (((_size : GoInt64)) > _l.n)) {
                     if (_l.n < ((1 : GoInt64))) {
@@ -580,7 +580,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
                 var __tmp__ = try {
                     { value : ((((_w.__underlying__().value : Dynamic)) : T_multiWriter)), ok : true };
                 } catch(_) {
-                    { value : null, ok : false };
+                    { value : ((null : T_multiWriter)), ok : false };
                 }, _mw = __tmp__.value, _ok = __tmp__.ok;
                 if (_ok) {
                     _allWriters = (_allWriters != null ? _allWriters.__append__(..._mw._writers.__toArray__()) : new Slice<Writer>(..._mw._writers.__toArray__()));
@@ -614,7 +614,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
     // the individual calls will be gated sequentially.
 **/
 function pipe():{ var _0 : PipeReader; var _1 : PipeWriter; } {
-        var _p = (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()), _wrMu : new stdgo.sync.Sync.Mutex(), _once : new stdgo.sync.Sync.Once(), _rerr : new T_onceError(), _werr : new T_onceError() } : T_pipe));
+        var _p = (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe));
         return { _0 : ((new PipeReader(_p) : PipeReader)), _1 : ((new PipeWriter(_p) : PipeWriter)) };
     }
 @:keep class LimitedReader_static_extension {
@@ -836,7 +836,7 @@ class T_eofReader_wrapper {
                     var __tmp__ = try {
                         { value : (((((_mr._readers != null ? _mr._readers[((0 : GoInt))] : ((null : Reader))).__underlying__().value : Dynamic)) : T_multiReader)), ok : true };
                     } catch(_) {
-                        { value : null, ok : false };
+                        { value : ((null : T_multiReader)), ok : false };
                     }, _r = __tmp__.value, _ok = __tmp__.ok;
                     if (_ok) {
                         _mr._readers = _r._readers;

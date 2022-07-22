@@ -82,7 +82,7 @@ function _numError(_err:Error):Error {
         var __tmp__ = try {
             { value : ((((_err.__underlying__().value : Dynamic)) : stdgo.strconv.Strconv.NumError)), ok : true };
         } catch(_) {
-            { value : null, ok : false };
+            { value : ((null : stdgo.strconv.Strconv.NumError)), ok : false };
         }, _ne = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
             return _err;
@@ -131,14 +131,14 @@ function _newDurationValue(_val:stdgo.time.Time.Duration, _p:Pointer<stdgo.time.
     // sortFlags returns the flags as a slice in lexicographical sorted order.
 **/
 function _sortFlags(_flags:GoMap<GoString, Flag>):Slice<Flag> {
-        var _result = new Slice<Ref<Flag>>(...[for (i in 0 ... (((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic()) null]);
+        var _result = new Slice<Ref<Flag>>(...[for (i in 0 ... (((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic()) ((null : Flag))]);
         var _i:GoInt = ((0 : GoInt));
         for (_0 => _f in _flags) {
             if (_result != null) _result[_i] = _f;
             _i++;
         };
         stdgo.sort.Sort.slice(Go.toInterface(_result), function(_i:GoInt, _j:GoInt):Bool {
-            return (_result != null ? _result[_i] : null).name < (_result != null ? _result[_j] : null).name;
+            return (_result != null ? _result[_i] : ((null : Flag))).name < (_result != null ? _result[_j] : ((null : Flag))).name;
         });
         return _result;
     }
@@ -161,7 +161,7 @@ function visit(_fn:Flag -> Void):Void {
     // returning nil if none exists.
 **/
 function lookup(_name:GoString):Flag {
-        return (commandLine._formal != null ? commandLine._formal[_name] : null);
+        return (commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag)));
     }
 /**
     // Set sets the value of the named command-line flag.
@@ -483,7 +483,7 @@ function _commandLineUsage():Void {
     // in the default usage message and in error messages.
 **/
 function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
-        var _f = (({ _name : _name, _errorHandling : _errorHandling, usage : null, _parsed : false, _actual : ((null : GoMap<GoString, Ref<Flag>>)), _formal : ((null : GoMap<GoString, Ref<Flag>>)), _args : ((null : Slice<GoString>)), _output : ((null : stdgo.io.Io.Writer)) } : FlagSet));
+        var _f = (({ _name : _name, _errorHandling : _errorHandling } : FlagSet));
         _f.usage = _f._defaultUsage;
         return _f;
     }
@@ -581,7 +581,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             });
         };
         var _m = _f._formal;
-        var __tmp__ = (_m != null && _m.__exists__(_name) ? { value : _m[_name], ok : true } : { value : null, ok : false }), _flag:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
+        var __tmp__ = (_m != null && _m.__exists__(_name) ? { value : _m[_name], ok : true } : { value : ((null : Flag)), ok : false }), _flag:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (!_alreadythere) {
             if ((_name == ((((("help" : GoString))) : GoString))) || (_name == ((((("h" : GoString))) : GoString)))) {
                 _f._usage();
@@ -687,7 +687,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             throw Go.toInterface(_f._sprintf(((((("flag %q contains =" : GoString))) : GoString)), Go.toInterface(_name)));
         };
         var _flag = ((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag));
-        var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : null, ok : false }), _0:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
+        var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : ((null : Flag)), ok : false }), _0:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (_alreadythere) {
             var _msg:GoString = (("" : GoString));
             if (_f._name == ((((("" : GoString))) : GoString))) {
@@ -1041,7 +1041,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function set( _f:FlagSet, _name:GoString, _value:GoString):Error {
-        var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : null, ok : false }), _flag:Ref<Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
+        var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : ((null : Flag)), ok : false }), _flag:Ref<Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
             return stdgo.fmt.Fmt.errorf(((((("no such flag -%v" : GoString))) : GoString)), Go.toInterface(_name));
         };
@@ -1060,7 +1060,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function lookup( _f:FlagSet, _name:GoString):Flag {
-        return (_f._formal != null ? _f._formal[_name] : null);
+        return (_f._formal != null ? _f._formal[_name] : ((null : Flag)));
     }
     /**
         // Visit visits the flags in lexicographical order, calling fn for each.

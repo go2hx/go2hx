@@ -19,7 +19,7 @@ var _nodeCREATE : GoInt = _constants.get(((((("O_CREAT" : GoString))) : GoString
 var _nodeTRUNC : GoInt = _constants.get(((((("O_TRUNC" : GoString))) : GoString))).int();
 var _nodeAPPEND : GoInt = _constants.get(((((("O_APPEND" : GoString))) : GoString))).int();
 var _nodeEXCL : GoInt = _constants.get(((((("O_EXCL" : GoString))) : GoString))).int();
-var _files : GoMap<GoInt, Ref<T_jsFile>> = Go.map(((0 : GoInt)) => @:invalid_compositelit_null null, ((1 : GoInt)) => @:invalid_compositelit_null null, ((2 : GoInt)) => @:invalid_compositelit_null null);
+var _files : GoMap<GoInt, Ref<T_jsFile>> = Go.map(((0 : GoInt)) => ((null : T_jsFile)), ((1 : GoInt)) => ((null : T_jsFile)), ((2 : GoInt)) => ((null : T_jsFile)));
 var _signals : GoArray<GoString> = ((new GoArray<GoString>() : GoArray<GoString>));
 var _errorstr : GoArray<GoString> = {
         var s:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 2054) ""]);
@@ -436,7 +436,7 @@ ctimeNsec);
     public var dir : GoString = "";
     public var env : Slice<GoString> = ((null : Slice<GoString>));
     public var files : Slice<GoUIntptr> = ((null : Slice<GoUIntptr>));
-    public var sys : Ref<SysProcAttr> = null;
+    public var sys : Ref<SysProcAttr> = ((null : SysProcAttr));
     public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
@@ -522,7 +522,7 @@ function environ():Slice<GoString> return ((null : Slice<GoString>));
     // Provided by package runtime.
 **/
 function _now():{ var _0 : GoInt64; var _1 : GoInt32; } return { _0 : ((0 : GoInt64)), _1 : ((0 : GoInt32)) };
-function _fdToFile(_fd:GoInt):{ var _0 : T_jsFile; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _fdToFile(_fd:GoInt):{ var _0 : T_jsFile; var _1 : Error; } return { _0 : ((null : T_jsFile)), _1 : ((null : stdgo.Error)) };
 function open(_path:GoString, _openmode:GoInt, _perm:GoUInt32):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
 function close(_fd:GoInt):Error return ((null : stdgo.Error));
 function closeOnExec(_fd:GoInt):Void return;

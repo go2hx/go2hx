@@ -10,7 +10,7 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = new Map<Int, (Value, Slice<Value>) -> AnyInterface>();
 var _nextFuncID : GoUInt32 = ((1 : GoUInt32));
-var _valueUndefined : Value = (({ _ref : ((0 : T_ref)), _1 : new GoArray<() -> Void>(...[for (i in 0 ... 0) null]), _gcPtr : null } : Value));
+var _valueUndefined : Value = (({ _ref : ((0 : T_ref)) } : Value));
 var _valueNaN : Value = _predefValue(((0 : GoUInt32)), ((0 : GoUInt8)));
 var _valueZero : Value = _predefValue(((1 : GoUInt32)), ((0 : GoUInt8)));
 var _valueNull : Value = _predefValue(((2 : GoUInt32)), ((0 : GoUInt8)));
@@ -81,7 +81,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
     public var _ref : T_ref = new T_ref();
-    public var _gcPtr : Ref<T_ref> = null;
+    public var _gcPtr : Ref<T_ref> = ((null : T_ref));
     public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Ref<T_ref>) {
         if (_0 != null) this._0 = _0;
         if (_ref != null) this._ref = _ref;
@@ -272,7 +272,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function set( __self__:Func, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(_args);
+    public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
     @:embedded
     public static function length( __self__:Func):GoInt return __self__.length();
     @:embedded
@@ -282,7 +282,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function isNaN( __self__:Func):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(_args);
+    public static function invoke( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(..._args);
     @:embedded
     public static function int( __self__:Func):GoInt return __self__.int();
     @:embedded
@@ -298,7 +298,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function delete( __self__:Func, _p:GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:Func, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, _args);
+    public static function call( __self__:Func, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, ..._args);
     @:embedded
     public static function bool( __self__:Func):Bool return __self__.bool();
 }
@@ -636,7 +636,7 @@ class Value_wrapper {
     @:embedded
     public static function set( __self__:T_error, _p:GoString, _x:AnyInterface) __self__.set(_p, _x);
     @:embedded
-    public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(_args);
+    public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
     @:embedded
     public static function length( __self__:T_error):GoInt return __self__.length();
     @:embedded
@@ -646,7 +646,7 @@ class Value_wrapper {
     @:embedded
     public static function isNaN( __self__:T_error):Bool return __self__.isNaN();
     @:embedded
-    public static function invoke( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(_args);
+    public static function invoke( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.invoke(..._args);
     @:embedded
     public static function int( __self__:T_error):GoInt return __self__.int();
     @:embedded
@@ -662,7 +662,7 @@ class Value_wrapper {
     @:embedded
     public static function delete( __self__:T_error, _p:GoString) __self__.delete(_p);
     @:embedded
-    public static function call( __self__:T_error, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, _args);
+    public static function call( __self__:T_error, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return __self__.call(_m, ..._args);
     @:embedded
     public static function bool( __self__:T_error):Bool return __self__.bool();
 }

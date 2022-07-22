@@ -11,7 +11,7 @@ import stdgo.Chan;
 var _dirBufPool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
         var _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((8192 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
         return Go.toInterface(_buf);
-    }, _noCopy : new stdgo.sync.Sync.T_noCopy(), _local : null, _localSize : 0, _victim : null, _victimSize : 0 } : stdgo.sync.Sync.Pool));
+    } } : stdgo.sync.Sync.Pool));
 var errInvalid : stdgo.Error = stdgo.io.fs.Fs.errInvalid;
 var errPermission : stdgo.Error = stdgo.io.fs.Fs.errPermission;
 var errExist : stdgo.Error = stdgo.io.fs.Fs.errExist;
@@ -94,7 +94,7 @@ typedef Signal = StructType & {
     public var dir : GoString = "";
     public var env : Slice<GoString> = ((null : Slice<GoString>));
     public var files : Slice<Ref<File>> = ((null : Slice<Ref<File>>));
-    public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr> = null;
+    public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr> = ((null : stdgo.syscall.Syscall.SysProcAttr));
     public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
@@ -109,7 +109,7 @@ typedef Signal = StructType & {
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
     public var _pid : GoInt = 0;
     public var _status : stdgo.syscall.Syscall.WaitStatus = new stdgo.syscall.Syscall.WaitStatus();
-    public var _rusage : Ref<stdgo.syscall.Syscall.Rusage> = null;
+    public var _rusage : Ref<stdgo.syscall.Syscall.Rusage> = ((null : stdgo.syscall.Syscall.Rusage));
     public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
         if (_pid != null) this._pid = _pid;
         if (_status != null) this._status = _status;
@@ -152,7 +152,7 @@ typedef Signal = StructType & {
 @:structInit @:using(stdgo.os.Os.T_file_static_extension) class T_file {
     public var _pfd : stdgo.internal.poll.Poll.FD = new stdgo.internal.poll.Poll.FD();
     public var _name : GoString = "";
-    public var _dirinfo : Ref<T_dirInfo> = null;
+    public var _dirinfo : Ref<T_dirInfo> = ((null : T_dirInfo));
     public var _nonblock : Bool = false;
     public var _stdoutOrErr : Bool = false;
     public var _appendMode : Bool = false;
@@ -186,7 +186,7 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) class T_rawConn {
-    public var _file : Ref<File> = null;
+    public var _file : Ref<File> = ((null : File));
     public function new(?_file:Ref<File>) {
         if (_file != null) this._file = _file;
     }
@@ -197,7 +197,7 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
     @:embedded
-    public var _file : Ref<T_file> = null;
+    public var _file : Ref<T_file> = ((null : T_file));
     public function new(?_file:Ref<T_file>) {
         if (_file != null) this._file = _file;
     }
@@ -400,7 +400,7 @@ function _underlyingError(_err:Error):Error return ((null : stdgo.Error));
     // a syscall.Errno, it wraps it in a os.SyscallError using the syscall name.
 **/
 function _wrapSyscallError(_name:GoString, _err:Error):Error return ((null : stdgo.Error));
-function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process return null;
+function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process return ((null : Process));
 /**
     // Getpid returns the process id of the caller.
 **/
@@ -418,7 +418,7 @@ function getppid():GoInt return ((0 : GoInt));
     // On Unix systems, FindProcess always succeeds and returns a Process
     // for the given pid, regardless of whether the process exists.
 **/
-function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
 /**
     // StartProcess starts a new process with the program, arguments and attributes
     // specified by name, argv and attr. The argv slice will become os.Args in the
@@ -434,9 +434,9 @@ function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { 
     //
     // If there is an error, it will be of type *PathError.
 **/
-function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
-function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
-function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
+function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
+function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
 /**
     // Executable returns the path name for the executable that started
     // the current process. There is no guarantee that the path is still
@@ -478,7 +478,7 @@ function chdir(_dir:GoString):Error return ((null : stdgo.Error));
     // descriptor has mode O_RDONLY.
     // If there is an error, it will be of type *PathError.
 **/
-function open(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function open(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
 /**
     // Create creates or truncates the named file. If the file already exists,
     // it is truncated. If the file does not exist, it is created with mode 0666
@@ -486,7 +486,7 @@ function open(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : n
     // be used for I/O; the associated file descriptor has mode O_RDWR.
     // If there is an error, it will be of type *PathError.
 **/
-function create(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function create(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
 /**
     // OpenFile is the generalized open call; most users will use Open
     // or Create instead. It opens the named file with specified flag
@@ -495,7 +495,7 @@ function create(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 :
     // methods on the returned File can be used for I/O.
     // If there is an error, it will be of type *PathError.
 **/
-function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
 /**
     // Rename renames (moves) oldpath to newpath.
     // If newpath already exists and is not a directory, Rename replaces it.
@@ -674,13 +674,13 @@ function _rename(_oldname:GoString, _newname:GoString):Error return ((null : std
     // conditions described in the comments of the Fd method, and the same
     // constraints apply.
 **/
-function newFile(_fd:GoUIntptr, _name:GoString):File return null;
+function newFile(_fd:GoUIntptr, _name:GoString):File return ((null : File));
 /**
     // newFile is like NewFile, but if called from OpenFile or Pipe
     // (as passed in the kind parameter) it tries to add the file to
     // the runtime poller.
 **/
-function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File return null;
+function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File return ((null : File));
 /**
     // epipecheck raises SIGPIPE if we get an EPIPE error on standard
     // output or standard error. See the SIGPIPE docs in os/signal, and
@@ -691,7 +691,7 @@ function _epipecheck(_file:File, _e:Error):Void return;
     // openFileNolog is the Unix implementation of OpenFile.
     // Changes here should be reflected in openFdAt, if relevant.
 **/
-function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
 /**
     // Truncate changes the size of the named file.
     // If the file is a symbolic link, it changes the size of the link's target.
@@ -768,7 +768,7 @@ function _fixRootDirectory(_p:GoString):GoString return (("" : GoString));
     // Pipe returns a connected pair of Files; reads from r return bytes written to w.
     // It returns the files and an error, if any.
 **/
-function pipe():{ var _0 : File; var _1 : File; var _2 : Error; } return { _0 : null, _1 : null, _2 : ((null : stdgo.Error)) };
+function pipe():{ var _0 : File; var _1 : File; var _2 : Error; } return { _0 : ((null : File)), _1 : ((null : File)), _2 : ((null : stdgo.Error)) };
 function _runtime_args():Slice<GoString> return ((null : Slice<GoString>));
 /**
     // Getuid returns the numeric user id of the caller.
@@ -810,7 +810,7 @@ function getgroups():{ var _0 : Slice<GoInt>; var _1 : Error; } return { _0 : ((
 **/
 function exit(_code:GoInt):Void return;
 function _runtime_beforeExit():Void return;
-function _newRawConn(_file:File):{ var _0 : T_rawConn; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function _newRawConn(_file:File):{ var _0 : T_rawConn; var _1 : Error; } return { _0 : ((null : T_rawConn)), _1 : ((null : stdgo.Error)) };
 function _removeAll(_path:GoString):Error return ((null : stdgo.Error));
 /**
     // Stat returns a FileInfo describing the named file.
@@ -869,7 +869,7 @@ function _nextRandom():GoString return (("" : GoString));
     // The caller can use the file's Name method to find the pathname of the file.
     // It is the caller's responsibility to remove the file when it is no longer needed.
 **/
-function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
 /**
     // prefixAndSuffix splits pattern by the last wildcard "*", if applicable,
     // returning prefix as the part before "*" and suffix as the part after "*".
@@ -957,7 +957,7 @@ class SyscallError_wrapper {
     @:keep
     static public function _signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
     @:keep
-    static public function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    static public function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : ((null : ProcessState)), _1 : ((null : stdgo.Error)) };
     @:keep
     static public function _kill( _p:Process):Error return ((null : stdgo.Error));
     /**
@@ -974,7 +974,7 @@ class SyscallError_wrapper {
         // of the current process or an error will be returned.
     **/
     @:keep
-    static public function wait_( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : null, _1 : ((null : stdgo.Error)) };
+    static public function wait_( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : ((null : ProcessState)), _1 : ((null : stdgo.Error)) };
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,

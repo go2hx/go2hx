@@ -19,20 +19,20 @@ var _2 : stdgo.io.fs.Fs.FS = {
         __self__;
     };
 var _3 : stdgo.io.fs.Fs.File = {
-        final __self__ = new T_openMapFile_wrapper(((null : T_openMapFile)));
-        __self__.close = #if !macro function():stdgo.Error return ((null : T_openMapFile)).close() #else null #end;
-        __self__.info = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return ((null : T_openMapFile)).info() #else null #end;
-        __self__.isDir = #if !macro function():Bool return ((null : T_openMapFile)).isDir() #else null #end;
-        __self__.modTime = #if !macro function():stdgo.time.Time.Time return ((null : T_openMapFile)).modTime() #else null #end;
-        __self__.mode = #if !macro function():stdgo.io.fs.Fs.FileMode return ((null : T_openMapFile)).mode() #else null #end;
-        __self__.name = #if !macro function():GoString return ((null : T_openMapFile)).name() #else null #end;
-        __self__.read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((null : T_openMapFile)).read(_b) #else null #end;
-        __self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _offset:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((null : T_openMapFile)).readAt(_b, _offset) #else null #end;
-        __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((null : T_openMapFile)).seek(_offset, _whence) #else null #end;
-        __self__.size = #if !macro function():GoInt64 return ((null : T_openMapFile)).size() #else null #end;
-        __self__.stat = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return ((null : T_openMapFile)).stat() #else null #end;
-        __self__.sys = #if !macro function():AnyInterface return ((null : T_openMapFile)).sys() #else null #end;
-        __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return ((null : T_openMapFile)).type() #else null #end;
+        final __self__ = new T_openMapFile_wrapper(((((null : T_openMapFile)) : T_openMapFile)));
+        __self__.close = #if !macro function():stdgo.Error return ((((null : T_openMapFile)) : T_openMapFile)).close() #else null #end;
+        __self__.info = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return ((((null : T_openMapFile)) : T_openMapFile)).info() #else null #end;
+        __self__.isDir = #if !macro function():Bool return ((((null : T_openMapFile)) : T_openMapFile)).isDir() #else null #end;
+        __self__.modTime = #if !macro function():stdgo.time.Time.Time return ((((null : T_openMapFile)) : T_openMapFile)).modTime() #else null #end;
+        __self__.mode = #if !macro function():stdgo.io.fs.Fs.FileMode return ((((null : T_openMapFile)) : T_openMapFile)).mode() #else null #end;
+        __self__.name = #if !macro function():GoString return ((((null : T_openMapFile)) : T_openMapFile)).name() #else null #end;
+        __self__.read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_openMapFile)) : T_openMapFile)).read(_b) #else null #end;
+        __self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _offset:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_openMapFile)) : T_openMapFile)).readAt(_b, _offset) #else null #end;
+        __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((((null : T_openMapFile)) : T_openMapFile)).seek(_offset, _whence) #else null #end;
+        __self__.size = #if !macro function():GoInt64 return ((((null : T_openMapFile)) : T_openMapFile)).size() #else null #end;
+        __self__.stat = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return ((((null : T_openMapFile)) : T_openMapFile)).stat() #else null #end;
+        __self__.sys = #if !macro function():AnyInterface return ((((null : T_openMapFile)) : T_openMapFile)).sys() #else null #end;
+        __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return ((((null : T_openMapFile)) : T_openMapFile)).type() #else null #end;
         __self__;
     };
 @:structInit class MapFile {
@@ -87,7 +87,7 @@ var _3 : stdgo.io.fs.Fs.File = {
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) class T_mapFileInfo {
     public var _name : GoString = "";
-    public var _f : Ref<MapFile> = null;
+    public var _f : Ref<MapFile> = ((null : MapFile));
     public function new(?_name:GoString, ?_f:Ref<MapFile>) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
@@ -234,7 +234,7 @@ function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
     }
 function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         var _expected = new Slice<GoString>(..._expected);
-        var _t:T_fsTester = (({ _fsys : _fsys, _errText : ((null : Slice<GoUInt8>)), _dirs : ((null : Slice<GoString>)), _files : ((null : Slice<GoString>)) } : T_fsTester));
+        var _t:T_fsTester = (({ _fsys : _fsys } : T_fsTester));
         _t._checkDir(((((("." : GoString))) : GoString)));
         _t._checkOpen(((((("." : GoString))) : GoString)));
         var _found = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
@@ -1498,7 +1498,7 @@ class T_fsTester_wrapper {
                 __self__;
             } };
         };
-        var _file = (_fsys != null ? _fsys[_name] : null);
+        var _file = (_fsys != null ? _fsys[_name] : ((null : MapFile)));
         if ((_file != null) && ((_file.mode & (("2147483648" : stdgo.io.fs.Fs.FileMode))) == ((0 : stdgo.io.fs.Fs.FileMode)))) {
             return { _0 : {
                 final __self__ = new T_openMapFile_wrapper(((new T_openMapFile(_name, ((new T_mapFileInfo(stdgo.path.Path.base(_name), _file) : T_mapFileInfo)), ((0 : GoInt64))) : T_openMapFile)));
@@ -1561,13 +1561,13 @@ class T_fsTester_wrapper {
             if (_need != null) _need.__remove__(_fi._name);
         };
         for (_name => _ in _need) {
-            _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile))) : T_mapFileInfo))));
+            _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile))) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile))) : T_mapFileInfo))));
         };
         stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
             return (_list != null ? _list[_i] : new T_mapFileInfo())._name < (_list != null ? _list[_j] : new T_mapFileInfo())._name;
         });
         if (_file == null) {
-            _file = (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)), data : ((null : Slice<GoUInt8>)), modTime : new stdgo.time.Time.Time(), sys : ((null : AnyInterface)) } : MapFile));
+            _file = (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile));
         };
         return { _0 : {
             final __self__ = new T_mapDir_wrapper(((new T_mapDir(_name, ((new T_mapFileInfo(_elem, _file) : T_mapFileInfo)), _list, ((0 : GoInt))) : T_mapDir)));

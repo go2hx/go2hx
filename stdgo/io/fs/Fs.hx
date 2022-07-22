@@ -787,7 +787,7 @@ class T_dirInfo_wrapper {
             var __tmp__ = try {
                 { value : ((((_err.__underlying__().value : Dynamic)) : PathError)), ok : true };
             } catch(_) {
-                { value : null, ok : false };
+                { value : ((null : PathError)), ok : false };
             }, _e = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 {

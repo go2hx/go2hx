@@ -213,8 +213,8 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
             };
         };
         var __tmp__ = stdgo.io.Io.readAll({
-            final __self__ = new T_smallByteReader_wrapper((({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)));
-            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)).read(_p) #else null #end;
+            final __self__ = new T_smallByteReader_wrapper((({ _r : _r } : T_smallByteReader)));
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r } : T_smallByteReader)).read(_p) #else null #end;
             __self__;
         }), _data:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -268,8 +268,8 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                     };
                 };
                 var __tmp__ = stdgo.io.Io.readAll({
-                    final __self__ = new T_smallByteReader_wrapper((({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)));
-                    __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)).read(_p) #else null #end;
+                    final __self__ = new T_smallByteReader_wrapper((({ _r : _r } : T_smallByteReader)));
+                    __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r } : T_smallByteReader)).read(_p) #else null #end;
                     __self__;
                 }), _data:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
@@ -292,8 +292,8 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
                 };
                 {
                     var __tmp__ = stdgo.io.Io.readAll({
-                        final __self__ = new T_smallByteReader_wrapper((({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)));
-                        __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r, _off : 0, _n : 0 } : T_smallByteReader)).read(_p) #else null #end;
+                        final __self__ = new T_smallByteReader_wrapper((({ _r : _r } : T_smallByteReader)));
+                        __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (({ _r : _r } : T_smallByteReader)).read(_p) #else null #end;
                         __self__;
                     });
                     _data = __tmp__._0;

@@ -1,13 +1,13 @@
 package stdgo;
 
 import stdgo.StdGoTypes.GoInt;
+import sys.thread.Lock;
+import sys.thread.Mutex;
 #if (target.threaded)
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.internal.Async;
 import sys.thread.Deque;
-import sys.thread.Lock;
-import sys.thread.Mutex;
 import sys.thread.Thread;
 
 class Chan<T> {
@@ -222,11 +222,27 @@ private class ChanIterator<T> {
 }
 #else
 class Chan<T> {
-	public function new() {}
+	public function new(a, b) {}
 
 	public function cap():GoInt
 		return 0;
 
 	public var length:GoInt = 0;
+
+	public function __isSend__(reset:Bool = true):Bool
+		return false;
+
+	public function __get__() {}
+
+	public var __mutex__:Dynamic = null;
+
+	public var __getBool__:Bool = false;
+
+	public function __sendBool__(reset:Bool = true):Bool
+		return false;
+
+	public function __send__(a) {}
+
+	public function acquire() {}
 }
 #end

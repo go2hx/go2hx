@@ -3,7 +3,8 @@ package stdgo.testing.internal.testdeps;
 import stdgo.StdGoTypes;
 
 var _matchPat:GoString = (("" : GoString));
-var _matchRe:stdgo.regexp.Regexp.Regexp = null;
+
+// var _matchRe:stdgo.regexp.Regexp.Regexp = null;
 var importPath:GoString = (("" : GoString));
 var _log:T_testLog = new T_testLog();
 
@@ -20,10 +21,10 @@ var _log:T_testLog = new T_testLog();
 
 @:structInit @:using(stdgo.testing.internal.testdeps.Testdeps.T_testLog_static_extension) class T_testLog {
 	public var _mu:stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-	public var _w:Ref<stdgo.bufio.Bufio.Writer> = null;
+	public var _w:Dynamic = null; // Ref<stdgo.bufio.Bufio.Writer> = null;
 	public var _set:Bool = false;
 
-	public function new(?_mu:stdgo.sync.Sync.Mutex, ?_w:Ref<stdgo.bufio.Bufio.Writer>, ?_set:Bool) {
+	public function new(?_mu:stdgo.sync.Sync.Mutex, ?_w, ?_set:Bool) {
 		if (_mu != null)
 			this._mu = _mu;
 		if (_w != null)
@@ -54,22 +55,28 @@ var _log:T_testLog = new T_testLog();
 		return ((null : stdgo.Error));
 
 	@:keep
-	static public function readCorpus(_:TestDeps, _dir:GoString, _types:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<{
-		var parent:GoString;
-		var path:GoString;
-		var data:Slice<GoUInt8>;
-		var values:Slice<AnyInterface>;
-		var generation:GoInt;
-		var isSeed:Bool;
-	}>; var _1:Error;}
-		return {_0: ((null : Slice<{
+	static public function readCorpus(_:TestDeps, _dir:GoString, _types:Slice<stdgo.reflect.Reflect.Type>):{
+		var _0:Slice<{
 			var parent:GoString;
 			var path:GoString;
 			var data:Slice<GoUInt8>;
 			var values:Slice<AnyInterface>;
 			var generation:GoInt;
 			var isSeed:Bool;
-		}>)), _1: ((null : stdgo.Error))};
+		}>;
+		var _1:Error;
+	}
+		return {
+			_0: ((null : Slice<{
+				var parent:GoString;
+				var path:GoString;
+				var data:Slice<GoUInt8>;
+				var values:Slice<AnyInterface>;
+				var generation:GoInt;
+				var isSeed:Bool;
+			}>)),
+			_1: ((null : stdgo.Error))
+		};
 
 	@:keep
 	static public function runFuzzWorker(_:TestDeps, _fn:({

@@ -2936,6 +2936,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, typeParams:Array<GoType>, info:Info):Array<Expr> {
 	var genericExprs:Array<Ast.Expr> = indices; // genericTypes but exprs
 	var removalGenericExprs:Array<Ast.Expr> = [];
+	if (typeParams.length == 0)
+		return [];
 	for (i in 0...typeParams.length) {
 		switch typeParams[i] {
 			case typeParam(_, _):

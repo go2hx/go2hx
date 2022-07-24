@@ -23,10 +23,8 @@ jobs:
         run: npx haxelib dev go2hx .
       - name: Test run
         run: npx haxelib run go2hx ./rnd
-      - name: Build StdGo autogenerator
-        run: npx haxe stdgo.hxml
       - name: Run StdGo autogenerator
-        run: node --max-old-space-size=4096 stdgo.js
+        run: npx haxe stdgo.hxml
       - name: Build tests
         run: npx haxe tests.hxml
       - name: Run tests

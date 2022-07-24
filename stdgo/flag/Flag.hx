@@ -533,9 +533,9 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 return _err;
             } else if (_f._errorHandling == ((1 : ErrorHandling))) {
                 if (_err == errHelp) {
-                    stdgo.os.Os.exit(((0 : GoInt)));
+                    Sys.exit(((0 : GoInt)));
                 };
-                stdgo.os.Os.exit(((2 : GoInt)));
+                Sys.exit(((2 : GoInt)));
             } else if (_f._errorHandling == ((2 : ErrorHandling))) {
                 throw Go.toInterface(_err);
             };

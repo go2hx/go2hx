@@ -2749,6 +2749,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						genArgs(true);
 						return returnExpr(macro($e($a{args}) : GoString));
 					}
+				case "Exit":
+					if (expr.fun.x.id == "Ident" && expr.fun.x.name == "os") {
+						genArgs(true);
+						return (macro Sys.exit($a{args})).expr;
+					}
 			}
 		case "FuncLit":
 			var expr = toExpr(typeFuncLit(expr.fun, info));

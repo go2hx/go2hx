@@ -370,8 +370,10 @@ function mainPaths(modules:Array<Typer.Module>):Array<String> {
 private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceData, args:Array<String>) {
 	if (instance.target == "") {
 		if (instance.test) {
-			instance.target = "hl"; // default test target
-			instance.targetOutput = "test.hl";
+			if (!instance.noRun) {
+				instance.target = "hl"; // default test target
+				instance.targetOutput = "test.hl";
+			}
 		} else {
 			instance.noRun = true;
 		}
@@ -463,7 +465,11 @@ function buildTarget(target:String, out:String, main:String):String {
 		case "hl", "jvm", "cpp", "cs":
 			'--$target $out';
 		case "interp":
-			"--run " + main;
+			if (main == "") {
+				"--interp";
+			} else {
+				"--run " + main;
+			}
 		default:
 			throw "unknown target: " + target;
 	}

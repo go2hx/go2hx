@@ -57,7 +57,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 
 	@:from
 	private static function fromSlice<T>(slice:Slice<T>):Pointer<GoArray<T>> {
-		var x:GoArray<T> = slice.__getUnderlying__();
+		var x:GoArray<T> = cast slice.__getUnderlying__();
 		return Go.pointer(x);
 	}
 

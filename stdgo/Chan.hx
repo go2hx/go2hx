@@ -1,13 +1,13 @@
 package stdgo;
 
 import stdgo.StdGoTypes.GoInt;
-import sys.thread.Lock;
-import sys.thread.Mutex;
 #if (target.threaded)
 import haxe.ds.Vector;
 import stdgo.StdGoTypes.GoInt;
 import stdgo.internal.Async;
 import sys.thread.Deque;
+import sys.thread.Lock;
+import sys.thread.Mutex;
 import sys.thread.Thread;
 
 class Chan<T> {

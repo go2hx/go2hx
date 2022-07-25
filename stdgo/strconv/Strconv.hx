@@ -6,6 +6,10 @@ using stdgo.GoString.GoStringTools;
 
 final intSize:GoInt = 32;
 
+function quoteToASCII(_s:GoString):GoString {
+	return _s;
+}
+
 function parseFloat(s:GoString, bitSize:GoInt64):{_0:GoFloat, ?_1:Error} {
 	try {
 		return {_0: Std.parseFloat(s.toString())};

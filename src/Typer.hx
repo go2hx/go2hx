@@ -1044,6 +1044,32 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 	return (macro {}).expr; // blank expr def
 } // ($expr : $type);
 
+private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
+	switch toType {
+		case refType(elem):
+			toType = elem;
+		default:
+	}
+	switch toType {
+		case named(path, _, _, _):
+			final underlying = getUnderlying(toType);
+			var p = namedTypePath(path, info);
+			var exprs:Array<Expr> = [];
+			switch underlying {
+				case structType(fields):
+					for (field in fields) {
+						final field = formatHaxeFieldName(field.name, info);
+						exprs.push(macro $e.$field);
+					}
+				default:
+					throw "not a struct";
+			}
+			return macro new $p($a{exprs});
+		default:
+			throw "struct is unnamed: " + toType;
+	}
+}
+
 private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoType, info:Info):Expr {
 	// trace(fromType, toType);
 	if (e != null) {
@@ -1090,29 +1116,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 	}
 	// trace(fromType, "|", toType);
 	if (isStruct(fromType) && isStruct(toType)) {
-		switch toType {
-			case refType(elem):
-				toType = elem;
-			default:
-		}
-		switch toType {
-			case named(path, _, _, _):
-				final underlying = getUnderlying(toType);
-				var p = namedTypePath(path, info);
-				var exprs:Array<Expr> = [];
-				switch underlying {
-					case structType(fields):
-						for (field in fields) {
-							final field = formatHaxeFieldName(field.name, info);
-							exprs.push(macro $e.$field);
-						}
-					default:
-						throw "not a struct";
-				}
-				return macro new $p($a{exprs});
-			default:
-				throw "struct is unnamed: " + toType;
-		}
+		return translateStruct(e, fromType, toType, info);
 	}
 
 	if (isPointerStruct(fromType) && isPointerStruct(toType)) {
@@ -1796,6 +1800,20 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 				}
 		}
 	}
+	if (isStruct(fromType) && isStruct(toType)) {
+		var equal = false;
+		switch fromType {
+			case named(path, _, _):
+				switch toType {
+					case named(path2, _, _):
+						equal = path == path2;
+					default:
+				}
+			default:
+		}
+		if (!equal)
+			return translateStruct(expr, fromType, toType, info);
+	}
 	if (isNamed(fromType) && !isInterface(fromType) && isInterface(toType) && !isAnyInterface(toType)) {
 		y = wrapper(fromType, y, info);
 		return y;
@@ -2419,6 +2437,9 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		}
 	}
 	name = className(name, info);
+	if (StringTools.startsWith(name, "T__struct_")) {
+		info.locals[expr.type.underlying.hash] = typeof(expr.type, info);
+	}
 	return TPath({
 		pack: [],
 		name: name,
@@ -3197,8 +3218,9 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 					}
 
 			]);
-			if (!isNamed)
+			if (!isNamed) {
 				t = getLocalType(e.hash, t, info);
+			}
 			t;
 		case "Chan":
 			chanType(e.dir, typeof(e.elem, info));

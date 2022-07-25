@@ -4346,6 +4346,8 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	info.count = 0;
 	info.gotoSystem = false;
 	info.global = data.global;
+	info.locals = data.locals.copy();
+	info.localUnderlyingNames = data.localUnderlyingNames.copy();
 	var name = nameIdent(decl.name.name, false, false, info);
 	if (decl.name.name == "init" && (decl.recv == null || decl.recv.list == null)) {
 		switch typeBlockStmt(decl.body, info, true) {

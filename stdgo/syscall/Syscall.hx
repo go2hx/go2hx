@@ -19,7 +19,7 @@ var _nodeCREATE : GoInt = _constants.get(((((("O_CREAT" : GoString))) : GoString
 var _nodeTRUNC : GoInt = _constants.get(((((("O_TRUNC" : GoString))) : GoString))).int();
 var _nodeAPPEND : GoInt = _constants.get(((((("O_APPEND" : GoString))) : GoString))).int();
 var _nodeEXCL : GoInt = _constants.get(((((("O_EXCL" : GoString))) : GoString))).int();
-var _files : GoMap<GoInt, Ref<T_jsFile>> = Go.map(((0 : GoInt)) => ((null : T_jsFile)), ((1 : GoInt)) => ((null : T_jsFile)), ((2 : GoInt)) => ((null : T_jsFile)));
+var _files : GoMap<GoInt, Ref<T_jsFile>> = Go.map(((0 : GoInt)) => new T_jsFile(((null : T_jsFile))._path, ((null : T_jsFile))._entries, ((null : T_jsFile))._dirIdx, ((null : T_jsFile))._pos, ((null : T_jsFile))._seeked), ((1 : GoInt)) => new T_jsFile(((null : T_jsFile))._path, ((null : T_jsFile))._entries, ((null : T_jsFile))._dirIdx, ((null : T_jsFile))._pos, ((null : T_jsFile))._seeked), ((2 : GoInt)) => new T_jsFile(((null : T_jsFile))._path, ((null : T_jsFile))._entries, ((null : T_jsFile))._dirIdx, ((null : T_jsFile))._pos, ((null : T_jsFile))._seeked));
 var _signals : GoArray<GoString> = ((new GoArray<GoString>() : GoArray<GoString>));
 var _errorstr : GoArray<GoString> = {
         var s:GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 2054) ""]);

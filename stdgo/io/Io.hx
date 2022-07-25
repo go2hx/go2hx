@@ -498,7 +498,7 @@ function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):SectionReader {
         } else {
             _remaining = (("9223372036854775807" : GoInt64));
         };
-        return ((new SectionReader(_r, _off, _off, _remaining) : SectionReader));
+        return new SectionReader(((new SectionReader(_r, _off, _off, _remaining) : SectionReader))._r, ((new SectionReader(_r, _off, _off, _remaining) : SectionReader))._base, ((new SectionReader(_r, _off, _off, _remaining) : SectionReader))._off, ((new SectionReader(_r, _off, _off, _remaining) : SectionReader))._limit);
     }
 /**
     // TeeReader returns a Reader that writes to w what it reads from r.
@@ -614,8 +614,8 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
     // the individual calls will be gated sequentially.
 **/
 function pipe():{ var _0 : PipeReader; var _1 : PipeWriter; } {
-        var _p = (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe));
-        return { _0 : ((new PipeReader(_p) : PipeReader)), _1 : ((new PipeWriter(_p) : PipeWriter)) };
+        var _p = new T_pipe((({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._wrMu, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._wrCh, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._rdCh, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._once, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._done, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._rerr, (({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> ((null : Slice<GoUInt8>))), _rdCh : new Chan<GoInt>(0, () -> ((0 : GoInt))), _done : new Chan<T_discard>(0, () -> new T_discard()) } : T_pipe))._werr);
+        return { _0 : new PipeReader(((new PipeReader(new T_pipe(_p._wrMu, _p._wrCh, _p._rdCh, _p._once, _p._done, _p._rerr, _p._werr)) : PipeReader))._p), _1 : new PipeWriter(((new PipeWriter(new T_pipe(_p._wrMu, _p._wrCh, _p._rdCh, _p._once, _p._done, _p._rerr, _p._werr)) : PipeWriter))._p) };
     }
 @:keep class LimitedReader_static_extension {
     @:keep

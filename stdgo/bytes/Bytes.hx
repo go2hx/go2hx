@@ -110,7 +110,7 @@ function _makeSlice(_n:GoInt):Slice<GoByte> {
     // sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:Slice<GoByte>):Buffer {
-        return (({ _buf : _buf } : Buffer));
+        return new Buffer((({ _buf : _buf } : Buffer))._buf, (({ _buf : _buf } : Buffer))._off, (({ _buf : _buf } : Buffer))._lastRead);
     }
 /**
     // NewBufferString creates and initializes a new Buffer using string s as its
@@ -121,7 +121,7 @@ function newBuffer(_buf:Slice<GoByte>):Buffer {
     // sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:GoString):Buffer {
-        return (({ _buf : ((_s : Slice<GoByte>)) } : Buffer));
+        return new Buffer((({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._buf, (({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._off, (({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._lastRead);
     }
 /**
     // Equal reports whether a and b
@@ -1489,7 +1489,7 @@ function cut(_s:Slice<GoByte>, _sep:Slice<GoByte>):{ var _0 : Slice<GoByte>; var
     // NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:Slice<GoByte>):Reader {
-        return ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
+        return new Reader(((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._s, ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._i, ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._prevRune);
     }
 @:keep class Buffer_static_extension {
     /**

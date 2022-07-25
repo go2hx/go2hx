@@ -297,9 +297,9 @@ function _newBitState():T_bitState {
             { value : ((null : T_bitState)), ok : false };
         }, _b = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
-            _b = new T_bitState();
+            _b = new T_bitState(new T_bitState()._end, new T_bitState()._cap, new T_bitState()._matchcap, new T_bitState()._jobs, new T_bitState()._visited, new T_bitState()._inputs);
         };
-        return _b;
+        return new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs);
     }
 function _freeBitState(_b:T_bitState):Void {
         _b._inputs._clear();
@@ -310,7 +310,7 @@ function _freeBitState(_b:T_bitState):Void {
     // the backtracker using prog.
 **/
 function _maxBitStateLen(_prog:stdgo.regexp.syntax.Syntax.Prog):GoInt {
-        if (!_shouldBacktrack(_prog)) {
+        if (!_shouldBacktrack(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap))) {
             return ((0 : GoInt));
         };
         return ((262144 : GoInt)) / (_prog.inst != null ? _prog.inst.length : ((0 : GoInt)));
@@ -332,9 +332,9 @@ function _newOnePassMachine():T_onePassMachine {
             { value : ((null : T_onePassMachine)), ok : false };
         }, _m = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
-            _m = new T_onePassMachine();
+            _m = new T_onePassMachine(new T_onePassMachine()._inputs, new T_onePassMachine()._matchcap);
         };
-        return _m;
+        return new T_onePassMachine(_m._inputs, _m._matchcap);
     }
 function _freeOnePassMachine(_m:T_onePassMachine):Void {
         _m._inputs._clear();
@@ -349,25 +349,25 @@ function _freeOnePassMachine(_m:T_onePassMachine):Void {
 **/
 function _onePassPrefix(_p:stdgo.regexp.syntax.Syntax.Prog):{ var _0 : GoString; var _1 : Bool; var _2 : GoUInt32; } {
         var _prefix:GoString = (("" : GoString)), _complete:Bool = false, _pc:GoUInt32 = ((0 : GoUInt32));
-        var _i = (_p.inst != null ? _p.inst[_p.start] : new stdgo.regexp.syntax.Syntax.Inst());
+        var _i = new stdgo.regexp.syntax.Syntax.Inst((_p.inst != null ? _p.inst[_p.start] : new stdgo.regexp.syntax.Syntax.Inst()).op, (_p.inst != null ? _p.inst[_p.start] : new stdgo.regexp.syntax.Syntax.Inst()).out, (_p.inst != null ? _p.inst[_p.start] : new stdgo.regexp.syntax.Syntax.Inst()).arg, (_p.inst != null ? _p.inst[_p.start] : new stdgo.regexp.syntax.Syntax.Inst()).rune);
         if ((_i.op != ((3 : stdgo.regexp.syntax.Syntax.InstOp))) || (((((_i.arg : stdgo.regexp.syntax.Syntax.EmptyOp))) & ((4 : stdgo.regexp.syntax.Syntax.EmptyOp))) == ((0 : stdgo.regexp.syntax.Syntax.EmptyOp)))) {
             return { _0 : ((((("" : GoString))) : GoString)), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)), _2 : ((_p.start : GoUInt32)) };
         };
         _pc = _i.out;
-        _i = (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst());
+        _i = new stdgo.regexp.syntax.Syntax.Inst((_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).op, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).out, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).arg, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).rune);
         while (_i.op == ((6 : stdgo.regexp.syntax.Syntax.InstOp))) {
             _pc = _i.out;
-            _i = (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst());
+            _i = new stdgo.regexp.syntax.Syntax.Inst((_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).op, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).out, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).arg, (_p.inst != null ? _p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).rune);
         };
-        if ((_iop(_i) != ((7 : stdgo.regexp.syntax.Syntax.InstOp))) || ((_i.rune != null ? _i.rune.length : ((0 : GoInt))) != ((1 : GoInt)))) {
+        if ((_iop(new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune)) != ((7 : stdgo.regexp.syntax.Syntax.InstOp))) || ((_i.rune != null ? _i.rune.length : ((0 : GoInt))) != ((1 : GoInt)))) {
             return { _0 : ((((("" : GoString))) : GoString)), _1 : _i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)), _2 : ((_p.start : GoUInt32)) };
         };
         var _buf:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
-        while ((((_iop(_i) == ((7 : stdgo.regexp.syntax.Syntax.InstOp))) && ((_i.rune != null ? _i.rune.length : ((0 : GoInt))) == ((1 : GoInt)))) && ((((_i.arg : stdgo.regexp.syntax.Syntax.Flags)) & ((1 : stdgo.regexp.syntax.Syntax.Flags))) == ((0 : stdgo.regexp.syntax.Syntax.Flags)))) && ((_i.rune != null ? _i.rune[((0 : GoInt))] : ((0 : GoInt32))) != ((65533 : GoInt32)))) {
+        while ((((_iop(new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune)) == ((7 : stdgo.regexp.syntax.Syntax.InstOp))) && ((_i.rune != null ? _i.rune.length : ((0 : GoInt))) == ((1 : GoInt)))) && ((((_i.arg : stdgo.regexp.syntax.Syntax.Flags)) & ((1 : stdgo.regexp.syntax.Syntax.Flags))) == ((0 : stdgo.regexp.syntax.Syntax.Flags)))) && ((_i.rune != null ? _i.rune[((0 : GoInt))] : ((0 : GoInt32))) != ((65533 : GoInt32)))) {
             _buf.writeRune((_i.rune != null ? _i.rune[((0 : GoInt))] : ((0 : GoInt32))));
             {
                 final __tmp__0 = _i.out;
-                final __tmp__1 = (_p.inst != null ? _p.inst[_i.out] : new stdgo.regexp.syntax.Syntax.Inst());
+                final __tmp__1 = new stdgo.regexp.syntax.Syntax.Inst((_p.inst != null ? _p.inst[_i.out] : new stdgo.regexp.syntax.Syntax.Inst()).op, (_p.inst != null ? _p.inst[_i.out] : new stdgo.regexp.syntax.Syntax.Inst()).out, (_p.inst != null ? _p.inst[_i.out] : new stdgo.regexp.syntax.Syntax.Inst()).arg, (_p.inst != null ? _p.inst[_i.out] : new stdgo.regexp.syntax.Syntax.Inst()).rune);
                 _pc = __tmp__0;
                 _i = __tmp__1;
             };
@@ -402,7 +402,7 @@ function _iop(_i:stdgo.regexp.syntax.Syntax.Inst):stdgo.regexp.syntax.Syntax.Ins
     }
 function _newQueue(_size:GoInt):T_queueOnePass {
         var _q:T_queueOnePass = ((null : T_queueOnePass));
-        return (({ _sparse : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]), _dense : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]) } : T_queueOnePass));
+        return new T_queueOnePass((({ _sparse : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]), _dense : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]) } : T_queueOnePass))._sparse, (({ _sparse : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]), _dense : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]) } : T_queueOnePass))._dense, (({ _sparse : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]), _dense : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]) } : T_queueOnePass))._size, (({ _sparse : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]), _dense : new Slice<GoUInt32>(...[for (i in 0 ... ((_size : GoInt)).toBasic()) ((0 : GoUInt32))]) } : T_queueOnePass))._nextIndex);
     }
 function _mergeRuneSets(_leftRunes:Slice<GoRune>, _rightRunes:Slice<GoRune>, _leftPC:GoUInt32, _rightPC:GoUInt32):{ var _0 : Slice<GoRune>; var _1 : Slice<GoUInt32>; } {
         var __recover_exception__:AnyInterface = null;
@@ -499,7 +499,7 @@ function _cleanupOnePass(_prog:T_onePassProg, _original:stdgo.regexp.syntax.Synt
     // onePassCopy creates a copy of the original Prog, as we'll be modifying it
 **/
 function _onePassCopy(_prog:stdgo.regexp.syntax.Syntax.Prog):T_onePassProg {
-        var _p = (({ start : _prog.start, numCap : _prog.numCap, inst : new Slice<T_onePassInst>(...[for (i in 0 ... (((_prog.inst != null ? _prog.inst.length : ((0 : GoInt))) : GoInt)).toBasic()) new T_onePassInst()]) } : T_onePassProg));
+        var _p = new T_onePassProg((({ start : _prog.start, numCap : _prog.numCap, inst : new Slice<T_onePassInst>(...[for (i in 0 ... (((_prog.inst != null ? _prog.inst.length : ((0 : GoInt))) : GoInt)).toBasic()) new T_onePassInst()]) } : T_onePassProg)).inst, (({ start : _prog.start, numCap : _prog.numCap, inst : new Slice<T_onePassInst>(...[for (i in 0 ... (((_prog.inst != null ? _prog.inst.length : ((0 : GoInt))) : GoInt)).toBasic()) new T_onePassInst()]) } : T_onePassProg)).start, (({ start : _prog.start, numCap : _prog.numCap, inst : new Slice<T_onePassInst>(...[for (i in 0 ... (((_prog.inst != null ? _prog.inst.length : ((0 : GoInt))) : GoInt)).toBasic()) new T_onePassInst()]) } : T_onePassProg)).numCap);
         for (_i => inst in _prog.inst) {
             if (_p.inst != null) _p.inst[_i] = (({ inst : (inst == null ? null : inst.__copy__()) } : T_onePassInst));
         };
@@ -546,7 +546,7 @@ function _onePassCopy(_prog:stdgo.regexp.syntax.Syntax.Prog):T_onePassProg {
                 };
             };
         };
-        return _p;
+        return new T_onePassProg(_p.inst, _p.start, _p.numCap);
     }
 /**
     // makeOnePass creates a onepass Prog, if possible. It is possible if at any alt,
@@ -563,7 +563,7 @@ function _makeOnePass(_p:T_onePassProg):T_onePassProg {
         _check = function(_pc:GoUInt32, _m:Slice<Bool>):Bool {
             var _ok:Bool = false;
             _ok = true;
-            var _inst = (_p.inst != null ? _p.inst[_pc] : new T_onePassInst());
+            var _inst = new T_onePassInst((_p.inst != null ? _p.inst[_pc] : new T_onePassInst()).inst, (_p.inst != null ? _p.inst[_pc] : new T_onePassInst()).next);
             if (_visitQueue._contains(_pc)) {
                 return _ok;
             };
@@ -742,7 +742,7 @@ function _makeOnePass(_p:T_onePassProg):T_onePassProg {
                 (_p.inst != null ? _p.inst[_i] : new T_onePassInst()).inst.rune = (_onePassRunes != null ? _onePassRunes[_i] : ((null : Slice<GoInt32>)));
             };
         };
-        return _p;
+        return new T_onePassProg(_p.inst, _p.start, _p.numCap);
     }
 /**
     // compileOnePass returns a new *syntax.Prog suitable for onePass execution if the original Prog
@@ -773,12 +773,12 @@ function _compileOnePass(_prog:stdgo.regexp.syntax.Syntax.Prog):T_onePassProg {
                 };
             };
         };
-        _p = _onePassCopy(_prog);
-        _p = _makeOnePass(_p);
+        _p = new T_onePassProg(_onePassCopy(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _onePassCopy(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _onePassCopy(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap);
+        _p = new T_onePassProg(_makeOnePass(new T_onePassProg(_p.inst, _p.start, _p.numCap)).inst, _makeOnePass(new T_onePassProg(_p.inst, _p.start, _p.numCap)).start, _makeOnePass(new T_onePassProg(_p.inst, _p.start, _p.numCap)).numCap);
         if (_p != null) {
-            _cleanupOnePass(_p, _prog);
+            _cleanupOnePass(new T_onePassProg(_p.inst, _p.start, _p.numCap), new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap));
         };
-        return _p;
+        return new T_onePassProg(_p.inst, _p.start, _p.numCap);
     }
 /**
     // Compile parses a regular expression and returns, if successful,
@@ -826,8 +826,8 @@ function _compile(_expr:GoString, _mode:stdgo.regexp.syntax.Syntax.Flags, _longe
         };
         var _maxCap:GoInt = _re.maxCap();
         var _capNames = _re.capNames();
-        _re = _re.simplify();
-        var __tmp__ = stdgo.regexp.syntax.Syntax.compile(_re), _prog:Ref<stdgo.regexp.syntax.Syntax.Prog> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        _re = new stdgo.regexp.syntax.Syntax.Regexp(_re.simplify().op, _re.simplify().flags, _re.simplify().sub, _re.simplify().sub0, _re.simplify().rune, _re.simplify().rune0, _re.simplify().min, _re.simplify().max, _re.simplify().cap_, _re.simplify().name);
+        var __tmp__ = stdgo.regexp.syntax.Syntax.compile(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)), _prog:Ref<stdgo.regexp.syntax.Syntax.Prog> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             return { _0 : null, _1 : _err };
         };
@@ -835,17 +835,33 @@ function _compile(_expr:GoString, _mode:stdgo.regexp.syntax.Syntax.Flags, _longe
         if (_matchcap < ((2 : GoInt))) {
             _matchcap = ((2 : GoInt));
         };
-        var _regexp = (({ _expr : _expr, _prog : _prog, _onepass : _compileOnePass(_prog), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(_re) } : Regexp));
+        var _regexp = new Regexp(
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._expr,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prog,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._onepass,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._numSubexp,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._maxBitStateLen,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._subexpNames,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prefix,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prefixBytes,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prefixRune,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prefixEnd,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._mpool,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._matchcap,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._prefixComplete,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._cond,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._minInputLen,
+(({ _expr : _expr, _prog : new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap), _onepass : new T_onePassProg(_compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).inst, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).start, _compileOnePass(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap)).numCap), _numSubexp : _maxCap, _subexpNames : _capNames, _cond : _prog.startCond(), _longest : _longest, _matchcap : _matchcap, _minInputLen : _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_re.op, _re.flags, _re.sub, _re.sub0, _re.rune, _re.rune0, _re.min, _re.max, _re.cap_, _re.name)) } : Regexp))._longest);
         if (_regexp._onepass == null) {
             {
                 var __tmp__ = _prog.prefix();
                 _regexp._prefix = __tmp__._0;
                 _regexp._prefixComplete = __tmp__._1;
             };
-            _regexp._maxBitStateLen = _maxBitStateLen(_prog);
+            _regexp._maxBitStateLen = _maxBitStateLen(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap));
         } else {
             {
-                var __tmp__ = _onePassPrefix(_prog);
+                var __tmp__ = _onePassPrefix(new stdgo.regexp.syntax.Syntax.Prog(_prog.inst, _prog.start, _prog.numCap));
                 _regexp._prefix = __tmp__._0;
                 _regexp._prefixComplete = __tmp__._1;
                 _regexp._prefixEnd = __tmp__._2;
@@ -864,7 +880,23 @@ function _compile(_expr:GoString, _mode:stdgo.regexp.syntax.Syntax.Flags, _longe
             _i++;
         };
         _regexp._mpool = _i;
-        return { _0 : _regexp, _1 : ((null : stdgo.Error)) };
+        return { _0 : new Regexp(
+_regexp._expr,
+_regexp._prog,
+_regexp._onepass,
+_regexp._numSubexp,
+_regexp._maxBitStateLen,
+_regexp._subexpNames,
+_regexp._prefix,
+_regexp._prefixBytes,
+_regexp._prefixRune,
+_regexp._prefixEnd,
+_regexp._mpool,
+_regexp._matchcap,
+_regexp._prefixComplete,
+_regexp._cond,
+_regexp._minInputLen,
+_regexp._longest), _1 : ((null : stdgo.Error)) };
     }
 /**
     // minInputLen walks the regexp to find the minimum length of any matchable input
@@ -883,20 +915,20 @@ function _minInputLen(_re:stdgo.regexp.syntax.Syntax.Regexp):GoInt {
             };
             return _l;
         } else if (_re.op == ((13 : stdgo.regexp.syntax.Syntax.Op)) || _re.op == ((15 : stdgo.regexp.syntax.Syntax.Op))) {
-            return _minInputLen((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))));
+            return _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).op, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).flags, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).min, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).max, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).cap_, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).name));
         } else if (_re.op == ((17 : stdgo.regexp.syntax.Syntax.Op))) {
-            return _re.min * _minInputLen((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))));
+            return _re.min * _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).op, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).flags, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).min, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).max, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).cap_, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).name));
         } else if (_re.op == ((18 : stdgo.regexp.syntax.Syntax.Op))) {
             var _l:GoInt = ((0 : GoInt));
             for (_1 => _sub in _re.sub) {
-                _l = _l + (_minInputLen(_sub));
+                _l = _l + (_minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_sub.op, _sub.flags, _sub.sub, _sub.sub0, _sub.rune, _sub.rune0, _sub.min, _sub.max, _sub.cap_, _sub.name)));
             };
             return _l;
         } else if (_re.op == ((19 : stdgo.regexp.syntax.Syntax.Op))) {
-            var _l:GoInt = _minInputLen((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))));
+            var _l:GoInt = _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp((_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).op, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).flags, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).sub0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).rune0, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).min, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).max, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).cap_, (_re.sub != null ? _re.sub[((0 : GoInt))] : ((null : stdgo.regexp.syntax.Syntax.Regexp))).name));
             var _lnext:GoInt = ((0 : GoInt));
             for (_2 => _sub in ((_re.sub.__slice__(((1 : GoInt))) : Slice<Ref<stdgo.regexp.syntax.Syntax.Regexp>>))) {
-                _lnext = _minInputLen(_sub);
+                _lnext = _minInputLen(new stdgo.regexp.syntax.Syntax.Regexp(_sub.op, _sub.flags, _sub.sub, _sub.sub0, _sub.rune, _sub.rune0, _sub.min, _sub.max, _sub.cap_, _sub.name));
                 if (_lnext < _l) {
                     _l = _lnext;
                 };
@@ -914,7 +946,23 @@ function mustCompile(_str:GoString):Regexp {
         if (_err != null) {
             throw Go.toInterface((((("regexp: Compile(" : GoString)) + _quote(_str)) + (("): " : GoString))) + _err.error());
         };
-        return _regexp;
+        return new Regexp(
+_regexp._expr,
+_regexp._prog,
+_regexp._onepass,
+_regexp._numSubexp,
+_regexp._maxBitStateLen,
+_regexp._subexpNames,
+_regexp._prefix,
+_regexp._prefixBytes,
+_regexp._prefixRune,
+_regexp._prefixEnd,
+_regexp._mpool,
+_regexp._matchcap,
+_regexp._prefixComplete,
+_regexp._cond,
+_regexp._minInputLen,
+_regexp._longest);
     }
 /**
     // MustCompilePOSIX is like CompilePOSIX but panics if the expression cannot be parsed.
@@ -926,7 +974,23 @@ function mustCompilePOSIX(_str:GoString):Regexp {
         if (_err != null) {
             throw Go.toInterface((((("regexp: CompilePOSIX(" : GoString)) + _quote(_str)) + (("): " : GoString))) + _err.error());
         };
-        return _regexp;
+        return new Regexp(
+_regexp._expr,
+_regexp._prog,
+_regexp._onepass,
+_regexp._numSubexp,
+_regexp._maxBitStateLen,
+_regexp._subexpNames,
+_regexp._prefix,
+_regexp._prefixBytes,
+_regexp._prefixRune,
+_regexp._prefixEnd,
+_regexp._mpool,
+_regexp._matchcap,
+_regexp._prefixComplete,
+_regexp._cond,
+_regexp._minInputLen,
+_regexp._longest);
     }
 function _quote(_s:GoString):GoString {
         if (stdgo.strconv.Strconv.canBackquote(_s)) {
@@ -1168,23 +1232,23 @@ class T_bitState_wrapper {
     static public function _add( _m:T_machine, _q:T_queue, _pc:GoUInt32, _pos:GoInt, _cap:Slice<GoInt>, _cond:Pointer<T_lazyFlag>, _t:T_thread):T_thread {
         return stdgo.internal.Macro.controlFlow({
             @:label("Again") if (_pc == ((0 : GoUInt32))) {
-                return _t;
+                return new T_thread(_t._inst, _t._cap);
             };
             {
                 var _j:GoUInt32 = (_q._sparse != null ? _q._sparse[_pc] : ((0 : GoUInt32)));
                 if ((_j < (((_q._dense != null ? _q._dense.length : ((0 : GoInt))) : GoUInt32))) && ((_q._dense != null ? _q._dense[_j] : new T_entry())._pc == _pc)) {
-                    return _t;
+                    return new T_thread(_t._inst, _t._cap);
                 };
             };
             var _j:GoInt = (_q._dense != null ? _q._dense.length : ((0 : GoInt)));
             _q._dense = ((_q._dense.__slice__(0, _j + ((1 : GoInt))) : Slice<T_entry>));
-            var _d = (_q._dense != null ? _q._dense[_j] : new T_entry());
+            var _d = new T_entry((_q._dense != null ? _q._dense[_j] : new T_entry())._pc, (_q._dense != null ? _q._dense[_j] : new T_entry())._t);
             _d._t = null;
             _d._pc = _pc;
             if (_q._sparse != null) _q._sparse[_pc] = ((_j : GoUInt32));
-            var _i = (_m._p.inst != null ? _m._p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst());
+            var _i = new stdgo.regexp.syntax.Syntax.Inst((_m._p.inst != null ? _m._p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).op, (_m._p.inst != null ? _m._p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).out, (_m._p.inst != null ? _m._p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).arg, (_m._p.inst != null ? _m._p.inst[_pc] : new stdgo.regexp.syntax.Syntax.Inst()).rune);
             if (_i.op == ((5 : stdgo.regexp.syntax.Syntax.InstOp))) {} else if (_i.op == ((0 : stdgo.regexp.syntax.Syntax.InstOp)) || _i.op == ((1 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                _t = _m._add(_q, _i.out, _pos, _cap, _cond, _t);
+                _t = new T_thread(_m._add(new T_queue(_q._sparse, _q._dense), _i.out, _pos, _cap, _cond, new T_thread(_t._inst, _t._cap))._inst, _m._add(new T_queue(_q._sparse, _q._dense), _i.out, _pos, _cap, _cond, new T_thread(_t._inst, _t._cap))._cap);
                 _pc = _i.arg;
                 @:goto "Again";
             } else if (_i.op == ((3 : stdgo.regexp.syntax.Syntax.InstOp))) {
@@ -1199,7 +1263,7 @@ class T_bitState_wrapper {
                 if (((_i.arg : GoInt)) < (_cap != null ? _cap.length : ((0 : GoInt)))) {
                     var _opos:GoInt = (_cap != null ? _cap[_i.arg] : ((0 : GoInt)));
                     if (_cap != null) _cap[_i.arg] = _pos;
-                    _m._add(_q, _i.out, _pos, _cap, _cond, null);
+                    _m._add(new T_queue(_q._sparse, _q._dense), _i.out, _pos, _cap, _cond, null);
                     if (_cap != null) _cap[_i.arg] = _opos;
                 } else {
                     _pc = _i.out;
@@ -1207,17 +1271,17 @@ class T_bitState_wrapper {
                 };
             } else if (_i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp)) || _i.op == ((7 : stdgo.regexp.syntax.Syntax.InstOp)) || _i.op == ((8 : stdgo.regexp.syntax.Syntax.InstOp)) || _i.op == ((9 : stdgo.regexp.syntax.Syntax.InstOp)) || _i.op == ((10 : stdgo.regexp.syntax.Syntax.InstOp))) {
                 if (_t == null) {
-                    _t = _m._alloc(_i);
+                    _t = new T_thread(_m._alloc(new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune))._inst, _m._alloc(new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune))._cap);
                 } else {
-                    _t._inst = _i;
+                    _t._inst = new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune);
                 };
                 if (((_cap != null ? _cap.length : ((0 : GoInt))) > ((0 : GoInt))) && (Go.pointer((_t._cap != null ? _t._cap[((0 : GoInt))] : ((0 : GoInt)))) != Go.pointer((_cap != null ? _cap[((0 : GoInt))] : ((0 : GoInt)))))) {
                     Go.copySlice(_t._cap, _cap);
                 };
-                _d._t = _t;
+                _d._t = new T_thread(_t._inst, _t._cap);
                 _t = null;
             };
-            return _t;
+            return new T_thread(_t._inst, _t._cap);
         });
     }
     /**
@@ -1233,16 +1297,16 @@ class T_bitState_wrapper {
         {
             var _j:GoInt = ((0 : GoInt));
             Go.cfor(_j < (_runq._dense != null ? _runq._dense.length : ((0 : GoInt))), _j++, {
-                var _d = (_runq._dense != null ? _runq._dense[_j] : new T_entry());
-                var _t = _d._t;
+                var _d = new T_entry((_runq._dense != null ? _runq._dense[_j] : new T_entry())._pc, (_runq._dense != null ? _runq._dense[_j] : new T_entry())._t);
+                var _t = new T_thread(_d._t._inst, _d._t._cap);
                 if (_t == null) {
                     continue;
                 };
                 if (((_longest && _m._matched) && ((_t._cap != null ? _t._cap.length : ((0 : GoInt))) > ((0 : GoInt)))) && ((_m._matchcap != null ? _m._matchcap[((0 : GoInt))] : ((0 : GoInt))) < (_t._cap != null ? _t._cap[((0 : GoInt))] : ((0 : GoInt))))) {
-                    _m._pool = (_m._pool != null ? _m._pool.__append__(_t) : new Slice<Ref<T_thread>>(_t));
+                    _m._pool = (_m._pool != null ? _m._pool.__append__(new T_thread(_t._inst, _t._cap)) : new Slice<Ref<T_thread>>(new T_thread(_t._inst, _t._cap)));
                     continue;
                 };
-                var _i = _t._inst;
+                var _i = new stdgo.regexp.syntax.Syntax.Inst(_t._inst.op, _t._inst.out, _t._inst.arg, _t._inst.rune);
                 var _add:Bool = false;
                 if (_i.op == ((4 : stdgo.regexp.syntax.Syntax.InstOp))) {
                     if (((_t._cap != null ? _t._cap.length : ((0 : GoInt))) > ((0 : GoInt))) && ((!_longest || !_m._matched) || ((_m._matchcap != null ? _m._matchcap[((1 : GoInt))] : ((0 : GoInt))) < _pos))) {
@@ -1252,7 +1316,7 @@ class T_bitState_wrapper {
                     if (!_longest) {
                         for (_0 => _d in ((_runq._dense.__slice__(_j + ((1 : GoInt))) : Slice<T_entry>))) {
                             if (_d._t != null) {
-                                _m._pool = (_m._pool != null ? _m._pool.__append__(_d._t) : new Slice<Ref<T_thread>>(_d._t));
+                                _m._pool = (_m._pool != null ? _m._pool.__append__(new T_thread(_d._t._inst, _d._t._cap)) : new Slice<Ref<T_thread>>(new T_thread(_d._t._inst, _d._t._cap)));
                             };
                         };
                         _runq._dense = ((_runq._dense.__slice__(0, ((0 : GoInt))) : Slice<T_entry>));
@@ -1268,10 +1332,10 @@ class T_bitState_wrapper {
                     _add = _c != ((((("\n" : GoString))).code : GoInt32));
                 };
                 if (_add) {
-                    _t = _m._add(_nextq, _i.out, _nextPos, _t._cap, _nextCond, _t);
+                    _t = new T_thread(_m._add(new T_queue(_nextq._sparse, _nextq._dense), _i.out, _nextPos, _t._cap, _nextCond, new T_thread(_t._inst, _t._cap))._inst, _m._add(new T_queue(_nextq._sparse, _nextq._dense), _i.out, _nextPos, _t._cap, _nextCond, new T_thread(_t._inst, _t._cap))._cap);
                 };
                 if (_t != null) {
-                    _m._pool = (_m._pool != null ? _m._pool.__append__(_t) : new Slice<Ref<T_thread>>(_t));
+                    _m._pool = (_m._pool != null ? _m._pool.__append__(new T_thread(_t._inst, _t._cap)) : new Slice<Ref<T_thread>>(new T_thread(_t._inst, _t._cap)));
                 };
             });
         };
@@ -1284,7 +1348,7 @@ class T_bitState_wrapper {
     static public function _clear( _m:T_machine, _q:T_queue):Void {
         for (_0 => _d in _q._dense) {
             if (_d._t != null) {
-                _m._pool = (_m._pool != null ? _m._pool.__append__(_d._t) : new Slice<Ref<T_thread>>(_d._t));
+                _m._pool = (_m._pool != null ? _m._pool.__append__(new T_thread(_d._t._inst, _d._t._cap)) : new Slice<Ref<T_thread>>(new T_thread(_d._t._inst, _d._t._cap)));
             };
         };
         _q._dense = ((_q._dense.__slice__(0, ((0 : GoInt))) : Slice<T_entry>));
@@ -1304,7 +1368,7 @@ class T_bitState_wrapper {
         for (_i => _ in _m._matchcap) {
             if (_m._matchcap != null) _m._matchcap[_i] = ((-1 : GoInt));
         };
-        var _runq = _m._q0, _nextq = _m._q1;
+        var _runq = new T_queue(_m._q0._sparse, _m._q0._dense), _nextq = new T_queue(_m._q1._sparse, _m._q1._dense);
         var _r:GoInt32 = ((-1 : GoInt32)), _r1:GoInt32 = ((-1 : GoInt32));
         var _width:GoInt = ((0 : GoInt)), _width1:GoInt = ((0 : GoInt));
         {
@@ -1334,7 +1398,23 @@ class T_bitState_wrapper {
                     break;
                 };
                 if ((((_m._re._prefix != null ? _m._re._prefix.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r1 != _m._re._prefixRune)) && _i._canCheckPrefix()) {
-                    var _advance:GoInt = _i._index(_m._re, _pos);
+                    var _advance:GoInt = _i._index(new Regexp(
+_m._re._expr,
+_m._re._prog,
+_m._re._onepass,
+_m._re._numSubexp,
+_m._re._maxBitStateLen,
+_m._re._subexpNames,
+_m._re._prefix,
+_m._re._prefixBytes,
+_m._re._prefixRune,
+_m._re._prefixEnd,
+_m._re._mpool,
+_m._re._matchcap,
+_m._re._prefixComplete,
+_m._re._cond,
+_m._re._minInputLen,
+_m._re._longest), _pos);
                     if (_advance < ((0 : GoInt))) {
                         break;
                     };
@@ -1355,10 +1435,10 @@ class T_bitState_wrapper {
                 if ((_m._matchcap != null ? _m._matchcap.length : ((0 : GoInt))) > ((0 : GoInt))) {
                     if (_m._matchcap != null) _m._matchcap[((0 : GoInt))] = _pos;
                 };
-                _m._add(_runq, ((_m._p.start : GoUInt32)), _pos, _m._matchcap, Go.pointer(_flag), null);
+                _m._add(new T_queue(_runq._sparse, _runq._dense), ((_m._p.start : GoUInt32)), _pos, _m._matchcap, Go.pointer(_flag), null);
             };
             _flag = _newLazyFlag(_r, _r1);
-            _m._step(_runq, _nextq, _pos, _pos + _width, _r, Go.pointer(_flag));
+            _m._step(new T_queue(_runq._sparse, _runq._dense), new T_queue(_nextq._sparse, _nextq._dense), _pos, _pos + _width, _r, Go.pointer(_flag));
             if (_width == ((0 : GoInt))) {
                 break;
             };
@@ -1380,13 +1460,13 @@ class T_bitState_wrapper {
                 };
             };
             {
-                final __tmp__0 = _nextq;
-                final __tmp__1 = _runq;
+                final __tmp__0 = new T_queue(_nextq._sparse, _nextq._dense);
+                final __tmp__1 = new T_queue(_runq._sparse, _runq._dense);
                 _runq = __tmp__0;
                 _nextq = __tmp__1;
             };
         };
-        _m._clear(_nextq);
+        _m._clear(new T_queue(_nextq._sparse, _nextq._dense));
         return _m._matched;
     }
     /**
@@ -1399,15 +1479,15 @@ class T_bitState_wrapper {
         {
             var _n:GoInt = (_m._pool != null ? _m._pool.length : ((0 : GoInt)));
             if (_n > ((0 : GoInt))) {
-                _t = (_m._pool != null ? _m._pool[_n - ((1 : GoInt))] : ((null : T_thread)));
+                _t = new T_thread((_m._pool != null ? _m._pool[_n - ((1 : GoInt))] : ((null : T_thread)))._inst, (_m._pool != null ? _m._pool[_n - ((1 : GoInt))] : ((null : T_thread)))._cap);
                 _m._pool = ((_m._pool.__slice__(0, _n - ((1 : GoInt))) : Slice<Ref<T_thread>>));
             } else {
-                _t = new T_thread();
+                _t = new T_thread(new T_thread()._inst, new T_thread()._cap);
                 _t._cap = new Slice<GoInt>(...[for (i in 0 ... (((_m._matchcap != null ? _m._matchcap.length : ((0 : GoInt))) : GoInt)).toBasic()) ((0 : GoInt))]).__setCap__((((_m._matchcap != null ? _m._matchcap.cap() : ((0 : GoInt))) : GoInt)).toBasic());
             };
         };
-        _t._inst = _i;
-        return _t;
+        _t._inst = new stdgo.regexp.syntax.Syntax.Inst(_i.op, _i.out, _i.arg, _i.rune);
+        return new T_thread(_t._inst, _t._cap);
     }
     @:keep
     static public function _init( _m:T_machine, _ncap:GoInt):Void {
@@ -2372,10 +2452,26 @@ class T_queueOnePass_wrapper {
             { value : ((null : T_machine)), ok : false };
         }, _m = __tmp__.value, _ok = __tmp__.ok;
         if (!_ok) {
-            _m = new T_machine();
+            _m = new T_machine(new T_machine()._re, new T_machine()._p, new T_machine()._q0, new T_machine()._q1, new T_machine()._pool, new T_machine()._matched, new T_machine()._matchcap, new T_machine()._inputs);
         };
-        _m._re = _re;
-        _m._p = _re._prog;
+        _m._re = new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest);
+        _m._p = new stdgo.regexp.syntax.Syntax.Prog(_re._prog.inst, _re._prog.start, _re._prog.numCap);
         if ((_m._matchcap != null ? _m._matchcap.cap() : ((0 : GoInt))) < _re._matchcap) {
             _m._matchcap = new Slice<GoInt>(...[for (i in 0 ... ((_re._matchcap : GoInt)).toBasic()) ((0 : GoInt))]);
             for (_0 => _t in _m._pool) {
@@ -2390,7 +2486,7 @@ class T_queueOnePass_wrapper {
             _m._q0 = ((new T_queue(new Slice<GoUInt32>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoUInt32))]), new Slice<T_entry>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new T_entry()]).__setCap__(((_n : GoInt)).toBasic())) : T_queue));
             _m._q1 = ((new T_queue(new Slice<GoUInt32>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoUInt32))]), new Slice<T_entry>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new T_entry()]).__setCap__(((_n : GoInt)).toBasic())) : T_queue));
         };
-        return _m;
+        return new T_machine(_m._re, _m._p, _m._q0, _m._q1, _m._pool, _m._matched, _m._matchcap, _m._inputs);
     }
     /**
         // Longest makes future searches prefer the leftmost-longest match.
@@ -2417,7 +2513,23 @@ class T_queueOnePass_wrapper {
     @:keep
     static public function copy( _re:Regexp):Regexp {
         var _re2:Regexp = (_re == null ? null : _re.__copy__());
-        return _re2;
+        return new Regexp(
+_re2._expr,
+_re2._prog,
+_re2._onepass,
+_re2._numSubexp,
+_re2._maxBitStateLen,
+_re2._subexpNames,
+_re2._prefix,
+_re2._prefixBytes,
+_re2._prefixRune,
+_re2._prefixEnd,
+_re2._mpool,
+_re2._matchcap,
+_re2._prefixComplete,
+_re2._cond,
+_re2._minInputLen,
+_re2._longest);
     }
     /**
         // String returns the source text used to compile the regular expression.
@@ -2446,15 +2558,15 @@ class T_queueOnePass_wrapper {
         if ((_r == null) && (((_b != null ? _b.length : ((0 : GoInt))) + (_s != null ? _s.length : ((0 : GoInt)))) < _re._maxBitStateLen)) {
             return _re._backtrack(_b, _s, _pos, _ncap, _dstCap);
         };
-        var _m = _re._get();
+        var _m = new T_machine(_re._get()._re, _re._get()._p, _re._get()._q0, _re._get()._q1, _re._get()._pool, _re._get()._matched, _re._get()._matchcap, _re._get()._inputs);
         var __tmp__ = _m._inputs._init(_r, _b, _s), _i:T_input = __tmp__._0, _0:GoInt = __tmp__._1;
         _m._init(_ncap);
         if (!_m._match(_i, _pos)) {
-            _re._put(_m);
+            _re._put(new T_machine(_m._re, _m._p, _m._q0, _m._q1, _m._pool, _m._matched, _m._matchcap, _m._inputs));
             return ((null : Slice<GoInt>));
         };
         _dstCap = (_dstCap != null ? _dstCap.__append__(..._m._matchcap.__toArray__()) : new Slice<GoInt>(..._m._matchcap.__toArray__()));
-        _re._put(_m);
+        _re._put(new T_machine(_m._re, _m._p, _m._q0, _m._q1, _m._pool, _m._matched, _m._matchcap, _m._inputs));
         return _dstCap;
     }
     /**
@@ -2474,7 +2586,7 @@ class T_queueOnePass_wrapper {
             if (_startCond == ((255 : stdgo.regexp.syntax.Syntax.EmptyOp))) {
                 return ((null : Slice<GoInt>));
             };
-            var _m = _newOnePassMachine();
+            var _m = new T_onePassMachine(_newOnePassMachine()._inputs, _newOnePassMachine()._matchcap);
             if ((_m._matchcap != null ? _m._matchcap.cap() : ((0 : GoInt))) < _ncap) {
                 _m._matchcap = new Slice<GoInt>(...[for (i in 0 ... ((_ncap : GoInt)).toBasic()) ((0 : GoInt))]);
             } else {
@@ -2508,7 +2620,23 @@ class T_queueOnePass_wrapper {
             var _pc:GoInt = _re._onepass.start;
             var _inst:T_onePassInst = ((_re._onepass.inst != null ? _re._onepass.inst[_pc] : new T_onePassInst()) == null ? null : (_re._onepass.inst != null ? _re._onepass.inst[_pc] : new T_onePassInst()).__copy__());
             if ((((_pos == ((0 : GoInt))) && _flag._match(((_inst.inst.arg : stdgo.regexp.syntax.Syntax.EmptyOp)))) && ((_re._prefix != null ? _re._prefix.length : ((0 : GoInt))) > ((0 : GoInt)))) && _i._canCheckPrefix()) {
-                if (!_i._hasPrefix(_re)) {
+                if (!_i._hasPrefix(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest))) {
                     @:goto "Return";
                 };
                 _pos = _pos + ((_re._prefix != null ? _re._prefix.length : ((0 : GoInt))));
@@ -2548,7 +2676,7 @@ class T_queueOnePass_wrapper {
                         @:goto "Return";
                     };
                 } else if (_inst.inst.op == ((0 : stdgo.regexp.syntax.Syntax.InstOp)) || _inst.inst.op == ((1 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                    _pc = ((_onePassNext(_inst, _r) : GoInt));
+                    _pc = ((_onePassNext(new T_onePassInst(_inst.inst, _inst.next), _r) : GoInt));
                     continue;
                 } else if (_inst.inst.op == ((5 : stdgo.regexp.syntax.Syntax.InstOp))) {
                     @:goto "Return";
@@ -2585,11 +2713,11 @@ class T_queueOnePass_wrapper {
                 };
             };
             @:label("Return") if (!_matched) {
-                _freeOnePassMachine(_m);
+                _freeOnePassMachine(new T_onePassMachine(_m._inputs, _m._matchcap));
                 return ((null : Slice<GoInt>));
             };
             _dstCap = (_dstCap != null ? _dstCap.__append__(..._m._matchcap.__toArray__()) : new Slice<GoInt>(..._m._matchcap.__toArray__()));
-            _freeOnePassMachine(_m);
+            _freeOnePassMachine(new T_onePassMachine(_m._inputs, _m._matchcap));
             return _dstCap;
         });
     }
@@ -2606,24 +2734,40 @@ class T_queueOnePass_wrapper {
             if (((_startCond & ((4 : stdgo.regexp.syntax.Syntax.EmptyOp))) != ((0 : stdgo.regexp.syntax.Syntax.EmptyOp))) && (_pos != ((0 : GoInt)))) {
                 return ((null : Slice<GoInt>));
             };
-            var _b = _newBitState();
+            var _b = new T_bitState(_newBitState()._end, _newBitState()._cap, _newBitState()._matchcap, _newBitState()._jobs, _newBitState()._visited, _newBitState()._inputs);
             var __tmp__ = _b._inputs._init(((null : stdgo.io.Io.RuneReader)), _ib, _is), _i:T_input = __tmp__._0, _end:GoInt = __tmp__._1;
-            _b._reset(_re._prog, _end, _ncap);
+            _b._reset(new stdgo.regexp.syntax.Syntax.Prog(_re._prog.inst, _re._prog.start, _re._prog.numCap), _end, _ncap);
             if ((_startCond & ((4 : stdgo.regexp.syntax.Syntax.EmptyOp))) != ((0 : stdgo.regexp.syntax.Syntax.EmptyOp))) {
                 if ((_b._cap != null ? _b._cap.length : ((0 : GoInt))) > ((0 : GoInt))) {
                     if (_b._cap != null) _b._cap[((0 : GoInt))] = _pos;
                 };
-                if (!_re._tryBacktrack(_b, _i, ((_re._prog.start : GoUInt32)), _pos)) {
-                    _freeBitState(_b);
+                if (!_re._tryBacktrack(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs), _i, ((_re._prog.start : GoUInt32)), _pos)) {
+                    _freeBitState(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs));
                     return ((null : Slice<GoInt>));
                 };
             } else {
                 var _width:GoInt = ((-1 : GoInt));
                 Go.cfor((_pos <= _end) && (_width != ((0 : GoInt))), _pos = _pos + (_width), {
                     if ((_re._prefix != null ? _re._prefix.length : ((0 : GoInt))) > ((0 : GoInt))) {
-                        var _advance:GoInt = _i._index(_re, _pos);
+                        var _advance:GoInt = _i._index(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _pos);
                         if (_advance < ((0 : GoInt))) {
-                            _freeBitState(_b);
+                            _freeBitState(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs));
                             return ((null : Slice<GoInt>));
                         };
                         _pos = _pos + (_advance);
@@ -2631,7 +2775,7 @@ class T_queueOnePass_wrapper {
                     if ((_b._cap != null ? _b._cap.length : ((0 : GoInt))) > ((0 : GoInt))) {
                         if (_b._cap != null) _b._cap[((0 : GoInt))] = _pos;
                     };
-                    if (_re._tryBacktrack(_b, _i, ((_re._prog.start : GoUInt32)), _pos)) {
+                    if (_re._tryBacktrack(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs), _i, ((_re._prog.start : GoUInt32)), _pos)) {
                         @:goto "Match";
                     };
                     {
@@ -2639,11 +2783,11 @@ class T_queueOnePass_wrapper {
                         _width = __tmp__._1;
                     };
                 });
-                _freeBitState(_b);
+                _freeBitState(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs));
                 return ((null : Slice<GoInt>));
             };
             @:label("Match") _dstCap = (_dstCap != null ? _dstCap.__append__(..._b._matchcap.__toArray__()) : new Slice<GoInt>(..._b._matchcap.__toArray__()));
-            _freeBitState(_b);
+            _freeBitState(new T_bitState(_b._end, _b._cap, _b._matchcap, _b._jobs, _b._visited, _b._inputs));
             return _dstCap;
         });
     }
@@ -2654,7 +2798,23 @@ class T_queueOnePass_wrapper {
     static public function _tryBacktrack( _re:Regexp, _b:T_bitState, _i:T_input, _pc:GoUInt32, _pos:GoInt):Bool {
         return stdgo.internal.Macro.controlFlow({
             var _longest:Bool = _re._longest;
-            _b._push(_re, _pc, _pos, false);
+            _b._push(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _pc, _pos, false);
             while ((_b._jobs != null ? _b._jobs.length : ((0 : GoInt))) > ((0 : GoInt))) {
                 var _l:GoInt = (_b._jobs != null ? _b._jobs.length : ((0 : GoInt))) - ((1 : GoInt));
                 var _pc:GoUInt32 = (_b._jobs != null ? _b._jobs[_l] : new T_job())._pc;
@@ -2674,18 +2834,66 @@ class T_queueOnePass_wrapper {
                         _pc = _inst.arg;
                         @:goto "CheckAndLoop";
                     } else {
-                        _b._push(_re, _pc, _pos, true);
+                        _b._push(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _pc, _pos, true);
                         _pc = _inst.out;
                         @:goto "CheckAndLoop";
                     };
                 } else if (_inst.op == ((1 : stdgo.regexp.syntax.Syntax.InstOp))) {
                     if ((_re._prog.inst != null ? _re._prog.inst[_inst.out] : new stdgo.regexp.syntax.Syntax.Inst()).op == ((7 : stdgo.regexp.syntax.Syntax.InstOp)) || (_re._prog.inst != null ? _re._prog.inst[_inst.out] : new stdgo.regexp.syntax.Syntax.Inst()).op == ((8 : stdgo.regexp.syntax.Syntax.InstOp)) || (_re._prog.inst != null ? _re._prog.inst[_inst.out] : new stdgo.regexp.syntax.Syntax.Inst()).op == ((9 : stdgo.regexp.syntax.Syntax.InstOp)) || (_re._prog.inst != null ? _re._prog.inst[_inst.out] : new stdgo.regexp.syntax.Syntax.Inst()).op == ((10 : stdgo.regexp.syntax.Syntax.InstOp))) {
-                        _b._push(_re, _inst.arg, _pos, false);
+                        _b._push(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _inst.arg, _pos, false);
                         _pc = _inst.arg;
                         _pos = _b._end;
                         @:goto "CheckAndLoop";
                     };
-                    _b._push(_re, _inst.out, _b._end, false);
+                    _b._push(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _inst.out, _b._end, false);
                     _pc = _inst.out;
                     @:goto "CheckAndLoop";
                 } else if (_inst.op == ((7 : stdgo.regexp.syntax.Syntax.InstOp))) {
@@ -2726,7 +2934,23 @@ class T_queueOnePass_wrapper {
                         continue;
                     } else {
                         if (_inst.arg < (((_b._cap != null ? _b._cap.length : ((0 : GoInt))) : GoUInt32))) {
-                            _b._push(_re, _pc, (_b._cap != null ? _b._cap[_inst.arg] : ((0 : GoInt))), true);
+                            _b._push(new Regexp(
+_re._expr,
+_re._prog,
+_re._onepass,
+_re._numSubexp,
+_re._maxBitStateLen,
+_re._subexpNames,
+_re._prefix,
+_re._prefixBytes,
+_re._prefixRune,
+_re._prefixEnd,
+_re._mpool,
+_re._matchcap,
+_re._prefixComplete,
+_re._cond,
+_re._minInputLen,
+_re._longest), _pc, (_b._cap != null ? _b._cap[_inst.arg] : ((0 : GoInt))), true);
                             if (_b._cap != null) _b._cap[_inst.arg] = _pos;
                         };
                         _pc = _inst.out;

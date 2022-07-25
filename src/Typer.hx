@@ -119,7 +119,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 		var info = new Info();
 		info.printGoCode = instance.printGoCode;
 		info.global.path = pkg.path;
-		info.global.locals = [];
 		info.global.externBool = instance.externBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
 
@@ -168,7 +167,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 				isMain: module.isMain,
 			};
 			// info = new Info(info.global);
-			info.global.locals.clear();
+			info.locals.clear();
+			info.localUnderlyingNames.clear();
 			info.data = data;
 
 			var declFuncs:Array<Ast.FuncDecl> = [];
@@ -3058,7 +3058,7 @@ private function toReflectType(t:GoType, info:Info):Expr {
 }
 
 private function getLocalType(hash:String, underlying:GoType, info:Info):GoType {
-	return info.global.locals.exists(hash) ? info.global.locals.get(hash) : underlying;
+	return info.locals.exists(hash) ? info.locals.get(hash) : underlying;
 }
 
 private function getTuple(e:Dynamic, info:Info):Array<GoType> {
@@ -3121,10 +3121,10 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 				throw path;
 			}
 			var underlying = typeof(e.underlying, info, true);
-			if (info.global.locals.exists(e.hash)) {
+			if (info.locals.exists(e.hash)) {
 				return getLocalType(e.hash, null, info);
-			} else if (info.global.localUnderlyingNames.exists(path)) {
-				underlying = info.global.localUnderlyingNames[path];
+			} else if (info.localUnderlyingNames.exists(path)) {
+				underlying = info.localUnderlyingNames[path];
 			}
 			final methods:Array<MethodType> = []; // TODO get method data
 			if (e.methods != null) {
@@ -5279,13 +5279,13 @@ private function refToPointerWrapper(t:GoType):GoType {
 private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
 	if (spec.type.type != null) {
 		final hash:String = spec.type.type.hash;
-		if (!info.global.locals.exists(hash)) {
+		if (!info.locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
 			var nameType:GoType = if (spec.type.id == "InterfaceType") {
 				named(path, [], interfaceType(spec.type.type.empty));
 			} else {
 				final t = typeof(spec.type, info);
-				info.global.localUnderlyingNames[path] = t;
+				info.localUnderlyingNames[path] = t;
 				t;
 			}
 			switch nameType {
@@ -5293,7 +5293,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					nameType = named(path, [], nameType);
 				default:
 			}
-			info.global.locals[hash] = nameType;
+			info.locals[hash] = nameType;
 		}
 	}
 	if (spec.type != null && spec.type.id == "Ident") {
@@ -5925,14 +5925,13 @@ class Global {
 	public var module:Module = null;
 	public var noCommentsBool:Bool = false;
 	public var externBool:Bool = false;
-	public var locals:Map<String, GoType> = [];
-	public var localUnderlyingNames:Map<String, GoType> = [];
 
 	public inline function new() {}
 
 	public function copy():Global {
 		var g = new Global();
 		g.initBlock = initBlock.copy();
+		g.noCommentsBool = noCommentsBool;
 		g.path = path;
 		g.module = module;
 		g.filePath = filePath;
@@ -5969,6 +5968,9 @@ class Info {
 	public var classNames:Map<String, String> = []; // class names named types
 	public var renameClasses:Map<String, String> = ["bool" => "Bool"]; // class names i.e TPath
 
+	public var locals:Map<String, GoType> = [];
+	public var localUnderlyingNames:Map<String, GoType> = [];
+
 	public var global = new Global();
 
 	public function new(?global) {
@@ -5993,6 +5995,8 @@ class Info {
 		info.renameIdents = renameIdents.copy();
 		info.classNames = classNames.copy();
 		info.renameClasses = renameClasses.copy();
+		info.locals = locals.copy();
+		info.localUnderlyingNames = localUnderlyingNames.copy();
 		return info;
 	}
 }

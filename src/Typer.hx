@@ -2851,8 +2851,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 					case "make":
 						var type = typeof(expr.args[0], info);
-						var isNamed = isNamed(type);
-						type = getUnderlying(type);
 						genArgs(false, 1);
 						var size = args[0];
 						var cap = args[1];
@@ -2867,15 +2865,24 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							cap = macro($cap : GoInt).toBasic();
 							setCap = true;
 						}
-						var e = switch type {
+						var p:TypePath = switch type {
+							case named(path, _, _):
+								namedTypePath(path, info);
+							default:
+								null;
+						}
+						var e = switch getUnderlying(type) {
 							case sliceType(elem):
 								var param = toComplexType(elem, info);
+								if (p == null) {
+									p = {name: "Slice", params: [TPType(param)], pack: []};
+								}
 								var value = defaultValue(elem, info);
 								if (value == null)
 									value = macro Go.expectedValue();
 								if (size == null)
-									return returnExpr(macro new Slice<$param>());
-								macro new Slice<$param>(...[for (i in 0...$size) $value]);
+									return returnExpr(macro new $p());
+								macro new $p(...[for (i in 0...$size) $value]);
 							case mapType(key, value):
 								var t = toReflectType(type, info);
 								var keyType = toComplexType(key, info);
@@ -2887,17 +2894,23 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									default:
 								}
 								if (isInt) {
-									macro new Map<Int, $value>();
+									if (p == null)
+										p = {name: "Map", pack: [], params: [TPType(TPath({name: "Int", pack: []})), TPType(value)]};
+									macro new $p();
 								} else {
-									macro(new GoObjectMap<$keyType, $value>(new stdgo.reflect.Reflect._Type($t)) : GoMap<$keyType, $value>);
+									if (p == null)
+										p = {name: "Map", pack: [], params: [TPType(keyType), TPType(value)]};
+									final ct = TPath(p);
+									macro(new GoObjectMap(new stdgo.reflect.Reflect._Type($t)) : $ct);
 								}
 							case chanType(dir, elem):
 								var value = defaultValue(elem, info);
 								var param = toComplexType(elem, info);
 								if (size == null)
 									size = macro 0;
-
-								macro new Chan<$param>($size, () -> $value);
+								if (p == null)
+									p = {name: "Chan", pack: [], params: [TPType(param)]};
+								macro new $p($size, () -> $value);
 							case invalidType:
 								macro @:invalid_make null;
 							default:

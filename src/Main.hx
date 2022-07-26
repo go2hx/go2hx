@@ -278,22 +278,25 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			buff.blit(pos, bytes, 0, bytes.length);
 			#end
 			pos += bytes.length;
+			bytes = null;
 			// Sys.println("pos: " + pos + " buff: " + buff.length);
 			if (pos == buff.length) {
 				Sys.println("got all bytes");
 				var exportData:DataType = null;
 
-				buff = haxe.zip.Uncompress.run(buff);
-
-				exportData = haxe.Json.parse(buff.toString());
+				var data = haxe.zip.Uncompress.run(buff);
+				buff = null;
+				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString()#end);
+				data = null;
 				// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
 				// Sys.println("retrieved exportData");
 				final index = Std.parseInt(exportData.index);
-				final instance = instanceCache[index];
+				var instance = instanceCache[index];
 				instanceCache[index] = null; // reset
 				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
 				var modules = [];
 				modules = Typer.main(exportData, instance);
+				exportData = null;
 				Sys.setCwd(instance.localPath);
 				var outputPath = instance.outputPath;
 				outputPath = Path.addTrailingSlash(outputPath);
@@ -325,6 +328,15 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				runBuildTools(modules, instance, programArgs);
 				// trace(modules[0].files[0].name, data.hxml, data.name);
 				onComplete(modules, instance.data);
+				#if nodejs
+				if (js.Node.global.gc != null)
+					js.Node.global.gc();
+				#elseif hl
+				hl.Gc.major();
+				#end
+				modules = null;
+				instance = null;
+				programArgs = null;
 			}
 		});
 		if (index >= processCount && allAccepted != null)

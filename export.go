@@ -506,6 +506,14 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 					switch f := d.(type) {
 					case *ast.FuncDecl:
 						f.Body = nil
+					case *ast.GenDecl:
+						for _, s := range f.Specs {
+							switch s := s.(type) {
+							case *ast.ValueSpec:
+								s.Values = nil
+							default:
+							}
+						}
 					default:
 					}
 				}

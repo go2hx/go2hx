@@ -2936,7 +2936,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									if (p == null)
 										p = {name: "Map", pack: [], params: [TPType(keyType), TPType(value)]};
 									final ct = TPath(p);
-									macro(new GoObjectMap(new stdgo.reflect.Reflect._Type($t)) : $ct);
+									macro(new GoObjectMap<$keyType, $value>(new stdgo.reflect.Reflect._Type($t)) : $ct);
 								}
 							case chanType(dir, elem):
 								var value = defaultValue(elem, info);

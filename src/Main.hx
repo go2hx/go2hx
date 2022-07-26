@@ -401,8 +401,9 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	}
 	if (!instance.noRun && instance.target != "") {
 		for (main in paths) {
-			if (instance.root != "")
-				main = instance.root + (main == "" ? "" : "." + main);
+			if (instance.root != "") {
+				main = instance.root + (main == "" ? "" : "." + parseMain(main));
+			}
 			var commands = commands.concat(['-m', main]); // copy
 			if (instance.target == "interp") {
 				commands = commands.concat(buildTarget(instance.target, "", main).split(" "));
@@ -433,7 +434,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 	if (instance.hxmlPath != "") {
-		final main = paths[0];
+		final main = parseMain(paths[0]);
 		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
 			instance.hxmlPath += ".hxml";
 		var content = "-m " + main + "\n";
@@ -444,6 +445,15 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		File.saveContent(instance.hxmlPath, content);
 		Sys.println('Generated: ' + instance.hxmlPath + ' - ' + shared.Util.kbCount(content) + "kb");
 	}
+}
+
+private function parseMain(main:String):String {
+	final index = main.indexOf("_test.");
+	if (index == -1)
+		return main;
+	if (Typer.stdgoList.indexOf(main.substr(0, index)) != -1)
+		return 'stdgo.$main';
+	return main;
 }
 
 function libTarget(target:String):String {

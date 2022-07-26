@@ -1909,6 +1909,8 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 }
 
 private function isGeneric(t:GoType):Bool {
+	if (t == null)
+		return false;
 	switch t {
 		case signature(_, params, _, recv):
 			switch recv {

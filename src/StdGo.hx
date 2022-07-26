@@ -39,6 +39,11 @@ private function complete(modules:Array<Typer.Module>, _) {
 		Main.close();
 }
 
+var instance:Main.InstanceData = null;
+var compiled:Bool = false;
+var args:Array<String> = [];
+var hxml = "";
+
 function update() {
 	var externBool = false;
 	#if !js
@@ -46,15 +51,16 @@ function update() {
 	#end
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
-		final hxml = "stdgo/" + sanatize(lib);
-		final args = [
+		hxml = "stdgo/" + sanatize(lib);
+		args = [
 			lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--test', '--norun', '--hxml', hxml,
 		];
 		if (externBool)
 			args.push("--extern");
 		args.push(path);
-		final instance = Main.compileArgs(args);
-		final compiled = Main.compile(instance);
+		instance = Main.compileArgs(args);
+		compiled = Main.compile(instance);
+		instance = null;
 		if (!compiled) {
 			break;
 		}

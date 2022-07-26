@@ -1802,6 +1802,18 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 	}
 	if (isStruct(fromType) && isStruct(toType)) {
 		var equal = false;
+		var fromType = fromType;
+		var toType = toType;
+		switch fromType {
+			case refType(elem):
+				fromType = elem;
+			default:
+		}
+		switch toType {
+			case refType(elem):
+				toType = elem;
+			default:
+		}
 		switch fromType {
 			case named(path, _, _):
 				switch toType {

@@ -46,7 +46,10 @@ function update() {
 	#end
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
-		final args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo'];
+		final hxml = "stdgo/" + sanatize(lib);
+		final args = [
+			lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--test', '--norun', '--hxml', hxml,
+		];
 		if (externBool)
 			args.push("--extern");
 		args.push(path);
@@ -57,6 +60,11 @@ function update() {
 		}
 		libs.remove(lib);
 	}
+}
+
+private function sanatize(s:String):String {
+	s = StringTools.replace(s, "/", "_");
+	return s;
 }
 
 final externs = ["syscall/js", "syscall", "os", "context"];

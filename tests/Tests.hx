@@ -58,8 +58,7 @@ function main() {
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
-	// final tests = testGoByExample().concat(test883().concat(testStd())).slice(0, 2);
-	final tests = testUnit();
+	final tests = testUnit().concat(testStd()).concat(testGoByExample());
 	for (test in tests) { // create TestSuite data class
 		if (suites[test.type] == null)
 			suites[test.type] = new TestSuite();
@@ -67,10 +66,24 @@ function main() {
 	tests.sort((a, b) -> a.name > b.name ? 1 : -1); // consistent across os targets
 	// add tests to task list
 	for (test in tests) {
-		final hxml = "tests/" + test.type + "_" + sanatize(test.name);
-		var compilerArgs = [test.path, '--hxml', hxml];
-		if (test.test)
+		final hxmlName = sanatize(test.name);
+		if (test.std) {
+			final data:TaskData = {
+				data: test,
+				target: "",
+				hxml: "stdgo/" + hxmlName,
+				args: [],
+				command: "",
+			};
+			tasks.push(data);
+			continue;
+		}
+		final hxml = "tests/" + test.type + "_" + hxmlName;
+		var compilerArgs = [test.path, '--hxml', hxml, "--o", "golibs/" + test.type];
+		if (test.test) {
 			compilerArgs.push("--test");
+			compilerArgs.push("--norun");
+		}
 		compilerArgs.push(path);
 		final data:TaskData = {
 			data: test,
@@ -81,7 +94,7 @@ function main() {
 		};
 		tasks.push(data);
 	}
-	runsLeft = tasks.length * (targets.length * 2 - 1); // 2 runs per task per target
+	runsLeft = tasks.length * (targets.length * 2 - (targets.indexOf("interp") != -1 ? 1 : 0)); // 2 runs per task per target
 	Sys.println("Test runs left: " + runsLeft);
 	startStamp = haxe.Timer.stamp();
 	// update loop
@@ -89,12 +102,19 @@ function main() {
 		update();
 }
 
-final targets = ["interp", "hl", "jvm", "cpp"];
+// cpp tests take a long time to compile, so sometimes they are not run if quick testing is required
+final targets = ["interp", "hl", "jvm"]; // , "cpp"];
 
 private function update() {
 	processPool.update();
 	Main.update();
 	for (task in tasks) {
+		if (task.data.std) {
+			runsLeft--;
+			complete([], task);
+			tasks.remove(task);
+			continue;
+		}
 		final instance = Main.compileArgs(task.args);
 		instance.data = task;
 		final compiled = Main.compile(instance);
@@ -148,10 +168,9 @@ private function complete(modules:Array<Typer.Module>, task:TaskData) {
 		task.target = target;
 		final out = createTargetOutput(target, task.data.type, task.data.name);
 		final main = task.data.name.charAt(0).toUpperCase() + task.data.name.substr(1);
-		command += " " + Main.buildTarget(target, out, main);
+		command += " " + Main.buildTarget(target, out, modules.length == 0 ? "" : main);
 		command += " " + Main.targetLibs(target);
 		task.command = command;
-		trace(command);
 		processPool.run(command, task, false);
 	}
 }
@@ -211,6 +230,7 @@ private function testStd():Array<TestData> { // standard library package tests
 			path: args[0],
 			exclude: args[1],
 			test: true,
+			std: true,
 		});
 	}
 	return tests;
@@ -366,17 +386,19 @@ class TestData {
 	public var path:String = "";
 	public var exclude:String = "";
 	public var test:Bool = false;
+	public var std:Bool = false;
 
-	public function new(name, type, path, exclude, test) {
+	public function new(name, type, path, exclude, test, std = false) {
 		this.name = name;
 		this.type = type;
 		this.path = path;
 		this.exclude = exclude;
 		this.test = test;
+		this.std = std;
 	}
 
 	public function copy()
-		return new TestData(this.name, this.type, this.path, this.exclude, this.test);
+		return new TestData(name, type, path, exclude, test, std);
 }
 
 @:structInit

@@ -3,7 +3,6 @@ package stdgo.testing;
 import haxe.Rest;
 import stdgo.StdGoTypes;
 import stdgo.reflect.Reflect.GoType;
-import stdgo.testing.internal.testdeps.Testdeps.TestDeps;
 
 using stdgo.GoString.GoStringTools;
 
@@ -322,29 +321,9 @@ class T {
 		return new T_(output);
 }
 
-typedef T_testDeps = StructType & {
-	public function importPath():GoString;
-	public function matchString(_pat:GoString, _str:GoString):{var _0:Bool; var _1:Error;};
-	public function setPanicOnExit0(_0:Bool):Void;
-	public function startCPUProfile(_0:stdgo.io.Io.Writer):Error;
-	public function stopCPUProfile():Void;
-	public function startTestLog(_0:stdgo.io.Io.Writer):Void;
-	public function stopTestLog():Error;
-	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
-	public function coordinateFuzzing(_0:stdgo.time.Time.Duration, _1:GoInt64, _2:stdgo.time.Time.Duration, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
-		_6:Slice<stdgo.reflect.Reflect.Type>, _7:GoString, _8:GoString):Error;
-	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
-	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
-	public function checkCorpus(_0:Slice<Any>, _1:Slice<stdgo.reflect.Reflect.Type>):Error;
-	public function resetCoverage():Void;
-	public function snapshotCoverage():Void;
-};
-
-typedef T_corpusEntry = Dynamic;
-
 @:structInit
 class M {
-	var deps:TestDeps = null;
+	var deps:T_testDeps = null;
 	var tests:Slice<InternalTest> = null;
 	var benchmarks:Slice<InternalBenchmark> = null;
 	var examples:Slice<InternalExample> = null;
@@ -482,7 +461,7 @@ class InternalTest {
 		return new InternalTest(name, f);
 }
 
-function mainStart(deps:TestDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, _0:Any, ?_1:Any):M {
+function mainStart(deps:T_testDeps, tests:Slice<InternalTest>, benchmarks:Slice<InternalBenchmark>, _0:Any, ?_1:Any):M {
 	final args = Sys.args();
 	var testlist:Array<InternalTest> = [];
 	var runArgBool = false;
@@ -528,3 +507,30 @@ function allocsPerRun(_runs:GoInt, f:Void->Void):GoFloat64
 
 function verbose():Bool
 	return false;
+
+typedef T_testDeps = StructType & {
+	public function importPath():GoString;
+	public function matchString(_pat:GoString, _str:GoString):{var _0:Bool; var _1:Error;};
+	public function setPanicOnExit0(_0:Bool):Void;
+	public function startCPUProfile(_0:stdgo.io.Io.Writer):Error;
+	public function stopCPUProfile():Void;
+	public function startTestLog(_0:stdgo.io.Io.Writer):Void;
+	public function stopTestLog():Error;
+	public function writeProfileTo(_0:GoString, _1:stdgo.io.Io.Writer, _2:GoInt):Error;
+	public function coordinateFuzzing(_0:stdgo.time.Time.Duration, _1:GoInt64, _2:stdgo.time.Time.Duration, _3:GoInt64, _4:GoInt, _5:Slice<T_corpusEntry>,
+		_6:Slice<stdgo.reflect.Reflect.Type>, _7:GoString, _8:GoString):Error;
+	public function runFuzzWorker(_0:T_corpusEntry->Error):Error;
+	public function readCorpus(_0:GoString, _1:Slice<stdgo.reflect.Reflect.Type>):{var _0:Slice<T_corpusEntry>; var _1:Error;};
+	public function checkCorpus(_0:Slice<AnyInterface>, _1:Slice<stdgo.reflect.Reflect.Type>):Error;
+	public function resetCoverage():Void;
+	public function snapshotCoverage():Void;
+};
+
+typedef T_corpusEntry = {
+	parent:GoString,
+	path:GoString,
+	data:Slice<GoUInt8>,
+	values:Slice<AnyInterface>,
+	generation:GoInt,
+	isSeed:Bool,
+}

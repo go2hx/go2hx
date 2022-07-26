@@ -339,7 +339,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 						continue; // skip if var or function for wrapper
 					default:
 				}
-				final ct:ComplexType = TPath({name: def.name, pack: [], params: def.params.map(p -> TPType(TPath({name: p.name, pack: []})))});
+				final ct:ComplexType = TPath({name: def.name, pack: [], params: def.params == null ? [] : def.params.map(p -> TPType(TPath({name: p.name,
+					pack: []})))});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
 				var embedded = false;
 				for (field in def.fields) {
@@ -2451,7 +2452,7 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		}
 	}
 	name = className(name, info);
-	if (StringTools.startsWith(name, "T__struct_")) {
+	if (StringTools.startsWith(name, "T__struct_") && expr.type != null && expr.type.underlying != null) {
 		info.locals[expr.type.underlying.hash] = typeof(expr.type, info);
 	}
 	return TPath({

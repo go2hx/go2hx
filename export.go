@@ -152,6 +152,9 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 		panic(err)
 	}
 	w.Close()
+	if debug {
+		memoryStats()
+	}
 	return buff.Bytes()
 }
 
@@ -214,7 +217,6 @@ func main() {
 			panic("write length error: " + err.Error())
 			return
 		}
-
 		//fmt.Println("write data:", len(data))
 		_, err = conn.Write(data)
 		data = nil
@@ -226,6 +228,12 @@ func main() {
 		debug.FreeOSMemory()
 		runtime.GC()
 	}
+}
+
+func memoryStats() {
+	var m runtime.MemStats
+	runtime.ReadMemStats(&m)
+	fmt.Println("memory:", m.Alloc/1024/1024)
 }
 
 func addExclude(pkg *packages.Package) {

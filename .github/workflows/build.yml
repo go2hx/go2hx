@@ -23,6 +23,8 @@ jobs:
         run: npx haxelib dev go2hx .
       - name: Test run
         run: npx haxelib run go2hx ./rnd
+      - name: Memory info
+        run: free -m
       - name: Run StdGo autogenerator
         run: npx haxe stdgo.hxml
       - name: Build tests

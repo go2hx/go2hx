@@ -3141,7 +3141,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 		return invalidType;
 	var t = switch e.id {
 		case "TypeParam":
-			if (e.constraint.embeds == null) {
+			if (e.constraint != null && e.constraint.embeds == null) {
 				e.constraint = e.constraint.underlying;
 			}
 			if (e.constraint == null || e.constraint.embeds == null || e.constraint.embeds.length == 0) {

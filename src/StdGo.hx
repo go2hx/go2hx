@@ -64,6 +64,7 @@ function update() {
 		if (!compiled) {
 			break;
 		}
+		trace(hxml);
 		libs.remove(lib);
 	}
 }

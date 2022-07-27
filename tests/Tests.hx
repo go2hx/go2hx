@@ -132,7 +132,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			if (task.data == null) {
 				throw "task.data is null: " + command;
 			}
-			final args = task.data.exclude == "" ? [] : ["-excludes"].concat(task.data.exclude.split(" "));
+			final args = (task.data.exclude == "" || task.data.exclude == null) ?[] ||:["-excludes"].concat(task.data.exclude.split(" "));
 			if (task.target == "hxcpp") {
 				command += " -D HXCPP_NONINTERACTIVE";
 			}

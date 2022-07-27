@@ -339,8 +339,14 @@ function main(data:DataType, instance:Main.InstanceData) {
 						continue; // skip if var or function for wrapper
 					default:
 				}
-				final ct:ComplexType = TPath({name: def.name, pack: [], params: def.params == null ? [] : def.params.map(p -> TPType(TPath({name: p.name,
-					pack: []})))});
+				final ct:ComplexType = TPath({
+					name: def.name,
+					pack: [],
+					params: def.params == null ? [] : def.params.map(p -> TPType(TPath({
+						name: p.name,
+						pack: []
+					})))
+				});
 				// trace(new haxe.macro.Printer().printComplexType(ct));
 				var embedded = false;
 				for (field in def.fields) {
@@ -3138,7 +3144,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 			if (e.constraint.embeds == null) {
 				e.constraint = e.constraint.underlying;
 			}
-			if (e.constraint.embeds.length == 0) {
+			if (e.constraint == null || e.constraint.embeds == null || e.constraint.embeds.length == 0) {
 				typeParam(e.name, [interfaceType(true)]);
 			} else {
 				final terms:Array<Dynamic> = e.constraint.embeds[0].terms;

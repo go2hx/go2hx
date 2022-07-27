@@ -5,4 +5,4 @@
 -dce full
 -lib hxnodejs
 --js stdgo.js
---cmd node --max-old-space-size=4096 stdgo.js
+--cmd node --expose-gc --max-old-space-size=4096 stdgo.js

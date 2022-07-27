@@ -228,7 +228,12 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		#if (target.threaded)
 		processes.push(new sys.io.Process("./go4hx", ['$port'], false));
 		#else
-		js.node.Require.require("child_process").exec('./go4hx $port');
+		final child = js.node.ChildProcess.exec('./go4hx $port', null, null);
+		child.on('exit', code -> {
+			final code:Int = code;
+			Sys.println('child process exited: $code');
+			Sys.exit(code);
+		});
 		#end
 	}
 	var index = 0;
@@ -286,7 +291,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 
 				var data = haxe.zip.Uncompress.run(buff);
 				buff = null;
-				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString()#end);
+				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);
 				data = null;
 				// haxe.Timer.measure(() -> exportData = haxe.Json.parse(buff.toString()));
 				// Sys.println("retrieved exportData");

@@ -58,7 +58,7 @@ function main() {
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
-	final tests = testUnit().concat(testStd()).concat(testGoByExample());
+	final tests = testUnit().concat(testStd());
 	for (test in tests) { // create TestSuite data class
 		if (suites[test.type] == null)
 			suites[test.type] = new TestSuite();

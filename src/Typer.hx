@@ -2941,7 +2941,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 									macro new $p();
 								} else {
 									if (p == null)
-										p = {name: "Map", pack: [], params: [TPType(keyType), TPType(value)]};
+										p = {name: "GoMap", pack: [], params: [TPType(keyType), TPType(value)]};
 									final ct = TPath(p);
 									macro(new GoObjectMap<$keyType, $value>(new stdgo.reflect.Reflect._Type($t)) : $ct);
 								}
@@ -5764,8 +5764,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	} else {
 		for (i in 0...value.names.length) {
 			var expr:Expr = null;
-			if (value.values[i] == null) {
-				if (type != null) {
+			if (info.global.externBool || value.values[i] == null) {
+				if (info.global.externBool || type != null) {
 					expr = defaultValue(typeof(value.type, info), info);
 				} else {
 					// last expr use iota

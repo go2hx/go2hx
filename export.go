@@ -518,7 +518,8 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 						for _, s := range f.Specs {
 							switch s := s.(type) {
 							case *ast.ValueSpec:
-								s.Values = nil
+								_ = s
+								//s.Values = nil
 							default:
 							}
 						}

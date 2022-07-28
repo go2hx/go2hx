@@ -1,0 +1,3 @@
+-m stdgo.unicode_test.Unicode
+-lib go2hx
+-cp stdgo

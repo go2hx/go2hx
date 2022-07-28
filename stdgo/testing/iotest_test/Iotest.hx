@@ -1,4 +1,4 @@
-package stdgo.io.fs_test;
+package stdgo.testing.iotest_test;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -8,10 +8,25 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _tests : Slice<stdgo.testing.Testing.InternalTest> = ((new Slice<stdgo.testing.Testing.InternalTest>(((new stdgo.testing.Testing.InternalTest(((((("TestValidPath" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestGlob" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestGlobError" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestGlobMethod" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestReadDir" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestFileInfoToDirEntry" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestReadFile" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestStat" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestSub" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest)), ((new stdgo.testing.Testing.InternalTest(((((("TestWalkDir" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
+var _tests : Slice<stdgo.testing.Testing.InternalTest> = ((new Slice<stdgo.testing.Testing.InternalTest>(
+((new stdgo.testing.Testing.InternalTest(((((("TestWriteLogger" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testWriteLogger) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestWriteLogger_errorOnWrite" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testWriteLogger_errorOnWrite) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestReadLogger" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testReadLogger) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestReadLogger_errorOnRead" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testReadLogger_errorOnRead) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestOneByteReader_nonEmptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testOneByteReader_nonEmptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestOneByteReader_emptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testOneByteReader_emptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestHalfReader_nonEmptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testHalfReader_nonEmptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestHalfReader_emptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testHalfReader_emptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestTimeOutReader_nonEmptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testTimeOutReader_nonEmptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestTimeOutReader_emptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testTimeOutReader_emptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestDataErrReader_nonEmptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testDataErrReader_nonEmptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestDataErrReader_emptyReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testDataErrReader_emptyReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestErrReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testErrReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestStringsReader" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testStringsReader) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((((("TestTruncateWriter" : GoString))) : GoString)), stdgo.testing.iotest.Iotest.testTruncateWriter) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
 var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((new Slice<stdgo.testing.Testing.InternalBenchmark>() : Slice<stdgo.testing.Testing.InternalBenchmark>));
 var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((new Slice<stdgo.testing.Testing.InternalFuzzTarget>() : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
-var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>() : Slice<stdgo.testing.Testing.InternalExample>));
+var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>(((new stdgo.testing.Testing.InternalExample(((((("ExampleErrReader" : GoString))) : GoString)), stdgo.testing.iotest_test.Iotest_test.exampleErrReader, ((((("n:   0\nerr: \"custom error\"\n" : GoString))) : GoString)), false) : stdgo.testing.Testing.InternalExample))) : Slice<stdgo.testing.Testing.InternalExample>));
 function main():Void {
         var _m = stdgo.testing.Testing.mainStart({
             final __self__ = new stdgo.testing.internal.testdeps.Testdeps.TestDeps_wrapper(((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)));
@@ -35,7 +50,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ((((("io/fs" : GoString))) : GoString));
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ((((("testing/iotest" : GoString))) : GoString));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

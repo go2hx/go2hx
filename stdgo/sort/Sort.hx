@@ -45,6 +45,9 @@ typedef Interface = StructType & {
 @:named @:using(stdgo.sort.Sort.IntSlice_static_extension) typedef IntSlice = Slice<GoInt>;
 @:named @:using(stdgo.sort.Sort.Float64Slice_static_extension) typedef Float64Slice = Slice<GoFloat64>;
 @:named @:using(stdgo.sort.Sort.StringSlice_static_extension) typedef StringSlice = Slice<GoString>;
+function heapsort(_data:Interface):Void {
+        _heapSort(_data, ((0 : GoInt)), _data.len());
+    }
 /**
     // Search uses binary search to find and return the smallest index i
     // in [0, n) at which f(i) is true, assuming that on the range [0, n),

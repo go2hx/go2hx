@@ -8,36 +8,8 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _dirBufPool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
-        var _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((8192 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        return Go.toInterface(_buf);
-    } } : stdgo.sync.Sync.Pool));
-var errInvalid : stdgo.Error = stdgo.io.fs.Fs.errInvalid;
-var errPermission : stdgo.Error = stdgo.io.fs.Fs.errPermission;
-var errExist : stdgo.Error = stdgo.io.fs.Fs.errExist;
-var errNotExist : stdgo.Error = stdgo.io.fs.Fs.errNotExist;
-var errClosed : stdgo.Error = stdgo.io.fs.Fs.errClosed;
-var errNoDeadline : stdgo.Error = _errNoDeadline();
-var errDeadlineExceeded : stdgo.Error = _errDeadlineExceeded();
-var errProcessDone : stdgo.Error = stdgo.errors.Errors.new_(((((("os: process already finished" : GoString))) : GoString)));
-var interrupt : Signal = {
-        final __self__ = new stdgo.syscall.Syscall.Signal_wrapper(((2 : stdgo.syscall.Syscall.Signal)));
-        __self__.signal = #if !macro function():Void ((2 : stdgo.syscall.Syscall.Signal)).signal() #else null #end;
-        __self__.toString = #if !macro function():GoString return ((2 : stdgo.syscall.Syscall.Signal)).toString() #else null #end;
-        __self__;
-    };
-var kill : Signal = {
-        final __self__ = new stdgo.syscall.Syscall.Signal_wrapper(((3 : stdgo.syscall.Syscall.Signal)));
-        __self__.signal = #if !macro function():Void ((3 : stdgo.syscall.Syscall.Signal)).signal() #else null #end;
-        __self__.toString = #if !macro function():GoString return ((3 : stdgo.syscall.Syscall.Signal)).toString() #else null #end;
-        __self__;
-    };
-var _errWriteAtInAppendMode : stdgo.Error = stdgo.errors.Errors.new_(((((("os: invalid use of WriteAt on file opened with O_APPEND" : GoString))) : GoString)));
-var stdin : Ref<File> = newFile(((((0 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stdin" : GoString))) : GoString)));
-var stdout : Ref<File> = newFile(((((1 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stdout" : GoString))) : GoString)));
-var stderr : Ref<File> = newFile(((((2 : GoUIntptr)) : GoUIntptr)), ((((("/dev/stderr" : GoString))) : GoString)));
-var _errPatternHasSeparator : stdgo.Error = stdgo.errors.Errors.new_(((((("pattern contains path separator" : GoString))) : GoString)));
-var _lstat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = lstat;
+var interrupt : Signal = ((null : Signal));
+var kill : Signal = ((null : Signal));
 var _testingForceReadDirLstat : Bool = false;
 var _getwdCache : T__struct_0 = new T__struct_0();
 var args : Slice<GoString> = ((null : Slice<GoString>));

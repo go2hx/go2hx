@@ -150,6 +150,11 @@ var _mPi4 : GoArray<GoUInt64> = ((new GoArray<GoUInt64>(
 (("8795094592981902804" : GoUInt64)),
 (("15561835991111744016" : GoUInt64)),
 (("12395701187267450711" : GoUInt64))) : GoArray<GoUInt64>));
+var expGo : GoFloat64 -> GoFloat64 = _exp;
+var exp2Go : GoFloat64 -> GoFloat64 = _exp2;
+var hypotGo : (GoFloat64, GoFloat64) -> GoFloat64 = _hypot;
+var sqrtGo : GoFloat64 -> GoFloat64 = _sqrt;
+var trigReduce : GoFloat64 -> { var _0 : GoUInt64; var _1 : GoFloat64; } = _trigReduce;
 /**
     // Abs returns the absolute value of x.
     //

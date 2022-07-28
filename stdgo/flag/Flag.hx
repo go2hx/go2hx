@@ -16,6 +16,7 @@ var usage : () -> Void = function():Void {
         stdgo.fmt.Fmt.fprintf(commandLine.output(), ((((("Usage of %s:\n" : GoString))) : GoString)), Go.toInterface((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString)))));
         printDefaults();
     };
+var defaultUsage : () -> Void = usage;
 typedef T_boolFlag = StructType & {
     > Value,
     public function isBoolFlag():Bool;
@@ -78,6 +79,16 @@ typedef Getter = StructType & {
 @:named @:using(stdgo.flag.Flag.T_durationValue_static_extension) typedef T_durationValue = stdgo.time.Time.Duration;
 @:named @:using(stdgo.flag.Flag.T_funcValue_static_extension) typedef T_funcValue = GoString -> stdgo.Error;
 @:named typedef ErrorHandling = GoInt;
+/**
+    // ResetForTesting clears all flag state and sets the usage function as directed.
+    // After calling ResetForTesting, parse errors in flag handling will not
+    // exit the program.
+**/
+function resetForTesting(_usage:() -> Void):Void {
+        commandLine = newFlagSet((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString))), ((0 : ErrorHandling)));
+        commandLine.usage = _commandLineUsage;
+        usage = _usage;
+    }
 function _numError(_err:Error):Error {
         var __tmp__ = try {
             { value : ((((_err.__underlying__().value : Dynamic)) : stdgo.strconv.Strconv.NumError)), ok : true };
@@ -134,7 +145,7 @@ function _sortFlags(_flags:GoMap<GoString, Flag>):Slice<Flag> {
         var _result = new Slice<Ref<Flag>>(...[for (i in 0 ... (((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic()) ((null : Flag))]);
         var _i:GoInt = ((0 : GoInt));
         for (_0 => _f in _flags) {
-            if (_result != null) _result[_i] = new Flag(_f.name, _f.usage, _f.value, _f.defValue);
+            if (_result != null) _result[_i] = _f;
             _i++;
         };
         stdgo.sort.Sort.slice(Go.toInterface(_result), function(_i:GoInt, _j:GoInt):Bool {
@@ -161,7 +172,7 @@ function visit(_fn:Flag -> Void):Void {
     // returning nil if none exists.
 **/
 function lookup(_name:GoString):Flag {
-        return new Flag((commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag))).name, (commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag))).usage, (commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag))).value, (commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag))).defValue);
+        return (commandLine._formal != null ? commandLine._formal[_name] : ((null : Flag)));
     }
 /**
     // Set sets the value of the named command-line flag.
@@ -483,9 +494,9 @@ function _commandLineUsage():Void {
     // in the default usage message and in error messages.
 **/
 function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
-        var _f = new FlagSet((({ _name : _name, _errorHandling : _errorHandling } : FlagSet)).usage, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._name, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._parsed, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._actual, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._formal, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._args, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._errorHandling, (({ _name : _name, _errorHandling : _errorHandling } : FlagSet))._output);
+        var _f = (({ _name : _name, _errorHandling : _errorHandling } : FlagSet));
         _f.usage = _f._defaultUsage;
-        return new FlagSet(_f.usage, _f._name, _f._parsed, _f._actual, _f._formal, _f._args, _f._errorHandling, _f._output);
+        return _f;
     }
 @:keep var _ = {
         try {
@@ -633,9 +644,9 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             };
         };
         if (_f._actual == null) {
-            _f._actual = ((new GoObjectMap(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
+            _f._actual = ((new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
         };
-        if (_f._actual != null) _f._actual[_name] = new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue);
+        if (_f._actual != null) _f._actual[_name] = _flag;
         return { _0 : true, _1 : ((null : stdgo.Error)) };
     }
     /**
@@ -686,7 +697,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         } else if (stdgo.strings.Strings.contains(_name, ((((("=" : GoString))) : GoString)))) {
             throw Go.toInterface(_f._sprintf(((((("flag %q contains =" : GoString))) : GoString)), Go.toInterface(_name)));
         };
-        var _flag = new Flag(((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag)).name, ((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag)).usage, ((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag)).value, ((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag)).defValue);
+        var _flag = ((new Flag(_name, _usage, _value, ((_value.toString() : GoString))) : Flag));
         var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : ((null : Flag)), ok : false }), _0:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (_alreadythere) {
             var _msg:GoString = (("" : GoString));
@@ -698,9 +709,9 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             throw Go.toInterface(_msg);
         };
         if (_f._formal == null) {
-            _f._formal = ((new GoObjectMap(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
+            _f._formal = ((new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
         };
-        if (_f._formal != null) _f._formal[_name] = new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue);
+        if (_f._formal != null) _f._formal[_name] = _flag;
     }
     /**
         // Func defines a flag with the specified name and usage string.
@@ -980,7 +991,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
                 __self__;
             }, ((((("  -%s" : GoString))) : GoString)), Go.toInterface(_flag.name));
-            var __tmp__ = unquoteUsage(new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue)), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
+            var __tmp__ = unquoteUsage(_flag), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
             if ((_name != null ? _name.length : ((0 : GoInt))) > ((0 : GoInt))) {
                 _b.writeString((((((" " : GoString))) : GoString)));
                 _b.writeString(_name);
@@ -991,7 +1002,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 _b.writeString(((((("\n    \t" : GoString))) : GoString)));
             };
             _b.writeString(stdgo.strings.Strings.replaceAll(_usage, ((((("\n" : GoString))) : GoString)), ((((("\n    \t" : GoString))) : GoString))));
-            if (!_isZeroValue(new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue), _flag.defValue)) {
+            if (!_isZeroValue(_flag, _flag.defValue)) {
                 {
                     var __tmp__ = try {
                         { value : Go.pointer(((((_flag.value.__underlying__().value : Dynamic)) : T_stringValue))), ok : true };
@@ -1050,9 +1061,9 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             return _err;
         };
         if (_f._actual == null) {
-            _f._actual = ((new GoObjectMap(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
+            _f._actual = ((new GoObjectMap<GoString, Ref<Flag>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Flag", [], stdgo.reflect.Reflect.GoType.structType([{ name : "name", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "usage", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }, { name : "value", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.named("Value", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))) }, { name : "defValue", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(string_kind) }])))))) : Map<GoString, Ref<Flag>>));
         };
-        if (_f._actual != null) _f._actual[_name] = new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue);
+        if (_f._actual != null) _f._actual[_name] = _flag;
         return ((null : stdgo.Error));
     }
     /**
@@ -1060,7 +1071,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function lookup( _f:FlagSet, _name:GoString):Flag {
-        return new Flag((_f._formal != null ? _f._formal[_name] : ((null : Flag))).name, (_f._formal != null ? _f._formal[_name] : ((null : Flag))).usage, (_f._formal != null ? _f._formal[_name] : ((null : Flag))).value, (_f._formal != null ? _f._formal[_name] : ((null : Flag))).defValue);
+        return (_f._formal != null ? _f._formal[_name] : ((null : Flag)));
     }
     /**
         // Visit visits the flags in lexicographical order, calling fn for each.
@@ -1069,7 +1080,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     @:keep
     static public function visit( _f:FlagSet, _fn:Flag -> Void):Void {
         for (_0 => _flag in _sortFlags(_f._actual)) {
-            _fn(new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue));
+            _fn(_flag);
         };
     }
     /**
@@ -1079,7 +1090,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     @:keep
     static public function visitAll( _f:FlagSet, _fn:Flag -> Void):Void {
         for (_0 => _flag in _sortFlags(_f._formal)) {
-            _fn(new Flag(_flag.name, _flag.usage, _flag.value, _flag.defValue));
+            _fn(_flag);
         };
     }
     /**

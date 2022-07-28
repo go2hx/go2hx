@@ -1,0 +1,3 @@
+-m stdgo.bytes_test.Bytes
+-lib go2hx
+-cp stdgo

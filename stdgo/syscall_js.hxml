@@ -1,0 +1,3 @@
+-m syscall.js_test.Js
+-lib go2hx
+-cp stdgo

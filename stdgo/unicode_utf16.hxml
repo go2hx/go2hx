@@ -1,0 +1,3 @@
+-m unicode.utf16_test.Utf16
+-lib go2hx
+-cp stdgo

@@ -1,4 +1,4 @@
-package stdgo.syscall.js_test;
+package stdgo.os_test;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;

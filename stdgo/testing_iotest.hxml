@@ -1,0 +1,3 @@
+-m testing.iotest_test.Iotest
+-lib go2hx
+-cp stdgo

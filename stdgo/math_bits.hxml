@@ -1,0 +1,3 @@
+-m math.bits_test.Bits
+-lib go2hx
+-cp stdgo

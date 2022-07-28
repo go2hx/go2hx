@@ -266,14 +266,14 @@ var _first : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((241 : GoUInt8)),
 ((241 : GoUInt8))) : GoArray<GoUInt8>));
 var _acceptRanges : GoArray<T_acceptRange> = {
-    var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) new T_acceptRange()]);
-    s[0] = ((new T_acceptRange(((128 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[1] = ((new T_acceptRange(((160 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[2] = ((new T_acceptRange(((128 : GoUInt8)), ((159 : GoUInt8))) : T_acceptRange));
-    s[3] = ((new T_acceptRange(((144 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
-    s[4] = ((new T_acceptRange(((128 : GoUInt8)), ((143 : GoUInt8))) : T_acceptRange));
-    s;
-};
+        var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) new T_acceptRange()]);
+        s[0] = ((new T_acceptRange(((128 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[1] = ((new T_acceptRange(((160 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[2] = ((new T_acceptRange(((128 : GoUInt8)), ((159 : GoUInt8))) : T_acceptRange));
+        s[3] = ((new T_acceptRange(((144 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
+        s[4] = ((new T_acceptRange(((128 : GoUInt8)), ((143 : GoUInt8))) : T_acceptRange));
+        s;
+    };
 @:structInit class T_acceptRange {
     public var _lo : GoUInt8 = 0;
     public var _hi : GoUInt8 = 0;

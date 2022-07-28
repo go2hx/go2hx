@@ -1,0 +1,3 @@
+-m stdgo.io_test.Io
+-lib go2hx
+-cp stdgo

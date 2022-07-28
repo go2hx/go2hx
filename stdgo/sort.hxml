@@ -1,0 +1,3 @@
+-m stdgo.sort_test.Sort
+-lib go2hx
+-cp stdgo

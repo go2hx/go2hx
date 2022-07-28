@@ -8,18 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = new Map<Int, (Value, Slice<Value>) -> AnyInterface>();
-var _nextFuncID : GoUInt32 = ((1 : GoUInt32));
-var _valueUndefined : Value = (({ _ref : ((0 : T_ref)) } : Value));
-var _valueNaN : Value = _predefValue(((0 : GoUInt32)), ((0 : GoUInt8)));
-var _valueZero : Value = _predefValue(((1 : GoUInt32)), ((0 : GoUInt8)));
-var _valueNull : Value = _predefValue(((2 : GoUInt32)), ((0 : GoUInt8)));
-var _valueTrue : Value = _predefValue(((3 : GoUInt32)), ((0 : GoUInt8)));
-var _valueFalse : Value = _predefValue(((4 : GoUInt32)), ((0 : GoUInt8)));
-var _valueGlobal : Value = _predefValue(((5 : GoUInt32)), ((1 : GoUInt8)));
-var _jsGo : Value = _predefValue(((6 : GoUInt32)), ((1 : GoUInt8)));
-var _objectConstructor : Value = _valueGlobal.get(((((("Object" : GoString))) : GoString)));
-var _arrayConstructor : Value = _valueGlobal.get(((((("Array" : GoString))) : GoString)));
+var _nextFuncID : GoUInt32 = ((0 : GoUInt32));
 var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded

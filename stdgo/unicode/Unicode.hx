@@ -3308,7 +3308,7 @@ var space : Ref<RangeTable> = __Z;
 var z : Ref<RangeTable> = __Z;
 var symbol : Ref<RangeTable> = __S;
 var s : Ref<RangeTable> = __S;
-var printRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(new RangeTable(l.r16, l.r32, l.latinOffset), new RangeTable(m.r16, m.r32, m.latinOffset), new RangeTable(n.r16, n.r32, n.latinOffset), new RangeTable(p.r16, p.r32, p.latinOffset), new RangeTable(s.r16, s.r32, s.latinOffset)) : Slice<RangeTable>));
+var printRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s) : Slice<RangeTable>));
 var title : Ref<RangeTable> = __Lt;
 var lt : Ref<RangeTable> = __Lt;
 var upper : Ref<RangeTable> = __Lu;
@@ -3316,43 +3316,43 @@ var lu : Ref<RangeTable> = __Lu;
 var zl : Ref<RangeTable> = __Zl;
 var zp : Ref<RangeTable> = __Zp;
 var zs : Ref<RangeTable> = __Zs;
-var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(new RangeTable(l.r16, l.r32, l.latinOffset), new RangeTable(m.r16, m.r32, m.latinOffset), new RangeTable(n.r16, n.r32, n.latinOffset), new RangeTable(p.r16, p.r32, p.latinOffset), new RangeTable(s.r16, s.r32, s.latinOffset), new RangeTable(zs.r16, zs.r32, zs.latinOffset)) : Slice<RangeTable>));
-var categories : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("C" : GoString))) : GoString)) => new RangeTable(c.r16, c.r32, c.latinOffset),
-((((("Cc" : GoString))) : GoString)) => new RangeTable(cc.r16, cc.r32, cc.latinOffset),
-((((("Cf" : GoString))) : GoString)) => new RangeTable(cf.r16, cf.r32, cf.latinOffset),
-((((("Co" : GoString))) : GoString)) => new RangeTable(co.r16, co.r32, co.latinOffset),
-((((("Cs" : GoString))) : GoString)) => new RangeTable(cs.r16, cs.r32, cs.latinOffset),
-((((("L" : GoString))) : GoString)) => new RangeTable(l.r16, l.r32, l.latinOffset),
-((((("Ll" : GoString))) : GoString)) => new RangeTable(ll.r16, ll.r32, ll.latinOffset),
-((((("Lm" : GoString))) : GoString)) => new RangeTable(lm.r16, lm.r32, lm.latinOffset),
-((((("Lo" : GoString))) : GoString)) => new RangeTable(lo.r16, lo.r32, lo.latinOffset),
-((((("Lt" : GoString))) : GoString)) => new RangeTable(lt.r16, lt.r32, lt.latinOffset),
-((((("Lu" : GoString))) : GoString)) => new RangeTable(lu.r16, lu.r32, lu.latinOffset),
-((((("M" : GoString))) : GoString)) => new RangeTable(m.r16, m.r32, m.latinOffset),
-((((("Mc" : GoString))) : GoString)) => new RangeTable(mc.r16, mc.r32, mc.latinOffset),
-((((("Me" : GoString))) : GoString)) => new RangeTable(me.r16, me.r32, me.latinOffset),
-((((("Mn" : GoString))) : GoString)) => new RangeTable(mn.r16, mn.r32, mn.latinOffset),
-((((("N" : GoString))) : GoString)) => new RangeTable(n.r16, n.r32, n.latinOffset),
-((((("Nd" : GoString))) : GoString)) => new RangeTable(nd.r16, nd.r32, nd.latinOffset),
-((((("Nl" : GoString))) : GoString)) => new RangeTable(nl.r16, nl.r32, nl.latinOffset),
-((((("No" : GoString))) : GoString)) => new RangeTable(no.r16, no.r32, no.latinOffset),
-((((("P" : GoString))) : GoString)) => new RangeTable(p.r16, p.r32, p.latinOffset),
-((((("Pc" : GoString))) : GoString)) => new RangeTable(pc.r16, pc.r32, pc.latinOffset),
-((((("Pd" : GoString))) : GoString)) => new RangeTable(pd.r16, pd.r32, pd.latinOffset),
-((((("Pe" : GoString))) : GoString)) => new RangeTable(pe.r16, pe.r32, pe.latinOffset),
-((((("Pf" : GoString))) : GoString)) => new RangeTable(pf.r16, pf.r32, pf.latinOffset),
-((((("Pi" : GoString))) : GoString)) => new RangeTable(pi.r16, pi.r32, pi.latinOffset),
-((((("Po" : GoString))) : GoString)) => new RangeTable(po.r16, po.r32, po.latinOffset),
-((((("Ps" : GoString))) : GoString)) => new RangeTable(ps.r16, ps.r32, ps.latinOffset),
-((((("S" : GoString))) : GoString)) => new RangeTable(s.r16, s.r32, s.latinOffset),
-((((("Sc" : GoString))) : GoString)) => new RangeTable(sc.r16, sc.r32, sc.latinOffset),
-((((("Sk" : GoString))) : GoString)) => new RangeTable(sk.r16, sk.r32, sk.latinOffset),
-((((("Sm" : GoString))) : GoString)) => new RangeTable(sm.r16, sm.r32, sm.latinOffset),
-((((("So" : GoString))) : GoString)) => new RangeTable(so.r16, so.r32, so.latinOffset),
-((((("Z" : GoString))) : GoString)) => new RangeTable(z.r16, z.r32, z.latinOffset),
-((((("Zl" : GoString))) : GoString)) => new RangeTable(zl.r16, zl.r32, zl.latinOffset),
-((((("Zp" : GoString))) : GoString)) => new RangeTable(zp.r16, zp.r32, zp.latinOffset),
-((((("Zs" : GoString))) : GoString)) => new RangeTable(zs.r16, zs.r32, zs.latinOffset));
+var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s, zs) : Slice<RangeTable>));
+var categories : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("C" : GoString))) : GoString)) => c,
+((((("Cc" : GoString))) : GoString)) => cc,
+((((("Cf" : GoString))) : GoString)) => cf,
+((((("Co" : GoString))) : GoString)) => co,
+((((("Cs" : GoString))) : GoString)) => cs,
+((((("L" : GoString))) : GoString)) => l,
+((((("Ll" : GoString))) : GoString)) => ll,
+((((("Lm" : GoString))) : GoString)) => lm,
+((((("Lo" : GoString))) : GoString)) => lo,
+((((("Lt" : GoString))) : GoString)) => lt,
+((((("Lu" : GoString))) : GoString)) => lu,
+((((("M" : GoString))) : GoString)) => m,
+((((("Mc" : GoString))) : GoString)) => mc,
+((((("Me" : GoString))) : GoString)) => me,
+((((("Mn" : GoString))) : GoString)) => mn,
+((((("N" : GoString))) : GoString)) => n,
+((((("Nd" : GoString))) : GoString)) => nd,
+((((("Nl" : GoString))) : GoString)) => nl,
+((((("No" : GoString))) : GoString)) => no,
+((((("P" : GoString))) : GoString)) => p,
+((((("Pc" : GoString))) : GoString)) => pc,
+((((("Pd" : GoString))) : GoString)) => pd,
+((((("Pe" : GoString))) : GoString)) => pe,
+((((("Pf" : GoString))) : GoString)) => pf,
+((((("Pi" : GoString))) : GoString)) => pi,
+((((("Po" : GoString))) : GoString)) => po,
+((((("Ps" : GoString))) : GoString)) => ps,
+((((("S" : GoString))) : GoString)) => s,
+((((("Sc" : GoString))) : GoString)) => sc,
+((((("Sk" : GoString))) : GoString)) => sk,
+((((("Sm" : GoString))) : GoString)) => sm,
+((((("So" : GoString))) : GoString)) => so,
+((((("Z" : GoString))) : GoString)) => z,
+((((("Zl" : GoString))) : GoString)) => zl,
+((((("Zp" : GoString))) : GoString)) => zp,
+((((("Zs" : GoString))) : GoString)) => zs);
 var __Adlam : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((125184 : GoUInt32)), ((125259 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125264 : GoUInt32)), ((125273 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125278 : GoUInt32)), ((125279 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)) } : RangeTable));
 var __Ahom : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((71424 : GoUInt32)), ((71450 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71453 : GoUInt32)), ((71467 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71472 : GoUInt32)), ((71487 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)) } : RangeTable));
 var __Anatolian_Hieroglyphs : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>() : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((82944 : GoUInt32)), ((83526 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)) } : RangeTable));
@@ -4134,162 +4134,162 @@ var warang_Citi : Ref<RangeTable> = __Warang_Citi;
 var yezidi : Ref<RangeTable> = __Yezidi;
 var yi : Ref<RangeTable> = __Yi;
 var zanabazar_Square : Ref<RangeTable> = __Zanabazar_Square;
-var scripts : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("Adlam" : GoString))) : GoString)) => new RangeTable(adlam.r16, adlam.r32, adlam.latinOffset),
-((((("Ahom" : GoString))) : GoString)) => new RangeTable(ahom.r16, ahom.r32, ahom.latinOffset),
-((((("Anatolian_Hieroglyphs" : GoString))) : GoString)) => new RangeTable(anatolian_Hieroglyphs.r16, anatolian_Hieroglyphs.r32, anatolian_Hieroglyphs.latinOffset),
-((((("Arabic" : GoString))) : GoString)) => new RangeTable(arabic.r16, arabic.r32, arabic.latinOffset),
-((((("Armenian" : GoString))) : GoString)) => new RangeTable(armenian.r16, armenian.r32, armenian.latinOffset),
-((((("Avestan" : GoString))) : GoString)) => new RangeTable(avestan.r16, avestan.r32, avestan.latinOffset),
-((((("Balinese" : GoString))) : GoString)) => new RangeTable(balinese.r16, balinese.r32, balinese.latinOffset),
-((((("Bamum" : GoString))) : GoString)) => new RangeTable(bamum.r16, bamum.r32, bamum.latinOffset),
-((((("Bassa_Vah" : GoString))) : GoString)) => new RangeTable(bassa_Vah.r16, bassa_Vah.r32, bassa_Vah.latinOffset),
-((((("Batak" : GoString))) : GoString)) => new RangeTable(batak.r16, batak.r32, batak.latinOffset),
-((((("Bengali" : GoString))) : GoString)) => new RangeTable(bengali.r16, bengali.r32, bengali.latinOffset),
-((((("Bhaiksuki" : GoString))) : GoString)) => new RangeTable(bhaiksuki.r16, bhaiksuki.r32, bhaiksuki.latinOffset),
-((((("Bopomofo" : GoString))) : GoString)) => new RangeTable(bopomofo.r16, bopomofo.r32, bopomofo.latinOffset),
-((((("Brahmi" : GoString))) : GoString)) => new RangeTable(brahmi.r16, brahmi.r32, brahmi.latinOffset),
-((((("Braille" : GoString))) : GoString)) => new RangeTable(braille.r16, braille.r32, braille.latinOffset),
-((((("Buginese" : GoString))) : GoString)) => new RangeTable(buginese.r16, buginese.r32, buginese.latinOffset),
-((((("Buhid" : GoString))) : GoString)) => new RangeTable(buhid.r16, buhid.r32, buhid.latinOffset),
-((((("Canadian_Aboriginal" : GoString))) : GoString)) => new RangeTable(canadian_Aboriginal.r16, canadian_Aboriginal.r32, canadian_Aboriginal.latinOffset),
-((((("Carian" : GoString))) : GoString)) => new RangeTable(carian.r16, carian.r32, carian.latinOffset),
-((((("Caucasian_Albanian" : GoString))) : GoString)) => new RangeTable(caucasian_Albanian.r16, caucasian_Albanian.r32, caucasian_Albanian.latinOffset),
-((((("Chakma" : GoString))) : GoString)) => new RangeTable(chakma.r16, chakma.r32, chakma.latinOffset),
-((((("Cham" : GoString))) : GoString)) => new RangeTable(cham.r16, cham.r32, cham.latinOffset),
-((((("Cherokee" : GoString))) : GoString)) => new RangeTable(cherokee.r16, cherokee.r32, cherokee.latinOffset),
-((((("Chorasmian" : GoString))) : GoString)) => new RangeTable(chorasmian.r16, chorasmian.r32, chorasmian.latinOffset),
-((((("Common" : GoString))) : GoString)) => new RangeTable(common.r16, common.r32, common.latinOffset),
-((((("Coptic" : GoString))) : GoString)) => new RangeTable(coptic.r16, coptic.r32, coptic.latinOffset),
-((((("Cuneiform" : GoString))) : GoString)) => new RangeTable(cuneiform.r16, cuneiform.r32, cuneiform.latinOffset),
-((((("Cypriot" : GoString))) : GoString)) => new RangeTable(cypriot.r16, cypriot.r32, cypriot.latinOffset),
-((((("Cyrillic" : GoString))) : GoString)) => new RangeTable(cyrillic.r16, cyrillic.r32, cyrillic.latinOffset),
-((((("Deseret" : GoString))) : GoString)) => new RangeTable(deseret.r16, deseret.r32, deseret.latinOffset),
-((((("Devanagari" : GoString))) : GoString)) => new RangeTable(devanagari.r16, devanagari.r32, devanagari.latinOffset),
-((((("Dives_Akuru" : GoString))) : GoString)) => new RangeTable(dives_Akuru.r16, dives_Akuru.r32, dives_Akuru.latinOffset),
-((((("Dogra" : GoString))) : GoString)) => new RangeTable(dogra.r16, dogra.r32, dogra.latinOffset),
-((((("Duployan" : GoString))) : GoString)) => new RangeTable(duployan.r16, duployan.r32, duployan.latinOffset),
-((((("Egyptian_Hieroglyphs" : GoString))) : GoString)) => new RangeTable(egyptian_Hieroglyphs.r16, egyptian_Hieroglyphs.r32, egyptian_Hieroglyphs.latinOffset),
-((((("Elbasan" : GoString))) : GoString)) => new RangeTable(elbasan.r16, elbasan.r32, elbasan.latinOffset),
-((((("Elymaic" : GoString))) : GoString)) => new RangeTable(elymaic.r16, elymaic.r32, elymaic.latinOffset),
-((((("Ethiopic" : GoString))) : GoString)) => new RangeTable(ethiopic.r16, ethiopic.r32, ethiopic.latinOffset),
-((((("Georgian" : GoString))) : GoString)) => new RangeTable(georgian.r16, georgian.r32, georgian.latinOffset),
-((((("Glagolitic" : GoString))) : GoString)) => new RangeTable(glagolitic.r16, glagolitic.r32, glagolitic.latinOffset),
-((((("Gothic" : GoString))) : GoString)) => new RangeTable(gothic.r16, gothic.r32, gothic.latinOffset),
-((((("Grantha" : GoString))) : GoString)) => new RangeTable(grantha.r16, grantha.r32, grantha.latinOffset),
-((((("Greek" : GoString))) : GoString)) => new RangeTable(greek.r16, greek.r32, greek.latinOffset),
-((((("Gujarati" : GoString))) : GoString)) => new RangeTable(gujarati.r16, gujarati.r32, gujarati.latinOffset),
-((((("Gunjala_Gondi" : GoString))) : GoString)) => new RangeTable(gunjala_Gondi.r16, gunjala_Gondi.r32, gunjala_Gondi.latinOffset),
-((((("Gurmukhi" : GoString))) : GoString)) => new RangeTable(gurmukhi.r16, gurmukhi.r32, gurmukhi.latinOffset),
-((((("Han" : GoString))) : GoString)) => new RangeTable(han.r16, han.r32, han.latinOffset),
-((((("Hangul" : GoString))) : GoString)) => new RangeTable(hangul.r16, hangul.r32, hangul.latinOffset),
-((((("Hanifi_Rohingya" : GoString))) : GoString)) => new RangeTable(hanifi_Rohingya.r16, hanifi_Rohingya.r32, hanifi_Rohingya.latinOffset),
-((((("Hanunoo" : GoString))) : GoString)) => new RangeTable(hanunoo.r16, hanunoo.r32, hanunoo.latinOffset),
-((((("Hatran" : GoString))) : GoString)) => new RangeTable(hatran.r16, hatran.r32, hatran.latinOffset),
-((((("Hebrew" : GoString))) : GoString)) => new RangeTable(hebrew.r16, hebrew.r32, hebrew.latinOffset),
-((((("Hiragana" : GoString))) : GoString)) => new RangeTable(hiragana.r16, hiragana.r32, hiragana.latinOffset),
-((((("Imperial_Aramaic" : GoString))) : GoString)) => new RangeTable(imperial_Aramaic.r16, imperial_Aramaic.r32, imperial_Aramaic.latinOffset),
-((((("Inherited" : GoString))) : GoString)) => new RangeTable(inherited.r16, inherited.r32, inherited.latinOffset),
-((((("Inscriptional_Pahlavi" : GoString))) : GoString)) => new RangeTable(inscriptional_Pahlavi.r16, inscriptional_Pahlavi.r32, inscriptional_Pahlavi.latinOffset),
-((((("Inscriptional_Parthian" : GoString))) : GoString)) => new RangeTable(inscriptional_Parthian.r16, inscriptional_Parthian.r32, inscriptional_Parthian.latinOffset),
-((((("Javanese" : GoString))) : GoString)) => new RangeTable(javanese.r16, javanese.r32, javanese.latinOffset),
-((((("Kaithi" : GoString))) : GoString)) => new RangeTable(kaithi.r16, kaithi.r32, kaithi.latinOffset),
-((((("Kannada" : GoString))) : GoString)) => new RangeTable(kannada.r16, kannada.r32, kannada.latinOffset),
-((((("Katakana" : GoString))) : GoString)) => new RangeTable(katakana.r16, katakana.r32, katakana.latinOffset),
-((((("Kayah_Li" : GoString))) : GoString)) => new RangeTable(kayah_Li.r16, kayah_Li.r32, kayah_Li.latinOffset),
-((((("Kharoshthi" : GoString))) : GoString)) => new RangeTable(kharoshthi.r16, kharoshthi.r32, kharoshthi.latinOffset),
-((((("Khitan_Small_Script" : GoString))) : GoString)) => new RangeTable(khitan_Small_Script.r16, khitan_Small_Script.r32, khitan_Small_Script.latinOffset),
-((((("Khmer" : GoString))) : GoString)) => new RangeTable(khmer.r16, khmer.r32, khmer.latinOffset),
-((((("Khojki" : GoString))) : GoString)) => new RangeTable(khojki.r16, khojki.r32, khojki.latinOffset),
-((((("Khudawadi" : GoString))) : GoString)) => new RangeTable(khudawadi.r16, khudawadi.r32, khudawadi.latinOffset),
-((((("Lao" : GoString))) : GoString)) => new RangeTable(lao.r16, lao.r32, lao.latinOffset),
-((((("Latin" : GoString))) : GoString)) => new RangeTable(latin.r16, latin.r32, latin.latinOffset),
-((((("Lepcha" : GoString))) : GoString)) => new RangeTable(lepcha.r16, lepcha.r32, lepcha.latinOffset),
-((((("Limbu" : GoString))) : GoString)) => new RangeTable(limbu.r16, limbu.r32, limbu.latinOffset),
-((((("Linear_A" : GoString))) : GoString)) => new RangeTable(linear_A.r16, linear_A.r32, linear_A.latinOffset),
-((((("Linear_B" : GoString))) : GoString)) => new RangeTable(linear_B.r16, linear_B.r32, linear_B.latinOffset),
-((((("Lisu" : GoString))) : GoString)) => new RangeTable(lisu.r16, lisu.r32, lisu.latinOffset),
-((((("Lycian" : GoString))) : GoString)) => new RangeTable(lycian.r16, lycian.r32, lycian.latinOffset),
-((((("Lydian" : GoString))) : GoString)) => new RangeTable(lydian.r16, lydian.r32, lydian.latinOffset),
-((((("Mahajani" : GoString))) : GoString)) => new RangeTable(mahajani.r16, mahajani.r32, mahajani.latinOffset),
-((((("Makasar" : GoString))) : GoString)) => new RangeTable(makasar.r16, makasar.r32, makasar.latinOffset),
-((((("Malayalam" : GoString))) : GoString)) => new RangeTable(malayalam.r16, malayalam.r32, malayalam.latinOffset),
-((((("Mandaic" : GoString))) : GoString)) => new RangeTable(mandaic.r16, mandaic.r32, mandaic.latinOffset),
-((((("Manichaean" : GoString))) : GoString)) => new RangeTable(manichaean.r16, manichaean.r32, manichaean.latinOffset),
-((((("Marchen" : GoString))) : GoString)) => new RangeTable(marchen.r16, marchen.r32, marchen.latinOffset),
-((((("Masaram_Gondi" : GoString))) : GoString)) => new RangeTable(masaram_Gondi.r16, masaram_Gondi.r32, masaram_Gondi.latinOffset),
-((((("Medefaidrin" : GoString))) : GoString)) => new RangeTable(medefaidrin.r16, medefaidrin.r32, medefaidrin.latinOffset),
-((((("Meetei_Mayek" : GoString))) : GoString)) => new RangeTable(meetei_Mayek.r16, meetei_Mayek.r32, meetei_Mayek.latinOffset),
-((((("Mende_Kikakui" : GoString))) : GoString)) => new RangeTable(mende_Kikakui.r16, mende_Kikakui.r32, mende_Kikakui.latinOffset),
-((((("Meroitic_Cursive" : GoString))) : GoString)) => new RangeTable(meroitic_Cursive.r16, meroitic_Cursive.r32, meroitic_Cursive.latinOffset),
-((((("Meroitic_Hieroglyphs" : GoString))) : GoString)) => new RangeTable(meroitic_Hieroglyphs.r16, meroitic_Hieroglyphs.r32, meroitic_Hieroglyphs.latinOffset),
-((((("Miao" : GoString))) : GoString)) => new RangeTable(miao.r16, miao.r32, miao.latinOffset),
-((((("Modi" : GoString))) : GoString)) => new RangeTable(modi.r16, modi.r32, modi.latinOffset),
-((((("Mongolian" : GoString))) : GoString)) => new RangeTable(mongolian.r16, mongolian.r32, mongolian.latinOffset),
-((((("Mro" : GoString))) : GoString)) => new RangeTable(mro.r16, mro.r32, mro.latinOffset),
-((((("Multani" : GoString))) : GoString)) => new RangeTable(multani.r16, multani.r32, multani.latinOffset),
-((((("Myanmar" : GoString))) : GoString)) => new RangeTable(myanmar.r16, myanmar.r32, myanmar.latinOffset),
-((((("Nabataean" : GoString))) : GoString)) => new RangeTable(nabataean.r16, nabataean.r32, nabataean.latinOffset),
-((((("Nandinagari" : GoString))) : GoString)) => new RangeTable(nandinagari.r16, nandinagari.r32, nandinagari.latinOffset),
-((((("New_Tai_Lue" : GoString))) : GoString)) => new RangeTable(new_Tai_Lue.r16, new_Tai_Lue.r32, new_Tai_Lue.latinOffset),
-((((("Newa" : GoString))) : GoString)) => new RangeTable(newa.r16, newa.r32, newa.latinOffset),
-((((("Nko" : GoString))) : GoString)) => new RangeTable(nko.r16, nko.r32, nko.latinOffset),
-((((("Nushu" : GoString))) : GoString)) => new RangeTable(nushu.r16, nushu.r32, nushu.latinOffset),
-((((("Nyiakeng_Puachue_Hmong" : GoString))) : GoString)) => new RangeTable(nyiakeng_Puachue_Hmong.r16, nyiakeng_Puachue_Hmong.r32, nyiakeng_Puachue_Hmong.latinOffset),
-((((("Ogham" : GoString))) : GoString)) => new RangeTable(ogham.r16, ogham.r32, ogham.latinOffset),
-((((("Ol_Chiki" : GoString))) : GoString)) => new RangeTable(ol_Chiki.r16, ol_Chiki.r32, ol_Chiki.latinOffset),
-((((("Old_Hungarian" : GoString))) : GoString)) => new RangeTable(old_Hungarian.r16, old_Hungarian.r32, old_Hungarian.latinOffset),
-((((("Old_Italic" : GoString))) : GoString)) => new RangeTable(old_Italic.r16, old_Italic.r32, old_Italic.latinOffset),
-((((("Old_North_Arabian" : GoString))) : GoString)) => new RangeTable(old_North_Arabian.r16, old_North_Arabian.r32, old_North_Arabian.latinOffset),
-((((("Old_Permic" : GoString))) : GoString)) => new RangeTable(old_Permic.r16, old_Permic.r32, old_Permic.latinOffset),
-((((("Old_Persian" : GoString))) : GoString)) => new RangeTable(old_Persian.r16, old_Persian.r32, old_Persian.latinOffset),
-((((("Old_Sogdian" : GoString))) : GoString)) => new RangeTable(old_Sogdian.r16, old_Sogdian.r32, old_Sogdian.latinOffset),
-((((("Old_South_Arabian" : GoString))) : GoString)) => new RangeTable(old_South_Arabian.r16, old_South_Arabian.r32, old_South_Arabian.latinOffset),
-((((("Old_Turkic" : GoString))) : GoString)) => new RangeTable(old_Turkic.r16, old_Turkic.r32, old_Turkic.latinOffset),
-((((("Oriya" : GoString))) : GoString)) => new RangeTable(oriya.r16, oriya.r32, oriya.latinOffset),
-((((("Osage" : GoString))) : GoString)) => new RangeTable(osage.r16, osage.r32, osage.latinOffset),
-((((("Osmanya" : GoString))) : GoString)) => new RangeTable(osmanya.r16, osmanya.r32, osmanya.latinOffset),
-((((("Pahawh_Hmong" : GoString))) : GoString)) => new RangeTable(pahawh_Hmong.r16, pahawh_Hmong.r32, pahawh_Hmong.latinOffset),
-((((("Palmyrene" : GoString))) : GoString)) => new RangeTable(palmyrene.r16, palmyrene.r32, palmyrene.latinOffset),
-((((("Pau_Cin_Hau" : GoString))) : GoString)) => new RangeTable(pau_Cin_Hau.r16, pau_Cin_Hau.r32, pau_Cin_Hau.latinOffset),
-((((("Phags_Pa" : GoString))) : GoString)) => new RangeTable(phags_Pa.r16, phags_Pa.r32, phags_Pa.latinOffset),
-((((("Phoenician" : GoString))) : GoString)) => new RangeTable(phoenician.r16, phoenician.r32, phoenician.latinOffset),
-((((("Psalter_Pahlavi" : GoString))) : GoString)) => new RangeTable(psalter_Pahlavi.r16, psalter_Pahlavi.r32, psalter_Pahlavi.latinOffset),
-((((("Rejang" : GoString))) : GoString)) => new RangeTable(rejang.r16, rejang.r32, rejang.latinOffset),
-((((("Runic" : GoString))) : GoString)) => new RangeTable(runic.r16, runic.r32, runic.latinOffset),
-((((("Samaritan" : GoString))) : GoString)) => new RangeTable(samaritan.r16, samaritan.r32, samaritan.latinOffset),
-((((("Saurashtra" : GoString))) : GoString)) => new RangeTable(saurashtra.r16, saurashtra.r32, saurashtra.latinOffset),
-((((("Sharada" : GoString))) : GoString)) => new RangeTable(sharada.r16, sharada.r32, sharada.latinOffset),
-((((("Shavian" : GoString))) : GoString)) => new RangeTable(shavian.r16, shavian.r32, shavian.latinOffset),
-((((("Siddham" : GoString))) : GoString)) => new RangeTable(siddham.r16, siddham.r32, siddham.latinOffset),
-((((("SignWriting" : GoString))) : GoString)) => new RangeTable(signWriting.r16, signWriting.r32, signWriting.latinOffset),
-((((("Sinhala" : GoString))) : GoString)) => new RangeTable(sinhala.r16, sinhala.r32, sinhala.latinOffset),
-((((("Sogdian" : GoString))) : GoString)) => new RangeTable(sogdian.r16, sogdian.r32, sogdian.latinOffset),
-((((("Sora_Sompeng" : GoString))) : GoString)) => new RangeTable(sora_Sompeng.r16, sora_Sompeng.r32, sora_Sompeng.latinOffset),
-((((("Soyombo" : GoString))) : GoString)) => new RangeTable(soyombo.r16, soyombo.r32, soyombo.latinOffset),
-((((("Sundanese" : GoString))) : GoString)) => new RangeTable(sundanese.r16, sundanese.r32, sundanese.latinOffset),
-((((("Syloti_Nagri" : GoString))) : GoString)) => new RangeTable(syloti_Nagri.r16, syloti_Nagri.r32, syloti_Nagri.latinOffset),
-((((("Syriac" : GoString))) : GoString)) => new RangeTable(syriac.r16, syriac.r32, syriac.latinOffset),
-((((("Tagalog" : GoString))) : GoString)) => new RangeTable(tagalog.r16, tagalog.r32, tagalog.latinOffset),
-((((("Tagbanwa" : GoString))) : GoString)) => new RangeTable(tagbanwa.r16, tagbanwa.r32, tagbanwa.latinOffset),
-((((("Tai_Le" : GoString))) : GoString)) => new RangeTable(tai_Le.r16, tai_Le.r32, tai_Le.latinOffset),
-((((("Tai_Tham" : GoString))) : GoString)) => new RangeTable(tai_Tham.r16, tai_Tham.r32, tai_Tham.latinOffset),
-((((("Tai_Viet" : GoString))) : GoString)) => new RangeTable(tai_Viet.r16, tai_Viet.r32, tai_Viet.latinOffset),
-((((("Takri" : GoString))) : GoString)) => new RangeTable(takri.r16, takri.r32, takri.latinOffset),
-((((("Tamil" : GoString))) : GoString)) => new RangeTable(tamil.r16, tamil.r32, tamil.latinOffset),
-((((("Tangut" : GoString))) : GoString)) => new RangeTable(tangut.r16, tangut.r32, tangut.latinOffset),
-((((("Telugu" : GoString))) : GoString)) => new RangeTable(telugu.r16, telugu.r32, telugu.latinOffset),
-((((("Thaana" : GoString))) : GoString)) => new RangeTable(thaana.r16, thaana.r32, thaana.latinOffset),
-((((("Thai" : GoString))) : GoString)) => new RangeTable(thai.r16, thai.r32, thai.latinOffset),
-((((("Tibetan" : GoString))) : GoString)) => new RangeTable(tibetan.r16, tibetan.r32, tibetan.latinOffset),
-((((("Tifinagh" : GoString))) : GoString)) => new RangeTable(tifinagh.r16, tifinagh.r32, tifinagh.latinOffset),
-((((("Tirhuta" : GoString))) : GoString)) => new RangeTable(tirhuta.r16, tirhuta.r32, tirhuta.latinOffset),
-((((("Ugaritic" : GoString))) : GoString)) => new RangeTable(ugaritic.r16, ugaritic.r32, ugaritic.latinOffset),
-((((("Vai" : GoString))) : GoString)) => new RangeTable(vai.r16, vai.r32, vai.latinOffset),
-((((("Wancho" : GoString))) : GoString)) => new RangeTable(wancho.r16, wancho.r32, wancho.latinOffset),
-((((("Warang_Citi" : GoString))) : GoString)) => new RangeTable(warang_Citi.r16, warang_Citi.r32, warang_Citi.latinOffset),
-((((("Yezidi" : GoString))) : GoString)) => new RangeTable(yezidi.r16, yezidi.r32, yezidi.latinOffset),
-((((("Yi" : GoString))) : GoString)) => new RangeTable(yi.r16, yi.r32, yi.latinOffset),
-((((("Zanabazar_Square" : GoString))) : GoString)) => new RangeTable(zanabazar_Square.r16, zanabazar_Square.r32, zanabazar_Square.latinOffset));
+var scripts : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("Adlam" : GoString))) : GoString)) => adlam,
+((((("Ahom" : GoString))) : GoString)) => ahom,
+((((("Anatolian_Hieroglyphs" : GoString))) : GoString)) => anatolian_Hieroglyphs,
+((((("Arabic" : GoString))) : GoString)) => arabic,
+((((("Armenian" : GoString))) : GoString)) => armenian,
+((((("Avestan" : GoString))) : GoString)) => avestan,
+((((("Balinese" : GoString))) : GoString)) => balinese,
+((((("Bamum" : GoString))) : GoString)) => bamum,
+((((("Bassa_Vah" : GoString))) : GoString)) => bassa_Vah,
+((((("Batak" : GoString))) : GoString)) => batak,
+((((("Bengali" : GoString))) : GoString)) => bengali,
+((((("Bhaiksuki" : GoString))) : GoString)) => bhaiksuki,
+((((("Bopomofo" : GoString))) : GoString)) => bopomofo,
+((((("Brahmi" : GoString))) : GoString)) => brahmi,
+((((("Braille" : GoString))) : GoString)) => braille,
+((((("Buginese" : GoString))) : GoString)) => buginese,
+((((("Buhid" : GoString))) : GoString)) => buhid,
+((((("Canadian_Aboriginal" : GoString))) : GoString)) => canadian_Aboriginal,
+((((("Carian" : GoString))) : GoString)) => carian,
+((((("Caucasian_Albanian" : GoString))) : GoString)) => caucasian_Albanian,
+((((("Chakma" : GoString))) : GoString)) => chakma,
+((((("Cham" : GoString))) : GoString)) => cham,
+((((("Cherokee" : GoString))) : GoString)) => cherokee,
+((((("Chorasmian" : GoString))) : GoString)) => chorasmian,
+((((("Common" : GoString))) : GoString)) => common,
+((((("Coptic" : GoString))) : GoString)) => coptic,
+((((("Cuneiform" : GoString))) : GoString)) => cuneiform,
+((((("Cypriot" : GoString))) : GoString)) => cypriot,
+((((("Cyrillic" : GoString))) : GoString)) => cyrillic,
+((((("Deseret" : GoString))) : GoString)) => deseret,
+((((("Devanagari" : GoString))) : GoString)) => devanagari,
+((((("Dives_Akuru" : GoString))) : GoString)) => dives_Akuru,
+((((("Dogra" : GoString))) : GoString)) => dogra,
+((((("Duployan" : GoString))) : GoString)) => duployan,
+((((("Egyptian_Hieroglyphs" : GoString))) : GoString)) => egyptian_Hieroglyphs,
+((((("Elbasan" : GoString))) : GoString)) => elbasan,
+((((("Elymaic" : GoString))) : GoString)) => elymaic,
+((((("Ethiopic" : GoString))) : GoString)) => ethiopic,
+((((("Georgian" : GoString))) : GoString)) => georgian,
+((((("Glagolitic" : GoString))) : GoString)) => glagolitic,
+((((("Gothic" : GoString))) : GoString)) => gothic,
+((((("Grantha" : GoString))) : GoString)) => grantha,
+((((("Greek" : GoString))) : GoString)) => greek,
+((((("Gujarati" : GoString))) : GoString)) => gujarati,
+((((("Gunjala_Gondi" : GoString))) : GoString)) => gunjala_Gondi,
+((((("Gurmukhi" : GoString))) : GoString)) => gurmukhi,
+((((("Han" : GoString))) : GoString)) => han,
+((((("Hangul" : GoString))) : GoString)) => hangul,
+((((("Hanifi_Rohingya" : GoString))) : GoString)) => hanifi_Rohingya,
+((((("Hanunoo" : GoString))) : GoString)) => hanunoo,
+((((("Hatran" : GoString))) : GoString)) => hatran,
+((((("Hebrew" : GoString))) : GoString)) => hebrew,
+((((("Hiragana" : GoString))) : GoString)) => hiragana,
+((((("Imperial_Aramaic" : GoString))) : GoString)) => imperial_Aramaic,
+((((("Inherited" : GoString))) : GoString)) => inherited,
+((((("Inscriptional_Pahlavi" : GoString))) : GoString)) => inscriptional_Pahlavi,
+((((("Inscriptional_Parthian" : GoString))) : GoString)) => inscriptional_Parthian,
+((((("Javanese" : GoString))) : GoString)) => javanese,
+((((("Kaithi" : GoString))) : GoString)) => kaithi,
+((((("Kannada" : GoString))) : GoString)) => kannada,
+((((("Katakana" : GoString))) : GoString)) => katakana,
+((((("Kayah_Li" : GoString))) : GoString)) => kayah_Li,
+((((("Kharoshthi" : GoString))) : GoString)) => kharoshthi,
+((((("Khitan_Small_Script" : GoString))) : GoString)) => khitan_Small_Script,
+((((("Khmer" : GoString))) : GoString)) => khmer,
+((((("Khojki" : GoString))) : GoString)) => khojki,
+((((("Khudawadi" : GoString))) : GoString)) => khudawadi,
+((((("Lao" : GoString))) : GoString)) => lao,
+((((("Latin" : GoString))) : GoString)) => latin,
+((((("Lepcha" : GoString))) : GoString)) => lepcha,
+((((("Limbu" : GoString))) : GoString)) => limbu,
+((((("Linear_A" : GoString))) : GoString)) => linear_A,
+((((("Linear_B" : GoString))) : GoString)) => linear_B,
+((((("Lisu" : GoString))) : GoString)) => lisu,
+((((("Lycian" : GoString))) : GoString)) => lycian,
+((((("Lydian" : GoString))) : GoString)) => lydian,
+((((("Mahajani" : GoString))) : GoString)) => mahajani,
+((((("Makasar" : GoString))) : GoString)) => makasar,
+((((("Malayalam" : GoString))) : GoString)) => malayalam,
+((((("Mandaic" : GoString))) : GoString)) => mandaic,
+((((("Manichaean" : GoString))) : GoString)) => manichaean,
+((((("Marchen" : GoString))) : GoString)) => marchen,
+((((("Masaram_Gondi" : GoString))) : GoString)) => masaram_Gondi,
+((((("Medefaidrin" : GoString))) : GoString)) => medefaidrin,
+((((("Meetei_Mayek" : GoString))) : GoString)) => meetei_Mayek,
+((((("Mende_Kikakui" : GoString))) : GoString)) => mende_Kikakui,
+((((("Meroitic_Cursive" : GoString))) : GoString)) => meroitic_Cursive,
+((((("Meroitic_Hieroglyphs" : GoString))) : GoString)) => meroitic_Hieroglyphs,
+((((("Miao" : GoString))) : GoString)) => miao,
+((((("Modi" : GoString))) : GoString)) => modi,
+((((("Mongolian" : GoString))) : GoString)) => mongolian,
+((((("Mro" : GoString))) : GoString)) => mro,
+((((("Multani" : GoString))) : GoString)) => multani,
+((((("Myanmar" : GoString))) : GoString)) => myanmar,
+((((("Nabataean" : GoString))) : GoString)) => nabataean,
+((((("Nandinagari" : GoString))) : GoString)) => nandinagari,
+((((("New_Tai_Lue" : GoString))) : GoString)) => new_Tai_Lue,
+((((("Newa" : GoString))) : GoString)) => newa,
+((((("Nko" : GoString))) : GoString)) => nko,
+((((("Nushu" : GoString))) : GoString)) => nushu,
+((((("Nyiakeng_Puachue_Hmong" : GoString))) : GoString)) => nyiakeng_Puachue_Hmong,
+((((("Ogham" : GoString))) : GoString)) => ogham,
+((((("Ol_Chiki" : GoString))) : GoString)) => ol_Chiki,
+((((("Old_Hungarian" : GoString))) : GoString)) => old_Hungarian,
+((((("Old_Italic" : GoString))) : GoString)) => old_Italic,
+((((("Old_North_Arabian" : GoString))) : GoString)) => old_North_Arabian,
+((((("Old_Permic" : GoString))) : GoString)) => old_Permic,
+((((("Old_Persian" : GoString))) : GoString)) => old_Persian,
+((((("Old_Sogdian" : GoString))) : GoString)) => old_Sogdian,
+((((("Old_South_Arabian" : GoString))) : GoString)) => old_South_Arabian,
+((((("Old_Turkic" : GoString))) : GoString)) => old_Turkic,
+((((("Oriya" : GoString))) : GoString)) => oriya,
+((((("Osage" : GoString))) : GoString)) => osage,
+((((("Osmanya" : GoString))) : GoString)) => osmanya,
+((((("Pahawh_Hmong" : GoString))) : GoString)) => pahawh_Hmong,
+((((("Palmyrene" : GoString))) : GoString)) => palmyrene,
+((((("Pau_Cin_Hau" : GoString))) : GoString)) => pau_Cin_Hau,
+((((("Phags_Pa" : GoString))) : GoString)) => phags_Pa,
+((((("Phoenician" : GoString))) : GoString)) => phoenician,
+((((("Psalter_Pahlavi" : GoString))) : GoString)) => psalter_Pahlavi,
+((((("Rejang" : GoString))) : GoString)) => rejang,
+((((("Runic" : GoString))) : GoString)) => runic,
+((((("Samaritan" : GoString))) : GoString)) => samaritan,
+((((("Saurashtra" : GoString))) : GoString)) => saurashtra,
+((((("Sharada" : GoString))) : GoString)) => sharada,
+((((("Shavian" : GoString))) : GoString)) => shavian,
+((((("Siddham" : GoString))) : GoString)) => siddham,
+((((("SignWriting" : GoString))) : GoString)) => signWriting,
+((((("Sinhala" : GoString))) : GoString)) => sinhala,
+((((("Sogdian" : GoString))) : GoString)) => sogdian,
+((((("Sora_Sompeng" : GoString))) : GoString)) => sora_Sompeng,
+((((("Soyombo" : GoString))) : GoString)) => soyombo,
+((((("Sundanese" : GoString))) : GoString)) => sundanese,
+((((("Syloti_Nagri" : GoString))) : GoString)) => syloti_Nagri,
+((((("Syriac" : GoString))) : GoString)) => syriac,
+((((("Tagalog" : GoString))) : GoString)) => tagalog,
+((((("Tagbanwa" : GoString))) : GoString)) => tagbanwa,
+((((("Tai_Le" : GoString))) : GoString)) => tai_Le,
+((((("Tai_Tham" : GoString))) : GoString)) => tai_Tham,
+((((("Tai_Viet" : GoString))) : GoString)) => tai_Viet,
+((((("Takri" : GoString))) : GoString)) => takri,
+((((("Tamil" : GoString))) : GoString)) => tamil,
+((((("Tangut" : GoString))) : GoString)) => tangut,
+((((("Telugu" : GoString))) : GoString)) => telugu,
+((((("Thaana" : GoString))) : GoString)) => thaana,
+((((("Thai" : GoString))) : GoString)) => thai,
+((((("Tibetan" : GoString))) : GoString)) => tibetan,
+((((("Tifinagh" : GoString))) : GoString)) => tifinagh,
+((((("Tirhuta" : GoString))) : GoString)) => tirhuta,
+((((("Ugaritic" : GoString))) : GoString)) => ugaritic,
+((((("Vai" : GoString))) : GoString)) => vai,
+((((("Wancho" : GoString))) : GoString)) => wancho,
+((((("Warang_Citi" : GoString))) : GoString)) => warang_Citi,
+((((("Yezidi" : GoString))) : GoString)) => yezidi,
+((((("Yi" : GoString))) : GoString)) => yi,
+((((("Zanabazar_Square" : GoString))) : GoString)) => zanabazar_Square);
 var __ASCII_Hex_Digit : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((48 : GoUInt16)), ((57 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((65 : GoUInt16)), ((70 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((97 : GoUInt16)), ((102 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), latinOffset : ((3 : GoInt)) } : RangeTable));
 var __Bidi_Control : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((1564 : GoUInt16)), ((8206 : GoUInt16)), ((6642 : GoUInt16))) : Range16)), ((new Range16(((8207 : GoUInt16)), ((8234 : GoUInt16)), ((27 : GoUInt16))) : Range16)), ((new Range16(((8235 : GoUInt16)), ((8238 : GoUInt16)), ((1 : GoUInt16))) : Range16)), ((new Range16(((8294 : GoUInt16)), ((8297 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
 var __Dash : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
@@ -5103,41 +5103,41 @@ var terminal_Punctuation : Ref<RangeTable> = __Terminal_Punctuation;
 var unified_Ideograph : Ref<RangeTable> = __Unified_Ideograph;
 var variation_Selector : Ref<RangeTable> = __Variation_Selector;
 var white_Space : Ref<RangeTable> = __White_Space;
-var properties : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("ASCII_Hex_Digit" : GoString))) : GoString)) => new RangeTable(ascii_Hex_Digit.r16, ascii_Hex_Digit.r32, ascii_Hex_Digit.latinOffset),
-((((("Bidi_Control" : GoString))) : GoString)) => new RangeTable(bidi_Control.r16, bidi_Control.r32, bidi_Control.latinOffset),
-((((("Dash" : GoString))) : GoString)) => new RangeTable(dash.r16, dash.r32, dash.latinOffset),
-((((("Deprecated" : GoString))) : GoString)) => new RangeTable(deprecated.r16, deprecated.r32, deprecated.latinOffset),
-((((("Diacritic" : GoString))) : GoString)) => new RangeTable(diacritic.r16, diacritic.r32, diacritic.latinOffset),
-((((("Extender" : GoString))) : GoString)) => new RangeTable(extender.r16, extender.r32, extender.latinOffset),
-((((("Hex_Digit" : GoString))) : GoString)) => new RangeTable(hex_Digit.r16, hex_Digit.r32, hex_Digit.latinOffset),
-((((("Hyphen" : GoString))) : GoString)) => new RangeTable(hyphen.r16, hyphen.r32, hyphen.latinOffset),
-((((("IDS_Binary_Operator" : GoString))) : GoString)) => new RangeTable(ids_Binary_Operator.r16, ids_Binary_Operator.r32, ids_Binary_Operator.latinOffset),
-((((("IDS_Trinary_Operator" : GoString))) : GoString)) => new RangeTable(ids_Trinary_Operator.r16, ids_Trinary_Operator.r32, ids_Trinary_Operator.latinOffset),
-((((("Ideographic" : GoString))) : GoString)) => new RangeTable(ideographic.r16, ideographic.r32, ideographic.latinOffset),
-((((("Join_Control" : GoString))) : GoString)) => new RangeTable(join_Control.r16, join_Control.r32, join_Control.latinOffset),
-((((("Logical_Order_Exception" : GoString))) : GoString)) => new RangeTable(logical_Order_Exception.r16, logical_Order_Exception.r32, logical_Order_Exception.latinOffset),
-((((("Noncharacter_Code_Point" : GoString))) : GoString)) => new RangeTable(noncharacter_Code_Point.r16, noncharacter_Code_Point.r32, noncharacter_Code_Point.latinOffset),
-((((("Other_Alphabetic" : GoString))) : GoString)) => new RangeTable(other_Alphabetic.r16, other_Alphabetic.r32, other_Alphabetic.latinOffset),
-((((("Other_Default_Ignorable_Code_Point" : GoString))) : GoString)) => new RangeTable(other_Default_Ignorable_Code_Point.r16, other_Default_Ignorable_Code_Point.r32, other_Default_Ignorable_Code_Point.latinOffset),
-((((("Other_Grapheme_Extend" : GoString))) : GoString)) => new RangeTable(other_Grapheme_Extend.r16, other_Grapheme_Extend.r32, other_Grapheme_Extend.latinOffset),
-((((("Other_ID_Continue" : GoString))) : GoString)) => new RangeTable(other_ID_Continue.r16, other_ID_Continue.r32, other_ID_Continue.latinOffset),
-((((("Other_ID_Start" : GoString))) : GoString)) => new RangeTable(other_ID_Start.r16, other_ID_Start.r32, other_ID_Start.latinOffset),
-((((("Other_Lowercase" : GoString))) : GoString)) => new RangeTable(other_Lowercase.r16, other_Lowercase.r32, other_Lowercase.latinOffset),
-((((("Other_Math" : GoString))) : GoString)) => new RangeTable(other_Math.r16, other_Math.r32, other_Math.latinOffset),
-((((("Other_Uppercase" : GoString))) : GoString)) => new RangeTable(other_Uppercase.r16, other_Uppercase.r32, other_Uppercase.latinOffset),
-((((("Pattern_Syntax" : GoString))) : GoString)) => new RangeTable(pattern_Syntax.r16, pattern_Syntax.r32, pattern_Syntax.latinOffset),
-((((("Pattern_White_Space" : GoString))) : GoString)) => new RangeTable(pattern_White_Space.r16, pattern_White_Space.r32, pattern_White_Space.latinOffset),
-((((("Prepended_Concatenation_Mark" : GoString))) : GoString)) => new RangeTable(prepended_Concatenation_Mark.r16, prepended_Concatenation_Mark.r32, prepended_Concatenation_Mark.latinOffset),
-((((("Quotation_Mark" : GoString))) : GoString)) => new RangeTable(quotation_Mark.r16, quotation_Mark.r32, quotation_Mark.latinOffset),
-((((("Radical" : GoString))) : GoString)) => new RangeTable(radical.r16, radical.r32, radical.latinOffset),
-((((("Regional_Indicator" : GoString))) : GoString)) => new RangeTable(regional_Indicator.r16, regional_Indicator.r32, regional_Indicator.latinOffset),
-((((("Sentence_Terminal" : GoString))) : GoString)) => new RangeTable(sentence_Terminal.r16, sentence_Terminal.r32, sentence_Terminal.latinOffset),
-((((("STerm" : GoString))) : GoString)) => new RangeTable(sentence_Terminal.r16, sentence_Terminal.r32, sentence_Terminal.latinOffset),
-((((("Soft_Dotted" : GoString))) : GoString)) => new RangeTable(soft_Dotted.r16, soft_Dotted.r32, soft_Dotted.latinOffset),
-((((("Terminal_Punctuation" : GoString))) : GoString)) => new RangeTable(terminal_Punctuation.r16, terminal_Punctuation.r32, terminal_Punctuation.latinOffset),
-((((("Unified_Ideograph" : GoString))) : GoString)) => new RangeTable(unified_Ideograph.r16, unified_Ideograph.r32, unified_Ideograph.latinOffset),
-((((("Variation_Selector" : GoString))) : GoString)) => new RangeTable(variation_Selector.r16, variation_Selector.r32, variation_Selector.latinOffset),
-((((("White_Space" : GoString))) : GoString)) => new RangeTable(white_Space.r16, white_Space.r32, white_Space.latinOffset));
+var properties : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("ASCII_Hex_Digit" : GoString))) : GoString)) => ascii_Hex_Digit,
+((((("Bidi_Control" : GoString))) : GoString)) => bidi_Control,
+((((("Dash" : GoString))) : GoString)) => dash,
+((((("Deprecated" : GoString))) : GoString)) => deprecated,
+((((("Diacritic" : GoString))) : GoString)) => diacritic,
+((((("Extender" : GoString))) : GoString)) => extender,
+((((("Hex_Digit" : GoString))) : GoString)) => hex_Digit,
+((((("Hyphen" : GoString))) : GoString)) => hyphen,
+((((("IDS_Binary_Operator" : GoString))) : GoString)) => ids_Binary_Operator,
+((((("IDS_Trinary_Operator" : GoString))) : GoString)) => ids_Trinary_Operator,
+((((("Ideographic" : GoString))) : GoString)) => ideographic,
+((((("Join_Control" : GoString))) : GoString)) => join_Control,
+((((("Logical_Order_Exception" : GoString))) : GoString)) => logical_Order_Exception,
+((((("Noncharacter_Code_Point" : GoString))) : GoString)) => noncharacter_Code_Point,
+((((("Other_Alphabetic" : GoString))) : GoString)) => other_Alphabetic,
+((((("Other_Default_Ignorable_Code_Point" : GoString))) : GoString)) => other_Default_Ignorable_Code_Point,
+((((("Other_Grapheme_Extend" : GoString))) : GoString)) => other_Grapheme_Extend,
+((((("Other_ID_Continue" : GoString))) : GoString)) => other_ID_Continue,
+((((("Other_ID_Start" : GoString))) : GoString)) => other_ID_Start,
+((((("Other_Lowercase" : GoString))) : GoString)) => other_Lowercase,
+((((("Other_Math" : GoString))) : GoString)) => other_Math,
+((((("Other_Uppercase" : GoString))) : GoString)) => other_Uppercase,
+((((("Pattern_Syntax" : GoString))) : GoString)) => pattern_Syntax,
+((((("Pattern_White_Space" : GoString))) : GoString)) => pattern_White_Space,
+((((("Prepended_Concatenation_Mark" : GoString))) : GoString)) => prepended_Concatenation_Mark,
+((((("Quotation_Mark" : GoString))) : GoString)) => quotation_Mark,
+((((("Radical" : GoString))) : GoString)) => radical,
+((((("Regional_Indicator" : GoString))) : GoString)) => regional_Indicator,
+((((("Sentence_Terminal" : GoString))) : GoString)) => sentence_Terminal,
+((((("STerm" : GoString))) : GoString)) => sentence_Terminal,
+((((("Soft_Dotted" : GoString))) : GoString)) => soft_Dotted,
+((((("Terminal_Punctuation" : GoString))) : GoString)) => terminal_Punctuation,
+((((("Unified_Ideograph" : GoString))) : GoString)) => unified_Ideograph,
+((((("Variation_Selector" : GoString))) : GoString)) => variation_Selector,
+((((("White_Space" : GoString))) : GoString)) => white_Space);
 var __CaseRanges : Slice<CaseRange> = ((new Slice<CaseRange>(
 ((new CaseRange(((65 : GoUInt32)), ((90 : GoUInt32)), ((new GoArray<GoInt32>(((0 : GoInt32)), ((32 : GoInt32)), ((0 : GoInt32))) : T_d))) : CaseRange)),
 ((new CaseRange(((97 : GoUInt32)), ((122 : GoUInt32)), ((new GoArray<GoInt32>(((-32 : GoInt32)), ((0 : GoInt32)), ((-32 : GoInt32))) : T_d))) : CaseRange)),
@@ -6158,11 +6158,11 @@ var _foldLu : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(
 ((new Range16(((65345 : GoUInt16)), ((65370 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)), r32 : ((new Slice<Range32>(((new Range32(((66600 : GoUInt32)), ((66639 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((66776 : GoUInt32)), ((66811 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((68800 : GoUInt32)), ((68850 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((71872 : GoUInt32)), ((71903 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((93792 : GoUInt32)), ((93823 : GoUInt32)), ((1 : GoUInt32))) : Range32)), ((new Range32(((125218 : GoUInt32)), ((125251 : GoUInt32)), ((1 : GoUInt32))) : Range32))) : Slice<Range32>)), latinOffset : ((4 : GoInt)) } : RangeTable));
 var _foldM : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
 var _foldMn : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
-var foldCategory : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("L" : GoString))) : GoString)) => new RangeTable(_foldL.r16, _foldL.r32, _foldL.latinOffset), ((((("Ll" : GoString))) : GoString)) => new RangeTable(_foldLl.r16, _foldLl.r32, _foldLl.latinOffset), ((((("Lt" : GoString))) : GoString)) => new RangeTable(_foldLt.r16, _foldLt.r32, _foldLt.latinOffset), ((((("Lu" : GoString))) : GoString)) => new RangeTable(_foldLu.r16, _foldLu.r32, _foldLu.latinOffset), ((((("M" : GoString))) : GoString)) => new RangeTable(_foldM.r16, _foldM.r32, _foldM.latinOffset), ((((("Mn" : GoString))) : GoString)) => new RangeTable(_foldMn.r16, _foldMn.r32, _foldMn.latinOffset));
+var foldCategory : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("L" : GoString))) : GoString)) => _foldL, ((((("Ll" : GoString))) : GoString)) => _foldLl, ((((("Lt" : GoString))) : GoString)) => _foldLt, ((((("Lu" : GoString))) : GoString)) => _foldLu, ((((("M" : GoString))) : GoString)) => _foldM, ((((("Mn" : GoString))) : GoString)) => _foldMn);
 var _foldCommon : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((924 : GoUInt16)), ((956 : GoUInt16)), ((32 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
 var _foldGreek : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((181 : GoUInt16)), ((837 : GoUInt16)), ((656 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
 var _foldInherited : Ref<RangeTable> = (({ r16 : ((new Slice<Range16>(((new Range16(((921 : GoUInt16)), ((953 : GoUInt16)), ((32 : GoUInt16))) : Range16)), ((new Range16(((8126 : GoUInt16)), ((8126 : GoUInt16)), ((1 : GoUInt16))) : Range16))) : Slice<Range16>)) } : RangeTable));
-var foldScript : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("Common" : GoString))) : GoString)) => new RangeTable(_foldCommon.r16, _foldCommon.r32, _foldCommon.latinOffset), ((((("Greek" : GoString))) : GoString)) => new RangeTable(_foldGreek.r16, _foldGreek.r32, _foldGreek.latinOffset), ((((("Inherited" : GoString))) : GoString)) => new RangeTable(_foldInherited.r16, _foldInherited.r32, _foldInherited.latinOffset));
+var foldScript : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("Common" : GoString))) : GoString)) => _foldCommon, ((((("Greek" : GoString))) : GoString)) => _foldGreek, ((((("Inherited" : GoString))) : GoString)) => _foldInherited);
 @:structInit class RangeTable {
     public var r16 : Slice<Range16> = ((null : Slice<Range16>));
     public var r32 : Slice<Range32> = ((null : Slice<Range32>));
@@ -6240,7 +6240,7 @@ function isDigit(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return (((((("0" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("9" : GoString))).code : GoInt32)));
         };
-        return _isExcludingLatin(new RangeTable(digit.r16, digit.r32, digit.latinOffset), _r);
+        return _isExcludingLatin(digit, _r);
     }
 /**
     // IsGraphic reports whether the rune is defined as a Graphic by Unicode.
@@ -6272,7 +6272,7 @@ function isPrint(_r:GoRune):Bool {
 **/
 function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
         for (_0 => _inside in _ranges) {
-            if (is_(new RangeTable(_inside.r16, _inside.r32, _inside.latinOffset), _r)) {
+            if (is_(_inside, _r)) {
                 return true;
             };
         };
@@ -6284,7 +6284,7 @@ function isOneOf(_ranges:Slice<RangeTable>, _r:GoRune):Bool {
 function in_(_r:GoRune, _ranges:haxe.Rest<RangeTable>):Bool {
         var _ranges = new Slice<RangeTable>(..._ranges);
         for (_0 => _inside in _ranges) {
-            if (is_(new RangeTable(_inside.r16, _inside.r32, _inside.latinOffset), _r)) {
+            if (is_(_inside, _r)) {
                 return true;
             };
         };
@@ -6308,13 +6308,13 @@ function isLetter(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) != ((0 : GoUInt8));
         };
-        return _isExcludingLatin(new RangeTable(letter.r16, letter.r32, letter.latinOffset), _r);
+        return _isExcludingLatin(letter, _r);
     }
 /**
     // IsMark reports whether the rune is a mark character (category M).
 **/
 function isMark(_r:GoRune):Bool {
-        return _isExcludingLatin(new RangeTable(mark.r16, mark.r32, mark.latinOffset), _r);
+        return _isExcludingLatin(mark, _r);
     }
 /**
     // IsNumber reports whether the rune is a number (category N).
@@ -6323,7 +6323,7 @@ function isNumber(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((4 : GoUInt8))) != ((0 : GoUInt8));
         };
-        return _isExcludingLatin(new RangeTable(number.r16, number.r32, number.latinOffset), _r);
+        return _isExcludingLatin(number, _r);
     }
 /**
     // IsPunct reports whether the rune is a Unicode punctuation character
@@ -6333,7 +6333,7 @@ function isPunct(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((2 : GoUInt8))) != ((0 : GoUInt8));
         };
-        return is_(new RangeTable(punct.r16, punct.r32, punct.latinOffset), _r);
+        return is_(punct, _r);
     }
 /**
     // IsSpace reports whether the rune is a space character as defined
@@ -6350,7 +6350,7 @@ function isSpace(_r:GoRune):Bool {
             };
             return false;
         };
-        return _isExcludingLatin(new RangeTable(white_Space.r16, white_Space.r32, white_Space.latinOffset), _r);
+        return _isExcludingLatin(white_Space, _r);
     }
 /**
     // IsSymbol reports whether the rune is a symbolic character.
@@ -6359,7 +6359,7 @@ function isSymbol(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((8 : GoUInt8))) != ((0 : GoUInt8));
         };
-        return _isExcludingLatin(new RangeTable(symbol.r16, symbol.r32, symbol.latinOffset), _r);
+        return _isExcludingLatin(symbol, _r);
     }
 /**
     // is16 reports whether r is in the sorted slice of 16-bit ranges.
@@ -6367,7 +6367,7 @@ function isSymbol(_r:GoRune):Bool {
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         if (((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) || (_r <= ((255 : GoUInt16)))) {
             for (_i => _ in _ranges) {
-                var _range_ = new Range16((_ranges != null ? _ranges[_i] : new Range16()).lo, (_ranges != null ? _ranges[_i] : new Range16()).hi, (_ranges != null ? _ranges[_i] : new Range16()).stride);
+                var _range_ = (_ranges != null ? _ranges[_i] : new Range16());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6381,7 +6381,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _hi:GoInt = (_ranges != null ? _ranges.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _range_ = new Range16((_ranges != null ? _ranges[_m] : new Range16()).lo, (_ranges != null ? _ranges[_m] : new Range16()).hi, (_ranges != null ? _ranges[_m] : new Range16()).stride);
+            var _range_ = (_ranges != null ? _ranges[_m] : new Range16());
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_range_.stride == ((1 : GoUInt16))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt16)));
             };
@@ -6399,7 +6399,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         if ((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) {
             for (_i => _ in _ranges) {
-                var _range_ = new Range32((_ranges != null ? _ranges[_i] : new Range32()).lo, (_ranges != null ? _ranges[_i] : new Range32()).hi, (_ranges != null ? _ranges[_i] : new Range32()).stride);
+                var _range_ = (_ranges != null ? _ranges[_i] : new Range32());
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6460,7 +6460,7 @@ function isUpper(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((32 : GoUInt8));
         };
-        return _isExcludingLatin(new RangeTable(upper.r16, upper.r32, upper.latinOffset), _r);
+        return _isExcludingLatin(upper, _r);
     }
 /**
     // IsLower reports whether the rune is a lower case letter.
@@ -6469,7 +6469,7 @@ function isLower(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
             return ((_properties != null ? _properties[((_r : GoUInt8))] : ((0 : GoUInt8))) & ((96 : GoUInt8))) == ((64 : GoUInt8));
         };
-        return _isExcludingLatin(new RangeTable(lower.r16, lower.r32, lower.latinOffset), _r);
+        return _isExcludingLatin(lower, _r);
     }
 /**
     // IsTitle reports whether the rune is a title case letter.
@@ -6478,7 +6478,7 @@ function isTitle(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
             return false;
         };
-        return _isExcludingLatin(new RangeTable(title.r16, title.r32, title.latinOffset), _r);
+        return _isExcludingLatin(title, _r);
     }
 /**
     // to maps the rune using the specified case mapping.

@@ -21,6 +21,7 @@ var _asciiSpace : GoArray<GoUInt8> = {
         s[5] = ((1 : GoUInt8));
         s;
     };
+var indexBytePortable : (Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public var _off : GoInt = 0;
@@ -110,7 +111,7 @@ function _makeSlice(_n:GoInt):Slice<GoByte> {
     // sufficient to initialize a Buffer.
 **/
 function newBuffer(_buf:Slice<GoByte>):Buffer {
-        return new Buffer((({ _buf : _buf } : Buffer))._buf, (({ _buf : _buf } : Buffer))._off, (({ _buf : _buf } : Buffer))._lastRead);
+        return (({ _buf : _buf } : Buffer));
     }
 /**
     // NewBufferString creates and initializes a new Buffer using string s as its
@@ -121,7 +122,7 @@ function newBuffer(_buf:Slice<GoByte>):Buffer {
     // sufficient to initialize a Buffer.
 **/
 function newBufferString(_s:GoString):Buffer {
-        return new Buffer((({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._buf, (({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._off, (({ _buf : ((_s : Slice<GoByte>)) } : Buffer))._lastRead);
+        return (({ _buf : ((_s : Slice<GoByte>)) } : Buffer));
     }
 /**
     // Equal reports whether a and b
@@ -1489,7 +1490,7 @@ function cut(_s:Slice<GoByte>, _sep:Slice<GoByte>):{ var _0 : Slice<GoByte>; var
     // NewReader returns a new Reader reading from b.
 **/
 function newReader(_b:Slice<GoByte>):Reader {
-        return new Reader(((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._s, ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._i, ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader))._prevRune);
+        return ((new Reader(_b, ((0 : GoInt64)), ((-1 : GoInt))) : Reader));
     }
 @:keep class Buffer_static_extension {
     /**

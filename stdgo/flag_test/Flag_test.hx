@@ -197,7 +197,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
         int64(((((("test_int64" : GoString))) : GoString)), ((0 : GoInt64)), ((((("int64 value" : GoString))) : GoString)));
         uint(((((("test_uint" : GoString))) : GoString)), ((0 : GoUInt)), ((((("uint value" : GoString))) : GoString)));
         uint64(((((("test_uint64" : GoString))) : GoString)), ((0 : GoUInt64)), ((((("uint64 value" : GoString))) : GoString)));
-        _toString(((((("test_string" : GoString))) : GoString)), ((((("0" : GoString))) : GoString)), ((((("string value" : GoString))) : GoString)));
+        toString(((((("test_string" : GoString))) : GoString)), ((((("0" : GoString))) : GoString)), ((((("string value" : GoString))) : GoString)));
         float64(((((("test_float64" : GoString))) : GoString)), ((0 : GoFloat64)), ((((("float64 value" : GoString))) : GoString)));
         duration(((((("test_duration" : GoString))) : GoString)), ((0 : stdgo.time.Time.Duration)), ((((("time.Duration value" : GoString))) : GoString)));
         func(((((("test_func" : GoString))) : GoString)), ((((("func value" : GoString))) : GoString)), function(_0:GoString):Error {
@@ -270,7 +270,7 @@ function testGet(_t:stdgo.testing.Testing.T):Void {
         int64(((((("test_int64" : GoString))) : GoString)), ((2 : GoInt64)), ((((("int64 value" : GoString))) : GoString)));
         uint(((((("test_uint" : GoString))) : GoString)), ((3 : GoUInt)), ((((("uint value" : GoString))) : GoString)));
         uint64(((((("test_uint64" : GoString))) : GoString)), ((4 : GoUInt64)), ((((("uint64 value" : GoString))) : GoString)));
-        _toString(((((("test_string" : GoString))) : GoString)), ((((("5" : GoString))) : GoString)), ((((("string value" : GoString))) : GoString)));
+        toString(((((("test_string" : GoString))) : GoString)), ((((("5" : GoString))) : GoString)), ((((("string value" : GoString))) : GoString)));
         float64(((((("test_float64" : GoString))) : GoString)), ((6 : GoFloat64)), ((((("float64 value" : GoString))) : GoString)));
         duration(((((("test_duration" : GoString))) : GoString)), ((7 : stdgo.time.Time.Duration)), ((((("time.Duration value" : GoString))) : GoString)));
         var _visitor = function(_f:Flag):Void {

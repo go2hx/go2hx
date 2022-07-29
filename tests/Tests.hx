@@ -307,7 +307,7 @@ private function close() {
 }
 
 private function testYaegi():Array<TestData> {
-	final dir = "./tests/yaegia/_test/";
+	final dir = "./tests/yaegi/_test/";
 	final tests:Array<TestData> = [];
 	if (!FileSystem.exists(dir)) {
 		Sys.command("git clone https://github.com/traefik/yaegi tests/yaegi");

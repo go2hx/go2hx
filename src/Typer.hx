@@ -5762,21 +5762,29 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 	} else {
 		for (i in 0...value.names.length) {
 			var expr:Expr = null;
-			if (info.global.externBool || value.values[i] == null) {
-				if (info.global.externBool || type != null) {
+			if (value.values[i] == null) {
+				if (type != null) {
 					expr = defaultValue(typeof(value.type, info), info);
 				} else {
 					// last expr use iota
-					expr = typeExpr(info.lastValue, info);
+					if (!info.global.externBool) {
+						expr = typeExpr(info.lastValue, info);
+						expr = assignTranslate(typeof(info.lastValue, info), info.lastType, expr, info);
+					} else {
+						expr = defaultValue(info.lastType, info);
+					}
 					type = toComplexType(info.lastType, info);
-					expr = assignTranslate(typeof(info.lastValue, info), info.lastType, expr, info);
 				}
 			} else {
 				info.lastValue = value.values[i];
 				info.lastType = typeof(value.type, info);
-				expr = typeExpr(value.values[i], info);
 				final t = typeof(value.values[i], info);
-				expr = assignTranslate(t, info.lastType, expr, info);
+				if (!info.global.externBool) {
+					expr = typeExpr(value.values[i], info);
+					expr = assignTranslate(t, info.lastType, expr, info);
+				} else {
+					expr = defaultValue(t, info);
+				}
 			}
 			if (expr == null)
 				continue;

@@ -519,7 +519,7 @@ function runTarget(target:String, out:String, args:Array<String>, main:String):S
 			throw "unknown target: " + target;
 	};
 	if (args.length > 0)
-		s += args.join(" ");
+		s += " " + args.join(" ");
 	return s;
 }
 

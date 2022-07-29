@@ -8,4 +8,8 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+var _tests : Slice<stdgo.testing.Testing.InternalTest> = null;
+var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = null;
+var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = null;
+var _examples : Slice<stdgo.testing.Testing.InternalExample> = null;
 function main():Void return;

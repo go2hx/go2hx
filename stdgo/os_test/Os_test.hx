@@ -15,6 +15,17 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+var _expandTests : Slice<stdgo.os_test.Os_test.T__struct_1> = null;
+var _isExistTests : Slice<stdgo.os_test.Os_test.T_isExistTest> = null;
+var _isPermissionTests : Slice<stdgo.os_test.Os_test.T_isPermissionTest> = null;
+var _dot : Slice<GoString> = null;
+var _sysdir : Ref<stdgo.os_test.Os_test.T_sysDir> = null;
+var _sfdir : GoString = null;
+var _sfname : GoString = null;
+var _openErrorTests : Slice<stdgo.os_test.Os_test.T_openErrorTest> = null;
+var _testLargeWrite : Pointer<Bool> = null;
+var _nilFileMethodTests : Slice<stdgo.os_test.Os_test.T__struct_2> = null;
+var _isReadonlyError : stdgo.Error -> Bool = null;
 var _global : AnyInterface = ((null : AnyInterface));
 @:structInit class T_isExistTest {
     public var _err : stdgo.Error = ((null : stdgo.Error));
@@ -79,6 +90,32 @@ var _global : AnyInterface = ((null : AnyInterface));
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_openErrorTest(_path, _mode, _error);
+    }
+}
+@:structInit @:local class T__struct_1 {
+    public var _in : GoString = "";
+    public var _out : GoString = "";
+    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
+    public function new(?_in:GoString, ?_out:GoString, ?toString) {
+        if (_in != null) this._in = _in;
+        if (_out != null) this._out = _out;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T__struct_1(_in, _out);
+    }
+}
+@:structInit @:local class T__struct_2 {
+    public var _name : GoString = "";
+    public var _f : Ref<File> -> stdgo.Error = null;
+    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+    public function new(?_name:GoString, ?_f:Ref<File> -> stdgo.Error, ?toString) {
+        if (_name != null) this._name = _name;
+        if (_f != null) this._f = _f;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T__struct_2(_name, _f);
     }
 }
 @:follow typedef T_syscallDescriptor = GoInt;

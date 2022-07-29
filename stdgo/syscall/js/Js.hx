@@ -8,7 +8,19 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = null;
 var _nextFuncID : GoUInt32 = ((0 : GoUInt32));
+var _valueUndefined : Value = null;
+var _valueNaN : Value = null;
+var _valueZero : Value = null;
+var _valueNull : Value = null;
+var _valueTrue : Value = null;
+var _valueFalse : Value = null;
+var _valueGlobal : Value = null;
+var _jsGo : Value = null;
+var _objectConstructor : Value = null;
+var _arrayConstructor : Value = null;
+var jsgo : Value = null;
 var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded

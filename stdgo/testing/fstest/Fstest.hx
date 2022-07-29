@@ -303,7 +303,7 @@ function _testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         var _t:T_fsTester = (({ _fsys : _fsys } : T_fsTester));
         _t._checkDir(((((("." : GoString))) : GoString)));
         _t._checkOpen(((((("." : GoString))) : GoString)));
-        var _found = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : Map<GoString, Bool>));
+        var _found = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
         for (_0 => _dir in _t._dirs) {
             if (_found != null) _found[_dir] = true;
         };
@@ -999,7 +999,7 @@ class T_mapDir_wrapper {
     **/
     @:keep
     static public function _checkDirList( _t:T_fsTester, _dir:GoString, _desc:GoString, _list1:Slice<stdgo.io.fs.Fs.DirEntry>, _list2:Slice<stdgo.io.fs.Fs.DirEntry>):Void {
-        var _old = ((new GoObjectMap<GoString, stdgo.io.fs.Fs.DirEntry>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.DirEntry", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))))) : Map<GoString, stdgo.io.fs.Fs.DirEntry>));
+        var _old = ((new GoObjectMap<GoString, stdgo.io.fs.Fs.DirEntry>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.named("stdgo.io.fs.Fs.DirEntry", [], stdgo.reflect.Reflect.GoType.interfaceType(false, []))))) : GoMap<GoString, stdgo.io.fs.Fs.DirEntry>));
         var _checkMode:stdgo.io.fs.Fs.DirEntry -> Void = function(_entry:stdgo.io.fs.Fs.DirEntry):Void {
             if (_entry.isDir() != ((_entry.type() & (("2147483648" : stdgo.io.fs.Fs.FileMode))) != ((0 : stdgo.io.fs.Fs.FileMode)))) {
                 if (_entry.isDir()) {
@@ -1661,7 +1661,7 @@ class T_fsTester_wrapper {
         };
         var _list:Slice<T_mapFileInfo> = ((null : Slice<T_mapFileInfo>));
         var _elem:GoString = (("" : GoString));
-        var _need:GoMap<GoString, Bool> = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : Map<GoString, Bool>));
+        var _need:GoMap<GoString, Bool> = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
         if (_name == ((((("." : GoString))) : GoString))) {
             _elem = ((((("." : GoString))) : GoString));
             for (_fname => _f in _fsys) {

@@ -968,7 +968,7 @@ function testNegativeRune(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testCategories(_t:stdgo.testing.Testing.T):Void {
-        var _notTested = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : Map<GoString, Bool>));
+        var _notTested = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
         for (_k => _ in categories) {
             if (_notTested != null) _notTested[_k] = true;
         };
@@ -989,7 +989,7 @@ function testCategories(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testProperties(_t:stdgo.testing.Testing.T):Void {
-        var _notTested = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : Map<GoString, Bool>));
+        var _notTested = ((new GoObjectMap<GoString, Bool>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.basic(bool_kind)))) : GoMap<GoString, Bool>));
         for (_k => _ in properties) {
             if (_notTested != null) _notTested[_k] = true;
         };

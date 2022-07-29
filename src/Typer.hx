@@ -889,7 +889,7 @@ private function typeDeferStmt(stmt:Ast.DeferStmt, info:Info):ExprDef {
 	return e.expr;
 }
 
-private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
+private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for stmt
 	var key = stmt.key == null ? macro _ : typeExpr(stmt.key, info); // iterator int
 	var x = typeExpr(stmt.x, info);
 	var xType = typeof(stmt.x, info);
@@ -898,12 +898,12 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef {
 	var body = {expr: typeBlockStmt(stmt.body, info, false), pos: null};
 	var assign = false;
 	// both key and value
-	if (stmt.tok == ASSIGN) {
+	if (stmt.tok == ASSIGN) { // non var
 		switch body.expr {
 			case EBlock(exprs):
-				if (key != null && !key.expr.match(EConst(CIdent("_"))))
+				if (key != null && (stmt.key.id != "Ident" || stmt.key.name != "_"))
 					exprs.unshift(macro $key = __key__);
-				if (value != null && !value.expr.match(EConst(CIdent("_"))))
+				if (value != null && (stmt.value.id != "Ident" || stmt.value.name != "_"))
 					exprs.unshift(macro $value = __value__);
 				assign = true;
 			default:

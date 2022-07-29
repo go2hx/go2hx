@@ -29,10 +29,26 @@ jobs:
         run: npx haxe stdgo.hxml
       - name: Build tests
         run: npx haxe tests.hxml
-      - name: Run tests
-        run: hl tests.hl ci
+      - name: Run unit tests
+        run: hl tests.hl unit ci
         env:
           HXCPP_COMPILE_CACHE: ~/hxcppcache
+      - name: Run std tests
+        run: hl tests.hl std ci
+        env:
+            HXCPP_COMPILE_CACHE: ~/hxcppcache
+      - name: Run yaegi tests
+        run: hl tests.hl yaegi ci
+        env:
+            HXCPP_COMPILE_CACHE: ~/hxcppcache
       - uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Run go tests
+        run: hl tests.hl go ci
+        env:
+            HXCPP_COMPILE_CACHE: ~/hxcppcache
+      - name: Run gobyexample tests
+        run: hl tests.hl gobyexample ci
+        env:
+            HXCPP_COMPILE_CACHE: ~/hxcppcache
         with:
           commit_message: StdGo automatic compile

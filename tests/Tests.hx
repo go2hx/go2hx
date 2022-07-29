@@ -50,15 +50,33 @@ var startStamp = 0.0;
 
 function main() {
 	final args = Sys.args();
-	if (args.length > 0 && args[0] == "ci")
-		ci = true;
 	processPool.complete = completeProcess;
 	Main.setup(0, 4); // 4 processes of go4hx
 	Main.onComplete = complete;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
 	// go by example, stdlib, yaegi, go internal tests, unit regression tests
-	final tests = testUnit().concat(testStd());
+
+	if (args.length == 0)
+		throw "need to specify what test suite to run";
+
+	if (args[args.length - 1] == "ci") // last arg
+		ci = true;
+
+	final tests = switch args[0] {
+		case "unit":
+			testUnit();
+		case "std":
+			testStd();
+		case "go":
+			testGo();
+		case "yaegi":
+			testYaegi();
+		case "gobyexample":
+			testGoByExample();
+		default:
+			throw "unknown test suite";
+	}
 	for (test in tests) { // create TestSuite data class
 		if (suites[test.type] == null)
 			suites[test.type] = new TestSuite();

@@ -2808,8 +2808,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			expr.fun.name = expr.fun.name;
 			if (!info.renameIdents.exists(expr.fun.name)) {
 				switch expr.fun.name {
-					case "String":
-						expr.fun.name = "toString";
 					case "panic":
 						genArgs(false);
 						return returnExpr(macro throw Go.toInterface(${args[0]}));
@@ -5911,8 +5909,9 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		return name;
 	if (name == "False" || name == "True" || name == "Main")
 		return "_" + name;
-	if (name == "String")
+	if (name == "String") {
 		return "toString";
+	}
 	var oldName = name;
 	if (overwrite) { // either an overwrite or a rename has been set
 		if (name == "nil") {

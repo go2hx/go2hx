@@ -325,6 +325,9 @@ private function testYaegi():Array<TestData> {
 		while (true) {
 			try {
 				final line = input.readLine();
+				if (StringTools.startsWith(line, "package")) {
+					isError = line.indexOf("main") == -1;
+				}
 				if (line == "// Error:") {
 					isError = true;
 					break;

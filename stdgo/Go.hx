@@ -46,10 +46,10 @@ class Go {
 							default:
 						}
 					} else {
-						throw "invalid map type";
+						Context.error("invalid map type", Context.currentPos());
 					}
 				default:
-					throw "map expects a map type";
+					Context.error("map expects a type", Context.currentPos());
 			}
 		}
 		switch keyType {

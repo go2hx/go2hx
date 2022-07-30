@@ -9,15 +9,14 @@ final path = Sys.getCwd();
 var libCount = 0;
 
 function main() {
-	final args = Sys.args();
 	var list:Array<String> = Json.parse(File.getContent("tests.json")).tests;
 	final excludes:Array<String> = Json.parse(File.getContent("excludes.json")).excludes;
 	for (path in excludes)
 		list.remove(path);
-	final rebuild = args.indexOf("-rebuild") != -1 || args.indexOf("--rebuild") != -1;
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
+	// libs = ["time", "flag"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 2); // amount of processes to spawn

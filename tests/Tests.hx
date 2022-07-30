@@ -85,7 +85,7 @@ function main() {
 	// add tests to task list
 	for (test in tests) {
 		final hxmlName = sanatize(test.name);
-		if (test.std) {
+		if (test.type == "std") {
 			final data:TaskData = {
 				data: test,
 				target: "",
@@ -96,13 +96,13 @@ function main() {
 			tasks.push(data);
 			continue;
 		}
-		final hxml = "tests/" + test.type + "_" + hxmlName;
-		var compilerArgs = [test.path, '--hxml', hxml, "--o", "golibs/" + test.type];
+		final hxml = path + "tests/" + test.type + "_" + hxmlName;
+		var compilerArgs = [test.path, '--hxml', hxml, "--o", path + "golibs/" + test.type];
 		if (test.test) {
 			compilerArgs.push("--test");
 			compilerArgs.push("--norun");
 		}
-		compilerArgs.push(path);
+		compilerArgs.push(test.root != "" ? test.root : path);
 		final data:TaskData = {
 			data: test,
 			target: "",
@@ -127,7 +127,7 @@ private function update() {
 	processPool.update();
 	Main.update();
 	for (task in tasks) {
-		if (task.data.std) {
+		if (task.data.type == "std") {
 			runsLeft--;
 			complete([], task);
 			tasks.remove(task);
@@ -222,7 +222,6 @@ private function testGo():Array<TestData> { // go tests
 	final tests:Array<TestData> = [];
 	for (path in dir.readDirectory()) {
 		var name = path.withoutExtension();
-		path = dir + path;
 		if (path.isDirectory() || path.extension() != "go" || goExcludes.indexOf(path) != -1)
 			continue;
 		final input = File.read(path, false);
@@ -235,6 +234,7 @@ private function testGo():Array<TestData> { // go tests
 			path: path,
 			exclude: "",
 			test: false,
+			root: "",
 		});
 	}
 	return tests;
@@ -251,7 +251,7 @@ private function testStd():Array<TestData> { // standard library package tests
 			path: args[0],
 			exclude: args[1],
 			test: true,
-			std: true,
+			root: "",
 		});
 	}
 	return tests;
@@ -307,7 +307,7 @@ private function close() {
 }
 
 private function testYaegi():Array<TestData> {
-	final dir = "./tests/yaegi/_test/";
+	final dir = path + "tests/yaegi/_test/";
 	final tests:Array<TestData> = [];
 	if (!FileSystem.exists(dir)) {
 		Sys.command("git clone https://github.com/traefik/yaegi tests/yaegi");
@@ -318,10 +318,9 @@ private function testYaegi():Array<TestData> {
 	}
 	for (path in dir.readDirectory()) {
 		final name = path.withoutExtension();
-		path = dir + path;
 		if (path.isDirectory() || path.extension() != "go" || yaegiExcludes.indexOf(path) != -1)
 			continue;
-		final input = File.read(path, false);
+		final input = File.read(dir + path, false);
 		var isError = false;
 		while (true) {
 			try {
@@ -346,6 +345,7 @@ private function testYaegi():Array<TestData> {
 			path: path,
 			exclude: "",
 			test: false,
+			root: dir,
 		});
 	}
 	return tests;
@@ -365,6 +365,7 @@ private function testUnit():Array<TestData> {
 			path: path,
 			exclude: "",
 			test: false,
+			root: "",
 		});
 	}
 	return tests;
@@ -394,6 +395,7 @@ private function testGoByExample():Array<TestData> { // gobyexample
 				path: path,
 				exclude: "",
 				test: false,
+				root: "",
 			});
 		}
 	}
@@ -406,20 +408,20 @@ class TestData {
 	public var type:String = "";
 	public var path:String = "";
 	public var exclude:String = "";
+	public var root:String = "";
 	public var test:Bool = false;
-	public var std:Bool = false;
 
-	public function new(name, type, path, exclude, test, std = false) {
+	public function new(name, type, path, exclude, test, root) {
 		this.name = name;
 		this.type = type;
 		this.path = path;
 		this.exclude = exclude;
+		this.root = root;
 		this.test = test;
-		this.std = std;
 	}
 
 	public function copy()
-		return new TestData(name, type, path, exclude, test, std);
+		return new TestData(name, type, path, exclude, test, root);
 }
 
 @:structInit

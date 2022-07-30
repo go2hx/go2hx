@@ -3197,7 +3197,11 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 			}
 			named(path, methods, underlying, e.alias, params);
 		case "Basic":
-			basic(BasicKind.createByIndex(e.kind));
+			if (e.kind == 0) {
+				invalidType;
+			} else {
+				basic(BasicKind.createByIndex(e.kind));
+			}
 		case "Tuple":
 			if (e.len > 1) {
 				tuple(e.len, [for (v in (e.vars : Array<Dynamic>)) typeof(v, info)]);

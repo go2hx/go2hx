@@ -302,9 +302,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				var modules = [];
 				modules = Typer.main(exportData, instance);
 				exportData = null;
-				Sys.setCwd(instance.localPath);
-				var outputPath = instance.outputPath;
-				outputPath = Path.addTrailingSlash(outputPath);
 				var libs:Array<String> = [];
 
 				// reset
@@ -327,7 +324,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						if (libs.indexOf(name) == -1)
 							libs.push(name);
 					} else {
-						Gen.create(outputPath, module, instance.root);
+						Gen.create(Path.addTrailingSlash(instance.outputPath), module, instance.root);
 					}
 				}
 				runBuildTools(modules, instance, programArgs);
@@ -399,9 +396,6 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 	final paths = mainPaths(modules);
 	final commands = ['-lib', 'go2hx'];
 	var cp = instance.outputPath;
-	// final hxmlPathIndex = hxmlPath.lastIndexOf("/") + 1;
-	// if (hxmlPathIndex != 0)
-	//	cp = cp.substr(hxmlPathIndex);
 	if (cp != "") {
 		commands.push("-cp");
 		commands.push(cp);
@@ -451,6 +445,8 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 	if (instance.hxmlPath != "") {
+		if (paths.length == 0)
+			throw "No main found";
 		final main = parseMain(paths[0]);
 		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
 			instance.hxmlPath += ".hxml";

@@ -15,5 +15,6 @@
     "syscall",
     "syscall/js",
     "bytes",
-    "context"
+    "time",
+    "log"
 ]}

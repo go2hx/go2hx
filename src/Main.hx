@@ -468,7 +468,9 @@ private function parseMain(main:String):String {
 	final index = main.indexOf("_test.");
 	if (index == -1)
 		return main;
-	if (Typer.stdgoList.indexOf(main.substr(0, index)) != -1)
+	var s = main.substr(0, index);
+	s = StringTools.replace(s, ".", "/");
+	if (Typer.stdgoList.indexOf(s) != -1)
 		return 'stdgo.$main';
 	return main;
 }

@@ -44,10 +44,9 @@ class ProcessPool {
 			var code = pool[i].proc.exitCode(false);
 			if (code == null) {
 				final stamp = haxe.Timer.stamp() - pool[i].stamp;
-				if (stamp > 60 * 10) {
-					code = -1;
-					Sys.println("process killed");
-					pool[i].proc.kill();
+				if (stamp > 60 * 25) {
+					trace(pool[i].command);
+					throw "process killed";
 				} else {
 					continue;
 				}

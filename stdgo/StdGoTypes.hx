@@ -692,7 +692,7 @@ abstract GoComplex64(Complex64) from Complex64 {
 }
 
 abstract GoComplex128(Complex128) from Complex128 {
-	public inline function new(?r:GoFloat32, ?i:GoFloat32) {
+	public inline function new(?r:GoFloat64, ?i:GoFloat64) {
 		if (r == null || i == null) {
 			this = new Complex128(0, 0);
 		} else {

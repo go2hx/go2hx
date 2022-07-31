@@ -901,9 +901,9 @@ private function typeRangeStmt(stmt:Ast.RangeStmt, info:Info):ExprDef { // for s
 	if (stmt.tok == ASSIGN) { // non var
 		switch body.expr {
 			case EBlock(exprs):
-				if (key != null && (stmt.key.id != "Ident" || stmt.key.name != "_"))
+				if (stmt.key != null && (stmt.key.id != "Ident" || stmt.key.name != "_"))
 					exprs.unshift(macro $key = __key__);
-				if (value != null && (stmt.value.id != "Ident" || stmt.value.name != "_"))
+				if (stmt.value != null && (stmt.value.id != "Ident" || stmt.value.name != "_"))
 					exprs.unshift(macro $value = __value__);
 				assign = true;
 			default:
@@ -3805,6 +3805,8 @@ private function title(name:String):String {
 }
 
 private function hasTypeParam(ct:ComplexType):Bool {
+	if (ct == null)
+		return false;
 	return switch ct {
 		case TPath(p): p.params != null && p.params.length > 0;
 		default: false;

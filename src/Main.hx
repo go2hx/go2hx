@@ -445,8 +445,10 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 		// Sys.println('Generated: $buildPath - ' + shared.Util.kbCount(content) + "kb");
 	}
 	if (instance.hxmlPath != "") {
-		if (paths.length == 0)
+		if (paths.length == 0) {
+			trace(instance.hxmlPath);
 			throw "No main found";
+		}
 		final main = parseMain(paths[0]);
 		if (!StringTools.endsWith(instance.hxmlPath, ".hxml"))
 			instance.hxmlPath += ".hxml";

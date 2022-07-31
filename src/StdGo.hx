@@ -19,7 +19,7 @@ function main() {
 	// libs = ["time", "flag"];
 	trace(libs);
 	libCount = libs.length;
-	Main.setup(0, 2); // amount of processes to spawn
+	Main.setup(0, 1); // amount of processes to spawn
 	Main.onComplete = complete;
 	if (libs.length == 0)
 		return;

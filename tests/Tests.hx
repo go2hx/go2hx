@@ -51,7 +51,7 @@ var startStamp = 0.0;
 function main() {
 	final args = Sys.args();
 	processPool.complete = completeProcess;
-	Main.setup(0, 4); // 4 processes of go4hx
+	Main.setup(0, 2); // 2 processes of go4hx
 	Main.onComplete = complete;
 	File.saveContent("test.log", "");
 	logOutput = File.append("test.log", false);
@@ -224,9 +224,9 @@ private function testGo():Array<TestData> { // go tests
 		var name = path.withoutExtension();
 		if (path.isDirectory() || path.extension() != "go" || goExcludes.indexOf(path) != -1)
 			continue;
-		final input = File.read(path, false);
+		final input = File.read(dir + path, false);
 		final line = input.readLine().substr(3);
-		if (!["run"].contains(line))
+		if (line != "run")
 			continue;
 		tests.push({
 			name: name,
@@ -234,7 +234,7 @@ private function testGo():Array<TestData> { // go tests
 			path: path,
 			exclude: "",
 			test: false,
-			root: "",
+			root: dir,
 		});
 	}
 	return tests;

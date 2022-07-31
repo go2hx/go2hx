@@ -268,7 +268,6 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			}
 			if (buff == null) {
 				final len:Int = haxe.Int64.toInt(bytes.getInt64(0));
-				Sys.println("get length: " + len);
 				#if !hl
 				client.stream.size = len;
 				#end
@@ -286,9 +285,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 			bytes = null;
 			// Sys.println("pos: " + pos + " buff: " + buff.length);
 			if (pos == buff.length) {
-				Sys.println("got all bytes");
 				var exportData:DataType = null;
-
 				var data = haxe.zip.Uncompress.run(buff);
 				buff = null;
 				exportData = haxe.Json.parse(#if js @:privateAccess data.b.toString() #else data.toString() #end);

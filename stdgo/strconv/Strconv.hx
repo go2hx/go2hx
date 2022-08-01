@@ -6,6 +6,10 @@ using stdgo.GoString.GoStringTools;
 
 final intSize:GoInt = 32;
 
+function quote(_s:GoString):GoString {
+	return _s;
+}
+
 function quoteToASCII(_s:GoString):GoString {
 	return _s;
 }

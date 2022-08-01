@@ -217,10 +217,13 @@ function containsRune(s:GoString, r:GoRune):Bool {
 	return false;
 }
 
-inline function lastIndex(s:GoString, substr:GoString):Int
+inline function lastIndex(s:GoString, substr:GoString):GoInt
 	return s.toString().lastIndexOf(substr);
 
-inline function index(s:GoString, substr:GoString):Int
+inline function lastIndexByte(s:GoString, b:GoByte):GoInt
+	return s.__toSliceByte__().__toArray__().lastIndexOf(b);
+
+inline function index(s:GoString, substr:GoString):GoInt
 	return s.toString().indexOf(substr);
 
 function indexByte(s:GoString, c:GoByte):GoInt {

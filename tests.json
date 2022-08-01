@@ -14,7 +14,6 @@
     "os",
     "syscall",
     "syscall/js",
-    "bytes",
     "time",
     "log"
 ]}

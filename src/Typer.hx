@@ -431,8 +431,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 											fun.expr = macro return ${fun.expr};
 										default:
 									}
-									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper, isWrapperPointer,
-										true);
+									addLocalMethod(fieldName, field.pos, field.meta, field.doc, field.access, fun, staticExtension, wrapper, true);
 									fun.args = fun.args.slice(1);
 									fun.expr = expr;
 								default:
@@ -446,7 +445,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 						case TDField(kind, access):
 							switch kind {
 								case FFun(fun):
-									addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension, wrapper, isWrapperPointer);
+									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension,
+										wrapper)) isWrapperPointer = true;
 								default:
 							}
 						default:
@@ -456,6 +456,11 @@ function main(data:DataType, instance:Main.InstanceData) {
 					switch wrapper.fields[wrapper.fields.length - 1].kind {
 						case FVar(t, _):
 							wrapper.fields[wrapper.fields.length - 1].kind = FVar(TPath({name: "Pointer", pack: [], params: [TPType(t)]}), null);
+							switch wrapper.fields[wrapper.fields.length - 2].kind {
+								case FFun(f):
+									f.expr = macro return Go.toInterface(__self__.value);
+								default:
+							}
 						default:
 					}
 				}
@@ -472,8 +477,9 @@ function main(data:DataType, instance:Main.InstanceData) {
 }
 
 private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Array<Access>, fun:Function, staticExtension:TypeDefinition,
-		wrapper:TypeDefinition, isWrapperPointer:Bool, embedded:Bool = false) {
+		wrapper:TypeDefinition, embedded:Bool = false) {
 	var isPointerArg = false;
+	var isWrapperPointer = false;
 	if (fun.args.length > 0) {
 		for (meta in fun.args[0].meta) {
 			if (meta.name == ":pointer") {
@@ -552,6 +558,7 @@ private function addLocalMethod(name:String, pos, meta:Metadata, doc, access:Arr
 	};
 	wrapper.fields.unshift(field);
 	staticExtension.fields.unshift(staticField);
+	return isWrapperPointer;
 }
 
 private function exprOfType(t:ComplexType):ComplexType {
@@ -1104,9 +1111,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		return macro($e.value : $ct);
 	}
 	if (isInterface(pointerUnwrap(fromType))) {
-		final args:Array<Expr> = [];
 		if (isPointer(fromType) && !isPointer(toType)) {
-			args.push(macro true);
 			switch ct {
 				case TPath(p):
 					if (p.params != null) { // not an unsafe pointer
@@ -1119,7 +1124,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 				default:
 			}
 		}
-		return macro(($e.__underlying__().value : Dynamic) : $ct); // add all args to smart cast macro function
+		return macro(($e.__underlying__().value : Dynamic) : $ct);
 	}
 	// trace(fromType, "|", toType);
 	if (isStruct(fromType) && isStruct(toType)) {
@@ -1888,6 +1893,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 								throw "unknown param type: " + param;
 						});
 						final callArgs = args.map(arg -> macro $i{arg.name});
+						recv = replaceInvalidType(recv, type);
 						if (isPointer(recv)) {
 							if (!selfPointer) {
 								callArgs.unshift(macro Go.pointer($y));
@@ -1913,6 +1919,31 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 		default:
 	}
 	return y;
+}
+
+private function replaceInvalidType(t:GoType, replace:GoType):GoType {
+	return switch t {
+		case _var(name, type):
+			_var(name, replaceInvalidType(type, replace));
+		case pointer(elem):
+			pointer(replaceInvalidType(elem, replace));
+		case refType(elem):
+			if (elem == invalidType) {
+				if (isRefValue(t)) {
+					refType(replace);
+				} else {
+					pointer(replace);
+				}
+			} else {
+				refType(replaceInvalidType(elem, replace));
+			}
+		case named(path, methods, type, alias, params):
+			named(path, methods, replaceInvalidType(type, replace), alias, params);
+		case invalidType:
+			replace;
+		default:
+			t;
+	}
 }
 
 private function isGeneric(t:GoType):Bool {
@@ -3179,13 +3210,14 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool = false):GoType {
 			} else if (info.localUnderlyingNames.exists(path)) {
 				underlying = info.localUnderlyingNames[path];
 			}
-			final methods:Array<MethodType> = []; // TODO get method data
+			final methods:Array<MethodType> = [];
 			if (e.methods != null) {
 				for (method in (e.methods : Array<Dynamic>)) {
+					final recv = typeof(method.recv, info);
 					methods.push({
 						name: method.name,
 						type: typeof(method.type, info),
-						recv: typeof(method.recv, info),
+						recv: recv,
 					});
 				}
 			}
@@ -4340,17 +4372,7 @@ private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
 			}
 		default:
 	}
-	var pointerBool = false;
-	var type = if (isPointer(t)) {
-		pointerBool = true;
-		t = getUnderlying(t);
-		typeExprType(expr.type.x, info);
-	} else {
-		typeExprType(expr.type, info);
-	}
-	final e = checkType(e, type, typeof(expr.x, info), t, info);
-	if (pointerBool)
-		return (macro Go.pointer($e)).expr;
+	final e = checkType(e, typeExprType(expr.type, info), typeof(expr.x, info), t, info);
 	return e.expr;
 }
 

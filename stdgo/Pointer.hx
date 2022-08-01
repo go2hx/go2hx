@@ -16,7 +16,7 @@ abstract Pointer<T>(PointerData<T>) from PointerData<T> {
 			value = this.assign();
 			this.assign = null;
 		}
-		final bool = this.previous != null;
+		final bool = this.previous != null && this.convert != null;
 		if (bool) {
 			this.ref = this.get();
 			this.previous.assign = () -> this.convert(this.ref);

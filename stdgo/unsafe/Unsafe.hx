@@ -1,30 +1,36 @@
 package stdgo.unsafe;
 
 import stdgo.Pointer;
-import stdgo.StdGoTypes.AnyInterface;
-import stdgo.StdGoTypes.GoUIntptr;
+import stdgo.StdGoTypes;
+import stdgo.reflect.Reflect.GoType;
 
 @:follow typedef Pointer_ = UnsafePointer;
 
-abstract UnsafePointer(Pointer<Dynamic>) from Pointer<Dynamic> to Pointer<Dynamic> {
-	@:from static function fromUIntptr(value:GoUIntptr):UnsafePointer {
-		return Go.pointer(value);
+abstract UnsafePointer(AnyInterface) from AnyInterface {
+	private function new(value) {
+		this = value;
 	}
 
-	@:to inline function toPointer<T>():Pointer<T> {
-		return cast this;
-	}
-
-	@:to inline function toUIntptr():GoUIntptr {
+	public function __convert__(toType:GoType):Any {
+		final fromType:GoType = this.type.common().value;
+		if (fromType.equals(toType))
+			return this.value;
+		switch fromType {
+			case sliceType(elem):
+				switch elem {
+					case basic(uint8_kind):
+						switch toType {
+							case pointer(basic(string_kind)):
+								return Go.pointer(((this.value : Slice<GoUInt8>).toBytes() : GoString));
+							default:
+						}
+					default:
+				}
+			default:
+		}
+		trace("unimplemented unsafe conversion: " + fromType + " -> " + toType);
 		return this.value;
 	}
-
-	@:to inline function toDynamic():Dynamic {
-		return this.value;
-	}
-
-	public function isNil()
-		return false;
 }
 
 function sizeof(x:AnyInterface):GoUIntptr {

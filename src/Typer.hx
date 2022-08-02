@@ -1179,6 +1179,22 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		&& isInterface(toType)) {
 		e = wrapper(fromType, e, info);
 	}
+	switch toType {
+		case basic(unsafepointer_kind):
+			if (fromType != toType) {
+				e = macro Go.toInterface($e);
+			}
+		default:
+			switch fromType {
+				case basic(unsafepointer_kind):
+					if (fromType != toType) {
+						final rt = toReflectType(toType, info);
+						e = macro $e.__convert__($rt);
+					}
+				default:
+			}
+	}
+
 	return macro($e : $ct);
 }
 
@@ -4353,7 +4369,7 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	return x.expr;
 }
 
-private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef {
+private function typeAssertExpr(expr:Ast.TypeAssertExpr, info:Info):ExprDef { // a -> b conversion
 	var e = typeExpr(expr.x, info);
 	if (expr.type == null)
 		return e.expr;

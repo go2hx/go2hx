@@ -448,7 +448,7 @@ class Go {
 			switch expectedType {
 				case TAbstract(t, params):
 					switch t.toString() {
-						case "stdgo.AnyInterface":
+						case "stdgo.AnyInterface", "stdgo.unsafe.UnsafePointer":
 
 						case "Null":
 							error = params.length == 0;
@@ -929,8 +929,9 @@ class Go {
 						}
 					default:
 				}
-				if (results.length == 0)
+				if (results.length == 0) {
 					results.push(gtDecode(result, null, marked));
+				}
 				var variadic = macro false;
 				if (a.length > 0) {
 					final lastType = a[a.length - 1].t;

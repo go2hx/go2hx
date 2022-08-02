@@ -495,6 +495,9 @@ function mainStart(deps:T_testDeps, tests:Slice<InternalTest>, benchmarks:Slice<
 	return m;
 }
 
+function coverMode():GoString
+	return "";
+
 function benchmark(f:B->Void):BenchmarkResult {
 	return new BenchmarkResult();
 }

@@ -15,7 +15,20 @@ abstract UnsafePointer(AnyInterface) from AnyInterface {
 		final fromType:GoType = this.type.common().value;
 		if (fromType.equals(toType))
 			return this.value;
+		// to
+		switch toType {
+			case basic(uintptr_kind):
+				return this.value;
+			default:
+		}
+		// from
 		switch fromType {
+			case basic(kind):
+				switch kind {
+					case uintptr_kind:
+						return this.value;
+					default:
+				}
 			case sliceType(elem):
 				switch elem {
 					case basic(uint8_kind):

@@ -3381,7 +3381,7 @@ function _trigReduce(_x:GoFloat64):{ var _0 : GoUInt64; var _1 : GoFloat64; } {
     // Float32bits(Float32frombits(x)) == x.
 **/
 function float32bits(_f:GoFloat32):GoUInt32 {
-        return ((((Go.pointer(_f) : stdgo.unsafe.Unsafe.UnsafePointer)) : Pointer<GoUInt32>)).value;
+        return ((((Go.toInterface(Go.pointer(_f)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(uint32_kind))) : Pointer<GoUInt32>)).value;
     }
 /**
     // Float32frombits returns the floating-point number corresponding
@@ -3390,7 +3390,7 @@ function float32bits(_f:GoFloat32):GoUInt32 {
     // Float32frombits(Float32bits(x)) == x.
 **/
 function float32frombits(_b:GoUInt32):GoFloat32 {
-        return ((((Go.pointer(_b) : stdgo.unsafe.Unsafe.UnsafePointer)) : Pointer<GoFloat32>)).value;
+        return ((((Go.toInterface(Go.pointer(_b)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(float32_kind))) : Pointer<GoFloat32>)).value;
     }
 /**
     // Float64bits returns the IEEE 754 binary representation of f,
@@ -3398,7 +3398,7 @@ function float32frombits(_b:GoUInt32):GoFloat32 {
     // and Float64bits(Float64frombits(x)) == x.
 **/
 function float64bits(_f:GoFloat64):GoUInt64 {
-        return ((((Go.pointer(_f) : stdgo.unsafe.Unsafe.UnsafePointer)) : Pointer<GoUInt64>)).value;
+        return ((((Go.toInterface(Go.pointer(_f)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(uint64_kind))) : Pointer<GoUInt64>)).value;
     }
 /**
     // Float64frombits returns the floating-point number corresponding
@@ -3407,5 +3407,5 @@ function float64bits(_f:GoFloat64):GoUInt64 {
     // Float64frombits(Float64bits(x)) == x.
 **/
 function float64frombits(_b:GoUInt64):GoFloat64 {
-        return ((((Go.pointer(_b) : stdgo.unsafe.Unsafe.UnsafePointer)) : Pointer<GoFloat64>)).value;
+        return ((((Go.toInterface(Go.pointer(_b)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(float64_kind))) : Pointer<GoFloat64>)).value;
     }

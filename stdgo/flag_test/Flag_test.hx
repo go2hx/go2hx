@@ -1338,7 +1338,7 @@ class T_boolFlagVar_wrapper {
             if (_err != null) {
                 return _err;
             };
-            _i = (_i != null ? _i.__append__(_duration) : new Slice<Slice<stdgo.time.Time.Duration>>(_duration));
+            _i = (_i != null ? _i.__append__(_duration) : new stdgo.flag_test.Flag_test.T_interval(_duration));
         };
         return ((null : stdgo.Error));
     }
@@ -1372,7 +1372,7 @@ class T_interval_wrapper {
 @:keep class T_flagVar_static_extension {
     @:keep
     static public function set( _f:T_flagVar, _value:GoString):Error {
-        _f = (_f != null ? _f.__append__(_value) : new Slice<Slice<GoString>>(_value));
+        _f = (_f != null ? _f.__append__(_value) : new stdgo.flag_test.Flag_test.T_flagVar(_value));
         return ((null : stdgo.Error));
     }
     @:keep

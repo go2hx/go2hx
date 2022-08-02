@@ -2875,7 +2875,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							final aType = typeof(expr.args[i + 1], info);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						final ct = toComplexType(eType, info);
+						final ct = toComplexType(typeof(expr.args[0], info), info);
 						final p = getTypePath(ct);
 						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new $p($a{args})));
 					case "copy":

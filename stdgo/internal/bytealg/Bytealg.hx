@@ -52,6 +52,39 @@ function count(b:Slice<GoByte>, c:GoByte):GoInt {
 	return c;
 }
 
+function countString(s:GoString, c:GoByte):GoInt {
+	var n:GoInt = 0;
+	for (i in 0...s.length.toBasic()) {
+		if (s[i] == c)
+			n++;
+	}
+	return n;
+}
+
+function hashStrRev(sep:GoString):{
+	_0:GoUInt32,
+	_1:GoUInt32,
+} {
+	final primeRK:GoUInt32 = 16777619;
+	var hash:GoUInt32 = 0;
+	var i:GoInt = 0;
+	while (i >= 0) {
+		hash = hash * primeRK + sep[i];
+		i--;
+	}
+	var pow:GoUInt32 = 1;
+	var sq = primeRK;
+	i = sep.length;
+	while (i > 0) {
+		if (i & 1 != 0) {
+			pow *= sq;
+		}
+		sq *= sq;
+		i >>= 1;
+	}
+	return {_0: hash, _1: pow};
+}
+
 function index(a:Slice<GoByte>, b:Slice<GoByte>):GoInt {
 	var index:GoInt = -1;
 	if (2 > b.length)

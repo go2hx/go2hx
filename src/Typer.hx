@@ -2876,7 +2876,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
 						final ct = toComplexType(eType, info);
-						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new Slice<$ct>($a{args})));
+						final p = getTypePath(ct);
+						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new $p($a{args})));
 					case "copy":
 						genArgs(false);
 						return returnExpr(macro Go.copySlice($a{args}));

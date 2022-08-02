@@ -1005,7 +1005,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             if (!_isZeroValue(_flag, _flag.defValue)) {
                 {
                     var __tmp__ = try {
-                        { value : Go.pointer(((((_flag.value.__underlying__().value : Dynamic)) : T_stringValue))), ok : true };
+                        { value : ((((_flag.value.__underlying__().value : Dynamic)) : Pointer<T_stringValue>)), ok : true };
                     } catch(_) {
                         { value : ((null : Pointer<T_stringValue>)), ok : false };
                     }, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -1448,8 +1448,8 @@ class T_boolValue_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_boolValue;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_boolValue>;
 }
 @:keep class T_intValue_static_extension {
     @:keep
@@ -1484,8 +1484,8 @@ class T_intValue_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_intValue;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_intValue>;
 }
 @:keep class T_int64Value_static_extension {
     @:keep
@@ -1520,8 +1520,8 @@ class T_int64Value_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_int64Value;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_int64Value>;
 }
 @:keep class T_uintValue_static_extension {
     @:keep
@@ -1556,8 +1556,8 @@ class T_uintValue_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_uintValue;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_uintValue>;
 }
 @:keep class T_uint64Value_static_extension {
     @:keep
@@ -1592,8 +1592,8 @@ class T_uint64Value_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_uint64Value;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_uint64Value>;
 }
 @:keep class T_stringValue_static_extension {
     @:keep
@@ -1624,8 +1624,8 @@ class T_stringValue_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_stringValue;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_stringValue>;
 }
 @:keep class T_float64Value_static_extension {
     @:keep
@@ -1660,8 +1660,8 @@ class T_float64Value_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_float64Value;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_float64Value>;
 }
 @:keep class T_durationValue_static_extension {
     @:keep
@@ -1708,8 +1708,8 @@ class T_durationValue_wrapper {
     @:pointer
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T_durationValue;
+    public function __underlying__() return Go.toInterface(__self__.value);
+    var __self__ : Pointer<T_durationValue>;
 }
 @:keep class T_funcValue_static_extension {
     @:keep

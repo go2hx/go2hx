@@ -1,3 +1,3 @@
--m testing.fstest_test.Fstest
+-m stdgo.testing.fstest_test.Fstest
 -lib go2hx
 -cp stdgo

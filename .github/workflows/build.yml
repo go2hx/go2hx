@@ -41,10 +41,10 @@ jobs:
       #   run: hl tests.hl yaegi ci
       #   env:
       #       HXCPP_COMPILE_CACHE: ~/hxcppcache
-      - name: Run go tests
-        run: hl tests.hl go ci
-        env:
-            HXCPP_COMPILE_CACHE: ~/hxcppcache
+      # - name: Run go tests
+      #   run: hl tests.hl go ci
+      #   env:
+      #       HXCPP_COMPILE_CACHE: ~/hxcppcache
       - name: Run gobyexample tests
         run: hl tests.hl gobyexample ci
         env:

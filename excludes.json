@@ -19,8 +19,6 @@
     "sync",
     "sync/atomic",
     "internal/race",
-    "strconv",
-    "strings",
     "internal/syscall",
     "internal/syscall/js",
     "internal/syscall/windows/sysdll",

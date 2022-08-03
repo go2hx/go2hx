@@ -3638,6 +3638,68 @@ private function rawEscapeSequences(value:String):String {
 	return value;
 }
 
+private function getRune(value:String):String {
+	var backslash = false;
+	var i = 0;
+	var buff = new StringBuf();
+	while (i < value.length) {
+		if (backslash) {
+			final code = value.charCodeAt(i);
+			switch code {
+				case 'x'.code:
+					return "\\u00" + value.substr(i + 1, 2);
+				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
+					var num = 0;
+					for (j in 0...3) {
+						final numCode = Std.parseInt(value.charAt(i + j));
+						final expo = Std.int(Math.pow(8, 2 - j));
+						num += numCode * expo;
+					}
+					return "\\u0" + num;
+				case '"'.code:
+					return '"';
+				case 'a'.code:
+					return "\\x07";
+				case 'b'.code:
+					return "\\u0008";
+				case 'e'.code:
+					return "\\x1B";
+				case 'f'.code:
+					return "\\x0C";
+				case 'v'.code:
+					return "\\x0B";
+				case 'u'.code:
+					return "\\u" + value.substr(i + 1, 4);
+				case 'U'.code:
+					return "\\u{" + value.substr(i + 1, 8) + "}";
+				default:
+					return "\\" + String.fromCharCode(code);
+			}
+			backslash = false;
+			i++;
+			continue;
+		}
+		final code = value.charCodeAt(i);
+		switch code {
+			case "\\".code:
+				backslash = true;
+			case "$".code:
+				buff.add("$$");
+			default:
+				try {
+					buff.addChar(code);
+				} catch (_) {
+					buff.addChar(97);
+				}
+		}
+		i++;
+	}
+
+	if (backslash)
+		return "\\";
+	return value;
+}
+
 private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:String}> {
 	var backslash = false;
 	var i = 0;
@@ -3724,7 +3786,7 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 				makeString(rawEscapeSequences(value));
 			}
 		case CHAR:
-			final const = makeStringLit(decodeEscapeSequences(value));
+			final const = makeString(getRune(value));
 			if (ct == null)
 				ct = TPath({name: "GoRune", pack: []});
 			macro $const.code;

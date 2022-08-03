@@ -83,7 +83,7 @@ var _invalidSequenceTests : Slice<GoString> = ((new Slice<GoString>(
 (((((haxe.io.Bytes.ofHex("F4") : GoString)) + ((haxe.io.Bytes.ofHex("8F") : GoString)) + ((haxe.io.Bytes.ofHex("C0") : GoString)) + ((haxe.io.Bytes.ofHex("80") : GoString))) : GoString)),
 (((((haxe.io.Bytes.ofHex("F4") : GoString)) + ((haxe.io.Bytes.ofHex("90") : GoString)) + ((haxe.io.Bytes.ofHex("80") : GoString)) + ((haxe.io.Bytes.ofHex("80") : GoString))) : GoString))) : Slice<GoString>));
 var _runecounttests : Slice<stdgo.unicode.utf8_test.Utf8_test.RuneCountTest> = ((new Slice<RuneCountTest>(((new RuneCountTest(((((("abcd" : GoString))) : GoString)), ((4 : GoInt))) : RuneCountTest)), ((new RuneCountTest(((((("☺☻☹" : GoString))) : GoString)), ((3 : GoInt))) : RuneCountTest)), ((new RuneCountTest(((((("1,2,3,4" : GoString))) : GoString)), ((7 : GoInt))) : RuneCountTest)), ((new RuneCountTest((((((haxe.io.Bytes.ofHex("e2") : GoString)) + ((haxe.io.Bytes.ofHex("00") : GoString))) : GoString)), ((2 : GoInt))) : RuneCountTest)), ((new RuneCountTest((((((haxe.io.Bytes.ofHex("e2") : GoString)) + ((haxe.io.Bytes.ofHex("80") : GoString))) : GoString)), ((2 : GoInt))) : RuneCountTest)), ((new RuneCountTest(((((("a" : GoString)) + ((haxe.io.Bytes.ofHex("e2") : GoString)) + ((haxe.io.Bytes.ofHex("80") : GoString))) : GoString)), ((3 : GoInt))) : RuneCountTest))) : Slice<RuneCountTest>));
-var _runelentests : Slice<stdgo.unicode.utf8_test.Utf8_test.RuneLenTest> = ((new Slice<RuneLenTest>(((new RuneLenTest(((0 : GoInt32)), ((1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((((("e" : GoString))).code : GoInt32)), ((1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((((("é" : GoString))).code : GoInt32)), ((2 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((((("☺" : GoString))).code : GoInt32)), ((3 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((65533 : GoInt32)), ((3 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((1114111 : GoInt32)), ((4 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((55296 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((57343 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((1114112 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((-1 : GoInt32)), ((-1 : GoInt))) : RuneLenTest))) : Slice<RuneLenTest>));
+var _runelentests : Slice<stdgo.unicode.utf8_test.Utf8_test.RuneLenTest> = ((new Slice<RuneLenTest>(((new RuneLenTest(((0 : GoInt32)), ((1 : GoInt))) : RuneLenTest)), ((new RuneLenTest((("e".code : GoInt32)), ((1 : GoInt))) : RuneLenTest)), ((new RuneLenTest((("é".code : GoInt32)), ((2 : GoInt))) : RuneLenTest)), ((new RuneLenTest((("☺".code : GoInt32)), ((3 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((65533 : GoInt32)), ((3 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((1114111 : GoInt32)), ((4 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((55296 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((57343 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((1114112 : GoInt32)), ((-1 : GoInt))) : RuneLenTest)), ((new RuneLenTest(((-1 : GoInt32)), ((-1 : GoInt))) : RuneLenTest))) : Slice<RuneLenTest>));
 var _validTests : Slice<stdgo.unicode.utf8_test.Utf8_test.ValidTest> = ((new Slice<ValidTest>(
 ((new ValidTest(((((("" : GoString))) : GoString)), true) : ValidTest)),
 ((new ValidTest(((((("a" : GoString))) : GoString)), true) : ValidTest)),
@@ -105,9 +105,9 @@ var _validTests : Slice<stdgo.unicode.utf8_test.Utf8_test.ValidTest> = ((new Sli
 ((new ValidTest((((((((haxe.io.Bytes.ofHex("ed") : GoString)) + ((haxe.io.Bytes.ofHex("bf") : GoString)) + ((haxe.io.Bytes.ofHex("bf") : GoString))) : GoString)) : GoString)), false) : ValidTest))) : Slice<ValidTest>));
 var _validrunetests : Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest> = ((new Slice<ValidRuneTest>(
 ((new ValidRuneTest(((0 : GoInt32)), true) : ValidRuneTest)),
-((new ValidRuneTest(((((("e" : GoString))).code : GoInt32)), true) : ValidRuneTest)),
-((new ValidRuneTest(((((("é" : GoString))).code : GoInt32)), true) : ValidRuneTest)),
-((new ValidRuneTest(((((("☺" : GoString))).code : GoInt32)), true) : ValidRuneTest)),
+((new ValidRuneTest((("e".code : GoInt32)), true) : ValidRuneTest)),
+((new ValidRuneTest((("é".code : GoInt32)), true) : ValidRuneTest)),
+((new ValidRuneTest((("☺".code : GoInt32)), true) : ValidRuneTest)),
 ((new ValidRuneTest(((65533 : GoInt32)), true) : ValidRuneTest)),
 ((new ValidRuneTest(((1114111 : GoInt32)), true) : ValidRuneTest)),
 ((new ValidRuneTest(((55295 : GoInt32)), true) : ValidRuneTest)),
@@ -223,7 +223,7 @@ function exampleDecodeRuneInString():Void {
         };
     }
 function exampleEncodeRune():Void {
-        var _r:GoInt32 = ((((("世" : GoString))).code : GoInt32));
+        var _r:GoInt32 = (("世".code : GoInt32));
         var _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((3 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
         var _n:GoInt = stdgo.unicode.utf8.Utf8.encodeRune(_buf, _r);
         stdgo.fmt.Fmt.println(_buf);
@@ -258,8 +258,8 @@ function exampleRuneCountInString():Void {
         stdgo.fmt.Fmt.println(((((("runes =" : GoString))) : GoString)), stdgo.unicode.utf8.Utf8.runeCountInString(_str));
     }
 function exampleRuneLen():Void {
-        stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen(((((("a" : GoString))).code : GoInt32))));
-        stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen(((((("界" : GoString))).code : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((("a".code : GoInt32))));
+        stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.runeLen((("界".code : GoInt32))));
     }
 function exampleRuneStart():Void {
         var _buf = ((((((("a界" : GoString))) : GoString)) : Slice<GoByte>));
@@ -274,7 +274,7 @@ function exampleValid():Void {
         stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.valid(_invalid));
     }
 function exampleValidRune():Void {
-        var _valid:GoInt32 = ((((("a" : GoString))).code : GoInt32));
+        var _valid:GoInt32 = (("a".code : GoInt32));
         var _invalid:GoInt32 = ((((268435455 : GoInt32)) : GoRune));
         stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_valid));
         stdgo.fmt.Fmt.println(stdgo.unicode.utf8.Utf8.validRune(_invalid));
@@ -740,7 +740,7 @@ function benchmarkEncodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
-                encodeRune(_buf, ((((("a" : GoString))).code : GoInt32)));
+                encodeRune(_buf, (("a".code : GoInt32)));
             });
         };
     }
@@ -749,7 +749,7 @@ function benchmarkEncodeJapaneseRune(_b:stdgo.testing.Testing.B):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
-                encodeRune(_buf, ((((("本" : GoString))).code : GoInt32)));
+                encodeRune(_buf, (("本".code : GoInt32)));
             });
         };
     }
@@ -758,7 +758,7 @@ function benchmarkAppendASCIIRune(_b:stdgo.testing.Testing.B):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
-                appendRune(((_buf.__slice__(0, ((0 : GoInt))) : Slice<GoUInt8>)), ((((("a" : GoString))).code : GoInt32)));
+                appendRune(((_buf.__slice__(0, ((0 : GoInt))) : Slice<GoUInt8>)), (("a".code : GoInt32)));
             });
         };
     }
@@ -767,12 +767,12 @@ function benchmarkAppendJapaneseRune(_b:stdgo.testing.Testing.B):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
-                appendRune(((_buf.__slice__(0, ((0 : GoInt))) : Slice<GoUInt8>)), ((((("本" : GoString))).code : GoInt32)));
+                appendRune(((_buf.__slice__(0, ((0 : GoInt))) : Slice<GoUInt8>)), (("本".code : GoInt32)));
             });
         };
     }
 function benchmarkDecodeASCIIRune(_b:stdgo.testing.Testing.B):Void {
-        var _a = ((new Slice<GoByte>(((((("a" : GoString))).code : GoUInt8))) : Slice<GoByte>));
+        var _a = ((new Slice<GoByte>((("a".code : GoUInt8))) : Slice<GoByte>));
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {

@@ -6238,7 +6238,7 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = Go.map(((((("Common" : GoStr
 **/
 function isDigit(_r:GoRune):Bool {
         if (_r <= ((255 : GoInt32))) {
-            return (((((("0" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("9" : GoString))).code : GoInt32)));
+            return ((("0".code : GoInt32)) <= _r) && (_r <= (("9".code : GoInt32)));
         };
         return _isExcludingLatin(digit, _r);
     }
@@ -6345,7 +6345,7 @@ function isPunct(_r:GoRune):Bool {
 **/
 function isSpace(_r:GoRune):Bool {
         if (((_r : GoUInt32)) <= ((255 : GoUInt32))) {
-            if (_r == ((((("\t" : GoString))).code : GoInt32)) || _r == ((((("\n" : GoString))).code : GoInt32)) || _r == ((((("\x0B" : GoString))).code : GoInt32)) || _r == ((((("\x0C" : GoString))).code : GoInt32)) || _r == ((((("\r" : GoString))).code : GoInt32)) || _r == (((((" " : GoString))).code : GoInt32)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
+            if (_r == (("\t".code : GoInt32)) || _r == (("\n".code : GoInt32)) || _r == (("\x0B".code : GoInt32)) || _r == (("\x0C".code : GoInt32)) || _r == (("\r".code : GoInt32)) || _r == ((" ".code : GoInt32)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
                 return true;
             };
             return false;
@@ -6524,7 +6524,7 @@ function to(__case:GoInt, _r:GoRune):GoRune {
 **/
 function toUpper(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
-            if ((((((("a" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("z" : GoString))).code : GoInt32)))) {
+            if (((("a".code : GoInt32)) <= _r) && (_r <= (("z".code : GoInt32)))) {
                 _r = _r - (((32 : GoInt32)));
             };
             return _r;
@@ -6536,7 +6536,7 @@ function toUpper(_r:GoRune):GoRune {
 **/
 function toLower(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
-            if ((((((("A" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("Z" : GoString))).code : GoInt32)))) {
+            if (((("A".code : GoInt32)) <= _r) && (_r <= (("Z".code : GoInt32)))) {
                 _r = _r + (((32 : GoInt32)));
             };
             return _r;
@@ -6548,7 +6548,7 @@ function toLower(_r:GoRune):GoRune {
 **/
 function toTitle(_r:GoRune):GoRune {
         if (_r <= ((127 : GoInt32))) {
-            if ((((((("a" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("z" : GoString))).code : GoInt32)))) {
+            if (((("a".code : GoInt32)) <= _r) && (_r <= (("z".code : GoInt32)))) {
                 _r = _r - (((32 : GoInt32)));
             };
             return _r;

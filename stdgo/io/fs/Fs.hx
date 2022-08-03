@@ -135,7 +135,7 @@ function validPath(_name:GoString):Bool {
         };
         while (true) {
             var _i:GoInt = ((0 : GoInt));
-            while ((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != ((((("/" : GoString))).code : GoUInt8)))) {
+            while ((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != (("/".code : GoUInt8)))) {
                 _i++;
             };
             var _elem:GoString = ((_name.__slice__(0, _i) : GoString));
@@ -279,7 +279,7 @@ function _hasMeta(_path:GoString):Bool {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_path != null ? _path.length : ((0 : GoInt))), _i++, {
-                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("*" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("?" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("[" : GoString))).code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == ((((("\\" : GoString))).code : GoUInt8))) {
+                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == (("*".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("?".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("[".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("\\".code : GoUInt8))) {
                     return true;
                 };
             });
@@ -809,7 +809,7 @@ class T_dirInfo_wrapper {
         if (_name == _f._dir) {
             return { _0 : ((((("." : GoString))) : GoString)), _1 : true };
         };
-        if ((((_name != null ? _name.length : ((0 : GoInt))) >= ((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((2 : GoInt)))) && ((_name != null ? _name[(_f._dir != null ? _f._dir.length : ((0 : GoInt)))] : ((0 : GoUInt8))) == ((((("/" : GoString))).code : GoUInt8)))) && (((_name.__slice__(0, (_f._dir != null ? _f._dir.length : ((0 : GoInt)))) : GoString)) == _f._dir)) {
+        if ((((_name != null ? _name.length : ((0 : GoInt))) >= ((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((2 : GoInt)))) && ((_name != null ? _name[(_f._dir != null ? _f._dir.length : ((0 : GoInt)))] : ((0 : GoUInt8))) == (("/".code : GoUInt8)))) && (((_name.__slice__(0, (_f._dir != null ? _f._dir.length : ((0 : GoInt)))) : GoString)) == _f._dir)) {
             return { _0 : ((_name.__slice__((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((1 : GoInt))) : GoString)), _1 : true };
         };
         return { _0 : ((((("" : GoString))) : GoString)), _1 : false };
@@ -935,7 +935,7 @@ class T_statDirEntry_wrapper {
             };
         };
         if (_w == ((0 : GoInt))) {
-            if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoUInt8));
+            if (_buf != null) _buf[_w] = (("-".code : GoUInt8));
             _w++;
         };
         {};
@@ -943,7 +943,7 @@ class T_statDirEntry_wrapper {
             if ((_m & (((1 : FileMode)) << (((((8 : GoInt)) - _i) : GoUInt)))) != ((0 : FileMode))) {
                 if (_buf != null) _buf[_w] = ((_c : GoByte));
             } else {
-                if (_buf != null) _buf[_w] = ((((("-" : GoString))).code : GoUInt8));
+                if (_buf != null) _buf[_w] = (("-".code : GoUInt8));
             };
             _w++;
         };

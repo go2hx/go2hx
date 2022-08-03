@@ -1127,20 +1127,20 @@ class T_mapDir_wrapper {
             for (_i => _e in _elem) {
                 var _pattern:Slice<GoRune> = ((null : Slice<GoInt32>));
                 for (_j => _r in _e) {
-                    if (((((_r == ((((("*" : GoString))).code : GoInt32))) || (_r == ((((("?" : GoString))).code : GoInt32)))) || (_r == ((((("\\" : GoString))).code : GoInt32)))) || (_r == ((((("[" : GoString))).code : GoInt32)))) || (_r == ((((("-" : GoString))).code : GoInt32)))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("\\" : GoString))).code : GoInt32)), _r) : new Slice<GoInt32>(((((("\\" : GoString))).code : GoInt32)), _r));
+                    if (((((_r == (("*".code : GoInt32))) || (_r == (("?".code : GoInt32)))) || (_r == (("\\".code : GoInt32)))) || (_r == (("[".code : GoInt32)))) || (_r == (("-".code : GoInt32)))) {
+                        _pattern = (_pattern != null ? _pattern.__append__((("\\".code : GoInt32)), _r) : new Slice<GoInt32>((("\\".code : GoInt32)), _r));
                         continue;
                     };
                     if ((_i + _j) % ((5 : GoInt)) == ((0 : GoInt))) {
                         _pattern = (_pattern != null ? _pattern.__append__(_r) : new Slice<GoInt32>(_r));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((1 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
+                        _pattern = (_pattern != null ? _pattern.__append__((("[".code : GoInt32)), _r, (("]".code : GoInt32))) : new Slice<GoInt32>((("[".code : GoInt32)), _r, (("]".code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((2 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
+                        _pattern = (_pattern != null ? _pattern.__append__((("[".code : GoInt32)), _r, (("-".code : GoInt32)), _r, (("]".code : GoInt32))) : new Slice<GoInt32>((("[".code : GoInt32)), _r, (("-".code : GoInt32)), _r, (("]".code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((3 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
+                        _pattern = (_pattern != null ? _pattern.__append__((("[".code : GoInt32)), (("\\".code : GoInt32)), _r, (("]".code : GoInt32))) : new Slice<GoInt32>((("[".code : GoInt32)), (("\\".code : GoInt32)), _r, (("]".code : GoInt32))));
                     } else if ((_i + _j) % ((5 : GoInt)) == ((4 : GoInt))) {
-                        _pattern = (_pattern != null ? _pattern.__append__(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))) : new Slice<GoInt32>(((((("[" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("-" : GoString))).code : GoInt32)), ((((("\\" : GoString))).code : GoInt32)), _r, ((((("]" : GoString))).code : GoInt32))));
+                        _pattern = (_pattern != null ? _pattern.__append__((("[".code : GoInt32)), (("\\".code : GoInt32)), _r, (("-".code : GoInt32)), (("\\".code : GoInt32)), _r, (("]".code : GoInt32))) : new Slice<GoInt32>((("[".code : GoInt32)), (("\\".code : GoInt32)), _r, (("-".code : GoInt32)), (("\\".code : GoInt32)), _r, (("]".code : GoInt32))));
                     };
                 };
                 if (_elem != null) _elem[_i] = ((_pattern : GoString));
@@ -1153,8 +1153,8 @@ class T_mapDir_wrapper {
                 _t._errorf(((((("%s: Glob(%#q): bad pattern not detected" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob + ((((("nonexist/[]" : GoString))) : GoString))));
             };
         };
-        var _c:GoInt32 = ((((((("a" : GoString))).code : GoInt32)) : GoRune));
-        Go.cfor(_c <= ((((("z" : GoString))).code : GoInt32)), _c++, {
+        var _c:GoInt32 = (((("a".code : GoInt32)) : GoRune));
+        Go.cfor(_c <= (("z".code : GoInt32)), _c++, {
             var _have:Bool = false, _haveNot:Bool = false;
             for (_2 => _d in _list) {
                 if (stdgo.strings.Strings.containsRune(_d.name(), _c)) {
@@ -1167,8 +1167,8 @@ class T_mapDir_wrapper {
                 break;
             };
         });
-        if (_c > ((((("z" : GoString))).code : GoInt32))) {
-            _c = ((((("a" : GoString))).code : GoInt32));
+        if (_c > (("z".code : GoInt32))) {
+            _c = (("a".code : GoInt32));
         };
         _glob = _glob + ((((((("*" : GoString))) : GoString)) + ((_c : GoString))) + ((((("*" : GoString))) : GoString)));
         var _want:Slice<GoString> = ((null : Slice<GoString>));
@@ -1450,7 +1450,7 @@ class T_mapDir_wrapper {
     static public function _errorf( _t:T_fsTester, _format:GoString, _args:haxe.Rest<AnyInterface>):Void {
         var _args = new Slice<AnyInterface>(..._args);
         if ((_t._errText != null ? _t._errText.length : ((0 : GoInt))) > ((0 : GoInt))) {
-            _t._errText = (_t._errText != null ? _t._errText.__append__(((((("\n" : GoString))).code : GoUInt8))) : new Slice<GoUInt8>(((((("\n" : GoString))).code : GoUInt8))));
+            _t._errText = (_t._errText != null ? _t._errText.__append__((("\n".code : GoUInt8))) : new Slice<GoUInt8>((("\n".code : GoUInt8))));
         };
         _t._errText = (_t._errText != null ? _t._errText.__append__(...stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()).__toArray__()) : new Slice<GoUInt8>(...stdgo.fmt.Fmt.sprintf(_format, ..._args.__toArray__()).__toArray__()));
     }

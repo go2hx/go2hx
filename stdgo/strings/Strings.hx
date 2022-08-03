@@ -891,7 +891,7 @@ function toUpper(_s:GoString):GoString {
                     _isASCII = false;
                     break;
                 };
-                _hasLower = _hasLower || ((((((("a" : GoString))).code : GoUInt8)) <= _c) && (_c <= ((((("z" : GoString))).code : GoUInt8))));
+                _hasLower = _hasLower || (((("a".code : GoUInt8)) <= _c) && (_c <= (("z".code : GoUInt8))));
             });
         };
         if (_isASCII) {
@@ -904,7 +904,7 @@ function toUpper(_s:GoString):GoString {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < (_s != null ? _s.length : ((0 : GoInt))), _i++, {
                     var _c:GoUInt8 = (_s != null ? _s[_i] : ((0 : GoUInt8)));
-                    if ((((((("a" : GoString))).code : GoUInt8)) <= _c) && (_c <= ((((("z" : GoString))).code : GoUInt8)))) {
+                    if (((("a".code : GoUInt8)) <= _c) && (_c <= (("z".code : GoUInt8)))) {
                         _c = _c - (((32 : GoUInt8)));
                     };
                     _b.writeByte(_c);
@@ -927,7 +927,7 @@ function toLower(_s:GoString):GoString {
                     _isASCII = false;
                     break;
                 };
-                _hasUpper = _hasUpper || ((((((("A" : GoString))).code : GoUInt8)) <= _c) && (_c <= ((((("Z" : GoString))).code : GoUInt8))));
+                _hasUpper = _hasUpper || (((("A".code : GoUInt8)) <= _c) && (_c <= (("Z".code : GoUInt8))));
             });
         };
         if (_isASCII) {
@@ -940,7 +940,7 @@ function toLower(_s:GoString):GoString {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < (_s != null ? _s.length : ((0 : GoInt))), _i++, {
                     var _c:GoUInt8 = (_s != null ? _s[_i] : ((0 : GoUInt8)));
-                    if ((((((("A" : GoString))).code : GoUInt8)) <= _c) && (_c <= ((((("Z" : GoString))).code : GoUInt8)))) {
+                    if (((("A".code : GoUInt8)) <= _c) && (_c <= (("Z".code : GoUInt8)))) {
                         _c = _c + (((32 : GoUInt8)));
                     };
                     _b.writeByte(_c);
@@ -1032,13 +1032,13 @@ function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
 **/
 function _isSeparator(_r:GoRune):Bool {
         if (_r <= ((127 : GoInt32))) {
-            if ((((((("0" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("9" : GoString))).code : GoInt32)))) {
+            if (((("0".code : GoInt32)) <= _r) && (_r <= (("9".code : GoInt32)))) {
                 return false;
-            } else if ((((((("a" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("z" : GoString))).code : GoInt32)))) {
+            } else if (((("a".code : GoInt32)) <= _r) && (_r <= (("z".code : GoInt32)))) {
                 return false;
-            } else if ((((((("A" : GoString))).code : GoInt32)) <= _r) && (_r <= ((((("Z" : GoString))).code : GoInt32)))) {
+            } else if (((("A".code : GoInt32)) <= _r) && (_r <= (("Z".code : GoInt32)))) {
                 return false;
-            } else if (_r == ((((("_" : GoString))).code : GoInt32))) {
+            } else if (_r == (("_".code : GoInt32))) {
                 return false;
             };
             return true;
@@ -1056,7 +1056,7 @@ function _isSeparator(_r:GoRune):Bool {
     // punctuation properly. Use golang.org/x/text/cases instead.
 **/
 function title(_s:GoString):GoString {
-        var _prev:GoInt32 = (((((" " : GoString))).code : GoInt32));
+        var _prev:GoInt32 = ((" ".code : GoInt32));
         return map(function(_r:GoRune):GoRune {
             if (_isSeparator(_prev)) {
                 _prev = _r;
@@ -1438,7 +1438,7 @@ function equalFold(_s:GoString, _t:GoString):Bool {
                 };
             };
             if (_tr < ((128 : GoInt32))) {
-                if (((((((("A" : GoString))).code : GoInt32)) <= _sr) && (_sr <= ((((("Z" : GoString))).code : GoInt32)))) && (_tr == ((_sr + ((((("a" : GoString))).code : GoInt32))) - ((((("A" : GoString))).code : GoInt32))))) {
+                if ((((("A".code : GoInt32)) <= _sr) && (_sr <= (("Z".code : GoInt32)))) && (_tr == ((_sr + (("a".code : GoInt32))) - (("A".code : GoInt32))))) {
                     continue;
                 };
                 return false;

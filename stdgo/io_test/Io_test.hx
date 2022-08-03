@@ -3892,12 +3892,12 @@ function testMultiReaderFlatten(_t:stdgo.testing.Testing.T):Void {
 **/
 function testMultiReaderSingleByteWithEOF(_t:stdgo.testing.Testing.T):Void {
         var __tmp__ = readAll(limitReader(multiReader({
-            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper(((((((("a" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
-            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((((("a" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
+            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper((((("a".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (((("a".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
             __self__;
         }, {
-            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper(((((((("b" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
-            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((((("b" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
+            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper((((("b".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (((("b".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
             __self__;
         }), ((10 : GoInt64)))), _got:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -3929,8 +3929,8 @@ function testMultiReaderFinalEOF(_t:stdgo.testing.Testing.T):Void {
             __self__.writeTo = #if !macro function(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.bytes.Bytes.newReader(((null : Slice<GoUInt8>))).writeTo(_w) #else null #end;
             __self__;
         }, {
-            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper(((((((("a" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
-            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((((("a" : GoString))).code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
+            final __self__ = new stdgo.io_test.Io_test.T_byteAndEOFReader_wrapper((((("a".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)));
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return (((("a".code : stdgo.io_test.Io_test.T_byteAndEOFReader)) : T_byteAndEOFReader)).read(_p) #else null #end;
             __self__;
         });
         var _buf = new Slice<GoUInt8>(...[for (i in 0 ... ((((2 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);

@@ -207,11 +207,11 @@ function unquoteUsage(_flag:Flag):{ var _0 : GoString; var _1 : GoString; } {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_usage != null ? _usage.length : ((0 : GoInt))), _i++, {
-                if ((_usage != null ? _usage[_i] : ((0 : GoUInt8))) == ((((("`" : GoString))).code : GoUInt8))) {
+                if ((_usage != null ? _usage[_i] : ((0 : GoUInt8))) == (("`".code : GoUInt8))) {
                     {
                         var _j:GoInt = _i + ((1 : GoInt));
                         Go.cfor(_j < (_usage != null ? _usage.length : ((0 : GoInt))), _j++, {
-                            if ((_usage != null ? _usage[_j] : ((0 : GoUInt8))) == ((((("`" : GoString))).code : GoUInt8))) {
+                            if ((_usage != null ? _usage[_j] : ((0 : GoUInt8))) == (("`".code : GoUInt8))) {
                                 _name = ((_usage.__slice__(_i + ((1 : GoInt)), _j) : GoString));
                                 _usage = (((_usage.__slice__(0, _i) : GoString)) + _name) + ((_usage.__slice__(_j + ((1 : GoInt))) : GoString));
                                 return { _0 : _name, _1 : _usage };
@@ -562,11 +562,11 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             return { _0 : false, _1 : ((null : stdgo.Error)) };
         };
         var _s:GoString = (_f._args != null ? _f._args[((0 : GoInt))] : (("" : GoString)));
-        if (((_s != null ? _s.length : ((0 : GoInt))) < ((2 : GoInt))) || ((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) != ((((("-" : GoString))).code : GoUInt8)))) {
+        if (((_s != null ? _s.length : ((0 : GoInt))) < ((2 : GoInt))) || ((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) != (("-".code : GoUInt8)))) {
             return { _0 : false, _1 : ((null : stdgo.Error)) };
         };
         var _numMinuses:GoInt = ((1 : GoInt));
-        if ((_s != null ? _s[((1 : GoInt))] : ((0 : GoUInt8))) == ((((("-" : GoString))).code : GoUInt8))) {
+        if ((_s != null ? _s[((1 : GoInt))] : ((0 : GoUInt8))) == (("-".code : GoUInt8))) {
             _numMinuses++;
             if ((_s != null ? _s.length : ((0 : GoInt))) == ((2 : GoInt))) {
                 _f._args = ((_f._args.__slice__(((1 : GoInt))) : Slice<GoString>));
@@ -574,7 +574,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             };
         };
         var _name:GoString = ((_s.__slice__(_numMinuses) : GoString));
-        if ((((_name != null ? _name.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("-" : GoString))).code : GoUInt8)))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == ((((("=" : GoString))).code : GoUInt8)))) {
+        if ((((_name != null ? _name.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == (("-".code : GoUInt8)))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == (("=".code : GoUInt8)))) {
             return { _0 : false, _1 : _f._failf(((((("bad flag syntax: %s" : GoString))) : GoString)), Go.toInterface(_s)) };
         };
         _f._args = ((_f._args.__slice__(((1 : GoInt))) : Slice<GoString>));
@@ -583,7 +583,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         {
             var _i:GoInt = ((1 : GoInt));
             Go.cfor(_i < (_name != null ? _name.length : ((0 : GoInt))), _i++, {
-                if ((_name != null ? _name[_i] : ((0 : GoUInt8))) == ((((("=" : GoString))).code : GoUInt8))) {
+                if ((_name != null ? _name[_i] : ((0 : GoUInt8))) == (("=".code : GoUInt8))) {
                     _value = ((_name.__slice__(_i + ((1 : GoInt))) : GoString));
                     _hasValue = true;
                     _name = ((_name.__slice__(((0 : GoInt)), _i) : GoString));
@@ -1631,7 +1631,7 @@ class T_stringValue_wrapper {
     @:keep
     @:pointer
     static public function toString(____:T_float64Value,  _f:Pointer<T_float64Value>):GoString {
-        return stdgo.strconv.Strconv.formatFloat(((_f.value : GoFloat64)), ((((("g" : GoString))).code : GoUInt8)), ((-1 : GoInt)), ((64 : GoInt)));
+        return stdgo.strconv.Strconv.formatFloat(((_f.value : GoFloat64)), (("g".code : GoUInt8)), ((-1 : GoInt)), ((64 : GoInt)));
     }
     @:keep
     @:pointer

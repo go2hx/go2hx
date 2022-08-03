@@ -198,7 +198,7 @@ function _acosh(_x:GoFloat64):GoFloat64 {
     //	Asin(±0) = ±0
     //	Asin(x) = NaN if x < -1 or x > 1
 **/
-function asin(_x:GoFloat64):GoFloat64 return M.asin(_f.toBasic());
+function asin(_x:GoFloat64):GoFloat64 return std.Math.asin(_f.toBasic());
 function _asin(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -228,7 +228,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
     // Special case is:
     //	Acos(x) = NaN if x < -1 or x > 1
 **/
-function acos(_x:GoFloat64):GoFloat64 return M.acos(_f.toBasic());
+function acos(_x:GoFloat64):GoFloat64 return std.Math.acos(_f.toBasic());
 function _acos(_x:GoFloat64):GoFloat64 {
         return ((1.5707963267948966 : GoFloat64)) - asin(_x);
     }
@@ -302,7 +302,7 @@ function _satan(_x:GoFloat64):GoFloat64 {
     //      Atan(±0) = ±0
     //      Atan(±Inf) = ±Pi/2
 **/
-function atan(_x:GoFloat64):GoFloat64 return M.atan(_f.toBasic());
+function atan(_x:GoFloat64):GoFloat64 return std.Math.atan(_f.toBasic());
 function _atan(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -336,7 +336,7 @@ function _atan(_x:GoFloat64):GoFloat64 {
     //	Atan2(+Inf, x) = +Pi/2
     //	Atan2(-Inf, x) = -Pi/2
 **/
-function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return M.atan2(_f.toBasic());
+function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return std.Math.atan2(_f.toBasic());
 function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
         if (isNaN(_y) || isNaN(_x)) {
             return naN();
@@ -437,7 +437,7 @@ function isNaN(_f:GoFloat64):Bool return std.Math.isNaN(_f.toBasic());
     // If sign < 0, IsInf reports whether f is negative infinity.
     // If sign == 0, IsInf reports whether f is either infinity.
 **/
-function isInf(_f:GoFloat64, _sign:GoInt):Bool return _sign.toBasic() >= 0 && _f == M.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == M.NEGATIVE_INFINITY;
+function isInf(_f:GoFloat64, _sign:GoInt):Bool return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY;
 /**
     // normalize returns a normal number y and exponent exp
     // satisfying x == y × 2**exp. It assumes x is finite and non-zero.
@@ -527,10 +527,10 @@ function dim(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Max(-0, -0) = -0
 **/
 function max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (_x > 0 && !M.isFinite(_x.toBasic()) || _y > 0 && !M.isFinite(_y.toBasic())) return inf(1);
+        if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic())) return inf(1);
         if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x)) return 0.0;
         if (isNaN(_x) || isNaN(_y)) return naN();
-        return M.max(_x.toBasic(), _y.toBasic());
+        return std.Math.max(_x.toBasic(), _y.toBasic());
     }
 function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (isInf(_x, ((1 : GoInt))) || isInf(_y, ((1 : GoInt)))) {
@@ -557,10 +557,10 @@ function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Min(-0, ±0) = Min(±0, -0) = -0
 **/
 function min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (_x < 0 && !M.isFinite(_x.toBasic()) || _y < 0 && !M.isFinite(_y.toBasic())) return inf(-1);
+        if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic())) return inf(-1);
         if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x)) return negZero();
         if (isNaN(_x) || isNaN(_y)) return naN();
-        return M.min(_x.toBasic(), _y.toBasic());
+        return std.Math.min(_x.toBasic(), _y.toBasic());
     }
 function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (isInf(_x, ((-1 : GoInt))) || isInf(_y, ((-1 : GoInt)))) {
@@ -1096,9 +1096,9 @@ function roundToEven(_x:GoFloat64):GoFloat64 {
         };
         return float64frombits(_bits);
     }
-function _archFloor(_x:GoFloat64):GoFloat64 return floor(_x);
-function _archCeil(_x:GoFloat64):GoFloat64 return ceil(_x);
-function _archTrunc(_x:GoFloat64):GoFloat64 return trunc(_x);
+inline function _archFloor(_x:GoFloat64):GoFloat64 return floor(_x);
+inline function _archCeil(_x:GoFloat64):GoFloat64 return ceil(_x);
+inline function _archTrunc(_x:GoFloat64):GoFloat64 return trunc(_x);
 function _zero(_x:GoUInt64):GoUInt64 {
         if (_x == ((0 : GoUInt64))) {
             return ((1 : GoUInt64));
@@ -2811,8 +2811,8 @@ function signbit(_x:GoFloat64):Bool {
     //	Cos(±Inf) = NaN
     //	Cos(NaN) = NaN
 **/
-function cos(_x:GoFloat64):GoFloat64 return M.cos(_f.toBasic());
-function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
+function cos(_x:GoFloat64):GoFloat64 return std.Math.cos(_f.toBasic());
+inline function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
 /**
     // Sin returns the sine of the radian argument x.
     //
@@ -2821,8 +2821,8 @@ function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
     //	Sin(±Inf) = NaN
     //	Sin(NaN) = NaN
 **/
-function sin(_x:GoFloat64):GoFloat64 return M.sin(_f.toBasic());
-function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
+function sin(_x:GoFloat64):GoFloat64 return std.Math.sin(_f.toBasic());
+inline function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
 /**
     // Sincos returns Sin(x), Cos(x).
     //
@@ -3047,7 +3047,7 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
     //	Tan(±Inf) = NaN
     //	Tan(NaN) = NaN
 **/
-function tan(_x:GoFloat64):GoFloat64 return M.tan(_f.toBasic());
+function tan(_x:GoFloat64):GoFloat64 return std.Math.tan(_f.toBasic());
 function _tan(_x:GoFloat64):GoFloat64 {
         {};
         if ((_x == ((0 : GoFloat64))) || isNaN(_x)) {

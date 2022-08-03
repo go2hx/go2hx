@@ -97,14 +97,19 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:to public function __toSliceRune__():Slice<GoRune> {
 		var bytes = __toSliceByte__();
 		var runes = new Slice<GoRune>();
+		#if nolinkstd
+		trace("std not linked");
+		return [];
+		#else
 		while (bytes.length > 0) {
-			final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
+			final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
 			final rune = tmp._0;
 			final size = tmp._1;
 			bytes = bytes.__slice__(size);
 			runes = runes.__append__(rune);
 		}
 		return runes;
+		#end
 	}
 
 	public function __toArray__():Array<GoByte>
@@ -188,11 +193,17 @@ private class GoStringIterator {
 		return bytes.length > 0;
 
 	public function next():GoInt {
-		final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
+		#if nolinkstd
+		trace("std not linked");
+		bytes = [];
+		return 0;
+		#else
+		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);
 		return offset += size.toBasic();
+		#end
 	}
 }
 
@@ -208,7 +219,12 @@ private class GoStringKeyValueIterator {
 		return bytes.length > 0;
 
 	public function next() {
-		final tmp = #if nolinkstd {_0: (0 : GoInt), _1: (0 : GoInt)}; #else stdgo.unicode.utf8.Utf8.decodeRune(bytes); #end
+		#if nolinkstd
+		trace("std not linked");
+		bytes = [];
+		return 0;
+		#else
+		final tmp = stdgo.unicode.utf8.Utf8.decodeRune(bytes);
 		final rune = tmp._0;
 		final size = tmp._1;
 		bytes = bytes.__slice__(size);
@@ -216,6 +232,7 @@ private class GoStringKeyValueIterator {
 		final value = rune;
 		offset += size.toBasic();
 		return {key: key, value: value};
+		#end
 	}
 }
 

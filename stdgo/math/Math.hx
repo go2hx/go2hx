@@ -162,9 +162,7 @@ var trigReduce : GoFloat64 -> { var _0 : GoUInt64; var _1 : GoFloat64; } = _trig
     //	Abs(±Inf) = +Inf
     //	Abs(NaN) = NaN
 **/
-function abs(_x:GoFloat64):GoFloat64 {
-        return float64frombits(float64bits(_x) & ((("9223372036854775808" : GoUInt64)) ^ ((-1 : GoUnTypedInt))));
-    }
+function abs(_x:GoFloat64):GoFloat64 return std.Math.abs(_f.toBasic());
 /**
     // Acosh returns the inverse hyperbolic cosine of x.
     //
@@ -200,12 +198,7 @@ function _acosh(_x:GoFloat64):GoFloat64 {
     //	Asin(±0) = ±0
     //	Asin(x) = NaN if x < -1 or x > 1
 **/
-function asin(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archAsin(_x);
-        };
-        return _asin(_x);
-    }
+function asin(_x:GoFloat64):GoFloat64 return M.asin(_f.toBasic());
 function _asin(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -235,12 +228,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
     // Special case is:
     //	Acos(x) = NaN if x < -1 or x > 1
 **/
-function acos(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archAcos(_x);
-        };
-        return _acos(_x);
-    }
+function acos(_x:GoFloat64):GoFloat64 return M.acos(_f.toBasic());
 function _acos(_x:GoFloat64):GoFloat64 {
         return ((1.5707963267948966 : GoFloat64)) - asin(_x);
     }
@@ -314,12 +302,7 @@ function _satan(_x:GoFloat64):GoFloat64 {
     //      Atan(±0) = ±0
     //      Atan(±Inf) = ±Pi/2
 **/
-function atan(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archAtan(_x);
-        };
-        return _atan(_x);
-    }
+function atan(_x:GoFloat64):GoFloat64 return M.atan(_f.toBasic());
 function _atan(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -353,12 +336,7 @@ function _atan(_x:GoFloat64):GoFloat64 {
     //	Atan2(+Inf, x) = +Pi/2
     //	Atan2(-Inf, x) = -Pi/2
 **/
-function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archAtan2(_y, _x);
-        };
-        return _atan2(_y, _x);
-    }
+function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return M.atan2(_f.toBasic());
 function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
         if (isNaN(_y) || isNaN(_x)) {
             return naN();
@@ -442,36 +420,24 @@ function _atanh(_x:GoFloat64):GoFloat64 {
     // Inf returns positive infinity if sign >= 0, negative infinity if sign < 0.
 **/
 function inf(_sign:GoInt):GoFloat64 {
-        var _v:GoUInt64 = ((0 : GoUInt64));
-        if (_sign >= ((0 : GoInt))) {
-            _v = (("9218868437227405312" : GoUInt64));
-        } else {
-            _v = (("18442240474082181120" : GoUInt64));
-        };
-        return float64frombits(_v);
+        if (_sign >= 0) return std.Math.POSITIVE_INFINITY;
+        return std.Math.NEGATIVE_INFINITY;
     }
 /**
     // NaN returns an IEEE 754 ``not-a-number'' value.
 **/
-function naN():GoFloat64 {
-        return float64frombits((("9221120237041090561" : GoUInt64)));
-    }
+function naN():GoFloat64 return std.Math.NaN;
 /**
     // IsNaN reports whether f is an IEEE 754 ``not-a-number'' value.
 **/
-function isNaN(_f:GoFloat64):Bool {
-        var _is:Bool = false;
-        return _f != _f;
-    }
+function isNaN(_f:GoFloat64):Bool return std.Math.isNaN(_f.toBasic());
 /**
     // IsInf reports whether f is an infinity, according to sign.
     // If sign > 0, IsInf reports whether f is positive infinity.
     // If sign < 0, IsInf reports whether f is negative infinity.
     // If sign == 0, IsInf reports whether f is either infinity.
 **/
-function isInf(_f:GoFloat64, _sign:GoInt):Bool {
-        return ((_sign >= ((0 : GoInt))) && (_f > ((1.7976931348623157e+308 : GoFloat64)))) || ((_sign <= ((0 : GoInt))) && (_f < ((-1.7976931348623157e+308 : GoFloat64))));
-    }
+function isInf(_f:GoFloat64, _sign:GoInt):Bool return _sign.toBasic() >= 0 && _f == M.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == M.NEGATIVE_INFINITY;
 /**
     // normalize returns a normal number y and exponent exp
     // satisfying x == y × 2**exp. It assumes x is finite and non-zero.
@@ -561,10 +527,10 @@ function dim(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Max(-0, -0) = -0
 **/
 function max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archMax(_x, _y);
-        };
-        return _max(_x, _y);
+        if (_x > 0 && !M.isFinite(_x.toBasic()) || _y > 0 && !M.isFinite(_y.toBasic())) return inf(1);
+        if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x)) return 0.0;
+        if (isNaN(_x) || isNaN(_y)) return naN();
+        return M.max(_x.toBasic(), _y.toBasic());
     }
 function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (isInf(_x, ((1 : GoInt))) || isInf(_y, ((1 : GoInt)))) {
@@ -591,10 +557,10 @@ function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Min(-0, ±0) = Min(±0, -0) = -0
 **/
 function min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archMin(_x, _y);
-        };
-        return _min(_x, _y);
+        if (_x < 0 && !M.isFinite(_x.toBasic()) || _y < 0 && !M.isFinite(_y.toBasic())) return inf(-1);
+        if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x)) return negZero();
+        if (isNaN(_x) || isNaN(_y)) return naN();
+        return M.min(_x.toBasic(), _y.toBasic());
     }
 function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (isInf(_x, ((-1 : GoInt))) || isInf(_y, ((-1 : GoInt)))) {
@@ -846,12 +812,7 @@ function erfcinv(_x:GoFloat64):GoFloat64 {
     // Very large values overflow to 0 or +Inf.
     // Very small values underflow to 1.
 **/
-function exp(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archExp(_x);
-        };
-        return _exp(_x);
-    }
+function exp(_x:GoFloat64):GoFloat64 return std.Math.exp(_x.toBasic());
 function _exp(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
@@ -1036,10 +997,8 @@ function _expm1(_x:GoFloat64):GoFloat64 {
     //	Floor(NaN) = NaN
 **/
 function floor(_x:GoFloat64):GoFloat64 {
-        if (true) {
-            return _archFloor(_x);
-        };
-        return _floor(_x);
+        if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic())) return _f;
+        return std.Math.ffloor(_f.toBasic());
     }
 function _floor(_x:GoFloat64):GoFloat64 {
         if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
@@ -1064,10 +1023,12 @@ function _floor(_x:GoFloat64):GoFloat64 {
     //	Ceil(NaN) = NaN
 **/
 function ceil(_x:GoFloat64):GoFloat64 {
-        if (true) {
-            return _archCeil(_x);
+        if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic())) return _f;
+        if (_f == 0.0 && _signbit(_f)) return negZero();
+        if (_f > -1.0 && _f < 0.0) {
+            return negZero();
         };
-        return _ceil(_x);
+        return std.Math.ceil(_f.toBasic());
     }
 function _ceil(_x:GoFloat64):GoFloat64 {
         return -floor(-_x);
@@ -1080,12 +1041,7 @@ function _ceil(_x:GoFloat64):GoFloat64 {
     //	Trunc(±Inf) = ±Inf
     //	Trunc(NaN) = NaN
 **/
-function trunc(_x:GoFloat64):GoFloat64 {
-        if (true) {
-            return _archTrunc(_x);
-        };
-        return _trunc(_x);
-    }
+function trunc(_x:GoFloat64):GoFloat64 return _x > 0 ? floor(_x) : ceil(_x);
 function _trunc(_x:GoFloat64):GoFloat64 {
         if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
             return _x;
@@ -1140,9 +1096,9 @@ function roundToEven(_x:GoFloat64):GoFloat64 {
         };
         return float64frombits(_bits);
     }
-function _archFloor(_x:GoFloat64):GoFloat64 throw "not implemeneted";
-function _archCeil(_x:GoFloat64):GoFloat64 throw "not implemeneted";
-function _archTrunc(_x:GoFloat64):GoFloat64 throw "not implemeneted";
+function _archFloor(_x:GoFloat64):GoFloat64 return floor(_x);
+function _archCeil(_x:GoFloat64):GoFloat64 return ceil(_x);
+function _archTrunc(_x:GoFloat64):GoFloat64 return trunc(_x);
 function _zero(_x:GoUInt64):GoUInt64 {
         if (_x == ((0 : GoUInt64))) {
             return ((1 : GoUInt64));
@@ -2318,12 +2274,7 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
     //	Log(x < 0) = NaN
     //	Log(NaN) = NaN
 **/
-function log(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archLog(_x);
-        };
-        return _log(_x);
-    }
+function log(_x:GoFloat64):GoFloat64 std.Math.log(_x.toBasic());
 function _log(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
@@ -2534,12 +2485,7 @@ function _ilogb(_x:GoFloat64):GoInt {
     //	Mod(x, ±Inf) = x
     //	Mod(x, NaN) = NaN
 **/
-function mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archMod(_x, _y);
-        };
-        return _mod(_x, _y);
-    }
+function mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 return _x.toBasic() % _y.toBasic();
 function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if ((((_y == ((0 : GoFloat64))) || isInf(_x, ((0 : GoInt)))) || isNaN(_x)) || isNaN(_y)) {
             return naN();
@@ -2680,12 +2626,7 @@ function _isOddInt(_x:GoFloat64):Bool {
     //	Pow(-Inf, y) = Pow(-0, -y)
     //	Pow(x, y) = NaN for finite x < 0 and finite non-integer y
 **/
-function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archPow(_x, _y);
-        };
-        return _pow(_x, _y);
-    }
+function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 std.Math.pow(_x.toBasic(), _y.toBasic());
 function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if ((_y == ((0 : GoFloat64))) || (_x == ((1 : GoFloat64)))) {
             return ((1 : GoFloat64));
@@ -2860,7 +2801,8 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // Signbit reports whether x is negative or negative zero.
 **/
 function signbit(_x:GoFloat64):Bool {
-        return (float64bits(_x) & (("9223372036854775808" : GoUInt64))) != ((0 : GoUInt64));
+        if (std.Math.isNaN(_x.toBasic())) return false;
+        return _signbit(_x);
     }
 /**
     // Cos returns the cosine of the radian argument x.
@@ -2869,55 +2811,8 @@ function signbit(_x:GoFloat64):Bool {
     //	Cos(±Inf) = NaN
     //	Cos(NaN) = NaN
 **/
-function cos(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archCos(_x);
-        };
-        return _cos(_x);
-    }
-function _cos(_x:GoFloat64):GoFloat64 {
-        {};
-        if (isNaN(_x) || isInf(_x, ((0 : GoInt)))) {
-            return naN();
-        };
-        var _sign:Bool = false;
-        _x = abs(_x);
-        var _j:GoUInt64 = ((0 : GoUInt64));
-        var _y:GoFloat64 = ((0 : GoFloat64)), _z:GoFloat64 = ((0 : GoFloat64));
-        if (_x >= ((5.36870912e+08 : GoFloat64))) {
-            {
-                var __tmp__ = _trigReduce(_x);
-                _j = __tmp__._0;
-                _z = __tmp__._1;
-            };
-        } else {
-            _j = (((_x * ((1.2732395447351628 : GoFloat64))) : GoUInt64));
-            _y = ((_j : GoFloat64));
-            if ((_j & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
-                _j++;
-                _y++;
-            };
-            _j = _j & (((7 : GoUInt64)));
-            _z = ((_x - (_y * ((0.7853981256484985 : GoFloat64)))) - (_y * ((3.774894707930798e-08 : GoFloat64)))) - (_y * ((2.6951514290790595e-15 : GoFloat64)));
-        };
-        if (_j > ((3 : GoUInt64))) {
-            _j = _j - (((4 : GoUInt64)));
-            _sign = !_sign;
-        };
-        if (_j > ((1 : GoUInt64))) {
-            _sign = !_sign;
-        };
-        var _zz:GoFloat64 = _z * _z;
-        if ((_j == ((1 : GoUInt64))) || (_j == ((2 : GoUInt64)))) {
-            _y = _z + ((_z * _zz) * (((((((((((__sin != null ? __sin[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__sin != null ? __sin[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((5 : GoInt))] : ((0 : GoFloat64)))));
-        } else {
-            _y = (((1 : GoFloat64)) - (((0.5 : GoFloat64)) * _zz)) + ((_zz * _zz) * (((((((((((__cos != null ? __cos[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__cos != null ? __cos[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((5 : GoInt))] : ((0 : GoFloat64)))));
-        };
-        if (_sign) {
-            _y = -_y;
-        };
-        return _y;
-    }
+function cos(_x:GoFloat64):GoFloat64 return M.cos(_f.toBasic());
+function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
 /**
     // Sin returns the sine of the radian argument x.
     //
@@ -2926,57 +2821,8 @@ function _cos(_x:GoFloat64):GoFloat64 {
     //	Sin(±Inf) = NaN
     //	Sin(NaN) = NaN
 **/
-function sin(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archSin(_x);
-        };
-        return _sin(_x);
-    }
-function _sin(_x:GoFloat64):GoFloat64 {
-        {};
-        if ((_x == ((0 : GoFloat64))) || isNaN(_x)) {
-            return _x;
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            return naN();
-        };
-        var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
-            _x = -_x;
-            _sign = true;
-        };
-        var _j:GoUInt64 = ((0 : GoUInt64));
-        var _y:GoFloat64 = ((0 : GoFloat64)), _z:GoFloat64 = ((0 : GoFloat64));
-        if (_x >= ((5.36870912e+08 : GoFloat64))) {
-            {
-                var __tmp__ = _trigReduce(_x);
-                _j = __tmp__._0;
-                _z = __tmp__._1;
-            };
-        } else {
-            _j = (((_x * ((1.2732395447351628 : GoFloat64))) : GoUInt64));
-            _y = ((_j : GoFloat64));
-            if ((_j & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
-                _j++;
-                _y++;
-            };
-            _j = _j & (((7 : GoUInt64)));
-            _z = ((_x - (_y * ((0.7853981256484985 : GoFloat64)))) - (_y * ((3.774894707930798e-08 : GoFloat64)))) - (_y * ((2.6951514290790595e-15 : GoFloat64)));
-        };
-        if (_j > ((3 : GoUInt64))) {
-            _sign = !_sign;
-            _j = _j - (((4 : GoUInt64)));
-        };
-        var _zz:GoFloat64 = _z * _z;
-        if ((_j == ((1 : GoUInt64))) || (_j == ((2 : GoUInt64)))) {
-            _y = (((1 : GoFloat64)) - (((0.5 : GoFloat64)) * _zz)) + ((_zz * _zz) * (((((((((((__cos != null ? __cos[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__cos != null ? __cos[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((5 : GoInt))] : ((0 : GoFloat64)))));
-        } else {
-            _y = _z + ((_z * _zz) * (((((((((((__sin != null ? __sin[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__sin != null ? __sin[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((5 : GoInt))] : ((0 : GoFloat64)))));
-        };
-        if (_sign) {
-            _y = -_y;
-        };
-        return _y;
-    }
+function sin(_x:GoFloat64):GoFloat64 return M.sin(_f.toBasic());
+function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
 /**
     // Sincos returns Sin(x), Cos(x).
     //
@@ -3115,53 +2961,8 @@ function _cosh(_x:GoFloat64):GoFloat64 {
     //	Sqrt(x < 0) = NaN
     //	Sqrt(NaN) = NaN
 **/
-function sqrt(_x:GoFloat64):GoFloat64 {
-        if (true) {
-            return _archSqrt(_x);
-        };
-        return _sqrt(_x);
-    }
-function _sqrt(_x:GoFloat64):GoFloat64 {
-        if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((1 : GoInt)))) {
-            return _x;
-        } else if (_x < ((0 : GoFloat64))) {
-            return naN();
-        };
-        var _ix:GoUInt64 = float64bits(_x);
-        var _exp:GoInt = ((((_ix >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt));
-        if (_exp == ((0 : GoInt))) {
-            while ((_ix & (("4503599627370496" : GoUInt64))) == ((0 : GoUInt64))) {
-                _ix = _ix << (((1 : GoUnTypedInt)));
-                _exp--;
-            };
-            _exp++;
-        };
-        _exp = _exp - (((1023 : GoInt)));
-        _ix = _ix & (((("9218868437227405312" : GoUInt64))) ^ ((-1 : GoUnTypedInt)));
-        _ix = _ix | ((("4503599627370496" : GoUInt64)));
-        if ((_exp & ((1 : GoInt))) == ((1 : GoInt))) {
-            _ix = _ix << (((1 : GoUnTypedInt)));
-        };
-        _exp = _exp >> (((1 : GoUnTypedInt)));
-        _ix = _ix << (((1 : GoUnTypedInt)));
-        var _q:GoUInt64 = ((0 : GoUInt64)), _s:GoUInt64 = ((0 : GoUInt64));
-        var _r:GoUInt64 = (((("9007199254740992" : GoUInt64)) : GoUInt64));
-        while (_r != ((0 : GoUInt64))) {
-            var _t:GoUInt64 = _s + _r;
-            if (_t <= _ix) {
-                _s = _t + _r;
-                _ix = _ix - (_t);
-                _q = _q + (_r);
-            };
-            _ix = _ix << (((1 : GoUnTypedInt)));
-            _r = _r >> (((1 : GoUnTypedInt)));
-        };
-        if (_ix != ((0 : GoUInt64))) {
-            _q = _q + (_q & ((1 : GoUInt64)));
-        };
-        _ix = (_q >> ((1 : GoUnTypedInt))) + (((((_exp - ((1 : GoInt))) + ((1023 : GoInt))) : GoUInt64)) << ((52 : GoUnTypedInt)));
-        return float64frombits(_ix);
-    }
+function sqrt(_x:GoFloat64):GoFloat64 return _sqrt(_x);
+function _sqrt(_x:GoFloat64):GoFloat64 return std.Math.sqrt(_x.toBasic());
 function _archSqrt(_x:GoFloat64):GoFloat64 throw "not implemeneted";
 function _archAcos(_x:GoFloat64):GoFloat64 {
         throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));
@@ -3246,12 +3047,7 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
     //	Tan(±Inf) = NaN
     //	Tan(NaN) = NaN
 **/
-function tan(_x:GoFloat64):GoFloat64 {
-        if (false) {
-            return _archTan(_x);
-        };
-        return _tan(_x);
-    }
+function tan(_x:GoFloat64):GoFloat64 return M.tan(_f.toBasic());
 function _tan(_x:GoFloat64):GoFloat64 {
         {};
         if ((_x == ((0 : GoFloat64))) || isNaN(_x)) {
@@ -3381,7 +3177,9 @@ function _trigReduce(_x:GoFloat64):{ var _0 : GoUInt64; var _1 : GoFloat64; } {
     // Float32bits(Float32frombits(x)) == x.
 **/
 function float32bits(_f:GoFloat32):GoUInt32 {
-        return ((((Go.toInterface(Go.pointer(_f)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(uint32_kind))) : Pointer<GoUInt32>)).value;
+        final bits = haxe.io.Bytes.alloc(4);
+        bits.setFloat(0, _b.toBasic());
+        return (bits.get(0)) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24);
     }
 /**
     // Float32frombits returns the floating-point number corresponding
@@ -3390,7 +3188,13 @@ function float32bits(_f:GoFloat32):GoUInt32 {
     // Float32frombits(Float32bits(x)) == x.
 **/
 function float32frombits(_b:GoUInt32):GoFloat32 {
-        return ((((Go.toInterface(Go.pointer(_b)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(float32_kind))) : Pointer<GoFloat32>)).value;
+        final bits = haxe.io.Bytes.alloc(4);
+        final v = _b.toBasic();
+        bits.set(0, v & 0xff);
+        bits.set(1, (v >> 8) & 0xff);
+        bits.set(2, (v >> 16) & 0xff);
+        bits.set(3, (v >> 24) & 0xff);
+        return bits.getFloat(0);
     }
 /**
     // Float64bits returns the IEEE 754 binary representation of f,
@@ -3398,7 +3202,9 @@ function float32frombits(_b:GoUInt32):GoFloat32 {
     // and Float64bits(Float64frombits(x)) == x.
 **/
 function float64bits(_f:GoFloat64):GoUInt64 {
-        return ((((Go.toInterface(Go.pointer(_f)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(uint64_kind))) : Pointer<GoUInt64>)).value;
+        final bits = haxe.io.Bytes.alloc(8);
+        bits.setDouble(0, _f.toBasic());
+        return haxe.Int64.make(bits.get(4) | (bits.get(5) << 8) | (bits.get(6) << 16) | (bits.get(7) << 24), bits.get(0) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24));
     }
 /**
     // Float64frombits returns the floating-point number corresponding
@@ -3407,5 +3213,16 @@ function float64bits(_f:GoFloat64):GoUInt64 {
     // Float64frombits(Float64bits(x)) == x.
 **/
 function float64frombits(_b:GoUInt64):GoFloat64 {
-        return ((((Go.toInterface(Go.pointer(_b)) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(float64_kind))) : Pointer<GoFloat64>)).value;
+        final bits = Bytes.alloc(8);
+        final low = _b.toBasic().low;
+        final high = _b.toBasic().high;
+        bits.set(0, low & 0xff);
+        bits.set(1, (low >> 8) & 0xff);
+        bits.set(2, (low >> 16) & 0xff);
+        bits.set(3, (low >> 24) & 0xff);
+        bits.set(4, high & 0xff);
+        bits.set(5, (high >> 8) & 0xff);
+        bits.set(6, (high >> 16) & 0xff);
+        bits.set(7, (high >> 24) & 0xff);
+        return bits.getDouble(0);
     }

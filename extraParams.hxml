@@ -7,4 +7,3 @@
 -D simulate_num
 -D hl-ver=1.11.0
 -D no-deprecation-warnings
---macro stdgo.internal.injector.Injector.run()

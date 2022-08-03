@@ -2832,7 +2832,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			}
 			switch expr.fun.sel.name {
 				case "String":
-					expr.fun.sel.name = "ToString"; // titled in order to export
+					// expr.fun.sel.name = "ToString"; // titled in order to export
 					if (typeof(expr.type, info).match(basic(string_kind))) {
 						var e = typeExpr(expr.fun, info);
 						genArgs(true);
@@ -5561,7 +5561,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				}
 				e = macro $e + "}";
 				fields.push({
-					name: "toString",
+					name: "string",
 					access: [APublic],
 					pos: null,
 					kind: FFun({
@@ -6024,9 +6024,6 @@ private function nameIdent(name:String, rename:Bool, overwrite:Bool, info:Info, 
 		return name;
 	if (name == "False" || name == "True" || name == "Main")
 		return "_" + name;
-	if (name == "String") {
-		return "toString";
-	}
 	var oldName = name;
 	if (overwrite) { // either an overwrite or a rename has been set
 		if (name == "nil") {

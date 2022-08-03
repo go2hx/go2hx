@@ -66,7 +66,7 @@ class BenchmarkResult {
 	public function memString():GoString
 		return "";
 
-	public function toString():GoString
+	public function string():GoString
 		return "";
 }
 

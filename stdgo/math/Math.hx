@@ -2962,7 +2962,7 @@ function _cosh(_x:GoFloat64):GoFloat64 {
     //	Sqrt(NaN) = NaN
 **/
 function sqrt(_x:GoFloat64):GoFloat64 return _sqrt(_x);
-function _sqrt(_x:GoFloat64):GoFloat64 return std.Math.sqrt(_x.toBasic());
+inline function _sqrt(_x:GoFloat64):GoFloat64 return std.Math.sqrt(_x.toBasic());
 function _archSqrt(_x:GoFloat64):GoFloat64 throw "not implemeneted";
 function _archAcos(_x:GoFloat64):GoFloat64 {
         throw Go.toInterface(((((("not implemented" : GoString))) : GoString)));

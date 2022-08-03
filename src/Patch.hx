@@ -219,4 +219,5 @@ final funcInline = [
 	"math:_archFloor",
 	"math:_archCeil",
 	"math:_archTrunc",
+	"math:_sqrt",
 ];

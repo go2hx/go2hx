@@ -450,6 +450,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 									final patch = Patch.list[patchName];
 									if (patch != null)
 										fun.expr = patch;
+									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+										access.push(AInline);
 									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension,
 										wrapper)) isWrapperPointer = true;
 								default:
@@ -4559,11 +4561,11 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		args.unshift({name: varName, type: ct, meta: isPointer(varType) ? [{name: ":pointer", pos: null}] : []});
 	}
 	info.restricted = restricted;
+	final patchName = info.global.module.path + ":" + name;
 	var block:Expr = if (info.global.externBool) {
 		info.returnNamed = false;
 		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 	} else {
-		final patchName = info.global.module.path + ":" + name;
 		final patch = Patch.list[patchName];
 		if (decl.recv == null && patch != null) {
 			patch;
@@ -4597,6 +4599,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		block = macro return $e;
 	}
 	var access = [];
+	if (decl.recv == null) {
+		if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
+			access.push(AInline);
+	}
 	var nonGenericParams:Array<TypeParamDecl> = []; // params
 	if (decl.type.typeParams != null || recvGeneric) {
 		for (arg in args) {

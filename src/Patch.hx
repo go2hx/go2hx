@@ -163,36 +163,36 @@ final list = [
 	"math:_sqrt" => macro return std.Math.sqrt(_x.toBasic()),
 	"math:min" => macro {
 		// special cases
-		if (_x < 0 && !M.isFinite(_x.toBasic()) || _y < 0 && !M.isFinite(_y.toBasic()))
+		if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic()))
 			return inf(-1);
 		if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x))
 			return negZero();
 		if (isNaN(_x) || isNaN(_y))
 			return naN();
-		return M.min(_x.toBasic(), _y.toBasic());
+		return std.Math.min(_x.toBasic(), _y.toBasic());
 	},
 	"math:max" => macro {
 		// special cases
-		if (_x > 0 && !M.isFinite(_x.toBasic()) || _y > 0 && !M.isFinite(_y.toBasic()))
+		if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
 			return inf(1);
 		if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x))
 			return 0.0;
 		if (isNaN(_x) || isNaN(_y))
 			return naN();
-		return M.max(_x.toBasic(), _y.toBasic());
+		return std.Math.max(_x.toBasic(), _y.toBasic());
 	},
-	"math:sin" => macro return M.sin(_f.toBasic()),
-	"math:cos" => macro return M.cos(_f.toBasic()),
-	"math:tan" => macro return M.tan(_f.toBasic()),
-	"math:asin" => macro return M.asin(_f.toBasic()),
-	"math:acos" => macro return M.acos(_f.toBasic()),
-	"math:atan" => macro return M.atan(_f.toBasic()),
-	"math:atan2" => macro return M.atan2(_f.toBasic()),
-	"math:isInf" => macro return _sign.toBasic() >= 0 && _f == M.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == M.NEGATIVE_INFINITY,
+	"math:sin" => macro return std.Math.sin(_f.toBasic()),
+	"math:cos" => macro return std.Math.cos(_f.toBasic()),
+	"math:tan" => macro return std.Math.tan(_f.toBasic()),
+	"math:asin" => macro return std.Math.asin(_f.toBasic()),
+	"math:acos" => macro return std.Math.acos(_f.toBasic()),
+	"math:atan" => macro return std.Math.atan(_f.toBasic()),
+	"math:atan2" => macro return std.Math.atan2(_f.toBasic()),
+	"math:isInf" => macro return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY,
 	"math:hypnot" => macro {
 		if (isInf(_p, 0) || isInf(_q, 0))
 			return inf(1);
-		if (_p == M.NaN || _q == M.NaN)
+		if (_p == std.Math.NaN || _q == std.Math.NaN)
 			return naN();
 		_p = abs(_p);
 		_q = abs(_q);
@@ -211,4 +211,12 @@ final list = [
 	"math:_archTrunc" => macro return trunc(_x),
 	"math:_cos" => macro return cos(_x),
 	"math:_sin" => macro return sin(_x),
+];
+
+final funcInline = [
+	"math:_sin",
+	"math:_cos",
+	"math:_archFloor",
+	"math:_archCeil",
+	"math:_archTrunc",
 ];

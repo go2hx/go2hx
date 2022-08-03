@@ -95,8 +95,8 @@ var _global : AnyInterface = ((null : AnyInterface));
 @:structInit @:local class T__struct_1 {
     public var _in : GoString = "";
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
-    public function new(?_in:GoString, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
+    public function new(?_in:GoString, ?_out:GoString, ?string) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
     }
@@ -108,8 +108,8 @@ var _global : AnyInterface = ((null : AnyInterface));
 @:structInit @:local class T__struct_2 {
     public var _name : GoString = "";
     public var _f : Ref<File> -> stdgo.Error = null;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-    public function new(?_name:GoString, ?_f:Ref<File> -> stdgo.Error, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+    public function new(?_name:GoString, ?_f:Ref<File> -> stdgo.Error, ?string) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
     }

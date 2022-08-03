@@ -29,8 +29,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
 @:structInit @:local class T__struct_0 {
     public var _x : GoUInt64 = 0;
     public var _r : GoUInt64 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt64, ?_r:GoUInt64, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_r) + "}";
+    public function new(?_x:GoUInt64, ?_r:GoUInt64, ?string) {
         if (_x != null) this._x = _x;
         if (_r != null) this._r = _r;
     }
@@ -45,8 +45,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _c : GoUInt = 0;
     public var _z : GoUInt = 0;
     public var _cout : GoUInt = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
+    public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_c != null) this._c = _c;
@@ -64,8 +64,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _c : GoUInt32 = 0;
     public var _z : GoUInt32 = 0;
     public var _cout : GoUInt32 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
+    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_c != null) this._c = _c;
@@ -83,8 +83,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _c : GoUInt64 = 0;
     public var _z : GoUInt64 = 0;
     public var _cout : GoUInt64 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
+    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_c != null) this._c = _c;
@@ -102,8 +102,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _hi : GoUInt = 0;
     public var _lo : GoUInt = 0;
     public var _r : GoUInt = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
+    public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_hi != null) this._hi = _hi;
@@ -121,8 +121,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _hi : GoUInt32 = 0;
     public var _lo : GoUInt32 = 0;
     public var _r : GoUInt32 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
+    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_hi != null) this._hi = _hi;
@@ -140,8 +140,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _hi : GoUInt64 = 0;
     public var _lo : GoUInt64 = 0;
     public var _r : GoUInt64 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
+    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_hi != null) this._hi = _hi;
@@ -158,8 +158,8 @@ var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new 
     public var _lo : GoUInt64 = 0;
     public var _y : GoUInt64 = 0;
     public var _rem : GoUInt64 = 0;
-    public function toString():String return "{" + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_y) + " " + Go.string(_rem) + "}";
-    public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64, ?toString) {
+    public function string():String return "{" + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_y) + " " + Go.string(_rem) + "}";
+    public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64, ?string) {
         if (_hi != null) this._hi = _hi;
         if (_lo != null) this._lo = _lo;
         if (_y != null) this._y = _y;

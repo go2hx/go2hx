@@ -14,8 +14,8 @@ var _copyTests : Slice<stdgo.syscall.js_test.Js_test.T__struct_0> = ((null : Sli
     public var _srcLen : GoInt = 0;
     public var _dstLen : GoInt = 0;
     public var _copyLen : GoInt = 0;
-    public function toString():String return "{" + Go.string(_srcLen) + " " + Go.string(_dstLen) + " " + Go.string(_copyLen) + "}";
-    public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_srcLen) + " " + Go.string(_dstLen) + " " + Go.string(_copyLen) + "}";
+    public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt, ?string) {
         if (_srcLen != null) this._srcLen = _srcLen;
         if (_dstLen != null) this._dstLen = _dstLen;
         if (_copyLen != null) this._copyLen = _copyLen;

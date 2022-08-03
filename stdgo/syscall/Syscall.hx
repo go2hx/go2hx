@@ -483,13 +483,13 @@ class Errno_wrapper {
 }
 @:keep class Signal_static_extension {
     @:keep
-    static public function toString( _s:Signal):GoString return (("" : GoString));
+    static public function string( _s:Signal):GoString return (("" : GoString));
     @:keep
     static public function signal( _s:Signal):Void return;
 }
 class Signal_wrapper {
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     @:keep
     public var signal : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;

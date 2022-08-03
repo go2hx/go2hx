@@ -787,7 +787,7 @@ function join(_elems:Slice<GoString>, _sep:GoString):GoString {
             _b.writeString(_sep);
             _b.writeString(_s);
         };
-        return ((_b.toString() : GoString));
+        return ((_b.string() : GoString));
     }
 /**
     // HasPrefix tests whether the string s begins with prefix.
@@ -847,7 +847,7 @@ function map(_mapping:GoRune -> GoRune, _s:GoString):GoString {
                 };
             };
         };
-        return ((_b.toString() : GoString));
+        return ((_b.string() : GoString));
     }
 /**
     // Repeat returns a new string consisting of count copies of the string s.
@@ -870,13 +870,13 @@ function repeat(_s:GoString, _count:GoInt):GoString {
         _b.writeString(_s);
         while (_b.len() < _n) {
             if (_b.len() <= (_n / ((2 : GoInt)))) {
-                _b.writeString(((_b.toString() : GoString)));
+                _b.writeString(((_b.string() : GoString)));
             } else {
-                _b.writeString(((((_b.toString() : GoString)).__slice__(0, _n - _b.len()) : GoString)));
+                _b.writeString(((((_b.string() : GoString)).__slice__(0, _n - _b.len()) : GoString)));
                 break;
             };
         };
-        return ((_b.toString() : GoString));
+        return ((_b.string() : GoString));
     }
 /**
     // ToUpper returns s with all Unicode letters mapped to their upper case.
@@ -910,7 +910,7 @@ function toUpper(_s:GoString):GoString {
                     _b.writeByte(_c);
                 });
             };
-            return ((_b.toString() : GoString));
+            return ((_b.string() : GoString));
         };
         return map(stdgo.unicode.Unicode.toUpper, _s);
     }
@@ -946,7 +946,7 @@ function toLower(_s:GoString):GoString {
                     _b.writeByte(_c);
                 });
             };
-            return ((_b.toString() : GoString));
+            return ((_b.string() : GoString));
         };
         return map(stdgo.unicode.Unicode.toLower, _s);
     }
@@ -1024,7 +1024,7 @@ function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
                 _i = _i + (_wid);
             };
         };
-        return ((_b.toString() : GoString));
+        return ((_b.string() : GoString));
     }
 /**
     // isSeparator reports whether the rune could mark a word boundary.
@@ -1374,7 +1374,7 @@ function replace(_s:GoString, _old:GoString, _new:GoString, _n:GoInt):GoString {
             });
         };
         _b.writeString(((_s.__slice__(_start) : GoString)));
-        return ((_b.toString() : GoString));
+        return ((_b.string() : GoString));
     }
 /**
     // ReplaceAll returns a copy of the string s with all
@@ -1649,7 +1649,7 @@ function cut(_s:GoString, _sep:GoString):{ var _0 : GoString; var _1 : GoString;
         // String returns the accumulated string.
     **/
     @:keep
-    static public function toString( _b:Builder):GoString {
+    static public function string( _b:Builder):GoString {
         return ((((Go.toInterface(_b._buf) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)).value;
     }
     @:keep
@@ -1720,7 +1720,7 @@ class Builder_wrapper {
         // String returns the accumulated string.
     **/
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     @:keep
     public var _copyCheck : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
@@ -2361,7 +2361,7 @@ class T_stringWriter_wrapper {
             return _s;
         };
         _buf.writeString(((_s.__slice__(_i) : GoString)));
-        return ((_buf.toString() : GoString));
+        return ((_buf.string() : GoString));
     }
 }
 class T_singleStringReplacer_wrapper {

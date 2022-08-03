@@ -336,7 +336,7 @@ var unreadRuneErrorTests : Slice<stdgo.strings_test.Strings_test.T__struct_20> =
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).toString() #else null #end;
+            __self__.string = #if !macro function():GoString return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return ((new stdgo.bytes.Bytes.Buffer() : stdgo.bytes.Bytes.Buffer)).unreadRune() #else null #end;
@@ -585,8 +585,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _fn : Ref<Builder> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public var _n : GoInt = 0;
     public var _want : GoString = "";
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_fn) + " " + Go.string(_n) + " " + Go.string(_want) + "}";
-    public function new(?_name:GoString, ?_fn:Ref<Builder> -> { var _0 : GoInt; var _1 : stdgo.Error; }, ?_n:GoInt, ?_want:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_fn) + " " + Go.string(_n) + " " + Go.string(_want) + "}";
+    public function new(?_name:GoString, ?_fn:Ref<Builder> -> { var _0 : GoInt; var _1 : stdgo.Error; }, ?_n:GoInt, ?_want:GoString, ?string) {
         if (_name != null) this._name = _name;
         if (_fn != null) this._fn = _fn;
         if (_n != null) this._n = _n;
@@ -601,8 +601,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _name : GoString = "";
     public var _fn : () -> Void = null;
     public var _wantPanic : Bool = false;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_fn) + " " + Go.string(_wantPanic) + "}";
-    public function new(?_name:GoString, ?_fn:() -> Void, ?_wantPanic:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_fn) + " " + Go.string(_wantPanic) + "}";
+    public function new(?_name:GoString, ?_fn:() -> Void, ?_wantPanic:Bool, ?string) {
         if (_name != null) this._name = _name;
         if (_fn != null) this._fn = _fn;
         if (_wantPanic != null) this._wantPanic = _wantPanic;
@@ -616,8 +616,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _a : GoString = "";
     public var _b : GoString = "";
     public var _i : GoInt = 0;
-    public function toString():String return "{" + Go.string(_a) + " " + Go.string(_b) + " " + Go.string(_i) + "}";
-    public function new(?_a:GoString, ?_b:GoString, ?_i:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_a) + " " + Go.string(_b) + " " + Go.string(_i) + "}";
+    public function new(?_a:GoString, ?_b:GoString, ?_i:GoInt, ?string) {
         if (_a != null) this._a = _a;
         if (_b != null) this._b = _b;
         if (_i != null) this._i = _i;
@@ -635,8 +635,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _wantpos : GoInt64 = 0;
     public var _readerr : stdgo.Error = ((null : stdgo.Error));
     public var _seekerr : GoString = "";
-    public function toString():String return "{" + Go.string(_off) + " " + Go.string(_seek) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wantpos) + " " + Go.string(_readerr) + " " + Go.string(_seekerr) + "}";
-    public function new(?_off:GoInt64, ?_seek:GoInt, ?_n:GoInt, ?_want:GoString, ?_wantpos:GoInt64, ?_readerr:stdgo.Error, ?_seekerr:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_off) + " " + Go.string(_seek) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wantpos) + " " + Go.string(_readerr) + " " + Go.string(_seekerr) + "}";
+    public function new(?_off:GoInt64, ?_seek:GoInt, ?_n:GoInt, ?_want:GoString, ?_wantpos:GoInt64, ?_readerr:stdgo.Error, ?_seekerr:GoString, ?string) {
         if (_off != null) this._off = _off;
         if (_seek != null) this._seek = _seek;
         if (_n != null) this._n = _n;
@@ -655,8 +655,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _n : GoInt = 0;
     public var _want : GoString = "";
     public var _wanterr : AnyInterface = ((null : AnyInterface));
-    public function toString():String return "{" + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wanterr) + "}";
-    public function new(?_off:GoInt64, ?_n:GoInt, ?_want:GoString, ?_wanterr:AnyInterface, ?toString) {
+    public function string():String return "{" + Go.string(_off) + " " + Go.string(_n) + " " + Go.string(_want) + " " + Go.string(_wanterr) + "}";
+    public function new(?_off:GoInt64, ?_n:GoInt, ?_want:GoString, ?_wanterr:AnyInterface, ?string) {
         if (_off != null) this._off = _off;
         if (_n != null) this._n = _n;
         if (_want != null) this._want = _want;
@@ -670,8 +670,8 @@ var _stringSink : GoString = (("" : GoString));
 @:structInit @:local class T__struct_5 {
     public var _r : Ref<Replacer> = ((null : Replacer));
     public var _want : GoString = "";
-    public function toString():String return "{" + Go.string(_r) + " " + Go.string(_want) + "}";
-    public function new(?_r:Ref<Replacer>, ?_want:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_r) + " " + Go.string(_want) + "}";
+    public function new(?_r:Ref<Replacer>, ?_want:GoString, ?string) {
         if (_r != null) this._r = _r;
         if (_want != null) this._want = _want;
     }
@@ -683,8 +683,8 @@ var _stringSink : GoString = (("" : GoString));
 @:structInit @:local class T__struct_6 {
     public var _in : GoString = "";
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
-    public function new(?_in:GoString, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
+    public function new(?_in:GoString, ?_out:GoString, ?string) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
     }
@@ -696,8 +696,8 @@ var _stringSink : GoString = (("" : GoString));
 @:structInit @:local class T__struct_7 {
     public var _name : GoString = "";
     public var _data : GoString = "";
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
-    public function new(?_name:GoString, ?_data:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
+    public function new(?_name:GoString, ?_data:GoString, ?string) {
         if (_name != null) this._name = _name;
         if (_data != null) this._data = _data;
     }
@@ -710,8 +710,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _pat : GoString = "";
     public var _text : GoString = "";
     public var _index : GoInt = 0;
-    public function toString():String return "{" + Go.string(_pat) + " " + Go.string(_text) + " " + Go.string(_index) + "}";
-    public function new(?_pat:GoString, ?_text:GoString, ?_index:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_pat) + " " + Go.string(_text) + " " + Go.string(_index) + "}";
+    public function new(?_pat:GoString, ?_text:GoString, ?_index:GoInt, ?string) {
         if (_pat != null) this._pat = _pat;
         if (_text != null) this._text = _text;
         if (_index != null) this._index = _index;
@@ -725,8 +725,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _pattern : GoString = "";
     public var _bad : GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0 ... 256) ((0 : GoInt))]);
     public var _suf : Slice<GoInt> = ((null : Slice<GoInt>));
-    public function toString():String return "{" + Go.string(_pattern) + " " + Go.string(_bad) + " " + Go.string(_suf) + "}";
-    public function new(?_pattern:GoString, ?_bad:GoArray<GoInt>, ?_suf:Slice<GoInt>, ?toString) {
+    public function string():String return "{" + Go.string(_pattern) + " " + Go.string(_bad) + " " + Go.string(_suf) + "}";
+    public function new(?_pattern:GoString, ?_bad:GoArray<GoInt>, ?_suf:Slice<GoInt>, ?string) {
         if (_pattern != null) this._pattern = _pattern;
         if (_bad != null) this._bad = _bad;
         if (_suf != null) this._suf = _suf;
@@ -740,8 +740,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _in : GoString = "";
     public var _rune : GoInt32 = 0;
     public var _want : GoInt = 0;
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_rune) + " " + Go.string(_want) + "}";
-    public function new(?_in:GoString, ?_rune:GoInt32, ?_want:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_rune) + " " + Go.string(_want) + "}";
+    public function new(?_in:GoString, ?_rune:GoInt32, ?_want:GoInt, ?string) {
         if (_in != null) this._in = _in;
         if (_rune != null) this._rune = _rune;
         if (_want != null) this._want = _want;
@@ -755,8 +755,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _in : GoString = "";
     public var _repl : GoString = "";
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_repl) + " " + Go.string(_out) + "}";
-    public function new(?_in:GoString, ?_repl:GoString, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_repl) + " " + Go.string(_out) + "}";
+    public function new(?_in:GoString, ?_repl:GoString, ?_out:GoString, ?string) {
         if (_in != null) this._in = _in;
         if (_repl != null) this._repl = _repl;
         if (_out != null) this._out = _out;
@@ -771,8 +771,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _in : GoString = "";
     public var _arg : GoString = "";
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_f) + " " + Go.string(_in) + " " + Go.string(_arg) + " " + Go.string(_out) + "}";
-    public function new(?_f:GoString, ?_in:GoString, ?_arg:GoString, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_f) + " " + Go.string(_in) + " " + Go.string(_arg) + " " + Go.string(_out) + "}";
+    public function new(?_f:GoString, ?_in:GoString, ?_arg:GoString, ?_out:GoString, ?string) {
         if (_f != null) this._f = _f;
         if (_in != null) this._in = _in;
         if (_arg != null) this._arg = _arg;
@@ -786,8 +786,8 @@ var _stringSink : GoString = (("" : GoString));
 @:structInit @:local class T__struct_13 {
     public var _name : GoString = "";
     public var _input : GoString = "";
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_input) + "}";
-    public function new(?_name:GoString, ?_input:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_input) + "}";
+    public function new(?_name:GoString, ?_input:GoString, ?string) {
         if (_name != null) this._name = _name;
         if (_input != null) this._input = _input;
     }
@@ -802,8 +802,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _trimOut : GoString = "";
     public var _leftOut : GoString = "";
     public var _rightOut : GoString = "";
-    public function toString():String return "{" + Go.string(_f) + " " + Go.string(_in) + " " + Go.string(_trimOut) + " " + Go.string(_leftOut) + " " + Go.string(_rightOut) + "}";
-    public function new(?_f:stdgo.strings_test.Strings_test.T_predicate, ?_in:GoString, ?_trimOut:GoString, ?_leftOut:GoString, ?_rightOut:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_f) + " " + Go.string(_in) + " " + Go.string(_trimOut) + " " + Go.string(_leftOut) + " " + Go.string(_rightOut) + "}";
+    public function new(?_f:stdgo.strings_test.Strings_test.T_predicate, ?_in:GoString, ?_trimOut:GoString, ?_leftOut:GoString, ?_rightOut:GoString, ?string) {
         if (_f != null) this._f = _f;
         if (_in != null) this._in = _in;
         if (_trimOut != null) this._trimOut = _trimOut;
@@ -819,8 +819,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _name : GoString = "";
     public var _trim : (GoString, GoInt32 -> Bool) -> GoString = null;
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_trim) + " " + Go.string(_out) + "}";
-    public function new(?_name:GoString, ?_trim:(GoString, GoInt32 -> Bool) -> GoString, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_trim) + " " + Go.string(_out) + "}";
+    public function new(?_name:GoString, ?_trim:(GoString, GoInt32 -> Bool) -> GoString, ?_out:GoString, ?string) {
         if (_name != null) this._name = _name;
         if (_trim != null) this._trim = _trim;
         if (_out != null) this._out = _out;
@@ -835,8 +835,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _f : stdgo.strings_test.Strings_test.T_predicate = new stdgo.strings_test.Strings_test.T_predicate();
     public var _first : GoInt = 0;
     public var _last : GoInt = 0;
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_f) + " " + Go.string(_first) + " " + Go.string(_last) + "}";
-    public function new(?_in:GoString, ?_f:stdgo.strings_test.Strings_test.T_predicate, ?_first:GoInt, ?_last:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_f) + " " + Go.string(_first) + " " + Go.string(_last) + "}";
+    public function new(?_in:GoString, ?_f:stdgo.strings_test.Strings_test.T_predicate, ?_first:GoInt, ?_last:GoInt, ?string) {
         if (_in != null) this._in = _in;
         if (_f != null) this._f = _f;
         if (_first != null) this._first = _first;
@@ -851,8 +851,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _in : GoString = "";
     public var _out : GoString = "";
     public var _count : GoInt = 0;
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_out) + " " + Go.string(_count) + "}";
-    public function new(?_in:GoString, ?_out:GoString, ?_count:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_out) + " " + Go.string(_count) + "}";
+    public function new(?_in:GoString, ?_out:GoString, ?_count:GoInt, ?string) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
         if (_count != null) this._count = _count;
@@ -866,8 +866,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _s : GoString = "";
     public var _count : GoInt = 0;
     public var _errStr : GoString = "";
-    public function toString():String return "{" + Go.string(_s) + " " + Go.string(_count) + " " + Go.string(_errStr) + "}";
-    public function new(?_s:GoString, ?_count:GoInt, ?_errStr:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_s) + " " + Go.string(_count) + " " + Go.string(_errStr) + "}";
+    public function new(?_s:GoString, ?_count:GoInt, ?_errStr:GoString, ?string) {
         if (_s != null) this._s = _s;
         if (_count != null) this._count = _count;
         if (_errStr != null) this._errStr = _errStr;
@@ -881,8 +881,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _in : GoString = "";
     public var _out : Slice<GoInt32> = ((null : Slice<GoInt32>));
     public var _lossy : Bool = false;
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_out) + " " + Go.string(_lossy) + "}";
-    public function new(?_in:GoString, ?_out:Slice<GoInt32>, ?_lossy:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_out) + " " + Go.string(_lossy) + "}";
+    public function new(?_in:GoString, ?_out:Slice<GoInt32>, ?_lossy:Bool, ?string) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
         if (_lossy != null) this._lossy = _lossy;
@@ -895,8 +895,8 @@ var _stringSink : GoString = (("" : GoString));
 @:structInit @:local class T__struct_20 {
     public var _name : GoString = "";
     public var _f : Ref<Reader> -> Void = null;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-    public function new(?_name:GoString, ?_f:Ref<Reader> -> Void, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
+    public function new(?_name:GoString, ?_f:Ref<Reader> -> Void, ?string) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
     }
@@ -911,8 +911,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _new : GoString = "";
     public var _n : GoInt = 0;
     public var _out : GoString = "";
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_old) + " " + Go.string(_new) + " " + Go.string(_n) + " " + Go.string(_out) + "}";
-    public function new(?_in:GoString, ?_old:GoString, ?_new:GoString, ?_n:GoInt, ?_out:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_old) + " " + Go.string(_new) + " " + Go.string(_n) + " " + Go.string(_out) + "}";
+    public function new(?_in:GoString, ?_old:GoString, ?_new:GoString, ?_n:GoInt, ?_out:GoString, ?string) {
         if (_in != null) this._in = _in;
         if (_old != null) this._old = _old;
         if (_new != null) this._new = _new;
@@ -928,8 +928,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _str : GoString = "";
     public var _substr : GoString = "";
     public var _expected : Bool = false;
-    public function toString():String return "{" + Go.string(_str) + " " + Go.string(_substr) + " " + Go.string(_expected) + "}";
-    public function new(?_str:GoString, ?_substr:GoString, ?_expected:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_str) + " " + Go.string(_substr) + " " + Go.string(_expected) + "}";
+    public function new(?_str:GoString, ?_substr:GoString, ?_expected:Bool, ?string) {
         if (_str != null) this._str = _str;
         if (_substr != null) this._substr = _substr;
         if (_expected != null) this._expected = _expected;
@@ -943,8 +943,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _str : GoString = "";
     public var _r : GoInt32 = 0;
     public var _expected : Bool = false;
-    public function toString():String return "{" + Go.string(_str) + " " + Go.string(_r) + " " + Go.string(_expected) + "}";
-    public function new(?_str:GoString, ?_r:GoInt32, ?_expected:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_str) + " " + Go.string(_r) + " " + Go.string(_expected) + "}";
+    public function new(?_str:GoString, ?_r:GoInt32, ?_expected:Bool, ?string) {
         if (_str != null) this._str = _str;
         if (_r != null) this._r = _r;
         if (_expected != null) this._expected = _expected;
@@ -958,8 +958,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _s : GoString = "";
     public var _t : GoString = "";
     public var _out : Bool = false;
-    public function toString():String return "{" + Go.string(_s) + " " + Go.string(_t) + " " + Go.string(_out) + "}";
-    public function new(?_s:GoString, ?_t:GoString, ?_out:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_s) + " " + Go.string(_t) + " " + Go.string(_out) + "}";
+    public function new(?_s:GoString, ?_t:GoString, ?_out:Bool, ?string) {
         if (_s != null) this._s = _s;
         if (_t != null) this._t = _t;
         if (_out != null) this._out = _out;
@@ -973,8 +973,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _s : GoString = "";
     public var _sep : GoString = "";
     public var _num : GoInt = 0;
-    public function toString():String return "{" + Go.string(_s) + " " + Go.string(_sep) + " " + Go.string(_num) + "}";
-    public function new(?_s:GoString, ?_sep:GoString, ?_num:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_s) + " " + Go.string(_sep) + " " + Go.string(_num) + "}";
+    public function new(?_s:GoString, ?_sep:GoString, ?_num:GoInt, ?string) {
         if (_s != null) this._s = _s;
         if (_sep != null) this._sep = _sep;
         if (_num != null) this._num = _num;
@@ -990,8 +990,8 @@ var _stringSink : GoString = (("" : GoString));
     public var _before : GoString = "";
     public var _after : GoString = "";
     public var _found : Bool = false;
-    public function toString():String return "{" + Go.string(_s) + " " + Go.string(_sep) + " " + Go.string(_before) + " " + Go.string(_after) + " " + Go.string(_found) + "}";
-    public function new(?_s:GoString, ?_sep:GoString, ?_before:GoString, ?_after:GoString, ?_found:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_s) + " " + Go.string(_sep) + " " + Go.string(_before) + " " + Go.string(_after) + " " + Go.string(_found) + "}";
+    public function new(?_s:GoString, ?_sep:GoString, ?_before:GoString, ?_after:GoString, ?_found:Bool, ?string) {
         if (_s != null) this._s = _s;
         if (_sep != null) this._sep = _sep;
         if (_before != null) this._before = _before;
@@ -1005,7 +1005,7 @@ var _stringSink : GoString = (("" : GoString));
 }
 function _check(_t:stdgo.testing.Testing.T, _b:Builder, _want:GoString):Void {
         _t.helper();
-        var _got:GoString = ((_b.toString() : GoString));
+        var _got:GoString = ((_b.string() : GoString));
         if (_got != _want) {
             _t.errorf(((((("String: got %#q; want %#q" : GoString))) : GoString)), Go.toInterface(_got), Go.toInterface(_want));
             return;
@@ -1052,13 +1052,13 @@ function testBuilderString(_t:stdgo.testing.Testing.T):Void {
         var _b:Builder = new Builder();
         _b.writeString(((((("alpha" : GoString))) : GoString)));
         _check(_t, _b, ((((("alpha" : GoString))) : GoString)));
-        var _s1:GoString = ((_b.toString() : GoString));
+        var _s1:GoString = ((_b.string() : GoString));
         _b.writeString(((((("beta" : GoString))) : GoString)));
         _check(_t, _b, ((((("alphabeta" : GoString))) : GoString)));
-        var _s2:GoString = ((_b.toString() : GoString));
+        var _s2:GoString = ((_b.string() : GoString));
         _b.writeString(((((("gamma" : GoString))) : GoString)));
         _check(_t, _b, ((((("alphabetagamma" : GoString))) : GoString)));
-        var _s3:GoString = ((_b.toString() : GoString));
+        var _s3:GoString = ((_b.string() : GoString));
         {
             var _want:GoString = ((((("alpha" : GoString))) : GoString));
             if (_s1 != _want) {
@@ -1082,7 +1082,7 @@ function testBuilderReset(_t:stdgo.testing.Testing.T):Void {
         var _b:Builder = new Builder();
         _check(_t, _b, ((((("" : GoString))) : GoString)));
         _b.writeString(((((("aaa" : GoString))) : GoString)));
-        var _s:GoString = ((_b.toString() : GoString));
+        var _s:GoString = ((_b.string() : GoString));
         _check(_t, _b, ((((("aaa" : GoString))) : GoString)));
         _b.reset();
         _check(_t, _b, ((((("" : GoString))) : GoString)));
@@ -1105,7 +1105,7 @@ function testBuilderGrow(_t:stdgo.testing.Testing.T):Void {
                     _t.fatalf(((((("growLen=%d: Cap() is lower than growLen" : GoString))) : GoString)), Go.toInterface(_growLen));
                 };
                 _b.write(_p);
-                if (((_b.toString() : GoString)) != ((_p : GoString))) {
+                if (((_b.string() : GoString)) != ((_p : GoString))) {
                     _t.fatalf(((((("growLen=%d: bad data written after Grow" : GoString))) : GoString)), Go.toInterface(_growLen));
                 };
             });
@@ -1178,7 +1178,7 @@ function testBuilderAllocs(_t:stdgo.testing.Testing.T):Void {
             var _b:Builder = new Builder();
             _b.grow(((5 : GoInt)));
             _b.writeString(((((("abcde" : GoString))) : GoString)));
-            ((_b.toString() : GoString));
+            ((_b.string() : GoString));
         });
         if (_n != ((1 : GoFloat64))) {
             _t.errorf(((((("Builder allocs = %v; want 1" : GoString))) : GoString)), Go.toInterface(_n));
@@ -1189,7 +1189,7 @@ function testBuilderCopyPanic(_t:stdgo.testing.Testing.T):Void {
             var _a:Builder = new Builder();
             _a.writeByte((("x".code : GoUInt8)));
             var _b:Builder = (_a == null ? null : _a.__copy__());
-            ((_b.toString() : GoString));
+            ((_b.string() : GoString));
         } } : T__struct_1)), (({ _name : ((((("Len" : GoString))) : GoString)), _wantPanic : false, _fn : function():Void {
             var _a:Builder = new Builder();
             _a.writeByte((("x".code : GoUInt8)));
@@ -1317,7 +1317,7 @@ function benchmarkBuildString_Builder(_b:stdgo.testing.Testing.B):Void {
                             _buf.write(_someBytes);
                         });
                     };
-                    _sinkS = ((_buf.toString() : GoString));
+                    _sinkS = ((_buf.string() : GoString));
                 });
             };
         });
@@ -1337,7 +1337,7 @@ function benchmarkBuildString_ByteBuffer(_b:stdgo.testing.Testing.B):Void {
                             _buf.write(_someBytes);
                         });
                     };
-                    _sinkS = ((_buf.toString() : GoString));
+                    _sinkS = ((_buf.string() : GoString));
                 });
             };
         });
@@ -1466,7 +1466,7 @@ function exampleBuilder():Void {
                     __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
                     __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
                     __self__.reset = #if !macro function():Void _b.reset() #else null #end;
-                    __self__.toString = #if !macro function():GoString return _b.toString() #else null #end;
+                    __self__.string = #if !macro function():GoString return _b.string() #else null #end;
                     __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
                     __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
                     __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
@@ -1478,7 +1478,7 @@ function exampleBuilder():Void {
             });
         };
         _b.writeString(((((("ignition" : GoString))) : GoString)));
-        stdgo.fmt.Fmt.println(((_b.toString() : GoString)));
+        stdgo.fmt.Fmt.println(((_b.string() : GoString)));
     }
 function exampleCompare():Void {
         stdgo.fmt.Fmt.println(stdgo.strings.Strings.compare(((((("a" : GoString))) : GoString)), ((((("b" : GoString))) : GoString))));
@@ -1885,7 +1885,7 @@ function testWriteTo(_t:stdgo.testing.Testing.T):Void {
                     __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _b.readRune() #else null #end;
                     __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _b.readString(_delim) #else null #end;
                     __self__.reset = #if !macro function():Void _b.reset() #else null #end;
-                    __self__.toString = #if !macro function():GoString return _b.toString() #else null #end;
+                    __self__.string = #if !macro function():GoString return _b.string() #else null #end;
                     __self__.truncate = #if !macro function(_n:GoInt):Void _b.truncate(_n) #else null #end;
                     __self__.unreadByte = #if !macro function():stdgo.Error return _b.unreadByte() #else null #end;
                     __self__.unreadRune = #if !macro function():stdgo.Error return _b.unreadRune() #else null #end;
@@ -1909,8 +1909,8 @@ function testWriteTo(_t:stdgo.testing.Testing.T):Void {
                 if (_err != null) {
                     _t.errorf(((((("for length %d: got error = %v; want nil" : GoString))) : GoString)), Go.toInterface((_s != null ? _s.length : ((0 : GoInt)))), Go.toInterface(_err));
                 };
-                if (((_b.toString() : GoString)) != _s) {
-                    _t.errorf(((((("got string %q; want %q" : GoString))) : GoString)), Go.toInterface(((_b.toString() : GoString))), Go.toInterface(_s));
+                if (((_b.string() : GoString)) != _s) {
+                    _t.errorf(((((("got string %q; want %q" : GoString))) : GoString)), Go.toInterface(((_b.string() : GoString))), Go.toInterface(_s));
                 };
                 if (_r.len() != ((0 : GoInt))) {
                     _t.errorf(((((("reader contains %v bytes; want 0" : GoString))) : GoString)), Go.toInterface(_r.len()));
@@ -2216,7 +2216,7 @@ function testReplacer(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
                 __self__.truncate = #if !macro function(_n___:GoInt):Void _buf.truncate(_n___) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -2235,7 +2235,7 @@ function testReplacer(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf(((((("%d. WriteString: %v" : GoString))) : GoString)), Go.toInterface(_i), Go.toInterface(_err));
                 continue;
             };
-            var _got:GoString = ((_buf.toString() : GoString));
+            var _got:GoString = ((_buf.string() : GoString));
             if (_got != _tc._out) {
                 _t.errorf(((((("%d. WriteString(%q) wrote %q, want %q" : GoString))) : GoString)), Go.toInterface(_i), Go.toInterface(_tc._in), Go.toInterface(_got), Go.toInterface(_tc._out));
                 continue;
@@ -2415,7 +2415,7 @@ function benchmarkByteStringReplacerWriteString(_b:stdgo.testing.Testing.B):Void
                     __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
                     __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
                     __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-                    __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+                    __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
                     __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
                     __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
                     __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -2454,7 +2454,7 @@ function benchmarkByteReplacerWriteString(_b:stdgo.testing.Testing.B):Void {
                     __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
                     __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
                     __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-                    __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+                    __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
                     __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
                     __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
                     __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -3415,8 +3415,8 @@ function testReadByte(_t:stdgo.testing.Testing.T):Void {
                     break;
                 };
             };
-            if (((_res.toString() : GoString)) != _s) {
-                _t.errorf(((((("Reader(%q).ReadByte() produced %q" : GoString))) : GoString)), Go.toInterface(_s), Go.toInterface(((_res.toString() : GoString))));
+            if (((_res.string() : GoString)) != _s) {
+                _t.errorf(((((("Reader(%q).ReadByte() produced %q" : GoString))) : GoString)), Go.toInterface(_s), Go.toInterface(((_res.string() : GoString))));
             };
         };
     }

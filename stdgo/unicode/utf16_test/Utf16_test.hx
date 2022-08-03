@@ -52,8 +52,8 @@ var _surrogateTests : Slice<stdgo.unicode.utf16_test.Utf16_test.T__struct_1> = (
     public var _r1 : GoInt32 = 0;
     public var _r2 : GoInt32 = 0;
     public var _want : GoInt32 = 0;
-    public function toString():String return "{" + Go.string(_r1) + " " + Go.string(_r2) + " " + Go.string(_want) + "}";
-    public function new(?_r1:GoInt32, ?_r2:GoInt32, ?_want:GoInt32, ?toString) {
+    public function string():String return "{" + Go.string(_r1) + " " + Go.string(_r2) + " " + Go.string(_want) + "}";
+    public function new(?_r1:GoInt32, ?_r2:GoInt32, ?_want:GoInt32, ?string) {
         if (_r1 != null) this._r1 = _r1;
         if (_r2 != null) this._r2 = _r2;
         if (_want != null) this._want = _want;
@@ -66,8 +66,8 @@ var _surrogateTests : Slice<stdgo.unicode.utf16_test.Utf16_test.T__struct_1> = (
 @:structInit @:local class T__struct_1 {
     public var _r : GoInt32 = 0;
     public var _want : Bool = false;
-    public function toString():String return "{" + Go.string(_r) + " " + Go.string(_want) + "}";
-    public function new(?_r:GoInt32, ?_want:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_r) + " " + Go.string(_want) + "}";
+    public function new(?_r:GoInt32, ?_want:Bool, ?string) {
         if (_r != null) this._r = _r;
         if (_want != null) this._want = _want;
     }

@@ -924,7 +924,7 @@ class T_statDirEntry_wrapper {
         return (_m & (("2147483648" : FileMode))) != ((0 : FileMode));
     }
     @:keep
-    static public function toString( _m:FileMode):GoString {
+    static public function string( _m:FileMode):GoString {
         {};
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) ((0 : GoUInt8))]);
         var _w:GoInt = ((0 : GoInt));
@@ -974,7 +974,7 @@ class FileMode_wrapper {
     @:keep
     public var isDir : () -> Bool = null;
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : FileMode;

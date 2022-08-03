@@ -1653,13 +1653,7 @@ function cut(_s:GoString, _sep:GoString):{ var _0 : GoString; var _1 : GoString;
         return ((((Go.toInterface(_b._buf) : stdgo.unsafe.Unsafe.UnsafePointer)).__convert__(stdgo.reflect.Reflect.GoType.pointer(stdgo.reflect.Reflect.GoType.basic(string_kind))) : Pointer<GoString>)).value;
     }
     @:keep
-    static public function _copyCheck( _b:Builder):Void {
-        if (_b._addr == null) {
-            _b._addr = ((_noescape(((Go.toInterface(_b) : stdgo.unsafe.Unsafe.UnsafePointer))).__convert__(stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Builder", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_addr", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Builder", [], stdgo.reflect.Reflect.GoType.structType([{ name : "_addr", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("Builder", [], stdgo.reflect.Reflect.GoType.invalidType)) }, { name : "_buf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }]))) }, { name : "_buf", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.basic(uint8_kind)) }])))) : Builder));
-        } else if (_b._addr != _b) {
-            throw Go.toInterface(((((("strings: illegal use of non-zero Builder copied by value" : GoString))) : GoString)));
-        };
-    }
+    static public function _copyCheck( _b:Builder):Void _b._addr = _b;
 }
 class Builder_wrapper {
     /**

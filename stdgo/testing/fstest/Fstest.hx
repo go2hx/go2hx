@@ -219,7 +219,7 @@ function testMapFSChmodDot(_t:stdgo.testing.Testing.T):Void {
                 __self__.grow = #if !macro function(_n:GoInt):Void _buf.grow(_n) #else null #end;
                 __self__.len = #if !macro function():GoInt return _buf.len() #else null #end;
                 __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _buf.writeByte(_c) #else null #end;
                 __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_r) #else null #end;
@@ -232,14 +232,14 @@ function testMapFSChmodDot(_t:stdgo.testing.Testing.T):Void {
                 __self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
                 __self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
                 __self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
-                __self__.toString = #if !macro function():GoString return _fi.mode().toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _fi.mode().string() #else null #end;
                 __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().type() #else null #end;
                 __self__;
             }));
             return ((null : stdgo.Error));
         });
         var _want:GoString = (((("\n.: drwxrwxrwx\na: d---------\na/b.txt: -rw-rw-rw-\n" : GoString)).__slice__(((1 : GoInt))) : GoString));
-        var _got:GoString = ((_buf.toString() : GoString));
+        var _got:GoString = ((_buf.string() : GoString));
         if (_want != _got) {
             _t.errorf(((((("MapFS modes want:\n%s\ngot:\n%s\n" : GoString))) : GoString)), Go.toInterface(_want), Go.toInterface(_got));
         };
@@ -343,7 +343,7 @@ function _formatEntry(_entry:stdgo.io.fs.Fs.DirEntry):GoString {
             __self__.isDir = #if !macro function():Bool return _entry.type().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _entry.type().isRegular() #else null #end;
             __self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _entry.type().perm() #else null #end;
-            __self__.toString = #if !macro function():GoString return _entry.type().toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _entry.type().string() #else null #end;
             __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _entry.type().type() #else null #end;
             __self__;
         }));
@@ -357,7 +357,7 @@ function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString {
             __self__.isDir = #if !macro function():Bool return _info.mode().type().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _info.mode().type().isRegular() #else null #end;
             __self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _info.mode().type().perm() #else null #end;
-            __self__.toString = #if !macro function():GoString return _info.mode().type().toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _info.mode().type().string() #else null #end;
             __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _info.mode().type().type() #else null #end;
             __self__;
         }));
@@ -371,7 +371,7 @@ function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString {
             __self__.isDir = #if !macro function():Bool return _info.mode().isDir() #else null #end;
             __self__.isRegular = #if !macro function():Bool return _info.mode().isRegular() #else null #end;
             __self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _info.mode().perm() #else null #end;
-            __self__.toString = #if !macro function():GoString return _info.mode().toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _info.mode().string() #else null #end;
             __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _info.mode().type() #else null #end;
             __self__;
         }), Go.toInterface(_info.size()), Go.toInterface({
@@ -404,7 +404,7 @@ function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString {
             __self__.nanosecond = #if !macro function():GoInt return _info.modTime().nanosecond() #else null #end;
             __self__.round = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _info.modTime().round(_d) #else null #end;
             __self__.second = #if !macro function():GoInt return _info.modTime().second() #else null #end;
-            __self__.toString = #if !macro function():GoString return _info.modTime().toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _info.modTime().string() #else null #end;
             __self__.sub = #if !macro function(_u:stdgo.time.Time.Time):stdgo.time.Time.Duration return _info.modTime().sub(_u) #else null #end;
             __self__.truncate = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _info.modTime().truncate(_d) #else null #end;
             __self__.utc = #if !macro function():stdgo.time.Time.Time return _info.modTime().utc() #else null #end;

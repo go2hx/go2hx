@@ -38,7 +38,7 @@ typedef T_timeout = StructType & {
     public function timeout():Bool;
 };
 typedef Signal = StructType & {
-    public function toString():GoString;
+    public function string():GoString;
     public function signal():Void;
 };
 @:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) class T_dirInfo {
@@ -223,8 +223,8 @@ typedef Signal = StructType & {
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     public var _dir : GoString = "";
-    public function toString():String return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
-    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?toString) {
+    public function string():String return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
+    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?string) {
         if (mutex != null) this.mutex = mutex;
         if (_dir != null) this._dir = _dir;
     }
@@ -1056,7 +1056,7 @@ class Process_wrapper {
     @:keep
     static public function exitCode( _p:ProcessState):GoInt return ((0 : GoInt));
     @:keep
-    static public function toString( _p:ProcessState):GoString return (("" : GoString));
+    static public function string( _p:ProcessState):GoString return (("" : GoString));
     @:keep
     static public function _sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
     @:keep
@@ -1122,7 +1122,7 @@ class ProcessState_wrapper {
     @:keep
     public var exitCode : () -> GoInt = null;
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     @:keep
     public var _sysUsage : () -> AnyInterface = null;
     @:keep

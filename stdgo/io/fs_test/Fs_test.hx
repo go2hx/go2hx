@@ -138,8 +138,8 @@ var _sysValue : GoInt = ((0 : GoInt));
 @:structInit @:local class T__struct_0 {
     public var _name : GoString = "";
     public var _ok : Bool = false;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_ok) + "}";
-    public function new(?_name:GoString, ?_ok:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_ok) + "}";
+    public function new(?_name:GoString, ?_ok:Bool, ?string) {
         if (_name != null) this._name = _name;
         if (_ok != null) this._ok = _ok;
     }
@@ -152,8 +152,8 @@ var _sysValue : GoInt = ((0 : GoInt));
     public var _fs : FS = ((null : FS));
     public var _pattern : GoString = "";
     public var _result : GoString = "";
-    public function toString():String return "{" + Go.string(_fs) + " " + Go.string(_pattern) + " " + Go.string(_result) + "}";
-    public function new(?_fs:FS, ?_pattern:GoString, ?_result:GoString, ?toString) {
+    public function string():String return "{" + Go.string(_fs) + " " + Go.string(_pattern) + " " + Go.string(_result) + "}";
+    public function new(?_fs:FS, ?_pattern:GoString, ?_result:GoString, ?string) {
         if (_fs != null) this._fs = _fs;
         if (_pattern != null) this._pattern = _pattern;
         if (_result != null) this._result = _result;
@@ -167,8 +167,8 @@ var _sysValue : GoInt = ((0 : GoInt));
     public var _path : GoString = "";
     public var _wantMode : FileMode = new FileMode();
     public var _wantDir : Bool = false;
-    public function toString():String return "{" + Go.string(_path) + " " + Go.string(_wantMode) + " " + Go.string(_wantDir) + "}";
-    public function new(?_path:GoString, ?_wantMode:FileMode, ?_wantDir:Bool, ?toString) {
+    public function string():String return "{" + Go.string(_path) + " " + Go.string(_wantMode) + " " + Go.string(_wantDir) + "}";
+    public function new(?_path:GoString, ?_wantMode:FileMode, ?_wantDir:Bool, ?string) {
         if (_path != null) this._path = _path;
         if (_wantMode != null) this._wantMode = _wantMode;
         if (_wantDir != null) this._wantDir = _wantDir;
@@ -430,7 +430,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
                             __self__.isDir = #if !macro function():Bool return _g.isDir() #else null #end;
                             __self__.isRegular = #if !macro function():Bool return _g.isRegular() #else null #end;
                             __self__.perm = #if !macro function():FileMode return _g.perm() #else null #end;
-                            __self__.toString = #if !macro function():GoString return _g.toString() #else null #end;
+                            __self__.string = #if !macro function():GoString return _g.string() #else null #end;
                             __self__.type = #if !macro function():FileMode return _g.type() #else null #end;
                             __self__;
                         }), Go.toInterface({
@@ -438,7 +438,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
                             __self__.isDir = #if !macro function():Bool return _w.isDir() #else null #end;
                             __self__.isRegular = #if !macro function():Bool return _w.isRegular() #else null #end;
                             __self__.perm = #if !macro function():FileMode return _w.perm() #else null #end;
-                            __self__.toString = #if !macro function():GoString return _w.toString() #else null #end;
+                            __self__.string = #if !macro function():GoString return _w.string() #else null #end;
                             __self__.type = #if !macro function():FileMode return _w.type() #else null #end;
                             __self__;
                         }));
@@ -559,7 +559,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
                         __self__.isDir = #if !macro function():Bool return _info.mode().isDir() #else null #end;
                         __self__.isRegular = #if !macro function():Bool return _info.mode().isRegular() #else null #end;
                         __self__.perm = #if !macro function():FileMode return _info.mode().perm() #else null #end;
-                        __self__.toString = #if !macro function():GoString return _info.mode().toString() #else null #end;
+                        __self__.string = #if !macro function():GoString return _info.mode().string() #else null #end;
                         __self__.type = #if !macro function():FileMode return _info.mode().type() #else null #end;
                         __self__;
                     }));

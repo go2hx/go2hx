@@ -65,7 +65,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function setIndex(_i:GoInt, _x:AnyInterface) null;
     @:embedded
-    public function toString():GoString return (("" : GoString));
+    public function string():GoString return (("" : GoString));
     @:embedded
     public function truthy():Bool return false;
     @:embedded
@@ -134,7 +134,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function setIndex(_i:GoInt, _x:AnyInterface) null;
     @:embedded
-    public function toString():GoString return (("" : GoString));
+    public function string():GoString return (("" : GoString));
     @:embedded
     public function truthy():Bool return false;
     @:embedded
@@ -267,7 +267,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function truthy( __self__:Func):Bool return __self__.truthy();
     @:embedded
-    public static function toString( __self__:Func):GoString return __self__.toString();
+    public static function string( __self__:Func):GoString return __self__.string();
     @:embedded
     public static function setIndex( __self__:Func, _i:GoInt, _x:AnyInterface) __self__.setIndex(_i, _x);
     @:embedded
@@ -320,7 +320,7 @@ class Func_wrapper {
     @:embedded
     public var truthy : () -> Bool = null;
     @:embedded
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     @:embedded
     public var setIndex : (GoInt, AnyInterface) -> Void = null;
     @:embedded
@@ -372,7 +372,7 @@ class Func_wrapper {
         // or "<T: V>" where T is v's type and V is a string representation of v's value.
     **/
     @:keep
-    static public function toString( _v:Value):GoString return (("" : GoString));
+    static public function string( _v:Value):GoString return (("" : GoString));
     /**
         // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
         // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
@@ -499,7 +499,7 @@ class Value_wrapper {
         // or "<T: V>" where T is v's type and V is a string representation of v's value.
     **/
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     /**
         // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
         // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
@@ -631,7 +631,7 @@ class Value_wrapper {
     @:embedded
     public static function truthy( __self__:T_error):Bool return __self__.truthy();
     @:embedded
-    public static function toString( __self__:T_error):GoString return __self__.toString();
+    public static function string( __self__:T_error):GoString return __self__.string();
     @:embedded
     public static function setIndex( __self__:T_error, _i:GoInt, _x:AnyInterface) __self__.setIndex(_i, _x);
     @:embedded
@@ -682,7 +682,7 @@ class T_error_wrapper {
     @:embedded
     public var truthy : () -> Bool = null;
     @:embedded
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     @:embedded
     public var setIndex : (GoInt, AnyInterface) -> Void = null;
     @:embedded
@@ -736,13 +736,13 @@ class ValueError_wrapper {
     @:keep
     static public function _isObject( _t:Type):Bool return false;
     @:keep
-    static public function toString( _t:Type):GoString return (("" : GoString));
+    static public function string( _t:Type):GoString return (("" : GoString));
 }
 class Type_wrapper {
     @:keep
     public var _isObject : () -> Bool = null;
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : Type;

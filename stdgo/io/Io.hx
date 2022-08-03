@@ -274,8 +274,8 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:local class T__struct_0 {
-    public function toString():String return "{" + "}";
-    public function new(?toString) {}
+    public function string():String return "{" + "}";
+    public function new(?string) {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T__struct_0();

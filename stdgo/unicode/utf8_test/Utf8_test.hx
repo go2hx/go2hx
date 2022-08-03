@@ -180,8 +180,8 @@ var _boolSink : Bool = false;
 @:structInit @:local class T__struct_0 {
     public var _name : GoString = "";
     public var _data : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
-    public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_data) + "}";
+    public function new(?_name:GoString, ?_data:Slice<GoUInt8>, ?string) {
         if (_name != null) this._name = _name;
         if (_data != null) this._data = _data;
     }

@@ -281,8 +281,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 @:structInit @:local class T__struct_0 {
     public var name : GoString = "";
     public var age : GoInt = 0;
-    public function toString():String return "{" + Go.string(name) + " " + Go.string(age) + "}";
-    public function new(?name:GoString, ?age:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(name) + " " + Go.string(age) + "}";
+    public function new(?name:GoString, ?age:GoInt, ?string) {
         if (name != null) this.name = name;
         if (age != null) this.age = age;
     }
@@ -296,8 +296,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     public var _n : GoInt = 0;
     public var _f : GoInt -> Bool = null;
     public var _i : GoInt = 0;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_n) + " " + Go.string(_f) + " " + Go.string(_i) + "}";
-    public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt -> Bool, ?_i:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_n) + " " + Go.string(_f) + " " + Go.string(_i) + "}";
+    public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt -> Bool, ?_i:GoInt, ?string) {
         if (_name != null) this._name = _name;
         if (_n != null) this._n = _n;
         if (_f != null) this._f = _f;
@@ -312,8 +312,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     public var _name : GoString = "";
     public var _result : GoInt = 0;
     public var _i : GoInt = 0;
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_result) + " " + Go.string(_i) + "}";
-    public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_result) + " " + Go.string(_i) + "}";
+    public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt, ?string) {
         if (_name != null) this._name = _name;
         if (_result != null) this._result = _result;
         if (_i != null) this._i = _i;
@@ -326,8 +326,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 @:structInit @:local class T__struct_3 {
     public var _a : GoInt = 0;
     public var _b : GoInt = 0;
-    public function toString():String return "{" + Go.string(_a) + " " + Go.string(_b) + "}";
-    public function new(?_a:GoInt, ?_b:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_a) + " " + Go.string(_b) + "}";
+    public function new(?_a:GoInt, ?_b:GoInt, ?string) {
         if (_a != null) this._a = _a;
         if (_b != null) this._b = _b;
     }
@@ -572,7 +572,7 @@ function _printOrgans(_s:Slice<Organ>):Void {
         for (_0 => _o in _s) {
             stdgo.fmt.Fmt.printf(((((("%-8s (%v)\n" : GoString))) : GoString)), Go.toInterface(_o.name), Go.toInterface({
                 final __self__ = new stdgo.sort_test.Sort_test.Grams_wrapper(_o.weight);
-                __self__.toString = #if !macro function():GoString return _o.weight.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _o.weight.string() #else null #end;
                 __self__;
             }));
         };
@@ -1502,13 +1502,13 @@ function benchmarkStable1e6(_b:stdgo.testing.Testing.B):Void {
     }
 @:keep class Person_static_extension {
     @:keep
-    static public function toString( _p:Person):GoString {
+    static public function string( _p:Person):GoString {
         return stdgo.fmt.Fmt.sprintf(((((("%s: %d" : GoString))) : GoString)), Go.toInterface(_p.name), Go.toInterface(_p.age));
     }
 }
 class Person_wrapper {
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : Person;
@@ -1865,13 +1865,13 @@ class By_wrapper {
 }
 @:keep class Grams_static_extension {
     @:keep
-    static public function toString( _g:Grams):GoString {
+    static public function string( _g:Grams):GoString {
         return stdgo.fmt.Fmt.sprintf(((((("%dg" : GoString))) : GoString)), Go.toInterface(((_g : GoInt))));
     }
 }
 class Grams_wrapper {
     @:keep
-    public var toString : () -> GoString = null;
+    public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : Grams;

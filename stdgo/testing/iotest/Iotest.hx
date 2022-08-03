@@ -129,8 +129,8 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
 @:structInit @:local class T__struct_0 {
     public var _name : GoString = "";
     public var _err : stdgo.Error = ((null : stdgo.Error));
-    public function toString():String return "{" + Go.string(_name) + " " + Go.string(_err) + "}";
-    public function new(?_name:GoString, ?_err:stdgo.Error, ?toString) {
+    public function string():String return "{" + Go.string(_name) + " " + Go.string(_err) + "}";
+    public function new(?_name:GoString, ?_err:stdgo.Error, ?string) {
         if (_name != null) this._name = _name;
         if (_err != null) this._err = _err;
     }
@@ -144,8 +144,8 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     public var _want : GoString = "";
     public var _trunc : GoInt64 = 0;
     public var _n : GoInt = 0;
-    public function toString():String return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_trunc) + " " + Go.string(_n) + "}";
-    public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt, ?toString) {
+    public function string():String return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_trunc) + " " + Go.string(_n) + "}";
+    public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt, ?string) {
         if (_in != null) this._in = _in;
         if (_want != null) this._want = _want;
         if (_trunc != null) this._trunc = _trunc;
@@ -211,7 +211,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _lOut.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _lOut.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _lOut.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _lOut.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _lOut.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _lOut.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _lOut.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
@@ -242,7 +242,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _lw.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _lw.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _lw.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _lw.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _lw.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _lw.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _lw.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lw.unreadRune() #else null #end;
@@ -264,14 +264,14 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 };
             };
             {
-                var _g:GoString = ((_lw.toString() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
+                var _g:GoString = ((_lw.string() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
                 if (_g != _w) {
                     _t.errorf(((((("WriteLogger mismatch\n\tgot:  %q\n\twant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };
             };
             var _wantLogWithHex:GoString = stdgo.fmt.Fmt.sprintf(((((("lw: write: %x\n" : GoString))) : GoString)), Go.toInterface(((((("Hello, World!" : GoString))) : GoString))));
             {
-                var _g:GoString = ((_lOut.toString() : GoString)), _w:GoString = _wantLogWithHex;
+                var _g:GoString = ((_lOut.string() : GoString)), _w:GoString = _wantLogWithHex;
                 if (_g != _w) {
                     _t.errorf(((((("WriteLogger mismatch\n\tgot:  %q\n\twant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };
@@ -327,7 +327,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _lOut.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _lOut.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _lOut.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _lOut.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _lOut.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _lOut.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _lOut.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
@@ -357,7 +357,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.testing.Testing.T):Void {
             };
             var _wantLogWithHex:GoString = stdgo.fmt.Fmt.sprintf(((((("lw: write: %x: %v\n" : GoString))) : GoString)), Go.toInterface(((((("" : GoString))) : GoString))), Go.toInterface(((((("Write Error!" : GoString))) : GoString))));
             {
-                var _g:GoString = ((_lOut.toString() : GoString)), _w:GoString = _wantLogWithHex;
+                var _g:GoString = ((_lOut.string() : GoString)), _w:GoString = _wantLogWithHex;
                 if (_g != _w) {
                     _t.errorf(((((("WriteLogger mismatch\n\tgot:  %q\n\twant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };
@@ -413,7 +413,7 @@ function testReadLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _lOut.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _lOut.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _lOut.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _lOut.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _lOut.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _lOut.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _lOut.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
@@ -459,7 +459,7 @@ function testReadLogger(_t:stdgo.testing.Testing.T):Void {
             };
             var _wantLogWithHex:GoString = stdgo.fmt.Fmt.sprintf(((((("lr: read: %x\n" : GoString))) : GoString)), Go.toInterface(((((("Hello, World!" : GoString))) : GoString))));
             {
-                var _g:GoString = ((_lOut.toString() : GoString)), _w:GoString = _wantLogWithHex;
+                var _g:GoString = ((_lOut.string() : GoString)), _w:GoString = _wantLogWithHex;
                 if (_g != _w) {
                     _t.errorf(((((("ReadLogger mismatch\n\tgot:  %q\n\twant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };
@@ -515,7 +515,7 @@ function testReadLogger_errorOnRead(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _lOut.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _lOut.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _lOut.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _lOut.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _lOut.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _lOut.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _lOut.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
@@ -541,7 +541,7 @@ function testReadLogger_errorOnRead(_t:stdgo.testing.Testing.T):Void {
             };
             var _wantLogWithHex:GoString = stdgo.fmt.Fmt.sprintf(((((("lr: read %x: io failure\n" : GoString))) : GoString)), Go.toInterface(((_p.__slice__(0, _n) : Slice<GoUInt8>))));
             {
-                var _g:GoString = ((_lOut.toString() : GoString)), _w:GoString = _wantLogWithHex;
+                var _g:GoString = ((_lOut.string() : GoString)), _w:GoString = _wantLogWithHex;
                 if (_g != _w) {
                     _t.errorf(((((("ReadLogger mismatch\n\tgot:  %q\n\twant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };
@@ -833,7 +833,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -882,7 +882,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             };
         };
         {
-            var _g:GoString = ((_got.toString() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
+            var _g:GoString = ((_got.string() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
             if (_g != _w) {
                 _t.errorf(((((("Read mismatch\n\tGot:  %q\n\tWant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
             };
@@ -904,7 +904,7 @@ function testOneByteReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _r.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _r.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _r.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _r.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _r.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _r.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _r.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
@@ -959,7 +959,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -1008,7 +1008,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             };
         };
         {
-            var _g:GoString = ((_got.toString() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
+            var _g:GoString = ((_got.string() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
             if (_g != _w) {
                 _t.errorf(((((("Read mismatch\n\tGot:  %q\n\tWant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
             };
@@ -1030,7 +1030,7 @@ function testHalfReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _r.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _r.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _r.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _r.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _r.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _r.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _r.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
@@ -1085,7 +1085,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -1136,7 +1136,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
             __self__.truncate = #if !macro function(_n___:GoInt):Void _buf.truncate(_n___) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -1192,7 +1192,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _r.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _r.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _r.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _r.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _r.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _r.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _r.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
@@ -1241,7 +1241,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _r.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _r.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _r.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _r.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _r.string() #else null #end;
             __self__.truncate = #if !macro function(_n___:GoInt):Void _r.truncate(_n___) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _r.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
@@ -1299,7 +1299,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -1333,7 +1333,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             _t.errorf(((((("Last Read returned n=%d err=%v" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_err));
         };
         {
-            var _g:GoString = ((_got.toString() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
+            var _g:GoString = ((_got.string() : GoString)), _w:GoString = ((((("Hello, World!" : GoString))) : GoString));
             if (_g != _w) {
                 _t.errorf(((((("Read mismatch\n\tGot:  %q\n\tWant: %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
             };
@@ -1355,7 +1355,7 @@ function testDataErrReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _r.readRune() #else null #end;
             __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _r.readString(_delim) #else null #end;
             __self__.reset = #if !macro function():Void _r.reset() #else null #end;
-            __self__.toString = #if !macro function():GoString return _r.toString() #else null #end;
+            __self__.string = #if !macro function():GoString return _r.string() #else null #end;
             __self__.truncate = #if !macro function(_n:GoInt):Void _r.truncate(_n) #else null #end;
             __self__.unreadByte = #if !macro function():stdgo.Error return _r.unreadByte() #else null #end;
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
@@ -1459,7 +1459,7 @@ function testTruncateWriter(_t:stdgo.testing.Testing.T):Void {
                 __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return _buf.readRune() #else null #end;
                 __self__.readString = #if !macro function(_delim:GoUInt8):{ var _0 : GoString; var _1 : stdgo.Error; } return _buf.readString(_delim) #else null #end;
                 __self__.reset = #if !macro function():Void _buf.reset() #else null #end;
-                __self__.toString = #if !macro function():GoString return _buf.toString() #else null #end;
+                __self__.string = #if !macro function():GoString return _buf.string() #else null #end;
                 __self__.truncate = #if !macro function(_n:GoInt):Void _buf.truncate(_n) #else null #end;
                 __self__.unreadByte = #if !macro function():stdgo.Error return _buf.unreadByte() #else null #end;
                 __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
@@ -1479,7 +1479,7 @@ function testTruncateWriter(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf(((((("Unexpected error %v for\n\t%+v" : GoString))) : GoString)), Go.toInterface(_err), Go.toInterface(_tt));
             };
             {
-                var _g:GoString = ((_buf.toString() : GoString)), _w:GoString = _tt._want;
+                var _g:GoString = ((_buf.string() : GoString)), _w:GoString = _tt._want;
                 if (_g != _w) {
                     _t.errorf(((((("got %q, expected %q" : GoString))) : GoString)), Go.toInterface(_g), Go.toInterface(_w));
                 };

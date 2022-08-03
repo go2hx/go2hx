@@ -843,8 +843,8 @@ var globalF : GoFloat64 = ((0 : GoFloat64));
     public var _y : GoFloat64 = 0;
     public var _z : GoFloat64 = 0;
     public var _want : GoFloat64 = 0;
-    public function toString():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_z) + " " + Go.string(_want) + "}";
-    public function new(?_x:GoFloat64, ?_y:GoFloat64, ?_z:GoFloat64, ?_want:GoFloat64, ?toString) {
+    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_z) + " " + Go.string(_want) + "}";
+    public function new(?_x:GoFloat64, ?_y:GoFloat64, ?_z:GoFloat64, ?_want:GoFloat64, ?string) {
         if (_x != null) this._x = _x;
         if (_y != null) this._y = _y;
         if (_z != null) this._z = _z;

@@ -121,6 +121,8 @@ function main(data:DataType, instance:Main.InstanceData) {
 		info.global.path = pkg.path;
 		info.global.externBool = instance.externBool;
 		info.global.noCommentsBool = instance.noCommentsBool;
+		info.global.module = module;
+		info.global.root = instance.root;
 
 		if (pkg.order != null) {
 			pkg.order = pkg.order.map(s -> nameIdent(s, false, true, info));
@@ -293,7 +295,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 			// add file to module
 			module.files.push(data);
 		}
-		info.global.module = module;
 		// process recv functions check against all TypeSpecs
 		for (file in module.files) {
 			final defs = file.defs.copy();
@@ -445,6 +446,10 @@ function main(data:DataType, instance:Main.InstanceData) {
 						case TDField(kind, access):
 							switch kind {
 								case FFun(fun):
+									final patchName = info.global.module.path + "." + def.name + ":" + func.name;
+									final patch = Patch.list[patchName];
+									if (patch != null)
+										fun.expr = patch;
 									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension,
 										wrapper)) isWrapperPointer = true;
 								default:
@@ -4558,7 +4563,13 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		info.returnNamed = false;
 		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
 	} else {
-		toExpr(typeBlockStmt(decl.body, info, true));
+		final patchName = info.global.module.path + ":" + name;
+		final patch = Patch.list[patchName];
+		if (decl.recv == null && patch != null) {
+			patch;
+		} else {
+			toExpr(typeBlockStmt(decl.body, info, true));
+		}
 	}
 
 	block = argsTranslate(args, block);
@@ -6094,6 +6105,7 @@ class Global {
 	public var module:Module = null;
 	public var noCommentsBool:Bool = false;
 	public var externBool:Bool = false;
+	public var root:String = "";
 
 	public inline function new() {}
 
@@ -6105,6 +6117,7 @@ class Global {
 		g.module = module;
 		g.filePath = filePath;
 		g.hasBreak = hasBreak;
+		g.root = root;
 		return g;
 	}
 }

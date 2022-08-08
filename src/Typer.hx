@@ -1954,21 +1954,27 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	return switch t {
 		case _var(name, type):
-			_var(name, {get: () -> replaceInvalidType(type.get(), replace)});
+			final type = replaceInvalidType(type.get(), replace);
+			_var(name, {get: () -> type});
 		case pointer(elem):
-			pointer({get: () -> replaceInvalidType(elem.get(), replace)});
+			final elem = replaceInvalidType(elem.get(), replace);
+			pointer({get: () -> elem});
 		case refType(elem):
-			if (elem.get() == invalidType) {
-				if (isRefValue(t)) {
-					refType(elem);
-				} else {
-					pointer(elem);
-				}
-			} else {
-				refType({get: () -> replaceInvalidType(elem.get(), replace)});
+			final elem = elem.get();
+			switch elem {
+				case invalidType, named(_, _, invalidType):
+					if (isRefValue(replace)) {
+						refType({get: () -> elem});
+					} else {
+						pointer({get: () -> elem});
+					}
+				default:
+					final elem = replaceInvalidType(elem, replace);
+					refType({get: () -> elem});
 			}
 		case named(path, methods, type, alias, params):
-			named(path, methods, replaceInvalidType(type, replace), alias, params);
+			type = replaceInvalidType(type, replace);
+			named(path, methods, type, alias, params);
 		case invalidType:
 			replace;
 		default:
@@ -5655,7 +5661,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			if (local)
 				meta.push({name: ":local", pos: null, params: []});
 			for (method in spec.methods) { // covers both embedded interfaces and structures
-				// final recv = typeof(method.recv);
 				// embedded methods
 				final name = fields[method.index[0]].name;
 				info.renameIdents[name] = name;

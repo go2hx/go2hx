@@ -181,13 +181,13 @@ final list = [
 			return naN();
 		return std.Math.max(_x.toBasic(), _y.toBasic());
 	},
-	"math:sin" => macro return std.Math.sin(_f.toBasic()),
-	"math:cos" => macro return std.Math.cos(_f.toBasic()),
-	"math:tan" => macro return std.Math.tan(_f.toBasic()),
-	"math:asin" => macro return std.Math.asin(_f.toBasic()),
-	"math:acos" => macro return std.Math.acos(_f.toBasic()),
-	"math:atan" => macro return std.Math.atan(_f.toBasic()),
-	"math:atan2" => macro return std.Math.atan2(_f.toBasic()),
+	"math:sin" => macro return std.Math.sin(_x.toBasic()),
+	"math:cos" => macro return std.Math.cos(_x.toBasic()),
+	"math:tan" => macro return std.Math.tan(_x.toBasic()),
+	"math:asin" => macro return std.Math.asin(_x.toBasic()),
+	"math:acos" => macro return std.Math.acos(_x.toBasic()),
+	"math:atan" => macro return std.Math.atan(_x.toBasic()),
+	"math:atan2" => macro return std.Math.atan2(_y.toBasic(), _x.toBasic()),
 	"math:isInf" => macro return _sign.toBasic() >= 0 && _f == std.Math.POSITIVE_INFINITY || _sign.toBasic() <= 0 && _f == std.Math.NEGATIVE_INFINITY,
 	"math:hypnot" => macro {
 		if (isInf(_p, 0) || isInf(_q, 0))

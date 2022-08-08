@@ -8,30 +8,38 @@ import stdgo.Pointer.PointerData;
 import stdgo.Slice.Slice;
 import stdgo.StdGoTypes;
 
+#if go2hx_compiler
+typedef Ref<T> = {
+	function get():T;
+}
+#else
+typedef Ref<T> = T;
+#end
+
 enum GoType {
 	typeParam(name:String, params:Array<GoType>);
 	invalidType;
-	signature(variadic:Bool, params:Array<GoType>, results:Array<GoType>, recv:GoType, ?typeParams:Array<GoType>);
+	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
 	basic(kind:BasicKind);
-	_var(name:String, type:GoType);
+	_var(name:String, type:Ref<GoType>);
 	tuple(len:Int, vars:Array<GoType>);
 	interfaceType(empty:Bool, ?methods:Array<MethodType>);
-	sliceType(elem:GoType);
-	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
+	sliceType(elem:Ref<GoType>);
+	named(path:String, methods:Array<MethodType>, type:Ref<GoType>, ?alias:Bool, ?params:Array<GoType>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
-	pointer(elem:GoType);
-	arrayType(elem:GoType, len:Int);
-	mapType(key:GoType, value:GoType);
-	chanType(dir:Int, elem:GoType);
-	refType(elem:GoType);
+	pointer(elem:Ref<GoType>);
+	arrayType(elem:Ref<GoType>, len:Int);
+	mapType(key:Ref<GoType>, value:Ref<GoType>);
+	chanType(dir:Int, elem:Ref<GoType>);
+	refType(elem:Ref<GoType>);
 }
 
 @:structInit
 class MethodType {
 	public var name:String;
-	public var type:GoType;
-	public var recv:GoType;
+	public var type:Ref<GoType>;
+	public var recv:Ref<GoType>;
 
 	public function new(name, type, recv) {
 		this.name = name;
@@ -39,7 +47,7 @@ class MethodType {
 		this.recv = recv;
 	}
 
-	function toString():String
+	function string():GoString
 		return name;
 }
 
@@ -95,7 +103,7 @@ function isAnyInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case named(_, _, elem):
+		case named(_, _, #if go2hx_compiler _.get() => #end elem):
 			isAnyInterface(elem);
 		case interfaceType(empty):
 			empty;
@@ -108,9 +116,9 @@ function isInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(elem):
+		case refType(#if go2hx_compiler _.get() => #end elem):
 			isInterface(elem);
-		case named(_, _, elem):
+		case named(_, _, #if go2hx_compiler _.get() => #end elem):
 			isInterface(elem);
 		case interfaceType(_):
 			true;
@@ -127,7 +135,7 @@ function isSignature(type:GoType, underlyingBool:Bool = true):Bool {
 			true;
 		case named(_, _, underlying):
 			if (underlyingBool) {
-				isSignature(underlying, underlyingBool);
+				isSignature(#if go2hx_compiler underlying.get() #else underlying #end, underlyingBool);
 			} else {
 				false;
 			}
@@ -141,13 +149,13 @@ function isNamed(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(underlying):
+		case refType(#if go2hx_compiler _.get() => #end underlying):
 			isNamed(underlying);
-		case named(_, _, underlying):
+		case named(_, _, #if go2hx_compiler _.get() => #end underlying):
 			switch underlying {
 				case structType(_): true;
 				case interfaceType(_, _): false;
-				case named(_, _, underlying): isNamed(underlying);
+				case named(_, _, #if go2hx_compiler _.get() => #end underlying): isNamed(underlying);
 				default:
 					true;
 			}
@@ -163,9 +171,9 @@ function isStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(type):
+		case refType(#if go2hx_compiler _.get() => #end type):
 			isStruct(type);
-		case named(_, _, underlying):
+		case named(_, _, #if go2hx_compiler _.get() => #end underlying):
 			isStruct(underlying);
 		case structType(_):
 			true;
@@ -177,7 +185,7 @@ function isPointerStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case pointer(elem): isStruct(elem);
+		case pointer(#if go2hx_compiler _.get() => #end elem): isStruct(elem);
 		default: false;
 	}
 }
@@ -195,7 +203,7 @@ function isInvalid(type:GoType):Bool {
 				default:
 					false;
 			}
-		case named(_, _, underlying):
+		case named(_, _, #if go2hx_compiler _.get() => #end underlying):
 			isInvalid(underlying);
 		default:
 			false;
@@ -206,11 +214,12 @@ function getElem(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case named(_, _, type):
+		case named(_, _, #if go2hx_compiler _.get() => #end type):
 			type;
-		case _var(_, type):
+		case _var(_, #if go2hx_compiler _.get() => #end type):
 			getElem(type);
-		case arrayType(elem, _), sliceType(elem), pointer(elem), refType(elem):
+		case arrayType(#if go2hx_compiler _.get() => #end elem, _), sliceType(#if go2hx_compiler _.get() => #end elem),
+			pointer(#if go2hx_compiler _.get() => #end elem), refType(#if go2hx_compiler _.get() => #end elem):
 			elem;
 		default:
 			type;
@@ -221,7 +230,7 @@ function getVar(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case _var(_, type):
+		case _var(_, #if go2hx_compiler _.get() => #end type):
 			type;
 		default:
 			type;
@@ -234,7 +243,7 @@ function getSignature(type:GoType):GoType {
 	return switch type {
 		case signature(_, _, _):
 			type;
-		case named(_, _, underlying):
+		case named(_, _, #if go2hx_compiler _.get() => #end underlying):
 			getSignature(underlying);
 		default:
 			null;
@@ -242,6 +251,9 @@ function getSignature(type:GoType):GoType {
 }
 
 function isUnsafePointer(type:GoType):Bool {
+	#if go2hx_compiler
+	return false;
+	#else
 	if (type == null)
 		return false;
 	return switch type {
@@ -255,15 +267,16 @@ function isUnsafePointer(type:GoType):Bool {
 		default:
 			false;
 	}
+	#end
 }
 
 function isPointer(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case _var(_, elem):
+		case _var(_, #if go2hx_compiler _.get() => #end elem):
 			isPointer(elem);
-		case named(_, _, elem):
+		case named(_, _, #if go2hx_compiler _.get() => #end elem):
 			isPointer(elem);
 		case pointer(_):
 			true;
@@ -283,7 +296,7 @@ function isRef(type:GoType):Bool {
 
 function isRefValue(type:GoType):Bool {
 	return switch type {
-		case named(_, _, t, _):
+		case named(_, _, #if go2hx_compiler _.get() => #end t, _):
 			isRefValue(t);
 		case basic(_): // , pointer(_):
 			false;
@@ -296,7 +309,7 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointer(elem):
+		case pointer(#if go2hx_compiler _.get() => #end elem):
 			pointerUnwrap(elem);
 		default:
 			type;
@@ -462,7 +475,7 @@ class Value {
 			case _complex64, _complex128:
 				value.value = x;
 			default:
-				throw "not a complex kind: " + kind().toString();
+				throw "not a complex kind: " + kind().string();
 		}
 		_set();
 	}
@@ -490,17 +503,17 @@ class Value {
 		return new Value(value, underlyingValue, underlyingIndex);
 	}
 
-	public function toString() {
-		return Std.string(value.value);
-	}
-
 	static function findUnderlying(t:Type):Type {
+		#if go2hx_compiler
+		return null;
+		#else
 		switch (@:privateAccess t.common().value) {
 			case named(_, _, elem), pointer(elem):
 				return findUnderlying(new _Type(elem));
 			default:
 				return t;
 		}
+		#end
 	}
 
 	public inline function type()
@@ -669,6 +682,9 @@ class Value {
 	}
 
 	public function index(i:GoInt):Value {
+		#if go2hx_compiler
+		return null;
+		#else
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
@@ -693,6 +709,7 @@ class Value {
 				}
 			default: throw "not supported";
 		}
+		#end
 	}
 
 	public function numField():GoInt {
@@ -730,6 +747,9 @@ class Value {
 	}
 
 	public function mapIndex(key:Value):Value {
+		#if go2hx_compiler
+		return null;
+		#else
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
@@ -739,9 +759,13 @@ class Value {
 			default:
 				throw "not a map";
 		}
+		#end
 	}
 
 	public function mapKeys():Slice<Value> {
+		#if go2hx_compiler
+		return null;
+		#else
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
@@ -758,9 +782,13 @@ class Value {
 			default:
 				throw "map index incorrect type: " + gt;
 		}
+		#end
 	}
 
 	public function elem():Value {
+		#if go2hx_compiler
+		return null;
+		#else
 		var value = value.value;
 		if (isNamed(@:privateAccess type().common().value))
 			value = (value : Dynamic).__t__;
@@ -779,6 +807,7 @@ class Value {
 				return value;
 		}
 		throw new ValueError("reflect.Value.Elem", k);
+		#end
 	}
 
 	public function len():GoInt {
@@ -818,7 +847,7 @@ class ValueError {
 	public function __copy__()
 		return new ValueError(method, kind);
 
-	public function toString():String {
+	public function string():GoString {
 		return this.error();
 	}
 
@@ -826,11 +855,14 @@ class ValueError {
 		if (this.kind == invalid) {
 			return "reflect: call of " + this.method + " on zero Value";
 		}
-		return "reflect: call of " + this.method + " on " + this.kind.toString() + " Value";
+		return "reflect: call of " + this.method + " on " + this.kind.string() + " Value";
 	}
 }
 
 private function unroll(parent:GoType, child:GoType):GoType {
+	#if go2hx_compiler
+	return null;
+	#else
 	var parentName = "";
 	var parentType:GoType = null;
 	switch parent {
@@ -866,6 +898,7 @@ private function unroll(parent:GoType, child:GoType):GoType {
 		default:
 			throw "unsupported unroll gt type: " + child;
 	}
+	#end
 }
 
 function typeOf(iface:AnyInterface):Type {
@@ -911,10 +944,11 @@ function defaultValue(typ:Type):Any {
 				case complex128_kind: (0 : GoComplex128);
 				default: 0;
 			}
-		case named(path, methods, type):
+		case named(path, methods, _):
 			var cl = std.Type.resolveClass(path);
 			std.Type.createInstance(cl, []);
-		case arrayType(elem, len): new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
+		case arrayType(#if go2hx_compiler _.get() => #end elem, len):
+			new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
 		default: null;
 	}
 }
@@ -935,7 +969,7 @@ function valueOf(iface:AnyInterface):Value {
 	public function __underlying__():AnyInterface
 		return Go.toInterface(__t__);
 
-	public function toString():String
+	public function string():GoString
 		return Go.string(__t__);
 
 	public function __copy__():GoInt
@@ -953,7 +987,7 @@ function valueOf(iface:AnyInterface):Value {
 			this.len = len;
 	}
 
-	public function toString():String {
+	public function string():GoString {
 		return '{' + Go.string(data) + " " + Go.string(len) + "}";
 	}
 
@@ -985,7 +1019,7 @@ function valueOf(iface:AnyInterface):Value {
 			this.cap = cap;
 	}
 
-	public function toString():String {
+	public function string():GoString {
 		return '{' + Go.string(data) + " " + Go.string(len) + " " + Go.string(cap) + "}";
 	}
 
@@ -1013,7 +1047,7 @@ typedef Type = StructType & {
 	public function name():GoString;
 	public function pkgPath():GoString;
 	public function size():GoUIntptr;
-	public function toString():String;
+	public function string():GoString;
 	public function kind():Kind;
 	public function implements_(u:Type):Bool;
 	public function assignableTo(u:Type):Bool;
@@ -1042,7 +1076,6 @@ typedef Type = StructType & {
 class _Type {
 	@:local
 	public var gt:GoType;
-	public var stringValue:GoString = "";
 
 	@:local
 	public var __t__(get, never):Type;
@@ -1101,7 +1134,6 @@ class _Type {
 
 	public inline function new(t:GoType = invalidType) {
 		gt = t;
-		stringValue = toString();
 	}
 
 	public function __copy__():Type
@@ -1130,6 +1162,9 @@ class _Type {
 	}
 
 	public function kind():Kind {
+		#if go2hx_compiler
+		return 0;
+		#else
 		final gt = getUnderlying(gt);
 		return switch gt {
 			case typeParam(_, _):
@@ -1176,9 +1211,13 @@ class _Type {
 			case signature(_, _, _, _): func;
 			case structType(_): struct;
 		}
+		#end
 	}
 
 	public function size():GoUIntptr {
+		#if go2hx_compiler
+		return 0;
+		#else
 		if (kind() == 0)
 			return 0;
 		final k:Int = kind().toBasic();
@@ -1200,7 +1239,7 @@ class _Type {
 				var gt = getUnderlying(gt);
 				return switch gt {
 					case arrayType(elem, len):
-						(new _Type(elem).size().toBasic() * len:GoUIntptr);
+						((new _Type(elem).size().toBasic() * len) : GoUIntptr);
 					default:
 						0;
 				}
@@ -1210,9 +1249,13 @@ class _Type {
 			default:
 				throw "unimplemented: size of type: " + kind();
 		}
+		#end
 	}
 
-	public function toString():String {
+	public function string():GoString {
+		#if go2hx_compiler
+		return "";
+		#else
 		return switch (gt) {
 			case basic(kind):
 				if (kind == untyped_int_kind)
@@ -1224,39 +1267,39 @@ class _Type {
 				name;
 			case named(path, _, type, alias):
 				if (alias) {
-					new _Type(type).toString();
+					new _Type(type).string();
 				} else {
 					path;
 				}
 			case pointer(elem):
-				"*" + new _Type(elem).toString();
+				"*" + new _Type(elem).string();
 			case structType(fields):
 				"struct { " + [
 					for (field in fields)
-						formatGoFieldName(field.name) + " " + new _Type(field.type).toString()
+						formatGoFieldName(field.name) + " " + new _Type(field.type).string()
 				].join("; ") + " }";
 			case arrayType(typ, len):
-				"[" + Std.string(len) + "]" + new _Type(typ).toString();
+				"[" + Std.string(len) + "]" + new _Type(typ).string();
 			case sliceType(typ):
-				"[]" + new _Type(typ).toString();
+				"[]" + new _Type(typ).string();
 			case mapType(key, value):
-				"map[" + new _Type(key).toString() + "]" + new _Type(value).toString();
+				"map[" + new _Type(key).string() + "]" + new _Type(value).string();
 			case chanType(_, typ):
-				"chan " + new _Type(typ).toString();
+				"chan " + new _Type(typ).string();
 			case signature(variadic, args, rets, recv):
 				var r:GoString = "func(";
 				var preface = "";
 				switch recv {
 					case invalidType:
 					default:
-						r += new _Type(recv).toString();
+						r += new _Type(recv).string();
 						r += ", ";
 				}
 				for (i in 0...args.length) {
 					r += preface;
 					preface = ", ";
 					final isVariadic = variadic && i == args.length - 1;
-					var str:GoString = new _Type(args[i]).toString();
+					var str:GoString = new _Type(args[i]).string();
 					if (isVariadic)
 						str = "..." + str.__slice__(2);
 					r += str;
@@ -1271,7 +1314,7 @@ class _Type {
 						for (ret in rets) {
 							r += preface;
 							preface = ", ";
-							r += new _Type(ret).toString();
+							r += new _Type(ret).string();
 						}
 						if (rets.length > 1)
 							r += ")";
@@ -1285,25 +1328,30 @@ class _Type {
 				if (empty)
 					return "interface {}";
 				for (method in methods) {
-					r += "; " + formatGoFieldName(method.name) + new _Type(method.type).toString().substr(4);
+					r += "; " + formatGoFieldName(method.name) + new _Type(method.type).string().__toString__().substr(4);
 				}
 				r = r.substr(1);
 				"interface {" + r + " }";
 			case refType(elem):
-				new _Type(elem).toString();
+				new _Type(elem).string();
 			default:
 				throw "not found enum toString " + gt; // should never get here
 		}
+		#end
 	}
 
 	public function elem():Type {
+		#if go2hx_compiler
+		return null;
+		#else
 		final gt:GoType = getUnderlying(common().value);
 		switch (gt) {
 			case chanType(_, elem), pointer(elem), sliceType(elem), arrayType(elem, _):
 				return new _Type(elem);
 			default:
-				throw stdgo.errors.Errors.new_("reflect.Type.Elem not implemented for " + toString());
+				throw stdgo.errors.Errors.new_("reflect.Type.Elem not implemented for " + string());
 		}
+		#end
 	}
 
 	public function len():GoInt {
@@ -1311,7 +1359,7 @@ class _Type {
 			case arrayType(_, len):
 				return (len : GoInt);
 			default:
-				throw stdgo.errors.Errors.new_("reflect.Type.Len() not implemented for " + toString());
+				throw stdgo.errors.Errors.new_("reflect.Type.Len() not implemented for " + string());
 		}
 	}
 
@@ -1325,7 +1373,7 @@ class _Type {
 				}
 				return count;
 			default:
-				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + toString());
+				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + string());
 		}
 		return 0;
 	}
@@ -1374,6 +1422,9 @@ class _Type {
 	}
 
 	public function method(index:GoInt):Method {
+		#if go2hx_compiler
+		return null;
+		#else
 		switch gt {
 			case named(path, methods, _):
 				final index = index.toBasic();
@@ -1395,6 +1446,7 @@ class _Type {
 			default:
 				throw "invalid type for method access: " + gt;
 		}
+		#end
 	}
 
 	function formatGoFieldName(name:String):String {
@@ -1424,14 +1476,16 @@ class _Type {
 	}
 
 	public function numField():GoInt {
+		#if !go2hx_compiler
 		switch (gt) {
 			case named(_, _, type):
 				return new _Type(type).numField();
 			case structType(fields):
 				return fields.length;
 			default:
-				throw stdgo.errors.Errors.new_("reflect.NumField not implemented for " + toString());
+				throw stdgo.errors.Errors.new_("reflect.NumField not implemented for " + string());
 		}
+		#end
 		return 0;
 	}
 
@@ -1450,6 +1504,9 @@ class _Type {
 	}
 
 	public function comparable():Bool {
+		#if go2hx_compiler
+		return false;
+		#else
 		return switch (gt) {
 			case sliceType(_), signature(_, _, _, _), mapType(_, _):
 				return false;
@@ -1466,6 +1523,7 @@ class _Type {
 			default:
 				return true;
 		}
+		#end
 	}
 }
 
@@ -1492,7 +1550,7 @@ class _Type {
 			this.index = index;
 	}
 
-	public function toString() {
+	public function string() {
 		return '{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(func)} ${Std.string(index)}}';
 	}
 
@@ -1507,7 +1565,7 @@ class _Type {
 	public function __underlying__():AnyInterface
 		return Go.toInterface(__t__);
 
-	public function toString():String
+	public function string():GoString
 		return Go.string(__t__);
 
 	public function __copy__():GoString
@@ -1602,7 +1660,7 @@ class _Type {
 			this.anonymous = anonymous;
 	}
 
-	public function toString() {
+	public function string():GoString {
 		return
 			'{${Std.string(name)} ${Std.string(pkgPath)} ${Std.string(type)} ${Std.string(tag)} ${Std.string(offset)} ${Std.string(index)} ${Std.string(anonymous)}}';
 	}
@@ -1613,19 +1671,23 @@ class _Type {
 }
 
 private function namedUnderlying(obj:AnyInterface):AnyInterface {
+	#if go2hx_compiler
+	return null;
+	#else
 	return switch (@:privateAccess obj.type.common().value : GoType) {
 		case named(_, _, type):
 			new AnyInterface((obj.value : Dynamic).__t__, new _Type(type));
 		default:
 			obj;
 	}
+	#end
 }
 
 function getUnderlying(gt:GoType, once:Bool = false) {
 	return switch gt {
-		case refType(type):
+		case refType(#if go2hx_compiler _.get() => #end type):
 			getUnderlying(type, once);
-		case named(_, _, type):
+		case named(_, _, #if go2hx_compiler _.get() => #end type):
 			if (once) {
 				type;
 			} else {
@@ -1637,6 +1699,9 @@ function getUnderlying(gt:GoType, once:Bool = false) {
 }
 
 private function directlyAssignable(t:Type, v:Type):Bool {
+	#if go2hx_compiler
+	return false;
+	#else
 	var tgt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
 
@@ -1750,6 +1815,7 @@ private function directlyAssignable(t:Type, v:Type):Bool {
 		default:
 			throw "unable to check for assignability: " + tgt;
 	}
+	#end
 }
 
 private function sortMethods(methods:Array<MethodType>) {
@@ -1759,6 +1825,9 @@ private function sortMethods(methods:Array<MethodType>) {
 }
 
 private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
+	#if go2hx_compiler
+	return false;
+	#else
 	var interfacePath = "";
 	var gt:GoType = @:privateAccess t.common().value;
 	var vgt:GoType = @:privateAccess v.common().value;
@@ -1789,6 +1858,7 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 		default:
 			false;
 	}
+	#end
 }
 
 @:using(Reflect.Kind_extension)
@@ -1801,12 +1871,12 @@ class Kind_wrapper {
 	public function new(__t__)
 		this.__t__ = __t__;
 
-	public function toString():String
+	public function string():GoString
 		return "";
 }
 
 class Kind_extension {
-	public static function toString(kind:Kind):String {
+	public static function string(kind:Kind):GoString {
 		var idx:Int = kind.toBasic();
 		return switch idx {
 			case _invalid: "invalid";

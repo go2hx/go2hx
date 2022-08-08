@@ -32,9 +32,10 @@ type stdgoListType struct {
 }
 
 type dataType struct {
-	Args  []string      `json:"args"`
-	Pkgs  []packageType `json:"pkgs"`
-	Index string        `json:"index"`
+	Args     []string                 `json:"args"`
+	Pkgs     []packageType            `json:"pkgs"`
+	Index    string                   `json:"index"`
+	TypeList []map[string]interface{} `json:"typeList"`
 }
 type packageType struct {
 	Path  string     `json:"path"`
@@ -76,7 +77,11 @@ var stdgoList map[string]bool
 var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
-var typeHasher typeutil.Hasher
+
+//var typeHasher typeutil.Hasher
+var typeMap typeutil.Map
+var typeMapIndex uint32 = 0
+var hashMap map[uint32]map[string]interface{}
 var testBool = false
 var externBool = false
 
@@ -116,7 +121,10 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	}
 	//init
 	methodCache = typeutil.MethodSetCache{}
+	//typeHasher = typeutil.MakeHasher()
+	typeMap = typeutil.Map{}
 	excludes = make(map[string]bool, len(excludesData.Excludes))
+	hashMap = make(map[uint32]map[string]interface{})
 	for _, exclude := range excludesData.Excludes {
 		excludes[exclude] = true
 	}
@@ -130,10 +138,17 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 	}
 	data := parsePkgList(initial, excludes)
 	data.Index = index
+	data.TypeList = make([]map[string]interface{}, len(hashMap))
+	i := 0
+	for _, value := range hashMap {
+		data.TypeList[i] = value
+		i++
+	}
 	//reset
+	hashMap = nil
 	excludes = nil
-	typeHasher = typeutil.Hasher{}
-	methodCache = typeutil.MethodSetCache{}
+	//typeHasher = typeutil.Hasher{}
+	//methodCache = typeutil.MethodSetCache{}
 	data.Args = args
 	if debug {
 		b, _ = json.MarshalIndent(data, "", "  ")
@@ -408,7 +423,7 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 			if t == nil {
 				return false
 			}
-			hash := typeHasher.Hash(t)
+			hash := hashType(t)
 			name, exists := structTypes[hash]
 			if !exists {
 				name = ast.NewIdent("_struct_" + strconv.Itoa(countStruct))
@@ -448,7 +463,7 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 			if t == nil {
 				return false
 			}
-			hash := typeHasher.Hash(t)
+			hash := hashType(t)
 			name, exists := interfaceTypes[hash]
 			if !exists {
 				name = ast.NewIdent("_interface_" + strconv.Itoa(countInterface))
@@ -498,6 +513,18 @@ func mergePackage(pkg *packages.Package) {
 var countStruct = 0
 var countInterface = 0
 
+func hashType(t types.Type) (value uint32) {
+	e := typeMap.At(t)
+	if e == nil {
+		typeMap.Set(t, typeMapIndex)
+		value = typeMapIndex
+		typeMapIndex++
+	} else {
+		value = e.(uint32)
+	}
+	return
+}
+
 func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 	// merge packages
 	for i := 0; i < len(list); i++ {
@@ -529,7 +556,6 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 	}
-	typeHasher = typeutil.MakeHasher()
 	countInterface = 0
 	countStruct = 0
 	for _, pkg := range list {
@@ -704,7 +730,6 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 					"index": sel.Index(),
 				})
 			} else {
-				//FIXME: fix recv calling
 				methods = append(methods, map[string]interface{}{
 					"name":  sel.Obj().Name(),
 					"index": sel.Index(),
@@ -732,18 +757,42 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 	}
 	isVar := false
 	switch data["id"] {
+	case "Var", "Pointer": //, "Slice", "Array":
+		isVar = true
+	case "Named":
+		named := node.(*types.Named)
+		path := named.String()
+		if marked[path] {
+			data["path"] = path
+			return data
+		}
+	default:
+	}
+	var t types.Type
+	var hash uint32 = 0
+	if !isVar {
+		t = node.(types.Type)
+		hash = hashType(t)
+		_, exists := hashMap[hash]
+		if !exists {
+			hashMap[hash] = data
+		} else {
+			return map[string]interface{}{
+				"id":   "HashType",
+				"hash": hash,
+			}
+		}
+	}
+	switch data["id"] {
 	case "Named":
 		named := node.(*types.Named)
 		isAlias := named.Obj().IsAlias()
+		path := named.String()
 		if isAlias { // alias is type X = Y, equivlant to a typedef
 			data["underlying"] = parseType(named.Underlying(), marked)
 			data["alias"] = true
-			isVar = true
 		} else {
-			path := named.String()
-			if !strings.HasPrefix(path, "syscall/") &&
-				!strings.HasPrefix(path, "internal.") &&
-				!marked[path] {
+			if !marked[path] {
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked)
 				data["methods"] = parseMethods(named, &methodCache, 0, marked)
@@ -753,8 +802,8 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 				}
 				data["params"] = params
 			}
-			data["path"] = named.String()
 		}
+		data["path"] = path
 	case "Slice":
 		s := node.(*types.Slice)
 		data["elem"] = parseType(s.Elem(), marked)
@@ -818,7 +867,6 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 		s := node.(*types.Var)
 		data["name"] = s.Name()
 		data["type"] = parseType(s.Type(), marked)
-		isVar = true
 	case "Chan":
 		s := node.(*types.Chan)
 		data["elem"] = parseType(s.Elem(), marked)
@@ -843,8 +891,12 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 		panic("unknown parse type id: " + data["id"].(string))
 	}
 	if !isVar {
-		t := node.(types.Type)
-		data["hash"] = fmt.Sprint(typeHasher.Hash(t))
+		data["hash"] = hash
+		hashMap[hash] = data
+		return map[string]interface{}{
+			"id":   "HashType",
+			"hash": hash,
+		}
 	}
 	return data
 }

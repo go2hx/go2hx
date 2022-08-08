@@ -442,6 +442,9 @@ class Go {
 	}
 
 	public static macro function toInterface(expr) {
+		#if go2hx_compiler
+		return macro null;
+		#else
 		final expectedType = Context.getExpectedType();
 		if (expectedType != null) {
 			var error = false;
@@ -513,6 +516,7 @@ class Go {
 		e.pos = Context.currentPos();
 		// trace(new haxe.macro.Printer().printExpr(e));
 		return e;
+		#end
 	}
 
 	public static macro function assertable(expr:Expr) {

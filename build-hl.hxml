@@ -2,8 +2,8 @@
 -main Main
 -D no-deprecation-warnings
 -D std-encoding-utf8
+-D go2hx_compiler
 --dce full
 -D analyzer-optimize
 #-D nolinkstd
--D simulate_num
 -hl build.hl

@@ -2,6 +2,7 @@
 -cp src
 -D no-deprecation-warnings
 -D simulate_num
+-D go2hx_compiler
 -dce full
 -lib hxnodejs
 --js stdgo.js

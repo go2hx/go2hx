@@ -130,7 +130,7 @@ private function format(fmt:GoString, args:Array<AnyInterface>):GoString {
 			} else {
 				switch c {
 					case "T".code: // go type
-						buf.add(args[argIndex++].type.toString());
+						buf.add(args[argIndex++].type.string());
 					case "v".code: // default format, plus flag adds field names
 						buf.add(Go.string(args[argIndex++].value));
 					case "d".code: // int(x)/uint(x) etc

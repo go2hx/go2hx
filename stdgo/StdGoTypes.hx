@@ -79,11 +79,11 @@ private function ofStringUInt(s:String):UInt32 {
 }
 
 private function ofStringInt64(s:String):Int64 {
-	return Int64.parseString(s);
+	return haxe.Int64.parseString(s);
 }
 
 private function ofStringUnTypedInt(sParam:String):Int64 {
-	return Int64.parseString(sParam);
+	return haxe.Int64.parseString(sParam);
 }
 
 private function ofStringUInt64(s:String):UInt64 {
@@ -91,7 +91,7 @@ private function ofStringUInt64(s:String):UInt64 {
 }
 
 private function ofIntInt64(x:Int):Int64 {
-	return Int64.ofInt(x);
+	return haxe.Int64.ofInt(x);
 }
 
 private function copyInt64(x:Int64):Int64
@@ -101,18 +101,18 @@ private function copyUInt64(x:UInt64):UInt64
 	return x.copy();
 
 private function ofIntUInt64(x:Int):UInt64 {
-	return UInt64.ofInt(x);
+	return haxe.UInt64.ofInt(x);
 }
 
 private function ofUIntUInt64(x:UInt):UInt64 {
 	final y:Int = x;
 	if (y < 0) {
-		var u = UInt64.ofInt(2147483647);
+		var u = haxe.UInt64.ofInt(2147483647);
 		u *= 2;
 		u += y + 2;
 		return u;
 	}
-	return UInt64.ofInt(x);
+	return haxe.UInt64.ofInt(x);
 }
 
 private function zeroUInt32():UInt32
@@ -140,27 +140,27 @@ private function ofIntUInt(x:Int):UInt32 {
 // https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2014-L2034
 private function ofFloatInt64(x:Float):Int64 {
 	if (x == 0)
-		return Int64.make(0, 0);
+		return haxe.Int64.make(0, 0);
 	final isNeg = x < 0;
 	if (isNeg)
 		x *= -1;
 	if (Math.isNaN(x))
 		return (isNeg ? -1 : 1) * Math.floor(x);
 	if (x > 9223372036854775807.0)
-		return isNeg ? Int64.make(0x80000000, 0) : Int64.make(0x7fffffff, 0xffffffff);
+		return isNeg ? haxe.Int64.make(0x80000000, 0) : haxe.Int64.make(0x7fffffff, 0xffffffff);
 	var res = ofFloatUInt64(x);
-	return isNeg ? Int64.neg(res) : res;
+	return isNeg ? haxe.Int64.neg(res) : res;
 }
 
 private function ofFloatUInt64(x:Float):UInt64 {
 	if (x < 0.0)
 		throw "negative float passed to uint64";
 	if (Math.isNaN(x))
-		return Int64.make(0x80000000, 0);
+		return haxe.Int64.make(0x80000000, 0);
 	if (x < 2147483647.0)
 		return Math.floor(x);
 	if (x > 18446744073709551615.0)
-		return Int64.make(0xffffffff, 0xffffffff);
+		return haxe.Int64.make(0xffffffff, 0xffffffff);
 	// https://github.com/tardisgo/tardisgo/blob/master/haxe/haxeRuntime.go#L2048-L2058
 	var f32:Float = 4294967296.0; // the number of combinations in 32-bits
 	var f16:Float = 65536.0; // the number of combinations in 16-bits
@@ -173,7 +173,7 @@ private function ofFloatUInt64(x:Float):UInt64 {
 	var lowTop16:Float = Math.ffloor(low / f16);
 	var lowBot16:Float = low - (lowTop16 * f16);
 	var lowBits:Int = Math.floor(lowTop16) << 16 | Math.floor(lowBot16);
-	return Int64.make(highBits, lowBits);
+	return haxe.Int64.make(highBits, lowBits);
 }
 
 private function toFloatInt64(x:Int64):Float {
@@ -193,22 +193,22 @@ private function toFloatUInt64(x:UInt64):Float {
 /*private function toFloatInt64(i:Int64):Float {
 	var isNegative = false;
 	if (i < 0) {
-				  if (i < min)
-					  return -9223372036854775808.0; // most -ve value can't be made +ve
-				  isNegative = true;
-				  i = -i;
+					   if (i < min)
+						   return -9223372036854775808.0; // most -ve value can't be made +ve
+					   isNegative = true;
+					   i = -i;
 	}
 	var multiplier = 1.0, ret = 0.0;
 	for (_ in 0...64) {
-				  if (i.and(one) != zero)
-					  ret += multiplier;
-				  multiplier *= 2.0;
-				  i = i.shr(1);
+					   if (i.and(one) != zero)
+						   ret += multiplier;
+					   multiplier *= 2.0;
+					   i = i.shr(1);
 	}
 	return (isNegative ? -1 : 1) * ret;
 }*/
 private function toStringInt64(x:Int64):String
-	return Int64.toStr(x);
+	return haxe.Int64.toStr(x);
 
 private function toStringUInt64(x:UInt64):String
 	return x.toString();
@@ -226,7 +226,7 @@ private function toInt64UInt64(x:UInt64):Int64 {
 }
 
 private function toUInt64Int64(x:Int64):UInt64 {
-	return UInt64.make(x.high, x.low);
+	return haxe.Int64.make(x.high, x.low);
 }
 
 // Eliott's very nice code
@@ -1744,6 +1744,9 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 	}
 
 	@:op(A == B) public static function equals(a:AnyInterface, b:AnyInterface):Bool {
+		#if go2hx_compiler
+		return false;
+		#else
 		if (a == null || b == null) // null check
 			return a == null && b == null;
 		var gt:GoType = @:privateAccess a.type.common().value;
@@ -1857,6 +1860,7 @@ abstract AnyInterface(AnyInterfaceData) from AnyInterfaceData {
 			default:
 				throw "unknown type equals: " + @:privateAccess a.type.common().value;
 		}
+		#end
 	}
 }
 
@@ -1892,22 +1896,22 @@ typedef MapAccess<K, V> = {
 	function set(k:K, v:V):Void;
 }
 /*
-	uint8       the set of all unsigned  8-bit integers (0 to 255)
-	uint16      the set of all unsigned 16-bit integers (0 to 65535)
-	uint32      the set of all unsigned 32-bit integers (0 to 4294967295)
-	uint64      the set of all unsigned 64-bit integers (0 to 18446744073709551615)
+		 uint8       the set of all unsigned  8-bit integers (0 to 255)
+		 uint16      the set of all unsigned 16-bit integers (0 to 65535)
+		 uint32      the set of all unsigned 32-bit integers (0 to 4294967295)
+		 uint64      the set of all unsigned 64-bit integers (0 to 18446744073709551615)
 
-	int8        the set of all signed  8-bit integers (-128 to 127)
-	int16       the set of all signed 16-bit integers (-32768 to 32767)
-	int32       the set of all signed 32-bit integers (-2147483648 to 2147483647)
-	int64       the set of all signed 64-bit integers (-9223372036854775808 to 9223372036854775807)
+		 int8        the set of all signed  8-bit integers (-128 to 127)
+		 int16       the set of all signed 16-bit integers (-32768 to 32767)
+		 int32       the set of all signed 32-bit integers (-2147483648 to 2147483647)
+		 int64       the set of all signed 64-bit integers (-9223372036854775808 to 9223372036854775807)
 
-	float32     the set of all IEEE-754 32-bit floating-point numbers
-	float64     the set of all IEEE-754 64-bit floating-point numbers
+		 float32     the set of all IEEE-754 32-bit floating-point numbers
+		 float64     the set of all IEEE-754 64-bit floating-point numbers
 
-	complex64   the set of all complex numbers with float32 real and imaginary parts
-	complex128  the set of all complex numbers with float64 real and imaginary parts
+		 complex64   the set of all complex numbers with float32 real and imaginary parts
+		 complex128  the set of all complex numbers with float64 real and imaginary parts
 
-	byte        alias for uint8
-	rune        alias for int32
+		 byte        alias for uint8
+		 rune        alias for int32
  */

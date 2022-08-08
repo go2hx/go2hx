@@ -268,7 +268,7 @@ function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
         if (!_ok) {
             _sw = {
                 final __self__ = new T_stringWriter_wrapper(((new T_stringWriter(_w) : T_stringWriter)));
-                __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_stringWriter(_w) : T_stringWriter)).writeString(_s_) #else null #end;
+                __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_stringWriter(_w) : T_stringWriter)).writeString(__0) #else null #end;
                 __self__;
             };
         };
@@ -1986,8 +1986,8 @@ class Reader_wrapper {
         if (((_oldnew != null ? _oldnew.length : ((0 : GoInt))) == ((2 : GoInt))) && (((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))) != null ? (_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))).length : ((0 : GoInt))) > ((1 : GoInt)))) {
             return {
                 final __self__ = new T_singleStringReplacer_wrapper(_makeSingleStringReplacer((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))), (_oldnew != null ? _oldnew[((1 : GoInt))] : (("" : GoString)))));
-                __self__.replace = #if !macro function(_s_:GoString):GoString return _makeSingleStringReplacer((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))), (_oldnew != null ? _oldnew[((1 : GoInt))] : (("" : GoString)))).replace(_s_) #else null #end;
-                __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s__:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _makeSingleStringReplacer((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))), (_oldnew != null ? _oldnew[((1 : GoInt))] : (("" : GoString)))).writeString(_w_, _s__) #else null #end;
+                __self__.replace = #if !macro function(__0:GoString):GoString return _makeSingleStringReplacer((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))), (_oldnew != null ? _oldnew[((1 : GoInt))] : (("" : GoString)))).replace(__0) #else null #end;
+                __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _makeSingleStringReplacer((_oldnew != null ? _oldnew[((0 : GoInt))] : (("" : GoString))), (_oldnew != null ? _oldnew[((1 : GoInt))] : (("" : GoString)))).writeString(_w_, _s_) #else null #end;
                 __self__;
             };
         };
@@ -1998,9 +1998,9 @@ class Reader_wrapper {
                 if (((_oldnew != null ? _oldnew[_i] : (("" : GoString))) != null ? (_oldnew != null ? _oldnew[_i] : (("" : GoString))).length : ((0 : GoInt))) != ((1 : GoInt))) {
                     return {
                         final __self__ = new T_genericReplacer_wrapper(_makeGenericReplacer(_oldnew));
-                        __self__.replace = #if !macro function(_s_:GoString):GoString return _makeGenericReplacer(_oldnew).replace(_s_) #else null #end;
-                        __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s__:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _makeGenericReplacer(_oldnew).writeString(_w_, _s__) #else null #end;
-                        __self__._lookup = #if !macro function(_s___:GoString, _ignoreRoot:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : Bool; } return _makeGenericReplacer(_oldnew)._lookup(_s___, _ignoreRoot) #else null #end;
+                        __self__.replace = #if !macro function(__0:GoString):GoString return _makeGenericReplacer(_oldnew).replace(__0) #else null #end;
+                        __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _makeGenericReplacer(_oldnew).writeString(_w_, _s_) #else null #end;
+                        __self__._lookup = #if !macro function(_s__:GoString, _ignoreRoot:Bool):{ var _0 : GoString; var _1 : GoInt; var _2 : Bool; } return _makeGenericReplacer(_oldnew)._lookup(_s__, _ignoreRoot) #else null #end;
                         __self__._printNode = #if !macro function(_t:Ref<T_trieNode>, _depth:GoInt):GoString return _makeGenericReplacer(_oldnew)._printNode(_t, _depth) #else null #end;
                         __self__;
                     };
@@ -2025,8 +2025,8 @@ class Reader_wrapper {
             };
             return {
                 final __self__ = new T_byteReplacer_wrapper(_r);
-                __self__.replace = #if !macro function(_s_:GoString):GoString return _r.replace(_s_) #else null #end;
-                __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s__:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(_w_, _s__) #else null #end;
+                __self__.replace = #if !macro function(__0:GoString):GoString return _r.replace(__0) #else null #end;
+                __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(_w_, _s_) #else null #end;
                 __self__;
             };
         };
@@ -2044,8 +2044,8 @@ class Reader_wrapper {
         };
         return {
             final __self__ = new T_byteStringReplacer_wrapper(_r);
-            __self__.replace = #if !macro function(_s_:GoString):GoString return _r.replace(_s_) #else null #end;
-            __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s__:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(_w_, _s__) #else null #end;
+            __self__.replace = #if !macro function(__0:GoString):GoString return _r.replace(__0) #else null #end;
+            __self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(_w_, _s_) #else null #end;
             __self__;
         };
     }
@@ -2209,7 +2209,7 @@ class T_trieNode_wrapper {
         _r.writeString({
             final __self__ = new T_appendSliceWriter_wrapper(_buf);
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
-            __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(_s_) #else null #end;
+            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__;
         }, _s);
         return ((_buf : GoString));

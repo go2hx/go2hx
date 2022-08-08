@@ -198,7 +198,7 @@ function _acosh(_x:GoFloat64):GoFloat64 {
     //	Asin(±0) = ±0
     //	Asin(x) = NaN if x < -1 or x > 1
 **/
-function asin(_x:GoFloat64):GoFloat64 return std.Math.asin(_f.toBasic());
+function asin(_x:GoFloat64):GoFloat64 return std.Math.asin(_x.toBasic());
 function _asin(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -228,7 +228,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
     // Special case is:
     //	Acos(x) = NaN if x < -1 or x > 1
 **/
-function acos(_x:GoFloat64):GoFloat64 return std.Math.acos(_f.toBasic());
+function acos(_x:GoFloat64):GoFloat64 return std.Math.acos(_x.toBasic());
 function _acos(_x:GoFloat64):GoFloat64 {
         return ((1.5707963267948966 : GoFloat64)) - asin(_x);
     }
@@ -302,7 +302,7 @@ function _satan(_x:GoFloat64):GoFloat64 {
     //      Atan(±0) = ±0
     //      Atan(±Inf) = ±Pi/2
 **/
-function atan(_x:GoFloat64):GoFloat64 return std.Math.atan(_f.toBasic());
+function atan(_x:GoFloat64):GoFloat64 return std.Math.atan(_x.toBasic());
 function _atan(_x:GoFloat64):GoFloat64 {
         if (_x == ((0 : GoFloat64))) {
             return _x;
@@ -336,7 +336,7 @@ function _atan(_x:GoFloat64):GoFloat64 {
     //	Atan2(+Inf, x) = +Pi/2
     //	Atan2(-Inf, x) = -Pi/2
 **/
-function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return std.Math.atan2(_f.toBasic());
+function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return std.Math.atan2(_y.toBasic(), _x.toBasic());
 function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
         if (isNaN(_y) || isNaN(_x)) {
             return naN();
@@ -2811,7 +2811,7 @@ function signbit(_x:GoFloat64):Bool {
     //	Cos(±Inf) = NaN
     //	Cos(NaN) = NaN
 **/
-function cos(_x:GoFloat64):GoFloat64 return std.Math.cos(_f.toBasic());
+function cos(_x:GoFloat64):GoFloat64 return std.Math.cos(_x.toBasic());
 inline function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
 /**
     // Sin returns the sine of the radian argument x.
@@ -2821,7 +2821,7 @@ inline function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
     //	Sin(±Inf) = NaN
     //	Sin(NaN) = NaN
 **/
-function sin(_x:GoFloat64):GoFloat64 return std.Math.sin(_f.toBasic());
+function sin(_x:GoFloat64):GoFloat64 return std.Math.sin(_x.toBasic());
 inline function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
 /**
     // Sincos returns Sin(x), Cos(x).
@@ -3047,7 +3047,7 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
     //	Tan(±Inf) = NaN
     //	Tan(NaN) = NaN
 **/
-function tan(_x:GoFloat64):GoFloat64 return std.Math.tan(_f.toBasic());
+function tan(_x:GoFloat64):GoFloat64 return std.Math.tan(_x.toBasic());
 function _tan(_x:GoFloat64):GoFloat64 {
         {};
         if ((_x == ((0 : GoFloat64))) || isNaN(_x)) {

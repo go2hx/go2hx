@@ -295,14 +295,7 @@ function args():Slice<GoString> {
     // The argument p points to a bool variable in which to store the value of the flag.
 **/
 function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
-            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newBoolValue(_value, _p), _name, _usage);
     }
 /**
     // Bool defines a bool flag with specified name, default value, and usage string.
@@ -316,13 +309,7 @@ function bool(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
     // The argument p points to an int variable in which to store the value of the flag.
 **/
 function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newIntValue(_value, _p), _name, _usage);
     }
 /**
     // Int defines an int flag with specified name, default value, and usage string.
@@ -336,13 +323,7 @@ function int(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
     // The argument p points to an int64 variable in which to store the value of the flag.
 **/
 function int64Var(_p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newInt64Value(_value, _p), _name, _usage);
     }
 /**
     // Int64 defines an int64 flag with specified name, default value, and usage string.
@@ -356,13 +337,7 @@ function int64(_name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64>
     // The argument p points to a uint variable in which to store the value of the flag.
 **/
 function uintVar(_p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newUintValue(_value, _p), _name, _usage);
     }
 /**
     // Uint defines a uint flag with specified name, default value, and usage string.
@@ -376,13 +351,7 @@ function uint(_name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> {
     // The argument p points to a uint64 variable in which to store the value of the flag.
 **/
 function uint64Var(_p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newUint64Value(_value, _p), _name, _usage);
     }
 /**
     // Uint64 defines a uint64 flag with specified name, default value, and usage string.
@@ -396,13 +365,7 @@ function uint64(_name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt
     // The argument p points to a string variable in which to store the value of the flag.
 **/
 function stringVar(_p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_val:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), _val) #else null #end;
-            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newStringValue(_value, _p), _name, _usage);
     }
 /**
     // String defines a string flag with specified name, default value, and usage string.
@@ -416,13 +379,7 @@ function string(_name:GoString, _value:GoString, _usage:GoString):Pointer<GoStri
     // The argument p points to a float64 variable in which to store the value of the flag.
 **/
 function float64Var(_p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newFloat64Value(_value, _p), _name, _usage);
     }
 /**
     // Float64 defines a float64 flag with specified name, default value, and usage string.
@@ -437,13 +394,7 @@ function float64(_name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFl
     // The flag accepts a value acceptable to time.ParseDuration.
 **/
 function durationVar(_p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
-        commandLine.var_({
-            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        commandLine.var_(_newDurationValue(_value, _p), _name, _usage);
     }
 /**
     // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -720,12 +671,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function func( _f:FlagSet, _name:GoString, _usage:GoString, _fn:GoString -> Error):Void {
-        _f.var_({
-            final __self__ = new T_funcValue_wrapper(((_fn : T_funcValue)));
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return ((_fn : T_funcValue)).set(_s) #else null #end;
-            __self__.string = #if !macro function():GoString return ((_fn : T_funcValue)).string() #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(((_fn : T_funcValue)), _name, _usage);
     }
     /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -745,13 +691,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function durationVar( _f:FlagSet, _p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newDurationValue(_value, _p), _name, _usage);
     }
     /**
         // Float64 defines a float64 flag with specified name, default value, and usage string.
@@ -769,13 +709,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function float64Var( _f:FlagSet, _p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newFloat64Value(_value, _p), _name, _usage);
     }
     /**
         // String defines a string flag with specified name, default value, and usage string.
@@ -793,13 +727,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function stringVar( _f:FlagSet, _p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_val:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), _val) #else null #end;
-            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newStringValue(_value, _p), _name, _usage);
     }
     /**
         // Uint64 defines a uint64 flag with specified name, default value, and usage string.
@@ -817,13 +745,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function uint64Var( _f:FlagSet, _p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newUint64Value(_value, _p), _name, _usage);
     }
     /**
         // Uint defines a uint flag with specified name, default value, and usage string.
@@ -841,13 +763,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function uintVar( _f:FlagSet, _p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newUintValue(_value, _p), _name, _usage);
     }
     /**
         // Int64 defines an int64 flag with specified name, default value, and usage string.
@@ -865,13 +781,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function int64Var( _f:FlagSet, _p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newInt64Value(_value, _p), _name, _usage);
     }
     /**
         // Int defines an int flag with specified name, default value, and usage string.
@@ -889,13 +799,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function intVar( _f:FlagSet, _p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newIntValue(_value, _p), _name, _usage);
     }
     /**
         // Bool defines a bool flag with specified name, default value, and usage string.
@@ -913,14 +817,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function boolVar( _f:FlagSet, _p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
-        _f.var_({
-            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
-            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(_s:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), _s) #else null #end;
-            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
-            __self__;
-        }, _name, _usage);
+        _f.var_(_newBoolValue(_value, _p), _name, _usage);
     }
     /**
         // Args returns the non-flag arguments.
@@ -979,16 +876,16 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
             stdgo.fmt.Fmt.fprintf({
                 final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
                 __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
-                __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
                 __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
                 __self__.reset = #if !macro function():Void _b.reset() #else null #end;
                 __self__.string = #if !macro function():GoString return _b.string() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-                __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
-                __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
+                __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
                 __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
-                __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                 __self__;
             }, ((((("  -%s" : GoString))) : GoString)), Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
@@ -1013,32 +910,32 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                         stdgo.fmt.Fmt.fprintf({
                             final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
                             __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
-                            __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                            __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
                             __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
                             __self__.reset = #if !macro function():Void _b.reset() #else null #end;
                             __self__.string = #if !macro function():GoString return _b.string() #else null #end;
                             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
                             __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-                            __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
-                            __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
+                            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
                             __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
-                            __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                            __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                             __self__;
                         }, (((((" (default %q)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
                     } else {
                         stdgo.fmt.Fmt.fprintf({
                             final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
                             __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
-                            __self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
+                            __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
                             __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
                             __self__.reset = #if !macro function():Void _b.reset() #else null #end;
                             __self__.string = #if !macro function():GoString return _b.string() #else null #end;
                             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
                             __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-                            __self__.writeRune = #if !macro function(_r:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(_r) #else null #end;
-                            __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(_s) #else null #end;
+                            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
+                            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
                             __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
-                            __self__._grow = #if !macro function(_n:GoInt):Void _b._grow(_n) #else null #end;
+                            __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                             __self__;
                         }, (((((" (default %v)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
                     };
@@ -1126,41 +1023,41 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stderr);
                 __self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.chdir() #else null #end;
                 __self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr.chmod(_mode) #else null #end;
-                __self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(_uid, _gid) #else null #end;
+                __self__.chown = #if !macro function(_i:GoInt, _j:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(_i, _j) #else null #end;
                 __self__.close = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.close() #else null #end;
                 __self__.fd = #if !macro function():GoUIntptr return stdgo.os.Os.stderr.fd() #else null #end;
                 __self__.name = #if !macro function():GoString return stdgo.os.Os.stderr.name() #else null #end;
-                __self__.read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.read(_b) #else null #end;
-                __self__.readAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readAt(_b, _off) #else null #end;
-                __self__.readDir = #if !macro function(_n:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readDir(_n) #else null #end;
+                __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.read(_p) #else null #end;
+                __self__.readAt = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readAt(_p, _off) #else null #end;
+                __self__.readDir = #if !macro function(_i:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readDir(_i) #else null #end;
                 __self__.readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readFrom(_r) #else null #end;
-                __self__.readdir = #if !macro function(_n:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.FileInfo>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdir(_n) #else null #end;
-                __self__.readdirnames = #if !macro function(_n:GoInt):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdirnames(_n) #else null #end;
-                __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.seek(_offset, _whence) #else null #end;
+                __self__.readdir = #if !macro function(_i:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.FileInfo>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdir(_i) #else null #end;
+                __self__.readdirnames = #if !macro function(_i:GoInt):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.readdirnames(_i) #else null #end;
+                __self__.seek = #if !macro function(_i:GoInt64, _base:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.seek(_i, _base) #else null #end;
                 __self__.setDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setDeadline(_t) #else null #end;
                 __self__.setReadDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setReadDeadline(_t) #else null #end;
                 __self__.setWriteDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr.setWriteDeadline(_t) #else null #end;
                 __self__.stat = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.stat() #else null #end;
                 __self__.sync = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.sync() #else null #end;
                 __self__.syscallConn = #if !macro function():{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.syscallConn() #else null #end;
-                __self__.truncate = #if !macro function(_size:GoInt64):stdgo.Error return stdgo.os.Os.stderr.truncate(_size) #else null #end;
-                __self__.write = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.write(_b) #else null #end;
-                __self__.writeAt = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeAt(_b, _off) #else null #end;
-                __self__.writeString = #if !macro function(_s:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeString(_s) #else null #end;
-                __self__._checkValid = #if !macro function(_op:GoString):stdgo.Error return stdgo.os.Os.stderr._checkValid(_op) #else null #end;
+                __self__.truncate = #if !macro function(__0:GoInt64):stdgo.Error return stdgo.os.Os.stderr.truncate(__0) #else null #end;
+                __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.write(_p) #else null #end;
+                __self__.writeAt = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeAt(_p, _off) #else null #end;
+                __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr.writeString(__0) #else null #end;
+                __self__._checkValid = #if !macro function(__0:GoString):stdgo.Error return stdgo.os.Os.stderr._checkValid(__0) #else null #end;
                 __self__._chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr._chmod(_mode) #else null #end;
                 __self__._close = #if !macro function():stdgo.Error return stdgo.os.Os.stderr._close() #else null #end;
-                __self__._pread = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pread(_b, _off) #else null #end;
-                __self__._pwrite = #if !macro function(_b:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pwrite(_b, _off) #else null #end;
-                __self__._read = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._read(_b) #else null #end;
+                __self__._pread = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pread(_p, _off) #else null #end;
+                __self__._pwrite = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._pwrite(_p, _off) #else null #end;
+                __self__._read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._read(_p) #else null #end;
                 __self__._readFrom = #if !macro function(_r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : stdgo.Error; } return stdgo.os.Os.stderr._readFrom(_r) #else null #end;
                 __self__._readdir = #if !macro function(_n:GoInt, _mode:stdgo.os.Os.T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<stdgo.io.fs.Fs.DirEntry>; var _2 : Slice<stdgo.io.fs.Fs.FileInfo>; var _3 : stdgo.Error; } return stdgo.os.Os.stderr._readdir(_n, _mode) #else null #end;
-                __self__._seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._seek(_offset, _whence) #else null #end;
+                __self__._seek = #if !macro function(_i:GoInt64, _base:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._seek(_i, _base) #else null #end;
                 __self__._setDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setDeadline(_t) #else null #end;
                 __self__._setReadDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setReadDeadline(_t) #else null #end;
                 __self__._setWriteDeadline = #if !macro function(_t:stdgo.time.Time.Time):stdgo.Error return stdgo.os.Os.stderr._setWriteDeadline(_t) #else null #end;
                 __self__._wrapErr = #if !macro function(_op:GoString, _err:stdgo.Error):stdgo.Error return stdgo.os.Os.stderr._wrapErr(_op, _err) #else null #end;
-                __self__._write = #if !macro function(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._write(_b) #else null #end;
+                __self__._write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.os.Os.stderr._write(_p) #else null #end;
                 __self__;
             };
         };

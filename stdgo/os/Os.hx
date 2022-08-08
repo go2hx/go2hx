@@ -237,7 +237,7 @@ typedef Signal = StructType & {
     @:embedded
     public function _lockSlow() null;
     @:embedded
-    public function _unlockSlow(_new:GoInt32) null;
+    public function _unlockSlow(__0:GoInt32) null;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T__struct_0(mutex, _dir);
@@ -1906,7 +1906,7 @@ class T_fileStat_wrapper {
 }
 @:keep class T__struct_0_static_extension {
     @:embedded
-    public static function _unlockSlow( __self__:T__struct_0, _new:GoInt32) __self__._unlockSlow(_new);
+    public static function _unlockSlow( __self__:T__struct_0, __0:GoInt32) __self__._unlockSlow(__0);
     @:embedded
     public static function _lockSlow( __self__:T__struct_0) __self__._lockSlow();
     @:embedded

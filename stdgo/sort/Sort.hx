@@ -422,7 +422,7 @@ function ints(_x:Slice<GoInt>):Void {
             final __self__ = new IntSlice_wrapper(((_x : IntSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : IntSlice)).len() #else null #end;
             __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : IntSlice)).less(_i_, _j_) #else null #end;
-            __self__.search = #if !macro function(_x_:GoInt):GoInt return ((_x : IntSlice)).search(_x_) #else null #end;
+            __self__.search = #if !macro function(__0:GoInt):GoInt return ((_x : IntSlice)).search(__0) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : IntSlice)).sort() #else null #end;
             __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : IntSlice)).swap(_i__, _j__) #else null #end;
             __self__;
@@ -465,7 +465,7 @@ function intsAreSorted(_x:Slice<GoInt>):Bool {
             final __self__ = new IntSlice_wrapper(((_x : IntSlice)));
             __self__.len = #if !macro function():GoInt return ((_x : IntSlice)).len() #else null #end;
             __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return ((_x : IntSlice)).less(_i_, _j_) #else null #end;
-            __self__.search = #if !macro function(_x_:GoInt):GoInt return ((_x : IntSlice)).search(_x_) #else null #end;
+            __self__.search = #if !macro function(__0:GoInt):GoInt return ((_x : IntSlice)).search(__0) #else null #end;
             __self__.sort = #if !macro function():Void ((_x : IntSlice)).sort() #else null #end;
             __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void ((_x : IntSlice)).swap(_i__, _j__) #else null #end;
             __self__;
@@ -983,7 +983,7 @@ class T_reverse_wrapper {
             final __self__ = new IntSlice_wrapper(_x);
             __self__.len = #if !macro function():GoInt return _x.len() #else null #end;
             __self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
-            __self__.search = #if !macro function(_x_:GoInt):GoInt return _x.search(_x_) #else null #end;
+            __self__.search = #if !macro function(__0:GoInt):GoInt return _x.search(__0) #else null #end;
             __self__.sort = #if !macro function():Void _x.sort() #else null #end;
             __self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _x.swap(_i__, _j__) #else null #end;
             __self__;

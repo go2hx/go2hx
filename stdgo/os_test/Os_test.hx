@@ -15,7 +15,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _expandTests : Slice<stdgo.os_test.Os_test.T__struct_1> = ((null : Slice<stdgo.os_test.Os_test.T__struct_1>));
+var _expandTests : Slice<T__struct_1> = ((null : Slice<T__struct_1>));
 var _isExistTests : Slice<stdgo.os_test.Os_test.T_isExistTest> = ((null : Slice<stdgo.os_test.Os_test.T_isExistTest>));
 var _isPermissionTests : Slice<stdgo.os_test.Os_test.T_isPermissionTest> = ((null : Slice<stdgo.os_test.Os_test.T_isPermissionTest>));
 var _dot : Slice<GoString> = ((null : Slice<GoString>));
@@ -24,7 +24,7 @@ var _sfdir : GoString = (("" : GoString));
 var _sfname : GoString = (("" : GoString));
 var _openErrorTests : Slice<stdgo.os_test.Os_test.T_openErrorTest> = ((null : Slice<stdgo.os_test.Os_test.T_openErrorTest>));
 var _testLargeWrite : Pointer<Bool> = ((null : Pointer<Bool>));
-var _nilFileMethodTests : Slice<stdgo.os_test.Os_test.T__struct_2> = ((null : Slice<stdgo.os_test.Os_test.T__struct_2>));
+var _nilFileMethodTests : Slice<T__struct_2> = ((null : Slice<T__struct_2>));
 var _isReadonlyError : stdgo.Error -> Bool = null;
 var _global : AnyInterface = ((null : AnyInterface));
 @:structInit class T_isExistTest {

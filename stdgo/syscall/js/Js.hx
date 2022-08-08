@@ -37,7 +37,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
-    public function equal(_w:Value):Bool return false;
+    public function equal(__0:Value):Bool return false;
     @:embedded
     public function float():GoFloat64 return ((0 : GoFloat64));
     @:embedded
@@ -45,7 +45,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function index(_i:GoInt):Value return new Value();
     @:embedded
-    public function instanceOf(_t:Value):Bool return false;
+    public function instanceOf(__0:Value):Bool return false;
     @:embedded
     public function int():GoInt return ((0 : GoInt));
     @:embedded
@@ -71,7 +71,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function type():Type return new Type();
     @:embedded
-    public function _float(_method:GoString):GoFloat64 return ((0 : GoFloat64));
+    public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
     @:embedded
     public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
@@ -82,8 +82,8 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
     public var _ref : T_ref = new T_ref();
-    public var _gcPtr : Ref<T_ref> = ((null : T_ref));
-    public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Ref<T_ref>) {
+    public var _gcPtr : Pointer<T_ref> = ((null : Pointer<T_ref>));
+    public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
         if (_0 != null) this._0 = _0;
         if (_ref != null) this._ref = _ref;
         if (_gcPtr != null) this._gcPtr = _gcPtr;
@@ -106,7 +106,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
-    public function equal(_w:Value):Bool return false;
+    public function equal(__0:Value):Bool return false;
     @:embedded
     public function float():GoFloat64 return ((0 : GoFloat64));
     @:embedded
@@ -114,7 +114,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function index(_i:GoInt):Value return new Value();
     @:embedded
-    public function instanceOf(_t:Value):Bool return false;
+    public function instanceOf(__0:Value):Bool return false;
     @:embedded
     public function int():GoInt return ((0 : GoInt));
     @:embedded
@@ -140,7 +140,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function type():Type return new Type();
     @:embedded
-    public function _float(_method:GoString):GoFloat64 return ((0 : GoFloat64));
+    public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
     @:embedded
     public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
@@ -261,7 +261,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function _isNumber( __self__:Func):Bool return __self__._isNumber();
     @:embedded
-    public static function _float( __self__:Func, _method:GoString):GoFloat64 return __self__._float(_method);
+    public static function _float( __self__:Func, _p:GoString):GoFloat64 return __self__._float(_p);
     @:embedded
     public static function type( __self__:Func):Type return __self__.type();
     @:embedded
@@ -287,7 +287,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function int( __self__:Func):GoInt return __self__.int();
     @:embedded
-    public static function instanceOf( __self__:Func, _t:Value):Bool return __self__.instanceOf(_t);
+    public static function instanceOf( __self__:Func, __0:Value):Bool return __self__.instanceOf(__0);
     @:embedded
     public static function index( __self__:Func, _i:GoInt):Value return __self__.index(_i);
     @:embedded
@@ -295,7 +295,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function float( __self__:Func):GoFloat64 return __self__.float();
     @:embedded
-    public static function equal( __self__:Func, _w:Value):Bool return __self__.equal(_w);
+    public static function equal( __self__:Func, __0:Value):Bool return __self__.equal(__0);
     @:embedded
     public static function delete( __self__:Func, _p:GoString) __self__.delete(_p);
     @:embedded
@@ -625,7 +625,7 @@ class Value_wrapper {
     @:embedded
     public static function _isNumber( __self__:T_error):Bool return __self__._isNumber();
     @:embedded
-    public static function _float( __self__:T_error, _method:GoString):GoFloat64 return __self__._float(_method);
+    public static function _float( __self__:T_error, _p:GoString):GoFloat64 return __self__._float(_p);
     @:embedded
     public static function type( __self__:T_error):Type return __self__.type();
     @:embedded
@@ -651,7 +651,7 @@ class Value_wrapper {
     @:embedded
     public static function int( __self__:T_error):GoInt return __self__.int();
     @:embedded
-    public static function instanceOf( __self__:T_error, _t:Value):Bool return __self__.instanceOf(_t);
+    public static function instanceOf( __self__:T_error, __0:Value):Bool return __self__.instanceOf(__0);
     @:embedded
     public static function index( __self__:T_error, _i:GoInt):Value return __self__.index(_i);
     @:embedded
@@ -659,7 +659,7 @@ class Value_wrapper {
     @:embedded
     public static function float( __self__:T_error):GoFloat64 return __self__.float();
     @:embedded
-    public static function equal( __self__:T_error, _w:Value):Bool return __self__.equal(_w);
+    public static function equal( __self__:T_error, __0:Value):Bool return __self__.equal(__0);
     @:embedded
     public static function delete( __self__:T_error, _p:GoString) __self__.delete(_p);
     @:embedded

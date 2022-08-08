@@ -20,7 +20,7 @@ var discard : Writer = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
         __self__.readFrom = #if !macro function(_r_:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).readFrom(_r_) #else null #end;
         __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).write(_p_) #else null #end;
-        __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).writeString(_s_) #else null #end;
+        __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).writeString(__0) #else null #end;
         __self__;
     };
 var _blackHolePool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
@@ -33,13 +33,13 @@ var _2 : ReaderFrom = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
         __self__.readFrom = #if !macro function(_r_:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).readFrom(_r_) #else null #end;
         __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).write(_p_) #else null #end;
-        __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).writeString(_s_) #else null #end;
+        __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).writeString(__0) #else null #end;
         __self__;
     };
 var _3 : StringWriter = {
         final __self__ = new T_multiWriter_wrapper(((((null : T_multiWriter)) : T_multiWriter)));
         __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).write(_p_) #else null #end;
-        __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).writeString(_s_) #else null #end;
+        __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).writeString(__0) #else null #end;
         __self__;
     };
 typedef Reader = StructType & {
@@ -593,7 +593,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
         return {
             final __self__ = new T_multiWriter_wrapper(((new T_multiWriter(_allWriters) : T_multiWriter)));
             __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_multiWriter(_allWriters) : T_multiWriter)).write(_p_) #else null #end;
-            __self__.writeString = #if !macro function(_s_:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_multiWriter(_allWriters) : T_multiWriter)).writeString(_s_) #else null #end;
+            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_multiWriter(_allWriters) : T_multiWriter)).writeString(__0) #else null #end;
             __self__;
         };
     }
@@ -853,7 +853,7 @@ class T_eofReader_wrapper {
             if (_err == eof) {
                 if (_mr._readers != null) _mr._readers[((0 : GoInt))] = {
                     final __self__ = new T_eofReader_wrapper(((new T_eofReader() : T_eofReader)));
-                    __self__.read = #if !macro function(__0:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_eofReader() : T_eofReader)).read(__0) #else null #end;
+                    __self__.read = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_eofReader() : T_eofReader)).read(_p_) #else null #end;
                     __self__;
                 };
                 _mr._readers = ((_mr._readers.__slice__(((1 : GoInt))) : Slice<Reader>));

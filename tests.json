@@ -15,5 +15,4 @@
     "syscall",
     "syscall/js",
     "log",
-    "time"
 ]}

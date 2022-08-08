@@ -14,5 +14,5 @@
     "os",
     "syscall",
     "syscall/js",
-    "log",
+    "log"
 ]}

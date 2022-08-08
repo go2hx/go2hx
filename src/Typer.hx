@@ -1739,7 +1739,7 @@ private function passByCopy(fromType:GoType, y:Expr, info:Info):Expr {
 					final x = $y;
 					$decl;
 				};
-			case named(_, _, _.get() => type):
+			case named(_, _, type):
 				switch getUnderlying(type) {
 					case pointer(_), basic(_), signature(_, _, _, _), sliceType(_), mapType(_), chanType(_):
 						return y;
@@ -1894,7 +1894,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 		t = getElem(t);
 	}
 	switch t {
-		case named(name, methods, _.get() => type):
+		case named(name, methods, type):
 			if (methods.length == 0)
 				return y;
 			if (type == invalidType)
@@ -1968,7 +1968,7 @@ private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 				refType({get: () -> replaceInvalidType(elem.get(), replace)});
 			}
 		case named(path, methods, type, alias, params):
-			named(path, methods, {get: () -> replaceInvalidType(type.get(), replace)}, alias, params);
+			named(path, methods, replaceInvalidType(type, replace), alias, params);
 		case invalidType:
 			replace;
 		default:
@@ -3135,7 +3135,7 @@ private function toReflectType(t:GoType, info:Info):Expr {
 			macro stdgo.reflect.Reflect.GoType.interfaceType($empty, $methods);
 		case invalidType:
 			macro stdgo.reflect.Reflect.GoType.invalidType;
-		case named(path, methods, _.get() => type):
+		case named(path, methods, type):
 			final methods = macro [];
 			final t = toReflectType(type, info);
 			final namedPath = namedTypePath(path, info);
@@ -3256,16 +3256,14 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 				throw path;
 			}
 			final underlying = {
-				get: () -> {
-					if (e.hash == null) {
-						invalidType;
-					} else if (info.locals.exists(e.hash)) {
-						getLocalType(e.hash, null, info);
-					} else if (info.localUnderlyingNames.exists(path)) {
-						info.localUnderlyingNames[path];
-					} else {
-						typeof(e.underlying, info, true);
-					}
+				if (e.hash == null) {
+					invalidType;
+				} else if (info.locals.exists(e.hash)) {
+					getLocalType(e.hash, null, info);
+				} else if (info.localUnderlyingNames.exists(path)) {
+					info.localUnderlyingNames[path];
+				} else {
+					typeof(e.underlying, info, true);
 				}
 			};
 			final methods:Array<MethodType> = [];
@@ -3541,7 +3539,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			if (empty)
 				return TPath({pack: [], name: "AnyInterface"});
 			throw "non empty interface";
-		case named(path, _, _.get() => underlying, _, params):
+		case named(path, _, underlying, _, params):
 			if (path == null) {
 				trace("underlying null path: " + printer.printComplexType(toComplexType(underlying, info)));
 				throw path;
@@ -4389,7 +4387,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, _.get() => elem), pointer(_.get() => elem), refType(_.get() => elem):
+		case named(_, _, elem), pointer(_.get() => elem), refType(_.get() => elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;
@@ -5009,9 +5007,9 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			} else {
 				macro(null : $ct); // pointer can be nil
 			}
-		case named(path, _, _.get() => underlying):
+		case named(path, _, underlying):
 			switch underlying {
-				case named(_, _, _.get() => type):
+				case named(_, _, type):
 					underlying = type;
 				default:
 			}
@@ -5495,15 +5493,15 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		if (!info.locals.exists(hash)) {
 			final path = spec.name.type.path == null ? spec.name.name : spec.name.type.path;
 			var nameType:GoType = if (spec.type.id == "InterfaceType") {
-				named(path, [], {get: () -> interfaceType(spec.type.type.empty)});
+				named(path, [], interfaceType(spec.type.type.empty));
 			} else {
 				final t = typeof(spec.type, info, false);
 				info.localUnderlyingNames[path] = t;
 				t;
 			}
 			switch nameType {
-				case structType(_):
-					nameType = named(path, [], {get: () -> nameType});
+				case structType(fields):
+					nameType = named(path, [], structType(fields));
 				default:
 			}
 			info.locals[hash] = nameType;

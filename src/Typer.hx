@@ -1909,8 +1909,9 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			info.restricted = [];
 			for (method in methods) {
 				final methodName = nameIdent(method.name, false, false, info);
+				final recv = method.recv.get();
 				switch method.type.get() {
-					case signature(variadic, _.get() => params, _.get() => results, _.get() => recv):
+					case signature(variadic, _.get() => params, _.get() => results, _):
 						final methodArgs = [];
 						final ret:ComplexType = getReturn(results, info);
 						final args = params.map(param -> switch param {
@@ -1923,7 +1924,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 								throw "unknown param type: " + param;
 						});
 						final callArgs = args.map(arg -> macro $i{arg.name});
-						recv = replaceInvalidType(recv, type);
+						final recv = replaceInvalidType(recv, type);
 						if (isPointer(recv)) {
 							if (!selfPointer) {
 								callArgs.unshift(macro Go.pointer($y));
@@ -3275,10 +3276,12 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 			final methods:Array<MethodType> = [];
 			if (e.methods != null) {
 				for (method in (e.methods : Array<Dynamic>)) {
+					final recv = method.recv;
+					final type = method.type;
 					methods.push({
 						name: method.name,
-						type: {get: () -> typeof(method.type, info, false)},
-						recv: {get: () -> typeof(method.recv, info, false)},
+						type: {get: () -> typeof(type, info, false)},
+						recv: {get: () -> typeof(recv, info, false)},
 					});
 				}
 			}
@@ -3288,7 +3291,6 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 					params.push(typeof(param, info, false));
 				}
 			}
-
 			named(path, methods, underlying, e.alias, params);
 		case "Basic":
 			if (e.kind == 0) {
@@ -3488,7 +3490,6 @@ private function namedTypePath(path:String, info:Info):TypePath { // other parse
 	var pack = [];
 	if (globalPath != path) {
 		pack = path.split("/");
-		// trace(path);
 		if (stdgoList.indexOf(toGoPath(path)) != -1) { // haxe only type, otherwise the go code refrences Haxe
 			pack.unshift("stdgo");
 		}

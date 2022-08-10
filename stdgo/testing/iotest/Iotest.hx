@@ -1395,7 +1395,7 @@ function testDataErrReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
 function testErrReader(_t:stdgo.testing.Testing.T):Void {
         var _cases = ((new Slice<T__struct_0>(((new T__struct_0(((((("nil error" : GoString))) : GoString)), ((null : stdgo.Error))) : T__struct_0)), ((new T__struct_0(((((("non-nil error" : GoString))) : GoString)), stdgo.errors.Errors.new_(((((("io failure" : GoString))) : GoString)))) : T__struct_0)), ((new T__struct_0(((((("io.EOF" : GoString))) : GoString)), stdgo.io.Io.eof) : T__struct_0))) : Slice<T__struct_0>));
         for (_0 => _tt in _cases) {
-            var _tt:T__struct_0 = new T__struct_0(_tt._name, _tt._err);
+            var _tt:T__struct_0 = (_tt == null ? null : _tt.__copy__());
             _t.run(_tt._name, function(_t:stdgo.testing.Testing.T):Void {
                 var __tmp__ = errReader(_tt._err).read(((null : Slice<GoUInt8>))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != _tt._err) {

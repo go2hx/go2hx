@@ -30,7 +30,7 @@ var _data : Slice<GoInt> = {
         s[13] = ((10000 : GoInt));
         s;
     };
-var _tests : Slice<T__struct_1> = ((new Slice<T__struct_1>(
+var _tests : Slice<stdgo.sort_test.Sort_test.T__struct_1> = ((new Slice<T__struct_1>(
 ((new T__struct_1(((((("empty" : GoString))) : GoString)), ((0 : GoInt)), null, ((0 : GoInt))) : T__struct_1)),
 ((new T__struct_1(((((("1 1" : GoString))) : GoString)), ((1 : GoInt)), function(_i:GoInt):Bool {
         return _i >= ((1 : GoInt));
@@ -88,7 +88,7 @@ var _sdata : Slice<GoString> = {
         s[3] = ((((("x" : GoString))) : GoString));
         s;
     };
-var _wrappertests : Slice<T__struct_2> = ((new Slice<T__struct_2>(((new T__struct_2(((((("SearchInts" : GoString))) : GoString)), searchInts(_data, ((11 : GoInt))), ((8 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("SearchFloat64s" : GoString))) : GoString)), searchFloat64s(_fdata, ((2.1 : GoFloat64))), ((4 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("SearchStrings" : GoString))) : GoString)), searchStrings(_sdata, ((((("" : GoString))) : GoString))), ((0 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("IntSlice.Search" : GoString))) : GoString)), ((_data : IntSlice)).search(((0 : GoInt))), ((2 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("Float64Slice.Search" : GoString))) : GoString)), ((_fdata : Float64Slice)).search(((2 : GoFloat64))), ((3 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("StringSlice.Search" : GoString))) : GoString)), ((_sdata : StringSlice)).search(((((("x" : GoString))) : GoString))), ((3 : GoInt))) : T__struct_2))) : Slice<T__struct_2>));
+var _wrappertests : Slice<stdgo.sort_test.Sort_test.T__struct_2> = ((new Slice<T__struct_2>(((new T__struct_2(((((("SearchInts" : GoString))) : GoString)), searchInts(_data, ((11 : GoInt))), ((8 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("SearchFloat64s" : GoString))) : GoString)), searchFloat64s(_fdata, ((2.1 : GoFloat64))), ((4 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("SearchStrings" : GoString))) : GoString)), searchStrings(_sdata, ((((("" : GoString))) : GoString))), ((0 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("IntSlice.Search" : GoString))) : GoString)), ((_data : IntSlice)).search(((0 : GoInt))), ((2 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("Float64Slice.Search" : GoString))) : GoString)), ((_fdata : Float64Slice)).search(((2 : GoFloat64))), ((3 : GoInt))) : T__struct_2)), ((new T__struct_2(((((("StringSlice.Search" : GoString))) : GoString)), ((_sdata : StringSlice)).search(((((("x" : GoString))) : GoString))), ((3 : GoInt))) : T__struct_2))) : Slice<T__struct_2>));
 var _ints : GoArray<GoInt> = ((new GoArray<GoInt>(
 ((74 : GoInt)),
 ((59 : GoInt)),
@@ -523,22 +523,22 @@ function exampleReverse():Void {
 function exampleSlice():Void {
         var _people = ((new Slice<T__struct_0>(((new T__struct_0(((((("Gopher" : GoString))) : GoString)), ((7 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((55 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Vera" : GoString))) : GoString)), ((24 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0))) : Slice<T__struct_0>));
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new Person()).name < (_people != null ? _people[_j] : new Person()).name;
+            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).name < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).name;
         });
         stdgo.fmt.Fmt.println(((((("By name:" : GoString))) : GoString)), _people);
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new Person()).age < (_people != null ? _people[_j] : new Person()).age;
+            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).age < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).age;
         });
         stdgo.fmt.Fmt.println(((((("By age:" : GoString))) : GoString)), _people);
     }
 function exampleSliceStable():Void {
         var _people = ((new Slice<T__struct_0>(((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Elizabeth" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Colin" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Elizabeth" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0))) : Slice<T__struct_0>));
         stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new Person()).name < (_people != null ? _people[_j] : new Person()).name;
+            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).name < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).name;
         });
         stdgo.fmt.Fmt.println(((((("By name:" : GoString))) : GoString)), _people);
         stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new Person()).age < (_people != null ? _people[_j] : new Person()).age;
+            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).age < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).age;
         });
         stdgo.fmt.Fmt.println(((((("By age,name:" : GoString))) : GoString)), _people);
     }

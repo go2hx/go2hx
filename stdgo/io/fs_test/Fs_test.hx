@@ -15,7 +15,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _isValidPathTests : Slice<T__struct_0> = ((new Slice<T__struct_0>(
+var _isValidPathTests : Slice<stdgo.io.fs_test.Fs_test.T__struct_0> = ((new Slice<T__struct_0>(
 ((new T__struct_0(((((("." : GoString))) : GoString)), true) : T__struct_0)),
 ((new T__struct_0(((((("x" : GoString))) : GoString)), true) : T__struct_0)),
 ((new T__struct_0(((((("x/y" : GoString))) : GoString)), true) : T__struct_0)),
@@ -39,7 +39,7 @@ var _isValidPathTests : Slice<T__struct_0> = ((new Slice<T__struct_0>(
 ((new T__struct_0((("x\\y" : GoString)), true) : T__struct_0)),
 ((new T__struct_0((("x:y" : GoString)), true) : T__struct_0)),
 ((new T__struct_0((("\\x" : GoString)), true) : T__struct_0))) : Slice<T__struct_0>));
-var _globTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("glob.go" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("gl?b.go" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), (("gl\\ob.go" : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("*" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS((((((".." : GoString))) : GoString))), ((((("*/glob.go" : GoString))) : GoString)), ((((("fs/glob.go" : GoString))) : GoString))) : T__struct_1))) : Slice<T__struct_1>));
+var _globTests : Slice<stdgo.io.fs_test.Fs_test.T__struct_1> = ((new Slice<T__struct_1>(((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("glob.go" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("gl?b.go" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), (("gl\\ob.go" : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("*" : GoString))) : GoString)), ((((("glob.go" : GoString))) : GoString))) : T__struct_1)), ((new T__struct_1(stdgo.os.Os.dirFS((((((".." : GoString))) : GoString))), ((((("*/glob.go" : GoString))) : GoString)), ((((("fs/glob.go" : GoString))) : GoString))) : T__struct_1))) : Slice<T__struct_1>));
 var _testFsys : stdgo.testing.fstest.Fstest.MapFS = Go.map(((((("hello.txt" : GoString))) : GoString)) => ((null : stdgo.testing.fstest.Fstest.MapFile)), ((((("sub/goodbye.txt" : GoString))) : GoString)) => ((null : stdgo.testing.fstest.Fstest.MapFile)));
 var _tree : Ref<stdgo.io.fs_test.Fs_test.Node> = ((new Node(((((("testdata" : GoString))) : GoString)), ((new Slice<Node>(@:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null) : Slice<Node>)), ((0 : GoInt))) : Node));
 var _sysValue : GoInt = ((0 : GoInt));
@@ -406,7 +406,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
         var _testFs:stdgo.testing.fstest.Fstest.MapFS = Go.map(((((("notadir.txt" : GoString))) : GoString)) => ((null : stdgo.testing.fstest.Fstest.MapFile)), ((((("adir" : GoString))) : GoString)) => ((null : stdgo.testing.fstest.Fstest.MapFile)));
         var _tests = ((new Slice<T__struct_2>((({ _path : ((((("notadir.txt" : GoString))) : GoString)), _wantMode : ((0 : FileMode)), _wantDir : false } : T__struct_2)), (({ _path : ((((("adir" : GoString))) : GoString)), _wantMode : (("2147483648" : FileMode)), _wantDir : true } : T__struct_2))) : Slice<T__struct_2>));
         for (_0 => _test in _tests) {
-            var _test:stdgo.io.fs_test.Fs_test.T__struct_2 = new stdgo.io.fs_test.Fs_test.T__struct_2(_test._path, _test._wantMode, _test._wantDir);
+            var _test:stdgo.io.fs_test.Fs_test.T__struct_2 = (_test == null ? null : _test.__copy__());
             _t.run(_test._path, function(_t:stdgo.testing.Testing.T):Void {
                 var __tmp__ = stat({
                     final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFs);

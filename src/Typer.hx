@@ -2528,8 +2528,11 @@ private function identType(expr:Ast.Ident, info:Info):ComplexType {
 		}
 	}
 	name = className(name, info);
-	if (StringTools.startsWith(name, "T__struct_") && expr.type != null && expr.type.underlying != null) {
-		info.locals[expr.type.underlying.hash] = typeof(expr.type, info, false);
+	if (StringTools.startsWith(name, "T__struct_") && expr.type != null) {
+		final type = hashTypeToExprType(expr.type, info);
+		if (type.underlying != null) {
+			info.locals[type.underlying.hash] = typeof(type, info, false);
+		}
 	}
 	return TPath({
 		pack: [],

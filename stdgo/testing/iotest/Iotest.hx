@@ -217,7 +217,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _lOut.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _lOut.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _lOut._empty() #else null #end;
@@ -248,7 +248,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lw.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lw.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _lw.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lw.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lw.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lw.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _lw.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _lw._empty() #else null #end;
@@ -333,7 +333,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _lOut.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _lOut.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _lOut._empty() #else null #end;
@@ -419,7 +419,7 @@ function testReadLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _lOut.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _lOut.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _lOut._empty() #else null #end;
@@ -521,7 +521,7 @@ function testReadLogger_errorOnRead(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _lOut.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _lOut.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _lOut.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _lOut.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _lOut._empty() #else null #end;
@@ -839,7 +839,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;
@@ -910,7 +910,7 @@ function testOneByteReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _r.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _r.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _r._empty() #else null #end;
@@ -965,7 +965,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;
@@ -1036,7 +1036,7 @@ function testHalfReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _r.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _r.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _r._empty() #else null #end;
@@ -1091,7 +1091,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;
@@ -1142,7 +1142,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;
@@ -1198,7 +1198,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _r.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _r.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _r._empty() #else null #end;
@@ -1247,7 +1247,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _r.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _r.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _r._empty() #else null #end;
@@ -1305,7 +1305,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;
@@ -1361,7 +1361,7 @@ function testDataErrReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__.unreadRune = #if !macro function():stdgo.Error return _r.unreadRune() #else null #end;
             __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.write(_p) #else null #end;
             __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _r.writeByte(__0) #else null #end;
-            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(_new) #else null #end;
+            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeRune(__0) #else null #end;
             __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _r.writeString(__0) #else null #end;
             __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _r.writeTo(__0) #else null #end;
             __self__._empty = #if !macro function():Bool return _r._empty() #else null #end;
@@ -1465,7 +1465,7 @@ function testTruncateWriter(_t:stdgo.testing.Testing.T):Void {
                 __self__.unreadRune = #if !macro function():stdgo.Error return _buf.unreadRune() #else null #end;
                 __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.write(_p) #else null #end;
                 __self__.writeByte = #if !macro function(__0:GoUInt8):stdgo.Error return _buf.writeByte(__0) #else null #end;
-                __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(_new) #else null #end;
+                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeRune(__0) #else null #end;
                 __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _buf.writeString(__0) #else null #end;
                 __self__.writeTo = #if !macro function(__0:stdgo.io.Io.Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return _buf.writeTo(__0) #else null #end;
                 __self__._empty = #if !macro function():Bool return _buf._empty() #else null #end;

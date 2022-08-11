@@ -2827,7 +2827,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				rparen: 0,
 			}, info);
 		case "SelectorExpr":
-			trace(hashTypeToExprType(expr.fun.sel.type,info));
 			final selType = typeof(expr.fun.sel, info, false);
 			genericBool = isGeneric(selType);
 			switch selType {
@@ -4611,7 +4610,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	final patchName = info.global.module.path + ":" + name;
 	var block:Expr = if (info.global.externBool) {
 		info.returnNamed = false;
-		toExpr(typeReturnStmt({returnPos: 0, results: []}, info));
+		macro throw ${makeString(info.global.path + "." + name + " is not yet implemented")};
 	} else {
 		final patch = Patch.list[patchName];
 		if (decl.recv == null && patch != null) {

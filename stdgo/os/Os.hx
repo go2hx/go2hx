@@ -136,7 +136,7 @@ typedef Signal = StructType & {
         if (writer != null) this.writer = writer;
     }
     @:embedded
-    public function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return null;
+    public function write(_b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return null;
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_onlyWriter(writer);
@@ -1196,7 +1196,7 @@ class LinkError_wrapper {
 }
 @:keep class T_onlyWriter_static_extension {
     @:embedded
-    public static function write( __self__:T_onlyWriter, _p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_p);
+    public static function write( __self__:T_onlyWriter, _b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_b);
 }
 class T_onlyWriter_wrapper {
     @:embedded

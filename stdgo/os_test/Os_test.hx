@@ -122,315 +122,315 @@ var _global : AnyInterface = ((null : AnyInterface));
 /**
     // testGetenv gives us a controlled set of variables for testing Expand.
 **/
-function _testGetenv(_s:GoString):GoString return (("" : GoString));
-function testExpand(_t:stdgo.testing.Testing.T):Void return;
-function benchmarkExpand(_b:stdgo.testing.Testing.B):Void return;
-function testConsistentEnviron(_t:stdgo.testing.Testing.T):Void return;
-function testUnsetenv(_t:stdgo.testing.Testing.T):Void return;
-function testClearenv(_t:stdgo.testing.Testing.T):Void return;
-function testLookupEnv(_t:stdgo.testing.Testing.T):Void return;
+function _testGetenv(_s:GoString):GoString throw "os_test._testGetenv is not yet implemented";
+function testExpand(_t:stdgo.testing.Testing.T):Void throw "os_test.testExpand is not yet implemented";
+function benchmarkExpand(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkExpand is not yet implemented";
+function testConsistentEnviron(_t:stdgo.testing.Testing.T):Void throw "os_test.testConsistentEnviron is not yet implemented";
+function testUnsetenv(_t:stdgo.testing.Testing.T):Void throw "os_test.testUnsetenv is not yet implemented";
+function testClearenv(_t:stdgo.testing.Testing.T):Void throw "os_test.testClearenv is not yet implemented";
+function testLookupEnv(_t:stdgo.testing.Testing.T):Void throw "os_test.testLookupEnv is not yet implemented";
 /**
     // On Windows, Environ was observed to report keys with a single leading "=".
     // Check that they are properly reported by LookupEnv and can be set by SetEnv.
     // See https://golang.org/issue/49886.
 **/
-function testEnvironConsistency(_t:stdgo.testing.Testing.T):Void return;
-function testErrIsExist(_t:stdgo.testing.Testing.T):Void return;
-function _testErrNotExist(_t:stdgo.testing.Testing.T, _name:GoString):GoString return (("" : GoString));
-function testErrIsNotExist(_t:stdgo.testing.Testing.T):Void return;
-function _checkErrorPredicate(_predName:GoString, _pred:Error -> Bool, _err:Error, _target:Error):GoString return (("" : GoString));
-function testIsExist(_t:stdgo.testing.Testing.T):Void return;
-function testIsPermission(_t:stdgo.testing.Testing.T):Void return;
-function testErrPathNUL(_t:stdgo.testing.Testing.T):Void return;
-function testPathErrorUnwrap(_t:stdgo.testing.Testing.T):Void return;
-function testErrorIsMethods(_t:stdgo.testing.Testing.T):Void return;
-function exampleOpenFile():Void return;
-function exampleOpenFile_append():Void return;
-function exampleChmod():Void return;
-function exampleChtimes():Void return;
-function exampleFileMode():Void return;
-function exampleErrNotExist():Void return;
-function exampleExpand():Void return;
-function exampleExpandEnv():Void return;
-function exampleLookupEnv():Void return;
-function exampleGetenv():Void return;
-function exampleUnsetenv():Void return;
-function exampleReadDir():Void return;
-function exampleMkdirTemp():Void return;
-function exampleMkdirTemp_suffix():Void return;
-function exampleCreateTemp():Void return;
-function exampleCreateTemp_suffix():Void return;
-function exampleReadFile():Void return;
-function exampleWriteFile():Void return;
-function exampleMkdir():Void return;
-function exampleMkdirAll():Void return;
-function testExecutable(_t:stdgo.testing.Testing.T):Void return;
-function _sameFile(_fn1:GoString, _fn2:GoString):Bool return false;
-function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void return;
-function testMain(_m:stdgo.testing.Testing.M):Void return;
-function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 return ((0 : GoInt64));
-function _equal(_name1:GoString, _name2:GoString):Bool return false;
+function testEnvironConsistency(_t:stdgo.testing.Testing.T):Void throw "os_test.testEnvironConsistency is not yet implemented";
+function testErrIsExist(_t:stdgo.testing.Testing.T):Void throw "os_test.testErrIsExist is not yet implemented";
+function _testErrNotExist(_t:stdgo.testing.Testing.T, _name:GoString):GoString throw "os_test._testErrNotExist is not yet implemented";
+function testErrIsNotExist(_t:stdgo.testing.Testing.T):Void throw "os_test.testErrIsNotExist is not yet implemented";
+function _checkErrorPredicate(_predName:GoString, _pred:Error -> Bool, _err:Error, _target:Error):GoString throw "os_test._checkErrorPredicate is not yet implemented";
+function testIsExist(_t:stdgo.testing.Testing.T):Void throw "os_test.testIsExist is not yet implemented";
+function testIsPermission(_t:stdgo.testing.Testing.T):Void throw "os_test.testIsPermission is not yet implemented";
+function testErrPathNUL(_t:stdgo.testing.Testing.T):Void throw "os_test.testErrPathNUL is not yet implemented";
+function testPathErrorUnwrap(_t:stdgo.testing.Testing.T):Void throw "os_test.testPathErrorUnwrap is not yet implemented";
+function testErrorIsMethods(_t:stdgo.testing.Testing.T):Void throw "os_test.testErrorIsMethods is not yet implemented";
+function exampleOpenFile():Void throw "os_test.exampleOpenFile is not yet implemented";
+function exampleOpenFile_append():Void throw "os_test.exampleOpenFile_append is not yet implemented";
+function exampleChmod():Void throw "os_test.exampleChmod is not yet implemented";
+function exampleChtimes():Void throw "os_test.exampleChtimes is not yet implemented";
+function exampleFileMode():Void throw "os_test.exampleFileMode is not yet implemented";
+function exampleErrNotExist():Void throw "os_test.exampleErrNotExist is not yet implemented";
+function exampleExpand():Void throw "os_test.exampleExpand is not yet implemented";
+function exampleExpandEnv():Void throw "os_test.exampleExpandEnv is not yet implemented";
+function exampleLookupEnv():Void throw "os_test.exampleLookupEnv is not yet implemented";
+function exampleGetenv():Void throw "os_test.exampleGetenv is not yet implemented";
+function exampleUnsetenv():Void throw "os_test.exampleUnsetenv is not yet implemented";
+function exampleReadDir():Void throw "os_test.exampleReadDir is not yet implemented";
+function exampleMkdirTemp():Void throw "os_test.exampleMkdirTemp is not yet implemented";
+function exampleMkdirTemp_suffix():Void throw "os_test.exampleMkdirTemp_suffix is not yet implemented";
+function exampleCreateTemp():Void throw "os_test.exampleCreateTemp is not yet implemented";
+function exampleCreateTemp_suffix():Void throw "os_test.exampleCreateTemp_suffix is not yet implemented";
+function exampleReadFile():Void throw "os_test.exampleReadFile is not yet implemented";
+function exampleWriteFile():Void throw "os_test.exampleWriteFile is not yet implemented";
+function exampleMkdir():Void throw "os_test.exampleMkdir is not yet implemented";
+function exampleMkdirAll():Void throw "os_test.exampleMkdirAll is not yet implemented";
+function testExecutable(_t:stdgo.testing.Testing.T):Void throw "os_test.testExecutable is not yet implemented";
+function _sameFile(_fn1:GoString, _fn2:GoString):Bool throw "os_test._sameFile is not yet implemented";
+function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void throw "os_test.testExecutableDeleted is not yet implemented";
+function testMain(_m:stdgo.testing.Testing.M):Void throw "os_test.testMain is not yet implemented";
+function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 throw "os_test._size is not yet implemented";
+function _equal(_name1:GoString, _name2:GoString):Bool throw "os_test._equal is not yet implemented";
 /**
     // localTmp returns a local temporary directory not on NFS.
 **/
-function _localTmp():GoString return (("" : GoString));
-function _newFile(_testName:GoString, _t:stdgo.testing.Testing.T):File return ((null : File));
-function _newDir(_testName:GoString, _t:stdgo.testing.Testing.T):GoString return (("" : GoString));
-function testStat(_t:stdgo.testing.Testing.T):Void return;
-function testStatError(_t:stdgo.testing.Testing.T):Void return;
-function testFstat(_t:stdgo.testing.Testing.T):Void return;
-function testLstat(_t:stdgo.testing.Testing.T):Void return;
+function _localTmp():GoString throw "os_test._localTmp is not yet implemented";
+function _newFile(_testName:GoString, _t:stdgo.testing.Testing.T):File throw "os_test._newFile is not yet implemented";
+function _newDir(_testName:GoString, _t:stdgo.testing.Testing.T):GoString throw "os_test._newDir is not yet implemented";
+function testStat(_t:stdgo.testing.Testing.T):Void throw "os_test.testStat is not yet implemented";
+function testStatError(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatError is not yet implemented";
+function testFstat(_t:stdgo.testing.Testing.T):Void throw "os_test.testFstat is not yet implemented";
+function testLstat(_t:stdgo.testing.Testing.T):Void throw "os_test.testLstat is not yet implemented";
 /**
     // Read with length 0 should not return EOF.
 **/
-function testRead0(_t:stdgo.testing.Testing.T):Void return;
+function testRead0(_t:stdgo.testing.Testing.T):Void throw "os_test.testRead0 is not yet implemented";
 /**
     // Reading a closed file should return ErrClosed error
 **/
-function testReadClosed(_t:stdgo.testing.Testing.T):Void return;
-function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void return;
-function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void return;
-function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void return;
-function testFileReaddirnames(_t:stdgo.testing.Testing.T):Void return;
-function testFileReaddir(_t:stdgo.testing.Testing.T):Void return;
-function testFileReadDir(_t:stdgo.testing.Testing.T):Void return;
-function _benchmarkReaddirname(_path:GoString, _b:stdgo.testing.Testing.B):Void return;
-function _benchmarkReaddir(_path:GoString, _b:stdgo.testing.Testing.B):Void return;
-function _benchmarkReadDir(_path:GoString, _b:stdgo.testing.Testing.B):Void return;
-function benchmarkReaddirname(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkReaddir(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkReadDir(_b:stdgo.testing.Testing.B):Void return;
-function _benchmarkStat(_b:stdgo.testing.Testing.B, _path:GoString):Void return;
-function _benchmarkLstat(_b:stdgo.testing.Testing.B, _path:GoString):Void return;
-function benchmarkStatDot(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkStatFile(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkStatDir(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkLstatDot(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkLstatFile(_b:stdgo.testing.Testing.B):Void return;
-function benchmarkLstatDir(_b:stdgo.testing.Testing.B):Void return;
+function testReadClosed(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadClosed is not yet implemented";
+function _testReaddirnames(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void throw "os_test._testReaddirnames is not yet implemented";
+function _testReaddir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void throw "os_test._testReaddir is not yet implemented";
+function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing.Testing.T):Void throw "os_test._testReadDir is not yet implemented";
+function testFileReaddirnames(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileReaddirnames is not yet implemented";
+function testFileReaddir(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileReaddir is not yet implemented";
+function testFileReadDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileReadDir is not yet implemented";
+function _benchmarkReaddirname(_path:GoString, _b:stdgo.testing.Testing.B):Void throw "os_test._benchmarkReaddirname is not yet implemented";
+function _benchmarkReaddir(_path:GoString, _b:stdgo.testing.Testing.B):Void throw "os_test._benchmarkReaddir is not yet implemented";
+function _benchmarkReadDir(_path:GoString, _b:stdgo.testing.Testing.B):Void throw "os_test._benchmarkReadDir is not yet implemented";
+function benchmarkReaddirname(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkReaddirname is not yet implemented";
+function benchmarkReaddir(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkReaddir is not yet implemented";
+function benchmarkReadDir(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkReadDir is not yet implemented";
+function _benchmarkStat(_b:stdgo.testing.Testing.B, _path:GoString):Void throw "os_test._benchmarkStat is not yet implemented";
+function _benchmarkLstat(_b:stdgo.testing.Testing.B, _path:GoString):Void throw "os_test._benchmarkLstat is not yet implemented";
+function benchmarkStatDot(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkStatDot is not yet implemented";
+function benchmarkStatFile(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkStatFile is not yet implemented";
+function benchmarkStatDir(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkStatDir is not yet implemented";
+function benchmarkLstatDot(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkLstatDot is not yet implemented";
+function benchmarkLstatFile(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkLstatFile is not yet implemented";
+function benchmarkLstatDir(_b:stdgo.testing.Testing.B):Void throw "os_test.benchmarkLstatDir is not yet implemented";
 /**
     // Read the directory one entry at a time.
 **/
-function _smallReaddirnames(_file:File, _length:GoInt, _t:stdgo.testing.Testing.T):Slice<GoString> return ((null : Slice<GoString>));
+function _smallReaddirnames(_file:File, _length:GoInt, _t:stdgo.testing.Testing.T):Slice<GoString> throw "os_test._smallReaddirnames is not yet implemented";
 /**
     // Check that reading a directory one entry at a time gives the same result
     // as reading it all at once.
 **/
-function testReaddirnamesOneAtATime(_t:stdgo.testing.Testing.T):Void return;
-function testReaddirNValues(_t:stdgo.testing.Testing.T):Void return;
-function _touch(_t:stdgo.testing.Testing.T, _name:GoString):Void return;
-function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void return;
+function testReaddirnamesOneAtATime(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirnamesOneAtATime is not yet implemented";
+function testReaddirNValues(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirNValues is not yet implemented";
+function _touch(_t:stdgo.testing.Testing.T, _name:GoString):Void throw "os_test._touch is not yet implemented";
+function testReaddirStatFailures(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirStatFailures is not yet implemented";
 /**
     // Readdir on a regular file should fail.
 **/
-function testReaddirOfFile(_t:stdgo.testing.Testing.T):Void return;
-function testHardLink(_t:stdgo.testing.Testing.T):Void return;
+function testReaddirOfFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirOfFile is not yet implemented";
+function testHardLink(_t:stdgo.testing.Testing.T):Void throw "os_test.testHardLink is not yet implemented";
 /**
     // chtmpdir changes the working directory to a new temporary directory and
     // provides a cleanup function.
 **/
-function _chtmpdir(_t:stdgo.testing.Testing.T):() -> Void return null;
-function testSymlink(_t:stdgo.testing.Testing.T):Void return;
-function testLongSymlink(_t:stdgo.testing.Testing.T):Void return;
-function testRename(_t:stdgo.testing.Testing.T):Void return;
-function testRenameOverwriteDest(_t:stdgo.testing.Testing.T):Void return;
-function testRenameFailed(_t:stdgo.testing.Testing.T):Void return;
-function testRenameNotExisting(_t:stdgo.testing.Testing.T):Void return;
-function testRenameToDirFailed(_t:stdgo.testing.Testing.T):Void return;
-function testRenameCaseDifference(_pt:stdgo.testing.Testing.T):Void return;
-function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void return;
-function testStartProcess(_t:stdgo.testing.Testing.T):Void return;
-function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):Void return;
-function testChmod(_t:stdgo.testing.Testing.T):Void return;
-function _checkSize(_t:stdgo.testing.Testing.T, _f:File, _size:GoInt64):Void return;
-function testFTruncate(_t:stdgo.testing.Testing.T):Void return;
-function testTruncate(_t:stdgo.testing.Testing.T):Void return;
+function _chtmpdir(_t:stdgo.testing.Testing.T):() -> Void throw "os_test._chtmpdir is not yet implemented";
+function testSymlink(_t:stdgo.testing.Testing.T):Void throw "os_test.testSymlink is not yet implemented";
+function testLongSymlink(_t:stdgo.testing.Testing.T):Void throw "os_test.testLongSymlink is not yet implemented";
+function testRename(_t:stdgo.testing.Testing.T):Void throw "os_test.testRename is not yet implemented";
+function testRenameOverwriteDest(_t:stdgo.testing.Testing.T):Void throw "os_test.testRenameOverwriteDest is not yet implemented";
+function testRenameFailed(_t:stdgo.testing.Testing.T):Void throw "os_test.testRenameFailed is not yet implemented";
+function testRenameNotExisting(_t:stdgo.testing.Testing.T):Void throw "os_test.testRenameNotExisting is not yet implemented";
+function testRenameToDirFailed(_t:stdgo.testing.Testing.T):Void throw "os_test.testRenameToDirFailed is not yet implemented";
+function testRenameCaseDifference(_pt:stdgo.testing.Testing.T):Void throw "os_test.testRenameCaseDifference is not yet implemented";
+function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:Slice<GoString>, _expect:GoString):Void throw "os_test._exec is not yet implemented";
+function testStartProcess(_t:stdgo.testing.Testing.T):Void throw "os_test.testStartProcess is not yet implemented";
+function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):Void throw "os_test._checkMode is not yet implemented";
+function testChmod(_t:stdgo.testing.Testing.T):Void throw "os_test.testChmod is not yet implemented";
+function _checkSize(_t:stdgo.testing.Testing.T, _f:File, _size:GoInt64):Void throw "os_test._checkSize is not yet implemented";
+function testFTruncate(_t:stdgo.testing.Testing.T):Void throw "os_test.testFTruncate is not yet implemented";
+function testTruncate(_t:stdgo.testing.Testing.T):Void throw "os_test.testTruncate is not yet implemented";
 /**
     // Use TempDir (via newFile) to make sure we're on a local file system,
     // so that timings are not distorted by latency and caching.
     // On NFS, timings can be off due to caching of meta-data on
     // NFS servers (Issue 848).
 **/
-function testChtimes(_t:stdgo.testing.Testing.T):Void return;
+function testChtimes(_t:stdgo.testing.Testing.T):Void throw "os_test.testChtimes is not yet implemented";
 /**
     // Use TempDir (via newDir) to make sure we're on a local file system,
     // so that timings are not distorted by latency and caching.
     // On NFS, timings can be off due to caching of meta-data on
     // NFS servers (Issue 848).
 **/
-function testChtimesDir(_t:stdgo.testing.Testing.T):Void return;
-function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void return;
-function testFileChdir(_t:stdgo.testing.Testing.T):Void return;
-function testChdirAndGetwd(_t:stdgo.testing.Testing.T):Void return;
+function testChtimesDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testChtimesDir is not yet implemented";
+function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void throw "os_test._testChtimes is not yet implemented";
+function testFileChdir(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileChdir is not yet implemented";
+function testChdirAndGetwd(_t:stdgo.testing.Testing.T):Void throw "os_test.testChdirAndGetwd is not yet implemented";
 /**
     // Test that Chdir+Getwd is program-wide.
 **/
-function testProgWideChdir(_t:stdgo.testing.Testing.T):Void return;
-function testSeek(_t:stdgo.testing.Testing.T):Void return;
-function testSeekError(_t:stdgo.testing.Testing.T):Void return;
-function testOpenError(_t:stdgo.testing.Testing.T):Void return;
-function testOpenNoName(_t:stdgo.testing.Testing.T):Void return;
-function _runBinHostname(_t:stdgo.testing.Testing.T):GoString return (("" : GoString));
-function _testWindowsHostname(_t:stdgo.testing.Testing.T, _hostname:GoString):Void return;
-function testHostname(_t:stdgo.testing.Testing.T):Void return;
-function testReadAt(_t:stdgo.testing.Testing.T):Void return;
+function testProgWideChdir(_t:stdgo.testing.Testing.T):Void throw "os_test.testProgWideChdir is not yet implemented";
+function testSeek(_t:stdgo.testing.Testing.T):Void throw "os_test.testSeek is not yet implemented";
+function testSeekError(_t:stdgo.testing.Testing.T):Void throw "os_test.testSeekError is not yet implemented";
+function testOpenError(_t:stdgo.testing.Testing.T):Void throw "os_test.testOpenError is not yet implemented";
+function testOpenNoName(_t:stdgo.testing.Testing.T):Void throw "os_test.testOpenNoName is not yet implemented";
+function _runBinHostname(_t:stdgo.testing.Testing.T):GoString throw "os_test._runBinHostname is not yet implemented";
+function _testWindowsHostname(_t:stdgo.testing.Testing.T, _hostname:GoString):Void throw "os_test._testWindowsHostname is not yet implemented";
+function testHostname(_t:stdgo.testing.Testing.T):Void throw "os_test.testHostname is not yet implemented";
+function testReadAt(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadAt is not yet implemented";
 /**
     // Verify that ReadAt doesn't affect seek offset.
     // In the Plan 9 kernel, there used to be a bug in the implementation of
     // the pread syscall, where the channel offset was erroneously updated after
     // calling pread on a file.
 **/
-function testReadAtOffset(_t:stdgo.testing.Testing.T):Void return;
+function testReadAtOffset(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadAtOffset is not yet implemented";
 /**
     // Verify that ReadAt doesn't allow negative offset.
 **/
-function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void return;
-function testWriteAt(_t:stdgo.testing.Testing.T):Void return;
+function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadAtNegativeOffset is not yet implemented";
+function testWriteAt(_t:stdgo.testing.Testing.T):Void throw "os_test.testWriteAt is not yet implemented";
 /**
     // Verify that WriteAt doesn't allow negative offset.
 **/
-function testWriteAtNegativeOffset(_t:stdgo.testing.Testing.T):Void return;
+function testWriteAtNegativeOffset(_t:stdgo.testing.Testing.T):Void throw "os_test.testWriteAtNegativeOffset is not yet implemented";
 /**
     // Verify that WriteAt doesn't work in append mode.
 **/
-function testWriteAtInAppendMode(_t:stdgo.testing.Testing.T):Void return;
-function _writeFile(_t:stdgo.testing.Testing.T, _fname:GoString, _flag:GoInt, _text:GoString):GoString return (("" : GoString));
-function testAppend(_t:stdgo.testing.Testing.T):Void return;
-function testStatDirWithTrailingSlash(_t:stdgo.testing.Testing.T):Void return;
-function testNilProcessStateString(_t:stdgo.testing.Testing.T):Void return;
-function testSameFile(_t:stdgo.testing.Testing.T):Void return;
-function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _devNullName:GoString, _fi:FileInfo, _ignoreCase:Bool):Void return;
-function _testDevNullFile(_t:stdgo.testing.Testing.T, _devNullName:GoString, _ignoreCase:Bool):Void return;
-function testDevNullFile(_t:stdgo.testing.Testing.T):Void return;
-function testLargeWriteToConsole(_t:stdgo.testing.Testing.T):Void return;
-function testStatDirModeExec(_t:stdgo.testing.Testing.T):Void return;
-function testStatStdin(_t:stdgo.testing.Testing.T):Void return;
-function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void return;
-function testReadAtEOF(_t:stdgo.testing.Testing.T):Void return;
-function testLongPath(_t:stdgo.testing.Testing.T):Void return;
-function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process) -> Void):Void return;
-function testKillStartProcess(_t:stdgo.testing.Testing.T):Void return;
-function testGetppid(_t:stdgo.testing.Testing.T):Void return;
-function testKillFindProcess(_t:stdgo.testing.Testing.T):Void return;
+function testWriteAtInAppendMode(_t:stdgo.testing.Testing.T):Void throw "os_test.testWriteAtInAppendMode is not yet implemented";
+function _writeFile(_t:stdgo.testing.Testing.T, _fname:GoString, _flag:GoInt, _text:GoString):GoString throw "os_test._writeFile is not yet implemented";
+function testAppend(_t:stdgo.testing.Testing.T):Void throw "os_test.testAppend is not yet implemented";
+function testStatDirWithTrailingSlash(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatDirWithTrailingSlash is not yet implemented";
+function testNilProcessStateString(_t:stdgo.testing.Testing.T):Void throw "os_test.testNilProcessStateString is not yet implemented";
+function testSameFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testSameFile is not yet implemented";
+function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _devNullName:GoString, _fi:FileInfo, _ignoreCase:Bool):Void throw "os_test._testDevNullFileInfo is not yet implemented";
+function _testDevNullFile(_t:stdgo.testing.Testing.T, _devNullName:GoString, _ignoreCase:Bool):Void throw "os_test._testDevNullFile is not yet implemented";
+function testDevNullFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testDevNullFile is not yet implemented";
+function testLargeWriteToConsole(_t:stdgo.testing.Testing.T):Void throw "os_test.testLargeWriteToConsole is not yet implemented";
+function testStatDirModeExec(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatDirModeExec is not yet implemented";
+function testStatStdin(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatStdin is not yet implemented";
+function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatRelativeSymlink is not yet implemented";
+function testReadAtEOF(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadAtEOF is not yet implemented";
+function testLongPath(_t:stdgo.testing.Testing.T):Void throw "os_test.testLongPath is not yet implemented";
+function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process) -> Void):Void throw "os_test._testKillProcess is not yet implemented";
+function testKillStartProcess(_t:stdgo.testing.Testing.T):Void throw "os_test.testKillStartProcess is not yet implemented";
+function testGetppid(_t:stdgo.testing.Testing.T):Void throw "os_test.testGetppid is not yet implemented";
+function testKillFindProcess(_t:stdgo.testing.Testing.T):Void throw "os_test.testKillFindProcess is not yet implemented";
 /**
     // Test that all File methods give ErrInvalid if the receiver is nil.
 **/
-function testNilFileMethods(_t:stdgo.testing.Testing.T):Void return;
-function _mkdirTree(_t:stdgo.testing.Testing.T, _root:GoString, _level:GoInt, _max:GoInt):Void return;
+function testNilFileMethods(_t:stdgo.testing.Testing.T):Void throw "os_test.testNilFileMethods is not yet implemented";
+function _mkdirTree(_t:stdgo.testing.Testing.T, _root:GoString, _level:GoInt, _max:GoInt):Void throw "os_test._mkdirTree is not yet implemented";
 /**
     // Test that simultaneous RemoveAll do not report an error.
     // As long as it gets removed, we should be happy.
 **/
-function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void return;
+function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllRace is not yet implemented";
 /**
     // Test that reading from a pipe doesn't use up a thread.
 **/
-function testPipeThreads(_t:stdgo.testing.Testing.T):Void return;
-function _testDoubleCloseError(_t:stdgo.testing.Testing.T, _path:GoString):Void return;
-function testDoubleCloseError(_t:stdgo.testing.Testing.T):Void return;
-function testUserHomeDir(_t:stdgo.testing.Testing.T):Void return;
-function testDirSeek(_t:stdgo.testing.Testing.T):Void return;
-function testReaddirSmallSeek(_t:stdgo.testing.Testing.T):Void return;
+function testPipeThreads(_t:stdgo.testing.Testing.T):Void throw "os_test.testPipeThreads is not yet implemented";
+function _testDoubleCloseError(_t:stdgo.testing.Testing.T, _path:GoString):Void throw "os_test._testDoubleCloseError is not yet implemented";
+function testDoubleCloseError(_t:stdgo.testing.Testing.T):Void throw "os_test.testDoubleCloseError is not yet implemented";
+function testUserHomeDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testUserHomeDir is not yet implemented";
+function testDirSeek(_t:stdgo.testing.Testing.T):Void throw "os_test.testDirSeek is not yet implemented";
+function testReaddirSmallSeek(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirSmallSeek is not yet implemented";
 /**
     // isDeadlineExceeded reports whether err is or wraps os.ErrDeadlineExceeded.
     // We also check that the error has a Timeout method that returns true.
 **/
-function _isDeadlineExceeded(_err:Error):Bool return false;
+function _isDeadlineExceeded(_err:Error):Bool throw "os_test._isDeadlineExceeded is not yet implemented";
 /**
     // Test that opening a file does not change its permissions.  Issue 38225.
 **/
-function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void return;
-function testDirFS(_t:stdgo.testing.Testing.T):Void return;
-function testDirFSPathsValid(_t:stdgo.testing.Testing.T):Void return;
-function testReadFileProc(_t:stdgo.testing.Testing.T):Void return;
-function testWriteStringAlloc(_t:stdgo.testing.Testing.T):Void return;
-function _checkUidGid(_t:stdgo.testing.Testing.T, _path:GoString, _uid:GoInt, _gid:GoInt):Void return;
-function testChown(_t:stdgo.testing.Testing.T):Void return;
-function testFileChown(_t:stdgo.testing.Testing.T):Void return;
-function testLchown(_t:stdgo.testing.Testing.T):Void return;
+function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void throw "os_test.testOpenFileKeepsPermissions is not yet implemented";
+function testDirFS(_t:stdgo.testing.Testing.T):Void throw "os_test.testDirFS is not yet implemented";
+function testDirFSPathsValid(_t:stdgo.testing.Testing.T):Void throw "os_test.testDirFSPathsValid is not yet implemented";
+function testReadFileProc(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadFileProc is not yet implemented";
+function testWriteStringAlloc(_t:stdgo.testing.Testing.T):Void throw "os_test.testWriteStringAlloc is not yet implemented";
+function _checkUidGid(_t:stdgo.testing.Testing.T, _path:GoString, _uid:GoInt, _gid:GoInt):Void throw "os_test._checkUidGid is not yet implemented";
+function testChown(_t:stdgo.testing.Testing.T):Void throw "os_test.testChown is not yet implemented";
+function testFileChown(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileChown is not yet implemented";
+function testLchown(_t:stdgo.testing.Testing.T):Void throw "os_test.testLchown is not yet implemented";
 /**
     // Issue 16919: Readdir must return a non-empty slice or an error.
 **/
-function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void return;
+function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void throw "os_test.testReaddirRemoveRace is not yet implemented";
 /**
     // Issue 23120: respect umask when doing Mkdir with the sticky bit
 **/
-function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void return;
+function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirStickyUmask is not yet implemented";
 /**
     // See also issues: 22939, 24331
 **/
-function _newFileTest(_t:stdgo.testing.Testing.T, _blocking:Bool):Void return;
-function testNewFileBlock(_t:stdgo.testing.Testing.T):Void return;
-function testNewFileNonBlock(_t:stdgo.testing.Testing.T):Void return;
-function testSplitPath(_t:stdgo.testing.Testing.T):Void return;
-function testMkdirAll(_t:stdgo.testing.Testing.T):Void return;
-function testMkdirAllWithSymlink(_t:stdgo.testing.Testing.T):Void return;
-function testMkdirAllAtSlash(_t:stdgo.testing.Testing.T):Void return;
-function _checkNamedSize(_t:stdgo.testing.Testing.T, _path:GoString, _size:GoInt64):Void return;
-function testReadFile(_t:stdgo.testing.Testing.T):Void return;
-function testWriteFile(_t:stdgo.testing.Testing.T):Void return;
-function testReadOnlyWriteFile(_t:stdgo.testing.Testing.T):Void return;
-function testReadDir(_t:stdgo.testing.Testing.T):Void return;
-function testRemoveAll(_t:stdgo.testing.Testing.T):Void return;
+function _newFileTest(_t:stdgo.testing.Testing.T, _blocking:Bool):Void throw "os_test._newFileTest is not yet implemented";
+function testNewFileBlock(_t:stdgo.testing.Testing.T):Void throw "os_test.testNewFileBlock is not yet implemented";
+function testNewFileNonBlock(_t:stdgo.testing.Testing.T):Void throw "os_test.testNewFileNonBlock is not yet implemented";
+function testSplitPath(_t:stdgo.testing.Testing.T):Void throw "os_test.testSplitPath is not yet implemented";
+function testMkdirAll(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirAll is not yet implemented";
+function testMkdirAllWithSymlink(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirAllWithSymlink is not yet implemented";
+function testMkdirAllAtSlash(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirAllAtSlash is not yet implemented";
+function _checkNamedSize(_t:stdgo.testing.Testing.T, _path:GoString, _size:GoInt64):Void throw "os_test._checkNamedSize is not yet implemented";
+function testReadFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadFile is not yet implemented";
+function testWriteFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testWriteFile is not yet implemented";
+function testReadOnlyWriteFile(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadOnlyWriteFile is not yet implemented";
+function testReadDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testReadDir is not yet implemented";
+function testRemoveAll(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAll is not yet implemented";
 /**
     // Test RemoveAll on a large directory.
 **/
-function testRemoveAllLarge(_t:stdgo.testing.Testing.T):Void return;
-function testRemoveAllLongPath(_t:stdgo.testing.Testing.T):Void return;
-function testRemoveAllDot(_t:stdgo.testing.Testing.T):Void return;
-function testRemoveAllDotDot(_t:stdgo.testing.Testing.T):Void return;
+function testRemoveAllLarge(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllLarge is not yet implemented";
+function testRemoveAllLongPath(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllLongPath is not yet implemented";
+function testRemoveAllDot(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllDot is not yet implemented";
+function testRemoveAllDotDot(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllDotDot is not yet implemented";
 /**
     // Issue #29178.
 **/
-function testRemoveReadOnlyDir(_t:stdgo.testing.Testing.T):Void return;
+function testRemoveReadOnlyDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveReadOnlyDir is not yet implemented";
 /**
     // Issue #29983.
 **/
-function testRemoveAllButReadOnlyAndPathError(_t:stdgo.testing.Testing.T):Void return;
-function testRemoveUnreadableDir(_t:stdgo.testing.Testing.T):Void return;
+function testRemoveAllButReadOnlyAndPathError(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllButReadOnlyAndPathError is not yet implemented";
+function testRemoveUnreadableDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveUnreadableDir is not yet implemented";
 /**
     // Issue 29921
 **/
-function testRemoveAllWithMoreErrorThanReqSize(_t:stdgo.testing.Testing.T):Void return;
+function testRemoveAllWithMoreErrorThanReqSize(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllWithMoreErrorThanReqSize is not yet implemented";
 /**
     // testStatAndLstat verifies that all os.Stat, os.Lstat os.File.Stat and os.Readdir work.
 **/
-function _testStatAndLstat(_t:stdgo.testing.Testing.T, _path:GoString, _isLink:Bool, _statCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void, _lstatCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void):Void return;
+function _testStatAndLstat(_t:stdgo.testing.Testing.T, _path:GoString, _isLink:Bool, _statCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void, _lstatCheck:(stdgo.testing.Testing.T, GoString, stdgo.io.fs.Fs.FileInfo) -> Void):Void throw "os_test._testStatAndLstat is not yet implemented";
 /**
     // testIsDir verifies that fi refers to directory.
 **/
-function _testIsDir(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void return;
+function _testIsDir(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void throw "os_test._testIsDir is not yet implemented";
 /**
     // testIsSymlink verifies that fi refers to symlink.
 **/
-function _testIsSymlink(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void return;
+function _testIsSymlink(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void throw "os_test._testIsSymlink is not yet implemented";
 /**
     // testIsFile verifies that fi refers to file.
 **/
-function _testIsFile(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void return;
-function _testDirStats(_t:stdgo.testing.Testing.T, _path:GoString):Void return;
-function _testFileStats(_t:stdgo.testing.Testing.T, _path:GoString):Void return;
-function _testSymlinkStats(_t:stdgo.testing.Testing.T, _path:GoString, _isdir:Bool):Void return;
-function _testSymlinkSameFile(_t:stdgo.testing.Testing.T, _path:GoString, _link:GoString):Void return;
-function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void return;
-function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void return;
+function _testIsFile(_t:stdgo.testing.Testing.T, _path:GoString, _fi:stdgo.io.fs.Fs.FileInfo):Void throw "os_test._testIsFile is not yet implemented";
+function _testDirStats(_t:stdgo.testing.Testing.T, _path:GoString):Void throw "os_test._testDirStats is not yet implemented";
+function _testFileStats(_t:stdgo.testing.Testing.T, _path:GoString):Void throw "os_test._testFileStats is not yet implemented";
+function _testSymlinkStats(_t:stdgo.testing.Testing.T, _path:GoString, _isdir:Bool):Void throw "os_test._testSymlinkStats is not yet implemented";
+function _testSymlinkSameFile(_t:stdgo.testing.Testing.T, _path:GoString, _link:GoString):Void throw "os_test._testSymlinkSameFile is not yet implemented";
+function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void throw "os_test.testDirAndSymlinkStats is not yet implemented";
+function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void throw "os_test.testFileAndSymlinkStats is not yet implemented";
 /**
     // see issue 27225 for details
 **/
-function testSymlinkWithTrailingSlash(_t:stdgo.testing.Testing.T):Void return;
-function testCreateTemp(_t:stdgo.testing.Testing.T):Void return;
-function testCreateTempPattern(_t:stdgo.testing.Testing.T):Void return;
-function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void return;
-function testMkdirTemp(_t:stdgo.testing.Testing.T):Void return;
+function testSymlinkWithTrailingSlash(_t:stdgo.testing.Testing.T):Void throw "os_test.testSymlinkWithTrailingSlash is not yet implemented";
+function testCreateTemp(_t:stdgo.testing.Testing.T):Void throw "os_test.testCreateTemp is not yet implemented";
+function testCreateTempPattern(_t:stdgo.testing.Testing.T):Void throw "os_test.testCreateTempPattern is not yet implemented";
+function testCreateTempBadPattern(_t:stdgo.testing.Testing.T):Void throw "os_test.testCreateTempBadPattern is not yet implemented";
+function testMkdirTemp(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirTemp is not yet implemented";
 /**
     // test that we return a nice error message if the dir argument to TempDir doesn't
     // exist (or that it's empty and TempDir doesn't exist)
 **/
-function testMkdirTempBadDir(_t:stdgo.testing.Testing.T):Void return;
-function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void return;
+function testMkdirTempBadDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirTempBadDir is not yet implemented";
+function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirTempBadPattern is not yet implemented";
 @:keep class T_myErrorIs_static_extension {
     @:keep
-    static public function is_( _e:T_myErrorIs, _target:Error):Bool return false;
+    static public function is_( _e:T_myErrorIs, _target:Error):Bool throw "os_test.is_ is not yet implemented";
     @:embedded
     public static function error( __self__:T_myErrorIs):GoString return __self__.error();
 }

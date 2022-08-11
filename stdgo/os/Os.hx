@@ -258,49 +258,49 @@ typedef Signal = StructType & {
     // ReadDir returns the entries it was able to read before the error,
     // along with the error.
 **/
-function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _1 : ((null : stdgo.Error)) };
+function readDir(_name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } throw "os.readDir is not yet implemented";
 /**
     // readInt returns the size-bytes unsigned integer in native byte order at offset off.
 **/
-function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
-function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 return ((0 : GoUInt64));
-function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 return ((0 : GoUInt64));
-function _direntIno(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
-function _direntReclen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
-function _direntNamlen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } return { _0 : ((0 : GoUInt64)), _1 : false };
-function _direntType(_buf:Slice<GoByte>):FileMode return new stdgo.io.fs.Fs.FileMode();
+function _readInt(_b:Slice<GoByte>, _off:GoUIntptr, _size:GoUIntptr):{ var _0 : GoUInt64; var _1 : Bool; } throw "os._readInt is not yet implemented";
+function _readIntBE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 throw "os._readIntBE is not yet implemented";
+function _readIntLE(_b:Slice<GoByte>, _size:GoUIntptr):GoUInt64 throw "os._readIntLE is not yet implemented";
+function _direntIno(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } throw "os._direntIno is not yet implemented";
+function _direntReclen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } throw "os._direntReclen is not yet implemented";
+function _direntNamlen(_buf:Slice<GoByte>):{ var _0 : GoUInt64; var _1 : Bool; } throw "os._direntNamlen is not yet implemented";
+function _direntType(_buf:Slice<GoByte>):FileMode throw "os._direntType is not yet implemented";
 /**
     // Expand replaces ${var} or $var in the string based on the mapping function.
     // For example, os.ExpandEnv(s) is equivalent to os.Expand(s, os.Getenv).
 **/
-function expand(_s:GoString, _mapping:GoString -> GoString):GoString return (("" : GoString));
+function expand(_s:GoString, _mapping:GoString -> GoString):GoString throw "os.expand is not yet implemented";
 /**
     // ExpandEnv replaces ${var} or $var in the string according to the values
     // of the current environment variables. References to undefined
     // variables are replaced by the empty string.
 **/
-function expandEnv(_s:GoString):GoString return (("" : GoString));
+function expandEnv(_s:GoString):GoString throw "os.expandEnv is not yet implemented";
 /**
     // isShellSpecialVar reports whether the character identifies a special
     // shell variable such as $*.
 **/
-function _isShellSpecialVar(_c:GoUInt8):Bool return false;
+function _isShellSpecialVar(_c:GoUInt8):Bool throw "os._isShellSpecialVar is not yet implemented";
 /**
     // isAlphaNum reports whether the byte is an ASCII letter, number, or underscore
 **/
-function _isAlphaNum(_c:GoUInt8):Bool return false;
+function _isAlphaNum(_c:GoUInt8):Bool throw "os._isAlphaNum is not yet implemented";
 /**
     // getShellName returns the name that begins the string and the number of bytes
     // consumed to extract it. If the name is enclosed in {}, it's part of a ${}
     // expansion and two more bytes are needed than the length of the name.
 **/
-function _getShellName(_s:GoString):{ var _0 : GoString; var _1 : GoInt; } return { _0 : (("" : GoString)), _1 : ((0 : GoInt)) };
+function _getShellName(_s:GoString):{ var _0 : GoString; var _1 : GoInt; } throw "os._getShellName is not yet implemented";
 /**
     // Getenv retrieves the value of the environment variable named by the key.
     // It returns the value, which will be empty if the variable is not present.
     // To distinguish between an empty value and an unset value, use LookupEnv.
 **/
-function getenv(_key:GoString):GoString return (("" : GoString));
+function getenv(_key:GoString):GoString throw "os.getenv is not yet implemented";
 /**
     // LookupEnv retrieves the value of the environment variable named
     // by the key. If the variable is present in the environment the
@@ -308,27 +308,27 @@ function getenv(_key:GoString):GoString return (("" : GoString));
     // Otherwise the returned value will be empty and the boolean will
     // be false.
 **/
-function lookupEnv(_key:GoString):{ var _0 : GoString; var _1 : Bool; } return { _0 : (("" : GoString)), _1 : false };
+function lookupEnv(_key:GoString):{ var _0 : GoString; var _1 : Bool; } throw "os.lookupEnv is not yet implemented";
 /**
     // Setenv sets the value of the environment variable named by the key.
     // It returns an error, if any.
 **/
-function setenv(_key:GoString, _value:GoString):Error return ((null : stdgo.Error));
+function setenv(_key:GoString, _value:GoString):Error throw "os.setenv is not yet implemented";
 /**
     // Unsetenv unsets a single environment variable.
 **/
-function unsetenv(_key:GoString):Error return ((null : stdgo.Error));
+function unsetenv(_key:GoString):Error throw "os.unsetenv is not yet implemented";
 /**
     // Clearenv deletes all environment variables.
 **/
-function clearenv():Void return;
+function clearenv():Void throw "os.clearenv is not yet implemented";
 /**
     // Environ returns a copy of strings representing the environment,
     // in the form "key=value".
 **/
-function environ():Slice<GoString> return ((null : Slice<GoString>));
-function _errClosed():Error return ((null : stdgo.Error));
-function _errNoDeadline():Error return ((null : stdgo.Error));
+function environ():Slice<GoString> throw "os.environ is not yet implemented";
+function _errClosed():Error throw "os._errClosed is not yet implemented";
+function _errNoDeadline():Error throw "os._errNoDeadline is not yet implemented";
 /**
     // errDeadlineExceeded returns the value for os.ErrDeadlineExceeded.
     // This error comes from the internal/poll package, which is also
@@ -338,13 +338,13 @@ function _errNoDeadline():Error return ((null : stdgo.Error));
     // work in the net package and without requiring the internal/poll
     // package to import os (which it can't, because that would be circular).
 **/
-function _errDeadlineExceeded():Error return ((null : stdgo.Error));
+function _errDeadlineExceeded():Error throw "os._errDeadlineExceeded is not yet implemented";
 /**
     // NewSyscallError returns, as an error, a new SyscallError
     // with the given system call name and error details.
     // As a convenience, if err is nil, NewSyscallError returns nil.
 **/
-function newSyscallError(_syscall:GoString, _err:Error):Error return ((null : stdgo.Error));
+function newSyscallError(_syscall:GoString, _err:Error):Error throw "os.newSyscallError is not yet implemented";
 /**
     // IsExist returns a boolean indicating whether the error is known to report
     // that a file or directory already exists. It is satisfied by ErrExist as
@@ -353,7 +353,7 @@ function newSyscallError(_syscall:GoString, _err:Error):Error return ((null : st
     // This function predates errors.Is. It only supports errors returned by
     // the os package. New code should use errors.Is(err, fs.ErrExist).
 **/
-function isExist(_err:Error):Bool return false;
+function isExist(_err:Error):Bool throw "os.isExist is not yet implemented";
 /**
     // IsNotExist returns a boolean indicating whether the error is known to
     // report that a file or directory does not exist. It is satisfied by
@@ -362,7 +362,7 @@ function isExist(_err:Error):Bool return false;
     // This function predates errors.Is. It only supports errors returned by
     // the os package. New code should use errors.Is(err, fs.ErrNotExist).
 **/
-function isNotExist(_err:Error):Bool return false;
+function isNotExist(_err:Error):Bool throw "os.isNotExist is not yet implemented";
 /**
     // IsPermission returns a boolean indicating whether the error is known to
     // report that permission is denied. It is satisfied by ErrPermission as well
@@ -371,7 +371,7 @@ function isNotExist(_err:Error):Bool return false;
     // This function predates errors.Is. It only supports errors returned by
     // the os package. New code should use errors.Is(err, fs.ErrPermission).
 **/
-function isPermission(_err:Error):Bool return false;
+function isPermission(_err:Error):Bool throw "os.isPermission is not yet implemented";
 /**
     // IsTimeout returns a boolean indicating whether the error is known
     // to report that a timeout occurred.
@@ -382,26 +382,26 @@ function isPermission(_err:Error):Bool return false;
     // New code should use errors.Is with a value appropriate to the call
     // returning the error, such as os.ErrDeadlineExceeded.
 **/
-function isTimeout(_err:Error):Bool return false;
-function _underlyingErrorIs(_err:Error, _target:Error):Bool return false;
+function isTimeout(_err:Error):Bool throw "os.isTimeout is not yet implemented";
+function _underlyingErrorIs(_err:Error, _target:Error):Bool throw "os._underlyingErrorIs is not yet implemented";
 /**
     // underlyingError returns the underlying error for known os error types.
 **/
-function _underlyingError(_err:Error):Error return ((null : stdgo.Error));
+function _underlyingError(_err:Error):Error throw "os._underlyingError is not yet implemented";
 /**
     // wrapSyscallError takes an error and a syscall name. If the error is
     // a syscall.Errno, it wraps it in a os.SyscallError using the syscall name.
 **/
-function _wrapSyscallError(_name:GoString, _err:Error):Error return ((null : stdgo.Error));
-function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process return ((null : Process));
+function _wrapSyscallError(_name:GoString, _err:Error):Error throw "os._wrapSyscallError is not yet implemented";
+function _newProcess(_pid:GoInt, _handle:GoUIntptr):Process throw "os._newProcess is not yet implemented";
 /**
     // Getpid returns the process id of the caller.
 **/
-function getpid():GoInt return ((0 : GoInt));
+function getpid():GoInt throw "os.getpid is not yet implemented";
 /**
     // Getppid returns the process id of the caller's parent.
 **/
-function getppid():GoInt return ((0 : GoInt));
+function getppid():GoInt throw "os.getppid is not yet implemented";
 /**
     // FindProcess looks for a running process by its pid.
     //
@@ -411,7 +411,7 @@ function getppid():GoInt return ((0 : GoInt));
     // On Unix systems, FindProcess always succeeds and returns a Process
     // for the given pid, regardless of whether the process exists.
 **/
-function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
+function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } throw "os.findProcess is not yet implemented";
 /**
     // StartProcess starts a new process with the program, arguments and attributes
     // specified by name, argv and attr. The argv slice will become os.Args in the
@@ -427,9 +427,9 @@ function findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { 
     //
     // If there is an error, it will be of type *PathError.
 **/
-function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
-function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
-function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return { _0 : ((null : Process)), _1 : ((null : stdgo.Error)) };
+function startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } throw "os.startProcess is not yet implemented";
+function _startProcess(_name:GoString, _argv:Slice<GoString>, _attr:ProcAttr):{ var _0 : Process; var _1 : Error; } throw "os._startProcess is not yet implemented";
+function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } throw "os._findProcess is not yet implemented";
 /**
     // Executable returns the path name for the executable that started
     // the current process. There is no guarantee that the path is still
@@ -443,35 +443,35 @@ function _findProcess(_pid:GoInt):{ var _0 : Process; var _1 : Error; } return {
     // The main use case is finding resources located relative to an
     // executable.
 **/
-function executable():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
-function _executable():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function executable():{ var _0 : GoString; var _1 : Error; } throw "os.executable is not yet implemented";
+function _executable():{ var _0 : GoString; var _1 : Error; } throw "os._executable is not yet implemented";
 /**
     // stringsTrimSuffix is the same as strings.TrimSuffix.
 **/
-function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString return (("" : GoString));
-function _genericReadFrom(_f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+function _stringsTrimSuffix(_s:GoString, _suffix:GoString):GoString throw "os._stringsTrimSuffix is not yet implemented";
+function _genericReadFrom(_f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } throw "os._genericReadFrom is not yet implemented";
 /**
     // Mkdir creates a new directory with the specified name and permission
     // bits (before umask).
     // If there is an error, it will be of type *PathError.
 **/
-function mkdir(_name:GoString, _perm:FileMode):Error return ((null : stdgo.Error));
+function mkdir(_name:GoString, _perm:FileMode):Error throw "os.mkdir is not yet implemented";
 /**
     // setStickyBit adds ModeSticky to the permission bits of path, non atomic.
 **/
-function _setStickyBit(_name:GoString):Error return ((null : stdgo.Error));
+function _setStickyBit(_name:GoString):Error throw "os._setStickyBit is not yet implemented";
 /**
     // Chdir changes the current working directory to the named directory.
     // If there is an error, it will be of type *PathError.
 **/
-function chdir(_dir:GoString):Error return ((null : stdgo.Error));
+function chdir(_dir:GoString):Error throw "os.chdir is not yet implemented";
 /**
     // Open opens the named file for reading. If successful, methods on
     // the returned file can be used for reading; the associated file
     // descriptor has mode O_RDONLY.
     // If there is an error, it will be of type *PathError.
 **/
-function open(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
+function open(_name:GoString):{ var _0 : File; var _1 : Error; } throw "os.open is not yet implemented";
 /**
     // Create creates or truncates the named file. If the file already exists,
     // it is truncated. If the file does not exist, it is created with mode 0666
@@ -479,7 +479,7 @@ function open(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : (
     // be used for I/O; the associated file descriptor has mode O_RDWR.
     // If there is an error, it will be of type *PathError.
 **/
-function create(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
+function create(_name:GoString):{ var _0 : File; var _1 : Error; } throw "os.create is not yet implemented";
 /**
     // OpenFile is the generalized open call; most users will use Open
     // or Create instead. It opens the named file with specified flag
@@ -488,19 +488,19 @@ function create(_name:GoString):{ var _0 : File; var _1 : Error; } return { _0 :
     // methods on the returned File can be used for I/O.
     // If there is an error, it will be of type *PathError.
 **/
-function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
+function openFile(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } throw "os.openFile is not yet implemented";
 /**
     // Rename renames (moves) oldpath to newpath.
     // If newpath already exists and is not a directory, Rename replaces it.
     // OS-specific restrictions may apply when oldpath and newpath are in different directories.
     // If there is an error, it will be of type *LinkError.
 **/
-function rename(_oldpath:GoString, _newpath:GoString):Error return ((null : stdgo.Error));
+function rename(_oldpath:GoString, _newpath:GoString):Error throw "os.rename is not yet implemented";
 /**
     // Many functions in package syscall return a count of -1 instead of 0.
     // Using fixCount(call()) instead of call() corrects the count.
 **/
-function _fixCount(_n:GoInt, _err:Error):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+function _fixCount(_n:GoInt, _err:Error):{ var _0 : GoInt; var _1 : Error; } throw "os._fixCount is not yet implemented";
 /**
     // TempDir returns the default directory to use for temporary files.
     //
@@ -512,7 +512,7 @@ function _fixCount(_n:GoInt, _err:Error):{ var _0 : GoInt; var _1 : Error; } ret
     // The directory is neither guaranteed to exist nor have accessible
     // permissions.
 **/
-function tempDir():GoString return (("" : GoString));
+function tempDir():GoString throw "os.tempDir is not yet implemented";
 /**
     // UserCacheDir returns the default root directory to use for user-specific
     // cached data. Users should create their own application-specific subdirectory
@@ -528,7 +528,7 @@ function tempDir():GoString return (("" : GoString));
     // If the location cannot be determined (for example, $HOME is not defined),
     // then it will return an error.
 **/
-function userCacheDir():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function userCacheDir():{ var _0 : GoString; var _1 : Error; } throw "os.userCacheDir is not yet implemented";
 /**
     // UserConfigDir returns the default root directory to use for user-specific
     // configuration data. Users should create their own application-specific
@@ -544,7 +544,7 @@ function userCacheDir():{ var _0 : GoString; var _1 : Error; } return { _0 : (("
     // If the location cannot be determined (for example, $HOME is not defined),
     // then it will return an error.
 **/
-function userConfigDir():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function userConfigDir():{ var _0 : GoString; var _1 : Error; } throw "os.userConfigDir is not yet implemented";
 /**
     // UserHomeDir returns the current user's home directory.
     //
@@ -552,7 +552,7 @@ function userConfigDir():{ var _0 : GoString; var _1 : Error; } return { _0 : ((
     // On Windows, it returns %USERPROFILE%.
     // On Plan 9, it returns the $home environment variable.
 **/
-function userHomeDir():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function userHomeDir():{ var _0 : GoString; var _1 : Error; } throw "os.userHomeDir is not yet implemented";
 /**
     // Chmod changes the mode of the named file to mode.
     // If the file is a symbolic link, it changes the mode of the link's target.
@@ -573,12 +573,12 @@ function userHomeDir():{ var _0 : GoString; var _1 : Error; } return { _0 : ((""
     // On Plan 9, the mode's permission bits, ModeAppend, ModeExclusive,
     // and ModeTemporary are used.
 **/
-function chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Error));
+function chmod(_name:GoString, _mode:FileMode):Error throw "os.chmod is not yet implemented";
 /**
     // isWindowsNulName reports whether name is os.DevNull ('NUL') on Windows.
     // True is returned if name is 'NUL' whatever the case.
 **/
-function _isWindowsNulName(_name:GoString):Bool return false;
+function _isWindowsNulName(_name:GoString):Bool throw "os._isWindowsNulName is not yet implemented";
 /**
     // DirFS returns a file system (an fs.FS) for the tree of files rooted at the directory dir.
     //
@@ -589,30 +589,30 @@ function _isWindowsNulName(_name:GoString):Bool return false;
     // os.Open does. DirFS is therefore not a general substitute for a chroot-style security
     // mechanism when the directory tree contains arbitrary content.
 **/
-function dirFS(_dir:GoString):stdgo.io.fs.Fs.FS return ((null : stdgo.io.fs.Fs.FS));
-function _containsAny(_s:GoString, _chars:GoString):Bool return false;
+function dirFS(_dir:GoString):stdgo.io.fs.Fs.FS throw "os.dirFS is not yet implemented";
+function _containsAny(_s:GoString, _chars:GoString):Bool throw "os._containsAny is not yet implemented";
 /**
     // ReadFile reads the named file and returns the contents.
     // A successful call returns err == nil, not err == EOF.
     // Because ReadFile reads the whole file, it does not treat an EOF from Read
     // as an error to be reported.
 **/
-function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
+function readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } throw "os.readFile is not yet implemented";
 /**
     // WriteFile writes data to the named file, creating it if necessary.
     // If the file does not exist, WriteFile creates it with permissions perm (before umask);
     // otherwise WriteFile truncates it before writing, without changing permissions.
 **/
-function writeFile(_name:GoString, _data:Slice<GoByte>, _perm:FileMode):Error return ((null : stdgo.Error));
-function _sigpipe():Void return;
+function writeFile(_name:GoString, _data:Slice<GoByte>, _perm:FileMode):Error throw "os.writeFile is not yet implemented";
+function _sigpipe():Void throw "os._sigpipe is not yet implemented";
 /**
     // syscallMode returns the syscall-specific mode bits from Go's portable mode bits.
 **/
-function _syscallMode(_i:FileMode):GoUInt32 return ((0 : GoUInt32));
+function _syscallMode(_i:FileMode):GoUInt32 throw "os._syscallMode is not yet implemented";
 /**
     // See docs in file.go:Chmod.
 **/
-function _chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Error));
+function _chmod(_name:GoString, _mode:FileMode):Error throw "os._chmod is not yet implemented";
 /**
     // Chown changes the numeric uid and gid of the named file.
     // If the file is a symbolic link, it changes the uid and gid of the link's target.
@@ -622,7 +622,7 @@ function _chmod(_name:GoString, _mode:FileMode):Error return ((null : stdgo.Erro
     // On Windows or Plan 9, Chown always returns the syscall.EWINDOWS or
     // EPLAN9 error, wrapped in *PathError.
 **/
-function chown(_name:GoString, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
+function chown(_name:GoString, _uid:GoInt, _gid:GoInt):Error throw "os.chown is not yet implemented";
 /**
     // Lchown changes the numeric uid and gid of the named file.
     // If the file is a symbolic link, it changes the uid and gid of the link itself.
@@ -631,7 +631,7 @@ function chown(_name:GoString, _uid:GoInt, _gid:GoInt):Error return ((null : std
     // On Windows, it always returns the syscall.EWINDOWS error, wrapped
     // in *PathError.
 **/
-function lchown(_name:GoString, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
+function lchown(_name:GoString, _uid:GoInt, _gid:GoInt):Error throw "os.lchown is not yet implemented";
 /**
     // Chtimes changes the access and modification times of the named
     // file, similar to the Unix utime() or utimes() functions.
@@ -640,7 +640,7 @@ function lchown(_name:GoString, _uid:GoInt, _gid:GoInt):Error return ((null : st
     // less precise time unit.
     // If there is an error, it will be of type *PathError.
 **/
-function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.Time.Time):Error throw "os.chtimes is not yet implemented";
 /**
     // ignoringEINTR makes a function call and repeats it if it returns an
     // EINTR error. This appears to be required even though we install all
@@ -650,12 +650,12 @@ function chtimes(_name:GoString, _atime:stdgo.time.Time.Time, _mtime:stdgo.time.
     // but there are enough of them that it seems that we can't avoid
     // an EINTR loop.
 **/
-function _ignoringEINTR(_fn:() -> Error):Error return ((null : stdgo.Error));
+function _ignoringEINTR(_fn:() -> Error):Error throw "os._ignoringEINTR is not yet implemented";
 /**
     // fixLongPath is a noop on non-Windows platforms.
 **/
-function _fixLongPath(_path:GoString):GoString return (("" : GoString));
-function _rename(_oldname:GoString, _newname:GoString):Error return ((null : stdgo.Error));
+function _fixLongPath(_path:GoString):GoString throw "os._fixLongPath is not yet implemented";
+function _rename(_oldname:GoString, _newname:GoString):Error throw "os._rename is not yet implemented";
 /**
     // NewFile returns a new File with the given file descriptor and
     // name. The returned value will be nil if fd is not a valid file
@@ -667,61 +667,61 @@ function _rename(_oldname:GoString, _newname:GoString):Error return ((null : std
     // conditions described in the comments of the Fd method, and the same
     // constraints apply.
 **/
-function newFile(_fd:GoUIntptr, _name:GoString):File return ((null : File));
+function newFile(_fd:GoUIntptr, _name:GoString):File throw "os.newFile is not yet implemented";
 /**
     // newFile is like NewFile, but if called from OpenFile or Pipe
     // (as passed in the kind parameter) it tries to add the file to
     // the runtime poller.
 **/
-function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File return ((null : File));
+function _newFile(_fd:GoUIntptr, _name:GoString, _kind:T_newFileKind):File throw "os._newFile is not yet implemented";
 /**
     // epipecheck raises SIGPIPE if we get an EPIPE error on standard
     // output or standard error. See the SIGPIPE docs in os/signal, and
     // issue 11845.
 **/
-function _epipecheck(_file:File, _e:Error):Void return;
+function _epipecheck(_file:File, _e:Error):Void throw "os._epipecheck is not yet implemented";
 /**
     // openFileNolog is the Unix implementation of OpenFile.
     // Changes here should be reflected in openFdAt, if relevant.
 **/
-function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
+function _openFileNolog(_name:GoString, _flag:GoInt, _perm:FileMode):{ var _0 : File; var _1 : Error; } throw "os._openFileNolog is not yet implemented";
 /**
     // Truncate changes the size of the named file.
     // If the file is a symbolic link, it changes the size of the link's target.
     // If there is an error, it will be of type *PathError.
 **/
-function truncate(_name:GoString, _size:GoInt64):Error return ((null : stdgo.Error));
+function truncate(_name:GoString, _size:GoInt64):Error throw "os.truncate is not yet implemented";
 /**
     // Remove removes the named file or (empty) directory.
     // If there is an error, it will be of type *PathError.
 **/
-function remove(_name:GoString):Error return ((null : stdgo.Error));
-function _tempDir():GoString return (("" : GoString));
+function remove(_name:GoString):Error throw "os.remove is not yet implemented";
+function _tempDir():GoString throw "os._tempDir is not yet implemented";
 /**
     // Link creates newname as a hard link to the oldname file.
     // If there is an error, it will be of type *LinkError.
 **/
-function link(_oldname:GoString, _newname:GoString):Error return ((null : stdgo.Error));
+function link(_oldname:GoString, _newname:GoString):Error throw "os.link is not yet implemented";
 /**
     // Symlink creates newname as a symbolic link to oldname.
     // On Windows, a symlink to a non-existent oldname creates a file symlink;
     // if oldname is later created as a directory the symlink will not work.
     // If there is an error, it will be of type *LinkError.
 **/
-function symlink(_oldname:GoString, _newname:GoString):Error return ((null : stdgo.Error));
+function symlink(_oldname:GoString, _newname:GoString):Error throw "os.symlink is not yet implemented";
 /**
     // Readlink returns the destination of the named symbolic link.
     // If there is an error, it will be of type *PathError.
 **/
-function readlink(_name:GoString):{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
-function _newUnixDirent(_parent:GoString, _name:GoString, _typ:FileMode):{ var _0 : DirEntry; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.DirEntry)), _1 : ((null : stdgo.Error)) };
+function readlink(_name:GoString):{ var _0 : GoString; var _1 : Error; } throw "os.readlink is not yet implemented";
+function _newUnixDirent(_parent:GoString, _name:GoString, _typ:FileMode):{ var _0 : DirEntry; var _1 : Error; } throw "os._newUnixDirent is not yet implemented";
 /**
     // Getwd returns a rooted path name corresponding to the
     // current directory. If the current directory can be
     // reached via multiple paths (due to symbolic links),
     // Getwd may return any one of them.
 **/
-function getwd():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function getwd():{ var _0 : GoString; var _1 : Error; } throw "os.getwd is not yet implemented";
 /**
     // MkdirAll creates a directory named path,
     // along with any necessary parents, and returns nil,
@@ -731,7 +731,7 @@ function getwd():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoS
     // If path is already a directory, MkdirAll does nothing
     // and returns nil.
 **/
-function mkdirAll(_path:GoString, _perm:FileMode):Error return ((null : stdgo.Error));
+function mkdirAll(_path:GoString, _perm:FileMode):Error throw "os.mkdirAll is not yet implemented";
 /**
     // RemoveAll removes path and any children it contains.
     // It removes everything it can but returns the first error
@@ -739,61 +739,61 @@ function mkdirAll(_path:GoString, _perm:FileMode):Error return ((null : stdgo.Er
     // returns nil (no error).
     // If there is an error, it will be of type *PathError.
 **/
-function removeAll(_path:GoString):Error return ((null : stdgo.Error));
+function removeAll(_path:GoString):Error throw "os.removeAll is not yet implemented";
 /**
     // endsWithDot reports whether the final component of path is ".".
 **/
-function _endsWithDot(_path:GoString):Bool return false;
+function _endsWithDot(_path:GoString):Bool throw "os._endsWithDot is not yet implemented";
 /**
     // IsPathSeparator reports whether c is a directory separator character.
 **/
-function isPathSeparator(_c:GoUInt8):Bool return false;
+function isPathSeparator(_c:GoUInt8):Bool throw "os.isPathSeparator is not yet implemented";
 /**
     // basename removes trailing slashes and the leading directory name from path name.
 **/
-function _basename(_name:GoString):GoString return (("" : GoString));
+function _basename(_name:GoString):GoString throw "os._basename is not yet implemented";
 /**
     // splitPath returns the base name and parent directory.
 **/
-function _splitPath(_path:GoString):{ var _0 : GoString; var _1 : GoString; } return { _0 : (("" : GoString)), _1 : (("" : GoString)) };
-function _fixRootDirectory(_p:GoString):GoString return (("" : GoString));
+function _splitPath(_path:GoString):{ var _0 : GoString; var _1 : GoString; } throw "os._splitPath is not yet implemented";
+function _fixRootDirectory(_p:GoString):GoString throw "os._fixRootDirectory is not yet implemented";
 /**
     // Pipe returns a connected pair of Files; reads from r return bytes written to w.
     // It returns the files and an error, if any.
 **/
-function pipe():{ var _0 : File; var _1 : File; var _2 : Error; } return { _0 : ((null : File)), _1 : ((null : File)), _2 : ((null : stdgo.Error)) };
-function _runtime_args():Slice<GoString> return ((null : Slice<GoString>));
+function pipe():{ var _0 : File; var _1 : File; var _2 : Error; } throw "os.pipe is not yet implemented";
+function _runtime_args():Slice<GoString> throw "os._runtime_args is not yet implemented";
 /**
     // Getuid returns the numeric user id of the caller.
     //
     // On Windows, it returns -1.
 **/
-function getuid():GoInt return ((0 : GoInt));
+function getuid():GoInt throw "os.getuid is not yet implemented";
 /**
     // Geteuid returns the numeric effective user id of the caller.
     //
     // On Windows, it returns -1.
 **/
-function geteuid():GoInt return ((0 : GoInt));
+function geteuid():GoInt throw "os.geteuid is not yet implemented";
 /**
     // Getgid returns the numeric group id of the caller.
     //
     // On Windows, it returns -1.
 **/
-function getgid():GoInt return ((0 : GoInt));
+function getgid():GoInt throw "os.getgid is not yet implemented";
 /**
     // Getegid returns the numeric effective group id of the caller.
     //
     // On Windows, it returns -1.
 **/
-function getegid():GoInt return ((0 : GoInt));
+function getegid():GoInt throw "os.getegid is not yet implemented";
 /**
     // Getgroups returns a list of the numeric ids of groups that the caller belongs to.
     //
     // On Windows, it returns syscall.EWINDOWS. See the os/user package
     // for a possible alternative.
 **/
-function getgroups():{ var _0 : Slice<GoInt>; var _1 : Error; } return { _0 : ((null : Slice<GoInt>)), _1 : ((null : stdgo.Error)) };
+function getgroups():{ var _0 : Slice<GoInt>; var _1 : Error; } throw "os.getgroups is not yet implemented";
 /**
     // Exit causes the current program to exit with the given status code.
     // Conventionally, code zero indicates success, non-zero an error.
@@ -801,57 +801,57 @@ function getgroups():{ var _0 : Slice<GoInt>; var _1 : Error; } return { _0 : ((
     //
     // For portability, the status code should be in the range [0, 125].
 **/
-function exit(_code:GoInt):Void return;
-function _runtime_beforeExit():Void return;
-function _newRawConn(_file:File):{ var _0 : T_rawConn; var _1 : Error; } return { _0 : ((null : T_rawConn)), _1 : ((null : stdgo.Error)) };
-function _removeAll(_path:GoString):Error return ((null : stdgo.Error));
+function exit(_code:GoInt):Void throw "os.exit is not yet implemented";
+function _runtime_beforeExit():Void throw "os._runtime_beforeExit is not yet implemented";
+function _newRawConn(_file:File):{ var _0 : T_rawConn; var _1 : Error; } throw "os._newRawConn is not yet implemented";
+function _removeAll(_path:GoString):Error throw "os._removeAll is not yet implemented";
 /**
     // Stat returns a FileInfo describing the named file.
     // If there is an error, it will be of type *PathError.
 **/
-function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os.stat is not yet implemented";
 /**
     // Lstat returns a FileInfo describing the named file.
     // If the file is a symbolic link, the returned FileInfo
     // describes the symbolic link. Lstat makes no attempt to follow the link.
     // If there is an error, it will be of type *PathError.
 **/
-function lstat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
-function _fillFileStatFromSys(_fs:T_fileStat, _name:GoString):Void return;
-function _timespecToTime(_sec:GoInt64, _nsec:GoInt64):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+function lstat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os.lstat is not yet implemented";
+function _fillFileStatFromSys(_fs:T_fileStat, _name:GoString):Void throw "os._fillFileStatFromSys is not yet implemented";
+function _timespecToTime(_sec:GoInt64, _nsec:GoInt64):stdgo.time.Time.Time throw "os._timespecToTime is not yet implemented";
 /**
     // For testing.
 **/
-function _atime(_fi:FileInfo):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+function _atime(_fi:FileInfo):stdgo.time.Time.Time throw "os._atime is not yet implemented";
 /**
     // statNolog stats a file with no test logging.
 **/
-function _statNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+function _statNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os._statNolog is not yet implemented";
 /**
     // lstatNolog lstats a file with no test logging.
 **/
-function _lstatNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+function _lstatNolog(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os._lstatNolog is not yet implemented";
 /**
     // itox converts val (an int) to a hexdecimal string.
 **/
-function _itox(_val:GoInt):GoString return (("" : GoString));
+function _itox(_val:GoInt):GoString throw "os._itox is not yet implemented";
 /**
     // uitox converts val (a uint) to a hexdecimal string.
 **/
-function _uitox(_val:GoUInt):GoString return (("" : GoString));
+function _uitox(_val:GoUInt):GoString throw "os._uitox is not yet implemented";
 /**
     // Hostname returns the host name reported by the kernel.
 **/
-function hostname():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
-function _hostname():{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
+function hostname():{ var _0 : GoString; var _1 : Error; } throw "os.hostname is not yet implemented";
+function _hostname():{ var _0 : GoString; var _1 : Error; } throw "os._hostname is not yet implemented";
 /**
     // fastrand provided by runtime.
     // We generate random temporary file names so that there's a good
     // chance the file doesn't exist yet - keeps the number of tries in
     // TempFile to a minimum.
 **/
-function _fastrand():GoUInt32 return ((0 : GoUInt32));
-function _nextRandom():GoString return (("" : GoString));
+function _fastrand():GoUInt32 throw "os._fastrand is not yet implemented";
+function _nextRandom():GoString throw "os._nextRandom is not yet implemented";
 /**
     // CreateTemp creates a new temporary file in the directory dir,
     // opens the file for reading and writing, and returns the resulting file.
@@ -862,12 +862,12 @@ function _nextRandom():GoString return (("" : GoString));
     // The caller can use the file's Name method to find the pathname of the file.
     // It is the caller's responsibility to remove the file when it is no longer needed.
 **/
-function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : Error; } return { _0 : ((null : File)), _1 : ((null : stdgo.Error)) };
+function createTemp(_dir:GoString, _pattern:GoString):{ var _0 : File; var _1 : Error; } throw "os.createTemp is not yet implemented";
 /**
     // prefixAndSuffix splits pattern by the last wildcard "*", if applicable,
     // returning prefix as the part before "*" and suffix as the part after "*".
 **/
-function _prefixAndSuffix(_pattern:GoString):{ var _0 : GoString; var _1 : GoString; var _2 : Error; } return { _0 : (("" : GoString)), _1 : (("" : GoString)), _2 : ((null : stdgo.Error)) };
+function _prefixAndSuffix(_pattern:GoString):{ var _0 : GoString; var _1 : GoString; var _2 : Error; } throw "os._prefixAndSuffix is not yet implemented";
 /**
     // MkdirTemp creates a new temporary directory in the directory dir
     // and returns the pathname of the new directory.
@@ -877,16 +877,16 @@ function _prefixAndSuffix(_pattern:GoString):{ var _0 : GoString; var _1 : GoStr
     // Multiple programs or goroutines calling MkdirTemp simultaneously will not choose the same directory.
     // It is the caller's responsibility to remove the directory when it is no longer needed.
 **/
-function mkdirTemp(_dir:GoString, _pattern:GoString):{ var _0 : GoString; var _1 : Error; } return { _0 : (("" : GoString)), _1 : ((null : stdgo.Error)) };
-function _joinPath(_dir:GoString, _name:GoString):GoString return (("" : GoString));
+function mkdirTemp(_dir:GoString, _pattern:GoString):{ var _0 : GoString; var _1 : Error; } throw "os.mkdirTemp is not yet implemented";
+function _joinPath(_dir:GoString, _name:GoString):GoString throw "os._joinPath is not yet implemented";
 /**
     // LastIndexByte from the strings package.
 **/
-function _lastIndex(_s:GoString, _sep:GoByte):GoInt return ((0 : GoInt));
+function _lastIndex(_s:GoString, _sep:GoByte):GoInt throw "os._lastIndex is not yet implemented";
 /**
     // Getpagesize returns the underlying system's memory page size.
 **/
-function getpagesize():GoInt return ((0 : GoInt));
+function getpagesize():GoInt throw "os.getpagesize is not yet implemented";
 /**
     // SameFile reports whether fi1 and fi2 describe the same file.
     // For example, on Unix this means that the device and inode fields
@@ -895,11 +895,11 @@ function getpagesize():GoInt return ((0 : GoInt));
     // SameFile only applies to results returned by this package's Stat.
     // It returns false in other cases.
 **/
-function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool return false;
-function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool return false;
+function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool throw "os.sameFile is not yet implemented";
+function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool throw "os._sameFile is not yet implemented";
 @:keep class T_dirInfo_static_extension {
     @:keep
-    static public function _close( _d:T_dirInfo):Void return;
+    static public function _close( _d:T_dirInfo):Void throw "os._close is not yet implemented";
 }
 class T_dirInfo_wrapper {
     @:keep
@@ -913,11 +913,11 @@ class T_dirInfo_wrapper {
         // Timeout reports whether this error represents a timeout.
     **/
     @:keep
-    static public function timeout( _e:SyscallError):Bool return false;
+    static public function timeout( _e:SyscallError):Bool throw "os.timeout is not yet implemented";
     @:keep
-    static public function unwrap( _e:SyscallError):Error return ((null : stdgo.Error));
+    static public function unwrap( _e:SyscallError):Error throw "os.unwrap is not yet implemented";
     @:keep
-    static public function error( _e:SyscallError):GoString return (("" : GoString));
+    static public function error( _e:SyscallError):GoString throw "os.error is not yet implemented";
 }
 class SyscallError_wrapper {
     /**
@@ -944,21 +944,21 @@ class SyscallError_wrapper {
         // signal to the wrong process, see issue #13987.
     **/
     @:keep
-    static public function _blockUntilWaitable( _p:Process):{ var _0 : Bool; var _1 : Error; } return { _0 : false, _1 : ((null : stdgo.Error)) };
+    static public function _blockUntilWaitable( _p:Process):{ var _0 : Bool; var _1 : Error; } throw "os._blockUntilWaitable is not yet implemented";
     @:keep
-    static public function _release( _p:Process):Error return ((null : stdgo.Error));
+    static public function _release( _p:Process):Error throw "os._release is not yet implemented";
     @:keep
-    static public function _signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
+    static public function _signal( _p:Process, _sig:Signal):Error throw "os._signal is not yet implemented";
     @:keep
-    static public function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : ((null : ProcessState)), _1 : ((null : stdgo.Error)) };
+    static public function _wait( _p:Process):{ var _0 : ProcessState; var _1 : Error; } throw "os._wait is not yet implemented";
     @:keep
-    static public function _kill( _p:Process):Error return ((null : stdgo.Error));
+    static public function _kill( _p:Process):Error throw "os._kill is not yet implemented";
     /**
         // Signal sends a signal to the Process.
         // Sending Interrupt on Windows is not implemented.
     **/
     @:keep
-    static public function signal( _p:Process, _sig:Signal):Error return ((null : stdgo.Error));
+    static public function signal( _p:Process, _sig:Signal):Error throw "os.signal is not yet implemented";
     /**
         // Wait waits for the Process to exit, and then returns a
         // ProcessState describing its status and an error, if any.
@@ -967,25 +967,25 @@ class SyscallError_wrapper {
         // of the current process or an error will be returned.
     **/
     @:keep
-    static public function wait_( _p:Process):{ var _0 : ProcessState; var _1 : Error; } return { _0 : ((null : ProcessState)), _1 : ((null : stdgo.Error)) };
+    static public function wait_( _p:Process):{ var _0 : ProcessState; var _1 : Error; } throw "os.wait_ is not yet implemented";
     /**
         // Kill causes the Process to exit immediately. Kill does not wait until
         // the Process has actually exited. This only kills the Process itself,
         // not any other processes it may have started.
     **/
     @:keep
-    static public function kill( _p:Process):Error return ((null : stdgo.Error));
+    static public function kill( _p:Process):Error throw "os.kill is not yet implemented";
     /**
         // Release releases any resources associated with the Process p,
         // rendering it unusable in the future.
         // Release only needs to be called if Wait is not.
     **/
     @:keep
-    static public function release( _p:Process):Error return ((null : stdgo.Error));
+    static public function release( _p:Process):Error throw "os.release is not yet implemented";
     @:keep
-    static public function _done( _p:Process):Bool return false;
+    static public function _done( _p:Process):Bool throw "os._done is not yet implemented";
     @:keep
-    static public function _setDone( _p:Process):Void return;
+    static public function _setDone( _p:Process):Void throw "os._setDone is not yet implemented";
 }
 class Process_wrapper {
     /**
@@ -1046,30 +1046,30 @@ class Process_wrapper {
 }
 @:keep class ProcessState_static_extension {
     @:keep
-    static public function _systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function _systemTime( _p:ProcessState):stdgo.time.Time.Duration throw "os._systemTime is not yet implemented";
     @:keep
-    static public function _userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function _userTime( _p:ProcessState):stdgo.time.Time.Duration throw "os._userTime is not yet implemented";
     /**
         // ExitCode returns the exit code of the exited process, or -1
         // if the process hasn't exited or was terminated by a signal.
     **/
     @:keep
-    static public function exitCode( _p:ProcessState):GoInt return ((0 : GoInt));
+    static public function exitCode( _p:ProcessState):GoInt throw "os.exitCode is not yet implemented";
     @:keep
-    static public function string( _p:ProcessState):GoString return (("" : GoString));
+    static public function string( _p:ProcessState):GoString throw "os.string is not yet implemented";
     @:keep
-    static public function _sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function _sysUsage( _p:ProcessState):AnyInterface throw "os._sysUsage is not yet implemented";
     @:keep
-    static public function _sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function _sys( _p:ProcessState):AnyInterface throw "os._sys is not yet implemented";
     @:keep
-    static public function _success( _p:ProcessState):Bool return false;
+    static public function _success( _p:ProcessState):Bool throw "os._success is not yet implemented";
     @:keep
-    static public function _exited( _p:ProcessState):Bool return false;
+    static public function _exited( _p:ProcessState):Bool throw "os._exited is not yet implemented";
     /**
         // Pid returns the process id of the exited process.
     **/
     @:keep
-    static public function pid( _p:ProcessState):GoInt return ((0 : GoInt));
+    static public function pid( _p:ProcessState):GoInt throw "os.pid is not yet implemented";
     /**
         // SysUsage returns system-dependent resource usage information about
         // the exited process. Convert it to the appropriate underlying
@@ -1078,37 +1078,37 @@ class Process_wrapper {
         // getrusage(2) manual page.)
     **/
     @:keep
-    static public function sysUsage( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function sysUsage( _p:ProcessState):AnyInterface throw "os.sysUsage is not yet implemented";
     /**
         // Sys returns system-dependent exit information about
         // the process. Convert it to the appropriate underlying
         // type, such as syscall.WaitStatus on Unix, to access its contents.
     **/
     @:keep
-    static public function sys( _p:ProcessState):AnyInterface return ((null : AnyInterface));
+    static public function sys( _p:ProcessState):AnyInterface throw "os.sys is not yet implemented";
     /**
         // Success reports whether the program exited successfully,
         // such as with exit status 0 on Unix.
     **/
     @:keep
-    static public function success( _p:ProcessState):Bool return false;
+    static public function success( _p:ProcessState):Bool throw "os.success is not yet implemented";
     /**
         // Exited reports whether the program has exited.
         // On Unix systems this reports true if the program exited due to calling exit,
         // but false if the program terminated due to a signal.
     **/
     @:keep
-    static public function exited( _p:ProcessState):Bool return false;
+    static public function exited( _p:ProcessState):Bool throw "os.exited is not yet implemented";
     /**
         // SystemTime returns the system CPU time of the exited process and its children.
     **/
     @:keep
-    static public function systemTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function systemTime( _p:ProcessState):stdgo.time.Time.Duration throw "os.systemTime is not yet implemented";
     /**
         // UserTime returns the user CPU time of the exited process and its children.
     **/
     @:keep
-    static public function userTime( _p:ProcessState):stdgo.time.Time.Duration return new stdgo.time.Time.Duration();
+    static public function userTime( _p:ProcessState):stdgo.time.Time.Duration throw "os.userTime is not yet implemented";
 }
 class ProcessState_wrapper {
     @:keep
@@ -1181,9 +1181,9 @@ class ProcessState_wrapper {
 }
 @:keep class LinkError_static_extension {
     @:keep
-    static public function unwrap( _e:LinkError):Error return ((null : stdgo.Error));
+    static public function unwrap( _e:LinkError):Error throw "os.unwrap is not yet implemented";
     @:keep
-    static public function error( _e:LinkError):GoString return (("" : GoString));
+    static public function error( _e:LinkError):GoString throw "os.error is not yet implemented";
 }
 class LinkError_wrapper {
     @:keep
@@ -1207,7 +1207,7 @@ class T_onlyWriter_wrapper {
 }
 @:keep class T_file_static_extension {
     @:keep
-    static public function _close( _file:T_file):Error return ((null : stdgo.Error));
+    static public function _close( _file:T_file):Error throw "os._close is not yet implemented";
 }
 class T_file_wrapper {
     @:keep
@@ -1218,13 +1218,13 @@ class T_file_wrapper {
 }
 @:keep class T_unixDirent_static_extension {
     @:keep
-    static public function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } throw "os.info is not yet implemented";
     @:keep
-    static public function type( _d:T_unixDirent):FileMode return new stdgo.io.fs.Fs.FileMode();
+    static public function type( _d:T_unixDirent):FileMode throw "os.type is not yet implemented";
     @:keep
-    static public function isDir( _d:T_unixDirent):Bool return false;
+    static public function isDir( _d:T_unixDirent):Bool throw "os.isDir is not yet implemented";
     @:keep
-    static public function name( _d:T_unixDirent):GoString return (("" : GoString));
+    static public function name( _d:T_unixDirent):GoString throw "os.name is not yet implemented";
 }
 class T_unixDirent_wrapper {
     @:keep
@@ -1241,11 +1241,11 @@ class T_unixDirent_wrapper {
 }
 @:keep class T_rawConn_static_extension {
     @:keep
-    static public function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    static public function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error throw "os.write is not yet implemented";
     @:keep
-    static public function read( _c:T_rawConn, _f:GoUIntptr -> Bool):Error return ((null : stdgo.Error));
+    static public function read( _c:T_rawConn, _f:GoUIntptr -> Bool):Error throw "os.read is not yet implemented";
     @:keep
-    static public function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error return ((null : stdgo.Error));
+    static public function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error throw "os.control is not yet implemented";
 }
 class T_rawConn_wrapper {
     @:keep
@@ -1264,9 +1264,9 @@ class T_rawConn_wrapper {
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    static public function stat( _f:File):{ var _0 : FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function stat( _f:File):{ var _0 : FileInfo; var _1 : Error; } throw "os.stat is not yet implemented";
     @:keep
-    static public function _readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } return { _0 : ((0 : GoInt64)), _1 : false, _2 : ((null : stdgo.Error)) };
+    static public function _readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Bool; var _2 : Error; } throw "os._readFrom is not yet implemented";
     /**
         // seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -1274,7 +1274,7 @@ class T_rawConn_wrapper {
         // It returns the new offset and an error, if any.
     **/
     @:keep
-    static public function _seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function _seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } throw "os._seek is not yet implemented";
     /**
         // Fd returns the integer Unix file descriptor referencing the open file.
         // If f is closed, the file descriptor becomes invalid.
@@ -1290,49 +1290,49 @@ class T_rawConn_wrapper {
         // As an alternative, see the f.SyscallConn method.
     **/
     @:keep
-    static public function fd( _f:File):GoUIntptr return ((0 : GoUIntptr));
+    static public function fd( _f:File):GoUIntptr throw "os.fd is not yet implemented";
     /**
         // checkValid checks whether f is valid for use.
         // If not, it returns an appropriate error, perhaps incorporating the operation name op.
     **/
     @:keep
-    static public function _checkValid( _f:File, _op:GoString):Error return ((null : stdgo.Error));
+    static public function _checkValid( _f:File, _op:GoString):Error throw "os._checkValid is not yet implemented";
     /**
         // setWriteDeadline sets the write deadline.
     **/
     @:keep
-    static public function _setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os._setWriteDeadline is not yet implemented";
     /**
         // setReadDeadline sets the read deadline.
     **/
     @:keep
-    static public function _setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os._setReadDeadline is not yet implemented";
     /**
         // setDeadline sets the read and write deadline.
     **/
     @:keep
-    static public function _setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function _setDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os._setDeadline is not yet implemented";
     /**
         // Chdir changes the current working directory to the file,
         // which must be a directory.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    static public function chdir( _f:File):Error return ((null : stdgo.Error));
+    static public function chdir( _f:File):Error throw "os.chdir is not yet implemented";
     /**
         // Sync commits the current contents of the file to stable storage.
         // Typically, this means flushing the file system's in-memory copy
         // of recently written data to disk.
     **/
     @:keep
-    static public function sync( _f:File):Error return ((null : stdgo.Error));
+    static public function sync( _f:File):Error throw "os.sync is not yet implemented";
     /**
         // Truncate changes the size of the file.
         // It does not change the I/O offset.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    static public function truncate( _f:File, _size:GoInt64):Error return ((null : stdgo.Error));
+    static public function truncate( _f:File, _size:GoInt64):Error throw "os.truncate is not yet implemented";
     /**
         // Chown changes the numeric uid and gid of the named file.
         // If there is an error, it will be of type *PathError.
@@ -1341,37 +1341,37 @@ class T_rawConn_wrapper {
         // in *PathError.
     **/
     @:keep
-    static public function chown( _f:File, _uid:GoInt, _gid:GoInt):Error return ((null : stdgo.Error));
+    static public function chown( _f:File, _uid:GoInt, _gid:GoInt):Error throw "os.chown is not yet implemented";
     /**
         // See docs in file.go:(*File).Chmod.
     **/
     @:keep
-    static public function _chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
+    static public function _chmod( _f:File, _mode:FileMode):Error throw "os._chmod is not yet implemented";
     /**
         // pwrite writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    static public function _pwrite( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _pwrite( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } throw "os._pwrite is not yet implemented";
     /**
         // write writes len(b) bytes to the File.
         // It returns the number of bytes written and an error, if any.
     **/
     @:keep
-    static public function _write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "os._write is not yet implemented";
     /**
         // pread reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
         // EOF is signaled by a zero count with err set to nil.
     **/
     @:keep
-    static public function _pread( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _pread( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } throw "os._pread is not yet implemented";
     /**
         // read reads up to len(b) bytes from the File.
         // It returns the number of bytes read and an error, if any.
     **/
     @:keep
-    static public function _read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function _read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "os._read is not yet implemented";
     /**
         // Close closes the File, rendering it unusable for I/O.
         // On files that support SetDeadline, any pending I/O operations will
@@ -1379,13 +1379,13 @@ class T_rawConn_wrapper {
         // Close will return an error if it has already been called.
     **/
     @:keep
-    static public function close( _f:File):Error return ((null : stdgo.Error));
+    static public function close( _f:File):Error throw "os.close is not yet implemented";
     /**
         // SyscallConn returns a raw file.
         // This implements the syscall.Conn interface.
     **/
     @:keep
-    static public function syscallConn( _f:File):{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } return { _0 : ((null : stdgo.syscall.Syscall.RawConn)), _1 : ((null : stdgo.Error)) };
+    static public function syscallConn( _f:File):{ var _0 : stdgo.syscall.Syscall.RawConn; var _1 : Error; } throw "os.syscallConn is not yet implemented";
     /**
         // SetWriteDeadline sets the deadline for any future Write calls and any
         // currently-blocked Write call.
@@ -1395,7 +1395,7 @@ class T_rawConn_wrapper {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    static public function setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setWriteDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os.setWriteDeadline is not yet implemented";
     /**
         // SetReadDeadline sets the deadline for future Read calls and any
         // currently-blocked Read call.
@@ -1403,7 +1403,7 @@ class T_rawConn_wrapper {
         // Not all files support setting deadlines; see SetDeadline.
     **/
     @:keep
-    static public function setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setReadDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os.setReadDeadline is not yet implemented";
     /**
         // SetDeadline sets the read and write deadlines for a File.
         // It is equivalent to calling both SetReadDeadline and SetWriteDeadline.
@@ -1431,26 +1431,26 @@ class T_rawConn_wrapper {
         // A zero value for t means I/O operations will not time out.
     **/
     @:keep
-    static public function setDeadline( _f:File, _t:stdgo.time.Time.Time):Error return ((null : stdgo.Error));
+    static public function setDeadline( _f:File, _t:stdgo.time.Time.Time):Error throw "os.setDeadline is not yet implemented";
     /**
         // Chmod changes the mode of the file to mode.
         // If there is an error, it will be of type *PathError.
     **/
     @:keep
-    static public function chmod( _f:File, _mode:FileMode):Error return ((null : stdgo.Error));
+    static public function chmod( _f:File, _mode:FileMode):Error throw "os.chmod is not yet implemented";
     /**
         // wrapErr wraps an error that occurred during an operation on an open file.
         // It passes io.EOF through unchanged, otherwise converts
         // poll.ErrFileClosing to ErrClosed and wraps the error in a PathError.
     **/
     @:keep
-    static public function _wrapErr( _f:File, _op:GoString, _err:Error):Error return ((null : stdgo.Error));
+    static public function _wrapErr( _f:File, _op:GoString, _err:Error):Error throw "os._wrapErr is not yet implemented";
     /**
         // WriteString is like Write, but writes the contents of string s rather than
         // a slice of bytes.
     **/
     @:keep
-    static public function writeString( _f:File, _s:GoString):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function writeString( _f:File, _s:GoString):{ var _0 : GoInt; var _1 : Error; } throw "os.writeString is not yet implemented";
     /**
         // Seek sets the offset for the next Read or Write on file to offset, interpreted
         // according to whence: 0 means relative to the origin of the file, 1 means
@@ -1463,7 +1463,7 @@ class T_rawConn_wrapper {
         // operating systems, but not on Windows.
     **/
     @:keep
-    static public function seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function seek( _f:File, _offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : Error; } throw "os.seek is not yet implemented";
     /**
         // WriteAt writes len(b) bytes to the File starting at byte offset off.
         // It returns the number of bytes written and an error, if any.
@@ -1472,19 +1472,19 @@ class T_rawConn_wrapper {
         // If file was opened with the O_APPEND flag, WriteAt returns an error.
     **/
     @:keep
-    static public function writeAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function writeAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } throw "os.writeAt is not yet implemented";
     /**
         // Write writes len(b) bytes from b to the File.
         // It returns the number of bytes written and an error, if any.
         // Write returns a non-nil error when n != len(b).
     **/
     @:keep
-    static public function write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function write( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "os.write is not yet implemented";
     /**
         // ReadFrom implements io.ReaderFrom.
     **/
     @:keep
-    static public function readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } return { _0 : ((0 : GoInt64)), _1 : ((null : stdgo.Error)) };
+    static public function readFrom( _f:File, _r:stdgo.io.Io.Reader):{ var _0 : GoInt64; var _1 : Error; } throw "os.readFrom is not yet implemented";
     /**
         // ReadAt reads len(b) bytes from the File starting at byte offset off.
         // It returns the number of bytes read and the error, if any.
@@ -1492,21 +1492,21 @@ class T_rawConn_wrapper {
         // At end of file, that error is io.EOF.
     **/
     @:keep
-    static public function readAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function readAt( _f:File, _b:Slice<GoByte>, _off:GoInt64):{ var _0 : GoInt; var _1 : Error; } throw "os.readAt is not yet implemented";
     /**
         // Read reads up to len(b) bytes from the File and stores them in b.
         // It returns the number of bytes read and any error encountered.
         // At end of file, Read returns 0, io.EOF.
     **/
     @:keep
-    static public function read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } return { _0 : ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+    static public function read( _f:File, _b:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "os.read is not yet implemented";
     /**
         // Name returns the name of the file as presented to Open.
     **/
     @:keep
-    static public function name( _f:File):GoString return (("" : GoString));
+    static public function name( _f:File):GoString throw "os.name is not yet implemented";
     @:keep
-    static public function _readdir( _f:File, _n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _2 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _3 : ((null : stdgo.Error)) };
+    static public function _readdir( _f:File, _n:GoInt, _mode:T_readdirMode):{ var _0 : Slice<GoString>; var _1 : Slice<DirEntry>; var _2 : Slice<FileInfo>; var _3 : Error; } throw "os._readdir is not yet implemented";
     /**
         // ReadDir reads the contents of the directory associated with the file f
         // and returns a slice of DirEntry values in directory order.
@@ -1520,7 +1520,7 @@ class T_rawConn_wrapper {
         // When it succeeds, it returns a nil error (not io.EOF).
     **/
     @:keep
-    static public function readDir( _f:File, _n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.DirEntry>)), _1 : ((null : stdgo.Error)) };
+    static public function readDir( _f:File, _n:GoInt):{ var _0 : Slice<DirEntry>; var _1 : Error; } throw "os.readDir is not yet implemented";
     /**
         // Readdirnames reads the contents of the directory associated with file
         // and returns a slice of up to n names of files in the directory,
@@ -1539,7 +1539,7 @@ class T_rawConn_wrapper {
         // a non-nil error.
     **/
     @:keep
-    static public function readdirnames( _f:File, _n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } return { _0 : ((null : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+    static public function readdirnames( _f:File, _n:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } throw "os.readdirnames is not yet implemented";
     /**
         // Readdir reads the contents of the directory associated with file and
         // returns a slice of up to n FileInfo values, as would be returned
@@ -1560,7 +1560,7 @@ class T_rawConn_wrapper {
         // Most clients are better served by the more efficient ReadDir method.
     **/
     @:keep
-    static public function readdir( _f:File, _n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } return { _0 : ((null : Slice<stdgo.io.fs.Fs.FileInfo>)), _1 : ((null : stdgo.Error)) };
+    static public function readdir( _f:File, _n:GoInt):{ var _0 : Slice<FileInfo>; var _1 : Error; } throw "os.readdir is not yet implemented";
     @:embedded
     public static function _close( __self__:File):stdgo.Error return __self__._close();
 }
@@ -1875,17 +1875,17 @@ class File_wrapper {
 }
 @:keep class T_fileStat_static_extension {
     @:keep
-    static public function sys( _fs:T_fileStat):AnyInterface return ((null : AnyInterface));
+    static public function sys( _fs:T_fileStat):AnyInterface throw "os.sys is not yet implemented";
     @:keep
-    static public function modTime( _fs:T_fileStat):stdgo.time.Time.Time return new stdgo.time.Time.Time();
+    static public function modTime( _fs:T_fileStat):stdgo.time.Time.Time throw "os.modTime is not yet implemented";
     @:keep
-    static public function mode( _fs:T_fileStat):FileMode return new stdgo.io.fs.Fs.FileMode();
+    static public function mode( _fs:T_fileStat):FileMode throw "os.mode is not yet implemented";
     @:keep
-    static public function size( _fs:T_fileStat):GoInt64 return ((0 : GoInt64));
+    static public function size( _fs:T_fileStat):GoInt64 throw "os.size is not yet implemented";
     @:keep
-    static public function isDir( _fs:T_fileStat):Bool return false;
+    static public function isDir( _fs:T_fileStat):Bool throw "os.isDir is not yet implemented";
     @:keep
-    static public function name( _fs:T_fileStat):GoString return (("" : GoString));
+    static public function name( _fs:T_fileStat):GoString throw "os.name is not yet implemented";
 }
 class T_fileStat_wrapper {
     @:keep
@@ -1933,9 +1933,9 @@ class T__struct_0_wrapper {
 }
 @:keep class T_dirFS_static_extension {
     @:keep
-    static public function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.FileInfo)), _1 : ((null : stdgo.Error)) };
+    static public function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } throw "os.stat is not yet implemented";
     @:keep
-    static public function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } return { _0 : ((null : stdgo.io.fs.Fs.File)), _1 : ((null : stdgo.Error)) };
+    static public function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } throw "os.open is not yet implemented";
 }
 class T_dirFS_wrapper {
     @:keep

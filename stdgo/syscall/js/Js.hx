@@ -182,28 +182,28 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     //
     // Func.Release must be called to free up resources when the function will not be invoked any more.
 **/
-function funcOf(_fn:(_this:Value, _args:Slice<Value>) -> AnyInterface):Func return new Func();
+function funcOf(_fn:(_this:Value, _args:Slice<Value>) -> AnyInterface):Func throw "syscall.js.funcOf is not yet implemented";
 /**
     // setEventHandler is defined in the runtime package.
 **/
-function _setEventHandler(_fn:() -> Void):Void return;
-function _handleEvent():Void return;
-function _makeValue(_r:T_ref):Value return new Value();
-function _finalizeRef(_r:T_ref):Void return;
-function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value return new Value();
-function _floatValue(_f:GoFloat64):Value return new Value();
+function _setEventHandler(_fn:() -> Void):Void throw "syscall.js._setEventHandler is not yet implemented";
+function _handleEvent():Void throw "syscall.js._handleEvent is not yet implemented";
+function _makeValue(_r:T_ref):Value throw "syscall.js._makeValue is not yet implemented";
+function _finalizeRef(_r:T_ref):Void throw "syscall.js._finalizeRef is not yet implemented";
+function _predefValue(_id:GoUInt32, _typeFlag:GoByte):Value throw "syscall.js._predefValue is not yet implemented";
+function _floatValue(_f:GoFloat64):Value throw "syscall.js._floatValue is not yet implemented";
 /**
     // Undefined returns the JavaScript value "undefined".
 **/
-function undefined():Value return new Value();
+function undefined():Value throw "syscall.js.undefined is not yet implemented";
 /**
     // Null returns the JavaScript value "null".
 **/
-function null_():Value return new Value();
+function null_():Value throw "syscall.js.null_ is not yet implemented";
 /**
     // Global returns the JavaScript global object, usually "window" or "global".
 **/
-function global():Value return new Value();
+function global():Value throw "syscall.js.global is not yet implemented";
 /**
     // ValueOf returns x as a JavaScript value:
     //
@@ -220,36 +220,36 @@ function global():Value return new Value();
     //
     // Panics if x is not one of the expected types.
 **/
-function valueOf(_x:AnyInterface):Value return new Value();
-function _stringVal(_x:GoString):T_ref return new T_ref();
-function _valueGet(_v:T_ref, _p:GoString):T_ref return new T_ref();
-function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void return;
-function _valueDelete(_v:T_ref, _p:GoString):Void return;
-function _valueIndex(_v:T_ref, _i:GoInt):T_ref return new T_ref();
-function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void return;
-function _makeArgs(_args:Slice<AnyInterface>):{ var _0 : Slice<Value>; var _1 : Slice<T_ref>; } return { _0 : ((null : Slice<Value>)), _1 : ((null : Slice<T_ref>)) };
-function _valueLength(_v:T_ref):GoInt return ((0 : GoInt));
-function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
-function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
-function _valueNew(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } return { _0 : new T_ref(), _1 : false };
-function _jsString(_v:Value):GoString return (("" : GoString));
-function _valuePrepareString(_v:T_ref):{ var _0 : T_ref; var _1 : GoInt; } return { _0 : new T_ref(), _1 : ((0 : GoInt)) };
-function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void return;
-function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool return false;
+function valueOf(_x:AnyInterface):Value throw "syscall.js.valueOf is not yet implemented";
+function _stringVal(_x:GoString):T_ref throw "syscall.js._stringVal is not yet implemented";
+function _valueGet(_v:T_ref, _p:GoString):T_ref throw "syscall.js._valueGet is not yet implemented";
+function _valueSet(_v:T_ref, _p:GoString, _x:T_ref):Void throw "syscall.js._valueSet is not yet implemented";
+function _valueDelete(_v:T_ref, _p:GoString):Void throw "syscall.js._valueDelete is not yet implemented";
+function _valueIndex(_v:T_ref, _i:GoInt):T_ref throw "syscall.js._valueIndex is not yet implemented";
+function _valueSetIndex(_v:T_ref, _i:GoInt, _x:T_ref):Void throw "syscall.js._valueSetIndex is not yet implemented";
+function _makeArgs(_args:Slice<AnyInterface>):{ var _0 : Slice<Value>; var _1 : Slice<T_ref>; } throw "syscall.js._makeArgs is not yet implemented";
+function _valueLength(_v:T_ref):GoInt throw "syscall.js._valueLength is not yet implemented";
+function _valueCall(_v:T_ref, _m:GoString, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "syscall.js._valueCall is not yet implemented";
+function _valueInvoke(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "syscall.js._valueInvoke is not yet implemented";
+function _valueNew(_v:T_ref, _args:Slice<T_ref>):{ var _0 : T_ref; var _1 : Bool; } throw "syscall.js._valueNew is not yet implemented";
+function _jsString(_v:Value):GoString throw "syscall.js._jsString is not yet implemented";
+function _valuePrepareString(_v:T_ref):{ var _0 : T_ref; var _1 : GoInt; } throw "syscall.js._valuePrepareString is not yet implemented";
+function _valueLoadString(_v:T_ref, _b:Slice<GoByte>):Void throw "syscall.js._valueLoadString is not yet implemented";
+function _valueInstanceOf(_v:T_ref, _t:T_ref):Bool throw "syscall.js._valueInstanceOf is not yet implemented";
 /**
     // CopyBytesToGo copies bytes from src to dst.
     // It panics if src is not an Uint8Array or Uint8ClampedArray.
     // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
 **/
-function copyBytesToGo(_dst:Slice<GoByte>, _src:Value):GoInt return ((0 : GoInt));
-function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{ var _0 : GoInt; var _1 : Bool; } return { _0 : ((0 : GoInt)), _1 : false };
+function copyBytesToGo(_dst:Slice<GoByte>, _src:Value):GoInt throw "syscall.js.copyBytesToGo is not yet implemented";
+function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{ var _0 : GoInt; var _1 : Bool; } throw "syscall.js._copyBytesToGo is not yet implemented";
 /**
     // CopyBytesToJS copies bytes from src to dst.
     // It panics if dst is not an Uint8Array or Uint8ClampedArray.
     // It returns the number of bytes copied, which will be the minimum of the lengths of src and dst.
 **/
-function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt return ((0 : GoInt));
-function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Bool; } return { _0 : ((0 : GoInt)), _1 : false };
+function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt throw "syscall.js.copyBytesToJS is not yet implemented";
+function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Bool; } throw "syscall.js._copyBytesToJS is not yet implemented";
 @:keep class Func_static_extension {
     /**
         // Release frees up resources allocated for the function.
@@ -257,7 +257,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
         // It is allowed to call Release while the function is still running.
     **/
     @:keep
-    static public function release( _c:Func):Void return;
+    static public function release( _c:Func):Void throw "syscall.js.release is not yet implemented";
     @:embedded
     public static function _isNumber( __self__:Func):Bool return __self__._isNumber();
     @:embedded
@@ -364,7 +364,7 @@ class Func_wrapper {
         // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
     **/
     @:keep
-    static public function instanceOf( _v:Value, _t:Value):Bool return false;
+    static public function instanceOf( _v:Value, _t:Value):Bool throw "syscall.js.instanceOf is not yet implemented";
     /**
         // String returns the value v as a string.
         // String is a special case because of Go's String method convention. Unlike the other getters,
@@ -372,119 +372,119 @@ class Func_wrapper {
         // or "<T: V>" where T is v's type and V is a string representation of v's value.
     **/
     @:keep
-    static public function string( _v:Value):GoString return (("" : GoString));
+    static public function string( _v:Value):GoString throw "syscall.js.string is not yet implemented";
     /**
         // Truthy returns the JavaScript "truthiness" of the value v. In JavaScript,
         // false, 0, "", null, undefined, and NaN are "falsy", and everything else is
         // "truthy". See https://developer.mozilla.org/en-US/docs/Glossary/Truthy.
     **/
     @:keep
-    static public function truthy( _v:Value):Bool return false;
+    static public function truthy( _v:Value):Bool throw "syscall.js.truthy is not yet implemented";
     /**
         // Bool returns the value v as a bool.
         // It panics if v is not a JavaScript boolean.
     **/
     @:keep
-    static public function bool( _v:Value):Bool return false;
+    static public function bool( _v:Value):Bool throw "syscall.js.bool is not yet implemented";
     /**
         // Int returns the value v truncated to an int.
         // It panics if v is not a JavaScript number.
     **/
     @:keep
-    static public function int( _v:Value):GoInt return ((0 : GoInt));
+    static public function int( _v:Value):GoInt throw "syscall.js.int is not yet implemented";
     /**
         // Float returns the value v as a float64.
         // It panics if v is not a JavaScript number.
     **/
     @:keep
-    static public function float( _v:Value):GoFloat64 return ((0 : GoFloat64));
+    static public function float( _v:Value):GoFloat64 throw "syscall.js.float is not yet implemented";
     @:keep
-    static public function _float( _v:Value, _method:GoString):GoFloat64 return ((0 : GoFloat64));
+    static public function _float( _v:Value, _method:GoString):GoFloat64 throw "syscall.js._float is not yet implemented";
     @:keep
-    static public function _isNumber( _v:Value):Bool return false;
+    static public function _isNumber( _v:Value):Bool throw "syscall.js._isNumber is not yet implemented";
     /**
         // New uses JavaScript's "new" operator with value v as constructor and the given arguments.
         // It panics if v is not a JavaScript function.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    static public function new_( _v:Value, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    static public function new_( _v:Value, _args:haxe.Rest<AnyInterface>):Value throw "syscall.js.new_ is not yet implemented";
     /**
         // Invoke does a JavaScript call of the value v with the given arguments.
         // It panics if v is not a JavaScript function.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    static public function invoke( _v:Value, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    static public function invoke( _v:Value, _args:haxe.Rest<AnyInterface>):Value throw "syscall.js.invoke is not yet implemented";
     /**
         // Call does a JavaScript call to the method m of value v with the given arguments.
         // It panics if v has no method m.
         // The arguments get mapped to JavaScript values according to the ValueOf function.
     **/
     @:keep
-    static public function call( _v:Value, _m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    static public function call( _v:Value, _m:GoString, _args:haxe.Rest<AnyInterface>):Value throw "syscall.js.call is not yet implemented";
     /**
         // Length returns the JavaScript property "length" of v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function length( _v:Value):GoInt return ((0 : GoInt));
+    static public function length( _v:Value):GoInt throw "syscall.js.length is not yet implemented";
     /**
         // SetIndex sets the JavaScript index i of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function setIndex( _v:Value, _i:GoInt, _x:AnyInterface):Void return;
+    static public function setIndex( _v:Value, _i:GoInt, _x:AnyInterface):Void throw "syscall.js.setIndex is not yet implemented";
     /**
         // Index returns JavaScript index i of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function index( _v:Value, _i:GoInt):Value return new Value();
+    static public function index( _v:Value, _i:GoInt):Value throw "syscall.js.index is not yet implemented";
     /**
         // Delete deletes the JavaScript property p of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function delete( _v:Value, _p:GoString):Void return;
+    static public function delete( _v:Value, _p:GoString):Void throw "syscall.js.delete is not yet implemented";
     /**
         // Set sets the JavaScript property p of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function set( _v:Value, _p:GoString, _x:AnyInterface):Void return;
+    static public function set( _v:Value, _p:GoString, _x:AnyInterface):Void throw "syscall.js.set is not yet implemented";
     /**
         // Get returns the JavaScript property p of value v.
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function get( _v:Value, _p:GoString):Value return new Value();
+    static public function get( _v:Value, _p:GoString):Value throw "syscall.js.get is not yet implemented";
     /**
         // Type returns the JavaScript type of the value v. It is similar to JavaScript's typeof operator,
         // except that it returns TypeNull instead of TypeObject for null.
     **/
     @:keep
-    static public function type( _v:Value):Type return new Type();
+    static public function type( _v:Value):Type throw "syscall.js.type is not yet implemented";
     /**
         // IsNaN reports whether v is the JavaScript value "NaN".
     **/
     @:keep
-    static public function isNaN( _v:Value):Bool return false;
+    static public function isNaN( _v:Value):Bool throw "syscall.js.isNaN is not yet implemented";
     /**
         // IsNull reports whether v is the JavaScript value "null".
     **/
     @:keep
-    static public function isNull( _v:Value):Bool return false;
+    static public function isNull( _v:Value):Bool throw "syscall.js.isNull is not yet implemented";
     /**
         // IsUndefined reports whether v is the JavaScript value "undefined".
     **/
     @:keep
-    static public function isUndefined( _v:Value):Bool return false;
+    static public function isUndefined( _v:Value):Bool throw "syscall.js.isUndefined is not yet implemented";
     /**
         // Equal reports whether v and w are equal according to JavaScript's === operator.
     **/
     @:keep
-    static public function equal( _v:Value, _w:Value):Bool return false;
+    static public function equal( _v:Value, _w:Value):Bool throw "syscall.js.equal is not yet implemented";
 }
 class Value_wrapper {
     /**
@@ -621,7 +621,7 @@ class Value_wrapper {
         // Error implements the error interface.
     **/
     @:keep
-    static public function error( _e:T_error):GoString return (("" : GoString));
+    static public function error( _e:T_error):GoString throw "syscall.js.error is not yet implemented";
     @:embedded
     public static function _isNumber( __self__:T_error):Bool return __self__._isNumber();
     @:embedded
@@ -723,7 +723,7 @@ class T_error_wrapper {
 }
 @:keep class ValueError_static_extension {
     @:keep
-    static public function error( _e:ValueError):GoString return (("" : GoString));
+    static public function error( _e:ValueError):GoString throw "syscall.js.error is not yet implemented";
 }
 class ValueError_wrapper {
     @:keep
@@ -734,9 +734,9 @@ class ValueError_wrapper {
 }
 @:keep class Type_static_extension {
     @:keep
-    static public function _isObject( _t:Type):Bool return false;
+    static public function _isObject( _t:Type):Bool throw "syscall.js._isObject is not yet implemented";
     @:keep
-    static public function string( _t:Type):GoString return (("" : GoString));
+    static public function string( _t:Type):GoString throw "syscall.js.string is not yet implemented";
 }
 class Type_wrapper {
     @:keep

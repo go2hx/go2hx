@@ -12,4 +12,4 @@ var _tests : Slice<stdgo.testing.Testing.InternalTest> = ((null : Slice<stdgo.te
 var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((null : Slice<stdgo.testing.Testing.InternalBenchmark>));
 var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((null : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
 var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((null : Slice<stdgo.testing.Testing.InternalExample>));
-function main():Void return;
+function main():Void throw "syscall_test.main is not yet implemented";

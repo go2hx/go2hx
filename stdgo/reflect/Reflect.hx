@@ -310,7 +310,7 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointer(elem): 
+		case pointer(elem):
 			pointerUnwrap(elem);
 		default:
 			type;
@@ -318,9 +318,12 @@ function pointerUnwrap(type:GoType):GoType {
 }
 
 class Value {
+	@:local
 	var value:AnyInterface;
+	@:local
 	var underlyingValue:Dynamic;
 	var underlyingIndex:GoInt = -1;
+	@:local
 	var underlyingKey:Dynamic = null;
 	var canAddrBool:Bool = false;
 	var notSetBool:Bool = false;

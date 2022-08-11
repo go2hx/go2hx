@@ -735,25 +735,31 @@ class Go {
 						final ref = t.get();
 						switch ref.type {
 							case TAnonymous(a):
-								final a = a.get();
-								a.fields.sort((a, b) -> {
-									return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
-								});
-								final methods:Array<Expr> = [];
-								for (field in a.fields) {
-									switch field.name {
-										case "__underlying__":
-											continue;
-										default:
+								final path = ref.pack.concat([ref.name]).join(".");
+								if (marked.exists(path)) {
+									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [], stdgo.reflect.Reflect.GoType.invalidType);
+								} else {
+									marked[path] = true;
+									final a = a.get();
+									a.fields.sort((a, b) -> {
+										return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
+									});
+									final methods:Array<Expr> = [];
+									for (field in a.fields) {
+										switch field.name {
+											case "__underlying__":
+												continue;
+											default:
+										}
+										// final embedded = field.meta.has(":embedded") ? macro true : macro false;
+										methods.push(macro {name: $v{field.name}, type: ${gtDecode(field.type, null, marked)}, recv: null});
 									}
-									// final embedded = field.meta.has(":embedded") ? macro true : macro false;
-									methods.push(macro {name: $v{field.name}, type: ${gtDecode(field.type, null, marked)}, recv: null});
+									final path = createPath(ref.pack, ref.name);
+									final empty = methods.length == 0;
+									final local = ref.meta.has(":local");
+									ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
+										stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
 								}
-								final path = createPath(ref.pack, ref.name);
-								final empty = methods.length == 0;
-								final local = ref.meta.has(":local");
-								ret = macro stdgo.reflect.Reflect.GoType.named($v{path}, [],
-									stdgo.reflect.Reflect.GoType.interfaceType($v{empty}, $a{methods}), $v{local});
 							default:
 								if (ref.meta.has(":follow"))
 									return gtDecode(Context.follow(ref.type, true), null, marked);

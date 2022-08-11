@@ -2755,7 +2755,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			last = typeRest(last);
 			args.push(last);
 		}
-		final type = typeof(expr.fun, info, false);
+		var type = typeof(expr.fun, info, false);
 		if (translateType && type != null) {
 			if (isInvalid(type)) { // set standard library expected call arguments
 				if (expr.fun.id == "SelectorExpr") {
@@ -2775,12 +2775,15 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				}
 				return;
 			}
+			final setGenerics = expr.fun.id == "IndexListExpr" || expr.fun.id == "IndexExpr";
+			if (setGenerics)
+				type = typeof(expr.fun.x, info, false);
 			var sig = getSignature(type);
 			if (sig != null) {
 				switch sig {
 					case signature(variadic, _.get() => params, _, _, _.get() => typeParams):
 						var skip = 0;
-						if (expr.fun.id == "IndexListExpr" || expr.fun.id == "IndexExpr") { // could need to set generics
+						if (setGenerics) { // could need to set generics
 							// trace(expr.fun.indices[0].id);
 							final defaultArgs = genericIndices(expr.fun.id == "IndexExpr" ? [expr.fun.index] : expr.fun.indices, params, typeParams, info);
 							skip = defaultArgs.length;
@@ -2824,6 +2827,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				rparen: 0,
 			}, info);
 		case "SelectorExpr":
+			trace(hashTypeToExprType(expr.fun.sel.type,info));
 			final selType = typeof(expr.fun.sel, info, false);
 			genericBool = isGeneric(selType);
 			switch selType {
@@ -3080,7 +3084,9 @@ private function genericIndices(indices:Array<Ast.Expr>, params:Array<GoType>, t
 	final argTypes = params.map(p -> toComplexType(p, info)); // params are args
 	for (i in 0...argTypes.length) {
 		for (genericExpr in genericExprs) {
-			if (compareComplexType(argTypes[i], typeExprType(genericExpr, info))) { // checking if arg already has type matching for macro to use
+			final a = argTypes[i];
+			final b = typeExprType(genericExpr, info);
+			if (compareComplexType(a, b)) { // checking if arg already has type matching for macro to use
 				genericExprs.remove(genericExpr);
 				break;
 			}
@@ -3247,11 +3253,12 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 			final params = {get: () -> getTuple(hashTypeToExprType(e.params, info), info)};
 			final results = {get: () -> getTuple(hashTypeToExprType(e.results, info), info)};
 			final recv = {get: () -> typeof(e.recv, info, false)};
+			final sigTypeParams:Array<Dynamic> = e.typeParams;
 			final typeParams = {
 				get: () -> {
 					final typeParams = [];
-					if (e.typeParams != null && e.typeParams.length > 0) {
-						for (param in (e.typeParams : Array<Dynamic>)) {
+					if (sigTypeParams != null && sigTypeParams.length > 0) {
+						for (param in sigTypeParams) {
 							typeParams.push(typeof(param, info, false));
 						}
 					}
@@ -3588,7 +3595,6 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			]);
 		case signature(variadic, _.get() => params, _.get() => results, _.get() => recv):
 			var args:Array<ComplexType> = [];
-
 			for (param in params) {
 				args.push(toComplexType(param, info));
 			}

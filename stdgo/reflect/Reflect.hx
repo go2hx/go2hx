@@ -21,18 +21,18 @@ enum GoType {
 	invalidType;
 	signature(variadic:Bool, params:Ref<Array<GoType>>, results:Ref<Array<GoType>>, recv:Ref<GoType>, ?typeParams:Ref<Array<GoType>>);
 	basic(kind:BasicKind);
-	_var(name:String, type:Ref<GoType>);
+	_var(name:String, type:GoType);
 	tuple(len:Int, vars:Array<GoType>);
 	interfaceType(empty:Bool, ?methods:Array<MethodType>);
 	sliceType(elem:Ref<GoType>);
 	named(path:String, methods:Array<MethodType>, type:GoType, ?alias:Bool, ?params:Array<GoType>);
 	previouslyNamed(path:String);
 	structType(fields:Array<FieldType>);
-	pointer(elem:Ref<GoType>);
+	pointer(elem:GoType);
 	arrayType(elem:Ref<GoType>, len:Int);
 	mapType(key:Ref<GoType>, value:Ref<GoType>);
 	chanType(dir:Int, elem:Ref<GoType>);
-	refType(elem:Ref<GoType>);
+	refType(elem:GoType);
 }
 
 @:structInit
@@ -116,7 +116,7 @@ function isInterface(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(#if go2hx_compiler _.get() => #end elem):
+		case refType(elem):
 			isInterface(elem);
 		case named(_, _, elem):
 			isInterface(elem);
@@ -149,7 +149,7 @@ function isNamed(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(#if go2hx_compiler _.get() => #end underlying):
+		case refType(underlying):
 			isNamed(underlying);
 		case named(_, _, underlying):
 			switch underlying {
@@ -171,7 +171,7 @@ function isStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case refType(#if go2hx_compiler _.get() => #end type):
+		case refType(type):
 			isStruct(type);
 		case named(_, _, underlying):
 			isStruct(underlying);
@@ -185,7 +185,7 @@ function isPointerStruct(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case pointer(#if go2hx_compiler _.get() => #end elem): isStruct(elem);
+		case pointer(elem): isStruct(elem);
 		default: false;
 	}
 }
@@ -216,10 +216,9 @@ function getElem(type:GoType):GoType {
 	return switch type {
 		case named(_, _, type):
 			type;
-		case _var(_, #if go2hx_compiler _.get() => #end type):
+		case _var(_, type):
 			getElem(type);
-		case arrayType(#if go2hx_compiler _.get() => #end elem, _), sliceType(#if go2hx_compiler _.get() => #end elem),
-			pointer(#if go2hx_compiler _.get() => #end elem), refType(#if go2hx_compiler _.get() => #end elem):
+		case arrayType(#if go2hx_compiler _.get() => #end elem, _), sliceType(#if go2hx_compiler _.get() => #end elem), pointer(elem), refType(elem):
 			elem;
 		default:
 			type;
@@ -230,7 +229,7 @@ function getVar(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case _var(_, #if go2hx_compiler _.get() => #end type):
+		case _var(_, type):
 			type;
 		default:
 			type;
@@ -274,12 +273,14 @@ function isPointer(type:GoType):Bool {
 	if (type == null)
 		return false;
 	return switch type {
-		case _var(_, #if go2hx_compiler _.get() => #end elem):
+		case _var(_, elem):
 			isPointer(elem);
 		case named(_, _, elem):
 			isPointer(elem);
 		case pointer(_):
 			true;
+		case refType(elem):
+			false;
 		default:
 			false;
 	}
@@ -309,7 +310,7 @@ function pointerUnwrap(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case pointer(#if go2hx_compiler _.get() => #end elem):
+		case pointer(elem): 
 			pointerUnwrap(elem);
 		default:
 			type;
@@ -1685,7 +1686,7 @@ private function namedUnderlying(obj:AnyInterface):AnyInterface {
 
 function getUnderlying(gt:GoType, once:Bool = false) {
 	return switch gt {
-		case refType(#if go2hx_compiler _.get() => #end type):
+		case refType(type):
 			getUnderlying(type, once);
 		case named(_, _, type):
 			if (once) {

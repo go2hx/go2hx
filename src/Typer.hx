@@ -1073,7 +1073,7 @@ private function typeDeclStmt(stmt:Ast.DeclStmt, info:Info):ExprDef {
 
 private function translateStruct(e:Expr, fromType:GoType, toType:GoType, info:Info):Expr {
 	switch toType {
-		case refType(_.get() => elem):
+		case refType(elem):
 			toType = elem;
 		default:
 	}
@@ -1668,7 +1668,7 @@ private function cleanType(type:GoType):GoType {
 	if (type == null)
 		return type;
 	return switch type {
-		case _var(_, _.get() => type):
+		case _var(_, type):
 			cleanType(type);
 		default:
 			type;
@@ -1776,7 +1776,7 @@ function getReturnTupleType(type:GoType):Array<GoType> {
 			[
 				for (i in 0...vars.length) {
 					switch vars[i] {
-						case _var(name, _.get() => type):
+						case _var(name, type):
 							type;
 						default:
 							vars[i];
@@ -1847,12 +1847,12 @@ private function assignTranslate(fromType:GoType, toType:GoType, expr:Expr, info
 		var fromType = fromType;
 		var toType = toType;
 		switch fromType {
-			case refType(_.get() => elem):
+			case refType(elem):
 				fromType = elem;
 			default:
 		}
 		switch toType {
-			case refType(_.get() => elem):
+			case refType(elem):
 				toType = elem;
 			default:
 		}
@@ -1915,7 +1915,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 						final methodArgs = [];
 						final ret:ComplexType = getReturn(results, info);
 						final args = params.map(param -> switch param {
-							case _var(name, _.get() => type):
+							case _var(name, type):
 								({
 									name: nameIdent(name, true, false, info, true),
 									type: toComplexType(type, info),
@@ -1955,23 +1955,22 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 private function replaceInvalidType(t:GoType, replace:GoType):GoType {
 	return switch t {
 		case _var(name, type):
-			final type = replaceInvalidType(type.get(), replace);
-			_var(name, {get: () -> type});
+			final type = replaceInvalidType(type, replace);
+			_var(name, type);
 		case pointer(elem):
-			final elem = replaceInvalidType(elem.get(), replace);
-			pointer({get: () -> elem});
+			final elem = replaceInvalidType(elem, replace);
+			pointer(elem);
 		case refType(elem):
-			final elem = elem.get();
 			switch elem {
 				case invalidType, named(_, _, invalidType):
 					if (isRefValue(replace)) {
-						refType({get: () -> elem});
+						refType(elem);
 					} else {
-						pointer({get: () -> elem});
+						pointer(elem);
 					}
 				default:
 					final elem = replaceInvalidType(elem, replace);
-					refType({get: () -> elem});
+					refType(elem);
 			}
 		case named(path, methods, type, alias, params):
 			type = replaceInvalidType(type, replace);
@@ -1989,9 +1988,9 @@ private function isGeneric(t:GoType):Bool {
 	switch t {
 		case signature(_, _.get() => params, _, _.get() => recv):
 			switch recv {
-				case _var(_, _.get() => t):
+				case _var(_, t):
 					switch t {
-						case refType(_.get() => s), pointer(_.get() => s):
+						case refType(s), pointer(s):
 							t = s;
 						default:
 					}
@@ -2005,12 +2004,12 @@ private function isGeneric(t:GoType):Bool {
 			if (params.length > 0) {
 				var t = params[0];
 				switch t {
-					case refType(_.get() => s), pointer(_.get() => s):
+					case refType(s), pointer(s):
 						t = s;
 					default:
 				}
 				switch t {
-					case _var(_, _.get() => named(_, _, _, _, params)):
+					case _var(_, named(_, _, _, _, params)):
 						return params != null && params.length > 0;
 					default:
 				}
@@ -2184,7 +2183,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						for (i in 0...vars.length) {
 							final v = vars[i];
 							switch v {
-								case _var(_, _.get() => type):
+								case _var(_, type):
 									names.push('_$i');
 									types.push(type);
 								default:
@@ -2269,7 +2268,7 @@ private function typeAssignStmt(stmt:Ast.AssignStmt, info:Info):ExprDef {
 						for (i in 0...vars.length) {
 							var v = vars[i];
 							switch v {
-								case _var(_, _.get() => type):
+								case _var(_, type):
 									names.push('_$i');
 									types.push(toComplexType(type, info));
 								default:
@@ -2339,7 +2338,7 @@ private function typeReturnStmt(stmt:Ast.ReturnStmt, info:Info):ExprDef {
 		if (info.returnTypes.length > 1) {
 			retType = tuple(info.returnTypes.length, info.returnNamed ? [
 				for (i in 0...info.returnTypes.length)
-					_var(info.returnNames[i], {get: () -> info.returnTypes[i]})
+					_var(info.returnNames[i], info.returnTypes[i])
 			] : info.returnTypes);
 		}
 		if (retType != null) {
@@ -2830,10 +2829,11 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 			switch selType {
 				case signature(_, _, _, _.get() => recv):
 					switch recv {
-						case _var(_, _.get() => type):
+						case _var(_, type):
 							final xType = typeof(expr.fun.x, info, false);
 							final xTypePointer = isPointer(xType);
-							if (isPointer(type)) {
+							final b = isPointer(type);
+							if (b) {
 								var selExpr = typeExpr(expr.fun.sel, info);
 								final sel = switch selExpr.expr {
 									case EConst(CIdent(s)):
@@ -3113,14 +3113,14 @@ private function toReflectType(t:GoType, info:Info):Expr {
 			final name = makeString(name);
 			final params = macro [];
 			macro stdgo.reflect.Reflect.GoType.typeParam($name, params);
-		case refType(_.get() => elem):
+		case refType(elem):
 			final elem = toReflectType(elem, info);
 			macro stdgo.reflect.Reflect.GoType.refType($elem);
 		case mapType(_.get() => key, _.get() => value):
 			final key = toReflectType(key, info);
 			final value = toReflectType(value, info);
 			macro stdgo.reflect.Reflect.GoType.mapType($key, $value);
-		case pointer(_.get() => elem):
+		case pointer(elem):
 			final elem = toReflectType(elem, info);
 			macro stdgo.reflect.Reflect.GoType.pointer($elem);
 		case arrayType(_.get() => elem, len):
@@ -3133,7 +3133,7 @@ private function toReflectType(t:GoType, info:Info):Expr {
 		case basic(kind):
 			final name = macro $i{kind.getName()};
 			macro stdgo.reflect.Reflect.GoType.basic($name);
-		case _var(name, _.get() => type):
+		case _var(name, type):
 			toReflectType(type, info);
 		case chanType(dir, _.get() => elem):
 			final dir = toExpr(EConst(CInt('$dir')));
@@ -3199,11 +3199,11 @@ private function getTuple(e:Dynamic, info:Info):Array<GoType> {
 		if (t == invalidType)
 			trace("v:", v.type.id, "\n", t);
 		if (v.name == "_" || v.name == "") {
-			tuples.push(_var("_" + index, {get: () -> t}));
+			tuples.push(_var("_" + index, t));
 			index++;
 			continue;
 		}
-		tuples.push(_var(v.name, {get: () -> t}));
+		tuples.push(_var(v.name, t));
 	}
 	return tuples;
 }
@@ -3310,7 +3310,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 		case "Var":
 			if (e.name == "_" || e.name == "")
 				return typeof(e.type, info, false);
-			_var(e.name, {get: () -> typeof(e.type, info, false)});
+			_var(e.name, typeof(e.type, info, false));
 		case "Interface":
 			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
 				typeof(e.embeds[0], info, false);
@@ -3324,7 +3324,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 		case "Array":
 			arrayType({get: () -> typeof(e.elem, info, false)}, e.len);
 		case "Pointer":
-			pointer({get: () -> typeof(e.elem, info, false)});
+			pointer(typeof(e.elem, info, false));
 		case "Map":
 			mapType({get: () -> typeof(e.key, info, false)}, {get: () -> typeof(e.elem, info, false)});
 		case "Struct":
@@ -3399,7 +3399,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 				case ARROW:
 					getElem(typeof(e.x, info, false));
 				case AND:
-					pointer({get: () -> typeof(e.x, info, false)});
+					pointer(typeof(e.x, info, false));
 				default:
 					typeof(e.x, info, false);
 			}
@@ -3441,7 +3441,7 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 	}
 	return switch t {
 		case pointer(elem):
-			isRefValue(elem.get()) ? refType(elem) : t;
+			isRefValue(elem) ? refType(elem) : t;
 		default:
 			t;
 	}
@@ -3507,7 +3507,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 	if (e == null)
 		return TPath({pack: [], name: "Any"});
 	return switch e {
-		case refType(_.get() => elem):
+		case refType(elem):
 			TPath({name: "Ref", pack: [], params: [TPType(toComplexType(elem, info))]});
 		case basic(kind):
 			switch kind {
@@ -3570,7 +3570,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 			TPath({pack: [], name: "GoMap", params: [TPType(ctKey), TPType(ctValue)]});
 		case invalidType:
 			null;
-		case pointer(_.get() => elem):
+		case pointer(elem):
 			final ct = toComplexType(elem, info);
 			TPath({pack: [], name: "Pointer", params: [TPType(ct)]});
 		case chanType(dir, _.get() => elem):
@@ -3606,7 +3606,7 @@ private function toComplexType(e:GoType, info:Info):ComplexType {
 				args.push(last);
 			}
 			TFunction(args, ret);
-		case _var(_, _.get() => type):
+		case _var(_, type):
 			toComplexType(type, info);
 		case typeParam(name, _):
 			TPath({name: name, pack: []});
@@ -3624,7 +3624,7 @@ private function getReturn(results:Array<GoType>, info:Info) {
 		final fields:Array<Field> = [];
 		for (i in 0...results.length) {
 			switch results[i] {
-				case _var(_, _.get() => type):
+				case _var(_, type):
 					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(type, info))});
 				default:
 					fields.push({name: "_" + i, pos: null, kind: FVar(toComplexType(results[i], info))});
@@ -3978,7 +3978,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		return (macro @:invalid_compositelit null).expr;
 	}
 	switch underlying {
-		case pointer(_.get() => elem):
+		case pointer(elem):
 			final e = toExpr(compositeLit(elem, complexTypeElem(ct), expr, info));
 			return (macro Go.pointer($e)).expr;
 		case structType(fields):
@@ -4397,7 +4397,7 @@ function getStructFields(type:GoType):Array<FieldType> {
 	if (type == null)
 		return [];
 	return switch type {
-		case named(_, _, elem), pointer(_.get() => elem), refType(_.get() => elem):
+		case named(_, _, elem), pointer(elem), refType(elem):
 			getStructFields(elem);
 		case structType(fields):
 			fields;
@@ -5005,12 +5005,12 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);
 			macro(null : Chan<$t>);
-		case pointer(_.get() => elem):
+		case pointer(elem):
 			final t = toComplexType(elem, info);
 			macro(null : Pointer<$t>);
 		case signature(_, _, _, _):
 			macro null;
-		case refType(_.get() => elem):
+		case refType(elem):
 			final ct = toComplexType(elem, info);
 			if (hasTypeParam(ct)) {
 				macro null;
@@ -5112,7 +5112,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			} else {
 				null;
 			}
-		case _var(_, _.get() => type):
+		case _var(_, type):
 			defaultValue(type, info, strict);
 		default:
 			throw "unsupported default value type: " + type;
@@ -5491,7 +5491,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 private function refToPointerWrapper(t:GoType):GoType {
 	return switch t {
 		case refType(elem):
-			pointer({get: () -> refToPointerWrapper(elem.get())});
+			pointer(refToPointerWrapper(elem));
 		default:
 			t;
 	}
@@ -5676,7 +5676,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						final params:Array<FunctionArg> = [];
 						for (i in 0...sigParams.length) {
 							switch sigParams[i] {
-								case _var(name, _.get() => t):
+								case _var(name, t):
 									final name = nameIdent(name, true, false, info, true);
 									args.push(macro $i{name});
 									params.push({
@@ -5716,7 +5716,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 									for (res in results) {
 										i++;
 										switch res {
-											case _var(_, _.get() => res):
+											case _var(_, res):
 												{
 													name: "_" + i,
 													pos: null,

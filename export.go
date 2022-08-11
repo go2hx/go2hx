@@ -793,9 +793,9 @@ func parseType(node interface{}, marked map[string]bool) map[string]interface{} 
 			data["alias"] = true
 		} else {
 			if !marked[path] {
+				data["methods"] = parseMethods(named, &methodCache, 0, marked)
 				marked[path] = true
 				data["underlying"] = parseType(named.Underlying(), marked)
-				data["methods"] = parseMethods(named, &methodCache, 0, marked)
 				params := make([]map[string]interface{}, named.TypeParams().Len())
 				for i := 0; i < len(params); i++ {
 					params[i] = parseType(named.TypeParams().At(i), marked)

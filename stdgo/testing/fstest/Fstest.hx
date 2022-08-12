@@ -261,7 +261,6 @@ function testMapFSChmodDot(_t:stdgo.testing.Testing.T):Void {
     //	if err := fstest.TestFS(myFS, "file/that/should/be/present"); err != nil {
     //		t.Fatal(err)
     //	}
-    //
 **/
 function testFS(_fsys:stdgo.io.fs.Fs.FS, _expected:haxe.Rest<GoString>):Error {
         var _expected = new Slice<GoString>(..._expected);
@@ -419,6 +418,7 @@ function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString {
             __self__.year = #if !macro function():GoInt return _info.modTime().year() #else null #end;
             __self__.yearDay = #if !macro function():GoInt return _info.modTime().yearDay() #else null #end;
             __self__.zone = #if !macro function():{ var _0 : GoString; var _1 : GoInt; } return _info.modTime().zone() #else null #end;
+            __self__.zoneBounds = #if !macro function():{ var _0 : stdgo.time.Time.Time; var _1 : stdgo.time.Time.Time; } return _info.modTime().zoneBounds() #else null #end;
             __self__._abs = #if !macro function():GoUInt64 return _info.modTime()._abs() #else null #end;
             __self__._addSec = #if !macro function(__0:GoInt64):Void _info.modTime()._addSec(__0) #else null #end;
             __self__._date = #if !macro function(__0:Bool):{ var _0 : GoInt; var _1 : stdgo.time.Time.Month; var _2 : GoInt; var _3 : GoInt; } return _info.modTime()._date(__0) #else null #end;

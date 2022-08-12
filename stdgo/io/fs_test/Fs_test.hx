@@ -228,6 +228,12 @@ function testGlobError(_t:stdgo.testing.Testing.T):Void {
             };
         };
     }
+function testCVE202230630(_t:stdgo.testing.Testing.T):Void {
+        var __tmp__ = glob(stdgo.os.Os.dirFS(((((("." : GoString))) : GoString))), ((((("/*" : GoString))) : GoString)) + stdgo.strings.Strings.repeat(((((("/" : GoString))) : GoString)), ((10001 : GoInt)))), _0:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if (_err != stdgo.path.Path.errBadPattern) {
+            _t.fatalf(((((("Glob returned err=%v, want %v" : GoString))) : GoString)), Go.toInterface(_err), Go.toInterface(stdgo.path.Path.errBadPattern));
+        };
+    }
 /**
     // contains reports whether vector contains the string s.
 **/
@@ -824,6 +830,68 @@ function testWalkDir(_t:stdgo.testing.Testing.T):Void {
                 _t.fatalf(((((("unexpected errors: %s" : GoString))) : GoString)), Go.toInterface(_errors));
             };
             _checkMarks(_t, true);
+            for (defer in __deferstack__) {
+                defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return;
+            };
+        } catch(__exception__) {
+            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
+            __recover_exception__ = __exception__.native;
+            for (defer in __deferstack__) {
+                defer();
+            };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return;
+        };
+    }
+function testIssue51617(_t:stdgo.testing.Testing.T):Void {
+        var __recover_exception__:AnyInterface = null;
+        var __deferstack__:Array<Void -> Void> = [];
+        try {
+            var _dir:GoString = _t.tempDir();
+            for (_0 => _sub in ((new Slice<GoString>(((((("a" : GoString))) : GoString)), stdgo.path.filepath.Filepath.join(((((("a" : GoString))) : GoString)), ((((("bad" : GoString))) : GoString))), stdgo.path.filepath.Filepath.join(((((("a" : GoString))) : GoString)), ((((("next" : GoString))) : GoString)))) : Slice<GoString>))) {
+                {
+                    var _err:stdgo.Error = stdgo.os.Os.mkdir(stdgo.path.filepath.Filepath.join(_dir, _sub), ((493 : FileMode)));
+                    if (_err != null) {
+                        _t.fatal(Go.toInterface(_err));
+                    };
+                };
+            };
+            var _bad:GoString = stdgo.path.filepath.Filepath.join(_dir, ((((("a" : GoString))) : GoString)), ((((("bad" : GoString))) : GoString)));
+            {
+                var _err:stdgo.Error = stdgo.os.Os.chmod(_bad, ((0 : FileMode)));
+                if (_err != null) {
+                    _t.fatal(Go.toInterface(_err));
+                };
+            };
+            {
+                var _a0 = _bad;
+                var _a1 = ((448 : FileMode));
+                __deferstack__.unshift(() -> stdgo.os.Os.chmod(_a0, _a1));
+            };
+            var _saw:Slice<GoString> = ((null : Slice<GoString>));
+            var _err:stdgo.Error = walkDir(stdgo.os.Os.dirFS(_dir), ((((("." : GoString))) : GoString)), function(_path:GoString, _d:DirEntry, _err:Error):Error {
+                if (_err != null) {
+                    return stdgo.path.filepath.Filepath.skipDir;
+                };
+                if (_d.isDir()) {
+                    _saw = (_saw != null ? _saw.__append__(_path) : new Slice<GoString>(_path));
+                };
+                return ((null : stdgo.Error));
+            });
+            if (_err != null) {
+                _t.fatal(Go.toInterface(_err));
+            };
+            var _want = ((new Slice<GoString>(((((("." : GoString))) : GoString)), ((((("a" : GoString))) : GoString)), ((((("a/bad" : GoString))) : GoString)), ((((("a/next" : GoString))) : GoString))) : Slice<GoString>));
+            if (!stdgo.reflect.Reflect.deepEqual(Go.toInterface(_saw), Go.toInterface(_want))) {
+                _t.errorf(((((("got directories %v, want %v" : GoString))) : GoString)), Go.toInterface(_saw), Go.toInterface(_want));
+            };
             for (defer in __deferstack__) {
                 defer();
             };

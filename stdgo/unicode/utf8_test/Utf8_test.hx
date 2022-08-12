@@ -116,6 +116,9 @@ var _validrunetests : Slice<stdgo.unicode.utf8_test.Utf8_test.ValidRuneTest> = (
 ((new ValidRuneTest(((57344 : GoInt32)), true) : ValidRuneTest)),
 ((new ValidRuneTest(((1114112 : GoInt32)), false) : ValidRuneTest)),
 ((new ValidRuneTest(((-1 : GoInt32)), false) : ValidRuneTest))) : Slice<ValidRuneTest>));
+var _ascii100000 : GoString = stdgo.strings.Strings.repeat(((((("0123456789" : GoString))) : GoString)), ((10000 : GoInt)));
+var _longStringMostlyASCII : GoString = (("" : GoString));
+var _longStringJapanese : GoString = (("" : GoString));
 var _boolSink : Bool = false;
 @:structInit class Utf8Map {
     public var _r : GoInt32 = 0;
@@ -710,12 +713,39 @@ function benchmarkValidTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
             });
         };
     }
+function benchmarkValid100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
+        var _s = ((_ascii100000 : Slice<GoByte>));
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                valid(_s);
+            });
+        };
+    }
 function benchmarkValidTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
         var _s = ((((((("日本語日本語日本語日" : GoString))) : GoString)) : Slice<GoByte>));
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
                 valid(_s);
+            });
+        };
+    }
+function benchmarkValidLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
+        var _longMostlyASCII = ((_longStringMostlyASCII : Slice<GoByte>));
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                valid(_longMostlyASCII);
+            });
+        };
+    }
+function benchmarkValidLongJapanese(_b:stdgo.testing.Testing.B):Void {
+        var _longJapanese = ((_longStringJapanese : Slice<GoByte>));
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                valid(_longJapanese);
             });
         };
     }
@@ -727,11 +757,35 @@ function benchmarkValidStringTenASCIIChars(_b:stdgo.testing.Testing.B):Void {
             });
         };
     }
+function benchmarkValidString100KASCIIChars(_b:stdgo.testing.Testing.B):Void {
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                validString(_ascii100000);
+            });
+        };
+    }
 function benchmarkValidStringTenJapaneseChars(_b:stdgo.testing.Testing.B):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < _b.n, _i++, {
                 validString(((((("日本語日本語日本語日" : GoString))) : GoString)));
+            });
+        };
+    }
+function benchmarkValidStringLongMostlyASCII(_b:stdgo.testing.Testing.B):Void {
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                validString(_longStringMostlyASCII);
+            });
+        };
+    }
+function benchmarkValidStringLongJapanese(_b:stdgo.testing.Testing.B):Void {
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < _b.n, _i++, {
+                validString(_longStringJapanese);
             });
         };
     }
@@ -810,6 +864,20 @@ function benchmarkFullRune(_b:stdgo.testing.Testing.B):Void {
             if (false) {
                 throw Go.toInterface(((((("utf8.RuneError is wrong" : GoString))) : GoString)));
             };
+            {};
+            var _b:stdgo.bytes.Bytes.Buffer = new stdgo.bytes.Bytes.Buffer();
+            {
+                var _i:GoInt = ((0 : GoInt));
+                Go.cfor(_b.len() < ((100000 : GoInt)), _i++, {
+                    if ((_i % ((100 : GoInt))) == ((0 : GoInt))) {
+                        _b.writeString((((((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString))) : GoString)));
+                    } else {
+                        _b.writeString(((((("0123456789" : GoString))) : GoString)));
+                    };
+                });
+            };
+            _longStringMostlyASCII = ((_b.string() : GoString));
+            _longStringJapanese = stdgo.strings.Strings.repeat((((((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("9C") : GoString)) + ((haxe.io.Bytes.ofHex("AC") : GoString)) + ((haxe.io.Bytes.ofHex("E8") : GoString)) + ((haxe.io.Bytes.ofHex("AA") : GoString)) + ((haxe.io.Bytes.ofHex("9E") : GoString)) + ((haxe.io.Bytes.ofHex("E6") : GoString)) + ((haxe.io.Bytes.ofHex("97") : GoString)) + ((haxe.io.Bytes.ofHex("A5") : GoString))) : GoString)), ((3333 : GoInt)));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

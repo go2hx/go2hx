@@ -29,6 +29,16 @@ typedef Getter = StructType & {
     > Value,
     public function get():AnyInterface;
 };
+@:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) class T_textValue {
+    public var _p : stdgo.encoding.Encoding.TextUnmarshaler = ((null : stdgo.encoding.Encoding.TextUnmarshaler));
+    public function new(?_p:stdgo.encoding.Encoding.TextUnmarshaler) {
+        if (_p != null) this._p = _p;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_textValue(_p);
+    }
+}
 @:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) class FlagSet {
     public var usage : () -> Void = null;
     public var _name : GoString = "";
@@ -86,6 +96,7 @@ typedef Getter = StructType & {
 **/
 function resetForTesting(_usage:() -> Void):Void {
         commandLine = newFlagSet((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString))), ((0 : ErrorHandling)));
+        commandLine.setOutput(stdgo.io.Io.discard);
         commandLine.usage = _commandLineUsage;
         usage = _usage;
     }
@@ -138,6 +149,21 @@ function _newDurationValue(_val:stdgo.time.Time.Duration, _p:Pointer<stdgo.time.
         _p.value = _val;
         return new Pointer<T_durationValue>(() -> ((_p.value : T_durationValue)), v -> (((_p.value = ((v : stdgo.time.Time.Duration))) : T_durationValue)));
     }
+function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.encoding.Encoding.TextUnmarshaler):T_textValue {
+        var _ptrVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)).__copy__());
+        if (_ptrVal.kind() != ((22 : stdgo.reflect.Reflect.Kind))) {
+            throw Go.toInterface(((((("variable value type must be a pointer" : GoString))) : GoString)));
+        };
+        var _defVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)).__copy__());
+        if (_defVal.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
+            _defVal = (_defVal.elem() == null ? null : _defVal.elem().__copy__());
+        };
+        if (_defVal.type() != _ptrVal.type().elem()) {
+            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((((("default type does not match variable type: %v != %v" : GoString))) : GoString)), Go.toInterface(_defVal.type()), Go.toInterface(_ptrVal.type().elem())));
+        };
+        _ptrVal.elem().set((_defVal == null ? null : _defVal.__copy__()));
+        return ((new T_textValue(_p) : T_textValue));
+    }
 /**
     // sortFlags returns the flags as a slice in lexicographical sorted order.
 **/
@@ -184,15 +210,62 @@ function set(_name:GoString, _value:GoString):Error {
     // isZeroValue determines whether the string represents the zero
     // value for a flag.
 **/
-function _isZeroValue(_flag:Flag, _value:GoString):Bool {
+function _isZeroValue(_flag:Flag, _value:GoString):{ var _0 : Bool; var _1 : Error; } {
+        var __recover_exception__:AnyInterface = null;
+        var __deferstack__:Array<Void -> Void> = [];
+        var _ok:Bool = false, _err:Error = ((null : stdgo.Error));
         var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(_flag.value));
-        var _z:stdgo.reflect.Reflect.Value = new stdgo.reflect.Reflect.Value();
-        if (_typ.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
-            _z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
-        } else {
-            _z = (stdgo.reflect.Reflect.zero(_typ) == null ? null : stdgo.reflect.Reflect.zero(_typ).__copy__());
+        try {
+            var _z:stdgo.reflect.Reflect.Value = new stdgo.reflect.Reflect.Value();
+            if (_typ.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
+                _z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
+            } else {
+                _z = (stdgo.reflect.Reflect.zero(_typ) == null ? null : stdgo.reflect.Reflect.zero(_typ).__copy__());
+            };
+            __deferstack__.unshift(() -> {
+                var a = function():Void {
+                    var __recover_exception__:AnyInterface = null;
+                    {
+                        var _e:AnyInterface = Go.toInterface(({
+                            final r = __recover_exception__;
+                            __recover_exception__ = null;
+                            r;
+                        }));
+                        if (_e != null) {
+                            if (_typ.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
+                                _typ = _typ.elem();
+                            };
+                            _err = stdgo.fmt.Fmt.errorf(((((("panic calling String method on zero %v for flag %s: %v" : GoString))) : GoString)), Go.toInterface(_typ), Go.toInterface(_flag.name), Go.toInterface(_e));
+                        };
+                    };
+                };
+                a();
+            });
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                return { _0 : _value == ((((_z.interface_(Go.pointer(_z)).value : Value)).string() : GoString)), _1 : ((null : stdgo.Error)) };
+            };
+            for (defer in __deferstack__) {
+                defer();
+            };
+            {
+                for (defer in __deferstack__) {
+                    defer();
+                };
+                if (__recover_exception__ != null) throw __recover_exception__;
+                return { _0 : _ok, _1 : _err };
+            };
+        } catch(__exception__) {
+            if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
+            __recover_exception__ = __exception__.native;
+            for (defer in __deferstack__) {
+                defer();
+            };
+            if (__recover_exception__ != null) throw __recover_exception__;
+            return { _0 : _ok, _1 : _err };
         };
-        return _value == ((((_z.interface_(Go.pointer(_z)).value : Value)).string() : GoString));
     }
 /**
     // UnquoteUsage extracts a back-quoted name from the usage
@@ -243,8 +316,10 @@ function unquoteUsage(_flag:Flag):{ var _0 : GoString; var _1 : GoString; } {
     // a usage message showing the default settings of all defined
     // command-line flags.
     // For an integer valued flag x, the default output has the form
+    //
     //	-x int
     //		usage-message-for-x (default 7)
+    //
     // The usage message will appear on a separate line for anything but
     // a bool flag with a one-byte name. For bool flags, the type is
     // omitted and if the flag name is one byte the usage message appears
@@ -254,8 +329,11 @@ function unquoteUsage(_flag:Flag):{ var _0 : GoString; var _1 : GoString; } {
     // string; the first such item in the message is taken to be a parameter
     // name to show in the message and the back quotes are stripped from
     // the message when displayed. For instance, given
+    //
     //	flag.String("I", "", "search `directory` for include files")
+    //
     // the output will be
+    //
     //	-I directory
     //		search directory for include files.
     //
@@ -405,6 +483,16 @@ function duration(_name:GoString, _value:stdgo.time.Time.Duration, _usage:GoStri
         return commandLine.duration(_name, _value, _usage);
     }
 /**
+    // TextVar defines a flag with a specified name, default value, and usage string.
+    // The argument p must be a pointer to a variable that will hold the value
+    // of the flag, and p must implement encoding.TextUnmarshaler.
+    // If the flag is used, the flag value will be passed to p's UnmarshalText method.
+    // The type of the default value must be the same as the type of p.
+**/
+function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void {
+        commandLine.var_(_newTextValue(_value, _p), _name, _usage);
+    }
+/**
     // Func defines a flag with the specified name and usage string.
     // Each time the flag is seen, fn is called with the value of the flag.
     // If fn returns a non-nil error, it will be treated as a flag value parsing error.
@@ -455,6 +543,46 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
+@:keep class T_textValue_static_extension {
+    @:keep
+    static public function string( _v:T_textValue):GoString {
+        {
+            var __tmp__ = try {
+                { value : ((((_v._p.__underlying__().value : Dynamic)) : stdgo.encoding.Encoding.TextMarshaler)), ok : true };
+            } catch(_) {
+                { value : ((null : stdgo.encoding.Encoding.TextMarshaler)), ok : false };
+            }, _m = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                {
+                    var __tmp__ = _m.marshalText(), _b:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                    if (_err == null) {
+                        return ((_b : GoString));
+                    };
+                };
+            };
+        };
+        return ((((("" : GoString))) : GoString));
+    }
+    @:keep
+    static public function get( _v:T_textValue):AnyInterface {
+        return Go.toInterface(_v._p);
+    }
+    @:keep
+    static public function set( _v:T_textValue, _s:GoString):Error {
+        return _v._p.unmarshalText(((_s : Slice<GoByte>)));
+    }
+}
+class T_textValue_wrapper {
+    @:keep
+    public var string : () -> GoString = null;
+    @:keep
+    public var get : () -> AnyInterface = null;
+    @:keep
+    public var set : GoString -> Error = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_textValue;
+}
 @:keep class FlagSet_static_extension {
     /**
         // Init sets the name and error handling property for a flag set.
@@ -674,6 +802,17 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         _f.var_(((_fn : T_funcValue)), _name, _usage);
     }
     /**
+        // TextVar defines a flag with a specified name, default value, and usage string.
+        // The argument p must be a pointer to a variable that will hold the value
+        // of the flag, and p must implement encoding.TextUnmarshaler.
+        // If the flag is used, the flag value will be passed to p's UnmarshalText method.
+        // The type of the default value must be the same as the type of p.
+    **/
+    @:keep
+    static public function textVar( _f:FlagSet, _p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void {
+        _f.var_(_newTextValue(_value, _p), _name, _usage);
+    }
+    /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
         // The return value is the address of a time.Duration variable that stores the value of the flag.
         // The flag accepts a value acceptable to time.ParseDuration.
@@ -871,6 +1010,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     **/
     @:keep
     static public function printDefaults( _f:FlagSet):Void {
+        var _isZeroValueErrs:Slice<Error> = ((null : Slice<stdgo.Error>));
         _f.visitAll(function(_flag:Flag):Void {
             var _b:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
             stdgo.fmt.Fmt.fprintf({
@@ -899,50 +1039,64 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 _b.writeString(((((("\n    \t" : GoString))) : GoString)));
             };
             _b.writeString(stdgo.strings.Strings.replaceAll(_usage, ((((("\n" : GoString))) : GoString)), ((((("\n    \t" : GoString))) : GoString))));
-            if (!_isZeroValue(_flag, _flag.defValue)) {
-                {
-                    var __tmp__ = try {
-                        { value : ((((_flag.value.__underlying__().value : Dynamic)) : Pointer<T_stringValue>)), ok : true };
-                    } catch(_) {
-                        { value : ((null : Pointer<T_stringValue>)), ok : false };
-                    }, _0 = __tmp__.value, _ok = __tmp__.ok;
-                    if (_ok) {
-                        stdgo.fmt.Fmt.fprintf({
-                            final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
-                            __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
-                            __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
-                            __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-                            __self__.reset = #if !macro function():Void _b.reset() #else null #end;
-                            __self__.string = #if !macro function():GoString return _b.string() #else null #end;
-                            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
-                            __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-                            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
-                            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
-                            __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
-                            __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
-                            __self__;
-                        }, (((((" (default %q)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
-                    } else {
-                        stdgo.fmt.Fmt.fprintf({
-                            final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
-                            __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
-                            __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
-                            __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
-                            __self__.reset = #if !macro function():Void _b.reset() #else null #end;
-                            __self__.string = #if !macro function():GoString return _b.string() #else null #end;
-                            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
-                            __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
-                            __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
-                            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
-                            __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
-                            __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
-                            __self__;
-                        }, (((((" (default %v)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
+            {
+                var __tmp__ = _isZeroValue(_flag, _flag.defValue), _isZero:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                if (_err != null) {
+                    _isZeroValueErrs = (_isZeroValueErrs != null ? _isZeroValueErrs.__append__(_err) : new Slice<stdgo.Error>(_err));
+                } else if (!_isZero) {
+                    {
+                        var __tmp__ = try {
+                            { value : ((((_flag.value.__underlying__().value : Dynamic)) : Pointer<T_stringValue>)), ok : true };
+                        } catch(_) {
+                            { value : ((null : Pointer<T_stringValue>)), ok : false };
+                        }, _0 = __tmp__.value, _ok = __tmp__.ok;
+                        if (_ok) {
+                            stdgo.fmt.Fmt.fprintf({
+                                final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
+                                __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
+                                __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
+                                __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
+                                __self__.reset = #if !macro function():Void _b.reset() #else null #end;
+                                __self__.string = #if !macro function():GoString return _b.string() #else null #end;
+                                __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
+                                __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
+                                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
+                                __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
+                                __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
+                                __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
+                                __self__;
+                            }, (((((" (default %q)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
+                        } else {
+                            stdgo.fmt.Fmt.fprintf({
+                                final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
+                                __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;
+                                __self__.grow = #if !macro function(_i:GoInt):Void _b.grow(_i) #else null #end;
+                                __self__.len = #if !macro function():GoInt return _b.len() #else null #end;
+                                __self__.reset = #if !macro function():Void _b.reset() #else null #end;
+                                __self__.string = #if !macro function():GoString return _b.string() #else null #end;
+                                __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.write(_p) #else null #end;
+                                __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _b.writeByte(_c) #else null #end;
+                                __self__.writeRune = #if !macro function(__0:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeRune(__0) #else null #end;
+                                __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _b.writeString(__0) #else null #end;
+                                __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
+                                __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
+                                __self__;
+                            }, (((((" (default %v)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
+                        };
                     };
                 };
             };
             stdgo.fmt.Fmt.fprint(_f.output(), ((_b.string() : GoString)), ((((("\n" : GoString))) : GoString)));
         });
+        {
+            var _errs = _isZeroValueErrs;
+            if ((_errs != null ? _errs.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                stdgo.fmt.Fmt.fprintln(_f.output());
+                for (_0 => _err in _errs) {
+                    stdgo.fmt.Fmt.fprintln(_f.output(), _err);
+                };
+            };
+        };
     }
     /**
         // Set sets the value of the named flag.
@@ -1023,7 +1177,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stderr);
                 __self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.chdir() #else null #end;
                 __self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr.chmod(_mode) #else null #end;
-                __self__.chown = #if !macro function(_i:GoInt, _j:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(_i, _j) #else null #end;
+                __self__.chown = #if !macro function(__0:GoInt, __1:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(__0, __1) #else null #end;
                 __self__.close = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.close() #else null #end;
                 __self__.fd = #if !macro function():GoUIntptr return stdgo.os.Os.stderr.fd() #else null #end;
                 __self__.name = #if !macro function():GoString return stdgo.os.Os.stderr.name() #else null #end;
@@ -1124,6 +1278,15 @@ class FlagSet_wrapper {
     **/
     @:keep
     public var func : (GoString, GoString, GoString -> Error) -> Void = null;
+    /**
+        // TextVar defines a flag with a specified name, default value, and usage string.
+        // The argument p must be a pointer to a variable that will hold the value
+        // of the flag, and p must implement encoding.TextUnmarshaler.
+        // If the flag is used, the flag value will be passed to p's UnmarshalText method.
+        // The type of the default value must be the same as the type of p.
+    **/
+    @:keep
+    public var textVar : (stdgo.encoding.Encoding.TextUnmarshaler, GoString, stdgo.encoding.Encoding.TextMarshaler, GoString) -> Void = null;
     /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
         // The return value is the address of a time.Duration variable that stores the value of the flag.
@@ -1571,15 +1734,16 @@ class T_float64Value_wrapper {
     static public function get(____:T_durationValue,  _d:Pointer<T_durationValue>):AnyInterface {
         return Go.toInterface({
             final __self__ = new stdgo.time.Time.Duration_wrapper(((_d.value : stdgo.time.Time.Duration)));
+            __self__.abs = #if !macro function():stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).abs() #else null #end;
             __self__.hours = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).hours() #else null #end;
             __self__.microseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).microseconds() #else null #end;
             __self__.milliseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).milliseconds() #else null #end;
             __self__.minutes = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).minutes() #else null #end;
             __self__.nanoseconds = #if !macro function():GoInt64 return ((_d.value : stdgo.time.Time.Duration)).nanoseconds() #else null #end;
-            __self__.round = #if !macro function(_m:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).round(_m) #else null #end;
+            __self__.round = #if !macro function(__0:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).round(__0) #else null #end;
             __self__.seconds = #if !macro function():GoFloat64 return ((_d.value : stdgo.time.Time.Duration)).seconds() #else null #end;
             __self__.string = #if !macro function():GoString return ((_d.value : stdgo.time.Time.Duration)).string() #else null #end;
-            __self__.truncate = #if !macro function(_m:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).truncate(_m) #else null #end;
+            __self__.truncate = #if !macro function(__0:stdgo.time.Time.Duration):stdgo.time.Time.Duration return ((_d.value : stdgo.time.Time.Duration)).truncate(__0) #else null #end;
             __self__;
         });
     }

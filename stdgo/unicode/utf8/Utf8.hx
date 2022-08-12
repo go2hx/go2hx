@@ -734,6 +734,7 @@ function runeStart(_b:GoByte):Bool {
     // Valid reports whether p consists entirely of valid UTF-8-encoded runes.
 **/
 function valid(_p:Slice<GoByte>):Bool {
+        _p = ((_p.__slice__(0, (_p != null ? _p.length : ((0 : GoInt)))) : Slice<GoUInt8>)).__setCap__((((_p != null ? _p.length : ((0 : GoInt))) : GoInt)) - ((1 : GoInt)));
         while ((_p != null ? _p.length : ((0 : GoInt))) >= ((8 : GoInt))) {
             var _first32:GoUInt32 = (((((_p != null ? _p[((0 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_p != null ? _p[((1 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_p != null ? _p[((2 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_p != null ? _p[((3 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));
             var _second32:GoUInt32 = (((((_p != null ? _p[((4 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_p != null ? _p[((5 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_p != null ? _p[((6 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_p != null ? _p[((7 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));

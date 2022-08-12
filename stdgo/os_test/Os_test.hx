@@ -6,6 +6,7 @@ import stdgo.os.Os;
 import stdgo.os.Os;
 import stdgo.os.Os;
 import stdgo.os.Os;
+import stdgo.os.Os;
 import stdgo.StdGoTypes;
 import stdgo.Error;
 import stdgo.Go;
@@ -178,6 +179,7 @@ function _newFile(_testName:GoString, _t:stdgo.testing.Testing.T):File throw "os
 function _newDir(_testName:GoString, _t:stdgo.testing.Testing.T):GoString throw "os_test._newDir is not yet implemented";
 function testStat(_t:stdgo.testing.Testing.T):Void throw "os_test.testStat is not yet implemented";
 function testStatError(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatError is not yet implemented";
+function testStatSymlinkLoop(_t:stdgo.testing.Testing.T):Void throw "os_test.testStatSymlinkLoop is not yet implemented";
 function testFstat(_t:stdgo.testing.Testing.T):Void throw "os_test.testFstat is not yet implemented";
 function testLstat(_t:stdgo.testing.Testing.T):Void throw "os_test.testLstat is not yet implemented";
 /**
@@ -392,6 +394,7 @@ function testRemoveUnreadableDir(_t:stdgo.testing.Testing.T):Void throw "os_test
     // Issue 29921
 **/
 function testRemoveAllWithMoreErrorThanReqSize(_t:stdgo.testing.Testing.T):Void throw "os_test.testRemoveAllWithMoreErrorThanReqSize is not yet implemented";
+function testOpenFileLimit(_t:stdgo.testing.Testing.T):Void throw "os_test.testOpenFileLimit is not yet implemented";
 /**
     // testStatAndLstat verifies that all os.Stat, os.Lstat os.File.Stat and os.Readdir work.
 **/

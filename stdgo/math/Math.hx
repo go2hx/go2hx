@@ -159,6 +159,7 @@ var trigReduce : GoFloat64 -> { var _0 : GoUInt64; var _1 : GoFloat64; } = _trig
     // Abs returns the absolute value of x.
     //
     // Special cases are:
+    //
     //	Abs(±Inf) = +Inf
     //	Abs(NaN) = NaN
 **/
@@ -167,6 +168,7 @@ function abs(_x:GoFloat64):GoFloat64 return std.Math.abs(_f.toBasic());
     // Acosh returns the inverse hyperbolic cosine of x.
     //
     // Special cases are:
+    //
     //	Acosh(+Inf) = +Inf
     //	Acosh(x) = NaN if x < 1
     //	Acosh(NaN) = NaN
@@ -195,6 +197,7 @@ function _acosh(_x:GoFloat64):GoFloat64 {
     // Asin returns the arcsine, in radians, of x.
     //
     // Special cases are:
+    //
     //	Asin(±0) = ±0
     //	Asin(x) = NaN if x < -1 or x > 1
 **/
@@ -226,6 +229,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
     // Acos returns the arccosine, in radians, of x.
     //
     // Special case is:
+    //
     //	Acos(x) = NaN if x < -1 or x > 1
 **/
 function acos(_x:GoFloat64):GoFloat64 return std.Math.acos(_x.toBasic());
@@ -236,6 +240,7 @@ function _acos(_x:GoFloat64):GoFloat64 {
     // Asinh returns the inverse hyperbolic sine of x.
     //
     // Special cases are:
+    //
     //	Asinh(±0) = ±0
     //	Asinh(±Inf) = ±Inf
     //	Asinh(NaN) = NaN
@@ -299,8 +304,9 @@ function _satan(_x:GoFloat64):GoFloat64 {
     // Atan returns the arctangent, in radians, of x.
     //
     // Special cases are:
-    //      Atan(±0) = ±0
-    //      Atan(±Inf) = ±Pi/2
+    //
+    //	Atan(±0) = ±0
+    //	Atan(±Inf) = ±Pi/2
 **/
 function atan(_x:GoFloat64):GoFloat64 return std.Math.atan(_x.toBasic());
 function _atan(_x:GoFloat64):GoFloat64 {
@@ -318,6 +324,7 @@ function _atan(_x:GoFloat64):GoFloat64 {
     // of the return value.
     //
     // Special cases are (in order):
+    //
     //	Atan2(y, NaN) = NaN
     //	Atan2(NaN, x) = NaN
     //	Atan2(+0, x>=0) = +0
@@ -376,6 +383,7 @@ function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
     // Atanh returns the inverse hyperbolic tangent of x.
     //
     // Special cases are:
+    //
     //	Atanh(1) = +Inf
     //	Atanh(±0) = ±0
     //	Atanh(-1) = -Inf
@@ -424,11 +432,11 @@ function inf(_sign:GoInt):GoFloat64 {
         return std.Math.NEGATIVE_INFINITY;
     }
 /**
-    // NaN returns an IEEE 754 ``not-a-number'' value.
+    // NaN returns an IEEE 754 “not-a-number” value.
 **/
 function naN():GoFloat64 return std.Math.NaN;
 /**
-    // IsNaN reports whether f is an IEEE 754 ``not-a-number'' value.
+    // IsNaN reports whether f is an IEEE 754 “not-a-number” value.
 **/
 function isNaN(_f:GoFloat64):Bool return std.Math.isNaN(_f.toBasic());
 /**
@@ -454,6 +462,7 @@ function _normalize(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
     // Cbrt returns the cube root of x.
     //
     // Special cases are:
+    //
     //	Cbrt(±0) = ±0
     //	Cbrt(±Inf) = ±Inf
     //	Cbrt(NaN) = NaN
@@ -495,17 +504,18 @@ function _cbrt(_x:GoFloat64):GoFloat64 {
         return _t;
     }
 /**
-    // Copysign returns a value with the magnitude
-    // of x and the sign of y.
+    // Copysign returns a value with the magnitude of f
+    // and the sign of sign.
 **/
-function copysign(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
+function copysign(_f:GoFloat64, _sign:GoFloat64):GoFloat64 {
         {};
-        return float64frombits((float64bits(_x) & ((("9223372036854775808" : GoUInt64)) ^ ((-1 : GoUnTypedInt)))) | (float64bits(_y) & (("9223372036854775808" : GoUInt64))));
+        return float64frombits((float64bits(_f) & ((("9223372036854775808" : GoUInt64)) ^ ((-1 : GoUnTypedInt)))) | (float64bits(_sign) & (("9223372036854775808" : GoUInt64))));
     }
 /**
     // Dim returns the maximum of x-y or 0.
     //
     // Special cases are:
+    //
     //	Dim(+Inf, +Inf) = NaN
     //	Dim(-Inf, -Inf) = NaN
     //	Dim(x, NaN) = Dim(NaN, x) = NaN
@@ -521,6 +531,7 @@ function dim(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // Max returns the larger of x or y.
     //
     // Special cases are:
+    //
     //	Max(x, +Inf) = Max(+Inf, x) = +Inf
     //	Max(x, NaN) = Max(NaN, x) = NaN
     //	Max(+0, ±0) = Max(±0, +0) = +0
@@ -552,6 +563,7 @@ function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // Min returns the smaller of x or y.
     //
     // Special cases are:
+    //
     //	Min(x, -Inf) = Min(-Inf, x) = -Inf
     //	Min(x, NaN) = Min(NaN, x) = NaN
     //	Min(-0, ±0) = Min(±0, -0) = -0
@@ -588,6 +600,7 @@ function _archMin(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // Erf returns the error function of x.
     //
     // Special cases are:
+    //
     //	Erf(+Inf) = 1
     //	Erf(-Inf) = -1
     //	Erf(NaN) = NaN
@@ -667,6 +680,7 @@ function _erf(_x:GoFloat64):GoFloat64 {
     // Erfc returns the complementary error function of x.
     //
     // Special cases are:
+    //
     //	Erfc(+Inf) = 0
     //	Erfc(-Inf) = 2
     //	Erfc(NaN) = NaN
@@ -749,6 +763,7 @@ function _erfc(_x:GoFloat64):GoFloat64 {
     // Erfinv returns the inverse error function of x.
     //
     // Special cases are:
+    //
     //	Erfinv(1) = +Inf
     //	Erfinv(-1) = -Inf
     //	Erfinv(x) = NaN if x < -1 or x > 1
@@ -795,6 +810,7 @@ function erfinv(_x:GoFloat64):GoFloat64 {
     // Erfcinv returns the inverse of Erfc(x).
     //
     // Special cases are:
+    //
     //	Erfcinv(0) = +Inf
     //	Erfcinv(2) = -Inf
     //	Erfcinv(x) = NaN if x < 0 or x > 2
@@ -807,8 +823,10 @@ function erfcinv(_x:GoFloat64):GoFloat64 {
     // Exp returns e**x, the base-e exponential of x.
     //
     // Special cases are:
+    //
     //	Exp(+Inf) = +Inf
     //	Exp(NaN) = NaN
+    //
     // Very large values overflow to 0 or +Inf.
     // Very small values underflow to 1.
 **/
@@ -891,9 +909,11 @@ function _archExp(_x:GoFloat64):GoFloat64 {
     // It is more accurate than Exp(x) - 1 when x is near zero.
     //
     // Special cases are:
+    //
     //	Expm1(+Inf) = +Inf
     //	Expm1(-Inf) = -1
     //	Expm1(NaN) = NaN
+    //
     // Very large values overflow to -1 or +Inf.
 **/
 function expm1(_x:GoFloat64):GoFloat64 {
@@ -992,6 +1012,7 @@ function _expm1(_x:GoFloat64):GoFloat64 {
     // Floor returns the greatest integer value less than or equal to x.
     //
     // Special cases are:
+    //
     //	Floor(±0) = ±0
     //	Floor(±Inf) = ±Inf
     //	Floor(NaN) = NaN
@@ -1018,6 +1039,7 @@ function _floor(_x:GoFloat64):GoFloat64 {
     // Ceil returns the least integer value greater than or equal to x.
     //
     // Special cases are:
+    //
     //	Ceil(±0) = ±0
     //	Ceil(±Inf) = ±Inf
     //	Ceil(NaN) = NaN
@@ -1037,6 +1059,7 @@ function _ceil(_x:GoFloat64):GoFloat64 {
     // Trunc returns the integer value of x.
     //
     // Special cases are:
+    //
     //	Trunc(±0) = ±0
     //	Trunc(±Inf) = ±Inf
     //	Trunc(NaN) = NaN
@@ -1053,6 +1076,7 @@ function _trunc(_x:GoFloat64):GoFloat64 {
     // Round returns the nearest integer, rounding half away from zero.
     //
     // Special cases are:
+    //
     //	Round(±0) = ±0
     //	Round(±Inf) = ±Inf
     //	Round(NaN) = NaN
@@ -1077,6 +1101,7 @@ function round(_x:GoFloat64):GoFloat64 {
     // RoundToEven returns the nearest integer, rounding ties to even.
     //
     // Special cases are:
+    //
     //	RoundToEven(±0) = ±0
     //	RoundToEven(±Inf) = ±Inf
     //	RoundToEven(NaN) = NaN
@@ -1287,6 +1312,7 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
     // with the absolute value of frac in the interval [½, 1).
     //
     // Special cases are:
+    //
     //	Frexp(±0) = ±0, 0
     //	Frexp(±Inf) = ±Inf, 0
     //	Frexp(NaN) = NaN, 0
@@ -1352,6 +1378,7 @@ function _stirling(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
     // Gamma returns the Gamma function of x.
     //
     // Special cases are:
+    //
     //	Gamma(+Inf) = +Inf
     //	Gamma(+0) = +Inf
     //	Gamma(-0) = -Inf
@@ -1449,6 +1476,7 @@ function _isNegInt(_x:GoFloat64):Bool {
     // unnecessary overflow and underflow.
     //
     // Special cases are:
+    //
     //	Hypot(±Inf, q) = +Inf
     //	Hypot(p, ±Inf) = +Inf
     //	Hypot(NaN, q) = NaN
@@ -1493,6 +1521,7 @@ function _archHypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
     // J0 returns the order-zero Bessel function of the first kind.
     //
     // Special cases are:
+    //
     //	J0(±Inf) = 0
     //	J0(0) = 1
     //	J0(NaN) = NaN
@@ -1548,6 +1577,7 @@ function j0(_x:GoFloat64):GoFloat64 {
     // Y0 returns the order-zero Bessel function of the second kind.
     //
     // Special cases are:
+    //
     //	Y0(+Inf) = 0
     //	Y0(0) = -Inf
     //	Y0(x < 0) = NaN
@@ -1637,6 +1667,7 @@ function _qzero(_x:GoFloat64):GoFloat64 {
     // J1 returns the order-one Bessel function of the first kind.
     //
     // Special cases are:
+    //
     //	J1(±Inf) = 0
     //	J1(NaN) = NaN
 **/
@@ -1694,6 +1725,7 @@ function j1(_x:GoFloat64):GoFloat64 {
     // Y1 returns the order-one Bessel function of the second kind.
     //
     // Special cases are:
+    //
     //	Y1(+Inf) = 0
     //	Y1(0) = -Inf
     //	Y1(x < 0) = NaN
@@ -1783,6 +1815,7 @@ function _qone(_x:GoFloat64):GoFloat64 {
     // Jn returns the order-n Bessel function of the first kind.
     //
     // Special cases are:
+    //
     //	Jn(n, ±Inf) = 0
     //	Jn(n, NaN) = NaN
 **/
@@ -1939,6 +1972,7 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
     // Yn returns the order-n Bessel function of the second kind.
     //
     // Special cases are:
+    //
     //	Yn(n, +Inf) = 0
     //	Yn(n ≥ 0, 0) = -Inf
     //	Yn(n < 0, 0) = +Inf if n is odd, -Inf if n is even
@@ -2015,6 +2049,7 @@ function yn(_n:GoInt, _x:GoFloat64):GoFloat64 {
     // It returns frac × 2**exp.
     //
     // Special cases are:
+    //
     //	Ldexp(±0, exp) = ±0
     //	Ldexp(±Inf, exp) = ±Inf
     //	Ldexp(NaN, exp) = NaN
@@ -2057,6 +2092,7 @@ function _ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
     // Lgamma returns the natural logarithm and sign (-1 or +1) of Gamma(x).
     //
     // Special cases are:
+    //
     //	Lgamma(+Inf) = +Inf
     //	Lgamma(0) = +Inf
     //	Lgamma(-integer) = +Inf
@@ -2269,6 +2305,7 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
     // Log returns the natural logarithm of x.
     //
     // Special cases are:
+    //
     //	Log(+Inf) = +Inf
     //	Log(0) = -Inf
     //	Log(x < 0) = NaN
@@ -2335,6 +2372,7 @@ function _log2(_x:GoFloat64):GoFloat64 {
     // It is more accurate than Log(1 + x) when x is near zero.
     //
     // Special cases are:
+    //
     //	Log1p(+Inf) = +Inf
     //	Log1p(±0) = ±0
     //	Log1p(-1) = -Inf
@@ -2433,6 +2471,7 @@ function _archLog(_x:GoFloat64):GoFloat64 {
     // Logb returns the binary exponent of x.
     //
     // Special cases are:
+    //
     //	Logb(±Inf) = +Inf
     //	Logb(0) = -Inf
     //	Logb(NaN) = NaN
@@ -2451,6 +2490,7 @@ function logb(_x:GoFloat64):GoFloat64 {
     // Ilogb returns the binary exponent of x as an integer.
     //
     // Special cases are:
+    //
     //	Ilogb(±Inf) = MaxInt32
     //	Ilogb(0) = MinInt32
     //	Ilogb(NaN) = MaxInt32
@@ -2479,6 +2519,7 @@ function _ilogb(_x:GoFloat64):GoInt {
     // sign agrees with that of x.
     //
     // Special cases are:
+    //
     //	Mod(±Inf, y) = NaN
     //	Mod(NaN, y) = NaN
     //	Mod(x, 0) = NaN
@@ -2513,6 +2554,7 @@ function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // that sum to f. Both values have the same sign as f.
     //
     // Special cases are:
+    //
     //	Modf(±Inf) = ±Inf, NaN
     //	Modf(NaN) = NaN, NaN
 **/
@@ -2555,6 +2597,7 @@ function _archModf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
     // Nextafter32 returns the next representable float32 value after x towards y.
     //
     // Special cases are:
+    //
     //	Nextafter32(x, x)   = x
     //	Nextafter32(NaN, y) = NaN
     //	Nextafter32(x, NaN) = NaN
@@ -2578,6 +2621,7 @@ function nextafter32(_x:GoFloat32, _y:GoFloat32):GoFloat32 {
     // Nextafter returns the next representable float64 value after x towards y.
     //
     // Special cases are:
+    //
     //	Nextafter(x, x)   = x
     //	Nextafter(NaN, y) = NaN
     //	Nextafter(x, NaN) = NaN
@@ -2605,6 +2649,7 @@ function _isOddInt(_x:GoFloat64):Bool {
     // Pow returns x**y, the base-x exponential of y.
     //
     // Special cases are (in order):
+    //
     //	Pow(x, ±0) = 1 for any x
     //	Pow(1, y) = 1 for any y
     //	Pow(x, 1) = x for any x
@@ -2720,6 +2765,7 @@ function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     // Pow10 returns 10**n, the base-10 exponential of n.
     //
     // Special cases are:
+    //
     //	Pow10(n) =    0 for n < -323
     //	Pow10(n) = +Inf for n > 308
 **/
@@ -2739,6 +2785,7 @@ function pow10(_n:GoInt):GoFloat64 {
     // Remainder returns the IEEE 754 floating-point remainder of x/y.
     //
     // Special cases are:
+    //
     //	Remainder(±Inf, y) = NaN
     //	Remainder(NaN, y) = NaN
     //	Remainder(x, 0) = NaN
@@ -2808,6 +2855,7 @@ function signbit(_x:GoFloat64):Bool {
     // Cos returns the cosine of the radian argument x.
     //
     // Special cases are:
+    //
     //	Cos(±Inf) = NaN
     //	Cos(NaN) = NaN
 **/
@@ -2817,6 +2865,7 @@ inline function _cos(_x:GoFloat64):GoFloat64 return cos(_x);
     // Sin returns the sine of the radian argument x.
     //
     // Special cases are:
+    //
     //	Sin(±0) = ±0
     //	Sin(±Inf) = NaN
     //	Sin(NaN) = NaN
@@ -2827,6 +2876,7 @@ inline function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
     // Sincos returns Sin(x), Cos(x).
     //
     // Special cases are:
+    //
     //	Sincos(±0) = ±0, 1
     //	Sincos(±Inf) = NaN, NaN
     //	Sincos(NaN) = NaN, NaN
@@ -2897,6 +2947,7 @@ function sincos(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
     // Sinh returns the hyperbolic sine of x.
     //
     // Special cases are:
+    //
     //	Sinh(±0) = ±0
     //	Sinh(±Inf) = ±Inf
     //	Sinh(NaN) = NaN
@@ -2934,6 +2985,7 @@ function _sinh(_x:GoFloat64):GoFloat64 {
     // Cosh returns the hyperbolic cosine of x.
     //
     // Special cases are:
+    //
     //	Cosh(±0) = 1
     //	Cosh(±Inf) = +Inf
     //	Cosh(NaN) = NaN
@@ -2956,6 +3008,7 @@ function _cosh(_x:GoFloat64):GoFloat64 {
     // Sqrt returns the square root of x.
     //
     // Special cases are:
+    //
     //	Sqrt(+Inf) = +Inf
     //	Sqrt(±0) = ±0
     //	Sqrt(x < 0) = NaN
@@ -3043,6 +3096,7 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
     // Tan returns the tangent of the radian argument x.
     //
     // Special cases are:
+    //
     //	Tan(±0) = ±0
     //	Tan(±Inf) = NaN
     //	Tan(NaN) = NaN
@@ -3095,6 +3149,7 @@ function _tan(_x:GoFloat64):GoFloat64 {
     // Tanh returns the hyperbolic tangent of x.
     //
     // Special cases are:
+    //
     //	Tanh(±0) = ±0
     //	Tanh(±Inf) = ±1
     //	Tanh(NaN) = NaN

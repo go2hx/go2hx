@@ -586,8 +586,12 @@ function _isWindowsNulName(_name:GoString):Bool throw "os._isWindowsNulName is n
     // operating system will begin with "/prefix": DirFS("/prefix").Open("file") is the
     // same as os.Open("/prefix/file"). So if /prefix/file is a symbolic link pointing outside
     // the /prefix tree, then using DirFS does not stop the access any more than using
-    // os.Open does. DirFS is therefore not a general substitute for a chroot-style security
-    // mechanism when the directory tree contains arbitrary content.
+    // os.Open does. Additionally, the root of the fs.FS returned for a relative path,
+    // DirFS("prefix"), will be affected by later calls to Chdir. DirFS is therefore not
+    // a general substitute for a chroot-style security mechanism when the directory tree
+    // contains arbitrary content.
+    //
+    // The result implements fs.StatFS.
 **/
 function dirFS(_dir:GoString):stdgo.io.fs.Fs.FS throw "os.dirFS is not yet implemented";
 function _containsAny(_s:GoString, _chars:GoString):Bool throw "os._containsAny is not yet implemented";
@@ -818,7 +822,6 @@ function stat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os.s
 **/
 function lstat(_name:GoString):{ var _0 : FileInfo; var _1 : Error; } throw "os.lstat is not yet implemented";
 function _fillFileStatFromSys(_fs:T_fileStat, _name:GoString):Void throw "os._fillFileStatFromSys is not yet implemented";
-function _timespecToTime(_sec:GoInt64, _nsec:GoInt64):stdgo.time.Time.Time throw "os._timespecToTime is not yet implemented";
 /**
     // For testing.
 **/

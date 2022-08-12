@@ -324,7 +324,39 @@ typedef T_closer = StructType & {
         return new T__struct_2(_data, _want);
     }
 }
-@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_3_static_extension) class T__struct_3 {
+@:structInit @:local class T__struct_3 {
+    public var name : GoString = "";
+    public var _r : Reader = ((null : Reader));
+    public function string():String return "{" + Go.string(name) + " " + Go.string(_r) + "}";
+    public function new(?name:GoString, ?_r:Reader, ?string) {
+        if (name != null) this.name = name;
+        if (_r != null) this._r = _r;
+    }
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T__struct_3(name, _r);
+    }
+}
+@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_4_static_extension) class T__struct_4 {
+    @:embedded
+    public var reader : Reader = ((null : Reader));
+    @:embedded
+    public var writerTo : WriterTo = ((null : WriterTo));
+    public function string():String return "{" + Go.string(reader) + " " + Go.string(writerTo) + "}";
+    public function new(?reader:Reader, ?writerTo:WriterTo, ?string) {
+        if (reader != null) this.reader = reader;
+        if (writerTo != null) this.writerTo = writerTo;
+    }
+    @:embedded
+    public function read(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return reader.read(_p);
+    @:embedded
+    public function writeTo(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return writerTo.writeTo(_w);
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T__struct_4(reader, writerTo);
+    }
+}
+@:structInit @:local @:using(stdgo.io_test.Io_test.T__struct_5_static_extension) class T__struct_5 {
     @:embedded
     public var writer : Writer = ((null : Writer));
     @:embedded
@@ -340,15 +372,15 @@ typedef T_closer = StructType & {
     public function write(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return writer.write(_p);
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_3(writer, stringer);
+        return new T__struct_5(writer, stringer);
     }
 }
-@:structInit @:local class T__struct_4 {
+@:structInit @:local class T__struct_6 {
     public function string():String return "{" + "}";
     public function new(?string) {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
-        return new T__struct_4();
+        return new T__struct_6();
     }
 }
 @:named @:using(stdgo.io_test.Io_test.T_writerFunc_static_extension) typedef T_writerFunc = Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; };
@@ -3225,6 +3257,29 @@ function testCopyLargeWriter(_t:stdgo.testing.Testing.T):Void {
             };
         };
     }
+function testNopCloserWriterToForwarding(_t:stdgo.testing.Testing.T):Void {
+        for (_0 => _tc in ((new GoArray<stdgo.io_test.Io_test.T__struct_3>(((new T__struct_3(((((("not a WriterTo" : GoString))) : GoString)), ((((null : Reader)) : Reader))) : T__struct_3)), ((new T__struct_3(((((("a WriterTo" : GoString))) : GoString)), {
+            final __self__ = new stdgo.io_test.Io_test.T__struct_4_wrapper(((new T__struct_4() : T__struct_4)));
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T__struct_4() : T__struct_4)).read(_p) #else null #end;
+            __self__.writeTo = #if !macro function(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T__struct_4() : T__struct_4)).writeTo(_w) #else null #end;
+            __self__;
+        }) : T__struct_3))) : GoArray<T__struct_3>))) {
+            var _nc:ReadCloser = nopCloser(_tc._r);
+            var __tmp__ = try {
+                { value : ((((_tc._r.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
+            } catch(_) {
+                { value : ((null : WriterTo)), ok : false };
+            }, _1 = __tmp__.value, _expected = __tmp__.ok;
+            var __tmp__ = try {
+                { value : ((((_nc.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
+            } catch(_) {
+                { value : ((null : WriterTo)), ok : false };
+            }, _2 = __tmp__.value, _got = __tmp__.ok;
+            if (_expected != _got) {
+                _t.errorf(((((("NopCloser incorrectly forwards WriterTo for %s, got %t want %t" : GoString))) : GoString)), Go.toInterface(_tc.name), Go.toInterface(_got), Go.toInterface(_expected));
+            };
+        };
+    }
 function testMultiReader(_t:stdgo.testing.Testing.T):Void {
         var _mr:Reader = ((null : Reader));
         var _buf:Slice<GoByte> = ((null : Slice<GoUInt8>));
@@ -3310,10 +3365,91 @@ function testMultiReader(_t:stdgo.testing.Testing.T):Void {
             _expectRead(((5 : GoInt)), ((((("foo " : GoString))) : GoString)), ((null : stdgo.Error)));
         });
     }
+function testMultiReaderAsWriterTo(_t:stdgo.testing.Testing.T):Void {
+        var _mr:Reader = multiReader({
+            final __self__ = new stdgo.strings.Strings.Reader_wrapper(stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))));
+            __self__.len = #if !macro function():GoInt return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).len() #else null #end;
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).read(_p) #else null #end;
+            __self__.readAt = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).readAt(_p, _off) #else null #end;
+            __self__.readByte = #if !macro function():{ var _0 : GoUInt8; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).readByte() #else null #end;
+            __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).readRune() #else null #end;
+            __self__.reset = #if !macro function(__0:GoString):Void stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).reset(__0) #else null #end;
+            __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).seek(_offset, _whence) #else null #end;
+            __self__.size = #if !macro function():GoInt64 return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).size() #else null #end;
+            __self__.unreadByte = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).unreadByte() #else null #end;
+            __self__.unreadRune = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).unreadRune() #else null #end;
+            __self__.writeTo = #if !macro function(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("foo " : GoString))) : GoString))).writeTo(_w) #else null #end;
+            __self__;
+        }, multiReader({
+            final __self__ = new stdgo.strings.Strings.Reader_wrapper(stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))));
+            __self__.len = #if !macro function():GoInt return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).len() #else null #end;
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).read(_p) #else null #end;
+            __self__.readAt = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).readAt(_p, _off) #else null #end;
+            __self__.readByte = #if !macro function():{ var _0 : GoUInt8; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).readByte() #else null #end;
+            __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).readRune() #else null #end;
+            __self__.reset = #if !macro function(__0:GoString):Void stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).reset(__0) #else null #end;
+            __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).seek(_offset, _whence) #else null #end;
+            __self__.size = #if !macro function():GoInt64 return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).size() #else null #end;
+            __self__.unreadByte = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).unreadByte() #else null #end;
+            __self__.unreadRune = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).unreadRune() #else null #end;
+            __self__.writeTo = #if !macro function(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("" : GoString))) : GoString))).writeTo(_w) #else null #end;
+            __self__;
+        }, {
+            final __self__ = new stdgo.strings.Strings.Reader_wrapper(stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))));
+            __self__.len = #if !macro function():GoInt return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).len() #else null #end;
+            __self__.read = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).read(_p) #else null #end;
+            __self__.readAt = #if !macro function(_p:Slice<GoUInt8>, _off:GoInt64):{ var _0 : GoInt; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).readAt(_p, _off) #else null #end;
+            __self__.readByte = #if !macro function():{ var _0 : GoUInt8; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).readByte() #else null #end;
+            __self__.readRune = #if !macro function():{ var _0 : GoInt32; var _1 : GoInt; var _2 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).readRune() #else null #end;
+            __self__.reset = #if !macro function(__0:GoString):Void stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).reset(__0) #else null #end;
+            __self__.seek = #if !macro function(_offset:GoInt64, _whence:GoInt):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).seek(_offset, _whence) #else null #end;
+            __self__.size = #if !macro function():GoInt64 return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).size() #else null #end;
+            __self__.unreadByte = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).unreadByte() #else null #end;
+            __self__.unreadRune = #if !macro function():stdgo.Error return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).unreadRune() #else null #end;
+            __self__.writeTo = #if !macro function(_w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return stdgo.strings.Strings.newReader(((((("bar" : GoString))) : GoString))).writeTo(_w) #else null #end;
+            __self__;
+        }));
+        var __tmp__ = try {
+            { value : ((((_mr.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
+        } catch(_) {
+            { value : ((null : WriterTo)), ok : false };
+        }, _mrAsWriterTo = __tmp__.value, _ok = __tmp__.ok;
+        if (!_ok) {
+            _t.fatalf(((((("expected cast to WriterTo to succeed" : GoString))) : GoString)));
+        };
+        var _sink = ((new stdgo.strings.Strings.Builder() : stdgo.strings.Strings.Builder));
+        var __tmp__ = _mrAsWriterTo.writeTo({
+            final __self__ = new stdgo.strings.Strings.Builder_wrapper(_sink);
+            __self__.cap_ = #if !macro function():GoInt return _sink.cap_() #else null #end;
+            __self__.grow = #if !macro function(_pid:GoInt):Void _sink.grow(_pid) #else null #end;
+            __self__.len = #if !macro function():GoInt return _sink.len() #else null #end;
+            __self__.reset = #if !macro function():Void _sink.reset() #else null #end;
+            __self__.string = #if !macro function():GoString return _sink.string() #else null #end;
+            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return _sink.write(_p) #else null #end;
+            __self__.writeByte = #if !macro function(_c:GoUInt8):stdgo.Error return _sink.writeByte(_c) #else null #end;
+            __self__.writeRune = #if !macro function(_new:GoInt32):{ var _0 : GoInt; var _1 : stdgo.Error; } return _sink.writeRune(_new) #else null #end;
+            __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return _sink.writeString(__0) #else null #end;
+            __self__._copyCheck = #if !macro function():Void _sink._copyCheck() #else null #end;
+            __self__._grow = #if !macro function(_pid:GoInt):Void _sink._grow(_pid) #else null #end;
+            __self__;
+        }), _n:GoInt64 = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        if (_err != null) {
+            _t.fatalf(((((("expected no error; got %v" : GoString))) : GoString)), Go.toInterface(_err));
+        };
+        if (_n != ((7 : GoInt64))) {
+            _t.errorf(((((("expected read 7 bytes; got %d" : GoString))) : GoString)), Go.toInterface(_n));
+        };
+        {
+            var _result:GoString = ((_sink.string() : GoString));
+            if (_result != ((((("foo bar" : GoString))) : GoString))) {
+                _t.errorf((("expected \"foo bar\"; got %q" : GoString)), Go.toInterface(_result));
+            };
+        };
+    }
 function testMultiWriter(_t:stdgo.testing.Testing.T):Void {
         var _sink = new stdgo.bytes.Bytes.Buffer();
         _testMultiWriter(_t, {
-            final __self__ = new stdgo.io_test.Io_test.T__struct_3_wrapper(((new T__struct_3({
+            final __self__ = new stdgo.io_test.Io_test.T__struct_5_wrapper(((new T__struct_5({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_sink);
                 __self__.bytes = #if !macro function():Slice<GoUInt8> return _sink.bytes() #else null #end;
                 __self__.cap_ = #if !macro function():GoInt return _sink.cap_() #else null #end;
@@ -3369,8 +3505,8 @@ function testMultiWriter(_t:stdgo.testing.Testing.T):Void {
                 __self__._readSlice = #if !macro function(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _sink._readSlice(_c) #else null #end;
                 __self__._tryGrowByReslice = #if !macro function(_pid:GoInt):{ var _0 : GoInt; var _1 : Bool; } return _sink._tryGrowByReslice(_pid) #else null #end;
                 __self__;
-            }) : T__struct_3)));
-            __self__.string = #if !macro function():GoString return ((new T__struct_3({
+            }) : T__struct_5)));
+            __self__.string = #if !macro function():GoString return ((new T__struct_5({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_sink);
                 __self__.bytes = #if !macro function():Slice<GoUInt8> return _sink.bytes() #else null #end;
                 __self__.cap_ = #if !macro function():GoInt return _sink.cap_() #else null #end;
@@ -3426,8 +3562,8 @@ function testMultiWriter(_t:stdgo.testing.Testing.T):Void {
                 __self__._readSlice = #if !macro function(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _sink._readSlice(_c) #else null #end;
                 __self__._tryGrowByReslice = #if !macro function(_pid:GoInt):{ var _0 : GoInt; var _1 : Bool; } return _sink._tryGrowByReslice(_pid) #else null #end;
                 __self__;
-            }) : T__struct_3)).string() #else null #end;
-            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T__struct_3({
+            }) : T__struct_5)).string() #else null #end;
+            __self__.write = #if !macro function(_p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T__struct_5({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_sink);
                 __self__.bytes = #if !macro function():Slice<GoUInt8> return _sink.bytes() #else null #end;
                 __self__.cap_ = #if !macro function():GoInt return _sink.cap_() #else null #end;
@@ -3483,7 +3619,7 @@ function testMultiWriter(_t:stdgo.testing.Testing.T):Void {
                 __self__._readSlice = #if !macro function(_c:GoUInt8):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return _sink._readSlice(_c) #else null #end;
                 __self__._tryGrowByReslice = #if !macro function(_pid:GoInt):{ var _0 : GoInt; var _1 : Bool; } return _sink._tryGrowByReslice(_pid) #else null #end;
                 __self__;
-            }) : T__struct_3)).write(_p) #else null #end;
+            }) : T__struct_5)).write(_p) #else null #end;
             __self__;
         });
     }
@@ -4106,7 +4242,7 @@ function _reader(_t:stdgo.testing.Testing.T, _r:Reader, _c:Chan<GoInt>):Void {
 function testPipe2(_t:stdgo.testing.Testing.T):Void {
         var _c = new Chan<GoInt>(0, () -> ((0 : GoInt)));
         var __tmp__ = pipe(), _r:Ref<PipeReader> = __tmp__._0, _w:Ref<PipeWriter> = __tmp__._1;
-        Go.routine(() -> _reader(_t, {
+        Go.routine(() -> reader(_t, {
             final __self__ = new PipeReader_wrapper(_r);
             __self__.close = #if !macro function():stdgo.Error return _r.close() #else null #end;
             __self__.closeWithError = #if !macro function(__0:stdgo.Error):stdgo.Error return _r.closeWithError(__0) #else null #end;
@@ -5026,20 +5162,35 @@ class T_pipeTest_wrapper {
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : T_pipeTest;
 }
-@:keep class T__struct_3_static_extension {
+@:keep class T__struct_4_static_extension {
     @:embedded
-    public static function write( __self__:T__struct_3, _p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_p);
+    public static function writeTo( __self__:T__struct_4, _w:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return __self__.writeTo(_w);
     @:embedded
-    public static function string( __self__:T__struct_3):GoString return __self__.string();
+    public static function read( __self__:T__struct_4, _p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.read(_p);
 }
-class T__struct_3_wrapper {
+class T__struct_4_wrapper {
+    @:embedded
+    public var writeTo : Writer -> { var _0 : GoInt64; var _1 : stdgo.Error; } = null;
+    @:embedded
+    public var read : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T__struct_4;
+}
+@:keep class T__struct_5_static_extension {
+    @:embedded
+    public static function write( __self__:T__struct_5, _p:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_p);
+    @:embedded
+    public static function string( __self__:T__struct_5):GoString return __self__.string();
+}
+class T__struct_5_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     @:embedded
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T__struct_3;
+    var __self__ : T__struct_5;
 }
 @:keep class T_writerFunc_static_extension {
     @:keep

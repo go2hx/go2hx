@@ -29,14 +29,21 @@ var _blackHolePool : stdgo.sync.Sync.Pool = (({ new_ : function():AnyInterface {
     } } : stdgo.sync.Sync.Pool));
 var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_(((((("io: read/write on closed pipe" : GoString))) : GoString)));
 var errInvalidWrite : stdgo.Error = _errInvalidWrite;
-var _2 : ReaderFrom = {
+var _3 : ReaderFrom = {
         final __self__ = new T_discard_wrapper(((new T_discard() : T_discard)));
         __self__.readFrom = #if !macro function(_r_:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).readFrom(_r_) #else null #end;
         __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).write(_p_) #else null #end;
         __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_discard() : T_discard)).writeString(__0) #else null #end;
         __self__;
     };
-var _3 : StringWriter = {
+var _4 : WriterTo = {
+        final __self__ = new T_multiReader_wrapper(((((null : T_multiReader)) : T_multiReader)));
+        __self__.read = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiReader)) : T_multiReader)).read(_p_) #else null #end;
+        __self__.writeTo = #if !macro function(_w_:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((((null : T_multiReader)) : T_multiReader)).writeTo(_w_) #else null #end;
+        __self__._writeToWithBuffer = #if !macro function(_w__:Writer, _buf:Slice<GoUInt8>):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((((null : T_multiReader)) : T_multiReader))._writeToWithBuffer(_w__, _buf) #else null #end;
+        __self__;
+    };
+var _5 : StringWriter = {
         final __self__ = new T_multiWriter_wrapper(((((null : T_multiWriter)) : T_multiWriter)));
         __self__.write = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).write(_p_) #else null #end;
         __self__.writeString = #if !macro function(__0:GoString):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((((null : T_multiWriter)) : T_multiWriter)).writeString(__0) #else null #end;
@@ -179,6 +186,19 @@ typedef StringWriter = StructType & {
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_nopCloser(reader);
+    }
+}
+@:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) class T_nopCloserWriterTo {
+    @:embedded
+    public var reader : Reader = ((null : Reader));
+    public function new(?reader:Reader) {
+        if (reader != null) this.reader = reader;
+    }
+    @:embedded
+    public function read(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return reader.read(_p_);
+    public function __underlying__():AnyInterface return Go.toInterface(this);
+    public function __copy__() {
+        return new T_nopCloserWriterTo(reader);
     }
 }
 @:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) class T_eofReader {
@@ -518,8 +538,26 @@ function teeReader(_r:Reader, _w:Writer):Reader {
 /**
     // NopCloser returns a ReadCloser with a no-op Close method wrapping
     // the provided Reader r.
+    // If r implements WriterTo, the returned ReadCloser will implement WriterTo
+    // by forwarding calls to r.
 **/
 function nopCloser(_r:Reader):ReadCloser {
+        {
+            var __tmp__ = try {
+                { value : ((((_r.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
+            } catch(_) {
+                { value : ((null : WriterTo)), ok : false };
+            }, _0 = __tmp__.value, _ok = __tmp__.ok;
+            if (_ok) {
+                return {
+                    final __self__ = new T_nopCloserWriterTo_wrapper(((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo)));
+                    __self__.close = #if !macro function():stdgo.Error return ((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo)).close() #else null #end;
+                    __self__.read = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo)).read(_p_) #else null #end;
+                    __self__.writeTo = #if !macro function(_w_:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo)).writeTo(_w_) #else null #end;
+                    __self__;
+                };
+            };
+        };
         return {
             final __self__ = new T_nopCloser_wrapper(((new T_nopCloser(_r) : T_nopCloser)));
             __self__.close = #if !macro function():stdgo.Error return ((new T_nopCloser(_r) : T_nopCloser)).close() #else null #end;
@@ -562,6 +600,8 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
         return {
             final __self__ = new T_multiReader_wrapper(((new T_multiReader(_r) : T_multiReader)));
             __self__.read = #if !macro function(_p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return ((new T_multiReader(_r) : T_multiReader)).read(_p_) #else null #end;
+            __self__.writeTo = #if !macro function(_w_:Writer):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_multiReader(_r) : T_multiReader)).writeTo(_w_) #else null #end;
+            __self__._writeToWithBuffer = #if !macro function(_w__:Writer, _buf:Slice<GoUInt8>):{ var _0 : GoInt64; var _1 : stdgo.Error; } return ((new T_multiReader(_r) : T_multiReader))._writeToWithBuffer(_w__, _buf) #else null #end;
             __self__;
         };
     }
@@ -814,6 +854,30 @@ class T_nopCloser_wrapper {
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : T_nopCloser;
 }
+@:keep class T_nopCloserWriterTo_static_extension {
+    @:keep
+    static public function writeTo( _c:T_nopCloserWriterTo, _w:Writer):{ var _0 : GoInt64; var _1 : Error; } {
+        var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+        return ((((_c.reader.__underlying__().value : Dynamic)) : WriterTo)).writeTo(_w);
+    }
+    @:keep
+    static public function close( _:T_nopCloserWriterTo):Error {
+        return ((null : stdgo.Error));
+    }
+    @:embedded
+    public static function read( __self__:T_nopCloserWriterTo, _p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.read(_p_);
+}
+class T_nopCloserWriterTo_wrapper {
+    @:keep
+    public var writeTo : Writer -> { var _0 : GoInt64; var _1 : Error; } = null;
+    @:keep
+    public var close : () -> Error = null;
+    @:embedded
+    public var read : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
+    public function new(__self__) this.__self__ = __self__;
+    public function __underlying__() return Go.toInterface(__self__);
+    var __self__ : T_nopCloserWriterTo;
+}
 @:keep class T_eofReader_static_extension {
     @:keep
     static public function read( _:T_eofReader, _0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
@@ -828,6 +892,46 @@ class T_eofReader_wrapper {
     var __self__ : T_eofReader;
 }
 @:keep class T_multiReader_static_extension {
+    @:keep
+    static public function _writeToWithBuffer( _mr:T_multiReader, _w:Writer, _buf:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } {
+        var _sum:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+        for (_i => _r in _mr._readers) {
+            var _n:GoInt64 = ((0 : GoInt64));
+            {
+                var __tmp__ = try {
+                    { value : ((((_r.__underlying__().value : Dynamic)) : T_multiReader)), ok : true };
+                } catch(_) {
+                    { value : ((null : T_multiReader)), ok : false };
+                }, _subMr = __tmp__.value, _ok = __tmp__.ok;
+                if (_ok) {
+                    {
+                        var __tmp__ = _subMr._writeToWithBuffer(_w, _buf);
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                    };
+                } else {
+                    {
+                        var __tmp__ = _copyBuffer(_w, _r, _buf);
+                        _n = __tmp__._0;
+                        _err = __tmp__._1;
+                    };
+                };
+            };
+            _sum = _sum + (_n);
+            if (_err != null) {
+                _mr._readers = ((_mr._readers.__slice__(_i) : Slice<Reader>));
+                return { _0 : _sum, _1 : _err };
+            };
+            if (_mr._readers != null) _mr._readers[_i] = ((null : Reader));
+        };
+        _mr._readers = ((null : Slice<Reader>));
+        return { _0 : _sum, _1 : ((null : stdgo.Error)) };
+    }
+    @:keep
+    static public function writeTo( _mr:T_multiReader, _w:Writer):{ var _0 : GoInt64; var _1 : Error; } {
+        var _sum:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
+        return _mr._writeToWithBuffer(_w, new Slice<GoUInt8>(...[for (i in 0 ... ((((32768 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]));
+    }
     @:keep
     static public function read( _mr:T_multiReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
@@ -869,6 +973,10 @@ class T_eofReader_wrapper {
     }
 }
 class T_multiReader_wrapper {
+    @:keep
+    public var _writeToWithBuffer : (Writer, Slice<GoByte>) -> { var _0 : GoInt64; var _1 : Error; } = null;
+    @:keep
+    public var writeTo : Writer -> { var _0 : GoInt64; var _1 : Error; } = null;
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;

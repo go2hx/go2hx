@@ -190,7 +190,8 @@ var _splittests : Slice<stdgo.strings_test.Strings_test.SplitTest> = ((new Slice
 ((new SplitTest(_faces, ((((("☹" : GoString))) : GoString)), ((-1 : GoInt)), ((new Slice<GoString>(((((("☺☻" : GoString))) : GoString)), ((((("" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest)),
 ((new SplitTest(_faces, ((((("~" : GoString))) : GoString)), ((-1 : GoInt)), ((new Slice<GoString>(_faces) : Slice<GoString>))) : SplitTest)),
 ((new SplitTest(((((("1 2 3 4" : GoString))) : GoString)), (((((" " : GoString))) : GoString)), ((3 : GoInt)), ((new Slice<GoString>(((((("1" : GoString))) : GoString)), ((((("2" : GoString))) : GoString)), ((((("3 4" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest)),
-((new SplitTest(((((("1 2" : GoString))) : GoString)), (((((" " : GoString))) : GoString)), ((3 : GoInt)), ((new Slice<GoString>(((((("1" : GoString))) : GoString)), ((((("2" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest))) : Slice<SplitTest>));
+((new SplitTest(((((("1 2" : GoString))) : GoString)), (((((" " : GoString))) : GoString)), ((3 : GoInt)), ((new Slice<GoString>(((((("1" : GoString))) : GoString)), ((((("2" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest)),
+((new SplitTest(((((("" : GoString))) : GoString)), ((((("T" : GoString))) : GoString)), ((536870911 : GoInt)), ((new Slice<GoString>(((((("" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest))) : Slice<SplitTest>));
 var _splitaftertests : Slice<stdgo.strings_test.Strings_test.SplitTest> = ((new Slice<SplitTest>(
 ((new SplitTest(_abcd, ((((("a" : GoString))) : GoString)), ((-1 : GoInt)), ((new Slice<GoString>(((((("a" : GoString))) : GoString)), ((((("bcd" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest)),
 ((new SplitTest(_abcd, ((((("z" : GoString))) : GoString)), ((-1 : GoInt)), ((new Slice<GoString>(((((("abcd" : GoString))) : GoString))) : Slice<GoString>))) : SplitTest)),
@@ -1519,6 +1520,8 @@ function exampleCut():Void {
     }
 function exampleEqualFold():Void {
         stdgo.fmt.Fmt.println(stdgo.strings.Strings.equalFold(((((("Go" : GoString))) : GoString)), ((((("go" : GoString))) : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.strings.Strings.equalFold(((((("AB" : GoString))) : GoString)), ((((("ab" : GoString))) : GoString))));
+        stdgo.fmt.Fmt.println(stdgo.strings.Strings.equalFold(((((("ß" : GoString))) : GoString)), ((((("ss" : GoString))) : GoString))));
     }
 function exampleFields():Void {
         stdgo.fmt.Fmt.printf(((((("Fields are: %q" : GoString))) : GoString)), Go.toInterface(stdgo.strings.Strings.fields(((((("  foo bar  baz   " : GoString))) : GoString)))));

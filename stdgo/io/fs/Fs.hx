@@ -179,6 +179,14 @@ function _errClosed():Error {
 **/
 function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
         var _matches:Slice<GoString> = ((null : Slice<GoString>)), _err:Error = ((null : stdgo.Error));
+        return _globWithLimit(_fsys, _pattern, ((0 : GoInt)));
+    }
+function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } {
+        var _matches:Slice<GoString> = ((null : Slice<GoString>)), _err:Error = ((null : stdgo.Error));
+        {};
+        if (_depth > ((10000 : GoInt))) {
+            return { _0 : ((null : Slice<GoString>)), _1 : stdgo.path.Path.errBadPattern };
+        };
         {
             var __tmp__ = try {
                 { value : ((((_fsys.__underlying__().value : Dynamic)) : GlobFS)), ok : true };
@@ -217,12 +225,12 @@ function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : 
         };
         var _m:Slice<GoString> = ((null : Slice<GoString>));
         {
-            var __tmp__ = glob(_fsys, _dir);
+            var __tmp__ = _globWithLimit(_fsys, _dir, _depth + ((1 : GoInt)));
             _m = __tmp__._0;
             _err = __tmp__._1;
         };
         if (_err != null) {
-            return { _0 : _matches, _1 : _err };
+            return { _0 : ((null : Slice<GoString>)), _1 : _err };
         };
         for (_1 => _d in _m) {
             {
@@ -578,6 +586,9 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
         if (_err != null) {
             _err = _walkDirFn(_name, _d, _err);
             if (_err != null) {
+                if ((_err == skipDir) && _d.isDir()) {
+                    _err = ((null : stdgo.Error));
+                };
                 return _err;
             };
         };

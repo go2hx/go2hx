@@ -151,6 +151,7 @@ typedef T_replacer = StructType & {
     // noescape is inlined and currently compiles down to zero instructions.
     // USE CAREFULLY!
     // This was copied from the runtime; see issues 23382 and 7921.
+    //
     //go:nosplit
     //go:nocheckptr
 **/
@@ -591,6 +592,9 @@ function _genSplit(_s:GoString, _sep:GoString, _sepSave:GoInt, _n:GoInt):Slice<G
         if (_n < ((0 : GoInt))) {
             _n = count(_s, _sep) + ((1 : GoInt));
         };
+        if (_n > ((_s != null ? _s.length : ((0 : GoInt))) + ((1 : GoInt)))) {
+            _n = (_s != null ? _s.length : ((0 : GoInt))) + ((1 : GoInt));
+        };
         var _a = new Slice<GoString>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) (("" : GoString))]);
         _n--;
         var _i:GoInt = ((0 : GoInt));
@@ -611,9 +615,10 @@ function _genSplit(_s:GoString, _sep:GoString, _sepSave:GoInt, _n:GoInt):Slice<G
     // the substrings between those separators.
     //
     // The count determines the number of substrings to return:
-    //   n > 0: at most n substrings; the last substring will be the unsplit remainder.
-    //   n == 0: the result is nil (zero substrings)
-    //   n < 0: all substrings
+    //
+    //	n > 0: at most n substrings; the last substring will be the unsplit remainder.
+    //	n == 0: the result is nil (zero substrings)
+    //	n < 0: all substrings
     //
     // Edge cases for s and sep (for example, empty strings) are handled
     // as described in the documentation for Split.
@@ -628,9 +633,10 @@ function splitN(_s:GoString, _sep:GoString, _n:GoInt):Slice<GoString> {
     // returns a slice of those substrings.
     //
     // The count determines the number of substrings to return:
-    //   n > 0: at most n substrings; the last substring will be the unsplit remainder.
-    //   n == 0: the result is nil (zero substrings)
-    //   n < 0: all substrings
+    //
+    //	n > 0: at most n substrings; the last substring will be the unsplit remainder.
+    //	n == 0: the result is nil (zero substrings)
+    //	n < 0: all substrings
     //
     // Edge cases for s and sep (for example, empty strings) are handled
     // as described in the documentation for SplitAfter.
@@ -1305,7 +1311,7 @@ function trimSpace(_s:GoString):GoString {
         Go.cfor(_stop > _start, _stop--, {
             var _c:GoUInt8 = (_s != null ? _s[_stop - ((1 : GoInt))] : ((0 : GoUInt8)));
             if (_c >= ((128 : GoUInt8))) {
-                return trimFunc(((_s.__slice__(_start, _stop) : GoString)), stdgo.unicode.Unicode.isSpace);
+                return trimRightFunc(((_s.__slice__(_start, _stop) : GoString)), stdgo.unicode.Unicode.isSpace);
             };
             if ((_asciiSpace != null ? _asciiSpace[_c] : ((0 : GoUInt8))) == ((0 : GoUInt8))) {
                 break;
@@ -1388,7 +1394,7 @@ function replaceAll(_s:GoString, _old:GoString, _new:GoString):GoString {
     }
 /**
     // EqualFold reports whether s and t, interpreted as UTF-8 strings,
-    // are equal under Unicode case-folding, which is a more general
+    // are equal under simple Unicode case-folding, which is a more general
     // form of case-insensitivity.
 **/
 function equalFold(_s:GoString, _t:GoString):Bool {

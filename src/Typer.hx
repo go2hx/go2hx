@@ -4157,6 +4157,12 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 
 				params.push(macro $key => $value);
 			}
+			if (params.length == 0) {
+				final t = toReflectType(type, info);
+				final keyType = toComplexType(keyType, info);
+				final valueType = toComplexType(valueType, info);
+				return (macro new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t))).expr;
+			}
 			return (macro Go.map($a{params})).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;

@@ -5042,6 +5042,10 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					} else {
 						macro(null : $ct);
 					}
+				case basic(_):
+					final ct = ct();
+					final e = defaultValue(underlying,info);
+					macro ($e : $ct);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();
@@ -5746,8 +5750,9 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 						}
 						final methodName = nameIdent(method.name, false, false, info);
 						var expr = macro $i{name}.$fieldName($a{args});
-						if (info.global.externBool)
+						if (info.global.externBool) {
 							expr = results.length == 1 ? defaultValue(results[0], info) : macro null;
+						}
 						fields.push({
 							name: methodName,
 							meta: [{name: ":embedded", pos: null}],
@@ -5958,7 +5963,7 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 					expr = typeExpr(value.values[i], info);
 					expr = assignTranslate(t, info.lastType, expr, info);
 				} else {
-					expr = defaultValue(t, info);
+					expr = defaultValue(info.lastType, info);
 				}
 			}
 			if (expr == null)

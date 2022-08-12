@@ -134,8 +134,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit class Planet {
     public var _name : GoString = "";
-    public var _mass : stdgo.sort_test.Sort_test.T_earthMass = new stdgo.sort_test.Sort_test.T_earthMass();
-    public var _distance : stdgo.sort_test.Sort_test.T_au = new stdgo.sort_test.Sort_test.T_au();
+    public var _mass : stdgo.sort_test.Sort_test.T_earthMass = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_earthMass));
+    public var _distance : stdgo.sort_test.Sort_test.T_au = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_au));
     public function new(?_name:GoString, ?_mass:stdgo.sort_test.Sort_test.T_earthMass, ?_distance:stdgo.sort_test.Sort_test.T_au) {
         if (_name != null) this._name = _name;
         if (_mass != null) this._mass = _mass;
@@ -186,7 +186,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit class Organ {
     public var name : GoString = "";
-    public var weight : stdgo.sort_test.Sort_test.Grams = new stdgo.sort_test.Sort_test.Grams();
+    public var weight : stdgo.sort_test.Sort_test.Grams = ((((0 : GoInt)) : stdgo.sort_test.Sort_test.Grams));
     public function new(?name:GoString, ?weight:stdgo.sort_test.Sort_test.Grams) {
         if (name != null) this.name = name;
         if (weight != null) this.weight = weight;

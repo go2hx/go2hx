@@ -631,7 +631,7 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
     // [shortestNinther,∞): uses the Tukey ninther method.
 **/
 function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
-        var _pivot:GoInt = ((0 : GoInt)), _hint:T_sortedHint = new T_sortedHint();
+        var _pivot:GoInt = ((0 : GoInt)), _hint:T_sortedHint = ((((0 : GoInt)) : T_sortedHint));
         {};
         var _l:GoInt = _b - _a;
         var _swaps:GoInt = ((0 : GoInt)), _i:GoInt = _a + ((_l / ((4 : GoInt))) * ((1 : GoInt))), _j:GoInt = _a + ((_l / ((4 : GoInt))) * ((2 : GoInt))), _k:GoInt = _a + ((_l / ((4 : GoInt))) * ((3 : GoInt)));
@@ -1094,7 +1094,7 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
     // [shortestNinther,∞): uses the Tukey ninther method.
 **/
 function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
-        var _pivot:GoInt = ((0 : GoInt)), _hint:T_sortedHint = new T_sortedHint();
+        var _pivot:GoInt = ((0 : GoInt)), _hint:T_sortedHint = ((((0 : GoInt)) : T_sortedHint));
         {};
         var _l:GoInt = _b - _a;
         var _swaps:GoInt = ((0 : GoInt)), _i:GoInt = _a + ((_l / ((4 : GoInt))) * ((1 : GoInt))), _j:GoInt = _a + ((_l / ((4 : GoInt))) * ((2 : GoInt))), _k:GoInt = _a + ((_l / ((4 : GoInt))) * ((3 : GoInt)));

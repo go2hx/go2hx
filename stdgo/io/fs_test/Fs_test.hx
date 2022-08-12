@@ -165,7 +165,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:local class T__struct_2 {
     public var _path : GoString = "";
-    public var _wantMode : FileMode = new FileMode();
+    public var _wantMode : FileMode = ((((0 : GoUInt32)) : FileMode));
     public var _wantDir : Bool = false;
     public function string():String return "{" + Go.string(_path) + " " + Go.string(_wantMode) + " " + Go.string(_wantDir) + "}";
     public function new(?_path:GoString, ?_wantMode:FileMode, ?_wantDir:Bool, ?string) {

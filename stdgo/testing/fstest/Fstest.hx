@@ -37,7 +37,7 @@ var _3 : stdgo.io.fs.Fs.File = {
     };
 @:structInit class MapFile {
     public var data : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
-    public var mode : stdgo.io.fs.Fs.FileMode = new stdgo.io.fs.Fs.FileMode();
+    public var mode : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
     public var modTime : stdgo.time.Time.Time = new stdgo.time.Time.Time();
     public var sys : AnyInterface = ((null : AnyInterface));
     public function new(?data:Slice<GoUInt8>, ?mode:stdgo.io.fs.Fs.FileMode, ?modTime:stdgo.time.Time.Time, ?sys:AnyInterface) {

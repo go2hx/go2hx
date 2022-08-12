@@ -8,28 +8,28 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _dirBufPool : stdgo.sync.Sync.Pool = new stdgo.sync.Sync.Pool();
-var errInvalid : stdgo.Error = ((null : stdgo.Error));
-var errPermission : stdgo.Error = ((null : stdgo.Error));
-var errExist : stdgo.Error = ((null : stdgo.Error));
-var errNotExist : stdgo.Error = ((null : stdgo.Error));
-var errClosed : stdgo.Error = ((null : stdgo.Error));
-var errNoDeadline : stdgo.Error = ((null : stdgo.Error));
-var errDeadlineExceeded : stdgo.Error = ((null : stdgo.Error));
-var errProcessDone : stdgo.Error = ((null : stdgo.Error));
-var interrupt : Signal = new stdgo.syscall.Syscall.Signal();
-var kill : Signal = new stdgo.syscall.Syscall.Signal();
-var _errWriteAtInAppendMode : stdgo.Error = ((null : stdgo.Error));
-var stdin : Ref<File> = ((null : File));
-var stdout : Ref<File> = ((null : File));
-var stderr : Ref<File> = ((null : File));
-var _errPatternHasSeparator : stdgo.Error = ((null : stdgo.Error));
+var _dirBufPool : stdgo.sync.Sync.Pool = null;
+var errInvalid : stdgo.Error = null;
+var errPermission : stdgo.Error = null;
+var errExist : stdgo.Error = null;
+var errNotExist : stdgo.Error = null;
+var errClosed : stdgo.Error = null;
+var errNoDeadline : stdgo.Error = null;
+var errDeadlineExceeded : stdgo.Error = null;
+var errProcessDone : stdgo.Error = null;
+var interrupt : Signal = ((null : Signal));
+var kill : Signal = ((null : Signal));
+var _errWriteAtInAppendMode : stdgo.Error = null;
+var stdin : Ref<File> = null;
+var stdout : Ref<File> = null;
+var stderr : Ref<File> = null;
+var _errPatternHasSeparator : stdgo.Error = null;
 var _lstat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = null;
 var atime : stdgo.io.fs.Fs.FileInfo -> stdgo.time.Time.Time = null;
-var lstatP : Ref<GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = ((null : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }));
-var errWriteAtInAppendMode : stdgo.Error = ((null : stdgo.Error));
-var testingForceReadDirLstat : Pointer<Bool> = ((null : Pointer<Bool>));
-var errPatternHasSeparator : stdgo.Error = ((null : stdgo.Error));
+var lstatP : Ref<GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; }> = null;
+var errWriteAtInAppendMode : stdgo.Error = null;
+var testingForceReadDirLstat : Pointer<Bool> = null;
+var errPatternHasSeparator : stdgo.Error = null;
 var splitPath : GoString -> { var _0 : GoString; var _1 : GoString; } = null;
 var _testingForceReadDirLstat : Bool = false;
 var _getwdCache : T__struct_0 = new T__struct_0();
@@ -101,7 +101,7 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
     public var _pid : GoInt = 0;
-    public var _status : stdgo.syscall.Syscall.WaitStatus = new stdgo.syscall.Syscall.WaitStatus();
+    public var _status : stdgo.syscall.Syscall.WaitStatus = ((((0 : GoUInt32)) : stdgo.syscall.Syscall.WaitStatus));
     public var _rusage : Ref<stdgo.syscall.Syscall.Rusage> = ((null : stdgo.syscall.Syscall.Rusage));
     public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
         if (_pid != null) this._pid = _pid;
@@ -165,7 +165,7 @@ typedef Signal = StructType & {
 @:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) class T_unixDirent {
     public var _parent : GoString = "";
     public var _name : GoString = "";
-    public var _typ : stdgo.io.fs.Fs.FileMode = new stdgo.io.fs.Fs.FileMode();
+    public var _typ : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
     public var _info : stdgo.io.fs.Fs.FileInfo = ((null : stdgo.io.fs.Fs.FileInfo));
     public function new(?_parent:GoString, ?_name:GoString, ?_typ:stdgo.io.fs.Fs.FileMode, ?_info:stdgo.io.fs.Fs.FileInfo) {
         if (_parent != null) this._parent = _parent;
@@ -204,7 +204,7 @@ typedef Signal = StructType & {
 @:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) class T_fileStat {
     public var _name : GoString = "";
     public var _size : GoInt64 = 0;
-    public var _mode : stdgo.io.fs.Fs.FileMode = new stdgo.io.fs.Fs.FileMode();
+    public var _mode : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
     public var _modTime : stdgo.time.Time.Time = new stdgo.time.Time.Time();
     public var _sys : stdgo.syscall.Syscall.Stat_t = new stdgo.syscall.Syscall.Stat_t();
     public function new(?_name:GoString, ?_size:GoInt64, ?_mode:stdgo.io.fs.Fs.FileMode, ?_modTime:stdgo.time.Time.Time, ?_sys:stdgo.syscall.Syscall.Stat_t) {

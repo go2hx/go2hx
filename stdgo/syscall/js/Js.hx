@@ -8,19 +8,19 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = ((null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>));
+var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = null;
 var _nextFuncID : GoUInt32 = ((0 : GoUInt32));
-var _valueUndefined : Value = new Value();
-var _valueNaN : Value = new Value();
-var _valueZero : Value = new Value();
-var _valueNull : Value = new Value();
-var _valueTrue : Value = new Value();
-var _valueFalse : Value = new Value();
-var _valueGlobal : Value = new Value();
-var _jsGo : Value = new Value();
-var _objectConstructor : Value = new Value();
-var _arrayConstructor : Value = new Value();
-var jsgo : Value = new Value();
+var _valueUndefined : Value = null;
+var _valueNaN : Value = null;
+var _valueZero : Value = null;
+var _valueNull : Value = null;
+var _valueTrue : Value = null;
+var _valueFalse : Value = null;
+var _valueGlobal : Value = null;
+var _jsGo : Value = null;
+var _objectConstructor : Value = null;
+var _arrayConstructor : Value = null;
+var jsgo : Value = null;
 var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded
@@ -69,7 +69,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return new Type();
+    public function type():Type return ((((0 : GoInt)) : Type));
     @:embedded
     public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
     @:embedded
@@ -81,7 +81,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 }
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
-    public var _ref : T_ref = new T_ref();
+    public var _ref : T_ref = ((((0 : GoUInt64)) : T_ref));
     public var _gcPtr : Pointer<T_ref> = ((null : Pointer<T_ref>));
     public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
         if (_0 != null) this._0 = _0;
@@ -138,7 +138,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return new Type();
+    public function type():Type return ((((0 : GoInt)) : Type));
     @:embedded
     public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
     @:embedded
@@ -150,7 +150,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 }
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
     public var method : GoString = "";
-    public var type : Type = new Type();
+    public var type : Type = ((((0 : GoInt)) : Type));
     public function new(?method:GoString, ?type:Type) {
         if (method != null) this.method = method;
         if (type != null) this.type = type;

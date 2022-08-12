@@ -46,7 +46,7 @@ typedef Getter = StructType & {
     public var _actual : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
     public var _formal : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
     public var _args : Slice<GoString> = ((null : Slice<GoString>));
-    public var _errorHandling : ErrorHandling = new ErrorHandling();
+    public var _errorHandling : ErrorHandling = ((((0 : GoInt)) : ErrorHandling));
     public var _output : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
     public function new(?usage:() -> Void, ?_name:GoString, ?_parsed:Bool, ?_actual:GoMap<GoString, Ref<Flag>>, ?_formal:GoMap<GoString, Ref<Flag>>, ?_args:Slice<GoString>, ?_errorHandling:ErrorHandling, ?_output:stdgo.io.Io.Writer) {
         if (usage != null) this.usage = usage;
@@ -819,7 +819,7 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function duration( _f:FlagSet, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Pointer<stdgo.time.Time.Duration> {
-        var _p = Go.pointer(new stdgo.time.Time.Duration());
+        var _p = Go.pointer(((((0 : GoInt64)) : stdgo.time.Time.Duration)));
         _f.durationVar(_p, _name, _value, _usage);
         return _p;
     }

@@ -5044,8 +5044,8 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					}
 				case basic(_):
 					final ct = ct();
-					final e = defaultValue(underlying,info);
-					macro ($e : $ct);
+					final e = defaultValue(underlying, info);
+					macro($e : $ct);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();
@@ -5963,7 +5963,11 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 					expr = typeExpr(value.values[i], info);
 					expr = assignTranslate(t, info.lastType, expr, info);
 				} else {
-					expr = defaultValue(info.lastType, info);
+					if (info.lastType != null && info.lastType != invalidType) {
+						expr = defaultValue(info.lastType, info);
+					} else {
+						expr = defaultValue(t, info);
+					}
 				}
 			}
 			if (expr == null)

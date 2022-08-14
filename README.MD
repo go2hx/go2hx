@@ -57,9 +57,10 @@ The standard library that has been rewritten in Haxe has partial support, It doe
 * strconv
 * math
 
-## Acknowledgement
+## Commendation
 
-A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5), The developer that has set the building blocks conceptually for this project, as well as a code contributor, with use of some of his code from Tardisgo.
+A spiritual successor to Tardisgo written by [Elliott Stoneham](https://github.com/elliott5),
+A maintainer, mentor, and code contribuitor of this project. Elliott's wise councel, solid engineering design, and effective programming is the core of this project and go2hx would not exist without him.
 
 ## Build from source
 

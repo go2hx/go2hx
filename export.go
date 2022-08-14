@@ -144,6 +144,73 @@ func compile(params []string, excludesData excludesType, index string, debug boo
 		data.TypeList[i] = value
 		i++
 	}
+	// Fix null "recv" in signatures
+	for _, v := range data.TypeList {
+		if v != nil {
+			m := v["methods"]
+			if m != nil {
+				for _, mm := range m.([]map[string]interface{}) {
+					recv := mm["recv"]
+					typ := mm["type"]
+					if recv != nil && mm != nil {
+						sigToCheck := typ.(map[string]interface{})["hash"]
+
+						// now search though all the types to find any missing recv...
+						for i, p := range data.TypeList {
+							if p != nil {
+								if p["id"] != nil && p["id"].(string) == "Signature" {
+									if p["hash"].(uint32) == sigToCheck.(uint32) {
+										if p["recv"] == nil || len(p["recv"].(map[string]interface{})) == 0 {
+											data.TypeList[i]["recv"] = recv
+										}
+										break
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	// First find candidates that may need to be changed
+	candidateSigs := map[uint32]*map[string]interface{}{}
+	for i, p := range data.TypeList {
+		if p != nil {
+			if p["id"] != nil && p["id"].(string) == "Signature" {
+				if p["recv"] == nil || len(p["recv"].(map[string]interface{})) == 0 {
+					candidateSigs[p["hash"].(uint32)] = &data.TypeList[i]
+				}
+			}
+		}
+	}
+
+	// Now look through methods and check against candidates, fixing if found
+	fixedMap := map[uint32]bool{}
+	for _, v := range data.TypeList {
+		if v != nil {
+			m := v["methods"]
+			if m != nil {
+				for _, mm := range m.([]map[string]interface{}) {
+					recv := mm["recv"]
+					typ := mm["type"]
+					if recv != nil && len(recv.(map[string]interface{})) != 0 && typ != nil {
+						sigToCheck := typ.(map[string]interface{})["hash"]
+						if sigToCheck != nil {
+							hash := sigToCheck.(uint32)
+							if fixedMap[hash] {
+								panic("method signature with nil recv already fixed") // TODO how to handle this?
+							}
+							if p := candidateSigs[hash]; p != nil {
+								(*p)["recv"] = recv // replace recv value
+								fixedMap[hash] = true
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 	//reset
 	hashMap = nil
 	excludes = nil

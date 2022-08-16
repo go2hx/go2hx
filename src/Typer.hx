@@ -4148,6 +4148,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case mapType(_.get() => var keyType, _.get() => valueType):
 			var t = toReflectType(type, info);
 			var params:Array<Expr> = [];
+			final keys:Array<Expr> = [];
+			final values:Array<Expr> = [];
 			for (elt in expr.elts) {
 				if (elt.id != "KeyValueExpr")
 					throw "not a KeyValueExpr for Map CompositeLit";
@@ -4163,15 +4165,24 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 				key = assignTranslate(typeof(elt.key, info, false), keyType, key, info);
 				value = assignTranslate(fromValueType, valueType, value, info);
 
+				keys.push(key);
+				values.push(value);
+
 				params.push(macro $key => $value);
 			}
+			final keyType = toComplexType(keyType, info);
+			final valueType = toComplexType(valueType, info);
+			final t = toReflectType(type, info);
 			if (params.length == 0) {
-				final t = toReflectType(type, info);
-				final keyType = toComplexType(keyType, info);
-				final valueType = toComplexType(valueType, info);
 				return (macro new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t))).expr;
 			}
-			return (macro Go.map($a{params})).expr;
+			return (macro {
+				final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t));
+				@:privateAccess x._keys = $a{keys};
+				@:privateAccess x._values = $a{values};
+				x;
+			}).expr;
+		// return (macro Go.map($a{params})).expr;
 		default:
 			throw "not supported CompositeLit type: " + type;
 	}

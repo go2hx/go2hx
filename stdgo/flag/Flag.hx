@@ -373,7 +373,14 @@ function args():Slice<GoString> {
     // The argument p points to a bool variable in which to store the value of the flag.
 **/
 function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
-        commandLine.var_(_newBoolValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
+            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Bool defines a bool flag with specified name, default value, and usage string.
@@ -387,7 +394,13 @@ function bool(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
     // The argument p points to an int variable in which to store the value of the flag.
 **/
 function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
-        commandLine.var_(_newIntValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Int defines an int flag with specified name, default value, and usage string.
@@ -401,7 +414,13 @@ function int(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
     // The argument p points to an int64 variable in which to store the value of the flag.
 **/
 function int64Var(_p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
-        commandLine.var_(_newInt64Value(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Int64 defines an int64 flag with specified name, default value, and usage string.
@@ -415,7 +434,13 @@ function int64(_name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64>
     // The argument p points to a uint variable in which to store the value of the flag.
 **/
 function uintVar(_p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
-        commandLine.var_(_newUintValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Uint defines a uint flag with specified name, default value, and usage string.
@@ -429,7 +454,13 @@ function uint(_name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> {
     // The argument p points to a uint64 variable in which to store the value of the flag.
 **/
 function uint64Var(_p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
-        commandLine.var_(_newUint64Value(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Uint64 defines a uint64 flag with specified name, default value, and usage string.
@@ -443,7 +474,13 @@ function uint64(_name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt
     // The argument p points to a string variable in which to store the value of the flag.
 **/
 function stringVar(_p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
-        commandLine.var_(_newStringValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // String defines a string flag with specified name, default value, and usage string.
@@ -457,7 +494,13 @@ function string(_name:GoString, _value:GoString, _usage:GoString):Pointer<GoStri
     // The argument p points to a float64 variable in which to store the value of the flag.
 **/
 function float64Var(_p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
-        commandLine.var_(_newFloat64Value(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Float64 defines a float64 flag with specified name, default value, and usage string.
@@ -472,7 +515,13 @@ function float64(_name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFl
     // The flag accepts a value acceptable to time.ParseDuration.
 **/
 function durationVar(_p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
-        commandLine.var_(_newDurationValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -490,7 +539,13 @@ function duration(_name:GoString, _value:stdgo.time.Time.Duration, _usage:GoStri
     // The type of the default value must be the same as the type of p.
 **/
 function textVar(_p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void {
-        commandLine.var_(_newTextValue(_value, _p), _name, _usage);
+        commandLine.var_({
+            final __self__ = new T_textValue_wrapper(_newTextValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newTextValue(_value, _p).get() #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newTextValue(_value, _p).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newTextValue(_value, _p).string() #else null #end;
+            __self__;
+        }, _name, _usage);
     }
 /**
     // Func defines a flag with the specified name and usage string.
@@ -799,7 +854,12 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function func( _f:FlagSet, _name:GoString, _usage:GoString, _fn:GoString -> Error):Void {
-        _f.var_(((_fn : T_funcValue)), _name, _usage);
+        _f.var_({
+            final __self__ = new T_funcValue_wrapper(((_fn : T_funcValue)));
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return ((_fn : T_funcValue)).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return ((_fn : T_funcValue)).string() #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // TextVar defines a flag with a specified name, default value, and usage string.
@@ -810,7 +870,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function textVar( _f:FlagSet, _p:stdgo.encoding.Encoding.TextUnmarshaler, _name:GoString, _value:stdgo.encoding.Encoding.TextMarshaler, _usage:GoString):Void {
-        _f.var_(_newTextValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_textValue_wrapper(_newTextValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newTextValue(_value, _p).get() #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newTextValue(_value, _p).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newTextValue(_value, _p).string() #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Duration defines a time.Duration flag with specified name, default value, and usage string.
@@ -830,7 +896,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function durationVar( _f:FlagSet, _p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
-        _f.var_(_newDurationValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Float64 defines a float64 flag with specified name, default value, and usage string.
@@ -848,7 +920,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function float64Var( _f:FlagSet, _p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
-        _f.var_(_newFloat64Value(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // String defines a string flag with specified name, default value, and usage string.
@@ -866,7 +944,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function stringVar( _f:FlagSet, _p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
-        _f.var_(_newStringValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Uint64 defines a uint64 flag with specified name, default value, and usage string.
@@ -884,7 +968,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function uint64Var( _f:FlagSet, _p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
-        _f.var_(_newUint64Value(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Uint defines a uint flag with specified name, default value, and usage string.
@@ -902,7 +992,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function uintVar( _f:FlagSet, _p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
-        _f.var_(_newUintValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Int64 defines an int64 flag with specified name, default value, and usage string.
@@ -920,7 +1016,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function int64Var( _f:FlagSet, _p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
-        _f.var_(_newInt64Value(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Int defines an int flag with specified name, default value, and usage string.
@@ -938,7 +1040,13 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function intVar( _f:FlagSet, _p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
-        _f.var_(_newIntValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Bool defines a bool flag with specified name, default value, and usage string.
@@ -956,7 +1064,14 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function boolVar( _f:FlagSet, _p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
-        _f.var_(_newBoolValue(_value, _p), _name, _usage);
+        _f.var_({
+            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
+            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
+            __self__;
+        }, _name, _usage);
     }
     /**
         // Args returns the non-flag arguments.

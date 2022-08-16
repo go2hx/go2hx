@@ -318,7 +318,12 @@ function exampleTextVar():Void {
     }
 function exampleValue():Void {
         var _fs = stdgo.flag.Flag.newFlagSet(((((("ExampleValue" : GoString))) : GoString)), ((1 : ErrorHandling)));
-        _fs.var_(((new URLValue(_u) : URLValue)), ((((("url" : GoString))) : GoString)), ((((("URL to parse" : GoString))) : GoString)));
+        _fs.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.URLValue_wrapper(((new URLValue(_u) : URLValue)));
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return ((new URLValue(_u) : URLValue)).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return ((new URLValue(_u) : URLValue)).string() #else null #end;
+            __self__;
+        }, ((((("url" : GoString))) : GoString)), ((((("URL to parse" : GoString))) : GoString)));
         _fs.parse(((new Slice<GoString>(((((("-url" : GoString))) : GoString)), ((((("https://golang.org/pkg/flag/" : GoString))) : GoString))) : Slice<GoString>)));
         stdgo.fmt.Fmt.printf((("{scheme: %q, host: %q, path: %q}" : GoString)), Go.toInterface(_u.scheme), Go.toInterface(_u.host), Go.toInterface(_u.path));
     }
@@ -559,7 +564,12 @@ function testUserDefined(_t:stdgo.testing.Testing.T):Void {
         _flags.init(((((("test" : GoString))) : GoString)), ((0 : ErrorHandling)));
         _flags.setOutput(stdgo.io.Io.discard);
         var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
-        _flags.var_(_v, ((((("v" : GoString))) : GoString)), ((((("usage" : GoString))) : GoString)));
+        _flags.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return _v.string() #else null #end;
+            __self__;
+        }, ((((("v" : GoString))) : GoString)), ((((("usage" : GoString))) : GoString)));
         {
             var _err:stdgo.Error = _flags.parse(((new Slice<GoString>(((((("-v" : GoString))) : GoString)), ((((("1" : GoString))) : GoString)), ((((("-v" : GoString))) : GoString)), ((((("2" : GoString))) : GoString)), ((((("-v=3" : GoString))) : GoString))) : Slice<GoString>)));
             if (_err != null) {
@@ -661,7 +671,13 @@ function testUserDefinedBool(_t:stdgo.testing.Testing.T):Void {
         _flags.setOutput(stdgo.io.Io.discard);
         var _b:T_boolFlagVar = new stdgo.flag_test.Flag_test.T_boolFlagVar();
         var _err:Error = ((null : stdgo.Error));
-        _flags.var_(_b, ((((("b" : GoString))) : GoString)), ((((("usage" : GoString))) : GoString)));
+        _flags.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.T_boolFlagVar_wrapper(_b);
+            __self__.isBoolFlag = #if !macro function():Bool return _b.isBoolFlag() #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _b.set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return _b.string() #else null #end;
+            __self__;
+        }, ((((("b" : GoString))) : GoString)), ((((("usage" : GoString))) : GoString)));
         {
             _err = _flags.parse(((new Slice<GoString>(((((("-b" : GoString))) : GoString)), ((((("-b" : GoString))) : GoString)), ((((("-b" : GoString))) : GoString)), ((((("-b=true" : GoString))) : GoString)), ((((("-b=false" : GoString))) : GoString)), ((((("-b" : GoString))) : GoString)), ((((("barg" : GoString))) : GoString)), ((((("-b" : GoString))) : GoString))) : Slice<GoString>)));
             if (_err != null) {
@@ -857,10 +873,25 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
         _fs.string(((((("M" : GoString))) : GoString)), ((((("" : GoString))) : GoString)), ((((("a multiline\nhelp\nstring" : GoString))) : GoString)));
         _fs.int(((((("N" : GoString))) : GoString)), ((27 : GoInt)), ((((("a non-zero int" : GoString))) : GoString)));
         _fs.bool(((((("O" : GoString))) : GoString)), true, ((((("a flag\nmultiline help string" : GoString))) : GoString)));
-        _fs.var_(((new T_flagVar(((((("a" : GoString))) : GoString)), ((((("b" : GoString))) : GoString))) : T_flagVar)), ((((("V" : GoString))) : GoString)), ((((("a `list` of strings" : GoString))) : GoString)));
+        _fs.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(((new T_flagVar(((((("a" : GoString))) : GoString)), ((((("b" : GoString))) : GoString))) : T_flagVar)));
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return ((new T_flagVar(((((("a" : GoString))) : GoString)), ((((("b" : GoString))) : GoString))) : T_flagVar)).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return ((new T_flagVar(((((("a" : GoString))) : GoString)), ((((("b" : GoString))) : GoString))) : T_flagVar)).string() #else null #end;
+            __self__;
+        }, ((((("V" : GoString))) : GoString)), ((((("a `list` of strings" : GoString))) : GoString)));
         _fs.int(((((("Z" : GoString))) : GoString)), ((0 : GoInt)), ((((("an int that defaults to zero" : GoString))) : GoString)));
-        _fs.var_(((new T_zeroPanicker(true, ((((("" : GoString))) : GoString))) : T_zeroPanicker)), ((((("ZP0" : GoString))) : GoString)), ((((("a flag whose String method panics when it is zero" : GoString))) : GoString)));
-        _fs.var_(((new T_zeroPanicker(true, ((((("something" : GoString))) : GoString))) : T_zeroPanicker)), ((((("ZP1" : GoString))) : GoString)), ((((("a flag whose String method panics when it is zero" : GoString))) : GoString)));
+        _fs.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_wrapper(((new T_zeroPanicker(true, ((((("" : GoString))) : GoString))) : T_zeroPanicker)));
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return ((new T_zeroPanicker(true, ((((("" : GoString))) : GoString))) : T_zeroPanicker)).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return ((new T_zeroPanicker(true, ((((("" : GoString))) : GoString))) : T_zeroPanicker)).string() #else null #end;
+            __self__;
+        }, ((((("ZP0" : GoString))) : GoString)), ((((("a flag whose String method panics when it is zero" : GoString))) : GoString)));
+        _fs.var_({
+            final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_wrapper(((new T_zeroPanicker(true, ((((("something" : GoString))) : GoString))) : T_zeroPanicker)));
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return ((new T_zeroPanicker(true, ((((("something" : GoString))) : GoString))) : T_zeroPanicker)).set(__0) #else null #end;
+            __self__.string = #if !macro function():GoString return ((new T_zeroPanicker(true, ((((("something" : GoString))) : GoString))) : T_zeroPanicker)).string() #else null #end;
+            __self__;
+        }, ((((("ZP1" : GoString))) : GoString)), ((((("a flag whose String method panics when it is zero" : GoString))) : GoString)));
         _fs.duration(((((("maxT" : GoString))) : GoString)), ((0 : stdgo.time.Time.Duration)), ((((("set `timeout` for dial" : GoString))) : GoString)));
         _fs.printDefaults();
         var _got:GoString = ((_buf.string() : GoString));
@@ -1299,7 +1330,12 @@ function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
             });
             _mustPanic(_t, _testName, _test._errorMsg, function():Void {
                 var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
-                _fs.var_(_v, _test._flag, ((((("" : GoString))) : GoString)));
+                _fs.var_({
+                    final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+                    __self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
+                    __self__.string = #if !macro function():GoString return _v.string() #else null #end;
+                    __self__;
+                }, _test._flag, ((((("" : GoString))) : GoString)));
             });
             {
                 var _msg:GoString = _test._errorMsg + ((((("\n" : GoString))) : GoString));
@@ -1345,9 +1381,19 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
                 __self__;
             });
             var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
-            _fs.var_(_v, ((((("foo" : GoString))) : GoString)), ((((("" : GoString))) : GoString)));
+            _fs.var_({
+                final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+                __self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
+                __self__.string = #if !macro function():GoString return _v.string() #else null #end;
+                __self__;
+            }, ((((("foo" : GoString))) : GoString)), ((((("" : GoString))) : GoString)));
             _mustPanic(_t, _testName, _test._errorMsg, function():Void {
-                _fs.var_(_v, ((((("foo" : GoString))) : GoString)), ((((("" : GoString))) : GoString)));
+                _fs.var_({
+                    final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+                    __self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
+                    __self__.string = #if !macro function():GoString return _v.string() #else null #end;
+                    __self__;
+                }, ((((("foo" : GoString))) : GoString)), ((((("" : GoString))) : GoString)));
             });
             {
                 var _msg:GoString = _test._errorMsg + ((((("\n" : GoString))) : GoString));
@@ -1362,7 +1408,12 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
             {};
             stdgo.flag.Flag.stringVar(Go.pointer(_gopherType), ((((("gopher_type" : GoString))) : GoString)), ((((("pocket" : GoString))) : GoString)), ((((("the variety of gopher" : GoString))) : GoString)));
             stdgo.flag.Flag.stringVar(Go.pointer(_gopherType), ((((("g" : GoString))) : GoString)), ((((("pocket" : GoString))) : GoString)), ((((("the variety of gopher (shorthand)" : GoString))) : GoString)));
-            stdgo.flag.Flag.var_(_intervalFlag, ((((("deltaT" : GoString))) : GoString)), ((((("comma-separated list of intervals to use between events" : GoString))) : GoString)));
+            stdgo.flag.Flag.var_({
+                final __self__ = new stdgo.flag_test.Flag_test.T_interval_wrapper(_intervalFlag);
+                __self__.set = #if !macro function(__0:GoString):stdgo.Error throw "__return__" #else null #end;
+                __self__.string = #if !macro function():GoString throw "__return__" #else null #end;
+                __self__;
+            }, ((((("deltaT" : GoString))) : GoString)), ((((("comma-separated list of intervals to use between events" : GoString))) : GoString)));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

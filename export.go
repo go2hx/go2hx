@@ -78,7 +78,7 @@ var excludes map[string]bool
 var conf = types.Config{Importer: importer.Default(), FakeImportC: true}
 var checker *types.Checker
 
-//var typeHasher typeutil.Hasher
+// var typeHasher typeutil.Hasher
 var typeMap typeutil.Map
 var typeMapIndex uint32 = 0
 var hashMap map[uint32]map[string]interface{}
@@ -742,7 +742,11 @@ func parseMethods(object types.Type, methodCache *typeutil.MethodSetCache, index
 	return methods
 }
 
-func parseType(node interface{}, marked map[string]bool) map[string]interface{} {
+func parseType(node interface{}, marked2 map[string]bool) map[string]interface{} {
+	marked := make(map[string]bool)
+	for key, value := range marked2 {
+		marked[key] = value
+	}
 	data := make(map[string]interface{})
 	e := reflect.Indirect(reflect.ValueOf(node))
 	if node == nil {
@@ -1023,7 +1027,9 @@ func parseData(node interface{}) map[string]interface{} {
 	}
 	switch node := node.(type) {
 	case *ast.CompositeLit:
-	case *ast.SelectorExpr, *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
+	case *ast.SelectorExpr:
+		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
+	case *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})
 	case *ast.InterfaceType, *ast.MapType, *ast.ArrayType, *ast.ChanType, *ast.FuncType, *ast.StructType:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})

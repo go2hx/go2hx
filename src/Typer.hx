@@ -2388,8 +2388,8 @@ private function typeExprType(expr:Dynamic, info:Info):ComplexType { // get the 
 			throw "Type expr unknown: " + expr.id;
 			null;
 	}
-	if (type == null)
-		throw "Type expr is null: " + expr.id;
+	// if (type == null)
+	//	throw "Type expr is null: " + expr.id;
 	return type;
 } // TYPE EXPR
 
@@ -2899,12 +2899,13 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						var e = args.shift();
 						if (args.length == 0)
 							return returnExpr(e);
-						var eType = getElem(typeof(expr.args[0], info, false));
+						final t = typeof(expr.args[0], info, false);
+						var eType = getElem(t);
 						for (i in 0...args.length - (expr.ellipsis != 0 ? 1 : 0)) {
 							final aType = typeof(expr.args[i + 1], info, false);
 							args[i] = assignTranslate(aType, eType, args[i], info);
 						}
-						final ct = toComplexType(typeof(expr.args[0], info, false), info);
+						final ct = toComplexType(t, info);
 						final p = getTypePath(ct);
 						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new $p($a{args})));
 					case "copy":
@@ -3224,12 +3225,14 @@ private function hashTypeToExprType(e:Ast.Expr, info:Info):Ast.Expr {
 	}
 }
 
-private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
+private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String> = null):GoType {
 	if (e == null)
 		return invalidType;
+	if (paths == null)
+		paths = [];
 	var t = switch e.id {
 		case "HashType":
-			typeof(info.global.hashMap[e.hash], info, isNamed);
+			typeof(info.global.hashMap[e.hash], info, isNamed, paths.copy());
 		case "TypeParam":
 			if (e.constraint != null && e.constraint.embeds == null) {
 				e.constraint = e.constraint.underlying;
@@ -3239,11 +3242,11 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 			} else {
 				final terms:Array<Dynamic> = e.constraint.embeds[0].terms;
 				if (terms == null) {
-					typeof(e.constraint.embeds[0], info, false);
+					typeof(e.constraint.embeds[0], info, false, paths.copy());
 				} else {
 					typeParam(e.name, [
 						for (term in terms) {
-							typeof(term.type, info, false);
+							typeof(term.type, info, false, paths.copy());
 						}
 					]);
 				}
@@ -3251,14 +3254,14 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 		case "Signature":
 			final params = {get: () -> getTuple(hashTypeToExprType(e.params, info), info)};
 			final results = {get: () -> getTuple(hashTypeToExprType(e.results, info), info)};
-			final recv = {get: () -> typeof(e.recv, info, false)};
+			final recv = {get: () -> typeof(e.recv, info, false, paths.copy())};
 			final sigTypeParams:Array<Dynamic> = e.typeParams;
 			final typeParams = {
 				get: () -> {
 					final typeParams = [];
 					if (sigTypeParams != null && sigTypeParams.length > 0) {
 						for (param in sigTypeParams) {
-							typeParams.push(typeof(param, info, false));
+							typeParams.push(typeof(param, info, false, paths.copy()));
 						}
 					}
 					typeParams;
@@ -3271,33 +3274,38 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 				trace("null named path: " + e);
 				throw path;
 			}
-			final underlying = {
-				if (e.hash == null) {
-					invalidType;
-				} else if (info.locals.exists(e.hash)) {
-					getLocalType(e.hash, null, info);
-				} else if (info.localUnderlyingNames.exists(path)) {
-					info.localUnderlyingNames[path];
-				} else {
-					typeof(e.underlying, info, true);
-				}
-			};
+			var underlying = invalidType;
 			final methods:Array<MethodType> = [];
-			if (e.methods != null) {
-				for (method in (e.methods : Array<Dynamic>)) {
-					final recv = method.recv;
-					final type = method.type;
-					methods.push({
-						name: method.name,
-						type: {get: () -> typeof(type, info, false)},
-						recv: {get: () -> typeof(recv, info, false)},
-					});
-				}
-			}
 			final params:Array<GoType> = [];
-			if (e.params != null && e.params.length > 0) {
-				for (param in (e.params : Array<Dynamic>)) {
-					params.push(typeof(param, info, false));
+			if (!paths.contains(path)) {
+				paths.push(path);
+				underlying = {
+					if (e.hash == null) {
+						invalidType;
+					} else if (info.locals.exists(e.hash)) {
+						getLocalType(e.hash, null, info);
+					} else if (info.localUnderlyingNames.exists(path)) {
+						info.localUnderlyingNames[path];
+					} else {
+						typeof(e.underlying, info, true, paths.copy());
+					}
+				};
+
+				if (e.methods != null) {
+					for (method in (e.methods : Array<Dynamic>)) {
+						final recv = method.recv;
+						final type = method.type;
+						methods.push({
+							name: method.name,
+							type: {get: () -> typeof(type, info, false, paths.copy())},
+							recv: {get: () -> typeof(recv, info, false, paths.copy())},
+						});
+					}
+				}
+				if (e.params != null && e.params.length > 0) {
+					for (param in (e.params : Array<Dynamic>)) {
+						params.push(typeof(param, info, false, paths.copy()));
+					}
 				}
 			}
 			named(path, methods, underlying, e.alias, params);
@@ -3309,36 +3317,36 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 			}
 		case "Tuple":
 			if (e.len > 1) {
-				tuple(e.len, [for (v in (e.vars : Array<Dynamic>)) typeof(v, info, false)]);
+				tuple(e.len, [for (v in (e.vars : Array<Dynamic>)) typeof(v, info, false, paths.copy())]);
 			} else {
-				typeof(e.vars[0], info, false);
+				typeof(e.vars[0], info, false, paths.copy());
 			}
 		case "Var":
 			if (e.name == "_" || e.name == "")
-				return typeof(e.type, info, false);
-			_var(e.name, typeof(e.type, info, false));
+				return typeof(e.type, info, false, paths.copy());
+			_var(e.name, typeof(e.type, info, false, paths.copy()));
 		case "Interface":
 			if (e.embeds.length == 1 && e.embeds[0].id == "Union") {
-				typeof(e.embeds[0], info, false);
+				typeof(e.embeds[0], info, false, paths.copy());
 			} else {
 				final underlying = interfaceType(e.empty, e.path);
 				final t = getLocalType(e.hash, underlying, info);
 				t;
 			}
 		case "Slice":
-			sliceType({get: () -> typeof(e.elem, info, false)});
+			sliceType({get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Array":
-			arrayType({get: () -> typeof(e.elem, info, false)}, e.len);
+			arrayType({get: () -> typeof(e.elem, info, false, paths.copy())}, e.len);
 		case "Pointer":
-			pointer(typeof(e.elem, info, false));
+			pointer(typeof(e.elem, info, false, paths.copy()));
 		case "Map":
-			mapType({get: () -> typeof(e.key, info, false)}, {get: () -> typeof(e.elem, info, false)});
+			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.elem, info, false, paths.copy())});
 		case "Struct":
 			var t:GoType = structType([
 				for (field in (e.fields : Array<Dynamic>))
 					{
 						name: field.name,
-						type: typeof(field.type, info, false),
+						type: typeof(field.type, info, false, paths.copy()),
 						embedded: field.embedded,
 						tag: field.tag == null ? "" : field.tag,
 					}
@@ -3349,12 +3357,12 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 			}
 			t;
 		case "Chan":
-			chanType(e.dir, {get: () -> typeof(e.elem, info, false)});
+			chanType(e.dir, {get: () -> typeof(e.elem, info, false, paths.copy())});
 		case null:
 			return invalidType;
 		case "CallExpr":
 			var e:Ast.CallExpr = e;
-			var type = typeof(e.type, info, false);
+			var type = typeof(e.type, info, false, paths.copy());
 			switch type {
 				case signature(variadic, params, _.get() => results, recv):
 					return results[0];
@@ -3375,73 +3383,73 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool):GoType {
 				}
 				basic(kind);
 			} else {
-				typeof(e.type, info, false);
+				typeof(e.type, info, false, paths.copy());
 			}
 		case "Ident":
 			var e:Ast.Ident = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "CompositeLit":
 			var e:Ast.CompositeLit = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "IndexListExpr":
 			var e:Ast.IndexListExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 
 		case "BinaryExpr":
 			var e:Ast.BinaryExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "StarExpr":
 			var e:Ast.StarExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "UnaryExpr":
 			var e:Ast.UnaryExpr = e;
 			switch e.op {
 				case ARROW:
-					getElem(typeof(e.x, info, false));
+					getElem(typeof(e.x, info, false, paths.copy()));
 				case AND:
-					pointer(typeof(e.x, info, false));
+					pointer(typeof(e.x, info, false, paths.copy()));
 				default:
-					typeof(e.x, info, false);
+					typeof(e.x, info, false, paths.copy());
 			}
 		case "TypeAssertExpr":
 			var e:Ast.TypeAssertExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "FuncLit":
 			var e:Ast.FuncLit = e;
-			typeof(e.type.type, info, false);
+			typeof(e.type.type, info, false, paths.copy());
 		case "KeyValueExpr":
 			var e:Ast.KeyValueExpr = e;
-			mapType({get: () -> typeof(e.key, info, false)}, {get: () -> typeof(e.value, info, false)});
+			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.value, info, false, paths.copy())});
 		case "SliceExpr":
 			var e:Ast.SliceExpr = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "ParenExpr":
 			var e:Ast.ParenExpr = e;
-			typeof(e.x, info, false);
+			typeof(e.x, info, false, paths.copy());
 		case "InterfaceType":
 			var e:Ast.InterfaceType = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "ArrayType":
 			var e:Ast.ArrayType = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "MapType":
 			var e:Ast.MapType = e;
-			mapType({get: () -> typeof(e.key, info, false)}, {get: () -> typeof(e.value, info, false)});
+			mapType({get: () -> typeof(e.key, info, false, paths.copy())}, {get: () -> typeof(e.value, info, false, paths.copy())});
 		case "ChanType":
 			var e:Ast.ChanType = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "StructType":
 			var e:Ast.StructType = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		case "FuncType":
 			var e:Ast.FuncType = e;
-			typeof(e.type, info, false);
+			typeof(e.type, info, false, paths.copy());
 		default:
 			throw "unknown typeof expr: " + e.id;
 	}

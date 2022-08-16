@@ -65,7 +65,7 @@ class Go {
 		final e = macro new stdgo.GoMap<$keyType, $valueType>();
 		final t = gtDecode(Context.typeof(e), e, []);
 		final e = macro {
-			var x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t));
+			final x = new stdgo.GoMap.GoObjectMap<$keyType, $valueType>(new stdgo.reflect.Reflect._Type($t));
 			@:privateAccess x._keys = $a{keys};
 			@:privateAccess x._values = $a{values};
 			x;
@@ -966,7 +966,8 @@ class Go {
 			case TEnum(_, _):
 				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 			case TAnonymous(a):
-				Context.error('reflect.cast_AnyInterface - unhandled anon type $t', Context.currentPos());
+				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
+			// xContext.error('reflect.cast_AnyInterface - unhandled anon type $t', Context.currentPos());
 			default:
 				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());
 		}

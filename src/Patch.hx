@@ -85,8 +85,8 @@ final list = [
 		_localLoc._zone = new Slice<T_zone>(...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
 	},
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
-	"math:log" => macro std.Math.log(_x.toBasic()),
-	"math:pow" => macro std.Math.pow(_x.toBasic(), _y.toBasic()),
+	"math:log" => macro return std.Math.log(_x.toBasic()),
+	"math:pow" => macro return std.Math.pow(_x.toBasic(), _y.toBasic()),
 	"math:mod" => macro return _x.toBasic() % _y.toBasic(),
 	"math:float64bits" => macro {
 		final bits = haxe.io.Bytes.alloc(8);
@@ -126,7 +126,7 @@ final list = [
 	"math:signbit" => macro {
 		if (std.Math.isNaN(_x.toBasic()))
 			return false;
-		return _signbit(_x);
+		return (float64bits(_x) & (((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt)))) != ((0 : GoUInt64));
 	},
 	"math:inf" => macro {
 		if (_sign >= 0)
@@ -137,22 +137,21 @@ final list = [
 	"math:isNaN" => macro return std.Math.isNaN(_f.toBasic()),
 	"math:abs" => macro return std.Math.abs(_f.toBasic()),
 	"math:floor" => macro {
-		if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic()))
-			return _f;
-		return std.Math.ffloor(_f.toBasic());
+		if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic()))
+			return _x;
+		return std.Math.ffloor(_x.toBasic());
 	},
 	"math:ceil" => macro {
-		if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic())) // special cases
-			return _f;
-		if (_f == 0.0 && _signbit(_f))
+		if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic())) // special cases
+			return _x;
+		if (_x == 0.0 && signbit(_x))
 			return negZero();
-		if (_f > -1.0 && _f < 0.0) {
+		if (_x > -1.0 && _x < 0.0) {
 			//-0.0
 			return negZero();
 		}
 		return std.Math.ceil(_f.toBasic());
 	},
-	"math:_signbit" => macro return (float64bits(_x) & (((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt)))) != ((0 : GoUInt64)),
 	"math:negZero" => macro {
 		final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
 		final _x:GoFloat = 0;
@@ -165,7 +164,7 @@ final list = [
 		// special cases
 		if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic()))
 			return inf(-1);
-		if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x))
+		if (_x == 0.0 && signbit(_x) && !isNaN(_y) || _y == 0.0 && signbit(_y) && !isNaN(_x))
 			return negZero();
 		if (isNaN(_x) || isNaN(_y))
 			return naN();
@@ -175,7 +174,7 @@ final list = [
 		// special cases
 		if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic()))
 			return inf(1);
-		if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x))
+		if (_x == 0.0 && !signbit(_x) && !isNaN(_y) || _y == 0.0 && !signbit(_y) && !isNaN(_x))
 			return 0.0;
 		if (isNaN(_x) || isNaN(_y))
 			return naN();

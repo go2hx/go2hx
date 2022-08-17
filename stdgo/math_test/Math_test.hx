@@ -36,13 +36,13 @@ var _fabs : Slice<GoFloat64> = ((new Slice<GoFloat64>(((4.9790119248836735 : GoF
 var _fdim : Slice<GoFloat64> = ((new Slice<GoFloat64>(((4.9790119248836735 : GoFloat64)), ((7.738872474578105 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64)), ((9.636293707198417 : GoFloat64)), ((2.9263772392439646 : GoFloat64)), ((5.229083431459307 : GoFloat64)), ((2.7279399104360103 : GoFloat64)), ((1.825308091680855 : GoFloat64)), ((0 : GoFloat64))) : Slice<GoFloat64>));
 var _floor : Slice<GoFloat64> = ((new Slice<GoFloat64>(((4 : GoFloat64)), ((7 : GoFloat64)), ((-1 : GoFloat64)), ((-6 : GoFloat64)), ((9 : GoFloat64)), ((2 : GoFloat64)), ((5 : GoFloat64)), ((2 : GoFloat64)), ((1 : GoFloat64)), ((-9 : GoFloat64))) : Slice<GoFloat64>));
 var _fmod : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0.041976150232653 : GoFloat64)), ((2.2611275254218954 : GoFloat64)), ((0.032317941087942614 : GoFloat64)), ((4.989396381728925 : GoFloat64)), ((0.3637062928015826 : GoFloat64)), ((1.220868282268106 : GoFloat64)), ((4.770916568540693 : GoFloat64)), ((1.8161802686919692 : GoFloat64)), ((0.8734595415957247 : GoFloat64)), ((1.3140752314243986 : GoFloat64))) : Slice<GoFloat64>));
-var _frexp : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(((0.6223764906104592 : GoFloat64)), ((3 : GoInt))) : T_fi)), ((new T_fi(((0.9673590593222631 : GoFloat64)), ((3 : GoInt))) : T_fi)), ((new T_fi(((-0.5537601143840032 : GoFloat64)), ((-1 : GoInt))) : T_fi)), ((new T_fi(((-0.6263254522838844 : GoFloat64)), ((3 : GoInt))) : T_fi)), ((new T_fi(((0.6022683566999011 : GoFloat64)), ((4 : GoInt))) : T_fi)), ((new T_fi(((0.7315943098109912 : GoFloat64)), ((2 : GoInt))) : T_fi)), ((new T_fi(((0.6536354289324133 : GoFloat64)), ((3 : GoInt))) : T_fi)), ((new T_fi(((0.6819849776090026 : GoFloat64)), ((2 : GoInt))) : T_fi)), ((new T_fi(((0.9126540458404275 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((-0.5428702980359751 : GoFloat64)), ((4 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _frexp : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(((0.6223764906104592 : GoFloat64)), ((3 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.9673590593222631 : GoFloat64)), ((3 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.5537601143840032 : GoFloat64)), ((-1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.6263254522838844 : GoFloat64)), ((3 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.6022683566999011 : GoFloat64)), ((4 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.7315943098109912 : GoFloat64)), ((2 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.6536354289324133 : GoFloat64)), ((3 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.6819849776090026 : GoFloat64)), ((2 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.9126540458404275 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.5428702980359751 : GoFloat64)), ((4 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _gamma : Slice<GoFloat64> = ((new Slice<GoFloat64>(((23.254348370739965 : GoFloat64)), ((2991.153837155317 : GoFloat64)), ((-4.561154336726758 : GoFloat64)), ((0.7719403468842639 : GoFloat64)), ((161118.76618855417 : GoFloat64)), ((1.8706575145216422 : GoFloat64)), ((34.0827874472575 : GoFloat64)), ((1.5797339514489521 : GoFloat64)), ((0.938345865983546 : GoFloat64)), ((-2.0939959029231484e-05 : GoFloat64))) : Slice<GoFloat64>));
 var _j0 : Slice<GoFloat64> = ((new Slice<GoFloat64>(((-0.18444682230601672 : GoFloat64)), ((0.22735366890633196 : GoFloat64)), ((0.9809259936157051 : GoFloat64)), ((-0.17411701314262265 : GoFloat64)), ((-0.21389448451144144 : GoFloat64)), ((-0.23409058489280388 : GoFloat64)), ((-0.10029099691890912 : GoFloat64)), ((-0.15466726714884327 : GoFloat64)), ((0.32526501876534203 : GoFloat64)), ((-0.008722184844094073 : GoFloat64))) : Slice<GoFloat64>));
 var _j1 : Slice<GoFloat64> = ((new Slice<GoFloat64>(((-0.32515263952952034 : GoFloat64)), ((0.18935817114305156 : GoFloat64)), ((-0.13711761352467242 : GoFloat64)), ((0.3287486536269617 : GoFloat64)), ((0.13133899188830978 : GoFloat64)), ((0.3660243417832987 : GoFloat64)), ((-0.3443676927184817 : GoFloat64)), ((0.43294813966407736 : GoFloat64)), ((0.5818135053195479 : GoFloat64)), ((-0.27030574577733035 : GoFloat64))) : Slice<GoFloat64>));
 var _j2 : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0.0538375189201378 : GoFloat64)), ((-0.17841678003393208 : GoFloat64)), ((0.009521746934916465 : GoFloat64)), ((0.04289583554709874 : GoFloat64)), ((0.24115371837854493 : GoFloat64)), ((0.484245853239452 : GoFloat64)), ((-0.031421452206186334 : GoFloat64)), ((0.47208491847451245 : GoFloat64)), ((0.3122312022520957 : GoFloat64)), ((0.07096213118930231 : GoFloat64))) : Slice<GoFloat64>));
 var _jM3 : Slice<GoFloat64> = ((new Slice<GoFloat64>(((-0.3684042080996403 : GoFloat64)), ((0.28157665936340887 : GoFloat64)), ((0.00044010054808419485 : GoFloat64)), ((0.3629926999056814 : GoFloat64)), ((0.031236721988254553 : GoFloat64)), ((-0.2958805510589624 : GoFloat64)), ((-0.3203317769653323 : GoFloat64)), ((-0.2592737332129663 : GoFloat64)), ((-0.10241334641061485 : GoFloat64)), ((-0.23762660886100206 : GoFloat64))) : Slice<GoFloat64>));
-var _lgamma : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(((3.1464921412445457 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((8.003414490659127 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((1.5175757355097796 : GoFloat64)), ((-1 : GoInt))) : T_fi)), ((new T_fi(((-0.2588480028182146 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((11.989897050205554 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((0.6262899811091257 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((3.5287924899091565 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((0.45725644770161183 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((-0.06363667087767962 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((-10.773851309103001 : GoFloat64)), ((-1 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _lgamma : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(((3.1464921412445457 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((8.003414490659127 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1.5175757355097796 : GoFloat64)), ((-1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.2588480028182146 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((11.989897050205554 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.6262899811091257 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((3.5287924899091565 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.45725644770161183 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.06363667087767962 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-10.773851309103001 : GoFloat64)), ((-1 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _log : Slice<GoFloat64> = ((new Slice<GoFloat64>(((1.605231462693063 : GoFloat64)), ((2.046256001870877 : GoFloat64)), ((-1.2841708730962658 : GoFloat64)), ((1.6115563905281545 : GoFloat64)), ((2.265536564487202 : GoFloat64)), ((1.073765220891838 : GoFloat64)), ((1.6542360106073546 : GoFloat64)), ((1.0035467127723465 : GoFloat64)), ((0.6017487901457805 : GoFloat64)), ((2.1617038728473528 : GoFloat64))) : Slice<GoFloat64>));
 var _logb : Slice<GoFloat64> = ((new Slice<GoFloat64>(((2 : GoFloat64)), ((2 : GoFloat64)), ((-2 : GoFloat64)), ((2 : GoFloat64)), ((3 : GoFloat64)), ((1 : GoFloat64)), ((2 : GoFloat64)), ((1 : GoFloat64)), ((0 : GoFloat64)), ((3 : GoFloat64))) : Slice<GoFloat64>));
 var _log10 : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0.6971431664250829 : GoFloat64)), ((0.8886776901739321 : GoFloat64)), ((-0.5577083240065893 : GoFloat64)), ((0.6998900476822995 : GoFloat64)), ((0.9839100285068423 : GoFloat64)), ((0.4663303102929515 : GoFloat64)), ((0.7184255711724233 : GoFloat64)), ((0.4358347996891777 : GoFloat64)), ((0.26133617905227036 : GoFloat64)), ((0.938816063486494 : GoFloat64))) : Slice<GoFloat64>));
@@ -355,7 +355,7 @@ naN(),
 naN(),
 naN()) : Slice<GoFloat64>));
 var _vffrexpSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(inf(((-1 : GoInt))), copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoFloat64)), inf(((1 : GoInt))), naN()) : Slice<GoFloat64>));
-var _frexpSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(inf(((-1 : GoInt))), ((0 : GoInt))) : T_fi)), ((new T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoInt))) : T_fi)), ((new T_fi(((0 : GoFloat64)), ((0 : GoInt))) : T_fi)), ((new T_fi(inf(((1 : GoInt))), ((0 : GoInt))) : T_fi)), ((new T_fi(naN(), ((0 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _frexpSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(inf(((-1 : GoInt))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(naN(), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _vfgamma : Slice<GoArray<GoFloat64>> = ((new Slice<GoArray<GoFloat64>>(
 ((new GoArray<GoFloat64>(inf(((1 : GoInt))), inf(((1 : GoInt)))) : GoArray<GoFloat64>)),
 ((new GoArray<GoFloat64>(inf(((-1 : GoInt))), naN()) : GoArray<GoFloat64>)),
@@ -474,20 +474,20 @@ var _j0SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0 : GoFloat64)), ((1 : G
 var _j1SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64)), naN()) : Slice<GoFloat64>));
 var _j2SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64)), naN()) : Slice<GoFloat64>));
 var _jM3SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((0 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64)), naN()) : Slice<GoFloat64>));
-var _vfldexpSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(
-((new T_fi(((0 : GoFloat64)), ((0 : GoInt))) : T_fi)),
-((new T_fi(((0 : GoFloat64)), ((-1075 : GoInt))) : T_fi)),
-((new T_fi(((0 : GoFloat64)), ((1024 : GoInt))) : T_fi)),
-((new T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoInt))) : T_fi)),
-((new T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((-1075 : GoInt))) : T_fi)),
-((new T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((1024 : GoInt))) : T_fi)),
-((new T_fi(inf(((1 : GoInt))), ((0 : GoInt))) : T_fi)),
-((new T_fi(inf(((1 : GoInt))), ((-1024 : GoInt))) : T_fi)),
-((new T_fi(inf(((-1 : GoInt))), ((0 : GoInt))) : T_fi)),
-((new T_fi(inf(((-1 : GoInt))), ((-1024 : GoInt))) : T_fi)),
-((new T_fi(naN(), ((-1024 : GoInt))) : T_fi)),
-((new T_fi(((10 : GoFloat64)), ((16777216 : GoInt))) : T_fi)),
-((new T_fi(((10 : GoFloat64)), ((-16777216 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _vfldexpSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(
+((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((-1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(inf(((-1 : GoInt))), ((0 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(inf(((-1 : GoInt))), ((-1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(naN(), ((-1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(((10 : GoFloat64)), ((16777216 : GoInt))) : stdgo.math_test.Math_test.T_fi)),
+((new stdgo.math_test.Math_test.T_fi(((10 : GoFloat64)), ((-16777216 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _ldexpSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(
 ((0 : GoFloat64)),
 ((0 : GoFloat64)),
@@ -503,7 +503,7 @@ naN(),
 inf(((1 : GoInt))),
 ((0 : GoFloat64))) : Slice<GoFloat64>));
 var _vflgammaSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(inf(((-1 : GoInt))), ((-3 : GoFloat64)), ((0 : GoFloat64)), ((1 : GoFloat64)), ((2 : GoFloat64)), inf(((1 : GoInt))), naN()) : Slice<GoFloat64>));
-var _lgammaSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(inf(((-1 : GoInt))), ((1 : GoInt))) : T_fi)), ((new T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : T_fi)), ((new T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : T_fi)), ((new T_fi(((0 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(((0 : GoFloat64)), ((1 : GoInt))) : T_fi)), ((new T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : T_fi)), ((new T_fi(naN(), ((1 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _lgammaSC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(inf(((-1 : GoInt))), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0 : GoFloat64)), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(inf(((1 : GoInt))), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(naN(), ((1 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _vflogSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(inf(((-1 : GoInt))), ((-3.141592653589793 : GoFloat64)), copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), ((0 : GoFloat64)), ((1 : GoFloat64)), inf(((1 : GoInt))), naN()) : Slice<GoFloat64>));
 var _logSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(naN(), naN(), inf(((-1 : GoInt))), inf(((-1 : GoInt))), ((0 : GoFloat64)), inf(((1 : GoInt))), naN()) : Slice<GoFloat64>));
 var _vflogbSC : Slice<GoFloat64> = ((new Slice<GoFloat64>(inf(((-1 : GoInt))), ((0 : GoFloat64)), inf(((1 : GoInt))), naN()) : Slice<GoFloat64>));
@@ -736,50 +736,50 @@ var _y1SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(naN(), inf(((-1 : GoInt)))
 var _y2SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(naN(), inf(((-1 : GoInt))), ((0 : GoFloat64)), naN(), naN()) : Slice<GoFloat64>));
 var _yM3SC : Slice<GoFloat64> = ((new Slice<GoFloat64>(naN(), inf(((1 : GoInt))), ((0 : GoFloat64)), naN(), naN()) : Slice<GoFloat64>));
 var _vffrexpBC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((2.2250738585072014e-308 : GoFloat64)), ((2.225073858507201e-308 : GoFloat64)), ((5e-324 : GoFloat64)), ((1.7976931348623157e+308 : GoFloat64)), ((-2.2250738585072014e-308 : GoFloat64)), ((-2.225073858507201e-308 : GoFloat64)), ((-5e-324 : GoFloat64)), ((-1.7976931348623157e+308 : GoFloat64))) : Slice<GoFloat64>));
-var _frexpBC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(((0.5 : GoFloat64)), ((-1021 : GoInt))) : T_fi)), ((new T_fi(((0.9999999999999998 : GoFloat64)), ((-1022 : GoInt))) : T_fi)), ((new T_fi(((0.5 : GoFloat64)), ((-1073 : GoInt))) : T_fi)), ((new T_fi(((0.9999999999999999 : GoFloat64)), ((1024 : GoInt))) : T_fi)), ((new T_fi(((-0.5 : GoFloat64)), ((-1021 : GoInt))) : T_fi)), ((new T_fi(((-0.9999999999999998 : GoFloat64)), ((-1022 : GoInt))) : T_fi)), ((new T_fi(((-0.5 : GoFloat64)), ((-1073 : GoInt))) : T_fi)), ((new T_fi(((-0.9999999999999999 : GoFloat64)), ((1024 : GoInt))) : T_fi))) : Slice<T_fi>));
-var _vfldexpBC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<T_fi>(((new T_fi(((2.2250738585072014e-308 : GoFloat64)), ((-52 : GoInt))) : T_fi)), ((new T_fi(((2.225073858507201e-308 : GoFloat64)), ((-51 : GoInt))) : T_fi)), ((new T_fi(((5e-324 : GoFloat64)), ((1074 : GoInt))) : T_fi)), ((new T_fi(((1.7976931348623157e+308 : GoFloat64)), ((-2097 : GoInt))) : T_fi)), ((new T_fi(((1 : GoFloat64)), ((-1075 : GoInt))) : T_fi)), ((new T_fi(((-1 : GoFloat64)), ((-1075 : GoInt))) : T_fi)), ((new T_fi(((1 : GoFloat64)), ((1024 : GoInt))) : T_fi)), ((new T_fi(((-1 : GoFloat64)), ((1024 : GoInt))) : T_fi)), ((new T_fi(((1.0000000000000002 : GoFloat64)), ((-1075 : GoInt))) : T_fi)), ((new T_fi(((1 : GoFloat64)), ((-1075 : GoInt))) : T_fi))) : Slice<T_fi>));
+var _frexpBC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(((0.5 : GoFloat64)), ((-1021 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.9999999999999998 : GoFloat64)), ((-1022 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.5 : GoFloat64)), ((-1073 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((0.9999999999999999 : GoFloat64)), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.5 : GoFloat64)), ((-1021 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.9999999999999998 : GoFloat64)), ((-1022 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.5 : GoFloat64)), ((-1073 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-0.9999999999999999 : GoFloat64)), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
+var _vfldexpBC : Slice<stdgo.math_test.Math_test.T_fi> = ((new Slice<stdgo.math_test.Math_test.T_fi>(((new stdgo.math_test.Math_test.T_fi(((2.2250738585072014e-308 : GoFloat64)), ((-52 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((2.225073858507201e-308 : GoFloat64)), ((-51 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((5e-324 : GoFloat64)), ((1074 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1.7976931348623157e+308 : GoFloat64)), ((-2097 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1 : GoFloat64)), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-1 : GoFloat64)), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1 : GoFloat64)), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((-1 : GoFloat64)), ((1024 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1.0000000000000002 : GoFloat64)), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi)), ((new stdgo.math_test.Math_test.T_fi(((1 : GoFloat64)), ((-1075 : GoInt))) : stdgo.math_test.Math_test.T_fi))) : Slice<stdgo.math_test.Math_test.T_fi>));
 var _ldexpBC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((5e-324 : GoFloat64)), ((1e-323 : GoFloat64)), ((1 : GoFloat64)), ((1e-323 : GoFloat64)), ((0 : GoFloat64)), copysign(((0 : GoFloat64)), ((-1 : GoFloat64))), inf(((1 : GoInt))), inf(((-1 : GoInt))), ((5e-324 : GoFloat64)), ((0 : GoFloat64))) : Slice<GoFloat64>));
 var _logbBC : Slice<GoFloat64> = ((new Slice<GoFloat64>(((-1022 : GoFloat64)), ((-1023 : GoFloat64)), ((-1074 : GoFloat64)), ((1023 : GoFloat64)), ((-1022 : GoFloat64)), ((-1023 : GoFloat64)), ((-1074 : GoFloat64)), ((1023 : GoFloat64))) : Slice<GoFloat64>));
-var _fmaC : Slice<stdgo.math_test.Math_test.T__struct_0> = ((new Slice<T__struct_0>(
-((new T__struct_0(((-3.999999999999087 : GoFloat64)), ((-1.1123914289620494e-16 : GoFloat64)), ((-7.999877929687506 : GoFloat64)), ((-7.999877929687505 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-262112.0000004768 : GoFloat64)), ((-0.06251525855623184 : GoFloat64)), ((1.1102230248837136e-16 : GoFloat64)), ((16385.99945072085 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-6.462348523533467e-27 : GoFloat64)), ((-2.3763644720331857e-211 : GoFloat64)), ((4.000000000931324 : GoFloat64)), ((4.000000000931324 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-2.0000000037252907 : GoFloat64)), ((6.7904383376e-313 : GoFloat64)), ((-3.3951933161e-313 : GoFloat64)), ((-1.697607001654e-312 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-0.12499999999999999 : GoFloat64)), ((512.007568359375 : GoFloat64)), ((-1.4193627164960366e-16 : GoFloat64)), ((-64.00094604492188 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-2.7550648847397148e-39 : GoFloat64)), ((-3.4028301595800694e+38 : GoFloat64)), ((0.9960937495343386 : GoFloat64)), ((1.9335955376735676 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((5.723369164769208e+24 : GoFloat64)), ((3.8149300927159385e-06 : GoFloat64)), ((1.84489958778182e+19 : GoFloat64)), ((4.028324913621874e+19 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-0.4843749999990904 : GoFloat64)), ((-3.6893487872543293e+19 : GoFloat64)), ((9.223653786709391e+18 : GoFloat64)), ((2.7093936974938993e+19 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-3.8146972665201165e-06 : GoFloat64)), ((4.2949672959999385e+09 : GoFloat64)), ((-2.2204460489938386e-16 : GoFloat64)), ((-16384.000003844263 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((6.98156394130982e-309 : GoFloat64)), ((-1.1072962560000002e+09 : GoFloat64)), ((-4.4414561548793455e-308 : GoFloat64)), ((-7.73065965765153e-300 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((5e-324 : GoFloat64)), ((4.5 : GoFloat64)), ((-2e-323 : GoFloat64)), ((0 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((5e-324 : GoFloat64)), ((7 : GoFloat64)), ((-3.5e-323 : GoFloat64)), ((0 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((5e-324 : GoFloat64)), ((0.5000000000000001 : GoFloat64)), ((-5e-324 : GoFloat64)), copysign(((0 : GoFloat64)), ((-1 : GoFloat64)))) : T__struct_0)),
-((new T__struct_0(((-2.1240680525e-314 : GoFloat64)), ((-1.233647078189316e+308 : GoFloat64)), ((-0.25781249999954525 : GoFloat64)), ((-0.25780987964919844 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((8.579992955364441e-308 : GoFloat64)), ((0.6037391876780558 : GoFloat64)), ((-4.4501307410480706e-308 : GoFloat64)), ((7.29947236107098e-309 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-4.450143471986689e-308 : GoFloat64)), ((-0.9960937499927239 : GoFloat64)), ((-4.450419332475649e-308 : GoFloat64)), ((-1.7659233458788e-310 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((1.4932076393918112 : GoFloat64)), ((-2.2248022430460833e-308 : GoFloat64)), ((4.449875571054211e-308 : GoFloat64)), ((1.127783865601762e-308 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-2.288020632214759e+38 : GoFloat64)), ((-8.98846570988901e+307 : GoFloat64)), ((1.7696041796300924e+308 : GoFloat64)), inf(((0 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((1.4888652783208255e+308 : GoFloat64)), ((-9.007199254742012e+15 : GoFloat64)), ((-6.807282911929205e+38 : GoFloat64)), inf(((-1 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((9.142703268902826e+192 : GoFloat64)), ((-1.3504889569802838e+296 : GoFloat64)), ((-1.9082200803806996e-89 : GoFloat64)), inf(((-1 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((31.99218749627471 : GoFloat64)), ((-1.7976930544991702e+308 : GoFloat64)), inf(((0 : GoInt))), inf(((0 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((-1.7976931281784667e+308 : GoFloat64)), ((-2.0009765625002265 : GoFloat64)), inf(((-1 : GoInt))), inf(((-1 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((0 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64)), ((0 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-1.1754226043408471e-38 : GoFloat64)), naN(), inf(((0 : GoInt))), naN()) : T__struct_0)),
-((new T__struct_0(((0 : GoFloat64)), ((0 : GoFloat64)), ((2.22507385643494e-308 : GoFloat64)), ((2.22507385643494e-308 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-8.65697792e+09 : GoFloat64)), naN(), ((-7.516192799999999e+09 : GoFloat64)), naN()) : T__struct_0)),
-((new T__struct_0(((-0.00012207403779029757 : GoFloat64)), ((3.221225471996093e+09 : GoFloat64)), naN(), naN()) : T__struct_0)),
-((new T__struct_0(inf(((-1 : GoInt))), ((0.1252441407414153 : GoFloat64)), ((-1.387184532981584e-76 : GoFloat64)), inf(((-1 : GoInt)))) : T__struct_0)),
-((new T__struct_0(inf(((0 : GoInt))), ((1.525878907671432e-05 : GoFloat64)), ((-9.214364835452549e+18 : GoFloat64)), inf(((0 : GoInt)))) : T__struct_0)),
-((new T__struct_0(((0.1777916152213626 : GoFloat64)), ((-32.000015266239636 : GoFloat64)), ((-2.2204459148334633e-16 : GoFloat64)), ((-5.689334401293007 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-2.0816681711722314e-16 : GoFloat64)), ((-0.4997558592585846 : GoFloat64)), ((-0.9465627129124969 : GoFloat64)), ((-0.9465627129124968 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-1.9999997615814211 : GoFloat64)), ((1.8518819259933516e+19 : GoFloat64)), ((16.874999999999996 : GoFloat64)), ((-3.703763410463646e+19 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-0.12499994039717421 : GoFloat64)), ((32767.99999976135 : GoFloat64)), ((-2.0752587082923246e+19 : GoFloat64)), ((-2.075258708292325e+19 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((7.705600568510257e-34 : GoFloat64)), ((-1.801432979000528e+16 : GoFloat64)), ((-0.17224197722973714 : GoFloat64)), ((-0.17224197722973716 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((3.8988133103758913e-308 : GoFloat64)), ((-0.9848632812499999 : GoFloat64)), ((3.893879244098556e-308 : GoFloat64)), ((5.40811742605814e-310 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-0.012651981190687427 : GoFloat64)), ((6.911985574912436e+38 : GoFloat64)), ((6.669240527007144e+18 : GoFloat64)), ((-8.745031148409496e+36 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((4.612811918325842e+18 : GoFloat64)), ((1.4901161193847641e-08 : GoFloat64)), ((2.6077032311277997e-08 : GoFloat64)), ((6.873625395187494e+10 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-9.094947033611148e-13 : GoFloat64)), ((4.450691014249257e-308 : GoFloat64)), ((2.086006742350485e-308 : GoFloat64)), ((2.086006742346437e-308 : GoFloat64))) : T__struct_0)),
-((new T__struct_0(((-7.751454006381804e-05 : GoFloat64)), ((5.588653777189071e-308 : GoFloat64)), ((-2.2207280111272877e-308 : GoFloat64)), ((-2.2211612130544025e-308 : GoFloat64))) : T__struct_0))) : Slice<T__struct_0>));
+var _fmaC : Slice<T__struct_0> = ((new Slice<T__struct_0>(
+(({ _x : ((-3.999999999999087 : GoFloat64)), _y : ((-1.1123914289620494e-16 : GoFloat64)), _z : ((-7.999877929687506 : GoFloat64)), _want : ((-7.999877929687505 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-262112.0000004768 : GoFloat64)), _y : ((-0.06251525855623184 : GoFloat64)), _z : ((1.1102230248837136e-16 : GoFloat64)), _want : ((16385.99945072085 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-6.462348523533467e-27 : GoFloat64)), _y : ((-2.3763644720331857e-211 : GoFloat64)), _z : ((4.000000000931324 : GoFloat64)), _want : ((4.000000000931324 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-2.0000000037252907 : GoFloat64)), _y : ((6.7904383376e-313 : GoFloat64)), _z : ((-3.3951933161e-313 : GoFloat64)), _want : ((-1.697607001654e-312 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-0.12499999999999999 : GoFloat64)), _y : ((512.007568359375 : GoFloat64)), _z : ((-1.4193627164960366e-16 : GoFloat64)), _want : ((-64.00094604492188 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-2.7550648847397148e-39 : GoFloat64)), _y : ((-3.4028301595800694e+38 : GoFloat64)), _z : ((0.9960937495343386 : GoFloat64)), _want : ((1.9335955376735676 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((5.723369164769208e+24 : GoFloat64)), _y : ((3.8149300927159385e-06 : GoFloat64)), _z : ((1.84489958778182e+19 : GoFloat64)), _want : ((4.028324913621874e+19 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-0.4843749999990904 : GoFloat64)), _y : ((-3.6893487872543293e+19 : GoFloat64)), _z : ((9.223653786709391e+18 : GoFloat64)), _want : ((2.7093936974938993e+19 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-3.8146972665201165e-06 : GoFloat64)), _y : ((4.2949672959999385e+09 : GoFloat64)), _z : ((-2.2204460489938386e-16 : GoFloat64)), _want : ((-16384.000003844263 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((6.98156394130982e-309 : GoFloat64)), _y : ((-1.1072962560000002e+09 : GoFloat64)), _z : ((-4.4414561548793455e-308 : GoFloat64)), _want : ((-7.73065965765153e-300 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((5e-324 : GoFloat64)), _y : ((4.5 : GoFloat64)), _z : ((-2e-323 : GoFloat64)), _want : ((0 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((5e-324 : GoFloat64)), _y : ((7 : GoFloat64)), _z : ((-3.5e-323 : GoFloat64)), _want : ((0 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((5e-324 : GoFloat64)), _y : ((0.5000000000000001 : GoFloat64)), _z : ((-5e-324 : GoFloat64)), _want : copysign(((0 : GoFloat64)), ((-1 : GoFloat64))) } : T__struct_0)),
+(({ _x : ((-2.1240680525e-314 : GoFloat64)), _y : ((-1.233647078189316e+308 : GoFloat64)), _z : ((-0.25781249999954525 : GoFloat64)), _want : ((-0.25780987964919844 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((8.579992955364441e-308 : GoFloat64)), _y : ((0.6037391876780558 : GoFloat64)), _z : ((-4.4501307410480706e-308 : GoFloat64)), _want : ((7.29947236107098e-309 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-4.450143471986689e-308 : GoFloat64)), _y : ((-0.9960937499927239 : GoFloat64)), _z : ((-4.450419332475649e-308 : GoFloat64)), _want : ((-1.7659233458788e-310 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((1.4932076393918112 : GoFloat64)), _y : ((-2.2248022430460833e-308 : GoFloat64)), _z : ((4.449875571054211e-308 : GoFloat64)), _want : ((1.127783865601762e-308 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-2.288020632214759e+38 : GoFloat64)), _y : ((-8.98846570988901e+307 : GoFloat64)), _z : ((1.7696041796300924e+308 : GoFloat64)), _want : inf(((0 : GoInt))) } : T__struct_0)),
+(({ _x : ((1.4888652783208255e+308 : GoFloat64)), _y : ((-9.007199254742012e+15 : GoFloat64)), _z : ((-6.807282911929205e+38 : GoFloat64)), _want : inf(((-1 : GoInt))) } : T__struct_0)),
+(({ _x : ((9.142703268902826e+192 : GoFloat64)), _y : ((-1.3504889569802838e+296 : GoFloat64)), _z : ((-1.9082200803806996e-89 : GoFloat64)), _want : inf(((-1 : GoInt))) } : T__struct_0)),
+(({ _x : ((31.99218749627471 : GoFloat64)), _y : ((-1.7976930544991702e+308 : GoFloat64)), _z : inf(((0 : GoInt))), _want : inf(((0 : GoInt))) } : T__struct_0)),
+(({ _x : ((-1.7976931281784667e+308 : GoFloat64)), _y : ((-2.0009765625002265 : GoFloat64)), _z : inf(((-1 : GoInt))), _want : inf(((-1 : GoInt))) } : T__struct_0)),
+(({ _x : ((0 : GoFloat64)), _y : ((0 : GoFloat64)), _z : ((0 : GoFloat64)), _want : ((0 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-1.1754226043408471e-38 : GoFloat64)), _y : naN(), _z : inf(((0 : GoInt))), _want : naN() } : T__struct_0)),
+(({ _x : ((0 : GoFloat64)), _y : ((0 : GoFloat64)), _z : ((2.22507385643494e-308 : GoFloat64)), _want : ((2.22507385643494e-308 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-8.65697792e+09 : GoFloat64)), _y : naN(), _z : ((-7.516192799999999e+09 : GoFloat64)), _want : naN() } : T__struct_0)),
+(({ _x : ((-0.00012207403779029757 : GoFloat64)), _y : ((3.221225471996093e+09 : GoFloat64)), _z : naN(), _want : naN() } : T__struct_0)),
+(({ _x : inf(((-1 : GoInt))), _y : ((0.1252441407414153 : GoFloat64)), _z : ((-1.387184532981584e-76 : GoFloat64)), _want : inf(((-1 : GoInt))) } : T__struct_0)),
+(({ _x : inf(((0 : GoInt))), _y : ((1.525878907671432e-05 : GoFloat64)), _z : ((-9.214364835452549e+18 : GoFloat64)), _want : inf(((0 : GoInt))) } : T__struct_0)),
+(({ _x : ((0.1777916152213626 : GoFloat64)), _y : ((-32.000015266239636 : GoFloat64)), _z : ((-2.2204459148334633e-16 : GoFloat64)), _want : ((-5.689334401293007 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-2.0816681711722314e-16 : GoFloat64)), _y : ((-0.4997558592585846 : GoFloat64)), _z : ((-0.9465627129124969 : GoFloat64)), _want : ((-0.9465627129124968 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-1.9999997615814211 : GoFloat64)), _y : ((1.8518819259933516e+19 : GoFloat64)), _z : ((16.874999999999996 : GoFloat64)), _want : ((-3.703763410463646e+19 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-0.12499994039717421 : GoFloat64)), _y : ((32767.99999976135 : GoFloat64)), _z : ((-2.0752587082923246e+19 : GoFloat64)), _want : ((-2.075258708292325e+19 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((7.705600568510257e-34 : GoFloat64)), _y : ((-1.801432979000528e+16 : GoFloat64)), _z : ((-0.17224197722973714 : GoFloat64)), _want : ((-0.17224197722973716 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((3.8988133103758913e-308 : GoFloat64)), _y : ((-0.9848632812499999 : GoFloat64)), _z : ((3.893879244098556e-308 : GoFloat64)), _want : ((5.40811742605814e-310 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-0.012651981190687427 : GoFloat64)), _y : ((6.911985574912436e+38 : GoFloat64)), _z : ((6.669240527007144e+18 : GoFloat64)), _want : ((-8.745031148409496e+36 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((4.612811918325842e+18 : GoFloat64)), _y : ((1.4901161193847641e-08 : GoFloat64)), _z : ((2.6077032311277997e-08 : GoFloat64)), _want : ((6.873625395187494e+10 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-9.094947033611148e-13 : GoFloat64)), _y : ((4.450691014249257e-308 : GoFloat64)), _z : ((2.086006742350485e-308 : GoFloat64)), _want : ((2.086006742346437e-308 : GoFloat64)) } : T__struct_0)),
+(({ _x : ((-7.751454006381804e-05 : GoFloat64)), _y : ((5.588653777189071e-308 : GoFloat64)), _z : ((-2.2207280111272877e-308 : GoFloat64)), _want : ((-2.2211612130544025e-308 : GoFloat64)) } : T__struct_0))) : Slice<T__struct_0>));
 var _sqrt32 : Slice<GoFloat32> = ((new Slice<GoFloat32>(
 ((0 : GoFloat32)),
 ((copysign(((0 : GoFloat64)), ((-1 : GoFloat64))) : GoFloat32)),
@@ -794,7 +794,7 @@ var _sqrt32 : Slice<GoFloat32> = ((new Slice<GoFloat32>(
 ((-0.27688005566596985 : GoFloat32)),
 ((-5.010603427886963 : GoFloat32))) : Slice<GoFloat32>));
 var portableFMA : (GoFloat64, GoFloat64, GoFloat64) -> GoFloat64 = fma;
-var _floatTests : Slice<stdgo.math_test.Math_test.T_floatTest> = ((new Slice<T_floatTest>(((new T_floatTest(Go.toInterface(((((1.7976931348623157e+308 : GoFloat64)) : GoFloat64))), ((((("MaxFloat64" : GoString))) : GoString)), ((((("1.7976931348623157e+308" : GoString))) : GoString))) : T_floatTest)), ((new T_floatTest(Go.toInterface(((((5e-324 : GoFloat64)) : GoFloat64))), ((((("SmallestNonzeroFloat64" : GoString))) : GoString)), ((((("5e-324" : GoString))) : GoString))) : T_floatTest)), ((new T_floatTest(Go.toInterface(((((3.4028234663852886e+38 : GoFloat32)) : GoFloat32))), ((((("MaxFloat32" : GoString))) : GoString)), ((((("3.4028235e+38" : GoString))) : GoString))) : T_floatTest)), ((new T_floatTest(Go.toInterface(((((1.401298464324817e-45 : GoFloat32)) : GoFloat32))), ((((("SmallestNonzeroFloat32" : GoString))) : GoString)), ((((("1e-45" : GoString))) : GoString))) : T_floatTest))) : Slice<T_floatTest>));
+var _floatTests : Slice<stdgo.math_test.Math_test.T_floatTest> = ((new Slice<stdgo.math_test.Math_test.T_floatTest>(((new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((((1.7976931348623157e+308 : GoFloat64)) : GoFloat64))), ((((("MaxFloat64" : GoString))) : GoString)), ((((("1.7976931348623157e+308" : GoString))) : GoString))) : stdgo.math_test.Math_test.T_floatTest)), ((new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((((5e-324 : GoFloat64)) : GoFloat64))), ((((("SmallestNonzeroFloat64" : GoString))) : GoString)), ((((("5e-324" : GoString))) : GoString))) : stdgo.math_test.Math_test.T_floatTest)), ((new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((((3.4028234663852886e+38 : GoFloat32)) : GoFloat32))), ((((("MaxFloat32" : GoString))) : GoString)), ((((("3.4028235e+38" : GoString))) : GoString))) : stdgo.math_test.Math_test.T_floatTest)), ((new stdgo.math_test.Math_test.T_floatTest(Go.toInterface(((((1.401298464324817e-45 : GoFloat32)) : GoFloat32))), ((((("SmallestNonzeroFloat32" : GoString))) : GoString)), ((((("1e-45" : GoString))) : GoString))) : stdgo.math_test.Math_test.T_floatTest))) : Slice<stdgo.math_test.Math_test.T_floatTest>));
 var _indirectSqrt : GoFloat64 -> GoFloat64 = sqrt;
 var _copysignNeg : GoFloat64 = ((-1 : GoFloat64));
 var _absPos : GoFloat64 = ((0.5 : GoFloat64));
@@ -813,8 +813,8 @@ var globalI : GoInt = ((0 : GoInt));
 var globalB : Bool = false;
 var globalF : GoFloat64 = ((0 : GoFloat64));
 @:structInit class T_fi {
-    public var _f : GoFloat64 = 0;
-    public var _i : GoInt = 0;
+    public var _f : GoFloat64;
+    public var _i : GoInt;
     public function new(?_f:GoFloat64, ?_i:GoInt) {
         if (_f != null) this._f = _f;
         if (_i != null) this._i = _i;
@@ -825,9 +825,9 @@ var globalF : GoFloat64 = ((0 : GoFloat64));
     }
 }
 @:structInit class T_floatTest {
-    public var _val : AnyInterface = ((null : AnyInterface));
-    public var _name : GoString = "";
-    public var _str : GoString = "";
+    public var _val : AnyInterface;
+    public var _name : GoString;
+    public var _str : GoString;
     public function new(?_val:AnyInterface, ?_name:GoString, ?_str:GoString) {
         if (_val != null) this._val = _val;
         if (_name != null) this._name = _name;
@@ -838,23 +838,12 @@ var globalF : GoFloat64 = ((0 : GoFloat64));
         return new T_floatTest(_val, _name, _str);
     }
 }
-@:structInit @:local class T__struct_0 {
-    public var _x : GoFloat64 = 0;
-    public var _y : GoFloat64 = 0;
-    public var _z : GoFloat64 = 0;
-    public var _want : GoFloat64 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_z) + " " + Go.string(_want) + "}";
-    public function new(?_x:GoFloat64, ?_y:GoFloat64, ?_z:GoFloat64, ?_want:GoFloat64, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_z != null) this._z = _z;
-        if (_want != null) this._want = _want;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(_x, _y, _z, _want);
-    }
-}
+@:local typedef T__struct_0 = {
+    public var _x : GoFloat64;
+    public var _y : GoFloat64;
+    public var _z : GoFloat64;
+    public var _want : GoFloat64;
+};
 function _tolerance(_a:GoFloat64, _b:GoFloat64, _e:GoFloat64):Bool {
         if (_a == _b) {
             return true;
@@ -1637,8 +1626,8 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
                 {
                     var __tmp__ = frexp((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), _f:GoFloat64 = __tmp__._0, _j:GoInt = __tmp__._1;
-                    if (!_veryclose((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._f, _f) || ((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._i != _j)) {
-                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._i));
+                    if (!_veryclose((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, _f) || ((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i != _j)) {
+                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i));
                     };
                 };
             });
@@ -1648,8 +1637,8 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
             Go.cfor(_i < (_vffrexpSC != null ? _vffrexpSC.length : ((0 : GoInt))), _i++, {
                 {
                     var __tmp__ = frexp((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64)))), _f:GoFloat64 = __tmp__._0, _j:GoInt = __tmp__._1;
-                    if (!_alike((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f, _f) || ((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i != _j)) {
-                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i));
+                    if (!_alike((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, _f) || ((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i != _j)) {
+                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i));
                     };
                 };
             });
@@ -1659,8 +1648,8 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
             Go.cfor(_i < (_vffrexpBC != null ? _vffrexpBC.length : ((0 : GoInt))), _i++, {
                 {
                     var __tmp__ = frexp((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64)))), _f:GoFloat64 = __tmp__._0, _j:GoInt = __tmp__._1;
-                    if (!_alike((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f, _f) || ((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i != _j)) {
-                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i));
+                    if (!_alike((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, _f) || ((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i != _j)) {
+                        _t.errorf(((((("Frexp(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_j), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i));
                     };
                 };
             });
@@ -1747,7 +1736,7 @@ function testIlogb(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
-                var _a:GoInt = (_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._i - ((1 : GoInt));
+                var _a:GoInt = (_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i - ((1 : GoInt));
                 {
                     var _e:GoInt = ilogb((_vf != null ? _vf[_i] : ((0 : GoFloat64))));
                     if (_a != _e) {
@@ -1868,9 +1857,9 @@ function testLdexp(_t:stdgo.testing.Testing.T):Void {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
                 {
-                    var _f:GoFloat64 = ldexp((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._f, (_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._i);
+                    var _f:GoFloat64 = ldexp((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, (_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i);
                     if (!_veryclose((_vf != null ? _vf[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexp != null ? _frexp[_i] : new stdgo.math_test.Math_test.T_fi())._i), Go.toInterface(_f), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))));
+                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexp != null ? _frexp[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i), Go.toInterface(_f), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))));
                     };
                 };
             });
@@ -1879,9 +1868,9 @@ function testLdexp(_t:stdgo.testing.Testing.T):Void {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vffrexpSC != null ? _vffrexpSC.length : ((0 : GoInt))), _i++, {
                 {
-                    var _f:GoFloat64 = ldexp((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f, (_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i);
+                    var _f:GoFloat64 = ldexp((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, (_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i);
                     if (!_alike((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i), Go.toInterface(_f), Go.toInterface((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64)))));
+                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexpSC != null ? _frexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i), Go.toInterface(_f), Go.toInterface((_vffrexpSC != null ? _vffrexpSC[_i] : ((0 : GoFloat64)))));
                     };
                 };
             });
@@ -1890,9 +1879,9 @@ function testLdexp(_t:stdgo.testing.Testing.T):Void {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vfldexpSC != null ? _vfldexpSC.length : ((0 : GoInt))), _i++, {
                 {
-                    var _f:GoFloat64 = ldexp((_vfldexpSC != null ? _vfldexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f, (_vfldexpSC != null ? _vfldexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i);
+                    var _f:GoFloat64 = ldexp((_vfldexpSC != null ? _vfldexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, (_vfldexpSC != null ? _vfldexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i);
                     if (!_alike((_ldexpSC != null ? _ldexpSC[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_vfldexpSC != null ? _vfldexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_vfldexpSC != null ? _vfldexpSC[_i] : new stdgo.math_test.Math_test.T_fi())._i), Go.toInterface(_f), Go.toInterface((_ldexpSC != null ? _ldexpSC[_i] : ((0 : GoFloat64)))));
+                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_vfldexpSC != null ? _vfldexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_vfldexpSC != null ? _vfldexpSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i), Go.toInterface(_f), Go.toInterface((_ldexpSC != null ? _ldexpSC[_i] : ((0 : GoFloat64)))));
                     };
                 };
             });
@@ -1901,9 +1890,9 @@ function testLdexp(_t:stdgo.testing.Testing.T):Void {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vffrexpBC != null ? _vffrexpBC.length : ((0 : GoInt))), _i++, {
                 {
-                    var _f:GoFloat64 = ldexp((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f, (_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i);
+                    var _f:GoFloat64 = ldexp((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, (_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i);
                     if (!_alike((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i), Go.toInterface(_f), Go.toInterface((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64)))));
+                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_frexpBC != null ? _frexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i), Go.toInterface(_f), Go.toInterface((_vffrexpBC != null ? _vffrexpBC[_i] : ((0 : GoFloat64)))));
                     };
                 };
             });
@@ -1912,9 +1901,9 @@ function testLdexp(_t:stdgo.testing.Testing.T):Void {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vfldexpBC != null ? _vfldexpBC.length : ((0 : GoInt))), _i++, {
                 {
-                    var _f:GoFloat64 = ldexp((_vfldexpBC != null ? _vfldexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f, (_vfldexpBC != null ? _vfldexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i);
+                    var _f:GoFloat64 = ldexp((_vfldexpBC != null ? _vfldexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, (_vfldexpBC != null ? _vfldexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i);
                     if (!_alike((_ldexpBC != null ? _ldexpBC[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_vfldexpBC != null ? _vfldexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_vfldexpBC != null ? _vfldexpBC[_i] : new stdgo.math_test.Math_test.T_fi())._i), Go.toInterface(_f), Go.toInterface((_ldexpBC != null ? _ldexpBC[_i] : ((0 : GoFloat64)))));
+                        _t.errorf(((((("Ldexp(%g, %d) = %g, want %g" : GoString))) : GoString)), Go.toInterface((_vfldexpBC != null ? _vfldexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_vfldexpBC != null ? _vfldexpBC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i), Go.toInterface(_f), Go.toInterface((_ldexpBC != null ? _ldexpBC[_i] : ((0 : GoFloat64)))));
                     };
                 };
             });
@@ -1926,8 +1915,8 @@ function testLgamma(_t:stdgo.testing.Testing.T):Void {
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
                 {
                     var __tmp__ = lgamma((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), _f:GoFloat64 = __tmp__._0, _s:GoInt = __tmp__._1;
-                    if (!_close((_lgamma != null ? _lgamma[_i] : new stdgo.math_test.Math_test.T_fi())._f, _f) || ((_lgamma != null ? _lgamma[_i] : new stdgo.math_test.Math_test.T_fi())._i != _s)) {
-                        _t.errorf(((((("Lgamma(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_s), Go.toInterface((_lgamma != null ? _lgamma[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_lgamma != null ? _lgamma[_i] : new stdgo.math_test.Math_test.T_fi())._i));
+                    if (!_close((_lgamma != null ? _lgamma[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, _f) || ((_lgamma != null ? _lgamma[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i != _s)) {
+                        _t.errorf(((((("Lgamma(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_s), Go.toInterface((_lgamma != null ? _lgamma[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_lgamma != null ? _lgamma[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i));
                     };
                 };
             });
@@ -1937,8 +1926,8 @@ function testLgamma(_t:stdgo.testing.Testing.T):Void {
             Go.cfor(_i < (_vflgammaSC != null ? _vflgammaSC.length : ((0 : GoInt))), _i++, {
                 {
                     var __tmp__ = lgamma((_vflgammaSC != null ? _vflgammaSC[_i] : ((0 : GoFloat64)))), _f:GoFloat64 = __tmp__._0, _s:GoInt = __tmp__._1;
-                    if (!_alike((_lgammaSC != null ? _lgammaSC[_i] : new stdgo.math_test.Math_test.T_fi())._f, _f) || ((_lgammaSC != null ? _lgammaSC[_i] : new stdgo.math_test.Math_test.T_fi())._i != _s)) {
-                        _t.errorf(((((("Lgamma(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vflgammaSC != null ? _vflgammaSC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_s), Go.toInterface((_lgammaSC != null ? _lgammaSC[_i] : new stdgo.math_test.Math_test.T_fi())._f), Go.toInterface((_lgammaSC != null ? _lgammaSC[_i] : new stdgo.math_test.Math_test.T_fi())._i));
+                    if (!_alike((_lgammaSC != null ? _lgammaSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f, _f) || ((_lgammaSC != null ? _lgammaSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i != _s)) {
+                        _t.errorf(((((("Lgamma(%g) = %g, %d, want %g, %d" : GoString))) : GoString)), Go.toInterface((_vflgammaSC != null ? _vflgammaSC[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface(_s), Go.toInterface((_lgammaSC != null ? _lgammaSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._f), Go.toInterface((_lgammaSC != null ? _lgammaSC[_i] : (({  } : stdgo.math_test.Math_test.T_fi)))._i));
                     };
                 };
             });

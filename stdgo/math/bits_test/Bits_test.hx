@@ -11,165 +11,64 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var input : GoUInt64 = (("285870213051353865" : GoUInt64));
 var output : GoInt = ((0 : GoInt));
-var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) new T_entry()]);
-@:structInit class T_entry {
-    public var _nlz : GoInt = 0;
-    public var _ntz : GoInt = 0;
-    public var _pop : GoInt = 0;
-    public function new(?_nlz:GoInt, ?_ntz:GoInt, ?_pop:GoInt) {
-        if (_nlz != null) this._nlz = _nlz;
-        if (_ntz != null) this._ntz = _ntz;
-        if (_pop != null) this._pop = _pop;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T_entry(_nlz, _ntz, _pop);
-    }
-}
-@:structInit @:local class T__struct_0 {
-    public var _x : GoUInt64 = 0;
-    public var _r : GoUInt64 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt64, ?_r:GoUInt64, ?string) {
-        if (_x != null) this._x = _x;
-        if (_r != null) this._r = _r;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(_x, _r);
-    }
-}
-@:structInit @:local class T__struct_1 {
-    public var _x : GoUInt = 0;
-    public var _y : GoUInt = 0;
-    public var _c : GoUInt = 0;
-    public var _z : GoUInt = 0;
-    public var _cout : GoUInt = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt, ?_y:GoUInt, ?_c:GoUInt, ?_z:GoUInt, ?_cout:GoUInt, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_c != null) this._c = _c;
-        if (_z != null) this._z = _z;
-        if (_cout != null) this._cout = _cout;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_1(_x, _y, _c, _z, _cout);
-    }
-}
-@:structInit @:local class T__struct_2 {
-    public var _x : GoUInt32 = 0;
-    public var _y : GoUInt32 = 0;
-    public var _c : GoUInt32 = 0;
-    public var _z : GoUInt32 = 0;
-    public var _cout : GoUInt32 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_c:GoUInt32, ?_z:GoUInt32, ?_cout:GoUInt32, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_c != null) this._c = _c;
-        if (_z != null) this._z = _z;
-        if (_cout != null) this._cout = _cout;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_2(_x, _y, _c, _z, _cout);
-    }
-}
-@:structInit @:local class T__struct_3 {
-    public var _x : GoUInt64 = 0;
-    public var _y : GoUInt64 = 0;
-    public var _c : GoUInt64 = 0;
-    public var _z : GoUInt64 = 0;
-    public var _cout : GoUInt64 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_c) + " " + Go.string(_z) + " " + Go.string(_cout) + "}";
-    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_c:GoUInt64, ?_z:GoUInt64, ?_cout:GoUInt64, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_c != null) this._c = _c;
-        if (_z != null) this._z = _z;
-        if (_cout != null) this._cout = _cout;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_3(_x, _y, _c, _z, _cout);
-    }
-}
-@:structInit @:local class T__struct_4 {
-    public var _x : GoUInt = 0;
-    public var _y : GoUInt = 0;
-    public var _hi : GoUInt = 0;
-    public var _lo : GoUInt = 0;
-    public var _r : GoUInt = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt, ?_y:GoUInt, ?_hi:GoUInt, ?_lo:GoUInt, ?_r:GoUInt, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_hi != null) this._hi = _hi;
-        if (_lo != null) this._lo = _lo;
-        if (_r != null) this._r = _r;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_4(_x, _y, _hi, _lo, _r);
-    }
-}
-@:structInit @:local class T__struct_5 {
-    public var _x : GoUInt32 = 0;
-    public var _y : GoUInt32 = 0;
-    public var _hi : GoUInt32 = 0;
-    public var _lo : GoUInt32 = 0;
-    public var _r : GoUInt32 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt32, ?_y:GoUInt32, ?_hi:GoUInt32, ?_lo:GoUInt32, ?_r:GoUInt32, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_hi != null) this._hi = _hi;
-        if (_lo != null) this._lo = _lo;
-        if (_r != null) this._r = _r;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_5(_x, _y, _hi, _lo, _r);
-    }
-}
-@:structInit @:local class T__struct_6 {
-    public var _x : GoUInt64 = 0;
-    public var _y : GoUInt64 = 0;
-    public var _hi : GoUInt64 = 0;
-    public var _lo : GoUInt64 = 0;
-    public var _r : GoUInt64 = 0;
-    public function string():String return "{" + Go.string(_x) + " " + Go.string(_y) + " " + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_r) + "}";
-    public function new(?_x:GoUInt64, ?_y:GoUInt64, ?_hi:GoUInt64, ?_lo:GoUInt64, ?_r:GoUInt64, ?string) {
-        if (_x != null) this._x = _x;
-        if (_y != null) this._y = _y;
-        if (_hi != null) this._hi = _hi;
-        if (_lo != null) this._lo = _lo;
-        if (_r != null) this._r = _r;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_6(_x, _y, _hi, _lo, _r);
-    }
-}
-@:structInit @:local class T__struct_7 {
-    public var _hi : GoUInt64 = 0;
-    public var _lo : GoUInt64 = 0;
-    public var _y : GoUInt64 = 0;
-    public var _rem : GoUInt64 = 0;
-    public function string():String return "{" + Go.string(_hi) + " " + Go.string(_lo) + " " + Go.string(_y) + " " + Go.string(_rem) + "}";
-    public function new(?_hi:GoUInt64, ?_lo:GoUInt64, ?_y:GoUInt64, ?_rem:GoUInt64, ?string) {
-        if (_hi != null) this._hi = _hi;
-        if (_lo != null) this._lo = _lo;
-        if (_y != null) this._y = _y;
-        if (_rem != null) this._rem = _rem;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_7(_hi, _lo, _y, _rem);
-    }
-}
+var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry))]);
+@:follow typedef T_entry = {
+    var _nlz : GoInt;
+    var _ntz : GoInt;
+    var _pop : GoInt;
+};
+@:local typedef T__struct_0 = {
+    public var _x : GoUInt64;
+    public var _r : GoUInt64;
+};
+@:local typedef T__struct_1 = {
+    public var _x : GoUInt;
+    public var _y : GoUInt;
+    public var _c : GoUInt;
+    public var _z : GoUInt;
+    public var _cout : GoUInt;
+};
+@:local typedef T__struct_2 = {
+    public var _x : GoUInt32;
+    public var _y : GoUInt32;
+    public var _c : GoUInt32;
+    public var _z : GoUInt32;
+    public var _cout : GoUInt32;
+};
+@:local typedef T__struct_3 = {
+    public var _x : GoUInt64;
+    public var _y : GoUInt64;
+    public var _c : GoUInt64;
+    public var _z : GoUInt64;
+    public var _cout : GoUInt64;
+};
+@:local typedef T__struct_4 = {
+    public var _x : GoUInt;
+    public var _y : GoUInt;
+    public var _hi : GoUInt;
+    public var _lo : GoUInt;
+    public var _r : GoUInt;
+};
+@:local typedef T__struct_5 = {
+    public var _x : GoUInt32;
+    public var _y : GoUInt32;
+    public var _hi : GoUInt32;
+    public var _lo : GoUInt32;
+    public var _r : GoUInt32;
+};
+@:local typedef T__struct_6 = {
+    public var _x : GoUInt64;
+    public var _y : GoUInt64;
+    public var _hi : GoUInt64;
+    public var _lo : GoUInt64;
+    public var _r : GoUInt64;
+};
+@:local typedef T__struct_7 = {
+    public var _hi : GoUInt64;
+    public var _lo : GoUInt64;
+    public var _y : GoUInt64;
+    public var _rem : GoUInt64;
+};
 function testUintSize(_t:stdgo.testing.Testing.T):Void {
         var _x:GoUInt = ((0 : GoUInt));
         {
@@ -183,7 +82,7 @@ function testLeadingZeros(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < ((256 : GoInt)), _i++, {
-                var _nlz:GoInt = (_tab != null ? _tab[_i] : new T_entry())._nlz;
+                var _nlz:GoInt = (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._nlz;
                 {
                     var _k:GoInt = ((0 : GoInt));
                     Go.cfor(_k < ((56 : GoInt)), _k++, {
@@ -299,7 +198,7 @@ function testTrailingZeros(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < ((256 : GoInt)), _i++, {
-                var _ntz:GoInt = (_tab != null ? _tab[_i] : new T_entry())._ntz;
+                var _ntz:GoInt = (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._ntz;
                 {
                     var _k:GoInt = ((0 : GoInt));
                     Go.cfor(_k < ((56 : GoInt)), _k++, {
@@ -430,7 +329,7 @@ function testOnesCount(_t:stdgo.testing.Testing.T):Void {
                 {
                     var _k:GoInt = ((0 : GoInt));
                     Go.cfor(_k < ((56 : GoInt)), _k++, {
-                        _testOnesCount(_t, ((_i : GoUInt64)) << ((_k : GoUInt)), (_tab != null ? _tab[_i] : new T_entry())._pop);
+                        _testOnesCount(_t, ((_i : GoUInt64)) << ((_k : GoUInt)), (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._pop);
                     });
                 };
             });
@@ -654,24 +553,24 @@ function testReverse(_t:stdgo.testing.Testing.T):Void {
             });
         };
         for (_0 => _test in ((new Slice<T__struct_0>(
-((new T__struct_0(((0 : GoUInt64)), ((0 : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((1 : GoUInt64)), (("9223372036854775808" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((2 : GoUInt64)), (("4611686018427387904" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((3 : GoUInt64)), (("13835058055282163712" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((4 : GoUInt64)), (("2305843009213693952" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((5 : GoUInt64)), (("11529215046068469760" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((6 : GoUInt64)), (("6917529027641081856" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((7 : GoUInt64)), (("16140901064495857664" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((8 : GoUInt64)), (("1152921504606846976" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((9 : GoUInt64)), (("10376293541461622784" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((10 : GoUInt64)), (("5764607523034234880" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((11 : GoUInt64)), (("14987979559889010688" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((12 : GoUInt64)), (("3458764513820540928" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((13 : GoUInt64)), (("12682136550675316736" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((14 : GoUInt64)), (("8070450532247928832" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((15 : GoUInt64)), (("17293822569102704640" : GoUInt64))) : T__struct_0)),
-((new T__struct_0(((90727559 : GoUInt64)), (("16223679584099368960" : GoUInt64))) : T__struct_0)),
-((new T__struct_0((("81985529216486895" : GoUInt64)), (("17848844570815808640" : GoUInt64))) : T__struct_0))) : Slice<T__struct_0>))) {
+(({ _x : ((0 : GoUInt64)), _r : ((0 : GoUInt64)) } : T__struct_0)),
+(({ _x : ((1 : GoUInt64)), _r : (("9223372036854775808" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((2 : GoUInt64)), _r : (("4611686018427387904" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((3 : GoUInt64)), _r : (("13835058055282163712" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((4 : GoUInt64)), _r : (("2305843009213693952" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((5 : GoUInt64)), _r : (("11529215046068469760" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((6 : GoUInt64)), _r : (("6917529027641081856" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((7 : GoUInt64)), _r : (("16140901064495857664" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((8 : GoUInt64)), _r : (("1152921504606846976" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((9 : GoUInt64)), _r : (("10376293541461622784" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((10 : GoUInt64)), _r : (("5764607523034234880" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((11 : GoUInt64)), _r : (("14987979559889010688" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((12 : GoUInt64)), _r : (("3458764513820540928" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((13 : GoUInt64)), _r : (("12682136550675316736" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((14 : GoUInt64)), _r : (("8070450532247928832" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((15 : GoUInt64)), _r : (("17293822569102704640" : GoUInt64)) } : T__struct_0)),
+(({ _x : ((90727559 : GoUInt64)), _r : (("16223679584099368960" : GoUInt64)) } : T__struct_0)),
+(({ _x : (("81985529216486895" : GoUInt64)), _r : (("17848844570815808640" : GoUInt64)) } : T__struct_0))) : Slice<T__struct_0>))) {
             _testReverse(_t, _test._x, _test._r);
             _testReverse(_t, _test._r, _test._x);
         };
@@ -767,7 +666,7 @@ function benchmarkReverse64(_b:stdgo.testing.Testing.B):Void {
         output = ((_s : GoInt));
     }
 function testReverseBytes(_t:stdgo.testing.Testing.T):Void {
-        for (_0 => _test in ((new Slice<T__struct_0>(((new T__struct_0(((0 : GoUInt64)), ((0 : GoUInt64))) : T__struct_0)), ((new T__struct_0(((1 : GoUInt64)), (("72057594037927936" : GoUInt64))) : T__struct_0)), ((new T__struct_0(((291 : GoUInt64)), (("2522297266304188416" : GoUInt64))) : T__struct_0)), ((new T__struct_0(((74565 : GoUInt64)), (("4981826712313528320" : GoUInt64))) : T__struct_0)), ((new T__struct_0(((19088743 : GoUInt64)), (("7441392446501552128" : GoUInt64))) : T__struct_0)), ((new T__struct_0((("4886718345" : GoUInt64)), (("9900958322440273920" : GoUInt64))) : T__struct_0)), ((new T__struct_0((("1250999896491" : GoUInt64)), (("12360524198932709376" : GoUInt64))) : T__struct_0)), ((new T__struct_0((("320255973501901" : GoUInt64)), (("14820090075427307776" : GoUInt64))) : T__struct_0)), ((new T__struct_0((("81985529216486895" : GoUInt64)), (("17279655951921914625" : GoUInt64))) : T__struct_0))) : Slice<T__struct_0>))) {
+        for (_0 => _test in ((new Slice<T__struct_0>((({ _x : ((0 : GoUInt64)), _r : ((0 : GoUInt64)) } : T__struct_0)), (({ _x : ((1 : GoUInt64)), _r : (("72057594037927936" : GoUInt64)) } : T__struct_0)), (({ _x : ((291 : GoUInt64)), _r : (("2522297266304188416" : GoUInt64)) } : T__struct_0)), (({ _x : ((74565 : GoUInt64)), _r : (("4981826712313528320" : GoUInt64)) } : T__struct_0)), (({ _x : ((19088743 : GoUInt64)), _r : (("7441392446501552128" : GoUInt64)) } : T__struct_0)), (({ _x : (("4886718345" : GoUInt64)), _r : (("9900958322440273920" : GoUInt64)) } : T__struct_0)), (({ _x : (("1250999896491" : GoUInt64)), _r : (("12360524198932709376" : GoUInt64)) } : T__struct_0)), (({ _x : (("320255973501901" : GoUInt64)), _r : (("14820090075427307776" : GoUInt64)) } : T__struct_0)), (({ _x : (("81985529216486895" : GoUInt64)), _r : (("17279655951921914625" : GoUInt64)) } : T__struct_0))) : Slice<T__struct_0>))) {
             _testReverseBytes(_t, _test._x, _test._r);
             _testReverseBytes(_t, _test._r, _test._x);
         };
@@ -850,7 +749,7 @@ function testLen(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < ((256 : GoInt)), _i++, {
-                var _len:GoInt = ((8 : GoInt)) - (_tab != null ? _tab[_i] : new T_entry())._nlz;
+                var _len:GoInt = ((8 : GoInt)) - (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._nlz;
                 {
                     var _k:GoInt = ((0 : GoInt));
                     Go.cfor(_k < ((56 : GoInt)), _k++, {
@@ -908,17 +807,17 @@ function testAddSubUint(_t:stdgo.testing.Testing.T):Void {
             };
         };
         for (_0 => _a in ((new Slice<T__struct_1>(
-((new T__struct_1(((0 : GoUInt)), ((0 : GoUInt)), ((0 : GoUInt)), ((0 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1(((0 : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1(((0 : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1(((0 : GoUInt)), ((1 : GoUInt)), ((1 : GoUInt)), ((2 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1(((12345 : GoUInt)), ((67890 : GoUInt)), ((0 : GoUInt)), ((80235 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1(((12345 : GoUInt)), ((67890 : GoUInt)), ((1 : GoUInt)), ((80236 : GoUInt)), ((0 : GoUInt))) : T__struct_1)),
-((new T__struct_1((("4294967295" : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt))) : T__struct_1)),
-((new T__struct_1((("4294967295" : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt))) : T__struct_1)),
-((new T__struct_1((("4294967295" : GoUInt)), ((1 : GoUInt)), ((1 : GoUInt)), ((1 : GoUInt)), ((1 : GoUInt))) : T__struct_1)),
-((new T__struct_1((("4294967295" : GoUInt)), (("4294967295" : GoUInt)), ((0 : GoUInt)), (("4294967294" : GoUInt)), ((1 : GoUInt))) : T__struct_1)),
-((new T__struct_1((("4294967295" : GoUInt)), (("4294967295" : GoUInt)), ((1 : GoUInt)), (("4294967295" : GoUInt)), ((1 : GoUInt))) : T__struct_1))) : Slice<T__struct_1>))) {
+(({ _x : ((0 : GoUInt)), _y : ((0 : GoUInt)), _c : ((0 : GoUInt)), _z : ((0 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : ((0 : GoUInt)), _y : ((1 : GoUInt)), _c : ((0 : GoUInt)), _z : ((1 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : ((0 : GoUInt)), _y : ((0 : GoUInt)), _c : ((1 : GoUInt)), _z : ((1 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : ((0 : GoUInt)), _y : ((1 : GoUInt)), _c : ((1 : GoUInt)), _z : ((2 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : ((12345 : GoUInt)), _y : ((67890 : GoUInt)), _c : ((0 : GoUInt)), _z : ((80235 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : ((12345 : GoUInt)), _y : ((67890 : GoUInt)), _c : ((1 : GoUInt)), _z : ((80236 : GoUInt)), _cout : ((0 : GoUInt)) } : T__struct_1)),
+(({ _x : (("4294967295" : GoUInt)), _y : ((1 : GoUInt)), _c : ((0 : GoUInt)), _z : ((0 : GoUInt)), _cout : ((1 : GoUInt)) } : T__struct_1)),
+(({ _x : (("4294967295" : GoUInt)), _y : ((0 : GoUInt)), _c : ((1 : GoUInt)), _z : ((0 : GoUInt)), _cout : ((1 : GoUInt)) } : T__struct_1)),
+(({ _x : (("4294967295" : GoUInt)), _y : ((1 : GoUInt)), _c : ((1 : GoUInt)), _z : ((1 : GoUInt)), _cout : ((1 : GoUInt)) } : T__struct_1)),
+(({ _x : (("4294967295" : GoUInt)), _y : (("4294967295" : GoUInt)), _c : ((0 : GoUInt)), _z : (("4294967294" : GoUInt)), _cout : ((1 : GoUInt)) } : T__struct_1)),
+(({ _x : (("4294967295" : GoUInt)), _y : (("4294967295" : GoUInt)), _c : ((1 : GoUInt)), _z : (("4294967295" : GoUInt)), _cout : ((1 : GoUInt)) } : T__struct_1))) : Slice<T__struct_1>))) {
             _test(((((("Add" : GoString))) : GoString)), add, _a._x, _a._y, _a._c, _a._z, _a._cout);
             _test(((((("Add symmetric" : GoString))) : GoString)), add, _a._y, _a._x, _a._c, _a._z, _a._cout);
             _test(((((("Sub" : GoString))) : GoString)), sub, _a._z, _a._x, _a._c, _a._y, _a._cout);
@@ -945,17 +844,17 @@ function testAddSubUint32(_t:stdgo.testing.Testing.T):Void {
             };
         };
         for (_0 => _a in ((new Slice<T__struct_2>(
-((new T__struct_2(((0 : GoUInt32)), ((0 : GoUInt32)), ((0 : GoUInt32)), ((0 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2(((0 : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2(((0 : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2(((0 : GoUInt32)), ((1 : GoUInt32)), ((1 : GoUInt32)), ((2 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2(((12345 : GoUInt32)), ((67890 : GoUInt32)), ((0 : GoUInt32)), ((80235 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2(((12345 : GoUInt32)), ((67890 : GoUInt32)), ((1 : GoUInt32)), ((80236 : GoUInt32)), ((0 : GoUInt32))) : T__struct_2)),
-((new T__struct_2((("4294967295" : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32))) : T__struct_2)),
-((new T__struct_2((("4294967295" : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32))) : T__struct_2)),
-((new T__struct_2((("4294967295" : GoUInt32)), ((1 : GoUInt32)), ((1 : GoUInt32)), ((1 : GoUInt32)), ((1 : GoUInt32))) : T__struct_2)),
-((new T__struct_2((("4294967295" : GoUInt32)), (("4294967295" : GoUInt32)), ((0 : GoUInt32)), (("4294967294" : GoUInt32)), ((1 : GoUInt32))) : T__struct_2)),
-((new T__struct_2((("4294967295" : GoUInt32)), (("4294967295" : GoUInt32)), ((1 : GoUInt32)), (("4294967295" : GoUInt32)), ((1 : GoUInt32))) : T__struct_2))) : Slice<T__struct_2>))) {
+(({ _x : ((0 : GoUInt32)), _y : ((0 : GoUInt32)), _c : ((0 : GoUInt32)), _z : ((0 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : ((0 : GoUInt32)), _y : ((1 : GoUInt32)), _c : ((0 : GoUInt32)), _z : ((1 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : ((0 : GoUInt32)), _y : ((0 : GoUInt32)), _c : ((1 : GoUInt32)), _z : ((1 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : ((0 : GoUInt32)), _y : ((1 : GoUInt32)), _c : ((1 : GoUInt32)), _z : ((2 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : ((12345 : GoUInt32)), _y : ((67890 : GoUInt32)), _c : ((0 : GoUInt32)), _z : ((80235 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : ((12345 : GoUInt32)), _y : ((67890 : GoUInt32)), _c : ((1 : GoUInt32)), _z : ((80236 : GoUInt32)), _cout : ((0 : GoUInt32)) } : T__struct_2)),
+(({ _x : (("4294967295" : GoUInt32)), _y : ((1 : GoUInt32)), _c : ((0 : GoUInt32)), _z : ((0 : GoUInt32)), _cout : ((1 : GoUInt32)) } : T__struct_2)),
+(({ _x : (("4294967295" : GoUInt32)), _y : ((0 : GoUInt32)), _c : ((1 : GoUInt32)), _z : ((0 : GoUInt32)), _cout : ((1 : GoUInt32)) } : T__struct_2)),
+(({ _x : (("4294967295" : GoUInt32)), _y : ((1 : GoUInt32)), _c : ((1 : GoUInt32)), _z : ((1 : GoUInt32)), _cout : ((1 : GoUInt32)) } : T__struct_2)),
+(({ _x : (("4294967295" : GoUInt32)), _y : (("4294967295" : GoUInt32)), _c : ((0 : GoUInt32)), _z : (("4294967294" : GoUInt32)), _cout : ((1 : GoUInt32)) } : T__struct_2)),
+(({ _x : (("4294967295" : GoUInt32)), _y : (("4294967295" : GoUInt32)), _c : ((1 : GoUInt32)), _z : (("4294967295" : GoUInt32)), _cout : ((1 : GoUInt32)) } : T__struct_2))) : Slice<T__struct_2>))) {
             _test(((((("Add32" : GoString))) : GoString)), add32, _a._x, _a._y, _a._c, _a._z, _a._cout);
             _test(((((("Add32 symmetric" : GoString))) : GoString)), add32, _a._y, _a._x, _a._c, _a._z, _a._cout);
             _test(((((("Sub32" : GoString))) : GoString)), sub32, _a._z, _a._x, _a._c, _a._y, _a._cout);
@@ -970,17 +869,17 @@ function testAddSubUint64(_t:stdgo.testing.Testing.T):Void {
             };
         };
         for (_0 => _a in ((new Slice<T__struct_3>(
-((new T__struct_3(((0 : GoUInt64)), ((0 : GoUInt64)), ((0 : GoUInt64)), ((0 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3(((0 : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3(((0 : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3(((0 : GoUInt64)), ((1 : GoUInt64)), ((1 : GoUInt64)), ((2 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3(((12345 : GoUInt64)), ((67890 : GoUInt64)), ((0 : GoUInt64)), ((80235 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3(((12345 : GoUInt64)), ((67890 : GoUInt64)), ((1 : GoUInt64)), ((80236 : GoUInt64)), ((0 : GoUInt64))) : T__struct_3)),
-((new T__struct_3((("18446744073709551615" : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64))) : T__struct_3)),
-((new T__struct_3((("18446744073709551615" : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64))) : T__struct_3)),
-((new T__struct_3((("18446744073709551615" : GoUInt64)), ((1 : GoUInt64)), ((1 : GoUInt64)), ((1 : GoUInt64)), ((1 : GoUInt64))) : T__struct_3)),
-((new T__struct_3((("18446744073709551615" : GoUInt64)), (("18446744073709551615" : GoUInt64)), ((0 : GoUInt64)), (("18446744073709551614" : GoUInt64)), ((1 : GoUInt64))) : T__struct_3)),
-((new T__struct_3((("18446744073709551615" : GoUInt64)), (("18446744073709551615" : GoUInt64)), ((1 : GoUInt64)), (("18446744073709551615" : GoUInt64)), ((1 : GoUInt64))) : T__struct_3))) : Slice<T__struct_3>))) {
+(({ _x : ((0 : GoUInt64)), _y : ((0 : GoUInt64)), _c : ((0 : GoUInt64)), _z : ((0 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : ((0 : GoUInt64)), _y : ((1 : GoUInt64)), _c : ((0 : GoUInt64)), _z : ((1 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : ((0 : GoUInt64)), _y : ((0 : GoUInt64)), _c : ((1 : GoUInt64)), _z : ((1 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : ((0 : GoUInt64)), _y : ((1 : GoUInt64)), _c : ((1 : GoUInt64)), _z : ((2 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : ((12345 : GoUInt64)), _y : ((67890 : GoUInt64)), _c : ((0 : GoUInt64)), _z : ((80235 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : ((12345 : GoUInt64)), _y : ((67890 : GoUInt64)), _c : ((1 : GoUInt64)), _z : ((80236 : GoUInt64)), _cout : ((0 : GoUInt64)) } : T__struct_3)),
+(({ _x : (("18446744073709551615" : GoUInt64)), _y : ((1 : GoUInt64)), _c : ((0 : GoUInt64)), _z : ((0 : GoUInt64)), _cout : ((1 : GoUInt64)) } : T__struct_3)),
+(({ _x : (("18446744073709551615" : GoUInt64)), _y : ((0 : GoUInt64)), _c : ((1 : GoUInt64)), _z : ((0 : GoUInt64)), _cout : ((1 : GoUInt64)) } : T__struct_3)),
+(({ _x : (("18446744073709551615" : GoUInt64)), _y : ((1 : GoUInt64)), _c : ((1 : GoUInt64)), _z : ((1 : GoUInt64)), _cout : ((1 : GoUInt64)) } : T__struct_3)),
+(({ _x : (("18446744073709551615" : GoUInt64)), _y : (("18446744073709551615" : GoUInt64)), _c : ((0 : GoUInt64)), _z : (("18446744073709551614" : GoUInt64)), _cout : ((1 : GoUInt64)) } : T__struct_3)),
+(({ _x : (("18446744073709551615" : GoUInt64)), _y : (("18446744073709551615" : GoUInt64)), _c : ((1 : GoUInt64)), _z : (("18446744073709551615" : GoUInt64)), _cout : ((1 : GoUInt64)) } : T__struct_3))) : Slice<T__struct_3>))) {
             _test(((((("Add64" : GoString))) : GoString)), add64, _a._x, _a._y, _a._c, _a._z, _a._cout);
             _test(((((("Add64 symmetric" : GoString))) : GoString)), add64, _a._y, _a._x, _a._c, _a._z, _a._cout);
             _test(((((("Sub64" : GoString))) : GoString)), sub64, _a._z, _a._x, _a._c, _a._y, _a._cout);
@@ -1188,7 +1087,7 @@ function testMulDiv(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf(((((("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString))) : GoString)), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (_0 => _a in ((new Slice<T__struct_4>(((new T__struct_4((("2147483648" : GoUInt)), ((2 : GoUInt)), ((1 : GoUInt)), ((0 : GoUInt)), ((1 : GoUInt))) : T__struct_4)), ((new T__struct_4((("4294967295" : GoUInt)), (("4294967295" : GoUInt)), (("4294967294" : GoUInt)), ((1 : GoUInt)), ((42 : GoUInt))) : T__struct_4))) : Slice<T__struct_4>))) {
+        for (_0 => _a in ((new Slice<T__struct_4>((({ _x : (("2147483648" : GoUInt)), _y : ((2 : GoUInt)), _hi : ((1 : GoUInt)), _lo : ((0 : GoUInt)), _r : ((1 : GoUInt)) } : T__struct_4)), (({ _x : (("4294967295" : GoUInt)), _y : (("4294967295" : GoUInt)), _hi : (("4294967294" : GoUInt)), _lo : ((1 : GoUInt)), _r : ((42 : GoUInt)) } : T__struct_4))) : Slice<T__struct_4>))) {
             _testMul(((((("Mul" : GoString))) : GoString)), mul, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(((((("Mul symmetric" : GoString))) : GoString)), mul, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(((((("Div" : GoString))) : GoString)), div, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1220,7 +1119,7 @@ function testMulDiv32(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf(((((("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString))) : GoString)), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (_0 => _a in ((new Slice<T__struct_5>(((new T__struct_5((("2147483648" : GoUInt32)), ((2 : GoUInt32)), ((1 : GoUInt32)), ((0 : GoUInt32)), ((1 : GoUInt32))) : T__struct_5)), ((new T__struct_5((("3296590476" : GoUInt32)), ((50911 : GoUInt32)), ((39076 : GoUInt32)), (("2575665140" : GoUInt32)), ((13 : GoUInt32))) : T__struct_5)), ((new T__struct_5((("4294967295" : GoUInt32)), (("4294967295" : GoUInt32)), (("4294967294" : GoUInt32)), ((1 : GoUInt32)), ((42 : GoUInt32))) : T__struct_5))) : Slice<T__struct_5>))) {
+        for (_0 => _a in ((new Slice<T__struct_5>((({ _x : (("2147483648" : GoUInt32)), _y : ((2 : GoUInt32)), _hi : ((1 : GoUInt32)), _lo : ((0 : GoUInt32)), _r : ((1 : GoUInt32)) } : T__struct_5)), (({ _x : (("3296590476" : GoUInt32)), _y : ((50911 : GoUInt32)), _hi : ((39076 : GoUInt32)), _lo : (("2575665140" : GoUInt32)), _r : ((13 : GoUInt32)) } : T__struct_5)), (({ _x : (("4294967295" : GoUInt32)), _y : (("4294967295" : GoUInt32)), _hi : (("4294967294" : GoUInt32)), _lo : ((1 : GoUInt32)), _r : ((42 : GoUInt32)) } : T__struct_5))) : Slice<T__struct_5>))) {
             _testMul(((((("Mul32" : GoString))) : GoString)), mul32, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(((((("Mul32 symmetric" : GoString))) : GoString)), mul32, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(((((("Div32" : GoString))) : GoString)), div32, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1240,7 +1139,7 @@ function testMulDiv64(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf(((((("%s: got q:r = %#x:%#x; want %#x:%#x" : GoString))) : GoString)), Go.toInterface(_msg), Go.toInterface(_q1), Go.toInterface(_r1), Go.toInterface(_q), Go.toInterface(_r));
             };
         };
-        for (_0 => _a in ((new Slice<T__struct_6>(((new T__struct_6((("9223372036854775808" : GoUInt64)), ((2 : GoUInt64)), ((1 : GoUInt64)), ((0 : GoUInt64)), ((1 : GoUInt64))) : T__struct_6)), ((new T__struct_6((("15241578750190521" : GoUInt64)), (("975461057789971041" : GoUInt64)), (("805972396572648" : GoUInt64)), (("11373457362572903193" : GoUInt64)), ((13 : GoUInt64))) : T__struct_6)), ((new T__struct_6((("18446744073709551615" : GoUInt64)), (("18446744073709551615" : GoUInt64)), (("18446744073709551614" : GoUInt64)), ((1 : GoUInt64)), ((42 : GoUInt64))) : T__struct_6))) : Slice<T__struct_6>))) {
+        for (_0 => _a in ((new Slice<T__struct_6>((({ _x : (("9223372036854775808" : GoUInt64)), _y : ((2 : GoUInt64)), _hi : ((1 : GoUInt64)), _lo : ((0 : GoUInt64)), _r : ((1 : GoUInt64)) } : T__struct_6)), (({ _x : (("15241578750190521" : GoUInt64)), _y : (("975461057789971041" : GoUInt64)), _hi : (("805972396572648" : GoUInt64)), _lo : (("11373457362572903193" : GoUInt64)), _r : ((13 : GoUInt64)) } : T__struct_6)), (({ _x : (("18446744073709551615" : GoUInt64)), _y : (("18446744073709551615" : GoUInt64)), _hi : (("18446744073709551614" : GoUInt64)), _lo : ((1 : GoUInt64)), _r : ((42 : GoUInt64)) } : T__struct_6))) : Slice<T__struct_6>))) {
             _testMul(((((("Mul64" : GoString))) : GoString)), mul64, _a._x, _a._y, _a._hi, _a._lo);
             _testMul(((((("Mul64 symmetric" : GoString))) : GoString)), mul64, _a._y, _a._x, _a._hi, _a._lo);
             _testDiv(((((("Div64" : GoString))) : GoString)), div64, _a._hi, _a._lo + _a._r, _a._y, _a._x, _a._r);
@@ -1608,7 +1507,7 @@ function testRem64(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testRem64Overflow(_t:stdgo.testing.Testing.T):Void {
-        var rem64Tests = ((new Slice<T__struct_7>(((new T__struct_7(((42 : GoUInt64)), ((1119 : GoUInt64)), ((42 : GoUInt64)), ((27 : GoUInt64))) : T__struct_7)), ((new T__struct_7(((42 : GoUInt64)), ((1119 : GoUInt64)), ((38 : GoUInt64)), ((9 : GoUInt64))) : T__struct_7)), ((new T__struct_7(((42 : GoUInt64)), ((1119 : GoUInt64)), ((26 : GoUInt64)), ((23 : GoUInt64))) : T__struct_7)), ((new T__struct_7(((469 : GoUInt64)), ((0 : GoUInt64)), ((467 : GoUInt64)), ((271 : GoUInt64))) : T__struct_7)), ((new T__struct_7(((469 : GoUInt64)), ((0 : GoUInt64)), ((113 : GoUInt64)), ((58 : GoUInt64))) : T__struct_7)), ((new T__struct_7(((111111 : GoUInt64)), ((111111 : GoUInt64)), ((1171 : GoUInt64)), ((803 : GoUInt64))) : T__struct_7)), ((new T__struct_7((("3968194946088682615" : GoUInt64)), (("3192705705065114702" : GoUInt64)), ((1000037 : GoUInt64)), ((56067 : GoUInt64))) : T__struct_7))) : Slice<T__struct_7>));
+        var rem64Tests = ((new Slice<T__struct_7>((({ _hi : ((42 : GoUInt64)), _lo : ((1119 : GoUInt64)), _y : ((42 : GoUInt64)), _rem : ((27 : GoUInt64)) } : T__struct_7)), (({ _hi : ((42 : GoUInt64)), _lo : ((1119 : GoUInt64)), _y : ((38 : GoUInt64)), _rem : ((9 : GoUInt64)) } : T__struct_7)), (({ _hi : ((42 : GoUInt64)), _lo : ((1119 : GoUInt64)), _y : ((26 : GoUInt64)), _rem : ((23 : GoUInt64)) } : T__struct_7)), (({ _hi : ((469 : GoUInt64)), _lo : ((0 : GoUInt64)), _y : ((467 : GoUInt64)), _rem : ((271 : GoUInt64)) } : T__struct_7)), (({ _hi : ((469 : GoUInt64)), _lo : ((0 : GoUInt64)), _y : ((113 : GoUInt64)), _rem : ((58 : GoUInt64)) } : T__struct_7)), (({ _hi : ((111111 : GoUInt64)), _lo : ((111111 : GoUInt64)), _y : ((1171 : GoUInt64)), _rem : ((803 : GoUInt64)) } : T__struct_7)), (({ _hi : (("3968194946088682615" : GoUInt64)), _lo : (("3192705705065114702" : GoUInt64)), _y : ((1000037 : GoUInt64)), _rem : ((56067 : GoUInt64)) } : T__struct_7))) : Slice<T__struct_7>));
         for (_0 => _rt in rem64Tests) {
             if (_rt._hi < _rt._y) {
                 _t.fatalf(((((("Rem64(%v, %v, %v) is not a test with quo overflow" : GoString))) : GoString)), Go.toInterface(_rt._hi), Go.toInterface(_rt._lo), Go.toInterface(_rt._y));
@@ -2100,7 +1999,7 @@ function exampleLen64():Void {
     }
 @:keep var _ = {
         try {
-            if (_tab != null) _tab[((0 : GoInt))] = ((new T_entry(((8 : GoInt)), ((8 : GoInt)), ((0 : GoInt))) : T_entry));
+            if (_tab != null) _tab[((0 : GoInt))] = (({ _nlz : ((8 : GoInt)), _ntz : ((8 : GoInt)), _pop : ((0 : GoInt)) } : T_entry));
             {
                 var _i:GoInt = ((1 : GoInt));
                 Go.cfor(_i < (_tab != null ? _tab.length : ((0 : GoInt))), _i++, {
@@ -2110,21 +2009,21 @@ function exampleLen64():Void {
                         _n++;
                         _x = _x << (((1 : GoUnTypedInt)));
                     };
-                    (_tab != null ? _tab[_i] : new T_entry())._nlz = _n;
+                    (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._nlz = _n;
                     _x = _i;
                     _n = ((0 : GoInt));
                     while ((_x & ((1 : GoInt))) == ((0 : GoInt))) {
                         _n++;
                         _x = _x >> (((1 : GoUnTypedInt)));
                     };
-                    (_tab != null ? _tab[_i] : new T_entry())._ntz = _n;
+                    (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._ntz = _n;
                     _x = _i;
                     _n = ((0 : GoInt));
                     while (_x != ((0 : GoInt))) {
                         _n = _n + ((((_x & ((1 : GoInt))) : GoInt)));
                         _x = _x >> (((1 : GoUnTypedInt)));
                     };
-                    (_tab != null ? _tab[_i] : new T_entry())._pop = _n;
+                    (_tab != null ? _tab[_i] : (({ _nlz : ((0 : GoInt)), _ntz : ((0 : GoInt)), _pop : ((0 : GoInt)) } : T_entry)))._pop = _n;
                 });
             };
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;

@@ -23,8 +23,8 @@ typedef T_replacer = StructType & {
     public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; };
 };
 @:structInit @:using(stdgo.strings.Strings.Builder_static_extension) class Builder {
-    public var _addr : Ref<Builder> = ((null : Builder));
-    public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _addr : Ref<Builder>;
+    public var _buf : Slice<GoUInt8>;
     public function new(?_addr:Ref<Builder>, ?_buf:Slice<GoUInt8>) {
         if (_addr != null) this._addr = _addr;
         if (_buf != null) this._buf = _buf;
@@ -35,9 +35,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.Reader_static_extension) class Reader {
-    public var _s : GoString = "";
-    public var _i : GoInt64 = 0;
-    public var _prevRune : GoInt = 0;
+    public var _s : GoString;
+    public var _i : GoInt64;
+    public var _prevRune : GoInt;
     public function new(?_s:GoString, ?_i:GoInt64, ?_prevRune:GoInt) {
         if (_s != null) this._s = _s;
         if (_i != null) this._i = _i;
@@ -49,9 +49,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.Replacer_static_extension) class Replacer {
-    public var _once : stdgo.sync.Sync.Once = new stdgo.sync.Sync.Once();
-    public var _r : T_replacer = ((null : T_replacer));
-    public var _oldnew : Slice<GoString> = ((null : Slice<GoString>));
+    public var _once : stdgo.sync.Sync.Once;
+    public var _r : T_replacer;
+    public var _oldnew : Slice<GoString>;
     public function new(?_once:stdgo.sync.Sync.Once, ?_r:T_replacer, ?_oldnew:Slice<GoString>) {
         if (_once != null) this._once = _once;
         if (_r != null) this._r = _r;
@@ -63,11 +63,11 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) class T_trieNode {
-    public var _value : GoString = "";
-    public var _priority : GoInt = 0;
-    public var _prefix : GoString = "";
-    public var _next : Ref<T_trieNode> = ((null : T_trieNode));
-    public var _table : Slice<Ref<T_trieNode>> = ((null : Slice<Ref<T_trieNode>>));
+    public var _value : GoString;
+    public var _priority : GoInt;
+    public var _prefix : GoString;
+    public var _next : Ref<T_trieNode>;
+    public var _table : Slice<Ref<T_trieNode>>;
     public function new(?_value:GoString, ?_priority:GoInt, ?_prefix:GoString, ?_next:Ref<T_trieNode>, ?_table:Slice<Ref<T_trieNode>>) {
         if (_value != null) this._value = _value;
         if (_priority != null) this._priority = _priority;
@@ -81,9 +81,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) class T_genericReplacer {
-    public var _root : T_trieNode = new T_trieNode();
-    public var _tableSize : GoInt = 0;
-    public var _mapping : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) ((0 : GoUInt8))]);
+    public var _root : T_trieNode;
+    public var _tableSize : GoInt;
+    public var _mapping : GoArray<GoUInt8>;
     public function new(?_root:T_trieNode, ?_tableSize:GoInt, ?_mapping:GoArray<GoUInt8>) {
         if (_root != null) this._root = _root;
         if (_tableSize != null) this._tableSize = _tableSize;
@@ -95,7 +95,7 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_stringWriter_static_extension) class T_stringWriter {
-    public var _w : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
+    public var _w : stdgo.io.Io.Writer;
     public function new(?_w:stdgo.io.Io.Writer) {
         if (_w != null) this._w = _w;
     }
@@ -105,8 +105,8 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) class T_singleStringReplacer {
-    public var _finder : Ref<T_stringFinder> = ((null : T_stringFinder));
-    public var _value : GoString = "";
+    public var _finder : Ref<T_stringFinder>;
+    public var _value : GoString;
     public function new(?_finder:Ref<T_stringFinder>, ?_value:GoString) {
         if (_finder != null) this._finder = _finder;
         if (_value != null) this._value = _value;
@@ -117,8 +117,8 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) class T_byteStringReplacer {
-    public var _replacements : GoArray<Slice<GoUInt8>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0 ... 256) ((null : Slice<GoUInt8>))]);
-    public var _toReplace : Slice<GoString> = ((null : Slice<GoString>));
+    public var _replacements : GoArray<Slice<GoUInt8>>;
+    public var _toReplace : Slice<GoString>;
     public function new(?_replacements:GoArray<Slice<GoUInt8>>, ?_toReplace:Slice<GoString>) {
         if (_replacements != null) this._replacements = _replacements;
         if (_toReplace != null) this._toReplace = _toReplace;
@@ -129,9 +129,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) class T_stringFinder {
-    public var _pattern : GoString = "";
-    public var _badCharSkip : GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0 ... 256) ((0 : GoInt))]);
-    public var _goodSuffixSkip : Slice<GoInt> = ((null : Slice<GoInt>));
+    public var _pattern : GoString;
+    public var _badCharSkip : GoArray<GoInt>;
+    public var _goodSuffixSkip : Slice<GoInt>;
     public function new(?_pattern:GoString, ?_badCharSkip:GoArray<GoInt>, ?_goodSuffixSkip:Slice<GoInt>) {
         if (_pattern != null) this._pattern = _pattern;
         if (_badCharSkip != null) this._badCharSkip = _badCharSkip;
@@ -226,7 +226,7 @@ function newReplacer(_oldnew:haxe.Rest<GoString>):Replacer {
         return (({ _oldnew : (((((null : Slice<GoString>)) : Slice<GoString>)) != null ? ((((null : Slice<GoString>)) : Slice<GoString>)).__append__(..._oldnew.__toArray__()) : new Slice<GoString>(..._oldnew.__toArray__())) } : Replacer));
     }
 function _makeGenericReplacer(_oldnew:Slice<GoString>):T_genericReplacer {
-        var _r = new T_genericReplacer();
+        var _r = (({  } : T_genericReplacer));
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_oldnew != null ? _oldnew.length : ((0 : GoInt))), _i = _i + (((2 : GoInt))), {
@@ -262,7 +262,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):T_genericReplacer {
     }
 function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
         var __tmp__ = try {
-            { value : ((((_w.__underlying__().value : Dynamic)) : stdgo.io.Io.StringWriter)), ok : true };
+            { value : ((_w : stdgo.io.Io.StringWriter)), ok : true };
         } catch(_) {
             { value : ((null : stdgo.io.Io.StringWriter)), ok : false };
         }, _sw = __tmp__.value, _ok = __tmp__.ok;
@@ -725,8 +725,8 @@ function fields(_s:GoString):Slice<GoString> {
         return _a;
     }
 @:structInit class T_span_fieldsFunc_0 {
-    public var _start : GoInt = 0;
-    public var _end : GoInt = 0;
+    public var _start : GoInt;
+    public var _end : GoInt;
     public function new(?_start:GoInt, ?_end:GoInt) {
         if (_start != null) this._start = _start;
         if (_end != null) this._end = _end;
@@ -746,7 +746,7 @@ function fields(_s:GoString):Slice<GoString> {
 **/
 function fieldsFunc(_s:GoString, _f:GoRune -> Bool):Slice<GoString> {
         {};
-        var _spans = new Slice<T_span_fieldsFunc_0>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) new T_span_fieldsFunc_0()]).__setCap__(((((32 : GoInt)) : GoInt)).toBasic());
+        var _spans = new Slice<T_span_fieldsFunc_0>(...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) (({  } : T_span_fieldsFunc_0))]).__setCap__(((((32 : GoInt)) : GoInt)).toBasic());
         var _start:GoInt = ((-1 : GoInt));
         for (_end => _rune in _s) {
             if (_f(_rune)) {
@@ -786,7 +786,7 @@ function join(_elems:Slice<GoString>, _sep:GoString):GoString {
                 _n = _n + (((_elems != null ? _elems[_i] : (("" : GoString))) != null ? (_elems != null ? _elems[_i] : (("" : GoString))).length : ((0 : GoInt))));
             });
         };
-        var _b:Builder = new Builder();
+        var _b:Builder = (({  } : Builder));
         _b.grow(_n);
         _b.writeString((_elems != null ? _elems[((0 : GoInt))] : (("" : GoString))));
         for (_0 => _s in ((_elems.__slice__(((1 : GoInt))) : Slice<GoString>))) {
@@ -813,7 +813,7 @@ function hasSuffix(_s:GoString, _suffix:GoString):Bool {
     // dropped from the string with no replacement.
 **/
 function map(_mapping:GoRune -> GoRune, _s:GoString):GoString {
-        var _b:Builder = new Builder();
+        var _b:Builder = (({  } : Builder));
         for (_i => _c in _s) {
             var _r:GoInt32 = _mapping(_c);
             if ((_r == _c) && (_c != ((65533 : GoInt32)))) {
@@ -871,7 +871,7 @@ function repeat(_s:GoString, _count:GoInt):GoString {
             throw Go.toInterface(((((("strings: Repeat count causes overflow" : GoString))) : GoString)));
         };
         var _n:GoInt = (_s != null ? _s.length : ((0 : GoInt))) * _count;
-        var _b:Builder = new Builder();
+        var _b:Builder = (({  } : Builder));
         _b.grow(_n);
         _b.writeString(_s);
         while (_b.len() < _n) {
@@ -904,7 +904,7 @@ function toUpper(_s:GoString):GoString {
             if (!_hasLower) {
                 return _s;
             };
-            var _b:Builder = new Builder();
+            var _b:Builder = (({  } : Builder));
             _b.grow((_s != null ? _s.length : ((0 : GoInt))));
             {
                 var _i:GoInt = ((0 : GoInt));
@@ -940,7 +940,7 @@ function toLower(_s:GoString):GoString {
             if (!_hasUpper) {
                 return _s;
             };
-            var _b:Builder = new Builder();
+            var _b:Builder = (({  } : Builder));
             _b.grow((_s != null ? _s.length : ((0 : GoInt))));
             {
                 var _i:GoInt = ((0 : GoInt));
@@ -989,7 +989,7 @@ function toTitleSpecial(_c:stdgo.unicode.Unicode.SpecialCase, _s:GoString):GoStr
     // replaced by the replacement string, which may be empty.
 **/
 function toValidUTF8(_s:GoString, _replacement:GoString):GoString {
-        var _b:Builder = new Builder();
+        var _b:Builder = (({  } : Builder));
         for (_i => _c in _s) {
             if (_c != ((65533 : GoInt32))) {
                 continue;
@@ -1359,7 +1359,7 @@ function replace(_s:GoString, _old:GoString, _new:GoString, _n:GoInt):GoString {
                 _n = _m;
             };
         };
-        var _b:Builder = new Builder();
+        var _b:Builder = (({  } : Builder));
         _b.grow((_s != null ? _s.length : ((0 : GoInt))) + (_n * ((_new != null ? _new.length : ((0 : GoInt))) - (_old != null ? _old.length : ((0 : GoInt))))));
         var _start:GoInt = ((0 : GoInt));
         {
@@ -2043,7 +2043,7 @@ class Reader_wrapper {
                 var _o:GoUInt8 = ((_oldnew != null ? _oldnew[_i] : (("" : GoString))) != null ? (_oldnew != null ? _oldnew[_i] : (("" : GoString)))[((0 : GoInt))] : ((0 : GoUInt8)));
                 var _n:GoString = (_oldnew != null ? _oldnew[_i + ((1 : GoInt))] : (("" : GoString)));
                 if ((_r._replacements != null ? _r._replacements[_o] : ((null : Slice<GoUInt8>))) == null) {
-                    _r._toReplace = (_r._toReplace != null ? _r._toReplace.__append__(((((new Slice<GoByte>(_o) : Slice<GoByte>)) : GoString))) : new Slice<GoString>(((((new Slice<GoByte>(_o) : Slice<GoByte>)) : GoString))));
+                    _r._toReplace = (_r._toReplace != null ? _r._toReplace.__append__(((((new Slice<GoUInt8>(_o) : Slice<GoUInt8>)) : GoString))) : new Slice<GoString>(((((new Slice<GoUInt8>(_o) : Slice<GoUInt8>)) : GoString))));
                 };
                 if (_r._replacements != null) _r._replacements[_o] = ((_n : Slice<GoByte>));
             });
@@ -2121,7 +2121,7 @@ class Replacer_wrapper {
                 } else {
                     _prefixNode = (({ _prefix : ((_t._prefix.__slice__(((1 : GoInt))) : GoString)), _next : _t._next } : T_trieNode));
                 };
-                var _keyNode = new T_trieNode();
+                var _keyNode = (({  } : T_trieNode));
                 _t._table = new Slice<Ref<T_trieNode>>(...[for (i in 0 ... ((_r._tableSize : GoInt)).toBasic()) ((null : T_trieNode))]);
                 if (_t._table != null) _t._table[(_r._mapping != null ? _r._mapping[(_t._prefix != null ? _t._prefix[((0 : GoInt))] : ((0 : GoUInt8)))] : ((0 : GoUInt8)))] = _prefixNode;
                 if (_t._table != null) _t._table[(_r._mapping != null ? _r._mapping[(_key != null ? _key[((0 : GoInt))] : ((0 : GoUInt8)))] : ((0 : GoUInt8)))] = _keyNode;
@@ -2137,12 +2137,12 @@ class Replacer_wrapper {
         } else if (_t._table != null) {
             var _m:GoUInt8 = (_r._mapping != null ? _r._mapping[(_key != null ? _key[((0 : GoInt))] : ((0 : GoUInt8)))] : ((0 : GoUInt8)));
             if ((_t._table != null ? _t._table[_m] : ((null : T_trieNode))) == null) {
-                if (_t._table != null) _t._table[_m] = new T_trieNode();
+                if (_t._table != null) _t._table[_m] = (({  } : T_trieNode));
             };
             (_t._table != null ? _t._table[_m] : ((null : T_trieNode)))._add(((_key.__slice__(((1 : GoInt))) : GoString)), _val, _priority, _r);
         } else {
             _t._prefix = _key;
-            _t._next = new T_trieNode();
+            _t._next = (({  } : T_trieNode));
             _t._next._add(((((("" : GoString))) : GoString)), _val, _priority, _r);
         };
     }
@@ -2269,7 +2269,7 @@ class T_trieNode_wrapper {
         } else if (_t._table != null) {
             for (_b => _m in _r._mapping) {
                 if ((((_m : GoInt)) != _r._tableSize) && ((_t._table != null ? _t._table[_m] : ((null : T_trieNode))) != null)) {
-                    _s = _s + (repeat(((((("." : GoString))) : GoString)), _depth) + ((((new Slice<GoByte>(((_b : GoByte))) : Slice<GoByte>)) : GoString)));
+                    _s = _s + (repeat(((((("." : GoString))) : GoString)), _depth) + ((((new Slice<GoUInt8>(((_b : GoByte))) : Slice<GoUInt8>)) : GoString)));
                     _s = _s + (_r._printNode((_t._table != null ? _t._table[_m] : ((null : T_trieNode))), _depth + ((1 : GoInt))));
                 };
             };
@@ -2344,7 +2344,7 @@ class T_stringWriter_wrapper {
     }
     @:keep
     static public function replace( _r:T_singleStringReplacer, _s:GoString):GoString {
-        var _buf:Builder = new Builder();
+        var _buf:Builder = (({  } : Builder));
         var _i:GoInt = ((0 : GoInt)), _matched:Bool = false;
         while (true) {
             var _match:GoInt = _r._finder._next(((_s.__slice__(_i) : GoString)));

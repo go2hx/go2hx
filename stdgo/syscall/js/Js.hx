@@ -10,22 +10,22 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = ((null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>));
 var _nextFuncID : GoUInt32 = ((0 : GoUInt32));
-var _valueUndefined : Value = new Value();
-var _valueNaN : Value = new Value();
-var _valueZero : Value = new Value();
-var _valueNull : Value = new Value();
-var _valueTrue : Value = new Value();
-var _valueFalse : Value = new Value();
-var _valueGlobal : Value = new Value();
-var _jsGo : Value = new Value();
-var _objectConstructor : Value = new Value();
-var _arrayConstructor : Value = new Value();
-var jsgo : Value = new Value();
-var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
+var _valueUndefined : Value = (({  } : Value));
+var _valueNaN : Value = (({  } : Value));
+var _valueZero : Value = (({  } : Value));
+var _valueNull : Value = (({  } : Value));
+var _valueTrue : Value = (({  } : Value));
+var _valueFalse : Value = (({  } : Value));
+var _valueGlobal : Value = (({  } : Value));
+var _jsGo : Value = (({  } : Value));
+var _objectConstructor : Value = (({  } : Value));
+var _arrayConstructor : Value = (({  } : Value));
+var jsgo : Value = (({  } : Value));
+var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded
-    public var value : Value = new Value();
-    public var _id : GoUInt32 = 0;
+    public var value : Value;
+    public var _id : GoUInt32;
     public function new(?value:Value, ?_id:GoUInt32) {
         if (value != null) this.value = value;
         if (_id != null) this._id = _id;
@@ -33,7 +33,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function bool():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
@@ -41,15 +41,15 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function float():GoFloat64 return ((0 : GoFloat64));
     @:embedded
-    public function get(_p:GoString):Value return new Value();
+    public function get(_p:GoString):Value return (({  } : Value));
     @:embedded
-    public function index(_i:GoInt):Value return new Value();
+    public function index(_i:GoInt):Value return (({  } : Value));
     @:embedded
     public function instanceOf(__0:Value):Bool return false;
     @:embedded
     public function int():GoInt return ((0 : GoInt));
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -59,7 +59,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function length():GoInt return ((0 : GoInt));
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
@@ -80,9 +80,9 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     }
 }
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
-    public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
-    public var _ref : T_ref = ((((0 : GoUInt64)) : T_ref));
-    public var _gcPtr : Pointer<T_ref> = ((null : Pointer<T_ref>));
+    public var _0 : GoArray<() -> Void>;
+    public var _ref : T_ref;
+    public var _gcPtr : Pointer<T_ref>;
     public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
         if (_0 != null) this._0 = _0;
         if (_ref != null) this._ref = _ref;
@@ -95,14 +95,14 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
 }
 @:structInit @:using(stdgo.syscall.js.Js.T_error_static_extension) class T_error {
     @:embedded
-    public var value : Value = new Value();
+    public var value : Value;
     public function new(?value:Value) {
         if (value != null) this.value = value;
     }
     @:embedded
     public function bool():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
@@ -110,15 +110,15 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function float():GoFloat64 return ((0 : GoFloat64));
     @:embedded
-    public function get(_p:GoString):Value return new Value();
+    public function get(_p:GoString):Value return (({  } : Value));
     @:embedded
-    public function index(_i:GoInt):Value return new Value();
+    public function index(_i:GoInt):Value return (({  } : Value));
     @:embedded
     public function instanceOf(__0:Value):Bool return false;
     @:embedded
     public function int():GoInt return ((0 : GoInt));
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -128,7 +128,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     @:embedded
     public function length():GoInt return ((0 : GoInt));
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return new Value();
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
@@ -149,8 +149,8 @@ var _funcsMu : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
     }
 }
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
-    public var method : GoString = "";
-    public var type : Type = ((((0 : GoInt)) : Type));
+    public var method : GoString;
+    public var type : Type;
     public function new(?method:GoString, ?type:Type) {
         if (method != null) this.method = method;
         if (type != null) this.type = type;

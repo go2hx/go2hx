@@ -8,25 +8,15 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _dummys : Value = new Value();
+var _dummys : Value = (({  } : Value));
 var _copyTests : Slice<T__struct_0> = ((null : Slice<T__struct_0>));
-@:structInit @:local class T__struct_0 {
-    public var _srcLen : GoInt = 0;
-    public var _dstLen : GoInt = 0;
-    public var _copyLen : GoInt = 0;
-    public function string():String return "{" + Go.string(_srcLen) + " " + Go.string(_dstLen) + " " + Go.string(_copyLen) + "}";
-    public function new(?_srcLen:GoInt, ?_dstLen:GoInt, ?_copyLen:GoInt, ?string) {
-        if (_srcLen != null) this._srcLen = _srcLen;
-        if (_dstLen != null) this._dstLen = _dstLen;
-        if (_copyLen != null) this._copyLen = _copyLen;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(_srcLen, _dstLen, _copyLen);
-    }
-}
-@:named typedef T_object = GoMap<GoString, AnyInterface>;
-@:named typedef T_array = Slice<AnyInterface>;
+@:local typedef T__struct_0 = {
+    public var _srcLen : GoInt;
+    public var _dstLen : GoInt;
+    public var _copyLen : GoInt;
+};
+@:follow typedef T_object = GoMap<GoString, AnyInterface>;
+@:follow typedef T_array = Slice<AnyInterface>;
 function testBool(_t:stdgo.testing.Testing.T):Void throw "syscall.js_test.testBool is not yet implemented";
 function testString(_t:stdgo.testing.Testing.T):Void throw "syscall.js_test.testString is not yet implemented";
 function testInt(_t:stdgo.testing.Testing.T):Void throw "syscall.js_test.testInt is not yet implemented";

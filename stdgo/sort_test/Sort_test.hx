@@ -10,8 +10,8 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _planets : Slice<stdgo.sort_test.Sort_test.Planet> = ((new Slice<Planet>(((new Planet(((((("Mercury" : GoString))) : GoString)), ((0.055 : stdgo.sort_test.Sort_test.T_earthMass)), ((0.4 : stdgo.sort_test.Sort_test.T_au))) : Planet)), ((new Planet(((((("Venus" : GoString))) : GoString)), ((0.815 : stdgo.sort_test.Sort_test.T_earthMass)), ((0.7 : stdgo.sort_test.Sort_test.T_au))) : Planet)), ((new Planet(((((("Earth" : GoString))) : GoString)), ((1 : stdgo.sort_test.Sort_test.T_earthMass)), ((1 : stdgo.sort_test.Sort_test.T_au))) : Planet)), ((new Planet(((((("Mars" : GoString))) : GoString)), ((0.107 : stdgo.sort_test.Sort_test.T_earthMass)), ((1.5 : stdgo.sort_test.Sort_test.T_au))) : Planet))) : Slice<Planet>));
-var _changes : Slice<stdgo.sort_test.Sort_test.Change> = ((new Slice<Change>(((new Change(((((("gri" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((100 : GoInt))) : Change)), ((new Change(((((("ken" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((150 : GoInt))) : Change)), ((new Change(((((("glenda" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : Change)), ((new Change(((((("rsc" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : Change)), ((new Change(((((("r" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((100 : GoInt))) : Change)), ((new Change(((((("ken" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : Change)), ((new Change(((((("dmr" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((100 : GoInt))) : Change)), ((new Change(((((("r" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((150 : GoInt))) : Change)), ((new Change(((((("gri" : GoString))) : GoString)), ((((("Smalltalk" : GoString))) : GoString)), ((80 : GoInt))) : Change))) : Slice<Change>));
+var _planets : Slice<stdgo.sort_test.Sort_test.Planet> = ((new Slice<stdgo.sort_test.Sort_test.Planet>(((new stdgo.sort_test.Sort_test.Planet(((((("Mercury" : GoString))) : GoString)), ((0.055 : stdgo.sort_test.Sort_test.T_earthMass)), ((0.4 : stdgo.sort_test.Sort_test.T_au))) : stdgo.sort_test.Sort_test.Planet)), ((new stdgo.sort_test.Sort_test.Planet(((((("Venus" : GoString))) : GoString)), ((0.815 : stdgo.sort_test.Sort_test.T_earthMass)), ((0.7 : stdgo.sort_test.Sort_test.T_au))) : stdgo.sort_test.Sort_test.Planet)), ((new stdgo.sort_test.Sort_test.Planet(((((("Earth" : GoString))) : GoString)), ((1 : stdgo.sort_test.Sort_test.T_earthMass)), ((1 : stdgo.sort_test.Sort_test.T_au))) : stdgo.sort_test.Sort_test.Planet)), ((new stdgo.sort_test.Sort_test.Planet(((((("Mars" : GoString))) : GoString)), ((0.107 : stdgo.sort_test.Sort_test.T_earthMass)), ((1.5 : stdgo.sort_test.Sort_test.T_au))) : stdgo.sort_test.Sort_test.Planet))) : Slice<stdgo.sort_test.Sort_test.Planet>));
+var _changes : Slice<stdgo.sort_test.Sort_test.Change> = ((new Slice<stdgo.sort_test.Sort_test.Change>(((new stdgo.sort_test.Sort_test.Change(((((("gri" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((100 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("ken" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((150 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("glenda" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("rsc" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("r" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((100 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("ken" : GoString))) : GoString)), ((((("Go" : GoString))) : GoString)), ((200 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("dmr" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((100 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("r" : GoString))) : GoString)), ((((("C" : GoString))) : GoString)), ((150 : GoInt))) : stdgo.sort_test.Sort_test.Change)), ((new stdgo.sort_test.Sort_test.Change(((((("gri" : GoString))) : GoString)), ((((("Smalltalk" : GoString))) : GoString)), ((80 : GoInt))) : stdgo.sort_test.Sort_test.Change))) : Slice<stdgo.sort_test.Sort_test.Change>));
 var _data : Slice<GoInt> = {
         var s:Slice<GoInt> = new Slice<GoInt>(...([for (i in 0 ... 14) 0]));
         s[0] = ((-10 : GoInt));
@@ -30,47 +30,47 @@ var _data : Slice<GoInt> = {
         s[13] = ((10000 : GoInt));
         s;
     };
-var _tests : Slice<stdgo.sort_test.Sort_test.T__struct_1> = ((new Slice<T__struct_1>(
-((new T__struct_1(((((("empty" : GoString))) : GoString)), ((0 : GoInt)), null, ((0 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1 1" : GoString))) : GoString)), ((1 : GoInt)), function(_i:GoInt):Bool {
+var _tests : Slice<T__struct_1> = ((new Slice<T__struct_1>(
+(({ _name : ((((("empty" : GoString))) : GoString)), _n : ((0 : GoInt)), _f : null, _i : ((0 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1 1" : GoString))) : GoString)), _n : ((1 : GoInt)), _f : function(_i:GoInt):Bool {
         return _i >= ((1 : GoInt));
-    }, ((1 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1 true" : GoString))) : GoString)), ((1 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((1 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1 true" : GoString))) : GoString)), _n : ((1 : GoInt)), _f : function(_i:GoInt):Bool {
         return true;
-    }, ((0 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1 false" : GoString))) : GoString)), ((1 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((0 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1 false" : GoString))) : GoString)), _n : ((1 : GoInt)), _f : function(_i:GoInt):Bool {
         return false;
-    }, ((1 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1e9 991" : GoString))) : GoString)), ((1e+09 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((1 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1e9 991" : GoString))) : GoString)), _n : ((1e+09 : GoInt)), _f : function(_i:GoInt):Bool {
         return _i >= ((991 : GoInt));
-    }, ((991 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1e9 true" : GoString))) : GoString)), ((1e+09 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((991 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1e9 true" : GoString))) : GoString)), _n : ((1e+09 : GoInt)), _f : function(_i:GoInt):Bool {
         return true;
-    }, ((0 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("1e9 false" : GoString))) : GoString)), ((1e+09 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((0 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("1e9 false" : GoString))) : GoString)), _n : ((1e+09 : GoInt)), _f : function(_i:GoInt):Bool {
         return false;
-    }, ((1e+09 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data -20" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((-20 : GoInt))), ((0 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data -10" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((-10 : GoInt))), ((0 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data -9" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((-9 : GoInt))), ((1 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data -6" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((-6 : GoInt))), ((1 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data -5" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((-5 : GoInt))), ((1 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 3" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((3 : GoInt))), ((5 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 11" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((11 : GoInt))), ((8 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 99" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((99 : GoInt))), ((9 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 100" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((100 : GoInt))), ((9 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 101" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((101 : GoInt))), ((12 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 10000" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((10000 : GoInt))), ((13 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("data 10001" : GoString))) : GoString)), (_data != null ? _data.length : ((0 : GoInt))), _f(_data, ((10001 : GoInt))), ((14 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("descending a" : GoString))) : GoString)), ((7 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((1e+09 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data -20" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((-20 : GoInt))), _i : ((0 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data -10" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((-10 : GoInt))), _i : ((0 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data -9" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((-9 : GoInt))), _i : ((1 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data -6" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((-6 : GoInt))), _i : ((1 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data -5" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((-5 : GoInt))), _i : ((1 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 3" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((3 : GoInt))), _i : ((5 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 11" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((11 : GoInt))), _i : ((8 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 99" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((99 : GoInt))), _i : ((9 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 100" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((100 : GoInt))), _i : ((9 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 101" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((101 : GoInt))), _i : ((12 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 10000" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((10000 : GoInt))), _i : ((13 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("data 10001" : GoString))) : GoString)), _n : (_data != null ? _data.length : ((0 : GoInt))), _f : _f(_data, ((10001 : GoInt))), _i : ((14 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("descending a" : GoString))) : GoString)), _n : ((7 : GoInt)), _f : function(_i:GoInt):Bool {
         return (((new Slice<GoInt>(((99 : GoInt)), ((99 : GoInt)), ((59 : GoInt)), ((42 : GoInt)), ((7 : GoInt)), ((0 : GoInt)), ((-1 : GoInt)), ((-1 : GoInt))) : Slice<GoInt>)) != null ? ((new Slice<GoInt>(((99 : GoInt)), ((99 : GoInt)), ((59 : GoInt)), ((42 : GoInt)), ((7 : GoInt)), ((0 : GoInt)), ((-1 : GoInt)), ((-1 : GoInt))) : Slice<GoInt>))[_i] : ((0 : GoInt))) <= ((7 : GoInt));
-    }, ((4 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("descending 7" : GoString))) : GoString)), ((1e+09 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((4 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("descending 7" : GoString))) : GoString)), _n : ((1e+09 : GoInt)), _f : function(_i:GoInt):Bool {
         return (((1e+09 : GoInt)) - _i) <= ((7 : GoInt));
-    }, ((999999993 : GoInt))) : T__struct_1)),
-((new T__struct_1(((((("overflow" : GoString))) : GoString)), ((2e+09 : GoInt)), function(_i:GoInt):Bool {
+    }, _i : ((999999993 : GoInt)) } : T__struct_1)),
+(({ _name : ((((("overflow" : GoString))) : GoString)), _n : ((2e+09 : GoInt)), _f : function(_i:GoInt):Bool {
         return false;
-    }, ((2e+09 : GoInt))) : T__struct_1))) : Slice<T__struct_1>));
+    }, _i : ((2e+09 : GoInt)) } : T__struct_1))) : Slice<T__struct_1>));
 var _fdata : Slice<GoFloat64> = {
         var s:Slice<GoFloat64> = new Slice<GoFloat64>(...([for (i in 0 ... 5) 0]));
         s[0] = ((-3.14 : GoFloat64));
@@ -88,7 +88,7 @@ var _sdata : Slice<GoString> = {
         s[3] = ((((("x" : GoString))) : GoString));
         s;
     };
-var _wrappertests : Slice<stdgo.sort_test.Sort_test.T__struct_3> = ((new Slice<T__struct_3>(((new T__struct_3(((((("SearchInts" : GoString))) : GoString)), searchInts(_data, ((11 : GoInt))), ((8 : GoInt))) : T__struct_3)), ((new T__struct_3(((((("SearchFloat64s" : GoString))) : GoString)), searchFloat64s(_fdata, ((2.1 : GoFloat64))), ((4 : GoInt))) : T__struct_3)), ((new T__struct_3(((((("SearchStrings" : GoString))) : GoString)), searchStrings(_sdata, ((((("" : GoString))) : GoString))), ((0 : GoInt))) : T__struct_3)), ((new T__struct_3(((((("IntSlice.Search" : GoString))) : GoString)), ((_data : IntSlice)).search(((0 : GoInt))), ((2 : GoInt))) : T__struct_3)), ((new T__struct_3(((((("Float64Slice.Search" : GoString))) : GoString)), ((_fdata : Float64Slice)).search(((2 : GoFloat64))), ((3 : GoInt))) : T__struct_3)), ((new T__struct_3(((((("StringSlice.Search" : GoString))) : GoString)), ((_sdata : StringSlice)).search(((((("x" : GoString))) : GoString))), ((3 : GoInt))) : T__struct_3))) : Slice<T__struct_3>));
+var _wrappertests : Slice<T__struct_3> = ((new Slice<T__struct_3>((({ _name : ((((("SearchInts" : GoString))) : GoString)), _result : searchInts(_data, ((11 : GoInt))), _i : ((8 : GoInt)) } : T__struct_3)), (({ _name : ((((("SearchFloat64s" : GoString))) : GoString)), _result : searchFloat64s(_fdata, ((2.1 : GoFloat64))), _i : ((4 : GoInt)) } : T__struct_3)), (({ _name : ((((("SearchStrings" : GoString))) : GoString)), _result : searchStrings(_sdata, ((((("" : GoString))) : GoString))), _i : ((0 : GoInt)) } : T__struct_3)), (({ _name : ((((("IntSlice.Search" : GoString))) : GoString)), _result : ((_data : IntSlice)).search(((0 : GoInt))), _i : ((2 : GoInt)) } : T__struct_3)), (({ _name : ((((("Float64Slice.Search" : GoString))) : GoString)), _result : ((_fdata : Float64Slice)).search(((2 : GoFloat64))), _i : ((3 : GoInt)) } : T__struct_3)), (({ _name : ((((("StringSlice.Search" : GoString))) : GoString)), _result : ((_sdata : StringSlice)).search(((((("x" : GoString))) : GoString))), _i : ((3 : GoInt)) } : T__struct_3))) : Slice<T__struct_3>));
 var _ints : GoArray<GoInt> = ((new GoArray<GoInt>(
 ((74 : GoInt)),
 ((59 : GoInt)),
@@ -121,8 +121,8 @@ stdgo.math.Math.inf(((-1 : GoInt))),
 var _strings : GoArray<GoString> = ((new GoArray<GoString>(((((("" : GoString))) : GoString)), ((((("Hello" : GoString))) : GoString)), ((((("foo" : GoString))) : GoString)), ((((("bar" : GoString))) : GoString)), ((((("foo" : GoString))) : GoString)), ((((("f00" : GoString))) : GoString)), ((((("%*&^*&^&" : GoString))) : GoString)), ((((("***" : GoString))) : GoString))) : GoArray<GoString>));
 var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : GoInt)), ((1000 : GoInt)), ((3000 : GoInt)), ((10000 : GoInt)), ((30000 : GoInt)), ((100000 : GoInt)), ((300000 : GoInt)), ((1e+06 : GoInt))) : Slice<GoInt>));
 @:structInit @:using(stdgo.sort_test.Sort_test.Person_static_extension) class Person {
-    public var name : GoString = "";
-    public var age : GoInt = 0;
+    public var name : GoString;
+    public var age : GoInt;
     public function new(?name:GoString, ?age:GoInt) {
         if (name != null) this.name = name;
         if (age != null) this.age = age;
@@ -133,9 +133,9 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Planet {
-    public var _name : GoString = "";
-    public var _mass : stdgo.sort_test.Sort_test.T_earthMass = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_earthMass));
-    public var _distance : stdgo.sort_test.Sort_test.T_au = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_au));
+    public var _name : GoString;
+    public var _mass : stdgo.sort_test.Sort_test.T_earthMass;
+    public var _distance : stdgo.sort_test.Sort_test.T_au;
     public function new(?_name:GoString, ?_mass:stdgo.sort_test.Sort_test.T_earthMass, ?_distance:stdgo.sort_test.Sort_test.T_au) {
         if (_name != null) this._name = _name;
         if (_mass != null) this._mass = _mass;
@@ -147,8 +147,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_planetSorter_static_extension) class T_planetSorter {
-    public var _planets : Slice<stdgo.sort_test.Sort_test.Planet> = ((null : Slice<stdgo.sort_test.Sort_test.Planet>));
-    public var _by : (Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool = null;
+    public var _planets : Slice<stdgo.sort_test.Sort_test.Planet>;
+    public var _by : (Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool;
     public function new(?_planets:Slice<stdgo.sort_test.Sort_test.Planet>, ?_by:(Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool) {
         if (_planets != null) this._planets = _planets;
         if (_by != null) this._by = _by;
@@ -159,9 +159,9 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Change {
-    public var _user : GoString = "";
-    public var _language : GoString = "";
-    public var _lines : GoInt = 0;
+    public var _user : GoString;
+    public var _language : GoString;
+    public var _lines : GoInt;
     public function new(?_user:GoString, ?_language:GoString, ?_lines:GoInt) {
         if (_user != null) this._user = _user;
         if (_language != null) this._language = _language;
@@ -173,8 +173,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_multiSorter_static_extension) class T_multiSorter {
-    public var _changes : Slice<stdgo.sort_test.Sort_test.Change> = ((null : Slice<stdgo.sort_test.Sort_test.Change>));
-    public var _less : Slice<stdgo.sort_test.Sort_test.T_lessFunc> = ((null : Slice<stdgo.sort_test.Sort_test.T_lessFunc>));
+    public var _changes : Slice<stdgo.sort_test.Sort_test.Change>;
+    public var _less : Slice<stdgo.sort_test.Sort_test.T_lessFunc>;
     public function new(?_changes:Slice<stdgo.sort_test.Sort_test.Change>, ?_less:Slice<stdgo.sort_test.Sort_test.T_lessFunc>) {
         if (_changes != null) this._changes = _changes;
         if (_less != null) this._less = _less;
@@ -185,8 +185,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Organ {
-    public var name : GoString = "";
-    public var weight : stdgo.sort_test.Sort_test.Grams = ((((0 : GoInt)) : stdgo.sort_test.Sort_test.Grams));
+    public var name : GoString;
+    public var weight : stdgo.sort_test.Sort_test.Grams;
     public function new(?name:GoString, ?weight:stdgo.sort_test.Sort_test.Grams) {
         if (name != null) this.name = name;
         if (weight != null) this.weight = weight;
@@ -198,7 +198,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.ByName_static_extension) class ByName {
     @:embedded
-    public var organs : stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
+    public var organs : stdgo.sort_test.Sort_test.Organs;
     public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
         if (organs != null) this.organs = organs;
     }
@@ -213,7 +213,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.ByWeight_static_extension) class ByWeight {
     @:embedded
-    public var organs : stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
+    public var organs : stdgo.sort_test.Sort_test.Organs;
     public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
         if (organs != null) this.organs = organs;
     }
@@ -227,7 +227,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_static_extension) class T_nonDeterministicTestingData {
-    public var _r : Ref<stdgo.math.rand.Rand.Rand> = ((null : stdgo.math.rand.Rand.Rand));
+    public var _r : Ref<stdgo.math.rand.Rand.Rand>;
     public function new(?_r:Ref<stdgo.math.rand.Rand.Rand>) {
         if (_r != null) this._r = _r;
     }
@@ -237,12 +237,12 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_testingData_static_extension) class T_testingData {
-    public var _desc : GoString = "";
-    public var _t : Ref<stdgo.testing.Testing.T> = ((null : stdgo.testing.Testing.T));
-    public var _data : Slice<GoInt> = ((null : Slice<GoInt>));
-    public var _maxswap : GoInt = 0;
-    public var _ncmp : GoInt = 0;
-    public var _nswap : GoInt = 0;
+    public var _desc : GoString;
+    public var _t : Ref<stdgo.testing.Testing.T>;
+    public var _data : Slice<GoInt>;
+    public var _maxswap : GoInt;
+    public var _ncmp : GoInt;
+    public var _nswap : GoInt;
     public function new(?_desc:GoString, ?_t:Ref<stdgo.testing.Testing.T>, ?_data:Slice<GoInt>, ?_maxswap:GoInt, ?_ncmp:GoInt, ?_nswap:GoInt) {
         if (_desc != null) this._desc = _desc;
         if (_t != null) this._t = _t;
@@ -257,13 +257,13 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) class T_adversaryTestingData {
-    public var _t : Ref<stdgo.testing.Testing.T> = ((null : stdgo.testing.Testing.T));
-    public var _data : Slice<GoInt> = ((null : Slice<GoInt>));
-    public var _maxcmp : GoInt = 0;
-    public var _ncmp : GoInt = 0;
-    public var _nsolid : GoInt = 0;
-    public var _candidate : GoInt = 0;
-    public var _gas : GoInt = 0;
+    public var _t : Ref<stdgo.testing.Testing.T>;
+    public var _data : Slice<GoInt>;
+    public var _maxcmp : GoInt;
+    public var _ncmp : GoInt;
+    public var _nsolid : GoInt;
+    public var _candidate : GoInt;
+    public var _gas : GoInt;
     public function new(?_t:Ref<stdgo.testing.Testing.T>, ?_data:Slice<GoInt>, ?_maxcmp:GoInt, ?_ncmp:GoInt, ?_nsolid:GoInt, ?_candidate:GoInt, ?_gas:GoInt) {
         if (_t != null) this._t = _t;
         if (_data != null) this._data = _data;
@@ -278,81 +278,31 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
         return new T_adversaryTestingData(_t, _data, _maxcmp, _ncmp, _nsolid, _candidate, _gas);
     }
 }
-@:structInit @:local class T__struct_0 {
-    public var name : GoString = "";
-    public var age : GoInt = 0;
-    public function string():String return "{" + Go.string(name) + " " + Go.string(age) + "}";
-    public function new(?name:GoString, ?age:GoInt, ?string) {
-        if (name != null) this.name = name;
-        if (age != null) this.age = age;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(name, age);
-    }
-}
-@:structInit @:local class T__struct_1 {
-    public var _name : GoString = "";
-    public var _n : GoInt = 0;
-    public var _f : GoInt -> Bool = null;
-    public var _i : GoInt = 0;
-    public function string():String return "{" + Go.string(_name) + " " + Go.string(_n) + " " + Go.string(_f) + " " + Go.string(_i) + "}";
-    public function new(?_name:GoString, ?_n:GoInt, ?_f:GoInt -> Bool, ?_i:GoInt, ?string) {
-        if (_name != null) this._name = _name;
-        if (_n != null) this._n = _n;
-        if (_f != null) this._f = _f;
-        if (_i != null) this._i = _i;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_1(_name, _n, _f, _i);
-    }
-}
-@:structInit @:local class T__struct_2 {
-    public var _data : Slice<GoString> = ((null : Slice<GoString>));
-    public var _target : GoString = "";
-    public var _wantPos : GoInt = 0;
-    public var _wantFound : Bool = false;
-    public function string():String return "{" + Go.string(_data) + " " + Go.string(_target) + " " + Go.string(_wantPos) + " " + Go.string(_wantFound) + "}";
-    public function new(?_data:Slice<GoString>, ?_target:GoString, ?_wantPos:GoInt, ?_wantFound:Bool, ?string) {
-        if (_data != null) this._data = _data;
-        if (_target != null) this._target = _target;
-        if (_wantPos != null) this._wantPos = _wantPos;
-        if (_wantFound != null) this._wantFound = _wantFound;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_2(_data, _target, _wantPos, _wantFound);
-    }
-}
-@:structInit @:local class T__struct_3 {
-    public var _name : GoString = "";
-    public var _result : GoInt = 0;
-    public var _i : GoInt = 0;
-    public function string():String return "{" + Go.string(_name) + " " + Go.string(_result) + " " + Go.string(_i) + "}";
-    public function new(?_name:GoString, ?_result:GoInt, ?_i:GoInt, ?string) {
-        if (_name != null) this._name = _name;
-        if (_result != null) this._result = _result;
-        if (_i != null) this._i = _i;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_3(_name, _result, _i);
-    }
-}
-@:structInit @:local class T__struct_4 {
-    public var _a : GoInt = 0;
-    public var _b : GoInt = 0;
-    public function string():String return "{" + Go.string(_a) + " " + Go.string(_b) + "}";
-    public function new(?_a:GoInt, ?_b:GoInt, ?string) {
-        if (_a != null) this._a = _a;
-        if (_b != null) this._b = _b;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_4(_a, _b);
-    }
-}
+@:local typedef T__struct_0 = {
+    public var name : GoString;
+    public var age : GoInt;
+};
+@:local typedef T__struct_1 = {
+    public var _name : GoString;
+    public var _n : GoInt;
+    public var _f : GoInt -> Bool;
+    public var _i : GoInt;
+};
+@:local typedef T__struct_2 = {
+    public var _data : Slice<GoString>;
+    public var _target : GoString;
+    public var _wantPos : GoInt;
+    public var _wantFound : Bool;
+};
+@:local typedef T__struct_3 = {
+    public var _name : GoString;
+    public var _result : GoInt;
+    public var _i : GoInt;
+};
+@:local typedef T__struct_4 = {
+    public var _a : GoInt;
+    public var _b : GoInt;
+};
 @:named @:using(stdgo.sort_test.Sort_test.ByAge_static_extension) typedef ByAge = Slice<stdgo.sort_test.Sort_test.Person>;
 @:named typedef T_earthMass = GoFloat64;
 @:named typedef T_au = GoFloat64;
@@ -362,7 +312,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 @:named @:using(stdgo.sort_test.Sort_test.Organs_static_extension) typedef Organs = Slice<Ref<stdgo.sort_test.Sort_test.Organ>>;
 @:named @:using(stdgo.sort_test.Sort_test.T_intPairs_static_extension) typedef T_intPairs = Slice<T__struct_4>;
 function example():Void {
-        var _people = ((new Slice<Person>(((new Person(((((("Bob" : GoString))) : GoString)), ((31 : GoInt))) : Person)), ((new Person(((((("John" : GoString))) : GoString)), ((42 : GoInt))) : Person)), ((new Person(((((("Michael" : GoString))) : GoString)), ((17 : GoInt))) : Person)), ((new Person(((((("Jenny" : GoString))) : GoString)), ((26 : GoInt))) : Person))) : Slice<Person>));
+        var _people = ((new Slice<stdgo.sort_test.Sort_test.Person>(((new stdgo.sort_test.Sort_test.Person(((((("Bob" : GoString))) : GoString)), ((31 : GoInt))) : stdgo.sort_test.Sort_test.Person)), ((new stdgo.sort_test.Sort_test.Person(((((("John" : GoString))) : GoString)), ((42 : GoInt))) : stdgo.sort_test.Sort_test.Person)), ((new stdgo.sort_test.Sort_test.Person(((((("Michael" : GoString))) : GoString)), ((17 : GoInt))) : stdgo.sort_test.Sort_test.Person)), ((new stdgo.sort_test.Sort_test.Person(((((("Jenny" : GoString))) : GoString)), ((26 : GoInt))) : stdgo.sort_test.Sort_test.Person))) : Slice<stdgo.sort_test.Sort_test.Person>));
         stdgo.fmt.Fmt.println(_people);
         stdgo.sort.Sort.sort({
             final __self__ = new stdgo.sort_test.Sort_test.ByAge_wrapper(((_people : ByAge)));
@@ -373,7 +323,7 @@ function example():Void {
         });
         stdgo.fmt.Fmt.println(_people);
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.Person()).age > (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.Person()).age;
+            return (_people != null ? _people[_i] : (({  } : stdgo.sort_test.Sort_test.Person))).age > (_people != null ? _people[_j] : (({  } : stdgo.sort_test.Sort_test.Person))).age;
         });
         stdgo.fmt.Fmt.println(_people);
     }
@@ -408,7 +358,7 @@ function example_sortKeys():Void {
 **/
 function orderedBy(_less:haxe.Rest<T_lessFunc>):T_multiSorter {
         var _less = new Slice<T_lessFunc>(..._less);
-        return (({ _less : _less } : T_multiSorter));
+        return (({ _less : _less } : stdgo.sort_test.Sort_test.T_multiSorter));
     }
 /**
     // ExampleMultiKeys demonstrates a technique for sorting a struct type using different
@@ -538,24 +488,24 @@ function exampleReverse():Void {
         stdgo.fmt.Fmt.println(_s);
     }
 function exampleSlice():Void {
-        var _people = ((new Slice<T__struct_0>(((new T__struct_0(((((("Gopher" : GoString))) : GoString)), ((7 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((55 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Vera" : GoString))) : GoString)), ((24 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0))) : Slice<T__struct_0>));
+        var _people = ((new Slice<Person>(((new Person(((((("Gopher" : GoString))) : GoString)), ((7 : GoInt))) : Person)), ((new Person(((((("Alice" : GoString))) : GoString)), ((55 : GoInt))) : Person)), ((new Person(((((("Vera" : GoString))) : GoString)), ((24 : GoInt))) : Person)), ((new Person(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : Person))) : Slice<Person>));
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).name < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).name;
+            return (_people != null ? _people[_i] : (({  } : Person))).name < (_people != null ? _people[_j] : (({  } : Person))).name;
         });
         stdgo.fmt.Fmt.println(((((("By name:" : GoString))) : GoString)), _people);
         stdgo.sort.Sort.slice(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).age < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).age;
+            return (_people != null ? _people[_i] : (({  } : Person))).age < (_people != null ? _people[_j] : (({  } : Person))).age;
         });
         stdgo.fmt.Fmt.println(((((("By age:" : GoString))) : GoString)), _people);
     }
 function exampleSliceStable():Void {
-        var _people = ((new Slice<T__struct_0>(((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Elizabeth" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Bob" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Colin" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0)), ((new T__struct_0(((((("Elizabeth" : GoString))) : GoString)), ((25 : GoInt))) : T__struct_0))) : Slice<T__struct_0>));
+        var _people = ((new Slice<Person>(((new Person(((((("Alice" : GoString))) : GoString)), ((25 : GoInt))) : Person)), ((new Person(((((("Elizabeth" : GoString))) : GoString)), ((75 : GoInt))) : Person)), ((new Person(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : Person)), ((new Person(((((("Bob" : GoString))) : GoString)), ((75 : GoInt))) : Person)), ((new Person(((((("Alice" : GoString))) : GoString)), ((75 : GoInt))) : Person)), ((new Person(((((("Bob" : GoString))) : GoString)), ((25 : GoInt))) : Person)), ((new Person(((((("Colin" : GoString))) : GoString)), ((25 : GoInt))) : Person)), ((new Person(((((("Elizabeth" : GoString))) : GoString)), ((25 : GoInt))) : Person))) : Slice<Person>));
         stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).name < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).name;
+            return (_people != null ? _people[_i] : (({  } : Person))).name < (_people != null ? _people[_j] : (({  } : Person))).name;
         });
         stdgo.fmt.Fmt.println(((((("By name:" : GoString))) : GoString)), _people);
         stdgo.sort.Sort.sliceStable(Go.toInterface(_people), function(_i:GoInt, _j:GoInt):Bool {
-            return (_people != null ? _people[_i] : new stdgo.sort_test.Sort_test.T__struct_0()).age < (_people != null ? _people[_j] : new stdgo.sort_test.Sort_test.T__struct_0()).age;
+            return (_people != null ? _people[_i] : (({  } : Person))).age < (_people != null ? _people[_j] : (({  } : Person))).age;
         });
         stdgo.fmt.Fmt.println(((((("By age,name:" : GoString))) : GoString)), _people);
     }
@@ -565,21 +515,21 @@ function exampleStrings():Void {
         stdgo.fmt.Fmt.println(_s);
     }
 function example_sortWrapper():Void {
-        var _s = ((new Slice<Organ>(((new Organ(((((("brain" : GoString))) : GoString)), ((1340 : stdgo.sort_test.Sort_test.Grams))) : Organ)), ((new Organ(((((("heart" : GoString))) : GoString)), ((290 : stdgo.sort_test.Sort_test.Grams))) : Organ)), ((new Organ(((((("liver" : GoString))) : GoString)), ((1494 : stdgo.sort_test.Sort_test.Grams))) : Organ)), ((new Organ(((((("pancreas" : GoString))) : GoString)), ((131 : stdgo.sort_test.Sort_test.Grams))) : Organ)), ((new Organ(((((("prostate" : GoString))) : GoString)), ((62 : stdgo.sort_test.Sort_test.Grams))) : Organ)), ((new Organ(((((("spleen" : GoString))) : GoString)), ((162 : stdgo.sort_test.Sort_test.Grams))) : Organ))) : Slice<Organ>));
+        var _s = ((new Slice<Ref>(new Ref(((((("brain" : GoString))) : GoString)), ((1340 : stdgo.sort_test.Sort_test.Grams))), ((new Ref(((((("heart" : GoString))) : GoString)), ((290 : stdgo.sort_test.Sort_test.Grams))) : Ref)), ((new Ref(((((("liver" : GoString))) : GoString)), ((1494 : stdgo.sort_test.Sort_test.Grams))) : Ref)), ((new Ref(((((("pancreas" : GoString))) : GoString)), ((131 : stdgo.sort_test.Sort_test.Grams))) : Ref)), ((new Ref(((((("prostate" : GoString))) : GoString)), ((62 : stdgo.sort_test.Sort_test.Grams))) : Ref)), ((new Ref(((((("spleen" : GoString))) : GoString)), ((162 : stdgo.sort_test.Sort_test.Grams))) : Ref))) : Slice<Ref>));
         stdgo.sort.Sort.sort({
-            final __self__ = new stdgo.sort_test.Sort_test.ByWeight_wrapper(((new ByWeight(_s) : ByWeight)));
-            __self__.len = #if !macro function():GoInt return ((new ByWeight(_s) : ByWeight)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new ByWeight(_s) : ByWeight)).less(_i, _j) #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new ByWeight(_s) : ByWeight)).swap(_i, _j) #else null #end;
+            final __self__ = new stdgo.sort_test.Sort_test.ByWeight_wrapper(((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)));
+            __self__.len = #if !macro function():GoInt return ((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)).len() #else null #end;
+            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)).less(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)).swap(_i, _j) #else null #end;
             __self__;
         });
         stdgo.fmt.Fmt.println(((((("Organs by weight:" : GoString))) : GoString)));
         _printOrgans(_s);
         stdgo.sort.Sort.sort({
-            final __self__ = new stdgo.sort_test.Sort_test.ByName_wrapper(((new ByName(_s) : ByName)));
-            __self__.len = #if !macro function():GoInt return ((new ByName(_s) : ByName)).len() #else null #end;
-            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new ByName(_s) : ByName)).less(_i, _j) #else null #end;
-            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new ByName(_s) : ByName)).swap(_i, _j) #else null #end;
+            final __self__ = new stdgo.sort_test.Sort_test.ByName_wrapper(((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName)));
+            __self__.len = #if !macro function():GoInt return ((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName)).len() #else null #end;
+            __self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return ((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName)).less(_i, _j) #else null #end;
+            __self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void ((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName)).swap(_i, _j) #else null #end;
             __self__;
         });
         stdgo.fmt.Fmt.println(((((("Organs by name:" : GoString))) : GoString)));
@@ -615,40 +565,40 @@ function testFind(_t:stdgo.testing.Testing.T):Void {
         var _strRepeats = ((new Slice<GoString>(((((("ba" : GoString))) : GoString)), ((((("ca" : GoString))) : GoString)), ((((("da" : GoString))) : GoString)), ((((("da" : GoString))) : GoString)), ((((("da" : GoString))) : GoString)), ((((("ka" : GoString))) : GoString)), ((((("ma" : GoString))) : GoString)), ((((("ma" : GoString))) : GoString)), ((((("ta" : GoString))) : GoString))) : Slice<GoString>));
         var _strSame = ((new Slice<GoString>(((((("xx" : GoString))) : GoString)), ((((("xx" : GoString))) : GoString)), ((((("xx" : GoString))) : GoString))) : Slice<GoString>));
         var _tests = ((new Slice<T__struct_2>(
-((new T__struct_2(((new Slice<GoString>() : Slice<GoString>)), ((((("foo" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(((new Slice<GoString>() : Slice<GoString>)), ((((("" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str1, ((((("foo" : GoString))) : GoString)), ((0 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str1, ((((("bar" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str1, ((((("zx" : GoString))) : GoString)), ((1 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str2, ((((("aa" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str2, ((((("ab" : GoString))) : GoString)), ((0 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str2, ((((("ad" : GoString))) : GoString)), ((1 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str2, ((((("ca" : GoString))) : GoString)), ((1 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str2, ((((("ra" : GoString))) : GoString)), ((2 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str3, ((((("bb" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str3, ((((("mo" : GoString))) : GoString)), ((0 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str3, ((((("nb" : GoString))) : GoString)), ((1 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str3, ((((("qo" : GoString))) : GoString)), ((1 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str3, ((((("tr" : GoString))) : GoString)), ((2 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str3, ((((("vo" : GoString))) : GoString)), ((2 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str3, ((((("xr" : GoString))) : GoString)), ((3 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("aa" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("ab" : GoString))) : GoString)), ((0 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str4, ((((("ac" : GoString))) : GoString)), ((1 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("ad" : GoString))) : GoString)), ((1 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str4, ((((("ax" : GoString))) : GoString)), ((2 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("ca" : GoString))) : GoString)), ((2 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str4, ((((("cc" : GoString))) : GoString)), ((3 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("dd" : GoString))) : GoString)), ((3 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_str4, ((((("xy" : GoString))) : GoString)), ((3 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_str4, ((((("zz" : GoString))) : GoString)), ((4 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_strRepeats, ((((("da" : GoString))) : GoString)), ((2 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_strRepeats, ((((("db" : GoString))) : GoString)), ((5 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_strRepeats, ((((("ma" : GoString))) : GoString)), ((6 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_strRepeats, ((((("mb" : GoString))) : GoString)), ((8 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_strSame, ((((("xx" : GoString))) : GoString)), ((0 : GoInt)), true) : T__struct_2)),
-((new T__struct_2(_strSame, ((((("ab" : GoString))) : GoString)), ((0 : GoInt)), false) : T__struct_2)),
-((new T__struct_2(_strSame, ((((("zz" : GoString))) : GoString)), ((3 : GoInt)), false) : T__struct_2))) : Slice<T__struct_2>));
+(({ _data : ((new Slice<GoString>() : Slice<GoString>)), _target : ((((("foo" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : ((new Slice<GoString>() : Slice<GoString>)), _target : ((((("" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str1, _target : ((((("foo" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str1, _target : ((((("bar" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str1, _target : ((((("zx" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str2, _target : ((((("aa" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str2, _target : ((((("ab" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str2, _target : ((((("ad" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str2, _target : ((((("ca" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str2, _target : ((((("ra" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str3, _target : ((((("bb" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str3, _target : ((((("mo" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str3, _target : ((((("nb" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str3, _target : ((((("qo" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str3, _target : ((((("tr" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str3, _target : ((((("vo" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str3, _target : ((((("xr" : GoString))) : GoString)), _wantPos : ((3 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("aa" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("ab" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str4, _target : ((((("ac" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("ad" : GoString))) : GoString)), _wantPos : ((1 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str4, _target : ((((("ax" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("ca" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str4, _target : ((((("cc" : GoString))) : GoString)), _wantPos : ((3 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("dd" : GoString))) : GoString)), _wantPos : ((3 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _str4, _target : ((((("xy" : GoString))) : GoString)), _wantPos : ((3 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _str4, _target : ((((("zz" : GoString))) : GoString)), _wantPos : ((4 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _strRepeats, _target : ((((("da" : GoString))) : GoString)), _wantPos : ((2 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _strRepeats, _target : ((((("db" : GoString))) : GoString)), _wantPos : ((5 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _strRepeats, _target : ((((("ma" : GoString))) : GoString)), _wantPos : ((6 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _strRepeats, _target : ((((("mb" : GoString))) : GoString)), _wantPos : ((8 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _strSame, _target : ((((("xx" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : true } : T__struct_2)),
+(({ _data : _strSame, _target : ((((("ab" : GoString))) : GoString)), _wantPos : ((0 : GoInt)), _wantFound : false } : T__struct_2)),
+(({ _data : _strSame, _target : ((((("zz" : GoString))) : GoString)), _wantPos : ((3 : GoInt)), _wantFound : false } : T__struct_2))) : Slice<T__struct_2>));
         for (_0 => _tt in _tests) {
             _t.run(_tt._target, function(_t:stdgo.testing.Testing.T):Void {
                 var _cmp:GoInt -> GoInt = function(_i:GoInt):GoInt {
@@ -1032,7 +982,7 @@ function testNonDeterministicComparison(_t:stdgo.testing.Testing.T):Void {
                 };
                 a();
             });
-            var _td = (({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(((0 : GoInt64)))) } : T_nonDeterministicTestingData));
+            var _td = (({ _r : stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource(((0 : GoInt64)))) } : stdgo.sort_test.Sort_test.T_nonDeterministicTestingData));
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < ((10 : GoInt)), _i++, {
@@ -1420,7 +1370,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface -> Void
                                         };
                                     };
                                     var _desc:GoString = stdgo.fmt.Fmt.sprintf(((((("n=%d m=%d dist=%s mode=%s" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_m), Go.toInterface((_dists != null ? _dists[_dist] : (("" : GoString)))), Go.toInterface((_modes != null ? _modes[_mode] : (("" : GoString)))));
-                                    var _d = (({ _desc : _desc, _t : _t, _data : ((_mdata.__slice__(((0 : GoInt)), _n) : Slice<GoInt>)), _maxswap : _maxswap(_n) } : T_testingData));
+                                    var _d = (({ _desc : _desc, _t : _t, _data : ((_mdata.__slice__(((0 : GoInt)), _n) : Slice<GoInt>)), _maxswap : _maxswap(_n) } : stdgo.sort_test.Sort_test.T_testingData));
                                     _sort({
                                         final __self__ = new stdgo.sort_test.Sort_test.T_testingData_wrapper(_d);
                                         __self__.len = #if !macro function():GoInt return _d.len() #else null #end;
@@ -1463,7 +1413,7 @@ function _newAdversaryTestingData(_t:stdgo.testing.Testing.T, _size:GoInt, _maxc
                 if (_data != null) _data[_i] = _gas;
             });
         };
-        return (({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : T_adversaryTestingData));
+        return (({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : stdgo.sort_test.Sort_test.T_adversaryTestingData));
     }
 function testAdversary(_t:stdgo.testing.Testing.T):Void {
         {};
@@ -1507,11 +1457,11 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
                 _m = __tmp__1;
             };
         };
-        var _data:stdgo.sort_test.Sort_test.T_intPairs = new stdgo.sort_test.Sort_test.T_intPairs(...[for (i in 0 ... ((_n : GoInt)).toBasic()) new T__struct_4()]);
+        var _data:stdgo.sort_test.Sort_test.T_intPairs = new stdgo.sort_test.Sort_test.T_intPairs(...[for (i in 0 ... ((_n : GoInt)).toBasic()) (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))]);
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_data != null ? _data.length : ((0 : GoInt))), _i++, {
-                (_data != null ? _data[_i] : new T__struct_4())._a = stdgo.math.rand.Rand.intn(_m);
+                (_data != null ? _data[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a = stdgo.math.rand.Rand.intn(_m);
             });
         };
         if (isSorted({
@@ -1576,7 +1526,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_data != null ? _data.length : ((0 : GoInt))), _i++, {
-                (_data != null ? _data[_i] : new T__struct_4())._a = (_data != null ? _data.length : ((0 : GoInt))) - _i;
+                (_data != null ? _data[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a = (_data != null ? _data.length : ((0 : GoInt))) - _i;
             });
         };
         _data._initB();
@@ -1613,7 +1563,7 @@ function _countOps(_t:stdgo.testing.Testing.T, _algo:Interface -> Void, _name:Go
             _t.skip(Go.toInterface(((((("Counting skipped as non-verbose mode." : GoString))) : GoString))));
         };
         for (_0 => _n in _sizes) {
-            var _td:stdgo.sort_test.Sort_test.T_testingData = (({ _desc : _name, _t : _t, _data : new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]), _maxswap : ((2147483647 : GoInt)) } : T_testingData));
+            var _td:stdgo.sort_test.Sort_test.T_testingData = (({ _desc : _name, _t : _t, _data : new Slice<GoInt>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoInt))]), _maxswap : ((2147483647 : GoInt)) } : stdgo.sort_test.Sort_test.T_testingData));
             {
                 var _i:GoInt = ((0 : GoInt));
                 Go.cfor(_i < _n, _i++, {
@@ -1641,7 +1591,7 @@ function _bench(_b:stdgo.testing.Testing.B, _size:GoInt, _algo:Interface -> Void
             _b.skip(Go.toInterface(((((("skipping slow benchmark on race builder" : GoString))) : GoString))));
         };
         _b.stopTimer();
-        var _data:stdgo.sort_test.Sort_test.T_intPairs = new stdgo.sort_test.Sort_test.T_intPairs(...[for (i in 0 ... ((_size : GoInt)).toBasic()) new T__struct_4()]);
+        var _data:stdgo.sort_test.Sort_test.T_intPairs = new stdgo.sort_test.Sort_test.T_intPairs(...[for (i in 0 ... ((_size : GoInt)).toBasic()) (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))]);
         var _x:GoUInt32 = (("4294967295" : GoUInt32));
         {
             var _i:GoInt = ((0 : GoInt));
@@ -1657,7 +1607,7 @@ function _bench(_b:stdgo.testing.Testing.B, _size:GoInt, _algo:Interface -> Void
                                 if (((_x : GoInt32)) < ((0 : GoInt32))) {
                                     _x = _x ^ ((("2290650863" : GoUInt32)));
                                 };
-                                (_data != null ? _data[_i] : new T__struct_4())._a = (((_x % (((_n / ((5 : GoInt))) : GoUInt32))) : GoInt));
+                                (_data != null ? _data[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a = (((_x % (((_n / ((5 : GoInt))) : GoUInt32))) : GoInt));
                             });
                         };
                         _data._initB();
@@ -1728,7 +1678,7 @@ class Person_wrapper {
     **/
     @:keep
     static public function less( _s:T_planetSorter, _i:GoInt, _j:GoInt):Bool {
-        return _s._by((_s._planets != null ? _s._planets[_i] : new stdgo.sort_test.Sort_test.Planet()), (_s._planets != null ? _s._planets[_j] : new stdgo.sort_test.Sort_test.Planet()));
+        return _s._by((_s._planets != null ? _s._planets[_i] : (({  } : stdgo.sort_test.Sort_test.Planet))), (_s._planets != null ? _s._planets[_j] : (({  } : stdgo.sort_test.Sort_test.Planet))));
     }
     /**
         // Swap is part of sort.Interface.
@@ -1736,8 +1686,8 @@ class Person_wrapper {
     @:keep
     static public function swap( _s:T_planetSorter, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = ((_s._planets != null ? _s._planets[_j] : new stdgo.sort_test.Sort_test.Planet()) == null ? null : (_s._planets != null ? _s._planets[_j] : new stdgo.sort_test.Sort_test.Planet()).__copy__());
-            final __tmp__1 = ((_s._planets != null ? _s._planets[_i] : new stdgo.sort_test.Sort_test.Planet()) == null ? null : (_s._planets != null ? _s._planets[_i] : new stdgo.sort_test.Sort_test.Planet()).__copy__());
+            final __tmp__0 = ((_s._planets != null ? _s._planets[_j] : (({  } : stdgo.sort_test.Sort_test.Planet))) == null ? null : (_s._planets != null ? _s._planets[_j] : (({  } : stdgo.sort_test.Sort_test.Planet))).__copy__());
+            final __tmp__1 = ((_s._planets != null ? _s._planets[_i] : (({  } : stdgo.sort_test.Sort_test.Planet))) == null ? null : (_s._planets != null ? _s._planets[_i] : (({  } : stdgo.sort_test.Sort_test.Planet))).__copy__());
             if (_s._planets != null) _s._planets[_i] = __tmp__0;
             if (_s._planets != null) _s._planets[_j] = __tmp__1;
         };
@@ -1781,7 +1731,7 @@ class T_planetSorter_wrapper {
     **/
     @:keep
     static public function less( _ms:T_multiSorter, _i:GoInt, _j:GoInt):Bool {
-        var _p = (_ms._changes != null ? _ms._changes[_i] : new stdgo.sort_test.Sort_test.Change()), _q = (_ms._changes != null ? _ms._changes[_j] : new stdgo.sort_test.Sort_test.Change());
+        var _p = (_ms._changes != null ? _ms._changes[_i] : (({  } : stdgo.sort_test.Sort_test.Change))), _q = (_ms._changes != null ? _ms._changes[_j] : (({  } : stdgo.sort_test.Sort_test.Change)));
         var _k:GoInt = ((0 : GoInt));
         {
             _k = ((0 : GoInt));
@@ -1802,8 +1752,8 @@ class T_planetSorter_wrapper {
     @:keep
     static public function swap( _ms:T_multiSorter, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = ((_ms._changes != null ? _ms._changes[_j] : new stdgo.sort_test.Sort_test.Change()) == null ? null : (_ms._changes != null ? _ms._changes[_j] : new stdgo.sort_test.Sort_test.Change()).__copy__());
-            final __tmp__1 = ((_ms._changes != null ? _ms._changes[_i] : new stdgo.sort_test.Sort_test.Change()) == null ? null : (_ms._changes != null ? _ms._changes[_i] : new stdgo.sort_test.Sort_test.Change()).__copy__());
+            final __tmp__0 = ((_ms._changes != null ? _ms._changes[_j] : (({  } : stdgo.sort_test.Sort_test.Change))) == null ? null : (_ms._changes != null ? _ms._changes[_j] : (({  } : stdgo.sort_test.Sort_test.Change))).__copy__());
+            final __tmp__1 = ((_ms._changes != null ? _ms._changes[_i] : (({  } : stdgo.sort_test.Sort_test.Change))) == null ? null : (_ms._changes != null ? _ms._changes[_i] : (({  } : stdgo.sort_test.Sort_test.Change))).__copy__());
             if (_ms._changes != null) _ms._changes[_i] = __tmp__0;
             if (_ms._changes != null) _ms._changes[_j] = __tmp__1;
         };
@@ -2019,13 +1969,13 @@ class T_adversaryTestingData_wrapper {
 @:keep class ByAge_static_extension {
     @:keep
     static public function less( _a:ByAge, _i:GoInt, _j:GoInt):Bool {
-        return (_a != null ? _a[_i] : new stdgo.sort_test.Sort_test.Person()).age < (_a != null ? _a[_j] : new stdgo.sort_test.Sort_test.Person()).age;
+        return (_a != null ? _a[_i] : (({  } : stdgo.sort_test.Sort_test.Person))).age < (_a != null ? _a[_j] : (({  } : stdgo.sort_test.Sort_test.Person))).age;
     }
     @:keep
     static public function swap( _a:ByAge, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = ((_a != null ? _a[_j] : new stdgo.sort_test.Sort_test.Person()) == null ? null : (_a != null ? _a[_j] : new stdgo.sort_test.Sort_test.Person()).__copy__());
-            final __tmp__1 = ((_a != null ? _a[_i] : new stdgo.sort_test.Sort_test.Person()) == null ? null : (_a != null ? _a[_i] : new stdgo.sort_test.Sort_test.Person()).__copy__());
+            final __tmp__0 = ((_a != null ? _a[_j] : (({  } : stdgo.sort_test.Sort_test.Person))) == null ? null : (_a != null ? _a[_j] : (({  } : stdgo.sort_test.Sort_test.Person))).__copy__());
+            final __tmp__1 = ((_a != null ? _a[_i] : (({  } : stdgo.sort_test.Sort_test.Person))) == null ? null : (_a != null ? _a[_i] : (({  } : stdgo.sort_test.Sort_test.Person))).__copy__());
             if (_a != null) _a[_i] = __tmp__0;
             if (_a != null) _a[_j] = __tmp__1;
         };
@@ -2052,7 +2002,7 @@ class ByAge_wrapper {
     **/
     @:keep
     static public function sort( _by:By, _planets:Slice<Planet>):Void {
-        var _ps = (({ _planets : _planets, _by : _by } : T_planetSorter));
+        var _ps = (({ _planets : _planets, _by : _by } : stdgo.sort_test.Sort_test.T_planetSorter));
         stdgo.sort.Sort.sort({
             final __self__ = new stdgo.sort_test.Sort_test.T_planetSorter_wrapper(_ps);
             __self__.len = #if !macro function():GoInt return _ps.len() #else null #end;
@@ -2119,15 +2069,15 @@ class Organs_wrapper {
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_d != null ? _d.length : ((0 : GoInt))), _i++, {
-                if (_lastA != (_d != null ? _d[_i] : new T__struct_4())._a) {
-                    _lastA = (_d != null ? _d[_i] : new T__struct_4())._a;
-                    _lastB = (_d != null ? _d[_i] : new T__struct_4())._b;
+                if (_lastA != (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a) {
+                    _lastA = (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a;
+                    _lastB = (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._b;
                     continue;
                 };
-                if ((_d != null ? _d[_i] : new T__struct_4())._b <= _lastB) {
+                if ((_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._b <= _lastB) {
                     return false;
                 };
-                _lastB = (_d != null ? _d[_i] : new T__struct_4())._b;
+                _lastB = (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._b;
             });
         };
         return true;
@@ -2138,21 +2088,21 @@ class Organs_wrapper {
     @:keep
     static public function _initB( _d:T_intPairs):Void {
         for (_i => _ in _d) {
-            (_d != null ? _d[_i] : new T__struct_4())._b = _i;
+            (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._b = _i;
         };
     }
     @:keep
     static public function swap( _d:T_intPairs, _i:GoInt, _j:GoInt):Void {
         {
-            final __tmp__0 = ((_d != null ? _d[_j] : new T__struct_4()) == null ? null : (_d != null ? _d[_j] : new T__struct_4()).__copy__());
-            final __tmp__1 = ((_d != null ? _d[_i] : new T__struct_4()) == null ? null : (_d != null ? _d[_i] : new T__struct_4()).__copy__());
+            final __tmp__0 = ((_d != null ? _d[_j] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))) == null ? null : (_d != null ? _d[_j] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))).__copy__());
+            final __tmp__1 = ((_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))) == null ? null : (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4))).__copy__());
             if (_d != null) _d[_i] = __tmp__0;
             if (_d != null) _d[_j] = __tmp__1;
         };
     }
     @:keep
     static public function less( _d:T_intPairs, _i:GoInt, _j:GoInt):Bool {
-        return (_d != null ? _d[_i] : new T__struct_4())._a < (_d != null ? _d[_j] : new T__struct_4())._a;
+        return (_d != null ? _d[_i] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a < (_d != null ? _d[_j] : (({ _a : ((0 : GoInt)), _b : ((0 : GoInt)) } : T__struct_4)))._a;
     }
     /**
         // IntPairs compare on a only.

@@ -8,7 +8,7 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _dirBufPool : stdgo.sync.Sync.Pool = new stdgo.sync.Sync.Pool();
+var _dirBufPool : stdgo.sync.Sync.Pool = (({  } : stdgo.sync.Sync.Pool));
 var errInvalid : stdgo.Error = ((null : stdgo.Error));
 var errPermission : stdgo.Error = ((null : stdgo.Error));
 var errExist : stdgo.Error = ((null : stdgo.Error));
@@ -32,7 +32,7 @@ var testingForceReadDirLstat : Pointer<Bool> = ((null : Pointer<Bool>));
 var errPatternHasSeparator : stdgo.Error = ((null : stdgo.Error));
 var splitPath : GoString -> { var _0 : GoString; var _1 : GoString; } = null;
 var _testingForceReadDirLstat : Bool = false;
-var _getwdCache : T__struct_0 = new T__struct_0();
+var _getwdCache : T__struct_0 = (({ mutex : (({  } : stdgo.sync.Sync.Mutex)), _dir : (("" : GoString)) } : T__struct_0));
 var args : Slice<GoString> = ((null : Slice<GoString>));
 typedef T_timeout = StructType & {
     public function timeout():Bool;
@@ -42,9 +42,9 @@ typedef Signal = StructType & {
     public function signal():Void;
 };
 @:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) class T_dirInfo {
-    public var _buf : Ref<Slice<GoUInt8>> = null;
-    public var _nbuf : GoInt = 0;
-    public var _bufp : GoInt = 0;
+    public var _buf : Ref<Slice<GoUInt8>>;
+    public var _nbuf : GoInt;
+    public var _bufp : GoInt;
     public function new(?_buf:Ref<Slice<GoUInt8>>, ?_nbuf:GoInt, ?_bufp:GoInt) {
         if (_buf != null) this._buf = _buf;
         if (_nbuf != null) this._nbuf = _nbuf;
@@ -56,8 +56,8 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.SyscallError_static_extension) class SyscallError {
-    public var syscall : GoString = "";
-    public var err : stdgo.Error = ((null : stdgo.Error));
+    public var syscall : GoString;
+    public var err : stdgo.Error;
     public function new(?syscall:GoString, ?err:stdgo.Error) {
         if (syscall != null) this.syscall = syscall;
         if (err != null) this.err = err;
@@ -68,10 +68,10 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.Process_static_extension) class Process {
-    public var pid : GoInt = 0;
-    public var _handle : GoUIntptr = 0;
-    public var _isdone : GoUInt32 = 0;
-    public var _sigMu : stdgo.sync.Sync.RWMutex = new stdgo.sync.Sync.RWMutex();
+    public var pid : GoInt;
+    public var _handle : GoUIntptr;
+    public var _isdone : GoUInt32;
+    public var _sigMu : stdgo.sync.Sync.RWMutex;
     public function new(?pid:GoInt, ?_handle:GoUIntptr, ?_isdone:GoUInt32, ?_sigMu:stdgo.sync.Sync.RWMutex) {
         if (pid != null) this.pid = pid;
         if (_handle != null) this._handle = _handle;
@@ -84,10 +84,10 @@ typedef Signal = StructType & {
     }
 }
 @:structInit class ProcAttr {
-    public var dir : GoString = "";
-    public var env : Slice<GoString> = ((null : Slice<GoString>));
-    public var files : Slice<Ref<File>> = ((null : Slice<Ref<File>>));
-    public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr> = ((null : stdgo.syscall.Syscall.SysProcAttr));
+    public var dir : GoString;
+    public var env : Slice<GoString>;
+    public var files : Slice<Ref<File>>;
+    public var sys : Ref<stdgo.syscall.Syscall.SysProcAttr>;
     public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<Ref<File>>, ?sys:Ref<stdgo.syscall.Syscall.SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
@@ -100,9 +100,9 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.ProcessState_static_extension) class ProcessState {
-    public var _pid : GoInt = 0;
-    public var _status : stdgo.syscall.Syscall.WaitStatus = ((((0 : GoUInt32)) : stdgo.syscall.Syscall.WaitStatus));
-    public var _rusage : Ref<stdgo.syscall.Syscall.Rusage> = ((null : stdgo.syscall.Syscall.Rusage));
+    public var _pid : GoInt;
+    public var _status : stdgo.syscall.Syscall.WaitStatus;
+    public var _rusage : Ref<stdgo.syscall.Syscall.Rusage>;
     public function new(?_pid:GoInt, ?_status:stdgo.syscall.Syscall.WaitStatus, ?_rusage:Ref<stdgo.syscall.Syscall.Rusage>) {
         if (_pid != null) this._pid = _pid;
         if (_status != null) this._status = _status;
@@ -114,10 +114,10 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.LinkError_static_extension) class LinkError {
-    public var op : GoString = "";
-    public var old : GoString = "";
-    public var new_ : GoString = "";
-    public var err : stdgo.Error = ((null : stdgo.Error));
+    public var op : GoString;
+    public var old : GoString;
+    public var new_ : GoString;
+    public var err : stdgo.Error;
     public function new(?op:GoString, ?old:GoString, ?new_:GoString, ?err:stdgo.Error) {
         if (op != null) this.op = op;
         if (old != null) this.old = old;
@@ -131,7 +131,7 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.T_onlyWriter_static_extension) class T_onlyWriter {
     @:embedded
-    public var writer : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
+    public var writer : stdgo.io.Io.Writer;
     public function new(?writer:stdgo.io.Io.Writer) {
         if (writer != null) this.writer = writer;
     }
@@ -143,12 +143,12 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.T_file_static_extension) class T_file {
-    public var _pfd : stdgo.internal.poll.Poll.FD = new stdgo.internal.poll.Poll.FD();
-    public var _name : GoString = "";
-    public var _dirinfo : Ref<T_dirInfo> = ((null : T_dirInfo));
-    public var _nonblock : Bool = false;
-    public var _stdoutOrErr : Bool = false;
-    public var _appendMode : Bool = false;
+    public var _pfd : stdgo.internal.poll.Poll.FD;
+    public var _name : GoString;
+    public var _dirinfo : Ref<T_dirInfo>;
+    public var _nonblock : Bool;
+    public var _stdoutOrErr : Bool;
+    public var _appendMode : Bool;
     public function new(?_pfd:stdgo.internal.poll.Poll.FD, ?_name:GoString, ?_dirinfo:Ref<T_dirInfo>, ?_nonblock:Bool, ?_stdoutOrErr:Bool, ?_appendMode:Bool) {
         if (_pfd != null) this._pfd = _pfd;
         if (_name != null) this._name = _name;
@@ -163,10 +163,10 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) class T_unixDirent {
-    public var _parent : GoString = "";
-    public var _name : GoString = "";
-    public var _typ : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
-    public var _info : stdgo.io.fs.Fs.FileInfo = ((null : stdgo.io.fs.Fs.FileInfo));
+    public var _parent : GoString;
+    public var _name : GoString;
+    public var _typ : stdgo.io.fs.Fs.FileMode;
+    public var _info : stdgo.io.fs.Fs.FileInfo;
     public function new(?_parent:GoString, ?_name:GoString, ?_typ:stdgo.io.fs.Fs.FileMode, ?_info:stdgo.io.fs.Fs.FileInfo) {
         if (_parent != null) this._parent = _parent;
         if (_name != null) this._name = _name;
@@ -179,7 +179,7 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) class T_rawConn {
-    public var _file : Ref<File> = ((null : File));
+    public var _file : Ref<File>;
     public function new(?_file:Ref<File>) {
         if (_file != null) this._file = _file;
     }
@@ -190,7 +190,7 @@ typedef Signal = StructType & {
 }
 @:structInit @:using(stdgo.os.Os.File_static_extension) class File {
     @:embedded
-    public var _file : Ref<T_file> = ((null : T_file));
+    public var _file : Ref<T_file>;
     public function new(?_file:Ref<T_file>) {
         if (_file != null) this._file = _file;
     }
@@ -202,11 +202,11 @@ typedef Signal = StructType & {
     }
 }
 @:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) class T_fileStat {
-    public var _name : GoString = "";
-    public var _size : GoInt64 = 0;
-    public var _mode : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
-    public var _modTime : stdgo.time.Time.Time = new stdgo.time.Time.Time();
-    public var _sys : stdgo.syscall.Syscall.Stat_t = new stdgo.syscall.Syscall.Stat_t();
+    public var _name : GoString;
+    public var _size : GoInt64;
+    public var _mode : stdgo.io.fs.Fs.FileMode;
+    public var _modTime : stdgo.time.Time.Time;
+    public var _sys : stdgo.syscall.Syscall.Stat_t;
     public function new(?_name:GoString, ?_size:GoInt64, ?_mode:stdgo.io.fs.Fs.FileMode, ?_modTime:stdgo.time.Time.Time, ?_sys:stdgo.syscall.Syscall.Stat_t) {
         if (_name != null) this._name = _name;
         if (_size != null) this._size = _size;
@@ -219,38 +219,19 @@ typedef Signal = StructType & {
         return new T_fileStat(_name, _size, _mode, _modTime, _sys);
     }
 }
-@:structInit @:local @:using(stdgo.os.Os.T__struct_0_static_extension) class T__struct_0 {
+@:local typedef T__struct_0 = {
     @:embedded
-    public var mutex : stdgo.sync.Sync.Mutex = new stdgo.sync.Sync.Mutex();
-    public var _dir : GoString = "";
-    public function string():String return "{" + Go.string(mutex) + " " + Go.string(_dir) + "}";
-    public function new(?mutex:stdgo.sync.Sync.Mutex, ?_dir:GoString, ?string) {
-        if (mutex != null) this.mutex = mutex;
-        if (_dir != null) this._dir = _dir;
-    }
-    @:embedded
-    public function lock() null;
-    @:embedded
-    public function tryLock():Bool return false;
-    @:embedded
-    public function unlock() null;
-    @:embedded
-    public function _lockSlow() null;
-    @:embedded
-    public function _unlockSlow(__0:GoInt32) null;
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(mutex, _dir);
-    }
-}
+    public var mutex : stdgo.sync.Sync.Mutex;
+    public var _dir : GoString;
+};
 @:named typedef T_readdirMode = GoInt;
-@:named typedef DirEntry = stdgo.io.fs.Fs.DirEntry;
-@:named typedef PathError = stdgo.io.fs.Fs.PathError;
-@:named typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
+@:follow typedef DirEntry = stdgo.io.fs.Fs.DirEntry;
+@:follow typedef PathError = stdgo.io.fs.Fs.PathError;
+@:follow typedef T_syscallErrorType = stdgo.syscall.Syscall.Errno;
 @:named @:using(stdgo.os.Os.T_dirFS_static_extension) typedef T_dirFS = GoString;
 @:named typedef T_newFileKind = GoInt;
-@:named typedef FileInfo = stdgo.io.fs.Fs.FileInfo;
-@:named typedef FileMode = stdgo.io.fs.Fs.FileMode;
+@:follow typedef FileInfo = stdgo.io.fs.Fs.FileInfo;
+@:follow typedef FileMode = stdgo.io.fs.Fs.FileMode;
 /**
     // ReadDir reads the named directory,
     // returning all its directory entries sorted by filename.
@@ -1906,33 +1887,6 @@ class T_fileStat_wrapper {
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(__self__);
     var __self__ : T_fileStat;
-}
-@:keep class T__struct_0_static_extension {
-    @:embedded
-    public static function _unlockSlow( __self__:T__struct_0, __0:GoInt32) __self__._unlockSlow(__0);
-    @:embedded
-    public static function _lockSlow( __self__:T__struct_0) __self__._lockSlow();
-    @:embedded
-    public static function unlock( __self__:T__struct_0) __self__.unlock();
-    @:embedded
-    public static function tryLock( __self__:T__struct_0):Bool return __self__.tryLock();
-    @:embedded
-    public static function lock( __self__:T__struct_0) __self__.lock();
-}
-class T__struct_0_wrapper {
-    @:embedded
-    public var _unlockSlow : GoInt32 -> Void = null;
-    @:embedded
-    public var _lockSlow : () -> Void = null;
-    @:embedded
-    public var unlock : () -> Void = null;
-    @:embedded
-    public var tryLock : () -> Bool = null;
-    @:embedded
-    public var lock : () -> Void = null;
-    public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
-    var __self__ : T__struct_0;
 }
 @:keep class T_dirFS_static_extension {
     @:keep

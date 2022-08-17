@@ -36,10 +36,10 @@ var _3 : stdgo.io.fs.Fs.File = {
         __self__;
     };
 @:structInit class MapFile {
-    public var data : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
-    public var mode : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
-    public var modTime : stdgo.time.Time.Time = new stdgo.time.Time.Time();
-    public var sys : AnyInterface = ((null : AnyInterface));
+    public var data : Slice<GoUInt8>;
+    public var mode : stdgo.io.fs.Fs.FileMode;
+    public var modTime : stdgo.time.Time.Time;
+    public var sys : AnyInterface;
     public function new(?data:Slice<GoUInt8>, ?mode:stdgo.io.fs.Fs.FileMode, ?modTime:stdgo.time.Time.Time, ?sys:AnyInterface) {
         if (data != null) this.data = data;
         if (mode != null) this.mode = mode;
@@ -53,7 +53,7 @@ var _3 : stdgo.io.fs.Fs.File = {
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) class T_fsOnly {
     @:embedded
-    public var fs : stdgo.io.fs.Fs.FS = ((null : stdgo.io.fs.Fs.FS));
+    public var fs : stdgo.io.fs.Fs.FS;
     public function new(?fs:stdgo.io.fs.Fs.FS) {
         if (fs != null) this.fs = fs;
     }
@@ -66,7 +66,7 @@ var _3 : stdgo.io.fs.Fs.File = {
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) class T_noSub {
     @:embedded
-    public var mapFS : MapFS = ((null : MapFS));
+    public var mapFS : MapFS;
     public function new(?mapFS:MapFS) {
         if (mapFS != null) this.mapFS = mapFS;
     }
@@ -86,8 +86,8 @@ var _3 : stdgo.io.fs.Fs.File = {
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) class T_mapFileInfo {
-    public var _name : GoString = "";
-    public var _f : Ref<MapFile> = ((null : MapFile));
+    public var _name : GoString;
+    public var _f : Ref<MapFile>;
     public function new(?_name:GoString, ?_f:Ref<MapFile>) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
@@ -98,10 +98,10 @@ var _3 : stdgo.io.fs.Fs.File = {
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) class T_openMapFile {
-    public var _path : GoString = "";
+    public var _path : GoString;
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo = new T_mapFileInfo();
-    public var _offset : GoInt64 = 0;
+    public var _mapFileInfo : T_mapFileInfo;
+    public var _offset : GoInt64;
     public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_offset:GoInt64) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
@@ -129,11 +129,11 @@ var _3 : stdgo.io.fs.Fs.File = {
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) class T_mapDir {
-    public var _path : GoString = "";
+    public var _path : GoString;
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo = new T_mapFileInfo();
-    public var _entry : Slice<T_mapFileInfo> = ((null : Slice<T_mapFileInfo>));
-    public var _offset : GoInt = 0;
+    public var _mapFileInfo : T_mapFileInfo;
+    public var _entry : Slice<T_mapFileInfo>;
+    public var _offset : GoInt;
     public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_entry:Slice<T_mapFileInfo>, ?_offset:GoInt) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
@@ -162,10 +162,10 @@ var _3 : stdgo.io.fs.Fs.File = {
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) class T_fsTester {
-    public var _fsys : stdgo.io.fs.Fs.FS = ((null : stdgo.io.fs.Fs.FS));
-    public var _errText : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
-    public var _dirs : Slice<GoString> = ((null : Slice<GoString>));
-    public var _files : Slice<GoString> = ((null : Slice<GoString>));
+    public var _fsys : stdgo.io.fs.Fs.FS;
+    public var _errText : Slice<GoUInt8>;
+    public var _dirs : Slice<GoString>;
+    public var _files : Slice<GoString>;
     public function new(?_fsys:stdgo.io.fs.Fs.FS, ?_errText:Slice<GoUInt8>, ?_dirs:Slice<GoString>, ?_files:Slice<GoString>) {
         if (_fsys != null) this._fsys = _fsys;
         if (_errText != null) this._errText = _errText;
@@ -208,7 +208,7 @@ function testMapFSChmodDot(_t:stdgo.testing.Testing.T):Void {
             @:privateAccess x._values = [(({ mode : ((438 : stdgo.io.fs.Fs.FileMode)) } : MapFile)), (({ mode : (("2147484159" : stdgo.io.fs.Fs.FileMode)) } : MapFile))];
             x;
         };
-        var _buf = new stdgo.strings.Strings.Builder();
+        var _buf = (({  } : stdgo.strings.Strings.Builder));
         fs.walkDir({
             final __self__ = new MapFS_wrapper(_m);
             __self__.glob = #if !macro function(_pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _m.glob(_pattern) #else null #end;
@@ -766,15 +766,15 @@ class T_openMapFile_wrapper {
         var _list = new Slice<stdgo.io.fs.Fs.DirEntry>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((null : stdgo.io.fs.Fs.DirEntry))]);
         for (_i => _ in _list) {
             if (_list != null) _list[_i] = {
-                final __self__ = new T_mapFileInfo_wrapper((_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()));
-                __self__.info = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).info() #else null #end;
-                __self__.isDir = #if !macro function():Bool return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).isDir() #else null #end;
-                __self__.modTime = #if !macro function():stdgo.time.Time.Time return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).modTime() #else null #end;
-                __self__.mode = #if !macro function():stdgo.io.fs.Fs.FileMode return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).mode() #else null #end;
-                __self__.name = #if !macro function():GoString return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).name() #else null #end;
-                __self__.size = #if !macro function():GoInt64 return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).size() #else null #end;
-                __self__.sys = #if !macro function():AnyInterface return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).sys() #else null #end;
-                __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return (_d._entry != null ? _d._entry[_d._offset + _i] : new T_mapFileInfo()).type() #else null #end;
+                final __self__ = new T_mapFileInfo_wrapper((_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))));
+                __self__.info = #if !macro function():{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).info() #else null #end;
+                __self__.isDir = #if !macro function():Bool return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).isDir() #else null #end;
+                __self__.modTime = #if !macro function():stdgo.time.Time.Time return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).modTime() #else null #end;
+                __self__.mode = #if !macro function():stdgo.io.fs.Fs.FileMode return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).mode() #else null #end;
+                __self__.name = #if !macro function():GoString return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).name() #else null #end;
+                __self__.size = #if !macro function():GoInt64 return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).size() #else null #end;
+                __self__.sys = #if !macro function():AnyInterface return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).sys() #else null #end;
+                __self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return (_d._entry != null ? _d._entry[_d._offset + _i] : (({  } : T_mapFileInfo))).type() #else null #end;
                 __self__;
             };
         };
@@ -936,7 +936,7 @@ class T_mapDir_wrapper {
             _f.close();
             {
                 var __tmp__ = try {
-                    { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadFileFS)), ok : true };
+                    { value : ((_t._fsys : stdgo.io.fs.Fs.ReadFileFS)), ok : true };
                 } catch(_) {
                     { value : ((null : stdgo.io.fs.Fs.ReadFileFS)), ok : false };
                 }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1104,7 +1104,7 @@ class T_mapDir_wrapper {
         };
         {
             var __tmp__ = try {
-                { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.StatFS)), ok : true };
+                { value : ((_t._fsys : stdgo.io.fs.Fs.StatFS)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.fs.Fs.StatFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1128,7 +1128,7 @@ class T_mapDir_wrapper {
     static public function _checkGlob( _t:T_fsTester, _dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void {
         {
             var __tmp__ = try {
-                { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)), ok : true };
+                { value : ((_t._fsys : stdgo.io.fs.Fs.GlobFS)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.fs.Fs.GlobFS)), ok : false };
             }, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -1163,7 +1163,7 @@ class T_mapDir_wrapper {
             _glob = stdgo.strings.Strings.join(_elem, ((((("/" : GoString))) : GoString))) + ((((("/" : GoString))) : GoString));
         };
         {
-            var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((((("nonexist/[]" : GoString))) : GoString))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = ((_t._fsys : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((((("nonexist/[]" : GoString))) : GoString))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
                 _t._errorf(((((("%s: Glob(%#q): bad pattern not detected" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob + ((((("nonexist/[]" : GoString))) : GoString))));
             };
@@ -1192,7 +1192,7 @@ class T_mapDir_wrapper {
                 _want = (_want != null ? _want.__append__(stdgo.path.Path.join(_dir, _d.name())) : new Slice<GoString>(stdgo.path.Path.join(_dir, _d.name())));
             };
         };
-        var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob), _names:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = ((_t._fsys : stdgo.io.fs.Fs.GlobFS)).glob(_glob), _names:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t._errorf(((((("%s: Glob(%#q): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(_err));
             return;
@@ -1369,7 +1369,7 @@ class T_mapDir_wrapper {
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))) : GoString)), _list, _list2);
             {
                 var __tmp__ = try {
-                    { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadDirFS)), ok : true };
+                    { value : ((_t._fsys : stdgo.io.fs.Fs.ReadDirFS)), ok : true };
                 } catch(_) {
                     { value : ((null : stdgo.io.fs.Fs.ReadDirFS)), ok : false };
                 }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1447,7 +1447,7 @@ class T_mapDir_wrapper {
             return ((null : stdgo.io.fs.Fs.ReadDirFile));
         };
         var __tmp__ = try {
-            { value : ((((_f.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadDirFile)), ok : true };
+            { value : ((_f : stdgo.io.fs.Fs.ReadDirFile)), ok : true };
         } catch(_) {
             { value : ((null : stdgo.io.fs.Fs.ReadDirFile)), ok : false };
         }, _d = __tmp__.value, _ok = __tmp__.ok;
@@ -1720,7 +1720,7 @@ class T_fsTester_wrapper {
             _list = (_list != null ? _list.__append__(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile))) : T_mapFileInfo))) : new Slice<T_mapFileInfo>(((new T_mapFileInfo(_name, (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile))) : T_mapFileInfo))));
         };
         stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
-            return (_list != null ? _list[_i] : new T_mapFileInfo())._name < (_list != null ? _list[_j] : new T_mapFileInfo())._name;
+            return (_list != null ? _list[_i] : (({  } : T_mapFileInfo)))._name < (_list != null ? _list[_j] : (({  } : T_mapFileInfo)))._name;
         });
         if (_file == null) {
             _file = (({ mode : (("2147483648" : stdgo.io.fs.Fs.FileMode)) } : MapFile));

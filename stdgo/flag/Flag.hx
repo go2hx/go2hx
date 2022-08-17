@@ -30,7 +30,7 @@ typedef Getter = StructType & {
     public function get():AnyInterface;
 };
 @:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) class T_textValue {
-    public var _p : stdgo.encoding.Encoding.TextUnmarshaler = ((null : stdgo.encoding.Encoding.TextUnmarshaler));
+    public var _p : stdgo.encoding.Encoding.TextUnmarshaler;
     public function new(?_p:stdgo.encoding.Encoding.TextUnmarshaler) {
         if (_p != null) this._p = _p;
     }
@@ -40,14 +40,14 @@ typedef Getter = StructType & {
     }
 }
 @:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) class FlagSet {
-    public var usage : () -> Void = null;
-    public var _name : GoString = "";
-    public var _parsed : Bool = false;
-    public var _actual : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
-    public var _formal : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
-    public var _args : Slice<GoString> = ((null : Slice<GoString>));
-    public var _errorHandling : ErrorHandling = ((((0 : GoInt)) : ErrorHandling));
-    public var _output : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
+    public var usage : () -> Void;
+    public var _name : GoString;
+    public var _parsed : Bool;
+    public var _actual : GoMap<GoString, Ref<Flag>>;
+    public var _formal : GoMap<GoString, Ref<Flag>>;
+    public var _args : Slice<GoString>;
+    public var _errorHandling : ErrorHandling;
+    public var _output : stdgo.io.Io.Writer;
     public function new(?usage:() -> Void, ?_name:GoString, ?_parsed:Bool, ?_actual:GoMap<GoString, Ref<Flag>>, ?_formal:GoMap<GoString, Ref<Flag>>, ?_args:Slice<GoString>, ?_errorHandling:ErrorHandling, ?_output:stdgo.io.Io.Writer) {
         if (usage != null) this.usage = usage;
         if (_name != null) this._name = _name;
@@ -64,10 +64,10 @@ typedef Getter = StructType & {
     }
 }
 @:structInit class Flag {
-    public var name : GoString = "";
-    public var usage : GoString = "";
-    public var value : Value = ((null : Value));
-    public var defValue : GoString = "";
+    public var name : GoString;
+    public var usage : GoString;
+    public var value : Value;
+    public var defValue : GoString;
     public function new(?name:GoString, ?usage:GoString, ?value:Value, ?defValue:GoString) {
         if (name != null) this.name = name;
         if (usage != null) this.usage = usage;
@@ -216,7 +216,7 @@ function _isZeroValue(_flag:Flag, _value:GoString):{ var _0 : Bool; var _1 : Err
         var _ok:Bool = false, _err:Error = ((null : stdgo.Error));
         var _typ:stdgo.reflect.Reflect.Type = stdgo.reflect.Reflect.typeOf(Go.toInterface(_flag.value));
         try {
-            var _z:stdgo.reflect.Reflect.Value = new stdgo.reflect.Reflect.Value();
+            var _z:stdgo.reflect.Reflect.Value = (({  } : stdgo.reflect.Reflect.Value));
             if (_typ.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
                 _z = (stdgo.reflect.Reflect.new_(_typ.elem()) == null ? null : stdgo.reflect.Reflect.new_(_typ.elem()).__copy__());
             } else {
@@ -603,7 +603,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     static public function string( _v:T_textValue):GoString {
         {
             var __tmp__ = try {
-                { value : ((((_v._p.__underlying__().value : Dynamic)) : stdgo.encoding.Encoding.TextMarshaler)), ok : true };
+                { value : ((_v._p : stdgo.encoding.Encoding.TextMarshaler)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.encoding.Encoding.TextMarshaler)), ok : false };
             }, _m = __tmp__.value, _ok = __tmp__.ok;
@@ -736,7 +736,7 @@ class T_textValue_wrapper {
         };
         {
             var __tmp__ = try {
-                { value : ((((_flag.value.__underlying__().value : Dynamic)) : T_boolFlag)), ok : true };
+                { value : ((_flag.value : T_boolFlag)), ok : true };
             } catch(_) {
                 { value : ((null : T_boolFlag)), ok : false };
             }, _fv = __tmp__.value, _ok = __tmp__.ok;
@@ -1127,7 +1127,7 @@ class T_textValue_wrapper {
     static public function printDefaults( _f:FlagSet):Void {
         var _isZeroValueErrs:Slice<Error> = ((null : Slice<stdgo.Error>));
         _f.visitAll(function(_flag:Flag):Void {
-            var _b:stdgo.strings.Strings.Builder = new stdgo.strings.Strings.Builder();
+            var _b:stdgo.strings.Strings.Builder = (({  } : stdgo.strings.Strings.Builder));
             stdgo.fmt.Fmt.fprintf({
                 final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
                 __self__.cap_ = #if !macro function():GoInt return _b.cap_() #else null #end;

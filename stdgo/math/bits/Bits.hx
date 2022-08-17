@@ -40,7 +40,7 @@ var _deBruijn32tab : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((11 : GoUInt8)),
 ((5 : GoUInt8)),
 ((10 : GoUInt8)),
-((9 : GoUInt8))) : GoArray<GoByte>));
+((9 : GoUInt8))) : GoArray<GoUInt8>));
 var _deBruijn64tab : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((0 : GoUInt8)),
 ((1 : GoUInt8)),
@@ -105,7 +105,7 @@ var _deBruijn64tab : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((13 : GoUInt8)),
 ((8 : GoUInt8)),
 ((7 : GoUInt8)),
-((6 : GoUInt8))) : GoArray<GoByte>));
+((6 : GoUInt8))) : GoArray<GoUInt8>));
 var _overflowError : stdgo.Error = {
         final __self__ = new T_errorString_wrapper(((((((("integer overflow" : GoString))) : T_errorString)) : T_errorString)));
         __self__.error = #if !macro function():GoString return ((((((("integer overflow" : GoString))) : T_errorString)) : T_errorString)).error() #else null #end;

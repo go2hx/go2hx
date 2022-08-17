@@ -266,7 +266,7 @@ var _first : GoArray<GoUInt8> = ((new GoArray<GoUInt8>(
 ((241 : GoUInt8)),
 ((241 : GoUInt8))) : GoArray<GoUInt8>));
 var _acceptRanges : GoArray<T_acceptRange> = {
-        var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) new T_acceptRange()]);
+        var s:GoArray<T_acceptRange> = new GoArray<T_acceptRange>(...[for (i in 0 ... 16) (({  } : T_acceptRange))]);
         s[0] = ((new T_acceptRange(((128 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
         s[1] = ((new T_acceptRange(((160 : GoUInt8)), ((191 : GoUInt8))) : T_acceptRange));
         s[2] = ((new T_acceptRange(((128 : GoUInt8)), ((159 : GoUInt8))) : T_acceptRange));
@@ -275,8 +275,8 @@ var _acceptRanges : GoArray<T_acceptRange> = {
         s;
     };
 @:structInit class T_acceptRange {
-    public var _lo : GoUInt8 = 0;
-    public var _hi : GoUInt8 = 0;
+    public var _lo : GoUInt8;
+    public var _hi : GoUInt8;
     public function new(?_lo:GoUInt8, ?_hi:GoUInt8) {
         if (_lo != null) this._lo = _lo;
         if (_hi != null) this._hi = _hi;
@@ -299,7 +299,7 @@ function fullRune(_p:Slice<GoByte>):Bool {
         if (_n >= (((_x & ((7 : GoUInt8))) : GoInt))) {
             return true;
         };
-        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
         if ((_n > ((1 : GoInt))) && (((_p != null ? _p[((1 : GoInt))] : ((0 : GoUInt8))) < _accept._lo) || (_accept._hi < (_p != null ? _p[((1 : GoInt))] : ((0 : GoUInt8)))))) {
             return true;
         } else if ((_n > ((2 : GoInt))) && (((_p != null ? _p[((2 : GoInt))] : ((0 : GoUInt8))) < ((128 : GoUInt8))) || (((191 : GoUInt8)) < (_p != null ? _p[((2 : GoInt))] : ((0 : GoUInt8)))))) {
@@ -319,7 +319,7 @@ function fullRuneInString(_s:GoString):Bool {
         if (_n >= (((_x & ((7 : GoUInt8))) : GoInt))) {
             return true;
         };
-        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
         if ((_n > ((1 : GoInt))) && (((_s != null ? _s[((1 : GoInt))] : ((0 : GoUInt8))) < _accept._lo) || (_accept._hi < (_s != null ? _s[((1 : GoInt))] : ((0 : GoUInt8)))))) {
             return true;
         } else if ((_n > ((2 : GoInt))) && (((_s != null ? _s[((2 : GoInt))] : ((0 : GoUInt8))) < ((128 : GoUInt8))) || (((191 : GoUInt8)) < (_s != null ? _s[((2 : GoInt))] : ((0 : GoUInt8)))))) {
@@ -350,7 +350,7 @@ function decodeRune(_p:Slice<GoByte>):{ var _0 : GoRune; var _1 : GoInt; } {
             return { _0 : ((((_p != null ? _p[((0 : GoInt))] : ((0 : GoUInt8))) : GoRune)) & (_mask ^ ((-1 : GoUnTypedInt)))) | (((65533 : GoInt32)) & _mask), _1 : ((1 : GoInt)) };
         };
         var _sz:GoInt = (((_x & ((7 : GoUInt8))) : GoInt));
-        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
         if (_n < _sz) {
             return { _0 : ((65533 : GoInt32)), _1 : ((1 : GoInt)) };
         };
@@ -397,7 +397,7 @@ function decodeRuneInString(_s:GoString):{ var _0 : GoRune; var _1 : GoInt; } {
             return { _0 : ((((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) : GoRune)) & (_mask ^ ((-1 : GoUnTypedInt)))) | (((65533 : GoInt32)) & _mask), _1 : ((1 : GoInt)) };
         };
         var _sz:GoInt = (((_x & ((7 : GoUInt8))) : GoInt));
-        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+        var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
         if (_n < _sz) {
             return { _0 : ((65533 : GoInt32)), _1 : ((1 : GoInt)) };
         };
@@ -654,7 +654,7 @@ function runeCount(_p:Slice<GoByte>):GoInt {
                     _i++;
                     continue;
                 };
-                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
                 {
                     var _c:GoUInt8 = (_p != null ? _p[_i + ((1 : GoInt))] : ((0 : GoUInt8)));
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -700,7 +700,7 @@ function runeCountInString(_s:GoString):GoInt {
                     _i++;
                     continue;
                 };
-                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
                 {
                     var _c:GoUInt8 = (_s != null ? _s[_i + ((1 : GoInt))] : ((0 : GoUInt8)));
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -760,7 +760,7 @@ function valid(_p:Slice<GoByte>):Bool {
                 if ((_i + _size) > _n) {
                     return false;
                 };
-                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
                 {
                     var _c:GoUInt8 = (_p != null ? _p[_i + ((1 : GoInt))] : ((0 : GoUInt8)));
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {
@@ -811,7 +811,7 @@ function validString(_s:GoString):Bool {
                 if ((_i + _size) > _n) {
                     return false;
                 };
-                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : new T_acceptRange()).__copy__());
+                var _accept:T_acceptRange = ((_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))) == null ? null : (_acceptRanges != null ? _acceptRanges[_x >> ((4 : GoUnTypedInt))] : (({  } : T_acceptRange))).__copy__());
                 {
                     var _c:GoUInt8 = (_s != null ? _s[_i + ((1 : GoInt))] : ((0 : GoUInt8)));
                     if ((_c < _accept._lo) || (_accept._hi < _c)) {

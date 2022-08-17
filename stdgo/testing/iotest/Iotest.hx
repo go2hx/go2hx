@@ -9,10 +9,10 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 var errTimeout : stdgo.Error = stdgo.errors.Errors.new_(((((("timeout" : GoString))) : GoString)));
-var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T__struct_1(((((("hello" : GoString))) : GoString)), ((((("" : GoString))) : GoString)), ((-1 : GoInt64)), ((5 : GoInt))) : T__struct_1)), ((new T__struct_1(((((("world" : GoString))) : GoString)), ((((("" : GoString))) : GoString)), ((0 : GoInt64)), ((5 : GoInt))) : T__struct_1)), ((new T__struct_1(((((("abcde" : GoString))) : GoString)), ((((("abc" : GoString))) : GoString)), ((3 : GoInt64)), ((5 : GoInt))) : T__struct_1)), ((new T__struct_1(((((("edcba" : GoString))) : GoString)), ((((("edcba" : GoString))) : GoString)), ((7 : GoInt64)), ((5 : GoInt))) : T__struct_1))) : Slice<T__struct_1>));
+var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>((({ _in : ((((("hello" : GoString))) : GoString)), _want : ((((("" : GoString))) : GoString)), _trunc : ((-1 : GoInt64)), _n : ((5 : GoInt)) } : T__struct_1)), (({ _in : ((((("world" : GoString))) : GoString)), _want : ((((("" : GoString))) : GoString)), _trunc : ((0 : GoInt64)), _n : ((5 : GoInt)) } : T__struct_1)), (({ _in : ((((("abcde" : GoString))) : GoString)), _want : ((((("abc" : GoString))) : GoString)), _trunc : ((3 : GoInt64)), _n : ((5 : GoInt)) } : T__struct_1)), (({ _in : ((((("edcba" : GoString))) : GoString)), _want : ((((("edcba" : GoString))) : GoString)), _trunc : ((7 : GoInt64)), _n : ((5 : GoInt)) } : T__struct_1))) : Slice<T__struct_1>));
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) class T_writeLogger {
-    public var _prefix : GoString = "";
-    public var _w : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
+    public var _prefix : GoString;
+    public var _w : stdgo.io.Io.Writer;
     public function new(?_prefix:GoString, ?_w:stdgo.io.Io.Writer) {
         if (_prefix != null) this._prefix = _prefix;
         if (_w != null) this._w = _w;
@@ -23,8 +23,8 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_readLogger_static_extension) class T_readLogger {
-    public var _prefix : GoString = "";
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
+    public var _prefix : GoString;
+    public var _r : stdgo.io.Io.Reader;
     public function new(?_prefix:GoString, ?_r:stdgo.io.Io.Reader) {
         if (_prefix != null) this._prefix = _prefix;
         if (_r != null) this._r = _r;
@@ -35,7 +35,7 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) class T_errWriter {
-    public var _err : stdgo.Error = ((null : stdgo.Error));
+    public var _err : stdgo.Error;
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
     }
@@ -45,7 +45,7 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_oneByteReader_static_extension) class T_oneByteReader {
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
+    public var _r : stdgo.io.Io.Reader;
     public function new(?_r:stdgo.io.Io.Reader) {
         if (_r != null) this._r = _r;
     }
@@ -55,7 +55,7 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_halfReader_static_extension) class T_halfReader {
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
+    public var _r : stdgo.io.Io.Reader;
     public function new(?_r:stdgo.io.Io.Reader) {
         if (_r != null) this._r = _r;
     }
@@ -65,9 +65,9 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_dataErrReader_static_extension) class T_dataErrReader {
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
-    public var _unread : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
-    public var _data : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _r : stdgo.io.Io.Reader;
+    public var _unread : Slice<GoUInt8>;
+    public var _data : Slice<GoUInt8>;
     public function new(?_r:stdgo.io.Io.Reader, ?_unread:Slice<GoUInt8>, ?_data:Slice<GoUInt8>) {
         if (_r != null) this._r = _r;
         if (_unread != null) this._unread = _unread;
@@ -79,8 +79,8 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_timeoutReader_static_extension) class T_timeoutReader {
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
-    public var _count : GoInt = 0;
+    public var _r : stdgo.io.Io.Reader;
+    public var _count : GoInt;
     public function new(?_r:stdgo.io.Io.Reader, ?_count:GoInt) {
         if (_r != null) this._r = _r;
         if (_count != null) this._count = _count;
@@ -91,7 +91,7 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) class T_errReader {
-    public var _err : stdgo.Error = ((null : stdgo.Error));
+    public var _err : stdgo.Error;
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
     }
@@ -101,9 +101,9 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_smallByteReader_static_extension) class T_smallByteReader {
-    public var _r : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
-    public var _off : GoInt = 0;
-    public var _n : GoInt = 0;
+    public var _r : stdgo.io.Io.Reader;
+    public var _off : GoInt;
+    public var _n : GoInt;
     public function new(?_r:stdgo.io.Io.Reader, ?_off:GoInt, ?_n:GoInt) {
         if (_r != null) this._r = _r;
         if (_off != null) this._off = _off;
@@ -115,8 +115,8 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
     }
 }
 @:structInit @:using(stdgo.testing.iotest.Iotest.T_truncateWriter_static_extension) class T_truncateWriter {
-    public var _w : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
-    public var _n : GoInt64 = 0;
+    public var _w : stdgo.io.Io.Writer;
+    public var _n : GoInt64;
     public function new(?_w:stdgo.io.Io.Writer, ?_n:GoInt64) {
         if (_w != null) this._w = _w;
         if (_n != null) this._n = _n;
@@ -126,36 +126,16 @@ var _truncateWriterTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(((new T
         return new T_truncateWriter(_w, _n);
     }
 }
-@:structInit @:local class T__struct_0 {
-    public var _name : GoString = "";
-    public var _err : stdgo.Error = ((null : stdgo.Error));
-    public function string():String return "{" + Go.string(_name) + " " + Go.string(_err) + "}";
-    public function new(?_name:GoString, ?_err:stdgo.Error, ?string) {
-        if (_name != null) this._name = _name;
-        if (_err != null) this._err = _err;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_0(_name, _err);
-    }
-}
-@:structInit @:local class T__struct_1 {
-    public var _in : GoString = "";
-    public var _want : GoString = "";
-    public var _trunc : GoInt64 = 0;
-    public var _n : GoInt = 0;
-    public function string():String return "{" + Go.string(_in) + " " + Go.string(_want) + " " + Go.string(_trunc) + " " + Go.string(_n) + "}";
-    public function new(?_in:GoString, ?_want:GoString, ?_trunc:GoInt64, ?_n:GoInt, ?string) {
-        if (_in != null) this._in = _in;
-        if (_want != null) this._want = _want;
-        if (_trunc != null) this._trunc = _trunc;
-        if (_n != null) this._n = _n;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_1(_in, _want, _trunc, _n);
-    }
-}
+@:local typedef T__struct_0 = {
+    public var _name : GoString;
+    public var _err : stdgo.Error;
+};
+@:local typedef T__struct_1 = {
+    public var _in : GoString;
+    public var _want : GoString;
+    public var _trunc : GoInt64;
+    public var _n : GoInt;
+};
 /**
     // NewWriteLogger returns a writer that behaves like w except
     // that it logs (using log.Printf) each write to standard error,
@@ -195,7 +175,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 };
                 a();
             });
-            var _lOut = new stdgo.bytes.Bytes.Buffer();
+            var _lOut = (({  } : stdgo.bytes.Bytes.Buffer));
             stdgo.log.Log.setPrefix(((((("lw: " : GoString))) : GoString)));
             stdgo.log.Log.setOutput({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_lOut);
@@ -227,7 +207,7 @@ function testWriteLogger(_t:stdgo.testing.Testing.T):Void {
                 __self__;
             });
             stdgo.log.Log.setFlags(((0 : GoInt)));
-            var _lw = new stdgo.bytes.Bytes.Buffer();
+            var _lw = (({  } : stdgo.bytes.Bytes.Buffer));
             var _wl:stdgo.io.Io.Writer = newWriteLogger(((((("write:" : GoString))) : GoString)), {
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_lw);
                 __self__.bytes = #if !macro function():Slice<GoUInt8> return _lw.bytes() #else null #end;
@@ -311,7 +291,7 @@ function testWriteLogger_errorOnWrite(_t:stdgo.testing.Testing.T):Void {
                 };
                 a();
             });
-            var _lOut = new stdgo.bytes.Bytes.Buffer();
+            var _lOut = (({  } : stdgo.bytes.Bytes.Buffer));
             stdgo.log.Log.setPrefix(((((("lw: " : GoString))) : GoString)));
             stdgo.log.Log.setOutput({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_lOut);
@@ -397,7 +377,7 @@ function testReadLogger(_t:stdgo.testing.Testing.T):Void {
                 };
                 a();
             });
-            var _lOut = new stdgo.bytes.Bytes.Buffer();
+            var _lOut = (({  } : stdgo.bytes.Bytes.Buffer));
             stdgo.log.Log.setPrefix(((((("lr: " : GoString))) : GoString)));
             stdgo.log.Log.setOutput({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_lOut);
@@ -499,7 +479,7 @@ function testReadLogger_errorOnRead(_t:stdgo.testing.Testing.T):Void {
                 };
                 a();
             });
-            var _lOut = new stdgo.bytes.Bytes.Buffer();
+            var _lOut = (({  } : stdgo.bytes.Bytes.Buffer));
             stdgo.log.Log.setPrefix(((((("lr: " : GoString))) : GoString)));
             stdgo.log.Log.setOutput({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_lOut);
@@ -656,7 +636,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
         };
         {
             var __tmp__ = try {
-                { value : ((((_r.__underlying__().value : Dynamic)) : stdgo.io.Io.ReadSeeker)), ok : true };
+                { value : ((_r : stdgo.io.Io.ReadSeeker)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.ReadSeeker)), ok : false };
             }, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -753,7 +733,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
         };
         {
             var __tmp__ = try {
-                { value : ((((_r.__underlying__().value : Dynamic)) : stdgo.io.Io.ReaderAt)), ok : true };
+                { value : ((_r : stdgo.io.Io.ReaderAt)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.ReaderAt)), ok : false };
             }, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -817,7 +797,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
     }
 function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         var _msg:GoString = ((((("Hello, World!" : GoString))) : GoString));
-        var _buf = new stdgo.bytes.Bytes.Buffer();
+        var _buf = (({  } : stdgo.bytes.Bytes.Buffer));
         _buf.writeString(_msg);
         var _obr:stdgo.io.Io.Reader = oneByteReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
@@ -854,7 +834,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             _t.errorf(((((("Empty buffer read returned n=%d err=%v" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_err));
         };
         _b = new Slice<GoUInt8>(...[for (i in 0 ... ((((3 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        var _got = new stdgo.bytes.Bytes.Buffer();
+        var _got = (({  } : stdgo.bytes.Bytes.Buffer));
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(true, _i++, {
@@ -889,7 +869,7 @@ function testOneByteReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testOneByteReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
-        var _r = new stdgo.bytes.Bytes.Buffer();
+        var _r = (({  } : stdgo.bytes.Bytes.Buffer));
         var _obr:stdgo.io.Io.Reader = oneByteReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_r);
             __self__.bytes = #if !macro function():Slice<GoUInt8> return _r.bytes() #else null #end;
@@ -943,7 +923,7 @@ function testOneByteReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
     }
 function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         var _msg:GoString = ((((("Hello, World!" : GoString))) : GoString));
-        var _buf = new stdgo.bytes.Bytes.Buffer();
+        var _buf = (({  } : stdgo.bytes.Bytes.Buffer));
         _buf.writeString(_msg);
         var _hr:stdgo.io.Io.Reader = halfReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
@@ -980,7 +960,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             _t.errorf(((((("Empty buffer read returned n=%d err=%v" : GoString))) : GoString)), Go.toInterface(_n), Go.toInterface(_err));
         };
         _b = new Slice<GoUInt8>(...[for (i in 0 ... ((((2 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        var _got = new stdgo.bytes.Bytes.Buffer();
+        var _got = (({  } : stdgo.bytes.Bytes.Buffer));
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(true, _i++, {
@@ -1015,7 +995,7 @@ function testHalfReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testHalfReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
-        var _r = new stdgo.bytes.Bytes.Buffer();
+        var _r = (({  } : stdgo.bytes.Bytes.Buffer));
         var _hr:stdgo.io.Io.Reader = halfReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_r);
             __self__.bytes = #if !macro function():Slice<GoUInt8> return _r.bytes() #else null #end;
@@ -1069,7 +1049,7 @@ function testHalfReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
     }
 function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         var _msg:GoString = ((((("Hello, World!" : GoString))) : GoString));
-        var _buf = new stdgo.bytes.Bytes.Buffer();
+        var _buf = (({  } : stdgo.bytes.Bytes.Buffer));
         _buf.writeString(_msg);
         var _tor:stdgo.io.Io.Reader = timeoutReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
@@ -1177,7 +1157,7 @@ function testTimeOutReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
-        var _r = new stdgo.bytes.Bytes.Buffer();
+        var _r = (({  } : stdgo.bytes.Bytes.Buffer));
         var _tor:stdgo.io.Io.Reader = timeoutReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_r);
             __self__.bytes = #if !macro function():Slice<GoUInt8> return _r.bytes() #else null #end;
@@ -1283,7 +1263,7 @@ function testTimeOutReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
     }
 function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         var _msg:GoString = ((((("Hello, World!" : GoString))) : GoString));
-        var _buf = new stdgo.bytes.Bytes.Buffer();
+        var _buf = (({  } : stdgo.bytes.Bytes.Buffer));
         _buf.writeString(_msg);
         var _der:stdgo.io.Io.Reader = dataErrReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
@@ -1315,7 +1295,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
             __self__;
         });
         var _b = new Slice<GoUInt8>(...[for (i in 0 ... ((((3 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-        var _got = new stdgo.bytes.Bytes.Buffer();
+        var _got = (({  } : stdgo.bytes.Bytes.Buffer));
         var _n:GoInt = ((0 : GoInt));
         var _err:Error = ((null : stdgo.Error));
         while (true) {
@@ -1340,7 +1320,7 @@ function testDataErrReader_nonEmptyReader(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testDataErrReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
-        var _r = new stdgo.bytes.Bytes.Buffer();
+        var _r = (({  } : stdgo.bytes.Bytes.Buffer));
         var _der:stdgo.io.Io.Reader = dataErrReader({
             final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_r);
             __self__.bytes = #if !macro function():Slice<GoUInt8> return _r.bytes() #else null #end;
@@ -1393,7 +1373,7 @@ function testDataErrReader_emptyReader(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testErrReader(_t:stdgo.testing.Testing.T):Void {
-        var _cases = ((new Slice<T__struct_0>(((new T__struct_0(((((("nil error" : GoString))) : GoString)), ((null : stdgo.Error))) : T__struct_0)), ((new T__struct_0(((((("non-nil error" : GoString))) : GoString)), stdgo.errors.Errors.new_(((((("io failure" : GoString))) : GoString)))) : T__struct_0)), ((new T__struct_0(((((("io.EOF" : GoString))) : GoString)), stdgo.io.Io.eof) : T__struct_0))) : Slice<T__struct_0>));
+        var _cases = ((new Slice<T__struct_0>((({ _name : ((((("nil error" : GoString))) : GoString)), _err : ((null : stdgo.Error)) } : T__struct_0)), (({ _name : ((((("non-nil error" : GoString))) : GoString)), _err : stdgo.errors.Errors.new_(((((("io failure" : GoString))) : GoString))) } : T__struct_0)), (({ _name : ((((("io.EOF" : GoString))) : GoString)), _err : stdgo.io.Io.eof } : T__struct_0))) : Slice<T__struct_0>));
         for (_0 => _tt in _cases) {
             var _tt:T__struct_0 = (_tt == null ? null : _tt.__copy__());
             _t.run(_tt._name, function(_t:stdgo.testing.Testing.T):Void {
@@ -1444,7 +1424,7 @@ function truncateWriter(_w:stdgo.io.Io.Writer, _n:GoInt64):stdgo.io.Io.Writer {
     }
 function testTruncateWriter(_t:stdgo.testing.Testing.T):Void {
         for (_0 => _tt in _truncateWriterTests) {
-            var _buf = new stdgo.bytes.Bytes.Buffer();
+            var _buf = (({  } : stdgo.bytes.Bytes.Buffer));
             var _tw:stdgo.io.Io.Writer = truncateWriter({
                 final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
                 __self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;

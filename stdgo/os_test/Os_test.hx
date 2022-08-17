@@ -29,9 +29,9 @@ var _nilFileMethodTests : Slice<T__struct_2> = ((null : Slice<T__struct_2>));
 var _isReadonlyError : stdgo.Error -> Bool = null;
 var _global : AnyInterface = ((null : AnyInterface));
 @:structInit class T_isExistTest {
-    public var _err : stdgo.Error = ((null : stdgo.Error));
-    public var _is : Bool = false;
-    public var _isnot : Bool = false;
+    public var _err : stdgo.Error;
+    public var _is : Bool;
+    public var _isnot : Bool;
     public function new(?_err:stdgo.Error, ?_is:Bool, ?_isnot:Bool) {
         if (_err != null) this._err = _err;
         if (_is != null) this._is = _is;
@@ -43,8 +43,8 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_isPermissionTest {
-    public var _err : stdgo.Error = ((null : stdgo.Error));
-    public var _want : Bool = false;
+    public var _err : stdgo.Error;
+    public var _want : Bool;
     public function new(?_err:stdgo.Error, ?_want:Bool) {
         if (_err != null) this._err = _err;
         if (_want != null) this._want = _want;
@@ -56,7 +56,7 @@ var _global : AnyInterface = ((null : AnyInterface));
 }
 @:structInit @:using(stdgo.os_test.Os_test.T_myErrorIs_static_extension) class T_myErrorIs {
     @:embedded
-    public var _error : stdgo.Error = ((null : stdgo.Error));
+    public var _error : stdgo.Error;
     public function new(?_error:stdgo.Error) {
         if (_error != null) this._error = _error;
     }
@@ -68,8 +68,8 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_sysDir {
-    public var _name : GoString = "";
-    public var _files : Slice<GoString> = ((null : Slice<GoString>));
+    public var _name : GoString;
+    public var _files : Slice<GoString>;
     public function new(?_name:GoString, ?_files:Slice<GoString>) {
         if (_name != null) this._name = _name;
         if (_files != null) this._files = _files;
@@ -80,9 +80,9 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_openErrorTest {
-    public var _path : GoString = "";
-    public var _mode : GoInt = 0;
-    public var _error : stdgo.Error = ((null : stdgo.Error));
+    public var _path : GoString;
+    public var _mode : GoInt;
+    public var _error : stdgo.Error;
     public function new(?_path:GoString, ?_mode:GoInt, ?_error:stdgo.Error) {
         if (_path != null) this._path = _path;
         if (_mode != null) this._mode = _mode;
@@ -93,32 +93,14 @@ var _global : AnyInterface = ((null : AnyInterface));
         return new T_openErrorTest(_path, _mode, _error);
     }
 }
-@:structInit @:local class T__struct_1 {
-    public var _in : GoString = "";
-    public var _out : GoString = "";
-    public function string():String return "{" + Go.string(_in) + " " + Go.string(_out) + "}";
-    public function new(?_in:GoString, ?_out:GoString, ?string) {
-        if (_in != null) this._in = _in;
-        if (_out != null) this._out = _out;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_1(_in, _out);
-    }
-}
-@:structInit @:local class T__struct_2 {
-    public var _name : GoString = "";
-    public var _f : Ref<File> -> stdgo.Error = null;
-    public function string():String return "{" + Go.string(_name) + " " + Go.string(_f) + "}";
-    public function new(?_name:GoString, ?_f:Ref<File> -> stdgo.Error, ?string) {
-        if (_name != null) this._name = _name;
-        if (_f != null) this._f = _f;
-    }
-    public function __underlying__():AnyInterface return Go.toInterface(this);
-    public function __copy__() {
-        return new T__struct_2(_name, _f);
-    }
-}
+@:local typedef T__struct_1 = {
+    public var _in : GoString;
+    public var _out : GoString;
+};
+@:local typedef T__struct_2 = {
+    public var _name : GoString;
+    public var _f : Ref<File> -> stdgo.Error;
+};
 @:follow typedef T_syscallDescriptor = GoInt;
 /**
     // testGetenv gives us a controlled set of variables for testing Expand.

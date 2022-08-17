@@ -539,7 +539,7 @@ function dim(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (_x > 0 && !std.Math.isFinite(_x.toBasic()) || _y > 0 && !std.Math.isFinite(_y.toBasic())) return inf(1);
-        if (_x == 0.0 && !_signbit(_x) && !isNaN(_y) || _y == 0.0 && !_signbit(_y) && !isNaN(_x)) return 0.0;
+        if (_x == 0.0 && !signbit(_x) && !isNaN(_y) || _y == 0.0 && !signbit(_y) && !isNaN(_x)) return 0.0;
         if (isNaN(_x) || isNaN(_y)) return naN();
         return std.Math.max(_x.toBasic(), _y.toBasic());
     }
@@ -570,7 +570,7 @@ function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if (_x < 0 && !std.Math.isFinite(_x.toBasic()) || _y < 0 && !std.Math.isFinite(_y.toBasic())) return inf(-1);
-        if (_x == 0.0 && _signbit(_x) && !isNaN(_y) || _y == 0.0 && _signbit(_y) && !isNaN(_x)) return negZero();
+        if (_x == 0.0 && signbit(_x) && !isNaN(_y) || _y == 0.0 && signbit(_y) && !isNaN(_x)) return negZero();
         if (isNaN(_x) || isNaN(_y)) return naN();
         return std.Math.min(_x.toBasic(), _y.toBasic());
     }
@@ -1018,8 +1018,8 @@ function _expm1(_x:GoFloat64):GoFloat64 {
     //	Floor(NaN) = NaN
 **/
 function floor(_x:GoFloat64):GoFloat64 {
-        if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic())) return _f;
-        return std.Math.ffloor(_f.toBasic());
+        if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic())) return _x;
+        return std.Math.ffloor(_x.toBasic());
     }
 function _floor(_x:GoFloat64):GoFloat64 {
         if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
@@ -1045,9 +1045,9 @@ function _floor(_x:GoFloat64):GoFloat64 {
     //	Ceil(NaN) = NaN
 **/
 function ceil(_x:GoFloat64):GoFloat64 {
-        if (!std.Math.isFinite(_f.toBasic()) || std.Math.isNaN(_f.toBasic())) return _f;
-        if (_f == 0.0 && _signbit(_f)) return negZero();
-        if (_f > -1.0 && _f < 0.0) {
+        if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic())) return _x;
+        if (_x == 0.0 && signbit(_x)) return negZero();
+        if (_x > -1.0 && _x < 0.0) {
             return negZero();
         };
         return std.Math.ceil(_f.toBasic());
@@ -2311,7 +2311,7 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
     //	Log(x < 0) = NaN
     //	Log(NaN) = NaN
 **/
-function log(_x:GoFloat64):GoFloat64 std.Math.log(_x.toBasic());
+function log(_x:GoFloat64):GoFloat64 return std.Math.log(_x.toBasic());
 function _log(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
@@ -2671,7 +2671,7 @@ function _isOddInt(_x:GoFloat64):Bool {
     //	Pow(-Inf, y) = Pow(-0, -y)
     //	Pow(x, y) = NaN for finite x < 0 and finite non-integer y
 **/
-function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 std.Math.pow(_x.toBasic(), _y.toBasic());
+function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 return std.Math.pow(_x.toBasic(), _y.toBasic());
 function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         if ((_y == ((0 : GoFloat64))) || (_x == ((1 : GoFloat64)))) {
             return ((1 : GoFloat64));
@@ -2849,7 +2849,7 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function signbit(_x:GoFloat64):Bool {
         if (std.Math.isNaN(_x.toBasic())) return false;
-        return _signbit(_x);
+        return (float64bits(_x) & ((((1 : GoUnTypedInt))) << (((63 : GoUnTypedInt))))) != (((0 : GoUInt64)));
     }
 /**
     // Cos returns the cosine of the radian argument x.

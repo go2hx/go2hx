@@ -16,8 +16,8 @@ typedef Interface = StructType & {
     public function swap(_i:GoInt, _j:GoInt):Void;
 };
 @:structInit class T_lessSwap {
-    public var less : (GoInt, GoInt) -> Bool = null;
-    public var swap : (GoInt, GoInt) -> Void = null;
+    public var less : (GoInt, GoInt) -> Bool;
+    public var swap : (GoInt, GoInt) -> Void;
     public function new(?less:(GoInt, GoInt) -> Bool, ?swap:(GoInt, GoInt) -> Void) {
         if (less != null) this.less = less;
         if (swap != null) this.swap = swap;
@@ -29,7 +29,7 @@ typedef Interface = StructType & {
 }
 @:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) class T_reverse {
     @:embedded
-    public var interface_ : Interface = ((null : Interface));
+    public var interface_ : Interface;
     public function new(?interface_:Interface) {
         if (interface_ != null) this.interface_ = interface_;
     }

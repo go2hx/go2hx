@@ -64,9 +64,9 @@ typedef SubFS = StructType & {
     public function timeout():Bool;
 };
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) class PathError {
-    public var op : GoString = "";
-    public var path : GoString = "";
-    public var err : stdgo.Error = ((null : stdgo.Error));
+    public var op : GoString;
+    public var path : GoString;
+    public var err : stdgo.Error;
     public function new(?op:GoString, ?path:GoString, ?err:stdgo.Error) {
         if (op != null) this.op = op;
         if (path != null) this.path = path;
@@ -78,7 +78,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) class T_dirInfo {
-    public var _fileInfo : FileInfo = ((null : FileInfo));
+    public var _fileInfo : FileInfo;
     public function new(?_fileInfo:FileInfo) {
         if (_fileInfo != null) this._fileInfo = _fileInfo;
     }
@@ -88,8 +88,8 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) class T_subFS {
-    public var _fsys : FS = ((null : FS));
-    public var _dir : GoString = "";
+    public var _fsys : FS;
+    public var _dir : GoString;
     public function new(?_fsys:FS, ?_dir:GoString) {
         if (_fsys != null) this._fsys = _fsys;
         if (_dir != null) this._dir = _dir;
@@ -100,7 +100,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) class T_statDirEntry {
-    public var _info : FileInfo = ((null : FileInfo));
+    public var _info : FileInfo;
     public function new(?_info:FileInfo) {
         if (_info != null) this._info = _info;
     }
@@ -189,7 +189,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Sl
         };
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : GlobFS)), ok : true };
+                { value : ((_fsys : GlobFS)), ok : true };
             } catch(_) {
                 { value : ((null : GlobFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -307,7 +307,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadDirFS)), ok : true };
+                { value : ((_fsys : ReadDirFS)), ok : true };
             } catch(_) {
                 { value : ((null : ReadDirFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -322,7 +322,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
             };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
-                { value : ((((_file.__underlying__().value : Dynamic)) : ReadDirFile)), ok : true };
+                { value : ((_file : ReadDirFile)), ok : true };
             } catch(_) {
                 { value : ((null : ReadDirFile)), ok : false };
             }, _dir = __tmp__.value, _ok = __tmp__.ok;
@@ -402,7 +402,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadFileFS)), ok : true };
+                { value : ((_fsys : ReadFileFS)), ok : true };
             } catch(_) {
                 { value : ((null : ReadFileFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -477,7 +477,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : StatFS)), ok : true };
+                { value : ((_fsys : StatFS)), ok : true };
             } catch(_) {
                 { value : ((null : StatFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -548,7 +548,7 @@ function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         };
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : SubFS)), ok : true };
+                { value : ((_fsys : SubFS)), ok : true };
             } catch(_) {
                 { value : ((null : SubFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -646,7 +646,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
     @:keep
     static public function timeout( _e:PathError):Bool {
         var __tmp__ = try {
-            { value : ((((_e.err.__underlying__().value : Dynamic)) : T__interface_0)), ok : true };
+            { value : ((_e.err : T__interface_0)), ok : true };
         } catch(_) {
             { value : ((null : T__interface_0)), ok : false };
         }, _t = __tmp__.value, _ok = __tmp__.ok;

@@ -3308,7 +3308,7 @@ var space : Ref<RangeTable> = __Z;
 var z : Ref<RangeTable> = __Z;
 var symbol : Ref<RangeTable> = __S;
 var s : Ref<RangeTable> = __S;
-var printRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s) : Slice<RangeTable>));
+var printRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s) : Slice<Ref<RangeTable>>));
 var title : Ref<RangeTable> = __Lt;
 var lt : Ref<RangeTable> = __Lt;
 var upper : Ref<RangeTable> = __Lu;
@@ -3316,7 +3316,7 @@ var lu : Ref<RangeTable> = __Lu;
 var zl : Ref<RangeTable> = __Zl;
 var zp : Ref<RangeTable> = __Zp;
 var zs : Ref<RangeTable> = __Zs;
-var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<RangeTable>(l, m, n, p, s, zs) : Slice<RangeTable>));
+var graphicRanges : Slice<Ref<RangeTable>> = ((new Slice<Ref<RangeTable>>(l, m, n, p, s, zs) : Slice<Ref<RangeTable>>));
 var categories : GoMap<GoString, Ref<RangeTable>> = {
     final x = new stdgo.GoMap.GoObjectMap<GoString, Ref<RangeTable>>(new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.mapType(stdgo.reflect.Reflect.GoType.basic(string_kind), stdgo.reflect.Reflect.GoType.refType(stdgo.reflect.Reflect.GoType.named("RangeTable", [], stdgo.reflect.Reflect.GoType.structType([{ name : "r16", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range16", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint16_kind) }]))) }, { name : "r32", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.sliceType(stdgo.reflect.Reflect.GoType.named("Range32", [], stdgo.reflect.Reflect.GoType.structType([{ name : "lo", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "hi", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }, { name : "stride", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(uint32_kind) }]))) }, { name : "latinOffset", embedded : false, tag : "", type : stdgo.reflect.Reflect.GoType.basic(int_kind) }]))))));
     @:privateAccess x._keys = [
@@ -6419,9 +6419,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     x;
 };
 @:structInit class RangeTable {
-    public var r16 : Slice<Range16> = ((null : Slice<Range16>));
-    public var r32 : Slice<Range32> = ((null : Slice<Range32>));
-    public var latinOffset : GoInt = 0;
+    public var r16 : Slice<Range16>;
+    public var r32 : Slice<Range32>;
+    public var latinOffset : GoInt;
     public function new(?r16:Slice<Range16>, ?r32:Slice<Range32>, ?latinOffset:GoInt) {
         if (r16 != null) this.r16 = r16;
         if (r32 != null) this.r32 = r32;
@@ -6433,9 +6433,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class Range16 {
-    public var lo : GoUInt16 = 0;
-    public var hi : GoUInt16 = 0;
-    public var stride : GoUInt16 = 0;
+    public var lo : GoUInt16;
+    public var hi : GoUInt16;
+    public var stride : GoUInt16;
     public function new(?lo:GoUInt16, ?hi:GoUInt16, ?stride:GoUInt16) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6447,9 +6447,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class Range32 {
-    public var lo : GoUInt32 = 0;
-    public var hi : GoUInt32 = 0;
-    public var stride : GoUInt32 = 0;
+    public var lo : GoUInt32;
+    public var hi : GoUInt32;
+    public var stride : GoUInt32;
     public function new(?lo:GoUInt32, ?hi:GoUInt32, ?stride:GoUInt32) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6461,9 +6461,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class CaseRange {
-    public var lo : GoUInt32 = 0;
-    public var hi : GoUInt32 = 0;
-    public var delta : T_d = new T_d();
+    public var lo : GoUInt32;
+    public var hi : GoUInt32;
+    public var delta : T_d;
     public function new(?lo:GoUInt32, ?hi:GoUInt32, ?delta:T_d) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6475,8 +6475,8 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class T_foldPair {
-    public var from : GoUInt16 = 0;
-    public var to : GoUInt16 = 0;
+    public var from : GoUInt16;
+    public var to : GoUInt16;
     public function new(?from:GoUInt16, ?to:GoUInt16) {
         if (from != null) this.from = from;
         if (to != null) this.to = to;
@@ -6624,7 +6624,7 @@ function isSymbol(_r:GoRune):Bool {
 function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         if (((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) || (_r <= ((255 : GoUInt16)))) {
             for (_i => _ in _ranges) {
-                var _range_ = (_ranges != null ? _ranges[_i] : new Range16());
+                var _range_ = (_ranges != null ? _ranges[_i] : (({  } : Range16)));
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6638,7 +6638,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
         var _hi:GoInt = (_ranges != null ? _ranges.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _range_ = (_ranges != null ? _ranges[_m] : new Range16());
+            var _range_ = (_ranges != null ? _ranges[_m] : (({  } : Range16)));
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_range_.stride == ((1 : GoUInt16))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt16)));
             };
@@ -6656,7 +6656,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         if ((_ranges != null ? _ranges.length : ((0 : GoInt))) <= ((18 : GoInt))) {
             for (_i => _ in _ranges) {
-                var _range_ = (_ranges != null ? _ranges[_i] : new Range32());
+                var _range_ = (_ranges != null ? _ranges[_i] : (({  } : Range32)));
                 if (_r < _range_.lo) {
                     return false;
                 };
@@ -6670,7 +6670,7 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
         var _hi:GoInt = (_ranges != null ? _ranges.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _range_:Range32 = ((_ranges != null ? _ranges[_m] : new Range32()) == null ? null : (_ranges != null ? _ranges[_m] : new Range32()).__copy__());
+            var _range_:Range32 = ((_ranges != null ? _ranges[_m] : (({  } : Range32))) == null ? null : (_ranges != null ? _ranges[_m] : (({  } : Range32))).__copy__());
             if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
                 return (_range_.stride == ((1 : GoUInt32))) || (((_r - _range_.lo) % _range_.stride) == ((0 : GoUInt32)));
             };
@@ -6687,11 +6687,11 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 **/
 function is_(_rangeTab:RangeTable, _r:GoRune):Bool {
         var _r16 = _rangeTab.r16;
-        if (((_r16 != null ? _r16.length : ((0 : GoInt))) > ((0 : GoInt))) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
+        if (((_r16 != null ? _r16.length : ((0 : GoInt))) > ((0 : GoInt))) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : (({  } : Range16))).hi : GoUInt32)))) {
             return _is16(_r16, ((_r : GoUInt16)));
         };
         var _r32 = _rangeTab.r32;
-        if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : new Range32()).lo : GoRune)))) {
+        if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : (({  } : Range32))).lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
@@ -6700,12 +6700,12 @@ function _isExcludingLatin(_rangeTab:RangeTable, _r:GoRune):Bool {
         var _r16 = _rangeTab.r16;
         {
             var _off:GoInt = _rangeTab.latinOffset;
-            if (((_r16 != null ? _r16.length : ((0 : GoInt))) > _off) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : new Range16()).hi : GoUInt32)))) {
+            if (((_r16 != null ? _r16.length : ((0 : GoInt))) > _off) && (((_r : GoUInt32)) <= (((_r16 != null ? _r16[(_r16 != null ? _r16.length : ((0 : GoInt))) - ((1 : GoInt))] : (({  } : Range16))).hi : GoUInt32)))) {
                 return _is16(((_r16.__slice__(_off) : Slice<Range16>)), ((_r : GoUInt16)));
             };
         };
         var _r32 = _rangeTab.r32;
-        if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : new Range32()).lo : GoRune)))) {
+        if (((_r32 != null ? _r32.length : ((0 : GoInt))) > ((0 : GoInt))) && (_r >= (((_r32 != null ? _r32[((0 : GoInt))] : (({  } : Range32))).lo : GoRune)))) {
             return _is32(_r32, ((_r : GoUInt32)));
         };
         return false;
@@ -6750,7 +6750,7 @@ function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{ var _0 : Go
         var _hi:GoInt = (_caseRange != null ? _caseRange.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            var _cr:CaseRange = ((_caseRange != null ? _caseRange[_m] : new CaseRange()) == null ? null : (_caseRange != null ? _caseRange[_m] : new CaseRange()).__copy__());
+            var _cr:CaseRange = ((_caseRange != null ? _caseRange[_m] : (({  } : CaseRange))) == null ? null : (_caseRange != null ? _caseRange[_m] : (({  } : CaseRange))).__copy__());
             if ((((_cr.lo : GoRune)) <= _r) && (_r <= ((_cr.hi : GoRune)))) {
                 var _delta:GoInt32 = (_cr.delta != null ? _cr.delta[__case] : ((0 : GoInt32)));
                 if (_delta > ((1114111 : GoInt32))) {
@@ -6843,14 +6843,14 @@ function simpleFold(_r:GoRune):GoRune {
         var _hi:GoInt = (_caseOrbit != null ? _caseOrbit.length : ((0 : GoInt)));
         while (_lo < _hi) {
             var _m:GoInt = _lo + ((_hi - _lo) / ((2 : GoInt)));
-            if ((((_caseOrbit != null ? _caseOrbit[_m] : new T_foldPair()).from : GoRune)) < _r) {
+            if ((((_caseOrbit != null ? _caseOrbit[_m] : (({  } : T_foldPair))).from : GoRune)) < _r) {
                 _lo = _m + ((1 : GoInt));
             } else {
                 _hi = _m;
             };
         };
-        if ((_lo < (_caseOrbit != null ? _caseOrbit.length : ((0 : GoInt)))) && ((((_caseOrbit != null ? _caseOrbit[_lo] : new T_foldPair()).from : GoRune)) == _r)) {
-            return (((_caseOrbit != null ? _caseOrbit[_lo] : new T_foldPair()).to : GoRune));
+        if ((_lo < (_caseOrbit != null ? _caseOrbit.length : ((0 : GoInt)))) && ((((_caseOrbit != null ? _caseOrbit[_lo] : (({  } : T_foldPair))).from : GoRune)) == _r)) {
+            return (((_caseOrbit != null ? _caseOrbit[_lo] : (({  } : T_foldPair))).to : GoRune));
         };
         {
             var _l:GoInt32 = toLower(_r);

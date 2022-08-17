@@ -141,6 +141,8 @@ class Frame {
 }
 
 class MemStats {
+	public function new() {}
+
 	public var alloc(get, null):GoUInt64;
 
 	public function __underlying__():AnyInterface

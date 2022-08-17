@@ -440,7 +440,7 @@ func parseLocalTypes(file *ast.File, pkg *packages.Package) {
 				file.Decls = append(file.Decls, &gen)
 
 				var pos token.Pos = 0
-				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, nil), t, nil)
+				namedType := types.NewNamed(types.NewTypeName(pos, pkg.Types, name.Name, t), t, nil)
 				tv := types.TypeAndValue{}
 				tv.Type = t
 				// add

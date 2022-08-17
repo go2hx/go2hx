@@ -526,7 +526,7 @@ class Value {
 	public inline function kind()
 		return value.type.kind();
 
-	public inline function interface_():AnyInterface
+	public inline function interface_(val:Dynamic = null):AnyInterface
 		return value;
 
 	public inline function isNil():Bool {
@@ -1376,6 +1376,8 @@ class _Type {
 						count++;
 				}
 				return count;
+			case structType(_):
+				return 0;
 			default:
 				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + string());
 		}

@@ -1123,7 +1123,7 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 
 		return macro($e.value : $ct);
 	}
-	if (isInterface(pointerUnwrap(fromType))) {
+	if (isInterface(pointerUnwrap(fromType)) && !isInterface(pointerUnwrap(toType))) {
 		if (isPointer(fromType) && !isPointer(toType)) {
 			switch ct {
 				case TPath(p):
@@ -3956,7 +3956,8 @@ private function typeCompositeLit(expr:Ast.CompositeLit, info:Info):ExprDef {
 	if (expr.type == null)
 		return (macro @:invalid_compositelit_null null).expr;
 	var type = typeof(expr.type, info, false);
-	var ct = typeExprType(expr.type, info);
+	// var ct = typeExprType(expr.type, info);
+	var ct = toComplexType(type, info);
 	final e = compositeLit(type, ct, expr, info);
 	// trace(printer.printExpr({expr: e, pos: null}));
 	return e;
@@ -3997,45 +3998,88 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 		case structType(fields):
 			var objectFields:Array<ObjectField> = [];
 			var fields = fields.copy();
-			if (keyValueBool) {
-				for (i in 0...expr.elts.length) {
-					var elt:Ast.KeyValueExpr = expr.elts[i];
-					var key = elt.key.name;
-					var value = typeExpr(elt.value, info);
-					var removed = false;
-					for (field in fields) {
-						if (field.name == "_")
-							continue;
-						if (field.name == key) {
-							value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
-							objectFields.push({
-								field: nameIdent(key, false, true, info),
-								expr: value, // macro ($value : $fieldType),
-							});
-							fields.remove(field);
-							removed = true;
-							break;
-						}
+			var isAlias = false;
+			switch type {
+				case named(_, _, _, alias):
+					if (alias != null && alias) {
+						isAlias = true;
 					}
-					if (!removed)
-						throw "cannot find field type of name: " + key + " in names: " + [for (field in fields) field.name];
+				default:
+			}
+			if (keyValueBool) {
+				if (isAlias) {
+					for (field in fields) {
+						var value = defaultValue(field.type, info, true);
+						for (i in 0...expr.elts.length) {
+							var elt:Ast.KeyValueExpr = expr.elts[i];
+							var key = elt.key.name;
+							var value = typeExpr(elt.value, info);
+							if (field.name == key) {
+								value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
+							}
+						}
+						objectFields.push({
+							field: nameIdent(field.name, false, false, info),
+							expr: value,
+						});
+					}
+				} else {
+					for (i in 0...expr.elts.length) {
+						var elt:Ast.KeyValueExpr = expr.elts[i];
+						var key = elt.key.name;
+						var value = typeExpr(elt.value, info);
+						var removed = false;
+						for (field in fields) {
+							if (field.name == "_")
+								continue;
+							if (field.name == key) {
+								value = assignTranslate(typeof(elt.value, info, false), field.type, value, info);
+								objectFields.push({
+									field: nameIdent(key, false, true, info),
+									expr: value, // macro ($value : $fieldType),
+								});
+								fields.remove(field);
+								removed = true;
+								break;
+							}
+						}
+						if (!removed)
+							throw "cannot find field type of name: " + key + " in names: " + [for (field in fields) field.name];
+					}
 				}
 				var e = toExpr(EObjectDecl(objectFields));
 				return (macro($e : $ct)).expr;
 			} else {
-				// if (fields.length == 0)
-				//	return (macro {}).expr; // no field struct
 				final args = [
 					for (i in 0...expr.elts.length)
 						assignTranslate(typeof(expr.elts[i], info, false), fields[i].type, typeExpr(expr.elts[i], info), info)
 				];
-				if (hasTypeParam(ct) && args.length < fields.length) {
+				if ((isAlias || hasTypeParam(ct)) && args.length < fields.length) {
 					for (i in args.length...fields.length) {
 						args.push(defaultValue(fields[i].type, info, true));
 					}
 				}
-				final p = getTypePath(ct);
-				return (macro(new $p($a{args}) : $ct)).expr;
+				if (isAlias) {
+					var objectFields:Array<ObjectField> = [];
+					for (i in 0...fields.length) {
+						objectFields.push({
+							field: nameIdent(fields[i].name, false, false, info),
+							expr: args[i],
+						});
+					}
+					var e = toExpr(EObjectDecl(objectFields));
+					return (macro($e : $ct)).expr;
+				} else {
+					final p = getTypePath(ct);
+					final b = hasTypeParam(ct);
+					p.params = null;
+					final e = macro new $p($a{args});
+					if (b) {
+						return e.expr;
+					} else {
+						return (macro($e : $ct)).expr;
+					}
+				}
 			}
 		case sliceType(elem):
 			final p = getTypePath(ct);
@@ -4045,8 +4089,10 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 			var keyValueBool:Bool = false;
 			function run(elt:Ast.Expr) {
 				if (elt.id == "CompositeLit") {
-					if (elt.type == null)
+					if (elt.type == null) {
+						// trace("elem: " + elem.get());
 						return {index: index, expr: toExpr(compositeLit(elem.get(), complexTypeElem(ct), elt, info))};
+					}
 				}
 				return {index: index, expr: typeExpr(elt, info)};
 			}
@@ -5047,7 +5093,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			} else {
 				macro(null : $ct); // pointer can be nil
 			}
-		case named(path, _, underlying):
+		case named(path, _, underlying, alias):
 			switch underlying {
 				case named(_, _, type):
 					underlying = type;
@@ -5065,6 +5111,23 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					final ct = ct();
 					final e = defaultValue(underlying, info);
 					macro($e : $ct);
+				case structType(fields):
+					final ct = ct();
+					final fs:Array<ObjectField> = [];
+					if (alias) {
+						for (field in fields) {
+							fs.push({
+								field: nameIdent(field.name, false, false, info),
+								expr: defaultValue(field.type, info),
+							});
+						}
+					}
+					final e = toExpr(EObjectDecl(fs));
+					if (hasTypeParam(ct)) {
+						e;
+					} else {
+						macro($e : $ct);
+					}
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();
@@ -5106,26 +5169,13 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			}
 		case structType(fields):
 			if (fields.length == 0)
-				return macro null;
+				return macro {};
 			var fs:Array<ObjectField> = [];
-			var fields = typeFields([
-				for (field in fields)
-					{
-						name: field.name,
-						type: field.type,
-						embedded: field.embedded,
-						tag: field.tag,
-					}
-			], info, null, true);
 			for (field in fields) {
-				switch field.kind {
-					case FVar(_, e):
-						fs.push({
-							field: field.name,
-							expr: e
-						});
-					default:
-				}
+				fs.push({
+					field: nameIdent(field.name, false, false, info),
+					expr: defaultValue(field.type, info, true),
+				});
 			}
 			toExpr(EObjectDecl(fs));
 		case invalidType:
@@ -5545,14 +5595,14 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			}
 			switch nameType {
 				case structType(fields):
-					nameType = named(path, [], structType(fields));
+					nameType = named(path, [], structType(fields), spec.assign != 0 || local);
 				default:
 			}
 			info.locals[hash] = nameType;
 		}
 	}
-	if (spec.type != null && spec.type.id == "Ident") {
-		if (spec.assign != 0) {
+	if (spec.type != null) {
+		if (spec.assign != 0 && spec.type.id != "InterfaceType") {
 			var name = className(spec.name.name, info);
 			var type = typeExprType(spec.type, info);
 			if (type == null)
@@ -5634,10 +5684,29 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 	var doc:String = getComment(spec) + getDoc(spec) + getSource(spec, info);
 	switch spec.type.id {
 		case "StructType":
-			info.renameIdents[spec.name.name] = name + "_static_extension";
-			info.classNames[spec.name.name] = name + "_static_extension";
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
+			fields = fields.map(field -> {
+				switch field.kind {
+					case FVar(t, e):
+						field.kind = FVar(t, null);
+					default:
+				}
+				field;
+			});
+			if (local) {
+				final cl:TypeDefinition = {
+					name: name,
+					pack: [],
+					pos: null,
+					fields: [],
+					meta: [{name: ":local", pos: null, params: []}],
+					kind: TDAlias(TAnonymous(fields)),
+				}
+				return cl;
+			}
+			info.renameIdents[spec.name.name] = name + "_static_extension";
+			info.classNames[spec.name.name] = name + "_static_extension";
 			final names = [for (field in fields) field.name];
 			final exprs:Array<Expr> = [
 				for (name in names)
@@ -5696,8 +5765,6 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 			}
 			sets.push(macro return this);
 			var meta:Metadata = [{name: ":structInit", pos: null}];
-			if (local)
-				meta.push({name: ":local", pos: null, params: []});
 			for (method in spec.methods) { // covers both embedded interfaces and structures
 				// embedded methods
 				final name = fields[method.index[0]].name;

@@ -506,9 +506,13 @@ class Go {
 				var t = t.get();
 				if (t.name == "String" && t.pack.length == 0)
 					expr = macro new GoString($expr);
-			case TAnonymous(_):
-				return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
-					new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.invalidType)) : $expr.__underlying__();
+			case TAnonymous(_.get() => a):
+				for (field in a.fields) {
+					if (field.name == "__underlying__") {
+						return macro $expr == null ? new stdgo.StdGoTypes.AnyInterface(null,
+							new stdgo.reflect.Reflect._Type(stdgo.reflect.Reflect.GoType.invalidType)) : $expr.__underlying__();
+					}
+				}
 			default:
 		}
 		var ty = gtDecode(t, expr, []);
@@ -966,7 +970,27 @@ class Go {
 			case TEnum(_, _):
 				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
 			case TAnonymous(a):
-				ret = macro stdgo.reflect.Reflect.GoType.invalidType;
+				final a = a.get();
+				a.fields.sort((a, b) -> {
+					return haxe.macro.Context.getPosInfos(a.pos).min - haxe.macro.Context.getPosInfos(b.pos).min;
+				});
+				final methods:Array<Expr> = [];
+				for (field in a.fields) {
+					switch field.name {
+						case "__underlying__":
+							continue;
+						default:
+					}
+					// final embedded = field.meta.has(":embedded") ? macro true : macro false;
+					methods.push(macro {
+						name: $v{field.name},
+						type: ${gtDecode(field.type, null, marked)},
+						embedded: false,
+						tag: "",
+					});
+				}
+				final methods = macro $a{methods};
+				ret = macro stdgo.reflect.Reflect.GoType.structType($methods);
 			// xContext.error('reflect.cast_AnyInterface - unhandled anon type $t', Context.currentPos());
 			default:
 				Context.error('reflect.cast_AnyInterface - unhandled typeof $t', Context.currentPos());

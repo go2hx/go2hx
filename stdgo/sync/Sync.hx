@@ -163,6 +163,7 @@ class Mutex {
 	public function runlock() {}
 }
 
+@:structInit
 class WaitGroup {
 	var lock:sys.thread.Lock;
 

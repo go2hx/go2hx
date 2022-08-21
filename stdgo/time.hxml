@@ -1,0 +1,3 @@
+-m stdgo.time_test.Time
+-lib go2hx
+-cp stdgo

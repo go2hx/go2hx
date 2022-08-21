@@ -14,5 +14,9 @@
     "os",
     "syscall",
     "syscall/js",
-    "log"
+    "log",
+    "bytes",
+    "time",
+    "testing",
+    "io"
 ]}

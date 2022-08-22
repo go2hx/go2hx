@@ -121,8 +121,8 @@ stdgo.math.Math.inf(((-1 : GoInt))),
 var _strings : GoArray<GoString> = ((new GoArray<GoString>(((((("" : GoString))) : GoString)), ((((("Hello" : GoString))) : GoString)), ((((("foo" : GoString))) : GoString)), ((((("bar" : GoString))) : GoString)), ((((("foo" : GoString))) : GoString)), ((((("f00" : GoString))) : GoString)), ((((("%*&^*&^&" : GoString))) : GoString)), ((((("***" : GoString))) : GoString))) : GoArray<GoString>));
 var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : GoInt)), ((1000 : GoInt)), ((3000 : GoInt)), ((10000 : GoInt)), ((30000 : GoInt)), ((100000 : GoInt)), ((300000 : GoInt)), ((1e+06 : GoInt))) : Slice<GoInt>));
 @:structInit @:using(stdgo.sort_test.Sort_test.Person_static_extension) class Person {
-    public var name : GoString;
-    public var age : GoInt;
+    public var name : GoString = "";
+    public var age : GoInt = 0;
     public function new(?name:GoString, ?age:GoInt) {
         if (name != null) this.name = name;
         if (age != null) this.age = age;
@@ -133,9 +133,9 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Planet {
-    public var _name : GoString;
-    public var _mass : stdgo.sort_test.Sort_test.T_earthMass;
-    public var _distance : stdgo.sort_test.Sort_test.T_au;
+    public var _name : GoString = "";
+    public var _mass : stdgo.sort_test.Sort_test.T_earthMass = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_earthMass));
+    public var _distance : stdgo.sort_test.Sort_test.T_au = ((((0 : GoFloat64)) : stdgo.sort_test.Sort_test.T_au));
     public function new(?_name:GoString, ?_mass:stdgo.sort_test.Sort_test.T_earthMass, ?_distance:stdgo.sort_test.Sort_test.T_au) {
         if (_name != null) this._name = _name;
         if (_mass != null) this._mass = _mass;
@@ -147,8 +147,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_planetSorter_static_extension) class T_planetSorter {
-    public var _planets : Slice<stdgo.sort_test.Sort_test.Planet>;
-    public var _by : (Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool;
+    public var _planets : Slice<stdgo.sort_test.Sort_test.Planet> = ((null : Slice<stdgo.sort_test.Sort_test.Planet>));
+    public var _by : (Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool = null;
     public function new(?_planets:Slice<stdgo.sort_test.Sort_test.Planet>, ?_by:(Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool) {
         if (_planets != null) this._planets = _planets;
         if (_by != null) this._by = _by;
@@ -159,9 +159,9 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Change {
-    public var _user : GoString;
-    public var _language : GoString;
-    public var _lines : GoInt;
+    public var _user : GoString = "";
+    public var _language : GoString = "";
+    public var _lines : GoInt = 0;
     public function new(?_user:GoString, ?_language:GoString, ?_lines:GoInt) {
         if (_user != null) this._user = _user;
         if (_language != null) this._language = _language;
@@ -173,8 +173,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_multiSorter_static_extension) class T_multiSorter {
-    public var _changes : Slice<stdgo.sort_test.Sort_test.Change>;
-    public var _less : Slice<stdgo.sort_test.Sort_test.T_lessFunc>;
+    public var _changes : Slice<stdgo.sort_test.Sort_test.Change> = ((null : Slice<stdgo.sort_test.Sort_test.Change>));
+    public var _less : Slice<stdgo.sort_test.Sort_test.T_lessFunc> = ((null : Slice<stdgo.sort_test.Sort_test.T_lessFunc>));
     public function new(?_changes:Slice<stdgo.sort_test.Sort_test.Change>, ?_less:Slice<stdgo.sort_test.Sort_test.T_lessFunc>) {
         if (_changes != null) this._changes = _changes;
         if (_less != null) this._less = _less;
@@ -185,8 +185,8 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit class Organ {
-    public var name : GoString;
-    public var weight : stdgo.sort_test.Sort_test.Grams;
+    public var name : GoString = "";
+    public var weight : stdgo.sort_test.Sort_test.Grams = ((((0 : GoInt)) : stdgo.sort_test.Sort_test.Grams));
     public function new(?name:GoString, ?weight:stdgo.sort_test.Sort_test.Grams) {
         if (name != null) this.name = name;
         if (weight != null) this.weight = weight;
@@ -198,7 +198,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.ByName_static_extension) class ByName {
     @:embedded
-    public var organs : stdgo.sort_test.Sort_test.Organs;
+    public var organs : stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
     public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
         if (organs != null) this.organs = organs;
     }
@@ -213,7 +213,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.ByWeight_static_extension) class ByWeight {
     @:embedded
-    public var organs : stdgo.sort_test.Sort_test.Organs;
+    public var organs : stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
     public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
         if (organs != null) this.organs = organs;
     }
@@ -227,7 +227,7 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_static_extension) class T_nonDeterministicTestingData {
-    public var _r : Ref<stdgo.math.rand.Rand.Rand>;
+    public var _r : Ref<stdgo.math.rand.Rand.Rand> = ((null : stdgo.math.rand.Rand.Rand));
     public function new(?_r:Ref<stdgo.math.rand.Rand.Rand>) {
         if (_r != null) this._r = _r;
     }
@@ -237,12 +237,12 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_testingData_static_extension) class T_testingData {
-    public var _desc : GoString;
-    public var _t : Ref<stdgo.testing.Testing.T>;
-    public var _data : Slice<GoInt>;
-    public var _maxswap : GoInt;
-    public var _ncmp : GoInt;
-    public var _nswap : GoInt;
+    public var _desc : GoString = "";
+    public var _t : Ref<stdgo.testing.Testing.T> = ((null : stdgo.testing.Testing.T));
+    public var _data : Slice<GoInt> = ((null : Slice<GoInt>));
+    public var _maxswap : GoInt = 0;
+    public var _ncmp : GoInt = 0;
+    public var _nswap : GoInt = 0;
     public function new(?_desc:GoString, ?_t:Ref<stdgo.testing.Testing.T>, ?_data:Slice<GoInt>, ?_maxswap:GoInt, ?_ncmp:GoInt, ?_nswap:GoInt) {
         if (_desc != null) this._desc = _desc;
         if (_t != null) this._t = _t;
@@ -257,13 +257,13 @@ var _countOpsSizes : Slice<GoInt> = ((new Slice<GoInt>(((100 : GoInt)), ((300 : 
     }
 }
 @:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) class T_adversaryTestingData {
-    public var _t : Ref<stdgo.testing.Testing.T>;
-    public var _data : Slice<GoInt>;
-    public var _maxcmp : GoInt;
-    public var _ncmp : GoInt;
-    public var _nsolid : GoInt;
-    public var _candidate : GoInt;
-    public var _gas : GoInt;
+    public var _t : Ref<stdgo.testing.Testing.T> = ((null : stdgo.testing.Testing.T));
+    public var _data : Slice<GoInt> = ((null : Slice<GoInt>));
+    public var _maxcmp : GoInt = 0;
+    public var _ncmp : GoInt = 0;
+    public var _nsolid : GoInt = 0;
+    public var _candidate : GoInt = 0;
+    public var _gas : GoInt = 0;
     public function new(?_t:Ref<stdgo.testing.Testing.T>, ?_data:Slice<GoInt>, ?_maxcmp:GoInt, ?_ncmp:GoInt, ?_nsolid:GoInt, ?_candidate:GoInt, ?_gas:GoInt) {
         if (_t != null) this._t = _t;
         if (_data != null) this._data = _data;

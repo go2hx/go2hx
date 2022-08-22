@@ -50,7 +50,7 @@ var _tree : Ref<stdgo.io.fs_test.Fs_test.Node> = ((new stdgo.io.fs_test.Fs_test.
 var _sysValue : GoInt = ((0 : GoInt));
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_globOnly_static_extension) class T_globOnly {
     @:embedded
-    public var globFS : GlobFS;
+    public var globFS : GlobFS = ((null : GlobFS));
     public function new(?globFS:GlobFS) {
         if (globFS != null) this.globFS = globFS;
     }
@@ -63,7 +63,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_readDirOnly_static_extension) class T_readDirOnly {
     @:embedded
-    public var readDirFS : ReadDirFS;
+    public var readDirFS : ReadDirFS = ((null : ReadDirFS));
     public function new(?readDirFS:ReadDirFS) {
         if (readDirFS != null) this.readDirFS = readDirFS;
     }
@@ -76,7 +76,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_readFileOnly_static_extension) class T_readFileOnly {
     @:embedded
-    public var readFileFS : ReadFileFS;
+    public var readFileFS : ReadFileFS = ((null : ReadFileFS));
     public function new(?readFileFS:ReadFileFS) {
         if (readFileFS != null) this.readFileFS = readFileFS;
     }
@@ -89,7 +89,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_openOnly_static_extension) class T_openOnly {
     @:embedded
-    public var fs : FS;
+    public var fs : FS = ((null : FS));
     public function new(?fs:FS) {
         if (fs != null) this.fs = fs;
     }
@@ -102,7 +102,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_statOnly_static_extension) class T_statOnly {
     @:embedded
-    public var statFS : StatFS;
+    public var statFS : StatFS = ((null : StatFS));
     public function new(?statFS:StatFS) {
         if (statFS != null) this.statFS = statFS;
     }
@@ -115,7 +115,7 @@ var _sysValue : GoInt = ((0 : GoInt));
 }
 @:structInit @:using(stdgo.io.fs_test.Fs_test.T_subOnly_static_extension) class T_subOnly {
     @:embedded
-    public var subFS : SubFS;
+    public var subFS : SubFS = ((null : SubFS));
     public function new(?subFS:SubFS) {
         if (subFS != null) this.subFS = subFS;
     }
@@ -127,9 +127,9 @@ var _sysValue : GoInt = ((0 : GoInt));
     }
 }
 @:structInit class Node {
-    public var _name : GoString;
-    public var _entries : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>;
-    public var _mark : GoInt;
+    public var _name : GoString = "";
+    public var _entries : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>> = ((null : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>));
+    public var _mark : GoInt = 0;
     public function new(?_name:GoString, ?_entries:Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>, ?_mark:GoInt) {
         if (_name != null) this._name = _name;
         if (_entries != null) this._entries = _entries;

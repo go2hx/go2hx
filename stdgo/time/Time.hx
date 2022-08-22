@@ -203,11 +203,11 @@ var _zoneinfoOnce : stdgo.sync.Sync.Once = (({  } : stdgo.sync.Sync.Once));
 var _loadFromEmbeddedTZData : (_zipname:GoString) -> { var _0 : GoString; var _1 : Error; } = null;
 var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice<GoByte>; var _1 : Error; } = null;
 @:structInit class Rule {
-    public var kind : RuleKind;
-    public var day : GoInt;
-    public var week : GoInt;
-    public var mon : GoInt;
-    public var time : GoInt;
+    public var kind : RuleKind = ((((0 : GoInt)) : RuleKind));
+    public var day : GoInt = 0;
+    public var week : GoInt = 0;
+    public var mon : GoInt = 0;
+    public var time : GoInt = 0;
     public function new(?kind:RuleKind, ?day:GoInt, ?week:GoInt, ?mon:GoInt, ?time:GoInt) {
         if (kind != null) this.kind = kind;
         if (day != null) this.day = day;
@@ -221,11 +221,11 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.ParseError_static_extension) class ParseError {
-    public var layout : GoString;
-    public var value : GoString;
-    public var layoutElem : GoString;
-    public var valueElem : GoString;
-    public var message : GoString;
+    public var layout : GoString = "";
+    public var value : GoString = "";
+    public var layoutElem : GoString = "";
+    public var valueElem : GoString = "";
+    public var message : GoString = "";
     public function new(?layout:GoString, ?value:GoString, ?layoutElem:GoString, ?valueElem:GoString, ?message:GoString) {
         if (layout != null) this.layout = layout;
         if (value != null) this.value = value;
@@ -239,14 +239,14 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit class T_runtimeTimer {
-    public var _pp : GoUIntptr;
-    public var _when : GoInt64;
-    public var _period : GoInt64;
-    public var _f : (AnyInterface, GoUIntptr) -> Void;
-    public var _arg : AnyInterface;
-    public var _seq : GoUIntptr;
-    public var _nextwhen : GoInt64;
-    public var _status : GoUInt32;
+    public var _pp : GoUIntptr = 0;
+    public var _when : GoInt64 = 0;
+    public var _period : GoInt64 = 0;
+    public var _f : (AnyInterface, GoUIntptr) -> Void = null;
+    public var _arg : AnyInterface = ((null : AnyInterface));
+    public var _seq : GoUIntptr = 0;
+    public var _nextwhen : GoInt64 = 0;
+    public var _status : GoUInt32 = 0;
     public function new(?_pp:GoUIntptr, ?_when:GoInt64, ?_period:GoInt64, ?_f:(AnyInterface, GoUIntptr) -> Void, ?_arg:AnyInterface, ?_seq:GoUIntptr, ?_nextwhen:GoInt64, ?_status:GoUInt32) {
         if (_pp != null) this._pp = _pp;
         if (_when != null) this._when = _when;
@@ -263,8 +263,8 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.Timer_static_extension) class Timer {
-    public var c : Chan<Time>;
-    public var _r : T_runtimeTimer;
+    public var c : Chan<Time> = ((null : Chan<Time>));
+    public var _r : T_runtimeTimer = (({  } : T_runtimeTimer));
     public function new(?c:Chan<Time>, ?_r:T_runtimeTimer) {
         if (c != null) this.c = c;
         if (_r != null) this._r = _r;
@@ -275,8 +275,8 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.Ticker_static_extension) class Ticker {
-    public var c : Chan<Time>;
-    public var _r : T_runtimeTimer;
+    public var c : Chan<Time> = ((null : Chan<Time>));
+    public var _r : T_runtimeTimer = (({  } : T_runtimeTimer));
     public function new(?c:Chan<Time>, ?_r:T_runtimeTimer) {
         if (c != null) this.c = c;
         if (_r != null) this._r = _r;
@@ -287,9 +287,9 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.Time_static_extension) class Time {
-    public var _wall : GoUInt64;
-    public var _ext : GoInt64;
-    public var _loc : Ref<Location>;
+    public var _wall : GoUInt64 = 0;
+    public var _ext : GoInt64 = 0;
+    public var _loc : Ref<Location> = ((null : Location));
     public function new(?_wall:GoUInt64, ?_ext:GoInt64, ?_loc:Ref<Location>) {
         if (_wall != null) this._wall = _wall;
         if (_ext != null) this._ext = _ext;
@@ -301,13 +301,13 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.Location_static_extension) class Location {
-    public var _name : GoString;
-    public var _zone : Slice<T_zone>;
-    public var _tx : Slice<T_zoneTrans>;
-    public var _extend : GoString;
-    public var _cacheStart : GoInt64;
-    public var _cacheEnd : GoInt64;
-    public var _cacheZone : Ref<T_zone>;
+    public var _name : GoString = "";
+    public var _zone : Slice<T_zone> = ((null : Slice<T_zone>));
+    public var _tx : Slice<T_zoneTrans> = ((null : Slice<T_zoneTrans>));
+    public var _extend : GoString = "";
+    public var _cacheStart : GoInt64 = 0;
+    public var _cacheEnd : GoInt64 = 0;
+    public var _cacheZone : Ref<T_zone> = ((null : T_zone));
     public function new(?_name:GoString, ?_zone:Slice<T_zone>, ?_tx:Slice<T_zoneTrans>, ?_extend:GoString, ?_cacheStart:GoInt64, ?_cacheEnd:GoInt64, ?_cacheZone:Ref<T_zone>) {
         if (_name != null) this._name = _name;
         if (_zone != null) this._zone = _zone;
@@ -323,9 +323,9 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit class T_zone {
-    public var _name : GoString;
-    public var _offset : GoInt;
-    public var _isDST : Bool;
+    public var _name : GoString = "";
+    public var _offset : GoInt = 0;
+    public var _isDST : Bool = false;
     public function new(?_name:GoString, ?_offset:GoInt, ?_isDST:Bool) {
         if (_name != null) this._name = _name;
         if (_offset != null) this._offset = _offset;
@@ -337,10 +337,10 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit class T_zoneTrans {
-    public var _when : GoInt64;
-    public var _index : GoUInt8;
-    public var _isstd : Bool;
-    public var _isutc : Bool;
+    public var _when : GoInt64 = 0;
+    public var _index : GoUInt8 = 0;
+    public var _isstd : Bool = false;
+    public var _isutc : Bool = false;
     public function new(?_when:GoInt64, ?_index:GoUInt8, ?_isstd:Bool, ?_isutc:Bool) {
         if (_when != null) this._when = _when;
         if (_index != null) this._index = _index;
@@ -353,11 +353,11 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit class T_rule {
-    public var _kind : T_ruleKind;
-    public var _day : GoInt;
-    public var _week : GoInt;
-    public var _mon : GoInt;
-    public var _time : GoInt;
+    public var _kind : T_ruleKind = ((((0 : GoInt)) : T_ruleKind));
+    public var _day : GoInt = 0;
+    public var _week : GoInt = 0;
+    public var _mon : GoInt = 0;
+    public var _time : GoInt = 0;
     public function new(?_kind:T_ruleKind, ?_day:GoInt, ?_week:GoInt, ?_mon:GoInt, ?_time:GoInt) {
         if (_kind != null) this._kind = _kind;
         if (_day != null) this._day = _day;
@@ -371,8 +371,8 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
     }
 }
 @:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) class T_dataIO {
-    public var _p : Slice<GoUInt8>;
-    public var _error : Bool;
+    public var _p : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _error : Bool = false;
     public function new(?_p:Slice<GoUInt8>, ?_error:Bool) {
         if (_p != null) this._p = _p;
         if (_error != null) this._error = _error;

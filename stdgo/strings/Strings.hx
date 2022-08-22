@@ -23,8 +23,8 @@ typedef T_replacer = StructType & {
     public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; };
 };
 @:structInit @:using(stdgo.strings.Strings.Builder_static_extension) class Builder {
-    public var _addr : Ref<Builder>;
-    public var _buf : Slice<GoUInt8>;
+    public var _addr : Ref<Builder> = ((null : Builder));
+    public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public function new(?_addr:Ref<Builder>, ?_buf:Slice<GoUInt8>) {
         if (_addr != null) this._addr = _addr;
         if (_buf != null) this._buf = _buf;
@@ -35,9 +35,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.Reader_static_extension) class Reader {
-    public var _s : GoString;
-    public var _i : GoInt64;
-    public var _prevRune : GoInt;
+    public var _s : GoString = "";
+    public var _i : GoInt64 = 0;
+    public var _prevRune : GoInt = 0;
     public function new(?_s:GoString, ?_i:GoInt64, ?_prevRune:GoInt) {
         if (_s != null) this._s = _s;
         if (_i != null) this._i = _i;
@@ -49,9 +49,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.Replacer_static_extension) class Replacer {
-    public var _once : stdgo.sync.Sync.Once;
-    public var _r : T_replacer;
-    public var _oldnew : Slice<GoString>;
+    public var _once : stdgo.sync.Sync.Once = (({  } : stdgo.sync.Sync.Once));
+    public var _r : T_replacer = ((null : T_replacer));
+    public var _oldnew : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_once:stdgo.sync.Sync.Once, ?_r:T_replacer, ?_oldnew:Slice<GoString>) {
         if (_once != null) this._once = _once;
         if (_r != null) this._r = _r;
@@ -63,11 +63,11 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) class T_trieNode {
-    public var _value : GoString;
-    public var _priority : GoInt;
-    public var _prefix : GoString;
-    public var _next : Ref<T_trieNode>;
-    public var _table : Slice<Ref<T_trieNode>>;
+    public var _value : GoString = "";
+    public var _priority : GoInt = 0;
+    public var _prefix : GoString = "";
+    public var _next : Ref<T_trieNode> = ((null : T_trieNode));
+    public var _table : Slice<Ref<T_trieNode>> = ((null : Slice<Ref<T_trieNode>>));
     public function new(?_value:GoString, ?_priority:GoInt, ?_prefix:GoString, ?_next:Ref<T_trieNode>, ?_table:Slice<Ref<T_trieNode>>) {
         if (_value != null) this._value = _value;
         if (_priority != null) this._priority = _priority;
@@ -81,9 +81,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) class T_genericReplacer {
-    public var _root : T_trieNode;
-    public var _tableSize : GoInt;
-    public var _mapping : GoArray<GoUInt8>;
+    public var _root : T_trieNode = (({  } : T_trieNode));
+    public var _tableSize : GoInt = 0;
+    public var _mapping : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) ((0 : GoUInt8))]);
     public function new(?_root:T_trieNode, ?_tableSize:GoInt, ?_mapping:GoArray<GoUInt8>) {
         if (_root != null) this._root = _root;
         if (_tableSize != null) this._tableSize = _tableSize;
@@ -95,7 +95,7 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_stringWriter_static_extension) class T_stringWriter {
-    public var _w : stdgo.io.Io.Writer;
+    public var _w : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
     public function new(?_w:stdgo.io.Io.Writer) {
         if (_w != null) this._w = _w;
     }
@@ -105,8 +105,8 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) class T_singleStringReplacer {
-    public var _finder : Ref<T_stringFinder>;
-    public var _value : GoString;
+    public var _finder : Ref<T_stringFinder> = ((null : T_stringFinder));
+    public var _value : GoString = "";
     public function new(?_finder:Ref<T_stringFinder>, ?_value:GoString) {
         if (_finder != null) this._finder = _finder;
         if (_value != null) this._value = _value;
@@ -117,8 +117,8 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) class T_byteStringReplacer {
-    public var _replacements : GoArray<Slice<GoUInt8>>;
-    public var _toReplace : Slice<GoString>;
+    public var _replacements : GoArray<Slice<GoUInt8>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0 ... 256) ((null : Slice<GoUInt8>))]);
+    public var _toReplace : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_replacements:GoArray<Slice<GoUInt8>>, ?_toReplace:Slice<GoString>) {
         if (_replacements != null) this._replacements = _replacements;
         if (_toReplace != null) this._toReplace = _toReplace;
@@ -129,9 +129,9 @@ typedef T_replacer = StructType & {
     }
 }
 @:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) class T_stringFinder {
-    public var _pattern : GoString;
-    public var _badCharSkip : GoArray<GoInt>;
-    public var _goodSuffixSkip : Slice<GoInt>;
+    public var _pattern : GoString = "";
+    public var _badCharSkip : GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0 ... 256) ((0 : GoInt))]);
+    public var _goodSuffixSkip : Slice<GoInt> = ((null : Slice<GoInt>));
     public function new(?_pattern:GoString, ?_badCharSkip:GoArray<GoInt>, ?_goodSuffixSkip:Slice<GoInt>) {
         if (_pattern != null) this._pattern = _pattern;
         if (_badCharSkip != null) this._badCharSkip = _badCharSkip;
@@ -725,8 +725,8 @@ function fields(_s:GoString):Slice<GoString> {
         return _a;
     }
 @:structInit class T_span_fieldsFunc_0 {
-    public var _start : GoInt;
-    public var _end : GoInt;
+    public var _start : GoInt = 0;
+    public var _end : GoInt = 0;
     public function new(?_start:GoInt, ?_end:GoInt) {
         if (_start != null) this._start = _start;
         if (_end != null) this._end = _end;

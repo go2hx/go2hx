@@ -64,9 +64,9 @@ typedef SubFS = StructType & {
     public function timeout():Bool;
 };
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) class PathError {
-    public var op : GoString;
-    public var path : GoString;
-    public var err : stdgo.Error;
+    public var op : GoString = "";
+    public var path : GoString = "";
+    public var err : stdgo.Error = ((null : stdgo.Error));
     public function new(?op:GoString, ?path:GoString, ?err:stdgo.Error) {
         if (op != null) this.op = op;
         if (path != null) this.path = path;
@@ -78,7 +78,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) class T_dirInfo {
-    public var _fileInfo : FileInfo;
+    public var _fileInfo : FileInfo = ((null : FileInfo));
     public function new(?_fileInfo:FileInfo) {
         if (_fileInfo != null) this._fileInfo = _fileInfo;
     }
@@ -88,8 +88,8 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) class T_subFS {
-    public var _fsys : FS;
-    public var _dir : GoString;
+    public var _fsys : FS = ((null : FS));
+    public var _dir : GoString = "";
     public function new(?_fsys:FS, ?_dir:GoString) {
         if (_fsys != null) this._fsys = _fsys;
         if (_dir != null) this._dir = _dir;
@@ -100,7 +100,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) class T_statDirEntry {
-    public var _info : FileInfo;
+    public var _info : FileInfo = ((null : FileInfo));
     public function new(?_info:FileInfo) {
         if (_info != null) this._info = _info;
     }

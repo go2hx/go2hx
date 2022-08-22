@@ -41,11 +41,11 @@ typedef Conn = StructType & {
     public function syscallConn():{ var _0 : RawConn; var _1 : Error; };
 };
 @:structInit class T_jsFile {
-    public var _path : GoString;
-    public var _entries : Slice<GoString>;
-    public var _dirIdx : GoInt;
-    public var _pos : GoInt64;
-    public var _seeked : Bool;
+    public var _path : GoString = "";
+    public var _entries : Slice<GoString> = ((null : Slice<GoString>));
+    public var _dirIdx : GoInt = 0;
+    public var _pos : GoInt64 = 0;
+    public var _seeked : Bool = false;
     public function new(?_path:GoString, ?_entries:Slice<GoString>, ?_dirIdx:GoInt, ?_pos:GoInt64, ?_seeked:Bool) {
         if (_path != null) this._path = _path;
         if (_entries != null) this._entries = _entries;
@@ -59,8 +59,8 @@ typedef Conn = StructType & {
     }
 }
 @:structInit class SockaddrInet4 {
-    public var port : GoInt;
-    public var addr : GoArray<GoUInt8>;
+    public var port : GoInt = 0;
+    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 4) ((0 : GoUInt8))]);
     public function new(?port:GoInt, ?addr:GoArray<GoUInt8>) {
         if (port != null) this.port = port;
         if (addr != null) this.addr = addr;
@@ -71,9 +71,9 @@ typedef Conn = StructType & {
     }
 }
 @:structInit class SockaddrInet6 {
-    public var port : GoInt;
-    public var zoneId : GoUInt32;
-    public var addr : GoArray<GoUInt8>;
+    public var port : GoInt = 0;
+    public var zoneId : GoUInt32 = 0;
+    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 16) ((0 : GoUInt8))]);
     public function new(?port:GoInt, ?zoneId:GoUInt32, ?addr:GoArray<GoUInt8>) {
         if (port != null) this.port = port;
         if (zoneId != null) this.zoneId = zoneId;
@@ -85,7 +85,7 @@ typedef Conn = StructType & {
     }
 }
 @:structInit class SockaddrUnix {
-    public var name : GoString;
+    public var name : GoString = "";
     public function new(?name:GoString) {
         if (name != null) this.name = name;
     }
@@ -95,8 +95,8 @@ typedef Conn = StructType & {
     }
 }
 @:structInit class Dirent {
-    public var reclen : GoUInt16;
-    public var name : GoArray<GoUInt8>;
+    public var reclen : GoUInt16 = 0;
+    public var name : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) ((0 : GoUInt8))]);
     public function new(?reclen:GoUInt16, ?name:GoArray<GoUInt8>) {
         if (reclen != null) this.reclen = reclen;
         if (name != null) this.name = name;
@@ -107,22 +107,22 @@ typedef Conn = StructType & {
     }
 }
 @:structInit class Stat_t {
-    public var dev : GoInt64;
-    public var ino : GoUInt64;
-    public var mode : GoUInt32;
-    public var nlink : GoUInt32;
-    public var uid : GoUInt32;
-    public var gid : GoUInt32;
-    public var rdev : GoInt64;
-    public var size : GoInt64;
-    public var blksize : GoInt32;
-    public var blocks : GoInt32;
-    public var atime : GoInt64;
-    public var atimeNsec : GoInt64;
-    public var mtime : GoInt64;
-    public var mtimeNsec : GoInt64;
-    public var ctime : GoInt64;
-    public var ctimeNsec : GoInt64;
+    public var dev : GoInt64 = 0;
+    public var ino : GoUInt64 = 0;
+    public var mode : GoUInt32 = 0;
+    public var nlink : GoUInt32 = 0;
+    public var uid : GoUInt32 = 0;
+    public var gid : GoUInt32 = 0;
+    public var rdev : GoInt64 = 0;
+    public var size : GoInt64 = 0;
+    public var blksize : GoInt32 = 0;
+    public var blocks : GoInt32 = 0;
+    public var atime : GoInt64 = 0;
+    public var atimeNsec : GoInt64 = 0;
+    public var mtime : GoInt64 = 0;
+    public var mtimeNsec : GoInt64 = 0;
+    public var ctime : GoInt64 = 0;
+    public var ctimeNsec : GoInt64 = 0;
     public function new(?dev:GoInt64, ?ino:GoUInt64, ?mode:GoUInt32, ?nlink:GoUInt32, ?uid:GoUInt32, ?gid:GoUInt32, ?rdev:GoInt64, ?size:GoInt64, ?blksize:GoInt32, ?blocks:GoInt32, ?atime:GoInt64, ?atimeNsec:GoInt64, ?mtime:GoInt64, ?mtimeNsec:GoInt64, ?ctime:GoInt64, ?ctimeNsec:GoInt64) {
         if (dev != null) this.dev = dev;
         if (ino != null) this.ino = ino;
@@ -163,8 +163,8 @@ ctimeNsec);
     }
 }
 @:structInit class Rusage {
-    public var utime : Timeval;
-    public var stime : Timeval;
+    public var utime : Timeval = (({  } : Timeval));
+    public var stime : Timeval = (({  } : Timeval));
     public function new(?utime:Timeval, ?stime:Timeval) {
         if (utime != null) this.utime = utime;
         if (stime != null) this.stime = stime;
@@ -175,10 +175,10 @@ ctimeNsec);
     }
 }
 @:structInit class ProcAttr {
-    public var dir : GoString;
-    public var env : Slice<GoString>;
-    public var files : Slice<GoUIntptr>;
-    public var sys : Ref<SysProcAttr>;
+    public var dir : GoString = "";
+    public var env : Slice<GoString> = ((null : Slice<GoString>));
+    public var files : Slice<GoUIntptr> = ((null : Slice<GoUIntptr>));
+    public var sys : Ref<SysProcAttr> = ((null : SysProcAttr));
     public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;
@@ -205,8 +205,8 @@ ctimeNsec);
     }
 }
 @:structInit @:using(stdgo.syscall.Syscall.Timespec_static_extension) class Timespec {
-    public var sec : GoInt64;
-    public var nsec : GoInt64;
+    public var sec : GoInt64 = 0;
+    public var nsec : GoInt64 = 0;
     public function new(?sec:GoInt64, ?nsec:GoInt64) {
         if (sec != null) this.sec = sec;
         if (nsec != null) this.nsec = nsec;
@@ -217,8 +217,8 @@ ctimeNsec);
     }
 }
 @:structInit @:using(stdgo.syscall.Syscall.Timeval_static_extension) class Timeval {
-    public var sec : GoInt64;
-    public var usec : GoInt64;
+    public var sec : GoInt64 = 0;
+    public var usec : GoInt64 = 0;
     public function new(?sec:GoInt64, ?usec:GoInt64) {
         if (sec != null) this.sec = sec;
         if (usec != null) this.usec = usec;

@@ -121,8 +121,8 @@ var _longStringMostlyASCII : GoString = (("" : GoString));
 var _longStringJapanese : GoString = (("" : GoString));
 var _boolSink : Bool = false;
 @:structInit class Utf8Map {
-    public var _r : GoInt32;
-    public var _str : GoString;
+    public var _r : GoInt32 = 0;
+    public var _str : GoString = "";
     public function new(?_r:GoInt32, ?_str:GoString) {
         if (_r != null) this._r = _r;
         if (_str != null) this._str = _str;
@@ -133,8 +133,8 @@ var _boolSink : Bool = false;
     }
 }
 @:structInit class RuneCountTest {
-    public var _in : GoString;
-    public var _out : GoInt;
+    public var _in : GoString = "";
+    public var _out : GoInt = 0;
     public function new(?_in:GoString, ?_out:GoInt) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -145,8 +145,8 @@ var _boolSink : Bool = false;
     }
 }
 @:structInit class RuneLenTest {
-    public var _r : GoInt32;
-    public var _size : GoInt;
+    public var _r : GoInt32 = 0;
+    public var _size : GoInt = 0;
     public function new(?_r:GoInt32, ?_size:GoInt) {
         if (_r != null) this._r = _r;
         if (_size != null) this._size = _size;
@@ -157,8 +157,8 @@ var _boolSink : Bool = false;
     }
 }
 @:structInit class ValidTest {
-    public var _in : GoString;
-    public var _out : Bool;
+    public var _in : GoString = "";
+    public var _out : Bool = false;
     public function new(?_in:GoString, ?_out:Bool) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -169,8 +169,8 @@ var _boolSink : Bool = false;
     }
 }
 @:structInit class ValidRuneTest {
-    public var _r : GoInt32;
-    public var _ok : Bool;
+    public var _r : GoInt32 = 0;
+    public var _ok : Bool = false;
     public function new(?_r:GoInt32, ?_ok:Bool) {
         if (_r != null) this._r = _r;
         if (_ok != null) this._ok = _ok;
@@ -533,8 +533,8 @@ function testDecodeInvalidSequence(_t:stdgo.testing.Testing.T):Void {
         };
     }
 @:structInit class T_info__testSequence_0 {
-    public var _index : GoInt;
-    public var _r : GoInt32;
+    public var _index : GoInt = 0;
+    public var _r : GoInt32 = 0;
     public function new(?_index:GoInt, ?_r:GoInt32) {
         if (_index != null) this._index = _index;
         if (_r != null) this._r = _r;

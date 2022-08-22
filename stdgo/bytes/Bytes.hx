@@ -23,9 +23,9 @@ var _asciiSpace : GoArray<GoUInt8> = {
     };
 var indexBytePortable : (Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
-    public var _buf : Slice<GoUInt8>;
-    public var _off : GoInt;
-    public var _lastRead : T_readOp;
+    public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _off : GoInt = 0;
+    public var _lastRead : T_readOp = ((((0 : GoInt8)) : T_readOp));
     public function new(?_buf:Slice<GoUInt8>, ?_off:GoInt, ?_lastRead:T_readOp) {
         if (_buf != null) this._buf = _buf;
         if (_off != null) this._off = _off;
@@ -37,9 +37,9 @@ var indexBytePortable : (Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
     }
 }
 @:structInit @:using(stdgo.bytes.Bytes.Reader_static_extension) class Reader {
-    public var _s : Slice<GoUInt8>;
-    public var _i : GoInt64;
-    public var _prevRune : GoInt;
+    public var _s : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _i : GoInt64 = 0;
+    public var _prevRune : GoInt = 0;
     public function new(?_s:Slice<GoUInt8>, ?_i:GoInt64, ?_prevRune:GoInt) {
         if (_s != null) this._s = _s;
         if (_i != null) this._i = _i;
@@ -623,8 +623,8 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
         return _a;
     }
 @:structInit class T_span_fieldsFunc_0 {
-    public var _start : GoInt;
-    public var _end : GoInt;
+    public var _start : GoInt = 0;
+    public var _end : GoInt = 0;
     public function new(?_start:GoInt, ?_end:GoInt) {
         if (_start != null) this._start = _start;
         if (_end != null) this._end = _end;

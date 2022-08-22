@@ -326,9 +326,9 @@ var _inPropTest : Slice<stdgo.unicode_test.Unicode_test.T> = ((new Slice<stdgo.u
 ((new stdgo.unicode_test.Unicode_test.T(((65039 : GoInt32)), ((((("Variation_Selector" : GoString))) : GoString))) : stdgo.unicode_test.Unicode_test.T)),
 ((new stdgo.unicode_test.Unicode_test.T(((32 : GoInt32)), ((((("White_Space" : GoString))) : GoString))) : stdgo.unicode_test.Unicode_test.T))) : Slice<stdgo.unicode_test.Unicode_test.T>));
 @:structInit class T_caseT {
-    public var _cas : GoInt;
-    public var _in : GoInt32;
-    public var _out : GoInt32;
+    public var _cas : GoInt = 0;
+    public var _in : GoInt32 = 0;
+    public var _out : GoInt32 = 0;
     public function new(?_cas:GoInt, ?_in:GoInt32, ?_out:GoInt32) {
         if (_cas != null) this._cas = _cas;
         if (_in != null) this._in = _in;
@@ -340,8 +340,8 @@ var _inPropTest : Slice<stdgo.unicode_test.Unicode_test.T> = ((new Slice<stdgo.u
     }
 }
 @:structInit class T {
-    public var _rune : GoInt32;
-    public var _script : GoString;
+    public var _rune : GoInt32 = 0;
+    public var _script : GoString = "";
     public function new(?_rune:GoInt32, ?_script:GoString) {
         if (_rune != null) this._rune = _rune;
         if (_script != null) this._script = _script;

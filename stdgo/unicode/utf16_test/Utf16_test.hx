@@ -25,8 +25,8 @@ var _surrogateTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(
 (({ _r : ((((57344 : GoInt32)) : GoRune)), _want : false } : T__struct_1)),
 (({ _r : ((((57343 : GoInt32)) : GoRune)), _want : true } : T__struct_1))) : Slice<T__struct_1>));
 @:structInit class T_encodeTest {
-    public var _in : Slice<GoInt32>;
-    public var _out : Slice<GoUInt16>;
+    public var _in : Slice<GoInt32> = ((null : Slice<GoInt32>));
+    public var _out : Slice<GoUInt16> = ((null : Slice<GoUInt16>));
     public function new(?_in:Slice<GoInt32>, ?_out:Slice<GoUInt16>) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -37,8 +37,8 @@ var _surrogateTests : Slice<T__struct_1> = ((new Slice<T__struct_1>(
     }
 }
 @:structInit class T_decodeTest {
-    public var _in : Slice<GoUInt16>;
-    public var _out : Slice<GoInt32>;
+    public var _in : Slice<GoUInt16> = ((null : Slice<GoUInt16>));
+    public var _out : Slice<GoInt32> = ((null : Slice<GoInt32>));
     public function new(?_in:Slice<GoUInt16>, ?_out:Slice<GoInt32>) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;

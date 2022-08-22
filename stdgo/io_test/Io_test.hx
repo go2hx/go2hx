@@ -22,11 +22,11 @@ typedef T_closer = StructType & {
 };
 @:structInit @:using(stdgo.io_test.Io_test.Buffer_static_extension) class Buffer {
     @:embedded
-    public var buffer : stdgo.bytes.Bytes.Buffer;
+    public var buffer : stdgo.bytes.Bytes.Buffer = (({  } : stdgo.bytes.Bytes.Buffer));
     @:embedded
-    public var readerFrom : ReaderFrom;
+    public var readerFrom : ReaderFrom = ((null : ReaderFrom));
     @:embedded
-    public var writerTo : WriterTo;
+    public var writerTo : WriterTo = ((null : WriterTo));
     public function new(?buffer:stdgo.bytes.Bytes.Buffer, ?readerFrom:ReaderFrom, ?writerTo:WriterTo) {
         if (buffer != null) this.buffer = buffer;
         if (readerFrom != null) this.readerFrom = readerFrom;
@@ -85,8 +85,8 @@ typedef T_closer = StructType & {
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_writeToChecker_static_extension) class T_writeToChecker {
     @:embedded
-    public var buffer : stdgo.bytes.Bytes.Buffer;
-    public var _writeToCalled : Bool;
+    public var buffer : stdgo.bytes.Bytes.Buffer = (({  } : stdgo.bytes.Bytes.Buffer));
+    public var _writeToCalled : Bool = false;
     public function new(?buffer:stdgo.bytes.Bytes.Buffer, ?_writeToCalled:Bool) {
         if (buffer != null) this.buffer = buffer;
         if (_writeToCalled != null) this._writeToCalled = _writeToCalled;
@@ -145,7 +145,7 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_zeroErrReader_static_extension) class T_zeroErrReader {
-    public var _err : stdgo.Error;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
     }
@@ -155,7 +155,7 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_errWriter_static_extension) class T_errWriter {
-    public var _err : stdgo.Error;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
     }
@@ -165,7 +165,7 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_noReadFrom_static_extension) class T_noReadFrom {
-    public var _w : Writer;
+    public var _w : Writer = ((null : Writer));
     public function new(?_w:Writer) {
         if (_w != null) this._w = _w;
     }
@@ -182,9 +182,9 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_dataAndErrorBuffer_static_extension) class T_dataAndErrorBuffer {
-    public var _err : stdgo.Error;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     @:embedded
-    public var buffer : stdgo.bytes.Bytes.Buffer;
+    public var buffer : stdgo.bytes.Bytes.Buffer = (({  } : stdgo.bytes.Bytes.Buffer));
     public function new(?_err:stdgo.Error, ?buffer:stdgo.bytes.Bytes.Buffer) {
         if (_err != null) this._err = _err;
         if (buffer != null) this.buffer = buffer;
@@ -243,7 +243,7 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_largeWriter_static_extension) class T_largeWriter {
-    public var _err : stdgo.Error;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
     }
@@ -253,7 +253,7 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_writeStringChecker_static_extension) class T_writeStringChecker {
-    public var _called : Bool;
+    public var _called : Bool = false;
     public function new(?_called:Bool) {
         if (_called != null) this._called = _called;
     }
@@ -263,8 +263,8 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit class T_pipeReturn {
-    public var _n : GoInt;
-    public var _err : stdgo.Error;
+    public var _n : GoInt = 0;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?_n:GoInt, ?_err:stdgo.Error) {
         if (_n != null) this._n = _n;
         if (_err != null) this._err = _err;
@@ -275,9 +275,9 @@ typedef T_closer = StructType & {
     }
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_pipeTest_static_extension) class T_pipeTest {
-    public var _async : Bool;
-    public var _err : stdgo.Error;
-    public var _closeWithError : Bool;
+    public var _async : Bool = false;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
+    public var _closeWithError : Bool = false;
     public function new(?_async:Bool, ?_err:stdgo.Error, ?_closeWithError:Bool) {
         if (_async != null) this._async = _async;
         if (_err != null) this._err = _err;
@@ -3469,7 +3469,7 @@ function testMultiWriter_String(_t:stdgo.testing.Testing.T):Void {
     }
 @:structInit @:using(stdgo.io_test.Io_test.T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_static_extension) class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0 {
     @:embedded
-    public var writer : Writer;
+    public var writer : Writer = ((null : Writer));
     public function new(?writer:Writer) {
         if (writer != null) this.writer = writer;
     }
@@ -4371,7 +4371,7 @@ function testWriteAfterWriterClose(_t:stdgo.testing.Testing.T):Void {
     }
 @:structInit @:using(stdgo.io_test.Io_test.T_testError1_testPipeCloseError_0_static_extension) class T_testError1_testPipeCloseError_0 {
     @:embedded
-    public var _error : stdgo.Error;
+    public var _error : stdgo.Error = ((null : stdgo.Error));
     public function new(?_error:stdgo.Error) {
         if (_error != null) this._error = _error;
     }
@@ -4384,7 +4384,7 @@ function testWriteAfterWriterClose(_t:stdgo.testing.Testing.T):Void {
 }
 @:structInit @:using(stdgo.io_test.Io_test.T_testError2_testPipeCloseError_1_static_extension) class T_testError2_testPipeCloseError_1 {
     @:embedded
-    public var _error : stdgo.Error;
+    public var _error : stdgo.Error = ((null : stdgo.Error));
     public function new(?_error:stdgo.Error) {
         if (_error != null) this._error = _error;
     }

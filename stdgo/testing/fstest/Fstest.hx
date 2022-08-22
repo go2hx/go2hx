@@ -11,10 +11,10 @@ import stdgo.Chan;
 var _2 : stdgo.io.fs.Fs.FS = ((null : stdgo.io.fs.Fs.FS));
 var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
 @:structInit class MapFile {
-    public var data : Slice<GoUInt8>;
-    public var mode : stdgo.io.fs.Fs.FileMode;
-    public var modTime : stdgo.time.Time.Time;
-    public var sys : AnyInterface;
+    public var data : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var mode : stdgo.io.fs.Fs.FileMode = ((((0 : GoUInt32)) : stdgo.io.fs.Fs.FileMode));
+    public var modTime : stdgo.time.Time.Time = (({  } : stdgo.time.Time.Time));
+    public var sys : AnyInterface = ((null : AnyInterface));
     public function new(?data:Slice<GoUInt8>, ?mode:stdgo.io.fs.Fs.FileMode, ?modTime:stdgo.time.Time.Time, ?sys:AnyInterface) {
         if (data != null) this.data = data;
         if (mode != null) this.mode = mode;
@@ -28,7 +28,7 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) class T_fsOnly {
     @:embedded
-    public var fs : stdgo.io.fs.Fs.FS;
+    public var fs : stdgo.io.fs.Fs.FS = ((null : stdgo.io.fs.Fs.FS));
     public function new(?fs:stdgo.io.fs.Fs.FS) {
         if (fs != null) this.fs = fs;
     }
@@ -41,7 +41,7 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) class T_noSub {
     @:embedded
-    public var mapFS : MapFS;
+    public var mapFS : MapFS = ((null : MapFS));
     public function new(?mapFS:MapFS) {
         if (mapFS != null) this.mapFS = mapFS;
     }
@@ -61,8 +61,8 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) class T_mapFileInfo {
-    public var _name : GoString;
-    public var _f : Ref<MapFile>;
+    public var _name : GoString = "";
+    public var _f : Ref<MapFile> = ((null : MapFile));
     public function new(?_name:GoString, ?_f:Ref<MapFile>) {
         if (_name != null) this._name = _name;
         if (_f != null) this._f = _f;
@@ -73,10 +73,10 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) class T_openMapFile {
-    public var _path : GoString;
+    public var _path : GoString = "";
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo;
-    public var _offset : GoInt64;
+    public var _mapFileInfo : T_mapFileInfo = (({  } : T_mapFileInfo));
+    public var _offset : GoInt64 = 0;
     public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_offset:GoInt64) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
@@ -104,11 +104,11 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) class T_mapDir {
-    public var _path : GoString;
+    public var _path : GoString = "";
     @:embedded
-    public var _mapFileInfo : T_mapFileInfo;
-    public var _entry : Slice<T_mapFileInfo>;
-    public var _offset : GoInt;
+    public var _mapFileInfo : T_mapFileInfo = (({  } : T_mapFileInfo));
+    public var _entry : Slice<T_mapFileInfo> = ((null : Slice<T_mapFileInfo>));
+    public var _offset : GoInt = 0;
     public function new(?_path:GoString, ?_mapFileInfo:T_mapFileInfo, ?_entry:Slice<T_mapFileInfo>, ?_offset:GoInt) {
         if (_path != null) this._path = _path;
         if (_mapFileInfo != null) this._mapFileInfo = _mapFileInfo;
@@ -137,10 +137,10 @@ var _3 : stdgo.io.fs.Fs.File = ((null : stdgo.io.fs.Fs.File));
     }
 }
 @:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) class T_fsTester {
-    public var _fsys : stdgo.io.fs.Fs.FS;
-    public var _errText : Slice<GoUInt8>;
-    public var _dirs : Slice<GoString>;
-    public var _files : Slice<GoString>;
+    public var _fsys : stdgo.io.fs.Fs.FS = ((null : stdgo.io.fs.Fs.FS));
+    public var _errText : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _dirs : Slice<GoString> = ((null : Slice<GoString>));
+    public var _files : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_fsys:stdgo.io.fs.Fs.FS, ?_errText:Slice<GoUInt8>, ?_dirs:Slice<GoString>, ?_files:Slice<GoString>) {
         if (_fsys != null) this._fsys = _fsys;
         if (_errText != null) this._errText = _errText;

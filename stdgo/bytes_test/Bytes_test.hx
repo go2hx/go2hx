@@ -456,7 +456,7 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_panicReader_static_extension) class T_panicReader {
-    public var _panic : Bool;
+    public var _panic : Bool = false;
     public function new(?_panic:Bool) {
         if (_panic != null) this._panic = _panic;
     }
@@ -466,9 +466,9 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class BinOpTest {
-    public var _a : GoString;
-    public var _b : GoString;
-    public var _i : GoInt;
+    public var _a : GoString = "";
+    public var _b : GoString = "";
+    public var _i : GoInt = 0;
     public function new(?_a:GoString, ?_b:GoString, ?_i:GoInt) {
         if (_a != null) this._a = _a;
         if (_b != null) this._b = _b;
@@ -480,10 +480,10 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class SplitTest {
-    public var _s : GoString;
-    public var _sep : GoString;
-    public var _n : GoInt;
-    public var _a : Slice<GoString>;
+    public var _s : GoString = "";
+    public var _sep : GoString = "";
+    public var _n : GoInt = 0;
+    public var _a : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_s:GoString, ?_sep:GoString, ?_n:GoInt, ?_a:Slice<GoString>) {
         if (_s != null) this._s = _s;
         if (_sep != null) this._sep = _sep;
@@ -496,8 +496,8 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class FieldsTest {
-    public var _s : GoString;
-    public var _a : Slice<GoString>;
+    public var _s : GoString = "";
+    public var _a : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_s:GoString, ?_a:Slice<GoString>) {
         if (_s != null) this._s = _s;
         if (_a != null) this._a = _a;
@@ -508,8 +508,8 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class StringTest {
-    public var _in : GoString;
-    public var _out : Slice<GoUInt8>;
+    public var _in : GoString = "";
+    public var _out : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public function new(?_in:GoString, ?_out:Slice<GoUInt8>) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -520,9 +520,9 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class RepeatTest {
-    public var _in : GoString;
-    public var _out : GoString;
-    public var _count : GoInt;
+    public var _in : GoString = "";
+    public var _out : GoString = "";
+    public var _count : GoInt = 0;
     public function new(?_in:GoString, ?_out:GoString, ?_count:GoInt) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -534,9 +534,9 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class RunesTest {
-    public var _in : GoString;
-    public var _out : Slice<GoInt32>;
-    public var _lossy : Bool;
+    public var _in : GoString = "";
+    public var _out : Slice<GoInt32> = ((null : Slice<GoInt32>));
+    public var _lossy : Bool = false;
     public function new(?_in:GoString, ?_out:Slice<GoInt32>, ?_lossy:Bool) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -548,10 +548,10 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class TrimTest {
-    public var _f : GoString;
-    public var _in : GoString;
-    public var _arg : GoString;
-    public var _out : GoString;
+    public var _f : GoString = "";
+    public var _in : GoString = "";
+    public var _arg : GoString = "";
+    public var _out : GoString = "";
     public function new(?_f:GoString, ?_in:GoString, ?_arg:GoString, ?_out:GoString) {
         if (_f != null) this._f = _f;
         if (_in != null) this._in = _in;
@@ -564,10 +564,10 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class TrimNilTest {
-    public var _f : GoString;
-    public var _in : Slice<GoUInt8>;
-    public var _arg : GoString;
-    public var _out : Slice<GoUInt8>;
+    public var _f : GoString = "";
+    public var _in : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _arg : GoString = "";
+    public var _out : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public function new(?_f:GoString, ?_in:Slice<GoUInt8>, ?_arg:GoString, ?_out:Slice<GoUInt8>) {
         if (_f != null) this._f = _f;
         if (_in != null) this._in = _in;
@@ -580,8 +580,8 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class T_predicate {
-    public var _f : GoInt32 -> Bool;
-    public var _name : GoString;
+    public var _f : GoInt32 -> Bool = null;
+    public var _name : GoString = "";
     public function new(?_f:GoInt32 -> Bool, ?_name:GoString) {
         if (_f != null) this._f = _f;
         if (_name != null) this._name = _name;
@@ -592,11 +592,11 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class TrimFuncTest {
-    public var _f : stdgo.bytes_test.Bytes_test.T_predicate;
-    public var _in : GoString;
-    public var _trimOut : Slice<GoUInt8>;
-    public var _leftOut : Slice<GoUInt8>;
-    public var _rightOut : Slice<GoUInt8>;
+    public var _f : stdgo.bytes_test.Bytes_test.T_predicate = (({  } : stdgo.bytes_test.Bytes_test.T_predicate));
+    public var _in : GoString = "";
+    public var _trimOut : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _leftOut : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _rightOut : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
     public function new(?_f:stdgo.bytes_test.Bytes_test.T_predicate, ?_in:GoString, ?_trimOut:Slice<GoUInt8>, ?_leftOut:Slice<GoUInt8>, ?_rightOut:Slice<GoUInt8>) {
         if (_f != null) this._f = _f;
         if (_in != null) this._in = _in;
@@ -610,10 +610,10 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class IndexFuncTest {
-    public var _in : GoString;
-    public var _f : stdgo.bytes_test.Bytes_test.T_predicate;
-    public var _first : GoInt;
-    public var _last : GoInt;
+    public var _in : GoString = "";
+    public var _f : stdgo.bytes_test.Bytes_test.T_predicate = (({  } : stdgo.bytes_test.Bytes_test.T_predicate));
+    public var _first : GoInt = 0;
+    public var _last : GoInt = 0;
     public function new(?_in:GoString, ?_f:stdgo.bytes_test.Bytes_test.T_predicate, ?_first:GoInt, ?_last:GoInt) {
         if (_in != null) this._in = _in;
         if (_f != null) this._f = _f;
@@ -626,11 +626,11 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class ReplaceTest {
-    public var _in : GoString;
-    public var _old : GoString;
-    public var _new : GoString;
-    public var _n : GoInt;
-    public var _out : GoString;
+    public var _in : GoString = "";
+    public var _old : GoString = "";
+    public var _new : GoString = "";
+    public var _n : GoInt = 0;
+    public var _out : GoString = "";
     public function new(?_in:GoString, ?_old:GoString, ?_new:GoString, ?_n:GoInt, ?_out:GoString) {
         if (_in != null) this._in = _in;
         if (_old != null) this._old = _old;
@@ -644,8 +644,8 @@ var _bmbuf : Slice<GoByte> = ((null : Slice<GoUInt8>));
     }
 }
 @:structInit class TitleTest {
-    public var _in : GoString;
-    public var _out : GoString;
+    public var _in : GoString = "";
+    public var _out : GoString = "";
     public function new(?_in:GoString, ?_out:GoString) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -4393,8 +4393,8 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
         };
     }
 @:structInit class T_nErr_testReaderCopyNothing_0 {
-    public var _n : GoInt64;
-    public var _err : stdgo.Error;
+    public var _n : GoInt64 = 0;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?_n:GoInt64, ?_err:stdgo.Error) {
         if (_n != null) this._n = _n;
         if (_err != null) this._err = _err;
@@ -4406,7 +4406,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
 }
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_justReader_testReaderCopyNothing_1_static_extension) class T_justReader_testReaderCopyNothing_1 {
     @:embedded
-    public var reader : stdgo.io.Io.Reader;
+    public var reader : stdgo.io.Io.Reader = ((null : stdgo.io.Io.Reader));
     public function new(?reader:stdgo.io.Io.Reader) {
         if (reader != null) this.reader = reader;
     }
@@ -4419,7 +4419,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
 }
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2_static_extension) class T_justWriter_testReaderCopyNothing_2 {
     @:embedded
-    public var writer : stdgo.io.Io.Writer;
+    public var writer : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
     public function new(?writer:stdgo.io.Io.Writer) {
         if (writer != null) this.writer = writer;
     }

@@ -129,8 +129,8 @@ typedef StringWriter = StructType & {
     public function writeString(_s:GoString):{ var _0 : GoInt; var _1 : Error; };
 };
 @:structInit @:using(stdgo.io.Io.LimitedReader_static_extension) class LimitedReader {
-    public var r : Reader;
-    public var n : GoInt64;
+    public var r : Reader = ((null : Reader));
+    public var n : GoInt64 = 0;
     public function new(?r:Reader, ?n:GoInt64) {
         if (r != null) this.r = r;
         if (n != null) this.n = n;
@@ -141,10 +141,10 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.SectionReader_static_extension) class SectionReader {
-    public var _r : ReaderAt;
-    public var _base : GoInt64;
-    public var _off : GoInt64;
-    public var _limit : GoInt64;
+    public var _r : ReaderAt = ((null : ReaderAt));
+    public var _base : GoInt64 = 0;
+    public var _off : GoInt64 = 0;
+    public var _limit : GoInt64 = 0;
     public function new(?_r:ReaderAt, ?_base:GoInt64, ?_off:GoInt64, ?_limit:GoInt64) {
         if (_r != null) this._r = _r;
         if (_base != null) this._base = _base;
@@ -157,8 +157,8 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.T_teeReader_static_extension) class T_teeReader {
-    public var _r : Reader;
-    public var _w : Writer;
+    public var _r : Reader = ((null : Reader));
+    public var _w : Writer = ((null : Writer));
     public function new(?_r:Reader, ?_w:Writer) {
         if (_r != null) this._r = _r;
         if (_w != null) this._w = _w;
@@ -177,7 +177,7 @@ typedef StringWriter = StructType & {
 }
 @:structInit @:using(stdgo.io.Io.T_nopCloser_static_extension) class T_nopCloser {
     @:embedded
-    public var reader : Reader;
+    public var reader : Reader = ((null : Reader));
     public function new(?reader:Reader) {
         if (reader != null) this.reader = reader;
     }
@@ -190,7 +190,7 @@ typedef StringWriter = StructType & {
 }
 @:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) class T_nopCloserWriterTo {
     @:embedded
-    public var reader : Reader;
+    public var reader : Reader = ((null : Reader));
     public function new(?reader:Reader) {
         if (reader != null) this.reader = reader;
     }
@@ -209,7 +209,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.T_multiReader_static_extension) class T_multiReader {
-    public var _readers : Slice<Reader>;
+    public var _readers : Slice<Reader> = ((null : Slice<Reader>));
     public function new(?_readers:Slice<Reader>) {
         if (_readers != null) this._readers = _readers;
     }
@@ -219,7 +219,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.T_multiWriter_static_extension) class T_multiWriter {
-    public var _writers : Slice<Writer>;
+    public var _writers : Slice<Writer> = ((null : Slice<Writer>));
     public function new(?_writers:Slice<Writer>) {
         if (_writers != null) this._writers = _writers;
     }
@@ -230,8 +230,8 @@ typedef StringWriter = StructType & {
 }
 @:structInit @:using(stdgo.io.Io.T_onceError_static_extension) class T_onceError {
     @:embedded
-    public var mutex : stdgo.sync.Sync.Mutex;
-    public var _err : stdgo.Error;
+    public var mutex : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
+    public var _err : stdgo.Error = ((null : stdgo.Error));
     public function new(?mutex:stdgo.sync.Sync.Mutex, ?_err:stdgo.Error) {
         if (mutex != null) this.mutex = mutex;
         if (_err != null) this._err = _err;
@@ -252,13 +252,13 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.T_pipe_static_extension) class T_pipe {
-    public var _wrMu : stdgo.sync.Sync.Mutex;
-    public var _wrCh : Chan<Slice<GoUInt8>>;
-    public var _rdCh : Chan<GoInt>;
-    public var _once : stdgo.sync.Sync.Once;
-    public var _done : Chan<T_discard>;
-    public var _rerr : T_onceError;
-    public var _werr : T_onceError;
+    public var _wrMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
+    public var _wrCh : Chan<Slice<GoUInt8>> = ((null : Chan<Slice<GoUInt8>>));
+    public var _rdCh : Chan<GoInt> = ((null : Chan<GoInt>));
+    public var _once : stdgo.sync.Sync.Once = (({  } : stdgo.sync.Sync.Once));
+    public var _done : Chan<T_discard> = ((null : Chan<T_discard>));
+    public var _rerr : T_onceError = (({  } : T_onceError));
+    public var _werr : T_onceError = (({  } : T_onceError));
     public function new(?_wrMu:stdgo.sync.Sync.Mutex, ?_wrCh:Chan<Slice<GoUInt8>>, ?_rdCh:Chan<GoInt>, ?_once:stdgo.sync.Sync.Once, ?_done:Chan<T_discard>, ?_rerr:T_onceError, ?_werr:T_onceError) {
         if (_wrMu != null) this._wrMu = _wrMu;
         if (_wrCh != null) this._wrCh = _wrCh;
@@ -274,7 +274,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.PipeReader_static_extension) class PipeReader {
-    public var _p : Ref<T_pipe>;
+    public var _p : Ref<T_pipe> = ((null : T_pipe));
     public function new(?_p:Ref<T_pipe>) {
         if (_p != null) this._p = _p;
     }
@@ -284,7 +284,7 @@ typedef StringWriter = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.Io.PipeWriter_static_extension) class PipeWriter {
-    public var _p : Ref<T_pipe>;
+    public var _p : Ref<T_pipe> = ((null : T_pipe));
     public function new(?_p:Ref<T_pipe>) {
         if (_p != null) this._p = _p;
     }

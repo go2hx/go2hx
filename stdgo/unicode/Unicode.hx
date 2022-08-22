@@ -6419,9 +6419,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     x;
 };
 @:structInit class RangeTable {
-    public var r16 : Slice<Range16>;
-    public var r32 : Slice<Range32>;
-    public var latinOffset : GoInt;
+    public var r16 : Slice<Range16> = ((null : Slice<Range16>));
+    public var r32 : Slice<Range32> = ((null : Slice<Range32>));
+    public var latinOffset : GoInt = 0;
     public function new(?r16:Slice<Range16>, ?r32:Slice<Range32>, ?latinOffset:GoInt) {
         if (r16 != null) this.r16 = r16;
         if (r32 != null) this.r32 = r32;
@@ -6433,9 +6433,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class Range16 {
-    public var lo : GoUInt16;
-    public var hi : GoUInt16;
-    public var stride : GoUInt16;
+    public var lo : GoUInt16 = 0;
+    public var hi : GoUInt16 = 0;
+    public var stride : GoUInt16 = 0;
     public function new(?lo:GoUInt16, ?hi:GoUInt16, ?stride:GoUInt16) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6447,9 +6447,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class Range32 {
-    public var lo : GoUInt32;
-    public var hi : GoUInt32;
-    public var stride : GoUInt32;
+    public var lo : GoUInt32 = 0;
+    public var hi : GoUInt32 = 0;
+    public var stride : GoUInt32 = 0;
     public function new(?lo:GoUInt32, ?hi:GoUInt32, ?stride:GoUInt32) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6461,9 +6461,9 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class CaseRange {
-    public var lo : GoUInt32;
-    public var hi : GoUInt32;
-    public var delta : T_d;
+    public var lo : GoUInt32 = 0;
+    public var hi : GoUInt32 = 0;
+    public var delta : T_d = new T_d();
     public function new(?lo:GoUInt32, ?hi:GoUInt32, ?delta:T_d) {
         if (lo != null) this.lo = lo;
         if (hi != null) this.hi = hi;
@@ -6475,8 +6475,8 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     }
 }
 @:structInit class T_foldPair {
-    public var from : GoUInt16;
-    public var to : GoUInt16;
+    public var from : GoUInt16 = 0;
+    public var to : GoUInt16 = 0;
     public function new(?from:GoUInt16, ?to:GoUInt16) {
         if (from != null) this.from = from;
         if (to != null) this.to = to;

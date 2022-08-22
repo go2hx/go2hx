@@ -813,8 +813,8 @@ var globalI : GoInt = ((0 : GoInt));
 var globalB : Bool = false;
 var globalF : GoFloat64 = ((0 : GoFloat64));
 @:structInit class T_fi {
-    public var _f : GoFloat64;
-    public var _i : GoInt;
+    public var _f : GoFloat64 = 0;
+    public var _i : GoInt = 0;
     public function new(?_f:GoFloat64, ?_i:GoInt) {
         if (_f != null) this._f = _f;
         if (_i != null) this._i = _i;
@@ -825,9 +825,9 @@ var globalF : GoFloat64 = ((0 : GoFloat64));
     }
 }
 @:structInit class T_floatTest {
-    public var _val : AnyInterface;
-    public var _name : GoString;
-    public var _str : GoString;
+    public var _val : AnyInterface = ((null : AnyInterface));
+    public var _name : GoString = "";
+    public var _str : GoString = "";
     public function new(?_val:AnyInterface, ?_name:GoString, ?_str:GoString) {
         if (_val != null) this._val = _val;
         if (_name != null) this._name = _name;

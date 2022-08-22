@@ -649,8 +649,8 @@ var _c : Chan<GoInt> = ((null : Chan<GoInt>));
 var _t : Time = (({  } : Time));
 var _u : GoInt64 = ((0 : GoInt64));
 @:structInit class TimeFormatTest {
-    public var _time : Time;
-    public var _formattedValue : GoString;
+    public var _time : Time = (({  } : Time));
+    public var _formattedValue : GoString = "";
     public function new(?_time:Time, ?_formattedValue:GoString) {
         if (_time != null) this._time = _time;
         if (_formattedValue != null) this._formattedValue = _formattedValue;
@@ -661,9 +661,9 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class FormatTest {
-    public var _name : GoString;
-    public var _format : GoString;
-    public var _result : GoString;
+    public var _name : GoString = "";
+    public var _format : GoString = "";
+    public var _result : GoString = "";
     public function new(?_name:GoString, ?_format:GoString, ?_result:GoString) {
         if (_name != null) this._name = _name;
         if (_format != null) this._format = _format;
@@ -675,13 +675,13 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class ParseTest {
-    public var _name : GoString;
-    public var _format : GoString;
-    public var _value : GoString;
-    public var _hasTZ : Bool;
-    public var _hasWD : Bool;
-    public var _yearSign : GoInt;
-    public var _fracDigits : GoInt;
+    public var _name : GoString = "";
+    public var _format : GoString = "";
+    public var _value : GoString = "";
+    public var _hasTZ : Bool = false;
+    public var _hasWD : Bool = false;
+    public var _yearSign : GoInt = 0;
+    public var _fracDigits : GoInt = 0;
     public function new(?_name:GoString, ?_format:GoString, ?_value:GoString, ?_hasTZ:Bool, ?_hasWD:Bool, ?_yearSign:GoInt, ?_fracDigits:GoInt) {
         if (_name != null) this._name = _name;
         if (_format != null) this._format = _format;
@@ -697,9 +697,9 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class ParseTimeZoneTest {
-    public var _value : GoString;
-    public var _length : GoInt;
-    public var _ok : Bool;
+    public var _value : GoString = "";
+    public var _length : GoInt = 0;
+    public var _ok : Bool = false;
     public function new(?_value:GoString, ?_length:GoInt, ?_ok:Bool) {
         if (_value != null) this._value = _value;
         if (_length != null) this._length = _length;
@@ -711,9 +711,9 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class ParseErrorTest {
-    public var _format : GoString;
-    public var _value : GoString;
-    public var _expect : GoString;
+    public var _format : GoString = "";
+    public var _value : GoString = "";
+    public var _expect : GoString = "";
     public function new(?_format:GoString, ?_value:GoString, ?_expect:GoString) {
         if (_format != null) this._format = _format;
         if (_value != null) this._value = _value;
@@ -725,9 +725,9 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class SecondsTimeZoneOffsetTest {
-    public var _format : GoString;
-    public var _value : GoString;
-    public var _expectedoffset : GoInt;
+    public var _format : GoString = "";
+    public var _value : GoString = "";
+    public var _expectedoffset : GoInt = 0;
     public function new(?_format:GoString, ?_value:GoString, ?_expectedoffset:GoInt) {
         if (_format != null) this._format = _format;
         if (_value != null) this._value = _value;
@@ -739,8 +739,8 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class T_afterResult {
-    public var _slot : GoInt;
-    public var _t : Time;
+    public var _slot : GoInt = 0;
+    public var _t : Time = (({  } : Time));
     public function new(?_slot:GoInt, ?_t:Time) {
         if (_slot != null) this._slot = _slot;
         if (_t != null) this._t = _t;
@@ -751,16 +751,16 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class T_parsedTime {
-    public var year : GoInt;
-    public var month : Month;
-    public var day : GoInt;
-    public var hour : GoInt;
-    public var minute : GoInt;
-    public var second : GoInt;
-    public var nanosecond : GoInt;
-    public var weekday : Weekday;
-    public var zoneOffset : GoInt;
-    public var zone : GoString;
+    public var year : GoInt = 0;
+    public var month : Month = ((((0 : GoInt)) : Month));
+    public var day : GoInt = 0;
+    public var hour : GoInt = 0;
+    public var minute : GoInt = 0;
+    public var second : GoInt = 0;
+    public var nanosecond : GoInt = 0;
+    public var weekday : Weekday = ((((0 : GoInt)) : Weekday));
+    public var zoneOffset : GoInt = 0;
+    public var zone : GoString = "";
     public function new(?year:GoInt, ?month:Month, ?day:GoInt, ?hour:GoInt, ?minute:GoInt, ?second:GoInt, ?nanosecond:GoInt, ?weekday:Weekday, ?zoneOffset:GoInt, ?zone:GoString) {
         if (year != null) this.year = year;
         if (month != null) this.month = month;
@@ -779,8 +779,8 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class TimeTest {
-    public var _seconds : GoInt64;
-    public var _golden : stdgo.time_test.Time_test.T_parsedTime;
+    public var _seconds : GoInt64 = 0;
+    public var _golden : stdgo.time_test.Time_test.T_parsedTime = (({  } : stdgo.time_test.Time_test.T_parsedTime));
     public function new(?_seconds:GoInt64, ?_golden:stdgo.time_test.Time_test.T_parsedTime) {
         if (_seconds != null) this._seconds = _seconds;
         if (_golden != null) this._golden = _golden;
@@ -791,11 +791,11 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class ISOWeekTest {
-    public var _year : GoInt;
-    public var _month : GoInt;
-    public var _day : GoInt;
-    public var _yex : GoInt;
-    public var _wex : GoInt;
+    public var _year : GoInt = 0;
+    public var _month : GoInt = 0;
+    public var _day : GoInt = 0;
+    public var _yex : GoInt = 0;
+    public var _wex : GoInt = 0;
     public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_yex:GoInt, ?_wex:GoInt) {
         if (_year != null) this._year = _year;
         if (_month != null) this._month = _month;
@@ -809,10 +809,10 @@ var _u : GoInt64 = ((0 : GoInt64));
     }
 }
 @:structInit class YearDayTest {
-    public var _year : GoInt;
-    public var _month : GoInt;
-    public var _day : GoInt;
-    public var _yday : GoInt;
+    public var _year : GoInt = 0;
+    public var _month : GoInt = 0;
+    public var _day : GoInt = 0;
+    public var _yday : GoInt = 0;
     public function new(?_year:GoInt, ?_month:GoInt, ?_day:GoInt, ?_yday:GoInt) {
         if (_year != null) this._year = _year;
         if (_month != null) this._month = _month;

@@ -29,9 +29,9 @@ var _nilFileMethodTests : Slice<T__struct_2> = ((null : Slice<T__struct_2>));
 var _isReadonlyError : stdgo.Error -> Bool = null;
 var _global : AnyInterface = ((null : AnyInterface));
 @:structInit class T_isExistTest {
-    public var _err : stdgo.Error;
-    public var _is : Bool;
-    public var _isnot : Bool;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
+    public var _is : Bool = false;
+    public var _isnot : Bool = false;
     public function new(?_err:stdgo.Error, ?_is:Bool, ?_isnot:Bool) {
         if (_err != null) this._err = _err;
         if (_is != null) this._is = _is;
@@ -43,8 +43,8 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_isPermissionTest {
-    public var _err : stdgo.Error;
-    public var _want : Bool;
+    public var _err : stdgo.Error = ((null : stdgo.Error));
+    public var _want : Bool = false;
     public function new(?_err:stdgo.Error, ?_want:Bool) {
         if (_err != null) this._err = _err;
         if (_want != null) this._want = _want;
@@ -56,7 +56,7 @@ var _global : AnyInterface = ((null : AnyInterface));
 }
 @:structInit @:using(stdgo.os_test.Os_test.T_myErrorIs_static_extension) class T_myErrorIs {
     @:embedded
-    public var _error : stdgo.Error;
+    public var _error : stdgo.Error = ((null : stdgo.Error));
     public function new(?_error:stdgo.Error) {
         if (_error != null) this._error = _error;
     }
@@ -68,8 +68,8 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_sysDir {
-    public var _name : GoString;
-    public var _files : Slice<GoString>;
+    public var _name : GoString = "";
+    public var _files : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_name:GoString, ?_files:Slice<GoString>) {
         if (_name != null) this._name = _name;
         if (_files != null) this._files = _files;
@@ -80,9 +80,9 @@ var _global : AnyInterface = ((null : AnyInterface));
     }
 }
 @:structInit class T_openErrorTest {
-    public var _path : GoString;
-    public var _mode : GoInt;
-    public var _error : stdgo.Error;
+    public var _path : GoString = "";
+    public var _mode : GoInt = 0;
+    public var _error : stdgo.Error = ((null : stdgo.Error));
     public function new(?_path:GoString, ?_mode:GoInt, ?_error:stdgo.Error) {
         if (_path != null) this._path = _path;
         if (_mode != null) this._mode = _mode;

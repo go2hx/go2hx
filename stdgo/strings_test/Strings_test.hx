@@ -516,9 +516,9 @@ var _stringSink : GoString = (("" : GoString));
     }
 }
 @:structInit class IndexTest {
-    public var _s : GoString;
-    public var _sep : GoString;
-    public var _out : GoInt;
+    public var _s : GoString = "";
+    public var _sep : GoString = "";
+    public var _out : GoInt = 0;
     public function new(?_s:GoString, ?_sep:GoString, ?_out:GoInt) {
         if (_s != null) this._s = _s;
         if (_sep != null) this._sep = _sep;
@@ -530,10 +530,10 @@ var _stringSink : GoString = (("" : GoString));
     }
 }
 @:structInit class SplitTest {
-    public var _s : GoString;
-    public var _sep : GoString;
-    public var _n : GoInt;
-    public var _a : Slice<GoString>;
+    public var _s : GoString = "";
+    public var _sep : GoString = "";
+    public var _n : GoInt = 0;
+    public var _a : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_s:GoString, ?_sep:GoString, ?_n:GoInt, ?_a:Slice<GoString>) {
         if (_s != null) this._s = _s;
         if (_sep != null) this._sep = _sep;
@@ -546,8 +546,8 @@ var _stringSink : GoString = (("" : GoString));
     }
 }
 @:structInit class FieldsTest {
-    public var _s : GoString;
-    public var _a : Slice<GoString>;
+    public var _s : GoString = "";
+    public var _a : Slice<GoString> = ((null : Slice<GoString>));
     public function new(?_s:GoString, ?_a:Slice<GoString>) {
         if (_s != null) this._s = _s;
         if (_a != null) this._a = _a;
@@ -558,8 +558,8 @@ var _stringSink : GoString = (("" : GoString));
     }
 }
 @:structInit class StringTest {
-    public var _in : GoString;
-    public var _out : GoString;
+    public var _in : GoString = "";
+    public var _out : GoString = "";
     public function new(?_in:GoString, ?_out:GoString) {
         if (_in != null) this._in = _in;
         if (_out != null) this._out = _out;
@@ -570,8 +570,8 @@ var _stringSink : GoString = (("" : GoString));
     }
 }
 @:structInit class T_predicate {
-    public var _f : GoInt32 -> Bool;
-    public var _name : GoString;
+    public var _f : GoInt32 -> Bool = null;
+    public var _name : GoString = "";
     public function new(?_f:GoInt32 -> Bool, ?_name:GoString) {
         if (_f != null) this._f = _f;
         if (_name != null) this._name = _name;
@@ -1732,9 +1732,9 @@ function _oldHTMLEscape(_s:GoString):GoString {
         return _s;
     }
 @:structInit class T_testCase_testReplacer_0 {
-    public var _r : Ref<Replacer>;
-    public var _in : GoString;
-    public var _out : GoString;
+    public var _r : Ref<Replacer> = ((null : Replacer));
+    public var _in : GoString = "";
+    public var _out : GoString = "";
     public function new(?_r:Ref<Replacer>, ?_in:GoString, ?_out:GoString) {
         if (_r != null) this._r = _r;
         if (_in != null) this._in = _in;

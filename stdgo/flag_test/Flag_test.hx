@@ -14,7 +14,7 @@ var _u : Ref<stdgo.net.url.Url.URL> = ((new stdgo.net.url.Url.URL() : stdgo.net.
 var _gopherType : GoString = (("" : GoString));
 var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval();
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
-    public var url : Ref<stdgo.net.url.Url.URL>;
+    public var url : Ref<stdgo.net.url.Url.URL> = ((null : stdgo.net.url.Url.URL));
     public function new(?url:Ref<stdgo.net.url.Url.URL>) {
         if (url != null) this.url = url;
     }
@@ -24,7 +24,7 @@ var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval();
     }
 }
 @:structInit @:using(stdgo.flag_test.Flag_test.T_boolFlagVar_static_extension) class T_boolFlagVar {
-    public var _count : GoInt;
+    public var _count : GoInt = 0;
     public function new(?_count:GoInt) {
         if (_count != null) this._count = _count;
     }
@@ -34,8 +34,8 @@ var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval();
     }
 }
 @:structInit @:using(stdgo.flag_test.Flag_test.T_zeroPanicker_static_extension) class T_zeroPanicker {
-    public var _dontPanic : Bool;
-    public var _v : GoString;
+    public var _dontPanic : Bool = false;
+    public var _v : GoString = "";
     public function new(?_dontPanic:Bool, ?_v:GoString) {
         if (_dontPanic != null) this._dontPanic = _dontPanic;
         if (_v != null) this._v = _v;

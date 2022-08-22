@@ -30,7 +30,7 @@ typedef Getter = StructType & {
     public function get():AnyInterface;
 };
 @:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) class T_textValue {
-    public var _p : stdgo.encoding.Encoding.TextUnmarshaler;
+    public var _p : stdgo.encoding.Encoding.TextUnmarshaler = ((null : stdgo.encoding.Encoding.TextUnmarshaler));
     public function new(?_p:stdgo.encoding.Encoding.TextUnmarshaler) {
         if (_p != null) this._p = _p;
     }
@@ -40,14 +40,14 @@ typedef Getter = StructType & {
     }
 }
 @:structInit @:using(stdgo.flag.Flag.FlagSet_static_extension) class FlagSet {
-    public var usage : () -> Void;
-    public var _name : GoString;
-    public var _parsed : Bool;
-    public var _actual : GoMap<GoString, Ref<Flag>>;
-    public var _formal : GoMap<GoString, Ref<Flag>>;
-    public var _args : Slice<GoString>;
-    public var _errorHandling : ErrorHandling;
-    public var _output : stdgo.io.Io.Writer;
+    public var usage : () -> Void = null;
+    public var _name : GoString = "";
+    public var _parsed : Bool = false;
+    public var _actual : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
+    public var _formal : GoMap<GoString, Ref<Flag>> = ((null : GoMap<GoString, Ref<Flag>>));
+    public var _args : Slice<GoString> = ((null : Slice<GoString>));
+    public var _errorHandling : ErrorHandling = ((((0 : GoInt)) : ErrorHandling));
+    public var _output : stdgo.io.Io.Writer = ((null : stdgo.io.Io.Writer));
     public function new(?usage:() -> Void, ?_name:GoString, ?_parsed:Bool, ?_actual:GoMap<GoString, Ref<Flag>>, ?_formal:GoMap<GoString, Ref<Flag>>, ?_args:Slice<GoString>, ?_errorHandling:ErrorHandling, ?_output:stdgo.io.Io.Writer) {
         if (usage != null) this.usage = usage;
         if (_name != null) this._name = _name;
@@ -64,10 +64,10 @@ typedef Getter = StructType & {
     }
 }
 @:structInit class Flag {
-    public var name : GoString;
-    public var usage : GoString;
-    public var value : Value;
-    public var defValue : GoString;
+    public var name : GoString = "";
+    public var usage : GoString = "";
+    public var value : Value = ((null : Value));
+    public var defValue : GoString = "";
     public function new(?name:GoString, ?usage:GoString, ?value:Value, ?defValue:GoString) {
         if (name != null) this.name = name;
         if (usage != null) this.usage = usage;

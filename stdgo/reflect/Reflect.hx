@@ -948,9 +948,14 @@ function defaultValue(typ:Type):Any {
 				case complex128_kind: (0 : GoComplex128);
 				default: 0;
 			}
-		case named(path, methods, _):
-			var cl = std.Type.resolveClass(path);
-			std.Type.createInstance(cl, []);
+		case named(path, methods, type):
+			switch type {
+				case structType(_):
+					var cl = std.Type.resolveClass(path);
+					std.Type.createInstance(cl, []);
+				default:
+					defaultValue(new _Type(type));
+			}
 		case arrayType(#if go2hx_compiler _.get() => #end elem, len):
 			new GoArray([for (i in 0...len) defaultValue(new _Type(elem))]);
 		default: null;

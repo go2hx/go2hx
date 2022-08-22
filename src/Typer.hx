@@ -5702,15 +5702,15 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 		case "StructType":
 			var struct:Ast.StructType = spec.type;
 			var fields = typeFieldListFields(struct.fields, info, [APublic], true);
-			fields = fields.map(field -> {
-				switch field.kind {
-					case FVar(t, e):
-						field.kind = FVar(t, null);
-					default:
-				}
-				field;
-			});
 			if (local) {
+				fields = fields.map(field -> {
+					switch field.kind {
+						case FVar(t, e):
+							field.kind = FVar(t, null);
+						default:
+					}
+					field;
+				});
 				final cl:TypeDefinition = {
 					name: name,
 					pack: [],

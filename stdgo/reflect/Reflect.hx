@@ -317,6 +317,7 @@ function pointerUnwrap(type:GoType):GoType {
 	}
 }
 
+@:structInit
 class Value {
 	@:local
 	var value:AnyInterface;

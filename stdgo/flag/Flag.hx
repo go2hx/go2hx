@@ -374,11 +374,11 @@ function args():Slice<GoString> {
 **/
 function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
-            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
+            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
+            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -395,10 +395,10 @@ function bool(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
 **/
 function intVar(_p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
+            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -415,10 +415,10 @@ function int(_name:GoString, _value:GoInt, _usage:GoString):Pointer<GoInt> {
 **/
 function int64Var(_p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
+            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -435,10 +435,10 @@ function int64(_name:GoString, _value:GoInt64, _usage:GoString):Pointer<GoInt64>
 **/
 function uintVar(_p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
+            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -455,10 +455,10 @@ function uint(_name:GoString, _value:GoUInt, _usage:GoString):Pointer<GoUInt> {
 **/
 function uint64Var(_p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
+            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -475,10 +475,10 @@ function uint64(_name:GoString, _value:GoUInt64, _usage:GoString):Pointer<GoUInt
 **/
 function stringVar(_p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
+            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -495,10 +495,10 @@ function string(_name:GoString, _value:GoString, _usage:GoString):Pointer<GoStri
 **/
 function float64Var(_p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
+            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -516,10 +516,10 @@ function float64(_name:GoString, _value:GoFloat64, _usage:GoString):Pointer<GoFl
 **/
 function durationVar(_p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
         commandLine.var_({
-            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
+            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -897,10 +897,10 @@ class T_textValue_wrapper {
     @:keep
     static public function durationVar( _f:FlagSet, _p:Pointer<stdgo.time.Time.Duration>, _name:GoString, _value:stdgo.time.Time.Duration, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p)) #else null #end;
+            final __self__ = new T_durationValue_wrapper(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newDurationValue(_value, _p).value.get(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newDurationValue(_value, _p).value.set(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newDurationValue(_value, _p).value.string(_newDurationValue(_value, _p) == null ? null : _newDurationValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -921,10 +921,10 @@ class T_textValue_wrapper {
     @:keep
     static public function float64Var( _f:FlagSet, _p:Pointer<GoFloat64>, _name:GoString, _value:GoFloat64, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p)) #else null #end;
+            final __self__ = new T_float64Value_wrapper(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newFloat64Value(_value, _p).value.get(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newFloat64Value(_value, _p).value.set(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newFloat64Value(_value, _p).value.string(_newFloat64Value(_value, _p) == null ? null : _newFloat64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -945,10 +945,10 @@ class T_textValue_wrapper {
     @:keep
     static public function stringVar( _f:FlagSet, _p:Pointer<GoString>, _name:GoString, _value:GoString, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p)) #else null #end;
+            final __self__ = new T_stringValue_wrapper(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newStringValue(_value, _p).value.get(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newStringValue(_value, _p).value.set(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newStringValue(_value, _p).value.string(_newStringValue(_value, _p) == null ? null : _newStringValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -969,10 +969,10 @@ class T_textValue_wrapper {
     @:keep
     static public function uint64Var( _f:FlagSet, _p:Pointer<GoUInt64>, _name:GoString, _value:GoUInt64, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p)) #else null #end;
+            final __self__ = new T_uint64Value_wrapper(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUint64Value(_value, _p).value.get(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUint64Value(_value, _p).value.set(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUint64Value(_value, _p).value.string(_newUint64Value(_value, _p) == null ? null : _newUint64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -993,10 +993,10 @@ class T_textValue_wrapper {
     @:keep
     static public function uintVar( _f:FlagSet, _p:Pointer<GoUInt>, _name:GoString, _value:GoUInt, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p)) #else null #end;
+            final __self__ = new T_uintValue_wrapper(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newUintValue(_value, _p).value.get(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newUintValue(_value, _p).value.set(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newUintValue(_value, _p).value.string(_newUintValue(_value, _p) == null ? null : _newUintValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -1017,10 +1017,10 @@ class T_textValue_wrapper {
     @:keep
     static public function int64Var( _f:FlagSet, _p:Pointer<GoInt64>, _name:GoString, _value:GoInt64, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p)) #else null #end;
+            final __self__ = new T_int64Value_wrapper(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newInt64Value(_value, _p).value.get(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newInt64Value(_value, _p).value.set(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newInt64Value(_value, _p).value.string(_newInt64Value(_value, _p) == null ? null : _newInt64Value(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -1041,10 +1041,10 @@ class T_textValue_wrapper {
     @:keep
     static public function intVar( _f:FlagSet, _p:Pointer<GoInt>, _name:GoString, _value:GoInt, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p)) #else null #end;
+            final __self__ = new T_intValue_wrapper(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newIntValue(_value, _p).value.get(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newIntValue(_value, _p).value.set(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newIntValue(_value, _p).value.string(_newIntValue(_value, _p) == null ? null : _newIntValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }
@@ -1065,11 +1065,11 @@ class T_textValue_wrapper {
     @:keep
     static public function boolVar( _f:FlagSet, _p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString):Void {
         _f.var_({
-            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p));
-            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p)) #else null #end;
-            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p)) #else null #end;
-            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p), __0) #else null #end;
-            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p)) #else null #end;
+            final __self__ = new T_boolValue_wrapper(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p));
+            __self__.get = #if !macro function():AnyInterface return _newBoolValue(_value, _p).value.get(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
+            __self__.isBoolFlag = #if !macro function():Bool return _newBoolValue(_value, _p).value.isBoolFlag(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
+            __self__.set = #if !macro function(__0:GoString):stdgo.Error return _newBoolValue(_value, _p).value.set(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p), __0) #else null #end;
+            __self__.string = #if !macro function():GoString return _newBoolValue(_value, _p).value.string(_newBoolValue(_value, _p) == null ? null : _newBoolValue(_value, _p)) #else null #end;
             __self__;
         }, _name, _usage);
     }

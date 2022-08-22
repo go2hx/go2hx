@@ -1906,6 +1906,9 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 			}
 			final p = namedTypePath(name, info);
 			p.name += "_wrapper";
+			final dt = defaultValue(t, info);
+			if (selfPointer)
+				y = macro $y == null ? null : $y;
 			var exprs = [macro final __self__ = new $p($y)];
 			final info = info.copy();
 			info.restricted = [];

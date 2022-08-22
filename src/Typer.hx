@@ -2829,7 +2829,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 				rparen: 0,
 			}, info);
 		case "SelectorExpr":
-			final selType = typeof(expr.fun.sel, info, false);
+			final selType = typeof(expr.fun, info, false);
 			genericBool = isGeneric(selType);
 			switch selType {
 				case signature(_, _, _, _.get() => recv):
@@ -3395,7 +3395,18 @@ private function typeof(e:Ast.Expr, info:Info, isNamed:Bool, paths:Array<String>
 			typeof(e.type, info, false, paths.copy());
 		case "SelectorExpr":
 			var e:Ast.SelectorExpr = e;
-			typeof(e.type, info, false, paths.copy());
+			var t = typeof(e.type, info, false, paths.copy());
+			if (e.recv != null) {
+				final recv = typeof(e.recv, info, false, paths.copy());
+				switch t {
+					case signature(variadic, params, results, _.get() => sigRecv, typeParams):
+						if (sigRecv == invalidType) {
+							t = signature(variadic, params, results, {get: () -> recv}, typeParams);
+						}
+					default:
+				}
+			}
+			t;
 		case "IndexExpr":
 			var e:Ast.IndexExpr = e;
 			typeof(e.type, info, false, paths.copy());

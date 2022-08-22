@@ -1028,6 +1028,21 @@ func parseData(node interface{}) map[string]interface{} {
 	switch node := node.(type) {
 	case *ast.CompositeLit:
 	case *ast.SelectorExpr:
+		typeAndValue := checker.Types[node.X.(ast.Expr)]
+		typ := typeAndValue.Type
+		switch typ := typ.(type) {
+		case *types.Named:
+			nm := typ.NumMethods()
+			for i := 0; i < nm; i++ {
+				meth := typ.Method(i)
+				if meth.Name() == node.Sel.Name {
+					originSig := meth.Origin().Type().(*types.Signature)
+					data["recv"] = parseType(originSig.Recv(), map[string]bool{})
+					break
+				}
+			}
+		default:
+		}
 		data["type"] = parseType(checker.TypeOf(node), map[string]bool{})
 	case *ast.IndexExpr, *ast.IndexListExpr, *ast.Ellipsis:
 		data["type"] = parseType(checker.TypeOf(node.(ast.Expr)), map[string]bool{})

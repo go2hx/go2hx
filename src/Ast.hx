@@ -96,6 +96,7 @@ typedef SelectorExpr = {
 	// > Node,
 	x:Expr,
 	sel:Ident,
+	recv:ExprType,
 	type:ExprType,
 };
 

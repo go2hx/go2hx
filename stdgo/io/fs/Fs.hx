@@ -189,7 +189,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Sl
         };
         {
             var __tmp__ = try {
-                { value : ((_fsys : GlobFS)), ok : true };
+                { value : ((((_fsys.__underlying__().value : Dynamic)) : GlobFS)), ok : true };
             } catch(_) {
                 { value : ((null : GlobFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -307,7 +307,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((_fsys : ReadDirFS)), ok : true };
+                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadDirFS)), ok : true };
             } catch(_) {
                 { value : ((null : ReadDirFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -322,7 +322,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
             };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
-                { value : ((_file : ReadDirFile)), ok : true };
+                { value : ((((_file.__underlying__().value : Dynamic)) : ReadDirFile)), ok : true };
             } catch(_) {
                 { value : ((null : ReadDirFile)), ok : false };
             }, _dir = __tmp__.value, _ok = __tmp__.ok;
@@ -402,7 +402,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((_fsys : ReadFileFS)), ok : true };
+                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadFileFS)), ok : true };
             } catch(_) {
                 { value : ((null : ReadFileFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -477,7 +477,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((_fsys : StatFS)), ok : true };
+                { value : ((((_fsys.__underlying__().value : Dynamic)) : StatFS)), ok : true };
             } catch(_) {
                 { value : ((null : StatFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -548,7 +548,7 @@ function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         };
         {
             var __tmp__ = try {
-                { value : ((_fsys : SubFS)), ok : true };
+                { value : ((((_fsys.__underlying__().value : Dynamic)) : SubFS)), ok : true };
             } catch(_) {
                 { value : ((null : SubFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -646,7 +646,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
     @:keep
     static public function timeout( _e:PathError):Bool {
         var __tmp__ = try {
-            { value : ((_e.err : T__interface_0)), ok : true };
+            { value : ((((_e.err.__underlying__().value : Dynamic)) : T__interface_0)), ok : true };
         } catch(_) {
             { value : ((null : T__interface_0)), ok : false };
         }, _t = __tmp__.value, _ok = __tmp__.ok;

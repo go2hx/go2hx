@@ -636,7 +636,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
         };
         {
             var __tmp__ = try {
-                { value : ((_r : stdgo.io.Io.ReadSeeker)), ok : true };
+                { value : ((((_r.__underlying__().value : Dynamic)) : stdgo.io.Io.ReadSeeker)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.ReadSeeker)), ok : false };
             }, _r = __tmp__.value, _ok = __tmp__.ok;
@@ -733,7 +733,7 @@ function testReader(_r:stdgo.io.Io.Reader, _content:Slice<GoByte>):Error {
         };
         {
             var __tmp__ = try {
-                { value : ((_r : stdgo.io.Io.ReaderAt)), ok : true };
+                { value : ((((_r.__underlying__().value : Dynamic)) : stdgo.io.Io.ReaderAt)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.Io.ReaderAt)), ok : false };
             }, _r = __tmp__.value, _ok = __tmp__.ok;

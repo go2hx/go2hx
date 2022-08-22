@@ -391,7 +391,7 @@ function testGet(_t:stdgo.testing.Testing.T):Void {
         var _visitor = function(_f:Flag):Void {
             if (((_f.name != null ? _f.name.length : ((0 : GoInt))) > ((5 : GoInt))) && (((_f.name.__slice__(((0 : GoInt)), ((5 : GoInt))) : GoString)) == ((((("test_" : GoString))) : GoString)))) {
                 var __tmp__ = try {
-                    { value : ((_f.value : Getter)), ok : true };
+                    { value : ((((_f.value.__underlying__().value : Dynamic)) : Getter)), ok : true };
                 } catch(_) {
                     { value : ((null : Getter)), ok : false };
                 }, _g = __tmp__.value, _ok = __tmp__.ok;

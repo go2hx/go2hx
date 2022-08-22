@@ -3196,12 +3196,12 @@ function testNopCloserWriterToForwarding(_t:stdgo.testing.Testing.T):Void {
         for (_0 => _tc in ((new GoArray<T__struct_3>((({ name : ((((("not a WriterTo" : GoString))) : GoString)), _r : ((((null : Reader)) : Reader)) } : T__struct_3)), (({ name : ((((("a WriterTo" : GoString))) : GoString)), _r : (({ reader : ((null : Reader)), writerTo : ((null : WriterTo)) } : T__struct_4)) } : T__struct_3))) : GoArray<T__struct_3>))) {
             var _nc:ReadCloser = nopCloser(_tc._r);
             var __tmp__ = try {
-                { value : ((_tc._r : WriterTo)), ok : true };
+                { value : ((((_tc._r.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
             } catch(_) {
                 { value : ((null : WriterTo)), ok : false };
             }, _1 = __tmp__.value, _expected = __tmp__.ok;
             var __tmp__ = try {
-                { value : ((_nc : WriterTo)), ok : true };
+                { value : ((((_nc.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
             } catch(_) {
                 { value : ((null : WriterTo)), ok : false };
             }, _2 = __tmp__.value, _got = __tmp__.ok;
@@ -3340,7 +3340,7 @@ function testMultiReaderAsWriterTo(_t:stdgo.testing.Testing.T):Void {
             __self__;
         }));
         var __tmp__ = try {
-            { value : ((_mr : WriterTo)), ok : true };
+            { value : ((((_mr.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
         } catch(_) {
             { value : ((null : WriterTo)), ok : false };
         }, _mrAsWriterTo = __tmp__.value, _ok = __tmp__.ok;

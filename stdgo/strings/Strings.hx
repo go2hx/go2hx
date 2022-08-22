@@ -262,7 +262,7 @@ function _makeGenericReplacer(_oldnew:Slice<GoString>):T_genericReplacer {
     }
 function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
         var __tmp__ = try {
-            { value : ((_w : stdgo.io.Io.StringWriter)), ok : true };
+            { value : ((((_w.__underlying__().value : Dynamic)) : stdgo.io.Io.StringWriter)), ok : true };
         } catch(_) {
             { value : ((null : stdgo.io.Io.StringWriter)), ok : false };
         }, _sw = __tmp__.value, _ok = __tmp__.ok;

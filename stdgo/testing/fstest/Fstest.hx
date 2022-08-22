@@ -936,7 +936,7 @@ class T_mapDir_wrapper {
             _f.close();
             {
                 var __tmp__ = try {
-                    { value : ((_t._fsys : stdgo.io.fs.Fs.ReadFileFS)), ok : true };
+                    { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadFileFS)), ok : true };
                 } catch(_) {
                     { value : ((null : stdgo.io.fs.Fs.ReadFileFS)), ok : false };
                 }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1104,7 +1104,7 @@ class T_mapDir_wrapper {
         };
         {
             var __tmp__ = try {
-                { value : ((_t._fsys : stdgo.io.fs.Fs.StatFS)), ok : true };
+                { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.StatFS)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.fs.Fs.StatFS)), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1128,7 +1128,7 @@ class T_mapDir_wrapper {
     static public function _checkGlob( _t:T_fsTester, _dir:GoString, _list:Slice<stdgo.io.fs.Fs.DirEntry>):Void {
         {
             var __tmp__ = try {
-                { value : ((_t._fsys : stdgo.io.fs.Fs.GlobFS)), ok : true };
+                { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.io.fs.Fs.GlobFS)), ok : false };
             }, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -1163,7 +1163,7 @@ class T_mapDir_wrapper {
             _glob = stdgo.strings.Strings.join(_elem, ((((("/" : GoString))) : GoString))) + ((((("/" : GoString))) : GoString));
         };
         {
-            var __tmp__ = ((_t._fsys : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((((("nonexist/[]" : GoString))) : GoString))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob + ((((("nonexist/[]" : GoString))) : GoString))), _1:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err == null) {
                 _t._errorf(((((("%s: Glob(%#q): bad pattern not detected" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob + ((((("nonexist/[]" : GoString))) : GoString))));
             };
@@ -1192,7 +1192,7 @@ class T_mapDir_wrapper {
                 _want = (_want != null ? _want.__append__(stdgo.path.Path.join(_dir, _d.name())) : new Slice<GoString>(stdgo.path.Path.join(_dir, _d.name())));
             };
         };
-        var __tmp__ = ((_t._fsys : stdgo.io.fs.Fs.GlobFS)).glob(_glob), _names:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.GlobFS)).glob(_glob), _names:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
             _t._errorf(((((("%s: Glob(%#q): %v" : GoString))) : GoString)), Go.toInterface(_dir), Go.toInterface(_glob), Go.toInterface(_err));
             return;
@@ -1369,7 +1369,7 @@ class T_mapDir_wrapper {
             _t._checkDirList(_dir, ((((("first Open+ReadDir(-1) vs third Open+ReadDir(1,2) loop" : GoString))) : GoString)), _list, _list2);
             {
                 var __tmp__ = try {
-                    { value : ((_t._fsys : stdgo.io.fs.Fs.ReadDirFS)), ok : true };
+                    { value : ((((_t._fsys.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadDirFS)), ok : true };
                 } catch(_) {
                     { value : ((null : stdgo.io.fs.Fs.ReadDirFS)), ok : false };
                 }, _fsys = __tmp__.value, _ok = __tmp__.ok;
@@ -1447,7 +1447,7 @@ class T_mapDir_wrapper {
             return ((null : stdgo.io.fs.Fs.ReadDirFile));
         };
         var __tmp__ = try {
-            { value : ((_f : stdgo.io.fs.Fs.ReadDirFile)), ok : true };
+            { value : ((((_f.__underlying__().value : Dynamic)) : stdgo.io.fs.Fs.ReadDirFile)), ok : true };
         } catch(_) {
             { value : ((null : stdgo.io.fs.Fs.ReadDirFile)), ok : false };
         }, _d = __tmp__.value, _ok = __tmp__.ok;

@@ -603,7 +603,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
     static public function string( _v:T_textValue):GoString {
         {
             var __tmp__ = try {
-                { value : ((_v._p : stdgo.encoding.Encoding.TextMarshaler)), ok : true };
+                { value : ((((_v._p.__underlying__().value : Dynamic)) : stdgo.encoding.Encoding.TextMarshaler)), ok : true };
             } catch(_) {
                 { value : ((null : stdgo.encoding.Encoding.TextMarshaler)), ok : false };
             }, _m = __tmp__.value, _ok = __tmp__.ok;
@@ -736,7 +736,7 @@ class T_textValue_wrapper {
         };
         {
             var __tmp__ = try {
-                { value : ((_flag.value : T_boolFlag)), ok : true };
+                { value : ((((_flag.value.__underlying__().value : Dynamic)) : T_boolFlag)), ok : true };
             } catch(_) {
                 { value : ((null : T_boolFlag)), ok : false };
             }, _fv = __tmp__.value, _ok = __tmp__.ok;

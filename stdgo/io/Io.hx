@@ -303,7 +303,7 @@ function writeString(_w:Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; }
         var _n:GoInt = ((0 : GoInt)), _err:Error = ((null : stdgo.Error));
         {
             var __tmp__ = try {
-                { value : ((_w : StringWriter)), ok : true };
+                { value : ((((_w.__underlying__().value : Dynamic)) : StringWriter)), ok : true };
             } catch(_) {
                 { value : ((null : StringWriter)), ok : false };
             }, _sw = __tmp__.value, _ok = __tmp__.ok;
@@ -423,7 +423,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var _0 : Go
         var _written:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
         {
             var __tmp__ = try {
-                { value : ((_src : WriterTo)), ok : true };
+                { value : ((((_src.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
             } catch(_) {
                 { value : ((null : WriterTo)), ok : false };
             }, _wt = __tmp__.value, _ok = __tmp__.ok;
@@ -433,7 +433,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{ var _0 : Go
         };
         {
             var __tmp__ = try {
-                { value : ((_dst : ReaderFrom)), ok : true };
+                { value : ((((_dst.__underlying__().value : Dynamic)) : ReaderFrom)), ok : true };
             } catch(_) {
                 { value : ((null : ReaderFrom)), ok : false };
             }, _rt = __tmp__.value, _ok = __tmp__.ok;
@@ -537,7 +537,7 @@ function teeReader(_r:Reader, _w:Writer):Reader {
 function nopCloser(_r:Reader):ReadCloser {
         {
             var __tmp__ = try {
-                { value : ((_r : WriterTo)), ok : true };
+                { value : ((((_r.__underlying__().value : Dynamic)) : WriterTo)), ok : true };
             } catch(_) {
                 { value : ((null : WriterTo)), ok : false };
             }, _0 = __tmp__.value, _ok = __tmp__.ok;
@@ -851,7 +851,7 @@ class T_nopCloser_wrapper {
     @:keep
     static public function writeTo( _c:T_nopCloserWriterTo, _w:Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = ((0 : GoInt64)), _err:Error = ((null : stdgo.Error));
-        return ((_c.reader : WriterTo)).writeTo(_w);
+        return ((((_c.reader.__underlying__().value : Dynamic)) : WriterTo)).writeTo(_w);
     }
     @:keep
     static public function close( _:T_nopCloserWriterTo):Error {
@@ -984,7 +984,7 @@ class T_multiReader_wrapper {
         for (_0 => _w in _t._writers) {
             {
                 var __tmp__ = try {
-                    { value : ((_w : StringWriter)), ok : true };
+                    { value : ((((_w.__underlying__().value : Dynamic)) : StringWriter)), ok : true };
                 } catch(_) {
                     { value : ((null : StringWriter)), ok : false };
                 }, _sw = __tmp__.value, _ok = __tmp__.ok;

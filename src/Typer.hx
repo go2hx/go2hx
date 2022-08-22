@@ -1139,7 +1139,9 @@ private function checkType(e:Expr, ct:ComplexType, fromType:GoType, toType:GoTyp
 		}
 		return macro(($e.__underlying__().value : Dynamic) : $ct);
 	}
-	// trace(fromType, "|", toType);
+	if (isInterface(fromType) && isInterface(toType)) {
+		return macro(($e.__underlying__().value : Dynamic) : $ct);
+	}
 	if (isStruct(fromType) && isStruct(toType)) {
 		return translateStruct(e, fromType, toType, info);
 	}

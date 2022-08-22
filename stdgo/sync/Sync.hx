@@ -83,6 +83,7 @@ typedef Locker = StructType & {
 	public function unlock():Void;
 }
 
+@:structInit
 class RWMutex {
 	@:local
 	var mutex:sys.thread.Mutex;
@@ -201,6 +202,7 @@ class T_noCopy {
 	public function unlock() {}
 }
 
+@:structInit
 class Once {
 	public var done:Bool = false;
 

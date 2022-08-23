@@ -1332,7 +1332,7 @@ class T_reverse_wrapper {
     @:embedded
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_reverse;
 }
 @:keep class T_xorshift_static_extension {
@@ -1412,7 +1412,7 @@ class IntSlice_wrapper {
     @:keep
     public var search : GoInt -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : IntSlice;
 }
 @:keep class Float64Slice_static_extension {
@@ -1490,7 +1490,7 @@ class Float64Slice_wrapper {
     @:keep
     public var search : GoFloat64 -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Float64Slice;
 }
 @:keep class StringSlice_static_extension {
@@ -1552,6 +1552,6 @@ class StringSlice_wrapper {
     @:keep
     public var search : GoString -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : StringSlice;
 }

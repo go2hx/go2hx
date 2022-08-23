@@ -1429,7 +1429,7 @@ class URLValue_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : URLValue;
 }
 @:keep class T_boolFlagVar_static_extension {
@@ -1457,7 +1457,7 @@ class T_boolFlagVar_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_boolFlagVar;
 }
 @:keep class T_zeroPanicker_static_extension {
@@ -1480,7 +1480,7 @@ class T_zeroPanicker_wrapper {
     @:keep
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_zeroPanicker;
 }
 @:keep class T_interval_static_extension {
@@ -1527,7 +1527,7 @@ class T_interval_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_interval;
 }
 @:keep class T_flagVar_static_extension {
@@ -1547,6 +1547,6 @@ class T_flagVar_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_flagVar;
 }

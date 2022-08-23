@@ -672,7 +672,7 @@ class PathError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : PathError;
 }
 @:keep class T_dirInfo_static_extension {
@@ -703,7 +703,7 @@ class T_dirInfo_wrapper {
     @:keep
     public var isDir : () -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dirInfo;
 }
 @:keep class T_subFS_static_extension {
@@ -869,7 +869,7 @@ class T_subFS_wrapper {
     @:keep
     public var _fullName : (GoString, GoString) -> { var _0 : GoString; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_subFS;
 }
 @:keep class T_statDirEntry_static_extension {
@@ -900,7 +900,7 @@ class T_statDirEntry_wrapper {
     @:keep
     public var name : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_statDirEntry;
 }
 @:keep class FileMode_static_extension {
@@ -987,6 +987,6 @@ class FileMode_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : FileMode;
 }

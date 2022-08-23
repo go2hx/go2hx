@@ -3393,7 +3393,7 @@ class ParseError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ParseError;
 }
 @:keep class Timer_static_extension {
@@ -3539,7 +3539,7 @@ class Timer_wrapper {
     @:keep
     public var stop : () -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Timer;
 }
 @:keep class Ticker_static_extension {
@@ -3584,7 +3584,7 @@ class Ticker_wrapper {
     @:keep
     public var stop : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Ticker;
 }
 @:keep class Time_static_extension {
@@ -4976,7 +4976,7 @@ class Time_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Time;
 }
 @:keep class Location_static_extension {
@@ -5204,7 +5204,7 @@ class Location_wrapper {
     @:keep
     public var _get : () -> Location = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Location;
 }
 @:keep class T_dataIO_static_extension {
@@ -5275,7 +5275,7 @@ class T_dataIO_wrapper {
     @:keep
     public var _read : GoInt -> Slice<GoByte> = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dataIO;
 }
 @:keep class Month_static_extension {
@@ -5299,7 +5299,7 @@ class Month_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Month;
 }
 @:keep class Weekday_static_extension {
@@ -5323,7 +5323,7 @@ class Weekday_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Weekday;
 }
 @:keep class Duration_static_extension {
@@ -5568,7 +5568,7 @@ class Duration_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Duration;
 }
 @:keep class T_fileSizeError_static_extension {
@@ -5581,6 +5581,6 @@ class T_fileSizeError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fileSizeError;
 }

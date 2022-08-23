@@ -1724,7 +1724,7 @@ class Builder_wrapper {
     @:keep
     public var _copyCheck : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Builder;
 }
 @:keep class Reader_static_extension {
@@ -1965,7 +1965,7 @@ class Reader_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Reader;
 }
 @:keep class Replacer_static_extension {
@@ -2092,7 +2092,7 @@ class Replacer_wrapper {
     @:keep
     public var replacer : () -> AnyInterface = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Replacer;
 }
 @:keep class T_trieNode_static_extension {
@@ -2151,7 +2151,7 @@ class T_trieNode_wrapper {
     @:keep
     public var _add : (GoString, GoString, GoInt, T_genericReplacer) -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_trieNode;
 }
 @:keep class T_genericReplacer_static_extension {
@@ -2287,7 +2287,7 @@ class T_genericReplacer_wrapper {
     @:keep
     public var _printNode : (T_trieNode, GoInt) -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_genericReplacer;
 }
 @:keep class T_stringWriter_static_extension {
@@ -2300,7 +2300,7 @@ class T_stringWriter_wrapper {
     @:keep
     public var writeString : GoString -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_stringWriter;
 }
 @:keep class T_singleStringReplacer_static_extension {
@@ -2370,7 +2370,7 @@ class T_singleStringReplacer_wrapper {
     @:keep
     public var replace : GoString -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_singleStringReplacer;
 }
 @:keep class T_byteStringReplacer_static_extension {
@@ -2464,7 +2464,7 @@ class T_byteStringReplacer_wrapper {
     @:keep
     public var replace : GoString -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_byteStringReplacer;
 }
 @:keep class T_stringFinder_static_extension {
@@ -2497,7 +2497,7 @@ class T_stringFinder_wrapper {
     @:keep
     public var _next : GoString -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_stringFinder;
 }
 @:keep class T_appendSliceWriter_static_extension {
@@ -2530,7 +2530,7 @@ class T_appendSliceWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_appendSliceWriter;
 }
 @:keep class T_byteReplacer_static_extension {
@@ -2583,7 +2583,7 @@ class T_byteReplacer_wrapper {
     @:keep
     public var replace : GoString -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_byteReplacer;
 }
 @:keep class T_asciiSet_static_extension {
@@ -2602,6 +2602,6 @@ class T_asciiSet_wrapper {
     @:keep
     public var _contains : GoByte -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_asciiSet;
 }

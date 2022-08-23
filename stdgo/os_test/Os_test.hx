@@ -425,6 +425,6 @@ class T_myErrorIs_wrapper {
     @:embedded
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_myErrorIs;
 }

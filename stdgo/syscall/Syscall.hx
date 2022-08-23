@@ -428,7 +428,7 @@ class Timespec_wrapper {
     @:keep
     public var unix : () -> { var _0 : GoInt64; var _1 : GoInt64; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Timespec;
 }
 @:keep class Timeval_static_extension {
@@ -455,7 +455,7 @@ class Timeval_wrapper {
     @:keep
     public var unix : () -> { var _0 : GoInt64; var _1 : GoInt64; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Timeval;
 }
 @:keep class Errno_static_extension {
@@ -478,7 +478,7 @@ class Errno_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Errno;
 }
 @:keep class Signal_static_extension {
@@ -493,7 +493,7 @@ class Signal_wrapper {
     @:keep
     public var signal : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Signal;
 }
 @:keep class WaitStatus_static_extension {
@@ -536,6 +536,6 @@ class WaitStatus_wrapper {
     @:keep
     public var exited : () -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : WaitStatus;
 }

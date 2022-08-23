@@ -6912,6 +6912,6 @@ class SpecialCase_wrapper {
     @:keep
     public var toUpper : GoRune -> GoRune = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : SpecialCase;
 }

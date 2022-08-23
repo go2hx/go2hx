@@ -2124,7 +2124,7 @@ class Buffer_wrapper {
     @:keep
     public var bytes : () -> Slice<GoByte> = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Buffer;
 }
 @:keep class Reader_static_extension {
@@ -2363,7 +2363,7 @@ class Reader_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Reader;
 }
 @:keep class T_asciiSet_static_extension {
@@ -2382,6 +2382,6 @@ class T_asciiSet_wrapper {
     @:keep
     public var _contains : GoByte -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_asciiSet;
 }

@@ -889,7 +889,7 @@ class T_dirInfo_wrapper {
     @:keep
     public var _close : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dirInfo;
 }
 @:keep class SyscallError_static_extension {
@@ -914,7 +914,7 @@ class SyscallError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : SyscallError;
 }
 @:keep class Process_static_extension {
@@ -1025,7 +1025,7 @@ class Process_wrapper {
     @:keep
     public var _setDone : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Process;
 }
 @:keep class ProcessState_static_extension {
@@ -1160,7 +1160,7 @@ class ProcessState_wrapper {
     @:keep
     public var userTime : () -> stdgo.time.Time.Duration = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ProcessState;
 }
 @:keep class LinkError_static_extension {
@@ -1175,7 +1175,7 @@ class LinkError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : LinkError;
 }
 @:keep class T_onlyWriter_static_extension {
@@ -1186,7 +1186,7 @@ class T_onlyWriter_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_onlyWriter;
 }
 @:keep class T_file_static_extension {
@@ -1197,7 +1197,7 @@ class T_file_wrapper {
     @:keep
     public var _close : () -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_file;
 }
 @:keep class T_unixDirent_static_extension {
@@ -1220,7 +1220,7 @@ class T_unixDirent_wrapper {
     @:keep
     public var name : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_unixDirent;
 }
 @:keep class T_rawConn_static_extension {
@@ -1239,7 +1239,7 @@ class T_rawConn_wrapper {
     @:keep
     public var control : (GoUIntptr -> Void) -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_rawConn;
 }
 @:keep class File_static_extension {
@@ -1854,7 +1854,7 @@ class File_wrapper {
     @:embedded
     public var _close : () -> stdgo.Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : File;
 }
 @:keep class T_fileStat_static_extension {
@@ -1885,7 +1885,7 @@ class T_fileStat_wrapper {
     @:keep
     public var name : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fileStat;
 }
 @:keep class T_dirFS_static_extension {
@@ -1900,6 +1900,6 @@ class T_dirFS_wrapper {
     @:keep
     public var open : GoString -> { var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dirFS;
 }

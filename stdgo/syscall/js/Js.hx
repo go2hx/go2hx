@@ -356,7 +356,7 @@ class Func_wrapper {
     @:embedded
     public var bool : () -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Func;
 }
 @:keep class Value_static_extension {
@@ -613,7 +613,7 @@ class Value_wrapper {
     @:keep
     public var equal : Value -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Value;
 }
 @:keep class T_error_static_extension {
@@ -718,7 +718,7 @@ class T_error_wrapper {
     @:embedded
     public var bool : () -> Bool = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_error;
 }
 @:keep class ValueError_static_extension {
@@ -729,7 +729,7 @@ class ValueError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ValueError;
 }
 @:keep class Type_static_extension {
@@ -744,6 +744,6 @@ class Type_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Type;
 }

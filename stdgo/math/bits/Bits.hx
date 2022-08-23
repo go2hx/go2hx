@@ -691,6 +691,6 @@ class T_errorString_wrapper {
     @:keep
     public var runtimeError : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errorString;
 }

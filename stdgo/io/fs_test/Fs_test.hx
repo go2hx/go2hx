@@ -907,7 +907,7 @@ class T_globOnly_wrapper {
     @:embedded
     public var glob : GoString -> { var _0 : Slice<GoString>; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_globOnly;
 }
 @:keep class T_readDirOnly_static_extension {
@@ -924,7 +924,7 @@ class T_readDirOnly_wrapper {
     @:embedded
     public var readDir : GoString -> { var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readDirOnly;
 }
 @:keep class T_readFileOnly_static_extension {
@@ -941,7 +941,7 @@ class T_readFileOnly_wrapper {
     @:embedded
     public var readFile : GoString -> { var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readFileOnly;
 }
 @:keep class T_openOnly_static_extension {
@@ -952,7 +952,7 @@ class T_openOnly_wrapper {
     @:embedded
     public var open : GoString -> { var _0 : File; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_openOnly;
 }
 @:keep class T_statOnly_static_extension {
@@ -969,7 +969,7 @@ class T_statOnly_wrapper {
     @:embedded
     public var stat : GoString -> { var _0 : FileInfo; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_statOnly;
 }
 @:keep class T_subOnly_static_extension {
@@ -986,6 +986,6 @@ class T_subOnly_wrapper {
     @:embedded
     public var sub : GoString -> { var _0 : FS; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_subOnly;
 }

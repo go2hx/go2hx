@@ -3650,6 +3650,6 @@ class T_errWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errWriter;
 }

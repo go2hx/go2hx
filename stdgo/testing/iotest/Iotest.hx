@@ -209,7 +209,7 @@ class T_writeLogger_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_writeLogger;
 }
 @:keep class T_readLogger_static_extension {
@@ -220,7 +220,7 @@ class T_readLogger_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readLogger;
 }
 @:keep class T_errWriter_static_extension {
@@ -231,7 +231,7 @@ class T_errWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errWriter;
 }
 @:keep class T_oneByteReader_static_extension {
@@ -242,7 +242,7 @@ class T_oneByteReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_oneByteReader;
 }
 @:keep class T_halfReader_static_extension {
@@ -253,7 +253,7 @@ class T_halfReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_halfReader;
 }
 @:keep class T_dataErrReader_static_extension {
@@ -264,7 +264,7 @@ class T_dataErrReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dataErrReader;
 }
 @:keep class T_timeoutReader_static_extension {
@@ -275,7 +275,7 @@ class T_timeoutReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_timeoutReader;
 }
 @:keep class T_errReader_static_extension {
@@ -286,7 +286,7 @@ class T_errReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errReader;
 }
 @:keep class T_smallByteReader_static_extension {
@@ -297,7 +297,7 @@ class T_smallByteReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_smallByteReader;
 }
 @:keep class T_truncateWriter_static_extension {
@@ -308,6 +308,6 @@ class T_truncateWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_truncateWriter;
 }

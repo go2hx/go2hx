@@ -635,7 +635,7 @@ class T_textValue_wrapper {
     @:keep
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_textValue;
 }
 @:keep class FlagSet_static_extension {
@@ -1579,7 +1579,7 @@ class FlagSet_wrapper {
     @:keep
     public var output : () -> stdgo.io.Io.Writer = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : FlagSet;
 }
 @:keep class T_boolValue_static_extension {
@@ -1903,6 +1903,6 @@ class T_funcValue_wrapper {
     @:keep
     public var set : GoString -> Error = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_funcValue;
 }

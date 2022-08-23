@@ -4655,7 +4655,7 @@ class T_negativeReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_negativeReader;
 }
 @:keep class T_panicReader_static_extension {
@@ -4671,7 +4671,7 @@ class T_panicReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_panicReader;
 }
 @:keep class T_justReader_testReaderCopyNothing_1_static_extension {
@@ -4682,7 +4682,7 @@ class T_justReader_testReaderCopyNothing_1_wrapper {
     @:embedded
     public var read : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_justReader_testReaderCopyNothing_1;
 }
 @:keep class T_justWriter_testReaderCopyNothing_2_static_extension {
@@ -4693,6 +4693,6 @@ class T_justWriter_testReaderCopyNothing_2_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_justWriter_testReaderCopyNothing_2;
 }

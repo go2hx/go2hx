@@ -4643,7 +4643,7 @@ class Buffer_wrapper {
     @:embedded
     public var bytes : () -> Slice<GoUInt8> = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Buffer;
 }
 @:keep class T_writeToChecker_static_extension {
@@ -4753,7 +4753,7 @@ class T_writeToChecker_wrapper {
     @:embedded
     public var bytes : () -> Slice<GoUInt8> = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_writeToChecker;
 }
 @:keep class T_zeroErrReader_static_extension {
@@ -4766,7 +4766,7 @@ class T_zeroErrReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_zeroErrReader;
 }
 @:keep class T_errWriter_static_extension {
@@ -4779,7 +4779,7 @@ class T_errWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errWriter;
 }
 @:keep class T_noReadFrom_static_extension {
@@ -4793,7 +4793,7 @@ class T_noReadFrom_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_noReadFrom;
 }
 @:keep class T_wantedAndErrReader_static_extension {
@@ -4806,7 +4806,7 @@ class T_wantedAndErrReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_wantedAndErrReader;
 }
 @:keep class T_dataAndErrorBuffer_static_extension {
@@ -4924,7 +4924,7 @@ class T_dataAndErrorBuffer_wrapper {
     @:embedded
     public var bytes : () -> Slice<GoUInt8> = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dataAndErrorBuffer;
 }
 @:keep class T_largeWriter_static_extension {
@@ -4937,7 +4937,7 @@ class T_largeWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_largeWriter;
 }
 @:keep class T_writeStringChecker_static_extension {
@@ -4959,7 +4959,7 @@ class T_writeStringChecker_wrapper {
     @:keep
     public var writeString : GoString -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_writeStringChecker;
 }
 @:keep class T_pipeTest_static_extension {
@@ -4972,7 +4972,7 @@ class T_pipeTest_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_pipeTest;
 }
 @:keep class T_writerFunc_static_extension {
@@ -4985,7 +4985,7 @@ class T_writerFunc_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_writerFunc;
 }
 @:keep class T_readerFunc_static_extension {
@@ -4998,7 +4998,7 @@ class T_readerFunc_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readerFunc;
 }
 @:keep class T_byteAndEOFReader_static_extension {
@@ -5016,7 +5016,7 @@ class T_byteAndEOFReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_byteAndEOFReader;
 }
 @:keep class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_static_extension {
@@ -5027,7 +5027,7 @@ class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0;
 }
 @:keep class T_testError1_testPipeCloseError_0_static_extension {
@@ -5038,7 +5038,7 @@ class T_testError1_testPipeCloseError_0_wrapper {
     @:embedded
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_testError1_testPipeCloseError_0;
 }
 @:keep class T_testError2_testPipeCloseError_1_static_extension {
@@ -5049,6 +5049,6 @@ class T_testError2_testPipeCloseError_1_wrapper {
     @:embedded
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_testError2_testPipeCloseError_1;
 }

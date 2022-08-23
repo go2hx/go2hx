@@ -1669,7 +1669,7 @@ class Person_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Person;
 }
 @:keep class T_planetSorter_static_extension {
@@ -1717,7 +1717,7 @@ class T_planetSorter_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_planetSorter;
 }
 @:keep class T_multiSorter_static_extension {
@@ -1808,7 +1808,7 @@ class T_multiSorter_wrapper {
     @:keep
     public var sort : Slice<Change> -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_multiSorter;
 }
 @:keep class ByName_static_extension {
@@ -1829,7 +1829,7 @@ class ByName_wrapper {
     @:embedded
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ByName;
 }
 @:keep class ByWeight_static_extension {
@@ -1850,7 +1850,7 @@ class ByWeight_wrapper {
     @:embedded
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ByWeight;
 }
 @:keep class T_nonDeterministicTestingData_static_extension {
@@ -1880,7 +1880,7 @@ class T_nonDeterministicTestingData_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_nonDeterministicTestingData;
 }
 @:keep class T_testingData_static_extension {
@@ -1915,7 +1915,7 @@ class T_testingData_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_testingData;
 }
 @:keep class T_adversaryTestingData_static_extension {
@@ -1963,7 +1963,7 @@ class T_adversaryTestingData_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_adversaryTestingData;
 }
 @:keep class ByAge_static_extension {
@@ -1993,7 +1993,7 @@ class ByAge_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : ByAge;
 }
 @:keep class By_static_extension {
@@ -2019,7 +2019,7 @@ class By_wrapper {
     @:keep
     public var sort : Slice<Planet> -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : By;
 }
 @:keep class Grams_static_extension {
@@ -2032,7 +2032,7 @@ class Grams_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Grams;
 }
 @:keep class Organs_static_extension {
@@ -2056,7 +2056,7 @@ class Organs_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : Organs;
 }
 @:keep class T_intPairs_static_extension {
@@ -2133,6 +2133,6 @@ class T_intPairs_wrapper {
     @:keep
     public var len : () -> GoInt = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_intPairs;
 }

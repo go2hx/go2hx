@@ -197,7 +197,7 @@ class T_fsOnly_wrapper {
     @:embedded
     public var open : GoString -> { var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fsOnly;
 }
 @:keep class T_noSub_static_extension {
@@ -228,7 +228,7 @@ class T_noSub_wrapper {
     @:embedded
     public var glob : GoString -> { var _0 : Slice<GoString>; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_noSub;
 }
 @:keep class T_mapFileInfo_static_extension {
@@ -267,7 +267,7 @@ class T_mapFileInfo_wrapper {
     @:keep
     public var name : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_mapFileInfo;
 }
 @:keep class T_openMapFile_static_extension {
@@ -326,7 +326,7 @@ class T_openMapFile_wrapper {
     @:embedded
     public var info : () -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_openMapFile;
 }
 @:keep class T_mapDir_static_extension {
@@ -381,7 +381,7 @@ class T_mapDir_wrapper {
     @:embedded
     public var info : () -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_mapDir;
 }
 @:keep class T_fsTester_static_extension {
@@ -482,7 +482,7 @@ class T_fsTester_wrapper {
     @:keep
     public var _errorf : (GoString, haxe.Rest<AnyInterface>) -> Void = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fsTester;
 }
 @:keep class MapFS_static_extension {
@@ -519,6 +519,6 @@ class MapFS_wrapper {
     @:keep
     public var open : GoString -> { var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
-    public function __underlying__() return Go.toInterface(__self__);
+    public function __underlying__() return Go.toInterface(this);
     var __self__ : MapFS;
 }

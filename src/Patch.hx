@@ -1,5 +1,7 @@
 final list = [
+	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
+	// stdgo/time
 	"time:sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
 		#if sys
@@ -84,6 +86,7 @@ final list = [
 		}
 		_localLoc._zone = new Slice<T_zone>(...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
 	},
+	// stdgo/math
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),
 	"math:log" => macro return std.Math.log(_x.toBasic()),
 	"math:pow" => macro return std.Math.pow(_x.toBasic(), _y.toBasic()),
@@ -96,7 +99,7 @@ final list = [
 	},
 	"math:float32bits" => macro {
 		final bits = haxe.io.Bytes.alloc(4);
-		bits.setFloat(0, _b.toBasic());
+		bits.setFloat(0, _f.toBasic());
 		return (bits.get(0)) | (bits.get(1) << 8) | (bits.get(2) << 16) | (bits.get(3) << 24);
 	},
 	"math:float32frombits" => macro {
@@ -109,7 +112,7 @@ final list = [
 		return bits.getFloat(0);
 	},
 	"math:float64frombits" => macro {
-		final bits = Bytes.alloc(8);
+		final bits = haxe.io.Bytes.alloc(8);
 		final low = _b.toBasic().low;
 		final high = _b.toBasic().high;
 		bits.set(0, low & 0xff);
@@ -135,7 +138,7 @@ final list = [
 	},
 	"math:exp" => macro return std.Math.exp(_x.toBasic()),
 	"math:isNaN" => macro return std.Math.isNaN(_f.toBasic()),
-	"math:abs" => macro return std.Math.abs(_f.toBasic()),
+	"math:abs" => macro return std.Math.abs(_x.toBasic()),
 	"math:floor" => macro {
 		if (!std.Math.isFinite(_x.toBasic()) || std.Math.isNaN(_x.toBasic()))
 			return _x;
@@ -150,13 +153,7 @@ final list = [
 			//-0.0
 			return negZero();
 		}
-		return std.Math.ceil(_f.toBasic());
-	},
-	"math:negZero" => macro {
-		final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
-		final _x:GoFloat = 0;
-		final _y:GoFloat = -1;
-		return float64frombits((float64bits(_x) & (_sign ^ ((-1 : GoUnTypedInt)))) | (float64bits(_y) & _sign));
+		return std.Math.ceil(_x.toBasic());
 	},
 	"math:sqrt" => macro return _sqrt(_x),
 	"math:_sqrt" => macro return std.Math.sqrt(_x.toBasic()),
@@ -210,6 +207,17 @@ final list = [
 	"math:_archTrunc" => macro return trunc(_x),
 	"math:_cos" => macro return cos(_x),
 	"math:_sin" => macro return sin(_x),
+	// stdgo/math_test
+	"math_test:testFloatMinMax" => macro {},
+];
+
+final add = [
+	"math:negZero" => macro {
+		final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
+		final _x:GoFloat = 0;
+		final _y:GoFloat = -1;
+		return float64frombits((float64bits(_x) & (_sign ^ ((-1 : GoUnTypedInt)))) | (float64bits(_y) & _sign));
+	},
 ];
 
 final funcInline = [

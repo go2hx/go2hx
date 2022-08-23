@@ -454,8 +454,10 @@ function main(data:DataType, instance:Main.InstanceData) {
 								case FFun(fun):
 									final patchName = info.global.module.path + "." + def.name + ":" + func.name;
 									final patch = Patch.list[patchName];
-									if (patch != null)
+									if (patch != null) {
 										fun.expr = patch;
+										Patch.list.remove(patchName);
+									}
 									if (Patch.funcInline.indexOf(patchName) != -1 && access.indexOf(AInline) == -1)
 										access.push(AInline);
 									if (addLocalMethod(func.name, func.pos, func.meta, func.doc, access, fun, staticExtension,
@@ -479,6 +481,22 @@ function main(data:DataType, instance:Main.InstanceData) {
 				}
 				// trace(printer.printTypeDefinition(staticExtension));
 				// trace(printer.printTypeDefinition(wrapper));
+			}
+			// patch system to add functions
+			for (key => expr in Patch.add) {
+				final index = key.indexOf(":");
+				final path = key.substr(0, index);
+				if (path == info.global.module.path) {
+					final funcName = key.substr(index + 1);
+					file.defs.push({
+						name: funcName,
+						pos: null,
+						fields: [],
+						pack: [],
+						kind: TDField(FFun({args: [], expr: expr}), [APrivate]),
+					});
+					Patch.add.remove(key);
+				}
 			}
 		}
 		// for (file in module.files)
@@ -4701,6 +4719,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	} else {
 		final patch = Patch.list[patchName];
 		if (decl.recv == null && patch != null) {
+			Patch.list.remove(patchName);
 			patch;
 		} else {
 			toExpr(typeBlockStmt(decl.body, info, true));

@@ -3794,12 +3794,12 @@ private function getRune(value:String):String {
 	return value;
 }
 
-private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:String}> {
+private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Int}> {
 	var backslash = false;
 	var i = 0;
-	final values:Array<{?s:String, ?code:String}> = [];
+	final values:Array<{?s:String, ?code:Int}> = [];
 	var buff = new StringBuf();
-	function escapeHex(value:String) {
+	function escapeHex(value:Int) {
 		if (buff.length > 0)
 			values.push({s: buff.toString()});
 		values.push({code: value});
@@ -3810,8 +3810,13 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Str
 			final code = value.charCodeAt(i);
 			switch code {
 				case 'x'.code:
-					var hex = value.substr(i + 1, 2);
-					escapeHex(hex);
+					// var hex = value.substr(i + 1, 2);
+					var high = StringTools.fastCodeAt(value, i + 1);
+					var low = StringTools.fastCodeAt(value, i + 2);
+					high = (high & 0xF) + ((high & 0x40) >> 6) * 9;
+					low = (low & 0xF) + ((low & 0x40) >> 6) * 9;
+					final num = ((high << 4) | low) & 0xFF;
+					escapeHex(num);
 					i += 2;
 				case '0'.code, '1'.code, '2'.code, '3'.code, '4'.code, '5'.code, '6'.code, '7'.code, '8'.code, '9'.code:
 					var num = 0;
@@ -3820,15 +3825,14 @@ private function decodeEscapeSequences(value:String):Array<{?s:String, ?code:Str
 						final expo = Std.int(Math.pow(8, 2 - j));
 						num += numCode * expo;
 					}
-					final hex = StringTools.hex(num, 2);
-					escapeHex(hex);
+					escapeHex(num);
 					i += 3;
 				case '"'.code:
 					buff.add('"');
 				case 'a'.code:
 					buff.add("\\x07");
 				case 'b'.code:
-					escapeHex("08");
+					buff.add("\\x08");
 				case 'e'.code:
 					buff.add("\\x1B");
 				case 'f'.code:
@@ -5691,25 +5695,19 @@ private function makeString(str:String, ?kind):Expr {
 	return toExpr(EConst(CString(str, kind)));
 }
 
-private function makeStringLit(values:Array<{?s:String, ?code:String}>):Expr {
+private function makeStringLit(values:Array<{?s:String, ?code:Int}>):Expr {
 	var e:Expr = macro("" : GoString);
-	var init:Bool = true;
+	final exprs:Array<Expr> = [];
 	for (value in values) {
-		var expr = if (value.s != null) {
+		final expr = if (value.s != null) {
 			makeString(value.s);
 		} else {
-			final code = makeString(value.code);
-			macro haxe.io.Bytes.ofHex($code);
+			final code = value.code;
+			makeExpr(code);
 		}
-		expr = macro($expr : GoString);
-		if (init) {
-			e = expr;
-			init = false;
-		} else {
-			e = macro $e + $expr;
-		}
+		exprs.push(expr);
 	}
-	return macro($e);
+	return macro Go.str($a{exprs});
 }
 
 private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):TypeDefinition {
@@ -6101,6 +6099,10 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
+			/*expr = macro {
+				trace(${makeString(name)});
+				$expr;
+			}*/
 			values.push({
 				name: name,
 				pos: null,

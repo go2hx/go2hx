@@ -66,6 +66,10 @@ abstract GoString(Bytes) from Bytes to Bytes {
 	@:from static function fromByte(value:GoByte):GoString
 		return String.fromCharCode(value.toBasic());
 
+	@:from static function ofVectorByte(x:haxe.ds.Vector<GoByte>):GoString {
+		return ofSliceByte((x : Slice<GoByte>));
+	}
+
 	@:from static function ofSliceByte(x:Slice<GoByte>):GoString {
 		var bytes = haxe.io.Bytes.alloc(x.length.toBasic());
 		for (i in 0...bytes.length)
@@ -92,6 +96,10 @@ abstract GoString(Bytes) from Bytes to Bytes {
 			slice[i] = value;
 		}
 		return slice;
+	}
+
+	@:to public function __toVector__():haxe.ds.Vector<GoByte> {
+		return __toSliceByte__().__toVector__();
 	}
 
 	@:to public function __toSliceRune__():Slice<GoRune> {

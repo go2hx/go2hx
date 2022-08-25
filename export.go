@@ -330,8 +330,8 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 					m := &ast.BinaryExpr{Op: token.ADD, X: x, Y: y}
 					e = &ast.ParenExpr{X: m}
 				case basic.Info()&types.IsString != 0:
-					s := encodeString(constant.StringVal(value))
-					e = &ast.BasicLit{Kind: token.STRING, Value: fmt.Sprintf("%s", s)}
+					s := value.ExactString()
+					e = &ast.BasicLit{Kind: token.STRING, Value: s}
 				default:
 					panic("unknown constant type: " + value.ExactString())
 				}

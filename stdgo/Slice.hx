@@ -45,6 +45,23 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return new Slice(...array);
 	}
 
+	@:from
+	public static function fromVector<T>(vector:Vector<T>):Slice<T> {
+		final data = new SliceData(0);
+		@:privateAccess data.vector = vector;
+		return data;
+	}
+
+	public var __vector__(get, set):Vector<T>;
+
+	function get___vector__() {
+		return @:privateAccess this.vector;
+	}
+
+	function set___vector__(v) {
+		return @:privateAccess this.vector = v;
+	}
+
 	// Conversions from slice to array pointer go 1.17
 
 	@:from

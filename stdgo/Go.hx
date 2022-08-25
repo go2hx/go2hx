@@ -105,21 +105,44 @@ class Go {
 	}
 
 	public static macro function copySlice<T>(dst:Expr, src:Expr) {
-		var type = Context.toComplexType(Context.followWithAbstracts(Context.typeof(dst)));
-		var srcType = Context.toComplexType(Context.follow(Context.typeof(src)));
-		return macro {
-			var src = $src;
+		final e = macro {
 			var dst = $dst;
-			var length = if (src == null || dst == null) {
+			var src = $src;
+			if (src == null || dst == null) {
 				(0 : GoInt);
 			} else {
-				dst.length >= src.length ? src.length : dst.length; // min length
+				dst.__vector__ = src.__toVector__().copy();
+				$dst.length;
 			}
-			for (i in 0...length.toBasic()) {
-				dst[i] = src[i];
+		};
+		return e;
+	}
+
+	public static macro function str(exprs:Array<Expr>):Expr {
+		var length = 0;
+		var index = 0;
+		// new haxe.io.Bytes().printExpr();
+		// new haxe.io.Bytes().blit()
+		for (i in 0...exprs.length) {
+			// do switch statement here
+			switch exprs[i].expr {
+				case EConst(CString(s)):
+					exprs[i] = macro b.addString($v{s});
+					// length += s.length * 4;
+					index += s.length * 4;
+				case EConst(CInt(f)):
+					exprs[i] = macro b.addByte($v{Std.parseInt(f)});
+					length++;
+					index++;
+				default:
 			}
-			length;
 		}
+		final e = macro {
+			final b = new haxe.io.BytesBuffer();
+			$b{exprs};
+			b.getBytes();
+		};
+		return macro($e : GoString);
 	}
 
 	public static function string(s:Dynamic):String {

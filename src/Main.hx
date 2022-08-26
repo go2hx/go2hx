@@ -297,6 +297,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				instanceCache[index] = null; // reset
 				// File.saveContent("export.json", Json.stringify(exportData, null, "    ")); // export out data to json
 				var modules = [];
+				Sys.setCwd(cwd);
 				modules = Typer.main(exportData, instance);
 				exportData = null;
 				var libs:Array<String> = [];
@@ -310,12 +311,11 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				#if !hl
 				client.stream.size = 8;
 				#end
+				Sys.setCwd(instance.localPath);
 				for (module in modules) {
 					if (instance.libwrap && !module.isMain) {
-						Sys.setCwd(cwd);
-						var name = module.name;
-						var libPath = "libs/" + name + "/";
-
+						final name = module.name;
+						final libPath = "libs/" + name + "/";
 						Gen.create(libPath, module, instance.root);
 						Sys.command('haxelib dev $name $libPath');
 						if (libs.indexOf(name) == -1)
@@ -326,6 +326,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 				}
 				runBuildTools(modules, instance, programArgs);
 				// trace(modules[0].files[0].name, data.hxml, data.name);
+				Sys.setCwd(cwd);
 				onComplete(modules, instance.data);
 				#if nodejs
 				if (js.Node.global.gc != null)
@@ -389,7 +390,6 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 			instance.noRun = true;
 		}
 	}
-
 	final paths = mainPaths(modules);
 	final commands = ['-lib', 'go2hx'];
 	var cp = instance.outputPath;
@@ -418,7 +418,7 @@ private function runBuildTools(modules:Array<Typer.Module>, instance:InstanceDat
 				commands = commands.concat(args);
 			}
 			Sys.println('haxe ' + commands.join(" "));
-			Sys.command('haxe', commands); // build without build file
+			Sys.command('haxe ' + commands.join(" ")); // build without build file
 			final runCommand = runTarget(instance.target, instance.targetOutput, args, main);
 			if (runCommand != "") {
 				Sys.println(runCommand);

@@ -23,7 +23,8 @@ class Chan<T> {
 
 	public var __mutex__ = new Mutex();
 
-	public var length(get, null):GoInt;
+	public var length(get, never):GoInt;
+	public var capacity(get, never):GoInt;
 
 	var setNil:Bool = false;
 
@@ -31,14 +32,14 @@ class Chan<T> {
 		return __buffer__.length;
 	}
 
-	public var _cap:Int = -1;
+	function get_capacity():GoInt
+		return __buffer__.length;
 
 	public function isNil():Bool
 		return setNil;
 
 	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
 		__buffer__ = new ChanBuffer(length.toBasic());
-		this.__setCap__(length);
 		this.setNil = setNil;
 		this.defaultValue = defaultValue;
 	}
@@ -59,15 +60,6 @@ class Chan<T> {
 			__getBool__ = false;
 		__mutex__.release();
 		return value;
-	}
-
-	public inline function cap():GoInt {
-		return _cap == -1 ? length : _cap;
-	}
-
-	public function __setCap__(cap:GoInt):Chan<T> {
-		this._cap = cap.toBasic();
-		return this;
 	}
 
 	public function __smartGet__():{value:T, ok:Bool} {
@@ -224,8 +216,10 @@ private class ChanIterator<T> {
 class Chan<T> {
 	public function new(a, b) {}
 
-	public function cap():GoInt
-		return 0;
+	public var capacity(get, never):GoInt;
+
+	function get_capacity():GoInt
+		return this.length;
 
 	public var length:GoInt = 0;
 

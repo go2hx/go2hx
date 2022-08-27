@@ -1705,7 +1705,7 @@ private function argsTranslate(args:Array<FunctionArg>, block:Expr):Expr {
 							final name = arg.name;
 							switch p.params[0] {
 								case TPType(ct):
-									exprs.unshift(macro var $name = new Slice<$ct>(...$i{name}));
+									exprs.unshift(macro var $name = new Slice<$ct>(0, 0, ...$i{name}));
 								default:
 							}
 						}
@@ -2930,7 +2930,10 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 						final ct = toComplexType(t, info);
 						final p = getTypePath(ct);
-						return returnExpr(macro($e != null ? $e.__append__($a{args}) : new $p($a{args})));
+						final appendArgs = args.copy();
+						args.unshift(macro 0);
+						args.unshift(macro 0);
+						return returnExpr(macro($e != null ? $e.__append__($a{appendArgs}) : new $p($a{args})));
 					case "copy":
 						genArgs(false);
 						return returnExpr(macro Go.copySlice($a{args}));
@@ -2973,7 +2976,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case "cap":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
-						return returnExpr(macro($e != null ? $e.cap() : (0 : GoInt)));
+						return returnExpr(macro($e != null ? $e.capacity : (0 : GoInt)));
 					case "len":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
@@ -3003,8 +3006,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						}
 						if (cap != null) {
 							cap = assignTranslate(typeof(expr.args[2], info, false), basic(int_kind), cap, info);
-							cap = macro($cap : GoInt).toBasic();
-							setCap = true;
+						} else {
+							cap = macro 0;
 						}
 						var p:TypePath = switch type {
 							case named(path, _, _):
@@ -3022,8 +3025,8 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 								if (value == null)
 									value = macro Go.expectedValue();
 								if (size == null)
-									return returnExpr(macro new $p());
-								macro new $p(...[for (i in 0...$size) $value]);
+									return returnExpr(macro new $p(0, 0));
+								macro new $p($size, $cap, ...[for (i in 0...$size) $value]);
 							case mapType(_.get() => key, _.get() => value):
 								var t = toReflectType(type, info);
 								var keyType = toComplexType(key, info);
@@ -3057,8 +3060,6 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 							default:
 								throw "unknown make type: " + type;
 						}
-						if (setCap)
-							e = macro $e.__setCap__($cap);
 						return returnExpr(e);
 				}
 			}
@@ -4158,7 +4159,7 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					sets.push(macro s[$index] = $e);
 				}
 				sets.push(macro s);
-				return EBlock([macro var s:$ct = new $p(...([for (i in 0...$length) $value]))].concat(sets));
+				return EBlock([macro var s:$ct = new $p(0, 0, ...([for (i in 0...$length) $value]))].concat(sets));
 			} else {
 				var params:Array<Expr> = [];
 				for (i in 0...exprs.length) {
@@ -4167,6 +4168,8 @@ function compositeLit(type:GoType, ct:ComplexType, expr:Ast.CompositeLit, info:I
 					e = assignTranslate(t, elem.get(), e, info);
 					params.push(e);
 				}
+				params.unshift(macro 0);
+				params.unshift(macro 0);
 				return (macro(new $p($a{params}) : $ct)).expr;
 			}
 		case arrayType(elem, len):
@@ -4585,11 +4588,16 @@ private function typeSliceExpr(expr:Ast.SliceExpr, info:Info):ExprDef {
 	var low = expr.low != null ? typeExpr(expr.low, info) : macro 0;
 	var high = expr.high != null ? typeExpr(expr.high, info) : null;
 	final ct = toComplexType(typeof(expr, info, false), info);
-	x = high != null ? macro($x.__slice__($low, $high) : $ct) : macro($x.__slice__($low) : $ct);
-	if (expr.slice3) {
-		var max = typeExpr(expr.max, info);
-		max = assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
-		x = macro $x.__setCap__(($max : GoInt) - (1 : GoInt));
+	x = if (high != null) {
+		if (expr.slice3) {
+			var max = typeExpr(expr.max, info);
+			max = assignTranslate(typeof(expr.max, info, false), basic(int_kind), max, info);
+			macro($x.__slice__($low, $high, $max) : $ct);
+		} else {
+			macro($x.__slice__($low, $high) : $ct);
+		}
+	} else {
+		macro($x.__slice__($low) : $ct);
 	}
 	return x.expr;
 }

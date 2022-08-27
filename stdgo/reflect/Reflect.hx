@@ -371,11 +371,11 @@ class Value {
 			return 0;
 		switch kind().toBasic() {
 			case _array:
-				return (value : GoArray<Any>).cap();
+				return (value : GoArray<Any>).capacity;
 			case _slice:
-				return (value : Slice<Any>).cap();
+				return (value : Slice<Any>).capacity;
 			case _chan:
-				return (value : Chan<Any>).cap();
+				return (value : Chan<Any>).capacity;
 			default:
 				throw "not a cap type";
 		}
@@ -778,7 +778,7 @@ class Value {
 		var gt:GoType = @:privateAccess type().common().value;
 		switch gt {
 			case mapType(key, valueType):
-				var slice = new Slice<Value>(...[
+				var slice = new Slice<Value>(0, 0, ...[
 					for (obj in val) {
 						new Value(new AnyInterface(obj.key, new _Type(valueType)));
 					}
@@ -1479,7 +1479,7 @@ class _Type {
 					pkgPath: module,
 					type: new _Type(unroll(gt, field.type)),
 					tag: field.tag,
-					index: new Slice(index),
+					index: new Slice(index, index),
 					anonymous: field.embedded,
 				};
 			default:
@@ -1649,7 +1649,7 @@ class _Type {
 	public var type:Type = new _Type(invalidType);
 	public var tag:StructTag = new StructTag("");
 	public var offset:GoUIntptr = (0 : GoUIntptr);
-	public var index:Slice<GoInt> = new Slice<GoInt>(0);
+	public var index:Slice<GoInt> = new Slice<GoInt>(0, 0);
 	public var anonymous:Bool = false;
 
 	public function __underlying__():AnyInterface

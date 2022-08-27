@@ -9,11 +9,15 @@ import stdgo.StdGoTypes;
 
 class VectorData<T> {
 	public var vector:Vector<T>;
-	public var cap:Int = -1;
 
 	public var length(get, never):Int;
+	public var capacity(get, never):Int;
 
 	function get_length():Int {
+		return vector.length;
+	}
+
+	function get_capacity():Int {
 		return vector.length;
 	}
 
@@ -31,11 +35,7 @@ class VectorData<T> {
 // @:generic
 abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	public var length(get, never):GoInt;
-
-	public function __setCap__(cap:GoInt):GoArray<T> {
-		this.cap = cap.toBasic();
-		return this;
-	}
+	public var capacity(get, never):GoInt;
 
 	@:from private static function fromVector<T>(vector:Vector<T>):GoArray<T> {
 		var data = new VectorData<T>(vector.length);
@@ -43,11 +43,12 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		return data;
 	}
 
-	public function cap():GoInt
-		return this.cap == -1 ? length : this.cap;
-
 	private function get_length():GoInt {
 		return this.length;
+	}
+
+	private function get_capacity():GoInt {
+		return this.capacity;
 	}
 
 	public function iterator() {
@@ -88,8 +89,9 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		var obj = new Slice<T>();
-		obj.__setUnderlying__(this.vector, pos.toBasic(), length.toBasic());
+		final obj = new stdgo.Slice.SliceData<T>(this.length, this.capacity);
+		obj.pos = pos;
+		obj.vector = this.vector;
 		return obj;
 	}
 

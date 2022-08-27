@@ -84,7 +84,7 @@ final list = [
 		if (min != 0) {
 			name += ":" + Std.string(min);
 		}
-		_localLoc._zone = new Slice<T_zone>(...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
+		_localLoc._zone = new Slice<T_zone>(0, 0, ...[{_name: (name : GoString), _offset: offset, _isDST: false}]);
 	},
 	// stdgo/math
 	"math:trunc" => macro return _x > 0 ? floor(_x) : ceil(_x),

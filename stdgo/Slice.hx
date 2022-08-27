@@ -7,6 +7,7 @@ import stdgo.StdGoTypes;
 
 abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public var length(get, never):GoInt;
+	public var capacity(get, never):GoInt;
 
 	public function iterator():SliceIterator<T>
 		return this.iterator();
@@ -26,7 +27,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromBytes(bytes:Bytes):Slice<GoByte> {
-		return new Slice<GoByte>(...[
+		return new Slice<GoByte>(0, 0, ...[
 			for (i in 0...bytes.length)
 				bytes.get(i)
 		]);
@@ -42,13 +43,15 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromArray<T>(array:Array<T>):Slice<T> {
-		return new Slice(...array);
+		return new Slice(0, 0, ...array);
 	}
 
 	@:from
 	public static function fromVector<T>(vector:Vector<T>):Slice<T> {
-		final data = new SliceData(0);
+		final data = new SliceData(0, 0);
 		@:privateAccess data.vector = vector;
+		data.length = vector.length;
+		data.capacity = vector.length;
 		return data;
 	}
 
@@ -67,32 +70,29 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	@:from
 	private static function fromArrayPointer<T>(ptr:Pointer<GoArray<T>>):Slice<T> {
 		final vector = ptr.value.__toVector__();
-		var slice = new Slice<T>();
-		slice.__setUnderlying__(vector, 0, vector.length);
+		var slice = new SliceData<T>(vector.length, vector.length);
 		return slice;
 	}
 
-	private function get_length():Int {
-		return this.length;
+	private function get_length():GoInt {
+		return this == null ? 0 : this.length;
+	}
+
+	private function get_capacity():GoInt {
+		return this == null ? 0 : this.capacity;
 	}
 
 	public function __getUnderlying__():Vector<T> {
 		return this.underlying();
 	}
 
-	public function new(args:Rest<T>) {
-		var length = args.length;
-		this = new SliceData(length);
+	public function new(length:GoInt, capacity:GoInt, args:Rest<T>) {
+		this = new SliceData(length, capacity);
 		if (args.length == 0)
 			return;
-		for (i in 0...args.length) {
-			__set__(i, args[i]);
-		}
-	}
-
-	public function __setCap__(cap:GoInt):Slice<T> {
-		@:privateAccess this._cap = cap.toBasic();
-		return this;
+		this.length = args.length;
+		this.capacity = this.length;
+		this.vector = haxe.ds.Vector.fromArrayCopy(args.toArray());
 	}
 
 	@:op([]) public function __get__(index:GoInt):T {
@@ -107,43 +107,48 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 		return this.pos;
 	}
 
-	public function __slice__(low:GoInt, high:GoInt = -1):Slice<T> {
+	public function __slice__(low:GoInt, high:GoInt = -1, cap:GoInt = -1):Slice<T> {
 		if (this == null)
 			return null;
 		var pos = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		var obj = new Slice<T>();
-		obj.__setUnderlying__(this.underlying(), this.pos + pos.toBasic(), length.toBasic());
+		if (cap == -1)
+			cap = this.length;
+		var obj = new SliceData<T>(length, cap);
 		return obj;
 	}
 
 	public function __copy__():Slice<T> {
-		var slice = new Slice<T>();
-		slice.__grow__(length.toBasic());
-		for (i in 0...slice.length.toBasic()) {
-			slice[i] = __get__(i);
-		}
+		final slice = new SliceData<T>(this.length, this.capacity);
+		slice.vector = this.vector;
+		slice.pos = this.pos;
 		return slice;
 	}
 
 	public function __append__(args:Rest<T>):Slice<T> {
-		var slice = __copy__();
-		var pos = slice.length.toBasic();
-		slice.__grow__(args.length);
+		var slice:SliceData<T> = __copy__();
+		final pos = slice.pos + slice.length;
+		final growLength = pos - slice.capacity + args.length;
+		slice.length += args.length;
+		if (growLength <= 0) {
+			for (i in 0...args.length) {
+				slice.set(pos + i, args[i]);
+			}
+			return slice;
+		}
+		slice.capacity += growLength;
+		slice.capacity += slice.capacity >> 2;
+		slice.grow(growLength);
 		for (i in 0...args.length) {
-			slice[pos + i] = args[i];
+			slice.set(pos + i, args[i]);
 		}
 		return slice;
 	}
 
 	public function __grow__(size:Int) {
 		this.grow(size);
-	}
-
-	public function cap():GoInt {
-		return @:privateAccess this._cap == -1 ? length : @:privateAccess this._cap;
 	}
 
 	public function __toArray__() {
@@ -193,17 +198,17 @@ private class SliceIterator<T> {
 	}
 }
 
-private class SliceData<T> {
-	var vector:Vector<T>;
+class SliceData<T> {
+	public var vector:Vector<T>;
 
 	public var pos:Int = 0;
 	public var length:Int = 0;
+	public var capacity:Int = 0;
 
-	var _cap:Int = -1;
-
-	public function new(length:Int = 0) {
+	public function new(length:Int, capacity:Int) {
 		this.length = length;
-		vector = new Vector<T>(length);
+		this.capacity = capacity;
+		vector = new Vector<T>(capacity);
 	}
 
 	private function boundsCheck(i:Int) {
@@ -232,10 +237,6 @@ private class SliceData<T> {
 	public function keyValueIterator()
 		return new SliceKeyValueIterator(this);
 
-	public function cap():Int {
-		return _cap;
-	}
-
 	public function toArray():Array<T> { // unrolling
 		return [for (i in 0...length) get(i)];
 	}
@@ -252,9 +253,6 @@ private class SliceData<T> {
 	}
 
 	public function grow(size:Int) {
-		if (vector.length >= size + length)
-			return;
-		length += size;
 		var dest = new Vector<T>(length);
 		Vector.blit(vector, 0, dest, 0, vector.length);
 		vector = dest;

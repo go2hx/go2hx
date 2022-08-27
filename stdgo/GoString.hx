@@ -89,9 +89,8 @@ abstract GoString(Bytes) from Bytes to Bytes {
 		return this.get(index.toBasic());
 
 	@:to public function __toSliceByte__():Slice<GoByte> {
-		var slice = new Slice<GoByte>();
-		slice.__grow__(length.toBasic());
-		for (i in 0...length.toBasic()) {
+		var slice = new Slice<GoByte>(this.length, this.length);
+		for (i in 0...this.length) {
 			var value = this.get(i);
 			slice[i] = value;
 		}
@@ -104,7 +103,7 @@ abstract GoString(Bytes) from Bytes to Bytes {
 
 	@:to public function __toSliceRune__():Slice<GoRune> {
 		var bytes = __toSliceByte__();
-		var runes = new Slice<GoRune>();
+		var runes = new Slice<GoRune>(0, 0);
 		#if nolinkstd
 		trace("std not linked");
 		return [];

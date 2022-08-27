@@ -593,7 +593,7 @@ function encodeRune(_p:Slice<GoByte>, _r:GoRune):GoInt {
 **/
 function appendRune(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
         if (((_r : GoUInt32)) <= ((127 : GoUInt32))) {
-            return (_p != null ? _p.__append__(((_r : GoByte))) : new Slice<GoUInt8>(((_r : GoByte))));
+            return (_p != null ? _p.__append__(((_r : GoByte))) : new Slice<GoUInt8>(0, 0, ((_r : GoByte))));
         };
         return _appendRuneNonASCII(_p, _r);
     }
@@ -604,7 +604,7 @@ function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
                 var __switchIndex__ = -1;
                 while (true) {
                     if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i <= ((2047 : GoUInt32)))) {
-                        return (_p != null ? _p.__append__(((192 : GoUInt8)) | (((_r >> ((6 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(((192 : GoUInt8)) | (((_r >> ((6 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
+                        return (_p != null ? _p.__append__(((192 : GoUInt8)) | (((_r >> ((6 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(0, 0, ((192 : GoUInt8)) | (((_r >> ((6 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
                         break;
                         break;
                     } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i > ((1114111 : GoUInt32)) || (((55296 : GoUInt32)) <= _i) && (_i <= ((57343 : GoUInt32))))) {
@@ -615,11 +615,11 @@ function _appendRuneNonASCII(_p:Slice<GoByte>, _r:GoRune):Slice<GoByte> {
                         };
                         break;
                     } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i <= ((65535 : GoUInt32)))) {
-                        return (_p != null ? _p.__append__(((224 : GoUInt8)) | (((_r >> ((12 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(((224 : GoUInt8)) | (((_r >> ((12 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
+                        return (_p != null ? _p.__append__(((224 : GoUInt8)) | (((_r >> ((12 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(0, 0, ((224 : GoUInt8)) | (((_r >> ((12 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
                         break;
                         break;
                     } else {
-                        return (_p != null ? _p.__append__(((240 : GoUInt8)) | (((_r >> ((18 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((12 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(((240 : GoUInt8)) | (((_r >> ((18 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((12 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
+                        return (_p != null ? _p.__append__(((240 : GoUInt8)) | (((_r >> ((18 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((12 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))) : new Slice<GoUInt8>(0, 0, ((240 : GoUInt8)) | (((_r >> ((18 : GoUnTypedInt))) : GoByte)), ((128 : GoUInt8)) | ((((_r >> ((12 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | ((((_r >> ((6 : GoUnTypedInt))) : GoByte)) & ((63 : GoUInt8))), ((128 : GoUInt8)) | (((_r : GoByte)) & ((63 : GoUInt8)))));
                         break;
                     };
                     break;
@@ -734,7 +734,7 @@ function runeStart(_b:GoByte):Bool {
     // Valid reports whether p consists entirely of valid UTF-8-encoded runes.
 **/
 function valid(_p:Slice<GoByte>):Bool {
-        _p = ((_p.__slice__(0, (_p != null ? _p.length : ((0 : GoInt)))) : Slice<GoUInt8>)).__setCap__((((_p != null ? _p.length : ((0 : GoInt))) : GoInt)) - ((1 : GoInt)));
+        _p = ((_p.__slice__(0, (_p != null ? _p.length : ((0 : GoInt))), (_p != null ? _p.length : ((0 : GoInt)))) : Slice<GoUInt8>));
         while ((_p != null ? _p.length : ((0 : GoInt))) >= ((8 : GoInt))) {
             var _first32:GoUInt32 = (((((_p != null ? _p[((0 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_p != null ? _p[((1 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_p != null ? _p[((2 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_p != null ? _p[((3 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));
             var _second32:GoUInt32 = (((((_p != null ? _p[((4 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) | ((((_p != null ? _p[((5 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((8 : GoUnTypedInt)))) | ((((_p != null ? _p[((6 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((16 : GoUnTypedInt)))) | ((((_p != null ? _p[((7 : GoInt))] : ((0 : GoUInt8))) : GoUInt32)) << ((24 : GoUnTypedInt)));

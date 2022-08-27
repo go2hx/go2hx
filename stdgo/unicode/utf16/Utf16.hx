@@ -49,7 +49,7 @@ function encode(_s:Slice<GoRune>):Slice<GoUInt16> {
                 _n++;
             };
         };
-        var _a = new Slice<GoUInt16>(...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoUInt16))]);
+        var _a = new Slice<GoUInt16>(((_n : GoInt)).toBasic(), 0, ...[for (i in 0 ... ((_n : GoInt)).toBasic()) ((0 : GoUInt16))]);
         _n = ((0 : GoInt));
         for (_1 => _v in _s) {
             if ((((0 : GoInt32)) <= _v) && (_v < ((55296 : GoInt32))) || (((57344 : GoInt32)) <= _v) && (_v < ((65536 : GoInt32)))) {
@@ -72,7 +72,7 @@ function encode(_s:Slice<GoRune>):Slice<GoUInt16> {
     // by the UTF-16 encoding s.
 **/
 function decode(_s:Slice<GoUInt16>):Slice<GoRune> {
-        var _a = new Slice<GoInt32>(...[for (i in 0 ... (((_s != null ? _s.length : ((0 : GoInt))) : GoInt)).toBasic()) ((0 : GoInt32))]);
+        var _a = new Slice<GoInt32>((((_s != null ? _s.length : ((0 : GoInt))) : GoInt)).toBasic(), 0, ...[for (i in 0 ... (((_s != null ? _s.length : ((0 : GoInt))) : GoInt)).toBasic()) ((0 : GoInt32))]);
         var _n:GoInt = ((0 : GoInt));
         {
             var _i:GoInt = ((0 : GoInt));

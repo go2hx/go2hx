@@ -9,30 +9,32 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 var _tests : Slice<stdgo.testing.Testing.InternalTest> = ((new Slice<stdgo.testing.Testing.InternalTest>(
-((new stdgo.testing.Testing.InternalTest(((((("TestEverything" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testEverything) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestGet" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testGet) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUsage" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUsage) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestParse" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testParse) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestFlagSetParse" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testFlagSetParse) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUserDefined" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUserDefined) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUserDefinedFunc" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUserDefinedFunc) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUserDefinedForCommandLine" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUserDefinedForCommandLine) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUserDefinedBool" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUserDefinedBool) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestSetOutput" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testSetOutput) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestChangingArgs" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testChangingArgs) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestHelp" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testHelp) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestPrintDefaults" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testPrintDefaults) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestIntFlagOverflow" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testIntFlagOverflow) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestUsageOutput" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testUsageOutput) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestGetters" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testGetters) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestParseError" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testParseError) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestRangeError" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testRangeError) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestExitCode" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testExitCode) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestInvalidFlags" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testInvalidFlags) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestRedefinedFlags" : GoString))) : GoString)), stdgo.flag_test.Flag_test.testRedefinedFlags) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
-var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((new Slice<stdgo.testing.Testing.InternalBenchmark>() : Slice<stdgo.testing.Testing.InternalBenchmark>));
-var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((new Slice<stdgo.testing.Testing.InternalFuzzTarget>() : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
-var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>(((new stdgo.testing.Testing.InternalExample(((((("ExampleFunc" : GoString))) : GoString)), stdgo.flag_test.Flag_test.exampleFunc, ((((("{ip: 127.0.0.1, loopback: true}\n\ninvalid value \"256.0.0.1\" for flag -ip: could not parse IP\nUsage of ExampleFunc:\n  -ip IP address\n    \tIP address to parse\n{ip: <nil>, loopback: false}\n" : GoString))) : GoString)), false) : stdgo.testing.Testing.InternalExample)), ((new stdgo.testing.Testing.InternalExample(((((("ExampleTextVar" : GoString))) : GoString)), stdgo.flag_test.Flag_test.exampleTextVar, ((((("{ip: 127.0.0.1}\n\ninvalid value \"256.0.0.1\" for flag -ip: invalid IP address: 256.0.0.1\nUsage of ExampleTextVar:\n  -ip IP address\n    \tIP address to parse (default 192.168.0.100)\n{ip: <nil>}\n" : GoString))) : GoString)), false) : stdgo.testing.Testing.InternalExample)), ((new stdgo.testing.Testing.InternalExample(((((("ExampleValue" : GoString))) : GoString)), stdgo.flag_test.Flag_test.exampleValue, ((((("{scheme: \"https\", host: \"golang.org\", path: \"/pkg/flag/\"}\n" : GoString))) : GoString)), false) : stdgo.testing.Testing.InternalExample))) : Slice<stdgo.testing.Testing.InternalExample>));
+0,
+0,
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestEverything") : GoString)), stdgo.flag_test.Flag_test.testEverything) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestGet") : GoString)), stdgo.flag_test.Flag_test.testGet) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUsage") : GoString)), stdgo.flag_test.Flag_test.testUsage) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestParse") : GoString)), stdgo.flag_test.Flag_test.testParse) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestFlagSetParse") : GoString)), stdgo.flag_test.Flag_test.testFlagSetParse) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUserDefined") : GoString)), stdgo.flag_test.Flag_test.testUserDefined) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUserDefinedFunc") : GoString)), stdgo.flag_test.Flag_test.testUserDefinedFunc) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUserDefinedForCommandLine") : GoString)), stdgo.flag_test.Flag_test.testUserDefinedForCommandLine) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUserDefinedBool") : GoString)), stdgo.flag_test.Flag_test.testUserDefinedBool) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestSetOutput") : GoString)), stdgo.flag_test.Flag_test.testSetOutput) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestChangingArgs") : GoString)), stdgo.flag_test.Flag_test.testChangingArgs) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestHelp") : GoString)), stdgo.flag_test.Flag_test.testHelp) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestPrintDefaults") : GoString)), stdgo.flag_test.Flag_test.testPrintDefaults) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestIntFlagOverflow") : GoString)), stdgo.flag_test.Flag_test.testIntFlagOverflow) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestUsageOutput") : GoString)), stdgo.flag_test.Flag_test.testUsageOutput) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestGetters") : GoString)), stdgo.flag_test.Flag_test.testGetters) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestParseError") : GoString)), stdgo.flag_test.Flag_test.testParseError) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestRangeError") : GoString)), stdgo.flag_test.Flag_test.testRangeError) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestExitCode") : GoString)), stdgo.flag_test.Flag_test.testExitCode) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestInvalidFlags") : GoString)), stdgo.flag_test.Flag_test.testInvalidFlags) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestRedefinedFlags") : GoString)), stdgo.flag_test.Flag_test.testRedefinedFlags) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
+var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0) : Slice<stdgo.testing.Testing.InternalBenchmark>));
+var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
+var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>(0, 0, ((new stdgo.testing.Testing.InternalExample(((Go.str("ExampleFunc") : GoString)), stdgo.flag_test.Flag_test.exampleFunc, ((Go.str("{ip: 127.0.0.1, loopback: true}\n\ninvalid value \"256.0.0.1\" for flag -ip: could not parse IP\nUsage of ExampleFunc:\n  -ip IP address\n    \tIP address to parse\n{ip: <nil>, loopback: false}\n") : GoString)), false) : stdgo.testing.Testing.InternalExample)), ((new stdgo.testing.Testing.InternalExample(((Go.str("ExampleTextVar") : GoString)), stdgo.flag_test.Flag_test.exampleTextVar, ((Go.str("{ip: 127.0.0.1}\n\ninvalid value \"256.0.0.1\" for flag -ip: invalid IP address: 256.0.0.1\nUsage of ExampleTextVar:\n  -ip IP address\n    \tIP address to parse (default 192.168.0.100)\n{ip: <nil>}\n") : GoString)), false) : stdgo.testing.Testing.InternalExample)), ((new stdgo.testing.Testing.InternalExample(((Go.str("ExampleValue") : GoString)), stdgo.flag_test.Flag_test.exampleValue, ((Go.str("{scheme: \"https\", host: \"golang.org\", path: \"/pkg/flag/\"}\n") : GoString)), false) : stdgo.testing.Testing.InternalExample))) : Slice<stdgo.testing.Testing.InternalExample>));
 function main():Void {
         var _m = stdgo.testing.Testing.mainStart({
             final __self__ = new stdgo.testing.internal.testdeps.Testdeps.TestDeps_wrapper(((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)));
@@ -56,7 +58,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ((((("flag" : GoString))) : GoString));
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ((Go.str("flag") : GoString));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

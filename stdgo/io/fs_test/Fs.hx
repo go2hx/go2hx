@@ -9,21 +9,23 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 var _tests : Slice<stdgo.testing.Testing.InternalTest> = ((new Slice<stdgo.testing.Testing.InternalTest>(
-((new stdgo.testing.Testing.InternalTest(((((("TestValidPath" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestGlob" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestGlobError" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestCVE202230630" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestGlobMethod" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestReadDir" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestFileInfoToDirEntry" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestReadFile" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestStat" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestSub" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestWalkDir" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest)),
-((new stdgo.testing.Testing.InternalTest(((((("TestIssue51617" : GoString))) : GoString)), stdgo.io.fs_test.Fs_test.testIssue51617) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
-var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((new Slice<stdgo.testing.Testing.InternalBenchmark>() : Slice<stdgo.testing.Testing.InternalBenchmark>));
-var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((new Slice<stdgo.testing.Testing.InternalFuzzTarget>() : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
-var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>() : Slice<stdgo.testing.Testing.InternalExample>));
+0,
+0,
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestValidPath") : GoString)), stdgo.io.fs_test.Fs_test.testValidPath) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestGlob") : GoString)), stdgo.io.fs_test.Fs_test.testGlob) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestGlobError") : GoString)), stdgo.io.fs_test.Fs_test.testGlobError) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestCVE202230630") : GoString)), stdgo.io.fs_test.Fs_test.testCVE202230630) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestGlobMethod") : GoString)), stdgo.io.fs_test.Fs_test.testGlobMethod) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestReadDir") : GoString)), stdgo.io.fs_test.Fs_test.testReadDir) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestFileInfoToDirEntry") : GoString)), stdgo.io.fs_test.Fs_test.testFileInfoToDirEntry) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestReadFile") : GoString)), stdgo.io.fs_test.Fs_test.testReadFile) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestStat") : GoString)), stdgo.io.fs_test.Fs_test.testStat) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestSub") : GoString)), stdgo.io.fs_test.Fs_test.testSub) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestWalkDir") : GoString)), stdgo.io.fs_test.Fs_test.testWalkDir) : stdgo.testing.Testing.InternalTest)),
+((new stdgo.testing.Testing.InternalTest(((Go.str("TestIssue51617") : GoString)), stdgo.io.fs_test.Fs_test.testIssue51617) : stdgo.testing.Testing.InternalTest))) : Slice<stdgo.testing.Testing.InternalTest>));
+var _benchmarks : Slice<stdgo.testing.Testing.InternalBenchmark> = ((new Slice<stdgo.testing.Testing.InternalBenchmark>(0, 0) : Slice<stdgo.testing.Testing.InternalBenchmark>));
+var _fuzzTargets : Slice<stdgo.testing.Testing.InternalFuzzTarget> = ((new Slice<stdgo.testing.Testing.InternalFuzzTarget>(0, 0) : Slice<stdgo.testing.Testing.InternalFuzzTarget>));
+var _examples : Slice<stdgo.testing.Testing.InternalExample> = ((new Slice<stdgo.testing.Testing.InternalExample>(0, 0) : Slice<stdgo.testing.Testing.InternalExample>));
 function main():Void {
         var _m = stdgo.testing.Testing.mainStart({
             final __self__ = new stdgo.testing.internal.testdeps.Testdeps.TestDeps_wrapper(((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps)));
@@ -47,7 +49,7 @@ function main():Void {
     }
 @:keep var _ = {
         try {
-            stdgo.testing.internal.testdeps.Testdeps.importPath = ((((("io/fs" : GoString))) : GoString));
+            stdgo.testing.internal.testdeps.Testdeps.importPath = ((Go.str("io/fs") : GoString));
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };

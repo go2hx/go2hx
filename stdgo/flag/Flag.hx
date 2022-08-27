@@ -8,12 +8,12 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var errHelp : stdgo.Error = stdgo.errors.Errors.new_(((((("flag: help requested" : GoString))) : GoString)));
-var _errParse : stdgo.Error = stdgo.errors.Errors.new_(((((("parse error" : GoString))) : GoString)));
-var _errRange : stdgo.Error = stdgo.errors.Errors.new_(((((("value out of range" : GoString))) : GoString)));
+var errHelp : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("flag: help requested") : GoString)));
+var _errParse : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("parse error") : GoString)));
+var _errRange : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("value out of range") : GoString)));
 var commandLine : Ref<FlagSet> = newFlagSet((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString))), ((1 : ErrorHandling)));
 var usage : () -> Void = function():Void {
-        stdgo.fmt.Fmt.fprintf(commandLine.output(), ((((("Usage of %s:\n" : GoString))) : GoString)), Go.toInterface((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString)))));
+        stdgo.fmt.Fmt.fprintf(commandLine.output(), ((Go.str("Usage of %s:\n") : GoString)), Go.toInterface((stdgo.os.Os.args != null ? stdgo.os.Os.args[((0 : GoInt))] : (("" : GoString)))));
         printDefaults();
     };
 var defaultUsage : () -> Void = usage;
@@ -152,14 +152,14 @@ function _newDurationValue(_val:stdgo.time.Time.Duration, _p:Pointer<stdgo.time.
 function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.encoding.Encoding.TextUnmarshaler):T_textValue {
         var _ptrVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_p)).__copy__());
         if (_ptrVal.kind() != ((22 : stdgo.reflect.Reflect.Kind))) {
-            throw Go.toInterface(((((("variable value type must be a pointer" : GoString))) : GoString)));
+            throw Go.toInterface(((Go.str("variable value type must be a pointer") : GoString)));
         };
         var _defVal:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_val)).__copy__());
         if (_defVal.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
             _defVal = (_defVal.elem() == null ? null : _defVal.elem().__copy__());
         };
         if (_defVal.type() != _ptrVal.type().elem()) {
-            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((((("default type does not match variable type: %v != %v" : GoString))) : GoString)), Go.toInterface(_defVal.type()), Go.toInterface(_ptrVal.type().elem())));
+            throw Go.toInterface(stdgo.fmt.Fmt.sprintf(((Go.str("default type does not match variable type: %v != %v") : GoString)), Go.toInterface(_defVal.type()), Go.toInterface(_ptrVal.type().elem())));
         };
         _ptrVal.elem().set((_defVal == null ? null : _defVal.__copy__()));
         return ((new T_textValue(_p) : T_textValue));
@@ -168,7 +168,7 @@ function _newTextValue(_val:stdgo.encoding.Encoding.TextMarshaler, _p:stdgo.enco
     // sortFlags returns the flags as a slice in lexicographical sorted order.
 **/
 function _sortFlags(_flags:GoMap<GoString, Flag>):Slice<Flag> {
-        var _result = new Slice<Ref<Flag>>(...[for (i in 0 ... (((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic()) ((null : Flag))]);
+        var _result = new Slice<Ref<Flag>>((((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic(), 0, ...[for (i in 0 ... (((_flags != null ? _flags.length : ((0 : GoInt))) : GoInt)).toBasic()) ((null : Flag))]);
         var _i:GoInt = ((0 : GoInt));
         for (_0 => _f in _flags) {
             if (_result != null) _result[_i] = _f;
@@ -235,7 +235,7 @@ function _isZeroValue(_flag:Flag, _value:GoString):{ var _0 : Bool; var _1 : Err
                             if (_typ.kind() == ((22 : stdgo.reflect.Reflect.Kind))) {
                                 _typ = _typ.elem();
                             };
-                            _err = stdgo.fmt.Fmt.errorf(((((("panic calling String method on zero %v for flag %s: %v" : GoString))) : GoString)), Go.toInterface(_typ), Go.toInterface(_flag.name), Go.toInterface(_e));
+                            _err = stdgo.fmt.Fmt.errorf(((Go.str("panic calling String method on zero %v for flag %s: %v") : GoString)), Go.toInterface(_typ), Go.toInterface(_flag.name), Go.toInterface(_e));
                         };
                     };
                 };
@@ -295,19 +295,19 @@ function unquoteUsage(_flag:Flag):{ var _0 : GoString; var _1 : GoString; } {
                 };
             });
         };
-        _name = ((((("value" : GoString))) : GoString));
+        _name = ((Go.str("value") : GoString));
         if (Go.assertable(((_flag.value : T_boolFlag)))) {
-            _name = ((((("" : GoString))) : GoString));
+            _name = ((Go.str() : GoString));
         } else if (Go.assertable(((_flag.value : Pointer<T_durationValue>)))) {
-            _name = ((((("duration" : GoString))) : GoString));
+            _name = ((Go.str("duration") : GoString));
         } else if (Go.assertable(((_flag.value : Pointer<T_float64Value>)))) {
-            _name = ((((("float" : GoString))) : GoString));
+            _name = ((Go.str("float") : GoString));
         } else if (Go.assertable(((_flag.value : Pointer<T_intValue>))) || Go.assertable(((_flag.value : Pointer<T_int64Value>)))) {
-            _name = ((((("int" : GoString))) : GoString));
+            _name = ((Go.str("int") : GoString));
         } else if (Go.assertable(((_flag.value : Pointer<T_stringValue>)))) {
-            _name = ((((("string" : GoString))) : GoString));
+            _name = ((Go.str("string") : GoString));
         } else if (Go.assertable(((_flag.value : Pointer<T_uintValue>))) || Go.assertable(((_flag.value : Pointer<T_uint64Value>)))) {
-            _name = ((((("uint" : GoString))) : GoString));
+            _name = ((Go.str("uint") : GoString));
         };
         return { _0 : _name, _1 : _usage };
     }
@@ -616,7 +616,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
                 };
             };
         };
-        return ((((("" : GoString))) : GoString));
+        return ((Go.str() : GoString));
     }
     @:keep
     static public function get( _v:T_textValue):AnyInterface {
@@ -709,11 +709,11 @@ class T_textValue_wrapper {
         };
         var _name:GoString = ((_s.__slice__(_numMinuses) : GoString));
         if ((((_name != null ? _name.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == (("-".code : GoUInt8)))) || ((_name != null ? _name[((0 : GoInt))] : ((0 : GoUInt8))) == (("=".code : GoUInt8)))) {
-            return { _0 : false, _1 : _f._failf(((((("bad flag syntax: %s" : GoString))) : GoString)), Go.toInterface(_s)) };
+            return { _0 : false, _1 : _f._failf(((Go.str("bad flag syntax: %s") : GoString)), Go.toInterface(_s)) };
         };
         _f._args = ((_f._args.__slice__(((1 : GoInt))) : Slice<GoString>));
         var _hasValue:Bool = false;
-        var _value:GoString = ((((("" : GoString))) : GoString));
+        var _value:GoString = ((Go.str() : GoString));
         {
             var _i:GoInt = ((1 : GoInt));
             Go.cfor(_i < (_name != null ? _name.length : ((0 : GoInt))), _i++, {
@@ -728,11 +728,11 @@ class T_textValue_wrapper {
         var _m = _f._formal;
         var __tmp__ = (_m != null && _m.__exists__(_name) ? { value : _m[_name], ok : true } : { value : ((null : Flag)), ok : false }), _flag:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (!_alreadythere) {
-            if ((_name == ((((("help" : GoString))) : GoString))) || (_name == ((((("h" : GoString))) : GoString)))) {
+            if ((_name == ((Go.str("help") : GoString))) || (_name == ((Go.str("h") : GoString)))) {
                 _f._usage();
                 return { _0 : false, _1 : errHelp };
             };
-            return { _0 : false, _1 : _f._failf(((((("flag provided but not defined: -%s" : GoString))) : GoString)), Go.toInterface(_name)) };
+            return { _0 : false, _1 : _f._failf(((Go.str("flag provided but not defined: -%s") : GoString)), Go.toInterface(_name)) };
         };
         {
             var __tmp__ = try {
@@ -745,14 +745,14 @@ class T_textValue_wrapper {
                     {
                         var _err:stdgo.Error = _fv.set(_value);
                         if (_err != null) {
-                            return { _0 : false, _1 : _f._failf(((((("invalid boolean value %q for -%s: %v" : GoString))) : GoString)), Go.toInterface(_value), Go.toInterface(_name), Go.toInterface(_err)) };
+                            return { _0 : false, _1 : _f._failf(((Go.str("invalid boolean value %q for -%s: %v") : GoString)), Go.toInterface(_value), Go.toInterface(_name), Go.toInterface(_err)) };
                         };
                     };
                 } else {
                     {
-                        var _err:stdgo.Error = _fv.set(((((("true" : GoString))) : GoString)));
+                        var _err:stdgo.Error = _fv.set(((Go.str("true") : GoString)));
                         if (_err != null) {
-                            return { _0 : false, _1 : _f._failf(((((("invalid boolean flag %s: %v" : GoString))) : GoString)), Go.toInterface(_name), Go.toInterface(_err)) };
+                            return { _0 : false, _1 : _f._failf(((Go.str("invalid boolean flag %s: %v") : GoString)), Go.toInterface(_name), Go.toInterface(_err)) };
                         };
                     };
                 };
@@ -767,12 +767,12 @@ class T_textValue_wrapper {
                     };
                 };
                 if (!_hasValue) {
-                    return { _0 : false, _1 : _f._failf(((((("flag needs an argument: -%s" : GoString))) : GoString)), Go.toInterface(_name)) };
+                    return { _0 : false, _1 : _f._failf(((Go.str("flag needs an argument: -%s") : GoString)), Go.toInterface(_name)) };
                 };
                 {
                     var _err:stdgo.Error = _flag.value.set(_value);
                     if (_err != null) {
-                        return { _0 : false, _1 : _f._failf(((((("invalid value %q for flag -%s: %v" : GoString))) : GoString)), Go.toInterface(_value), Go.toInterface(_name), Go.toInterface(_err)) };
+                        return { _0 : false, _1 : _f._failf(((Go.str("invalid value %q for flag -%s: %v") : GoString)), Go.toInterface(_value), Go.toInterface(_name), Go.toInterface(_err)) };
                     };
                 };
             };
@@ -801,7 +801,7 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function _failf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):Error {
-        var _a = new Slice<AnyInterface>(..._a);
+        var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _msg:GoString = _f._sprintf(_format, ..._a.__toArray__());
         _f._usage();
         return stdgo.errors.Errors.new_(_msg);
@@ -811,7 +811,7 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function _sprintf( _f:FlagSet, _format:GoString, _a:haxe.Rest<AnyInterface>):GoString {
-        var _a = new Slice<AnyInterface>(..._a);
+        var _a = new Slice<AnyInterface>(0, 0, ..._a);
         var _msg:GoString = stdgo.fmt.Fmt.sprintf(_format, ..._a.__toArray__());
         stdgo.fmt.Fmt.fprintln(_f.output(), _msg);
         return _msg;
@@ -826,19 +826,19 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function var_( _f:FlagSet, _value:Value, _name:GoString, _usage:GoString):Void {
-        if (stdgo.strings.Strings.hasPrefix(_name, ((((("-" : GoString))) : GoString)))) {
-            throw Go.toInterface(_f._sprintf(((((("flag %q begins with -" : GoString))) : GoString)), Go.toInterface(_name)));
-        } else if (stdgo.strings.Strings.contains(_name, ((((("=" : GoString))) : GoString)))) {
-            throw Go.toInterface(_f._sprintf(((((("flag %q contains =" : GoString))) : GoString)), Go.toInterface(_name)));
+        if (stdgo.strings.Strings.hasPrefix(_name, ((Go.str("-") : GoString)))) {
+            throw Go.toInterface(_f._sprintf(((Go.str("flag %q begins with -") : GoString)), Go.toInterface(_name)));
+        } else if (stdgo.strings.Strings.contains(_name, ((Go.str("=") : GoString)))) {
+            throw Go.toInterface(_f._sprintf(((Go.str("flag %q contains =") : GoString)), Go.toInterface(_name)));
         };
         var _flag = ((new Flag(_name, _usage, _value, ((_value.string() : GoString))) : Flag));
         var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : ((null : Flag)), ok : false }), _0:Ref<Flag> = __tmp__.value, _alreadythere:Bool = __tmp__.ok;
         if (_alreadythere) {
             var _msg:GoString = (("" : GoString));
-            if (_f._name == ((((("" : GoString))) : GoString))) {
-                _msg = _f._sprintf(((((("flag redefined: %s" : GoString))) : GoString)), Go.toInterface(_name));
+            if (_f._name == ((Go.str() : GoString))) {
+                _msg = _f._sprintf(((Go.str("flag redefined: %s") : GoString)), Go.toInterface(_name));
             } else {
-                _msg = _f._sprintf(((((("%s flag redefined: %s" : GoString))) : GoString)), Go.toInterface(_f._name), Go.toInterface(_name));
+                _msg = _f._sprintf(((Go.str("%s flag redefined: %s") : GoString)), Go.toInterface(_f._name), Go.toInterface(_name));
             };
             throw Go.toInterface(_msg);
         };
@@ -1095,7 +1095,7 @@ class T_textValue_wrapper {
     @:keep
     static public function arg( _f:FlagSet, _i:GoInt):GoString {
         if ((_i < ((0 : GoInt))) || (_i >= (_f._args != null ? _f._args.length : ((0 : GoInt))))) {
-            return ((((("" : GoString))) : GoString));
+            return ((Go.str() : GoString));
         };
         return (_f._args != null ? _f._args[_i] : (("" : GoString)));
     }
@@ -1111,10 +1111,10 @@ class T_textValue_wrapper {
     **/
     @:keep
     static public function _defaultUsage( _f:FlagSet):Void {
-        if (_f._name == ((((("" : GoString))) : GoString))) {
-            stdgo.fmt.Fmt.fprintf(_f.output(), ((((("Usage:\n" : GoString))) : GoString)));
+        if (_f._name == ((Go.str() : GoString))) {
+            stdgo.fmt.Fmt.fprintf(_f.output(), ((Go.str("Usage:\n") : GoString)));
         } else {
-            stdgo.fmt.Fmt.fprintf(_f.output(), ((((("Usage of %s:\n" : GoString))) : GoString)), Go.toInterface(_f._name));
+            stdgo.fmt.Fmt.fprintf(_f.output(), ((Go.str("Usage of %s:\n") : GoString)), Go.toInterface(_f._name));
         };
         _f.printDefaults();
     }
@@ -1142,22 +1142,22 @@ class T_textValue_wrapper {
                 __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
                 __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                 __self__;
-            }, ((((("  -%s" : GoString))) : GoString)), Go.toInterface(_flag.name));
+            }, ((Go.str("  -%s") : GoString)), Go.toInterface(_flag.name));
             var __tmp__ = unquoteUsage(_flag), _name:GoString = __tmp__._0, _usage:GoString = __tmp__._1;
             if ((_name != null ? _name.length : ((0 : GoInt))) > ((0 : GoInt))) {
-                _b.writeString((((((" " : GoString))) : GoString)));
+                _b.writeString(((Go.str(" ") : GoString)));
                 _b.writeString(_name);
             };
             if (_b.len() <= ((4 : GoInt))) {
-                _b.writeString(((((("\t" : GoString))) : GoString)));
+                _b.writeString(((Go.str("\t") : GoString)));
             } else {
-                _b.writeString(((((("\n    \t" : GoString))) : GoString)));
+                _b.writeString(((Go.str("\n    \t") : GoString)));
             };
-            _b.writeString(stdgo.strings.Strings.replaceAll(_usage, ((((("\n" : GoString))) : GoString)), ((((("\n    \t" : GoString))) : GoString))));
+            _b.writeString(stdgo.strings.Strings.replaceAll(_usage, ((Go.str("\n") : GoString)), ((Go.str("\n    \t") : GoString))));
             {
                 var __tmp__ = _isZeroValue(_flag, _flag.defValue), _isZero:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err != null) {
-                    _isZeroValueErrs = (_isZeroValueErrs != null ? _isZeroValueErrs.__append__(_err) : new Slice<stdgo.Error>(_err));
+                    _isZeroValueErrs = (_isZeroValueErrs != null ? _isZeroValueErrs.__append__(_err) : new Slice<stdgo.Error>(0, 0, _err));
                 } else if (!_isZero) {
                     {
                         var __tmp__ = try {
@@ -1180,7 +1180,7 @@ class T_textValue_wrapper {
                                 __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
                                 __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                                 __self__;
-                            }, (((((" (default %q)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
+                            }, ((Go.str(" (default %q)") : GoString)), Go.toInterface(_flag.defValue));
                         } else {
                             stdgo.fmt.Fmt.fprintf({
                                 final __self__ = new stdgo.strings.Strings.Builder_wrapper(_b);
@@ -1196,12 +1196,12 @@ class T_textValue_wrapper {
                                 __self__._copyCheck = #if !macro function():Void _b._copyCheck() #else null #end;
                                 __self__._grow = #if !macro function(_i:GoInt):Void _b._grow(_i) #else null #end;
                                 __self__;
-                            }, (((((" (default %v)" : GoString))) : GoString)), Go.toInterface(_flag.defValue));
+                            }, ((Go.str(" (default %v)") : GoString)), Go.toInterface(_flag.defValue));
                         };
                     };
                 };
             };
-            stdgo.fmt.Fmt.fprint(_f.output(), ((_b.string() : GoString)), ((((("\n" : GoString))) : GoString)));
+            stdgo.fmt.Fmt.fprint(_f.output(), ((_b.string() : GoString)), ((Go.str("\n") : GoString)));
         });
         {
             var _errs = _isZeroValueErrs;
@@ -1220,7 +1220,7 @@ class T_textValue_wrapper {
     static public function set( _f:FlagSet, _name:GoString, _value:GoString):Error {
         var __tmp__ = (_f._formal != null && _f._formal.__exists__(_name) ? { value : _f._formal[_name], ok : true } : { value : ((null : Flag)), ok : false }), _flag:Ref<Flag> = __tmp__.value, _ok:Bool = __tmp__.ok;
         if (!_ok) {
-            return stdgo.fmt.Fmt.errorf(((((("no such flag -%v" : GoString))) : GoString)), Go.toInterface(_name));
+            return stdgo.fmt.Fmt.errorf(((Go.str("no such flag -%v") : GoString)), Go.toInterface(_name));
         };
         var _err:stdgo.Error = _flag.value.set(_value);
         if (_err != null) {
@@ -1890,7 +1890,7 @@ class T_durationValue_wrapper {
 @:keep class T_funcValue_static_extension {
     @:keep
     static public function string( _f:T_funcValue):GoString {
-        return ((((("" : GoString))) : GoString));
+        return ((Go.str() : GoString));
     }
     @:keep
     static public function set( _f:T_funcValue, _s:GoString):Error {

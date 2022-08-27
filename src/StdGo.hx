@@ -76,7 +76,7 @@ private function sanatize(s:String):String {
 	return s;
 }
 
-final noMain = ["testing/internal/testdeps"];
+final noMain = ["testing/internal/testdeps", "unicode/utf8"];
 
 final externs = [
 	"syscall/js", "syscall", "os", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "regexp/syntax",

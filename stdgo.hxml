@@ -6,4 +6,5 @@
 -dce full
 -lib hxnodejs
 --js stdgo.js
+-D nolinkstd
 --cmd node --expose-gc --max-old-space-size=2056 stdgo.js

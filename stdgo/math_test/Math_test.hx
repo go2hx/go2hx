@@ -2517,7 +2517,33 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
             });
         };
     }
-function testGamma(_t:stdgo.testing.Testing.T):Void {}
+function testGamma(_t:stdgo.testing.Testing.T):Void {
+        {
+            var _i:GoInt = ((0 : GoInt));
+            Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
+                {
+                    var _f:GoFloat64 = gamma((_vf != null ? _vf[_i] : ((0 : GoFloat64))));
+                    if (!_close((_gamma != null ? _gamma[_i] : ((0 : GoFloat64))), _f)) {
+                        _t.errorf(((Go.str("Gamma(%g) = %g, want %g") : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface((_gamma != null ? _gamma[_i] : ((0 : GoFloat64)))));
+                    };
+                };
+            });
+        };
+        for (_0 => _g in _vfgamma) {
+            var _f:GoFloat64 = gamma((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))));
+            var _ok:Bool = false;
+            if (((isNaN((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64)))) || isInf((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), ((0 : GoInt)))) || ((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))) == ((0 : GoFloat64)))) || (_f == ((0 : GoFloat64)))) {
+                _ok = _alike((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
+            } else if (((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))) > ((-50 : GoFloat64))) && ((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))) <= ((171 : GoFloat64)))) {
+                _ok = _veryclose((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
+            } else {
+                _ok = _close((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
+            };
+            if (!_ok) {
+                _t.errorf(((Go.str("Gamma(%g) = %g, want %g") : GoString)), Go.toInterface((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64)))));
+            };
+        };
+    }
 function testHypot(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
@@ -3549,7 +3575,14 @@ function testTrigReduce(_t:stdgo.testing.Testing.T):Void {
             };
         };
     }
-function testFloatMinMax(_t:stdgo.testing.Testing.T):Void {}
+function testFloatMinMax(_t:stdgo.testing.Testing.T):Void {
+        for (_0 => _tt in _floatTests) {
+            var _s:GoString = stdgo.fmt.Fmt.sprint(_tt._val);
+            if (_s != _tt._str) {
+                _t.errorf(((Go.str("Sprint(%v) = %s, want %s") : GoString)), Go.toInterface(_tt._name), Go.toInterface(_s), Go.toInterface(_tt._str));
+            };
+        };
+    }
 function testFloatMinima(_t:stdgo.testing.Testing.T):Void {
         #if (interp) return #else null #end;
         {

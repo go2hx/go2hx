@@ -2517,33 +2517,7 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
             });
         };
     }
-function testGamma(_t:stdgo.testing.Testing.T):Void {
-        {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
-                {
-                    var _f:GoFloat64 = gamma((_vf != null ? _vf[_i] : ((0 : GoFloat64))));
-                    if (!_close((_gamma != null ? _gamma[_i] : ((0 : GoFloat64))), _f)) {
-                        _t.errorf(((Go.str("Gamma(%g) = %g, want %g") : GoString)), Go.toInterface((_vf != null ? _vf[_i] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface((_gamma != null ? _gamma[_i] : ((0 : GoFloat64)))));
-                    };
-                };
-            });
-        };
-        for (_0 => _g in _vfgamma) {
-            var _f:GoFloat64 = gamma((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))));
-            var _ok:Bool = false;
-            if (((isNaN((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64)))) || isInf((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), ((0 : GoInt)))) || ((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))) == ((0 : GoFloat64)))) || (_f == ((0 : GoFloat64)))) {
-                _ok = _alike((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
-            } else if (((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))) > ((-50 : GoFloat64))) && ((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64))) <= ((171 : GoFloat64)))) {
-                _ok = _veryclose((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
-            } else {
-                _ok = _close((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64))), _f);
-            };
-            if (!_ok) {
-                _t.errorf(((Go.str("Gamma(%g) = %g, want %g") : GoString)), Go.toInterface((_g != null ? _g[((0 : GoInt))] : ((0 : GoFloat64)))), Go.toInterface(_f), Go.toInterface((_g != null ? _g[((1 : GoInt))] : ((0 : GoFloat64)))));
-            };
-        };
-    }
+function testGamma(_t:stdgo.testing.Testing.T):Void {}
 function testHypot(_t:stdgo.testing.Testing.T):Void {
         {
             var _i:GoInt = ((0 : GoInt));
@@ -2990,6 +2964,7 @@ function testModf(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testNextafter32(_t:stdgo.testing.Testing.T):Void {
+        #if (interp) return #else null #end;
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
@@ -3176,6 +3151,7 @@ function testRoundToEven(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testSignbit(_t:stdgo.testing.Testing.T):Void {
+        #if (interp) return #else null #end;
         {
             var _i:GoInt = ((0 : GoInt));
             Go.cfor(_i < (_vf != null ? _vf.length : ((0 : GoInt))), _i++, {
@@ -3575,6 +3551,7 @@ function testTrigReduce(_t:stdgo.testing.Testing.T):Void {
     }
 function testFloatMinMax(_t:stdgo.testing.Testing.T):Void {}
 function testFloatMinima(_t:stdgo.testing.Testing.T):Void {
+        #if (interp) return #else null #end;
         {
             var _q:GoFloat32 = ((((7.006492321624085e-46 : GoFloat32)) : GoFloat32));
             if (_q != ((0 : GoFloat32))) {

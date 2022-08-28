@@ -2849,7 +2849,7 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function signbit(_x:GoFloat64):Bool {
         if (std.Math.isNaN(_x.toBasic())) return false;
-        return (float64bits(_x) & ((((1 : GoUnTypedInt))) << (((63 : GoUnTypedInt))))) != (((0 : GoUInt64)));
+        return (float64bits(_x) & ((1 : GoUInt64))) << ((63 : GoUInt64)) != ((0 : GoUInt64));
     }
 /**
     // Cos returns the cosine of the radian argument x.

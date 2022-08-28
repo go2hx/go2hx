@@ -483,7 +483,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 				// trace(printer.printTypeDefinition(wrapper));
 			}
 			// patch system to add functions
-			for (key => expr in Patch.add) {
+			for (key => expr in Patch.adds) {
 				final index = key.indexOf(":");
 				final path = key.substr(0, index);
 				if (path == info.global.module.path) {
@@ -495,7 +495,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 						pack: [],
 						kind: TDField(FFun({args: [], expr: expr}), [APrivate]),
 					});
-					Patch.add.remove(key);
+					Patch.adds.remove(key);
 				}
 			}
 		}
@@ -4734,7 +4734,18 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 			Patch.list.remove(patchName);
 			patch;
 		} else {
-			toExpr(typeBlockStmt(decl.body, info, true));
+			final cond = Patch.skipTargets[patchName];
+			final block = toExpr(typeBlockStmt(decl.body, info, true));
+			if (cond != null) {
+				switch block.expr {
+					case EBlock(exprs):
+						final targets = makeString("(" + cond.join(" || ") + ")");
+						final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+						exprs.unshift(macro @:define($targets) $e);
+					default:
+				}
+			}
+			macro $block;
 		}
 	}
 

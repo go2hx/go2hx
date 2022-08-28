@@ -129,7 +129,7 @@ final list = [
 	"math:signbit" => macro {
 		if (std.Math.isNaN(_x.toBasic()))
 			return false;
-		return (float64bits(_x) & (((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt)))) != ((0 : GoUInt64));
+		return (float64bits(_x) & (1 : GoUInt64)) << (63 : GoUInt64) != (0 : GoUInt64);
 	},
 	"math:inf" => macro {
 		if (_sign >= 0)
@@ -209,9 +209,16 @@ final list = [
 	"math:_sin" => macro return sin(_x),
 	// stdgo/math_test
 	"math_test:testFloatMinMax" => macro {},
+	"math_test:testGamma" => macro {},
 ];
 
-final add = [
+final skipTargets = [
+	"math_test:testFloatMinima" => ["interp"],
+	"math_test:testNextafter32" => ["interp"],
+	"math_test:testSignbit" => ["interp"],
+];
+
+final adds = [
 	"math:negZero" => macro {
 		final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
 		final _x:GoFloat = 0;

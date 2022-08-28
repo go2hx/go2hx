@@ -1,7 +1,4 @@
 {"excludes": [
-    "testing",
-    "testing/quick",
-    "testing/internal/testdeps",
     "reflect",
     "errors",
     "internal",

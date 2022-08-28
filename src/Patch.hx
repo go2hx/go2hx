@@ -207,9 +207,6 @@ final list = [
 	"math:_archTrunc" => macro return trunc(_x),
 	"math:_cos" => macro return cos(_x),
 	"math:_sin" => macro return sin(_x),
-	// stdgo/math_test
-	"math_test:testFloatMinMax" => macro {},
-	"math_test:testGamma" => macro {},
 ];
 
 final skipTargets = [

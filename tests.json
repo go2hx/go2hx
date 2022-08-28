@@ -2,7 +2,7 @@
     "unicode",
     "unicode/utf8",
     "unicode/utf16",
-    "math-TestFloatMinMax",
+    "math-TestFloatMinMax,FloatMinMax,testGamma",
     "math/bits-TestLeadingZeros,TestOnesCount,TestLen",
     "sort",
     "strings",
@@ -18,5 +18,5 @@
     "bytes",
     "time",
     "testing",
-    "io"
+    "path"
 ]}

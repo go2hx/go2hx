@@ -30,6 +30,9 @@ class VectorData<T> {
 
 	public function set(i:Int, value:T):T
 		return vector.set(i, value);
+
+	public function toString():String
+		return vector == null ? "null" : "[" + vector.toArray().join(" ") + "]";
 }
 
 // @:generic
@@ -89,9 +92,11 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
-		final obj = new stdgo.Slice.SliceData<T>(this.length, this.capacity);
+		final obj = new stdgo.Slice.SliceData<T>(0, 0);
 		obj.pos = pos;
 		obj.vector = this.vector;
+		obj.length = length;
+		obj.capacity = this.capacity;
 		return obj;
 	}
 

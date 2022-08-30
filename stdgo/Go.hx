@@ -666,10 +666,9 @@ class Go {
 								return macro {
 									final _offset_ = ${e1}.__getOffset__();
 									final index = (${e2} : GoInt).toBasic() + _offset_;
-									final underlying = ${e1}.__getUnderlying__();
+									final underlying = ${e1}.__toVector__();
 									var underlyingIndex = index;
-									new $p(() -> ${e1}.__getUnderlying__()[index], v -> ${e1}.__getUnderlying__()[index] = v, false, underlying,
-										underlyingIndex);
+									new $p(() -> ${e1}.__toVector__()[index], v -> ${e1}.__toVector__()[index] = v, false, underlying, underlyingIndex);
 								};
 							case "GoArray":
 								return macro {

@@ -113,7 +113,6 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 			cap = this.length;
 		var obj:SliceData<T> = __ref__();
 		obj.pos = pos;
-		obj.vector = this.vector;
 		obj.capacity = cap;
 		obj.length = length;
 		return obj;
@@ -129,34 +128,24 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
 		var startPos = this.length;
-		var growLength = args.length - slice.capacity + slice.length + slice.pos;
-		if (growLength <= 0) {
-			growLength += -slice.pos;
-			if (growLength <= 0) {
-				slice.vector = slice.vector.copy(); // allocation
-				// fill
-				for (i in 0...args.length) {
-					slice.set(i + startPos, args[i]);
-				}
-				return slice;
-			} else {
-				slice.vector = slice.vector.copy(); // allocation
-				slice.length += growLength;
-				final diff = slice.pos;
-				slice.pos = 0;
-				// shift slice right from prev pos
-				for (i in 0...slice.length) {
-					slice.set(i, slice.get(i + diff));
-				}
-				// fill
-				for (i in 0...args.length) {
-					slice.set(i + startPos, args[i]);
-				}
-				return slice;
+		var growCapacity = args.length - slice.capacity + slice.length + slice.pos;
+		/*if (growCapacity > 0 && growCapacity - slice.pos <= 0) { // shift pos
+			final pos = slice.pos;
+			slice.pos = 0;
+			for (i in 0...slice.length) {
+				slice.set(i, slice.get(i + pos));
 			}
+		}*/
+		if (growCapacity <= 0) {
+			slice.vector = slice.vector.copy(); // allocation
+			slice.length += args.length;
+			for (i in 0...args.length) {
+				slice.set(startPos + i, args[i]);
+			}
+			return slice;
 		}
-		slice.length += growLength;
-		slice.capacity += growLength;
+		slice.length += growCapacity;
+		slice.capacity += growCapacity;
 		slice.capacity += slice.capacity >> 2;
 		slice.grow(); // allocation
 		for (i in 0...args.length) {

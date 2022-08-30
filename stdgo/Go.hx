@@ -111,8 +111,11 @@ class Go {
 			if (src == null || dst == null) {
 				(0 : GoInt);
 			} else {
-				dst.__vector__ = src.__toVector__().copy();
-				$dst.length;
+				final min:Int = src.length > dst.length ? dst.length : src.length;
+				for (i in 0...min) {
+					dst[i] = src[i];
+				}
+				(min : GoInt);
 			}
 		};
 		return e;

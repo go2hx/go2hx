@@ -48,7 +48,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	@:from
 	public static function fromVector<T>(vector:haxe.ds.Vector<T>):Slice<T> {
-		final data = new SliceData(0, 0);
+		final data = new SliceData(0, -1);
 		data.vector = vector;
 		data.length = vector.length;
 		data.capacity = vector.length;
@@ -111,7 +111,9 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public function __ref__():Slice<T> {
-		final slice = new SliceData<T>(this.length, this.capacity);
+		final slice = new SliceData<T>(0, -1);
+		slice.length = this.length;
+		slice.capacity = this.capacity;
 		slice.vector = this.vector;
 		slice.offset = this.offset;
 		return slice;
@@ -196,8 +198,16 @@ class SliceData<T> {
 		} else {
 			this.capacity = capacity;
 		}
-		if (args != null) {
-			vector = new haxe.ds.Vector<T>(capacity);
+		if (capacity != -1) {
+			final vectorLength = if (args.length > this.capacity) {
+				this.capacity = args.length;
+				this.length = args.length;
+				args.length;
+			} else {
+				capacity;
+			}
+			vector = new haxe.ds.Vector<T>(vectorLength);
+			this.length = args.length;
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
 		}

@@ -10,10 +10,10 @@ var excludesList:Array<String> = haxe.Json.parse(File.getContent("./excludes.jso
 var externs:Bool = false;
 
 final reserved = [
-	"cap", "iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function",
-	"dynamic", "else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new",
-	"operator", "overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var",
-	"while", "construct", "null", "in", "wait",
+	"iterator", "keyValueIterator", "switch", "case", "break", "continue", "default", "is", "abstract", "cast", "catch", "class", "do", "function", "dynamic",
+	"else", "enum", "extends", "extern", "final", "for", "function", "if", "interface", "implements", "import", "in", "inline", "macro", "new", "operator",
+	"overload", "override", "package", "private", "public", "return", "static", "this", "throw", "try", "typedef", "untyped", "using", "var", "while",
+	"construct", "null", "in", "wait", "length", "capacity",
 ];
 
 final reservedClassNames = [
@@ -1407,21 +1407,11 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			return toExpr(EBinop(op, x, y));
 		if (isNamed(nilType))
 			nilType = getUnderlying(nilType);
-		switch nilType {
-			case refType(_), signature(_, _, _, _), interfaceType(_, _), named(_, _), structType(_):
-				switch op {
-					case OpEq:
-						return macro $value == null;
-					default:
-						return macro $value != null;
-				}
-			default:
-		}
 		switch op {
 			case OpEq:
-				return macro($value == null || $value.isNil());
+				return macro $value == null;
 			default:
-				return macro($value != null && !$value.isNil());
+				return macro $value != null;
 		}
 	}
 	if (isInterface(typeX) || isInterface(typeY)) {
@@ -2655,7 +2645,7 @@ private function typeIndexExpr(expr:Ast.IndexExpr, info:Info):ExprDef {
 			trace(t);
 			index = macro @:invalid_index 0;
 	}
-	var e = macro($x != null ? $x[$index] : ${defaultValue(typeof(expr, info, false), info)});
+	final e = macro $x[$index];
 	return e.expr;
 }
 
@@ -2933,7 +2923,7 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 						final appendArgs = args.copy();
 						args.unshift(macro 0);
 						args.unshift(macro 0);
-						return returnExpr(macro($e != null ? $e.__append__($a{appendArgs}) : new $p($a{args})));
+						return returnExpr(macro($e.__append__($a{appendArgs})));
 					case "copy":
 						genArgs(false);
 						return returnExpr(macro Go.copySlice($a{args}));
@@ -2976,12 +2966,12 @@ private function typeCallExpr(expr:Ast.CallExpr, info:Info):ExprDef {
 					case "cap":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
-						return returnExpr(macro($e != null ? $e.capacity : (0 : GoInt)));
+						return returnExpr(macro $e.capacity);
 					case "len":
 						var e = typeExpr(expr.args[0], info);
 						var t = typeof(expr.args[0], info, false);
 						t = getUnderlying(t);
-						return returnExpr(macro($e != null ? $e.length : (0 : GoInt)));
+						return returnExpr(macro($e.length));
 					case "new": // create default value put into pointer
 						var t = typeExprType(expr.args[0], info);
 						switch t {
@@ -5125,7 +5115,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro(null : GoMap<$key, $value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro(new Slice<$t>(0,0,...[]));
+			macro(null : Slice<$t>);
 		case arrayType(_.get() => elem, len):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);

@@ -47,11 +47,11 @@ abstract GoArray<T>(VectorData<T>) from VectorData<T> {
 	}
 
 	private function get_length():GoInt {
-		return this.length;
+		return this != null ? this.length : 0;
 	}
 
 	private function get_capacity():GoInt {
-		return this.capacity;
+		return this != null ? this.capacity : 0;
 	}
 
 	public function iterator() {

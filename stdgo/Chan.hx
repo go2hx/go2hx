@@ -10,7 +10,21 @@ import sys.thread.Lock;
 import sys.thread.Mutex;
 import sys.thread.Thread;
 
-class Chan<T> {
+@:forward
+@:forward.new
+abstract Chan<T>(ChanData<T>) from ChanData<T> to ChanData<T> {
+	public var length(get, never):GoInt;
+	public var capacity(get, never):GoInt;
+
+	function get_length():GoInt {
+		return this != null ? this.length : 0;
+	}
+
+	function get_capacity():GoInt
+		return this != null ? this.capacity : 0;
+}
+
+class ChanData<T> {
 	private var __buffer__:ChanBuffer<T> = null;
 
 	var defaultValue:Void->T = null;
@@ -26,8 +40,6 @@ class Chan<T> {
 	public var length(get, never):GoInt;
 	public var capacity(get, never):GoInt;
 
-	var setNil:Bool = false;
-
 	function get_length():GoInt {
 		return __buffer__.length;
 	}
@@ -35,12 +47,8 @@ class Chan<T> {
 	function get_capacity():GoInt
 		return __buffer__.length;
 
-	public function isNil():Bool
-		return setNil;
-
-	public function new(length:GoInt, defaultValue, setNil:Bool = false) {
+	public function new(length:GoInt, defaultValue) {
 		__buffer__ = new ChanBuffer(length.toBasic());
-		this.setNil = setNil;
 		this.defaultValue = defaultValue;
 	}
 
@@ -119,8 +127,6 @@ class Chan<T> {
 		return new ChanIterator(this);
 
 	public function toString() {
-		if (this.setNil)
-			return "null";
 		return "0x0";
 	}
 

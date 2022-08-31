@@ -848,8 +848,13 @@ class Go {
 			case TAbstract(ref, params):
 				var sref:String = ref.toString();
 				switch (sref) {
+					case "stdgo.Chan":
+						var len = macro - 1;
+						if (expr != null)
+							len = macro($expr : Chan<Dynamic>).length.toBasic();
+						ret = macro stdgo.reflect.Reflect.GoType.chanType($len, ${gtParams(params, marked)[0]});
 					case "stdgo.Slice":
-						ret = macro stdgo.reflect.Reflect.GoType.sliceType($a{gtParams(params, marked)});
+						ret = macro stdgo.reflect.Reflect.GoType.sliceType(${gtParams(params, marked)[0]});
 					case "stdgo.GoArray":
 						var len = macro - 1;
 						if (expr != null)
@@ -857,7 +862,7 @@ class Go {
 						ret = macro stdgo.reflect.Reflect.GoType.arrayType(${gtParams(params, marked)[0]},
 							$len); // TODO go2hx does not store the length in the type
 					case "stdgo.Pointer":
-						ret = macro stdgo.reflect.Reflect.GoType.pointer($a{gtParams(params, marked)});
+						ret = macro stdgo.reflect.Reflect.GoType.pointer(${gtParams(params, marked)[0]});
 					case "stdgo.UnsafePointer", "stdgo.Unsafe.UnsafePointer", "stdgo.unsafe.UnsafePointer":
 						return macro stdgo.reflect.Reflect.GoType.basic(unsafepointer_kind);
 					case "stdgo.GoMap":
@@ -915,43 +920,37 @@ class Go {
 			case TInst(ref, params):
 				final refString = ref.toString();
 				var ref = ref.get();
-				if (params.length == 1 && ref.pack.length == 1 && ref.pack[0] == "stdgo" && (ref.name == "Chan" || ref.name == "_Chan")) {
-					var param = gtParams(params, marked)[0];
-					ret = macro stdgo.reflect.Reflect.GoType.chanType(0, $param);
-				} else {
-					if (!marked.exists(refString)) {
-						marked[refString] = true;
-						if (ref.module == "String") {
-							ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
-						} else {
-							final methods:Array<Expr> = [];
-							final fs = ref.fields.get();
-							final path = createPath(ref.pack, ref.name);
-							for (field in fs) {
-								switch field.kind {
-									case FMethod(k):
-										switch field.name {
-											case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
-												continue;
-										}
-										if (field.name == "toString" && field.meta.has(":implicit"))
-											continue;
-										switch field.type {
-											case TLazy(f):
-												continue;
-											default:
-										}
-										methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)},
-											null));
-									default:
-								}
-							}
-							ret = gtDecodeClassType(ref, methods, marked);
-						}
+				if (!marked.exists(refString)) {
+					marked[refString] = true;
+					if (ref.module == "String") {
+						ret = macro stdgo.reflect.Reflect.GoType.basic(string_kind);
 					} else {
-						var name = parseModule(ref.module) + "." + ref.name;
-						ret = macro stdgo.reflect.Reflect.GoType.previouslyNamed($v{name});
+						final methods:Array<Expr> = [];
+						final fs = ref.fields.get();
+						final path = createPath(ref.pack, ref.name);
+						for (field in fs) {
+							switch field.kind {
+								case FMethod(k):
+									switch field.name {
+										case "new", "__copy__", "__underlying__", "__t__", "__slice__", "__append__", "__set__":
+											continue;
+									}
+									if (field.name == "toString" && field.meta.has(":implicit"))
+										continue;
+									switch field.type {
+										case TLazy(f):
+											continue;
+										default:
+									}
+									methods.push(macro new stdgo.reflect.Reflect.MethodType($v{field.name}, ${gtDecode(field.type, null, marked, ret)}, null));
+								default:
+							}
+						}
+						ret = gtDecodeClassType(ref, methods, marked);
 					}
+				} else {
+					var name = parseModule(ref.module) + "." + ref.name;
+					ret = macro stdgo.reflect.Reflect.GoType.previouslyNamed($v{name});
 				}
 			case TFun(a, result):
 				var args = [];

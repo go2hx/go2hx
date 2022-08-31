@@ -2,7 +2,7 @@ final list = [
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
 	// stdgo/time
-	"time:sleep" => macro {
+	"time:Sleep" => macro {
 		final seconds = _d.toFloat() / 1000000000;
 		#if sys
 		var ticks = Math.floor(seconds * 100);

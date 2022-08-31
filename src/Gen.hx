@@ -37,14 +37,11 @@ private function runFormatter(path:String) {
 	if (typeFormatter == 0)
 		return;
 	if (typeFormatter == -1) {
-		var process = new sys.io.Process("haxelib run formatter -v");
-		var code = process.exitCode();
-		process.close();
+		var code = runCmd("haxelib run formatter -v");
 		if (code == 0) {
 			typeFormatter = 1;
 		} else {
-			process = new sys.io.Process("npx haxelib run formatter -v");
-			code = process.exitCode();
+			code = runCmd("npx haxelib run formatter -v");
 			if (code == 0) {
 				typeFormatter = 2;
 			} else {
@@ -56,9 +53,25 @@ private function runFormatter(path:String) {
 	var cmd = 'haxelib run formatter -s $path';
 	if (typeFormatter > 1)
 		cmd = "npx " + cmd;
+	final code = runCmd(cmd);
+	if (code != 0)
+		throw "formatter failed: " + code;
+}
+
+private function runCmd(cmd:String) {
+	#if (target.threaded)
 	final process = new sys.io.Process(cmd);
-	process.exitCode();
+	final code = process.exitCode();
 	process.close();
+	return code;
+	#else
+	return try {
+		js.node.ChildProcess.execSync(cmd, null);
+		0;
+	} catch (_) {
+		1;
+	}
+	#end
 }
 
 private function save(dir:String, name:String, content:String) {

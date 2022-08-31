@@ -10,13 +10,14 @@ import haxe.io.Bytes;
 import haxe.io.Path;
 import stdgo.StdGoTypes;
 import sys.io.File;
-import sys.io.Process;
 
 final cwd = Sys.getCwd();
 final loop = Loop.getDefault();
 final server = new Tcp(loop);
 var clients:Array<Client> = [];
-var processes:Array<Process> = [];
+#if (target.threaded)
+var processes:Array<sys.io.Process> = [];
+#end
 var onComplete:(modules:Array<Typer.Module>, data:Dynamic) -> Void = null;
 var programArgs = [];
 #if (target.threaded)
@@ -208,8 +209,10 @@ function close() {
 	#end
 	for (client in clients)
 		client.stream.close();
+	#if (target.threaded)
 	for (process in processes)
 		process.close();
+	#end
 	server.close();
 	Sys.exit(0);
 }
@@ -250,6 +253,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 		client.stream.readStart(bytes -> {
 			if (bytes == null) {
 				// health check
+				#if (target.threaded)
 				for (proc in processes) {
 					final code = proc.exitCode(false);
 					if (code == null)
@@ -261,6 +265,7 @@ function setup(port:Int = 0, processCount:Int = 1, allAccepted:Void->Void = null
 						Sys.print(proc.stdout.readAll());
 					}
 				}
+				#end
 				// close as stream has broken
 				trace("stream has broken");
 				close();

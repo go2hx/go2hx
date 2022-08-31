@@ -510,9 +510,11 @@ var unreadRuneErrorTests : Slice<T__struct_15> = (new Slice<T__struct_15>(0, 0, 
             __self__;
         });
     } } : T__struct_15)) : Slice<T__struct_15>);
+var n : GoUnTypedInt = (10000 : GoUnTypedInt);
 var _testString : GoString = ("" : GoString);
 var _testBytes : Slice<GoByte> = (null : Slice<GoUInt8>);
 var _bmbuf : Slice<GoByte> = (null : Slice<GoUInt8>);
+var _space : GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) class T_negativeReader {
     public function new() {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
@@ -1270,7 +1272,7 @@ function testWriteTo(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testRuneIO(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var nrune:GoUnTypedInt = (1000 : GoUnTypedInt);
         var _b = new Slice<GoUInt8>((4000 : GoInt).toBasic(), 0, ...[for (i in 0 ... (4000 : GoInt).toBasic()) (0 : GoUInt8)]);
         var _buf:Buffer = ({  } : Buffer);
         var _n:GoInt = (0 : GoInt);
@@ -1431,7 +1433,7 @@ function testReadString(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function benchmarkReadString(_b:stdgo.testing.Testing.B):Void {
-        {};
+        var _n:GoUnTypedInt = (32 : GoUnTypedInt) << (10 : GoUnTypedInt);
         var _data = new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0 ... (32768 : GoInt).toBasic()) (0 : GoUInt8)]);
         _data[(32767 : GoInt)] = ("x".code : GoUInt8);
         _b.setBytes((32768 : GoInt64));
@@ -1493,7 +1495,7 @@ function testGrowOverflow(_t:stdgo.testing.Testing.T):Void {
                 a();
             });
             var _buf = newBuffer(new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0 ... (1 : GoInt).toBasic()) (0 : GoUInt8)]));
-            {};
+            var _maxInt:GoInt = ((-1 ^ ((0 : GoUInt) : GoUInt)) >> (1 : GoUnTypedInt) : GoInt);
             _buf.grow((2147483647 : GoInt));
             for (defer in __deferstack__) {
                 defer();
@@ -1606,7 +1608,7 @@ function testBufferGrowth(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function benchmarkWriteByte(_b:stdgo.testing.Testing.B):Void {
-        {};
+        var _n:GoUnTypedInt = (4 : GoUnTypedInt) << (10 : GoUnTypedInt);
         _b.setBytes((4096 : GoInt64));
         var _buf = newBuffer(new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0, ...[for (i in 0 ... (4096 : GoInt).toBasic()) (0 : GoUInt8)]));
         {
@@ -1623,8 +1625,8 @@ function benchmarkWriteByte(_b:stdgo.testing.Testing.B):Void {
         };
     }
 function benchmarkWriteRune(_b:stdgo.testing.Testing.B):Void {
-        {};
-        {};
+        var _n:GoUnTypedInt = (4 : GoUnTypedInt) << (10 : GoUnTypedInt);
+        var _r:GoInt32 = ("☺".code : GoInt32);
         _b.setBytes(((4096 : GoInt) * stdgo.unicode.utf8.Utf8.runeLen((9786 : GoInt32)) : GoInt64));
         var _buf = newBuffer(new Slice<GoUInt8>((16384 : GoInt).toBasic(), 0, ...[for (i in 0 ... (16384 : GoInt).toBasic()) (0 : GoUInt8)]));
         {
@@ -2576,7 +2578,7 @@ function _tenRunes(_r:GoRune):GoString {
     // User-defined self-inverse mapping function
 **/
 function _rot13(_r:GoRune):GoRune {
-        {};
+        var _step:GoUnTypedInt = (13 : GoUnTypedInt);
         if ((_r >= ("a".code : GoInt32)) && (_r <= ("z".code : GoInt32))) {
             return ((_r - ("a".code : GoInt32)) + (13 : GoInt32) % (26 : GoInt32)) + ("a".code : GoInt32);
         };
@@ -3569,7 +3571,7 @@ function testCompareBytes(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testEndianBaseCompare(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _maxLength:GoUnTypedInt = (512 : GoUnTypedInt);
         var _a = new Slice<GoUInt8>((512 : GoInt).toBasic(), 0, ...[for (i in 0 ... (512 : GoInt).toBasic()) (0 : GoUInt8)]);
         var _b = new Slice<GoUInt8>((512 : GoInt).toBasic(), 0, ...[for (i in 0 ... (512 : GoInt).toBasic()) (0 : GoUInt8)]);
         {
@@ -4418,7 +4420,7 @@ function testReaderWriteTo(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testReaderLen(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _data:GoString = (Go.str("hello world") : GoString);
         var _r = newReader(((Go.str("hello world") : GoString) : Slice<GoByte>));
         {
             var _got:GoInt = _r.len(), _want:GoInt = (11 : GoInt);
@@ -4639,7 +4641,7 @@ function testReaderReset(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf((Go.str("ReadRune: unexpected error: %v") : GoString), Go.toInterface(_err));
             };
         };
-        {};
+        var _want:GoString = (Go.str("abcdef") : GoString);
         _r.reset(((Go.str("abcdef") : GoString) : Slice<GoByte>));
         {
             var _err:stdgo.Error = _r.unreadRune();

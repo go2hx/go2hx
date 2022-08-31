@@ -875,7 +875,7 @@ function benchmarkFullRune(_b:stdgo.testing.Testing.B):Void {
             if (false) {
                 throw Go.toInterface((Go.str("utf8.RuneError is wrong") : GoString));
             };
-            {};
+            var _japanese:GoString = (Go.str("日本語日本語日本語日") : GoString);
             var _b:stdgo.bytes.Bytes.Buffer = ({  } : stdgo.bytes.Bytes.Buffer);
             {
                 var _i:GoInt = (0 : GoInt);

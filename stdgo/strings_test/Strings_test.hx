@@ -584,6 +584,8 @@ var _makeFieldsInputASCII : () -> GoString = function():GoString {
 var _stringdata : Slice<T__struct_7> = (new Slice<T__struct_7>(0, 0, ({ _name : (Go.str("ASCII") : GoString), _data : _makeFieldsInputASCII() } : T__struct_7), ({ _name : (Go.str("Mixed") : GoString), _data : _makeFieldsInput() } : T__struct_7)) : Slice<T__struct_7>);
 var _sinkS : GoString = ("" : GoString);
 var _emptyString : GoString = ("" : GoString);
+var _benchmarkString : GoString = (Go.str("some_text=some☺value") : GoString);
+var _space : GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 var _stringSink : GoString = ("" : GoString);
 @:structInit @:using(stdgo.strings_test.Strings_test.T_errWriter_static_extension) class T_errWriter {
     public function new() {}
@@ -921,7 +923,7 @@ function testBuilderGrow(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testBuilderWrite2(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _s0:GoString = (Go.str("hello 世界") : GoString);
         for (_0 => _tt in (new Slice<T__struct_0>(0, 0, ({ _name : (Go.str("Write") : GoString), _fn : function(_b:Builder):{ var _0 : GoInt; var _1 : Error; } {
             return _b.write(((Go.str("hello 世界") : GoString) : Slice<GoByte>));
         }, _n : ((Go.str("hello 世界") : GoString).length), _want : (Go.str("hello 世界") : GoString) } : T__struct_0), ({ _name : (Go.str("WriteRune") : GoString), _fn : function(_b:Builder):{ var _0 : GoInt; var _1 : Error; } {
@@ -1641,7 +1643,7 @@ function testEmptyReaderConcurrent(_t:stdgo.testing.Testing.T):Void {
         _wg.wait_();
     }
 function testWriteTo(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _str:GoString = (Go.str("0123456789") : GoString);
         {
             var _i:GoInt = (0 : GoInt);
             Go.cfor(_i <= ((Go.str("0123456789") : GoString).length), _i++, {
@@ -1730,7 +1732,7 @@ function testReaderReset(_t:stdgo.testing.Testing.T):Void {
                 _t.errorf((Go.str("ReadRune: unexpected error: %v") : GoString), Go.toInterface(_err));
             };
         };
-        {};
+        var _want:GoString = (Go.str("abcdef") : GoString);
         _r.reset((Go.str("abcdef") : GoString));
         {
             var _err:stdgo.Error = _r.unreadRune();
@@ -2466,7 +2468,7 @@ function _simpleIndex(_s:GoString, _sep:GoString):GoInt {
         return (-1 : GoInt);
     }
 function testIndexRandom(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _chars:GoString = (Go.str("abcdefghijklmnopqrstuvwxyz0123456789") : GoString);
         {
             var _times:GoInt = (0 : GoInt);
             Go.cfor(_times < (10 : GoInt), _times++, {

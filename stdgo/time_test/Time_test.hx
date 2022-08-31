@@ -712,8 +712,12 @@ var _defaultLocTests : Slice<T__struct_25> = (new Slice<T__struct_25>(
 var _zones : Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Asia/Jerusalem") : GoString), (Go.str("America/Los_Angeles") : GoString)) : Slice<GoString>);
 var _slimTests : Slice<T__struct_30> = (new Slice<T__struct_30>(0, 0, ({ _zoneName : ("" : GoString), _fileName : ("" : GoString), _date : null, _wantName : ("" : GoString), _wantOffset : (0 : GoInt) } : T__struct_30), ({ _zoneName : ("" : GoString), _fileName : ("" : GoString), _date : null, _wantName : ("" : GoString), _wantOffset : (0 : GoInt) } : T__struct_30), ({ _zoneName : ("" : GoString), _fileName : ("" : GoString), _date : null, _wantName : ("" : GoString), _wantOffset : (0 : GoInt) } : T__struct_30), ({ _zoneName : ("" : GoString), _fileName : ("" : GoString), _date : null, _wantName : ("" : GoString), _wantOffset : (0 : GoInt) } : T__struct_30)) : Slice<T__struct_30>);
 var _c : Chan<GoInt> = (null : Chan<GoInt>);
+var _windowsInaccuracy : Duration = (17 : Duration) * millisecond;
+var _unixToZero : GoUnTypedInt = -(978307200 : GoUnTypedInt) + ("63113904000" : GoUnTypedInt);
 var _t : Time = ({  } : Time);
 var _u : GoInt64 = (0 : GoInt64);
+var _minDuration : Duration = -(1 : GoUnTypedInt) << (63 : GoUnTypedInt);
+var _maxDuration : Duration = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
 @:structInit class TimeFormatTest {
     public var _time : Time = ({  } : Time);
     public var _formattedValue : GoString = "";
@@ -1472,10 +1476,10 @@ function exampleTime_GoString():Void {
         stdgo.fmt.Fmt.println(_t.goString());
     }
 function exampleParse():Void {
-        {};
+        var _longForm:GoString = (Go.str("Jan 2, 2006 at 3:04pm (MST)") : GoString);
         var __tmp__ = stdgo.time.Time.parse((Go.str("Jan 2, 2006 at 3:04pm (MST)") : GoString), (Go.str("Feb 3, 2013 at 7:54pm (PST)") : GoString)), _t:Time = __tmp__._0, _0:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.println(_t);
-        {};
+        var _shortForm:GoString = (Go.str("2006-Jan-02") : GoString);
         {
             var __tmp__ = stdgo.time.Time.parse((Go.str("2006-Jan-02") : GoString), (Go.str("2013-Feb-03") : GoString));
             _t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
@@ -1496,10 +1500,10 @@ function exampleParse():Void {
     }
 function exampleParseInLocation():Void {
         var __tmp__ = stdgo.time.Time.loadLocation((Go.str("Europe/Berlin") : GoString)), _loc:Ref<Location> = __tmp__._0, _0:stdgo.Error = __tmp__._1;
-        {};
+        var _longForm:GoString = (Go.str("Jan 2, 2006 at 3:04pm (MST)") : GoString);
         var __tmp__ = stdgo.time.Time.parseInLocation((Go.str("Jan 2, 2006 at 3:04pm (MST)") : GoString), (Go.str("Jul 9, 2012 at 5:02am (CEST)") : GoString), _loc), _t:Time = __tmp__._0, _1:stdgo.Error = __tmp__._1;
         stdgo.fmt.Fmt.println(_t);
-        {};
+        var _shortForm:GoString = (Go.str("2006-Jan-02") : GoString);
         {
             var __tmp__ = stdgo.time.Time.parseInLocation((Go.str("2006-Jan-02") : GoString), (Go.str("2012-Jul-09") : GoString), _loc);
             _t = (__tmp__._0 == null ? null : __tmp__._0.__copy__());
@@ -2740,7 +2744,7 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
         };
     }
 function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _fmt:GoString = (Go.str("Mon MST ") : GoString) + rfc3339;
         var _f:GoInt64 -> Bool = function(_sec:GoInt64):Bool {
             var _t1:Time = (unix(_sec / (2 : GoInt64), (0 : GoInt64)) == null ? null : unix(_sec / (2 : GoInt64), (0 : GoInt64)).__copy__());
             if ((_t1.year() < (1000 : GoInt) || _t1.year() > (9999 : GoInt)) || (_t1.unix() != _sec)) {
@@ -2912,7 +2916,7 @@ function testParseErrors(_t:stdgo.testing.Testing.T):Void {
     }
 function testNoonIs12PM(_t:stdgo.testing.Testing.T):Void {
         var _noon:Time = (date((0 : GoInt), (1 : Month), (1 : GoInt), (12 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), utc) == null ? null : date((0 : GoInt), (1 : Month), (1 : GoInt), (12 : GoInt), (0 : GoInt), (0 : GoInt), (0 : GoInt), utc).__copy__());
-        {};
+        var _expect:GoString = (Go.str("12:00PM") : GoString);
         var _got:GoString = _noon.format((Go.str("3:04PM") : GoString));
         if (_got != (Go.str("12:00PM") : GoString)) {
             _t.errorf((Go.str("got %q; expect %q") : GoString), Go.toInterface(_got), Go.toInterface((Go.str("12:00PM") : GoString)));
@@ -3982,7 +3986,7 @@ function testMonotonicString(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testSleep(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _delay:Duration = (100 : Duration) * millisecond;
         Go.routine(() -> {
             var a = function():Void {
                 sleep((50000000 : Duration));
@@ -4220,7 +4224,7 @@ function benchmarkSleep(_b:stdgo.testing.Testing.B):Void {
         });
     }
 function testAfter(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _delay:Duration = (100 : Duration) * millisecond;
         var _start:Time = (now() == null ? null : now().__copy__());
         var _end:Time = (after((100000000 : Duration)).__get__() == null ? null : after((100000000 : Duration)).__get__().__copy__());
         var _delayadj:Duration = (100000000 : Duration);
@@ -4396,7 +4400,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testAfterTick(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var count:GoUnTypedInt = (10 : GoUnTypedInt);
         var delta:Duration = (100000000 : Duration);
         if (stdgo.testing.Testing.short()) {
             delta = (10000000 : Duration);
@@ -4544,7 +4548,7 @@ function testAfterStop(_t:stdgo.testing.Testing.T):Void {
         _logErrs();
     }
 function testAfterQueuing(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _attempts:GoUnTypedInt = (5 : GoUnTypedInt);
         var _err:stdgo.Error = stdgo.errors.Errors.new_((Go.str("!=nil") : GoString));
         {
             var _i:GoInt = (0 : GoInt);
@@ -4736,7 +4740,7 @@ function _testReset(_d:Duration):Error {
         return (null : stdgo.Error);
     }
 function testReset(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _unit:Duration = (25 : Duration) * millisecond;
         var _tries = (new Slice<Duration>(0, 0, (25000000 : Duration), (75000000 : Duration), (175000000 : Duration), (375000000 : Duration)) : Slice<Duration>);
         var _err:Error = (null : stdgo.Error);
         for (_0 => _d in _tries) {
@@ -4768,7 +4772,7 @@ function testReset(_t:stdgo.testing.Testing.T):Void {
     // tests may not fire.
 **/
 function testOverflowSleep(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _big:Duration = ((((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt) : GoInt64) : Duration);
         Go.routine(() -> {
             var a = function():Void {
                 sleep(("9223372036854775807" : Duration));
@@ -4779,7 +4783,7 @@ function testOverflowSleep(_t:stdgo.testing.Testing.T):Void {
         Go.select([after((25000000 : Duration)).__get__() => {}, after(("9223372036854775807" : Duration)).__get__() => {
             _t.fatalf((Go.str("big timeout fired") : GoString));
         }]);
-        {};
+        var _neg:Duration = (-(1 : GoUnTypedInt) << (63 : GoUnTypedInt) : Duration);
         sleep(("-9223372036854775808" : Duration));
         Go.select([after((1000000000 : Duration)).__get__() => {
             _t.fatalf((Go.str("negative timeout didn\'t fire") : GoString));
@@ -5146,7 +5150,7 @@ function benchmarkParallelTimerLatency(_b:stdgo.testing.Testing.B):Void {
         _warmupScheduler(_gmp);
         _doWork((30000000 : Duration));
         _b.resetTimer();
-        {};
+        var _delay:Duration = millisecond;
         var _wg:stdgo.sync.Sync.WaitGroup = ({  } : stdgo.sync.Sync.WaitGroup);
         var _count:GoInt32 = (0 : GoInt32);
         {
@@ -5203,7 +5207,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.testing.Testing.B):Void {
         if ((_gmp < (2 : GoInt)) || (stdgo.runtime.Runtime.numCPU() < _gmp)) {
             _b.skip(Go.toInterface((Go.str("skipping with GOMAXPROCS < 2 or NumCPU < GOMAXPROCS") : GoString)));
         };
-        {};
+        var _delay:Duration = (3 : Duration) * millisecond;
         for (_0 => _dur in (new Slice<Duration>(0, 0, (300000 : Duration), (2000000 : Duration)) : Slice<Duration>)) {
             _b.run(stdgo.fmt.Fmt.sprintf((Go.str("work-dur=%s") : GoString), Go.toInterface({
                 final __self__ = new Duration_wrapper(_dur);
@@ -8672,7 +8676,7 @@ function testWeekdayString(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testReadFileLimit(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _zero:GoString = (Go.str("/dev/zero") : GoString);
         {
             var __tmp__ = stdgo.os.Os.stat((Go.str("/dev/zero") : GoString)), _0:stdgo.io.fs.Fs.FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
@@ -8692,8 +8696,8 @@ function testReadFileLimit(_t:stdgo.testing.Testing.T):Void {
     // and that we also don't panic.
 **/
 function testConcurrentTimerReset(_t:stdgo.testing.Testing.T):Void {
-        {};
-        {};
+        var _goroutines:GoUnTypedInt = (8 : GoUnTypedInt);
+        var _tries:GoUnTypedInt = (1000 : GoUnTypedInt);
         var _wg:stdgo.sync.Sync.WaitGroup = ({  } : stdgo.sync.Sync.WaitGroup);
         _wg.add((8 : GoInt));
         var _timer = newTimer(("3600000000000" : Duration));
@@ -8742,8 +8746,8 @@ function testConcurrentTimerReset(_t:stdgo.testing.Testing.T):Void {
     // Issue 37400: panic with "racy use of timers".
 **/
 function testConcurrentTimerResetStop(_t:stdgo.testing.Testing.T):Void {
-        {};
-        {};
+        var _goroutines:GoUnTypedInt = (8 : GoUnTypedInt);
+        var _tries:GoUnTypedInt = (1000 : GoUnTypedInt);
         var _wg:stdgo.sync.Sync.WaitGroup = ({  } : stdgo.sync.Sync.WaitGroup);
         _wg.add((16 : GoInt));
         var _timer = newTimer(("3600000000000" : Duration));
@@ -9906,8 +9910,8 @@ function testEnvVarUsage(_t:stdgo.testing.Testing.T):Void {
         var __deferstack__:Array<Void -> Void> = [];
         try {
             stdgo.time.Time.resetZoneinfoForTesting();
-            {};
-            {};
+            var _testZoneinfo:GoString = (Go.str("foo.zip") : GoString);
+            var _env:GoString = (Go.str("ZONEINFO") : GoString);
             _t.setenv((Go.str("ZONEINFO") : GoString), (Go.str("foo.zip") : GoString));
             stdgo.time.Time.loadLocation((Go.str("Asia/Jerusalem") : GoString));
             __deferstack__.unshift(() -> stdgo.time.Time.resetZoneinfoForTesting());
@@ -9948,7 +9952,7 @@ function testBadLocationErrMsg(_t:stdgo.testing.Testing.T):Void {
     }
 function testLoadLocationValidatesNames(_t:stdgo.testing.Testing.T):Void {
         stdgo.time.Time.resetZoneinfoForTesting();
-        {};
+        var _env:GoString = (Go.str("ZONEINFO") : GoString);
         _t.setenv((Go.str("ZONEINFO") : GoString), (Go.str() : GoString));
         var _bad = (new Slice<GoString>(0, 0, (Go.str("/usr/foo/Foo") : GoString), (Go.str("\\UNC\x0Coo") : GoString), (Go.str("..") : GoString), (Go.str("a..") : GoString)) : Slice<GoString>);
         for (_0 => _v in _bad) {
@@ -9999,7 +10003,7 @@ function testFirstZone(_t:stdgo.testing.Testing.T):Void {
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
-            {};
+            var _format:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 -0700 (MST)") : GoString);
             var _tests:Slice<T__struct_29> = (new Slice<T__struct_29>(0, 0, ({ _zone : (Go.str("PST8PDT") : GoString), _unix : (-1633269601 : GoInt64), _want1 : (Go.str("Sun, 31 Mar 1918 01:59:59 -0800 (PST)") : GoString), _want2 : (Go.str("Sun, 31 Mar 1918 03:00:00 -0700 (PDT)") : GoString) } : T__struct_29), ({ _zone : (Go.str("Pacific/Fakaofo") : GoString), _unix : (1325242799 : GoInt64), _want1 : (Go.str("Thu, 29 Dec 2011 23:59:59 -1100 (-11)") : GoString), _want2 : (Go.str("Sat, 31 Dec 2011 00:00:00 +1300 (+13)") : GoString) } : T__struct_29)) : Slice<T__struct_29>);
             for (_0 => _test in _tests) {
                 var __tmp__ = stdgo.time.Time.loadLocation(_test._zone), _z:Ref<Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
@@ -10049,7 +10053,7 @@ function testLoadLocationFromTZData(_t:stdgo.testing.Testing.T):Void {
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
-            {};
+            var _locationName:GoString = (Go.str("Asia/Jerusalem") : GoString);
             var __tmp__ = stdgo.time.Time.loadLocation((Go.str("Asia/Jerusalem") : GoString)), _reference:Ref<Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));
@@ -10132,7 +10136,7 @@ function testEarlyLocation(_t:stdgo.testing.Testing.T):Void {
         try {
             var _undo:() -> Void = stdgo.time.Time.disablePlatformSources();
             __deferstack__.unshift(() -> _undo());
-            {};
+            var _locName:GoString = (Go.str("America/New_York") : GoString);
             var __tmp__ = stdgo.time.Time.loadLocation((Go.str("America/New_York") : GoString)), _loc:Ref<Location> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
                 _t.fatal(Go.toInterface(_err));

@@ -431,7 +431,7 @@ function testDigitOptimization(_t:stdgo.testing.Testing.T):Void {
     // rune belongs to. Note that runes may fit into more than one range.
 **/
 function example_is():Void {
-        {};
+        var _mixed:GoString = (Go.str("\x085Ὂg̀9! ℃ᾭG") : GoString);
         for (_0 => _c in (Go.str("\x085Ὂg̀9! ℃ᾭG") : GoString)) {
             stdgo.fmt.Fmt.printf((Go.str("For %q:\n") : GoString), Go.toInterface(_c));
             if (stdgo.unicode.Unicode.isControl(_c)) {
@@ -487,34 +487,34 @@ function exampleSimpleFold():Void {
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.simpleFold(("1".code : GoInt32))));
     }
 function exampleTo():Void {
-        {};
+        var _lcG:GoInt32 = ("g".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (103 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (103 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (103 : GoInt32))));
-        {};
+        var _ucG:GoInt32 = ("G".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((0 : GoInt), (71 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((1 : GoInt), (71 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.to((2 : GoInt), (71 : GoInt32))));
     }
 function exampleToLower():Void {
-        {};
+        var _ucG:GoInt32 = ("G".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toLower((71 : GoInt32))));
     }
 function exampleToTitle():Void {
-        {};
+        var _ucG:GoInt32 = ("g".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toTitle((103 : GoInt32))));
     }
 function exampleToUpper():Void {
-        {};
+        var _ucG:GoInt32 = ("g".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(stdgo.unicode.Unicode.toUpper((103 : GoInt32))));
     }
 function exampleSpecialCase():Void {
         var _t:SpecialCase = stdgo.unicode.Unicode.turkishCase;
-        {};
+        var _lci:GoInt32 = ("i".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toLower((105 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toTitle((105 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toUpper((105 : GoInt32))));
-        {};
+        var _uci:GoInt32 = ("İ".code : GoInt32);
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toLower((304 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toTitle((304 : GoInt32))));
         stdgo.fmt.Fmt.printf((Go.str("%#U\n") : GoString), Go.toInterface(_t.toUpper((304 : GoInt32))));

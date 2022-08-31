@@ -8,6 +8,14 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
+var maxRune : GoInt32 = _maxRune;
+var replacementChar : GoInt32 = _replacementChar;
+var _replacementChar : GoInt32 = ("\uFFFD".code : GoInt32);
+var _maxRune : GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+var _surr1 : GoUnTypedInt = (55296 : GoUnTypedInt);
+var _surr2 : GoUnTypedInt = (56320 : GoUnTypedInt);
+var _surr3 : GoUnTypedInt = (57344 : GoUnTypedInt);
+var _surrSelf : GoUnTypedInt = (65536 : GoUnTypedInt);
 /**
     // IsSurrogate reports whether the specified Unicode code point
     // can appear in a surrogate pair.

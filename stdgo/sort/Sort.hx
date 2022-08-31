@@ -10,6 +10,9 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var _reflectValueOf : AnyInterface -> stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
 var _reflectSwapper : AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
+var _unknownHint : T_sortedHint = _iota;
+var _increasingHint : T_sortedHint = _iota;
+var _decreasingHint : T_sortedHint = _iota;
 typedef Interface = StructType & {
     public function len():GoInt;
     public function less(_i:GoInt, _j:GoInt):Bool;
@@ -446,7 +449,7 @@ function _heapSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
     // limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
 function _pdqsort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
-        {};
+        var _maxInsertion:GoUnTypedInt = (12 : GoUnTypedInt);
         var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
         while (true) {
             var _length:GoInt = _b - _a;
@@ -561,7 +564,7 @@ function _partitionEqual_func(_data:T_lessSwap, _a:GoInt, _b:GoInt, _pivot:GoInt
     // partialInsertionSort_func partially sorts a slice, returns true if the slice is sorted at the end.
 **/
 function _partialInsertionSort_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Bool {
-        {};
+        var _maxSteps:GoUnTypedInt = (5 : GoUnTypedInt), _shortestShifting:GoUnTypedInt = (50 : GoUnTypedInt);
         var _i:GoInt = _a + (1 : GoInt);
         {
             var _j:GoInt = (0 : GoInt);
@@ -632,7 +635,7 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 **/
 function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
         var _pivot:GoInt = (0 : GoInt), _hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
-        {};
+        var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt), _maxSwaps:GoUnTypedInt = (4 : GoUnTypedInt) * (3 : GoUnTypedInt);
         var _l:GoInt = _b - _a;
         var _swaps:GoInt = (0 : GoInt), _i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)), _j:GoInt = _a + (_l / (4 : GoInt) * (2 : GoInt)), _k:GoInt = _a + (_l / (4 : GoInt) * (3 : GoInt));
         if (_l >= (8 : GoInt)) {
@@ -909,7 +912,7 @@ function _heapSort(_data:Interface, _a:GoInt, _b:GoInt):Void {
     // limit is the number of allowed bad (very unbalanced) pivots before falling back to heapsort.
 **/
 function _pdqsort(_data:Interface, _a:GoInt, _b:GoInt, _limit:GoInt):Void {
-        {};
+        var _maxInsertion:GoUnTypedInt = (12 : GoUnTypedInt);
         var _wasBalanced:Bool = true, _wasPartitioned:Bool = true;
         while (true) {
             var _length:GoInt = _b - _a;
@@ -1024,7 +1027,7 @@ function _partitionEqual(_data:Interface, _a:GoInt, _b:GoInt, _pivot:GoInt):GoIn
     // partialInsertionSort partially sorts a slice, returns true if the slice is sorted at the end.
 **/
 function _partialInsertionSort(_data:Interface, _a:GoInt, _b:GoInt):Bool {
-        {};
+        var _maxSteps:GoUnTypedInt = (5 : GoUnTypedInt), _shortestShifting:GoUnTypedInt = (50 : GoUnTypedInt);
         var _i:GoInt = _a + (1 : GoInt);
         {
             var _j:GoInt = (0 : GoInt);
@@ -1095,7 +1098,7 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 **/
 function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{ var _0 : GoInt; var _1 : T_sortedHint; } {
         var _pivot:GoInt = (0 : GoInt), _hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
-        {};
+        var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt), _maxSwaps:GoUnTypedInt = (4 : GoUnTypedInt) * (3 : GoUnTypedInt);
         var _l:GoInt = _b - _a;
         var _swaps:GoInt = (0 : GoInt), _i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)), _j:GoInt = _a + (_l / (4 : GoInt) * (2 : GoInt)), _k:GoInt = _a + (_l / (4 : GoInt) * (3 : GoInt));
         if (_l >= (8 : GoInt)) {

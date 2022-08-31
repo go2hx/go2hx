@@ -17,6 +17,9 @@ var usage : () -> Void = function():Void {
         printDefaults();
     };
 var defaultUsage : () -> Void = usage;
+var continueOnError : ErrorHandling = _iota;
+var exitOnError : ErrorHandling = _iota;
+var panicOnError : ErrorHandling = _iota;
 typedef T_boolFlag = StructType & {
     > Value,
     public function isBoolFlag():Bool;

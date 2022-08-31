@@ -6642,6 +6642,28 @@ var foldScript : GoMap<GoString, Ref<RangeTable>> = {
     @:privateAccess x._values = [_foldCommon, _foldGreek, _foldInherited];
     x;
 };
+var _pC : GoUnTypedInt = (1 : GoUnTypedInt) << _iota;
+var _pP = (1 : GoUnTypedInt) << _iota;
+var _pN = (1 : GoUnTypedInt) << _iota;
+var _pS = (1 : GoUnTypedInt) << _iota;
+var _pZ = (1 : GoUnTypedInt) << _iota;
+var _pLu = (1 : GoUnTypedInt) << _iota;
+var _pLl = (1 : GoUnTypedInt) << _iota;
+var _pp = (1 : GoUnTypedInt) << _iota;
+var _pg : GoUnTypedInt = _pp | _pZ;
+var _pLo : GoUnTypedInt = _pLl | _pLu;
+var _pLmask : GoUnTypedInt = _pLo;
+var maxRune : GoInt32 = ("\u{0010FFFF}".code : GoInt32);
+var replacementChar : GoInt32 = ("\uFFFD".code : GoInt32);
+var maxASCII : GoInt32 = ("\u007F".code : GoInt32);
+var maxLatin1 : GoInt32 = ("\u00FF".code : GoInt32);
+var upperCase : GoUnTypedInt = _iota;
+var lowerCase = _iota;
+var titleCase = _iota;
+var maxCase = _iota;
+var upperLower : GoInt32 = maxRune + (1 : GoInt32);
+var _linearMax : GoUnTypedInt = (18 : GoUnTypedInt);
+var version : GoString = (Go.str("13.0.0") : GoString);
 @:structInit class RangeTable {
     public var r16 : Slice<Range16> = (null : Slice<Range16>);
     public var r32 : Slice<Range32> = (null : Slice<Range32>);

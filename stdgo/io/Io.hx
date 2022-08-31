@@ -29,6 +29,9 @@ var _blackHolePool : stdgo.sync.Sync.Pool = ({ new_ : function():AnyInterface {
     } } : stdgo.sync.Sync.Pool);
 var errClosedPipe : stdgo.Error = stdgo.errors.Errors.new_((Go.str("io: read/write on closed pipe") : GoString));
 var errInvalidWrite : stdgo.Error = _errInvalidWrite;
+var seekStart : GoUnTypedInt = (0 : GoUnTypedInt);
+var seekCurrent : GoUnTypedInt = (1 : GoUnTypedInt);
+var seekEnd : GoUnTypedInt = (2 : GoUnTypedInt);
 var _3 : ReaderFrom = {
         final __self__ = new T_discard_wrapper((new T_discard() : T_discard));
         __self__.readFrom = #if !macro function(_r_:Reader):{ var _0 : GoInt64; var _1 : stdgo.Error; } return (new T_discard() : T_discard).readFrom(_r_) #else null #end;
@@ -506,7 +509,7 @@ function limitReader(_r:Reader, _n:GoInt64):Reader {
 **/
 function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):SectionReader {
         var _remaining:GoInt64 = (0 : GoInt64);
-        {};
+        var _maxint64:GoUnTypedInt = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
         if (_off <= (("9223372036854775807" : GoInt64) - _n)) {
             _remaining = _n + _off;
         } else {

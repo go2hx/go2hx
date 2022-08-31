@@ -144,6 +144,19 @@ var _countOpsSizes : Slice<GoInt> = (new Slice<GoInt>(
 (100000 : GoInt),
 (300000 : GoInt),
 (1e+06 : GoInt)) : Slice<GoInt>);
+var __Sawtooth : GoUnTypedInt = _iota;
+var __Rand = _iota;
+var __Stagger = _iota;
+var __Plateau = _iota;
+var __Shuffle = _iota;
+var __NDist = _iota;
+var __Copy : GoUnTypedInt = _iota;
+var __Reverse = _iota;
+var __ReverseFirstHalf = _iota;
+var __ReverseSecondHalf = _iota;
+var __Sorted = _iota;
+var __Dither = _iota;
+var __NMode = _iota;
 @:structInit @:using(stdgo.sort_test.Sort_test.Person_static_extension) class Person {
     public var name : GoString = "";
     public var age : GoInt = 0;
@@ -1477,7 +1490,7 @@ function _newAdversaryTestingData(_t:stdgo.testing.Testing.T, _size:GoInt, _maxc
         return ({ _t : _t, _data : _data, _maxcmp : _maxcmp, _gas : _gas } : stdgo.sort_test.Sort_test.T_adversaryTestingData);
     }
 function testAdversary(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _size:GoUnTypedInt = (10000 : GoUnTypedInt);
         var _maxcmp:GoInt = ((10000 : GoInt) * _lg((10000 : GoInt))) * (4 : GoInt);
         var _d = _newAdversaryTestingData(_t, (10000 : GoInt), _maxcmp);
         sort({

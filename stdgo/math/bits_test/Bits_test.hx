@@ -11,6 +11,11 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var input : GoUInt64 = ("285870213051353865" : GoUInt64);
 var output : GoInt = (0 : GoInt);
+var __M : GoUnTypedInt = ((1 : GoUnTypedInt) << uintSize) - (1 : GoUnTypedInt);
+var __M32 : GoUnTypedInt = ((1 : GoUnTypedInt) << (32 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+var __M64 : GoUnTypedInt = ((1 : GoUnTypedInt) << (64 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+var _divZeroError : GoString = (Go.str("runtime error: integer divide by zero") : GoString);
+var _overflowError : GoString = (Go.str("runtime error: integer overflow") : GoString);
 var _tab : GoArray<T_entry> = new GoArray<T_entry>(...[for (i in 0 ... 256) ({ _nlz : (0 : GoInt), _ntz : (0 : GoInt), _pop : (0 : GoInt) } : T_entry)]);
 @:follow typedef T_entry = {
     var _nlz : GoInt;

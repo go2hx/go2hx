@@ -13,6 +13,7 @@ var _species : Pointer<GoString> = stdgo.flag.Flag.string((Go.str("species") : G
 var _u : Ref<stdgo.net.url.Url.URL> = (new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL);
 var _gopherType : GoString = ("" : GoString);
 var _intervalFlag : T_interval = new stdgo.flag_test.Flag_test.T_interval();
+var _defaultOutput : GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n" : GoString);
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
     public var url : Ref<stdgo.net.url.Url.URL> = (null : stdgo.net.url.Url.URL);
     public function new(?url:Ref<stdgo.net.url.Url.URL>) {
@@ -629,7 +630,7 @@ function testUserDefinedFunc(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testUserDefinedForCommandLine(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _help:GoString = (Go.str("HELP") : GoString);
         var _result:GoString = ("" : GoString);
         resetForTesting(function():Void {
             _result = (Go.str("HELP") : GoString);
@@ -945,7 +946,7 @@ function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
             };
             stdgo.os.Os.args = (new Slice<GoString>(0, 0, (Go.str("app") : GoString), (Go.str("-i=1") : GoString), (Go.str("-unknown") : GoString)) : Slice<GoString>);
             parse();
-            {};
+            var _want:GoString = (Go.str("flag provided but not defined: -i\nUsage of app:\n") : GoString);
             {
                 var _got:GoString = (_buf.string() : GoString);
                 if (_got != (Go.str("flag provided but not defined: -i\nUsage of app:\n") : GoString)) {
@@ -1379,7 +1380,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
     }
 @:keep var _ = {
         try {
-            {};
+            var _defaultGopher:GoString = (Go.str("pocket") : GoString), _usage:GoString = (Go.str("the variety of gopher") : GoString);
             stdgo.flag.Flag.stringVar(Go.pointer(_gopherType), (Go.str("gopher_type") : GoString), (Go.str("pocket") : GoString), (Go.str("the variety of gopher") : GoString));
             stdgo.flag.Flag.stringVar(Go.pointer(_gopherType), (Go.str("g") : GoString), (Go.str("pocket") : GoString), (Go.str("the variety of gopher (shorthand)") : GoString));
             stdgo.flag.Flag.var_({

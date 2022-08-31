@@ -3083,7 +3083,7 @@ function testSectionReader_Size(_t:stdgo.testing.Testing.T):Void {
     }
 function testSectionReader_Max(_t:stdgo.testing.Testing.T):Void {
         var _r = stdgo.strings.Strings.newReader((Go.str("abcdef") : GoString));
-        {};
+        var _maxint64:GoUnTypedInt = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
         var _sr = newSectionReader({
             final __self__ = new stdgo.strings.Strings.Reader_wrapper(_r);
             __self__.len = #if !macro function():GoInt return _r.len() #else null #end;
@@ -3854,7 +3854,7 @@ function testMultiReaderSingleByteWithEOF(_t:stdgo.testing.Testing.T):Void {
         if (_err != null) {
             _t.fatal(Go.toInterface(_err));
         };
-        {};
+        var _want:GoString = (Go.str("ab") : GoString);
         if ((_got : GoString) != (Go.str("ab") : GoString)) {
             _t.errorf((Go.str("got %q; want %q") : GoString), Go.toInterface(_got), Go.toInterface((Go.str("ab") : GoString)));
         };
@@ -4452,7 +4452,7 @@ function testPipeCloseError(_t:stdgo.testing.Testing.T):Void {
         };
     }
 function testPipeConcurrent(_t:stdgo.testing.Testing.T):Void {
-        {};
+        var _input:GoString = (Go.str("0123456789abcdef") : GoString), _count:GoUnTypedInt = (8 : GoUnTypedInt), _readSize:GoUnTypedInt = (2 : GoUnTypedInt);
         _t.run((Go.str("Write") : GoString), function(_t:stdgo.testing.Testing.T):Void {
             var __tmp__ = pipe(), _r:Ref<PipeReader> = __tmp__._0, _w:Ref<PipeWriter> = __tmp__._1;
             {

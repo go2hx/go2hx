@@ -501,6 +501,7 @@ Go.toInterface(("16368296284793757383" : GoUInt64)),
 Go.toInterface(("161231572858529631" : GoUInt64)),
 Go.toInterface(("16482847956365694147" : GoUInt64)),
 Go.toInterface(("16596477517051940556" : GoUInt64))) : Slice<AnyInterface>);
+var _numTestSamples : GoUnTypedInt = (10000 : GoUnTypedInt);
 var __tmp__0 = getNormalDistributionParameters();
 var __tmp__1 = getExponentialDistributionParameters();
 @:structInit @:using(stdgo.math.rand_test.Rand_test.T_statsResults_static_extension) class T_statsResults {
@@ -709,7 +710,7 @@ function testConcurrent(_t:stdgo.testing.Testing.T):Void {
         var __recover_exception__:AnyInterface = null;
         var __deferstack__:Array<Void -> Void> = [];
         try {
-            {};
+            var _numRoutines:GoUnTypedInt = (10 : GoUnTypedInt), _numCycles:GoUnTypedInt = (10 : GoUnTypedInt);
             var _wg:stdgo.sync.Sync.WaitGroup = ({  } : stdgo.sync.Sync.WaitGroup);
             __deferstack__.unshift(() -> _wg.wait_());
             _wg.add((10 : GoInt));
@@ -922,7 +923,7 @@ function testNonStandardExponentialValues(_t:stdgo.testing.Testing.T):Void {
     }
 function _initNorm():{ var _0 : Slice<GoUInt32>; var _1 : Slice<GoFloat32>; var _2 : Slice<GoFloat32>; } {
         var _testKn:Slice<GoUInt32> = (null : Slice<GoUInt32>), _testWn:Slice<GoFloat32> = (null : Slice<GoFloat32>), _testFn:Slice<GoFloat32> = (null : Slice<GoFloat32>);
-        {};
+        var _m1:GoUnTypedInt = (1 : GoUnTypedInt) << (31 : GoUnTypedInt);
         var _dn:GoFloat64 = _rn, _tn:GoFloat64 = _dn, _vn:GoFloat64 = (0.00991256303526217 : GoFloat64);
         _testKn = new Slice<GoUInt32>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoUInt32)]);
         _testWn = new Slice<GoFloat32>((128 : GoInt).toBasic(), 0, ...[for (i in 0 ... (128 : GoInt).toBasic()) (0 : GoFloat32)]);
@@ -948,7 +949,7 @@ function _initNorm():{ var _0 : Slice<GoUInt32>; var _1 : Slice<GoFloat32>; var 
     }
 function _initExp():{ var _0 : Slice<GoUInt32>; var _1 : Slice<GoFloat32>; var _2 : Slice<GoFloat32>; } {
         var _testKe:Slice<GoUInt32> = (null : Slice<GoUInt32>), _testWe:Slice<GoFloat32> = (null : Slice<GoFloat32>), _testFe:Slice<GoFloat32> = (null : Slice<GoFloat32>);
-        {};
+        var _m2:GoUnTypedInt = (1 : GoUnTypedInt) << (32 : GoUnTypedInt);
         var _de:GoFloat64 = _re, _te:GoFloat64 = _de, _ve:GoFloat64 = (0.003949659822581557 : GoFloat64);
         _testKe = new Slice<GoUInt32>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoUInt32)]);
         _testWe = new Slice<GoFloat32>((256 : GoInt).toBasic(), 0, ...[for (i in 0 ... (256 : GoInt).toBasic()) (0 : GoFloat32)]);
@@ -1239,7 +1240,7 @@ function testUniformFactorial(_t:stdgo.testing.Testing.T):Void {
                             };
                             var _samples = new Slice<GoFloat64>((_nsamples : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nsamples : GoInt).toBasic()) (0 : GoFloat64)]);
                             for (_i => _ in _samples) {
-                                {};
+                                var _iters:GoUnTypedInt = (1000 : GoUnTypedInt);
                                 var _counts = new Slice<GoInt>((_nfact : GoInt).toBasic(), 0, ...[for (i in 0 ... (_nfact : GoInt).toBasic()) (0 : GoInt)]);
                                 {
                                     var _i:GoInt = (0 : GoInt);

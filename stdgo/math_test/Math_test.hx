@@ -1671,6 +1671,8 @@ var _tanHuge : Slice<GoFloat64> = (new Slice<GoFloat64>(
 (-6.76813854009065 : GoFloat64),
 (0.7641769501660493 : GoFloat64),
 (-0.00496201587444489 : GoFloat64)) : Slice<GoFloat64>);
+var smallestNormalFloat64 : GoUnTypedFloat = (2.2250738585072014e-308 : GoUnTypedFloat);
+var largestSubnormalFloat64 : GoUnTypedFloat = (smallestNormalFloat64 : GoUnTypedFloat) - (smallestNonzeroFloat64 : GoUnTypedFloat);
 var globalI : GoInt = (0 : GoInt);
 var globalB : Bool = false;
 var globalF : GoFloat64 = (0 : GoFloat64);
@@ -4484,7 +4486,7 @@ function exampleTanh():Void {
         stdgo.fmt.Fmt.printf((Go.str("%.2f") : GoString), Go.toInterface(stdgo.math.Math.tanh((0 : GoFloat64))));
     }
 function exampleSqrt():Void {
-        {};
+        var _a:GoUnTypedInt = (3 : GoUnTypedInt), _b:GoUnTypedInt = (4 : GoUnTypedInt);
         var _c:GoFloat64 = stdgo.math.Math.sqrt((25 : GoFloat64));
         stdgo.fmt.Fmt.printf((Go.str("%.1f") : GoString), Go.toInterface(_c));
     }

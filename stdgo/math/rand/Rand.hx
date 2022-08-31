@@ -1783,7 +1783,14 @@ var _globalRand : Ref<Rand> = new_({
         __self__._seedPos = #if !macro function(_seed_:GoInt64, _readPos:Pointer<GoInt8>):Void ({ _src : ((newSource((1 : GoInt64)).__underlying__().value : Dynamic) : T_rngSource) } : T_lockedSource)._seedPos(_seed_, _readPos) #else null #end;
         __self__;
     });
+var _re : GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
+var _rn : GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
 var _1 : T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
+var _rngLen : GoUnTypedInt = (607 : GoUnTypedInt);
+var _rngTap : GoUnTypedInt = (273 : GoUnTypedInt);
+var _rngMax : GoUnTypedInt = (1 : GoUnTypedInt) << (63 : GoUnTypedInt);
+var _rngMask : GoUnTypedInt = _rngMax - (1 : GoUnTypedInt);
+var _int32max : GoUnTypedInt = ((1 : GoUnTypedInt) << (31 : GoUnTypedInt)) - (1 : GoUnTypedInt);
 typedef Source = StructType & {
     public function int63():GoInt64;
     public function seed(_seed:GoInt64):Void;
@@ -2067,7 +2074,7 @@ function expFloat64():GoFloat64 {
     // seed rng x[n+1] = 48271 * x[n] mod (2**31 - 1)
 **/
 function _seedrand(_x:GoInt32):GoInt32 {
-        {};
+        var a:GoUnTypedInt = (48271 : GoUnTypedInt), q:GoUnTypedInt = (44488 : GoUnTypedInt), r:GoUnTypedInt = (3399 : GoUnTypedInt);
         var _hi:GoInt32 = _x / (44488 : GoInt32);
         var _lo:GoInt32 = _x % (44488 : GoInt32);
         _x = ((48271 : GoInt32) * _lo) - ((3399 : GoInt32) * _hi);

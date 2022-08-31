@@ -18,6 +18,7 @@ var _asciiSpace : GoArray<GoUInt8> = {
         s[5] = (1 : GoUInt8);
         s;
     };
+var _countCutOff : GoUnTypedInt = (8 : GoUnTypedInt);
 typedef T_replacer = StructType & {
     public function replace(_s:GoString):GoString;
     public function writeString(_w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; };

@@ -14,6 +14,21 @@ var errExist : stdgo.Error = _errExist();
 var errNotExist : stdgo.Error = _errNotExist();
 var errClosed : stdgo.Error = _errClosed();
 var skipDir : stdgo.Error = stdgo.errors.Errors.new_((Go.str("skip this directory") : GoString));
+var modeDir : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeAppend : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeExclusive : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeTemporary : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeSymlink : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeDevice : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeNamedPipe : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeSocket : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeSetuid : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeSetgid : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeCharDevice : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeSticky : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeIrregular : FileMode = (1 : GoUnTypedInt) << ((32 : GoUnTypedInt) - (1 : GoUnTypedInt) - _iota);
+var modeType : FileMode = (((modeDir | modeSymlink) | modeNamedPipe | modeSocket) | modeDevice | modeCharDevice) | modeIrregular;
+var modePerm : FileMode = (511 : FileMode);
 typedef FS = StructType & {
     public function open(_name:GoString):{ var _0 : File; var _1 : Error; };
 };
@@ -183,7 +198,7 @@ function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : 
     }
 function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } {
         var _matches:Slice<GoString> = (null : Slice<GoString>), _err:Error = (null : stdgo.Error);
-        {};
+        var _pathSeparatorsLimit:GoUnTypedInt = (10000 : GoUnTypedInt);
         if (_depth > (10000 : GoInt)) {
             return { _0 : (null : Slice<GoString>), _1 : stdgo.path.Path.errBadPattern };
         };
@@ -936,7 +951,7 @@ class T_statDirEntry_wrapper {
     }
     @:keep
     static public function string( _m:FileMode):GoString {
-        {};
+        var _str:GoString = (Go.str("dalTLDpSugct?") : GoString);
         var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) (0 : GoUInt8)]);
         var _w:GoInt = (0 : GoInt);
         for (_i => _c in (Go.str("dalTLDpSugct?") : GoString)) {
@@ -949,7 +964,7 @@ class T_statDirEntry_wrapper {
             _buf[_w] = ("-".code : GoUInt8);
             _w++;
         };
-        {};
+        var _rwx:GoString = (Go.str("rwxrwxrwx") : GoString);
         for (_i => _c in (Go.str("rwxrwxrwx") : GoString)) {
             if ((_m & (1 : FileMode) << ((8 : GoInt) - _i : GoUInt)) != (0 : FileMode)) {
                 _buf[_w] = (_c : GoByte);

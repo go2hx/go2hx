@@ -22,6 +22,15 @@ var _asciiSpace : GoArray<GoUInt8> = {
         s;
     };
 var indexBytePortable : (Slice<GoUInt8>, GoUInt8) -> GoInt = _indexBytePortable;
+var _smallBufferSize : GoUnTypedInt = (64 : GoUnTypedInt);
+var _opRead : T_readOp = -(1 : GoUnTypedInt);
+var _opInvalid : T_readOp = (0 : T_readOp);
+var _opReadRune1 : T_readOp = (1 : T_readOp);
+var _opReadRune2 : T_readOp = (2 : T_readOp);
+var _opReadRune3 : T_readOp = (3 : T_readOp);
+var _opReadRune4 : T_readOp = (4 : T_readOp);
+var _maxInt : GoInt = ((-1 ^ ((0 : GoUInt) : GoUInt)) >> (1 : GoUnTypedInt) : GoInt);
+var minRead : GoUnTypedInt = (512 : GoUnTypedInt);
 @:structInit @:using(stdgo.bytes.Bytes.Buffer_static_extension) class Buffer {
     public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _off : GoInt = 0;

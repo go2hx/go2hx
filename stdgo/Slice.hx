@@ -111,6 +111,8 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public function __ref__():Slice<T> {
+		if (this == null)
+			return new SliceData<T>(0, 0);
 		final slice = new SliceData<T>(0, -1);
 		slice.length = this.length;
 		slice.capacity = this.capacity;
@@ -121,7 +123,7 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
-		var startOffset = this.length;
+		var startOffset = slice.length;
 		var growCapacity = args.length - slice.capacity + slice.length + slice.offset;
 		if (growCapacity <= 0) {
 			slice.vector = slice.vector.copy(); // allocation

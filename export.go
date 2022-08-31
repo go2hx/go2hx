@@ -627,7 +627,8 @@ func parseFile(file *ast.File, path string) fileType {
 		case *ast.GenDecl:
 			switch d.Tok {
 			case token.CONST:
-				// skip as constants are inlined
+				obj := parseData(decl)
+				data.Decls = append(data.Decls, obj)
 			default:
 				obj := parseData(decl)
 				data.Decls = append(data.Decls, obj)

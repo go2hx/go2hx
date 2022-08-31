@@ -31,9 +31,41 @@ function create(outputPath:String, module:Module, root:String) {
 	}
 }
 
+var typeFormatter = -1;
+
+private function runFormatter(path:String) {
+	if (typeFormatter == 0)
+		return;
+	if (typeFormatter == -1) {
+		var process = new sys.io.Process("haxelib run formatter -v");
+		var code = process.exitCode();
+		process.close();
+		if (code == 0) {
+			typeFormatter = 1;
+		} else {
+			process = new sys.io.Process("npx haxelib run formatter -v");
+			code = process.exitCode();
+			if (code == 0) {
+				typeFormatter = 2;
+			} else {
+				typeFormatter = 0;
+				return;
+			}
+		}
+	}
+	var cmd = 'haxelib run formatter -s $path';
+	if (typeFormatter > 1)
+		cmd = "npx " + cmd;
+	final process = new sys.io.Process(cmd);
+	process.exitCode();
+	process.close();
+}
+
 private function save(dir:String, name:String, content:String) {
 	if (!FileSystem.exists(dir))
 		FileSystem.createDirectory(dir);
-	File.saveContent(dir + name + ".hx", content);
+	final path = dir + name + ".hx";
+	File.saveContent(path, content);
+	runFormatter(path);
 	Sys.println("Generated: " + dir + name + ".hx - " + shared.Util.kbCount(content) + "kb");
 }

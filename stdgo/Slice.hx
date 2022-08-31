@@ -91,18 +91,18 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	}
 
 	public function __getOffset__():Int {
-		return this.pos;
+		return this.offset;
 	}
 
 	public function __slice__(low:GoInt, high:GoInt = -1, cap:GoInt = -1):Slice<T> {
 		if (this == null)
 			return null;
-		var pos = low;
+		var offset = low;
 		if (high == -1)
 			high = length.toBasic();
 		var length = high - low;
 		var obj:SliceData<T> = __ref__();
-		obj.pos = this.pos + pos;
+		obj.offset = this.offset + offset;
 		if (cap != -1) {
 			obj.capacity = cap;
 		}
@@ -113,14 +113,14 @@ abstract Slice<T>(SliceData<T>) from SliceData<T> to SliceData<T> {
 	public function __ref__():Slice<T> {
 		final slice = new SliceData<T>(this.length, this.capacity);
 		slice.vector = this.vector;
-		slice.pos = this.pos;
+		slice.offset = this.offset;
 		return slice;
 	}
 
 	public function __append__(args:Rest<T>):Slice<T> {
 		final slice:SliceData<T> = __ref__(); // no allocation
 		var startOffset = this.length;
-		var growCapacity = args.length - slice.capacity + slice.length + slice.pos;
+		var growCapacity = args.length - slice.capacity + slice.length + slice.offset;
 		if (growCapacity <= 0) {
 			slice.vector = slice.vector.copy(); // allocation
 			slice.length += args.length;
@@ -185,7 +185,7 @@ private class SliceIterator<T> {
 class SliceData<T> {
 	public var vector:haxe.ds.Vector<T>;
 
-	public var pos:Int = 0;
+	public var offset:Int = 0;
 	public var length:Int = 0;
 	public var capacity:Int = 0;
 
@@ -213,13 +213,13 @@ class SliceData<T> {
 
 	public function get(index:Int):T {
 		boundsCheck(index);
-		final i = index + pos;
+		final i = index + offset;
 		return vector.get(i);
 	}
 
 	public function set(index:Int, value:T):T {
 		boundsCheck(index);
-		final i = index + pos;
+		final i = index + offset;
 		return vector.set(i, value);
 	}
 
@@ -234,16 +234,16 @@ class SliceData<T> {
 	}
 
 	public function toVector():haxe.ds.Vector<T> {
-		if (pos != 0) {
+		if (offset != 0) {
 			final obj = new haxe.ds.Vector<T>(length);
-			haxe.ds.Vector.blit(obj, pos, obj, 0, obj.length);
+			haxe.ds.Vector.blit(obj, offset, obj, 0, obj.length);
 			return obj;
 		}
 		return vector;
 	}
 
 	public function toString():String
-		return "[" + [for (i in pos...pos + length) Go.string(vector[i])].join(" ") + "]";
+		return "[" + [for (i in offset...offset + length) Go.string(vector[i])].join(" ") + "]";
 
 	public function grow() {
 		if (vector.length >= capacity)

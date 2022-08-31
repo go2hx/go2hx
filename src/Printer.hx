@@ -53,6 +53,32 @@ class Printer extends haxe.macro.Printer {
 					s += '\n${tabs}default:' + (edef.expr == null ? "" : printBlock(edef));
 				tabs = old;
 				s + '\n$tabs}';
+			case ECheckType(e1, ct):
+				switch e1.expr {
+					case EParenthesis(e):
+						e1.expr = e.expr;
+					case ECheckType(e, t):
+						if (printComplexType(ct) == printComplexType(t)) {
+							return printExpr(e1);
+						}
+					default:
+				}
+				'(${printExpr(e1)} : ${printComplexType(ct)})';
+			case EParenthesis(e1):
+				e1 = haxe.macro.ExprTools.map(e1, e1 -> {
+					switch e1.expr {
+						case EParenthesis(e):
+							e;
+						default:
+							e1;
+					}
+				});
+				switch e1.expr {
+					case ECheckType(_, _):
+						printExpr(e1);
+					default:
+						'(${printExpr(e1)})';
+				}
 			default: super.printExpr(e);
 		}
 	}

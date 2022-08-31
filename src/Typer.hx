@@ -5125,7 +5125,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 			macro(null : GoMap<$key, $value>);
 		case sliceType(_.get() => elem):
 			final t = toComplexType(elem, info);
-			macro(null : Slice<$t>);
+			macro(new Slice<$t>(0,0,...[]));
 		case arrayType(_.get() => elem, len):
 			final t = toComplexType(elem, info);
 			var value = defaultValue(elem, info);

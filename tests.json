@@ -4,6 +4,7 @@
     "unicode/utf16",
     "math-TestFloatMinMax,FloatMinMax,testGamma",
     "math/bits-TestLeadingZeros,TestOnesCount,TestLen",
+    "math/rand",
     "sort",
     "strings",
     "flag",

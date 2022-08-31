@@ -16,7 +16,7 @@ function main() {
 	for (data in list) {
 		libs.push(data.split("-")[0]);
 	}
-	// libs = ["io"];
+	// libs = ["bytes"];
 	trace(libs);
 	libCount = libs.length;
 	Main.setup(0, 1); // amount of processes to spawn
@@ -51,7 +51,7 @@ function update() {
 	for (lib in libs) {
 		externBool = externs.indexOf(lib) != -1;
 		hxml = "stdgo/" + sanatize(lib);
-		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun',];
+		args = [lib, '--nocomments', '--out', 'stdgo', '--root', 'stdgo', '--norun'];
 		if (externBool)
 			args.push("--extern");
 		if (noMain.indexOf(lib) == -1) {
@@ -76,7 +76,7 @@ private function sanatize(s:String):String {
 	return s;
 }
 
-final noMain = ["testing/internal/testdeps", "unicode/utf8"];
+final noMain = ["testing/internal/testdeps"];
 
 final externs = [
 	"syscall/js", "syscall", "os", "context", "testing", "testing/quick", "testing/iotest", "testing/fstest", "testing/internal/testdeps", "regexp/syntax",

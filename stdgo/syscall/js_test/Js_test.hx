@@ -8,8 +8,8 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _dummys : Value = (({  } : Value));
-var _copyTests : Slice<T__struct_0> = ((null : Slice<T__struct_0>));
+var _dummys : Value = ({  } : Value);
+var _copyTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
 @:local typedef T__struct_0 = {
     public var _srcLen : GoInt;
     public var _dstLen : GoInt;

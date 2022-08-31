@@ -8,23 +8,23 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = ((null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>));
-var _nextFuncID : GoUInt32 = ((0 : GoUInt32));
-var _valueUndefined : Value = (({  } : Value));
-var _valueNaN : Value = (({  } : Value));
-var _valueZero : Value = (({  } : Value));
-var _valueNull : Value = (({  } : Value));
-var _valueTrue : Value = (({  } : Value));
-var _valueFalse : Value = (({  } : Value));
-var _valueGlobal : Value = (({  } : Value));
-var _jsGo : Value = (({  } : Value));
-var _objectConstructor : Value = (({  } : Value));
-var _arrayConstructor : Value = (({  } : Value));
-var jsgo : Value = (({  } : Value));
-var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
+var _funcs : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface> = (null : GoMap<GoUInt32, (Value, Slice<Value>) -> AnyInterface>);
+var _nextFuncID : GoUInt32 = (0 : GoUInt32);
+var _valueUndefined : Value = ({  } : Value);
+var _valueNaN : Value = ({  } : Value);
+var _valueZero : Value = ({  } : Value);
+var _valueNull : Value = ({  } : Value);
+var _valueTrue : Value = ({  } : Value);
+var _valueFalse : Value = ({  } : Value);
+var _valueGlobal : Value = ({  } : Value);
+var _jsGo : Value = ({  } : Value);
+var _objectConstructor : Value = ({  } : Value);
+var _arrayConstructor : Value = ({  } : Value);
+var jsgo : Value = ({  } : Value);
+var _funcsMu : stdgo.sync.Sync.Mutex = ({  } : stdgo.sync.Sync.Mutex);
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
     @:embedded
-    public var value : Value = (({  } : Value));
+    public var value : Value = ({  } : Value);
     public var _id : GoUInt32 = 0;
     public function new(?value:Value, ?_id:GoUInt32) {
         if (value != null) this.value = value;
@@ -33,23 +33,23 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
     @:embedded
     public function bool():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
     public function equal(__0:Value):Bool return false;
     @:embedded
-    public function float():GoFloat64 return ((0 : GoFloat64));
+    public function float():GoFloat64 return (0 : GoFloat64);
     @:embedded
-    public function get(_p:GoString):Value return (({  } : Value));
+    public function get(_p:GoString):Value return ({  } : Value);
     @:embedded
-    public function index(_i:GoInt):Value return (({  } : Value));
+    public function index(_i:GoInt):Value return ({  } : Value);
     @:embedded
     public function instanceOf(__0:Value):Bool return false;
     @:embedded
-    public function int():GoInt return ((0 : GoInt));
+    public function int():GoInt return (0 : GoInt);
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -57,21 +57,21 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
     @:embedded
     public function isUndefined():Bool return false;
     @:embedded
-    public function length():GoInt return ((0 : GoInt));
+    public function length_():GoInt return (0 : GoInt);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
     public function setIndex(_i:GoInt, _x:AnyInterface) null;
     @:embedded
-    public function string():GoString return (("" : GoString));
+    public function string():GoString return ("" : GoString);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return ((((0 : GoInt)) : Type));
+    public function type():Type return ((0 : GoInt) : Type);
     @:embedded
-    public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
+    public function _float(_p:GoString):GoFloat64 return (0 : GoFloat64);
     @:embedded
     public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
@@ -81,8 +81,8 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
 }
 @:structInit @:using(stdgo.syscall.js.Js.Value_static_extension) class Value {
     public var _0 : GoArray<() -> Void> = new GoArray<() -> Void>(...[for (i in 0 ... 0) null]);
-    public var _ref : T_ref = ((((0 : GoUInt64)) : T_ref));
-    public var _gcPtr : Pointer<T_ref> = ((null : Pointer<T_ref>));
+    public var _ref : T_ref = ((0 : GoUInt64) : T_ref);
+    public var _gcPtr : Pointer<T_ref> = (null : Pointer<T_ref>);
     public function new(?_0:GoArray<() -> Void>, ?_ref:T_ref, ?_gcPtr:Pointer<T_ref>) {
         if (_0 != null) this._0 = _0;
         if (_ref != null) this._ref = _ref;
@@ -95,30 +95,30 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
 }
 @:structInit @:using(stdgo.syscall.js.Js.T_error_static_extension) class T_error {
     @:embedded
-    public var value : Value = (({  } : Value));
+    public var value : Value = ({  } : Value);
     public function new(?value:Value) {
         if (value != null) this.value = value;
     }
     @:embedded
     public function bool():Bool return false;
     @:embedded
-    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function call(_m:GoString, _args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function delete(_p:GoString) null;
     @:embedded
     public function equal(__0:Value):Bool return false;
     @:embedded
-    public function float():GoFloat64 return ((0 : GoFloat64));
+    public function float():GoFloat64 return (0 : GoFloat64);
     @:embedded
-    public function get(_p:GoString):Value return (({  } : Value));
+    public function get(_p:GoString):Value return ({  } : Value);
     @:embedded
-    public function index(_i:GoInt):Value return (({  } : Value));
+    public function index(_i:GoInt):Value return ({  } : Value);
     @:embedded
     public function instanceOf(__0:Value):Bool return false;
     @:embedded
-    public function int():GoInt return ((0 : GoInt));
+    public function int():GoInt return (0 : GoInt);
     @:embedded
-    public function invoke(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function invoke(_args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function isNaN():Bool return false;
     @:embedded
@@ -126,21 +126,21 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
     @:embedded
     public function isUndefined():Bool return false;
     @:embedded
-    public function length():GoInt return ((0 : GoInt));
+    public function length_():GoInt return (0 : GoInt);
     @:embedded
-    public function new_(_args:haxe.Rest<AnyInterface>):Value return (({  } : Value));
+    public function new_(_args:haxe.Rest<AnyInterface>):Value return ({  } : Value);
     @:embedded
     public function set(_p:GoString, _x:AnyInterface) null;
     @:embedded
     public function setIndex(_i:GoInt, _x:AnyInterface) null;
     @:embedded
-    public function string():GoString return (("" : GoString));
+    public function string():GoString return ("" : GoString);
     @:embedded
     public function truthy():Bool return false;
     @:embedded
-    public function type():Type return ((((0 : GoInt)) : Type));
+    public function type():Type return ((0 : GoInt) : Type);
     @:embedded
-    public function _float(_p:GoString):GoFloat64 return ((0 : GoFloat64));
+    public function _float(_p:GoString):GoFloat64 return (0 : GoFloat64);
     @:embedded
     public function _isNumber():Bool return false;
     public function __underlying__():AnyInterface return Go.toInterface(this);
@@ -150,7 +150,7 @@ var _funcsMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
 }
 @:structInit @:using(stdgo.syscall.js.Js.ValueError_static_extension) class ValueError {
     public var method : GoString = "";
-    public var type : Type = ((((0 : GoInt)) : Type));
+    public var type : Type = ((0 : GoInt) : Type);
     public function new(?method:GoString, ?type:Type) {
         if (method != null) this.method = method;
         if (type != null) this.type = type;
@@ -275,7 +275,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function new_( __self__:Func, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
     @:embedded
-    public static function length( __self__:Func):GoInt return __self__.length();
+    public static function length_( __self__:Func):GoInt return __self__.length_();
     @:embedded
     public static function isUndefined( __self__:Func):Bool return __self__.isUndefined();
     @:embedded
@@ -328,7 +328,7 @@ class Func_wrapper {
     @:embedded
     public var new_ : haxe.Rest<AnyInterface> -> Value = null;
     @:embedded
-    public var length : () -> GoInt = null;
+    public var length_ : () -> GoInt = null;
     @:embedded
     public var isUndefined : () -> Bool = null;
     @:embedded
@@ -428,7 +428,7 @@ class Func_wrapper {
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    static public function length( _v:Value):GoInt throw "syscall.js.length is not yet implemented";
+    static public function length_( _v:Value):GoInt throw "syscall.js.length_ is not yet implemented";
     /**
         // SetIndex sets the JavaScript index i of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
@@ -555,7 +555,7 @@ class Value_wrapper {
         // It panics if v is not a JavaScript object.
     **/
     @:keep
-    public var length : () -> GoInt = null;
+    public var length_ : () -> GoInt = null;
     /**
         // SetIndex sets the JavaScript index i of value v to ValueOf(x).
         // It panics if v is not a JavaScript object.
@@ -639,7 +639,7 @@ class Value_wrapper {
     @:embedded
     public static function new_( __self__:T_error, _args:haxe.Rest<AnyInterface>):Value return __self__.new_(..._args);
     @:embedded
-    public static function length( __self__:T_error):GoInt return __self__.length();
+    public static function length_( __self__:T_error):GoInt return __self__.length_();
     @:embedded
     public static function isUndefined( __self__:T_error):Bool return __self__.isUndefined();
     @:embedded
@@ -690,7 +690,7 @@ class T_error_wrapper {
     @:embedded
     public var new_ : haxe.Rest<AnyInterface> -> Value = null;
     @:embedded
-    public var length : () -> GoInt = null;
+    public var length_ : () -> GoInt = null;
     @:embedded
     public var isUndefined : () -> Bool = null;
     @:embedded

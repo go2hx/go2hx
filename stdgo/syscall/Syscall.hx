@@ -8,30 +8,30 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var _envs : Slice<GoString> = ((null : Slice<GoString>));
-var _jsProcess : stdgo.syscall.js.Js.Value = (({  } : stdgo.syscall.js.Js.Value));
-var _jsFS : stdgo.syscall.js.Js.Value = (({  } : stdgo.syscall.js.Js.Value));
-var _constants : stdgo.syscall.js.Js.Value = (({  } : stdgo.syscall.js.Js.Value));
-var _uint8Array : stdgo.syscall.js.Js.Value = (({  } : stdgo.syscall.js.Js.Value));
-var _nodeWRONLY : GoInt = ((0 : GoInt));
-var _nodeRDWR : GoInt = ((0 : GoInt));
-var _nodeCREATE : GoInt = ((0 : GoInt));
-var _nodeTRUNC : GoInt = ((0 : GoInt));
-var _nodeAPPEND : GoInt = ((0 : GoInt));
-var _nodeEXCL : GoInt = ((0 : GoInt));
-var _files : GoMap<GoInt, Ref<T_jsFile>> = ((null : GoMap<GoInt, Ref<T_jsFile>>));
-var _signals : GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 0) (("" : GoString))]);
-var _errorstr : GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 2054) (("" : GoString))]);
-var _errEAGAIN : Error = ((null : stdgo.Error));
-var _errEINVAL : Error = ((null : stdgo.Error));
-var _errENOENT : Error = ((null : stdgo.Error));
-var _errnoByCode : GoMap<GoString, Errno> = ((null : GoMap<GoString, Errno>));
-var _envOnce : stdgo.sync.Sync.Once = (({  } : stdgo.sync.Sync.Once));
-var _envLock : stdgo.sync.Sync.RWMutex = (({  } : stdgo.sync.Sync.RWMutex));
-var _env : GoMap<GoString, GoInt> = ((null : GoMap<GoString, GoInt>));
-var _filesMu : stdgo.sync.Sync.Mutex = (({  } : stdgo.sync.Sync.Mutex));
-var __zero : GoUIntptr = ((0 : GoUIntptr));
-var forkLock : stdgo.sync.Sync.RWMutex = (({  } : stdgo.sync.Sync.RWMutex));
+var _envs : Slice<GoString> = (null : Slice<GoString>);
+var _jsProcess : stdgo.syscall.js.Js.Value = ({  } : stdgo.syscall.js.Js.Value);
+var _jsFS : stdgo.syscall.js.Js.Value = ({  } : stdgo.syscall.js.Js.Value);
+var _constants : stdgo.syscall.js.Js.Value = ({  } : stdgo.syscall.js.Js.Value);
+var _uint8Array : stdgo.syscall.js.Js.Value = ({  } : stdgo.syscall.js.Js.Value);
+var _nodeWRONLY : GoInt = (0 : GoInt);
+var _nodeRDWR : GoInt = (0 : GoInt);
+var _nodeCREATE : GoInt = (0 : GoInt);
+var _nodeTRUNC : GoInt = (0 : GoInt);
+var _nodeAPPEND : GoInt = (0 : GoInt);
+var _nodeEXCL : GoInt = (0 : GoInt);
+var _files : GoMap<GoInt, Ref<T_jsFile>> = (null : GoMap<GoInt, Ref<T_jsFile>>);
+var _signals : GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 0) ("" : GoString)]);
+var _errorstr : GoArray<GoString> = new GoArray<GoString>(...[for (i in 0 ... 2054) ("" : GoString)]);
+var _errEAGAIN : Error = (null : stdgo.Error);
+var _errEINVAL : Error = (null : stdgo.Error);
+var _errENOENT : Error = (null : stdgo.Error);
+var _errnoByCode : GoMap<GoString, Errno> = (null : GoMap<GoString, Errno>);
+var _envOnce : stdgo.sync.Sync.Once = ({  } : stdgo.sync.Sync.Once);
+var _envLock : stdgo.sync.Sync.RWMutex = ({  } : stdgo.sync.Sync.RWMutex);
+var _env : GoMap<GoString, GoInt> = (null : GoMap<GoString, GoInt>);
+var _filesMu : stdgo.sync.Sync.Mutex = ({  } : stdgo.sync.Sync.Mutex);
+var __zero : GoUIntptr = (0 : GoUIntptr);
+var forkLock : stdgo.sync.Sync.RWMutex = ({  } : stdgo.sync.Sync.RWMutex);
 typedef RawConn = StructType & {
     public function control(_f:(_fd:GoUIntptr) -> Void):Error;
     public function read(_f:(_fd:GoUIntptr) -> Bool):Error;
@@ -42,7 +42,7 @@ typedef Conn = StructType & {
 };
 @:structInit class T_jsFile {
     public var _path : GoString = "";
-    public var _entries : Slice<GoString> = ((null : Slice<GoString>));
+    public var _entries : Slice<GoString> = (null : Slice<GoString>);
     public var _dirIdx : GoInt = 0;
     public var _pos : GoInt64 = 0;
     public var _seeked : Bool = false;
@@ -60,7 +60,7 @@ typedef Conn = StructType & {
 }
 @:structInit class SockaddrInet4 {
     public var port : GoInt = 0;
-    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 4) ((0 : GoUInt8))]);
+    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 4) (0 : GoUInt8)]);
     public function new(?port:GoInt, ?addr:GoArray<GoUInt8>) {
         if (port != null) this.port = port;
         if (addr != null) this.addr = addr;
@@ -73,7 +73,7 @@ typedef Conn = StructType & {
 @:structInit class SockaddrInet6 {
     public var port : GoInt = 0;
     public var zoneId : GoUInt32 = 0;
-    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 16) ((0 : GoUInt8))]);
+    public var addr : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 16) (0 : GoUInt8)]);
     public function new(?port:GoInt, ?zoneId:GoUInt32, ?addr:GoArray<GoUInt8>) {
         if (port != null) this.port = port;
         if (zoneId != null) this.zoneId = zoneId;
@@ -96,7 +96,7 @@ typedef Conn = StructType & {
 }
 @:structInit class Dirent {
     public var reclen : GoUInt16 = 0;
-    public var name : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) ((0 : GoUInt8))]);
+    public var name : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) (0 : GoUInt8)]);
     public function new(?reclen:GoUInt16, ?name:GoArray<GoUInt8>) {
         if (reclen != null) this.reclen = reclen;
         if (name != null) this.name = name;
@@ -163,8 +163,8 @@ ctimeNsec);
     }
 }
 @:structInit class Rusage {
-    public var utime : Timeval = (({  } : Timeval));
-    public var stime : Timeval = (({  } : Timeval));
+    public var utime : Timeval = ({  } : Timeval);
+    public var stime : Timeval = ({  } : Timeval);
     public function new(?utime:Timeval, ?stime:Timeval) {
         if (utime != null) this.utime = utime;
         if (stime != null) this.stime = stime;
@@ -176,9 +176,9 @@ ctimeNsec);
 }
 @:structInit class ProcAttr {
     public var dir : GoString = "";
-    public var env : Slice<GoString> = ((null : Slice<GoString>));
-    public var files : Slice<GoUIntptr> = ((null : Slice<GoUIntptr>));
-    public var sys : Ref<SysProcAttr> = ((null : SysProcAttr));
+    public var env : Slice<GoString> = (null : Slice<GoString>);
+    public var files : Slice<GoUIntptr> = (null : Slice<GoUIntptr>);
+    public var sys : Ref<SysProcAttr> = (null : SysProcAttr);
     public function new(?dir:GoString, ?env:Slice<GoString>, ?files:Slice<GoUIntptr>, ?sys:Ref<SysProcAttr>) {
         if (dir != null) this.dir = dir;
         if (env != null) this.env = env;

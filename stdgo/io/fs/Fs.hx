@@ -13,7 +13,7 @@ var errPermission : stdgo.Error = _errPermission();
 var errExist : stdgo.Error = _errExist();
 var errNotExist : stdgo.Error = _errNotExist();
 var errClosed : stdgo.Error = _errClosed();
-var skipDir : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("skip this directory") : GoString)));
+var skipDir : stdgo.Error = stdgo.errors.Errors.new_((Go.str("skip this directory") : GoString));
 typedef FS = StructType & {
     public function open(_name:GoString):{ var _0 : File; var _1 : Error; };
 };
@@ -66,7 +66,7 @@ typedef SubFS = StructType & {
 @:structInit @:using(stdgo.io.fs.Fs.PathError_static_extension) class PathError {
     public var op : GoString = "";
     public var path : GoString = "";
-    public var err : stdgo.Error = ((null : stdgo.Error));
+    public var err : stdgo.Error = (null : stdgo.Error);
     public function new(?op:GoString, ?path:GoString, ?err:stdgo.Error) {
         if (op != null) this.op = op;
         if (path != null) this.path = path;
@@ -78,7 +78,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) class T_dirInfo {
-    public var _fileInfo : FileInfo = ((null : FileInfo));
+    public var _fileInfo : FileInfo = (null : FileInfo);
     public function new(?_fileInfo:FileInfo) {
         if (_fileInfo != null) this._fileInfo = _fileInfo;
     }
@@ -88,7 +88,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) class T_subFS {
-    public var _fsys : FS = ((null : FS));
+    public var _fsys : FS = (null : FS);
     public var _dir : GoString = "";
     public function new(?_fsys:FS, ?_dir:GoString) {
         if (_fsys != null) this._fsys = _fsys;
@@ -100,7 +100,7 @@ typedef SubFS = StructType & {
     }
 }
 @:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) class T_statDirEntry {
-    public var _info : FileInfo = ((null : FileInfo));
+    public var _info : FileInfo = (null : FileInfo);
     public function new(?_info:FileInfo) {
         if (_info != null) this._info = _info;
     }
@@ -130,22 +130,22 @@ function validPath(_name:GoString):Bool {
         if (!stdgo.unicode.utf8.Utf8.validString(_name)) {
             return false;
         };
-        if (_name == ((Go.str(".") : GoString))) {
+        if (_name == (Go.str(".") : GoString)) {
             return true;
         };
         while (true) {
-            var _i:GoInt = ((0 : GoInt));
-            while ((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != (("/".code : GoUInt8)))) {
+            var _i:GoInt = (0 : GoInt);
+            while ((_i < _name.length) && (_name[_i] != ("/".code : GoUInt8))) {
                 _i++;
             };
-            var _elem:GoString = ((_name.__slice__(0, _i) : GoString));
-            if (((_elem == ((Go.str() : GoString))) || (_elem == ((Go.str(".") : GoString)))) || (_elem == ((Go.str("..") : GoString)))) {
+            var _elem:GoString = (_name.__slice__(0, _i) : GoString);
+            if ((_elem == (Go.str() : GoString) || _elem == (Go.str(".") : GoString)) || (_elem == (Go.str("..") : GoString))) {
                 return false;
             };
-            if (_i == (_name != null ? _name.length : ((0 : GoInt)))) {
+            if (_i == (_name.length)) {
                 return true;
             };
-            _name = ((_name.__slice__(_i + ((1 : GoInt))) : GoString));
+            _name = (_name.__slice__(_i + (1 : GoInt)) : GoString);
         };
     }
 function _errInvalid():Error {
@@ -178,29 +178,29 @@ function _errClosed():Error {
     // and look for matches for the pattern.
 **/
 function glob(_fsys:FS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        var _matches:Slice<GoString> = ((null : Slice<GoString>)), _err:Error = ((null : stdgo.Error));
-        return _globWithLimit(_fsys, _pattern, ((0 : GoInt)));
+        var _matches:Slice<GoString> = (null : Slice<GoString>), _err:Error = (null : stdgo.Error);
+        return _globWithLimit(_fsys, _pattern, (0 : GoInt));
     }
 function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        var _matches:Slice<GoString> = ((null : Slice<GoString>)), _err:Error = ((null : stdgo.Error));
+        var _matches:Slice<GoString> = (null : Slice<GoString>), _err:Error = (null : stdgo.Error);
         {};
-        if (_depth > ((10000 : GoInt))) {
-            return { _0 : ((null : Slice<GoString>)), _1 : stdgo.path.Path.errBadPattern };
+        if (_depth > (10000 : GoInt)) {
+            return { _0 : (null : Slice<GoString>), _1 : stdgo.path.Path.errBadPattern };
         };
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : GlobFS)), ok : true };
+                { value : ((_fsys.__underlying__().value : Dynamic) : GlobFS), ok : true };
             } catch(_) {
-                { value : ((null : GlobFS)), ok : false };
+                { value : (null : GlobFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.glob(_pattern);
             };
         };
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, ((Go.str() : GoString))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, (Go.str() : GoString)), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : ((null : Slice<GoString>)), _1 : _err };
+                return { _0 : (null : Slice<GoString>), _1 : _err };
             };
         };
         if (!_hasMeta(_pattern)) {
@@ -210,27 +210,27 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Sl
                     _err = __tmp__._1;
                 };
                 if (_err != null) {
-                    return { _0 : ((null : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+                    return { _0 : (null : Slice<GoString>), _1 : (null : stdgo.Error) };
                 };
             };
-            return { _0 : ((new Slice<GoString>(0, 0, _pattern) : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+            return { _0 : (new Slice<GoString>(0, 0, _pattern) : Slice<GoString>), _1 : (null : stdgo.Error) };
         };
         var __tmp__ = stdgo.path.Path.split(_pattern), _dir:GoString = __tmp__._0, _file:GoString = __tmp__._1;
         _dir = _cleanGlobPath(_dir);
         if (!_hasMeta(_dir)) {
-            return _glob(_fsys, _dir, _file, ((null : Slice<GoString>)));
+            return _glob(_fsys, _dir, _file, (null : Slice<GoString>));
         };
         if (_dir == _pattern) {
-            return { _0 : ((null : Slice<GoString>)), _1 : stdgo.path.Path.errBadPattern };
+            return { _0 : (null : Slice<GoString>), _1 : stdgo.path.Path.errBadPattern };
         };
-        var _m:Slice<GoString> = ((null : Slice<GoString>));
+        var _m:Slice<GoString> = (null : Slice<GoString>);
         {
-            var __tmp__ = _globWithLimit(_fsys, _dir, _depth + ((1 : GoInt)));
+            var __tmp__ = _globWithLimit(_fsys, _dir, _depth + (1 : GoInt));
             _m = __tmp__._0;
             _err = __tmp__._1;
         };
         if (_err != null) {
-            return { _0 : ((null : Slice<GoString>)), _1 : _err };
+            return { _0 : (null : Slice<GoString>), _1 : _err };
         };
         for (_1 => _d in _m) {
             {
@@ -248,10 +248,10 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{ var _0 : Sl
     // cleanGlobPath prepares path for glob matching.
 **/
 function _cleanGlobPath(_path:GoString):GoString {
-        if (_path == ((Go.str() : GoString))) {
-            return ((Go.str(".") : GoString));
+        if (_path == (Go.str() : GoString)) {
+            return (Go.str(".") : GoString);
         } else {
-            return ((_path.__slice__(((0 : GoInt)), (_path != null ? _path.length : ((0 : GoInt))) - ((1 : GoInt))) : GoString));
+            return (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
         };
     }
 /**
@@ -261,7 +261,7 @@ function _cleanGlobPath(_path:GoString):GoString {
     // New matches are added in lexicographical order.
 **/
 function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<GoString>):{ var _0 : Slice<GoString>; var _1 : Error; } {
-        var _m:Slice<GoString> = ((null : Slice<GoString>)), _e:Error = ((null : stdgo.Error));
+        var _m:Slice<GoString> = (null : Slice<GoString>), _e:Error = (null : stdgo.Error);
         _m = _matches;
         var __tmp__ = readDir(_fs, _dir), _infos:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
@@ -274,7 +274,7 @@ function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<GoString
                 return { _0 : _m, _1 : _err };
             };
             if (_matched) {
-                _m = (_m != null ? _m.__append__(stdgo.path.Path.join(_dir, _n)) : new Slice<GoString>(0, 0, stdgo.path.Path.join(_dir, _n)));
+                _m = (_m.__append__(stdgo.path.Path.join(_dir, _n)));
             };
         };
         return { _0 : _m, _1 : _e };
@@ -285,9 +285,9 @@ function _glob(_fs:FS, _dir:GoString, _pattern:GoString, _matches:Slice<GoString
 **/
 function _hasMeta(_path:GoString):Bool {
         {
-            var _i:GoInt = ((0 : GoInt));
-            Go.cfor(_i < (_path != null ? _path.length : ((0 : GoInt))), _i++, {
-                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == (("*".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("?".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("[".code : GoUInt8)) || (_path != null ? _path[_i] : ((0 : GoUInt8))) == (("\\".code : GoUInt8))) {
+            var _i:GoInt = (0 : GoInt);
+            Go.cfor(_i < (_path.length), _i++, {
+                if (_path[_i] == ("*".code : GoUInt8) || _path[_i] == ("?".code : GoUInt8) || _path[_i] == ("[".code : GoUInt8) || _path[_i] == ("\\".code : GoUInt8)) {
                     return true;
                 };
             });
@@ -307,9 +307,9 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadDirFS)), ok : true };
+                { value : ((_fsys.__underlying__().value : Dynamic) : ReadDirFS), ok : true };
             } catch(_) {
-                { value : ((null : ReadDirFS)), ok : false };
+                { value : (null : ReadDirFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.readDir(_name);
@@ -318,31 +318,31 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
             if (_err != null) {
-                return { _0 : ((null : Slice<DirEntry>)), _1 : _err };
+                return { _0 : (null : Slice<DirEntry>), _1 : _err };
             };
             __deferstack__.unshift(() -> _file.close());
             var __tmp__ = try {
-                { value : ((((_file.__underlying__().value : Dynamic)) : ReadDirFile)), ok : true };
+                { value : ((_file.__underlying__().value : Dynamic) : ReadDirFile), ok : true };
             } catch(_) {
-                { value : ((null : ReadDirFile)), ok : false };
+                { value : (null : ReadDirFile), ok : false };
             }, _dir = __tmp__.value, _ok = __tmp__.ok;
             if (!_ok) {
                 {
                     for (defer in __deferstack__) {
                         defer();
                     };
-                    return { _0 : ((null : Slice<DirEntry>)), _1 : {
-                        final __self__ = new PathError_wrapper((({ op : ((Go.str("readdir") : GoString)), path : _name, err : stdgo.errors.Errors.new_(((Go.str("not implemented") : GoString))) } : PathError)));
-                        __self__.error = #if !macro function():GoString return (({ op : ((Go.str("readdir") : GoString)), path : _name, err : stdgo.errors.Errors.new_(((Go.str("not implemented") : GoString))) } : PathError)).error() #else null #end;
-                        __self__.timeout = #if !macro function():Bool return (({ op : ((Go.str("readdir") : GoString)), path : _name, err : stdgo.errors.Errors.new_(((Go.str("not implemented") : GoString))) } : PathError)).timeout() #else null #end;
-                        __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((Go.str("readdir") : GoString)), path : _name, err : stdgo.errors.Errors.new_(((Go.str("not implemented") : GoString))) } : PathError)).unwrap() #else null #end;
+                    return { _0 : (null : Slice<DirEntry>), _1 : {
+                        final __self__ = new PathError_wrapper(({ op : (Go.str("readdir") : GoString), path : _name, err : stdgo.errors.Errors.new_((Go.str("not implemented") : GoString)) } : PathError));
+                        __self__.error = #if !macro function():GoString return ({ op : (Go.str("readdir") : GoString), path : _name, err : stdgo.errors.Errors.new_((Go.str("not implemented") : GoString)) } : PathError).error() #else null #end;
+                        __self__.timeout = #if !macro function():Bool return ({ op : (Go.str("readdir") : GoString), path : _name, err : stdgo.errors.Errors.new_((Go.str("not implemented") : GoString)) } : PathError).timeout() #else null #end;
+                        __self__.unwrap = #if !macro function():stdgo.Error return ({ op : (Go.str("readdir") : GoString), path : _name, err : stdgo.errors.Errors.new_((Go.str("not implemented") : GoString)) } : PathError).unwrap() #else null #end;
                         __self__;
                     } };
                 };
             };
-            var __tmp__ = _dir.readDir(((-1 : GoInt))), _list:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = _dir.readDir((-1 : GoInt)), _list:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             stdgo.sort.Sort.slice(Go.toInterface(_list), function(_i:GoInt, _j:GoInt):Bool {
-                return (_list != null ? _list[_i] : ((null : DirEntry))).name() < (_list != null ? _list[_j] : ((null : DirEntry))).name();
+                return _list[_i].name() < _list[_j].name();
             });
             {
                 for (defer in __deferstack__) {
@@ -358,7 +358,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                     defer();
                 };
                 if (__recover_exception__ != null) throw __recover_exception__;
-                return { _0 : ((null : Slice<DirEntry>)), _1 : ((null : stdgo.Error)) };
+                return { _0 : (null : Slice<DirEntry>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -367,7 +367,7 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
                 defer();
             };
             if (__recover_exception__ != null) throw __recover_exception__;
-            return { _0 : ((null : Slice<DirEntry>)), _1 : ((null : stdgo.Error)) };
+            return { _0 : (null : Slice<DirEntry>), _1 : (null : stdgo.Error) };
         };
     }
 /**
@@ -376,14 +376,14 @@ function readDir(_fsys:FS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : 
 **/
 function fileInfoToDirEntry(_info:FileInfo):DirEntry {
         if (_info == null) {
-            return ((null : DirEntry));
+            return (null : DirEntry);
         };
         return {
-            final __self__ = new T_dirInfo_wrapper((({ _fileInfo : _info } : T_dirInfo)));
-            __self__.info = #if !macro function():{ var _0 : FileInfo; var _1 : stdgo.Error; } return (({ _fileInfo : _info } : T_dirInfo)).info() #else null #end;
-            __self__.isDir = #if !macro function():Bool return (({ _fileInfo : _info } : T_dirInfo)).isDir() #else null #end;
-            __self__.name = #if !macro function():GoString return (({ _fileInfo : _info } : T_dirInfo)).name() #else null #end;
-            __self__.type = #if !macro function():FileMode return (({ _fileInfo : _info } : T_dirInfo)).type() #else null #end;
+            final __self__ = new T_dirInfo_wrapper(({ _fileInfo : _info } : T_dirInfo));
+            __self__.info = #if !macro function():{ var _0 : FileInfo; var _1 : stdgo.Error; } return ({ _fileInfo : _info } : T_dirInfo).info() #else null #end;
+            __self__.isDir = #if !macro function():Bool return ({ _fileInfo : _info } : T_dirInfo).isDir() #else null #end;
+            __self__.name = #if !macro function():GoString return ({ _fileInfo : _info } : T_dirInfo).name() #else null #end;
+            __self__.type = #if !macro function():FileMode return ({ _fileInfo : _info } : T_dirInfo).type() #else null #end;
             __self__;
         };
     }
@@ -402,9 +402,9 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : ReadFileFS)), ok : true };
+                { value : ((_fsys.__underlying__().value : Dynamic) : ReadFileFS), ok : true };
             } catch(_) {
-                { value : ((null : ReadFileFS)), ok : false };
+                { value : (null : ReadFileFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.readFile(_name);
@@ -413,30 +413,30 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
             if (_err != null) {
-                return { _0 : ((null : Slice<GoUInt8>)), _1 : _err };
+                return { _0 : (null : Slice<GoUInt8>), _1 : _err };
             };
             __deferstack__.unshift(() -> _file.close());
-            var _size:GoInt = ((0 : GoInt));
+            var _size:GoInt = (0 : GoInt);
             {
                 var __tmp__ = _file.stat(), _info:FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
                 if (_err == null) {
                     var _size64:GoInt64 = _info.size();
-                    if (((((_size64 : GoInt)) : GoInt64)) == _size64) {
-                        _size = ((_size64 : GoInt));
+                    if (((_size64 : GoInt) : GoInt64) == _size64) {
+                        _size = (_size64 : GoInt);
                     };
                 };
             };
-            var _data = new Slice<GoUInt8>(((((0 : GoInt)) : GoInt)).toBasic(), _size + ((1 : GoInt)), ...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+            var _data = new Slice<GoUInt8>((0 : GoInt).toBasic(), _size + (1 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
             while (true) {
-                if ((_data != null ? _data.length : ((0 : GoInt))) >= (_data != null ? _data.capacity : ((0 : GoInt)))) {
-                    var _d = (((_data.__slice__(0, (_data != null ? _data.capacity : ((0 : GoInt)))) : Slice<GoUInt8>)) != null ? ((_data.__slice__(0, (_data != null ? _data.capacity : ((0 : GoInt)))) : Slice<GoUInt8>)).__append__(((0 : GoUInt8))) : new Slice<GoUInt8>(0, 0, ((0 : GoUInt8))));
-                    _data = ((_d.__slice__(0, (_data != null ? _data.length : ((0 : GoInt)))) : Slice<GoUInt8>));
+                if ((_data.length) >= _data.capacity) {
+                    var _d = ((_data.__slice__(0, _data.capacity) : Slice<GoUInt8>).__append__((0 : GoUInt8)));
+                    _data = (_d.__slice__(0, (_data.length)) : Slice<GoUInt8>);
                 };
-                var __tmp__ = _file.read(((_data.__slice__((_data != null ? _data.length : ((0 : GoInt))), (_data != null ? _data.capacity : ((0 : GoInt)))) : Slice<GoUInt8>))), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-                _data = ((_data.__slice__(0, (_data != null ? _data.length : ((0 : GoInt))) + _n) : Slice<GoUInt8>));
+                var __tmp__ = _file.read((_data.__slice__((_data.length), _data.capacity) : Slice<GoUInt8>)), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+                _data = (_data.__slice__(0, (_data.length) + _n) : Slice<GoUInt8>);
                 if (_err != null) {
                     if (_err == stdgo.io.Io.eof) {
-                        _err = ((null : stdgo.Error));
+                        _err = (null : stdgo.Error);
                     };
                     {
                         for (defer in __deferstack__) {
@@ -454,7 +454,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
                     defer();
                 };
                 if (__recover_exception__ != null) throw __recover_exception__;
-                return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
+                return { _0 : (null : Slice<GoUInt8>), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -463,7 +463,7 @@ function readFile(_fsys:FS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : E
                 defer();
             };
             if (__recover_exception__ != null) throw __recover_exception__;
-            return { _0 : ((null : Slice<GoUInt8>)), _1 : ((null : stdgo.Error)) };
+            return { _0 : (null : Slice<GoUInt8>), _1 : (null : stdgo.Error) };
         };
     }
 /**
@@ -477,9 +477,9 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
         var __deferstack__:Array<Void -> Void> = [];
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : StatFS)), ok : true };
+                { value : ((_fsys.__underlying__().value : Dynamic) : StatFS), ok : true };
             } catch(_) {
-                { value : ((null : StatFS)), ok : false };
+                { value : (null : StatFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.stat(_name);
@@ -488,7 +488,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
         var __tmp__ = _fsys.open(_name), _file:File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         try {
             if (_err != null) {
-                return { _0 : ((null : FileInfo)), _1 : _err };
+                return { _0 : (null : FileInfo), _1 : _err };
             };
             __deferstack__.unshift(() -> _file.close());
             {
@@ -505,7 +505,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
                     defer();
                 };
                 if (__recover_exception__ != null) throw __recover_exception__;
-                return { _0 : ((null : FileInfo)), _1 : ((null : stdgo.Error)) };
+                return { _0 : (null : FileInfo), _1 : (null : stdgo.Error) };
             };
         } catch(__exception__) {
             if (!(__exception__.native is AnyInterfaceData)) throw __exception__;
@@ -514,7 +514,7 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
                 defer();
             };
             if (__recover_exception__ != null) throw __recover_exception__;
-            return { _0 : ((null : FileInfo)), _1 : ((null : stdgo.Error)) };
+            return { _0 : (null : FileInfo), _1 : (null : stdgo.Error) };
         };
     }
 /**
@@ -535,49 +535,49 @@ function stat(_fsys:FS, _name:GoString):{ var _0 : FileInfo; var _1 : Error; } {
 **/
 function sub(_fsys:FS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (!validPath(_dir)) {
-            return { _0 : ((null : FS)), _1 : {
-                final __self__ = new PathError_wrapper((({ op : ((Go.str("sub") : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : ((Go.str("sub") : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : ((Go.str("sub") : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : ((Go.str("sub") : GoString)), path : _dir, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).unwrap() #else null #end;
+            return { _0 : (null : FS), _1 : {
+                final __self__ = new PathError_wrapper(({ op : (Go.str("sub") : GoString), path : _dir, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError));
+                __self__.error = #if !macro function():GoString return ({ op : (Go.str("sub") : GoString), path : _dir, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return ({ op : (Go.str("sub") : GoString), path : _dir, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return ({ op : (Go.str("sub") : GoString), path : _dir, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).unwrap() #else null #end;
                 __self__;
             } };
         };
-        if (_dir == ((Go.str(".") : GoString))) {
-            return { _0 : _fsys, _1 : ((null : stdgo.Error)) };
+        if (_dir == (Go.str(".") : GoString)) {
+            return { _0 : _fsys, _1 : (null : stdgo.Error) };
         };
         {
             var __tmp__ = try {
-                { value : ((((_fsys.__underlying__().value : Dynamic)) : SubFS)), ok : true };
+                { value : ((_fsys.__underlying__().value : Dynamic) : SubFS), ok : true };
             } catch(_) {
-                { value : ((null : SubFS)), ok : false };
+                { value : (null : SubFS), ok : false };
             }, _fsys = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 return _fsys.sub(_dir);
             };
         };
         return { _0 : {
-            final __self__ = new T_subFS_wrapper(((new T_subFS(_fsys, _dir) : T_subFS)));
-            __self__.glob = #if !macro function(_name_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS)).glob(_name_) #else null #end;
-            __self__.open = #if !macro function(_name__:GoString):{ var _0 : File; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS)).open(_name__) #else null #end;
-            __self__.readDir = #if !macro function(_name___:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS)).readDir(_name___) #else null #end;
-            __self__.readFile = #if !macro function(_name____:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS)).readFile(_name____) #else null #end;
-            __self__.sub = #if !macro function(_name_____:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS)).sub(_name_____) #else null #end;
-            __self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return ((new T_subFS(_fsys, _dir) : T_subFS))._fixErr(__0) #else null #end;
-            __self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return ((new T_subFS(_fsys, _dir) : T_subFS))._fullName(_pattern_, _name______) #else null #end;
-            __self__._shorten = #if !macro function(_name_______:GoString):{ var _0 : GoString; var _1 : Bool; } return ((new T_subFS(_fsys, _dir) : T_subFS))._shorten(_name_______) #else null #end;
+            final __self__ = new T_subFS_wrapper((new T_subFS(_fsys, _dir) : T_subFS));
+            __self__.glob = #if !macro function(_name_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS).glob(_name_) #else null #end;
+            __self__.open = #if !macro function(_name__:GoString):{ var _0 : File; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS).open(_name__) #else null #end;
+            __self__.readDir = #if !macro function(_name___:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS).readDir(_name___) #else null #end;
+            __self__.readFile = #if !macro function(_name____:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS).readFile(_name____) #else null #end;
+            __self__.sub = #if !macro function(_name_____:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS).sub(_name_____) #else null #end;
+            __self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return (new T_subFS(_fsys, _dir) : T_subFS)._fixErr(__0) #else null #end;
+            __self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return (new T_subFS(_fsys, _dir) : T_subFS)._fullName(_pattern_, _name______) #else null #end;
+            __self__._shorten = #if !macro function(_name_______:GoString):{ var _0 : GoString; var _1 : Bool; } return (new T_subFS(_fsys, _dir) : T_subFS)._shorten(_name_______) #else null #end;
             __self__;
-        }, _1 : ((null : stdgo.Error)) };
+        }, _1 : (null : stdgo.Error) };
     }
 /**
     // walkDir recursively descends path, calling walkDirFn.
 **/
 function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc):Error {
         {
-            var _err:stdgo.Error = _walkDirFn(_name, _d, ((null : stdgo.Error)));
+            var _err:stdgo.Error = _walkDirFn(_name, _d, (null : stdgo.Error));
             if ((_err != null) || !_d.isDir()) {
                 if ((_err == skipDir) && _d.isDir()) {
-                    _err = ((null : stdgo.Error));
+                    _err = (null : stdgo.Error);
                 };
                 return _err;
             };
@@ -587,7 +587,7 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
             _err = _walkDirFn(_name, _d, _err);
             if (_err != null) {
                 if ((_err == skipDir) && _d.isDir()) {
-                    _err = ((null : stdgo.Error));
+                    _err = (null : stdgo.Error);
                 };
                 return _err;
             };
@@ -604,7 +604,7 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
                 };
             };
         };
-        return ((null : stdgo.Error));
+        return (null : stdgo.Error);
     }
 /**
     // WalkDir walks the file tree rooted at root, calling fn for each file or
@@ -623,19 +623,19 @@ function _walkDir(_fsys:FS, _name:GoString, _d:DirEntry, _walkDirFn:WalkDirFunc)
 function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         var __tmp__ = stat(_fsys, _root), _info:FileInfo = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            _err = _fn(_root, ((null : DirEntry)), _err);
+            _err = _fn(_root, (null : DirEntry), _err);
         } else {
             _err = _walkDir(_fsys, _root, {
-                final __self__ = new T_statDirEntry_wrapper(((new T_statDirEntry(_info) : T_statDirEntry)));
-                __self__.info = #if !macro function():{ var _0 : FileInfo; var _1 : stdgo.Error; } return ((new T_statDirEntry(_info) : T_statDirEntry)).info() #else null #end;
-                __self__.isDir = #if !macro function():Bool return ((new T_statDirEntry(_info) : T_statDirEntry)).isDir() #else null #end;
-                __self__.name = #if !macro function():GoString return ((new T_statDirEntry(_info) : T_statDirEntry)).name() #else null #end;
-                __self__.type = #if !macro function():FileMode return ((new T_statDirEntry(_info) : T_statDirEntry)).type() #else null #end;
+                final __self__ = new T_statDirEntry_wrapper((new T_statDirEntry(_info) : T_statDirEntry));
+                __self__.info = #if !macro function():{ var _0 : FileInfo; var _1 : stdgo.Error; } return (new T_statDirEntry(_info) : T_statDirEntry).info() #else null #end;
+                __self__.isDir = #if !macro function():Bool return (new T_statDirEntry(_info) : T_statDirEntry).isDir() #else null #end;
+                __self__.name = #if !macro function():GoString return (new T_statDirEntry(_info) : T_statDirEntry).name() #else null #end;
+                __self__.type = #if !macro function():FileMode return (new T_statDirEntry(_info) : T_statDirEntry).type() #else null #end;
                 __self__;
             }, _fn);
         };
         if (_err == skipDir) {
-            return ((null : stdgo.Error));
+            return (null : stdgo.Error);
         };
         return _err;
     }
@@ -646,9 +646,9 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
     @:keep
     static public function timeout( _e:PathError):Bool {
         var __tmp__ = try {
-            { value : ((((_e.err.__underlying__().value : Dynamic)) : T__interface_0)), ok : true };
+            { value : ((_e.err.__underlying__().value : Dynamic) : T__interface_0), ok : true };
         } catch(_) {
-            { value : ((null : T__interface_0)), ok : false };
+            { value : (null : T__interface_0), ok : false };
         }, _t = __tmp__.value, _ok = __tmp__.ok;
         return _ok && _t.timeout();
     }
@@ -658,7 +658,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
     }
     @:keep
     static public function error( _e:PathError):GoString {
-        return (((_e.op + ((Go.str(" ") : GoString))) + _e.path) + ((Go.str(": ") : GoString))) + _e.err.error();
+        return ((_e.op + (Go.str(" ") : GoString)) + _e.path + (Go.str(": ") : GoString)) + _e.err.error();
     }
 }
 class PathError_wrapper {
@@ -682,7 +682,7 @@ class PathError_wrapper {
     }
     @:keep
     static public function info( _di:T_dirInfo):{ var _0 : FileInfo; var _1 : Error; } {
-        return { _0 : _di._fileInfo, _1 : ((null : stdgo.Error)) };
+        return { _0 : _di._fileInfo, _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function type( _di:T_dirInfo):FileMode {
@@ -709,7 +709,7 @@ class T_dirInfo_wrapper {
 @:keep class T_subFS_static_extension {
     @:keep
     static public function sub( _f:T_subFS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
-        if (_dir == ((Go.str(".") : GoString))) {
+        if (_dir == (Go.str(".") : GoString)) {
             return { _0 : {
                 final __self__ = new T_subFS_wrapper(_f);
                 __self__.glob = #if !macro function(_name_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return _f.glob(_name_) #else null #end;
@@ -721,70 +721,70 @@ class T_dirInfo_wrapper {
                 __self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return _f._fullName(_pattern_, _name______) #else null #end;
                 __self__._shorten = #if !macro function(_name_______:GoString):{ var _0 : GoString; var _1 : Bool; } return _f._shorten(_name_______) #else null #end;
                 __self__;
-            }, _1 : ((null : stdgo.Error)) };
+            }, _1 : (null : stdgo.Error) };
         };
-        var __tmp__ = _f._fullName(((Go.str("sub") : GoString)), _dir), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName((Go.str("sub") : GoString), _dir), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : ((null : FS)), _1 : _err };
+            return { _0 : (null : FS), _1 : _err };
         };
         return { _0 : {
-            final __self__ = new T_subFS_wrapper(((new T_subFS(_f._fsys, _full) : T_subFS)));
-            __self__.glob = #if !macro function(_name_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).glob(_name_) #else null #end;
-            __self__.open = #if !macro function(_name__:GoString):{ var _0 : File; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).open(_name__) #else null #end;
-            __self__.readDir = #if !macro function(_name___:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).readDir(_name___) #else null #end;
-            __self__.readFile = #if !macro function(_name____:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).readFile(_name____) #else null #end;
-            __self__.sub = #if !macro function(_name_____:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS)).sub(_name_____) #else null #end;
-            __self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return ((new T_subFS(_f._fsys, _full) : T_subFS))._fixErr(__0) #else null #end;
-            __self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return ((new T_subFS(_f._fsys, _full) : T_subFS))._fullName(_pattern_, _name______) #else null #end;
-            __self__._shorten = #if !macro function(_name_______:GoString):{ var _0 : GoString; var _1 : Bool; } return ((new T_subFS(_f._fsys, _full) : T_subFS))._shorten(_name_______) #else null #end;
+            final __self__ = new T_subFS_wrapper((new T_subFS(_f._fsys, _full) : T_subFS));
+            __self__.glob = #if !macro function(_name_:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS).glob(_name_) #else null #end;
+            __self__.open = #if !macro function(_name__:GoString):{ var _0 : File; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS).open(_name__) #else null #end;
+            __self__.readDir = #if !macro function(_name___:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS).readDir(_name___) #else null #end;
+            __self__.readFile = #if !macro function(_name____:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS).readFile(_name____) #else null #end;
+            __self__.sub = #if !macro function(_name_____:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS).sub(_name_____) #else null #end;
+            __self__._fixErr = #if !macro function(__0:stdgo.Error):stdgo.Error return (new T_subFS(_f._fsys, _full) : T_subFS)._fixErr(__0) #else null #end;
+            __self__._fullName = #if !macro function(_pattern_:GoString, _name______:GoString):{ var _0 : GoString; var _1 : stdgo.Error; } return (new T_subFS(_f._fsys, _full) : T_subFS)._fullName(_pattern_, _name______) #else null #end;
+            __self__._shorten = #if !macro function(_name_______:GoString):{ var _0 : GoString; var _1 : Bool; } return (new T_subFS(_f._fsys, _full) : T_subFS)._shorten(_name_______) #else null #end;
             __self__;
-        }, _1 : ((null : stdgo.Error)) };
+        }, _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function glob( _f:T_subFS, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : Error; } {
         {
-            var __tmp__ = stdgo.path.Path.match(_pattern, ((Go.str() : GoString))), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+            var __tmp__ = stdgo.path.Path.match(_pattern, (Go.str() : GoString)), _0:Bool = __tmp__._0, _err:stdgo.Error = __tmp__._1;
             if (_err != null) {
-                return { _0 : ((null : Slice<GoString>)), _1 : _err };
+                return { _0 : (null : Slice<GoString>), _1 : _err };
             };
         };
-        if (_pattern == ((Go.str(".") : GoString))) {
-            return { _0 : ((new Slice<GoString>(0, 0, ((Go.str(".") : GoString))) : Slice<GoString>)), _1 : ((null : stdgo.Error)) };
+        if (_pattern == (Go.str(".") : GoString)) {
+            return { _0 : (new Slice<GoString>(0, 0, (Go.str(".") : GoString)) : Slice<GoString>), _1 : (null : stdgo.Error) };
         };
-        var _full:GoString = (_f._dir + ((Go.str("/") : GoString))) + _pattern;
+        var _full:GoString = (_f._dir + (Go.str("/") : GoString)) + _pattern;
         var __tmp__ = stdgo.io.fs.Fs.glob(_f._fsys, _full), _list:Slice<GoString> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         for (_i => _name in _list) {
             var __tmp__ = _f._shorten(_name), _name:GoString = __tmp__._0, _ok:Bool = __tmp__._1;
             if (!_ok) {
-                return { _0 : ((null : Slice<GoString>)), _1 : stdgo.errors.Errors.new_(((((Go.str("invalid result from inner fsys Glob: ") : GoString)) + _name) + ((Go.str(" not in ") : GoString))) + _f._dir) };
+                return { _0 : (null : Slice<GoString>), _1 : stdgo.errors.Errors.new_(((Go.str("invalid result from inner fsys Glob: ") : GoString) + _name + (Go.str(" not in ") : GoString)) + _f._dir) };
             };
-            if (_list != null) _list[_i] = _name;
+            _list[_i] = _name;
         };
         return { _0 : _list, _1 : _f._fixErr(_err) };
     }
     @:keep
     static public function readFile( _f:T_subFS, _name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((Go.str("read") : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName((Go.str("read") : GoString), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : ((null : Slice<GoUInt8>)), _1 : _err };
+            return { _0 : (null : Slice<GoUInt8>), _1 : _err };
         };
         var __tmp__ = stdgo.io.fs.Fs.readFile(_f._fsys, _full), _data:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : _data, _1 : _f._fixErr(_err) };
     }
     @:keep
     static public function readDir( _f:T_subFS, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((Go.str("read") : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName((Go.str("read") : GoString), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : ((null : Slice<DirEntry>)), _1 : _err };
+            return { _0 : (null : Slice<DirEntry>), _1 : _err };
         };
         var __tmp__ = stdgo.io.fs.Fs.readDir(_f._fsys, _full), _dir:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : _dir, _1 : _f._fixErr(_err) };
     }
     @:keep
     static public function open( _f:T_subFS, _name:GoString):{ var _0 : File; var _1 : Error; } {
-        var __tmp__ = _f._fullName(((Go.str("open") : GoString)), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
+        var __tmp__ = _f._fullName((Go.str("open") : GoString), _name), _full:GoString = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         if (_err != null) {
-            return { _0 : ((null : File)), _1 : _err };
+            return { _0 : (null : File), _1 : _err };
         };
         var __tmp__ = _f._fsys.open(_full), _file:File = __tmp__._0, _err:stdgo.Error = __tmp__._1;
         return { _0 : _file, _1 : _f._fixErr(_err) };
@@ -796,9 +796,9 @@ class T_dirInfo_wrapper {
     static public function _fixErr( _f:T_subFS, _err:Error):Error {
         {
             var __tmp__ = try {
-                { value : ((((_err.__underlying__().value : Dynamic)) : PathError)), ok : true };
+                { value : ((_err.__underlying__().value : Dynamic) : PathError), ok : true };
             } catch(_) {
-                { value : ((null : PathError)), ok : false };
+                { value : (null : PathError), ok : false };
             }, _e = __tmp__.value, _ok = __tmp__.ok;
             if (_ok) {
                 {
@@ -816,14 +816,14 @@ class T_dirInfo_wrapper {
     **/
     @:keep
     static public function _shorten( _f:T_subFS, _name:GoString):{ var _0 : GoString; var _1 : Bool; } {
-        var _rel:GoString = (("" : GoString)), _ok:Bool = false;
+        var _rel:GoString = ("" : GoString), _ok:Bool = false;
         if (_name == _f._dir) {
-            return { _0 : ((Go.str(".") : GoString)), _1 : true };
+            return { _0 : (Go.str(".") : GoString), _1 : true };
         };
-        if ((((_name != null ? _name.length : ((0 : GoInt))) >= ((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((2 : GoInt)))) && ((_name != null ? _name[(_f._dir != null ? _f._dir.length : ((0 : GoInt)))] : ((0 : GoUInt8))) == (("/".code : GoUInt8)))) && (((_name.__slice__(0, (_f._dir != null ? _f._dir.length : ((0 : GoInt)))) : GoString)) == _f._dir)) {
-            return { _0 : ((_name.__slice__((_f._dir != null ? _f._dir.length : ((0 : GoInt))) + ((1 : GoInt))) : GoString)), _1 : true };
+        if (((_name.length) >= (_f._dir.length + (2 : GoInt)) && _name[(_f._dir.length)] == ("/".code : GoUInt8)) && ((_name.__slice__(0, (_f._dir.length)) : GoString) == _f._dir)) {
+            return { _0 : (_name.__slice__((_f._dir.length) + (1 : GoInt)) : GoString), _1 : true };
         };
-        return { _0 : ((Go.str() : GoString)), _1 : false };
+        return { _0 : (Go.str() : GoString), _1 : false };
     }
     /**
         // fullName maps name to the fully-qualified name dir/name.
@@ -831,15 +831,15 @@ class T_dirInfo_wrapper {
     @:keep
     static public function _fullName( _f:T_subFS, _op:GoString, _name:GoString):{ var _0 : GoString; var _1 : Error; } {
         if (!validPath(_name)) {
-            return { _0 : ((Go.str() : GoString)), _1 : {
-                final __self__ = new PathError_wrapper((({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)));
-                __self__.error = #if !macro function():GoString return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).error() #else null #end;
-                __self__.timeout = #if !macro function():Bool return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).timeout() #else null #end;
-                __self__.unwrap = #if !macro function():stdgo.Error return (({ op : _op, path : _name, err : stdgo.errors.Errors.new_(((Go.str("invalid name") : GoString))) } : PathError)).unwrap() #else null #end;
+            return { _0 : (Go.str() : GoString), _1 : {
+                final __self__ = new PathError_wrapper(({ op : _op, path : _name, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError));
+                __self__.error = #if !macro function():GoString return ({ op : _op, path : _name, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).error() #else null #end;
+                __self__.timeout = #if !macro function():Bool return ({ op : _op, path : _name, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).timeout() #else null #end;
+                __self__.unwrap = #if !macro function():stdgo.Error return ({ op : _op, path : _name, err : stdgo.errors.Errors.new_((Go.str("invalid name") : GoString)) } : PathError).unwrap() #else null #end;
                 __self__;
             } };
         };
-        return { _0 : stdgo.path.Path.join(_f._dir, _name), _1 : ((null : stdgo.Error)) };
+        return { _0 : stdgo.path.Path.join(_f._dir, _name), _1 : (null : stdgo.Error) };
     }
 }
 class T_subFS_wrapper {
@@ -875,7 +875,7 @@ class T_subFS_wrapper {
 @:keep class T_statDirEntry_static_extension {
     @:keep
     static public function info( _d:T_statDirEntry):{ var _0 : FileInfo; var _1 : Error; } {
-        return { _0 : _d._info, _1 : ((null : stdgo.Error)) };
+        return { _0 : _d._info, _1 : (null : stdgo.Error) };
     }
     @:keep
     static public function type( _d:T_statDirEntry):FileMode {
@@ -909,14 +909,14 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function type( _m:FileMode):FileMode {
-        return _m & (("2401763328" : FileMode));
+        return _m & ("2401763328" : FileMode);
     }
     /**
         // Perm returns the Unix permission bits in m (m & ModePerm).
     **/
     @:keep
     static public function perm( _m:FileMode):FileMode {
-        return _m & ((511 : FileMode));
+        return _m & (511 : FileMode);
     }
     /**
         // IsRegular reports whether m describes a regular file.
@@ -924,7 +924,7 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function isRegular( _m:FileMode):Bool {
-        return (_m & (("2401763328" : FileMode))) == ((0 : FileMode));
+        return (_m & ("2401763328" : FileMode)) == (0 : FileMode);
     }
     /**
         // IsDir reports whether m describes a directory.
@@ -932,33 +932,33 @@ class T_statDirEntry_wrapper {
     **/
     @:keep
     static public function isDir( _m:FileMode):Bool {
-        return (_m & (("2147483648" : FileMode))) != ((0 : FileMode));
+        return (_m & ("2147483648" : FileMode)) != (0 : FileMode);
     }
     @:keep
     static public function string( _m:FileMode):GoString {
         {};
-        var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) ((0 : GoUInt8))]);
-        var _w:GoInt = ((0 : GoInt));
-        for (_i => _c in ((Go.str("dalTLDpSugct?") : GoString))) {
-            if ((_m & (((1 : FileMode)) << (((((31 : GoInt)) - _i) : GoUInt)))) != ((0 : FileMode))) {
-                if (_buf != null) _buf[_w] = ((_c : GoByte));
+        var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0 ... 32) (0 : GoUInt8)]);
+        var _w:GoInt = (0 : GoInt);
+        for (_i => _c in (Go.str("dalTLDpSugct?") : GoString)) {
+            if ((_m & (1 : FileMode) << ((31 : GoInt) - _i : GoUInt)) != (0 : FileMode)) {
+                _buf[_w] = (_c : GoByte);
                 _w++;
             };
         };
-        if (_w == ((0 : GoInt))) {
-            if (_buf != null) _buf[_w] = (("-".code : GoUInt8));
+        if (_w == (0 : GoInt)) {
+            _buf[_w] = ("-".code : GoUInt8);
             _w++;
         };
         {};
-        for (_i => _c in ((Go.str("rwxrwxrwx") : GoString))) {
-            if ((_m & (((1 : FileMode)) << (((((8 : GoInt)) - _i) : GoUInt)))) != ((0 : FileMode))) {
-                if (_buf != null) _buf[_w] = ((_c : GoByte));
+        for (_i => _c in (Go.str("rwxrwxrwx") : GoString)) {
+            if ((_m & (1 : FileMode) << ((8 : GoInt) - _i : GoUInt)) != (0 : FileMode)) {
+                _buf[_w] = (_c : GoByte);
             } else {
-                if (_buf != null) _buf[_w] = (("-".code : GoUInt8));
+                _buf[_w] = ("-".code : GoUInt8);
             };
             _w++;
         };
-        return ((((_buf.__slice__(0, _w) : Slice<GoUInt8>)) : GoString));
+        return ((_buf.__slice__(0, _w) : Slice<GoUInt8>) : GoString);
     }
 }
 class FileMode_wrapper {

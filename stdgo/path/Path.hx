@@ -8,10 +8,10 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("syntax error in pattern") : GoString)));
+var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error in pattern") : GoString));
 @:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) class T_lazybuf {
     public var _s : GoString = "";
-    public var _buf : Slice<GoUInt8> = ((null : Slice<GoUInt8>));
+    public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _w : GoInt = 0;
     public function new(?_s:GoString, ?_buf:Slice<GoUInt8>, ?_w:GoInt) {
         if (_s != null) this._s = _s;
@@ -48,21 +48,21 @@ var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_(((Go.str("syntax erro
 **/
 function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Error; } {
         return stdgo.internal.Macro.controlFlow({
-            var _matched:Bool = false, _err:Error = ((null : stdgo.Error));
-            @:label("Pattern") while ((_pattern != null ? _pattern.length : ((0 : GoInt))) > ((0 : GoInt))) {
+            var _matched:Bool = false, _err:Error = (null : stdgo.Error);
+            @:label("Pattern") while ((_pattern.length) > (0 : GoInt)) {
                 var _star:Bool = false;
-                var _chunk:GoString = (("" : GoString));
+                var _chunk:GoString = ("" : GoString);
                 {
                     var __tmp__ = _scanChunk(_pattern);
                     _star = __tmp__._0;
                     _chunk = __tmp__._1;
                     _pattern = __tmp__._2;
                 };
-                if (_star && (_chunk == ((Go.str() : GoString)))) {
-                    return { _0 : stdgo.internal.bytealg.Bytealg.indexByteString(_name, (("/".code : GoUInt8))) < ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+                if (_star && (_chunk == (Go.str() : GoString))) {
+                    return { _0 : stdgo.internal.bytealg.Bytealg.indexByteString(_name, ("/".code : GoUInt8)) < (0 : GoInt), _1 : (null : stdgo.Error) };
                 };
                 var __tmp__ = _matchChunk(_chunk, _name), _t:GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
-                if (_ok && (((_t != null ? _t.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_pattern != null ? _pattern.length : ((0 : GoInt))) > ((0 : GoInt))))) {
+                if (_ok && ((_t.length) == (0 : GoInt) || (_pattern.length) > (0 : GoInt))) {
                     _name = _t;
                     continue;
                 };
@@ -71,11 +71,11 @@ function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Erro
                 };
                 if (_star) {
                     {
-                        var _i:GoInt = ((0 : GoInt));
-                        Go.cfor((_i < (_name != null ? _name.length : ((0 : GoInt)))) && ((_name != null ? _name[_i] : ((0 : GoUInt8))) != (("/".code : GoUInt8))), _i++, {
-                            var __tmp__ = _matchChunk(_chunk, ((_name.__slice__(_i + ((1 : GoInt))) : GoString))), _t:GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                        var _i:GoInt = (0 : GoInt);
+                        Go.cfor((_i < _name.length) && (_name[_i] != ("/".code : GoUInt8)), _i++, {
+                            var __tmp__ = _matchChunk(_chunk, (_name.__slice__(_i + (1 : GoInt)) : GoString)), _t:GoString = __tmp__._0, _ok:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                             if (_ok) {
-                                if (((_pattern != null ? _pattern.length : ((0 : GoInt))) == ((0 : GoInt))) && ((_t != null ? _t.length : ((0 : GoInt))) > ((0 : GoInt)))) {
+                                if ((_pattern.length == (0 : GoInt)) && (_t.length > (0 : GoInt))) {
                                     continue;
                                 };
                                 _name = _t;
@@ -87,22 +87,22 @@ function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Erro
                         });
                     };
                 };
-                while ((_pattern != null ? _pattern.length : ((0 : GoInt))) > ((0 : GoInt))) {
+                while ((_pattern.length) > (0 : GoInt)) {
                     {
                         var __tmp__ = _scanChunk(_pattern);
                         _chunk = __tmp__._1;
                         _pattern = __tmp__._2;
                     };
                     {
-                        var __tmp__ = _matchChunk(_chunk, ((Go.str() : GoString))), _0:GoString = __tmp__._0, _1:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
+                        var __tmp__ = _matchChunk(_chunk, (Go.str() : GoString)), _0:GoString = __tmp__._0, _1:Bool = __tmp__._1, _err:stdgo.Error = __tmp__._2;
                         if (_err != null) {
                             return { _0 : false, _1 : _err };
                         };
                     };
                 };
-                return { _0 : false, _1 : ((null : stdgo.Error)) };
+                return { _0 : false, _1 : (null : stdgo.Error) };
             };
-            return { _0 : (_name != null ? _name.length : ((0 : GoInt))) == ((0 : GoInt)), _1 : ((null : stdgo.Error)) };
+            return { _0 : (_name.length) == (0 : GoInt), _1 : (null : stdgo.Error) };
         });
     }
 /**
@@ -111,31 +111,31 @@ function match(_pattern:GoString, _name:GoString):{ var _0 : Bool; var _1 : Erro
 **/
 function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoString; var _2 : GoString; } {
         return stdgo.internal.Macro.controlFlow({
-            var _star:Bool = false, _chunk:GoString = (("" : GoString)), _rest:GoString = (("" : GoString));
-            while (((_pattern != null ? _pattern.length : ((0 : GoInt))) > ((0 : GoInt))) && ((_pattern != null ? _pattern[((0 : GoInt))] : ((0 : GoUInt8))) == (("*".code : GoUInt8)))) {
-                _pattern = ((_pattern.__slice__(((1 : GoInt))) : GoString));
+            var _star:Bool = false, _chunk:GoString = ("" : GoString), _rest:GoString = ("" : GoString);
+            while ((_pattern.length > (0 : GoInt)) && (_pattern[(0 : GoInt)] == ("*".code : GoUInt8))) {
+                _pattern = (_pattern.__slice__((1 : GoInt)) : GoString);
                 _star = true;
             };
             var _inrange:Bool = false;
-            var _i:GoInt = ((0 : GoInt));
+            var _i:GoInt = (0 : GoInt);
             @:label("Scan") {
-                _i = ((0 : GoInt));
-                Go.cfor(_i < (_pattern != null ? _pattern.length : ((0 : GoInt))), _i++, {
+                _i = (0 : GoInt);
+                Go.cfor(_i < (_pattern.length), _i++, {
                     {
                         var __switchIndex__ = -1;
                         while (true) {
-                            if ((_pattern != null ? _pattern[_i] : ((0 : GoUInt8))) == (("\\".code : GoUInt8))) {
-                                if ((_i + ((1 : GoInt))) < (_pattern != null ? _pattern.length : ((0 : GoInt)))) {
+                            if (_pattern[_i] == ("\\".code : GoUInt8)) {
+                                if ((_i + (1 : GoInt)) < (_pattern.length)) {
                                     _i++;
                                 };
                                 break;
-                            } else if ((_pattern != null ? _pattern[_i] : ((0 : GoUInt8))) == (("[".code : GoUInt8))) {
+                            } else if (_pattern[_i] == ("[".code : GoUInt8)) {
                                 _inrange = true;
                                 break;
-                            } else if ((_pattern != null ? _pattern[_i] : ((0 : GoUInt8))) == (("]".code : GoUInt8))) {
+                            } else if (_pattern[_i] == ("]".code : GoUInt8)) {
                                 _inrange = false;
                                 break;
-                            } else if ((_pattern != null ? _pattern[_i] : ((0 : GoUInt8))) == (("*".code : GoUInt8))) {
+                            } else if (_pattern[_i] == ("*".code : GoUInt8)) {
                                 if (!_inrange) {
                                     @:break {
                                         ____exit____ = true;
@@ -150,7 +150,7 @@ function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoString; var _
                     };
                 });
             };
-            return { _0 : _star, _1 : ((_pattern.__slice__(((0 : GoInt)), _i) : GoString)), _2 : ((_pattern.__slice__(_i) : GoString)) };
+            return { _0 : _star, _1 : (_pattern.__slice__((0 : GoInt), _i) : GoString), _2 : (_pattern.__slice__(_i) : GoString) };
         });
     }
 /**
@@ -159,40 +159,40 @@ function _scanChunk(_pattern:GoString):{ var _0 : Bool; var _1 : GoString; var _
     // Chunk is all single-character operators: literals, char classes, and ?.
 **/
 function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; var _1 : Bool; var _2 : Error; } {
-        var _rest:GoString = (("" : GoString)), _ok:Bool = false, _err:Error = ((null : stdgo.Error));
+        var _rest:GoString = ("" : GoString), _ok:Bool = false, _err:Error = (null : stdgo.Error);
         var _failed:Bool = false;
-        while ((_chunk != null ? _chunk.length : ((0 : GoInt))) > ((0 : GoInt))) {
-            if (!_failed && ((_s != null ? _s.length : ((0 : GoInt))) == ((0 : GoInt)))) {
+        while ((_chunk.length) > (0 : GoInt)) {
+            if (!_failed && (_s.length == (0 : GoInt))) {
                 _failed = true;
             };
             {
                 var __switchIndex__ = -1;
                 while (true) {
-                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && (_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("[".code : GoUInt8)))) {
-                        var _r:GoRune = ((0 : GoInt32));
+                    if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("[".code : GoUInt8))) {
+                        var _r:GoRune = (0 : GoInt32);
                         if (!_failed) {
-                            var _n:GoInt = ((0 : GoInt));
+                            var _n:GoInt = (0 : GoInt);
                             {
                                 var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s);
                                 _r = __tmp__._0;
                                 _n = __tmp__._1;
                             };
-                            _s = ((_s.__slice__(_n) : GoString));
+                            _s = (_s.__slice__(_n) : GoString);
                         };
-                        _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
+                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                         var _negated:Bool = false;
-                        if (((_chunk != null ? _chunk.length : ((0 : GoInt))) > ((0 : GoInt))) && ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("^".code : GoUInt8)))) {
+                        if ((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == ("^".code : GoUInt8))) {
                             _negated = true;
-                            _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
+                            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                         };
                         var _match:Bool = false;
-                        var _nrange:GoInt = ((0 : GoInt));
+                        var _nrange:GoInt = (0 : GoInt);
                         while (true) {
-                            if ((((_chunk != null ? _chunk.length : ((0 : GoInt))) > ((0 : GoInt))) && ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("]".code : GoUInt8)))) && (_nrange > ((0 : GoInt)))) {
-                                _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
+                            if (((_chunk.length) > (0 : GoInt) && _chunk[(0 : GoInt)] == ("]".code : GoUInt8)) && (_nrange > (0 : GoInt))) {
+                                _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                                 break;
                             };
-                            var _lo:GoRune = ((0 : GoInt32)), _hi:GoRune = ((0 : GoInt32));
+                            var _lo:GoRune = (0 : GoInt32), _hi:GoRune = (0 : GoInt32);
                             {
                                 {
                                     var __tmp__ = _getEsc(_chunk);
@@ -201,20 +201,20 @@ function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; var _1 :
                                     _err = __tmp__._2;
                                 };
                                 if (_err != null) {
-                                    return { _0 : ((Go.str() : GoString)), _1 : false, _2 : _err };
+                                    return { _0 : (Go.str() : GoString), _1 : false, _2 : _err };
                                 };
                             };
                             _hi = _lo;
-                            if ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("-".code : GoUInt8))) {
+                            if (_chunk[(0 : GoInt)] == ("-".code : GoUInt8)) {
                                 {
                                     {
-                                        var __tmp__ = _getEsc(((_chunk.__slice__(((1 : GoInt))) : GoString)));
+                                        var __tmp__ = _getEsc((_chunk.__slice__((1 : GoInt)) : GoString));
                                         _hi = __tmp__._0;
                                         _chunk = __tmp__._1;
                                         _err = __tmp__._2;
                                     };
                                     if (_err != null) {
-                                        return { _0 : ((Go.str() : GoString)), _1 : false, _2 : _err };
+                                        return { _0 : (Go.str() : GoString), _1 : false, _2 : _err };
                                     };
                                 };
                             };
@@ -228,21 +228,21 @@ function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; var _1 :
                         };
                         break;
                         break;
-                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && (_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("?".code : GoUInt8)))) {
+                    } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("?".code : GoUInt8))) {
                         if (!_failed) {
-                            if ((_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8))) {
+                            if (_s[(0 : GoInt)] == ("/".code : GoUInt8)) {
                                 _failed = true;
                             };
                             var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_s), _0:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
-                            _s = ((_s.__slice__(_n) : GoString));
+                            _s = (_s.__slice__(_n) : GoString);
                         };
-                        _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
+                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                         break;
                         break;
-                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && (_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("\\".code : GoUInt8)))) {
-                        _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
-                        if ((_chunk != null ? _chunk.length : ((0 : GoInt))) == ((0 : GoInt))) {
-                            return { _0 : ((Go.str() : GoString)), _1 : false, _2 : errBadPattern };
+                    } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("\\".code : GoUInt8))) {
+                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+                        if ((_chunk.length) == (0 : GoInt)) {
+                            return { _0 : (Go.str() : GoString), _1 : false, _2 : errBadPattern };
                         };
                         @:fallthrough {
                             __switchIndex__ = 3;
@@ -251,12 +251,12 @@ function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; var _1 :
                         break;
                     } else {
                         if (!_failed) {
-                            if ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) != (_s != null ? _s[((0 : GoInt))] : ((0 : GoUInt8)))) {
+                            if (_chunk[(0 : GoInt)] != _s[(0 : GoInt)]) {
                                 _failed = true;
                             };
-                            _s = ((_s.__slice__(((1 : GoInt))) : GoString));
+                            _s = (_s.__slice__((1 : GoInt)) : GoString);
                         };
-                        _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
+                        _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
                         break;
                     };
                     break;
@@ -264,32 +264,32 @@ function _matchChunk(_chunk:GoString, _s:GoString):{ var _0 : GoString; var _1 :
             };
         };
         if (_failed) {
-            return { _0 : ((Go.str() : GoString)), _1 : false, _2 : ((null : stdgo.Error)) };
+            return { _0 : (Go.str() : GoString), _1 : false, _2 : (null : stdgo.Error) };
         };
-        return { _0 : _s, _1 : true, _2 : ((null : stdgo.Error)) };
+        return { _0 : _s, _1 : true, _2 : (null : stdgo.Error) };
     }
 /**
     // getEsc gets a possibly-escaped character from chunk, for a character class.
 **/
 function _getEsc(_chunk:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 : Error; } {
-        var _r:GoRune = ((0 : GoInt32)), _nchunk:GoString = (("" : GoString)), _err:Error = ((null : stdgo.Error));
-        if ((((_chunk != null ? _chunk.length : ((0 : GoInt))) == ((0 : GoInt))) || ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("-".code : GoUInt8)))) || ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("]".code : GoUInt8)))) {
+        var _r:GoRune = (0 : GoInt32), _nchunk:GoString = ("" : GoString), _err:Error = (null : stdgo.Error);
+        if (((_chunk.length) == (0 : GoInt) || _chunk[(0 : GoInt)] == ("-".code : GoUInt8)) || (_chunk[(0 : GoInt)] == ("]".code : GoUInt8))) {
             _err = errBadPattern;
             return { _0 : _r, _1 : _nchunk, _2 : _err };
         };
-        if ((_chunk != null ? _chunk[((0 : GoInt))] : ((0 : GoUInt8))) == (("\\".code : GoUInt8))) {
-            _chunk = ((_chunk.__slice__(((1 : GoInt))) : GoString));
-            if ((_chunk != null ? _chunk.length : ((0 : GoInt))) == ((0 : GoInt))) {
+        if (_chunk[(0 : GoInt)] == ("\\".code : GoUInt8)) {
+            _chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
+            if ((_chunk.length) == (0 : GoInt)) {
                 _err = errBadPattern;
                 return { _0 : _r, _1 : _nchunk, _2 : _err };
             };
         };
         var __tmp__ = stdgo.unicode.utf8.Utf8.decodeRuneInString(_chunk), _r:GoInt32 = __tmp__._0, _n:GoInt = __tmp__._1;
-        if ((_r == ((65533 : GoInt32))) && (_n == ((1 : GoInt)))) {
+        if ((_r == (65533 : GoInt32)) && (_n == (1 : GoInt))) {
             _err = errBadPattern;
         };
-        _nchunk = ((_chunk.__slice__(_n) : GoString));
-        if ((_nchunk != null ? _nchunk.length : ((0 : GoInt))) == ((0 : GoInt))) {
+        _nchunk = (_chunk.__slice__(_n) : GoString);
+        if ((_nchunk.length) == (0 : GoInt)) {
             _err = errBadPattern;
         };
         return { _0 : _r, _1 : _nchunk, _2 : _err };
@@ -316,53 +316,53 @@ function _getEsc(_chunk:GoString):{ var _0 : GoRune; var _1 : GoString; var _2 :
     // https://9p.io/sys/doc/lexnames.html
 **/
 function clean(_path:GoString):GoString {
-        if (_path == ((Go.str() : GoString))) {
-            return ((Go.str(".") : GoString));
+        if (_path == (Go.str() : GoString)) {
+            return (Go.str(".") : GoString);
         };
-        var _rooted:Bool = (_path != null ? _path[((0 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8));
-        var _n:GoInt = (_path != null ? _path.length : ((0 : GoInt)));
-        var _out:T_lazybuf = (({ _s : _path } : T_lazybuf));
-        var _r:GoInt = ((0 : GoInt)), _dotdot:GoInt = ((0 : GoInt));
+        var _rooted:Bool = _path[(0 : GoInt)] == ("/".code : GoUInt8);
+        var _n:GoInt = (_path.length);
+        var _out:T_lazybuf = ({ _s : _path } : T_lazybuf);
+        var _r:GoInt = (0 : GoInt), _dotdot:GoInt = (0 : GoInt);
         if (_rooted) {
-            _out._append((("/".code : GoUInt8)));
+            _out._append(("/".code : GoUInt8));
             {
-                final __tmp__0 = ((1 : GoInt));
-                final __tmp__1 = ((1 : GoInt));
+                final __tmp__0 = (1 : GoInt);
+                final __tmp__1 = (1 : GoInt);
                 _r = __tmp__0;
                 _dotdot = __tmp__1;
             };
         };
         while (_r < _n) {
-            if ((_path != null ? _path[_r] : ((0 : GoUInt8))) == (("/".code : GoUInt8))) {
+            if (_path[_r] == ("/".code : GoUInt8)) {
                 _r++;
-            } else if (((_path != null ? _path[_r] : ((0 : GoUInt8))) == ((".".code : GoUInt8))) && (((_r + ((1 : GoInt))) == _n) || ((_path != null ? _path[_r + ((1 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8))))) {
+            } else if ((_path[_r] == (".".code : GoUInt8)) && ((_r + (1 : GoInt)) == _n || _path[_r + (1 : GoInt)] == ("/".code : GoUInt8))) {
                 _r++;
-            } else if ((((_path != null ? _path[_r] : ((0 : GoUInt8))) == ((".".code : GoUInt8))) && ((_path != null ? _path[_r + ((1 : GoInt))] : ((0 : GoUInt8))) == ((".".code : GoUInt8)))) && (((_r + ((2 : GoInt))) == _n) || ((_path != null ? _path[_r + ((2 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8))))) {
-                _r = _r + (((2 : GoInt)));
+            } else if ((_path[_r] == (".".code : GoUInt8) && _path[_r + (1 : GoInt)] == (".".code : GoUInt8)) && ((_r + (2 : GoInt)) == _n || _path[_r + (2 : GoInt)] == ("/".code : GoUInt8))) {
+                _r = _r + ((2 : GoInt));
                 if (_out._w > _dotdot) {
                     _out._w--;
-                    while ((_out._w > _dotdot) && (_out._index(_out._w) != (("/".code : GoUInt8)))) {
+                    while ((_out._w > _dotdot) && (_out._index(_out._w) != ("/".code : GoUInt8))) {
                         _out._w--;
                     };
                 } else if (!_rooted) {
-                    if (_out._w > ((0 : GoInt))) {
-                        _out._append((("/".code : GoUInt8)));
+                    if (_out._w > (0 : GoInt)) {
+                        _out._append(("/".code : GoUInt8));
                     };
-                    _out._append(((".".code : GoUInt8)));
-                    _out._append(((".".code : GoUInt8)));
+                    _out._append((".".code : GoUInt8));
+                    _out._append((".".code : GoUInt8));
                     _dotdot = _out._w;
                 };
             } else {
-                if ((_rooted && (_out._w != ((1 : GoInt)))) || (!_rooted && (_out._w != ((0 : GoInt))))) {
-                    _out._append((("/".code : GoUInt8)));
+                if ((_rooted && _out._w != (1 : GoInt)) || (!_rooted && _out._w != (0 : GoInt))) {
+                    _out._append(("/".code : GoUInt8));
                 };
-                Go.cfor((_r < _n) && ((_path != null ? _path[_r] : ((0 : GoUInt8))) != (("/".code : GoUInt8))), _r++, {
-                    _out._append((_path != null ? _path[_r] : ((0 : GoUInt8))));
+                Go.cfor((_r < _n) && (_path[_r] != ("/".code : GoUInt8)), _r++, {
+                    _out._append(_path[_r]);
                 });
             };
         };
-        if (_out._w == ((0 : GoInt))) {
-            return ((Go.str(".") : GoString));
+        if (_out._w == (0 : GoInt)) {
+            return (Go.str(".") : GoString);
         };
         return _out._string();
     }
@@ -370,8 +370,8 @@ function clean(_path:GoString):GoString {
     // lastSlash(s) is strings.LastIndex(s, "/") but we can't import strings.
 **/
 function _lastSlash(_s:GoString):GoInt {
-        var _i:GoInt = (_s != null ? _s.length : ((0 : GoInt))) - ((1 : GoInt));
-        while ((_i >= ((0 : GoInt))) && ((_s != null ? _s[_i] : ((0 : GoUInt8))) != (("/".code : GoUInt8)))) {
+        var _i:GoInt = (_s.length) - (1 : GoInt);
+        while ((_i >= (0 : GoInt)) && (_s[_i] != ("/".code : GoUInt8))) {
             _i--;
         };
         return _i;
@@ -384,9 +384,9 @@ function _lastSlash(_s:GoString):GoInt {
     // The returned values have the property that path = dir+file.
 **/
 function split(_path:GoString):{ var _0 : GoString; var _1 : GoString; } {
-        var _dir:GoString = (("" : GoString)), _file:GoString = (("" : GoString));
+        var _dir:GoString = ("" : GoString), _file:GoString = ("" : GoString);
         var _i:GoInt = _lastSlash(_path);
-        return { _0 : ((_path.__slice__(0, _i + ((1 : GoInt))) : GoString)), _1 : ((_path.__slice__(_i + ((1 : GoInt))) : GoString)) };
+        return { _0 : (_path.__slice__(0, _i + (1 : GoInt)) : GoString), _1 : (_path.__slice__(_i + (1 : GoInt)) : GoString) };
     }
 /**
     // Join joins any number of path elements into a single path,
@@ -397,23 +397,23 @@ function split(_path:GoString):{ var _0 : GoString; var _1 : GoString; } {
 **/
 function join(_elem:haxe.Rest<GoString>):GoString {
         var _elem = new Slice<GoString>(0, 0, ..._elem);
-        var _size:GoInt = ((0 : GoInt));
+        var _size:GoInt = (0 : GoInt);
         for (_0 => _e in _elem) {
-            _size = _size + ((_e != null ? _e.length : ((0 : GoInt))));
+            _size = _size + ((_e.length));
         };
-        if (_size == ((0 : GoInt))) {
-            return ((Go.str() : GoString));
+        if (_size == (0 : GoInt)) {
+            return (Go.str() : GoString);
         };
-        var _buf = new Slice<GoUInt8>(((((0 : GoInt)) : GoInt)).toBasic(), (_size + (_elem != null ? _elem.length : ((0 : GoInt)))) - ((1 : GoInt)), ...[for (i in 0 ... ((((0 : GoInt)) : GoInt)).toBasic()) ((0 : GoUInt8))]);
+        var _buf = new Slice<GoUInt8>((0 : GoInt).toBasic(), (_size + _elem.length) - (1 : GoInt), ...[for (i in 0 ... (0 : GoInt).toBasic()) (0 : GoUInt8)]);
         for (_1 => _e in _elem) {
-            if (((_buf != null ? _buf.length : ((0 : GoInt))) > ((0 : GoInt))) || (_e != ((Go.str() : GoString)))) {
-                if ((_buf != null ? _buf.length : ((0 : GoInt))) > ((0 : GoInt))) {
-                    _buf = (_buf != null ? _buf.__append__((("/".code : GoUInt8))) : new Slice<GoUInt8>(0, 0, (("/".code : GoUInt8))));
+            if ((_buf.length > (0 : GoInt)) || (_e != (Go.str() : GoString))) {
+                if ((_buf.length) > (0 : GoInt)) {
+                    _buf = (_buf.__append__(("/".code : GoUInt8)));
                 };
-                _buf = (_buf != null ? _buf.__append__(..._e.__toArray__()) : new Slice<GoUInt8>(0, 0, ..._e.__toArray__()));
+                _buf = (_buf.__append__(..._e.__toArray__()));
             };
         };
-        return clean(((_buf : GoString)));
+        return clean((_buf : GoString));
     }
 /**
     // Ext returns the file name extension used by path.
@@ -423,14 +423,14 @@ function join(_elem:haxe.Rest<GoString>):GoString {
 **/
 function ext(_path:GoString):GoString {
         {
-            var _i:GoInt = (_path != null ? _path.length : ((0 : GoInt))) - ((1 : GoInt));
-            Go.cfor((_i >= ((0 : GoInt))) && ((_path != null ? _path[_i] : ((0 : GoUInt8))) != (("/".code : GoUInt8))), _i--, {
-                if ((_path != null ? _path[_i] : ((0 : GoUInt8))) == ((".".code : GoUInt8))) {
-                    return ((_path.__slice__(_i) : GoString));
+            var _i:GoInt = (_path.length) - (1 : GoInt);
+            Go.cfor((_i >= (0 : GoInt)) && (_path[_i] != ("/".code : GoUInt8)), _i--, {
+                if (_path[_i] == (".".code : GoUInt8)) {
+                    return (_path.__slice__(_i) : GoString);
                 };
             });
         };
-        return ((Go.str() : GoString));
+        return (Go.str() : GoString);
     }
 /**
     // Base returns the last element of path.
@@ -439,20 +439,20 @@ function ext(_path:GoString):GoString {
     // If the path consists entirely of slashes, Base returns "/".
 **/
 function base(_path:GoString):GoString {
-        if (_path == ((Go.str() : GoString))) {
-            return ((Go.str(".") : GoString));
+        if (_path == (Go.str() : GoString)) {
+            return (Go.str(".") : GoString);
         };
-        while (((_path != null ? _path.length : ((0 : GoInt))) > ((0 : GoInt))) && ((_path != null ? _path[(_path != null ? _path.length : ((0 : GoInt))) - ((1 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8)))) {
-            _path = ((_path.__slice__(((0 : GoInt)), (_path != null ? _path.length : ((0 : GoInt))) - ((1 : GoInt))) : GoString));
+        while ((_path.length > (0 : GoInt)) && (_path[(_path.length) - (1 : GoInt)] == ("/".code : GoUInt8))) {
+            _path = (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
         };
         {
             var _i:GoInt = _lastSlash(_path);
-            if (_i >= ((0 : GoInt))) {
-                _path = ((_path.__slice__(_i + ((1 : GoInt))) : GoString));
+            if (_i >= (0 : GoInt)) {
+                _path = (_path.__slice__(_i + (1 : GoInt)) : GoString);
             };
         };
-        if (_path == ((Go.str() : GoString))) {
-            return ((Go.str("/") : GoString));
+        if (_path == (Go.str() : GoString)) {
+            return (Go.str("/") : GoString);
         };
         return _path;
     }
@@ -460,7 +460,7 @@ function base(_path:GoString):GoString {
     // IsAbs reports whether the path is absolute.
 **/
 function isAbs(_path:GoString):Bool {
-        return ((_path != null ? _path.length : ((0 : GoInt))) > ((0 : GoInt))) && ((_path != null ? _path[((0 : GoInt))] : ((0 : GoUInt8))) == (("/".code : GoUInt8)));
+        return (_path.length > (0 : GoInt)) && (_path[(0 : GoInt)] == ("/".code : GoUInt8));
     }
 /**
     // Dir returns all but the last element of path, typically the path's directory.
@@ -479,29 +479,29 @@ function dir(_path:GoString):GoString {
     @:keep
     static public function _string( _b:T_lazybuf):GoString {
         if (_b._buf == null) {
-            return ((_b._s.__slice__(0, _b._w) : GoString));
+            return (_b._s.__slice__(0, _b._w) : GoString);
         };
-        return ((((_b._buf.__slice__(0, _b._w) : Slice<GoUInt8>)) : GoString));
+        return ((_b._buf.__slice__(0, _b._w) : Slice<GoUInt8>) : GoString);
     }
     @:keep
     static public function _append( _b:T_lazybuf, _c:GoByte):Void {
         if (_b._buf == null) {
-            if ((_b._w < (_b._s != null ? _b._s.length : ((0 : GoInt)))) && ((_b._s != null ? _b._s[_b._w] : ((0 : GoUInt8))) == _c)) {
+            if ((_b._w < _b._s.length) && (_b._s[_b._w] == _c)) {
                 _b._w++;
                 return;
             };
-            _b._buf = new Slice<GoUInt8>((((_b._s != null ? _b._s.length : ((0 : GoInt))) : GoInt)).toBasic(), 0, ...[for (i in 0 ... (((_b._s != null ? _b._s.length : ((0 : GoInt))) : GoInt)).toBasic()) ((0 : GoUInt8))]);
-            Go.copySlice(_b._buf, ((_b._s.__slice__(0, _b._w) : GoString)));
+            _b._buf = new Slice<GoUInt8>((_b._s.length : GoInt).toBasic(), 0, ...[for (i in 0 ... (_b._s.length : GoInt).toBasic()) (0 : GoUInt8)]);
+            Go.copySlice(_b._buf, (_b._s.__slice__(0, _b._w) : GoString));
         };
-        if (_b._buf != null) _b._buf[_b._w] = _c;
+        _b._buf[_b._w] = _c;
         _b._w++;
     }
     @:keep
     static public function _index( _b:T_lazybuf, _i:GoInt):GoByte {
         if (_b._buf != null) {
-            return (_b._buf != null ? _b._buf[_i] : ((0 : GoUInt8)));
+            return _b._buf[_i];
         };
-        return (_b._s != null ? _b._s[_i] : ((0 : GoUInt8)));
+        return _b._s[_i];
     }
 }
 class T_lazybuf_wrapper {

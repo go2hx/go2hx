@@ -8,148 +8,148 @@ import stdgo.Slice;
 import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
-var __gamP : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0.00016011952247675185 : GoFloat64)), ((0.0011913514700658638 : GoFloat64)), ((0.010421379756176158 : GoFloat64)), ((0.04763678004571372 : GoFloat64)), ((0.20744822764843598 : GoFloat64)), ((0.4942148268014971 : GoFloat64)), ((1 : GoFloat64))) : GoArray<GoFloat64>));
-var __gamQ : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-2.3158187332412014e-05 : GoFloat64)), ((0.0005396055804933034 : GoFloat64)), ((-0.004456419138517973 : GoFloat64)), ((0.011813978522206043 : GoFloat64)), ((0.035823639860549865 : GoFloat64)), ((-0.23459179571824335 : GoFloat64)), ((0.0714304917030273 : GoFloat64)), ((1 : GoFloat64))) : GoArray<GoFloat64>));
-var __gamS : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0.0007873113957930937 : GoFloat64)), ((-0.00022954996161337813 : GoFloat64)), ((-0.0026813261780578124 : GoFloat64)), ((0.0034722222160545866 : GoFloat64)), ((0.08333333333334822 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0R8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0 : GoFloat64)), ((-0.07031249999999004 : GoFloat64)), ((-8.081670412753498 : GoFloat64)), ((-257.06310567970485 : GoFloat64)), ((-2485.216410094288 : GoFloat64)), ((-5253.043804907295 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0S8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((116.53436461966818 : GoFloat64)), ((3833.7447536412183 : GoFloat64)), ((40597.857264847255 : GoFloat64)), ((116752.97256437592 : GoFloat64)), ((47627.728414673096 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0R5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-1.141254646918945e-11 : GoFloat64)), ((-0.07031249408735993 : GoFloat64)), ((-4.159610644705878 : GoFloat64)), ((-67.67476522651673 : GoFloat64)), ((-331.23129964917297 : GoFloat64)), ((-346.4333883656049 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0S5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((60.753938269230034 : GoFloat64)), ((1051.2523059570458 : GoFloat64)), ((5978.970943338558 : GoFloat64)), ((9625.445143577745 : GoFloat64)), ((2406.058159229391 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0R3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-2.547046017719519e-09 : GoFloat64)), ((-0.07031196163814817 : GoFloat64)), ((-2.409032215495296 : GoFloat64)), ((-21.96597747348831 : GoFloat64)), ((-58.07917047017376 : GoFloat64)), ((-31.44794705948885 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0S3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((35.85603380552097 : GoFloat64)), ((361.51398305030386 : GoFloat64)), ((1193.6078379211153 : GoFloat64)), ((1127.9967985690741 : GoFloat64)), ((173.58093081333575 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0R2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-8.875343330325264e-08 : GoFloat64)), ((-0.07030309954836247 : GoFloat64)), ((-1.4507384678095299 : GoFloat64)), ((-7.635696138235278 : GoFloat64)), ((-11.193166886035675 : GoFloat64)), ((-3.2336457935133534 : GoFloat64))) : GoArray<GoFloat64>));
-var _p0S2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((22.22029975320888 : GoFloat64)), ((136.2067942182152 : GoFloat64)), ((270.4702786580835 : GoFloat64)), ((153.87539420832033 : GoFloat64)), ((14.65761769482562 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0R8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0 : GoFloat64)), ((0.0732421874999935 : GoFloat64)), ((11.76820646822527 : GoFloat64)), ((557.6733802564019 : GoFloat64)), ((8859.197207564686 : GoFloat64)), ((37014.62677768878 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0S8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((163.77602689568982 : GoFloat64)), ((8098.344946564498 : GoFloat64)), ((142538.29141912048 : GoFloat64)), ((803309.2571195144 : GoFloat64)), ((840501.5798190605 : GoFloat64)), ((-343899.2935378666 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0R5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1.8408596359451553e-11 : GoFloat64)), ((0.07324217666126848 : GoFloat64)), ((5.8356350896205695 : GoFloat64)), ((135.11157728644983 : GoFloat64)), ((1027.243765961641 : GoFloat64)), ((1989.9778586460538 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0S5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((82.77661022365378 : GoFloat64)), ((2077.81416421393 : GoFloat64)), ((18847.28877857181 : GoFloat64)), ((56751.11228949473 : GoFloat64)), ((35976.75384251145 : GoFloat64)), ((-5354.342756019448 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0R3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((4.377410140897386e-09 : GoFloat64)), ((0.07324111800429114 : GoFloat64)), ((3.344231375161707 : GoFloat64)), ((42.621844074541265 : GoFloat64)), ((170.8080913405656 : GoFloat64)), ((166.73394869665117 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0S3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((48.75887297245872 : GoFloat64)), ((709.689221056606 : GoFloat64)), ((3704.1482262011136 : GoFloat64)), ((6460.425167525689 : GoFloat64)), ((2516.3336892036896 : GoFloat64)), ((-149.2474518361564 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0R2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1.5044444488698327e-07 : GoFloat64)), ((0.07322342659630793 : GoFloat64)), ((1.99819174093816 : GoFloat64)), ((14.495602934788574 : GoFloat64)), ((31.666231750478154 : GoFloat64)), ((16.252707571092927 : GoFloat64))) : GoArray<GoFloat64>));
-var _q0S2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((30.36558483552192 : GoFloat64)), ((269.34811860804984 : GoFloat64)), ((844.7837575953201 : GoFloat64)), ((882.9358451124886 : GoFloat64)), ((212.66638851179883 : GoFloat64)), ((-5.3109549388266695 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1R8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0 : GoFloat64)), ((0.11718749999998865 : GoFloat64)), ((13.239480659307358 : GoFloat64)), ((412.05185430737856 : GoFloat64)), ((3874.7453891396053 : GoFloat64)), ((7914.479540318917 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1S8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((114.20737037567841 : GoFloat64)), ((3650.9308342085346 : GoFloat64)), ((36956.206026903346 : GoFloat64)), ((97602.79359349508 : GoFloat64)), ((30804.27206278888 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1R5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1.3199051955624352e-11 : GoFloat64)), ((0.1171874931906141 : GoFloat64)), ((6.802751278684329 : GoFloat64)), ((108.30818299018911 : GoFloat64)), ((517.6361395331998 : GoFloat64)), ((528.7152013633375 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1S5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((59.28059872211313 : GoFloat64)), ((991.4014187336144 : GoFloat64)), ((5353.26695291488 : GoFloat64)), ((7844.690317495512 : GoFloat64)), ((1504.0468881036106 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1R3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((3.025039161373736e-09 : GoFloat64)), ((0.11718686556725359 : GoFloat64)), ((3.9329775003331564 : GoFloat64)), ((35.11940355916369 : GoFloat64)), ((91.05501107507813 : GoFloat64)), ((48.55906851973649 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1S3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((34.79130950012515 : GoFloat64)), ((336.76245874782575 : GoFloat64)), ((1046.8713997577513 : GoFloat64)), ((890.8113463982564 : GoFloat64)), ((103.78793243963928 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1R2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1.0771083010687374e-07 : GoFloat64)), ((0.11717621946268335 : GoFloat64)), ((2.368514966676088 : GoFloat64)), ((12.242610914826123 : GoFloat64)), ((17.693971127168773 : GoFloat64)), ((5.073523125888185 : GoFloat64))) : GoArray<GoFloat64>));
-var _p1S2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((21.43648593638214 : GoFloat64)), ((125.29022716840275 : GoFloat64)), ((232.2764690571628 : GoFloat64)), ((117.6793732871471 : GoFloat64)), ((8.364638933716183 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1R8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0 : GoFloat64)), ((-0.10253906249999271 : GoFloat64)), ((-16.271753454459 : GoFloat64)), ((-759.6017225139501 : GoFloat64)), ((-11849.806670242959 : GoFloat64)), ((-48438.512428575035 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1S8 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((161.3953697007229 : GoFloat64)), ((7825.385999233485 : GoFloat64)), ((133875.33628724958 : GoFloat64)), ((719657.7236832409 : GoFloat64)), ((666601.2326177764 : GoFloat64)), ((-294490.26430383464 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1R5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-2.089799311417641e-11 : GoFloat64)), ((-0.10253905024137543 : GoFloat64)), ((-8.05644828123936 : GoFloat64)), ((-183.66960747488838 : GoFloat64)), ((-1373.1937606550816 : GoFloat64)), ((-2612.4444045321566 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1S5 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((81.27655013843358 : GoFloat64)), ((1991.7987346048596 : GoFloat64)), ((17468.48519249089 : GoFloat64)), ((49851.42709103523 : GoFloat64)), ((27948.075163891812 : GoFloat64)), ((-4719.183547951285 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1R3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-5.078312264617666e-09 : GoFloat64)), ((-0.10253782982083709 : GoFloat64)), ((-4.610115811394734 : GoFloat64)), ((-57.847221656278364 : GoFloat64)), ((-228.2445407376317 : GoFloat64)), ((-219.21012847890933 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1S3 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((47.66515503237295 : GoFloat64)), ((673.8651126766997 : GoFloat64)), ((3380.1528667952634 : GoFloat64)), ((5547.729097207228 : GoFloat64)), ((1903.119193388108 : GoFloat64)), ((-135.20119144430734 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1R2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-1.7838172751095887e-07 : GoFloat64)), ((-0.10251704260798555 : GoFloat64)), ((-2.7522056827818746 : GoFloat64)), ((-19.663616264370372 : GoFloat64)), ((-42.32531333728305 : GoFloat64)), ((-21.371921170370406 : GoFloat64))) : GoArray<GoFloat64>));
-var _q1S2 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((29.533362906052385 : GoFloat64)), ((252.98154998219053 : GoFloat64)), ((757.5028348686454 : GoFloat64)), ((739.3932053204672 : GoFloat64)), ((155.94900333666612 : GoFloat64)), ((-4.959498988226282 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamA : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(
-((0.07721566490153287 : GoFloat64)),
-((0.3224670334241136 : GoFloat64)),
-((0.06735230105312927 : GoFloat64)),
-((0.020580808432516733 : GoFloat64)),
-((0.007385550860814029 : GoFloat64)),
-((0.0028905138367341563 : GoFloat64)),
-((0.0011927076318336207 : GoFloat64)),
-((0.0005100697921535113 : GoFloat64)),
-((0.00022086279071390839 : GoFloat64)),
-((0.00010801156724758394 : GoFloat64)),
-((2.5214456545125733e-05 : GoFloat64)),
-((4.4864094961891516e-05 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamR : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1 : GoFloat64)), ((1.3920053346762105 : GoFloat64)), ((0.7219355475671381 : GoFloat64)), ((0.17193386563280308 : GoFloat64)), ((0.01864591917156529 : GoFloat64)), ((0.0007779424963818936 : GoFloat64)), ((7.326684307446256e-06 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamS : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-0.07721566490153287 : GoFloat64)), ((0.21498241596060885 : GoFloat64)), ((0.325778796408931 : GoFloat64)), ((0.14635047265246445 : GoFloat64)), ((0.02664227030336386 : GoFloat64)), ((0.0018402845140733772 : GoFloat64)), ((3.194753265841009e-05 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamT : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(
-((0.48383612272381005 : GoFloat64)),
-((-0.1475877229945939 : GoFloat64)),
-((0.06462494023913339 : GoFloat64)),
-((-0.032788541075985965 : GoFloat64)),
-((0.01797067508118204 : GoFloat64)),
-((-0.010314224129834144 : GoFloat64)),
-((0.006100538702462913 : GoFloat64)),
-((-0.0036845201678113826 : GoFloat64)),
-((0.0022596478090061247 : GoFloat64)),
-((-0.0014034646998923284 : GoFloat64)),
-((0.000881081882437654 : GoFloat64)),
-((-0.0005385953053567405 : GoFloat64)),
-((0.00031563207090362595 : GoFloat64)),
-((-0.00031275416837512086 : GoFloat64)),
-((0.0003355291926355191 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamU : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-0.07721566490153287 : GoFloat64)), ((0.6328270640250934 : GoFloat64)), ((1.4549225013723477 : GoFloat64)), ((0.9777175279633727 : GoFloat64)), ((0.22896372806469245 : GoFloat64)), ((0.013381091853678766 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamV : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1 : GoFloat64)), ((2.4559779371304113 : GoFloat64)), ((2.128489763798934 : GoFloat64)), ((0.7692851504566728 : GoFloat64)), ((0.10422264559336913 : GoFloat64)), ((0.003217092422824239 : GoFloat64))) : GoArray<GoFloat64>));
-var __lgamW : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((0.4189385332046727 : GoFloat64)), ((0.08333333333333297 : GoFloat64)), ((-0.0027777777772877554 : GoFloat64)), ((0.0007936505586430196 : GoFloat64)), ((-0.00059518755745034 : GoFloat64)), ((0.0008363399189962821 : GoFloat64)), ((-0.0016309293409657527 : GoFloat64))) : GoArray<GoFloat64>));
-var _pow10tab : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(
-((1 : GoFloat64)),
-((10 : GoFloat64)),
-((100 : GoFloat64)),
-((1000 : GoFloat64)),
-((10000 : GoFloat64)),
-((100000 : GoFloat64)),
-((1e+06 : GoFloat64)),
-((1e+07 : GoFloat64)),
-((1e+08 : GoFloat64)),
-((1e+09 : GoFloat64)),
-((1e+10 : GoFloat64)),
-((1e+11 : GoFloat64)),
-((1e+12 : GoFloat64)),
-((1e+13 : GoFloat64)),
-((1e+14 : GoFloat64)),
-((1e+15 : GoFloat64)),
-((1e+16 : GoFloat64)),
-((1e+17 : GoFloat64)),
-((1e+18 : GoFloat64)),
-((1e+19 : GoFloat64)),
-((1e+20 : GoFloat64)),
-((1e+21 : GoFloat64)),
-((1e+22 : GoFloat64)),
-((1e+23 : GoFloat64)),
-((1e+24 : GoFloat64)),
-((1e+25 : GoFloat64)),
-((1e+26 : GoFloat64)),
-((1e+27 : GoFloat64)),
-((1e+28 : GoFloat64)),
-((1e+29 : GoFloat64)),
-((1e+30 : GoFloat64)),
-((1e+31 : GoFloat64))) : GoArray<GoFloat64>));
-var _pow10postab32 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1 : GoFloat64)), ((1e+32 : GoFloat64)), ((1e+64 : GoFloat64)), ((1e+96 : GoFloat64)), ((1e+128 : GoFloat64)), ((1e+160 : GoFloat64)), ((1e+192 : GoFloat64)), ((1e+224 : GoFloat64)), ((1e+256 : GoFloat64)), ((1e+288 : GoFloat64))) : GoArray<GoFloat64>));
-var _pow10negtab32 : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(
-((1 : GoFloat64)),
-((1e-32 : GoFloat64)),
-((1e-64 : GoFloat64)),
-((1e-96 : GoFloat64)),
-((1e-128 : GoFloat64)),
-((1e-160 : GoFloat64)),
-((1e-192 : GoFloat64)),
-((1e-224 : GoFloat64)),
-((1e-256 : GoFloat64)),
-((1e-288 : GoFloat64)),
-((1e-320 : GoFloat64))) : GoArray<GoFloat64>));
-var __sin : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1.5896230157654656e-10 : GoFloat64)), ((-2.5050747762857807e-08 : GoFloat64)), ((2.7557313621385722e-06 : GoFloat64)), ((-0.0001984126982958954 : GoFloat64)), ((0.008333333333322118 : GoFloat64)), ((-0.1666666666666663 : GoFloat64))) : GoArray<GoFloat64>));
-var __cos : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-1.1358536521387682e-11 : GoFloat64)), ((2.087570084197473e-09 : GoFloat64)), ((-2.755731417929674e-07 : GoFloat64)), ((2.4801587288851704e-05 : GoFloat64)), ((-0.0013888888888873056 : GoFloat64)), ((0.041666666666666595 : GoFloat64))) : GoArray<GoFloat64>));
-var __tanP : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-13093.693918138379 : GoFloat64)), ((1.1535166483858742e+06 : GoFloat64)), ((-1.7956525197648488e+07 : GoFloat64))) : GoArray<GoFloat64>));
-var __tanQ : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((1 : GoFloat64)), ((13681.296347069296 : GoFloat64)), ((-1.3208923444021097e+06 : GoFloat64)), ((2.500838018233579e+07 : GoFloat64)), ((-5.3869575592945464e+07 : GoFloat64))) : GoArray<GoFloat64>));
-var _tanhP : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((-0.9643991794250523 : GoFloat64)), ((-99.28772310019185 : GoFloat64)), ((-1614.6876844170845 : GoFloat64))) : GoArray<GoFloat64>));
-var _tanhQ : GoArray<GoFloat64> = ((new GoArray<GoFloat64>(((112.81167849163293 : GoFloat64)), ((2235.4883906010045 : GoFloat64)), ((4844.063053251255 : GoFloat64))) : GoArray<GoFloat64>));
-var _mPi4 : GoArray<GoUInt64> = ((new GoArray<GoUInt64>(
-((1 : GoUInt64)),
-(("5040379952546458195" : GoUInt64)),
-(("17892431488136887169" : GoUInt64)),
-(("13169980181085364355" : GoUInt64)),
-(("18204331823439776451" : GoUInt64)),
-(("7946843935494350272" : GoUInt64)),
-(("905889640498799673" : GoUInt64)),
-(("18175356263134875261" : GoUInt64)),
-(("15061281708168349961" : GoUInt64)),
-(("15220161563773041794" : GoUInt64)),
-(("8296664548579374057" : GoUInt64)),
-(("4109744767560208502" : GoUInt64)),
-(("4607516669194743839" : GoUInt64)),
-(("16023283104648321598" : GoUInt64)),
-(("15739233654134936430" : GoUInt64)),
-(("11424645774684705882" : GoUInt64)),
-(("16883842788696515318" : GoUInt64)),
-(("8795094592981902804" : GoUInt64)),
-(("15561835991111744016" : GoUInt64)),
-(("12395701187267450711" : GoUInt64))) : GoArray<GoUInt64>));
+var __gamP : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.00016011952247675185 : GoFloat64), (0.0011913514700658638 : GoFloat64), (0.010421379756176158 : GoFloat64), (0.04763678004571372 : GoFloat64), (0.20744822764843598 : GoFloat64), (0.4942148268014971 : GoFloat64), (1 : GoFloat64)) : GoArray<GoFloat64>);
+var __gamQ : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.3158187332412014e-05 : GoFloat64), (0.0005396055804933034 : GoFloat64), (-0.004456419138517973 : GoFloat64), (0.011813978522206043 : GoFloat64), (0.035823639860549865 : GoFloat64), (-0.23459179571824335 : GoFloat64), (0.0714304917030273 : GoFloat64), (1 : GoFloat64)) : GoArray<GoFloat64>);
+var __gamS : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.0007873113957930937 : GoFloat64), (-0.00022954996161337813 : GoFloat64), (-0.0026813261780578124 : GoFloat64), (0.0034722222160545866 : GoFloat64), (0.08333333333334822 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0R8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.07031249999999004 : GoFloat64), (-8.081670412753498 : GoFloat64), (-257.06310567970485 : GoFloat64), (-2485.216410094288 : GoFloat64), (-5253.043804907295 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0S8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((116.53436461966818 : GoFloat64), (3833.7447536412183 : GoFloat64), (40597.857264847255 : GoFloat64), (116752.97256437592 : GoFloat64), (47627.728414673096 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0R5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.141254646918945e-11 : GoFloat64), (-0.07031249408735993 : GoFloat64), (-4.159610644705878 : GoFloat64), (-67.67476522651673 : GoFloat64), (-331.23129964917297 : GoFloat64), (-346.4333883656049 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0S5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((60.753938269230034 : GoFloat64), (1051.2523059570458 : GoFloat64), (5978.970943338558 : GoFloat64), (9625.445143577745 : GoFloat64), (2406.058159229391 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0R3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.547046017719519e-09 : GoFloat64), (-0.07031196163814817 : GoFloat64), (-2.409032215495296 : GoFloat64), (-21.96597747348831 : GoFloat64), (-58.07917047017376 : GoFloat64), (-31.44794705948885 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0S3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((35.85603380552097 : GoFloat64), (361.51398305030386 : GoFloat64), (1193.6078379211153 : GoFloat64), (1127.9967985690741 : GoFloat64), (173.58093081333575 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0R2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-8.875343330325264e-08 : GoFloat64), (-0.07030309954836247 : GoFloat64), (-1.4507384678095299 : GoFloat64), (-7.635696138235278 : GoFloat64), (-11.193166886035675 : GoFloat64), (-3.2336457935133534 : GoFloat64)) : GoArray<GoFloat64>);
+var _p0S2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((22.22029975320888 : GoFloat64), (136.2067942182152 : GoFloat64), (270.4702786580835 : GoFloat64), (153.87539420832033 : GoFloat64), (14.65761769482562 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0R8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.0732421874999935 : GoFloat64), (11.76820646822527 : GoFloat64), (557.6733802564019 : GoFloat64), (8859.197207564686 : GoFloat64), (37014.62677768878 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0S8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((163.77602689568982 : GoFloat64), (8098.344946564498 : GoFloat64), (142538.29141912048 : GoFloat64), (803309.2571195144 : GoFloat64), (840501.5798190605 : GoFloat64), (-343899.2935378666 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0R5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.8408596359451553e-11 : GoFloat64), (0.07324217666126848 : GoFloat64), (5.8356350896205695 : GoFloat64), (135.11157728644983 : GoFloat64), (1027.243765961641 : GoFloat64), (1989.9778586460538 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0S5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((82.77661022365378 : GoFloat64), (2077.81416421393 : GoFloat64), (18847.28877857181 : GoFloat64), (56751.11228949473 : GoFloat64), (35976.75384251145 : GoFloat64), (-5354.342756019448 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0R3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((4.377410140897386e-09 : GoFloat64), (0.07324111800429114 : GoFloat64), (3.344231375161707 : GoFloat64), (42.621844074541265 : GoFloat64), (170.8080913405656 : GoFloat64), (166.73394869665117 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0S3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((48.75887297245872 : GoFloat64), (709.689221056606 : GoFloat64), (3704.1482262011136 : GoFloat64), (6460.425167525689 : GoFloat64), (2516.3336892036896 : GoFloat64), (-149.2474518361564 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0R2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5044444488698327e-07 : GoFloat64), (0.07322342659630793 : GoFloat64), (1.99819174093816 : GoFloat64), (14.495602934788574 : GoFloat64), (31.666231750478154 : GoFloat64), (16.252707571092927 : GoFloat64)) : GoArray<GoFloat64>);
+var _q0S2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((30.36558483552192 : GoFloat64), (269.34811860804984 : GoFloat64), (844.7837575953201 : GoFloat64), (882.9358451124886 : GoFloat64), (212.66638851179883 : GoFloat64), (-5.3109549388266695 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1R8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (0.11718749999998865 : GoFloat64), (13.239480659307358 : GoFloat64), (412.05185430737856 : GoFloat64), (3874.7453891396053 : GoFloat64), (7914.479540318917 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1S8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((114.20737037567841 : GoFloat64), (3650.9308342085346 : GoFloat64), (36956.206026903346 : GoFloat64), (97602.79359349508 : GoFloat64), (30804.27206278888 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1R5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.3199051955624352e-11 : GoFloat64), (0.1171874931906141 : GoFloat64), (6.802751278684329 : GoFloat64), (108.30818299018911 : GoFloat64), (517.6361395331998 : GoFloat64), (528.7152013633375 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1S5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((59.28059872211313 : GoFloat64), (991.4014187336144 : GoFloat64), (5353.26695291488 : GoFloat64), (7844.690317495512 : GoFloat64), (1504.0468881036106 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1R3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((3.025039161373736e-09 : GoFloat64), (0.11718686556725359 : GoFloat64), (3.9329775003331564 : GoFloat64), (35.11940355916369 : GoFloat64), (91.05501107507813 : GoFloat64), (48.55906851973649 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1S3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((34.79130950012515 : GoFloat64), (336.76245874782575 : GoFloat64), (1046.8713997577513 : GoFloat64), (890.8113463982564 : GoFloat64), (103.78793243963928 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1R2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.0771083010687374e-07 : GoFloat64), (0.11717621946268335 : GoFloat64), (2.368514966676088 : GoFloat64), (12.242610914826123 : GoFloat64), (17.693971127168773 : GoFloat64), (5.073523125888185 : GoFloat64)) : GoArray<GoFloat64>);
+var _p1S2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((21.43648593638214 : GoFloat64), (125.29022716840275 : GoFloat64), (232.2764690571628 : GoFloat64), (117.6793732871471 : GoFloat64), (8.364638933716183 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1R8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0 : GoFloat64), (-0.10253906249999271 : GoFloat64), (-16.271753454459 : GoFloat64), (-759.6017225139501 : GoFloat64), (-11849.806670242959 : GoFloat64), (-48438.512428575035 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1S8 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((161.3953697007229 : GoFloat64), (7825.385999233485 : GoFloat64), (133875.33628724958 : GoFloat64), (719657.7236832409 : GoFloat64), (666601.2326177764 : GoFloat64), (-294490.26430383464 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1R5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-2.089799311417641e-11 : GoFloat64), (-0.10253905024137543 : GoFloat64), (-8.05644828123936 : GoFloat64), (-183.66960747488838 : GoFloat64), (-1373.1937606550816 : GoFloat64), (-2612.4444045321566 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1S5 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((81.27655013843358 : GoFloat64), (1991.7987346048596 : GoFloat64), (17468.48519249089 : GoFloat64), (49851.42709103523 : GoFloat64), (27948.075163891812 : GoFloat64), (-4719.183547951285 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1R3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-5.078312264617666e-09 : GoFloat64), (-0.10253782982083709 : GoFloat64), (-4.610115811394734 : GoFloat64), (-57.847221656278364 : GoFloat64), (-228.2445407376317 : GoFloat64), (-219.21012847890933 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1S3 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((47.66515503237295 : GoFloat64), (673.8651126766997 : GoFloat64), (3380.1528667952634 : GoFloat64), (5547.729097207228 : GoFloat64), (1903.119193388108 : GoFloat64), (-135.20119144430734 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1R2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.7838172751095887e-07 : GoFloat64), (-0.10251704260798555 : GoFloat64), (-2.7522056827818746 : GoFloat64), (-19.663616264370372 : GoFloat64), (-42.32531333728305 : GoFloat64), (-21.371921170370406 : GoFloat64)) : GoArray<GoFloat64>);
+var _q1S2 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((29.533362906052385 : GoFloat64), (252.98154998219053 : GoFloat64), (757.5028348686454 : GoFloat64), (739.3932053204672 : GoFloat64), (155.94900333666612 : GoFloat64), (-4.959498988226282 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamA : GoArray<GoFloat64> = (new GoArray<GoFloat64>(
+(0.07721566490153287 : GoFloat64),
+(0.3224670334241136 : GoFloat64),
+(0.06735230105312927 : GoFloat64),
+(0.020580808432516733 : GoFloat64),
+(0.007385550860814029 : GoFloat64),
+(0.0028905138367341563 : GoFloat64),
+(0.0011927076318336207 : GoFloat64),
+(0.0005100697921535113 : GoFloat64),
+(0.00022086279071390839 : GoFloat64),
+(0.00010801156724758394 : GoFloat64),
+(2.5214456545125733e-05 : GoFloat64),
+(4.4864094961891516e-05 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamR : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1.3920053346762105 : GoFloat64), (0.7219355475671381 : GoFloat64), (0.17193386563280308 : GoFloat64), (0.01864591917156529 : GoFloat64), (0.0007779424963818936 : GoFloat64), (7.326684307446256e-06 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamS : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.21498241596060885 : GoFloat64), (0.325778796408931 : GoFloat64), (0.14635047265246445 : GoFloat64), (0.02664227030336386 : GoFloat64), (0.0018402845140733772 : GoFloat64), (3.194753265841009e-05 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamT : GoArray<GoFloat64> = (new GoArray<GoFloat64>(
+(0.48383612272381005 : GoFloat64),
+(-0.1475877229945939 : GoFloat64),
+(0.06462494023913339 : GoFloat64),
+(-0.032788541075985965 : GoFloat64),
+(0.01797067508118204 : GoFloat64),
+(-0.010314224129834144 : GoFloat64),
+(0.006100538702462913 : GoFloat64),
+(-0.0036845201678113826 : GoFloat64),
+(0.0022596478090061247 : GoFloat64),
+(-0.0014034646998923284 : GoFloat64),
+(0.000881081882437654 : GoFloat64),
+(-0.0005385953053567405 : GoFloat64),
+(0.00031563207090362595 : GoFloat64),
+(-0.00031275416837512086 : GoFloat64),
+(0.0003355291926355191 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamU : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.07721566490153287 : GoFloat64), (0.6328270640250934 : GoFloat64), (1.4549225013723477 : GoFloat64), (0.9777175279633727 : GoFloat64), (0.22896372806469245 : GoFloat64), (0.013381091853678766 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamV : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (2.4559779371304113 : GoFloat64), (2.128489763798934 : GoFloat64), (0.7692851504566728 : GoFloat64), (0.10422264559336913 : GoFloat64), (0.003217092422824239 : GoFloat64)) : GoArray<GoFloat64>);
+var __lgamW : GoArray<GoFloat64> = (new GoArray<GoFloat64>((0.4189385332046727 : GoFloat64), (0.08333333333333297 : GoFloat64), (-0.0027777777772877554 : GoFloat64), (0.0007936505586430196 : GoFloat64), (-0.00059518755745034 : GoFloat64), (0.0008363399189962821 : GoFloat64), (-0.0016309293409657527 : GoFloat64)) : GoArray<GoFloat64>);
+var _pow10tab : GoArray<GoFloat64> = (new GoArray<GoFloat64>(
+(1 : GoFloat64),
+(10 : GoFloat64),
+(100 : GoFloat64),
+(1000 : GoFloat64),
+(10000 : GoFloat64),
+(100000 : GoFloat64),
+(1e+06 : GoFloat64),
+(1e+07 : GoFloat64),
+(1e+08 : GoFloat64),
+(1e+09 : GoFloat64),
+(1e+10 : GoFloat64),
+(1e+11 : GoFloat64),
+(1e+12 : GoFloat64),
+(1e+13 : GoFloat64),
+(1e+14 : GoFloat64),
+(1e+15 : GoFloat64),
+(1e+16 : GoFloat64),
+(1e+17 : GoFloat64),
+(1e+18 : GoFloat64),
+(1e+19 : GoFloat64),
+(1e+20 : GoFloat64),
+(1e+21 : GoFloat64),
+(1e+22 : GoFloat64),
+(1e+23 : GoFloat64),
+(1e+24 : GoFloat64),
+(1e+25 : GoFloat64),
+(1e+26 : GoFloat64),
+(1e+27 : GoFloat64),
+(1e+28 : GoFloat64),
+(1e+29 : GoFloat64),
+(1e+30 : GoFloat64),
+(1e+31 : GoFloat64)) : GoArray<GoFloat64>);
+var _pow10postab32 : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (1e+32 : GoFloat64), (1e+64 : GoFloat64), (1e+96 : GoFloat64), (1e+128 : GoFloat64), (1e+160 : GoFloat64), (1e+192 : GoFloat64), (1e+224 : GoFloat64), (1e+256 : GoFloat64), (1e+288 : GoFloat64)) : GoArray<GoFloat64>);
+var _pow10negtab32 : GoArray<GoFloat64> = (new GoArray<GoFloat64>(
+(1 : GoFloat64),
+(1e-32 : GoFloat64),
+(1e-64 : GoFloat64),
+(1e-96 : GoFloat64),
+(1e-128 : GoFloat64),
+(1e-160 : GoFloat64),
+(1e-192 : GoFloat64),
+(1e-224 : GoFloat64),
+(1e-256 : GoFloat64),
+(1e-288 : GoFloat64),
+(1e-320 : GoFloat64)) : GoArray<GoFloat64>);
+var __sin : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1.5896230157654656e-10 : GoFloat64), (-2.5050747762857807e-08 : GoFloat64), (2.7557313621385722e-06 : GoFloat64), (-0.0001984126982958954 : GoFloat64), (0.008333333333322118 : GoFloat64), (-0.1666666666666663 : GoFloat64)) : GoArray<GoFloat64>);
+var __cos : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-1.1358536521387682e-11 : GoFloat64), (2.087570084197473e-09 : GoFloat64), (-2.755731417929674e-07 : GoFloat64), (2.4801587288851704e-05 : GoFloat64), (-0.0013888888888873056 : GoFloat64), (0.041666666666666595 : GoFloat64)) : GoArray<GoFloat64>);
+var __tanP : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-13093.693918138379 : GoFloat64), (1.1535166483858742e+06 : GoFloat64), (-1.7956525197648488e+07 : GoFloat64)) : GoArray<GoFloat64>);
+var __tanQ : GoArray<GoFloat64> = (new GoArray<GoFloat64>((1 : GoFloat64), (13681.296347069296 : GoFloat64), (-1.3208923444021097e+06 : GoFloat64), (2.500838018233579e+07 : GoFloat64), (-5.3869575592945464e+07 : GoFloat64)) : GoArray<GoFloat64>);
+var _tanhP : GoArray<GoFloat64> = (new GoArray<GoFloat64>((-0.9643991794250523 : GoFloat64), (-99.28772310019185 : GoFloat64), (-1614.6876844170845 : GoFloat64)) : GoArray<GoFloat64>);
+var _tanhQ : GoArray<GoFloat64> = (new GoArray<GoFloat64>((112.81167849163293 : GoFloat64), (2235.4883906010045 : GoFloat64), (4844.063053251255 : GoFloat64)) : GoArray<GoFloat64>);
+var _mPi4 : GoArray<GoUInt64> = (new GoArray<GoUInt64>(
+(1 : GoUInt64),
+("5040379952546458195" : GoUInt64),
+("17892431488136887169" : GoUInt64),
+("13169980181085364355" : GoUInt64),
+("18204331823439776451" : GoUInt64),
+("7946843935494350272" : GoUInt64),
+("905889640498799673" : GoUInt64),
+("18175356263134875261" : GoUInt64),
+("15061281708168349961" : GoUInt64),
+("15220161563773041794" : GoUInt64),
+("8296664548579374057" : GoUInt64),
+("4109744767560208502" : GoUInt64),
+("4607516669194743839" : GoUInt64),
+("16023283104648321598" : GoUInt64),
+("15739233654134936430" : GoUInt64),
+("11424645774684705882" : GoUInt64),
+("16883842788696515318" : GoUInt64),
+("8795094592981902804" : GoUInt64),
+("15561835991111744016" : GoUInt64),
+("12395701187267450711" : GoUInt64)) : GoArray<GoUInt64>);
 var expGo : GoFloat64 -> GoFloat64 = _exp;
 var exp2Go : GoFloat64 -> GoFloat64 = _exp2;
 var hypotGo : (GoFloat64, GoFloat64) -> GoFloat64 = _hypot;
@@ -181,17 +181,17 @@ function acosh(_x:GoFloat64):GoFloat64 {
     }
 function _acosh(_x:GoFloat64):GoFloat64 {
         {};
-        if ((_x < ((1 : GoFloat64))) || isNaN(_x)) {
+        if ((_x < (1 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (_x == ((1 : GoFloat64))) {
-            return ((0 : GoFloat64));
-        } else if (_x >= ((2.68435456e+08 : GoFloat64))) {
-            return log(_x) + ((0.6931471805599453 : GoFloat64));
-        } else if (_x > ((2 : GoFloat64))) {
-            return log((((2 : GoFloat64)) * _x) - (((1 : GoFloat64)) / (_x + sqrt((_x * _x) - ((1 : GoFloat64))))));
+        } else if (_x == (1 : GoFloat64)) {
+            return (0 : GoFloat64);
+        } else if (_x >= (2.68435456e+08 : GoFloat64)) {
+            return log(_x) + (0.6931471805599453 : GoFloat64);
+        } else if (_x > (2 : GoFloat64)) {
+            return log(((2 : GoFloat64) * _x) - ((1 : GoFloat64) / _x + sqrt((_x * _x) - (1 : GoFloat64))));
         };
-        var _t:GoFloat64 = _x - ((1 : GoFloat64));
-        return log1p(_t + sqrt((((2 : GoFloat64)) * _t) + (_t * _t)));
+        var _t:GoFloat64 = _x - (1 : GoFloat64);
+        return log1p(_t + sqrt(((2 : GoFloat64) * _t) + (_t * _t)));
     }
 /**
     // Asin returns the arcsine, in radians, of x.
@@ -203,20 +203,20 @@ function _acosh(_x:GoFloat64):GoFloat64 {
 **/
 function asin(_x:GoFloat64):GoFloat64 return std.Math.asin(_x.toBasic());
 function _asin(_x:GoFloat64):GoFloat64 {
-        if (_x == ((0 : GoFloat64))) {
+        if (_x == (0 : GoFloat64)) {
             return _x;
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        if (_x > ((1 : GoFloat64))) {
+        if (_x > (1 : GoFloat64)) {
             return naN();
         };
-        var _temp:GoFloat64 = sqrt(((1 : GoFloat64)) - (_x * _x));
-        if (_x > ((0.7 : GoFloat64))) {
-            _temp = ((1.5707963267948966 : GoFloat64)) - _satan(_temp / _x);
+        var _temp:GoFloat64 = sqrt((1 : GoFloat64) - (_x * _x));
+        if (_x > (0.7 : GoFloat64)) {
+            _temp = (1.5707963267948966 : GoFloat64) - _satan(_temp / _x);
         } else {
             _temp = _satan(_x / _temp);
         };
@@ -234,7 +234,7 @@ function _asin(_x:GoFloat64):GoFloat64 {
 **/
 function acos(_x:GoFloat64):GoFloat64 return std.Math.acos(_x.toBasic());
 function _acos(_x:GoFloat64):GoFloat64 {
-        return ((1.5707963267948966 : GoFloat64)) - asin(_x);
+        return (1.5707963267948966 : GoFloat64) - asin(_x);
     }
 /**
     // Asinh returns the inverse hyperbolic sine of x.
@@ -253,23 +253,23 @@ function asinh(_x:GoFloat64):GoFloat64 {
     }
 function _asinh(_x:GoFloat64):GoFloat64 {
         {};
-        if (isNaN(_x) || isInf(_x, ((0 : GoInt)))) {
+        if (isNaN(_x) || isInf(_x, (0 : GoInt))) {
             return _x;
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _temp:GoFloat64 = ((0 : GoFloat64));
-        if (_x > ((2.68435456e+08 : GoFloat64))) {
-            _temp = log(_x) + ((0.6931471805599453 : GoFloat64));
-        } else if (_x > ((2 : GoFloat64))) {
-            _temp = log((((2 : GoFloat64)) * _x) + (((1 : GoFloat64)) / (sqrt((_x * _x) + ((1 : GoFloat64))) + _x)));
-        } else if (_x < ((3.725290298461914e-09 : GoFloat64))) {
+        var _temp:GoFloat64 = (0 : GoFloat64);
+        if (_x > (2.68435456e+08 : GoFloat64)) {
+            _temp = log(_x) + (0.6931471805599453 : GoFloat64);
+        } else if (_x > (2 : GoFloat64)) {
+            _temp = log(((2 : GoFloat64) * _x) + ((1 : GoFloat64) / sqrt((_x * _x) + (1 : GoFloat64)) + _x));
+        } else if (_x < (3.725290298461914e-09 : GoFloat64)) {
             _temp = _x;
         } else {
-            _temp = log1p(_x + ((_x * _x) / (((1 : GoFloat64)) + sqrt(((1 : GoFloat64)) + (_x * _x)))));
+            _temp = log1p(_x + (_x * _x / (1 : GoFloat64) + sqrt((1 : GoFloat64) + (_x * _x))));
         };
         if (_sign) {
             _temp = -_temp;
@@ -282,7 +282,7 @@ function _asinh(_x:GoFloat64):GoFloat64 {
 function _xatan(_x:GoFloat64):GoFloat64 {
         {};
         var _z:GoFloat64 = _x * _x;
-        _z = (_z * ((((((((((-0.8750608600031904 : GoFloat64)) * _z) + ((-16.157537187333652 : GoFloat64))) * _z) + ((-75.00855792314705 : GoFloat64))) * _z) + ((-122.88666844901361 : GoFloat64))) * _z) + ((-64.85021904942025 : GoFloat64)))) / (((((((((_z + ((24.858464901423062 : GoFloat64))) * _z) + ((165.02700983169885 : GoFloat64))) * _z) + ((432.88106049129027 : GoFloat64))) * _z) + ((485.3903996359137 : GoFloat64))) * _z) + ((194.5506571482614 : GoFloat64)));
+        _z = (_z * (((((-0.8750608600031904 : GoFloat64) * _z) + (-16.157537187333652 : GoFloat64) * _z) + (-75.00855792314705 : GoFloat64) * _z) + (-122.88666844901361 : GoFloat64) * _z) + (-64.85021904942025 : GoFloat64)) / (((((_z + (24.858464901423062 : GoFloat64)) * _z + (165.02700983169885 : GoFloat64)) * _z + (432.88106049129027 : GoFloat64)) * _z + (485.3903996359137 : GoFloat64)) * _z + (194.5506571482614 : GoFloat64));
         _z = (_x * _z) + _x;
         return _z;
     }
@@ -292,13 +292,13 @@ function _xatan(_x:GoFloat64):GoFloat64 {
 **/
 function _satan(_x:GoFloat64):GoFloat64 {
         {};
-        if (_x <= ((0.66 : GoFloat64))) {
+        if (_x <= (0.66 : GoFloat64)) {
             return _xatan(_x);
         };
-        if (_x > ((2.414213562373095 : GoFloat64))) {
-            return (((1.5707963267948966 : GoFloat64)) - _xatan(((1 : GoFloat64)) / _x)) + ((6.123233995736766e-17 : GoFloat64));
+        if (_x > (2.414213562373095 : GoFloat64)) {
+            return ((1.5707963267948966 : GoFloat64) - _xatan((1 : GoFloat64) / _x)) + (6.123233995736766e-17 : GoFloat64);
         };
-        return (((0.7853981633974483 : GoFloat64)) + _xatan((_x - ((1 : GoFloat64))) / (_x + ((1 : GoFloat64))))) + ((3.061616997868383e-17 : GoFloat64));
+        return ((0.7853981633974483 : GoFloat64) + _xatan((_x - (1 : GoFloat64)) / (_x + (1 : GoFloat64)))) + (3.061616997868383e-17 : GoFloat64);
     }
 /**
     // Atan returns the arctangent, in radians, of x.
@@ -310,10 +310,10 @@ function _satan(_x:GoFloat64):GoFloat64 {
 **/
 function atan(_x:GoFloat64):GoFloat64 return std.Math.atan(_x.toBasic());
 function _atan(_x:GoFloat64):GoFloat64 {
-        if (_x == ((0 : GoFloat64))) {
+        if (_x == (0 : GoFloat64)) {
             return _x;
         };
-        if (_x > ((0 : GoFloat64))) {
+        if (_x > (0 : GoFloat64)) {
             return _satan(_x);
         };
         return -_satan(-_x);
@@ -347,35 +347,35 @@ function atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 return std.Math.atan2(_y.to
 function _atan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
         if (isNaN(_y) || isNaN(_x)) {
             return naN();
-        } else if (_y == ((0 : GoFloat64))) {
-            if ((_x >= ((0 : GoFloat64))) && !signbit(_x)) {
-                return copysign(((0 : GoFloat64)), _y);
+        } else if (_y == (0 : GoFloat64)) {
+            if ((_x >= (0 : GoFloat64)) && !signbit(_x)) {
+                return copysign((0 : GoFloat64), _y);
             };
-            return copysign(((3.141592653589793 : GoFloat64)), _y);
-        } else if (_x == ((0 : GoFloat64))) {
-            return copysign(((1.5707963267948966 : GoFloat64)), _y);
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            if (isInf(_x, ((1 : GoInt)))) {
-                if (isInf(_y, ((0 : GoInt)))) {
-                    return copysign(((0.7853981633974483 : GoFloat64)), _y);
+            return copysign((3.141592653589793 : GoFloat64), _y);
+        } else if (_x == (0 : GoFloat64)) {
+            return copysign((1.5707963267948966 : GoFloat64), _y);
+        } else if (isInf(_x, (0 : GoInt))) {
+            if (isInf(_x, (1 : GoInt))) {
+                if (isInf(_y, (0 : GoInt))) {
+                    return copysign((0.7853981633974483 : GoFloat64), _y);
                 } else {
-                    return copysign(((0 : GoFloat64)), _y);
+                    return copysign((0 : GoFloat64), _y);
                 };
             };
-            if (isInf(_y, ((0 : GoInt)))) {
-                return copysign(((2.356194490192345 : GoFloat64)), _y);
+            if (isInf(_y, (0 : GoInt))) {
+                return copysign((2.356194490192345 : GoFloat64), _y);
             } else {
-                return copysign(((3.141592653589793 : GoFloat64)), _y);
+                return copysign((3.141592653589793 : GoFloat64), _y);
             };
-        } else if (isInf(_y, ((0 : GoInt)))) {
-            return copysign(((1.5707963267948966 : GoFloat64)), _y);
+        } else if (isInf(_y, (0 : GoInt))) {
+            return copysign((1.5707963267948966 : GoFloat64), _y);
         };
         var _q:GoFloat64 = atan(_y / _x);
-        if (_x < ((0 : GoFloat64))) {
-            if (_q <= ((0 : GoFloat64))) {
-                return _q + ((3.141592653589793 : GoFloat64));
+        if (_x < (0 : GoFloat64)) {
+            if (_q <= (0 : GoFloat64)) {
+                return _q + (3.141592653589793 : GoFloat64);
             };
-            return _q - ((3.141592653589793 : GoFloat64));
+            return _q - (3.141592653589793 : GoFloat64);
         };
         return _q;
     }
@@ -398,26 +398,26 @@ function atanh(_x:GoFloat64):GoFloat64 {
     }
 function _atanh(_x:GoFloat64):GoFloat64 {
         {};
-        if (((_x < ((-1 : GoFloat64))) || (_x > ((1 : GoFloat64)))) || isNaN(_x)) {
+        if ((_x < (-1 : GoFloat64) || _x > (1 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (_x == ((1 : GoFloat64))) {
-            return inf(((1 : GoInt)));
-        } else if (_x == ((-1 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
+        } else if (_x == (1 : GoFloat64)) {
+            return inf((1 : GoInt));
+        } else if (_x == (-1 : GoFloat64)) {
+            return inf((-1 : GoInt));
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _temp:GoFloat64 = ((0 : GoFloat64));
-        if (_x < ((3.725290298461914e-09 : GoFloat64))) {
+        var _temp:GoFloat64 = (0 : GoFloat64);
+        if (_x < (3.725290298461914e-09 : GoFloat64)) {
             _temp = _x;
-        } else if (_x < ((0.5 : GoFloat64))) {
+        } else if (_x < (0.5 : GoFloat64)) {
             _temp = _x + _x;
-            _temp = ((0.5 : GoFloat64)) * log1p(_temp + ((_temp * _x) / (((1 : GoFloat64)) - _x)));
+            _temp = (0.5 : GoFloat64) * log1p(_temp + (_temp * _x / (1 : GoFloat64) - _x));
         } else {
-            _temp = ((0.5 : GoFloat64)) * log1p((_x + _x) / (((1 : GoFloat64)) - _x));
+            _temp = (0.5 : GoFloat64) * log1p((_x + _x) / ((1 : GoFloat64) - _x));
         };
         if (_sign) {
             _temp = -_temp;
@@ -451,12 +451,12 @@ function isInf(_f:GoFloat64, _sign:GoInt):Bool return _sign.toBasic() >= 0 && _f
     // satisfying x == y × 2**exp. It assumes x is finite and non-zero.
 **/
 function _normalize(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        var _y:GoFloat64 = ((0 : GoFloat64)), _exp:GoInt = ((0 : GoInt));
+        var _y:GoFloat64 = (0 : GoFloat64), _exp:GoInt = (0 : GoInt);
         {};
-        if (abs(_x) < ((2.2250738585072014e-308 : GoFloat64))) {
-            return { _0 : _x * ((4.503599627370496e+15 : GoFloat64)), _1 : ((-52 : GoInt)) };
+        if (abs(_x) < (2.2250738585072014e-308 : GoFloat64)) {
+            return { _0 : _x * (4.503599627370496e+15 : GoFloat64), _1 : (-52 : GoInt) };
         };
-        return { _0 : _x, _1 : ((0 : GoInt)) };
+        return { _0 : _x, _1 : (0 : GoInt) };
     }
 /**
     // Cbrt returns the cube root of x.
@@ -475,24 +475,24 @@ function cbrt(_x:GoFloat64):GoFloat64 {
     }
 function _cbrt(_x:GoFloat64):GoFloat64 {
         {};
-        if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
+        if ((_x == (0 : GoFloat64) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
             return _x;
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _t:GoFloat64 = float64frombits((float64bits(_x) / ((3 : GoUInt64))) + (("3071306043645493248" : GoUInt64)));
-        if (_x < ((2.2250738585072014e-308 : GoFloat64))) {
-            _t = ((((1.8014398509481984e+16 : GoFloat64)) : GoFloat64));
+        var _t:GoFloat64 = float64frombits((float64bits(_x) / (3 : GoUInt64)) + ("3071306043645493248" : GoUInt64));
+        if (_x < (2.2250738585072014e-308 : GoFloat64)) {
+            _t = (1.8014398509481984e+16 : GoFloat64);
             _t = _t * (_x);
-            _t = float64frombits((float64bits(_t) / ((3 : GoUInt64))) + (("2990241250352824320" : GoUInt64)));
+            _t = float64frombits((float64bits(_t) / (3 : GoUInt64)) + ("2990241250352824320" : GoUInt64));
         };
         var _r:GoFloat64 = (_t * _t) / _x;
-        var _s:GoFloat64 = ((0.5428571428571428 : GoFloat64)) + (_r * _t);
-        _t = _t * (((0.35714285714285715 : GoFloat64)) + (((1.6071428571428572 : GoFloat64)) / ((_s + ((1.4142857142857144 : GoFloat64))) + (((-0.7053061224489796 : GoFloat64)) / _s))));
-        _t = float64frombits((float64bits(_t) & (("18446744072635809792" : GoUInt64))) + ((1073741824 : GoUInt64)));
+        var _s:GoFloat64 = (0.5428571428571428 : GoFloat64) + (_r * _t);
+        _t = _t * ((0.35714285714285715 : GoFloat64) + (1.6071428571428572 : GoFloat64) / (_s + (1.4142857142857144 : GoFloat64) + (-0.7053061224489796 : GoFloat64) / _s));
+        _t = float64frombits((float64bits(_t) & ("18446744072635809792" : GoUInt64)) + (1073741824 : GoUInt64));
         _s = _t * _t;
         _r = _x / _s;
         var _w:GoFloat64 = _t + _t;
@@ -509,7 +509,7 @@ function _cbrt(_x:GoFloat64):GoFloat64 {
 **/
 function copysign(_f:GoFloat64, _sign:GoFloat64):GoFloat64 {
         {};
-        return float64frombits((float64bits(_f) & ((("9223372036854775808" : GoUInt64)) ^ ((-1 : GoUnTypedInt)))) | (float64bits(_sign) & (("9223372036854775808" : GoUInt64))));
+        return float64frombits((float64bits(_f) & ("9223372036854775808" : GoUInt64) ^ (-1 : GoUnTypedInt)) | (float64bits(_sign) & ("9223372036854775808" : GoUInt64)));
     }
 /**
     // Dim returns the maximum of x-y or 0.
@@ -522,8 +522,8 @@ function copysign(_f:GoFloat64, _sign:GoFloat64):GoFloat64 {
 **/
 function dim(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         var _v:GoFloat64 = _x - _y;
-        if (_v <= ((0 : GoFloat64))) {
-            return ((0 : GoFloat64));
+        if (_v <= (0 : GoFloat64)) {
+            return (0 : GoFloat64);
         };
         return _v;
     }
@@ -544,11 +544,11 @@ function max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         return std.Math.max(_x.toBasic(), _y.toBasic());
     }
 function _max(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (isInf(_x, ((1 : GoInt))) || isInf(_y, ((1 : GoInt)))) {
-            return inf(((1 : GoInt)));
+        if (isInf(_x, (1 : GoInt)) || isInf(_y, (1 : GoInt))) {
+            return inf((1 : GoInt));
         } else if (isNaN(_x) || isNaN(_y)) {
             return naN();
-        } else if ((_x == ((0 : GoFloat64))) && (_x == _y)) {
+        } else if ((_x == (0 : GoFloat64)) && (_x == _y)) {
             if (signbit(_x)) {
                 return _y;
             };
@@ -575,11 +575,11 @@ function min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         return std.Math.min(_x.toBasic(), _y.toBasic());
     }
 function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if (isInf(_x, ((-1 : GoInt))) || isInf(_y, ((-1 : GoInt)))) {
-            return inf(((-1 : GoInt)));
+        if (isInf(_x, (-1 : GoInt)) || isInf(_y, (-1 : GoInt))) {
+            return inf((-1 : GoInt));
         } else if (isNaN(_x) || isNaN(_y)) {
             return naN();
-        } else if ((_x == ((0 : GoFloat64))) && (_x == _y)) {
+        } else if ((_x == (0 : GoFloat64)) && (_x == _y)) {
             if (signbit(_x)) {
                 return _x;
             };
@@ -591,10 +591,10 @@ function _min(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         return _y;
     }
 function _archMax(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archMin(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // Erf returns the error function of x.
@@ -615,28 +615,28 @@ function _erf(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x)) {
             return naN();
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return ((1 : GoFloat64));
-        } else if (isInf(_x, ((-1 : GoInt)))) {
-            return ((-1 : GoFloat64));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return (1 : GoFloat64);
+        } else if (isInf(_x, (-1 : GoInt))) {
+            return (-1 : GoFloat64);
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        if (_x < ((0.84375 : GoFloat64))) {
-            var _temp:GoFloat64 = ((0 : GoFloat64));
-            if (_x < ((3.725290298461914e-09 : GoFloat64))) {
-                if (_x < ((2.848094538889218e-306 : GoFloat64))) {
-                    _temp = ((0.125 : GoFloat64)) * ((((8 : GoFloat64)) * _x) + (((1.0270333367641007 : GoFloat64)) * _x));
+        if (_x < (0.84375 : GoFloat64)) {
+            var _temp:GoFloat64 = (0 : GoFloat64);
+            if (_x < (3.725290298461914e-09 : GoFloat64)) {
+                if (_x < (2.848094538889218e-306 : GoFloat64)) {
+                    _temp = (0.125 : GoFloat64) * ((8 : GoFloat64) * _x + (1.0270333367641007 : GoFloat64) * _x);
                 } else {
-                    _temp = _x + (((0.1283791670955126 : GoFloat64)) * _x);
+                    _temp = _x + ((0.1283791670955126 : GoFloat64) * _x);
                 };
             } else {
                 var _z:GoFloat64 = _x * _x;
-                var _r:GoFloat64 = ((0.12837916709551256 : GoFloat64)) + (_z * (((-0.3250421072470015 : GoFloat64)) + (_z * (((-0.02848174957559851 : GoFloat64)) + (_z * (((-0.005770270296489442 : GoFloat64)) + (_z * ((-2.3763016656650163e-05 : GoFloat64)))))))));
-                var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.39791722395915535 : GoFloat64)) + (_z * (((0.0650222499887673 : GoFloat64)) + (_z * (((0.005081306281875766 : GoFloat64)) + (_z * (((0.00013249473800432164 : GoFloat64)) + (_z * ((-3.960228278775368e-06 : GoFloat64)))))))))));
+                var _r:GoFloat64 = (0.12837916709551256 : GoFloat64) + (_z * (-0.3250421072470015 : GoFloat64) + (_z * (-0.02848174957559851 : GoFloat64) + (_z * (-0.005770270296489442 : GoFloat64) + (_z * (-2.3763016656650163e-05 : GoFloat64)))));
+                var _s:GoFloat64 = (1 : GoFloat64) + (_z * (0.39791722395915535 : GoFloat64) + (_z * (0.0650222499887673 : GoFloat64) + (_z * (0.005081306281875766 : GoFloat64) + (_z * (0.00013249473800432164 : GoFloat64) + (_z * (-3.960228278775368e-06 : GoFloat64))))));
                 var _y:GoFloat64 = _r / _s;
                 _temp = _x + (_x * _y);
             };
@@ -645,36 +645,36 @@ function _erf(_x:GoFloat64):GoFloat64 {
             };
             return _temp;
         };
-        if (_x < ((1.25 : GoFloat64))) {
-            var _s:GoFloat64 = _x - ((1 : GoFloat64));
-            var p:GoFloat64 = ((-0.0023621185607526594 : GoFloat64)) + (_s * (((0.41485611868374833 : GoFloat64)) + (_s * (((-0.3722078760357013 : GoFloat64)) + (_s * (((0.31834661990116175 : GoFloat64)) + (_s * (((-0.11089469428239668 : GoFloat64)) + (_s * (((0.035478304325618236 : GoFloat64)) + (_s * ((-0.002166375594868791 : GoFloat64)))))))))))));
-            var q:GoFloat64 = ((1 : GoFloat64)) + (_s * (((0.10642088040084423 : GoFloat64)) + (_s * (((0.540397917702171 : GoFloat64)) + (_s * (((0.07182865441419627 : GoFloat64)) + (_s * (((0.12617121980876164 : GoFloat64)) + (_s * (((0.01363708391202905 : GoFloat64)) + (_s * ((0.011984499846799107 : GoFloat64)))))))))))));
+        if (_x < (1.25 : GoFloat64)) {
+            var _s:GoFloat64 = _x - (1 : GoFloat64);
+            var p:GoFloat64 = (-0.0023621185607526594 : GoFloat64) + (_s * (0.41485611868374833 : GoFloat64) + (_s * (-0.3722078760357013 : GoFloat64) + (_s * (0.31834661990116175 : GoFloat64) + (_s * (-0.11089469428239668 : GoFloat64) + (_s * (0.035478304325618236 : GoFloat64) + (_s * (-0.002166375594868791 : GoFloat64)))))));
+            var q:GoFloat64 = (1 : GoFloat64) + (_s * (0.10642088040084423 : GoFloat64) + (_s * (0.540397917702171 : GoFloat64) + (_s * (0.07182865441419627 : GoFloat64) + (_s * (0.12617121980876164 : GoFloat64) + (_s * (0.01363708391202905 : GoFloat64) + (_s * (0.011984499846799107 : GoFloat64)))))));
             if (_sign) {
-                return ((-0.8450629115104675 : GoFloat64)) - (p / q);
+                return (-0.8450629115104675 : GoFloat64) - (p / q);
             };
-            return ((0.8450629115104675 : GoFloat64)) + (p / q);
+            return (0.8450629115104675 : GoFloat64) + (p / q);
         };
-        if (_x >= ((6 : GoFloat64))) {
+        if (_x >= (6 : GoFloat64)) {
             if (_sign) {
-                return ((-1 : GoFloat64));
+                return (-1 : GoFloat64);
             };
-            return ((1 : GoFloat64));
+            return (1 : GoFloat64);
         };
-        var _s:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-        var r:GoFloat64 = ((0 : GoFloat64)), s:GoFloat64 = ((0 : GoFloat64));
-        if (_x < ((2.857142857142857 : GoFloat64))) {
-            r = ((-0.009864944034847148 : GoFloat64)) + (_s * (((-0.6938585727071818 : GoFloat64)) + (_s * (((-10.558626225323291 : GoFloat64)) + (_s * (((-62.375332450326006 : GoFloat64)) + (_s * (((-162.39666946257347 : GoFloat64)) + (_s * (((-184.60509290671104 : GoFloat64)) + (_s * (((-81.2874355063066 : GoFloat64)) + (_s * ((-9.814329344169145 : GoFloat64)))))))))))))));
-            s = ((1 : GoFloat64)) + (_s * (((19.651271667439257 : GoFloat64)) + (_s * (((137.65775414351904 : GoFloat64)) + (_s * (((434.56587747522923 : GoFloat64)) + (_s * (((645.3872717332679 : GoFloat64)) + (_s * (((429.00814002756783 : GoFloat64)) + (_s * (((108.63500554177944 : GoFloat64)) + (_s * (((6.570249770319282 : GoFloat64)) + (_s * ((-0.0604244152148581 : GoFloat64)))))))))))))))));
+        var _s:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+        var r:GoFloat64 = (0 : GoFloat64), s:GoFloat64 = (0 : GoFloat64);
+        if (_x < (2.857142857142857 : GoFloat64)) {
+            r = (-0.009864944034847148 : GoFloat64) + (_s * (-0.6938585727071818 : GoFloat64) + (_s * (-10.558626225323291 : GoFloat64) + (_s * (-62.375332450326006 : GoFloat64) + (_s * (-162.39666946257347 : GoFloat64) + (_s * (-184.60509290671104 : GoFloat64) + (_s * (-81.2874355063066 : GoFloat64) + (_s * (-9.814329344169145 : GoFloat64))))))));
+            s = (1 : GoFloat64) + (_s * (19.651271667439257 : GoFloat64) + (_s * (137.65775414351904 : GoFloat64) + (_s * (434.56587747522923 : GoFloat64) + (_s * (645.3872717332679 : GoFloat64) + (_s * (429.00814002756783 : GoFloat64) + (_s * (108.63500554177944 : GoFloat64) + (_s * (6.570249770319282 : GoFloat64) + (_s * (-0.0604244152148581 : GoFloat64)))))))));
         } else {
-            r = ((-0.0098649429247001 : GoFloat64)) + (_s * (((-0.799283237680523 : GoFloat64)) + (_s * (((-17.757954917754752 : GoFloat64)) + (_s * (((-160.63638485582192 : GoFloat64)) + (_s * (((-637.5664433683896 : GoFloat64)) + (_s * (((-1025.0951316110772 : GoFloat64)) + (_s * ((-483.5191916086514 : GoFloat64)))))))))))));
-            s = ((1 : GoFloat64)) + (_s * (((30.33806074348246 : GoFloat64)) + (_s * (((325.7925129965739 : GoFloat64)) + (_s * (((1536.729586084437 : GoFloat64)) + (_s * (((3199.8582195085955 : GoFloat64)) + (_s * (((2553.0504064331644 : GoFloat64)) + (_s * (((474.52854120695537 : GoFloat64)) + (_s * ((-22.44095244658582 : GoFloat64)))))))))))))));
+            r = (-0.0098649429247001 : GoFloat64) + (_s * (-0.799283237680523 : GoFloat64) + (_s * (-17.757954917754752 : GoFloat64) + (_s * (-160.63638485582192 : GoFloat64) + (_s * (-637.5664433683896 : GoFloat64) + (_s * (-1025.0951316110772 : GoFloat64) + (_s * (-483.5191916086514 : GoFloat64)))))));
+            s = (1 : GoFloat64) + (_s * (30.33806074348246 : GoFloat64) + (_s * (325.7925129965739 : GoFloat64) + (_s * (1536.729586084437 : GoFloat64) + (_s * (3199.8582195085955 : GoFloat64) + (_s * (2553.0504064331644 : GoFloat64) + (_s * (474.52854120695537 : GoFloat64) + (_s * (-22.44095244658582 : GoFloat64))))))));
         };
-        var _z:GoFloat64 = float64frombits(float64bits(_x) & (("18446744069414584320" : GoUInt64)));
-        var _r:GoFloat64 = exp((-_z * _z) - ((0.5625 : GoFloat64))) * exp(((_z - _x) * (_z + _x)) + (r / s));
+        var _z:GoFloat64 = float64frombits(float64bits(_x) & ("18446744069414584320" : GoUInt64));
+        var _r:GoFloat64 = exp((-_z * _z) - (0.5625 : GoFloat64)) * exp((_z - _x * _z + _x) + (r / s));
         if (_sign) {
-            return (_r / _x) - ((1 : GoFloat64));
+            return (_r / _x) - (1 : GoFloat64);
         };
-        return ((1 : GoFloat64)) - (_r / _x);
+        return (1 : GoFloat64) - (_r / _x);
     }
 /**
     // Erfc returns the complementary error function of x.
@@ -695,69 +695,69 @@ function _erfc(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x)) {
             return naN();
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (isInf(_x, ((-1 : GoInt)))) {
-            return ((2 : GoFloat64));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (isInf(_x, (-1 : GoInt))) {
+            return (2 : GoFloat64);
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        if (_x < ((0.84375 : GoFloat64))) {
-            var _temp:GoFloat64 = ((0 : GoFloat64));
-            if (_x < ((1.3877787807814457e-17 : GoFloat64))) {
+        if (_x < (0.84375 : GoFloat64)) {
+            var _temp:GoFloat64 = (0 : GoFloat64);
+            if (_x < (1.3877787807814457e-17 : GoFloat64)) {
                 _temp = _x;
             } else {
                 var _z:GoFloat64 = _x * _x;
-                var _r:GoFloat64 = ((0.12837916709551256 : GoFloat64)) + (_z * (((-0.3250421072470015 : GoFloat64)) + (_z * (((-0.02848174957559851 : GoFloat64)) + (_z * (((-0.005770270296489442 : GoFloat64)) + (_z * ((-2.3763016656650163e-05 : GoFloat64)))))))));
-                var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.39791722395915535 : GoFloat64)) + (_z * (((0.0650222499887673 : GoFloat64)) + (_z * (((0.005081306281875766 : GoFloat64)) + (_z * (((0.00013249473800432164 : GoFloat64)) + (_z * ((-3.960228278775368e-06 : GoFloat64)))))))))));
+                var _r:GoFloat64 = (0.12837916709551256 : GoFloat64) + (_z * (-0.3250421072470015 : GoFloat64) + (_z * (-0.02848174957559851 : GoFloat64) + (_z * (-0.005770270296489442 : GoFloat64) + (_z * (-2.3763016656650163e-05 : GoFloat64)))));
+                var _s:GoFloat64 = (1 : GoFloat64) + (_z * (0.39791722395915535 : GoFloat64) + (_z * (0.0650222499887673 : GoFloat64) + (_z * (0.005081306281875766 : GoFloat64) + (_z * (0.00013249473800432164 : GoFloat64) + (_z * (-3.960228278775368e-06 : GoFloat64))))));
                 var _y:GoFloat64 = _r / _s;
-                if (_x < ((0.25 : GoFloat64))) {
+                if (_x < (0.25 : GoFloat64)) {
                     _temp = _x + (_x * _y);
                 } else {
-                    _temp = ((0.5 : GoFloat64)) + ((_x * _y) + (_x - ((0.5 : GoFloat64))));
+                    _temp = (0.5 : GoFloat64) + (_x * _y + _x - (0.5 : GoFloat64));
                 };
             };
             if (_sign) {
-                return ((1 : GoFloat64)) + _temp;
+                return (1 : GoFloat64) + _temp;
             };
-            return ((1 : GoFloat64)) - _temp;
+            return (1 : GoFloat64) - _temp;
         };
-        if (_x < ((1.25 : GoFloat64))) {
-            var _s:GoFloat64 = _x - ((1 : GoFloat64));
-            var p:GoFloat64 = ((-0.0023621185607526594 : GoFloat64)) + (_s * (((0.41485611868374833 : GoFloat64)) + (_s * (((-0.3722078760357013 : GoFloat64)) + (_s * (((0.31834661990116175 : GoFloat64)) + (_s * (((-0.11089469428239668 : GoFloat64)) + (_s * (((0.035478304325618236 : GoFloat64)) + (_s * ((-0.002166375594868791 : GoFloat64)))))))))))));
-            var q:GoFloat64 = ((1 : GoFloat64)) + (_s * (((0.10642088040084423 : GoFloat64)) + (_s * (((0.540397917702171 : GoFloat64)) + (_s * (((0.07182865441419627 : GoFloat64)) + (_s * (((0.12617121980876164 : GoFloat64)) + (_s * (((0.01363708391202905 : GoFloat64)) + (_s * ((0.011984499846799107 : GoFloat64)))))))))))));
+        if (_x < (1.25 : GoFloat64)) {
+            var _s:GoFloat64 = _x - (1 : GoFloat64);
+            var p:GoFloat64 = (-0.0023621185607526594 : GoFloat64) + (_s * (0.41485611868374833 : GoFloat64) + (_s * (-0.3722078760357013 : GoFloat64) + (_s * (0.31834661990116175 : GoFloat64) + (_s * (-0.11089469428239668 : GoFloat64) + (_s * (0.035478304325618236 : GoFloat64) + (_s * (-0.002166375594868791 : GoFloat64)))))));
+            var q:GoFloat64 = (1 : GoFloat64) + (_s * (0.10642088040084423 : GoFloat64) + (_s * (0.540397917702171 : GoFloat64) + (_s * (0.07182865441419627 : GoFloat64) + (_s * (0.12617121980876164 : GoFloat64) + (_s * (0.01363708391202905 : GoFloat64) + (_s * (0.011984499846799107 : GoFloat64)))))));
             if (_sign) {
-                return ((1.8450629115104675 : GoFloat64)) + (p / q);
+                return (1.8450629115104675 : GoFloat64) + (p / q);
             };
-            return ((0.15493708848953247 : GoFloat64)) - (p / q);
+            return (0.15493708848953247 : GoFloat64) - (p / q);
         };
-        if (_x < ((28 : GoFloat64))) {
-            var _s:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-            var r:GoFloat64 = ((0 : GoFloat64)), s:GoFloat64 = ((0 : GoFloat64));
-            if (_x < ((2.857142857142857 : GoFloat64))) {
-                r = ((-0.009864944034847148 : GoFloat64)) + (_s * (((-0.6938585727071818 : GoFloat64)) + (_s * (((-10.558626225323291 : GoFloat64)) + (_s * (((-62.375332450326006 : GoFloat64)) + (_s * (((-162.39666946257347 : GoFloat64)) + (_s * (((-184.60509290671104 : GoFloat64)) + (_s * (((-81.2874355063066 : GoFloat64)) + (_s * ((-9.814329344169145 : GoFloat64)))))))))))))));
-                s = ((1 : GoFloat64)) + (_s * (((19.651271667439257 : GoFloat64)) + (_s * (((137.65775414351904 : GoFloat64)) + (_s * (((434.56587747522923 : GoFloat64)) + (_s * (((645.3872717332679 : GoFloat64)) + (_s * (((429.00814002756783 : GoFloat64)) + (_s * (((108.63500554177944 : GoFloat64)) + (_s * (((6.570249770319282 : GoFloat64)) + (_s * ((-0.0604244152148581 : GoFloat64)))))))))))))))));
+        if (_x < (28 : GoFloat64)) {
+            var _s:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+            var r:GoFloat64 = (0 : GoFloat64), s:GoFloat64 = (0 : GoFloat64);
+            if (_x < (2.857142857142857 : GoFloat64)) {
+                r = (-0.009864944034847148 : GoFloat64) + (_s * (-0.6938585727071818 : GoFloat64) + (_s * (-10.558626225323291 : GoFloat64) + (_s * (-62.375332450326006 : GoFloat64) + (_s * (-162.39666946257347 : GoFloat64) + (_s * (-184.60509290671104 : GoFloat64) + (_s * (-81.2874355063066 : GoFloat64) + (_s * (-9.814329344169145 : GoFloat64))))))));
+                s = (1 : GoFloat64) + (_s * (19.651271667439257 : GoFloat64) + (_s * (137.65775414351904 : GoFloat64) + (_s * (434.56587747522923 : GoFloat64) + (_s * (645.3872717332679 : GoFloat64) + (_s * (429.00814002756783 : GoFloat64) + (_s * (108.63500554177944 : GoFloat64) + (_s * (6.570249770319282 : GoFloat64) + (_s * (-0.0604244152148581 : GoFloat64)))))))));
             } else {
-                if (_sign && (_x > ((6 : GoFloat64)))) {
-                    return ((2 : GoFloat64));
+                if (_sign && (_x > (6 : GoFloat64))) {
+                    return (2 : GoFloat64);
                 };
-                r = ((-0.0098649429247001 : GoFloat64)) + (_s * (((-0.799283237680523 : GoFloat64)) + (_s * (((-17.757954917754752 : GoFloat64)) + (_s * (((-160.63638485582192 : GoFloat64)) + (_s * (((-637.5664433683896 : GoFloat64)) + (_s * (((-1025.0951316110772 : GoFloat64)) + (_s * ((-483.5191916086514 : GoFloat64)))))))))))));
-                s = ((1 : GoFloat64)) + (_s * (((30.33806074348246 : GoFloat64)) + (_s * (((325.7925129965739 : GoFloat64)) + (_s * (((1536.729586084437 : GoFloat64)) + (_s * (((3199.8582195085955 : GoFloat64)) + (_s * (((2553.0504064331644 : GoFloat64)) + (_s * (((474.52854120695537 : GoFloat64)) + (_s * ((-22.44095244658582 : GoFloat64)))))))))))))));
+                r = (-0.0098649429247001 : GoFloat64) + (_s * (-0.799283237680523 : GoFloat64) + (_s * (-17.757954917754752 : GoFloat64) + (_s * (-160.63638485582192 : GoFloat64) + (_s * (-637.5664433683896 : GoFloat64) + (_s * (-1025.0951316110772 : GoFloat64) + (_s * (-483.5191916086514 : GoFloat64)))))));
+                s = (1 : GoFloat64) + (_s * (30.33806074348246 : GoFloat64) + (_s * (325.7925129965739 : GoFloat64) + (_s * (1536.729586084437 : GoFloat64) + (_s * (3199.8582195085955 : GoFloat64) + (_s * (2553.0504064331644 : GoFloat64) + (_s * (474.52854120695537 : GoFloat64) + (_s * (-22.44095244658582 : GoFloat64))))))));
             };
-            var _z:GoFloat64 = float64frombits(float64bits(_x) & (("18446744069414584320" : GoUInt64)));
-            var _r:GoFloat64 = exp((-_z * _z) - ((0.5625 : GoFloat64))) * exp(((_z - _x) * (_z + _x)) + (r / s));
+            var _z:GoFloat64 = float64frombits(float64bits(_x) & ("18446744069414584320" : GoUInt64));
+            var _r:GoFloat64 = exp((-_z * _z) - (0.5625 : GoFloat64)) * exp((_z - _x * _z + _x) + (r / s));
             if (_sign) {
-                return ((2 : GoFloat64)) - (_r / _x);
+                return (2 : GoFloat64) - (_r / _x);
             };
             return _r / _x;
         };
         if (_sign) {
-            return ((2 : GoFloat64));
+            return (2 : GoFloat64);
         };
-        return ((0 : GoFloat64));
+        return (0 : GoFloat64);
     }
 /**
     // Erfinv returns the inverse error function of x.
@@ -770,34 +770,34 @@ function _erfc(_x:GoFloat64):GoFloat64 {
     //	Erfinv(NaN) = NaN
 **/
 function erfinv(_x:GoFloat64):GoFloat64 {
-        if ((isNaN(_x) || (_x <= ((-1 : GoFloat64)))) || (_x >= ((1 : GoFloat64)))) {
-            if ((_x == ((-1 : GoFloat64))) || (_x == ((1 : GoFloat64)))) {
-                return inf(((_x : GoInt)));
+        if ((isNaN(_x) || _x <= (-1 : GoFloat64)) || (_x >= (1 : GoFloat64))) {
+            if ((_x == (-1 : GoFloat64)) || (_x == (1 : GoFloat64))) {
+                return inf((_x : GoInt));
             };
             return naN();
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _ans:GoFloat64 = ((0 : GoFloat64));
-        if (_x <= ((0.85 : GoFloat64))) {
-            var _r:GoFloat64 = ((0.180625 : GoFloat64)) - ((((0.25 : GoFloat64)) * _x) * _x);
-            var _z1:GoFloat64 = (((((((((((((((887.0940696254552 : GoFloat64)) * _r) + ((11819.493347062295 : GoFloat64))) * _r) + ((23782.041382114385 : GoFloat64))) * _r) + ((16235.862515167575 : GoFloat64))) * _r) + ((4854.886889384388 : GoFloat64))) * _r) + ((697.062665343896 : GoFloat64))) * _r) + ((47.07268811238398 : GoFloat64))) * _r) + ((1.1975323115670913 : GoFloat64));
-            var _z2:GoFloat64 = (((((((((((((((5226.495278852854 : GoFloat64)) * _r) + ((28729.085735721943 : GoFloat64))) * _r) + ((39307.89580009271 : GoFloat64))) * _r) + ((21213.794301586597 : GoFloat64))) * _r) + ((5394.196021424751 : GoFloat64))) * _r) + ((687.1870074920579 : GoFloat64))) * _r) + ((42.31333070160091 : GoFloat64))) * _r) + ((1 : GoFloat64));
+        var _ans:GoFloat64 = (0 : GoFloat64);
+        if (_x <= (0.85 : GoFloat64)) {
+            var _r:GoFloat64 = (0.180625 : GoFloat64) - ((0.25 : GoFloat64) * _x * _x);
+            var _z1:GoFloat64 = ((((((((887.0940696254552 : GoFloat64) * _r) + (11819.493347062295 : GoFloat64) * _r) + (23782.041382114385 : GoFloat64) * _r) + (16235.862515167575 : GoFloat64) * _r) + (4854.886889384388 : GoFloat64) * _r) + (697.062665343896 : GoFloat64) * _r) + (47.07268811238398 : GoFloat64) * _r) + (1.1975323115670913 : GoFloat64);
+            var _z2:GoFloat64 = ((((((((5226.495278852854 : GoFloat64) * _r) + (28729.085735721943 : GoFloat64) * _r) + (39307.89580009271 : GoFloat64) * _r) + (21213.794301586597 : GoFloat64) * _r) + (5394.196021424751 : GoFloat64) * _r) + (687.1870074920579 : GoFloat64) * _r) + (42.31333070160091 : GoFloat64) * _r) + (1 : GoFloat64);
             _ans = (_x * _z1) / _z2;
         } else {
-            var _z1:GoFloat64 = ((0 : GoFloat64)), _z2:GoFloat64 = ((0 : GoFloat64));
-            var _r:GoFloat64 = sqrt(((0.6931471805599453 : GoFloat64)) - log(((1 : GoFloat64)) - _x));
-            if (_r <= ((5 : GoFloat64))) {
-                _r = _r - (((1.6 : GoFloat64)));
-                _z1 = (((((((((((((((0.0007745450142783414 : GoFloat64)) * _r) + ((0.022723844989269184 : GoFloat64))) * _r) + ((0.2417807251774506 : GoFloat64))) * _r) + ((1.2704582524523684 : GoFloat64))) * _r) + ((3.6478483247632045 : GoFloat64))) * _r) + ((5.769497221460691 : GoFloat64))) * _r) + ((4.630337846156546 : GoFloat64))) * _r) + ((1.4234371107496835 : GoFloat64));
-                _z2 = (((((((((((((((1.4859850019840355e-09 : GoFloat64)) * _r) + ((0.0007744145906515771 : GoFloat64))) * _r) + ((0.021494160384252878 : GoFloat64))) * _r) + ((0.2094506521051275 : GoFloat64))) * _r) + ((0.9754783200178743 : GoFloat64))) * _r) + ((2.3707661626024534 : GoFloat64))) * _r) + ((2.9036514445419948 : GoFloat64))) * _r) + ((1.4142135623730951 : GoFloat64));
+            var _z1:GoFloat64 = (0 : GoFloat64), _z2:GoFloat64 = (0 : GoFloat64);
+            var _r:GoFloat64 = sqrt((0.6931471805599453 : GoFloat64) - log((1 : GoFloat64) - _x));
+            if (_r <= (5 : GoFloat64)) {
+                _r = _r - ((1.6 : GoFloat64));
+                _z1 = ((((((((0.0007745450142783414 : GoFloat64) * _r) + (0.022723844989269184 : GoFloat64) * _r) + (0.2417807251774506 : GoFloat64) * _r) + (1.2704582524523684 : GoFloat64) * _r) + (3.6478483247632045 : GoFloat64) * _r) + (5.769497221460691 : GoFloat64) * _r) + (4.630337846156546 : GoFloat64) * _r) + (1.4234371107496835 : GoFloat64);
+                _z2 = ((((((((1.4859850019840355e-09 : GoFloat64) * _r) + (0.0007744145906515771 : GoFloat64) * _r) + (0.021494160384252878 : GoFloat64) * _r) + (0.2094506521051275 : GoFloat64) * _r) + (0.9754783200178743 : GoFloat64) * _r) + (2.3707661626024534 : GoFloat64) * _r) + (2.9036514445419948 : GoFloat64) * _r) + (1.4142135623730951 : GoFloat64);
             } else {
-                _r = _r - (((5 : GoFloat64)));
-                _z1 = (((((((((((((((2.0103343992922881e-07 : GoFloat64)) * _r) + ((2.7115555687434876e-05 : GoFloat64))) * _r) + ((0.0012426609473880784 : GoFloat64))) * _r) + ((0.026532189526576124 : GoFloat64))) * _r) + ((0.29656057182850487 : GoFloat64))) * _r) + ((1.7848265399172913 : GoFloat64))) * _r) + ((5.463784911164114 : GoFloat64))) * _r) + ((6.657904643501103 : GoFloat64));
-                _z2 = (((((((((((((((2.8910246058729655e-15 : GoFloat64)) * _r) + ((2.010321207683943e-07 : GoFloat64))) * _r) + ((2.6110884050805935e-05 : GoFloat64))) * _r) + ((0.0011128009970788597 : GoFloat64))) * _r) + ((0.02103693768272069 : GoFloat64))) * _r) + ((0.19364809469506591 : GoFloat64))) * _r) + ((0.8482908416595164 : GoFloat64))) * _r) + ((1.4142135623730951 : GoFloat64));
+                _r = _r - ((5 : GoFloat64));
+                _z1 = ((((((((2.0103343992922881e-07 : GoFloat64) * _r) + (2.7115555687434876e-05 : GoFloat64) * _r) + (0.0012426609473880784 : GoFloat64) * _r) + (0.026532189526576124 : GoFloat64) * _r) + (0.29656057182850487 : GoFloat64) * _r) + (1.7848265399172913 : GoFloat64) * _r) + (5.463784911164114 : GoFloat64) * _r) + (6.657904643501103 : GoFloat64);
+                _z2 = ((((((((2.8910246058729655e-15 : GoFloat64) * _r) + (2.010321207683943e-07 : GoFloat64) * _r) + (2.6110884050805935e-05 : GoFloat64) * _r) + (0.0011128009970788597 : GoFloat64) * _r) + (0.02103693768272069 : GoFloat64) * _r) + (0.19364809469506591 : GoFloat64) * _r) + (0.8482908416595164 : GoFloat64) * _r) + (1.4142135623730951 : GoFloat64);
             };
             _ans = _z1 / _z2;
         };
@@ -817,7 +817,7 @@ function erfinv(_x:GoFloat64):GoFloat64 {
     //	Erfcinv(NaN) = NaN
 **/
 function erfcinv(_x:GoFloat64):GoFloat64 {
-        return erfinv(((1 : GoFloat64)) - _x);
+        return erfinv((1 : GoFloat64) - _x);
     }
 /**
     // Exp returns e**x, the base-e exponential of x.
@@ -833,25 +833,25 @@ function erfcinv(_x:GoFloat64):GoFloat64 {
 function exp(_x:GoFloat64):GoFloat64 return std.Math.exp(_x.toBasic());
 function _exp(_x:GoFloat64):GoFloat64 {
         {};
-        if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
+        if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
             return _x;
-        } else if (isInf(_x, ((-1 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (_x > ((709.782712893384 : GoFloat64))) {
-            return inf(((1 : GoInt)));
-        } else if (_x < ((-745.1332191019411 : GoFloat64))) {
-            return ((0 : GoFloat64));
-        } else if ((((-3.725290298461914e-09 : GoFloat64)) < _x) && (_x < ((3.725290298461914e-09 : GoFloat64)))) {
-            return ((1 : GoFloat64)) + _x;
+        } else if (isInf(_x, (-1 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (_x > (709.782712893384 : GoFloat64)) {
+            return inf((1 : GoInt));
+        } else if (_x < (-745.1332191019411 : GoFloat64)) {
+            return (0 : GoFloat64);
+        } else if (((-3.725290298461914e-09 : GoFloat64) < _x) && (_x < (3.725290298461914e-09 : GoFloat64))) {
+            return (1 : GoFloat64) + _x;
         };
-        var _k:GoInt = ((0 : GoInt));
-        if (_x < ((0 : GoFloat64))) {
-            _k = ((((((1.4426950408889634 : GoFloat64)) * _x) - ((0.5 : GoFloat64))) : GoInt));
-        } else if (_x > ((0 : GoFloat64))) {
-            _k = ((((((1.4426950408889634 : GoFloat64)) * _x) + ((0.5 : GoFloat64))) : GoInt));
+        var _k:GoInt = (0 : GoInt);
+        if (_x < (0 : GoFloat64)) {
+            _k = (((1.4426950408889634 : GoFloat64) * _x) - (0.5 : GoFloat64) : GoInt);
+        } else if (_x > (0 : GoFloat64)) {
+            _k = (((1.4426950408889634 : GoFloat64) * _x) + (0.5 : GoFloat64) : GoInt);
         };
-        var _hi:GoFloat64 = _x - (((_k : GoFloat64)) * ((0.6931471803691238 : GoFloat64)));
-        var _lo:GoFloat64 = ((_k : GoFloat64)) * ((1.9082149292705877e-10 : GoFloat64));
+        var _hi:GoFloat64 = _x - ((_k : GoFloat64) * (0.6931471803691238 : GoFloat64));
+        var _lo:GoFloat64 = (_k : GoFloat64) * (1.9082149292705877e-10 : GoFloat64);
         return _expmulti(_hi, _lo, _k);
     }
 /**
@@ -867,24 +867,24 @@ function exp2(_x:GoFloat64):GoFloat64 {
     }
 function _exp2(_x:GoFloat64):GoFloat64 {
         {};
-        if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
+        if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
             return _x;
-        } else if (isInf(_x, ((-1 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (_x > ((1023.9999999999999 : GoFloat64))) {
-            return inf(((1 : GoInt)));
-        } else if (_x < ((-1074 : GoFloat64))) {
-            return ((0 : GoFloat64));
+        } else if (isInf(_x, (-1 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (_x > (1023.9999999999999 : GoFloat64)) {
+            return inf((1 : GoInt));
+        } else if (_x < (-1074 : GoFloat64)) {
+            return (0 : GoFloat64);
         };
-        var _k:GoInt = ((0 : GoInt));
-        if (_x > ((0 : GoFloat64))) {
-            _k = (((_x + ((0.5 : GoFloat64))) : GoInt));
-        } else if (_x < ((0 : GoFloat64))) {
-            _k = (((_x - ((0.5 : GoFloat64))) : GoInt));
+        var _k:GoInt = (0 : GoInt);
+        if (_x > (0 : GoFloat64)) {
+            _k = (_x + (0.5 : GoFloat64) : GoInt);
+        } else if (_x < (0 : GoFloat64)) {
+            _k = (_x - (0.5 : GoFloat64) : GoInt);
         };
-        var _t:GoFloat64 = _x - ((_k : GoFloat64));
-        var _hi:GoFloat64 = _t * ((0.6931471803691238 : GoFloat64));
-        var _lo:GoFloat64 = -_t * ((1.9082149292705877e-10 : GoFloat64));
+        var _t:GoFloat64 = _x - (_k : GoFloat64);
+        var _hi:GoFloat64 = _t * (0.6931471803691238 : GoFloat64);
+        var _lo:GoFloat64 = -_t * (1.9082149292705877e-10 : GoFloat64);
         return _expmulti(_hi, _lo, _k);
     }
 /**
@@ -894,15 +894,15 @@ function _expmulti(_hi:GoFloat64, _lo:GoFloat64, _k:GoInt):GoFloat64 {
         {};
         var _r:GoFloat64 = _hi - _lo;
         var _t:GoFloat64 = _r * _r;
-        var _c:GoFloat64 = _r - (_t * (((0.16666666666666666 : GoFloat64)) + (_t * (((-0.0027777777777015593 : GoFloat64)) + (_t * (((6.613756321437934e-05 : GoFloat64)) + (_t * (((-1.6533902205465252e-06 : GoFloat64)) + (_t * ((4.1381367970572385e-08 : GoFloat64)))))))))));
-        var _y:GoFloat64 = ((1 : GoFloat64)) - ((_lo - ((_r * _c) / (((2 : GoFloat64)) - _c))) - _hi);
+        var _c:GoFloat64 = _r - (_t * (0.16666666666666666 : GoFloat64) + (_t * (-0.0027777777777015593 : GoFloat64) + (_t * (6.613756321437934e-05 : GoFloat64) + (_t * (-1.6533902205465252e-06 : GoFloat64) + (_t * (4.1381367970572385e-08 : GoFloat64))))));
+        var _y:GoFloat64 = (1 : GoFloat64) - (_lo - (_r * _c / (2 : GoFloat64) - _c) - _hi);
         return ldexp(_y, _k);
     }
 function _archExp2(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archExp(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // Expm1 returns e**x - 1, the base-e exponential of x minus 1.
@@ -924,88 +924,88 @@ function expm1(_x:GoFloat64):GoFloat64 {
     }
 function _expm1(_x:GoFloat64):GoFloat64 {
         {};
-        if (isInf(_x, ((1 : GoInt))) || isNaN(_x)) {
+        if (isInf(_x, (1 : GoInt)) || isNaN(_x)) {
             return _x;
-        } else if (isInf(_x, ((-1 : GoInt)))) {
-            return ((-1 : GoFloat64));
+        } else if (isInf(_x, (-1 : GoInt))) {
+            return (-1 : GoFloat64);
         };
         var _absx:GoFloat64 = _x;
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _absx = -_absx;
             _sign = true;
         };
-        if (_absx >= ((38.816242111356935 : GoFloat64))) {
+        if (_absx >= (38.816242111356935 : GoFloat64)) {
             if (_sign) {
-                return ((-1 : GoFloat64));
+                return (-1 : GoFloat64);
             };
-            if (_absx >= ((709.782712893384 : GoFloat64))) {
-                return inf(((1 : GoInt)));
+            if (_absx >= (709.782712893384 : GoFloat64)) {
+                return inf((1 : GoInt));
             };
         };
-        var _c:GoFloat64 = ((0 : GoFloat64));
-        var _k:GoInt = ((0 : GoInt));
-        if (_absx > ((0.34657359027997264 : GoFloat64))) {
-            var _hi:GoFloat64 = ((0 : GoFloat64)), _lo:GoFloat64 = ((0 : GoFloat64));
-            if (_absx < ((1.0397207708399179 : GoFloat64))) {
+        var _c:GoFloat64 = (0 : GoFloat64);
+        var _k:GoInt = (0 : GoInt);
+        if (_absx > (0.34657359027997264 : GoFloat64)) {
+            var _hi:GoFloat64 = (0 : GoFloat64), _lo:GoFloat64 = (0 : GoFloat64);
+            if (_absx < (1.0397207708399179 : GoFloat64)) {
                 if (!_sign) {
-                    _hi = _x - ((0.6931471803691238 : GoFloat64));
-                    _lo = ((1.9082149292705877e-10 : GoFloat64));
-                    _k = ((1 : GoInt));
+                    _hi = _x - (0.6931471803691238 : GoFloat64);
+                    _lo = (1.9082149292705877e-10 : GoFloat64);
+                    _k = (1 : GoInt);
                 } else {
-                    _hi = _x + ((0.6931471803691238 : GoFloat64));
-                    _lo = ((-1.9082149292705877e-10 : GoFloat64));
-                    _k = ((-1 : GoInt));
+                    _hi = _x + (0.6931471803691238 : GoFloat64);
+                    _lo = (-1.9082149292705877e-10 : GoFloat64);
+                    _k = (-1 : GoInt);
                 };
             } else {
                 if (!_sign) {
-                    _k = ((((((1.4426950408889634 : GoFloat64)) * _x) + ((0.5 : GoFloat64))) : GoInt));
+                    _k = (((1.4426950408889634 : GoFloat64) * _x) + (0.5 : GoFloat64) : GoInt);
                 } else {
-                    _k = ((((((1.4426950408889634 : GoFloat64)) * _x) - ((0.5 : GoFloat64))) : GoInt));
+                    _k = (((1.4426950408889634 : GoFloat64) * _x) - (0.5 : GoFloat64) : GoInt);
                 };
-                var _t:GoFloat64 = ((_k : GoFloat64));
-                _hi = _x - (_t * ((0.6931471803691238 : GoFloat64)));
-                _lo = _t * ((1.9082149292705877e-10 : GoFloat64));
+                var _t:GoFloat64 = (_k : GoFloat64);
+                _hi = _x - (_t * (0.6931471803691238 : GoFloat64));
+                _lo = _t * (1.9082149292705877e-10 : GoFloat64);
             };
             _x = _hi - _lo;
             _c = (_hi - _x) - _lo;
-        } else if (_absx < ((5.551115123125783e-17 : GoFloat64))) {
+        } else if (_absx < (5.551115123125783e-17 : GoFloat64)) {
             return _x;
         } else {
-            _k = ((0 : GoInt));
+            _k = (0 : GoInt);
         };
-        var _hfx:GoFloat64 = ((0.5 : GoFloat64)) * _x;
+        var _hfx:GoFloat64 = (0.5 : GoFloat64) * _x;
         var _hxs:GoFloat64 = _x * _hfx;
-        var _r1:GoFloat64 = ((1 : GoFloat64)) + (_hxs * (((-0.03333333333333313 : GoFloat64)) + (_hxs * (((0.0015873015872548146 : GoFloat64)) + (_hxs * (((-7.93650757867488e-05 : GoFloat64)) + (_hxs * (((4.008217827329362e-06 : GoFloat64)) + (_hxs * ((-2.0109921818362437e-07 : GoFloat64)))))))))));
-        var _t:GoFloat64 = ((3 : GoFloat64)) - (_r1 * _hfx);
-        var _e:GoFloat64 = _hxs * ((_r1 - _t) / (((6 : GoFloat64)) - (_x * _t)));
-        if (_k == ((0 : GoInt))) {
-            return _x - ((_x * _e) - _hxs);
+        var _r1:GoFloat64 = (1 : GoFloat64) + (_hxs * (-0.03333333333333313 : GoFloat64) + (_hxs * (0.0015873015872548146 : GoFloat64) + (_hxs * (-7.93650757867488e-05 : GoFloat64) + (_hxs * (4.008217827329362e-06 : GoFloat64) + (_hxs * (-2.0109921818362437e-07 : GoFloat64))))));
+        var _t:GoFloat64 = (3 : GoFloat64) - (_r1 * _hfx);
+        var _e:GoFloat64 = _hxs * (_r1 - _t / (6 : GoFloat64) - (_x * _t));
+        if (_k == (0 : GoInt)) {
+            return _x - (_x * _e - _hxs);
         };
-        _e = ((_x * (_e - _c)) - _c);
+        _e = (_x * (_e - _c) - _c);
         _e = _e - (_hxs);
-        if (_k == ((-1 : GoInt))) {
-            return (((0.5 : GoFloat64)) * (_x - _e)) - ((0.5 : GoFloat64));
-        } else if (_k == ((1 : GoInt))) {
-            if (_x < ((-0.25 : GoFloat64))) {
-                return ((-2 : GoFloat64)) * (_e - (_x + ((0.5 : GoFloat64))));
+        if (_k == (-1 : GoInt)) {
+            return ((0.5 : GoFloat64) * _x - _e) - (0.5 : GoFloat64);
+        } else if (_k == (1 : GoInt)) {
+            if (_x < (-0.25 : GoFloat64)) {
+                return (-2 : GoFloat64) * (_e - _x + (0.5 : GoFloat64));
             };
-            return ((1 : GoFloat64)) + (((2 : GoFloat64)) * (_x - _e));
-        } else if ((_k <= ((-2 : GoInt))) || (_k > ((56 : GoInt)))) {
-            var _y:GoFloat64 = ((1 : GoFloat64)) - (_e - _x);
-            _y = float64frombits(float64bits(_y) + (((_k : GoUInt64)) << ((52 : GoUnTypedInt))));
-            return _y - ((1 : GoFloat64));
+            return (1 : GoFloat64) + ((2 : GoFloat64) * _x - _e);
+        } else if ((_k <= (-2 : GoInt)) || (_k > (56 : GoInt))) {
+            var _y:GoFloat64 = (1 : GoFloat64) - (_e - _x);
+            _y = float64frombits(float64bits(_y) + ((_k : GoUInt64) << (52 : GoUnTypedInt)));
+            return _y - (1 : GoFloat64);
         };
-        if (_k < ((20 : GoInt))) {
-            var _t:GoFloat64 = float64frombits((("4607182418800017408" : GoUInt64)) - ((("9007199254740992" : GoUInt64)) >> ((_k : GoUInt))));
+        if (_k < (20 : GoInt)) {
+            var _t:GoFloat64 = float64frombits(("4607182418800017408" : GoUInt64) - (("9007199254740992" : GoUInt64) >> (_k : GoUInt)));
             var _y:GoFloat64 = _t - (_e - _x);
-            _y = float64frombits(float64bits(_y) + (((_k : GoUInt64)) << ((52 : GoUnTypedInt))));
+            _y = float64frombits(float64bits(_y) + ((_k : GoUInt64) << (52 : GoUnTypedInt)));
             return _y;
         };
-        _t = float64frombits((((((1023 : GoInt)) - _k) : GoUInt64)) << ((52 : GoUnTypedInt)));
+        _t = float64frombits(((1023 : GoInt) - _k : GoUInt64) << (52 : GoUnTypedInt));
         var _y:GoFloat64 = _x - (_e + _t);
         _y++;
-        _y = float64frombits(float64bits(_y) + (((_k : GoUInt64)) << ((52 : GoUnTypedInt))));
+        _y = float64frombits(float64bits(_y) + ((_k : GoUInt64) << (52 : GoUnTypedInt)));
         return _y;
     }
 /**
@@ -1022,13 +1022,13 @@ function floor(_x:GoFloat64):GoFloat64 {
         return std.Math.ffloor(_x.toBasic());
     }
 function _floor(_x:GoFloat64):GoFloat64 {
-        if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
+        if ((_x == (0 : GoFloat64) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
             return _x;
         };
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             var __tmp__ = modf(-_x), _d:GoFloat64 = __tmp__._0, _fract:GoFloat64 = __tmp__._1;
-            if (_fract != ((0 : GoFloat64))) {
-                _d = _d + ((1 : GoFloat64));
+            if (_fract != (0 : GoFloat64)) {
+                _d = _d + (1 : GoFloat64);
             };
             return -_d;
         };
@@ -1066,7 +1066,7 @@ function _ceil(_x:GoFloat64):GoFloat64 {
 **/
 function trunc(_x:GoFloat64):GoFloat64 return _x > 0 ? floor(_x) : ceil(_x);
 function _trunc(_x:GoFloat64):GoFloat64 {
-        if (((_x == ((0 : GoFloat64))) || isNaN(_x)) || isInf(_x, ((0 : GoInt)))) {
+        if ((_x == (0 : GoFloat64) || isNaN(_x)) || isInf(_x, (0 : GoInt))) {
             return _x;
         };
         var __tmp__ = modf(_x), _d:GoFloat64 = __tmp__._0, _0:GoFloat64 = __tmp__._1;
@@ -1083,17 +1083,17 @@ function _trunc(_x:GoFloat64):GoFloat64 {
 **/
 function round(_x:GoFloat64):GoFloat64 {
         var _bits:GoUInt64 = float64bits(_x);
-        var _e:GoUInt = (((_bits >> ((52 : GoUnTypedInt))) : GoUInt)) & ((2047 : GoUInt));
-        if (_e < ((1023 : GoUInt))) {
-            _bits = _bits & ((("9223372036854775808" : GoUInt64)));
-            if (_e == ((1022 : GoUInt))) {
-                _bits = _bits | ((("4607182418800017408" : GoUInt64)));
+        var _e:GoUInt = (_bits >> (52 : GoUnTypedInt) : GoUInt) & (2047 : GoUInt);
+        if (_e < (1023 : GoUInt)) {
+            _bits = _bits & (("9223372036854775808" : GoUInt64));
+            if (_e == (1022 : GoUInt)) {
+                _bits = _bits | (("4607182418800017408" : GoUInt64));
             };
-        } else if (_e < ((1075 : GoUInt))) {
+        } else if (_e < (1075 : GoUInt)) {
             {};
-            _e = _e - (((1023 : GoUInt)));
-            _bits = _bits + ((("2251799813685248" : GoUInt64)) >> _e);
-            _bits = _bits & (((("4503599627370495" : GoUInt64)) >> _e) ^ ((-1 : GoUnTypedInt)));
+            _e = _e - ((1023 : GoUInt));
+            _bits = _bits + (("2251799813685248" : GoUInt64) >> _e);
+            _bits = _bits & (("4503599627370495" : GoUInt64) >> _e ^ (-1 : GoUnTypedInt));
         };
         return float64frombits(_bits);
     }
@@ -1108,16 +1108,16 @@ function round(_x:GoFloat64):GoFloat64 {
 **/
 function roundToEven(_x:GoFloat64):GoFloat64 {
         var _bits:GoUInt64 = float64bits(_x);
-        var _e:GoUInt = (((_bits >> ((52 : GoUnTypedInt))) : GoUInt)) & ((2047 : GoUInt));
-        if (_e >= ((1023 : GoUInt))) {
+        var _e:GoUInt = (_bits >> (52 : GoUnTypedInt) : GoUInt) & (2047 : GoUInt);
+        if (_e >= (1023 : GoUInt)) {
             {};
-            _e = _e - (((1023 : GoUInt)));
-            _bits = _bits + (((("2251799813685247" : GoUInt64)) + ((_bits >> (((52 : GoUInt)) - _e)) & ((1 : GoUInt64)))) >> _e);
-            _bits = _bits & (((("4503599627370495" : GoUInt64)) >> _e) ^ ((-1 : GoUnTypedInt)));
-        } else if ((_e == ((1022 : GoUInt))) && ((_bits & (("4503599627370495" : GoUInt64))) != ((0 : GoUInt64)))) {
-            _bits = (_bits & (("9223372036854775808" : GoUInt64))) | (("4607182418800017408" : GoUInt64));
+            _e = _e - ((1023 : GoUInt));
+            _bits = _bits + (("2251799813685247" : GoUInt64) + (_bits >> ((52 : GoUInt) - _e) & (1 : GoUInt64)) >> _e);
+            _bits = _bits & (("4503599627370495" : GoUInt64) >> _e ^ (-1 : GoUnTypedInt));
+        } else if ((_e == (1022 : GoUInt)) && (_bits & ("4503599627370495" : GoUInt64) != (0 : GoUInt64))) {
+            _bits = (_bits & ("9223372036854775808" : GoUInt64)) | ("4607182418800017408" : GoUInt64);
         } else {
-            _bits = _bits & ((("9223372036854775808" : GoUInt64)));
+            _bits = _bits & (("9223372036854775808" : GoUInt64));
         };
         return float64frombits(_bits);
     }
@@ -1125,26 +1125,26 @@ inline function _archFloor(_x:GoFloat64):GoFloat64 return floor(_x);
 inline function _archCeil(_x:GoFloat64):GoFloat64 return ceil(_x);
 inline function _archTrunc(_x:GoFloat64):GoFloat64 return trunc(_x);
 function _zero(_x:GoUInt64):GoUInt64 {
-        if (_x == ((0 : GoUInt64))) {
-            return ((1 : GoUInt64));
+        if (_x == (0 : GoUInt64)) {
+            return (1 : GoUInt64);
         };
-        return ((0 : GoUInt64));
+        return (0 : GoUInt64);
     }
 function _nonzero(_x:GoUInt64):GoUInt64 {
-        if (_x != ((0 : GoUInt64))) {
-            return ((1 : GoUInt64));
+        if (_x != (0 : GoUInt64)) {
+            return (1 : GoUInt64);
         };
-        return ((0 : GoUInt64));
+        return (0 : GoUInt64);
     }
 function _shl(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
-        var _r1:GoUInt64 = ((0 : GoUInt64)), _r2:GoUInt64 = ((0 : GoUInt64));
-        _r1 = ((_u1 << _n) | (_u2 >> (((64 : GoUInt)) - _n))) | (_u2 << (_n - ((64 : GoUInt))));
+        var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
+        _r1 = (_u1 << _n | _u2 >> ((64 : GoUInt) - _n)) | (_u2 << _n - (64 : GoUInt));
         _r2 = _u2 << _n;
         return { _0 : _r1, _1 : _r2 };
     }
 function _shr(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
-        var _r1:GoUInt64 = ((0 : GoUInt64)), _r2:GoUInt64 = ((0 : GoUInt64));
-        _r2 = ((_u2 >> _n) | (_u1 << (((64 : GoUInt)) - _n))) | (_u1 >> (_n - ((64 : GoUInt))));
+        var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
+        _r2 = (_u2 >> _n | _u1 << ((64 : GoUInt) - _n)) | (_u1 >> _n - (64 : GoUInt));
         _r1 = _u1 >> _n;
         return { _0 : _r1, _1 : _r2 };
     }
@@ -1155,35 +1155,35 @@ function _shr(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{ var _0 : GoUInt64; var _1
     // set to the bitwise OR of the bottom n+1 bits.
 **/
 function _shrcompress(_u1:GoUInt64, _u2:GoUInt64, _n:GoUInt):{ var _0 : GoUInt64; var _1 : GoUInt64; } {
-        var _r1:GoUInt64 = ((0 : GoUInt64)), _r2:GoUInt64 = ((0 : GoUInt64));
-        if (_n == ((0 : GoUInt))) {
+        var _r1:GoUInt64 = (0 : GoUInt64), _r2:GoUInt64 = (0 : GoUInt64);
+        if (_n == (0 : GoUInt)) {
             return { _0 : _u1, _1 : _u2 };
-        } else if (_n == ((64 : GoUInt))) {
-            return { _0 : ((0 : GoUInt64)), _1 : _u1 | _nonzero(_u2) };
-        } else if (_n >= ((128 : GoUInt))) {
-            return { _0 : ((0 : GoUInt64)), _1 : _nonzero(_u1 | _u2) };
-        } else if (_n < ((64 : GoUInt))) {
+        } else if (_n == (64 : GoUInt)) {
+            return { _0 : (0 : GoUInt64), _1 : _u1 | _nonzero(_u2) };
+        } else if (_n >= (128 : GoUInt)) {
+            return { _0 : (0 : GoUInt64), _1 : _nonzero(_u1 | _u2) };
+        } else if (_n < (64 : GoUInt)) {
             {
                 var __tmp__ = _shr(_u1, _u2, _n);
                 _r1 = __tmp__._0;
                 _r2 = __tmp__._1;
             };
-            _r2 = _r2 | (_nonzero(_u2 & ((((1 : GoUInt64)) << _n) - ((1 : GoUInt64)))));
-        } else if (_n < ((128 : GoUInt))) {
+            _r2 = _r2 | (_nonzero(_u2 & ((1 : GoUInt64) << _n - (1 : GoUInt64))));
+        } else if (_n < (128 : GoUInt)) {
             {
                 var __tmp__ = _shr(_u1, _u2, _n);
                 _r1 = __tmp__._0;
                 _r2 = __tmp__._1;
             };
-            _r2 = _r2 | (_nonzero((_u1 & ((((1 : GoUInt64)) << (_n - ((64 : GoUInt)))) - ((1 : GoUInt64)))) | _u2));
+            _r2 = _r2 | (_nonzero((_u1 & ((1 : GoUInt64) << _n - (64 : GoUInt)) - (1 : GoUInt64)) | _u2));
         };
         return { _0 : _r1, _1 : _r2 };
     }
 function _lz(_u1:GoUInt64, _u2:GoUInt64):GoInt32 {
-        var _l:GoInt32 = ((0 : GoInt32));
-        _l = ((stdgo.math.bits.Bits.leadingZeros64(_u1) : GoInt32));
-        if (_l == ((64 : GoInt32))) {
-            _l = _l + (((stdgo.math.bits.Bits.leadingZeros64(_u2) : GoInt32)));
+        var _l:GoInt32 = (0 : GoInt32);
+        _l = (stdgo.math.bits.Bits.leadingZeros64(_u1) : GoInt32);
+        if (_l == (64 : GoInt32)) {
+            _l = _l + ((stdgo.math.bits.Bits.leadingZeros64(_u2) : GoInt32));
         };
         return _l;
     }
@@ -1193,16 +1193,16 @@ function _lz(_u1:GoUInt64, _u2:GoUInt64):GoInt32 {
     // and normalizes subnormal values.
 **/
 function _split(_b:GoUInt64):{ var _0 : GoUInt32; var _1 : GoInt32; var _2 : GoUInt64; } {
-        var _sign:GoUInt32 = ((0 : GoUInt32)), _exp:GoInt32 = ((0 : GoInt32)), _mantissa:GoUInt64 = ((0 : GoUInt64));
-        _sign = (((_b >> ((63 : GoUnTypedInt))) : GoUInt32));
-        _exp = (((_b >> ((52 : GoUnTypedInt))) : GoInt32)) & ((2047 : GoInt32));
-        _mantissa = _b & (("4503599627370495" : GoUInt64));
-        if (_exp == ((0 : GoInt32))) {
-            var _shift:GoUInt = (((stdgo.math.bits.Bits.leadingZeros64(_mantissa) - ((11 : GoInt))) : GoUInt));
+        var _sign:GoUInt32 = (0 : GoUInt32), _exp:GoInt32 = (0 : GoInt32), _mantissa:GoUInt64 = (0 : GoUInt64);
+        _sign = (_b >> (63 : GoUnTypedInt) : GoUInt32);
+        _exp = (_b >> (52 : GoUnTypedInt) : GoInt32) & (2047 : GoInt32);
+        _mantissa = _b & ("4503599627370495" : GoUInt64);
+        if (_exp == (0 : GoInt32)) {
+            var _shift:GoUInt = (stdgo.math.bits.Bits.leadingZeros64(_mantissa) - (11 : GoInt) : GoUInt);
             _mantissa = _mantissa << (_shift);
-            _exp = ((1 : GoInt32)) - ((_shift : GoInt32));
+            _exp = (1 : GoInt32) - (_shift : GoInt32);
         } else {
-            _mantissa = _mantissa | ((("4503599627370496" : GoUInt64)));
+            _mantissa = _mantissa | (("4503599627370496" : GoUInt64));
         };
         return { _0 : _sign, _1 : _exp, _2 : _mantissa };
     }
@@ -1212,27 +1212,27 @@ function _split(_b:GoUInt64):{ var _0 : GoUInt32; var _1 : GoInt32; var _2 : GoU
 **/
 function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
         var _bx:GoUInt64 = float64bits(_x), _by:GoUInt64 = float64bits(_y), _bz:GoUInt64 = float64bits(_z);
-        if (((((_x == ((0 : GoFloat64))) || (_y == ((0 : GoFloat64)))) || (_z == ((0 : GoFloat64)))) || ((_bx & (("9218868437227405312" : GoUInt64))) == (("9218868437227405312" : GoUInt64)))) || ((_by & (("9218868437227405312" : GoUInt64))) == (("9218868437227405312" : GoUInt64)))) {
+        if (((_x == (0 : GoFloat64) || _y == (0 : GoFloat64)) || (_z == (0 : GoFloat64)) || (_bx & ("9218868437227405312" : GoUInt64)) == ("9218868437227405312" : GoUInt64)) || (_by & ("9218868437227405312" : GoUInt64) == ("9218868437227405312" : GoUInt64))) {
             return (_x * _y) + _z;
         };
-        if ((_bz & (("9218868437227405312" : GoUInt64))) == (("9218868437227405312" : GoUInt64))) {
+        if ((_bz & ("9218868437227405312" : GoUInt64)) == ("9218868437227405312" : GoUInt64)) {
             return _z;
         };
         var __tmp__ = _split(_bx), _xs:GoUInt32 = __tmp__._0, _xe:GoInt32 = __tmp__._1, _xm:GoUInt64 = __tmp__._2;
         var __tmp__ = _split(_by), _ys:GoUInt32 = __tmp__._0, _ye:GoInt32 = __tmp__._1, _ym:GoUInt64 = __tmp__._2;
         var __tmp__ = _split(_bz), _zs:GoUInt32 = __tmp__._0, _ze:GoInt32 = __tmp__._1, _zm:GoUInt64 = __tmp__._2;
-        var _pe:GoInt32 = ((_xe + _ye) - ((1023 : GoInt32))) + ((1 : GoInt32));
-        var __tmp__ = stdgo.math.bits.Bits.mul64(_xm << ((10 : GoUnTypedInt)), _ym << ((11 : GoUnTypedInt))), _pm1:GoUInt64 = __tmp__._0, _pm2:GoUInt64 = __tmp__._1;
-        var _zm1:GoUInt64 = _zm << ((10 : GoUnTypedInt)), _zm2:GoUInt64 = ((((0 : GoUInt64)) : GoUInt64));
+        var _pe:GoInt32 = (_xe + _ye - (1023 : GoInt32)) + (1 : GoInt32);
+        var __tmp__ = stdgo.math.bits.Bits.mul64(_xm << (10 : GoUnTypedInt), _ym << (11 : GoUnTypedInt)), _pm1:GoUInt64 = __tmp__._0, _pm2:GoUInt64 = __tmp__._1;
+        var _zm1:GoUInt64 = _zm << (10 : GoUnTypedInt), _zm2:GoUInt64 = (0 : GoUInt64);
         var _ps:GoUInt32 = _xs ^ _ys;
-        var _is62zero:GoUInt = (((((-1 ^ _pm1) >> ((62 : GoUnTypedInt))) & ((1 : GoUInt64))) : GoUInt));
+        var _is62zero:GoUInt = ((-1 ^ _pm1 >> (62 : GoUnTypedInt)) & (1 : GoUInt64) : GoUInt);
         {
             var __tmp__ = _shl(_pm1, _pm2, _is62zero);
             _pm1 = __tmp__._0;
             _pm2 = __tmp__._1;
         };
-        _pe = _pe - (((_is62zero : GoInt32)));
-        if ((_pe < _ze) || ((_pe == _ze) && (_pm1 < _zm1))) {
+        _pe = _pe - ((_is62zero : GoInt32));
+        if ((_pe < _ze) || (_pe == _ze && _pm1 < _zm1)) {
             {
                 final __tmp__0 = _zs;
                 final __tmp__1 = _ze;
@@ -1253,14 +1253,14 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
             };
         };
         {
-            var __tmp__ = _shrcompress(_zm1, _zm2, (((_pe - _ze) : GoUInt)));
+            var __tmp__ = _shrcompress(_zm1, _zm2, (_pe - _ze : GoUInt));
             _zm1 = __tmp__._0;
             _zm2 = __tmp__._1;
         };
-        var _m:GoUInt64 = ((0 : GoUInt64)), _c:GoUInt64 = ((0 : GoUInt64));
+        var _m:GoUInt64 = (0 : GoUInt64), _c:GoUInt64 = (0 : GoUInt64);
         if (_ps == _zs) {
             {
-                var __tmp__ = stdgo.math.bits.Bits.add64(_pm2, _zm2, ((0 : GoUInt64)));
+                var __tmp__ = stdgo.math.bits.Bits.add64(_pm2, _zm2, (0 : GoUInt64));
                 _pm2 = __tmp__._0;
                 _c = __tmp__._1;
             };
@@ -1268,15 +1268,15 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
                 var __tmp__ = stdgo.math.bits.Bits.add64(_pm1, _zm1, _c);
                 _pm1 = __tmp__._0;
             };
-            _pe = _pe - (((((-1 ^ _pm1) >> ((63 : GoUnTypedInt))) : GoInt32)));
+            _pe = _pe - (((-1 ^ _pm1) >> (63 : GoUnTypedInt) : GoInt32));
             {
-                var __tmp__ = _shrcompress(_pm1, _pm2, (((((64 : GoUInt64)) + (_pm1 >> ((63 : GoUnTypedInt)))) : GoUInt)));
+                var __tmp__ = _shrcompress(_pm1, _pm2, ((64 : GoUInt64) + (_pm1 >> (63 : GoUnTypedInt)) : GoUInt));
                 _pm1 = __tmp__._0;
                 _m = __tmp__._1;
             };
         } else {
             {
-                var __tmp__ = stdgo.math.bits.Bits.sub64(_pm2, _zm2, ((0 : GoUInt64)));
+                var __tmp__ = stdgo.math.bits.Bits.sub64(_pm2, _zm2, (0 : GoUInt64));
                 _pm2 = __tmp__._0;
                 _c = __tmp__._1;
             };
@@ -1287,23 +1287,23 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
             var _nz:GoInt32 = _lz(_pm1, _pm2);
             _pe = _pe - (_nz);
             {
-                var __tmp__ = _shl(_pm1, _pm2, (((_nz - ((1 : GoInt32))) : GoUInt)));
+                var __tmp__ = _shl(_pm1, _pm2, (_nz - (1 : GoInt32) : GoUInt));
                 _m = __tmp__._0;
                 _pm2 = __tmp__._1;
             };
             _m = _m | (_nonzero(_pm2));
         };
-        if ((_pe > ((2045 : GoInt32))) || ((_pe == ((2045 : GoInt32))) && (((_m + ((512 : GoUInt64))) >> ((63 : GoUnTypedInt))) == ((1 : GoUInt64))))) {
-            return float64frombits((((_ps : GoUInt64)) << ((63 : GoUnTypedInt))) | (("9218868437227405312" : GoUInt64)));
+        if ((_pe > (2045 : GoInt32)) || (_pe == (2045 : GoInt32) && (_m + (512 : GoUInt64) >> (63 : GoUnTypedInt)) == (1 : GoUInt64))) {
+            return float64frombits(((_ps : GoUInt64) << (63 : GoUnTypedInt)) | ("9218868437227405312" : GoUInt64));
         };
-        if (_pe < ((0 : GoInt32))) {
-            var _n:GoUInt = ((-_pe : GoUInt));
-            _m = (_m >> _n) | _nonzero(_m & ((((1 : GoUInt64)) << _n) - ((1 : GoUInt64))));
-            _pe = ((0 : GoInt32));
+        if (_pe < (0 : GoInt32)) {
+            var _n:GoUInt = (-_pe : GoUInt);
+            _m = (_m >> _n) | _nonzero(_m & ((1 : GoUInt64) << _n - (1 : GoUInt64)));
+            _pe = (0 : GoInt32);
         };
-        _m = ((_m + ((512 : GoUInt64))) >> ((10 : GoUnTypedInt))) & (-1 ^ _zero((_m & ((1023 : GoUInt64))) ^ ((512 : GoUInt64))));
-        _pe = _pe & (-((_nonzero(_m) : GoInt32)));
-        return float64frombits(((((_ps : GoUInt64)) << ((63 : GoUnTypedInt))) + (((_pe : GoUInt64)) << ((52 : GoUnTypedInt)))) + _m);
+        _m = (_m + (512 : GoUInt64) >> (10 : GoUnTypedInt)) & (-1 ^ _zero((_m & (1023 : GoUInt64)) ^ (512 : GoUInt64)));
+        _pe = _pe & (-(_nonzero(_m) : GoInt32));
+        return float64frombits(((_ps : GoUInt64) << (63 : GoUnTypedInt) + (_pe : GoUInt64) << (52 : GoUnTypedInt)) + _m);
     }
 /**
     // Frexp breaks f into a normalized fraction
@@ -1318,18 +1318,18 @@ function fma(_x:GoFloat64, _y:GoFloat64, _z:GoFloat64):GoFloat64 {
     //	Frexp(NaN) = NaN, 0
 **/
 function frexp(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        var _frac:GoFloat64 = ((0 : GoFloat64)), _exp:GoInt = ((0 : GoInt));
+        var _frac:GoFloat64 = (0 : GoFloat64), _exp:GoInt = (0 : GoInt);
         if (false) {
             return _archFrexp(_f);
         };
         return _frexp(_f);
     }
 function _frexp(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        var _frac:GoFloat64 = ((0 : GoFloat64)), _exp:GoInt = ((0 : GoInt));
-        if (_f == ((0 : GoFloat64))) {
-            return { _0 : _f, _1 : ((0 : GoInt)) };
-        } else if (isInf(_f, ((0 : GoInt))) || isNaN(_f)) {
-            return { _0 : _f, _1 : ((0 : GoInt)) };
+        var _frac:GoFloat64 = (0 : GoFloat64), _exp:GoInt = (0 : GoInt);
+        if (_f == (0 : GoFloat64)) {
+            return { _0 : _f, _1 : (0 : GoInt) };
+        } else if (isInf(_f, (0 : GoInt)) || isNaN(_f)) {
+            return { _0 : _f, _1 : (0 : GoInt) };
         };
         {
             var __tmp__ = _normalize(_f);
@@ -1337,9 +1337,9 @@ function _frexp(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
             _exp = __tmp__._1;
         };
         var _x:GoUInt64 = float64bits(_f);
-        _exp = _exp + ((((((_x >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt)) - ((1023 : GoInt))) + ((1 : GoInt)));
-        _x = _x & (((("9218868437227405312" : GoUInt64))) ^ ((-1 : GoUnTypedInt)));
-        _x = _x | ((("4602678819172646912" : GoUInt64)));
+        _exp = _exp + (((_x >> (52 : GoUnTypedInt)) & (2047 : GoUInt64) : GoInt) - (1023 : GoInt) + (1 : GoInt));
+        _x = _x & (("9218868437227405312" : GoUInt64) ^ (-1 : GoUnTypedInt));
+        _x = _x | (("4602678819172646912" : GoUInt64));
         _frac = float64frombits(_x);
         return { _0 : _frac, _1 : _exp };
     }
@@ -1353,16 +1353,16 @@ function _frexp(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
     // masks any imprecision in the polynomial.
 **/
 function _stirling(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
-        if (_x > ((200 : GoFloat64))) {
-            return { _0 : inf(((1 : GoInt))), _1 : ((1 : GoFloat64)) };
+        if (_x > (200 : GoFloat64)) {
+            return { _0 : inf((1 : GoInt)), _1 : (1 : GoFloat64) };
         };
         {};
-        var _w:GoFloat64 = ((1 : GoFloat64)) / _x;
-        _w = ((1 : GoFloat64)) + (_w * (((((((((__gamS != null ? __gamS[((0 : GoInt))] : ((0 : GoFloat64))) * _w) + (__gamS != null ? __gamS[((1 : GoInt))] : ((0 : GoFloat64)))) * _w) + (__gamS != null ? __gamS[((2 : GoInt))] : ((0 : GoFloat64)))) * _w) + (__gamS != null ? __gamS[((3 : GoInt))] : ((0 : GoFloat64)))) * _w) + (__gamS != null ? __gamS[((4 : GoInt))] : ((0 : GoFloat64)))));
+        var _w:GoFloat64 = (1 : GoFloat64) / _x;
+        _w = (1 : GoFloat64) + (_w * ((((__gamS[(0 : GoInt)] * _w) + __gamS[(1 : GoInt)] * _w) + __gamS[(2 : GoInt)] * _w) + __gamS[(3 : GoInt)] * _w) + __gamS[(4 : GoInt)]);
         var _y1:GoFloat64 = exp(_x);
-        var _y2:GoFloat64 = ((1 : GoFloat64));
-        if (_x > ((143.01608 : GoFloat64))) {
-            var _v:GoFloat64 = pow(_x, (((0.5 : GoFloat64)) * _x) - ((0.25 : GoFloat64)));
+        var _y2:GoFloat64 = (1 : GoFloat64);
+        if (_x > (143.01608 : GoFloat64)) {
+            var _v:GoFloat64 = pow(_x, ((0.5 : GoFloat64) * _x) - (0.25 : GoFloat64));
             {
                 final __tmp__0 = _v;
                 final __tmp__1 = _v / _y1;
@@ -1370,9 +1370,9 @@ function _stirling(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
                 _y2 = __tmp__1;
             };
         } else {
-            _y1 = pow(_x, _x - ((0.5 : GoFloat64))) / _y1;
+            _y1 = pow(_x, _x - (0.5 : GoFloat64)) / _y1;
         };
-        return { _0 : _y1, _1 : (((2.5066282746310007 : GoFloat64)) * _w) * _y2 };
+        return { _0 : _y1, _1 : ((2.5066282746310007 : GoFloat64) * _w) * _y2 };
     }
 /**
     // Gamma returns the Gamma function of x.
@@ -1389,85 +1389,85 @@ function _stirling(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
 function gamma(_x:GoFloat64):GoFloat64 {
         return stdgo.internal.Macro.controlFlow({
             {};
-            if ((_isNegInt(_x) || isInf(_x, ((-1 : GoInt)))) || isNaN(_x)) {
+            if ((_isNegInt(_x) || isInf(_x, (-1 : GoInt))) || isNaN(_x)) {
                 return naN();
-            } else if (isInf(_x, ((1 : GoInt)))) {
-                return inf(((1 : GoInt)));
-            } else if (_x == ((0 : GoFloat64))) {
+            } else if (isInf(_x, (1 : GoInt))) {
+                return inf((1 : GoInt));
+            } else if (_x == (0 : GoFloat64)) {
                 if (signbit(_x)) {
-                    return inf(((-1 : GoInt)));
+                    return inf((-1 : GoInt));
                 };
-                return inf(((1 : GoInt)));
+                return inf((1 : GoInt));
             };
             var _q:GoFloat64 = abs(_x);
             var _p:GoFloat64 = floor(_q);
-            if (_q > ((33 : GoFloat64))) {
-                if (_x >= ((0 : GoFloat64))) {
+            if (_q > (33 : GoFloat64)) {
+                if (_x >= (0 : GoFloat64)) {
                     var __tmp__ = _stirling(_x), _y1:GoFloat64 = __tmp__._0, _y2:GoFloat64 = __tmp__._1;
                     return _y1 * _y2;
                 };
-                var _signgam:GoInt = ((1 : GoInt));
+                var _signgam:GoInt = (1 : GoInt);
                 {
-                    var _ip:GoInt64 = ((_p : GoInt64));
-                    if ((_ip & ((1 : GoInt64))) == ((0 : GoInt64))) {
-                        _signgam = ((-1 : GoInt));
+                    var _ip:GoInt64 = (_p : GoInt64);
+                    if ((_ip & (1 : GoInt64)) == (0 : GoInt64)) {
+                        _signgam = (-1 : GoInt);
                     };
                 };
                 var _z:GoFloat64 = _q - _p;
-                if (_z > ((0.5 : GoFloat64))) {
-                    _p = _p + ((1 : GoFloat64));
+                if (_z > (0.5 : GoFloat64)) {
+                    _p = _p + (1 : GoFloat64);
                     _z = _q - _p;
                 };
-                _z = _q * sin(((3.141592653589793 : GoFloat64)) * _z);
-                if (_z == ((0 : GoFloat64))) {
+                _z = _q * sin((3.141592653589793 : GoFloat64) * _z);
+                if (_z == (0 : GoFloat64)) {
                     return inf(_signgam);
                 };
                 var __tmp__ = _stirling(_q), _sq1:GoFloat64 = __tmp__._0, _sq2:GoFloat64 = __tmp__._1;
                 var _absz:GoFloat64 = abs(_z);
                 var _d:GoFloat64 = (_absz * _sq1) * _sq2;
-                if (isInf(_d, ((0 : GoInt)))) {
-                    _z = ((((3.141592653589793 : GoFloat64)) / _absz) / _sq1) / _sq2;
+                if (isInf(_d, (0 : GoInt))) {
+                    _z = ((3.141592653589793 : GoFloat64) / _absz / _sq1) / _sq2;
                 } else {
-                    _z = ((3.141592653589793 : GoFloat64)) / _d;
+                    _z = (3.141592653589793 : GoFloat64) / _d;
                 };
-                return ((_signgam : GoFloat64)) * _z;
+                return (_signgam : GoFloat64) * _z;
             };
-            var _z:GoFloat64 = ((1 : GoFloat64));
-            while (_x >= ((3 : GoFloat64))) {
-                _x = _x - ((1 : GoFloat64));
+            var _z:GoFloat64 = (1 : GoFloat64);
+            while (_x >= (3 : GoFloat64)) {
+                _x = _x - (1 : GoFloat64);
                 _z = _z * _x;
             };
-            while (_x < ((0 : GoFloat64))) {
-                if (_x > ((-1e-09 : GoFloat64))) {
+            while (_x < (0 : GoFloat64)) {
+                if (_x > (-1e-09 : GoFloat64)) {
                     @:goto "small";
                 };
                 _z = _z / _x;
-                _x = _x + ((1 : GoFloat64));
+                _x = _x + (1 : GoFloat64);
             };
-            while (_x < ((2 : GoFloat64))) {
-                if (_x < ((1e-09 : GoFloat64))) {
+            while (_x < (2 : GoFloat64)) {
+                if (_x < (1e-09 : GoFloat64)) {
                     @:goto "small";
                 };
                 _z = _z / _x;
-                _x = _x + ((1 : GoFloat64));
+                _x = _x + (1 : GoFloat64);
             };
-            if (_x == ((2 : GoFloat64))) {
+            if (_x == (2 : GoFloat64)) {
                 return _z;
             };
-            _x = _x - ((2 : GoFloat64));
-            _p = (((((((((((_x * (__gamP != null ? __gamP[((0 : GoInt))] : ((0 : GoFloat64)))) + (__gamP != null ? __gamP[((1 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamP != null ? __gamP[((2 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamP != null ? __gamP[((3 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamP != null ? __gamP[((4 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamP != null ? __gamP[((5 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamP != null ? __gamP[((6 : GoInt))] : ((0 : GoFloat64)));
-            _q = (((((((((((((_x * (__gamQ != null ? __gamQ[((0 : GoInt))] : ((0 : GoFloat64)))) + (__gamQ != null ? __gamQ[((1 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((2 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((3 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((4 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((5 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((6 : GoInt))] : ((0 : GoFloat64)))) * _x) + (__gamQ != null ? __gamQ[((7 : GoInt))] : ((0 : GoFloat64)));
+            _x = _x - (2 : GoFloat64);
+            _p = ((((((_x * __gamP[(0 : GoInt)]) + __gamP[(1 : GoInt)] * _x) + __gamP[(2 : GoInt)] * _x) + __gamP[(3 : GoInt)] * _x) + __gamP[(4 : GoInt)] * _x) + __gamP[(5 : GoInt)] * _x) + __gamP[(6 : GoInt)];
+            _q = (((((((_x * __gamQ[(0 : GoInt)]) + __gamQ[(1 : GoInt)] * _x) + __gamQ[(2 : GoInt)] * _x) + __gamQ[(3 : GoInt)] * _x) + __gamQ[(4 : GoInt)] * _x) + __gamQ[(5 : GoInt)] * _x) + __gamQ[(6 : GoInt)] * _x) + __gamQ[(7 : GoInt)];
             return (_z * _p) / _q;
-            @:label("small") if (_x == ((0 : GoFloat64))) {
-                return inf(((1 : GoInt)));
+            @:label("small") if (_x == (0 : GoFloat64)) {
+                return inf((1 : GoInt));
             };
-            return _z / ((((1 : GoFloat64)) + (((0.5772156649015329 : GoFloat64)) * _x)) * _x);
+            return _z / ((1 : GoFloat64) + ((0.5772156649015329 : GoFloat64) * _x) * _x);
         });
     }
 function _isNegInt(_x:GoFloat64):Bool {
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             var __tmp__ = modf(_x), _0:GoFloat64 = __tmp__._0, _xf:GoFloat64 = __tmp__._1;
-            return _xf == ((0 : GoFloat64));
+            return _xf == (0 : GoFloat64);
         };
         return false;
     }
@@ -1489,8 +1489,8 @@ function hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
         return _hypot(_p, _q);
     }
 function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
-        if (isInf(_p, ((0 : GoInt))) || isInf(_q, ((0 : GoInt)))) {
-            return inf(((1 : GoInt)));
+        if (isInf(_p, (0 : GoInt)) || isInf(_q, (0 : GoInt))) {
+            return inf((1 : GoInt));
         } else if (isNaN(_p) || isNaN(_q)) {
             return naN();
         };
@@ -1508,14 +1508,14 @@ function _hypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
                 _q = __tmp__1;
             };
         };
-        if (_p == ((0 : GoFloat64))) {
-            return ((0 : GoFloat64));
+        if (_p == (0 : GoFloat64)) {
+            return (0 : GoFloat64);
         };
         _q = _q / _p;
-        return _p * sqrt(((1 : GoFloat64)) + (_q * _q));
+        return _p * sqrt((1 : GoFloat64) + (_q * _q));
     }
 function _archHypot(_p:GoFloat64, _q:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // J0 returns the order-zero Bessel function of the first kind.
@@ -1530,48 +1530,48 @@ function j0(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x)) {
             return _x;
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (_x == ((0 : GoFloat64))) {
-            return ((1 : GoFloat64));
+        } else if (isInf(_x, (0 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (_x == (0 : GoFloat64)) {
+            return (1 : GoFloat64);
         };
         _x = abs(_x);
-        if (_x >= ((2 : GoFloat64))) {
+        if (_x >= (2 : GoFloat64)) {
             var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
             var _ss:GoFloat64 = _s - _c;
             var _cc:GoFloat64 = _s + _c;
-            if (_x < ((8.988465674311579e+307 : GoFloat64))) {
+            if (_x < (8.988465674311579e+307 : GoFloat64)) {
                 var _z:GoFloat64 = -cos(_x + _x);
-                if ((_s * _c) < ((0 : GoFloat64))) {
+                if ((_s * _c) < (0 : GoFloat64)) {
                     _cc = _z / _ss;
                 } else {
                     _ss = _z / _cc;
                 };
             };
-            var _z:GoFloat64 = ((0 : GoFloat64));
-            if (_x > ((6.80564733841877e+38 : GoFloat64))) {
-                _z = (((0.5641895835477563 : GoFloat64)) * _cc) / sqrt(_x);
+            var _z:GoFloat64 = (0 : GoFloat64);
+            if (_x > (6.80564733841877e+38 : GoFloat64)) {
+                _z = ((0.5641895835477563 : GoFloat64) * _cc) / sqrt(_x);
             } else {
                 var _u:GoFloat64 = _pzero(_x);
                 var _v:GoFloat64 = _qzero(_x);
-                _z = (((0.5641895835477563 : GoFloat64)) * ((_u * _cc) - (_v * _ss))) / sqrt(_x);
+                _z = ((0.5641895835477563 : GoFloat64) * (_u * _cc) - (_v * _ss)) / sqrt(_x);
             };
             return _z;
         };
-        if (_x < ((0.0001220703125 : GoFloat64))) {
-            if (_x < ((7.450580596923828e-09 : GoFloat64))) {
-                return ((1 : GoFloat64));
+        if (_x < (0.0001220703125 : GoFloat64)) {
+            if (_x < (7.450580596923828e-09 : GoFloat64)) {
+                return (1 : GoFloat64);
             };
-            return ((1 : GoFloat64)) - ((((0.25 : GoFloat64)) * _x) * _x);
+            return (1 : GoFloat64) - ((0.25 : GoFloat64) * _x * _x);
         };
         var _z:GoFloat64 = _x * _x;
-        var _r:GoFloat64 = _z * (((0.015624999999999995 : GoFloat64)) + (_z * (((-0.00018997929423885472 : GoFloat64)) + (_z * (((1.8295404953270067e-06 : GoFloat64)) + (_z * ((-4.618326885321032e-09 : GoFloat64))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.015619102946489001 : GoFloat64)) + (_z * (((0.00011692678466333745 : GoFloat64)) + (_z * (((5.135465502073181e-07 : GoFloat64)) + (_z * ((1.1661400333379e-09 : GoFloat64)))))))));
-        if (_x < ((1 : GoFloat64))) {
-            return ((1 : GoFloat64)) + (_z * (((-0.25 : GoFloat64)) + (_r / _s)));
+        var _r:GoFloat64 = _z * ((0.015624999999999995 : GoFloat64) + _z * ((-0.00018997929423885472 : GoFloat64) + _z * ((1.8295404953270067e-06 : GoFloat64) + _z * (-4.618326885321032e-09 : GoFloat64))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * (0.015619102946489001 : GoFloat64) + (_z * (0.00011692678466333745 : GoFloat64) + (_z * (5.135465502073181e-07 : GoFloat64) + (_z * (1.1661400333379e-09 : GoFloat64)))));
+        if (_x < (1 : GoFloat64)) {
+            return (1 : GoFloat64) + (_z * (-0.25 : GoFloat64) + (_r / _s));
         };
-        var _u:GoFloat64 = ((0.5 : GoFloat64)) * _x;
-        return ((((1 : GoFloat64)) + _u) * (((1 : GoFloat64)) - _u)) + (_z * (_r / _s));
+        var _u:GoFloat64 = (0.5 : GoFloat64) * _x;
+        return ((1 : GoFloat64) + _u * (1 : GoFloat64) - _u) + (_z * _r / _s);
     }
 /**
     // Y0 returns the order-zero Bessel function of the second kind.
@@ -1585,83 +1585,83 @@ function j0(_x:GoFloat64):GoFloat64 {
 **/
 function y0(_x:GoFloat64):GoFloat64 {
         {};
-        if ((_x < ((0 : GoFloat64))) || isNaN(_x)) {
+        if ((_x < (0 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (_x == ((0 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (_x == (0 : GoFloat64)) {
+            return inf((-1 : GoInt));
         };
-        if (_x >= ((2 : GoFloat64))) {
+        if (_x >= (2 : GoFloat64)) {
             var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
             var _ss:GoFloat64 = _s - _c;
             var _cc:GoFloat64 = _s + _c;
-            if (_x < ((8.988465674311579e+307 : GoFloat64))) {
+            if (_x < (8.988465674311579e+307 : GoFloat64)) {
                 var _z:GoFloat64 = -cos(_x + _x);
-                if ((_s * _c) < ((0 : GoFloat64))) {
+                if ((_s * _c) < (0 : GoFloat64)) {
                     _cc = _z / _ss;
                 } else {
                     _ss = _z / _cc;
                 };
             };
-            var _z:GoFloat64 = ((0 : GoFloat64));
-            if (_x > ((6.80564733841877e+38 : GoFloat64))) {
-                _z = (((0.5641895835477563 : GoFloat64)) * _ss) / sqrt(_x);
+            var _z:GoFloat64 = (0 : GoFloat64);
+            if (_x > (6.80564733841877e+38 : GoFloat64)) {
+                _z = ((0.5641895835477563 : GoFloat64) * _ss) / sqrt(_x);
             } else {
                 var _u:GoFloat64 = _pzero(_x);
                 var _v:GoFloat64 = _qzero(_x);
-                _z = (((0.5641895835477563 : GoFloat64)) * ((_u * _ss) + (_v * _cc))) / sqrt(_x);
+                _z = ((0.5641895835477563 : GoFloat64) * (_u * _ss) + (_v * _cc)) / sqrt(_x);
             };
             return _z;
         };
-        if (_x <= ((7.450580596923828e-09 : GoFloat64))) {
-            return ((-0.07380429510868723 : GoFloat64)) + (((0.6366197723675814 : GoFloat64)) * log(_x));
+        if (_x <= (7.450580596923828e-09 : GoFloat64)) {
+            return (-0.07380429510868723 : GoFloat64) + ((0.6366197723675814 : GoFloat64) * log(_x));
         };
         var _z:GoFloat64 = _x * _x;
-        var _u:GoFloat64 = ((-0.07380429510868723 : GoFloat64)) + (_z * (((0.17666645250918112 : GoFloat64)) + (_z * (((-0.01381856719455969 : GoFloat64)) + (_z * (((0.00034745343209368365 : GoFloat64)) + (_z * (((-3.8140705372436416e-06 : GoFloat64)) + (_z * (((1.9559013703502292e-08 : GoFloat64)) + (_z * ((-3.982051941321034e-11 : GoFloat64)))))))))))));
-        var _v:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.01273048348341237 : GoFloat64)) + (_z * (((7.600686273503533e-05 : GoFloat64)) + (_z * (((2.591508518404578e-07 : GoFloat64)) + (_z * ((4.4111031133267547e-10 : GoFloat64)))))))));
-        return (_u / _v) + ((((0.6366197723675814 : GoFloat64)) * j0(_x)) * log(_x));
+        var _u:GoFloat64 = (-0.07380429510868723 : GoFloat64) + (_z * (0.17666645250918112 : GoFloat64) + (_z * (-0.01381856719455969 : GoFloat64) + (_z * (0.00034745343209368365 : GoFloat64) + (_z * (-3.8140705372436416e-06 : GoFloat64) + (_z * (1.9559013703502292e-08 : GoFloat64) + (_z * (-3.982051941321034e-11 : GoFloat64)))))));
+        var _v:GoFloat64 = (1 : GoFloat64) + (_z * (0.01273048348341237 : GoFloat64) + (_z * (7.600686273503533e-05 : GoFloat64) + (_z * (2.591508518404578e-07 : GoFloat64) + (_z * (4.4111031133267547e-10 : GoFloat64)))));
+        return (_u / _v) + ((0.6366197723675814 : GoFloat64) * j0(_x) * log(_x));
     }
 function _pzero(_x:GoFloat64):GoFloat64 {
         var _p:GoArray<GoFloat64> = null;
         var _q:GoArray<GoFloat64> = null;
-        if (_x >= ((8 : GoFloat64))) {
+        if (_x >= (8 : GoFloat64)) {
             _p = _p0R8;
             _q = _p0S8;
-        } else if (_x >= ((4.5454 : GoFloat64))) {
+        } else if (_x >= (4.5454 : GoFloat64)) {
             _p = _p0R5;
             _q = _p0S5;
-        } else if (_x >= ((2.8571 : GoFloat64))) {
+        } else if (_x >= (2.8571 : GoFloat64)) {
             _p = _p0R3;
             _q = _p0S3;
-        } else if (_x >= ((2 : GoFloat64))) {
+        } else if (_x >= (2 : GoFloat64)) {
             _p = _p0R2;
             _q = _p0S2;
         };
-        var _z:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-        var _r:GoFloat64 = (_p != null ? _p[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_p != null ? _p[((5 : GoInt))] : ((0 : GoFloat64))))))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * ((_q != null ? _q[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * (_q != null ? _q[((4 : GoInt))] : ((0 : GoFloat64))))))))))));
-        return ((1 : GoFloat64)) + (_r / _s);
+        var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+        var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * _p[(1 : GoInt)] + (_z * _p[(2 : GoInt)] + (_z * _p[(3 : GoInt)] + (_z * _p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * _q[(0 : GoInt)] + (_z * _q[(1 : GoInt)] + (_z * _q[(2 : GoInt)] + (_z * _q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))));
+        return (1 : GoFloat64) + (_r / _s);
     }
 function _qzero(_x:GoFloat64):GoFloat64 {
         var _p:GoArray<GoFloat64> = null, _q:GoArray<GoFloat64> = null;
-        if (_x >= ((8 : GoFloat64))) {
+        if (_x >= (8 : GoFloat64)) {
             _p = _q0R8;
             _q = _q0S8;
-        } else if (_x >= ((4.5454 : GoFloat64))) {
+        } else if (_x >= (4.5454 : GoFloat64)) {
             _p = _q0R5;
             _q = _q0S5;
-        } else if (_x >= ((2.8571 : GoFloat64))) {
+        } else if (_x >= (2.8571 : GoFloat64)) {
             _p = _q0R3;
             _q = _q0S3;
-        } else if (_x >= ((2 : GoFloat64))) {
+        } else if (_x >= (2 : GoFloat64)) {
             _p = _q0R2;
             _q = _q0S2;
         };
-        var _z:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-        var _r:GoFloat64 = (_p != null ? _p[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_p != null ? _p[((5 : GoInt))] : ((0 : GoFloat64))))))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * ((_q != null ? _q[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_q != null ? _q[((5 : GoInt))] : ((0 : GoFloat64))))))))))))));
-        return (((-0.125 : GoFloat64)) + (_r / _s)) / _x;
+        var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+        var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * _p[(1 : GoInt)] + (_z * _p[(2 : GoInt)] + (_z * _p[(3 : GoInt)] + (_z * _p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * _q[(0 : GoInt)] + (_z * _q[(1 : GoInt)] + (_z * _q[(2 : GoInt)] + (_z * _q[(3 : GoInt)] + (_z * _q[(4 : GoInt)] + (_z * _q[(5 : GoInt)]))))));
+        return ((-0.125 : GoFloat64) + _r / _s) / _x;
     }
 /**
     // J1 returns the order-one Bessel function of the first kind.
@@ -1675,47 +1675,47 @@ function j1(_x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x)) {
             return _x;
-        } else if (isInf(_x, ((0 : GoInt))) || (_x == ((0 : GoFloat64)))) {
-            return ((0 : GoFloat64));
+        } else if (isInf(_x, (0 : GoInt)) || (_x == (0 : GoFloat64))) {
+            return (0 : GoFloat64);
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        if (_x >= ((2 : GoFloat64))) {
+        if (_x >= (2 : GoFloat64)) {
             var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
             var _ss:GoFloat64 = -_s - _c;
             var _cc:GoFloat64 = _s - _c;
-            if (_x < ((8.988465674311579e+307 : GoFloat64))) {
+            if (_x < (8.988465674311579e+307 : GoFloat64)) {
                 var _z:GoFloat64 = cos(_x + _x);
-                if ((_s * _c) > ((0 : GoFloat64))) {
+                if ((_s * _c) > (0 : GoFloat64)) {
                     _cc = _z / _ss;
                 } else {
                     _ss = _z / _cc;
                 };
             };
-            var _z:GoFloat64 = ((0 : GoFloat64));
-            if (_x > ((6.80564733841877e+38 : GoFloat64))) {
-                _z = (((0.5641895835477563 : GoFloat64)) * _cc) / sqrt(_x);
+            var _z:GoFloat64 = (0 : GoFloat64);
+            if (_x > (6.80564733841877e+38 : GoFloat64)) {
+                _z = ((0.5641895835477563 : GoFloat64) * _cc) / sqrt(_x);
             } else {
                 var _u:GoFloat64 = _pone(_x);
                 var _v:GoFloat64 = _qone(_x);
-                _z = (((0.5641895835477563 : GoFloat64)) * ((_u * _cc) - (_v * _ss))) / sqrt(_x);
+                _z = ((0.5641895835477563 : GoFloat64) * (_u * _cc) - (_v * _ss)) / sqrt(_x);
             };
             if (_sign) {
                 return -_z;
             };
             return _z;
         };
-        if (_x < ((7.450580596923828e-09 : GoFloat64))) {
-            return ((0.5 : GoFloat64)) * _x;
+        if (_x < (7.450580596923828e-09 : GoFloat64)) {
+            return (0.5 : GoFloat64) * _x;
         };
         var _z:GoFloat64 = _x * _x;
-        var _r:GoFloat64 = _z * (((-0.0625 : GoFloat64)) + (_z * (((0.001407056669551897 : GoFloat64)) + (_z * (((-1.599556310840356e-05 : GoFloat64)) + (_z * ((4.9672799960958445e-08 : GoFloat64))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.019153759953836346 : GoFloat64)) + (_z * (((0.00018594678558863092 : GoFloat64)) + (_z * (((1.1771846404262368e-06 : GoFloat64)) + (_z * (((5.0463625707621704e-09 : GoFloat64)) + (_z * ((1.2354227442613791e-11 : GoFloat64)))))))))));
+        var _r:GoFloat64 = _z * ((-0.0625 : GoFloat64) + _z * ((0.001407056669551897 : GoFloat64) + _z * ((-1.599556310840356e-05 : GoFloat64) + _z * (4.9672799960958445e-08 : GoFloat64))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * (0.019153759953836346 : GoFloat64) + (_z * (0.00018594678558863092 : GoFloat64) + (_z * (1.1771846404262368e-06 : GoFloat64) + (_z * (5.0463625707621704e-09 : GoFloat64) + (_z * (1.2354227442613791e-11 : GoFloat64))))));
         _r = _r * (_x);
-        _z = (((0.5 : GoFloat64)) * _x) + (_r / _s);
+        _z = ((0.5 : GoFloat64) * _x) + (_r / _s);
         if (_sign) {
             return -_z;
         };
@@ -1733,83 +1733,83 @@ function j1(_x:GoFloat64):GoFloat64 {
 **/
 function y1(_x:GoFloat64):GoFloat64 {
         {};
-        if ((_x < ((0 : GoFloat64))) || isNaN(_x)) {
+        if ((_x < (0 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return ((0 : GoFloat64));
-        } else if (_x == ((0 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return (0 : GoFloat64);
+        } else if (_x == (0 : GoFloat64)) {
+            return inf((-1 : GoInt));
         };
-        if (_x >= ((2 : GoFloat64))) {
+        if (_x >= (2 : GoFloat64)) {
             var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
             var _ss:GoFloat64 = -_s - _c;
             var _cc:GoFloat64 = _s - _c;
-            if (_x < ((8.988465674311579e+307 : GoFloat64))) {
+            if (_x < (8.988465674311579e+307 : GoFloat64)) {
                 var _z:GoFloat64 = cos(_x + _x);
-                if ((_s * _c) > ((0 : GoFloat64))) {
+                if ((_s * _c) > (0 : GoFloat64)) {
                     _cc = _z / _ss;
                 } else {
                     _ss = _z / _cc;
                 };
             };
-            var _z:GoFloat64 = ((0 : GoFloat64));
-            if (_x > ((6.80564733841877e+38 : GoFloat64))) {
-                _z = (((0.5641895835477563 : GoFloat64)) * _ss) / sqrt(_x);
+            var _z:GoFloat64 = (0 : GoFloat64);
+            if (_x > (6.80564733841877e+38 : GoFloat64)) {
+                _z = ((0.5641895835477563 : GoFloat64) * _ss) / sqrt(_x);
             } else {
                 var _u:GoFloat64 = _pone(_x);
                 var _v:GoFloat64 = _qone(_x);
-                _z = (((0.5641895835477563 : GoFloat64)) * ((_u * _ss) + (_v * _cc))) / sqrt(_x);
+                _z = ((0.5641895835477563 : GoFloat64) * (_u * _ss) + (_v * _cc)) / sqrt(_x);
             };
             return _z;
         };
-        if (_x <= ((5.551115123125783e-17 : GoFloat64))) {
-            return ((-0.6366197723675814 : GoFloat64)) / _x;
+        if (_x <= (5.551115123125783e-17 : GoFloat64)) {
+            return (-0.6366197723675814 : GoFloat64) / _x;
         };
         var _z:GoFloat64 = _x * _x;
-        var _u:GoFloat64 = ((-0.19605709064623894 : GoFloat64)) + (_z * (((0.05044387166398113 : GoFloat64)) + (_z * (((-0.0019125689587576355 : GoFloat64)) + (_z * (((2.352526005616105e-05 : GoFloat64)) + (_z * ((-9.190991580398789e-08 : GoFloat64)))))))));
-        var _v:GoFloat64 = ((1 : GoFloat64)) + (_z * (((0.01991673182366499 : GoFloat64)) + (_z * (((0.00020255258102513517 : GoFloat64)) + (_z * (((1.3560880109751623e-06 : GoFloat64)) + (_z * (((6.227414523646215e-09 : GoFloat64)) + (_z * ((1.6655924620799208e-11 : GoFloat64)))))))))));
-        return (_x * (_u / _v)) + (((0.6366197723675814 : GoFloat64)) * ((j1(_x) * log(_x)) - (((1 : GoFloat64)) / _x)));
+        var _u:GoFloat64 = (-0.19605709064623894 : GoFloat64) + (_z * (0.05044387166398113 : GoFloat64) + (_z * (-0.0019125689587576355 : GoFloat64) + (_z * (2.352526005616105e-05 : GoFloat64) + (_z * (-9.190991580398789e-08 : GoFloat64)))));
+        var _v:GoFloat64 = (1 : GoFloat64) + (_z * (0.01991673182366499 : GoFloat64) + (_z * (0.00020255258102513517 : GoFloat64) + (_z * (1.3560880109751623e-06 : GoFloat64) + (_z * (6.227414523646215e-09 : GoFloat64) + (_z * (1.6655924620799208e-11 : GoFloat64))))));
+        return (_x * _u / _v) + ((0.6366197723675814 : GoFloat64) * (j1(_x) * log(_x)) - ((1 : GoFloat64) / _x));
     }
 function _pone(_x:GoFloat64):GoFloat64 {
         var _p:GoArray<GoFloat64> = null;
         var _q:GoArray<GoFloat64> = null;
-        if (_x >= ((8 : GoFloat64))) {
+        if (_x >= (8 : GoFloat64)) {
             _p = _p1R8;
             _q = _p1S8;
-        } else if (_x >= ((4.5454 : GoFloat64))) {
+        } else if (_x >= (4.5454 : GoFloat64)) {
             _p = _p1R5;
             _q = _p1S5;
-        } else if (_x >= ((2.8571 : GoFloat64))) {
+        } else if (_x >= (2.8571 : GoFloat64)) {
             _p = _p1R3;
             _q = _p1S3;
-        } else if (_x >= ((2 : GoFloat64))) {
+        } else if (_x >= (2 : GoFloat64)) {
             _p = _p1R2;
             _q = _p1S2;
         };
-        var _z:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-        var _r:GoFloat64 = (_p != null ? _p[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_p != null ? _p[((5 : GoInt))] : ((0 : GoFloat64))))))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * ((_q != null ? _q[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * (_q != null ? _q[((4 : GoInt))] : ((0 : GoFloat64))))))))))));
-        return ((1 : GoFloat64)) + (_r / _s);
+        var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+        var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * _p[(1 : GoInt)] + (_z * _p[(2 : GoInt)] + (_z * _p[(3 : GoInt)] + (_z * _p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * _q[(0 : GoInt)] + (_z * _q[(1 : GoInt)] + (_z * _q[(2 : GoInt)] + (_z * _q[(3 : GoInt)] + (_z * _q[(4 : GoInt)])))));
+        return (1 : GoFloat64) + (_r / _s);
     }
 function _qone(_x:GoFloat64):GoFloat64 {
         var _p:GoArray<GoFloat64> = null, _q:GoArray<GoFloat64> = null;
-        if (_x >= ((8 : GoFloat64))) {
+        if (_x >= (8 : GoFloat64)) {
             _p = _q1R8;
             _q = _q1S8;
-        } else if (_x >= ((4.5454 : GoFloat64))) {
+        } else if (_x >= (4.5454 : GoFloat64)) {
             _p = _q1R5;
             _q = _q1S5;
-        } else if (_x >= ((2.8571 : GoFloat64))) {
+        } else if (_x >= (2.8571 : GoFloat64)) {
             _p = _q1R3;
             _q = _q1S3;
-        } else if (_x >= ((2 : GoFloat64))) {
+        } else if (_x >= (2 : GoFloat64)) {
             _p = _q1R2;
             _q = _q1S2;
         };
-        var _z:GoFloat64 = ((1 : GoFloat64)) / (_x * _x);
-        var _r:GoFloat64 = (_p != null ? _p[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_p != null ? _p[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_p != null ? _p[((5 : GoInt))] : ((0 : GoFloat64))))))))))));
-        var _s:GoFloat64 = ((1 : GoFloat64)) + (_z * ((_q != null ? _q[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((_q != null ? _q[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * (_q != null ? _q[((5 : GoInt))] : ((0 : GoFloat64))))))))))))));
-        return (((0.375 : GoFloat64)) + (_r / _s)) / _x;
+        var _z:GoFloat64 = (1 : GoFloat64) / (_x * _x);
+        var _r:GoFloat64 = _p[(0 : GoInt)] + (_z * _p[(1 : GoInt)] + (_z * _p[(2 : GoInt)] + (_z * _p[(3 : GoInt)] + (_z * _p[(4 : GoInt)] + (_z * _p[(5 : GoInt)])))));
+        var _s:GoFloat64 = (1 : GoFloat64) + (_z * _q[(0 : GoInt)] + (_z * _q[(1 : GoInt)] + (_z * _q[(2 : GoInt)] + (_z * _q[(3 : GoInt)] + (_z * _q[(4 : GoInt)] + (_z * _q[(5 : GoInt)]))))));
+        return ((0.375 : GoFloat64) + _r / _s) / _x;
     }
 /**
     // Jn returns the order-n Bessel function of the first kind.
@@ -1823,16 +1823,16 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
         {};
         if (isNaN(_x)) {
             return _x;
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            return ((0 : GoFloat64));
+        } else if (isInf(_x, (0 : GoInt))) {
+            return (0 : GoFloat64);
         };
-        if (_n == ((0 : GoInt))) {
+        if (_n == (0 : GoInt)) {
             return j0(_x);
         };
-        if (_x == ((0 : GoFloat64))) {
-            return ((0 : GoFloat64));
+        if (_x == (0 : GoFloat64)) {
+            return (0 : GoFloat64);
         };
-        if (_n < ((0 : GoInt))) {
+        if (_n < (0 : GoInt)) {
             {
                 final __tmp__0 = -_n;
                 final __tmp__1 = -_x;
@@ -1840,41 +1840,41 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
                 _x = __tmp__1;
             };
         };
-        if (_n == ((1 : GoInt))) {
+        if (_n == (1 : GoInt)) {
             return j1(_x);
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
-            if ((_n & ((1 : GoInt))) == ((1 : GoInt))) {
+            if ((_n & (1 : GoInt)) == (1 : GoInt)) {
                 _sign = true;
             };
         };
-        var _b:GoFloat64 = ((0 : GoFloat64));
-        if (((_n : GoFloat64)) <= _x) {
-            if (_x >= ((8.148143905337944e+90 : GoFloat64))) {
-                var _temp:GoFloat64 = ((0 : GoFloat64));
+        var _b:GoFloat64 = (0 : GoFloat64);
+        if ((_n : GoFloat64) <= _x) {
+            if (_x >= (8.148143905337944e+90 : GoFloat64)) {
+                var _temp:GoFloat64 = (0 : GoFloat64);
                 {
                     var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
-                    if (_n & ((3 : GoInt)) == ((0 : GoInt))) {
+                    if (_n & (3 : GoInt) == (0 : GoInt)) {
                         _temp = _c + _s;
-                    } else if (_n & ((3 : GoInt)) == ((1 : GoInt))) {
+                    } else if (_n & (3 : GoInt) == (1 : GoInt)) {
                         _temp = -_c + _s;
-                    } else if (_n & ((3 : GoInt)) == ((2 : GoInt))) {
+                    } else if (_n & (3 : GoInt) == (2 : GoInt)) {
                         _temp = -_c - _s;
-                    } else if (_n & ((3 : GoInt)) == ((3 : GoInt))) {
+                    } else if (_n & (3 : GoInt) == (3 : GoInt)) {
                         _temp = _c - _s;
                     };
                 };
-                _b = (((0.5641895835477563 : GoFloat64)) * _temp) / sqrt(_x);
+                _b = ((0.5641895835477563 : GoFloat64) * _temp) / sqrt(_x);
             } else {
                 _b = j1(_x);
                 {
-                    var _i:GoInt = ((1 : GoInt)), _a:GoFloat64 = j0(_x);
+                    var _i:GoInt = (1 : GoInt), _a:GoFloat64 = j0(_x);
                     Go.cfor(_i < _n, _i++, {
                         {
                             final __tmp__0 = _b;
-                            final __tmp__1 = (_b * ((((_i + _i) : GoFloat64)) / _x)) - _a;
+                            final __tmp__1 = (_b * (_i + _i : GoFloat64) / _x) - _a;
                             _a = __tmp__0;
                             _b = __tmp__1;
                         };
@@ -1882,30 +1882,30 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
                 };
             };
         } else {
-            if (_x < ((1.862645149230957e-09 : GoFloat64))) {
-                if (_n > ((33 : GoInt))) {
-                    _b = ((0 : GoFloat64));
+            if (_x < (1.862645149230957e-09 : GoFloat64)) {
+                if (_n > (33 : GoInt)) {
+                    _b = (0 : GoFloat64);
                 } else {
-                    var _temp:GoFloat64 = _x * ((0.5 : GoFloat64));
+                    var _temp:GoFloat64 = _x * (0.5 : GoFloat64);
                     _b = _temp;
-                    var _a:GoFloat64 = ((1 : GoFloat64));
+                    var _a:GoFloat64 = (1 : GoFloat64);
                     {
-                        var _i:GoInt = ((2 : GoInt));
+                        var _i:GoInt = (2 : GoInt);
                         Go.cfor(_i <= _n, _i++, {
-                            _a = _a * (((_i : GoFloat64)));
+                            _a = _a * ((_i : GoFloat64));
                             _b = _b * (_temp);
                         });
                     };
                     _b = _b / (_a);
                 };
             } else {
-                var _w:GoFloat64 = (((_n + _n) : GoFloat64)) / _x;
-                var _h:GoFloat64 = ((2 : GoFloat64)) / _x;
+                var _w:GoFloat64 = (_n + _n : GoFloat64) / _x;
+                var _h:GoFloat64 = (2 : GoFloat64) / _x;
                 var _q0:GoFloat64 = _w;
                 var _z:GoFloat64 = _w + _h;
-                var _q1:GoFloat64 = (_w * _z) - ((1 : GoFloat64));
-                var _k:GoInt = ((1 : GoInt));
-                while (_q1 < ((1e+09 : GoFloat64))) {
+                var _q1:GoFloat64 = (_w * _z) - (1 : GoFloat64);
+                var _k:GoInt = (1 : GoInt);
+                while (_q1 < (1e+09 : GoFloat64)) {
                     _k++;
                     _z = _z + (_h);
                     {
@@ -1916,26 +1916,26 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
                     };
                 };
                 var _m:GoInt = _n + _n;
-                var _t:GoFloat64 = ((0 : GoFloat64));
+                var _t:GoFloat64 = (0 : GoFloat64);
                 {
-                    var _i:GoInt = ((2 : GoInt)) * (_n + _k);
-                    Go.cfor(_i >= _m, _i = _i - (((2 : GoInt))), {
-                        _t = ((1 : GoFloat64)) / ((((_i : GoFloat64)) / _x) - _t);
+                    var _i:GoInt = (2 : GoInt) * (_n + _k);
+                    Go.cfor(_i >= _m, _i = _i - ((2 : GoInt)), {
+                        _t = (1 : GoFloat64) / ((_i : GoFloat64) / _x - _t);
                     });
                 };
                 var _a:GoFloat64 = _t;
-                _b = ((1 : GoFloat64));
-                var _tmp:GoFloat64 = ((_n : GoFloat64));
-                var _v:GoFloat64 = ((2 : GoFloat64)) / _x;
+                _b = (1 : GoFloat64);
+                var _tmp:GoFloat64 = (_n : GoFloat64);
+                var _v:GoFloat64 = (2 : GoFloat64) / _x;
                 _tmp = _tmp * log(abs(_v * _tmp));
-                if (_tmp < ((709.782712893384 : GoFloat64))) {
+                if (_tmp < (709.782712893384 : GoFloat64)) {
                     {
-                        var _i:GoInt = _n - ((1 : GoInt));
-                        Go.cfor(_i > ((0 : GoInt)), _i--, {
-                            var _di:GoFloat64 = (((_i + _i) : GoFloat64));
+                        var _i:GoInt = _n - (1 : GoInt);
+                        Go.cfor(_i > (0 : GoInt), _i--, {
+                            var _di:GoFloat64 = (_i + _i : GoFloat64);
                             {
                                 final __tmp__0 = _b;
-                                final __tmp__1 = ((_b * _di) / _x) - _a;
+                                final __tmp__1 = (_b * _di / _x) - _a;
                                 _a = __tmp__0;
                                 _b = __tmp__1;
                             };
@@ -1943,19 +1943,19 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
                     };
                 } else {
                     {
-                        var _i:GoInt = _n - ((1 : GoInt));
-                        Go.cfor(_i > ((0 : GoInt)), _i--, {
-                            var _di:GoFloat64 = (((_i + _i) : GoFloat64));
+                        var _i:GoInt = _n - (1 : GoInt);
+                        Go.cfor(_i > (0 : GoInt), _i--, {
+                            var _di:GoFloat64 = (_i + _i : GoFloat64);
                             {
                                 final __tmp__0 = _b;
-                                final __tmp__1 = ((_b * _di) / _x) - _a;
+                                final __tmp__1 = (_b * _di / _x) - _a;
                                 _a = __tmp__0;
                                 _b = __tmp__1;
                             };
-                            if (_b > ((1e+100 : GoFloat64))) {
+                            if (_b > (1e+100 : GoFloat64)) {
                                 _a = _a / (_b);
                                 _t = _t / (_b);
-                                _b = ((1 : GoFloat64));
+                                _b = (1 : GoFloat64);
                             };
                         });
                     };
@@ -1981,58 +1981,58 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 **/
 function yn(_n:GoInt, _x:GoFloat64):GoFloat64 {
         {};
-        if ((_x < ((0 : GoFloat64))) || isNaN(_x)) {
+        if ((_x < (0 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return ((0 : GoFloat64));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return (0 : GoFloat64);
         };
-        if (_n == ((0 : GoInt))) {
+        if (_n == (0 : GoInt)) {
             return y0(_x);
         };
-        if (_x == ((0 : GoFloat64))) {
-            if ((_n < ((0 : GoInt))) && ((_n & ((1 : GoInt))) == ((1 : GoInt)))) {
-                return inf(((1 : GoInt)));
+        if (_x == (0 : GoFloat64)) {
+            if ((_n < (0 : GoInt)) && (_n & (1 : GoInt) == (1 : GoInt))) {
+                return inf((1 : GoInt));
             };
-            return inf(((-1 : GoInt)));
+            return inf((-1 : GoInt));
         };
         var _sign:Bool = false;
-        if (_n < ((0 : GoInt))) {
+        if (_n < (0 : GoInt)) {
             _n = -_n;
-            if ((_n & ((1 : GoInt))) == ((1 : GoInt))) {
+            if ((_n & (1 : GoInt)) == (1 : GoInt)) {
                 _sign = true;
             };
         };
-        if (_n == ((1 : GoInt))) {
+        if (_n == (1 : GoInt)) {
             if (_sign) {
                 return -y1(_x);
             };
             return y1(_x);
         };
-        var _b:GoFloat64 = ((0 : GoFloat64));
-        if (_x >= ((8.148143905337944e+90 : GoFloat64))) {
-            var _temp:GoFloat64 = ((0 : GoFloat64));
+        var _b:GoFloat64 = (0 : GoFloat64);
+        if (_x >= (8.148143905337944e+90 : GoFloat64)) {
+            var _temp:GoFloat64 = (0 : GoFloat64);
             {
                 var __tmp__ = sincos(_x), _s:GoFloat64 = __tmp__._0, _c:GoFloat64 = __tmp__._1;
-                if (_n & ((3 : GoInt)) == ((0 : GoInt))) {
+                if (_n & (3 : GoInt) == (0 : GoInt)) {
                     _temp = _s - _c;
-                } else if (_n & ((3 : GoInt)) == ((1 : GoInt))) {
+                } else if (_n & (3 : GoInt) == (1 : GoInt)) {
                     _temp = -_s - _c;
-                } else if (_n & ((3 : GoInt)) == ((2 : GoInt))) {
+                } else if (_n & (3 : GoInt) == (2 : GoInt)) {
                     _temp = -_s + _c;
-                } else if (_n & ((3 : GoInt)) == ((3 : GoInt))) {
+                } else if (_n & (3 : GoInt) == (3 : GoInt)) {
                     _temp = _s + _c;
                 };
             };
-            _b = (((0.5641895835477563 : GoFloat64)) * _temp) / sqrt(_x);
+            _b = ((0.5641895835477563 : GoFloat64) * _temp) / sqrt(_x);
         } else {
             var _a:GoFloat64 = y0(_x);
             _b = y1(_x);
             {
-                var _i:GoInt = ((1 : GoInt));
-                Go.cfor((_i < _n) && !isInf(_b, ((-1 : GoInt))), _i++, {
+                var _i:GoInt = (1 : GoInt);
+                Go.cfor((_i < _n) && !isInf(_b, (-1 : GoInt)), _i++, {
                     {
                         final __tmp__0 = _b;
-                        final __tmp__1 = (((((_i + _i) : GoFloat64)) / _x) * _b) - _a;
+                        final __tmp__1 = ((_i + _i : GoFloat64) / _x * _b) - _a;
                         _a = __tmp__0;
                         _b = __tmp__1;
                     };
@@ -2061,31 +2061,31 @@ function ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
         return _ldexp(_frac, _exp);
     }
 function _ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
-        if (_frac == ((0 : GoFloat64))) {
+        if (_frac == (0 : GoFloat64)) {
             return _frac;
-        } else if (isInf(_frac, ((0 : GoInt))) || isNaN(_frac)) {
+        } else if (isInf(_frac, (0 : GoInt)) || isNaN(_frac)) {
             return _frac;
         };
         var __tmp__ = _normalize(_frac), _frac:GoFloat64 = __tmp__._0, _e:GoInt = __tmp__._1;
         _exp = _exp + (_e);
         var _x:GoUInt64 = float64bits(_frac);
-        _exp = _exp + (((((_x >> ((52 : GoUnTypedInt))) : GoInt)) & ((2047 : GoInt))) - ((1023 : GoInt)));
-        if (_exp < ((-1075 : GoInt))) {
-            return copysign(((0 : GoFloat64)), _frac);
+        _exp = _exp + ((_x >> (52 : GoUnTypedInt) : GoInt) & (2047 : GoInt) - (1023 : GoInt));
+        if (_exp < (-1075 : GoInt)) {
+            return copysign((0 : GoFloat64), _frac);
         };
-        if (_exp > ((1023 : GoInt))) {
-            if (_frac < ((0 : GoFloat64))) {
-                return inf(((-1 : GoInt)));
+        if (_exp > (1023 : GoInt)) {
+            if (_frac < (0 : GoFloat64)) {
+                return inf((-1 : GoInt));
             };
-            return inf(((1 : GoInt)));
+            return inf((1 : GoInt));
         };
-        var _m:GoFloat64 = ((1 : GoFloat64));
-        if (_exp < ((-1022 : GoInt))) {
-            _exp = _exp + (((53 : GoInt)));
-            _m = ((1.1102230246251565e-16 : GoFloat64));
+        var _m:GoFloat64 = (1 : GoFloat64);
+        if (_exp < (-1022 : GoInt)) {
+            _exp = _exp + ((53 : GoInt));
+            _m = (1.1102230246251565e-16 : GoFloat64);
         };
-        _x = _x & (((("9218868437227405312" : GoUInt64))) ^ ((-1 : GoUnTypedInt)));
-        _x = _x | ((((_exp + ((1023 : GoInt))) : GoUInt64)) << ((52 : GoUnTypedInt)));
+        _x = _x & (("9218868437227405312" : GoUInt64) ^ (-1 : GoUnTypedInt));
+        _x = _x | ((_exp + (1023 : GoInt) : GoUInt64) << (52 : GoUnTypedInt));
         return _m * float64frombits(_x);
     }
 /**
@@ -2100,142 +2100,142 @@ function _ldexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
     //	Lgamma(NaN) = NaN
 **/
 function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        var _lgamma:GoFloat64 = ((0 : GoFloat64)), _sign:GoInt = ((0 : GoInt));
+        var _lgamma:GoFloat64 = (0 : GoFloat64), _sign:GoInt = (0 : GoInt);
         {};
-        _sign = ((1 : GoInt));
+        _sign = (1 : GoInt);
         if (isNaN(_x)) {
             _lgamma = _x;
             return { _0 : _lgamma, _1 : _sign };
-        } else if (isInf(_x, ((0 : GoInt)))) {
+        } else if (isInf(_x, (0 : GoInt))) {
             _lgamma = _x;
             return { _0 : _lgamma, _1 : _sign };
-        } else if (_x == ((0 : GoFloat64))) {
-            _lgamma = inf(((1 : GoInt)));
+        } else if (_x == (0 : GoFloat64)) {
+            _lgamma = inf((1 : GoInt));
             return { _0 : _lgamma, _1 : _sign };
         };
         var _neg:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _neg = true;
         };
-        if (_x < ((8.470329472543003e-22 : GoFloat64))) {
+        if (_x < (8.470329472543003e-22 : GoFloat64)) {
             if (_neg) {
-                _sign = ((-1 : GoInt));
+                _sign = (-1 : GoInt);
             };
             _lgamma = -log(_x);
             return { _0 : _lgamma, _1 : _sign };
         };
-        var _nadj:GoFloat64 = ((0 : GoFloat64));
+        var _nadj:GoFloat64 = (0 : GoFloat64);
         if (_neg) {
-            if (_x >= ((4.503599627370496e+15 : GoFloat64))) {
-                _lgamma = inf(((1 : GoInt)));
+            if (_x >= (4.503599627370496e+15 : GoFloat64)) {
+                _lgamma = inf((1 : GoInt));
                 return { _0 : _lgamma, _1 : _sign };
             };
             var _t:GoFloat64 = _sinPi(_x);
-            if (_t == ((0 : GoFloat64))) {
-                _lgamma = inf(((1 : GoInt)));
+            if (_t == (0 : GoFloat64)) {
+                _lgamma = inf((1 : GoInt));
                 return { _0 : _lgamma, _1 : _sign };
             };
-            _nadj = log(((3.141592653589793 : GoFloat64)) / abs(_t * _x));
-            if (_t < ((0 : GoFloat64))) {
-                _sign = ((-1 : GoInt));
+            _nadj = log((3.141592653589793 : GoFloat64) / abs(_t * _x));
+            if (_t < (0 : GoFloat64)) {
+                _sign = (-1 : GoInt);
             };
         };
         {
             var __switchIndex__ = -1;
             while (true) {
-                if ((_x == ((1 : GoFloat64))) || (_x == ((2 : GoFloat64)))) {
-                    _lgamma = ((0 : GoFloat64));
+                if ((_x == (1 : GoFloat64)) || (_x == (2 : GoFloat64))) {
+                    _lgamma = (0 : GoFloat64);
                     return { _0 : _lgamma, _1 : _sign };
                     break;
-                } else if (_x < ((2 : GoFloat64))) {
-                    var _y:GoFloat64 = ((0 : GoFloat64));
-                    var _i:GoInt = ((0 : GoInt));
-                    if (_x <= ((0.9 : GoFloat64))) {
+                } else if (_x < (2 : GoFloat64)) {
+                    var _y:GoFloat64 = (0 : GoFloat64);
+                    var _i:GoInt = (0 : GoInt);
+                    if (_x <= (0.9 : GoFloat64)) {
                         _lgamma = -log(_x);
-                        if (_x >= ((0.7316321449683623 : GoFloat64))) {
-                            _y = ((1 : GoFloat64)) - _x;
-                            _i = ((0 : GoInt));
-                        } else if (_x >= ((0.19163214496836226 : GoFloat64))) {
-                            _y = _x - ((0.46163214496836225 : GoFloat64));
-                            _i = ((1 : GoInt));
+                        if (_x >= (0.7316321449683623 : GoFloat64)) {
+                            _y = (1 : GoFloat64) - _x;
+                            _i = (0 : GoInt);
+                        } else if (_x >= (0.19163214496836226 : GoFloat64)) {
+                            _y = _x - (0.46163214496836225 : GoFloat64);
+                            _i = (1 : GoInt);
                         } else {
                             _y = _x;
-                            _i = ((2 : GoInt));
+                            _i = (2 : GoInt);
                         };
                     } else {
-                        _lgamma = ((0 : GoFloat64));
-                        if (_x >= ((1.7316321449683623 : GoFloat64))) {
-                            _y = ((2 : GoFloat64)) - _x;
-                            _i = ((0 : GoInt));
-                        } else if (_x >= ((1.1916321449683622 : GoFloat64))) {
-                            _y = _x - ((1.4616321449683622 : GoFloat64));
-                            _i = ((1 : GoInt));
+                        _lgamma = (0 : GoFloat64);
+                        if (_x >= (1.7316321449683623 : GoFloat64)) {
+                            _y = (2 : GoFloat64) - _x;
+                            _i = (0 : GoInt);
+                        } else if (_x >= (1.1916321449683622 : GoFloat64)) {
+                            _y = _x - (1.4616321449683622 : GoFloat64);
+                            _i = (1 : GoInt);
                         } else {
-                            _y = _x - ((1 : GoFloat64));
-                            _i = ((2 : GoInt));
+                            _y = _x - (1 : GoFloat64);
+                            _i = (2 : GoInt);
                         };
                     };
-                    if (_i == ((0 : GoInt))) {
+                    if (_i == (0 : GoInt)) {
                         var _z:GoFloat64 = _y * _y;
-                        var _p1:GoFloat64 = (__lgamA != null ? __lgamA[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((2 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((4 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((6 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((8 : GoInt))] : ((0 : GoFloat64))) + (_z * (__lgamA != null ? __lgamA[((10 : GoInt))] : ((0 : GoFloat64))))))))))));
-                        var _p2:GoFloat64 = _z * ((__lgamA != null ? __lgamA[((1 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((3 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((5 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((7 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamA != null ? __lgamA[((9 : GoInt))] : ((0 : GoFloat64))) + (_z * (__lgamA != null ? __lgamA[((11 : GoInt))] : ((0 : GoFloat64)))))))))))));
+                        var _p1:GoFloat64 = __lgamA[(0 : GoInt)] + (_z * __lgamA[(2 : GoInt)] + (_z * __lgamA[(4 : GoInt)] + (_z * __lgamA[(6 : GoInt)] + (_z * __lgamA[(8 : GoInt)] + (_z * __lgamA[(10 : GoInt)])))));
+                        var _p2:GoFloat64 = _z * (__lgamA[(1 : GoInt)] + _z * (__lgamA[(3 : GoInt)] + _z * (__lgamA[(5 : GoInt)] + _z * (__lgamA[(7 : GoInt)] + _z * (__lgamA[(9 : GoInt)] + _z * __lgamA[(11 : GoInt)])))));
                         var _p:GoFloat64 = (_y * _p1) + _p2;
-                        _lgamma = _lgamma + ((_p - (((0.5 : GoFloat64)) * _y)));
-                    } else if (_i == ((1 : GoInt))) {
+                        _lgamma = _lgamma + ((_p - (0.5 : GoFloat64) * _y));
+                    } else if (_i == (1 : GoInt)) {
                         var _z:GoFloat64 = _y * _y;
                         var _w:GoFloat64 = _z * _y;
-                        var _p1:GoFloat64 = (__lgamT != null ? __lgamT[((0 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((3 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((6 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((9 : GoInt))] : ((0 : GoFloat64))) + (_w * (__lgamT != null ? __lgamT[((12 : GoInt))] : ((0 : GoFloat64))))))))));
-                        var _p2:GoFloat64 = (__lgamT != null ? __lgamT[((1 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((4 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((7 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((10 : GoInt))] : ((0 : GoFloat64))) + (_w * (__lgamT != null ? __lgamT[((13 : GoInt))] : ((0 : GoFloat64))))))))));
-                        var _p3:GoFloat64 = (__lgamT != null ? __lgamT[((2 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((5 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((8 : GoInt))] : ((0 : GoFloat64))) + (_w * ((__lgamT != null ? __lgamT[((11 : GoInt))] : ((0 : GoFloat64))) + (_w * (__lgamT != null ? __lgamT[((14 : GoInt))] : ((0 : GoFloat64))))))))));
-                        var _p:GoFloat64 = (_z * _p1) - (((-3.638676997039505e-18 : GoFloat64)) - (_w * (_p2 + (_y * _p3))));
-                        _lgamma = _lgamma + ((((-0.12148629053584961 : GoFloat64)) + _p));
-                    } else if (_i == ((2 : GoInt))) {
-                        var _p1:GoFloat64 = _y * ((__lgamU != null ? __lgamU[((0 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamU != null ? __lgamU[((1 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamU != null ? __lgamU[((2 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamU != null ? __lgamU[((3 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamU != null ? __lgamU[((4 : GoInt))] : ((0 : GoFloat64))) + (_y * (__lgamU != null ? __lgamU[((5 : GoInt))] : ((0 : GoFloat64)))))))))))));
-                        var _p2:GoFloat64 = ((1 : GoFloat64)) + (_y * ((__lgamV != null ? __lgamV[((1 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamV != null ? __lgamV[((2 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamV != null ? __lgamV[((3 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamV != null ? __lgamV[((4 : GoInt))] : ((0 : GoFloat64))) + (_y * (__lgamV != null ? __lgamV[((5 : GoInt))] : ((0 : GoFloat64))))))))))));
-                        _lgamma = _lgamma + (((((-0.5 : GoFloat64)) * _y) + (_p1 / _p2)));
+                        var _p1:GoFloat64 = __lgamT[(0 : GoInt)] + (_w * __lgamT[(3 : GoInt)] + (_w * __lgamT[(6 : GoInt)] + (_w * __lgamT[(9 : GoInt)] + (_w * __lgamT[(12 : GoInt)]))));
+                        var _p2:GoFloat64 = __lgamT[(1 : GoInt)] + (_w * __lgamT[(4 : GoInt)] + (_w * __lgamT[(7 : GoInt)] + (_w * __lgamT[(10 : GoInt)] + (_w * __lgamT[(13 : GoInt)]))));
+                        var _p3:GoFloat64 = __lgamT[(2 : GoInt)] + (_w * __lgamT[(5 : GoInt)] + (_w * __lgamT[(8 : GoInt)] + (_w * __lgamT[(11 : GoInt)] + (_w * __lgamT[(14 : GoInt)]))));
+                        var _p:GoFloat64 = (_z * _p1) - ((-3.638676997039505e-18 : GoFloat64) - _w * (_p2 + _y * _p3));
+                        _lgamma = _lgamma + (((-0.12148629053584961 : GoFloat64) + _p));
+                    } else if (_i == (2 : GoInt)) {
+                        var _p1:GoFloat64 = _y * (__lgamU[(0 : GoInt)] + _y * (__lgamU[(1 : GoInt)] + _y * (__lgamU[(2 : GoInt)] + _y * (__lgamU[(3 : GoInt)] + _y * (__lgamU[(4 : GoInt)] + _y * __lgamU[(5 : GoInt)])))));
+                        var _p2:GoFloat64 = (1 : GoFloat64) + (_y * __lgamV[(1 : GoInt)] + (_y * __lgamV[(2 : GoInt)] + (_y * __lgamV[(3 : GoInt)] + (_y * __lgamV[(4 : GoInt)] + (_y * __lgamV[(5 : GoInt)])))));
+                        _lgamma = _lgamma + (((-0.5 : GoFloat64) * _y + _p1 / _p2));
                     };
                     break;
-                } else if (_x < ((8 : GoFloat64))) {
-                    var _i:GoInt = ((_x : GoInt));
-                    var _y:GoFloat64 = _x - ((_i : GoFloat64));
-                    var _p:GoFloat64 = _y * ((__lgamS != null ? __lgamS[((0 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamS != null ? __lgamS[((1 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamS != null ? __lgamS[((2 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamS != null ? __lgamS[((3 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamS != null ? __lgamS[((4 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamS != null ? __lgamS[((5 : GoInt))] : ((0 : GoFloat64))) + (_y * (__lgamS != null ? __lgamS[((6 : GoInt))] : ((0 : GoFloat64)))))))))))))));
-                    var _q:GoFloat64 = ((1 : GoFloat64)) + (_y * ((__lgamR != null ? __lgamR[((1 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamR != null ? __lgamR[((2 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamR != null ? __lgamR[((3 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamR != null ? __lgamR[((4 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamR != null ? __lgamR[((5 : GoInt))] : ((0 : GoFloat64))) + (_y * (__lgamR != null ? __lgamR[((6 : GoInt))] : ((0 : GoFloat64))))))))))))));
-                    _lgamma = (((0.5 : GoFloat64)) * _y) + (_p / _q);
-                    var _z:GoFloat64 = ((1 : GoFloat64));
+                } else if (_x < (8 : GoFloat64)) {
+                    var _i:GoInt = (_x : GoInt);
+                    var _y:GoFloat64 = _x - (_i : GoFloat64);
+                    var _p:GoFloat64 = _y * (__lgamS[(0 : GoInt)] + _y * (__lgamS[(1 : GoInt)] + _y * (__lgamS[(2 : GoInt)] + _y * (__lgamS[(3 : GoInt)] + _y * (__lgamS[(4 : GoInt)] + _y * (__lgamS[(5 : GoInt)] + _y * __lgamS[(6 : GoInt)]))))));
+                    var _q:GoFloat64 = (1 : GoFloat64) + (_y * __lgamR[(1 : GoInt)] + (_y * __lgamR[(2 : GoInt)] + (_y * __lgamR[(3 : GoInt)] + (_y * __lgamR[(4 : GoInt)] + (_y * __lgamR[(5 : GoInt)] + (_y * __lgamR[(6 : GoInt)]))))));
+                    _lgamma = ((0.5 : GoFloat64) * _y) + (_p / _q);
+                    var _z:GoFloat64 = (1 : GoFloat64);
                     {
                         var __switchIndex__ = -1;
                         while (true) {
-                            if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i == ((7 : GoInt)))) {
-                                _z = _z * ((_y + ((6 : GoFloat64))));
+                            if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i == (7 : GoInt))) {
+                                _z = _z * ((_y + (6 : GoFloat64)));
                                 @:fallthrough {
                                     __switchIndex__ = 1;
                                     continue;
                                 };
                                 break;
-                            } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i == ((6 : GoInt)))) {
-                                _z = _z * ((_y + ((5 : GoFloat64))));
+                            } else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i == (6 : GoInt))) {
+                                _z = _z * ((_y + (5 : GoFloat64)));
                                 @:fallthrough {
                                     __switchIndex__ = 2;
                                     continue;
                                 };
                                 break;
-                            } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i == ((5 : GoInt)))) {
-                                _z = _z * ((_y + ((4 : GoFloat64))));
+                            } else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i == (5 : GoInt))) {
+                                _z = _z * ((_y + (4 : GoFloat64)));
                                 @:fallthrough {
                                     __switchIndex__ = 3;
                                     continue;
                                 };
                                 break;
-                            } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && _i == ((4 : GoInt)))) {
-                                _z = _z * ((_y + ((3 : GoFloat64))));
+                            } else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && _i == (4 : GoInt))) {
+                                _z = _z * ((_y + (3 : GoFloat64)));
                                 @:fallthrough {
                                     __switchIndex__ = 4;
                                     continue;
                                 };
                                 break;
-                            } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && _i == ((3 : GoInt)))) {
-                                _z = _z * ((_y + ((2 : GoFloat64))));
+                            } else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && _i == (3 : GoInt))) {
+                                _z = _z * ((_y + (2 : GoFloat64)));
                                 _lgamma = _lgamma + (log(_z));
                                 break;
                                 break;
@@ -2244,15 +2244,15 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
                         };
                     };
                     break;
-                } else if (_x < ((2.8823037615171174e+17 : GoFloat64))) {
+                } else if (_x < (2.8823037615171174e+17 : GoFloat64)) {
                     var _t:GoFloat64 = log(_x);
-                    var _z:GoFloat64 = ((1 : GoFloat64)) / _x;
+                    var _z:GoFloat64 = (1 : GoFloat64) / _x;
                     var _y:GoFloat64 = _z * _z;
-                    var _w:GoFloat64 = (__lgamW != null ? __lgamW[((0 : GoInt))] : ((0 : GoFloat64))) + (_z * ((__lgamW != null ? __lgamW[((1 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamW != null ? __lgamW[((2 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamW != null ? __lgamW[((3 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamW != null ? __lgamW[((4 : GoInt))] : ((0 : GoFloat64))) + (_y * ((__lgamW != null ? __lgamW[((5 : GoInt))] : ((0 : GoFloat64))) + (_y * (__lgamW != null ? __lgamW[((6 : GoInt))] : ((0 : GoFloat64))))))))))))));
-                    _lgamma = ((_x - ((0.5 : GoFloat64))) * (_t - ((1 : GoFloat64)))) + _w;
+                    var _w:GoFloat64 = __lgamW[(0 : GoInt)] + (_z * __lgamW[(1 : GoInt)] + (_y * __lgamW[(2 : GoInt)] + (_y * __lgamW[(3 : GoInt)] + (_y * __lgamW[(4 : GoInt)] + (_y * __lgamW[(5 : GoInt)] + (_y * __lgamW[(6 : GoInt)]))))));
+                    _lgamma = (_x - (0.5 : GoFloat64) * _t - (1 : GoFloat64)) + _w;
                     break;
                 } else {
-                    _lgamma = _x * (log(_x) - ((1 : GoFloat64)));
+                    _lgamma = _x * (log(_x) - (1 : GoFloat64));
                 };
                 break;
             };
@@ -2267,37 +2267,37 @@ function lgamma(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
 **/
 function _sinPi(_x:GoFloat64):GoFloat64 {
         {};
-        if (_x < ((0.25 : GoFloat64))) {
-            return -sin(((3.141592653589793 : GoFloat64)) * _x);
+        if (_x < (0.25 : GoFloat64)) {
+            return -sin((3.141592653589793 : GoFloat64) * _x);
         };
         var _z:GoFloat64 = floor(_x);
-        var _n:GoInt = ((0 : GoInt));
+        var _n:GoInt = (0 : GoInt);
         if (_z != _x) {
-            _x = mod(_x, ((2 : GoFloat64)));
-            _n = (((_x * ((4 : GoFloat64))) : GoInt));
+            _x = mod(_x, (2 : GoFloat64));
+            _n = (_x * (4 : GoFloat64) : GoInt);
         } else {
-            if (_x >= ((9.007199254740992e+15 : GoFloat64))) {
-                _x = ((0 : GoFloat64));
-                _n = ((0 : GoInt));
+            if (_x >= (9.007199254740992e+15 : GoFloat64)) {
+                _x = (0 : GoFloat64);
+                _n = (0 : GoInt);
             } else {
-                if (_x < ((4.503599627370496e+15 : GoFloat64))) {
-                    _z = _x + ((4.503599627370496e+15 : GoFloat64));
+                if (_x < (4.503599627370496e+15 : GoFloat64)) {
+                    _z = _x + (4.503599627370496e+15 : GoFloat64);
                 };
-                _n = (((((1 : GoUInt64)) & float64bits(_z)) : GoInt));
-                _x = ((_n : GoFloat64));
-                _n = _n << (((2 : GoUnTypedInt)));
+                _n = ((1 : GoUInt64) & float64bits(_z) : GoInt);
+                _x = (_n : GoFloat64);
+                _n = _n << ((2 : GoUnTypedInt));
             };
         };
-        if (_n == ((0 : GoInt))) {
-            _x = sin(((3.141592653589793 : GoFloat64)) * _x);
-        } else if (_n == ((1 : GoInt)) || _n == ((2 : GoInt))) {
-            _x = cos(((3.141592653589793 : GoFloat64)) * (((0.5 : GoFloat64)) - _x));
-        } else if (_n == ((3 : GoInt)) || _n == ((4 : GoInt))) {
-            _x = sin(((3.141592653589793 : GoFloat64)) * (((1 : GoFloat64)) - _x));
-        } else if (_n == ((5 : GoInt)) || _n == ((6 : GoInt))) {
-            _x = -cos(((3.141592653589793 : GoFloat64)) * (_x - ((1.5 : GoFloat64))));
+        if (_n == (0 : GoInt)) {
+            _x = sin((3.141592653589793 : GoFloat64) * _x);
+        } else if (_n == (1 : GoInt) || _n == (2 : GoInt)) {
+            _x = cos((3.141592653589793 : GoFloat64) * ((0.5 : GoFloat64) - _x));
+        } else if (_n == (3 : GoInt) || _n == (4 : GoInt)) {
+            _x = sin((3.141592653589793 : GoFloat64) * ((1 : GoFloat64) - _x));
+        } else if (_n == (5 : GoInt) || _n == (6 : GoInt)) {
+            _x = -cos((3.141592653589793 : GoFloat64) * (_x - (1.5 : GoFloat64)));
         } else {
-            _x = sin(((3.141592653589793 : GoFloat64)) * (_x - ((2 : GoFloat64))));
+            _x = sin((3.141592653589793 : GoFloat64) * (_x - (2 : GoFloat64)));
         };
         return -_x;
     }
@@ -2314,28 +2314,28 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
 function log(_x:GoFloat64):GoFloat64 return std.Math.log(_x.toBasic());
 function _log(_x:GoFloat64):GoFloat64 {
         {};
-        if (isNaN(_x) || isInf(_x, ((1 : GoInt)))) {
+        if (isNaN(_x) || isInf(_x, (1 : GoInt))) {
             return _x;
-        } else if (_x < ((0 : GoFloat64))) {
+        } else if (_x < (0 : GoFloat64)) {
             return naN();
-        } else if (_x == ((0 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
+        } else if (_x == (0 : GoFloat64)) {
+            return inf((-1 : GoInt));
         };
         var __tmp__ = frexp(_x), _f1:GoFloat64 = __tmp__._0, _ki:GoInt = __tmp__._1;
-        if (_f1 < ((0.7071067811865476 : GoFloat64))) {
-            _f1 = _f1 * (((2 : GoFloat64)));
+        if (_f1 < (0.7071067811865476 : GoFloat64)) {
+            _f1 = _f1 * ((2 : GoFloat64));
             _ki--;
         };
-        var _f:GoFloat64 = _f1 - ((1 : GoFloat64));
-        var _k:GoFloat64 = ((_ki : GoFloat64));
-        var _s:GoFloat64 = _f / (((2 : GoFloat64)) + _f);
+        var _f:GoFloat64 = _f1 - (1 : GoFloat64);
+        var _k:GoFloat64 = (_ki : GoFloat64);
+        var _s:GoFloat64 = _f / ((2 : GoFloat64) + _f);
         var _s2:GoFloat64 = _s * _s;
         var _s4:GoFloat64 = _s2 * _s2;
-        var _t1:GoFloat64 = _s2 * (((0.6666666666666735 : GoFloat64)) + (_s4 * (((0.2857142874366239 : GoFloat64)) + (_s4 * (((0.1818357216161805 : GoFloat64)) + (_s4 * ((0.14798198605116586 : GoFloat64))))))));
-        var _t2:GoFloat64 = _s4 * (((0.3999999999940942 : GoFloat64)) + (_s4 * (((0.22222198432149784 : GoFloat64)) + (_s4 * ((0.15313837699209373 : GoFloat64))))));
+        var _t1:GoFloat64 = _s2 * ((0.6666666666666735 : GoFloat64) + _s4 * ((0.2857142874366239 : GoFloat64) + _s4 * ((0.1818357216161805 : GoFloat64) + _s4 * (0.14798198605116586 : GoFloat64))));
+        var _t2:GoFloat64 = _s4 * ((0.3999999999940942 : GoFloat64) + _s4 * ((0.22222198432149784 : GoFloat64) + _s4 * (0.15313837699209373 : GoFloat64)));
         var r:GoFloat64 = _t1 + _t2;
-        var _hfsq:GoFloat64 = (((0.5 : GoFloat64)) * _f) * _f;
-        return (_k * ((0.6931471803691238 : GoFloat64))) - ((_hfsq - ((_s * (_hfsq + r)) + (_k * ((1.9082149292705877e-10 : GoFloat64))))) - _f);
+        var _hfsq:GoFloat64 = ((0.5 : GoFloat64) * _f) * _f;
+        return (_k * (0.6931471803691238 : GoFloat64)) - (_hfsq - (_s * (_hfsq + r) + _k * (1.9082149292705877e-10 : GoFloat64)) - _f);
     }
 /**
     // Log10 returns the decimal logarithm of x.
@@ -2348,7 +2348,7 @@ function log10(_x:GoFloat64):GoFloat64 {
         return _log10(_x);
     }
 function _log10(_x:GoFloat64):GoFloat64 {
-        return log(_x) * ((0.4342944819032518 : GoFloat64));
+        return log(_x) * (0.4342944819032518 : GoFloat64);
     }
 /**
     // Log2 returns the binary logarithm of x.
@@ -2362,10 +2362,10 @@ function log2(_x:GoFloat64):GoFloat64 {
     }
 function _log2(_x:GoFloat64):GoFloat64 {
         var __tmp__ = frexp(_x), _frac:GoFloat64 = __tmp__._0, _exp:GoInt = __tmp__._1;
-        if (_frac == ((0.5 : GoFloat64))) {
-            return (((_exp - ((1 : GoInt))) : GoFloat64));
+        if (_frac == (0.5 : GoFloat64)) {
+            return (_exp - (1 : GoInt) : GoFloat64);
         };
-        return (log(_frac) * ((1.4426950408889634 : GoFloat64))) + ((_exp : GoFloat64));
+        return (log(_frac) * (1.4426950408889634 : GoFloat64)) + (_exp : GoFloat64);
     }
 /**
     // Log1p returns the natural logarithm of 1 plus its argument x.
@@ -2387,85 +2387,85 @@ function log1p(_x:GoFloat64):GoFloat64 {
     }
 function _log1p(_x:GoFloat64):GoFloat64 {
         {};
-        if ((_x < ((-1 : GoFloat64))) || isNaN(_x)) {
+        if ((_x < (-1 : GoFloat64)) || isNaN(_x)) {
             return naN();
-        } else if (_x == ((-1 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
-        } else if (isInf(_x, ((1 : GoInt)))) {
-            return inf(((1 : GoInt)));
+        } else if (_x == (-1 : GoFloat64)) {
+            return inf((-1 : GoInt));
+        } else if (isInf(_x, (1 : GoInt))) {
+            return inf((1 : GoInt));
         };
         var _absx:GoFloat64 = abs(_x);
-        var _f:GoFloat64 = ((0 : GoFloat64));
-        var _iu:GoUInt64 = ((0 : GoUInt64));
-        var _k:GoInt = ((1 : GoInt));
-        if (_absx < ((0.41421356237309503 : GoFloat64))) {
-            if (_absx < ((1.862645149230957e-09 : GoFloat64))) {
-                if (_absx < ((5.551115123125783e-17 : GoFloat64))) {
+        var _f:GoFloat64 = (0 : GoFloat64);
+        var _iu:GoUInt64 = (0 : GoUInt64);
+        var _k:GoInt = (1 : GoInt);
+        if (_absx < (0.41421356237309503 : GoFloat64)) {
+            if (_absx < (1.862645149230957e-09 : GoFloat64)) {
+                if (_absx < (5.551115123125783e-17 : GoFloat64)) {
                     return _x;
                 };
-                return _x - ((_x * _x) * ((0.5 : GoFloat64)));
+                return _x - (_x * _x * (0.5 : GoFloat64));
             };
-            if (_x > ((-0.2928932188134525 : GoFloat64))) {
-                _k = ((0 : GoInt));
+            if (_x > (-0.2928932188134525 : GoFloat64)) {
+                _k = (0 : GoInt);
                 _f = _x;
-                _iu = ((1 : GoUInt64));
+                _iu = (1 : GoUInt64);
             };
         };
-        var _c:GoFloat64 = ((0 : GoFloat64));
-        if (_k != ((0 : GoInt))) {
-            var _u:GoFloat64 = ((0 : GoFloat64));
-            if (_absx < ((9.007199254740992e+15 : GoFloat64))) {
-                _u = ((1 : GoFloat64)) + _x;
+        var _c:GoFloat64 = (0 : GoFloat64);
+        if (_k != (0 : GoInt)) {
+            var _u:GoFloat64 = (0 : GoFloat64);
+            if (_absx < (9.007199254740992e+15 : GoFloat64)) {
+                _u = (1 : GoFloat64) + _x;
                 _iu = float64bits(_u);
-                _k = ((((_iu >> ((52 : GoUnTypedInt))) - ((1023 : GoUInt64))) : GoInt));
-                if (_k > ((0 : GoInt))) {
-                    _c = ((1 : GoFloat64)) - (_u - _x);
+                _k = ((_iu >> (52 : GoUnTypedInt)) - (1023 : GoUInt64) : GoInt);
+                if (_k > (0 : GoInt)) {
+                    _c = (1 : GoFloat64) - (_u - _x);
                 } else {
-                    _c = _x - (_u - ((1 : GoFloat64)));
+                    _c = _x - (_u - (1 : GoFloat64));
                 };
                 _c = _c / (_u);
             } else {
                 _u = _x;
                 _iu = float64bits(_u);
-                _k = ((((_iu >> ((52 : GoUnTypedInt))) - ((1023 : GoUInt64))) : GoInt));
-                _c = ((0 : GoFloat64));
+                _k = ((_iu >> (52 : GoUnTypedInt)) - (1023 : GoUInt64) : GoInt);
+                _c = (0 : GoFloat64);
             };
-            _iu = _iu & ((("4503599627370495" : GoUInt64)));
-            if (_iu < (("1865452045155277" : GoUInt64))) {
-                _u = float64frombits(_iu | (("4607182418800017408" : GoUInt64)));
+            _iu = _iu & (("4503599627370495" : GoUInt64));
+            if (_iu < ("1865452045155277" : GoUInt64)) {
+                _u = float64frombits(_iu | ("4607182418800017408" : GoUInt64));
             } else {
                 _k++;
-                _u = float64frombits(_iu | (("4602678819172646912" : GoUInt64)));
-                _iu = ((("4503599627370496" : GoUInt64)) - _iu) >> ((2 : GoUnTypedInt));
+                _u = float64frombits(_iu | ("4602678819172646912" : GoUInt64));
+                _iu = (("4503599627370496" : GoUInt64) - _iu) >> (2 : GoUnTypedInt);
             };
-            _f = _u - ((1 : GoFloat64));
+            _f = _u - (1 : GoFloat64);
         };
-        var _hfsq:GoFloat64 = (((0.5 : GoFloat64)) * _f) * _f;
-        var _s:GoFloat64 = ((0 : GoFloat64)), r:GoFloat64 = ((0 : GoFloat64)), _z:GoFloat64 = ((0 : GoFloat64));
-        if (_iu == ((0 : GoUInt64))) {
-            if (_f == ((0 : GoFloat64))) {
-                if (_k == ((0 : GoInt))) {
-                    return ((0 : GoFloat64));
+        var _hfsq:GoFloat64 = ((0.5 : GoFloat64) * _f) * _f;
+        var _s:GoFloat64 = (0 : GoFloat64), r:GoFloat64 = (0 : GoFloat64), _z:GoFloat64 = (0 : GoFloat64);
+        if (_iu == (0 : GoUInt64)) {
+            if (_f == (0 : GoFloat64)) {
+                if (_k == (0 : GoInt)) {
+                    return (0 : GoFloat64);
                 };
-                _c = _c + (((_k : GoFloat64)) * ((1.9082149292705877e-10 : GoFloat64)));
-                return (((_k : GoFloat64)) * ((0.6931471803691238 : GoFloat64))) + _c;
+                _c = _c + ((_k : GoFloat64) * (1.9082149292705877e-10 : GoFloat64));
+                return ((_k : GoFloat64) * (0.6931471803691238 : GoFloat64)) + _c;
             };
-            r = _hfsq * (((1 : GoFloat64)) - (((0.6666666666666666 : GoFloat64)) * _f));
-            if (_k == ((0 : GoInt))) {
+            r = _hfsq * ((1 : GoFloat64) - (0.6666666666666666 : GoFloat64) * _f);
+            if (_k == (0 : GoInt)) {
                 return _f - r;
             };
-            return (((_k : GoFloat64)) * ((0.6931471803691238 : GoFloat64))) - ((r - ((((_k : GoFloat64)) * ((1.9082149292705877e-10 : GoFloat64))) + _c)) - _f);
+            return ((_k : GoFloat64) * (0.6931471803691238 : GoFloat64)) - (r - ((_k : GoFloat64) * (1.9082149292705877e-10 : GoFloat64) + _c) - _f);
         };
-        _s = _f / (((2 : GoFloat64)) + _f);
+        _s = _f / ((2 : GoFloat64) + _f);
         _z = _s * _s;
-        r = _z * (((0.6666666666666735 : GoFloat64)) + (_z * (((0.3999999999940942 : GoFloat64)) + (_z * (((0.2857142874366239 : GoFloat64)) + (_z * (((0.22222198432149784 : GoFloat64)) + (_z * (((0.1818357216161805 : GoFloat64)) + (_z * (((0.15313837699209373 : GoFloat64)) + (_z * ((0.14798198605116586 : GoFloat64))))))))))))));
-        if (_k == ((0 : GoInt))) {
-            return _f - (_hfsq - (_s * (_hfsq + r)));
+        r = _z * ((0.6666666666666735 : GoFloat64) + _z * ((0.3999999999940942 : GoFloat64) + _z * ((0.2857142874366239 : GoFloat64) + _z * ((0.22222198432149784 : GoFloat64) + _z * ((0.1818357216161805 : GoFloat64) + _z * ((0.15313837699209373 : GoFloat64) + _z * (0.14798198605116586 : GoFloat64)))))));
+        if (_k == (0 : GoInt)) {
+            return _f - (_hfsq - _s * (_hfsq + r));
         };
-        return (((_k : GoFloat64)) * ((0.6931471803691238 : GoFloat64))) - ((_hfsq - ((_s * (_hfsq + r)) + ((((_k : GoFloat64)) * ((1.9082149292705877e-10 : GoFloat64))) + _c))) - _f);
+        return ((_k : GoFloat64) * (0.6931471803691238 : GoFloat64)) - (_hfsq - (_s * (_hfsq + r) + ((_k : GoFloat64) * (1.9082149292705877e-10 : GoFloat64)) + _c) - _f);
     }
 function _archLog(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // Logb returns the binary exponent of x.
@@ -2477,14 +2477,14 @@ function _archLog(_x:GoFloat64):GoFloat64 {
     //	Logb(NaN) = NaN
 **/
 function logb(_x:GoFloat64):GoFloat64 {
-        if (_x == ((0 : GoFloat64))) {
-            return inf(((-1 : GoInt)));
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            return inf(((1 : GoInt)));
+        if (_x == (0 : GoFloat64)) {
+            return inf((-1 : GoInt));
+        } else if (isInf(_x, (0 : GoInt))) {
+            return inf((1 : GoInt));
         } else if (isNaN(_x)) {
             return _x;
         };
-        return ((_ilogb(_x) : GoFloat64));
+        return (_ilogb(_x) : GoFloat64);
     }
 /**
     // Ilogb returns the binary exponent of x as an integer.
@@ -2496,12 +2496,12 @@ function logb(_x:GoFloat64):GoFloat64 {
     //	Ilogb(NaN) = MaxInt32
 **/
 function ilogb(_x:GoFloat64):GoInt {
-        if (_x == ((0 : GoFloat64))) {
-            return ((-2147483648 : GoInt));
+        if (_x == (0 : GoFloat64)) {
+            return (-2147483648 : GoInt);
         } else if (isNaN(_x)) {
-            return ((2147483647 : GoInt));
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            return ((2147483647 : GoInt));
+            return (2147483647 : GoInt);
+        } else if (isInf(_x, (0 : GoInt))) {
+            return (2147483647 : GoInt);
         };
         return _ilogb(_x);
     }
@@ -2511,7 +2511,7 @@ function ilogb(_x:GoFloat64):GoInt {
 **/
 function _ilogb(_x:GoFloat64):GoInt {
         var __tmp__ = _normalize(_x), _x:GoFloat64 = __tmp__._0, _exp:GoInt = __tmp__._1;
-        return (((((float64bits(_x) >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt)) - ((1023 : GoInt))) + _exp;
+        return (((float64bits(_x) >> (52 : GoUnTypedInt)) & (2047 : GoUInt64) : GoInt) - (1023 : GoInt)) + _exp;
     }
 /**
     // Mod returns the floating-point remainder of x/y.
@@ -2528,23 +2528,23 @@ function _ilogb(_x:GoFloat64):GoInt {
 **/
 function mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 return _x.toBasic() % _y.toBasic();
 function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if ((((_y == ((0 : GoFloat64))) || isInf(_x, ((0 : GoInt)))) || isNaN(_x)) || isNaN(_y)) {
+        if (((_y == (0 : GoFloat64)) || isInf(_x, (0 : GoInt)) || isNaN(_x)) || isNaN(_y)) {
             return naN();
         };
         _y = abs(_y);
         var __tmp__ = frexp(_y), _yfr:GoFloat64 = __tmp__._0, _yexp:GoInt = __tmp__._1;
         var _r:GoFloat64 = _x;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _r = -_x;
         };
         while (_r >= _y) {
             var __tmp__ = frexp(_r), _rfr:GoFloat64 = __tmp__._0, _rexp:GoInt = __tmp__._1;
             if (_rfr < _yfr) {
-                _rexp = _rexp - ((1 : GoInt));
+                _rexp = _rexp - (1 : GoInt);
             };
             _r = _r - ldexp(_y, _rexp - _yexp);
         };
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _r = -_r;
         };
         return _r;
@@ -2559,39 +2559,39 @@ function _mod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Modf(NaN) = NaN, NaN
 **/
 function modf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
-        var _int:GoFloat64 = ((0 : GoFloat64)), _frac:GoFloat64 = ((0 : GoFloat64));
+        var _int:GoFloat64 = (0 : GoFloat64), _frac:GoFloat64 = (0 : GoFloat64);
         if (false) {
             return _archModf(_f);
         };
         return _modf(_f);
     }
 function _modf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
-        var _int:GoFloat64 = ((0 : GoFloat64)), _frac:GoFloat64 = ((0 : GoFloat64));
-        if (_f < ((1 : GoFloat64))) {
-            if (_f < ((0 : GoFloat64))) {
+        var _int:GoFloat64 = (0 : GoFloat64), _frac:GoFloat64 = (0 : GoFloat64);
+        if (_f < (1 : GoFloat64)) {
+            if (_f < (0 : GoFloat64)) {
                 {
                     var __tmp__ = modf(-_f);
                     _int = __tmp__._0;
                     _frac = __tmp__._1;
                 };
                 return { _0 : -_int, _1 : -_frac };
-            } else if (_f == ((0 : GoFloat64))) {
+            } else if (_f == (0 : GoFloat64)) {
                 return { _0 : _f, _1 : _f };
             };
-            return { _0 : ((0 : GoFloat64)), _1 : _f };
+            return { _0 : (0 : GoFloat64), _1 : _f };
         };
         var _x:GoUInt64 = float64bits(_f);
-        var _e:GoUInt = ((((_x >> ((52 : GoUnTypedInt))) : GoUInt)) & ((2047 : GoUInt))) - ((1023 : GoUInt));
-        if (_e < ((52 : GoUInt))) {
-            _x = _x & (((((1 : GoUInt64)) << (((52 : GoUInt)) - _e)) - ((1 : GoUInt64))) ^ ((-1 : GoUnTypedInt)));
+        var _e:GoUInt = ((_x >> (52 : GoUnTypedInt) : GoUInt) & (2047 : GoUInt)) - (1023 : GoUInt);
+        if (_e < (52 : GoUInt)) {
+            _x = _x & (((1 : GoUInt64) << (52 : GoUInt) - _e) - (1 : GoUInt64) ^ (-1 : GoUnTypedInt));
         };
         _int = float64frombits(_x);
         _frac = _f - _int;
         return { _0 : _int, _1 : _frac };
     }
 function _archModf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
-        var _int:GoFloat64 = ((0 : GoFloat64)), _frac:GoFloat64 = ((0 : GoFloat64));
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        var _int:GoFloat64 = (0 : GoFloat64), _frac:GoFloat64 = (0 : GoFloat64);
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // Nextafter32 returns the next representable float32 value after x towards y.
@@ -2603,17 +2603,17 @@ function _archModf(_f:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
     //	Nextafter32(x, NaN) = NaN
 **/
 function nextafter32(_x:GoFloat32, _y:GoFloat32):GoFloat32 {
-        var _r:GoFloat32 = ((0 : GoFloat32));
-        if (isNaN(((_x : GoFloat64))) || isNaN(((_y : GoFloat64)))) {
-            _r = ((naN() : GoFloat32));
+        var _r:GoFloat32 = (0 : GoFloat32);
+        if (isNaN((_x : GoFloat64)) || isNaN((_y : GoFloat64))) {
+            _r = (naN() : GoFloat32);
         } else if (_x == _y) {
             _r = _x;
-        } else if (_x == ((0 : GoFloat32))) {
-            _r = ((copysign(((float32frombits(((1 : GoUInt32))) : GoFloat64)), ((_y : GoFloat64))) : GoFloat32));
-        } else if ((_y > _x) == (_x > ((0 : GoFloat32)))) {
-            _r = float32frombits(float32bits(_x) + ((1 : GoUInt32)));
+        } else if (_x == (0 : GoFloat32)) {
+            _r = (copysign((float32frombits((1 : GoUInt32)) : GoFloat64), (_y : GoFloat64)) : GoFloat32);
+        } else if ((_y > _x) == (_x > (0 : GoFloat32))) {
+            _r = float32frombits(float32bits(_x) + (1 : GoUInt32));
         } else {
-            _r = float32frombits(float32bits(_x) - ((1 : GoUInt32)));
+            _r = float32frombits(float32bits(_x) - (1 : GoUInt32));
         };
         return _r;
     }
@@ -2627,23 +2627,23 @@ function nextafter32(_x:GoFloat32, _y:GoFloat32):GoFloat32 {
     //	Nextafter(x, NaN) = NaN
 **/
 function nextafter(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        var _r:GoFloat64 = ((0 : GoFloat64));
+        var _r:GoFloat64 = (0 : GoFloat64);
         if (isNaN(_x) || isNaN(_y)) {
             _r = naN();
         } else if (_x == _y) {
             _r = _x;
-        } else if (_x == ((0 : GoFloat64))) {
-            _r = copysign(float64frombits(((1 : GoUInt64))), _y);
-        } else if ((_y > _x) == (_x > ((0 : GoFloat64)))) {
-            _r = float64frombits(float64bits(_x) + ((1 : GoUInt64)));
+        } else if (_x == (0 : GoFloat64)) {
+            _r = copysign(float64frombits((1 : GoUInt64)), _y);
+        } else if ((_y > _x) == (_x > (0 : GoFloat64))) {
+            _r = float64frombits(float64bits(_x) + (1 : GoUInt64));
         } else {
-            _r = float64frombits(float64bits(_x) - ((1 : GoUInt64)));
+            _r = float64frombits(float64bits(_x) - (1 : GoUInt64));
         };
         return _r;
     }
 function _isOddInt(_x:GoFloat64):Bool {
         var __tmp__ = modf(_x), _xi:GoFloat64 = __tmp__._0, _xf:GoFloat64 = __tmp__._1;
-        return (_xf == ((0 : GoFloat64))) && ((((_xi : GoInt64)) & ((1 : GoInt64))) == ((1 : GoInt64)));
+        return (_xf == (0 : GoFloat64)) && ((_xi : GoInt64) & (1 : GoInt64) == (1 : GoInt64));
     }
 /**
     // Pow returns x**y, the base-x exponential of y.
@@ -2673,63 +2673,63 @@ function _isOddInt(_x:GoFloat64):Bool {
 **/
 function pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 return std.Math.pow(_x.toBasic(), _y.toBasic());
 function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        if ((_y == ((0 : GoFloat64))) || (_x == ((1 : GoFloat64)))) {
-            return ((1 : GoFloat64));
-        } else if (_y == ((1 : GoFloat64))) {
+        if ((_y == (0 : GoFloat64)) || (_x == (1 : GoFloat64))) {
+            return (1 : GoFloat64);
+        } else if (_y == (1 : GoFloat64)) {
             return _x;
         } else if (isNaN(_x) || isNaN(_y)) {
             return naN();
-        } else if (_x == ((0 : GoFloat64))) {
-            if (_y < ((0 : GoFloat64))) {
+        } else if (_x == (0 : GoFloat64)) {
+            if (_y < (0 : GoFloat64)) {
                 if (_isOddInt(_y)) {
-                    return copysign(inf(((1 : GoInt))), _x);
+                    return copysign(inf((1 : GoInt)), _x);
                 };
-                return inf(((1 : GoInt)));
-            } else if (_y > ((0 : GoFloat64))) {
+                return inf((1 : GoInt));
+            } else if (_y > (0 : GoFloat64)) {
                 if (_isOddInt(_y)) {
                     return _x;
                 };
-                return ((0 : GoFloat64));
+                return (0 : GoFloat64);
             };
-        } else if (isInf(_y, ((0 : GoInt)))) {
-            if (_x == ((-1 : GoFloat64))) {
-                return ((1 : GoFloat64));
-            } else if ((abs(_x) < ((1 : GoFloat64))) == isInf(_y, ((1 : GoInt)))) {
-                return ((0 : GoFloat64));
+        } else if (isInf(_y, (0 : GoInt))) {
+            if (_x == (-1 : GoFloat64)) {
+                return (1 : GoFloat64);
+            } else if ((abs(_x) < (1 : GoFloat64)) == isInf(_y, (1 : GoInt))) {
+                return (0 : GoFloat64);
             } else {
-                return inf(((1 : GoInt)));
+                return inf((1 : GoInt));
             };
-        } else if (isInf(_x, ((0 : GoInt)))) {
-            if (isInf(_x, ((-1 : GoInt)))) {
-                return pow(((1 : GoFloat64)) / _x, -_y);
+        } else if (isInf(_x, (0 : GoInt))) {
+            if (isInf(_x, (-1 : GoInt))) {
+                return pow((1 : GoFloat64) / _x, -_y);
             };
-            if (_y < ((0 : GoFloat64))) {
-                return ((0 : GoFloat64));
-            } else if (_y > ((0 : GoFloat64))) {
-                return inf(((1 : GoInt)));
+            if (_y < (0 : GoFloat64)) {
+                return (0 : GoFloat64);
+            } else if (_y > (0 : GoFloat64)) {
+                return inf((1 : GoInt));
             };
-        } else if (_y == ((0.5 : GoFloat64))) {
+        } else if (_y == (0.5 : GoFloat64)) {
             return sqrt(_x);
-        } else if (_y == ((-0.5 : GoFloat64))) {
-            return ((1 : GoFloat64)) / sqrt(_x);
+        } else if (_y == (-0.5 : GoFloat64)) {
+            return (1 : GoFloat64) / sqrt(_x);
         };
         var __tmp__ = modf(abs(_y)), _yi:GoFloat64 = __tmp__._0, _yf:GoFloat64 = __tmp__._1;
-        if ((_yf != ((0 : GoFloat64))) && (_x < ((0 : GoFloat64)))) {
+        if ((_yf != (0 : GoFloat64)) && (_x < (0 : GoFloat64))) {
             return naN();
         };
-        if (_yi >= ((9.223372036854776e+18 : GoFloat64))) {
-            if (_x == ((-1 : GoFloat64))) {
-                return ((1 : GoFloat64));
-            } else if ((abs(_x) < ((1 : GoFloat64))) == (_y > ((0 : GoFloat64)))) {
-                return ((0 : GoFloat64));
+        if (_yi >= (9.223372036854776e+18 : GoFloat64)) {
+            if (_x == (-1 : GoFloat64)) {
+                return (1 : GoFloat64);
+            } else if ((abs(_x) < (1 : GoFloat64)) == (_y > (0 : GoFloat64))) {
+                return (0 : GoFloat64);
             } else {
-                return inf(((1 : GoInt)));
+                return inf((1 : GoInt));
             };
         };
-        var _a1:GoFloat64 = ((1 : GoFloat64));
-        var _ae:GoInt = ((0 : GoInt));
-        if (_yf != ((0 : GoFloat64))) {
-            if (_yf > ((0.5 : GoFloat64))) {
+        var _a1:GoFloat64 = (1 : GoFloat64);
+        var _ae:GoInt = (0 : GoInt);
+        if (_yf != (0 : GoFloat64)) {
+            if (_yf > (0.5 : GoFloat64)) {
                 _yf--;
                 _yi++;
             };
@@ -2737,26 +2737,26 @@ function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         };
         var __tmp__ = frexp(_x), _x1:GoFloat64 = __tmp__._0, _xe:GoInt = __tmp__._1;
         {
-            var _i:GoInt64 = ((_yi : GoInt64));
-            Go.cfor(_i != ((0 : GoInt64)), _i = _i >> (((1 : GoUnTypedInt))), {
-                if ((_xe < ((-4096 : GoInt))) || (((4096 : GoInt)) < _xe)) {
+            var _i:GoInt64 = (_yi : GoInt64);
+            Go.cfor(_i != (0 : GoInt64), _i = _i >> ((1 : GoUnTypedInt)), {
+                if ((_xe < (-4096 : GoInt)) || ((4096 : GoInt) < _xe)) {
                     _ae = _ae + (_xe);
                     break;
                 };
-                if ((_i & ((1 : GoInt64))) == ((1 : GoInt64))) {
+                if ((_i & (1 : GoInt64)) == (1 : GoInt64)) {
                     _a1 = _a1 * (_x1);
                     _ae = _ae + (_xe);
                 };
                 _x1 = _x1 * (_x1);
-                _xe = _xe << (((1 : GoUnTypedInt)));
-                if (_x1 < ((0.5 : GoFloat64))) {
+                _xe = _xe << ((1 : GoUnTypedInt));
+                if (_x1 < (0.5 : GoFloat64)) {
                     _x1 = _x1 + (_x1);
                     _xe--;
                 };
             });
         };
-        if (_y < ((0 : GoFloat64))) {
-            _a1 = ((1 : GoFloat64)) / _a1;
+        if (_y < (0 : GoFloat64)) {
+            _a1 = (1 : GoFloat64) / _a1;
             _ae = -_ae;
         };
         return ldexp(_a1, _ae);
@@ -2770,16 +2770,16 @@ function _pow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     //	Pow10(n) = +Inf for n > 308
 **/
 function pow10(_n:GoInt):GoFloat64 {
-        if ((((0 : GoInt)) <= _n) && (_n <= ((308 : GoInt)))) {
-            return (_pow10postab32 != null ? _pow10postab32[((_n : GoUInt)) / ((32 : GoUInt))] : ((0 : GoFloat64))) * (_pow10tab != null ? _pow10tab[((_n : GoUInt)) % ((32 : GoUInt))] : ((0 : GoFloat64)));
+        if (((0 : GoInt) <= _n) && (_n <= (308 : GoInt))) {
+            return _pow10postab32[(_n : GoUInt) / (32 : GoUInt)] * _pow10tab[(_n : GoUInt) % (32 : GoUInt)];
         };
-        if ((((-323 : GoInt)) <= _n) && (_n <= ((0 : GoInt)))) {
-            return (_pow10negtab32 != null ? _pow10negtab32[((-_n : GoUInt)) / ((32 : GoUInt))] : ((0 : GoFloat64))) / (_pow10tab != null ? _pow10tab[((-_n : GoUInt)) % ((32 : GoUInt))] : ((0 : GoFloat64)));
+        if (((-323 : GoInt) <= _n) && (_n <= (0 : GoInt))) {
+            return _pow10negtab32[(-_n : GoUInt) / (32 : GoUInt)] / _pow10tab[(-_n : GoUInt) % (32 : GoUInt)];
         };
-        if (_n > ((0 : GoInt))) {
-            return inf(((1 : GoInt)));
+        if (_n > (0 : GoInt)) {
+            return inf((1 : GoInt));
         };
-        return ((0 : GoFloat64));
+        return (0 : GoFloat64);
     }
 /**
     // Remainder returns the IEEE 754 floating-point remainder of x/y.
@@ -2800,30 +2800,30 @@ function remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
     }
 function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
         {};
-        if (((isNaN(_x) || isNaN(_y)) || isInf(_x, ((0 : GoInt)))) || (_y == ((0 : GoFloat64)))) {
+        if ((isNaN(_x) || isNaN(_y) || isInf(_x, (0 : GoInt))) || (_y == (0 : GoFloat64))) {
             return naN();
-        } else if (isInf(_y, ((0 : GoInt)))) {
+        } else if (isInf(_y, (0 : GoInt))) {
             return _x;
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        if (_y < ((0 : GoFloat64))) {
+        if (_y < (0 : GoFloat64)) {
             _y = -_y;
         };
         if (_x == _y) {
             if (_sign) {
-                var _zero:GoFloat64 = ((0 : GoFloat64));
+                var _zero:GoFloat64 = (0 : GoFloat64);
                 return -_zero;
             };
-            return ((0 : GoFloat64));
+            return (0 : GoFloat64);
         };
-        if (_y <= ((8.988465674311579e+307 : GoFloat64))) {
+        if (_y <= (8.988465674311579e+307 : GoFloat64)) {
             _x = mod(_x, _y + _y);
         };
-        if (_y < ((4.450147717014403e-308 : GoFloat64))) {
+        if (_y < (4.450147717014403e-308 : GoFloat64)) {
             if ((_x + _x) > _y) {
                 _x = _x - (_y);
                 if ((_x + _x) >= _y) {
@@ -2831,7 +2831,7 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
                 };
             };
         } else {
-            var _yHalf:GoFloat64 = ((0.5 : GoFloat64)) * _y;
+            var _yHalf:GoFloat64 = (0.5 : GoFloat64) * _y;
             if (_x > _yHalf) {
                 _x = _x - (_y);
                 if (_x >= _yHalf) {
@@ -2849,7 +2849,7 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 **/
 function signbit(_x:GoFloat64):Bool {
         if (std.Math.isNaN(_x.toBasic())) return false;
-        return (float64bits(_x) & ((1 : GoUInt64))) << ((63 : GoUInt64)) != ((0 : GoUInt64));
+        return (float64bits(_x) & (1 : GoUInt64)) << (63 : GoUInt64) != (0 : GoUInt64);
     }
 /**
     // Cos returns the cosine of the radian argument x.
@@ -2882,38 +2882,38 @@ inline function _sin(_x:GoFloat64):GoFloat64 return sin(_x);
     //	Sincos(NaN) = NaN, NaN
 **/
 function sincos(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
-        var _sin:GoFloat64 = ((0 : GoFloat64)), _cos:GoFloat64 = ((0 : GoFloat64));
+        var _sin:GoFloat64 = (0 : GoFloat64), _cos:GoFloat64 = (0 : GoFloat64);
         {};
-        if (_x == ((0 : GoFloat64))) {
-            return { _0 : _x, _1 : ((1 : GoFloat64)) };
-        } else if (isNaN(_x) || isInf(_x, ((0 : GoInt)))) {
+        if (_x == (0 : GoFloat64)) {
+            return { _0 : _x, _1 : (1 : GoFloat64) };
+        } else if (isNaN(_x) || isInf(_x, (0 : GoInt))) {
             return { _0 : naN(), _1 : naN() };
         };
         var _sinSign:Bool = false, _cosSign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sinSign = true;
         };
-        var _j:GoUInt64 = ((0 : GoUInt64));
-        var _y:GoFloat64 = ((0 : GoFloat64)), _z:GoFloat64 = ((0 : GoFloat64));
-        if (_x >= ((5.36870912e+08 : GoFloat64))) {
+        var _j:GoUInt64 = (0 : GoUInt64);
+        var _y:GoFloat64 = (0 : GoFloat64), _z:GoFloat64 = (0 : GoFloat64);
+        if (_x >= (5.36870912e+08 : GoFloat64)) {
             {
                 var __tmp__ = _trigReduce(_x);
                 _j = __tmp__._0;
                 _z = __tmp__._1;
             };
         } else {
-            _j = (((_x * ((1.2732395447351628 : GoFloat64))) : GoUInt64));
-            _y = ((_j : GoFloat64));
-            if ((_j & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
+            _j = (_x * (1.2732395447351628 : GoFloat64) : GoUInt64);
+            _y = (_j : GoFloat64);
+            if ((_j & (1 : GoUInt64)) == (1 : GoUInt64)) {
                 _j++;
                 _y++;
             };
-            _j = _j & (((7 : GoUInt64)));
-            _z = ((_x - (_y * ((0.7853981256484985 : GoFloat64)))) - (_y * ((3.774894707930798e-08 : GoFloat64)))) - (_y * ((2.6951514290790595e-15 : GoFloat64)));
+            _j = _j & ((7 : GoUInt64));
+            _z = (_x - (_y * (0.7853981256484985 : GoFloat64)) - _y * (3.774894707930798e-08 : GoFloat64)) - (_y * (2.6951514290790595e-15 : GoFloat64));
         };
-        if (_j > ((3 : GoUInt64))) {
-            _j = _j - (((4 : GoUInt64)));
+        if (_j > (3 : GoUInt64)) {
+            _j = _j - ((4 : GoUInt64));
             {
                 final __tmp__0 = !_sinSign;
                 final __tmp__1 = !_cosSign;
@@ -2921,13 +2921,13 @@ function sincos(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoFloat64; } {
                 _cosSign = __tmp__1;
             };
         };
-        if (_j > ((1 : GoUInt64))) {
+        if (_j > (1 : GoUInt64)) {
             _cosSign = !_cosSign;
         };
         var _zz:GoFloat64 = _z * _z;
-        _cos = (((1 : GoFloat64)) - (((0.5 : GoFloat64)) * _zz)) + ((_zz * _zz) * (((((((((((__cos != null ? __cos[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__cos != null ? __cos[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__cos != null ? __cos[((5 : GoInt))] : ((0 : GoFloat64)))));
-        _sin = _z + ((_z * _zz) * (((((((((((__sin != null ? __sin[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__sin != null ? __sin[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((4 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__sin != null ? __sin[((5 : GoInt))] : ((0 : GoFloat64)))));
-        if ((_j == ((1 : GoUInt64))) || (_j == ((2 : GoUInt64)))) {
+        _cos = ((1 : GoFloat64) - (0.5 : GoFloat64) * _zz) + (_zz * _zz * (((((__cos[(0 : GoInt)] * _zz) + __cos[(1 : GoInt)] * _zz) + __cos[(2 : GoInt)] * _zz) + __cos[(3 : GoInt)] * _zz) + __cos[(4 : GoInt)] * _zz) + __cos[(5 : GoInt)]);
+        _sin = _z + (_z * _zz * (((((__sin[(0 : GoInt)] * _zz) + __sin[(1 : GoInt)] * _zz) + __sin[(2 : GoInt)] * _zz) + __sin[(3 : GoInt)] * _zz) + __sin[(4 : GoInt)] * _zz) + __sin[(5 : GoInt)]);
+        if ((_j == (1 : GoUInt64)) || (_j == (2 : GoUInt64))) {
             {
                 final __tmp__0 = _cos;
                 final __tmp__1 = _sin;
@@ -2961,20 +2961,20 @@ function sinh(_x:GoFloat64):GoFloat64 {
 function _sinh(_x:GoFloat64):GoFloat64 {
         {};
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _temp:GoFloat64 = ((0 : GoFloat64));
-        if (_x > ((21 : GoFloat64))) {
-            _temp = exp(_x) * ((0.5 : GoFloat64));
-        } else if (_x > ((0.5 : GoFloat64))) {
+        var _temp:GoFloat64 = (0 : GoFloat64);
+        if (_x > (21 : GoFloat64)) {
+            _temp = exp(_x) * (0.5 : GoFloat64);
+        } else if (_x > (0.5 : GoFloat64)) {
             var _ex:GoFloat64 = exp(_x);
-            _temp = (_ex - (((1 : GoFloat64)) / _ex)) * ((0.5 : GoFloat64));
+            _temp = (_ex - (1 : GoFloat64) / _ex) * (0.5 : GoFloat64);
         } else {
             var _sq:GoFloat64 = _x * _x;
-            _temp = ((((((((-26.30563213397497 : GoFloat64)) * _sq) + ((-2894.211355989564 : GoFloat64))) * _sq) + ((-89912.72022039509 : GoFloat64))) * _sq) + ((-630767.3640497717 : GoFloat64))) * _x;
-            _temp = _temp / (((((_sq + ((-173.6789535582337 : GoFloat64))) * _sq) + ((15215.17378790019 : GoFloat64))) * _sq) + ((-630767.3640497717 : GoFloat64)));
+            _temp = ((((-26.30563213397497 : GoFloat64) * _sq + (-2894.211355989564 : GoFloat64)) * _sq + (-89912.72022039509 : GoFloat64)) * _sq + (-630767.3640497717 : GoFloat64)) * _x;
+            _temp = _temp / (((_sq + (-173.6789535582337 : GoFloat64)) * _sq + (15215.17378790019 : GoFloat64)) * _sq + (-630767.3640497717 : GoFloat64));
         };
         if (_sign) {
             _temp = -_temp;
@@ -2998,11 +2998,11 @@ function cosh(_x:GoFloat64):GoFloat64 {
     }
 function _cosh(_x:GoFloat64):GoFloat64 {
         _x = abs(_x);
-        if (_x > ((21 : GoFloat64))) {
-            return exp(_x) * ((0.5 : GoFloat64));
+        if (_x > (21 : GoFloat64)) {
+            return exp(_x) * (0.5 : GoFloat64);
         };
         var _ex:GoFloat64 = exp(_x);
-        return (_ex + (((1 : GoFloat64)) / _ex)) * ((0.5 : GoFloat64));
+        return (_ex + (1 : GoFloat64) / _ex) * (0.5 : GoFloat64);
     }
 /**
     // Sqrt returns the square root of x.
@@ -3018,79 +3018,79 @@ function sqrt(_x:GoFloat64):GoFloat64 return _sqrt(_x);
 inline function _sqrt(_x:GoFloat64):GoFloat64 return std.Math.sqrt(_x.toBasic());
 function _archSqrt(_x:GoFloat64):GoFloat64 throw "not implemeneted";
 function _archAcos(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAcosh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAsin(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAsinh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAtan(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAtan2(_y:GoFloat64, _x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archAtanh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archCbrt(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archCos(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archCosh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archErf(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archErfc(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archExpm1(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archFrexp(_x:GoFloat64):{ var _0 : GoFloat64; var _1 : GoInt; } {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archLdexp(_frac:GoFloat64, _exp:GoInt):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archLog10(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archLog2(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archLog1p(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archMod(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archPow(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archRemainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archSin(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archSinh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archTan(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 function _archTanh(_x:GoFloat64):GoFloat64 {
-        throw Go.toInterface(((Go.str("not implemented") : GoString)));
+        throw Go.toInterface((Go.str("not implemented") : GoString));
     }
 /**
     // Tan returns the tangent of the radian argument x.
@@ -3104,41 +3104,41 @@ function _archTanh(_x:GoFloat64):GoFloat64 {
 function tan(_x:GoFloat64):GoFloat64 return std.Math.tan(_x.toBasic());
 function _tan(_x:GoFloat64):GoFloat64 {
         {};
-        if ((_x == ((0 : GoFloat64))) || isNaN(_x)) {
+        if ((_x == (0 : GoFloat64)) || isNaN(_x)) {
             return _x;
-        } else if (isInf(_x, ((0 : GoInt)))) {
+        } else if (isInf(_x, (0 : GoInt))) {
             return naN();
         };
         var _sign:Bool = false;
-        if (_x < ((0 : GoFloat64))) {
+        if (_x < (0 : GoFloat64)) {
             _x = -_x;
             _sign = true;
         };
-        var _j:GoUInt64 = ((0 : GoUInt64));
-        var _y:GoFloat64 = ((0 : GoFloat64)), _z:GoFloat64 = ((0 : GoFloat64));
-        if (_x >= ((5.36870912e+08 : GoFloat64))) {
+        var _j:GoUInt64 = (0 : GoUInt64);
+        var _y:GoFloat64 = (0 : GoFloat64), _z:GoFloat64 = (0 : GoFloat64);
+        if (_x >= (5.36870912e+08 : GoFloat64)) {
             {
                 var __tmp__ = _trigReduce(_x);
                 _j = __tmp__._0;
                 _z = __tmp__._1;
             };
         } else {
-            _j = (((_x * ((1.2732395447351628 : GoFloat64))) : GoUInt64));
-            _y = ((_j : GoFloat64));
-            if ((_j & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
+            _j = (_x * (1.2732395447351628 : GoFloat64) : GoUInt64);
+            _y = (_j : GoFloat64);
+            if ((_j & (1 : GoUInt64)) == (1 : GoUInt64)) {
                 _j++;
                 _y++;
             };
-            _z = ((_x - (_y * ((0.7853981256484985 : GoFloat64)))) - (_y * ((3.774894707930798e-08 : GoFloat64)))) - (_y * ((2.6951514290790595e-15 : GoFloat64)));
+            _z = (_x - (_y * (0.7853981256484985 : GoFloat64)) - _y * (3.774894707930798e-08 : GoFloat64)) - (_y * (2.6951514290790595e-15 : GoFloat64));
         };
         var _zz:GoFloat64 = _z * _z;
-        if (_zz > ((1e-14 : GoFloat64))) {
-            _y = _z + (_z * ((_zz * (((((__tanP != null ? __tanP[((0 : GoInt))] : ((0 : GoFloat64))) * _zz) + (__tanP != null ? __tanP[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__tanP != null ? __tanP[((2 : GoInt))] : ((0 : GoFloat64))))) / (((((((_zz + (__tanQ != null ? __tanQ[((1 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__tanQ != null ? __tanQ[((2 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__tanQ != null ? __tanQ[((3 : GoInt))] : ((0 : GoFloat64)))) * _zz) + (__tanQ != null ? __tanQ[((4 : GoInt))] : ((0 : GoFloat64))))));
+        if (_zz > (1e-14 : GoFloat64)) {
+            _y = _z + (_z * (_zz * ((__tanP[(0 : GoInt)] * _zz) + __tanP[(1 : GoInt)] * _zz) + __tanP[(2 : GoInt)]) / ((((_zz + __tanQ[(1 : GoInt)]) * _zz + __tanQ[(2 : GoInt)]) * _zz + __tanQ[(3 : GoInt)]) * _zz + __tanQ[(4 : GoInt)]));
         } else {
             _y = _z;
         };
-        if ((_j & ((2 : GoUInt64))) == ((2 : GoUInt64))) {
-            _y = ((-1 : GoFloat64)) / _y;
+        if ((_j & (2 : GoUInt64)) == (2 : GoUInt64)) {
+            _y = (-1 : GoFloat64) / _y;
         };
         if (_sign) {
             _y = -_y;
@@ -3163,23 +3163,23 @@ function tanh(_x:GoFloat64):GoFloat64 {
 function _tanh(_x:GoFloat64):GoFloat64 {
         {};
         var _z:GoFloat64 = abs(_x);
-        if (_z > ((44.014845965556525 : GoFloat64))) {
-            if (_x < ((0 : GoFloat64))) {
-                return ((-1 : GoFloat64));
+        if (_z > (44.014845965556525 : GoFloat64)) {
+            if (_x < (0 : GoFloat64)) {
+                return (-1 : GoFloat64);
             };
-            return ((1 : GoFloat64));
-        } else if (_z >= ((0.625 : GoFloat64))) {
-            var _s:GoFloat64 = exp(((2 : GoFloat64)) * _z);
-            _z = ((1 : GoFloat64)) - (((2 : GoFloat64)) / (_s + ((1 : GoFloat64))));
-            if (_x < ((0 : GoFloat64))) {
+            return (1 : GoFloat64);
+        } else if (_z >= (0.625 : GoFloat64)) {
+            var _s:GoFloat64 = exp((2 : GoFloat64) * _z);
+            _z = (1 : GoFloat64) - ((2 : GoFloat64) / _s + (1 : GoFloat64));
+            if (_x < (0 : GoFloat64)) {
                 _z = -_z;
             };
         } else {
-            if (_x == ((0 : GoFloat64))) {
+            if (_x == (0 : GoFloat64)) {
                 return _x;
             };
             var _s:GoFloat64 = _x * _x;
-            _z = _x + (((_x * _s) * (((((_tanhP != null ? _tanhP[((0 : GoInt))] : ((0 : GoFloat64))) * _s) + (_tanhP != null ? _tanhP[((1 : GoInt))] : ((0 : GoFloat64)))) * _s) + (_tanhP != null ? _tanhP[((2 : GoInt))] : ((0 : GoFloat64))))) / (((((_s + (_tanhQ != null ? _tanhQ[((0 : GoInt))] : ((0 : GoFloat64)))) * _s) + (_tanhQ != null ? _tanhQ[((1 : GoInt))] : ((0 : GoFloat64)))) * _s) + (_tanhQ != null ? _tanhQ[((2 : GoInt))] : ((0 : GoFloat64)))));
+            _z = _x + ((_x * _s) * ((_tanhP[(0 : GoInt)] * _s + _tanhP[(1 : GoInt)]) * _s + _tanhP[(2 : GoInt)]) / ((_s + _tanhQ[(0 : GoInt)] * _s) + _tanhQ[(1 : GoInt)] * _s) + _tanhQ[(2 : GoInt)]);
         };
         return _z;
     }
@@ -3193,38 +3193,38 @@ function _tanh(_x:GoFloat64):GoFloat64 {
     // The simulated multi-precision calculation of x*B uses 64-bit integer arithmetic.
 **/
 function _trigReduce(_x:GoFloat64):{ var _0 : GoUInt64; var _1 : GoFloat64; } {
-        var _j:GoUInt64 = ((0 : GoUInt64)), _z:GoFloat64 = ((0 : GoFloat64));
+        var _j:GoUInt64 = (0 : GoUInt64), _z:GoFloat64 = (0 : GoFloat64);
         {};
-        if (_x < ((0.7853981633974483 : GoFloat64))) {
-            return { _0 : ((0 : GoUInt64)), _1 : _x };
+        if (_x < (0.7853981633974483 : GoFloat64)) {
+            return { _0 : (0 : GoUInt64), _1 : _x };
         };
         var _ix:GoUInt64 = float64bits(_x);
-        var _exp:GoInt = (((((_ix >> ((52 : GoUnTypedInt))) & ((2047 : GoUInt64))) : GoInt)) - ((1023 : GoInt))) - ((52 : GoInt));
-        _ix = _ix & (((("9218868437227405312" : GoUInt64))) ^ ((-1 : GoUnTypedInt)));
-        _ix = _ix | ((("4503599627370496" : GoUInt64)));
-        var _digit:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) / ((64 : GoUInt)), _bitshift:GoUInt = (((_exp + ((61 : GoInt))) : GoUInt)) % ((64 : GoUInt));
-        var _z0:GoUInt64 = ((_mPi4 != null ? _mPi4[_digit] : ((0 : GoUInt64))) << _bitshift) | ((_mPi4 != null ? _mPi4[_digit + ((1 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
-        var _z1:GoUInt64 = ((_mPi4 != null ? _mPi4[_digit + ((1 : GoUInt))] : ((0 : GoUInt64))) << _bitshift) | ((_mPi4 != null ? _mPi4[_digit + ((2 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
-        var _z2:GoUInt64 = ((_mPi4 != null ? _mPi4[_digit + ((2 : GoUInt))] : ((0 : GoUInt64))) << _bitshift) | ((_mPi4 != null ? _mPi4[_digit + ((3 : GoUInt))] : ((0 : GoUInt64))) >> (((64 : GoUInt)) - _bitshift));
+        var _exp:GoInt = (((_ix >> (52 : GoUnTypedInt)) & (2047 : GoUInt64) : GoInt) - (1023 : GoInt)) - (52 : GoInt);
+        _ix = _ix & (("9218868437227405312" : GoUInt64) ^ (-1 : GoUnTypedInt));
+        _ix = _ix | (("4503599627370496" : GoUInt64));
+        var _digit:GoUInt = (_exp + (61 : GoInt) : GoUInt) / (64 : GoUInt), _bitshift:GoUInt = (_exp + (61 : GoInt) : GoUInt) % (64 : GoUInt);
+        var _z0:GoUInt64 = (_mPi4[_digit] << _bitshift) | (_mPi4[_digit + (1 : GoUInt)] >> (64 : GoUInt) - _bitshift);
+        var _z1:GoUInt64 = (_mPi4[_digit + (1 : GoUInt)] << _bitshift) | (_mPi4[_digit + (2 : GoUInt)] >> (64 : GoUInt) - _bitshift);
+        var _z2:GoUInt64 = (_mPi4[_digit + (2 : GoUInt)] << _bitshift) | (_mPi4[_digit + (3 : GoUInt)] >> (64 : GoUInt) - _bitshift);
         var __tmp__ = stdgo.math.bits.Bits.mul64(_z2, _ix), _z2hi:GoUInt64 = __tmp__._0, _0:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.mul64(_z1, _ix), _z1hi:GoUInt64 = __tmp__._0, _z1lo:GoUInt64 = __tmp__._1;
         var _z0lo:GoUInt64 = _z0 * _ix;
-        var __tmp__ = stdgo.math.bits.Bits.add64(_z1lo, _z2hi, ((0 : GoUInt64))), _lo:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
+        var __tmp__ = stdgo.math.bits.Bits.add64(_z1lo, _z2hi, (0 : GoUInt64)), _lo:GoUInt64 = __tmp__._0, _c:GoUInt64 = __tmp__._1;
         var __tmp__ = stdgo.math.bits.Bits.add64(_z0lo, _z1hi, _c), _hi:GoUInt64 = __tmp__._0, _1:GoUInt64 = __tmp__._1;
-        _j = _hi >> ((61 : GoUnTypedInt));
-        _hi = (_hi << ((3 : GoUnTypedInt))) | (_lo >> ((61 : GoUnTypedInt)));
-        var _lz:GoUInt = ((stdgo.math.bits.Bits.leadingZeros64(_hi) : GoUInt));
-        var _e:GoUInt64 = (((((1023 : GoUInt)) - (_lz + ((1 : GoUInt)))) : GoUInt64));
-        _hi = (_hi << (_lz + ((1 : GoUInt)))) | (_lo >> (((64 : GoUInt)) - (_lz + ((1 : GoUInt)))));
-        _hi = _hi >> (((12 : GoUnTypedInt)));
-        _hi = _hi | (_e << ((52 : GoUnTypedInt)));
+        _j = _hi >> (61 : GoUnTypedInt);
+        _hi = (_hi << (3 : GoUnTypedInt)) | (_lo >> (61 : GoUnTypedInt));
+        var _lz:GoUInt = (stdgo.math.bits.Bits.leadingZeros64(_hi) : GoUInt);
+        var _e:GoUInt64 = ((1023 : GoUInt) - (_lz + (1 : GoUInt)) : GoUInt64);
+        _hi = (_hi << _lz + (1 : GoUInt)) | (_lo >> (64 : GoUInt) - (_lz + (1 : GoUInt)));
+        _hi = _hi >> ((12 : GoUnTypedInt));
+        _hi = _hi | (_e << (52 : GoUnTypedInt));
         _z = float64frombits(_hi);
-        if ((_j & ((1 : GoUInt64))) == ((1 : GoUInt64))) {
+        if ((_j & (1 : GoUInt64)) == (1 : GoUInt64)) {
             _j++;
-            _j = _j & (((7 : GoUInt64)));
+            _j = _j & ((7 : GoUInt64));
             _z--;
         };
-        return { _0 : _j, _1 : _z * ((0.7853981633974483 : GoFloat64)) };
+        return { _0 : _j, _1 : _z * (0.7853981633974483 : GoFloat64) };
     }
 /**
     // Float32bits returns the IEEE 754 binary representation of f,
@@ -3282,8 +3282,8 @@ function float64frombits(_b:GoUInt64):GoFloat64 {
         return bits.getDouble(0);
     }
 private function negZero() {
-        final _sign:GoUnTypedInt = (((1 : GoUnTypedInt))) << (((63 : GoUnTypedInt)));
+        final _sign:GoUnTypedInt = ((1 : GoUnTypedInt)) << ((63 : GoUnTypedInt));
         final _x:GoFloat = 0;
         final _y:GoFloat = -1;
-        return float64frombits((float64bits(_x) & (_sign ^ (((-1 : GoUnTypedInt))))) | (float64bits(_y) & _sign));
+        return float64frombits((float64bits(_x) & _sign ^ ((-1 : GoUnTypedInt))) | (float64bits(_y) & _sign));
     }

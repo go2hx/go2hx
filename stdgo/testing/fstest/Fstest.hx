@@ -26,7 +26,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new MapFile(data, mode, modTime, sys);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) class T_fsOnly {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsOnly_static_extension) private class T_fsOnly {
     @:embedded
     public var fs : stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
     public function new(?fs:stdgo.io.fs.Fs.FS) {
@@ -39,7 +39,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new T_fsOnly(fs);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) class T_noSub {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_noSub_static_extension) private class T_noSub {
     @:embedded
     public var mapFS : MapFS = (null : MapFS);
     public function new(?mapFS:MapFS) {
@@ -60,7 +60,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new T_noSub(mapFS);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) class T_mapFileInfo {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapFileInfo_static_extension) private class T_mapFileInfo {
     public var _name : GoString = "";
     public var _f : Ref<MapFile> = (null : MapFile);
     public function new(?_name:GoString, ?_f:Ref<MapFile>) {
@@ -72,7 +72,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new T_mapFileInfo(_name, _f);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) class T_openMapFile {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_openMapFile_static_extension) private class T_openMapFile {
     public var _path : GoString = "";
     @:embedded
     public var _mapFileInfo : T_mapFileInfo = ({  } : T_mapFileInfo);
@@ -103,7 +103,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new T_openMapFile(_path, _mapFileInfo, _offset);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) class T_mapDir {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_mapDir_static_extension) private class T_mapDir {
     public var _path : GoString = "";
     @:embedded
     public var _mapFileInfo : T_mapFileInfo = ({  } : T_mapFileInfo);
@@ -136,7 +136,7 @@ var _3 : stdgo.io.fs.Fs.File = (null : stdgo.io.fs.Fs.File);
         return new T_mapDir(_path, _mapFileInfo, _entry, _offset);
     }
 }
-@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) class T_fsTester {
+@:structInit @:using(stdgo.testing.fstest.Fstest.T_fsTester_static_extension) private class T_fsTester {
     public var _fsys : stdgo.io.fs.Fs.FS = (null : stdgo.io.fs.Fs.FS);
     public var _errText : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _dirs : Slice<GoString> = (null : Slice<GoString>);
@@ -189,18 +189,18 @@ function _formatInfoEntry(_info:stdgo.io.fs.Fs.FileInfo):GoString throw "testing
 function _formatInfo(_info:stdgo.io.fs.Fs.FileInfo):GoString throw "testing.fstest._formatInfo is not yet implemented";
 function testSymlink(_t:stdgo.testing.Testing.T):Void throw "testing.fstest.testSymlink is not yet implemented";
 function testDash(_t:stdgo.testing.Testing.T):Void throw "testing.fstest.testDash is not yet implemented";
-@:keep class T_fsOnly_static_extension {
+@:keep private class T_fsOnly_static_extension {
     @:embedded
     public static function open( __self__:T_fsOnly, _pattern:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } return __self__.open(_pattern);
 }
-class T_fsOnly_wrapper {
+private class T_fsOnly_wrapper {
     @:embedded
     public var open : GoString -> { var _0 : stdgo.io.fs.Fs.File; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fsOnly;
 }
-@:keep class T_noSub_static_extension {
+@:keep private class T_noSub_static_extension {
     @:keep
     static public function sub( _:T_noSub):Void throw "testing.fstest.sub is not yet implemented";
     @:embedded
@@ -214,7 +214,7 @@ class T_fsOnly_wrapper {
     @:embedded
     public static function glob( __self__:T_noSub, _pattern:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return __self__.glob(_pattern);
 }
-class T_noSub_wrapper {
+private class T_noSub_wrapper {
     @:keep
     public var sub : () -> Void = null;
     @:embedded
@@ -231,7 +231,7 @@ class T_noSub_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_noSub;
 }
-@:keep class T_mapFileInfo_static_extension {
+@:keep private class T_mapFileInfo_static_extension {
     @:keep
     static public function info( _i:T_mapFileInfo):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } throw "testing.fstest.info is not yet implemented";
     @:keep
@@ -249,7 +249,7 @@ class T_noSub_wrapper {
     @:keep
     static public function name( _i:T_mapFileInfo):GoString throw "testing.fstest.name is not yet implemented";
 }
-class T_mapFileInfo_wrapper {
+private class T_mapFileInfo_wrapper {
     @:keep
     public var info : () -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } = null;
     @:keep
@@ -270,7 +270,7 @@ class T_mapFileInfo_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_mapFileInfo;
 }
-@:keep class T_openMapFile_static_extension {
+@:keep private class T_openMapFile_static_extension {
     @:keep
     static public function readAt( _f:T_openMapFile, _b:Slice<GoByte>, _offset:GoInt64):{ var _0 : GoInt; var _1 : Error; } throw "testing.fstest.readAt is not yet implemented";
     @:keep
@@ -298,7 +298,7 @@ class T_mapFileInfo_wrapper {
     @:embedded
     public static function info( __self__:T_openMapFile):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return __self__.info();
 }
-class T_openMapFile_wrapper {
+private class T_openMapFile_wrapper {
     @:keep
     public var readAt : (Slice<GoByte>, GoInt64) -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -329,7 +329,7 @@ class T_openMapFile_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_openMapFile;
 }
-@:keep class T_mapDir_static_extension {
+@:keep private class T_mapDir_static_extension {
     @:keep
     static public function readDir( _d:T_mapDir, _count:GoInt):{ var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } throw "testing.fstest.readDir is not yet implemented";
     @:keep
@@ -355,7 +355,7 @@ class T_openMapFile_wrapper {
     @:embedded
     public static function info( __self__:T_mapDir):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : stdgo.Error; } return __self__.info();
 }
-class T_mapDir_wrapper {
+private class T_mapDir_wrapper {
     @:keep
     public var readDir : GoInt -> { var _0 : Slice<stdgo.io.fs.Fs.DirEntry>; var _1 : Error; } = null;
     @:keep
@@ -384,7 +384,7 @@ class T_mapDir_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_mapDir;
 }
-@:keep class T_fsTester_static_extension {
+@:keep private class T_fsTester_static_extension {
     /**
         // checkBadPath checks that various invalid forms of file's name cannot be opened using open.
     **/
@@ -433,7 +433,7 @@ class T_mapDir_wrapper {
     @:keep
     static public function _errorf( _t:T_fsTester, _format:GoString, _args:haxe.Rest<AnyInterface>):Void throw "testing.fstest._errorf is not yet implemented";
 }
-class T_fsTester_wrapper {
+private class T_fsTester_wrapper {
     /**
         // checkBadPath checks that various invalid forms of file's name cannot be opened using open.
     **/
@@ -485,7 +485,7 @@ class T_fsTester_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fsTester;
 }
-@:keep class MapFS_static_extension {
+@:keep private class MapFS_static_extension {
     @:keep
     static public function sub( _fsys:MapFS, _dir:GoString):{ var _0 : stdgo.io.fs.Fs.FS; var _1 : Error; } throw "testing.fstest.sub is not yet implemented";
     @:keep
@@ -502,7 +502,7 @@ class T_fsTester_wrapper {
     @:keep
     static public function open( _fsys:MapFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } throw "testing.fstest.open is not yet implemented";
 }
-class MapFS_wrapper {
+private class MapFS_wrapper {
     @:keep
     public var sub : GoString -> { var _0 : stdgo.io.fs.Fs.FS; var _1 : Error; } = null;
     @:keep

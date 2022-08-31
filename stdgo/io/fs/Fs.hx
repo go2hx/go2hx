@@ -92,7 +92,7 @@ typedef SubFS = StructType & {
         return new PathError(op, path, err);
     }
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) class T_dirInfo {
+@:structInit @:using(stdgo.io.fs.Fs.T_dirInfo_static_extension) private class T_dirInfo {
     public var _fileInfo : FileInfo = (null : FileInfo);
     public function new(?_fileInfo:FileInfo) {
         if (_fileInfo != null) this._fileInfo = _fileInfo;
@@ -102,7 +102,7 @@ typedef SubFS = StructType & {
         return new T_dirInfo(_fileInfo);
     }
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) class T_subFS {
+@:structInit @:using(stdgo.io.fs.Fs.T_subFS_static_extension) private class T_subFS {
     public var _fsys : FS = (null : FS);
     public var _dir : GoString = "";
     public function new(?_fsys:FS, ?_dir:GoString) {
@@ -114,7 +114,7 @@ typedef SubFS = StructType & {
         return new T_subFS(_fsys, _dir);
     }
 }
-@:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) class T_statDirEntry {
+@:structInit @:using(stdgo.io.fs.Fs.T_statDirEntry_static_extension) private class T_statDirEntry {
     public var _info : FileInfo = (null : FileInfo);
     public function new(?_info:FileInfo) {
         if (_info != null) this._info = _info;
@@ -654,7 +654,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         };
         return _err;
     }
-@:keep class PathError_static_extension {
+@:keep private class PathError_static_extension {
     /**
         // Timeout reports whether this error represents a timeout.
     **/
@@ -676,7 +676,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
         return ((_e.op + (Go.str(" ") : GoString)) + _e.path + (Go.str(": ") : GoString)) + _e.err.error();
     }
 }
-class PathError_wrapper {
+private class PathError_wrapper {
     /**
         // Timeout reports whether this error represents a timeout.
     **/
@@ -690,7 +690,7 @@ class PathError_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : PathError;
 }
-@:keep class T_dirInfo_static_extension {
+@:keep private class T_dirInfo_static_extension {
     @:keep
     static public function name( _di:T_dirInfo):GoString {
         return _di._fileInfo.name();
@@ -708,7 +708,7 @@ class PathError_wrapper {
         return _di._fileInfo.isDir();
     }
 }
-class T_dirInfo_wrapper {
+private class T_dirInfo_wrapper {
     @:keep
     public var name : () -> GoString = null;
     @:keep
@@ -721,7 +721,7 @@ class T_dirInfo_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dirInfo;
 }
-@:keep class T_subFS_static_extension {
+@:keep private class T_subFS_static_extension {
     @:keep
     static public function sub( _f:T_subFS, _dir:GoString):{ var _0 : FS; var _1 : Error; } {
         if (_dir == (Go.str(".") : GoString)) {
@@ -857,7 +857,7 @@ class T_dirInfo_wrapper {
         return { _0 : stdgo.path.Path.join(_f._dir, _name), _1 : (null : stdgo.Error) };
     }
 }
-class T_subFS_wrapper {
+private class T_subFS_wrapper {
     @:keep
     public var sub : GoString -> { var _0 : FS; var _1 : Error; } = null;
     @:keep
@@ -887,7 +887,7 @@ class T_subFS_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_subFS;
 }
-@:keep class T_statDirEntry_static_extension {
+@:keep private class T_statDirEntry_static_extension {
     @:keep
     static public function info( _d:T_statDirEntry):{ var _0 : FileInfo; var _1 : Error; } {
         return { _0 : _d._info, _1 : (null : stdgo.Error) };
@@ -905,7 +905,7 @@ class T_subFS_wrapper {
         return _d._info.name();
     }
 }
-class T_statDirEntry_wrapper {
+private class T_statDirEntry_wrapper {
     @:keep
     public var info : () -> { var _0 : FileInfo; var _1 : Error; } = null;
     @:keep
@@ -918,7 +918,7 @@ class T_statDirEntry_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_statDirEntry;
 }
-@:keep class FileMode_static_extension {
+@:keep private class FileMode_static_extension {
     /**
         // Type returns type bits in m (m & ModeType).
     **/
@@ -976,7 +976,7 @@ class T_statDirEntry_wrapper {
         return ((_buf.__slice__(0, _w) : Slice<GoUInt8>) : GoString);
     }
 }
-class FileMode_wrapper {
+private class FileMode_wrapper {
     /**
         // Type returns type bits in m (m & ModeType).
     **/

@@ -6720,7 +6720,7 @@ var version : GoString = (Go.str("13.0.0") : GoString);
         return new CaseRange(lo, hi, delta);
     }
 }
-@:structInit class T_foldPair {
+@:structInit private class T_foldPair {
     public var from : GoUInt16 = 0;
     public var to : GoUInt16 = 0;
     public function new(?from:GoUInt16, ?to:GoUInt16) {
@@ -7106,7 +7106,7 @@ function simpleFold(_r:GoRune):GoRune {
         };
         return toUpper(_r);
     }
-@:keep class SpecialCase_static_extension {
+@:keep private class SpecialCase_static_extension {
     /**
         // ToLower maps the rune to lower case giving priority to the special mapping.
     **/
@@ -7141,7 +7141,7 @@ function simpleFold(_r:GoRune):GoRune {
         return _r1;
     }
 }
-class SpecialCase_wrapper {
+private class SpecialCase_wrapper {
     /**
         // ToLower maps the rune to lower case giving priority to the special mapping.
     **/

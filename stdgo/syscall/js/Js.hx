@@ -264,7 +264,7 @@ function _copyBytesToGo(_dst:Slice<GoByte>, _src:T_ref):{ var _0 : GoInt; var _1
 **/
 function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt throw "syscall.js.copyBytesToJS is not yet implemented";
 function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1 : Bool; } throw "syscall.js._copyBytesToJS is not yet implemented";
-@:keep class Func_static_extension {
+@:keep private class Func_static_extension {
     /**
         // Release frees up resources allocated for the function.
         // The function must not be invoked after calling Release.
@@ -317,7 +317,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{ var _0 : GoInt; var _1
     @:embedded
     public static function bool( __self__:Func):Bool return __self__.bool();
 }
-class Func_wrapper {
+private class Func_wrapper {
     /**
         // Release frees up resources allocated for the function.
         // The function must not be invoked after calling Release.
@@ -373,7 +373,7 @@ class Func_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Func;
 }
-@:keep class Value_static_extension {
+@:keep private class Value_static_extension {
     /**
         // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
     **/
@@ -500,7 +500,7 @@ class Func_wrapper {
     @:keep
     static public function equal( _v:Value, _w:Value):Bool throw "syscall.js.equal is not yet implemented";
 }
-class Value_wrapper {
+private class Value_wrapper {
     /**
         // InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
     **/
@@ -630,7 +630,7 @@ class Value_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Value;
 }
-@:keep class T_error_static_extension {
+@:keep private class T_error_static_extension {
     /**
         // Error implements the error interface.
     **/
@@ -681,7 +681,7 @@ class Value_wrapper {
     @:embedded
     public static function bool( __self__:T_error):Bool return __self__.bool();
 }
-class T_error_wrapper {
+private class T_error_wrapper {
     /**
         // Error implements the error interface.
     **/
@@ -735,24 +735,24 @@ class T_error_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_error;
 }
-@:keep class ValueError_static_extension {
+@:keep private class ValueError_static_extension {
     @:keep
     static public function error( _e:ValueError):GoString throw "syscall.js.error is not yet implemented";
 }
-class ValueError_wrapper {
+private class ValueError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ValueError;
 }
-@:keep class Type_static_extension {
+@:keep private class Type_static_extension {
     @:keep
     static public function _isObject( _t:Type):Bool throw "syscall.js._isObject is not yet implemented";
     @:keep
     static public function string( _t:Type):GoString throw "syscall.js.string is not yet implemented";
 }
-class Type_wrapper {
+private class Type_wrapper {
     @:keep
     public var _isObject : () -> Bool = null;
     @:keep

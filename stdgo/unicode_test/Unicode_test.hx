@@ -375,7 +375,7 @@ var _inPropTest : Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.un
 (new stdgo.unicode_test.Unicode_test.T((40899 : GoInt32), (Go.str("Unified_Ideograph") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((65039 : GoInt32), (Go.str("Variation_Selector") : GoString)) : stdgo.unicode_test.Unicode_test.T),
 (new stdgo.unicode_test.Unicode_test.T((32 : GoInt32), (Go.str("White_Space") : GoString)) : stdgo.unicode_test.Unicode_test.T)) : Slice<stdgo.unicode_test.Unicode_test.T>);
-@:structInit class T_caseT {
+@:structInit private class T_caseT {
     public var _cas : GoInt = 0;
     public var _in : GoInt32 = 0;
     public var _out : GoInt32 = 0;

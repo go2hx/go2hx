@@ -32,7 +32,7 @@ typedef Getter = StructType & {
     > Value,
     public function get():AnyInterface;
 };
-@:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) class T_textValue {
+@:structInit @:using(stdgo.flag.Flag.T_textValue_static_extension) private class T_textValue {
     public var _p : stdgo.encoding.Encoding.TextUnmarshaler = (null : stdgo.encoding.Encoding.TextUnmarshaler);
     public function new(?_p:stdgo.encoding.Encoding.TextUnmarshaler) {
         if (_p != null) this._p = _p;
@@ -601,7 +601,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
-@:keep class T_textValue_static_extension {
+@:keep private class T_textValue_static_extension {
     @:keep
     static public function string( _v:T_textValue):GoString {
         {
@@ -630,7 +630,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
         return _v._p.unmarshalText((_s : Slice<GoByte>));
     }
 }
-class T_textValue_wrapper {
+private class T_textValue_wrapper {
     @:keep
     public var string : () -> GoString = null;
     @:keep
@@ -641,7 +641,7 @@ class T_textValue_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_textValue;
 }
-@:keep class FlagSet_static_extension {
+@:keep private class FlagSet_static_extension {
     /**
         // Init sets the name and error handling property for a flag set.
         // By default, the zero FlagSet uses an empty name and the
@@ -1336,7 +1336,7 @@ class T_textValue_wrapper {
         return _f._output;
     }
 }
-class FlagSet_wrapper {
+private class FlagSet_wrapper {
     /**
         // Init sets the name and error handling property for a flag set.
         // By default, the zero FlagSet uses an empty name and the
@@ -1585,7 +1585,7 @@ class FlagSet_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : FlagSet;
 }
-@:keep class T_boolValue_static_extension {
+@:keep private class T_boolValue_static_extension {
     @:keep
     @:pointer
     static public function isBoolFlag(____:T_boolValue,  _b:Pointer<T_boolValue>):Bool {
@@ -1612,7 +1612,7 @@ class FlagSet_wrapper {
         return _err;
     }
 }
-class T_boolValue_wrapper {
+private class T_boolValue_wrapper {
     @:keep
     @:pointer
     public var isBoolFlag : () -> Bool = null;
@@ -1629,7 +1629,7 @@ class T_boolValue_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_boolValue>;
 }
-@:keep class T_intValue_static_extension {
+@:keep private class T_intValue_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_intValue,  _i:Pointer<T_intValue>):GoString {
@@ -1651,7 +1651,7 @@ class T_boolValue_wrapper {
         return _err;
     }
 }
-class T_intValue_wrapper {
+private class T_intValue_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1665,7 +1665,7 @@ class T_intValue_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_intValue>;
 }
-@:keep class T_int64Value_static_extension {
+@:keep private class T_int64Value_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_int64Value,  _i:Pointer<T_int64Value>):GoString {
@@ -1687,7 +1687,7 @@ class T_intValue_wrapper {
         return _err;
     }
 }
-class T_int64Value_wrapper {
+private class T_int64Value_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1701,7 +1701,7 @@ class T_int64Value_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_int64Value>;
 }
-@:keep class T_uintValue_static_extension {
+@:keep private class T_uintValue_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_uintValue,  _i:Pointer<T_uintValue>):GoString {
@@ -1723,7 +1723,7 @@ class T_int64Value_wrapper {
         return _err;
     }
 }
-class T_uintValue_wrapper {
+private class T_uintValue_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1737,7 +1737,7 @@ class T_uintValue_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_uintValue>;
 }
-@:keep class T_uint64Value_static_extension {
+@:keep private class T_uint64Value_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_uint64Value,  _i:Pointer<T_uint64Value>):GoString {
@@ -1759,7 +1759,7 @@ class T_uintValue_wrapper {
         return _err;
     }
 }
-class T_uint64Value_wrapper {
+private class T_uint64Value_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1773,7 +1773,7 @@ class T_uint64Value_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_uint64Value>;
 }
-@:keep class T_stringValue_static_extension {
+@:keep private class T_stringValue_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_stringValue,  _s:Pointer<T_stringValue>):GoString {
@@ -1791,7 +1791,7 @@ class T_uint64Value_wrapper {
         return (null : stdgo.Error);
     }
 }
-class T_stringValue_wrapper {
+private class T_stringValue_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1805,7 +1805,7 @@ class T_stringValue_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_stringValue>;
 }
-@:keep class T_float64Value_static_extension {
+@:keep private class T_float64Value_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_float64Value,  _f:Pointer<T_float64Value>):GoString {
@@ -1827,7 +1827,7 @@ class T_stringValue_wrapper {
         return _err;
     }
 }
-class T_float64Value_wrapper {
+private class T_float64Value_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1841,7 +1841,7 @@ class T_float64Value_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_float64Value>;
 }
-@:keep class T_durationValue_static_extension {
+@:keep private class T_durationValue_static_extension {
     @:keep
     @:pointer
     static public function string(____:T_durationValue,  _d:Pointer<T_durationValue>):GoString {
@@ -1876,7 +1876,7 @@ class T_float64Value_wrapper {
         return _err;
     }
 }
-class T_durationValue_wrapper {
+private class T_durationValue_wrapper {
     @:keep
     @:pointer
     public var string : () -> GoString = null;
@@ -1890,7 +1890,7 @@ class T_durationValue_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_durationValue>;
 }
-@:keep class T_funcValue_static_extension {
+@:keep private class T_funcValue_static_extension {
     @:keep
     static public function string( _f:T_funcValue):GoString {
         return (Go.str() : GoString);
@@ -1900,7 +1900,7 @@ class T_durationValue_wrapper {
         return _f(_s);
     }
 }
-class T_funcValue_wrapper {
+private class T_funcValue_wrapper {
     @:keep
     public var string : () -> GoString = null;
     @:keep

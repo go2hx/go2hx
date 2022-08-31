@@ -159,7 +159,7 @@ typedef StringWriter = StructType & {
         return new SectionReader(_r, _base, _off, _limit);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_teeReader_static_extension) class T_teeReader {
+@:structInit @:using(stdgo.io.Io.T_teeReader_static_extension) private class T_teeReader {
     public var _r : Reader = (null : Reader);
     public var _w : Writer = (null : Writer);
     public function new(?_r:Reader, ?_w:Writer) {
@@ -171,14 +171,14 @@ typedef StringWriter = StructType & {
         return new T_teeReader(_r, _w);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_discard_static_extension) class T_discard {
+@:structInit @:using(stdgo.io.Io.T_discard_static_extension) private class T_discard {
     public function new() {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_discard();
     }
 }
-@:structInit @:using(stdgo.io.Io.T_nopCloser_static_extension) class T_nopCloser {
+@:structInit @:using(stdgo.io.Io.T_nopCloser_static_extension) private class T_nopCloser {
     @:embedded
     public var reader : Reader = (null : Reader);
     public function new(?reader:Reader) {
@@ -191,7 +191,7 @@ typedef StringWriter = StructType & {
         return new T_nopCloser(reader);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) class T_nopCloserWriterTo {
+@:structInit @:using(stdgo.io.Io.T_nopCloserWriterTo_static_extension) private class T_nopCloserWriterTo {
     @:embedded
     public var reader : Reader = (null : Reader);
     public function new(?reader:Reader) {
@@ -204,14 +204,14 @@ typedef StringWriter = StructType & {
         return new T_nopCloserWriterTo(reader);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) class T_eofReader {
+@:structInit @:using(stdgo.io.Io.T_eofReader_static_extension) private class T_eofReader {
     public function new() {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_eofReader();
     }
 }
-@:structInit @:using(stdgo.io.Io.T_multiReader_static_extension) class T_multiReader {
+@:structInit @:using(stdgo.io.Io.T_multiReader_static_extension) private class T_multiReader {
     public var _readers : Slice<Reader> = (null : Slice<Reader>);
     public function new(?_readers:Slice<Reader>) {
         if (_readers != null) this._readers = _readers;
@@ -221,7 +221,7 @@ typedef StringWriter = StructType & {
         return new T_multiReader(_readers);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_multiWriter_static_extension) class T_multiWriter {
+@:structInit @:using(stdgo.io.Io.T_multiWriter_static_extension) private class T_multiWriter {
     public var _writers : Slice<Writer> = (null : Slice<Writer>);
     public function new(?_writers:Slice<Writer>) {
         if (_writers != null) this._writers = _writers;
@@ -231,7 +231,7 @@ typedef StringWriter = StructType & {
         return new T_multiWriter(_writers);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_onceError_static_extension) class T_onceError {
+@:structInit @:using(stdgo.io.Io.T_onceError_static_extension) private class T_onceError {
     @:embedded
     public var mutex : stdgo.sync.Sync.Mutex = ({  } : stdgo.sync.Sync.Mutex);
     public var _err : stdgo.Error = (null : stdgo.Error);
@@ -254,7 +254,7 @@ typedef StringWriter = StructType & {
         return new T_onceError(mutex, _err);
     }
 }
-@:structInit @:using(stdgo.io.Io.T_pipe_static_extension) class T_pipe {
+@:structInit @:using(stdgo.io.Io.T_pipe_static_extension) private class T_pipe {
     public var _wrMu : stdgo.sync.Sync.Mutex = ({  } : stdgo.sync.Sync.Mutex);
     public var _wrCh : Chan<Slice<GoUInt8>> = (null : Chan<Slice<GoUInt8>>);
     public var _rdCh : Chan<GoInt> = (null : Chan<GoInt>);
@@ -654,7 +654,7 @@ function pipe():{ var _0 : PipeReader; var _1 : PipeWriter; } {
         var _p = ({ _wrCh : new Chan<Slice<GoUInt8>>(0, () -> (null : Slice<GoUInt8>)), _rdCh : new Chan<GoInt>(0, () -> (0 : GoInt)), _done : new Chan<T_discard>(0, () -> ({  } : T_discard)) } : T_pipe);
         return { _0 : (new PipeReader(_p) : PipeReader), _1 : (new PipeWriter(_p) : PipeWriter) };
     }
-@:keep class LimitedReader_static_extension {
+@:keep private class LimitedReader_static_extension {
     @:keep
     static public function read( _l:LimitedReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -673,14 +673,14 @@ function pipe():{ var _0 : PipeReader; var _1 : PipeWriter; } {
         return { _0 : _n, _1 : _err };
     }
 }
-class LimitedReader_wrapper {
+private class LimitedReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : LimitedReader;
 }
-@:keep class SectionReader_static_extension {
+@:keep private class SectionReader_static_extension {
     /**
         // Size returns the size of the section in bytes.
     **/
@@ -748,7 +748,7 @@ class LimitedReader_wrapper {
         return { _0 : _n, _1 : _err };
     }
 }
-class SectionReader_wrapper {
+private class SectionReader_wrapper {
     /**
         // Size returns the size of the section in bytes.
     **/
@@ -764,7 +764,7 @@ class SectionReader_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : SectionReader;
 }
-@:keep class T_teeReader_static_extension {
+@:keep private class T_teeReader_static_extension {
     @:keep
     static public function read( _t:T_teeReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -784,14 +784,14 @@ class SectionReader_wrapper {
         return { _0 : _n, _1 : _err };
     }
 }
-class T_teeReader_wrapper {
+private class T_teeReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_teeReader;
 }
-@:keep class T_discard_static_extension {
+@:keep private class T_discard_static_extension {
     @:keep
     static public function readFrom( _:T_discard, _r:Reader):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
@@ -822,7 +822,7 @@ class T_teeReader_wrapper {
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }
-class T_discard_wrapper {
+private class T_discard_wrapper {
     @:keep
     public var readFrom : Reader -> { var _0 : GoInt64; var _1 : Error; } = null;
     @:keep
@@ -833,7 +833,7 @@ class T_discard_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_discard;
 }
-@:keep class T_nopCloser_static_extension {
+@:keep private class T_nopCloser_static_extension {
     @:keep
     static public function close( _:T_nopCloser):Error {
         return (null : stdgo.Error);
@@ -841,7 +841,7 @@ class T_discard_wrapper {
     @:embedded
     public static function read( __self__:T_nopCloser, _p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.read(_p_);
 }
-class T_nopCloser_wrapper {
+private class T_nopCloser_wrapper {
     @:keep
     public var close : () -> Error = null;
     @:embedded
@@ -850,7 +850,7 @@ class T_nopCloser_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_nopCloser;
 }
-@:keep class T_nopCloserWriterTo_static_extension {
+@:keep private class T_nopCloserWriterTo_static_extension {
     @:keep
     static public function writeTo( _c:T_nopCloserWriterTo, _w:Writer):{ var _0 : GoInt64; var _1 : Error; } {
         var _n:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
@@ -863,7 +863,7 @@ class T_nopCloser_wrapper {
     @:embedded
     public static function read( __self__:T_nopCloserWriterTo, _p_:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.read(_p_);
 }
-class T_nopCloserWriterTo_wrapper {
+private class T_nopCloserWriterTo_wrapper {
     @:keep
     public var writeTo : Writer -> { var _0 : GoInt64; var _1 : Error; } = null;
     @:keep
@@ -874,20 +874,20 @@ class T_nopCloserWriterTo_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_nopCloserWriterTo;
 }
-@:keep class T_eofReader_static_extension {
+@:keep private class T_eofReader_static_extension {
     @:keep
     static public function read( _:T_eofReader, _0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return { _0 : (0 : GoInt), _1 : eof };
     }
 }
-class T_eofReader_wrapper {
+private class T_eofReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_eofReader;
 }
-@:keep class T_multiReader_static_extension {
+@:keep private class T_multiReader_static_extension {
     @:keep
     static public function _writeToWithBuffer( _mr:T_multiReader, _w:Writer, _buf:Slice<GoByte>):{ var _0 : GoInt64; var _1 : Error; } {
         var _sum:GoInt64 = (0 : GoInt64), _err:Error = (null : stdgo.Error);
@@ -968,7 +968,7 @@ class T_eofReader_wrapper {
         return { _0 : (0 : GoInt), _1 : eof };
     }
 }
-class T_multiReader_wrapper {
+private class T_multiReader_wrapper {
     @:keep
     public var _writeToWithBuffer : (Writer, Slice<GoByte>) -> { var _0 : GoInt64; var _1 : Error; } = null;
     @:keep
@@ -979,7 +979,7 @@ class T_multiReader_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_multiReader;
 }
-@:keep class T_multiWriter_static_extension {
+@:keep private class T_multiWriter_static_extension {
     @:keep
     static public function writeString( _t:T_multiWriter, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -1038,7 +1038,7 @@ class T_multiReader_wrapper {
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }
-class T_multiWriter_wrapper {
+private class T_multiWriter_wrapper {
     @:keep
     public var writeString : GoString -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -1047,7 +1047,7 @@ class T_multiWriter_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_multiWriter;
 }
-@:keep class T_onceError_static_extension {
+@:keep private class T_onceError_static_extension {
     @:keep
     static public function load( _a:T_onceError):Error {
         var __recover_exception__:AnyInterface = null;
@@ -1128,7 +1128,7 @@ class T_multiWriter_wrapper {
     @:embedded
     public static function lock( __self__:T_onceError) __self__.lock();
 }
-class T_onceError_wrapper {
+private class T_onceError_wrapper {
     @:keep
     public var load : () -> Error = null;
     @:keep
@@ -1147,7 +1147,7 @@ class T_onceError_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_onceError;
 }
-@:keep class T_pipe_static_extension {
+@:keep private class T_pipe_static_extension {
     /**
         // writeCloseError is considered internal to the pipe type.
     **/
@@ -1271,7 +1271,7 @@ class T_onceError_wrapper {
         };
     }
 }
-class T_pipe_wrapper {
+private class T_pipe_wrapper {
     /**
         // writeCloseError is considered internal to the pipe type.
     **/
@@ -1294,7 +1294,7 @@ class T_pipe_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_pipe;
 }
-@:keep class PipeReader_static_extension {
+@:keep private class PipeReader_static_extension {
     /**
         // CloseWithError closes the reader; subsequent writes
         // to the write half of the pipe will return the error err.
@@ -1327,7 +1327,7 @@ class T_pipe_wrapper {
         return _r._p._read(_data);
     }
 }
-class PipeReader_wrapper {
+private class PipeReader_wrapper {
     /**
         // CloseWithError closes the reader; subsequent writes
         // to the write half of the pipe will return the error err.
@@ -1356,7 +1356,7 @@ class PipeReader_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : PipeReader;
 }
-@:keep class PipeWriter_static_extension {
+@:keep private class PipeWriter_static_extension {
     /**
         // CloseWithError closes the writer; subsequent reads from the
         // read half of the pipe will return no bytes and the error err,
@@ -1390,7 +1390,7 @@ class PipeReader_wrapper {
         return _w._p._write(_data);
     }
 }
-class PipeWriter_wrapper {
+private class PipeWriter_wrapper {
     /**
         // CloseWithError closes the writer; subsequent reads from the
         // read half of the pipe will return no bytes and the error err,

@@ -1676,7 +1676,7 @@ var largestSubnormalFloat64 : GoUnTypedFloat = (smallestNormalFloat64 : GoUnType
 var globalI : GoInt = (0 : GoInt);
 var globalB : Bool = false;
 var globalF : GoFloat64 = (0 : GoFloat64);
-@:structInit class T_fi {
+@:structInit private class T_fi {
     public var _f : GoFloat64 = 0;
     public var _i : GoInt = 0;
     public function new(?_f:GoFloat64, ?_i:GoInt) {
@@ -1688,7 +1688,7 @@ var globalF : GoFloat64 = (0 : GoFloat64);
         return new T_fi(_f, _i);
     }
 }
-@:structInit class T_floatTest {
+@:structInit private class T_floatTest {
     public var _val : AnyInterface = (null : AnyInterface);
     public var _name : GoString = "";
     public var _str : GoString = "";

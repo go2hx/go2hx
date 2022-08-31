@@ -808,7 +808,7 @@ var _maxDuration : Duration = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 :
         return new SecondsTimeZoneOffsetTest(_format, _value, _expectedoffset);
     }
 }
-@:structInit class T_afterResult {
+@:structInit private class T_afterResult {
     public var _slot : GoInt = 0;
     public var _t : Time = ({  } : Time);
     public function new(?_slot:GoInt, ?_t:Time) {
@@ -820,7 +820,7 @@ var _maxDuration : Duration = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 :
         return new T_afterResult(_slot, _t);
     }
 }
-@:structInit class T_parsedTime {
+@:structInit private class T_parsedTime {
     public var year : GoInt = 0;
     public var month : Month = ((0 : GoInt) : Month);
     public var day : GoInt = 0;

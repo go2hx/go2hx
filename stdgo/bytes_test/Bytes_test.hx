@@ -515,14 +515,14 @@ var _testString : GoString = ("" : GoString);
 var _testBytes : Slice<GoByte> = (null : Slice<GoUInt8>);
 var _bmbuf : Slice<GoByte> = (null : Slice<GoUInt8>);
 var _space : GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) class T_negativeReader {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) private class T_negativeReader {
     public function new() {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
         return new T_negativeReader();
     }
 }
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_panicReader_static_extension) class T_panicReader {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_panicReader_static_extension) private class T_panicReader {
     public var _panic : Bool = false;
     public function new(?_panic:Bool) {
         if (_panic != null) this._panic = _panic;
@@ -646,7 +646,7 @@ var _space : GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoSt
         return new TrimNilTest(_f, _in, _arg, _out);
     }
 }
-@:structInit class T_predicate {
+@:structInit private class T_predicate {
     public var _f : GoInt32 -> Bool = null;
     public var _name : GoString = "";
     public function new(?_f:GoInt32 -> Bool, ?_name:GoString) {
@@ -4490,7 +4490,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
             };
         };
     }
-@:structInit class T_nErr_testReaderCopyNothing_0 {
+@:structInit private class T_nErr_testReaderCopyNothing_0 {
     public var _n : GoInt64 = 0;
     public var _err : stdgo.Error = (null : stdgo.Error);
     public function new(?_n:GoInt64, ?_err:stdgo.Error) {
@@ -4502,7 +4502,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
         return new T_nErr_testReaderCopyNothing_0(_n, _err);
     }
 }
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_justReader_testReaderCopyNothing_1_static_extension) class T_justReader_testReaderCopyNothing_1 {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_justReader_testReaderCopyNothing_1_static_extension) private class T_justReader_testReaderCopyNothing_1 {
     @:embedded
     public var reader : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public function new(?reader:stdgo.io.Io.Reader) {
@@ -4515,7 +4515,7 @@ function testReaderDoubleUnreadRune(_t:stdgo.testing.Testing.T):Void {
         return new T_justReader_testReaderCopyNothing_1(reader);
     }
 }
-@:structInit @:using(stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2_static_extension) class T_justWriter_testReaderCopyNothing_2 {
+@:structInit @:using(stdgo.bytes_test.Bytes_test.T_justWriter_testReaderCopyNothing_2_static_extension) private class T_justWriter_testReaderCopyNothing_2 {
     @:embedded
     public var writer : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public function new(?writer:stdgo.io.Io.Writer) {
@@ -4743,20 +4743,20 @@ function testReaderZero(_t:stdgo.testing.Testing.T):Void {
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
-@:keep class T_negativeReader_static_extension {
+@:keep private class T_negativeReader_static_extension {
     @:keep
     static public function read( _r:T_negativeReader, _0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         return { _0 : (-1 : GoInt), _1 : (null : stdgo.Error) };
     }
 }
-class T_negativeReader_wrapper {
+private class T_negativeReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_negativeReader;
 }
-@:keep class T_panicReader_static_extension {
+@:keep private class T_panicReader_static_extension {
     @:keep
     static public function read( _r:T_panicReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         if (_r._panic) {
@@ -4765,29 +4765,29 @@ class T_negativeReader_wrapper {
         return { _0 : (0 : GoInt), _1 : stdgo.io.Io.eof };
     }
 }
-class T_panicReader_wrapper {
+private class T_panicReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_panicReader;
 }
-@:keep class T_justReader_testReaderCopyNothing_1_static_extension {
+@:keep private class T_justReader_testReaderCopyNothing_1_static_extension {
     @:embedded
     public static function read( __self__:T_justReader_testReaderCopyNothing_1, __0:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.read(__0);
 }
-class T_justReader_testReaderCopyNothing_1_wrapper {
+private class T_justReader_testReaderCopyNothing_1_wrapper {
     @:embedded
     public var read : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_justReader_testReaderCopyNothing_1;
 }
-@:keep class T_justWriter_testReaderCopyNothing_2_static_extension {
+@:keep private class T_justWriter_testReaderCopyNothing_2_static_extension {
     @:embedded
     public static function write( __self__:T_justWriter_testReaderCopyNothing_2, __0:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(__0);
 }
-class T_justWriter_testReaderCopyNothing_2_wrapper {
+private class T_justWriter_testReaderCopyNothing_2_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;

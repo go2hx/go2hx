@@ -63,7 +63,7 @@ typedef T_replacer = StructType & {
         return new Replacer(_once, _r, _oldnew);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) class T_trieNode {
+@:structInit @:using(stdgo.strings.Strings.T_trieNode_static_extension) private class T_trieNode {
     public var _value : GoString = "";
     public var _priority : GoInt = 0;
     public var _prefix : GoString = "";
@@ -81,7 +81,7 @@ typedef T_replacer = StructType & {
         return new T_trieNode(_value, _priority, _prefix, _next, _table);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) class T_genericReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_genericReplacer_static_extension) private class T_genericReplacer {
     public var _root : T_trieNode = ({  } : T_trieNode);
     public var _tableSize : GoInt = 0;
     public var _mapping : GoArray<GoUInt8> = new GoArray<GoUInt8>(...[for (i in 0 ... 256) (0 : GoUInt8)]);
@@ -95,7 +95,7 @@ typedef T_replacer = StructType & {
         return new T_genericReplacer(_root, _tableSize, _mapping);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_stringWriter_static_extension) class T_stringWriter {
+@:structInit @:using(stdgo.strings.Strings.T_stringWriter_static_extension) private class T_stringWriter {
     public var _w : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public function new(?_w:stdgo.io.Io.Writer) {
         if (_w != null) this._w = _w;
@@ -105,7 +105,7 @@ typedef T_replacer = StructType & {
         return new T_stringWriter(_w);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) class T_singleStringReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_singleStringReplacer_static_extension) private class T_singleStringReplacer {
     public var _finder : Ref<T_stringFinder> = (null : T_stringFinder);
     public var _value : GoString = "";
     public function new(?_finder:Ref<T_stringFinder>, ?_value:GoString) {
@@ -117,7 +117,7 @@ typedef T_replacer = StructType & {
         return new T_singleStringReplacer(_finder, _value);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) class T_byteStringReplacer {
+@:structInit @:using(stdgo.strings.Strings.T_byteStringReplacer_static_extension) private class T_byteStringReplacer {
     public var _replacements : GoArray<Slice<GoUInt8>> = new GoArray<Slice<GoUInt8>>(...[for (i in 0 ... 256) (null : Slice<GoUInt8>)]);
     public var _toReplace : Slice<GoString> = (null : Slice<GoString>);
     public function new(?_replacements:GoArray<Slice<GoUInt8>>, ?_toReplace:Slice<GoString>) {
@@ -129,7 +129,7 @@ typedef T_replacer = StructType & {
         return new T_byteStringReplacer(_replacements, _toReplace);
     }
 }
-@:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) class T_stringFinder {
+@:structInit @:using(stdgo.strings.Strings.T_stringFinder_static_extension) private class T_stringFinder {
     public var _pattern : GoString = "";
     public var _badCharSkip : GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0 ... 256) (0 : GoInt)]);
     public var _goodSuffixSkip : Slice<GoInt> = (null : Slice<GoInt>);
@@ -725,7 +725,7 @@ function fields(_s:GoString):Slice<GoString> {
         };
         return _a;
     }
-@:structInit class T_span_fieldsFunc_0 {
+@:structInit private class T_span_fieldsFunc_0 {
     public var _start : GoInt = 0;
     public var _end : GoInt = 0;
     public function new(?_start:GoInt, ?_end:GoInt) {
@@ -1553,7 +1553,7 @@ function cut(_s:GoString, _sep:GoString):{ var _0 : GoString; var _1 : GoString;
         };
         return { _0 : _s, _1 : (Go.str() : GoString), _2 : false };
     }
-@:keep class Builder_static_extension {
+@:keep private class Builder_static_extension {
     /**
         // WriteString appends the contents of s to b's buffer.
         // It returns the length of s and a nil error.
@@ -1662,7 +1662,7 @@ function cut(_s:GoString, _sep:GoString):{ var _0 : GoString; var _1 : GoString;
     @:keep
     static public function _copyCheck( _b:Builder):Void _b._addr = _b;
 }
-class Builder_wrapper {
+private class Builder_wrapper {
     /**
         // WriteString appends the contents of s to b's buffer.
         // It returns the length of s and a nil error.
@@ -1728,7 +1728,7 @@ class Builder_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Builder;
 }
-@:keep class Reader_static_extension {
+@:keep private class Reader_static_extension {
     /**
         // Reset resets the Reader to be reading from s.
     **/
@@ -1905,7 +1905,7 @@ class Builder_wrapper {
         return ((_r._s.length : GoInt64) - _r._i : GoInt);
     }
 }
-class Reader_wrapper {
+private class Reader_wrapper {
     /**
         // Reset resets the Reader to be reading from s.
     **/
@@ -1969,7 +1969,7 @@ class Reader_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Reader;
 }
-@:keep class Replacer_static_extension {
+@:keep private class Replacer_static_extension {
     /**
         // WriteString writes s to w with all replacements performed.
     **/
@@ -2073,7 +2073,7 @@ class Reader_wrapper {
         return Go.toInterface(_r._r);
     }
 }
-class Replacer_wrapper {
+private class Replacer_wrapper {
     /**
         // WriteString writes s to w with all replacements performed.
     **/
@@ -2096,7 +2096,7 @@ class Replacer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Replacer;
 }
-@:keep class T_trieNode_static_extension {
+@:keep private class T_trieNode_static_extension {
     @:keep
     static public function _add( _t:T_trieNode, _key:GoString, _val:GoString, _priority:GoInt, _r:T_genericReplacer):Void {
         if (_key == (Go.str() : GoString)) {
@@ -2148,14 +2148,14 @@ class Replacer_wrapper {
         };
     }
 }
-class T_trieNode_wrapper {
+private class T_trieNode_wrapper {
     @:keep
     public var _add : (GoString, GoString, GoInt, T_genericReplacer) -> Void = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_trieNode;
 }
-@:keep class T_genericReplacer_static_extension {
+@:keep private class T_genericReplacer_static_extension {
     @:keep
     static public function writeString( _r:T_genericReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -2278,7 +2278,7 @@ class T_trieNode_wrapper {
         return _s;
     }
 }
-class T_genericReplacer_wrapper {
+private class T_genericReplacer_wrapper {
     @:keep
     public var writeString : (stdgo.io.Io.Writer, GoString) -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -2291,20 +2291,20 @@ class T_genericReplacer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_genericReplacer;
 }
-@:keep class T_stringWriter_static_extension {
+@:keep private class T_stringWriter_static_extension {
     @:keep
     static public function writeString( _w:T_stringWriter, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         return _w._w.write((_s : Slice<GoByte>));
     }
 }
-class T_stringWriter_wrapper {
+private class T_stringWriter_wrapper {
     @:keep
     public var writeString : GoString -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_stringWriter;
 }
-@:keep class T_singleStringReplacer_static_extension {
+@:keep private class T_singleStringReplacer_static_extension {
     @:keep
     static public function writeString( _r:T_singleStringReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -2365,7 +2365,7 @@ class T_stringWriter_wrapper {
         return (_buf.string() : GoString);
     }
 }
-class T_singleStringReplacer_wrapper {
+private class T_singleStringReplacer_wrapper {
     @:keep
     public var writeString : (stdgo.io.Io.Writer, GoString) -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -2374,7 +2374,7 @@ class T_singleStringReplacer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_singleStringReplacer;
 }
-@:keep class T_byteStringReplacer_static_extension {
+@:keep private class T_byteStringReplacer_static_extension {
     @:keep
     static public function writeString( _r:T_byteStringReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -2459,7 +2459,7 @@ class T_singleStringReplacer_wrapper {
         return (_buf : GoString);
     }
 }
-class T_byteStringReplacer_wrapper {
+private class T_byteStringReplacer_wrapper {
     @:keep
     public var writeString : (stdgo.io.Io.Writer, GoString) -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -2468,7 +2468,7 @@ class T_byteStringReplacer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_byteStringReplacer;
 }
-@:keep class T_stringFinder_static_extension {
+@:keep private class T_stringFinder_static_extension {
     /**
         // next returns the index in text of the first occurrence of the pattern. If
         // the pattern is not found, it returns -1.
@@ -2490,7 +2490,7 @@ class T_byteStringReplacer_wrapper {
         return (-1 : GoInt);
     }
 }
-class T_stringFinder_wrapper {
+private class T_stringFinder_wrapper {
     /**
         // next returns the index in text of the first occurrence of the pattern. If
         // the pattern is not found, it returns -1.
@@ -2501,7 +2501,7 @@ class T_stringFinder_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_stringFinder;
 }
-@:keep class T_appendSliceWriter_static_extension {
+@:keep private class T_appendSliceWriter_static_extension {
     /**
         // WriteString writes to the buffer without string->[]byte->string allocations.
     **/
@@ -2519,7 +2519,7 @@ class T_stringFinder_wrapper {
         return { _0 : (_p.length), _1 : (null : stdgo.Error) };
     }
 }
-class T_appendSliceWriter_wrapper {
+private class T_appendSliceWriter_wrapper {
     /**
         // WriteString writes to the buffer without string->[]byte->string allocations.
     **/
@@ -2534,7 +2534,7 @@ class T_appendSliceWriter_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_appendSliceWriter;
 }
-@:keep class T_byteReplacer_static_extension {
+@:keep private class T_byteReplacer_static_extension {
     @:keep
     static public function writeString( _r:T_byteReplacer, _w:stdgo.io.Io.Writer, _s:GoString):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -2578,7 +2578,7 @@ class T_appendSliceWriter_wrapper {
         return (_buf : GoString);
     }
 }
-class T_byteReplacer_wrapper {
+private class T_byteReplacer_wrapper {
     @:keep
     public var writeString : (stdgo.io.Io.Writer, GoString) -> { var _0 : GoInt; var _1 : Error; } = null;
     @:keep
@@ -2587,7 +2587,7 @@ class T_byteReplacer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_byteReplacer;
 }
-@:keep class T_asciiSet_static_extension {
+@:keep private class T_asciiSet_static_extension {
     /**
         // contains reports whether c is inside the set.
     **/
@@ -2596,7 +2596,7 @@ class T_byteReplacer_wrapper {
         return (_as[_c / (32 : GoUInt8)] & (1 : GoUInt32) << (_c % (32 : GoUInt8))) != (0 : GoUInt32);
     }
 }
-class T_asciiSet_wrapper {
+private class T_asciiSet_wrapper {
     /**
         // contains reports whether c is inside the set.
     **/

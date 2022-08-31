@@ -587,7 +587,7 @@ var _emptyString : GoString = ("" : GoString);
 var _benchmarkString : GoString = (Go.str("some_text=some☺value") : GoString);
 var _space : GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 var _stringSink : GoString = ("" : GoString);
-@:structInit @:using(stdgo.strings_test.Strings_test.T_errWriter_static_extension) class T_errWriter {
+@:structInit @:using(stdgo.strings_test.Strings_test.T_errWriter_static_extension) private class T_errWriter {
     public function new() {}
     public function __underlying__():AnyInterface return Go.toInterface(this);
     public function __copy__() {
@@ -648,7 +648,7 @@ var _stringSink : GoString = ("" : GoString);
         return new StringTest(_in, _out);
     }
 }
-@:structInit class T_predicate {
+@:structInit private class T_predicate {
     public var _f : GoInt32 -> Bool = null;
     public var _name : GoString = "";
     public function new(?_f:GoInt32 -> Bool, ?_name:GoString) {
@@ -1832,7 +1832,7 @@ function _oldHTMLEscape(_s:GoString):GoString {
         _s = replace(_s, (Go.str("\'") : GoString), (Go.str("&apos;") : GoString), (-1 : GoInt));
         return _s;
     }
-@:structInit class T_testCase_testReplacer_0 {
+@:structInit private class T_testCase_testReplacer_0 {
     public var _r : Ref<Replacer> = (null : Replacer);
     public var _in : GoString = "";
     public var _out : GoString = "";
@@ -3745,14 +3745,14 @@ function benchmarkReplaceAll(_b:stdgo.testing.Testing.B):Void {
             });
         };
     }
-@:keep class T_errWriter_static_extension {
+@:keep private class T_errWriter_static_extension {
     @:keep
     static public function write( _:T_errWriter, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } {
         var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
         return { _0 : (0 : GoInt), _1 : stdgo.fmt.Fmt.errorf((Go.str("unwritable") : GoString)) };
     }
 }
-class T_errWriter_wrapper {
+private class T_errWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;

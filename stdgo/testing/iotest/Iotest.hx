@@ -10,7 +10,7 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var errTimeout : stdgo.Error = (null : stdgo.Error);
 var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) class T_writeLogger {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_writeLogger_static_extension) private class T_writeLogger {
     public var _prefix : GoString = "";
     public var _w : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public function new(?_prefix:GoString, ?_w:stdgo.io.Io.Writer) {
@@ -22,7 +22,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_writeLogger(_prefix, _w);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_readLogger_static_extension) class T_readLogger {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_readLogger_static_extension) private class T_readLogger {
     public var _prefix : GoString = "";
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public function new(?_prefix:GoString, ?_r:stdgo.io.Io.Reader) {
@@ -34,7 +34,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_readLogger(_prefix, _r);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) class T_errWriter {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_errWriter_static_extension) private class T_errWriter {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
@@ -44,7 +44,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_errWriter(_err);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_oneByteReader_static_extension) class T_oneByteReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_oneByteReader_static_extension) private class T_oneByteReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public function new(?_r:stdgo.io.Io.Reader) {
         if (_r != null) this._r = _r;
@@ -54,7 +54,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_oneByteReader(_r);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_halfReader_static_extension) class T_halfReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_halfReader_static_extension) private class T_halfReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public function new(?_r:stdgo.io.Io.Reader) {
         if (_r != null) this._r = _r;
@@ -64,7 +64,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_halfReader(_r);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_dataErrReader_static_extension) class T_dataErrReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_dataErrReader_static_extension) private class T_dataErrReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public var _unread : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _data : Slice<GoUInt8> = (null : Slice<GoUInt8>);
@@ -78,7 +78,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_dataErrReader(_r, _unread, _data);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_timeoutReader_static_extension) class T_timeoutReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_timeoutReader_static_extension) private class T_timeoutReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public var _count : GoInt = 0;
     public function new(?_r:stdgo.io.Io.Reader, ?_count:GoInt) {
@@ -90,7 +90,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_timeoutReader(_r, _count);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) class T_errReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_errReader_static_extension) private class T_errReader {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public function new(?_err:stdgo.Error) {
         if (_err != null) this._err = _err;
@@ -100,7 +100,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_errReader(_err);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_smallByteReader_static_extension) class T_smallByteReader {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_smallByteReader_static_extension) private class T_smallByteReader {
     public var _r : stdgo.io.Io.Reader = (null : stdgo.io.Io.Reader);
     public var _off : GoInt = 0;
     public var _n : GoInt = 0;
@@ -114,7 +114,7 @@ var _truncateWriterTests : Slice<T__struct_0> = (null : Slice<T__struct_0>);
         return new T_smallByteReader(_r, _off, _n);
     }
 }
-@:structInit @:using(stdgo.testing.iotest.Iotest.T_truncateWriter_static_extension) class T_truncateWriter {
+@:structInit @:using(stdgo.testing.iotest.Iotest.T_truncateWriter_static_extension) private class T_truncateWriter {
     public var _w : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public var _n : GoInt64 = 0;
     public function new(?_w:stdgo.io.Io.Writer, ?_n:GoInt64) {
@@ -201,110 +201,110 @@ function testStringsReader(_t:stdgo.testing.Testing.T):Void throw "testing.iotes
 **/
 function truncateWriter(_w:stdgo.io.Io.Writer, _n:GoInt64):stdgo.io.Io.Writer throw "testing.iotest.truncateWriter is not yet implemented";
 function testTruncateWriter(_t:stdgo.testing.Testing.T):Void throw "testing.iotest.testTruncateWriter is not yet implemented";
-@:keep class T_writeLogger_static_extension {
+@:keep private class T_writeLogger_static_extension {
     @:keep
     static public function write( _l:T_writeLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.write is not yet implemented";
 }
-class T_writeLogger_wrapper {
+private class T_writeLogger_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_writeLogger;
 }
-@:keep class T_readLogger_static_extension {
+@:keep private class T_readLogger_static_extension {
     @:keep
     static public function read( _l:T_readLogger, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_readLogger_wrapper {
+private class T_readLogger_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readLogger;
 }
-@:keep class T_errWriter_static_extension {
+@:keep private class T_errWriter_static_extension {
     @:keep
     static public function write( _w:T_errWriter, _0:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.write is not yet implemented";
 }
-class T_errWriter_wrapper {
+private class T_errWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errWriter;
 }
-@:keep class T_oneByteReader_static_extension {
+@:keep private class T_oneByteReader_static_extension {
     @:keep
     static public function read( _r:T_oneByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_oneByteReader_wrapper {
+private class T_oneByteReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_oneByteReader;
 }
-@:keep class T_halfReader_static_extension {
+@:keep private class T_halfReader_static_extension {
     @:keep
     static public function read( _r:T_halfReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_halfReader_wrapper {
+private class T_halfReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_halfReader;
 }
-@:keep class T_dataErrReader_static_extension {
+@:keep private class T_dataErrReader_static_extension {
     @:keep
     static public function read( _r:T_dataErrReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_dataErrReader_wrapper {
+private class T_dataErrReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dataErrReader;
 }
-@:keep class T_timeoutReader_static_extension {
+@:keep private class T_timeoutReader_static_extension {
     @:keep
     static public function read( _r:T_timeoutReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_timeoutReader_wrapper {
+private class T_timeoutReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_timeoutReader;
 }
-@:keep class T_errReader_static_extension {
+@:keep private class T_errReader_static_extension {
     @:keep
     static public function read( _r:T_errReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_errReader_wrapper {
+private class T_errReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_errReader;
 }
-@:keep class T_smallByteReader_static_extension {
+@:keep private class T_smallByteReader_static_extension {
     @:keep
     static public function read( _r:T_smallByteReader, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.read is not yet implemented";
 }
-class T_smallByteReader_wrapper {
+private class T_smallByteReader_wrapper {
     @:keep
     public var read : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_smallByteReader;
 }
-@:keep class T_truncateWriter_static_extension {
+@:keep private class T_truncateWriter_static_extension {
     @:keep
     static public function write( _t:T_truncateWriter, _p:Slice<GoByte>):{ var _0 : GoInt; var _1 : Error; } throw "testing.iotest.write is not yet implemented";
 }
-class T_truncateWriter_wrapper {
+private class T_truncateWriter_wrapper {
     @:keep
     public var write : Slice<GoByte> -> { var _0 : GoInt; var _1 : Error; } = null;
     public function new(__self__) this.__self__ = __self__;

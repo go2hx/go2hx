@@ -345,7 +345,7 @@ typedef RawConn = StructType & {
 typedef Conn = StructType & {
     public function syscallConn():{ var _0 : RawConn; var _1 : Error; };
 };
-@:structInit class T_jsFile {
+@:structInit private class T_jsFile {
     public var _path : GoString = "";
     public var _entries : Slice<GoString> = (null : Slice<GoString>);
     public var _dirIdx : GoInt = 0;
@@ -709,7 +709,7 @@ function timevalToNsec(_tv:Timeval):GoInt64 throw "syscall.timevalToNsec is not 
     // NsecToTimeval converts a number of nanoseconds into a Timeval.
 **/
 function nsecToTimeval(_nsec:GoInt64):Timeval throw "syscall.nsecToTimeval is not yet implemented";
-@:keep class Timespec_static_extension {
+@:keep private class Timespec_static_extension {
     /**
         // Nano returns the time stored in ts as nanoseconds.
     **/
@@ -721,7 +721,7 @@ function nsecToTimeval(_nsec:GoInt64):Timeval throw "syscall.nsecToTimeval is no
     @:keep
     static public function unix( _ts:Timespec):{ var _0 : GoInt64; var _1 : GoInt64; } throw "syscall.unix is not yet implemented";
 }
-class Timespec_wrapper {
+private class Timespec_wrapper {
     /**
         // Nano returns the time stored in ts as nanoseconds.
     **/
@@ -736,7 +736,7 @@ class Timespec_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Timespec;
 }
-@:keep class Timeval_static_extension {
+@:keep private class Timeval_static_extension {
     /**
         // Nano returns the time stored in tv as nanoseconds.
     **/
@@ -748,7 +748,7 @@ class Timespec_wrapper {
     @:keep
     static public function unix( _tv:Timeval):{ var _0 : GoInt64; var _1 : GoInt64; } throw "syscall.unix is not yet implemented";
 }
-class Timeval_wrapper {
+private class Timeval_wrapper {
     /**
         // Nano returns the time stored in tv as nanoseconds.
     **/
@@ -763,7 +763,7 @@ class Timeval_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Timeval;
 }
-@:keep class Errno_static_extension {
+@:keep private class Errno_static_extension {
     @:keep
     static public function timeout( _e:Errno):Bool throw "syscall.timeout is not yet implemented";
     @:keep
@@ -773,7 +773,7 @@ class Timeval_wrapper {
     @:keep
     static public function error( _e:Errno):GoString throw "syscall.error is not yet implemented";
 }
-class Errno_wrapper {
+private class Errno_wrapper {
     @:keep
     public var timeout : () -> Bool = null;
     @:keep
@@ -786,13 +786,13 @@ class Errno_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Errno;
 }
-@:keep class Signal_static_extension {
+@:keep private class Signal_static_extension {
     @:keep
     static public function string( _s:Signal):GoString throw "syscall.string is not yet implemented";
     @:keep
     static public function signal( _s:Signal):Void throw "syscall.signal is not yet implemented";
 }
-class Signal_wrapper {
+private class Signal_wrapper {
     @:keep
     public var string : () -> GoString = null;
     @:keep
@@ -801,7 +801,7 @@ class Signal_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Signal;
 }
-@:keep class WaitStatus_static_extension {
+@:keep private class WaitStatus_static_extension {
     @:keep
     static public function trapCause( _w:WaitStatus):GoInt throw "syscall.trapCause is not yet implemented";
     @:keep
@@ -821,7 +821,7 @@ class Signal_wrapper {
     @:keep
     static public function exited( _w:WaitStatus):Bool throw "syscall.exited is not yet implemented";
 }
-class WaitStatus_wrapper {
+private class WaitStatus_wrapper {
     @:keep
     public var trapCause : () -> GoInt = null;
     @:keep

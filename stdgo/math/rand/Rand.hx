@@ -1815,7 +1815,7 @@ typedef Source64 = StructType & {
         return new Rand(_src, _s64, _readVal, _readPos);
     }
 }
-@:structInit @:using(stdgo.math.rand.Rand.T_lockedSource_static_extension) class T_lockedSource {
+@:structInit @:using(stdgo.math.rand.Rand.T_lockedSource_static_extension) private class T_lockedSource {
     public var _lk : stdgo.sync.Sync.Mutex = ({  } : stdgo.sync.Sync.Mutex);
     public var _src : Ref<T_rngSource> = (null : T_rngSource);
     public function new(?_lk:stdgo.sync.Sync.Mutex, ?_src:Ref<T_rngSource>) {
@@ -1827,7 +1827,7 @@ typedef Source64 = StructType & {
         return new T_lockedSource(_lk, _src);
     }
 }
-@:structInit @:using(stdgo.math.rand.Rand.T_rngSource_static_extension) class T_rngSource {
+@:structInit @:using(stdgo.math.rand.Rand.T_rngSource_static_extension) private class T_rngSource {
     public var _tap : GoInt = 0;
     public var _feed : GoInt = 0;
     public var _vec : GoArray<GoInt64> = new GoArray<GoInt64>(...[for (i in 0 ... 607) (0 : GoInt64)]);
@@ -2105,7 +2105,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
         _z._s = (1 : GoFloat64) - _z._hinv(_z._h((1.5 : GoFloat64)) - stdgo.math.Math.exp(-_z._q * stdgo.math.Math.log(_z._v + (1 : GoFloat64))));
         return _z;
     }
-@:keep class Rand_static_extension {
+@:keep private class Rand_static_extension {
     /**
         // Read generates len(p) random bytes and writes them into p. It
         // always returns len(p) and a nil error.
@@ -2389,7 +2389,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
         };
     }
 }
-class Rand_wrapper {
+private class Rand_wrapper {
     /**
         // Read generates len(p) random bytes and writes them into p. It
         // always returns len(p) and a nil error.
@@ -2508,7 +2508,7 @@ class Rand_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Rand;
 }
-@:keep class T_lockedSource_static_extension {
+@:keep private class T_lockedSource_static_extension {
     /**
         // read implements Read for a lockedSource without a race condition.
     **/
@@ -2563,7 +2563,7 @@ class Rand_wrapper {
         return _n;
     }
 }
-class T_lockedSource_wrapper {
+private class T_lockedSource_wrapper {
     /**
         // read implements Read for a lockedSource without a race condition.
     **/
@@ -2584,7 +2584,7 @@ class T_lockedSource_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_lockedSource;
 }
-@:keep class T_rngSource_static_extension {
+@:keep private class T_rngSource_static_extension {
     /**
         // Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
     **/
@@ -2642,7 +2642,7 @@ class T_lockedSource_wrapper {
         };
     }
 }
-class T_rngSource_wrapper {
+private class T_rngSource_wrapper {
     /**
         // Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
     **/
@@ -2662,7 +2662,7 @@ class T_rngSource_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_rngSource;
 }
-@:keep class Zipf_static_extension {
+@:keep private class Zipf_static_extension {
     /**
         // Uint64 returns a value drawn from the Zipf distribution described
         // by the Zipf object.
@@ -2696,7 +2696,7 @@ class T_rngSource_wrapper {
         return stdgo.math.Math.exp(_z._oneminusQ * stdgo.math.Math.log(_z._v + _x)) * _z._oneminusQinv;
     }
 }
-class Zipf_wrapper {
+private class Zipf_wrapper {
     /**
         // Uint64 returns a value drawn from the Zipf distribution described
         // by the Zipf object.

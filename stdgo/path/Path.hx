@@ -9,7 +9,7 @@ import stdgo.GoArray;
 import stdgo.GoMap;
 import stdgo.Chan;
 var errBadPattern : stdgo.Error = stdgo.errors.Errors.new_((Go.str("syntax error in pattern") : GoString));
-@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) class T_lazybuf {
+@:structInit @:using(stdgo.path.Path.T_lazybuf_static_extension) private class T_lazybuf {
     public var _s : GoString = "";
     public var _buf : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _w : GoInt = 0;
@@ -475,7 +475,7 @@ function dir(_path:GoString):GoString {
         var __tmp__ = split(_path), _dir:GoString = __tmp__._0, _0:GoString = __tmp__._1;
         return clean(_dir);
     }
-@:keep class T_lazybuf_static_extension {
+@:keep private class T_lazybuf_static_extension {
     @:keep
     static public function _string( _b:T_lazybuf):GoString {
         if (_b._buf == null) {
@@ -504,7 +504,7 @@ function dir(_path:GoString):GoString {
         return _b._s[_i];
     }
 }
-class T_lazybuf_wrapper {
+private class T_lazybuf_wrapper {
     @:keep
     public var _string : () -> GoString = null;
     @:keep

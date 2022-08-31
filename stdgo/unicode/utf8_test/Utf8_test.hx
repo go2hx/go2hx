@@ -552,7 +552,7 @@ function testDecodeInvalidSequence(_t:stdgo.testing.Testing.T):Void {
             };
         };
     }
-@:structInit class T_info__testSequence_0 {
+@:structInit private class T_info__testSequence_0 {
     public var _index : GoInt = 0;
     public var _r : GoInt32 = 0;
     public function new(?_index:GoInt, ?_r:GoInt32) {

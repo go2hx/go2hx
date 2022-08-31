@@ -631,7 +631,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
         };
         return _a;
     }
-@:structInit class T_span_fieldsFunc_0 {
+@:structInit private class T_span_fieldsFunc_0 {
     public var _start : GoInt = 0;
     public var _end : GoInt = 0;
     public function new(?_start:GoInt, ?_end:GoInt) {
@@ -1510,7 +1510,7 @@ function cut(_s:Slice<GoByte>, _sep:Slice<GoByte>):{ var _0 : Slice<GoByte>; var
 function newReader(_b:Slice<GoByte>):Reader {
         return (new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader);
     }
-@:keep class Buffer_static_extension {
+@:keep private class Buffer_static_extension {
     /**
         // ReadString reads until the first occurrence of delim in the input,
         // returning a string containing the data up to and including the delimiter.
@@ -1941,7 +1941,7 @@ function newReader(_b:Slice<GoByte>):Reader {
         return (_b._buf.__slice__(_b._off) : Slice<GoUInt8>);
     }
 }
-class Buffer_wrapper {
+private class Buffer_wrapper {
     /**
         // ReadString reads until the first occurrence of delim in the input,
         // returning a string containing the data up to and including the delimiter.
@@ -2136,7 +2136,7 @@ class Buffer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Buffer;
 }
-@:keep class Reader_static_extension {
+@:keep private class Reader_static_extension {
     /**
         // Reset resets the Reader to be reading from b.
     **/
@@ -2312,7 +2312,7 @@ class Buffer_wrapper {
         return ((_r._s.length : GoInt64) - _r._i : GoInt);
     }
 }
-class Reader_wrapper {
+private class Reader_wrapper {
     /**
         // Reset resets the Reader to be reading from b.
     **/
@@ -2375,7 +2375,7 @@ class Reader_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Reader;
 }
-@:keep class T_asciiSet_static_extension {
+@:keep private class T_asciiSet_static_extension {
     /**
         // contains reports whether c is inside the set.
     **/
@@ -2384,7 +2384,7 @@ class Reader_wrapper {
         return (_as[_c / (32 : GoUInt8)] & (1 : GoUInt32) << (_c % (32 : GoUInt8))) != (0 : GoUInt32);
     }
 }
-class T_asciiSet_wrapper {
+private class T_asciiSet_wrapper {
     /**
         // contains reports whether c is inside the set.
     **/

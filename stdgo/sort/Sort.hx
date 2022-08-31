@@ -18,7 +18,7 @@ typedef Interface = StructType & {
     public function less(_i:GoInt, _j:GoInt):Bool;
     public function swap(_i:GoInt, _j:GoInt):Void;
 };
-@:structInit class T_lessSwap {
+@:structInit private class T_lessSwap {
     public var less : (GoInt, GoInt) -> Bool = null;
     public var swap : (GoInt, GoInt) -> Void = null;
     public function new(?less:(GoInt, GoInt) -> Bool, ?swap:(GoInt, GoInt) -> Void) {
@@ -30,7 +30,7 @@ typedef Interface = StructType & {
         return new T_lessSwap(less, swap);
     }
 }
-@:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) class T_reverse {
+@:structInit @:using(stdgo.sort.Sort.T_reverse_static_extension) private class T_reverse {
     @:embedded
     public var interface_ : Interface = (null : Interface);
     public function new(?interface_:Interface) {
@@ -1311,7 +1311,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
         };
         _swapRange(_data, _m - _i, _m, _i);
     }
-@:keep class T_reverse_static_extension {
+@:keep private class T_reverse_static_extension {
     /**
         // Less returns the opposite of the embedded implementation's Less method.
     **/
@@ -1324,7 +1324,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
     @:embedded
     public static function len( __self__:T_reverse):GoInt return __self__.len();
 }
-class T_reverse_wrapper {
+private class T_reverse_wrapper {
     /**
         // Less returns the opposite of the embedded implementation's Less method.
     **/
@@ -1338,7 +1338,7 @@ class T_reverse_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_reverse;
 }
-@:keep class T_xorshift_static_extension {
+@:keep private class T_xorshift_static_extension {
     @:keep
     @:pointer
     static public function next(____:T_xorshift,  _r:Pointer<T_xorshift>):GoUInt64 {
@@ -1348,7 +1348,7 @@ class T_reverse_wrapper {
         return (_r.value : GoUInt64);
     }
 }
-class T_xorshift_wrapper {
+private class T_xorshift_wrapper {
     @:keep
     @:pointer
     public var next : () -> GoUInt64 = null;
@@ -1356,7 +1356,7 @@ class T_xorshift_wrapper {
     public function __underlying__() return Go.toInterface(__self__.value);
     var __self__ : Pointer<T_xorshift>;
 }
-@:keep class IntSlice_static_extension {
+@:keep private class IntSlice_static_extension {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
@@ -1397,7 +1397,7 @@ class T_xorshift_wrapper {
         return searchInts(_p, _x);
     }
 }
-class IntSlice_wrapper {
+private class IntSlice_wrapper {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
@@ -1418,7 +1418,7 @@ class IntSlice_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : IntSlice;
 }
-@:keep class Float64Slice_static_extension {
+@:keep private class Float64Slice_static_extension {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
@@ -1467,7 +1467,7 @@ class IntSlice_wrapper {
         return searchFloat64s(_p, _x);
     }
 }
-class Float64Slice_wrapper {
+private class Float64Slice_wrapper {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
@@ -1496,7 +1496,7 @@ class Float64Slice_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Float64Slice;
 }
-@:keep class StringSlice_static_extension {
+@:keep private class StringSlice_static_extension {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/
@@ -1537,7 +1537,7 @@ class Float64Slice_wrapper {
         return searchStrings(_p, _x);
     }
 }
-class StringSlice_wrapper {
+private class StringSlice_wrapper {
     /**
         // Sort is a convenience method: x.Sort() calls Sort(x).
     **/

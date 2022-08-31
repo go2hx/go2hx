@@ -365,7 +365,7 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
         return new ParseError(layout, value, layoutElem, valueElem, message);
     }
 }
-@:structInit class T_runtimeTimer {
+@:structInit private class T_runtimeTimer {
     public var _pp : GoUIntptr = 0;
     public var _when : GoInt64 = 0;
     public var _period : GoInt64 = 0;
@@ -449,7 +449,7 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
         return new Location(_name, _zone, _tx, _extend, _cacheStart, _cacheEnd, _cacheZone);
     }
 }
-@:structInit class T_zone {
+@:structInit private class T_zone {
     public var _name : GoString = "";
     public var _offset : GoInt = 0;
     public var _isDST : Bool = false;
@@ -463,7 +463,7 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
         return new T_zone(_name, _offset, _isDST);
     }
 }
-@:structInit class T_zoneTrans {
+@:structInit private class T_zoneTrans {
     public var _when : GoInt64 = 0;
     public var _index : GoUInt8 = 0;
     public var _isstd : Bool = false;
@@ -479,7 +479,7 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
         return new T_zoneTrans(_when, _index, _isstd, _isutc);
     }
 }
-@:structInit class T_rule {
+@:structInit private class T_rule {
     public var _kind : T_ruleKind = ((0 : GoInt) : T_ruleKind);
     public var _day : GoInt = 0;
     public var _week : GoInt = 0;
@@ -497,7 +497,7 @@ var _loadTzinfoFromTzdata : (_file:GoString, _name:GoString) -> { var _0 : Slice
         return new T_rule(_kind, _day, _week, _mon, _time);
     }
 }
-@:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) class T_dataIO {
+@:structInit @:using(stdgo.time.Time.T_dataIO_static_extension) private class T_dataIO {
     public var _p : Slice<GoUInt8> = (null : Slice<GoUInt8>);
     public var _error : Bool = false;
     public function new(?_p:Slice<GoUInt8>, ?_error:Bool) {
@@ -3499,7 +3499,7 @@ function _readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
-@:keep class ParseError_static_extension {
+@:keep private class ParseError_static_extension {
     /**
         // Error returns the string representation of a ParseError.
     **/
@@ -3511,7 +3511,7 @@ function _readFile(_name:GoString):{ var _0 : Slice<GoByte>; var _1 : Error; } {
         return ((Go.str("parsing time ") : GoString) + _quote(_e.value)) + _e.message;
     }
 }
-class ParseError_wrapper {
+private class ParseError_wrapper {
     /**
         // Error returns the string representation of a ParseError.
     **/
@@ -3521,7 +3521,7 @@ class ParseError_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ParseError;
 }
-@:keep class Timer_static_extension {
+@:keep private class Timer_static_extension {
     /**
         // Reset changes the timer to expire after duration d.
         // It returns true if the timer had been active, false if the timer had
@@ -3598,7 +3598,7 @@ class ParseError_wrapper {
         return _stopTimer(_t._r);
     }
 }
-class Timer_wrapper {
+private class Timer_wrapper {
     /**
         // Reset changes the timer to expire after duration d.
         // It returns true if the timer had been active, false if the timer had
@@ -3667,7 +3667,7 @@ class Timer_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Timer;
 }
-@:keep class Ticker_static_extension {
+@:keep private class Ticker_static_extension {
     /**
         // Reset stops a ticker and resets its period to the specified duration.
         // The next tick will arrive after the new period elapses. The duration d
@@ -3693,7 +3693,7 @@ class Timer_wrapper {
         _stopTimer(_t._r);
     }
 }
-class Ticker_wrapper {
+private class Ticker_wrapper {
     /**
         // Reset stops a ticker and resets its period to the specified duration.
         // The next tick will arrive after the new period elapses. The duration d
@@ -3712,7 +3712,7 @@ class Ticker_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Ticker;
 }
-@:keep class Time_static_extension {
+@:keep private class Time_static_extension {
     /**
         // Round returns the result of rounding t to the nearest multiple of d (since the zero time).
         // The rounding behavior for halfway values is to round up.
@@ -4735,7 +4735,7 @@ _version,
         return _s;
     }
 }
-class Time_wrapper {
+private class Time_wrapper {
     /**
         // Round returns the result of rounding t to the nearest multiple of d (since the zero time).
         // The rounding behavior for halfway values is to round up.
@@ -5106,7 +5106,7 @@ class Time_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Time;
 }
-@:keep class Location_static_extension {
+@:keep private class Location_static_extension {
     /**
         // lookupName returns information about the time zone with
         // the given name (such as "EST") at the given pseudo-Unix time
@@ -5278,7 +5278,7 @@ class Time_wrapper {
         return _l;
     }
 }
-class Location_wrapper {
+private class Location_wrapper {
     /**
         // lookupName returns information about the time zone with
         // the given name (such as "EST") at the given pseudo-Unix time
@@ -5334,7 +5334,7 @@ class Location_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Location;
 }
-@:keep class T_dataIO_static_extension {
+@:keep private class T_dataIO_static_extension {
     /**
         // read returns the read of the data in the buffer.
     **/
@@ -5387,7 +5387,7 @@ class Location_wrapper {
         return _p;
     }
 }
-class T_dataIO_wrapper {
+private class T_dataIO_wrapper {
     /**
         // read returns the read of the data in the buffer.
     **/
@@ -5405,7 +5405,7 @@ class T_dataIO_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dataIO;
 }
-@:keep class Month_static_extension {
+@:keep private class Month_static_extension {
     /**
         // String returns the English name of the month ("January", "February", ...).
     **/
@@ -5419,7 +5419,7 @@ class T_dataIO_wrapper {
         return ((Go.str("%!Month(") : GoString) + ((_buf.__slice__(_n) : Slice<GoUInt8>) : GoString)) + (Go.str(")") : GoString);
     }
 }
-class Month_wrapper {
+private class Month_wrapper {
     /**
         // String returns the English name of the month ("January", "February", ...).
     **/
@@ -5429,7 +5429,7 @@ class Month_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Month;
 }
-@:keep class Weekday_static_extension {
+@:keep private class Weekday_static_extension {
     /**
         // String returns the English name of the day ("Sunday", "Monday", ...).
     **/
@@ -5443,7 +5443,7 @@ class Month_wrapper {
         return ((Go.str("%!Weekday(") : GoString) + ((_buf.__slice__(_n) : Slice<GoUInt8>) : GoString)) + (Go.str(")") : GoString);
     }
 }
-class Weekday_wrapper {
+private class Weekday_wrapper {
     /**
         // String returns the English name of the day ("Sunday", "Monday", ...).
     **/
@@ -5453,7 +5453,7 @@ class Weekday_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Weekday;
 }
-@:keep class Duration_static_extension {
+@:keep private class Duration_static_extension {
     /**
         // Abs returns the absolute value of d.
         // As a special case, math.MinInt64 is converted to math.MaxInt64.
@@ -5633,7 +5633,7 @@ class Weekday_wrapper {
         return ((_buf.__slice__(_w) : Slice<GoUInt8>) : GoString);
     }
 }
-class Duration_wrapper {
+private class Duration_wrapper {
     /**
         // Abs returns the absolute value of d.
         // As a special case, math.MinInt64 is converted to math.MaxInt64.
@@ -5698,13 +5698,13 @@ class Duration_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Duration;
 }
-@:keep class T_fileSizeError_static_extension {
+@:keep private class T_fileSizeError_static_extension {
     @:keep
     static public function error( _f:T_fileSizeError):GoString {
         return ((Go.str("time: file ") : GoString) + (_f : GoString)) + (Go.str(" is too large") : GoString);
     }
 }
-class T_fileSizeError_wrapper {
+private class T_fileSizeError_wrapper {
     @:keep
     public var error : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;

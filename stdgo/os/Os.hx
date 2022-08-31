@@ -82,7 +82,7 @@ typedef Signal = StructType & {
     public function string():GoString;
     public function signal():Void;
 };
-@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) class T_dirInfo {
+@:structInit @:using(stdgo.os.Os.T_dirInfo_static_extension) private class T_dirInfo {
     public var _buf : Ref<Slice<GoUInt8>> = null;
     public var _nbuf : GoInt = 0;
     public var _bufp : GoInt = 0;
@@ -170,7 +170,7 @@ typedef Signal = StructType & {
         return new LinkError(op, old, new_, err);
     }
 }
-@:structInit @:using(stdgo.os.Os.T_onlyWriter_static_extension) class T_onlyWriter {
+@:structInit @:using(stdgo.os.Os.T_onlyWriter_static_extension) private class T_onlyWriter {
     @:embedded
     public var writer : stdgo.io.Io.Writer = (null : stdgo.io.Io.Writer);
     public function new(?writer:stdgo.io.Io.Writer) {
@@ -183,7 +183,7 @@ typedef Signal = StructType & {
         return new T_onlyWriter(writer);
     }
 }
-@:structInit @:using(stdgo.os.Os.T_file_static_extension) class T_file {
+@:structInit @:using(stdgo.os.Os.T_file_static_extension) private class T_file {
     public var _pfd : stdgo.internal.poll.Poll.FD = ({  } : stdgo.internal.poll.Poll.FD);
     public var _name : GoString = "";
     public var _dirinfo : Ref<T_dirInfo> = (null : T_dirInfo);
@@ -203,7 +203,7 @@ typedef Signal = StructType & {
         return new T_file(_pfd, _name, _dirinfo, _nonblock, _stdoutOrErr, _appendMode);
     }
 }
-@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) class T_unixDirent {
+@:structInit @:using(stdgo.os.Os.T_unixDirent_static_extension) private class T_unixDirent {
     public var _parent : GoString = "";
     public var _name : GoString = "";
     public var _typ : stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
@@ -219,7 +219,7 @@ typedef Signal = StructType & {
         return new T_unixDirent(_parent, _name, _typ, _info);
     }
 }
-@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) class T_rawConn {
+@:structInit @:using(stdgo.os.Os.T_rawConn_static_extension) private class T_rawConn {
     public var _file : Ref<File> = (null : File);
     public function new(?_file:Ref<File>) {
         if (_file != null) this._file = _file;
@@ -242,7 +242,7 @@ typedef Signal = StructType & {
         return new File(_file);
     }
 }
-@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) class T_fileStat {
+@:structInit @:using(stdgo.os.Os.T_fileStat_static_extension) private class T_fileStat {
     public var _name : GoString = "";
     public var _size : GoInt64 = 0;
     public var _mode : stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
@@ -922,18 +922,18 @@ function getpagesize():GoInt throw "os.getpagesize is not yet implemented";
 **/
 function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool throw "os.sameFile is not yet implemented";
 function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool throw "os._sameFile is not yet implemented";
-@:keep class T_dirInfo_static_extension {
+@:keep private class T_dirInfo_static_extension {
     @:keep
     static public function _close( _d:T_dirInfo):Void throw "os._close is not yet implemented";
 }
-class T_dirInfo_wrapper {
+private class T_dirInfo_wrapper {
     @:keep
     public var _close : () -> Void = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_dirInfo;
 }
-@:keep class SyscallError_static_extension {
+@:keep private class SyscallError_static_extension {
     /**
         // Timeout reports whether this error represents a timeout.
     **/
@@ -944,7 +944,7 @@ class T_dirInfo_wrapper {
     @:keep
     static public function error( _e:SyscallError):GoString throw "os.error is not yet implemented";
 }
-class SyscallError_wrapper {
+private class SyscallError_wrapper {
     /**
         // Timeout reports whether this error represents a timeout.
     **/
@@ -958,7 +958,7 @@ class SyscallError_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : SyscallError;
 }
-@:keep class Process_static_extension {
+@:keep private class Process_static_extension {
     /**
         // blockUntilWaitable attempts to block until a call to p.Wait will
         // succeed immediately, and reports whether it has done so.
@@ -1012,7 +1012,7 @@ class SyscallError_wrapper {
     @:keep
     static public function _setDone( _p:Process):Void throw "os._setDone is not yet implemented";
 }
-class Process_wrapper {
+private class Process_wrapper {
     /**
         // blockUntilWaitable attempts to block until a call to p.Wait will
         // succeed immediately, and reports whether it has done so.
@@ -1069,7 +1069,7 @@ class Process_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Process;
 }
-@:keep class ProcessState_static_extension {
+@:keep private class ProcessState_static_extension {
     @:keep
     static public function _systemTime( _p:ProcessState):stdgo.time.Time.Duration throw "os._systemTime is not yet implemented";
     @:keep
@@ -1135,7 +1135,7 @@ class Process_wrapper {
     @:keep
     static public function userTime( _p:ProcessState):stdgo.time.Time.Duration throw "os.userTime is not yet implemented";
 }
-class ProcessState_wrapper {
+private class ProcessState_wrapper {
     @:keep
     public var _systemTime : () -> stdgo.time.Time.Duration = null;
     @:keep
@@ -1204,13 +1204,13 @@ class ProcessState_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ProcessState;
 }
-@:keep class LinkError_static_extension {
+@:keep private class LinkError_static_extension {
     @:keep
     static public function unwrap( _e:LinkError):Error throw "os.unwrap is not yet implemented";
     @:keep
     static public function error( _e:LinkError):GoString throw "os.error is not yet implemented";
 }
-class LinkError_wrapper {
+private class LinkError_wrapper {
     @:keep
     public var unwrap : () -> Error = null;
     @:keep
@@ -1219,29 +1219,29 @@ class LinkError_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : LinkError;
 }
-@:keep class T_onlyWriter_static_extension {
+@:keep private class T_onlyWriter_static_extension {
     @:embedded
     public static function write( __self__:T_onlyWriter, _b:Slice<GoUInt8>):{ var _0 : GoInt; var _1 : stdgo.Error; } return __self__.write(_b);
 }
-class T_onlyWriter_wrapper {
+private class T_onlyWriter_wrapper {
     @:embedded
     public var write : Slice<GoUInt8> -> { var _0 : GoInt; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_onlyWriter;
 }
-@:keep class T_file_static_extension {
+@:keep private class T_file_static_extension {
     @:keep
     static public function _close( _file:T_file):Error throw "os._close is not yet implemented";
 }
-class T_file_wrapper {
+private class T_file_wrapper {
     @:keep
     public var _close : () -> Error = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_file;
 }
-@:keep class T_unixDirent_static_extension {
+@:keep private class T_unixDirent_static_extension {
     @:keep
     static public function info( _d:T_unixDirent):{ var _0 : FileInfo; var _1 : Error; } throw "os.info is not yet implemented";
     @:keep
@@ -1251,7 +1251,7 @@ class T_file_wrapper {
     @:keep
     static public function name( _d:T_unixDirent):GoString throw "os.name is not yet implemented";
 }
-class T_unixDirent_wrapper {
+private class T_unixDirent_wrapper {
     @:keep
     public var info : () -> { var _0 : FileInfo; var _1 : Error; } = null;
     @:keep
@@ -1264,7 +1264,7 @@ class T_unixDirent_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_unixDirent;
 }
-@:keep class T_rawConn_static_extension {
+@:keep private class T_rawConn_static_extension {
     @:keep
     static public function write( _c:T_rawConn, _f:GoUIntptr -> Bool):Error throw "os.write is not yet implemented";
     @:keep
@@ -1272,7 +1272,7 @@ class T_unixDirent_wrapper {
     @:keep
     static public function control( _c:T_rawConn, _f:GoUIntptr -> Void):Error throw "os.control is not yet implemented";
 }
-class T_rawConn_wrapper {
+private class T_rawConn_wrapper {
     @:keep
     public var write : (GoUIntptr -> Bool) -> Error = null;
     @:keep
@@ -1283,7 +1283,7 @@ class T_rawConn_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_rawConn;
 }
-@:keep class File_static_extension {
+@:keep private class File_static_extension {
     /**
         // Stat returns the FileInfo structure describing file.
         // If there is an error, it will be of type *PathError.
@@ -1589,7 +1589,7 @@ class T_rawConn_wrapper {
     @:embedded
     public static function _close( __self__:File):stdgo.Error return __self__._close();
 }
-class File_wrapper {
+private class File_wrapper {
     /**
         // Stat returns the FileInfo structure describing file.
         // If there is an error, it will be of type *PathError.
@@ -1898,7 +1898,7 @@ class File_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : File;
 }
-@:keep class T_fileStat_static_extension {
+@:keep private class T_fileStat_static_extension {
     @:keep
     static public function sys( _fs:T_fileStat):AnyInterface throw "os.sys is not yet implemented";
     @:keep
@@ -1912,7 +1912,7 @@ class File_wrapper {
     @:keep
     static public function name( _fs:T_fileStat):GoString throw "os.name is not yet implemented";
 }
-class T_fileStat_wrapper {
+private class T_fileStat_wrapper {
     @:keep
     public var sys : () -> AnyInterface = null;
     @:keep
@@ -1929,13 +1929,13 @@ class T_fileStat_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_fileStat;
 }
-@:keep class T_dirFS_static_extension {
+@:keep private class T_dirFS_static_extension {
     @:keep
     static public function stat( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } throw "os.stat is not yet implemented";
     @:keep
     static public function open( _dir:T_dirFS, _name:GoString):{ var _0 : stdgo.io.fs.Fs.File; var _1 : Error; } throw "os.open is not yet implemented";
 }
-class T_dirFS_wrapper {
+private class T_dirFS_wrapper {
     @:keep
     public var stat : GoString -> { var _0 : stdgo.io.fs.Fs.FileInfo; var _1 : Error; } = null;
     @:keep

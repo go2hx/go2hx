@@ -50,7 +50,7 @@ var _testFsys : stdgo.testing.fstest.Fstest.MapFS = {
     };
 var _tree : Ref<stdgo.io.fs_test.Fs_test.Node> = (new stdgo.io.fs_test.Fs_test.Node((Go.str("testdata") : GoString), (new Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>(0, 0, @:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null, @:invalid_compositelit null) : Slice<Ref<stdgo.io.fs_test.Fs_test.Node>>), (0 : GoInt)) : stdgo.io.fs_test.Fs_test.Node);
 var _sysValue : GoInt = (0 : GoInt);
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_globOnly_static_extension) class T_globOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_globOnly_static_extension) private class T_globOnly {
     @:embedded
     public var globFS : GlobFS = (null : GlobFS);
     public function new(?globFS:GlobFS) {
@@ -63,7 +63,7 @@ var _sysValue : GoInt = (0 : GoInt);
         return new T_globOnly(globFS);
     }
 }
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_readDirOnly_static_extension) class T_readDirOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_readDirOnly_static_extension) private class T_readDirOnly {
     @:embedded
     public var readDirFS : ReadDirFS = (null : ReadDirFS);
     public function new(?readDirFS:ReadDirFS) {
@@ -76,7 +76,7 @@ var _sysValue : GoInt = (0 : GoInt);
         return new T_readDirOnly(readDirFS);
     }
 }
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_readFileOnly_static_extension) class T_readFileOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_readFileOnly_static_extension) private class T_readFileOnly {
     @:embedded
     public var readFileFS : ReadFileFS = (null : ReadFileFS);
     public function new(?readFileFS:ReadFileFS) {
@@ -89,7 +89,7 @@ var _sysValue : GoInt = (0 : GoInt);
         return new T_readFileOnly(readFileFS);
     }
 }
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_openOnly_static_extension) class T_openOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_openOnly_static_extension) private class T_openOnly {
     @:embedded
     public var fs : FS = (null : FS);
     public function new(?fs:FS) {
@@ -102,7 +102,7 @@ var _sysValue : GoInt = (0 : GoInt);
         return new T_openOnly(fs);
     }
 }
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_statOnly_static_extension) class T_statOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_statOnly_static_extension) private class T_statOnly {
     @:embedded
     public var statFS : StatFS = (null : StatFS);
     public function new(?statFS:StatFS) {
@@ -115,7 +115,7 @@ var _sysValue : GoInt = (0 : GoInt);
         return new T_statOnly(statFS);
     }
 }
-@:structInit @:using(stdgo.io.fs_test.Fs_test.T_subOnly_static_extension) class T_subOnly {
+@:structInit @:using(stdgo.io.fs_test.Fs_test.T_subOnly_static_extension) private class T_subOnly {
     @:embedded
     public var subFS : SubFS = (null : SubFS);
     public function new(?subFS:SubFS) {
@@ -895,7 +895,7 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
             return;
         };
     }
-@:keep class T_globOnly_static_extension {
+@:keep private class T_globOnly_static_extension {
     @:keep
     static public function open( _:T_globOnly, _name:GoString):{ var _0 : File; var _1 : Error; } {
         return { _0 : (null : File), _1 : errNotExist };
@@ -903,7 +903,7 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
     @:embedded
     public static function glob( __self__:T_globOnly, _name:GoString):{ var _0 : Slice<GoString>; var _1 : stdgo.Error; } return __self__.glob(_name);
 }
-class T_globOnly_wrapper {
+private class T_globOnly_wrapper {
     @:keep
     public var open : GoString -> { var _0 : File; var _1 : Error; } = null;
     @:embedded
@@ -912,7 +912,7 @@ class T_globOnly_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_globOnly;
 }
-@:keep class T_readDirOnly_static_extension {
+@:keep private class T_readDirOnly_static_extension {
     @:keep
     static public function open( _:T_readDirOnly, _name:GoString):{ var _0 : File; var _1 : Error; } {
         return { _0 : (null : File), _1 : errNotExist };
@@ -920,7 +920,7 @@ class T_globOnly_wrapper {
     @:embedded
     public static function readDir( __self__:T_readDirOnly, _name:GoString):{ var _0 : Slice<DirEntry>; var _1 : stdgo.Error; } return __self__.readDir(_name);
 }
-class T_readDirOnly_wrapper {
+private class T_readDirOnly_wrapper {
     @:keep
     public var open : GoString -> { var _0 : File; var _1 : Error; } = null;
     @:embedded
@@ -929,7 +929,7 @@ class T_readDirOnly_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readDirOnly;
 }
-@:keep class T_readFileOnly_static_extension {
+@:keep private class T_readFileOnly_static_extension {
     @:keep
     static public function open( _:T_readFileOnly, _name:GoString):{ var _0 : File; var _1 : Error; } {
         return { _0 : (null : File), _1 : errNotExist };
@@ -937,7 +937,7 @@ class T_readDirOnly_wrapper {
     @:embedded
     public static function readFile( __self__:T_readFileOnly, _name:GoString):{ var _0 : Slice<GoUInt8>; var _1 : stdgo.Error; } return __self__.readFile(_name);
 }
-class T_readFileOnly_wrapper {
+private class T_readFileOnly_wrapper {
     @:keep
     public var open : GoString -> { var _0 : File; var _1 : Error; } = null;
     @:embedded
@@ -946,18 +946,18 @@ class T_readFileOnly_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_readFileOnly;
 }
-@:keep class T_openOnly_static_extension {
+@:keep private class T_openOnly_static_extension {
     @:embedded
     public static function open( __self__:T_openOnly, _name:GoString):{ var _0 : File; var _1 : stdgo.Error; } return __self__.open(_name);
 }
-class T_openOnly_wrapper {
+private class T_openOnly_wrapper {
     @:embedded
     public var open : GoString -> { var _0 : File; var _1 : stdgo.Error; } = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_openOnly;
 }
-@:keep class T_statOnly_static_extension {
+@:keep private class T_statOnly_static_extension {
     @:keep
     static public function open( _:T_statOnly, _name:GoString):{ var _0 : File; var _1 : Error; } {
         return { _0 : (null : File), _1 : errNotExist };
@@ -965,7 +965,7 @@ class T_openOnly_wrapper {
     @:embedded
     public static function stat( __self__:T_statOnly, _name:GoString):{ var _0 : FileInfo; var _1 : stdgo.Error; } return __self__.stat(_name);
 }
-class T_statOnly_wrapper {
+private class T_statOnly_wrapper {
     @:keep
     public var open : GoString -> { var _0 : File; var _1 : Error; } = null;
     @:embedded
@@ -974,7 +974,7 @@ class T_statOnly_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_statOnly;
 }
-@:keep class T_subOnly_static_extension {
+@:keep private class T_subOnly_static_extension {
     @:keep
     static public function open( _:T_subOnly, _name:GoString):{ var _0 : File; var _1 : Error; } {
         return { _0 : (null : File), _1 : errNotExist };
@@ -982,7 +982,7 @@ class T_statOnly_wrapper {
     @:embedded
     public static function sub( __self__:T_subOnly, _name:GoString):{ var _0 : FS; var _1 : stdgo.Error; } return __self__.sub(_name);
 }
-class T_subOnly_wrapper {
+private class T_subOnly_wrapper {
     @:keep
     public var open : GoString -> { var _0 : File; var _1 : Error; } = null;
     @:embedded

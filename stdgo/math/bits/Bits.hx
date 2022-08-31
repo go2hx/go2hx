@@ -4698,7 +4698,7 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
         var __tmp__ = div64(_hi % _y, _lo, _y), _0:GoUInt64 = __tmp__._0, _rem:GoUInt64 = __tmp__._1;
         return _rem;
     }
-@:keep class T_errorString_static_extension {
+@:keep private class T_errorString_static_extension {
     @:keep
     static public function error( _e:T_errorString):GoString {
         return (Go.str("runtime error: ") : GoString) + (_e : GoString);
@@ -4706,7 +4706,7 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
     @:keep
     static public function runtimeError( _e:T_errorString):Void {}
 }
-class T_errorString_wrapper {
+private class T_errorString_wrapper {
     @:keep
     public var error : () -> GoString = null;
     @:keep

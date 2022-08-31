@@ -24,7 +24,7 @@ var _defaultOutput : GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n 
         return new URLValue(url);
     }
 }
-@:structInit @:using(stdgo.flag_test.Flag_test.T_boolFlagVar_static_extension) class T_boolFlagVar {
+@:structInit @:using(stdgo.flag_test.Flag_test.T_boolFlagVar_static_extension) private class T_boolFlagVar {
     public var _count : GoInt = 0;
     public function new(?_count:GoInt) {
         if (_count != null) this._count = _count;
@@ -34,7 +34,7 @@ var _defaultOutput : GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n 
         return new T_boolFlagVar(_count);
     }
 }
-@:structInit @:using(stdgo.flag_test.Flag_test.T_zeroPanicker_static_extension) class T_zeroPanicker {
+@:structInit @:using(stdgo.flag_test.Flag_test.T_zeroPanicker_static_extension) private class T_zeroPanicker {
     public var _dontPanic : Bool = false;
     public var _v : GoString = "";
     public function new(?_dontPanic:Bool, ?_v:GoString) {
@@ -1392,7 +1392,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
         } catch(__exception__) if (__exception__.message != "__return__") throw __exception__;
         true;
     };
-@:keep class URLValue_static_extension {
+@:keep private class URLValue_static_extension {
     @:keep
     static public function set( _v:URLValue, _s:GoString):Error {
         {
@@ -1426,7 +1426,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
         return (Go.str() : GoString);
     }
 }
-class URLValue_wrapper {
+private class URLValue_wrapper {
     @:keep
     public var set : GoString -> Error = null;
     @:keep
@@ -1435,7 +1435,7 @@ class URLValue_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : URLValue;
 }
-@:keep class T_boolFlagVar_static_extension {
+@:keep private class T_boolFlagVar_static_extension {
     @:keep
     static public function isBoolFlag( _b:T_boolFlagVar):Bool {
         return _b._count < (4 : GoInt);
@@ -1452,7 +1452,7 @@ class URLValue_wrapper {
         return stdgo.fmt.Fmt.sprintf((Go.str("%d") : GoString), Go.toInterface(_b._count));
     }
 }
-class T_boolFlagVar_wrapper {
+private class T_boolFlagVar_wrapper {
     @:keep
     public var isBoolFlag : () -> Bool = null;
     @:keep
@@ -1463,7 +1463,7 @@ class T_boolFlagVar_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_boolFlagVar;
 }
-@:keep class T_zeroPanicker_static_extension {
+@:keep private class T_zeroPanicker_static_extension {
     @:keep
     static public function string( _f:T_zeroPanicker):GoString {
         if (!_f._dontPanic) {
@@ -1477,7 +1477,7 @@ class T_boolFlagVar_wrapper {
         return (null : stdgo.Error);
     }
 }
-class T_zeroPanicker_wrapper {
+private class T_zeroPanicker_wrapper {
     @:keep
     public var string : () -> GoString = null;
     @:keep
@@ -1486,7 +1486,7 @@ class T_zeroPanicker_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_zeroPanicker;
 }
-@:keep class T_interval_static_extension {
+@:keep private class T_interval_static_extension {
     /**
         // Set is the method to set the flag value, part of the flag.Value interface.
         // Set's argument is a string to be parsed to set the flag.
@@ -1515,7 +1515,7 @@ class T_zeroPanicker_wrapper {
         return stdgo.fmt.Fmt.sprint(_i);
     }
 }
-class T_interval_wrapper {
+private class T_interval_wrapper {
     /**
         // Set is the method to set the flag value, part of the flag.Value interface.
         // Set's argument is a string to be parsed to set the flag.
@@ -1533,7 +1533,7 @@ class T_interval_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_interval;
 }
-@:keep class T_flagVar_static_extension {
+@:keep private class T_flagVar_static_extension {
     @:keep
     static public function set( _f:T_flagVar, _value:GoString):Error {
         _f = (_f.__append__(_value));
@@ -1544,7 +1544,7 @@ class T_interval_wrapper {
         return stdgo.fmt.Fmt.sprint((_f : Slice<GoString>));
     }
 }
-class T_flagVar_wrapper {
+private class T_flagVar_wrapper {
     @:keep
     public var set : GoString -> Error = null;
     @:keep

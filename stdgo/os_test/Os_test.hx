@@ -30,7 +30,7 @@ var _isReadonlyError : stdgo.Error -> Bool = null;
 var _global : AnyInterface = (null : AnyInterface);
 var _executable_EnvVar : GoString = null;
 var _testExecutableDeletion : GoString = null;
-@:structInit class T_isExistTest {
+@:structInit private class T_isExistTest {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _is : Bool = false;
     public var _isnot : Bool = false;
@@ -44,7 +44,7 @@ var _testExecutableDeletion : GoString = null;
         return new T_isExistTest(_err, _is, _isnot);
     }
 }
-@:structInit class T_isPermissionTest {
+@:structInit private class T_isPermissionTest {
     public var _err : stdgo.Error = (null : stdgo.Error);
     public var _want : Bool = false;
     public function new(?_err:stdgo.Error, ?_want:Bool) {
@@ -56,7 +56,7 @@ var _testExecutableDeletion : GoString = null;
         return new T_isPermissionTest(_err, _want);
     }
 }
-@:structInit @:using(stdgo.os_test.Os_test.T_myErrorIs_static_extension) class T_myErrorIs {
+@:structInit @:using(stdgo.os_test.Os_test.T_myErrorIs_static_extension) private class T_myErrorIs {
     @:embedded
     public var _error : stdgo.Error = (null : stdgo.Error);
     public function new(?_error:stdgo.Error) {
@@ -69,7 +69,7 @@ var _testExecutableDeletion : GoString = null;
         return new T_myErrorIs(_error);
     }
 }
-@:structInit class T_sysDir {
+@:structInit private class T_sysDir {
     public var _name : GoString = "";
     public var _files : Slice<GoString> = (null : Slice<GoString>);
     public function new(?_name:GoString, ?_files:Slice<GoString>) {
@@ -81,7 +81,7 @@ var _testExecutableDeletion : GoString = null;
         return new T_sysDir(_name, _files);
     }
 }
-@:structInit class T_openErrorTest {
+@:structInit private class T_openErrorTest {
     public var _path : GoString = "";
     public var _mode : GoInt = 0;
     public var _error : stdgo.Error = (null : stdgo.Error);
@@ -415,13 +415,13 @@ function testMkdirTemp(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdir
 **/
 function testMkdirTempBadDir(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirTempBadDir is not yet implemented";
 function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void throw "os_test.testMkdirTempBadPattern is not yet implemented";
-@:keep class T_myErrorIs_static_extension {
+@:keep private class T_myErrorIs_static_extension {
     @:keep
     static public function is_( _e:T_myErrorIs, _target:Error):Bool throw "os_test.is_ is not yet implemented";
     @:embedded
     public static function error( __self__:T_myErrorIs):GoString return __self__.error();
 }
-class T_myErrorIs_wrapper {
+private class T_myErrorIs_wrapper {
     @:keep
     public var is_ : Error -> Bool = null;
     @:embedded

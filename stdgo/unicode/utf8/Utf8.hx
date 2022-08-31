@@ -304,7 +304,7 @@ var _s4 : GoUnTypedInt = (35 : GoUnTypedInt);
 var _s5 : GoUnTypedInt = (52 : GoUnTypedInt);
 var _s6 : GoUnTypedInt = (4 : GoUnTypedInt);
 var _s7 : GoUnTypedInt = (68 : GoUnTypedInt);
-@:structInit class T_acceptRange {
+@:structInit private class T_acceptRange {
     public var _lo : GoUInt8 = 0;
     public var _hi : GoUInt8 = 0;
     public function new(?_lo:GoUInt8, ?_hi:GoUInt8) {

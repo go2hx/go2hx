@@ -183,7 +183,7 @@ var __NMode = _iota;
         return new Planet(_name, _mass, _distance);
     }
 }
-@:structInit @:using(stdgo.sort_test.Sort_test.T_planetSorter_static_extension) class T_planetSorter {
+@:structInit @:using(stdgo.sort_test.Sort_test.T_planetSorter_static_extension) private class T_planetSorter {
     public var _planets : Slice<stdgo.sort_test.Sort_test.Planet> = (null : Slice<stdgo.sort_test.Sort_test.Planet>);
     public var _by : (Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool = null;
     public function new(?_planets:Slice<stdgo.sort_test.Sort_test.Planet>, ?_by:(Ref<stdgo.sort_test.Sort_test.Planet>, Ref<stdgo.sort_test.Sort_test.Planet>) -> Bool) {
@@ -209,7 +209,7 @@ var __NMode = _iota;
         return new Change(_user, _language, _lines);
     }
 }
-@:structInit @:using(stdgo.sort_test.Sort_test.T_multiSorter_static_extension) class T_multiSorter {
+@:structInit @:using(stdgo.sort_test.Sort_test.T_multiSorter_static_extension) private class T_multiSorter {
     public var _changes : Slice<stdgo.sort_test.Sort_test.Change> = (null : Slice<stdgo.sort_test.Sort_test.Change>);
     public var _less : Slice<stdgo.sort_test.Sort_test.T_lessFunc> = (null : Slice<stdgo.sort_test.Sort_test.T_lessFunc>);
     public function new(?_changes:Slice<stdgo.sort_test.Sort_test.Change>, ?_less:Slice<stdgo.sort_test.Sort_test.T_lessFunc>) {
@@ -263,7 +263,7 @@ var __NMode = _iota;
         return new ByWeight(organs);
     }
 }
-@:structInit @:using(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_static_extension) class T_nonDeterministicTestingData {
+@:structInit @:using(stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_static_extension) private class T_nonDeterministicTestingData {
     public var _r : Ref<stdgo.math.rand.Rand.Rand> = (null : stdgo.math.rand.Rand.Rand);
     public function new(?_r:Ref<stdgo.math.rand.Rand.Rand>) {
         if (_r != null) this._r = _r;
@@ -273,7 +273,7 @@ var __NMode = _iota;
         return new T_nonDeterministicTestingData(_r);
     }
 }
-@:structInit @:using(stdgo.sort_test.Sort_test.T_testingData_static_extension) class T_testingData {
+@:structInit @:using(stdgo.sort_test.Sort_test.T_testingData_static_extension) private class T_testingData {
     public var _desc : GoString = "";
     public var _t : Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
     public var _data : Slice<GoInt> = (null : Slice<GoInt>);
@@ -293,7 +293,7 @@ var __NMode = _iota;
         return new T_testingData(_desc, _t, _data, _maxswap, _ncmp, _nswap);
     }
 }
-@:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) class T_adversaryTestingData {
+@:structInit @:using(stdgo.sort_test.Sort_test.T_adversaryTestingData_static_extension) private class T_adversaryTestingData {
     public var _t : Ref<stdgo.testing.Testing.T> = (null : stdgo.testing.Testing.T);
     public var _data : Slice<GoInt> = (null : Slice<GoInt>);
     public var _maxcmp : GoInt = 0;
@@ -1733,20 +1733,20 @@ function benchmarkSort1e6(_b:stdgo.testing.Testing.B):Void {
 function benchmarkStable1e6(_b:stdgo.testing.Testing.B):Void {
         _bench(_b, (1e+06 : GoInt), stable, (Go.str("Stable") : GoString));
     }
-@:keep class Person_static_extension {
+@:keep private class Person_static_extension {
     @:keep
     static public function string( _p:Person):GoString {
         return stdgo.fmt.Fmt.sprintf((Go.str("%s: %d") : GoString), Go.toInterface(_p.name), Go.toInterface(_p.age));
     }
 }
-class Person_wrapper {
+private class Person_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Person;
 }
-@:keep class T_planetSorter_static_extension {
+@:keep private class T_planetSorter_static_extension {
     /**
         // Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
     **/
@@ -1774,7 +1774,7 @@ class Person_wrapper {
         return (_s._planets.length);
     }
 }
-class T_planetSorter_wrapper {
+private class T_planetSorter_wrapper {
     /**
         // Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
     **/
@@ -1794,7 +1794,7 @@ class T_planetSorter_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_planetSorter;
 }
-@:keep class T_multiSorter_static_extension {
+@:keep private class T_multiSorter_static_extension {
     /**
         // Less is part of sort.Interface. It is implemented by looping along the
         // less functions until it finds a comparison that discriminates between
@@ -1855,7 +1855,7 @@ class T_planetSorter_wrapper {
         });
     }
 }
-class T_multiSorter_wrapper {
+private class T_multiSorter_wrapper {
     /**
         // Less is part of sort.Interface. It is implemented by looping along the
         // less functions until it finds a comparison that discriminates between
@@ -1885,7 +1885,7 @@ class T_multiSorter_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_multiSorter;
 }
-@:keep class ByName_static_extension {
+@:keep private class ByName_static_extension {
     @:keep
     static public function less( _s:ByName, _i:GoInt, _j:GoInt):Bool {
         return _s.organs[_i].name < _s.organs[_j].name;
@@ -1895,7 +1895,7 @@ class T_multiSorter_wrapper {
     @:embedded
     public static function len( __self__:ByName):GoInt return __self__.len();
 }
-class ByName_wrapper {
+private class ByName_wrapper {
     @:keep
     public var less : (GoInt, GoInt) -> Bool = null;
     @:embedded
@@ -1906,7 +1906,7 @@ class ByName_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ByName;
 }
-@:keep class ByWeight_static_extension {
+@:keep private class ByWeight_static_extension {
     @:keep
     static public function less( _s:ByWeight, _i:GoInt, _j:GoInt):Bool {
         return _s.organs[_i].weight < _s.organs[_j].weight;
@@ -1916,7 +1916,7 @@ class ByName_wrapper {
     @:embedded
     public static function len( __self__:ByWeight):GoInt return __self__.len();
 }
-class ByWeight_wrapper {
+private class ByWeight_wrapper {
     @:keep
     public var less : (GoInt, GoInt) -> Bool = null;
     @:embedded
@@ -1927,7 +1927,7 @@ class ByWeight_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ByWeight;
 }
-@:keep class T_nonDeterministicTestingData_static_extension {
+@:keep private class T_nonDeterministicTestingData_static_extension {
     @:keep
     static public function swap( _t:T_nonDeterministicTestingData, _i:GoInt, _j:GoInt):Void {
         if (((_i < (0 : GoInt)) || (_j < (0 : GoInt)) || _i >= _t.len()) || (_j >= _t.len())) {
@@ -1946,7 +1946,7 @@ class ByWeight_wrapper {
         return (500 : GoInt);
     }
 }
-class T_nonDeterministicTestingData_wrapper {
+private class T_nonDeterministicTestingData_wrapper {
     @:keep
     public var swap : (GoInt, GoInt) -> Void = null;
     @:keep
@@ -1957,7 +1957,7 @@ class T_nonDeterministicTestingData_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_nonDeterministicTestingData;
 }
-@:keep class T_testingData_static_extension {
+@:keep private class T_testingData_static_extension {
     @:keep
     static public function swap( _d:T_testingData, _i:GoInt, _j:GoInt):Void {
         if (_d._nswap >= _d._maxswap) {
@@ -1981,7 +1981,7 @@ class T_nonDeterministicTestingData_wrapper {
         return (_d._data.length);
     }
 }
-class T_testingData_wrapper {
+private class T_testingData_wrapper {
     @:keep
     public var swap : (GoInt, GoInt) -> Void = null;
     @:keep
@@ -1992,7 +1992,7 @@ class T_testingData_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_testingData;
 }
-@:keep class T_adversaryTestingData_static_extension {
+@:keep private class T_adversaryTestingData_static_extension {
     @:keep
     static public function swap( _d:T_adversaryTestingData, _i:GoInt, _j:GoInt):Void {
         {
@@ -2029,7 +2029,7 @@ class T_testingData_wrapper {
         return (_d._data.length);
     }
 }
-class T_adversaryTestingData_wrapper {
+private class T_adversaryTestingData_wrapper {
     @:keep
     public var swap : (GoInt, GoInt) -> Void = null;
     @:keep
@@ -2040,7 +2040,7 @@ class T_adversaryTestingData_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : T_adversaryTestingData;
 }
-@:keep class ByAge_static_extension {
+@:keep private class ByAge_static_extension {
     @:keep
     static public function less( _a:ByAge, _i:GoInt, _j:GoInt):Bool {
         return _a[_i].age < _a[_j].age;
@@ -2059,7 +2059,7 @@ class T_adversaryTestingData_wrapper {
         return (_a.length);
     }
 }
-class ByAge_wrapper {
+private class ByAge_wrapper {
     @:keep
     public var less : (GoInt, GoInt) -> Bool = null;
     @:keep
@@ -2070,7 +2070,7 @@ class ByAge_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : ByAge;
 }
-@:keep class By_static_extension {
+@:keep private class By_static_extension {
     /**
         // Sort is a method on the function type, By, that sorts the argument slice according to the function.
     **/
@@ -2086,7 +2086,7 @@ class ByAge_wrapper {
         });
     }
 }
-class By_wrapper {
+private class By_wrapper {
     /**
         // Sort is a method on the function type, By, that sorts the argument slice according to the function.
     **/
@@ -2096,20 +2096,20 @@ class By_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : By;
 }
-@:keep class Grams_static_extension {
+@:keep private class Grams_static_extension {
     @:keep
     static public function string( _g:Grams):GoString {
         return stdgo.fmt.Fmt.sprintf((Go.str("%dg") : GoString), Go.toInterface((_g : GoInt)));
     }
 }
-class Grams_wrapper {
+private class Grams_wrapper {
     @:keep
     public var string : () -> GoString = null;
     public function new(__self__) this.__self__ = __self__;
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Grams;
 }
-@:keep class Organs_static_extension {
+@:keep private class Organs_static_extension {
     @:keep
     static public function swap( _s:Organs, _i:GoInt, _j:GoInt):Void {
         {
@@ -2124,7 +2124,7 @@ class Grams_wrapper {
         return (_s.length);
     }
 }
-class Organs_wrapper {
+private class Organs_wrapper {
     @:keep
     public var swap : (GoInt, GoInt) -> Void = null;
     @:keep
@@ -2133,7 +2133,7 @@ class Organs_wrapper {
     public function __underlying__() return Go.toInterface(this);
     var __self__ : Organs;
 }
-@:keep class T_intPairs_static_extension {
+@:keep private class T_intPairs_static_extension {
     /**
         // InOrder checks if a-equal elements were not reordered.
     **/
@@ -2186,7 +2186,7 @@ class Organs_wrapper {
         return (_d.length);
     }
 }
-class T_intPairs_wrapper {
+private class T_intPairs_wrapper {
     /**
         // InOrder checks if a-equal elements were not reordered.
     **/

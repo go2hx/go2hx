@@ -504,7 +504,7 @@ Go.toInterface(("16596477517051940556" : GoUInt64))) : Slice<AnyInterface>);
 var _numTestSamples : GoUnTypedInt = (10000 : GoUnTypedInt);
 var __tmp__0 = getNormalDistributionParameters();
 var __tmp__1 = getExponentialDistributionParameters();
-@:structInit @:using(stdgo.math.rand_test.Rand_test.T_statsResults_static_extension) class T_statsResults {
+@:structInit @:using(stdgo.math.rand_test.Rand_test.T_statsResults_static_extension) private class T_statsResults {
     public var _mean : GoFloat64 = 0;
     public var _stddev : GoFloat64 = 0;
     public var _closeEnough : GoFloat64 = 0;
@@ -1556,7 +1556,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
             stdgo.fmt.Fmt.printf((Go.str("}\n") : GoString));
         };
     }
-@:keep class T_statsResults_static_extension {
+@:keep private class T_statsResults_static_extension {
     /**
         // checkSimilarDistribution returns success if the mean and stddev of the
         // two statsResults are similar.
@@ -1576,7 +1576,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
         return (null : stdgo.Error);
     }
 }
-class T_statsResults_wrapper {
+private class T_statsResults_wrapper {
     /**
         // checkSimilarDistribution returns success if the mean and stddev of the
         // two statsResults are similar.

@@ -663,8 +663,21 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 		switch obj := obj.(type) {
 		case *ast.ValueSpec:
 			values := make([]map[string]interface{}, len(obj.Values))
-			for i := range obj.Values {
-				values[i] = parseData(obj.Values[i])
+			for j := range obj.Values {
+				values[j] = parseData(obj.Values[j])
+				switch e := obj.Values[j].(type) {
+				case *ast.Ident:
+					if e.Name == "iota" {
+						values[j] = map[string]interface{}{
+							"id":    "BasicLit",
+							"kind":  token.INT.String(),
+							"value": strconv.Itoa(i),
+							"raw":   false,
+							"type":  nil,
+						}
+					}
+				default:
+				}
 			}
 			data[i] = map[string]interface{}{
 				"id":     "ValueSpec",

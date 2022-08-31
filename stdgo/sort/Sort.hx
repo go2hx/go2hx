@@ -10,9 +10,9 @@ import stdgo.GoMap;
 import stdgo.Chan;
 var _reflectValueOf : AnyInterface -> stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
 var _reflectSwapper : AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
-var _unknownHint : T_sortedHint = _iota;
-var _increasingHint : T_sortedHint = _iota;
-var _decreasingHint : T_sortedHint = _iota;
+var _unknownHint : T_sortedHint = 0;
+var _increasingHint : T_sortedHint = 0;
+var _decreasingHint : T_sortedHint = 0;
 typedef Interface = StructType & {
     public function len():GoInt;
     public function less(_i:GoInt, _j:GoInt):Bool;

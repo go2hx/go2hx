@@ -327,7 +327,7 @@ function testTruncateWriter(_t:stdgo.testing.Testing.T):Void
 		throw "testing.iotest.write is not yet implemented";
 }
 
-private class T_writeLogger_wrapper {
+class T_writeLogger_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -349,7 +349,7 @@ private class T_writeLogger_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_readLogger_wrapper {
+class T_readLogger_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -371,7 +371,7 @@ private class T_readLogger_wrapper {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-private class T_errWriter_wrapper {
+class T_errWriter_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -393,7 +393,7 @@ private class T_errWriter_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_oneByteReader_wrapper {
+class T_oneByteReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -415,7 +415,7 @@ private class T_oneByteReader_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_halfReader_wrapper {
+class T_halfReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -437,7 +437,7 @@ private class T_halfReader_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_dataErrReader_wrapper {
+class T_dataErrReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -459,7 +459,7 @@ private class T_dataErrReader_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_timeoutReader_wrapper {
+class T_timeoutReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -481,7 +481,7 @@ private class T_timeoutReader_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_errReader_wrapper {
+class T_errReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -503,7 +503,7 @@ private class T_errReader_wrapper {
 		throw "testing.iotest.read is not yet implemented";
 }
 
-private class T_smallByteReader_wrapper {
+class T_smallByteReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -525,7 +525,7 @@ private class T_smallByteReader_wrapper {
 		throw "testing.iotest.write is not yet implemented";
 }
 
-private class T_truncateWriter_wrapper {
+class T_truncateWriter_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;

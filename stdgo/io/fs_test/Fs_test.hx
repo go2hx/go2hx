@@ -1767,7 +1767,7 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
 		return __self__.glob(_name);
 }
 
-private class T_globOnly_wrapper {
+class T_globOnly_wrapper {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1799,7 +1799,7 @@ private class T_globOnly_wrapper {
 		return __self__.readDir(_name);
 }
 
-private class T_readDirOnly_wrapper {
+class T_readDirOnly_wrapper {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1831,7 +1831,7 @@ private class T_readDirOnly_wrapper {
 		return __self__.readFile(_name);
 }
 
-private class T_readFileOnly_wrapper {
+class T_readFileOnly_wrapper {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1858,7 +1858,7 @@ private class T_readFileOnly_wrapper {
 		return __self__.open(_name);
 }
 
-private class T_openOnly_wrapper {
+class T_openOnly_wrapper {
 	@:embedded
 	public var open:GoString -> {
 		var _0:File;
@@ -1885,7 +1885,7 @@ private class T_openOnly_wrapper {
 		return __self__.stat(_name);
 }
 
-private class T_statOnly_wrapper {
+class T_statOnly_wrapper {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1917,7 +1917,7 @@ private class T_statOnly_wrapper {
 		return __self__.sub(_name);
 }
 
-private class T_subOnly_wrapper {
+class T_subOnly_wrapper {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;

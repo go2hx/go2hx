@@ -2160,14 +2160,14 @@ function benchmarkStable1e6(_b:stdgo.testing.Testing.B):Void {
 	_bench(_b, (1e+06 : GoInt), stable, (Go.str("Stable") : GoString));
 }
 
-@:keep private class Person_static_extension {
+@:keep class Person_static_extension {
 	@:keep
 	static public function string(_p:Person):GoString {
 		return stdgo.fmt.Fmt.sprintf((Go.str("%s: %d") : GoString), Go.toInterface(_p.name), Go.toInterface(_p.age));
 	}
 }
 
-private class Person_wrapper {
+class Person_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -2211,7 +2211,7 @@ private class Person_wrapper {
 	}
 }
 
-private class T_planetSorter_wrapper {
+class T_planetSorter_wrapper {
 	/**
 		// Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
 	**/
@@ -2304,7 +2304,7 @@ private class T_planetSorter_wrapper {
 	}
 }
 
-private class T_multiSorter_wrapper {
+class T_multiSorter_wrapper {
 	/**
 		// Less is part of sort.Interface. It is implemented by looping along the
 		// less functions until it finds a comparison that discriminates between
@@ -2343,7 +2343,7 @@ private class T_multiSorter_wrapper {
 	var __self__:T_multiSorter;
 }
 
-@:keep private class ByName_static_extension {
+@:keep class ByName_static_extension {
 	@:keep
 	static public function less(_s:ByName, _i:GoInt, _j:GoInt):Bool {
 		return _s.organs[_i].name < _s.organs[_j].name;
@@ -2358,7 +2358,7 @@ private class T_multiSorter_wrapper {
 		return __self__.len();
 }
 
-private class ByName_wrapper {
+class ByName_wrapper {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:embedded
@@ -2375,7 +2375,7 @@ private class ByName_wrapper {
 	var __self__:ByName;
 }
 
-@:keep private class ByWeight_static_extension {
+@:keep class ByWeight_static_extension {
 	@:keep
 	static public function less(_s:ByWeight, _i:GoInt, _j:GoInt):Bool {
 		return _s.organs[_i].weight < _s.organs[_j].weight;
@@ -2390,7 +2390,7 @@ private class ByName_wrapper {
 		return __self__.len();
 }
 
-private class ByWeight_wrapper {
+class ByWeight_wrapper {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:embedded
@@ -2429,7 +2429,7 @@ private class ByWeight_wrapper {
 	}
 }
 
-private class T_nonDeterministicTestingData_wrapper {
+class T_nonDeterministicTestingData_wrapper {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2474,7 +2474,7 @@ private class T_nonDeterministicTestingData_wrapper {
 	}
 }
 
-private class T_testingData_wrapper {
+class T_testingData_wrapper {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2532,7 +2532,7 @@ private class T_testingData_wrapper {
 	}
 }
 
-private class T_adversaryTestingData_wrapper {
+class T_adversaryTestingData_wrapper {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2571,7 +2571,7 @@ private class T_adversaryTestingData_wrapper {
 	}
 }
 
-private class ByAge_wrapper {
+class ByAge_wrapper {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:keep
@@ -2605,7 +2605,7 @@ private class ByAge_wrapper {
 	}
 }
 
-private class By_wrapper {
+class By_wrapper {
 	/**
 		// Sort is a method on the function type, By, that sorts the argument slice according to the function.
 	**/
@@ -2628,7 +2628,7 @@ private class By_wrapper {
 	}
 }
 
-private class Grams_wrapper {
+class Grams_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -2658,7 +2658,7 @@ private class Grams_wrapper {
 	}
 }
 
-private class Organs_wrapper {
+class Organs_wrapper {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2731,7 +2731,7 @@ private class Organs_wrapper {
 	}
 }
 
-private class T_intPairs_wrapper {
+class T_intPairs_wrapper {
 	/**
 		// InOrder checks if a-equal elements were not reordered.
 	**/

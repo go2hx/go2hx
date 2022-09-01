@@ -823,7 +823,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 	return _z;
 }
 
-@:keep private class Rand_static_extension {
+@:keep class Rand_static_extension {
 	/**
 		// Read generates len(p) random bytes and writes them into p. It
 		// always returns len(p) and a nil error.
@@ -1125,7 +1125,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 	}
 }
 
-private class Rand_wrapper {
+class Rand_wrapper {
 	/**
 		// Read generates len(p) random bytes and writes them into p. It
 		// always returns len(p) and a nil error.
@@ -1329,7 +1329,7 @@ private class Rand_wrapper {
 	}
 }
 
-private class T_lockedSource_wrapper {
+class T_lockedSource_wrapper {
 	/**
 		// read implements Read for a lockedSource without a race condition.
 	**/
@@ -1422,7 +1422,7 @@ private class T_lockedSource_wrapper {
 	}
 }
 
-private class T_rngSource_wrapper {
+class T_rngSource_wrapper {
 	/**
 		// Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
 	**/
@@ -1450,7 +1450,7 @@ private class T_rngSource_wrapper {
 	var __self__:T_rngSource;
 }
 
-@:keep private class Zipf_static_extension {
+@:keep class Zipf_static_extension {
 	/**
 		// Uint64 returns a value drawn from the Zipf distribution described
 		// by the Zipf object.
@@ -1487,7 +1487,7 @@ private class T_rngSource_wrapper {
 	}
 }
 
-private class Zipf_wrapper {
+class Zipf_wrapper {
 	/**
 		// Uint64 returns a value drawn from the Zipf distribution described
 		// by the Zipf object.

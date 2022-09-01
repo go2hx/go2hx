@@ -1025,7 +1025,7 @@ function timevalToNsec(_tv:Timeval):GoInt64
 function nsecToTimeval(_nsec:GoInt64):Timeval
 	throw "syscall.nsecToTimeval is not yet implemented";
 
-@:keep private class Timespec_static_extension {
+@:keep class Timespec_static_extension {
 	/**
 		// Nano returns the time stored in ts as nanoseconds.
 	**/
@@ -1041,7 +1041,7 @@ function nsecToTimeval(_nsec:GoInt64):Timeval
 		throw "syscall.unix is not yet implemented";
 }
 
-private class Timespec_wrapper {
+class Timespec_wrapper {
 	/**
 		// Nano returns the time stored in ts as nanoseconds.
 	**/
@@ -1066,7 +1066,7 @@ private class Timespec_wrapper {
 	var __self__:Timespec;
 }
 
-@:keep private class Timeval_static_extension {
+@:keep class Timeval_static_extension {
 	/**
 		// Nano returns the time stored in tv as nanoseconds.
 	**/
@@ -1082,7 +1082,7 @@ private class Timespec_wrapper {
 		throw "syscall.unix is not yet implemented";
 }
 
-private class Timeval_wrapper {
+class Timeval_wrapper {
 	/**
 		// Nano returns the time stored in tv as nanoseconds.
 	**/
@@ -1125,7 +1125,7 @@ private class Timeval_wrapper {
 		throw "syscall.error is not yet implemented";
 }
 
-private class Errno_wrapper {
+class Errno_wrapper {
 	@:keep
 	public var timeout:() -> Bool = null;
 	@:keep
@@ -1154,7 +1154,7 @@ private class Errno_wrapper {
 		throw "syscall.signal is not yet implemented";
 }
 
-private class Signal_wrapper {
+class Signal_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -1207,7 +1207,7 @@ private class Signal_wrapper {
 		throw "syscall.exited is not yet implemented";
 }
 
-private class WaitStatus_wrapper {
+class WaitStatus_wrapper {
 	@:keep
 	public var trapCause:() -> GoInt = null;
 	@:keep

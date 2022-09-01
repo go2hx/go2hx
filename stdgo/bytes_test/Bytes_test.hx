@@ -6058,7 +6058,7 @@ function testReaderZero(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-private class T_negativeReader_wrapper {
+class T_negativeReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6084,7 +6084,7 @@ private class T_negativeReader_wrapper {
 	}
 }
 
-private class T_panicReader_wrapper {
+class T_panicReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6106,7 +6106,7 @@ private class T_panicReader_wrapper {
 		return __self__.read(__0);
 }
 
-private class T_justReader_testReaderCopyNothing_1_wrapper {
+class T_justReader_testReaderCopyNothing_1_wrapper {
 	@:embedded
 	public var read:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -6128,7 +6128,7 @@ private class T_justReader_testReaderCopyNothing_1_wrapper {
 		return __self__.write(__0);
 }
 
-private class T_justWriter_testReaderCopyNothing_2_wrapper {
+class T_justWriter_testReaderCopyNothing_2_wrapper {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;

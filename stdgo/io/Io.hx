@@ -832,7 +832,7 @@ function pipe():{var _0:PipeReader; var _1:PipeWriter;} {
 	return {_0: (new PipeReader(_p) : PipeReader), _1: (new PipeWriter(_p) : PipeWriter)};
 }
 
-@:keep private class LimitedReader_static_extension {
+@:keep class LimitedReader_static_extension {
 	@:keep
 	static public function read(_l:LimitedReader, _p:Slice<GoByte>):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
@@ -852,7 +852,7 @@ function pipe():{var _0:PipeReader; var _1:PipeWriter;} {
 	}
 }
 
-private class LimitedReader_wrapper {
+class LimitedReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -868,7 +868,7 @@ private class LimitedReader_wrapper {
 	var __self__:LimitedReader;
 }
 
-@:keep private class SectionReader_static_extension {
+@:keep class SectionReader_static_extension {
 	/**
 		// Size returns the size of the section in bytes.
 	**/
@@ -940,7 +940,7 @@ private class LimitedReader_wrapper {
 	}
 }
 
-private class SectionReader_wrapper {
+class SectionReader_wrapper {
 	/**
 		// Size returns the size of the section in bytes.
 	**/
@@ -995,7 +995,7 @@ private class SectionReader_wrapper {
 	}
 }
 
-private class T_teeReader_wrapper {
+class T_teeReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1045,7 +1045,7 @@ private class T_teeReader_wrapper {
 	}
 }
 
-private class T_discard_wrapper {
+class T_discard_wrapper {
 	@:keep
 	public var readFrom:Reader -> {
 		var _0:GoInt64;
@@ -1082,7 +1082,7 @@ private class T_discard_wrapper {
 		return __self__.read(_p_);
 }
 
-private class T_nopCloser_wrapper {
+class T_nopCloser_wrapper {
 	@:keep
 	public var close:() -> Error = null;
 	@:embedded
@@ -1117,7 +1117,7 @@ private class T_nopCloser_wrapper {
 		return __self__.read(_p_);
 }
 
-private class T_nopCloserWriterTo_wrapper {
+class T_nopCloserWriterTo_wrapper {
 	@:keep
 	public var writeTo:Writer -> {
 		var _0:GoInt64;
@@ -1147,7 +1147,7 @@ private class T_nopCloserWriterTo_wrapper {
 	}
 }
 
-private class T_eofReader_wrapper {
+class T_eofReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1248,7 +1248,7 @@ private class T_eofReader_wrapper {
 	}
 }
 
-private class T_multiReader_wrapper {
+class T_multiReader_wrapper {
 	@:keep
 	public var _writeToWithBuffer:(Writer, Slice<GoByte>) -> {
 		var _0:GoInt64;
@@ -1335,7 +1335,7 @@ private class T_multiReader_wrapper {
 	}
 }
 
-private class T_multiWriter_wrapper {
+class T_multiWriter_wrapper {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -1455,7 +1455,7 @@ private class T_multiWriter_wrapper {
 		__self__.lock();
 }
 
-private class T_onceError_wrapper {
+class T_onceError_wrapper {
 	@:keep
 	public var load:() -> Error = null;
 	@:keep
@@ -1627,7 +1627,7 @@ private class T_onceError_wrapper {
 	}
 }
 
-private class T_pipe_wrapper {
+class T_pipe_wrapper {
 	/**
 		// writeCloseError is considered internal to the pipe type.
 	**/
@@ -1664,7 +1664,7 @@ private class T_pipe_wrapper {
 	var __self__:T_pipe;
 }
 
-@:keep private class PipeReader_static_extension {
+@:keep class PipeReader_static_extension {
 	/**
 		// CloseWithError closes the reader; subsequent writes
 		// to the write half of the pipe will return the error err.
@@ -1700,7 +1700,7 @@ private class T_pipe_wrapper {
 	}
 }
 
-private class PipeReader_wrapper {
+class PipeReader_wrapper {
 	/**
 		// CloseWithError closes the reader; subsequent writes
 		// to the write half of the pipe will return the error err.
@@ -1740,7 +1740,7 @@ private class PipeReader_wrapper {
 	var __self__:PipeReader;
 }
 
-@:keep private class PipeWriter_static_extension {
+@:keep class PipeWriter_static_extension {
 	/**
 		// CloseWithError closes the writer; subsequent reads from the
 		// read half of the pipe will return no bytes and the error err,
@@ -1777,7 +1777,7 @@ private class PipeReader_wrapper {
 	}
 }
 
-private class PipeWriter_wrapper {
+class PipeWriter_wrapper {
 	/**
 		// CloseWithError closes the writer; subsequent reads from the
 		// read half of the pipe will return no bytes and the error err,

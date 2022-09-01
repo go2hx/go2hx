@@ -777,7 +777,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	return _err;
 }
 
-@:keep private class PathError_static_extension {
+@:keep class PathError_static_extension {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -802,7 +802,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	}
 }
 
-private class PathError_wrapper {
+class PathError_wrapper {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -845,7 +845,7 @@ private class PathError_wrapper {
 	}
 }
 
-private class T_dirInfo_wrapper {
+class T_dirInfo_wrapper {
 	@:keep
 	public var name:() -> GoString = null;
 	@:keep
@@ -1065,7 +1065,7 @@ private class T_dirInfo_wrapper {
 	}
 }
 
-private class T_subFS_wrapper {
+class T_subFS_wrapper {
 	@:keep
 	public var sub:GoString -> {
 		var _0:FS;
@@ -1147,7 +1147,7 @@ private class T_subFS_wrapper {
 	}
 }
 
-private class T_statDirEntry_wrapper {
+class T_statDirEntry_wrapper {
 	@:keep
 	public var info:() -> {
 		var _0:FileInfo;
@@ -1232,7 +1232,7 @@ private class T_statDirEntry_wrapper {
 	}
 }
 
-private class FileMode_wrapper {
+class FileMode_wrapper {
 	/**
 		// Type returns type bits in m (m & ModeType).
 	**/

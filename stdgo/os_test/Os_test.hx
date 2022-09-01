@@ -857,7 +857,7 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void
 		return __self__.error();
 }
 
-private class T_myErrorIs_wrapper {
+class T_myErrorIs_wrapper {
 	@:keep
 	public var is_:Error->Bool = null;
 	@:embedded

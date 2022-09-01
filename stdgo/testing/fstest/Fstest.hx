@@ -315,7 +315,7 @@ function testDash(_t:stdgo.testing.Testing.T):Void
 		return __self__.open(_pattern);
 }
 
-private class T_fsOnly_wrapper {
+class T_fsOnly_wrapper {
 	@:embedded
 	public var open:GoString -> {
 		var _0:stdgo.io.fs.Fs.File;
@@ -357,7 +357,7 @@ private class T_fsOnly_wrapper {
 		return __self__.glob(_pattern);
 }
 
-private class T_noSub_wrapper {
+class T_noSub_wrapper {
 	@:keep
 	public var sub:() -> Void = null;
 	@:embedded
@@ -429,7 +429,7 @@ private class T_noSub_wrapper {
 		throw "testing.fstest.name is not yet implemented";
 }
 
-private class T_mapFileInfo_wrapper {
+class T_mapFileInfo_wrapper {
 	@:keep
 	public var info:() -> {
 		var _0:stdgo.io.fs.Fs.FileInfo;
@@ -513,7 +513,7 @@ private class T_mapFileInfo_wrapper {
 		return __self__.info();
 }
 
-private class T_openMapFile_wrapper {
+class T_openMapFile_wrapper {
 	@:keep
 	public var readAt:(Slice<GoByte>, GoInt64) -> {
 		var _0:GoInt;
@@ -615,7 +615,7 @@ private class T_openMapFile_wrapper {
 		return __self__.info();
 }
 
-private class T_mapDir_wrapper {
+class T_mapDir_wrapper {
 	@:keep
 	public var readDir:GoInt -> {
 		var _0:Slice<stdgo.io.fs.Fs.DirEntry>;
@@ -732,7 +732,7 @@ private class T_mapDir_wrapper {
 		throw "testing.fstest._errorf is not yet implemented";
 }
 
-private class T_fsTester_wrapper {
+class T_fsTester_wrapper {
 	/**
 		// checkBadPath checks that various invalid forms of file's name cannot be opened using open.
 	**/
@@ -828,7 +828,7 @@ private class T_fsTester_wrapper {
 		throw "testing.fstest.open is not yet implemented";
 }
 
-private class MapFS_wrapper {
+class MapFS_wrapper {
 	@:keep
 	public var sub:GoString -> {
 		var _0:stdgo.io.fs.Fs.FS;

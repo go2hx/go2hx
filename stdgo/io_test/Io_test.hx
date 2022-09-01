@@ -6428,7 +6428,7 @@ function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 	return stdgo.bytes.Bytes.join(_groups, (null : Slice<GoUInt8>));
 }
 
-@:keep private class Buffer_static_extension {
+@:keep class Buffer_static_extension {
 	@:embedded
 	public static function _tryGrowByReslice(__self__:Buffer, _pid:GoInt):{var _0:GoInt; var _1:Bool;}
 		return __self__._tryGrowByReslice(_pid);
@@ -6522,7 +6522,7 @@ function _sortBytesInGroups(_b:Slice<GoByte>, _n:GoInt):Slice<GoByte> {
 		return __self__.bytes();
 }
 
-private class Buffer_wrapper {
+class Buffer_wrapper {
 	@:embedded
 	public var _tryGrowByReslice:GoInt -> {
 		var _0:GoInt;
@@ -6714,7 +6714,7 @@ private class Buffer_wrapper {
 		return __self__.bytes();
 }
 
-private class T_writeToChecker_wrapper {
+class T_writeToChecker_wrapper {
 	@:keep
 	public var writeTo:Writer -> {
 		var _0:GoInt64;
@@ -6819,7 +6819,7 @@ private class T_writeToChecker_wrapper {
 	}
 }
 
-private class T_zeroErrReader_wrapper {
+class T_zeroErrReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6842,7 +6842,7 @@ private class T_zeroErrReader_wrapper {
 	}
 }
 
-private class T_errWriter_wrapper {
+class T_errWriter_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6866,7 +6866,7 @@ private class T_errWriter_wrapper {
 	}
 }
 
-private class T_noReadFrom_wrapper {
+class T_noReadFrom_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -6889,7 +6889,7 @@ private class T_noReadFrom_wrapper {
 	}
 }
 
-private class T_wantedAndErrReader_wrapper {
+class T_wantedAndErrReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7017,7 +7017,7 @@ private class T_wantedAndErrReader_wrapper {
 		return __self__.bytes();
 }
 
-private class T_dataAndErrorBuffer_wrapper {
+class T_dataAndErrorBuffer_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7122,7 +7122,7 @@ private class T_dataAndErrorBuffer_wrapper {
 	}
 }
 
-private class T_largeWriter_wrapper {
+class T_largeWriter_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7153,7 +7153,7 @@ private class T_largeWriter_wrapper {
 	}
 }
 
-private class T_writeStringChecker_wrapper {
+class T_writeStringChecker_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7182,7 +7182,7 @@ private class T_writeStringChecker_wrapper {
 	}
 }
 
-private class T_pipeTest_wrapper {
+class T_pipeTest_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -7202,7 +7202,7 @@ private class T_pipeTest_wrapper {
 	}
 }
 
-private class T_writerFunc_wrapper {
+class T_writerFunc_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7225,7 +7225,7 @@ private class T_writerFunc_wrapper {
 	}
 }
 
-private class T_readerFunc_wrapper {
+class T_readerFunc_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7253,7 +7253,7 @@ private class T_readerFunc_wrapper {
 	}
 }
 
-private class T_byteAndEOFReader_wrapper {
+class T_byteAndEOFReader_wrapper {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -7275,7 +7275,7 @@ private class T_byteAndEOFReader_wrapper {
 		return __self__.write(_p);
 }
 
-private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_wrapper {
+class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_wrapper {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -7297,7 +7297,7 @@ private class T_simpleWriter_testMultiWriter_WriteStringSingleAlloc_0_wrapper {
 		return __self__.error();
 }
 
-private class T_testError1_testPipeCloseError_0_wrapper {
+class T_testError1_testPipeCloseError_0_wrapper {
 	@:embedded
 	public var error:() -> GoString = null;
 
@@ -7316,7 +7316,7 @@ private class T_testError1_testPipeCloseError_0_wrapper {
 		return __self__.error();
 }
 
-private class T_testError2_testPipeCloseError_1_wrapper {
+class T_testError2_testPipeCloseError_1_wrapper {
 	@:embedded
 	public var error:() -> GoString = null;
 

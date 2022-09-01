@@ -4131,7 +4131,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	true;
 };
 
-@:keep private class ParseError_static_extension {
+@:keep class ParseError_static_extension {
 	/**
 		// Error returns the string representation of a ParseError.
 	**/
@@ -4149,7 +4149,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	}
 }
 
-private class ParseError_wrapper {
+class ParseError_wrapper {
 	/**
 		// Error returns the string representation of a ParseError.
 	**/
@@ -4165,7 +4165,7 @@ private class ParseError_wrapper {
 	var __self__:ParseError;
 }
 
-@:keep private class Timer_static_extension {
+@:keep class Timer_static_extension {
 	/**
 		// Reset changes the timer to expire after duration d.
 		// It returns true if the timer had been active, false if the timer had
@@ -4244,7 +4244,7 @@ private class ParseError_wrapper {
 	}
 }
 
-private class Timer_wrapper {
+class Timer_wrapper {
 	/**
 		// Reset changes the timer to expire after duration d.
 		// It returns true if the timer had been active, false if the timer had
@@ -4320,7 +4320,7 @@ private class Timer_wrapper {
 	var __self__:Timer;
 }
 
-@:keep private class Ticker_static_extension {
+@:keep class Ticker_static_extension {
 	/**
 		// Reset stops a ticker and resets its period to the specified duration.
 		// The next tick will arrive after the new period elapses. The duration d
@@ -4348,7 +4348,7 @@ private class Timer_wrapper {
 	}
 }
 
-private class Ticker_wrapper {
+class Ticker_wrapper {
 	/**
 		// Reset stops a ticker and resets its period to the specified duration.
 		// The next tick will arrive after the new period elapses. The duration d
@@ -4374,7 +4374,7 @@ private class Ticker_wrapper {
 	var __self__:Ticker;
 }
 
-@:keep private class Time_static_extension {
+@:keep class Time_static_extension {
 	/**
 		// Round returns the result of rounding t to the nearest multiple of d (since the zero time).
 		// The rounding behavior for halfway values is to round up.
@@ -5535,7 +5535,7 @@ private class Ticker_wrapper {
 	}
 }
 
-private class Time_wrapper {
+class Time_wrapper {
 	/**
 		// Round returns the result of rounding t to the nearest multiple of d (since the zero time).
 		// The rounding behavior for halfway values is to round up.
@@ -6004,7 +6004,7 @@ private class Time_wrapper {
 	var __self__:Time;
 }
 
-@:keep private class Location_static_extension {
+@:keep class Location_static_extension {
 	/**
 		// lookupName returns information about the time zone with
 		// the given name (such as "EST") at the given pseudo-Unix time
@@ -6233,7 +6233,7 @@ private class Time_wrapper {
 	}
 }
 
-private class Location_wrapper {
+class Location_wrapper {
 	/**
 		// lookupName returns information about the time zone with
 		// the given name (such as "EST") at the given pseudo-Unix time
@@ -6373,7 +6373,7 @@ private class Location_wrapper {
 	}
 }
 
-private class T_dataIO_wrapper {
+class T_dataIO_wrapper {
 	/**
 		// read returns the read of the data in the buffer.
 	**/
@@ -6422,7 +6422,7 @@ private class T_dataIO_wrapper {
 	}
 }
 
-private class Month_wrapper {
+class Month_wrapper {
 	/**
 		// String returns the English name of the month ("January", "February", ...).
 	**/
@@ -6453,7 +6453,7 @@ private class Month_wrapper {
 	}
 }
 
-private class Weekday_wrapper {
+class Weekday_wrapper {
 	/**
 		// String returns the English name of the day ("Sunday", "Monday", ...).
 	**/
@@ -6659,7 +6659,7 @@ private class Weekday_wrapper {
 	}
 }
 
-private class Duration_wrapper {
+class Duration_wrapper {
 	/**
 		// Abs returns the absolute value of d.
 		// As a special case, math.MinInt64 is converted to math.MaxInt64.
@@ -6746,7 +6746,7 @@ private class Duration_wrapper {
 	}
 }
 
-private class T_fileSizeError_wrapper {
+class T_fileSizeError_wrapper {
 	@:keep
 	public var error:() -> GoString = null;
 

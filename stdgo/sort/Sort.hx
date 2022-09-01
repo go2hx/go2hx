@@ -1430,7 +1430,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		return __self__.len();
 }
 
-private class T_reverse_wrapper {
+class T_reverse_wrapper {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
 	**/
@@ -1462,7 +1462,7 @@ private class T_reverse_wrapper {
 	}
 }
 
-private class T_xorshift_wrapper {
+class T_xorshift_wrapper {
 	@:keep
 	@:pointer
 	public var next:() -> GoUInt64 = null;
@@ -1522,7 +1522,7 @@ private class T_xorshift_wrapper {
 	}
 }
 
-private class IntSlice_wrapper {
+class IntSlice_wrapper {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1605,7 +1605,7 @@ private class IntSlice_wrapper {
 	}
 }
 
-private class Float64Slice_wrapper {
+class Float64Slice_wrapper {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1690,7 +1690,7 @@ private class Float64Slice_wrapper {
 	}
 }
 
-private class StringSlice_wrapper {
+class StringSlice_wrapper {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/

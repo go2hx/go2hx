@@ -444,7 +444,7 @@ function copyBytesToJS(_dst:Value, _src:Slice<GoByte>):GoInt
 function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bool;}
 	throw "syscall.js._copyBytesToJS is not yet implemented";
 
-@:keep private class Func_static_extension {
+@:keep class Func_static_extension {
 	/**
 		// Release frees up resources allocated for the function.
 		// The function must not be invoked after calling Release.
@@ -543,7 +543,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bo
 		return __self__.bool();
 }
 
-private class Func_wrapper {
+class Func_wrapper {
 	/**
 		// Release frees up resources allocated for the function.
 		// The function must not be invoked after calling Release.
@@ -606,7 +606,7 @@ private class Func_wrapper {
 	var __self__:Func;
 }
 
-@:keep private class Value_static_extension {
+@:keep class Value_static_extension {
 	/**
 		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
@@ -777,7 +777,7 @@ private class Func_wrapper {
 		throw "syscall.js.equal is not yet implemented";
 }
 
-private class Value_wrapper {
+class Value_wrapper {
 	/**
 		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
@@ -933,7 +933,7 @@ private class Value_wrapper {
 	var __self__:Value;
 }
 
-@:keep private class T_error_static_extension {
+@:keep class T_error_static_extension {
 	/**
 		// Error implements the error interface.
 	**/
@@ -1030,7 +1030,7 @@ private class Value_wrapper {
 		return __self__.bool();
 }
 
-private class T_error_wrapper {
+class T_error_wrapper {
 	/**
 		// Error implements the error interface.
 	**/
@@ -1091,13 +1091,13 @@ private class T_error_wrapper {
 	var __self__:T_error;
 }
 
-@:keep private class ValueError_static_extension {
+@:keep class ValueError_static_extension {
 	@:keep
 	static public function error(_e:ValueError):GoString
 		throw "syscall.js.error is not yet implemented";
 }
 
-private class ValueError_wrapper {
+class ValueError_wrapper {
 	@:keep
 	public var error:() -> GoString = null;
 
@@ -1120,7 +1120,7 @@ private class ValueError_wrapper {
 		throw "syscall.js.string is not yet implemented";
 }
 
-private class Type_wrapper {
+class Type_wrapper {
 	@:keep
 	public var _isObject:() -> Bool = null;
 	@:keep

@@ -1367,7 +1367,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-private class T_statsResults_wrapper {
+class T_statsResults_wrapper {
 	/**
 		// checkSimilarDistribution returns success if the mean and stddev of the
 		// two statsResults are similar.

@@ -5262,7 +5262,7 @@ function benchmarkReplaceAll(_b:stdgo.testing.Testing.B):Void {
 	}
 }
 
-private class T_errWriter_wrapper {
+class T_errWriter_wrapper {
 	@:keep
 	public var write:Slice<GoByte> -> {
 		var _0:GoInt;

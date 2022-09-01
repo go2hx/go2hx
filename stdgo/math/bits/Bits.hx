@@ -836,7 +836,7 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 	static public function runtimeError(_e:T_errorString):Void {}
 }
 
-private class T_errorString_wrapper {
+class T_errorString_wrapper {
 	@:keep
 	public var error:() -> GoString = null;
 	@:keep

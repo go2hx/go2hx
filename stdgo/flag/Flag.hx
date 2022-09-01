@@ -754,7 +754,7 @@ function newFlagSet(_name:GoString, _errorHandling:ErrorHandling):FlagSet {
 	}
 }
 
-private class T_textValue_wrapper {
+class T_textValue_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -771,7 +771,7 @@ private class T_textValue_wrapper {
 	var __self__:T_textValue;
 }
 
-@:keep private class FlagSet_static_extension {
+@:keep class FlagSet_static_extension {
 	/**
 		// Init sets the name and error handling property for a flag set.
 		// By default, the zero FlagSet uses an empty name and the
@@ -1672,7 +1672,7 @@ private class T_textValue_wrapper {
 	}
 }
 
-private class FlagSet_wrapper {
+class FlagSet_wrapper {
 	/**
 		// Init sets the name and error handling property for a flag set.
 		// By default, the zero FlagSet uses an empty name and the
@@ -2002,7 +2002,7 @@ private class FlagSet_wrapper {
 	}
 }
 
-private class T_boolValue_wrapper {
+class T_boolValue_wrapper {
 	@:keep
 	@:pointer
 	public var isBoolFlag:() -> Bool = null;
@@ -2052,7 +2052,7 @@ private class T_boolValue_wrapper {
 	}
 }
 
-private class T_intValue_wrapper {
+class T_intValue_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2099,7 +2099,7 @@ private class T_intValue_wrapper {
 	}
 }
 
-private class T_int64Value_wrapper {
+class T_int64Value_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2146,7 +2146,7 @@ private class T_int64Value_wrapper {
 	}
 }
 
-private class T_uintValue_wrapper {
+class T_uintValue_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2193,7 +2193,7 @@ private class T_uintValue_wrapper {
 	}
 }
 
-private class T_uint64Value_wrapper {
+class T_uint64Value_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2234,7 +2234,7 @@ private class T_uint64Value_wrapper {
 	}
 }
 
-private class T_stringValue_wrapper {
+class T_stringValue_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2281,7 +2281,7 @@ private class T_stringValue_wrapper {
 	}
 }
 
-private class T_float64Value_wrapper {
+class T_float64Value_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2344,7 +2344,7 @@ private class T_float64Value_wrapper {
 	}
 }
 
-private class T_durationValue_wrapper {
+class T_durationValue_wrapper {
 	@:keep
 	@:pointer
 	public var string:() -> GoString = null;
@@ -2376,7 +2376,7 @@ private class T_durationValue_wrapper {
 	}
 }
 
-private class T_funcValue_wrapper {
+class T_funcValue_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep

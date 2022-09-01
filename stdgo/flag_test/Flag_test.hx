@@ -1737,7 +1737,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 	true;
 };
 
-@:keep private class URLValue_static_extension {
+@:keep class URLValue_static_extension {
 	@:keep
 	static public function set(_v:URLValue, _s:GoString):Error {
 		{
@@ -1775,7 +1775,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-private class URLValue_wrapper {
+class URLValue_wrapper {
 	@:keep
 	public var set:GoString->Error = null;
 	@:keep
@@ -1810,7 +1810,7 @@ private class URLValue_wrapper {
 	}
 }
 
-private class T_boolFlagVar_wrapper {
+class T_boolFlagVar_wrapper {
 	@:keep
 	public var isBoolFlag:() -> Bool = null;
 	@:keep
@@ -1843,7 +1843,7 @@ private class T_boolFlagVar_wrapper {
 	}
 }
 
-private class T_zeroPanicker_wrapper {
+class T_zeroPanicker_wrapper {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -1891,7 +1891,7 @@ private class T_zeroPanicker_wrapper {
 	}
 }
 
-private class T_interval_wrapper {
+class T_interval_wrapper {
 	/**
 		// Set is the method to set the flag value, part of the flag.Value interface.
 		// Set's argument is a string to be parsed to set the flag.
@@ -1929,7 +1929,7 @@ private class T_interval_wrapper {
 	}
 }
 
-private class T_flagVar_wrapper {
+class T_flagVar_wrapper {
 	@:keep
 	public var set:GoString->Error = null;
 	@:keep

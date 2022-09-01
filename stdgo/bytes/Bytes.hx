@@ -1648,7 +1648,7 @@ function newReader(_b:Slice<GoByte>):Reader {
 	return (new Reader(_b, (0 : GoInt64), (-1 : GoInt)) : Reader);
 }
 
-@:keep private class Buffer_static_extension {
+@:keep class Buffer_static_extension {
 	/**
 		// ReadString reads until the first occurrence of delim in the input,
 		// returning a string containing the data up to and including the delimiter.
@@ -2129,7 +2129,7 @@ function newReader(_b:Slice<GoByte>):Reader {
 	}
 }
 
-private class Buffer_wrapper {
+class Buffer_wrapper {
 	/**
 		// ReadString reads until the first occurrence of delim in the input,
 		// returning a string containing the data up to and including the delimiter.
@@ -2391,7 +2391,7 @@ private class Buffer_wrapper {
 	var __self__:Buffer;
 }
 
-@:keep private class Reader_static_extension {
+@:keep class Reader_static_extension {
 	/**
 		// Reset resets the Reader to be reading from b.
 	**/
@@ -2582,7 +2582,7 @@ private class Buffer_wrapper {
 	}
 }
 
-private class Reader_wrapper {
+class Reader_wrapper {
 	/**
 		// Reset resets the Reader to be reading from b.
 	**/
@@ -2690,7 +2690,7 @@ private class Reader_wrapper {
 	}
 }
 
-private class T_asciiSet_wrapper {
+class T_asciiSet_wrapper {
 	/**
 		// contains reports whether c is inside the set.
 	**/

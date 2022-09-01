@@ -553,7 +553,7 @@ function dir(_path:GoString):GoString {
 	}
 }
 
-private class T_lazybuf_wrapper {
+class T_lazybuf_wrapper {
 	@:keep
 	public var _string:() -> GoString = null;
 	@:keep

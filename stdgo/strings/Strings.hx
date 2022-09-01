@@ -1745,7 +1745,7 @@ function cut(_s:GoString, _sep:GoString):{var _0:GoString; var _1:GoString; var 
 	return {_0: _s, _1: (Go.str() : GoString), _2: false};
 }
 
-@:keep private class Builder_static_extension {
+@:keep class Builder_static_extension {
 	/**
 		// WriteString appends the contents of s to b's buffer.
 		// It returns the length of s and a nil error.
@@ -1868,7 +1868,7 @@ function cut(_s:GoString, _sep:GoString):{var _0:GoString; var _1:GoString; var 
 		_b._addr = _b;
 }
 
-private class Builder_wrapper {
+class Builder_wrapper {
 	/**
 		// WriteString appends the contents of s to b's buffer.
 		// It returns the length of s and a nil error.
@@ -1959,7 +1959,7 @@ private class Builder_wrapper {
 	var __self__:Builder;
 }
 
-@:keep private class Reader_static_extension {
+@:keep class Reader_static_extension {
 	/**
 		// Reset resets the Reader to be reading from s.
 	**/
@@ -2151,7 +2151,7 @@ private class Builder_wrapper {
 	}
 }
 
-private class Reader_wrapper {
+class Reader_wrapper {
 	/**
 		// Reset resets the Reader to be reading from s.
 	**/
@@ -2250,7 +2250,7 @@ private class Reader_wrapper {
 	var __self__:Reader;
 }
 
-@:keep private class Replacer_static_extension {
+@:keep class Replacer_static_extension {
 	/**
 		// WriteString writes s to w with all replacements performed.
 	**/
@@ -2368,7 +2368,7 @@ private class Reader_wrapper {
 	}
 }
 
-private class Replacer_wrapper {
+class Replacer_wrapper {
 	/**
 		// WriteString writes s to w with all replacements performed.
 	**/
@@ -2456,7 +2456,7 @@ private class Replacer_wrapper {
 	}
 }
 
-private class T_trieNode_wrapper {
+class T_trieNode_wrapper {
 	@:keep
 	public var _add:(GoString, GoString, GoInt, T_genericReplacer) -> Void = null;
 
@@ -2603,7 +2603,7 @@ private class T_trieNode_wrapper {
 	}
 }
 
-private class T_genericReplacer_wrapper {
+class T_genericReplacer_wrapper {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2636,7 +2636,7 @@ private class T_genericReplacer_wrapper {
 	}
 }
 
-private class T_stringWriter_wrapper {
+class T_stringWriter_wrapper {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -2715,7 +2715,7 @@ private class T_stringWriter_wrapper {
 	}
 }
 
-private class T_singleStringReplacer_wrapper {
+class T_singleStringReplacer_wrapper {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2824,7 +2824,7 @@ private class T_singleStringReplacer_wrapper {
 	}
 }
 
-private class T_byteStringReplacer_wrapper {
+class T_byteStringReplacer_wrapper {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2865,7 +2865,7 @@ private class T_byteStringReplacer_wrapper {
 	}
 }
 
-private class T_stringFinder_wrapper {
+class T_stringFinder_wrapper {
 	/**
 		// next returns the index in text of the first occurrence of the pattern. If
 		// the pattern is not found, it returns -1.
@@ -2902,7 +2902,7 @@ private class T_stringFinder_wrapper {
 	}
 }
 
-private class T_appendSliceWriter_wrapper {
+class T_appendSliceWriter_wrapper {
 	/**
 		// WriteString writes to the buffer without string->[]byte->string allocations.
 	**/
@@ -2978,7 +2978,7 @@ private class T_appendSliceWriter_wrapper {
 	}
 }
 
-private class T_byteReplacer_wrapper {
+class T_byteReplacer_wrapper {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -3006,7 +3006,7 @@ private class T_byteReplacer_wrapper {
 	}
 }
 
-private class T_asciiSet_wrapper {
+class T_asciiSet_wrapper {
 	/**
 		// contains reports whether c is inside the set.
 	**/

@@ -378,6 +378,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					pack: [],
 					kind: TDClass(),
 					fields: [],
+					isExtern: def.isExtern,
 					meta: [{name: ":keep", pos: null},],
 				};
 				final wrapperName = def.name + "_wrapper";
@@ -392,6 +393,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 
 					var __self__:$ct;
 				};
+				wrapper.isExtern = true; // def.isExtern;
 				wrapper.params = def.params;
 				final fieldExtension = [info.global.filePath, staticExtensionName];
 				final globalPath = getGlobalPath(info);

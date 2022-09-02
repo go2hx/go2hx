@@ -306,9 +306,11 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 					} else {
 						d, ok := constant.Int64Val(constant.ToInt(value))
 						if !ok {
-							panic("could not get exact int: " + value.String())
+							// not exact
+							e = &ast.BasicLit{Kind: token.INT, Value: value.String()}
+						} else {
+							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 						}
-						e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 					}
 				case basic.Info()&types.IsFloat != 0:
 					f, _ := constant.Float64Val(value)
@@ -660,11 +662,11 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 				values[j] = parseData(obj.Values[j])
 			}
 			data[i] = map[string]interface{}{
-				"id":       "ValueSpec",
-				"names":    parseIdents(obj.Names),
-				"type":     parseData(obj.Type),
-				"values":   values,
-				"doc":      parseData(obj.Comment),
+				"id":     "ValueSpec",
+				"names":  parseIdents(obj.Names),
+				"type":   parseData(obj.Type),
+				"values": values,
+				"doc":    parseData(obj.Comment),
 			}
 		case *ast.TypeSpec:
 			named := checker.ObjectOf(obj.Name)

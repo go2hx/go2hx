@@ -214,7 +214,7 @@ final _uvone:GoUnTypedInt = ("4607182418800017408" : GoUnTypedInt);
 final _mask:GoUnTypedInt = (2047 : GoUnTypedInt);
 final _shift:GoUnTypedInt = (52 : GoUnTypedInt);
 final _bias:GoUnTypedInt = (1023 : GoUnTypedInt);
-final _signMask:GoUnTypedInt = ("9223372036854775808" : GoUnTypedInt);
+final _signMask:GoUnTypedInt = (0 : GoUnTypedInt);
 final _fracMask:GoUnTypedInt = ("4503599627370495" : GoUnTypedInt);
 final e:GoUnTypedFloat = (2.718281828459045 : GoUnTypedFloat);
 final pi:GoUnTypedFloat = (3.141592653589793 : GoUnTypedFloat);
@@ -246,7 +246,7 @@ final maxUint:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 final maxUint8:GoUnTypedInt = (255 : GoUnTypedInt);
 final maxUint16:GoUnTypedInt = (65535 : GoUnTypedInt);
 final maxUint32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
-final maxUint64:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
+final maxUint64:GoUnTypedInt = (0 : GoUnTypedInt);
 final _haveArchMax = false;
 final _haveArchMin = false;
 final _erx:GoUnTypedFloat = (0.8450629115104675 : GoUnTypedFloat);
@@ -801,7 +801,7 @@ function _cbrt(_x:GoFloat64):GoFloat64 {
 	// and the sign of sign.
 **/
 function copysign(_f:GoFloat64, _sign:GoFloat64):GoFloat64 {
-	var _signBit:GoUnTypedInt = ("9223372036854775808" : GoUnTypedInt);
+	var _signBit:GoUnTypedInt = (0 : GoUnTypedInt);
 	return
 		float64frombits((float64bits(_f) & (("9223372036854775808" : GoUInt64) ^ (-1 : GoUnTypedInt))) | (float64bits(_sign) & ("9223372036854775808" : GoUInt64)));
 }
@@ -2078,7 +2078,7 @@ function j0(_x:GoFloat64):GoFloat64 {
 	var huge:GoUnTypedFloat = (1e+300 : GoUnTypedFloat),
 		twoM27:GoUnTypedFloat = (7.450580596923828e-09 : GoUnTypedFloat),
 		twoM13:GoUnTypedFloat = (0.0001220703125 : GoUnTypedFloat),
-		two129:GoUnTypedInt = ("680564733841876926926749214863536422912.000000" : GoUnTypedInt),
+		two129:GoUnTypedInt = (0 : GoUnTypedInt),
 		r02:GoUnTypedFloat = (0.015624999999999995 : GoUnTypedFloat),
 		r03:GoUnTypedFloat = (-0.00018997929423885472 : GoUnTypedFloat),
 		r04:GoUnTypedFloat = (1.8295404953270067e-06 : GoUnTypedFloat),
@@ -2150,7 +2150,7 @@ function j0(_x:GoFloat64):GoFloat64 {
 **/
 function y0(_x:GoFloat64):GoFloat64 {
 	var twoM27:GoUnTypedFloat = (7.450580596923828e-09 : GoUnTypedFloat),
-		two129:GoUnTypedInt = ("680564733841876926926749214863536422912.000000" : GoUnTypedInt),
+		two129:GoUnTypedInt = (0 : GoUnTypedInt),
 		u00:GoUnTypedFloat = (-0.07380429510868723 : GoUnTypedFloat),
 		u01:GoUnTypedFloat = (0.17666645250918112 : GoUnTypedFloat),
 		u02:GoUnTypedFloat = (-0.01381856719455969 : GoUnTypedFloat),
@@ -2267,7 +2267,7 @@ function _qzero(_x:GoFloat64):GoFloat64 {
 **/
 function j1(_x:GoFloat64):GoFloat64 {
 	var twoM27:GoUnTypedFloat = (7.450580596923828e-09 : GoUnTypedFloat),
-		two129:GoUnTypedInt = ("680564733841876926926749214863536422912.000000" : GoUnTypedInt),
+		two129:GoUnTypedInt = (0 : GoUnTypedInt),
 		r00:GoUnTypedFloat = (-0.0625 : GoUnTypedFloat),
 		r01:GoUnTypedFloat = (0.001407056669551897 : GoUnTypedFloat),
 		r02:GoUnTypedFloat = (-1.599556310840356e-05 : GoUnTypedFloat),
@@ -2345,7 +2345,7 @@ function j1(_x:GoFloat64):GoFloat64 {
 **/
 function y1(_x:GoFloat64):GoFloat64 {
 	var twoM54:GoUnTypedFloat = (5.551115123125783e-17 : GoUnTypedFloat),
-		two129:GoUnTypedInt = ("680564733841876926926749214863536422912.000000" : GoUnTypedInt),
+		two129:GoUnTypedInt = (0 : GoUnTypedInt),
 		u00:GoUnTypedFloat = (-0.19605709064623894 : GoUnTypedFloat),
 		u01:GoUnTypedFloat = (0.05044387166398113 : GoUnTypedFloat),
 		u02:GoUnTypedFloat = (-0.0019125689587576355 : GoUnTypedFloat),
@@ -2460,7 +2460,7 @@ function _qone(_x:GoFloat64):GoFloat64 {
 **/
 function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 	var twoM29:GoUnTypedFloat = (1.862645149230957e-09 : GoUnTypedFloat),
-		two302:GoUnTypedInt = ("8148143905337944345073782753637512644205873574663745002544561797417525199053346824733589504.000000" : GoUnTypedInt);
+		two302:GoUnTypedInt = (0 : GoUnTypedInt);
 	if (isNaN(_x)) {
 		return _x;
 	} else if (isInf(_x, (0 : GoInt))) {
@@ -2623,7 +2623,7 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 	//	Yn(n, NaN) = NaN
 **/
 function yn(_n:GoInt, _x:GoFloat64):GoFloat64 {
-	var two302:GoUnTypedInt = ("8148143905337944345073782753637512644205873574663745002544561797417525199053346824733589504.000000" : GoUnTypedInt);
+	var two302:GoUnTypedInt = (0 : GoUnTypedInt);
 	if ((_x < (0:GoFloat64)) || isNaN(_x)) {
 		return naN();
 	} else if (isInf(_x, (1 : GoInt))) {
@@ -3604,7 +3604,7 @@ function _remainder(_x:GoFloat64, _y:GoFloat64):GoFloat64 {
 function signbit(_x:GoFloat64):Bool {
 	if (std.Math.isNaN(_x.toBasic()))
 		return false;
-	return (float64bits(_x) & (1 : GoUInt64)) << (63 : GoUInt64) != (0 : GoUInt64);
+	return float64bits(_x) & ((1 : GoUInt64) << (63 : GoUInt64)) != (0 : GoUInt64);
 }
 
 /**

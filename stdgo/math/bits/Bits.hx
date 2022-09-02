@@ -240,7 +240,7 @@ function onesCount32(_x:GoUInt32):GoInt {
 	// OnesCount64 returns the number of one bits ("population count") in x.
 **/
 function onesCount64(_x:GoUInt64):GoInt {
-	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
+	var _m:GoUnTypedInt = (0 : GoUnTypedInt);
 	_x = ((_x >> (1 : GoUnTypedInt)) & ("6148914691236517205" : GoUInt64)) + (_x & ("6148914691236517205" : GoUInt64));
 	_x = ((_x >> (2 : GoUnTypedInt)) & ("3689348814741910323" : GoUInt64)) + (_x & ("3689348814741910323" : GoUInt64));
 	_x = ((_x >> (4 : GoUnTypedInt)) + _x) & ("1085102592571150095" : GoUInt64);
@@ -376,7 +376,7 @@ function reverse32(_x:GoUInt32):GoUInt32 {
 	// Reverse64 returns the value of x with its bits in reversed order.
 **/
 function reverse64(_x:GoUInt64):GoUInt64 {
-	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
+	var _m:GoUnTypedInt = (0 : GoUnTypedInt);
 	_x = ((_x >> (1 : GoUnTypedInt)) & ("6148914691236517205" : GoUInt64)) | ((_x & ("6148914691236517205" : GoUInt64)) << (1 : GoUnTypedInt));
 	_x = ((_x >> (2 : GoUnTypedInt)) & ("3689348814741910323" : GoUInt64)) | ((_x & ("3689348814741910323" : GoUInt64)) << (2 : GoUnTypedInt));
 	_x = ((_x >> (4 : GoUnTypedInt)) & ("1085102592571150095" : GoUInt64)) | ((_x & ("1085102592571150095" : GoUInt64)) << (4 : GoUnTypedInt));
@@ -421,7 +421,7 @@ function reverseBytes32(_x:GoUInt32):GoUInt32 {
 	// This function's execution time does not depend on the inputs.
 **/
 function reverseBytes64(_x:GoUInt64):GoUInt64 {
-	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
+	var _m:GoUnTypedInt = (0 : GoUnTypedInt);
 	_x = ((_x >> (8 : GoUnTypedInt)) & ("71777214294589695" : GoUInt64)) | ((_x & ("71777214294589695" : GoUInt64)) << (8 : GoUnTypedInt));
 	_x = ((_x >> (16 : GoUnTypedInt)) & ("281470681808895" : GoUInt64)) | ((_x & ("281470681808895" : GoUInt64)) << (16 : GoUnTypedInt));
 	return (_x >> (32 : GoUnTypedInt)) | (_x << (32 : GoUnTypedInt));

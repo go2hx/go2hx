@@ -15,7 +15,7 @@ var input:GoUInt64 = ("285870213051353865" : GoUInt64);
 var output:GoInt = (0 : GoInt);
 final __M:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 final __M32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
-final __M64:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
+final __M64:GoUnTypedInt = (0 : GoUnTypedInt);
 final _divZeroError:GoString = (Go.str("runtime error: integer divide by zero") : GoString);
 final _overflowError:GoString = (Go.str("runtime error: integer overflow") : GoString);
 

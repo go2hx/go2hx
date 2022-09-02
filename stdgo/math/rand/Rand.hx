@@ -417,7 +417,7 @@ final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
 var _1:T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
 final _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
 final _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
-final _rngMax:GoUnTypedInt = ("9223372036854775808" : GoUnTypedInt);
+final _rngMax:GoUnTypedInt = (0 : GoUnTypedInt);
 final _rngMask:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
 final _int32max:GoUnTypedInt = (2147483647 : GoUnTypedInt);
 

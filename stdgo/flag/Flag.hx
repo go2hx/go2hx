@@ -846,7 +846,7 @@ class T_textValue_wrapper {
 			};
 		};
 		var _name:GoString = (_s.__slice__(_numMinuses) : GoString);
-		if (((_name.length) == (0 : GoInt) || _name[(0 : GoInt)] == ("-".code : GoUInt8))
+		if (((_name.length == (0 : GoInt)) || (_name[(0 : GoInt)] == ("-".code : GoUInt8)))
 			|| (_name[(0 : GoInt)] == ("=".code : GoUInt8))) {
 			return {_0: false, _1: _f._failf((Go.str("bad flag syntax: %s") : GoString), Go.toInterface(_s))};
 		};

@@ -658,7 +658,7 @@ function fields(_s:Slice<GoByte>):Slice<Slice<GoByte>> {
 			var _r:GoUInt8 = _s[_i];
 			_setBits = _setBits | (_r);
 			var _isSpace:GoInt = (_asciiSpace[_r] : GoInt);
-			_n = _n + (_wasSpace & -1 ^ _isSpace);
+			_n = _n + (_wasSpace & (-1 ^ _isSpace));
 			_wasSpace = _isSpace;
 		});
 	};
@@ -851,7 +851,7 @@ function repeat(_b:Slice<GoByte>, _count:GoInt):Slice<GoByte> {
 	};
 	if (_count < (0:GoInt)) {
 		throw Go.toInterface((Go.str("bytes: negative Repeat count") : GoString));
-	} else if (((_b.length) * _count / _count) != (_b.length)) {
+	} else if (((_b.length * _count) / _count) != (_b.length)) {
 		throw Go.toInterface((Go.str("bytes: Repeat count causes overflow") : GoString));
 	};
 	var _nb = new Slice<GoUInt8>(((_b.length) * _count : GoInt).toBasic(), 0, ...[for (i in 0...((_b.length) * _count : GoInt).toBasic()) (0 : GoUInt8)]);
@@ -877,7 +877,7 @@ function toUpper(_s:Slice<GoByte>):Slice<GoByte> {
 				_isASCII = false;
 				break;
 			};
-			_hasLower = _hasLower || (("a".code : GoUInt8) <= _c && _c <= ("z".code : GoUInt8));
+			_hasLower = _hasLower || ((("a".code : GoUInt8) <= _c) && (_c <= ("z".code : GoUInt8)));
 		});
 	};
 	if (_isASCII) {
@@ -914,7 +914,7 @@ function toLower(_s:Slice<GoByte>):Slice<GoByte> {
 				_isASCII = false;
 				break;
 			};
-			_hasUpper = _hasUpper || (("A".code : GoUInt8) <= _c && _c <= ("Z".code : GoUInt8));
+			_hasUpper = _hasUpper || ((("A".code : GoUInt8) <= _c) && (_c <= ("Z".code : GoUInt8)));
 		});
 	};
 	if (_isASCII) {
@@ -1188,7 +1188,7 @@ function _makeASCIISet(_chars:GoString):{var _0:T_asciiSet; var _1:Bool;} {
 			if (_c >= (128 : GoUInt8)) {
 				return {_0: (_as == null ? null : _as.__copy__()), _1: false};
 			};
-			_as[_c / (32 : GoUInt8)] = _as[_c / (32 : GoUInt8)] | ((1 : GoUInt32) << _c % (32 : GoUInt8));
+			_as[_c / (32 : GoUInt8)] = _as[_c / (32 : GoUInt8)] | ((1 : GoUInt32) << (_c % (32 : GoUInt8)));
 		});
 	};
 	return {_0: (_as == null ? null : _as.__copy__()), _1: true};
@@ -1430,8 +1430,8 @@ function replace(_s:Slice<GoByte>, _old:Slice<GoByte>, _new:Slice<GoByte>, _n:Go
 	if ((_n < (0:GoInt)) || (_m < _n)) {
 		_n = _m;
 	};
-	var _t = new Slice<GoUInt8>(((_s.length) + (_n * (_new.length) - (_old.length)) : GoInt).toBasic(), 0, ...[
-		for (i in 0...((_s.length) + (_n * (_new.length) - (_old.length)) : GoInt).toBasic()) (0 : GoUInt8)
+	var _t = new Slice<GoUInt8>(((_s.length) + (_n * (_new.length - _old.length)) : GoInt).toBasic(), 0, ...[
+		for (i in 0...((_s.length) + (_n * (_new.length - _old.length)) : GoInt).toBasic()) (0 : GoUInt8)
 	]);
 	var _w:GoInt = (0 : GoInt);
 	var _start:GoInt = (0 : GoInt);
@@ -1525,8 +1525,8 @@ function equalFold(_s:Slice<GoByte>, _t:Slice<GoByte>):Bool {
 			};
 		};
 		if (_tr < (128:GoInt32)) {
-			if ((("A".code : GoInt32) <= _sr && _sr <= ("Z".code : GoInt32))
-				&& (_tr == (_sr + ("a".code : GoInt32)) - ("A".code : GoInt32))) {
+			if (((("A".code : GoInt32) <= _sr) && (_sr <= ("Z".code : GoInt32)))
+				&& (_tr == ((_sr + ("a".code : GoInt32)) - ("A".code : GoInt32)))) {
 				continue;
 			};
 			return false;
@@ -1609,7 +1609,7 @@ function index(_s:Slice<GoByte>, _sep:Slice<GoByte>):GoInt {
 		};
 		_i++;
 		_fails++;
-		if ((_fails >= (4 : GoInt) + (_i >> (4 : GoUnTypedInt))) && (_i < _t)) {
+		if ((_fails >= ((4 : GoInt) + (_i >> (4 : GoUnTypedInt)))) && (_i < _t)) {
 			var _j:GoInt = stdgo.internal.bytealg.Bytealg.indexRabinKarpBytes((_s.__slice__(_i) : Slice<GoUInt8>), _sep);
 			if (_j < (0:GoInt)) {
 				return (-1 : GoInt);
@@ -2017,9 +2017,9 @@ function newReader(_b:Slice<GoByte>):Reader {
 			return (0 : GoInt);
 		};
 		var _c:GoInt = _b._buf.capacity;
-		if (_n <= (_c / (2 : GoInt) - _m)) {
+		if (_n <= ((_c / (2 : GoInt)) - _m)) {
 			Go.copySlice(_b._buf, (_b._buf.__slice__(_b._off) : Slice<GoUInt8>));
-		} else if (_c > ((2147483647 : GoInt) - _c - _n)) {
+		} else if (_c > (((2147483647 : GoInt) - _c) - _n)) {
 			throw Go.toInterface(errTooLarge);
 		} else {
 			_b._buf = _growSlice((_b._buf.__slice__(_b._off) : Slice<GoUInt8>), _b._off + _n);
@@ -2686,7 +2686,7 @@ class Reader_wrapper {
 	**/
 	@:keep
 	static public function _contains(_as:T_asciiSet, _c:GoByte):Bool {
-		return (_as[_c / (32 : GoUInt8)] & (1 : GoUInt32) << (_c % (32 : GoUInt8))) != (0 : GoUInt32);
+		return (_as[_c / (32 : GoUInt8)] & ((1 : GoUInt32) << (_c % (32 : GoUInt8)))) != (0 : GoUInt32);
 	}
 }
 

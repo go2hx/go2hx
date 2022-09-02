@@ -880,7 +880,7 @@ class LimitedReader_wrapper {
 	@:keep
 	static public function readAt(_s:SectionReader, _p:Slice<GoByte>, _off:GoInt64):{var _0:GoInt; var _1:Error;} {
 		var _n:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
-		if ((_off < (0:GoInt64)) || (_off >= _s._limit - _s._base)) {
+		if ((_off < (0:GoInt64)) || (_off >= (_s._limit - _s._base))) {
 			return {_0: (0 : GoInt), _1: eof};
 		};
 		_off = _off + (_s._base);

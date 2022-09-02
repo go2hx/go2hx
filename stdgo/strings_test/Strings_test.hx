@@ -2046,8 +2046,8 @@ function testCompareStrings(_t:stdgo.testing.Testing.T):Void {
 		{
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < _len, _i++, {
-				_a[_i] = ((1 : GoInt) + ((31 : GoInt) * _i % (254 : GoInt)) : GoByte);
-				_b[_i] = ((1 : GoInt) + ((31 : GoInt) * _i % (254 : GoInt)) : GoByte);
+				_a[_i] = ((1 : GoInt) + (((31 : GoInt) * _i) % (254 : GoInt)) : GoByte);
+				_b[_i] = ((1 : GoInt) + (((31 : GoInt) * _i) % (254 : GoInt)) : GoByte);
 			});
 		};
 		{
@@ -2315,9 +2315,9 @@ function exampleToTitleSpecial():Void {
 function exampleMap():Void {
 	var _rot13:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
 		if ((_r >= ("A".code : GoInt32)) && (_r <= ("Z".code : GoInt32))) {
-			return ("A".code : GoInt32) + ((_r - ("A".code : GoInt32)) + (13 : GoInt32) % (26 : GoInt32));
+			return ("A".code : GoInt32) + (((_r - ("A".code : GoInt32)) + (13 : GoInt32)) % (26 : GoInt32));
 		} else if ((_r >= ("a".code : GoInt32)) && (_r <= ("z".code : GoInt32))) {
-			return ("a".code : GoInt32) + ((_r - ("a".code : GoInt32)) + (13 : GoInt32) % (26 : GoInt32));
+			return ("a".code : GoInt32) + (((_r - ("a".code : GoInt32)) + (13 : GoInt32)) % (26 : GoInt32));
 		};
 		return _r;
 	};
@@ -2878,7 +2878,7 @@ function testReaderZero(_t:stdgo.testing.Testing.T):Void {
 			_ch:GoInt32 = __tmp__._0,
 			_size:GoInt = __tmp__._1,
 			_err:stdgo.Error = __tmp__._2;
-		if ((_ch != (0 : GoInt32) || _size != (0 : GoInt)) || (_err != stdgo.io.Io.eof)) {
+		if (((_ch != (0 : GoInt32)) || (_size != (0 : GoInt))) || (_err != stdgo.io.Io.eof)) {
 			_t.errorf((Go.str("ReadRune: got %d, %d, %v; want 0, 0, io.EOF") : GoString), Go.toInterface(_ch), Go.toInterface(_size), Go.toInterface(_err));
 		};
 	};
@@ -3259,7 +3259,7 @@ function testWriteStringError(_t:stdgo.testing.Testing.T):Void {
 			__self__;
 		},
 			(Go.str("abc") : GoString)), _n:GoInt = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-		if ((_n != (0 : GoInt) || _err == null) || (_err.error() != (Go.str("unwritable") : GoString))) {
+		if (((_n != (0 : GoInt)) || (_err == null)) || (_err.error() != (Go.str("unwritable") : GoString))) {
 			_t.errorf((Go.str("%d. WriteStringError = %d, %v, want 0, unwritable") : GoString), Go.toInterface(_i), Go.toInterface(_n), Go.toInterface(_err));
 		};
 	};
@@ -3382,7 +3382,8 @@ function benchmarkByteByteMatch(_b:stdgo.testing.Testing.B):Void {
 }
 
 function benchmarkByteStringMatch(_b:stdgo.testing.Testing.B):Void {
-	var _str:GoString = ((Go.str("<") : GoString) + repeat((Go.str("a") : GoString), (99 : GoInt)) + repeat((Go.str("b") : GoString), (99 : GoInt)))
+	var _str:GoString = (((Go.str("<") : GoString) + repeat((Go.str("a") : GoString), (99 : GoInt)))
+		+ repeat((Go.str("b") : GoString), (99 : GoInt)))
 		+ (Go.str(">") : GoString);
 	{
 		var _i:GoInt = (0 : GoInt);
@@ -4067,10 +4068,10 @@ function _tenRunes(_ch:GoRune):GoString {
 function _rot13(_r:GoRune):GoRune {
 	var _step:GoInt32 = ((13 : GoInt32) : GoRune);
 	if ((_r >= ("a".code : GoInt32)) && (_r <= ("z".code : GoInt32))) {
-		return ((_r - ("a".code : GoInt32)) + _step % (26 : GoInt32)) + ("a".code : GoInt32);
+		return (((_r - ("a".code : GoInt32)) + _step) % (26 : GoInt32)) + ("a".code : GoInt32);
 	};
 	if ((_r >= ("A".code : GoInt32)) && (_r <= ("Z".code : GoInt32))) {
-		return ((_r - ("A".code : GoInt32)) + _step % (26 : GoInt32)) + ("A".code : GoInt32);
+		return (((_r - ("A".code : GoInt32)) + _step) % (26 : GoInt32)) + ("A".code : GoInt32);
 	};
 	return _r;
 }
@@ -4813,7 +4814,7 @@ function testCut(_t:stdgo.testing.Testing.T):Void {
 				_before:GoString = __tmp__._0,
 				_after:GoString = __tmp__._1,
 				_found:Bool = __tmp__._2;
-			if ((_before != _tt._before || _after != _tt._after) || (_found != _tt._found)) {
+			if (((_before != _tt._before) || (_after != _tt._after)) || (_found != _tt._found)) {
 				_t.errorf((Go.str("Cut(%q, %q) = %q, %q, %v, want %q, %q, %v") : GoString), Go.toInterface(_tt._s), Go.toInterface(_tt._sep),
 					Go.toInterface(_before), Go.toInterface(_after), Go.toInterface(_found), Go.toInterface(_tt._before), Go.toInterface(_tt._after),
 					Go.toInterface(_tt._found));
@@ -4936,8 +4937,8 @@ function benchmarkCountTortureOverlapping(_b:stdgo.testing.Testing.B):Void {
 function benchmarkCountByte(_b:stdgo.testing.Testing.B):Void {
 	var _indexSizes = (new Slice<GoInt>(0, 0, (10 : GoInt), (32 : GoInt), (4096 : GoInt), (4194304 : GoInt), (67108864 : GoInt)) : Slice<GoInt>);
 	var _benchStr:GoString = repeat((Go.str("some_text=some☺value") : GoString),
-		(_indexSizes[(_indexSizes.length) - (1 : GoInt)] + ((Go.str("some_text=some☺value") : GoString)
-			.length) - (1 : GoInt)) / ((Go.str("some_text=some☺value") : GoString).length));
+		((_indexSizes[(_indexSizes.length) - (1 : GoInt)] + (Go.str("some_text=some☺value") : GoString).length)
+			- (1 : GoInt)) / ((Go.str("some_text=some☺value") : GoString).length));
 	var _benchFunc = function(_b:stdgo.testing.Testing.B, _benchStr:GoString):Void {
 		_b.setBytes((_benchStr.length : GoInt64));
 		{

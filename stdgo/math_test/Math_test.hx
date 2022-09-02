@@ -2077,7 +2077,7 @@ function testGamma(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _g in _vfgamma) {
 		var _f:GoFloat64 = gamma(_g[(0 : GoInt)]);
 		var _ok:Bool = false;
-		if ((isNaN(_g[(1 : GoInt)]) || isInf(_g[(1 : GoInt)], (0 : GoInt)) || _g[(1 : GoInt)] == (0 : GoFloat64))
+		if (((isNaN(_g[(1 : GoInt)]) || isInf(_g[(1 : GoInt)], (0 : GoInt))) || (_g[(1 : GoInt)] == (0 : GoFloat64)))
 			|| (_f == (0 : GoFloat64))) {
 			_ok = _alike(_g[(1 : GoInt)], _f);
 		} else if ((_g[(0 : GoInt)] > (-50 : GoFloat64)) && (_g[(0 : GoInt)] <= (171 : GoFloat64))) {

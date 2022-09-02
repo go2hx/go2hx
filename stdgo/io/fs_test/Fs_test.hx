@@ -464,7 +464,7 @@ function _contains(_vector:Slice<GoString>, _s:GoString):Bool {
 function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 	var _check = function(_desc:GoString, _names:Slice<GoString>, _err:Error):Void {
 		_t.helper();
-		if ((_err != null || (_names.length) != (1 : GoInt)) || (_names[(0 : GoInt)] != (Go.str("hello.txt") : GoString))) {
+		if (((_err != null) || (_names.length != (1 : GoInt))) || (_names[(0 : GoInt)] != (Go.str("hello.txt") : GoString))) {
 			_t.errorf((Go.str("Glob(%s) = %v, %v, want %v, nil") : GoString), Go.toInterface(_desc), Go.toInterface(_names), Go.toInterface(_err),
 				Go.toInterface((new Slice<GoString>(0, 0, (Go.str("hello.txt") : GoString)) : Slice<GoString>)));
 		};
@@ -585,7 +585,7 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 function testReadDir(_t:stdgo.testing.Testing.T):Void {
 	var _check = function(_desc:GoString, _dirs:Slice<DirEntry>, _err:Error):Void {
 		_t.helper();
-		if (((_err != null) || (_dirs.length != (2 : GoInt)) || _dirs[(0 : GoInt)].name() != (Go.str("hello.txt") : GoString))
+		if ((((_err != null) || (_dirs.length != (2 : GoInt))) || (_dirs[(0 : GoInt)].name() != (Go.str("hello.txt") : GoString)))
 			|| (_dirs[(1 : GoInt)].name() != (Go.str("sub") : GoString))) {
 			var _names:Slice<GoString> = (null : Slice<GoString>);
 			for (_0 => _d in _dirs) {
@@ -1117,7 +1117,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 function testStat(_t:stdgo.testing.Testing.T):Void {
 	var _check:(GoString, FileInfo, stdgo.Error) -> Void = function(_desc:GoString, _info:FileInfo, _err:Error):Void {
 		_t.helper();
-		if ((_err != null || _info == null) || (_info.mode() != (302 : FileMode))) {
+		if (((_err != null) || (_info == null)) || (_info.mode() != (302 : FileMode))) {
 			var _infoStr:GoString = (Go.str("<nil>") : GoString);
 			if (_info != null) {
 				_infoStr = stdgo.fmt.Fmt.sprintf((Go.str("FileInfo(Mode: %#o)") : GoString), Go.toInterface({
@@ -1259,7 +1259,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 				Go.toInterface(_err), Go.toInterface((Go.str("goodbye, world") : GoString)));
 		};
 		var __tmp__ = readDir(_sub, (Go.str(".") : GoString)), _dirs:Slice<DirEntry> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
-		if ((_err != null || (_dirs.length) != (1 : GoInt)) || (_dirs[(0 : GoInt)].name() != (Go.str("goodbye.txt") : GoString))) {
+		if (((_err != null) || (_dirs.length != (1 : GoInt))) || (_dirs[(0 : GoInt)].name() != (Go.str("goodbye.txt") : GoString))) {
 			var _names:Slice<GoString> = (null : Slice<GoString>);
 			for (_0 => _d in _dirs) {
 				_names = (_names.__append__(_d.name()));

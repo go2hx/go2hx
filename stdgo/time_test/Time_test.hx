@@ -1190,7 +1190,7 @@ var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0, ({
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.date(), _a1:GoInt = __tmp__._0, _b1:Month = __tmp__._1, _c1:GoInt = __tmp__._2;
 		var __tmp__ = _t2.date(), _a2:GoInt = __tmp__._0, _b2:Month = __tmp__._1, _c2:GoInt = __tmp__._2;
-		return (_a1 == _a2 && _b1 == _b2) && (_c1 == _c2);
+		return ((_a1 == _a2) && (_b1 == _b2)) && (_c1 == _c2);
 	}
 	} : T__struct_25), ({
 	_name: (Go.str("Year") : GoString),
@@ -1224,7 +1224,7 @@ var _defaultLocTests:Slice<T__struct_25> = (new Slice<T__struct_25>(0, 0, ({
 	_f: function(_t1:Time, _t2:Time):Bool {
 		var __tmp__ = _t1.clock(), _a1:GoInt = __tmp__._0, _b1:GoInt = __tmp__._1, _c1:GoInt = __tmp__._2;
 		var __tmp__ = _t2.clock(), _a2:GoInt = __tmp__._0, _b2:GoInt = __tmp__._1, _c2:GoInt = __tmp__._2;
-		return (_a1 == _a2 && _b1 == _b2) && (_c1 == _c2);
+		return ((_a1 == _a2) && (_b1 == _b2)) && (_c1 == _c2);
 	}
 	} : T__struct_25), ({
 	_name: (Go.str("Hour") : GoString),
@@ -3362,7 +3362,7 @@ function testNextStdChunk(_t:stdgo.testing.Testing.T):Void {
 				var __tmp__ = nextStdChunk(_s), _prefix:GoString = __tmp__._0, _std:GoInt = __tmp__._1, _suffix:GoString = __tmp__._2;
 				_out = _out + (_prefix);
 				if (_std > (0 : GoInt)) {
-					_out = _out + ((Go.str("(") : GoString) + stdChunkNames[_std] + (Go.str(")") : GoString));
+					_out = _out + (((Go.str("(") : GoString) + stdChunkNames[_std]) + (Go.str(")") : GoString));
 				};
 				_s = _suffix;
 			};
@@ -3984,7 +3984,7 @@ function testRubyParse(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Void {
-	if ((_test._yearSign >= (0 : GoInt)) && (_test._yearSign * _time.year() != (2010 : GoInt))) {
+	if ((_test._yearSign >= (0 : GoInt)) && ((_test._yearSign * _time.year()) != (2010 : GoInt))) {
 		_t.errorf((Go.str("%s: bad year: %d not %d") : GoString), Go.toInterface(_test._name), Go.toInterface(_time.year()), Go.toInterface((2010 : GoInt)));
 	};
 	if (_time.month() != (2 : Month)) {
@@ -4046,7 +4046,7 @@ function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
 	var _fmt:GoString = (Go.str("Mon MST 2006-01-02T15:04:05Z07:00") : GoString);
 	var _f:GoInt64->Bool = function(_sec:GoInt64):Bool {
 		var _t1:Time = (unix(_sec / (2 : GoInt64), (0 : GoInt64)) == null ? null : unix(_sec / (2 : GoInt64), (0 : GoInt64)).__copy__());
-		if ((_t1.year() < (1000:GoInt) || _t1.year() > (9999 : GoInt)) || (_t1.unix() != _sec)) {
+		if (((_t1.year() < (1000:GoInt)) || (_t1.year() > (9999 : GoInt))) || (_t1.unix() != _sec)) {
 			return true;
 		};
 		var __tmp__ = parse((Go.str("Mon MST 2006-01-02T15:04:05Z07:00") : GoString),
@@ -4413,7 +4413,7 @@ function testUnderscoreTwoThousand(_t:stdgo.testing.Testing.T):Void {
 			_y:GoInt = __tmp__._0,
 			_m:Month = __tmp__._1,
 			_d:GoInt = __tmp__._2;
-		if ((_y != (2015 : GoInt) || _m != (6 : Month)) || (_d != (18 : GoInt))) {
+		if (((_y != (2015 : GoInt)) || (_m != (6 : Month))) || (_d != (18 : GoInt))) {
 			_t.errorf((Go.str("Incorrect y/m/d, got %d/%d/%d") : GoString), Go.toInterface(_y), Go.toInterface({
 				final __self__ = new Month_wrapper(_m);
 				__self__.string = #if !macro function():GoString return _m.string() #else null #end;
@@ -4748,10 +4748,10 @@ function testMonotonicSub(_t:stdgo.testing.Testing.T):Void {
 					}));
 				};
 			};
-			_check((_txs + (Go.str(".Sub(") : GoString) + _tys) + (Go.str(")") : GoString), _tx.sub((_ty == null ? null : _ty.__copy__())), _d);
-			_check((_txs + (Go.str("w.Sub(") : GoString) + _tys) + (Go.str(")") : GoString), _txw.sub((_ty == null ? null : _ty.__copy__())), _dw);
-			_check((_txs + (Go.str(".Sub(") : GoString) + _tys) + (Go.str("w)") : GoString), _tx.sub((_tyw == null ? null : _tyw.__copy__())), _dw);
-			_check((_txs + (Go.str("w.Sub(") : GoString) + _tys) + (Go.str("w)") : GoString), _txw.sub((_tyw == null ? null : _tyw.__copy__())), _dw);
+			_check(((_txs + (Go.str(".Sub(") : GoString)) + _tys) + (Go.str(")") : GoString), _tx.sub((_ty == null ? null : _ty.__copy__())), _d);
+			_check(((_txs + (Go.str("w.Sub(") : GoString)) + _tys) + (Go.str(")") : GoString), _txw.sub((_ty == null ? null : _ty.__copy__())), _dw);
+			_check(((_txs + (Go.str(".Sub(") : GoString)) + _tys) + (Go.str("w)") : GoString), _tx.sub((_tyw == null ? null : _tyw.__copy__())), _dw);
+			_check(((_txs + (Go.str("w.Sub(") : GoString)) + _tys) + (Go.str("w)") : GoString), _txw.sub((_tyw == null ? null : _tyw.__copy__())), _dw);
 		};
 	_sub((Go.str("t1") : GoString), (Go.str("t1") : GoString), (_t1 == null ? null : _t1.__copy__()), (_t1w == null ? null : _t1w.__copy__()),
 		(_t1 == null ? null : _t1.__copy__()), (_t1w == null ? null : _t1w.__copy__()), (0 : Duration), (0 : Duration));
@@ -4778,29 +4778,29 @@ function testMonotonicSub(_t:stdgo.testing.Testing.T):Void {
 					_t.errorf((Go.str("%s = %v, want %v") : GoString), Go.toInterface(_expr), Go.toInterface(_b), Go.toInterface(_want));
 				};
 			};
-			_check((_txs + (Go.str(".After(") : GoString) + _tys) + (Go.str(")") : GoString), _tx.after((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str(".After(") : GoString)) + _tys) + (Go.str(")") : GoString), _tx.after((_ty == null ? null : _ty.__copy__())),
 				_c > (0 : GoInt));
-			_check((_txs + (Go.str("w.After(") : GoString) + _tys) + (Go.str(")") : GoString), _txw.after((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str("w.After(") : GoString)) + _tys) + (Go.str(")") : GoString), _txw.after((_ty == null ? null : _ty.__copy__())),
 				_cw > (0 : GoInt));
-			_check((_txs + (Go.str(".After(") : GoString) + _tys) + (Go.str("w)") : GoString), _tx.after((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str(".After(") : GoString)) + _tys) + (Go.str("w)") : GoString), _tx.after((_tyw == null ? null : _tyw.__copy__())),
 				_cw > (0 : GoInt));
-			_check((_txs + (Go.str("w.After(") : GoString) + _tys) + (Go.str("w)") : GoString), _txw.after((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str("w.After(") : GoString)) + _tys) + (Go.str("w)") : GoString), _txw.after((_tyw == null ? null : _tyw.__copy__())),
 				_cw > (0 : GoInt));
-			_check((_txs + (Go.str(".Before(") : GoString) + _tys) + (Go.str(")") : GoString), _tx.before((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str(".Before(") : GoString)) + _tys) + (Go.str(")") : GoString), _tx.before((_ty == null ? null : _ty.__copy__())),
 				_c < (0:GoInt));
-			_check((_txs + (Go.str("w.Before(") : GoString) + _tys) + (Go.str(")") : GoString), _txw.before((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str("w.Before(") : GoString)) + _tys) + (Go.str(")") : GoString), _txw.before((_ty == null ? null : _ty.__copy__())),
 				_cw < (0:GoInt));
-			_check((_txs + (Go.str(".Before(") : GoString) + _tys) + (Go.str("w)") : GoString), _tx.before((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str(".Before(") : GoString)) + _tys) + (Go.str("w)") : GoString), _tx.before((_tyw == null ? null : _tyw.__copy__())),
 				_cw < (0:GoInt));
-			_check((_txs + (Go.str("w.Before(") : GoString) + _tys) + (Go.str("w)") : GoString), _txw.before((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str("w.Before(") : GoString)) + _tys) + (Go.str("w)") : GoString), _txw.before((_tyw == null ? null : _tyw.__copy__())),
 				_cw < (0:GoInt));
-			_check((_txs + (Go.str(".Equal(") : GoString) + _tys) + (Go.str(")") : GoString), _tx.equal((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str(".Equal(") : GoString)) + _tys) + (Go.str(")") : GoString), _tx.equal((_ty == null ? null : _ty.__copy__())),
 				_c == (0 : GoInt));
-			_check((_txs + (Go.str("w.Equal(") : GoString) + _tys) + (Go.str(")") : GoString), _txw.equal((_ty == null ? null : _ty.__copy__())),
+			_check(((_txs + (Go.str("w.Equal(") : GoString)) + _tys) + (Go.str(")") : GoString), _txw.equal((_ty == null ? null : _ty.__copy__())),
 				_cw == (0 : GoInt));
-			_check((_txs + (Go.str(".Equal(") : GoString) + _tys) + (Go.str("w)") : GoString), _tx.equal((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str(".Equal(") : GoString)) + _tys) + (Go.str("w)") : GoString), _tx.equal((_tyw == null ? null : _tyw.__copy__())),
 				_cw == (0 : GoInt));
-			_check((_txs + (Go.str("w.Equal(") : GoString) + _tys) + (Go.str("w)") : GoString), _txw.equal((_tyw == null ? null : _tyw.__copy__())),
+			_check(((_txs + (Go.str("w.Equal(") : GoString)) + _tys) + (Go.str("w)") : GoString), _txw.equal((_tyw == null ? null : _tyw.__copy__())),
 				_cw == (0 : GoInt));
 		};
 	_cmp((Go.str("t1") : GoString), (Go.str("t1") : GoString), (_t1 == null ? null : _t1.__copy__()), (_t1w == null ? null : _t1w.__copy__()),
@@ -6073,7 +6073,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 	var _t1:Time = (now() == null ? null : now().__copy__());
 	var _d:Duration = _t1.sub((_t0 == null ? null : _t0.__copy__()));
 	var _target:Duration = delta * (10 : Duration);
-	if (_d < (_target * (9 : Duration) / (10 : Duration))) {
+	if (_d < ((_target * (9 : Duration)) / (10 : Duration))) {
 		_t.fatalf((Go.str("%d ticks of %s too fast: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
 			final __self__ = new Duration_wrapper(delta);
 			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
@@ -6115,7 +6115,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 			__self__;
 		}));
 	};
-	if (!stdgo.testing.Testing.short() && (_d > (_target * (30 : Duration)) / (10 : Duration))) {
+	if (!stdgo.testing.Testing.short() && (_d > ((_target * (30 : Duration)) / (10 : Duration)))) {
 		_t.fatalf((Go.str("%d ticks of %s too slow: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
 			final __self__ = new Duration_wrapper(delta);
 			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
@@ -6257,7 +6257,7 @@ function _testAfterQueuing(_delta:Duration):Error {
 	for (_i => _t in _times) {
 		var _dt:Duration = _t.sub((_t0 == null ? null : _t0.__copy__()));
 		var _target:Duration = (_order[_i] : Duration) * _delta;
-		if ((_dt < _target - (_delta / (2 : Duration))) || (_dt > _target + (_delta * (10 : Duration)))) {
+		if ((_dt < (_target - (_delta / (2 : Duration)))) || (_dt > (_target + (_delta * (10 : Duration))))) {
 			return stdgo.fmt.Fmt.errorf((Go.str("After(%s) arrived at %s, expected [%s,%s]") : GoString), Go.toInterface({
 				final __self__ = new Duration_wrapper(_target);
 				__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
@@ -7100,7 +7100,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 		var _dt:Duration = _t1.sub((_t0 == null ? null : _t0.__copy__()));
 		var _target:Duration = ((3 : Duration) * _delta) * (_count / (2 : GoInt) : Duration);
 		var _slop:Duration = (_target * (3 : Duration)) / (10 : Duration);
-		if ((_dt < _target - _slop) || (_dt > _target + _slop)) {
+		if ((_dt < (_target - _slop)) || (_dt > (_target + _slop))) {
 			_errs = (_errs.__append__(stdgo.fmt.Fmt.sprintf((Go.str("%d %s ticks then %d %s ticks took %s, expected [%s,%s]") : GoString),
 				Go.toInterface(_count / (2 : GoInt)), Go.toInterface({
 					final __self__ = new Duration_wrapper(_delta);
@@ -7398,17 +7398,16 @@ function _same(_t:Time, _u:T_parsedTime):Bool {
 	var __tmp__ = _t.zone(),
 		_name:GoString = __tmp__._0,
 		_offset:GoInt = __tmp__._1;
-	if (((((_year != _u.year) || (_month != _u.month) || _day != _u.day) || (_hour != _u.hour) || _min != _u.minute)
-		|| (_sec != _u.second)
-		|| _name != _u.zone)
+	if ((((((((_year != _u.year) || (_month != _u.month)) || (_day != _u.day)) || (_hour != _u.hour)) || (_min != _u.minute))
+		|| (_sec != _u.second))
+		|| (_name != _u.zone))
 		|| (_offset != _u.zoneOffset)) {
 		return false;
 	};
-	return ((((_t.year() == _u.year) && (_t.month() == _u.month) && _t.day() == _u.day)
-		&& (_t.hour() == _u.hour)
-		&& _t.minute() == _u.minute)
-		&& (_t.second() == _u.second)
-		&& _t.nanosecond() == _u.nanosecond)
+	return (((((((_t.year() == _u.year) && (_t.month() == _u.month)) && (_t.day() == _u.day)) && (_t.hour() == _u.hour))
+		&& (_t.minute() == _u.minute))
+		&& (_t.second() == _u.second))
+		&& (_t.nanosecond() == _u.nanosecond))
 		&& (_t.weekday() == _u.weekday);
 }
 
@@ -7788,7 +7787,7 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 				return false;
 			};
 		};
-		if ((_r > (_d : GoInt64) / (2 : GoInt64)) || (_r + _r == (_d : GoInt64))) {
+		if ((_r > ((_d : GoInt64) / (2 : GoInt64))) || ((_r + _r) == (_d : GoInt64))) {
 			_t1 = (_t1.add((_d : Duration)) == null ? null : _t1.add((_d : Duration)).__copy__());
 		};
 		{
@@ -8553,7 +8552,7 @@ function _equalTimeAndZone(_a:Time, _b:Time):Bool {
 	var __tmp__ = _b.zone(),
 		_bname:GoString = __tmp__._0,
 		_boffset:GoInt = __tmp__._1;
-	return (_a.equal((_b == null ? null : _b.__copy__())) && _aoffset == _boffset) && (_aname == _bname);
+	return (_a.equal((_b == null ? null : _b.__copy__())) && (_aoffset == _boffset)) && (_aname == _bname);
 }
 
 function testTimeGob(_t:stdgo.testing.Testing.T):Void {
@@ -9928,7 +9927,7 @@ function testLoadFixed(_t:stdgo.testing.Testing.T):Void {
 	var __tmp__ = now().in_(_loc).zone(),
 		_name:GoString = __tmp__._0,
 		_offset:GoInt = __tmp__._1;
-	if (!(_name == (Go.str("GMT+1") : GoString) || _name == (Go.str("-01") : GoString)) || (_offset != (-3600 : GoInt))) {
+	if (!((_name == (Go.str("GMT+1") : GoString)) || (_name == (Go.str("-01") : GoString))) || (_offset != (-3600 : GoInt))) {
 		_t.errorf((Go.str("Now().In(loc).Zone() = %q, %d, want %q or %q, %d") : GoString), Go.toInterface(_name), Go.toInterface(_offset),
 			Go.toInterface((Go.str("GMT+1") : GoString)), Go.toInterface((Go.str("-01") : GoString)), Go.toInterface((-3600 : GoInt)));
 	};
@@ -11395,7 +11394,7 @@ function testTimeAddSecOverflow(_t:stdgo.testing.Testing.T):Void {
 				.__copy__());
 			{
 				var _newSec:GoInt64 = _notMonoTime.unix();
-				if ((_newSec != _sec + _i) && (_newSec + ("62135596800" : GoInt64) != _maxInt64)) {
+				if ((_newSec != (_sec + _i)) && ((_newSec + ("62135596800" : GoInt64)) != _maxInt64)) {
 					_t.fatalf((Go.str("time ext: %d overflows with positive delta, overflow threshold: %d") : GoString), Go.toInterface(_newSec),
 						Go.toInterface(_maxInt64));
 				};
@@ -11412,7 +11411,7 @@ function testTimeAddSecOverflow(_t:stdgo.testing.Testing.T):Void {
 				.__copy__());
 			{
 				var _newSec:GoInt64 = _notMonoTime.unix();
-				if ((_newSec != _sec + _i) && (_newSec + ("62135596800" : GoInt64) != _maxInt64)) {
+				if ((_newSec != (_sec + _i)) && ((_newSec + ("62135596800" : GoInt64)) != _maxInt64)) {
 					_t.fatalf((Go.str("time ext: %d overflows with positive delta, overflow threshold: %d") : GoString), Go.toInterface(_newSec),
 						Go.toInterface(_maxInt64));
 				};
@@ -13243,7 +13242,8 @@ function testTzset(_t:stdgo.testing.Testing.T):Void {
 			_end:GoInt64 = __tmp__._3,
 			_isDST:Bool = __tmp__._4,
 			_ok:Bool = __tmp__._5;
-		if ((((_name != _test._name) || (_off != _test._off) || _start != _test._start) || (_end != _test._end) || _isDST != _test._isDST)
+		if ((((((_name != _test._name) || (_off != _test._off)) || (_start != _test._start)) || (_end != _test._end))
+			|| (_isDST != _test._isDST))
 			|| (_ok != _test._ok)) {
 			_t.errorf((Go.str("tzset(%q, %d, %d) = %q, %d, %d, %d, %t, %t, want %q, %d, %d, %d, %t, %t") : GoString), Go.toInterface(_test._inStr),
 				Go.toInterface(_test._inEnd), Go.toInterface(_test._inSec), Go.toInterface(_name), Go.toInterface(_off), Go.toInterface(_start),
@@ -13289,7 +13289,7 @@ function testTzsetName(_t:stdgo.testing.Testing.T):Void {
 			_name:GoString = __tmp__._0,
 			_out:GoString = __tmp__._1,
 			_ok:Bool = __tmp__._2;
-		if ((_name != _test._name || _out != _test._out) || (_ok != _test._ok)) {
+		if (((_name != _test._name) || (_out != _test._out)) || (_ok != _test._ok)) {
 			_t.errorf((Go.str("tzsetName(%q) = %q, %q, %t, want %q, %q, %t") : GoString), Go.toInterface(_test._in), Go.toInterface(_name),
 				Go.toInterface(_out), Go.toInterface(_ok), Go.toInterface(_test._name), Go.toInterface(_test._out), Go.toInterface(_test._ok));
 		};
@@ -13347,7 +13347,7 @@ function testTzsetOffset(_t:stdgo.testing.Testing.T):Void {
 			_off:GoInt = __tmp__._0,
 			_out:GoString = __tmp__._1,
 			_ok:Bool = __tmp__._2;
-		if ((_off != _test._off || _out != _test._out) || (_ok != _test._ok)) {
+		if (((_off != _test._off) || (_out != _test._out)) || (_ok != _test._ok)) {
 			_t.errorf((Go.str("tzsetName(%q) = %d, %q, %t, want %d, %q, %t") : GoString), Go.toInterface(_test._in), Go.toInterface(_off),
 				Go.toInterface(_out), Go.toInterface(_ok), Go.toInterface(_test._off), Go.toInterface(_test._out), Go.toInterface(_test._ok));
 		};
@@ -13423,7 +13423,7 @@ function testTzsetRule(_t:stdgo.testing.Testing.T):Void {
 			_r:Rule = __tmp__._0,
 			_out:GoString = __tmp__._1,
 			_ok:Bool = __tmp__._2;
-		if ((_r != _test._r || _out != _test._out) || (_ok != _test._ok)) {
+		if (((_r != _test._r) || (_out != _test._out)) || (_ok != _test._ok)) {
 			_t.errorf((Go.str("tzsetName(%q) = %#v, %q, %t, want %#v, %q, %t") : GoString), Go.toInterface(_test._in), Go.toInterface(_r),
 				Go.toInterface(_out), Go.toInterface(_ok), Go.toInterface(_test._r), Go.toInterface(_test._out), Go.toInterface(_test._ok));
 		};

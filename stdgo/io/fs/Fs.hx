@@ -196,7 +196,7 @@ function validPath(_name:GoString):Bool {
 			_i++;
 		};
 		var _elem:GoString = (_name.__slice__(0, _i) : GoString);
-		if ((_elem == (Go.str() : GoString) || _elem == (Go.str(".") : GoString)) || (_elem == (Go.str("..") : GoString))) {
+		if (((_elem == (Go.str() : GoString)) || (_elem == (Go.str(".") : GoString))) || (_elem == (Go.str("..") : GoString))) {
 			return false;
 		};
 		if (_i == (_name.length)) {
@@ -798,7 +798,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 
 	@:keep
 	static public function error(_e:PathError):GoString {
-		return ((_e.op + (Go.str(" ") : GoString)) + _e.path + (Go.str(": ") : GoString)) + _e.err.error();
+		return (((_e.op + (Go.str(" ") : GoString)) + _e.path) + (Go.str(": ") : GoString)) + _e.err.error();
 	}
 }
 
@@ -947,8 +947,7 @@ class T_dirInfo_wrapper {
 				_name:GoString = __tmp__._0,
 				_ok:Bool = __tmp__._1;
 			if (!_ok) {
-				return {_0: (null : Slice<GoString>), _1: stdgo.errors.Errors.new_(((Go.str("invalid result from inner fsys Glob: ") : GoString)
-					+ _name
+				return {_0: (null : Slice<GoString>), _1: stdgo.errors.Errors.new_((((Go.str("invalid result from inner fsys Glob: ") : GoString) + _name)
 					+ (Go.str(" not in ") : GoString))
 					+ _f._dir)};
 			};
@@ -1033,7 +1032,7 @@ class T_dirInfo_wrapper {
 		if (_name == _f._dir) {
 			return {_0: (Go.str(".") : GoString), _1: true};
 		};
-		if (((_name.length) >= (_f._dir.length + (2 : GoInt)) && _name[(_f._dir.length)] == ("/".code : GoUInt8))
+		if (((_name.length >= (_f._dir.length + (2 : GoInt))) && (_name[(_f._dir.length)] == ("/".code : GoUInt8)))
 			&& ((_name.__slice__(0, (_f._dir.length)) : GoString) == _f._dir)) {
 			return {_0: (_name.__slice__((_f._dir.length) + (1 : GoInt)) : GoString), _1: true};
 		};
@@ -1210,7 +1209,7 @@ class T_statDirEntry_wrapper {
 		var _buf:GoArray<GoByte> = new GoArray<GoUInt8>(...[for (i in 0...32) (0 : GoUInt8)]);
 		var _w:GoInt = (0 : GoInt);
 		for (_i => _c in (Go.str("dalTLDpSugct?") : GoString)) {
-			if ((_m & (1 : FileMode) << ((31 : GoInt) - _i : GoUInt)) != (0 : FileMode)) {
+			if ((_m & ((1 : FileMode) << ((31 : GoInt) - _i : GoUInt))) != (0 : FileMode)) {
 				_buf[_w] = (_c : GoByte);
 				_w++;
 			};
@@ -1221,7 +1220,7 @@ class T_statDirEntry_wrapper {
 		};
 		var _rwx:GoString = (Go.str("rwxrwxrwx") : GoString);
 		for (_i => _c in (Go.str("rwxrwxrwx") : GoString)) {
-			if ((_m & (1 : FileMode) << ((8 : GoInt) - _i : GoUInt)) != (0 : FileMode)) {
+			if ((_m & ((1 : FileMode) << ((8 : GoInt) - _i : GoUInt))) != (0 : FileMode)) {
 				_buf[_w] = (_c : GoByte);
 			} else {
 				_buf[_w] = ("-".code : GoUInt8);

@@ -7689,7 +7689,7 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 				return false;
 			};
 			if (_r <= _range_.hi) {
-				return (_range_.stride == (1 : GoUInt16)) || ((_r - _range_.lo) % _range_.stride == (0 : GoUInt16));
+				return (_range_.stride == (1 : GoUInt16)) || (((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16));
 			};
 		};
 		return false;
@@ -7697,10 +7697,10 @@ function _is16(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
-		var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		var _range_ = _ranges[_m];
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-			return (_range_.stride == (1 : GoUInt16)) || ((_r - _range_.lo) % _range_.stride == (0 : GoUInt16));
+			return (_range_.stride == (1 : GoUInt16)) || (((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16));
 		};
 		if (_r < _range_.lo) {
 			_hi = _m;
@@ -7722,7 +7722,7 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 				return false;
 			};
 			if (_r <= _range_.hi) {
-				return (_range_.stride == (1 : GoUInt32)) || ((_r - _range_.lo) % _range_.stride == (0 : GoUInt32));
+				return (_range_.stride == (1 : GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == (0 : GoUInt32));
 			};
 		};
 		return false;
@@ -7730,10 +7730,10 @@ function _is32(_ranges:Slice<Range32>, _r:GoUInt32):Bool {
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
-		var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		var _range_:Range32 = (_ranges[_m] == null ? null : _ranges[_m].__copy__());
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-			return (_range_.stride == (1 : GoUInt32)) || ((_r - _range_.lo) % _range_.stride == (0 : GoUInt32));
+			return (_range_.stride == (1 : GoUInt32)) || (((_r - _range_.lo) % _range_.stride) == (0 : GoUInt32));
 		};
 		if (_r < _range_.lo) {
 			_hi = _m;
@@ -7816,13 +7816,13 @@ function _to(__case:GoInt, _r:GoRune, _caseRange:Slice<CaseRange>):{var _0:GoRun
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = (_caseRange.length);
 	while (_lo < _hi) {
-		var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		var _cr:CaseRange = (_caseRange[_m] == null ? null : _caseRange[_m].__copy__());
 		if (((_cr.lo : GoRune) <= _r) && (_r <= (_cr.hi : GoRune))) {
 			var _delta:GoInt32 = _cr.delta[__case];
 			if (_delta > (1114111 : GoInt32)) {
 				return {_0: (_cr.lo : GoRune)
-					+ ((_r - (_cr.lo : GoRune)) & ((1 : GoInt32) ^ (-1 : GoUnTypedInt)) | (__case & (1 : GoInt) : GoRune)), _1: true};
+					+ (((_r - (_cr.lo : GoRune)) & ((1 : GoInt32) ^ (-1 : GoUnTypedInt))) | (__case & (1 : GoInt) : GoRune)), _1: true};
 			};
 			return {_0: _r + _delta, _1: true};
 		};
@@ -7915,7 +7915,7 @@ function simpleFold(_r:GoRune):GoRune {
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = (_caseOrbit.length);
 	while (_lo < _hi) {
-		var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		if ((_caseOrbit[_m].from : GoRune) < _r) {
 			_lo = _m + (1 : GoInt);
 		} else {

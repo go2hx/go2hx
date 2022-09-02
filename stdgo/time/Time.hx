@@ -689,9 +689,9 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 			{
 				var _c:GoInt = (_layout[_i] : GoInt);
 				if (_c == ("J".code : GoInt)) {
-					if ((_layout.length >= _i + (3 : GoInt))
+					if ((_layout.length >= (_i + (3 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Jan") : GoString))) {
-						if ((_layout.length >= _i + (7 : GoInt))
+						if ((_layout.length >= (_i + (7 : GoInt)))
 							&& ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == (Go.str("January") : GoString))) {
 							return {_0: (_layout.__slice__((0 : GoInt),
 								_i) : GoString), _1: (257 : GoInt), _2: (_layout.__slice__(_i + (7 : GoInt)) : GoString)};
@@ -704,7 +704,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 				} else if (_c == ("M".code : GoInt)) {
 					if ((_layout.length) >= (_i + (3 : GoInt))) {
 						if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Mon") : GoString)) {
-							if ((_layout.length >= _i + (6 : GoInt))
+							if ((_layout.length >= (_i + (6 : GoInt)))
 								&& ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == (Go.str("Monday") : GoString))) {
 								return {_0: (_layout.__slice__((0 : GoInt),
 									_i) : GoString), _1: (261 : GoInt), _2: (_layout.__slice__(_i + (6 : GoInt)) : GoString)};
@@ -720,37 +720,37 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						};
 					};
 				} else if (_c == ("0".code : GoInt)) {
-					if (((_layout.length) >= (_i + (2 : GoInt)) && ("1".code : GoUInt8) <= _layout[_i + (1 : GoInt)])
+					if (((_layout.length >= (_i + (2 : GoInt))) && (("1".code : GoUInt8) <= _layout[_i + (1 : GoInt)]))
 						&& (_layout[_i + (1 : GoInt)] <= ("6".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt),
 							_i) : GoString), _1: _std0x[_layout[_i + (1 : GoInt)] - ("1".code : GoUInt8)], _2: (_layout.__slice__(_i +
 								(2 : GoInt)) : GoString)};
 					};
-					if (((_layout.length) >= (_i + (3 : GoInt)) && _layout[_i + (1 : GoInt)] == ("0".code : GoUInt8))
+					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("0".code : GoUInt8)))
 						&& (_layout[_i + (2 : GoInt)] == ("2".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (267 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
 				} else if (_c == ("1".code : GoInt)) {
-					if ((_layout.length >= _i + (2 : GoInt)) && (_layout[_i + (1 : GoInt)] == ("5".code : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("5".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (524 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (259 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
 				} else if (_c == ("2".code : GoInt)) {
-					if ((_layout.length >= _i + (4 : GoInt))
+					if ((_layout.length >= (_i + (4 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (4 : GoInt)) : GoString) == (Go.str("2006") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (275 : GoInt), _2: (_layout.__slice__(_i + (4 : GoInt)) : GoString)};
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (263 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
 				} else if (_c == ("_".code : GoInt)) {
-					if ((_layout.length >= _i + (2 : GoInt)) && (_layout[_i + (1 : GoInt)] == ("2".code : GoUInt8))) {
-						if ((_layout.length >= _i + (5 : GoInt))
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("2".code : GoUInt8))) {
+						if ((_layout.length >= (_i + (5 : GoInt)))
 							&& ((_layout.__slice__(_i + (1 : GoInt), _i + (5 : GoInt)) : GoString) == (Go.str("2006") : GoString))) {
 							return {_0: (_layout.__slice__((0 : GoInt),
 								_i + (1 : GoInt)) : GoString), _1: (275 : GoInt), _2: (_layout.__slice__(_i + (5 : GoInt)) : GoString)};
 						};
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (264 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
-					if (((_layout.length) >= (_i + (3 : GoInt)) && _layout[_i + (1 : GoInt)] == ("_".code : GoUInt8))
+					if (((_layout.length >= (_i + (3 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("_".code : GoUInt8)))
 						&& (_layout[_i + (2 : GoInt)] == ("2".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (266 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
@@ -761,58 +761,58 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 				} else if (_c == ("5".code : GoInt)) {
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (529 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
 				} else if (_c == ("P".code : GoInt)) {
-					if ((_layout.length >= _i + (2 : GoInt)) && (_layout[_i + (1 : GoInt)] == ("M".code : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("M".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (533 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 				} else if (_c == ("p".code : GoInt)) {
-					if ((_layout.length >= _i + (2 : GoInt)) && (_layout[_i + (1 : GoInt)] == ("m".code : GoUInt8))) {
+					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("m".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (534 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 				} else if (_c == ("-".code : GoInt)) {
-					if ((_layout.length >= _i + (7 : GoInt))
+					if ((_layout.length >= (_i + (7 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == (Go.str("-070000") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (30 : GoInt), _2: (_layout.__slice__(_i + (7 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (9 : GoInt))
+					if ((_layout.length >= (_i + (9 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == (Go.str("-07:00:00") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (33 : GoInt), _2: (_layout.__slice__(_i + (9 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (5 : GoInt))
+					if ((_layout.length >= (_i + (5 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == (Go.str("-0700") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (29 : GoInt), _2: (_layout.__slice__(_i + (5 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (6 : GoInt))
+					if ((_layout.length >= (_i + (6 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == (Go.str("-07:00") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (32 : GoInt), _2: (_layout.__slice__(_i + (6 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (3 : GoInt))
+					if ((_layout.length >= (_i + (3 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("-07") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (31 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
 				} else if (_c == ("Z".code : GoInt)) {
-					if ((_layout.length >= _i + (7 : GoInt))
+					if ((_layout.length >= (_i + (7 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == (Go.str("Z070000") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (25 : GoInt), _2: (_layout.__slice__(_i + (7 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (9 : GoInt))
+					if ((_layout.length >= (_i + (9 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (9 : GoInt)) : GoString) == (Go.str("Z07:00:00") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (28 : GoInt), _2: (_layout.__slice__(_i + (9 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (5 : GoInt))
+					if ((_layout.length >= (_i + (5 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (5 : GoInt)) : GoString) == (Go.str("Z0700") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (24 : GoInt), _2: (_layout.__slice__(_i + (5 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (6 : GoInt))
+					if ((_layout.length >= (_i + (6 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (6 : GoInt)) : GoString) == (Go.str("Z07:00") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (27 : GoInt), _2: (_layout.__slice__(_i + (6 : GoInt)) : GoString)};
 					};
-					if ((_layout.length >= _i + (3 : GoInt))
+					if ((_layout.length >= (_i + (3 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Z07") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (26 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
 				} else if (_c == (".".code : GoInt) || _c == (",".code : GoInt)) {
-					if ((_i + (1 : GoInt) < _layout.length)
-						&& (_layout[_i + (1 : GoInt)] == ("0".code : GoUInt8) || _layout[_i + (1 : GoInt)] == ("9".code : GoUInt8))) {
+					if (((_i + (1 : GoInt)) < _layout.length)
+						&& ((_layout[_i + (1 : GoInt)] == ("0".code : GoUInt8)) || (_layout[_i + (1 : GoInt)] == ("9".code : GoUInt8)))) {
 						var _ch:GoUInt8 = _layout[_i + (1 : GoInt)];
 						var _j:GoInt = _i + (1 : GoInt);
 						while ((_j < _layout.length) && (_layout[_j] == _ch)) {
@@ -847,7 +847,7 @@ function _match(_s1:GoString, _s2:GoString):Bool {
 			if (_c1 != _c2) {
 				_c1 = _c1 | ((32 : GoUInt8));
 				_c2 = _c2 | ((32 : GoUInt8));
-				if ((_c1 != _c2 || _c1 < ("a".code:GoUInt8)) || (_c1 > ("z".code : GoUInt8))) {
+				if (((_c1 != _c2) || (_c1 < ("a".code:GoUInt8))) || (_c1 > ("z".code : GoUInt8))) {
 					return false;
 				};
 			};
@@ -901,7 +901,7 @@ function _appendInt(_b:Slice<GoByte>, _x:GoInt, _width:GoInt):Slice<GoByte> {
 function _atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 	var _x:GoInt = (0 : GoInt), _err:Error = (null : stdgo.Error);
 	var _neg:Bool = false;
-	if ((_s != (Go.str() : GoString)) && (_s[(0 : GoInt)] == ("-".code : GoUInt8) || _s[(0 : GoInt)] == ("+".code : GoUInt8))) {
+	if ((_s != (Go.str() : GoString)) && ((_s[(0 : GoInt)] == ("-".code : GoUInt8)) || (_s[(0 : GoInt)] == ("+".code : GoUInt8)))) {
 		_neg = _s[(0 : GoInt)] == ("-".code : GoUInt8);
 		_s = (_s.__slice__((1 : GoInt)) : GoString);
 	};
@@ -926,9 +926,9 @@ function _atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 **/
 function _stdFracSecond(_code:GoInt, _n:GoInt, _c:GoInt):GoInt {
 	if (_c == (".".code : GoInt)) {
-		return _code | (_n & (4095 : GoInt) << (16 : GoUnTypedInt));
+		return _code | ((_n & (4095 : GoInt)) << (16 : GoUnTypedInt));
 	};
-	return (_code | (_n & (4095 : GoInt)) << (16 : GoUnTypedInt)) | (268435456 : GoInt);
+	return (_code | ((_n & (4095 : GoInt)) << (16 : GoUnTypedInt))) | (268435456 : GoInt);
 }
 
 function _digitsLen(_std:GoInt):GoInt {
@@ -983,7 +983,7 @@ function _quote(_s:GoString):GoString {
 			var _width:GoInt = (0 : GoInt);
 			if (_c == (65533 : GoInt32)) {
 				_width = (1 : GoInt);
-				if ((_i + (2 : GoInt) < _s.length)
+				if (((_i + (2 : GoInt)) < _s.length)
 					&& ((_s.__slice__(_i, _i + (3 : GoInt)) : GoString) == ((65533 : GoInt32) : GoString))) {
 					_width = (3 : GoInt);
 				};
@@ -1052,7 +1052,7 @@ function _getnum3(_s:GoString, _fixed:Bool):{var _0:GoInt; var _1:GoString; var 
 			_n = (_n * (10 : GoInt)) + (_s[_i] - ("0".code : GoUInt8): GoInt);
 		});
 	};
-	if ((_i == (0 : GoInt)) || (_fixed && _i != (3 : GoInt))) {
+	if ((_i == (0 : GoInt)) || (_fixed && (_i != (3 : GoInt)))) {
 		return {_0: (0 : GoInt), _1: _s, _2: _errBad};
 	};
 	return {_0: _n, _1: (_s.__slice__(_i) : GoString), _2: (null : stdgo.Error)};
@@ -1273,7 +1273,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_value = __tmp__._1;
 						_err = __tmp__._2;
 					};
-					if ((_err == null) && (_month <= (0 : GoInt) || (12 : GoInt) < _month)) {
+					if ((_err == null) && ((_month <= (0 : GoInt)) || ((12 : GoInt) < _month))) {
 						_rangeErrString = (Go.str("month") : GoString);
 					};
 					break;
@@ -1293,7 +1293,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					break;
 				} else if (_std & (65535 : GoInt) == (263 : GoInt)
 					|| _std & (65535 : GoInt) == (264 : GoInt) || _std & (65535 : GoInt) == (265 : GoInt)) {
-					if ((_std == (264 : GoInt) && (_value.length) > (0 : GoInt)) && (_value[(0 : GoInt)] == (" ".code : GoUInt8))) {
+					if (((_std == (264 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (" ".code : GoUInt8))) {
 						_value = (_value.__slice__((1 : GoInt)) : GoString);
 					};
 					{
@@ -1307,7 +1307,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					{
 						var _i:GoInt = (0 : GoInt);
 						Go.cfor(_i < (2:GoInt), _i++, {
-							if ((_std == (266 : GoInt) && (_value.length) > (0 : GoInt))
+							if (((_std == (266 : GoInt)) && (_value.length > (0 : GoInt)))
 								&& (_value[(0 : GoInt)] == (" ".code : GoUInt8))) {
 								_value = (_value.__slice__((1 : GoInt)) : GoString);
 							};
@@ -1364,7 +1364,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_rangeErrString = (Go.str("second") : GoString);
 						break;
 					};
-					if (((_value.length) >= (2 : GoInt) && _commaOrPeriod(_value[(0 : GoInt)])) && _isDigit(_value, (1 : GoInt))) {
+					if (((_value.length >= (2 : GoInt)) && _commaOrPeriod(_value[(0 : GoInt)])) && _isDigit(_value, (1 : GoInt))) {
 						{
 							var __tmp__ = _nextStdChunk(_layout);
 							_std = __tmp__._1;
@@ -1431,7 +1431,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 										|| _std & (65535 : GoInt) == (31 : GoInt)
 											|| _std & (65535 : GoInt) == (32 : GoInt)
 												|| _std & (65535 : GoInt) == (30 : GoInt) || _std & (65535 : GoInt) == (33 : GoInt)) {
-					if (((_std == (24 : GoInt) || _std == (26 : GoInt)) || (_std == (27 : GoInt)) && (_value.length) >= (1 : GoInt))
+					if (((((_std == (24 : GoInt)) || (_std == (26 : GoInt))) || (_std == (27 : GoInt))) && (_value.length >= (1 : GoInt)))
 						&& (_value[(0 : GoInt)] == ("Z".code : GoUInt8))) {
 						_value = (_value.__slice__((1 : GoInt)) : GoString);
 						_z = utc;
@@ -1557,7 +1557,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 							_err = __tmp__._1;
 						};
 					};
-					_zoneOffset = ((_hr * (60 : GoInt)) + _mm * (60 : GoInt)) + _ss;
+					_zoneOffset = (((_hr * (60 : GoInt)) + _mm) * (60 : GoInt)) + _ss;
 					if (_sign[(0 : GoInt)] == ("+".code : GoUInt8)) {} else if (_sign[(0 : GoInt)] == ("-".code : GoUInt8)) {
 						_zoneOffset = -_zoneOffset;
 					} else {
@@ -1600,12 +1600,14 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					_value = (_value.__slice__(_ndigit) : GoString);
 					break;
 				} else if (_std & (65535 : GoInt) == (35 : GoInt)) {
-					if (((_value.length < (2:GoInt)) || !_commaOrPeriod(_value[(0 : GoInt)]) || _value[(1 : GoInt)] < ("0".code : GoUInt8))
+					if ((((_value.length < (2:GoInt)) || !_commaOrPeriod(_value[(0 : GoInt)]))
+						|| (_value[(1 : GoInt)] < ("0".code : GoUInt8)))
 						|| (("9".code : GoUInt8) < _value[(1 : GoInt)])) {
 						break;
 					};
 					var _i:GoInt = (0 : GoInt);
-					while (((_i < (9:GoInt)) && (_i + (1 : GoInt) < _value.length) && ("0".code : GoUInt8) <= _value[_i + (1 : GoInt)])
+					while ((((_i < (9:GoInt)) && ((_i + (1 : GoInt)) < _value.length))
+						&& (("0".code : GoUInt8) <= _value[_i + (1 : GoInt)]))
 						&& (_value[_i + (1 : GoInt)] <= ("9".code : GoUInt8))) {
 						_i++;
 					};
@@ -1674,7 +1676,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			};
 		};
 		if (_m == (0 : GoInt)) {
-			_m = (_yday - (1 : GoInt) / (31 : GoInt)) + (1 : GoInt);
+			_m = ((_yday - (1 : GoInt)) / (31 : GoInt)) + (1 : GoInt);
 			if ((_daysBefore[_m] : GoInt) < _yday) {
 				_m++;
 			};
@@ -1740,7 +1742,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			_0:GoInt64 = __tmp__._2,
 			_1:GoInt64 = __tmp__._3,
 			_2:Bool = __tmp__._4;
-		if ((_offset == _zoneOffset) && (_zoneName == (Go.str() : GoString) || _name == _zoneName)) {
+		if ((_offset == _zoneOffset) && ((_zoneName == (Go.str() : GoString)) || (_name == _zoneName))) {
 			_t._setLoc(_local);
 			return {_0: (_t == null ? null : _t.__copy__()), _1: (null : stdgo.Error)};
 		};
@@ -1791,9 +1793,8 @@ function _parseTimeZone(_value:GoString):{var _0:GoInt; var _1:Bool;} {
 		return {_0: (0 : GoInt), _1: false};
 	};
 	if ((_value.length >= (4 : GoInt))
-		&& ((_value.__slice__(0,
-			(4 : GoInt)) : GoString) == (Go.str("ChST") : GoString)
-			|| (_value.__slice__(0, (4 : GoInt)) : GoString) == (Go.str("MeST") : GoString))) {
+		&& (((_value.__slice__(0, (4 : GoInt)) : GoString) == (Go.str("ChST") : GoString))
+			|| ((_value.__slice__(0, (4 : GoInt)) : GoString) == (Go.str("MeST") : GoString)))) {
 		return {_0: (4 : GoInt), _1: true};
 	};
 	if ((_value.__slice__(0, (3 : GoInt)) : GoString) == (Go.str("GMT") : GoString)) {
@@ -1929,7 +1930,7 @@ function _leadingInt(_s:GoString):{var _0:GoUInt64; var _1:GoString; var _2:Erro
 		if (_x > ("922337203685477580" : GoUInt64)) {
 			return {_0: (0 : GoUInt64), _1: (Go.str() : GoString), _2: _errLeadingInt};
 		};
-		_x = (_x * (10 : GoUInt64) + (_c : GoUInt64)) - ("0".code : GoUInt64);
+		_x = ((_x * (10 : GoUInt64)) + (_c : GoUInt64)) - ("0".code : GoUInt64);
 		if (_x > ("9223372036854775808" : GoUInt64)) {
 			return {_0: (0 : GoUInt64), _1: (Go.str() : GoString), _2: _errLeadingInt};
 		};
@@ -1961,7 +1962,7 @@ function _leadingFraction(_s:GoString):{var _0:GoUInt64; var _1:GoFloat64; var _
 			_overflow = true;
 			continue;
 		};
-		var _y:GoUInt64 = (_x * (10 : GoUInt64) + (_c : GoUInt64)) - ("0".code : GoUInt64);
+		var _y:GoUInt64 = ((_x * (10 : GoUInt64)) + (_c : GoUInt64)) - ("0".code : GoUInt64);
 		if (_y > ("9223372036854775808" : GoUInt64)) {
 			_overflow = true;
 			continue;
@@ -2001,9 +2002,8 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 			_f:GoUInt64 = (0 : GoUInt64),
 			_scale:GoFloat64 = (1 : GoFloat64);
 		var _err:Error = (null : stdgo.Error);
-		if (!(_s[(0 : GoInt)] == (".".code : GoUInt8)
-			|| (("0".code : GoUInt8) <= _s[(0 : GoInt)])
-			&& (_s[(0 : GoInt)] <= ("9".code : GoUInt8)))) {
+		if (!((_s[(0 : GoInt)] == (".".code : GoUInt8))
+			|| ((("0".code : GoUInt8) <= _s[(0 : GoInt)]) && (_s[(0 : GoInt)] <= ("9".code : GoUInt8))))) {
 			return {_0: (0 : Duration), _1: stdgo.errors.Errors.new_((Go.str("time: invalid duration ") : GoString) + _quote(_orig))};
 		};
 		var _pl:GoInt = (_s.length);
@@ -2035,7 +2035,7 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_s.length), _i++, {
 			var _c:GoUInt8 = _s[_i];
-			if ((_c == (".".code : GoUInt8)) || (("0".code : GoUInt8) <= _c && _c <= ("9".code : GoUInt8))) {
+			if ((_c == (".".code : GoUInt8)) || ((("0".code : GoUInt8) <= _c) && (_c <= ("9".code : GoUInt8)))) {
 				break;
 			};
 		});
@@ -2048,7 +2048,7 @@ function parseDuration(_s:GoString):{var _0:Duration; var _1:Error;} {
 			_unit:GoUInt64 = __tmp__.value,
 			_ok:Bool = __tmp__.ok;
 		if (!_ok) {
-			return {_0: (0 : Duration), _1: stdgo.errors.Errors.new_(((Go.str("time: unknown unit ") : GoString) + _quote(_u)
+			return {_0: (0 : Duration), _1: stdgo.errors.Errors.new_((((Go.str("time: unknown unit ") : GoString) + _quote(_u))
 				+ (Go.str(" in duration ") : GoString))
 				+ _quote(_orig))};
 		};
@@ -2592,7 +2592,7 @@ function now():Time {
 	if (((_sec : GoUInt64) >> (33 : GoUnTypedInt)) != (0 : GoUInt64)) {
 		return (new Time((_nsec : GoUInt64), _sec + ("59453308800" : GoInt64), local) : Time);
 	};
-	return (new Time((("9223372036854775808" : GoUInt64) | (_sec : GoUInt64) << (30 : GoUnTypedInt)) | (_nsec : GoUInt64), _mono, local) : Time);
+	return (new Time((("9223372036854775808" : GoUInt64) | ((_sec : GoUInt64) << (30 : GoUnTypedInt))) | (_nsec : GoUInt64), _mono, local) : Time);
 }
 
 function _unixTime(_sec:GoInt64, _nsec:GoInt32):Time {
@@ -2640,7 +2640,8 @@ function unixMicro(_usec:GoInt64):Time {
 }
 
 function _isLeap(_year:GoInt):Bool {
-	return (_year % (4 : GoInt) == (0 : GoInt)) && ((_year % (100 : GoInt)) != (0 : GoInt) || (_year % (400 : GoInt)) == (0 : GoInt));
+	return ((_year % (4 : GoInt)) == (0 : GoInt))
+		&& (((_year % (100 : GoInt)) != (0 : GoInt)) || ((_year % (400 : GoInt)) == (0 : GoInt)));
 }
 
 /**
@@ -2652,7 +2653,7 @@ function _isLeap(_year:GoInt):Bool {
 function _norm(_hi:GoInt, _lo:GoInt, _base:GoInt):{var _0:GoInt; var _1:GoInt;} {
 	var _nhi:GoInt = (0 : GoInt), _nlo:GoInt = (0 : GoInt);
 	if (_lo < (0:GoInt)) {
-		var _n:GoInt = (-_lo - (1 : GoInt) / _base) + (1 : GoInt);
+		var _n:GoInt = ((-_lo - (1 : GoInt)) / _base) + (1 : GoInt);
 		_hi = _hi - (_n);
 		_lo = _lo + (_n * _base);
 	};
@@ -2722,7 +2723,7 @@ function date(_year:GoInt, _month:Month, _day:GoInt, _hour:GoInt, _min:GoInt, _s
 	};
 	_d = _d + ((_day - (1 : GoInt) : GoUInt64));
 	var _abs:GoUInt64 = _d * (86400 : GoUInt64);
-	_abs = _abs + (((_hour * (3600 : GoInt) + _min * (60 : GoInt)) + _sec : GoUInt64));
+	_abs = _abs + ((((_hour * (3600 : GoInt)) + (_min * (60 : GoInt))) + _sec : GoUInt64));
 	var _unix:GoInt64 = (_abs : GoInt64) + ("-9223372028715321600" : GoInt64);
 	var __tmp__ = _loc._lookup(_unix),
 		_0:GoString = __tmp__._0,
@@ -2767,7 +2768,7 @@ function _div(_t:Time, _d:Duration):{var _0:GoInt; var _1:Duration;} {
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if ((_d < (1000000000:Duration)) && ((1000000000 : Duration) % (_d + _d) == (0 : Duration))) {
+			if ((_d < (1000000000:Duration)) && (((1000000000 : Duration) % (_d + _d)) == (0 : Duration))) {
 				_qmod2 = (_nsec / (_d : GoInt32) : GoInt) & (1 : GoInt);
 				_r = (_nsec % (_d : GoInt32) : Duration);
 				break;
@@ -2802,7 +2803,7 @@ function _div(_t:Time, _d:Duration):{var _0:GoInt; var _1:Duration;} {
 				var _d0:GoUInt64 = (0 : GoUInt64);
 				while (true) {
 					_qmod2 = (0 : GoInt);
-					if ((_u1 > _d1) || (_u1 == _d1 && _u0 >= _d0)) {
+					if ((_u1 > _d1) || ((_u1 == _d1) && (_u0 >= _d0))) {
 						_qmod2 = (1 : GoInt);
 						{
 							final __tmp__0 = _u0;
@@ -2819,7 +2820,7 @@ function _div(_t:Time, _d:Duration):{var _0:GoInt; var _1:Duration;} {
 						break;
 					};
 					_d0 = _d0 >> ((1 : GoUnTypedInt));
-					_d0 = _d0 | (_d1 & (1 : GoUInt64) << (63 : GoUnTypedInt));
+					_d0 = _d0 | ((_d1 & (1 : GoUInt64)) << (63 : GoUnTypedInt));
 					_d1 = _d1 >> ((1 : GoUnTypedInt));
 				};
 				_r = (_u0 : Duration);
@@ -2962,7 +2963,7 @@ function _tzset(_s:GoString, _initEnd:GoInt64, _sec:GoInt64):{
 		_s = __tmp__._1;
 		_ok = __tmp__._2;
 	};
-	if ((!_ok || (_s.length) == (0 : GoInt)) || (_s[(0 : GoInt)] != (",".code : GoUInt8))) {
+	if ((!_ok || (_s.length == (0 : GoInt))) || (_s[(0 : GoInt)] != (",".code : GoUInt8))) {
 		return {
 			_0: (Go.str() : GoString),
 			_1: (0 : GoInt),
@@ -3192,7 +3193,7 @@ function _tzsetRule(_s:GoString):{var _0:T_rule; var _1:GoString; var _2:Bool;} 
 			_s = __tmp__._1;
 			_ok = __tmp__._2;
 		};
-		if ((!_ok || (_s.length) == (0 : GoInt)) || (_s[(0 : GoInt)] != (".".code : GoUInt8))) {
+		if ((!_ok || (_s.length == (0 : GoInt))) || (_s[(0 : GoInt)] != (".".code : GoUInt8))) {
 			return {_0: (new T_rule() : T_rule), _1: (Go.str() : GoString), _2: false};
 		};
 		var _week:GoInt = (0 : GoInt);
@@ -3202,7 +3203,7 @@ function _tzsetRule(_s:GoString):{var _0:T_rule; var _1:GoString; var _2:Bool;} 
 			_s = __tmp__._1;
 			_ok = __tmp__._2;
 		};
-		if ((!_ok || (_s.length) == (0 : GoInt)) || (_s[(0 : GoInt)] != (".".code : GoUInt8))) {
+		if ((!_ok || (_s.length == (0 : GoInt))) || (_s[(0 : GoInt)] != (".".code : GoUInt8))) {
 			return {_0: (new T_rule() : T_rule), _1: (Go.str() : GoString), _2: false};
 		};
 		var _day:GoInt = (0 : GoInt);
@@ -3300,16 +3301,16 @@ function _tzruleTime(_year:GoInt, _r:T_rule, _off:GoInt):GoInt {
 				_s = _r._day * (86400 : GoInt);
 				break;
 			} else if (_r._kind == (2 : T_ruleKind)) {
-				var _m1:GoInt = (_r._mon + (9 : GoInt) % (12 : GoInt)) + (1 : GoInt);
+				var _m1:GoInt = ((_r._mon + (9 : GoInt)) % (12 : GoInt)) + (1 : GoInt);
 				var _yy0:GoInt = _year;
 				if (_r._mon <= (2 : GoInt)) {
 					_yy0--;
 				};
 				var _yy1:GoInt = _yy0 / (100 : GoInt);
 				var _yy2:GoInt = _yy0 % (100 : GoInt);
-				var _dow:GoInt = (((((26 : GoInt) * _m1 - (2 : GoInt)) / (10 : GoInt) + (1 : GoInt)) + _yy2 + _yy2 / (4 : GoInt))
-					+ (_yy1 / (4 : GoInt))
-					- (2 : GoInt) * _yy1) % (7 : GoInt);
+				var _dow:GoInt = (((((((((26 : GoInt) * _m1) - (2 : GoInt)) / (10 : GoInt)) + (1 : GoInt)) + _yy2) + (_yy2 / (4 : GoInt)))
+					+ (_yy1 / (4 : GoInt)))
+					- ((2 : GoInt) * _yy1)) % (7 : GoInt);
 				if (_dow < (0:GoInt)) {
 					_dow = _dow + ((7 : GoInt));
 				};
@@ -3363,7 +3364,7 @@ function loadLocation(_name:GoString):{var _0:Location; var _1:Error;} {
 	if (_name == (Go.str("Local") : GoString)) {
 		return {_0: local, _1: (null : stdgo.Error)};
 	};
-	if ((_containsDotDot(_name) || _name[(0 : GoInt)] == ("/".code : GoUInt8)) || (_name[(0 : GoInt)] == ("\\".code : GoUInt8))) {
+	if ((_containsDotDot(_name) || (_name[(0 : GoInt)] == ("/".code : GoUInt8))) || (_name[(0 : GoInt)] == ("\\".code : GoUInt8))) {
 		return {_0: null, _1: _errLocation};
 	};
 	_zoneinfoOnce.do_(function():Void {
@@ -3547,8 +3548,8 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	};
 	var _is64:Bool = false;
 	if (_version > (1 : GoInt)) {
-		var _skip:GoInt = (((_n[(3 : GoInt)] * (4 : GoInt) + _n[(3 : GoInt)]) + (_n[(4 : GoInt)] * (6 : GoInt)) + _n[(5 : GoInt)])
-			+ (_n[(2 : GoInt)] * (8 : GoInt))
+		var _skip:GoInt = ((((((_n[(3 : GoInt)] * (4 : GoInt)) + _n[(3 : GoInt)]) + (_n[(4 : GoInt)] * (6 : GoInt))) + _n[(5 : GoInt)])
+			+ (_n[(2 : GoInt)] * (8 : GoInt)))
 			+ _n[(1 : GoInt)])
 			+ _n[(0 : GoInt)];
 		_skip = _skip + ((20 : GoInt));
@@ -3586,7 +3587,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 	};
 	var _extend:GoString = ("" : GoString);
 	var _rest = _d._rest();
-	if (((_rest.length) > (2 : GoInt) && _rest[(0 : GoInt)] == ("\n".code : GoUInt8))
+	if (((_rest.length > (2 : GoInt)) && (_rest[(0 : GoInt)] == ("\n".code : GoUInt8)))
 		&& (_rest[(_rest.length) - (1 : GoInt)] == ("\n".code : GoUInt8))) {
 		_extend = ((_rest.__slice__((1 : GoInt), (_rest.length) - (1 : GoInt)) : Slice<GoUInt8>) : GoString);
 	};
@@ -3635,10 +3636,9 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 			};
 		};
 		_zones[_i]._name = _byteString((_abbrev.__slice__(_b) : Slice<GoUInt8>));
-		if ((false && (_name.length) > (8 : GoInt))
-			&& ((_name.__slice__(0,
-				(8 : GoInt)) : GoString) == (Go.str("Etc/GMT+") : GoString)
-				|| (_name.__slice__(0, (8 : GoInt)) : GoString) == (Go.str("Etc/GMT-") : GoString))) {
+		if ((false && (_name.length > (8 : GoInt)))
+			&& (((_name.__slice__(0, (8 : GoInt)) : GoString) == (Go.str("Etc/GMT+") : GoString))
+				|| ((_name.__slice__(0, (8 : GoInt)) : GoString) == (Go.str("Etc/GMT-") : GoString)))) {
 			if (_name != (Go.str("Etc/GMT+0") : GoString)) {
 				_zones[_i]._name = (_name.__slice__((4 : GoInt)) : GoString);
 			};
@@ -3696,7 +3696,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 		_0:GoInt32 = __tmp__._1,
 		_1:GoInt64 = __tmp__._2;
 	for (_i => _ in _tx) {
-		if ((_tx[_i]._when <= _sec) && ((_i + (1 : GoInt)) == (_tx.length) || _sec < _tx[_i + (1 : GoInt)]._when)) {
+		if ((_tx[_i]._when <= _sec) && (((_i + (1 : GoInt)) == _tx.length) || (_sec < _tx[_i + (1 : GoInt)]._when))) {
 			_l._cacheStart = _tx[_i]._when;
 			_l._cacheEnd = ("9223372036854775807" : GoInt64);
 			_l._cacheZone = _l._zone[_tx[_i]._index];
@@ -3733,7 +3733,7 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 
 function _findZone(_zones:Slice<T_zone>, _name:GoString, _offset:GoInt, _isDST:Bool):GoInt {
 	for (_i => _z in _zones) {
-		if ((_z._name == _name && _z._offset == _offset) && (_z._isDST == _isDST)) {
+		if (((_z._name == _name) && (_z._offset == _offset)) && (_z._isDST == _isDST)) {
 			return _i;
 		};
 	};
@@ -3762,7 +3762,7 @@ function _get4(_b:Slice<GoByte>):GoInt {
 		return (0 : GoInt);
 	};
 	return
-		((_b[(0 : GoInt)] : GoInt) | ((_b[(1 : GoInt)] : GoInt) << (8 : GoUnTypedInt)) | (_b[(2 : GoInt)] : GoInt) << (16 : GoUnTypedInt)) | ((_b[(3 : GoInt)] : GoInt) << (24 : GoUnTypedInt));
+		(((_b[(0 : GoInt)] : GoInt) | ((_b[(1 : GoInt)] : GoInt) << (8 : GoUnTypedInt))) | ((_b[(2 : GoInt)] : GoInt) << (16 : GoUnTypedInt))) | ((_b[(3 : GoInt)] : GoInt) << (24 : GoUnTypedInt));
 }
 
 /**
@@ -3838,7 +3838,7 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 				var _fclen:GoInt = _get2((_buf.__slice__((32 : GoInt)) : Slice<GoUInt8>));
 				var _off:GoInt = _get4((_buf.__slice__((42 : GoInt)) : Slice<GoUInt8>));
 				var _zname = (_buf.__slice__((46 : GoInt), (46 : GoInt) + _namelen) : Slice<GoUInt8>);
-				_buf = (_buf.__slice__(((46 : GoInt) + _namelen + _xlen) + _fclen) : Slice<GoUInt8>);
+				_buf = (_buf.__slice__((((46 : GoInt) + _namelen) + _xlen) + _fclen) : Slice<GoUInt8>);
 				if ((_zname : GoString) != _name) {
 					continue;
 				};
@@ -3847,7 +3847,7 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 						for (defer in __deferstack__) {
 							defer();
 						};
-						return {_0: (null : Slice<GoUInt8>), _1: stdgo.errors.Errors.new_(((Go.str("unsupported compression for ") : GoString) + _name
+						return {_0: (null : Slice<GoUInt8>), _1: stdgo.errors.Errors.new_((((Go.str("unsupported compression for ") : GoString) + _name)
 							+ (Go.str(" in ") : GoString))
 							+ _zipfile)};
 					};
@@ -3856,9 +3856,9 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 					...[for (i in 0...((30 : GoInt) + _namelen : GoInt).toBasic()) (0 : GoUInt8)]);
 				{
 					var _err:stdgo.Error = _preadn(_fd, _buf, _off);
-					if (((_err != null || _get4(_buf) != (67324752 : GoInt))
-						|| (_get2((_buf.__slice__((8 : GoInt)) : Slice<GoUInt8>)) != _meth)
-						|| _get2((_buf.__slice__((26 : GoInt)) : Slice<GoUInt8>)) != _namelen)
+					if (((((_err != null) || (_get4(_buf) != (67324752 : GoInt)))
+						|| (_get2((_buf.__slice__((8 : GoInt)) : Slice<GoUInt8>)) != _meth))
+						|| (_get2((_buf.__slice__((26 : GoInt)) : Slice<GoUInt8>)) != _namelen))
 						|| (((_buf.__slice__((30 : GoInt), (30 : GoInt) + _namelen) : Slice<GoUInt8>) : GoString) != _name)) {
 						{
 							for (defer in __deferstack__) {
@@ -3871,7 +3871,7 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 				_xlen = _get2((_buf.__slice__((28 : GoInt)) : Slice<GoUInt8>));
 				_buf = new Slice<GoUInt8>((_size : GoInt).toBasic(), 0, ...[for (i in 0...(_size : GoInt).toBasic()) (0 : GoUInt8)]);
 				{
-					var _err:stdgo.Error = _preadn(_fd, _buf, (_off + (30 : GoInt) + _namelen) + _xlen);
+					var _err:stdgo.Error = _preadn(_fd, _buf, ((_off + (30 : GoInt)) + _namelen) + _xlen);
 					if (_err != null) {
 						{
 							for (defer in __deferstack__) {
@@ -4120,10 +4120,9 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	@:keep
 	static public function error(_e:ParseError):GoString {
 		if (_e.message == (Go.str() : GoString)) {
-			return ((((Go.str("parsing time ") : GoString) + _quote(_e.value) + (Go.str(" as ") : GoString))
-				+ _quote(_e.layout)
+			return (((((((Go.str("parsing time ") : GoString) + _quote(_e.value)) + (Go.str(" as ") : GoString)) + _quote(_e.layout))
 				+ (Go.str(": cannot parse ") : GoString))
-				+ _quote(_e.valueElem)
+				+ _quote(_e.valueElem))
 				+ (Go.str(" as ") : GoString))
 				+ _quote(_e.layoutElem);
 		};
@@ -4523,9 +4522,9 @@ class Ticker_wrapper {
 			return stdgo.errors.Errors.new_((Go.str("Time.UnmarshalBinary: invalid length") : GoString));
 		};
 		_buf = (_buf.__slice__((1 : GoInt)) : Slice<GoUInt8>);
-		var _sec:GoInt64 = ((((_buf[(7 : GoInt)] : GoInt64) | ((_buf[(6 : GoInt)] : GoInt64) << (8 : GoUnTypedInt)) | (_buf[(5 : GoInt)] : GoInt64) << (16 : GoUnTypedInt)) | ((_buf[(4 : GoInt)] : GoInt64) << (24 : GoUnTypedInt)) | (_buf[(3 : GoInt)] : GoInt64) << (32 : GoUnTypedInt)) | ((_buf[(2 : GoInt)] : GoInt64) << (40 : GoUnTypedInt)) | (_buf[(1 : GoInt)] : GoInt64) << (48 : GoUnTypedInt)) | ((_buf[(0 : GoInt)] : GoInt64) << (56 : GoUnTypedInt));
+		var _sec:GoInt64 = (((((((_buf[(7 : GoInt)] : GoInt64) | ((_buf[(6 : GoInt)] : GoInt64) << (8 : GoUnTypedInt))) | ((_buf[(5 : GoInt)] : GoInt64) << (16 : GoUnTypedInt))) | ((_buf[(4 : GoInt)] : GoInt64) << (24 : GoUnTypedInt))) | ((_buf[(3 : GoInt)] : GoInt64) << (32 : GoUnTypedInt))) | ((_buf[(2 : GoInt)] : GoInt64) << (40 : GoUnTypedInt))) | ((_buf[(1 : GoInt)] : GoInt64) << (48 : GoUnTypedInt))) | ((_buf[(0 : GoInt)] : GoInt64) << (56 : GoUnTypedInt));
 		_buf = (_buf.__slice__((8 : GoInt)) : Slice<GoUInt8>);
-		var _nsec:GoInt32 = ((_buf[(3 : GoInt)] : GoInt32) | ((_buf[(2 : GoInt)] : GoInt32) << (8 : GoUnTypedInt)) | (_buf[(1 : GoInt)] : GoInt32) << (16 : GoUnTypedInt)) | ((_buf[(0 : GoInt)] : GoInt32) << (24 : GoUnTypedInt));
+		var _nsec:GoInt32 = (((_buf[(3 : GoInt)] : GoInt32) | ((_buf[(2 : GoInt)] : GoInt32) << (8 : GoUnTypedInt))) | ((_buf[(1 : GoInt)] : GoInt32) << (16 : GoUnTypedInt))) | ((_buf[(0 : GoInt)] : GoInt32) << (24 : GoUnTypedInt));
 		_buf = (_buf.__slice__((4 : GoInt)) : Slice<GoUInt8>);
 		var _offset:GoInt = ((_buf[(1 : GoInt)] : GoInt16) | ((_buf[(0 : GoInt)] : GoInt16) << (8 : GoUnTypedInt)) : GoInt) * (60 : GoInt);
 		if (_version == (2 : GoUInt8)) {
@@ -4576,7 +4575,7 @@ class Ticker_wrapper {
 				_offsetSec = (_offset % (60 : GoInt) : GoInt8);
 			};
 			_offset = _offset / ((60 : GoInt));
-			if ((_offset < (-32768:GoInt) || _offset == (-1 : GoInt)) || (_offset > (32767 : GoInt))) {
+			if (((_offset < (-32768:GoInt)) || (_offset == (-1 : GoInt))) || (_offset > (32767 : GoInt))) {
 				return {_0: (null : Slice<GoUInt8>), _1: stdgo.errors.Errors.new_((Go.str("Time.MarshalBinary: unexpected zone offset") : GoString))};
 			};
 			_offsetMin = (_offset : GoInt16);
@@ -4784,7 +4783,7 @@ class Ticker_wrapper {
 	**/
 	@:keep
 	static public function sub(_t:Time, _u:Time):Duration {
-		if ((_t._wall & _u._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
+		if (((_t._wall & _u._wall) & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			var _te:GoInt64 = _t._ext;
 			var _ue:GoInt64 = _u._ext;
 			var _d:Duration = (_te - _ue : Duration);
@@ -4820,11 +4819,11 @@ class Ticker_wrapper {
 			_dsec--;
 			_nsec = _nsec + ((1e+09 : GoInt32));
 		};
-		_t._wall = (_t._wall & (1073741823 : GoUInt64) ^ (-1 : GoUnTypedInt)) | (_nsec : GoUInt64);
+		_t._wall = (_t._wall & ((1073741823 : GoUInt64) ^ (-1 : GoUnTypedInt))) | (_nsec : GoUInt64);
 		_t._addSec(_dsec);
 		if ((_t._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			var _te:GoInt64 = _t._ext + (_d : GoInt64);
-			if ((_d < (0:Duration) && _te > _t._ext) || (_d > (0 : Duration) && _te < _t._ext)) {
+			if (((_d < (0:Duration)) && (_te > _t._ext)) || ((_d > (0 : Duration)) && (_te < _t._ext))) {
 				_t._stripMono();
 			} else {
 				_t._ext = _te;
@@ -4993,7 +4992,7 @@ class Ticker_wrapper {
 		};
 		var _sec:GoInt64 = _t._unixSec();
 		if (_l != _utcLoc) {
-			if ((_l._cacheZone != null && _l._cacheStart <= _sec) && (_sec < _l._cacheEnd)) {
+			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
 				_name = _l._cacheZone._name;
 				_offset = _l._cacheZone._offset;
 			} else {
@@ -5023,7 +5022,7 @@ class Ticker_wrapper {
 		};
 		var _sec:GoInt64 = _t._unixSec();
 		if (_l != _utcLoc) {
-			if ((_l._cacheZone != null && _l._cacheStart <= _sec) && (_sec < _l._cacheEnd)) {
+			if (((_l._cacheZone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
 				_sec = _sec + ((_l._cacheZone._offset : GoInt64));
 			} else {
 				var __tmp__ = _l._lookup(_sec),
@@ -5056,7 +5055,7 @@ class Ticker_wrapper {
 	**/
 	@:keep
 	static public function equal(_t:Time, _u:Time):Bool {
-		if ((_t._wall & _u._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
+		if (((_t._wall & _u._wall) & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			return _t._ext == _u._ext;
 		};
 		return (_t._sec() == _u._sec()) && (_t._nsec() == _u._nsec());
@@ -5067,12 +5066,12 @@ class Ticker_wrapper {
 	**/
 	@:keep
 	static public function before(_t:Time, _u:Time):Bool {
-		if ((_t._wall & _u._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
+		if (((_t._wall & _u._wall) & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			return _t._ext < _u._ext;
 		};
 		var _ts:GoInt64 = _t._sec();
 		var _us:GoInt64 = _u._sec();
-		return (_ts < _us) || (_ts == _us && _t._nsec() < _u._nsec());
+		return (_ts < _us) || ((_ts == _us) && (_t._nsec() < _u._nsec()));
 	}
 
 	/**
@@ -5080,12 +5079,12 @@ class Ticker_wrapper {
 	**/
 	@:keep
 	static public function after(_t:Time, _u:Time):Bool {
-		if ((_t._wall & _u._wall & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
+		if (((_t._wall & _u._wall) & ("9223372036854775808" : GoUInt64)) != (0 : GoUInt64)) {
 			return _t._ext > _u._ext;
 		};
 		var _ts:GoInt64 = _t._sec();
 		var _us:GoInt64 = _u._sec();
-		return (_ts > _us) || (_ts == _us && _t._nsec() > _u._nsec());
+		return (_ts > _us) || ((_ts == _us) && (_t._nsec() > _u._nsec()));
 	}
 
 	/**
@@ -5116,7 +5115,7 @@ class Ticker_wrapper {
 			if ((_sec < ("59453308800":GoInt64)) || (("68043243391" : GoInt64) < _sec)) {
 				return;
 			};
-			_t._wall = _t._wall | (("9223372036854775808" : GoUInt64) | (_sec - ("59453308800" : GoInt64) : GoUInt64) << (30 : GoUnTypedInt));
+			_t._wall = _t._wall | (("9223372036854775808" : GoUInt64) | ((_sec - ("59453308800" : GoInt64) : GoUInt64) << (30 : GoUnTypedInt)));
 		};
 		_t._ext = _m;
 	}
@@ -5153,7 +5152,7 @@ class Ticker_wrapper {
 			var _sec:GoInt64 = ((_t._wall << (1 : GoUnTypedInt)) >> (31 : GoUnTypedInt) : GoInt64);
 			var _dsec:GoInt64 = _sec + _d;
 			if (((0 : GoInt64) <= _dsec) && (_dsec <= ("8589934591" : GoInt64))) {
-				_t._wall = (_t._wall & (1073741823 : GoUInt64) | (_dsec : GoUInt64) << (30 : GoUnTypedInt)) | ("9223372036854775808" : GoUInt64);
+				_t._wall = ((_t._wall & (1073741823 : GoUInt64)) | ((_dsec : GoUInt64) << (30 : GoUnTypedInt))) | ("9223372036854775808" : GoUInt64);
 				return;
 			};
 			_t._stripMono();
@@ -5224,7 +5223,7 @@ class Ticker_wrapper {
 				break;
 			};
 			_layout = _suffix;
-			if ((_year < (0:GoInt)) && (_std & (256 : GoInt) != (0 : GoInt))) {
+			if ((_year < (0:GoInt)) && ((_std & (256 : GoInt)) != (0 : GoInt))) {
 				{
 					var __tmp__ = _absDate(_abs, true);
 					_year = __tmp__._0;
@@ -5234,7 +5233,7 @@ class Ticker_wrapper {
 				};
 				_yday++;
 			};
-			if ((_hour < (0:GoInt)) && (_std & (512 : GoInt) != (0 : GoInt))) {
+			if ((_hour < (0:GoInt)) && ((_std & (512 : GoInt)) != (0 : GoInt))) {
 				{
 					var __tmp__ = _absClock(_abs);
 					_hour = __tmp__._0;
@@ -5352,9 +5351,8 @@ class Ticker_wrapper {
 												|| _std & (65535 : GoInt) == (30 : GoInt)
 													|| _std & (65535 : GoInt) == (31 : GoInt) || _std & (65535 : GoInt) == (33 : GoInt)) {
 						if ((_offset == (0 : GoInt))
-							&& (((_std == (24 : GoInt)) || (_std == (27 : GoInt)) || _std == (25 : GoInt))
-								|| (_std == (26 : GoInt))
-								|| _std == (28 : GoInt))) {
+							&& (((((_std == (24 : GoInt)) || (_std == (27 : GoInt))) || (_std == (25 : GoInt))) || (_std == (26 : GoInt)))
+								|| (_std == (28 : GoInt)))) {
 							_b = (_b.__append__(("Z".code : GoUInt8)));
 							break;
 						};
@@ -5368,13 +5366,13 @@ class Ticker_wrapper {
 							_b = (_b.__append__(("+".code : GoUInt8)));
 						};
 						_b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
-						if (((_std == (27 : GoInt)) || (_std == (32 : GoInt)) || _std == (28 : GoInt)) || (_std == (33 : GoInt))) {
+						if ((((_std == (27 : GoInt)) || (_std == (32 : GoInt))) || (_std == (28 : GoInt))) || (_std == (33 : GoInt))) {
 							_b = (_b.__append__((":".code : GoUInt8)));
 						};
 						if ((_std != (31 : GoInt)) && (_std != (26 : GoInt))) {
 							_b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
 						};
-						if (((_std == (25 : GoInt)) || (_std == (30 : GoInt)) || _std == (33 : GoInt)) || (_std == (28 : GoInt))) {
+						if ((((_std == (25 : GoInt)) || (_std == (30 : GoInt))) || (_std == (33 : GoInt))) || (_std == (28 : GoInt))) {
 							if ((_std == (33 : GoInt)) || (_std == (28 : GoInt))) {
 								_b = (_b.__append__((":".code : GoUInt8)));
 							};
@@ -6112,7 +6110,7 @@ class Time_wrapper {
 		};
 		{
 			var _zone = _l._cacheZone;
-			if ((_zone != null && _l._cacheStart <= _sec) && (_sec < _l._cacheEnd)) {
+			if (((_zone != null) && (_l._cacheStart <= _sec)) && (_sec < _l._cacheEnd)) {
 				_name = _zone._name;
 				_offset = _zone._offset;
 				_start = _l._cacheStart;
@@ -6151,7 +6149,7 @@ class Time_wrapper {
 		var _lo:GoInt = (0 : GoInt);
 		var _hi:GoInt = (_tx.length);
 		while ((_hi - _lo) > (1 : GoInt)) {
-			var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+			var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 			var _lim:GoInt64 = _tx[_m]._when;
 			if (_sec < _lim) {
 				_end = _lim;
@@ -6165,7 +6163,7 @@ class Time_wrapper {
 		_offset = _zone._offset;
 		_start = _tx[_lo]._when;
 		_isDST = _zone._isDST;
-		if ((_lo == (_tx.length) - (1 : GoInt)) && (_l._extend != (Go.str() : GoString))) {
+		if ((_lo == (_tx.length - (1 : GoInt))) && (_l._extend != (Go.str() : GoString))) {
 			{
 				var __tmp__ = _tzset(_l._extend, _end, _sec),
 					_ename:GoString = __tmp__._0,
@@ -6338,7 +6336,7 @@ class Location_wrapper {
 			return {_0: (0 : GoUInt32), _1: false};
 		};
 		return
-			{_0: ((_p[(3 : GoInt)] : GoUInt32) | ((_p[(2 : GoInt)] : GoUInt32) << (8 : GoUnTypedInt)) | (_p[(1 : GoInt)] : GoUInt32) << (16 : GoUnTypedInt)) | ((_p[(0 : GoInt)] : GoUInt32) << (24 : GoUnTypedInt)),
+			{_0: (((_p[(3 : GoInt)] : GoUInt32) | ((_p[(2 : GoInt)] : GoUInt32) << (8 : GoUnTypedInt))) | ((_p[(1 : GoInt)] : GoUInt32) << (16 : GoUnTypedInt))) | ((_p[(0 : GoInt)] : GoUInt32) << (24 : GoUnTypedInt)),
 				_1: true};
 	}
 

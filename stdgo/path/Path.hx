@@ -76,7 +76,7 @@ function match(_pattern:GoString, _name:GoString):{var _0:Bool; var _1:Error;} {
 				_t:GoString = __tmp__._0,
 				_ok:Bool = __tmp__._1,
 				_err:stdgo.Error = __tmp__._2;
-			if (_ok && ((_t.length) == (0 : GoInt) || (_pattern.length) > (0 : GoInt))) {
+			if (_ok && ((_t.length == (0 : GoInt)) || (_pattern.length > (0 : GoInt)))) {
 				_name = _t;
 				continue;
 			};
@@ -214,7 +214,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					var _match:Bool = false;
 					var _nrange:GoInt = (0 : GoInt);
 					while (true) {
-						if (((_chunk.length) > (0 : GoInt) && _chunk[(0 : GoInt)] == ("]".code : GoUInt8)) && (_nrange > (0 : GoInt))) {
+						if (((_chunk.length > (0 : GoInt)) && (_chunk[(0 : GoInt)] == ("]".code : GoUInt8))) && (_nrange > (0 : GoInt))) {
 							_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 							break;
 						};
@@ -305,7 +305,8 @@ function _getEsc(_chunk:GoString):{var _0:GoRune; var _1:GoString; var _2:Error;
 	var _r:GoRune = (0 : GoInt32),
 		_nchunk:GoString = ("" : GoString),
 		_err:Error = (null : stdgo.Error);
-	if (((_chunk.length) == (0 : GoInt) || _chunk[(0 : GoInt)] == ("-".code : GoUInt8)) || (_chunk[(0 : GoInt)] == ("]".code : GoUInt8))) {
+	if (((_chunk.length == (0 : GoInt)) || (_chunk[(0 : GoInt)] == ("-".code : GoUInt8)))
+		|| (_chunk[(0 : GoInt)] == ("]".code : GoUInt8))) {
 		_err = errBadPattern;
 		return {_0: _r, _1: _nchunk, _2: _err};
 	};
@@ -370,10 +371,11 @@ function clean(_path:GoString):GoString {
 	while (_r < _n) {
 		if (_path[_r] == ("/".code : GoUInt8)) {
 			_r++;
-		} else if ((_path[_r] == (".".code : GoUInt8)) && ((_r + (1 : GoInt)) == _n || _path[_r + (1 : GoInt)] == ("/".code : GoUInt8))) {
+		} else if ((_path[_r] == (".".code : GoUInt8))
+			&& (((_r + (1 : GoInt)) == _n) || (_path[_r + (1 : GoInt)] == ("/".code : GoUInt8)))) {
 			_r++;
-		} else if ((_path[_r] == (".".code : GoUInt8) && _path[_r + (1 : GoInt)] == (".".code : GoUInt8))
-			&& ((_r + (2 : GoInt)) == _n || _path[_r + (2 : GoInt)] == ("/".code : GoUInt8))) {
+		} else if (((_path[_r] == (".".code : GoUInt8)) && (_path[_r + (1 : GoInt)] == (".".code : GoUInt8)))
+			&& (((_r + (2 : GoInt)) == _n) || (_path[_r + (2 : GoInt)] == ("/".code : GoUInt8)))) {
 			_r = _r + ((2 : GoInt));
 			if (_out._w > _dotdot) {
 				_out._w--;
@@ -389,7 +391,7 @@ function clean(_path:GoString):GoString {
 				_dotdot = _out._w;
 			};
 		} else {
-			if ((_rooted && _out._w != (1 : GoInt)) || (!_rooted && _out._w != (0 : GoInt))) {
+			if ((_rooted && (_out._w != (1 : GoInt))) || (!_rooted && (_out._w != (0 : GoInt)))) {
 				_out._append(("/".code : GoUInt8));
 			};
 			Go.cfor((_r < _n) && (_path[_r] != ("/".code : GoUInt8)), _r++, {

@@ -153,7 +153,7 @@ function trailingZeros32(_x:GoUInt32):GoInt {
 	if (_x == (0 : GoUInt32)) {
 		return (32 : GoInt);
 	};
-	return (_deBruijn32tab[(_x & -_x * (125613361 : GoUInt32)) >> (27 : GoUnTypedInt)] : GoInt);
+	return (_deBruijn32tab[((_x & -_x) * (125613361 : GoUInt32)) >> (27 : GoUnTypedInt)] : GoInt);
 }
 
 /**
@@ -163,7 +163,7 @@ function trailingZeros64(_x:GoUInt64):GoInt {
 	if (_x == (0 : GoUInt64)) {
 		return (64 : GoInt);
 	};
-	return (_deBruijn64tab[(_x & -_x * ("285870213051353865" : GoUInt64)) >> (58 : GoUnTypedInt)] : GoInt);
+	return (_deBruijn64tab[((_x & -_x) * ("285870213051353865" : GoUInt64)) >> (58 : GoUnTypedInt)] : GoInt);
 }
 
 /**
@@ -210,18 +210,18 @@ function onesCount16(_x:GoUInt16):GoInt {
 	// OnesCount32 returns the number of one bits ("population count") in x.
 **/
 function onesCount32(_x:GoUInt32):GoInt {
-	return (((Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4,
-		4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
-		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5,
-		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07",
-		2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6,
-		"\x07", 4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString)[_x >> (24 : GoUnTypedInt)]
+	return ((((Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3,
+		4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5,
+		6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4,
+		5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6,
+		"\x07", 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6,
+		6, "\x07", 4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString)[_x >> (24 : GoUnTypedInt)]
 		+ (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4,
 			5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
 			2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4,
 			5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6,
 			"\x07", 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6,
-			5, 6, 6, "\x07", 4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString)[(_x >> (16 : GoUnTypedInt)) & (255 : GoUInt32)]
+			5, 6, 6, "\x07", 4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString)[(_x >> (16 : GoUnTypedInt)) & (255 : GoUInt32)])
 		+ (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4,
 			5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6,
 			2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4,
@@ -241,9 +241,9 @@ function onesCount32(_x:GoUInt32):GoInt {
 **/
 function onesCount64(_x:GoUInt64):GoInt {
 	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
-	_x = (_x >> (1 : GoUnTypedInt) & ("6148914691236517205" : GoUInt64)) + (_x & ("6148914691236517205" : GoUInt64));
-	_x = (_x >> (2 : GoUnTypedInt) & ("3689348814741910323" : GoUInt64)) + (_x & ("3689348814741910323" : GoUInt64));
-	_x = (_x >> (4 : GoUnTypedInt) + _x) & ("1085102592571150095" : GoUInt64);
+	_x = ((_x >> (1 : GoUnTypedInt)) & ("6148914691236517205" : GoUInt64)) + (_x & ("6148914691236517205" : GoUInt64));
+	_x = ((_x >> (2 : GoUnTypedInt)) & ("3689348814741910323" : GoUInt64)) + (_x & ("3689348814741910323" : GoUInt64));
+	_x = ((_x >> (4 : GoUnTypedInt)) + _x) & ("1085102592571150095" : GoUInt64);
 	_x = _x + (_x >> (8 : GoUnTypedInt));
 	_x = _x + (_x >> (16 : GoUnTypedInt));
 	_x = _x + (_x >> (32 : GoUnTypedInt));
@@ -272,7 +272,7 @@ function rotateLeft(_x:GoUInt, _k:GoInt):GoUInt {
 function rotateLeft8(_x:GoUInt8, _k:GoInt):GoUInt8 {
 	var _n:GoUnTypedInt = (8 : GoUnTypedInt);
 	var _s:GoUInt = (_k : GoUInt) & (7 : GoUInt);
-	return (_x << _s) | (_x >> (8 : GoUInt) - _s);
+	return (_x << _s) | (_x >> ((8 : GoUInt) - _s));
 }
 
 /**
@@ -284,7 +284,7 @@ function rotateLeft8(_x:GoUInt8, _k:GoInt):GoUInt8 {
 function rotateLeft16(_x:GoUInt16, _k:GoInt):GoUInt16 {
 	var _n:GoUnTypedInt = (16 : GoUnTypedInt);
 	var _s:GoUInt = (_k : GoUInt) & (15 : GoUInt);
-	return (_x << _s) | (_x >> (16 : GoUInt) - _s);
+	return (_x << _s) | (_x >> ((16 : GoUInt) - _s));
 }
 
 /**
@@ -296,7 +296,7 @@ function rotateLeft16(_x:GoUInt16, _k:GoInt):GoUInt16 {
 function rotateLeft32(_x:GoUInt32, _k:GoInt):GoUInt32 {
 	var _n:GoUnTypedInt = (32 : GoUnTypedInt);
 	var _s:GoUInt = (_k : GoUInt) & (31 : GoUInt);
-	return (_x << _s) | (_x >> (32 : GoUInt) - _s);
+	return (_x << _s) | (_x >> ((32 : GoUInt) - _s));
 }
 
 /**
@@ -308,7 +308,7 @@ function rotateLeft32(_x:GoUInt32, _k:GoInt):GoUInt32 {
 function rotateLeft64(_x:GoUInt64, _k:GoInt):GoUInt64 {
 	var _n:GoUnTypedInt = (64 : GoUnTypedInt);
 	var _s:GoUInt = (_k : GoUInt) & (63 : GoUInt);
-	return (_x << _s) | (_x >> (64 : GoUInt) - _s);
+	return (_x << _s) | (_x >> ((64 : GoUInt) - _s));
 }
 
 /**
@@ -366,9 +366,9 @@ function reverse16(_x:GoUInt16):GoUInt16 {
 **/
 function reverse32(_x:GoUInt32):GoUInt32 {
 	var _m:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
-	_x = (_x >> (1 : GoUnTypedInt) & (1431655765 : GoUInt32)) | (_x & (1431655765 : GoUInt32) << (1 : GoUnTypedInt));
-	_x = (_x >> (2 : GoUnTypedInt) & (858993459 : GoUInt32)) | (_x & (858993459 : GoUInt32) << (2 : GoUnTypedInt));
-	_x = (_x >> (4 : GoUnTypedInt) & (252645135 : GoUInt32)) | (_x & (252645135 : GoUInt32) << (4 : GoUnTypedInt));
+	_x = ((_x >> (1 : GoUnTypedInt)) & (1431655765 : GoUInt32)) | ((_x & (1431655765 : GoUInt32)) << (1 : GoUnTypedInt));
+	_x = ((_x >> (2 : GoUnTypedInt)) & (858993459 : GoUInt32)) | ((_x & (858993459 : GoUInt32)) << (2 : GoUnTypedInt));
+	_x = ((_x >> (4 : GoUnTypedInt)) & (252645135 : GoUInt32)) | ((_x & (252645135 : GoUInt32)) << (4 : GoUnTypedInt));
 	return reverseBytes32(_x);
 }
 
@@ -377,9 +377,9 @@ function reverse32(_x:GoUInt32):GoUInt32 {
 **/
 function reverse64(_x:GoUInt64):GoUInt64 {
 	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
-	_x = (_x >> (1 : GoUnTypedInt) & ("6148914691236517205" : GoUInt64)) | (_x & ("6148914691236517205" : GoUInt64) << (1 : GoUnTypedInt));
-	_x = (_x >> (2 : GoUnTypedInt) & ("3689348814741910323" : GoUInt64)) | (_x & ("3689348814741910323" : GoUInt64) << (2 : GoUnTypedInt));
-	_x = (_x >> (4 : GoUnTypedInt) & ("1085102592571150095" : GoUInt64)) | (_x & ("1085102592571150095" : GoUInt64) << (4 : GoUnTypedInt));
+	_x = ((_x >> (1 : GoUnTypedInt)) & ("6148914691236517205" : GoUInt64)) | ((_x & ("6148914691236517205" : GoUInt64)) << (1 : GoUnTypedInt));
+	_x = ((_x >> (2 : GoUnTypedInt)) & ("3689348814741910323" : GoUInt64)) | ((_x & ("3689348814741910323" : GoUInt64)) << (2 : GoUnTypedInt));
+	_x = ((_x >> (4 : GoUnTypedInt)) & ("1085102592571150095" : GoUInt64)) | ((_x & ("1085102592571150095" : GoUInt64)) << (4 : GoUnTypedInt));
 	return reverseBytes64(_x);
 }
 
@@ -411,7 +411,7 @@ function reverseBytes16(_x:GoUInt16):GoUInt16 {
 **/
 function reverseBytes32(_x:GoUInt32):GoUInt32 {
 	var _m:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
-	_x = (_x >> (8 : GoUnTypedInt) & (16711935 : GoUInt32)) | (_x & (16711935 : GoUInt32) << (8 : GoUnTypedInt));
+	_x = ((_x >> (8 : GoUnTypedInt)) & (16711935 : GoUInt32)) | ((_x & (16711935 : GoUInt32)) << (8 : GoUnTypedInt));
 	return (_x >> (16 : GoUnTypedInt)) | (_x << (16 : GoUnTypedInt));
 }
 
@@ -422,8 +422,8 @@ function reverseBytes32(_x:GoUInt32):GoUInt32 {
 **/
 function reverseBytes64(_x:GoUInt64):GoUInt64 {
 	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
-	_x = (_x >> (8 : GoUnTypedInt) & ("71777214294589695" : GoUInt64)) | (_x & ("71777214294589695" : GoUInt64) << (8 : GoUnTypedInt));
-	_x = (_x >> (16 : GoUnTypedInt) & ("281470681808895" : GoUInt64)) | (_x & ("281470681808895" : GoUInt64) << (16 : GoUnTypedInt));
+	_x = ((_x >> (8 : GoUnTypedInt)) & ("71777214294589695" : GoUInt64)) | ((_x & ("71777214294589695" : GoUInt64)) << (8 : GoUnTypedInt));
+	_x = ((_x >> (16 : GoUnTypedInt)) & ("281470681808895" : GoUInt64)) | ((_x & ("281470681808895" : GoUInt64)) << (16 : GoUnTypedInt));
 	return (_x >> (32 : GoUnTypedInt)) | (_x << (32 : GoUnTypedInt));
 }
 
@@ -549,7 +549,7 @@ function add32(_x:GoUInt32, _y:GoUInt32, _carry:GoUInt32):{var _0:GoUInt32; var 
 function add64(_x:GoUInt64, _y:GoUInt64, _carry:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _sum:GoUInt64 = (0 : GoUInt64), _carryOut:GoUInt64 = (0 : GoUInt64);
 	_sum = (_x + _y) + _carry;
-	_carryOut = (_x & _y | (_x | _y) & (_sum ^ (-1 : GoUnTypedInt))) >> (63 : GoUnTypedInt);
+	_carryOut = ((_x & _y) | ((_x | _y) & (_sum ^ (-1 : GoUnTypedInt)))) >> (63 : GoUnTypedInt);
 	return {_0: _sum, _1: _carryOut};
 }
 
@@ -584,7 +584,7 @@ function sub(_x:GoUInt, _y:GoUInt, _borrow:GoUInt):{var _0:GoUInt; var _1:GoUInt
 function sub32(_x:GoUInt32, _y:GoUInt32, _borrow:GoUInt32):{var _0:GoUInt32; var _1:GoUInt32;} {
 	var _diff:GoUInt32 = (0 : GoUInt32), _borrowOut:GoUInt32 = (0 : GoUInt32);
 	_diff = (_x - _y) - _borrow;
-	_borrowOut = ((-1 ^ _x) & _y | (-1 ^ _x ^ _y) & _diff) >> (31 : GoUnTypedInt);
+	_borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (31 : GoUnTypedInt);
 	return {_0: _diff, _1: _borrowOut};
 }
 
@@ -598,7 +598,7 @@ function sub32(_x:GoUInt32, _y:GoUInt32, _borrow:GoUInt32):{var _0:GoUInt32; var
 function sub64(_x:GoUInt64, _y:GoUInt64, _borrow:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _diff:GoUInt64 = (0 : GoUInt64), _borrowOut:GoUInt64 = (0 : GoUInt64);
 	_diff = (_x - _y) - _borrow;
-	_borrowOut = ((-1 ^ _x) & _y | (-1 ^ _x ^ _y) & _diff) >> (63 : GoUnTypedInt);
+	_borrowOut = (((-1 ^ _x) & _y) | ((-1 ^ (_x ^ _y)) & _diff)) >> (63 : GoUnTypedInt);
 	return {_0: _diff, _1: _borrowOut};
 }
 
@@ -661,7 +661,7 @@ function mul64(_x:GoUInt64, _y:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _w1:GoUInt64 = _t & ("4294967295" : GoUInt64);
 	var _w2:GoUInt64 = _t >> (32 : GoUnTypedInt);
 	_w1 = _w1 + (_x0 * _y1);
-	_hi = (_x1 * _y1 + _w2) + (_w1 >> (32 : GoUnTypedInt));
+	_hi = ((_x1 * _y1) + _w2) + (_w1 >> (32 : GoUnTypedInt));
 	_lo = _x * _y;
 	return {_0: _hi, _1: _lo};
 }
@@ -727,30 +727,30 @@ function div64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):{var _0:GoUInt64; var _1
 	_y = _y << (_s);
 	var _yn1:GoUInt64 = _y >> (32 : GoUnTypedInt);
 	var _yn0:GoUInt64 = _y & ("4294967295" : GoUInt64);
-	var _un32:GoUInt64 = (_hi << _s) | (_lo >> (64 : GoUInt) - _s);
+	var _un32:GoUInt64 = (_hi << _s) | (_lo >> ((64 : GoUInt) - _s));
 	var _un10:GoUInt64 = _lo << _s;
 	var _un1:GoUInt64 = _un10 >> (32 : GoUnTypedInt);
 	var _un0:GoUInt64 = _un10 & ("4294967295" : GoUInt64);
 	var _q1:GoUInt64 = _un32 / _yn1;
 	var _rhat:GoUInt64 = _un32 - (_q1 * _yn1);
-	while ((_q1 >= ("4294967296" : GoUInt64)) || (_q1 * _yn0 > (("4294967296" : GoUInt64) * _rhat) + _un1)) {
+	while ((_q1 >= ("4294967296" : GoUInt64)) || ((_q1 * _yn0) > ((("4294967296" : GoUInt64) * _rhat) + _un1))) {
 		_q1--;
 		_rhat = _rhat + (_yn1);
 		if (_rhat >= ("4294967296" : GoUInt64)) {
 			break;
 		};
 	};
-	var _un21:GoUInt64 = (_un32 * ("4294967296" : GoUInt64) + _un1) - (_q1 * _y);
+	var _un21:GoUInt64 = ((_un32 * ("4294967296" : GoUInt64)) + _un1) - (_q1 * _y);
 	var _q0:GoUInt64 = _un21 / _yn1;
 	_rhat = _un21 - (_q0 * _yn1);
-	while ((_q0 >= ("4294967296" : GoUInt64)) || (_q0 * _yn0 > (("4294967296" : GoUInt64) * _rhat) + _un0)) {
+	while ((_q0 >= ("4294967296" : GoUInt64)) || ((_q0 * _yn0) > ((("4294967296" : GoUInt64) * _rhat) + _un0))) {
 		_q0--;
 		_rhat = _rhat + (_yn1);
 		if (_rhat >= ("4294967296" : GoUInt64)) {
 			break;
 		};
 	};
-	return {_0: (_q1 * ("4294967296" : GoUInt64)) + _q0, _1: ((_un21 * ("4294967296" : GoUInt64)) + _un0 - _q0 * _y) >> _s};
+	return {_0: (_q1 * ("4294967296" : GoUInt64)) + _q0, _1: (((_un21 * ("4294967296" : GoUInt64)) + _un0) - (_q0 * _y)) >> _s};
 }
 
 /**
@@ -771,7 +771,7 @@ function rem(_hi:GoUInt, _lo:GoUInt, _y:GoUInt):GoUInt {
 	// on a quotient overflow.
 **/
 function rem32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):GoUInt32 {
-	return (((_hi : GoUInt64) << (32 : GoUnTypedInt) | (_lo : GoUInt64)) % (_y : GoUInt64) : GoUInt32);
+	return ((((_hi : GoUInt64) << (32 : GoUnTypedInt)) | (_lo : GoUInt64)) % (_y : GoUInt64) : GoUInt32);
 }
 
 /**

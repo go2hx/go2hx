@@ -4449,7 +4449,7 @@ function testSectionReader_ReadAt(_t:stdgo.testing.Testing.T):Void {
 			var __tmp__ = _s.readAt(_buf, (_tt._at : GoInt64)),
 				_n:GoInt = __tmp__._0,
 				_err:stdgo.Error = __tmp__._1;
-			if ((_n != (_tt._exp.length) || ((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString) != _tt._exp) || (_err != _tt._err)) {
+			if (((_n != _tt._exp.length) || (((_buf.__slice__(0, _n) : Slice<GoUInt8>) : GoString) != _tt._exp)) || (_err != _tt._err)) {
 				_t.fatalf((Go.str("%d: ReadAt(%d) = %q, %v; expected %q, %v") : GoString), Go.toInterface(_i), Go.toInterface(_tt._at),
 					Go.toInterface((_buf.__slice__(0, _n) : Slice<GoUInt8>)), Go.toInterface(_err), Go.toInterface(_tt._exp), Go.toInterface(_tt._err));
 			};
@@ -4490,7 +4490,7 @@ function testSectionReader_Seek(_t:stdgo.testing.Testing.T):Void {
 				var __tmp__ = _sr.seek(_offset, _whence),
 					_srOff:GoInt64 = __tmp__._0,
 					_srErr:stdgo.Error = __tmp__._1;
-				if ((_brErr != null != _srErr != null) || (_brOff != _srOff)) {
+				if (((_brErr != null) != (_srErr != null)) || (_brOff != _srOff)) {
 					_t.errorf((Go.str("For whence %d, offset %d: bytes.Reader.Seek = (%v, %v) != SectionReader.Seek = (%v, %v)") : GoString),
 						Go.toInterface(_whence), Go.toInterface(_offset), Go.toInterface(_brOff), Go.toInterface(_brErr), Go.toInterface(_srErr),
 						Go.toInterface(_srOff));
@@ -5363,7 +5363,7 @@ function testMultiWriterSingleChainFlatten(_t:stdgo.testing.Testing.T):Void {
 	};
 	_mw = multiWriter(_w, _mw, _w, _mw);
 	_mw.write((null : Slice<GoUInt8>));
-	if (_writeDepth != ((4 : GoInt) * _myDepth + (2 : GoInt))) {
+	if (_writeDepth != ((4 : GoInt) * (_myDepth + (2 : GoInt)))) {
 		_t.errorf((Go.str("multiWriter did not flatten chained multiWriters: expected writeDepth %d, got %d") : GoString),
 			Go.toInterface((4 : GoInt) * (_myDepth + (2 : GoInt))), Go.toInterface(_writeDepth));
 	};
@@ -6914,7 +6914,7 @@ class T_wantedAndErrReader_wrapper {
 			_n = __tmp__._0;
 			_err = __tmp__._1;
 		};
-		if ((_n > (0 : GoInt) && _r.buffer.len() == (0 : GoInt)) && (_err == null)) {
+		if (((_n > (0 : GoInt)) && (_r.buffer.len() == (0 : GoInt))) && (_err == null)) {
 			_err = _r._err;
 		};
 		return {_0: _n, _1: _err};

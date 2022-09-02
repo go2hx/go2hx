@@ -468,7 +468,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
 			} else if ((_f.name == (Go.str("test_bool") : GoString)) && ((_f.value.string() : GoString) == _boolString(_desired))) {
 				_ok = true;
 			} else if ((_f.name == (Go.str("test_duration") : GoString))
-				&& ((_f.value.string() : GoString) == _desired + (Go.str("s") : GoString))) {
+				&& ((_f.value.string() : GoString) == (_desired + (Go.str("s") : GoString)))) {
 				_ok = true;
 			} else if ((_f.name == (Go.str("test_func") : GoString)) && ((_f.value.string() : GoString) == (Go.str() : GoString))) {
 				_ok = true;
@@ -925,7 +925,7 @@ function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
 		var _after = bool((Go.str("after") : GoString), false, (Go.str() : GoString));
 		parse();
 		var _args = args();
-		if (((!_before.value || _cmd != (Go.str("subcmd") : GoString)) || !_after.value || (_args.length) != (1 : GoInt))
+		if ((((!_before.value || (_cmd != (Go.str("subcmd") : GoString))) || !_after.value) || (_args.length != (1 : GoInt)))
 			|| (_args[(0 : GoInt)] != (Go.str("args") : GoString))) {
 			_t.fatalf((Go.str("expected true subcmd true [args] got %v %v %v %v") : GoString), Go.toInterface(_before.value), Go.toInterface(_cmd),
 				Go.toInterface(_after.value), Go.toInterface(_args));

@@ -33,8 +33,8 @@ function isSurrogate(_r:GoRune):Bool {
 	// the Unicode replacement code point U+FFFD.
 **/
 function decodeRune(_r1:GoRune, _r2:GoRune):GoRune {
-	if ((((55296 : GoInt32) <= _r1) && (_r1 < (56320:GoInt32)) && (56320 : GoInt32) <= _r2) && (_r2 < (57344:GoInt32))) {
-		return ((_r1 - (55296 : GoInt32)) << (10 : GoUnTypedInt) | _r2 - (56320 : GoInt32)) + (65536 : GoInt32);
+	if (((((55296 : GoInt32) <= _r1) && (_r1 < (56320:GoInt32))) && ((56320 : GoInt32) <= _r2)) && (_r2 < (57344:GoInt32))) {
+		return (((_r1 - (55296 : GoInt32)) << (10 : GoUnTypedInt)) | (_r2 - (56320 : GoInt32))) + (65536 : GoInt32);
 	};
 	return (65533 : GoInt32);
 }
@@ -50,7 +50,7 @@ function encodeRune(_r:GoRune):{var _0:GoRune; var _1:GoRune;} {
 		return {_0: (65533 : GoInt32), _1: (65533 : GoInt32)};
 	};
 	_r = _r - ((65536 : GoInt32));
-	return {_0: (55296 : GoInt32) + (_r >> (10 : GoUnTypedInt) & (1023 : GoInt32)), _1: (56320 : GoInt32) + (_r & (1023 : GoInt32))};
+	return {_0: (55296 : GoInt32) + ((_r >> (10 : GoUnTypedInt)) & (1023 : GoInt32)), _1: (56320 : GoInt32) + (_r & (1023 : GoInt32))};
 }
 
 /**
@@ -98,9 +98,8 @@ function decode(_s:Slice<GoUInt16>):Slice<GoRune> {
 				var _r:GoUInt16 = _s[_i];
 				if (_r < (55296:GoUInt16) || (57344 : GoUInt16) <= _r) {
 					_a[_n] = (_r : GoRune);
-				} else if ((((55296 : GoUInt16) <= _r && _r < (56320:GoUInt16))
-					&& (_i + (1 : GoInt) < _s.length)
-					&& (56320 : GoUInt16) <= _s[_i + (1 : GoInt)])
+				} else if ((((((55296 : GoUInt16) <= _r) && (_r < (56320:GoUInt16))) && ((_i + (1 : GoInt)) < _s.length))
+					&& ((56320 : GoUInt16) <= _s[_i + (1 : GoInt)]))
 					&& (_s[_i + (1 : GoInt)] < (57344 : GoUInt16))) {
 					_a[_n] = decodeRune((_r : GoRune), (_s[_i + (1 : GoInt)] : GoRune));
 					_i++;

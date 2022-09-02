@@ -963,7 +963,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 		if (_n <= (0 : GoInt32)) {
 			throw Go.toInterface((Go.str("invalid argument to Int31n") : GoString));
 		};
-		if ((_n & _n - (1 : GoInt32)) == (0 : GoInt32)) {
+		if ((_n & (_n - (1 : GoInt32))) == (0 : GoInt32)) {
 			return _r.int31() & (_n - (1 : GoInt32));
 		};
 		var _max:GoInt32 = ((2147483647 : GoUInt32) - (("2147483648" : GoUInt32) % (_n : GoUInt32)) : GoInt32);
@@ -983,7 +983,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 		if (_n <= (0 : GoInt64)) {
 			throw Go.toInterface((Go.str("invalid argument to Int63n") : GoString));
 		};
-		if ((_n & _n - (1 : GoInt64)) == (0 : GoInt64)) {
+		if ((_n & (_n - (1 : GoInt64))) == (0 : GoInt64)) {
 			return _r.int63() & (_n - (1 : GoInt64));
 		};
 		var _max:GoInt64 = (("9223372036854775807" : GoUInt64) - (("9223372036854775808" : GoUInt64) % (_n : GoUInt64)) : GoInt64);
@@ -1091,7 +1091,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 				return (-3.442619855899 : GoFloat64) - _x;
 			};
 			if ((_fn[_i]
-				+ (_r.float64() : GoFloat32) * (_fn[_i - (1 : GoInt32)] - _fn[_i])) < (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _x) * _x) : GoFloat32)) {
+				+ ((_r.float64() : GoFloat32) * (_fn[_i - (1 : GoInt32)] - _fn[_i]))) < (stdgo.math.Math.exp(((-0.5 : GoFloat64) * _x) * _x) : GoFloat32)) {
 				return _x;
 			};
 		};
@@ -1118,7 +1118,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 			if (_i == (0 : GoUInt32)) {
 				return (7.69711747013105 : GoFloat64) - stdgo.math.Math.log(_r.float64());
 			};
-			if ((_fe[_i] + (_r.float64() : GoFloat32) * (_fe[_i - (1 : GoUInt32)] - _fe[_i])) < (stdgo.math.Math.exp(-_x) : GoFloat32)) {
+			if ((_fe[_i] + ((_r.float64() : GoFloat32) * (_fe[_i - (1 : GoUInt32)] - _fe[_i]))) < (stdgo.math.Math.exp(-_x) : GoFloat32)) {
 				return _x;
 			};
 		};

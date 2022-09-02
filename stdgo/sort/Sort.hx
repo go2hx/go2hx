@@ -460,7 +460,7 @@ function _siftDown_func(_data:T_lessSwap, _lo:GoInt, _hi:GoInt, _first:GoInt):Vo
 		if (_child >= _hi) {
 			break;
 		};
-		if ((_child + (1 : GoInt) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
+		if (((_child + (1 : GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
 			_child++;
 		};
 		if (!_data.less(_first + _root, _first + _child)) {
@@ -674,8 +674,8 @@ function _breakPatterns_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):Void {
 		var _random:T_xorshift = (_length : T_xorshift);
 		var _modulus:GoUInt = _nextPowerOfTwo(_length);
 		{
-			var _idx:GoInt = (_a + (_length / (4 : GoInt)) * (2 : GoInt)) - (1 : GoInt);
-			Go.cfor(_idx <= (_a + (_length / (4 : GoInt) * (2 : GoInt)) + (1 : GoInt)), _idx++, {
+			var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
+			Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
 				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1 : GoUInt)) : GoInt);
 				if (_other >= _length) {
 					_other = _other - (_length);
@@ -700,9 +700,9 @@ function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; 
 		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
-		_i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)),
-		_j:GoInt = _a + (_l / (4 : GoInt) * (2 : GoInt)),
-		_k:GoInt = _a + (_l / (4 : GoInt) * (3 : GoInt));
+		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
+		_j:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
+		_k:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt));
 	if (_l >= (8 : GoInt)) {
 		if (_l >= (50 : GoInt)) {
 			_i = _medianAdjacent_func((_data == null ? null : _data.__copy__()), _i, Go.pointer(_swaps));
@@ -950,7 +950,7 @@ function _siftDown(_data:Interface, _lo:GoInt, _hi:GoInt, _first:GoInt):Void {
 		if (_child >= _hi) {
 			break;
 		};
-		if ((_child + (1 : GoInt) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
+		if (((_child + (1 : GoInt)) < _hi) && _data.less(_first + _child, (_first + _child) + (1 : GoInt))) {
 			_child++;
 		};
 		if (!_data.less(_first + _root, _first + _child)) {
@@ -1164,8 +1164,8 @@ function _breakPatterns(_data:Interface, _a:GoInt, _b:GoInt):Void {
 		var _random:T_xorshift = (_length : T_xorshift);
 		var _modulus:GoUInt = _nextPowerOfTwo(_length);
 		{
-			var _idx:GoInt = (_a + (_length / (4 : GoInt)) * (2 : GoInt)) - (1 : GoInt);
-			Go.cfor(_idx <= (_a + (_length / (4 : GoInt) * (2 : GoInt)) + (1 : GoInt)), _idx++, {
+			var _idx:GoInt = (_a + ((_length / (4 : GoInt)) * (2 : GoInt))) - (1 : GoInt);
+			Go.cfor(_idx <= ((_a + ((_length / (4 : GoInt)) * (2 : GoInt))) + (1 : GoInt)), _idx++, {
 				var _other:GoInt = ((_random.next(Go.pointer(_random)) : GoUInt) & (_modulus - (1 : GoUInt)) : GoInt);
 				if (_other >= _length) {
 					_other = _other - (_length);
@@ -1190,9 +1190,9 @@ function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1
 		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
-		_i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)),
-		_j:GoInt = _a + (_l / (4 : GoInt) * (2 : GoInt)),
-		_k:GoInt = _a + (_l / (4 : GoInt) * (3 : GoInt));
+		_i:GoInt = _a + ((_l / (4 : GoInt)) * (1 : GoInt)),
+		_j:GoInt = _a + ((_l / (4 : GoInt)) * (2 : GoInt)),
+		_k:GoInt = _a + ((_l / (4 : GoInt)) * (3 : GoInt));
 	if (_l >= (8 : GoInt)) {
 		if (_l >= (50 : GoInt)) {
 			_i = _medianAdjacent(_data, _i, Go.pointer(_swaps));

@@ -826,7 +826,8 @@ function _hasSlowFloatingPoint():Bool {
 
 function testFloat32(_t:stdgo.testing.Testing.T):Void {
 	var _num:GoInt = (1e+07 : GoInt);
-	if (stdgo.testing.Testing.short() && (stdgo.internal.testenv.Testenv.builder() == (Go.str() : GoString) || _hasSlowFloatingPoint())) {
+	if (stdgo.testing.Testing.short()
+		&& ((stdgo.internal.testenv.Testenv.builder() == (Go.str() : GoString)) || _hasSlowFloatingPoint())) {
 		_num = _num / ((100 : GoInt));
 	};
 	var _r = new_(newSource((1 : GoInt64)));
@@ -1186,7 +1187,7 @@ function benchmarkShuffleOverhead(_b:stdgo.testing.Testing.B):Void {
 		var _n:GoInt = _b.n;
 		Go.cfor(_n > (0 : GoInt), _n--, {
 			_r.shuffle((52 : GoInt), function(_i:GoInt, _j:GoInt):Void {
-				if (((_i < (0:GoInt)) || (_i >= (52 : GoInt)) || _j < (0:GoInt)) || (_j >= (52 : GoInt))) {
+				if ((((_i < (0:GoInt)) || (_i >= (52 : GoInt))) || (_j < (0:GoInt))) || (_j >= (52 : GoInt))) {
 					_b.fatalf((Go.str("bad swap(%d, %d)") : GoString), Go.toInterface(_i), Go.toInterface(_j));
 				};
 			});
@@ -1316,7 +1317,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 						var _val:GoString = ("" : GoString);
 						var _big:GoInt64 = ("1152921504606846976" : GoInt64);
 						if ((((_big : GoInt) : GoInt64) != _big)
-							&& (_m.name == (Go.str("Int") : GoString) || _m.name == (Go.str("Intn") : GoString))) {
+							&& ((_m.name == (Go.str("Int") : GoString)) || (_m.name == (Go.str("Intn") : GoString)))) {
 							_val = (Go.str("truncated") : GoString);
 						} else if (stdgo.reflect.Reflect.typeOf(Go.toInterface(_out)).kind() == (23 : stdgo.reflect.Reflect.Kind)) {
 							_val = stdgo.fmt.Fmt.sprintf((Go.str("%#v") : GoString), Go.toInterface(_out));

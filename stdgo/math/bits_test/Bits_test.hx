@@ -485,7 +485,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 		Go.cfor(_k < (128:GoUInt), _k++, {
 			var _x8:GoUInt8 = (_m : GoUInt8);
 			var _got8:GoUInt8 = rotateLeft8(_x8, (_k : GoInt));
-			var _want8:GoUInt8 = (_x8 << _k & (7 : GoUInt)) | (_x8 >> (8 : GoUInt) - (_k & (7 : GoUInt)));
+			var _want8:GoUInt8 = (_x8 << (_k & (7 : GoUInt))) | (_x8 >> ((8 : GoUInt) - (_k & (7 : GoUInt))));
 			if (_got8 != _want8) {
 				_t.fatalf((Go.str("RotateLeft8(%#02x, %d) == %#02x; want %#02x") : GoString), Go.toInterface(_x8), Go.toInterface(_k), Go.toInterface(_got8),
 					Go.toInterface(_want8));
@@ -497,7 +497,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 			};
 			var _x16:GoUInt16 = (_m : GoUInt16);
 			var _got16:GoUInt16 = rotateLeft16(_x16, (_k : GoInt));
-			var _want16:GoUInt16 = (_x16 << _k & (15 : GoUInt)) | (_x16 >> (16 : GoUInt) - (_k & (15 : GoUInt)));
+			var _want16:GoUInt16 = (_x16 << (_k & (15 : GoUInt))) | (_x16 >> ((16 : GoUInt) - (_k & (15 : GoUInt))));
 			if (_got16 != _want16) {
 				_t.fatalf((Go.str("RotateLeft16(%#04x, %d) == %#04x; want %#04x") : GoString), Go.toInterface(_x16), Go.toInterface(_k),
 					Go.toInterface(_got16), Go.toInterface(_want16));
@@ -509,7 +509,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 			};
 			var _x32:GoUInt32 = (_m : GoUInt32);
 			var _got32:GoUInt32 = rotateLeft32(_x32, (_k : GoInt));
-			var _want32:GoUInt32 = (_x32 << _k & (31 : GoUInt)) | (_x32 >> (32 : GoUInt) - (_k & (31 : GoUInt)));
+			var _want32:GoUInt32 = (_x32 << (_k & (31 : GoUInt))) | (_x32 >> ((32 : GoUInt) - (_k & (31 : GoUInt))));
 			if (_got32 != _want32) {
 				_t.fatalf((Go.str("RotateLeft32(%#08x, %d) == %#08x; want %#08x") : GoString), Go.toInterface(_x32), Go.toInterface(_k),
 					Go.toInterface(_got32), Go.toInterface(_want32));
@@ -522,7 +522,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 			if (true) {
 				var _x:GoUInt = (_m : GoUInt);
 				var _got:GoUInt = rotateLeft(_x, (_k : GoInt));
-				var _want:GoUInt = (_x << _k & (31 : GoUInt)) | (_x >> (32 : GoUInt) - (_k & (31 : GoUInt)));
+				var _want:GoUInt = (_x << (_k & (31 : GoUInt))) | (_x >> ((32 : GoUInt) - (_k & (31 : GoUInt))));
 				if (_got != _want) {
 					_t.fatalf((Go.str("RotateLeft(%#08x, %d) == %#08x; want %#08x") : GoString), Go.toInterface(_x), Go.toInterface(_k), Go.toInterface(_got),
 						Go.toInterface(_want));
@@ -535,7 +535,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 			};
 			var _x64:GoUInt64 = (_m : GoUInt64);
 			var _got64:GoUInt64 = rotateLeft64(_x64, (_k : GoInt));
-			var _want64:GoUInt64 = (_x64 << _k & (63 : GoUInt)) | (_x64 >> (64 : GoUInt) - (_k & (63 : GoUInt)));
+			var _want64:GoUInt64 = (_x64 << (_k & (63 : GoUInt))) | (_x64 >> ((64 : GoUInt) - (_k & (63 : GoUInt))));
 			if (_got64 != _want64) {
 				_t.fatalf((Go.str("RotateLeft64(%#016x, %d) == %#016x; want %#016x") : GoString), Go.toInterface(_x64), Go.toInterface(_k),
 					Go.toInterface(_got64), Go.toInterface(_want64));
@@ -548,7 +548,7 @@ function testRotateLeft(_t:stdgo.testing.Testing.T):Void {
 			if (false) {
 				var _x:GoUInt = (_m : GoUInt);
 				var _got:GoUInt = rotateLeft(_x, (_k : GoInt));
-				var _want:GoUInt = (_x << _k & (63 : GoUInt)) | (_x >> (64 : GoUInt) - (_k & (63 : GoUInt)));
+				var _want:GoUInt = (_x << (_k & (63 : GoUInt))) | (_x >> ((64 : GoUInt) - (_k & (63 : GoUInt))));
 				if (_got != _want) {
 					_t.fatalf((Go.str("RotateLeft(%#016x, %d) == %#016x; want %#016x") : GoString), Go.toInterface(_x), Go.toInterface(_k),
 						Go.toInterface(_got), Go.toInterface(_want));
@@ -2084,7 +2084,7 @@ function benchmarkAdd64multiple(_b:stdgo.testing.Testing.B):Void {
 			};
 		});
 	};
-	output = ((_z0 + _z1 + _z2) + _z3 : GoInt);
+	output = (((_z0 + _z1) + _z2) + _z3 : GoInt);
 }
 
 function benchmarkSub(_b:stdgo.testing.Testing.B):Void {
@@ -2162,7 +2162,7 @@ function benchmarkSub64multiple(_b:stdgo.testing.Testing.B):Void {
 			};
 		});
 	};
-	output = ((_z0 + _z1 + _z2) + _z3 : GoInt);
+	output = (((_z0 + _z1) + _z2) + _z3 : GoInt);
 }
 
 function benchmarkMul(_b:stdgo.testing.Testing.B):Void {

@@ -1140,11 +1140,11 @@ function testFindExhaustive(_t:stdgo.testing.Testing.T):Void {
 		Go.cfor(_size <= (100 : GoInt), _size++, {
 			{
 				var _x:GoInt = (1 : GoInt);
-				Go.cfor(_x <= (_size * (2 : GoInt) + (1 : GoInt)), _x++, {
+				Go.cfor(_x <= ((_size * (2 : GoInt)) + (1 : GoInt)), _x++, {
 					var _wantFound:Bool = false;
 					var _wantPos:GoInt = (0 : GoInt);
 					var _cmp:GoInt->GoInt = function(_i:GoInt):GoInt {
-						return _x - (_i + (1 : GoInt) * (2 : GoInt));
+						return _x - ((_i + (1 : GoInt)) * (2 : GoInt));
 					};
 					var __tmp__ = find(_size, _cmp),
 						_pos:GoInt = __tmp__._0,
@@ -1751,7 +1751,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 								} else if (_dist == (1 : GoInt)) {
 									_data[_i] = stdgo.math.rand.Rand.intn(_m);
 								} else if (_dist == (2 : GoInt)) {
-									_data[_i] = (_i * _m + _i) % _n;
+									_data[_i] = ((_i * _m) + _i) % _n;
 								} else if (_dist == (3 : GoInt)) {
 									_data[_i] = _min(_i, _m);
 								} else if (_dist == (4 : GoInt)) {
@@ -1787,7 +1787,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
-											_mdata[_i] = _data[(_n / (2 : GoInt) - _i) - (1 : GoInt)];
+											_mdata[_i] = _data[((_n / (2 : GoInt)) - _i) - (1 : GoInt)];
 										});
 									};
 									{
@@ -1806,7 +1806,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 									{
 										var _i:GoInt = _n / (2 : GoInt);
 										Go.cfor(_i < _n, _i++, {
-											_mdata[_i] = _data[(_n - _i - (_n / (2 : GoInt))) - (1 : GoInt)];
+											_mdata[_i] = _data[(_n - (_i - (_n / (2 : GoInt)))) - (1 : GoInt)];
 										});
 									};
 								} else if (_mode == (4 : GoInt)) {
@@ -1854,19 +1854,19 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 
 function testSortBM(_t:stdgo.testing.Testing.T):Void {
 	_testBentleyMcIlroy(_t, sort, function(_n:GoInt):GoInt {
-		return (_n * _lg(_n) * (12 : GoInt)) / (10 : GoInt);
+		return ((_n * _lg(_n)) * (12 : GoInt)) / (10 : GoInt);
 	});
 }
 
 function testHeapsortBM(_t:stdgo.testing.Testing.T):Void {
 	_testBentleyMcIlroy(_t, heapsort, function(_n:GoInt):GoInt {
-		return (_n * _lg(_n) * (12 : GoInt)) / (10 : GoInt);
+		return ((_n * _lg(_n)) * (12 : GoInt)) / (10 : GoInt);
 	});
 }
 
 function testStableBM(_t:stdgo.testing.Testing.T):Void {
 	_testBentleyMcIlroy(_t, stable, function(_n:GoInt):GoInt {
-		return (_n * _lg(_n) * _lg(_n)) / (3 : GoInt);
+		return ((_n * _lg(_n)) * _lg(_n)) / (3 : GoInt);
 	});
 }
 
@@ -2410,14 +2410,14 @@ class ByWeight_wrapper {
 @:keep private class T_nonDeterministicTestingData_static_extension {
 	@:keep
 	static public function swap(_t:T_nonDeterministicTestingData, _i:GoInt, _j:GoInt):Void {
-		if (((_i < (0:GoInt)) || (_j < (0:GoInt)) || _i >= _t.len()) || (_j >= _t.len())) {
+		if ((((_i < (0:GoInt)) || (_j < (0:GoInt))) || (_i >= _t.len())) || (_j >= _t.len())) {
 			throw Go.toInterface((Go.str("nondeterministic comparison out of bounds") : GoString));
 		};
 	}
 
 	@:keep
 	static public function less(_t:T_nonDeterministicTestingData, _i:GoInt, _j:GoInt):Bool {
-		if (((_i < (0:GoInt)) || (_j < (0:GoInt)) || _i >= _t.len()) || (_j >= _t.len())) {
+		if ((((_i < (0:GoInt)) || (_j < (0:GoInt))) || (_i >= _t.len())) || (_j >= _t.len())) {
 			throw Go.toInterface((Go.str("nondeterministic comparison out of bounds") : GoString));
 		};
 		return _t._r.float32() < (0.5:GoFloat32);

@@ -821,7 +821,7 @@ function _linear(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 			return false;
 		};
 		if (_r <= _range_.hi) {
-			return (_r - _range_.lo % _range_.stride) == (0 : GoUInt16);
+			return ((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16);
 		};
 	};
 	return false;
@@ -831,10 +831,10 @@ function _binary(_ranges:Slice<Range16>, _r:GoUInt16):Bool {
 	var _lo:GoInt = (0 : GoInt);
 	var _hi:GoInt = (_ranges.length);
 	while (_lo < _hi) {
-		var _m:GoInt = _lo + (_hi - _lo / (2 : GoInt));
+		var _m:GoInt = _lo + ((_hi - _lo) / (2 : GoInt));
 		var _range_ = _ranges[_m];
 		if ((_range_.lo <= _r) && (_r <= _range_.hi)) {
-			return (_r - _range_.lo % _range_.stride) == (0 : GoUInt16);
+			return ((_r - _range_.lo) % _range_.stride) == (0 : GoUInt16);
 		};
 		if (_r < _range_.lo) {
 			_hi = _m;

@@ -1,4 +1,13 @@
 final list = [
+	// stdgo/os
+	"os:_runtime_args" => macro {
+		@:define("js") return new Slice<GoString>(0, 0);
+		@:define("sys") {
+			final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
+			args.unshift(Sys.getCwd());
+			return new Slice<GoString>(0, 0, ...args);
+		};
+	},
 	// stdgo/strings
 	"strings.Builder:_copyCheck" => macro _b._addr = _b,
 	// stdgo/time
@@ -221,6 +230,9 @@ final adds = [
 		final _x:GoFloat = 0;
 		final _y:GoFloat = -1;
 		return float64frombits((float64bits(_x) & (_sign ^ ((-1 : GoUnTypedInt)))) | (float64bits(_y) & _sign));
+	},
+	"os:_init" => macro {
+		args = _runtime_args();
 	},
 ];
 

@@ -278,6 +278,32 @@ function main(data:DataType, instance:Main.InstanceData) {
 					data.defs.push(func);
 			}
 
+			// patch system to add functions
+			for (key => expr in Patch.adds) {
+				final index = key.indexOf(":");
+				final path = key.substr(0, index);
+				if (path == info.global.module.path) {
+					final funcName = key.substr(index + 1);
+					if (funcName == "_init") {
+						switch expr.expr {
+							case EBlock(exprs):
+								info.global.initBlock = info.global.initBlock.concat(exprs);
+							default:
+								info.global.initBlock.push(expr);
+						}
+						continue;
+					}
+					data.defs.push({
+						name: funcName,
+						pos: null,
+						fields: [],
+						pack: [],
+						kind: TDField(FFun({args: [], expr: expr}), [APrivate]),
+					});
+					Patch.adds.remove(key);
+				}
+			}
+
 			// init system
 			if (info.global.initBlock.length > 0) {
 				var block = toExpr(EBlock(info.global.initBlock));
@@ -484,22 +510,6 @@ function main(data:DataType, instance:Main.InstanceData) {
 				}
 				// trace(printer.printTypeDefinition(staticExtension));
 				// trace(printer.printTypeDefinition(wrapper));
-			}
-			// patch system to add functions
-			for (key => expr in Patch.adds) {
-				final index = key.indexOf(":");
-				final path = key.substr(0, index);
-				if (path == info.global.module.path) {
-					final funcName = key.substr(index + 1);
-					file.defs.push({
-						name: funcName,
-						pos: null,
-						fields: [],
-						pack: [],
-						kind: TDField(FFun({args: [], expr: expr}), [APrivate]),
-					});
-					Patch.adds.remove(key);
-				}
 			}
 		}
 		// for (file in module.files)
@@ -4722,24 +4732,24 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 		info.returnNamed = false;
 		macro throw ${makeString(info.global.path + "." + name + " is not yet implemented")};
 	} else {
-		final patch = Patch.list[patchName];
-		if (decl.recv == null && patch != null) {
-			Patch.list.remove(patchName);
-			patch;
-		} else {
-			final cond = Patch.skipTargets[patchName];
-			final block = toExpr(typeBlockStmt(decl.body, info, true));
-			if (cond != null) {
-				switch block.expr {
-					case EBlock(exprs):
-						final targets = makeString("(" + cond.join(" || ") + ")");
-						final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
-						exprs.unshift(macro @:define($targets) $e);
-					default:
-				}
+		final block = toExpr(typeBlockStmt(decl.body, info, true));
+		final cond = Patch.skipTargets[patchName];
+		if (cond != null) {
+			switch block.expr {
+				case EBlock(exprs):
+					final targets = makeString("(" + cond.join(" || ") + ")");
+					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
+					exprs.unshift(macro @:define($targets) $e);
+				default:
 			}
-			macro $block;
 		}
+		macro $block;
+	}
+
+	final patch = Patch.list[patchName];
+	if (decl.recv == null && patch != null) {
+		Patch.list.remove(patchName);
+		block = patch;
 	}
 
 	block = argsTranslate(args, block);

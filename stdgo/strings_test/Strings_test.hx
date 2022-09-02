@@ -1294,8 +1294,8 @@ var _stringdata:Slice<T__struct_7> = (new Slice<T__struct_7>(0, 0, ({_name: (Go.
 
 var _sinkS:GoString = ("" : GoString);
 var _emptyString:GoString = ("" : GoString);
-var _benchmarkString:GoString = (Go.str("some_text=some☺value") : GoString);
-var _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
+final _benchmarkString:GoString = (Go.str("some_text=some☺value") : GoString);
+final _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 var _stringSink:GoString = ("" : GoString);
 
 @:structInit @:using(stdgo.strings_test.Strings_test.T_errWriter_static_extension) private class T_errWriter {

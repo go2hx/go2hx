@@ -4549,7 +4549,7 @@ function testSectionReader_Size(_t:stdgo.testing.Testing.T):Void {
 
 function testSectionReader_Max(_t:stdgo.testing.Testing.T):Void {
 	var _r = stdgo.strings.Strings.newReader((Go.str("abcdef") : GoString));
-	var _maxint64:GoUnTypedInt = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _maxint64:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
 	var _sr = newSectionReader({
 		final __self__ = new stdgo.strings.Strings.Reader_wrapper(_r);
 		__self__.len = #if !macro function():GoInt return _r.len() #else null #end;

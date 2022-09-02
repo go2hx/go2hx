@@ -12,9 +12,9 @@ import stdgo.Chan;
 
 var _reflectValueOf:AnyInterface->stdgo.internal.reflectlite.Reflectlite.Value = stdgo.internal.reflectlite.Reflectlite.valueOf;
 var _reflectSwapper:AnyInterface -> ((GoInt, GoInt) -> Void) = stdgo.internal.reflectlite.Reflectlite.swapper;
-var _unknownHint:T_sortedHint = 0;
-var _increasingHint:T_sortedHint = 0;
-var _decreasingHint:T_sortedHint = 0;
+final _unknownHint:T_sortedHint = (2 : T_sortedHint);
+final _increasingHint:T_sortedHint = (2 : T_sortedHint);
+final _decreasingHint:T_sortedHint = (2 : T_sortedHint);
 
 typedef Interface = StructType & {
 	public function len():GoInt;
@@ -697,7 +697,7 @@ function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; 
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt),
-		_maxSwaps:GoUnTypedInt = (4 : GoUnTypedInt) * (3 : GoUnTypedInt);
+		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
 		_i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)),
@@ -1187,7 +1187,7 @@ function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1
 	var _pivot:GoInt = (0 : GoInt),
 		_hint:T_sortedHint = ((0 : GoInt) : T_sortedHint);
 	var _shortestNinther:GoUnTypedInt = (50 : GoUnTypedInt),
-		_maxSwaps:GoUnTypedInt = (4 : GoUnTypedInt) * (3 : GoUnTypedInt);
+		_maxSwaps:GoUnTypedInt = (12 : GoUnTypedInt);
 	var _l:GoInt = _b - _a;
 	var _swaps:GoInt = (0 : GoInt),
 		_i:GoInt = _a + (_l / (4 : GoInt) * (1 : GoInt)),

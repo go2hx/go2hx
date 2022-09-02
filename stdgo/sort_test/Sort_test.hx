@@ -226,19 +226,19 @@ var _strings:GoArray<GoString> = (new GoArray<GoString>((Go.str() : GoString), (
 var _countOpsSizes:Slice<GoInt> = (new Slice<GoInt>(0, 0, (100 : GoInt), (300 : GoInt), (1000 : GoInt), (3000 : GoInt), (10000 : GoInt), (30000 : GoInt),
 	(100000 : GoInt), (300000 : GoInt), (1e+06 : GoInt)) : Slice<GoInt>);
 
-var __Sawtooth:GoInt64 = 0;
-var __Rand = 0;
-var __Stagger = 0;
-var __Plateau = 0;
-var __Shuffle = 0;
-var __NDist = 0;
-var __Copy:GoInt64 = 0;
-var __Reverse = 0;
-var __ReverseFirstHalf = 0;
-var __ReverseSecondHalf = 0;
-var __Sorted = 0;
-var __Dither = 0;
-var __NMode = 0;
+final __Sawtooth:GoUnTypedInt = (5 : GoUnTypedInt);
+final __Rand = (5 : GoUnTypedInt);
+final __Stagger = (5 : GoUnTypedInt);
+final __Plateau = (5 : GoUnTypedInt);
+final __Shuffle = (5 : GoUnTypedInt);
+final __NDist = (5 : GoUnTypedInt);
+final __Copy:GoUnTypedInt = (6 : GoUnTypedInt);
+final __Reverse = (6 : GoUnTypedInt);
+final __ReverseFirstHalf = (6 : GoUnTypedInt);
+final __ReverseSecondHalf = (6 : GoUnTypedInt);
+final __Sorted = (6 : GoUnTypedInt);
+final __Dither = (6 : GoUnTypedInt);
+final __NMode = (6 : GoUnTypedInt);
 
 @:structInit @:using(stdgo.sort_test.Sort_test.Person_static_extension) class Person {
 	public var name:GoString = "";

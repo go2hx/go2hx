@@ -1130,8 +1130,8 @@ var _tanHuge:Slice<GoFloat64> = (new Slice<GoFloat64>(0, 0, (5.956418979396394 :
 	(-3.391359650547799 : GoFloat64), (-6.76813854009065 : GoFloat64), (0.7641769501660493 : GoFloat64),
 	(-0.00496201587444489 : GoFloat64)) : Slice<GoFloat64>);
 
-var smallestNormalFloat64:GoUnTypedFloat = (2.2250738585072014e-308 : GoUnTypedFloat);
-var largestSubnormalFloat64:GoUnTypedFloat = (smallestNormalFloat64 : GoUnTypedFloat) - (smallestNonzeroFloat64 : GoUnTypedFloat);
+final smallestNormalFloat64:GoUnTypedFloat = (2.2250738585072014e-308 : GoUnTypedFloat);
+final largestSubnormalFloat64:GoUnTypedFloat = (2.225073858507201e-308 : GoUnTypedFloat);
 var globalI:GoInt = (0 : GoInt);
 var globalB:Bool = false;
 var globalF:GoFloat64 = (0 : GoFloat64);

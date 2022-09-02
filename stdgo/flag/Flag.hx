@@ -21,9 +21,9 @@ var usage:() -> Void = function():Void {
 };
 
 var defaultUsage:() -> Void = usage;
-var continueOnError:ErrorHandling = 0;
-var exitOnError:ErrorHandling = 0;
-var panicOnError:ErrorHandling = 0;
+final continueOnError:ErrorHandling = (2 : ErrorHandling);
+final exitOnError:ErrorHandling = (2 : ErrorHandling);
+final panicOnError:ErrorHandling = (2 : ErrorHandling);
 
 typedef T_boolFlag = StructType & {
 	> Value,

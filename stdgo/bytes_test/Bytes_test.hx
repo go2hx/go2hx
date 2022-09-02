@@ -974,11 +974,11 @@ var unreadRuneErrorTests:Slice<T__struct_15> = (new Slice<T__struct_15>(0, 0, ({
 	}
 	} : T__struct_15)) : Slice<T__struct_15>);
 
-var n:GoUnTypedInt = (10000 : GoUnTypedInt);
+final n:GoUnTypedInt = (10000 : GoUnTypedInt);
 var _testString:GoString = ("" : GoString);
 var _testBytes:Slice<GoByte> = (null : Slice<GoUInt8>);
 var _bmbuf:Slice<GoByte> = (null : Slice<GoUInt8>);
-var _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
+final _space:GoString = (Go.str("\t\x0B\r\x0C\n\u0085\u00a0\u2000\u3000") : GoString);
 
 @:structInit @:using(stdgo.bytes_test.Bytes_test.T_negativeReader_static_extension) private class T_negativeReader {
 	public function new() {}
@@ -2147,7 +2147,7 @@ function testReadString(_t:stdgo.testing.Testing.T):Void {
 }
 
 function benchmarkReadString(_b:stdgo.testing.Testing.B):Void {
-	var _n:GoUnTypedInt = (32 : GoUnTypedInt) << (10 : GoUnTypedInt);
+	var _n:GoUnTypedInt = (32768 : GoUnTypedInt);
 	var _data = new Slice<GoUInt8>((32768 : GoInt).toBasic(), 0, ...[for (i in 0...(32768 : GoInt).toBasic()) (0 : GoUInt8)]);
 	_data[(32767 : GoInt)] = ("x".code : GoUInt8);
 	_b.setBytes((32768 : GoInt64));
@@ -2215,7 +2215,7 @@ function testGrowOverflow(_t:stdgo.testing.Testing.T):Void {
 			a();
 		});
 		var _buf = newBuffer(new Slice<GoUInt8>((1 : GoInt).toBasic(), 0, ...[for (i in 0...(1 : GoInt).toBasic()) (0 : GoUInt8)]));
-		var _maxInt:GoInt = ((-1 ^ ((0 : GoUInt) : GoUInt)) >> (1 : GoUnTypedInt) : GoInt);
+		var _maxInt:GoInt = ((2147483647 : GoUInt) : GoInt);
 		_buf.grow((2147483647 : GoInt));
 		for (defer in __deferstack__) {
 			defer();
@@ -2345,7 +2345,7 @@ function testBufferGrowth(_t:stdgo.testing.Testing.T):Void {
 }
 
 function benchmarkWriteByte(_b:stdgo.testing.Testing.B):Void {
-	var _n:GoUnTypedInt = (4 : GoUnTypedInt) << (10 : GoUnTypedInt);
+	var _n:GoUnTypedInt = (4096 : GoUnTypedInt);
 	_b.setBytes((4096 : GoInt64));
 	var _buf = newBuffer(new Slice<GoUInt8>((4096 : GoInt).toBasic(), 0, ...[for (i in 0...(4096 : GoInt).toBasic()) (0 : GoUInt8)]));
 	{
@@ -2363,7 +2363,7 @@ function benchmarkWriteByte(_b:stdgo.testing.Testing.B):Void {
 }
 
 function benchmarkWriteRune(_b:stdgo.testing.Testing.B):Void {
-	var _n:GoUnTypedInt = (4 : GoUnTypedInt) << (10 : GoUnTypedInt);
+	var _n:GoUnTypedInt = (4096 : GoUnTypedInt);
 	var _r:GoInt32 = ("☺".code : GoInt32);
 	_b.setBytes(((4096 : GoInt) * stdgo.unicode.utf8.Utf8.runeLen((9786 : GoInt32)) : GoInt64));
 	var _buf = newBuffer(new Slice<GoUInt8>((16384 : GoInt).toBasic(), 0, ...[for (i in 0...(16384 : GoInt).toBasic()) (0 : GoUInt8)]));

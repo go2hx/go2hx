@@ -174,7 +174,7 @@ var _regressGolden:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInt
 	Go.toInterface(("161231572858529631" : GoUInt64)), Go.toInterface(("16482847956365694147" : GoUInt64)),
 	Go.toInterface(("16596477517051940556" : GoUInt64))) : Slice<AnyInterface>);
 
-var _numTestSamples:GoUnTypedInt = (10000 : GoUnTypedInt);
+final _numTestSamples:GoUnTypedInt = (10000 : GoUnTypedInt);
 var __tmp__0 = getNormalDistributionParameters();
 var __tmp__1 = getExponentialDistributionParameters();
 
@@ -664,7 +664,7 @@ function _initNorm():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sl
 	var _testKn:Slice<GoUInt32> = (null : Slice<GoUInt32>),
 		_testWn:Slice<GoFloat32> = (null : Slice<GoFloat32>),
 		_testFn:Slice<GoFloat32> = (null : Slice<GoFloat32>);
-	var _m1:GoUnTypedInt = (1 : GoUnTypedInt) << (31 : GoUnTypedInt);
+	var _m1:GoUnTypedInt = ("2147483648" : GoUnTypedInt);
 	var _dn:GoFloat64 = _rn,
 		_tn:GoFloat64 = _dn,
 		_vn:GoFloat64 = (0.00991256303526217 : GoFloat64);
@@ -695,7 +695,7 @@ function _initExp():{var _0:Slice<GoUInt32>; var _1:Slice<GoFloat32>; var _2:Sli
 	var _testKe:Slice<GoUInt32> = (null : Slice<GoUInt32>),
 		_testWe:Slice<GoFloat32> = (null : Slice<GoFloat32>),
 		_testFe:Slice<GoFloat32> = (null : Slice<GoFloat32>);
-	var _m2:GoUnTypedInt = (1 : GoUnTypedInt) << (32 : GoUnTypedInt);
+	var _m2:GoUnTypedInt = ("4294967296" : GoUnTypedInt);
 	var _de:GoFloat64 = _re,
 		_te:GoFloat64 = _de,
 		_ve:GoFloat64 = (0.003949659822581557 : GoFloat64);

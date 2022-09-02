@@ -1390,12 +1390,12 @@ var _slimTests:Slice<T__struct_30> = (new Slice<T__struct_30>(0, 0, ({
 	} : T__struct_30)) : Slice<T__struct_30>);
 
 var _c:Chan<GoInt> = (null : Chan<GoInt>);
-var _windowsInaccuracy:Duration = (17 : Duration) * millisecond;
-var _unixToZero:GoUnTypedInt = -(978307200 : GoUnTypedInt) + ("63113904000" : GoUnTypedInt);
+final _windowsInaccuracy:Duration = (17000000 : Duration);
+final _unixToZero:GoUnTypedInt = ("62135596800" : GoUnTypedInt);
 var _t:Time = ({} : Time);
 var _u:GoInt64 = (0 : GoInt64);
-var _minDuration:Duration = -(1 : GoUnTypedInt) << (63 : GoUnTypedInt);
-var _maxDuration:Duration = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+final _minDuration:Duration = ("-9223372036854775808" : Duration);
+final _maxDuration:Duration = ("9223372036854775807" : Duration);
 
 @:structInit class TimeFormatTest {
 	public var _time:Time = ({} : Time);
@@ -4043,7 +4043,7 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
 }
 
 function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
-	var _fmt:GoString = (Go.str("Mon MST ") : GoString) + rfc3339;
+	var _fmt:GoString = (Go.str("Mon MST 2006-01-02T15:04:05Z07:00") : GoString);
 	var _f:GoInt64->Bool = function(_sec:GoInt64):Bool {
 		var _t1:Time = (unix(_sec / (2 : GoInt64), (0 : GoInt64)) == null ? null : unix(_sec / (2 : GoInt64), (0 : GoInt64)).__copy__());
 		if ((_t1.year() < (1000:GoInt) || _t1.year() > (9999 : GoInt)) || (_t1.unix() != _sec)) {
@@ -5591,7 +5591,7 @@ function testMonotonicString(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testSleep(_t:stdgo.testing.Testing.T):Void {
-	var _delay:Duration = (100 : Duration) * millisecond;
+	var _delay:Duration = (100000000 : Duration);
 	Go.routine(() -> {
 		var a = function():Void {
 			sleep((50000000 : Duration));
@@ -5845,7 +5845,7 @@ function benchmarkSleep(_b:stdgo.testing.Testing.B):Void {
 }
 
 function testAfter(_t:stdgo.testing.Testing.T):Void {
-	var _delay:Duration = (100 : Duration) * millisecond;
+	var _delay:Duration = (100000000 : Duration);
 	var _start:Time = (now() == null ? null : now().__copy__());
 	var _end:Time = (after((100000000 : Duration)).__get__() == null ? null : after((100000000 : Duration)).__get__().__copy__());
 	var _delayadj:Duration = (100000000 : Duration);
@@ -6420,7 +6420,7 @@ function _testReset(_d:Duration):Error {
 }
 
 function testReset(_t:stdgo.testing.Testing.T):Void {
-	var _unit:Duration = (25 : Duration) * millisecond;
+	var _unit:Duration = (25000000 : Duration);
 	var _tries = (new Slice<Duration>(0, 0, (25000000 : Duration), (75000000 : Duration), (175000000 : Duration), (375000000 : Duration)) : Slice<Duration>);
 	var _err:Error = (null : stdgo.Error);
 	for (_0 => _d in _tries) {
@@ -6453,7 +6453,7 @@ function testReset(_t:stdgo.testing.Testing.T):Void {
 	// tests may not fire.
 **/
 function testOverflowSleep(_t:stdgo.testing.Testing.T):Void {
-	var _big:Duration = ((((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt) : GoInt64) : Duration);
+	var _big:Duration = ((("9223372036854775807" : GoInt64) : GoInt64) : Duration);
 	Go.routine(() -> {
 		var a = function():Void {
 			sleep(("9223372036854775807" : Duration));
@@ -6467,7 +6467,7 @@ function testOverflowSleep(_t:stdgo.testing.Testing.T):Void {
 			_t.fatalf((Go.str("big timeout fired") : GoString));
 		}
 	]);
-	var _neg:Duration = (-(1 : GoUnTypedInt) << (63 : GoUnTypedInt) : Duration);
+	var _neg:Duration = ("-9223372036854775808" : Duration);
 	sleep(("-9223372036854775808" : Duration));
 	Go.select([
 		after((1000000000 : Duration)).__get__() => {
@@ -6867,7 +6867,7 @@ function benchmarkParallelTimerLatency(_b:stdgo.testing.Testing.B):Void {
 	_warmupScheduler(_gmp);
 	_doWork((30000000 : Duration));
 	_b.resetTimer();
-	var _delay:Duration = millisecond;
+	var _delay:Duration = (1000000 : Duration);
 	var _wg:stdgo.sync.Sync.WaitGroup = ({} : stdgo.sync.Sync.WaitGroup);
 	var _count:GoInt32 = (0 : GoInt32);
 	{
@@ -6925,7 +6925,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.testing.Testing.B):Void {
 	if ((_gmp < (2:GoInt)) || (stdgo.runtime.Runtime.numCPU() < _gmp)) {
 		_b.skip(Go.toInterface((Go.str("skipping with GOMAXPROCS < 2 or NumCPU < GOMAXPROCS") : GoString)));
 	};
-	var _delay:Duration = (3 : Duration) * millisecond;
+	var _delay:Duration = (3000000 : Duration);
 	for (_0 => _dur in (new Slice<Duration>(0, 0, (300000 : Duration), (2000000 : Duration)) : Slice<Duration>)) {
 		_b.run(stdgo.fmt.Fmt.sprintf((Go.str("work-dur=%s") : GoString), Go.toInterface({
 			final __self__ = new Duration_wrapper(_dur);

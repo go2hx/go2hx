@@ -412,14 +412,14 @@ var _globalRand:Ref<Rand> = new_({
 	__self__;
 });
 
-var _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
-var _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
+final _re:GoUnTypedFloat = (7.69711747013105 : GoUnTypedFloat);
+final _rn:GoUnTypedFloat = (3.442619855899 : GoUnTypedFloat);
 var _1:T_rngSource = ((_globalRand._src.__underlying__().value : Dynamic) : T_lockedSource)._src;
-var _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
-var _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
-var _rngMax:GoUnTypedInt = (1 : GoUnTypedInt) << (63 : GoUnTypedInt);
-var _rngMask:GoUnTypedInt = _rngMax - (1 : GoUnTypedInt);
-var _int32max:GoUnTypedInt = ((1 : GoUnTypedInt) << (31 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+final _rngLen:GoUnTypedInt = (607 : GoUnTypedInt);
+final _rngTap:GoUnTypedInt = (273 : GoUnTypedInt);
+final _rngMax:GoUnTypedInt = ("9223372036854775808" : GoUnTypedInt);
+final _rngMask:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
+final _int32max:GoUnTypedInt = (2147483647 : GoUnTypedInt);
 
 typedef Source = StructType & {
 	public function int63():GoInt64;

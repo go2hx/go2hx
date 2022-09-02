@@ -199,157 +199,139 @@ var daysIn:(Month, GoInt) -> GoInt = _daysIn;
 var minMonoTime:Time = ({_wall: ("9223372036854775808" : GoUInt64), _ext: ("-9223372036854775808" : GoInt64), _loc: utc} : Time);
 var maxMonoTime:Time = ({_wall: ("9223372036854775808" : GoUInt64), _ext: ("9223372036854775807" : GoInt64), _loc: utc} : Time);
 var notMonoNegativeTime:Time = ({_wall: (0 : GoUInt64), _ext: ("-9223372036854775758" : GoInt64)} : Time);
-var ruleJulian:RuleKind = (_ruleJulian : RuleKind);
-var ruleDOY:RuleKind = (_ruleDOY : RuleKind);
-var ruleMonthWeekDay:RuleKind = (_ruleMonthWeekDay : RuleKind);
-var unixToInternal:GoInt64 = _unixToInternal;
-var layout:GoString = (Go.str("01/02 03:04:05PM \'06 -0700") : GoString);
-var ansic:GoString = (Go.str("Mon Jan _2 15:04:05 2006") : GoString);
-var unixDate:GoString = (Go.str("Mon Jan _2 15:04:05 MST 2006") : GoString);
-var rubyDate:GoString = (Go.str("Mon Jan 02 15:04:05 -0700 2006") : GoString);
-var rfc822:GoString = (Go.str("02 Jan 06 15:04 MST") : GoString);
-var rfc822z:GoString = (Go.str("02 Jan 06 15:04 -0700") : GoString);
-var rfc850:GoString = (Go.str("Monday, 02-Jan-06 15:04:05 MST") : GoString);
-var rfc1123:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 MST") : GoString);
-var rfc1123z:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 -0700") : GoString);
-var rfc3339:GoString = (Go.str("2006-01-02T15:04:05Z07:00") : GoString);
-var rfc3339nano:GoString = (Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString);
-var kitchen:GoString = (Go.str("3:04PM") : GoString);
-var stamp:GoString = (Go.str("Jan _2 15:04:05") : GoString);
-var stampMilli:GoString = (Go.str("Jan _2 15:04:05.000") : GoString);
-var stampMicro:GoString = (Go.str("Jan _2 15:04:05.000000") : GoString);
-var stampNano:GoString = (Go.str("Jan _2 15:04:05.000000000") : GoString);
-var _0:GoInt64 = 0;
-var _stdLongMonth:GoUnTypedInt = _iota + _stdNeedDate;
-var _stdMonth = _iota + _stdNeedDate;
-var _stdNumMonth = _iota + _stdNeedDate;
-var _stdZeroMonth = _iota + _stdNeedDate;
-var _stdLongWeekDay = _iota + _stdNeedDate;
-var _stdWeekDay = _iota + _stdNeedDate;
-var _stdDay = _iota + _stdNeedDate;
-var _stdUnderDay = _iota + _stdNeedDate;
-var _stdZeroDay = _iota + _stdNeedDate;
-var _stdUnderYearDay = _iota + _stdNeedDate;
-var _stdZeroYearDay = _iota + _stdNeedDate;
-var _stdHour:GoUnTypedInt = _iota + _stdNeedClock;
-var _stdHour12 = _iota + _stdNeedClock;
-var _stdZeroHour12 = _iota + _stdNeedClock;
-var _stdMinute = _iota + _stdNeedClock;
-var _stdZeroMinute = _iota + _stdNeedClock;
-var _stdSecond = _iota + _stdNeedClock;
-var _stdZeroSecond = _iota + _stdNeedClock;
-var _stdLongYear:GoUnTypedInt = _iota + _stdNeedDate;
-var _stdYear = _iota + _stdNeedDate;
-var _stdPM:GoUnTypedInt = _iota + _stdNeedClock;
-var _stdpm = _iota + _stdNeedClock;
-var _stdTZ:GoInt64 = 23;
-var _stdISO8601TZ = 23;
-var _stdISO8601SecondsTZ = 23;
-var _stdISO8601ShortTZ = 23;
-var _stdISO8601ColonTZ = 23;
-var _stdISO8601ColonSecondsTZ = 23;
-var _stdNumTZ = 23;
-var _stdNumSecondsTz = 23;
-var _stdNumShortTZ = 23;
-var _stdNumColonTZ = 23;
-var _stdNumColonSecondsTZ = 23;
-var _stdFracSecond0 = 23;
-var _stdFracSecond9 = 23;
-var _stdNeedDate:GoUnTypedInt = (1 : GoUnTypedInt) << (8 : GoUnTypedInt);
-var _stdNeedClock:GoUnTypedInt = (2 : GoUnTypedInt) << (8 : GoUnTypedInt);
-var _stdArgShift:GoUnTypedInt = (16 : GoUnTypedInt);
-var _stdSeparatorShift:GoUnTypedInt = (28 : GoUnTypedInt);
-var _stdMask:GoUnTypedInt = ((1 : GoUnTypedInt) << _stdArgShift) - (1 : GoUnTypedInt);
-var _lowerhex:GoString = (Go.str("0123456789abcdef") : GoString);
-var _runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
-var _runeError:GoInt32 = ("\uFFFD".code : GoInt32);
-var _hasMonotonic:GoUnTypedInt = (1 : GoUnTypedInt) << (63 : GoUnTypedInt);
-var _maxWall:GoInt64 = _wallToInternal + ((1 : GoUnTypedInt) << (33 : GoUnTypedInt) - (1 : GoUnTypedInt));
-var _minWall:GoInt64 = _wallToInternal;
-var _nsecMask:GoUnTypedInt = ((1 : GoUnTypedInt) << (30 : GoUnTypedInt)) - (1 : GoUnTypedInt);
-var _nsecShift:GoUnTypedInt = (30 : GoUnTypedInt);
-var january:Month = (1 : GoUnTypedInt) + _iota;
-var february:Month = (1 : GoUnTypedInt) + _iota;
-var march:Month = (1 : GoUnTypedInt) + _iota;
-var april:Month = (1 : GoUnTypedInt) + _iota;
-var may:Month = (1 : GoUnTypedInt) + _iota;
-var june:Month = (1 : GoUnTypedInt) + _iota;
-var july:Month = (1 : GoUnTypedInt) + _iota;
-var august:Month = (1 : GoUnTypedInt) + _iota;
-var september:Month = (1 : GoUnTypedInt) + _iota;
-var october:Month = (1 : GoUnTypedInt) + _iota;
-var november:Month = (1 : GoUnTypedInt) + _iota;
-var december:Month = (1 : GoUnTypedInt) + _iota;
-var sunday:Weekday = 0;
-var monday:Weekday = 0;
-var tuesday:Weekday = 0;
-var wednesday:Weekday = 0;
-var thursday:Weekday = 0;
-var friday:Weekday = 0;
-var saturday:Weekday = 0;
-var _absoluteZeroYear:GoUnTypedInt = -("292277022399" : GoUnTypedInt);
-var _internalYear:GoUnTypedInt = (1 : GoUnTypedInt);
-var _absoluteToInternal:GoInt64 = ((_absoluteZeroYear - _internalYear : GoUnTypedFloat) * ((365.2425 : GoUnTypedFloat) : GoUnTypedFloat)) * (_secondsPerDay : GoUnTypedFloat);
-var _internalToAbsolute:GoInt64 = -_absoluteToInternal;
-
-var _unixToInternal:GoInt64 = (((1969 : GoUnTypedInt) * (365 : GoUnTypedInt) + (1969 : GoUnTypedInt) / (4 : GoUnTypedInt))
-	- ((1969 : GoUnTypedInt) / (100 : GoUnTypedInt))
-	+ (1969 : GoUnTypedInt) / (400 : GoUnTypedInt)) * _secondsPerDay;
-
-var _internalToUnix:GoInt64 = -_unixToInternal;
-
-var _wallToInternal:GoInt64 = (((1884 : GoUnTypedInt) * (365 : GoUnTypedInt) + (1884 : GoUnTypedInt) / (4 : GoUnTypedInt))
-	- ((1884 : GoUnTypedInt) / (100 : GoUnTypedInt))
-	+ (1884 : GoUnTypedInt) / (400 : GoUnTypedInt)) * _secondsPerDay;
-
-var _minDuration:Duration = -(1 : GoUnTypedInt) << (63 : GoUnTypedInt);
-var _maxDuration:Duration = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
-var nanosecond:Duration = (1 : Duration);
-var microsecond:Duration = (1000 : Duration) * nanosecond;
-var millisecond:Duration = (1000 : Duration) * microsecond;
-var second:Duration = (1000 : Duration) * millisecond;
-var minute:Duration = (60 : Duration) * second;
-var hour:Duration = (60 : Duration) * minute;
-var _secondsPerMinute:GoUnTypedInt = (60 : GoUnTypedInt);
-var _secondsPerHour:GoUnTypedInt = (60 : GoUnTypedInt) * _secondsPerMinute;
-var _secondsPerDay:GoUnTypedInt = (24 : GoUnTypedInt) * _secondsPerHour;
-var _secondsPerWeek:GoUnTypedInt = (7 : GoUnTypedInt) * _secondsPerDay;
-var _daysPer400Years:GoUnTypedInt = ((365 : GoUnTypedInt) * (400 : GoUnTypedInt)) + (97 : GoUnTypedInt);
-var _daysPer100Years:GoUnTypedInt = ((365 : GoUnTypedInt) * (100 : GoUnTypedInt)) + (24 : GoUnTypedInt);
-var _daysPer4Years:GoUnTypedInt = ((365 : GoUnTypedInt) * (4 : GoUnTypedInt)) + (1 : GoUnTypedInt);
-var _timeBinaryVersionV1:GoByte = _iota + (1 : GoUnTypedInt);
-var _timeBinaryVersionV2:GoUInt8 = _iota + (1 : GoUnTypedInt);
-var _alpha:GoUnTypedInt = -(1 : GoUnTypedInt) << (63 : GoUnTypedInt);
-var _omega:GoUnTypedInt = ((1 : GoUnTypedInt) << (63 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+final ruleJulian:RuleKind = ((0 : T_ruleKind) : RuleKind);
+final ruleDOY:RuleKind = ((1 : T_ruleKind) : RuleKind);
+final ruleMonthWeekDay:RuleKind = ((2 : T_ruleKind) : RuleKind);
+final unixToInternal:GoInt64 = ("62135596800" : GoInt64);
+final layout:GoString = (Go.str("01/02 03:04:05PM \'06 -0700") : GoString);
+final ansic:GoString = (Go.str("Mon Jan _2 15:04:05 2006") : GoString);
+final unixDate:GoString = (Go.str("Mon Jan _2 15:04:05 MST 2006") : GoString);
+final rubyDate:GoString = (Go.str("Mon Jan 02 15:04:05 -0700 2006") : GoString);
+final rfc822:GoString = (Go.str("02 Jan 06 15:04 MST") : GoString);
+final rfc822z:GoString = (Go.str("02 Jan 06 15:04 -0700") : GoString);
+final rfc850:GoString = (Go.str("Monday, 02-Jan-06 15:04:05 MST") : GoString);
+final rfc1123:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 MST") : GoString);
+final rfc1123z:GoString = (Go.str("Mon, 02 Jan 2006 15:04:05 -0700") : GoString);
+final rfc3339:GoString = (Go.str("2006-01-02T15:04:05Z07:00") : GoString);
+final rfc3339nano:GoString = (Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString);
+final kitchen:GoString = (Go.str("3:04PM") : GoString);
+final stamp:GoString = (Go.str("Jan _2 15:04:05") : GoString);
+final stampMilli:GoString = (Go.str("Jan _2 15:04:05.000") : GoString);
+final stampMicro:GoString = (Go.str("Jan _2 15:04:05.000000") : GoString);
+final stampNano:GoString = (Go.str("Jan _2 15:04:05.000000000") : GoString);
+final _0:GoUnTypedInt = (0 : GoUnTypedInt);
+final _stdLongMonth:GoUnTypedInt = (267 : GoUnTypedInt);
+final _stdMonth = (267 : GoUnTypedInt);
+final _stdNumMonth = (267 : GoUnTypedInt);
+final _stdZeroMonth = (267 : GoUnTypedInt);
+final _stdLongWeekDay = (267 : GoUnTypedInt);
+final _stdWeekDay = (267 : GoUnTypedInt);
+final _stdDay = (267 : GoUnTypedInt);
+final _stdUnderDay = (267 : GoUnTypedInt);
+final _stdZeroDay = (267 : GoUnTypedInt);
+final _stdUnderYearDay = (267 : GoUnTypedInt);
+final _stdZeroYearDay = (267 : GoUnTypedInt);
+final _stdHour:GoUnTypedInt = (530 : GoUnTypedInt);
+final _stdHour12 = (530 : GoUnTypedInt);
+final _stdZeroHour12 = (530 : GoUnTypedInt);
+final _stdMinute = (530 : GoUnTypedInt);
+final _stdZeroMinute = (530 : GoUnTypedInt);
+final _stdSecond = (530 : GoUnTypedInt);
+final _stdZeroSecond = (530 : GoUnTypedInt);
+final _stdLongYear:GoUnTypedInt = (276 : GoUnTypedInt);
+final _stdYear = (276 : GoUnTypedInt);
+final _stdPM:GoUnTypedInt = (534 : GoUnTypedInt);
+final _stdpm = (534 : GoUnTypedInt);
+final _stdTZ:GoUnTypedInt = (35 : GoUnTypedInt);
+final _stdISO8601TZ = (35 : GoUnTypedInt);
+final _stdISO8601SecondsTZ = (35 : GoUnTypedInt);
+final _stdISO8601ShortTZ = (35 : GoUnTypedInt);
+final _stdISO8601ColonTZ = (35 : GoUnTypedInt);
+final _stdISO8601ColonSecondsTZ = (35 : GoUnTypedInt);
+final _stdNumTZ = (35 : GoUnTypedInt);
+final _stdNumSecondsTz = (35 : GoUnTypedInt);
+final _stdNumShortTZ = (35 : GoUnTypedInt);
+final _stdNumColonTZ = (35 : GoUnTypedInt);
+final _stdNumColonSecondsTZ = (35 : GoUnTypedInt);
+final _stdFracSecond0 = (35 : GoUnTypedInt);
+final _stdFracSecond9 = (35 : GoUnTypedInt);
+final _stdNeedDate:GoUnTypedInt = (256 : GoUnTypedInt);
+final _stdNeedClock:GoUnTypedInt = (512 : GoUnTypedInt);
+final _stdArgShift:GoUnTypedInt = (16 : GoUnTypedInt);
+final _stdSeparatorShift:GoUnTypedInt = (28 : GoUnTypedInt);
+final _stdMask:GoUnTypedInt = (65535 : GoUnTypedInt);
+final _lowerhex:GoString = (Go.str("0123456789abcdef") : GoString);
+final _runeSelf:GoUnTypedInt = (128 : GoUnTypedInt);
+final _runeError:GoInt32 = ("\uFFFD".code : GoInt32);
+final _hasMonotonic:GoUnTypedInt = ("9223372036854775808" : GoUnTypedInt);
+final _maxWall:GoInt64 = ("68043243391" : GoInt64);
+final _minWall:GoInt64 = ("59453308800" : GoInt64);
+final _nsecMask:GoUnTypedInt = (1073741823 : GoUnTypedInt);
+final _nsecShift:GoUnTypedInt = (30 : GoUnTypedInt);
+final january:Month = (12 : Month);
+final february:Month = (12 : Month);
+final march:Month = (12 : Month);
+final april:Month = (12 : Month);
+final may:Month = (12 : Month);
+final june:Month = (12 : Month);
+final july:Month = (12 : Month);
+final august:Month = (12 : Month);
+final september:Month = (12 : Month);
+final october:Month = (12 : Month);
+final november:Month = (12 : Month);
+final december:Month = (12 : Month);
+final sunday:Weekday = (6 : Weekday);
+final monday:Weekday = (6 : Weekday);
+final tuesday:Weekday = (6 : Weekday);
+final wednesday:Weekday = (6 : Weekday);
+final thursday:Weekday = (6 : Weekday);
+final friday:Weekday = (6 : Weekday);
+final saturday:Weekday = (6 : Weekday);
+final _absoluteZeroYear:GoUnTypedInt = ("-292277022399" : GoUnTypedInt);
+final _internalYear:GoUnTypedInt = (1 : GoUnTypedInt);
+final _absoluteToInternal:GoInt64 = ("-9223371966579724800" : GoInt64);
+final _internalToAbsolute:GoInt64 = ("9223371966579724800" : GoInt64);
+final _unixToInternal:GoInt64 = ("62135596800" : GoInt64);
+final _internalToUnix:GoInt64 = ("-62135596800" : GoInt64);
+final _wallToInternal:GoInt64 = ("59453308800" : GoInt64);
+final _minDuration:Duration = ("-9223372036854775808" : Duration);
+final _maxDuration:Duration = ("9223372036854775807" : Duration);
+final nanosecond:Duration = (1 : Duration);
+final microsecond:Duration = (1000 : Duration);
+final millisecond:Duration = (1000000 : Duration);
+final second:Duration = (1000000000 : Duration);
+final minute:Duration = ("60000000000" : Duration);
+final hour:Duration = ("3600000000000" : Duration);
+final _secondsPerMinute:GoUnTypedInt = (60 : GoUnTypedInt);
+final _secondsPerHour:GoUnTypedInt = (3600 : GoUnTypedInt);
+final _secondsPerDay:GoUnTypedInt = (86400 : GoUnTypedInt);
+final _secondsPerWeek:GoUnTypedInt = (604800 : GoUnTypedInt);
+final _daysPer400Years:GoUnTypedInt = (146097 : GoUnTypedInt);
+final _daysPer100Years:GoUnTypedInt = (36524 : GoUnTypedInt);
+final _daysPer4Years:GoUnTypedInt = (1461 : GoUnTypedInt);
+final _timeBinaryVersionV1:GoByte = (2 : GoUInt8);
+final _timeBinaryVersionV2:GoUInt8 = (2 : GoUInt8);
+final _alpha:GoUnTypedInt = ("-9223372036854775808" : GoUnTypedInt);
+final _omega:GoUnTypedInt = ("9223372036854775807" : GoUnTypedInt);
 var _localLoc:Location = ({} : Location);
 var _localOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-var _ruleJulian:T_ruleKind = 0;
-var _ruleDOY:T_ruleKind = 0;
-var _ruleMonthWeekDay:T_ruleKind = 0;
+final _ruleJulian:T_ruleKind = (2 : T_ruleKind);
+final _ruleDOY:T_ruleKind = (2 : T_ruleKind);
+final _ruleMonthWeekDay:T_ruleKind = (2 : T_ruleKind);
 var _zoneinfo:Pointer<GoString> = (null : Pointer<GoString>);
 var _zoneinfoOnce:stdgo.sync.Sync.Once = ({} : stdgo.sync.Sync.Once);
-
-var _smallsString:GoString = (((((Go.str("00010203040506070809") : GoString) + (Go.str("10111213141516171819") : GoString)
-	+ (Go.str("20212223242526272829") : GoString))
-	+ (Go.str("30313233343536373839") : GoString)
-	+ (Go.str("40414243444546474849") : GoString))
-	+ (Go.str("50515253545556575859") : GoString)
-	+ (Go.str("60616263646566676869") : GoString))
-	+ (Go.str("70717273747576777879") : GoString)
-	+ (Go.str("80818283848586878889") : GoString))
-	+ (Go.str("90919293949596979899") : GoString);
-
-var _digits:GoString = (Go.str("0123456789") : GoString);
+final _smallsString:GoString = (Go.str("00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899") : GoString);
+final _digits:GoString = (Go.str("0123456789") : GoString);
 
 var _loadFromEmbeddedTZData:(_zipname:GoString) -> {
 	var _0:GoString;
 	var _1:Error;
 } = null;
 
-var _maxFileSize:GoUnTypedInt = (10 : GoUnTypedInt) << (20 : GoUnTypedInt);
-var _seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
-var _seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
-var _seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
+final _maxFileSize:GoUnTypedInt = (10485760 : GoUnTypedInt);
+final _seekStart:GoUnTypedInt = (0 : GoUnTypedInt);
+final _seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
+final _seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 
 var _loadTzinfoFromTzdata:(_file:GoString, _name:GoString) -> {
 	var _0:Slice<GoByte>;
@@ -3541,12 +3523,12 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 			};
 		};
 	};
-	var nutclocal:GoUnTypedInt = 0,
-		nstdWall:GoUnTypedInt = 0,
-		nleap:GoUnTypedInt = 0,
-		ntime:GoUnTypedInt = 0,
-		nzone:GoUnTypedInt = 0,
-		nchar:GoUnTypedInt = 0;
+	var nutclocal:GoUnTypedInt = (5 : GoUnTypedInt),
+		nstdWall:GoUnTypedInt = (5 : GoUnTypedInt),
+		nleap:GoUnTypedInt = (5 : GoUnTypedInt),
+		ntime:GoUnTypedInt = (5 : GoUnTypedInt),
+		nzone:GoUnTypedInt = (5 : GoUnTypedInt),
+		nchar:GoUnTypedInt = (5 : GoUnTypedInt);
 	var _n:GoArray<GoInt> = new GoArray<GoInt>(...[for (i in 0...6) (0 : GoInt)]);
 	{
 		var _i:GoInt = (0 : GoInt);

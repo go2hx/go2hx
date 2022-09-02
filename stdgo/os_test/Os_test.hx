@@ -30,8 +30,8 @@ var _testLargeWrite:Pointer<Bool> = (null : Pointer<Bool>);
 var _nilFileMethodTests:Slice<T__struct_2> = (null : Slice<T__struct_2>);
 var _isReadonlyError:stdgo.Error->Bool = null;
 var _global:AnyInterface = (null : AnyInterface);
-var _executable_EnvVar:GoString = null;
-var _testExecutableDeletion:GoString = null;
+final _executable_EnvVar:GoString = null;
+final _testExecutableDeletion:GoString = null;
 
 @:structInit private class T_isExistTest {
 	public var _err:stdgo.Error = (null : stdgo.Error);

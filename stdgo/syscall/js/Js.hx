@@ -24,20 +24,20 @@ var _objectConstructor:Value = ({} : Value);
 var _arrayConstructor:Value = ({} : Value);
 var jsgo:Value = ({} : Value);
 var _funcsMu:stdgo.sync.Sync.Mutex = ({} : stdgo.sync.Sync.Mutex);
-var _nanHead:GoUnTypedInt = null;
-var _typeFlagNone:GoInt64 = (0 : GoInt64);
-var _typeFlagObject = null;
-var _typeFlagString = null;
-var _typeFlagSymbol = null;
-var _typeFlagFunction = null;
-var typeUndefined:Type = ((0 : GoInt) : Type);
-var typeNull:Type = ((0 : GoInt) : Type);
-var typeBoolean:Type = ((0 : GoInt) : Type);
-var typeNumber:Type = ((0 : GoInt) : Type);
-var typeString:Type = ((0 : GoInt) : Type);
-var typeSymbol:Type = ((0 : GoInt) : Type);
-var typeObject:Type = ((0 : GoInt) : Type);
-var typeFunction:Type = ((0 : GoInt) : Type);
+final _nanHead:GoUnTypedInt = null;
+final _typeFlagNone:GoUnTypedInt = null;
+final _typeFlagObject = null;
+final _typeFlagString = null;
+final _typeFlagSymbol = null;
+final _typeFlagFunction = null;
+final typeUndefined:Type = ((0 : GoInt) : Type);
+final typeNull:Type = ((0 : GoInt) : Type);
+final typeBoolean:Type = ((0 : GoInt) : Type);
+final typeNumber:Type = ((0 : GoInt) : Type);
+final typeString:Type = ((0 : GoInt) : Type);
+final typeSymbol:Type = ((0 : GoInt) : Type);
+final typeObject:Type = ((0 : GoInt) : Type);
+final typeFunction:Type = ((0 : GoInt) : Type);
 
 @:structInit @:using(stdgo.syscall.js.Js.Func_static_extension) class Func {
 	@:embedded

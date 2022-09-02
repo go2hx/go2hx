@@ -38,85 +38,45 @@ var _divideError:stdgo.Error = {
 	__self__;
 };
 
-var _uintSize:GoUnTypedInt = (32 : GoUnTypedInt) << (-1 ^ (0 : GoUInt) >> (63 : GoUnTypedInt));
-var uintSize:GoUnTypedInt = _uintSize;
-var _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
-var _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
-var _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
-var _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);
-var _m2:GoUnTypedInt = ("1085102592571150095" : GoUnTypedInt);
-var _m3:GoUnTypedInt = ("71777214294589695" : GoUnTypedInt);
-var _m4:GoUnTypedInt = ("281470681808895" : GoUnTypedInt);
+final _uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
+final uintSize:GoUnTypedInt = (32 : GoUnTypedInt);
+final _deBruijn32:GoUnTypedInt = (125613361 : GoUnTypedInt);
+final _deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
+final _m0:GoUnTypedInt = ("6148914691236517205" : GoUnTypedInt);
+final _m1:GoUnTypedInt = ("3689348814741910323" : GoUnTypedInt);
+final _m2:GoUnTypedInt = ("1085102592571150095" : GoUnTypedInt);
+final _m3:GoUnTypedInt = ("71777214294589695" : GoUnTypedInt);
+final _m4:GoUnTypedInt = ("281470681808895" : GoUnTypedInt);
 
-var _ntz8tab:GoString = (((((((((Go.str() : GoString) + (Go.str(8, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(7, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString)
-	+ (Go.str(5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString))
-	+ (Go.str(4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString);
+final _ntz8tab:GoString = (Go.str("\x08", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0,
+	3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1,
+	0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, "\x07", 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2,
+	0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0,
+	6, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 5, 0, 1, 0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0, 4, 0, 1,
+	0, 2, 0, 1, 0, 3, 0, 1, 0, 2, 0, 1, 0) : GoString);
 
-var _pop8tab:GoString = (((((((((Go.str() : GoString) + (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4) : GoString))
-	+ (Go.str(1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5) : GoString)
-	+ (Go.str(1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5) : GoString))
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString)
-	+ (Go.str(1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5) : GoString))
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString)
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString))
-	+ (Go.str(3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7) : GoString)
-	+ (Go.str(1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5) : GoString))
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString)
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString))
-	+ (Go.str(3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7) : GoString)
-	+ (Go.str(2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6) : GoString))
-	+ (Go.str(3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7) : GoString)
-	+ (Go.str(3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, 7) : GoString))
-	+ (Go.str(4, 5, 5, 6, 5, 6, 6, 7, 5, 6, 6, 7, 6, 7, 7, 8) : GoString);
+final _pop8tab:GoString = (Go.str(0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 1, 2, 2, 3, 2, 3, 3, 4, 2,
+	3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4, 4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5,
+	4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 1, 2, 2, 3, 2, 3, 3, 4, 2, 3, 3, 4, 3, 4,
+	4, 5, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07",
+	2, 3, 3, 4, 3, 4, 4, 5, 3, 4, 4, 5, 4, 5, 5, 6, 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07", 3, 4, 4, 5, 4, 5, 5, 6, 4, 5, 5, 6, 5, 6, 6, "\x07",
+	4, 5, 5, 6, 5, 6, 6, "\x07", 5, 6, 6, "\x07", 6, "\x07\x07\x08") : GoString);
 
-var _rev8tab:GoString = (((((((((Go.str() : GoString) + (Go.str(0, 128, 64, 192, 32, 160, 96, 224, 16, 144, 80, 208, 48, 176, 112, 240) : GoString))
-	+ (Go.str(8, 136, 72, 200, 40, 168, 104, 232, 24, 152, 88, 216, 56, 184, 120, 248) : GoString)
-	+ (Go.str(4, 132, 68, 196, 36, 164, 100, 228, 20, 148, 84, 212, 52, 180, 116, 244) : GoString))
-	+ (Go.str(12, 140, 76, 204, 44, 172, 108, 236, 28, 156, 92, 220, 60, 188, 124, 252) : GoString)
-	+ (Go.str(2, 130, 66, 194, 34, 162, 98, 226, 18, 146, 82, 210, 50, 178, 114, 242) : GoString))
-	+ (Go.str(10, 138, 74, 202, 42, 170, 106, 234, 26, 154, 90, 218, 58, 186, 122, 250) : GoString)
-	+ (Go.str(6, 134, 70, 198, 38, 166, 102, 230, 22, 150, 86, 214, 54, 182, 118, 246) : GoString))
-	+ (Go.str(14, 142, 78, 206, 46, 174, 110, 238, 30, 158, 94, 222, 62, 190, 126, 254) : GoString)
-	+ (Go.str(1, 129, 65, 193, 33, 161, 97, 225, 17, 145, 81, 209, 49, 177, 113, 241) : GoString))
-	+ (Go.str(9, 137, 73, 201, 41, 169, 105, 233, 25, 153, 89, 217, 57, 185, 121, 249) : GoString)
-	+ (Go.str(5, 133, 69, 197, 37, 165, 101, 229, 21, 149, 85, 213, 53, 181, 117, 245) : GoString))
-	+ (Go.str(13, 141, 77, 205, 45, 173, 109, 237, 29, 157, 93, 221, 61, 189, 125, 253) : GoString)
-	+ (Go.str(3, 131, 67, 195, 35, 163, 99, 227, 19, 147, 83, 211, 51, 179, 115, 243) : GoString))
-	+ (Go.str(11, 139, 75, 203, 43, 171, 107, 235, 27, 155, 91, 219, 59, 187, 123, 251) : GoString)
-	+ (Go.str(7, 135, 71, 199, 39, 167, 103, 231, 23, 151, 87, 215, 55, 183, 119, 247) : GoString))
-	+ (Go.str(15, 143, 79, 207, 47, 175, 111, 239, 31, 159, 95, 223, 63, 191, 127, 255) : GoString);
+final _rev8tab:GoString = (Go.str(0, 128, "@", 192, " ", 160, "`", 224, 16, 144, "P", 208, "0", 176, "p", 240, "\x08", 136, "H", 200, "(", 168, "h", 232, 24,
+	152, "X", 216, "8", 184, "x", 248, 4, 132, "D", 196, "$$", 164, "d", 228, 20, 148, "T", 212, "4", 180, "t", 244, "\x0C", 140, "L", 204, ",", 172, "l",
+	236, 28, 156, "\\", 220, "<", 188, "|", 252, 2, 130, "B", 194, "\"", 162, "b", 226, 18, 146, "R", 210, "2", 178, "r", 242, "\n", 138, "J", 202, "*", 170,
+	"j", 234, 26, 154, "Z", 218, ":", 186, "z", 250, 6, 134, "F", 198, "&", 166, "f", 230, 22, 150, "V", 214, "6", 182, "v", 246, 14, 142, "N", 206, ".", 174,
+	"n", 238, 30, 158, "^", 222, ">", 190, "~", 254, 1, 129, "A", 193, "!", 161, "a", 225, 17, 145, "Q", 209, "1", 177, "q", 241, "\t", 137, "I", 201, ")",
+	169, "i", 233, 25, 153, "Y", 217, "9", 185, "y", 249, 5, 133, "E", 197, "%", 165, "e", 229, 21, 149, "U", 213, "5", 181, "u", 245, "\r", 141, "M", 205,
+	"-", 173, "m", 237, 29, 157, "]", 221, "=", 189, "}", 253, 3, 131, "C", 195, "#", 163, "c", 227, 19, 147, "S", 211, "3", 179, "s", 243, "\x0B", 139, "K",
+	203, "+", 171, "k", 235, 27, 155, "[", 219, ";", 187, "{", 251, "\x07", 135, "G", 199, "\'", 167, "g", 231, 23, 151, "W", 215, "7", 183, "w", 247, 15,
+	143, "O", 207, "/", 175, "o", 239, 31, 159, "_", 223, "?", 191, 127, 255) : GoString);
 
-var _len8tab:GoString = (((((((((Go.str() : GoString) + (Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4) : GoString))
-	+ (Go.str(5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5) : GoString)
-	+ (Go.str(6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6) : GoString))
-	+ (Go.str(6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6) : GoString)
-	+ (Go.str(7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7) : GoString))
-	+ (Go.str(7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7) : GoString)
-	+ (Go.str(7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7) : GoString))
-	+ (Go.str(7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7) : GoString)
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString))
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString)
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString))
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString)
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString))
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString)
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString))
-	+ (Go.str(8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8) : GoString);
+final _len8tab:GoString = (Go.str(0, 1, 2, 2, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+	6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6,
+	"\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x07\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08\x08") : GoString);
 
-var deBruijn64:GoUnTypedInt = _deBruijn64;
+final deBruijn64:GoUnTypedInt = ("285870213051353865" : GoUnTypedInt);
 @:named @:using(stdgo.math.bits.Bits.T_errorString_static_extension) typedef T_errorString = GoString;
 
 /**
@@ -280,7 +240,7 @@ function onesCount32(_x:GoUInt32):GoInt {
 	// OnesCount64 returns the number of one bits ("population count") in x.
 **/
 function onesCount64(_x:GoUInt64):GoInt {
-	var _m:GoUnTypedInt = ((1 : GoUnTypedInt) << (64 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
 	_x = (_x >> (1 : GoUnTypedInt) & ("6148914691236517205" : GoUInt64)) + (_x & ("6148914691236517205" : GoUInt64));
 	_x = (_x >> (2 : GoUnTypedInt) & ("3689348814741910323" : GoUInt64)) + (_x & ("3689348814741910323" : GoUInt64));
 	_x = (_x >> (4 : GoUnTypedInt) + _x) & ("1085102592571150095" : GoUInt64);
@@ -405,7 +365,7 @@ function reverse16(_x:GoUInt16):GoUInt16 {
 	// Reverse32 returns the value of x with its bits in reversed order.
 **/
 function reverse32(_x:GoUInt32):GoUInt32 {
-	var _m:GoUnTypedInt = ((1 : GoUnTypedInt) << (32 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _m:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 	_x = (_x >> (1 : GoUnTypedInt) & (1431655765 : GoUInt32)) | (_x & (1431655765 : GoUInt32) << (1 : GoUnTypedInt));
 	_x = (_x >> (2 : GoUnTypedInt) & (858993459 : GoUInt32)) | (_x & (858993459 : GoUInt32) << (2 : GoUnTypedInt));
 	_x = (_x >> (4 : GoUnTypedInt) & (252645135 : GoUInt32)) | (_x & (252645135 : GoUInt32) << (4 : GoUnTypedInt));
@@ -416,7 +376,7 @@ function reverse32(_x:GoUInt32):GoUInt32 {
 	// Reverse64 returns the value of x with its bits in reversed order.
 **/
 function reverse64(_x:GoUInt64):GoUInt64 {
-	var _m:GoUnTypedInt = ((1 : GoUnTypedInt) << (64 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
 	_x = (_x >> (1 : GoUnTypedInt) & ("6148914691236517205" : GoUInt64)) | (_x & ("6148914691236517205" : GoUInt64) << (1 : GoUnTypedInt));
 	_x = (_x >> (2 : GoUnTypedInt) & ("3689348814741910323" : GoUInt64)) | (_x & ("3689348814741910323" : GoUInt64) << (2 : GoUnTypedInt));
 	_x = (_x >> (4 : GoUnTypedInt) & ("1085102592571150095" : GoUInt64)) | (_x & ("1085102592571150095" : GoUInt64) << (4 : GoUnTypedInt));
@@ -450,7 +410,7 @@ function reverseBytes16(_x:GoUInt16):GoUInt16 {
 	// This function's execution time does not depend on the inputs.
 **/
 function reverseBytes32(_x:GoUInt32):GoUInt32 {
-	var _m:GoUnTypedInt = ((1 : GoUnTypedInt) << (32 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _m:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 	_x = (_x >> (8 : GoUnTypedInt) & (16711935 : GoUInt32)) | (_x & (16711935 : GoUInt32) << (8 : GoUnTypedInt));
 	return (_x >> (16 : GoUnTypedInt)) | (_x << (16 : GoUnTypedInt));
 }
@@ -461,7 +421,7 @@ function reverseBytes32(_x:GoUInt32):GoUInt32 {
 	// This function's execution time does not depend on the inputs.
 **/
 function reverseBytes64(_x:GoUInt64):GoUInt64 {
-	var _m:GoUnTypedInt = ((1 : GoUnTypedInt) << (64 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _m:GoUnTypedInt = ("18446744073709551615" : GoUnTypedInt);
 	_x = (_x >> (8 : GoUnTypedInt) & ("71777214294589695" : GoUInt64)) | (_x & ("71777214294589695" : GoUInt64) << (8 : GoUnTypedInt));
 	_x = (_x >> (16 : GoUnTypedInt) & ("281470681808895" : GoUInt64)) | (_x & ("281470681808895" : GoUInt64) << (16 : GoUnTypedInt));
 	return (_x >> (32 : GoUnTypedInt)) | (_x << (32 : GoUnTypedInt));
@@ -691,7 +651,7 @@ function mul32(_x:GoUInt32, _y:GoUInt32):{var _0:GoUInt32; var _1:GoUInt32;} {
 **/
 function mul64(_x:GoUInt64, _y:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _hi:GoUInt64 = (0 : GoUInt64), _lo:GoUInt64 = (0 : GoUInt64);
-	var _mask32:GoUnTypedInt = ((1 : GoUnTypedInt) << (32 : GoUnTypedInt)) - (1 : GoUnTypedInt);
+	var _mask32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 	var _x0:GoUInt64 = _x & ("4294967295" : GoUInt64);
 	var _x1:GoUInt64 = _x >> (32 : GoUnTypedInt);
 	var _y0:GoUInt64 = _y & ("4294967295" : GoUInt64);
@@ -755,8 +715,8 @@ function div32(_hi:GoUInt32, _lo:GoUInt32, _y:GoUInt32):{var _0:GoUInt32; var _1
 **/
 function div64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):{var _0:GoUInt64; var _1:GoUInt64;} {
 	var _quo:GoUInt64 = (0 : GoUInt64), _rem:GoUInt64 = (0 : GoUInt64);
-	var _two32:GoUnTypedInt = (1 : GoUnTypedInt) << (32 : GoUnTypedInt),
-		_mask32:GoUnTypedInt = _two32 - (1 : GoUnTypedInt);
+	var _two32:GoUnTypedInt = ("4294967296" : GoUnTypedInt),
+		_mask32:GoUnTypedInt = ("4294967295" : GoUnTypedInt);
 	if (_y == (0 : GoUInt64)) {
 		throw Go.toInterface(_divideError);
 	};

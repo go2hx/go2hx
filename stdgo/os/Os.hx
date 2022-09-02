@@ -55,7 +55,7 @@ final _readdirName:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 final _readdirDirEntry:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 final _readdirFileInfo:T_readdirMode = ((0 : GoInt) : T_readdirMode);
 var _testingForceReadDirLstat:Bool = false;
-final _blockSize:GoUnTypedInt = null;
+final _blockSize:GoUnTypedInt = (0 : GoUnTypedInt);
 final _isBigEndian = null;
 final o_RDONLY:GoInt = (0 : GoInt);
 final o_WRONLY:GoInt = (0 : GoInt);
@@ -72,13 +72,13 @@ final _kindNewFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindOpenFile:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindPipe:T_newFileKind = ((0 : GoInt) : T_newFileKind);
 final _kindNonBlock:T_newFileKind = ((0 : GoInt) : T_newFileKind);
-final devNull:GoString = null;
+final devNull:GoString = ("" : GoString);
 var _getwdCache:T__struct_0 = ({mutex: ({} : stdgo.sync.Sync.Mutex), _dir: ("" : GoString)} : T__struct_0);
 final pathSeparator:GoInt32 = null;
 final pathListSeparator:GoInt32 = null;
 var args:Slice<GoString> = (null : Slice<GoString>);
 final _supportsCreateWithStickyBit = null;
-final _hex:GoString = null;
+final _hex:GoString = ("" : GoString);
 final _supportsCloseOnExec = null;
 final modeDir:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
 final modeAppend:stdgo.io.fs.Fs.FileMode = ((0 : GoUInt32) : stdgo.io.fs.Fs.FileMode);
@@ -1091,8 +1091,14 @@ function _fixRootDirectory(_p:GoString):GoString
 function pipe():{var _0:File; var _1:File; var _2:Error;}
 	throw "os.pipe is not yet implemented";
 
-function _runtime_args():Slice<GoString>
-	throw "os._runtime_args is not yet implemented";
+function _runtime_args():Slice<GoString> {
+	#if js return new Slice<GoString>(0, 0) #else null #end;
+	#if sys {
+		final args:Array<GoString> = Sys.args().map(arg -> (arg : GoString));
+		args.unshift(Sys.getCwd());
+		return new Slice<GoString>(0, 0, ...args);
+	} #else null #end;
+}
 
 /**
 	// Getuid returns the numeric user id of the caller.
@@ -1284,6 +1290,15 @@ function sameFile(_fi1:FileInfo, _fi2:FileInfo):Bool
 
 function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool
 	throw "os._sameFile is not yet implemented";
+
+@:keep var _ = {
+	try {
+		args = _runtime_args();
+	} catch (__exception__)
+		if (__exception__.message != "__return__")
+			throw __exception__;
+	true;
+};
 
 @:keep private class T_dirInfo_static_extension {
 	@:keep

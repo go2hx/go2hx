@@ -87,6 +87,9 @@ private function ofStringUnTypedInt(sParam:String):Int64 {
 }
 
 private function ofStringUInt64(s:String):UInt64 {
+	if (s.charAt(0) == "-") {
+		return 0; // because of constant
+	}
 	return UInt64.parseString(s);
 }
 

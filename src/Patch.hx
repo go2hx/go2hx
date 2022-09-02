@@ -138,7 +138,7 @@ final list = [
 	"math:signbit" => macro {
 		if (std.Math.isNaN(_x.toBasic()))
 			return false;
-		return (float64bits(_x) & (1 : GoUInt64)) << (63 : GoUInt64) != (0 : GoUInt64);
+		return float64bits(_x) & ((1 : GoUInt64) << (63 : GoUInt64)) != (0 : GoUInt64);
 	},
 	"math:inf" => macro {
 		if (_sign >= 0)

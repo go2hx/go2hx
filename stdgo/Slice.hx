@@ -194,22 +194,15 @@ class SliceData<T> {
 	public var capacity:Int = 0;
 
 	public inline function new(length:Int, capacity:Int, args:Rest<T>) {
-		this.length = length;
-		if (capacity < length) {
-			this.capacity = length;
-		} else {
-			this.capacity = capacity;
-		}
 		if (capacity != -1) {
 			final vectorLength = if (args.length > this.capacity) {
-				this.capacity = args.length;
-				this.length = args.length;
 				args.length;
 			} else {
 				capacity;
 			}
+			this.length = length > args.length ? length : args.length;
+			this.capacity = vectorLength;
 			vector = new haxe.ds.Vector<T>(vectorLength);
-			this.length = args.length;
 			for (i in 0...args.length)
 				vector.set(i, args[i]);
 		}

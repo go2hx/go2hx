@@ -68,7 +68,12 @@ class Printer extends haxe.macro.Printer {
 				e1 = haxe.macro.ExprTools.map(e1, e1 -> {
 					switch e1.expr {
 						case EParenthesis(e):
-							e;
+							switch e.expr {
+								case EBinop(_, _, _):
+									e1;
+								default:
+									e;
+							}
 						default:
 							e1;
 					}

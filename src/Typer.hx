@@ -5186,13 +5186,13 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 		case basic(kind):
 			if (strict) {
 				switch kind {
-					case bool_kind: macro false;
+					case bool_kind, untyped_bool_kind: macro false;
 					case int_kind: macro(0 : GoInt);
 					case int8_kind: macro(0 : GoInt8);
 					case int16_kind: macro(0 : GoInt16);
 					case int32_kind: macro(0 : GoInt32);
 					case int64_kind: macro(0 : GoInt64);
-					case string_kind: macro("" : GoString);
+					case string_kind, untyped_string_kind: macro("" : GoString);
 					case uint_kind: macro(0 : GoUInt);
 					case uint8_kind: macro(0 : GoUInt8);
 					case uint16_kind: macro(0 : GoUInt16);
@@ -5203,6 +5203,9 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case float64_kind: macro(0 : GoFloat64);
 					case complex64_kind: macro new GoComplex64(0, 0);
 					case complex128_kind: macro new GoComplex128(0, 0);
+					case untyped_int_kind: macro(0 : GoUnTypedInt);
+					case untyped_float_kind: macro(0 : GoUnTypedFloat);
+					case untyped_complex_kind: macro(0 : GoUnTypedComplex);
 					default: macro null;
 				}
 			} else {

@@ -241,13 +241,14 @@ function main(data:DataType, instance:Main.InstanceData) {
 				// variables after so that all types can be refrenced by a value and have it exist.
 				info.lastValue = null;
 				info.lastType = null;
+				final constant = gen.tok == CONST;
 				for (spec in gen.specs) {
 					if (spec == null)
 						continue;
 					switch spec.id {
 						case "ValueSpec":
 							final spec:Ast.ValueSpec = spec;
-							values = values.concat(typeValue(spec, info));
+							values = values.concat(typeValue(spec, info, constant));
 						default:
 					}
 				}
@@ -6033,7 +6034,7 @@ private function typeImport(imp:Ast.ImportSpec, info:Info) {
 	}
 }
 
-private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition> {
+private function typeValue(value:Ast.ValueSpec, info:Info, constant:Bool):Array<TypeDefinition> {
 	var type:ComplexType = null;
 	var interfaceBool = false;
 	if (value.type.id != null) {
@@ -6076,7 +6077,6 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 				if (type != null) {
 					expr = defaultValue(typeof(value.type, info, false), info);
 				} else {
-					// last expr use iota
 					if (!info.global.externBool) {
 						expr = typeExpr(info.lastValue, info);
 						expr = assignTranslate(typeof(info.lastValue, info, false), info.lastType, expr, info);
@@ -6110,10 +6110,8 @@ private function typeValue(value:Ast.ValueSpec, info:Info):Array<TypeDefinition>
 			var name = nameIdent(value.names[i].name, false, true, info);
 			var doc:String = getComment(value) + getDoc(value); // + getSource(value, info);
 			var access = []; // typeAccess(value.names[i]);
-			/*expr = macro {
-				trace(${makeString(name)});
-				$expr;
-			}*/
+			if (constant)
+				access.push(AFinal);
 			values.push({
 				name: name,
 				pos: null,

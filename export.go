@@ -280,13 +280,6 @@ func parseLocalFile(file *ast.File, pkg *packages.Package) {
 func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 	apply := func(cursor *astutil.Cursor) bool {
 		switch node := cursor.Node().(type) {
-		case *ast.GenDecl:
-			switch node.Tok {
-			case token.CONST:
-				// skip as constants are inlined
-				return false
-			default:
-			}
 		case *ast.BinaryExpr, *ast.Ident, *ast.UnaryExpr, *ast.SelectorExpr, *ast.ParenExpr, *ast.TypeAssertExpr:
 			// constant folding
 			typeAndValue := checker.Types[node.(ast.Expr)]
@@ -665,26 +658,13 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			values := make([]map[string]interface{}, len(obj.Values))
 			for j := range obj.Values {
 				values[j] = parseData(obj.Values[j])
-				switch e := obj.Values[j].(type) {
-				case *ast.Ident:
-					if e.Name == "iota" {
-						values[j] = map[string]interface{}{
-							"id":    "BasicLit",
-							"kind":  token.INT.String(),
-							"value": strconv.Itoa(i),
-							"raw":   false,
-							"type":  nil,
-						}
-					}
-				default:
-				}
 			}
 			data[i] = map[string]interface{}{
-				"id":     "ValueSpec",
-				"names":  parseIdents(obj.Names),
-				"type":   parseData(obj.Type),
-				"values": values,
-				"doc":    parseData(obj.Comment),
+				"id":       "ValueSpec",
+				"names":    parseIdents(obj.Names),
+				"type":     parseData(obj.Type),
+				"values":   values,
+				"doc":      parseData(obj.Comment),
 			}
 		case *ast.TypeSpec:
 			named := checker.ObjectOf(obj.Name)

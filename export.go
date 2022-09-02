@@ -307,7 +307,7 @@ func parseLocalConstants(file *ast.File, pkg *packages.Package) {
 						d, ok := constant.Int64Val(constant.ToInt(value))
 						if !ok {
 							// not exact
-							e = &ast.BasicLit{Kind: token.INT, Value: value.String()}
+							e = &ast.BasicLit{Kind: token.INT, Value: "0"}
 						} else {
 							e = &ast.BasicLit{Kind: token.INT, Value: fmt.Sprint(d)}
 						}

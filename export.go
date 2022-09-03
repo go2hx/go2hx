@@ -1122,7 +1122,11 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 		}
 		output = value.Value
 	case token.IMAG:
-		output = value.Value
+		i, err := strconv.ParseComplex(value.Value, 128)
+		if err != nil {
+			panic(err)
+		}
+		output = fmt.Sprint(imag(i)) + "i" + fmt.Sprint(real(i))
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

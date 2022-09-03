@@ -1458,7 +1458,7 @@ private function translateEquals(x:Expr, y:Expr, typeX:GoType, typeY:GoType, op:
 			}
 		default:
 	}
-	return toExpr(EBinop(op, x, y));
+	return toExpr(EBinop(op, x, toExpr(EParenthesis(y))));
 }
 
 private function typeSwitchStmt(stmt:Ast.SwitchStmt, info:Info):ExprDef { // always an if else chain to deal with int64s and complex numbers

@@ -3753,7 +3753,10 @@ private function getRune(value:String):String {
 						final expo = Std.int(Math.pow(8, 2 - j));
 						num += numCode * expo;
 					}
-					return "\\u0" + num;
+					var s:String = '$num';
+					while (s.length < 3)
+						s = '0$s';
+					return '\\u0$s';
 				case '"'.code:
 					return '"';
 				case 'a'.code:
@@ -5192,6 +5195,9 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					} else {
 						macro($e : $ct);
 					}
+				case sliceType(_):
+					var t = namedTypePath(path, info);
+					macro new $t(0, 0);
 				default:
 					var t = namedTypePath(path, info);
 					macro new $t();

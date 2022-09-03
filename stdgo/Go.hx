@@ -176,6 +176,10 @@ class Go {
 		#end
 	}
 
+	public static macro function unquote(qvalue:Expr):Expr {
+		return macro stdgo.strconv.Strconv.unquote(qvalue);
+	}
+
 	public static macro function wrapper(e:Expr) { // define module to auto wrap named type
 		var t = Context.typeof(e);
 		var ct = Context.toComplexType(t);

@@ -1630,7 +1630,7 @@ class _Type {
 			var qvalue:GoString = tag.__slice__(0, i + ((1 : GoInt64)));
 			tag = tag.__slice__(i + ((1 : GoInt64)));
 			if (key == name) {
-				var __tmp__ = stdgo.strconv.Strconv.unquote(qvalue),
+				var __tmp__ = #if nolinkstd {_0: qvalue, _1: null} #else Go.unquote(qvalue) #end,
 					value = __tmp__._0,
 					err = __tmp__._1;
 				if (err != null) {

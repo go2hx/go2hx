@@ -417,7 +417,7 @@ function main(data:DataType, instance:Main.InstanceData) {
 					isExtern: def.isExtern,
 					meta: [{name: ":keep", pos: null},],
 				};
-				final wrapperName = def.name + "_wrapper";
+				final wrapperName = def.name + "_asInterface";
 				// FIXME: wrapperType needs to be pointer sometimes
 				var isWrapperPointer = false;
 				final wrapper:TypeDefinition = macro class $wrapperName {
@@ -1935,7 +1935,7 @@ private function wrapper(t:GoType, y:Expr, info:Info):Expr {
 				return selfPointer ? self : y;
 			}
 			final p = namedTypePath(name, info);
-			p.name += "_wrapper";
+			p.name += "_asInterface";
 			final dt = defaultValue(t, info);
 			if (selfPointer)
 				y = macro $y == null ? null : $y;

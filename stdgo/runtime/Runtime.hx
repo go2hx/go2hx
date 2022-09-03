@@ -33,7 +33,7 @@ class T_errorString_static_extension {
 	}
 }
 
-class T_errorString_wrapper {
+class T_errorString_asInterface {
 	public var __t__:T_errorString;
 
 	public function new(__t__)

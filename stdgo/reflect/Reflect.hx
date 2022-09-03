@@ -1880,7 +1880,7 @@ private function implementsMethod(t:Type, v:Type, canBeNamed:Bool):Bool {
 @:named
 typedef Kind = GoUInt;
 
-class Kind_wrapper {
+class Kind_asInterface {
 	public var __t__:Pointer<Kind>;
 
 	public function new(__t__)

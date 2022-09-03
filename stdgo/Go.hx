@@ -199,7 +199,7 @@ class Go {
 		switch ct {
 			case TPath(p2):
 				p = p2;
-				p.sub += "_wrapper";
+				p.sub += "_asInterface";
 				try {
 					final ps:TypePath = {
 						name: p.name,
@@ -806,7 +806,7 @@ class Go {
 										final underlyingType = gtDecode(type, null, marked);
 										final methods:Array<Expr> = [];
 										try {
-											final extensionType = Context.getType(ref.name + "_wrapper");
+											final extensionType = Context.getType(ref.name + "_asInterface");
 											final extension = switch extensionType {
 												case TInst(_.get() => t, _):
 													t;

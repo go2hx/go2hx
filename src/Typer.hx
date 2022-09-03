@@ -4739,7 +4739,10 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 				case EBlock(exprs):
 					final targets = makeString("(" + cond.join(" || ") + ")");
 					final e = toExpr(typeReturnStmt({results: [], returnPos: 0}, info));
-					exprs.unshift(macro @:define($targets) $e);
+					exprs.unshift(macro @:define($targets) {
+						trace($e{makeExpr(name)} + " skip targets: " + $e{makeString(cond.join(", "))});
+						$e;
+					});
 				default:
 			}
 		}

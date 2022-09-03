@@ -216,12 +216,23 @@ final list = [
 	"math:_archTrunc" => macro return trunc(_x),
 	"math:_cos" => macro return cos(_x),
 	"math:_sin" => macro return sin(_x),
+	// stdgo/math_test
+	"math_test:testFloatMinMax" => macro trace("testFloatMinMax not implemented: fmt formatter"),
+	"math:testGamma" => macro @:define("interp") {
+		trace("interp - testGamma not implemented: high floating point precision");
+		return;
+	},
+	// stdgo/math_bits_test
+	"math_bits_test:TestLeadingZeros" => macro {},
+	"math_bits_test:TestOnesCount" => macro {},
+	"math_bits_test:TestLen" => macro {}
 ];
 
 final skipTargets = [
 	"math_test:testFloatMinima" => ["interp"],
 	"math_test:testNextafter32" => ["interp"],
-	"math_test:testSignbit" => ["interp"],
+	// "math_test:testSignbit" => ["interp"],
+	"math_test:testGamma" => ["interp"],
 ];
 
 final adds = [

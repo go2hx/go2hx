@@ -150,7 +150,7 @@ private function completeProcess(code:Int, proc:Process, task:TaskData, command:
 			if (task.data == null) {
 				throw "task.data is null: " + command;
 			}
-			final args = (task.data.exclude == "" || task.data.exclude == null) ? [] : ["-excludes"].concat(task.data.exclude.split(" "));
+			final args = [];
 			if (task.target == "hxcpp") {
 				command += " -D HXCPP_NONINTERACTIVE";
 			}
@@ -232,7 +232,6 @@ private function testGo():Array<TestData> { // go tests
 			name: name,
 			type: "go",
 			path: path,
-			exclude: "",
 			test: false,
 			root: dir,
 		});
@@ -243,13 +242,11 @@ private function testGo():Array<TestData> { // go tests
 private function testStd():Array<TestData> { // standard library package tests
 	final list:Array<String> = Json.parse(File.getContent("tests.json")).tests;
 	final tests:Array<TestData> = [];
-	for (obj in list) {
-		final args = obj.split("-");
+	for (name in list) {
 		tests.push({
-			name: args[0],
+			name: name,
 			type: "std",
-			path: args[0],
-			exclude: args[1],
+			path: name,
 			test: true,
 			root: "",
 		});
@@ -346,7 +343,6 @@ private function testYaegi():Array<TestData> {
 			name: name,
 			type: "yaegi",
 			path: path,
-			exclude: "",
 			test: false,
 			root: dir,
 		});
@@ -366,7 +362,6 @@ private function testUnit():Array<TestData> {
 			name: name,
 			type: "unit",
 			path: path,
-			exclude: "",
 			test: false,
 			root: "",
 		});
@@ -396,7 +391,6 @@ private function testGoByExample():Array<TestData> { // gobyexample
 				name: name,
 				type: "gobyexample",
 				path: path,
-				exclude: "",
 				test: false,
 				root: "",
 			});
@@ -410,21 +404,19 @@ class TestData {
 	public var name:String = "";
 	public var type:String = "";
 	public var path:String = "";
-	public var exclude:String = "";
 	public var root:String = "";
 	public var test:Bool = false;
 
-	public function new(name, type, path, exclude, test, root) {
+	public function new(name, type, path, test, root) {
 		this.name = name;
 		this.type = type;
 		this.path = path;
-		this.exclude = exclude;
 		this.root = root;
 		this.test = test;
 	}
 
 	public function copy()
-		return new TestData(name, type, path, exclude, test, root);
+		return new TestData(name, type, path, test, root);
 }
 
 @:structInit

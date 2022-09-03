@@ -1121,8 +1121,8 @@ func parseBasicLit(value *ast.BasicLit) map[string]interface{} {
 			}
 		}
 		output = value.Value
-	case token.IMAG: // TODO: implement imaginary numbers (complex)
-		output = value.Value[0:len(value.Value)]
+	case token.IMAG:
+		output = value.Value
 	}
 	return map[string]interface{}{
 		"id":    "BasicLit",

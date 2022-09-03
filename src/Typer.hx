@@ -3917,6 +3917,8 @@ private function setBasicLit(kind:Ast.Token, value:String, type:GoType, raw:Bool
 			var name = nameIdent(value, false, false, info);
 			macro $i{name};
 		case IMAG:
+			if (value.charAt(value.length - 1) == "i")
+				value = value.substr(0, value.length - 1);
 			macro new GoComplex128(0, ${toExpr(EConst(CFloat(value)))});
 		default:
 			throw "basic lit kind unknown: " + kind;

@@ -2063,6 +2063,10 @@ function testFrexp(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testGamma(_t:stdgo.testing.Testing.T):Void {
+	#if (interp) {
+		trace("testGamma" + " skip targets: " + "interp");
+		return;
+	} #else null #end;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_vf.length), _i++, {
@@ -2577,7 +2581,10 @@ function testModf(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testNextafter32(_t:stdgo.testing.Testing.T):Void {
-	#if (interp) return #else null #end;
+	#if (interp) {
+		trace("testNextafter32" + " skip targets: " + "interp");
+		return;
+	} #else null #end;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_vf.length), _i++, {
@@ -2782,7 +2789,6 @@ function testRoundToEven(_t:stdgo.testing.Testing.T):Void {
 }
 
 function testSignbit(_t:stdgo.testing.Testing.T):Void {
-	#if (interp) return #else null #end;
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_vf.length), _i++, {
@@ -3216,17 +3222,14 @@ function testTrigReduce(_t:stdgo.testing.Testing.T):Void {
 	};
 }
 
-function testFloatMinMax(_t:stdgo.testing.Testing.T):Void {
-	for (_0 => _tt in _floatTests) {
-		var _s:GoString = stdgo.fmt.Fmt.sprint(_tt._val);
-		if (_s != _tt._str) {
-			_t.errorf((Go.str("Sprint(%v) = %s, want %s") : GoString), Go.toInterface(_tt._name), Go.toInterface(_s), Go.toInterface(_tt._str));
-		};
-	};
-}
+function testFloatMinMax(_t:stdgo.testing.Testing.T):Void
+	trace("testFloatMinMax not implemented: fmt formatter");
 
 function testFloatMinima(_t:stdgo.testing.Testing.T):Void {
-	#if (interp) return #else null #end;
+	#if (interp) {
+		trace("testFloatMinima" + " skip targets: " + "interp");
+		return;
+	} #else null #end;
 	{
 		var _q:GoFloat32 = (7.006492321624085e-46 : GoFloat32);
 		if (_q != (0 : GoFloat32)) {

@@ -1358,8 +1358,11 @@ class _Type {
 		switch (gt) {
 			case chanType(_, elem), pointer(elem), sliceType(elem), arrayType(elem, _):
 				return new _Type(elem);
+			case interfaceType(_):
+				return null;
 			default:
-				throw stdgo.errors.Errors.new_("reflect.Type.Elem not implemented for " + string());
+				trace(gt);
+				throw "reflect.Type.Elem not implemented for " + string();
 		}
 		#end
 	}
@@ -1369,7 +1372,7 @@ class _Type {
 			case arrayType(_, len):
 				return (len : GoInt);
 			default:
-				throw stdgo.errors.Errors.new_("reflect.Type.Len() not implemented for " + string());
+				throw "reflect.Type.Len() not implemented for " + string();
 		}
 	}
 
@@ -1385,7 +1388,7 @@ class _Type {
 			case structType(_):
 				return 0;
 			default:
-				throw stdgo.errors.Errors.new_("reflect.NumMethod not implemented for " + string());
+				throw "reflect.NumMethod not implemented for " + string();
 		}
 		return 0;
 	}
@@ -1495,7 +1498,7 @@ class _Type {
 			case structType(fields):
 				return fields.length;
 			default:
-				throw stdgo.errors.Errors.new_("reflect.NumField not implemented for " + string());
+				throw "reflect.NumField not implemented for " + string();
 		}
 		#end
 		return 0;

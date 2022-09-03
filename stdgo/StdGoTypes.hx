@@ -904,6 +904,9 @@ abstract GoUInt32(UInt) from UInt from Int to UInt to Int {
 		return ofStringUInt(s);
 	}
 
+	@:from static function fromFloat(x:Float):GoUInt32
+		return Std.int(x);
+
 	@:to inline function toInt64():GoInt64
 		return ofIntInt64(this);
 
@@ -1599,7 +1602,7 @@ abstract GoUInt64(UInt64) from UInt64 {
 	public inline function copy():GoUInt64
 		return copyUInt64(this);
 
-	public inline function toBasic()
+	public inline function toBasic():UInt64
 		return this;
 
 	@:from public static function ofString(x:String):GoUInt64 {

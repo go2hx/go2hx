@@ -1,6 +1,5 @@
 {"excludes": [
     "reflect",
-    "errors",
     "internal",
     "internal/reflectlite",
     "internal/unsafeheader",

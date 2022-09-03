@@ -19,5 +19,7 @@
     "bytes",
     "time",
     "testing",
-    "path"
+    "path",
+    "strconv",
+    "errors"
 ]}

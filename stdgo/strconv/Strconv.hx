@@ -1115,7 +1115,7 @@ function parseBool(_str:GoString):{var _0:Bool; var _1:Error;} {
 	return {
 		_0: false,
 		_1: {
-			final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseBool") : GoString), _str));
+			final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseBool") : GoString), _str));
 			__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseBool") : GoString), _str).error() #else null #end;
 			__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseBool") : GoString), _str).unwrap() #else null #end;
 			__self__;
@@ -1164,7 +1164,7 @@ function _convErr(_err:Error, _s:GoString):{var _0:Error; var _1:Error;} {
 				return {
 					_0: (null : stdgo.Error),
 					_1: {
-						final __self__ = new NumError_wrapper(_x);
+						final __self__ = new NumError_asInterface(_x);
 						__self__.error = #if !macro function():GoString return _x.error() #else null #end;
 						__self__.unwrap = #if !macro function():stdgo.Error return _x.unwrap() #else null #end;
 						__self__;
@@ -1251,7 +1251,7 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 				return {
 					_0: (0 : GoComplex128),
 					_1: {
-						final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseComplex") : GoString), _orig));
+						final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseComplex") : GoString), _orig));
 						__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseComplex") : GoString),
 							_orig).error() #else null #end;
 						__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseComplex") : GoString),
@@ -1283,7 +1283,7 @@ function parseComplex(_s:GoString, _bitSize:GoInt):{var _0:GoComplex128; var _1:
 		return {
 			_0: (0 : GoComplex128),
 			_1: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseComplex") : GoString), _orig));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseComplex") : GoString), _orig));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseComplex") : GoString), _orig).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseComplex") : GoString), _orig).unwrap() #else null #end;
 				__self__;
@@ -1700,7 +1700,7 @@ function _atofHex(_s:GoString, _flt:T_floatInfo, _mantissa:GoUInt64, _exp:GoInt,
 		_mantissa = (1 : GoUInt64) << _flt._mantbits;
 		_exp = _maxExp + (1 : GoInt);
 		_err = {
-			final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseFloat") : GoString), _s));
+			final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseFloat") : GoString), _s));
 			__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 			__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 			__self__;
@@ -1743,7 +1743,7 @@ function _atof32(_s:GoString):{var _0:GoFloat32; var _1:GoInt; var _2:Error;} {
 			_0: (0 : GoFloat32),
 			_1: _n,
 			_2: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseFloat") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -1788,7 +1788,7 @@ function _atof32(_s:GoString):{var _0:GoFloat32; var _1:GoInt; var _2:Error;} {
 			_0: (0 : GoFloat32),
 			_1: _n,
 			_2: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseFloat") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -1801,7 +1801,7 @@ function _atof32(_s:GoString):{var _0:GoFloat32; var _1:GoInt; var _2:Error;} {
 	_f = stdgo.math.Math.float32frombits((_b : GoUInt32));
 	if (_ovf) {
 		_err = {
-			final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseFloat") : GoString), _s));
+			final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseFloat") : GoString), _s));
 			__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 			__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 			__self__;
@@ -1836,7 +1836,7 @@ function _atof64(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Error;} {
 			_0: (0 : GoFloat64),
 			_1: _n,
 			_2: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseFloat") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -1881,7 +1881,7 @@ function _atof64(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Error;} {
 			_0: (0 : GoFloat64),
 			_1: _n,
 			_2: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseFloat") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -1894,7 +1894,7 @@ function _atof64(_s:GoString):{var _0:GoFloat64; var _1:GoInt; var _2:Error;} {
 	_f = stdgo.math.Math.float64frombits(_b);
 	if (_ovf) {
 		_err = {
-			final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseFloat") : GoString), _s));
+			final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseFloat") : GoString), _s));
 			__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 			__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 			__self__;
@@ -1941,7 +1941,7 @@ function parseFloat(_s:GoString, _bitSize:GoInt):{var _0:GoFloat64; var _1:Error
 		return {
 			_0: (0 : GoFloat64),
 			_1: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseFloat") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseFloat") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseFloat") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseFloat") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -1999,7 +1999,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 		return {
 			_0: (0 : GoUInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseUint") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseUint") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseUint") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseUint") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -2029,7 +2029,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 		return {
 			_0: (0 : GoUInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_baseError((Go.str("ParseUint") : GoString), _s0, _base));
+				final __self__ = new NumError_asInterface(_baseError((Go.str("ParseUint") : GoString), _s0, _base));
 				__self__.error = #if !macro function():GoString return _baseError((Go.str("ParseUint") : GoString), _s0, _base).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _baseError((Go.str("ParseUint") : GoString), _s0, _base).unwrap() #else null #end;
 				__self__;
@@ -2042,7 +2042,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 		return {
 			_0: (0 : GoUInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_bitSizeError((Go.str("ParseUint") : GoString), _s0, _bitSize));
+				final __self__ = new NumError_asInterface(_bitSizeError((Go.str("ParseUint") : GoString), _s0, _bitSize));
 				__self__.error = #if !macro function():GoString return _bitSizeError((Go.str("ParseUint") : GoString), _s0, _bitSize).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _bitSizeError((Go.str("ParseUint") : GoString), _s0,
 					_bitSize).unwrap() #else null #end;
@@ -2074,7 +2074,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 			return {
 				_0: (0 : GoUInt64),
 				_1: {
-					final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseUint") : GoString), _s0));
+					final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseUint") : GoString), _s0));
 					__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseUint") : GoString), _s0).error() #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseUint") : GoString), _s0).unwrap() #else null #end;
 					__self__;
@@ -2085,7 +2085,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 			return {
 				_0: (0 : GoUInt64),
 				_1: {
-					final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseUint") : GoString), _s0));
+					final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseUint") : GoString), _s0));
 					__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseUint") : GoString), _s0).error() #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseUint") : GoString), _s0).unwrap() #else null #end;
 					__self__;
@@ -2096,7 +2096,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 			return {
 				_0: _maxVal,
 				_1: {
-					final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseUint") : GoString), _s0));
+					final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseUint") : GoString), _s0));
 					__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseUint") : GoString), _s0).error() #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseUint") : GoString), _s0).unwrap() #else null #end;
 					__self__;
@@ -2109,7 +2109,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 			return {
 				_0: _maxVal,
 				_1: {
-					final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseUint") : GoString), _s0));
+					final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseUint") : GoString), _s0));
 					__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseUint") : GoString), _s0).error() #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseUint") : GoString), _s0).unwrap() #else null #end;
 					__self__;
@@ -2122,7 +2122,7 @@ function parseUint(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoUInt64; v
 		return {
 			_0: (0 : GoUInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseUint") : GoString), _s0));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseUint") : GoString), _s0));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseUint") : GoString), _s0).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseUint") : GoString), _s0).unwrap() #else null #end;
 				__self__;
@@ -2166,7 +2166,7 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 		return {
 			_0: (0 : GoInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_syntaxError((Go.str("ParseInt") : GoString), _s));
+				final __self__ = new NumError_asInterface(_syntaxError((Go.str("ParseInt") : GoString), _s));
 				__self__.error = #if !macro function():GoString return _syntaxError((Go.str("ParseInt") : GoString), _s).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _syntaxError((Go.str("ParseInt") : GoString), _s).unwrap() #else null #end;
 				__self__;
@@ -2200,7 +2200,7 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 		return {
 			_0: (_cutoff - (1 : GoUInt64) : GoInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseInt") : GoString), _s0));
+				final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseInt") : GoString), _s0));
 				__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseInt") : GoString), _s0).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseInt") : GoString), _s0).unwrap() #else null #end;
 				__self__;
@@ -2211,7 +2211,7 @@ function parseInt(_s:GoString, _base:GoInt, _bitSize:GoInt):{var _0:GoInt64; var
 		return {
 			_0: -(_cutoff : GoInt64),
 			_1: {
-				final __self__ = new NumError_wrapper(_rangeError((Go.str("ParseInt") : GoString), _s0));
+				final __self__ = new NumError_asInterface(_rangeError((Go.str("ParseInt") : GoString), _s0));
 				__self__.error = #if !macro function():GoString return _rangeError((Go.str("ParseInt") : GoString), _s0).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return _rangeError((Go.str("ParseInt") : GoString), _s0).unwrap() #else null #end;
 				__self__;
@@ -2239,7 +2239,7 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 				return {
 					_0: (0 : GoInt),
 					_1: {
-						final __self__ = new NumError_wrapper((new NumError((Go.str("Atoi") : GoString), _s0, errSyntax) : NumError));
+						final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _s0, errSyntax) : NumError));
 						__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _s0,
 							errSyntax) : NumError).error() #else null #end;
 						__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("Atoi") : GoString), _s0,
@@ -2256,7 +2256,7 @@ function atoi(_s:GoString):{var _0:GoInt; var _1:Error;} {
 				return {
 					_0: (0 : GoInt),
 					_1: {
-						final __self__ = new NumError_wrapper((new NumError((Go.str("Atoi") : GoString), _s0, errSyntax) : NumError));
+						final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _s0, errSyntax) : NumError));
 						__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _s0,
 							errSyntax) : NumError).error() #else null #end;
 						__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("Atoi") : GoString), _s0,
@@ -4690,7 +4690,7 @@ function _isInGraphicList(_r:GoRune):Bool {
 	}
 }
 
-class NumError_wrapper {
+class NumError_asInterface {
 	@:keep
 	public var unwrap:() -> Error = null;
 	@:keep
@@ -5022,7 +5022,7 @@ class NumError_wrapper {
 	}
 }
 
-class T_decimal_wrapper {
+class T_decimal_asInterface {
 	/**
 		// Extract integer part, rounded appropriately.
 		// No guarantees about overflow.

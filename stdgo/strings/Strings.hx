@@ -354,7 +354,7 @@ function _getStringWriter(_w:stdgo.io.Io.Writer):stdgo.io.Io.StringWriter {
 	}, _sw = __tmp__.value, _ok = __tmp__.ok;
 	if (!_ok) {
 		_sw = {
-			final __self__ = new T_stringWriter_wrapper((new T_stringWriter(_w) : T_stringWriter));
+			final __self__ = new T_stringWriter_asInterface((new T_stringWriter(_w) : T_stringWriter));
 			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
 				return (new T_stringWriter(_w) : T_stringWriter).writeString(__0) #else null #end;
 			__self__;
@@ -1868,7 +1868,7 @@ function cut(_s:GoString, _sep:GoString):{var _0:GoString; var _1:GoString; var 
 		_b._addr = _b;
 }
 
-class Builder_wrapper {
+class Builder_asInterface {
 	/**
 		// WriteString appends the contents of s to b's buffer.
 		// It returns the length of s and a nil error.
@@ -2151,7 +2151,7 @@ class Builder_wrapper {
 	}
 }
 
-class Reader_wrapper {
+class Reader_asInterface {
 	/**
 		// Reset resets the Reader to be reading from s.
 	**/
@@ -2275,7 +2275,7 @@ class Reader_wrapper {
 		var _oldnew = _b._oldnew;
 		if ((_oldnew.length == (2 : GoInt)) && (_oldnew[(0 : GoInt)].length > (1 : GoInt))) {
 			return {
-				final __self__ = new T_singleStringReplacer_wrapper(_makeSingleStringReplacer(_oldnew[(0 : GoInt)], _oldnew[(1 : GoInt)]));
+				final __self__ = new T_singleStringReplacer_asInterface(_makeSingleStringReplacer(_oldnew[(0 : GoInt)], _oldnew[(1 : GoInt)]));
 				__self__.replace = #if !macro function(__0:GoString):GoString return _makeSingleStringReplacer(_oldnew[(0 : GoInt)],
 					_oldnew[(1 : GoInt)]).replace(__0) #else null #end;
 				__self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{var _0:GoInt; var _1:stdgo.Error;}
@@ -2289,7 +2289,7 @@ class Reader_wrapper {
 			Go.cfor(_i < (_oldnew.length), _i = _i + ((2 : GoInt)), {
 				if ((_oldnew[_i].length) != (1 : GoInt)) {
 					return {
-						final __self__ = new T_genericReplacer_wrapper(_makeGenericReplacer(_oldnew));
+						final __self__ = new T_genericReplacer_asInterface(_makeGenericReplacer(_oldnew));
 						__self__.replace = #if !macro function(__0:GoString):GoString return _makeGenericReplacer(_oldnew).replace(__0) #else null #end;
 						__self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{var _0:GoInt; var _1:stdgo.Error;}
 							return _makeGenericReplacer(_oldnew).writeString(_w_, _s_) #else null #end;
@@ -2319,7 +2319,7 @@ class Reader_wrapper {
 				});
 			};
 			return {
-				final __self__ = new T_byteReplacer_wrapper(_r);
+				final __self__ = new T_byteReplacer_asInterface(_r);
 				__self__.replace = #if !macro function(__0:GoString):GoString return _r.replace(__0) #else null #end;
 				__self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{var _0:GoInt; var _1:stdgo.Error;}
 					return _r.writeString(_w_, _s_) #else null #end;
@@ -2340,7 +2340,7 @@ class Reader_wrapper {
 			});
 		};
 		return {
-			final __self__ = new T_byteStringReplacer_wrapper(_r);
+			final __self__ = new T_byteStringReplacer_asInterface(_r);
 			__self__.replace = #if !macro function(__0:GoString):GoString return _r.replace(__0) #else null #end;
 			__self__.writeString = #if !macro function(_w_:stdgo.io.Io.Writer, _s_:GoString):{var _0:GoInt; var _1:stdgo.Error;}
 				return _r.writeString(_w_, _s_) #else null #end;
@@ -2368,7 +2368,7 @@ class Reader_wrapper {
 	}
 }
 
-class Replacer_wrapper {
+class Replacer_asInterface {
 	/**
 		// WriteString writes s to w with all replacements performed.
 	**/
@@ -2456,7 +2456,7 @@ class Replacer_wrapper {
 	}
 }
 
-class T_trieNode_wrapper {
+class T_trieNode_asInterface {
 	@:keep
 	public var _add:(GoString, GoString, GoInt, T_genericReplacer) -> Void = null;
 
@@ -2532,7 +2532,7 @@ class T_trieNode_wrapper {
 	static public function replace(_r:T_genericReplacer, _s:GoString):GoString {
 		var _buf:T_appendSliceWriter = new T_appendSliceWriter((0 : GoInt).toBasic(), (_s.length), ...[for (i in 0...(0 : GoInt).toBasic()) (0 : GoUInt8)]);
 		_r.writeString({
-			final __self__ = new T_appendSliceWriter_wrapper(_buf);
+			final __self__ = new T_appendSliceWriter_asInterface(_buf);
 			__self__.write = #if !macro function(_p:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 				return _buf.write(_p) #else null #end;
 			__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
@@ -2603,7 +2603,7 @@ class T_trieNode_wrapper {
 	}
 }
 
-class T_genericReplacer_wrapper {
+class T_genericReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2636,7 +2636,7 @@ class T_genericReplacer_wrapper {
 	}
 }
 
-class T_stringWriter_wrapper {
+class T_stringWriter_asInterface {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -2715,7 +2715,7 @@ class T_stringWriter_wrapper {
 	}
 }
 
-class T_singleStringReplacer_wrapper {
+class T_singleStringReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2824,7 +2824,7 @@ class T_singleStringReplacer_wrapper {
 	}
 }
 
-class T_byteStringReplacer_wrapper {
+class T_byteStringReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -2865,7 +2865,7 @@ class T_byteStringReplacer_wrapper {
 	}
 }
 
-class T_stringFinder_wrapper {
+class T_stringFinder_asInterface {
 	/**
 		// next returns the index in text of the first occurrence of the pattern. If
 		// the pattern is not found, it returns -1.
@@ -2902,7 +2902,7 @@ class T_stringFinder_wrapper {
 	}
 }
 
-class T_appendSliceWriter_wrapper {
+class T_appendSliceWriter_asInterface {
 	/**
 		// WriteString writes to the buffer without string->[]byte->string allocations.
 	**/
@@ -2978,7 +2978,7 @@ class T_appendSliceWriter_wrapper {
 	}
 }
 
-class T_byteReplacer_wrapper {
+class T_byteReplacer_asInterface {
 	@:keep
 	public var writeString:(stdgo.io.Io.Writer, GoString) -> {
 		var _0:GoInt;
@@ -3006,7 +3006,7 @@ class T_byteReplacer_wrapper {
 	}
 }
 
-class T_asciiSet_wrapper {
+class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

@@ -47,7 +47,7 @@ var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.refl
 **/
 function new_(_text:GoString):Error {
 	return {
-		final __self__ = new T_errorString_wrapper((new T_errorString(_text) : T_errorString));
+		final __self__ = new T_errorString_asInterface((new T_errorString(_text) : T_errorString));
 		__self__.error = #if !macro function():GoString return (new T_errorString(_text) : T_errorString).error() #else null #end;
 		__self__;
 	};
@@ -177,7 +177,7 @@ function as(_err:Error, _target:AnyInterface):Bool {
 	}
 }
 
-class T_errorString_wrapper {
+class T_errorString_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 

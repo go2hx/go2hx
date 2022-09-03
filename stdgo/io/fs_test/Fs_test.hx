@@ -470,8 +470,8 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	var __tmp__ = glob({
-		final __self__ = new stdgo.io.fs_test.Fs_test.T_globOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_globOnly({
-			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.io.fs_test.Fs_test.T_globOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_globOnly({
+			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 			__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return _testFsys.glob(_name) #else null #end;
 			__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -490,7 +490,7 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_globOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -512,7 +512,7 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_globOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -536,8 +536,8 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("readDirOnly") : GoString), _names, _err);
 	{
 		var __tmp__ = glob({
-			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_openOnly({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_openOnly({
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFsys.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -556,7 +556,7 @@ function testGlobMethod(_t:stdgo.testing.Testing.T):Void {
 				#if !macro
 				function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 					return (new stdgo.io.fs_test.Fs_test.T_openOnly({
-						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 						__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 							return _testFsys.glob(_name) #else null #end;
 						__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -596,8 +596,8 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	var __tmp__ = readDir({
-		final __self__ = new stdgo.io.fs_test.Fs_test.T_readDirOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_readDirOnly({
-			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.io.fs_test.Fs_test.T_readDirOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_readDirOnly({
+			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 			__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return _testFsys.glob(_name) #else null #end;
 			__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -616,7 +616,7 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_readDirOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -638,7 +638,7 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:Slice<DirEntry>; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_readDirOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -662,8 +662,8 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("readDirOnly") : GoString), _dirs, _err);
 	{
 		var __tmp__ = readDir({
-			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_openOnly({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_openOnly({
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFsys.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -682,7 +682,7 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 				#if !macro
 				function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 					return (new stdgo.io.fs_test.Fs_test.T_openOnly({
-						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 						__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 							return _testFsys.glob(_name) #else null #end;
 						__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -707,7 +707,7 @@ function testReadDir(_t:stdgo.testing.Testing.T):Void {
 	};
 	_check((Go.str("openOnly") : GoString), _dirs, _err);
 	var __tmp__ = sub({
-		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 		__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 			return _testFsys.glob(_name) #else null #end;
 		__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -908,7 +908,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 		var _test:T__struct_2 = (_test == null ? null : _test.__copy__());
 		_t.run(_test._path, function(_t:stdgo.testing.Testing.T):Void {
 			var __tmp__ = stat({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFs);
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFs);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFs.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -932,7 +932,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 					_w:FileMode = _test._wantMode;
 				if (_g != _w) {
 					_t.errorf((Go.str("FileMode mismatch: got=%v, want=%v") : GoString), Go.toInterface({
-						final __self__ = new FileMode_wrapper(_g);
+						final __self__ = new FileMode_asInterface(_g);
 						__self__.isDir = #if !macro function():Bool return _g.isDir() #else null #end;
 						__self__.isRegular = #if !macro function():Bool return _g.isRegular() #else null #end;
 						__self__.perm = #if !macro function():FileMode return _g.perm() #else null #end;
@@ -940,7 +940,7 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 						__self__.type = #if !macro function():FileMode return _g.type() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new FileMode_wrapper(_w);
+						final __self__ = new FileMode_asInterface(_w);
 						__self__.isDir = #if !macro function():Bool return _w.isDir() #else null #end;
 						__self__.isRegular = #if !macro function():Bool return _w.isRegular() #else null #end;
 						__self__.perm = #if !macro function():FileMode return _w.perm() #else null #end;
@@ -968,8 +968,8 @@ function testFileInfoToDirEntry(_t:stdgo.testing.Testing.T):Void {
 
 function testReadFile(_t:stdgo.testing.Testing.T):Void {
 	var __tmp__ = readFile({
-		final __self__ = new stdgo.io.fs_test.Fs_test.T_readFileOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_readFileOnly({
-			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.io.fs_test.Fs_test.T_readFileOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_readFileOnly({
+			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 			__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return _testFsys.glob(_name) #else null #end;
 			__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -988,7 +988,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_readFileOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1010,7 +1010,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:Slice<GoUInt8>; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_readFileOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1037,8 +1037,8 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 	};
 	{
 		var __tmp__ = readFile({
-			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_openOnly({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_openOnly({
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFsys.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1057,7 +1057,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 				#if !macro
 				function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 					return (new stdgo.io.fs_test.Fs_test.T_openOnly({
-						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 						__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 							return _testFsys.glob(_name) #else null #end;
 						__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1085,7 +1085,7 @@ function testReadFile(_t:stdgo.testing.Testing.T):Void {
 			Go.toInterface((Go.str("hello, world") : GoString)));
 	};
 	var __tmp__ = sub({
-		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 		__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 			return _testFsys.glob(_name) #else null #end;
 		__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1121,7 +1121,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 			var _infoStr:GoString = (Go.str("<nil>") : GoString);
 			if (_info != null) {
 				_infoStr = stdgo.fmt.Fmt.sprintf((Go.str("FileInfo(Mode: %#o)") : GoString), Go.toInterface({
-					final __self__ = new FileMode_wrapper(_info.mode());
+					final __self__ = new FileMode_asInterface(_info.mode());
 					__self__.isDir = #if !macro function():Bool return _info.mode().isDir() #else null #end;
 					__self__.isRegular = #if !macro function():Bool return _info.mode().isRegular() #else null #end;
 					__self__.perm = #if !macro function():FileMode return _info.mode().perm() #else null #end;
@@ -1134,8 +1134,8 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	var __tmp__ = stat({
-		final __self__ = new stdgo.io.fs_test.Fs_test.T_statOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_statOnly({
-			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.io.fs_test.Fs_test.T_statOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_statOnly({
+			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 			__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return _testFsys.glob(_name) #else null #end;
 			__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1154,7 +1154,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_statOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1176,7 +1176,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:FileInfo; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_statOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1200,8 +1200,8 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("statOnly") : GoString), _info, _err);
 	{
 		var __tmp__ = stat({
-			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_openOnly({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_openOnly({
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFsys.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1220,7 +1220,7 @@ function testStat(_t:stdgo.testing.Testing.T):Void {
 				#if !macro
 				function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 					return (new stdgo.io.fs_test.Fs_test.T_openOnly({
-						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 						__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 							return _testFsys.glob(_name) #else null #end;
 						__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1269,8 +1269,8 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 		};
 	};
 	var __tmp__ = sub({
-		final __self__ = new stdgo.io.fs_test.Fs_test.T_subOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_subOnly({
-			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+		final __self__ = new stdgo.io.fs_test.Fs_test.T_subOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_subOnly({
+			final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 			__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return _testFsys.glob(_name) #else null #end;
 			__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1289,7 +1289,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_subOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1311,7 +1311,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 			#if !macro
 			function(_name:GoString):{var _0:FS; var _1:stdgo.Error;}
 				return (new stdgo.io.fs_test.Fs_test.T_subOnly({
-					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+					final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 					__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _testFsys.glob(_name) #else null #end;
 					__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1335,8 +1335,8 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 	_check((Go.str("subOnly") : GoString), _sub, _err);
 	{
 		var __tmp__ = sub({
-			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_wrapper((new stdgo.io.fs_test.Fs_test.T_openOnly({
-				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+			final __self__ = new stdgo.io.fs_test.Fs_test.T_openOnly_asInterface((new stdgo.io.fs_test.Fs_test.T_openOnly({
+				final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 				__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return _testFsys.glob(_name) #else null #end;
 				__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1355,7 +1355,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 				#if !macro
 				function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
 					return (new stdgo.io.fs_test.Fs_test.T_openOnly({
-						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_testFsys);
+						final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_testFsys);
 						__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 							return _testFsys.glob(_name) #else null #end;
 						__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1574,7 +1574,7 @@ function _makeTree(_t:stdgo.testing.Testing.T):FS {
 		};
 	});
 	return {
-		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_wrapper(_fsys);
+		final __self__ = new stdgo.testing.fstest.Fstest.MapFS_asInterface(_fsys);
 		__self__.glob = #if !macro function(_name:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 			return _fsys.glob(_name) #else null #end;
 		__self__.open = #if !macro function(_name:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1767,7 +1767,7 @@ function testIssue51617(_t:stdgo.testing.Testing.T):Void {
 		return __self__.glob(_name);
 }
 
-class T_globOnly_wrapper {
+class T_globOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1799,7 +1799,7 @@ class T_globOnly_wrapper {
 		return __self__.readDir(_name);
 }
 
-class T_readDirOnly_wrapper {
+class T_readDirOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1831,7 +1831,7 @@ class T_readDirOnly_wrapper {
 		return __self__.readFile(_name);
 }
 
-class T_readFileOnly_wrapper {
+class T_readFileOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1858,7 +1858,7 @@ class T_readFileOnly_wrapper {
 		return __self__.open(_name);
 }
 
-class T_openOnly_wrapper {
+class T_openOnly_asInterface {
 	@:embedded
 	public var open:GoString -> {
 		var _0:File;
@@ -1885,7 +1885,7 @@ class T_openOnly_wrapper {
 		return __self__.stat(_name);
 }
 
-class T_statOnly_wrapper {
+class T_statOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;
@@ -1917,7 +1917,7 @@ class T_statOnly_wrapper {
 		return __self__.sub(_name);
 }
 
-class T_subOnly_wrapper {
+class T_subOnly_asInterface {
 	@:keep
 	public var open:GoString -> {
 		var _0:File;

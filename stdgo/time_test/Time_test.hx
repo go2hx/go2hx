@@ -1889,7 +1889,7 @@ function exampleDuration():Void {
 	_expensiveCall();
 	var _t1:Time = (stdgo.time.Time.now() == null ? null : stdgo.time.Time.now().__copy__());
 	stdgo.fmt.Fmt.printf((Go.str("The call took %v to run.\n") : GoString), Go.toInterface({
-		final __self__ = new Duration_wrapper(_t1.sub((_t0 == null ? null : _t0.__copy__())));
+		final __self__ = new Duration_asInterface(_t1.sub((_t0 == null ? null : _t0.__copy__())));
 		__self__.abs = #if !macro function():Duration return _t1.sub((_t0 == null ? null : _t0.__copy__())).abs() #else null #end;
 		__self__.hours = #if !macro function():GoFloat64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).hours() #else null #end;
 		__self__.microseconds = #if !macro function():GoInt64 return _t1.sub((_t0 == null ? null : _t0.__copy__())).microseconds() #else null #end;
@@ -1915,7 +1915,7 @@ function exampleDuration_Round():Void {
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _r in _round) {
 		stdgo.fmt.Fmt.printf((Go.str("d.Round(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_r);
+			final __self__ = new Duration_asInterface(_r);
 			__self__.abs = #if !macro function():Duration return _r.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _r.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _r.microseconds() #else null #end;
@@ -1947,7 +1947,7 @@ function exampleDuration_Truncate():Void {
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _t in _trunc) {
 		stdgo.fmt.Fmt.printf((Go.str("d.Truncate(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_t);
+			final __self__ = new Duration_asInterface(_t);
 			__self__.abs = #if !macro function():Duration return _t.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _t.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _t.microseconds() #else null #end;
@@ -1979,7 +1979,7 @@ function exampleParseDuration():Void {
 	stdgo.fmt.Fmt.println(_hours);
 	stdgo.fmt.Fmt.println(_complex);
 	stdgo.fmt.Fmt.printf((Go.str("There are %.0f seconds in %v.\n") : GoString), Go.toInterface(_complex.seconds()), Go.toInterface({
-		final __self__ = new Duration_wrapper(_complex);
+		final __self__ = new Duration_asInterface(_complex);
 		__self__.abs = #if !macro function():Duration return _complex.abs() #else null #end;
 		__self__.hours = #if !macro function():GoFloat64 return _complex.hours() #else null #end;
 		__self__.microseconds = #if !macro function():GoInt64 return _complex.microseconds() #else null #end;
@@ -1993,7 +1993,7 @@ function exampleParseDuration():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("There are %d nanoseconds in %v.\n") : GoString), Go.toInterface(_micro.nanoseconds()), Go.toInterface({
-		final __self__ = new Duration_wrapper(_micro);
+		final __self__ = new Duration_asInterface(_micro);
 		__self__.abs = #if !macro function():Duration return _micro.abs() #else null #end;
 		__self__.hours = #if !macro function():GoFloat64 return _micro.hours() #else null #end;
 		__self__.microseconds = #if !macro function():GoInt64 return _micro.microseconds() #else null #end;
@@ -2007,7 +2007,7 @@ function exampleParseDuration():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("There are %6.2e seconds in %v.\n") : GoString), Go.toInterface(_micro2.seconds()), Go.toInterface({
-		final __self__ = new Duration_wrapper(_micro);
+		final __self__ = new Duration_asInterface(_micro);
 		__self__.abs = #if !macro function():Duration return _micro.abs() #else null #end;
 		__self__.hours = #if !macro function():GoFloat64 return _micro.hours() #else null #end;
 		__self__.microseconds = #if !macro function():GoInt64 return _micro.microseconds() #else null #end;
@@ -2089,7 +2089,7 @@ function exampleTick():Void {
 	var _c = stdgo.time.Time.tick(("5000000000" : Duration));
 	for (_next => _ in _c) {
 		stdgo.fmt.Fmt.printf((Go.str("%v %s\n") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_next);
+			final __self__ = new Time_asInterface(_next);
 			__self__.add = #if !macro function(_d:Duration):Time return _next.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _next.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _next.after(__0) #else null #end;
@@ -2183,7 +2183,7 @@ function exampleDate():Void {
 			(0 : GoInt), stdgo.time.Time.utc)
 		.__copy__());
 	stdgo.fmt.Fmt.printf((Go.str("Go launched at %s\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_t.local());
+		final __self__ = new Time_asInterface(_t.local());
 		__self__.add = #if !macro function(_d:Duration):Time return _t.local().add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t.local()
 			.addDate(_years, _months, _days) #else null #end;
@@ -2505,7 +2505,7 @@ function exampleTime_Round():Void {
 		("60000000000" : Duration), ("600000000000" : Duration), ("3600000000000" : Duration)) : Slice<Duration>);
 	for (_0 => _d in _round) {
 		stdgo.fmt.Fmt.printf((Go.str("t.Round(%6s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -2530,7 +2530,7 @@ function exampleTime_Truncate():Void {
 		("60000000000" : Duration), ("600000000000" : Duration)) : Slice<Duration>);
 	for (_1 => _d in _trunc) {
 		stdgo.fmt.Fmt.printf((Go.str("t.Truncate(%5s) = %s\n") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -2591,7 +2591,7 @@ function exampleTime_Add():Void {
 	var _afterTenHours:Time = (_start.add(("36000000000000" : Duration)) == null ? null : _start.add(("36000000000000" : Duration)).__copy__());
 	var _afterTenDays:Time = (_start.add(("864000000000000" : Duration)) == null ? null : _start.add(("864000000000000" : Duration)).__copy__());
 	stdgo.fmt.Fmt.printf((Go.str("start = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_start);
+		final __self__ = new Time_asInterface(_start);
 		__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
 		__self__.after = #if !macro function(__0:Time):Bool return _start.after(__0) #else null #end;
@@ -2667,7 +2667,7 @@ function exampleTime_Add():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Second * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_afterTenSeconds);
+		final __self__ = new Time_asInterface(_afterTenSeconds);
 		__self__.add = #if !macro function(_d:Duration):Time return _afterTenSeconds.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _afterTenSeconds.addDate(_years, _months, _days) #else null #end;
@@ -2744,7 +2744,7 @@ function exampleTime_Add():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Minute * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_afterTenMinutes);
+		final __self__ = new Time_asInterface(_afterTenMinutes);
 		__self__.add = #if !macro function(_d:Duration):Time return _afterTenMinutes.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _afterTenMinutes.addDate(_years, _months, _days) #else null #end;
@@ -2821,7 +2821,7 @@ function exampleTime_Add():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_afterTenHours);
+		final __self__ = new Time_asInterface(_afterTenHours);
 		__self__.add = #if !macro function(_d:Duration):Time return _afterTenHours.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _afterTenHours.addDate(_years, _months, _days) #else null #end;
@@ -2898,7 +2898,7 @@ function exampleTime_Add():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("start.Add(time.Hour * 24 * 10) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_afterTenDays);
+		final __self__ = new Time_asInterface(_afterTenDays);
 		__self__.add = #if !macro function(_d:Duration):Time return _afterTenDays.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _afterTenDays.addDate(_years, _months, _days) #else null #end;
@@ -2988,7 +2988,7 @@ function exampleTime_AddDate():Void {
 	var _oneYearLater:Time = (_start.addDate((1 : GoInt), (0 : GoInt),
 		(0 : GoInt)) == null ? null : _start.addDate((1 : GoInt), (0 : GoInt), (0 : GoInt)).__copy__());
 	stdgo.fmt.Fmt.printf((Go.str("oneDayLater: start.AddDate(0, 0, 1) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_oneDayLater);
+		final __self__ = new Time_asInterface(_oneDayLater);
 		__self__.add = #if !macro function(_d:Duration):Time return _oneDayLater.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _oneDayLater.addDate(_years, _months, _days) #else null #end;
@@ -3065,7 +3065,7 @@ function exampleTime_AddDate():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("oneMonthLater: start.AddDate(0, 1, 0) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_oneMonthLater);
+		final __self__ = new Time_asInterface(_oneMonthLater);
 		__self__.add = #if !macro function(_d:Duration):Time return _oneMonthLater.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _oneMonthLater.addDate(_years, _months, _days) #else null #end;
@@ -3142,7 +3142,7 @@ function exampleTime_AddDate():Void {
 		__self__;
 	}));
 	stdgo.fmt.Fmt.printf((Go.str("oneYearLater: start.AddDate(1, 0, 0) = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_oneYearLater);
+		final __self__ = new Time_asInterface(_oneYearLater);
 		__self__.add = #if !macro function(_d:Duration):Time return _oneYearLater.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 				_days:GoInt):Time return _oneYearLater.addDate(_years, _months, _days) #else null #end;
@@ -3261,7 +3261,7 @@ function exampleTime_Date():Void {
 		_day:GoInt = __tmp__._2;
 	stdgo.fmt.Fmt.printf((Go.str("year = %v\n") : GoString), Go.toInterface(_year));
 	stdgo.fmt.Fmt.printf((Go.str("month = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Month_wrapper(_month);
+		final __self__ = new Month_asInterface(_month);
 		__self__.string = #if !macro function():GoString return _month.string() #else null #end;
 		__self__;
 	}));
@@ -3320,7 +3320,7 @@ function exampleTime_Sub():Void {
 		.__copy__());
 	var _difference:Duration = _end.sub((_start == null ? null : _start.__copy__()));
 	stdgo.fmt.Fmt.printf((Go.str("difference = %v\n") : GoString), Go.toInterface({
-		final __self__ = new Duration_wrapper(_difference);
+		final __self__ = new Duration_asInterface(_difference);
 		__self__.abs = #if !macro function():Duration return _difference.abs() #else null #end;
 		__self__.hours = #if !macro function():GoFloat64 return _difference.hours() #else null #end;
 		__self__.microseconds = #if !macro function():GoInt64 return _difference.microseconds() #else null #end;
@@ -3409,7 +3409,7 @@ function testGoString(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _tt in _goStringTests) {
 		if (_tt._in.goString() != _tt._want) {
 			_t.errorf((Go.str("GoString (%q): got %q want %q") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_tt._in);
+				final __self__ = new Time_asInterface(_tt._in);
 				__self__.add = #if !macro function(_d:Duration):Time return _tt._in.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tt._in.addDate(_years, _months, _days) #else null #end;
@@ -3593,7 +3593,7 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 				_baghdad).__copy__());
 		if (_t1 != _t2) {
 			_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Baghdad) = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_t1);
+				final __self__ = new Time_asInterface(_t1);
 				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
@@ -3669,7 +3669,7 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_t2);
+				final __self__ = new Time_asInterface(_t2);
 				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
@@ -3770,7 +3770,7 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 			_blancSablon).__copy__());
 	if (_t1 != _t2) {
 		_t.fatalf((Go.str("ParseInLocation(Feb 01 2013 AST, Blanc-Sablon) = %v, want %v") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -3845,7 +3845,7 @@ function testParseInLocation(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t2);
+			final __self__ = new Time_asInterface(_t2);
 			__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
@@ -3989,11 +3989,11 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
 	};
 	if (_time.month() != (2 : Month)) {
 		_t.errorf((Go.str("%s: bad month: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface({
-			final __self__ = new Month_wrapper(_time.month());
+			final __self__ = new Month_asInterface(_time.month());
 			__self__.string = #if !macro function():GoString return _time.month().string() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Month_wrapper((2 : Month));
+			final __self__ = new Month_asInterface((2 : Month));
 			__self__.string = #if !macro function():GoString return (2 : Month).string() #else null #end;
 			__self__;
 		}));
@@ -4031,11 +4031,11 @@ function _checkTime(_time:Time, _test:ParseTest, _t:stdgo.testing.Testing.T):Voi
 	};
 	if (_test._hasWD && (_time.weekday() != (4 : Weekday))) {
 		_t.errorf((Go.str("%s: bad weekday: %s not %s") : GoString), Go.toInterface(_test._name), Go.toInterface({
-			final __self__ = new Weekday_wrapper(_time.weekday());
+			final __self__ = new Weekday_asInterface(_time.weekday());
 			__self__.string = #if !macro function():GoString return _time.weekday().string() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Weekday_wrapper((4 : Weekday));
+			final __self__ = new Weekday_asInterface((4 : Weekday));
 			__self__.string = #if !macro function():GoString return (4 : Weekday).string() #else null #end;
 			__self__;
 		}));
@@ -4057,7 +4057,7 @@ function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
 		};
 		if ((_t1.unix() != _t2.unix()) || (_t1.nanosecond() != _t2.nanosecond())) {
 			_t.errorf((Go.str("FormatAndParse %d: %q(%d) %q(%d)") : GoString), Go.toInterface(_sec), Go.toInterface({
-				final __self__ = new Time_wrapper(_t1);
+				final __self__ = new Time_asInterface(_t1);
 				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
@@ -4133,7 +4133,7 @@ function testFormatAndParse(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface(_t1.unix()), Go.toInterface({
-				final __self__ = new Time_wrapper(_t2);
+				final __self__ = new Time_asInterface(_t2);
 				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
@@ -4415,7 +4415,7 @@ function testUnderscoreTwoThousand(_t:stdgo.testing.Testing.T):Void {
 			_d:GoInt = __tmp__._2;
 		if (((_y != (2015 : GoInt)) || (_m != (6 : Month))) || (_d != (18 : GoInt))) {
 			_t.errorf((Go.str("Incorrect y/m/d, got %d/%d/%d") : GoString), Go.toInterface(_y), Go.toInterface({
-				final __self__ = new Month_wrapper(_m);
+				final __self__ = new Month_asInterface(_m);
 				__self__.string = #if !macro function():GoString return _m.string() #else null #end;
 				__self__;
 			}), Go.toInterface(_d));
@@ -4667,7 +4667,7 @@ function testMonotonicAdd(_t:stdgo.testing.Testing.T):Void {
 	var _d:Duration = until((_tn1 == null ? null : _tn1.__copy__()));
 	if (_d < ("3540000000000":Duration)) {
 		_t.errorf((Go.str("Until(Now().Add(1*Hour)) = %v, wanted at least 59m") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -4720,7 +4720,7 @@ function testMonotonicSub(_t:stdgo.testing.Testing.T):Void {
 			var _check:(GoString, Duration, Duration) -> Void = function(_expr:GoString, _d:Duration, _want:Duration):Void {
 				if (_d != _want) {
 					_t.errorf((Go.str("%s = %v, want %v") : GoString), Go.toInterface(_expr), Go.toInterface({
-						final __self__ = new Duration_wrapper(_d);
+						final __self__ = new Duration_asInterface(_d);
 						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -4733,7 +4733,7 @@ function testMonotonicSub(_t:stdgo.testing.Testing.T):Void {
 						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Duration_wrapper(_want);
+						final __self__ = new Duration_asInterface(_want);
 						__self__.abs = #if !macro function():Duration return _want.abs() #else null #end;
 						__self__.hours = #if !macro function():GoFloat64 return _want.hours() #else null #end;
 						__self__.microseconds = #if !macro function():GoInt64 return _want.microseconds() #else null #end;
@@ -4828,7 +4828,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	var _d:Duration = until((_t1 == null ? null : _t1.__copy__()));
 	if ((_d < ("-35000000000":Duration)) || (("-30000000000" : Duration) < _d)) {
 		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly -30s (-35s to -30s)") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -4846,7 +4846,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	_d = until((_t1 == null ? null : _t1.__copy__()));
 	if ((_d < ("25000000000":Duration)) || (("30000000000" : Duration) < _d)) {
 		_t.errorf((Go.str("Until(Now().Add(-30s)) = %v, want roughly 30s (25s to 30s)") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -4870,7 +4870,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	_d = since((_t2 == null ? null : _t2.__copy__()));
 	if ((_d < ("-10000000000":Duration)) || (("10000000000" : Duration) < _d)) {
 		_t.errorf((Go.str("Since(Now().Add(max).Add(-max)) = %v, want [-10s, 10s]") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -4890,7 +4890,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	_t2 = (now().add(("-5000000000" : Duration)) == null ? null : now().add(("-5000000000" : Duration)).__copy__());
 	if (!_t1.after((_t2 == null ? null : _t2.__copy__()))) {
 		_t.errorf((Go.str("Now().Add(1*Hour).After(Now().Add(-5*Second)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -4965,7 +4965,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t2);
+			final __self__ = new Time_asInterface(_t2);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
@@ -5043,7 +5043,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (_t2.after((_t1 == null ? null : _t1.__copy__()))) {
 		_t.errorf((Go.str("Now().Add(-5*Second).After(Now().Add(1*Hour)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -5118,7 +5118,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t2);
+			final __self__ = new Time_asInterface(_t2);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
@@ -5196,7 +5196,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (_t1.before((_t2 == null ? null : _t2.__copy__()))) {
 		_t.errorf((Go.str("Now().Add(1*Hour).Before(Now().Add(-5*Second)) = true, want false\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -5271,7 +5271,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t2);
+			final __self__ = new Time_asInterface(_t2);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
@@ -5349,7 +5349,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (!_t2.before((_t1 == null ? null : _t1.__copy__()))) {
 		_t.errorf((Go.str("Now().Add(-5*Second).Before(Now().Add(1*Hour)) = false, want true\nt1=%v\nt2=%v") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t1.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -5424,7 +5424,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t2);
+			final __self__ = new Time_asInterface(_t2);
 			__self__.add = #if !macro function(_d_:Duration):Time return _t2.add(_d_) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t2.after(__0) #else null #end;
@@ -5505,7 +5505,7 @@ function testMonotonicOverflow(_t:stdgo.testing.Testing.T):Void {
 function testMonotonicString(_t:stdgo.testing.Testing.T):Void {
 	var _t1:Time = (now() == null ? null : now().__copy__());
 	_t.logf((Go.str("Now() = %v") : GoString), Go.toInterface({
-		final __self__ = new Time_wrapper(_t1);
+		final __self__ = new Time_asInterface(_t1);
 		__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 		__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 		__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -5608,7 +5608,7 @@ function testSleep(_t:stdgo.testing.Testing.T):Void {
 	var _duration:Duration = now().sub((_start == null ? null : _start.__copy__()));
 	if (_duration < _delayadj) {
 		_t.fatalf((Go.str("Sleep(%s) slept for only %s") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper((100000000 : Duration));
+			final __self__ = new Duration_asInterface((100000000 : Duration));
 			__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
@@ -5621,7 +5621,7 @@ function testSleep(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Duration_wrapper(_duration);
+			final __self__ = new Duration_asInterface(_duration);
 			__self__.abs = #if !macro function():Duration return _duration.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _duration.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _duration.microseconds() #else null #end;
@@ -5856,7 +5856,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 		var _duration:Duration = now().sub((_start == null ? null : _start.__copy__()));
 		if (_duration < _delayadj) {
 			_t.fatalf((Go.str("After(%s) slept for only %d ns") : GoString), Go.toInterface({
-				final __self__ = new Duration_wrapper((100000000 : Duration));
+				final __self__ = new Duration_asInterface((100000000 : Duration));
 				__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
@@ -5869,7 +5869,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_duration);
+				final __self__ = new Duration_asInterface(_duration);
 				__self__.abs = #if !macro function():Duration return _duration.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _duration.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _duration.microseconds() #else null #end;
@@ -5888,7 +5888,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 		var _min:Time = (_start.add(_delayadj) == null ? null : _start.add(_delayadj).__copy__());
 		if (_end.before((_min == null ? null : _min.__copy__()))) {
 			_t.fatalf((Go.str("After(%s) expect >= %s, got %s") : GoString), Go.toInterface({
-				final __self__ = new Duration_wrapper((100000000 : Duration));
+				final __self__ = new Duration_asInterface((100000000 : Duration));
 				__self__.abs = #if !macro function():Duration return (100000000 : Duration).abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return (100000000 : Duration).hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return (100000000 : Duration).microseconds() #else null #end;
@@ -5901,7 +5901,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return (100000000 : Duration).truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_min);
+				final __self__ = new Time_asInterface(_min);
 				__self__.add = #if !macro function(_d:Duration):Time return _min.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _min.addDate(_years, _months, _days) #else null #end;
@@ -5977,7 +5977,7 @@ function testAfter(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _min._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_end);
+				final __self__ = new Time_asInterface(_end);
 				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
@@ -6075,7 +6075,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 	var _target:Duration = delta * (10 : Duration);
 	if (_d < ((_target * (9 : Duration)) / (10 : Duration))) {
 		_t.fatalf((Go.str("%d ticks of %s too fast: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
-			final __self__ = new Duration_wrapper(delta);
+			final __self__ = new Duration_asInterface(delta);
 			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return delta.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return delta.microseconds() #else null #end;
@@ -6088,7 +6088,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d__:Duration):Duration return delta.truncate(_d__) #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -6101,7 +6101,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Duration_wrapper(_target);
+			final __self__ = new Duration_asInterface(_target);
 			__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
@@ -6117,7 +6117,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (!stdgo.testing.Testing.short() && (_d > ((_target * (30 : Duration)) / (10 : Duration)))) {
 		_t.fatalf((Go.str("%d ticks of %s too slow: took %s, expected %s") : GoString), Go.toInterface((10 : GoInt)), Go.toInterface({
-			final __self__ = new Duration_wrapper(delta);
+			final __self__ = new Duration_asInterface(delta);
 			__self__.abs = #if !macro function():Duration return delta.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return delta.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return delta.microseconds() #else null #end;
@@ -6130,7 +6130,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d__:Duration):Duration return delta.truncate(_d__) #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Duration_wrapper(_d);
+			final __self__ = new Duration_asInterface(_d);
 			__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -6143,7 +6143,7 @@ function testAfterTick(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Duration_wrapper(_target);
+			final __self__ = new Duration_asInterface(_target);
 			__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
@@ -6259,7 +6259,7 @@ function _testAfterQueuing(_delta:Duration):Error {
 		var _target:Duration = (_order[_i] : Duration) * _delta;
 		if ((_dt < (_target - (_delta / (2 : Duration)))) || (_dt > (_target + (_delta * (10 : Duration))))) {
 			return stdgo.fmt.Fmt.errorf((Go.str("After(%s) arrived at %s, expected [%s,%s]") : GoString), Go.toInterface({
-				final __self__ = new Duration_wrapper(_target);
+				final __self__ = new Duration_asInterface(_target);
 				__self__.abs = #if !macro function():Duration return _target.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _target.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _target.microseconds() #else null #end;
@@ -6272,7 +6272,7 @@ function _testAfterQueuing(_delta:Duration):Error {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return _target.truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_dt);
+				final __self__ = new Duration_asInterface(_dt);
 				__self__.abs = #if !macro function():Duration return _dt.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _dt.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _dt.microseconds() #else null #end;
@@ -6285,7 +6285,7 @@ function _testAfterQueuing(_delta:Duration):Error {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return _dt.truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_target - (_delta / (2 : Duration)));
+				final __self__ = new Duration_asInterface(_target - (_delta / (2 : Duration)));
 				__self__.abs = #if !macro function():Duration return _target - (_delta / (2 : Duration)).abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _target - (_delta / (2 : Duration)).hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _target - (_delta / (2 : Duration)).microseconds() #else null #end;
@@ -6298,7 +6298,7 @@ function _testAfterQueuing(_delta:Duration):Error {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return _target - (_delta / (2 : Duration)).truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_target + (_delta * (10 : Duration)));
+				final __self__ = new Duration_asInterface(_target + (_delta * (10 : Duration)));
 				__self__.abs = #if !macro function():Duration return _target + (_delta * (10 : Duration)).abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _target + (_delta * (10 : Duration)).hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _target + (_delta * (10 : Duration)).microseconds() #else null #end;
@@ -6427,7 +6427,7 @@ function testReset(_t:stdgo.testing.Testing.T):Void {
 		_err = _testReset(_d);
 		if (_err == null) {
 			_t.logf((Go.str("passed using duration %v") : GoString), Go.toInterface({
-				final __self__ = new Duration_wrapper(_d);
+				final __self__ = new Duration_asInterface(_d);
 				__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -6639,7 +6639,7 @@ function testZeroTimer(_t:stdgo.testing.Testing.T):Void {
 				var _diff:Duration = since((_s == null ? null : _s.__copy__()));
 				if (_diff > (2000000000 : Duration)) {
 					_t.errorf((Go.str("Expected time to get value from Timer channel in less than 2 sec, took %v") : GoString), Go.toInterface({
-						final __self__ = new Duration_wrapper(_diff);
+						final __self__ = new Duration_asInterface(_diff);
 						__self__.abs = #if !macro function():Duration return _diff.abs() #else null #end;
 						__self__.hours = #if !macro function():GoFloat64 return _diff.hours() #else null #end;
 						__self__.microseconds = #if !macro function():GoInt64 return _diff.microseconds() #else null #end;
@@ -6668,7 +6668,7 @@ function testTimerModifiedEarlier(_t:stdgo.testing.Testing.T):Void {
 	try {
 		if (false) {
 			stdgo.internal.testenv.Testenv.skipFlaky({
-				final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+				final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 				__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 				__self__.deadline = #if !macro function():{var _0:Time; var _1:Bool;}
 					return _t.deadline() #else null #end;
@@ -6733,7 +6733,7 @@ function testTimerModifiedEarlier(_t:stdgo.testing.Testing.T):Void {
 							var _since:Duration = since((_now == null ? null : _now.__copy__()));
 							if (_since > ("8000000000" : Duration)) {
 								_t.errorf((Go.str("timer took too long (%v)") : GoString), Go.toInterface({
-									final __self__ = new Duration_wrapper(_since);
+									final __self__ = new Duration_asInterface(_since);
 									__self__.abs = #if !macro function():Duration return _since.abs() #else null #end;
 									__self__.hours = #if !macro function():GoFloat64 return _since.hours() #else null #end;
 									__self__.microseconds = #if !macro function():GoInt64 return _since.microseconds() #else null #end;
@@ -6827,7 +6827,7 @@ function testAdjustTimers(_t:stdgo.testing.Testing.T):Void {
 			var _dur:Duration = since((_now == null ? null : _now.__copy__()));
 			if (_dur > (750000000 : Duration)) {
 				_t.errorf((Go.str("timer %d took %v to complete") : GoString), Go.toInterface(_i), Go.toInterface({
-					final __self__ = new Duration_wrapper(_dur);
+					final __self__ = new Duration_asInterface(_dur);
 					__self__.abs = #if !macro function():Duration return _dur.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _dur.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _dur.microseconds() #else null #end;
@@ -6928,7 +6928,7 @@ function benchmarkStaggeredTickerLatency(_b:stdgo.testing.Testing.B):Void {
 	var _delay:Duration = (3000000 : Duration);
 	for (_0 => _dur in (new Slice<Duration>(0, 0, (300000 : Duration), (2000000 : Duration)) : Slice<Duration>)) {
 		_b.run(stdgo.fmt.Fmt.sprintf((Go.str("work-dur=%s") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_dur);
+			final __self__ = new Duration_asInterface(_dur);
 			__self__.abs = #if !macro function():Duration return _dur.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _dur.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _dur.microseconds() #else null #end;
@@ -7103,7 +7103,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 		if ((_dt < (_target - _slop)) || (_dt > (_target + _slop))) {
 			_errs = (_errs.__append__(stdgo.fmt.Fmt.sprintf((Go.str("%d %s ticks then %d %s ticks took %s, expected [%s,%s]") : GoString),
 				Go.toInterface(_count / (2 : GoInt)), Go.toInterface({
-					final __self__ = new Duration_wrapper(_delta);
+					final __self__ = new Duration_asInterface(_delta);
 					__self__.abs = #if !macro function():Duration return _delta.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _delta.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _delta.microseconds() #else null #end;
@@ -7116,7 +7116,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _delta.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface(_count / (2 : GoInt)), Go.toInterface({
-					final __self__ = new Duration_wrapper(_delta * (2 : Duration));
+					final __self__ = new Duration_asInterface(_delta * (2 : Duration));
 					__self__.abs = #if !macro function():Duration return _delta * (2 : Duration).abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _delta * (2 : Duration).hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _delta * (2 : Duration).microseconds() #else null #end;
@@ -7129,7 +7129,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _delta * (2 : Duration).truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_dt);
+					final __self__ = new Duration_asInterface(_dt);
 					__self__.abs = #if !macro function():Duration return _dt.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _dt.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _dt.microseconds() #else null #end;
@@ -7142,7 +7142,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _dt.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_target - _slop);
+					final __self__ = new Duration_asInterface(_target - _slop);
 					__self__.abs = #if !macro function():Duration return _target - _slop.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _target - _slop.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _target - _slop.microseconds() #else null #end;
@@ -7155,7 +7155,7 @@ function testTicker(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _target - _slop.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_target + _slop);
+					final __self__ = new Duration_asInterface(_target + _slop);
 					__self__.abs = #if !macro function():Duration return _target + _slop.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _target + _slop.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _target + _slop.microseconds() #else null #end;
@@ -7422,7 +7422,7 @@ function testSecondsToUTC(_t:stdgo.testing.Testing.T):Void {
 		};
 		if (!_same((_tm == null ? null : _tm.__copy__()), _golden)) {
 			_t.errorf((Go.str("SecondsToUTC(%d):  // %#v") : GoString), Go.toInterface(_sec), Go.toInterface({
-				final __self__ = new Time_wrapper(_tm);
+				final __self__ = new Time_asInterface(_tm);
 				__self__.add = #if !macro function(_d:Duration):Time return _tm.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tm.addDate(_years, _months, _days) #else null #end;
@@ -7691,7 +7691,7 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 			if (_trunc != _t1) {
 				_t.errorf((Go.str("Time.Truncate(%s, %s) = %s, want %s\n%v trunc %v =\n%v want\n%v") : GoString),
 					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface({
-						final __self__ = new Duration_wrapper(_d);
+						final __self__ = new Duration_asInterface(_d);
 						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -7704,7 +7704,7 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_trunc);
+						final __self__ = new Time_asInterface(_trunc);
 						__self__.add = #if !macro function(_d_:Duration):Time return _trunc.add(_d_) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _trunc.addDate(_years, _months, _days) #else null #end;
@@ -7795,7 +7795,7 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 			if (_rnd != _t1) {
 				_t.errorf((Go.str("Time.Round(%s, %s) = %s, want %s\n%v round %v =\n%v want\n%v") : GoString),
 					Go.toInterface(_t0.format((Go.str("2006-01-02T15:04:05.999999999Z07:00") : GoString))), Go.toInterface({
-						final __self__ = new Duration_wrapper(_d);
+						final __self__ = new Duration_asInterface(_d);
 						__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 						__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 						__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -7808,7 +7808,7 @@ function testTruncateRound(_t:stdgo.testing.Testing.T):Void {
 						__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_rnd);
+						final __self__ = new Time_asInterface(_rnd);
 						__self__.add = #if !macro function(_d_:Duration):Time return _rnd.add(_d_) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _rnd.addDate(_years, _months, _days) #else null #end;
@@ -8014,7 +8014,7 @@ function testYearDay(_t:stdgo.testing.Testing.T):Void {
 			};
 			if (!_dt1.equal((_dt == null ? null : _dt.__copy__()))) {
 				_t.errorf(("Parse(\"2006-01-02 002 -0700\", %q) = %v, want %v" : GoString), Go.toInterface(_f), Go.toInterface({
-					final __self__ = new Time_wrapper(_dt1);
+					final __self__ = new Time_asInterface(_dt1);
 					__self__.add = #if !macro function(_d:Duration):Time return _dt1.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _dt1.addDate(_years, _months, _days) #else null #end;
@@ -8090,7 +8090,7 @@ function testYearDay(_t:stdgo.testing.Testing.T):Void {
 					__self__._unixSec = #if !macro function():GoInt64 return _dt1._unixSec() #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Time_wrapper(_dt);
+					final __self__ = new Time_asInterface(_dt);
 					__self__.add = #if !macro function(_d:Duration):Time return _dt.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _dt.addDate(_years, _months, _days) #else null #end;
@@ -8201,7 +8201,7 @@ function testDate(_t:stdgo.testing.Testing.T):Void {
 			_t.errorf((Go.str("Date(%d, %d, %d, %d, %d, %d, %d, %s) = %v, want %v") : GoString), Go.toInterface(_tt._year), Go.toInterface(_tt._month),
 				Go.toInterface(_tt._day), Go.toInterface(_tt._hour), Go.toInterface(_tt._min), Go.toInterface(_tt._sec), Go.toInterface(_tt._nsec),
 				Go.toInterface(_tt._z), Go.toInterface({
-					final __self__ = new Time_wrapper(_time);
+					final __self__ = new Time_asInterface(_time);
 					__self__.add = #if !macro function(_d:Duration):Time return _time.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _time.addDate(_years, _months, _days) #else null #end;
@@ -8277,7 +8277,7 @@ function testDate(_t:stdgo.testing.Testing.T):Void {
 					__self__._unixSec = #if !macro function():GoInt64 return _time._unixSec() #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Time_wrapper(_want);
+					final __self__ = new Time_asInterface(_want);
 					__self__.add = #if !macro function(_d:Duration):Time return _want.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _want.addDate(_years, _months, _days) #else null #end;
@@ -8367,7 +8367,7 @@ function testAddDate(_t:stdgo.testing.Testing.T):Void {
 		if (!_time.equal((_t1 == null ? null : _t1.__copy__()))) {
 			_t.errorf((Go.str("AddDate(%d, %d, %d) = %v, want %v") : GoString), Go.toInterface(_at._years), Go.toInterface(_at._months),
 				Go.toInterface(_at._days), Go.toInterface({
-					final __self__ = new Time_wrapper(_time);
+					final __self__ = new Time_asInterface(_time);
 					__self__.add = #if !macro function(_d:Duration):Time return _time.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _time.addDate(_years, _months, _days) #else null #end;
@@ -8443,7 +8443,7 @@ function testAddDate(_t:stdgo.testing.Testing.T):Void {
 					__self__._unixSec = #if !macro function():GoInt64 return _time._unixSec() #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Time_wrapper(_t1);
+					final __self__ = new Time_asInterface(_t1);
 					__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
@@ -8558,7 +8558,7 @@ function _equalTimeAndZone(_a:Time, _b:Time):Bool {
 function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 	var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	var _enc = stdgo.encoding.gob.Gob.newEncoder({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_b);
+		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
 		__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
 		__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
 		__self__.grow = #if !macro function(__0:GoInt):Void _b.grow(__0) #else null #end;
@@ -8599,7 +8599,7 @@ function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	var _dec = stdgo.encoding.gob.Gob.newDecoder({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_b);
+		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
 		__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
 		__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
 		__self__.grow = #if !macro function(__0:GoInt):Void _b.grow(__0) #else null #end;
@@ -8645,7 +8645,7 @@ function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 			var _err:stdgo.Error = _enc.encode(Go.toInterface(_tt));
 			if (_err != null) {
 				_t.errorf((Go.str("%v gob Encode error = %q, want nil") : GoString), Go.toInterface({
-					final __self__ = new Time_wrapper(_tt);
+					final __self__ = new Time_asInterface(_tt);
 					__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
@@ -8725,7 +8725,7 @@ function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 				var _err:stdgo.Error = _dec.decode(Go.toInterface(_gobtt));
 				if (_err != null) {
 					_t.errorf((Go.str("%v gob Decode error = %q, want nil") : GoString), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt);
+						final __self__ = new Time_asInterface(_tt);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
@@ -8803,7 +8803,7 @@ function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 					}), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_gobtt == null ? null : _gobtt.__copy__()), (_tt == null ? null : _tt.__copy__()))) {
 					_t.errorf((Go.str("Decoded time = %v, want %v") : GoString), Go.toInterface({
-						final __self__ = new Time_wrapper(_gobtt);
+						final __self__ = new Time_asInterface(_gobtt);
 						__self__.add = #if !macro function(_d:Duration):Time return _gobtt.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _gobtt.addDate(_years, _months, _days) #else null #end;
@@ -8879,7 +8879,7 @@ function testTimeGob(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _gobtt._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt);
+						final __self__ = new Time_asInterface(_tt);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt.addDate(_years, _months, _days) #else null #end;
@@ -8985,7 +8985,7 @@ function testNotGobEncodableTime(_t:stdgo.testing.Testing.T):Void {
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err == null) || (_err.error() != _tt._want)) {
 			_t.errorf((Go.str("%v GobEncode error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_tt._time);
+				final __self__ = new Time_asInterface(_tt._time);
 				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9068,7 +9068,7 @@ function testNotGobEncodableTime(_t:stdgo.testing.Testing.T):Void {
 		};
 		if ((_err == null) || (_err.error() != _tt._want)) {
 			_t.errorf((Go.str("%v MarshalBinary error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_tt._time);
+				final __self__ = new Time_asInterface(_tt._time);
 				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9153,7 +9153,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 		var _jsonTime:Time = ({} : Time);
 		{
 			var __tmp__ = stdgo.encoding.json.Json.marshal(Go.toInterface({
-				final __self__ = new Time_wrapper(_tt._time);
+				final __self__ = new Time_asInterface(_tt._time);
 				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9231,7 +9231,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 			})), _jsonBytes:Slice<GoUInt8> = __tmp__._0, _err:stdgo.Error = __tmp__._1;
 			if (_err != null) {
 				_t.errorf((Go.str("%v json.Marshal error = %v, want nil") : GoString), Go.toInterface({
-					final __self__ = new Time_wrapper(_tt._time);
+					final __self__ = new Time_asInterface(_tt._time);
 					__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9309,7 +9309,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 				}), Go.toInterface(_err));
 			} else if ((_jsonBytes : GoString) != _tt._json) {
 				_t.errorf((Go.str("%v JSON = %#q, want %#q") : GoString), Go.toInterface({
-					final __self__ = new Time_wrapper(_tt._time);
+					final __self__ = new Time_asInterface(_tt._time);
 					__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9389,7 +9389,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 				_err = stdgo.encoding.json.Json.unmarshal(_jsonBytes, Go.toInterface(_jsonTime));
 				if (_err != null) {
 					_t.errorf((Go.str("%v json.Unmarshal error = %v, want nil") : GoString), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt._time);
+						final __self__ = new Time_asInterface(_tt._time);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9467,7 +9467,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 					}), Go.toInterface(_err));
 				} else if (!_equalTimeAndZone((_jsonTime == null ? null : _jsonTime.__copy__()), (_tt._time == null ? null : _tt._time.__copy__()))) {
 					_t.errorf((Go.str("Unmarshaled time = %v, want %v") : GoString), Go.toInterface({
-						final __self__ = new Time_wrapper(_jsonTime);
+						final __self__ = new Time_asInterface(_jsonTime);
 						__self__.add = #if !macro function(_d:Duration):Time return _jsonTime.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _jsonTime.addDate(_years, _months, _days) #else null #end;
@@ -9543,7 +9543,7 @@ function testTimeJSON(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _jsonTime._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt._time);
+						final __self__ = new Time_asInterface(_tt._time);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9645,7 +9645,7 @@ function testNotJSONEncodableTime(_t:stdgo.testing.Testing.T):Void {
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err == null) || (_err.error() != _tt._want)) {
 			_t.errorf((Go.str("%v MarshalJSON error = %v, want %v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_tt._time);
+				final __self__ = new Time_asInterface(_tt._time);
 				__self__.add = #if !macro function(_d:Duration):Time return _tt._time.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _tt._time.addDate(_years, _months, _days) #else null #end;
@@ -9732,7 +9732,7 @@ function testParseDuration(_t:stdgo.testing.Testing.T):Void {
 			_err:stdgo.Error = __tmp__._1;
 		if ((_err != null) || (_d != _tc._want)) {
 			_t.errorf((Go.str("ParseDuration(%q) = %v, %v, want %v, nil") : GoString), Go.toInterface(_tc._in), Go.toInterface({
-				final __self__ = new Duration_wrapper(_d);
+				final __self__ = new Duration_asInterface(_d);
 				__self__.abs = #if !macro function():Duration return _d.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _d.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _d.microseconds() #else null #end;
@@ -9745,7 +9745,7 @@ function testParseDuration(_t:stdgo.testing.Testing.T):Void {
 				__self__.truncate = #if !macro function(_d__:Duration):Duration return _d.truncate(_d__) #else null #end;
 				__self__;
 			}), Go.toInterface(_err), Go.toInterface({
-				final __self__ = new Duration_wrapper(_tc._want);
+				final __self__ = new Duration_asInterface(_tc._want);
 				__self__.abs = #if !macro function():Duration return _tc._want.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _tc._want.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _tc._want.microseconds() #else null #end;
@@ -9783,7 +9783,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 		_err:stdgo.Error = __tmp__._1;
 	if ((_err != null) || (_max0 != _max1)) {
 		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_max0);
+			final __self__ = new Duration_asInterface(_max0);
 			__self__.abs = #if !macro function():Duration return _max0.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _max0.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _max0.microseconds() #else null #end;
@@ -9796,7 +9796,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d:Duration):Duration return _max0.truncate(_d) #else null #end;
 			__self__;
 		}), Go.toInterface((_max0.string() : GoString)), Go.toInterface({
-			final __self__ = new Duration_wrapper(_max1);
+			final __self__ = new Duration_asInterface(_max1);
 			__self__.abs = #if !macro function():Duration return _max1.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _max1.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _max1.microseconds() #else null #end;
@@ -9816,7 +9816,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 		_err:stdgo.Error = __tmp__._1;
 	if ((_err != null) || (_min0 != _min1)) {
 		_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-			final __self__ = new Duration_wrapper(_min0);
+			final __self__ = new Duration_asInterface(_min0);
 			__self__.abs = #if !macro function():Duration return _min0.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _min0.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _min0.microseconds() #else null #end;
@@ -9829,7 +9829,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 			__self__.truncate = #if !macro function(_d:Duration):Duration return _min0.truncate(_d) #else null #end;
 			__self__;
 		}), Go.toInterface((_min0.string() : GoString)), Go.toInterface({
-			final __self__ = new Duration_wrapper(_min1);
+			final __self__ = new Duration_asInterface(_min1);
 			__self__.abs = #if !macro function():Duration return _min1.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _min1.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _min1.microseconds() #else null #end;
@@ -9853,7 +9853,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 				_err:stdgo.Error = __tmp__._1;
 			if ((_err != null) || (_d0 != _d1)) {
 				_t.errorf((Go.str("round-trip failed: %d => %q => %d, %v") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_d0);
+					final __self__ = new Duration_asInterface(_d0);
 					__self__.abs = #if !macro function():Duration return _d0.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _d0.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _d0.microseconds() #else null #end;
@@ -9866,7 +9866,7 @@ function testParseDurationRoundTrip(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _d0.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface(_s), Go.toInterface({
-					final __self__ = new Duration_wrapper(_d1);
+					final __self__ = new Duration_asInterface(_d1);
 					__self__.abs = #if !macro function():Duration return _d1.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _d1.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _d1.microseconds() #else null #end;
@@ -9938,7 +9938,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 		var _got:Duration = _st._t.sub((_st._u == null ? null : _st._u.__copy__()));
 		if (_got != _st._d) {
 			_t.errorf((Go.str("#%d: Sub(%v, %v): got %v; want %v") : GoString), Go.toInterface(_i), Go.toInterface({
-				final __self__ = new Time_wrapper(_st._t);
+				final __self__ = new Time_asInterface(_st._t);
 				__self__.add = #if !macro function(_d:Duration):Time return _st._t.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _st._t.addDate(_years, _months, _days) #else null #end;
@@ -10014,7 +10014,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _st._t._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_st._u);
+				final __self__ = new Time_asInterface(_st._u);
 				__self__.add = #if !macro function(_d:Duration):Time return _st._u.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _st._u.addDate(_years, _months, _days) #else null #end;
@@ -10090,7 +10090,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _st._u._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_got);
+				final __self__ = new Duration_asInterface(_got);
 				__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
@@ -10103,7 +10103,7 @@ function testSub(_t:stdgo.testing.Testing.T):Void {
 				__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Duration_wrapper(_st._d);
+				final __self__ = new Duration_asInterface(_st._d);
 				__self__.abs = #if !macro function():Duration return _st._d.abs() #else null #end;
 				__self__.hours = #if !macro function():GoFloat64 return _st._d.hours() #else null #end;
 				__self__.microseconds = #if !macro function():GoInt64 return _st._d.microseconds() #else null #end;
@@ -10126,7 +10126,7 @@ function testDurationNanoseconds(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoInt64 = _tt._d.nanoseconds();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Nanoseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10150,7 +10150,7 @@ function testDurationMicroseconds(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoInt64 = _tt._d.microseconds();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Microseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10174,7 +10174,7 @@ function testDurationMilliseconds(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoInt64 = _tt._d.milliseconds();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Milliseconds() = %d; want: %d") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10198,7 +10198,7 @@ function testDurationSeconds(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoFloat64 = _tt._d.seconds();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Seconds() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10222,7 +10222,7 @@ function testDurationMinutes(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoFloat64 = _tt._d.minutes();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Minutes() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10246,7 +10246,7 @@ function testDurationHours(_t:stdgo.testing.Testing.T):Void {
 			var _got:GoFloat64 = _tt._d.hours();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Hours() = %g; want: %g") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10270,7 +10270,7 @@ function testDurationTruncate(_t:stdgo.testing.Testing.T):Void {
 			var _got:Duration = _tt._d.truncate(_tt._m);
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Truncate(%s) = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10283,7 +10283,7 @@ function testDurationTruncate(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._m);
+					final __self__ = new Duration_asInterface(_tt._m);
 					__self__.abs = #if !macro function():Duration return _tt._m.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._m.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._m.microseconds() #else null #end;
@@ -10296,7 +10296,7 @@ function testDurationTruncate(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._m.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_got);
+					final __self__ = new Duration_asInterface(_got);
 					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
@@ -10309,7 +10309,7 @@ function testDurationTruncate(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._want);
+					final __self__ = new Duration_asInterface(_tt._want);
 					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
@@ -10333,7 +10333,7 @@ function testDurationRound(_t:stdgo.testing.Testing.T):Void {
 			var _got:Duration = _tt._d.round(_tt._m);
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Round(%s) = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10346,7 +10346,7 @@ function testDurationRound(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._m);
+					final __self__ = new Duration_asInterface(_tt._m);
 					__self__.abs = #if !macro function():Duration return _tt._m.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._m.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._m.microseconds() #else null #end;
@@ -10359,7 +10359,7 @@ function testDurationRound(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._m.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_got);
+					final __self__ = new Duration_asInterface(_got);
 					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
@@ -10372,7 +10372,7 @@ function testDurationRound(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._want);
+					final __self__ = new Duration_asInterface(_tt._want);
 					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
@@ -10396,7 +10396,7 @@ function testDurationAbs(_t:stdgo.testing.Testing.T):Void {
 			var _got:Duration = _tt._d.abs();
 			if (_got != _tt._want) {
 				_t.errorf((Go.str("Duration(%s).Abs() = %s; want: %s") : GoString), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._d);
+					final __self__ = new Duration_asInterface(_tt._d);
 					__self__.abs = #if !macro function():Duration return _tt._d.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._d.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._d.microseconds() #else null #end;
@@ -10409,7 +10409,7 @@ function testDurationAbs(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _tt._d.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_got);
+					final __self__ = new Duration_asInterface(_got);
 					__self__.abs = #if !macro function():Duration return _got.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _got.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _got.microseconds() #else null #end;
@@ -10422,7 +10422,7 @@ function testDurationAbs(_t:stdgo.testing.Testing.T):Void {
 					__self__.truncate = #if !macro function(_d:Duration):Duration return _got.truncate(_d) #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Duration_wrapper(_tt._want);
+					final __self__ = new Duration_asInterface(_tt._want);
 					__self__.abs = #if !macro function():Duration return _tt._want.abs() #else null #end;
 					__self__.hours = #if !macro function():GoFloat64 return _tt._want.hours() #else null #end;
 					__self__.microseconds = #if !macro function():GoInt64 return _tt._want.microseconds() #else null #end;
@@ -10612,7 +10612,7 @@ function testMarshalBinaryZeroTime(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (_t1 != _t0) {
 		_t.errorf((Go.str("t0=%#v\nt1=%#v\nwant identical structures") : GoString), Go.toInterface({
-			final __self__ = new Time_wrapper(_t0);
+			final __self__ = new Time_asInterface(_t0);
 			__self__.add = #if !macro function(_d:Duration):Time return _t0.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t0.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t0.after(__0) #else null #end;
@@ -10687,7 +10687,7 @@ function testMarshalBinaryZeroTime(_t:stdgo.testing.Testing.T):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _t0._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new Time_wrapper(_t1);
+			final __self__ = new Time_asInterface(_t1);
 			__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt, _days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
 			__self__.after = #if !macro function(__0:Time):Bool return _t1.after(__0) #else null #end;
@@ -10793,7 +10793,7 @@ function testMarshalBinaryVersion2(_t:stdgo.testing.Testing.T):Void {
 	if (!(_t0.equal((_t1 == null ? null : _t1.__copy__())) && _t1.equal((_t2 == null ? null : _t2.__copy__())))) {
 		if (!_t0.equal((_t1 == null ? null : _t1.__copy__()))) {
 			_t.errorf((Go.str("The result t1: %+v after Marshal is not matched original t0: %+v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_t1);
+				final __self__ = new Time_asInterface(_t1);
 				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
@@ -10869,7 +10869,7 @@ function testMarshalBinaryVersion2(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _t1._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_t0);
+				final __self__ = new Time_asInterface(_t0);
 				__self__.add = #if !macro function(_d:Duration):Time return _t0.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t0.addDate(_years, _months, _days) #else null #end;
@@ -10948,7 +10948,7 @@ function testMarshalBinaryVersion2(_t:stdgo.testing.Testing.T):Void {
 		};
 		if (!_t1.equal((_t2 == null ? null : _t2.__copy__()))) {
 			_t.errorf((Go.str("The result t2: %+v after Unmarshal is not matched original t1: %+v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_t2);
+				final __self__ = new Time_asInterface(_t2);
 				__self__.add = #if !macro function(_d:Duration):Time return _t2.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t2.addDate(_years, _months, _days) #else null #end;
@@ -11024,7 +11024,7 @@ function testMarshalBinaryVersion2(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _t2._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_t1);
+				final __self__ = new Time_asInterface(_t1);
 				__self__.add = #if !macro function(_d:Duration):Time return _t1.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _t1.addDate(_years, _months, _days) #else null #end;
@@ -11535,7 +11535,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				_end:Time = __tmp__._1;
 			if (!(_start.isZero() && _end.isZero())) {
 				_t.errorf((Go.str("ZoneBounds of %+v expects two zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface(_golden), Go.toInterface({
-					final __self__ = new Time_wrapper(_start);
+					final __self__ = new Time_asInterface(_start);
 					__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
@@ -11611,7 +11611,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 					__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Time_wrapper(_end);
+					final __self__ = new Time_asInterface(_end);
 					__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
 					__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 							_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
@@ -11696,7 +11696,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 			_end:Time = __tmp__._1;
 		if (!_start.isZero() || _end.isZero()) {
 			_t.errorf((Go.str("ZoneBounds of %v expects start is zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_beginTime);
+				final __self__ = new Time_asInterface(_beginTime);
 				__self__.add = #if !macro function(_d:Duration):Time return _beginTime.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _beginTime.addDate(_years, _months, _days) #else null #end;
@@ -11772,7 +11772,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _beginTime._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_start);
+				final __self__ = new Time_asInterface(_start);
 				__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
@@ -11848,7 +11848,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_end);
+				final __self__ = new Time_asInterface(_end);
 				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
@@ -11934,7 +11934,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 		};
 		if (_start.isZero() || !_end.isZero()) {
 			_t.errorf((Go.str("ZoneBounds of %v expects end is zero Time, got:\n  start=%v\n  end=%v") : GoString), Go.toInterface({
-				final __self__ = new Time_wrapper(_foreverTime);
+				final __self__ = new Time_asInterface(_foreverTime);
 				__self__.add = #if !macro function(_d:Duration):Time return _foreverTime.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _foreverTime.addDate(_years, _months, _days) #else null #end;
@@ -12010,7 +12010,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _foreverTime._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_start);
+				final __self__ = new Time_asInterface(_start);
 				__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
@@ -12086,7 +12086,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Time_wrapper(_end);
+				final __self__ = new Time_asInterface(_end);
 				__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
@@ -12238,7 +12238,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 				|| !_end.equal((_tt._wantEnd == null ? null : _tt._wantEnd.__copy__()))) {
 				_t.errorf((Go.str("#%d:: ZoneBounds of %v expects right bounds:\n  got start=%v\n  want start=%v\n  got end=%v\n  want end=%v") : GoString),
 					Go.toInterface(_i), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt._giveTime);
+						final __self__ = new Time_asInterface(_tt._giveTime);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt._giveTime.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt._giveTime.addDate(_years, _months, _days) #else null #end;
@@ -12315,7 +12315,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _tt._giveTime._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_start);
+						final __self__ = new Time_asInterface(_start);
 						__self__.add = #if !macro function(_d:Duration):Time return _start.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _start.addDate(_years, _months, _days) #else null #end;
@@ -12391,7 +12391,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _start._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt._wantStart);
+						final __self__ = new Time_asInterface(_tt._wantStart);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt._wantStart.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt._wantStart.addDate(_years, _months, _days) #else null #end;
@@ -12468,7 +12468,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _tt._wantStart._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_end);
+						final __self__ = new Time_asInterface(_end);
 						__self__.add = #if !macro function(_d:Duration):Time return _end.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _end.addDate(_years, _months, _days) #else null #end;
@@ -12544,7 +12544,7 @@ function testZoneBounds(_t:stdgo.testing.Testing.T):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _end._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new Time_wrapper(_tt._wantEnd);
+						final __self__ = new Time_asInterface(_tt._wantEnd);
 						__self__.add = #if !macro function(_d:Duration):Time return _tt._wantEnd.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):Time return _tt._wantEnd.addDate(_years, _months, _days) #else null #end;
@@ -12775,7 +12775,7 @@ function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2
 		return _f1.uint() == _f2.uint();
 	} else {
 		_t.errorf((Go.str("test internal error: unsupported kind %v") : GoString), Go.toInterface({
-			final __self__ = new stdgo.reflect.Reflect.Kind_wrapper(_f1.type().kind());
+			final __self__ = new stdgo.reflect.Reflect.Kind_asInterface(_f1.type().kind());
 			__self__.string = #if !macro function():GoString return _f1.type().kind().string() #else null #end;
 			__self__;
 		}));
@@ -12976,7 +12976,7 @@ function testLoadLocationFromTZData(_t:stdgo.testing.Testing.T):Void {
 			_t.fatal(Go.toInterface(_err));
 		};
 		var __tmp__ = stdgo.time.Time.gorootZoneSource(stdgo.internal.testenv.Testenv.goroot({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:Time; var _1:Bool;}
 				return _t.deadline() #else null #end;

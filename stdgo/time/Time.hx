@@ -1179,7 +1179,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, _prefix, _value, (Go.str() : GoString)) : ParseError));
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, _prefix, _value, (Go.str() : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, _prefix, _value,
 						(Go.str() : GoString)) : ParseError).error() #else null #end;
 					__self__;
@@ -1191,7 +1191,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 				return {
 					_0: (new Time() : Time),
 					_1: {
-						final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
+						final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 							(Go.str(": extra text: ") : GoString) + _quote(_value)) : ParseError));
 						__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 							(Go.str(": extra text: ") : GoString) + _quote(_value)) : ParseError).error() #else null #end;
@@ -1627,7 +1627,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, _stdstr, _value,
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, _stdstr, _value,
 						((Go.str(": ") : GoString) + _rangeErrString) + (Go.str(" out of range") : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, _stdstr, _value,
 						((Go.str(": ") : GoString) + _rangeErrString) + (Go.str(" out of range") : GoString)) : ParseError).error() #else null #end;
@@ -1639,7 +1639,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, _stdstr, _value, (Go.str() : GoString)) : ParseError));
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, _stdstr, _value, (Go.str() : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, _stdstr, _value,
 						(Go.str() : GoString)) : ParseError).error() #else null #end;
 					__self__;
@@ -1667,7 +1667,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year out of range") : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year out of range") : GoString)) : ParseError).error() #else null #end;
@@ -1686,7 +1686,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year does not match month") : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year does not match month") : GoString)) : ParseError).error() #else null #end;
@@ -1699,7 +1699,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 			return {
 				_0: (new Time() : Time),
 				_1: {
-					final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
+					final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year does not match day") : GoString)) : ParseError));
 					__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 						(Go.str(": day-of-year does not match day") : GoString)) : ParseError).error() #else null #end;
@@ -1720,7 +1720,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		return {
 			_0: (new Time() : Time),
 			_1: {
-				final __self__ = new ParseError_wrapper((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
+				final __self__ = new ParseError_asInterface((new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 					(Go.str(": day out of range") : GoString)) : ParseError));
 				__self__.error = #if !macro function():GoString return (new ParseError(_alayout, _avalue, (Go.str() : GoString), _value,
 					(Go.str(": day out of range") : GoString)) : ParseError).error() #else null #end;
@@ -3896,7 +3896,7 @@ function _loadTzinfoFromZip(_zipfile:GoString, _name:GoString):{var _0:Slice<GoB
 			return {
 				_0: (null : Slice<GoUInt8>),
 				_1: {
-					final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((2 : stdgo.syscall.Syscall.Errno));
+					final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((2 : stdgo.syscall.Syscall.Errno));
 					__self__.error = #if !macro function():GoString return (2 : stdgo.syscall.Syscall.Errno).error() #else null #end;
 					__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return (2 : stdgo.syscall.Syscall.Errno).is_(__0) #else null #end;
 					__self__.temporary = #if !macro function():Bool return (2 : stdgo.syscall.Syscall.Errno).temporary() #else null #end;
@@ -4066,7 +4066,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 					return {
 						_0: (null : Slice<GoUInt8>),
 						_1: {
-							final __self__ = new T_fileSizeError_wrapper((_name : T_fileSizeError));
+							final __self__ = new T_fileSizeError_asInterface((_name : T_fileSizeError));
 							__self__.error = #if !macro function():GoString return (_name : T_fileSizeError).error() #else null #end;
 							__self__;
 						}
@@ -4130,7 +4130,7 @@ function _readFile(_name:GoString):{var _0:Slice<GoByte>; var _1:Error;} {
 	}
 }
 
-class ParseError_wrapper {
+class ParseError_asInterface {
 	/**
 		// Error returns the string representation of a ParseError.
 	**/
@@ -4225,7 +4225,7 @@ class ParseError_wrapper {
 	}
 }
 
-class Timer_wrapper {
+class Timer_asInterface {
 	/**
 		// Reset changes the timer to expire after duration d.
 		// It returns true if the timer had been active, false if the timer had
@@ -4329,7 +4329,7 @@ class Timer_wrapper {
 	}
 }
 
-class Ticker_wrapper {
+class Ticker_asInterface {
 	/**
 		// Reset stops a ticker and resets its period to the specified duration.
 		// The next tick will arrive after the new period elapses. The duration d
@@ -5516,7 +5516,7 @@ class Ticker_wrapper {
 	}
 }
 
-class Time_wrapper {
+class Time_asInterface {
 	/**
 		// Round returns the result of rounding t to the nearest multiple of d (since the zero time).
 		// The rounding behavior for halfway values is to round up.
@@ -6214,7 +6214,7 @@ class Time_wrapper {
 	}
 }
 
-class Location_wrapper {
+class Location_asInterface {
 	/**
 		// lookupName returns information about the time zone with
 		// the given name (such as "EST") at the given pseudo-Unix time
@@ -6354,7 +6354,7 @@ class Location_wrapper {
 	}
 }
 
-class T_dataIO_wrapper {
+class T_dataIO_asInterface {
 	/**
 		// read returns the read of the data in the buffer.
 	**/
@@ -6403,7 +6403,7 @@ class T_dataIO_wrapper {
 	}
 }
 
-class Month_wrapper {
+class Month_asInterface {
 	/**
 		// String returns the English name of the month ("January", "February", ...).
 	**/
@@ -6434,7 +6434,7 @@ class Month_wrapper {
 	}
 }
 
-class Weekday_wrapper {
+class Weekday_asInterface {
 	/**
 		// String returns the English name of the day ("Sunday", "Monday", ...).
 	**/
@@ -6640,7 +6640,7 @@ class Weekday_wrapper {
 	}
 }
 
-class Duration_wrapper {
+class Duration_asInterface {
 	/**
 		// Abs returns the absolute value of d.
 		// As a special case, math.MinInt64 is converted to math.MaxInt64.
@@ -6727,7 +6727,7 @@ class Duration_wrapper {
 	}
 }
 
-class T_fileSizeError_wrapper {
+class T_fileSizeError_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 

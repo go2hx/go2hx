@@ -37,7 +37,7 @@ function testEnv(_t:stdgo.testing.Testing.T):Void {
 **/
 function testExecErrPermutedFds(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;

@@ -92,7 +92,7 @@ final _defaultOutput:GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n 
 function exampleFunc():Void {
 	var _fs = stdgo.flag.Flag.newFlagSet((Go.str("ExampleFunc") : GoString), (0 : ErrorHandling));
 	_fs.setOutput({
-		final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stdout);
+		final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stdout);
 		__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdout.chdir() #else null #end;
 		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdout.chmod(_mode) #else null #end;
 		__self__.chown = #if !macro function(__0:GoInt, __1:GoInt):stdgo.Error return stdgo.os.Os.stdout.chown(__0, __1) #else null #end;
@@ -166,7 +166,7 @@ function exampleFunc():Void {
 	});
 	_fs.parse((new Slice<GoString>(0, 0, (Go.str("-ip") : GoString), (Go.str("127.0.0.1") : GoString)) : Slice<GoString>));
 	stdgo.fmt.Fmt.printf((Go.str("{ip: %v, loopback: %t}\n\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
+		final __self__ = new stdgo.net.Net.IP_asInterface(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
 		__self__.equal = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip.equal(_x) #else null #end;
 		__self__.isGlobalUnicast = #if !macro function():Bool return _ip.isGlobalUnicast() #else null #end;
@@ -189,7 +189,7 @@ function exampleFunc():Void {
 	}), Go.toInterface(_ip.isLoopback()));
 	_fs.parse((new Slice<GoString>(0, 0, (Go.str("-ip") : GoString), (Go.str("256.0.0.1") : GoString)) : Slice<GoString>));
 	stdgo.fmt.Fmt.printf((Go.str("{ip: %v, loopback: %t}\n\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
+		final __self__ = new stdgo.net.Net.IP_asInterface(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
 		__self__.equal = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip.equal(_x) #else null #end;
 		__self__.isGlobalUnicast = #if !macro function():Bool return _ip.isGlobalUnicast() #else null #end;
@@ -217,7 +217,7 @@ function example():Void {}
 function exampleTextVar():Void {
 	var _fs = stdgo.flag.Flag.newFlagSet((Go.str("ExampleTextVar") : GoString), (0 : ErrorHandling));
 	_fs.setOutput({
-		final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stdout);
+		final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stdout);
 		__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdout.chdir() #else null #end;
 		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdout.chmod(_mode) #else null #end;
 		__self__.chown = #if !macro function(__0:GoInt, __1:GoInt):stdgo.Error return stdgo.os.Os.stdout.chown(__0, __1) #else null #end;
@@ -283,7 +283,7 @@ function exampleTextVar():Void {
 	});
 	var _ip:stdgo.net.Net.IP = new stdgo.net.Net.IP(0, 0);
 	_fs.textVar({
-		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
+		final __self__ = new stdgo.net.Net.IP_asInterface(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
 		__self__.equal = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip.equal(_x) #else null #end;
 		__self__.isGlobalUnicast = #if !macro function():Bool return _ip.isGlobalUnicast() #else null #end;
@@ -304,7 +304,7 @@ function exampleTextVar():Void {
 		__self__._matchAddrFamily = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip._matchAddrFamily(_x) #else null #end;
 		__self__;
 	}, (Go.str("ip") : GoString), {
-		final __self__ = new stdgo.net.Net.IP_wrapper(stdgo.net.Net.ipv4((192 : GoUInt8), (168 : GoUInt8), (0 : GoUInt8), (100 : GoUInt8)));
+		final __self__ = new stdgo.net.Net.IP_asInterface(stdgo.net.Net.ipv4((192 : GoUInt8), (168 : GoUInt8), (0 : GoUInt8), (100 : GoUInt8)));
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return stdgo.net.Net.ipv4((192 : GoUInt8), (168 : GoUInt8), (0 : GoUInt8),
 			(100 : GoUInt8))
 			.defaultMask() #else null #end;
@@ -349,7 +349,7 @@ function exampleTextVar():Void {
 	}, (Go.str("`IP address` to parse") : GoString));
 	_fs.parse((new Slice<GoString>(0, 0, (Go.str("-ip") : GoString), (Go.str("127.0.0.1") : GoString)) : Slice<GoString>));
 	stdgo.fmt.Fmt.printf((Go.str("{ip: %v}\n\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
+		final __self__ = new stdgo.net.Net.IP_asInterface(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
 		__self__.equal = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip.equal(_x) #else null #end;
 		__self__.isGlobalUnicast = #if !macro function():Bool return _ip.isGlobalUnicast() #else null #end;
@@ -373,7 +373,7 @@ function exampleTextVar():Void {
 	_ip = null;
 	_fs.parse((new Slice<GoString>(0, 0, (Go.str("-ip") : GoString), (Go.str("256.0.0.1") : GoString)) : Slice<GoString>));
 	stdgo.fmt.Fmt.printf((Go.str("{ip: %v}\n\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
+		final __self__ = new stdgo.net.Net.IP_asInterface(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
 		__self__.equal = #if !macro function(_x:stdgo.net.Net.IP):Bool return _ip.equal(_x) #else null #end;
 		__self__.isGlobalUnicast = #if !macro function():Bool return _ip.isGlobalUnicast() #else null #end;
@@ -399,7 +399,7 @@ function exampleTextVar():Void {
 function exampleValue():Void {
 	var _fs = stdgo.flag.Flag.newFlagSet((Go.str("ExampleValue") : GoString), (1 : ErrorHandling));
 	_fs.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.URLValue_wrapper((new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue));
+		final __self__ = new stdgo.flag_test.Flag_test.URLValue_asInterface((new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue));
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return (new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue)
 			.set(__0) #else null #end;
 		__self__.string = #if !macro function():GoString return (new stdgo.flag_test.Flag_test.URLValue(_u) : stdgo.flag_test.Flag_test.URLValue)
@@ -661,7 +661,7 @@ function _testParse(_f:FlagSet, _t:stdgo.testing.Testing.T):Void {
 	};
 	if (_durationFlag.value != ("120000000000" : stdgo.time.Time.Duration)) {
 		_t.error(Go.toInterface((Go.str("duration flag should be 2m, is ") : GoString)), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Duration_wrapper(_durationFlag.value);
+			final __self__ = new stdgo.time.Time.Duration_asInterface(_durationFlag.value);
 			__self__.abs = #if !macro function():stdgo.time.Time.Duration return _durationFlag.value.abs() #else null #end;
 			__self__.hours = #if !macro function():GoFloat64 return _durationFlag.value.hours() #else null #end;
 			__self__.microseconds = #if !macro function():GoInt64 return _durationFlag.value.microseconds() #else null #end;
@@ -700,7 +700,7 @@ function testUserDefined(_t:stdgo.testing.Testing.T):Void {
 	_flags.setOutput(stdgo.io.Io.discard);
 	var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 	_flags.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface(_v);
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
 		__self__.string = #if !macro function():GoString return _v.string() #else null #end;
 		__self__;
@@ -748,7 +748,7 @@ function testUserDefinedFunc(_t:stdgo.testing.Testing.T):Void {
 	};
 	var _buf:stdgo.strings.Strings.Builder = ({} : stdgo.strings.Strings.Builder);
 	_flags.setOutput({
-		final __self__ = new stdgo.strings.Strings.Builder_wrapper(_buf);
+		final __self__ = new stdgo.strings.Strings.Builder_asInterface(_buf);
 		__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 		__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
 		__self__.len = #if !macro function():GoInt return _buf.len() #else null #end;
@@ -815,7 +815,7 @@ function testUserDefinedBool(_t:stdgo.testing.Testing.T):Void {
 	var _b:T_boolFlagVar = ({} : stdgo.flag_test.Flag_test.T_boolFlagVar);
 	var _err:Error = (null : stdgo.Error);
 	_flags.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.T_boolFlagVar_wrapper(_b);
+		final __self__ = new stdgo.flag_test.Flag_test.T_boolFlagVar_asInterface(_b);
 		__self__.isBoolFlag = #if !macro function():Bool return _b.isBoolFlag() #else null #end;
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return _b.set(__0) #else null #end;
 		__self__.string = #if !macro function():GoString return _b.string() #else null #end;
@@ -843,7 +843,7 @@ function testSetOutput(_t:stdgo.testing.Testing.T):Void {
 	var _flags:FlagSet = ({} : FlagSet);
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	_flags.setOutput({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
+		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
 		__self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;
 		__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 		__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
@@ -1002,7 +1002,7 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 	var _fs = newFlagSet((Go.str("print defaults test") : GoString), (0 : ErrorHandling));
 	var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 	_fs.setOutput({
-		final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
+		final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
 		__self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;
 		__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 		__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
@@ -1053,7 +1053,7 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 	_fs.int((Go.str("N") : GoString), (27 : GoInt), (Go.str("a non-zero int") : GoString));
 	_fs.bool((Go.str("O") : GoString), true, (Go.str("a flag\nmultiline help string") : GoString));
 	_fs.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper((new stdgo.flag_test.Flag_test.T_flagVar(0, 0, (Go.str("a") : GoString),
+		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface((new stdgo.flag_test.Flag_test.T_flagVar(0, 0, (Go.str("a") : GoString),
 			(Go.str("b") : GoString)) : stdgo.flag_test.Flag_test.T_flagVar));
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return (new stdgo.flag_test.Flag_test.T_flagVar(0, 0, (Go.str("a") : GoString),
 			(Go.str("b") : GoString)) : stdgo.flag_test.Flag_test.T_flagVar).set(__0) #else null #end;
@@ -1063,7 +1063,7 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 	}, (Go.str("V") : GoString), (Go.str("a `list` of strings") : GoString));
 	_fs.int((Go.str("Z") : GoString), (0 : GoInt), (Go.str("an int that defaults to zero") : GoString));
 	_fs.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_wrapper((new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
+		final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_asInterface((new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
 			(Go.str() : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker));
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return (new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
 			(Go.str() : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker).set(__0) #else null #end;
@@ -1073,7 +1073,7 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 	}, (Go.str("ZP0") : GoString),
 		(Go.str("a flag whose String method panics when it is zero") : GoString));
 	_fs.var_({
-		final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_wrapper((new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
+		final __self__ = new stdgo.flag_test.Flag_test.T_zeroPanicker_asInterface((new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
 			(Go.str("something") : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker));
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return (new stdgo.flag_test.Flag_test.T_zeroPanicker(true,
 			(Go.str("something") : GoString)) : stdgo.flag_test.Flag_test.T_zeroPanicker).set(__0) #else null #end;
@@ -1125,7 +1125,7 @@ function testUsageOutput(_t:stdgo.testing.Testing.T):Void {
 		resetForTesting(defaultUsage);
 		var _buf:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 		commandLine.setOutput({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
+			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
 			__self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;
 			__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 			__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
@@ -1213,7 +1213,7 @@ function testGetters(_t:stdgo.testing.Testing.T):Void {
 	var _expectedName:GoString = (Go.str("flag set") : GoString);
 	var _expectedErrorHandling:ErrorHandling = (0 : ErrorHandling);
 	var _expectedOutput:stdgo.io.Io.Writer = {
-		final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stderr);
+		final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stderr);
 		__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stderr.chdir() #else null #end;
 		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stderr.chmod(_mode) #else null #end;
 		__self__.chown = #if !macro function(__0:GoInt, __1:GoInt):stdgo.Error return stdgo.os.Os.stderr.chown(__0, __1) #else null #end;
@@ -1291,7 +1291,7 @@ function testGetters(_t:stdgo.testing.Testing.T):Void {
 	_expectedName = (Go.str("gopher") : GoString);
 	_expectedErrorHandling = (1 : ErrorHandling);
 	_expectedOutput = {
-		final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stdout);
+		final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stdout);
 		__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdout.chdir() #else null #end;
 		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdout.chmod(_mode) #else null #end;
 		__self__.chown = #if !macro function(__0:GoInt, __1:GoInt):stdgo.Error return stdgo.os.Os.stdout.chown(__0, __1) #else null #end;
@@ -1420,7 +1420,7 @@ function testRangeError(_t:stdgo.testing.Testing.T):Void {
 
 function testExitCode(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_usage:() -> Void):Void _t.cleanup(_usage) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -1585,7 +1585,7 @@ function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
 		var _fs = newFlagSet((Go.str() : GoString), (0 : ErrorHandling));
 		var _buf = stdgo.bytes.Bytes.newBuffer((null : Slice<GoUInt8>));
 		_fs.setOutput({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
+			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
 			__self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;
 			__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 			__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
@@ -1628,7 +1628,7 @@ function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
 		_mustPanic(_t, _testName, _test._errorMsg, function():Void {
 			var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 			_fs.var_({
-				final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+				final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface(_v);
 				__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
 				__self__.string = #if !macro function():GoString return _v.string() #else null #end;
 				__self__;
@@ -1652,7 +1652,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 		var _fs = newFlagSet(_test._flagSetName, (0 : ErrorHandling));
 		var _buf = stdgo.bytes.Bytes.newBuffer((null : Slice<GoUInt8>));
 		_fs.setOutput({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_buf);
+			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_buf);
 			__self__.bytes = #if !macro function():Slice<GoUInt8> return _buf.bytes() #else null #end;
 			__self__.cap = #if !macro function():GoInt return _buf.cap() #else null #end;
 			__self__.grow = #if !macro function(_i:GoInt):Void _buf.grow(_i) #else null #end;
@@ -1694,14 +1694,14 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 		});
 		var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 		_fs.var_({
-			final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+			final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface(_v);
 			__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
 			__self__.string = #if !macro function():GoString return _v.string() #else null #end;
 			__self__;
 		}, (Go.str("foo") : GoString), (Go.str() : GoString));
 		_mustPanic(_t, _testName, _test._errorMsg, function():Void {
 			_fs.var_({
-				final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
+				final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface(_v);
 				__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
 				__self__.string = #if !macro function():GoString return _v.string() #else null #end;
 				__self__;
@@ -1725,7 +1725,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 		stdgo.flag.Flag.stringVar(Go.pointer(_gopherType), (Go.str("g") : GoString), (Go.str("pocket") : GoString),
 			(Go.str("the variety of gopher (shorthand)") : GoString));
 		stdgo.flag.Flag.var_({
-			final __self__ = new stdgo.flag_test.Flag_test.T_interval_wrapper(_intervalFlag);
+			final __self__ = new stdgo.flag_test.Flag_test.T_interval_asInterface(_intervalFlag);
 			__self__.set = #if !macro function(__0:GoString):stdgo.Error throw "__return__" #else null #end;
 			__self__.string = #if !macro function():GoString throw "__return__" #else null #end;
 			__self__;
@@ -1775,7 +1775,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-class URLValue_wrapper {
+class URLValue_asInterface {
 	@:keep
 	public var set:GoString->Error = null;
 	@:keep
@@ -1810,7 +1810,7 @@ class URLValue_wrapper {
 	}
 }
 
-class T_boolFlagVar_wrapper {
+class T_boolFlagVar_asInterface {
 	@:keep
 	public var isBoolFlag:() -> Bool = null;
 	@:keep
@@ -1843,7 +1843,7 @@ class T_boolFlagVar_wrapper {
 	}
 }
 
-class T_zeroPanicker_wrapper {
+class T_zeroPanicker_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 	@:keep
@@ -1891,7 +1891,7 @@ class T_zeroPanicker_wrapper {
 	}
 }
 
-class T_interval_wrapper {
+class T_interval_asInterface {
 	/**
 		// Set is the method to set the flag value, part of the flag.Value interface.
 		// Set's argument is a string to be parsed to set the flag.
@@ -1929,7 +1929,7 @@ class T_interval_wrapper {
 	}
 }
 
-class T_flagVar_wrapper {
+class T_flagVar_asInterface {
 	@:keep
 	public var set:GoString->Error = null;
 	@:keep

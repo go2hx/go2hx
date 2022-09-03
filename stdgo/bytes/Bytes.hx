@@ -2129,7 +2129,7 @@ function newReader(_b:Slice<GoByte>):Reader {
 	}
 }
 
-class Buffer_wrapper {
+class Buffer_asInterface {
 	/**
 		// ReadString reads until the first occurrence of delim in the input,
 		// returning a string containing the data up to and including the delimiter.
@@ -2582,7 +2582,7 @@ class Buffer_wrapper {
 	}
 }
 
-class Reader_wrapper {
+class Reader_asInterface {
 	/**
 		// Reset resets the Reader to be reading from b.
 	**/
@@ -2690,7 +2690,7 @@ class Reader_wrapper {
 	}
 }
 
-class T_asciiSet_wrapper {
+class T_asciiSet_asInterface {
 	/**
 		// contains reports whether c is inside the set.
 	**/

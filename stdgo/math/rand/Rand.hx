@@ -396,7 +396,7 @@ var _rngCooked:GoArray<GoInt64> = (new GoArray<GoInt64>(("-4181792142133755926" 
 	("4152330101494654406" : GoInt64)) : GoArray<GoInt64>);
 
 var _globalRand:Ref<Rand> = new_({
-	final __self__ = new T_lockedSource_wrapper(({_src: ((newSource((1 : GoInt64)).__underlying__().value : Dynamic) : T_rngSource)} : T_lockedSource));
+	final __self__ = new T_lockedSource_asInterface(({_src: ((newSource((1 : GoInt64)).__underlying__().value : Dynamic) : T_rngSource)} : T_lockedSource));
 	__self__.int63 = #if !macro function():GoInt64 return ({_src: ((newSource((1 : GoInt64)).__underlying__()
 		.value : Dynamic) : T_rngSource)} : T_lockedSource).int63() #else null #end;
 	__self__.seed = #if !macro function(__0:GoInt64):Void({_src:((newSource((1 : GoInt64)).__underlying__()
@@ -586,7 +586,7 @@ function newSource(_seed:GoInt64):Source {
 	var _rng:T_rngSource = ({} : T_rngSource);
 	_rng.seed(_seed);
 	return {
-		final __self__ = new T_rngSource_wrapper(_rng);
+		final __self__ = new T_rngSource_asInterface(_rng);
 		__self__.int63 = #if !macro function():GoInt64 return _rng.int63() #else null #end;
 		__self__.seed = #if !macro function(__0:GoInt64):Void _rng.seed(__0) #else null #end;
 		__self__.uint64 = #if !macro function():GoUInt64 return _rng.uint64() #else null #end;
@@ -1125,7 +1125,7 @@ function newZipf(_r:Rand, _s:GoFloat64, _v:GoFloat64, _imax:GoUInt64):Zipf {
 	}
 }
 
-class Rand_wrapper {
+class Rand_asInterface {
 	/**
 		// Read generates len(p) random bytes and writes them into p. It
 		// always returns len(p) and a nil error.
@@ -1279,7 +1279,7 @@ class Rand_wrapper {
 		_r._lk.lock();
 		{
 			var __tmp__ = stdgo.math.rand.Rand._read(_p, {
-				final __self__ = new T_rngSource_wrapper(_r._src);
+				final __self__ = new T_rngSource_asInterface(_r._src);
 				__self__.int63 = #if !macro function():GoInt64 return _r._src.int63() #else null #end;
 				__self__.seed = #if !macro function(__0:GoInt64):Void _r._src.seed(__0) #else null #end;
 				__self__.uint64 = #if !macro function():GoUInt64 return _r._src.uint64() #else null #end;
@@ -1329,7 +1329,7 @@ class Rand_wrapper {
 	}
 }
 
-class T_lockedSource_wrapper {
+class T_lockedSource_asInterface {
 	/**
 		// read implements Read for a lockedSource without a race condition.
 	**/
@@ -1422,7 +1422,7 @@ class T_lockedSource_wrapper {
 	}
 }
 
-class T_rngSource_wrapper {
+class T_rngSource_asInterface {
 	/**
 		// Uint64 returns a non-negative pseudo-random 64-bit integer as an uint64.
 	**/
@@ -1487,7 +1487,7 @@ class T_rngSource_wrapper {
 	}
 }
 
-class Zipf_wrapper {
+class Zipf_asInterface {
 	/**
 		// Uint64 returns a value drawn from the Zipf distribution described
 		// by the Zipf object.

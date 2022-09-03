@@ -543,7 +543,7 @@ function example():Void {
 			(26 : GoInt)) : stdgo.sort_test.Sort_test.Person)) : Slice<stdgo.sort_test.Sort_test.Person>);
 	stdgo.fmt.Fmt.println(_people);
 	stdgo.sort.Sort.sort({
-		final __self__ = new stdgo.sort_test.Sort_test.ByAge_wrapper((_people : ByAge));
+		final __self__ = new stdgo.sort_test.Sort_test.ByAge_asInterface((_people : ByAge));
 		__self__.len = #if !macro function():GoInt return (_people : ByAge).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_people : ByAge).less(_i, _j) #else null #end;
 		__self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void(_people:ByAge).swap(_i, _j) #else null #end;
@@ -721,7 +721,7 @@ function exampleFloat64sAreSorted():Void {
 function exampleReverse():Void {
 	var _s = (new Slice<GoInt>(0, 0, (5 : GoInt), (2 : GoInt), (6 : GoInt), (3 : GoInt), (1 : GoInt), (4 : GoInt)) : Slice<GoInt>);
 	stdgo.sort.Sort.sort(stdgo.sort.Sort.reverse({
-		final __self__ = new IntSlice_wrapper((_s : IntSlice));
+		final __self__ = new IntSlice_asInterface((_s : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_s : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_s : IntSlice).less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_s : IntSlice).search(__0) #else null #end;
@@ -777,7 +777,7 @@ function example_sortWrapper():Void {
 		(new Ref((Go.str("prostate") : GoString), (62 : stdgo.sort_test.Sort_test.Grams)) : Ref),
 		(new Ref((Go.str("spleen") : GoString), (162 : stdgo.sort_test.Sort_test.Grams)) : Ref)) : Slice<Ref>);
 	stdgo.sort.Sort.sort({
-		final __self__ = new stdgo.sort_test.Sort_test.ByWeight_wrapper((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight));
+		final __self__ = new stdgo.sort_test.Sort_test.ByWeight_asInterface((new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight));
 		__self__.len = #if !macro function():GoInt return (new stdgo.sort_test.Sort_test.ByWeight(_s) : stdgo.sort_test.Sort_test.ByWeight)
 			.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt,
@@ -789,7 +789,7 @@ function example_sortWrapper():Void {
 	stdgo.fmt.Fmt.println((Go.str("Organs by weight:") : GoString));
 	_printOrgans(_s);
 	stdgo.sort.Sort.sort({
-		final __self__ = new stdgo.sort_test.Sort_test.ByName_wrapper((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName));
+		final __self__ = new stdgo.sort_test.Sort_test.ByName_asInterface((new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName));
 		__self__.len = #if !macro function():GoInt return (new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt,
 				_j:GoInt):Bool return (new stdgo.sort_test.Sort_test.ByName(_s) : stdgo.sort_test.Sort_test.ByName).less(_i, _j) #else null #end;
@@ -804,7 +804,7 @@ function example_sortWrapper():Void {
 function _printOrgans(_s:Slice<Organ>):Void {
 	for (_0 => _o in _s) {
 		stdgo.fmt.Fmt.printf((Go.str("%-8s (%v)\n") : GoString), Go.toInterface(_o.name), Go.toInterface({
-			final __self__ = new stdgo.sort_test.Sort_test.Grams_wrapper(_o.weight);
+			final __self__ = new stdgo.sort_test.Sort_test.Grams_asInterface(_o.weight);
 			__self__.string = #if !macro function():GoString return _o.weight.string() #else null #end;
 			__self__;
 		}));
@@ -1170,7 +1170,7 @@ function testSortIntSlice(_t:stdgo.testing.Testing.T):Void {
 	var _data = (_ints == null ? null : _ints.__copy__());
 	var _a:IntSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
 	sort({
-		final __self__ = new IntSlice_wrapper(_a);
+		final __self__ = new IntSlice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return _a.search(__0) #else null #end;
@@ -1179,7 +1179,7 @@ function testSortIntSlice(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new IntSlice_wrapper(_a);
+		final __self__ = new IntSlice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return _a.search(__0) #else null #end;
@@ -1196,7 +1196,7 @@ function testSortFloat64Slice(_t:stdgo.testing.Testing.T):Void {
 	var _data = (_float64s == null ? null : _float64s.__copy__());
 	var _a:Float64Slice = ((_data.__slice__((0 : GoInt)) : Slice<GoFloat64>) : Float64Slice);
 	sort({
-		final __self__ = new Float64Slice_wrapper(_a);
+		final __self__ = new Float64Slice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(_x:GoFloat64):GoInt return _a.search(_x) #else null #end;
@@ -1205,7 +1205,7 @@ function testSortFloat64Slice(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new Float64Slice_wrapper(_a);
+		final __self__ = new Float64Slice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(_x:GoFloat64):GoInt return _a.search(_x) #else null #end;
@@ -1222,7 +1222,7 @@ function testSortStringSlice(_t:stdgo.testing.Testing.T):Void {
 	var _data = (_strings == null ? null : _strings.__copy__());
 	var _a:StringSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoString>) : StringSlice);
 	sort({
-		final __self__ = new StringSlice_wrapper(_a);
+		final __self__ = new StringSlice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(_x:GoString):GoInt return _a.search(_x) #else null #end;
@@ -1231,7 +1231,7 @@ function testSortStringSlice(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new StringSlice_wrapper(_a);
+		final __self__ = new StringSlice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(_x:GoString):GoInt return _a.search(_x) #else null #end;
@@ -1310,7 +1310,7 @@ function testReverseSortIntSlice(_t:stdgo.testing.Testing.T):Void {
 	var _data1 = (_ints == null ? null : _ints.__copy__());
 	var _a:IntSlice = ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
 	sort({
-		final __self__ = new IntSlice_wrapper(_a);
+		final __self__ = new IntSlice_asInterface(_a);
 		__self__.len = #if !macro function():GoInt return _a.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _a.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return _a.search(__0) #else null #end;
@@ -1320,7 +1320,7 @@ function testReverseSortIntSlice(_t:stdgo.testing.Testing.T):Void {
 	});
 	var _r:IntSlice = ((_data1.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice);
 	sort(reverse({
-		final __self__ = new IntSlice_wrapper(_r);
+		final __self__ = new IntSlice_asInterface(_r);
 		__self__.len = #if !macro function():GoInt return _r.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _r.less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return _r.search(__0) #else null #end;
@@ -1350,7 +1350,7 @@ function testBreakPatterns(_t:stdgo.testing.Testing.T):Void {
 	_data[(_data.length / (4 : GoInt)) * (2 : GoInt)] = (1 : GoInt);
 	_data[(_data.length / (4 : GoInt)) * (3 : GoInt)] = (2 : GoInt);
 	sort({
-		final __self__ = new IntSlice_wrapper((_data : IntSlice));
+		final __self__ = new IntSlice_asInterface((_data : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_data : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_data : IntSlice).less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_data : IntSlice).search(__0) #else null #end;
@@ -1363,7 +1363,7 @@ function testBreakPatterns(_t:stdgo.testing.Testing.T):Void {
 function testReverseRange(_t:stdgo.testing.Testing.T):Void {
 	var _data = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt), (6 : GoInt), (7 : GoInt)) : Slice<GoInt>);
 	reverseRange({
-		final __self__ = new IntSlice_wrapper((_data : IntSlice));
+		final __self__ = new IntSlice_asInterface((_data : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_data : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_data : IntSlice).less(_i, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_data : IntSlice).search(__0) #else null #end;
@@ -1382,7 +1382,7 @@ function testReverseRange(_t:stdgo.testing.Testing.T):Void {
 	var _data1 = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (3 : GoInt), (4 : GoInt), (5 : GoInt), (6 : GoInt), (7 : GoInt)) : Slice<GoInt>);
 	var _data2 = (new Slice<GoInt>(0, 0, (1 : GoInt), (2 : GoInt), (5 : GoInt), (4 : GoInt), (3 : GoInt), (6 : GoInt), (7 : GoInt)) : Slice<GoInt>);
 	reverseRange({
-		final __self__ = new IntSlice_wrapper((_data1 : IntSlice));
+		final __self__ = new IntSlice_asInterface((_data1 : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_data1 : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return (_data1 : IntSlice).less(_i_, _j) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_data1 : IntSlice).search(__0) #else null #end;
@@ -1422,7 +1422,7 @@ function testNonDeterministicComparison(_t:stdgo.testing.Testing.T):Void {
 			var _i:GoInt = (0 : GoInt);
 			Go.cfor(_i < (10:GoInt), _i++, {
 				sort({
-					final __self__ = new stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_wrapper(_td);
+					final __self__ = new stdgo.sort_test.Sort_test.T_nonDeterministicTestingData_asInterface(_td);
 					__self__.len = #if !macro function():GoInt return _td.len() #else null #end;
 					__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _td.less(_i, _j) #else null #end;
 					__self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _td.swap(_i, _j) #else null #end;
@@ -1505,7 +1505,7 @@ function benchmarkStableString1K(_b:stdgo.testing.Testing.B):Void {
 			Go.copySlice(_data, _unsorted);
 			_b.startTimer();
 			stable({
-				final __self__ = new StringSlice_wrapper((_data : StringSlice));
+				final __self__ = new StringSlice_asInterface((_data : StringSlice));
 				__self__.len = #if !macro function():GoInt return (_data : StringSlice).len() #else null #end;
 				__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_data : StringSlice).less(_i, _j) #else null #end;
 				__self__.search = #if !macro function(_x:GoString):GoInt return (_data : StringSlice).search(_x) #else null #end;
@@ -1607,7 +1607,7 @@ function benchmarkStableInt1K(_b:stdgo.testing.Testing.B):Void {
 			Go.copySlice(_data, _unsorted);
 			_b.startTimer();
 			stable({
-				final __self__ = new IntSlice_wrapper((_data : IntSlice));
+				final __self__ = new IntSlice_asInterface((_data : IntSlice));
 				__self__.len = #if !macro function():GoInt return (_data : IntSlice).len() #else null #end;
 				__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return (_data : IntSlice).less(_i, _j) #else null #end;
 				__self__.search = #if !macro function(__0:GoInt):GoInt return (_data : IntSlice).search(__0) #else null #end;
@@ -1694,7 +1694,7 @@ function benchmarkStableInt64K(_b:stdgo.testing.Testing.B):Void {
 			};
 			_b.startTimer();
 			stable({
-				final __self__ = new IntSlice_wrapper((_data : IntSlice));
+				final __self__ = new IntSlice_asInterface((_data : IntSlice));
 				__self__.len = #if !macro function():GoInt return (_data : IntSlice).len() #else null #end;
 				__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return (_data : IntSlice).less(_i_, _j) #else null #end;
 				__self__.search = #if !macro function(__0:GoInt):GoInt return (_data : IntSlice).search(__0) #else null #end;
@@ -1834,7 +1834,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 									_maxswap: _maxswap(_n)
 								} : stdgo.sort_test.Sort_test.T_testingData);
 								_sort({
-									final __self__ = new stdgo.sort_test.Sort_test.T_testingData_wrapper(_d);
+									final __self__ = new stdgo.sort_test.Sort_test.T_testingData_asInterface(_d);
 									__self__.len = #if !macro function():GoInt return _d.len() #else null #end;
 									__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _d.less(_i_, _j_) #else null #end;
 									__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void _d.swap(_i__, _j__) #else null #end;
@@ -1892,7 +1892,7 @@ function testAdversary(_t:stdgo.testing.Testing.T):Void {
 	var _maxcmp:GoInt = ((10000 : GoInt) * _lg((10000 : GoInt))) * (4 : GoInt);
 	var _d = _newAdversaryTestingData(_t, (10000 : GoInt), _maxcmp);
 	sort({
-		final __self__ = new stdgo.sort_test.Sort_test.T_adversaryTestingData_wrapper(_d);
+		final __self__ = new stdgo.sort_test.Sort_test.T_adversaryTestingData_asInterface(_d);
 		__self__.len = #if !macro function():GoInt return _d.len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _d.less(_i, _j) #else null #end;
 		__self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _d.swap(_i, _j) #else null #end;
@@ -1908,7 +1908,7 @@ function testAdversary(_t:stdgo.testing.Testing.T):Void {
 function testStableInts(_t:stdgo.testing.Testing.T):Void {
 	var _data = (_ints == null ? null : _ints.__copy__());
 	stable({
-		final __self__ = new IntSlice_wrapper(((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice));
+		final __self__ = new IntSlice_asInterface(((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice));
 		__self__.len = #if !macro function():GoInt return ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i:GoInt,
 				_j:GoInt):Bool return ((_data.__slice__((0 : GoInt)) : Slice<GoInt>) : IntSlice).less(_i, _j) #else null #end;
@@ -1944,7 +1944,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 		});
 	};
 	if (isSorted({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -1956,7 +1956,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 	};
 	_data._initB();
 	stable({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -1965,7 +1965,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -1980,7 +1980,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 	};
 	_data._initB();
 	stable({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -1989,7 +1989,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -2010,7 +2010,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 	};
 	_data._initB();
 	stable({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -2019,7 +2019,7 @@ function testStability(_t:stdgo.testing.Testing.T):Void {
 		__self__;
 	});
 	if (!isSorted({
-		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+		final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 		__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -2056,7 +2056,7 @@ function _countOps(_t:stdgo.testing.Testing.T, _algo:Interface->Void, _name:GoSt
 			});
 		};
 		_algo({
-			final __self__ = new stdgo.sort_test.Sort_test.T_testingData_wrapper(_td);
+			final __self__ = new stdgo.sort_test.Sort_test.T_testingData_asInterface(_td);
 			__self__.len = #if !macro function():GoInt return _td.len() #else null #end;
 			__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _td.less(_i_, _j) #else null #end;
 			__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _td.swap(_i__, _j) #else null #end;
@@ -2107,7 +2107,7 @@ function _bench(_b:stdgo.testing.Testing.B, _size:GoInt, _algo:Interface->Void, 
 					_data._initB();
 					_b.startTimer();
 					_algo({
-						final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+						final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 						__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 						__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 						__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -2117,7 +2117,7 @@ function _bench(_b:stdgo.testing.Testing.B, _size:GoInt, _algo:Interface->Void, 
 					});
 					_b.stopTimer();
 					if (!isSorted({
-						final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_wrapper(_data);
+						final __self__ = new stdgo.sort_test.Sort_test.T_intPairs_asInterface(_data);
 						__self__.len = #if !macro function():GoInt return _data.len() #else null #end;
 						__self__.less = #if !macro function(_i_:GoInt, _j:GoInt):Bool return _data.less(_i_, _j) #else null #end;
 						__self__.swap = #if !macro function(_i__:GoInt, _j:GoInt):Void _data.swap(_i__, _j) #else null #end;
@@ -2167,7 +2167,7 @@ function benchmarkStable1e6(_b:stdgo.testing.Testing.B):Void {
 	}
 }
 
-class Person_wrapper {
+class Person_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -2211,7 +2211,7 @@ class Person_wrapper {
 	}
 }
 
-class T_planetSorter_wrapper {
+class T_planetSorter_asInterface {
 	/**
 		// Less is part of sort.Interface. It is implemented by calling the "by" closure in the sorter.
 	**/
@@ -2294,7 +2294,7 @@ class T_planetSorter_wrapper {
 	static public function sort(_ms:T_multiSorter, _changes:Slice<Change>):Void {
 		_ms._changes = _changes;
 		stdgo.sort.Sort.sort({
-			final __self__ = new stdgo.sort_test.Sort_test.T_multiSorter_wrapper(_ms);
+			final __self__ = new stdgo.sort_test.Sort_test.T_multiSorter_asInterface(_ms);
 			__self__.len = #if !macro function():GoInt return _ms.len() #else null #end;
 			__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _ms.less(_i, _j) #else null #end;
 			__self__.sort = #if !macro function(_changes_:Slice<stdgo.sort_test.Sort_test.Change>):Void _ms.sort(_changes_) #else null #end;
@@ -2304,7 +2304,7 @@ class T_planetSorter_wrapper {
 	}
 }
 
-class T_multiSorter_wrapper {
+class T_multiSorter_asInterface {
 	/**
 		// Less is part of sort.Interface. It is implemented by looping along the
 		// less functions until it finds a comparison that discriminates between
@@ -2358,7 +2358,7 @@ class T_multiSorter_wrapper {
 		return __self__.len();
 }
 
-class ByName_wrapper {
+class ByName_asInterface {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:embedded
@@ -2390,7 +2390,7 @@ class ByName_wrapper {
 		return __self__.len();
 }
 
-class ByWeight_wrapper {
+class ByWeight_asInterface {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:embedded
@@ -2429,7 +2429,7 @@ class ByWeight_wrapper {
 	}
 }
 
-class T_nonDeterministicTestingData_wrapper {
+class T_nonDeterministicTestingData_asInterface {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2474,7 +2474,7 @@ class T_nonDeterministicTestingData_wrapper {
 	}
 }
 
-class T_testingData_wrapper {
+class T_testingData_asInterface {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2532,7 +2532,7 @@ class T_testingData_wrapper {
 	}
 }
 
-class T_adversaryTestingData_wrapper {
+class T_adversaryTestingData_asInterface {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2571,7 +2571,7 @@ class T_adversaryTestingData_wrapper {
 	}
 }
 
-class ByAge_wrapper {
+class ByAge_asInterface {
 	@:keep
 	public var less:(GoInt, GoInt) -> Bool = null;
 	@:keep
@@ -2596,7 +2596,7 @@ class ByAge_wrapper {
 	static public function sort(_by:By, _planets:Slice<Planet>):Void {
 		var _ps = ({_planets: _planets, _by: _by} : stdgo.sort_test.Sort_test.T_planetSorter);
 		stdgo.sort.Sort.sort({
-			final __self__ = new stdgo.sort_test.Sort_test.T_planetSorter_wrapper(_ps);
+			final __self__ = new stdgo.sort_test.Sort_test.T_planetSorter_asInterface(_ps);
 			__self__.len = #if !macro function():GoInt return _ps.len() #else null #end;
 			__self__.less = #if !macro function(_i:GoInt, _j:GoInt):Bool return _ps.less(_i, _j) #else null #end;
 			__self__.swap = #if !macro function(_i:GoInt, _j:GoInt):Void _ps.swap(_i, _j) #else null #end;
@@ -2605,7 +2605,7 @@ class ByAge_wrapper {
 	}
 }
 
-class By_wrapper {
+class By_asInterface {
 	/**
 		// Sort is a method on the function type, By, that sorts the argument slice according to the function.
 	**/
@@ -2628,7 +2628,7 @@ class By_wrapper {
 	}
 }
 
-class Grams_wrapper {
+class Grams_asInterface {
 	@:keep
 	public var string:() -> GoString = null;
 
@@ -2658,7 +2658,7 @@ class Grams_wrapper {
 	}
 }
 
-class Organs_wrapper {
+class Organs_asInterface {
 	@:keep
 	public var swap:(GoInt, GoInt) -> Void = null;
 	@:keep
@@ -2731,7 +2731,7 @@ class Organs_wrapper {
 	}
 }
 
-class T_intPairs_wrapper {
+class T_intPairs_asInterface {
 	/**
 		// InOrder checks if a-equal elements were not reordered.
 	**/

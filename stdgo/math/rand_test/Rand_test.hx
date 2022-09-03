@@ -230,7 +230,7 @@ function example_rand():Void {
 	try {
 		var _r = stdgo.math.rand.Rand.new_(stdgo.math.rand.Rand.newSource((99 : GoInt64)));
 		var _w = stdgo.text.tabwriter.Tabwriter.newWriter({
-			final __self__ = new stdgo.os.Os.File_wrapper(stdgo.os.Os.stdout);
+			final __self__ = new stdgo.os.Os.File_asInterface(stdgo.os.Os.stdout);
 			__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdout.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdout.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_i:GoInt, _j:GoInt):stdgo.Error return stdgo.os.Os.stdout.chown(_i, _j) #else null #end;
@@ -301,7 +301,7 @@ function example_rand():Void {
 		var _show:(GoString, AnyInterface, AnyInterface,
 			AnyInterface) -> Void = function(_name:GoString, _v1:AnyInterface, _v2:AnyInterface, _v3:AnyInterface):Void {
 				stdgo.fmt.Fmt.fprintf({
-					final __self__ = new stdgo.text.tabwriter.Tabwriter.Writer_wrapper(_w);
+					final __self__ = new stdgo.text.tabwriter.Tabwriter.Writer_asInterface(_w);
 					__self__.flush = #if !macro function():stdgo.Error return _w.flush() #else null #end;
 					__self__.init = #if !macro function(_output:stdgo.io.Io.Writer, _minwidth:GoInt, _tabwidth:GoInt, _padding:GoInt, _padchar:GoUInt8,
 							_flags:GoUInt):Ref<stdgo.text.tabwriter.Tabwriter.Writer> return _w.init(_output, _minwidth, _tabwidth, _padding, _padchar,
@@ -895,7 +895,7 @@ function testReadByOneByte(_t:stdgo.testing.Testing.T):Void {
 	var _r = new_(newSource((1 : GoInt64)));
 	var _b1 = new Slice<GoUInt8>((100 : GoInt).toBasic(), 0, ...[for (i in 0...(100 : GoInt).toBasic()) (0 : GoUInt8)]);
 	var __tmp__ = stdgo.io.Io.readFull(stdgo.testing.iotest.Iotest.oneByteReader({
-		final __self__ = new Rand_wrapper(_r);
+		final __self__ = new Rand_asInterface(_r);
 		__self__.expFloat64 = #if !macro function():GoFloat64 return _r.expFloat64() #else null #end;
 		__self__.float32 = #if !macro function():GoFloat32 return _r.float32() #else null #end;
 		__self__.float64 = #if !macro function():GoFloat64 return _r.float64() #else null #end;
@@ -1368,7 +1368,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 	}
 }
 
-class T_statsResults_wrapper {
+class T_statsResults_asInterface {
 	/**
 		// checkSimilarDistribution returns success if the mean and stddev of the
 		// two statsResults are similar.

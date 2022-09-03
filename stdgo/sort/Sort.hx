@@ -298,7 +298,7 @@ function _nextPowerOfTwo(_length:GoInt):GoUInt {
 **/
 function reverse(_data:Interface):Interface {
 	return {
-		final __self__ = new T_reverse_wrapper((new T_reverse(_data) : T_reverse));
+		final __self__ = new T_reverse_asInterface((new T_reverse(_data) : T_reverse));
 		__self__.len = #if !macro function():GoInt return (new T_reverse(_data) : T_reverse).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (new T_reverse(_data) : T_reverse).less(_i_, _j_) #else null #end;
 		__self__.swap = #if !macro function(_i__:GoInt, _j__:GoInt):Void(new T_reverse(_data):T_reverse).swap(_i__, _j__) #else null #end;
@@ -334,7 +334,7 @@ function _isNaN(_f:GoFloat64):Bool {
 **/
 function ints(_x:Slice<GoInt>):Void {
 	sort({
-		final __self__ = new IntSlice_wrapper((_x : IntSlice));
+		final __self__ = new IntSlice_asInterface((_x : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_x : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : IntSlice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_x : IntSlice).search(__0) #else null #end;
@@ -350,7 +350,7 @@ function ints(_x:Slice<GoInt>):Void {
 **/
 function float64s(_x:Slice<GoFloat64>):Void {
 	sort({
-		final __self__ = new Float64Slice_wrapper((_x : Float64Slice));
+		final __self__ = new Float64Slice_asInterface((_x : Float64Slice));
 		__self__.len = #if !macro function():GoInt return (_x : Float64Slice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : Float64Slice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(_x_:GoFloat64):GoInt return (_x : Float64Slice).search(_x_) #else null #end;
@@ -365,7 +365,7 @@ function float64s(_x:Slice<GoFloat64>):Void {
 **/
 function strings(_x:Slice<GoString>):Void {
 	sort({
-		final __self__ = new StringSlice_wrapper((_x : StringSlice));
+		final __self__ = new StringSlice_asInterface((_x : StringSlice));
 		__self__.len = #if !macro function():GoInt return (_x : StringSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : StringSlice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(_x_:GoString):GoInt return (_x : StringSlice).search(_x_) #else null #end;
@@ -380,7 +380,7 @@ function strings(_x:Slice<GoString>):Void {
 **/
 function intsAreSorted(_x:Slice<GoInt>):Bool {
 	return isSorted({
-		final __self__ = new IntSlice_wrapper((_x : IntSlice));
+		final __self__ = new IntSlice_asInterface((_x : IntSlice));
 		__self__.len = #if !macro function():GoInt return (_x : IntSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : IntSlice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(__0:GoInt):GoInt return (_x : IntSlice).search(__0) #else null #end;
@@ -396,7 +396,7 @@ function intsAreSorted(_x:Slice<GoInt>):Bool {
 **/
 function float64sAreSorted(_x:Slice<GoFloat64>):Bool {
 	return isSorted({
-		final __self__ = new Float64Slice_wrapper((_x : Float64Slice));
+		final __self__ = new Float64Slice_asInterface((_x : Float64Slice));
 		__self__.len = #if !macro function():GoInt return (_x : Float64Slice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : Float64Slice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(_x_:GoFloat64):GoInt return (_x : Float64Slice).search(_x_) #else null #end;
@@ -411,7 +411,7 @@ function float64sAreSorted(_x:Slice<GoFloat64>):Bool {
 **/
 function stringsAreSorted(_x:Slice<GoString>):Bool {
 	return isSorted({
-		final __self__ = new StringSlice_wrapper((_x : StringSlice));
+		final __self__ = new StringSlice_asInterface((_x : StringSlice));
 		__self__.len = #if !macro function():GoInt return (_x : StringSlice).len() #else null #end;
 		__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return (_x : StringSlice).less(_i_, _j_) #else null #end;
 		__self__.search = #if !macro function(_x_:GoString):GoInt return (_x : StringSlice).search(_x_) #else null #end;
@@ -1430,7 +1430,7 @@ function _rotate(_data:Interface, _a:GoInt, _m:GoInt, _b:GoInt):Void {
 		return __self__.len();
 }
 
-class T_reverse_wrapper {
+class T_reverse_asInterface {
 	/**
 		// Less returns the opposite of the embedded implementation's Less method.
 	**/
@@ -1462,7 +1462,7 @@ class T_reverse_wrapper {
 	}
 }
 
-class T_xorshift_wrapper {
+class T_xorshift_asInterface {
 	@:keep
 	@:pointer
 	public var next:() -> GoUInt64 = null;
@@ -1483,7 +1483,7 @@ class T_xorshift_wrapper {
 	@:keep
 	static public function sort(_x:IntSlice):Void {
 		stdgo.sort.Sort.sort({
-			final __self__ = new IntSlice_wrapper(_x);
+			final __self__ = new IntSlice_asInterface(_x);
 			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
 			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
 			__self__.search = #if !macro function(__0:GoInt):GoInt return _x.search(__0) #else null #end;
@@ -1522,7 +1522,7 @@ class T_xorshift_wrapper {
 	}
 }
 
-class IntSlice_wrapper {
+class IntSlice_asInterface {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1558,7 +1558,7 @@ class IntSlice_wrapper {
 	@:keep
 	static public function sort(_x:Float64Slice):Void {
 		stdgo.sort.Sort.sort({
-			final __self__ = new Float64Slice_wrapper(_x);
+			final __self__ = new Float64Slice_asInterface(_x);
 			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
 			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
 			__self__.search = #if !macro function(_x_:GoFloat64):GoInt return _x.search(_x_) #else null #end;
@@ -1605,7 +1605,7 @@ class IntSlice_wrapper {
 	}
 }
 
-class Float64Slice_wrapper {
+class Float64Slice_asInterface {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/
@@ -1651,7 +1651,7 @@ class Float64Slice_wrapper {
 	@:keep
 	static public function sort(_x:StringSlice):Void {
 		stdgo.sort.Sort.sort({
-			final __self__ = new StringSlice_wrapper(_x);
+			final __self__ = new StringSlice_asInterface(_x);
 			__self__.len = #if !macro function():GoInt return _x.len() #else null #end;
 			__self__.less = #if !macro function(_i_:GoInt, _j_:GoInt):Bool return _x.less(_i_, _j_) #else null #end;
 			__self__.search = #if !macro function(_x_:GoString):GoInt return _x.search(_x_) #else null #end;
@@ -1690,7 +1690,7 @@ class Float64Slice_wrapper {
 	}
 }
 
-class StringSlice_wrapper {
+class StringSlice_asInterface {
 	/**
 		// Sort is a convenience method: x.Sort() calls Sort(x).
 	**/

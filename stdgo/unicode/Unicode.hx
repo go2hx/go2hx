@@ -7978,7 +7978,7 @@ function simpleFold(_r:GoRune):GoRune {
 	}
 }
 
-class SpecialCase_wrapper {
+class SpecialCase_asInterface {
 	/**
 		// ToLower maps the rune to lower case giving priority to the special mapping.
 	**/

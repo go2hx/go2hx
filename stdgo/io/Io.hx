@@ -20,7 +20,7 @@ var _errWhence:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid whe
 var _errOffset:stdgo.Error = stdgo.errors.Errors.new_((Go.str("Seek: invalid offset") : GoString));
 
 var discard:Writer = {
-	final __self__ = new T_discard_wrapper((new T_discard() : T_discard));
+	final __self__ = new T_discard_asInterface((new T_discard() : T_discard));
 	__self__.readFrom = #if !macro function(_r_:Reader):{var _0:GoInt64; var _1:stdgo.Error;}
 		return (new T_discard() : T_discard).readFrom(_r_) #else null #end;
 	__self__.write = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
@@ -44,7 +44,7 @@ final seekCurrent:GoUnTypedInt = (1 : GoUnTypedInt);
 final seekEnd:GoUnTypedInt = (2 : GoUnTypedInt);
 
 var _3:ReaderFrom = {
-	final __self__ = new T_discard_wrapper((new T_discard() : T_discard));
+	final __self__ = new T_discard_asInterface((new T_discard() : T_discard));
 	__self__.readFrom = #if !macro function(_r_:Reader):{var _0:GoInt64; var _1:stdgo.Error;}
 		return (new T_discard() : T_discard).readFrom(_r_) #else null #end;
 	__self__.write = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
@@ -55,7 +55,7 @@ var _3:ReaderFrom = {
 };
 
 var _4:WriterTo = {
-	final __self__ = new T_multiReader_wrapper((null : T_multiReader));
+	final __self__ = new T_multiReader_asInterface((null : T_multiReader));
 	__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 		return (null : T_multiReader).read(_p_) #else null #end;
 	__self__.writeTo = #if !macro function(_w_:Writer):{var _0:GoInt64; var _1:stdgo.Error;}
@@ -66,7 +66,7 @@ var _4:WriterTo = {
 };
 
 var _5:StringWriter = {
-	final __self__ = new T_multiWriter_wrapper((null : T_multiWriter));
+	final __self__ = new T_multiWriter_asInterface((null : T_multiWriter));
 	__self__.write = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 		return (null : T_multiWriter).write(_p_) #else null #end;
 	__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
@@ -655,7 +655,7 @@ function _copyBuffer(_dst:Writer, _src:Reader, _buf:Slice<GoByte>):{var _0:GoInt
 **/
 function limitReader(_r:Reader, _n:GoInt64):Reader {
 	return {
-		final __self__ = new LimitedReader_wrapper((new LimitedReader(_r, _n) : LimitedReader));
+		final __self__ = new LimitedReader_asInterface((new LimitedReader(_r, _n) : LimitedReader));
 		__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 			return (new LimitedReader(_r, _n) : LimitedReader).read(_p_) #else null #end;
 		__self__;
@@ -686,7 +686,7 @@ function newSectionReader(_r:ReaderAt, _off:GoInt64, _n:GoInt64):SectionReader {
 **/
 function teeReader(_r:Reader, _w:Writer):Reader {
 	return {
-		final __self__ = new T_teeReader_wrapper((new T_teeReader(_r, _w) : T_teeReader));
+		final __self__ = new T_teeReader_asInterface((new T_teeReader(_r, _w) : T_teeReader));
 		__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 			return (new T_teeReader(_r, _w) : T_teeReader).read(_p_) #else null #end;
 		__self__;
@@ -708,7 +708,7 @@ function nopCloser(_r:Reader):ReadCloser {
 		}, _0 = __tmp__.value, _ok = __tmp__.ok;
 		if (_ok) {
 			return {
-				final __self__ = new T_nopCloserWriterTo_wrapper((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo));
+				final __self__ = new T_nopCloserWriterTo_asInterface((new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo));
 				__self__.close = #if !macro function():stdgo.Error return (new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo).close() #else null #end;
 				__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 					return (new T_nopCloserWriterTo(_r) : T_nopCloserWriterTo).read(_p_) #else null #end;
@@ -719,7 +719,7 @@ function nopCloser(_r:Reader):ReadCloser {
 		};
 	};
 	return {
-		final __self__ = new T_nopCloser_wrapper((new T_nopCloser(_r) : T_nopCloser));
+		final __self__ = new T_nopCloser_asInterface((new T_nopCloser(_r) : T_nopCloser));
 		__self__.close = #if !macro function():stdgo.Error return (new T_nopCloser(_r) : T_nopCloser).close() #else null #end;
 		__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 			return (new T_nopCloser(_r) : T_nopCloser).read(_p_) #else null #end;
@@ -763,7 +763,7 @@ function multiReader(_readers:haxe.Rest<Reader>):Reader {
 	var _r = new Slice<Reader>((_readers.length : GoInt).toBasic(), 0, ...[for (i in 0...(_readers.length : GoInt).toBasic()) (null : Reader)]);
 	Go.copySlice(_r, _readers);
 	return {
-		final __self__ = new T_multiReader_wrapper((new T_multiReader(_r) : T_multiReader));
+		final __self__ = new T_multiReader_asInterface((new T_multiReader(_r) : T_multiReader));
 		__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 			return (new T_multiReader(_r) : T_multiReader).read(_p_) #else null #end;
 		__self__.writeTo = #if !macro function(_w_:Writer):{var _0:GoInt64; var _1:stdgo.Error;}
@@ -800,7 +800,7 @@ function multiWriter(_writers:haxe.Rest<Writer>):Writer {
 		};
 	};
 	return {
-		final __self__ = new T_multiWriter_wrapper((new T_multiWriter(_allWriters) : T_multiWriter));
+		final __self__ = new T_multiWriter_asInterface((new T_multiWriter(_allWriters) : T_multiWriter));
 		__self__.write = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 			return (new T_multiWriter(_allWriters) : T_multiWriter).write(_p_) #else null #end;
 		__self__.writeString = #if !macro function(__0:GoString):{var _0:GoInt; var _1:stdgo.Error;}
@@ -852,7 +852,7 @@ function pipe():{var _0:PipeReader; var _1:PipeWriter;} {
 	}
 }
 
-class LimitedReader_wrapper {
+class LimitedReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -940,7 +940,7 @@ class LimitedReader_wrapper {
 	}
 }
 
-class SectionReader_wrapper {
+class SectionReader_asInterface {
 	/**
 		// Size returns the size of the section in bytes.
 	**/
@@ -995,7 +995,7 @@ class SectionReader_wrapper {
 	}
 }
 
-class T_teeReader_wrapper {
+class T_teeReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1045,7 +1045,7 @@ class T_teeReader_wrapper {
 	}
 }
 
-class T_discard_wrapper {
+class T_discard_asInterface {
 	@:keep
 	public var readFrom:Reader -> {
 		var _0:GoInt64;
@@ -1082,7 +1082,7 @@ class T_discard_wrapper {
 		return __self__.read(_p_);
 }
 
-class T_nopCloser_wrapper {
+class T_nopCloser_asInterface {
 	@:keep
 	public var close:() -> Error = null;
 	@:embedded
@@ -1117,7 +1117,7 @@ class T_nopCloser_wrapper {
 		return __self__.read(_p_);
 }
 
-class T_nopCloserWriterTo_wrapper {
+class T_nopCloserWriterTo_asInterface {
 	@:keep
 	public var writeTo:Writer -> {
 		var _0:GoInt64;
@@ -1147,7 +1147,7 @@ class T_nopCloserWriterTo_wrapper {
 	}
 }
 
-class T_eofReader_wrapper {
+class T_eofReader_asInterface {
 	@:keep
 	public var read:Slice<GoByte> -> {
 		var _0:GoInt;
@@ -1230,7 +1230,7 @@ class T_eofReader_wrapper {
 			};
 			if (_err == eof) {
 				_mr._readers[(0 : GoInt)] = {
-					final __self__ = new T_eofReader_wrapper((new T_eofReader() : T_eofReader));
+					final __self__ = new T_eofReader_asInterface((new T_eofReader() : T_eofReader));
 					__self__.read = #if !macro function(_p_:Slice<GoUInt8>):{var _0:GoInt; var _1:stdgo.Error;}
 						return (new T_eofReader() : T_eofReader).read(_p_) #else null #end;
 					__self__;
@@ -1248,7 +1248,7 @@ class T_eofReader_wrapper {
 	}
 }
 
-class T_multiReader_wrapper {
+class T_multiReader_asInterface {
 	@:keep
 	public var _writeToWithBuffer:(Writer, Slice<GoByte>) -> {
 		var _0:GoInt64;
@@ -1335,7 +1335,7 @@ class T_multiReader_wrapper {
 	}
 }
 
-class T_multiWriter_wrapper {
+class T_multiWriter_asInterface {
 	@:keep
 	public var writeString:GoString -> {
 		var _0:GoInt;
@@ -1455,7 +1455,7 @@ class T_multiWriter_wrapper {
 		__self__.lock();
 }
 
-class T_onceError_wrapper {
+class T_onceError_asInterface {
 	@:keep
 	public var load:() -> Error = null;
 	@:keep
@@ -1627,7 +1627,7 @@ class T_onceError_wrapper {
 	}
 }
 
-class T_pipe_wrapper {
+class T_pipe_asInterface {
 	/**
 		// writeCloseError is considered internal to the pipe type.
 	**/
@@ -1700,7 +1700,7 @@ class T_pipe_wrapper {
 	}
 }
 
-class PipeReader_wrapper {
+class PipeReader_asInterface {
 	/**
 		// CloseWithError closes the reader; subsequent writes
 		// to the write half of the pipe will return the error err.
@@ -1777,7 +1777,7 @@ class PipeReader_wrapper {
 	}
 }
 
-class PipeWriter_wrapper {
+class PipeWriter_asInterface {
 	/**
 		// CloseWithError closes the writer; subsequent reads from the
 		// read half of the pipe will return no bytes and the error err,

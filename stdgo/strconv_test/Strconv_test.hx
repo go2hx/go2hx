@@ -2841,7 +2841,7 @@ function testParseComplex(_t:stdgo.testing.Testing.T):Void {
 		var _test = _tests[_i];
 		if (_test._err != null) {
 			_test._err = {
-				final __self__ = new NumError_wrapper(({func: (Go.str("ParseComplex") : GoString), num: _test._in, err: _test._err} : NumError));
+				final __self__ = new NumError_asInterface(({func: (Go.str("ParseComplex") : GoString), num: _test._in, err: _test._err} : NumError));
 				__self__.error = #if !macro function():GoString return ({func: (Go.str("ParseComplex") : GoString), num: _test._in,
 					err: _test._err} : NumError).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return ({func: (Go.str("ParseComplex") : GoString), num: _test._in,
@@ -2907,7 +2907,7 @@ function _initAtofOnce():Void {
 		var _test = _atoftests[_i];
 		if (_test._err != null) {
 			_test._err = {
-				final __self__ = new NumError_wrapper((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
+				final __self__ = new NumError_asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
 				__self__.error = #if !macro function():GoString return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
 					_test._err) : NumError).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
@@ -2920,7 +2920,7 @@ function _initAtofOnce():Void {
 		var _test = _atof32tests[_i];
 		if (_test._err != null) {
 			_test._err = {
-				final __self__ = new NumError_wrapper((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
+				final __self__ = new NumError_asInterface((new NumError((Go.str("ParseFloat") : GoString), _test._in, _test._err) : NumError));
 				__self__.error = #if !macro function():GoString return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
 					_test._err) : NumError).error() #else null #end;
 				__self__.unwrap = #if !macro function():stdgo.Error return (new NumError((Go.str("ParseFloat") : GoString), _test._in,
@@ -3419,7 +3419,7 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 			var _testErr:Error = (null : stdgo.Error);
 			if (_test._err != null) {
 				_testErr = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("Atoi") : GoString), _test._in,
+					final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
 						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
 					__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _test._in,
 						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).error() #else null #end;
@@ -3442,7 +3442,7 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 			var _testErr:Error = (null : stdgo.Error);
 			if (_test._err != null) {
 				_testErr = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("Atoi") : GoString), _test._in,
+					final __self__ = new NumError_asInterface((new NumError((Go.str("Atoi") : GoString), _test._in,
 						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError));
 					__self__.error = #if !macro function():GoString return (new NumError((Go.str("Atoi") : GoString), _test._in,
 						((_test._err.__underlying__().value : Dynamic) : NumError).err) : NumError).error() #else null #end;
@@ -3461,7 +3461,7 @@ function testAtoi(_t:stdgo.testing.Testing.T):Void {
 
 function _bitSizeErrStub(_name:GoString, _bitSize:GoInt):Error {
 	return {
-		final __self__ = new NumError_wrapper(bitSizeError(_name, (Go.str("0") : GoString), _bitSize));
+		final __self__ = new NumError_asInterface(bitSizeError(_name, (Go.str("0") : GoString), _bitSize));
 		__self__.error = #if !macro function():GoString return bitSizeError(_name, (Go.str("0") : GoString), _bitSize).error() #else null #end;
 		__self__.unwrap = #if !macro function():stdgo.Error return bitSizeError(_name, (Go.str("0") : GoString), _bitSize).unwrap() #else null #end;
 		__self__;
@@ -3470,7 +3470,7 @@ function _bitSizeErrStub(_name:GoString, _bitSize:GoInt):Error {
 
 function _baseErrStub(_name:GoString, _base:GoInt):Error {
 	return {
-		final __self__ = new NumError_wrapper(baseError(_name, (Go.str("0") : GoString), _base));
+		final __self__ = new NumError_asInterface(baseError(_name, (Go.str("0") : GoString), _base));
 		__self__.error = #if !macro function():GoString return baseError(_name, (Go.str("0") : GoString), _base).error() #else null #end;
 		__self__.unwrap = #if !macro function():stdgo.Error return baseError(_name, (Go.str("0") : GoString), _base).unwrap() #else null #end;
 		__self__;
@@ -3563,7 +3563,7 @@ function testNumError(_t:stdgo.testing.Testing.T):Void {
 function testNumErrorUnwrap(_t:stdgo.testing.Testing.T):Void {
 	var _err = ({err: errSyntax} : NumError);
 	if (!stdgo.errors.Errors.is_({
-		final __self__ = new NumError_wrapper(_err);
+		final __self__ = new NumError_asInterface(_err);
 		__self__.error = #if !macro function():GoString return _err.error() #else null #end;
 		__self__.unwrap = #if !macro function():stdgo.Error return _err.unwrap() #else null #end;
 		__self__;
@@ -4307,7 +4307,7 @@ function testFp(_t:stdgo.testing.Testing.T):Void {
 		};
 		__deferstack__.unshift(() -> _f.close());
 		var _s = stdgo.bufio.Bufio.newScanner({
-			final __self__ = new stdgo.os.Os.File_wrapper(_f);
+			final __self__ = new stdgo.os.Os.File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_a:GoInt, _b:GoInt):stdgo.Error return _f.chown(_a, _b) #else null #end;
@@ -5139,7 +5139,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseUint64Tests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;
@@ -5150,7 +5150,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseUint64BaseTests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;
@@ -5161,7 +5161,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseInt64Tests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;
@@ -5172,7 +5172,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseInt64BaseTests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;
@@ -5183,7 +5183,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseUint32Tests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseUint") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;
@@ -5194,7 +5194,7 @@ function testErrorPrefixes(_t:stdgo.testing.Testing.T):Void {
 			var _test = _parseInt32Tests[_i];
 			if (_test._err != null) {
 				_test._err = {
-					final __self__ = new NumError_wrapper((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
+					final __self__ = new NumError_asInterface((new NumError((Go.str("ParseInt") : GoString), _test._in, _test._err) : NumError));
 					__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 					__self__.unwrap = #if !macro function():stdgo.Error throw "__return__" #else null #end;
 					__self__;

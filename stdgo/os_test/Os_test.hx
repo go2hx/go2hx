@@ -698,7 +698,7 @@ function testErrPathNUL(_t:stdgo.testing.Testing.T):Void {
 function testPathErrorUnwrap(_t:stdgo.testing.Testing.T):Void {
 	var _pe = ({err: stdgo.io.fs.Fs.errInvalid} : stdgo.io.fs.Fs.PathError);
 	if (!stdgo.errors.Errors.is_({
-		final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(_pe);
+		final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(_pe);
 		__self__.error = #if !macro function():GoString return _pe.error() #else null #end;
 		__self__.timeout = #if !macro function():Bool return _pe.timeout() #else null #end;
 		__self__.unwrap = #if !macro function():stdgo.Error return _pe.unwrap() #else null #end;
@@ -710,7 +710,7 @@ function testPathErrorUnwrap(_t:stdgo.testing.Testing.T):Void {
 
 function testErrorIsMethods(_t:stdgo.testing.Testing.T):Void {
 	if (stdgo.os.Os.isPermission({
-		final __self__ = new stdgo.os_test.Os_test.T_myErrorIs_wrapper((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs));
+		final __self__ = new stdgo.os_test.Os_test.T_myErrorIs_asInterface((new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs));
 		__self__.error = #if !macro function():GoString return
 			(new stdgo.os_test.Os_test.T_myErrorIs(stdgo.io.fs.Fs.errPermission) : stdgo.os_test.Os_test.T_myErrorIs).error() #else null #end;
 		__self__.is_ = #if !macro function(__0:stdgo.Error):Bool return
@@ -797,7 +797,7 @@ function exampleFileMode():Void {
 		stdgo.log.Log.fatal(Go.toInterface(_err));
 	};
 	stdgo.fmt.Fmt.printf((Go.str("permissions: %#o\n") : GoString), Go.toInterface({
-		final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode().perm());
+		final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode().perm());
 		__self__.isDir = #if !macro function():Bool return _fi.mode().perm().isDir() #else null #end;
 		__self__.isRegular = #if !macro function():Bool return _fi.mode().perm().isRegular() #else null #end;
 		__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm().perm() #else null #end;
@@ -1164,7 +1164,7 @@ function exampleMkdirAll():Void {
 
 function testExecutable(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -1255,7 +1255,7 @@ function _sameFile(_fn1:GoString, _fn2:GoString):Bool {
 
 function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -1307,7 +1307,7 @@ function testExecutableDeleted(_t:stdgo.testing.Testing.T):Void {
 		_t.fatal(Go.toInterface(_err));
 	};
 	var __tmp__ = stdgo.os.exec.Exec.command(stdgo.internal.testenv.Testenv.goToolPath({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -1365,7 +1365,7 @@ function testMain(_m:stdgo.testing.Testing.M):Void {
 	if (getenv((Go.str("GO_OS_TEST_DRAIN_STDIN") : GoString)) == (Go.str("1") : GoString)) {
 		stdgo.os.Os.stdout.close();
 		stdgo.io.Io.copy(stdgo.io.Io.discard, {
-			final __self__ = new File_wrapper(stdgo.os.Os.stdin);
+			final __self__ = new File_asInterface(stdgo.os.Os.stdin);
 			__self__.chdir = #if !macro function():stdgo.Error return stdgo.os.Os.stdin.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stdgo.os.Os.stdin.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stdgo.os.Os.stdin.chown(_uid, _gid) #else null #end;
@@ -1459,7 +1459,7 @@ function _size(_name:GoString, _t:stdgo.testing.Testing.T):GoInt64 {
 			a();
 		});
 		var __tmp__ = stdgo.io.Io.copy(stdgo.io.Io.discard, {
-			final __self__ = new File_wrapper(_file);
+			final __self__ = new File_asInterface(_file);
 			__self__.chdir = #if !macro function():stdgo.Error return _file.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _file.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _file.chown(_uid, _gid) #else null #end;
@@ -1644,7 +1644,7 @@ function testStatError(_t:stdgo.testing.Testing.T):Void {
 			};
 		};
 		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -1735,7 +1735,7 @@ function testStatSymlinkLoop(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -2146,7 +2146,7 @@ function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing
 				};
 				if (_n.type() != _lstat.mode().type()) {
 					_t.errorf((Go.str("%s: IsDir=%v, want %v") : GoString), Go.toInterface(_m), Go.toInterface({
-						final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_n.type());
+						final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_n.type());
 						__self__.isDir = #if !macro function():Bool return _n.type().isDir() #else null #end;
 						__self__.isRegular = #if !macro function():Bool return _n.type().isRegular() #else null #end;
 						__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _n.type().perm() #else null #end;
@@ -2154,7 +2154,7 @@ function _testReadDir(_dir:GoString, _contents:Slice<GoString>, _t:stdgo.testing
 						__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _n.type().type() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_lstat.mode().type());
+						final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_lstat.mode().type());
 						__self__.isDir = #if !macro function():Bool return _lstat.mode().type().isDir() #else null #end;
 						__self__.isRegular = #if !macro function():Bool return _lstat.mode().type().isRegular() #else null #end;
 						__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _lstat.mode().type().perm() #else null #end;
@@ -2763,7 +2763,7 @@ function testHardLink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveLink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -2935,7 +2935,7 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -2998,7 +2998,7 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 		};
 		if ((_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {
 			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_to), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
 				__self__.isDir = #if !macro function():Bool return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _tostat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
@@ -3028,7 +3028,7 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 		};
 		if ((_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
 			_t.fatalf((Go.str("Lstat(%q).Mode()&ModeSymlink = 0, want %v") : GoString), Go.toInterface(_from), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper((134217728 : stdgo.io.fs.Fs.FileMode));
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface((134217728 : stdgo.io.fs.Fs.FileMode));
 				__self__.isDir = #if !macro function():Bool return (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return (134217728 : stdgo.io.fs.Fs.FileMode).perm() #else null #end;
@@ -3050,7 +3050,7 @@ function testSymlink(_t:stdgo.testing.Testing.T):Void {
 		};
 		if ((_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {
 			_t.fatalf((Go.str("Stat(%q).Mode()&ModeSymlink = %v, want 0") : GoString), Go.toInterface(_from), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode));
 				__self__.isDir = #if !macro function():Bool return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fromstat.mode() & (134217728 : stdgo.io.fs.Fs.FileMode)
@@ -3108,7 +3108,7 @@ function testLongSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -3569,7 +3569,7 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 		stdgo.io.Io.copy({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_b);
+			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
 			__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
 			__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
 			__self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
@@ -3609,7 +3609,7 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 				return _b._tryGrowByReslice(_n) #else null #end;
 			__self__;
 		}, {
-			final __self__ = new File_wrapper(_r);
+			final __self__ = new File_asInterface(_r);
 			__self__.chdir = #if !macro function():stdgo.Error return _r.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _r.chown(_uid, _gid) #else null #end;
@@ -3713,7 +3713,7 @@ function _exec(_t:stdgo.testing.Testing.T, _dir:GoString, _cmd:GoString, _args:S
 
 function testStartProcess(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -3785,7 +3785,7 @@ function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):
 		_err:stdgo.Error = __tmp__._1;
 	if (_err != null) {
 		_t.fatalf((Go.str("Stat %q (looking for mode %#o): %s") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_mode);
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
 			__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
@@ -3796,7 +3796,7 @@ function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):
 	};
 	if ((_dir.mode() & (511 : stdgo.io.fs.Fs.FileMode)) != _mode) {
 		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_dir.mode());
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_dir.mode());
 			__self__.isDir = #if !macro function():Bool return _dir.mode().isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _dir.mode().isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode().perm() #else null #end;
@@ -3804,7 +3804,7 @@ function _checkMode(_t:stdgo.testing.Testing.T, _path:GoString, _mode:FileMode):
 			__self__.type = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode().type() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_mode);
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
 			__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
@@ -3833,7 +3833,7 @@ function testChmod(_t:stdgo.testing.Testing.T):Void {
 			var _err:stdgo.Error = chmod(_f.name(), _fm);
 			if (_err != null) {
 				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fm);
+					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fm);
 					__self__.isDir = #if !macro function():Bool return _fm.isDir() #else null #end;
 					__self__.isRegular = #if !macro function():Bool return _fm.isRegular() #else null #end;
 					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.perm() #else null #end;
@@ -3852,7 +3852,7 @@ function testChmod(_t:stdgo.testing.Testing.T):Void {
 			var _err:stdgo.Error = _f.chmod(_fm);
 			if (_err != null) {
 				_t.fatalf((Go.str("chmod %s %#o: %s") : GoString), Go.toInterface(_f.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fm);
+					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fm);
 					__self__.isDir = #if !macro function():Bool return _fm.isDir() #else null #end;
 					__self__.isRegular = #if !macro function():Bool return _fm.isRegular() #else null #end;
 					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fm.perm() #else null #end;
@@ -4116,7 +4116,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 			} else {
 				_t.logf((Go.str("AccessTime didn\'t go backwards; was=%v, after=%v (Ignoring on NetBSD, assuming noatime, Issue 19293)") : GoString),
 					Go.toInterface({
-						final __self__ = new stdgo.time.Time.Time_wrapper(_at);
+						final __self__ = new stdgo.time.Time.Time_asInterface(_at);
 						__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):stdgo.time.Time.Time return _at.addDate(_years, _months, _days) #else null #end;
@@ -4192,7 +4192,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 						__self__._unixSec = #if !macro function():GoInt64 return _at._unixSec() #else null #end;
 						__self__;
 					}), Go.toInterface({
-						final __self__ = new stdgo.time.Time.Time_wrapper(_pat);
+						final __self__ = new stdgo.time.Time.Time_asInterface(_pat);
 						__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.add(_d) #else null #end;
 						__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 								_days:GoInt):stdgo.time.Time.Time return _pat.addDate(_years, _months, _days) #else null #end;
@@ -4271,7 +4271,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 			};
 		} else {
 			_t.errorf((Go.str("AccessTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface({
-				final __self__ = new stdgo.time.Time.Time_wrapper(_at);
+				final __self__ = new stdgo.time.Time.Time_asInterface(_at);
 				__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _at.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):stdgo.time.Time.Time return _at.addDate(_years, _months, _days) #else null #end;
@@ -4347,7 +4347,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 				__self__._unixSec = #if !macro function():GoInt64 return _at._unixSec() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new stdgo.time.Time.Time_wrapper(_pat);
+				final __self__ = new stdgo.time.Time.Time_asInterface(_pat);
 				__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pat.add(_d) #else null #end;
 				__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 						_days:GoInt):stdgo.time.Time.Time return _pat.addDate(_years, _months, _days) #else null #end;
@@ -4427,7 +4427,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 	};
 	if (!_pmt.before((_mt == null ? null : _mt.__copy__()))) {
 		_t.errorf((Go.str("ModTime didn\'t go backwards; was=%v, after=%v") : GoString), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Time_wrapper(_mt);
+			final __self__ = new stdgo.time.Time.Time_asInterface(_mt);
 			__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _mt.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 					_days:GoInt):stdgo.time.Time.Time return _mt.addDate(_years, _months, _days) #else null #end;
@@ -4503,7 +4503,7 @@ function _testChtimes(_t:stdgo.testing.Testing.T, _name:GoString):Void {
 			__self__._unixSec = #if !macro function():GoInt64 return _mt._unixSec() #else null #end;
 			__self__;
 		}), Go.toInterface({
-			final __self__ = new stdgo.time.Time.Time_wrapper(_pmt);
+			final __self__ = new stdgo.time.Time.Time_asInterface(_pmt);
 			__self__.add = #if !macro function(_d:stdgo.time.Time.Duration):stdgo.time.Time.Time return _pmt.add(_d) #else null #end;
 			__self__.addDate = #if !macro function(_years:GoInt, _months:GoInt,
 					_days:GoInt):stdgo.time.Time.Time return _pmt.addDate(_years, _months, _days) #else null #end;
@@ -4714,7 +4714,7 @@ function testChdirAndGetwd(_t:stdgo.testing.Testing.T):Void {
 				var _err2:stdgo.Error = _fd.chdir();
 				if (_err2 != null) {
 					stdgo.fmt.Fmt.fprintf({
-						final __self__ = new File_wrapper(stderr);
+						final __self__ = new File_asInterface(stderr);
 						__self__.chdir = #if !macro function():stdgo.Error return stderr.chdir() #else null #end;
 						__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return stderr.chmod(_mode) #else null #end;
 						__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return stderr.chown(_uid, _gid) #else null #end;
@@ -4952,7 +4952,7 @@ function testSeek(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
 		stdgo.io.Io.writeString({
-			final __self__ = new File_wrapper(_f);
+			final __self__ = new File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -5221,7 +5221,7 @@ function _runBinHostname(_t:stdgo.testing.Testing.T):GoString {
 		_w.close();
 		var _b:stdgo.bytes.Bytes.Buffer = ({} : stdgo.bytes.Bytes.Buffer);
 		stdgo.io.Io.copy({
-			final __self__ = new stdgo.bytes.Bytes.Buffer_wrapper(_b);
+			final __self__ = new stdgo.bytes.Bytes.Buffer_asInterface(_b);
 			__self__.bytes = #if !macro function():Slice<GoUInt8> return _b.bytes() #else null #end;
 			__self__.cap = #if !macro function():GoInt return _b.cap() #else null #end;
 			__self__.grow = #if !macro function(_n:GoInt):Void _b.grow(_n) #else null #end;
@@ -5261,7 +5261,7 @@ function _runBinHostname(_t:stdgo.testing.Testing.T):GoString {
 				return _b._tryGrowByReslice(_n) #else null #end;
 			__self__;
 		}, {
-			final __self__ = new File_wrapper(_r);
+			final __self__ = new File_asInterface(_r);
 			__self__.chdir = #if !macro function():stdgo.Error return _r.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _r.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _r.chown(_uid, _gid) #else null #end;
@@ -5410,7 +5410,7 @@ function testHostname(_t:stdgo.testing.Testing.T):Void {
 		return;
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -5470,7 +5470,7 @@ function testReadAt(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
 		stdgo.io.Io.writeString({
-			final __self__ = new File_wrapper(_f);
+			final __self__ = new File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -5586,7 +5586,7 @@ function testReadAtOffset(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
 		stdgo.io.Io.writeString({
-			final __self__ = new File_wrapper(_f);
+			final __self__ = new File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -5711,7 +5711,7 @@ function testReadAtNegativeOffset(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
 		stdgo.io.Io.writeString({
-			final __self__ = new File_wrapper(_f);
+			final __self__ = new File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -5821,7 +5821,7 @@ function testWriteAt(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _f.close());
 		var _data:GoString = (Go.str("hello, world\n") : GoString);
 		stdgo.io.Io.writeString({
-			final __self__ = new File_wrapper(_f);
+			final __self__ = new File_asInterface(_f);
 			__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 			__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 			__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -6024,7 +6024,7 @@ function _writeFile(_t:stdgo.testing.Testing.T, _fname:GoString, _flag:GoInt, _t
 		_t.fatalf((Go.str("Open: %v") : GoString), Go.toInterface(_err));
 	};
 	var __tmp__ = stdgo.io.Io.writeString({
-		final __self__ = new File_wrapper(_f);
+		final __self__ = new File_asInterface(_f);
 		__self__.chdir = #if !macro function():stdgo.Error return _f.chdir() #else null #end;
 		__self__.chmod = #if !macro function(_mode:stdgo.io.fs.Fs.FileMode):stdgo.Error return _f.chmod(_mode) #else null #end;
 		__self__.chown = #if !macro function(_uid:GoInt, _gid:GoInt):stdgo.Error return _f.chown(_uid, _gid) #else null #end;
@@ -6272,7 +6272,7 @@ function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _d
 	};
 	if ((_fi.mode() & (67108864 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
 		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeDevice is not set") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -6283,7 +6283,7 @@ function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _d
 	};
 	if ((_fi.mode() & (2097152 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
 		_t.errorf(_pre + (Go.str("wrong file mode %q: ModeCharDevice is not set") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -6294,7 +6294,7 @@ function _testDevNullFileInfo(_t:stdgo.testing.Testing.T, _statname:GoString, _d
 	};
 	if (_fi.mode().isRegular()) {
 		_t.errorf(_pre + (Go.str("wrong file mode %q: IsRegular returns true") : GoString), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -6408,7 +6408,7 @@ function testStatDirModeExec(_t:stdgo.testing.Testing.T):Void {
 	};
 	if ((_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode)) != (73 : stdgo.io.fs.Fs.FileMode)) {
 		_t.errorf((Go.str("Stat %q: mode %#o want %#o") : GoString), Go.toInterface(_path), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode));
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_dir.mode() & (73 : stdgo.io.fs.Fs.FileMode));
 			__self__.isDir = #if !macro function():Bool return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _dir.mode() & (73 : stdgo.io.fs.Fs.FileMode).perm() #else null #end;
@@ -6424,7 +6424,7 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 		_t.skipf((Go.str("%s doesn\'t have /bin/sh") : GoString), Go.toInterface((Go.str("js") : GoString)));
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -6482,7 +6482,7 @@ function testStatStdin(_t:stdgo.testing.Testing.T):Void {
 			&& ((_mode & (67108864 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode))) {} else
 			if ((_mode & (33554432 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode)) {} else {
 			_t.fatalf((Go.str("unexpected Stdin mode (%v), want ModeCharDevice or ModeNamedPipe") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_mode);
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
 				__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
@@ -6517,7 +6517,7 @@ function testStatRelativeSymlink(_t:stdgo.testing.Testing.T):Void {
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveSymlink({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -6796,7 +6796,7 @@ function _testKillProcess(_t:stdgo.testing.Testing.T, _processKiller:(_p:Process
 	var __deferstack__:Array<Void->Void> = [];
 	try {
 		stdgo.internal.testenv.Testenv.mustHaveExec({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -6903,7 +6903,7 @@ function testGetppid(_t:stdgo.testing.Testing.T):Void {
 		_t.skipf((Go.str("skipping test on plan9; see issue 8206") : GoString));
 	};
 	stdgo.internal.testenv.Testenv.mustHaveExec({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -7019,7 +7019,7 @@ function testRemoveAllRace(_t:stdgo.testing.Testing.T):Void {
 		};
 		if (false) {
 			stdgo.internal.testenv.Testenv.skipFlaky({
-				final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+				final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 				__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 				__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 					return _t.deadline() #else null #end;
@@ -7321,7 +7321,7 @@ function testUserHomeDir(_t:stdgo.testing.Testing.T):Void {
 	};
 	if (!_fi.isDir()) {
 		_t.fatalf((Go.str("dir %s is not directory; type = %v") : GoString), Go.toInterface(_dir), Go.toInterface({
-			final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+			final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 			__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 			__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 			__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -7335,7 +7335,7 @@ function testUserHomeDir(_t:stdgo.testing.Testing.T):Void {
 function testDirSeek(_t:stdgo.testing.Testing.T):Void {
 	if (false) {
 		stdgo.internal.testenv.Testenv.skipFlaky({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -7421,7 +7421,7 @@ function testDirSeek(_t:stdgo.testing.Testing.T):Void {
 function testReaddirSmallSeek(_t:stdgo.testing.Testing.T):Void {
 	if (false) {
 		stdgo.internal.testenv.Testenv.skipFlaky({
-			final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+			final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 			__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 			__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 				return _t.deadline() #else null #end;
@@ -7545,7 +7545,7 @@ function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void {
 			_t.error(Go.toInterface(_err));
 		} else if ((_fi.mode() & (146 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
 			_t.errorf((Go.str("f.Stat.Mode after OpenFile is %v, should be writable") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 				__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -7569,7 +7569,7 @@ function testOpenFileKeepsPermissions(_t:stdgo.testing.Testing.T):Void {
 			_t.error(Go.toInterface(_err));
 		} else if ((_fi.mode() & (146 : stdgo.io.fs.Fs.FileMode)) == (0 : stdgo.io.fs.Fs.FileMode)) {
 			_t.errorf((Go.str("Stat after OpenFile is %v, should be writable") : GoString), Go.toInterface({
-				final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+				final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 				__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 				__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 				__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -8035,7 +8035,7 @@ function testReaddirRemoveRace(_t:stdgo.testing.Testing.T):Void {
 			_t.errorf((Go.str("Readdir = %d entries: %v; want 0, io.EOF") : GoString), Go.toInterface((_fis.length)), Go.toInterface(_err));
 			for (_i => _fi in _fis) {
 				_t.errorf((Go.str("  entry[%d]: %q, %v") : GoString), Go.toInterface(_i), Go.toInterface(_fi.name()), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_fi.mode());
+					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_fi.mode());
 					__self__.isDir = #if !macro function():Bool return _fi.mode().isDir() #else null #end;
 					__self__.isRegular = #if !macro function():Bool return _fi.mode().isRegular() #else null #end;
 					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _fi.mode().perm() #else null #end;
@@ -8106,7 +8106,7 @@ function testMkdirStickyUmask(_t:stdgo.testing.Testing.T):Void {
 			if (((_mode & (63 : stdgo.io.fs.Fs.FileMode)) != (0 : stdgo.io.fs.Fs.FileMode))
 				|| ((_mode & ((511 : stdgo.io.fs.Fs.FileMode) ^ (-1 : GoUnTypedInt))) != ("2148532224" : stdgo.io.fs.Fs.FileMode))) {
 				_t.errorf((Go.str("unexpected mode %s") : GoString), Go.toInterface({
-					final __self__ = new stdgo.io.fs.Fs.FileMode_wrapper(_mode);
+					final __self__ = new stdgo.io.fs.Fs.FileMode_asInterface(_mode);
 					__self__.isDir = #if !macro function():Bool return _mode.isDir() #else null #end;
 					__self__.isRegular = #if !macro function():Bool return _mode.isRegular() #else null #end;
 					__self__.perm = #if !macro function():stdgo.io.fs.Fs.FileMode return _mode.perm() #else null #end;
@@ -8362,7 +8362,7 @@ function testMkdirAll(_t:stdgo.testing.Testing.T):Void {
 
 function testMkdirAllWithSymlink(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -9563,7 +9563,7 @@ function _testSymlinkSameFile(_t:stdgo.testing.Testing.T, _path:GoString, _link:
 
 function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -9630,7 +9630,7 @@ function testDirAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 
 function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -9700,7 +9700,7 @@ function testFileAndSymlinkStats(_t:stdgo.testing.Testing.T):Void {
 **/
 function testSymlinkWithTrailingSlash(_t:stdgo.testing.Testing.T):Void {
 	stdgo.internal.testenv.Testenv.mustHaveSymlink({
-		final __self__ = new stdgo.testing.Testing.T_wrapper(_t);
+		final __self__ = new stdgo.testing.Testing.T_asInterface(_t);
 		__self__.cleanup = #if !macro function(_f:() -> Void):Void _t.cleanup(_f) #else null #end;
 		__self__.deadline = #if !macro function():{var _0:stdgo.time.Time.Time; var _1:Bool;}
 			return _t.deadline() #else null #end;
@@ -10162,9 +10162,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 	try {
 		_isExistTests = (_isExistTests.__append__(({
 			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(({
+				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10181,9 +10181,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_isnot: false
 		} : stdgo.os_test.Os_test.T_isExistTest), ({
 			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(({
+				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((39 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10200,9 +10200,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_isnot: false
 			} : stdgo.os_test.Os_test.T_isExistTest), ({
 			_err: {
-				final __self__ = new LinkError_wrapper(({
+				final __self__ = new LinkError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10218,9 +10218,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_isnot: false
 			} : stdgo.os_test.Os_test.T_isExistTest), ({
 			_err: {
-				final __self__ = new LinkError_wrapper(({
+				final __self__ = new LinkError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((39 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10236,9 +10236,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_isnot: false
 			} : stdgo.os_test.Os_test.T_isExistTest), ({
 			_err: {
-				final __self__ = new SyscallError_wrapper(({
+				final __self__ = new SyscallError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10255,9 +10255,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_isnot: false
 			} : stdgo.os_test.Os_test.T_isExistTest), ({
 			_err: {
-				final __self__ = new SyscallError_wrapper(({
+				final __self__ = new SyscallError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((39 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((39 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10275,9 +10275,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			} : stdgo.os_test.Os_test.T_isExistTest)));
 		_isPermissionTests = (_isPermissionTests.__append__(({
 			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(({
+				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((13 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10293,9 +10293,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 		} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(({
+				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((1 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10311,9 +10311,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new stdgo.io.fs.Fs.PathError_wrapper(({
+				final __self__ = new stdgo.io.fs.Fs.PathError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10329,9 +10329,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: false
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new LinkError_wrapper(({
+				final __self__ = new LinkError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((13 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10346,9 +10346,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new LinkError_wrapper(({
+				final __self__ = new LinkError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((1 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10363,9 +10363,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new LinkError_wrapper(({
+				final __self__ = new LinkError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10380,9 +10380,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: false
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new SyscallError_wrapper(({
+				final __self__ = new SyscallError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((13 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((13 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10398,9 +10398,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new SyscallError_wrapper(({
+				final __self__ = new SyscallError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((1 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((1 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10416,9 +10416,9 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 			_want: true
 			} : stdgo.os_test.Os_test.T_isPermissionTest), ({
 			_err: {
-				final __self__ = new SyscallError_wrapper(({
+				final __self__ = new SyscallError_asInterface(({
 					err: {
-						final __self__ = new stdgo.syscall.Syscall.Errno_wrapper((17 : stdgo.syscall.Syscall.Errno));
+						final __self__ = new stdgo.syscall.Syscall.Errno_asInterface((17 : stdgo.syscall.Syscall.Errno));
 						__self__.error = #if !macro function():GoString throw "__return__" #else null #end;
 						__self__.is_ = #if !macro function(__0:stdgo.Error):Bool throw "__return__" #else null #end;
 						__self__.temporary = #if !macro function():Bool throw "__return__" #else null #end;
@@ -10476,7 +10476,7 @@ function testMkdirTempBadPattern(_t:stdgo.testing.Testing.T):Void {
 		return __self__.error();
 }
 
-class T_myErrorIs_wrapper {
+class T_myErrorIs_asInterface {
 	@:keep
 	public var is_:Error->Bool = null;
 	@:embedded

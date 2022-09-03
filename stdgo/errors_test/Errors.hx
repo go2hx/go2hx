@@ -43,7 +43,7 @@ var _examples:Slice<stdgo.testing.Testing.InternalExample> = (new Slice<stdgo.te
 
 function main():Void {
 	var _m = stdgo.testing.Testing.mainStart({
-		final __self__ = new stdgo.testing.internal.testdeps.Testdeps.TestDeps_wrapper((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps));
+		final __self__ = new stdgo.testing.internal.testdeps.Testdeps.TestDeps_asInterface((new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps));
 		__self__.checkCorpus = #if !macro function(__0:Slice<AnyInterface>,
 				__1:Slice<stdgo.reflect.Reflect.Type>):stdgo.Error return
 				(new stdgo.testing.internal.testdeps.Testdeps.TestDeps() : stdgo.testing.internal.testdeps.Testdeps.TestDeps).checkCorpus(__0,

@@ -266,7 +266,7 @@ function testUndefined(_t:stdgo.testing.Testing.T):Void {
 	};
 	{
 		_dummys.set((Go.str("test") : GoString), Go.toInterface({
-			final __self__ = new Value_wrapper(stdgo.syscall.js.Js.undefined());
+			final __self__ = new Value_asInterface(stdgo.syscall.js.Js.undefined());
 			__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.undefined().bool() #else null #end;
 			__self__.call = #if !macro function(_m:GoString,
 					_args:Slice<AnyInterface>):Value return stdgo.syscall.js.Js.undefined().call(_m, _args) #else null #end;
@@ -313,7 +313,7 @@ function testNull(_t:stdgo.testing.Testing.T):Void {
 	};
 	{
 		_dummys.set((Go.str("test") : GoString), Go.toInterface({
-			final __self__ = new Value_wrapper(stdgo.syscall.js.Js.null_());
+			final __self__ = new Value_asInterface(stdgo.syscall.js.Js.null_());
 			__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.null_().bool() #else null #end;
 			__self__.call = #if !macro function(_m:GoString,
 					_args:Slice<AnyInterface>):Value return stdgo.syscall.js.Js.null_().call(_m, _args) #else null #end;
@@ -418,7 +418,7 @@ function testCall(_t:stdgo.testing.Testing.T):Void {
 	};
 	{
 		var _got:GoInt = _dummys.call((Go.str("add") : GoString), Go.toInterface({
-			final __self__ = new Value_wrapper(stdgo.syscall.js.Js.global().call((Go.str("eval") : GoString), Go.toInterface((Go.str("40") : GoString))));
+			final __self__ = new Value_asInterface(stdgo.syscall.js.Js.global().call((Go.str("eval") : GoString), Go.toInterface((Go.str("40") : GoString))));
 			__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.global()
 				.call((Go.str("eval") : GoString), Go.toInterface((Go.str("40") : GoString)))
 				.bool() #else null #end;
@@ -565,12 +565,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (0 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -582,12 +582,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (1 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -599,12 +599,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (2 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -616,12 +616,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (3 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -633,12 +633,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (3 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -650,12 +650,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (4 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -670,12 +670,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (5 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -687,12 +687,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (6 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -704,12 +704,12 @@ function testType(_t:stdgo.testing.Testing.T):Void {
 			_want:Type = (7 : Type);
 		if (_got != _want) {
 			_t.errorf((Go.str("got %s, want %s") : GoString), Go.toInterface({
-				final __self__ = new Type_wrapper(_got);
+				final __self__ = new Type_asInterface(_got);
 				__self__.string = #if !macro function():GoString return _got.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _got._isObject() #else null #end;
 				__self__;
 			}), Go.toInterface({
-				final __self__ = new Type_wrapper(_want);
+				final __self__ = new Type_asInterface(_want);
 				__self__.string = #if !macro function():GoString return _want.string() #else null #end;
 				__self__._isObject = #if !macro function():Bool return _want._isObject() #else null #end;
 				__self__;
@@ -808,7 +808,7 @@ function testFuncOf(_t:stdgo.testing.Testing.T):Void {
 		}).__copy__());
 		__deferstack__.unshift(() -> _cb.release());
 		stdgo.syscall.js.Js.global().call((Go.str("setTimeout") : GoString), Go.toInterface({
-			final __self__ = new Func_wrapper(_cb);
+			final __self__ = new Func_asInterface(_cb);
 			__self__.bool = #if !macro function():Bool return _cb.bool() #else null #end;
 			__self__.call = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Value return _cb.call(_m, _args) #else null #end;
 			__self__.delete = #if !macro function(_p:GoString):Void _cb.delete(_p) #else null #end;
@@ -881,7 +881,7 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 						defer();
 					};
 					return Go.toInterface({
-						final __self__ = new Value_wrapper(_cb2.invoke());
+						final __self__ = new Value_asInterface(_cb2.invoke());
 						__self__.bool = #if !macro function():Bool return _cb2.invoke().bool() #else null #end;
 						__self__.call = #if !macro function(_m:GoString,
 								_args_:Slice<AnyInterface>):Value return _cb2.invoke().call(_m, _args_) #else null #end;
@@ -947,7 +947,7 @@ function testInvokeFunction(_t:stdgo.testing.Testing.T):Void {
 						defer();
 					};
 					return Go.toInterface({
-						final __self__ = new Value_wrapper(_cb2.invoke());
+						final __self__ = new Value_asInterface(_cb2.invoke());
 						__self__.bool = #if !macro function():Bool return _cb2.invoke().bool() #else null #end;
 						__self__.call = #if !macro function(_m:GoString,
 								_args_:Slice<AnyInterface>):Value return _cb2.invoke().call(_m, _args_) #else null #end;
@@ -1035,7 +1035,7 @@ function testInterleavedFunctions(_t:stdgo.testing.Testing.T):Void {
 	var _c1 = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	var _c2 = new Chan<T__struct_0>(0, () -> ({} : T__struct_0));
 	stdgo.syscall.js.Js.global().get((Go.str("setTimeout") : GoString)).invoke(Go.toInterface({
-		final __self__ = new Func_wrapper(stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
+		final __self__ = new Func_asInterface(stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			_c1.__send__(({} : T__struct_0));
 			_c2.__get__();
 			return (null : AnyInterface);
@@ -1189,7 +1189,7 @@ function exampleFuncOf():Void {
 		.get((Go.str("document") : GoString))
 		.call((Go.str("getElementById") : GoString), Go.toInterface((Go.str("myButton") : GoString)))
 		.call((Go.str("addEventListener") : GoString), Go.toInterface((Go.str("click") : GoString)), Go.toInterface({
-			final __self__ = new Func_wrapper(_cb);
+			final __self__ = new Func_asInterface(_cb);
 			__self__.bool = #if !macro function():Bool return _cb.bool() #else null #end;
 			__self__.call = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Value return _cb.call(_m, _args) #else null #end;
 			__self__.delete = #if !macro function(_p:GoString):Void _cb.delete(_p) #else null #end;
@@ -1472,7 +1472,7 @@ function benchmarkDOM(_b:stdgo.testing.Testing.B):Void {
 				.__copy__());
 			_div.call((Go.str("setAttribute") : GoString), Go.toInterface((Go.str("id") : GoString)), Go.toInterface((Go.str("myDiv") : GoString)));
 			_document.get((Go.str("body") : GoString)).call((Go.str("appendChild") : GoString), Go.toInterface({
-				final __self__ = new Value_wrapper(_div);
+				final __self__ = new Value_asInterface(_div);
 				__self__.bool = #if !macro function():Bool return _div.bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Value return _div.call(_m, _args) #else null #end;
 				__self__.delete = #if !macro function(_p:GoString):Void _div.delete(_p) #else null #end;
@@ -1510,7 +1510,7 @@ function benchmarkDOM(_b:stdgo.testing.Testing.B):Void {
 				};
 			};
 			_document.get((Go.str("body") : GoString)).call((Go.str("removeChild") : GoString), Go.toInterface({
-				final __self__ = new Value_wrapper(_div);
+				final __self__ = new Value_asInterface(_div);
 				__self__.bool = #if !macro function():Bool return _div.bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Value return _div.call(_m, _args) #else null #end;
 				__self__.delete = #if !macro function(_p:GoString):Void _div.delete(_p) #else null #end;
@@ -1545,7 +1545,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 	try {
 		var _ident:Func = (stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			return Go.toInterface({
-				final __self__ = new Value_wrapper(_args[(0 : GoInt)]);
+				final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
 				__self__.bool = #if !macro function():Bool return _args[(0 : GoInt)].bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
 				__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
@@ -1572,7 +1572,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 			});
 		}) == null ? null : stdgo.syscall.js.Js.funcOf(function(_this:Value, _args:Slice<Value>):AnyInterface {
 			return Go.toInterface({
-				final __self__ = new Value_wrapper(_args[(0 : GoInt)]);
+				final __self__ = new Value_asInterface(_args[(0 : GoInt)]);
 				__self__.bool = #if !macro function():Bool return _args[(0 : GoInt)].bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString, _args_:Slice<AnyInterface>):Value return _args[(0 : GoInt)].call(_m, _args_) #else null #end;
 				__self__.delete = #if !macro function(_p:GoString):Void _args[(0 : GoInt)].delete(_p) #else null #end;
@@ -1601,7 +1601,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 		__deferstack__.unshift(() -> _ident.release());
 		{
 			var _got:Value = (_ident.invoke(Go.toInterface({
-				final __self__ = new Value_wrapper(stdgo.syscall.js.Js.global());
+				final __self__ = new Value_asInterface(stdgo.syscall.js.Js.global());
 				__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.global().bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString,
 						_args:Slice<AnyInterface>):Value return stdgo.syscall.js.Js.global().call(_m, _args) #else null #end;
@@ -1627,7 +1627,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 				__self__._isNumber = #if !macro function():Bool return stdgo.syscall.js.Js.global()._isNumber() #else null #end;
 				__self__;
 			})) == null ? null : _ident.invoke(Go.toInterface({
-				final __self__ = new Value_wrapper(stdgo.syscall.js.Js.global());
+				final __self__ = new Value_asInterface(stdgo.syscall.js.Js.global());
 				__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.global().bool() #else null #end;
 				__self__.call = #if !macro function(_m:GoString,
 						_args:Slice<AnyInterface>):Value return stdgo.syscall.js.Js.global().call(_m, _args) #else null #end;
@@ -1655,7 +1655,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 			})).__copy__());
 			if (!_got.equal((stdgo.syscall.js.Js.global() == null ? null : stdgo.syscall.js.Js.global().__copy__()))) {
 				_t.errorf((Go.str("got %#v, want %#v") : GoString), Go.toInterface({
-					final __self__ = new Value_wrapper(_got);
+					final __self__ = new Value_asInterface(_got);
 					__self__.bool = #if !macro function():Bool return _got.bool() #else null #end;
 					__self__.call = #if !macro function(_m:GoString, _args:Slice<AnyInterface>):Value return _got.call(_m, _args) #else null #end;
 					__self__.delete = #if !macro function(_p:GoString):Void _got.delete(_p) #else null #end;
@@ -1680,7 +1680,7 @@ function testGlobal(_t:stdgo.testing.Testing.T):Void {
 					__self__._isNumber = #if !macro function():Bool return _got._isNumber() #else null #end;
 					__self__;
 				}), Go.toInterface({
-					final __self__ = new Value_wrapper(stdgo.syscall.js.Js.global());
+					final __self__ = new Value_asInterface(stdgo.syscall.js.Js.global());
 					__self__.bool = #if !macro function():Bool return stdgo.syscall.js.Js.global().bool() #else null #end;
 					__self__.call = #if !macro function(_m:GoString,
 							_args:Slice<AnyInterface>):Value return stdgo.syscall.js.Js.global().call(_m, _args) #else null #end;

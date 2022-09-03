@@ -543,7 +543,7 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bo
 		return __self__.bool();
 }
 
-class Func_wrapper {
+class Func_asInterface {
 	/**
 		// Release frees up resources allocated for the function.
 		// The function must not be invoked after calling Release.
@@ -777,7 +777,7 @@ class Func_wrapper {
 		throw "syscall.js.equal is not yet implemented";
 }
 
-class Value_wrapper {
+class Value_asInterface {
 	/**
 		// InstanceOf reports whether v is an instance of type t according to JavaScript's instanceof operator.
 	**/
@@ -1030,7 +1030,7 @@ class Value_wrapper {
 		return __self__.bool();
 }
 
-class T_error_wrapper {
+class T_error_asInterface {
 	/**
 		// Error implements the error interface.
 	**/
@@ -1097,7 +1097,7 @@ class T_error_wrapper {
 		throw "syscall.js.error is not yet implemented";
 }
 
-class ValueError_wrapper {
+class ValueError_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 
@@ -1120,7 +1120,7 @@ class ValueError_wrapper {
 		throw "syscall.js.string is not yet implemented";
 }
 
-class Type_wrapper {
+class Type_asInterface {
 	@:keep
 	public var _isObject:() -> Bool = null;
 	@:keep

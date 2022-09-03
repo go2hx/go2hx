@@ -1306,7 +1306,7 @@ function _sameFile(_fs1:T_fileStat, _fs2:T_fileStat):Bool
 		throw "os._close is not yet implemented";
 }
 
-class T_dirInfo_wrapper {
+class T_dirInfo_asInterface {
 	@:keep
 	public var _close:() -> Void = null;
 
@@ -1336,7 +1336,7 @@ class T_dirInfo_wrapper {
 		throw "os.error is not yet implemented";
 }
 
-class SyscallError_wrapper {
+class SyscallError_asInterface {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -1433,7 +1433,7 @@ class SyscallError_wrapper {
 		throw "os._setDone is not yet implemented";
 }
 
-class Process_wrapper {
+class Process_asInterface {
 	/**
 		// blockUntilWaitable attempts to block until a call to p.Wait will
 		// succeed immediately, and reports whether it has done so.
@@ -1607,7 +1607,7 @@ class Process_wrapper {
 		throw "os.userTime is not yet implemented";
 }
 
-class ProcessState_wrapper {
+class ProcessState_asInterface {
 	@:keep
 	public var _systemTime:() -> stdgo.time.Time.Duration = null;
 	@:keep
@@ -1701,7 +1701,7 @@ class ProcessState_wrapper {
 		throw "os.error is not yet implemented";
 }
 
-class LinkError_wrapper {
+class LinkError_asInterface {
 	@:keep
 	public var unwrap:() -> Error = null;
 	@:keep
@@ -1722,7 +1722,7 @@ class LinkError_wrapper {
 		return __self__.write(_b);
 }
 
-class T_onlyWriter_wrapper {
+class T_onlyWriter_asInterface {
 	@:embedded
 	public var write:Slice<GoUInt8> -> {
 		var _0:GoInt;
@@ -1744,7 +1744,7 @@ class T_onlyWriter_wrapper {
 		throw "os._close is not yet implemented";
 }
 
-class T_file_wrapper {
+class T_file_asInterface {
 	@:keep
 	public var _close:() -> Error = null;
 
@@ -1775,7 +1775,7 @@ class T_file_wrapper {
 		throw "os.name is not yet implemented";
 }
 
-class T_unixDirent_wrapper {
+class T_unixDirent_asInterface {
 	@:keep
 	public var info:() -> {
 		var _0:FileInfo;
@@ -1811,7 +1811,7 @@ class T_unixDirent_wrapper {
 		throw "os.control is not yet implemented";
 }
 
-class T_rawConn_wrapper {
+class T_rawConn_asInterface {
 	@:keep
 	public var write:(GoUIntptr->Bool) -> Error = null;
 	@:keep
@@ -2213,7 +2213,7 @@ class T_rawConn_wrapper {
 		return __self__._close();
 }
 
-class File_wrapper {
+class File_asInterface {
 	/**
 		// Stat returns the FileInfo structure describing file.
 		// If there is an error, it will be of type *PathError.
@@ -2650,7 +2650,7 @@ class File_wrapper {
 		throw "os.name is not yet implemented";
 }
 
-class T_fileStat_wrapper {
+class T_fileStat_asInterface {
 	@:keep
 	public var sys:() -> AnyInterface = null;
 	@:keep
@@ -2683,7 +2683,7 @@ class T_fileStat_wrapper {
 		throw "os.open is not yet implemented";
 }
 
-class T_dirFS_wrapper {
+class T_dirFS_asInterface {
 	@:keep
 	public var stat:GoString -> {
 		var _0:stdgo.io.fs.Fs.FileInfo;

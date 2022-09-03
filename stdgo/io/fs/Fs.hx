@@ -416,7 +416,7 @@ function readDir(_fsys:FS, _name:GoString):{var _0:Slice<DirEntry>; var _1:Error
 				return {
 					_0: (null : Slice<DirEntry>),
 					_1: {
-						final __self__ = new PathError_wrapper(({op: (Go.str("readdir") : GoString), path: _name,
+						final __self__ = new PathError_asInterface(({op: (Go.str("readdir") : GoString), path: _name,
 							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError));
 						__self__.error = #if !macro function():GoString return ({op: (Go.str("readdir") : GoString), path: _name,
 							err: stdgo.errors.Errors.new_((Go.str("not implemented") : GoString))} : PathError).error() #else null #end;
@@ -474,7 +474,7 @@ function fileInfoToDirEntry(_info:FileInfo):DirEntry {
 		return (null : DirEntry);
 	};
 	return {
-		final __self__ = new T_dirInfo_wrapper(({_fileInfo: _info} : T_dirInfo));
+		final __self__ = new T_dirInfo_asInterface(({_fileInfo: _info} : T_dirInfo));
 		__self__.info = #if !macro function():{var _0:FileInfo; var _1:stdgo.Error;}
 			return ({_fileInfo: _info} : T_dirInfo).info() #else null #end;
 		__self__.isDir = #if !macro function():Bool return ({_fileInfo: _info} : T_dirInfo).isDir() #else null #end;
@@ -651,7 +651,7 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 		return {
 			_0: (null : FS),
 			_1: {
-				final __self__ = new PathError_wrapper(({op: (Go.str("sub") : GoString), path: _dir,
+				final __self__ = new PathError_asInterface(({op: (Go.str("sub") : GoString), path: _dir,
 					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError));
 				__self__.error = #if !macro function():GoString return ({op: (Go.str("sub") : GoString), path: _dir,
 					err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).error() #else null #end;
@@ -678,7 +678,7 @@ function sub(_fsys:FS, _dir:GoString):{var _0:FS; var _1:Error;} {
 	};
 	return {
 		_0: {
-			final __self__ = new T_subFS_wrapper((new T_subFS(_fsys, _dir) : T_subFS));
+			final __self__ = new T_subFS_asInterface((new T_subFS(_fsys, _dir) : T_subFS));
 			__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 				return (new T_subFS(_fsys, _dir) : T_subFS).glob(_name_) #else null #end;
 			__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -762,7 +762,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 		_err = _fn(_root, (null : DirEntry), _err);
 	} else {
 		_err = _walkDir(_fsys, _root, {
-			final __self__ = new T_statDirEntry_wrapper((new T_statDirEntry(_info) : T_statDirEntry));
+			final __self__ = new T_statDirEntry_asInterface((new T_statDirEntry(_info) : T_statDirEntry));
 			__self__.info = #if !macro function():{var _0:FileInfo; var _1:stdgo.Error;}
 				return (new T_statDirEntry(_info) : T_statDirEntry).info() #else null #end;
 			__self__.isDir = #if !macro function():Bool return (new T_statDirEntry(_info) : T_statDirEntry).isDir() #else null #end;
@@ -802,7 +802,7 @@ function walkDir(_fsys:FS, _root:GoString, _fn:WalkDirFunc):Error {
 	}
 }
 
-class PathError_wrapper {
+class PathError_asInterface {
 	/**
 		// Timeout reports whether this error represents a timeout.
 	**/
@@ -845,7 +845,7 @@ class PathError_wrapper {
 	}
 }
 
-class T_dirInfo_wrapper {
+class T_dirInfo_asInterface {
 	@:keep
 	public var name:() -> GoString = null;
 	@:keep
@@ -873,7 +873,7 @@ class T_dirInfo_wrapper {
 		if (_dir == (Go.str(".") : GoString)) {
 			return {
 				_0: {
-					final __self__ = new T_subFS_wrapper(_f);
+					final __self__ = new T_subFS_asInterface(_f);
 					__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 						return _f.glob(_name_) #else null #end;
 					__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -902,7 +902,7 @@ class T_dirInfo_wrapper {
 		};
 		return {
 			_0: {
-				final __self__ = new T_subFS_wrapper((new T_subFS(_f._fsys, _full) : T_subFS));
+				final __self__ = new T_subFS_asInterface((new T_subFS(_f._fsys, _full) : T_subFS));
 				__self__.glob = #if !macro function(_name_:GoString):{var _0:Slice<GoString>; var _1:stdgo.Error;}
 					return (new T_subFS(_f._fsys, _full) : T_subFS).glob(_name_) #else null #end;
 				__self__.open = #if !macro function(_name__:GoString):{var _0:File; var _1:stdgo.Error;}
@@ -1048,7 +1048,7 @@ class T_dirInfo_wrapper {
 			return {
 				_0: (Go.str() : GoString),
 				_1: {
-					final __self__ = new PathError_wrapper(({op: _op, path: _name,
+					final __self__ = new PathError_asInterface(({op: _op, path: _name,
 						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError));
 					__self__.error = #if !macro function():GoString return ({op: _op, path: _name,
 						err: stdgo.errors.Errors.new_((Go.str("invalid name") : GoString))} : PathError).error() #else null #end;
@@ -1064,7 +1064,7 @@ class T_dirInfo_wrapper {
 	}
 }
 
-class T_subFS_wrapper {
+class T_subFS_asInterface {
 	@:keep
 	public var sub:GoString -> {
 		var _0:FS;
@@ -1146,7 +1146,7 @@ class T_subFS_wrapper {
 	}
 }
 
-class T_statDirEntry_wrapper {
+class T_statDirEntry_asInterface {
 	@:keep
 	public var info:() -> {
 		var _0:FileInfo;
@@ -1231,7 +1231,7 @@ class T_statDirEntry_wrapper {
 	}
 }
 
-class FileMode_wrapper {
+class FileMode_asInterface {
 	/**
 		// Type returns type bits in m (m & ModeType).
 	**/

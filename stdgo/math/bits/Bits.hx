@@ -25,14 +25,14 @@ var _deBruijn64tab:GoArray<GoUInt8> = (new GoArray<GoUInt8>((0 : GoUInt8), (1 : 
 	(13 : GoUInt8), (8 : GoUInt8), (7 : GoUInt8), (6 : GoUInt8)) : GoArray<GoUInt8>);
 
 var _overflowError:stdgo.Error = {
-	final __self__ = new T_errorString_wrapper((Go.str("integer overflow") : T_errorString));
+	final __self__ = new T_errorString_asInterface((Go.str("integer overflow") : T_errorString));
 	__self__.error = #if !macro function():GoString return (Go.str("integer overflow") : T_errorString).error() #else null #end;
 	__self__.runtimeError = #if !macro function():Void(Go.str("integer overflow"):T_errorString).runtimeError() #else null #end;
 	__self__;
 };
 
 var _divideError:stdgo.Error = {
-	final __self__ = new T_errorString_wrapper((Go.str("integer divide by zero") : T_errorString));
+	final __self__ = new T_errorString_asInterface((Go.str("integer divide by zero") : T_errorString));
 	__self__.error = #if !macro function():GoString return (Go.str("integer divide by zero") : T_errorString).error() #else null #end;
 	__self__.runtimeError = #if !macro function():Void(Go.str("integer divide by zero"):T_errorString).runtimeError() #else null #end;
 	__self__;
@@ -796,7 +796,7 @@ function rem64(_hi:GoUInt64, _lo:GoUInt64, _y:GoUInt64):GoUInt64 {
 	static public function runtimeError(_e:T_errorString):Void {}
 }
 
-class T_errorString_wrapper {
+class T_errorString_asInterface {
 	@:keep
 	public var error:() -> GoString = null;
 	@:keep

@@ -363,7 +363,7 @@ final __NMode = (6 : GoUnTypedInt);
 
 @:structInit @:using(stdgo.sort_test.Sort_test.ByName_static_extension) class ByName {
 	@:embedded
-	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
+	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs(0, 0);
 
 	public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
 		if (organs != null)
@@ -388,7 +388,7 @@ final __NMode = (6 : GoUnTypedInt);
 
 @:structInit @:using(stdgo.sort_test.Sort_test.ByWeight_static_extension) class ByWeight {
 	@:embedded
-	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs();
+	public var organs:stdgo.sort_test.Sort_test.Organs = new stdgo.sort_test.Sort_test.Organs(0, 0);
 
 	public function new(?organs:stdgo.sort_test.Sort_test.Organs) {
 		if (organs != null)

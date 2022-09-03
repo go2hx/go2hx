@@ -16,7 +16,7 @@ var _species:Pointer<GoString> = stdgo.flag.Flag.string((Go.str("species") : GoS
 
 var _u:Ref<stdgo.net.url.Url.URL> = (new stdgo.net.url.Url.URL() : stdgo.net.url.Url.URL);
 var _gopherType:GoString = ("" : GoString);
-var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval();
+var _intervalFlag:T_interval = new stdgo.flag_test.Flag_test.T_interval(0, 0);
 final _defaultOutput:GoString = ("  -A\tfor bootstrapping, allow \'any\' type\n  -Alongflagname\n    \tdisable bounds checking\n  -C\ta boolean defaulting to true (default true)\n  -D path\n    \tset relative path for local imports\n  -E string\n    \tissue 23543 (default \"0\")\n  -F number\n    \ta non-zero number (default 2.7)\n  -G float\n    \ta float that defaults to zero\n  -M string\n    \ta multiline\n    \thelp\n    \tstring\n  -N int\n    \ta non-zero int (default 27)\n  -O\ta flag\n    \tmultiline help string (default true)\n  -V list\n    \ta list of strings (default [a b])\n  -Z int\n    \tan int that defaults to zero\n  -ZP0 value\n    \ta flag whose String method panics when it is zero\n  -ZP1 value\n    \ta flag whose String method panics when it is zero\n  -maxT timeout\n    \tset timeout for dial\n\npanic calling String method on zero flag_test.zeroPanicker for flag ZP0: panic!\npanic calling String method on zero flag_test.zeroPanicker for flag ZP1: panic!\n" : GoString);
 
 @:structInit @:using(stdgo.flag_test.Flag_test.URLValue_static_extension) class URLValue {
@@ -156,7 +156,7 @@ function exampleFunc():Void {
 			return stdgo.os.Os.stdout._write(_p) #else null #end;
 		__self__;
 	});
-	var _ip:stdgo.net.Net.IP = new stdgo.net.Net.IP();
+	var _ip:stdgo.net.Net.IP = new stdgo.net.Net.IP(0, 0);
 	_fs.func((Go.str("ip") : GoString), (Go.str("`IP address` to parse") : GoString), function(_s:GoString):Error {
 		_ip = stdgo.net.Net.parseIP(_s);
 		if (_ip == null) {
@@ -281,7 +281,7 @@ function exampleTextVar():Void {
 			return stdgo.os.Os.stdout._write(_p) #else null #end;
 		__self__;
 	});
-	var _ip:stdgo.net.Net.IP = new stdgo.net.Net.IP();
+	var _ip:stdgo.net.Net.IP = new stdgo.net.Net.IP(0, 0);
 	_fs.textVar({
 		final __self__ = new stdgo.net.Net.IP_wrapper(_ip);
 		__self__.defaultMask = #if !macro function():stdgo.net.Net.IPMask return _ip.defaultMask() #else null #end;
@@ -698,7 +698,7 @@ function testUserDefined(_t:stdgo.testing.Testing.T):Void {
 	var _flags:FlagSet = ({} : FlagSet);
 	_flags.init((Go.str("test") : GoString), (0 : ErrorHandling));
 	_flags.setOutput(stdgo.io.Io.discard);
-	var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
+	var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 	_flags.var_({
 		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
 		__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
@@ -1626,7 +1626,7 @@ function testInvalidFlags(_t:stdgo.testing.Testing.T):Void {
 			__self__;
 		});
 		_mustPanic(_t, _testName, _test._errorMsg, function():Void {
-			var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
+			var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 			_fs.var_({
 				final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
 				__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;
@@ -1692,7 +1692,7 @@ function testRedefinedFlags(_t:stdgo.testing.Testing.T):Void {
 				return _buf._tryGrowByReslice(_i) #else null #end;
 			__self__;
 		});
-		var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar();
+		var _v:T_flagVar = new stdgo.flag_test.Flag_test.T_flagVar(0, 0);
 		_fs.var_({
 			final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_wrapper(_v);
 			__self__.set = #if !macro function(__0:GoString):stdgo.Error return _v.set(__0) #else null #end;

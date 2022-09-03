@@ -178,7 +178,16 @@ function main(data:DataType, instance:Main.InstanceData) {
 			info.locals.clear();
 			info.localUnderlyingNames.clear();
 			info.data = data;
-
+			final pkgDoc = getDoc(file);
+			if (pkgDoc != "")
+				data.defs.push({
+					name: "__go2hxdoc__package",
+					pack: [],
+					pos: null,
+					fields: [],
+					doc: pkgDoc,
+					kind: TDField(FVar(TPath({name: "Bool", pack: []}))),
+				});
 			var declFuncs:Array<Ast.FuncDecl> = [];
 			var declGens:Array<Ast.GenDecl> = [];
 			for (decl in file.decls) {
@@ -5603,6 +5612,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				default:
 			}
 			td.meta = meta;
+			td.doc = getDoc(spec);
 			td.kind = TDClass(superClass);
 			return td;
 		case interfaceType(empty, _):
@@ -5615,6 +5625,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 					pack: [],
 					params: params,
 					fields: [],
+					doc: getDoc(spec),
 					meta: meta,
 					kind: TDAlias(TPath({pack: [], name: "AnyInterface"})),
 				};
@@ -5627,6 +5638,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 				pos: null,
 				params: params,
 				pack: [],
+				doc: getDoc(spec),
 				fields: [],
 				meta: meta,
 				kind: TDAlias(ct)
@@ -5644,6 +5656,7 @@ private function typeNamed(spec:Ast.TypeSpec, info:Info):TypeDefinition {
 		pos: null,
 		pack: [],
 		fields: [],
+		doc: getDoc(spec),
 		params: params,
 		meta: meta,
 		kind: TDAlias(uct),
@@ -5690,6 +5703,7 @@ private function typeSpec(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				pos: null,
 				pack: [],
 				isExtern: true,
+				doc: getDoc(spec),
 				meta: [{name: ":follow", pos: null}],
 				fields: [],
 				kind: TDAlias(type),
@@ -5934,7 +5948,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				fields: fields,
 				pack: [],
 				params: params,
-				doc: info.global.noCommentsBool ? "" : doc,
+				doc: doc,
 				isExtern: externBool,
 				meta: meta,
 				kind: TDClass(),
@@ -5967,6 +5981,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 					pos: null,
 					fields: [],
 					pack: [],
+					doc: getDoc(spec),
 					params: params,
 					meta: meta,
 					kind: TDAlias(anyInterfaceType()),
@@ -6006,7 +6021,7 @@ private function typeType(spec:Ast.TypeSpec, info:Info, local:Bool = false):Type
 				name: name,
 				pack: [],
 				pos: null,
-				doc: info.global.noCommentsBool ? "" : doc,
+				doc: doc,
 				params: params,
 				fields: [],
 				isExtern: externBool,
@@ -6416,7 +6431,12 @@ typedef PackageType = {
 	path:String,
 	name:String,
 	order:Array<String>,
-	files:Array<{path:String, location:String, decls:Array<Dynamic>}>
+	files:Array<{
+		path:String,
+		location:String,
+		decls:Array<Dynamic>,
+		doc:Ast.CommentGroup
+	}>
 }; // filepath of export.json also stored here
 
 typedef Module = {name:String, path:String, files:Array<FileType>, isMain:Bool}

@@ -3773,8 +3773,10 @@ private function getRune(value:String):String {
 					return "\\u" + value.substr(i + 1, 4);
 				case 'U'.code:
 					return "\\u{" + value.substr(i + 1, 8) + "}";
-				default:
+				case 't'.code, 'r'.code, 'n'.code, "\\".code:
 					return "\\" + String.fromCharCode(code);
+				default:
+					return value.substr(1);
 			}
 			backslash = false;
 			i++;

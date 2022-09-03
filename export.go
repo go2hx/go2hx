@@ -530,7 +530,7 @@ func parsePkgList(list []*packages.Package, excludes map[string]bool) dataType {
 			}
 		}
 		mergePackage(list[i])
-		if externBool { // remove function bodies
+		if externBool && !strings.HasSuffix(list[i].PkgPath, "_test") && !strings.HasSuffix(list[i].PkgPath, ".test") { // remove function bodies
 			for _, file := range list[i].Syntax {
 				for _, d := range file.Decls {
 					switch f := d.(type) {
@@ -681,14 +681,13 @@ func parseSpecList(list []ast.Spec) []map[string]interface{} {
 			if obj.TypeParams != nil {
 				params = parseFieldList(obj.TypeParams.List)
 			}
-
 			data[i] = map[string]interface{}{
 				"id":      "TypeSpec",
 				"assign":  fset.Position(obj.Assign).Offset,
 				"name":    parseData(obj.Name),
 				"type":    parseData(obj.Type),
 				"params":  params,
-				"doc":     parseData(obj.Comment),
+				"doc":     parseData(obj.Doc),
 				"comment": parseData(obj.Comment),
 				"methods": methods,
 			}
@@ -1167,7 +1166,7 @@ func parseField(field *ast.Field) map[string]interface{} {
 		tag = field.Tag.Value
 	}
 	return map[string]interface{}{
-		//"doc": parseData(field.Doc)
+		"doc":   parseData(field.Doc),
 		"names": names,
 		"type":  parseData(field.Type),
 		"tag":   tag,

@@ -4745,7 +4745,7 @@ private function typeFunction(decl:Ast.FuncDecl, data:Info, restricted:Array<Str
 	}
 	info.restricted = restricted;
 	final patchName = info.global.module.path + ":" + name;
-	var block:Expr = if (info.global.externBool) {
+	var block:Expr = if (info.global.externBool && !StringTools.endsWith(info.global.module.path, "_test")) {
 		info.returnNamed = false;
 		macro throw ${makeString(info.global.path + "." + name + " is not yet implemented")};
 	} else {
@@ -5223,7 +5223,7 @@ private function defaultValue(type:GoType, info:Info, strict:Bool = true):Expr {
 					case int_kind: macro(0 : GoInt);
 					case int8_kind: macro(0 : GoInt8);
 					case int16_kind: macro(0 : GoInt16);
-					case int32_kind: macro(0 : GoInt32);
+					case int32_kind, untyped_rune_kind: macro(0 : GoInt32);
 					case int64_kind: macro(0 : GoInt64);
 					case string_kind, untyped_string_kind: macro("" : GoString);
 					case uint_kind: macro(0 : GoUInt);

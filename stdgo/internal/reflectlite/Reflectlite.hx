@@ -2,7 +2,13 @@ package stdgo.internal.reflectlite;
 
 import stdgo.StdGoTypes;
 
-typedef Value = stdgo.reflect.Reflect.Value;
+@:follow typedef Type = stdgo.reflect.Reflect.Type;
+@:follow typedef Value = stdgo.reflect.Reflect.Value;
+@:follow typedef Kind = stdgo.reflect.Reflect.Kind;
+
+function typeOf(_x:AnyInterface) {
+	return stdgo.reflect.Reflect.typeOf(_x);
+}
 
 function swapper(_x:AnyInterface):(GoInt, GoInt) -> Void {
 	var _v:stdgo.reflect.Reflect.Value = (stdgo.reflect.Reflect.valueOf(Go.toInterface(_x)) == null ? null : stdgo.reflect.Reflect.valueOf(Go.toInterface(_x))

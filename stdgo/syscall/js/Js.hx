@@ -52,7 +52,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	}
 
 	@:embedded
-	public function bool():Bool
+	public function bool_():Bool
 		return false;
 
 	@:embedded
@@ -179,7 +179,7 @@ final typeFunction:Type = ((0 : GoInt) : Type);
 	}
 
 	@:embedded
-	public function bool():Bool
+	public function bool_():Bool
 		return false;
 
 	@:embedded
@@ -539,8 +539,8 @@ function _copyBytesToJS(_dst:T_ref, _src:Slice<GoByte>):{var _0:GoInt; var _1:Bo
 		return __self__.call(_m, ..._args);
 
 	@:embedded
-	public static function bool(__self__:Func):Bool
-		return __self__.bool();
+	public static function bool_(__self__:Func):Bool
+		return __self__.bool_();
 }
 
 class Func_asInterface {
@@ -595,7 +595,7 @@ class Func_asInterface {
 	@:embedded
 	public var call:(GoString, haxe.Rest<AnyInterface>) -> Value = null;
 	@:embedded
-	public var bool:() -> Bool = null;
+	public var bool_:() -> Bool = null;
 
 	public function new(__self__)
 		this.__self__ = __self__;
@@ -638,8 +638,8 @@ class Func_asInterface {
 		// It panics if v is not a JavaScript boolean.
 	**/
 	@:keep
-	static public function bool(_v:Value):Bool
-		throw "syscall.js.bool is not yet implemented";
+	static public function bool_(_v:Value):Bool
+		throw "syscall.js.bool_ is not yet implemented";
 
 	/**
 		// Int returns the value v truncated to an int.
@@ -806,7 +806,7 @@ class Value_asInterface {
 		// It panics if v is not a JavaScript boolean.
 	**/
 	@:keep
-	public var bool:() -> Bool = null;
+	public var bool_:() -> Bool = null;
 
 	/**
 		// Int returns the value v truncated to an int.
@@ -1026,8 +1026,8 @@ class Value_asInterface {
 		return __self__.call(_m, ..._args);
 
 	@:embedded
-	public static function bool(__self__:T_error):Bool
-		return __self__.bool();
+	public static function bool_(__self__:T_error):Bool
+		return __self__.bool_();
 }
 
 class T_error_asInterface {
@@ -1080,7 +1080,7 @@ class T_error_asInterface {
 	@:embedded
 	public var call:(GoString, haxe.Rest<AnyInterface>) -> Value = null;
 	@:embedded
-	public var bool:() -> Bool = null;
+	public var bool_:() -> Bool = null;
 
 	public function new(__self__)
 		this.__self__ = __self__;

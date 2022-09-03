@@ -133,7 +133,7 @@ var _simpleFoldTests:Slice<GoString> = (new Slice<GoString>(0, 0, (Go.str("Aa") 
 	(Go.str("Ssſ") : GoString), (Go.str("ρϱΡ") : GoString), (Go.str("ͅΙιι") : GoString), (Go.str("İ") : GoString), (Go.str("ı") : GoString),
 	(Go.str("\u13b0\uab80") : GoString)) : Slice<GoString>);
 
-var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool((Go.str("calibrate") : GoString), false,
+var _calibrate:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("calibrate") : GoString), false,
 	(Go.str("compute crossover for linear vs. binary search") : GoString));
 
 var _inCategoryTest:Slice<stdgo.unicode_test.Unicode_test.T> = (new Slice<stdgo.unicode_test.Unicode_test.T>(0, 0,

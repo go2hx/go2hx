@@ -25,7 +25,7 @@ var _fe = __tmp__1._3;
 var _testSeeds:Slice<GoInt64> = (new Slice<GoInt64>(0, 0, (1 : GoInt64), (1754801282 : GoInt64), (1698661970 : GoInt64),
 	(1550503961 : GoInt64)) : Slice<GoInt64>);
 
-var _printgolden:Pointer<Bool> = stdgo.flag.Flag.bool((Go.str("printgolden") : GoString), false,
+var _printgolden:Pointer<Bool> = stdgo.flag.Flag.bool_((Go.str("printgolden") : GoString), false,
 	(Go.str("print golden results for regression test") : GoString));
 
 var _regressGolden:Slice<AnyInterface> = (new Slice<AnyInterface>(0, 0, Go.toInterface((4.668112973579268 : GoFloat64)),

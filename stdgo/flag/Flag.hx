@@ -462,8 +462,8 @@ function boolVar(_p:Pointer<Bool>, _name:GoString, _value:Bool, _usage:GoString)
 	// Bool defines a bool flag with specified name, default value, and usage string.
 	// The return value is the address of a bool variable that stores the value of the flag.
 **/
-function bool(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
-	return commandLine.bool(_name, _value, _usage);
+function bool_(_name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
+	return commandLine.bool_(_name, _value, _usage);
 }
 
 /**
@@ -1299,7 +1299,7 @@ class T_textValue_asInterface {
 		// The return value is the address of a bool variable that stores the value of the flag.
 	**/
 	@:keep
-	static public function bool(_f:FlagSet, _name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
+	static public function bool_(_f:FlagSet, _name:GoString, _value:Bool, _usage:GoString):Pointer<Bool> {
 		var _p = Go.pointer(false);
 		_f.boolVar(_p, _name, _value, _usage);
 		return _p;
@@ -1859,7 +1859,7 @@ class FlagSet_asInterface {
 		// The return value is the address of a bool variable that stores the value of the flag.
 	**/
 	@:keep
-	public var bool:(GoString, Bool, GoString) -> Pointer<Bool> = null;
+	public var bool_:(GoString, Bool, GoString) -> Pointer<Bool> = null;
 
 	/**
 		// BoolVar defines a bool flag with specified name, default value, and usage string.

@@ -419,7 +419,7 @@ function _boolString(_s:GoString):GoString {
 
 function testEverything(_t:stdgo.testing.Testing.T):Void {
 	resetForTesting(null);
-	bool((Go.str("test_bool") : GoString), false, (Go.str("bool value") : GoString));
+	bool_((Go.str("test_bool") : GoString), false, (Go.str("bool value") : GoString));
 	int((Go.str("test_int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
 	int64((Go.str("test_int64") : GoString), (0 : GoInt64), (Go.str("int64 value") : GoString));
 	uint((Go.str("test_uint") : GoString), (0 : GoUInt), (Go.str("uint value") : GoString));
@@ -549,7 +549,7 @@ function testEverything(_t:stdgo.testing.Testing.T):Void {
 
 function testGet(_t:stdgo.testing.Testing.T):Void {
 	resetForTesting(null);
-	bool((Go.str("test_bool") : GoString), true, (Go.str("bool value") : GoString));
+	bool_((Go.str("test_bool") : GoString), true, (Go.str("bool value") : GoString));
 	int((Go.str("test_int") : GoString), (1 : GoInt), (Go.str("int value") : GoString));
 	int64((Go.str("test_int64") : GoString), (2 : GoInt64), (Go.str("int64 value") : GoString));
 	uint((Go.str("test_uint") : GoString), (3 : GoUInt), (Go.str("uint value") : GoString));
@@ -611,8 +611,8 @@ function _testParse(_f:FlagSet, _t:stdgo.testing.Testing.T):Void {
 	if (_f.parsed()) {
 		_t.error(Go.toInterface((Go.str("f.Parse() = true before Parse") : GoString)));
 	};
-	var _boolFlag = _f.bool((Go.str("bool") : GoString), false, (Go.str("bool value") : GoString));
-	var _bool2Flag = _f.bool((Go.str("bool2") : GoString), false, (Go.str("bool2 value") : GoString));
+	var _boolFlag = _f.bool_((Go.str("bool") : GoString), false, (Go.str("bool value") : GoString));
+	var _bool2Flag = _f.bool_((Go.str("bool2") : GoString), false, (Go.str("bool2 value") : GoString));
 	var _intFlag = _f.int((Go.str("int") : GoString), (0 : GoInt), (Go.str("int value") : GoString));
 	var _int64Flag = _f.int64((Go.str("int64") : GoString), (0 : GoInt64), (Go.str("int64 value") : GoString));
 	var _uintFlag = _f.uint((Go.str("uint") : GoString), (0 : GoUInt), (Go.str("uint value") : GoString));
@@ -913,7 +913,7 @@ function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
 		});
 		stdgo.os.Os.args = (new Slice<GoString>(0, 0, (Go.str("cmd") : GoString), (Go.str("-before") : GoString), (Go.str("subcmd") : GoString),
 			(Go.str("-after") : GoString), (Go.str("args") : GoString)) : Slice<GoString>);
-		var _before = bool((Go.str("before") : GoString), false, (Go.str() : GoString));
+		var _before = bool_((Go.str("before") : GoString), false, (Go.str() : GoString));
 		{
 			var _err:stdgo.Error = commandLine.parse((stdgo.os.Os.args.__slice__((1 : GoInt)) : Slice<GoString>));
 			if (_err != null) {
@@ -922,7 +922,7 @@ function testChangingArgs(_t:stdgo.testing.Testing.T):Void {
 		};
 		var _cmd:GoString = arg((0 : GoInt));
 		stdgo.os.Os.args = args();
-		var _after = bool((Go.str("after") : GoString), false, (Go.str() : GoString));
+		var _after = bool_((Go.str("after") : GoString), false, (Go.str() : GoString));
 		parse();
 		var _args = args();
 		if ((((!_before.value || (_cmd != (Go.str("subcmd") : GoString))) || !_after.value) || (_args.length != (1 : GoInt)))
@@ -1042,16 +1042,16 @@ function testPrintDefaults(_t:stdgo.testing.Testing.T):Void {
 			return _buf._tryGrowByReslice(_i) #else null #end;
 		__self__;
 	});
-	_fs.bool((Go.str("A") : GoString), false, (Go.str("for bootstrapping, allow \'any\' type") : GoString));
-	_fs.bool((Go.str("Alongflagname") : GoString), false, (Go.str("disable bounds checking") : GoString));
-	_fs.bool((Go.str("C") : GoString), true, (Go.str("a boolean defaulting to true") : GoString));
+	_fs.bool_((Go.str("A") : GoString), false, (Go.str("for bootstrapping, allow \'any\' type") : GoString));
+	_fs.bool_((Go.str("Alongflagname") : GoString), false, (Go.str("disable bounds checking") : GoString));
+	_fs.bool_((Go.str("C") : GoString), true, (Go.str("a boolean defaulting to true") : GoString));
 	_fs.string((Go.str("D") : GoString), (Go.str() : GoString), (Go.str("set relative `path` for local imports") : GoString));
 	_fs.string((Go.str("E") : GoString), (Go.str("0") : GoString), (Go.str("issue 23543") : GoString));
 	_fs.float64((Go.str("F") : GoString), (2.7 : GoFloat64), (Go.str("a non-zero `number`") : GoString));
 	_fs.float64((Go.str("G") : GoString), (0 : GoFloat64), (Go.str("a float that defaults to zero") : GoString));
 	_fs.string((Go.str("M") : GoString), (Go.str() : GoString), (Go.str("a multiline\nhelp\nstring") : GoString));
 	_fs.int((Go.str("N") : GoString), (27 : GoInt), (Go.str("a non-zero int") : GoString));
-	_fs.bool((Go.str("O") : GoString), true, (Go.str("a flag\nmultiline help string") : GoString));
+	_fs.bool_((Go.str("O") : GoString), true, (Go.str("a flag\nmultiline help string") : GoString));
 	_fs.var_({
 		final __self__ = new stdgo.flag_test.Flag_test.T_flagVar_asInterface((new stdgo.flag_test.Flag_test.T_flagVar(0, 0, (Go.str("a") : GoString),
 			(Go.str("b") : GoString)) : stdgo.flag_test.Flag_test.T_flagVar));
@@ -1374,7 +1374,7 @@ function testParseError(_t:stdgo.testing.Testing.T):Void {
 		(Go.str("uint") : GoString), (Go.str("uint64") : GoString), (Go.str("float64") : GoString), (Go.str("duration") : GoString)) : Slice<GoString>)) {
 		var _fs = newFlagSet((Go.str("parse error test") : GoString), (0 : ErrorHandling));
 		_fs.setOutput(stdgo.io.Io.discard);
-		_fs.bool((Go.str("bool") : GoString), false, (Go.str() : GoString));
+		_fs.bool_((Go.str("bool") : GoString), false, (Go.str() : GoString));
 		_fs.int((Go.str("int") : GoString), (0 : GoInt), (Go.str() : GoString));
 		_fs.int64((Go.str("int64") : GoString), (0 : GoInt64), (Go.str() : GoString));
 		_fs.uint((Go.str("uint") : GoString), (0 : GoUInt), (Go.str() : GoString));

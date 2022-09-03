@@ -12759,7 +12759,7 @@ function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2
 	} else if (_f1.type().kind() == ((24 : stdgo.reflect.Reflect.Kind))) {
 		return (_f1.string() : GoString) == (_f2.string() : GoString);
 	} else if (_f1.type().kind() == ((1 : stdgo.reflect.Reflect.Kind))) {
-		return _f1.bool() == _f2.bool();
+		return _f1.bool_() == _f2.bool_();
 	} else if (_f1.type().kind() == ((2 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((3 : stdgo.reflect.Reflect.Kind))
 		|| _f1.type().kind() == ((4 : stdgo.reflect.Reflect.Kind))

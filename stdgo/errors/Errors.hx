@@ -1,24 +1,191 @@
 package stdgo.errors;
 
-import haxe.Exception;
-import stdgo.StdGoTypes.AnyInterface;
 import stdgo.StdGoTypes;
+import stdgo.Error;
+import stdgo.Go;
+import stdgo.GoString;
+import stdgo.Pointer;
+import stdgo.Slice;
+import stdgo.GoArray;
+import stdgo.GoMap;
+import stdgo.Chan;
 
-inline function new_(message:GoString):Error {
-	return new ErrorData(message);
-}
+var _errorType:stdgo.internal.reflectlite.Reflectlite.Type = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(((null : stdgo.Error) : Error)))
+	.elem();
 
-private class ErrorData {
-	public function error():GoString {
-		return message;
+@:local typedef T__interface_0 = StructType & {
+	public function unwrap():Error;
+};
+
+@:local typedef T__interface_1 = StructType & {
+	public function is_(_0:Error):Bool;
+};
+
+@:local typedef T__interface_2 = StructType & {
+	public function as(_0:AnyInterface):Bool;
+};
+
+@:structInit @:using(stdgo.errors.Errors.T_errorString_static_extension) private class T_errorString {
+	public var _s:GoString = "";
+
+	public function new(?_s:GoString) {
+		if (_s != null)
+			this._s = _s;
 	}
 
 	public function __underlying__():AnyInterface
 		return Go.toInterface(this);
 
-	var message:GoString;
-
-	public function new(message:GoString) {
-		this.message = message;
+	public function __copy__() {
+		return new T_errorString(_s);
 	}
+}
+
+/**
+	// New returns an error that formats as the given text.
+	// Each call to New returns a distinct error value even if the text is identical.
+**/
+function new_(_text:GoString):Error {
+	return {
+		final __self__ = new T_errorString_wrapper((new T_errorString(_text) : T_errorString));
+		__self__.error = #if !macro function():GoString return (new T_errorString(_text) : T_errorString).error() #else null #end;
+		__self__;
+	};
+}
+
+/**
+	// Unwrap returns the result of calling the Unwrap method on err, if err's
+	// type contains an Unwrap method returning error.
+	// Otherwise, Unwrap returns nil.
+**/
+function unwrap(_err:Error):Error {
+	var __tmp__ = try {
+		{value: ((_err.__underlying__().value : Dynamic) : T__interface_0), ok: true};
+	} catch (_) {
+		{value: (null : T__interface_0), ok: false};
+	}, _u = __tmp__.value, _ok = __tmp__.ok;
+	if (!_ok) {
+		return (null : stdgo.Error);
+	};
+	return _u.unwrap();
+}
+
+/**
+	// Is reports whether any error in err's chain matches target.
+	//
+	// The chain consists of err itself followed by the sequence of errors obtained by
+	// repeatedly calling Unwrap.
+	//
+	// An error is considered to match a target if it is equal to that target or if
+	// it implements a method Is(error) bool such that Is(target) returns true.
+	//
+	// An error type might provide an Is method so it can be treated as equivalent
+	// to an existing error. For example, if MyError defines
+	//
+	//	func (m MyError) Is(target error) bool { return target == fs.ErrExist }
+	//
+	// then Is(MyError{}, fs.ErrExist) returns true. See syscall.Errno.Is for
+	// an example in the standard library. An Is method should only shallowly
+	// compare err and the target and not call Unwrap on either.
+**/
+function is_(_err:Error, _target:Error):Bool {
+	if (_target == null) {
+		return _err == _target;
+	};
+	var _isComparable:Bool = stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_target)).comparable();
+	while (true) {
+		if (_isComparable && (_err == _target)) {
+			return true;
+		};
+		{
+			var __tmp__ = try {
+				{value: ((_err.__underlying__().value : Dynamic) : T__interface_1), ok: true};
+			} catch (_) {
+				{value: (null : T__interface_1), ok: false};
+			}, _x = __tmp__.value, _ok = __tmp__.ok;
+			if (_ok && _x.is_(_target)) {
+				return true;
+			};
+		};
+		{
+			_err = unwrap(_err);
+			if (_err == null) {
+				return false;
+			};
+		};
+	};
+}
+
+/**
+	// As finds the first error in err's chain that matches target, and if one is found, sets
+	// target to that error value and returns true. Otherwise, it returns false.
+	//
+	// The chain consists of err itself followed by the sequence of errors obtained by
+	// repeatedly calling Unwrap.
+	//
+	// An error matches target if the error's concrete value is assignable to the value
+	// pointed to by target, or if the error has a method As(interface{}) bool such that
+	// As(target) returns true. In the latter case, the As method is responsible for
+	// setting target.
+	//
+	// An error type might provide an As method so it can be treated as if it were a
+	// different error type.
+	//
+	// As panics if target is not a non-nil pointer to either a type that implements
+	// error, or to any interface type.
+**/
+function as(_err:Error, _target:AnyInterface):Bool {
+	if (_target == null) {
+		throw Go.toInterface((Go.str("errors: target cannot be nil") : GoString));
+	};
+	var _val:stdgo.internal.reflectlite.Reflectlite.Value = (stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_target)) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_target))
+		.__copy__());
+	var _typ:stdgo.internal.reflectlite.Reflectlite.Type = _val.type();
+	if ((_typ.kind() != (22 : stdgo.internal.reflectlite.Reflectlite.Kind)) || _val.isNil()) {
+		throw Go.toInterface((Go.str("errors: target must be a non-nil pointer") : GoString));
+	};
+	var _targetType:stdgo.internal.reflectlite.Reflectlite.Type = _typ.elem();
+	if ((_targetType.kind() != (20 : stdgo.internal.reflectlite.Reflectlite.Kind)) && !_targetType.implements_(_errorType)) {
+		throw Go.toInterface((Go.str("errors: *target must be interface or implement error") : GoString));
+	};
+	while (_err != null) {
+		if (stdgo.internal.reflectlite.Reflectlite.typeOf(Go.toInterface(_err)).assignableTo(_targetType)) {
+			_val.elem()
+				.set((stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err)) == null ? null : stdgo.internal.reflectlite.Reflectlite.valueOf(Go.toInterface(_err))
+					.__copy__()));
+			return true;
+		};
+		{
+			var __tmp__ = try {
+				{value: ((_err.__underlying__().value : Dynamic) : T__interface_2), ok: true};
+			} catch (_) {
+				{value: (null : T__interface_2), ok: false};
+			}, _x = __tmp__.value, _ok = __tmp__.ok;
+			if (_ok && _x.as(Go.toInterface(_target))) {
+				return true;
+			};
+		};
+		_err = unwrap(_err);
+	};
+	return false;
+}
+
+@:keep private class T_errorString_static_extension {
+	@:keep
+	static public function error(_e:T_errorString):GoString {
+		return _e._s;
+	}
+}
+
+class T_errorString_wrapper {
+	@:keep
+	public var error:() -> GoString = null;
+
+	public function new(__self__)
+		this.__self__ = __self__;
+
+	public function __underlying__()
+		return Go.toInterface(this);
+
+	var __self__:T_errorString;
 }

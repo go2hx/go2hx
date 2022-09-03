@@ -1252,11 +1252,11 @@ var _makeFieldsInput:() -> GoString = function():GoString {
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == (0 : GoInt))) {
+				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == ((0 : GoInt)))) {
 					_x[_i] = (" ".code : GoUInt8);
 					break;
 					break;
-				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == (1 : GoInt))) {
+				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == ((1 : GoInt)))) {
 					if ((_i > (0 : GoInt)) && (_x[_i - (1 : GoInt)] == ("x".code : GoUInt8))) {
 						Go.copySlice((_x.__slice__(_i - (1 : GoInt)) : Slice<GoUInt8>), (Go.str("χ") : GoString));
 						break;
@@ -3537,9 +3537,9 @@ function benchmarkByteByteReplaces(_b:stdgo.testing.Testing.B):Void {
 function benchmarkByteByteMap(_b:stdgo.testing.Testing.B):Void {
 	var _str:GoString = repeat((Go.str("a") : GoString), (100 : GoInt)) + repeat((Go.str("b") : GoString), (100 : GoInt));
 	var _fn:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
-		if (_r == ("a".code : GoInt32)) {
+		if (_r == (("a".code : GoInt32))) {
 			return ("A".code : GoInt32);
-		} else if (_r == ("b".code : GoInt32)) {
+		} else if (_r == (("b".code : GoInt32))) {
 			return ("B".code : GoInt32);
 		};
 		return _r;
@@ -4165,9 +4165,9 @@ function testMap(_t:stdgo.testing.Testing.T):Void {
 		_t.errorf((Go.str("replace invalid sequence: expected %q got %q") : GoString), Go.toInterface(_expect), Go.toInterface(_m));
 	};
 	var _encode:GoInt32->GoInt32 = function(_r:GoRune):GoRune {
-		if (_r == (128 : GoInt32)) {
+		if (_r == ((128 : GoInt32))) {
 			return (1114111 : GoInt32);
-		} else if (_r == (1114111 : GoInt32)) {
+		} else if (_r == ((1114111 : GoInt32))) {
 			return (128 : GoInt32);
 		};
 		return _r;
@@ -4288,15 +4288,15 @@ function testTrim(_t:stdgo.testing.Testing.T):Void {
 	for (_0 => _tc in _trimTests) {
 		var _name:GoString = _tc._f;
 		var _f:(GoString, GoString) -> GoString = null;
-		if (_name == (Go.str("Trim") : GoString)) {
+		if (_name == ((Go.str("Trim") : GoString))) {
 			_f = trim;
-		} else if (_name == (Go.str("TrimLeft") : GoString)) {
+		} else if (_name == ((Go.str("TrimLeft") : GoString))) {
 			_f = trimLeft;
-		} else if (_name == (Go.str("TrimRight") : GoString)) {
+		} else if (_name == ((Go.str("TrimRight") : GoString))) {
 			_f = trimRight;
-		} else if (_name == (Go.str("TrimPrefix") : GoString)) {
+		} else if (_name == ((Go.str("TrimPrefix") : GoString))) {
 			_f = trimPrefix;
-		} else if (_name == (Go.str("TrimSuffix") : GoString)) {
+		} else if (_name == ((Go.str("TrimSuffix") : GoString))) {
 			_f = trimSuffix;
 		} else {
 			_t.errorf((Go.str("Undefined trim function %s") : GoString), Go.toInterface(_name));
@@ -4317,15 +4317,15 @@ function benchmarkTrim(_b:stdgo.testing.Testing.B):Void {
 			for (_0 => _tc in _trimTests) {
 				var _name:GoString = _tc._f;
 				var _f:(GoString, GoString) -> GoString = null;
-				if (_name == (Go.str("Trim") : GoString)) {
+				if (_name == ((Go.str("Trim") : GoString))) {
 					_f = trim;
-				} else if (_name == (Go.str("TrimLeft") : GoString)) {
+				} else if (_name == ((Go.str("TrimLeft") : GoString))) {
 					_f = trimLeft;
-				} else if (_name == (Go.str("TrimRight") : GoString)) {
+				} else if (_name == ((Go.str("TrimRight") : GoString))) {
 					_f = trimRight;
-				} else if (_name == (Go.str("TrimPrefix") : GoString)) {
+				} else if (_name == ((Go.str("TrimPrefix") : GoString))) {
 					_f = trimPrefix;
-				} else if (_name == (Go.str("TrimSuffix") : GoString)) {
+				} else if (_name == ((Go.str("TrimSuffix") : GoString))) {
 					_f = trimSuffix;
 				} else {
 					_b.errorf((Go.str("Undefined trim function %s") : GoString), Go.toInterface(_name));

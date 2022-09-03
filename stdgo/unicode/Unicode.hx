@@ -7659,8 +7659,8 @@ function isPunct(_r:GoRune):Bool {
 **/
 function isSpace(_r:GoRune):Bool {
 	if ((_r : GoUInt32) <= (255 : GoUInt32)) {
-		if (_r == ("\t".code : GoInt32) || _r == ("\n".code : GoInt32) || _r == ("\x0B".code : GoInt32) || _r == ("\x0C".code : GoInt32)
-			|| _r == ("\r".code : GoInt32) || _r == (" ".code : GoInt32) || _r == (133 : GoInt32) || _r == (160 : GoInt32)) {
+		if (_r == (("\t".code : GoInt32)) || _r == (("\n".code : GoInt32)) || _r == (("\x0B".code : GoInt32)) || _r == (("\x0C".code : GoInt32))
+			|| _r == (("\r".code : GoInt32)) || _r == ((" ".code : GoInt32)) || _r == ((133 : GoInt32)) || _r == ((160 : GoInt32))) {
 			return true;
 		};
 		return false;

@@ -1746,15 +1746,15 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 						{
 							var _i:GoInt = (0 : GoInt);
 							Go.cfor(_i < _n, _i++, {
-								if (_dist == (0 : GoInt)) {
+								if (_dist == ((0 : GoInt))) {
 									_data[_i] = _i % _m;
-								} else if (_dist == (1 : GoInt)) {
+								} else if (_dist == ((1 : GoInt))) {
 									_data[_i] = stdgo.math.rand.Rand.intn(_m);
-								} else if (_dist == (2 : GoInt)) {
+								} else if (_dist == ((2 : GoInt))) {
 									_data[_i] = ((_i * _m) + _i) % _n;
-								} else if (_dist == (3 : GoInt)) {
+								} else if (_dist == ((3 : GoInt))) {
 									_data[_i] = _min(_i, _m);
-								} else if (_dist == (4 : GoInt)) {
+								} else if (_dist == ((4 : GoInt))) {
 									if (stdgo.math.rand.Rand.intn(_m) != (0 : GoInt)) {
 										_j = _j + ((2 : GoInt));
 										_data[_i] = _j;
@@ -1769,21 +1769,21 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 						{
 							var _mode:GoInt = (0 : GoInt);
 							Go.cfor(_mode < (6:GoInt), _mode++, {
-								if (_mode == (0 : GoInt)) {
+								if (_mode == ((0 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < _n, _i++, {
 											_mdata[_i] = _data[_i];
 										});
 									};
-								} else if (_mode == (1 : GoInt)) {
+								} else if (_mode == ((1 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < _n, _i++, {
 											_mdata[_i] = _data[(_n - _i) - (1 : GoInt)];
 										});
 									};
-								} else if (_mode == (2 : GoInt)) {
+								} else if (_mode == ((2 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
@@ -1796,7 +1796,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 											_mdata[_i] = _data[_i];
 										});
 									};
-								} else if (_mode == (3 : GoInt)) {
+								} else if (_mode == ((3 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < (_n / (2 : GoInt)), _i++, {
@@ -1809,7 +1809,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 											_mdata[_i] = _data[(_n - (_i - (_n / (2 : GoInt)))) - (1 : GoInt)];
 										});
 									};
-								} else if (_mode == (4 : GoInt)) {
+								} else if (_mode == ((4 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < _n, _i++, {
@@ -1817,7 +1817,7 @@ function _testBentleyMcIlroy(_t:stdgo.testing.Testing.T, _sort:Interface->Void, 
 										});
 									};
 									ints(_mdata);
-								} else if (_mode == (5 : GoInt)) {
+								} else if (_mode == ((5 : GoInt))) {
 									{
 										var _i:GoInt = (0 : GoInt);
 										Go.cfor(_i < _n, _i++, {

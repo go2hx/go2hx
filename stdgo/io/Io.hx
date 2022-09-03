@@ -904,11 +904,11 @@ class LimitedReader_wrapper {
 
 	@:keep
 	static public function seek(_s:SectionReader, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
-		if (_whence == (0 : GoInt)) {
+		if (_whence == ((0 : GoInt))) {
 			_offset = _offset + (_s._base);
-		} else if (_whence == (1 : GoInt)) {
+		} else if (_whence == ((1 : GoInt))) {
 			_offset = _offset + (_s._off);
-		} else if (_whence == (2 : GoInt)) {
+		} else if (_whence == ((2 : GoInt))) {
 			_offset = _offset + (_s._limit);
 		};
 		if (_offset < _s._base) {

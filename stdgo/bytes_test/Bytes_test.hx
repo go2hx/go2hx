@@ -842,11 +842,11 @@ var _makeFieldsInput:() -> Slice<GoUInt8> = function():Slice<GoByte> {
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == (0 : GoInt))) {
+				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == ((0 : GoInt)))) {
 					_x[_i] = (" ".code : GoUInt8);
 					break;
 					break;
-				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == (1 : GoInt))) {
+				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && stdgo.math.rand.Rand.intn((10 : GoInt)) == ((1 : GoInt)))) {
 					if ((_i > (0 : GoInt)) && (_x[_i - (1 : GoInt)] == ("x".code : GoUInt8))) {
 						Go.copySlice((_x.__slice__(_i - (1 : GoInt)) : Slice<GoUInt8>), (Go.str("χ") : GoString));
 						break;
@@ -3622,15 +3622,15 @@ function testTrim(_t:stdgo.testing.Testing.T):Void {
 		var _0:(Slice<GoUInt8>, GoString) -> Slice<GoUInt8>;
 		var _1:(Slice<GoUInt8>, Slice<GoUInt8>) -> Slice<GoUInt8>;
 	} = function(_name:GoString):{var _0:(Slice<GoByte>, GoString) -> Slice<GoByte>; var _1:(Slice<GoByte>, Slice<GoByte>) -> Slice<GoByte>;} {
-		if (_name == (Go.str("Trim") : GoString)) {
+		if (_name == ((Go.str("Trim") : GoString))) {
 			return {_0: trim, _1: null};
-		} else if (_name == (Go.str("TrimLeft") : GoString)) {
+		} else if (_name == ((Go.str("TrimLeft") : GoString))) {
 			return {_0: trimLeft, _1: null};
-		} else if (_name == (Go.str("TrimRight") : GoString)) {
+		} else if (_name == ((Go.str("TrimRight") : GoString))) {
 			return {_0: trimRight, _1: null};
-		} else if (_name == (Go.str("TrimPrefix") : GoString)) {
+		} else if (_name == ((Go.str("TrimPrefix") : GoString))) {
 			return {_0: null, _1: trimPrefix};
-		} else if (_name == (Go.str("TrimSuffix") : GoString)) {
+		} else if (_name == ((Go.str("TrimSuffix") : GoString))) {
 			return {_0: null, _1: trimSuffix};
 		} else {
 			_t.errorf((Go.str("Undefined trim function %s") : GoString), Go.toInterface(_name));

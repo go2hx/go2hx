@@ -811,14 +811,14 @@ class T_textValue_wrapper {
 			if (_err == null) {
 				break;
 			};
-			if (_f._errorHandling == (0 : ErrorHandling)) {
+			if (_f._errorHandling == ((0 : ErrorHandling))) {
 				return _err;
-			} else if (_f._errorHandling == (1 : ErrorHandling)) {
+			} else if (_f._errorHandling == ((1 : ErrorHandling))) {
 				if (_err == errHelp) {
 					Sys.exit((0 : GoInt));
 				};
 				Sys.exit((2 : GoInt));
-			} else if (_f._errorHandling == (2 : ErrorHandling)) {
+			} else if (_f._errorHandling == ((2 : ErrorHandling))) {
 				throw Go.toInterface(_err);
 			};
 		};

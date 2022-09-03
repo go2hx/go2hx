@@ -2437,11 +2437,11 @@ class Buffer_wrapper {
 	static public function seek(_r:Reader, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
 		_r._prevRune = (-1 : GoInt);
 		var _abs:GoInt64 = (0 : GoInt64);
-		if (_whence == (0 : GoInt)) {
+		if (_whence == ((0 : GoInt))) {
 			_abs = _offset;
-		} else if (_whence == (1 : GoInt)) {
+		} else if (_whence == ((1 : GoInt))) {
 			_abs = _r._i + _offset;
-		} else if (_whence == (2 : GoInt)) {
+		} else if (_whence == ((2 : GoInt))) {
 			_abs = (_r._s.length : GoInt64) + _offset;
 		} else {
 			return {_0: (0 : GoInt64), _1: stdgo.errors.Errors.new_((Go.str("bytes.Reader.Seek: invalid whence") : GoString))};

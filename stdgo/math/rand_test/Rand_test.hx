@@ -813,12 +813,12 @@ function testExpTables(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _hasSlowFloatingPoint():Bool {
-	if ((Go.str("wasm") : GoString) == (Go.str("arm") : GoString)) {
+	if ((Go.str("wasm") : GoString) == ((Go.str("arm") : GoString))) {
 		return stdgo.os.Os.getenv((Go.str("GOARM") : GoString)) == (Go.str("5") : GoString);
-	} else if ((Go.str("wasm") : GoString) == (Go.str("mips") : GoString)
-		|| (Go.str("wasm") : GoString) == (Go.str("mipsle") : GoString)
-			|| (Go.str("wasm") : GoString) == (Go.str("mips64") : GoString)
-				|| (Go.str("wasm") : GoString) == (Go.str("mips64le") : GoString)) {
+	} else if ((Go.str("wasm") : GoString) == ((Go.str("mips") : GoString))
+		|| (Go.str("wasm") : GoString) == ((Go.str("mipsle") : GoString))
+			|| (Go.str("wasm") : GoString) == ((Go.str("mips64") : GoString))
+				|| (Go.str("wasm") : GoString) == ((Go.str("mips64le") : GoString))) {
 		return true;
 	};
 	return false;
@@ -1268,7 +1268,7 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 						{
 							var __switchIndex__ = -1;
 							while (true) {
-								if (_mt.in_((0 : GoInt)).kind() == (2 : stdgo.reflect.Reflect.Kind)) {
+								if (_mt.in_((0 : GoInt)).kind() == ((2 : stdgo.reflect.Reflect.Kind))) {
 									if (_m.name == (Go.str("Perm") : GoString)) {
 										_x = Go.toInterface(_permSizes[_repeat % (_permSizes.length)]);
 										break;
@@ -1284,13 +1284,13 @@ function testRegress(_t:stdgo.testing.Testing.T):Void {
 									};
 									_x = Go.toInterface((_big : GoInt));
 									break;
-								} else if (_mt.in_((0 : GoInt)).kind() == (5 : stdgo.reflect.Reflect.Kind)) {
+								} else if (_mt.in_((0 : GoInt)).kind() == ((5 : stdgo.reflect.Reflect.Kind))) {
 									_x = Go.toInterface(_int32s[_repeat % (_int32s.length)]);
 									break;
-								} else if (_mt.in_((0 : GoInt)).kind() == (6 : stdgo.reflect.Reflect.Kind)) {
+								} else if (_mt.in_((0 : GoInt)).kind() == ((6 : stdgo.reflect.Reflect.Kind))) {
 									_x = Go.toInterface(_int64s[_repeat % (_int64s.length)]);
 									break;
-								} else if (_mt.in_((0 : GoInt)).kind() == (23 : stdgo.reflect.Reflect.Kind)) {
+								} else if (_mt.in_((0 : GoInt)).kind() == ((23 : stdgo.reflect.Reflect.Kind))) {
 									if (_m.name == (Go.str("Read") : GoString)) {
 										var _n:GoInt = _readBufferSizes[_repeat % (_readBufferSizes.length)];
 										_x = Go.toInterface(new Slice<GoUInt8>((_n : GoInt).toBasic(), 0,

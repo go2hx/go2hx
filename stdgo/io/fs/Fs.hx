@@ -319,7 +319,7 @@ function _globWithLimit(_fsys:FS, _pattern:GoString, _depth:GoInt):{var _0:Slice
 	// cleanGlobPath prepares path for glob matching.
 **/
 function _cleanGlobPath(_path:GoString):GoString {
-	if (_path == (Go.str() : GoString)) {
+	if (_path == ((Go.str() : GoString))) {
 		return (Go.str(".") : GoString);
 	} else {
 		return (_path.__slice__((0 : GoInt), (_path.length) - (1 : GoInt)) : GoString);
@@ -365,8 +365,8 @@ function _hasMeta(_path:GoString):Bool {
 	{
 		var _i:GoInt = (0 : GoInt);
 		Go.cfor(_i < (_path.length), _i++, {
-			if (_path[_i] == ("*".code : GoUInt8) || _path[_i] == ("?".code : GoUInt8) || _path[_i] == ("[".code : GoUInt8)
-				|| _path[_i] == ("\\".code : GoUInt8)) {
+			if (_path[_i] == (("*".code : GoUInt8)) || _path[_i] == (("?".code : GoUInt8)) || _path[_i] == (("[".code : GoUInt8))
+				|| _path[_i] == (("\\".code : GoUInt8))) {
 				return true;
 			};
 		});

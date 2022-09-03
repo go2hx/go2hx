@@ -2498,13 +2498,13 @@ function jn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 				var __tmp__ = sincos(_x),
 					_s:GoFloat64 = __tmp__._0,
 					_c:GoFloat64 = __tmp__._1;
-				if (_n & (3 : GoInt) == (0 : GoInt)) {
+				if (_n & (3 : GoInt) == ((0 : GoInt))) {
 					_temp = _c + _s;
-				} else if (_n & (3 : GoInt) == (1 : GoInt)) {
+				} else if (_n & (3 : GoInt) == ((1 : GoInt))) {
 					_temp = -_c + _s;
-				} else if (_n & (3 : GoInt) == (2 : GoInt)) {
+				} else if (_n & (3 : GoInt) == ((2 : GoInt))) {
 					_temp = -_c - _s;
-				} else if (_n & (3 : GoInt) == (3 : GoInt)) {
+				} else if (_n & (3 : GoInt) == ((3 : GoInt))) {
 					_temp = _c - _s;
 				};
 			};
@@ -2658,13 +2658,13 @@ function yn(_n:GoInt, _x:GoFloat64):GoFloat64 {
 			var __tmp__ = sincos(_x),
 				_s:GoFloat64 = __tmp__._0,
 				_c:GoFloat64 = __tmp__._1;
-			if (_n & (3 : GoInt) == (0 : GoInt)) {
+			if (_n & (3 : GoInt) == ((0 : GoInt))) {
 				_temp = _s - _c;
-			} else if (_n & (3 : GoInt) == (1 : GoInt)) {
+			} else if (_n & (3 : GoInt) == ((1 : GoInt))) {
 				_temp = -_s - _c;
-			} else if (_n & (3 : GoInt) == (2 : GoInt)) {
+			} else if (_n & (3 : GoInt) == ((2 : GoInt))) {
 				_temp = -_s + _c;
-			} else if (_n & (3 : GoInt) == (3 : GoInt)) {
+			} else if (_n & (3 : GoInt) == ((3 : GoInt))) {
 				_temp = _s + _c;
 			};
 		};
@@ -2833,7 +2833,7 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 						_i = (2 : GoInt);
 					};
 				};
-				if (_i == (0 : GoInt)) {
+				if (_i == ((0 : GoInt))) {
 					var _z:GoFloat64 = _y * _y;
 					var _p1:GoFloat64 = __lgamA[(0 : GoInt)]
 						+ (_z * (__lgamA[(2 : GoInt)]
@@ -2843,7 +2843,7 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 							+ (_z * (__lgamA[(5 : GoInt)] + (_z * (__lgamA[(7 : GoInt)] + (_z * (__lgamA[(9 : GoInt)] + (_z * __lgamA[(11 : GoInt)]))))))))));
 					var _p:GoFloat64 = (_y * _p1) + _p2;
 					_lgamma = _lgamma + ((_p - ((0.5 : GoFloat64) * _y)));
-				} else if (_i == (1 : GoInt)) {
+				} else if (_i == ((1 : GoInt))) {
 					var _z:GoFloat64 = _y * _y;
 					var _w:GoFloat64 = _z * _y;
 					var _p1:GoFloat64 = __lgamT[(0 : GoInt)]
@@ -2854,7 +2854,7 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 						+ (_w * (__lgamT[(5 : GoInt)] + (_w * (__lgamT[(8 : GoInt)] + (_w * (__lgamT[(11 : GoInt)] + (_w * __lgamT[(14 : GoInt)])))))));
 					var _p:GoFloat64 = (_z * _p1) - ((-3.638676997039505e-18 : GoFloat64) - (_w * (_p2 + (_y * _p3))));
 					_lgamma = _lgamma + (((-0.12148629053584961 : GoFloat64) + _p));
-				} else if (_i == (2 : GoInt)) {
+				} else if (_i == ((2 : GoInt))) {
 					var _p1:GoFloat64 = _y * (__lgamU[(0 : GoInt)]
 						+ (_y * (__lgamU[(1 : GoInt)]
 							+ (_y * (__lgamU[(2 : GoInt)] + (_y * (__lgamU[(3 : GoInt)] + (_y * (__lgamU[(4 : GoInt)] + (_y * __lgamU[(5 : GoInt)]))))))))));
@@ -2880,35 +2880,35 @@ function lgamma(_x:GoFloat64):{var _0:GoFloat64; var _1:GoInt;} {
 				{
 					var __switchIndex__ = -1;
 					while (true) {
-						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i == (7 : GoInt))) {
+						if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _i == ((7 : GoInt)))) {
 							_z = _z * ((_y + (6 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 1;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i == (6 : GoInt))) {
+						} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _i == ((6 : GoInt)))) {
 							_z = _z * ((_y + (5 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 2;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i == (5 : GoInt))) {
+						} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _i == ((5 : GoInt)))) {
 							_z = _z * ((_y + (4 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 3;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && _i == (4 : GoInt))) {
+						} else if (__switchIndex__ == 3 || (__switchIndex__ == -1 && _i == ((4 : GoInt)))) {
 							_z = _z * ((_y + (3 : GoFloat64)));
 							@:fallthrough {
 								__switchIndex__ = 4;
 								continue;
 							};
 							break;
-						} else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && _i == (3 : GoInt))) {
+						} else if (__switchIndex__ == 4 || (__switchIndex__ == -1 && _i == ((3 : GoInt)))) {
 							_z = _z * ((_y + (2 : GoFloat64)));
 							_lgamma = _lgamma + (log(_z));
 							break;
@@ -2967,13 +2967,13 @@ function _sinPi(_x:GoFloat64):GoFloat64 {
 			_n = _n << ((2 : GoUnTypedInt));
 		};
 	};
-	if (_n == (0 : GoInt)) {
+	if (_n == ((0 : GoInt))) {
 		_x = sin((3.141592653589793 : GoFloat64) * _x);
-	} else if (_n == (1 : GoInt) || _n == (2 : GoInt)) {
+	} else if (_n == ((1 : GoInt)) || _n == ((2 : GoInt))) {
 		_x = cos((3.141592653589793 : GoFloat64) * ((0.5 : GoFloat64) - _x));
-	} else if (_n == (3 : GoInt) || _n == (4 : GoInt)) {
+	} else if (_n == ((3 : GoInt)) || _n == ((4 : GoInt))) {
 		_x = sin((3.141592653589793 : GoFloat64) * ((1 : GoFloat64) - _x));
-	} else if (_n == (5 : GoInt) || _n == (6 : GoInt)) {
+	} else if (_n == ((5 : GoInt)) || _n == ((6 : GoInt))) {
 		_x = -cos((3.141592653589793 : GoFloat64) * (_x - (1.5 : GoFloat64)));
 	} else {
 		_x = sin((3.141592653589793 : GoFloat64) * (_x - (2 : GoFloat64)));

@@ -6796,32 +6796,32 @@ function testAdjustTimers(_t:stdgo.testing.Testing.T):Void {
 		var _timer:Ref<Timer> = _timers[_i];
 		var _state:GoInt = _states[_i];
 		_states[_i]++;
-		if (_state == (0 : GoInt)) {
+		if (_state == ((0 : GoInt))) {
 			_timers[_i] = newTimer((0 : Duration));
-		} else if (_state == (1 : GoInt)) {
+		} else if (_state == ((1 : GoInt))) {
 			_timer.c.__get__();
-		} else if (_state == (2 : GoInt)) {
+		} else if (_state == ((2 : GoInt))) {
 			if (_timer.reset(("60000000000" : Duration))) {
 				throw Go.toInterface((Go.str("shouldn\'t be active (1)") : GoString));
 			};
-		} else if (_state == (4 : GoInt)) {
+		} else if (_state == ((4 : GoInt))) {
 			if (_timer.reset(("180000000000" : Duration))) {
 				throw Go.toInterface((Go.str("shouldn\'t be active (3)") : GoString));
 			};
-		} else if (_state == (6 : GoInt)) {
+		} else if (_state == ((6 : GoInt))) {
 			if (_timer.reset(("120000000000" : Duration))) {
 				throw Go.toInterface((Go.str("shouldn\'t be active (2)") : GoString));
 			};
-		} else if (_state == (3 : GoInt) || _state == (5 : GoInt) || _state == (7 : GoInt)) {
+		} else if (_state == ((3 : GoInt)) || _state == ((5 : GoInt)) || _state == ((7 : GoInt))) {
 			if (!_timer.stop()) {
 				_t.logf((Go.str("timer %d state %d Stop returned false") : GoString), Go.toInterface(_i), Go.toInterface(_state));
 				_timer.c.__get__();
 			};
-		} else if (_state == (8 : GoInt)) {
+		} else if (_state == ((8 : GoInt))) {
 			if (_timer.reset((0 : Duration))) {
 				_t.fatal(Go.toInterface((Go.str("timer.Reset returned true") : GoString)));
 			};
-		} else if (_state == (9 : GoInt)) {
+		} else if (_state == ((9 : GoInt))) {
 			var _now:Time = (now() == null ? null : now().__copy__());
 			_timer.c.__get__();
 			var _dur:Duration = since((_now == null ? null : _now.__copy__()));
@@ -6841,7 +6841,7 @@ function testAdjustTimers(_t:stdgo.testing.Testing.T):Void {
 					__self__;
 				}));
 			};
-		} else if (_state == (10 : GoInt)) {
+		} else if (_state == ((10 : GoInt))) {
 			_indices[_ii] = _indices[(_indices.length) - (1 : GoInt)];
 			_indices = (_indices.__slice__(0, (_indices.length) - (1 : GoInt)) : Slice<GoInt>);
 		};
@@ -12732,7 +12732,7 @@ function testEmbeddedTZData(_t:stdgo.testing.Testing.T):Void {
 	// compare the values of zoneinfo unexported fields.
 **/
 function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2:stdgo.reflect.Reflect.Value):Bool {
-	if (_f1.type().kind() == (23 : stdgo.reflect.Reflect.Kind)) {
+	if (_f1.type().kind() == ((23 : stdgo.reflect.Reflect.Kind))) {
 		if (_f1.len() != _f2.len()) {
 			return false;
 		};
@@ -12745,7 +12745,7 @@ function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2
 			});
 		};
 		return true;
-	} else if (_f1.type().kind() == (25 : stdgo.reflect.Reflect.Kind)) {
+	} else if (_f1.type().kind() == ((25 : stdgo.reflect.Reflect.Kind))) {
 		var _nf:GoInt = _f1.type().numField();
 		{
 			var _i:GoInt = (0 : GoInt);
@@ -12756,22 +12756,22 @@ function _equal(_t:stdgo.testing.Testing.T, _f1:stdgo.reflect.Reflect.Value, _f2
 			});
 		};
 		return true;
-	} else if (_f1.type().kind() == (24 : stdgo.reflect.Reflect.Kind)) {
+	} else if (_f1.type().kind() == ((24 : stdgo.reflect.Reflect.Kind))) {
 		return (_f1.string() : GoString) == (_f2.string() : GoString);
-	} else if (_f1.type().kind() == (1 : stdgo.reflect.Reflect.Kind)) {
+	} else if (_f1.type().kind() == ((1 : stdgo.reflect.Reflect.Kind))) {
 		return _f1.bool() == _f2.bool();
-	} else if (_f1.type().kind() == (2 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (3 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (4 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (5 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (6 : stdgo.reflect.Reflect.Kind)) {
+	} else if (_f1.type().kind() == ((2 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((3 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((4 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((5 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((6 : stdgo.reflect.Reflect.Kind))) {
 		return _f1.int() == _f2.int();
-	} else if (_f1.type().kind() == (7 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (8 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (9 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (10 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (11 : stdgo.reflect.Reflect.Kind)
-		|| _f1.type().kind() == (12 : stdgo.reflect.Reflect.Kind)) {
+	} else if (_f1.type().kind() == ((7 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((8 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((9 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((10 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((11 : stdgo.reflect.Reflect.Kind))
+		|| _f1.type().kind() == ((12 : stdgo.reflect.Reflect.Kind))) {
 		return _f1.uint() == _f2.uint();
 	} else {
 		_t.errorf((Go.str("test internal error: unsupported kind %v") : GoString), Go.toInterface({

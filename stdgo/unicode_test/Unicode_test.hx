@@ -593,11 +593,11 @@ function testIsUpper(_t:stdgo.testing.Testing.T):Void {
 }
 
 function _caseString(_c:GoInt):GoString {
-	if (_c == (0 : GoInt)) {
+	if (_c == ((0 : GoInt))) {
 		return (Go.str("UpperCase") : GoString);
-	} else if (_c == (1 : GoInt)) {
+	} else if (_c == ((1 : GoInt))) {
 		return (Go.str("LowerCase") : GoString);
-	} else if (_c == (2 : GoInt)) {
+	} else if (_c == ((2 : GoInt))) {
 		return (Go.str("TitleCase") : GoString);
 	};
 	return (Go.str("ErrorCase") : GoString);

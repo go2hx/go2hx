@@ -147,18 +147,18 @@ function _scanChunk(_pattern:GoString):{var _0:Bool; var _1:GoString; var _2:GoS
 				{
 					var __switchIndex__ = -1;
 					while (true) {
-						if (_pattern[_i] == ("\\".code : GoUInt8)) {
+						if (_pattern[_i] == (("\\".code : GoUInt8))) {
 							if ((_i + (1 : GoInt)) < (_pattern.length)) {
 								_i++;
 							};
 							break;
-						} else if (_pattern[_i] == ("[".code : GoUInt8)) {
+						} else if (_pattern[_i] == (("[".code : GoUInt8))) {
 							_inrange = true;
 							break;
-						} else if (_pattern[_i] == ("]".code : GoUInt8)) {
+						} else if (_pattern[_i] == (("]".code : GoUInt8))) {
 							_inrange = false;
 							break;
-						} else if (_pattern[_i] == ("*".code : GoUInt8)) {
+						} else if (_pattern[_i] == (("*".code : GoUInt8))) {
 							if (!_inrange) {
 								@:break {
 									____exit____ = true;
@@ -194,7 +194,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("[".code : GoUInt8))) {
+				if (__switchIndex__ == 0 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == (("[".code : GoUInt8)))) {
 					var _r:GoRune = (0 : GoInt32);
 					if (!_failed) {
 						var _n:GoInt = (0 : GoInt);
@@ -255,7 +255,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					};
 					break;
 					break;
-				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("?".code : GoUInt8))) {
+				} else if (__switchIndex__ == 1 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == (("?".code : GoUInt8)))) {
 					if (!_failed) {
 						if (_s[(0 : GoInt)] == ("/".code : GoUInt8)) {
 							_failed = true;
@@ -268,7 +268,7 @@ function _matchChunk(_chunk:GoString, _s:GoString):{var _0:GoString; var _1:Bool
 					_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 					break;
 					break;
-				} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == ("\\".code : GoUInt8))) {
+				} else if (__switchIndex__ == 2 || (__switchIndex__ == -1 && _chunk[(0 : GoInt)] == (("\\".code : GoUInt8)))) {
 					_chunk = (_chunk.__slice__((1 : GoInt)) : GoString);
 					if ((_chunk.length) == (0 : GoInt)) {
 						return {_0: (Go.str() : GoString), _1: false, _2: errBadPattern};

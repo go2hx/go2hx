@@ -688,7 +688,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 		Go.cfor(_i < (_layout.length), _i++, {
 			{
 				var _c:GoInt = (_layout[_i] : GoInt);
-				if (_c == ("J".code : GoInt)) {
+				if (_c == (("J".code : GoInt))) {
 					if ((_layout.length >= (_i + (3 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Jan") : GoString))) {
 						if ((_layout.length >= (_i + (7 : GoInt)))
@@ -701,7 +701,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 								_i) : GoString), _1: (258 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 						};
 					};
-				} else if (_c == ("M".code : GoInt)) {
+				} else if (_c == (("M".code : GoInt))) {
 					if ((_layout.length) >= (_i + (3 : GoInt))) {
 						if ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Mon") : GoString)) {
 							if ((_layout.length >= (_i + (6 : GoInt)))
@@ -719,7 +719,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 								_i) : GoString), _1: (23 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 						};
 					};
-				} else if (_c == ("0".code : GoInt)) {
+				} else if (_c == (("0".code : GoInt))) {
 					if (((_layout.length >= (_i + (2 : GoInt))) && (("1".code : GoUInt8) <= _layout[_i + (1 : GoInt)]))
 						&& (_layout[_i + (1 : GoInt)] <= ("6".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt),
@@ -730,18 +730,18 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						&& (_layout[_i + (2 : GoInt)] == ("2".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (267 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
-				} else if (_c == ("1".code : GoInt)) {
+				} else if (_c == (("1".code : GoInt))) {
 					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("5".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (524 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (259 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
-				} else if (_c == ("2".code : GoInt)) {
+				} else if (_c == (("2".code : GoInt))) {
 					if ((_layout.length >= (_i + (4 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (4 : GoInt)) : GoString) == (Go.str("2006") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (275 : GoInt), _2: (_layout.__slice__(_i + (4 : GoInt)) : GoString)};
 					};
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (263 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
-				} else if (_c == ("_".code : GoInt)) {
+				} else if (_c == (("_".code : GoInt))) {
 					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("2".code : GoUInt8))) {
 						if ((_layout.length >= (_i + (5 : GoInt)))
 							&& ((_layout.__slice__(_i + (1 : GoInt), _i + (5 : GoInt)) : GoString) == (Go.str("2006") : GoString))) {
@@ -754,21 +754,21 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						&& (_layout[_i + (2 : GoInt)] == ("2".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (266 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
-				} else if (_c == ("3".code : GoInt)) {
+				} else if (_c == (("3".code : GoInt))) {
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (525 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
-				} else if (_c == ("4".code : GoInt)) {
+				} else if (_c == (("4".code : GoInt))) {
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (527 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
-				} else if (_c == ("5".code : GoInt)) {
+				} else if (_c == (("5".code : GoInt))) {
 					return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (529 : GoInt), _2: (_layout.__slice__(_i + (1 : GoInt)) : GoString)};
-				} else if (_c == ("P".code : GoInt)) {
+				} else if (_c == (("P".code : GoInt))) {
 					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("M".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (533 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
-				} else if (_c == ("p".code : GoInt)) {
+				} else if (_c == (("p".code : GoInt))) {
 					if ((_layout.length >= (_i + (2 : GoInt))) && (_layout[_i + (1 : GoInt)] == ("m".code : GoUInt8))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (534 : GoInt), _2: (_layout.__slice__(_i + (2 : GoInt)) : GoString)};
 					};
-				} else if (_c == ("-".code : GoInt)) {
+				} else if (_c == (("-".code : GoInt))) {
 					if ((_layout.length >= (_i + (7 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == (Go.str("-070000") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (30 : GoInt), _2: (_layout.__slice__(_i + (7 : GoInt)) : GoString)};
@@ -789,7 +789,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("-07") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (31 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
-				} else if (_c == ("Z".code : GoInt)) {
+				} else if (_c == (("Z".code : GoInt))) {
 					if ((_layout.length >= (_i + (7 : GoInt)))
 						&& ((_layout.__slice__(_i, _i + (7 : GoInt)) : GoString) == (Go.str("Z070000") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (25 : GoInt), _2: (_layout.__slice__(_i + (7 : GoInt)) : GoString)};
@@ -810,7 +810,7 @@ function _nextStdChunk(_layout:GoString):{var _0:GoString; var _1:GoInt; var _2:
 						&& ((_layout.__slice__(_i, _i + (3 : GoInt)) : GoString) == (Go.str("Z07") : GoString))) {
 						return {_0: (_layout.__slice__((0 : GoInt), _i) : GoString), _1: (26 : GoInt), _2: (_layout.__slice__(_i + (3 : GoInt)) : GoString)};
 					};
-				} else if (_c == (".".code : GoInt) || _c == (",".code : GoInt)) {
+				} else if (_c == ((".".code : GoInt)) || _c == ((",".code : GoInt))) {
 					if (((_i + (1 : GoInt)) < _layout.length)
 						&& ((_layout[_i + (1 : GoInt)] == ("0".code : GoUInt8)) || (_layout[_i + (1 : GoInt)] == ("9".code : GoUInt8)))) {
 						var _ch:GoUInt8 = _layout[_i + (1 : GoInt)];
@@ -1206,7 +1206,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 		{
 			var __switchIndex__ = -1;
 			while (true) {
-				if (_std & (65535 : GoInt) == (276 : GoInt)) {
+				if (_std & (65535 : GoInt) == ((276 : GoInt))) {
 					if ((_value.length) < (2 : GoInt)) {
 						_err = _errBad;
 						break;
@@ -1231,7 +1231,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_year = _year + ((2000 : GoInt));
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (275 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((275 : GoInt))) {
 					if ((_value.length < (4:GoInt)) || !_isDigit(_value, (0 : GoInt))) {
 						_err = _errBad;
 						break;
@@ -1248,7 +1248,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_err = __tmp__._1;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (258 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((258 : GoInt))) {
 					{
 						var __tmp__ = _lookup(_shortMonthNames, _value);
 						_month = __tmp__._0;
@@ -1257,7 +1257,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					};
 					_month++;
 					break;
-				} else if (_std & (65535 : GoInt) == (257 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((257 : GoInt))) {
 					{
 						var __tmp__ = _lookup(_longMonthNames, _value);
 						_month = __tmp__._0;
@@ -1266,7 +1266,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					};
 					_month++;
 					break;
-				} else if (_std & (65535 : GoInt) == (259 : GoInt) || _std & (65535 : GoInt) == (260 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((259 : GoInt)) || _std & (65535 : GoInt) == ((260 : GoInt))) {
 					{
 						var __tmp__ = _getnum(_value, _std == (260 : GoInt));
 						_month = __tmp__._0;
@@ -1277,22 +1277,22 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_rangeErrString = (Go.str("month") : GoString);
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (262 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((262 : GoInt))) {
 					{
 						var __tmp__ = _lookup(_shortDayNames, _value);
 						_value = __tmp__._1;
 						_err = __tmp__._2;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (261 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((261 : GoInt))) {
 					{
 						var __tmp__ = _lookup(_longDayNames, _value);
 						_value = __tmp__._1;
 						_err = __tmp__._2;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (263 : GoInt)
-					|| _std & (65535 : GoInt) == (264 : GoInt) || _std & (65535 : GoInt) == (265 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((263 : GoInt))
+					|| _std & (65535 : GoInt) == ((264 : GoInt)) || _std & (65535 : GoInt) == ((265 : GoInt))) {
 					if (((_std == (264 : GoInt)) && (_value.length > (0 : GoInt))) && (_value[(0 : GoInt)] == (" ".code : GoUInt8))) {
 						_value = (_value.__slice__((1 : GoInt)) : GoString);
 					};
@@ -1303,7 +1303,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_err = __tmp__._2;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (266 : GoInt) || _std & (65535 : GoInt) == (267 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((266 : GoInt)) || _std & (65535 : GoInt) == ((267 : GoInt))) {
 					{
 						var _i:GoInt = (0 : GoInt);
 						Go.cfor(_i < (2:GoInt), _i++, {
@@ -1320,7 +1320,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_err = __tmp__._2;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (524 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((524 : GoInt))) {
 					{
 						var __tmp__ = _getnum(_value, false);
 						_hour = __tmp__._0;
@@ -1331,7 +1331,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_rangeErrString = (Go.str("hour") : GoString);
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (525 : GoInt) || _std & (65535 : GoInt) == (526 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((525 : GoInt)) || _std & (65535 : GoInt) == ((526 : GoInt))) {
 					{
 						var __tmp__ = _getnum(_value, _std == (526 : GoInt));
 						_hour = __tmp__._0;
@@ -1342,7 +1342,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_rangeErrString = (Go.str("hour") : GoString);
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (527 : GoInt) || _std & (65535 : GoInt) == (528 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((527 : GoInt)) || _std & (65535 : GoInt) == ((528 : GoInt))) {
 					{
 						var __tmp__ = _getnum(_value, _std == (528 : GoInt));
 						_min = __tmp__._0;
@@ -1353,7 +1353,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_rangeErrString = (Go.str("minute") : GoString);
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (529 : GoInt) || _std & (65535 : GoInt) == (530 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((529 : GoInt)) || _std & (65535 : GoInt) == ((530 : GoInt))) {
 					{
 						var __tmp__ = _getnum(_value, _std == (530 : GoInt));
 						_sec = __tmp__._0;
@@ -1384,7 +1384,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_value = (_value.__slice__(_n) : GoString);
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (533 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((533 : GoInt))) {
 					if ((_value.length) < (2 : GoInt)) {
 						_err = _errBad;
 						break;
@@ -1395,15 +1395,15 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_p = __tmp__0;
 						_value = __tmp__1;
 					};
-					if (_p == (Go.str("PM") : GoString)) {
+					if (_p == ((Go.str("PM") : GoString))) {
 						_pmSet = true;
-					} else if (_p == (Go.str("AM") : GoString)) {
+					} else if (_p == ((Go.str("AM") : GoString))) {
 						_amSet = true;
 					} else {
 						_err = _errBad;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (534 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((534 : GoInt))) {
 					if ((_value.length) < (2 : GoInt)) {
 						_err = _errBad;
 						break;
@@ -1414,23 +1414,23 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_p = __tmp__0;
 						_value = __tmp__1;
 					};
-					if (_p == (Go.str("pm") : GoString)) {
+					if (_p == ((Go.str("pm") : GoString))) {
 						_pmSet = true;
-					} else if (_p == (Go.str("am") : GoString)) {
+					} else if (_p == ((Go.str("am") : GoString))) {
 						_amSet = true;
 					} else {
 						_err = _errBad;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (24 : GoInt)
-					|| _std & (65535 : GoInt) == (27 : GoInt)
-						|| _std & (65535 : GoInt) == (25 : GoInt)
-							|| _std & (65535 : GoInt) == (26 : GoInt)
-								|| _std & (65535 : GoInt) == (28 : GoInt)
-									|| _std & (65535 : GoInt) == (29 : GoInt)
-										|| _std & (65535 : GoInt) == (31 : GoInt)
-											|| _std & (65535 : GoInt) == (32 : GoInt)
-												|| _std & (65535 : GoInt) == (30 : GoInt) || _std & (65535 : GoInt) == (33 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((24 : GoInt))
+					|| _std & (65535 : GoInt) == ((27 : GoInt))
+						|| _std & (65535 : GoInt) == ((25 : GoInt))
+							|| _std & (65535 : GoInt) == ((26 : GoInt))
+								|| _std & (65535 : GoInt) == ((28 : GoInt))
+									|| _std & (65535 : GoInt) == ((29 : GoInt))
+										|| _std & (65535 : GoInt) == ((31 : GoInt))
+											|| _std & (65535 : GoInt) == ((32 : GoInt))
+												|| _std & (65535 : GoInt) == ((30 : GoInt)) || _std & (65535 : GoInt) == ((33 : GoInt))) {
 					if (((((_std == (24 : GoInt)) || (_std == (26 : GoInt))) || (_std == (27 : GoInt))) && (_value.length >= (1 : GoInt)))
 						&& (_value[(0 : GoInt)] == ("Z".code : GoUInt8))) {
 						_value = (_value.__slice__((1 : GoInt)) : GoString);
@@ -1558,13 +1558,13 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						};
 					};
 					_zoneOffset = (((_hr * (60 : GoInt)) + _mm) * (60 : GoInt)) + _ss;
-					if (_sign[(0 : GoInt)] == ("+".code : GoUInt8)) {} else if (_sign[(0 : GoInt)] == ("-".code : GoUInt8)) {
+					if (_sign[(0 : GoInt)] == (("+".code : GoUInt8))) {} else if (_sign[(0 : GoInt)] == (("-".code : GoUInt8))) {
 						_zoneOffset = -_zoneOffset;
 					} else {
 						_err = _errBad;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (23 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((23 : GoInt))) {
 					if ((_value.length >= (3 : GoInt))
 						&& ((_value.__slice__((0 : GoInt), (3 : GoInt)) : GoString) == (Go.str("UTC") : GoString))) {
 						_z = utc;
@@ -1585,7 +1585,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 						_value = __tmp__1;
 					};
 					break;
-				} else if (_std & (65535 : GoInt) == (34 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((34 : GoInt))) {
 					var _ndigit:GoInt = (1 : GoInt) + _digitsLen(_std);
 					if ((_value.length) < _ndigit) {
 						_err = _errBad;
@@ -1599,7 +1599,7 @@ function _parse(_layout:GoString, _value:GoString, _defaultLocation:Location, _l
 					};
 					_value = (_value.__slice__(_ndigit) : GoString);
 					break;
-				} else if (_std & (65535 : GoInt) == (35 : GoInt)) {
+				} else if (_std & (65535 : GoInt) == ((35 : GoInt))) {
 					if ((((_value.length < (2:GoInt)) || !_commaOrPeriod(_value[(0 : GoInt)]))
 						|| (_value[(1 : GoInt)] < ("0".code : GoUInt8)))
 						|| (("9".code : GoUInt8) < _value[(1 : GoInt)])) {
@@ -1821,18 +1821,18 @@ function _parseTimeZone(_value:GoString):{var _0:GoInt; var _1:Bool;} {
 			};
 		});
 	};
-	if (_nUpper == (0 : GoInt) || _nUpper == (1 : GoInt) || _nUpper == (2 : GoInt) || _nUpper == (6 : GoInt)) {
+	if (_nUpper == ((0 : GoInt)) || _nUpper == ((1 : GoInt)) || _nUpper == ((2 : GoInt)) || _nUpper == ((6 : GoInt))) {
 		return {_0: (0 : GoInt), _1: false};
-	} else if (_nUpper == (5 : GoInt)) {
+	} else if (_nUpper == ((5 : GoInt))) {
 		if (_value[(4 : GoInt)] == ("T".code : GoUInt8)) {
 			return {_0: (5 : GoInt), _1: true};
 		};
-	} else if (_nUpper == (4 : GoInt)) {
+	} else if (_nUpper == ((4 : GoInt))) {
 		if ((_value[(3 : GoInt)] == ("T".code : GoUInt8))
 			|| ((_value.__slice__(0, (4 : GoInt)) : GoString) == (Go.str("WITA") : GoString))) {
 			return {_0: (4 : GoInt), _1: true};
 		};
-	} else if (_nUpper == (3 : GoInt)) {
+	} else if (_nUpper == ((3 : GoInt))) {
 		return {_0: (3 : GoInt), _1: true};
 	};
 	return {_0: (0 : GoInt), _1: false};
@@ -3068,10 +3068,10 @@ function _tzsetName(_s:GoString):{var _0:GoString; var _1:GoString; var _2:Bool;
 	};
 	if (_s[(0 : GoInt)] != ("<".code : GoUInt8)) {
 		for (_i => _r in _s) {
-			if (_r == ("0".code : GoInt32) || _r == ("1".code : GoInt32) || _r == ("2".code : GoInt32) || _r == ("3".code : GoInt32)
-				|| _r == ("4".code : GoInt32) || _r == ("5".code : GoInt32) || _r == ("6".code : GoInt32) || _r == ("7".code : GoInt32)
-				|| _r == ("8".code : GoInt32) || _r == ("9".code : GoInt32) || _r == (",".code : GoInt32) || _r == ("-".code : GoInt32)
-				|| _r == ("+".code : GoInt32)) {
+			if (_r == (("0".code : GoInt32)) || _r == (("1".code : GoInt32)) || _r == (("2".code : GoInt32)) || _r == (("3".code : GoInt32))
+				|| _r == (("4".code : GoInt32)) || _r == (("5".code : GoInt32)) || _r == (("6".code : GoInt32)) || _r == (("7".code : GoInt32))
+				|| _r == (("8".code : GoInt32)) || _r == (("9".code : GoInt32)) || _r == ((",".code : GoInt32)) || _r == (("-".code : GoInt32))
+				|| _r == (("+".code : GoInt32))) {
 				if (_i < (3:GoInt)) {
 					return {_0: (Go.str() : GoString), _1: (Go.str() : GoString), _2: false};
 				};
@@ -3291,16 +3291,16 @@ function _tzruleTime(_year:GoInt, _r:T_rule, _off:GoInt):GoInt {
 	{
 		var __switchIndex__ = -1;
 		while (true) {
-			if (_r._kind == (0 : T_ruleKind)) {
+			if (_r._kind == ((0 : T_ruleKind))) {
 				_s = (_r._day - (1 : GoInt)) * (86400 : GoInt);
 				if (_isLeap(_year) && (_r._day >= (60 : GoInt))) {
 					_s = _s + ((86400 : GoInt));
 				};
 				break;
-			} else if (_r._kind == (1 : T_ruleKind)) {
+			} else if (_r._kind == ((1 : T_ruleKind))) {
 				_s = _r._day * (86400 : GoInt);
 				break;
-			} else if (_r._kind == (2 : T_ruleKind)) {
+			} else if (_r._kind == ((2 : T_ruleKind))) {
 				var _m1:GoInt = ((_r._mon + (9 : GoInt)) % (12 : GoInt)) + (1 : GoInt);
 				var _yy0:GoInt = _year;
 				if (_r._mon <= (2 : GoInt)) {
@@ -3513,11 +3513,11 @@ function loadLocationFromTZData(_name:GoString, _data:Slice<GoByte>):{var _0:Loc
 		if ((_p.length) != (16 : GoInt)) {
 			return {_0: null, _1: _badData};
 		} else {
-			if (_p[(0 : GoInt)] == (0 : GoUInt8)) {
+			if (_p[(0 : GoInt)] == ((0 : GoUInt8))) {
 				_version = (1 : GoInt);
-			} else if (_p[(0 : GoInt)] == ("2".code : GoUInt8)) {
+			} else if (_p[(0 : GoInt)] == (("2".code : GoUInt8))) {
 				_version = (2 : GoInt);
-			} else if (_p[(0 : GoInt)] == ("3".code : GoUInt8)) {
+			} else if (_p[(0 : GoInt)] == (("3".code : GoUInt8))) {
 				_version = (3 : GoInt);
 			} else {
 				return {_0: null, _1: _badData};
@@ -5244,49 +5244,49 @@ class Ticker_wrapper {
 			{
 				var __switchIndex__ = -1;
 				while (true) {
-					if (_std & (65535 : GoInt) == (276 : GoInt)) {
+					if (_std & (65535 : GoInt) == ((276 : GoInt))) {
 						var _y:GoInt = _year;
 						if (_y < (0:GoInt)) {
 							_y = -_y;
 						};
 						_b = _appendInt(_b, _y % (100 : GoInt), (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (275 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((275 : GoInt))) {
 						_b = _appendInt(_b, _year, (4 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (258 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((258 : GoInt))) {
 						_b = (_b.__append__(...((_month.string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__()));
 						break;
-					} else if (_std & (65535 : GoInt) == (257 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((257 : GoInt))) {
 						var _m:GoString = (_month.string() : GoString);
 						_b = (_b.__append__(..._m.__toArray__()));
 						break;
-					} else if (_std & (65535 : GoInt) == (259 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((259 : GoInt))) {
 						_b = _appendInt(_b, (_month : GoInt), (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (260 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((260 : GoInt))) {
 						_b = _appendInt(_b, (_month : GoInt), (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (262 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((262 : GoInt))) {
 						_b = (_b.__append__(...((_absWeekday(_abs).string() : GoString).__slice__(0, (3 : GoInt)) : GoString).__toArray__()));
 						break;
-					} else if (_std & (65535 : GoInt) == (261 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((261 : GoInt))) {
 						var _s:GoString = (_absWeekday(_abs).string() : GoString);
 						_b = (_b.__append__(..._s.__toArray__()));
 						break;
-					} else if (_std & (65535 : GoInt) == (263 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((263 : GoInt))) {
 						_b = _appendInt(_b, _day, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (264 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((264 : GoInt))) {
 						if (_day < (10:GoInt)) {
 							_b = (_b.__append__((" ".code : GoUInt8)));
 						};
 						_b = _appendInt(_b, _day, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (265 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((265 : GoInt))) {
 						_b = _appendInt(_b, _day, (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (266 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((266 : GoInt))) {
 						if (_yday < (100:GoInt)) {
 							_b = (_b.__append__((" ".code : GoUInt8)));
 							if (_yday < (10:GoInt)) {
@@ -5295,61 +5295,62 @@ class Ticker_wrapper {
 						};
 						_b = _appendInt(_b, _yday, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (267 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((267 : GoInt))) {
 						_b = _appendInt(_b, _yday, (3 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (524 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((524 : GoInt))) {
 						_b = _appendInt(_b, _hour, (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (525 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((525 : GoInt))) {
 						var _hr:GoInt = _hour % (12 : GoInt);
 						if (_hr == (0 : GoInt)) {
 							_hr = (12 : GoInt);
 						};
 						_b = _appendInt(_b, _hr, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (526 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((526 : GoInt))) {
 						var _hr:GoInt = _hour % (12 : GoInt);
 						if (_hr == (0 : GoInt)) {
 							_hr = (12 : GoInt);
 						};
 						_b = _appendInt(_b, _hr, (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (527 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((527 : GoInt))) {
 						_b = _appendInt(_b, _min, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (528 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((528 : GoInt))) {
 						_b = _appendInt(_b, _min, (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (529 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((529 : GoInt))) {
 						_b = _appendInt(_b, _sec, (0 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (530 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((530 : GoInt))) {
 						_b = _appendInt(_b, _sec, (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (533 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((533 : GoInt))) {
 						if (_hour >= (12 : GoInt)) {
 							_b = (_b.__append__(...(Go.str("PM") : GoString).__toArray__()));
 						} else {
 							_b = (_b.__append__(...(Go.str("AM") : GoString).__toArray__()));
 						};
 						break;
-					} else if (_std & (65535 : GoInt) == (534 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((534 : GoInt))) {
 						if (_hour >= (12 : GoInt)) {
 							_b = (_b.__append__(...(Go.str("pm") : GoString).__toArray__()));
 						} else {
 							_b = (_b.__append__(...(Go.str("am") : GoString).__toArray__()));
 						};
 						break;
-					} else if (_std & (65535 : GoInt) == (24 : GoInt)
-						|| _std & (65535 : GoInt) == (27 : GoInt)
-							|| _std & (65535 : GoInt) == (25 : GoInt)
-								|| _std & (65535 : GoInt) == (26 : GoInt)
-									|| _std & (65535 : GoInt) == (28 : GoInt)
-										|| _std & (65535 : GoInt) == (29 : GoInt)
-											|| _std & (65535 : GoInt) == (32 : GoInt)
-												|| _std & (65535 : GoInt) == (30 : GoInt)
-													|| _std & (65535 : GoInt) == (31 : GoInt) || _std & (65535 : GoInt) == (33 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((24 : GoInt))
+						|| _std & (65535 : GoInt) == ((27 : GoInt))
+							|| _std & (65535 : GoInt) == ((25 : GoInt))
+								|| _std & (65535 : GoInt) == ((26 : GoInt))
+									|| _std & (65535 : GoInt) == ((28 : GoInt))
+										|| _std & (65535 : GoInt) == ((29 : GoInt))
+											|| _std & (65535 : GoInt) == ((32 : GoInt))
+												|| _std & (65535 : GoInt) == ((30 : GoInt))
+													|| _std & (65535 : GoInt) == ((31 : GoInt))
+														|| _std & (65535 : GoInt) == ((33 : GoInt))) {
 						if ((_offset == (0 : GoInt))
 							&& (((((_std == (24 : GoInt)) || (_std == (27 : GoInt))) || (_std == (25 : GoInt))) || (_std == (26 : GoInt)))
 								|| (_std == (28 : GoInt)))) {
@@ -5379,7 +5380,7 @@ class Ticker_wrapper {
 							_b = _appendInt(_b, _absoffset % (60 : GoInt), (2 : GoInt));
 						};
 						break;
-					} else if (_std & (65535 : GoInt) == (23 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((23 : GoInt))) {
 						if (_name != (Go.str() : GoString)) {
 							_b = (_b.__append__(..._name.__toArray__()));
 							break;
@@ -5394,7 +5395,7 @@ class Ticker_wrapper {
 						_b = _appendInt(_b, _zone / (60 : GoInt), (2 : GoInt));
 						_b = _appendInt(_b, _zone % (60 : GoInt), (2 : GoInt));
 						break;
-					} else if (_std & (65535 : GoInt) == (34 : GoInt) || _std & (65535 : GoInt) == (35 : GoInt)) {
+					} else if (_std & (65535 : GoInt) == ((34 : GoInt)) || _std & (65535 : GoInt) == ((35 : GoInt))) {
 						_b = _formatNano(_b, (_t.nanosecond() : GoUInt), _std);
 						break;
 					};

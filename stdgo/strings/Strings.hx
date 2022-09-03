@@ -904,9 +904,9 @@ function fieldsFunc(_s:GoString, _f:GoRune->Bool):Slice<GoString> {
 	// string sep is placed between elements in the resulting string.
 **/
 function join(_elems:Slice<GoString>, _sep:GoString):GoString {
-	if ((_elems.length) == (0 : GoInt)) {
+	if ((_elems.length) == ((0 : GoInt))) {
 		return (Go.str() : GoString);
-	} else if ((_elems.length) == (1 : GoInt)) {
+	} else if ((_elems.length) == ((1 : GoInt))) {
 		return _elems[(0 : GoInt)];
 	};
 	var _n:GoInt = (_sep.length) * (_elems.length - (1 : GoInt));
@@ -2005,11 +2005,11 @@ class Builder_wrapper {
 	static public function seek(_r:Reader, _offset:GoInt64, _whence:GoInt):{var _0:GoInt64; var _1:Error;} {
 		_r._prevRune = (-1 : GoInt);
 		var _abs:GoInt64 = (0 : GoInt64);
-		if (_whence == (0 : GoInt)) {
+		if (_whence == ((0 : GoInt))) {
 			_abs = _offset;
-		} else if (_whence == (1 : GoInt)) {
+		} else if (_whence == ((1 : GoInt))) {
 			_abs = _r._i + _offset;
-		} else if (_whence == (2 : GoInt)) {
+		} else if (_whence == ((2 : GoInt))) {
 			_abs = (_r._s.length : GoInt64) + _offset;
 		} else {
 			return {_0: (0 : GoInt64), _1: stdgo.errors.Errors.new_((Go.str("strings.Reader.Seek: invalid whence") : GoString))};

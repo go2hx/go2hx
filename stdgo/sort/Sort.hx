@@ -711,9 +711,9 @@ function _choosePivot_func(_data:T_lessSwap, _a:GoInt, _b:GoInt):{var _0:GoInt; 
 		};
 		_j = _median_func((_data == null ? null : _data.__copy__()), _i, _j, _k, Go.pointer(_swaps));
 	};
-	if (_swaps == (0 : GoInt)) {
+	if (_swaps == ((0 : GoInt))) {
 		return {_0: _j, _1: (1 : T_sortedHint)};
-	} else if (_swaps == (12 : GoInt)) {
+	} else if (_swaps == ((12 : GoInt))) {
 		return {_0: _j, _1: (2 : T_sortedHint)};
 	} else {
 		return {_0: _j, _1: (0 : T_sortedHint)};
@@ -1201,9 +1201,9 @@ function _choosePivot(_data:Interface, _a:GoInt, _b:GoInt):{var _0:GoInt; var _1
 		};
 		_j = _median(_data, _i, _j, _k, Go.pointer(_swaps));
 	};
-	if (_swaps == (0 : GoInt)) {
+	if (_swaps == ((0 : GoInt))) {
 		return {_0: _j, _1: (1 : T_sortedHint)};
-	} else if (_swaps == (12 : GoInt)) {
+	} else if (_swaps == ((12 : GoInt))) {
 		return {_0: _j, _1: (2 : T_sortedHint)};
 	} else {
 		return {_0: _j, _1: (0 : T_sortedHint)};

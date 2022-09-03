@@ -568,21 +568,21 @@ function testGet(_t:stdgo.testing.Testing.T):Void {
 				_t.errorf((Go.str("Visit: value does not satisfy Getter: %T") : GoString), Go.toInterface(_f.value));
 				return;
 			};
-			if (_f.name == (Go.str("test_bool") : GoString)) {
+			if (_f.name == ((Go.str("test_bool") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == true;
-			} else if (_f.name == (Go.str("test_int") : GoString)) {
+			} else if (_f.name == ((Go.str("test_int") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (1 : GoInt);
-			} else if (_f.name == (Go.str("test_int64") : GoString)) {
+			} else if (_f.name == ((Go.str("test_int64") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (2 : GoInt64);
-			} else if (_f.name == (Go.str("test_uint") : GoString)) {
+			} else if (_f.name == ((Go.str("test_uint") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (3 : GoUInt);
-			} else if (_f.name == (Go.str("test_uint64") : GoString)) {
+			} else if (_f.name == ((Go.str("test_uint64") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (4 : GoUInt64);
-			} else if (_f.name == (Go.str("test_string") : GoString)) {
+			} else if (_f.name == ((Go.str("test_string") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (Go.str("5") : GoString);
-			} else if (_f.name == (Go.str("test_float64") : GoString)) {
+			} else if (_f.name == ((Go.str("test_float64") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (6 : GoFloat64);
-			} else if (_f.name == (Go.str("test_duration") : GoString)) {
+			} else if (_f.name == ((Go.str("test_duration") : GoString))) {
 				_ok = _g.get(Go.pointer(_g)) == (7 : stdgo.time.Time.Duration);
 			};
 			if (!_ok) {

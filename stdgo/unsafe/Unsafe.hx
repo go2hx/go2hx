@@ -50,10 +50,10 @@ function sizeof(x:AnyInterface):GoUIntptr {
 	return x.type.size();
 }
 
-function offsetof(x:AnyInterface):GoUIntptr {
+function offsetof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }
 
-function alignof(x:AnyInterface):GoUIntptr {
+function alignof_(x:AnyInterface):GoUIntptr {
 	return 0;
 }

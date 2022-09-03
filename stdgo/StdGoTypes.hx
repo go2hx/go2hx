@@ -244,6 +244,9 @@ class Complex<T:GoFloat64> {
 		real = r;
 		imag = i;
 	}
+
+	public function toString():String
+		return '($real+$imag' + 'i)';
 }
 
 private function shiftGuard(x:Int):Bool
